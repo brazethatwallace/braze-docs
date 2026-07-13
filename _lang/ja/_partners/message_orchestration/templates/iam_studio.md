@@ -23,7 +23,7 @@ BrazeとIAM Studioの統合により、カスタマイズ可能なアプリ内�
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | IAM Studioアカウント | このパートナーシップを活用するには、[IAM Studioアカウント](https://www.inappmessage.com/register)が必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -45,27 +45,27 @@ BrazeとIAM Studioの統合により、カスタマイズ可能なアプリ内�
 まず、コンテンツの画像、テキスト、ボタンをカスタマイズします。画像とボタンには必ず**Deeplink**を接続してください。
 
 {% tabs local %}
-{% tab Image %}
+{% tab 画像 %}
 ![画像をカスタマイズするオプションが表示されているIAM StudioのUI。これらのオプションには、画像、画像の角丸、画像の暗転が含まれます。]({% image_buster /assets/img/iam_studio/iam_customize_image.png %})
 {% endtab %}
-{% tab Text %}
+{% tab テキスト %}
 ![メッセージのタイトルとサブタイトルをカスタマイズするオプションが表示されているIAM StudioのUI。これらのオプションには、テキスト、フォーマット、フォントが含まれます。]({% image_buster /assets/img/iam_studio/iam_customize_text.png %})
 {% endtab %}
-{% tab Button %}
+{% tab ボタン %}
 ![メイン、左、右のボタンをカスタマイズするオプションが表示されているIAM StudioのUI。これらのオプションには、カラー、ディープリンク、テキスト、フォーマットが含まれます。]({% image_buster /assets/img/iam_studio/iam_customize_button.png %})
 {% endtab %}
 {% endtabs %}
 
-次に、カスタムフォントを追加し、Liquidタグを使用して、パーソナライズされたアプリ内メッセージを作成します。ログとトラッキングを有効にするには、**Log data and track user behavior**を選択します。
+次に、カスタムフォントを追加し、Liquidタグを使用して、パーソナライズされたアプリ内メッセージを作成します。ロギングとトラッキングを有効にするには、**Log data and track user behavior**を選択します。
 
 {% tabs local %}
-{% tab Fonts %}
+{% tab フォント %}
 ![Liquidを追加するオプションが表示されているIAM StudioのUI。これらのオプションには、パーソナライズされた文章の作成が含まれます。]({% image_buster /assets/img/iam_studio/iam_custom_font.png %})
 {% endtab %}
 {% tab Liquid %}
 ![イベント/属性のロギングをカスタマイズするオプションが表示されているIAM StudioのUI。これらのオプションには、ユーザー行動ログが含まれます。]({% image_buster /assets/img/iam_studio/iam_liquid.png %})
 {% endtab %}
-{% tab Logging and Tracking %}
+{% tab ロギングとトラッキング %}
 ![フォントをカスタマイズするオプションが表示されているIAM StudioのUI。これらのオプションには、ユーザーがフォントスタイルをカスタマイズできる機能が含まれます。]({% image_buster /assets/img/iam_studio/iam_tracking_logging.png  %})
 {% endtab %}
 {% endtabs %}
@@ -74,10 +74,10 @@ BrazeとIAM Studioの統合により、カスタマイズ可能なアプリ内�
 
 すべての編集が完了したら、**Export**をクリックしてテンプレートをエクスポートします。エクスポート後、アプリ内メッセージのHTMLコードが生成されます。**Copy code**ボタンをクリックして、このコードをコピーします。
 
-![]({% image_buster /assets/img/iam_studio/export_iam_code.png %}){: style="max-width:45%;"}
+![生成されたアプリ内メッセージHTMLとコードコピーアクションが表示されているIAM Studioのエクスポートダイアログ。]({% image_buster /assets/img/iam_studio/export_iam_code.png %}){: style="max-width:45%;"}
 
 ### ステップ4:Brazeでのコードの使用 {#step-4-use-code-in-braze}
 
 Brazeに移動し、アプリ内メッセージの**HTML Input**ボックスにカスタムコードを貼り付けます。メッセージが正しく表示されることを確認するために、必ずテストを行ってください。
 
-![]({% image_buster /assets/img/iam_studio/braze_campaign_editor.png %}){: style="max-width:85%;"}
+![IAM StudioのHTMLがHTML Inputボックスに貼り付けられたBrazeのアプリ内メッセージキャンペーンエディター。]({% image_buster /assets/img/iam_studio/braze_campaign_editor.png %}){: style="max-width:85%;"}

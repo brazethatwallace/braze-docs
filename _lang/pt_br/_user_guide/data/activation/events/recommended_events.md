@@ -15,7 +15,7 @@ description: "Este artigo de referência descreve os eventos recomendados, que s
 
 Os [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events) cobrem seis etapas da jornada de compra: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled` e `order_refunded`. Quando você envia esses eventos com sucesso, a Braze valida os dados e os disponibiliza para um conjunto crescente de recursos da plataforma.
 
-Esses recursos incluem modelos de Canvas para fluxos de navegação abandonada, carrinho abandonado, checkout abandonado e confirmação de pedido; relatórios de eCommerce; e campos calculados no perfil do usuário para _Receita Total_, _Total de Pedidos_ e _Total de Reembolsos_. Você também pode criar segmentos usando filtragem de propriedades de produto aninhadas por meio de [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), personalizar mensagens de carrinho abandonado com a tag Liquid {% raw %}`{% shopping_cart %}`{% endraw %}, e alimentar recursos do BrazeAI<sup>TM</sup> como [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) e [recomendações de itens]({{site.baseurl}}/user_guide/brazeai/item_recommendations), entre outros recursos.
+Esses recursos incluem modelos de Canvas para fluxos de navegação abandonada, carrinho abandonado, checkout abandonado e confirmação de pedido; relatórios de eCommerce; e campos calculados no perfil do usuário para _Receita Total_, _Total de Pedidos_ e _Total de Reembolsos_. Você também pode criar segmentos usando filtragem de propriedades de produto aninhadas por meio de [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension), personalizar mensagens de carrinho abandonado com a tag Liquid {% raw %}`{% shopping_cart %}`{% endraw %}, e alimentar recursos do BrazeAI<sup>TM</sup> como [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) e [recomendações de itens]({{site.baseurl}}/user_guide/brazeai/item_recommendations), entre outros recursos.
 
 Como esses eventos seguem um esquema definido, cada recurso compatível pode ler os dados estruturados sem mapeamento personalizado de propriedades ou configuração por recurso da sua parte.
 
@@ -23,7 +23,11 @@ Como esses eventos seguem um esquema definido, cada recurso compatível pode ler
 
 ### Como os eventos de eCommerce funcionam {#how-ecommerce-events-work}
 
-Os eventos de eCommerce são eventos personalizados com nomes e esquemas de propriedades predefinidos. Você os envia usando o [SDK da Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events) ou o [endpoint REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), e a Braze valida cada evento em relação ao seu esquema na ingestão. Quando a validação é aprovada, a Braze aplica automaticamente o pós-processamento específico para aquele tipo de evento, como calcular campos de receita e gerenciar o estado do carrinho nos perfis de usuário.
+Os eventos de eCommerce são eventos personalizados com nomes e esquemas de propriedades predefinidos. Você os envia usando o [SDK da Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), o [endpoint REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou a [Ingestão de Dados na Nuvem (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), e a Braze valida cada evento em relação ao seu esquema na ingestão. Quando a validação é aprovada, a Braze aplica automaticamente o pós-processamento específico para aquele tipo de evento, como calcular campos de receita e gerenciar o estado do carrinho nos perfis de usuário.
+
+{% alert note %}
+Uploads de CSV não suportam eventos de eCommerce. Use o SDK, `/users/track` ou CDI para enviar esses eventos.
+{% endalert %}
 
 Os eventos de eCommerce funcionam em todos os lugares onde outros eventos personalizados funcionam: gatilhos e filtros para eventos personalizados realizados, relatórios de eventos personalizados e mais. No entanto, a validação de esquema desbloqueia recursos adicionais, incluindo:
 
@@ -76,7 +80,7 @@ Use as APIs de eventos de eCommerce do SDK quando disponíveis. Para exemplos de
 | `currency`     | String           | Sim      | Código ISO 4217 de três letras (por exemplo, `USD` ou `EUR`). |
 | `source`       | String           | Sim      | Origem do evento (por exemplo, `web`, `ios` ou `android`). |
 | `type`         | Array of strings | Não      | Obrigatório para usar os recursos de gatilho de catálogo da Braze para alertas de volta ao estoque e queda de preço. Valores aceitos: `"price_drop"`, `"back_in_stock"` |
-| `metadata`     | Object           | Não      | Pares chave-valor flexíveis. Sub-propriedade reconhecida: `sku` (String) |
+| `metadata`     | Object           | Não      | Pares chave-valor flexíveis (por exemplo, `category` ou `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriedades do evento" }
 
 #### Exemplo de REST API {#rest-api-example}
@@ -99,7 +103,6 @@ Use as APIs de eventos de eCommerce do SDK quando disponíveis. Para exemplos de
         "source": "web",
         "type": ["price_drop", "back_in_stock"],
         "metadata": {
-          "sku": "UB-BLK-11-SKU",
           "category": "Running Shoes",
           "brand": "Shoe Brand"
         }
@@ -1142,55 +1145,11 @@ A tabela a seguir resume o que a Braze faz automaticamente para cada evento quan
 Valores em moedas diferentes de USD são automaticamente convertidos para USD usando a taxa de câmbio da data em que o evento é reportado. Se você já reporta em USD, defina `USD` como a moeda para evitar conversões indesejadas.
 {% endalert %}
 
-## Implementar eventos de eCommerce {#implement-ecommerce-events}
-
-Você pode enviar eventos de eCommerce pelo [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) (server-side) ou pelos SDKs da Braze (client-side). Para exemplos de implementação com o SDK, consulte [Registrar eventos de eCommerce pelo SDK da Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
-
-### Enviar eventos server-side {#send-events-server-side}
-
-Use o endpoint `/users/track` para enviar eventos de eCommerce do seu backend. Cada evento requer o nome exato do evento, o `external_id` do usuário e um objeto de propriedades correspondente ao esquema do evento.
-
-```json
-POST /users/track
-
-{
-  "events": [
-    {
-      "external_id": "user_abc123",
-      "name": "ecommerce.order_placed",
-      "time": "2026-04-26T14:32:00Z",
-      "properties": {
-        "order_id": "order_7891011",
-        "total_value": 84.99,
-        "currency": "USD",
-        "source": "custom_api",
-        "total_discounts": 10.00,
-        "products": [
-          {
-            "product_id": "sku_2001",
-            "product_name": "Trail Runner Pro",
-            "variant_id": "var_2001_black_10",
-            "quantity": 1,
-            "price": 94.99,
-            "metadata": {
-              "color": "black",
-              "size": "10"
-            }
-          }
-        ],
-        "metadata": {
-          "gift_wrapped": true,
-          "loyalty_points_earned": 170
-        }
-      }
-    }
-  ]
-}
-```
+## Detalhes de implementação {#implementation-details}
 
 ### Pontos de dados e cobrança {#data-points-and-billing}
 
-Os eventos de eCommerce não consomem [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points). Você pode registrá-los sem nenhum impacto no seu consumo de pontos de dados.
+Os eventos de eCommerce não consomem [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points). Você pode registrá-los sem nenhum impacto no seu uso de pontos de dados.
 
 ### Limite de tamanho do evento {#event-size-limit}
 
@@ -1212,7 +1171,7 @@ A propriedade source é uma string obrigatória que identifica de onde o evento 
 
 ### Flexibilidade de metadata {#metadata-flexibility}
 
-Tanto o objeto metadata no nível do evento quanto no nível do produto aceitam pares chave-valor arbitrários, permitindo que você anexe dimensões personalizadas sem modificar o esquema principal. Exemplos comuns incluem `order_status_url`, `gift_wrapped`, `loyalty_points_earned` ou `warehouse_id`. Essas propriedades estão disponíveis na personalização com Liquid, exportações do Currents e segmentação por meio de [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension).
+Tanto o objeto metadata no nível do evento quanto no nível do produto aceitam pares chave-valor arbitrários, permitindo que você anexe dimensões personalizadas sem modificar o esquema principal. Exemplos comuns incluem `order_status_url`, `gift_wrapped`, `loyalty_points_earned` ou `warehouse_id`. Essas propriedades estão disponíveis na personalização com Liquid, exportações do Currents e segmentação por meio de [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension).
 
 {% alert important %}
 Os eventos recomendados usam um esquema rígido. Portanto, adicionar propriedades personalizadas no nível superior de properties falhará na validação. Coloque todas as propriedades personalizadas dentro do objeto `metadata` no nível do evento ou do objeto `metadata` no nível do produto dentro de `products[]`. Elas continuam disponíveis para Liquid, Currents e segmentação da mesma forma que campos de nível superior.

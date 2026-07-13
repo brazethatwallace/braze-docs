@@ -14,12 +14,13 @@ search_rank: 7
 
 ## Zugriff auf das Support-Portal {#access-the-support-portal}
 
-Um das Braze-Support-Team zu kontaktieren, navigieren Sie zum Braze-Dashboard und wählen Sie **Support** aus. Das Menü bietet zwei Optionen:
+Um das Braze-Support-Team zu kontaktieren, navigieren Sie zum Braze-Dashboard und wählen Sie **Support** > **Get help with Operator** > **Contact Support** aus.
 
-- **Get help with Operator** öffnet BrazeAI Operator<sup>TM</sup>, der Ihr Problem direkt mithilfe des Kontexts aus Ihrer Konversation und dem aktuellen Bildschirm beheben kann. Wenn Operator Ihr Problem nicht lösen kann, können Sie ihn bitten, ein Support-Ticket auf Basis Ihrer Konversation zu erstellen. Weitere Informationen finden Sie unter [Support-Tickets mit BrazeAI Operator einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets).
-- **Get help** leitet Sie direkt zum Braze-Support-Portal weiter (wenn Sie ein:e designierte:r Support-Kontakt sind) oder zu unserem Standard-Support-Formular, wo Sie Fälle einreichen und nachverfolgen können. Wenn Sie sich nicht sicher sind, ob Sie ein:e Braze-Support-Kontakt sind, wenden Sie sich an den Braze-Administrator Ihres Unternehmens, Ihren Braze-Success-Manager oder den Kontoinhaber.
+Dadurch wird BrazeAI Operator<sup>TM</sup> mit der Option geöffnet, direkt ein Support-Ticket einzureichen. Operator kann Ihr Problem mithilfe des Kontexts aus Ihrer Konversation und dem aktuellen Bildschirm beheben. Wenn Operator Ihr Problem nicht lösen kann, können Sie ihn bitten, ein Support-Ticket auf Basis Ihrer Konversation zu erstellen und das Ticket dann im Braze-Support-Portal einzureichen (wenn Sie ein:e designierte:r Support-Kontakt sind) oder über unser Standard-Support-Formular.
 
-![Das Dropdown-Menü „Support“ mit den Optionen „Get help with Operator“ und „Get help“.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
+Weitere Informationen finden Sie unter [Support-Tickets mit BrazeAI Operator einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets). Wenn Sie sich nicht sicher sind, ob Sie ein:e Braze-Support-Kontakt sind, wenden Sie sich an den Braze-Administrator Ihres Unternehmens, Ihren Braze-Success-Manager oder den Kontoinhaber.
+
+![Das Dropdown-Menü „Support“ mit der Option „Get help with Operator“.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
 
 
 ## Designierte Support-Kontakte hinzufügen {#adding-designated-support-contacts}
@@ -39,24 +40,6 @@ Nachdem ein:e Nutzer:in als Support-Kontakt designiert wurde, sendet das Braze-S
 
 Wenn Sie ein:e designierte:r Support-Kontakt sind, verwenden Sie die **My Org's**-Filteransichten im Support-Portal, um alle von Nutzer:innen Ihres Unternehmens eingereichten Fälle anzuzeigen. Fälle aus allen Einreichungskanälen (BrazeAI Operator<sup>TM</sup>, Webformular, E-Mail oder Portal) sind in diesen Ansichten enthalten.
 
-## Screenshots der Entwicklungskonsole bereitstellen {#provide-developer-console-screenshots}
-
-Bei der Kommunikation mit dem Support kann es vorkommen, dass Sie auf Ihre Entwicklungskonsole zugreifen müssen, um zusätzliche Informationen bereitzustellen:
-- Chrome
-  1. Rechtsklicken Sie auf die Webseite und wählen Sie **Inspect** aus.
-  2. Wählen Sie den Tab **Console** im sich öffnenden Fenster aus.
-  3. Erstellen Sie einen Screenshot des Console-Tabs.<br><br>
-- Firefox
-  1. Rechtsklicken Sie auf die Webseite und wählen Sie **Inspect Element** aus.
-  2. Wählen Sie den Tab **Console** im sich öffnenden Fenster aus.
-  3. Erstellen Sie einen Screenshot des Console-Tabs.<br><br>
-- Safari
-  1. Gehen Sie in der Menüleiste oben auf Ihrem Bildschirm zu Safari und wählen Sie dann **Preferences** aus.
-  2. Wählen Sie **Advanced** aus und aktivieren Sie dann das Kontrollkästchen neben **Show Develop menu in menu bar**. Sie können das Fenster anschließend schließen.
-  3. Rechtsklicken Sie auf die Webseite und wählen Sie **Inspect Element** aus.
-  4. Wählen Sie den Tab **Console** im sich öffnenden Fenster aus.
-  5. Erstellen Sie einen Screenshot des Console-Tabs.
-
 ## Best Practices für die Einreichung eines Support-Falls {#best-practices-for-submitting-a-support-case}
 
 ### So viele Informationen wie möglich bereitstellen {#provide-as-much-information-as-possible}
@@ -66,18 +49,6 @@ Je mehr Insights Sie liefern können, desto besser. Geben Sie Details wie den Wo
 ### Eine Stichprobe von Nutzer:innen bereitstellen {#provide-a-sample-of-users}
 
 Teilen Sie eine Stichprobe von Nutzer:innen anstelle des gesamten betroffenen Segments. Die Bereitstellung einer kleineren Anzahl von Nutzer:innen hilft uns, den Umfang einzugrenzen und unsere Untersuchungen zu beschleunigen.
-
-### Netzwerkprotokolle (HAR-Protokolle) anhängen {#attach-network-logs-har-logs}
-
-Wenn Sie den Support kontaktieren, ist es hilfreich, wenn der/die betroffene Nutzer:in Netzwerkprotokolle (HAR-Protokolle) aus dem Browser erfasst, während das Problem auftritt. Diese zeigen die Netzwerkanfragen zwischen dem Browser und dem Server für die einzelnen Komponenten einer Webseite sowie das Braze-Dashboard an, das der/die Nutzer:in zu öffnen versucht.
-
-Lassen Sie den/die betroffene:n Nutzer:in Folgendes tun:
-
-1. Öffnen Sie die Entwicklertools. In Chrome kann dies mit dem Tastenkürzel `option` + `⌘` + `J` (unter macOS) erfolgen. Unter Windows oder Linux verwenden Sie das Tastenkürzel `shift` + `CTRL` + `J`.
-2. Wählen Sie **Network** > **Fetch/XHR** oder **XHR** aus.
-3. Erstellen Sie eine Bildschirmaufnahme oder einen Screenshot, der **Name**, **Status**, **Size** und **Time** für die Elemente zeigt.<br><br>![Der Tab „Fetch/XHR“ in einem Chrome-Browser.]({% image_buster /assets/img/network_xhr.png %}){: style="max-width:60%;"}
-
-Hängen Sie dann die Aufnahme oder den Screenshot an das Support-Ticket an. Diese Informationen können die Untersuchung des Supports unterstützen.
 
 ### Erwartetes und tatsächliches Verhalten klären {#clarify-expected-versus-actual-behavior}
 

@@ -4,9 +4,9 @@ nav_title: Inicio
 article_title: Guía de la API de Braze
 layout: api_glossary
 glossary_top_header: "Guía de la API de Braze"
-glossary_top_text: "Braze ofrece una REST API de alto rendimiento que te permite rastrear usuarios, enviar mensajes, exportar datos y más. Esta página enumera los puntos de conexión disponibles de la API de Braze y sus usos."
+glossary_top_text: "Braze ofrece una REST API de alto rendimiento que te permite rastrear usuarios, enviar mensajes, exportar datos y más. Esta página enumera los endpoints disponibles de la API de Braze y sus usos."
 page_type: glossary
-description: "Esta página de inicio enumera los puntos de conexión disponibles de la API de Braze y sus usos."
+description: "Esta página de inicio enumera los endpoints disponibles de la API de Braze y sus usos."
 glossary_tag_name: Endpoint Type
 
 glossary_filter_text: "Select endpoint type to narrow the glossary:"
@@ -34,6 +34,7 @@ guide_featured_list:
 
 # channel to icon/fa or image mapping
 glossary_tags:
+  - name: Apps
   - name: Campaigns
   - name: Canvas
   - name: Catalogs
@@ -57,6 +58,10 @@ glossary_tags:
   - name: Cloud Data Ingestion
 
 glossaries:
+  - name: <a href='/docs/api/endpoints/apps/post_update_push_credential'>/apps/push_credential/update</a>
+    description: Actualiza las credenciales push de una sola aplicación.
+    tags:
+      - Apps
   - name: <a href='/docs/api/endpoints/user_data/post_user_alias'>/users/alias/new</a>
     description: Añade nuevos alias de usuario para usuarios identificados existentes o para crear nuevos usuarios no identificados.
     tags:
@@ -70,7 +75,7 @@ glossaries:
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_global_control_group'>/users/export/global_control_group</a>
-    description: Exporta todos los usuarios de un Grupo de control global.
+    description: Exporta todos los usuarios de un grupo de control global.
     tags:
       - User Data
   - name: <a href='/docs/api/endpoints/export/user_data/post_users_identifier'>/users/export/ids</a>
@@ -122,7 +127,7 @@ glossaries:
     tags:
       - Send Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns'>/campaigns/trigger/schedule/create</a>
-    description: Envía mensajes de Campaign creados en el dashboard mediante entrega desencadenada por API.
+    description: Envía mensajes de Campaign creados en el panel mediante entrega desencadenada por API.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages'>/campaigns/trigger/schedule/delete</a>
@@ -130,7 +135,7 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_campaigns'>/campaigns/trigger/schedule/update</a>
-    description: Actualiza Campaigns programadas desencadenadas por API creadas en el dashboard.
+    description: Actualiza Campaigns programadas desencadenadas por API creadas en el panel.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_canvases'>/canvas/trigger/schedule/delete</a>
@@ -142,7 +147,7 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_messages'>/messages/schedule/update</a>
-    description: Actualiza los mensajes programados. Este punto de conexión acepta actualizaciones del parámetro <code>schedule</code> o <code>messages</code>, o ambos.
+    description: Actualiza los mensajes programados. Este endpoint acepta actualizaciones del parámetro <code>schedule</code> o <code>messages</code>, o ambos.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_delete_scheduled_messages'>/messages/schedule/delete</a>
@@ -154,7 +159,7 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases'>/canvas/trigger/schedule/update</a>
-    description: Actualiza Canvas programados desencadenados por API que creaste en el dashboard.
+    description: Actualiza Canvas programados desencadenados por API que creaste en el panel.
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/schedule_messages/get_messages_scheduled'>/messages/scheduled_broadcasts</a>
@@ -162,15 +167,15 @@ glossaries:
     tags:
       - Schedule Messages
   - name: <a href='/docs/api/endpoints/messaging/live_activity/update'>/messages/live_activity/update</a>
-    description: Actualiza una actividad en directo de iOS.
+    description: Actualiza una Live Activity de iOS.
     tags:
       - Live Activity
   - name: <a href='/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status'>/subscription/status/set</a>
-    description: Actualiza por lotes el estado de suscripción de hasta 50 usuarios en el dashboard de Braze.
+    description: Actualiza por lotes el estado de suscripción de hasta 50 usuarios en el panel de Braze.
     tags:
       - Subscription Groups
   - name: <a href='/docs/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2'>/v2/subscription/status/set</a>
-    description: Actualiza por lotes el estado de suscripción de hasta 50 usuarios en el dashboard de Braze.
+    description: Actualiza por lotes el estado de suscripción de hasta 50 usuarios en el panel de Braze.
     tags:
       - Subscription Groups
   - name: <a href='/docs/api/endpoints/subscription_groups/get_list_user_subscription_group_status'>/subscription/status/get</a>
@@ -198,11 +203,11 @@ glossaries:
     tags:
       - Email List
   - name: <a href='/docs/api/endpoints/templates/email_templates/post_create_email_template'>/templates/email/create</a>
-    description: Crea plantillas de correo electrónico en el dashboard de Braze.
+    description: Crea plantillas de correo electrónico en el panel de Braze.
     tags:
       - Email Templates
   - name: <a href='/docs/api/endpoints/templates/email_templates/post_update_email_template'>/templates/email/update</a>
-    description: Actualiza plantillas de correo electrónico en el dashboard de Braze.
+    description: Actualiza plantillas de correo electrónico en el panel de Braze.
     tags:
       - Email Templates
   - name: <a href='/docs/api/endpoints/email/get_list_hard_bounces'>/email/hard_bounces</a>
@@ -230,7 +235,7 @@ glossaries:
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/campaigns/get_campaigns'>/campaigns/list</a>
-    description: Exporta una lista de Campaigns, cada una de las cuales incluye su nombre, el identificador de API de la Campaign, si se trata de una Campaña de API y las etiquetas asociadas a la Campaign.
+    description: Exporta una lista de Campaigns, cada una de las cuales incluye su nombre, el identificador de API de la Campaign, si se trata de una Campaign de API y las etiquetas asociadas a la Campaign.
     tags:
       - Campaigns
   - name: <a href='/docs/api/endpoints/export/campaigns/get_send_analytics'>/sends/data_series</a>
@@ -430,23 +435,23 @@ glossaries:
     tags:
       - Catalogs
   - name: <a href='/docs/post_create_user_account'>/scim/v2/Users</a>
-    description: Crea una nueva cuenta de usuario del dashboard especificando correo electrónico, nombre y apellidos, y permisos (para establecer permisos a nivel de empresa, espacio de trabajo y equipo).
+    description: Crea una nueva cuenta de usuario del panel especificando correo electrónico, nombre y apellidos, y permisos (para establecer permisos a nivel de empresa, espacio de trabajo y equipo).
     tags:
       - SCIM
   - name: <a href='/docs/get_see_user_account_information'>/scim/v2/Users/{id}</a>
-    description: Busca una cuenta de usuario existente en el dashboard especificando su ID de recurso.
+    description: Busca una cuenta de usuario existente en el panel especificando su ID de recurso.
     tags:
       - SCIM
   - name: <a href='/docs/post_update_existing_user_account'>/scim/v2/Users/{id}</a>
-    description: Actualiza una cuenta de usuario existente en el dashboard especificando correo electrónico, nombre y apellidos, y permisos (para establecer permisos a nivel de empresa, espacio de trabajo y equipo).
+    description: Actualiza una cuenta de usuario existente en el panel especificando correo electrónico, nombre y apellidos, y permisos (para establecer permisos a nivel de empresa, espacio de trabajo y equipo).
     tags:
       - SCIM
   - name: <a href='/docs/delete_existing_dashboard_user'>/scim/v2/Users/{id}</a>
-    description: Elimina de forma permanente un usuario existente del dashboard.
+    description: Elimina de forma permanente un usuario existente del panel.
     tags:
       - SCIM
   - name: <a href='/docs/get_search_existing_dashboard_user_email'>/scim/v2/Users?filter={userName@example.com}</a>
-    description: Busca una cuenta de usuario existente en el dashboard especificando su dirección de correo electrónico.
+    description: Busca una cuenta de usuario existente en el panel especificando su dirección de correo electrónico.
     tags:
       - SCIM
   - name: <a href='/docs/api/endpoints/cdi/get_integration_list'>/cdi/integrations</a>
@@ -462,19 +467,19 @@ glossaries:
     tags:
       - Cloud Data Ingestion
   - name: <a href='/docs/api/endpoints/sdk_authentication/post_create_sdk_authentication_key'>/app_group/sdk_authentication/create</a>
-    description: Crea una nueva clave de Autenticación SDK para tu aplicación.
+    description: Crea una nueva clave de autenticación SDK para tu aplicación.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/get_sdk_authentication_keys'>/app_group/sdk_authentication/keys</a>
-    description: Lista las claves de Autenticación SDK para tu aplicación.
+    description: Lista las claves de autenticación SDK para tu aplicación.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/put_primary_sdk_authentication_key'>/app_group/sdk_authentication/primary</a>
-    description: Establece una clave de Autenticación SDK como clave principal para tu aplicación.
+    description: Establece una clave de autenticación SDK como clave principal para tu aplicación.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/sdk_authentication/delete_sdk_authentication_key'>/app_group/sdk_authentication/delete</a>
-    description: Elimina una clave de Autenticación SDK para tu aplicación.
+    description: Elimina una clave de autenticación SDK para tu aplicación.
     tags:
       - SDK Authentication
   - name: <a href='/docs/api/endpoints/media_library/manage_assets/create'>/media_library/create</a>

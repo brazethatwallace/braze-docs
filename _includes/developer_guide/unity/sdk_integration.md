@@ -34,7 +34,7 @@ The Braze [`.unitypackage`](https://docs.unity3d.com/Manual/AssetPackages.html) 
 The Braze Unity package is available for download on the [Braze Unity releases page](https://github.com/Appboy/appboy-unity-sdk/releases) with two integration options:
 
 1. `Appboy.unitypackage` only
-  - This package bundles the Braze Android and iOS SDKs without any additional dependencies. With this integration method, there will not be proper functionality of Braze in-app messaging, and Content Cards features on iOS. If you intend on utilizing full Braze functionality without custom code, use the option below instead.
+  - This package bundles the Braze Android and iOS SDKs without any additional dependencies. With this integration method, there will not be proper functionality of Braze in-app messaging and Content Cards features on iOS. If you intend on utilizing full Braze functionality without custom code, use the next option instead.
   - To use this integration option, ensure that the box next to `Import SDWebImage dependency` is *unchecked* in the Unity UI under "Braze Configuration".
 2. `Appboy.unitypackage` with `SDWebImage`
   - This integration option bundles the Braze Android and iOS SDKs and the [SDWebImage](https://github.com/SDWebImage/SDWebImage) dependency for the iOS SDK, which is required for the proper functionality of Braze in-app messaging, and Content Cards features on iOS. The `SDWebImage` framework is used for downloading and displaying images, including GIFs. If you intend on utilizing full Braze functionality, download and import this package.
@@ -126,7 +126,7 @@ All Activity classes registered in your `AndroidManifest.xml` file should be ful
 
 To find your package name, click **File > Build Settings > Player Settings > Android Tab**.
 
-![]({% image_buster /assets/img_archive/UnityPackageName.png %})
+![Unity Player Settings Android tab showing the application package name.]({% image_buster /assets/img_archive/UnityPackageName.png %})
 
 In your `AndroidManifest.xml`, all instances of `REPLACE_WITH_YOUR_PACKAGE_NAME` should be replaced with your `Package Name` from the previous step.
 
@@ -169,7 +169,7 @@ Braze provides a native Unity solution for automating the Unity iOS integration.
 2. Check the **Automate Unity iOS Integration** box.
 3. In the **Braze API Key** field, input your application's API key found in **Manage Settings**.
 
-![]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
+![Unity Braze Configuration window with Automate Unity iOS Integration and Braze API Key fields.]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
 
 If your application is already using another `UnityAppController` subclass, you will need to merge your subclass implementation with `AppboyAppDelegate.mm`.
 {% endtab %}

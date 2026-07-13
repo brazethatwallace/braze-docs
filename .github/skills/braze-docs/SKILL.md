@@ -24,13 +24,16 @@ Detect mode from $ARGUMENTS first, then modified files, then ask.
 | $ARGUMENTS: "redirect", "mredirects", "ulinks", "broken_redirect" | **Redirects** | **REQUIRED SUB-SKILL:** [redirect-management](../redirect-management/SKILL.md) |
 | $ARGUMENTS: "link", "broken" | **Links** | [site-conventions.md](references/site-conventions.md) |
 | $ARGUMENTS: "write", "draft", "create", "new" | **Write** | [writing-style.md](references/writing-style.md) |
-| $ARGUMENTS: "review", "audit", "style", "check" | **Review** | [writing-style.md](references/writing-style.md), [glossary.md](references/glossary.md) |
+| $ARGUMENTS: "review", "audit", "style", "check", "style qa", "qa style" | **Review** | [writing-style.md](references/writing-style.md), [glossary.md](references/glossary.md); for pre-PR diff checks use [style-qa-changed-files.md](workflows/style-qa-changed-files.md) |
 | $ARGUMENTS: "css", "layout", "component", "include", "i18n", "custom" | **Custom** | *(workflow is in this file — see Custom components and CSS)* |
 | Modified files include `broken_redirect_list.js` | **Redirects** | **REQUIRED SUB-SKILL:** [redirect-management](../redirect-management/SKILL.md) |
 | Modified files show conflict markers or branch matches `merge/*` | **Conflict** | *(workflow is in this file)* |
 | Modified files are under `_docs/` with no link/conflict signals | **Write** | [writing-style.md](references/writing-style.md) |
 
 If mode is still ambiguous, ask: "What are you working on?"
+
+Treat bare `qa` by itself as ambiguous. Ask a follow-up instead of auto-routing
+to Review mode.
 
 If AskUserQuestion is available:
 - **Writing or editing content** — Drafting new articles or updating existing ones → **Write**
@@ -76,6 +79,7 @@ If the user wants only analysis, stop after step 3.
 | `docs/contributing/style_guide/writing_style_guide.md` | Writing style, voice, tone, grammar, punctuation, formatting |
 | `docs/contributing/style_guide/image_style_guide.md` | Image styling, cropping, alt text, screenshots |
 | `docs/contributing/style_guide/alerts.md` | Important, Note, Tip, Warning alerts — when and how to use |
+| `docs/contributing/style_guide/product_feedback_ctas.md` | In-article product feedback include (`product_feedback_cta.md`) — contexts, placement, reviewer checklist |
 | `docs/contributing/style_guide/api_endpoint_guidelines.md` | API endpoint article structure and formatting |
 
 When the full style guide has specific guidance on a topic, defer to the source file over this summary.
@@ -157,6 +161,27 @@ Optional fields: `tool`, `noindex`, `hidden`, `layout`, `local_redirect`, `searc
 
 For broken link detection, redirect rules, Liquid syntax, and page anatomy, load [references/site-conventions.md](references/site-conventions.md) (loaded automatically in Links mode).
 
+## Feedback includes
+
+Three parameterized includes cover in-article feedback. Do not mix them:
+
+| Include | Use for |
+|---------|---------|
+| `_includes/product_feedback_cta.md` | Product capability gaps, enhancement asks, GA feature adoption feedback, dashboard UX friction |
+| `_includes/developer_guide/_shared/tutorial_feedback.md` | Developer tutorial format pilots (Google Form) |
+| `_includes/accessibility/feedback.md` | Accessibility of Braze or messages |
+
+**Product feedback CTAs** — new CTAs in `_docs/` and root `_includes/` must use `product_feedback_cta.md`, not ad hoc portal links. Full guidance: `docs/contributing/style_guide/product_feedback_ctas.md`.
+
+Invocation:
+
+```liquid
+{% multi_lang_include product_feedback_cta.md context="gap" feature="per-domain sending for email templates" %}
+```
+
+- `context`: `gap`, `new_feature`, or `pain_point` (with `channel: feature` or `ux` when `context` is `pain_point`)
+- **Inline placement:** same line as the limitation sentence, with a space before `{% multi_lang_include ... %}` so the CTA stays in the same Markdown paragraph
+
 ## Custom components and CSS
 
 Use this section when adding new `_includes/` components, custom CSS in `assets/css/_content.scss`, or page-specific layouts.
@@ -208,6 +233,14 @@ All user-visible text added to `_includes/` files must be localized:
 
 For the full glossary, load [references/glossary.md](references/glossary.md) (loaded automatically in Review mode).
 
+## Pre-PR Style QA
+
+When finishing prose edits and opening a PR (including via
+[create-pr](../create-pr/SKILL.md) or the feedback-handler agent), run the
+non-interactive checklist in
+[workflows/style-qa-changed-files.md](workflows/style-qa-changed-files.md)
+on the changed `_docs/` / root `_includes/` lines before opening the draft.
+
 ## Related skills
 
 When chaining another skill, use **REQUIRED SUB-SKILL:** `braze-docs:skill-name` in instructions — do not use `@` or `/` syntax inside skill text. Prefer relative links to sibling `SKILL.md` files for discovery.
@@ -219,4 +252,4 @@ When chaining another skill, use **REQUIRED SUB-SKILL:** `braze-docs:skill-name`
 | [support-analyzer](../support-analyzer/SKILL.md) (`braze-docs:support-analyzer`) | Triage support case CSVs and draft docs updates |
 | [salesforce-migration](../salesforce-migration/SKILL.md) (`braze-docs:salesforce-migration`) | SF Knowledge Base migration tickets (Phase 1/2) |
 | [check-accessibility](../check-accessibility/SKILL.md) (`braze-docs:check-accessibility`) | Pre-PR accessibility gate — run before any PR touching `_docs/`, `_includes/`, layouts, JS, or CSS |
-| [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) | Open a draft PR to `develop` with repo-aligned description, pre-PR gates, and manual verification checklist |
+| [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) | Open a draft PR to `develop` with repo-aligned description, pre-PR gates (including Style QA on changed prose), and manual verification checklist |

@@ -63,9 +63,9 @@ Geben Sie den Hauptinhalt Ihrer Nachricht ein und personalisieren Sie den Text n
 
 Sie können überall dort Personalisierung hinzufügen, wo der **+**-Plus-Button erscheint. Nicht alle Felder unterstützen Personalisierung.
 
-#### Footer (optional) {#footer-optional}
+#### Fußzeile (optional) {#footer-optional}
 
-Fügen Sie einen kurzen Footer hinzu, der unter dem Nachrichtentext erscheint.
+Fügen Sie eine kurze Fußzeile hinzu, die unter dem Nachrichtentext erscheint.
 
 #### Buttons (optional) {#buttons-optional}
 

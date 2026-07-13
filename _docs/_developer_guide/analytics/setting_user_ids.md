@@ -75,6 +75,32 @@ AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
 ```
 {% endsubtab %}
 {% endsubtabs %}
+
+{% alert note %}
+`changeUser` enqueues the user switch and returns immediately on the calling thread. Any attribute setters called on `braze.user` afterward are automatically serialized behind the operations initiated by `changeUser`. Reading `braze.user.id` blocks the calling thread until the user switch fully completes. For main-thread or latency-sensitive contexts, use the non-blocking alternatives instead.
+
+{% subtabs local %}
+{% subtab Swift %}
+```swift
+// Completion handler — always delivers on the main thread.
+AppDelegate.braze?.user.getId { userId in
+  print("User ID:", userId ?? "anonymous")
+}
+
+// Async/await (iOS 13.0+, tvOS 13.0+, watchOS 6.0+, macOS 10.15+)
+let userId = await AppDelegate.braze?.user.getId()
+```
+{% endsubtab %}
+{% subtab Objective-C %}
+```objc
+// Completion handler — always delivers on the main thread.
+[AppDelegate.braze.user getIdWithCompletion:^(NSString * _Nullable userId) {
+  NSLog(@"User ID: %@", userId ?: @"anonymous");
+}];
+```
+{% endsubtab %}
+{% endsubtabs local %}
+{% endalert %}
 {% endtab %}
 
 {% tab CORDOVA %}

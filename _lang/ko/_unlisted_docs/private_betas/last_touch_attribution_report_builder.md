@@ -52,8 +52,8 @@ hidden: true
 ![라스트 터치 기여도 측정기준이 표시된 측정기준 커스터마이즈 패널.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/) 페이지의 7~9단계를 따릅니다.
+7. [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) 페이지의 7~9단계를 따릅니다.
 
 {% alert note %}
-고객 성공 매니저에게 피드백을 보내거나 **피드백 보내기** 버튼을 선택하여 피드백을 제공하세요.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="last-touch attribution metrics in Report Builder" %}
 {% endalert %}

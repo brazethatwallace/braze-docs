@@ -8,25 +8,25 @@ search_tag: Partner
 
 # Amplitude-Kohortenimport {#amplitude-cohort-import}
 
-> Dieser Artikel beschreibt, wie Sie Nutzer:innen-Kohorten von [Amplitude](https://amplitude.com/) nach Braze importieren können. Weitere Informationen zur Integration von Amplitude und seinen anderen Funktionen finden Sie im [Hauptartikel zu Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/).
+> Dieser Artikel beschreibt, wie Sie Nutzer:innen-Kohorten von [Amplitude](https://amplitude.com/) nach Braze importieren können. Weitere Informationen zur Integration von Amplitude und seinen anderen Funktionen finden Sie im [Hauptartikel zu Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences).
 
 ## Integration von Datenimporten {#data-import-integration}
 
 Jede Integration, die Sie einrichten, wird auf das Datenpunktvolumen Ihres Kontos angerechnet.
 
-### 1. Schritt: Braze-Datenimport-Schlüssel abrufen {#step-1-get-the-braze-data-import-key}
+### Schritt 1: Braze-Datenimport-Schlüssel abrufen {#step-1-get-the-braze-data-import-key}
 
 Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Amplitude** aus. Hier finden Sie den REST-Endpunkt und können Ihren Braze-Datenimport-Schlüssel generieren.
 
-Nach der Generierung können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen. Der Datenimport-Schlüssel und der REST-Endpunkt werden im nächsten Schritt verwendet, wenn Sie ein Postback im Dashboard von Amplitude einrichten.<br><br>![]({% image_buster /assets/img/amplitude3.png %})
+Nach der Generierung können Sie einen neuen Schlüssel erstellen oder einen bestehenden Schlüssel ungültig machen. Der Datenimport-Schlüssel und der REST-Endpunkt werden im nächsten Schritt verwendet, wenn Sie ein Postback im Dashboard von Amplitude einrichten.<br><br>![Braze-Amplitude-Technologie-Partnerseite mit Datenimport-Schlüssel und Endpunkt.]({% image_buster /assets/img/amplitude3.png %})
 
-### 2. Schritt: Braze-Integration in Amplitude einrichten {#step-2-set-up-the-braze-integration-in-amplitude}
+### Schritt 2: Braze-Integration in Amplitude einrichten {#step-2-set-up-the-braze-integration-in-amplitude}
 
 Navigieren Sie in Amplitude zu **Sources & Destinations** > **[Projektname]** > **Destinations** > **Braze**. Geben Sie in der daraufhin angezeigten Eingabeaufforderung den Braze-Datenimport-Schlüssel und den REST-Endpunkt an und klicken Sie auf **Save**.
 
-![]({% image_buster /assets/img/amplitude.png %})
+![Amplitude-Zieleinstellungen für die Braze-Kohortensynchronisation mit eingegebenen Zugangsdaten.]({% image_buster /assets/img/amplitude.png %})
 
-### 3. Schritt: Amplitude-Kohorte nach Braze exportieren {#step-3-export-an-amplitude-cohort-to-braze}
+### Schritt 3: Amplitude-Kohorte nach Braze exportieren {#step-3-export-an-amplitude-cohort-to-braze}
 
 Um Nutzer:innen aus Amplitude nach Braze zu exportieren, erstellen Sie zunächst eine [Kohorte](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) von Nutzer:innen, die Sie exportieren möchten. Richten Sie dann zwei Synchronisationen für diese Kohorte ein, um identifizierte und anonyme Nutzer:innen zu erfassen, mit den folgenden Bezeichner-Zuordnungseigenschaften:
 - Nutzer-ID (externe ID)
@@ -46,7 +46,7 @@ Kohorten-Synchronisationen können als einmalige Synchronisation, als täglicher
 
 Jede Integration, die Sie einrichten, protokolliert Datenpunkte. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager diese beantworten.
 
-### 4. Schritt: Nutzer:innen in Braze segmentieren {#step-4-segment-users-in-braze}
+### Schritt 4: Nutzer:innen in Braze segmentieren {#step-4-segment-users-in-braze}
 
 Um in Braze ein Segment dieser Nutzer:innen zu erstellen, navigieren Sie unter **Engagement** zu **Segments**, benennen Sie Ihr Segment und wählen Sie **Amplitude Cohorts** als Filter aus. Verwenden Sie anschließend die Option „enthält“ und wählen Sie die Kohorte, die Sie in Amplitude erstellt haben.
 

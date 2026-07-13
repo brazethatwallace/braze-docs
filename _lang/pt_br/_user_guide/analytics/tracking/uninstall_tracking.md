@@ -59,7 +59,7 @@ Os apps sem rastreamento de desinstalação ativado reportarão desinstalações
 
 ## Rastreamento de desinstalação para campanhas {#uninstall-tracking-for-campaigns}
 
-O rastreamento de desinstalação de campanhas mostra o número de usuários que receberam uma campanha específica e, posteriormente, desinstalaram seu app dentro do período de tempo selecionado. Essa ferramenta fornece insight sobre como as campanhas podem estar incentivando comportamentos negativos não intencionais dos usuários e ajuda a medir a eficácia geral da campanha.
+O rastreamento de desinstalação de campanhas mostra o número de usuários que receberam uma campanha específica e, posteriormente, desinstalaram seu app dentro do período selecionado. Essa ferramenta fornece insight sobre como as campanhas podem estar incentivando comportamentos negativos não intencionais dos usuários e ajuda a medir a eficácia geral da campanha.
 
 As estatísticas de desinstalação de campanhas estão localizadas na página **Campaign Analytics** de uma campanha específica. Para campanhas multicanais e multivariantes, as desinstalações podem ser divididas por canal e variante, respectivamente.
 
@@ -90,7 +90,7 @@ A Braze marca um usuário como tendo desinstalado quando detecta que o app não 
 Se você observar um pico nas desinstalações de aplicativos, isso pode ser devido ao Firebase Cloud Messaging (FCM) e ao serviço de Notificações por Push da Apple (APNs) revogando tokens antigos em uma frequência diferente.
 
 {% alert note %}
-Por razões de privacidade, os provedores de push da Braze podem revogar tokens em intervalos irregulares, o que significa que as contagens de desinstalação podem às vezes aumentar em um determinado período de tempo.<br><br>Para validar essas mudanças, monitore o rastreamento de desinstalação juntamente com uma métrica de ação do usuário, como a taxa de abertura de push direto. Se as desinstalações aumentarem drasticamente, mas as aberturas de push direto permanecerem estáveis, o pico provavelmente reflete um parceiro revogando tokens antigos em vez de um comportamento real do usuário.
+Por razões de privacidade, os provedores de push da Braze podem revogar tokens em intervalos irregulares, o que significa que as contagens de desinstalação podem às vezes aumentar em um determinado período.<br><br>Para validar essas mudanças, monitore o rastreamento de desinstalação juntamente com uma métrica de ação do usuário, como a taxa de abertura de push direto. Se as desinstalações aumentarem drasticamente, mas as aberturas de push direto permanecerem estáveis, o pico provavelmente reflete um parceiro revogando tokens antigos em vez de um comportamento real do usuário.
 {% endalert %}
 
 ### Como determinar se uma campanha específica causou desinstalações? {#how-do-i-determine-if-a-specific-campaign-caused-uninstalls}
@@ -112,3 +112,7 @@ Para APNs, verifique os perfis de usuário em busca do erro de push `BadDeviceTo
 A diferença é esperada.
 
 A Apple usa um cronograma aleatório para atrasar a notificação quando um token de push se torna inválido, o que significa que mesmo após um usuário desinstalar um app, o APNs pode continuar a retornar respostas bem-sucedidas para notificações por push por um período de tempo. Esse atraso é intencional e projetado para proteger a privacidade do usuário. Nenhum bounce ou falha será relatado até que o APNs retorne um status `410` para um token inválido.
+
+### Como o rastreamento de desinstalação se relaciona com push silencioso ou em segundo plano? {#how-does-uninstall-tracking-relate-to-silent-or-background-push}
+
+A detecção de desinstalação pode usar pushes em segundo plano de baixa prioridade que não aparecem como uma notificação visível. Eles são separados dos [**Envios**]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) de campanha na análise de dados padrão de envio de mensagens. Ao analisar tendências de desinstalação, revise os gráficos de desinstalação juntamente com as métricas de engajamento de push, em vez de comparar os pushes de desinstalação diretamente com os totais de envio de marketing.

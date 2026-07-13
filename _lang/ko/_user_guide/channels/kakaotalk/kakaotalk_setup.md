@@ -66,8 +66,8 @@ KakaoTalk 채널 정보(채널명, 프로필 이미지 등)는 공식 제출 서
 
 ### 1단계: KakaoTalk 채널을 Braze에 연결 {#step-1-connect-the-kakaotalk-channel-to-braze}
 
-1. **Partner Integrations** > **Technology Partners**로 이동하여 KakaoTalk 제공업체를 선택합니다.
-2. 제공업체에 필요한 자격 증명을 수집한 후(아래 참조) **Technology Partners** 페이지에 입력하고 저장합니다.
+1. **파트너 통합** > **기술 파트너**로 이동하여 KakaoTalk 제공업체를 선택합니다.
+2. 제공업체에 필요한 자격 증명을 수집한 후(다음 섹션 참조) **기술 파트너** 페이지에 입력하고 저장합니다.
 3. 새로 저장한 자격 증명을 사용하여 발송합니다.
 
 #### CJ OliveNetworks
@@ -116,7 +116,7 @@ KakaoTalk 발신프로필 키는 한 번에 하나의 워크스페이스에만 �
 하나의 공통 ID에 매핑된 채널만 등록할 수 있습니다.
 {% endalert %}
 
-![CJ OliveNetworks의 Technology Partners 페이지 필드.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
+![CJ OliveNetworks의 기술 파트너 페이지 필드.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 
@@ -133,7 +133,7 @@ Infobip 대시보드로 이동하여 다음 정보를 수집합니다.
 
 ## 고객 프로필 설정 {#set-user-profiles}
 
-KakaoTalk을 통해 메시지를 보내려면 고객 프로필에 E.164 형식의 전화번호가 있어야 합니다. 전화번호는 고객 프로필에 표시됩니다. KakaoTalk은 전화번호가 E.164 형식이어야 합니다(예: `+821025749774`). 이는 여러 형식의 전화번호를 허용하는 다른 메시징 채널과 다릅니다.
+고객 프로필에 E.164 형식의 전화번호가 있어야 KakaoTalk을 통해 메시지를 보낼 수 있습니다. 전화번호는 고객 프로필에 표시됩니다. KakaoTalk은 전화번호가 E.164 형식이어야 합니다(예: `+821025749774`). 이는 여러 형식의 전화번호를 허용하는 다른 메시징 채널과 다릅니다.
 
 ### 전화번호 가져오기 {#import-phone-numbers}
 

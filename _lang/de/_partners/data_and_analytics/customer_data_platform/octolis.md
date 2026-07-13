@@ -21,17 +21,17 @@ Die Integration von Braze und Octolis fungiert als Middleware zwischen Ihren Roh
 2. Normalisieren und bewerten
 3. Realtime-Synchronisation von berechneten Feldern und Ereignissen mit Braze
 
-![Datenflussdiagramm, das zeigt, wie Octolis Rohdatenquellen vereinheitlicht und an Braze synchronisiert]({% image_buster /assets/img/Octolis/Braze_scheme.png %})
+![Architekturdiagramm, das die Datenquellen, die Verarbeitung und den Synchronisationsfluss von Octolis nach Braze zeigt.]({% image_buster /assets/img/Octolis/Braze_scheme.png %})
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Octolis-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Octolis-Konto. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
-| Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
-| Braze-App-Schlüssel | Ihr Bezeichner für die App. Diesen finden Sie im **Braze-Dashboard > Manage Settings > API Key**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze-App-Schlüssel | Ihr Bezeichner für die App. Diesen finden Sie im **Braze-Dashboard > Einstellungen verwalten > API-Schlüssel**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -39,7 +39,7 @@ Bevor Sie mit der Integration beginnen, lesen Sie die folgenden Abschnitte über
 
 Weitere Informationen finden Sie im Abschnitt [Erste Schritte](https://help.octolis.com/) von Octolis.
 
-### 1. Schritt: Octolis mit Ihren Datenquellen verbinden {#step-1-connect-octolis-to-your-data-sources}
+### Schritt 1: Octolis mit Ihren Datenquellen verbinden {#step-1-connect-octolis-to-your-data-sources}
 
 Um Daten an Braze zu senden, müssen Sie sicherstellen, dass Sie mindestens eine [Zielgruppe](https://help.octolis.com/audiences/create-a-no-code-audience) erstellt haben. Eine Zielgruppe kombiniert mehrere Datenquellen, wendet sie auf Vorbereitungsschritte an und fügt berechnete Felder hinzu.
 
@@ -50,35 +50,35 @@ Diese Zielgruppen müssen auf der Grundlage mehrerer Datenquellen erstellt werde
 - Eine Tabelle/Ansicht in einer Datenbank.
 - Eines Ihrer Systeme sendet uns Datensätze über Webhooks oder API-Aufrufe.
 
-### 2. Schritt: Braze als Ziel hinzufügen {#step-2-add-braze-as-a-destination}
+### Schritt 2: Braze als Ziel hinzufügen {#step-2-add-braze-as-a-destination}
 
 Um Braze als neues Ziel festzulegen, wählen Sie im Hauptbildschirm oben auf Ihrem aktuellen Ziel **+ Add more** und wählen Sie **Braze** aus den verfügbaren Business-Tools aus.
 
-![Octolis-Zielauswahl mit der Option Braze]({% image_buster /assets/img/Octolis/Braze_screen2.png %})
+![Octolis-Zielauswahl mit Braze als Option aus den verfügbaren Business-Tools.]({% image_buster /assets/img/Octolis/Braze_screen2.png %})
 
 Sobald Sie die Auswahl getroffen haben, geben Sie Folgendes an:
 
-- Ihr Braze-API-Schlüssel: Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden.
+- Ihren Braze-API-Schlüssel: Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden.
 - Zeitfenster: Octolis wendet das Rate-Limiting für den angegebenen Zeitraum an.
 - Anfragevolumen: Anzahl der Anfragen, die Sie innerhalb dieses Zeitrahmens stellen können.
-- Angepasste Attribute: Geben Sie hier die neuen Felder an, die Sie an Braze senden möchten, ihr Format (String, Ganzzahl, Gleitkommazahl), und markieren Sie **Required for syncs**, wenn Sie möchten, dass eines der Felder für eine Synchronisation Pflichtfeld ist.
+- Angepasste Attribute: Geben Sie hier die neuen Felder an, die Sie an Braze senden möchten, ihr Format (String, Ganzzahl, Gleitkommazahl), und markieren Sie **Required for syncs**, wenn Sie möchten, dass eines der Felder für eine Synchronisation ein Pflichtfeld ist.
 
-![Octolis-Konfigurationsbildschirm für das Braze-Ziel]({% image_buster /assets/img/Octolis/Braze_screen3.png %})
+![Octolis-Konfigurationsfelder für das Braze-Ziel mit API-Schlüssel, Rate-Limits und angepassten Attributen.]({% image_buster /assets/img/Octolis/Braze_screen3.png %})
 
-Einmal konfiguriert, erscheint Braze als neues Ziel auf dem Startbildschirm.
+Nach der Konfiguration erscheint Braze als neues Ziel auf dem Startbildschirm.
 
-### 3. Schritt: Eine neue Synchronisierung erstellen {#step-3-create-a-new-sync}
+### Schritt 3: Eine neue Synchronisierung erstellen {#step-3-create-a-new-sync}
 
-Klicken Sie im Menü auf **Syncs** und wählen Sie oben rechts **Add sync**. Wählen Sie die gewünschte Zielgruppe aus den zuvor erstellten Zielgruppen aus.
+Klicken Sie im Menü auf **Syncs** und wählen Sie in der Aktionsleiste **Add sync**. Wählen Sie die gewünschte Zielgruppe aus den zuvor erstellten Zielgruppen aus.
 Wählen Sie anschließend **Braze** als Ziel und die Entität aus, an die Sie die Daten senden möchten.
 
-![Octolis-Bildschirm zur Auswahl von Zielgruppe und Ziel für die Synchronisierung]({% image_buster /assets/img/Octolis/Braze_screen4.png %})
+![Octolis-Bildschirm zur Erstellung einer Synchronisierung mit Auswahl von Zielgruppe und Braze als Ziel.]({% image_buster /assets/img/Octolis/Braze_screen4.png %})
 
-### 4. Schritt: Ausgabeeinstellungen festlegen {#step-4-set-output-settings}
+### Schritt 4: Ausgabeeinstellungen festlegen {#step-4-set-output-settings}
 
 Standardmäßig erstellt Braze alle Attribute, die Sie senden würden, aber Sie müssen die Liste der zu synchronisierenden Felder dokumentieren.
 
-![Octolis-Bildschirm für Ausgabeeinstellungen der Synchronisierung]({% image_buster /assets/img/Octolis/Braze_screen5.png %}){: style="max-width:75%;"}
+![Octolis-Bildschirm für Ausgabeeinstellungen mit Feldzuordnung und Synchronisierungsplanung für Braze.]({% image_buster /assets/img/Octolis/Braze_screen5.png %}){: style="max-width:75%;"}
 
 Hier finden Sie eine spezifische Definition der Einstellungsfelder.
 
@@ -89,8 +89,8 @@ Hier finden Sie eine spezifische Definition der Einstellungsfelder.
 | Wie oft möchten Sie jeden Datensatz senden? | Standardmäßig erfolgt die Synchronisierung für alle Integrationen (API, Datenbank, FTP) inkrementell. Das bedeutet, dass nur neue Werte seit dem letzten Update aktualisiert werden. Bei Bedarf können Sie auch ganze Tabellen in regelmäßigen Abständen versenden. Bei der Initiierung sendet Octolis die vollständige Tabelle. |
 | Welche Felder sollen synchronisiert werden? | Abbildung von Octolis- auf Braze-Felder. Die Liste aller verfügbaren Felder wird im Dropdown-Menü angezeigt. Um ein berechnetes Feld an Braze zu senden, müssen Sie zunächst sicherstellen, dass Sie die entsprechende Spalte in Ihrer Braze-Entität erstellt haben. |
 | Wann möchten Sie die Zielgruppe synchronisieren? | Wie die Daten an Braze gesendet werden sollen: manuell, in Realtime oder programmiert. |
-| Synchronisieren, wenn der Datensatz … | Erstellen: Für Opt-ins ist es wichtig, dass die Braze-Tabelle Master bleibt. Sie möchten nicht, dass Octolis eine Synchronisierung triggert, wenn das Feld aktualisiert wird.<br><br>Update: Andererseits möchten Sie z. B. bei einem Feld für den Vornamen in der Lage sein, das Feld in Ihrer Braze-Tabelle jedes Mal zu aktualisieren, wenn eine Kund:in Ihnen einen neuen Eingang gibt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Synchronisieren, wenn der Datensatz … | Erstellen: Für Opt-ins ist es wichtig, dass die Braze-Tabelle Master bleibt. Sie möchten nicht, dass Octolis eine Synchronisierung triggert, wenn das Feld aktualisiert wird.<br><br>Update: Andererseits möchten Sie z. B. bei einem Feld für den Vornamen in der Lage sein, das Feld in Ihrer Braze-Tabelle jedes Mal zu aktualisieren, wenn eine Kund:in Ihnen einen neuen Eintrag gibt. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 4: Ausgabeeinstellungen festlegen" }
 
 ## Deduplizierung mit mehreren Schlüsseln {#multi-keys-deduplication}
 

@@ -6,6 +6,8 @@ description: "Referência do README do Braze Swift SDK espelhada do GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guia do repositório do Swift SDK {#swift-sdk-repository-guide}
+
 ## Sobre o Braze Swift SDK {#about-the-braze-swift-sdk}
 
 O Braze Swift SDK ajuda você a integrar recursos de envio de mensagens, análise de dados e engajamento de usuários da Braze ao seu aplicativo.
@@ -109,7 +111,7 @@ Explore nosso [projeto de exemplos](https://github.com/braze-inc/braze-swift-sdk
 
 ## Fale conosco {#contact}
 
-Se você tiver dúvidas, entre em contato com o Suporte Técnico da Braze para obter assistência.
+Se você tiver dúvidas, entre em contato com o suporte técnico da Braze para obter assistência.
 
 [braze-inc/braze-swift-sdk]: https://github.com/braze-inc/braze-swift-sdk
 [braze-inc/braze-swift-sdk-prebuilt-static]: https://github.com/braze-inc/braze-swift-sdk-prebuilt-static

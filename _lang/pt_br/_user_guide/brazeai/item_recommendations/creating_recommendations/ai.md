@@ -25,7 +25,7 @@ Use recomendações de itens de IA para calcular os produtos mais populares ou c
 
 Antes de começar, você precisará ter o seguinte:
 
-- Pelo menos um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) para usar qualquer um dos tipos de recomendação descritos abaixo.
+- Pelo menos um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) para usar qualquer um dos tipos de recomendação descritos na seção a seguir.
 - Dados de compra ou de evento na Braze (eventos personalizados, o evento de pedido realizado ou o objeto de compra) que incluam uma referência ao item e correspondam aos IDs dos itens do catálogo.
 
 ### Etapa 1: Criar uma nova recomendação {#step-1-create-a-new-recommendation}

@@ -6,7 +6,7 @@
 
 To create a [notification service extension](https://developer.apple.com/reference/usernotifications/unnotificationserviceextension), navigate to **File > New > Target** in Xcode and select **Notification Service Extension**.
 
-![]({% image_buster /assets/img_archive/ios10_se_at.png %}){: style="max-width:90%"}
+![Xcode target picker creating a Notification Service Extension for rich push.]({% image_buster /assets/img_archive/ios10_se_at.png %}){: style="max-width:90%"}
 
 Ensure that **Embed In Application** is set to embed the extension in your application.
 
@@ -77,7 +77,7 @@ After updating the Podfile, navigate to the directory of your Xcode app project 
 
 To add `BrazeNotificationService.xcframework` to your `Notification Service Extension`, see [Manual integration]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration?tab=manual/).
 
-![]({% image_buster /assets/img/swift/rich_push/manual1.png %})
+![Xcode project with BrazeNotificationService.xcframework added to the notification service extension.]({% image_buster /assets/img/swift/rich_push/manual1.png %})
 
 {% endtab %}
 {% endtabs %}

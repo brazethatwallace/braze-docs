@@ -54,7 +54,7 @@ Vous pouvez tracer des statistiques pour :
 - Bannières
 - Content Cards
 - Utilisateurs actifs quotidiens
-  - (Facultatif) Répartition par Segment
+  - (Facultatif) Répartition par segment
 - E-mail
 - Messages in-app
 - Formules d'indicateurs clés de performance
@@ -62,16 +62,16 @@ Vous pouvez tracer des statistiques pour :
 - LINE
 - Utilisateurs actifs par mois (MAU)
 - Nouveaux utilisateurs
-- Push
-  - (Facultatif) Répartition par Segment
+- Notifications push
+  - (Facultatif) Répartition par segment
 - Sessions
-  - (Facultatif) Répartition par Segment ou version de l'application
+  - (Facultatif) Répartition par segment ou version de l'application
 - Sessions par heure
 - Sessions par MAU
 - SMS
 - Adhérence
 - Désinstallations
-  - (Facultatif) Répartition par Segment
+  - (Facultatif) Répartition par segment
 - Utilisateurs
 - Webhooks
 - WhatsApp
@@ -110,9 +110,7 @@ Le calcul des MAU suit des règles spécifiques pour garantir une facturation pr
 - **Suppressions via API** : la suppression d'un utilisateur via l'API ne met pas à jour les MAU immédiatement ; le comptage se corrige automatiquement lors du cycle mensuel suivant.
 
 {% alert note %}
-Les utilisateurs anonymes comptent également dans vos MAU. Pour les appareils mobiles, les utilisateurs anonymes dépendent de l'appareil. Pour les utilisateurs web, les utilisateurs anonymes dépendent du cache du navigateur.
-
-Les comptages de MAU dans Braze peuvent différer de ceux d'outils tels qu'Amplitude lorsque chaque produit utilise une définition différente d'un utilisateur actif. Comparez la configuration dans Amplitude (et vos règles de MAU Braze ci-dessus) avant d'investiguer un écart comme un problème de pipeline de données.
+Les utilisateurs anonymes comptent également dans vos MAU. Pour les appareils mobiles, les utilisateurs anonymes dépendent de l'appareil. Pour les utilisateurs web, les utilisateurs anonymes dépendent du cache du navigateur. <br><br> Les comptages de MAU dans Braze peuvent différer de ceux d'outils tels qu'Amplitude lorsque chaque produit utilise une définition différente d'un utilisateur actif. Comparez la configuration dans Amplitude (et vos [règles de calcul des MAU](#mau-calculation-rules)) avant d'investiguer un écart comme un problème de pipeline de données.
 {% endalert %}
 
 #### Exemple de calcul des MAU {#mau-calculation-example}
@@ -129,18 +127,20 @@ L'exemple suivant illustre le fonctionnement du calcul des MAU à travers diffé
 
 Les instantanés de MAU sont calculés une fois par jour et ne changent jamais rétroactivement. Dans cet exemple, le nombre de MAU pour le jour suivant l'étape 3 reste définitivement à 2, même si l'Utilisateur 2 devient orphelin par la suite. Cependant, le nombre de MAU pour les jours suivants ne reflète que l'utilisateur non orphelin. Sur une fenêtre de 30 jours, ce flux consomme au final 1 MAU puisqu'il ne reste qu'un seul utilisateur distinct et non orphelin.
 
+##### Considérations relatives au comptage des MAU {#mau-count-considerations}
+
+Les comptages de MAU dans Braze dépendent de l'endroit où vous les consultez. Le total des MAU est calculé au niveau de l'utilisateur, indépendamment des applications et plateformes, de sorte que chaque utilisateur n'est compté qu'une seule fois. Cependant, lorsque vous consultez les comptages de MAU par application, la somme des MAU de toutes les applications peut dépasser votre total de MAU ; un utilisateur qui utilise plusieurs applications dans votre espace de travail est comptabilisé dans l'indicateur MAU individuel de chaque application.
+
 ### Utilisateurs actifs quotidiens {#daily-active-users}
 
-*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos Campaigns pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
+*Utilisateurs actifs quotidiens* (DAU) affiche le nombre d'utilisateurs uniques qui enregistrent au moins une session dans votre application ou site un jour donné. Les DAU peuvent être une statistique utile pour examiner la variabilité quotidienne de l'utilisation de votre application ou site et adapter vos campagnes pour qu'elles soient aussi efficaces que possible. Par exemple, l'utilisation de votre application peut connaître un pic notable le week-end, ce qui vous indiquerait que vous pourriez toucher davantage d'utilisateurs avec des messages in-app ces jours-là plutôt qu'en semaine.
 
 ### Nouveaux utilisateurs {#new-users}
 
 *Nouveaux utilisateurs* indique le nombre d'utilisateurs qui n'avaient jamais enregistré de session auparavant et qui ont commencé à utiliser votre application ou site. Ce nombre correspond au total des nouveaux utilisateurs sur la période donnée. Cette statistique peut être très utile pour évaluer l'efficacité de vos efforts publicitaires.
 
 {% alert note %}
-Lors de l'intégration initiale de Braze, tous les utilisateurs apparaîtront comme de nouveaux utilisateurs, car Braze n'a jamais enregistré de session pour eux auparavant.
-
-Contrairement aux MAU, le nombre de *Nouveaux utilisateurs* peut diminuer rétroactivement lorsque Braze fusionne un profil anonyme avec un profil identifié et rend le profil anonyme orphelin. Braze retire le profil orphelin des totaux d'utilisation de l'application, ce qui peut réduire le nombre de *Nouveaux utilisateurs* pour des dates que vous avez déjà consultées. Pour en savoir plus sur le comportement de liaison des profils, consultez [Cycle de vie du profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
+Lors de l'intégration initiale de Braze, tous les utilisateurs apparaîtront comme de nouveaux utilisateurs, car Braze n'a jamais enregistré de session pour eux auparavant. <br><br> Contrairement aux MAU, le nombre de *Nouveaux utilisateurs* peut diminuer rétroactivement lorsque Braze fusionne un profil anonyme avec un profil identifié et rend le profil anonyme orphelin. Braze retire le profil orphelin des totaux d'utilisation de l'application, ce qui peut réduire le nombre de *Nouveaux utilisateurs* pour des dates que vous avez déjà consultées. Pour en savoir plus sur le comportement de liaison des profils, consultez [Cycle de vie du profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 {% alert important %}

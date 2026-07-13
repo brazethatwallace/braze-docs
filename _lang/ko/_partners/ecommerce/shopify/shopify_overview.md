@@ -12,7 +12,7 @@ page_order: 0
 
 > [Shopify](https://www.shopify.com/)는 모든 규모의 비즈니스를 시작, 성장, 마케팅 및 관리할 수 있는 신뢰할 수 있는 도구를 제공하는 선도적인 글로벌 커머스 기업입니다. Shopify는 안정성을 위해 설계된 플랫폼과 서비스를 통해 모든 곳의 소비자에게 더 나은 쇼핑 경험을 제공하며 커머스를 더 나은 방향으로 발전시킵니다.
 
-Braze와 Shopify의 통합은 고객 참여를 강화하고 개인화된 마케팅 활동을 추진하고자 하는 이커머스 비즈니스에 강력한 솔루션을 제공합니다. 이 통합은 Shopify의 강력한 이커머스 기능과 고도화된 고객 참여 플랫폼을 원활하게 연결하여 실시간 쇼핑 행동 및 트랜잭션 데이터를 기반으로 사용자에게 타겟팅된 관련성 있고 시의적절한 메시지를 전달할 수 있도록 지원합니다.
+Braze와 Shopify의 통합은 고객 참여를 강화하고 개인화된 마케팅 활동을 추진하고자 하는 이커머스 비즈니스에 강력한 솔루션을 제공합니다. 이 통합은 Shopify의 강력한 이커머스 기능과 고도화된 고객 인게이지먼트 플랫폼을 원활하게 연결하여 실시간 쇼핑 행동 및 트랜잭션 데이터를 기반으로 사용자에게 타겟팅된 관련성 있고 시의적절한 메시지를 전달할 수 있도록 지원합니다.
 
 ## 요구 사항 {#requirements}
 
@@ -54,7 +54,7 @@ Braze는 이커머스 비즈니스의 다양한 요구를 충족하도록 설계
 
 {% alert note %}
 - 웹사이트 방문(세션)은 월간 활성 사용자(MAU) 할당량에 포함됩니다.
-- Braze Web SDK 및 JavaScript SDK 버전은 자동으로 v5.4.0으로 설정됩니다.
+- Braze Web SDK 및 JavaScript SDK 버전은 자동으로 v6.8.0으로 설정됩니다. 통합 설정에서 언제든지 SDK 버전을 업그레이드할 수 있습니다.
 {% endalert %}
 
 Braze는 Shopify 통합을 사용하여 게스트 쇼핑 경험부터 식별된 사용자가 될 때까지 사용자를 추적하는 여러 식별자를 지원합니다:
@@ -65,7 +65,7 @@ Braze는 Shopify 통합을 사용하여 게스트 쇼핑 경험부터 식별된 
 | 장바구니 토큰 사용자 별칭 | Braze가 장바구니 업데이트 이벤트를 추적하기 위해 생성하는 별칭입니다. 이 토큰은 Shopify 장바구니 토큰을 사용하여 생성됩니다. |
 | 결제 토큰 사용자 별칭 | 사용자가 결제 프로세스를 시작할 때 Braze가 생성하는 별칭입니다. 이 토큰은 Shopify 결제 토큰을 사용하여 생성됩니다.<br><br> 고객이 Shop Pay를 빠른 결제 옵션으로 사용하는 경우, Shopify가 특정 표준 결제 이벤트를 건너뛰어 Braze가 결제 토큰 별칭을 추가하는 데 필요한 데이터를 수신하지 못할 수 있습니다. |
 | Shopify 고객 ID 별칭 | Shopify 고객 ID는 계정 로그인 시 또는 주문이 완료될 때 외부 ID가 할당되면서 별칭으로 지정됩니다. |
-| Braze `external_id` | 기기와 플랫폼 간에 고객을 추적하는 데 도움이 되는 고유 식별자입니다. 사용자가 기기를 전환하거나 앱을 재설치할 때 여러 프로필이 생성되는 것을 방지하여 일관된 사용자 경험을 유지하고 분석을 개선합니다.<br><br>Shopify 통합은 다음 `external_id` 유형을 지원합니다: <br><br>{::nomarkdown}<ul><li>Shopify 고객 ID(기본값)</li><li>커스텀 외부 ID</li><li>해시된 이메일(SHA-256)</li><li>해시된 이메일(SHA-1)</li><li>해시된 이메일(MD5)</li><li>이메일</li></ul>{:/}Braze는 다음과 같은 경우 SDK 내에서 changeUser 메서드를 호출하여 사용자에게 `external_id`를 할당합니다: <br><br>{::nomarkdown}<ul><li>사용자가 로그인하거나 계정을 생성할 때</li><li>주문이 완료될 때</li></ul>{:/}<br> 익명 프로필에 `external_id`를 할당할 때 어떤 일이 발생하는지에 대한 자세한 내용은 [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users)를 참조하세요.<br><br>Braze는 또한 `external_id`를 활용하여 Shopify 웹훅의 다운스트림 이커머스 행동 데이터를 귀속시킵니다.|
+| Braze `external_id` | 기기와 플랫폼 간에 고객을 추적하는 데 도움이 되는 고유 식별자입니다. 사용자가 기기를 전환하거나 앱을 재설치할 때 여러 프로필이 생성되는 것을 방지하여 일관된 사용자 경험을 유지하고 분석을 개선합니다.<br><br>Shopify 통합은 다음 `external_id` 유형을 지원합니다: <br><br>{::nomarkdown}<ul><li>Shopify 고객 ID(기본값)</li><li>커스텀 외부 ID</li><li>해시된 이메일(SHA-256)</li><li>해시된 이메일(SHA-1)</li><li>해시된 이메일(MD5)</li><li>이메일</li></ul>{:/}Braze는 다음과 같은 경우 SDK 내에서 changeUser 메서드를 호출하여 사용자에게 `external_id`를 할당합니다: <br><br>{::nomarkdown}<ul><li>사용자가 로그인하거나 계정을 생성할 때</li><li>주문이 완료될 때</li></ul>{:/}<br> 익명 프로필에 `external_id`를 할당할 때 어떤 일이 발생하는지에 대한 자세한 내용은 [사용자 프로필 수명주기]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users)를 참조하세요.<br><br>Braze는 또한 `external_id`를 활용하여 Shopify 웹훅의 다운스트림 이커머스 행동 데이터를 귀속시킵니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 및 데이터 동기화" }
 
 이 통합은 Braze SDK와 Shopify 서비스가 함께 작동하여 Shopify 데이터를 거의 실시간으로 올바른 사용자에게 적절히 추적하고 귀속시켜야 합니다. 통합을 통해 추적되는 데이터에 대한 자세한 내용은 [Shopify 데이터]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features)를 참조하세요.
@@ -143,4 +143,4 @@ Braze는 Shopify 스토어의 제품을 Braze 카탈로그에 동기화하는 �
 
 ## 데이터 주체 요청 {#data-subject-requests}
 
-Braze 플랫폼의 Shopify 통합의 일부로, Braze는 [Shopify의 규정 준수 웹훅](https://shopify.dev/docs/apps/build/privacy-law-compliance/)을 자동으로 수신합니다. 그러나 고객이 최종 사용자 데이터의 데이터 컨트롤러이므로, 고객은 Braze의 최종 사용자 데이터(Shopify 통합을 통해 수신된 최종 사용자 데이터 포함)와 관련하여 수신된 데이터 주체 요청을 처리하기 위해 필요한 모든 조치를 수행해야 합니다. 자세한 내용은 [데이터 보호 기술 지원]({{site.baseurl}}/dp-technical-assistance) 설명서를 참조하세요.
+Braze 플랫폼의 Shopify 통합의 일부로, Braze는 [Shopify의 규정 준수 웹훅](https://shopify.dev/docs/apps/build/privacy-law-compliance/)을 자동으로 수신합니다. 그러나 고객이 최종사용자 데이터의 데이터 컨트롤러이므로, 고객은 Braze의 최종사용자 데이터(Shopify 통합을 통해 수신된 최종사용자 데이터 포함)와 관련하여 수신된 데이터 주체 요청을 처리하기 위해 필요한 모든 조치를 수행해야 합니다. 자세한 내용은 [데이터 보호 기술 지원]({{site.baseurl}}/dp-technical-assistance) 설명서를 참조하세요.

@@ -22,7 +22,7 @@ You can view analytics for your recommendation to see which items users were rec
 
 These are metrics related to your recommendation audience, which includes precision, coverage, and recommendation type.
 
-![Recommendation audience metrics showing precision (25.3%), coverage (54.3%), and recommendation types split between personalized and most popular items.]({% image_buster /assets/img/item_recs_analytics_1.png %})
+![Recommendation audience metrics showing precision, coverage, and recommendation types split between personalized and most popular items.]({% image_buster /assets/img/item_recs_analytics_1.png %})
 
 Refer to the following table for more information:
 

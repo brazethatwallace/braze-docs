@@ -83,6 +83,18 @@ Wenn _Gesendete Nachrichten_ für ein Canvas mit einem In-App-Nachrichten-Schrit
 
 In-App-Nachrichten werden vom SDK „abgerufen“ und nicht von Braze „gepusht“. In-App-Nachrichten für berechtigte Nutzer:innen werden automatisch beim Sitzungsstart zugestellt und „warten“ auf das Trigger-Event, bevor sie angezeigt werden. Da berechtigte Nutzer:innen die Nachricht beim Start einer Sitzung erhalten, meldet Braze dies nicht als Sende-Event. Wenn Nutzer:innen das Trigger-Event ausführen, wird die Nachricht angezeigt und Braze protokolliert eine Impression und markiert den Canvas-Schritt (oder die Campaign) als empfangen im Nutzerprofil. Folglich ist die Gesamtzahl der _Sends_ für In-App-Nachrichten null.
 
+### Warum haben Nutzer:innen meine In-App-Nachricht nach einer langen Verzögerung oder einem Branch nicht erhalten? {#why-didnt-users-receive-my-in-app-message-after-a-long-delay-or-branch}
+
+Nachdem vorgelagerte [Verzögerungs]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)-Schritte und Zielgruppenprüfungen abgeschlossen sind, werden Nutzer:innen erst dann für eine In-App-Nachricht berechtigt, wenn sie den Nachrichten-Schritt erreichen. Wenn die Nachricht an einem Kalenderdatum oder innerhalb eines kurzen Zeitfensters **nach Verfügbarkeit des Schritts** abläuft, können Nutzer:innen auf langsameren Branches nach dem Ablauf ankommen und die Nachricht nie sehen. Stimmen Sie den Ablauf auf Ihre längsten realistischen Pfadverzögerungen ab. Weitere Informationen und Beispiele finden Sie unter [Ablauf von In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#in-app-message-expiration).
+
+### Warum sehe ich „Canvas Entry Properties may not be used in In-App Messages.“? {#why-do-i-see-canvas-entry-properties-may-not-be-used-in-in-app-messages}
+
+Diese Meldung erscheint, wenn die Personalisierung auf Felder verweist, die In-App-Nachrichten in Canvas nicht auflösen können. Verwenden Sie das `context`-Objekt wie unter [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) und [Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) beschrieben. Der Legacy-Liquid-Namespace `canvas_entry_properties` hat andere Einschränkungen als `context`. Wenn Sie Werte über mehrere Schritte hinweg beibehalten müssen, lesen Sie [Persistente Eigenschaften im originalen Canvas-Editor]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) mit Ihrem Braze-Team. Gespeicherte Werte werden gelöscht, wenn ein:e Nutzer:in das Canvas verlässt, bevor das Gerät die In-App-Payload herunterlädt.
+
+### Wo finde ich Button-Klicks für Drag-and-Drop-In-App-Nachrichten in Canvas? {#where-can-i-find-button-clicks-for-drag-and-drop-in-app-messages-in-canvas}
+
+Button-Level-Metriken für Drag-and-Drop-In-App-Nachrichten erscheinen auf der Analytics-Karte des **Nachrichten**-Schritts unter **Canvas-Details**, nicht nur in der übergeordneten Canvas-Zusammenfassung. Öffnen Sie das Canvas, wählen Sie den Nachrichten-Schritt aus und überprüfen Sie dort das In-App-Engagement. Informationen zu Berichtskonzepten finden Sie unter [Messen und Testen mit Canvas-Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).
+
 ### Kann ich unterschiedliche Sendezeiten für jede Variante im selben Canvas-Nachrichten-Schritt oder multivariaten Send planen? {#can-i-schedule-different-send-times-for-each-variant-in-the-same-canvas-message-step-or-multivariate-send}
 
 Nein. Varianten in derselben multivariaten Konfiguration oder demselben Nachrichten-Schritt teilen sich einen Zustellungszeitplan. Sie können nicht eine Variante um 18 Uhr und eine andere um 19 Uhr für denselben geplanten Send zuweisen.
@@ -113,11 +125,24 @@ Canvas-spezifische Faktoren gelten ebenfalls:
 - **Maximale Eintritts- oder Zielgruppen-Caps:** Eintritts- oder Send-Caps stoppen zusätzliche Nutzer:innen, selbst wenn das zugrunde liegende Segment größer ist.
 - **Berichtszeitraum:** Der Analytics-Bereich umfasst möglicherweise nicht jeden Send, den Sie mit der Schätzung vergleichen.
 
+### Warum stimmen geschätzte Zielgruppe und Canvas-Nutzerzahlen nicht überein? {#why-dont-estimated-audience-and-canvas-user-counts-match}
+
+Die **geschätzte Zielgruppe** spiegelt wider, wer zum Zeitpunkt der Schätzung Ihren Segment- und Eintrittsfiltern entspricht. Nach diesem Zeitpunkt können verzögerte oder aktionsbasierte Eintritte, Wiederzulassung, API-Trigger oder Branch-Routing die Anzahl der Profile erhöhen, die die Journey berühren, im Vergleich zum Snapshot. Nutzer:innen können auch herausfallen, wenn Sendezeitfilter fehlschlagen, was die tatsächlichen Eintritte oder Sends verringert. Vergleichen Sie Timing, Caps und Auswertungseinstellungen zusammen mit [Warum sind die Sends niedriger als die geschätzte Zielgruppengröße?](#why-are-sends-lower-than-the-estimated-audience-size).
+
 ### Warum ist _Eindeutige Empfänger:innen_ höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 _Eindeutige Empfänger:innen_ kann höher sein als die erwartete Zielgruppe, da Braze **eindeutige tägliche Empfänger:innen** für Canvas- und Campaign-Berichte trackt. Dies unterstützt eine genaue Conversion-Attribution jedes Mal, wenn ein:e Nutzer:in eine Nachricht in der Journey erhält.
 
 Wenn ein:e Nutzer:in beispielsweise am Montag und erneut am Freitag einen Canvas-Schritt erhält und nach jedem Send konvertiert, kann Braze zwei Empfänger:innen-Zeilen und zwei relevante Conversions zählen. Bei wiederkehrenden Eintritten oder Wiederzulassung kann dieselbe kleine Gruppe von Profilen über mehrere Tage hinweg mehrere _Eindeutige Empfänger:innen_ erzeugen.
+
+### Warum verzeichnet mein Canvas niedrigere Sendraten? {#why-is-my-canvas-experiencing-lower-send-rates}
+
+Wenn Sie feststellen, dass Ihr täglich geplantes Canvas im Laufe der Zeit an weniger Nutzer:innen sendet, prüfen Sie Folgendes:
+
+- **Prüfen Sie, ob die Wiederzulassung aktiviert ist:** Ohne Wiederzulassung lässt Braze jede:n Nutzer:in nur einmal in das Canvas eintreten. Bei täglich geplanten Canvases sind nur Nutzer:innen berechtigt, die der Zielgruppe entsprechen und das Canvas noch nicht betreten haben. Da immer mehr Nutzer:innen eintreten, hat jeder spätere Eintritt weniger berechtigte Nutzer:innen, sodass das Eintrittsvolumen sinkt.
+- **Prüfen Sie, ob die Zielgruppe eine feste Mitgliedschaft hat:** Zielgruppen, die aus einer festen Nutzerliste erstellt wurden (z. B. ein [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import), der als Segment-Filter verwendet wird), gewinnen nicht automatisch neue Mitglieder. Ohne neue Eintritte kann das Eintrittsvolumen nicht wieder ansteigen, wenn Nutzer:innen das Canvas betreten.
+
+Für [Rate-Limits bei der Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) und andere Faktoren, die Sends für ein einzelnes Vorkommen verringern, siehe [Warum sind die Sends niedriger als die geschätzte Zielgruppengröße?](#why-are-sends-lower-than-the-estimated-audience-size).
 
 ## Analytics und Conversions {#analytics-and-conversions}
 
@@ -176,9 +201,25 @@ Sie können [ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segment
 
 Nein, aber Sie können [ein Canvas archivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving).
 
+### Wie kann ich ein archiviertes Canvas oder eine archivierte Campaign fortsetzen? {#how-do-i-resume-an-archived-canvas-or-campaign}
+
+Archivierte Nachrichten werden nicht gesendet, bis Sie sie in einen bearbeitbaren Zustand zurückversetzen. [Dearchivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving-campaigns-and-canvases) Sie die Campaign oder das Canvas, legen Sie den Eintrittszeitplan oder die Sendezeit auf ein zukünftiges Fenster fest (oder duplizieren Sie die Journey, wenn Sie eine saubere Kopie benötigen), und wählen Sie dann **Fortsetzen** oder starten Sie nach Bedarf. Siehe [Campaigns und Canvases archivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving).
+
+### Warum lässt sich mein Canvas nicht speichern, obwohl kein Fehler angezeigt wird? {#why-doesnt-my-canvas-save-when-no-error-appears}
+
+Leere **Angepasstes Attribut**-Filter in Zielgruppen- oder Schrittebenen-Filtern können das Speichern ohne detaillierte Validierungsmeldung blockieren. Öffnen Sie jede Filterkarte, entfernen Sie unvollständige Regeln für angepasste Attribute oder geben Sie sowohl den Attributnamen als auch den Wert ein, und wählen Sie dann erneut **Speichern**.
+
+### Warum ist ein Tag von meinem Canvas oder meiner Campaign verschwunden? {#why-did-a-tag-disappear-from-my-canvas-or-campaign}
+
+Wenn ein [Tag]({{site.baseurl}}/user_guide/messaging/governance/tags) aus Ihrem Workspace gelöscht wird, entfernt Braze es aus jeder Campaign und jedem Canvas, das darauf verwiesen hat. Diese Bereinigung erzeugt nicht immer einen eigenen Eintrag im Canvas-Änderungsprotokoll.
+
 ### Wie kann ich die Analytics für jede meiner Canvas-Komponenten anzeigen? {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
 Um die Analytics einer Canvas-Komponente anzuzeigen, gehen Sie zu Ihrem Canvas und scrollen Sie auf der Seite **Canvas-Details** nach unten. Hier können Sie die Analytics jeder Komponente einsehen. Weitere Details finden Sie unter [Canvas-Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).
+
+### Wann ist das Engagement eines Canvas-Schritts im Nutzerprofil sichtbar? {#when-is-engagement-from-a-canvas-step-visible-on-a-user-profile}
+
+Filter wie `Received Message from Canvas Step` werden aktualisiert, nachdem Braze das entsprechende Sende-, Empfangs- oder Engagement-Event für diesen Schritt protokolliert hat. In-App-Nachrichten können Impressionen getrennt von Send-Metriken protokollieren. Siehe [Warum kann ein Canvas null Sends anzeigen, obwohl Impressionen protokolliert werden?](#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged). Dieselben Events erscheinen in den Schritt-Metriken unter **Canvas-Details**.
 
 ### Ist bei der Betrachtung der Anzahl eindeutiger Nutzer:innen Canvas-Analytics oder der Segmenter genauer? {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
 
@@ -325,3 +366,15 @@ Beginnen Sie mit [Push Stories]({{site.baseurl}}/user_guide/channels/push/create
 ### Wer erhält die E-Mail „Canvas Messages Delayed 24+ Hours“? {#who-receives-the-canvas-messages-delayed-24-hours-email}
 
 Braze sendet diese Benachrichtigung, wenn Canvas-Nachrichten durch Rate-Limiting um 24 Stunden oder mehr verzögert werden. Die E-Mail geht an Dashboard-Nutzer:innen, die zuvor Änderungen am betroffenen Canvas vorgenommen haben (basierend auf den Canvas-Änderungsprotokollen). Wenn Braze diese Empfänger:innen nicht ermitteln kann, geht die E-Mail an die **Unternehmensadministrator:innen** des Workspace.
+
+### Wann hört ein:e Nutzer:in auf, Nachrichten nach einem Ausnahme-Event zu erhalten? {#when-does-a-user-stop-receiving-messages-after-an-exception-event}
+
+Braze protokolliert den Austritt, sobald das Ausnahme-Event eintritt, aber Nutzer:innen können innerhalb eines Schritts verbleiben, bis Timer ablaufen – am deutlichsten bei Verzögerungsschritten. Das Verhalten unterscheidet sich auch zwischen geplanten Schritten und Event-getriggerten Schritten. Für Zeitabläufe, Beispiele und Analytics-Nuancen siehe [Austrittskriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria).
+
+### Warum zeigt mein Aktionspfade-Schritt einen Fehler an, wenn ich eine Link-Alias-Interaktion auswähle? {#why-does-my-action-paths-step-show-an-error-when-i-select-a-link-alias-interaction}
+
+Aktionsgruppen, die E-Mail-Interaktivitäts-Trigger verwenden (zum Beispiel **Klick auf Alias in E-Mail** oder **Alias in einer Campaign oder einem Canvas-Schritt angeklickt**), benötigen einen Nachrichten-Schritt, der die Nachricht mit diesem Link bereits gesendet hat. Fügen Sie Schritte hinzu oder ordnen Sie sie neu an, sodass die E-Mail vor der Auswertung des Aktionspfade-Schritts gesendet wird, oder wählen Sie eine Interaktion, die zu einer Nachricht passt, die der/die Nutzer:in bereits in diesem Canvas erhalten hat. Die vollständige Liste der Interaktions-Trigger finden Sie unter [Aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
+
+### Wie wirken sich historische Zeitstempel angepasster Events auf aktionsbasierte Canvases und Campaigns aus? {#how-do-historical-custom-event-timestamps-affect-action-based-canvases-and-campaigns}
+
+Braze wertet aktionsbasierte Journeys aus, wenn qualifizierende Events aufgenommen werden und der/die Nutzer:in Ihre Zielgruppenregeln erfüllt. Wenn ein Event außerhalb des Zeitfensters, in dem Ihr Canvas oder Ihre Campaign aktiv war, auf dem Profil landet, oder bevor der/die Nutzer:in Ihrer Zielgruppe entsprach, erfolgen Eintritt oder nachgelagerte Sends möglicherweise nicht wie erwartet. Vergleichen Sie Event-Zeitstempel mit Go-Live-Zeiten und Segment-Zugehörigkeit mithilfe des Aktivitätsprotokolls im Nutzerprofil und den Fehlerbehebungsschritten unter [Fehlerbehebung bei angepassten Events]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#troubleshooting-custom-events). Wenn das Verhalten weiterhin nicht den Erwartungen entspricht, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support).

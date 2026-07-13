@@ -10,7 +10,7 @@ description: "Dieser Referenzartikel behandelt die Fehlerbehebung für Segmentfe
 
 # Fehlerbehebung für Segmente {#troubleshoot-segments}
 
-> Ordnen Sie Ihr Symptom unten zu, um den richtigen Abschnitt zu finden. Diese Seite behandelt Startfehler, Nutzereignung, Filterprobleme und Analytics-Abweichungen. Filterdefinitionen finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Informationen zu Segmentgrößenschätzungen, exakten Zählungen und historischen Mitgliedschaftsdiagrammen finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
+> Ordnen Sie Ihr Symptom in der folgenden Liste zu, um den richtigen Abschnitt zu finden. Diese Seite behandelt Startfehler, Nutzereignung, Filterprobleme und Analytics-Abweichungen. Filterdefinitionen finden Sie unter [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). Informationen zu Segmentgrößenschätzungen, exakten Zählungen und historischen Mitgliedschaftsdiagrammen finden Sie unter [Segmentgröße messen]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 ## Hier starten: Symptom zuordnen {#start-here-match-your-symptom}
 

@@ -5,7 +5,7 @@ page_order: 3
 layout: dev_guide
 
 guide_top_header: "Catálogos"
-guide_top_text: "Los catálogos acceden a datos de archivos CSV importados y puntos de conexión de API para enriquecer tus mensajes, de forma similar a como accederías a atributos personalizados o propiedades de eventos personalizados a través de Liquid."
+guide_top_text: "Los catálogos acceden a datos de archivos CSV importados y endpoints de API para enriquecer tus mensajes, de forma similar a como accederías a atributos personalizados o propiedades de eventos personalizados a través de Liquid."
 
 description: "Esta página de inicio alberga catálogos. Utiliza catálogos y conjuntos filtrados para aprovechar datos que no son de usuario en tus campañas de Braze y enviar mensajes personalizados."
 
@@ -29,7 +29,7 @@ guide_featured_list:
 
 guide_menu_title: "Otros artículos"
 guide_menu_list:
-- name: Puntos de conexión de la API de catálogos
+- name: Endpoints de la API de catálogos
   link: /docs/api/endpoints/catalogs
   image: /assets/img/braze_icons/server-01.svg
 - name: Bloques de producto de arrastrar y soltar
@@ -40,13 +40,13 @@ guide_menu_list:
 
 ## Casos de uso de catálogos {#catalog-use-cases}
 
-Puedes incorporar cualquier tipo de datos en un catálogo. Normalmente, los datos son metadatos sobre ofertas, como productos, descuentos, promociones, eventos y similares. Consulta los casos de uso a continuación para ver algunos ejemplos de cómo puedes utilizar estos datos para dirigirte a los usuarios con mensajería altamente relevante.
+Puedes incorporar cualquier tipo de datos en un catálogo. Normalmente, los datos son metadatos sobre ofertas, como productos, descuentos, promociones, eventos y similares. Consulta los casos de uso en la siguiente sección para ver algunos ejemplos de cómo puedes utilizar estos datos para dirigirte a los usuarios con mensajería altamente relevante.
 
 ### Comercio minorista y comercio electrónico {#retail-and-ecommerce}
 
 - **Promociones de temporada:** importa colecciones de productos de temporada y personaliza los mensajes para reflejar las tendencias actuales.
 - **Mensajes localizados:** importa las direcciones, horarios y servicios de tus ubicaciones físicas y, a continuación, personaliza las notificaciones en función de la ubicación de los usuarios.
-- **Notificaciones de reposición de existencias:** importa información de productos que incluya la cantidad de inventario y, a continuación, utiliza las [notificaciones de reposición de existencias]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) y los eventos personalizados de Braze para desencadenar una Campaign o Canvas que envíe a los usuarios una notificación de que un producto ya está disponible.
+- **Notificaciones de reposición de existencias:** importa información de productos que incluya la cantidad de inventario y, a continuación, utiliza las [notificaciones de reposición de existencias]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) y los eventos personalizados de Braze para desencadenar una campaña o Canvas que envíe a los usuarios una notificación de que un producto ya está disponible.
 - **Notificaciones de bajada de precio:** importa información de productos que incluya los precios y, a continuación, utiliza las [notificaciones de bajada de precio]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) y los eventos personalizados de Braze para desencadenar un Canvas que envíe a los usuarios una notificación de que el precio de un producto ha bajado.
 
 ### Entretenimiento {#entertainment}

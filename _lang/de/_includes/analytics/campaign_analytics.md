@@ -496,7 +496,7 @@ Ein Deferral bedeutet, dass eine E-Mail nicht sofort zugestellt werden konnte, B
 
 _Deferrals_ unterscheiden sich von _Soft Bounces_. Wenn während dieses Wiederholungszeitraums keine E-Mail erfolgreich zugestellt wurde, sendet Braze ein Soft-Bounce-Event pro versuchtem Kampagnenversand. Vor dem 25. Februar 2025 wurden diese Wiederholungsversuche als mehrere Soft Bounces für einen Kampagnenversand gezählt.
 
-Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-Features (wie Abfrage-Builder, SQL-Segmente, Snowflake-Datenfreigabe) verfügbar sind. Wenn Sie dies in Kampagnen- oder Canvas-Analytics einbeziehen möchten, [senden Sie uns bitte Produkt-Feedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-Features (wie Abfrage-Builder, SQL-Segmente, Snowflake-Datenfreigabe) verfügbar sind. {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Geschätzte reale Öffnungsrate {#estimated-real-open-rate}
 
@@ -867,7 +867,7 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
     </tbody>
 </table>
 
-#### Metriken zu Endnutzer:innen-Sperrung und -Meldung {#end-user-blocking-and-reporting-metrics}
+#### Metriken zu Sperrung und Meldung durch Endnutzer:innen {#end-user-blocking-and-reporting-metrics}
 
 Über das [Dashboard des WhatsApp Managers](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx) können Sie auf weitere Metriken zugreifen. Allerdings ist eine [Bestätigung Ihres Zugriffs](https://www.facebook.com/business/help/218116047387456) erforderlich, um alle verfügbaren Insights einzusehen.
 

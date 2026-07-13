@@ -27,10 +27,10 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 | Anforderung | Beschreibung |
 |-----------------------|-----------------|
-| Ein Fullstory Session API Autorisierungs-Token | Siehe [Schritt 1](#step-1) unten. |
-| Ein aktiviertes Braze Connected-Content-Autorisierungs-Token | Siehe den Hinweis unten zu Early Access. |
-| Ein Braze-Canvas-Kontext-Schritt | Siehe den Hinweis unten zu Early Access. |
-| Aktivierter Braze-KI-Agent-Schritt | Siehe den Hinweis unten zu Early Access. |
+| Ein Fullstory Session API Autorisierungs-Token | Siehe [Schritt 1](#step-1) in dieser Anleitung. |
+| Ein aktiviertes Braze Connected-Content-Autorisierungs-Token | Siehe den Hinweis zu Early Access in diesem Abschnitt. |
+| Ein Braze-Canvas-Kontext-Schritt | Siehe den Hinweis zu Early Access in diesem Abschnitt. |
+| Aktivierter Braze-KI-Agent-Schritt | Siehe den Hinweis zu Early Access in diesem Abschnitt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% alert important %}
@@ -39,13 +39,13 @@ Braze Agents, Canvas-Kontext und Connected-Content-Autorisierungs-Token befinden
 
 ## Fullstory integrieren {#integrate-fullstory}
 
-### 1. Schritt: Fullstory für die Aktivierung der Session Summary API einrichten {#step-1}
+### Schritt 1: Fullstory für die Aktivierung der Session Summary API einrichten {#step-1}
 
 #### Schritt 1.1: Authentifizierungs-Token für den Session Summary API-Endpunkt abrufen {#step-11-retrieve-the-authentication-token-for-the-session-summary-api-endpoint}
 
 So erstellen Sie einen [Fullstory API-Schlüssel](https://developer.fullstory.com/server/authentication/):
 
-1. Navigieren Sie in Fullstory zu **Einstellungen** > **API-Schlüssel**.
+1. Navigieren Sie in Fullstory zu **Settings** > **API Keys**.
 2. Wählen Sie die Berechtigungsstufe **Standard** aus.
 3. Kopieren Sie den Schlüsselwert sofort, da er nur einmal angezeigt wird.
 
@@ -55,9 +55,9 @@ Folgen Sie der [Anleitung von Fullstory](https://developer.fullstory.com/anywher
 
 In der Antwort auf diese Anfrage stellt Fullstory eine Session-Profil-ID bereit. Diese Profil-ID ist eine Schlüsselkomponente des Connected-Content-Anfragekörpers, der im folgenden Anwendungsfall verwendet wird.
 
-### 2. Schritt: Connected-Content-Token-Authentifizierung erstellen {#step-2-create-the-connected-content-token-authentication}
+### Schritt 2: Connected-Content-Token-Authentifizierung erstellen {#step-2-create-the-connected-content-token-authentication}
 
-1. Navigieren Sie in Braze zu **Einstellungen** > **Workspace-Einstellungen** > **Connected Content** > **Zugangsdaten hinzufügen** > **Token-Authentifizierung**.
+1. Navigieren Sie in Braze zu **Settings** > **Workspace Settings** > **Connected Content** > **Add Credential** > **Token Authentication**.
 2. Benennen Sie die Authentifizierung `fullstory`.
 3. Fügen Sie den Header-Schlüssel „Authorization“ hinzu. Geben Sie den Header-Wert ein, den Fullstory im vorherigen Schritt bereitgestellt hat.
 4. Geben Sie unter **Allowed Domain** den Wert **api.fullstory.com** ein.
@@ -68,7 +68,7 @@ In der Antwort auf diese Anfrage stellt Fullstory eine Session-Profil-ID bereit.
 
 ### Dynamische Nachrichten-Journeys erstellen {#create-dynamic-message-journeys}
 
-Mit den [Activation Streams](https://help.fullstory.com/hc/en-us/articles/360045134554-Streams) von Fullstory können Sie Braze-Canvases unmittelbar nach wichtigen Nutzer:innen-Interaktionen triggern. Die Stärke dieser Integration liegt in der eindeutigen `client_session_id` (zugänglich über {% raw %}`{{canvas_entry_properties.${client_session_id}}}`{% endraw %}), die das System automatisch von Fullstory an Braze weitergibt. Diese ID dient als Schlüssel, der es Braze ermöglicht, die vollständige Session Summary dessen abzurufen, was Nutzer:innen erlebt haben.
+Mit den [Activation Streams](https://help.fullstory.com/hc/en-us/articles/360045134554-Streams) von Fullstory können Sie Braze-Canvases unmittelbar nach wichtigen Interaktionen von Nutzer:innen triggern. Die Stärke dieser Integration liegt in der eindeutigen `client_session_id` (zugänglich über {% raw %}`{{canvas_entry_properties.${client_session_id}}}`{% endraw %}), die das System automatisch von Fullstory an Braze weitergibt. Diese ID dient als Schlüssel, der es Braze ermöglicht, die vollständige Session Summary dessen abzurufen, was Nutzer:innen erlebt haben.
 
 Indem Sie Canvas-Kontext-Schritte und Connected-Content nutzen, können Sie diese ID verwenden, um eine API-Anfrage an Fullstory zu stellen, die Sitzungsdaten abzurufen und sie als Variable für die spätere Verwendung in der Journey zu speichern.
 
@@ -151,7 +151,7 @@ In diesem Stadium kann der Canvas auf die Antwort des Connected-Content-Aufrufs 
 {% endraw %}
 {% enddetails %}
 
-Sie können alle im obigen Objekt verfügbaren Daten nutzen, indem Sie den Context-Liquid-Tag später in der Canvas-Journey von Nutzer:innen verwenden. Die folgenden Schritte zeigen, wie Sie diese Daten in einem [Agent]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step/)-Schritt verwenden können.
+Sie können alle im obigen Objekt verfügbaren Daten nutzen, indem Sie den Context-Liquid-Tag später in der Canvas-Journey von Nutzer:innen verwenden. Die folgenden Schritte zeigen, wie Sie diese Daten in einem [Agent]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step)-Schritt verwenden können.
 
 {% alert note %}
 Um unerwartetes Verhalten zu vermeiden, fügen Sie nach dem Kontext-Schritt einen Zielgruppenpfad-Schritt ein, der Nutzer:innen aus dem Kontext herausnehmen kann, wenn ihr Context-Tag leer ist – was bedeutet, dass der Connected-Content-Aufruf fehlgeschlagen ist oder keine Informationen zurückgegeben hat.
@@ -162,7 +162,7 @@ Um unerwartetes Verhalten zu vermeiden, fügen Sie nach dem Kontext-Schritt eine
 
 ### Passende Texte erstellen {#produce-appropriate-copy}
 
-Indem Sie einen [Agent-Schritt]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/) in einem von Fullstory getriggerten Canvas erstellen und den oben beschriebenen Kontext-Schritt einbinden, können Sie die Session-Summary-Daten von Fullstory im Agenten referenzieren.
+Indem Sie einen [Agent-Schritt]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) in einem von Fullstory getriggerten Canvas erstellen und den in diesem Abschnitt beschriebenen Kontext-Schritt einbinden, können Sie die Session-Summary-Daten von Fullstory im Agenten referenzieren.
 
 In diesem Beispiel verwenden Sie diese Daten, um dem Braze-Agenten die Möglichkeit zu geben, passende Nachrichtentexte für eine Content-Card zu generieren, die Nutzer:innen dazu ermutigen kann, zu ihrem abgebrochenen Warenkorb zurückzukehren.
 
@@ -170,7 +170,7 @@ In diesem Beispiel verwenden Sie diese Daten, um dem Braze-Agenten die Möglichk
 
 Verwenden Sie für den in diesem Schritt erstellten Context-Liquid-Tag denselben Namen wie für den Context-Liquid-Tag, der im zuvor erstellten KI-Agent-Schritt verwendet wurde.
 
-Die für Ihren Anwendungsfall erforderliche Eingabeaufforderung variiert. Best Practices für die Erstellung effektiver Agent-Eingabeaufforderungen finden Sie unter [Anweisungen schreiben]({{site.baseurl}}/user_guide/brazeai/agents/reference/#writing-instructions).
+Die für Ihren Anwendungsfall erforderliche Eingabeaufforderung variiert. Best Practices für die Erstellung effektiver Agent-Eingabeaufforderungen finden Sie unter [Anweisungen schreiben]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions).
 
 Wählen Sie in Ihrem Canvas einen KI-Agent-Schritt und dann den **Session Context**-Agenten aus dem Dropdown-Menü aus. Speichern Sie die Ausgabe als Variable – in diesem Fall „message“ –, die Sie mit dem Liquid-Tag {% raw %}`{{context.${message}.message}}`{% endraw %} in den Nachrichtentext einfügen können.
 

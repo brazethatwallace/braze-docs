@@ -496,7 +496,7 @@ Braze는 열람 추적 픽셀이 로드될 때 이메일 열람을 기록합니�
 
 _연기_는 _소프트바운스_와 다릅니다. 이 재시도 기간 동안 이메일이 성공적으로 전달되지 않으면, Braze는 시도된 캠페인 발송당 하나의 소프트바운스 이벤트를 전송합니다. 2025년 2월 25일 이전에는 이러한 재시도가 1개의 캠페인 발송에 대해 여러 번의 소프트바운스로 카운트되었습니다.
 
-_연기_는 현재 Currents 또는 Braze Snowflake 기능(예: 쿼리 빌더, SQL Segment, Snowflake 데이터 공유)을 통해서만 확인할 수 있습니다. 캠페인 또는 Canvas 분석에 포함하고 싶으시다면 [제품 피드백을 제출]({{site.baseurl}}/user_guide/administrative/access_braze/portal)해 주세요.
+_연기_는 현재 Currents 또는 Braze Snowflake 기능(예: 쿼리 빌더, SQL Segment, Snowflake 데이터 공유)을 통해서만 확인할 수 있습니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### 추정 실제 열람율 {#estimated-real-open-rate}
 

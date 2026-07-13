@@ -84,7 +84,7 @@ Este estado de conexión significa que Braze reconoce tu perfil de usuario a tra
 
 ### Tipo de conexión {#connection-type}
 
-Para saber qué tipo de conexión tienes, revisa el indicador de estado de conexión en la esquina superior derecha de la aplicación Pilot.
+Para saber qué tipo de conexión tienes, revisa el indicador de estado de conexión en la parte superior de la aplicación Pilot.
 
 {% tabs local %}
 {% tab Anonymous user  %}

@@ -45,7 +45,7 @@ Operator peut fournir des instructions étape par étape, des liens vers la docu
 
 Considérez Operator comme une conversation, et non comme un moteur de recherche. Les requêtes courtes et naturelles sont les plus efficaces.
 
-- **Soyez précis :** Au lieu de « Parlez-moi de Canvas », essayez plutôt « Comment utiliser les Parcours d'actions dans Canvas ? ».
+- **Soyez précis :** Au lieu de « Parlez-moi de Canvas », essayez plutôt « Comment utiliser les parcours d'action dans Canvas ? ».
 - **Posez des questions complémentaires :** Si la première réponse ne correspond pas à votre besoin, demandez des précisions ou des informations supplémentaires.
 - **Exploitez le contexte de page :** Operator identifie la page sur laquelle vous vous trouvez dans Braze. Ouvrez Operator en consultant la page concernée pour obtenir les résultats les plus pertinents.
 
@@ -53,7 +53,7 @@ Considérez Operator comme une conversation, et non comme un moteur de recherche
 
 ### Appliquer les directives de marque {#apply-brand-guidelines}
 
-Ajoutez les directives de marque comme contexte à vos requêtes Operator afin que les réponses correspondent au ton, au style et à la personnalité de votre marque. Operator utilise les directives de marque configurées dans votre espace de travail, ce qui contribue à garantir la cohérence de l'envoi de messages lorsqu'il suggère des textes ou explique des fonctionnalités.
+Ajoutez les directives de marque comme contexte à vos requêtes Operator afin que les réponses correspondent au ton, au style et à la personnalité de votre marque. Operator utilise les directives de marque configurées dans votre espace de travail, ce qui contribue à garantir la cohérence de la communication lorsqu'il suggère des textes ou explique des fonctionnalités.
 
 Pour configurer les directives de marque, rendez-vous dans **Paramètres** > **Directives de marque**. Pour en savoir plus, consultez [Directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines).
 
@@ -132,7 +132,7 @@ Au bas de chaque réponse, utilisez les boutons « pouce vers le haut » ou « p
 
 ## Confidentialité et sécurité des données {#data-privacy-and-security}
 
-BrazeAI Operator<sup>TM</sup> s'intègre à OpenAI, qui agit en tant que sous-traitant de Braze, sous réserve des conditions de l'Addendum relatif au traitement des données (DPA) conclu entre vous et Braze. Les données transmises à OpenAI via Braze ne sont pas utilisées pour entraîner ou améliorer les modèles d'OpenAI. Pour en savoir plus sur la conformité HIPAA, la conservation des données, le traitement des données personnelles et la gouvernance, consultez [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
+BrazeAI Operator<sup>TM</sup> s'intègre à OpenAI, qui agit en tant que sous-traitant de Braze, sous réserve des conditions de l'Addendum relatif au traitement des données (DPA) conclu entre vous et Braze. Les données transmises à OpenAI via Braze ne sont pas utilisées pour entraîner ou améliorer les modèles d'OpenAI. Pour en savoir plus sur la conformité HIPAA, la conservation des données, le traitement des données d'identification et la gouvernance, consultez [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Étapes suivantes {#next-steps}
 
@@ -140,4 +140,4 @@ BrazeAI Operator<sup>TM</sup> s'intègre à OpenAI, qui agit en tant que sous-tr
 - [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) : Découvrez comment examiner et approuver les modifications proposées par Operator
 - [Créer des tickets d'assistance]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets) : Créez des tickets d'assistance directement depuis Operator
 - [Résolution des problèmes]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting) : Consultez les problèmes courants et leurs solutions
-- [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security) : Consultez les informations sur la conformité HIPAA, la conservation des données et les recommandations de minimisation des données personnelles
+- [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security) : Consultez les informations sur la conformité HIPAA, la conservation des données et les recommandations de minimisation des données d'identification

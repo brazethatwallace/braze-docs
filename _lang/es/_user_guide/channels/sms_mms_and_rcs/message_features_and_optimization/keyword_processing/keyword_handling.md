@@ -90,7 +90,7 @@ Selecciona **Add a Language** y elige tu idioma de destino o busca un idioma en 
 Los idiomas distintos del inglés no incluyen palabras clave ni respuestas preconfiguradas, por lo que los remitentes deberán trabajar con sus equipos de marketing y legal para añadir las palabras clave necesarias a este conjunto. De lo contrario, Braze no gestionará los mensajes entrantes localizados para esos idiomas.
 {% endalert %}
 
-Si necesitas eliminar un idioma, selecciona el botón **Delete Language** en la parte inferior derecha.
+Si necesitas eliminar un idioma, selecciona el botón **Delete Language** en la parte inferior de la página.
 
 ![Página de palabras clave globales con la pestaña "Italian" seleccionada. Existen pestañas adicionales para cada idioma añadido.]({% image_buster /assets/img/sms/multi-language2.png %})
 
@@ -120,11 +120,11 @@ Si tienes un caso de uso en el que deseas limitar cuándo un cliente puede envia
 
 Este activador admite el filtrado del mensaje de entrada específico mediante comparaciones de es o no es del mensaje, así como reglas de coincide o no coincide con regex para validar la entrada del usuario.
 
-#### Canvas
+#### Canvas {#canvas}
 
-![Paso de Canvas basado en acciones con el activador Enviar SMS de entrada al grupo de suscripción "Messaging Service" dentro de la categoría de palabras clave "Other" donde el cuerpo del mensaje coincide con la expresión regular "símbolo de intercalación skip."]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
+![Paso en Canvas basado en acciones con el activador Enviar SMS de entrada al grupo de suscripción "Messaging Service" dentro de la categoría de palabras clave "Other" donde el cuerpo del mensaje coincide con la expresión regular "símbolo de intercalación skip."]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
 
-#### Campaign
+#### Campaign {#campaign}
 
 ![Campaign basada en acciones con el activador Enviar SMS de entrada al grupo de suscripción "Marketing Message Service A" dentro de la categoría de palabras clave "Other" donde el cuerpo del mensaje es "Keyword1" o es "Keyword2" o no es "Keyword A".]({% image_buster /assets/img/sms/campaign_trigger.png %}){: style="max-width:90%;"}
 

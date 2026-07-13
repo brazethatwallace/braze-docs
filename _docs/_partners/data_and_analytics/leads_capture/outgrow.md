@@ -77,7 +77,7 @@ With the integration, you can create Braze segments based on custom attributes p
 
 1. In Braze, go to **Engagement** > **Segments** and select **Create New Segment**.
 2. Name your segment and set filters based on Outgrow data. For example:
-   - Filter by `outgrow_quiz_score` to target users who scored above a certain threshold.
+   - Filter by `outgrow_quiz_score` to target users whose score is greater than a specific threshold.
    - Filter by `outgrow_custom_segment` to target users who belong to a particular Outgrow-defined segment.
 3. Save your segment for use in campaigns and Canvases.
 

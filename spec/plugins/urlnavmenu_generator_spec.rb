@@ -1,28 +1,19 @@
 require 'cgi'
+require 'liquid'
 
-# Stub Jekyll and Liquid so the plugin loads without a full Jekyll environment
-module Jekyll
-  class Document
-    attr_reader :url, :id, :data
-    def initialize(url, id, data = {})
-      @url  = url
-      @id   = id
-      @data = data
+# Stub Jekyll Document so plugin code can type-check menu pages
+unless defined?(Jekyll::Document)
+  module Jekyll
+    class Document
+      attr_reader :url, :id, :data
+      def initialize(url, id, data = {})
+        @url  = url
+        @id   = id
+        @data = data
+      end
+      def [](key) = @data[key]
+      def respond_to?(method, *) = method == :id ? true : super
     end
-    def [](key) = @data[key]
-    def respond_to?(method, *) = method == :id ? true : super
-  end
-end
-
-module Liquid
-  class Tag
-    def initialize(tag_name, markup, tokens); end
-  end
-
-  module Template
-    def self.register_tag(name, klass); end
-    def self.parse(str) = self
-    def self.render(ctx) = str
   end
 end
 

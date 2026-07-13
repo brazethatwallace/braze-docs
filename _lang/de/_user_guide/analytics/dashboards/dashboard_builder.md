@@ -37,7 +37,7 @@ Nachdem ein Berichts-Builder-Bericht zu einer Dashboard-Builder-Kachel hinzugef�
 
 {: start="5"}
 5. Wählen Sie das Stiftsymbol, um zu ändern, wie der Titel und der Chart-Typ in der Kachel angezeigt werden.
-    - Sie können zwischen verschiedenen Chart-Typen unterhalb der Standardvisualisierung umschalten. Die aktuellen Optionen umfassen Balkendiagramme (horizontal oder vertikal) und Liniendiagramme (nur verfügbar, wenn Sie **Date** als Drilldown-Option im Berichts-Builder-Setup ausgewählt haben).<br><br>![Umschalter für verschiedene Chart-Typen.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
+    - Sie können zwischen verschiedenen Chart-Typen in den Chart-Typ-Steuerelementen umschalten. Die aktuellen Optionen umfassen Balkendiagramme (horizontal oder vertikal) und Liniendiagramme (nur verfügbar, wenn Sie **Date** als Drilldown-Option im Berichts-Builder-Setup ausgewählt haben).<br><br>![Umschalter für verschiedene Chart-Typen.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
     - Verwenden Sie das Metriken-Dropdown, um auszuwählen, welche Metriken in Ihrer Visualisierung enthalten sein sollen. Standardmäßig wird die erste Spalte im Bericht als angezeigte Metrik verwendet.
 6. Wählen Sie **Save**, nachdem Sie die Visualisierung nach Ihren Wünschen angepasst haben.
 7. Fügen Sie einen Namen, eine Beschreibung und einen Tag hinzu, damit Ihr Dashboard später leichter zu finden ist.
@@ -46,7 +46,7 @@ Nachdem ein Berichts-Builder-Bericht zu einer Dashboard-Builder-Kachel hinzugef�
 {: start="4"}
 4. Wählen Sie **+ Add Tile** und dann eine Abfrage, die Sie im Abfrage-Builder ausgeführt haben.
 5. Um zu bearbeiten, wie die Abfrageergebnisse in der Kachel angezeigt werden, wählen Sie das Stiftsymbol, um den Titel und den Chart-Typ zu ändern.
-    - Sie können zwischen verschiedenen Chart-Typen unterhalb der Standardvisualisierung umschalten. Aktuelle Optionen umfassen Tabellen, Balkendiagramme (horizontal oder vertikal) und Liniendiagramme.<br><br>![Umschalter für verschiedene Chart-Typen.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
+    - Sie können zwischen verschiedenen Chart-Typen in den Chart-Typ-Steuerelementen umschalten. Aktuelle Optionen umfassen Tabellen, Balkendiagramme (horizontal oder vertikal) und Liniendiagramme.<br><br>![Umschalter für verschiedene Chart-Typen.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
         - Wenn Sie eine der Chart-Optionen wählen, verwenden Sie das **X-axis**-Dropdown, um eine einzelne Spalte aus Ihren Abfrageergebnissen als X-Achse auszuwählen.
         - Verwenden Sie das **Y-axis**-Dropdown, um auszuwählen, welche Metriken in Ihrer Visualisierung enthalten sein sollen. Standardmäßig werden alle Spalten aus Ihren Abfrageergebnissen angezeigt. Deaktivieren Sie daher die Spalten, die Sie nicht anzeigen möchten.<br><br>![Umschalter für verschiedene Chart-Typen.]({% image_buster /assets/img/query_builder_axis.png %})<br><br>
         - (Optional) Sie können das **Grouping**-Dropdown verwenden, um Ihre Abfrageergebnisse zu gruppieren. Wenn Sie beispielsweise eine Campaign-ID als Spaltenergebnis haben und alle Zeilen mit diesem Wert zusammenfassen möchten, verwenden Sie das **Grouping**-Dropdown.
@@ -78,7 +78,7 @@ Erstellen Sie eine Kopie Ihrer Kachel, indem Sie **Duplicate Tile** am unteren R
 
 ### Kachelgröße und -position anpassen {#adjust-tile-size-and-position}
 
-Passen Sie die Kachelgröße an, indem Sie die untere rechte Ecke der Kachel ziehen, und passen Sie die Kachelposition auf dem Dashboard an, indem Sie den Griff in der oberen rechten Ecke der Kachel ziehen.
+Passen Sie die Kachelgröße an, indem Sie den Größenänderungsgriff ziehen, und passen Sie die Kachelposition auf dem Dashboard an, indem Sie den Kachelgriff ziehen.
 
 ## Ein Dashboard ausführen {#running-a-dashboard}
 
@@ -127,7 +127,7 @@ Berührungen umfassen _E-Mail-Klick_ (Link-Klick), _Content-Card-Klick_, _In-App
 
 | Metrik | Definition |
 |---|---|
-| Wöchentliche E-Mail-Metriken (Raten) | E-Mail-Engagement-Raten (Zustellungs-, Bounce-, Öffnungs-, Klick-, Abmeldungsraten), gruppiert nach Segment und als wöchentliche Zeitreihe dargestellt. |
+| Wöchentliche E-Mail-Metriken (Raten) | E-Mail-Engagement-Raten (Zustellungs-, Bounce-, Öffnungs-, Klick-, Abmelderaten), gruppiert nach Segment und als wöchentliche Zeitreihe dargestellt. |
 | Wöchentliche E-Mail-Metriken (Anzahl) | E-Mail-Engagement-Zahlen (Versand, Zustellungen, Bounces, Öffnungen, Klicks, Abmeldungen), gruppiert nach Segment und als wöchentliche Zeitreihe dargestellt. |
 | Wöchentliche Kauf-Metriken (Raten) | Kauf-Konversionsraten (Umsatz pro Empfänger:in) aus E-Mail-Öffnungen und -Klicks, gruppiert nach Segment und als wöchentliche Zeitreihe dargestellt. |
 | Wöchentliche Kauf-Metriken (Anzahl) | Kaufanzahlen und Umsatzsummen aus E-Mail-Öffnungen und -Klicks, gruppiert nach Segment und als wöchentliche Zeitreihe dargestellt. |
@@ -156,4 +156,4 @@ Berührungen umfassen _E-Mail-Klick_ (Link-Klick), _Content-Card-Klick_, _In-App
 
 ## Teilen Sie uns Ihr Feedback mit {#share-your-feedback-with-us}
 
-Wählen Sie den Button **Feedback senden** oder kontaktieren Sie Ihren Customer-Success-Manager, um uns Ihr Feedback mitzuteilen.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="Dashboard Builder" %}

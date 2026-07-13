@@ -57,7 +57,7 @@ Yes. The destination Canvas can have a draft or idle status.
 
 ### Are context variables preserved?
 
-Yes. The [context]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) of the source Canvas is always passed to the destination Canvas.
+Yes. The [context]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) of the source Canvas is passed to the destination Canvas. However, context variables must be invoked within the source Canvas to be passed to the destination Canvas.
 
 ### Can I use the Send to Destination step to connect Canvases instead of using API or User Update workarounds?
 

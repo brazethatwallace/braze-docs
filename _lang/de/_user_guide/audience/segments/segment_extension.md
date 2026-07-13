@@ -27,7 +27,7 @@ Es gibt ein Standardkontingent von 25 aktiven Segmenterweiterungen pro Workspace
 
 Um eine Segmenterweiterung zu erstellen, erstellen Sie einen Filter, um ein Segment Ihrer Nutzer:innen basierend auf angepassten Event-Eigenschaften zu verfeinern. Beim Erstellen einer Segmenterweiterung wählen Sie, ob das Segment statisch sein oder in einem festgelegten Intervall dynamisch aktualisiert werden soll.
 
-### 1. Schritt: Zu Segmenterweiterungen navigieren {#step-1-navigate-to-segment-extensions}
+### Schritt 1: Zu Segmenterweiterungen navigieren {#step-1-navigate-to-segment-extensions}
 
 Gehen Sie zu **Audience** > **Segment Extensions**.
 
@@ -51,13 +51,13 @@ Die folgenden Segmenterweiterungstypen verbrauchen SQL-Credits:
 - CDI-Segmente
     - Credits werden in Ihrem eigenen Data Warehouse verbraucht
 
-### 2. Schritt: Ihre Segmenterweiterung benennen {#step-2-name-your-segment-extension}
+### Schritt 2: Ihre Segmenterweiterung benennen {#step-2-name-your-segment-extension}
 
 Benennen Sie Ihre Segmenterweiterung, indem Sie die Art der Nutzer:innen beschreiben, die Sie filtern möchten. So stellen Sie sicher, dass diese Erweiterung leicht und korrekt gefunden werden kann, wenn Sie sie als Filter in Ihrem Segment anwenden.
 
 ![Segmenterweiterung mit dem Namen „Online Shoppers Extension - 90 Days“.]({% image_buster /assets/img/segment/segment_extension2.png %})
 
-### 3. Schritt: Ihre Kriterien auswählen {#step-3-choose-your-criteria}
+### Schritt 3: Ihre Kriterien auswählen {#step-3-choose-your-criteria}
 
 Wählen Sie zwischen Kauf-, Nachrichten-Engagement-, empfohlenen E-Commerce-Event- oder angepassten Event-Kriterien für das Targeting. Nachdem Sie die gewünschten Event-Typ-Kriterien ausgewählt haben, wählen Sie, welchen gekauften Artikel, welche Nachrichteninteraktion, welches empfohlene E-Commerce-Event oder welches angepasste Event Sie für Ihre Nutzer:innen-Liste ansprechen möchten. Wählen Sie dann, wie oft (mehr als, weniger als oder gleich) die Nutzer:innen das Event abgeschlossen haben müssen, und den Zeitraum – speziell für Segmenterweiterungen können Sie bis zu 730 Tage (2 Jahre) zurückblicken.
 
@@ -97,11 +97,11 @@ Segmenterweiterungen basieren auf der Langzeitspeicherung von Event-Eigenschafte
 Sie benötigen keine Segmenterweiterungen, um Event-Eigenschaften oder verschachtelte angepasste Attribute in Ihrem Segment zu verwenden. Segmenterweiterungen erweitern lediglich das historische Fenster, das zur Erstellung eines Standard-Segments verwendet wird. Sie können ein Realtime-Standard-[Segment]({{site.baseurl}}/user_guide/audience/segments) erstellen, das Event-Eigenschaften der letzten 30 Tage oder verschachtelte angepasste Attribute verwendet. Ebenso können Sie [Ihre Nachricht planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery), um in Realtime basierend auf einer Event-Eigenschaft ausgelöst zu werden – keine Segmenterweiterung erforderlich.
 {% endalert %}
 
-### 4. Schritt: Aktualisierungseinstellungen festlegen (optional) {#step-4-designate-refresh-settings-optional}
+### Schritt 4: Aktualisierungseinstellungen festlegen (optional) {#step-4-designate-refresh-settings-optional}
 
 {% multi_lang_include audience/segments.md section='Refresh settings' %}
 
-### 5. Schritt: Ihre Segmenterweiterung speichern {#step-5-save-your-segment-extension}
+### Schritt 5: Ihre Segmenterweiterung speichern {#step-5-save-your-segment-extension}
 
 Nachdem Sie **Save** ausgewählt haben, beginnt Ihre Segmenterweiterung mit der Verarbeitung. Die Dauer der Generierung Ihrer Segmenterweiterung hängt davon ab, wie viele Nutzer:innen Sie haben, wie viele angepasste Events oder Kauf-Events Sie erfassen und wie viele Tage Sie in der Historie zurückblicken.
 
@@ -111,7 +111,7 @@ Während Ihre Segmenterweiterung verarbeitet wird, sehen Sie eine kleine Animati
 
 Wenn eine Segmenterweiterung verarbeitet wird, verwendet Braze weiterhin die Versionshistorie des Standard-Segments von vor Beginn der Verarbeitung für Zielgruppen-Segmentierungszwecke. Die Verarbeitung findet jedes Mal statt, wenn ein Speichern oder Aktualisieren erfolgt, und umfasst das Abfragen und Aktualisieren von Nutzerprofilen – mit anderen Worten, die Mitgliedschaft Ihres Standard-Segments wird nicht sofort aktualisiert. Das bedeutet, dass wir nicht garantieren können, dass Nutzer:innen in die Segmenterweiterung aufgenommen werden, wenn ihre Aktion nicht vor Beginn der Aktualisierungsverarbeitung durchgeführt wurde. Umgekehrt werden Nutzer:innen, die vor der Aktualisierung in der Segmenterweiterung waren und die Kriterien nicht mehr erfüllen, weiterhin Ihrem Standard-Segment zugeordnet, bis der Aktualisierungsprozess abgeschlossen ist und die Änderungen angewendet werden.
 
-### 6. Schritt: Ihre Erweiterung in einem Segment verwenden {#step-6-use-your-extension-in-a-segment}
+### Schritt 6: Ihre Erweiterung in einem Segment verwenden {#step-6-use-your-extension-in-a-segment}
 
 Nachdem Sie eine Segmenterweiterung erstellt haben, können Sie sie als Filter verwenden, wenn Sie ein Segment erstellen oder eine Zielgruppe für eine Campaign oder ein Canvas definieren. Wählen Sie zunächst **Braze Segment Extension** aus der Filterliste im Abschnitt **User Attributes**.
 

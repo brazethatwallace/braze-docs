@@ -39,6 +39,63 @@ Currentsは、ペイロードが900 KBを超えるイベントをドロップし
 
 <!--overview-end-->
 
+
+{% api %}
+## ユーザー削除リクエストイベント {#user-delete-request-events}
+
+{% apitags %}
+User Delete Request
+{% endapitags %}
+
+顧客のリクエストによりユーザーが削除された場合に発生します。
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.UserDeleteRequest
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "id" : "(required, string) Globally unique ID for this event",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
+{% api %}
+## ユーザーオーファンイベント {#user-orphan-events}
+
+{% apitags %}
+User Orphan
+{% endapitags %}
+
+ユーザーがオーファン化された場合、つまりユーザーが別のユーザーのプロファイルにマージされた場合に発生します。
+
+{% tabs %}
+{% tab Cloud Storage %}
+```json
+// users.UserOrphan
+
+{
+  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
+  "app_id" : "(optional, string) API ID of the app on which this event occurred",
+  "device_id" : "(optional, string) ID of the device on which the event occurred",
+  "external_user_id" : "(optional, string) [PII] External ID of the user",
+  "id" : "(required, string) Globally unique ID for this event",
+  "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile",
+  "time" : "(required, int) UNIX timestamp at which the event happened",
+  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
+}
+```
+{% endtab %}
+{% endtabs %}
+
+{% endapi %}
+
 {% api %}
 ## ユーザープロファイル更新イベント {#user-profile-update-events}
 
@@ -59,7 +116,7 @@ Profile
   "archived" : "(optional, boolean) When set to True, indicates that this user was archived within Braze",
   "country" : "(optional, string) [PII] Country of the user",
   "custom_attributes" : "(optional, string) Valid JSON string of the updated custom attributes",
-  "dob" : "(optional, string) [PII] Date of birth of the user in format \"YYYY-MM-DD\"",
+  "dob" : "(optional, string) [PII] Date of birth of the user in ISO-8601 format",
   "email_address" : "(optional, string) [PII] Email address of the user",
   "external_user_id" : "(optional, string) [PII] External ID of the user",
   "first_name" : "(optional, string) [PII] First name of the user",

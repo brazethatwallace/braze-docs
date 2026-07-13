@@ -84,7 +84,7 @@ Dieser Verbindungsstatus bedeutet, dass Braze Ihr Nutzerprofil anhand eines Ihne
 
 ### Verbindungstyp {#connection-type}
 
-Um zu überprüfen, welche Art von Verbindung Sie haben, sehen Sie oben rechts in der Pilot-App den Verbindungsstatus.
+Um zu überprüfen, welche Art von Verbindung Sie haben, sehen Sie oben in der Pilot-App den Verbindungsstatus.
 
 {% tabs local %}
 {% tab Anonyme:r Nutzer:in  %}
@@ -109,7 +109,7 @@ Wenn Sie Daten als identifizierte:r Nutzer:in protokollieren, zeigt der Statusbe
 Mit Campaigns und Canvases senden Sie Nachrichten an Ihre Nutzer:innen.
 
 - Campaigns eignen sich am besten für einzelne Nachrichten, die über verschiedene Kanäle an ein bestimmtes Zielgruppensegment gesendet werden.
-- Canvases sind fortgeschrittene Campaign-Workflows, mit denen Sie personalisierte Customer Journeys über mehrere Kanäle hinweg automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases tragen dazu bei, eine konsistente und nahtlose Kommunikation über verschiedene Kontaktpunkte hinweg sicherzustellen und so die Chancen für Customer-Engagement und Conversion zu erhöhen.
+- Canvases sind fortgeschrittene Campaign-Workflows, mit denen Sie personalisierte Customer Journeys über mehrere Kanäle hinweg automatisieren und orchestrieren können. Innerhalb eines Canvas können Sie Verzweigungslogiken, Verzögerungen, Entscheidungspunkte und Konversions-Events einrichten, um Kund:innen durch eine Reihe von Interaktionen zu führen. Canvases tragen dazu bei, eine konsistente und nahtlose Kommunikation über verschiedene Kontaktpunkte hinweg sicherzustellen und so die Chancen für Customer-Engagement und Konversion zu erhöhen.
 
 ## Unterstützte Messaging-Kanäle {#supported-messaging-channels}
 

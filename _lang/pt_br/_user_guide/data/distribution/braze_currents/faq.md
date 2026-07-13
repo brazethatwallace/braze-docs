@@ -15,13 +15,13 @@ tool: Currents
 
 Para obter métricas de Campaign ou Canvas em um intervalo de datas definido, use uma das seguintes abordagens:
 
-- Envie uma [solicitação de produto](https://portal.braze.com/) para exportações alinhadas por data quando precisar de relatórios no estilo do dashboard fora das janelas padrão da API.
+- {% multi_lang_include product_feedback_cta.md context="gap" feature="date-aligned campaign or Canvas exports for dashboard-style reporting outside standard API windows" %}
 - Chame os endpoints de [análise de dados de Campaign]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) ou [análise de dados de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) com os parâmetros `ending_at` e `length` (ou use [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) e [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)) para dados de séries temporais.
 - Transmita eventos para o seu data warehouse com o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) quando precisar de dados contínuos e consultáveis de engajamento com mensagem no Amazon S3, Azure Blob Storage ou outro destino compatível.
 
 ## Como edito uma integração ativa do Currents? {#how-do-i-edit-a-live-currents-integration}
 
-Para alterar um conector ativo do Currents, abra a integração e clique em **Editar** no canto inferior esquerdo da página. Sem o botão **Editar**, a interface da integração permanece somente leitura e você não consegue modificar as configurações do conector apenas pelos ícones.
+Para alterar um conector ativo do Currents, abra a integração e selecione **Editar**. Sem o botão **Editar**, a interface da integração permanece somente leitura e você não consegue modificar as configurações do conector apenas pelos ícones.
 
 ## Como a Braze lida com arquivos Avro do Azure Blob Storage após o upload? {#how-does-braze-handle-azure-blob-storage-avro-files-after-upload}
 
@@ -95,7 +95,7 @@ A Braze não preenche retroativamente eventos no Currents. No entanto, eventos p
 
 ## Quais identificadores de usuário estão incluídos nos eventos do Currents? {#what-user-identifiers-are-included-in-currents-events}
 
-Os eventos de engajamento com mensagem (envios, aberturas, cliques etc.) incluem o ID de usuário da Braze (`user_id`) e, quando presente no perfil, o identificador externo (`external_user_id` nas cargas úteis de evento, rotulado como `external_id` na tabela de mapeamento do esquema Braze). Alguns eventos de engajamento com mensagem de e-mail também incluem `email_address`. Atributos personalizados não são incluídos — veja abaixo.
+Os eventos de engajamento com mensagem (envios, aberturas, cliques etc.) incluem o ID de usuário da Braze (`user_id`) e, quando presente no perfil, o identificador externo (`external_user_id` nas cargas úteis de evento, rotulado como `external_id` na tabela de mapeamento do esquema Braze). Alguns eventos de engajamento com mensagem de e-mail também incluem `email_address`. Atributos personalizados não são incluídos.
 
 Se você estiver roteando dados do Currents para um data warehouse ou CRM e precisar fazer join com dados de perfil, realize esse join no seu sistema downstream usando `user_id` ou `external_user_id`.
 
@@ -109,7 +109,7 @@ Não. O Currents não inclui tags de Campaign ou Canvas, nem pares chave-valor n
 
 ## Como a Braze notifica os clientes sobre mudanças no Currents? {#how-does-braze-notify-customers-of-changes-to-currents}
 
-Quando ocorrem mudanças no Currents (como novos campos de evento ou tipos de evento), a Braze envia um e-mail para todos os clientes com integrações ativas do Currents que usaram o dashboard nos últimos 30 dias. Você também pode consultar o [changelog do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) para ver as últimas alterações.
+Na rara circunstância em que ocorrem mudanças incompatíveis, a Braze envia um e-mail antecipado para o contato de qualquer integração ativa e para todos os administradores com integrações ativas do Currents que usaram o dashboard nos últimos 30 dias. Para mudanças não incompatíveis, como novos eventos ou novos campos em um evento existente, a Braze não envia notificação. Você pode consultar o [changelog do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) para ver as últimas alterações.
 
 ## Quanto armazenamento eu preciso para os dados do Currents? {#how-much-storage-do-i-need-for-currents-data}
 

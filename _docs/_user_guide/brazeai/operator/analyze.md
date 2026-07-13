@@ -39,7 +39,7 @@ Describe what you want to know. No fixed phrasing is required. Select a tab for 
 {% tab Benchmark comparisons %}
 
 * "How does our email *Open Rate* compare to industry benchmarks for the last 30 days?"
-* "Are we above or below the benchmark for SMS *Click-Through Rate* this quarter?"
+* "Are we higher or lower than the benchmark for SMS *Click-Through Rate* this quarter?"
 * "Where are we underperforming the industry across our channel mix?"
 
 {% endtab %}

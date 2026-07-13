@@ -21,7 +21,7 @@ _この統合はFriendbuyによって管理されています。_
 | 前提条件 | 説明 |
 |-----------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Friendbuyアカウント | このパートナーシップを活用するには、[Friendbuyアカウント](https://retailer.friendbuy.io/)が必要です。 |
-| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。これは、Brazeダッシュボードの**Settings** > **API Keys**から作成できます。 |
+| Braze REST APIキー | `users.track` 権限を持つBraze REST APIキー。これは、Brazeダッシュボードの**設定** > **API キー**から作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。これはBrazeインスタンスのURLに応じて異なります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 

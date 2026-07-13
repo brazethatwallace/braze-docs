@@ -3,7 +3,7 @@
 > As Feature Flags permitem ativar ou desativar remotamente a funcionalidade para uma seleção específica ou aleatória de usuários. É importante ressaltar que elas permitem ativar e desativar um recurso em produção sem implementação adicional de código ou atualizações na loja de aplicativos. Isso permite que você lance novos recursos com segurança e confiança.
 
 {% alert tip %}
-Quando estiver pronto para criar suas próprias Feature Flags, consulte [Criar Feature Flags]({{site.baseurl}}/developer_guide/feature_flags/create/).
+Quando estiver pronto para criar suas próprias Feature Flags, consulte [Criar Feature Flags]({{site.baseurl}}/developer_guide/feature_flags/create).
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -33,7 +33,7 @@ Com as Feature Flags da Braze, podemos implementar gradualmente o recurso e miti
 * Ativaremos esse novo recurso para apenas 10% dos usuários para determinar se estamos com a equipe adequada.
 * Se houver algum erro, podemos desativar rapidamente o recurso em vez de nos apressarmos em enviar uma nova versão.
 
-Para implementar gradualmente esse recurso, podemos [criar uma Feature Flag]({{site.baseurl}}/developer_guide/feature_flags/create/) chamada "Live Chat Widget".
+Para implementar gradualmente esse recurso, podemos [criar uma Feature Flag]({{site.baseurl}}/developer_guide/feature_flags/create) chamada "Live Chat Widget".
 
 ![Detalhes da Feature Flag para um exemplo chamado Live Chat Widget. O ID é enable_live_chat. A descrição dessa Feature Flag indica que o widget de chat ao vivo será exibido na página de suporte.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-livechat-1.png %})
 
@@ -111,6 +111,26 @@ if (liveChatEnabled) {
 
 {% endtab %}
 {% tab Swift %}
+
+{% alert note %}
+A leitura de `braze.featureFlags.featureFlags` ou `braze.featureFlags.featureFlag(id:)` bloqueia a thread de chamada até que o SDK conclua suas operações pós-inicialização. Para contextos na thread principal ou sensíveis à latência, use [`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:)).
+
+```swift
+// Non-blocking — completion handler always delivers on the main thread.
+braze.featureFlags.getAllFeatureFlags { flags in
+  let liveChatEnabled = flags.first(where: { $0.id == "enable_live_chat" })?.enabled ?? false
+  liveChatView.isHidden = !liveChatEnabled
+}
+```
+
+Em Objective-C:
+
+```objc
+[braze.featureFlags getAllFeatureFlagsWithCompletion:^(NSArray<BRZFeatureFlag *> *flags) {
+  // Use `flags` here.
+}];
+```
+{% endalert %}
 
 ```swift
 // Get the initial value from the Braze SDK
@@ -233,17 +253,19 @@ Para coordenar efetivamente a implementação de recursos e o envio de mensagens
 
 ![Uma Feature Flag com o nome Loyalty Rewards Program. O ID é show_loyalty_program, e a descrição indica que isso mostra o novo programa de recompensas de fidelidade na tela inicial e na página de perfil.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-loyalty.png %})
 
-Então, no Canvas, criaremos uma [etapa de Feature Flag]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) que ativa a Feature Flag `show_loyalty_program` para nosso Segment "Clientes de Alto Valor":
+Então, no Canvas, criaremos uma [etapa de Feature Flag]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags) que ativa a Feature Flag `show_loyalty_program` para nosso segmento "Clientes de Alto Valor":
 
-![Um exemplo de Canvas com uma etapa de divisão de público onde o Segment de clientes de alto valor ativa a Feature Flag show_loyalty_program.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-canvas-flow.png %})
+![Um exemplo de Canvas com uma etapa de divisão de público onde o segmento de clientes de alto valor ativa a Feature Flag show_loyalty_program.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-canvas-flow.png %})
 
-Agora, os usuários desse Segment começarão a ver o novo programa de fidelidade e, depois que ele for ativado, um e-mail e uma pesquisa serão enviados automaticamente para ajudar nossas equipes a obter feedback.
+Agora, os usuários desse segmento começarão a ver o novo programa de fidelidade e, depois que ele for ativado, um e-mail e uma pesquisa serão enviados automaticamente para ajudar nossas equipes a obter feedback.
 
 ### Experimentação de recursos {#feature-experimentation}
 
 Use Feature Flags para fazer experimentos e confirmar suas hipóteses sobre o novo recurso. Ao dividir o tráfego em dois ou mais grupos, você pode comparar o impacto de uma Feature Flag entre os grupos e determinar o melhor curso de ação com base nos resultados.
 
-Um [teste A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/) é uma ferramenta poderosa que compara as respostas dos usuários a várias versões de uma variável.
+Para experimentos de Feature Flag, você pode ter até nove grupos no total: um grupo de controle mais até oito variantes.
+
+Um [teste A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing) é uma ferramenta poderosa que compara as respostas dos usuários a várias versões de uma variável.
 
 Neste exemplo, nossa equipe construiu um novo fluxo de checkout para nosso app de eCommerce. Embora estejamos confiantes de que ele está melhorando a experiência do usuário, queremos executar um teste A/B para medir seu impacto na receita do nosso app.
 
@@ -308,7 +330,7 @@ if let featureFlag, featureFlag.enabled {
 {% endtab %}
 {% endtabs %}
 
-Configuraremos nosso teste A/B em um [experimento de Feature Flag]({{site.baseurl}}/developer_guide/feature_flags/experiments/).
+Configuraremos nosso teste A/B em um [experimento de Feature Flag]({{site.baseurl}}/developer_guide/feature_flags/experiments).
 
 Agora, 50% dos usuários verão a experiência antiga, enquanto os outros 50% verão a nova experiência. Podemos então analisar as duas variantes para determinar qual fluxo de checkout resultou em uma taxa de conversão mais alta. {% multi_lang_include analytics/metrics.md metric='Conversion Rate' %}
 
@@ -318,14 +340,18 @@ Assim que determinarmos o vencedor, poderemos interromper essa Campaign e aument
 
 ### Segmentação {#segmentation}
 
-Use o filtro **Feature Flag** para criar um Segment ou direcionar o envio de mensagens aos usuários com base no fato de eles terem ou não uma Feature Flag ativada. Por exemplo, digamos que temos uma Feature Flag que controla o conteúdo premium em nosso app. Poderíamos criar um Segment que filtrasse os usuários que não tivessem a Feature Flag ativada e, em seguida, enviar a esse Segment uma mensagem pedindo que fizessem upgrade da conta para ver o conteúdo premium.
+Use o filtro **Feature Flag** para criar um segmento ou direcionar o envio de mensagens aos usuários com base no fato de eles terem ou não uma Feature Flag ativada. Por exemplo, digamos que você tenha uma Feature Flag que controla o conteúdo premium no seu app. Você poderia criar um segmento que filtrasse os usuários que não tivessem a Feature Flag ativada e, em seguida, enviar a esse segmento uma mensagem pedindo que fizessem upgrade da conta para ver o conteúdo premium.
 
-![]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
+1. Abra seu segmento ou público da mensagem.
+2. Adicione o filtro **Feature Flag**.
+3. Selecione a Feature Flag.
+4. Defina o comparador como **é** para incluir usuários que têm a Feature Flag ativada, ou **não é** para incluir usuários que não têm.
+![Criador de segmentos da Braze usando um filtro de valor ativado de Feature Flag.]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
 
-Para saber mais sobre filtragem em Segments, consulte [Criação de um Segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Para saber mais sobre filtragem em segmentos, consulte [Criação de um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
 {% alert note %}
-Para evitar Segments recursivos, não é possível criar um Segment que faça referência a outras Feature Flags.
+Para evitar segmentos recursivos, não é possível criar um segmento que faça referência a outras Feature Flags.
 {% endalert %}
 
 ## Limitações do plano {#plan-limitations}
@@ -335,9 +361,9 @@ Essas são as limitações das Feature Flags para planos gratuitos e pagos.
 | Recurso                                                                                                   | Versão gratuita     | Versão paga      |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | [Feature Flags ativas](#active-feature-flags)                                                                     | 10 por espaço de trabalho | 110 por espaço de trabalho |
-| [Experimentos de Campaign ativos]({{site.baseurl}}/developer_guide/feature_flags/experiments/)          | 1 por espaço de trabalho  | 100 por espaço de trabalho |
-| [Etapas de Feature Flag no Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) | Ilimitado        | Ilimitado         |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Plan limitations" }
+| [Experimentos de Campaign ativos]({{site.baseurl}}/developer_guide/feature_flags/experiments)          | 1 por espaço de trabalho  | 100 por espaço de trabalho |
+| [Etapas de Feature Flag no Canvas]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags) | Ilimitado        | Ilimitado         |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limitações do plano" }
 
 Uma Feature Flag é considerada ativa e contará para o seu limite se qualquer uma das seguintes situações se aplicar:
 

@@ -30,7 +30,7 @@ Antes de empezar, necesitas lo siguiente:
 
 ### Paso 1: Crear una nueva recomendación {#step-1-create-a-new-recommendation}
 
-Puedes crear una recomendación de elementos de IA desde cualquiera de los dos lugares del dashboard:
+Puedes crear una recomendación de elementos de IA desde cualquiera de los dos lugares del panel:
 
 {% tabs local %}
 {% tab Desde el menú de navegación %}
@@ -47,7 +47,7 @@ También puedes optar por crear una recomendación directamente desde un catálo
 
 Dale a tu recomendación un nombre y una descripción opcional.
 
-![Paso "Detalles de la recomendación" con los campos nombre y descripción.]({% image_buster /assets/img/item_recs_1.png %})
+![Paso "Detalles de la recomendación" con los campos de nombre y descripción.]({% image_buster /assets/img/item_recs_1.png %})
 
 ### Paso 3: Define tu recomendación {#recommendation-type}
 

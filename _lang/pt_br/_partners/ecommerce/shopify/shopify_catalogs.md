@@ -8,15 +8,15 @@ description: "Este artigo de referência aborda como importar seus produtos da S
 
 # Sincronização de produtos da Shopify {#shopify-product-sync}
 
-> Você pode sincronizar todos os produtos da sua loja Shopify com um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/) da Braze para uma personalização mais profunda do envio de mensagens.
+> Você pode sincronizar todos os produtos da sua loja Shopify com um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs) da Braze para uma personalização mais profunda do envio de mensagens.
 
 Os catálogos da Shopify serão atualizados quase em tempo real à medida que você fizer edições e alterações nos produtos da sua loja Shopify. É possível enriquecer seu carrinho abandonado, a confirmação do pedido e muito mais com os detalhes e as informações mais atualizadas do produto.
 
-Além de oferecer suporte aos [dados principais de produtos da Shopify](#supported-shopify-catalog-data), você pode sincronizar coleções da Shopify, tags de produtos e metacampos de produtos com o seu catálogo da Braze. Esses campos adicionais possibilitam uma personalização mais rica, seleções de catálogo mais precisas e uma segmentação mais poderosa por meio de [Extensões de segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/).
+Além de oferecer suporte aos [dados principais de produtos da Shopify](#supported-shopify-catalog-data), você pode sincronizar coleções da Shopify, tags de produtos e metacampos de produtos com o seu catálogo da Braze. Esses campos adicionais possibilitam uma personalização mais rica, seleções de catálogo mais precisas e uma segmentação mais poderosa por meio de [extensões de segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension).
 
 ## Configure sua sincronização de produtos da Shopify {#set-up}
 
-Se você já instalou sua loja Shopify, ainda poderá sincronizar seus produtos seguindo as instruções abaixo.
+Se você já instalou sua loja Shopify, ainda poderá sincronizar seus produtos seguindo as instruções desta seção.
 
 ### Etapa 1: Ativar a sincronização {#step-1-turn-on-the-sync}
 
@@ -71,7 +71,7 @@ Adicione tags de produtos, coleções da Shopify e metacampos na Shopify primeir
 ![Seção de sincronização de dados de produtos com a Braze, com opções para selecionar entre múltiplas configurações, incluindo coleções.]({% image_buster /assets/img/shopify/select_collections.png %})
 
 {: start="3"}
-3. Selecione até 20 metacampos pesquisáveis para sincronizar. Cada um se torna uma coluna separada no seu catálogo para uso em recursos como seleções de catálogo ou Extensões de segmento.
+3. Selecione até 20 metacampos pesquisáveis para sincronizar. Cada um se torna uma coluna separada no seu catálogo para uso em recursos como seleções de catálogo ou extensões de segmento.
 - Ao nomear metacampos, observe que espaços se tornam "_" e todos os caracteres especiais são removidos para atender às restrições de nomenclatura de campos do catálogo da Braze.
 
 ![Modal para selecionar metacampos de produtos.]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
@@ -95,7 +95,7 @@ A Braze oferece suporte aos seguintes objetos de metacampos e alguns de seus res
 | `url`, `list.url` | String (URL), Array de Strings (URLs) |
 | `metaobject_reference`, `list.metaobject_reference` | String, Array de Strings |
 | `mixed_reference`, `list.mixed_reference` | String, Array de Strings |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configure dados adicionais de produtos (opcional) #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configure dados adicionais de produtos (opcional)" }
 
 {% endsubtab %}
 {% subtab Metacampos não compatíveis %}
@@ -208,7 +208,7 @@ A Braze sincroniza até 250 variantes de cada produto da Shopify no seu catálog
 {% tabs %}
 {% tab Tags de produtos %}
 
-Use tags de produtos para personalizar mensagens com base em como seus produtos estão categorizados na Shopify. Por exemplo, você pode enviar uma promoção apresentando todos os produtos com a tag "Summer Sale" por meio de uma [seleção de catálogo]({{site.baseurl}}/catalog_selections/), ou criar um segmento de usuários que compraram produtos com a tag "Premium".
+Use tags de produtos para personalizar mensagens com base em como seus produtos estão categorizados na Shopify. Por exemplo, você pode enviar uma promoção apresentando todos os produtos com a tag "Summer Sale" por meio de uma [seleção de catálogo]({{site.baseurl}}/catalog_selections), ou criar um segmento de usuários que compraram produtos com a tag "Premium".
 
 As tags de produtos são armazenadas como um campo de array em cada item do catálogo. Para configurar a sincronização de tags de produtos, consulte [Tags de produtos da Shopify](#shopify-product-tags).
 
@@ -297,7 +297,7 @@ Checkout the latest women's clothing:
 
 ### Segmentação por catálogo (SQL) {#catalog-segmentation-sql}
 
-Use [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para criar segmentos com base em usuários que interagiram com uma tag de produto. Por exemplo, para encontrar usuários que se engajaram com itens do catálogo que contêm uma tag de produto específica, use esta consulta:
+Use [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base em usuários que interagiram com uma tag de produto. Por exemplo, para encontrar usuários que se engajaram com itens do catálogo que contêm uma tag de produto específica, use esta consulta:
 
 {% raw %}
 ```liquid
@@ -347,7 +347,7 @@ Cada metacampo sincronizado se torna uma coluna separada no seu catálogo, com o
 
 ### Personalização
 
-1. Crie uma [seleção de catálogo]({{site.baseurl}}/catalog_selections/) que filtre metacampos que incluam o respectivo valor.
+1. Crie uma [seleção de catálogo]({{site.baseurl}}/catalog_selections) que filtre metacampos que incluam o respectivo valor.
 
 ![Uma seleção de catálogo que filtra metacampos que possuem o atributo summer.]({% image_buster /assets/img/shopify/metafields_selection.png %})
 
@@ -415,7 +415,7 @@ Check out the latest summer products:
 
 ### Segmentação por catálogo (SQL)
 
-Use [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para criar segmentos com base em usuários que interagiram com um metacampo de produto. Por exemplo, para encontrar usuários que dispararam um evento de e-commerce com um produto cujo array de metacampos contém um valor específico, use esta consulta:
+Use [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base em usuários que interagiram com um metacampo de produto. Por exemplo, para encontrar usuários que dispararam um evento de e-commerce com um produto cujo array de metacampos contém um valor específico, use esta consulta:
 
 {% raw %}
 ```sql
@@ -677,7 +677,7 @@ Checkout the latest women's clothing:
 
 ### Segmentação por catálogo (SQL)
 
-Crie um segmento de usuários que interagiram com uma coleção. Use [Extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) para criar segmentos com base na associação a coleções. Por exemplo, para encontrar usuários que compraram produtos de uma coleção específica no último ano, use esta consulta:
+Crie um segmento de usuários que interagiram com uma coleção. Use [extensões de segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para criar segmentos com base na associação a coleções. Por exemplo, para encontrar usuários que compraram produtos de uma coleção específica no último ano, use esta consulta:
 
 {% raw %}
 ```json
@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-Você também pode configurar [notificações de queda de preço]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) e [notificações de reposição de estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/)!<br><br> Note que, para cada caso de uso, você deve criar um evento personalizado que capture o status de inscrição de um usuário no seu catálogo. O evento personalizado requer uma propriedade de evento que mapeie o [SKU ou Shopify Variant ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs/#step-2-select-your-product-identifier) que você selecionou como parte da sincronização de produtos da Shopify.
+Você também pode configurar [notificações de queda de preço]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) e [notificações de reposição de estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)!<br><br> Note que, para cada caso de uso, você deve criar um evento personalizado que capture o status de inscrição de um usuário no seu catálogo. O evento personalizado requer uma propriedade de evento que mapeie o [SKU ou Shopify Variant ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier) que você selecionou como parte da sincronização de produtos da Shopify.
 {% endalert %}
 
 ## Desativar a sincronização de produtos {#deactivate}

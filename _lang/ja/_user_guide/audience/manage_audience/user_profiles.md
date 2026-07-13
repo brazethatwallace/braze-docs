@@ -15,9 +15,9 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ## プロファイルへのアクセス {#access-profiles}
 
-ユーザーのプロファイルにアクセスするには、**Search Users**ページに移動し、以下のいずれかでユーザーを検索します。
+ユーザーのプロファイルにアクセスするには、**ユーザーを検索**ページに移動し、以下のいずれかでユーザーを検索します。
 
-- 外部ユーザー ID
+- 外部ユーザーID
 - Braze ID
 - メール
 - 電話番号
@@ -27,7 +27,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 一致するものが見つかった場合、Braze SDKで記録したそのユーザーの情報を表示できます。検索結果に複数のユーザープロファイルが返された場合は、各プロファイルを個別にマージするか、一括ユーザーマージを実行できます。詳しい手順については、[重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)を参照してください。
 
 {% alert note %}
-**Search Users**はセグメントやキャンペーンコンポーザーの**User Lookup**とは異なります。**User Lookup**は特定のユーザーがオーディエンスに一致するかどうかをテストするもので、`external_id`または`braze_id`のみを受け付けます。このページの**Search Users**はメール、電話番号、プッシュトークン、ユーザーエイリアスにも対応しています。詳細については、[セグメントのテスト]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments)を参照してください。
+**ユーザーを検索**はセグメントやキャンペーンコンポーザーの**ユーザー検索**とは異なります。**ユーザー検索**は特定のユーザーがオーディエンスに一致するかどうかをテストするもので、`external_id`または`braze_id`のみを受け付けます。このページの**ユーザーを検索**はメール、電話番号、プッシュトークン、ユーザーエイリアスにも対応しています。詳細については、[セグメントのテスト]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments)を参照してください。
 {% endalert %}
 
 {% alert important %}
@@ -83,7 +83,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 | エンゲージメントカテゴリ | 内容 |
 | --- | --- |
-| 連絡先設定 | メール、SMS、プッシュのサブスクリプションステータス、およびこれら3つのチャネルでこのユーザーが関連付けられている購読グループ。このセクションには、プッシュトークンの変更ログ情報も含まれます。サブスクリプションとオプトインの設定方法については、[メール]({{site.baseurl}}/user_guide/channels/email/subscriptions)、[SMS]({{site.baseurl}}/sms_rcs_subscription_groups)、[プッシュ]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)を参照してください。 |
+| 連絡先設定 | メール、SMS、プッシュの購読ステータス、およびこれら3つのチャネルでこのユーザーが関連付けられている購読グループ。このセクションには、プッシュトークンの変更ログ情報も含まれます。購読とオプトインの設定方法については、[メール]({{site.baseurl}}/user_guide/channels/email/subscriptions)、[SMS]({{site.baseurl}}/sms_rcs_subscription_groups)、[プッシュ]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)を参照してください。 |
 | 受信したキャンペーン | **受信したキャンペーン**は、チャネル固有の送信および表示タイミングを反映します。ほとんどのチャネルでは、Brazeが配信プロバイダーにメッセージを渡した時点で送信が記録されます（メッセージが最終的に配信されなかった場合でも同様です）。**Content Cards**は異なります。キャンペーンがここに表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。チャネルごとの詳細については、[受信したキャンペーンにキャンペーンが表示されるタイミング](#when-campaigns-appear-in-campaigns-received)を参照してください。<br><br>メッセージが受信、開封、またはクリックされると、Brazeはインタラクションを記録したプロファイルと同じチャネル識別子（例えば、メールの場合は同じメールアドレス、SMSやWhatsAppの場合は同じ電話番号）を共有するすべてのプロファイルのデータを更新します。識別子を共有するユーザーは、元々キャンペーンの対象でなかった場合や、メッセージが直接送信されなかった場合でも、このフィルターに一致する可能性があります。<br><br>これらのリストは、リターゲティングと履歴に表示される内容を決定する際に、[メッセージングインタラクションデータ]({{site.baseurl}}/api/data_retention/messaging_interaction_data)（有効期限ルールを含む）を使用します。<br><br>リストからキャンペーンを選択して表示します。 |
 | セグメント | このユーザーが含まれているセグメント。リストからセグメントを選択して表示します。 |
 | コミュニケーション統計 | このユーザーが各チャネルから最後にメッセージを受信した日時。 |
@@ -100,7 +100,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 ### イベント履歴タブ {#event-history-tab}
 
 {% alert note %}
-**イベント履歴**タブを表示するには、**Search Users**および**View PII**の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。イベントプロパティには個人データが含まれる場合があるためです。
+**イベント履歴**タブを表示するには、**ユーザーを検索**、**ユーザーイベントプロパティを表示**、および**PIIを表示**の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。イベントプロパティには個人データが含まれる場合があるためです。
 {% endalert %}
 
 **イベント履歴**タブには、ユーザーが記録したカスタムイベントと購入が表示されます。イベントデータが正しく到着しているかを確認し、ダッシュボード上で直接ユーザーレベルの問題をトラブルシューティングするために使用します。データのエクスポートや外部ツールは不要です。
@@ -124,7 +124,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 - **メール:** Brazeは、メッセージがメールサービスプロバイダー（ESP）に引き渡された時点で送信を記録します。その引き渡し後、Liquidロジック、レート制限、またはユーザーが到達不能としてマークされたことによるメッセージの中止は行われません。次のイベントは通常、配信またはバウンスです。
 - **プッシュ:** Brazeは、メッセージがプッシュプロバイダー（例えば、Apple Push Notification service（APNs）やFirebase Cloud Messaging（FCM））に引き渡された時点で送信を記録します。プロバイダーは通常、即座に配信を試みます。デバイスが利用できない場合（例えば、オフラインの場合）、プロバイダーはメッセージの有効期限が切れるまで再試行する場合があります。
 - **アプリ内メッセージ:** Brazeは、キャンペーンが起動された時点で送信を記録します。
-- **Content Cards:** Brazeが*送信済み*イベントを記録するタイミングは、配信タイプと**カード作成**設定によって異なります。Content Cards キャンペーンがユーザープロファイルの**受信したキャンペーン**に表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。詳細については、Content Cardsレポートの記事の[送信が記録されるタイミング]({{site.baseurl}}/user_guide/channels/content_cards/reporting#when-sends-are-logged)および[受信したキャンペーンとリターゲティングフィルター]({{site.baseurl}}/user_guide/channels/content_cards/reporting#campaigns-received-and-retargeting-filters)を参照してください。
+- **Content Cards:** Brazeが*送信済み*イベントを記録するタイミングは、配信タイプと**カード作成**設定によって異なります。Content Cardsキャンペーンがユーザープロファイルの**受信したキャンペーン**に表示されるのは、ユーザーがアプリ内でカードを表示した後のみです。詳細については、Content Cardsレポートの記事の[送信が記録されるタイミング]({{site.baseurl}}/user_guide/channels/content_cards/reporting#when-sends-are-logged)および[受信したキャンペーンとリターゲティングフィルター]({{site.baseurl}}/user_guide/channels/content_cards/reporting#campaigns-received-and-retargeting-filters)を参照してください。
 - **SMS、WhatsApp、Webhook:** Brazeは、メッセージがそのチャネルの配信パス（例えば、SMSまたはWhatsAppプロバイダー、またはWebhookエンドポイント）に入った時点で送信を記録します。
 
 {% alert note %}
@@ -137,8 +137,10 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ユーザープロファイルの**メッセージ履歴**タブには、過去30日間の個々のユーザーに関する最近のメッセージング関連イベント（約40件）が表示されます。これらのイベントには、ユーザーに送信されたメッセージ、受信したメッセージ、インタラクションしたメッセージなどが含まれます。
 
-{% alert note %}
-このタブのデータは、ユーザーがマージされた後は更新されません。また、API経由で送信されたメッセージに関連するイベント（例えば、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#creating-new-users-with-api-sends)）は、それらの送信でキャンペーン IDが指定されていない場合、このタブに表示されません。
+このタブのデータは、ユーザーがマージされた後は更新されません。また、API経由で送信されたメッセージに関連するイベント（例えば、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#creating-new-users-with-api-sends)）は、それらの送信でキャンペーンIDが指定されていない場合、このタブに表示されません。
+
+{% alert important %}
+RCSイベントは現在、**メッセージ履歴**タブではサポートされていません。
 {% endalert %}
 
 ![ユーザーが受信したキャンペーンとキャンバスを表示するメッセージ履歴タブ。]({% image_buster /assets/img_archive/profiles_messaging_history_tab.png %})
@@ -153,7 +155,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 | チャネル | 利用可能なエンゲージメントイベント |
 | --- | --- |
-| メール | バウンス<br>クリック<br>遅延イベント<br>配信<br>スパムとしてマーク<br>開封（[メール開封イベントに関する注意](#note-on-email-open-event)を参照）<br>送信<br>ソフトバウンス<br>配信停止 |
+| メール | バウンス<br>クリック<br>遅延イベント<br>配信<br>スパムとしてマーク<br>開封（[メール開封イベントに関する注意](#note-on-email-open-event)を参照）<br>送信<br>ソフトバウンス<br>購読解除 |
 | SMS | キャリア送信<br>配信<br>配信失敗<br>受信<br>拒否<br>送信 |
 | プッシュ | バウンス<br>影響を受けた開封<br>iOSフォアグラウンド<br>開封<br>送信 |
 | アプリ内メッセージ | クリック<br>インプレッション |
@@ -164,7 +166,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ##### メッセージ中止イベント {#message-abort-events}
 
-メッセージ中止イベントは、ユーザーに送信されたメッセージが[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)または[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages)の条件ロジック、またはLiquidレンダリングのタイムアウトにより中止された場合に発生します。
+メッセージ中止イベントは、ユーザーに送信されたメッセージが[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)または[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages)の条件ロジック、またはLiquidレンダリングのタイムアウトにより中止された場合に発生します。
 
 中止イベントは以下のチャネルで利用できます。
 
@@ -191,13 +193,13 @@ Content Cardsの送信は、カードが表示可能になった時点で記録�
 
 メール開封の統計は、異なる件名の効果を比較するなど、集計レベルでは有用ですが、個々のユーザーの個々の開封イベントが意味のあるものであると想定すべきではありません。
 
-#### メッセージ履歴タブで特定のフィールドが空白なのはなぜですか {#why-are-certain-fields-blank-in-the-message-history-tab}
+#### メッセージ履歴タブで特定のフィールドが空白なのはなぜですか？ {#why-are-certain-fields-blank-in-the-message-history-tab}
 
 以下のシナリオでは、ユーザーの**メッセージ履歴**タブで一部のフィールドが表示されない場合があります。
 
 - **Message Sent**のデータが欠落しているイベントは、そのキャンペーンにメッセージバリエーションがないことを示しています。
-- **Campaign/Canvas**と**Message Sent**のデータが欠落しているイベントは、このメッセージが`campaign_id`と`message_variation_id`を指定していないAPI キャンペーン（APIトリガーキャンペーンではない）から送信されたことを示しています。これらのフィールドはオプションであり、リクエストボディから省略される場合があります。これらのフィールドが指定されている場合、その情報はメッセージ履歴ログに反映されます。
-   - 特定のメッセージがメッセージ履歴に表示されないが、**Campaign Received**ログに表示される場合、そのユーザーは現在のユーザーとして識別される前にキャンペーンを受信した可能性があります。既存のプロファイルが孤立した場合、**Campaign Received**ログは転送されますが、メッセージ履歴は転送されません。
+- **Campaign/Canvas**と**Message Sent**のデータが欠落しているイベントは、このメッセージが`campaign_id`と`message_variation_id`を指定していないAPIキャンペーン（APIトリガーキャンペーンではない）から送信されたことを示しています。これらのフィールドはオプションであり、リクエストボディから省略される場合があります。これらのフィールドが指定されている場合、その情報はメッセージ履歴ログに反映されます。
+   - 特定のメッセージがメッセージ履歴に表示されないが、**受信したキャンペーン**ログに表示される場合、そのユーザーは現在のユーザーとして識別される前にキャンペーンを受信した可能性があります。既存のプロファイルが孤立した場合、**受信したキャンペーン**ログは転送されますが、メッセージ履歴は転送されません。
 - **Campaign/Canvas**のデータが欠落している場合、手動テストが送信された可能性があります。手動テストは**メッセージ履歴**タブに記録されますが、送信されたキャンペーンまたはキャンバスは記録されません。
 - ユーザーがシードグループやその他の内部テストオーディエンスに含まれている場合、**メッセージ履歴**には本番送信と比較してキャンペーンやキャンバスのメタデータが限定的に表示される場合があります。
 

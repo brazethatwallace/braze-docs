@@ -1,12 +1,12 @@
 ## Sobre GIFs {#about-gifs}
 
-A Braze oferece a capacidade de usar uma biblioteca de imagens personalizada para exibir GIFs animados. Embora o exemplo abaixo use o [Glide](https://bumptech.github.io/glide/), qualquer biblioteca de imagens que aceite GIFs é compatível.
+A Braze oferece a capacidade de usar uma biblioteca de imagens personalizada para exibir GIFs animados. Embora o exemplo a seguir use o [Glide](https://bumptech.github.io/glide/), qualquer biblioteca de imagens que aceite GIFs é compatível.
 
 ## Integração de uma biblioteca de imagens personalizada {#integrating-a-custom-image-library}
 
 ### Etapa 1: Criação do delegado do carregador de imagens {#step-1-creating-the-image-loader-delegate}
 
-O delegado do Image Loader deve implementar os seguintes métodos:
+O delegado do carregador de imagens deve implementar os seguintes métodos:
 
 * [`getInAppMessageBitmapFromUrl()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/get-in-app-message-bitmap-from-url.html)
 * [`getPushBitmapFromUrl()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/get-push-bitmap-from-url.html)
@@ -14,7 +14,7 @@ O delegado do Image Loader deve implementar os seguintes métodos:
 * [`renderUrlIntoInAppMessageView()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/render-url-into-in-app-message-view.html)
 * [`setOffline()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/set-offline.html)
 
-O exemplo de integração abaixo foi extraído do [app de amostra de integração do Glide](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/glide-image-integration) incluído no SDK da Braze para Android.
+O exemplo de integração a seguir foi extraído do [app de amostra de integração do Glide](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/glide-image-integration) incluído no SDK da Braze para Android.
 
 {% tabs %}
 {% tab JAVA %}

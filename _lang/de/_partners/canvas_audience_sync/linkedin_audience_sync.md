@@ -35,7 +35,7 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt, abgeschlossen ode
 
 ## Integration
 
-### 1. Schritt: Mit LinkedIn verbinden {#step-1-connect-to-linkedin}
+### Schritt 1: Mit LinkedIn verbinden {#step-1-connect-to-linkedin}
 
 {% alert important %}
 Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) haben, um LinkedIn mit Ihrem Braze-Konto zu verbinden.
@@ -55,7 +55,7 @@ Sobald Sie sich erfolgreich verbunden haben, werden Sie auf die Partnerseite zur
 
 Ihre LinkedIn-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr LinkedIn-Administrator Sie aus Ihrem LinkedIn-Anzeigenkonto entfernt, erkennt Braze ein ungültiges Token. Dies hat zur Folge, dass Ihre aktiven Canvases, die LinkedIn verwenden, Fehler anzeigen und Braze nicht in der Lage ist, Nutzer:innen zu synchronisieren.
 
-### 2. Schritt: Canvas-Eingangskriterien konfigurieren {#step-2-configure-your-canvas-entry-criteria}
+### Schritt 2: Canvas-Eingangskriterien konfigurieren {#step-2-configure-your-canvas-entry-criteria}
 
 Beim Aufbau von Zielgruppen für das Ad Tracking möchten Sie möglicherweise bestimmte Nutzer:innen auf der Grundlage ihrer Präferenzen ein- oder ausschließen und Datenschutzgesetze einhalten, wie z. B. das Recht „Nicht verkaufen oder weitergeben“ gemäß dem [CCPA](https://oag.ca.gov/privacy/ccpa). Marketer sollten die entsprechenden Filter für die Eignung der Nutzer:innen in ihre Canvas-Eingangskriterien aufnehmen. Nachfolgend finden Sie einige Optionen.
 
@@ -69,13 +69,13 @@ Wenn Sie `opt-ins`, `opt-outs`, `Do Not Sell Or Share` oder andere relevante ang
 
 Wenn Sie mehr darüber erfahren möchten, wie Sie diese Datenschutzgesetze innerhalb der Braze-Plattform einhalten können, lesen Sie bitte den Abschnitt [Technische Unterstützung zum Datenschutz]({{site.baseurl}}/dp-technical-assistance).
 
-### 3. Schritt: Einen Audience Sync-Schritt mit LinkedIn hinzufügen {#step-3-add-an-audience-sync-step-with-linkedin}
+### Schritt 3: Einen Audience Sync-Schritt mit LinkedIn hinzufügen {#step-3-add-an-audience-sync-step-with-linkedin}
 
 Fügen Sie eine Komponente in Ihrem Canvas hinzu und wählen Sie Audience Sync. Klicken Sie auf den Button **Custom Audience**, um den Komponenteneditor zu öffnen.
 
 ![Der Canvas-Editor mit der Liste der verfügbaren Komponenten.]({% image_buster /assets/img/linkedin/linkedin2.png %}){: style="max-width:35%;"} ![Die ausgewählte Audience Sync-Komponente.]({% image_buster /assets/img/linkedin/linkedin1.png %}){: style="max-width:29%;"}
 
-### 4. Schritt: Sync-Einrichtung {#step-4-sync-setup}
+### Schritt 4: Sync-Einrichtung {#step-4-sync-setup}
 
 Wählen Sie **LinkedIn** als den gewünschten Audience Sync-Partner aus.
 
@@ -115,7 +115,7 @@ Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden LinkedIn-Zielgru
 {% endtab %}
 {% endtabs %}
 
-### 5. Schritt: Canvas starten {#step-5-launch-canvas}
+### Schritt 5: Canvas starten {#step-5-launch-canvas}
 
 Sobald Sie Ihre Audience Sync mit LinkedIn konfiguriert haben, starten Sie einfach das Canvas! Die neue Zielgruppe wird erstellt, und Nutzer:innen, die den Audience Sync-Schritt durchlaufen, werden in diese Zielgruppe auf LinkedIn weitergeleitet. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
 

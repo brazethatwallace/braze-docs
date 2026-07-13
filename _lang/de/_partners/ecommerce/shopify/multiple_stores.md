@@ -11,7 +11,7 @@ description: "Dieser Referenzartikel beschreibt, wie Sie mehrere Shopify Shops m
 > Verbinden Sie mehrere Shopify Shop-Domains mit einem einzigen Workspace, um einen ganzheitlichen Überblick über Ihre Kund:innen in allen Märkten zu erhalten. Erstellen und starten Sie Automatisierungsprogramme und Journeys in einem einzigen Workspace, ohne doppelte Arbeit in den regionalen Shops.
 
 {% alert important %}
-Dieses Feature unterstützt nicht Shopify Markets oder Markets Pro. Wenn Sie Unterstützung für diese Produkte anfordern möchten, senden Sie eine [Produktanfrage]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Dieses Feature unterstützt nicht Shopify Markets oder Markets Pro. {% multi_lang_include product_feedback_cta.md context="gap" feature="Shopify Markets or Markets Pro support" %}
 {% endalert %}
 
 ## Anforderungen {#requirements}

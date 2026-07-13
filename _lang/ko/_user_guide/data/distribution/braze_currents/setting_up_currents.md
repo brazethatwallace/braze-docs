@@ -53,7 +53,7 @@ Braze Currents를 사용하면 플랫 파일을 사용하는 데이터 스토리
 
 ### 2단계: Currents 열기 {#step-2-open-currents}
 
-시작하려면 **파트너 통합** > **Currents**로 이동하세요. Currents 통합 관리 페이지로 이동합니다.
+시작하려면 **파트너 통합** > **데이터 내보내기**로 이동하세요. Currents 통합 관리 페이지로 이동합니다.
 
 ![Braze 대시보드의 Currents 페이지]({% image_buster /assets/img_archive/currents-main-page.png %})
 
@@ -88,11 +88,11 @@ Currents 필드 변환을 사용하여 문자열 필드를 제거하거나 해�
 Currents는 900&nbsp;KB를 초과하는 지나치게 큰 페이로드가 있는 이벤트를 삭제합니다.
 {% endalert %}
 
-테스트하기 전에 [GitHub의 샘플 Currents 데이터](https://github.com/Appboy/currents-examples)를 확인해 보세요. 테스트할 준비가 되면 아래 옵션 중 하나를 선택하세요:
+테스트하기 전에 [GitHub의 샘플 Currents 데이터](https://github.com/Appboy/currents-examples)를 확인해 보세요. 테스트할 준비가 되면 다음 섹션에서 옵션을 선택하세요:
 
 #### 테스트 이벤트 전송 {#sending-test-events}
 
-통합을 테스트하려면 **Send Test Events**를 선택하여 선택한 각 이벤트 유형에서 하나의 이벤트를 이 Current로 전송할 수 있습니다. 각 이벤트 유형에 대한 자세한 정보는 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 라이브러리를 참조하세요.
+통합을 테스트하려면 **테스트 이벤트 전송**을 선택하여 선택한 각 이벤트 유형에서 하나의 이벤트를 이 Current로 전송할 수 있습니다. 각 이벤트 유형에 대한 자세한 정보는 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 라이브러리를 참조하세요.
 
 ![Braze 대시보드의 커런츠 테스트 페이지]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
 
@@ -105,7 +105,7 @@ Currents는 900&nbsp;KB를 초과하는 지나치게 큰 페이로드가 있는 
 
 테스트 커런츠 커넥터가 전송 한도에 도달하면, 다음 날(자정 UTC)까지 커넥터가 이벤트를 전송하지 않습니다.
 
-테스트 커런츠 커넥터를 업그레이드하려면 대시보드에서 통합을 편집하고 **Upgrade Test Integration**을 선택하세요.
+테스트 커런츠 커넥터를 업그레이드하려면 대시보드에서 통합을 편집하고 **테스트 통합 업그레이드**를 선택하세요.
 
 ## 커런츠 업데이트 {#updating-currents}
 

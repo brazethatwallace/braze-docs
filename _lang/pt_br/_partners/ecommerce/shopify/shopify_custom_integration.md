@@ -12,11 +12,11 @@ page_order: 3
 
 > Esta página orienta você sobre como integrar a Braze a uma loja Shopify Hydrogen ou a qualquer loja Shopify headless usando uma vitrine personalizada.
 
-Este guia usa o framework Hydrogen da Shopify como exemplo. No entanto, você pode seguir uma abordagem semelhante se a sua marca usar o Shopify para o back-end da sua loja com uma configuração de front-end "headless".
+Este guia usa o framework Hydrogen da Shopify como exemplo. No entanto, você pode seguir uma abordagem semelhante se a sua marca usar o Shopify para o backend da sua loja com uma configuração de front-end "headless".
 
 Para integrar sua loja Shopify headless com a Braze, você precisa concluir estas duas metas:
 
-1. **Inicializar e carregar o Braze Web SDK para ativar o rastreamento no site**<br><br> Adicione manualmente o código em seu site do Shopify para ativar o rastreamento no site da Braze. Ao implementar o Braze SDK em sua loja Shopify headless, é possível rastrear as atividades no site, incluindo sessões, comportamento anônimo do usuário, ações do comprador antes do checkout e quaisquer [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ou [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) que você decida incluir com sua equipe de desenvolvimento. Você também pode adicionar quaisquer canais compatíveis com os SDKs, como mensagens no app ou Content Cards.
+1. **Inicializar e carregar o Braze Web SDK para ativar o rastreamento no site**<br><br> Adicione manualmente o código em seu site do Shopify para ativar o rastreamento no site da Braze. Ao implementar o Braze SDK em sua loja Shopify headless, é possível rastrear as atividades no site, incluindo sessões, comportamento de usuário anônimo, ações do comprador antes do checkout e quaisquer [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) ou [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) que você decida incluir com sua equipe de desenvolvimento. Você também pode adicionar quaisquer canais compatíveis com os SDKs, como mensagens no app ou Content Cards.
 
 {: start="2"}
 2. **Instalar a integração da Braze com o Shopify**<br><br> Depois de conectar sua loja Shopify à Braze, você terá acesso aos dados de clientes, checkout, pedidos e produtos por meio de webhooks do Shopify.
@@ -51,7 +51,7 @@ A loja precisa ter o nome "Shopify" ou a integração poderá não funcionar cor
 A primeira etapa é inicializar o Braze Web SDK. Recomendamos fazer isso instalando nosso pacote NPM:
 
 ```java
-npm install --save @braze/web-sdk@5.4.0
+npm install --save @braze/web-sdk@6.8.0
 # or, using yarn:
 # yarn add @braze/web-sdk
 ```
@@ -750,7 +750,7 @@ Você pode sincronizar todos os produtos de sua loja Shopify com um catálogo da
 
 ### Etapa 8: Ativar canais {#step-8-activate-channels}
 
-Para ativar mensagens no app, Content Cards e Feature Flags usando a integração direta do Shopify, adicione cada canal ao seu SDK. Siga os links de documentação fornecidos para cada canal abaixo:
+Para ativar mensagens no app, Content Cards e Feature Flags usando a integração direta do Shopify, adicione cada canal ao seu SDK. Siga os links de documentação fornecidos para cada canal:
 
 - **Mensagens no app:** Para ativar mensagens no app para casos de uso de formulários de captura de leads, consulte [In-App Messages]({{site.baseurl}}/developer_guide/in_app_messages).
 - **Content Cards:** Para ativar Content Cards para casos de uso de caixa de entrada ou banner de site, consulte [Content Cards]({{site.baseurl}}/developer_guide/content_cards).

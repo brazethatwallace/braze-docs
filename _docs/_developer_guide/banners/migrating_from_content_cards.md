@@ -263,7 +263,7 @@ for card in cards {
 Braze.launchContentCards();
 
 // Or manually render cards
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 cards.forEach(card => {
   if (card.type === 'CLASSIC') {
     // Render classic card
@@ -353,7 +353,7 @@ braze.banners.requestBannersRefresh(placementIds: ["sample_placement_id"])
 ```javascript
 // Using BrazeBannerView component
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 
 // Or get banner data
@@ -386,7 +386,7 @@ braze.requestBannersRefresh(["sample_placement_id"]);
 ### Log analytics (custom implementations)
 
 {% alert note %}
-Both Content Cards and Banners automatically track analytics when using their default UI components. The examples below are for custom implementations where you're building your own UI.
+Both Content Cards and Banners automatically track analytics when using their default UI components. The following examples are for custom implementations where you're building your own UI.
 {% endalert %}
 
 #### Content Cards approach
@@ -742,7 +742,7 @@ let bannerView = BrazeBannerUI.BannerUIView(
 // BrazeBannerView automatically handles control groups
 // No additional code needed
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 ```
 {% endtab %}

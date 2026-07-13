@@ -47,7 +47,7 @@ Antes de configurar la orquestación, reúne los siguientes elementos según la 
 | Requisito | Descripción |
 |-----------|-------------|
 | **Clave de API REST** | Una nueva clave de API con permisos para datos de usuario, mensajes, Campaigns, Canvas, Segments y plantillas. |
-| **URL del dashboard de Braze** | La URL de tu instancia de Braze (por ejemplo, `https://dashboard-01.braze.com`). |
+| **URL del panel de Braze** | La URL de tu instancia de Braze (por ejemplo, `https://dashboard-01.braze.com`). |
 | **ID de la aplicación** | La clave de API asociada con la aplicación que deseas rastrear (se encuentra en **Configuración** > **Configuración de la aplicación**). |
 | **Nombre y dirección del remitente de correo electrónico** | La información del remitente que se usará para tus campañas (se encuentra en **Configuración** > **Preferencias de correo electrónico**). |
 | **Plantillas base** | Las plantillas de mensaje que tu agente usará para la orquestación. Crearás Campaigns activadas por API para cada plantilla. |
@@ -118,7 +118,7 @@ Para integraciones con Braze, planifica qué dimensiones optimizará tu agente. 
 
 ## Configuración de la integración {#integration-setup}
 
-Selecciona tu CEP a continuación para comenzar con la configuración de la integración.
+Selecciona tu CEP de esta lista para comenzar con la configuración de la integración.
 
 {% tabs %}
 {% tab Braze %}

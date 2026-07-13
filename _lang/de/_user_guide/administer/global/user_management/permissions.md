@@ -72,7 +72,7 @@ Eingeschränkte Nutzer:innen haben bestimmte Berechtigungen, die es ihnen ermög
 | --- | --- |
 | Workspace-Admin | Workspace-Admins haben Berechtigungen, die speziell für die Verwaltung von Workspaces gelten, haben aber nicht dieselbe Autorität wie Unternehmensadmins. Eingeschränkte Nutzer:innen können Berechtigungen erben, die denen von Workspace-Admins ähneln, wenn die erforderlichen Berechtigungen aktiviert sind. |
 | Admin (Unternehmensadmin) | Unternehmensadmins haben umfassendere Berechtigungen, einschließlich der Möglichkeit, Dashboard-Nutzer:innen zu löschen. Sie können jedoch nicht ihre eigenen Konten löschen und müssen dafür einen anderen Unternehmensadmin kontaktieren. |
-| Nur-Lese-Zugriff | Um auf Teile des Dashboards zuzugreifen, wie z. B. die Campaigns-Seite, müssen Nutzer:innen die entsprechenden Anzeigeberechtigungen zugewiesen bekommen. |
+| Schreibgeschützter Zugriff | Um auf Teile des Dashboards zuzugreifen, wie z. B. die Campaigns-Seite, müssen Nutzer:innen die entsprechenden Anzeigeberechtigungen zugewiesen bekommen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Vergleich eingeschränkter Nutzer:innen" }
 
 ### Fehler bei eingeschränktem Zugriff {#limited-access-error}
@@ -103,7 +103,7 @@ Um die aktuellen Admin-, Unternehmens- oder Workspace-Berechtigungen von Nutzer:
 {% tabs local %}
 {% tab Admin %}
 
-### Admin {#admin}
+### Admin
 
 Admins haben Zugriff auf alle Features und die Möglichkeit, alle Unternehmenseinstellungen zu ändern. Sie können:
 
@@ -133,7 +133,7 @@ Um die folgenden Berechtigungen auf Unternehmensebene für Nutzer:innen zu verwa
 {% endtab %}
 {% tab Workspace %}
 
-### Workspace {#workspace}
+### Workspace
 
 Sie können Nutzer:innen für jeden Workspace, dem sie in Braze angehören, unterschiedliche Berechtigungen erteilen. Um deren Berechtigungen auf Workspace-Ebene zu verwalten, wählen Sie **Select workspaces and permissions** und wählen Sie dann deren Berechtigungen manuell aus oder weisen Sie einen zuvor erstellten [Berechtigungssatz oder eine Rolle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) zu. Wenn Sie Nutzer:innen für verschiedene Workspaces unterschiedliche Berechtigungen erteilen müssen, wiederholen Sie diesen Vorgang so oft wie nötig. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
@@ -175,7 +175,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 
 ## Liste der Berechtigungen {#list-of-permissions}
 
-### Messaging {#messaging}
+### Messaging
 
 | Produktbereich | Berechtigung | Definition |
 | --- | --- | --- |
@@ -208,8 +208,8 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 
 | Produktbereich | Berechtigung | Definition |
 | --- | --- | --- |
-| Globale Kontrollgruppe | View Global Control Group | Einrichtungsseite der Globalen Kontrollgruppe anzeigen |
-| Globale Kontrollgruppe | Edit Global Control Group | Änderungen an der Globalen Kontrollgruppe erstellen und speichern. Nutzer:innen mit der Berechtigung „Globale Kontrollgruppe bearbeiten“ müssen auch die Berechtigungen „Campaigns bearbeiten“ und „Canvases bearbeiten“ erhalten. Nutzer:innen mit der Berechtigung „Globale Kontrollgruppe bearbeiten“ erhalten auch die Berechtigung „Globale Kontrollgruppe anzeigen“. |
+| Globale Kontrollgruppe | View Global Control Group | Einrichtungsseite der globalen Kontrollgruppe anzeigen |
+| Globale Kontrollgruppe | Edit Global Control Group | Änderungen an der globalen Kontrollgruppe erstellen und speichern. Nutzer:innen mit der Berechtigung „Globale Kontrollgruppe bearbeiten“ müssen auch die Berechtigungen „Campaigns bearbeiten“ und „Canvases bearbeiten“ erhalten. Nutzer:innen mit der Berechtigung „Globale Kontrollgruppe bearbeiten“ erhalten auch die Berechtigung „Globale Kontrollgruppe anzeigen“. |
 | Standorte | Archive Locations | Standorte archivieren |
 | Standorte | View Locations | Standorte anzeigen |
 | Standorte | Edit Locations | Standorte erstellen und bearbeiten |
@@ -221,13 +221,14 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Nutzerdaten | Edit User Data | Nutzerdaten erstellen und aktualisieren |
 | Nutzerdaten | Export User Data | Nutzer:innen aus dem Dashboard herunterladen |
 | Doppelte Nutzer:innen | View User Merge Records | Eine Liste der Nutzer:innen-Zusammenführungsprotokolle anzeigen |
-| Nutzer:innen | View User Profiles (PII Redacted) | Nutzer:innen-Profile in einer PII-konformen Weise anzeigen |
+| Nutzer:innen | View User Profiles (PII Redacted) | Nutzer:innen-Profile in einer PII-konformen Weise anzeigen. Nutzer:innen mit dieser Berechtigung können keine Campaigns speichern oder starten, die auf als PII markierte angepasste Attribute verweisen, es sei denn, sie haben auch die Berechtigung „Als PII markierte angepasste Attribute anzeigen“. |
+| Nutzer:innen | View User Event Properties | Event-Eigenschaften im Tab **Event-Verlauf** in Nutzer:innen-Profilen anzeigen |
 | Doppelte Nutzer:innen | Merge Duplicate Users | Doppelte Nutzer:innen zu einem zusammenführen. Duplikate werden nach der Zusammenführung entfernt |
 | Nutzer:innen löschen | View User Deletion Records | Eine Liste der Nutzer:innen-Löschprotokolle anzeigen |
 | Nutzer:innen löschen | Delete Users | Nutzer:innen dauerhaft einzeln oder in großen Mengen aus dem Dashboard löschen |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zielgruppen-Berechtigungen" }
 
-### Template {#template}
+### Template
 
 | Produktbereich | Berechtigung | Definition |
 | --- | --- | --- |
@@ -361,7 +362,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Domain-Einstellungen | Edit Domain Settings | Delegierte Domains und angepasste Domains unter „Verifizierte Domains“ hinzufügen |
 | Verschlüsselung auf Feldebene | Edit Identifier Field-Level Encryption | Einstellungen für die Verschlüsselung auf Feldebene aktivieren und aktualisieren |
 | Medienbibliothek-Assets | View Media Library Assets | Medienbibliothek-Assets anzeigen |
-| Medienbibliothek-Assets | Delete Media Library Assets | Medienbibliothek-Assets dauerhaft löschen |
+| Medienbibliothek-Assets | Delete Media Library Assets | Medienbibliothek-Assets aus der Benutzeroberfläche entfernen. Gelöschte Assets werden weiterhin von Braze gehostet, um zu verhindern, dass Nachrichten, die auf sie verweisen, fehlerhaft werden. Um ein Asset dauerhaft zu löschen, kontaktieren Sie den Braze-Support. |
 | Medienbibliothek-Assets | Edit Media Library Assets | Medienbibliothek-Assets erstellen und aktualisieren |
 | Medienbibliothek-Assets | Replace Media Library Assets | Die Datei eines vorhandenen Medienbibliothek-Assets ersetzen, wobei URL und Asset-ID stabil bleiben |
 | Messaging-Rate-Limits | View Messaging Rate Limits | Messaging-Rate-Limits auf Workspace-Ebene anzeigen |

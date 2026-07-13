@@ -29,7 +29,7 @@ search_rank: 1
 2. Selecciona **SMS/MMS/RCS** o, para campañas dirigidas a múltiples canales, selecciona **Multicanal**.
 3. Ponle a tu campaña un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario.
-   * Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder), puedes filtrar por etiquetas concretas.
+   * Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder), puedes filtrar por etiquetas concretas.
 5. Añade y nombra tantas variantes como necesites para tu campaña. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
    * Braze te permite incluir variantes tanto de SMS como de RCS dentro de una misma campaña, para que puedas comparar el rendimiento de cada una.
 
@@ -193,7 +193,7 @@ La experiencia del usuario al recibir mensajes RCS puede variar según la cobert
 Escribe tu mensaje usando idiomas y personalización ([Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) y emojis) según sea necesario. Asegúrate de respetar los límites de texto del mensaje para reducir las posibilidades de cargos por excedente.
 
 {% alert important %}
-Antes de continuar, lee las [directrices de tipos de mensaje RCS](#step-3-compose-your-message) anteriores. Los mensajes RCS se [cobran por mensaje]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator), por lo que es buena idea entender qué se puede incluir en cada tipo.
+Antes de continuar, lee las [directrices de tipos de mensaje RCS](#step-3-compose-your-message) anteriores en esta sección. Los mensajes RCS se [cobran por mensaje]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator), por lo que es buena idea entender qué se puede incluir en cada tipo.
 {% endalert %}
 
 {% endtab %}
@@ -209,7 +209,7 @@ Si planeas usar Liquid, asegúrate de incluir un valor predeterminado para la pe
 
 #### Generar texto con IA {#generating-ai-copy}
 
-Prueba a usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Introduce un nombre o descripción de producto, y la IA generará texto de marketing similar al humano para usar en tu mensajería.
+Prueba a usar el [asistente de redacción con IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Introduce un nombre o descripción de producto, y la IA generará texto de marketing similar al humano para usar en tu mensajería.
 
 ![Botón Lanzar redactor con IA, ubicado en el campo Mensaje del compositor de SMS.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_sms.png %}){: style="max-width:60%"}
 
@@ -219,26 +219,26 @@ La apariencia final de los mensajes de derecha a izquierda depende en gran medid
 
 #### Crear flujos de trabajo de mensajes conversacionales (RCS) {#create-conversational-message-workflows-rcs}
 
-Los flujos de trabajo de mensajes conversacionales te permiten responder dinámicamente a los usuarios, creando una experiencia de mensajería de ida y vuelta. Para crear un flujo de trabajo, crea un Canvas y luego combina respuestas sugeridas con [Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) para dirigir tu flujo de trabajo en función de la respuesta que seleccione el usuario.
+Los flujos de trabajo de mensajes conversacionales te permiten responder dinámicamente a los usuarios, creando una experiencia de mensajería de ida y vuelta. Para crear un flujo de trabajo, crea un Canvas y luego combina respuestas sugeridas con [Rutas de Acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) para dirigir tu flujo de trabajo en función de la respuesta que seleccione el usuario.
 
 1. En el constructor de Canvas, crea un paso de mensaje RCS con múltiples respuestas sugeridas.
 
 ![Compositor de mensajes RCS con respuestas sugeridas.]({% image_buster /assets/img/rcs/suggested_replies.png %})
 
 {: start="2"}
-2. Conecta ese mensaje a una ruta de acción con un grupo de acciones para cada respuesta sugerida.
+2. Conecta ese mensaje a una Ruta de Acción con un grupo de acciones para cada respuesta sugerida.
 3. Para cada grupo de acciones:
    - Selecciona el desencadenante **Enviar un mensaje SMS entrante**.
    - Establece el cuerpo del mensaje para que sea igual a la respuesta sugerida correspondiente.
 
-![Paso de ruta de acción configurado con tres grupos de acciones, uno para cada respuesta sugerida.]({% image_buster /assets/img/rcs/quick_reply.png %})
+![Paso de Ruta de Acción configurado con tres grupos de acciones, uno para cada respuesta sugerida.]({% image_buster /assets/img/rcs/quick_reply.png %})
 
 {: start="4"}
 4. Conecta cada grupo de acciones a un paso de mensaje RCS y luego añade contenido basado en la respuesta sugerida asociada.
 5. Continúa el flujo de trabajo conversacional añadiendo respuestas sugeridas a cualquier mensaje de seguimiento.
 6. Repite los pasos 2–4 hasta que el flujo de trabajo esté completo.
 
-![Canvas mostrando un flujo de trabajo conversacional con dos rutas de acción.]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
+![Canvas mostrando un flujo de trabajo conversacional con dos Rutas de Acción.]({% image_buster /assets/img/rcs/full_conversational_workflow.png %})
 
 ## Paso 4: Previsualiza y prueba tu mensaje {#step-4-preview-and-test-your-message}
 
@@ -301,7 +301,7 @@ También puedes establecer eventos de conversión personalizados según tu caso 
 {% endtab %}
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante e Intelligent Selection, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante y selección inteligente, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de nuestra documentación de Canvas.
 
 {% endtab %}
 {% endtabs %}

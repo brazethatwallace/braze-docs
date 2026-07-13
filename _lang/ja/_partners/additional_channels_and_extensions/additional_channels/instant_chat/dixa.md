@@ -22,8 +22,8 @@ BrazeとDixaの統合により、カスタマーサービス担当者にリア�
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Dixaアカウント | このパートナーシップを活用するには、Dixa管理者アカウントが必要です。 |
 | Braze REST APIキー | `users.export.ids` および `email.status` 権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | [RESTエンドポイントのURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お客様のインスタンスのBraze URLに依存します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze RESTエンドポイント | [RESTエンドポイントのURL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)。エンドポイントは、お客様のインスタンスのBraze URLに依存します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -35,7 +35,7 @@ Dixa内で統合を設定するには、Dixa管理者である必要がありま
 
 ![Dixaの Brazeウィジェット作成ページ。ウィジェット名、API URL、APIキーを入力します。]({% image_buster /assets/img/dixa/dixa-create-integration.png %}){: style="width:450px;"}
 
-### ステップ 1:Dixaで統合を作成する {#step-1-create-the-integration-in-dixa}
+### ステップ1:Dixaで統合を作成する {#step-1-create-the-integration-in-dixa}
 
 **Create Braze widget**ページで、以下の必須フィールドに入力して統合を作成します。
 
@@ -43,7 +43,7 @@ Dixa内で統合を設定するには、Dixa管理者である必要がありま
 - **API URL:** インスタンスのBraze REST APIエンドポイントURLです。
 - **API Key:** これは、前提条件で作成したBraze APIキーです。
 
-### ステップ 2:統合を設定する {#step-2-configure-the-integration}
+### ステップ2:統合を設定する {#step-2-configure-the-integration}
 
 次に、BrazeとDixaの統合を設定します。会話サイドバーのBrazeウィジェットの表示を調整するには、以下のオプションから選択します。
 
@@ -55,11 +55,11 @@ Dixa内で統合を設定するには、Dixa管理者である必要がありま
 
 #### 顧客の詳細を表示する {#display-customer-details}
 
-ユーザーの詳細を表示するか非表示にするかを選択します。詳細には、ロケーション、メール、電話番号、メールサブスクリプションの状態、プッシュ通知サブスクリプションの状態、Brazeの会員期間に関するデータが含まれます。
+ユーザーの詳細を表示するか非表示にするかを選択します。詳細には、ロケーション、メール、電話番号、メール購読の状態、プッシュ通知購読の状態、Brazeでの会員期間に関するデータが含まれます。
 
-#### メールサブスクリプションの状態を変更するボタンを表示する {#display-the-button-to-change-the-email-subscription-state}
+#### メール購読の状態を変更するボタンを表示する {#display-the-button-to-change-the-email-subscription-state}
 
-ボタンは、`subscribed`、`opted-in`、`unsubscribed` というBrazeの3つのサブスクリプション状態のいずれかに基づいています。ユーザーが `subscribed` の場合、エージェントは `opt-in` または `unsubscribe` を選択できます。ユーザーが `opted-in` または `unsubscribed` の場合、エージェントはこの2つの間でのみ切り替えることができます。
+ボタンは、`subscribed`、`opted-in`、`unsubscribed` というBrazeの3つの購読状態のいずれかに基づいています。ユーザーが `subscribed` の場合、エージェントは `opt-in` または `unsubscribe` を選択できます。ユーザーが `opted-in` または `unsubscribed` の場合、エージェントはこの2つの間でのみ切り替えることができます。
 
 #### カスタム属性のリストを表示する {#display-a-list-of-custom-attributes}
 
@@ -77,7 +77,7 @@ Dixa内で統合を設定するには、Dixa管理者である必要がありま
 
 以下に統合の例を示します。
 
-![ユーザーのメールサブスクリプション状態、カスタム属性、カスタムイベント、購入を表示するDixaでのBrazeとDixaの統合。]({% image_buster /assets/img/dixa/dixa-braze-integration.png %}){: style="width:350px;"}
+![ユーザーのメール購読状態、カスタム属性、カスタムイベント、購入を表示するDixaでのBrazeとDixaの統合。]({% image_buster /assets/img/dixa/dixa-braze-integration.png %}){: style="width:350px;"}
 
 ## データ変換ツール {#data-transformation-tool}
 
@@ -89,7 +89,7 @@ Dixaはwebhookを使用してBrazeにデータを送信します。webhookを設
 
 1. **データ設定** > **データ変換** > **変換を作成**に移動します。
 2. **ゼロから開始**を選択し、送信先として**POST: Track Users**を選択して、**変換を作成**を選択します。
-3. 変換エディターで、以下の**データ変換ツールの例**からコードをコピーし、**変換コード**フィールドに挿入します。**保存**を選択し、**Webhook URL**をコピーして、Dixaを開きます。
+3. 変換エディターで、このセクションの**データ変換ツールの例**からコードをコピーし、**変換コード**フィールドに挿入します。**保存**を選択し、**Webhook URL**をコピーして、Dixaを開きます。
 4. Dixaで、**Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**に移動します。
 5. Webhook設定ページで、BrazeからコピーしたURLを貼り付け、追跡したいイベントをトグルで有効にします。**Conversation created**は、顧客の会話を追跡するための良い出発点です。
 6. **Save**を選択してDixaのセットアップを完了します。
@@ -137,7 +137,7 @@ return brazecall;
 
 1. **データ設定** > **データ変換** > **変換を作成**に移動します。
 2. **ゼロから開始**を選択し、送信先として**POST: Track Users**を選択して、**変換を作成**を選択します。
-3. 変換エディターで、以下の**CSATスコアの追跡**からコードをコピーし、**変換コード**フィールドに挿入します。**保存**を選択し、**Webhook URL**をコピーして、Dixaを開きます。
+3. 変換エディターで、このセクションの**CSATスコアの追跡**からコードをコピーし、**変換コード**フィールドに挿入します。**保存**を選択し、**Webhook URL**をコピーして、Dixaを開きます。
 4. Dixaで、**Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**に移動します。
 5. Webhook設定ページで、BrazeからコピーしたURLを貼り付け、追跡したいイベントをトグルで有効にします。**Conversation created**は、顧客の会話を追跡するための良い出発点です。
 6. **Save**を選択してDixaのセットアップを完了します。

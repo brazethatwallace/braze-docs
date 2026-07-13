@@ -48,7 +48,7 @@ page_order: 1
 
 ### 閉じるXボタン {#close-x-button}
 
-モーダルおよびフルスクリーンのアプリ内メッセージでは、メッセージの右上隅に<i class="fa-solid fa-xmark"></i>として表示される閉じるボタンをカスタマイズできます。カスタマイズオプションには、ボタンの位置、サイズ、塗りつぶし色、背景色、ボーダースタイル、ボーダー半径があります。
+モーダルおよびフルスクリーンのアプリ内メッセージでは、メッセージの上部に<i class="fa-solid fa-xmark"></i>として表示される閉じるボタンをカスタマイズできます。カスタマイズオプションには、ボタンの位置、サイズ、塗りつぶし色、背景色、ボーダースタイル、ボーダー半径があります。
 
 ![アプリ内メッセージの閉じるXボタンをカスタマイズするオプション（ボタンサイズ、塗りつぶし色、背景色、ボーダースタイル、ボーダー半径を含む）。]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -90,7 +90,7 @@ page_order: 1
 
 ![選択可能なドラッグ＆ドロップボックス。]({% image_buster /assets/img_archive/dnd_iam_editor_blocks.png %}){: style="max-width:40%"}
 
-各ブロックには、パディングの細かい制御など、独自の設定があります。右側のパネルは、選択したコンテンツ要素のスタイルパネルに自動的に切り替わります。詳細については、[エディターブロックのプロパティ]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties)を参照してください。
+各ブロックには、パディングの細かいコントロールなど、独自の設定があります。右側のパネルは、選択したコンテンツ要素のスタイルパネルに自動的に切り替わります。詳細については、[エディターブロックのプロパティ]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties)を参照してください。
 
 アプリ内メッセージを作成する際、ツールバーでモバイル、タブレット、またはデスクトップビューを選択して、ユーザーグループに対してアプリ内メッセージがどのように表示されるかをプレビューできます。これにより、コンテンツがレスポンシブであることを確認し、必要な調整を随時行うことができます。
 

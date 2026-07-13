@@ -144,7 +144,7 @@ Quelques points à garder à l'esprit lors de la configuration des limites de d�
     - Réponses automatiques SMS
     - Messages avec SLA garanti (comme les [e-mails transactionnels]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email))
     - Messages in-app
-    - Indicateurs de fonctionnalité
+    - Feature flags
     - Bannières
 
 #### Limite de débit et nouvelles tentatives de contenu connecté {#rate-limiting-and-connected-content-retries}
@@ -199,7 +199,7 @@ Si vous devez atteindre un nombre spécifique d'utilisateurs lorsque vous utilis
 
 - **Augmentez votre limite de débit :** pour tenir compte des utilisateurs qui sont plafonnés en fréquence. Par exemple, si vous souhaitez atteindre 500 utilisateurs mais que vous vous attendez à ce que certains soient plafonnés en fréquence, définissez votre limite de débit plus haut (par exemple, 1 000 utilisateurs).
 - **Utilisez la limite de débit seule :** si votre objectif est de contrôler le volume de messages envoyés par campagne.
-- **Contactez votre gestionnaire de la satisfaction client :** pour obtenir de l'aide dans la conception d'une stratégie de messagerie robuste qui équilibre les besoins métier et les considérations techniques.
+- **Contactez votre gestionnaire de la satisfaction client :** pour obtenir de l'aide dans la conception d'une stratégie de communication robuste qui équilibre les besoins métier et les considérations techniques.
 
 ### Aperçu de la fonctionnalité {#freq-cap-feat-over}
 
@@ -207,7 +207,7 @@ La limite de fréquence est appliquée au niveau de l'envoi de la campagne ou du
 
 Par défaut, la limite de fréquence est activée lors de la création de nouvelles campagnes. À partir de là, vous pouvez choisir les éléments suivants :
 
-- Le canal de messagerie que vous souhaitez plafonner : push, e-mail, SMS, webhook, WhatsApp, LINE, ou l'un de ces canaux.
+- Le canal de communication que vous souhaitez plafonner : push, e-mail, SMS, webhook, WhatsApp, LINE, ou l'un de ces canaux.
 - Combien de fois chaque utilisateur doit recevoir une campagne ou un composant Canvas envoyé depuis un canal dans un certain laps de temps.
 - Combien de fois chaque utilisateur doit recevoir une campagne ou un composant Canvas envoyé par [étiquette](#frequency-capping-by-tag) dans un certain laps de temps.
 
@@ -239,7 +239,7 @@ Par défaut, les nouvelles campagnes et les nouveaux Canvas qui n'obéissent pas
 Ce comportement modifie le comportement par défaut lorsque vous désactivez la limite de fréquence pour une campagne ou un Canvas. Les modifications sont rétrocompatibles et n'affectent pas les messages actuellement en cours.
 {% endalert %}
 
-![Section des contrôles de l'envoi avec la limite de fréquence activée.]({% image_buster /assets/img_archive/frequencycappingupdate.png %}){: style="max-width:90%;"}
+![Section des contrôles d'envoi avec la limite de fréquence activée.]({% image_buster /assets/img_archive/frequencycappingupdate.png %}){: style="max-width:90%;"}
 
 #### Comment les envois sont comptabilisés dans les plafonds {#how-sends-count-toward-caps}
 
@@ -251,21 +251,25 @@ Lorsqu'un seul envoi utilise plusieurs canaux, cet envoi compte au maximum une f
 
 Les messages in-app et les Content Cards ne sont pas comptabilisés comme ou dans les plafonds des campagnes ou composants Canvas de tout type.
 
+##### Notifications push avec plusieurs appareils {#push-notifications-with-multiple-devices}
+
+Pour les campagnes push, la limite de fréquence est comptabilisée au niveau de la campagne ou du composant Canvas, et non par appareil individuel. Si un profil utilisateur a plusieurs appareils enregistrés pour les notifications push (par exemple, un iPhone et un iPad), un plafond de fréquence au niveau de la campagne compte cela comme un seul envoi, quel que soit le nombre d'appareils qui reçoivent la notification. Cela est similaire à la façon dont une campagne récurrente avec une cadence quotidienne compte comme un envoi par jour, même si elle se répète plusieurs fois au cours de la semaine.
+
 {% alert important %}
 La limite de fréquence globale est planifiée en fonction du fuseau horaire de l'utilisateur et est calculée par jours calendaires, et non par périodes de 24 heures. Par exemple, si vous configurez une règle de limite de fréquence pour n'envoyer pas plus d'une campagne par jour, un utilisateur peut recevoir un message à 23 h dans son fuseau horaire local, et il serait éligible pour recevoir un autre message une heure plus tard.
 {% endalert %}
 
-#### Cas d'utilisation {#use-cases}
+#### Cas d'usage {#use-cases}
 
 {% tabs %}
-{% tab Cas d'utilisation 1 %}
+{% tab Cas d'usage 1 %}
 
 Imaginons que vous définissiez une règle de limite de fréquence pour que vos utilisateurs ne reçoivent pas plus de trois campagnes de notifications push ou étapes Canvas par semaine de toutes les campagnes ou étapes Canvas.
 
 Si votre utilisateur est prévu pour recevoir trois notifications push, deux messages in-app et une Content Card cette semaine, il recevra tous ces messages.
 
 {% endtab %}
-{% tab Cas d'utilisation 2 %}
+{% tab Cas d'usage 2 %}
 
 Ce scénario utilise une règle de limite de fréquence pour que les utilisateurs ne reçoivent pas plus de deux campagnes de notifications push ou étapes Canvas par semaine de toutes les campagnes ou étapes Canvas.
 
@@ -318,7 +322,7 @@ Dans cet exemple, votre utilisateur ne recevra pas plus d'une campagne de notifi
 
 Les règles de limite de fréquence par étiquette sont calculées au moment de l'envoi d'un message. Cela signifie que la limite de fréquence par étiquette ne compte que les étiquettes actuellement présentes sur les campagnes ou Canvas qu'un utilisateur a reçus dans le passé. Elle ne compte pas les étiquettes qui étaient sur les campagnes ou Canvas au moment de leur envoi, mais qui ont depuis été supprimées. Elle compte si une étiquette est ajoutée ultérieurement à un message qu'un utilisateur a reçu dans le passé, mais avant que le nouveau message étiqueté ne soit envoyé.
 
-##### Cas d'utilisation {#use-case}
+##### Cas d'usage {#use-case}
 
 Considérez les campagnes et la règle de limite de fréquence par étiquette suivantes :
 
@@ -335,7 +339,7 @@ Considérez les campagnes et la règle de limite de fréquence par étiquette su
 |---|---|
 | L'étiquette `promotional` est supprimée de **Campaign A** après que votre utilisateur a reçu le message, mais avant que **Campaign B** ne soit envoyée. | Votre utilisateur reçoit **Campaign B**. |
 | L'étiquette `promotional` est supprimée par erreur de **Campaign A** après que votre utilisateur a reçu le message. <br> L'étiquette est rajoutée à **Campaign A** le mardi, avant que **Campaign B** ne soit envoyée. | Votre utilisateur ne reçoit pas **Campaign B**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'usage" }
 
 #### Envoi à grande échelle {#sending-at-large-scales}
 

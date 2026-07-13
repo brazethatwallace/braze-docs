@@ -14,12 +14,13 @@ search_rank: 7
 
 ## 고객지원 포털 접근 {#access-the-support-portal}
 
-Braze 고객지원 팀에 연락하려면 Braze 대시보드로 이동하여 **고객지원**을 선택합니다. 메뉴에서 두 가지 옵션을 제공합니다:
+Braze 고객지원 팀에 연락하려면 Braze 대시보드로 이동하여 **고객지원** > **Operator로 도움 받기** > **고객지원 연락**을 선택합니다.
 
-- **Operator로 도움 받기**를 선택하면 BrazeAI Operator<sup>TM</sup>가 열리며, 대화 컨텍스트와 현재 화면을 활용하여 문제를 즉시 해결할 수 있습니다. Operator가 문제를 해결하지 못하는 경우, 대화 내용을 기반으로 지원 티켓 초안을 작성하도록 요청할 수 있습니다. 자세한 내용은 [BrazeAI Operator로 지원 티켓 제출하기]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets)를 참조하세요.
-- **도움 받기**를 선택하면 Braze 고객지원 포털(지정된 지원 연락처인 경우) 또는 표준 지원 양식으로 바로 이동하여 케이스를 제출하고 추적할 수 있습니다. Braze 지원 연락처인지 확실하지 않은 경우, 회사의 Braze 관리자, Braze 성공 매니저 또는 계정 소유자에게 문의하세요.
+이렇게 하면 BrazeAI Operator<sup>TM</sup>가 열리며, 지원 티켓을 직접 제출할 수 있는 옵션이 제공됩니다. Operator는 대화 컨텍스트와 현재 화면을 활용하여 문제를 해결할 수 있습니다. Operator가 문제를 해결하지 못하는 경우, 대화 내용을 기반으로 지원 티켓 초안을 작성하도록 요청한 다음, Braze 고객지원 포털(지정된 지원 연락처인 경우) 또는 표준 지원 양식을 통해 티켓을 제출할 수 있습니다.
 
-!["고객지원" 드롭다운에서 "Operator로 도움 받기"와 "도움 받기" 옵션을 보여주는 화면.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
+자세한 내용은 [BrazeAI Operator로 지원 티켓 제출하기]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets)를 참조하세요. Braze 지원 연락처인지 확실하지 않은 경우, 회사의 Braze 관리자, Braze 성공 매니저 또는 계정 소유자에게 문의하세요.
+
+!["고객지원" 드롭다운에서 "Operator로 도움 받기"를 보여주는 화면.]({% image_buster /assets/img_archive/get_help.png %}){: style="max-width:50%;"}
 
 
 ## 지정된 지원 연락처 추가 {#adding-designated-support-contacts}
@@ -39,24 +40,6 @@ Braze 고객지원 팀에 연락하려면 Braze 대시보드로 이동하여 **�
 
 지정된 지원 연락처인 경우, 고객지원 포털의 **My Org's** 필터 보기를 사용하여 회사 사용자가 제출한 모든 케이스를 확인할 수 있습니다. 모든 제출 채널(BrazeAI Operator<sup>TM</sup>, 웹 양식, 이메일 또는 포털)의 케이스가 이 보기에 포함됩니다.
 
-## 개발자 콘솔 스크린샷 제공 {#provide-developer-console-screenshots}
-
-고객지원팀과 소통할 때 추가 정보를 제공하기 위해 개발자 콘솔에 접근해야 할 수 있습니다:
-- Chrome
-  1. 웹페이지를 마우스 오른쪽 버튼으로 클릭하고 **Inspect**를 선택합니다.
-  2. 열린 창에서 **Console** 탭을 선택합니다.
-  3. 콘솔 탭의 스크린샷을 캡처합니다.<br><br>
-- Firefox
-  1. 웹페이지를 마우스 오른쪽 버튼으로 클릭하고 **Inspect Element**를 선택합니다.
-  2. 열린 창에서 **Console** 탭을 선택합니다.
-  3. 콘솔 탭의 스크린샷을 캡처합니다.<br><br>
-- Safari
-  1. 화면 상단 메뉴 바에서 Safari로 이동한 다음 **Preferences**를 선택합니다.
-  2. **Advanced**를 선택한 다음 **Show Develop menu in menu bar** 옆의 체크박스를 선택합니다. 그런 다음 창을 닫을 수 있습니다.
-  3. 웹페이지를 마우스 오른쪽 버튼으로 클릭하고 **Inspect Element**를 선택합니다.
-  4. 열린 창에서 **Console** 탭을 선택합니다.
-  5. 콘솔 탭의 스크린샷을 캡처합니다.
-
 ## 지원 케이스 제출 모범 사례 {#best-practices-for-submitting-a-support-case}
 
 ### 가능한 한 많은 정보 제공 {#provide-as-much-information-as-possible}
@@ -66,18 +49,6 @@ Braze 고객지원 팀에 연락하려면 Braze 대시보드로 이동하여 **�
 ### 사용자 샘플 제공 {#provide-a-sample-of-users}
 
 영향을 받은 전체 Segment가 아닌 사용자 샘플을 공유해 주세요. 적은 수의 사용자를 제공하면 범위를 좁히고 조사 속도를 높이는 데 도움이 됩니다.
-
-### 네트워크 로그(HAR 로그) 첨부 {#attach-network-logs-har-logs}
-
-고객지원팀에 연락하는 경우, 영향을 받은 사용자가 문제가 발생하는 동안 브라우저에서 네트워크 로그(HAR 로그)를 수집하면 유용합니다. 이 로그는 웹페이지의 개별 구성요소와 사용자가 열려고 하는 Braze 대시보드에 대한 브라우저와 서버 간의 네트워크 요청을 표시합니다.
-
-영향을 받은 사용자에게 다음을 수행하도록 안내하세요:
-
-1. 개발자 도구를 엽니다. Chrome을 사용하는 경우, 키보드 단축키 `option` + `⌘` + `J`(macOS)를 사용할 수 있습니다. Windows 또는 Linux를 사용하는 경우, 단축키 `shift` + `CTRL` + `J`를 사용할 수 있습니다.
-2. **Network** > **Fetch/XHR** 또는 **XHR**을 선택합니다.
-3. 요소의 **Name**, **Status**, **Size**, **Time**을 보여주는 화면 녹화 또는 스크린샷을 캡처합니다.<br><br>![Chrome 브라우저의 "Fetch/XHR" 탭.]({% image_buster /assets/img/network_xhr.png %}){: style="max-width:60%;"}
-
-그런 다음 사용자의 녹화 또는 스크린샷을 지원 티켓에 첨부합니다. 이 정보는 고객지원팀의 조사에 도움이 됩니다.
 
 ### 예상 동작과 실제 동작 명확히 설명 {#clarify-expected-versus-actual-behavior}
 

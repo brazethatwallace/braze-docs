@@ -2339,12 +2339,12 @@ Madagascar, Malawi, Mali, Mauritania, Morocco, Mozambique, Namibia, Niger, Rwand
 
 ### Rest of Asia Pacific
 
-Afghanistan, Australia, Bangladesh, Cambodia, China, Hong Kong, Japan, Laos, Mongolia, Nepal, New Zealand, Papua New Guinea, Philippines, Singapore, Sri Lanka, Taiwan, Tajikistan, Thailand,
+Afghanistan, Australia, Bangladesh, Cambodia, China, Japan, Laos, Mongolia, Nepal, New Zealand, Papua New Guinea, Philippines, Sri Lanka, Taiwan, Tajikistan, Thailand,
 Turkmenistan, Uzbekistan, Vietnam
 
 ### Rest of Central & Eastern Europe
 
-Albania, Armenia, Azerbaijan, Belarus, Bulgaria, Croatia, Czech Republic, Georgia, Greece, Hungary, Latvia, Lithuania, Macedonia, Moldova, Poland, Romania, Serbia, Slovakia, Slovenia, Ukraine
+Albania, Armenia, Azerbaijan, Belarus, Bulgaria, Croatia, Czech Republic, Georgia, Greece, Latvia, Lithuania, Macedonia, Moldova, Serbia, Slovakia, Slovenia, Ukraine
 
 ### Rest of Latin America
 
@@ -2353,7 +2353,7 @@ Guatemala, Haiti, Honduras, Jamaica, Nicaragua, Panama, Paraguay, Puerto Rico, U
 
 ### Rest of Middle East
 
-Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Qatar, Yemen
+Bahrain, Iraq, Jordan, Kuwait, Lebanon, Oman, Yemen
 
 ### Rest of Western Europe
 

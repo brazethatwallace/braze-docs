@@ -126,7 +126,7 @@ Braze 대시보드에서 권한을 저장할 때, 특히 워크스페이스에�
 
 | 권한 이름 | 설명 |
 |----------|-----------|
-| Manage company settings | 사용자가 권한 설정 및 발송자 확인을 수정할 수 있습니다. |
+| Manage company settings | 사용자가 권한 설정 및 발신자 인증을 수정할 수 있습니다. |
 | Create and delete workspaces | 사용자가 워크스페이스를 생성하고 삭제할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="회사 수준 권한" }
 
@@ -208,8 +208,8 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 
 | 제품 영역 | 권한 | 정의 |
 | --- | --- | --- |
-| 전역 제어 그룹 | View Global Control Group | 전역 제어 그룹 설정 페이지 보기 |
-| 전역 제어 그룹 | Edit Global Control Group | 전역 제어 그룹 생성 및 변경 사항 저장. "Edit Global Control Group" 권한이 있는 사용자는 "Edit Campaigns" 및 "Edit Canvases" 권한도 부여받아야 합니다. "Edit Global Control Group" 권한이 있는 사용자에게는 "View Global Control Group" 권한도 부여됩니다. |
+| 글로벌 컨트롤 그룹 | View Global Control Group | 글로벌 컨트롤 그룹 설정 페이지 보기 |
+| 글로벌 컨트롤 그룹 | Edit Global Control Group | 글로벌 컨트롤 그룹 생성 및 변경 사항 저장. "Edit Global Control Group" 권한이 있는 사용자는 "Edit Campaigns" 및 "Edit Canvases" 권한도 부여받아야 합니다. "Edit Global Control Group" 권한이 있는 사용자에게는 "View Global Control Group" 권한도 부여됩니다. |
 | 위치 | Archive Locations | 위치를 아카이브로 이동 |
 | 위치 | View Locations | 위치 보기 |
 | 위치 | Edit Locations | 위치 생성 및 편집 |
@@ -221,7 +221,8 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 사용자 데이터 | Edit User Data | 사용자 데이터 생성 및 업데이트 |
 | 사용자 데이터 | Export User Data | 대시보드에서 사용자 다운로드 |
 | 중복 사용자 | View User Merge Records | 사용자 병합 기록 목록 보기 |
-| 사용자 | View User Profiles (PII Redacted) | PII 준수 방식으로 고객 프로필 보기 |
+| 사용자 | View User Profiles (PII Redacted) | PII 준수 방식으로 고객 프로필 보기. "View Custom Attributes Marked as PII" 권한이 없는 경우, PII로 표시된 커스텀 속성을 참조하는 Campaign을 저장하거나 실행할 수 없습니다. |
+| 사용자 | View User Event Properties | 고객 프로필의 **이벤트 기록** 탭에서 이벤트 속성정보 보기 |
 | 중복 사용자 | Merge Duplicate Users | 중복 사용자를 하나의 사용자로 결합. 병합 후 중복 항목은 제거됩니다 |
 | 사용자 삭제 | View User Deletion Records | 사용자 삭제 기록 목록 보기 |
 | 사용자 삭제 | Delete Users | 대시보드에서 사용자를 개별 또는 일괄로 영구 삭제 |
@@ -234,9 +235,9 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 배너 템플릿 | View Banner Templates | 배너 템플릿 보기 |
 | 배너 템플릿 | Archive Banner Templates | 배너 템플릿을 아카이브로 이동 |
 | 배너 템플릿 | Edit Banner Templates | 배너 템플릿 생성 및 업데이트 |
-| 캔버스 템플릿 | View Canvas Templates | 캔버스 템플릿 보기 |
-| 캔버스 템플릿 | Archive Canvas Templates | 캔버스 템플릿을 아카이브로 이동 |
-| 캔버스 템플릿 | Create and Edit Canvas Templates | 캔버스 템플릿 생성 및 업데이트 |
+| Canvas 템플릿 | View Canvas Templates | Canvas 템플릿 보기 |
+| Canvas 템플릿 | Archive Canvas Templates | Canvas 템플릿을 아카이브로 이동 |
+| Canvas 템플릿 | Create and Edit Canvas Templates | Canvas 템플릿 생성 및 업데이트 |
 | Content Blocks | View Content Blocks | Content Blocks 보기 |
 | Content Blocks | Launch Content Blocks | 임시 저장된 Content Blocks 게시, 시작된 Content Blocks 편집, 아카이브 및 아카이브 해제 |
 | Content Blocks | Archive Content Blocks | Content Blocks를 아카이브로 이동 |
@@ -361,7 +362,7 @@ Braze에서 사용자가 속한 각 워크스페이스에 대해 서로 다른 �
 | 도메인 설정 | Edit Domain Settings | 확인된 도메인에서 위임된 도메인 및 커스텀 도메인 추가 |
 | 필드 수준 암호화 | Edit Identifier Field-Level Encryption | 필드 수준 암호화 설정 활성화 및 업데이트 |
 | 미디어 라이브러리 자산 | View Media Library Assets | 미디어 라이브러리 자산 보기 |
-| 미디어 라이브러리 자산 | Delete Media Library Assets | 미디어 라이브러리 자산 영구 삭제 |
+| 미디어 라이브러리 자산 | Delete Media Library Assets | UI에서 미디어 라이브러리 자산을 제거합니다. 삭제된 자산은 해당 자산을 참조하는 메시지가 깨지지 않도록 Braze에서 계속 호스팅됩니다. 자산을 영구적으로 삭제하려면 Braze 고객지원에 문의하세요. |
 | 미디어 라이브러리 자산 | Edit Media Library Assets | 미디어 라이브러리 자산 생성 및 업데이트 |
 | 미디어 라이브러리 자산 | Replace Media Library Assets | 기존 미디어 라이브러리 자산의 파일을 URL 및 자산 ID를 유지하면서 교체 |
 | 메시징 사용량 제한 | View Messaging Rate Limits | 워크스페이스 수준 메시징 사용량 제한 보기 |

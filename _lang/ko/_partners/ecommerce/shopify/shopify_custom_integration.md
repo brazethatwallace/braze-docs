@@ -51,7 +51,7 @@ Braze에서 **설정** > **앱 설정**으로 이동한 다음 **앱 추가**를
 첫 번째 단계는 Braze Web SDK를 초기화하는 것입니다. NPM 패키지를 설치하여 수행하는 것을 권장합니다:
 
 ```java
-npm install --save @braze/web-sdk@5.4.0
+npm install --save @braze/web-sdk@6.8.0
 # or, using yarn:
 # yarn add @braze/web-sdk
 ```
@@ -646,7 +646,7 @@ Braze SDK를 사용하면 이 통합에서 지원하는 데이터 이상의 커�
 
 드롭다운에서 `external_id` 유형을 선택합니다.
 
-!["가입자 수집" 섹션.]({% image_buster /assets/img/shopify/external_id_standard.png %})
+!["구독자 수집" 섹션.]({% image_buster /assets/img/shopify/external_id_standard.png %})
 
 {% alert important %}
 이메일 주소 또는 해시된 이메일 주소를 Braze 외부 ID로 사용하면 데이터 소스 전반에서 ID 관리를 간소화할 수 있습니다. 그러나 사용자 개인정보 보호 및 데이터 보안에 대한 잠재적 위험을 고려하는 것이 중요합니다.<br><br>
@@ -734,7 +734,7 @@ Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집할 수 있는 �
 
 이메일 또는 SMS 채널을 사용하는 경우 이메일 및 SMS 마케팅 옵트인 상태를 Braze에 동기화할 수 있습니다. Shopify에서 이메일 마케팅 옵트인을 동기화하면 Braze는 해당 특정 스토어와 연결된 모든 사용자에 대해 이메일 구독 그룹을 자동으로 생성합니다. 이 구독 그룹에 고유한 이름을 생성해야 합니다.
 
-![이메일 또는 SMS 마케팅 옵트인 수집 옵션이 있는 "가입자 수집" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
+![이메일 또는 SMS 마케팅 옵트인 수집 옵션이 있는 "구독자 수집" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
 [Shopify 개요]({{site.baseurl}}/shopify_overview)에서 언급한 바와 같이, 서드파티 캡처 폼을 사용하려면 개발자가 Braze SDK 코드를 통합해야 합니다. 이를 통해 폼 제출에서 이메일 주소와 글로벌 이메일 구독 상태를 캡처할 수 있습니다. 구체적으로 `theme.liquid` 파일에 다음 메서드를 구현하고 테스트해야 합니다:<br><br>

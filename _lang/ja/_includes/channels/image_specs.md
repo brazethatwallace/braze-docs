@@ -28,7 +28,7 @@
 
 アプリ内メッセージに含めることができるテキスト文字数に制限はありませんが（ボタン、ヘッドライン、メインボディなども同様）、使用するテキスト文字数は適度に調整してください。テキストが多すぎると、ユーザーはメッセージを展開してスクロールする必要があります。
 
-すべてのアプリ内メッセージの推奨画像サイズは 500 KB、最大画像サイズは 5 MB で、PNG、JPEG、GIF のファイルタイプをサポートしています。WebP 画像はすべてのデバイスやブラウザでサポートされているわけではありません。アプリ内メッセージに追加する前に、WebP 画像を PNG または JPEG に変換することを推奨します。
+すべてのアプリ内メッセージの推奨画像サイズは 500 KB、最大画像サイズは 5 MB で、PNG、JPEG、GIF のファイルタイプをサポートしています。WebP画像はすべてのデバイスやブラウザでサポートされているわけではありません。アプリ内メッセージに追加する前に、WebP画像をPNGまたはJPEGに変換することを推奨します。
 
 {% tabs %}
 {% tab ポートレート %}
@@ -107,10 +107,10 @@ table td {
       <td>1038 x 1038</td>
       <td>5 MB</td>
       <td>PNG、JPEG、GIF</td>
-      <td>2020年1月現在、iOS リッチプッシュ通知では、10 MB 未満であれば 1038 x 1038 px の画像を処理できますが、できるだけ小さいファイルサイズを使用することを推奨します。実際には、大きなファイルを送信すると不要なネットワーク負荷が発生し、ダウンロードのタイムアウトがより頻繁に起こる可能性があります。<br><br>詳細については、<a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/ios/rich_notifications/">iOS リッチ通知</a> を参照してください。</td>
+      <td>2020年1月現在、iOSリッチプッシュ通知では、10 MB未満であれば 1038 x 1038 pxの画像を処理できますが、できるだけ小さいファイルサイズを使用することを推奨します。実際には、大きなファイルを送信すると不要なネットワーク負荷が発生し、ダウンロードのタイムアウトがより頻繁に起こる可能性があります。<br><br>詳細については、<a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/ios/rich_notifications/">iOSリッチ通知</a> を参照してください。</td>
     </tr>
     <tr>
-      <td>Android プッシュアイコン</td>
+      <td>Androidプッシュアイコン</td>
       <td>1:1</td>
       <td>該当なし</td>
       <td>500 KB</td>
@@ -118,20 +118,20 @@ table td {
       <td></td>
     </tr>
     <tr>
-      <td>Android 拡張通知画像</td>
+      <td>Android拡張通知画像</td>
       <td>2:1</td>
       <td><b>小:</b><br>512 x 256<br><br><b>中:</b><br>1024 x 512<br><br><b>大:</b><br>2048 x 1024</td>
       <td>500 KB</td>
       <td>PNG、JPEG</td>
-      <td><a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/android/rich_notifications/">Android リッチ通知</a> で使用されます。</td>
+      <td><a href="{{site.baseurl}}/user_guide/message_building_by_channel/push/android/rich_notifications/">Androidリッチ通知</a> で使用されます。</td>
     </tr>
     <tr>
-      <td>Android インライン画像</td>
+      <td>Androidインライン画像</td>
       <td>3:2</td>
       <td>該当なし</td>
       <td>該当なし</td>
       <td>PNG、JPEG</td>
-      <td>詳細については、<a href="{{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/inline_image_push/">Android インライン画像プッシュ</a> を参照してください。</td>
+      <td>詳細については、<a href="{{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/inline_image_push/">Androidインライン画像プッシュ</a> を参照してください。</td>
     </tr>
   </tbody>
 </table>
@@ -152,7 +152,7 @@ table td {
 | --- | --- |
 | サイズ | 5 MB |
 | 幅 | ヘッダー: 600 px<br>本文: 480 px |
-| ファイルタイプ | PNG、JPEG、GIF<br><br>WebP 画像のサポートはメールクライアントによって異なります。信頼性の高いレンダリングのためには、メールメッセージに追加する前に WebP 画像を PNG または JPEG に変換してください。<br><br>SVG 画像は Gmail やその他の主要なメールクライアントとの互換性の問題があるため、メールメッセージには推奨されません。代わりに PNG、JPEG、または GIF を使用してください。 |
+| ファイルタイプ | PNG、JPEG、GIF<br><br>WebP画像のサポートはメールクライアントによって異なります。信頼性の高いレンダリングのためには、メールメッセージに追加する前にWebP画像をPNGまたはJPEGに変換してください。<br><br>SVG画像はGmailやその他の主要なメールクライアントとの互換性の問題があるため、メールメッセージには推奨されません。代わりにPNG、JPEG、またはGIFを使用してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="テーブル" }
 
 | テキスト仕様 | 推奨最大プロパティ |
@@ -173,7 +173,7 @@ table td {
 | バナー    | 任意のアスペクト比 | 最小幅 600&nbsp;px |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="テーブル" }
 
-詳細については、[コンテンツカードのクリエイティブ詳細]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details)を参照してください。
+詳細については、[Content Cardsのクリエイティブ詳細]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details)を参照してください。
 
 {% endif %}
 
@@ -183,11 +183,11 @@ table td {
 
 | プロパティ | 仕様 | 備考 |
 |---|---|---|
-| サポートされるフォーマット | JPEG、PNG | Meta は画像メッセージに対して JPEG と PNG のみを公式にサポートしています。WebP はスタンプ（標準の画像メッセージではない）でのみサポートされています。 |
+| サポートされるフォーマット | JPEG、PNG | Metaは画像メッセージに対してJPEGとPNGのみを公式にサポートしています。WebPはスタンプ（標準の画像メッセージではない）でのみサポートされています。 |
 | 最大ファイルサイズ | 5 MB | |
-| カラーモード | 8 ビット、RGB または RGBA | |
+| カラーモード | 8ビット、RGBまたはRGBA | |
 | キャプション（画像メッセージのみ） | オプション、最大 1,024 文字 | |
-| 推奨サイズ | 1,125 × 600 px | デバイス間で一貫したレンダリングとMetaの要件への準拠のため、1,125×600 px（1.91:1）の JPEG または PNG 画像の使用を推奨します。 |
+| 推奨サイズ | 1,125 × 600 px | デバイス間で一貫したレンダリングとMetaの要件への準拠のため、1,125×600 px（1.91:1）のJPEGまたはPNG画像の使用を推奨します。 |
 | 推奨アスペクト比 | 1.91:1（ワイド） | 正方形（1:1）およびワイド（16:9）フォーマットも使用できますが、ユーザーのデバイスによっては画像がクロッピングまたは拡大される場合があります。<br><br>カルーセルカードの場合、ヘッダー画像はWhatsAppによって自動的にワイド比率にクロッピングされます。ただし、本文テキストがない場合は正方形でレンダリングされます。|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="テーブル" }
 

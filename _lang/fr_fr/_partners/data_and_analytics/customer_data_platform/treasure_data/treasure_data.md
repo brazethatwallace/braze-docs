@@ -10,25 +10,25 @@ search_tag: Partner
 
 # Treasure Data
 
-> [Treasure Data](https://www.treasuredata.com/) est une plateforme de données client (CDP) qui collecte et achemine des informations provenant de sources multiples vers divers autres emplacements de votre pile marketing.
+> [Treasure Data](https://www.treasuredata.com/) est une plateforme de données client (CDP) qui collecte et achemine des informations provenant de sources multiples vers divers autres emplacements de votre stack marketing.
 
 L'intégration de Braze et Treasure Data vous permet de transférer les résultats des tâches depuis Treasure Data directement dans Braze. Vous pouvez ainsi :
-* **Mapper les identifiants externes** : associer les identifiants au compte utilisateur Braze depuis votre système CRM.
+* **Mapper les ID externes** : associer les ID au compte utilisateur Braze depuis votre système de gestion de la relation client.
 * **Gérer la désinscription** : lorsqu'un utilisateur final met à jour son consentement en choisissant de ne pas participer.
-* **Télécharger votre suivi des événements, des achats ou des attributs de profil personnalisés**. Ces informations peuvent vous aider à créer des segments de clientèle précis qui améliorent l'expérience utilisateur pour vos campagnes.
+* **Télécharger votre suivi d'événements, d'achats ou d'attributs de profil personnalisés**. Ces informations peuvent vous aider à créer des segments de clientèle précis qui améliorent l'expérience utilisateur pour vos Campaigns.
 
 ## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | --- | --- |
 | Compte Treasure Data | Un [compte Treasure Data](https://www.treasuredata.com/custom-demo/) est nécessaire pour bénéficier de ce partenariat. |
-| Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`, `users.delete`, `users.alias.new` et `users.identify`.<br><br>Cette clé peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
-| Endpoint REST Braze  | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)). |
+| Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`, `users.delete`, `users.alias.new` et `users.identify`.<br><br>Cette clé peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Endpoint REST Braze | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
-Vous pouvez synchroniser vos profils clients consolidés depuis Treasure Data vers Braze afin de définir des segments cibles. Treasure Data prend en charge les données de cookies internes, les identifiants d'appareils mobiles, les systèmes tiers tels que votre CRM, et bien plus encore.
+Vous pouvez synchroniser vos profils clients consolidés depuis Treasure Data vers Braze afin de définir des segments cibles. Treasure Data prend en charge les données de cookies internes, les identifiants d'appareils mobiles, les systèmes tiers tels que votre système de gestion de la relation client, et bien plus encore.
 
 ## Intégration {#integration}
 
@@ -38,7 +38,7 @@ Dans Treasure Data, accédez au **Catalog** sous le **Integrations Hub**, recher
 
 Dans l'invite **New Authentication** qui s'affiche, nommez votre connexion et indiquez votre clé API REST Braze et votre endpoint REST. Sélectionnez **Done** lorsque vous avez terminé.
 
-![]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
+![Formulaire d'authentification Braze dans Treasure Data avec les champs de clé API REST et d'endpoint.]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
 
 ### Étape 2 : Définir votre requête {#step-2-define-your-query}
 
@@ -50,7 +50,7 @@ Pour les utilisateurs qui utilisent HIVE pour créer des requêtes, HIVE exige q
 
 Ensuite, sélectionnez **Export Results** et sélectionnez une authentification d'intégration existante.
 
-![]({% image_buster /assets/img/treasure_data/query_2.png %}){: style="max-width:80%;"}
+![Page de résultats de requête Treasure Data avec Export Results et l'intégration Braze sélectionnés.]({% image_buster /assets/img/treasure_data/query_2.png %}){: style="max-width:80%;"}
 
 Définissez des paramètres d'exportation supplémentaires comme indiqué dans la [section de personnalisation](#customization) suivante. Dans votre contenu d'intégration d'exportation, passez en revue les paramètres d'intégration.
 

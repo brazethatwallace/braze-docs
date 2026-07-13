@@ -23,7 +23,7 @@ Before you start, you'll need the following:
 
 ## How it works
 
-When you create an agent, you define its purpose and set guardrails for how it should behave. After it's live, the agent can be deployed in Braze to generate personalized copy, make real-time decisions, or update catalog fields. As you build your agent, you can save it as a draft, and you can pause or update an agent anytime from the dashboard.
+When you create an agent, you define its purpose and set guardrails for how it should behave. After it's live, the agent can be deployed in Braze to generate personalized copy, make real-time decisions, or update catalog fields. As you build your agent, you can save it as a draft, and you can pause or update an agent anytime from the dashboard. Each save creates a new version you can review in the [Version history]({{site.baseurl}}/user_guide/brazeai/agents/reference#version-history) tab.
 
 The following use cases showcase a few ways to leverage custom agents.
 
@@ -60,7 +60,7 @@ Next, set up the details for your agent:
 2. (optional) Add tags to filter your agent.
 3. Choose the [model]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) for your agent to use.
 4. If you're not using the **Braze Auto** model, select the model's [thinking level]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels). You can choose from minimal, low, medium, or high. We recommend starting with **Minimal** and testing your agent's responses and adjusting this as needed.
-5. Set a daily invocation limit. By default, this value is set to 250,000, but can be raised to 1,000,000. If you're interested in increasing the limit above 1,000,000, contact your customer success manager to learn more.
+5. Set a daily invocation limit. By default, this value is set to 250,000, but can be raised to 1,000,000. If you're interested in increasing the limit over 1,000,000, contact your customer success manager to learn more.
 
 ![Agent Console interface for creating a custom agent in Braze. The screen displays fields for entering the agent name and description, and selecting a model, and setting a daily invocation limit.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
@@ -81,6 +81,7 @@ For Canvas agents, you can use Liquid in your instructions to reference user att
 Select **+ Agent context** to choose what your agent can reference. This includes:
 
 - [Catalog fields]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields): Give the agent access to your catalog data for more accurate responses.
+- [Knowledge sources]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources): Give the agent access to catalog data through a knowledge source for more accurate retrieval than attaching a catalog directly.
 - [Segment membership]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): Let the agent personalize responses based on which segments a user belongs to. You can select up to five segments.
 - [Brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): Reference the brand voice and style guidelines for the agent to follow. For example, if you want your agent to generate SMS copy to encourage users to sign up for a gym membership, you can use this field to reference your predefined bold, motivational guideline.
 - [All Canvas Context]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analyze all Canvas context data for a user when this agent is invoked, including any variables that are not referenced in the **Instructions** section.

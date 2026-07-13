@@ -40,13 +40,14 @@ Para saber mais sobre conversões, confira nosso [curso do Braze Learning](https
 
 ### Regras de rastreamento de conversão {#conversion-tracking-rules}
 
-Os eventos de conversão atribuem ações do usuário a um ponto de engajamento. De modo geral, enquanto uma janela de conversão está aberta, um usuário converte no máximo uma vez por evento de conversão para aquela Campaign ou Canvas. Se ele realizar a mesma ação de conversão mais de uma vez antes do prazo (por exemplo, duas compras), a Braze ainda conta apenas uma conversão para aquele evento. Campaigns multicanal podem registrar uma oportunidade de conversão separada para cada canal de envio de mensagens, o que pode produzir taxas de conversão acima de 100% quando você compara contagens de conversão com destinatários únicos (veja abaixo).
+Os eventos de conversão atribuem ações do usuário a um ponto de engajamento. De modo geral, enquanto uma janela de conversão está aberta, um usuário converte no máximo uma vez por evento de conversão para aquela Campaign ou Canvas. Se ele realizar a mesma ação de conversão mais de uma vez antes do prazo (por exemplo, duas compras), a Braze ainda conta apenas uma conversão para aquele evento. Campaigns multicanal podem registrar uma oportunidade de conversão separada para cada canal de envio de mensagens, o que pode produzir taxas de conversão acima de 100% quando você compara contagens de conversão com destinatários únicos (conforme descrito nos itens a seguir).
 
 Observe o seguinte sobre como a Braze lida com múltiplas conversões:
 
-- **Campaigns de canal único**: As conversões ocorrem por usuário, não por dispositivo. Dentro de um único canal, um usuário converte apenas uma vez por evento de conversão, mesmo que uma mensagem seja enviada para vários dispositivos. Por exemplo, se uma Campaign tem apenas um evento de conversão definido como "Realiza qualquer compra" e um usuário faz duas compras separadas dentro do prazo de conversão, a Braze conta apenas uma conversão.
-- **Campaigns multicanal**: Para Campaigns multicanal, cada canal tem sua própria oportunidade de conversão. Um usuário pode converter uma vez por canal após receber uma mensagem naquele canal. Isso significa que, se um usuário receber mensagens em vários canais (por exemplo, e-mail e push) e realizar a ação de conversão, a Braze conta uma conversão para cada canal, o que pode resultar em taxas de conversão superiores a 100%.
-- **Etapas de mensagem do Canvas**: A Braze atribui conversões que ocorrem dentro do prazo de conversão à última etapa de mensagem do Canvas que o usuário recebeu. Após receber a próxima etapa de mensagem, a atribuição passa para essa etapa. A Braze mede esse período a partir de quando o usuário entra no Canvas, não a partir de cada mensagem individualmente. Conversões que acontecem durante postergações entre etapas de mensagem contam para a atribuição da etapa de mensagem anterior até que o usuário avance; conversões após a última etapa de mensagem ainda contam até o prazo de conversão do Canvas.
+- **Campaigns de canal único:** As conversões ocorrem por usuário, não por dispositivo. Dentro de um único canal, um usuário converte apenas uma vez por evento de conversão, mesmo que uma mensagem seja enviada para vários dispositivos. Por exemplo, se uma Campaign tem apenas um evento de conversão definido como "Realiza qualquer compra" e um usuário faz duas compras separadas dentro do prazo de conversão, a Braze conta apenas uma conversão.
+- **Campaigns multicanal:** Para Campaigns multicanal, cada canal tem sua própria oportunidade de conversão. Um usuário pode converter uma vez por canal após receber uma mensagem naquele canal. Isso significa que, se um usuário receber mensagens em vários canais (por exemplo, e-mail e push) e realizar a ação de conversão, a Braze conta uma conversão para cada canal, o que pode resultar em taxas de conversão superiores a 100%.
+- **Etapas de mensagem do Canvas:** A Braze atribui conversões que ocorrem dentro do prazo de conversão à última etapa de mensagem do Canvas que o usuário recebeu. Após receber a próxima etapa de mensagem, a atribuição passa para essa etapa. A Braze mede esse período a partir de quando o usuário entra no Canvas, não a partir de cada mensagem individualmente. Conversões que acontecem durante postergações entre etapas de mensagem contam para a atribuição da etapa de mensagem anterior até que o usuário avance; conversões após a última etapa de mensagem ainda contam até o prazo de conversão do Canvas.
+- **Retenção de eventos históricos:** O rastreamento de conversão nos dashboards de Campaign e Canvas mede ações históricas, não perfis de usuário atuais. Quando um usuário atende a uma regra de conversão dentro do período designado, a Braze registra uma conversão na análise de dados e não a remove, mesmo que o perfil desse usuário seja posteriormente excluído, mesclado ou arquivado durante a manutenção rotineira de dados ou processos de conformidade com o GDPR. As contagens de segmentos em tempo real podem ser naturalmente menores do que seus registros permanentes de eventos no dashboard, pois os segmentos dinâmicos filtram apenas perfis ativos que existem atualmente no banco de dados.
 - Se um usuário realizar um evento de conversão dentro dos prazos de conversão de duas Campaigns ou Canvas separados que recebeu, a conversão é registrada em ambos.
 - Um usuário é contado como convertido se realizou o evento de conversão específico dentro do período, mesmo que não tenha aberto ou clicado na mensagem.
 
@@ -56,19 +57,19 @@ O evento de conversão primária é o primeiro evento que você adiciona durante
 
 - Calcular a variante de mensagem vencedora em Campaigns ou Canvas [multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing#multivariate-and-ab-testing).
 - Determinar o período em que a receita é calculada para a Campaign ou Canvas.
-- Ajustar as distribuições de mensagens para Campaigns e Canvas usando a [Seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
+- Ajustar as distribuições de mensagens para Campaigns e Canvas usando a [seleção inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
 
 A contagem do evento de conversão primária é o número de eventos de conversão que ocorreram. Para Campaigns multicanal, a Braze conta conversões por canal (conforme descrito em [Regras de rastreamento de conversão](#conversion-tracking-rules)), o que significa que a contagem de conversões pode exceder o número de usuários únicos e resultar em taxas de conversão superiores a 100%. A Braze calcula a taxa do evento de conversão primária dividindo essa contagem pelo número de destinatários únicos. A Braze considera um usuário como destinatário quando a mensagem é enviada ou exibida, dependendo do canal. Por exemplo, em push ou e-mail, um usuário se torna destinatário após a Braze enviar a mensagem. Para mensagens no app ou Content Cards, o usuário precisa visualizar a mensagem para ser considerado destinatário.
 
 {% alert note %}
-Se você abortar mensagens usando a tag Liquid `abort`, a Braze aborta mensagens apenas para usuários que passam por variantes. Mensagens para usuários no grupo de controle não são abortadas, o que pode levar a porcentagens de conversão distorcidas entre variantes e grupos de controle. Como alternativa, use a [segmentação]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) para direcionar seus usuários na entrada da Campaign e do Canvas.
+Se você interromper mensagens usando a tag Liquid `abort`, a Braze interrompe mensagens apenas para usuários que passam por variantes. Mensagens para usuários no grupo de controle não são interrompidas, o que pode levar a porcentagens de conversão distorcidas entre variantes e grupos de controle. Como alternativa, use a [segmentação]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) para direcionar seus usuários na entrada da Campaign e do Canvas.
 {% endalert %}
 
 ## Criando uma Campaign com rastreamento de conversão {#creating-a-campaign-with-conversion-tracking}
 
 ### Etapa 1: Configure sua Campaign {#step-1-set-up-your-campaign}
 
-[Crie uma Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign) para o canal de envio de mensagens desejado. Após configurar as mensagens e a programação da sua Campaign, você pode adicionar até quatro eventos de conversão para rastreamento.
+[Crie uma Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign) para o canal de envio de mensagens desejado. Após configurar as mensagens e o cronograma da sua Campaign, você pode adicionar até quatro eventos de conversão para rastreamento.
 
 Use quantos eventos de conversão forem necessários. Adicionar um segundo ou terceiro evento de conversão enriquece significativamente seus relatórios. Por exemplo, para uma Campaign direcionada a usuários inativos, adicionar um evento de conversão secundário junto com o evento de conversão primária **Inicia sessão** ajuda a entender a eficácia da sua Campaign em trazer os usuários de volta ao seu aplicativo.
 
@@ -99,7 +100,7 @@ Após selecionar seus eventos de conversão, continue o processo de criação da
 
 ### Etapa 3: Visualize seus resultados {#step-3-view-your-results}
 
-Acesse a página **Informações** para ver os detalhes de cada evento de conversão associado à Campaign que você criou. Independentemente dos eventos de conversão selecionados, você também pode ver a receita total atribuída a essa Campaign específica, bem como variantes específicas, durante o período do evento de conversão primária.
+Acesse a página **Detalhes** para ver os detalhes de cada evento de conversão associado à Campaign que você criou. Independentemente dos eventos de conversão selecionados, você também pode ver a receita total atribuída a essa Campaign específica, bem como variantes específicas, durante o período do evento de conversão primária.
 
 {% alert note %}
 Se você não selecionar nenhum evento de conversão durante a criação da Campaign, o tempo padrão será de três dias.
@@ -108,3 +109,19 @@ Se você não selecionar nenhum evento de conversão durante a criação da Camp
 Além disso, para mensagens multivariantes, você pode ver o número de conversões e as porcentagens de conversão para seu grupo de controle e cada variante.
 
 ![Quatro eventos de conversão que rastreiam conversões com base em quando uma compra foi realizada dentro de três horas, realizou uma compra dentro de duas horas, iniciou uma sessão dentro de 30 minutos e iniciou uma sessão dentro de 25 minutos.]({% image_buster /assets/img_archive/conversion_event_details.png %})
+
+## Taxas de conversão de etapa do Canvas versus variante {#canvas-step-versus-variant-conversion-rates}
+
+É comum que a contagem total de conversões de uma variante do Canvas seja maior do que a soma das contagens de conversões de suas etapas individuais. Isso acontece porque as conversões são rastreadas de forma diferente no nível da variante e no nível da etapa:
+
+- As conversões de variante são contadas assim que o usuário entra na variante.
+- As conversões de etapa são contadas somente após a mensagem da etapa ser enviada ao usuário.
+
+Isso significa que qualquer usuário que entra no Canvas e realiza o evento de conversão antes de receber uma etapa conta para o total da variante, mas não para nenhuma etapa.
+
+Os cenários a seguir também podem causar essa discrepância:
+
+- **O usuário sai do Canvas antes de receber qualquer etapa.** Se um usuário entra no Canvas mas sai (por exemplo, devido a um filtro ou incompatibilidade de público) antes de qualquer mensagem ser enviada, uma conversão que ele realizar ainda conta no nível da variante, mas não conta no nível de nenhuma etapa.
+- **A etapa direciona um subconjunto de usuários.** Se uma etapa está configurada para enviar apenas para uma plataforma específica (como mobile), usuários em outras plataformas (como web) ainda podem entrar no Canvas e converter. Como esses usuários nunca recebem a mensagem da etapa, a conversão não conta no nível da etapa — apenas no nível da variante.
+
+Para saber mais sobre análise de dados do Canvas, consulte [Medir e testar com análise de dados do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).

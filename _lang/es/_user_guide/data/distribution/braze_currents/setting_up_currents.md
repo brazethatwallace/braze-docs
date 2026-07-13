@@ -33,10 +33,10 @@ Los siguientes requisitos son los básicos y mínimos para integrarse con la may
 
 | Requisito | Origen | Acceso | Descripción
 |---|---|---|---|
-| Cuenta con socio | Configura una cuenta con ese socio o ponte en contacto con tu director de cuentas de Braze para obtener sugerencias. | Consulta el sitio web de ese socio o ponte en contacto con él para registrarte. | Braze no enviará datos a un socio si no tienes acceso a esos datos a través de la cuenta de tu empresa.
-| Clave de API o token del socio | Normalmente el dashboard del socio. | Cópialo y pégalo en el campo designado de Braze. | Braze tiene un campo designado para ello en la página de integraciones de ese socio. Necesitamos esto para saber dónde enviar tus datos. **Mantén tus claves o tokens de socio actualizados; las credenciales no válidas pueden desactivar tu conector y eliminar eventos.**
-| Código/clave de autenticación, clave secreta, archivo de certificación | Ponte en contacto con un representante de tu cuenta con ese socio. También puede existir en el dashboard del socio. | Copia y pega las claves en el campo designado de Braze. Genera y carga archivos `.json` u otros archivos de certificación en el lugar adecuado de Braze. | Braze tiene un campo designado para ello en la página de integraciones de ese socio. Esto proporciona credenciales a Braze y nos autoriza a escribir archivos en tu cuenta de socio. **Es importante que mantengas tus datos de autenticación actualizados; unas credenciales no válidas pueden hacer que se desactive tu conector y que se pierdan eventos.**
-| Contenedor, ruta de carpeta | Algunos socios organizan y clasifican los datos por contenedores. Debe encontrarse en el dashboard del socio. | Si es necesario, copia el nombre de contenedor o la ruta del archivo exactamente en el espacio designado en Braze. | Aunque esto es necesario para algunos socios, es importante acertar cuando lo necesites. |
+| Cuenta con socio | Configura una cuenta con ese socio o ponte en contacto con tu director de cuentas de Braze para obtener sugerencias. | Consulta el sitio web de ese socio o ponte en contacto con él para suscribirte. | Braze no enviará datos a un socio si no tienes acceso a esos datos a través de la cuenta de tu empresa.
+| Clave de API o token del socio | Normalmente el panel del socio. | Cópialo y pégalo en el campo designado de Braze. | Braze tiene un campo designado para ello en la página de integraciones de ese socio. Necesitamos esto para saber dónde enviar tus datos. **Mantén tus claves o tokens de socio actualizados; las credenciales no válidas pueden desactivar tu conector y eliminar eventos.**
+| Código/clave de autenticación, clave secreta, archivo de certificación | Ponte en contacto con un representante de tu cuenta con ese socio. También puede existir en el panel del socio. | Copia y pega las claves en el campo designado de Braze. Genera y carga archivos `.json` u otros archivos de certificación en el lugar adecuado de Braze. | Braze tiene un campo designado para ello en la página de integraciones de ese socio. Esto proporciona credenciales a Braze y nos autoriza a escribir archivos en tu cuenta de socio. **Es importante que mantengas tus datos de autenticación actualizados; unas credenciales no válidas pueden hacer que se desactive tu conector y que se pierdan eventos.**
+| Contenedor, ruta de carpeta | Algunos socios organizan y clasifican los datos por contenedores. Debe encontrarse en el panel del socio. | Si es necesario, copia el nombre de contenedor o la ruta del archivo exactamente en el espacio designado en Braze. | Aunque esto es necesario para algunos socios, es importante acertar cuando lo necesites. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Requisitos" }
 
 {% alert important %}
@@ -47,7 +47,7 @@ Es importante que mantengas actualizadas tus claves de socio, tokens de socio y 
 
 ### Paso 1: Elige a tu socio {#step-1-choose-your-partner}
 
-Braze Currents te permite integrarte a través del almacenamiento de datos utilizando archivos planos o con nuestros socios de análisis del comportamiento y datos de clientes utilizando cargas útiles JSON por lotes a un punto de conexión designado.
+Braze Currents te permite integrarte a través del almacenamiento de datos utilizando archivos planos o con nuestros socios de análisis del comportamiento y datos de clientes utilizando cargas útiles JSON por lotes a un endpoint designado.
 
 Antes de empezar la integración, es mejor decidir qué integración es la más adecuada para tus propósitos. Por ejemplo, si ya utilizas mParticle y Segment y quieres que los datos de Braze fluyan allí, lo mejor sería utilizar una carga útil JSON por lotes. Si prefieres manipular los datos por tu cuenta o tienes un sistema más complejo de análisis de datos, puede que lo mejor sea utilizar el almacenamiento de datos ([¡Braze utiliza este método]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)!)
 
@@ -101,11 +101,11 @@ Para probar tu integración, puedes seleccionar **Send Test Events** para enviar
 Los conectores de prueba de Currents son versiones gratuitas de nuestros conectores existentes que pueden utilizarse para probar y ensayar diferentes destinos. Los conectores de prueba de Currents tienen:
 
 - Hasta 10 conectores de prueba de Currents por espacio de trabajo.
-- Un máximo acumulado de 1500 eventos por cada periodo fijo de 24 horas, que se restablece a medianoche UTC. Este total de eventos se actualiza cada hora en el dashboard.
+- Un máximo acumulado de 1500 eventos por cada periodo fijo de 24 horas, que se restablece a medianoche UTC. Este total de eventos se actualiza cada hora en el panel.
 
 Una vez que tus conectores de prueba de Currents alcancen el límite de envío, tu conector no enviará eventos hasta el día siguiente (a medianoche UTC).
 
-Para actualizar tu conector de prueba de Currents, edita la integración en el dashboard y selecciona **Upgrade Test Integration**.
+Para actualizar tu conector de prueba de Currents, edita la integración en el panel y selecciona **Upgrade Test Integration**.
 
 ## Actualizar Currents {#updating-currents}
 

@@ -182,7 +182,7 @@ Quer nos dizer o que pensa? Você pode compartilhar feedback sobre navegação, 
 
 ### Tarefas principais e próximos passos {#key-tasks-and-next-steps}
 
-- **Criar Campaigns**: [Criar uma Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)
+- **Criar campanhas**: [Criar uma Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)
 - **Criar jornadas**: [Criar um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
 - **Definir públicos**: [Criar um Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
 - **Revisar desempenho**: [Visão geral de análise de dados]({{site.baseurl}}/user_guide/analytics/dashboards/home)

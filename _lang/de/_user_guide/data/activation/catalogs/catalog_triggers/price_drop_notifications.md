@@ -40,7 +40,7 @@ Führen Sie diese Schritte aus, um Benachrichtigungen über Preissenkungen in ei
 | **Fallback-Katalog** | Der Katalog, der für das Abo verwendet wird, wenn es keine `catalog_name`-Eigenschaft im angepassten Event gibt. |
 | **Angepasstes Event zum Abonnieren** | Das angepasste Event, um eine Nutzer:in für Katalogbenachrichtigungen zu abonnieren. Wenn dieses Event eintritt, wird die Nutzer:in, die das Event ausgeführt hat, abonniert. |
 | **Angepasstes Event zum Abmelden** | Das angepasste Event, mit dem eine Nutzer:in von den Benachrichtigungen abgemeldet werden kann. Dieses Event ist optional. Wenn die Nutzer:in dieses Event nicht ausführt, wird sie nach 90 Tagen abgemeldet oder wenn das Preissenkungsevent getriggert wird – je nachdem, was zuerst eintritt. |
-| **Artikel-ID-Event-Eigenschaft** | Die Eigenschaft des obigen angepassten Events, die verwendet wird, um den Artikel für ein Abo oder eine Abmeldung zu bestimmen. Diese Eigenschaft des angepassten Events sollte eine Artikel-ID enthalten, die in einem Katalog vorkommt. Das angepasste Event muss eine `catalog_name`-Eigenschaft enthalten, die angibt, in welchem Katalog sich der Artikel befindet. |
+| **Artikel-ID-Event-Eigenschaft** | Die Eigenschaft des weiter oben in diesem Abschnitt beschriebenen angepassten Events, die verwendet wird, um den Artikel für ein Abo oder eine Abmeldung zu bestimmen. Diese Eigenschaft des angepassten Events sollte eine Artikel-ID enthalten, die in einem Katalog vorkommt. Das angepasste Event muss eine `catalog_name`-Eigenschaft enthalten, die angibt, in welchem Katalog sich der Artikel befindet. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Benachrichtigungen über Preissenkungen einrichten" }
 
 Hier ist ein Beispiel für ein angepasstes Event:

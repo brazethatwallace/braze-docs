@@ -113,3 +113,7 @@ The difference is expected.
 
 Apple uses a randomized schedule to delay reporting when a push token becomes invalid, meaning that even after a user uninstalls an app, APNs may continue to return successful responses to push notifications for a period of time. This delay is intentional and designed to protect user privacy. No bounce or failure will be reported until APNs returns a `410` status for an invalid token.
 
+### How does uninstall tracking relate to silent or background push?
+
+Uninstall detection can use low-priority background pushes that do not surface as a visible notification. These are separate from campaign [**Sends**]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) in standard messaging analytics. When analyzing uninstall trends, review uninstall charts alongside push engagement metrics rather than comparing uninstall pushes directly to marketing send totals.
+

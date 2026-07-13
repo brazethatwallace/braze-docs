@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-다양한 채널에 걸친 메시지의 성과입니다. 표시되는 측정기준은 선택한 메시징 채널과 [피처 플래그 실험]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics)이 다변량 테스트인지 여부에 따라 달라집니다.
+다양한 채널에 걸친 메시지의 성능입니다. 표시되는 측정기준은 선택한 메시징 채널과 [피처 플래그 실험]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics)이 다변량 테스트인지 여부에 따라 달라집니다.
 
 {% endapi %}
 
@@ -1091,7 +1091,7 @@ In-App Message, Content Cards
 Email, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Opens' %}
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} 특정 기간을 평가할 때, <i>고유 열람 수</i>가 같은 기간의 <i>발송</i>보다 높게 나타날 수 있습니다. 이는 사용자가 해당 기간 외에 발송된 메시지에 대해 여전히 열람 이벤트를 기록할 수 있기 때문입니다. 전체 Campaign 기간 동안 <i>고유 열람 수</i>는 항상 총 <i>발송</i>보다 낮습니다.
 
 | 채널 | 추가 정보 |
 |-------|-----------------------|

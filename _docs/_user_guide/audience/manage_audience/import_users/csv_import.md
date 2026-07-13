@@ -43,7 +43,7 @@ When importing your customer data, you can use an `external_id` to serve as each
 - Download: [CSV Events Import Template: External ID](https://braze.com/unlisted_docs/assets/download_file/braze-csv-events-import-template.csv?3b64ea284baa9a21cfe0a7ab4b46fce4)
 
 {% alert note %} 
-If you’re uploading a mix of users with an `external_id` and users without, you need to create one CSV for each import. One CSV can’t contain both `external_ids` and user aliases.
+If you’re uploading a mix of users with an `external_id` and users without, you need to create one CSV for each import. One CSV can’t contain both `external_id` and user aliases.
 {% endalert %}
 {% endtab %}
 
@@ -202,7 +202,7 @@ Only a single `subscription_group_id` can be set per row in the user import. Dif
 {% tab custom events %}
 #### Required identifiers {#required-identifiers-custom-events}
 
-While `external_id` is not required, you **must** include **one** of the following identifiers as a header in your CSV file. For details about each one, review [Choose an identifier](#choose-an-identifier).
+While `external_id` is not required, your CSV file must include a user identifier that maps to **one** of the following identifiers. For details about each one, review [Choose an identifier](#choose-an-identifier).
 
 - `external_id`
 - `braze_id`
@@ -212,9 +212,9 @@ While `external_id` is not required, you **must** include **one** of the followi
 
 #### Custom event fields
 
-In addition to the following, your CSV may also contain additional column headers for event properties. These properties should have a column header of `<event_name>.properties.<property name>.`
+In addition to the standard fields listed in the following table, your CSV may also contain additional column headers for event properties. These properties should have a column header of `<event_name>.properties.<property name>` or `<property name>`.
 
-For example, the custom event `trip_booked` may have the properties `destination` and `duration`. These can be imported by having the column headers `trip_booked.properties.destination` and `trip_booked.properties.duration`.
+For example, the custom event `trip_booked` may have the properties `destination` and `duration`. You can import these using the column headers `trip_booked.properties.destination` and `trip_booked.properties.duration`. You can also represent properties in the headers as `<property name>`. Braze detects the relevant properties for each event based on whether there is a value in the corresponding CSV cell.
 
 | User Profile Field | Data Type | Information | Required? |
 | :---- | :---- | :---- | :---- |
@@ -227,6 +227,7 @@ For example, the custom event `trip_booked` may have the properties `destination
 | `name` | String | A custom event of your users. | Yes |
 | `time` | String | The time of the event. May be passed in one of the following ISO-8601 formats: "YYYY-MM-DD" "YYYY-MM-DDTHH:MM:SS+00:00" "YYYY-MM-DDTHH:MM:SSZ" "YYYY-MM-DDTHH:MM:SS" (for example, 2019-11-20T18:38:57) | Yes |
 | `<event name>.properties.<property name>` | Multiple | An event property associated with a custom event. An example is `trip_booked.properties.destination` | No |
+| `<property name>` | Multiple | An event property that you can use across multiple event types. An example is `destination`. This property is associated with an event when there is a non-null value in the corresponding CSV cell. | No |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Custom event fields" }
 
 #### Format requirements for custom events
@@ -235,11 +236,11 @@ When importing custom events using CSV, you must format your file according to t
 
 ##### Understanding custom event formatting
 
-It is important to correctly format your custom events CSV using dot notation so each property is mapped to the correct event. If the format is incorrect, properties may be dropped or the import may fail, especially when multiple event types are included in one file.
+Correctly format your custom events CSV using dot notation, or with a non-null value in the corresponding cell, so Braze maps each property to the end event. If the format is incorrect, properties may be dropped or the import may fail, especially when multiple event types are included in one file.
 
 ##### Use dot notation for event properties
 
-Dot notation is used to define the hierarchical relationship between a custom event and its properties. This formatting convention allows you to import structured event data that includes specific attributes for each event.
+Use dot notation to define the hierarchical relationship between a custom event and its properties. This formatting convention allows you to import structured event data that includes specific attributes for each event.
 
 The dot notation format follows this structure: `event_name.properties.property_name`
 
@@ -257,6 +258,8 @@ For a custom event called `rented_movie` with properties `movie_name` and `genre
 - `rented_movie.properties.genre`
 
 This notation tells Braze to create a custom event named `rented_movie` and attach the properties `movie_name` and `genre` to that specific event instance.
+
+If you use a combination of dot notation and non-dot notation for importing properties, your CSV upload may fail because Braze detects duplicate headers. This occurs when you have headers `rented_movie.properties.movie_name` and `movie_name` within the same file. To avoid this, use only one format of properties for your headers.
 
 ##### One event per row
 
@@ -297,9 +300,11 @@ Before you upload your CSV file, rename it to the import name you want to see in
 The file preview shows only the first few rows of your file. To check every row before importing, use [file validation](#file-validation).
 {% endalert %}
 
-### Step 5: Map your fields (for attributes) {#csv-data-mapping}
+### Step 5: Map your fields {#csv-data-mapping}
 
-After the preview, you can map your CSV headers to Braze attributes. Braze automatically maps fields in your CSV file to attributes with identical names and creates new attributes where necessary. You’ll also have the flexibility to manually adjust suggestions or select different attributes for any column.
+After the preview, you can map your CSV headers to Braze attributes, events, or event properties. Braze automatically maps fields in your CSV file to attributes, events, or event properties with identical names, and creates new fields where necessary. You’ll also have the flexibility to manually adjust suggestions or select different attributes, events, or properties.
+
+For event properties, Braze detects properties and associates them with relevant events based on whether a CSV cell contains a non-null value, or from headers that use dot notation in the format `<event name>.properties.<property name>`.
 
 ![The column mapping page.]({% image_buster /assets/img/csv_import/column_mapping_mapped.png %})
 
@@ -309,23 +314,24 @@ The mapping status column indicates the action that occurs when your CSV file is
 
 | Mapping status | What it means |
 |:---|:---|
-| **Mapped** | Field mapped to an existing attribute or identifier. |
-| **New attribute** | Braze creates a new attribute on import. You can edit this attribute by selecting the **Edit new attribute** button. | 
-| **Data type mismatch** | The detected data type of the CSV column does not match the data type of the existing attribute or identifier. Braze attempts to convert the data type on import to match the existing attribute. The value is dropped if this is not possible. |
-| **Blocklist attribute** | The CSV field matches the name of a blocklisted attribute. Select a different attribute to map to or the column is not imported. |
+| **Mapped** | Field mapped to an existing attribute, event, or identifier. |
+| **New attribute**, **New event**, or **New event property** | Braze creates a new attribute or event on import. You can edit it by selecting the **Edit new attribute**, **Edit new event**, or **Edit new property** button. |  
+| **Data type mismatch** | The detected data type of the CSV column does not match the data type of the existing attribute, event, or identifier. Braze attempts to convert the data type on import to match the existing attribute. Braze drops the value if this isn't possible. |
+| **Blocklist attribute** or **Blocklist event** | The CSV field matches the name of a blocklisted attribute or event. Select a different attribute or event to map to, or it won't be imported. |
 | **Duplicate attribute** | There are one or more fields with the same name in your CSV file. Map the same-name columns to different attributes or only the first column is imported. |
+| **Reserved event key** | The name of your event property matches a reserved event key in Braze, such as `time` or `event_name`. Input a different name or select a different property to map to, or it will be dropped. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Mapping statuses" }
 
 
-#### Editing new attributes
+#### Editing new attributes, events, and properties
 
-When a matching attribute does not exist in your workspace, Braze attempts to create a new attribute on import using the name of the CSV field and the detected data type. You can edit this new attribute before import by selecting the **Edit new attribute** button next to the mapping status.
+When a matching attribute, event, or event property does not exist in your workspace, Braze attempts to create a new attribute, event, or property on import using the name of the CSV field and the detected data type. You can edit this new field before import by selecting the **Edit new attribute**, **Edit new event**, or **Edit new property** button next to the mapping status.
 
 ![The edit new attribute button on the column mapping page.]({% image_buster /assets/img/csv_import/column_mapping_edit_attribute_button.png %})
 
 
 {% alert note %}
-You can't proceed beyond the mapping step until an identifier is mapped. Braze automatically maps an identifier when possible. Refer to the **Required fields** section to see if an identifier is mapped.
+You can't proceed beyond the mapping step until an identifier is mapped. Braze automatically maps an identifier when possible. For custom events, you must also map the `name` and `time` columns. Refer to the **Required fields** section for more information.
 {% endalert %}
 
 ### Step 6: Choose targeting preferences {#targeting-preferences}

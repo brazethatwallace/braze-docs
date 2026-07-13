@@ -3,13 +3,13 @@ nav_title: Angepasste Events
 article_title: Angepasste Events
 page_order: 1
 page_type: reference
-description: "Dieser Artikel beschreibt angepasste Events und Eigenschaften, Segmentierung, Nutzung, Canvas-Eingangs-Eigenschaften, wo Sie relevante Analytics einsehen können und vieles mehr."
+description: "Dieser Artikel beschreibt angepasste Events und Eigenschaften, Segmentierung, Nutzung, Canvas-Entry-Eigenschaften, wo Sie relevante Analytics einsehen können und vieles mehr."
 search_rank: 2
 ---
 
 # [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Angepasste Events {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> Dieser Artikel beschreibt angepasste Events und Eigenschaften, den Event-Verlauf im Nutzerprofil, verwandte Segmentierungsfilter, Canvas-Eingangs-Eigenschaften, relevante Analytics und mehr. Mehr über Braze-Events im Allgemeinen erfahren Sie unter [Events]({{site.baseurl}}/user_guide/data/activation/events).
+> Dieser Artikel beschreibt angepasste Events und Eigenschaften, den Event-Verlauf im Nutzerprofil, verwandte Segmentierungsfilter, Canvas-Entry-Eigenschaften, relevante Analytics und mehr. Mehr über Braze-Events im Allgemeinen erfahren Sie unter [Events]({{site.baseurl}}/user_guide/data/activation/events).
 
 Angepasste Events sind Aktionen oder Updates, die von Ihren Nutzer:innen durchgeführt werden. Wenn angepasste Events protokolliert werden, können sie beliebig viele und verschiedene Folgekampagnen auslösen. Mit Hilfe von [Segmentierungsfiltern](#segmentation-filters) können Sie Nutzer:innen dann danach segmentieren, wie kürzlich und wie häufig diese angepassten Events aufgetreten sind. Dadurch eignen sich angepasste Events am besten für das Tracking hochwertiger Nutzer:innen-Interaktionen innerhalb Ihrer Anwendung.
 
@@ -17,11 +17,11 @@ Angepasste Events sind Aktionen oder Updates, die von Ihren Nutzer:innen durchge
 
 Einige häufige Anwendungsfälle für angepasste Events sind:
 
-- Auslösen einer Kampagne oder eines Canvas auf der Grundlage eines angepassten Events mit [aktionsbasierter Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
+- Auslösen einer Campaign oder eines Canvas auf der Grundlage eines angepassten Events mit [aktionsbasierter Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
 - Segmentierung der Nutzer:innen danach, wie oft sie ein angepasstes Event durchgeführt haben, wann das Event zuletzt aufgetreten ist und Ähnliches
 - Nutzung der Dashboard-[Analytics für angepasste Events](#analytics), um eine aggregierte Ansicht darüber zu erhalten, wie oft jedes Event aufgetreten ist
 - Zusätzliche Analytics mithilfe von [Funnel]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps)- und [Bindungs]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)-Berichten gewinnen
-- Nutzung von [persistenten Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties), um Metadaten aus Ihrem Kund:innen-Event für die Personalisierung in Ihren Canvas-Schritten zu verwenden
+- Nutzung von [persistenten Entry-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties), um Metadaten aus Ihrem Kund:innen-Event für die Personalisierung in Ihren Canvas-Schritten zu verwenden
 - Generierung anspruchsvollerer Analytics mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
 - Einrichten von [Ausstiegskriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria), um festzulegen, wann Nutzer:innen Ihren Canvas verlassen sollen
 
@@ -112,11 +112,11 @@ Jedes Event enthält:
 Häufige Anwendungsfälle sind:
 
 - Überprüfung, ob Ihre SDK- oder API-Integration Events wie erwartet sendet – während der Entwicklung oder nach einem Release.
-- Fehlerbehebung, warum eine Nutzer:in eine Event-getriggerte Kampagne oder einen Canvas betreten hat oder nicht.
+- Fehlerbehebung, warum eine Nutzer:in eine Event-getriggerte Campaign oder einen Canvas betreten hat oder nicht.
 - Untersuchung eines Support-Falls für eine bestimmte Nutzer:in, ohne einen Datenexport einrichten zu müssen.
 
 {% alert note %}
-Zum Anzeigen des Tabs **Event-Verlauf** sind sowohl die Nutzerberechtigungen **Nutzer:innen suchen** als auch **PII anzeigen** erforderlich, da Event-Eigenschaften personenbezogene Daten enthalten können. Weitere Informationen finden Sie unter [Nutzerberechtigungen im Unternehmen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Zum Anzeigen des Tabs **Event-Verlauf** sind die Nutzerberechtigungen **Nutzer:innen suchen**, **PII anzeigen** und **Nutzer:innen-Event-Eigenschaften anzeigen** erforderlich, da Event-Eigenschaften personenbezogene Daten enthalten können. Weitere Informationen finden Sie unter [Nutzerberechtigungen im Unternehmen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Segmentierungsfilter {#segmentation-filters}
@@ -141,7 +141,7 @@ Die folgende Tabelle zeigt die verfügbaren Filter zur Segmentierung von Nutzer:
 
 Braze erfasst die Anzahl der Vorkommen angepasster Events und den Zeitpunkt, zu dem sie zuletzt von den einzelnen Nutzer:innen durchgeführt wurden, für die Segmentierung. Sie können diese Analytics einsehen, indem Sie zu **Analytics** > **Bericht zu angepassten Events** navigieren.
 
-Auf der Seite **Bericht zu angepassten Events** im Dashboard können Sie in aggregierter Form sehen, wie oft jedes angepasste Event auftritt. Die grauen Linien, die über die Zeitreihe gelegt werden, zeigen an, wann zuletzt eine Kampagne gesendet wurde – das ist nützlich, um zu sehen, wie Ihre Kampagnen die Aktivität angepasster Events beeinflusst haben.
+Auf der Seite **Bericht zu angepassten Events** im Dashboard können Sie in aggregierter Form sehen, wie oft jedes angepasste Event auftritt. Die grauen Linien, die über die Zeitreihe gelegt werden, zeigen an, wann zuletzt eine Campaign gesendet wurde – das ist nützlich, um zu sehen, wie Ihre Campaigns die Aktivität angepasster Events beeinflusst haben.
 
 ![Grafik der Anzahl angepasster Events auf der Seite „Angepasste Events“ im Dashboard, die Trends für ein angepasstes Event zeigt]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 

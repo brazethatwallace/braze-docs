@@ -14,7 +14,7 @@ page_order: 3
 Lorsque vous configurez un agent, vous pouvez choisir le modèle qu'il utilise pour générer des réponses. Deux possibilités s'offrent à vous : utiliser un modèle fourni par Braze ou apporter votre propre clé API.
 
 {% alert important %}
-Le modèle **Auto** fourni par Braze est optimisé pour les modèles dont les capacités de raisonnement sont suffisantes pour effectuer des tâches telles que la recherche dans un catalogue et la vérification d'appartenance à un segment. Si vous utilisez d'autres modèles, nous vous recommandons de les tester pour confirmer qu'ils sont adaptés à votre cas d'utilisation. Vous devrez peut-être ajuster vos [instructions](#writing-instructions) pour fournir différents niveaux de détails ou de raisonnement étape par étape selon la vitesse et les capacités du modèle choisi.
+Le modèle **Auto** fourni par Braze est optimisé pour les modèles dont les capacités de raisonnement sont suffisantes pour effectuer des tâches telles que la recherche dans un catalogue et la vérification d'appartenance à un segment. Si vous utilisez d'autres modèles, nous vous recommandons de les tester pour confirmer qu'ils sont adaptés à votre cas d'usage. Vous devrez peut-être ajuster vos [instructions](#writing-instructions) pour fournir différents niveaux de détails ou de raisonnement étape par étape selon la vitesse et les capacités du modèle choisi.
 {% endalert %}
 
 ### Option 1 : utiliser un modèle fourni par Braze {#option-1-use-a-braze-powered-model}
@@ -22,7 +22,7 @@ Le modèle **Auto** fourni par Braze est optimisé pour les modèles dont les ca
 C'est l'option la plus simple : aucune configuration supplémentaire n'est nécessaire. Braze donne accès directement à des grands modèles de langage (LLM). Pour utiliser cette option, sélectionnez **Auto**, qui s'appuie sur les modèles Gemini.
 
 {% alert important %}
-Si vous ne voyez pas **Braze Auto** dans le menu déroulant **Model** lors de la création d'un agent, contactez votre gestionnaire de la satisfaction client pour savoir comment devenir éligible à l'utilisation du modèle Braze Auto.
+Si vous ne voyez pas **Braze Auto** dans le menu déroulant **Model** lors de la création d'un agent, contactez votre gestionnaire du succès des clients pour savoir comment devenir éligible à l'utilisation du modèle Braze Auto.
 {% endalert %}
 
 ### Option 2 : apporter votre propre clé API {#option-2-bring-your-own-api-key}
@@ -53,9 +53,9 @@ Certains fournisseurs de LLM vous permettent d'ajuster le niveau de réflexion d
 | **Élevé** | Raisonnement complexe, cas particuliers, ou situations où le modèle doit réfléchir aux étapes avant de répondre. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Niveaux de réflexion" }
 
-Nous vous recommandons de commencer par **Minimal** et de tester les réponses de votre agent. Vous pouvez ensuite passer au niveau **Faible** ou **Moyen** si l'agent a du mal à fournir des réponses précises. Dans de rares cas, un niveau **Élevé** peut être nécessaire, mais sachez que ce niveau peut entraîner des coûts de jetons élevés, des temps de réponse plus longs ou un risque accru d'erreurs de délai d'attente. Si votre agent peine à concilier un raisonnement à plusieurs étapes avec des temps de réponse raisonnables, envisagez de diviser votre cas d'utilisation en plusieurs agents capables de collaborer dans un Canvas ou un catalogue.
+Nous vous recommandons de commencer par **Minimal** et de tester les réponses de votre agent. Vous pouvez ensuite passer au niveau **Faible** ou **Moyen** si l'agent a du mal à fournir des réponses précises. Dans de rares cas, un niveau **Élevé** peut être nécessaire, mais sachez que ce niveau peut entraîner des coûts de jetons élevés, des temps de réponse plus longs ou un risque accru d'erreurs de délai d'attente. Si votre agent peine à concilier un raisonnement à plusieurs étapes avec des temps de réponse raisonnables, envisagez de diviser votre cas d'usage en plusieurs agents capables de collaborer dans un Canvas ou un catalogue.
 
-Braze utilise les mêmes plages d'adresses IP pour les appels LLM sortants que pour le Contenu connecté. Ces plages sont répertoriées dans la [liste d'autorisation IP du Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Si votre fournisseur prend en charge la liste d'autorisation IP, vous pouvez restreindre la clé à ces plages afin que seul Braze puisse l'utiliser.
+Braze utilise les mêmes plages d'adresses IP pour les appels LLM sortants que pour le contenu connecté. Ces plages sont répertoriées dans la [liste d'autorisation IP du contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Si votre fournisseur prend en charge la liste d'autorisation IP, vous pouvez restreindre la clé à ces plages afin que seul Braze puisse l'utiliser.
 
 {% alert important %}
 Lorsque vous utilisez un LLM fourni par Braze, les fournisseurs de ce modèle agissent en tant que sous-traitants secondaires de Braze, conformément aux conditions de l'addendum relatif au traitement des données (DPA) conclu entre vous et Braze. Si vous choisissez d'apporter votre propre clé API, le fournisseur de votre abonnement LLM est considéré comme un fournisseur tiers dans le cadre du contrat entre vous et Braze.
@@ -65,11 +65,11 @@ Lorsque vous utilisez un LLM fourni par Braze, les fournisseurs de ce modèle ag
 
 Chaque fournisseur de LLM propose un mélange légèrement différent de capacités, de coûts et de niveaux de réflexion. Voici quelques recommandations générales et bonnes pratiques :
 
-- Pour optimiser les coûts, privilégiez les modèles à faible coût en jetons avant de passer à des modèles plus coûteux. N'augmentez le coût que si les modèles moins chers peinent avec votre cas d'utilisation ou produisent des résultats incohérents ou inexacts.
-- Pour optimiser la vitesse et les performances, privilégiez les niveaux de réflexion les plus bas avant de passer à des niveaux supérieurs. N'augmentez le niveau de réflexion que si les niveaux inférieurs peinent avec votre cas d'utilisation ou produisent des résultats incohérents ou inexacts.
-- Si les modèles ou niveaux de réflexion les moins coûteux peinent avec votre cas d'utilisation ou produisent des résultats incohérents ou inexacts, envisagez de passer à des modèles plus coûteux ou à des niveaux de réflexion supérieurs.
+- Pour optimiser les coûts, privilégiez les modèles à faible coût en jetons avant de passer à des modèles plus coûteux. N'augmentez le coût que si les modèles moins chers peinent avec votre cas d'usage ou produisent des résultats incohérents ou inexacts.
+- Pour optimiser la vitesse et les performances, privilégiez les niveaux de réflexion les plus bas avant de passer à des niveaux supérieurs. N'augmentez le niveau de réflexion que si les niveaux inférieurs peinent avec votre cas d'usage ou produisent des résultats incohérents ou inexacts.
+- Si les modèles ou niveaux de réflexion les moins coûteux peinent avec votre cas d'usage ou produisent des résultats incohérents ou inexacts, envisagez de passer à des modèles plus coûteux ou à des niveaux de réflexion supérieurs.
 - Pendant les tests, veillez à trouver le bon équilibre entre fiabilité et précision d'une part, et consommation de jetons et durée d'invocation d'autre part.
-- Chaque cas d'utilisation peut avoir un modèle et un niveau de réflexion optimaux différents. Nous vous recommandons de tester minutieusement pour vérifier la qualité constante sans dépassements de délai.
+- Chaque cas d'usage peut avoir un modèle et un niveau de réflexion optimaux différents. Nous vous recommandons de tester minutieusement pour vérifier la qualité constante sans dépassements de délai.
 
 ### Contrôles du flux d'invocation {#invocation-flow-controls}
 
@@ -109,7 +109,23 @@ Voici quelques bonnes pratiques générales pour vous aider à démarrer avec la
 
 ### Exemples {#examples}
 
-Pour des configurations de départ dans la Console des agents, consultez [Modèles d'agents créés avec Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator). Pour des exemples complets d'instructions que vous pouvez copier ou adapter, consultez la [bibliothèque de cas d'utilisation des agents Braze]({{site.baseurl}}/user_guide/brazeai/agents/use_cases).
+Pour des configurations de départ dans la Console des agents, consultez [Modèles d'agents créés avec Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
+
+Pour des exemples complets d'instructions que vous pouvez copier ou adapter, consultez la [bibliothèque de cas d'usage des agents Braze]({{site.baseurl}}/user_guide/brazeai/agents/examples).
+
+| Exemple | Catégorie | Type d'agent | Ce qu'il fait |
+| --- | --- | --- | --- |
+| [Rédiger des messages personnalisés en fonction du contexte d'un utilisateur]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-personalized-messaging-based-on-a-users-context) | Génération de contenu | Agent d'étape Canvas | Génère un objet et une accroche d'e-mail coordonnés ainsi qu'un titre et un corps de notification push pour les utilisateurs ayant effectué une recherche sans réserver. |
+| [Analyser les retours utilisateur pour déterminer les prochaines étapes]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | Standardisation des données | Agent d'étape Canvas | Classifie le sentiment et le sujet d'une enquête post-voyage, puis recommande une prochaine action CRM. |
+| [Catégoriser les utilisateurs en compartiments d'intérêt à partir d'attributs existants]({{site.baseurl}}/user_guide/brazeai/agents/examples#categorize-users-into-interest-buckets-from-existing-attributes) | Agent d'affinité | Agent d'étape Canvas | Classifie les utilisateurs en compartiments d'intérêt à partir d'attributs et de signaux d'intention forte, puis recommande la meilleure expérience ou le meilleur article suivant. |
+| [Orienter les utilisateurs vers le chemin Canvas le plus pertinent en fonction de leur comportement récent]({{site.baseurl}}/user_guide/brazeai/agents/examples#route-users-to-the-most-relevant-canvas-path-from-recent-behavior) | Agent d'affinité | Agent d'étape Canvas | Déduit la motivation à partir du comportement récent et renvoie la clé de route optimale pour la prochaine étape Canvas de l'utilisateur. |
+| [Attribuer des catégories d'intérêt aux utilisateurs à partir d'actions à forte intention en temps réel]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | Agent d'affinité | Agent d'étape Canvas | Attribue des catégories d'intérêt à partir d'actions à forte intention et recommande la meilleure expérience ou le meilleur article suivant. |
+| [Classifier les messages entrants pour détecter une intention de désinscription]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | Classification et routage | Agent d'étape Canvas | Renvoie un booléen strict indiquant si un message est une demande de désinscription. |
+| [Standardiser les messages entrants en données structurées pour l'automatisation]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | Standardisation des données | Agent d'étape Canvas | Normalise les SMS ou chats entrants en intention structurée, entités et indicateurs de conformité pour l'automatisation en aval. |
+| [Rédiger des descriptions à fort taux de conversion conformes aux directives de marque]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | Génération de contenu | Agent de catalogue | Génère des descriptions courtes et conformes à la marque pour chaque ligne du catalogue. |
+| [Fournir des traductions en fonction de la langue utilisée par région]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | Enrichissement de catalogue | Agent de catalogue | Localise les chaînes d'interface et de marketing par locale et limite de caractères. |
+| [Enrichir les éléments du catalogue avec des descriptions, des catégories et des étiquettes]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | Enrichissement de catalogue | Agent de catalogue | Génère des descriptions enrichies, des catégories et des étiquettes à partir des données existantes des éléments du catalogue. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Résumé des exemples" }
 
 ### Utilisation de Liquid {#using-liquid}
 
@@ -228,7 +244,7 @@ Vous pouvez sélectionner jusqu'à cinq segments pour que l'agent puisse croiser
 
 ## Directives de marque {#brand-guidelines}
 
-Vous pouvez sélectionner des [directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) que votre agent devra respecter dans ses réponses. Par exemple, si vous souhaitez que votre agent génère un texte SMS pour encourager les utilisateurs à s'inscrire à une salle de sport, vous pouvez utiliser ce champ pour faire référence à votre ligne directrice prédéfinie, audacieuse et motivante.
+Vous pouvez sélectionner des [directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) que votre agent devra respecter dans ses réponses. Par exemple, si vous souhaitez que votre agent génère un texte SMS pour encourager les utilisateurs à s'inscrire à une salle de sport, vous pouvez utiliser ce champ pour faire référence à votre directive prédéfinie, audacieuse et motivante.
 
 ## Historique d'interaction spécifique à l'utilisateur {#user-history}
 
@@ -236,7 +252,7 @@ Les données d'interaction d'un utilisateur incluent ses ouvertures, clics et do
 
 ## Dupliquer des agents {#duplicate-agents}
 
-Pour tester des améliorations ou des itérations d'un agent, vous pouvez dupliquer un agent puis appliquer des modifications afin de comparer avec l'original. Vous pouvez également utiliser la duplication comme un système de contrôle de version pour suivre les variations dans les détails de l'agent et leurs impacts sur votre envoi de messages. Pour dupliquer un agent :
+Pour tester des améliorations ou des itérations d'un agent, vous pouvez dupliquer un agent puis appliquer des modifications afin de comparer avec l'original. Vous pouvez également utiliser la duplication comme un système de contrôle de version pour suivre les variations dans les détails de l'agent et leurs impacts sur votre communication. Pour dupliquer un agent :
 
 1. Survolez la ligne de l'agent et sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i>.
 2. Sélectionnez **Dupliquer**.

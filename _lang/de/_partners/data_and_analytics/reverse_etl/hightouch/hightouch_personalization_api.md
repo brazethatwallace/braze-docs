@@ -55,7 +55,7 @@ Die Personalization API fungiert als Cache für ausgewählte Daten in Ihrem Data
 
 ## Integration
 
-### 1. Schritt: Datenquelle mit Hightouch verbinden {#step-1-connect-data-source-to-hightouch}
+### Schritt 1: Datenquelle mit Hightouch verbinden {#step-1-connect-data-source-to-hightouch}
 
 [Hightouch-Quellen](https://hightouch.com/docs/getting-started/concepts#sources) sind der Ort, an dem die Geschäftsdaten Ihres Unternehmens gespeichert sind. In diesem Fall ist es der Ort, an dem Ihre Nutzerdaten gespeichert sind.
 1. Gehen Sie in Hightouch zu **Sources Overview > Add Source**. Wählen Sie Ihr Data Warehouse als Quelle aus.<br><br>
@@ -63,7 +63,7 @@ Die Personalization API fungiert als Cache für ausgewählte Daten in Ihrem Data
 
 Weitere Einzelheiten finden Sie in der entsprechenden [Dokumentation](https://hightouch.com/docs).
 
-### 2. Schritt: Daten modellieren {#step-2-model-data}
+### Schritt 2: Daten modellieren {#step-2-model-data}
 
 Hightouch-Modelle definieren, welche Daten aus Ihrer Quelle gezogen werden sollen. Um ein neues Modell einzurichten, gehen Sie folgendermaßen vor:
 
@@ -73,7 +73,7 @@ Hightouch-Modelle definieren, welche Daten aus Ihrer Quelle gezogen werden solle
 4. Benennen Sie Ihr Modell, zum Beispiel „Nutzer:innen-Empfehlungen“.<br><br>
 5. Wählen Sie abschließend einen Primärschlüssel aus und klicken Sie auf **Finish**. Ein Primärschlüssel sollte eine Spalte mit eindeutigen Bezeichnern sein. Dies ist auch das Feld, über das Sie die Personalization API aufrufen, um die Empfehlungen einer bestimmten Nutzer:in abzurufen.
 
-### 3. Schritt: Personalization API konfigurieren {#step-3-configure-personalization-api}
+### Schritt 3: Personalization API konfigurieren {#step-3-configure-personalization-api}
 
 Das Vorbereiten der API für den Empfang von Anfragen besteht aus zwei Schritten:
 - Aktivieren der Personalization API in den Regionen, die Ihrer Infrastruktur am nächsten liegen
@@ -92,7 +92,7 @@ Folgen Sie diesen Anweisungen, um beides abzuschließen:
 
 Hightouch synchronisiert jetzt die Daten in Ihrem Data Warehouse mit einer verwalteten Datenbank und stellt sie über die Personalization API zur Verfügung.
 
-### 4. Schritt: Personalization API über Braze Connected-Content aufrufen {#step-4-call-personalization-api-through-braze-connected-content}
+### Schritt 4: Personalization API über Braze Connected-Content aufrufen {#step-4-call-personalization-api-through-braze-connected-content}
 
 Sobald Sie Ihre Personalization-API-Instanz eingerichtet haben, können Sie sie als Braze Connected-Content-Endpunkt verwenden.
 
@@ -119,7 +119,7 @@ Sie können dieses Snippet zum Beispiel in eine Campaign oder ein Canvas einfüg
 
 Sie können Liquid-Templating verwenden, um die in der JSON-Payload zurückgegebenen Eigenschaften zu referenzieren und sie in Ihrem Messaging zu verwenden.
 
-Für die Beispiel-Payload unten:
+Für die folgende Beispiel-Payload:
 
 ```json
 {

@@ -1,7 +1,7 @@
 ---
-nav_title: Shopify checkout.liquid
+nav_title: Shopify checkout과 Liquid
 page_order: 7
-description: "이 문서에서는 Shopify 통합에 미치는 영향 및 개발자를 위한 지침을 포함하여 Shopify checkout&#46;liquid의 사용 중단에 대해 설명합니다."
+description: "이 문서에서는 Shopify 통합에 미치는 영향 및 개발자를 위한 안내를 포함하여 Shopify checkout&#46;liquid의 사용 중단에 대해 설명합니다."
 page_type: update
 
 ---
@@ -10,7 +10,7 @@ page_type: update
 
 Shopify는 모든 판매자에게 `checkout.liquid`의 사용 중단과 맞춤형 결제 환경을 구축하기 위한 새로운 기반인 [Checkout Extensibility](https://www.shopify.com/enterprise/blog/checkout-extensibility-winter-editions)로의 마이그레이션에 대해 알렸습니다.
 
-Shopify는 `checkout.liquid`을 두 단계에 걸쳐 사용 중단할 예정입니다:
+Shopify는 `checkout.liquid`를 두 단계에 걸쳐 사용 중단할 예정입니다:
 
 1. **[2024년 8월 13일](#phase-one-august-13-2024):** 정보, 배송 및 결제 페이지 업그레이드 마감일입니다.
 2. **[2025년 8월 28일](#phase-two-august-28-2025):** 스크립트 태그 및 추가 스크립트를 사용하는 앱을 포함한 감사 및 주문 상태 페이지 업그레이드 마감일입니다.
@@ -29,19 +29,19 @@ Braze와 Shopify 통합은 [Shopify ScriptTags](https://shopify.dev/docs/apps/bu
 
 #### Shopify Plus
 
-Shopify Plus 고객의 경우 정보, 배송 또는 결제 페이지의 `checkout.liquid`를 수정하는 모든 커스텀 SDK 코드 스니펫은 이 날짜 이후 비활성 상태가 됩니다. 예를 들어, 이러한 페이지에서 이벤트를 기록하는 커스텀 코드는 더 이상 작동하지 않습니다. 커스텀 SDK 코드가 있는 경우 마이그레이션에 대한 [개발자 가이드](#developer-guidance)를 참조하세요.
+Shopify Plus 고객의 경우 정보, 배송 또는 결제 페이지의 `checkout.liquid`를 수정하는 모든 커스텀 SDK 코드 스니펫은 이 날짜 이후 비활성 상태가 됩니다. 예를 들어, 이러한 페이지에서 이벤트를 기록하는 커스텀 코드는 더 이상 작동하지 않습니다. 커스텀 SDK 코드가 있는 경우 마이그레이션에 대한 [개발자 안내](#developer-guidance)를 참조하세요.
 
 #### 비 Shopify Plus {#non-shopify-plus}
 
-Shopify Plus를 사용하지 않는 고객의 경우 정보, 결제 및 배송 페이지를 커스터마이즈해야 한다면 [Shopify Plus로 업그레이드](https://help.shopify.com/en/manual/checkout-settings/customize-checkout-configurations/checkout-extensibility#eligibility)한 다음 [개발자 가이드](#developer-guidance)를 따라야 합니다.
+Shopify Plus를 사용하지 않는 고객의 경우 정보, 결제 및 배송 페이지를 커스터마이즈해야 한다면 [Shopify Plus로 업그레이드](https://help.shopify.com/en/manual/checkout-settings/customize-checkout-configurations/checkout-extensibility#eligibility)한 다음 [개발자 안내](#developer-guidance)를 따라야 합니다.
 
 ### 2단계: 2025년 8월 28일 {#phase-two-august-28-2025}
 
 Shopify는 통합에 사용되는 `checkout.liquid` 페이지의 [ScriptTags](https://shopify.dev/docs/apps/build/online-store/script-tag-legacy)에 대한 지원을 중단할 예정입니다. 이에 따라 2025년 8월 마감일보다 훨씬 앞서 출시할 계획인 새 버전의 Shopify 통합을 적극적으로 구축하고 있습니다. Braze 제품팀에서 추가 정보를 알려드릴 예정이니 기대해 주세요.
 
-## 개발자 가이드 {#developer-guidance}
+## 개발자 안내 {#developer-guidance}
 
-이 가이드는 `checkout.liquid`에서 정보, 배송 또는 결제 페이지에 커스텀 SDK 코드 스니펫을 추가한 Shopify Plus 고객에게 적용됩니다. 이러한 커스터마이즈를 수행하지 않은 경우 이 가이드를 무시해도 됩니다.
+이 안내는 `checkout.liquid`에서 정보, 배송 또는 결제 페이지에 커스텀 SDK 코드 스니펫을 추가한 Shopify Plus 고객에게 적용됩니다. 이러한 커스터마이즈를 수행하지 않은 경우 이 안내를 무시해도 됩니다.
 
 더 이상 `checkout.liquid`에서 정보, 배송 또는 결제 페이지에 커스텀 SDK 코드 스니펫을 추가할 수 없습니다. 대신 감사 또는 주문 상태 페이지에 커스텀 SDK 코드 스니펫을 추가해야 합니다. 이를 통해 결제를 완료한 사용자를 조정할 수 있습니다.
 1. 감사 및 주문 상태 페이지에서 Braze 웹 SDK를 로드합니다.
@@ -57,4 +57,4 @@ braze.getUser().setEmail(<email address>);
 {: start="4"}
 4. Braze에서 이메일 기준으로 고객 프로필을 병합합니다.
 
-중복된 고객 프로필이 있는 경우 [일괄 병합 도구]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/duplicate_users/#bulk-merging)를 사용하여 데이터를 간소화할 수 있습니다.
+중복된 고객 프로필이 있는 경우 [일괄 병합 도구]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/duplicate_users#bulk-merging)를 사용하여 데이터를 간소화할 수 있습니다.

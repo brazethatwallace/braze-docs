@@ -88,7 +88,7 @@ Selecting a field for one of these transformations will apply that transformatio
 Currents will drop events with excessively large payloads of greater than 900&nbsp;KB. 
 {% endalert %}
 
-Before you test, consider checking out our [sample Currents data in GitHub](https://github.com/Appboy/currents-examples). When you're ready to test, you choose an option below:
+Before you test, consider checking out our [sample Currents data in GitHub](https://github.com/Appboy/currents-examples). When you're ready to test, you choose an option in the following section:
 
 #### Sending test events
 

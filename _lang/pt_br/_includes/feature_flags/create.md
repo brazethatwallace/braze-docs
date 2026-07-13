@@ -1,6 +1,6 @@
 # Criar Feature Flags {#create-feature-flags}
 
-> As Feature Flags permitem ativar ou desativar remotamente a funcionalidade para uma seleção de usuários. Crie uma nova Feature Flag no dashboard da Braze. Forneça um nome e um `ID`, um público-alvo e uma porcentagem de usuários para os quais ativar esse recurso. Em seguida, usando o mesmo `ID` no código do seu app ou site, você pode executar condicionalmente determinadas partes da sua lógica de negócios. Para saber mais sobre as Feature Flags e como você pode usá-las na Braze, consulte [Sobre as Feature Flags]({{site.baseurl}}/developer_guide/feature_flags/).
+> As Feature Flags permitem ativar ou desativar remotamente a funcionalidade para uma seleção de usuários. Crie uma nova Feature Flag no dashboard da Braze. Forneça um nome e um `ID`, um público-alvo e uma porcentagem de usuários para os quais ativar esse recurso. Em seguida, usando o mesmo `ID` no código do seu app ou site, você pode executar condicionalmente determinadas partes da sua lógica de negócios. Para saber mais sobre as Feature Flags e como você pode usá-las na Braze, consulte [Sobre as Feature Flags]({{site.baseurl}}/developer_guide/feature_flags).
 
 ## Pré-requisitos {#prerequisites}
 
@@ -12,7 +12,7 @@ Para usar as Feature Flags, confira se os seus SDKs estão atualizados com pelo 
 
 ### Permissões da Braze {#braze-permissions}
 
-Para gerenciar as Feature Flags no dashboard, você precisará ser um administrador ou ter as seguintes [permissões]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/):
+Para gerenciar as Feature Flags no dashboard, você precisará ser um administrador ou ter as seguintes [permissões]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions):
 
 | Permissão                                                                    | O que você pode fazer                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
@@ -70,7 +70,7 @@ Não há limite para o número de propriedades que você pode adicionar. No enta
 
 ### Etapa 4: Escolha os segmentos a serem direcionados {#step-4-choose-segments-to-target}
 
-Antes de implementar uma Feature Flag, é necessário escolher um [segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/) de usuários para direcionamento. Selecione **Adicionar regra** no seu flag recém-criado e depois use os menus suspensos de grupo de filtro e segmento para filtrar usuários fora do seu público-alvo. Adicione múltiplos filtros para restringir ainda mais seu público.
+Antes de implementar uma Feature Flag, é necessário escolher um [segmento]({{site.baseurl}}/user_guide/engagement_tools/segments) de usuários para direcionamento. Selecione **Adicionar regra** no seu flag recém-criado e depois use os menus suspensos de grupo de filtro e segmento para filtrar usuários fora do seu público-alvo. Adicione múltiplos filtros para restringir ainda mais seu público.
 
 ![Uma caixa de texto rotulada Tráfego de lançamento com a capacidade de adicionar segmentos e filtros.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
@@ -889,7 +889,7 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 Para verificar para quais Feature Flags um usuário é elegível na Braze, acesse **Público** > **Pesquisar usuários** e pesquise e selecione um usuário.
 
-Na guia **Elegibilidade das Feature Flags**, você pode filtrar a lista de Feature Flags elegíveis por plataforma, aplicativo ou dispositivo. Você também pode pré-visualizar a carga útil que será retornada ao usuário selecionando <i class="fa-solid fa-eye" aria-label="Pré-visualizar"></i> ao lado de uma Feature Flag.
+Na guia **Elegibilidade das Feature Flags**, você pode filtrar a lista de Feature Flags elegíveis por plataforma, aplicativo ou dispositivo. Você também pode pré-visualizar a carga útil que será retornada ao usuário selecionando <i class="fa-solid fa-eye"></i> ao lado de uma Feature Flag.
 
 ![Uma imagem mostrando a tabela de Feature Flags para as quais um usuário é elegível.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
@@ -905,7 +905,7 @@ Aqui, você pode revisar quando uma mudança aconteceu, quem fez a mudança, a q
 
 ## Segmentação com Feature Flags {#segmentation}
 
-A Braze mantém automaticamente o rastreamento de quais usuários estão atualmente ativados para uma Feature Flag. Você pode criar um segmento ou direcionar o envio de mensagens usando o [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags). Para saber mais sobre filtragem em segmentos, consulte [Criação de um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+A Braze mantém automaticamente o rastreamento de quais usuários estão atualmente ativados para uma Feature Flag. Você pode criar um segmento ou direcionar o envio de mensagens usando o [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Para saber mais sobre filtragem em segmentos, consulte [Criação de um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
 ![A seção "Filtros" com "Feature Flag" digitado na barra de pesquisa de filtros.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 

@@ -19,17 +19,13 @@ Você pode gerenciar as Centrais de Preferências de arrastar e soltar existente
 
 ## Etapa 1: Criar uma Central de Preferências de e-mail {#step-1-create-an-email-preference-center}
 
-Crie uma Central de Preferências navegando até **Público** > **Central de Preferências de e-mail**.
-
-Aqui, uma lista de Centrais de Preferências personalizadas será exibida. Selecione **Criar nova** para criar uma nova Central de Preferências ou selecione o nome de uma existente para fazer alterações.
-
+Crie uma Central de Preferências navegando até **Público** > **Central de Preferências de e-mail**. Aqui, uma lista de Centrais de Preferências personalizadas será exibida. Selecione **Criar nova** para criar uma nova Central de Preferências ou selecione o nome de uma existente para fazer alterações.
 
 ## Etapa 2: Nomear a Central de Preferências de e-mail {#step-2-name-the-email-preference-center}
 
 Os nomes das Centrais de Preferências só podem conter caracteres alfanuméricos, hifens ou underscores. O nome que você fornecer determinará a sintaxe da Liquid tag gerada.
 
 Essa Liquid tag pode ser incluída em qualquer Campaign de e-mail de saída ou etapa do Canvas e direcionará os usuários para a Central de Preferências.
-
 
 ## Etapa 3: Adicionar grupos de inscrições à Central de Preferências {#step-3-add-subscription-groups-to-the-preference-center}
 
@@ -40,12 +36,12 @@ Selecione **Abrir editor** para começar a projetar sua Central de Preferências
 Para determinar quais grupos de inscrições devem ser exibidos na Central de Preferências, selecione o botão **+ Add subscription groups** para abrir um modal onde os grupos de inscrições desejados podem ser selecionados. Após selecionar, clique no botão **Add Subscription Groups** para adicioná-los à Central de Preferências.
 
 Você pode configurar ainda mais os grupos de inscrições selecionados clicando no bloco inteligente e ajustando as propriedades do bloco.
+
 - Ajustar a ordem dos grupos de inscrições
 - Adicionar ou remover grupos de inscrições adicionais
 - Incluir descrições
 - Adicionar ou remover uma caixa de seleção **Subscribe to all**, que inscreverá o usuário em todos os grupos de inscrições exibidos neste bloco
 - Adicionar ou remover uma caixa de seleção **Unsubscribe from all**, que cancelará a inscrição do usuário de todos os grupos de inscrições exibidos neste bloco
-
 
 O botão **Unsubscribe from all** na parte inferior do modelo não pode ser removido e fará o [cancelamento global da inscrição]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) do usuário, impedindo-o de receber qualquer mensagem de e-mail.
 
@@ -94,19 +90,19 @@ Se você estiver usando o bloco de código personalizado na sua Central de Prefe
 
 ## Etapa 5: Personalizar sua página de confirmação {#step-5-customize-your-confirmation-page}
 
-Não se esqueça de personalizar a página de confirmação! Você pode editar essa página selecionando **Página de confirmação** na parte superior da janela do editor de arrastar e soltar. Essa página será exibida aos usuários após atualizarem suas preferências usando a Central de Preferências. Os mesmos recursos de estilo acima também se aplicam a essa página.
+Em seguida, personalize a página de confirmação selecionando **Página de confirmação**. Essa página é exibida aos usuários após atualizarem suas preferências usando a Central de Preferências. Os mesmos recursos de estilo de [Definir estilos comuns](#set-common-styles) e [Componentes da Central de Preferências de arrastar e soltar](#drag-and-drop-preference-center-components) também se aplicam a essa página.
 
 ![Um exemplo de página de confirmação para comunicar que as preferências do usuário foram atualizadas.]({% image_buster /assets/img/preference_center/preference_center9.png %}){: style="max-width:65%;"}
 
 ## Etapa 6: Pré-visualizar e lançar sua Central de Preferências {#step-6-preview-and-launch-your-preference-center}
 
-Você pode pré-visualizar sua Central de Preferências selecionando a guia **Pré-visualização** dentro do editor. No entanto, a funcionalidade de teste está desativada. Após editar sua Central de Preferências, você pode fechar o editor selecionando o botão **Done**.
+Você pode pré-visualizar sua Central de Preferências selecionando a guia **Prévia** dentro do editor. No entanto, a funcionalidade de teste está desativada. Além disso, envios de teste de Campaigns ou etapas do Canvas que incluem a Liquid tag da Central de Preferências não geram um link válido. Para testar a funcionalidade completa da sua Central de Preferências, envie uma Campaign ou um Canvas ativo. Após editar sua Central de Preferências, você pode fechar o editor selecionando **Done**.
 
-Você verá uma pré-visualização tanto da Central de Preferências quanto da página de confirmação. Selecione **Salvar como rascunho** para retornar a essa Central de Preferências mais tarde, ou, se estiver satisfeito, selecione **Launch Preference Center**.
+A prévia mostra tanto a Central de Preferências quanto a página de confirmação. Selecione **Salvar como rascunho** para retornar a essa Central de Preferências mais tarde, ou, se estiver satisfeito, selecione **Launch Preference Center**.
 
 Ao lançar a Central de Preferências, você será solicitado a confirmar o nome, pois ele não pode ser editado após o lançamento. Depois de confirmar o nome, a Central de Preferências será lançada e estará pronta para uso.
 
-## Usando a Central de Preferências {#using-the-preference-center}
+## Usando a Central de Preferências {#use-the-preference-center}
 
 {% multi_lang_include alerts/important_alerts.md alert='Preference Center warning' %}
 
@@ -116,7 +112,7 @@ Para inserir um link para a Central de Preferências nos seus e-mails, copie a L
 
 Adicione a Liquid tag no local desejado do seu e-mail, de forma semelhante a como as [URLs de cancelamento de inscrição]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link) são inseridas.
 
-## Tratamento de erros {#handling-errors}
+## Tratamento de erros {#handle-errors}
 
 Se ocorrer um erro quando um usuário selecionar **Save** em uma Central de Preferências, a seguinte mensagem de erro padrão será exibida, que não pode ser personalizada ou estilizada no editor. No entanto, a localização das mensagens de erro ainda é suportada nessas páginas.
 

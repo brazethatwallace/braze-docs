@@ -13,16 +13,16 @@ search_tag: Partner
 
 > [mParticle](https://www.mparticle.com)は、複数のソースから情報を収集し、マーケティングスタックの他のさまざまな場所にルーティングする顧客データプラットフォームです。
 
-BrazeとmParticleの統合により、2つのシステム間の情報の流れをシームレスに制御できます。[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)を使用すると、データをmParticleに接続し、グローススタック全体で実用的なデータにすることもできます。
+BrazeとmParticleの統合により、2つのシステム間の情報の流れをシームレスに制御できます。[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)を使用すると、データをmParticleに接続し、グローススタック全体で実用的なデータにすることもできます。
 
 ## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| Currents | mParticleにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。 |
+| Currents | mParticleにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents)を設定する必要があります。 |
 | mParticleアカウント | このパートナーシップを利用するには、[mParticleアカウント](https://app.mparticle.com/login)が必要です。 |
 | mParticleのサーバー間キーとシークレット | これらを取得するには、mParticleダッシュボードに移動し、mParticleがiOS、Android、およびWebプラットフォームのBrazeインタラクションデータを受信できるようにする[必要なフィード](#step-1-create-feeds)を作成します。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## mParticle認証情報について {#about-mparticle-credentials}
 
@@ -41,7 +41,7 @@ mParticle管理者アカウントから、**Setup > Inputs**に移動します�
 
 Brazeフィード統合は、iOS、Android、Web、Unboundの4つの個別フィードをサポートしています。Unboundフィードは、プラットフォームに接続されていないメールなどのイベントに使用できます。メインプラットフォームフィードごとに入力を作成する必要があります。追加の入力は、**Setup > Inputs**の**Feed Configurations**タブから作成できます。
 
-![]({% image_buster /assets/img/braze-feed-inputs.png %})
+![mParticleのフィード入力設定。BrazeのiOS、Android、Web、Unboundフィードオプションが表示されています。]({% image_buster /assets/img/braze-feed-inputs.png %})
 
 各フィードについて、**Act as Platform**でリストから一致するプラットフォームを選択します。**act-as**フィードを選択するオプションが表示されない場合、データはUnboundとして扱われますが、データウェアハウス出力に転送することは可能です。
 
@@ -53,7 +53,7 @@ Brazeフィード統合は、iOS、Android、Web、Unboundの4つの個別フィ
 
 Brazeで、**Currents > + Create Current > Create mParticle Export**に移動します。統合名、連絡先メールアドレス、および各プラットフォームのmParticle APIキーとmParticleシークレットキーを入力します。次に、追跡するイベントを選択します。利用可能なイベントのリストが提供されます。最後に、**Launch Current**をクリックします。
 
-![BrazeのmParticle Currentsページ。ここでは、統合名、連絡先メールアドレス、APIキー、シークレットキーのフィールドがあります。]({% image_buster /assets/img_archive/currents-mparticle-edit.png %})
+![BrazeのmParticle Currentsページ。統合名、連絡先メールアドレス、APIキー、シークレットキーのフィールドがあります。]({% image_buster /assets/img_archive/currents-mparticle-edit.png %})
 
 {% alert important %}
 mParticle APIキーとmParticleシークレットキーを最新の状態に保つことが重要です。コネクタの認証情報が期限切れになると、コネクタはイベントの送信を停止します。この状態が**5日間**以上続くと、コネクタのイベントは破棄され、データは永久に失われます。
@@ -65,9 +65,9 @@ mParticleに送信されるすべてのイベントには、ユーザーの`exte
 
 Brazeは以下のイベントをmParticleにエクスポートすることをサポートしています：
 
-- [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
-- [顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
+- [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-各イベントのペイロード構造については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)および[顧客行動イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)の**mParticle**タブを選択してください。
+各イベントのペイロード構造については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)および[顧客行動イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)の**mParticle**タブを選択してください。
 
 mParticle統合の詳細については、[mParticleのドキュメント](http://docs.mparticle.com/integrations/braze/feed)をご覧ください。

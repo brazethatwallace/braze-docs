@@ -51,7 +51,7 @@ The shop must be named “Shopify” or the integration may not work properly.
 The first step is to initialize the Braze Web SDK. We recommend doing that by installing our NPM package:
 
 ```java
-npm install --save @braze/web-sdk@5.4.0
+npm install --save @braze/web-sdk@6.8.0
 # or, using yarn:
 # yarn add @braze/web-sdk
 ```
@@ -751,7 +751,7 @@ You can sync all products from your Shopify store to a Braze catalog for deeper 
 
 ### Step 8: Activate channels
 
-To activate in-app messages, Content Cards, and Feature Flags using the Shopify direct integration, add each channel to your SDK. Follow the documentation links provided for each channel below:
+To activate in-app messages, Content Cards, and Feature Flags using the Shopify direct integration, add each channel to your SDK. Follow the documentation links provided for each channel:
 
 - **In-app messages:** For enabling in-app messages for lead capture form use cases, refer to [In-app messages]({{site.baseurl}}/developer_guide/in_app_messages/).
 - **Content Cards:** For enabling Content Cards for inbox or website banner use cases, refer to [Content Cards]({{site.baseurl}}/developer_guide/content_cards/).

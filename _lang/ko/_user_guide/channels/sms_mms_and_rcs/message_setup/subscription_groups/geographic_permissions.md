@@ -22,7 +22,7 @@ alias: /geographic_permissions/
 
 ## 국가 선택 {#selecting-countries}
 
-드롭다운을 사용하여 허용 목록에 국가를 추가합니다. 가장 일반적인 SMS, MMS, RCS 국가가 상단에 표시되며, 나머지는 아래에 표시됩니다. 텍스트 필드에 입력하여 국가를 검색할 수도 있습니다.
+드롭다운을 사용하여 허용 목록에 국가를 추가합니다. 가장 일반적인 SMS, MMS, RCS 국가가 상단에 표시되며, 나머지는 다음 섹션에 표시됩니다. 텍스트 필드에 입력하여 국가를 검색할 수도 있습니다.
 
 !["Country allowlist" 드롭다운으로, 가장 일반적인 국가가 상단에 표시됩니다.]({% image_buster /assets/img/sms/allowlist_dropdown.png %}){: style="max-width:80%;"}
 
@@ -48,7 +48,7 @@ alias: /geographic_permissions/
 
 ## 허용 목록 외 전송의 가시성 {#visibility-of-sends-outside-the-allowlist}
 
-국가 허용 목록에 없는 국가로의 전송 시도는 중단됩니다. 중단된 메시지는 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) 및 [SMS 중단 메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)에 기록됩니다.
+국가 허용 목록에 없는 국가로의 전송 시도는 중단됩니다. 중단된 메시지는 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) 및 [SMS 중단 메시지 인게이지먼트 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)에 기록됩니다.
 
 허용 목록에 없는 국가의 수신자에 대해 중단된 메시지는 **Aborted Message Errors**로 표시되며 "The recipient's phone number is in a blocked country"라는 메시지가 포함됩니다.
 

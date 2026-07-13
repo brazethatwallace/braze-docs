@@ -50,7 +50,7 @@ A tag `message_extras` é compatível com todos os tipos de mensagem que possuem
 
 ## Verificando a sintaxe {#checking-syntax}
 
-Qualquer outra entrada que não corresponda ao padrão da tag discutido acima pode não ser transmitida ao Currents ou ao Snowflake. Verifique se sua sintaxe ou formatação não inclui nenhum dos seguintes problemas:
+Qualquer outra entrada que não corresponda ao padrão da tag discutido anteriormente nesta seção pode não ser transmitida ao Currents ou ao Snowflake. Verifique se sua sintaxe ou formatação não inclui nenhum dos seguintes problemas:
 
 - Delimitadores inexistentes, vazios ou digitados incorretamente
 - Chaves duplicadas (a Braze enviará por padrão o par de chave-valor encontrado primeiro)

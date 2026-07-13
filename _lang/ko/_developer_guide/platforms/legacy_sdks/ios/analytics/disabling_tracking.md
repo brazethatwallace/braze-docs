@@ -19,4 +19,5 @@ noindex: true
 사용자가 주어진 기기에서 제공업체의 모든 앱을 제거하지 않는 한, `wipeDataAndDisableForAppRun()` 호출 후 다음에 Braze SDK 및 앱을 실행하면 서버가 기기 식별자(IDFV)를 통해 해당 사용자를 다시 식별하게 됩니다. 모든 사용자 데이터를 완전히 제거하려면 `wipeDataAndDisableForAppRun` 호출을 Braze [REST API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-delete-endpoint)를 통한 서버 데이터 삭제 요청과 결합해야 합니다.
 
 ## iOS SDK v5.7.0 이상 {#ios-sdk-v570}
+
 iOS SDK v5.7.0 이상을 사용하는 기기의 경우, [IDFV 수집을 비활성화]({{site.baseurl}}/developer_guide/platform_integration_guides/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations#optional-idfv-collection---swift)하면 [`wipeData`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/wipedata())를 호출해도 서버가 기기 식별자(IDFV)를 통해 해당 사용자를 다시 식별하지 않습니다.

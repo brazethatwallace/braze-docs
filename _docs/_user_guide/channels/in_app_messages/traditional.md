@@ -225,7 +225,7 @@ If you choose to only use one button, it will automatically adjust to take over 
 
 If you decide to format these buttons with your own colors, we recommend that you use Button 2 for your more preferred result.
 
-In other words, if you want your user to click on one button more than the other, make sure it is on the right. The right button has often displayed better potential to get clicked, especially if it has a somewhat contrasting or otherwise stand-out color from the rest of the message. This is only emphasized when the button on the left blends more visually with the message.
+In other words, if you want your user to click on one button more than the other, make sure it is the secondary button. The secondary button has often displayed better potential to get clicked, especially if it has a somewhat contrasting or otherwise stand-out color from the rest of the message. This is only emphasized when the primary button blends more visually with the message.
 
 ![Primary and secondary buttons in an in-app message]({% image_buster /assets/img/primary-secondary-buttons.png %})
 
@@ -246,6 +246,8 @@ When your customer clicks on a button in your in-app message, the following acti
 Note: the __Request Push Permission__, __Log Custom Event__, and __Log Custom Attribute__ options require the following SDK minimum versions:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
+
+To combine multiple actions or perform additional SDK actions not available in the dashboard (such as adding to a subscription group or setting an email subscription type), you can use [Braze Actions deeplinks]({{site.baseurl}}/developer_guide/braze_actions).
 
 ### iOS device options
 

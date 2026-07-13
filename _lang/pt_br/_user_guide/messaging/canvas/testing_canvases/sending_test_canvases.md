@@ -19,8 +19,8 @@ Criar um plano de teste é essencial antes de começar a testar seu Canvas. Um p
 
 Ao elaborar seu plano de teste, considere as seguintes perguntas:
 - Pelo menos um usuário foi criado para cada ramificação e jornada do Canvas?
-- Algum Segment está sendo usado no seu Canvas?
-	- Se Segments forem usados, pode haver pré-requisitos para que um usuário entre no Canvas antes de se tornar elegível para uma jornada de usuário.
+- Algum segmento está sendo usado no seu Canvas?
+	- Se segmentos forem usados, pode haver pré-requisitos para que um usuário entre no Canvas antes de se tornar elegível para uma jornada de usuário.
 - As mensagens no Canvas de teste possuem algum Liquid nos títulos das mensagens que puxam o ID do usuário ou o endereço de e-mail para garantir que seja fácil identificar tanto a mensagem quanto o usuário para fins de teste?
 
 ## Etapa 2: Identifique os usuários teste {#step-2-identify-test-users}
@@ -33,7 +33,7 @@ Agora é hora de testar seu Canvas! Para manter as informações do Canvas origi
 
 Existem duas maneiras de testar seu Canvas.
 
-- **Método 1:** No Canvas duplicado, edite a parte do **Público de entrada** do criador de Canvas para que apenas os usuários teste sejam elegíveis para o Canvas. Você também pode inserir seu próprio endereço de e-mail como usuário teste adicionando o filtro de teste **Endereço de e-mail**. No exemplo abaixo, limitamos o Canvas a dois usuários teste que usaram o app pela primeira vez há menos de três dias.
+- **Método 1:** No Canvas duplicado, edite a parte do **Público de entrada** do criador de Canvas para que apenas os usuários teste sejam elegíveis para o Canvas. Você também pode inserir seu próprio endereço de e-mail como usuário teste adicionando o filtro de teste **Endereço de e-mail**. No exemplo da seção a seguir, limitamos o Canvas a dois usuários teste que usaram o app pela primeira vez há menos de três dias.
 
 ![Um Canvas com um público de entrada de "Usou estes apps pela primeira vez há menos de 3 dias" e os endereços de e-mail de dois usuários teste.]({% image_buster /assets/img_archive/canvas_test2.png %}){: style="max-width:90%;"}
 
@@ -45,10 +45,10 @@ Lance seu Canvas de teste para permitir que os usuários comecem a entrar. Compl
 
 Verifique se seus usuários teste estão recebendo as mensagens pretendidas das etapas do Canvas. Note que seus usuários teste podem não receber uma mensagem por razões que incluem, mas não se limitam a:
 
-- Não ser elegível para o Grupo de controle global
+- Não ser elegível para o grupo de controle global
 - Limitações de limite de frequência
-- Incompatibilidade na associação ao Segment
-- Mensagens abortadas
+- Incompatibilidade na associação ao segmento
+- Mensagens interrompidas
 - Tokens por push associados a usuários diferentes
 
 Continue iterando os testes do Canvas para garantir que seu Canvas funcione conforme o esperado.

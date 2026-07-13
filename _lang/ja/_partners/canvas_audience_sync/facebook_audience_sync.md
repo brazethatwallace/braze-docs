@@ -6,7 +6,7 @@ page_order: 2
 alias: /audience_sync_facebook/
 
 tool:
-  - キャンバス
+  - Canvas
 
 ---
 
@@ -14,7 +14,7 @@ tool:
 
 > Braze Audience Sync to Facebookを使用すると、Braze統合からのユーザーデータをFacebookカスタムオーディエンスに追加して、行動トリガーやセグメンテーションなどに基づいて広告を配信できます。
 
-ユーザーデータに基づいてBraze キャンバスでメッセージ（プッシュ、メール、SMS、Webhook）をトリガーするために通常使用する基準はすべて、カスタムオーディエンスを使用してFacebook内の該当ユーザーに対して広告をトリガーするためにも使用できるようになりました。例えば、FacebookへのAudience Syncを設定する場合、メール、電話、名、姓など、さまざまなファーストパーティフィールドを使用できます。
+ユーザーデータに基づいてBrazeキャンバスでメッセージ（プッシュ、メール、SMS、Webhook）をトリガーするために通常使用する基準はすべて、カスタムオーディエンスを使用してFacebook内の該当ユーザーに対して広告をトリガーするためにも使用できるようになりました。例えば、FacebookへのAudience Syncを設定する場合、メール、電話、名、姓など、さまざまなファーストパーティフィールドを使用できます。
 
 **カスタムオーディエンスの同期の一般的なユースケース**：
 
@@ -40,14 +40,14 @@ FacebookのMarketing APIレート制限では、広告アカウント1つにつ�
 | Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | ブランドのFacebookアセット（広告アカウント、ページ、アプリなど）を管理するための集中型ツールです。 |
 | Facebook広告アカウント | [Facebook](https://www.facebook.com/business/help/910137316041095) | ブランドのビジネスマネージャーと結びついたアクティブなFacebook広告アカウント。<br><br>Facebook Business Managerの管理者が、Brazeで使用する予定のFacebook広告アカウントに対して「Manage キャンペーン」または「Manage ad accounts」のいずれかの権限を付与していることを確認してください。また、広告アカウントの利用規約に同意していることも確認してください。 |
 | Facebookカスタムオーディエンス利用規約 | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Brazeで使用する予定のFacebook広告アカウントについて、Facebookのカスタムオーディエンス規約に同意します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
 ### ステップ1: Facebookに接続する {#step-1-connect-to-facebook}
 
 {% alert important %}
-FacebookをBrazeアカウントに接続するには[「管理者」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)が必要です。
+FacebookをBrazeアカウントに接続するには[「管理者」権限]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)が必要です。
 {% endalert %}
 
 Brazeダッシュボードで**パートナー連携** > **テクノロジーパートナー**に移動し、**Facebook**を選択します。Facebook Audience Exportで、**Connect Facebook**を選択します。
@@ -67,7 +67,7 @@ Facebookとの接続は、Brazeのワークスペースレベルで適用され�
 {% alert important %}
 これまでに[Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management)および[Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard)のFacebookアプリレビュープロセスを受けたことがある顧客のシステムユーザートークンは、Facebook Audienceコンポーネントに対して引き続き有効です。FacebookパートナーページからFacebookシステムユーザートークンを編集したり、取り消したりすることはできません。その代わりに、Facebookアカウントに接続して、Brazeワークスペース内でFacebookシステムユーザートークンを置き換えることができます。
 
-<br><br>Facebook oAuthの設定は、[セグメントを使用したFacebookのエクスポート]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites)にも適用されます。
+<br><br>Facebook oAuthの設定は、[セグメントを使用したFacebookのエクスポート]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites)にも適用されます。
 {% endalert %}
 
 ### ステップ2: カスタムオーディエンスの利用規約に同意する {#step-2-accept-custom-audiences-terms-of-service}
@@ -148,7 +148,7 @@ Facebook Audience Managerのカスタムオーディエンスの**History**タ�
 | 保留中のユーザー | 現在、BrazeがFacebookへの同期処理を行っているユーザー数。 |
 | エラーが発生したユーザー数 | 約13時間の再試行後、APIエラーのためにFacebookに同期されなかったユーザーの数。エラーの原因としては、無効なFacebookトークンや、Facebook上でカスタムオーディエンスが削除された場合などが考えられます。 |
 | キャンバスを退出 | キャンバスを退出したユーザーの数。これは、キャンバスの最後のステップがFacebookステップである場合に発生します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="分析の理解" }
 
 {% alert important %}
 内部処理のため、同期したユーザーとエラーが発生したユーザーの指標のレポートに遅延が生じます。
@@ -176,7 +176,7 @@ Facebookはプライバシー上の理由からこの情報を提供していま
 
 ### Brazeはバリューベースのカスタムオーディエンスに対応していますか？ {#does-braze-support-value-based-custom-audiences}
 
-現時点では、バリューベースのカスタムオーディエンスはBrazeでサポートされていません。このようなタイプのカスタムオーディエンスの同期に関心がある場合は、[製品フィードバック]({{site.baseurl}}/user_guide/administer/personal/product_portal/)をお送りください。
+現時点では、バリューベースのカスタムオーディエンスはBrazeでサポートされていません。{% multi_lang_include product_feedback_cta.md context="gap" feature="value-based custom audience sync" %}
 
 ### BrazeはAudience Syncパートナーにデータを送信する前にハッシュ化しますか？ {#does-braze-hash-data-before-sending-it-to-audience-sync-partners}
 
@@ -241,7 +241,7 @@ table td {
 }
 </style>
 
-<table aria-label="Troubleshooting">
+<table aria-label="トラブルシューティング">
   <thead>
     <tr>
       <th>エラー</th>

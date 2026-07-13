@@ -19,7 +19,7 @@ page_order: 1
 3. Dans la boutique d'applications Shopify, installez l'application Braze.<br><br>![La page du magasin d'applications de Braze avec un bouton pour installer l'application.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
-Si votre compte Shopify est associé à plusieurs boutiques, vous pouvez changer la boutique à laquelle vous êtes connecté en sélectionnant l'icône de la boutique en haut à droite de la page et en sélectionnant **Switch stores**.
+Si votre compte Shopify est associé à plusieurs boutiques, vous pouvez changer la boutique à laquelle vous êtes connecté en sélectionnant l'icône de la boutique dans l'en-tête et en sélectionnant **Switch stores**.
 {% endalert %}
 
 {: start="4"}
@@ -260,7 +260,7 @@ Pour ajouter des Content Cards ou des indicateurs de fonctionnalité, vous devre
 
 #### Notifications push web {#web-push-notifications}
 
-Les notifications push web ne sont actuellement pas prises en charge pour l'intégration Shopify. Pour demander cette fonctionnalité, soumettez une demande de produit via le [portail du produit Braze]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Les notifications push web ne sont actuellement pas prises en charge pour l'intégration Shopify. {% multi_lang_include product_feedback_cta.md context="gap" feature="web push for the Shopify integration" %}
 
 ## Étape 7 : Terminer la configuration {#step-7-finish-setup}
 

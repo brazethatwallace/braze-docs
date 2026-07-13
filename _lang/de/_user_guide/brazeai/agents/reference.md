@@ -84,7 +84,7 @@ Wenn viele Nutzer:innen gleichzeitig einen Agenten-Schritt aufrufen, reiht Braze
 
 Wenn der LLM-Anbieter während eines **Canvas-Agenten-Schritts** einen Rate-Limit-Fehler zurückgibt, wiederholt Braze die Anfrage kontinuierlich mit exponentiellem Backoff, bis der Aufruf erfolgreich ist oder Braze feststellt, dass er nicht abgeschlossen werden kann. **Katalog-Agenten** wiederholen Rate-Limit-begrenzte Aufrufe nicht.
 
-Wenn alle Canvas-Wiederholungsversuche erschöpft sind, zeigt das Detailpanel **Logs** den Status **Error** und die Anbieternachricht (z. B. `Rate limit exceeded`) unter **Ausgabe** an. Wiederholungsversuche sind in den Logs sichtbar, einschließlich des allerersten Aufrufs unabhängig von seinem endgültigen Erfolg oder Misserfolg. Wenn es bei einer bestimmten Nutzerin bzw. einem bestimmten Nutzer vier Wiederholungsversuche braucht, um schließlich einen Erfolg zu erzielen, können Sie die Nutzer-ID suchen und alle fünf Einträge (Original plus vier Wiederholungen) in den **Logs** sehen. Das Original und die ersten drei Wiederholungen zeigen dabei **Error** mit `Rate limit exceeded` an.
+Wenn alle Canvas-Wiederholungsversuche erschöpft sind, zeigt das Detailpanel **Logs** den Status **Error** und die Anbieternachricht (z. B. `Rate limit exceeded`) unter **Output** an. Wiederholungsversuche sind in den Logs sichtbar, einschließlich des allerersten Aufrufs unabhängig von seinem endgültigen Erfolg oder Misserfolg. Wenn es bei einer bestimmten Nutzerin bzw. einem bestimmten Nutzer vier Wiederholungsversuche braucht, um schließlich einen Erfolg zu erzielen, können Sie die Nutzer-ID suchen und alle fünf Einträge (Original plus vier Wiederholungen) in den **Logs** sehen. Das Original und die ersten drei Wiederholungen zeigen dabei **Error** mit `Rate limit exceeded` an.
 
 ![Agentenkonsole-Logdetails mit einem „Rate limit exceeded“-Fehler im Ausgabefeld.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
@@ -101,7 +101,7 @@ Hier sind einige allgemeine Best Practices für den Einstieg in das Prompting:
 3. Legen Sie einen klaren Kontext und klare Vorgaben fest (Zielgruppe, Länge, Tonfall, Format).
 4. Fordern Sie Struktur an („Geben Sie JSON/Aufzählungsliste/Tabelle zurück ...“).
 5. Zeigen statt erklären. Fügen Sie einige hochwertige Beispiele bei.
-6. Teilen Sie komplexe Aufgaben in geordnete Schritte auf („1. Schritt ... 2. Schritt ...“).
+6. Teilen Sie komplexe Aufgaben in geordnete Schritte auf („Schritt 1 ... Schritt 2 ...“).
 7. Fördern Sie das logische Denken („Überlegen Sie die einzelnen Schritte im Kopf und geben Sie dann eine prägnante endgültige Antwort“ oder „Erläutern Sie kurz Ihre Entscheidung“).
 8. Testen, überprüfen und iterieren. Kleine Optimierungen können zu erheblichen Qualitätssteigerungen führen.
 9. Behandeln Sie Sonderfälle, fügen Sie Sicherheitsvorkehrungen hinzu und ergänzen Sie Ablehnungsanweisungen.
@@ -109,7 +109,23 @@ Hier sind einige allgemeine Best Practices für den Einstieg in das Prompting:
 
 ### Beispiele {#examples}
 
-Für Startkonfigurationen in der Agentenkonsole siehe [Agentenvorlagen, erstellt mit Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator). Für vollständige Anweisungsbeispiele, die Sie kopieren oder anpassen können, besuchen Sie die [Anwendungsfallbibliothek für Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases).
+Für Startkonfigurationen in der Agentenkonsole siehe [Agentenvorlagen, erstellt mit Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
+
+Für vollständige Anweisungsbeispiele, die Sie kopieren oder anpassen können, besuchen Sie die [Anwendungsfallbibliothek für Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/examples).
+
+| Beispiel | Kategorie | Agententyp | Beschreibung |
+| --- | --- | --- | --- |
+| [Personalisierte Nachrichten basierend auf dem Kontext von Nutzer:innen verfassen]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-personalized-messaging-based-on-a-users-context) | Inhaltserstellung | Canvas-Schritt-Agent | Generiert koordinierte E-Mail-Betreffzeile/Preheader und Push-Titel/Text für Nutzer:innen, die gesucht, aber nicht gebucht haben. |
+| [Nutzerfeedback analysieren, um nächste Schritte zu bestimmen]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | Datenstandardisierung | Canvas-Schritt-Agent | Klassifiziert die Stimmung und das Thema einer Umfrage nach der Reise und empfiehlt dann einen CRM-Folgeschritt. |
+| [Nutzer:innen anhand vorhandener Attribute in Interessen-Buckets kategorisieren]({{site.baseurl}}/user_guide/brazeai/agents/examples#categorize-users-into-interest-buckets-from-existing-attributes) | Affinitäts-Agent | Canvas-Schritt-Agent | Klassifiziert Nutzer:innen anhand von Attributen und High-Intent-Signalen in Interessen-Buckets und empfiehlt dann das beste nächste Erlebnis oder den besten nächsten Artikel. |
+| [Nutzer:innen basierend auf aktuellem Verhalten zum relevantesten Canvas-Pfad weiterleiten]({{site.baseurl}}/user_guide/brazeai/agents/examples#route-users-to-the-most-relevant-canvas-path-from-recent-behavior) | Affinitäts-Agent | Canvas-Schritt-Agent | Leitet die Motivation aus dem aktuellen Verhalten ab und gibt den besten Routenschlüssel für den nächsten Canvas-Schritt zurück. |
+| [Nutzer:innen basierend auf Echtzeit-High-Intent-Aktionen Interessenkategorien zuweisen]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | Affinitäts-Agent | Canvas-Schritt-Agent | Weist Interessenkategorien basierend auf High-Intent-Aktionen zu und empfiehlt das beste nächste Erlebnis oder den besten nächsten Artikel. |
+| [Eingehende Nachrichten auf Opt-out-Absicht klassifizieren]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | Klassifizierung und Routing | Canvas-Schritt-Agent | Gibt einen strikten booleschen Wert zurück, der angibt, ob eine Nachricht eine Opt-out-Anfrage ist. |
+| [Eingehende Nachrichten in strukturierte Daten für die Automatisierung standardisieren]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | Datenstandardisierung | Canvas-Schritt-Agent | Normalisiert eingehende SMS oder Chat-Nachrichten in strukturierte Absichten, Entitäten und Compliance-Flags für nachgelagerte Automatisierung. |
+| [Konversionsstarke Beschreibungen erstellen, die den Markenrichtlinien entsprechen]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | Inhaltserstellung | Katalog-Agent | Generiert kurze, markengerechte Beschreibungen für jede Katalogzeile. |
+| [Übersetzungen basierend auf der regionalen Sprache bereitstellen]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | Kataloganreicherung | Katalog-Agent | Lokalisiert UI- und Marketing-Strings pro Gebietsschema und Zeichenlimit. |
+| [Katalogeinträge mit Beschreibungen, Kategorien und Tags anreichern]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | Kataloganreicherung | Katalog-Agent | Generiert erweiterte Beschreibungen, Kategorien und Tags aus vorhandenen Katalogdaten. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Zusammenfassung der Beispiele" }
 
 ### Liquid verwenden {#using-liquid}
 
@@ -139,7 +155,7 @@ Wenn Sie Ihren Agenten mit [BrazeAI Operator]({{site.baseurl}}/user_guide/brazea
 
 ### Einfache Schemata {#basic-schemas}
 
-Einfache Schemata sind eine einfache Ausgabe, die ein Agent zurückgibt. Dies kann ein String, eine Zahl, ein Boolescher Wert, ein String-Array oder ein Zahlen-Array sein.
+Einfache Schemata sind eine einfache Ausgabe, die ein Agent zurückgibt. Dies kann ein String, eine Zahl, ein boolescher Wert, ein String-Array oder ein Zahlen-Array sein.
 
 Wenn Sie beispielsweise Stimmungswerte von Nutzer:innen aus einer einfachen Feedback-Umfrage erfassen möchten, um die Zufriedenheit Ihrer Kund:innen nach Erhalt eines Produkts zu ermitteln, können Sie **Number** als einfaches Schema auswählen, um das Ausgabeformat zu strukturieren.
 
@@ -238,12 +254,12 @@ Die Interaktionsdaten von Nutzer:innen umfassen ihre letzten Campaign- und Canva
 
 Um Verbesserungen oder Iterationen eines Agenten zu testen, können Sie einen Agenten duplizieren und anschließend Änderungen vornehmen, um diese mit dem Original zu vergleichen. Sie können das Duplizieren von Agenten auch als Versionskontrolle nutzen, um Änderungen in den Agentendetails und etwaige Auswirkungen auf Ihr Messaging zu verfolgen. So duplizieren Sie einen Agenten:
 
-1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical"></i>-Menü aus.
+1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical" aria-label="Weitere Optionen"></i>-Menü aus.
 2. Wählen Sie **Duplizieren**.
 
 ## Agenten archivieren {#archive-agents}
 
 Wenn Sie weitere angepasste Agenten erstellen, können Sie die Seite **Agentenmanagement** organisieren, indem Sie Agenten archivieren, die nicht aktiv verwendet werden. So archivieren Sie einen Agenten:
 
-1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical"></i>-Menü aus.
+1. Bewegen Sie den Mauszeiger über die Zeile des Agenten und wählen Sie das <i class="fas fa-ellipsis-vertical" aria-label="Weitere Optionen"></i>-Menü aus.
 2. Wählen Sie **Archivieren**.

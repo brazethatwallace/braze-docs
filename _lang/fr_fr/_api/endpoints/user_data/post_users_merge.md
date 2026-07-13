@@ -50,7 +50,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ### Comportement de fusion {#merge-behavior}
 
-Le comportement documenté ci-dessous s'applique à toutes les fonctionnalités de Braze qui **ne sont pas** alimentées par Snowflake. Les fusions d'utilisateurs ne seront pas prises en compte pour l'onglet **Messaging History**, les Extensions de segments, le Générateur de requêtes et Currents.
+Le comportement documenté ci-dessous s'applique à toutes les fonctionnalités de Braze qui **ne sont pas** alimentées par Snowflake. Les fusions d'utilisateurs ne seront pas prises en compte pour l'onglet **Messaging History**, les extensions de segments, le générateur de requêtes et Currents.
 
 {% alert important %}
 Cet endpoint ne garantit pas l'ordre de mise à jour des objets `merge_updates`.
@@ -94,7 +94,7 @@ Cet endpoint fusionne les champs suivants s'ils ne sont pas trouvés chez l'util
 Lors de la fusion d'utilisateurs, l'utilisation de l'endpoint `/users/merge` fonctionne de la même manière que la [méthode `changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser).
 {% endalert %}
 
-Braze gère trois types d'utilisateurs différemment lors de la fusion : les utilisateurs marqués pour suppression, les utilisateurs test et les utilisateurs du Groupe de contrôle global. Pour plus de détails, consultez [Comportement de fusion des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
+Braze gère trois types d'utilisateurs différemment lors de la fusion : les utilisateurs marqués pour suppression, les utilisateurs test et les utilisateurs du groupe de contrôle global. Pour plus de détails, consultez [Comportement de fusion des utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/merge_behavior).
 
 #### Comportement des dates d'événements personnalisés et d'événements d'achat {#custom-event-date-and-purchase-event-date-behavior}
 

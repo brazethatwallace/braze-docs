@@ -99,13 +99,13 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 {% tabs local %}
 {% tab ios %}
-메시지 상자에 입력을 시작하면 왼쪽 미리보기 상자에 미리보기가 나타납니다. 푸시 메시지는 일반 텍스트 형식이어야 합니다.
+메시지 상자에 입력을 시작하면 옆의 미리보기 상자에 미리보기가 나타납니다. 푸시 메시지는 일반 텍스트 형식이어야 합니다.
 
 **제목** 필드를 사용하여 헤드라인을 추가합니다. 푸시를 개인화하고 타겟팅하려면 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 포함할 수 있습니다.
 {% endtab %}
 
 {% tab android %}
-메시지 상자에 입력을 시작하면 왼쪽 미리보기 상자에 미리보기가 나타납니다. 푸시 메시지는 일반 텍스트 형식이어야 합니다.
+메시지 상자에 입력을 시작하면 옆의 미리보기 상자에 미리보기가 나타납니다. 푸시 메시지는 일반 텍스트 형식이어야 합니다.
 
 푸시를 개인화하고 타겟팅하려면 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)를 포함할 수 있습니다.
 

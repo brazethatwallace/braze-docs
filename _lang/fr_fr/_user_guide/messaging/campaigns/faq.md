@@ -52,7 +52,7 @@ Consultez [Conversions et reporting]({{site.baseurl}}/user_guide/messaging/campa
 
 ### Pourquoi ma campagne a-t-elle une base d'utilisateurs atteignables plus petite que le segment que j'utilise pour la campagne ? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
-Si vous avez configuré un [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group), cela empêchera un pourcentage de votre audience atteignable de recevoir des campagnes. Cela signifie que le nombre d'utilisateurs atteignables pour votre segment peut parfois être supérieur au nombre d'utilisateurs atteignables pour votre campagne, même si la campagne utilise ce même segment.
+Si vous avez configuré un [groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group), cela empêchera un pourcentage de votre audience atteignable de recevoir des campagnes. Cela signifie que le nombre d'utilisateurs atteignables pour votre segment peut parfois être supérieur au nombre d'utilisateurs atteignables pour votre campagne, même si la campagne utilise ce même segment.
 
 ### Qu'offre la livraison en fuseau horaire local ? {#what-does-local-time-zone-delivery-offer}
 
@@ -174,11 +174,11 @@ Si vous modifiez une campagne active sans l'arrêter au préalable, les utilisat
 
 ### Quelle est la différence entre les options Exporter les données utilisateur en CSV et Exporter les adresses e-mail en CSV sur ma page d'analyse de campagne ? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
-L'option **Exporter les adresses e-mail en CSV** télécharge uniquement les données des utilisateurs ayant des adresses e-mail. Par exemple, si vous avez un segment de 100 000 utilisateurs, mais que seulement 50 000 d'entre eux ont des adresses e-mail, et que vous cliquez sur **Exporter les adresses e-mail en CSV**, l'export ne contiendra que 50 000 lignes de données. En comparaison, l'option **Exporter les données utilisateur en CSV** exporte toutes les données utilisateur.
+L'option **CSV Export Email Addresses** télécharge uniquement les données des utilisateurs ayant des adresses e-mail. Par exemple, si vous avez un segment de 100 000 utilisateurs, mais que seulement 50 000 d'entre eux ont des adresses e-mail, et que vous cliquez sur **CSV Export Email Addresses**, l'export ne contiendra que 50 000 lignes de données. En comparaison, l'option **CSV Export User Data** exporte toutes les données utilisateur.
 
 ### Puis-je rechercher une campagne par son identifiant API ? {#can-i-search-for-a-campaign-by-its-api-identifier}
 
-Oui, utilisez le filtre `api_id:YOUR_API_ID` sur la page **Campaigns** pour rechercher une campagne par son identifiant API. Consultez [rechercher des campagnes]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns) pour en savoir plus.
+Oui, utilisez le filtre `api_id:YOUR_API_ID` sur la page **Campaigns** pour rechercher une campagne par son identifiant API. Consultez [Rechercher des campagnes]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns) pour en savoir plus.
 
 ### Pourquoi les espaces s'affichent-ils différemment dans les champs de saisie et dans le texte affiché ? {#why-does-whitespace-appear-differently-in-input-fields-versus-displayed-text}
 
@@ -246,7 +246,7 @@ Si vous rencontrez une erreur « Request Timed Out » lors de la création ou de
 Si vous ajoutez ou modifiez une limite maximale de destinataires sur une campagne active, la limite peut ne pas être reflétée dans vos analyses d'envoi pour les raisons suivantes :
 
 - **Limite ajoutée après le lancement :** si la limite maximale de destinataires n'est pas définie au lancement de la campagne, les messages déjà mis en file d'attente avant l'application de la limite sont tout de même envoyés. La limite ne prend effet que pour les envois mis en file d'attente après l'enregistrement de la modification.
-- **Interaction avec la limite de débit :** si une campagne est également soumise à une limite de débit, les messages peuvent être distribués sur une fenêtre de temps plus longue. La limite maximale de destinataires est évaluée lorsque les messages sont mis en file d'attente, pas lorsqu'ils sont livrés. Si la limite est modifiée alors que des messages sont déjà dans la file d'attente, la limite originale s'applique à ces messages.
+- **Interaction avec la limitation du débit :** si une campagne est également soumise à une limitation du débit, les messages peuvent être distribués sur une fenêtre de temps plus longue. La limite maximale de destinataires est évaluée lorsque les messages sont mis en file d'attente, pas lorsqu'ils sont livrés. Si la limite est modifiée alors que des messages sont déjà dans la file d'attente, la limite originale s'applique à ces messages.
 - **Campagnes récurrentes :** pour les campagnes récurrentes, chaque envoi planifié évalue la limite maximale de destinataires de manière indépendante. Modifier la limite entre les envois ne réajuste pas rétroactivement les comptages d'envois précédents.
 
 Pour éviter les décalages, définissez la limite maximale de destinataires avant de lancer la campagne et évitez de la modifier pendant que des envois sont en cours.
@@ -258,14 +258,14 @@ Plusieurs facteurs peuvent expliquer que le nombre d'envois soit inférieur à l
 - **Livraison par événement :** les utilisateurs ne génèrent des envois qu'après avoir effectué le déclencheur, de sorte que les envois s'accumulent au fil du temps et peuvent être en retard par rapport à l'estimation initiale affichée lors de la création de la campagne.
 - **Modifications de l'audience après le lancement :** modifier les filtres d'entrée ou de ciblage après le lancement peut désynchroniser l'**audience estimée** par rapport aux utilisateurs qui sont encore éligibles lors des envois ultérieurs (par exemple, lorsque les utilisateurs ne sont pas éligibles pour réentrer).
 - **Étape Parcours d'audience :** pour Canvas, une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) n'envoie de messages qu'aux utilisateurs correspondant à la branche de priorité la plus élevée pour laquelle ils sont éligibles, ce qui peut réduire les envois par rapport à un comptage de segment simple.
-- **Groupes de contrôle :** si un [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group) ou un groupe de contrôle au niveau de la campagne est utilisé, une partie de l'audience est exclue de la livraison.
+- **Groupes de contrôle :** si un [groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group) ou un groupe de contrôle au niveau de la campagne est utilisé, une partie de l'audience est exclue de la livraison.
 - **Délais et fenêtres de livraison :** pour les campagnes en fuseau horaire local ou planifiées, les utilisateurs doivent être éligibles à la fois à l'entrée et au moment de l'envoi ; les utilisateurs dans certains fuseaux horaires peuvent se trouver en dehors de la fenêtre de livraison.
 - **Déduplication des e-mails :** votre campagne ou Canvas cible plusieurs utilisateurs avec des adresses e-mail identiques, de sorte qu'un utilisateur aléatoire avec cette adresse e-mail est choisi au moment de l'envoi. Le message n'est envoyé qu'une seule fois et est dédupliqué afin de ne pas être envoyé plusieurs fois à la même adresse e-mail, mais votre taille d'audience estimée inclut tous les utilisateurs.
 - **Filtres de livrabilité des e-mails :** pour les campagnes e-mail, Braze exclut les utilisateurs qui ont subi un hard bounce, se sont désabonnés des e-mails, ont été signalés comme spam, n'ont pas d'adresse e-mail dans leur profil ou ne sont pas abonnés à un groupe d'abonnement requis. Ces vérifications sont effectuées au moment de l'envoi, de sorte qu'un utilisateur présent dans votre segment peut tout de même être exclu du comptage réel des envois.
 - **Limite de fréquence globale :** les plafonds au niveau de l'espace de travail peuvent empêcher des utilisateurs éligibles de recevoir un autre message dans la même fenêtre, ce qui réduit les envois réalisés.
 - **Utilisateurs nouvellement importés :** les profils qui viennent de devenir éligibles peuvent ne pas recevoir le message avant la prochaine évaluation ou le prochain cycle d'envoi, de sorte que les comptages se rattrapent lors d'un cycle ultérieur.
 - **Accessibilité push :** pour les campagnes push, confirmez que l'audience est activée pour le push pour l'application correcte. Si vous ne filtrez pas les utilisateurs activés pour le push, l'audience estimée peut inclure des profils qui ne peuvent pas recevoir de push. Vérifiez les **utilisateurs atteignables** dans l'étape **Audience cible** pour une estimation opérationnelle plus précise.
-- **Limite de débit :** si une limite de débit est appliquée, les messages sont distribués dans le temps et certains envois peuvent être différés ou ne pas encore être reflétés dans le comptage.
+- **Limitation du débit :** une [limitation du débit de livraison]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) plafonne le nombre de messages que Braze envoie par minute lors d'un envoi donné. Braze répartit la livraison sur une fenêtre plus longue, de sorte que certains envois peuvent être différés, pas encore reflétés dans le comptage, ou non terminés si la limite est faible par rapport à l'audience éligible.
 - **Fenêtres de rééligibilité :** les utilisateurs qui ne sont pas encore rééligibles ne recevront pas le message pendant la période de refroidissement, de sorte que les envois sont inférieurs à la taille estimée de l'audience pour cette période.
 - **Fenêtre de reporting :** la plage temporelle des analyses peut ne pas inclure tous les envois.
 - **Réévaluation du segment :** pour les campagnes à livraison par événement ou planifiées qui réévaluent au moment de l'envoi, les utilisateurs qui étaient dans le segment lorsque la campagne a été mise en file d'attente peuvent ne plus être éligibles lorsque le message est effectivement envoyé.
@@ -274,7 +274,16 @@ Plusieurs facteurs peuvent expliquer que le nombre d'envois soit inférieur à l
 
 ### Où trouver les questions fréquemment posées sur la limite de fréquence globale ? {#where-are-frequently-asked-questions-about-global-frequency-capping}
 
-Pour les questions sur les jours calendaires, les notifications push silencieuses, les webhooks, le comportement de Canvas et les sujets connexes, consultez les [questions fréquemment posées]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq) pour [Limite de débit et limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
+Pour les questions sur les jours calendaires, les notifications push silencieuses, les webhooks, le comportement de Canvas et les sujets connexes, consultez les [questions fréquemment posées]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq) pour [Limitation du débit et limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
+
+### Pourquoi ma campagne connaît-elle des taux d'envoi plus faibles ? {#why-is-my-campaign-experiencing-lower-send-rates}
+
+Si vous constatez que vos campagnes planifiées quotidiennement envoient à moins d'utilisateurs au fil du temps, vérifiez les points suivants :
+
+- **Vérifiez si la rééligibilité est activée :** sans rééligibilité, Braze n'envoie le message à chaque utilisateur qu'une seule fois. Pour les campagnes planifiées quotidiennement, seuls les utilisateurs qui correspondent à l'audience et n'ont pas encore reçu le message sont éligibles à chaque envoi. À mesure que davantage d'utilisateurs reçoivent le message, chaque envoi ultérieur compte moins d'utilisateurs éligibles, et le volume d'envoi diminue.
+- **Vérifiez si l'audience a une composition fixe :** les audiences construites à partir d'une liste d'utilisateurs fixe (comme un [import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) utilisé comme filtre de segment) n'acquièrent pas automatiquement de nouveaux membres. Sans nouveaux entrants, le volume d'envoi ne peut pas remonter à mesure que les utilisateurs sont contactés.
+
+Pour les [limitations du débit de livraison]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) et d'autres facteurs qui réduisent les envois pour un envoi donné, consultez [Pourquoi les envois sont-ils inférieurs à la taille estimée de l'audience ?](#why-are-sends-lower-than-the-estimated-audience-size).
 
 ### Pourquoi les destinataires uniques peuvent-ils dépasser les envois pour les e-mails et les SMS ? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
 

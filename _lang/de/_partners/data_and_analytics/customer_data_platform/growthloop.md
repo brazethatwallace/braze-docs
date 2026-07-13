@@ -24,8 +24,8 @@ Die Integration von Braze und GrowthLoop ermöglicht es Ihnen, Kundendaten direk
 | ----------- | ----------- |
 | GrowthLoop-Wachstums- oder Unternehmenskonto | Ein GrowthLoop-Konto ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit allen Berechtigungen.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze-REST-Endpunkt | Ihre REST-Endpunkt-URL. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) ab. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 

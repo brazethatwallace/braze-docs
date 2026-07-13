@@ -31,11 +31,11 @@ toc_headers: h2
 
 ## エージェントステップの作成 {#creating-an-agent-step}
 
-### ステップ 1: ステップを追加する {#step-1-add-a-step}
+### ステップ1:ステップを追加する {#step-1-add-a-step}
 
 サイドバーから**エージェント**コンポーネントをドラッグ＆ドロップするか、ステップの下部にある <i class="fas fa-plus-circle"></i> プラスボタンを選択して**エージェント**を選択します。
 
-### ステップ 2: エージェントを選択する {#step-2-choose-your-agent}
+### ステップ2:エージェントを選択する {#step-2-choose-your-agent}
 
 このステップでデータを処理するエージェントを選択します。セットアップのガイダンスについては、[カスタムエージェントの作成]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents)を参照してください。
 
@@ -43,7 +43,7 @@ toc_headers: h2
 
 ![エージェント設定パネル。エージェントドロップダウンに2つのエージェントが表示されています。各エージェントには1日の呼び出し上限がラベル付けされています。最初のエージェントのツールチップには、使用率と本日の呼び出し回数が表示されています。]({% image_buster /assets/img/ai_agent/configure_agent_step.png %})
 
-### ステップ 3: エージェントの出力を設定する {#define-the-output-variable}
+### ステップ3:エージェントの出力を設定する {#define-the-output-variable}
 
 エージェントの出力は「出力変数」と呼ばれ、簡単にアクセスできるように[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types)に保存されます。出力変数を定義するには、変数に名前を付けます。
 
@@ -55,15 +55,15 @@ toc_headers: h2
 | 数値 | スコアリング、しきい値、[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)でのルーティング |
 | ブール値 | [条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)でのYes/No分岐 |
 | オブジェクト | 単一のLLM呼び出しで、予測可能なデータ構造内の上記データタイプを1つ以上活用 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ 3: エージェントの出力を設定する" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ3:エージェントの出力を設定する" }
 
-出力変数は、コンテキスト変数と同じテンプレート構文を使用してキャンバス全体で使用できます。**Context Variable** セグメントフィルターを使用するか、Liquidを使用してエージェントの応答を直接テンプレート化します: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}。
+出力変数は、コンテキスト変数と同じテンプレート構文を使用してキャンバス全体で使用できます。**Context Variable**セグメントフィルターを使用するか、Liquidを使用してエージェントの応答を直接テンプレート化します: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}。
 
 オブジェクト出力変数から特定のプロパティを使用するには、Liquidでドット記法を使用してそのプロパティにアクセスします: {% raw %}`{{context.${response_variable_name}.field_name}}`{% endraw %}
 
 ![変数「agent_output」のオブジェクトデータタイプ出力を持つBody HTML Writerのエージェントステップ。]({% image_buster /assets/img/ai_agent/test_agent_step.png %}){: style="max-width:80%;"}
 
-### ステップ 4: 追加のコンテキストを追加する（オプション） {#step-4-add-any-additional-context-optional}
+### ステップ4:追加のコンテキストを追加する（オプション） {#step-4-add-any-additional-context-optional}
 
 エージェントステップの実行時に参照する追加のコンテキスト値を含めることができます。キャンバスで通常使用する任意のLiquidテンプレート値を入力できます。
 
@@ -73,7 +73,7 @@ toc_headers: h2
 
 ![Liquidを使用してエージェントステップに追加のコンテキストを追加するオプション。]({% image_buster /assets/img/ai_agent/agent_step_context.png %}){: style="max-width:80%;"}
 
-### ステップ 5: エージェントをテストする {#step-5-test-the-agent}
+### ステップ5:エージェントをテストする {#step-5-test-the-agent}
 
 エージェントステップを設定した後、このステップの出力をテストしてプレビューできます。
 
@@ -85,7 +85,7 @@ Brazeがエージェントの失敗、レート制限エラー、呼び出しフ
 
 - 接続されたモデルがLLMプロバイダーから[レート制限エラー]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)を返した場合、Brazeはエクスポネンシャルバックオフを使用して、呼び出しが成功するか完了できないと判断されるまで継続的にリクエストを再試行します。その後、ユーザーは次のキャンバスステップに進みます。
 - その他の失敗（タイムアウトエラーや無効なAPIキーなど）、またはエージェントが1日の呼び出し上限に達した場合、エージェントコンソールで[フォールバック値が設定]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)されていない限り、出力変数は`null`に設定されます。フォールバック値が設定されている場合、BrazeはユーザーごとにフォールバックをLiquidでレンダリングし、結果を出力変数に保存します。これは1日の上限により呼び出しがブロックされた場合も同様です。
-- フォールバック値を設定しない場合は、下流のメッセージステップで[デフォルトのLiquid値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)を使用してnull出力を処理してください。たとえば、**Add Personalization**モーダルで、{% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %}や{% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}のようなデフォルトのLiquid値を入力できます。
+- フォールバック値を設定しない場合は、下流のメッセージステップで[デフォルトのLiquid値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)を使用してnull出力を処理してください。たとえば、**パーソナライゼーションを追加**モーダルで、{% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %}や{% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}のようなデフォルトのLiquid値を入力できます。
 - 同一の入力に対する応答はキャッシュされ、数分以内の同一の呼び出しに再利用される場合があります。
     - キャッシュされた値を使用する応答も、合計および1日の呼び出し回数にカウントされます。
 - エージェントステップは、大量のユーザーバッチの処理に時間がかかる場合があります。Brazeは[呼び出しフロー制御]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls)に従って呼び出しをキューに入れるため、大量送信時にユーザーが保留中になる場合があります。ログを確認して呼び出しが行われていることを確認してください。
@@ -99,7 +99,7 @@ Brazeがエージェントの失敗、レート制限エラー、呼び出しフ
 | _Entered_ | ユーザーがエージェントステップに入った回数です。 |
 | _Proceeded to Next Step_ | エージェントステップを通過した後、フロー内の次のステップに進んだユーザー数です。 |
 | _Exited Canvas_ | エージェントステップを通過した後、キャンバスを退出したユーザー数です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="分析" }
 
 ## ベストプラクティス {#best-practices}
 
@@ -109,7 +109,7 @@ Brazeがエージェントの失敗、レート制限エラー、呼び出しフ
 
 以下のパターンでは、旅行の例として3つのエージェントを使用します。ユーザーが最近アプリで検索したが予約しなかった場合に、チェックアウトに誘導するリターゲティングコピーを作成します。
 
-- エージェント1はキャンバスコンテキストを要約します。ロイヤルティティア、最後に検索した都市、高インテントの検索行動などのフィールドを読み取り、後続のステップで再利用できる出力変数として短い構造化サマリーを返します。
+- エージェント1はキャンバスコンテキストを要約します。ロイヤルティティア、最後に検索した市区町村、高インテントの検索行動などのフィールドを読み取り、後続のステップで再利用できる出力変数として短い構造化サマリーを返します。
 - エージェント2はキャンバスが分岐に使用できるルーティング値を返します。出力が分岐方法と一致するように、数値、ブール値、または構造化オブジェクトを使用します。その値を[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)または[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)ステップにマッピングします。たとえば、ロイヤルティ主導のメッセージングとディール主導のメッセージングで別々のパスを検討してください。
 - エージェント3は、必要なブランチでのみ生成メッセージテキストを作成します。エージェント1のサマリー（およびブランチ固有のコンテキスト）を渡すことで、このエージェントは同じプロンプト内で入力の正規化や戦略の選択ではなく、トーンとチャネル制限に集中できます。
 
@@ -125,10 +125,10 @@ Brazeがエージェントの失敗、レート制限エラー、呼び出しフ
 
 一般的に、特定の文脈に応じたデータをLLMに入力し、人間には不可能な規模でキャンバスコンテキスト変数をインテリジェントにエージェント的に割り当てたい場合に、エージェントステップの使用をお勧めします。
 
-たとえば、以前にチョコレートとストロベリーを注文したユーザーに、新しいアイスクリームフレーバーをおすすめするパーソナライズされたメッセージを送信するとします。エージェントステップとAI 項目のレコメンデーションの違いは以下のとおりです。
+たとえば、以前にチョコレートとストロベリーを注文したユーザーに、新しいアイスクリームフレーバーをおすすめするパーソナライズされたメッセージを送信するとします。エージェントステップとAI項目のレコメンデーションの違いは以下のとおりです。
 
 - **エージェントステップ:** LLMを使用して、エージェントに与えられた指示とコンテキストデータポイントに基づいて、ユーザーが何を望むかについて定性的な判断を行います。この例では、エージェントステップはユーザーが異なるフレーバーを試したいという可能性に基づいて、新しいフレーバーをおすすめする場合があります。
-- **AI 項目のレコメンデーション:** 機械学習モデルを使用して、購入などの過去のユーザーイベントに基づいて、ユーザーが最も欲しいと思われる製品を予測します。この例では、AI 項目のレコメンデーションは、ユーザーの過去2回の注文（チョコレートとストロベリー）と、ワークスペース内の他のユーザーの動作との比較に基づいて、フレーバー（バニラ）を提案します。
+- **AI項目のレコメンデーション:** 機械学習モデルを使用して、購入などの過去のユーザーイベントに基づいて、ユーザーが最も欲しいと思われる製品を予測します。この例では、AI項目のレコメンデーションは、ユーザーの過去2回の注文（チョコレートとストロベリー）と、ワークスペース内の他のユーザーの行動との比較に基づいて、フレーバー（バニラ）を提案します。
 
 ### エージェントステップは入力データをどのように使用しますか？ {#how-do-agent-steps-use-input-data}
 

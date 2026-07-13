@@ -26,7 +26,7 @@ Wenden Sie sich an Ihre Braze-Vertretung oder öffnen Sie ein [Support-Ticket]({
 
 {% details Erläuterung der Struktur von Kundenverhaltens- und Nutzer-Events sowie Plattformwerte %}
 
-### Event-Struktur {#event-structure}
+## Event-Struktur {#event-structure}
 
 Diese Aufschlüsselung des Kundenverhaltens und der Nutzer-Events zeigt, welche Art von Informationen im Allgemeinen in einem Kundenverhaltens- oder Nutzer-Event enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategie-Team die eingehenden Currents-Event-Daten nutzen, um datengestützte Berichte und Charts zu erstellen und andere wertvolle Metriken auszuwerten.
 
@@ -1262,6 +1262,10 @@ Dieses Event tritt ein, wenn Braze das Live-Activity-Push-to-Start-Token mit dem
 {% endtab %}
 {% endtabs %}
 
+### Details zu den Eigenschaften
+
+- Braze löst ein „update“-Event mit `push_token_state_change_type` auf `"update"` aus, wenn ein:e anonyme:r Nutzer:in auf demselben Profil identifiziert wird und bestehende iOS-Live-Activity-Push-to-Start-Tokens auf diesem Profil verbleiben. In diesem Fall ändert sich die `user_id` nicht, und `external_user_id` wird auf die externe ID des/der identifizierten Nutzer:in gesetzt. Dies umfasst die Identifizierung über den [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)-Endpunkt und SDK-`changeUser`, wenn dem anonymen Profil auf dem Gerät eine externe ID zugewiesen wird.
+
 {% endapi %}
 
 {% api %}
@@ -1589,7 +1593,7 @@ Dieses Event tritt ein, wenn ein Push-Token eingefügt, aktualisiert oder entfer
 
 ##### Hinzufügen {#add}
 
-Ein „add“-Event wird erfasst, wenn ein neues Token registriert wird. Dies geschieht, wenn ein:e Nutzer:in die App zum ersten Mal auf einem neuen Gerät öffnet oder wenn ein Token über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt mit `push_tokens` für eine:n Nutzer:in gesetzt wird, der/die zuvor noch keines hatte.
+Ein „add“-Event wird erfasst, wenn ein neues Token registriert wird. Dies geschieht, wenn ein:e Nutzer:in die App zum ersten Mal auf einem neuen Gerät öffnet oder wenn ein Token über den [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)-Endpunkt mit `push_tokens` für eine:n Nutzer:in gesetzt wird, der/die zuvor noch keines hatte. Das Feld `time_ms` gibt an, wann das Hinzufügen-Event stattgefunden hat.
 
 {% alert note %}
 Ab iOS Swift SDK 13.3.0 und Android SDK 40.0.0 werden Push-Berechtigungsstatus und Push-Token gemeinsam gesendet. Bei neuen Registrierungen über diese SDKs wird `push_token_foreground_push_disabled` bereits beim „add“-Event ausgefüllt (in der Regel `false`, wenn Benachrichtigungen aktiviert sind).<br><br>
@@ -1599,7 +1603,9 @@ Ab iOS Swift SDK 13.3.0 und Android SDK 40.0.0 werden Push-Berechtigungsstatus u
 
 ##### Aktualisieren {#update}
 
-Ein „update“-Event wird erfasst, wenn sich eine Eigenschaft eines bestehenden Tokens ändert, ohne dass sich der Token-String selbst ändert. Das Token hat denselben String, denselben/dieselbe Nutzer:in und dieselbe App, aber eines oder mehrere der folgenden Felder haben sich geändert: `foreground_push_disabled`, APNs-Gateway, Web-Push-Schlüssel, `provisionally_opted_in` oder `device_id`. Diese Updates stammen aus Token-Status-Synchronisierungs-Events (z. B. wenn das SDK einen neuen Berechtigungsstatus meldet), nicht aus Push-Sendeergebnissen.
+Ein „update“-Event wird erfasst, wenn sich eine Eigenschaft eines bestehenden Tokens ändert, ohne dass sich der Token-String selbst ändert. Das Token hat denselben String, denselben/dieselbe Nutzer:in und dieselbe App, aber eines oder mehrere der folgenden Felder haben sich geändert: `foreground_push_disabled`, APNs-Gateway, Web-Push-Schlüssel, `provisionally_opted_in` oder `device_id`. Diese Updates stammen aus Token-Status-Synchronisierungs-Events (z. B. wenn das SDK einen neuen Berechtigungsstatus meldet), nicht aus Push-Sendeergebnissen. Das Feld `time_ms` gibt an, wann das Update-Event stattgefunden hat.
+
+Braze löst außerdem ein „update“-Event mit `push_token_state_change_type` auf `"update"` aus, wenn ein:e anonyme:r Nutzer:in auf demselben Profil identifiziert wird und bestehende Push-Tokens auf diesem Profil verbleiben. In diesem Fall ändert sich die `user_id` nicht, und `external_user_id` wird auf die externe ID des/der identifizierten Nutzer:in gesetzt. Dies umfasst die Identifizierung über den [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)-Endpunkt und SDK-`changeUser`, wenn dem anonymen Profil auf dem Gerät eine externe ID zugewiesen wird.
 
 {% alert note %}
 In den meisten Fällen führt eine Neuinstallation der App oder eine Backup-Wiederherstellung zu einem neuen „add“-Event mit einem neuen `push_token` und einer neuen `device_id` (da das SDK eine neue `device_id` generiert und das Betriebssystem einen neuen Push-Token-String bereitstellt). Dadurch werden zwei separate Token- und Geräteeinträge im Nutzerprofil erstellt, wobei der ältere Eintrag später durch Uninstall-Tracking oder Kampagnenversand bereinigt wird.<br><br>
@@ -1617,8 +1623,15 @@ Ein eigenständiges „remove“-Event wird erfasst, wenn Braze ein Token entfer
 
 Wenn ein Push-Bounce die Token-Entfernung triggert, löst Braze `push_token_state_change_type = "remove"` für dieses Token aus. Es wird kein „update“-Event ausgelöst, das `push_token_foreground_push_disabled` ändert.
 
+Das Feld `time_ms` gibt an, wann das Entfernen-Event stattgefunden hat.
+
+{% alert note %}
+Bei „remove“-Events werden die folgenden Token-Eigenschaftsfelder nicht ausgefüllt: `push_token_created_at`, `push_token_updated_at`, `push_token_foreground_push_disabled`, `push_token_provisionally_opted_in`, `ios_push_token_apns_gateway`, `web_push_token_public_key`, `web_push_token_user_auth` und `web_push_token_vapid_public_key`.
+{% endalert %}
+
 ##### Hinzufügen- und Entfernen-Paare {#add-and-remove-pairs}
 
+Gepaarte Hinzufügen- und Entfernen-Events sind zwei verknüpfte Token-Status-Events für denselben Übergang: ein „add“-Event und ein „remove“-Event.
 Hinzufügen- und Entfernen-Paare lassen sich in zwei Kategorien einteilen:
 
 **Token-String-Aktualisierung (derselbe/dieselbe Nutzer:in):** Das Betriebssystem rotiert den Token-String auf demselben Gerät (z. B. APNs- oder FCM-Token-Rotation). Das „add“-Event (neues Token) und das „remove“-Event (altes Token) haben dieselbe `user_id`, dieselbe `device_id`, unterschiedliche `push_token` und identische `time_ms`.
@@ -1630,7 +1643,7 @@ Hinzufügen- und Entfernen-Paare lassen sich in zwei Kategorien einteilen:
 - Der [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge)-Endpunkt oder die Bereinigung doppelter Nutzer:innen verschiebt die Tokens des verwaisten Nutzerprofils zum überlebenden Profil.
 
 {% alert note %}
-Wenn ein anonymes Profil über den [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)-Endpunkt identifiziert wird, ändert sich die `user_id` nicht und es wird kein Token-Statusänderungs-Event ausgelöst.
+Die Identifizierung auf demselben Profil über den REST-Endpunkt [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) oder SDK-`changeUser`, das dem anonymen Profil eine externe ID zuweist, ändert die `user_id` nicht und löst keine gepaarten Hinzufügen- und Entfernen-Events aus. Stattdessen löst Braze ein „update“-Event für jedes bestehende Push-Token aus und setzt `external_user_id` auf die externe ID des/der identifizierten Nutzer:in. Wenn `changeUser` Tokens von einem Nutzerprofil zu einem anderen verschiebt, löst Braze weiterhin die oben beschriebenen gepaarten Hinzufügen- und Entfernen-Events aus.
 {% endalert %}
 
 #### Abfrage des aktuellsten aktiven Token-Status {#querying-for-the-latest-active-token-state}

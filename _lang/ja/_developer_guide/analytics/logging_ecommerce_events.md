@@ -39,7 +39,7 @@ platform:
 | `currency` | 文字列 | はい | 3文字のISO 4217コード（例: `USD`または`EUR`）。 |
 | `source` | 文字列 | はい | イベントの発生元ソース（例: `web`、`ios`、または`android`）。 |
 | `type` | 文字列の配列 | いいえ | 在庫復活や値下げアラートのBrazeカタログトリガー機能を使用するために必須です。許容される値: `"price_drop"`、`"back_in_stock"`。 |
-| `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア。認識されるサブプロパティ: `sku`（文字列）。 |
+| `metadata` | オブジェクト | いいえ | 柔軟なキーと値のペア（例: `category`や`brand`）。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product viewed event properties" }
 
 {% endtab %}
@@ -274,7 +274,6 @@ import com.braze.models.outgoing.BrazeProperties
 import com.braze.models.recommended.ecommerce.ProductViewedEvent
 
 val metadata = BrazeProperties()
-  .addProperty("sku", "SS-R-101")
   .addProperty("category", "Apparel")
 
 val productViewedEvent = ProductViewedEvent(
@@ -480,7 +479,6 @@ import com.braze.models.outgoing.BrazeProperties;
 import com.braze.models.recommended.ecommerce.ProductViewedEvent;
 
 BrazeProperties metadata = new BrazeProperties()
-    .addProperty("sku", "SS-R-101")
     .addProperty("category", "Apparel");
 
 ProductViewedEvent productViewedEvent = new ProductViewedEvent(
@@ -692,7 +690,6 @@ if let productViewedEvent = try? Braze.Ecommerce.ProductViewedEvent(
     currency: "GBP",
     source: "https://braze-apparel.com/",
     metadata: [
-        "sku": "",
         "color": "ORANGE",
         "size": "6",
         "brand": "Braze"
@@ -899,7 +896,7 @@ AppDelegate.braze?.logCustomEvent(name: "ecommerce.order_refunded", properties: 
 {% endtab %}
 {% endtabs %}
 
-## Web
+## Web {#web}
 
 Web SDK [6.8.0以降](https://github.com/braze-inc/braze-web-sdk)では、イベントの`name`と`properties`を指定して`logEcommerceEvent`を呼び出します。レガシーSDKバージョンでは、イベント名とプロパティオブジェクトを指定して`logCustomEvent`を呼び出します。`ecommerce.order_cancelled`と`ecommerce.order_refunded`は`logCustomEvent`を使用します。
 
@@ -925,7 +922,6 @@ braze.logEcommerceEvent({
         "currency": "GBP",
         "source": "https://braze-apparel.com/",
         "metadata": {
-            "sku": "",
             "color": "ORANGE",
             "size": "6",
             "brand": "Braze"
@@ -947,7 +943,6 @@ braze.logCustomEvent("ecommerce.product_viewed", {
     "currency": "GBP",
     "source": "https://braze-apparel.com/",
     "metadata": {
-        "sku": "",
         "color": "ORANGE",
         "size": "6",
         "brand": "Braze"

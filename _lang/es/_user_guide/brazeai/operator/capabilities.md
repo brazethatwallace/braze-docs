@@ -4,12 +4,12 @@ article_title: Qué puedes hacer con Operator
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "Este artículo de referencia cubre las tareas de IA disponibles a través de BrazeAI Operator™, incluyendo redacción de textos, Liquid, generación de imágenes, código de transformación de datos y revisión de contenido."
+description: "Este artículo de referencia cubre las tareas de IA disponibles a través de BrazeAI Operator™, incluyendo redacción de textos, generación de mensajes, Liquid, generación de imágenes, código de transformación de datos y revisión de contenido."
 ---
 
 # Qué puedes hacer con Operator {#operator-capabilities}
 
-> Las capacidades de IA que antes estaban disponibles como asistentes independientes ahora son accesibles a través de [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator). Dado que Operator está integrado en el dashboard y comprende tu espacio de trabajo (tus directrices de marca, atributos, Contenido conectado y la página en la que estás trabajando), el resultado es más consciente del contexto de lo que los asistentes anteriores podían producir.
+> Las capacidades de IA que antes estaban disponibles como asistentes independientes ahora son accesibles a través de [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator). Dado que Operator está integrado en el panel y comprende tu espacio de trabajo (tus directrices de marca, atributos, contenido conectado y la página en la que estás trabajando), el resultado es más consciente del contexto de lo que los asistentes anteriores podían producir.
 
 En lugar de abrir una herramienta diferente para cada tarea, describe lo que quieres en lenguaje natural y Operator se encarga de ello en contexto. También puedes continuar la conversación, pidiendo un tono diferente, una versión más corta o una traducción, sin empezar de cero. Operator también puede proponer y ejecutar cambios directamente a través de [tarjetas de acción]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) que revisas antes de que surtan efecto.
 
@@ -23,22 +23,24 @@ Todos los puntos de entrada existentes permanecen en su lugar, por lo que tus fl
 
 | Asistente anterior | Qué hacía | Dónde encontrarlo ahora |
 | --- | --- | --- |
-| AI Copywriter | Generaba textos de marketing a partir de un nombre o descripción de producto | Un nuevo icono **Ask Operator** en los creadores de mensajes de SMS, push, correo electrónico HTML y Canvas |
-| AI Liquid Assistant | Generaba Liquid para personalización | Un nuevo icono **Ask Operator** en los creadores de mensajes de SMS, push, correo electrónico HTML y Canvas |
+| AI Copywriter | Generaba textos de marketing a partir de un nombre o descripción de producto | Un nuevo icono **Ask Operator** en los creadores de SMS, push, correo electrónico HTML y Canvas |
+| AI Liquid Assistant | Generaba Liquid para personalización | Un nuevo icono **Ask Operator** en los creadores de SMS, push, correo electrónico HTML y Canvas |
 | AI Image Generator | Generaba imágenes a partir de un prompt de texto para la biblioteca de medios | Un nuevo botón **Generate with Operator** en la biblioteca de medios |
-| Data Transformations AI Copilot | Generaba código de transformación | El botón **Insert Code** en la página de Transformación de datos |
+| Data Transformations AI Copilot | Generaba código de transformación | El botón **Insert Code** en la página de transformación de datos |
 | Revisión de contenido | Verificaba el contenido en busca de errores ortográficos, gramaticales, de tono, lenguaje ofensivo y código suelto | Botón **Review with Operator** en la pestaña **Test** |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Qué está disponible a través de Operator" }
 
+Operator también puede generar HTML para Banners en el editor HTML de Banner. Para más información, consulta [Generar mensajes](#generate-messages).
+
 ## Aplicar directrices de marca {#apply-brand-guidelines}
 
-Operator utiliza las directrices de marca configuradas en tu espacio de trabajo para que los textos, plantillas e imágenes generados coincidan con la voz, el tono y el estilo de tu marca. Para configurar las directrices de marca, ve a **Contenido** > **Directrices de marca**. Para más información, consulta [Directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines). Para detalles sobre cómo aplicar directrices de marca para usar con Operator, consulta [Aplicar directrices de marca]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines).
+Operator utiliza las directrices de marca configuradas en tu espacio de trabajo para que los textos, plantillas e imágenes generados coincidan con la voz, el tono y el estilo de tu marca. Para configurar las directrices de marca, ve a **Contenido** > **Directrices de marca**. Para más información, consulta [Directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines). Para detalles sobre cómo aplicar directrices de marca con Operator, consulta [Aplicar directrices de marca]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines).
 
 ## Generar textos {#generate-copy}
 
 Puedes usar Operator para hacer lluvia de ideas o generar textos desde cualquier lugar, pero obtienes la mejor experiencia usándolo directamente en el creador de mensajes, donde puede trabajar junto a ti en el mensaje que estás construyendo. Describe tu producto o campaña, y Operator devuelve textos que puedes revisar e insertar.
 
-Operator mejora al redactor independiente de varias maneras:
+Operator mejora respecto al redactor independiente de varias maneras:
 
 - Aplica tus [directrices de marca](#apply-brand-guidelines) automáticamente cuando están configuradas.
 - Utiliza [contexto consciente de la página]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context), por lo que no tienes que volver a describir el canal o mensaje en el que estás trabajando. Como es consciente de la página, también puedes usarlo para editar o refinar un mensaje existente en lugar de generar uno desde cero.
@@ -57,9 +59,29 @@ El tono del texto generado está determinado por tu prompt. Describe el estilo q
 
 {% include copy_block.html content="Translate this copy into Spanish." %}
 
+## Generar mensajes {#generate-messages}
+
+Operator puede generar HTML de mensajes en los creadores compatibles. Describe el mensaje que deseas en lenguaje natural, revisa el resultado e insértalo en tu creador.
+
+Obtienes los mejores resultados cuando usas Operator en el creador en el que estás trabajando, donde tiene [contexto consciente de la página]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) para el canal y tipo de mensaje. Cuando las [directrices de marca](#apply-brand-guidelines) están configuradas, Operator las aplica automáticamente.
+
+### Banners HTML {#generate-messages-html-banners}
+
+En el [editor HTML de Banner]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner), selecciona **Ask Operator** para generar HTML para tu Banner. Describe el diseño, contenido y estilo que deseas. Operator puede incluir personalización con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en el marcado generado.
+
+Continúa la conversación para refinar el resultado; por ejemplo, pide un diseño diferente, un texto más corto o un estilo de botón actualizado, antes de insertar el HTML en el editor.
+
+#### Prompts de ejemplo {#generate-messages-html-banners-example-prompts}
+
+{% include copy_block.html content="Build a Banner that promotes our summer sale with a headline, short description, and Shop now button." %}
+
+{% include copy_block.html content="Use a two-column layout with a product image in the first column and the headline, description, and Shop now button stacked in the second column." %}
+
+{% include copy_block.html content="Make the dismiss button smaller and position it as a corner dismiss control." %}
+
 ## Generar Liquid {#generate-liquid}
 
-En cualquier creador de mensajes, abre Operator para generar y refinar Liquid para personalización. Operator comprende la [sintaxis de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), tus atributos estándar y [personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), y el [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), y puede explicar qué hace el código.
+En cualquier creador de mensajes, abre Operator para generar y refinar Liquid para personalización. Operator comprende la [sintaxis de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), tus atributos estándar y [personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), y el [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), y puede explicar qué hace el código.
 
 ### Dónde puedes generar Liquid {#generate-liquid-supported-channels}
 
@@ -67,7 +89,7 @@ Al igual que con la redacción de textos, puedes pedirle a Operator que genere L
 
 ### Capacidades de Liquid {#generate-liquid-attributes}
 
-Operator es altamente capaz con Liquid. Puede generar lógica Liquid compleja basada en los datos de tu espacio de trabajo —incluyendo la búsqueda de datos de [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) para encontrar valores de ejemplo— y puede revisar y explicar el Liquid existente en tus Campaigns.
+Operator es altamente capaz con Liquid. Puede generar lógica Liquid compleja basada en los datos de tu espacio de trabajo —incluyendo la búsqueda de datos de [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) para encontrar valores de ejemplo— y puede revisar y explicar el Liquid existente en tus campañas.
 
 ### Mejores prácticas {#generate-liquid-best-practices}
 
@@ -93,7 +115,7 @@ Operator puede hacer preguntas de seguimiento, pero proporcionar detalles por ad
 - Cualquier preferencia o requisito conocido para el mensaje
 - Instrucciones sobre cómo manejar situaciones, como la falta de respuestas del destinatario del mensaje u opciones de mensaje alternativo
 - Valores exactos o similares para los atributos personalizados que quieres usar, que ayudan a Operator a generar y probar lógica más precisa
-- Al pedir Liquid que use Contenido conectado, documentación del punto de conexión de la API, una respuesta de API de ejemplo, o ambos
+- Al pedir Liquid que use contenido conectado, documentación del endpoint de la API, una respuesta de API de ejemplo, o ambos
 
 #### Sé creativo {#generate-liquid-get-creative}
 
@@ -159,7 +181,7 @@ En la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_ed
 
 ## Generar código de transformación de datos {#generate-data-transformation-code}
 
-En el editor de [Transformación de datos]({{site.baseurl}}/user_guide/data/unification/data_transformation), selecciona **Insert Code** para generar código de transformación que convierte una carga útil de webhook entrante en solicitudes válidas de la API de Braze.
+En el editor de [transformación de datos]({{site.baseurl}}/user_guide/data/unification/data_transformation), selecciona **Insert Code** para generar código de transformación que convierte una carga útil de webhook entrante en solicitudes válidas de la API de Braze.
 
 Para instrucciones paso a paso sobre cómo crear una transformación, consulta [Crear una transformación]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
 

@@ -109,7 +109,23 @@ Here are some general best practices to get you started with prompting:
 
 ### Examples {#examples}
 
-For starting configurations in Agent Console, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator). For full instruction examples you can copy or adapt, see the [use case library for Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/use_cases).
+For starting configurations in Agent Console, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
+
+For full instruction examples you can copy or adapt, see the [use case library for Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents/examples).
+
+| Example | Category | Agent type | What it does |
+| --- | --- | --- | --- |
+| [Write personalized messaging based on a user's context]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-personalized-messaging-based-on-a-users-context) | Content generation | Canvas Step Agent | Generates coordinated email subject/preheader and push title/body for users who searched but didn't book. |
+| [Analyze user feedback to determine next steps]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | Data standardization | Canvas Step Agent | Classifies post-trip survey sentiment and topic, then recommends a CRM next step. |
+| [Categorize users into interest buckets from existing attributes]({{site.baseurl}}/user_guide/brazeai/agents/examples#categorize-users-into-interest-buckets-from-existing-attributes) | Affinity agent | Canvas Step Agent | Classifies users into interest buckets from attributes and high-intent signals, then recommends the best next experience or item. |
+| [Route users to the most relevant Canvas path from recent behavior]({{site.baseurl}}/user_guide/brazeai/agents/examples#route-users-to-the-most-relevant-canvas-path-from-recent-behavior) | Affinity agent | Canvas Step Agent | Infers motivation from recent behavior and returns the best route key for the user's next Canvas step. |
+| [Assign users to interest categories from real-time high-intent actions]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | Affinity agent | Canvas Step Agent | Assigns interest categories from high-intent actions and recommends the best next experience or item. |
+| [Classify inbound messages for opt-out intent]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | Classification and routing | Canvas Step Agent | Returns a strict boolean indicating whether a message is an opt-out request. |
+| [Standardize inbound messages into structured data for automation]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | Data standardization | Canvas Step Agent | Normalizes inbound SMS or chat into structured intent, entities, and compliance flags for downstream automation. |
+| [Write high-converting descriptions that align with brand guidelines]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | Content generation | Catalog Agent | Generates short, on-brand descriptions for each catalog row. |
+| [Provide translations based on language used by region]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | Catalog enrichment | Catalog Agent | Localizes UI and marketing strings per locale and character limit. |
+| [Enrich catalog items with descriptions, categories, and tags]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | Catalog enrichment | Catalog Agent | Generates enhanced descriptions, categories, and tags from existing catalog item data. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Summary of examples" }
 
 ### Using Liquid
 
@@ -210,7 +226,7 @@ If you want to collect user feedback for their most recent dining experience at 
 
 ## Catalogs and fields
 
-Choose specific catalogs for an agent to reference and to give your agent the context it needs to understand your products and other non-user data when relevant. Agents use tools to find the relevant items only and send those to the LLM to minimize token use.
+Choose specific catalogs for an agent to reference and to give your agent the context it needs to understand your products and other non-user data when relevant. Agents use tools to find the relevant items only and send those to the LLM to minimize token use. For better catalog retrieval, create a [knowledge source]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources) and add it as agent context instead of attaching the catalog directly.
 
 ![The "restaurants" catalog and "Loyalty_Program" column selected for the agent to search.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
@@ -234,9 +250,25 @@ You can select [brand guidelines]({{site.baseurl}}/user_guide/administer/global/
 
 A user's interaction data includes their recent campaign and Canvas opens, clicks, and conversion data. For example, you can include this context for an agent to reference when it's evaluated in Canvas. User-specific interaction history can also help influence an agent when its job is to write personalized message copy.
 
+## Version history {#version-history}
+
+Agent Console records a new version each time you save agent changes. The **Version history** tab lists every saved version and the edits between saves.
+
+1. Open the agent in Agent Console.
+2. Select the **Version history** tab.
+3. Select a version to review its configuration.
+
+To inspect what changed in a version, select **View**. Braze displays a code-style inline diff that highlights additions and deletions. Deleted content appears with red strikethrough styling.
+
+If you need to restore instructions from a previous version, open **View** for that version, copy the instruction text, and paste it into your current **Instructions** field.
+
+{% alert tip %}
+In the inline diff view, press <kbd>⌘</kbd> + <kbd>A</kbd> (macOS) or <kbd>Ctrl</kbd> + <kbd>A</kbd> (Windows) to select all instructions without the red deletion markup, so you can copy and restore the clean text.
+{% endalert %}
+
 ## Duplicate agents
 
-To test improvements or iterations of an agent, you could duplicate an agent then apply changes to compare to the original. You can also treat duplicating agents as version control to track variations in the agent's details and any impacts on your messaging. To duplicate an agent:
+Duplicate an agent to test improvements or iterations side by side against the original. Use [version history](#version-history) to review or restore earlier configurations. To duplicate an agent:
 
 1. Hover over the agent's row and select the <i class="fas fa-ellipsis-vertical"></i> menu.
 2. Select **Duplicate**.

@@ -15,7 +15,7 @@ description: "Cet article de référence décrit les événements recommandés, 
 
 Les [événements recommandés eCommerce]({{site.baseurl}}/ecommerce_events) couvrent six étapes du parcours d'achat : `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled` et `order_refunded`. Lorsque vous envoyez ces événements avec succès, Braze valide les données et les rend disponibles pour un ensemble croissant de fonctionnalités de la plateforme.
 
-Ces fonctionnalités incluent des modèles de Canvas pour les flux de navigation abandonnée, de panier abandonné, de paiement abandonné et de confirmation de commande ; le reporting eCommerce ; et des champs calculés sur le profil utilisateur pour le _chiffre d'affaires total_, le _nombre total de commandes_ et le _total des remboursements_. Vous pouvez également créer des Segments en utilisant le filtrage imbriqué des propriétés de produit via les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension), personnaliser les messages de panier abandonné avec l'étiquette Liquid {% raw %}`{% shopping_cart %}`{% endraw %}, et alimenter les fonctionnalités BrazeAI<sup>TM</sup> comme [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) et les [recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/item_recommendations), ainsi que d'autres fonctionnalités.
+Ces fonctionnalités incluent des modèles de Canvas pour les flux de navigation abandonnée, de panier abandonné, de paiement abandonné et de confirmation de commande ; le reporting eCommerce ; et des champs calculés sur le profil utilisateur pour le _chiffre d'affaires total_, le _nombre total de commandes_ et le _total des remboursements_. Vous pouvez également créer des Segments en utilisant le filtrage imbriqué des propriétés de produit via les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension), personnaliser les messages de panier abandonné avec l'étiquette Liquid {% raw %}`{% shopping_cart %}`{% endraw %}, et alimenter les fonctionnalités BrazeAI<sup>TM</sup> comme [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) et les [recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/item_recommendations), ainsi que d'autres fonctionnalités.
 
 Comme ces événements suivent un schéma défini, chaque fonctionnalité prise en charge peut lire les données structurées sans mappage de propriétés personnalisées ni configuration par fonctionnalité de votre côté.
 
@@ -23,11 +23,15 @@ Comme ces événements suivent un schéma défini, chaque fonctionnalité prise 
 
 ### Fonctionnement des événements eCommerce {#how-ecommerce-events-work}
 
-Les événements eCommerce sont des événements personnalisés avec des noms et des schémas de propriétés prédéfinis. Vous les envoyez à l'aide du [SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events) ou de l'[endpoint REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), et Braze valide chaque événement par rapport à son schéma lors de l'ingestion. Lorsque la validation réussit, Braze applique automatiquement un post-traitement spécifique à ce type d'événement, comme le calcul des champs de chiffre d'affaires et la gestion de l'état du panier sur les profils utilisateurs.
+Les événements eCommerce sont des événements personnalisés avec des noms et des schémas de propriétés prédéfinis. Vous les envoyez à l'aide du [SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), de l'[endpoint REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou de l'[ingestion de données cloud (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), et Braze valide chaque événement par rapport à son schéma lors de l'ingestion. Lorsque la validation réussit, Braze applique automatiquement un post-traitement spécifique à ce type d'événement, comme le calcul des champs de chiffre d'affaires et la gestion de l'état du panier sur les profils utilisateurs.
+
+{% alert note %}
+Les imports CSV ne prennent pas en charge les événements eCommerce. Utilisez le SDK, `/users/track` ou CDI pour envoyer ces événements.
+{% endalert %}
 
 Les événements eCommerce fonctionnent partout où les autres événements personnalisés fonctionnent : déclencheurs et filtres pour les événements personnalisés effectués, rapports d'événements personnalisés, et plus encore. Cependant, leur validation de schéma débloque des fonctionnalités supplémentaires, notamment :
 
-- Les actions de déclenchement « Passe une commande » dans les Campaigns, les Canvas, les parcours d'actions, les déclencheurs de messages in-app et la suppression de cartes de contenu
+- Les actions de déclenchement « Passe une commande » dans les Campaigns, les Canvas, les parcours d'action, les déclencheurs de messages in-app et la suppression de Content Cards
 - Les champs calculés eCommerce sur le profil utilisateur (**Chiffre d'affaires total**, **Nombre total de commandes**, **Total des remboursements**)
 - La gestion de l'état du panier pour les flux de panier abandonné
 - Des données plus riches pour les fonctionnalités BrazeAI<sup>TM</sup> comme Predictive Events, Predictive Churn et les recommandations d'articles
@@ -76,7 +80,7 @@ Utilisez les API d'événements eCommerce du SDK lorsqu'elles sont disponibles. 
 | `currency`     | String           | Oui      | Code ISO 4217 à trois lettres (par exemple, `USD` ou `EUR`). |
 | `source`       | String           | Oui      | Source d'origine de l'événement (par exemple, `web`, `ios` ou `android`). |
 | `type`         | Tableau de chaînes de caractères | Non | Requis pour utiliser les fonctionnalités de déclenchement par catalogue de Braze pour les alertes de retour en stock et de baisse de prix. Valeurs acceptées : `"price_drop"`, `"back_in_stock"` |
-| `metadata`     | Objet           | Non      | Paires clé-valeur flexibles. Sous-propriété reconnue : `sku` (String) |
+| `metadata`     | Objet           | Non      | Paires clé-valeur flexibles (par exemple, `category` ou `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Propriétés de l'événement" }
 
 #### Exemple REST API {#rest-api-example}
@@ -99,7 +103,6 @@ Utilisez les API d'événements eCommerce du SDK lorsqu'elles sont disponibles. 
         "source": "web",
         "type": ["price_drop", "back_in_stock"],
         "metadata": {
-          "sku": "UB-BLK-11-SKU",
           "category": "Running Shoes",
           "brand": "Shoe Brand"
         }
@@ -1142,51 +1145,7 @@ Le tableau suivant résume ce que Braze fait automatiquement pour chaque événe
 Les valeurs dans des devises autres que l'USD sont automatiquement converties en USD en utilisant le taux de change à la date à laquelle l'événement est signalé. Si vous déclarez déjà en USD, codez en dur `USD` comme devise pour éviter toute conversion involontaire.
 {% endalert %}
 
-## Implémenter les événements eCommerce {#implement-ecommerce-events}
-
-Vous pouvez envoyer des événements eCommerce via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) (côté serveur) ou via les SDK Braze (côté client). Pour des exemples d'implémentation SDK, consultez [Journaliser les événements eCommerce via le SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
-
-### Envoyer des événements côté serveur {#send-events-server-side}
-
-Utilisez l'endpoint `/users/track` pour envoyer des événements eCommerce depuis votre backend. Chaque événement nécessite le nom exact de l'événement, l'`external_id` de l'utilisateur et un objet de propriétés correspondant au schéma de l'événement.
-
-```json
-POST /users/track
-
-{
-  "events": [
-    {
-      "external_id": "user_abc123",
-      "name": "ecommerce.order_placed",
-      "time": "2026-04-26T14:32:00Z",
-      "properties": {
-        "order_id": "order_7891011",
-        "total_value": 84.99,
-        "currency": "USD",
-        "source": "custom_api",
-        "total_discounts": 10.00,
-        "products": [
-          {
-            "product_id": "sku_2001",
-            "product_name": "Trail Runner Pro",
-            "variant_id": "var_2001_black_10",
-            "quantity": 1,
-            "price": 94.99,
-            "metadata": {
-              "color": "black",
-              "size": "10"
-            }
-          }
-        ],
-        "metadata": {
-          "gift_wrapped": true,
-          "loyalty_points_earned": 170
-        }
-      }
-    }
-  ]
-}
-```
+## Détails d'implémentation {#implementation-details}
 
 ### Points de données et facturation {#data-points-and-billing}
 
@@ -1212,7 +1171,7 @@ La propriété source est une chaîne de caractères requise qui identifie l'ori
 
 ### Flexibilité des métadonnées {#metadata-flexibility}
 
-Les objets de métadonnées au niveau de l'événement et au niveau du produit acceptent des paires clé-valeur arbitraires, ce qui vous permet d'attacher des dimensions personnalisées sans modifier le schéma principal. Les exemples courants incluent `order_status_url`, `gift_wrapped`, `loyalty_points_earned` ou `warehouse_id`. Ces propriétés sont disponibles dans la personnalisation Liquid, les exports Currents et la segmentation via les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension).
+Les objets de métadonnées au niveau de l'événement et au niveau du produit acceptent des paires clé-valeur arbitraires, ce qui vous permet d'attacher des dimensions personnalisées sans modifier le schéma principal. Les exemples courants incluent `order_status_url`, `gift_wrapped`, `loyalty_points_earned` ou `warehouse_id`. Ces propriétés sont disponibles dans la personnalisation Liquid, les exports Currents et la segmentation via les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension).
 
 {% alert important %}
 Les événements recommandés utilisent un schéma strict. Par conséquent, l'ajout de propriétés personnalisées au niveau supérieur de properties échouera à la validation. Placez toutes les propriétés personnalisées dans l'objet `metadata` au niveau de l'événement ou dans l'objet `metadata` au niveau du produit à l'intérieur de `products[]`. Celles-ci restent disponibles pour Liquid, Currents et la segmentation, tout comme les champs de niveau supérieur.
@@ -1248,7 +1207,7 @@ L'événement est traité comme un événement recommandé eCommerce avec tout l
 
 Après avoir envoyé un événement, vous pouvez confirmer qu'il a été accepté et traité correctement en utilisant l'une des méthodes suivantes :
 
-- [Journal des événements utilisateur]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) : ouvrez le profil de l'utilisateur dans le tableau de bord et consultez son activité. Les événements recommandés apparaissent avec l'intégralité de leur payload de propriétés, ce qui vous permet de confirmer que l'événement a bien été reçu et que les valeurs correspondent à ce que vous avez envoyé.
+- [Journal des événements utilisateurs]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) : ouvrez le profil de l'utilisateur dans le tableau de bord et consultez son activité. Les événements recommandés apparaissent avec l'intégralité de leur payload de propriétés, ce qui vous permet de confirmer que l'événement a bien été reçu et que les valeurs correspondent à ce que vous avez envoyé.
 - [Rapport d'événements personnalisés]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report) : accédez à **Analytics** > **Custom Events** pour voir les comptages agrégés de chaque événement recommandé au fil du temps. Cela est utile pour confirmer que le trafic de production circule comme prévu lorsque votre intégration est en production.
 - [Utilisateurs test]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users) : marquez un utilisateur dans votre espace de travail de développement comme utilisateur test, puis déclenchez des événements depuis votre intégration pour cet utilisateur. Les utilisateurs test sont signalés dans le tableau de bord, ce qui facilite l'isolation et l'inspection du comportement de bout en bout.
 

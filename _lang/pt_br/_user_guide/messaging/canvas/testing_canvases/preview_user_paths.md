@@ -43,9 +43,9 @@ Para ver mais detalhes sobre os critérios de entrada, selecione **See more**. E
 
 ### Liquid
 
-A Braze processa a lógica Liquid durante uma execução de teste, mesmo que você não esteja enviando uma mensagem de teste real. Isso significa que a [lógica de cancelamento de mensagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) e outras lógicas Liquid são refletidas e podem impactar a jornada do usuário no Canvas.
+A Braze processa a lógica Liquid durante uma execução de teste, mesmo que você não esteja enviando uma mensagem de teste real. Isso significa que a [lógica de interrupção de mensagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) e outras lógicas Liquid são refletidas e podem impactar a jornada do usuário no Canvas.
 
-Se a sua prévia enviar a última etapa da jornada do usuário em vez de cancelar, a prévia pode estar usando o horário atual como o horário testado para a avaliação Liquid, e não o horário real em que o usuário estaria na etapa com base no horário de entrada no Canvas.
+Se a sua prévia enviar a última etapa da jornada do usuário em vez de interromper, a prévia pode estar usando o horário atual como o horário testado para a avaliação Liquid, e não o horário real em que o usuário estaria na etapa com base no horário de entrada no Canvas.
 
 ## Prévias de tempo {#previews-for-timing}
 
@@ -69,11 +69,11 @@ Se você testar uma jornada de ação com ações que correspondem a critérios 
 
 Neste momento, não é possível selecionar um evento ou propriedade específica dentro de uma jornada de ação para acionar critérios de saída (apenas a jornada como um todo). Se um usuário puder potencialmente atender a múltiplos critérios de saída, o primeiro que for processado e que ele atender será mostrado como resultado.
 
-## Jornadas do experimento e variantes do Canvas {#experiment-paths-and-canvas-variants}
+## Jornadas experimentais e variantes do Canvas {#experiment-paths-and-canvas-variants}
 
 - Para Canvas com variantes de nível superior, selecione uma variante no início do teste.
-- Para jornadas do experimento, selecione a variante pela qual o usuário avança quando o usuário teste encontra a etapa.
-- Para jornadas do experimento usando Jornada personalizada ou Variante vencedora, embora haja um período de espera durante o qual o usuário teste aguarda em uma etapa de mensagem, essa espera não é levada em conta, pois a Braze assume que o usuário avançou pela variante selecionada imediatamente.
+- Para jornadas experimentais, selecione a variante pela qual o usuário avança quando o usuário teste encontra a etapa.
+- Para jornadas experimentais usando jornada personalizada ou variante vencedora, embora haja um período de espera durante o qual o usuário teste aguarda em uma etapa de mensagem, essa espera não é levada em conta, pois a Braze assume que o usuário avançou pela variante selecionada imediatamente.
 
 ## Envios de teste {#test-sends}
 

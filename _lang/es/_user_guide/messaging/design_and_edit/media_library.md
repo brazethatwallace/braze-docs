@@ -18,7 +18,7 @@ tool: Media
 |---|---|
 | Permiso "View Media Library Assets" | Ver activos de la biblioteca de medios |
 | Permiso "Edit Media Library Assets" | Crear y actualizar activos de la biblioteca de medios |
-| Permiso "Delete Media Library Assets" | Eliminar permanentemente activos de la biblioteca de medios |
+| Permiso "Delete Media Library Assets" | Eliminar activos de la biblioteca de medios desde la interfaz. Los activos eliminados siguen alojados en Braze para evitar que se rompan los mensajes que los referencian. Para eliminar un activo de forma permanente, ponte en contacto con soporte de Braze. |
 | Permiso "Replace Media Library Assets" | Reemplazar el archivo de un activo existente de la biblioteca de medios manteniendo estables su URL e ID de activo |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Permisos de la biblioteca de medios" }
 
@@ -60,10 +60,10 @@ Para reemplazar un activo, debes tener el permiso "Replace Media Library Assets"
 
 1. Ve a **Contenido** > **Biblioteca de medios**.
 2. Selecciona el activo que deseas reemplazar.
-3. En el modal, selecciona **Replace file**.
+3. En el modal, selecciona **Reemplazar archivo**.
 4. Carga el archivo de reemplazo.
 
-![Modal de edición de la biblioteca de medios que muestra los botones Replace file, Crop image y Delete para un activo.]({% image_buster /assets/img_archive/media_library_replace_file.png %}){: style="max-width:60%;border:none"}
+![Modal de edición de la biblioteca de medios que muestra los botones Reemplazar archivo, Recortar imagen y Eliminar para un activo.]({% image_buster /assets/img_archive/media_library_replace_file.png %}){: style="max-width:60%;border:none"}
 
 ### Requisitos y limitaciones {#requirements-and-limitations}
 
@@ -75,7 +75,7 @@ Para reemplazar un activo, debes tener el permiso "Replace Media Library Assets"
 
 Algunos canales crean una copia optimizada de la imagen cuando se configura el mensaje, lo que genera una URL independiente. Reemplazar el activo original de la biblioteca de medios no actualiza lo que ven los consumidores en los mensajes creados con esos canales, incluidos los mensajes dentro de la aplicación, Content Cards, notificaciones push y banners.
 
-También puedes reemplazar un activo de forma programática utilizando el punto de conexión [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file).
+También puedes reemplazar un activo de forma programática utilizando el endpoint [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file).
 
 ## Especificaciones de imagen {#image-specifications}
 

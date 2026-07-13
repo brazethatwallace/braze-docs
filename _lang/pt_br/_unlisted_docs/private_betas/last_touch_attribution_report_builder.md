@@ -52,8 +52,8 @@ Métricas de receita e compra não estão disponíveis.
 ![O painel Personalizar métricas com métricas de atribuição de último ponto de contato.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. Siga as etapas 7 a 9 na página do [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reporting/report_builder/).
+7. Siga as etapas 7 a 9 na página do [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reporting/report_builder).
 
 {% alert note %}
-Envie feedback ao seu gerente de sucesso do cliente ou forneça-o após selecionar o botão **Enviar feedback**.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="last-touch attribution metrics in Report Builder" %}
 {% endalert %}

@@ -22,6 +22,10 @@ Remove image files under `assets/img/` that no documentation article, contributi
 
 > **Policy note:** [`docs/contributing/content_management/images.md`](../../../docs/contributing/content_management/images.md) tells authors not to delete image files when updating a single page. This workflow is for **intentional repo-wide cleanup** after verifying an image is unreferenced in **all** locales—not for routine article edits.
 
+## Context
+- Current branch: !`git branch --show-current`
+- Modified files: !`git diff --name-only HEAD`
+
 ---
 
 ## Scheduled maintenance (CI)

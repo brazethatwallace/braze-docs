@@ -81,7 +81,7 @@ sequenceDiagram
 
 {% sdk_min_versions swift:5.11.0 %}
 
-### ステップ 1: アクティビティを作成する {#create-an-activity}
+### ステップ1: アクティビティを作成する {#create-an-activity}
 
 まず、Appleのドキュメントの[ライブアクティビティでライブデータを表示する](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities)手順に従い、iOSアプリケーションにライブアクティビティをセットアップします。このタスクの一部として、`Info.plist`に`NSSupportsLiveActivities`を`YES`に設定して含めてください。
 
@@ -118,7 +118,7 @@ struct SportsActivityAttributes: ActivityAttributes {
 }
 ```
 
-### ステップ 2: アクティビティを開始する {#start-the-activity}
+### ステップ2: アクティビティを開始する {#start-the-activity}
 
 まず、アクティビティの登録方法を選択します。
 
@@ -131,13 +131,13 @@ struct SportsActivityAttributes: ActivityAttributes {
 ライブアクティビティをリモートで登録するには、iOS 17.2以降が必要です。
 {% endalert %}
 
-#### ステップ 2.1: BrazeKitをウィジェット拡張に追加する {#step-21-add-brazekit-to-your-widget-extension}
+#### ステップ2.1: BrazeKitをウィジェット拡張に追加する {#step-21-add-brazekit-to-your-widget-extension}
 
 Xcodeプロジェクトで、アプリの名前を選択し、**General**を選択します。**Frameworks and Libraries**の下に`BrazeKit`がリストされていることを確認します。
 
 ![サンプルXcodeプロジェクト内の「Frameworks and Libraries」にあるBrazeKitフレームワーク]({% image_buster /assets/img/swift/live_activities/xcode_frameworks_and_libraries.png %})
 
-#### ステップ 2.2: BrazeLiveActivityAttributesプロトコルを追加する {#brazeActivityAttributes}
+#### ステップ2.2: BrazeLiveActivityAttributesプロトコルを追加する {#brazeActivityAttributes}
 
 `ActivityAttributes`の実装に`BrazeLiveActivityAttributes`プロトコルへの準拠を追加し、属性モデルに`brazeActivityId`プロパティを追加します。
 
@@ -168,7 +168,7 @@ struct SportsActivityAttributes: ActivityAttributes, BrazeLiveActivityAttributes
 }
 ```
 
-#### ステップ 2.3: push-to-startの登録 {#step-23-register-for-push-to-start}
+#### ステップ2.3: push-to-startの登録 {#step-23-register-for-push-to-start}
 
 次にライブアクティビティのタイプを登録し、そのタイプに関連付けられたすべてのpush-to-startトークンとライブアクティビティインスタンスをBrazeが追跡できるようにします。
 
@@ -202,7 +202,7 @@ class LiveActivityManager {
 }
 ```
 
-#### ステップ 2.4: push-to-start通知を送信する {#step-24-send-a-push-to-start-notification}
+#### ステップ2.4: push-to-start通知を送信する {#step-24-send-a-push-to-start-notification}
 
 [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start)エンドポイントを使用してリモートのpush-to-start通知を送信します。
 {% endtab %}
@@ -256,7 +256,7 @@ class LiveActivityManager {
 {% endtab %}
 {% endtabs %}
 
-### ステップ 3: アクティビティトラッキングを再開する {#resume-activity-tracking}
+### ステップ3: アクティビティトラッキングを再開する {#resume-activity-tracking}
 
 Brazeがアプリ起動時にライブアクティビティを追跡できるようにするには、次の手順を実行します。
 
@@ -297,7 +297,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-### ステップ 4: アクティビティを更新する {#update-the-activity}
+### ステップ4: アクティビティを更新する {#update-the-activity}
 
 ![2チームのスコアが表示されたiPhoneロック画面のライブアクティビティ。Wild Bird Fundは2ポイント、Owl Rehabは4ポイント。]({% image_buster /assets/img/swift/live_activities/example_1_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
@@ -307,7 +307,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 詳細については、[`/messages/live_activity/update`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/live_activity/update)の記事を参照してください。
 
-### ステップ 5: アクティビティを終了する {#end-the-activity}
+### ステップ5: アクティビティを終了する {#end-the-activity}
 
 ライブアクティビティがアクティブな場合、ユーザーのロック画面とダイナミックアイランドの両方に表示されます。Brazeを通じて終了するには、[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update)エンドポイントで`end_activity`を`true`に設定します。
 
@@ -364,7 +364,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 ### API使用状況ダッシュボード {#api-usage-dashboard}
 
-**設定** > **APIキー** > **ダッシュボード**に移動し、**フィルター**を選択して**エンドポイント**でフィルタリングし、APIレスポンスを確認します。たとえば、`/messages/live_activity/update`（または`/messages/live_activity/start`）を選択して、過去30日間のリクエスト量を表示します。APIレスポンスは、APIが呼び出されており、このワークスペースでiOSライブアクティビティ通知が使用されていることを示します。詳細については、[API使用状況ダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage)を参照してください。
+**設定** > **APIと識別子** > **ダッシュボード**に移動し、**フィルター**を選択して**エンドポイント**でフィルタリングし、APIレスポンスを確認します。たとえば、`/messages/live_activity/update`（または`/messages/live_activity/start`）を選択して、過去30日間のリクエスト量を表示します。APIレスポンスは、APIが呼び出されており、このワークスペースでiOSライブアクティビティ通知が使用されていることを示します。詳細については、[API使用状況ダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage)を参照してください。
 
 ## ライブアクティビティイベントの監視（オプション） {#observe-live-activity-events}
 
@@ -689,7 +689,7 @@ push-to-start通知がデバイスに正常に届いたがレート制限のた�
 
 #### push-to-startでライブアクティビティを開始した後、新しい更新を受信しないのはなぜですか？ {#after-starting-my-live-activity-with-push-to-start-why-isnt-it-receiving-new-updates}
 
-[上記](#swift_brazeActivityAttributes)の手順が正しく実装されていることを確認してください。`ActivityAttributes`には、`BrazeLiveActivityAttributes`プロトコルへの準拠と`brazeActivityId`プロパティの両方が含まれている必要があります。
+[Swift BrazeLiveActivityAttributesの設定](#swift_brazeActivityAttributes)で説明されている手順が正しく実装されていることを確認してください。`ActivityAttributes`には、`BrazeLiveActivityAttributes`プロトコルへの準拠と`brazeActivityId`プロパティの両方が含まれている必要があります。
 
 ライブアクティビティのpush-to-start通知を受信したら、Braze URLの`/push_token_tag`エンドポイントへの送信ネットワークリクエストが表示され、`"tag"`フィールドの下に正しいアクティビティIDが含まれていることを再確認してください。
 

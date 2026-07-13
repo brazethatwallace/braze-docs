@@ -66,8 +66,8 @@ Após reunir sua documentação, siga estas etapas:
 
 ### Etapa 1: Conectar o canal KakaoTalk à Braze {#step-1-connect-the-kakaotalk-channel-to-braze}
 
-1. Acesse **Integrações de parceiros** > **Parceiros de tecnologia** e selecione seu provedor KakaoTalk.
-2. Reúna as credenciais necessárias para seu provedor (veja abaixo), insira-as na página **Parceiros de tecnologia** e salve.
+1. Acesse **Partner Integrations** > **Technology Partners** e selecione seu provedor KakaoTalk.
+2. Reúna as credenciais necessárias para seu provedor (veja a seção a seguir), insira-as na página **Technology Partners** e salve.
 3. Use as credenciais recém-salvas para envio.
 
 #### CJ OliveNetworks
@@ -116,7 +116,7 @@ Você pode integrar um Sender Key do KakaoTalk em apenas um espaço de trabalho 
 Somente os canais mapeados para um único ID comum podem ser registrados.
 {% endalert %}
 
-![Campos na página Parceiros de tecnologia para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
+![Campos na página Technology Partners para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 

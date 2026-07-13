@@ -10,9 +10,9 @@ description: "Cet article de référence explique comment créer des catalogues 
 
 > La création d'un catalogue consiste à importer un fichier CSV de données non-utilisateurs dans Braze. Vous pouvez ensuite accéder à ces informations pour enrichir vos messages. N'importe quel type de données peut être intégré à un catalogue. Il s'agit généralement de métadonnées provenant de votre entreprise, comme des informations produits pour un site e-commerce ou des informations sur les cours pour un fournisseur de formation.
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
-Les cas d'utilisation courants des catalogues sont les suivants :
+Les cas d'usage courants des catalogues sont les suivants :
 
 - Produits
 - Services
@@ -76,7 +76,7 @@ Sélectionnez un type de données pour chaque colonne.
 Ce type de données ne peut pas être modifié après la configuration de votre catalogue. De plus, la valeur `NULL` n'est pas prise en charge dans l'import CSV et sera traitée comme une chaîne de caractères.
 {% endalert %}
 
-![Ce type de données ne peut pas être modifié après la configuration de votre catalogue. De plus, la valeur NULL n'est pas prise en charge dans l'import CSV et sera traitée comme une chaîne de caractères.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![Sélection du type de données pour chaque colonne du catalogue. La valeur NULL n'est pas prise en charge dans l'import CSV et sera traitée comme une chaîne de caractères.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 Saisissez un nom et une description facultative pour votre catalogue. Tenez compte des exigences suivantes lorsque vous nommez votre catalogue :
 
@@ -198,7 +198,7 @@ Les catalogues prennent en charge différents types de données pour vous aider 
 | Valeur booléenne | `true` ou `false` | `true` | Valeurs logiques représentant les états vrai ou faux. Équivalent au type `boolean` dans les imports CSV et API. |
 | Nombre | Entier ou décimal | `42` ou `19.99` | Valeurs numériques comprenant les entiers et les nombres à virgule flottante pour les prix, les quantités, les notes, etc. Équivalent aux types `integer` et `float` dans les imports CSV et au type `number` dans l'API. |
 | Géolocalisation | Tableau `[longitude, latitude]` | `[-73.988103, 40.779109]` | Une paire de coordonnées représentant un emplacement géographique. La longitude doit être comprise entre -180 et 180 ; la latitude doit être comprise entre -90 et 90. La valeur `type` de l'API est `geo`. Peut être ajoutée via le tiroir **Add Fields** dans l'interface des catalogues, l'import CSV ou la REST API. |
-| Objet | Objet JSON | `{"key": "value", "price": 10}` | Structures de données imbriquées complexes. La valeur `type` de l'API est `object`. Affiché comme objet JSON dans le tableau de bord. Disponible uniquement via l'API ou l'Ingestion de données cloud (CDI). |
+| Objet | Objet JSON | `{"key": "value", "price": 10}` | Structures de données imbriquées complexes. La valeur `type` de l'API est `object`. Affiché comme objet JSON dans le tableau de bord. Disponible uniquement via l'API ou l'ingestion de données cloud (CDI). |
 | Tableau | Tableau de chaînes de caractères | `["red", "blue", "green"]` | Listes de valeurs de type chaîne de caractères. La valeur `type` de l'API est `array`. Affiché comme tableau de chaînes de caractères dans le tableau de bord. Disponible uniquement via l'API ou le CDI. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
@@ -227,9 +227,9 @@ Au fur et à mesure que vous créez des catalogues, vous pouvez également utili
 
 La REST API prend en charge tous les [types de données de catalogue](#supported-data-types), y compris les objets JSON et les tableaux de chaînes de caractères. Les objets JSON et les tableaux de chaînes de caractères ne peuvent être créés ou mis à jour que via la REST API.
 
-### Avec l'Ingestion de données cloud {#using-cloud-data-ingestion}
+### Avec l'ingestion de données cloud {#using-cloud-data-ingestion}
 
-Vous pouvez gérer vos catalogues via l'[Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) en synchronisant régulièrement les données de vos catalogues directement depuis votre entrepôt de données (tel que Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3).
+Vous pouvez gérer vos catalogues via l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) en synchronisant régulièrement les données de vos catalogues directement depuis votre entrepôt de données (tel que Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3).
 
 ## Gérer les éléments du catalogue {#managing-catalog-items}
 

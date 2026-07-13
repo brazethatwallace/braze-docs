@@ -8,15 +8,15 @@ description: "Cet article de référence explique comment importer vos produits 
 
 # Synchronisation des produits Shopify {#shopify-product-sync}
 
-> Vous pouvez synchroniser tous les produits de votre boutique Shopify avec un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/) Braze pour une personnalisation plus poussée des messages.
+> Vous pouvez synchroniser tous les produits de votre boutique Shopify avec un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs) Braze pour une personnalisation plus poussée des messages.
 
 Les catalogues Shopify se mettent à jour en quasi-temps réel à mesure que vous apportez des modifications aux produits de votre boutique Shopify. Vous pouvez enrichir votre panier abandonné, votre confirmation de commande et bien plus encore avec les détails et informations produit les plus à jour.
 
-En plus de prendre en charge les [données produit Shopify de base](#supported-shopify-catalog-data), vous pouvez synchroniser les collections Shopify, les étiquettes de produit et les métachamps de produit vers votre catalogue Braze. Ces champs supplémentaires permettent une personnalisation plus riche, des sélections de catalogue plus précises et une segmentation plus puissante grâce aux [Extensions de segments]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/).
+En plus de prendre en charge les [données produit Shopify de base](#supported-shopify-catalog-data), vous pouvez synchroniser les collections Shopify, les étiquettes de produit et les métachamps de produit vers votre catalogue Braze. Ces champs supplémentaires permettent une personnalisation plus riche, des sélections de catalogue plus précises et une segmentation plus puissante grâce aux [extensions de segments]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension).
 
 ## Configurer la synchronisation des produits Shopify {#set-up}
 
-Si vous avez déjà installé votre boutique Shopify, vous pouvez toujours synchroniser vos produits en suivant les instructions ci-dessous.
+Si vous avez déjà installé votre boutique Shopify, vous pouvez toujours synchroniser vos produits en suivant les instructions de cette section.
 
 ### Étape 1 : Activer la synchronisation {#step-1-turn-on-the-sync}
 
@@ -71,7 +71,7 @@ Ajoutez d'abord les étiquettes de produit, les collections Shopify et les méta
 ![Section de synchronisation des données produit vers Braze avec des options à sélectionner parmi plusieurs paramètres, y compris les collections.]({% image_buster /assets/img/shopify/select_collections.png %})
 
 {: start="3"}
-3. Sélectionnez jusqu'à 20 métachamps recherchables à synchroniser. Chacun devient une colonne distincte dans votre catalogue, utilisable dans des fonctionnalités comme les sélections de catalogue ou les Extensions de segments.
+3. Sélectionnez jusqu'à 20 métachamps recherchables à synchroniser. Chacun devient une colonne distincte dans votre catalogue, utilisable dans des fonctionnalités comme les sélections de catalogue ou les extensions de segments.
 - Lors du nommage des métachamps, notez que les espaces deviennent « _ » et que tous les caractères spéciaux sont supprimés pour respecter les restrictions de nommage des champs de catalogue Braze.
 
 ![Fenêtre modale de sélection des métachamps de produit.]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
@@ -133,7 +133,7 @@ Braze utilise l'ID de collection Shopify pour identifier les collections synchro
 {% endtabs %}
 
 {% alert tip %}
-Pour des exemples d'utilisation de chaque type de données produit, consultez les [cas d'utilisation des catalogues Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/?tab=shopify%20product%20metafields#shopify-catalog-use-cases).
+Pour des exemples d'utilisation de chaque type de données produit, consultez les [cas d'usage des catalogues Shopify]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/?tab=shopify%20product%20metafields#shopify-catalog-use-cases).
 {% endalert %}
 
 ### Étape 4 : Suivre la progression de la synchronisation {#step-4-track-your-sync-progress}
@@ -149,7 +149,7 @@ Vous pouvez également consulter les étiquettes de produit, les métachamps et 
 ![Catalogue Shopify avec des données synchronisées.]({% image_buster /assets/img/shopify/synced_catalog.png %})
 
 {% alert important %}
-Si votre synchronisation dépasse votre limite de stockage de catalogue, Braze arrête la synchronisation et les nouvelles mises à jour de produits ne sont plus reflétées. Contactez votre gestionnaire de la satisfaction client pour mettre à niveau votre niveau si nécessaire.
+Si votre synchronisation dépasse votre limite de stockage de catalogue, Braze arrête la synchronisation et les nouvelles mises à jour de produits ne sont plus reflétées. Contactez votre gestionnaire du succès des clients pour mettre à niveau votre niveau si nécessaire.
 {% endalert %}
 
 ### Étape 5 : Gérer votre configuration {#step-5-manage-your-configuration}
@@ -190,25 +190,25 @@ La modification de vos sélections synchronisées peut affecter les Campaigns, C
 | `sku` | chaîne de caractères | "12345", "SKU-001-RED-L" |
 | `product_tags` | tableau | `["Summer", "Sale", "New"]`<br><br>Nécessite la synchronisation des étiquettes de produit. |
 | `collection_ids` | tableau | `[123456789012, 987654321098]` (ID de collections Shopify)<br><br>Nécessite la synchronisation des collections Shopify. |
-| `Metafield columns` | Varie selon le type | Chaque métachamp synchronisé apparaît sous forme de colonne distincte nommée par sa clé. Consultez les [métachamps pris en charge](#step-3) dans l'onglet « Métachamps de produit » de l'étape 3 pour plus d'informations. |
+| Colonnes de métachamps | Varie selon le type | Chaque métachamp synchronisé apparaît sous forme de colonne distincte nommée par sa clé. Consultez les [métachamps pris en charge](#step-3) dans l'onglet « Métachamps de produit » de l'étape 3 pour plus d'informations. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Données de catalogue Shopify prises en charge" }
 
 {% alert warning %}
 Votre catalogue Shopify est géré par Shopify. Pour mettre à jour votre catalogue, apportez les modifications directement dans votre boutique Shopify, et elles seront automatiquement synchronisées avec Braze. Pour supprimer votre catalogue Shopify, accédez à la page partenaire Shopify dans Braze et [désactivez la synchronisation](#deactivate).
 {% endalert %}
 
-## Cas d'utilisation des catalogues Shopify {#shopify-catalog-use-cases}
+## Cas d'usage des catalogues Shopify {#shopify-catalog-use-cases}
 
-Ces cas d'utilisation montrent comment vous pouvez exploiter les données de votre catalogue Shopify synchronisé pour personnaliser vos messages.
+Ces cas d'usage montrent comment vous pouvez exploiter les données de votre catalogue Shopify synchronisé pour personnaliser vos messages.
 
 {% alert warning %}
-Braze synchronise jusqu'à 250 variantes de chaque produit Shopify dans votre catalogue. Les variantes au-delà de cette limite ne sont pas synchronisées. Si vous avez besoin de plus de 250 variantes par produit, contactez votre gestionnaire de la satisfaction client Braze.
+Braze synchronise jusqu'à 250 variantes de chaque produit Shopify dans votre catalogue. Les variantes au-delà de cette limite ne sont pas synchronisées. Si vous avez besoin de plus de 250 variantes par produit, contactez votre gestionnaire du succès des clients Braze.
 {% endalert %}
 
 {% tabs %}
 {% tab Étiquettes de produit %}
 
-Utilisez les étiquettes de produit pour personnaliser les messages en fonction de la catégorisation de vos produits dans Shopify. Par exemple, vous pouvez envoyer une promotion présentant tous les produits étiquetés « Summer Sale » via une [sélection de catalogue]({{site.baseurl}}/catalog_selections/), ou créer un segment d'utilisateurs ayant acheté des produits étiquetés « Premium ».
+Utilisez les étiquettes de produit pour personnaliser les messages en fonction de la catégorisation de vos produits dans Shopify. Par exemple, vous pouvez envoyer une promotion présentant tous les produits étiquetés « Summer Sale » via une [sélection de catalogue]({{site.baseurl}}/catalog_selections), ou créer un segment d'utilisateurs ayant acheté des produits étiquetés « Premium ».
 
 Les étiquettes de produit sont stockées sous forme de champ tableau sur chaque élément du catalogue. Pour configurer la synchronisation des étiquettes de produit, consultez [Étiquettes de produit Shopify](#shopify-product-tags).
 
@@ -297,7 +297,7 @@ Checkout the latest women's clothing:
 
 ### Segmentation par catalogue (SQL) {#catalog-segmentation-sql}
 
-Utilisez les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) pour créer des segments basés sur les utilisateurs ayant interagi avec une étiquette de produit. Par exemple, pour trouver les utilisateurs ayant interagi avec des éléments de catalogue contenant une étiquette de produit spécifique, utilisez cette requête :
+Utilisez les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension) pour créer des segments basés sur les utilisateurs ayant interagi avec une étiquette de produit. Par exemple, pour trouver les utilisateurs ayant interagi avec des éléments de catalogue contenant une étiquette de produit spécifique, utilisez cette requête :
 
 {% raw %}
 ```liquid
@@ -347,7 +347,7 @@ Chaque métachamp synchronisé devient une colonne distincte dans votre catalogu
 
 ### Personnalisation
 
-1. Créez une [sélection de catalogue]({{site.baseurl}}/catalog_selections/) qui filtre les métachamps incluant la valeur correspondante.
+1. Créez une [sélection de catalogue]({{site.baseurl}}/catalog_selections) qui filtre les métachamps incluant la valeur correspondante.
 
 ![Une sélection de catalogue qui filtre les métachamps ayant l'attribut summer.]({% image_buster /assets/img/shopify/metafields_selection.png %})
 
@@ -415,7 +415,7 @@ Check out the latest summer products:
 
 ### Segmentation par catalogue (SQL)
 
-Utilisez les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) pour créer des segments basés sur les utilisateurs ayant interagi avec un métachamp de produit. Par exemple, pour trouver les utilisateurs ayant déclenché un événement e-commerce avec un produit dont le tableau de métachamps contient une valeur spécifique, utilisez cette requête :
+Utilisez les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension) pour créer des segments basés sur les utilisateurs ayant interagi avec un métachamp de produit. Par exemple, pour trouver les utilisateurs ayant déclenché un événement e-commerce avec un produit dont le tableau de métachamps contient une valeur spécifique, utilisez cette requête :
 
 {% raw %}
 ```sql
@@ -454,7 +454,7 @@ WHERE
 ```
 {% endraw %}
 
-Si vous souhaitez segmenter les clients ayant passé une commande avec des métachamps de produit spécifiques, utilisez l'un des modèles SQL d'Extension de segments suivants (toutes les périodes, période spécifique, premier ou dernier déclenchement d'un événement).
+Si vous souhaitez segmenter les clients ayant passé une commande avec des métachamps de produit spécifiques, utilisez l'un des modèles SQL d'extension de segments suivants (toutes les périodes, période spécifique, premier ou dernier déclenchement d'un événement).
 
 {% raw %}
 ```sql
@@ -677,7 +677,7 @@ Checkout the latest women's clothing:
 
 ### Segmentation par catalogue (SQL)
 
-Créez un segment d'utilisateurs ayant interagi avec une collection. Utilisez les [Extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) pour créer des segments basés sur l'appartenance à une collection. Par exemple, pour trouver les utilisateurs ayant acheté des produits d'une collection spécifique au cours de la dernière année, utilisez cette requête :
+Créez un segment d'utilisateurs ayant interagi avec une collection. Utilisez les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension) pour créer des segments basés sur l'appartenance à une collection. Par exemple, pour trouver les utilisateurs ayant acheté des produits d'une collection spécifique au cours de la dernière année, utilisez cette requête :
 
 {% raw %}
 ```json
@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-Vous pouvez également configurer des [notifications de baisse de prix]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) et des [notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) !<br><br> Notez que pour chaque cas d'utilisation, vous devez créer un événement personnalisé qui capture le statut d'abonnement d'un utilisateur dans votre catalogue. L'événement personnalisé nécessite une propriété d'événement qui correspond soit au [SKU, soit au Shopify Variant ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs/#step-2-select-your-product-identifier) que vous avez sélectionné dans le cadre de la synchronisation de vos produits Shopify.
+Vous pouvez également configurer des [notifications de baisse de prix]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) et des [notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) !<br><br> Notez que pour chaque cas d'usage, vous devez créer un événement personnalisé qui capture le statut d'abonnement d'un utilisateur dans votre catalogue. L'événement personnalisé nécessite une propriété d'événement qui correspond soit au [SKU, soit au Shopify Variant ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier) que vous avez sélectionné dans le cadre de la synchronisation de vos produits Shopify.
 {% endalert %}
 
 ## Désactiver la synchronisation des produits {#deactivate}

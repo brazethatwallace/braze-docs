@@ -10,12 +10,12 @@ Bevor Sie das Braze Flutter SDK integrieren, müssen Sie Folgendes erledigen:
 
 | Voraussetzung | Beschreibung |
 | --- | --- |
-| Braze API-App-Bezeichner | Um den Bezeichner Ihrer App zu finden, gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **App-Bezeichner**. Weitere Informationen finden Sie unter [API-Bezeichner-Typen]({{site.baseurl}}/api/identifier_types/#app-identifier).|
-| Braze SDK-Endpunkt | Ihre SDK-Endpunkt-URL (z. B. `sdk.<cluster>.braze.com`). Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) ab.|
+| Braze API-App-Bezeichner | Um den Bezeichner Ihrer App zu finden, gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **App-Bezeichner**. Weitere Informationen finden Sie unter [API-Bezeichner-Typen]({{site.baseurl}}/api/identifier_types#app-identifier).|
+| Braze SDK-Endpunkt | Ihre SDK-Endpunkt-URL (z. B. `sdk.<cluster>.braze.com`). Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) ab.|
 | Flutter SDK | Installieren Sie das offizielle [Flutter SDK](https://docs.flutter.dev/get-started/install) und stellen Sie sicher, dass es die [Mindestanforderungen für die unterstützte Version](https://github.com/braze-inc/braze-flutter-sdk#requirements) des Braze Flutter SDK erfüllt. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
-### 1. Schritt: Integrieren der Braze-Bibliothek {#step-1-integrate-the-braze-library}
+### Schritt 1: Integrieren der Braze-Bibliothek {#step-1-integrate-the-braze-library}
 
 Fügen Sie das Braze Flutter SDK-Paket über die Befehlszeile hinzu. Dadurch wird die entsprechende Zeile zu Ihrer `pubspec.yaml` hinzugefügt.
 
@@ -23,7 +23,7 @@ Fügen Sie das Braze Flutter SDK-Paket über die Befehlszeile hinzu. Dadurch wir
 flutter pub add braze_plugin
 ```
 
-### 2. Schritt: Vollständige native SDK-Einrichtung {#step-2-complete-native-sdk-setup}
+### Schritt 2: Vollständige native SDK-Einrichtung {#step-2-complete-native-sdk-setup}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
@@ -235,7 +235,7 @@ static Braze *_braze = nil;
 {% endtab %}
 {% endtabs %}
 
-### 3. Schritt: Plugin einrichten {#step-3-set-up-the-plugin}
+### Schritt 3: Plugin einrichten {#step-3-set-up-the-plugin}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
@@ -248,7 +248,7 @@ import 'package:braze_plugin/braze_plugin.dart';
 final BrazePlugin braze = BrazePlugin();
 ```
 
-Rufen Sie dann `initialize()` mit Ihrem App-Bezeichner-API-Schlüssel und SDK-Endpunkt auf, um die Braze-Instanz zu erstellen. Nachfolgend finden Sie die Optionen, wo Sie diese Methode in Ihrer App aufrufen können.
+Rufen Sie dann `initialize()` mit Ihrem App-Bezeichner-API-Schlüssel und SDK-Endpunkt auf, um die Braze-Instanz zu erstellen. Nachfolgend finden Sie die Optionen, wo Sie diese Methode in Ihrem App-Ablauf aufrufen können.
 
 #### Standard-Initialisierung {#standard-initialization}
 

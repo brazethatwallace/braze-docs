@@ -88,7 +88,7 @@ Wenn Sie ein Feld für eine dieser Transformationen auswählen, wird diese Trans
 Currents verwirft Events mit übermäßig großen Payloads von mehr als 900&nbsp;KB.
 {% endalert %}
 
-Bevor Sie testen, sollten Sie sich unsere [Currents-Beispieldaten auf GitHub](https://github.com/Appboy/currents-examples) ansehen. Wenn Sie zum Testen bereit sind, wählen Sie unten eine Option aus:
+Bevor Sie testen, sollten Sie sich unsere [Currents-Beispieldaten auf GitHub](https://github.com/Appboy/currents-examples) ansehen. Wenn Sie zum Testen bereit sind, wählen Sie eine Option im folgenden Abschnitt aus:
 
 #### Test-Events versenden {#sending-test-events}
 

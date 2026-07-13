@@ -13,11 +13,11 @@ search_rank: 2
 
 Les événements personnalisés sont des actions effectuées par vos utilisateurs, ou des mises à jour les concernant. Lorsque des événements personnalisés sont enregistrés, ils peuvent déclencher un nombre et un type quelconque de campagnes de suivi. Vous pouvez ensuite utiliser des [filtres de segmentation](#segmentation-filters) pour segmenter les utilisateurs en fonction de la fréquence et du caractère récent de ces événements personnalisés. Les événements personnalisés sont donc les mieux adaptés au suivi des interactions utilisateur de grande valeur au sein de votre application.
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
-Parmi les cas courants d'utilisation d'événements personnalisés figurent les situations suivantes :
+Parmi les cas d'usage courants d'événements personnalisés figurent les situations suivantes :
 
-- Déclenchement d'une campagne ou d'un Canvas sur la base d'un événement personnalisé à l'aide de la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
+- Déclenchement d'une Campaign ou d'un Canvas sur la base d'un événement personnalisé à l'aide de la [livraison par événement]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
 - Segmentation des utilisateurs selon le nombre de fois qu'ils ont effectué un événement personnalisé, la date de la dernière occurrence, et d'autres critères similaires
 - Utilisation des [analyses d'événements personnalisés](#analytics) du tableau de bord pour visualiser de manière agrégée la fréquence de chaque événement
 - Obtention d'analyses complémentaires grâce aux rapports d'[entonnoir]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps) et de [rétention]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)
@@ -63,13 +63,13 @@ Il n'y a pas de limite fixe dans le tableau de bord quant au nombre d'**événem
 
 ## Consulter les rapports d'utilisation {#viewing-usage-reports}
 
-Le rapport d'utilisation répertorie tous les Canvas, campagnes et Segments qui utilisent un événement personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
+Le rapport d'utilisation répertorie tous les Canvas, Campaigns et Segments qui utilisent un événement personnalisé spécifique. Cette liste n'inclut pas les utilisations de Liquid.
 
 Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant les cases correspondantes à côté des événements personnalisés, puis en sélectionnant **Afficher le rapport d'utilisation**.
 
 ## Enregistrer des événements personnalisés {#logging-custom-events}
 
-Les événements personnalisés nécessitent une configuration supplémentaire. Consultez la liste ci-dessous pour accéder à la documentation de chaque plateforme, où vous trouverez des informations sur les méthodes utilisées pour enregistrer des événements personnalisés et sur la façon d'ajouter des propriétés et des quantités à vos événements personnalisés.
+Les événements personnalisés nécessitent une configuration supplémentaire. Consultez la documentation de chaque plateforme ci-dessous pour en savoir plus sur les méthodes utilisées pour enregistrer des événements personnalisés et sur la façon d'ajouter des propriétés et des quantités à vos événements personnalisés.
 
 {% details Développer pour la documentation par plateforme %}
 
@@ -109,14 +109,14 @@ Chaque événement comprend :
 - **Heure :** le moment où l'événement s'est produit.
 - **Propriétés :** les propriétés complètes de l'événement pour cette occurrence, affichées au format JSON.
 
-Parmi les cas d'utilisation courants :
+Parmi les cas d'usage courants :
 
 - Vérifier que votre intégration SDK ou API envoie les événements comme prévu pendant le développement ou après une mise en production.
-- Résoudre un problème lié au fait qu'un utilisateur est entré ou non dans une campagne ou un Canvas déclenché par un événement.
+- Résoudre un problème lié au fait qu'un utilisateur est entré ou non dans une Campaign ou un Canvas déclenché par un événement.
 - Investiguer un problème d'assistance pour un utilisateur spécifique sans avoir à configurer une exportation de données.
 
 {% alert note %}
-La consultation de l'onglet **Historique des événements** nécessite les autorisations utilisateur **Rechercher des utilisateurs** et **Voir les informations personnelles**, car les propriétés d'événement peuvent contenir des données personnelles. Pour en savoir plus, consultez [Autorisations utilisateur de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+La consultation de l'onglet **Historique des événements** nécessite les autorisations utilisateur **Rechercher des utilisateurs**, **Voir les informations personnelles** et **Voir les propriétés d'événement utilisateur**, car les propriétés d'événement peuvent contenir des données personnelles. Pour en savoir plus, consultez [Autorisations utilisateur de l'entreprise]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 {% endalert %}
 
 ## Filtres de segmentation {#segmentation-filters}
@@ -141,11 +141,11 @@ Le tableau suivant présente les filtres disponibles pour segmenter les utilisat
 
 Braze enregistre le nombre de fois que chaque événement personnalisé s'est produit ainsi que la date de sa dernière occurrence pour chaque utilisateur, à des fins de segmentation. Consultez ces analyses en accédant à **Analytics** > **Rapport d'événements personnalisés**.
 
-Sur la page **Rapport d'événements personnalisés** du tableau de bord, vous pouvez visualiser de manière agrégée la fréquence de chaque événement personnalisé. Les lignes grises superposées sur la série temporelle indiquent la dernière fois qu'une campagne a été envoyée, ce qui est utile pour observer l'impact de vos campagnes sur l'activité des événements personnalisés.
+Sur la page **Rapport d'événements personnalisés** du tableau de bord, vous pouvez visualiser de manière agrégée la fréquence de chaque événement personnalisé. Les lignes grises superposées sur la série temporelle indiquent la dernière fois qu'une Campaign a été envoyée, ce qui est utile pour observer l'impact de vos campagnes sur l'activité des événements personnalisés.
 
 ![Graphique du nombre d'événements personnalisés sur la page Événements personnalisés du tableau de bord montrant les tendances d'un événement personnalisé]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
-Vous pouvez également utiliser les **filtres** pour ventiler vos événements personnalisés par heure, utilisateurs actifs mensuels (MAU), Segments ou formules d'indicateurs clés de performance.
+Vous pouvez également utiliser les **filtres** pour ventiler vos événements personnalisés par heure, utilisateurs actifs mensuels (MAU), Segments ou formules de KPI.
 
 ![Filtres du graphique d'événements personnalisés]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 

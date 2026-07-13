@@ -40,14 +40,14 @@ Você precisará confirmar que os itens a seguir foram criados e concluídos ant
 | Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | Uma ferramenta centralizada para gerenciar os ativos do Facebook da sua marca (por exemplo, contas de anúncios, páginas e apps). |
 | Conta de anúncio do Facebook | [Facebook](https://www.facebook.com/business/help/910137316041095) | Uma conta de anúncio ativa do Facebook vinculada ao gerente de negócios da sua marca.<br><br>Certifique-se de que o administrador do Facebook Business Manager tenha concedido permissões de "Manage Campaigns" ou "Manage ad accounts" para as contas de anúncios do Facebook que você planeja usar com a Braze. Além disso, verifique se você aceitou os termos e condições da sua conta de anúncios. |
 | Termos de públicos personalizados do Facebook | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Aceite os Termos de Públicos Personalizados do Facebook para as contas de anúncios do Facebook que você planeja usar com a Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
 ### Etapa 1: Conecte-se ao Facebook {#step-1-connect-to-facebook}
 
 {% alert important %}
-Você deve ter a [permissão "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para conectar o Facebook à sua conta da Braze.
+Você deve ter a [permissão "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) para conectar o Facebook à sua conta da Braze.
 {% endalert %}
 
 No dashboard da Braze, acesse **Integrações de parceiros** > **Parceiros de tecnologia** e selecione **Facebook**. Em Facebook Audience Export, selecione **Connect Facebook**.
@@ -67,7 +67,7 @@ Sua conexão com o Facebook é aplicada no nível do espaço de trabalho da Braz
 {% alert important %}
 Para clientes que já passaram pelo processo de Revisão de App do Facebook para [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) e [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard), seu Token de Usuário do Sistema ainda será válido para o componente de público do Facebook. Não será possível editar ou revogar o Token de Usuário do Sistema do Facebook por meio da página de parceiro do Facebook. Em vez disso, você pode conectar sua conta do Facebook para substituir seu Token de Usuário do Sistema do Facebook dentro do seu espaço de trabalho da Braze.
 
-<br><br>A configuração do Facebook oAuth também se aplicará às [exportações do Facebook usando Segments]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites).
+<br><br>A configuração do Facebook oAuth também se aplicará às [exportações do Facebook usando Segments]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites).
 {% endalert %}
 
 ### Etapa 2: Aceitar os termos de serviço de públicos personalizados {#step-2-accept-custom-audiences-terms-of-service}
@@ -148,7 +148,7 @@ A tabela a seguir inclui métricas e descrições para ajudá-lo a entender melh
 | Usuários pendentes | Número de usuários atualmente sendo processados pela Braze para sincronizar com o Facebook. |
 | Usuários com erro | Número de usuários que não foram sincronizados com o Facebook devido a um erro de API após cerca de 13 horas de tentativas. As possíveis causas de erros podem incluir um token inválido do Facebook ou a exclusão do público personalizado no Facebook. |
 | Saíram do Canvas | Número de usuários que saíram do Canvas. Isso ocorre quando a última etapa de um Canvas é uma etapa do Facebook. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Compreensão da análise de dados" }
 
 {% alert important %}
 Há um atraso nos relatórios de métricas de usuários sincronizados e usuários com erro devido ao processamento interno.
@@ -156,7 +156,7 @@ Há um atraso nos relatórios de métricas de usuários sincronizados e usuário
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-### Quanto tempo leva para que meus públicos sejam preenchidos no dashboard de parceiro do Audience Sync? {#how-long-does-it-take-for-my-audiences-to-populate-in-my-audience-sync-partner-dashboard}
+### Quanto tempo leva para que meus públicos sejam preenchidos no dashboard do parceiro do Audience Sync? {#how-long-does-it-take-for-my-audiences-to-populate-in-my-audience-sync-partner-dashboard}
 
 O tempo necessário para preencher um público depende do parceiro específico. Todas as redes processarão as solicitações da Braze e tentarão combinar os usuários. Pode levar até 24 horas para que os públicos personalizados sejam atualizados.
 
@@ -176,7 +176,7 @@ O Facebook não fornece essas informações por motivos de privacidade.
 
 ### A Braze oferece suporte a públicos personalizados baseados em valor? {#does-braze-support-value-based-custom-audiences}
 
-No momento, os públicos personalizados baseados em valor não são suportados pela Braze. Se você estiver interessado em sincronizar esses tipos de públicos personalizados, envie [feedback de produto]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+No momento, os públicos personalizados baseados em valor não são suportados pela Braze. {% multi_lang_include product_feedback_cta.md context="gap" feature="value-based custom audience sync" %}
 
 ### A Braze faz hash dos dados antes de enviá-los aos parceiros do Audience Sync? {#does-braze-hash-data-before-sending-it-to-audience-sync-partners}
 

@@ -25,8 +25,8 @@ Vous ne savez pas si votre message doit être envoyé via une Campaign ou un Can
 1. Allez dans **Messaging** > **Campaigns** et sélectionnez **Create Campaign**.
 2. Sélectionnez **In-App Message**. Notez que les messages in-app ne sont pas disponibles dans les Campaigns multicanales.
 3. Donnez à votre Campaign un nom clair et significatif.
-4. Ajoutez des [Équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [Étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins.
-   * Les étiquettes facilitent la recherche de vos Campaigns et la création de rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
+4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins.
+   * Les étiquettes facilitent la recherche de vos Campaigns et la création de rapports. Par exemple, lorsque vous utilisez le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
 5. Ajoutez et nommez autant de variantes que nécessaire pour votre Campaign. Vous pouvez choisir différentes plateformes, types de messages et dispositions pour chacune de vos variantes ajoutées. Pour en savoir plus sur ce sujet, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
@@ -56,10 +56,10 @@ Vous trouverez plus d'informations spécifiques à Canvas dans [Messages in-app 
 
 Commencez par choisir les plateformes qui doivent recevoir le message. Utilisez cette sélection pour limiter la diffusion d'une Campaign à un ensemble spécifique d'applications. Par exemple, vous pourriez choisir **Web Browsers** pour un message dans le navigateur encourageant les utilisateurs à télécharger votre application mobile, afin de vous assurer qu'ils ne reçoivent pas le message après avoir déjà obtenu votre application. Comme les sélections de plateforme sont spécifiques à chaque variante, vous pourriez tester l'engagement des messages par plateforme.
 
-| Plateforme                        | Diffusion du message             |
+| Plateforme | Diffusion du message |
 |---------------------------------|------------------------------|
-| Applications mobiles                     | SDK iOS, Android et Vega |
-| Navigateurs web                    | SDK Web                      |
+| Applications mobiles | SDK iOS, Android et Vega |
+| Navigateurs web | SDK Web |
 | Applications mobiles et navigateurs web | SDK iOS, Android, Vega et Web |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Spécifier les plateformes de diffusion" }
 
@@ -151,7 +151,7 @@ Ces messages in-app sont personnalisables selon vos besoins.
     <td>Messages personnalisés qui fonctionnent selon votre code personnalisé (HTML, CSS et/ou JavaScript).</td>
     <td>N/A</td>
     <td>Vous devez définir l'option d'initialisation <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> sur <code>true</code> pour que votre message in-app fonctionne.</td>
-    <td>C'est une bonne option si vous souhaitez tous les avantages des messages in-app mais avez besoin de fonctionnalités supplémentaires ou que l'apparence reste « fidèle à votre marque ». Vous pouvez modifier chaque détail du message — police, couleur, forme, taille, boutons, etc. <br><br>Exemples de cas d'utilisation : demander aux utilisateurs leur avis sur l'application, formulaires de capture d'e-mail ou messages paginés</td>
+    <td>C'est une bonne option si vous souhaitez tous les avantages des messages in-app mais avez besoin de fonctionnalités supplémentaires ou que l'apparence reste « fidèle à votre marque ». Vous pouvez modifier chaque détail du message — police, couleur, forme, taille, boutons, etc. <br><br>Exemples de cas d'usage : demander aux utilisateurs leur avis sur l'application, formulaires de capture d'e-mail ou messages paginés</td>
   </tr>
   <tr>
     <td><a href='/docs/user_guide/channels/in_app_messages/customize#email-capture-form'>Formulaire de capture d'e-mail</a></td>
@@ -193,7 +193,7 @@ Sélectionnez **Add Languages** et choisissez les langues souhaitées dans la li
 
 ### Image {#image}
 
-Selon votre type de message, vous pouvez **Upload Image**, **Pick a Badge** ou utiliser **Font Awesome**. Pour télécharger une image, sélectionnez **Add Image** ou fournissez une URL d'image. Sélectionner **Add Image** ouvre la **Bibliothèque multimédia**, où vous pouvez sélectionner une image précédemment téléchargée ou en ajouter une nouvelle. Chaque type de message et plateforme peut avoir ses propres proportions et exigences suggérées — assurez-vous de vérifier celles-ci avant de commander ou de créer une image de zéro.
+Selon votre type de message, vous pouvez **Upload Image**, **Pick a Badge** ou utiliser **Font Awesome**. Pour télécharger une image, sélectionnez **Add Image** ou fournissez une URL d'image. Sélectionner **Add Image** ouvre la **bibliothèque multimédia**, où vous pouvez sélectionner une image précédemment téléchargée ou en ajouter une nouvelle. Chaque type de message et plateforme peut avoir ses propres proportions et exigences suggérées — assurez-vous de vérifier celles-ci avant de commander ou de créer une image de zéro.
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -225,7 +225,7 @@ Si vous choisissez de n'utiliser qu'un seul bouton, il s'ajustera automatiquemen
 
 Si vous décidez de formater ces boutons avec vos propres couleurs, nous vous recommandons d'utiliser le bouton 2 pour votre résultat préféré.
 
-En d'autres termes, si vous souhaitez que votre utilisateur clique sur un bouton plutôt que sur l'autre, assurez-vous qu'il se trouve à droite. Le bouton de droite a souvent affiché un meilleur potentiel de clic, surtout s'il a une couleur quelque peu contrastante ou qui se démarque du reste du message. Cela est d'autant plus marqué lorsque le bouton de gauche se fond davantage visuellement avec le message.
+En d'autres termes, si vous souhaitez que votre utilisateur clique sur un bouton plutôt que sur l'autre, assurez-vous qu'il s'agit du bouton secondaire. Le bouton secondaire a souvent affiché un meilleur potentiel de clic, surtout s'il a une couleur quelque peu contrastante ou qui se démarque du reste du message. Cela est d'autant plus marqué lorsque le bouton principal se fond davantage visuellement avec le message.
 
 ![Boutons principal et secondaire dans un message in-app]({% image_buster /assets/img/primary-secondary-buttons.png %})
 
@@ -246,6 +246,8 @@ Lorsque votre client clique sur un bouton dans votre message in-app, les actions
 Remarque : les options __Demander l'autorisation push__, __Enregistrer un événement personnalisé__ et __Enregistrer un attribut personnalisé__ nécessitent les versions minimales de SDK suivantes :
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
+
+Pour combiner plusieurs actions ou effectuer des actions SDK supplémentaires non disponibles dans le tableau de bord (comme ajouter à un groupe d'abonnement ou définir un type d'abonnement e-mail), vous pouvez utiliser les [deep links Braze Actions]({{site.baseurl}}/developer_guide/braze_actions).
 
 ### Options pour appareils iOS {#ios-device-options}
 
@@ -354,7 +356,7 @@ Les options de haute, moyenne et basse priorité pour les messages déclenchés 
 - **Compartiment de priorité par défaut :** Lorsque deux Campaigns partagent le même déclencheur et utilisent la priorité par défaut (moyenne), la Campaign créée en dernier reçoit le déclencheur.
 - **Compartiment de priorité spécifique :** Lorsque plusieurs Campaigns partagent le même déclencheur et sont attribuées à un compartiment de priorité spécifique, la Campaign la plus récemment attribuée à ce compartiment reçoit le déclencheur.
 
-Pour définir les priorités au sein de ces compartiments, cliquez sur **Définir la priorité exacte**, et vous pouvez glisser-déposer les Campaigns pour les ordonner avec la priorité correcte.
+Pour définir les priorités au sein de ces compartiments, cliquez sur **Set exact priority**, et vous pouvez glisser-déposer les Campaigns pour les ordonner avec la priorité correcte.
 
 ![Un exemple de la façon dont la priorité est définie pour une Campaign de message in-app et un Canvas.]({% image_buster /assets/img_archive/bucket_prioritization.png %}){: style="max-width:70%"}
 
@@ -372,7 +374,7 @@ Dans certains scénarios, vous pouvez souhaiter réévaluer l'éligibilité d'un
 
 ![Case à cocher « Re-evaluate campaign eligibility before displaying » sélectionnée.]({% image_buster /assets/img_archive/re-evaluate-iam-membership.png %}){:style="max-width:60%"}
 
-Lorsque vous sélectionnez **Re-evaluate campaign eligibility before displaying**, une requête supplémentaire sera envoyée à Braze pour confirmer que l'utilisateur est toujours éligible à ce message avant l'envoi. De plus, toutes les variables [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou de [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) seront modélisées à ce moment-là avant l'affichage du message.
+Lorsque vous sélectionnez **Re-evaluate campaign eligibility before displaying**, une requête supplémentaire sera envoyée à Braze pour confirmer que l'utilisateur est toujours éligible à ce message avant l'envoi. De plus, toutes les variables [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) ou de [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) seront modélisées à ce moment-là avant l'affichage du message.
 
 Cela empêche l'envoi de messages in-app aux utilisateurs dans le cadre de Campaigns expirées ou archivées. Si vous ne réévaluez pas l'éligibilité d'un utilisateur, celui-ci recevra le message in-app même après l'expiration ou l'archivage de la Campaign, car le message est dans votre SDK et attend que les utilisateurs le déclenchent.
 
@@ -395,7 +397,7 @@ Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuen
 {% endtab %}
 {% tab Canvas %}
 
-Si vous ne l'avez pas encore fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter les tests multivariés et la Sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
+Si vous ne l'avez pas encore fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
 
 Pour des informations sur les options de messages in-app spécifiques à Canvas, consultez [Messages in-app dans Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas).
 

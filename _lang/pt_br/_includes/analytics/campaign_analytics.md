@@ -14,7 +14,7 @@ Procurando definições para os termos e métricas listados em seu relatório? C
   {% elsif include.channel == "webhook" %}[Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics) e filtre por Webhook.{% endif %}
 {% endalert %}
 
-Na aba **Campaign Analytics**, você pode visualizar seus relatórios em uma série de painéis. Você pode ver mais ou menos do que os listados nas seções abaixo, mas cada um tem seu próprio propósito útil.
+Na guia **Campaign Analytics**, você pode visualizar seus relatórios em uma série de painéis. Você pode ver mais ou menos do que os listados nas seções abaixo, mas cada um tem seu próprio propósito útil.
 
 ### Período {#time-range}
 
@@ -84,7 +84,7 @@ A tabela a seguir resume o que cada rótulo significa.
 
 | Rótulo do rodapé | Quando é usado |
 | --- | --- |
-| **Estimated Audience** | A Braze não executa uma contagem completa do banco de dados por padrão. O tamanho do público é estimado a partir de uma amostra e extrapolado, de forma semelhante ao intervalo de **Usuários contatáveis** no criador de segmentos. Margens de erro são esperadas, especialmente para espaços de trabalho grandes ou segmentos pequenos em relação ao espaço de trabalho. |
+| **Estimated Audience** | A Braze não executa uma contagem completa do banco de dados por padrão. O tamanho do público é estimado a partir de uma amostra e extrapolado, de forma semelhante ao intervalo de **usuários contatáveis** no criador de segmentos. Margens de erro são esperadas, especialmente para espaços de trabalho grandes ou segmentos pequenos em relação ao espaço de trabalho. |
 | **Current Audience** | A Braze pode calcular a estatística padrão com uma varredura completa dos perfis do espaço de trabalho, então o tamanho do público exibido é uma contagem atual e não amostrada (ainda sujeita à acessibilidade do canal, regras de inscrição e outras opções de direcionamento). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estimated Audience e Current Audience" }
 
@@ -357,7 +357,7 @@ Existem algumas métricas disponíveis que cobrem a visibilidade da sua mensagem
 
 Vamos supor que você veja um Banner hoje, depois veja o mesmo Banner amanhã e novamente depois de amanhã — você será contado como _Unique Daily Impression_ três vezes. No entanto, você será contado apenas uma vez como _Unique Impression_.
 
-Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma campanha de Banner. Isso significa que apenas os dispositivos de cinco usuários realizaram todos os seguintes passos:
+Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma campanha de Banner. Isso significa que apenas os dispositivos de cinco usuários realizaram todas as seguintes etapas:
 
 1. Iniciaram uma sessão ou o app solicitou explicitamente uma sincronização de Banner (ou ambos)
 2. Navegaram para a visualização de Banners
@@ -449,7 +449,7 @@ O dashboard destaca os _Hard Bounces_. Alguns _Bounces_ podem ser soft bounces e
 
 _Envios − (Entregas + Hard Bounces) ≈ Soft Bounces_
 
-As _Entregas_ podem aumentar durante a janela de novas tentativas do seu provedor de serviço de e-mail (ESP) conforme as novas tentativas são bem-sucedidas, enquanto os _Envios_ e hard bounces para um envio único permanecem fixos após a conclusão do envio. O SendGrid e o SparkPost fazem novas tentativas por até 72 horas; o Amazon SES faz novas tentativas por até 14 horas.
+As _Entregas_ podem aumentar durante a janela de novas tentativas do seu provedor de serviços de e-mail (ESP) conforme as novas tentativas são bem-sucedidas, enquanto os _Envios_ e hard bounces para um envio único permanecem fixos após a conclusão do envio. O SendGrid e o SparkPost fazem novas tentativas por até 72 horas; o Amazon SES faz novas tentativas por até 14 horas.
 
 ###### Cenários comuns de solução de problemas de entrega {#common-delivery-troubleshooting-scenarios}
 
@@ -496,7 +496,7 @@ Adiamento é quando um e-mail não foi entregue imediatamente, mas a Braze tenta
 
 Os _Adiamentos_ diferem dos _Soft Bounces_. Se nenhum e-mail foi entregue com sucesso durante este período de nova tentativa, a Braze enviará um evento de soft bounce por campanha enviada. Antes de 25 de fevereiro de 2025, essas tentativas eram contadas como múltiplos soft bounces para 1 envio de campanha.
 
-Observe que os _Adiamentos_ estão atualmente disponíveis apenas usando os recursos Currents ou Snowflake da Braze (como o Criador de consultas, SQL Segment, Compartilhamento de dados Snowflake). Se você gostaria de incluir isso na análise de dados de Campaign ou Canvas, [envie um feedback sobre o produto]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Observe que os _Adiamentos_ estão atualmente disponíveis apenas usando os recursos Currents ou Snowflake da Braze (como o Criador de consultas, SQL Segment, Compartilhamento de dados Snowflake). {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Taxa de abertura real estimada {#estimated-real-open-rate}
 
@@ -700,7 +700,7 @@ _Direct Opens_ reflete as métricas do dashboard para interações que contam co
 
 Para **iOS**, as categorias de notificação padrão da Braze (como **Yes** / **No**, **Accept** / **Decline** ou **Confirm** / **Cancel**) usam um pareamento fixo: a primeira ação suporta `OPEN_APP`, uma URI ou um deep link (alinhado com **On-Click Behavior** no criador). A ação complementar usa `CLOSE` por padrão — ela descarta a notificação e não abre o app. Veja o mapeamento padrão em [Objeto de botão de ação por push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-action-button-object-for-braze-default-buttons).
 
-Por causa disso, toques no botão predefinido de descarte (por exemplo, **No** ou **Decline**) normalmente **não** contam para _Direct Opens_. Esses toques ainda podem aparecer nas exportações de **Push Notification Open** quando registrados, com `button_action_type` definido como `close` e `button_string` identificando a ação tocada. Ao comparar a análise de dados de Campaign com dados do warehouse, use esses campos da carga útil para não tratar toques de descarte da mesma forma que toques no corpo da notificação ou na ação principal.
+Por causa disso, toques no botão predefinido de descarte (por exemplo, **No** ou **Decline**) normalmente **não** contam para _Direct Opens_. Esses toques ainda podem aparecer nas exportações de **Push Notification Open** quando registrados, com `button_action_type` definido como `close` e `button_string` identificando a ação tocada. Ao comparar a análise de dados da Campaign com dados do warehouse, use esses campos da carga útil para não tratar toques de descarte da mesma forma que toques no corpo da notificação ou na ação principal.
 
 Para **Android**, você define o **On-Click Behavior** por botão (**Open App**, **Redirect to Web URL** ou **Deep Link**), então os relatórios seguem as ações que você configura, em vez da divisão padrão `OPEN_APP` / `CLOSE` do iOS.
 

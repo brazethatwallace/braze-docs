@@ -7,13 +7,14 @@
 #     unrelated merges into main. Files to translate come from merge_commit_sha
 #     versus its first parent, so the batch matches whatever English shipped in that
 #     deploy PR (not arbitrary main pushes or stale develop-only diff windows).
-#   - workflow_dispatch for catch-up (`since_commit`, `files`), auto stale
-#     detection when both are empty, or orphan-only
+#   - workflow_dispatch for catch-up (`since_commit`, `files`, `languages`),
+#     auto stale detection when both are empty, or orphan-only
 #
 # Flow:
 #   1. Identify _docs/ and _includes/ markdown files changed (deploy PR merge diff,
 #      since_commit/files dispatch, or stale-english dispatch)
-#   2. Matrix: translate each changed file into one language per job (6 jobs),
+#   2. Matrix: translate each changed file into one language per job (up to 6;
+#      workflow_dispatch `languages` can run a subset, e.g. `fr` only),
 #      then QC + Jekyll verify that locale only (avoids a single 6×locale step
 #      hitting the translate timeout on very large pages). QC also applies
 #      small locale repairs (for example ES API “Obligatorio” column tokens,
@@ -67,6 +68,15 @@ on:
         required: false
         type: string
         default: "false"
+      languages:
+        description: >
+          Optional comma-separated language keys to translate (subset of:
+          fr, ja, ko, pt-br, es, de). Leave empty to run all six locales.
+          Nightly deploy PR merges always run all locales. Use with `files`
+          for targeted catch-up (for example `fr` only on one English path).
+        required: false
+        type: string
+        default: ""
       orphan_cleanup_only:
         description: >
           If true, skip translation: run repo-wide orphan deletion +
@@ -103,6 +113,8 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       count: ${{ steps.changes.outputs.count }}
+      languages: ${{ steps.changes.outputs.languages }}
+      matrix_include: ${{ steps.changes.outputs.matrix_include }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -119,14 +131,49 @@ jobs:
       - name: Identify changed English files
         id: changes
         run: |
+          LANGS=""
           if [ "${{ inputs.orphan_cleanup_only }}" = "true" ]; then
-            if [ -n "${{ inputs.files }}" ] || [ -n "${{ inputs.since_commit }}" ]; then
-              echo "::error::orphan_cleanup_only must be used with empty files and since_commit inputs."
+            if [ -n "${{ inputs.files }}" ] || [ -n "${{ inputs.since_commit }}" ] || [ -n "${{ inputs.languages }}" ]; then
+              echo "::error::orphan_cleanup_only must be used with empty files, since_commit, and languages inputs."
               exit 1
             fi
             echo "orphan_cleanup_only mode — no English files to translate."
             echo "count=0" >> "$GITHUB_OUTPUT"
+            echo "languages=" >> "$GITHUB_OUTPUT"
+            echo "matrix_include=[]" >> "$GITHUB_OUTPUT"
             exit 0
+          fi
+          if [ -n "${{ inputs.languages }}" ]; then
+            LANGS=$(echo "${{ inputs.languages }}" | sed 's/[[:space:]]*,[[:space:]]*/,/g; s/[[:space:]]//g')
+            VALID="fr,ja,ko,pt-br,es,de"
+            DEDUPED=""
+            IFS=',' read -ra REQUESTED <<< "$LANGS"
+            for key in "${REQUESTED[@]}"; do
+              [ -z "$key" ] && continue
+              case ",${VALID}," in
+                *,"${key}",*) ;;
+                *)
+                  echo "::error::Invalid languages key '${key}'. Allowed: ${VALID}"
+                  exit 1
+                  ;;
+              esac
+              case ",${DEDUPED}," in
+                *,"${key}",*) ;;
+                *)
+                  if [ -n "$DEDUPED" ]; then
+                    DEDUPED="${DEDUPED},${key}"
+                  else
+                    DEDUPED="${key}"
+                  fi
+                  ;;
+              esac
+            done
+            if [ -z "$DEDUPED" ]; then
+              echo "::error::languages must include at least one of: ${VALID}"
+              exit 1
+            fi
+            LANGS="$DEDUPED"
+            echo "workflow_dispatch languages subset: ${LANGS}"
           fi
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && \
              [ -z "${{ inputs.since_commit }}" ] && \
@@ -163,7 +210,10 @@ jobs:
           cat changed_files.txt
 
           count=$(wc -l < changed_files.txt | tr -d ' ')
+          matrix_include=$(LANGS="${LANGS}" python3 -c 'import json,os; langs=os.environ.get("LANGS",""); pairs=[("fr","fr_fr"),("ja","ja"),("ko","ko"),("pt-br","pt_br"),("es","es"),("de","de")]; d=dict(pairs); keys=[x for x in langs.split(",") if x] if langs else [k for k,_ in pairs]; keys=list(dict.fromkeys(keys)); print(json.dumps([{"lang":k,"lang_dir":d[k]} for k in keys]))')
           echo "count=${count}" >> "$GITHUB_OUTPUT"
+          echo "languages=${LANGS}" >> "$GITHUB_OUTPUT"
+          echo "matrix_include=${matrix_include}" >> "$GITHUB_OUTPUT"
 
       - name: Note when there is nothing to translate
         if: steps.changes.outputs.count == '0'
@@ -197,19 +247,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - lang: fr
-            lang_dir: fr_fr
-          - lang: ja
-            lang_dir: ja
-          - lang: ko
-            lang_dir: ko
-          - lang: pt-br
-            lang_dir: pt_br
-          - lang: es
-            lang_dir: es
-          - lang: de
-            lang_dir: de
+        include: ${{ fromJSON(needs.prepare.outputs.matrix_include) }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -364,7 +402,7 @@ jobs:
           base: develop
           # Quote the YAML value — unquoted '#' after a space starts a YAML comment,
           # which truncates this line and breaks the '${{ }}' expression (#13594).
-          title: "${{ github.event_name == 'pull_request' && format('Auto-translations — nightly deploy PR #{0}', github.event.pull_request.number) || 'Auto-translations — manual run' }}"
+          title: "${{ github.event_name == 'pull_request' && format('Auto-translations — nightly deploy PR #{0}', github.event.pull_request.number) || (inputs.languages != '' && format('Auto-translations — manual run ({0})', inputs.languages) || 'Auto-translations — manual run') }}"
           body-path: translation_pr_body.md
           labels: |
             auto-translation

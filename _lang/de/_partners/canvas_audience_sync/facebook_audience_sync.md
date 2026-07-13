@@ -40,14 +40,14 @@ Bevor Sie den Facebook-Audience-Schritt in Canvas einrichten, müssen Sie sicher
 | Facebook Business Manager | [Facebook](https://www.facebook.com/business/help/113163272211510) | Ein zentrales Tool zur Verwaltung der Facebook-Assets Ihrer Marke (z. B. Anzeigenkonten, Seiten und Apps). |
 | Facebook-Anzeigenkonto | [Facebook](https://www.facebook.com/business/help/910137316041095) | Ein aktives Facebook-Anzeigenkonto, das an den Business Manager Ihrer Marke gebunden ist.<br><br>Stellen Sie sicher, dass Ihr Facebook-Business-Manager-Administrator Ihnen entweder die Berechtigung „Kampagnen verwalten“ oder „Anzeigenkonten verwalten“ für die Facebook-Anzeigenkonten erteilt hat, die Sie mit Braze verwenden möchten. Stellen Sie außerdem sicher, dass Sie die Geschäftsbedingungen für Ihr Anzeigenkonto akzeptiert haben. |
 | Facebook-Bedingungen für angepasste Zielgruppen | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Akzeptieren Sie die Facebook-Bedingungen für angepasste Zielgruppen für Ihre Facebook-Anzeigenkonten, die Sie mit Braze verwenden möchten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
 
-### 1. Schritt: Mit Facebook verbinden {#step-1-connect-to-facebook}
+### Schritt 1: Mit Facebook verbinden {#step-1-connect-to-facebook}
 
 {% alert important %}
-Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) haben, um Facebook mit Ihrem Braze-Konto zu verbinden.
+Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) haben, um Facebook mit Ihrem Braze-Konto zu verbinden.
 {% endalert %}
 
 Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Facebook** aus. Wählen Sie unter Facebook Audience Export die Option **Connect Facebook**.
@@ -67,10 +67,10 @@ Ihre Facebook-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn
 {% alert important %}
 Für Kund:innen, die zuvor den Facebook-App-Review-Prozess für [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) und [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard) durchlaufen haben, ist Ihr System User Token weiterhin für die Facebook-Audience-Komponente gültig. Sie können das Facebook System User Token nicht über die Facebook-Partnerseite bearbeiten oder widerrufen. Stattdessen können Sie Ihr Facebook-Konto verbinden, um Ihr Facebook System User Token innerhalb Ihres Braze-Workspace zu ersetzen.
 
-<br><br>Die Facebook-oAuth-Konfiguration gilt auch für [Facebook-Exporte mit Segments]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites).
+<br><br>Die Facebook-oAuth-Konfiguration gilt auch für [Facebook-Exporte mit Segments]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites).
 {% endalert %}
 
-### 2. Schritt: Bedingungen für angepasste Zielgruppen akzeptieren {#step-2-accept-custom-audiences-terms-of-service}
+### Schritt 2: Bedingungen für angepasste Zielgruppen akzeptieren {#step-2-accept-custom-audiences-terms-of-service}
 
 Bevor Sie Ihr Canvas einrichten, müssen Sie die folgenden Facebook-Nutzungsbedingungen unter den folgenden Links akzeptieren:
 
@@ -82,13 +82,13 @@ Bevor Sie Ihr Canvas einrichten, müssen Sie die folgenden Facebook-Nutzungsbedi
 
 Weitere Einzelheiten zur Überprüfung Ihres Facebook-Kontos bei der Integration finden Sie im [FAQ-Abschnitt](#terms).
 
-### 3. Schritt: Facebook-Audience-Komponente in Canvas hinzufügen {#step-3-add-a-facebook-audience-component-in-canvas}
+### Schritt 3: Facebook-Audience-Komponente in Canvas hinzufügen {#step-3-add-a-facebook-audience-component-in-canvas}
 
 Fügen Sie eine Komponente in Ihrem Canvas hinzu und wählen Sie **Facebook Audience** aus.
 
 ![Eine Liste von Komponenten, die dem Canvas hinzugefügt werden können.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Die Audience-Sync-Komponente.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
-### 4. Schritt: Sync-Einrichtung {#step-4-sync-setup}
+### Schritt 4: Sync-Einrichtung {#step-4-sync-setup}
 
 Wählen Sie den Button **Custom Audience** aus, um den Komponenteneditor zu öffnen. Wählen Sie dann **Facebook** als Audience-Sync-Partner aus.
 
@@ -127,7 +127,7 @@ Facebook verbietet es, Nutzer:innen aus angepassten Zielgruppen zu entfernen, we
 {% endtab %}
 {% endtabs %}
 
-### 5. Schritt: Canvas starten {#step-5-launch-canvas}
+### Schritt 5: Canvas starten {#step-5-launch-canvas}
 
 Nachdem Sie Ihre Facebook-Audience-Komponente konfiguriert haben, ist es an der Zeit, das Canvas zu starten! Die neue angepasste Zielgruppe wird erstellt, und Nutzer:innen, die den Facebook-Audience-Schritt durchlaufen, werden in diese angepasste Zielgruppe auf Facebook weitergeleitet. Wenn Ihr Canvas nachfolgende Schritte enthält, rücken Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vor.
 
@@ -148,7 +148,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Nutzer:innen ausstehend | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit Facebook verarbeitet werden. |
 | Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit Facebook synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges Facebook-Token oder das Löschen der angepassten Zielgruppe auf Facebook sein. |
 | Canvas verlassen | Anzahl der Nutzer:innen, die das Canvas verlassen haben. Dies geschieht, wenn der letzte Schritt in einem Canvas ein Facebook-Schritt ist. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
 {% alert important %}
 Es gibt eine Verzögerung bei der Berichterstattung für die Metriken „Nutzer:innen synchronisiert“ und „Fehlerhafte Nutzer:innen“ aufgrund der internen Verarbeitung.
@@ -176,7 +176,7 @@ Facebook stellt diese Informationen aus Datenschutzgründen nicht zur Verfügung
 
 ### Unterstützt Braze wertbasierte angepasste Zielgruppen? {#does-braze-support-value-based-custom-audiences}
 
-Derzeit werden wertbasierte angepasste Zielgruppen von Braze nicht unterstützt. Wenn Sie daran interessiert sind, diese Arten von angepassten Zielgruppen zu synchronisieren, senden Sie uns Ihr [Produkt-Feedback]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+Derzeit werden wertbasierte angepasste Zielgruppen von Braze nicht unterstützt. {% multi_lang_include product_feedback_cta.md context="gap" feature="value-based custom audience sync" %}
 
 ### Hasht Braze Daten, bevor sie an Audience-Sync-Partner gesendet werden? {#does-braze-hash-data-before-sending-it-to-audience-sync-partners}
 
@@ -241,7 +241,7 @@ table td {
 }
 </style>
 
-<table aria-label="Troubleshooting">
+<table aria-label="Fehlerbehebung">
   <thead>
     <tr>
       <th>Fehler</th>

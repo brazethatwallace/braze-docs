@@ -3,7 +3,7 @@ nav_title: Authentification par e-mail
 article_title: Authentification par e-mail
 page_order: 2
 page_type: reference
-description: "Le présent article de référence couvre l'authentification par e-mail, un ensemble de techniques visant à équiper votre e-mail d'informations vérifiables sur son origine."
+description: "Cet article de référence couvre l'authentification par e-mail, un ensemble de techniques visant à équiper vos e-mails d'informations vérifiables sur leur origine."
 channel: email
 
 ---
@@ -26,9 +26,9 @@ Braze configure votre enregistrement SPF lorsque nous configurons vos adresses I
 
 ### Domain Keys Identified Mail (DKIM) {#dkim}
 
-Cette méthode confirme que votre domaine d'envoi d'e-mail Braze est autorisé à envoyer du courrier en votre nom. Cette méthode permet de valider l'authenticité de l'expéditeur et de s'assurer que l'intégrité du message est préservée. Elle utilise également des signatures numériques cryptographiques individuelles afin que les ISP puissent s'assurer que le courrier qu'ils distribuent est bien celui que vous avez envoyé.
+Cette méthode confirme que votre domaine d'envoi d'e-mail Braze est autorisé à envoyer du courrier en votre nom. Cette méthode permet de valider l'authenticité de l'expéditeur et de s'assurer que l'intégrité du message est préservée. Elle utilise également des signatures numériques cryptographiques individuelles afin que les fournisseurs de services Internet puissent s'assurer que le courrier qu'ils distribuent est bien celui que vous avez envoyé.
 
-Braze signe le courrier avec votre clé privée secrète. Les ISP vérifient la signature à l'aide de votre clé publique, stockée dans votre enregistrement DNS personnalisé. Aucune signature n'est exactement identique à une autre, et seule votre clé publique peut vérifier avec succès la signature de votre clé privée.
+Braze signe le courrier avec votre clé privée secrète. Les fournisseurs de services Internet vérifient la signature à l'aide de votre clé publique, stockée dans votre enregistrement DNS personnalisé. Aucune signature n'est exactement identique à une autre, et seule votre clé publique peut vérifier avec succès la signature de votre clé privée.
 
 Braze configure votre enregistrement DKIM lorsque nous configurons vos adresses IP et vos domaines. En dehors de l'ajout des enregistrements DNS que nous fournissons, aucune autre action n'est requise de votre part.
 
@@ -61,13 +61,35 @@ Il existe deux options pour vérifier l'authentification DMARC de votre domaine 
     - **MXToolbox** : si vous avez défini votre DMARC au niveau du domaine racine, saisissez-le dans MXToolbox. Si vous avez défini le DMARC au niveau du sous-domaine, saisissez le sous-domaine dans MXToolbox. Sachez que MXToolbox ne « remonte ni ne descend » lors des recherches. Cela signifie que si vous définissez le DMARC au niveau du domaine racine et saisissez le sous-domaine, MXToolbox affichera un échec car il ne sait pas que le DMARC a été défini au niveau du domaine racine.
 - **Option 2 :** Ouvrez un e-mail provenant de votre domaine ou sous-domaine dans votre boîte de réception, puis recherchez le message original pour vérifier si DMARC réussit l'authentification sur cet e-mail.
 
-Par exemple, si vous utilisez Gmail, suivez ces étapes :
+Les étapes varient selon le client de messagerie :
 
-1. Cliquez sur **Plus** <i class="fa-solid fa-ellipsis"></i> dans un message e-mail.
+{% tabs %}
+{% tab Gmail %}
+
+1. Sélectionnez **Plus** <i class="fa-solid fa-ellipsis"></i> dans un message e-mail.
 2. Sélectionnez **Afficher l'original**.
 3. Vérifiez que vous avez un état « PASS » pour **DMARC**.
 
 ![Un e-mail dont la valeur DMARC est « PASS ».]({% image_buster /assets/img_archive/dmarc_example.png %})
+
+{% endtab %}
+{% tab Outlook %}
+
+1. Ouvrez l'e-mail.
+2. Sélectionnez la flèche à côté de **Répondre**.
+3. Sélectionnez **Afficher la source du message**.
+4. Vérifiez que vous avez un état « PASS » pour **DMARC**.
+
+{% endtab %}
+{% tab Apple Mail %}
+
+1. Ouvrez l'e-mail.
+2. Sélectionnez **Présentation** dans la barre de menus.
+3. Sélectionnez **Message** > **Source brute**.
+4. Vérifiez que vous avez un état « PASS » pour **DMARC**.
+
+{% endtab %}
+{% endtabs %}
 
 #### Résoudre les échecs DMARC {#troubleshoot-dmarc-failures}
 

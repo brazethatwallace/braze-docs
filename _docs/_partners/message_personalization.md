@@ -49,6 +49,8 @@ valid_partner_list:
   url: /docs/partners/playable/
 - name: SEEN
   url: /docs/partners/seen/
+- name: Stayfilm
+  url: /docs/partners/stayfilm/
 - name: Storyly
   url: /docs/partners/storyly/
 - name: Worthy

@@ -126,7 +126,7 @@ Todas las clases de Activity registradas en tu archivo `AndroidManifest.xml` deb
 
 Para encontrar el nombre de tu paquete, haz clic en **File > Build Settings > Player Settings > Android Tab**.
 
-![]({% image_buster /assets/img_archive/UnityPackageName.png %})
+![Pestaña Android de la configuración del reproductor de Unity mostrando el nombre del paquete de la aplicación.]({% image_buster /assets/img_archive/UnityPackageName.png %})
 
 En tu `AndroidManifest.xml`, todas las instancias de `REPLACE_WITH_YOUR_PACKAGE_NAME` deben sustituirse por tu `Package Name` del paso anterior.
 
@@ -153,7 +153,7 @@ Braze proporciona una solución nativa de Unity para automatizar la integración
 
 1. En el editor de Unity, abre los ajustes de configuración de Braze navegando hasta **Braze > Braze Configuration**.
 2. Marca la casilla **Automate Unity Android Integration**.
-3. En el campo **Braze API Key**, introduce la clave de API de tu aplicación que se encuentra en **Administrar configuración** desde el dashboard de Braze.
+3. En el campo **Braze API Key**, introduce la clave de API de tu aplicación que se encuentra en **Administrar configuración** desde el panel de Braze.
 
 {% alert note %}
 Esta integración automática no debe utilizarse con un archivo `braze.xml` creado manualmente, ya que los valores de configuración pueden entrar en conflicto durante la compilación del proyecto. Si necesitas un `braze.xml` manual, desactiva la integración automática.
@@ -169,7 +169,7 @@ Braze proporciona una solución nativa de Unity para automatizar la integración
 2. Marca la casilla **Automate Unity iOS Integration**.
 3. En el campo **Braze API Key**, introduce la clave de API de tu aplicación que se encuentra en **Administrar configuración**.
 
-![]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
+![Ventana de configuración de Braze en Unity con los campos Automate Unity iOS Integration y Braze API Key.]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
 
 Si tu aplicación ya está utilizando otra subclase de `UnityAppController`, tendrás que fusionar la implementación de tu subclase con `AppboyAppDelegate.mm`.
 {% endtab %}

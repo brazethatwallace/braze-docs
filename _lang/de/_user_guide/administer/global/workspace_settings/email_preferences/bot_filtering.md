@@ -48,7 +48,7 @@ Die folgenden Braze-Metriken können von Bot-Klicks betroffen sein:
     - Personalisierte Variante
 - Geschätzte reale Öffnungsrate
 
-Abmeldungen durch mutmaßliche Bot-Klicks sind nicht betroffen. Braze verarbeitet weiterhin alle Abmeldeanfragen wie gewohnt. Wenn Sie möchten, dass Braze diese Abmeldungen blockiert, reichen Sie [Produktfeedback]({{site.baseurl}}/user_guide/administer/personal/product_portal) ein.
+Abmeldungen durch mutmaßliche Bot-Klicks sind nicht betroffen. Braze verarbeitet weiterhin alle Abmeldeanfragen wie gewohnt. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## Von Bot-Filtern betroffene Segmentierungsfilter {#segmentation-filters-affected-by-bot-filtering}
 

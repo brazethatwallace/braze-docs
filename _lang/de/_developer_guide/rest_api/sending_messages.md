@@ -92,7 +92,7 @@ Verwenden Sie diesen Endpunkt, wenn der Nachrichteninhalt im Braze-Dashboard ers
 
 **Erforderlich:** API-Schlüssel mit der Berechtigung `campaigns.trigger.send`.
 
-### 1. Schritt: Eine API-gesteuerte Campaign erstellen {#step-1-create-an-api-triggered-campaign}
+### Schritt 1: Eine API-gesteuerte Campaign erstellen {#step-1-create-an-api-triggered-campaign}
 
 1. Gehen Sie im Braze-Dashboard zu **Messaging** > **Campaigns**.
 2. Wählen Sie **Kampagne erstellen** und dann **API-gesteuerte Kampagne** (nicht „API-Kampagne“).
@@ -101,7 +101,7 @@ Verwenden Sie diesen Endpunkt, wenn der Nachrichteninhalt im Braze-Dashboard ers
 
 Weitere Informationen zum Erstellen von API-gesteuerten Campaigns finden Sie unter [API-gesteuerte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
-### 2. Schritt: Die Campaign über die API triggern {#step-2-trigger-the-campaign-via-the-api}
+### Schritt 2: Die Campaign über die API triggern {#step-2-trigger-the-campaign-via-the-api}
 
 Senden Sie eine POST-Anfrage an `/campaigns/trigger/send` mit `campaign_id` und `recipients` (oder `broadcast`/`audience`). Fügen Sie kein `messages`-Objekt ein – der Inhalt stammt aus der Campaign.
 
@@ -128,7 +128,7 @@ Den vollständigen Anfragetext (einschließlich `trigger_properties`, `send_to_e
 
 ## Integration überprüfen {#verify-your-integration}
 
-1. Senden Sie eine Anfrage über eine der oben genannten Optionen und geben Sie Ihre eigene Nutzer-ID als Empfänger:in an.
+1. Senden Sie eine Anfrage über eine der verfügbaren Optionen und geben Sie Ihre eigene Nutzer-ID als Empfänger:in an.
 2. Bestätigen Sie, dass die Nachricht zugestellt wurde.
 3. Bei Verwendung von Option 2 überprüfen Sie die Campaign im Braze-Dashboard, um sicherzustellen, dass der Versand aufgezeichnet wurde.
 

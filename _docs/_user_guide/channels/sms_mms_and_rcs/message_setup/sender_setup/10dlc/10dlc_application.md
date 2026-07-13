@@ -12,14 +12,14 @@ channel:
 
 > This article covers the company and SMS campaign information Braze needs if you're working with Braze to register your 10DLC.
 
-If you’ve purchased help from Braze to register your 10DLC, you’ll need to send us all the required information listed to the email below, as agreed in your contract with us.
+If you’ve purchased help from Braze to register your 10DLC, you’ll need to send us all the required information listed to the email in the following section, as agreed in your contract with us.
 
 Please include any relevant screenshots and attachments and send everything to [smsapplications@braze.com](mailto:smsapplications@braze.com). If you have any questions about 10DLC, check out the [Braze SMS 10DLC guide]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) or contact your Braze customer success manager.
 
 
 ## Company Information (10DLC)
 
-All US carriers require the below company information for new campaign submissions.
+All US carriers require the following company information for new campaign submissions.
 
 
 | Field                                                         | Options (if applicable)                                       | Description                                                  |
@@ -52,7 +52,7 @@ All US carriers require the below company information for new campaign submissio
 
 ## SMS campaign information
 
-We'll need to register each SMS subscription group that contains a US long code with its own A2P 10DLC campaign (sometimes referred to as a use case). Please provide the information below one time for each of your SMS subscription groups that contain a US long code.	
+We'll need to register each SMS subscription group that contains a US long code with its own A2P 10DLC campaign (sometimes referred to as a use case). Please provide this information one time for each of your SMS subscription groups that contain a US long code.	
 
 | Field | Options (if applicable) | Description |
 | ------ | ------------------------ | --------------- |

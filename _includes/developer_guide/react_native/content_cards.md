@@ -32,7 +32,6 @@ You can use these additional methods to build a custom Content Cards Feed within
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `launchContentCards()`                   | Launches the Content Cards UI element.                                                                 |
 | `requestContentCardsRefresh()`           | Requests the latest Content Cards from the Braze SDK server. The resulting list of cards is passed to each of the previously registered [content card event listeners](#reactnative_cards-methods). |
-| `getContentCards()`                      | Retrieves Content Cards from the Braze SDK. This returns a promise that resolves with the latest list of cards from the server. |
 | `getCachedContentCards()`                | Returns the most recent Content Cards array from the cache.                                            |
 | `logContentCardClicked(cardId)`          | Logs a click for the given Content Card ID. This method is used only for analytics. To execute the click action, call `processContentCardClickAction(cardId)` in addition.                                                        |
 | `logContentCardImpression(cardId)`       | Logs an impression for the given Content Card ID.                                                      |
@@ -101,7 +100,7 @@ For a full reference of the captioned image card, see the [Android](https://braz
 
 ### Classic
 
-Classic cards have a title, description, and an optional image on the left of the text.
+Classic cards have a title, description, and an optional image before the text.
 
 |Property           | Description                                                                                                       |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|

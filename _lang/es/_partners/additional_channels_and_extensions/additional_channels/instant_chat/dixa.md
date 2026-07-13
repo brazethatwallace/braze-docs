@@ -21,8 +21,8 @@ Antes de empezar, necesitarás lo siguiente:
 | Requisito | Descripción |
 |-----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Una cuenta de Dixa | Se necesita una cuenta de administrador de Dixa para beneficiarse de esta asociación. |
-| Una clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.export.ids` y `email.status`.<br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
+| Una clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.export.ids` y `email.status`.<br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Un endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
@@ -40,7 +40,7 @@ Debes ser administrador de Dixa para configurar integraciones dentro de Dixa. Pa
 En la página **Create Braze widget**, rellena los siguientes campos obligatorios para crear la integración:
 
 - **Widget name:** Este es el nombre de la integración que se utilizará posteriormente en la barra lateral de conversación como título.
-- **API URL:** Esta es la URL del punto de conexión de la API REST de Braze para tu instancia.
+- **API URL:** Esta es la URL del endpoint de la REST API de Braze para tu instancia.
 - **API Key:** Esta es la clave de API de Braze que creaste en los requisitos previos.
 
 ### Paso 2: Configura la integración {#step-2-configure-the-integration}
@@ -89,7 +89,7 @@ El primer paso es crear una transformación de datos en Braze.
 
 1. Ve a **Data Settings** > **Data Transformations** > **Create transformation**.
 2. Selecciona **Start from scratch**, selecciona el destino **POST: Track Users** y selecciona **Create transformation**.
-3. En el editor de transformación, copia el código de ejemplo de **Ejemplo de herramienta de transformación** a continuación e insértalo en el campo **Transformation code**. Selecciona **Save**, copia la **Webhook URL** y abre Dixa.
+3. En el editor de transformación, copia el código de ejemplo de **Ejemplo de herramienta de transformación** en esta sección e insértalo en el campo **Transformation code**. Selecciona **Save**, copia la **Webhook URL** y abre Dixa.
 4. En Dixa, ve a **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**.
 5. En la página de configuración del webhook, pega la URL de Braze y activa los eventos que quieras rastrear. **Conversation created** es un buen punto de partida para rastrear las conversaciones de los clientes.
 6. Selecciona **Save** para finalizar la configuración de Dixa.
@@ -137,7 +137,7 @@ return brazecall;
 
 1. Ve a **Data Settings** > **Data Transformations** > **Create transformation**.
 2. Selecciona **Start from scratch**, selecciona el destino **POST: Track Users** y selecciona **Create transformation**.
-3. En el editor de transformación, copia el código de ejemplo de **Rastrear puntuación CSAT** a continuación e insértalo en el campo **Transformation code**. Selecciona **Save**, copia la **Webhook URL** y abre Dixa.
+3. En el editor de transformación, copia el código de ejemplo de **Rastrear puntuación CSAT** en esta sección e insértalo en el campo **Transformation code**. Selecciona **Save**, copia la **Webhook URL** y abre Dixa.
 4. En Dixa, ve a **Settings** > **Integrations** > **Webhooks** > **+ Outbound webhook**.
 5. En la página de configuración del webhook, pega la URL de Braze y activa los eventos que quieras rastrear. **Conversation created** es un buen punto de partida para rastrear las conversaciones de los clientes.
 6. Selecciona **Save** para finalizar la configuración de Dixa.

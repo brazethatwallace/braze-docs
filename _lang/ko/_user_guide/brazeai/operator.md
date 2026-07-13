@@ -20,7 +20,7 @@ Braze 대시보드의 모든 페이지에서 Operator를 열 수 있습니다.
 ![고객 프로필 옆의 BrazeAI Operator 아이콘.]({% image_buster /assets/img/operator/operator_icon.png %})
 
 {:start="2"}
-2. Operator 채팅 패널이 화면 오른쪽에 열립니다.
+2. Operator 채팅 패널이 사이드 패널에 열립니다.
 
 ![Operator 채팅 패널.]({% image_buster /assets/img/operator/operator_chat_panel.png %})
 
@@ -45,7 +45,7 @@ Operator는 단계별 지침, Braze 설명서 링크 및 쉬운 설명을 제공
 
 Operator를 검색 엔진이 아닌 대화 상대처럼 대하세요. 짧고 자연스러운 프롬프트가 가장 효과적입니다.
 
-- **구체적으로 질문하세요:** "Canvas에 대해 알려주세요" 대신 "Canvas에서 행동 경로를 어떻게 사용하나요?"라고 물어보세요.
+- **구체적으로 질문하세요:** "Canvas에 대해 알려주세요" 대신 "Canvas에서 작업 경로를 어떻게 사용하나요?"라고 물어보세요.
 - **추가 질문을 하세요:** 첫 번째 답변이 필요한 내용을 충족하지 못할 경우, 명확한 설명이나 추가 세부 정보를 요청하세요.
 - **페이지 인식 컨텍스트를 활용하세요:** Operator는 Braze 내에서 사용자의 위치를 파악합니다. 가장 정확한 결과를 얻으려면 관련 페이지를 보면서 Operator를 열어주세요.
 

@@ -68,7 +68,7 @@ Pour accéder au Centre de livrabilité, vous devez disposer des [autorisations 
 Avant de vous connecter au Centre de livrabilité, vous devez configurer un compte Google Postmaster Tools. Vous pouvez utiliser un compte Gmail professionnel ou personnel pour cette configuration.
 
 1. Accédez au [tableau de bord Google Postmaster Tools](https://postmaster.google.com/managedomains?pli=1).
-2. En bas à droite, sélectionnez <i class="fas fa-plus-circle"></i> **Add domain**.
+2. En bas de la page, sélectionnez <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Saisissez votre domaine racine (parent) pour authentifier votre e-mail. Assurez-vous que l'enregistrement TXT est lié à ce domaine racine (parent), et **non** au sous-domaine que vous utilisez via Braze. La vérification du domaine racine (parent) vous permet d'ajouter ultérieurement des sous-domaines dans Postmaster Tools sans créer d'enregistrements TXT supplémentaires. Par exemple, en vérifiant `braze.com`, vous pouvez ensuite ajouter `demo.braze.com` comme sous-domaine distinct dans Postmaster Tools pour consulter les indicateurs au niveau du sous-domaine.
 4. Google génère un enregistrement TXT qui peut être ajouté directement au DNS de votre domaine. Celui-ci est généralement géré par la personne responsable de votre DNS. Pour obtenir des informations et des instructions sur la mise à jour de votre DNS spécifique, consultez [Vérifier votre domaine (étapes spécifiques à l'hébergeur)](https://support.google.com/a/topic/1409901).
 5. Sélectionnez **Next**. <br>![Un exemple de domaine « demo.braze.com » pour authentifier un e-mail.]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -162,10 +162,20 @@ Pour plus d'idées sur l'amélioration de la livrabilité, consultez [Pièges de
 
 ## Configurer Microsoft Smart Network Data Services (SNDS) {#set-up-microsoft-smart-network-data-services-snds}
 
-Si Microsoft est votre principal fournisseur de messagerie, vous pouvez utiliser cette intégration pour accéder à vos données de réputation Microsoft et les consulter. Cela vous permet de surveiller la santé de vos adresses IP afin de mieux comprendre comment vos e-mails sont reçus.
+Si Microsoft est votre principal fournisseur de messagerie, vous pouvez consulter les données Microsoft SNDS dans le Centre de livrabilité. Cela inclut les adresses IP d'envoi dédiées pour les espaces de travail qui utilisent Amazon SES, SendGrid ou SparkPost. Utilisez ces données pour surveiller la santé de vos adresses IP et comprendre comment les fournisseurs de messagerie Microsoft évaluent vos envois.
+
+Microsoft SNDS fournit des données au niveau de l'adresse IP sur les plaintes pour spam, les occurrences de pièges à spam et le volume d'envoi, tels que rapportés par les fournisseurs de messagerie Microsoft comme Outlook, Hotmail et Live.
 
 {% alert important %}
-Si vous ne voyez pas vos données dans le Centre de livrabilité, contactez l'[Assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support) en fournissant la liste de vos adresses IP.
+Si vous ne voyez pas vos données dans le Centre de livrabilité, contactez l'[assistance]({{site.baseurl}}/user_guide/administer/personal/braze_support) en fournissant la liste de vos adresses IP.
+{% endalert %}
+
+### Amazon SES
+
+Pour les espaces de travail qui envoient des e-mails via Amazon SES, le Centre de livrabilité affiche les indicateurs Microsoft SNDS pour vos adresses IP d'envoi dédiées. Braze rétrocharge jusqu'à 90 jours de données SNDS historiques lorsque cette fonctionnalité est activée pour votre espace de travail.
+
+{% alert note %}
+Amazon SES ne fournit pas les indicateurs **Trap message period start** ni **Trap message period end**. Pour les adresses IP d'envoi SES, ces colonnes sont masquées dans le tableau Microsoft SNDS. Vous pouvez toujours consulter les autres indicateurs SNDS pour ces adresses IP, y compris les occurrences de pièges à spam.
 {% endalert %}
 
 ![Un exemple de résultats de Microsoft SNDS, incluant des adresses IP d'exemple, des destinataires, des commandes RCPT, des commandes DATA, des résultats de filtrage, un taux de plaintes, les dates de début et de fin de la période de messages piège, et les occurrences de pièges à spam.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
@@ -209,6 +219,10 @@ Pour calculer le taux de plaintes, divisez le nombre de plaintes par le nombre d
 #### Occurrences de pièges à spam {#spam-trap-hits}
 
 Les occurrences de pièges à spam correspondent au nombre de messages envoyés à des « comptes piège », c'est-à-dire des comptes gérés par Outlook.com qui ne sollicitent aucun courrier. Il est probable que tout message envoyé à ces comptes piège soit considéré comme spam. Il est donc important de surveiller cet indicateur pour s'assurer qu'il reste faible. Un faible nombre d'occurrences de pièges à spam signifie que les messages ne sont pas envoyés à ces comptes et sont bien distribués à de véritables comptes.
+
+#### Début et fin de la période de messages piège {#trap-message-period-start-and-end}
+
+Ces colonnes indiquent quand les premiers et derniers messages envoyés à des comptes piège ont été reçus depuis l'adresse IP pendant la période d'activité. Amazon SES ne fournit pas ces indicateurs, les colonnes sont donc masquées lorsque vous consultez uniquement les adresses IP d'envoi SES dans le tableau Microsoft SNDS.
 
 {% alert tip %}
 Si vous recherchez des enregistrements liés à l'un de vos domaines vérifiés dans Braze, notez que le Centre de livrabilité affiche vos données provenant de Google Postmaster ou de Microsoft SNDS, ce qui signifie qu'il est possible que l'une ou l'autre de ces plateformes n'ait pas de données à partager avec Braze. Vous pouvez également essayer de maintenir un envoi d'e-mails régulier, car cela peut contribuer à améliorer votre réputation.

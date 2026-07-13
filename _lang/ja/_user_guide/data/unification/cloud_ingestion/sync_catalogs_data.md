@@ -11,16 +11,16 @@ description: "このページでは、カタログデータの同期方法の概
 
 > このページでは、カタログデータの同期方法について説明します。
 
-## ステップ 1: 新規カタログの作成 {#step-1-create-a-new-catalog}
+## ステップ1:新規カタログの作成 {#step-1-create-a-new-catalog}
 
-[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)用の新しいクラウドデータ取り込み (CDI) 連携を作成する前に、新規カタログを作成するか、連携に使用する既存のカタログを特定する必要があります。新規カタログを作成する方法はいくつかあり、いずれもCDI連携に使用できます。
+[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)用の新しいクラウドデータ取り込み（CDI）連携を作成する前に、新規カタログを作成するか、連携に使用する既存のカタログを特定する必要があります。新規カタログを作成する方法はいくつかあり、いずれもCDI連携に使用できます。
 - [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv)をアップロードする
 - [Brazeダッシュボード]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser)またはCDIセットアップ中にカタログを作成する
 - [カタログ作成エンドポイント]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog)を使用してカタログを作成する
 
 カタログスキーマへの変更（例えば、新しいフィールドの追加やフィールドタイプの変更）は、更新されたデータがCDIを通じて同期される前に、カタログダッシュボードで行う必要があります。データウェアハウスのデータとBrazeのスキーマとの競合を避けるために、同期が一時停止されているとき、または実行がスケジュールされていないときにこれらの更新を行うことをお勧めします。
 
-## ステップ 2: クラウドデータ取り込みとカタログデータの連携 {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
+## ステップ2:クラウドデータ取り込みとカタログデータの連携 {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
 カタログ同期の設定は、[ユーザーデータCDI連携]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup)のプロセスとほぼ同じです。
 
 {% tabs %}
@@ -57,7 +57,7 @@ description: "このページでは、カタログデータの同期方法の概
 3. Snowflakeアカウントにネットワークポリシーがある場合は、CDIサービスが接続できるようにBrazeのIPを許可リストに追加してください。IPのリストについては、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
 4. Brazeダッシュボードで、**テクノロジーパートナー** > **Snowflake** に移動し、新しい同期を作成します。
 5. 接続の詳細（または既存の認証情報を再利用）とソーステーブルを入力します。
-6. セットアップフローのステップ 2 に進み、「Catalogs」同期タイプを選択し、連携名とスケジュールを入力します。連携名は、以前に作成したカタログの名前と**完全に一致する**必要があることに注意してください。
+6. セットアップフローのステップ2に進み、「Catalogs」同期タイプを選択し、連携名とスケジュールを入力します。連携名は、以前に作成したカタログの名前と**完全に一致する**必要があることに注意してください。
 7. 同期頻度を選択し、次のステップに進みます。
 8. ダッシュボードに表示された公開キーを、BrazeがSnowflakeに接続するために作成したユーザーに追加します。このステップを完了するには、Snowflakeで `SECURITYADMIN` 以上のアクセス権を持つ担当者が必要です。
 9. **Test Connection** を選択して、すべてが期待どおりに動作することを確認します。
@@ -116,7 +116,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | JSON | REQUIRED |
 | ID | STRING | REQUIRED |
 | DELETED | BOOLEAN | OPTIONAL |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 2: クラウドデータ取り込みとカタログデータの連携" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ2:クラウドデータ取り込みとカタログデータの連携" }
 
 {:start="2"}
 
@@ -155,7 +155,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | STRING、STRUCT、または MAP | REQUIRED |
 | ID | STRING | REQUIRED |
 | DELETED | BOOLEAN | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 2: クラウドデータ取り込みとカタログデータの連携" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ2:クラウドデータ取り込みとカタログデータの連携" }
 
 {:start="2"}
 
@@ -204,7 +204,7 @@ JSONまたはCSV形式を使用してS3にソースファイルを作成しま�
 | `PAYLOAD` | はい | Brazeのカタログアイテムに同期するフィールドのJSON文字列。 |
 | `DELETED` | オプション | `true` に設定すると、対応するカタログアイテムがカタログから削除されます。 |
 | `UPDATED_AT` | *非対応* | ファイルストレージでは `UPDATED_AT` 列はサポートされていません。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 2: クラウドデータ取り込みとカタログデータの連携" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ2:クラウドデータ取り込みとカタログデータの連携" }
 
 {% alert note %}
 ファイル名はAWSのルールに従い、一意である必要があります。一意性を確保するためにタイムスタンプを付加してください。
@@ -212,7 +212,7 @@ JSONまたはCSV形式を使用してS3にソースファイルを作成しま�
 
 完全なS3セットアップには、S3バケット、Amazon SQSキュー、およびAWS IAMロールとポリシーが必要です。Brazeは同期が作成された後にアップロードされたファイルのみを処理するため、取り込みたい既存のファイルは再アップロードしてください。
 
-完全なS3セットアップフローについては、[ファイルストレージの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。特に以下をご覧ください。
+完全なS3セットアップフローについては、[ファイルストレージの連携]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。特に以下をご覧ください。
 
 - [AWSでのクラウドデータ取り込みの設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-aws)
 - [Brazeでのクラウドデータ取り込みの設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-braze)
@@ -223,7 +223,7 @@ AWS側の通知や権限に関する一般的な問題については、[Grantin
 以下の例は、ファイルストレージからカタログデータを同期するための有効なJSONおよびCSV形式を示しています。
 
 {% subtabs %}
-{% subtab JSON カタログ %}
+{% subtab JSONカタログ %}
 ```jsonl
 {"id":"85","payload":"{\"product_name\":\"Product 85\",\"price\":85.85}"}
 {"id":"86","payload":"{\"product_name\":\"Product 86\",\"price\":86.86}"}
@@ -234,7 +234,7 @@ AWS側の通知や権限に関する一般的な問題については、[Grantin
 ソースファイルの各行には有効なJSONが含まれている必要があります。そうでない場合、ファイルはスキップされます。
 {% endalert %}
 {% endsubtab %}
-{% subtab 削除ありの CSV カタログ %}
+{% subtab 削除ありのCSVカタログ %}
 ```plaintext
 ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
@@ -242,7 +242,7 @@ ID,PAYLOAD,DELETED
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
 {% endsubtab %}
-{% subtab 削除なしの CSV カタログ %}
+{% subtab 削除なしのCSVカタログ %}
 ```plaintext
 ID,PAYLOAD
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}"
@@ -251,7 +251,7 @@ ID,PAYLOAD
 {% endsubtab %}
 {% endsubtabs %}
 
-その他のファイル例については、[ファイルストレージの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
+その他のファイル例については、[ファイルストレージの連携]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
 
 {% endtab %}
 {% endtabs %}
@@ -259,12 +259,12 @@ ID,PAYLOAD
 ## 連携の仕組み {#how-the-integration-works}
 
 {% alert note %}
-このセクションの同期ビューは、データウェアハウス連携にのみ適用されます。S3ファイルストレージの場合、Brazeはバケットにアップロードされた新しいファイルを処理します。詳細については、[ファイルストレージの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
+このセクションの同期ビューは、データウェアハウス連携にのみ適用されます。S3ファイルストレージの場合、Brazeはバケットにアップロードされた新しいファイルを処理します。詳細については、[ファイルストレージの連携]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
 {% endalert %}
 
 同期が実行されるたびに、Brazeは `UPDATED_AT` が最後に同期された値より後のすべての行を取り込みます。境界のタイムスタンプと同じ値を持つ新しい行がある場合、そのタイムスタンプの行が再同期されることがあります。カタログデータからデータウェアハウスにビューを作成し、同期が実行されるたびに完全にリフレッシュされるソーステーブルを設定することをお勧めします。ビューを使用すれば、クエリを毎回書き直す必要はありません。
 
-例えば、`product_id` と3つの追加属性を含む製品データテーブル (`product_catalog_1`) がある場合、以下のビューを同期できます。
+例えば、`product_id` と3つの追加属性を含む製品データテーブル（`product_catalog_1`）がある場合、以下のビューを同期できます。
 
 {% tabs %}
 {% tab Snowflake %}

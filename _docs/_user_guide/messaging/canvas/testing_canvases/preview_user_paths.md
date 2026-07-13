@@ -35,7 +35,7 @@ The following steps are supported:
 - Experiment Path
 - User Update (only in the UI editor, meaning steps using JSON editor are skipped)
 
-If the test overlaps with a step type that isn't listed above, the unsupported step is skipped, and the test user continues to the next supported step.
+If the test overlaps with a step type that isn't listed earlier in this section, the unsupported step is skipped, and the test user continues to the next supported step.
 
 ### Canvas step details
 

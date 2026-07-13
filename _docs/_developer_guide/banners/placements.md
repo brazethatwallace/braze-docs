@@ -31,7 +31,21 @@ These are the minimum SDK versions needed to create Banner placements:
 
 ### Step 2: Refresh placements in your app {#requestBannersRefresh}
 
-To refresh placements, call the refresh method for your SDK. If `subscribeToBannersUpdates` is active, the SDK automatically re-publishes your cached placement IDs at the start of each new session and when you call `changeUser`. This automatic refresh does not consume a rate limiting token.
+To refresh placements, call the refresh method for your SDK (`requestBannersRefresh()` on Web and Android, or `requestRefresh()` on Swift).
+
+Banner refresh behavior has two paths:
+
+1. **Explicit refresh:** You can call the refresh method at any point during an active session.
+2. **Automatic refresh on a new session:** After you make at least one explicit refresh request, the SDK can re-request the most recently requested placement IDs when a new Braze session starts (for example, after `changeUser()` or after a session timeout).
+
+The role of `subscribeToBannersUpdates()` differs by platform:
+
+- **iOS and Android:** `subscribeToBannersUpdates()` (or `subscribeToUpdates()` on Swift) registers an update callback. The automatic session-start refresh is not dependent on the subscription being active.
+- **Web:** The automatic session-start refresh is tied to `subscribeToBannersUpdates()` being registered. Without an active subscription, the SDK does not automatically repeat the refresh on a new session.
+
+In all cases, you must make at least one explicit refresh request per app lifecycle so the SDK knows which placement IDs to keep updated. Banners are not fetched automatically on first launch without that initial call, and the tracked placement IDs reset after the app restarts.
+
+Automatic session-start refreshes do not consume a rate limiting token.
 
 {% alert tip %}
 Refresh placements as soon as possible to avoid delays in downloading or displaying Banners.
@@ -496,7 +510,7 @@ For the simplest integration, add the following JavaScript XML (JSX) snippet int
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 

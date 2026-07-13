@@ -59,11 +59,11 @@ Les étiquettes doivent correspondre à au moins une Campaign ou un Canvas pour 
 
 ### Étape 3 : Ajouter des statistiques {#add-statistics-to-your-reports}
 
-L'étape **Add Stats** vous présente les statistiques correspondant aux types de Campaigns ou de Canvas que vous avez sélectionnés. Par exemple, si vous avez sélectionné des messages e-mail, vous ne pouvez consulter que les statistiques e-mail pertinentes. Si vous avez choisi une combinaison d'e-mail et de push, vous pouvez consulter les statistiques de ces deux canaux.
+L'étape **Add Stats** vous présente les statistiques correspondant aux types de Campaigns ou de Canvas que vous avez sélectionnés. Par exemple, si vous avez sélectionné des messages e-mail, vous ne pouvez consulter que les statistiques e-mail pertinentes. Si vous avez choisi une combinaison d'e-mail et de notification push, vous pouvez consulter les statistiques de ces deux canaux.
 
 ![engagement_report_add_stats]({% image_buster /assets/img_archive/engagement_report_add_stats.png %})
 
-Les rapports d'engagement agrègent les données par Campaign ou par Canvas, et non au niveau de l'espace de travail. Pour surveiller le volume total d'envois ou d'impressions sur l'ensemble des Campaigns et Canvas actifs, comme les envois et impressions par canal à l'échelle d'un espace de travail entier, utilisez le [Générateur de rapports]({{site.baseurl}}/report_builder).
+Les rapports d'engagement agrègent les données par Campaign ou par Canvas, et non au niveau de l'espace de travail. Pour surveiller le volume total d'envois ou d'impressions sur l'ensemble des Campaigns et Canvas actifs, comme les envois et impressions par canal à l'échelle d'un espace de travail entier, utilisez le [générateur de rapports]({{site.baseurl}}/report_builder).
 
 {% alert note %}
 *Envois à l'opérateur* est obsolète, mais continuera d'être pris en charge pour les utilisateurs qui en disposent déjà.
@@ -131,6 +131,21 @@ Le rapport contient toutes les statistiques sélectionnées dans la section [Ajo
 
 ## Résolution des problèmes {#troubleshooting}
 
+### Les indicateurs du rapport d'engagement diffèrent du tableau de bord de performance des e-mails {#engagement-report-metrics-differ-from-the-email-performance-dashboard}
+
+Les rapports d'engagement et le [tableau de bord de performance des e-mails]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance) utilisent les mêmes définitions d'indicateurs e-mail. Les deux attribuent les ouvertures et les clics au jour où chaque événement **s'est produit**, et les deux calculent les *ouvertures uniques* et les *clics uniques* comme des comptages uniques sur sept jours par jour, additionnés sur la plage de dates sélectionnée. Pour les définitions, consultez [Indicateurs e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#email-metrics) et [Comment les indicateurs sont calculés]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#how-metrics-are-calculated) sur la page des tableaux de bord de performance par canal.
+
+Si les totaux diffèrent toujours pour les mêmes Campaigns et la même période, vérifiez les points suivants :
+
+| Vérification | Pourquoi c'est important |
+| --- | --- |
+| Plage de dates et fuseau horaire | Les deux surfaces doivent couvrir les mêmes jours calendaires dans le même fuseau horaire. |
+| Sélection de Campaign ou de Canvas | Le tableau de bord de performance des e-mails agrège l'activité e-mail à l'échelle de l'espace de travail. Un rapport d'engagement n'inclut que les Campaigns ou Canvas que vous avez sélectionnés. |
+| Lignes quotidiennes versus totaux du rapport | Si **Data Display** divise l'export en lignes quotidiennes, additionnez ces lignes pour les comparer aux totaux du tableau de bord pour la même plage. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Vérifications lorsque les indicateurs e-mail du rapport d'engagement diffèrent du tableau de bord de performance des e-mails" }
+
+Les différences sont plus fréquentes lorsque les chiffres du rapport d'engagement sont comparés aux analyses de **Campaign** ou de **Canvas** plutôt qu'au tableau de bord de performance des e-mails. Les pages Campaign et Canvas peuvent afficher des indicateurs basés sur la date d'envoi (par exemple, les envois ou les conversions attribuées à la date d'envoi) aux côtés des ouvertures et clics basés sur la date de l'événement. Consultez [Le rapport d'engagement ne correspond pas aux indicateurs du Canvas ou de la Campaign](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign) ci-dessous.
+
 ### Le rapport d'engagement ne correspond pas aux indicateurs du Canvas ou de la Campaign {#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign}
 
 #### Plage de dates non concordante {#mismatched-time-range}
@@ -140,12 +155,12 @@ Assurez-vous que les dates du rapport d'engagement correspondent aux dates dans 
 Si les totaux semblent incorrects dans un tableur, supprimez les filtres supplémentaires sur l'export. Vous pouvez additionner les lignes quotidiennes pour les réconcilier avec les totaux du Canvas ou de la Campaign pour la même plage de dates.
 
 {% alert note %}
-Si vous souhaitez une seule ligne agrégée pour la plage complète au lieu de compartiments quotidiens, hebdomadaires ou autres récurrents, définissez **Data Display** sur **Show Data by Entire Campaign or Canvas**. Si le nombre de lignes ou les dates semblent incorrects dans le CSV, consultez [Afficher les données par Campaign ou Canvas entier](#show-data-by-entire-campaign-or-canvas).
+Si vous souhaitez des lignes agrégées par Campaign ou Canvas entier plutôt que par compartiments quotidiens, hebdomadaires ou autres récurrents, définissez **Data Display** sur **Show Data by Entire Campaign or Canvas**. Si le nombre de lignes ou les dates semblent incorrects dans le CSV, consultez [Afficher les données par Campaign ou Canvas entier](#show-data-by-entire-campaign-or-canvas).
 {% endalert %}
 
 #### Clics de bouton en double dans les messages in-app HTML {#duplicate-button-clicks-in-html-in-app-messages}
 
-Si vous utilisez des messages in-app HTML et que les **Clics sur le corps** semblent élevés dans le rapport d'engagement, il est possible que vous déclenchiez la journalisation des clics deux fois — par exemple en appelant `brazeBridge.logClick()` pour un clic générique sur le corps et également `brazeBridge.logClick('body click')` (ou un autre ID) sur la même interaction. Recherchez `brazeBridge.logClick(` dans votre code et alignez-vous sur un seul modèle par contrôle. Pour l'utilisation recommandée, consultez [Suivi des boutons]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#button-tracking-improvements).
+Si vous utilisez des messages in-app HTML et que les **clics sur le corps** semblent élevés dans le rapport d'engagement, il est possible que vous déclenchiez la journalisation des clics deux fois — par exemple en appelant `brazeBridge.logClick()` pour un clic générique sur le corps et également `brazeBridge.logClick('body click')` (ou un autre ID) sur la même interaction. Recherchez `brazeBridge.logClick(` dans votre code et alignez-vous sur un seul modèle par contrôle. Pour l'utilisation recommandée, consultez [Suivi des boutons]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#button-tracking-improvements).
 
 #### Liens cassés dans les rapports d'engagement envoyés par e-mail {#broken-links-in-emailed-engagement-reports}
 

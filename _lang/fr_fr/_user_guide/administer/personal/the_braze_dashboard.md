@@ -50,7 +50,7 @@ Le menu vertical à gauche organise les outils de Braze par fonction et garde vo
 
 Situé en haut de la navigation latérale, le sélecteur d'espace de travail vous permet de passer d'un espace de travail à un autre dans votre instance Braze. L'espace de travail actif est mis en surbrillance.
 
-Les [espaces de travail]({{site.baseurl}}/user_guide/get_started/workspaces) aident à organiser le contenu par marque, région, ligne de produits ou équipe. Chaque espace de travail comprend ses propres données, Campaigns et paramètres. Votre accès peut varier d'un espace de travail à l'autre. Par exemple, vous pourriez avoir un accès en modification dans un espace de travail et un accès en lecture seule dans un autre.
+Les [espaces de travail]({{site.baseurl}}/user_guide/get_started/workspaces) aident à organiser le contenu par marque, région, ligne de produits ou équipe. Chaque espace de travail comprend ses propres données, campagnes et paramètres. Votre accès peut varier d'un espace de travail à l'autre. Par exemple, vous pourriez avoir un accès en modification dans un espace de travail et un accès en lecture seule dans un autre.
 
 Pour changer d'espace de travail, sélectionnez le menu déroulant de l'espace de travail en haut de la navigation latérale et choisissez l'espace de travail auquel vous souhaitez accéder. Vous pouvez également [ajouter des espaces de travail favoris](#favorite-workspaces) pour un accès plus rapide à ceux que vous utilisez le plus souvent.
 
@@ -134,7 +134,7 @@ Le tableau de bord de Braze comprend plusieurs fonctionnalités pour vous aider 
 
 ### BrazeAI Operator
 
-BrazeAI Operator™ est un assistant alimenté par l'intelligence artificielle intégré au tableau de bord. Utilisez-le pour obtenir des réponses, suivre des étapes de configuration, résoudre des problèmes et trouver des idées. Ouvrez-le depuis **BrazeAI Operator™** dans l'en-tête global à côté de votre profil. Pour en savoir plus, consultez [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
+BrazeAI Operator™ est un assistant alimenté par l'IA intégré au tableau de bord. Utilisez-le pour obtenir des réponses, suivre des étapes de configuration, résoudre des problèmes et trouver des idées. Ouvrez-le depuis **BrazeAI Operator™** dans l'en-tête global à côté de votre profil. Pour en savoir plus, consultez [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ### Reprendre là où vous en étiez {#pick-up-where-you-left-off}
 
@@ -178,7 +178,7 @@ Vous souhaitez nous dire ce que vous en pensez ? Vous pouvez partager vos commen
 - [Créer et gérer des espaces de travail]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)
 - [Gérer les utilisateurs Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users)
 - [Autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)
-- [Équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams)
+- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)
 
 ### Tâches clés et prochaines étapes {#key-tasks-and-next-steps}
 
@@ -186,4 +186,4 @@ Vous souhaitez nous dire ce que vous en pensez ? Vous pouvez partager vos commen
 - **Créer des parcours** : [Créer un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
 - **Définir des audiences** : [Créer un Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
 - **Consulter les performances** : [Aperçu de l'analyse]({{site.baseurl}}/user_guide/analytics/dashboards/home)
-- **Configurer les paramètres** : [Paramètres des applications]({{site.baseurl}}/user_guide/administer/global/workspace_settings)
+- **Configurer les paramètres** : [Paramètres de l'application]({{site.baseurl}}/user_guide/administer/global/workspace_settings)

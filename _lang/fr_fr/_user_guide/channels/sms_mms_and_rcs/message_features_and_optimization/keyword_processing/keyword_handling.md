@@ -48,7 +48,7 @@ Les règles suivantes s'appliquent aux mots-clés et aux réponses de mots-clés
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ajouter des déclencheurs de mots-clés" }
 
 {% alert tip %}
-Vous souhaitez voir comment ces mots-clés peuvent être utilisés dans vos campagnes et Canvas pour recibler et déclencher des messages ? Consultez [Reciblage des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) pour plus d'informations.
+Vous souhaitez voir comment ces mots-clés peuvent être utilisés dans vos Campaigns et Canvas pour recibler et déclencher des messages ? Consultez [Reciblage des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) pour plus d'informations.
 {% endalert %}
 {% endtab %}
 
@@ -90,7 +90,7 @@ Sélectionnez **Add a Language** et choisissez votre langue cible ou recherchez 
 Les langues autres que l'anglais ne sont pas fournies avec des mots-clés et des réponses prédéfinis. Les expéditeurs devront donc travailler avec leurs équipes marketing et juridiques pour ajouter les mots-clés requis à cet ensemble. Sinon, Braze ne traitera pas les messages entrants localisés pour ces langues.
 {% endalert %}
 
-Si vous devez supprimer une langue, sélectionnez le bouton **Delete Language** en bas à droite.
+Si vous devez supprimer une langue, sélectionnez le bouton **Delete Language** en bas de la page.
 
 ![Page des mots-clés globaux avec l'onglet « Italian » sélectionné. Des onglets supplémentaires existent pour chaque langue ajoutée.]({% image_buster /assets/img/sms/multi-language2.png %})
 
@@ -110,21 +110,21 @@ Pour créer une catégorie de mots-clés personnalisée, procédez comme suit :
 2. Sélectionnez **Add custom keyword**. ![Champs pour ajouter de nouveaux mots-clés.]({% image_buster /assets/img/sms/sms_custom_step.png %}){: style="max-width:90%;"}
 3. Indiquez un nom de catégorie de mots-clés et définissez les mots-clés qu'un utilisateur peut envoyer pour recevoir le message de réponse.
 
-Une fois cette catégorie de mots-clés créée, elle sera disponible pour [filtrer et déclencher]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) dans vos campagnes et Canvas.
+Une fois cette catégorie de mots-clés créée, elle sera disponible pour [filtrer et déclencher]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) dans vos Campaigns et Canvas.
 
 Les mots-clés créés dans les catégories de mots-clés personnalisées respectent toutes les règles et validations applicables à la création de nouveaux mots-clés.
 
 ### Mots-clés spécifiques au cycle de vie {#lifecycle-specific-keywords}
 
-Si vous avez un cas d'utilisation où vous souhaitez limiter le moment où un client peut envoyer un mot-clé spécifique au cours de son cycle de vie (par exemple, lors de son onboarding initial) pour recevoir une réponse, vous pouvez utiliser le déclencheur **Sent inbound SMS to subscription group within keyword category OTHER** dans votre campagne ou Canvas et définir les mots-clés que vos utilisateurs peuvent envoyer à un moment donné.
+Si vous avez un cas d'usage où vous souhaitez limiter le moment où un client peut envoyer un mot-clé spécifique au cours de son cycle de vie (par exemple, lors de son onboarding initial) pour recevoir une réponse, vous pouvez utiliser le déclencheur **Sent inbound SMS to subscription group within keyword category OTHER** dans votre Campaign ou Canvas et définir les mots-clés que vos utilisateurs peuvent envoyer à un moment donné.
 
 Ce déclencheur prend en charge le filtrage sur le message entrant spécifique en utilisant des comparaisons « est » ou « n'est pas » du message, ainsi que des règles d'expression régulière « correspond » ou « ne correspond pas » pour valider la saisie de l'utilisateur.
 
-#### Canvas
+#### Canvas {#canvas}
 
 ![Étape Canvas basée sur une action avec le déclencheur « Send inbound SMS to subscription group "Messaging Service" within keyword category "Other" » où le corps du message correspond à l'expression régulière « caret symbol skip ».]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
 
-#### Campaign
+#### Campaign {#campaign}
 
 ![Campaign basée sur une action avec le déclencheur « Send inbound SMS to subscription group "Marketing Message Service A" within keyword category "Other" » où le corps du message est « Keyword1 » ou est « Keyword2 » ou n'est pas « Keyword A ».]({% image_buster /assets/img/sms/campaign_trigger.png %}){: style="max-width:90%;"}
 
@@ -134,7 +134,7 @@ Nous recommandons vivement de configurer une réponse automatique lorsque des ut
 
 Pour envoyer une réponse par défaut, par exemple « Désolé ! Nous n'avons pas reconnu ce mot-clé. », procédez comme suit :
 
-1. Créez une [campagne SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
+1. Créez une [Campaign SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
 2. Pour **Audience cible**, choisissez **Tous les utilisateurs** (le déclencheur limite toujours qui reçoit le message).
 3. Pour **Planification**, choisissez **Livraison par événement**.
 4. Définissez le déclencheur sur **Send inbound SMS** au groupe d'abonnement approprié **within keyword category OTHER**.
@@ -143,5 +143,5 @@ Pour envoyer une réponse par défaut, par exemple « Désolé ! Nous n'avons pa
 Pour savoir comment Braze gère les messages entrants provenant de numéros de téléphone **inconnus** (avant qu'un profil n'existe), consultez [Gestion des numéros de téléphone inconnus]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers).
 
 {% alert tip %}
-Vous souhaitez voir comment ces mots-clés et catégories de mots-clés peuvent être utilisés dans vos campagnes et Canvas pour recibler et déclencher des messages ? Consultez [Reciblage des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) pour plus d'informations.
+Vous souhaitez voir comment ces mots-clés et catégories de mots-clés peuvent être utilisés dans vos Campaigns et Canvas pour recibler et déclencher des messages ? Consultez [Reciblage des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) pour plus d'informations.
 {% endalert %}

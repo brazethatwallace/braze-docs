@@ -109,7 +109,7 @@ Si une image de Content Card ne s'affiche pas ou apparaît cassée :
 
 Après l'envoi de vos Content Cards, vous pouvez analyser ou déboguer tout problème depuis le [journal des événements utilisateur]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) dans la console de développement.
 
-Un cas d'utilisation courant consiste à essayer de déboguer pourquoi un utilisateur ne peut pas voir une Content Card particulière. Pour ce faire, vous pouvez consulter les **journaux des événements utilisateur** pour les Content Cards envoyées au SDK au démarrage de la session, mais avant une impression, et les relier à une campagne spécifique :
+Un cas d'usage courant consiste à essayer de déboguer pourquoi un utilisateur ne peut pas voir une Content Card particulière. Pour ce faire, vous pouvez consulter les **journaux des événements utilisateur** pour les Content Cards envoyées au SDK au démarrage de la session, mais avant une impression, et les relier à une campagne spécifique :
 
 1. Allez dans **Settings** > **Event User Log**.
 2. Localisez et développez la requête SDK pour votre utilisateur test.
@@ -388,6 +388,7 @@ Il existe quelques situations où les messages de test ne se comportent pas de l
 - Pour tester les messages in-app et les Content Cards, l'utilisateur cible doit disposer d'un jeton de notification push pour l'appareil cible.
 - Pour tester les liens de désabonnement dans les e-mails, assurez-vous que l'adresse e-mail de votre utilisateur test se trouve dans l'espace de travail correspondant.
 - L'en-tête `List-Unsubscribe` n'est pas inclus dans les e-mails envoyés par la fonctionnalité de message de test.
+- Les e-mails envoyés aux utilisateurs du groupe initiateur ne mettent pas à jour la liste des campagnes reçues du profil utilisateur et n'incrémentent pas les envois dans l'analytique du tableau de bord.
 
 ## Résolution des problèmes {#troubleshooting}
 

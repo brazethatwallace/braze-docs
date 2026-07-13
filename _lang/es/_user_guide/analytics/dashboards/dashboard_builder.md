@@ -13,7 +13,7 @@ page_order: 6
 
 > Usa el Generador de dashboards para crear dashboards y visualizaciones utilizando informes creados en el Generador de informes o el Generador de consultas.
 
-El Generador de dashboards te permite redactar y visualizar dashboards de análisis personalizados desde cero y a partir de dashboards proporcionados por Braze. Puedes usar un origen de datos sin código (Generador de informes) o un origen de datos SQL (Generador de consultas) para alimentar tu dashboard, o empezar a partir de uno de los muchos dashboards proporcionados por Braze.
+El Generador de dashboards te permite componer y visualizar dashboards de análisis personalizados desde cero y a partir de dashboards proporcionados por Braze. Puedes usar un origen de datos sin código (Generador de informes) o un origen de datos SQL (Generador de consultas) para alimentar tu dashboard, o empezar a partir de uno de los muchos dashboards proporcionados por Braze.
 
 ## Crear un dashboard personalizado {#creating-a-custom-dashboard}
 
@@ -37,7 +37,7 @@ Después de añadir un informe del Generador de informes a un mosaico del Genera
 
 {: start="5"}
 5. Selecciona el icono de lápiz para cambiar cómo se muestran el título y el tipo de gráfico en el mosaico.
-    - Puedes alternar entre diferentes tipos de gráficos debajo de la visualización predeterminada. Las opciones actuales incluyen gráficos de barras (horizontales o verticales) y gráficos de líneas (solo disponibles si seleccionaste **Date** como opción de desglose en la configuración del Generador de informes).<br><br>![Opciones para alternar entre diferentes tipos de gráficos.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
+    - Puedes alternar entre diferentes tipos de gráficos en los controles de tipo de gráfico. Las opciones actuales incluyen gráficos de barras (horizontales o verticales) y gráficos de líneas (solo disponibles si seleccionaste **Date** como opción de desglose en la configuración del Generador de informes).<br><br>![Opciones para alternar entre diferentes tipos de gráficos.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
     - Usa el menú desplegable de métricas para seleccionar qué métricas incluir en tu visualización. De forma predeterminada, la primera columna del informe será la métrica mostrada por defecto.
 6. Selecciona **Save** después de haber cambiado la visualización a tu gusto.
 7. Añade un nombre, una descripción y una etiqueta para que tu dashboard sea más fácil de encontrar después.
@@ -46,7 +46,7 @@ Después de añadir un informe del Generador de informes a un mosaico del Genera
 {: start="4"}
 4. Selecciona **+ Add Tile** y luego elige una consulta que hayas ejecutado en el Generador de consultas.
 5. Para editar cómo se muestran los resultados de la consulta en el mosaico, selecciona el icono de lápiz para cambiar el título y el tipo de gráfico.
-    - Puedes alternar entre diferentes tipos de gráficos debajo de la visualización predeterminada. Las opciones actuales incluyen tablas, gráficos de barras (horizontales o verticales) y gráficos de líneas.<br><br>![Opciones para alternar entre diferentes tipos de gráficos.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
+    - Puedes alternar entre diferentes tipos de gráficos en los controles de tipo de gráfico. Las opciones actuales incluyen tablas, gráficos de barras (horizontales o verticales) y gráficos de líneas.<br><br>![Opciones para alternar entre diferentes tipos de gráficos.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
         - Si eliges una de las opciones de gráfico, usa el menú desplegable **X-axis** para seleccionar una sola columna de los resultados de tu consulta para usarla como eje X.
         - Usa el menú desplegable **Y-axis** para seleccionar qué métricas incluir en tu visualización. De forma predeterminada, se mostrarán todas las columnas de los resultados de tu consulta, así que deselecciona las columnas que no te interese ver.<br><br>![Opciones para alternar entre diferentes tipos de gráficos.]({% image_buster /assets/img/query_builder_axis.png %})<br><br>
         - (Opcional) Puedes usar el menú desplegable **Grouping** para agrupar los resultados de tu consulta. Por ejemplo, si tienes el ID de Campaign como resultado de columna y quieres sumar todas las filas con ese valor, usa el menú desplegable **Grouping**.
@@ -78,7 +78,7 @@ Haz una copia de tu mosaico seleccionando **Duplicate Tile** en la parte inferio
 
 ### Ajustar el tamaño y la posición de los mosaicos {#adjust-tile-size-and-position}
 
-Ajusta el tamaño del mosaico arrastrando la esquina inferior derecha del mosaico, y ajusta la posición del mosaico en el dashboard arrastrando el asa en la esquina superior derecha del mosaico.
+Ajusta el tamaño del mosaico arrastrando el controlador de redimensionamiento, y ajusta la posición del mosaico en el dashboard arrastrando el controlador del mosaico.
 
 ## Ejecutar un dashboard {#running-a-dashboard}
 
@@ -88,7 +88,7 @@ Ajusta el tamaño del mosaico arrastrando la esquina inferior derecha del mosaic
 
 ### Dashboards disponibles {#available-dashboards}
 
-Braze proporciona dashboards preconstruidos para casos de uso frecuentes, como el análisis de ingresos usando atribución de último toque. Ten en cuenta que la capacidad de editar un dashboard aún no está disponible. Ponte en contacto con tu administrador del éxito del cliente si te gustaría ver cierto dashboard en el futuro.
+Braze proporciona dashboards preconstruidos para casos de uso frecuentes, como el análisis de ingresos usando atribución de último toque. Ten en cuenta que la capacidad de editar un dashboard aún no está disponible. Ponte en contacto con tu administrador de éxito de cliente si te gustaría ver cierto dashboard en el futuro.
 
 #### Ingresos - Atribución de último toque {#revenue-last-touch-attribution}
 
@@ -127,20 +127,20 @@ Los toques incluyen _clic en correo electrónico_ (clic en enlace), _clic en tar
 
 | Métrica | Definición |
 |---|---|
-| Métricas semanales de correo electrónico (tasas) | Tasas de interacción de correo electrónico (entrega, rebote, apertura, clic, tasas de cancelación de suscripción) agrupadas por segmento y mostradas como serie temporal semanal. |
-| Métricas semanales de correo electrónico (recuentos) | Recuentos de interacción de correo electrónico (enviados, entregados, rebotes, aperturas, clics, cancelaciones de suscripción) agrupados por segmento y mostrados como serie temporal semanal. |
+| Métricas semanales de correo electrónico (tasas) | Tasas de participación de correo electrónico (entrega, rebote, apertura, clic, tasas de cancelación de suscripción) agrupadas por segmento y mostradas como serie temporal semanal. |
+| Métricas semanales de correo electrónico (recuentos) | Recuentos de participación de correo electrónico (enviados, entregados, rebotes, aperturas, clics, cancelaciones de suscripción) agrupados por segmento y mostrados como serie temporal semanal. |
 | Métricas semanales de compras (tasas) | Tasas de conversión de compras (ingresos por destinatario) a partir de aperturas y clics de correo electrónico, agrupadas por segmento y mostradas como serie temporal semanal. |
 | Métricas semanales de compras (recuentos) | Recuentos de compras y totales de ingresos a partir de aperturas y clics de correo electrónico, agrupados por segmento y mostrados como serie temporal semanal. |
-| Interacción de correo electrónico por segmento | Tabla resumen que muestra las métricas totales de interacción de correo electrónico (enviados, entregados, rebotes, aperturas, clics, cancelaciones de suscripción y sus tasas) agregadas por segmento. |
+| Participación de correo electrónico por segmento | Tabla resumen que muestra las métricas totales de participación de correo electrónico (enviados, entregados, rebotes, aperturas, clics, cancelaciones de suscripción y sus tasas) agregadas por segmento. |
 | Compras e ingresos por segmento | Tabla resumen que muestra las métricas totales de compras (compras, ingresos e ingresos por destinatario) a partir de aperturas y clics de correo electrónico, agregadas por segmento. |
-| Top 10 de Campaigns por métricas de interacción | Lista clasificada de las Campaigns con las métricas de interacción de correo electrónico más altas (métrica configurable para la clasificación). |
-| 10 Campaigns con menor interacción | Lista clasificada de las Campaigns con las métricas de interacción de correo electrónico más bajas (métrica configurable para la clasificación). |
-| Top 10 de Canvas por métricas de interacción | Lista clasificada de los Canvas con las métricas de interacción de correo electrónico más altas (métrica configurable para la clasificación). |
-| 10 Canvas con menor interacción | Lista clasificada de los Canvas con las métricas de interacción de correo electrónico más bajas (métrica configurable para la clasificación). |
-| Top 10 de Campaigns por métricas de compras | Lista clasificada de las Campaigns con las métricas de conversión de compras más altas a partir de la interacción de correo electrónico (métrica configurable para la clasificación). |
-| 10 Campaigns con menores métricas de compras | Lista clasificada de las Campaigns con las métricas de conversión de compras más bajas a partir de la interacción de correo electrónico (métrica configurable para la clasificación). |
-| Top 10 de Canvas por métricas de compras | Lista clasificada de los Canvas con las métricas de conversión de compras más altas a partir de la interacción de correo electrónico (métrica configurable para la clasificación). |
-| 10 Canvas con menores métricas de compras | Lista clasificada de los Canvas con las métricas de conversión de compras más bajas a partir de la interacción de correo electrónico (métrica configurable para la clasificación). |
+| Top 10 de Campaigns por métricas de participación | Lista clasificada de las Campaigns con las métricas de participación de correo electrónico más altas (métrica configurable para la clasificación). |
+| 10 Campaigns con menor participación | Lista clasificada de las Campaigns con las métricas de participación de correo electrónico más bajas (métrica configurable para la clasificación). |
+| Top 10 de Canvas por métricas de participación | Lista clasificada de los Canvas con las métricas de participación de correo electrónico más altas (métrica configurable para la clasificación). |
+| 10 Canvas con menor participación | Lista clasificada de los Canvas con las métricas de participación de correo electrónico más bajas (métrica configurable para la clasificación). |
+| Top 10 de Campaigns por métricas de compras | Lista clasificada de las Campaigns con las métricas de conversión de compras más altas a partir de la participación de correo electrónico (métrica configurable para la clasificación). |
+| 10 Campaigns con menores métricas de compras | Lista clasificada de las Campaigns con las métricas de conversión de compras más bajas a partir de la participación de correo electrónico (métrica configurable para la clasificación). |
+| Top 10 de Canvas por métricas de compras | Lista clasificada de los Canvas con las métricas de conversión de compras más altas a partir de la participación de correo electrónico (métrica configurable para la clasificación). |
+| 10 Canvas con menores métricas de compras | Lista clasificada de los Canvas con las métricas de conversión de compras más bajas a partir de la participación de correo electrónico (métrica configurable para la clasificación). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Información del segmento - Correo electrónico" }
 
 #### Análisis de sesiones {#session-analytics}
@@ -156,4 +156,4 @@ Los toques incluyen _clic en correo electrónico_ (clic en enlace), _clic en tar
 
 ## Comparte tus comentarios con nosotros {#share-your-feedback-with-us}
 
-Selecciona el botón **Enviar comentarios** o ponte en contacto con tu administrador del éxito del cliente para compartir tus comentarios con nosotros.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="Dashboard Builder" %}

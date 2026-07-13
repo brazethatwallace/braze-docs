@@ -79,7 +79,7 @@ O relatório pode levar alguns minutos para ser executado, dependendo do interva
 Sua seleção de **Rows** afeta as métricas que você pode selecionar.
 
 {% alert tip %}
-Se você deseja gerar relatórios sobre variantes ou etapas de Canvas, selecione **Canvases** para as linhas e deixe o campo vazio ou selecione **Date** como detalhamento. Isso cria um menu suspenso **Canvas View** para ver métricas apenas do Canvas, ou agrupar métricas por variante, etapa ou mensagem.
+Se você deseja gerar relatórios sobre variantes ou etapas de Canvas, selecione **Canvases** para as linhas e deixe o campo vazio ou selecione **Date** como detalhamento. Isso cria um menu suspenso **Canvas View** para visualizar métricas apenas do Canvas, ou agrupar métricas por variante, etapa ou mensagem.<br><br> Quando você agrupa por etapa, a tabela de prévia durante a configuração do relatório exibe no máximo 50 linhas. Execute o relatório ou exporte-o como CSV para visualizar todas as linhas.
 
 ![O menu suspenso "Canvas View" aberto.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}

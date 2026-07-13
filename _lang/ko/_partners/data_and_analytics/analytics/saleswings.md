@@ -24,11 +24,11 @@ SalesWings를 사용하면 마케팅 팀과 마케팅 운영 매니저가 영업
 | ----------- | ----------- |
 | SalesWings 계정 | 이 파트너십을 활용하려면 [SalesWings](https://www.saleswingsapp.com/?utm_source=braze&utm_campaign=technicaldocs) 계정이 필요합니다. |
 | Braze REST API 키 | `users.export.ids` 권한이 있는 Braze REST API 키(SalesWings 인사이트 푸시 기능을 사용하는 경우 `users.track`도 필요). <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
 | Segment.com 계정(선택 사항) | Segment.com 사용자인 경우 리드 프로파일링을 위해 Segment.com을 통해 모든 리드 참여 및 프로필 데이터와 식별 이벤트를 전송할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 {% tabs %}
 {% tab 리드 및 계정 스코어링 %}
@@ -86,7 +86,7 @@ SalesWings에 대해 자세히 알아보려면 친절한 SalesWings 팀과 [데�
 
 리드 및 계정 스코어링, 구매자 의도 식별, 영업 인사이트를 위해 SalesWings에서 행동 데이터를 수집하는 방법은 여러 가지가 있습니다:
 * 리드를 추적하고 식별하려는 웹사이트와 앱에 [SalesWings 추적 JavaScript를 배포](https://support.saleswingsapp.com/en/collections/3285135-1-implementing-saleswings-tracking-script)합니다
-* Braze 커런츠를 통해 이벤트 속성정보와 함께 Braze 이벤트를 SalesWings에 수집합니다
+* Braze Currents를 통해 이벤트 속성정보와 함께 Braze 이벤트를 SalesWings에 수집합니다
 * [SalesWings와 Segment 통합](https://support.saleswingsapp.com/en/articles/9258905-segment-com-integration)을 통해 행동 리드 활동 데이터(및 리드 프로필 데이터)를 전송합니다
 * 서드파티 솔루션에서 SalesWings [API](https://support.saleswingsapp.com/en/articles/6930889-using-saleswings-open-api-to-send-events-to-saleswings)로 직접 데이터를 전송합니다
 
@@ -98,7 +98,7 @@ SalesWings에 대해 자세히 알아보려면 친절한 SalesWings 팀과 [데�
 
 새로 생성된 키의 **Identifier** 열 값을 복사하여 SalesWings **Braze Integration** 섹션의 **Braze API key** 필드에 붙여넣습니다.
 
-[API 및 SDK 엔드포인트 문서]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)에 설명된 대로 Braze API 엔드포인트를 추가하고 **Braze API endpoint** 필드에 입력합니다. **REST Endpoint** 열의 값을 복사하여 SalesWings **Braze Integration** 섹션의 **Braze API endpoint** 필드에 입력합니다.
+[API 및 SDK 엔드포인트 문서]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)에 설명된 대로 Braze API 엔드포인트를 추가하고 **Braze API endpoint** 필드에 입력합니다. **REST Endpoint** 열의 값을 복사하여 SalesWings **Braze Integration** 섹션의 **Braze API endpoint** 필드에 입력합니다.
 
 그런 다음 **Save**를 선택합니다.
 
@@ -110,11 +110,11 @@ SalesWings에 대해 자세히 알아보려면 친절한 SalesWings 팀과 [데�
 
 ### 5단계: SalesWings로의 커스텀 Currents 내보내기 설정(선택 사항) {#step-5-set-up-a-custom-currents-export-to-saleswings-optional}
 
-행동 인텔리전스, 리드 및 계정 스코어링, 영업 인사이트 생성 또는 CRM에서 보고서를 생성하기 위해 [사용자 행동]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) 및 [메시지 참여]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 이벤트를 사용하려면 [**SalesWings 통합** 페이지](https://helium.saleswings.pro/integrations)로 이동하여 **Braze Integration** 섹션을 확장합니다.
+행동 인텔리전스, 리드 및 계정 스코어링, 영업 인사이트 생성 또는 CRM에서 보고서를 생성하기 위해 [사용자 행동]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 참여]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 이벤트를 사용하려면 [**SalesWings 통합** 페이지](https://helium.saleswings.pro/integrations)로 이동하여 **Braze Integration** 섹션을 확장합니다.
 
 **Generate an API token to setup a Custom Currents Export** 아래에서 **Generate**를 선택합니다.
 
-그런 다음 [새 Current를 생성]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/)하고 Current 유형으로 **Custom Currents Export**를 선택합니다.
+그런 다음 [새 Current를 생성]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents)하고 Current 유형으로 **Custom Currents Export**를 선택합니다.
 
 Current 생성 양식의 **Credentials** 섹션에서 [**SalesWings 통합** 페이지](https://helium.saleswings.pro/integrations)에서 생성한 API 토큰을 **Bearer Token**에 입력하고, **Endpoint**에 `https://helium.saleswings.pro/api/braze/currents/events`를 입력합니다.
 
@@ -146,7 +146,7 @@ Current 생성 양식의 **Credentials** 섹션에서 [**SalesWings 통합** 페
 
 ### SalesWings 인사이트를 Braze에 푸시하기 {#pushing-saleswings-insights-to-braze}
 
-SalesWings 인사이트 푸시를 Braze에 활성화하면 SalesWings는 다음과 같은 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/)으로 Braze 고객 프로필을 업데이트합니다:
+SalesWings 인사이트 푸시를 Braze에 활성화하면 SalesWings는 다음과 같은 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types)으로 Braze 고객 프로필을 업데이트합니다:
 
 | 커스텀 속성 | 유형 | 설명 |
 | ----------- | ----------- | ----------- |
@@ -162,7 +162,7 @@ SalesWings 인사이트 푸시를 Braze에 활성화하면 SalesWings는 다음�
 | `sw_session_count` | 정수 | 이 리드에 대해 웹사이트에서 추적된 세션 수 |
 | `sw_tags` | 문자열 배열 | SalesWings가 식별한 고객의 니즈와 관심사로, "태그"로 표시됩니다. 이 리드에 적용되는 SalesWings [규칙 엔진](https://helium.saleswings.pro/falcon)에 구성된 SalesWings 태그의 이름 |
 | 추가 리드 점수 속성 | 플로트 | SalesWings [규칙 엔진](https://helium.saleswings.pro/falcon)에서 구성된 추가 리드 점수마다 하나의 커스텀 속성이 추가됩니다. 속성 이름은 SalesWings 점수 이름에서 파생되며, 예를 들어 `Likeliness to meet`라는 이름의 점수는 커스텀 속성 `sw_likeliness_to_meet`으로 전송됩니다. 시스템에서 점수를 생성한 후 이름을 변경하면 SalesWings는 초기 커스텀 속성 이름과 계속 동기화됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SalesWings 인사이트를 Braze에 푸시하기" }
 
 푸시를 활성화하면 SalesWings 리드 프로필의 기본 데이터 포인트가 변경되는 즉시 SalesWings가 커스텀 속성을 Braze에 전송하기 시작하며, 새로운 업데이트가 없더라도 기존 리드를 모두 점진적으로 동기화합니다.
 
@@ -195,7 +195,7 @@ Braze Current를 SalesWings에 연결하면 SalesWings는 이메일이 있는 �
 | 메시지 이벤트 | WhatsApp 읽음 | `[WhatsApp engagement] Lead read our message from the $campaign_name campaign` |
 | 구독 | 글로벌 구독 상태 변경 | `[Subscription status change] Global marketing subscription setting set to $subscription_status` |
 | 구독 | 구독 그룹 상태 변경 | `[Subscription status change] $subscription_status to/from $campaign_name` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CRM에서 Braze Currents 이벤트 사용" }
 
 그런 다음 위 표의 SalesWings 이벤트 이름에 대해 SalesWings 태그 및 점수에 대한 **Custom Event** > **Event Name** 및 **Custom Event** > **Event Property** 조건을 구성할 수 있습니다. 조건에 사용할 수 있는 이벤트 속성정보 목록은 일반적으로 사용되는 항목으로 미리 채워져 있으며, [규칙 엔진 구성 페이지](https://helium.saleswings.pro/falcon)의 **Event Property** 섹션에서 언제든지 새 항목을 추가할 수 있습니다.
 

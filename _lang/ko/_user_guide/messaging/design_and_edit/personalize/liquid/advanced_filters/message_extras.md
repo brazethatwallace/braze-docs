@@ -8,7 +8,7 @@ alias: "/message_extras_tag/"
 
 # 메시지 추가 정보 Liquid 태그 {#message-extras-liquid-tag}
 
-> `message_extras` Liquid 태그를 사용하여 연결된 콘텐츠, 카탈로그, 커스텀 속성(예: 언어, 국가), Canvas 진입 등록정보 또는 기타 데이터 소스의 동적 데이터로 발송 이벤트에 주석을 달 수 있습니다.
+> `message_extras` Liquid 태그를 사용하여 연결된 콘텐츠, 카탈로그, 커스텀 속성(예: 언어, 국가), Canvas 진입 속성 또는 기타 데이터 소스의 동적 데이터로 발송 이벤트에 주석을 달 수 있습니다.
 
 `message_extras` Liquid 태그는 Currents 및 Snowflake 데이터 공유의 해당 발송 이벤트에 키-값 페어를 추가합니다.
 
@@ -72,9 +72,9 @@ Currents 또는 Snowflake 데이터 공유 발송 이벤트에 동적 또는 추
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
-### 발송 이벤트의 message_extras 필드를 열기 및 클릭과 같은 참여 이벤트에 어떻게 연결할 수 있나요? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
+### 발송 이벤트의 message_extras 필드를 열람 및 클릭과 같은 인게이지먼트 이벤트에 어떻게 연결할 수 있나요? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
 
-`dispatch_id`가 생성되어 발송 이벤트에 제공되며, 이를 고유 식별자로 사용하여 특정 클릭, 열기 또는 전달 이벤트에 연결할 수 있습니다. Currents 또는 Snowflake에서 이 필드를 쿼리할 수 있습니다. 자세한 내용은 [Dispatch ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)을 참조하세요.
+`dispatch_id`가 생성되어 발송 이벤트에 제공되며, 이를 고유 식별자로 사용하여 특정 클릭, 열람 또는 전달 이벤트에 연결할 수 있습니다. Currents 또는 Snowflake에서 이 필드를 쿼리할 수 있습니다. 자세한 내용은 [Dispatch ID 동작]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id)을 참조하세요.
 
 #### 인앱 메시지에서 message_extras를 사용할 수 있나요? {#iam-sdk}
 

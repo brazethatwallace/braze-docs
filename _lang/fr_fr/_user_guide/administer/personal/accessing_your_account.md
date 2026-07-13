@@ -59,11 +59,20 @@ Si votre fournisseur de messagerie ne prend pas en charge l'aliasing avec `+`, v
 
 ### Utiliser la fonctionnalité développeurs multi-entreprises {#use-multi-company-developers}
 
-La fonctionnalité développeurs multi-entreprises permet de partager un seul compte utilisateur entre plusieurs entreprises. Les utilisateurs peuvent basculer entre différents tableaux de bord d'entreprise depuis leur menu de profil utilisateur.
+La fonctionnalité développeurs multi-entreprises permet de partager un seul compte utilisateur entre plusieurs entreprises. Les utilisateurs du tableau de bord peuvent basculer entre différents tableaux de bord d'entreprise depuis leur menu de profil utilisateur.
 
 Si vous utilisez le SSO et souhaitez configurer les développeurs multi-entreprises, vous devez activer un ID d'entité SAML personnalisé en configurant une intégration SSO SAML personnalisée. Suivez les étapes décrites dans [Connexion initiée par le fournisseur de services (SP)]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup), mais appliquez ces modifications :
 - Changez l'**Entity ID** en `braze_dashboard_<companyID>` pour chaque intégration de tableau de bord.
-- Contactez votre gestionnaire de la satisfaction client ou votre gestionnaire de compte pour activer le feature flipper `saml_sso_custom_entity_id` pour chaque tableau de bord.
+- Contactez votre gestionnaire du succès des clients ou votre gestionnaire de compte pour activer le feature flipper `saml_sso_custom_entity_id` pour chaque tableau de bord.
+
+#### Authentification à deux facteurs (2FA) {#two-factor-authentication-2fa}
+
+Le fonctionnement de la 2FA pour les développeurs multi-entreprises dépend de votre méthode de 2FA :
+
+- **E-mail et SMS :** vos paramètres de 2FA sont copiés sur tous les comptes développeur liés. Après avoir configuré la 2FA par e-mail ou SMS sur un compte, la même méthode s'applique à tous vos tableaux de bord d'entreprise.
+- **Mot de passe à usage unique basé sur le temps (TOTP) :** les paramètres TOTP ne sont pas synchronisés entre les comptes. Si vous utilisez une application d'authentification, vous devez configurer un code distinct pour chaque tableau de bord auquel vous vous connectez directement.
+
+Lorsque vous basculez entre les comptes depuis le tableau de bord, vous n'avez besoin de compléter la 2FA qu'une seule fois, la première fois que vous vous connectez à un compte lié au cours de cette session.
 
 ### Considérations pour l'authentification unique (SSO) {#considerations-for-single-sign-on-sso}
 
@@ -147,7 +156,7 @@ Braze ne peut pas réinitialiser la 2FA au nom des utilisateurs pour des raisons
 #### Considérations {#considerations}
 
 - Si la 2FA est imposée au niveau de l'entreprise : après la réinitialisation, Braze invite l'utilisateur à configurer à nouveau sa 2FA lors de sa prochaine connexion.
-- Si la 2FA n'est pas imposée au niveau de l'entreprise : l'utilisateur se connecte au tableau de bord sans avoir besoin de reconfigurer la 2FA. S'il souhaite activer la 2FA, il peut le faire dans les Paramètres du compte.
+- Si la 2FA n'est pas imposée au niveau de l'entreprise : l'utilisateur se connecte au tableau de bord sans avoir besoin de reconfigurer la 2FA. S'il souhaite activer la 2FA, il peut le faire dans les paramètres du compte.
 
 {% alert note %}
 Ce processus de réinitialisation s'applique également aux utilisateurs qui ont été bloqués de leur compte pour avoir demandé trop de jetons au cours de la dernière heure.

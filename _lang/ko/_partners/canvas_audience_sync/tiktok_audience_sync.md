@@ -13,9 +13,9 @@ page_order: 8
 
 Braze Audience Sync to TikTok을 사용하면 브랜드는 자체 Braze 통합에서 사용자 데이터를 TikTok 오디언스에 추가하여 행동 트리거, 세분화 등을 기반으로 광고를 전달할 수 있습니다. Braze Canvas에서 메시지(푸시, 이메일, SMS, 웹훅 등)를 트리거하는 데 일반적으로 사용하는 모든 기준을 활용할 수 있습니다.
 
-**Audience Sync의 일반적인 활용 사례는 다음과 같습니다**:
+**Audience Sync의 일반적인 사용 사례는 다음과 같습니다**:
 
-- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 참여를 유도
+- 여러 채널을 통해 고가치 사용자를 타겟팅하여 구매 또는 인게이지먼트를 유도
 - 다른 마케팅 채널에 반응이 적은 사용자를 리타겟팅
 - 이미 브랜드의 충성 소비자인 사용자가 광고를 받지 않도록 억제 오디언스 생성
 - 신규 사용자를 더 효율적으로 확보하기 위한 유사 오디언스(Actalike Audiences) 생성
@@ -43,7 +43,7 @@ Canvas에서 TikTok Audience 단계를 설정하기 전에 다음 항목이 생�
 ### 1단계: TikTok에 연결 {#step-1-connect-to-tiktok}
 
 {% alert important %}
-TikTok을 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin)이 필요합니다.
+TikTok을 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#admin)이 필요합니다.
 {% endalert %}
 
 Braze 대시보드에서 **파트너 통합** > **기술 파트너**로 이동하여 **TikTok**을 선택합니다. TikTok Audience Sync 아래에서 **Connect TikTok**을 선택합니다.
@@ -52,19 +52,19 @@ Braze 대시보드에서 **파트너 통합** > **기술 파트너**로 이동�
 
 그러면 TikTok OAuth 페이지로 리디렉션되어 Braze에 광고 계정 관리 및 오디언스 관리 권한을 부여합니다. **확인**을 선택하면 Braze로 다시 리디렉션되어 동기화할 TikTok 광고 계정을 선택할 수 있습니다.
 
-![]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
+![Braze 오디언스 관리를 위한 액세스를 요청하는 TikTok OAuth 인증 페이지입니다.]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
 
 성공적으로 연결되면 파트너 페이지로 돌아갑니다. 여기에서 연결된 계정을 확인하고 기존 계정의 연결을 해제할 수 있습니다.
 
-![]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
+![연결된 TikTok 광고 계정을 보여주는 Braze TikTok 파트너 페이지입니다.]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
 
-TikTok 연결은 Braze 앱 그룹 수준에서 적용됩니다. TikTok 관리자가 TikTok Business Center에서 사용자를 제거하거나 연결된 TikTok 계정에 대한 액세스를 제거하면 Braze는 유효하지 않은 토큰을 감지합니다. 그 결과 TikTok Audience 구성요소를 사용하는 활성 Canvases에 오류가 표시되며, Braze는 사용자를 동기화할 수 없게 됩니다.
+TikTok 연결은 Braze 워크스페이스 수준에서 적용됩니다. TikTok 관리자가 TikTok Business Center에서 사용자를 제거하거나 연결된 TikTok 계정에 대한 액세스를 제거하면 Braze는 유효하지 않은 토큰을 감지합니다. 그 결과 TikTok Audience 구성요소를 사용하는 활성 Canvases에 오류가 표시되며, Braze는 사용자를 동기화할 수 없게 됩니다.
 
 ### 2단계: Canvas에 TikTok Audience 구성요소 추가 {#step-2-add-a-tiktok-audience-component-in-canvas}
 
 Canvas에 구성요소를 추가하고 **Audience Sync**를 선택합니다.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Audience Sync 구성요소 옵션이 있는 Canvas 단계 선택기입니다.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Canvas 경로에 추가된 Audience Sync 구성요소 카드입니다.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### 3단계: 동기화 설정 {#step-3-sync-setup}
 
@@ -72,11 +72,11 @@ Canvas에 구성요소를 추가하고 **Audience Sync**를 선택합니다.
 
 원하는 Audience Sync 파트너로 **TikTok**을 선택합니다.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![TikTok이 동기화 파트너로 선택된 Audience Sync 구성요소 편집기입니다.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 그런 다음 원하는 TikTok 광고 계정을 선택합니다. **Choose a New or Existing Audience** 드롭다운에서 새 오디언스 또는 기존 오디언스의 이름을 입력합니다.
 
-![]({% image_buster /assets/img/tiktok/tiktok11.png %})
+![광고 계정 선택 및 오디언스 드롭다운을 보여주는 TikTok Audience Sync 편집기입니다.]({% image_buster /assets/img/tiktok/tiktok11.png %})
 
 {% tabs %}
 {% tab 새 오디언스 생성 %}
@@ -84,11 +84,11 @@ Canvas에 구성요소를 추가하고 **Audience Sync**를 선택합니다.
 **새 오디언스 생성**<br>
 새 오디언스의 이름을 입력하고 **Add Users to Audience**를 선택한 다음 TikTok과 동기화할 필드를 선택합니다. 그런 다음 단계 편집기 하단의 **Create Audience** 버튼을 클릭하여 오디언스를 저장합니다.
 
-![]({% image_buster /assets/img/audience_sync/tiktok3.png %})
+![매칭 필드가 선택된 TikTok Audience Sync 단계의 새 오디언스 생성 양식입니다.]({% image_buster /assets/img/audience_sync/tiktok3.png %})
 
 오디언스가 성공적으로 생성되었거나 오류가 발생한 경우 Braze가 단계 편집기 상단에 알림을 표시합니다. 오디언스가 초안 모드로 생성되었기 때문에 나중에 Canvas 여정에서 사용자 제거를 위해 이 오디언스를 참조할 수 있습니다.
 
-![]({% image_buster /assets/img/audience_sync/tiktok2.png %})
+![새 TikTok 오디언스 생성 후 Audience Sync 단계의 성공 알림입니다.]({% image_buster /assets/img/audience_sync/tiktok2.png %})
 
 새 오디언스로 Canvas를 시작하면 Braze는 사용자가 오디언스 단계에 진입할 때 거의 실시간으로 동기화합니다.
 
@@ -104,6 +104,7 @@ Braze는 기존 TikTok 오디언스에 사용자를 추가하여 해당 오디�
 {% endtabs %}
 
 ### 4단계: Canvas 시작 {#step-4-launch-canvas}
+
 TikTok Audience 구성요소를 구성한 후 Canvas를 시작하면 됩니다! 새 오디언스가 생성되고, TikTok Audience 구성요소를 통과하는 사용자는 TikTok의 이 오디언스에 전달됩니다. Canvas에 후속 구성요소가 포함되어 있으면 사용자는 사용자 여정의 다음 단계로 진행합니다.
 
 **Ads Manager Account**에 접속하고 **Assets** 드롭다운에서 **Audiences**를 선택하여 TikTok에서 오디언스를 확인할 수 있습니다. **Audience** 페이지에서 &#126;1,000명에 도달한 후 각 오디언스의 규모를 확인할 수 있습니다.
