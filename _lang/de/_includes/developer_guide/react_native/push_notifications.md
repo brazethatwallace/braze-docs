@@ -127,18 +127,18 @@ Eine vollständige Liste der Felder für Push-Benachrichtigungen finden Sie in d
 | `badge_count`      | Zahl   | Stellt die Badge-Anzahl der Benachrichtigung dar. |
 | `timestamp`        | Zahl | Stellt den Zeitpunkt dar, zu dem die Nutzlast von der Anwendung empfangen wurde. |
 | `is_silent`        | Boolescher Wert   | Wenn `true`, wird die Nutzlast still empfangen. Einzelheiten zum Senden von stillen Push-Benachrichtigungen unter Android finden Sie unter [Stille Push-Benachrichtigungen unter Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). Einzelheiten zum Senden von stillen Push-Benachrichtigungen unter iOS finden Sie unter [Stille Push-Benachrichtigungen unter iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `is_braze_internal`| Boolescher Wert   | Dies ist `true`, wenn eine Benachrichtigungsnutzlast für eine interne SDK-Funktion gesendet wurde, wie z. B. die Synchronisierung von Geofences, die Synchronisierung von Feature-Flags oder das Uninstall-Tracking. Die Nutzlast wird für die Nutzer:innen unbemerkt empfangen. |
+| `is_braze_internal`| Boolescher Wert   | Dies ist `true`, wenn eine Benachrichtigungsnutzlast für eine interne SDK-Funktion gesendet wurde, wie z. B. die Synchronisierung von Feature-Flags oder das Uninstall-Tracking. Die Nutzlast wird für die Nutzer:innen unbemerkt empfangen. |
 | `image_url`        | String    | Gibt die URL an, die mit dem Benachrichtigungsbild verknüpft ist. |
 | `braze_properties` | Objekt    | Stellt die mit der Campaign verbundenen Braze-Eigenschaften dar (Schlüssel-Wert-Paare). |
 | `ios`              | Objekt    | Stellt iOS-spezifische Felder dar. |
 | `android`          | Objekt    | Stellt Android-spezifische Felder dar. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ereignisfelder für Push-Benachrichtigungen" }
 
 ### 3. Schritt: Deeplinking aktivieren (optional) {#step-3-enable-deep-linking-optional}
 
 Um Braze in die Lage zu versetzen, Deeplinks innerhalb von React-Komponenten zu verarbeiten, wenn auf eine Push-Benachrichtigung geklickt wird, implementieren Sie zunächst die Schritte, die in der Bibliothek [React Native Linking](https://reactnative.dev/docs/linking) beschrieben sind, oder verwenden Sie die Lösung Ihrer Wahl. Folgen Sie dann den weiteren Schritten unten.
 
-Weitere Informationen zu Deeplinks finden Sie in unserem [FAQ-Artikel]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+Weitere Informationen zu Deeplinks finden Sie in unserem [FAQ-Artikel]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 {% alert important %}
 Wenn Sie eine bestehende React Native Push-Integration migrieren, testen Sie das Deeplinking erneut, nachdem Sie das Braze SDK, React Native, Expo oder zugehörige Bibliotheken aktualisiert haben. Stellen Sie sicher, dass:
@@ -151,7 +151,7 @@ Wenn Sie eine bestehende React Native Push-Integration migrieren, testen Sie das
 {% tab Android Native %}
 Wenn Sie das [Braze Expo Plugin]({{site.baseurl}}/developer_guide/platforms/react_native/sdk_integration/?tab=expo#step-2-choose-a-setup-option) verwenden, können Sie Push-Benachrichtigungs-Deeplinks automatisch verarbeiten, indem Sie `androidHandlePushDeepLinksAutomatically` in Ihrer `app.json` auf `true` setzen.
 
-Um Deeplinks stattdessen manuell zu verarbeiten, lesen Sie die native Android-Dokumentation: [Deeplinks hinzufügen]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/).
+Um Deeplinks stattdessen manuell zu verarbeiten, lesen Sie die native Android-Dokumentation: [Deeplinks hinzufügen]({{site.baseurl}}/developer_guide/push_notifications/deep_linking).
 
 #### Schritt 3.1: Push-Benachrichtigungs-Nutzlast beim App-Start speichern {#step-31-store-the-push-notification-payload-on-app-launch}
 
@@ -243,7 +243,7 @@ func application(
 {% endsubtab %}
 {% endsubtabs %}
 
-#### Schritt 3.2: Deeplinks aus einem geschlossenen Zustand heraus behandeln {#step-32-handle-deep-links-from-a-closed-state}
+#### Schritt 3.2: Deeplinks aus einem geschlossenen Zustand heraus behandeln
 
 Zusätzlich zu den Basisszenarien, die von [React Native Linking](https://reactnative.dev/docs/linking) behandelt werden, implementieren Sie die Methode `Braze.getInitialPushPayload` und rufen den Wert `url` ab, um Deeplinks von Push-Benachrichtigungen zu berücksichtigen, die Ihre App öffnen, wenn sie nicht läuft. Zum Beispiel:
 
@@ -389,7 +389,7 @@ Erstellen und registrieren Sie dann Ihr `BrazeReactDelegate` in `didFinishLaunch
 {% endsubtab %}
 {% endsubtabs %}
 
-Eine beispielhafte Integration finden Sie in unserer Beispiel-App [hier](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm).
+Eine beispielhafte Integration finden Sie in unserer Beispiel-App [in diesem AppDelegate-Beispiel](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm).
 {% endtab %}
 {% endtabs %}
 
@@ -530,4 +530,4 @@ Wenn sich Deeplinks aus Push-Benachrichtigungen nach einer Migration nicht mehr 
 3. Wenn Sie das Braze Expo Plugin verwenden, überprüfen Sie, ob `androidHandlePushDeepLinksAutomatically` für Ihre Implementierung korrekt gesetzt ist.
 4. Überprüfen Sie kürzlich hinzugefügte Abhängigkeiten auf Überschreibungen der Benachrichtigungsverarbeitung oder des App-Delegate-Verhaltens.
 
-Wenn Sie diese Prüfungen abgeschlossen haben und das Problem weiterhin besteht, [erstellen Sie ein Support-Ticket]({{site.baseurl}}/user_guide/administrative/access_braze/support/) und fügen Sie SDK-Logs sowie Schritte zur Reproduktion bei.
+Wenn Sie diese Prüfungen abgeschlossen haben und das Problem weiterhin besteht, [erstellen Sie ein Support-Ticket]({{site.baseurl}}/user_guide/administrative/access_braze/support) und fügen Sie SDK-Logs sowie Schritte zur Reproduktion bei.

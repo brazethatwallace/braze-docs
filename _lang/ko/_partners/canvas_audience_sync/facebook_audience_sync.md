@@ -29,7 +29,7 @@ tool:
 
 사용자가 오디언스 동기화 단계에 도달하면, Braze는 Facebook의 마케팅 API 사용량 제한을 준수하면서 거의 실시간으로 동기화합니다. Braze는 5초마다 가능한 한 많은 사용자를 일괄 처리하여 Facebook으로 전송합니다.
 
-Facebook의 마케팅 API 사용량 제한에 따라 광고 계정당 1시간 동안 최대 &#126;190,000건의 API 요청이 허용됩니다. 고객이 이 제한에 도달하면 Braze는 최대 &#126;13시간 동안 동기화를 다시 시도합니다. 그래도 동기화가 되지 않으면 Braze는 이러한 사용자를 사용자 오류 측정기준 아래에 나열합니다.
+Facebook의 마케팅 API 사용량 제한에 따라 광고 계정당 1시간 동안 최대 &#126;190,000건의 API 요청이 허용됩니다. 고객이 이 제한에 도달하면 Braze는 최대 &#126;13시간 동안 동기화를 다시 시도합니다. 그래도 동기화가 되지 않으면 Braze는 이러한 사용자를 오류 발생 사용자 측정기준 아래에 나열합니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -40,14 +40,14 @@ Canvas에서 Facebook 오디언스 단계를 설정하기 전에 다음 항목�
 | Facebook 비즈니스 매니저 | [Facebook](https://www.facebook.com/business/help/113163272211510) | 브랜드의 Facebook 자산(예: 광고 계정, 페이지, 앱)을 관리하는 중앙 집중식 도구입니다. |
 | Facebook 광고 계정 | [Facebook](https://www.facebook.com/business/help/910137316041095) | 브랜드의 비즈니스 매니저에 연결된 활성 Facebook 광고 계정입니다.<br><br>Facebook 비즈니스 매니저 관리자가 Braze와 함께 사용할 Facebook 광고 계정에 대해 "Manage Campaigns" 또는 "Manage ad accounts" 권한을 부여했는지 확인하세요. 또한 광고 계정 이용약관에 동의했는지 확인하세요. |
 | Facebook 커스텀 오디언스 약관 | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Braze와 함께 사용할 Facebook 광고 계정에 대해 Facebook의 커스텀 오디언스 약관에 동의하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
 ### 1단계: Facebook에 연결하기 {#step-1-connect-to-facebook}
 
 {% alert important %}
-Facebook을 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)이 있어야 합니다.
+Facebook을 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)이 있어야 합니다.
 {% endalert %}
 
 Braze 대시보드에서 **파트너 통합** > **기술 파트너**로 이동하여 **Facebook**을 선택합니다. Facebook 오디언스 내보내기에서 **Connect Facebook**을 선택합니다.
@@ -67,7 +67,7 @@ Facebook 연결은 Braze 워크스페이스 수준에서 적용됩니다. Facebo
 {% alert important %}
 이전에 [광고 관리](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) 및 [광고 관리 표준 액세스](https://developers.facebook.com/docs/marketing-api/access#standard)에 대한 Facebook 앱 검토 프로세스를 거친 고객의 경우, 시스템 사용자 토큰은 Facebook 오디언스 구성요소에 대해 여전히 유효합니다. Facebook 파트너 페이지를 통해서는 Facebook 시스템 사용자 토큰을 편집하거나 취소할 수 없습니다. 대신 Facebook 계정을 연결하여 Braze 워크스페이스 내에서 Facebook 시스템 사용자 토큰을 교체할 수 있습니다.
 
-<br><br>Facebook oAuth 구성은 [Segments를 사용한 Facebook 내보내기]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites)에도 적용됩니다.
+<br><br>Facebook oAuth 구성은 [Segments를 사용한 Facebook 내보내기]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites)에도 적용됩니다.
 {% endalert %}
 
 ### 2단계: 커스텀 오디언스 서비스 약관 동의하기 {#step-2-accept-custom-audiences-terms-of-service}
@@ -118,7 +118,7 @@ Braze는 기존 Facebook 커스텀 오디언스에서 사용자를 추가하거�
 2. **Add to the Audience** 또는 **Remove from the Audience** 중 원하는 옵션을 선택합니다.
 3. Braze는 사용자가 Facebook 오디언스 단계에 진입하면 거의 실시간으로 사용자를 추가하거나 제거합니다.
 
-![오디언스 동기화 설정을 통해 이메일, 전화, 이름, 성 정보를 제거할 수 있습니다.]({% image_buster /assets/img/audience_sync/fb_sync3.png %})
+![이메일, 전화, 이름, 성 정보를 제거하는 오디언스 동기화 설정입니다.]({% image_buster /assets/img/audience_sync/fb_sync3.png %})
 
 {% alert important %}
 Facebook은 오디언스 크기가 너무 작은(일반적으로 1,000명 미만) 커스텀 오디언스에서 사용자를 제거하는 것을 금지합니다. 그 결과, Braze는 오디언스가 적절한 규모에 도달할 때까지 오디언스 동기화 단계에서 사용자 제거를 동기화할 수 없습니다.
@@ -133,7 +133,7 @@ Facebook 오디언스 구성요소를 구성한 후 Canvas를 시작할 차례�
 
 Facebook 오디언스 매니저에서 커스텀 오디언스의 **History** 탭에는 Braze에서 오디언스로 전송된 사용자 수가 반영됩니다. 사용자가 해당 단계에 다시 들어가면 Facebook으로 다시 전송됩니다.
 
-![활동, 활동 세부 정보, 변경된 항목, 날짜 및 시간에 대한 열이 있는 오디언스 기록 표가 포함된 특정 Facebook 오디언스에 대한 오디언스 세부 정보 및 기록 탭.]({% image_buster /assets/img/fb_audience_sync/audience_history.png %}){: style="max-width:80%;"}
+![활동, 활동 세부 정보, 변경된 항목, 날짜 및 시간에 대한 열이 있는 오디언스 기록 표가 포함된 특정 Facebook 오디언스에 대한 오디언스 세부 정보 및 기록 탭입니다.]({% image_buster /assets/img/fb_audience_sync/audience_history.png %}){: style="max-width:80%;"}
 
 ## 분석 이해하기 {#understanding-analytics}
 
@@ -148,7 +148,7 @@ Facebook 오디언스 매니저에서 커스텀 오디언스의 **History** 탭�
 | 대기 중인 사용자 | 현재 Braze에서 Facebook으로 동기화하기 위해 처리 중인 사용자 수입니다. |
 | 오류 발생 사용자 | 약 13시간의 재시도 후 API 오류로 인해 Facebook에 동기화되지 않은 사용자 수입니다. 오류의 잠재적 원인에는 유효하지 않은 Facebook 토큰 또는 Facebook에서 커스텀 오디언스가 삭제된 경우가 포함됩니다. |
 | Canvas 종료함 | Canvas를 종료한 사용자 수입니다. Canvas의 마지막 단계가 Facebook 단계인 경우 발생합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="분석 이해하기" }
 
 {% alert important %}
 동기화된 사용자 및 오류 발생 사용자 측정기준에 대한 보고는 내부 처리로 인해 지연될 수 있습니다.
@@ -176,7 +176,7 @@ Facebook은 개인정보 보호를 위해 이 정보를 제공하지 않습니�
 
 ### Braze는 가치 기반 커스텀 오디언스를 지원하나요? {#does-braze-support-value-based-custom-audiences}
 
-현재 가치 기반 커스텀 오디언스는 Braze에서 지원되지 않습니다. 이러한 유형의 커스텀 오디언스를 동기화하는 데 관심이 있으시면 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal/)을 제출해 주세요.
+현재 가치 기반 커스텀 오디언스는 Braze에서 지원되지 않습니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="value-based custom audience sync" %}
 
 ### Braze는 오디언스 동기화 파트너에게 데이터를 보내기 전에 해시 처리하나요? {#does-braze-hash-data-before-sending-it-to-audience-sync-partners}
 
@@ -216,6 +216,14 @@ Facebook 커스텀 오디언스 서비스 약관에 동의한 후 다음을 수�
 
 그러면 Braze는 사용자가 Facebook 오디언스 동기화 단계에 도달하는 즉시 사용자를 동기화할 수 있습니다.
 
+### **Connected Facebook** 및 **Number of Facebook Friends Using App** 필터는 어떻게 되었나요? {#what-happened-to-the-connected-facebook-and-number-of-facebook-friends-using-app-filters}
+
+**Number of Facebook Friends Using App** 및 **Connected Facebook** Braze 세분화 필터는 더 이상 사용되지 않습니다. Facebook과 Braze SDK는 더 이상 해당 필터가 의존하던 기본 데이터를 수집하지 않습니다.
+
+더 이상 사용되지 않는 필터를 커스텀 속성, 커스텀 이벤트 또는 참여 기반 Segments로 대체하세요. 예를 들어 **Connected Facebook** 대신 Facebook 로그인 또는 소셜 연결을, **Number of Facebook Friends Using App** 대신 추천, 초대, 공유를 사용할 수 있습니다.
+
+Canvas 리타겟팅의 경우 [4단계: 동기화 설정](#step-4-sync-setup)에서 설명한 대로 이메일, 전화, 이름, 성으로 사용자를 일치시킵니다. 도달 범위를 확장하려면 고가치 Segment를 Facebook에 동기화하고 Meta 광고 매니저에서 유사 오디언스를 생성하세요.
+
 ## 문제 해결 {#troubleshooting}
 
 <style>
@@ -225,7 +233,7 @@ table th:nth-child(1) {
 table th:nth-child(2) {
     width: 40%;
 }
-table th:nth-child(2) {
+table th:nth-child(3) {
     width: 40%;
 }
 table td {
@@ -233,7 +241,7 @@ table td {
 }
 </style>
 
-<table>
+<table aria-label="문제 해결">
   <thead>
     <tr>
       <th>오류</th>
@@ -278,6 +286,21 @@ table td {
       <td>Facebook 기술 파트너 페이지에서 "Connected"로 표시되지만, 오디언스를 동기화할 때 Facebook 오디언스 동기화 단계에서 "Failed to create audience 'audience name'"이라는 오류가 발생합니다. Facebook 계정 인증에 실패했습니다. 기술 파트너 페이지를 방문하여 계정을 다시 연결하세요.</td>
       <td><a href='/docs/partners/canvas_steps/facebook_audience_sync/#audit-your-facebook-account'>이 문제 해결 섹션</a> 의 단계를 따라 계정에 문제가 있는지 확인하세요.
       </td>
+    </tr>
+    <tr>
+      <td><b>드롭다운에 광고 계정이 표시되지 않음</b></td>
+      <td>Facebook 오디언스 단계를 구성할 때 예상하는 광고 계정이 광고 계정 선택기에 나열되지 않습니다.</td>
+      <td>Facebook 앱이 마케팅 API 사용에 필요한 액세스 수준으로 <code>ads_management</code>에 대한 <a href="https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management">앱 검토</a> 를 완료했는지 확인하세요. <a href="https://business.facebook.com/">Facebook 비즈니스 매니저</a> 에서 시스템 사용자 토큰이 올바른 권한을 가지고 있고 Braze에서 사용하는 광고 계정과 연결되어 있으며, 광고 계정 약관에 동의했는지 확인하세요. <br><br>새 Canvas에서는 드롭다운이 작동하지만 이미 편집한 Canvas에서는 작동하지 않는 경우, 브라우저를 강제 새로고침(또는 캐시 삭제)하고 해당 광고 계정에 대한 액세스 권한이 있는 사용자로 로그인되어 있는지 확인하세요.</td>
+    </tr>
+    <tr>
+      <td><b>액세스 토큰 유효성 검사 오류</b></td>
+      <td>Braze를 Facebook에 연결하거나 오디언스를 동기화할 때 Facebook 액세스 토큰 유효성 검사에 대한 오류가 표시됩니다.</td>
+      <td>브라우저에서 Facebook에서 로그아웃합니다. Braze에서 <b>파트너 통합</b> &gt; <b>Facebook</b>으로 이동하여 저장된 Facebook 자격 증명을 제거한 다음 Facebook을 다시 연결합니다. Braze의 Facebook 기술 파트너 페이지에서 옵션이 있는 경우 통합의 연결을 해제하고 다시 연결합니다. <br><br>문제가 계속되면 <a href="#audit-your-facebook-account">Facebook 계정 감사하기</a> 를 따르세요.</td>
+    </tr>
+    <tr>
+      <td><b>오디언스 내보내기 또는 동기화 권한 오류</b></td>
+      <td>Facebook 오디언스 내보내기 또는 동기화가 인증, 관리자 또는 광고 계정 오류로 실패합니다.</td>
+      <td><a href="https://developers.facebook.com/">Meta for Developers</a> 에서 앱을 열고 <b>App roles</b>에서 사용자에게 <b>Admin</b> 역할이 있는지 확인합니다. <b>App settings</b> &gt; <b>Advanced</b>에서 <b>Advertising accounts</b>에 Braze와 함께 사용하는 계정이 포함되어 있는지 확인합니다. <a href="https://business.facebook.com/latest/settings">비즈니스 설정</a> 에서 연결하는 사용자 또는 시스템 사용자가 올바른 광고 계정에 대한 액세스 권한이 있는지 확인합니다.</td>
     </tr>
   </tbody>
 </table>

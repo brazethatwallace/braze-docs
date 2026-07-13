@@ -2,7 +2,7 @@
 nav_title: Product announcement
 article_title: Product Announcement
 alias: "/product_announcement/"
-page_order: 7
+page_order: 8
 description: "This page covers how to use the in-app message drag-and-drop editor to boost awareness of new product launches."
 ---
 
@@ -30,11 +30,11 @@ To get started building your product announcement, select the button component i
 
 ![The in-app message editor with a side menu for customizing the button element.]({% image_buster /assets/img/drag_and_drop/templates/product_announcement_button.png %})
 
-You can also add additional messages to your product announcement in the **Pages** section, then link them together sequentially. For example, you can put together a sequence of messages that briefly describe the product's capabilities and end with a button that takes users to the product page. Learn how to do that in [Connect pages together]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+You can also add additional messages to your product announcement in the **Pages** section, then link them together sequentially. For example, you can put together a sequence of messages that briefly describe the product's capabilities and end with a button that takes users to the product page. Learn how to do that in [Connect pages together]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### Step 4: Style your message
 
-Customize the look and feel of your product announcement using the drag-and-drop [in-app message components]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components).
+Customize the look and feel of your product announcement using the drag-and-drop [in-app message components]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components).
 
 ## Analyzing the results
 

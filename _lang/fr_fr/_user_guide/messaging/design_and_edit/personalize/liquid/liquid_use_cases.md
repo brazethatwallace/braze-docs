@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [Personnaliser un message en fonction d'attributs personnalisés correspondants](#attribute-matching)
+- [Formater une devise selon les conventions numériques européennes](#european-currency-format)
 - [Soustraire deux attributs personnalisés pour afficher la différence en valeur monétaire](#attribute-monetary-difference)
 - [Référencer le prénom d'un utilisateur si son nom complet est stocké dans le champ first_name](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### Formater une devise selon les conventions numériques européennes {#european-currency-format}
+
+Pour les locales qui utilisent une virgule comme séparateur décimal et un point comme séparateur de milliers (par exemple, l'Allemagne ou l'Italie), utilisez les filtres [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) et [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) avec `replace` pour intervertir les séparateurs. Utilisez `#` comme marque substitutive temporaire afin que les points et les virgules ne soient pas intervertis lors de la même passe.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**Résultat :** `1.234.567,89`
+
+**Explication :** Le filtre `money` ajoute les décimales mais n'ajoute pas de symbole monétaire ni de séparateurs spécifiques à la locale. `number_with_delimiter` ajoute les séparateurs de milliers au format américain, et les filtres `replace` les convertissent au format européen.
 {% endraw %}
 
 ### Soustraire deux attributs personnalisés pour afficher la différence en valeur monétaire {#attribute-monetary-difference}
@@ -937,7 +952,7 @@ Today's offer from {{store}}
 
 Ce cas d'utilisation permet aux utilisateurs de configurer des rappels à venir basés sur des événements personnalisés. Le scénario d'exemple permet à un utilisateur de définir un rappel pour une date de renouvellement de police à 26 jours ou plus, les rappels étant envoyés 26, 13, 7 ou 2 jours avant la date de renouvellement.
 
-Avec ce cas d'utilisation, le contenu suivant doit être placé dans le corps d'une [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) ou d'une étape du Canvas.
+Avec ce cas d'utilisation, le contenu suivant doit être placé dans le corps d'une [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) ou d'une étape du Canvas.
 
 {% raw %}
 ```liquid
@@ -1373,6 +1388,10 @@ Time zones
 - [Annuler un message en dehors d'une plage horaire au moment de l'envoi](#abort-send-time-hour-range)
 - [Annuler un message en dehors d'une fenêtre horaire dans un fuseau horaire fixe](#abort-fixed-timezone-window)
 
+{% alert note %}
+Si un utilisateur reçoit un message à une heure locale inattendue, le fuseau horaire de son appareil ou de son profil a peut-être changé (par exemple, après un voyage). La distribution en heure locale utilise le fuseau horaire du profil au moment de l'envoi ; les utilisateurs peuvent avoir besoin d'une nouvelle session dans leur région habituelle avant que des valeurs telles que {% raw %}`{{${time_zone}}}`{% endraw %} reflètent ce que vous attendez. Cependant, vous pouvez [insérer dans un modèle le fuseau horaire de l'utilisateur](#users-time-zone).
+{% endalert %}
+
 ### Insérer dans un modèle le fuseau horaire de l'utilisateur {#users-time-zone}
 
 Par défaut, les dates et heures dans Liquid sont affichées en temps universel coordonné (UTC). Pour afficher les dates et heures dans le fuseau horaire local de l'utilisateur, utilisez le filtre `time_zone` avec le filtre `date`.
@@ -1520,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} C'est l'opposé des [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
+{% alert note %} C'est l'opposé des [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options). {% endalert %}
 
 ### Annuler un message en dehors d'une plage horaire au moment de l'envoi {#abort-send-time-hour-range}
 
@@ -1796,3 +1815,5 @@ Ce cas d'utilisation annule le message lorsque Liquid s'exécute un jour de la s
 {% endraw %}
 
 {% endapi %}
+
+De nombreux exemples de cette bibliothèque utilisent la balise `abort_message` pour ignorer un envoi lorsque les conditions ne sont pas remplies. Pour une référence complète sur l'annulation d'envois avec Liquid, y compris les modèles basés sur la date et l'heure, consultez [Annuler les messages Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).

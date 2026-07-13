@@ -21,7 +21,7 @@ description: "この記事には2019年9月のリリースノートが含まれ�
 
 ## Passkitパートナーシップ {#passkit-partnership}
 
-[Passkit]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/mobile_wallet/passkit/)により、Brazeのお客様はカスタマーエンゲージメントをモバイルウォレットに拡張できます。Brazeの強力なセグメンテーションを利用しながらウォレットCampaignをパーソナライズし、プッシュやアプリ内メッセージなどのチャネルとのオーケストレーションを実現できます。
+[Passkit]({{site.baseurl}}/partners/additional_channels_and_extensions/additional_channels/mobile_wallet/passkit/)により、Brazeのお客様はカスタマーエンゲージメントをモバイルウォレットに拡張できます。Brazeの強力なセグメンテーションを利用しながらウォレットキャンペーンをパーソナライズし、プッシュやアプリ内メッセージなどのチャネルとのオーケストレーションを実現できます。
 
 ## メッセージングエンドポイント経由でのディスパッチID値の返却 {#dispatch-id-value-return-via-messaging-endpoints}
 
@@ -35,9 +35,9 @@ description: "この記事には2019年9月のリリースノートが含まれ�
 
 これにより、トランザクションメッセージングを使用するお客様は、Currentsを介してコールバックをトレースできます。
 
-## Canvasの変更ログ {#canvas-changelogs}
+## キャンバスの変更ログ {#canvas-changelogs}
 
-自分のアカウントでCanvasに取り組んでいるのが誰なのか、もっと詳しく知りたいと思ったことはありませんか？もうその必要はありません。Canvasの変更ログにアクセスできるようになりました。
+自分のアカウントでキャンバスに取り組んでいるのが誰なのか、もっと詳しく知りたいと思ったことはありませんか？もうその必要はありません。キャンバスの変更ログにアクセスできるようになりました。
 
-![Canvasの変更ログ]({% image_buster /assets/img/canvas-changelog1.png %})
-![Canvasの変更ログ]({% image_buster /assets/img/canvas-changelog2.png %})
+![キャンバスの変更ログ]({% image_buster /assets/img/canvas-changelog1.png %})
+![キャンバスの変更ログ]({% image_buster /assets/img/canvas-changelog2.png %})

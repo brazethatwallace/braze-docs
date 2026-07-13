@@ -16,14 +16,18 @@ description: "This article outlines details about the Update email template Braz
 
 > Use this endpoint to update email templates on the Braze dashboard.
 
-You can access an email template's `email_template_id` by navigating to it on the **Templates & Media** page. The [Create email template endpoint]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) will also return an `email_template_id` reference.
+You can access an email template's `email_template_id` by navigating to it on the **Templates & Media** page. The [Create email template endpoint]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template) will also return an `email_template_id` reference.
 
 All fields other than the `email_template_id` are optional, but you must specify at least one field to update.
+
+{% alert tip %}
+You can also call this endpoint through the [Braze MCP server]({{site.baseurl}}/user_guide/brazeai/mcp_server) using the [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates) function. This lets AI tools like Claude and Cursor update email templates through natural language prompts.
+{% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## Prerequisites
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `templates.email.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `templates.email.update` permission.
 
 ## Rate limit
 
@@ -53,15 +57,15 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-|`email_template_id`| Required |String|Your [email template's API identifier]({{site.baseurl}}/api/identifier_types/).|
+|`email_template_id`| Required |String|Your [email template's API identifier]({{site.baseurl}}/api/identifier_types).|
 |`template_name`|Optional|String|Name of your email template.|
 |`subject`|Optional|String|Email template subject line.|
 |`body`|Optional|String|Email template body that may include HTML.|
 |`plaintext_body`|Optional|String|A plaintext version of the email template body.|
 |`preheader`|Optional|String|Email preheader used to generate previews in some clients.|
-|`tags`|Optional|String|[Tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) must already exist.|
+|`tags`|Optional|String|[Tags]({{site.baseurl}}/user_guide/messaging/governance/tags) must already exist.|
 |`should_inline_css`|Optional|Boolean|Enables or disables the `inline_css` feature per template. If not provided, Braze will use the default setting for the AppGroup. One of `true` or `false` is expected.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```
@@ -90,6 +94,6 @@ The following table lists possible returned errors and their associated troubles
 | All tags must be strings | Make sure your tags are encapsulated in quotes (`""`). |
 | Some tags could not be found | To add a tag when creating an email template, the tag must already exist in Braze. |
 | Invalid value for `should_inline_css`. One of `true` or `false` was expected | This parameter only accepts boolean values (true or false). Make sure the value for `should_inline_css` is not encapsulated in quotes (`""`), which causes the value to be sent as a string instead. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

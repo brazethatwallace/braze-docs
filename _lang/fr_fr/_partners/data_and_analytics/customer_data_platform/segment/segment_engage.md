@@ -16,17 +16,18 @@ search_tag: Partner
 
 > [Segment](https://segment.com) est une plateforme de données clients qui vous aide à collecter, nettoyer et activer vos données clients. Cet article de référence donne un aperçu de la connexion entre [Braze et Segment Engage](https://segment.com/docs/destinations/braze/#Engage), et décrit les exigences et les processus pour une mise en œuvre et une utilisation correctes.
 
-L'intégration de Braze et Segment vous permet d'utiliser [Engage](https://segment.com/docs/engage/), la segmentation d'audience intégrée à Segment, pour créer des segments d'utilisateurs sur la base des données que vous avez déjà collectées dans diverses sources. Ces audiences seront ensuite synchronisées avec Braze en tant que cohorte, ou indiquées sur le profil de l'utilisateur par le biais d'[attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) ou d'[événements personnalisés]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events) qui peuvent être utilisés pour créer des segments Braze à utiliser dans le reciblage de Campaign et de Canvas.
+L'intégration de Braze et Segment vous permet d'utiliser [Engage](https://segment.com/docs/engage/), la segmentation d'audience intégrée à Segment, pour créer des segments d'utilisateurs sur la base des données que vous avez déjà collectées dans diverses sources. Ces audiences seront ensuite synchronisées avec Braze en tant que cohorte, ou indiquées sur le profil de l'utilisateur par le biais d'[attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) ou d'[événements personnalisés]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-events) qui peuvent être utilisés pour créer des segments Braze à utiliser dans le reciblage de Campaign et de Canvas.
 
 ## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
 | Compte Segment | Un [compte Segment](https://app.segment.com/login) est nécessaire pour bénéficier de ce partenariat. |
-| Destination cloud Braze | Vous devez avoir déjà [configuré Braze comme destination]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) dans votre intégration Segment.<br><br>Vous devez notamment fournir le centre de données et la clé API REST corrects de Braze dans vos [paramètres de connexion]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
-| Clé d'importation des données Braze | Pour synchroniser les audiences Engage avec Braze sous forme de cohortes, vous devez générer une clé d'importation des données.<br><br>L'importation de cohortes est en accès anticipé ; contactez votre gestionnaire de la satisfaction client Braze pour obtenir l'accès à cette fonctionnalité. |
+| Destination cloud Braze | Vous devez avoir déjà [configuré Braze comme destination]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) dans votre intégration Segment.<br><br>Vous devez notamment fournir le centre de données et la clé API REST corrects de Braze dans vos [paramètres de connexion]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings). |
+| Clé d'importation des données Braze | Pour synchroniser les audiences Engage avec Braze sous forme de cohortes, vous devez générer une clé d'importation des données.<br><br>L'importation de cohortes est en accès anticipé ; contactez votre gestionnaire du succès des clients Braze pour obtenir l'accès à cette fonctionnalité. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration de la destination Cohortes {#cohorts-destination-integration}
 
@@ -48,7 +49,7 @@ Suivez [les instructions de Segment](https://segment.com/docs/connections/destin
 ### Étape 4 : Créer un segment Braze à partir de l'audience Engage {#step-4-create-a-braze-segment-from-the-engage-audience}
 Dans Braze, accédez à **Segments**, créez un nouveau segment et sélectionnez **Segment Cohorts** comme filtre. À partir de là, vous pouvez choisir quelle cohorte Segment vous souhaitez inclure. Une fois le segment de cohorte Segment créé, vous pouvez le sélectionner comme filtre d'audience lors de la création d'une Campaign ou d'un Canvas.
 
-![]({% image_buster /assets/img/segment/segment3.png %})
+![Générateur de segments Braze utilisant le filtre Segment Cohorts.]({% image_buster /assets/img/segment/segment3.png %})
 
 ## Intégration en mode cloud {#cloud-mode-integration}
 
@@ -78,6 +79,7 @@ Par exemple, si vous avez un trait calculé Engage pour « Dernier article de pr
 | Trait calculé | Audiences |
 | -------------- | --------- |
 | ![La section des attributs personnalisés dans un profil utilisateur indique « last_product_viewed_item » comme « Sweater ».]({% image_buster /assets/img/segment/last_viewed-id-braze.png %}) | ![La section des attributs personnalisés dans un profil utilisateur indique « dormant_shopper » comme « true ».]({% image_buster /assets/img/segment/dormant-identify-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Traits et audiences calculés" }
 
 {% endtab %}
 {% tab Track %}
@@ -89,6 +91,7 @@ En reprenant l'exemple précédent, si un utilisateur dispose d'un trait calcul�
 | Trait calculé | Audiences |
 | -------------- | --------- |
 | ![La section des événements personnalisés dans un profil utilisateur indique « Trait Computed » « 1 » fois, la dernière occurrence étant « il y a 20 heures ».]({% image_buster /assets/img/segment/last_viewed-track-braze.png %}) | ![La section des attributs personnalisés dans un profil utilisateur indique « Audience Entered » « 1 » fois, la dernière occurrence étant le « 9 mars à 1 h 45 ».]({% image_buster /assets/img/segment/dormant-track-braze.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Traits et audiences calculés" }
 
 {% endtab %}
 {% endtabs %}
@@ -109,6 +112,6 @@ Bien que le paramètre par défaut de la connexion entre Braze et Segment Engage
 
 Le tableau de bord de Segment offre une fonctionnalité « Debugger » qui permet aux clients de vérifier si les données d'une « Source » sont transférées vers une « Destination » comme prévu.
 
-Cette fonctionnalité se connecte à l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) de Braze, ce qui signifie qu'elle ne peut être utilisée que pour des utilisateurs identifiés (utilisateurs qui possèdent déjà un ID utilisateur pour leur profil utilisateur Braze).
+Cette fonctionnalité se connecte à l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) de Braze, ce qui signifie qu'elle ne peut être utilisée que pour des utilisateurs identifiés (utilisateurs qui possèdent déjà un ID utilisateur pour leur profil utilisateur Braze).
 
 Cela ne fonctionnera pas pour une intégration côte à côte de Braze. Aucune donnée serveur ne sera transmise si vous n'avez pas saisi les informations correctes de l'API REST de Braze.

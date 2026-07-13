@@ -24,7 +24,7 @@ The Braze and WSC Sports integration allows you to include rich and robust sport
 | ----------- | ----------- |
 | WSC account | A WSC account is required to take advantage of this partnership. |
 | Braze REST API key | A Braze REST API key with **Messages**, **Segments**, **Campaigns** and **Canvas** permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -32,7 +32,7 @@ The WSC Sports application handles the end-to-end process, from selecting the vi
 
 ### Step 1: Select send settings
 
-![]({% image_buster /assets/img/wsc_sports/braze_integration.jpg %} "braze_integration.jpg"){: style="float:right;max-width:25%;margin-bottom:15px;"}
+![WSC Sports send settings panel with Braze campaign and segment selection.]({% image_buster /assets/img/wsc_sports/braze_integration.jpg %} "braze_integration.jpg"){: style="float:right;max-width:25%;margin-bottom:15px;"}
 
 Before starting the integration, make sure you have your desired campaign and user segments built in Braze. When completed, in the WSC Sports platform, select your desired video, and in the send settings, select Braze user segment and campaign ID you would like to use. Lastly, choose the time you would like your push message sent out. 
 

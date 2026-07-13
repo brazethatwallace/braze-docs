@@ -2,7 +2,7 @@
 nav_title: E-Mail-Registrierung mit Angebot
 article_title: E-Mail-Registrierung mit Sonderangebot
 alias: "/email_offer/"
-page_order: 5
+page_order: 6
 description: "Auf dieser Seite erfahren Sie, wie Sie den Drag-and-Drop-Editor für In-App-Nachrichten verwenden, um Ihre E-Mail-Liste aufzubauen, indem Sie bei der Registrierung einen Sonderrabatt anbieten."
 ---
 
@@ -26,7 +26,7 @@ Wählen Sie beim Erstellen einer Drag-and-Drop-In-App-Nachricht **E-Mail-Registr
 
 ### 3. Schritt: E-Mail-Registrierungskomponente anpassen {#step-3-customize-your-email-sign-up-component}
 
-Um mit dem Erstellen Ihres E-Mail-Registrierungsformulars zu beginnen, wählen Sie die Seite **E-Mail-Registrierung** aus und klicken Sie dann auf das E-Mail-Erfassungselement im Editor. Standardmäßig erhalten erfasste E-Mail-Adressen die globale Abo-Gruppe **Abonniert**. Um Nutzer:innen für bestimmte Abo-Gruppen anzumelden, lesen Sie [E-Mail-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states).
+Um mit dem Erstellen Ihres E-Mail-Registrierungsformulars zu beginnen, wählen Sie die Seite **E-Mail-Registrierung** aus und klicken Sie dann auf das E-Mail-Erfassungselement im Editor. Standardmäßig erhalten erfasste E-Mail-Adressen die globale Abo-Gruppe **Abonniert**. Um Nutzer:innen für bestimmte Abo-Gruppen anzumelden, lesen Sie [E-Mail-Abo-Status aktualisieren]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states).
 
 Sie können den Platzhaltertext und den Beschriftungstext des E-Mail-Erfassungselements anpassen.
 
@@ -42,12 +42,12 @@ Sie können den Platzhaltertext und den Beschriftungstext des E-Mail-Erfassungse
 
 ### 5. Schritt: Nachricht gestalten {#step-5-style-your-message}
 
-Passen Sie das Erscheinungsbild Ihres Sonderangebots mithilfe der Drag-and-Drop-[Komponenten für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) an.
+Passen Sie das Erscheinungsbild Ihres Sonderangebots mithilfe der Drag-and-Drop-[Komponenten für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) an.
 
 ## Ergebnisse analysieren {#analyzing-the-results}
 
 {% multi_lang_include drag_and_drop/templates.md section='reporting' %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
 {% multi_lang_include drag_and_drop/templates.md section='email double opt-in' %}

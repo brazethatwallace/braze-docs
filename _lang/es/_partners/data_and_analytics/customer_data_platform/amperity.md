@@ -17,11 +17,11 @@ _Esta integración está mantenida por Amperity._
 {% multi_lang_include video.html id="06G0lxaSjgk" align="right" %}
 
 La integración de Braze y Amperity ofrece una visión unificada de tus clientes en las dos plataformas. Esta integración te permite:
-- **Sincronizar perfiles de clientes**: Mapea datos de usuario y atributos personalizados de Amperity a Braze.
-- **Crear y enviar audiencias**: Crea segmentos que devuelvan listas de clientes activos y sus atributos personalizados asociados a Braze, y envíalos a Braze.
-- **Gestionar actualizaciones de datos**: Controla la frecuencia de envío de actualizaciones de atributos personalizados a Braze.
-- **Unificar datos**: Unifica datos en varias plataformas compatibles con Amperity y Braze.
-- **Sincronizar datos de Braze con Amazon S3**: Utiliza Braze Currents para integrar los datos de interacción de las campañas de Braze, lo que te permite sincronizar datos con Amazon S3 en formato Apache Avro.
+- **Sincronizar perfiles de clientes**: Mapear datos de usuario y atributos personalizados de Amperity a Braze.
+- **Crear y enviar audiencias**: Crear segmentos que devuelvan listas de clientes activos y sus atributos personalizados asociados a Braze, y enviarlos a Braze.
+- **Gestionar actualizaciones de datos**: Controlar la frecuencia de envío de actualizaciones de atributos personalizados a Braze.
+- **Unificar datos**: Unificar datos en varias plataformas compatibles con Amperity y Braze.
+- **Sincronizar datos de Braze con Amazon S3**: Utilizar Braze Currents para integrar los datos de participación de las Campaigns de Braze, lo que te permite sincronizar datos con Amazon S3 en formato Apache Avro.
 
 ## Requisitos previos {#prerequisites}
 
@@ -29,20 +29,20 @@ La integración de Braze y Amperity ofrece una visión unificada de tus clientes
 | ----------- | ----------- |
 | Cuenta de Amperity | Se necesita una [cuenta de Amperity](https://amperity.com/request-a-demo) para beneficiarse de esta asociación. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos `users.track`. <br> Puede crearse en el panel de Braze navegando a **Consola para desarrolladores** > **Clave de API REST** > **Crear nueva clave de API**. |
-| Instancia de Braze | Tu instancia de Braze puede obtenerse a través de tu administrador de incorporación a Braze o en la [página de resumen de la API]({{site.baseurl}}/api/basics/#endpoints). |
-| Punto de conexión REST de Braze | La URL de tu punto de conexión de Braze. Tu punto de conexión dependerá de tu instancia de Braze. |
+| Instancia de Braze | Tu instancia de Braze puede obtenerse a través de tu administrador de incorporación a Braze o en la [página de resumen de la API]({{site.baseurl}}/api/basics#endpoints). |
+| Endpoint REST de Braze | La URL de tu endpoint de Braze. Tu endpoint dependerá de tu instancia de Braze. |
 | Conector de Currents (opcional) | El conector S3 de Currents. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Mapeado de datos {#data-mapping}
 
 Tanto los atributos estándar como los personalizados pueden enviarse de Amperity a Braze, lo que te permite enriquecer los perfiles de los clientes en Braze con datos de diversas fuentes a través de Amperity. Los atributos específicos que puedes enviar dependerán de los datos de tu sistema Amperity y de los atributos que hayas configurado en Braze.
 
-Lee a continuación para conocer estos atributos.
+Revisa esta sección para conocer estos atributos.
 
 ### Atributos estándar {#standard-attributes}
 
-[Los atributos del perfil]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields) describen quiénes son tus clientes. A menudo se asocian a la identidad del cliente, como:
+[Los atributos del perfil]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) describen quiénes son tus clientes. A menudo se asocian a la identidad del cliente, como:
 - Nombres
 - Fechas de nacimiento
 - Direcciones de correo electrónico
@@ -50,11 +50,11 @@ Lee a continuación para conocer estos atributos.
 
 ### Atributos personalizados {#custom-attributes}
 
-[Los atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) en Braze son campos determinados por tu marca. Si deseas que Amperity gestione atributos personalizados que ya existen en Braze, alinea la salida que se envía desde Amperity con los nombres que ya están en tu espacio de trabajo de Braze. Esto puede incluir lo siguiente:
+[Los atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) en Braze son campos determinados por tu marca. Si deseas que Amperity gestione atributos personalizados que ya existen en Braze, alinea la salida que se envía desde Amperity con los nombres que ya están en tu espacio de trabajo de Braze. Esto puede incluir lo siguiente:
 - Historiales de compras
 - Estado de fidelización
 - Niveles de valor
-- Datos recientes de interacción
+- Datos recientes de participación
 
 Verifica los nombres de los atributos personalizados que se enviarán a Braze desde Amperity. Amperity añadirá un atributo personalizado siempre que no haya un nombre coincidente.
 
@@ -94,9 +94,9 @@ Amperity realiza un seguimiento de los cambios entre las sincronizaciones con Br
 
 ### Paso 1: Capturar detalles de configuración para Braze {#step-1-capture-configuration-details-for-braze}
 
-1. Crea una clave de API REST de Braze para tu espacio de trabajo de Braze con los permisos `users.track` en **Datos de usuario**. El punto de conexión `users.track` sincroniza la audiencia de Amperity con Braze como un atributo personalizado.
-2. Determina el [punto de conexión de la REST API]({{site.baseurl}}/api/basics/#endpoints) para tu instancia de Braze. Por ejemplo, si tu URL de Braze es `https://dashboard-03.braze.com`, tu punto de conexión de la REST API es `https://rest.iad-03.braze.com` y tu instancia es "US-03".
-3. Determina una lista de [campos de perfil de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields) y [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) que pueden enviarse a Braze desde Amperity.
+1. Crea una clave de API REST de Braze para tu espacio de trabajo de Braze con los permisos `users.track` en **Datos de usuario**. El endpoint `users.track` sincroniza la audiencia de Amperity con Braze como un atributo personalizado.
+2. Determina el [endpoint de la REST API]({{site.baseurl}}/api/basics#endpoints) para tu instancia de Braze. Por ejemplo, si tu URL de Braze es `https://dashboard-03.braze.com`, tu endpoint de la REST API es `https://rest.iad-03.braze.com` y tu instancia es "US-03".
+3. Determina una lista de [campos de perfil de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) y [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) que pueden enviarse a Braze desde Amperity.
 
 ### Paso 2: Configurar Braze como destino — Operator DataGrid {#step-2-set-up-braze-as-a-destinationdatagrid-operator}
 
@@ -106,13 +106,13 @@ Crea una nueva tabla llamada "Braze Customer Attributes" dentro de tu base de da
 
 #### Paso 2b: Nombrar, validar y guardar la tabla {#step-2b-name-validate-and-save-the-table}
 
-Nombra la tabla "Braze Customer Attributes" y guárdala. Verifica que la tabla sea accesible para el **editor de segmentos** y el editor **Editar atributos** dentro de las campañas.
+Nombra la tabla "Braze Customer Attributes" y guárdala. Verifica que la tabla sea accesible para el **Segment Editor** y el editor **Edit Attributes** dentro de las campañas.
 
 #### Paso 2c: Añadir Braze como destino {#step-2c-add-braze-as-a-destination}
 
-En la plataforma Amperity, ve a la pestaña **Destinos**. Busca la opción de añadir un nuevo destino. Entre las opciones disponibles, selecciona **Braze**.
+En la plataforma Amperity, ve a la pestaña **Destinations**. Busca la opción de añadir un nuevo destino. Entre las opciones disponibles, selecciona **Braze**.
 
-![La sección Nuevo destino con el nombre "Braze API", la descripción "Enviar atributos de audiencia a Braze." y el plugin "Braze".]({% image_buster /assets/img/amperity/destination_name.png %}){: style="max-width:60%;"}
+![La sección Nuevo destino con el nombre "Braze API", la descripción "Send audience attributes to Braze." y el plugin "Braze".]({% image_buster /assets/img/amperity/destination_name.png %}){: style="max-width:60%;"}
 
 #### Paso 2d: Configurar los detalles del destino {#step-2d-configure-destination-details}
 
@@ -124,7 +124,7 @@ En **Braze settings**, proporciona las credenciales de Braze y la configuración
 
 #### Paso 2e: Añadir una plantilla de datos {#step-2e-add-a-data-template}
 
-En la pestaña **Destinos**, abre el menú del destino Braze y selecciona **Add data template**. Introduce un nombre y una descripción para la plantilla (por ejemplo, "Braze" y "Send custom attributes to Braze"), verifica el acceso de los usuarios empresariales y comprueba todos los ajustes de configuración.
+En la pestaña **Destinations**, abre el menú del destino Braze y selecciona **Add data template**. Introduce un nombre y una descripción para la plantilla (por ejemplo, "Braze" y "Send custom attributes to Braze"), verifica el acceso de los usuarios empresariales y comprueba todos los ajustes de configuración.
 
 Si alguna configuración necesaria no se configuró como parte del destino, configúrala como parte de la plantilla de datos. Guarda la plantilla de datos.
 
@@ -189,6 +189,6 @@ Ejecuta la campaña para enviar el segmento a Braze. Esto puede hacerse manualme
 
 ### Uso de Amperity con Braze Currents {#using-amperity-with-braze-currents}
 Para enviar los datos de Braze Currents a Amperity:
-1. [Configura un Braze Current]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/) para enviar datos a un contenedor de Amazon S3.
+1. [Configura un Braze Current]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents) para enviar datos a un contenedor de Amazon S3.
 2. Configura Amperity para [leer archivos Apache Avro de ese contenedor de Amazon S3](https://docs.amperity.com/datagrid/source_amazon_s3.html).
 3. Configura las fuentes y automatiza las cargas de datos mediante flujos de trabajo estándar.

@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Crear selección de catálogo"
 article_title: "POST: Crear selección de catálogo"
-search_tag: Punto de conexión
+search_tag: Endpoint
 page_order: 2
 
 layout: api_page
@@ -19,7 +19,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.create_selection`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.create_selection`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -27,26 +27,26 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de ruta {#path-parameters}
 
-| Parámetro      | Obligatoria | Tipo de datos | Descripción          |
+| Parámetro      | Obligatorio | Tipo de datos | Descripción          |
 | -------------- | -------- | --------- | -------------------- |
-| `catalog_name` | Obligatoria | Cadena    | Nombre del catálogo. |
+| `catalog_name` | Obligatorio | Cadena    | Nombre del catálogo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## Parámetros de solicitud {#request-parameters}
 
-| Parámetro   | Obligatoria | Tipo de datos | Descripción                                                                                                                                                        |
+| Parámetro   | Obligatorio | Tipo de datos | Descripción                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | Obligatoria | Objeto    | Un objeto que contiene criterios de selección. Consulta [el objeto de selección del catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object/) para obtener un desglose completo del objeto y sus campos. |
+| `selection` | Obligatorio | Objeto    | Un objeto que contiene criterios de selección. Consulta [el objeto de selección del catálogo]({{site.baseurl}}/api/objects_filters/catalog_selection_object) para obtener un desglose completo del objeto y sus campos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### Parámetros del objeto de selección {#selection-object-parameters}
 
-| Parámetro        | Obligatoria | Tipo de datos | Descripción                                                                                                                                                        |
+| Parámetro        | Obligatorio | Tipo de datos | Descripción                                                                                                                                                        |
 | ---------------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `name`           | Obligatoria | Cadena    | El nombre de la selección del catálogo. |
+| `name`           | Obligatorio | Cadena    | El nombre de la selección del catálogo. |
 | `description`    | Opcional | Cadena    | Una descripción de la selección del catálogo. |
-| `external_id`    | Obligatoria | Cadena    | Un identificador único para la selección. |
-| `source`         | Opcional | Cadena    | La fuente de los datos del catálogo. Para los catálogos de Shopify, utiliza `"Shopify"`. Los valores aceptados son `"Shopify"` y `"Braze"`. |
+| `external_id`    | Obligatorio | Cadena    | Un identificador único para la selección. |
+| `source`         | Obligatorio | Cadena    | La fuente de los datos del catálogo. Para los catálogos de Shopify, utiliza `"Shopify"`. Para los catálogos personalizados, utiliza `"custom"`. |
 | `filters`        | Opcional | Matriz    | Una matriz de objetos de filtro para aplicar a los elementos del catálogo. Puedes especificar hasta cuatro filtros por solicitud. Si no se proporcionan filtros, se incluyen todos los elementos del catálogo. |
 | `results_limit`  | Opcional | Entero   | El número máximo de resultados que se devolverán. Debe ser un número entre 1 y 50. |
 | `sort_field`     | Opcional | Cadena    | El campo por el que ordenar los resultados. Debe combinarse con `sort_order`. Si ni `sort_field` ni `sort_order` están presentes, los resultados se aleatorizan. |
@@ -68,6 +68,7 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
     "name": "favorite-restaurants",
     "description": "Favorite restaurants in NYC",
     "external_id": "favorite-nyc-restaurants",
+    "source": "custom",
     "filters": [
       {
         "field": "City",
@@ -96,10 +97,15 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 | `boolean`  | `is`                                                    |
 | `time`     | `before`, `after`                                       |
 | `array`    | `includes value`, `does not include value`              |
+| `geo`      | `geo within`, `geo outside`                             |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% alert note %}
 La API admite un máximo de cuatro filtros por solicitud de selección. En el panel de Braze, puedes añadir hasta 10 filtros por selección. Los filtros se aplican en el orden en que aparecen en la matriz.
+{% endalert %}
+
+{% alert note %}
+Cuando aplicas un filtro `geo`, el sistema ordena automáticamente los resultados por distancia, con el elemento más cercano primero, independientemente de los parámetros `sort_field` y `sort_order`.
 {% endalert %}
 
 ## Respuesta {#response}

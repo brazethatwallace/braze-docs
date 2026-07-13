@@ -1,13 +1,14 @@
 ---
 nav_title: 言語コード
 article_title: 対応言語コード
+page_order: 7
 page_type: reference
-description: "Brazeが現在サポートしているユーザー言語コードである。" 
+description: "Brazeが現在サポートしているユーザー言語コードの一覧です。"
 
 ---
 
-# 言語コード
+# 言語コード {#language-codes}
 
-> これらは現在Brazeがサポートしている言語コードである。
+> Brazeが現在サポートしている言語コードの一覧です。
 
-{% multi_lang_include supported_language_codes.md %}
+{% multi_lang_include messaging/localization/supported_language_codes.md %}

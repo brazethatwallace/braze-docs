@@ -1,7 +1,7 @@
 ---
 nav_title: "GET: 利用可能なContent Blocksの一覧"
 article_title: "GET: 利用可能なContent Blocksの一覧"
-search_tag: エンドポイント
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -14,12 +14,12 @@ description: "この記事では、利用可能なContent Blocksの一覧を取�
 /content_blocks/list
 {% endapimethod %}
 
-> このエンドポイントを使用して、既存の[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)情報を一覧表示します。
+> このエンドポイントを使用して、既存の[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)情報を一覧表示します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d87048f-68fd-46c9-aa15-3a970e99540e {% endapiref %}
 
 ## 前提条件 {#prerequisites}
-このエンドポイントを使用するには、`content_blocks.list` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`content_blocks.list` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -29,11 +29,11 @@ description: "この記事では、利用可能なContent Blocksの一覧を取�
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `modified_after`  | オプション | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 形式の文字列 | 指定した時刻以降に更新されたContent Blocksのみを取得します。 |
-| `modified_before`  |  オプション | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 形式の文字列 | 指定した時刻以前に更新されたContent Blocksのみを取得します。 |
+| `modified_after` | オプション | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 形式の文字列 | 指定した時刻以降に更新されたContent Blocksのみを取得します。 |
+| `modified_before` | オプション | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 形式の文字列 | 指定した時刻以前に更新されたContent Blocksのみを取得します。 |
 | `limit` | オプション | 正の数値 | 取得するContent Blocksの最大数。指定しない場合、デフォルトは100で、最大許容値は1000です。 |
-| `offset`  |  オプション | 正の数値 | 検索条件に一致する残りのテンプレートを返す前にスキップするContent Blocksの数。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `offset` | オプション | 正の数値 | 検索条件に一致する残りのテンプレートを返す前にスキップするContent Blocksの数。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -75,6 +75,6 @@ curl --location --request GET 'https://rest.iad-01.braze.com/content_blocks/list
 | `Content Block number limit exceeds maximum of 1000` | `limit` パラメーターを1000未満の整数に変更してください。 |
 | `Offset is invalid` | `offset` パラメーターは0より大きい整数でなければなりません。 |
 | `Offset must be greater than 0` | `offset` パラメーターを0より大きい整数に変更してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 {% endapi %}

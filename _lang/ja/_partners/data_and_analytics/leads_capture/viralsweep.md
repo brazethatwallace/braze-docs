@@ -2,7 +2,7 @@
 nav_title: ViralSweep
 article_title: ViralSweep
 alias: /partners/viralsweep/
-description: "このレファレンス記事では、Brazeと、ブランドが懸賞、コンテスト、インスタント・ウィン、ウェイトリスト、紹介プロモーションなどのデジタルマーケティングプロモーションを構築、実行、管理できるソフトウェアサービス「ViralSweep」との提携について概説する。"
+description: "このリファレンス記事では、Brazeと、ブランドが懸賞、コンテスト、インスタントウィン、ウェイトリスト、紹介プロモーションなどのデジタルマーケティングプロモーションを構築、実行、管理できるソフトウェアサービスであるViralSweepとのパートナーシップについて説明します。"
 page_type: partner
 search_tag: Partner
 
@@ -10,70 +10,68 @@ search_tag: Partner
 
 # ViralSweep
 
-> [ViralSweep](https://viralsweep.com)は、懸賞、コンテスト、インスタントウィン、ウェイトリスト、紹介プロモーションなどのデジタルマーケティングプロモーションを、ブランドが構築、実行、管理できるようにするソフトウエアサービスです。 
+> [ViralSweep](https://viralsweep.com)は、懸賞、コンテスト、インスタントウィン、ウェイトリスト、紹介プロモーションなどのデジタルマーケティングプロモーションを、ブランドが構築、実行、管理できるようにするソフトウェアサービスです。
 
-_この統合は ViralSweep によって管理されます。_
+_この統合はViralSweepによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-Braze と ViralSweep の統合により、ViralSweep プラットフォームで懸賞とコンテストを開催し (メールと SMS のリストが増加します)、キャンペーンまたはキャンバスで使用できるように懸賞とコンテストへの参加情報を Braze に送信できます。 
+BrazeとViralSweepの統合により、ViralSweepプラットフォームで懸賞やコンテストを開催し（メールとSMSのリストを拡大）、キャンペーンやキャンバスで使用するために懸賞やコンテストのエントリ情報をBrazeに送信できます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| ViralSweep アカウント | このパートナーシップを活用するためには、ビジネスプランを利用している ViralSweep アカウントが必要です。 |
-| Braze REST API キー | すべてのユーザーデータおよびメール権限を持つBraze REST API キー。<br><br> これは、**Settings** > **API Keys** のBraze ダッシュボードで作成できます。 |
-|Braze RESTエンドポイント | REST エンドポイントのURL。エンドポイントは、[インスタンス]({{site.baseurl}}/api/basics/#endpoints)のBraze URLによって異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| ViralSweepアカウント | このパートナーシップを活用するには、ビジネスプランを利用しているViralSweepアカウントが必要です。 |
+| Braze REST APIキー | すべてのユーザーデータおよびメール権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
+| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントは、[インスタンス]({{site.baseurl}}/api/basics#endpoints)のBraze URLによって異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合
+## 統合 {#integration}
 
-### ステップ1 :ViralSweep内のBrazeへの接続
+### ステップ1：ViralSweep内でBrazeに接続する {#step-1-connect-to-braze-within-viralsweep}
 
-ViralSweepで、**Integrations > Email& SMS > Add Serviceに**移動し、**Brazeを**選択する。 
+ViralSweepで、**Integrations > Email & SMS > Add Service**に移動し、**Braze**を選択します。
 
-![]({% image_buster /assets/img/viralsweep/connect.gif %})
+![ViralSweepの統合ページで、メール・SMSサービスの一覧からBrazeが選択されている画面。]({% image_buster /assets/img/viralsweep/connect.gif %})
 
-### ステップ2 :Braze 認証情報を追加する
+### ステップ2：Brazeの認証情報を追加する {#step-2-add-braze-credentials}
 
-統合設定ウィンドウで、Braze REST API キーと REST エンドポイントを指定します。指定するエンドポイントに`https://` が含まれていないことを確認します(`dashboard-03.braze.com` など)。 
+統合設定ウィンドウで、Braze REST APIキーとRESTエンドポイントを入力します。指定するエンドポイントに`https://`が含まれていないことを確認してください（例：`dashboard-03.braze.com`）。
 
-![ユーザーに Braze API キーと Braze ダッシュボード URL の入力を求める ViralSweep サービス統合ページ。]({% image_buster /assets/img/viralsweep/connect2.png %}){: style="max-width:40%;"}
+![ユーザーにBraze APIキーとBrazeダッシュボードURLの入力を求めるViralSweepサービス統合ページ。]({% image_buster /assets/img/viralsweep/connect2.png %}){: style="max-width:40%;"}
 
-[**Connect**] をクリックします。
+**Connect**をクリックします。
 
-### ステップ3 :Braze 認証情報を追加する
-接続が完了しました。プロモーションがBrazeに接続され、ViralSweepによって収集されたすべてのエントリーが自動的にBrazeに送信されます。
+### ステップ3：接続を確認する {#step-3-add-braze-credentials}
+接続が完了しました。プロモーションがBrazeに接続され、ViralSweepによって収集されたすべてのエントリが自動的にBrazeに送信されます。
 
-## よくある質問
+## よくある質問 {#frequently-asked-questions}
 
-### ViralSweep から Braze にはどのフィールドが渡されますか?
+### ViralSweepからBrazeにはどのフィールドが渡されますか？ {#what-fields-does-viralsweep-pass-to-braze}
 - 名
 - 姓
 - メールアドレス
 - 住所
-- Address 2
+- 住所2
 - 市区町村
-- 状態
-- Zip
+- 都道府県
+- 郵便番号
 - 国
 - 生年月日
-- 電話
+- 電話番号
 - プロモーションID
-- Referral link
-- 追跡キャンペーンの名前
+- 紹介リンク
+- トラッキングキャンペーン名
 
-### ViralSweep ではサブスクライバーが更新されますか?
-そうです。プロモーションを実行し、ViralSweep が誰かをBraze に渡した場合、将来別のプロモーションを実行し、同じ人物が入力すると、その人物の情報は自動的にBraze で更新d になります(新しい情報が提供されている場合)。主に、紹介 URL は、入力するプロモーションごとに最新の URL で更新され、プロモーション ID フィールドにはこれまでに入力したすべてのプロモーションの ID が含まれます。
+### ViralSweepではサブスクライバーが更新されますか？ {#does-viralsweep-update-subscribers}
+はい。プロモーションを実行し、ViralSweepが誰かをBrazeに渡した後、将来別のプロモーションを実行して同じ人物がエントリした場合、その人物の情報はBrazeで自動的に更新されます（新しい情報が提供された場合）。主に、紹介URLはエントリした各プロモーションの最新URLに更新され、プロモーションIDフィールドにはこれまでにエントリしたすべてのプロモーションのIDが含まれます。
 
-## トラブルシューティング
+## トラブルシューティング {#troubleshooting}
 
-Brazeに接続していて、アカウントに追加されていない場合は、次のような理由が考えられます。
+Brazeに接続しているにもかかわらず、データがアカウントに追加されない場合は、次のような理由が考えられます。
 
-- **メールがすでに Braze に存在している**<br>
-プロモーションに入力されたメールの住所は、すでにあなたのBrazeアカウントに登録されている可能性があるため、再度追加されることはありません。その連絡先に新しい情報が提供された場合にのみ更新 d となります。<br><br>
-- **メールがすでに ViralSweep に入力されている**<br>
-プロモーションに入力されたメールの住所はすでに入力されているため、再度Brazeに渡されることはありません。プロモーションにすでに参加した後にBrazeインテグレーションを設定すると、このアプリが表示されます。
-
-
+- **メールがすでにBrazeに存在している**<br>
+プロモーションに入力されたメールアドレスがすでにBrazeアカウントに存在している可能性があるため、再度追加されることはありません。その連絡先に新しい情報が提供された場合にのみ更新されます。<br><br>
+- **メールがすでにViralSweepに入力されている**<br>
+プロモーションに入力されたメールアドレスはすでに以前入力されているため、再度Brazeに渡されることはありません。これは、すでにプロモーションにエントリした後にBraze統合を設定した場合に発生することがあります。

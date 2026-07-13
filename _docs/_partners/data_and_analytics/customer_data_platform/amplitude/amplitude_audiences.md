@@ -22,7 +22,7 @@ The Braze and Amplitude bi-directional integration allows you to [import your Am
 |---|---|
 | Amplitude account | An [Amplitude account](https://amplitude.com/) is required to take advantage of this partnership. |
 | Currents | In order to export data back into Amplitude, you need to have [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) set up for your account. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Choose an integration 
 
@@ -40,6 +40,7 @@ Amplitude and Braze offer two different integration methods. Read through the fo
 | Braze REST API key | A Braze REST API key with the all permissions.<br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL][1]. Your endpoint will depend on the Braze URL for your instance. |
 | Braze app identifier | The identifier for the app that will receive Amplitude events. This can be found within the **Braze Dashboard > Developer Console > Settings**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ### Amplitude Setup
 
@@ -65,11 +66,11 @@ User trait and computation syncs will create new users for user identifiers that
 
 Refer to Amplitude's documentation to learn more about [syncing properties, recommendations, and cohorts to third-party destinations](https://help.amplitude.com/hc/en-us/articles/360060055531).
 
-#### How to sync user properties and computations
+### How to sync user properties and computations
 
 In Amplitude Audiences, select **Syncs > Create Sync**.
 
-![]({% image_buster /assets/img/amplitude11.png %})
+![Amplitude Audiences Syncs page with Create Sync selected.]({% image_buster /assets/img/amplitude11.png %})
 
 Next, choose to sync a user property, computation, cohort, or recommendation. 
 
@@ -78,11 +79,11 @@ Next, choose to sync a user property, computation, cohort, or recommendation.
 
 Select **User Property** and then the desired user property to sync.
 
-![]({% image_buster /assets/img/amplitude7.png %})
+![Amplitude sync setup step selecting a user property to sync.]({% image_buster /assets/img/amplitude7.png %})
 
 Next, select a destination to sync your user property to.
 
-![]({% image_buster /assets/img/amplitude8.png %})
+![Amplitude destination selector for syncing properties to Braze.]({% image_buster /assets/img/amplitude8.png %})
 
 Lastly, define the frequency of your sync.
 
@@ -93,11 +94,11 @@ Lastly, define the frequency of your sync.
 
 Select **Computation** and then the desired computation to sync
 
-![]({% image_buster /assets/img/amplitude10.png %})
+![Amplitude sync setup step selecting a computation to sync.]({% image_buster /assets/img/amplitude10.png %})
 
 Next, select a destination to sync your computation to.
 
-![]({% image_buster /assets/img/amplitude8.png %})
+![Amplitude destination selector for syncing computations to Braze.]({% image_buster /assets/img/amplitude8.png %})
 
 Lastly, define the frequency of your sync.
 

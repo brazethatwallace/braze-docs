@@ -64,7 +64,7 @@ For more details about FCM, visit [Cloud messaging](https://firebase.google.com/
 
 Braze provides push notification errors within the message activity log. This error log provides a variety of warnings which can be very helpful for identifying why your campaigns aren't working as expected. Clicking on an error message will redirect you to relevant documentation to help you troubleshoot a particular incident.
 
-![]({% image_buster /assets/img_archive/message_activity_log.png %})
+![Braze message activity log showing push notification error entries.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
 ## Troubleshooting scenarios
 

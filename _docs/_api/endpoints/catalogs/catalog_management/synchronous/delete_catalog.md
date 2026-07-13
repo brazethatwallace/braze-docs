@@ -21,7 +21,7 @@ description: "This article outlines details about the Delete catalog Braze endpo
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `catalogs.delete` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `catalogs.delete` permission.
 
 ## Rate limit
 
@@ -32,7 +32,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `catalog_name` | Required | String | Name of the catalog. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Example request
 
@@ -85,6 +85,6 @@ The following table lists possible returned errors and their associated troubles
 | Error | Troubleshooting |
 | --- | --- |
 | `catalog-not-found` | Check that the catalog name is valid. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

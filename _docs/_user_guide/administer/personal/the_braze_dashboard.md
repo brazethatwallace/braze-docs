@@ -21,11 +21,11 @@ When you log in, the dashboard provides a centralized view of your engagement to
 - **Left navigation:** Organizes tools by function (messaging, audience, analytics, settings)
 - **Global header:** Provides quick access to search, support, language settings, notifications, and your account
 
-Your dashboard experience is organized by [workspaces]({{site.baseurl}}/user_guide/get_started/workspaces/), which help you manage content for different brands, regions, or teams. You can [switch between workspaces](#workspace-switcher) at any time from the side navigation.
+Your dashboard experience is organized by [workspaces]({{site.baseurl}}/user_guide/get_started/workspaces), which help you manage content for different brands, regions, or teams. You can [switch between workspaces](#workspace-switcher) at any time from the side navigation.
 
 ## Access your dashboard
 
-To get started, [sign in to your Braze account]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account). Your access to pages within the dashboard and permission to perform certain actions are based on your assigned [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions). If you need help with your permissions, contact your Braze administrators.
+To get started, [sign in to your Braze account]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account). Your access to pages within the dashboard and permission to perform certain actions are based on your assigned [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions). If you need help with your permissions, contact your Braze administrators.
 
 ## Navigate Braze
 
@@ -35,14 +35,14 @@ The global header is almost always visible at the top of the screen. It provides
 
 - [Search](#search-your-dashboard)
 - Support and community links
-- [Dashboard language]({{site.baseurl}}/user_guide/administer/personal/language_settings/)
+- [Dashboard language]({{site.baseurl}}/user_guide/administer/personal/language_settings)
 - Notifications
 - Account settings
-- [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/)
+- [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)
 
 ### Use the side navigation
 
-The vertical menu on the left organizes Braze tools by function and keeps your most-used items within reach. Select a main menu item to reveal its options in a stacked vertical layout. 
+The vertical menu on the primary side organizes Braze tools by function and keeps your most-used items within reach. Select a main menu item to reveal its options in a stacked vertical layout. 
 
 ![Workspace switcher in Braze dashboard]({% image_buster /assets/img/workspace_switcher.png %}){: style="max-width:35%;float:right;margin-left:15px"}
 
@@ -50,7 +50,7 @@ The vertical menu on the left organizes Braze tools by function and keeps your m
 
 Located at the top of the side navigation, the workspace switcher lets you move between different workspaces in your Braze instance. The active workspace is highlighted.
 
-[Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces/) help organize content by brand, region, product line, or team. Each workspace includes its own data, campaigns, and settings. Your access can vary between workspaces. For example, you might have editing access in one workspace and view-only access in another.
+[Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces) help organize content by brand, region, product line, or team. Each workspace includes its own data, campaigns, and settings. Your access can vary between workspaces. For example, you might have editing access in one workspace and view-only access in another.
 
 To switch workspaces, select the workspace dropdown at the top of the side navigation and choose the workspace you want to access. You can also [add favorite workspaces](#favorite-workspaces) for faster access to the ones you use most often.
 
@@ -72,7 +72,7 @@ The global search bar, located in the header, is the fastest way to find content
 
 ![Global search open with no search terms entered, showing recently open pages.]({% image_buster /assets/img/navigation/search_recently_opened.png %})
 
-Your recently opened content appears below the search bar. This includes any campaign, Canvas, template, or page you’ve recently interacted with—making it easy to return to your work.
+Your recently opened content appears under the search bar. This includes any campaign, Canvas, template, or page you’ve recently interacted with—making it easy to return to your work.
 
 ### What can you search for?
 
@@ -126,7 +126,7 @@ table td {
 | Move between search results | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
 | Select a search result      | <kbd>Enter</kbd>    |
 | Close the search menu       | <kbd>Esc</kbd>  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Keyboard shortcuts" }
 
 ## Productivity features
 
@@ -134,7 +134,7 @@ The Braze dashboard includes several features to help you work more efficiently 
 
 ### BrazeAI Operator
 
-BrazeAI Operator™ is an AI-powered assistant built into the dashboard. Use it to get answers, walk through setup, troubleshoot issues, and brainstorm ideas. Open it from **BrazeAI Operator™** in the global header next to your profile. For more information, see [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+BrazeAI Operator™ is an AI-powered assistant built into the dashboard. Use it to get answers, walk through setup, troubleshoot issues, and brainstorm ideas. Open it from **BrazeAI Operator™** in the global header next to your profile. For more information, see [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ### Pick up where you left off
 
@@ -175,17 +175,17 @@ Want to tell us what you think? You can share feedback about navigation, accessi
 
 ### Administrative tasks
 
-- [Create and manage workspaces]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/)
-- [Manage Braze users]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/)
-- [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)
-- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)
+- [Create and manage workspaces]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)
+- [Manage Braze users]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users)
+- [User permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)
+- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)
 
 ### Key tasks and next steps
 
-- **Build campaigns**: [Create a campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)
-- **Create journeys**: [Build a Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)
-- **Define audiences**: [Create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)
-- **Review performance**: [Analytics overview]({{site.baseurl}}/user_guide/analytics/dashboards/home/)
-- **Configure settings**: [App settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings/)
+- **Build campaigns**: [Create a campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)
+- **Create journeys**: [Build a Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
+- **Define audiences**: [Create a segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
+- **Review performance**: [Analytics overview]({{site.baseurl}}/user_guide/analytics/dashboards/home)
+- **Configure settings**: [App settings]({{site.baseurl}}/user_guide/administer/global/workspace_settings)
 
 

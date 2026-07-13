@@ -31,7 +31,7 @@ channel:
 1. WebサイトURLを含むコールトゥアクション（CTA）ボタン付きの応答メッセージを作成します。
 2. インターフェイスの指定されたボタンをクリックして、クリックトラッキングを有効にします。
 
-リンクはBrazeドメイン、またはサブスクリプショングループに指定されたカスタムドメインに短縮され、ユーザーごとにパーソナライズされます。
+リンクはBrazeドメイン、または購読グループに指定されたカスタムドメインに短縮され、ユーザーごとにパーソナライズされます。
 
 `http://` または `https://` で始まる静的URLはすべて短縮されます。Liquidパーソナライゼーション（ユーザーレベルのトラッキングターゲティングなど）を含む短縮URLは、2か月間有効です。
 
@@ -39,41 +39,88 @@ channel:
 
 ### テンプレートメッセージ {#template-messages}
 
-テンプレートメッセージの場合、クリックトラッキングを有効にするには、テンプレート作成時にベースURLを正しく送信する必要があります。
+テンプレートメッセージのクリックトラッキングを有効にするには、Brazeの**WhatsAppテンプレートビルダー**を使用することをお勧めします。この方法では、URLフォーマットの要件が自動的に処理されるため、WhatsApp Business Managerで手動設定する必要はありません。
 
-#### ステップ 1: WhatsAppでクリックトラッキング対応テンプレートを作成する {#step-1-build-a-click-tracking-supported-template-in-whatsapp}
+WhatsApp Business Managerで直接テンプレートを作成する場合は、[WhatsApp Business Managerからのクリックトラッキング設定](#configuring-click-tracking-from-whatsapp-business-manager)を参照してください。
 
-1. WhatsApp Managerで、カスタムドメインまたは `brz.ai` のいずれかのベースURLを作成します。
+#### テンプレートビルダーを使用する {#use-the-template-builder}
+
+テンプレートビルダーでテンプレートを作成する場合、クリックトラッキングは**設定**タブで設定します。
+
+##### ステップ1: クリックトラッキングを有効にする {#step-1-enable-click-tracking}
+
+テンプレートビルダーで**設定**タブに移動します。**リンクオプション**で、**クリックトラッキング**チェックボックスを選択します。有効にすると、テンプレート内のすべてのリンク（メッセージ本文とCTA Webサイトボタンの両方）が短縮されてトラッキングされます。
+
+![テンプレートビルダーの設定タブ。リンクオプションセクションにクリックトラッキングチェックボックスが有効になっており、カスタムドメインドロップダウンが表示されています。]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_settings.png %})
+
+##### ステップ2: カスタムドメインを選択する（オプション） {#step-2-select-a-custom-domain-optional}
+
+**カスタムドメイン**で、短縮リンクに使用するドメインを選択します。ドロップダウンには、ワークスペースに設定されているすべてのカスタムトラッキングドメインが表示されます。選択しない場合、Brazeはデフォルトの `brz.ai` ドメインを使用します。
+
+ドメインを追加または変更するには、**購読グループ管理**を選択します。
+
+{% alert important %}
+テンプレートがMetaに承認申請として送信された後は、トラッキングドメインを変更できません。送信前に正しいドメインを選択していることを確認してください。
+{% endalert %}
+
+##### ステップ3: 送信先URLを追加する {#step-3-add-your-destination-urls}
+
+**作成**タブに戻り、メッセージコンテンツを追加します。
+
+- **CTA Webサイトボタンの場合：** **クリックトラッキングURL**フィールドに送信先URLを入力します。Brazeは送信先URLを保存し、トラッキングドメインと変数プレースホルダー{% raw %}（例：`https://brz.ai/{{1}}`）{% endraw %}を使用してボタンのWebサイトURLを自動的にフォーマットします。このプレースホルダーがMetaに送信されます。送信時に、Brazeは各ユーザーの完全なトラッキングURLを生成し、変数を入力します。
+- **本文テキストリンクの場合：** 本文に直接URLを入力します。
+
+各ボタンのトラッキングURLフォーマットは、**WebサイトURL**フィールドで直接プレビューできます（例：`https://brz.ai/XXXXXXXX`）。
+
+![コールトゥアクションボタンセクション。Visit websiteボタンのWebサイトURLがトラッキングフォーマットで事前入力されており、送信先用のクリックトラッキングURLフィールドが表示されています。]({% image_buster /assets/img/whatsapp/click_tracking/template_builder_compose.png %}){: style="max-width:70%;"}
+
+##### 送信後に送信先URLを更新する {#update-destination-urls-after-submission}
+
+テンプレートがMetaに送信された後、トラッキングドメインはロックされますが、送信先URLはいつでも編集可能です。リンクの送信先を更新するには、そのボタンの**クリックトラッキングURL**フィールドを編集します。トラッキングURLフォーマットは変わりません。Brazeは送信時にユーザーを新しい送信先にリダイレクトします。
+
+#### WhatsApp Business Managerからクリックトラッキングを設定する {#configure-click-tracking-from-whatsapp-business-manager}
+
+テンプレートビルダーではなくWhatsApp Business Managerでテンプレートを作成する場合は、Brazeでテンプレートを使用する際にクリックトラッキングが正しく機能するように、以下のステップに従ってください。
+
+##### ステップ1: WhatsApp Business Managerでクリックトラッキング対応テンプレートを作成する {#step-1-build-a-click-tracking-supported-template-in-whatsapp-business-manager}
+
+1. WhatsApp Business Managerで、カスタムドメインまたは `brz.ai` のいずれかのベースURLを作成します。
 2. テンプレートに含まれるリンクがクリックトラッキングと互換性があることを確認します。
-3. BrazeでCampaignとして設定した後は、テンプレート変数を変更しないでください。ダウンストリームの変更は反映できません。
-4. CTAボタンリンクの場合、**Dynamic**を選択し、ベースURL（`brz.ai` またはカスタムドメイン）を入力します。<br><br>![コールトゥアクションを作成するセクション。]({% image_buster /assets/img/whatsapp/click_tracking/create_cta.png %})<br><br>
-5. 本文テキスト内のリンクの場合、WhatsApp Managerでテンプレートを作成する際に、トラッキングしたい本文内のリンクに挿入されたスペースを削除します。<br><br>![コールトゥアクションのコンテンツ本文を入力するテキストボックス。]({% image_buster /assets/img/whatsapp/click_tracking/cta_textbox.png %})
+3. Brazeでキャンペーンとして設定した後は、テンプレート変数を変更しないでください。ダウンストリームの変更は反映できません。
+4. CTAボタンリンクの場合、**Dynamic**を選択し、ベースURL（`brz.ai` またはカスタムドメイン）を入力します。
 
-#### ステップ 2: Brazeでテンプレートを完成させる {#step-2-complete-your-template-in-braze}
+![コールトゥアクションを作成するセクション。]({% image_buster /assets/img/whatsapp/click_tracking/create_cta.png %}){: style="max-width:70%;"}
+
+{: start="5"}
+5. 本文テキスト内のリンクの場合、WhatsApp Business Managerでテンプレートを作成する際に、トラッキングしたい本文内のリンクに挿入されたスペースを削除します。
+
+![コールトゥアクションのコンテンツ本文を入力するテキストボックス。]({% image_buster /assets/img/whatsapp/click_tracking/cta_textbox.png %}){: style="max-width:70%;"}
+
+##### ステップ2: Brazeでテンプレートを完成させる {#step-2-complete-your-template-in-braze}
 
 作成時に、Brazeは本文テキストとCTAボタンの両方で、サポート可能なURLドメインを持つテンプレートを自動的に検出します。ステータスはテンプレートの下部に表示されます。
 
-![クリックトラッキングのアクティブステータスを示す「Link Status」セクション。]({% image_buster /assets/img/whatsapp/click_tracking/link_status.png %}){: style="max-width:70%;"}
+![クリックトラッキングのアクティブステータスを示すリンクステータスセクション。]({% image_buster /assets/img/whatsapp/click_tracking/link_status.png %}){: style="max-width:70%;"}
 
-- **サポートされているリンク：**一致するベースURLで送信されたリンクは、クリックトラッキングが有効になります。
-- **部分的にサポートされているリンク：**テンプレート内の一部のリンクが完全なURLとして送信された場合、それらのリンクにはクリックトラッキングが**適用されません**。
-- **サポートされていないリンク：**承認済みベースURLのないリンクには、クリックトラッキング機能が**ありません**。
+- **サポートされているリンク：** 一致するベースURLで送信されたリンクは、クリックトラッキングが有効になります。
+- **部分的にサポートされているリンク：** テンプレート内の一部のリンクが完全なURLとして送信された場合、それらのリンクにはクリックトラッキングが**適用されません**。
+- **サポートされていないリンク：** 承認済みベースURLのないリンクには、クリックトラッキング機能が**ありません**。
 
 `brz.ai` またはカスタムドメインと一致するベースURLを持つリンクには、送信先URLを指定する必要があります。
 
-![ボタン名、WebサイトURL、クリックトラッキングURLのフィールドを含む「Buttons」セクション。]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
+![ボタン名、WebサイトURL、クリックトラッキングURLのフィールドを含むボタンセクション。]({% image_buster /assets/img/whatsapp/click_tracking/buttons.png %}){: style="max-width:70%;"}
 
 {% alert important %}
-**API経由でのテンプレートメッセージ送信**：WhatsAppクリックトラッキング（`brz.ai` またはカスタムトラッキングドメインとメッセージ作成画面の**Click tracking URL**フィールドを使用）は、[`/messages/send` エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)を通じてWhatsAppテンプレートメッセージを送信する場合はサポートされていません。
+**API経由でのテンプレートメッセージ送信**：WhatsAppクリックトラッキング（`brz.ai` またはカスタムトラッキングドメインとメッセージ作成画面の**クリックトラッキングURL**フィールドを使用）は、[`/messages/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)を通じてWhatsAppテンプレートメッセージを送信する場合はサポートされていません。
 
-API経由でテンプレートメッセージを送信する場合、CTA URL変数（`button_variables` を使用）を入力できますが、BrazeはAPIリクエストフローでクリックトラッキングURLやリダイレクトリンクを生成しません。クリックトラッキングを使用するには、Brazeダッシュボードから、またはBraze Campaignトリガー経由でテンプレートを送信してください。
+API経由でテンプレートメッセージを送信する場合、CTA URL変数（`button_variables`を使用）を入力できますが、BrazeはAPIリクエストフローでクリックトラッキングURLやリダイレクトリンクを生成しません。クリックトラッキングを使用するには、Brazeダッシュボードからまたはキャンペーントリガー経由でテンプレートを送信してください。
 {% endalert %}
 
 {% multi_lang_include analytics/click_tracking.md section='Custom Domains' %}
 
 ## URL内のLiquidパーソナライゼーション {#liquid-personalization-in-urls}
 
-Braze作成画面内で直接URLをダイナミックに構築でき、URLにダイナミックなUTMパラメータを追加したり、ユーザーにユニークなリンクを送信したりできます（放棄カートや再入荷した特定の製品にユーザーを誘導するなど）。
+Brazeの作成画面内で直接URLをダイナミックに構築でき、URLにダイナミックなUTMパラメータを追加したり、ユーザーにユニークなリンクを送信したりできます（放棄カートや再入荷した特定の製品にユーザーを誘導するなど）。
 URLは、サポートされているLiquidパーソナライゼーションタグを使用してダイナミックに生成できます。
 
 {% raw %}
@@ -97,19 +144,19 @@ BrazeはLiquidでレンダリングされたURL（APIトリガープロパティ
 
 ## テスト {#testing}
 
-CampaignまたはCanvasを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**Test**タブに移動して、コンテンツテストグループまたは個々のユーザーにWhatsAppをプレビューして送信します。
+キャンペーンまたはキャンバスを起動する前に、まずメッセージをプレビューしてテストすることがベストプラクティスです。これを行うには、**テスト**タブに移動して、コンテンツテストグループまたは個々のユーザーにWhatsAppをプレビューして送信します。
 
 このプレビューは、関連するパーソナライゼーションと短縮URLで更新されます。
 
 {% alert important %}
-アクティブなCanvas内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、Canvasの下書きがアクティブになったときに生成されます。
+アクティブなキャンバス内で下書きが作成された場合、短縮URLは生成されません。実際の短縮URLは、キャンバスの下書きがアクティブになったときに生成されます。
 {% endalert %}
 
 ## レポート {#reporting}
 
-クリックトラッキングが有効になっている場合、またはサポートされているテンプレートで使用されている場合、WhatsAppパフォーマンステーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**Total Clicks**列が含まれます。WhatsApp指標の詳細については、[WhatsAppメッセージパフォーマンス]({{site.baseurl}}/user_guide/channels/whatsapp/reporting/)を参照してください。
+クリックトラッキングが有効になっている場合、またはサポートされているテンプレートで使用されている場合、WhatsAppパフォーマンステーブルには、バリアントごとのクリックイベント数と関連するクリック率を示す**合計クリック数**列が含まれます。WhatsApp指標の詳細については、[WhatsAppメッセージパフォーマンス]({{site.baseurl}}/user_guide/channels/whatsapp/reporting)を参照してください。
 
-![WhatsAppメッセージのCanvasステップ。]({% image_buster /assets/img/whatsapp/click_tracking/canvas_step.png %}){: style="max-width:30%;"}
+![WhatsAppメッセージのキャンバスステップ。]({% image_buster /assets/img/whatsapp/click_tracking/canvas_step.png %}){: style="max-width:30%;"}
 
 クリックデータは分析ダッシュボードに自動的にレポートされます。
 
@@ -117,7 +164,7 @@ CampaignまたはCanvasを起動する前に、まずメッセージをプレビ
 
 ## ユーザーのリターゲティング {#retargeting-users}
 
-`Clicked/Opened Step` フィルターと `clicked tracked WhatsApp link` インタラクションを使用して、リンクとのインタラクションに基づいてユーザーをセグメント化できます。
+`Clicked/Opened Step`フィルターと`clicked tracked WhatsApp link`インタラクションを使用して、リンクとのインタラクションに基づいてユーザーをセグメント化できます。
 
 ![「clicked tracked WhatsApp link」フィルターを含むフィルターグループ。]({% image_buster /assets/img/whatsapp/click_tracking/filter_group.png %})
 

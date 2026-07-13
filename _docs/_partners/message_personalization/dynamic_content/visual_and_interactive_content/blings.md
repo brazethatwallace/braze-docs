@@ -18,6 +18,7 @@ _This integration is maintained by Blings._
 | Requirement     | Description                                                                 |
 |-----------------|-----------------------------------------------------------------------------|
 | Blings account  | A Blings account is required to take advantage of this partnership.         |  
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration  
 
@@ -47,9 +48,7 @@ Request the HTML snippet from your Blings representative.
 
 ### Step 2: Create a Braze campaign  
 
-In Braze, create a new email or in-app message campaign and insert the Blings HTML snippet.
-
-![Blings Braze Campaign.]({% image_buster /assets/img/blings/blings_braze_campaign.png %})  
+In Braze, create a new email or in-app message campaign and insert the Blings HTML snippet. Use the in-editor preview to confirm personalized fields and any dynamic Creative Suite content render as expected.
 
 ### Step 3: Test and launch  
 

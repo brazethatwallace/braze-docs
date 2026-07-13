@@ -14,7 +14,7 @@ Before you start, make sure you have [Banner placements]({{site.baseurl}}/develo
 
 Banners allow marketing and product teams to personalize app or website content dynamically, reflecting real-time user eligibility and behavior. They persistently display messages inline, providing non-intrusive, contextually relevant experiences that can be refreshed at the start of a session or mid-session when your app or website explicitly requests it.
 
-After Banners are integrated into an app or website, marketers can design and launch Banners using a simple drag-and-drop editor, eliminating the need for ongoing developer assistance, reducing complexity, and improving efficiency.
+After Banners are integrated into an app or website, marketers can design and launch Banners using a drag-and-drop editor or a full HTML editor, eliminating the need for ongoing developer assistance, reducing complexity, and improving efficiency.
 
 | Use case | Explanation |
 | --- | --- |
@@ -22,15 +22,15 @@ After Banners are integrated into an app or website, marketers can design and la
 | Personalizing offers | Show personalized promotions and incentives based on each user’s browsing history, cart content, subscription tier, and loyalty status. |
 | Targeting new user engagement | Guide new users through onboarding flows and account setup. |
 | Sales and promotions | Highlight featured content, trending products, and ongoing brand campaigns persistently and directly on your homepage without disrupting the user experience. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Why use Banners?" }
 
 ## Features
 
 Features for Banners include:
 
-- **Easy content building:** Create and preview your Banner using a visual, drag-and-drop editor with support for images, text, buttons, email capture forms, custom code, and more.
+- **Easy content building:** Create and preview your Banner using a visual, drag-and-drop editor with support for images, text, buttons, email capture forms, custom code, and more. Teams that prefer to manage their own markup can use the HTML editor instead for full control over the Banner's HTML and styles, or ask [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/capabilities/#generate-messages) to generate HTML from a description.
 - **Flexible placements:** Define multiple locations within your application or website where Banners can appear, enabling precise targeting to specific contexts or user experiences.
-- **Dynamic personalization:** Banners can only be refreshed at the start of a new session or mid-session if a customer explicitly requests the refresh. Banners don’t update automatically on a new session. If a customer doesn't request the refresh, the Banner won't update.  
+- **Dynamic personalization:** Banners recalculate personalization (Liquid logic) and segmentation every time the banner is refreshed. If a user updates their profile or a custom attribute changes, the next Banner refresh will reflect those changes.
 - **Native prioritization:** Set the display priority for when multiple Banners target the same placement, ensuring the right message reaches users at the right time.
 - **Custom Code editor block:** Use the Custom Code editor block to add custom HTML for advanced customization or seamless integration with your existing web styles.
 
@@ -84,11 +84,6 @@ Additionally, Banner messages do not support the following features:
 - Connected Content
 - Promotional codes
 - `catalog_items` using the [`:rerender` tag]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
-- User-controlled dismissals (early access only)
-
-{% alert important %}
-Allowing users to manually dismiss a Banner is in early access. See [Configure dismissal behavior]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior) for more details. If you're interested in participating in the early access, contact your customer success manager.
-{% endalert %}
 
 ## Next steps
 

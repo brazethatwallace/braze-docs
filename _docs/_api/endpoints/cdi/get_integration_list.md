@@ -33,7 +33,7 @@ Each call to this endpoint will return 10 items. For a list with more than 10 in
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `cursor` | Optional | String | Determines the pagination of the integration list. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
 
 ## Example request
 
@@ -95,8 +95,8 @@ The following table lists possible returned errors and their associated troubles
 | Error | Troubleshooting |
 | --- | --- |
 | `400 Invalid cursor` | Check that your `cursor` is valid. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
-For additional status codes and associated error messages, refer to [Fatal errors & responses]({{site.baseurl}}/api/errors/#fatal-errors).
+For additional status codes and associated error messages, refer to [Fatal errors & responses]({{site.baseurl}}/api/errors#fatal-errors).
 
 {% endapi %}

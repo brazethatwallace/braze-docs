@@ -16,7 +16,7 @@ channel:
 
 Cuando la doble adhesión voluntaria está activada, se envía a los usuarios un mensaje que solicita su consentimiento explícito antes de que puedan recibir mensajes de tus Campaigns o Canvas.
 
-Aunque no es un requisito explícito de la Ley de Protección al Consumidor Telefónico de 1991 (TCPA), Braze recomienda que configures la doble adhesión voluntaria para confirmar que los usuarios están informados y dan su consentimiento para formar parte de tu programa de SMS, MMS o RCS. Para más información sobre cumplimiento, consulta [Leyes, regulaciones y prevención de abuso para SMS, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
+Aunque no es un requisito explícito de la Ley de Protección al Consumidor Telefónico de 1991 (TCPA), Braze recomienda que configures la doble adhesión voluntaria para confirmar que los usuarios están informados y dan su consentimiento para formar parte de tu programa de SMS, MMS o RCS. Para más información sobre cumplimiento, consulta [Leyes, regulaciones y prevención de abuso para SMS, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ## Flujos de trabajo de doble adhesión voluntaria {#double-opt-in-workflows}
 
@@ -48,7 +48,7 @@ Para activar la doble adhesión voluntaria, ve a la tabla **Global Keywords** en
 | | Mensaje de respuesta | Esta es la respuesta inicial que un usuario recibirá después de enviar una palabra clave de adhesión voluntaria (por ejemplo, "Responde Y para confirmar que deseas recibir mensajes de este número. Pueden aplicarse tarifas de mensajes y datos.")
 | Confirmación de doble adhesión voluntaria | Palabras clave | Estas son las palabras clave con las que un usuario puede responder para confirmar su intención de adhesión voluntaria. Se requiere al menos una palabra clave. Estas palabras clave deben especificarse en el campo **Mensaje de respuesta del mensaje de adhesión voluntaria**.
 | | Mensaje de respuesta | Esta es la respuesta de confirmación que un usuario recibirá después de haber confirmado explícitamente su adhesión voluntaria y ahora puede recibir mensajes. El estado del grupo de suscripción del usuario se establecerá como `Subscribed`.
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos configurables" }
 
 Cuando un usuario recibe un mensaje de adhesión voluntaria, tiene 30 días para confirmar su intención de adhesión voluntaria. Si un usuario desea suscribirse después de la ventana de 30 días, necesita enviar una palabra clave de adhesión voluntaria para iniciar el flujo de trabajo de doble adhesión voluntaria nuevamente.
 
@@ -56,9 +56,9 @@ Cuando un usuario recibe un mensaje de adhesión voluntaria, tiene 30 días para
 
 ## Estado del grupo de suscripción {#subscription-group-status}
 
-Solo después de que el usuario complete el flujo de trabajo de doble adhesión voluntaria se actualiza su [estado del grupo de suscripción]({{site.baseurl}}/sms_rcs_subscription_groups/) a `Subscribed`. Si el usuario comienza el flujo de trabajo pero no lo completa, permanece como `Unsubscribed` y no se le pueden enviar mensajes desde ese grupo de suscripción.
+Solo después de que el usuario complete el flujo de trabajo de doble adhesión voluntaria se actualiza su [estado del grupo de suscripción]({{site.baseurl}}/sms_rcs_subscription_groups) a `Subscribed`. Si el usuario comienza el flujo de trabajo pero no lo completa, permanece como `Unsubscribed` y no se le pueden enviar mensajes desde ese grupo de suscripción.
 
-Los usuarios también pueden ingresar al flujo de trabajo de doble adhesión voluntaria si están [suscritos desde otras fuentes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/) (por ejemplo, REST API, SDK).
+Los usuarios también pueden ingresar al flujo de trabajo de doble adhesión voluntaria si están [suscritos desde otras fuentes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups) (por ejemplo, REST API, SDK).
 
 ## Fuentes de suscripción {#subscription-sources}
 
@@ -76,9 +76,9 @@ SDK | Los usuarios ingresarán automáticamente al flujo de trabajo de doble adh
 REST API | Los usuarios pueden ingresar al flujo de trabajo cuando el estado de suscripción se establece a través de `/subscription/status/set`, `/v2/subscription/status/set` o `/users/track` y se pasa el parámetro opcional `use_double_opt_in_logic` como `true` (por ejemplo, [{"subscription_group_id" : "subscription_group_identifier", "subscription_state" : "subscribed", "use_double_opt_in_logic": true}]). Si se omite este parámetro, los usuarios no ingresarán al flujo de trabajo de doble adhesión voluntaria.
 Shopify | Los usuarios no ingresarán al flujo de trabajo de doble adhesión voluntaria cuando su estado de suscripción sea establecido por nuestra integración con Shopify.
 Importación de usuarios | Los usuarios no ingresarán al flujo de trabajo de doble adhesión voluntaria cuando su estado de suscripción sea establecido por la importación de usuarios.
-[Centro de preferencias]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/) | Los usuarios ingresarán automáticamente al flujo de trabajo de doble adhesión voluntaria cuando se suscriban a través de un centro de preferencias.
+[Centro de preferencias]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center) | Los usuarios ingresarán automáticamente al flujo de trabajo de doble adhesión voluntaria cuando se suscriban a través de un centro de preferencias.
 Paso de actualización de usuario | Los usuarios pueden ingresar al flujo de trabajo de doble adhesión voluntaria cuando su estado de suscripción se establece a través del paso de actualización de usuario y se pasa el parámetro opcional `use_double_opt_in_logic` como `true`. Si se omite este parámetro, los usuarios no ingresarán al flujo de trabajo de doble adhesión voluntaria.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fuentes de suscripción" }
 
 ## Asistencia en varios idiomas {#multi-language-support}
 Para mensajes de entrada, la doble adhesión voluntaria es compatible con todos los idiomas definidos en el grupo de suscripción. Esto significa que puedes definir tus respuestas automáticas en diferentes idiomas y Braze enviará la respuesta automática asociada con un idioma específico cuando se reciba una palabra clave coincidente.

@@ -26,7 +26,7 @@ The Braze and Quikly partnership allows you to accelerate conversions on events 
 | Braze REST API key | A Braze REST API key with `users.track`, `subscription.status.set`, `users.export.ids`, and `subscription.status.get` permissions. <br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
 | Quikly API key (optional) | A Quikly API key provided by your client success manager (webhook only). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -40,7 +40,7 @@ For example:
 
 ## Integration
 
-Outlined below are four different integrations: email acquisition, SMS acquisition, custom attributes, and webhooks. The integration you choose will depend on your Quikly activation and use case.
+This section outlines four different integrations: email acquisition, SMS acquisition, custom attributes, and webhooks. The integration you choose will depend on your Quikly activation and use case.
 
 {% tabs %}
 {% tab Email Acquisition %}
@@ -97,7 +97,7 @@ Here is the complete workflow when a customer provides their mobile number and c
 2. Quikly performs a user lookup using the [Export user profile by identifier endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) to see if a user profile exists with a given `email_address`. If no user exists, create an alias-only profile via the Braze [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), setting the user's email as the user alias to reference that user in the future (as the user won't have an external ID).
 3. Update the subscription status using the [Update user's subscription group status endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
 
-To support existing double opt-in SMS subscription workflows, Quikly can send a custom event to Braze rather than the workflow above. In that case, rather than updating the subscription status directly, the [custom event triggers the double opt-in process]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) and the subscription status is periodically monitored to verify the user has fully opted-in before crediting them in the Quikly activation.
+To support existing double opt-in SMS subscription workflows, Quikly can send a custom event to Braze rather than the standard workflow in this section. In that case, rather than updating the subscription status directly, the [custom event triggers the double opt-in process]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) and the subscription status is periodically monitored to verify the user has fully opted-in before crediting them in the Quikly activation.
 
 {% alert important %}
 Braze advises that when creating new users via the `/users/track` endpoint, there should be a delay of about 2 minutes before adding users to the relevant subscription group to allow Braze time to fully create the user profile.
@@ -135,7 +135,7 @@ Use webhooks to trigger incentives for specific events in the customer journey. 
 
 ### Create a Quikly webhook in Braze
 
-To create a Quikly webhook template for future campaigns or Canvases, navigate to **Templates** > **Webhook Templates** in the Braze platform. 
+To create a Quikly webhook template for future campaigns or Canvases, navigate to **Content** > **Webhook** in the Braze platform. Then, select **Create webhook template**.
 
 If you would like to create a one-off Quikly webhook campaign or use an existing template, select **Webhook** in Braze when creating a new campaign.
 

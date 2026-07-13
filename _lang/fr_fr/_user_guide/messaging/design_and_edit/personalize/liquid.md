@@ -32,10 +32,10 @@ guide_featured_list:
 - name: Logique conditionnelle dans les messages
   link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic
   image: /assets/img/braze_icons/columns-01.svg
-- name: Interrompre des messages
+- name: Annuler des messages
   link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages
   image: /assets/img/braze_icons/refresh-ccw-01.svg
-- name: Cas d'utilisation Liquid
+- name: Bibliothèque de cas d'utilisation Liquid
   link: /docs/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases
   image: /assets/img/braze_icons/list.svg
 - name: Tutoriels
@@ -51,13 +51,13 @@ guide_featured_list:
 
 Liquid fait le lien entre votre message et les données de vos utilisateurs. Lorsque vous envoyez un message, Braze analyse le texte à la recherche de syntaxe Liquid. Quand il en trouve, il récupère les données pertinentes pour cet utilisateur spécifique et remplace le code par la valeur réelle avant l'envoi du message.
 
-Par exemple, vous pouvez récupérer un attribut personnalisé d'un profil utilisateur correspondant à un type de données entier, puis arrondir cette valeur au nombre entier le plus proche. Pour en savoir plus sur la syntaxe et l'utilisation de Liquid, consultez [**Étiquettes de personnalisation prises en charge**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Par exemple, vous pouvez récupérer un attribut personnalisé d'un profil utilisateur correspondant à un type de données entier, puis arrondir cette valeur au nombre entier le plus proche. Pour en savoir plus sur la syntaxe et l'utilisation de Liquid, consultez [**Étiquettes de personnalisation prises en charge**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 Le langage de modèles Liquid prend en charge l'utilisation d'objets, d'étiquettes et de filtres.
 
-- Les [**objets**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) vous permettent d'insérer des attributs personnalisés dans vos messages.
-- Les [**étiquettes**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) vous permettent d'insérer des données dans vos messages et d'utiliser une logique conditionnelle pour envoyer des messages si certaines conditions sont remplies. Par exemple, vous pouvez utiliser des étiquettes pour inclure une logique intelligente, comme des instructions « if », dans vos campagnes.
-- Les [**filtres**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/) vous permettent de reformater les attributs personnalisés et le contenu dynamique. Par exemple, vous pourriez utiliser le [filtre `date`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#date-filter) pour convertir un horodatage, tel que *2016-09-07 08:43:50 UTC*, en une date, telle que *7 septembre 2016*.
+- Les [**objets**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) vous permettent d'insérer des attributs personnalisés dans vos messages.
+- Les [**étiquettes**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) vous permettent d'insérer des données dans vos messages et d'utiliser une logique conditionnelle pour envoyer des messages si certaines conditions sont remplies. Par exemple, vous pouvez utiliser des étiquettes pour inclure une logique intelligente, comme des instructions « if », dans vos campagnes.
+- Les [**filtres**]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) vous permettent de reformater les attributs personnalisés et le contenu dynamique. Par exemple, vous pourriez utiliser le [filtre `date`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#date-filter) pour convertir un horodatage, tel que *2016-09-07 08:43:50 UTC*, en une date, telle que *7 septembre 2016*.
 
 {% alert warning %}
 Braze ne prend actuellement pas en charge 100 % du Liquid de Shopify, mais seulement certaines parties que nous avons tenté de décrire dans notre documentation. Nous vous recommandons vivement de tester tous les messages utilisant Liquid avant de les envoyer afin de réduire le risque d'erreurs ou d'utilisation de Liquid non pris en charge.
@@ -65,7 +65,7 @@ Braze ne prend actuellement pas en charge 100 % du Liquid de Shopify, mais seule
 
 ### Prise en charge de Liquid 5 {#liquid-5-support}
 
-Braze prend en charge Liquid jusqu'à **Liquid 5 de Shopify** inclus. L'implémentation de Liquid prend en charge les types d'étiquettes de personnalisation syntaxiques et le contrôle des espaces. Pour plus d'informations sur les étiquettes spécifiques, consultez les [étiquettes de syntaxe]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#syntax-tags).
+Braze prend en charge Liquid jusqu'à **Liquid 5 de Shopify** inclus. L'implémentation de Liquid prend en charge les types d'étiquettes de personnalisation syntaxiques et le contrôle des espaces. Pour plus d'informations sur les étiquettes spécifiques, consultez les [étiquettes de syntaxe]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#syntax-tags).
 
 Les nouveaux filtres de tableaux et filtres mathématiques suivants sont disponibles dans votre Liquid lors de la création de vos messages.
 - `at_least`
@@ -75,7 +75,7 @@ Les nouveaux filtres de tableaux et filtres mathématiques suivants sont disponi
 - `sort_natural`
 - `where`
 
-Consultez [Filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/) pour les définitions.
+Consultez [Filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters) pour les définitions.
 
 ## Termes à connaître {#terms-to-know}
 
@@ -90,7 +90,7 @@ Ces termes sont réinterprétés à partir de la [**documentation de Shopify**](
 | Étiquette de logique conditionnelle | Utilisée pour créer de la logique et contrôler le flux du contenu des messages. Dans Braze, les étiquettes de logique conditionnelle servent à créer des exceptions et des variations dans les messages en fonction de certains critères prédéfinis. | ```{% if ${language} == 'en' %}``` déclenchera votre message d'une manière spécifique si un utilisateur a défini « anglais » comme langue. |
 | Filtres | Utilisés pour modifier, affiner ou reformater la sortie de l'objet Liquid. Souvent utilisés pour créer des opérations mathématiques. | ```{{"Big Sale" | upcase}}``` fera apparaître les mots « Big Sale » sous la forme « BIG SALE » dans le message. |
 | Opérateurs | Utilisés dans les messages pour créer des dépendances ou des critères pouvant affecter le message que votre utilisateur reçoit. | Si un utilisateur remplit les critères définis dans un message balisé avec `{% custom_attribute.${Total_Revenue} > 0%}`, il recevra le message. Sinon, il recevra un autre message désigné (ou non), selon ce que vous avez configuré. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Termes à connaître" }
 
 {% endraw %}
 

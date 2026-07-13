@@ -14,14 +14,14 @@ channel: email
 
 ## Subscriber states
 
-There are three email subscription states for a user: **opted in**, **subscribed**, and **unsubscribed**. To change a user's subscription state, check out our article on [changing subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-subscriptions) or use our [Subscription APIs]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/).
+There are three email subscription states for a user: **opted in**, **subscribed**, and **unsubscribed**. To change a user's subscription state, check out our article on [changing subscriptions]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-subscriptions) or use our [Subscription APIs]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
 
 | Subscriber State | Description |
 |---|---|
 | Opted In | These customers have clicked on the link in a confirmation email and actively opted in to receiving your messages. |
 | Subscribed | By default, users are subscribed to email as long as they have a valid email address stored on their profile. users remain subscribed until they unsubscribe or opt-in. |
 | Unsubscribed | To be marked as unsubscribed, a customer has either explicitly unsubscribed from your emails or has marked an email as spam. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Subscriber states" }
 
 ## Address collection methods
 

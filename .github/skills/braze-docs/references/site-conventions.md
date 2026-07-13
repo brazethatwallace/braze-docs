@@ -37,6 +37,22 @@ validurls['/docs/user_guide/old_section/old_page'] = '/docs/user_guide/new_secti
 - Collapse redirect chains (old to new directly, not old to intermediate to new).
 - Other mechanisms: `layout: redirect` in frontmatter, `local_redirect` for heading-level redirects.
 
+## Links in YAML frontmatter values
+
+Some pages use YAML fields like `guide_top_text` that contain inline links. These fields are rendered by layouts using `| markdownify` but **not** `| liquify`, so Liquid tags like `{{site.baseurl}}` are not evaluated. Standard Markdown links `[text]({{site.baseurl}}/path/)` will render the Liquid tag literally and break the href.
+
+**Use a plain HTML anchor instead:**
+
+```yaml
+guide_top_text: "See our article for <a href='/docs/user_guide/path/to/page'>page title</a>."
+```
+
+- Use an absolute `/docs/`-prefixed path (not `{{site.baseurl}}`).
+- Production URLs omit trailing slashes (`vercel.json` `trailingSlash: false`). Use `/docs/user_guide/path/to/page`, not `/docs/user_guide/path/to/page/`, in static HTML anchors and redirect targets.
+- Bulk cleanup for `_user_guide/`, `_developer_guide/`, and `_api/`: `python3 scripts/strip_internal_doc_link_trailing_slashes.py --dry-run` then `--apply`.
+- The link checker (`scripts/find_broken_links.ts`) scans for Markdown-style links only, so HTML anchors are not checked — verify the target path exists manually.
+- Reference example: `_docs/_api/endpoints/catalogs.md`.
+
 ## Liquid syntax
 
 ### Alerts
@@ -70,6 +86,14 @@ Use `{% tabs local %}` for tabs that do not sync across the page. Subtabs: `{% s
 Optional styling: `{: style="max-width:60%"}`
 
 Alt text: plain language, complete sentence, sentence case. Do not use "image of" or "picture of". Use "and" not "&".
+
+### Parameterized includes
+
+Invoke shared snippets with `{% multi_lang_include filename.md param="value" %}`.
+
+**Liquid whitespace control:** When an include may sit inline on the same line as preceding text, use whitespace-stripping delimiters (`{%-` and `-%}`) on every `assign`, `if`, `elsif`, and `endif` tag in the include file. Unstripped tags emit leading newlines that Markdown renders as a paragraph break.
+
+**Product feedback CTAs:** `_includes/product_feedback_cta.md` — see `docs/contributing/style_guide/product_feedback_ctas.md` for `context`, `channel`, placement, and reviewer checklist.
 
 ## Page anatomy
 

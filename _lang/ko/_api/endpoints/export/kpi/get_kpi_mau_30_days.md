@@ -20,7 +20,7 @@ description: "이 문서에서는 월간 활성 사용자 내보내기 Braze 엔
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `kpi.mau.data_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `kpi.mau.data_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -32,8 +32,8 @@ description: "이 문서에서는 월간 활성 사용자 내보내기 Braze 엔
 | -------- | -------- | --------- | ----------- |
 | `length` | 필수 | 정수 | 반환된 시리즈에 포함할 `ending_at` 이전 최대 일수. 1에서 100 사이여야 합니다(포함). |
 | `ending_at` | 선택 사항 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 시리즈가 종료되어야 하는 날짜. 기본값은 요청 시점입니다. |
-| `app_id` | 선택 사항 | 문자열 | [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지에서 가져온 앱 API 식별자. 제외된 경우, 워크스페이스의 모든 앱에 대한 결과가 반환됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | 선택 사항 | 문자열 | [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) 페이지에서 가져온 앱 API 식별자. 제외된 경우, 워크스페이스의 모든 앱에 대한 결과가 반환됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 {% raw %}
@@ -59,7 +59,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/mau/data_ser
 ```
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}
 
 {% endapi %}

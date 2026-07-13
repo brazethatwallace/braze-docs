@@ -8,7 +8,7 @@ description: "Cet article de référence présente brièvement les étapes d'int
 
 # Liens profonds de navigation dans Braze Pilot {#navigation-deep-links-in-braze-pilot}
 
-> Braze Pilot prend en charge la création de liens profonds depuis l'envoi de messages Braze vers des sections spécifiques de l'application Pilot. Cela vous permet de créer des cas d'utilisation engageants, incitant les utilisateurs à explorer différentes parties de l'application Pilot. Vous pouvez également utiliser des paramètres de lien profond facultatifs pour personnaliser le contenu de certaines pages de l'application pour l'utilisateur. Pour en savoir plus sur la création de liens profonds, consultez [Création de liens profonds vers du contenu in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+> Braze Pilot prend en charge la création de liens profonds depuis l'envoi de messages Braze vers des sections spécifiques de l'application Pilot. Cela vous permet de créer des cas d'utilisation engageants, incitant les utilisateurs à explorer différentes parties de l'application Pilot. Vous pouvez également utiliser des paramètres de lien profond facultatifs pour personnaliser le contenu de certaines pages de l'application pour l'utilisateur. Pour en savoir plus sur la création de liens profonds, consultez [Création de liens profonds vers du contenu in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 ## Général {#general}
 
@@ -21,7 +21,7 @@ Voici les liens profonds vers les principales pages de navigation de l'applicati
 | Configuration | `braze-pilot://navigation/setup` |
 | Changer de langue | `braze-pilot://navigation/selectlanguage` |
 | Appareil photo | `braze-pilot://navigation/camera` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Général" }
 
 ## Steppington
 Voici les liens profonds pour l'application de la marque fictive Steppington dans Pilot.
@@ -39,7 +39,7 @@ Voici les liens profonds pour l'application de la marque fictive Steppington dan
 | Page Steppington+ | `braze-pilot://navigation/steppington/plus` |
 | Écran des objectifs | `braze-pilot://navigation/steppington/goals` |
 | Écran de modification des objectifs | `braze-pilot://navigation/steppington/changegoals` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liens profonds sans paramètres" }
 
 ### Liens profonds avec paramètres {#steppington-deep-links-with-parameters}
 
@@ -47,7 +47,7 @@ Voici les liens profonds pour l'application de la marque fictive Steppington dan
 | --- | --- |
 | Entraînement | `braze-pilot://navigation/steppington/workout` |
 | Entraînement actif | `braze-pilot://navigation/steppington/activeworkout` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liens profonds avec paramètres" }
 
 #### Paramètres acceptés {#steppington-accepted-parameters}
 
@@ -75,7 +75,8 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Paramètres acceptés">
+  <caption>Paramètres acceptés</caption>
     <thead>
         <tr>
             <th>Paramètre</th>
@@ -204,7 +205,7 @@ th:nth-child(6), td:nth-child(6) {
 | `YOGA_HOME` | ![Icône d'une personne en posture de yoga.]({% image_buster /assets/img/braze_pilot/yoga_home_icon.png %}){:style="max-width:30%"} |
 | `BICYCLE_HOME` | ![Icône de vélo.]({% image_buster /assets/img/braze_pilot/bicycle_home_icon.png %}){:style="max-width:30%"} |
 | `DUMBBELL_HOME` | ![Icône d'haltère.]({% image_buster /assets/img/braze_pilot/dumbbell_home_icon.png %}){:style="max-width:30%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Options d'icônes" }
 
 ## PantsLabyrinth
 Voici les liens profonds pour l'application de la marque fictive PantsLabyrinth dans Pilot.
@@ -222,14 +223,14 @@ Voici les liens profonds pour l'application de la marque fictive PantsLabyrinth 
 | Écran de liste | `braze-pilot://navigation/pantslabyrinth/listing` |
 | Page du panier | `braze-pilot://navigation/pantslabyrinth/cart` |
 | Page de la liste de souhaits | `braze-pilot://navigation/pantslabyrinth/wishlist` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liens profonds sans paramètres" }
 
 ### Liens profonds avec paramètres {#pantslabyrinth-deep-links-with-parameters}
 
 | Écran | Lien profond |
 | --- | --- |
 | Page de détails de l'article | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liens profonds avec paramètres" }
 
 #### Paramètres acceptés {#pantslabyrinth-accepted-parameters}
 
@@ -257,7 +258,8 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Paramètres acceptés">
+  <caption>Paramètres acceptés</caption>
     <thead>
         <tr>
             <th>Paramètre</th>
@@ -358,14 +360,14 @@ Voici les liens profonds pour l'application de la marque fictive MovieCanon dans
 | Écran de démarrage | `braze-pilot://navigation/moviecannon/splash` |
 | Écran d'accueil | `braze-pilot://navigation/moviecannon/welcome` |
 | Page de liste des films | `braze-pilot://navigation/moviecannon/moviecannon` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liens profonds sans paramètres" }
 
 ### Liens profonds avec paramètres {#moviecanon-deep-links-with-parameters}
 
 | Écran | Lien profond |
 | --- | --- |
 | Page de détails du film | `braze-pilot://navigation/moviecannon/moviedetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liens profonds avec paramètres" }
 
 #### Paramètres acceptés {#moviecanon-accepted-parameters}
 
@@ -376,4 +378,4 @@ Voici les liens profonds pour l'application de la marque fictive MovieCanon dans
 | `thumbnail` | L'URL web de la vignette à afficher avant le film. | Oui | Chaîne de caractères | `https://picsum.photos/400` |
 | `video` | L'index dans la liste des vidéos à afficher. | Non | Nombre | 0 |
 | `description` | La description de la vidéo. | Oui | Chaîne de caractères | `This%20video%20is%20awesome%21` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Paramètres acceptés" }

@@ -10,7 +10,7 @@ description: "이 문서에서는 여러 카탈로그 항목 세부 정보 나�
 
 ---
 {% api %}
-# 여러 카탈로그 항목 세부 정보 나열
+# 여러 카탈로그 항목 세부 정보 나열 {#list-multiple-catalog-item-details}
 {% apimethod get %}
 /catalogs/{catalog_name}/items
 {% endapimethod %}
@@ -19,37 +19,37 @@ description: "이 문서에서는 여러 카탈로그 항목 세부 정보 나�
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#63a19dd5-10e0-4649-bdf0-097216748bbb {% endapiref %}
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.get_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.get_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog item' %}
 
-## 경로 매개변수
+## 경로 매개변수 {#path-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `catalog_name` | Required | 문자열 | 카탈로그의 이름입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalog_name` | 필수 | 문자열 | 카탈로그의 이름입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
-## 쿼리 매개변수
+## 쿼리 매개변수 {#query-parameters}
 
-이 엔드포인트를 호출할 때마다 50개의 항목이 반환된다는 점에 유의하세요. 50개 이상의 항목이 있는 카탈로그의 경우 다음 예제 응답과 같이 `Link` 헤더를 사용하여 다음 페이지에서 데이터를 검색합니다.
+이 엔드포인트를 호출할 때마다 50개의 항목이 반환됩니다. 50개 이상의 항목이 있는 카탈로그의 경우 다음 예제 응답과 같이 `Link` 헤더를 사용하여 다음 페이지에서 데이터를 검색합니다.
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `cursor` | Optional | 문자열 | 카탈로그 항목의 페이지 매김을 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `cursor` | 선택 사항 | 문자열 | 카탈로그 항목의 페이지 매김을 결정합니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="쿼리 매개변수" }
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
-이 엔드포인트에 대한 요청 본문이 없습니다.
+이 엔드포인트에 대한 요청 본문은 없습니다.
 
-## 요청 예시
+## 요청 예시 {#example-requests}
 
-### 커서 없음
+### 커서 없음 {#without-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurants/items' \
@@ -57,7 +57,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-### 커서 포함
+### 커서 포함 {#with-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurants/items?cursor=c2tpcDow' \
@@ -65,16 +65,16 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 응답
+## 응답 {#response}
 
-이 엔드포인트에 대한 상태 코드 응답은 `200`, `400`, `404` 의 세 가지가 있습니다 .
+이 엔드포인트에 대한 상태 코드 응답은 `200`, `400`, `404` 세 가지가 있습니다.
 
-### 성공 응답의 예
+### 성공 응답 예시 {#example-success-response}
 
 `200` 상태 코드는 다음과 같은 응답 헤더와 본문을 반환할 수 있습니다.
 
 {% alert note %}
-카탈로그의 품목 수가 50개 이하인 경우 `Link` 헤더는 존재하지 않습니다. 커서가 없는 통화의 경우 `prev`가 표시되지 않습니다. 항목의 마지막 페이지를 보면 `next` 이 표시되지 않습니다.
+카탈로그의 항목 수가 50개 이하인 경우 `Link` 헤더는 존재하지 않습니다. 커서가 없는 호출의 경우 `prev`가 표시되지 않습니다. 항목의 마지막 페이지를 볼 때 `next`가 표시되지 않습니다.
 {% endalert %}
 
 ```
@@ -116,9 +116,9 @@ Link: </catalogs/all_restaurants/items?cursor=c2tpcDow>; rel="prev",</catalogs/a
 }
 ```
 
-### 오류 응답의 예
+### 오류 응답 예시 {#example-error-response}
 
-`400` 상태 코드는 다음과 같은 응답 본문을 반환할 수 있습니다. 발생할 수 있는 오류에 대한 자세한 내용은 [문제 해결을](#troubleshooting) 참조하세요.
+`400` 상태 코드는 다음과 같은 응답 본문을 반환할 수 있습니다. 발생할 수 있는 오류에 대한 자세한 내용은 [문제 해결](#troubleshooting)을 참조하세요.
 
 ```json
 {
@@ -138,14 +138,14 @@ Link: </catalogs/all_restaurants/items?cursor=c2tpcDow>; rel="prev",</catalogs/a
 }
 ```
 
-## 문제 해결
+## 문제 해결 {#troubleshooting}
 
-다음 표에는 가능한 반환 오류와 관련된 문제 해결 단계가 나와 있습니다.
+다음 표에는 반환될 수 있는 오류와 관련 문제 해결 단계가 나와 있습니다.
 
 | 오류 | 문제 해결 |
 | --- | --- |
 | `catalog-not-found` | 카탈로그 이름이 유효한지 확인합니다. |
-| `invalid-cursor` | `cursor` 주소가 유효한지 확인합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `invalid-cursor` | `cursor`가 유효한지 확인합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

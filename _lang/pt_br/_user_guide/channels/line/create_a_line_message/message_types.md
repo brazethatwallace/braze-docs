@@ -32,7 +32,7 @@ Casos de uso incluem:
 
 ## Imagem {#image}
 
-Uma mensagem de imagem LINE pode ser adicionada pela [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), por URL ou por Liquid. Essas imagens são independentes e não contêm links clicáveis.
+Uma mensagem de imagem LINE pode ser adicionada pela [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), por URL ou por Liquid. Essas imagens são independentes e não contêm links clicáveis.
 
 Casos de uso incluem:
 - Exibir um destino de férias para inspirar os usuários a pesquisar passagens aéreas
@@ -45,15 +45,15 @@ Casos de uso incluem:
 
 Use imagens por URL para casos de uso que incorporam:
 - Imagens dinâmicas com Liquid, incluindo o Liquid no atributo de origem da imagem. Por exemplo, você pode inserir {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} como a URL da imagem para incluir o nome do usuário na imagem
-- [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) puxando imagens diretamente do seu servidor web ou de APIs acessíveis publicamente
-- [Catálogos da Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/) acessando imagens de arquivos CSV importados e endpoints de API
+- [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) puxando imagens diretamente do seu servidor web ou de APIs acessíveis publicamente
+- [Catálogos da Braze]({{site.baseurl}}/user_guide/data/activation/catalogs) acessando imagens de arquivos CSV importados e endpoints de API
 
 | **Especificações** | **Propriedades recomendadas** |
 |--------------------------|----------------------------|
 | Comprimento da URL do arquivo de imagem | 2.000 caracteres no máximo  |
 | Formato da imagem          | PNG, JPEG             |
 | Tamanho do arquivo     |  10&nbsp;MB no máximo |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Imagem por URL" }
 
 ## Mensagens ricas (mapa de imagem) {#rich-messages-image-map}
 
@@ -74,7 +74,7 @@ Casos de uso incluem:
 | Formato da imagem          | PNG (pode ser transparente), JPEG             |
 | Proporção          | 1:1 (largura:altura)
 | Tamanho do arquivo     |  10&nbsp;MB no máximo |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mapa de imagem" }
 
 ### Link URI {#uri-link}
 
@@ -82,7 +82,7 @@ Casos de uso incluem:
 |--------------------------|----------------------------|
 | Contagem de caracteres      | 1.000 no máximo |
 | Esquemas              | HTTP, HTTPS, LINE, tel |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Link URI" }
 
 ### Texto
 
@@ -106,7 +106,7 @@ Casos de uso incluem:
 | Colunas                  | 10 no máximo |
 | Proporção             | Retângulo: 1,51:1 <br> Quadrado: 1:1  |
 | Título                    | 40 caracteres no máximo
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Mensagem" }
 
 
 ### Imagem
@@ -117,7 +117,7 @@ Casos de uso incluem:
 | Formato da imagem              | JPEG ou PNG |
 | Largura                     | 1.024 pixels  |
 | Tamanho do arquivo                 | 1 MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Imagem" }
 
 
 ### Texto
@@ -126,4 +126,4 @@ Casos de uso incluem:
 |-------------------------|----------------------------|
 | Caracteres              | 120 no máximo (sem imagem ou título) <br> 60 no máximo (mensagem com imagem ou título)  |
 | Ações                 | 3 no máximo |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Texto" }

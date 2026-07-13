@@ -25,7 +25,7 @@ Die folgenden Begriffe werden im gesamten Decisioning-Studio-Leitfaden verwendet
 | **Dimensionen** | Dimensionen können als die *Arten von Hebeln* betrachtet werden, die der Entscheidungsagent nutzen kann, um die Erfolgsmetrik zu maximieren. Typische Dimensionen umfassen Angebot, Betreffzeile, Kreativ, Kanal oder Sendezeit. |
 | **Aktionsbank** | Die Aktionsbank definiert die *spezifischen Optionen*, auf die der Entscheidungsagent für jeden Dimensions-„Hebel“ zugreifen kann. Beispielsweise definieren Sie für eine Kanal-Dimension die spezifischen Kanäle, auf die der Entscheidungsagent zugreifen kann. Für eine Angebots-Dimension definieren Sie die spezifischen Angebote, die der Entscheidungsagent testen kann. |
 | **Einschränkungen** | Grundsätzlich könnte der Entscheidungsagent jede Kombination von Aktionen ausführen, die Sie in die Aktionsbank aufnehmen. Sie können jedoch auch Einschränkungen definieren, um die Aktionen des Entscheidungsagenten zu begrenzen und wichtige Geschäftsregeln einzuhalten. Dies könnte beispielsweise verhindern, dass ein bestimmtes Angebot für Kund:innen in einer nicht berechtigten Region ausgewählt wird, oder ein maximales Budget festlegen, das der Entscheidungsagent ausgeben darf. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Wichtige Konzepte" }
 
 ![Ein allgemeiner Überblick über einen Entscheidungsagenten]({% image_buster /assets/img/decisioning_studio/decisioning_studio_high_level_agent.png %})
 
@@ -39,25 +39,25 @@ Beim Einrichten eines Entscheidungsagenten müssen Sie vier zentrale Designeleme
 
 ### Das „Ziel“: Definieren Sie Ihre Erfolgsmetrik {#the-goal-define-your-success-metric}
 
-> Welches Ergebnis soll der Agent maximieren?
+*Welches Ergebnis soll der Agent maximieren?*
 
 Ihre Erfolgsmetrik ist das Geschäftsergebnis, für das der Agent optimiert. Dies sollte direkt mit Ihren Geschäftszielen übereinstimmen – nicht Proxy-Metriken wie Klicks oder Öffnungen, sondern echte Geschäftsergebnisse wie Umsatz, Conversions, ARPU oder Kund:innen-Lifetime-Value.
 
 ### Das „Wer“: Wählen Sie Ihre Zielgruppe aus {#the-who-select-your-audience}
 
-> Wen soll der Entscheidungsagent ansprechen?
+*Wen soll der Entscheidungsagent ansprechen?*
 
 Definieren Sie die Zielgruppe, die Ihr Agent bedienen soll. Dies könnten alle Kund:innen sein, ein bestimmtes Segment (wie Mitglieder eines Kundenbindungs-Programms) oder Kund:innen in einer bestimmten Phase ihres Lebenszyklus (wie kürzliche Käufer:innen oder gefährdete Abonnent:innen).
 
 ### Das „Was“: Konfigurieren Sie Ihre Aktionsbank {#the-what-configure-your-action-bank}
 
-> Aus welchen Optionen kann der Agent wählen, um das Ergebnis zu erzielen?
+*Aus welchen Optionen kann der Agent wählen, um das Ergebnis zu erzielen?*
 
 Die Aktionsbank definiert alle Hebel, die der Agent nutzen kann: die Dimensionen (wie Kanal, Angebot, Timing und Häufigkeit) und die spezifischen Optionen innerhalb jeder Dimension. Der Agent experimentiert mit verschiedenen Kombinationen dieser Optionen, um herauszufinden, was für jede:n Kund:in am besten funktioniert.
 
 ### Das „Wie“: Konfigurieren Sie Ihre Einschränkungen {#the-how-configure-your-constraints}
 
-> Welche Regeln soll der Agent befolgen?
+*Welche Regeln soll der Agent befolgen?*
 
 Einschränkungen sind die Regeln, die der Agent einhalten muss. Dies könnte verhindern, dass ein bestimmtes Angebot für Kund:innen in einer nicht berechtigten Region ausgewählt wird, oder ein maximales Budget festlegen, das der Entscheidungsagent ausgeben darf.
 
@@ -132,4 +132,4 @@ Sie könnten einen Kundenbindungs- und Engagement-Agenten erstellen, um Käufe v
 
 ## Nächste Schritte {#next-steps}
 
-Bereit, Ihren eigenen Entscheidungsagenten zu erstellen? Unter [Erste Schritte mit Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/) finden Sie einen Leitfaden, der Sie durch das Verbinden von Datenquellen, das Einrichten der Orchestrierung, das Entwerfen Ihres Agenten und den Start in die Produktion führt.
+Bereit, Ihren eigenen Entscheidungsagenten zu erstellen? Unter [Erste Schritte mit Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) finden Sie einen Leitfaden, der Sie durch das Verbinden von Datenquellen, das Einrichten der Orchestrierung, das Entwerfen Ihres Agenten und den Start in die Produktion führt.

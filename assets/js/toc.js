@@ -6,7 +6,7 @@
       noBackToTopLinks: true,
       minimumHeaders: 3,
       headers: 'h1, h2, h3, h4, h5, h6',
-      listType: 'nav', // values: [ol|ul]
+      listType: 'ul', // nested sub-lists only; outer wrapper is a single <nav>
       listPrefix: 'toc_',
       showEffect: 'fadeIn', // values: [show|slideDown|fadeIn|none]
       showSpeed: 'fast', // set to 0 to deactivate effect
@@ -15,7 +15,7 @@
       toc_container_class: 'toc_container',
       toc_item_class: 'nav_item',
       toc_link_class: 'nav-link',
-      bootstrapStyling: ' class="nav"' // appended to each list element
+      bootstrapStyling: ' class="nav"' // appended to each nested list element
     },
     settings = $.extend(defaults, options);
 
@@ -55,9 +55,79 @@
     var highest_level = headers.map(function(_, ele) { return get_level(ele); }).get().sort()[0];
     var return_to_top = '<i class="icon-arrow-up back-to-top"> </i>';
 
+    var tocRootLevel = highest_level;
     var level = get_level(headers[0]),
       this_level,
-      html = " <"+ settings.listType + settings.bootstrapStyling +" aria-label='Table of Content' title='Table of Content'><div class='" + settings.toc_header_class + "'>" + settings.toc_header + "</div><div class='" + settings.toc_container_class + "'>";
+      openUlDepth = 0,
+      openLiCount = 0,
+      pendingLinkLi = false,
+      tocTitle = settings.toc_header.replace(/\.\.\.$/, ''),
+      html = "<nav class='nav' aria-labelledby='toc-heading'>" +
+        "<h2 id='toc-heading' class='" + settings.toc_header_class + "'>" + tocTitle + "</h2>" +
+        "<div class='" + settings.toc_container_class + "'>";
+
+    function linkHtml(header) {
+      return "<a class='" + settings.toc_link_class + "' href='#" + header.id + "' id='" + settings.listPrefix + header.id + "'>" + header.innerHTML + "</a>";
+    }
+
+    function closeLi() {
+      if (openLiCount > 0) {
+        html += "</li>";
+        openLiCount--;
+        pendingLinkLi = false;
+      }
+    }
+
+    function openUl() {
+      html += "<" + settings.listType + settings.bootstrapStyling + ">";
+      openUlDepth++;
+    }
+
+    function closeUl() {
+      html += "</" + settings.listType + ">";
+      openUlDepth--;
+    }
+
+    function ulDepthForLevel(headingLevel) {
+      return Math.max(0, headingLevel - tocRootLevel);
+    }
+
+    function closeToUlDepth(targetDepth) {
+      while (openUlDepth > targetDepth) {
+        closeLi();
+        closeUl();
+      }
+    }
+
+    function openToUlDepth(targetDepth) {
+      while (openUlDepth < targetDepth) {
+        if (openUlDepth === 0) {
+          openUl();
+        } else if (pendingLinkLi) {
+          // Nest the next sub-list inside the open item (e.g. H3 -> H4).
+          openUl();
+          pendingLinkLi = false;
+        } else {
+          // Skipped heading levels need a structural <li> wrapper per depth.
+          html += "<li>";
+          openLiCount++;
+          openUl();
+        }
+      }
+    }
+
+    function renderEntry(header) {
+      if (get_level(header) <= tocRootLevel) {
+        // Top-level entries stay in div wrappers to preserve scrollspy highlight behavior.
+        html += "<div>" + linkHtml(header) + "</div> ";
+        pendingLinkLi = false;
+        return;
+      }
+      html += "<li>" + linkHtml(header);
+      openLiCount++;
+      pendingLinkLi = true;
+    }
+
     headers.on('click', function() {
       if (!settings.noBackToTopLinks) {
         window.location.hash = this.id;
@@ -69,24 +139,30 @@
       if (!settings.noBackToTopLinks && this_level === highest_level) {
         $(header).addClass('top-level-header').after(return_to_top);
       }
-      // extra div tags at html += before <a> to prevent highlighting of parent
-      if (this_level === level) // same level as before; same indenting
-        html += "<div><a class='" + settings.toc_link_class + "' href='#" + header.id + "'  id='" + settings.listPrefix + header.id + "' >" + header.innerHTML + "</a></div> ";
-      else if (this_level <= level){ // higher level than before; end parent ol
-        for(i = this_level; i < level; i++) {
-          html += "</"+settings.listType+">"
+      // Top-level items use div wrappers; nested sub-lists use valid ul > li > ul nesting.
+      var targetUlDepth = ulDepthForLevel(this_level);
+      if (this_level < level) {
+        closeToUlDepth(targetUlDepth);
+        if (this_level > tocRootLevel) {
+          closeLi();
         }
-        html += "<div><a class='" + settings.toc_link_class + "' href='#" + header.id + "'  id='" + settings.listPrefix + header.id + "' >" + header.innerHTML + "</a></div> ";
-      }
-      else if (this_level > level) { // lower level than before; expand the previous to contain a ol
-        for(i = this_level; i > level; i--) {
-          html += "<"+ settings.listType + settings.bootstrapStyling +" aria-label='ToC " + header.innerHTML + "'>"
+      } else if (this_level === level) {
+        closeToUlDepth(targetUlDepth);
+        if (this_level > tocRootLevel) {
+          closeLi();
         }
-        html += "<div><a class='" + settings.toc_link_class + "' href='#" + header.id + "'  id='" + settings.listPrefix + header.id + "' >" + header.innerHTML + "</a></div> ";
+      } else {
+        openToUlDepth(targetUlDepth);
       }
+      // First nested entry when headers[0] is below tocRootLevel (e.g. H3 before H2).
+      if (this_level > tocRootLevel && openUlDepth < targetUlDepth) {
+        openToUlDepth(targetUlDepth);
+      }
+      renderEntry(header);
       level = this_level; // update for the next one
     });
-    html += "</div></"+settings.listType+">";
+    closeToUlDepth(0);
+    html += "</div></nav>";
     if (!settings.noBackToTopLinks) {
       $(document).on('click', '.back-to-top', function() {
         $(window).scrollTop(0);

@@ -21,11 +21,11 @@ These are the components that make up predictive churn analytics:
 - [Estimated Accuracy](#estimated_results)
 - [Churn Correlation Table](#correlation_table)
 
-The distribution of the scores for the entire prediction audience is displayed at the top of the page in a chart that you can view, by category or by score. Users in bins further to the right have higher scores and are more likely to churn. Users in bins further to the left are less likely to churn. The slider beneath the chart will allow you to select a swath of users and estimate what the results would be of targeting users in the selected range of _Churn Risk Score_ or category.
+The distribution of the scores for the entire prediction audience is displayed at the top of the page in a chart that you can view, by category or by score. Users in bins further in the action menu have higher scores and are more likely to churn. Users in bins further in the lower-score range are less likely to churn. The slider beneath the chart will allow you to select a swath of users and estimate what the results would be of targeting users in the selected range of _Churn Risk Score_ or category.
 
 As you move the slider, the bar in the left half of the lower panel will inform you how many users out of the entire prediction audience would be targeted.
 
-![]({% image_buster /assets/img/churn/churnTargeting.gif %})
+![Predictive Churn analytics chart with slider selecting a target score range.]({% image_buster /assets/img/churn/churnTargeting.gif %})
 
 ## Churn score and category {#churn_score}
 
@@ -43,7 +43,7 @@ The scores and the corresponding categories will be updated according to the sch
 
 In the right half of the panel beneath the chart, we show estimates of the expected accuracy of targeting this swath of the prediction audience. Based on data about users in the prediction audience in the past, and the apparent accuracy for the model for discriminating between churning and non-churning users on that past data, these progress bars estimate for a future potential message using the audience highlighted with the slider:
 
-![]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+![Estimated accuracy panel showing expected churners and non-churners for the selected audience range.]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 - How many selected users are expected to churn
 - How many selected users are expected **not** to churn
@@ -60,7 +60,7 @@ This is an estimate of how many users who wouldn't have churned will be incorrec
 
 ## Churn correlation table {#correlation_table}
 
-This analysis displays any user attributes or behaviors that are correlated with user churn in the historical prediction audience. The tables are split into left and right for more and less likely to churn, respectively. For each row, the ratio by which the users with the behavior or attribute in the left column are more or less likely to churn is displayed in the right column. This number is the ratio of churn likelihood of users with this behavior or attribute divided by the likelihood to churn off the entire prediction audience.
+This analysis displays any user attributes or behaviors that are correlated with user churn in the historical prediction audience. The tables are split into left and right for more and less likely to churn, respectively. For each row, the ratio by which the users with the behavior or attribute in the first column are more or less likely to churn is displayed in the second column. This number is the ratio of churn likelihood of users with this behavior or attribute divided by the likelihood to churn off the entire prediction audience.
 
 This table is updated only when the prediction retrains and not when user _Churn Risk Scores_ are updated.
 

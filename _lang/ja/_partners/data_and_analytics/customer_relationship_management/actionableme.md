@@ -1,7 +1,7 @@
 ---
 nav_title: actionable.me
 article_title: actionable.me
-description: "このリファレンス記事では、Braze と actionable.me のパートナーシップについて説明します。actionable.me は、Braze への投資を今すぐ最大限に引き出すことができる専用ソフトウェアおよびプロセスです。"
+description: "このリファレンス記事では、Brazeとactionable.meのパートナーシップについて説明します。actionable.meは、Brazeへの投資を今すぐ最大限に引き出すことができる専用ソフトウェアおよびプロセスです。"
 alias: /partners/actionableme/
 page_type: partner
 search_tag: Partner
@@ -10,30 +10,30 @@ search_tag: Partner
 
 # actionable.me
 
-> [actionable.me](https://actionable.me) は、データおよび CRM エージェンシーである Massive Rocket のチームによって開発された、CRM プログラムを実行するための標準化および自動化されたアプローチです。Braze のお客様に、迅速かつ一貫性があり予測可能な方法で価値を実現するためのツールとプロセスを提供します。 
+> [actionable.me](https://actionable.me)は、データおよびCRMエージェンシーであるMassive Rocketのチームによって開発された、CRMプログラムを実行するための標準化および自動化されたアプローチです。Brazeの顧客に、迅速かつ一貫性があり予測可能な方法で価値を実現するためのツールとプロセスを提供します。
 
-_この統合は actionable.me によって管理されます。_
+_この統合はactionable.meによって管理されています。_
 
-## 統合について
+## 統合について {#about-the-integration}
 
-Braze と actionable.me の統合により、Braze の使用状況を監視するためのサービスをデプロイできます。ツールとプロセスを組み合わせることで、CRM のパフォーマンスが迅速にベンチマークされ、新しい機会が特定され、パフォーマンスの向上に関する推奨事項が提供されます。
+Brazeとactionable.meの統合により、Brazeの利用状況の進捗を監視するサービスをデプロイできます。ツールとプロセスを組み合わせることで、CRMのパフォーマンスが迅速にベンチマークされ、新しい機会が特定され、パフォーマンスの向上に関するおすすめが提供されます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | --- | --- |
-| actionable.me アカウント | このパートナーシップを活用するには、actionable.me アカウントが必要です。 |
-| Braze REST API キー | 次のセクションに記載されている権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**「設定」**>「**APIキー**」から作成できる。 |
-| Braze REST エンドポイント | [あなたのRESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。お客様のエンドポイントは、お客様のインスタンスのBraze URLに依存します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| actionable.meアカウント | このパートナーシップを活用するには、actionable.meアカウントが必要です。 |
+| Braze REST APIキー | 次のセクションに記載されている権限を持つBraze REST APIキー。<br><br> これは、Brazeダッシュボードの**設定** > **API キー**から作成できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
-## 統合
+## 統合 {#integration}
 
-Braze とactionable.me を統合するには、actionable.me プラットフォームを設定し、Braze API キーを Braze で作成して actionable.me ダッシュボードで設定する必要があります。
+Brazeとactionable.meを統合するには、actionable.meプラットフォームを設定し、Braze APIキーをBrazeで作成してactionable.meダッシュボードで設定する必要があります。
 
-### ステップ1:BrazeのAPIキーを作成する
+### ステップ1:Braze APIキーを作成する {#step-1-create-your-braze-api-key}
 
-Braze で [**設定**] > [**API キー**] の順に移動します。[**新しい API キーを作成**] を選択し、次の権限が追加されていることを確認します。
+Brazeで**設定** > **API キー**に移動します。**API キーを作成**を選択し、以下の権限が追加されていることを確認します。
 
 - `campaigns.list`
 - `campaigns.data_series`
@@ -52,14 +52,12 @@ Braze で [**設定**] > [**API キー**] の順に移動します。[**新し�
 - `kpi.new_users.data_series`
 - `kpi.uninstalls.data_series`
 
-### ステップ2:actionable.me チームに情報を提供する
+### ステップ2:actionable.meチームに情報を提供する {#step-2-provide-information-to-the-actionableme-team}
 
-統合を完了するには、REST API キーと[REST エンドポイント URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)をactionable.me オペレーション・チームに提供する必要がある。actionable.me が接続を確立し、セットアップ完了後に連絡を取り、インサイトの共有を開始する。
+統合を完了するには、REST APIキーと[RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)をactionable.meオペレーションチームに提供する必要があります。actionable.meが接続を確立し、セットアップ完了後に連絡を取り、インサイトの共有を開始します。
 
-![actionable.me 運営チームが設定するactionable.me 「プラットフォームの追加」ページ。]({% image_buster /assets/img/actionableme/image2.png %})
+![actionable.meオペレーションチームが設定するactionable.meの「プラットフォームの追加」ページ。]({% image_buster /assets/img/actionableme/image2.png %})
 
-## トラブルシューティング
+## トラブルシューティング {#troubleshooting}
 
-その他のサポートについては、actionable.me またはMassive Rocket チーム ([info@massiverocket.com](mailto:info@massiverocket.com)) にお問い合わせください。
-
-
+その他のサポートについては、actionable.meまたはMassive Rocketチーム（[info@massiverocket.com](mailto:info@massiverocket.com)）にお問い合わせください。

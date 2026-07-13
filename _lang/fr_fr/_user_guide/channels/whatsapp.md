@@ -23,7 +23,7 @@ Avant de commencer, assurez-vous de disposer des éléments suivants :
 - Un compte Meta Business Manager et un compte WhatsApp Business
 - Un numéro de téléphone WhatsApp répondant aux exigences de l'[API Cloud](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)
 
-Pour un guide complet, consultez la [configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/).
+Pour un guide complet, consultez la [configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup).
 
 ## Cas d'utilisation {#use-cases}
 
@@ -34,9 +34,9 @@ Pour un guide complet, consultez la [configuration de WhatsApp]({{site.baseurl}}
 | Rappels de rendez-vous | Réduisez les absences grâce à des rappels de rendez-vous envoyés au bon moment et permettez aux clients de confirmer ou de reprogrammer. |
 | Campagnes promotionnelles | Atteignez vos clients avec des promotions ciblées, des lancements de produits et des offres personnalisées via des messages multimédias enrichis. |
 | Conversations bidirectionnelles | Renforcez vos relations grâce à une messagerie interactive qui permet aux clients de répondre, de poser des questions et de donner leur avis. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Cas d'utilisation" }
 
 ## Étapes suivantes {#next-steps}
 
-- [Configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)
-- [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)
+- [Configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)
+- [Créer un message WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)

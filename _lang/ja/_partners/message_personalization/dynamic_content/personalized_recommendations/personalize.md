@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Personalize.AI
 
-> [Personalize.AI](https://www.zs.com/solutions/artificial-intelligence-and-analytics/personalize-ai/)はBrazeと連携し、Brazeから送信されるパーソナライズされたメッセージやオファーを配信することで、収益の増加を実現します。
+> [Personalize.AI](https://www.zs.com/solutions/artificial-intelligence-and-analytics/personalize-ai/)はBrazeと連携し、Brazeから送信されるパーソナライズされたメッセージやオファーを配信することで、増分収益を生み出します。
 
 BrazeとPersonalize.AIの統合により、メッセージのパーソナライゼーションとターゲティングのためにPersonalize.AIからBrazeプラットフォームにデータをエクスポートできます。
 
@@ -20,7 +20,7 @@ BrazeとPersonalize.AIの統合により、メッセージのパーソナライ�
 | Personalize.AIインスタンス | このパートナーシップを利用するには、Personalize.AIインスタンスが必要です。 |
 | Braze REST APIキー | すべての権限を持つBraze REST APIキー。<br><br>これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)に応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
@@ -49,13 +49,13 @@ BrazeとPersonalize.AIの統合により、メッセージのパーソナライ�
 
 データがエクスポートされると、Personalize.AIは統合時に設定した同期頻度で決められた間隔でBrazeにデータを渡し続けます。
 
-## この統合を使用する {#using-this-integration}
+## この統合の使用方法 {#using-this-integration}
 
 Personalize.AIにより、パーソナライズされたターゲティングに使用される識別子がBrazeにエクスポートされます。これらのカスタム属性は、各顧客のタイミング、コンテンツ、施策、オファーを示します。統合によっては、フィールドを顧客のプロファイルに保存する代わりに、イベントとして渡すか、[コネクテッドコンテンツAPI]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/public_apis/)に取り込むことができます。Personalize.AIでは、識別子として`external_id`の使用がサポートされています。
 
-Brazeにインポートされたデータ属性には、一貫した用語に従って、Canvasesで使用するために直感的な名前が付けられます。たとえば、Personalize.AIの属性`C402_Target_Variant`は、Brazeに`"P.AI_Model_Treatment"`としてエクスポートされます。Personalize.AIからエクスポートされる属性は、既存の属性やトラッキングを妨げないように設計されています。これらの属性は継続的に検証されるため、確実に参照できます。
+Brazeにインポートされたデータ属性には、一貫した用語に従って、キャンバスで使用するために直感的な名前が付けられています。たとえば、Personalize.AIの属性`C402_Target_Variant`は、Brazeに`"P.AI_Model_Treatment"`としてエクスポートされます。Personalize.AIからエクスポートされる属性は、既存の属性やトラッキングを妨げないように設計されています。これらの属性は継続的に検証されるため、確実に参照できます。
 
-たとえば、解約防止に焦点を当てたCanvasの例に関連する顧客属性のセットを次に示します。
+たとえば、解約防止に焦点を当てたキャンバスの例に関連する顧客属性のセットを次に示します。
 
 | Personalize.AI属性 | 値 |
 | ----------- | ------------- |
@@ -68,4 +68,4 @@ Brazeにインポートされたデータ属性には、一貫した用語に従
 | `C4_Offer_Value` | $3 |
 | `C4_Item_Recom` | "Caesar Salad" |
 | `C4_Subject_Line` | "We miss you" |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="この統合の使用方法" }

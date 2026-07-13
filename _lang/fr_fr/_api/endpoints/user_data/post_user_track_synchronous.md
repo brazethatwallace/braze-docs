@@ -10,11 +10,11 @@ description: "Cet article présente en détail l'endpoint synchrone de suivi uti
 ---
 {% api %}
 # Créer et mettre à jour des utilisateurs (synchrone) {#create-and-update-users-synchronous}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 
-> Utilisez cet endpoint pour enregistrer des événements personnalisés et des achats, et pour mettre à jour les attributs de profil utilisateur de manière synchrone. Cet endpoint fonctionne de la même manière que l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), qui met à jour les profils utilisateurs de manière asynchrone.
+> Utilisez cet endpoint pour enregistrer des événements personnalisés et des achats, et pour mettre à jour les attributs de profil utilisateur de manière synchrone. Cet endpoint fonctionne de la même manière que l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), qui met à jour les profils utilisateurs de manière asynchrone.
 
 {% alert important %}
 Cet endpoint est actuellement en **version bêta limitée**. Bien que nous n'ajoutions pas de nouveaux clients à la version bêta pour le moment, veuillez informer votre gestionnaire de compte Braze si vous pensez que cette fonctionnalité pourrait être utile pour votre intégration Braze.
@@ -26,13 +26,13 @@ Dans le cadre d'un appel asynchrone, l'API renvoie le code d'état `201`, indiqu
 
 Dans le cadre d'un appel synchrone, l'API renvoie un code d'état `201`, indiquant que votre requête a été reçue, comprise, acceptée et traitée avec succès. La réponse à l'appel affiche certains champs du profil utilisateur résultant de l'opération.
 
-La limite de débit de cet endpoint est inférieure à celle de l'endpoint `/users/track` (voir [Limite de débit](#rate-limit) ci-dessous). Chaque requête `/users/track/sync` ne peut contenir qu'un seul objet d'événement, un seul objet d'attribut **ou** un seul objet d'achat. Cet endpoint doit être réservé aux mises à jour du profil utilisateur pour lesquelles un appel synchrone est nécessaire. Pour une implémentation saine, nous vous recommandons d'utiliser `/users/track/sync` et `/users/track` ensemble.
+La limite de débit de cet endpoint est inférieure à celle de l'endpoint `/users/track` (voir [Limite de débit](#rate-limit)). Chaque requête `/users/track/sync` ne peut contenir qu'un seul objet d'événement, un seul objet d'attribut **ou** un seul objet d'achat. Cet endpoint doit être réservé aux mises à jour du profil utilisateur pour lesquelles un appel synchrone est nécessaire. Pour un déploiement sain, nous vous recommandons d'utiliser `/users/track/sync` et `/users/track` ensemble.
 
 Par exemple, si vous envoyez des requêtes consécutives pour le même utilisateur sur une courte période, des conditions de concurrence sont possibles avec l'endpoint asynchrone `/users/track`, mais avec l'endpoint `/users/track/sync`, vous pouvez envoyer ces requêtes en séquence, chacune après avoir reçu une réponse `2XX`.
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `users.track.sync`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `users.track.sync`.
 
 Les clients utilisant l'API pour les appels de serveur à serveur devront peut-être ajouter `rest.iad-01.braze.com` à leur liste d'autorisations s'ils sont derrière un pare-feu.
 
@@ -65,10 +65,10 @@ Pour chaque composant de requête répertorié dans le tableau suivant, vous dev
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Facultatif | Un objet d'attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | Facultatif | Un objet d'événement | Voir [objet événements]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Facultatif | Un objet d'achat | Voir [objet achats]({{site.baseurl}}/api/objects_filters/purchase_object/) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `attributes` | Facultatif | Un objet d'attributs | Voir [objet attributs de l'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `events` | Facultatif | Un objet d'événement | Voir [objet événements]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | Facultatif | Un objet d'achat | Voir [objet achats]({{site.baseurl}}/api/objects_filters/purchase_object) |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ## Réponses {#responses}
 
@@ -162,7 +162,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 --data-raw '{
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -191,7 +191,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 {
     "users": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "custom_events": [
                 {
                 "name": "rented_movie",
@@ -285,10 +285,12 @@ Oui, à condition que les requêtes concernent des utilisateurs différents, ou 
 
 Si vous envoyez plusieurs requêtes pour un utilisateur, pour le même attribut, le même événement ou le même achat, Braze recommande d'attendre une réponse positive entre chaque requête afin d'éviter les conditions de concurrence.
 
+Si vous constatez toujours un état de profil incohérent lorsque vous appelez `/users/track` pour le même utilisateur en succession rapide, basculez ces mises à jour vers `/users/track/sync` et envoyez une requête à la fois, en attendant chaque réponse `2XX` avant la suivante. Cet ordonnancement est la méthode recommandée pour éviter les conditions de concurrence de type lecture-après-écriture dans les boucles serrées ou les workers parallèles.
+
 ### Pourquoi la valeur de la réponse ne correspond-elle pas à celle de ma requête initiale ? {#why-doesnt-the-response-value-match-the-one-in-my-original-request}
 
 Bien que votre requête soit terminée, il est possible que la valeur de votre attribut personnalisé n'ait pas été mise à jour. Cela peut se produire lorsque la mise à jour de votre attribut personnalisé dépasse le nombre maximum de caractères, dépasse les limites du tableau, ou si l'utilisateur n'existe pas dans Braze et que vous avez défini `_update_existing_only = true`.
 
-Dans ces cas, considérez la réponse comme une indication que, même si votre requête a bien été traitée, la mise à jour souhaitée n'a pas été effectuée. Procédez à la résolution des problèmes en vous référant aux raisons mentionnées ci-dessus.
+Dans ces cas, considérez la réponse comme une indication que, même si votre requête a bien été traitée, la mise à jour souhaitée n'a pas été effectuée. Procédez à la résolution des problèmes en vous référant aux raisons mentionnées dans [Pourquoi la valeur de la réponse ne correspond-elle pas à celle de ma requête initiale ?](#why-doesnt-the-response-value-match-the-one-in-my-original-request).
 
 {% endapi %}

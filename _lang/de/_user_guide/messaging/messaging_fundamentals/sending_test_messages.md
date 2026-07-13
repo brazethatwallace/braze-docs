@@ -17,15 +17,15 @@ description: "In diesem Referenzartikel erfahren Sie, wie Sie Testnachrichten ü
 Stellen Sie sicher, dass Sie Ihren Campaign-Entwurf nach dem Testen speichern, um das Löschen Ihrer Campaign zu vermeiden. Sie können Testnachrichten senden, ohne die Nachricht als Entwurf zu speichern.
 {% endalert %}
 
-## 1. Schritt: Testnutzer:innen identifizieren {#step-1-identify-your-test-users}
+## Schritt 1: Testnutzer:innen identifizieren {#step-1-identify-your-test-users}
 
 Bevor Sie Ihre Messaging-Kampagne testen, ist es wichtig, Ihre Testnutzer:innen zu identifizieren. Diese Nutzer:innen können entweder vorhandene Nutzer-IDs oder E-Mail-Adressen sein, oder neue Nutzer:innen, die ausschließlich zum Testen von Messaging-Kampagnen verwendet werden.
 
 ### Optional: Content-Testgruppe erstellen {#optional-create-a-content-test-group}
 
-Eine praktische Möglichkeit, Ihre Testnutzer:innen zu organisieren, ist die Erstellung einer [Content-Testgruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/), die eine Gruppe von Nutzer:innen enthält, die Testnachrichten von Campaigns erhalten. Sie können diese Testgruppe zum Feld **Content-Testgruppen hinzufügen** unter **Testempfänger:innen** in Ihrer Campaign hinzufügen und Ihre Tests starten, ohne einzelne Testnutzer:innen erstellen oder hinzufügen zu müssen.
+Eine praktische Möglichkeit, Ihre Testnutzer:innen zu organisieren, ist die Erstellung einer [Content-Testgruppe]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), die eine Gruppe von Nutzer:innen enthält, die Testnachrichten von Campaigns erhalten. Sie können diese Testgruppe zum Feld **Content-Testgruppen hinzufügen** unter **Testempfänger:innen** in Ihrer Campaign hinzufügen und Ihre Tests starten, ohne einzelne Testnutzer:innen erstellen oder hinzufügen zu müssen.
 
-## 2. Schritt: Kanalspezifische Testnachrichten senden {#step-2-send-channel-specific-test-messages}
+## Schritt 2: Kanalspezifische Testnachrichten senden {#step-2-send-channel-specific-test-messages}
 
 Informationen zum Senden von Testnachrichten finden Sie im folgenden Abschnitt für Ihren jeweiligen Kanal.
 
@@ -33,7 +33,7 @@ Informationen zum Senden von Testnachrichten finden Sie im folgenden Abschnitt f
 {% tab Banner %}
 
 {% alert important %}
-Bevor Sie Banner-Nachrichten in Braze testen können, müssen Sie eine Banner-Campaign in Braze erstellen. Überprüfen Sie außerdem, ob die Platzierung, die Sie testen möchten, bereits [in Ihrer App oder Website platziert]({{site.baseurl}}/developer_guide/banners/placements/) ist.
+Bevor Sie Banner-Nachrichten in Braze testen können, müssen Sie eine Banner-Campaign in Braze erstellen. Überprüfen Sie außerdem, ob die Platzierung, die Sie testen möchten, bereits [in Ihrer App oder Website platziert]({{site.baseurl}}/developer_guide/banners/placements) ist.
 {% endalert %}
 
 Nachdem Sie Ihre Banner-Nachricht erstellt haben, können Sie Ihr Banner in der Vorschau anzeigen oder eine Testnachricht senden.
@@ -62,7 +62,7 @@ Beachten Sie, dass Ihre Vorschau aufgrund von Unterschieden bei der Hardware mö
 {% tab Content Card %}
 
 {% alert important %}
-Um einen Test an [Content-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten aktiviert sein und gültige Push-Token für die Testnutzer:innen registriert sein, bevor Sie senden. Für iOS-Nutzer:innen müssen Sie auf die von Braze gesendete Push-Benachrichtigung tippen, um die Test-Content-Card anzuzeigen. Dieses Verhalten gilt nur für Test-Content-Cards.
+Um einen Test an [Content-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten aktiviert sein und gültige Push-Token für die Testnutzer:innen registriert sein, bevor Sie senden. Für iOS-Nutzer:innen müssen Sie auf die von Braze gesendete Push-Benachrichtigung tippen, um die Test-Content-Card anzuzeigen. Dieses Verhalten gilt nur für Test-Content-Cards.
 {% endalert %}
 
 Test-Content-Cards werden über eine Push-Benachrichtigung zugestellt. Die Card ist in der Push-Payload verpackt, und das SDK extrahiert und speichert sie lokal zwischen, wenn der Push empfangen wird.
@@ -91,7 +91,7 @@ Im Tab **Vorschau** Ihres Composers stimmt die Ansicht Ihrer Nachricht mögliche
 
 - Haben Ihre Testnutzer:innen Push mit einem gültigen Push-Token aktiviert?
 - Werden die Bilder und Medien wie erwartet angezeigt und verhalten sich wie erwartet?
-- Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values) berücksichtigt, falls Liquid keine Informationen zurückgibt?
+- Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) berücksichtigt, falls Liquid keine Informationen zurückgibt?
 - Ist Ihr Text klar, prägnant und korrekt?
 - Leiten Ihre Links die Nutzer:innen dorthin, wo sie hingelangen sollen?
 - Haben Ihre Testnutzer:innen Push mit einem gültigen Push-Token aktiviert?
@@ -107,7 +107,7 @@ Wenn ein Content-Card-Bild nicht gerendert wird oder defekt erscheint:
 
 ### Debugging {#debug}
 
-Nachdem Ihre Content Cards gesendet wurden, können Sie Probleme über das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/) in der Entwicklungskonsole aufschlüsseln oder debuggen.
+Nachdem Ihre Content Cards gesendet wurden, können Sie Probleme über das [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) in der Entwicklungskonsole aufschlüsseln oder debuggen.
 
 Ein häufiger Anwendungsfall ist der Versuch zu debuggen, warum Nutzer:innen eine bestimmte Content Card nicht sehen können. Dazu können Sie in den **Event-Nutzerprotokollen** nach den Content Cards suchen, die beim Sitzungsstart an das SDK geliefert wurden, aber vor einer Impression, und diese zu einer bestimmten Campaign zurückverfolgen:
 
@@ -162,7 +162,8 @@ Wenn Ihre E-Mail-Campaign ein großes Bild enthält und in Outlook nicht wie erw
 {% tab In-App-Nachricht %}
 
 {% alert warning %}
-Um einen Test an [Content-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten vor dem Senden aktiviert sein. Beispielsweise müssen Sie Push auf Ihrem iOS-Gerät aktiviert haben, um auf die Benachrichtigung zu tippen, bevor die Testnachricht angezeigt wird. {% endalert %}
+Um einen Test an [Content-Testgruppen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) oder einzelne Nutzer:innen zu senden, muss Push auf Ihren Testgeräten vor dem Senden aktiviert sein. Beispielsweise müssen Sie Push auf Ihrem iOS-Gerät aktiviert haben, um auf die Benachrichtigung zu tippen, bevor die Testnachricht angezeigt wird.
+{% endalert %}
 
 Wenn Sie Push-Benachrichtigungen in Ihrer App und auf Ihrem Testgerät eingerichtet haben, können Sie Test-In-App-Nachrichten an Ihre App senden, um zu sehen, wie sie in Echtzeit aussehen.
 
@@ -197,7 +198,7 @@ In der **Vorschau** stimmt die Ansicht Ihrer Nachricht möglicherweise nicht mit
 ### Test-Checkliste
 
 - Werden die Bilder und Medien wie erwartet angezeigt und verhalten sich wie erwartet?
-- Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values) berücksichtigt, falls Liquid keine Informationen zurückgibt?
+- Funktioniert Liquid wie erwartet? Haben Sie einen [Standardattributwert]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) berücksichtigt, falls Liquid keine Informationen zurückgibt?
 - Ist Ihr Text klar, prägnant und korrekt?
 - Leiten Ihre Buttons die Nutzer:innen dorthin, wo sie hingelangen sollen?
 
@@ -243,7 +244,9 @@ Der Scanner wird automatisch bei benutzerdefinierten HTML-Nachrichten ausgeführ
 
 ![Test-Push]({% image_buster /assets/img_archive/testpush.png %})
 
-#### Web-Push
+Wenn Sie einen Fehler sehen, dass keine der ausgewählten Nutzer:innen übereinstimmende Push-Token haben, hat die Testnutzer:in kein gültiges Push-Token für die ausgewählte Plattform. Die Nutzer:innen müssen eine Sitzung in der App gestartet und Push für dieses Gerät aktiviert haben. Weitere Informationen finden Sie unter [Push-Aktivierung und Push-Abo-Status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
+
+#### Web-Push {#web-push}
 
 1. Erstellen Sie Ihren Web-Push.
 2. Wählen Sie den Tab **Test**.
@@ -254,7 +257,7 @@ Der Scanner wird automatisch bei benutzerdefinierten HTML-Nachrichten ausgeführ
 
 Wenn Sie bereits Push-Nachrichten vom Braze-Dashboard akzeptiert haben, wird die Nachricht in der Ecke Ihres Bildschirms angezeigt. Andernfalls wählen Sie **Zulassen**, wenn Sie dazu aufgefordert werden, und die Nachricht wird angezeigt.
 
-Wenn Sie einen Fehler sehen, dass keine der ausgewählten Nutzer:innen übereinstimmende Push-Token für Web-Push haben, überprüfen Sie, ob die Testnutzer:innen ein gültiges Push-Token für die ausgewählte Plattform registriert haben. Um ein Push-Token zu erhalten, müssen die Nutzer:innen so konfiguriert sein, dass sie Push-Benachrichtigungen für die App auf ihrem Gerät empfangen. Weitere Details finden Sie unter [Push-Aktivierung und Push-Abo-Status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/).
+Wenn Sie einen Fehler sehen, dass keine der ausgewählten Nutzer:innen übereinstimmende Push-Token für Web-Push haben, überprüfen Sie, ob die Testnutzer:innen ein gültiges Push-Token für die ausgewählte Plattform registriert haben. Um ein Push-Token zu erhalten, müssen die Nutzer:innen so konfiguriert sein, dass sie Push-Benachrichtigungen für die App auf ihrem Gerät empfangen. Weitere Details finden Sie unter [Push-Aktivierung und Push-Abo-Status]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
 {% endtab %}
 {% tab SMS/MMS und RCS %}
@@ -271,8 +274,6 @@ Nachdem Sie Ihre SMS-, MMS- oder RCS-Nachricht erstellt haben, können Sie eine 
 {% tab Webhook %}
 
 Nachdem Sie Ihren Webhook erstellt haben, können Sie einen Testversand durchführen, um die Webhook-Antwort zu überprüfen. Wählen Sie den Tab **Test** und wählen Sie **Test senden**, um einen Testversand an die angegebene Webhook-URL zu senden. Sie können auch eine:n einzelne:n Nutzer:in auswählen, um die Antwort als bestimmte:r Nutzer:in in der Vorschau anzuzeigen.
-
-![Test-Webhook]({% image_buster /assets/img/webhook_test.png %})
 
 {% endtab %}
 {% tab WhatsApp %}
@@ -293,7 +294,7 @@ Wenn Sie Campaigns testen, die Nutzerdaten verwenden oder angepasste Event-Eigen
 
 ### Campaigns testen, die mit Nutzerattributen personalisiert sind {#testing-campaigns-personalized-with-user-attributes}
 
-Wenn Sie [Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview/) in Ihrer Nachricht verwenden, müssen Sie zusätzliche Schritte unternehmen, um Ihre Campaign ordnungsgemäß in der Vorschau anzuzeigen und zu überprüfen, ob die Nutzerdaten den Inhalt korrekt befüllen.
+Wenn Sie [Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview) in Ihrer Nachricht verwenden, müssen Sie zusätzliche Schritte unternehmen, um Ihre Campaign ordnungsgemäß in der Vorschau anzuzeigen und zu überprüfen, ob die Nutzerdaten den Inhalt korrekt befüllen.
 
 Stellen Sie beim Senden einer Testnachricht sicher, dass Sie entweder die Option **Vorhandene:n Nutzer:in auswählen** wählen oder als **Angepasste:r Nutzer:in** in der Vorschau anzeigen.
 
@@ -319,7 +320,7 @@ Sie können einzelne Felder von zufälligen oder vorhandenen Nutzer:innen bearbe
 
 ### Campaigns testen, die mit angepassten Event-Eigenschaften personalisiert sind {#testing-campaigns-personalized-with-custom-event-properties}
 
-Das Testen von Campaigns, die mit [angepassten Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/) personalisiert sind, unterscheidet sich leicht vom Testen anderer Arten von Campaigns, die oben beschrieben wurden.
+Das Testen von Campaigns, die mit [angepassten Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) personalisiert sind, unterscheidet sich leicht vom Testen anderer Arten von Campaigns, die oben beschrieben wurden.
 
 {% tabs local %}
 {% tab Manuell triggern %}
@@ -333,7 +334,7 @@ Sie können die Campaign selbst triggern, um Campaigns, die angepasste Event-Eig
 ![Testnachricht mit Eigenschaften verfassen]({% image_buster /assets/img_archive/testeventproperties-compose.png %})
 
 {: start="2"}
-2. Verwenden Sie die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/), um die Campaign zuzustellen, wenn das Event eintritt.
+2. Verwenden Sie die [aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery), um die Campaign zuzustellen, wenn das Event eintritt.
 
 {% alert note %}
 Wenn Sie eine iOS-Push-Campaign testen, müssen Sie die Verzögerung auf eine Minute einstellen, um sich Zeit zu geben, die App zu verlassen, da iOS keine Push-Benachrichtigungen für die aktuell geöffnete App zustellt. Andere Arten von Campaigns können auf sofortige Zustellung eingestellt werden.
@@ -388,6 +389,7 @@ Es gibt einige Situationen, in denen sich Testnachrichten nicht genauso verhalte
 - Zum Testen von In-App-Nachrichten und Content Cards müssen die Zielnutzer:innen ein Push-Token für das Zielgerät haben.
 - Zum Testen von Abmeldelinks in E-Mails stellen Sie sicher, dass die E-Mail-Adresse Ihrer Testnutzer:innen im jeweiligen Workspace vorhanden ist.
 - Der `List-Unsubscribe`-Header ist nicht in E-Mails enthalten, die über die Testnachrichtenfunktion gesendet werden.
+- E-Mails, die an Seed-Gruppen-Nutzer:innen gesendet werden, aktualisieren nicht die Liste der empfangenen Campaigns im Nutzerprofil und erhöhen nicht die Sendungen in den Dashboard-Analytics.
 
 ## Fehlerbehebung {#troubleshooting}
 
@@ -397,6 +399,6 @@ Wenn Ihre In-App-Nachricht-Campaign nicht durch eine Push-Campaign getriggert wi
 
 Bei Testversendungen auf Android und iOS werden In-App-Nachrichten, die das On-Click-Verhalten **Push-Berechtigung anfordern** verwenden, möglicherweise auf einigen Geräten nicht angezeigt. Als Workaround:
 - **Android:** Geräte müssen Android 13 und unser Android SDK Version 21.0.0 verwenden. Ein weiterer Grund kann sein, dass das Gerät, auf dem die In-App-Nachricht angezeigt wird, bereits eine Systemaufforderung hat. Möglicherweise haben Sie **Nicht erneut fragen** ausgewählt, sodass Sie die App möglicherweise neu installieren müssen, um die Benachrichtigungsberechtigungen zurückzusetzen, bevor Sie erneut testen.
-- **iOS:** Wir empfehlen, dass Ihr Entwicklerteam die Implementierung von Push-Benachrichtigungen für Ihre App überprüft und jeglichen Code manuell entfernt, der Push-Berechtigungen anfordern würde. Weitere Informationen finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices/).
+- **iOS:** Wir empfehlen, dass Ihr Entwicklerteam die Implementierung von Push-Benachrichtigungen für Ihre App überprüft und jeglichen Code manuell entfernt, der Push-Berechtigungen anfordern würde. Weitere Informationen finden Sie unter [Push-Primer-In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/push/best_practices).
 
 Damit eine aktionsbasierte In-App-Nachricht-Campaign zugestellt wird, müssen Sie angepasste Events über das Braze SDK protokollieren, nicht über REST APIs, damit Nutzer:innen berechtigte In-App-Nachrichten direkt auf ihrem Gerät empfangen können. Nutzer:innen erhalten die In-App-Nachricht, wenn sie das Event während der Sitzung ausführen.

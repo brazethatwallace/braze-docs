@@ -13,27 +13,21 @@ page_order: 2
 既存のドラッグ＆ドロップユーザー設定センターは、**オーディエンス** > **メールユーザー設定センター**から管理できます。
 
 - ユーザー設定センターの名前やコンテンツを変更するには、ダッシュボードからユーザー設定センターを開きます。
-- ドラッグ＆ドロップユーザー設定センターはダッシュボードから削除できません。削除するには、まずメールCampaignsまたはCanvasステップからLiquidタグを削除してから、[Brazeサポート]({{site.baseurl}}/support_contact/)にお問い合わせください。
+- ドラッグ＆ドロップユーザー設定センターはダッシュボードから削除できません。削除するには、まずメールキャンペーンまたはキャンバスステップからLiquidタグを削除してから、[Brazeサポート]({{site.baseurl}}/support_contact)にお問い合わせください。
 - 削除されたユーザー設定センターが以前送信されたメッセージで使用されていた場合、配信済みのメールでは機能しなくなります。
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
-## ステップ 1: メールユーザー設定センターを作成する {#step-1-create-an-email-preference-center}
+## ステップ1:メールユーザー設定センターを作成する {#step-1-create-an-email-preference-center}
 
-**オーディエンス** > **メールユーザー設定センター**に移動して、ユーザー設定センターを作成します。
+**オーディエンス** > **メールユーザー設定センター**に移動して、ユーザー設定センターを作成します。ここにカスタムユーザー設定センターの一覧が表示されます。**新規作成**を選択して新しいユーザー設定センターを作成するか、既存のユーザー設定センターの名前を選択して変更を加えます。
 
-ここにカスタムユーザー設定センターの一覧が表示されます。**新規作成**を選択して新しいユーザー設定センターを作成するか、既存のユーザー設定センターの名前を選択して変更を加えます。
-
-![名前、説明、タイプ、ステータス、最終編集日時、作成者を含むカスタムユーザー設定センターの一覧。]({% image_buster /assets/img/preference_center/preference_center1.png %})
-
-## ステップ 2: メールユーザー設定センターに名前を付ける {#step-2-name-the-email-preference-center}
+## ステップ2:メールユーザー設定センターに名前を付ける {#step-2-name-the-email-preference-center}
 
 ユーザー設定センターの名前には、英数字、ダッシュ、またはアンダースコアのみ使用できます。指定した名前によって、生成されるLiquidタグの構文が決まります。
 
-このLiquidタグは、送信メールCampaignsやCanvasステップに含めることができ、ユーザーをユーザー設定センターに誘導します。
+このLiquidタグは、送信メールキャンペーンやキャンバスステップに含めることができ、ユーザーをユーザー設定センターに誘導します。
 
-![ユーザー設定センターのLiquidの例。]({% image_buster /assets/img/preference_center/preference_center2.png %})
-
-## ステップ 3: ユーザー設定センターに購読グループを追加する {#step-3-add-subscription-groups-to-the-preference-center}
+## ステップ3:ユーザー設定センターに購読グループを追加する {#step-3-add-subscription-groups-to-the-preference-center}
 
 **エディターを起動**を選択して、ドラッグ＆ドロップエディターでユーザー設定センターのデザインを開始します。
 
@@ -42,17 +36,16 @@ page_order: 2
 ユーザー設定センターに表示する購読グループを決定するには、**+ 購読グループを追加**ボタンを選択して、目的の購読グループを選択できるモーダルを起動します。選択後、**購読グループを追加**ボタンを選択して、ユーザー設定センターに追加します。
 
 スマートブロックを選択してブロックプロパティを調整することで、選択した購読グループをさらに設定できます。
+
 - 購読グループの順序を調整する
 - 追加の購読グループを追加または削除する
 - 説明を含める
 - **すべてを購読**チェックボックスを追加または削除する。これにより、ユーザーはこのブロックに表示されているすべての購読グループに登録されます
 - **すべての購読を解除**チェックボックスを追加または削除する。これにより、ユーザーはこのブロックに表示されているすべての購読グループから登録解除されます
 
-![すべてのメッセージ、マーケティング、ニュースレター、週刊メールを購読するオプション、またはすべての購読を解除するオプションを含むユーザー設定センターの例。]({% image_buster /assets/img/preference_center/preference_center3.png %}){: style="max-width:38%;"} ![]({% image_buster /assets/img/preference_center/preference_center4.png %}){: style="max-width:45%;"}
+テンプレート下部の**すべての購読を解除**ボタンは削除できず、ユーザーをすべてのメールメッセージの受信から[グローバル購読解除]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states)にします。
 
-テンプレート下部の**すべての購読を解除**ボタンは削除できず、ユーザーをすべてのメールメッセージの受信から[グローバル配信停止]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-states)にします。
-
-## ステップ 4: ドラッグ＆ドロップエディターでユーザー設定センターをカスタマイズする {#step-4-customize-the-preference-center-using-the-drag-and-drop-editor}
+## ステップ4:ドラッグ＆ドロップエディターでユーザー設定センターをカスタマイズする {#step-4-customize-the-preference-center-using-the-drag-and-drop-editor}
 
 ### 共通スタイルを設定する {#set-common-styles}
 
@@ -88,28 +81,28 @@ page_order: 2
 
 ![タイトル、段落、ボタン、画像、スペーサーなどのブロックを選択するオプション。]({% image_buster /assets/img/preference_center/preference_center8.png %}){: style="max-width:45%;"}
 
-各ブロックには、パディングの細かいコントロールなど、独自の設定があります。右側のパネルは、選択したコンテンツ要素のスタイリングパネルに自動的に切り替わります。詳細については、[エディターブロックプロパティ]({{site.baseurl}}/dnd/editor_blocks/)を参照してください。
+各ブロックには、パディングの細かいコントロールなど、独自の設定があります。右側のパネルは、選択したコンテンツ要素のスタイリングパネルに自動的に切り替わります。詳細については、[エディターブロック（ユーザー設定センター）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=preference%20center)を参照してください。
 
 ユーザー設定センターでカスタムコードブロックを使用している場合、ユーザーに配信される際にカスタムコード内でインラインフレームが生成されない場合があります。
 
 {% endtab %}
 {% endtabs %}
 
-## ステップ 5: 確認ページをカスタマイズする {#step-5-customize-your-confirmation-page}
+## ステップ5:確認ページをカスタマイズする {#step-5-customize-your-confirmation-page}
 
-確認ページのカスタマイズも忘れずに行いましょう！ドラッグ＆ドロップエディターウィンドウの上部にある**確認ページ**を選択して、このページを編集できます。このページは、ユーザーがユーザー設定センターを使用して設定を更新した後に表示されます。上記と同じスタイリング機能がこのページにも適用されます。
+次に、**確認ページ**を選択して確認ページをカスタマイズします。このページは、ユーザーがユーザー設定センターを使用して設定を更新した後に表示されます。[共通スタイルを設定する](#set-common-styles)および[ドラッグ＆ドロップユーザー設定センターのコンポーネント](#drag-and-drop-preference-center-components)と同じスタイリング機能がこのページにも適用されます。
 
 ![ユーザーの設定が更新されたことを伝える確認ページの例。]({% image_buster /assets/img/preference_center/preference_center9.png %}){: style="max-width:65%;"}
 
-## ステップ 6: ユーザー設定センターをプレビューして起動する {#step-6-preview-and-launch-your-preference-center}
+## ステップ6:ユーザー設定センターをプレビューして起動する {#step-6-preview-and-launch-your-preference-center}
 
-エディター内の**プレビュー**タブを選択して、ユーザー設定センターをプレビューできます。ただし、テスト機能は無効になっています。ユーザー設定センターの編集後、**完了**ボタンを選択してエディターを閉じることができます。
+エディター内の**プレビュー**タブを選択して、ユーザー設定センターをプレビューできます。ただし、テスト機能は無効になっています。また、ユーザー設定センターのLiquidタグを含むキャンペーンやキャンバスステップのテスト送信では、有効なリンクが生成されません。ユーザー設定センターの完全な機能をテストするには、ライブキャンペーンまたはキャンバスを送信してください。ユーザー設定センターの編集後、**完了**を選択してエディターを閉じることができます。
 
-ユーザー設定センターと確認ページの両方のプレビューが表示されます。**下書きとして保存**を選択して後でこのユーザー設定センターに戻るか、問題がなければ**ユーザー設定センターを起動**を選択します。
+プレビューには、ユーザー設定センターと確認ページの両方が表示されます。**下書きとして保存**を選択して後でこのユーザー設定センターに戻るか、問題がなければ**ユーザー設定センターを起動**を選択します。
 
-ユーザー設定センターを起動する際、名前の確認を求められます。起動後は名前を編集できないためです。名前を確認すると、ユーザー設定センターが起動され、使用可能になります。
+ユーザー設定センターを起動する際、名前の確認を求められます。起動後は名前を編集できません。名前を確認すると、ユーザー設定センターが起動され、使用可能になります。
 
-## ユーザー設定センターを使用する {#using-the-preference-center}
+## ユーザー設定センターを使用する {#use-the-preference-center}
 
 {% multi_lang_include alerts/important_alerts.md alert='Preference Center warning' %}
 
@@ -117,9 +110,9 @@ page_order: 2
 
 ![ユーザー設定センターの行にある「Liquidをコピー」オプション。]({% image_buster /assets/img/preference_center/preference_center10.png %}){: style="max-width:75%;"}
 
-[配信停止URL]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/#adding-a-custom-unsubscribe-link)を挿入する方法と同様に、メール内の目的の場所にLiquidタグを追加します。
+[購読解除URL]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer#adding-a-custom-unsubscribe-link)を挿入する方法と同様に、メール内の目的の場所にLiquidタグを追加します。
 
-## エラーの処理 {#handling-errors}
+## エラーの処理 {#handle-errors}
 
 ユーザーがユーザー設定センターで**保存**を選択した際にエラーが発生した場合、以下のデフォルトのエラーメッセージが表示されます。このメッセージはエディターでカスタマイズやスタイル設定はできません。ただし、これらのページではエラーメッセージのローカライゼーションは引き続きサポートされています。
 

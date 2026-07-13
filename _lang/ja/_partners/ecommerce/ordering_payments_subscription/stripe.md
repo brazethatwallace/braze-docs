@@ -1,7 +1,7 @@
 ---
 nav_title: Stripe
 article_title: Stripe
-description: "この記事では、Braze と Stripe のパートナーシップについて概説します。"
+description: "この記事では、BrazeとStripeのパートナーシップについて概説します。"
 alias: /partners/stripe/
 page_type: partner
 search_tag: Partner
@@ -9,68 +9,68 @@ search_tag: Partner
 
 # Stripe
 
-> [Stripe](https://www.stripe.com/)は、企業が一連の統合されたAPIやサービスを通じて、決済を受け入れ、収益オペレーションを管理し、グローバルな商取引を容易にすることを可能にする総合的な金融インフラ・プラットフォームです。
+> [Stripe](https://www.stripe.com/)は、企業が一連の統合されたAPIやサービスを通じて、決済を受け入れ、収益オペレーションを管理し、グローバルな商取引を容易にすることを可能にする総合的な金融インフラプラットフォームです。
 
-Braze と Stripe を統合することで、以下のことが可能になります。
+BrazeとStripeを統合することで、以下のことが可能になります。
 
-- Stripe からのリアルタイムの支払いと請求データを使用して、Braze でユーザプロファイルを更新します。
-- トライアルの開始、サブスクリプションの有効化、サブスクリプションのキャンセルなどのストライプイベントに基づいて、Braze でメッセージをトリガーします。
-- Stripe ウェブフックを使用して受信したユーザの支払履歴または請求ステータスに基づいて、Braze メッセージをカスタマイズします。
+- Stripeからのリアルタイムの支払いおよび請求データを使用して、Brazeのユーザープロファイルを更新できます。
+- トライアルの開始、サブスクリプションの有効化、サブスクリプションのキャンセルなどのStripeイベントに基づいて、Brazeでメッセージングをトリガーできます。
+- Stripe webhookを使用して受信したユーザーの支払い履歴または請求ステータスに基づいて、Brazeメッセージングをパーソナライズできます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| Stripe アカウント | このパートナーシップを利用するには、webhook にアクセスできる Stripe アカウントが必要です。 |
-| Braze Data Transformation | Stripe からデータを受信するには、[Data Transformation URL]({{site.baseurl}}/data_transformation/) が必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Stripeアカウント | このパートナーシップを利用するには、webhookにアクセスできるStripeアカウントが必要です。 |
+| Brazeデータ変換 | Stripeからデータを受信するには、[データ変換URL]({{site.baseurl}}/data_transformation)が必要です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## 統合
+## 統合 {#integration}
 
-### ステップ 1: Stripe の Webhook を受け入れるように Braze Data Transformation を設定する {#step-1}
+### ステップ 1: Stripeのwebhookを受け入れるようにBrazeデータ変換を設定する {#step-1}
 
-{% multi_lang_include create_transformation.md %}
+{% multi_lang_include data_activation/create_transformation.md %}
 
-### ステップ 2:Stripe webhook を設定する
+### ステップ 2: Stripe webhookを設定する {#step-2-set-up-stripe-webhooks}
 
-[Stripe のwebhooks documentation](https://docs.stripe.com/development/dashboard/webhooks) の手順に従って、Webhook を設定します。
+[StripeのWebhookドキュメント](https://docs.stripe.com/development/dashboard/webhooks)の手順に従って、webhookを設定します。
 
-Data Transformation Webhook URL を**Destination URL** として追加し、Braze に送信するイベントタイプを選択します。イベントタイプの完全なリストについては、[Stripe のドキュメント](https://docs.stripe.com/api/events/types)を参照してください。
+データ変換のWebhook URLを**Destination URL**として追加し、Brazeに送信するイベントタイプを選択します。イベントタイプの完全なリストについては、[Stripeのドキュメント](https://docs.stripe.com/api/events/types)を参照してください。
 
 ![StripeのWebhook設定例。]({% image_buster /assets/img/stripe/stripe_webhook_configuration.png %}){: style="max-width:80%;"}
 
-次に、テストイベントを Data Transformation に送信します。 
+次に、テストイベントをデータ変換に送信します。
 
-### ステップ 3: 選択したStripe イベントを受け入れるトランスフォーメーションコードを記述します
+### ステップ 3: 選択したStripeイベントを受け入れる変換コードを記述する {#step-3-write-transformation-code-to-accept-your-chosen-stripe-events}
 
-次に、Stripe から送信されるWebhook ペイロードをJavaScript オブジェクトの戻り値に変換します。
+次に、Stripeから送信されるwebhookペイロードをJavaScriptオブジェクトの戻り値に変換します。
 
-1. Data Transformation を更新し、[**Webhook の詳細**] セクションに Stripe テストペイロードが表示されることを確認します。
-2. 選択したStripe イベントをサポートするようにData Transformation コードを更新します。
-3. [**検証**] を選択すると、コードの出力のプレビューが返され、`/users/track` リクエストとして受け入れられるかどうかがチェックされます。
-4. Data Transformation を保存して有効化します。
+1. データ変換を更新し、**Webhook details**セクションにStripeテストペイロードが表示されることを確認します。
+2. 選択したStripeイベントをサポートするようにデータ変換コードを更新します。
+3. **Validate**を選択すると、コードの出力のプレビューが返され、`/users/track`リクエストとして受け入れ可能かどうかがチェックされます。
+4. データ変換を保存して有効化します。
 
 ![Webhookの詳細と変換コードの例。]({% image_buster /assets/img/stripe/stripe_data_transformation.png %})
 
-#### リクエスト本文の形式
+#### リクエスト本文の形式 {#request-body-format}
 
-この戻り値は、`/users/track` エンドポイントリクエストボディ形式に従う必要があります。
+この戻り値は、`/users/track`エンドポイントのリクエストボディ形式に従う必要があります。
 
-- 変換コードは JavaScript プログラミング言語で受け入れられます。if/else ロジックなど、標準的な JavaScript 制御フローがすべてサポートされています。
-- トランスフォーメーションコードは、ペイロード変数を使用してWebhook リクエストボディにアクセスします。この変数は、リクエスト本文の JSON を解析して読み込まれたオブジェクトです。
-- `/users/track` エンドポイントでサポートされるすべてのフィーチャーがサポートされています。例を示します。
+- 変換コードはJavaScriptプログラミング言語で記述します。if/elseロジックなど、標準的なJavaScript制御フローがすべてサポートされています。
+- 変換コードは、payload変数を使用してwebhookリクエストボディにアクセスします。この変数は、リクエスト本文のJSONを解析して読み込まれたオブジェクトです。
+- `/users/track`エンドポイントでサポートされるすべての機能がサポートされています。以下が含まれます。
     - ユーザー属性オブジェクト、イベントオブジェクト、および購入オブジェクト
-    - 階層化属性と階層化カスタムイベントプロパティ
+    - ネストされた属性とネストされたカスタムイベントプロパティ
     - サブスクリプショングループの更新
     - 識別子としてのメールアドレス
 
-### ステップ 4: Stripe Webhook を公開する
+### ステップ 4: Stripe webhookを公開する {#step-4-publish-your-stripe-webhook}
 
-Data Transformation を作成したら、[**検証**] を選択して、Data Transformation コードが正しくフォーマットされており、期待通りに動作することを確認します。その後、Data Transformation を保存してアクティブ化します。アクティブ化後、カスタムイベントデータは、イベントが完了するとユーザーのプロファイルに記録されます。
+データ変換を作成したら、**Validate**を選択して、データ変換コードが正しくフォーマットされており、期待どおりに動作することを確認します。その後、データ変換を保存してアクティブ化します。アクティブ化後、ユーザーがイベントを完了すると、カスタムイベントデータがユーザーのプロファイルに記録されます。
 
-![BrazeユーザープロファイルのStripeカスタムイベント "Charge Succeeded"。]({% image_buster /assets/img/stripe/stripe_braze_profile_event.png %}){: style="max-width:80%;"}
+![Brazeユーザープロファイルに表示されたStripeカスタムイベント「Charge Succeeded」。]({% image_buster /assets/img/stripe/stripe_braze_profile_event.png %}){: style="max-width:80%;"}
 
-## Stripe Webhook ペイロードのサンプル {#example}
+## Stripe webhookペイロードのサンプル {#example}
 
 ```json
 {
@@ -233,15 +233,15 @@ Data Transformation を作成したら、[**検証**] を選択して、Data Tra
 }
 ```
 
-## データ変換のユースケース
+## データ変換のユースケース {#data-transformation-use-cases}
 
-以下に、[Stripe の Webhook ペイロードのサンプル](#example)を使用して作成したテンプレートの例を示します。これらのテンプレートは出発点として使用できる。ゼロから作成するか、必要に応じて特定のコンポーネントを削除することができます。
+以下に、[Stripe webhookペイロードのサンプル](#example)を使用して作成したテンプレートの例を示します。これらのテンプレートは出発点として使用できます。ゼロから作成するか、必要に応じて特定のコンポーネントを削除することができます。
 
-このテンプレート例では、Braze プロファイルにカスタムイベントをロギングしています。イベントタイプはカスタムイベント名として送信され、データオブジェクトはイベントプロパティとして渡されます。 
+このテンプレート例では、Brazeプロファイルにカスタムイベントを記録しています。イベントタイプはカスタムイベント名として送信され、データオブジェクトはイベントプロパティとして渡されます。
 
-### ユースケース: 識別子としての顧客
+### ユースケース: 識別子としての顧客 {#use-case-customer-as-an-identifier}
 
-このテンプレートの例では、識別子として顧客フィールドを使用しています。
+このテンプレート例では、識別子として顧客フィールドを使用しています。
 
 {% tabs local %}
 {% tab Input %}
@@ -305,6 +305,6 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-## モニタリングとトラブルシューティング
+## モニタリングとトラブルシューティング {#monitoring-and-troubleshooting}
 
-トランスフォーメーションのモニタリングとトラブルシューティングの詳細については、[トランスフォーメーションのモニタリング]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation)を参照してください。
+変換のモニタリングとトラブルシューティングの詳細については、[変換のモニタリング]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation)を参照してください。

@@ -27,7 +27,7 @@ You can also pass your AppsFlyer audiences (cohorts) directly to Braze with the 
 | AppsFlyer SDK | In addition to the required Braze SDK, you must install the [AppsFlyer SDK](https://dev.appsflyer.com/hc/docs/getting-started).
 | Email domain setup complete | You must have completed the [IP and domain setup step]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) of setting up your email during Braze onboarding. |
 | SSL certificate | Your [SSL certificate]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl#acquiring-an-ssl-certificate) must be configured. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -103,18 +103,22 @@ Here, you find the REST endpoint and generate your Braze data import key. After 
 
 ### Step 3: Configure Braze in AppsFlyer's dashboard
 
-1. In AppsFlyer, navigate to the **Integrated Partners** page on the left bar. Next, search for **Braze** and select the Braze logo to open a configuration window.
+1. In AppsFlyer, navigate to the **Integrated Partners** page from the navigation menu. Next, search for **Braze** and select the Braze logo to open a configuration window.
 2. Within the **Integration** tab, switch on **Activate Partner**.
 3. Provide the data import key and REST endpoint that you found in the Braze dashboard. 
 4. Toggle **Advanced Privacy** off and save your configuration.
+
+{% alert important %}
+When entering the Braze REST endpoint in AppsFlyer's Integration tab, enter only the domain (for example, `rest.fra-02.braze.eu`) without the `https://` protocol and without the `/attribution/appsflyer` path. AppsFlyer automatically prepends the protocol and appends the path. Including either in your input causes postback failures.
+{% endalert %}
 
 Additional information on these instructions is available in [AppsFlyer's documentation](https://support.appsflyer.com/hc/en-us/articles/115001603343-AppsFlyer-Appboy-Integration).
 
 ### Step 4: Confirm the integration
 
-After Braze receives attribution data from AppsFlyer, the status connection indicator on the AppsFlyer technology partners page in Braze changes from "Not Connected" to "Connected" and includes a timestamp of the last successful request.
+On the AppsFlyer technology partners page in Braze, the connection indicator shows **Not Connected** until you generate a data import API key in Step 2. After you generate the key, the indicator changes to **Connected** and displays a timestamp. That timestamp reflects when the integration was first set up in Braze (when the data import key was created), not when AppsFlyer last sent a postback.
 
-This status changes only after Braze receives data about an attributed install. Braze ignores organic installs (excludes them from the AppsFlyer postback) and does not count them when determining if the connection is successful.
+To confirm that install attribution data is flowing from AppsFlyer, use Step 5 to verify that non-organic install data appears in Braze segment filters. Braze ignores organic installs from AppsFlyer postbacks and does not store them as attributed install data.
 
 ### Step 5: Viewing user attribution data
 
@@ -128,7 +132,7 @@ If your integration was successful, Braze maps all non-organic install data to s
 | `campaign` | Attributed Campaign |
 | `af_adset` | Attributed Adgroup |
 | `af_ad` | Attributed Ad |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
 
 You can segment your user base by attribution data in the Braze dashboard using the Install Attribution filters.
 
@@ -152,7 +156,7 @@ AppsFlyer provides a [service](https://support.appsflyer.com/hc/en-us/articles/2
 
 Following the initial elements of [Braze’s Email set-up guidance]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate), create an email sending domain and a click tracking domain. For support, you can raise a ticket via the Braze Dashboard to initiate setup for the new CTD with the Braze Email team.
 
-![Braze UI showing the “Get Help” button, found under the “Support” button on the top right corner]({% image_buster /assets/img/attribution/appsflyer/1.png %})
+![Braze UI showing the “Get Help” button under the “Support” button in the top navigation bar.]({% image_buster /assets/img/attribution/appsflyer/1.png %})
 
 Creating a new CTD is mandatory, even if you already use an existing one. This ensures that there is no impact on the traffic of current live email campaigns. 
 
@@ -171,7 +175,7 @@ Now it's time to set your Braze integration in AppsFlyer. This step and the foll
 To set your Braze integration in AppsFlyer:
 
 ### 1. In AppsFlyer, from the side menu, select Engage > ESP integration.
-![Appsflyer UI showing the “ESP Integration” button, found in the left hand menu]({% image_buster /assets/img/attribution/appsflyer/2.png %})
+![Appsflyer UI showing the “ESP Integration” button in the navigation menu.]({% image_buster /assets/img/attribution/appsflyer/2.png %})
 
  
 ### 2. Select Braze.
@@ -215,7 +219,7 @@ Appsflyer [offers guidance](https://support.appsflyer.com/hc/en-us/articles/2696
 
 ## Step 5: Confirm SSL Click-tracking is enabled with Braze
 
-At this stage, after you share and validate the CTD details in Appsflyer, we recommend performing a test send to confirm if your Onelink sending domain has an SSL certificate. This is in line with our [Email Setup](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) guide.
+At this stage, after you share and validate the CTD details in Appsflyer, we recommend performing a test send to confirm if your Onelink sending domain has an SSL certificate. This is in line with our [Email Setup]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) guide.
 
 You can perform quality assurance and troubleshooting by sending a deep link using OneLink. See the [AppsFlyer documentation](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a) for details on using OneLink.
 

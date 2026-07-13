@@ -76,16 +76,16 @@ VS Code의 `settings.json` 또는 `.vscode/mcp.json` 파일에 다음 내용을 
 {% endtabs %}
 
 {% alert note %}
-Context7은 [Braze MCP 서버]({{site.baseurl}}/developer_guide/mcp_server/)와 다릅니다. Context7은 AI 어시스턴트에게 **Braze 설명서**에 대한 접근 권한을 제공하며, Braze MCP 서버는 Campaign, Segment, 분석 등 **Braze 워크스페이스 데이터**에 대한 읽기 전용 접근 권한을 제공합니다. 두 가지를 함께 사용하면 보다 완벽한 AI 지원 개발 환경을 경험할 수 있습니다.
+Context7은 [Braze MCP 서버]({{site.baseurl}}/developer_guide/mcp_server)와 다릅니다. Context7은 AI 어시스턴트에게 **Braze 설명서**에 대한 접근 권한을 제공하며, Braze MCP 서버는 Campaign(캠페인), Segment, 분석 등 **Braze 워크스페이스 데이터**에 대한 읽기 전용 접근 권한을 제공합니다. 두 가지를 함께 사용하면 보다 완벽한 AI 지원 개발 환경을 경험할 수 있습니다.
 {% endalert %}
 
 ## Braze SDK 개발을 위한 프롬프트 작성하기 {#writing-prompts-for-braze-sdk-development}
 
 Context7을 설정한 후, 프롬프트에 `use context7`을 포함하여 AI 어시스턴트가 Braze 설명서를 컨텍스트로 가져오도록 지시하세요. 다음 예시는 일반적인 SDK 작업에 효과적인 프롬프트를 작성하는 방법을 보여줍니다.
 
-### React Native SDK
+### React Native SDK {#react-native-sdk}
 
-이 프롬프트는 [Braze React Native SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native)의 일반적인 통합 작업을 보여줍니다.
+이 프롬프트는 [Braze React Native SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native)의 일반적인 통합 작업을 보여줍니다.
 
 #### SDK 초기화 {#initializing-the-sdk}
 
@@ -122,9 +122,9 @@ programmatically. Use context7.
 
 ### 웹 SDK {#web-sdk}
 
-이 프롬프트는 [Braze 웹 SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)의 일반적인 통합 작업을 보여줍니다.
+이 프롬프트는 [Braze 웹 SDK]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)의 일반적인 통합 작업을 보여줍니다.
 
-#### SDK 초기화 {#initializing-the-sdk}
+#### SDK 초기화
 
 ```text
 Using the Braze Web SDK, show me how to initialize the SDK with
@@ -166,8 +166,8 @@ Braze 개발자 가이드 설명서를 AI 도구 및 LLM에 최적화된 일반 
 
 | 파일 | 설명 |
 |------|-------------|
-| [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | 제목과 설명이 포함된 Braze 개발자 설명서 페이지 색인입니다. 사용 가능한 설명서를 찾기 위한 출발점으로 활용하세요. |
-| [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | LLM이 소비할 수 있도록 포맷팅된 단일 일반 텍스트 파일로 제공되는 완전한 Braze 개발자 설명서입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [llms.txt]({{site.baseurl}}/developer_guide/llms.txt) | 제목과 설명이 포함된 Braze 개발자 설명서 페이지 색인입니다. 사용 가능한 설명서를 찾기 위한 출발점으로 활용하세요. |
+| [llms-full.txt]({{site.baseurl}}/developer_guide/llms-full.txt) | LLM이 소비할 수 있도록 포맷팅된 단일 일반 텍스트 파일로 제공되는 완전한 Braze 개발자 설명서입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="일반 텍스트 설명서" }
 
 이 파일들은 AI 도구가 설명서에 접근할 수 있도록 하는 새로운 표준인 [llms.txt 표준](https://llmstxt.org/)을 따릅니다. 프롬프트에서 이 파일들을 직접 참조하거나, 내용을 LLM에 붙여넣어 컨텍스트로 활용할 수 있습니다.

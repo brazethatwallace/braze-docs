@@ -28,7 +28,7 @@ Der Short Messaging Service (SMS) ist ein standardisiertes Kommunikationsprotoko
 
 Wenn Sie eine SMS-Campaign oder ein Canvas mit Braze erstellen, sind die Nachrichten, die Sie im Editor verfassen, repräsentativ für das, was Ihre Nutzer:innen sehen, wenn die Nachricht auf ihrem Telefon zugestellt wird. **Dies gibt jedoch keinen Aufschluss darüber, wie Ihre Nachricht in Segmente aufgeteilt wird und wie Sie letztendlich abgerechnet werden.** Es liegt in Ihrer Verantwortung, zu verstehen, wie viele Segmente gesendet werden, und sich der möglichen Mehrkosten bewusst zu sein. Wir stellen Ihnen jedoch einige Ressourcen zur Verfügung, die dies erleichtern. Nutzen Sie unseren integrierten [Segment-Rechner](#segment-calculator).
 
-![]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
+![Wenn Sie eine SMS-Campaign oder ein Canvas mit Braze erstellen, sind die Nachrichten, die Sie im Editor verfassen, repräsentativ für das, was Ihre Nutzer:innen sehen, wenn die Nachricht auf ihrem Telefon zugestellt wird. Dies gibt jedoch keinen Aufschluss darüber, wie Ihre Nachricht in Segmente aufgeteilt und wie Sie letztendlich abgerechnet werden. Es liegt in Ihrer Verantwortung, zu verstehen, wie viele Segmente gesendet werden, und sich der möglichen Mehrkosten bewusst zu sein. Wir stellen Ihnen jedoch einige Ressourcen zur Verfügung, die dies erleichtern. Nutzen Sie unseren integrierten Segment-Rechner.]({% image_buster /assets/img/sms_segment_pic.png %}){: style="border:0;"}
 
 #### Segment-Aufschlüsselung {#segment-breakdown}
 
@@ -40,7 +40,7 @@ Wichtig zu beachten: **Sobald Sie das Zeichenlimit Ihres ersten Segments übersc
 - **UCS-2-Kodierung**
     - Wenn Sie Nicht-GSM-Zeichen wie Emojis, chinesische, koreanische oder japanische Schriftzeichen in SMS-Nachrichten einfügen, müssen diese Nachrichten über UCS-2-Kodierung gesendet werden. Nachrichten, die das anfängliche Segmentlimit von 70 Zeichen überschreiten, werden in Nachrichten-Segmente von 67 Zeichen verkettet. Beispielsweise wird eine Nachricht mit 71 Zeichen als zwei Nachrichten gesendet – eine mit 67 Zeichen und die zweite mit 4 Zeichen.
 
-Unabhängig vom Kodierungstyp hat jede von Braze gesendete SMS-Nachricht ein Limit von bis zu 10 Segmenten und ist kompatibel mit [Liquid-Templating]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/), [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), Emojis und Links.
+Unabhängig vom Kodierungstyp hat jede von Braze gesendete SMS-Nachricht ein Limit von bis zu 10 Segmenten und ist kompatibel mit [Liquid-Templating]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid), [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), Emojis und Links.
 
 {% tabs %}
 {% tab GSM-7-Kodierung %}
@@ -56,7 +56,7 @@ Unabhängig vom Kodierungstyp hat jede von Braze gesendete SMS-Nachricht ein Lim
 | 1072–1224 Zeichen | 8 Segmente |
 | 1225–1377 Zeichen | 9 Segmente |
 | 1378–1530 Zeichen | 10 Segmente |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment-Aufschlüsselung" }
 {% endtab %}
 {% tab UCS-2-Kodierung %}
 | Zeichenanzahl | Wie viele Segmente? |
@@ -71,7 +71,7 @@ Unabhängig vom Kodierungstyp hat jede von Braze gesendete SMS-Nachricht ein Lim
 | 470–536 Zeichen | 8 Segmente |
 | 537–603 Zeichen | 9 Segmente |
 | 604–670 Zeichen | 10 Segmente |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Segment-Aufschlüsselung" }
 {% endtab %}
 {% endtabs %}
 
@@ -86,7 +86,7 @@ Unabhängig vom Kodierungstyp hat jede von Braze gesendete SMS-Nachricht ein Lim
 - **Kompatibel mit Liquid-Templating, Connected-Content, Emojis und Links**
     - Liquid-Templating und Connected-Content können dazu führen, dass Ihre Nachricht das Zeichenlimit für Ihren Kodierungstyp überschreitet. Sie können den [truncate words-Filter](https://help.shopify.com/en/themes/liquid/filters/string-filters#truncatewords) verwenden, um die Anzahl der Wörter zu begrenzen, die Ihr Liquid zur Nachricht beitragen könnte.
     - Emojis haben keine standardisierte Zeichenanzahl über alle Emojis hinweg. Testen Sie daher immer, ob Ihre Nachrichten korrekt segmentiert und angezeigt werden.
-    - Links können viele Zeichen beanspruchen, was zu mehr Nachrichten-Segmenten als beabsichtigt führen kann. Die Verwendung von Link-Shortenern ist zwar möglich, funktioniert aber am besten mit Shortcodes. Besuchen Sie unsere [SMS-FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs/) für weitere Informationen.<br><br>
+    - Links können viele Zeichen beanspruchen, was zu mehr Nachrichten-Segmenten als beabsichtigt führen kann. Die Verwendung von Link-Shortenern ist zwar möglich, funktioniert aber am besten mit Shortcodes. Besuchen Sie unsere [SMS-FAQ]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/faqs) für weitere Informationen.<br><br>
 - **Testen**
     - Testen Sie Ihre SMS-Nachrichten immer vor dem Start, insbesondere bei Verwendung von Liquid und Connected-Content, da das Überschreiten von Nachrichten- oder Textlimits zu zusätzlichen Kosten führen kann. Beachten Sie, dass Testnachrichten auf Ihre Nachrichtenlimits angerechnet werden.
 
@@ -145,8 +145,8 @@ Rich-Media-Nachrichten enthalten eine Mediendatei (Bild, Video) oder eine Rich C
 {% endtab %}
 {% endtabs %}
 
-### Nachrichten-Editor und Nachrichtennutzungs-Dashboard {#message-composer-and-message-usage-dashboard}
+### Nachrichten-Editor und Credits-Usage-Dashboard {#message-composer-and-credits-usage-dashboard}
 
-Während Sie Ihre Nachricht erstellen, zeigt der Nachrichten-Editor den Abrechnungstyp in Echtzeit über ein Label an (Basic RCS, Single RCS, Rich oder Rich Media), damit Sie die Kosten vor dem Senden im Blick behalten können.
+Während Sie Ihre Nachricht erstellen, zeigt der Nachrichten-Editor den Abrechnungstyp in Realtime über ein Label an (Basic RCS, Single RCS, Rich oder Rich Media), damit Sie die Kosten vor dem Senden im Blick behalten können.
 
-Ihr [Nachrichtennutzungs-Dashboard]({{site.baseurl}}/message_usage_dashboard/) spiegelt diese Abrechnungstypen wider und zeigt die Anzahl der verwendeten Segmente für US-Nachrichten an, sodass Sie einen transparenten Überblick über Ihren Nachrichtenguthaben-Verbrauch erhalten.
+Ihr [Credits-Usage-Dashboard]({{site.baseurl}}/credits_usage_dashboard) spiegelt diese Abrechnungstypen wider und zeigt die Anzahl der verwendeten Segmente für US-Nachrichten an, sodass Sie einen transparenten Überblick über Ihren Verbrauch an Nachrichtenguthaben erhalten.

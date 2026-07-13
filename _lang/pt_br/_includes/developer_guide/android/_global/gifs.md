@@ -1,12 +1,12 @@
-## Sobre GIFs
+## Sobre GIFs {#about-gifs}
 
-A Braze oferece a capacidade de usar uma biblioteca de imagens personalizada para exibir GIFs animados. Embora o exemplo abaixo use o [Glide](https://bumptech.github.io/glide/), qualquer biblioteca de imagens que aceite GIFs é compatível.
+A Braze oferece a capacidade de usar uma biblioteca de imagens personalizada para exibir GIFs animados. Embora o exemplo a seguir use o [Glide](https://bumptech.github.io/glide/), qualquer biblioteca de imagens que aceite GIFs é compatível.
 
-## Integração de uma biblioteca de imagens personalizada
+## Integração de uma biblioteca de imagens personalizada {#integrating-a-custom-image-library}
 
-### Etapa 1: Criando o delegado do carregador de imagens
+### Etapa 1: Criação do delegado do carregador de imagens {#step-1-creating-the-image-loader-delegate}
 
-O delegado do Image Loader deve implementar os seguintes métodos:
+O delegado do carregador de imagens deve implementar os seguintes métodos:
 
 * [`getInAppMessageBitmapFromUrl()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/get-in-app-message-bitmap-from-url.html)
 * [`getPushBitmapFromUrl()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/get-push-bitmap-from-url.html)
@@ -14,13 +14,15 @@ O delegado do Image Loader deve implementar os seguintes métodos:
 * [`renderUrlIntoInAppMessageView()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/render-url-into-in-app-message-view.html)
 * [`setOffline()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/set-offline.html)
 
-O exemplo de integração abaixo foi extraído do [app de amostra de integração do Glide](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/glide-image-integration) incluído no SDK da Braze para Android.
+O exemplo de integração a seguir foi extraído do [app de amostra de integração do Glide](https://github.com/braze-inc/braze-android-sdk/tree/master/samples/glide-image-integration) incluído no SDK da Braze para Android.
 
 {% tabs %}
 {% tab JAVA %}
 
 ```java
 import com.braze.support.BrazeLogger;
+import com.bumptech.glide.load.resource.gif.GifDrawable;
+import android.graphics.drawable.Drawable;
 
 public class GlideBrazeImageLoader implements IBrazeImageLoader {
   private static final String TAG = GlideBrazeImageLoader.class.getName();
@@ -48,16 +50,22 @@ public class GlideBrazeImageLoader implements IBrazeImageLoader {
   }
 
   private void renderUrlIntoView(Context context, String imageUrl, ImageView imageView) {
-    imageView.post(() -> {
-      try {
-        Glide.with(context)
-            .load(imageUrl)
-            .apply(mRequestOptions)
-            .into(imageView);
-      } catch (Exception e) {
-        BrazeLogger.e(TAG, "Failed to render URL into view: " + imageUrl, e);
-      }
-    });
+    try {
+      final Drawable drawable = Glide.with(context)
+          .load(imageUrl)
+          .apply(mRequestOptions)
+          .submit()
+          .get();
+
+      imageView.post(() -> {
+        imageView.setImageDrawable(drawable);
+        if (drawable instanceof GifDrawable) {
+          ((GifDrawable) drawable).start();
+        }
+      });
+    } catch (Exception e) {
+      BrazeLogger.e(TAG, "Failed to render URL into view: " + imageUrl, e);
+    }
   }
 
   private Bitmap getBitmapFromUrl(Context context, String imageUrl, BrazeViewBounds viewBounds) {
@@ -85,6 +93,7 @@ public class GlideBrazeImageLoader implements IBrazeImageLoader {
 
 ```kotlin
 import com.braze.support.BrazeLogger
+import com.bumptech.glide.load.resource.gif.GifDrawable
 
 class GlideBrazeImageLoader : IBrazeImageLoader {
   companion object {
@@ -110,15 +119,21 @@ class GlideBrazeImageLoader : IBrazeImageLoader {
   }
 
   private fun renderUrlIntoView(context: Context, imageUrl: String, imageView: ImageView) {
-    imageView.post {
-      try {
-        Glide.with(context)
-            .load(imageUrl)
-            .apply(mRequestOptions)
-            .into(imageView)
-      } catch (e: Exception) {
-        BrazeLogger.e(TAG, "Failed to render URL into view: $imageUrl", e)
+    try {
+      val drawable = Glide.with(context)
+          .load(imageUrl)
+          .apply(mRequestOptions)
+          .submit()
+          .get()
+
+      imageView.post {
+        imageView.setImageDrawable(drawable)
+        if (drawable is GifDrawable) {
+          drawable.start()
+        }
       }
+    } catch (e: Exception) {
+      BrazeLogger.e(TAG, "Failed to render URL into view: $imageUrl", e)
     }
   }
 
@@ -145,7 +160,53 @@ class GlideBrazeImageLoader : IBrazeImageLoader {
 {% endtab %}
 {% endtabs %}
 
-### Etapa 2: Configurando o delegado do carregador de imagens
+### Correção do carregamento de imagens para o SDK Android 36.0.0 e posterior {#fixing-image-loading-for-android-sdk-3600-and-later}
+
+No SDK Android 36.0.0 e posterior, `displayInAppMessage()` é uma função `suspend`. Isso significa que `renderUrlIntoInAppMessageView()` é executado em uma thread em segundo plano em vez da thread principal.
+
+Se o seu carregador de imagens personalizado chamar `Glide.into(imageView)` em `renderUrlIntoInAppMessageView()`, o app pode falhar com a mensagem "You must call this method on the main thread."
+
+Para evitar isso:
+
+1. Carregue a imagem na thread em segundo plano com `submit().get()`.
+2. Publique a atualização da interface na thread principal com `imageView.post { ... }`.
+3. Se o resultado carregado for um drawable GIF, inicie a animação após defini-lo na view.
+
+Isso separa o carregamento de imagens da renderização da interface e mantém o seu carregador de imagens personalizado compatível com o SDK Android 36.0.0 e posterior.
+
+Essa orientação se aplica a carregadores de imagens personalizados para Android. Mensagens no app para web já suportam GIFs nativamente.
+
+O exemplo em Kotlin a seguir usa valores de espaço reservado para demonstrar esse padrão:
+
+```kotlin
+private const val TAG = "SampleGlideLoader"
+private const val glideBrazeImageLoaderTag = "sample-loader"
+
+private fun renderUrlIntoView(
+    context: Context,
+    imageUrl: String,
+    imageView: ImageView
+) {
+    try {
+        val drawable: Drawable = Glide.with(context)
+            .load(imageUrl)
+            .apply(mRequestOptions)
+            .submit()
+            .get()
+
+        imageView.post {
+            imageView.setImageDrawable(drawable)
+            if (drawable is GifDrawable) {
+                drawable.start()
+            }
+        }
+    } catch (e: Exception) {
+        Log.e(TAG, "$glideBrazeImageLoaderTag renderUrlIntoView failed: url=$imageUrl", e)
+    }
+}
+```
+
+### Etapa 2: Configuração do delegado do carregador de imagens {#step-2-setting-the-image-loader-delegate}
 
 O SDK da Braze usará qualquer carregador de imagens personalizado definido com [`IBrazeImageLoader`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.images/-i-braze-image-loader/index.html). Recomendamos configurar o carregador de imagens personalizado em uma subclasse de aplicativo personalizada:
 
@@ -177,7 +238,7 @@ class GlideIntegrationApplication : Application() {
 {% endtab %}
 {% endtabs %}
 
-## Carregamento personalizado de imagens com Jetpack Compose
+## Carregamento personalizado de imagens com Jetpack Compose {#custom-image-loading-with-jetpack-compose}
 
 Para substituir o carregamento de imagens com Jetpack Compose, você pode passar um valor para [`imageComposable`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#-808910455%2FProperties%2F-1725759721). Essa função receberá um `Card` e renderizará a imagem e os modificadores necessários. Como alternativa, você pode usar `customCardComposer` de `ContentCardsList` para renderizar o cartão inteiro.
 

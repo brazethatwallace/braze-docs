@@ -15,11 +15,11 @@ As notificações por push podem ser expandidas de três maneiras diferentes:
 - Deslizando para baixo no banner de push
 - Deslizando o banner para a esquerda e selecionando "View"
 
-Essas visualizações personalizadas oferecem maneiras inteligentes de engajar clientes, exibindo tipos distintos de conteúdo, incluindo notificações interativas, notificações preenchidas com dados de usuários e até mesmo mensagens push que podem capturar informações como números de telefone e e-mail. Um dos nossos recursos mais conhecidos na Braze, o [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/), é um excelente exemplo de como uma extensão de app de conteúdo de notificação por push pode ser!
+Essas visualizações personalizadas oferecem maneiras inteligentes de engajar clientes, exibindo tipos distintos de conteúdo, incluindo notificações interativas, notificações preenchidas com dados de usuários e até mesmo mensagens push que podem capturar informações como números de telefone e e-mail. Um dos nossos recursos mais conhecidos na Braze, o [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories), é um excelente exemplo de como uma extensão de app de conteúdo de notificação por push pode ser!
 
 ### Pré-requisitos {#requirements}
 
-![]({% image_buster /assets/img/push_implementation_guide/push15.png %}){: style="float:right;max-width:50%;margin-left:10px; border:0;margin-top:10px"}
+![Tela "Choose a template for your new target" do Xcode com "Notification Content Extension" selecionado em Application Extension.]({% image_buster /assets/img/push_implementation_guide/push15.png %}){: style="float:right;max-width:50%;margin-left:10px; border:0;margin-top:10px"}
 - [Notificações por push]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) integradas com sucesso no seu app
 - Os seguintes arquivos gerados pelo Xcode com base na sua linguagem de codificação:
 
@@ -51,7 +51,7 @@ Para criar uma notificação por push interativa, você deve definir uma visuali
 5. Defina a chave `UNNotificationExtensionInteractionEnabled` como `true` para ativar as interações do usuário em uma notificação por push.
 
 ![As opções de botão de notificação encontradas nas configurações do criador de mensagens push.]({% image_buster /assets/img/push_implementation_guide/push16.png %}){: style="max-width:75%;border:0;margin-top:10px"}
-![]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
+![Um plist mostrando NSExtension com UNNotificationExtensionCategory definido como "your_custom_category", UNNotificationExtensionDefaultContentHidden definido como 1 e UNNotificationExtensionInitialContentSizeRatio definido como 1.]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
 
 ## Notificações por push personalizadas {#personalized-push-notifications}
 
@@ -59,7 +59,7 @@ Para criar uma notificação por push interativa, você deve definir uma visuali
 
 As notificações por push podem exibir informações específicas do usuário dentro de uma extensão de conteúdo. Isso permite criar conteúdo push focado no usuário, como adicionar a opção de compartilhar seu progresso em diferentes plataformas, mostrar conquistas desbloqueadas ou exibir checklists de integração. Este exemplo mostra uma notificação por push exibida a um usuário após ele ter concluído uma tarefa específica no curso do Braze Learning. Ao expandir a notificação, o usuário pode ver seu progresso na jornada de aprendizagem. As informações fornecidas aqui são específicas do usuário e podem ser disparadas quando uma sessão é concluída ou quando uma ação específica do usuário é realizada, utilizando um gatilho de API.
 
-### Configuração do dashboard {#dashboard-configuration}
+### Configuração do dashboard
 
 Para criar uma notificação por push personalizada, você deve definir uma visualização personalizada no seu dashboard.
 
@@ -113,7 +113,7 @@ func didReceive(_ notification: UNNotification) {
 As notificações por push podem capturar informações do usuário dentro de uma extensão de app de conteúdo, expandindo os limites do que é possível com um push. Solicitar entrada do usuário por meio de notificações por push permite não apenas pedir informações básicas como nome ou e-mail, mas também solicitar que os usuários enviem feedback ou completem um perfil de usuário inacabado.
 
 {% alert tip %}
-Para saber mais, consulte [Registro de dados de notificação por push]({{site.baseurl}}/developer_guide/analytics/logging_channel_data/push_notifications/).
+Para saber mais, consulte [Registro de dados de notificação por push]({{site.baseurl}}/developer_guide/analytics/logging_channel_data/push_notifications).
 {% endalert %}
 
 No fluxo a seguir, a visualização personalizada é capaz de responder a mudanças de estado. Esses componentes de mudança de estado são representados em cada imagem.
@@ -123,9 +123,8 @@ No fluxo a seguir, a visualização personalizada é capaz de responder a mudan�
 3. As informações são fornecidas e, se estiverem no formato esperado, o botão de registro é exibido.
 3. A visualização de confirmação é exibida e o push é dispensado.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
-### Configuração do dashboard {#dashboard-configuration}
+### Configuração do dashboard
 
 Para criar uma notificação por push de captura de informações, você deve definir uma visualização personalizada no seu dashboard.
 

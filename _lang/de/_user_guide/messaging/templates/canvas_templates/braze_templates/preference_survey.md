@@ -20,11 +20,11 @@ Um dieses Template erfolgreich zu nutzen, benötigen Sie Folgendes:
 - Eine Willkommens-E-Mail, die Nutzer:innen auffordert, mit dem Onboarding zu beginnen.
 - Eine Folge-E-Mail mit Tipps für den Einstieg in die App für Nutzer:innen, die das Onboarding abgeschlossen haben.
 - Eine Folge-E-Mail, die Nutzer:innen auffordert, ihr Onboarding abzuschließen.
-- Eine [Umfrage]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/simple_survey/) mit mehreren Fragen zur Ermittlung der Nutzer:innen-Präferenzen.
+- Eine [Umfrage]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/simple_survey) mit mehreren Fragen zur Ermittlung der Nutzer:innen-Präferenzen.
 
 ## Das Template an Ihre Bedürfnisse anpassen {#tailoring-the-template-to-your-needs}
 
-Nehmen wir an, wir arbeiten für StyleRyde, eine On-Demand-Ridesharing-App, die Menschen dorthin bringt, wo sie hin müssen. Bevor wir das Canvas erstellen, [richten wir eine einfache Umfrage ein]({{site.baseurl}}/user_guide/data/activation/catalogs/create/), die eine Reihe ansprechender Fragen enthält, um die Erfahrung und den Eindruck der ersten Fahrt einer Nutzer:in mit der App zu ermitteln.
+Nehmen wir an, wir arbeiten für StyleRyde, eine On-Demand-Ridesharing-App, die Menschen dorthin bringt, wo sie hin müssen. Bevor wir das Canvas erstellen, [richten wir eine einfache Umfrage ein]({{site.baseurl}}/user_guide/data/activation/catalogs/create), die eine Reihe ansprechender Fragen enthält, um die Erfahrung und den Eindruck der ersten Fahrt einer Nutzer:in mit der App zu ermitteln.
 
 Um auf das Template zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Use a Canvas template** > **Braze templates**. Wählen Sie dann neben **Onboarding with preferences survey** die Option **Apply Template**. Jetzt können wir das Template durchgehen und an unsere Bedürfnisse anpassen.
 
@@ -67,7 +67,7 @@ Wir behalten die Zielgruppe bei, um unsere Nutzer:innen anzusprechen, die die St
 
 Wir behalten die Standard-Abo-Einstellungen bei, sodass wir nur an Nutzer:innen senden, die Nachrichten oder Benachrichtigungen abonniert haben oder dafür angemeldet sind, mit aktivierten Ruhezeiten, und überspringen die anderen Einstellungen (Frequency-Capping und Seed-Gruppen).
 
-![Abschnitt „Send Settings“ mit den Abo-Einstellungen für Nutzer:innen, die abonniert oder angemeldet sind, mit aktivierten Ruhezeiten zwischen 0 Uhr und 20 Uhr.]({% image_buster /assets/img/canvas_templates/preference_survey6.png %}){: style="max-width:90%;"}
+![Abschnitt „Sendeeinstellungen“ mit den Abo-Einstellungen für Nutzer:innen, die abonniert oder angemeldet sind, mit aktivierten Ruhezeiten zwischen 0 Uhr und 20 Uhr.]({% image_buster /assets/img/canvas_templates/preference_survey6.png %}){: style="max-width:90%;"}
 
 ### 6. Schritt: Ihr Canvas anpassen {#step-6-customize-your-canvas}
 
@@ -104,5 +104,5 @@ Als letzten Schritt für die erneute Interaktion benennen wir **Step 2** in **Fi
 Nachdem wir unser Canvas getestet und überprüft haben, um sicherzustellen, dass es wie erwartet funktioniert, starten wir es, indem wir **Launch Canvas** auswählen.
 
 {% alert tip %}
-Schauen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) an, um zu erfahren, was Sie vor und nach dem Start eines Canvas beachten sollten.
+Schauen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) an, um zu erfahren, was Sie vor und nach dem Start eines Canvas beachten sollten.
 {% endalert %}

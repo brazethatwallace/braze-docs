@@ -25,7 +25,7 @@ Les termes suivants sont utilisés tout au long du guide Decisioning Studio.
 | **Dimensions** | Les dimensions peuvent être considérées comme les *types de leviers* que l'agent de décision peut actionner pour maximiser l'indicateur de réussite. Les dimensions courantes incluent l'offre, la ligne d'objet, le créatif, le canal ou le moment d'envoi. |
 | **Banque d'actions** | La banque d'actions définit les *options spécifiques* auxquelles l'agent de décision a accès pour chaque « levier » de dimension. Par exemple, pour une dimension de canal, vous définissez les canaux spécifiques auxquels l'agent de décision a accès. Pour une dimension d'offre, vous définissez les offres spécifiques que l'agent de décision peut tester. |
 | **Contraintes** | En général, l'agent de décision peut prendre n'importe quelle combinaison d'actions que vous placez dans la banque d'actions. Cependant, vous pouvez également définir des contraintes pour limiter les actions de l'agent de décision afin de respecter des règles métier essentielles. Par exemple, cela peut consister à empêcher la sélection d'une offre spécifique pour des clients situés dans une zone géographique non éligible, ou à fixer un budget maximum que l'agent de décision peut dépenser. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Concepts clés" }
 
 ![Vue d'ensemble d'un agent de décision]({% image_buster /assets/img/decisioning_studio/decisioning_studio_high_level_agent.png %})
 
@@ -39,25 +39,25 @@ Lors de la mise en place d'un agent de décision, vous devrez réfléchir à qua
 
 ### L'« objectif » : définir votre indicateur de réussite {#the-goal-define-your-success-metric}
 
-> Quel résultat souhaitez-vous que l'agent maximise ?
+*Quel résultat souhaitez-vous que l'agent maximise ?*
 
 Votre indicateur de réussite est le résultat métier que l'agent optimisera. Il doit être directement aligné avec vos objectifs métier — non pas des indicateurs intermédiaires comme les clics ou les ouvertures, mais de véritables résultats métier comme le chiffre d'affaires, les conversions, l'ARPU ou la valeur vie client.
 
 ### Le « qui » : sélectionner votre audience {#the-who-select-your-audience}
 
-> Qui l'agent de décision va-t-il engager ?
+*Qui l'agent de décision va-t-il engager ?*
 
 Définissez l'audience que votre agent servira. Il peut s'agir de tous les clients, d'un segment spécifique (comme les membres d'un programme de fidélité) ou de clients à un stade particulier de leur cycle de vie (comme les acheteurs récents ou les abonnés à risque).
 
 ### Le « quoi » : configurer votre banque d'actions {#the-what-configure-your-action-bank}
 
-> Parmi quelles options l'agent peut-il choisir pour atteindre le résultat ?
+*Parmi quelles options l'agent peut-il choisir pour atteindre le résultat ?*
 
 La banque d'actions définit tous les leviers que l'agent peut actionner : les dimensions (comme le canal, l'offre, le moment et la fréquence) et les options spécifiques au sein de chaque dimension. L'agent expérimente différentes combinaisons de ces options pour trouver ce qui fonctionne le mieux pour chaque client.
 
 ### Le « comment » : configurer vos contraintes {#the-how-configure-your-constraints}
 
-> Quelles règles l'agent doit-il suivre ?
+*Quelles règles l'agent doit-il suivre ?*
 
 Les contraintes sont les règles que l'agent doit respecter. Cela peut consister à empêcher la sélection d'une offre spécifique pour des clients situés dans une zone géographique non éligible, ou à fixer un budget maximum que l'agent de décision peut dépenser.
 
@@ -132,4 +132,4 @@ Vous pourriez créer un agent de fidélité et d'engagement pour maximiser les a
 
 ## Étapes suivantes {#next-steps}
 
-Prêt à créer votre propre agent de décision ? Consultez [Premiers pas avec Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/) pour un guide qui vous accompagne dans la connexion des sources de données, la mise en place de l'orchestration, la conception de votre agent et le lancement en production.
+Prêt à créer votre propre agent de décision ? Consultez [Premiers pas avec Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) pour un guide qui vous accompagne dans la connexion des sources de données, la mise en place de l'orchestration, la conception de votre agent et le lancement en production.

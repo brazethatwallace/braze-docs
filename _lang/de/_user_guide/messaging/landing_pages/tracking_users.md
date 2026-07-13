@@ -7,11 +7,11 @@ page_order: 2
 
 # Nutzer:innen über ein Formular tracken {#track-users-through-a-form}
 
-> Erfahren Sie, wie Sie Nutzer:innen tracken, die ein Formular über Ihre Landing-Page absenden, indem Sie Ihren Nachrichten einen Landing-Page-Liquid-Tag hinzufügen. Dieser Liquid-Tag wird über alle Braze-Messaging-Kanäle hinweg unterstützt, einschließlich E-Mail, SMS, In-App Messages und mehr. Weitere Informationen zum Tracking von Daten finden Sie unter [Über Landing-Page-Tracking-Daten]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data/).
+> Erfahren Sie, wie Sie Nutzer:innen tracken, die ein Formular über Ihre Landing-Page absenden, indem Sie Ihren Nachrichten einen Landing-Page-Liquid-Tag hinzufügen. Dieser Liquid-Tag wird über alle Braze-Messaging-Kanäle hinweg unterstützt, einschließlich E-Mail, SMS, In-App Messages und mehr. Weitere Informationen zum Tracking von Daten finden Sie unter [Über Landing-Page-Tracking-Daten]({{site.baseurl}}/user_guide/messaging/landing_pages/about_tracking_data).
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie beginnen, müssen Sie eine [Landing-Page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/) und eine [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/) erstellen.
+Bevor Sie beginnen, müssen Sie eine [Landing-Page]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages) und eine [Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign) erstellen.
 
 ## So funktioniert es {#how-it-works}
 
@@ -31,7 +31,7 @@ Sie können Landing-Pages auch zur Lead-Generierung nutzen, indem Sie die Seiten
 
 ### 1. Schritt: Seiten-URL überprüfen {#page-url}
 
-Braze verwendet die URL Ihrer Landing-Page, um den eindeutigen Liquid-Tag zu generieren. Wenn Sie die aktuelle Seiten-URL ändern möchten, gehen Sie zu **Messaging** > **Landing Pages** und öffnen Sie Ihre Landing-Page. Unter **page URL** können Sie eine neue Seiten-URL eingeben.
+Braze verwendet die URL Ihrer Landing-Page, um den eindeutigen Liquid-Tag zu generieren. Wenn Sie die aktuelle Seiten-URL ändern möchten, gehen Sie zu **Messaging** > **Landing Pages** und öffnen Sie Ihre Landing-Page. Unter **Page URL** können Sie eine neue Seiten-URL eingeben.
 
 {% alert warning %}
 Wenn Sie die Seiten-URL nach dem Senden Ihrer Nachricht ändern, werden Nutzer:innen, die versuchen, Ihre Landing-Page über die alte URL zu besuchen, auf eine `404`-Seite weitergeleitet.
@@ -47,9 +47,9 @@ Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie eine Campaign aus. W�
 
 Braze generiert automatisch einen Liquid-Tag unter Verwendung Ihrer [Landing-Page-URL](#page-url). Verwenden Sie die folgende Tabelle, um Ihren Tag zu generieren:
 
-| **Personalisierungstyp** | Wählen Sie **Landing Page** aus.|
-| **Landing-Page** | Wählen Sie die Landing-Page aus, die Sie [zuvor erstellt haben](#prerequisites).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Personalisierungstyp** | Wählen Sie **Landing Page** aus. |
+| **Landing-Page** | Wählen Sie die Landing-Page aus, die Sie [zuvor erstellt haben](#prerequisites). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2. Schritt: Liquid-Tag generieren" }
 
 Um den Liquid-Tag zu Ihrer Nachricht hinzuzufügen, können Sie entweder **Einfügen** auswählen oder das Snippet in Ihre Zwischenablage kopieren und manuell hinzufügen.
 

@@ -24,7 +24,7 @@ The Braze and Treasure Data integration allows you to write job results from Tre
 | Treasure Data account | A [Treasure Data account](https://www.treasuredata.com/custom-demo/) is required to take advantage of this partnership. |
 | Braze REST API key | A Braze REST API key with `users.track`, `users.delete`, `users.alias.new`, `users.identify` permissions.<br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint  | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -38,7 +38,7 @@ In Treasure Data, navigate to the **Catalog** under the **Integrations Hub** and
 
 In the **New Authentication** prompt that shows up, name your connection and provide your Braze REST API key and REST endpoint. Select **Done** when finished.
 
-![]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
+![Treasure Data Braze authentication form with REST API key and endpoint fields.]({% image_buster /assets/img/treasure_data/braze_authentication.png %}){: style="max-width:80%;"}
 
 ### Step 2: Define your query
 
@@ -50,7 +50,7 @@ For users using HIVE to build queries, HIVE requires that any columns or tables 
 
 Next, select **Export Results** and select an existing integration authentication.
 
-![]({% image_buster /assets/img/treasure_data/query_2.png %}){: style="max-width:80%;"}
+![Treasure Data query results page with Export Results and Braze integration selected.]({% image_buster /assets/img/treasure_data/query_2.png %}){: style="max-width:80%;"}
 
 Define additional export results parameters as outlined in the following [customization section](#customization). In your export integration content, review the integration parameters.
 
@@ -68,7 +68,7 @@ The export results parameters are included in the following table:
 | `pre_formatted_fields`    | String | Use for array or JSON columns to keep the format. |
 | `track_record_type`       | Custom Events<br>Purchases<br>User Profile Attributes| Record type for **User - Track** mode |
 | `skip_on_invalid_records` | Boolean | If enabled, continue and ignore any invalid records for the JSON column. <br> Otherwise, the job stops. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Customization" }
 
 {% alert note %}
 Visit [Treasure Data](https://docs.treasuredata.com/display/public/INT/Braze+Export+Integration) for more information about pre-formatted fields, example queries, parameter details, and query export job scheduling.

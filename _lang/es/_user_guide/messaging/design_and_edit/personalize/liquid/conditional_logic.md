@@ -6,11 +6,11 @@ description: "Este artículo de referencia cubre cómo las etiquetas pueden y de
 
 ---
 
-# Lógica condicional de mensajería
+# Lógica condicional de mensajería {#conditional-messaging-logic}
 
 > Las [etiquetas](https://docs.shopify.com/themes/liquid-documentation/tags) te permiten incluir lógica de programación en tus campañas de mensajería. Las etiquetas pueden usarse para ejecutar sentencias condicionales, así como para casos de uso avanzados, como asignar variables o iterar a través de un bloque de código. <br><br>Esta página cubre cómo las etiquetas pueden y deben usarse, como por ejemplo cómo manejar valores de atributo nulos, nil y en blanco, y cómo hacer referencia a atributos personalizados.
 
-## Formato de etiquetas
+## Formato de etiquetas {#formatting-tags}
 
 {% raw %}
 Una etiqueta debe estar envuelta en `{% %}`.
@@ -28,7 +28,7 @@ Por ejemplo, añade lo siguiente en el campo de mensaje primero:
 {% endif %}
 ```
 
-Asegúrate de que se resalte en verde, luego reemplaza la `X` con tu Liquid o Contenido conectado elegido usando el `+` azul en la esquina del campo de mensaje, y el `0` con el valor deseado.
+Asegúrate de que se resalte en verde, luego reemplaza la `X` con tu Liquid o contenido conectado elegido usando el `+` azul en la esquina del campo de mensaje, y el `0` con el valor deseado.
 <br><br>
 Después, añade las variaciones de tu mensaje según las necesites entre los condicionales `else`:
 ```liquid
@@ -40,7 +40,7 @@ Buy now! Would 5% off convince you?
 ```
 {% endraw %}
 
-## Lógica condicional
+## Lógica condicional {#conditional-logic}
 
 Puedes incluir muchos tipos de [lógica inteligente dentro de los mensajes](http://docs.shopify.com/themes/liquid-documentation/basics), como una sentencia condicional. El siguiente ejemplo usa [condicionales](http://docs.shopify.com/themes/liquid-documentation/tags/control-flow-tags) para internacionalizar una campaña:
 {% raw %}
@@ -57,9 +57,9 @@ This is a message from Braze! This is going to go to anyone who did not match th
 {% endif %}
 ```
 
-### Etiquetas condicionales
+### Etiquetas condicionales {#conditional-tags}
 
-#### `if` y `elsif`
+#### `if` y `elsif` {#if-and-elsif}
 
 La lógica condicional comienza con la etiqueta `if`, que establece la primera condición a verificar. Las condiciones posteriores usan la etiqueta `elsif` y se verificarán si las condiciones anteriores no se cumplen. En este ejemplo, si el dispositivo de un usuario no está configurado en inglés, este código verificará si el dispositivo del usuario está configurado en español, y si eso falla, verificará si el dispositivo está configurado en chino. Si el dispositivo del usuario cumple una de estas condiciones, el usuario recibirá un mensaje en el idioma correspondiente.
 
@@ -67,15 +67,35 @@ La lógica condicional comienza con la etiqueta `if`, que establece la primera c
 
 Tienes la opción de incluir una sentencia `{% else %}` en tu lógica condicional. Si ninguna de las condiciones que estableciste se cumple, la sentencia `{% else %}` especifica el mensaje que debe enviarse. En este ejemplo, el idioma predeterminado es el inglés si el idioma del usuario no es inglés, español o chino.
 
+#### `case` y `when` {#case-and-when}
+
+`{% case %}`, `{% when %}` y `{% endcase %}` funcionan como una sentencia switch: estableces una expresión después de `case`, y cada rama `when` se ejecuta cuando esa expresión es igual al valor indicado (Liquid usa igualdad internamente, similar a encadenar `if` y `elsif` con `==`). Puedes listar múltiples valores en una etiqueta `when` separándolos con una coma u `or`. Usa `{% else %}` como alternativa cuando nada coincida, y luego cierra con `{% endcase %}`.
+
+Asegúrate de que el formato de tus valores `when` coincida con el tipo de datos. Para texto (como un código de idioma), usa comillas: `{% when 'es' %}`. Para números, omite las comillas: `{% when 2 %}`.
+
+```liquid
+{% assign handle = 'cake' %}
+{% case handle %}
+{% when 'cake' %}
+This is a cake
+{% when 'cookie' %}
+This is a cookie
+{% else %}
+This is not a cake nor a cookie
+{% endcase %}
+```
+
+Puedes usar el mismo patrón con etiquetas de personalización de Braze u otras expresiones Liquid en lugar de `handle`. Para más opciones de sintaxis, consulta la [documentación de la etiqueta `case`](https://shopify.dev/docs/api/liquid/tags/case) de Shopify.
+
 #### `endif`
 
-La etiqueta `{% endif %}` señala que has terminado tu lógica condicional. Debes incluir la etiqueta `{% endif %}` en cualquier mensaje con lógica condicional. Si no incluyes una etiqueta `{% endif %}` en tu lógica condicional, obtendrás un error ya que Braze no podrá analizar tu mensaje.
+La etiqueta `{% endif %}` señala que has terminado un bloque `if`. Debes incluir la etiqueta `{% endif %}` en cualquier mensaje que use `if`, `elsif`, `unless` o `else` en esa cadena. Si no incluyes una etiqueta `{% endif %}`, obtendrás un error ya que Braze no podrá analizar tu mensaje. Si usas `{% case %}` en su lugar, cierra el bloque con `{% endcase %}`, no con `{% endif %}`.
 
 {% alert note %}
-Las etiquetas condicionales (`if`, `elsif`, `unless`) admiten operadores pero no filtros. Para evaluar un valor filtrado en un condicional, asigna primero el resultado del filtro a una variable y luego haz referencia a esa variable. Para más detalles, consulta [Dónde usar operadores y filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+En las etiquetas `if`, `elsif` y `unless`, puedes usar operadores pero no filtros. En las etiquetas `case` y `when`, cada rama coincide cuando la expresión `case` es igual a un valor `when`; los filtros tampoco son compatibles en esas expresiones. Para evaluar un valor filtrado, asigna primero el resultado del filtro a una variable y luego haz referencia a esa variable en tu cláusula `case` o `when`. Para más detalles, consulta [Dónde usar operadores y filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Tutorial: Entregar contenido basado en la ubicación
+### Tutorial: Entregar contenido basado en la ubicación {#tutorial-deliver-location-based-content}
 
 Cuando termines este tutorial, podrás usar etiquetas con sentencias "if", "elsif" y "else" para entregar contenido basado en la ubicación de un usuario.
 
@@ -149,11 +169,11 @@ Cuando termines este tutorial, podrás usar etiquetas con sentencias "if", "elsi
 
 {% enddetails %}
 
-## Manejo de valores de atributo nulos, nil y en blanco
+## Manejo de valores de atributo nulos, nil y en blanco {#accounting-for-null-nil-and-blank-attribute-values}
 
 La lógica condicional es una forma útil de manejar valores de atributo que no están configurados en los perfiles de usuario.
 
-### Valores de atributo nulos y nil
+### Valores de atributo nulos y nil {#null-and-nil-attribute-values}
 
 Un valor nulo o nil ocurre cuando el valor de un atributo personalizado no se ha configurado. Por ejemplo, un usuario que aún no ha establecido su nombre no tendrá un nombre registrado en Braze.
 
@@ -184,7 +204,7 @@ Ten en cuenta que un valor de atributo nulo no está estrictamente asociado con 
 
 {% endraw %}
 
-### Valores de atributo en blanco
+### Valores de atributo en blanco {#blank-attribute-values}
 
 Un valor en blanco ocurre cuando el atributo en un perfil de usuario no está configurado, está configurado con una cadena de espacios en blanco (` `), o está configurado como `false`. Los valores en blanco deben verificarse antes que otras variables para evitar un error de procesamiento de Liquid.
 
@@ -198,11 +218,11 @@ La siguiente etiqueta te permite especificar un mensaje para usuarios que tienen
 ```
 {% endraw %}
 
-## Referencia a atributos personalizados
+## Referencia a atributos personalizados {#referencing-custom-attributes}
 
-Después de haber [creado atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes), puedes hacer referencia a estos atributos personalizados en tu mensajería Liquid.
+Después de haber [creado atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes), puedes hacer referencia a estos atributos personalizados en tu mensajería Liquid.
 
-Al usar lógica condicional, necesitarás conocer el tipo de datos del atributo personalizado para asegurarte de que estás usando la sintaxis correcta. Desde la página **Atributos personalizados** en el dashboard, busca el tipo de datos asociado con tu atributo personalizado y luego consulta los siguientes ejemplos listados para cada tipo de datos.
+Al usar lógica condicional, necesitarás conocer el tipo de datos del atributo personalizado para asegurarte de que estás usando la sintaxis correcta. Desde la página **Atributos personalizados** en el panel, busca el tipo de datos asociado con tu atributo personalizado y luego consulta los siguientes ejemplos listados para cada tipo de datos.
 
 ![Selección de un tipo de datos para un atributo personalizado. El ejemplo proporcionado muestra un atributo de Favorite_Category con un tipo de datos de cadena.]({% image_buster /assets/img_archive/custom_attribute_data_type.png %}){: style="max-width:80%;"}
 
@@ -210,9 +230,9 @@ Al usar lógica condicional, necesitarás conocer el tipo de datos del atributo 
 Las cadenas y los arreglos requieren apóstrofos rectos a su alrededor, mientras que los booleanos y los enteros nunca llevan apóstrofos.
 {% endalert %}
 
-#### Booleano
+### Booleano {#boolean}
 
-Los [booleanos]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#booleans) son valores binarios y pueden configurarse como `true` o `false`, como `registration_complete: true`. Los valores booleanos no llevan apóstrofos a su alrededor.
+Los [booleanos]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans) son valores binarios y pueden configurarse como `true` o `false`, como `registration_complete: true`. Los valores booleanos no llevan apóstrofos a su alrededor.
 
 {% raw %}
 
@@ -222,9 +242,9 @@ Los [booleanos]({{site.baseurl}}/user_guide/data/activation/attributes/custom_at
 
 {% endraw %}
 
-#### Número
+### Número {#number}
 
-Los [números]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#numbers) son valores numéricos, que pueden ser enteros o decimales. Por ejemplo, un usuario puede tener `shoe_size: 10` o `levels_completed: 287`. Los valores numéricos no llevan apóstrofos a su alrededor.
+Los [números]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers) son valores numéricos, que pueden ser enteros o flotantes. Por ejemplo, un usuario puede tener `shoe_size: 10` o `levels_completed: 287`. Los valores numéricos no llevan apóstrofos a su alrededor.
 
 {% raw %}
 
@@ -244,9 +264,9 @@ También puedes usar otros [operadores básicos](https://shopify.dev/docs/themes
 
 {% endraw %}
 
-#### Cadena
+### Cadena {#string}
 
-Una [cadena]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#strings) está compuesta por caracteres alfanuméricos y almacena un dato sobre tu usuario. Por ejemplo, puedes tener `favorite_color: red` o `phone_number: 3025981329`. Los valores de cadena deben llevar apóstrofos a su alrededor.
+Una [cadena]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings) está compuesta por caracteres alfanuméricos y almacena un dato sobre tu usuario. Por ejemplo, puedes tener `favorite_color: red` o `phone_number: 3025981329`. Los valores de cadena deben llevar apóstrofos a su alrededor.
 
 {% raw %}
 
@@ -258,9 +278,9 @@ Una [cadena]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attri
 
 Para cadenas, puedes usar tanto "==" como "contains" en tu Liquid.
 
-#### Arreglo
+### Arreglo {#array}
 
-Un [arreglo]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#arrays) es una lista de información sobre tu usuario. Por ejemplo, un usuario puede tener `last_viewed_shows: stranger things, planet earth, westworld`. Los valores de arreglo deben llevar apóstrofos a su alrededor.
+Un [arreglo]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays) es una lista de información sobre tu usuario. Por ejemplo, un usuario puede tener `last_viewed_shows: stranger things, planet earth, westworld`. Los valores de arreglo deben llevar apóstrofos a su alrededor.
 
 {% raw %}
 
@@ -272,9 +292,9 @@ Un [arreglo]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attri
 
 Para arreglos, debes usar "contains" y no puedes usar "==".
 
-#### Hora
+### Hora {#time}
 
-Una marca de tiempo de cuándo ocurrió un evento. Los valores de [hora]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#time) deben tener un [filtro matemático]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#math-filters) aplicado para poder usarse en lógica condicional.
+Una marca de tiempo de cuándo ocurrió un evento. Los valores de [hora]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time) deben tener un [filtro matemático]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) aplicado para poder usarse en lógica condicional.
 
 {% raw %}
 

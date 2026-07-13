@@ -10,23 +10,23 @@ search_tag: Partner
 
 > La [API de personalización](https://hightouch.com/docs/destinations/personalization-api) de Hightouch es un servicio gestionado que te permite alojar una API de datos de baja latencia basada en cualquier conjunto de datos de tu almacén de datos en la nube.
 
-![]({% image_buster /assets/img/hightouch/cohort7.png %})
+![Diagrama de arquitectura de la API de personalización de Hightouch que muestra el flujo de datos desde un almacén de datos a través de Hightouch hacia aplicaciones móviles, experiencias web y correos electrónicos dinámicos.]({% image_buster /assets/img/hightouch/cohort7.png %})
 
-La integración de Braze y Hightouch te permite utilizar la API con [Contenido conectado de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) para extraer datos actualizados de clientes u objetos en tus Campaigns o Canvas en el momento del envío.
+La integración de Braze y Hightouch te permite utilizar la API con [contenido conectado de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) para extraer datos actualizados de clientes u objetos en tus Campaigns o Canvas en el momento del envío.
 
-La API de personalización de Hightouch proporciona un punto de conexión REST para utilizar en tu configuración de Braze. En concreto, puedes utilizar la oferta de Contenido conectado de Braze para realizar una solicitud GET a la API de personalización y recuperar toda la información relacionada con un identificador concreto. Los datos expuestos por esta API pueden representar datos de clientes, productos o cualquier otro objeto.
+La API de personalización de Hightouch proporciona un endpoint REST para utilizar en tu configuración de Braze. En concreto, puedes utilizar la oferta de contenido conectado de Braze para realizar una solicitud GET a la API de personalización y recuperar toda la información relacionada con un identificador concreto. Los datos expuestos por esta API pueden representar datos de clientes, productos o cualquier otro objeto.
 
-![]({% image_buster /assets/img/hightouch/cohort6.png %})
+![Diagrama que muestra datos de Snowflake, BigQuery y Redshift fluyendo a través de la API de personalización de Hightouch hacia el contenido conectado de Braze.]({% image_buster /assets/img/hightouch/cohort6.png %})
 
 ## Requisitos previos {#prerequisites}
 
-| Requisito| Descripción|
-| ---| ---|
-| [Cuenta de Hightouch](https://app.hightouch.com/login) con la API de personalización activada | Se necesita una [cuenta de nivel empresarial](https://hightouch.com/pricing) de Hightouch para beneficiarse de esta asociación.|
+| Requisito | Descripción |
+| --- | --- |
+| [Cuenta de Hightouch](https://app.hightouch.com/login) con la API de personalización activada | Se necesita una [cuenta de nivel empresarial](https://hightouch.com/pricing) de Hightouch para beneficiarse de esta asociación. |
 | Casos de uso definidos | Antes de configurar la API, debes determinar tu caso de uso para esta integración. Consulta la siguiente lista de casos de uso comunes. |
 | Datos almacenados en un almacén de datos en la nube u otra fuente | Hightouch se integra con [más de 25 orígenes de datos](https://hightouch.com/integrations) |
 | Clave de API de Hightouch | Se puede crear en **Hightouch > Settings > API keys > Add API key**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 {% tabs %}
 {% tab Use Cases %}
@@ -84,7 +84,7 @@ Sigue estas instrucciones para completar ambos:
 1. En Hightouch, ve a [**Destinations**](https://app.hightouch.com/destinations) y selecciona la API de personalización de Hightouch creada para ti. Si no tienes habilitado este destino, ponte en contacto con [el soporte de Hightouch](mailto:friends@hightouch.com).<br><br>
 2. A continuación, selecciona la región adecuada. Seleccionar la región más cercana a tu infraestructura reducirá tus tiempos de respuesta. Si no ves una región cercana a tu infraestructura, ponte en contacto con [el soporte de Hightouch](mailto:friends@hightouch.com).<br><br>
 3. Ve a la [página de resumen de **Syncs**](https://app.hightouch.com/syncs) y haz clic en el botón **Add sync**. A continuación, selecciona el modelo correspondiente y el destino que hayas configurado previamente.<br><br>
-4. Introduce un nombre alfanumérico para la colección. Las colecciones son conceptualmente similares a las tablas de las bases de datos. Cada una debe representar un tipo de datos concreto, como clientes o facturas. Los nombres de las colecciones deben ser alfanuméricos y formarán parte de tu punto de conexión de la API de personalización.<br><br>
+4. Introduce un nombre alfanumérico para la colección. Las colecciones son conceptualmente similares a las tablas de las bases de datos. Cada una debe representar un tipo de datos concreto, como clientes o facturas. Los nombres de las colecciones deben ser alfanuméricos y formarán parte de tu endpoint de la API de personalización.<br><br>
 5. A continuación, especifica qué columna de tu modelo debe servir como índice primario para las búsquedas de registros. Este campo debe identificar de forma exclusiva cada registro de la colección y suele coincidir con la clave primaria de tu modelo. La API de personalización admite búsquedas en varios índices. Por ejemplo, puede que quieras recuperar perfiles de clientes utilizando `user_id`, `anonymous_id` o `email_address`. Para activar varios índices, ponte en contacto con [el soporte de Hightouch](mailto:friends@hightouch.com).<br><br>
 6. Utiliza el mapeador de campos para especificar qué columnas de tu modelo deben incluirse en la carga útil de la respuesta de la API. Puedes cambiar el nombre de estos campos y utilizar el mapeador avanzado para aplicar transformaciones utilizando el lenguaje de plantillas Liquid.<br><br>
 7. Selecciona el [comportamiento de eliminación](https://www.hightouch.com/docs/destinations/personalization-api#delete-behavior) adecuado para tu caso de uso.<br><br>
@@ -92,13 +92,13 @@ Sigue estas instrucciones para completar ambos:
 
 Hightouch sincronizará ahora los datos de tu almacén con una base de datos gestionada y los expondrá a través de la API de personalización.
 
-### Paso 4: Llamar a la API de personalización a través del Contenido conectado de Braze {#step-4-call-personalization-api-through-braze-connected-content}
+### Paso 4: Llamar a la API de personalización a través del contenido conectado de Braze {#step-4-call-personalization-api-through-braze-connected-content}
 
-Una vez que hayas configurado tu instancia de la API de personalización, puedes utilizarla como un punto de conexión de Contenido conectado de Braze.
+Una vez que hayas configurado tu instancia de la API de personalización, puedes utilizarla como un endpoint de contenido conectado de Braze.
 
 Se puede acceder a la API en `https://personalization.{region}.hightouch.com`, por ejemplo, `https://personalization.us-west-2.hightouch.com`.
 
-La información está disponible utilizando este punto de conexión `/v1/collections/:collection_name/records/:index_key/:index_value`.
+La información está disponible utilizando este endpoint `/v1/collections/:collection_name/records/:index_key/:index_value`.
 
 Por ejemplo, puedes incluir este fragmento en una Campaign o Canvas:
 
@@ -124,7 +124,7 @@ Para el siguiente ejemplo de carga útil:
 ```json
 {
     "user_id": 12345,
-    "full_name": "Jane Doe",
+    "full_name": "Alex Smith",
     "lifetime_value": 1492.18,
     "churn_risk": 0.04,
     "90_day_summary": {
@@ -155,7 +155,7 @@ Para el siguiente ejemplo de carga útil:
         ],
         "upcoming_album_release": {
             "title": "Universal Language",
-            "artist": "Simon Doty",
+            "artist": "Alex Lee",
             "label": "Anjunadeep",
             "release_date": "2023-04-28"
         }
@@ -167,10 +167,10 @@ Las siguientes referencias de Liquid devolverían estos datos de ejemplo:
 
 | Plantilla Liquid | Ejemplo devuelto |
 | --- | --- |
-| {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %}| Aphex Twin |
-| {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %}| San Francisco, CA |
-| {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %}| Universal Language |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %} | Aphex Twin |
+| {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %} | San Francisco, CA |
+| {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %} | Universal Language |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 4: Llamar a la API de personalización a través del contenido conectado de Braze" }
 
 ## Solución de problemas {#troubleshooting}
 

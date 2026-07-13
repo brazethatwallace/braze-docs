@@ -20,7 +20,7 @@ La integración de Braze y Canva admite dos rutas de exportación:
 | --- | --- |
 | **Imagen o diseño a la biblioteca de medios** | Envía tu diseño como un activo a la biblioteca de medios de Braze. |
 | **Diseño de correo electrónico a Braze** | Publica un documento de **correo electrónico** de Canva como una plantilla de correo electrónico de Braze, incluyendo los metadatos de la línea del asunto. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Acerca de la integración" }
 
 ## Integrar Braze con Canva {#integrate-braze-with-canva}
 
@@ -44,6 +44,15 @@ Para las exportaciones de **correo electrónico**, Canva puede pedirte que inici
 
 Usa este flujo para diseños estándar de Canva cuando quieras un archivo en la biblioteca de medios de Braze.
 
+Los siguientes videos muestran cómo enviar diseños desde Canva a tu biblioteca de medios de Braze.
+
+Video: Abre la aplicación de Braze en Canva e inicia una exportación a la biblioteca de medios.
+
+{% multi_lang_include video.html id="uf5krks2cx" source="wistia" %}
+
+Video: Elige un espacio de trabajo de Braze y completa la exportación a la biblioteca de medios.
+{% multi_lang_include video.html id="3d09tafx7c" source="wistia" %}
+
 1. Desde el menú **Apps** en tu diseño, abre la aplicación de Braze. Si aún no estás conectado, selecciona **Connect** y completa los pasos en [Autorizar tu cuenta de Braze](#step-2-authorize-your-braze-account).
 2. Elige tu espacio de trabajo de destino, opcionalmente ingresa un nombre de archivo y selecciona **Start Export**.
 
@@ -59,7 +68,7 @@ Usa este flujo para diseños estándar de Canva cuando quieras un archivo en la 
 Usa este flujo cuando tu archivo de Canva sea un tipo de diseño de **correo electrónico**. Publica HTML en Braze como una plantilla (metadatos similares al flujo de imágenes, pero comienzas desde **Share** en lugar de **Apps**).
 
 1. En Canva, crea o abre un diseño de **correo electrónico**. Construye tu mensaje desde cero o usa una plantilla de correo electrónico de Canva.
-2. Haz clic en **Share** en la esquina superior derecha del editor y selecciona **Braze**. Si Braze no aparece en la lista, abre **See more** y desplázate hasta **More options** para encontrar Braze.
+2. Haz clic en **Share** en la barra de acciones del editor y selecciona **Braze**. Si Braze no aparece en la lista, abre **See more** y desplázate hasta **More options** para encontrar Braze.
 
 ![Más formas de publicar en Canva con Braze en More options.]({% image_buster /assets/img/canva_integration/canva-share-more-options-braze.png %})
 
@@ -69,7 +78,7 @@ Usa este flujo cuando tu archivo de Canva sea un tipo de diseño de **correo ele
 ![Barra lateral de Braze en Canva solicitando Connect para la exportación de correo electrónico.]({% image_buster /assets/img/canva_integration/canva-email-connect-sidebar.png %})
 
 {: start="4"}
-4. En el panel de Braze, selecciona qué página de **correo electrónico** publicar (si el diseño tiene varias páginas), elige tu **espacio de trabajo de Braze**, ingresa un **nombre de plantilla** y una **línea del asunto**, y luego selecciona **Publish now**. Canva muestra el progreso mientras tu diseño se publica.
+4. En el panel de Braze, selecciona qué página de **correo electrónico** publicar (si el diseño tiene varias páginas), elige tu **espacio de trabajo de Braze**, ingresa un **Template name** y una **Subject line**, y luego selecciona **Publish now**. Canva muestra el progreso mientras tu diseño se publica.
 
 ![Panel de Braze en Canva con espacio de trabajo, nombre de plantilla, línea del asunto y Publish now.]({% image_buster /assets/img/canva_integration/canva-email-publish-fields.png %})
 
@@ -79,6 +88,6 @@ Usa este flujo cuando tu archivo de Canva sea un tipo de diseño de **correo ele
 ![Mensaje de éxito después de publicar un diseño de correo electrónico de Canva en Braze, con Check it out.]({% image_buster /assets/img/canva_integration/canva-email-publish-success.png %})
 
 {: start="6"}
-6. En Braze, completa cualquier configuración de correo electrónico requerida, como la dirección del **remitente**, el preencabezado y un enlace para cancelar suscripción, antes de usar la plantilla en una campaña o Canvas.
+6. En Braze, completa cualquier configuración de correo electrónico requerida, como la dirección del **remitente**, el preencabezado y un enlace para cancelar suscripción, antes de usar la plantilla en una Campaign o Canvas.
 
 ![Plantilla de correo electrónico en Braze abierta desde Canva, con información de envío y vista previa.]({% image_buster /assets/img/canva_integration/braze-email-template-from-canva.png %})

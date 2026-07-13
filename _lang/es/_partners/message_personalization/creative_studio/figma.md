@@ -15,6 +15,10 @@ search_tag: Partner
 
 La integración de Braze y Figma te permite enviar imágenes y activos visuales desde Figma directamente a la biblioteca de medios de Braze.
 
+Mira este video para obtener un resumen de cómo funciona la integración.
+
+{% multi_lang_include video.html id="ab5ywsi72n" source="wistia" %}
+
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
@@ -22,7 +26,7 @@ La integración de Braze y Figma te permite enviar imágenes y activos visuales 
 | Cuenta de Figma | Se necesita una cuenta de Figma para aprovechar esta asociación. |
 | Acceso a la biblioteca de medios de Braze | Debes tener el permiso "Manage Media Library Assets" para añadir, editar y eliminar activos de la biblioteca de medios en Braze. |
 | Acceso al espacio de trabajo de Braze | Debes tener acceso a los espacios de trabajo a los que quieras cargar estas imágenes y activos visuales de Figma en Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 

@@ -17,7 +17,7 @@ This type of email usually means there's an issue with your CDI setup. Here are 
 
 ### CDI can't access the data warehouse or table using your credentials
 
-This could mean the credentials in CDI are incorrect or are misconfigured on the data warehouse. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+This could mean the credentials in CDI are incorrect or are misconfigured on the data warehouse. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ### The table cannot be found
 
@@ -41,9 +41,9 @@ Test Connection is running on your data warehouse, so increasing warehouse capac
 
 ### Error connecting to Snowflake instance: Incoming request with IP is not allowed to access Snowflake
 
-Try adding the official Braze IPs to your IP allowlist. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/), or allow the relevant IPs:
+Try adding the official Braze IPs to your IP allowlist. For more information, refer to [Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations), or allow the relevant IPs:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### Error executing SQL due to customer config: 002003 (42S02): SQL compilation error: does not exist or not authorized
 
@@ -152,9 +152,61 @@ CDI uses `UPDATED_AT` to decide which records to pick up during a sync. Check ou
 To avoid these behaviors in the future, we recommend using monotonically increasing `UPDATED_AT` values and not updating the table during your scheduled sync run. 
 {% endalert %}
 
+## Do I need mostly distinct `UPDATED_AT` values for large CDI imports?
+
+Yes. For high-volume runs (for example, more than approximately 10 million rows), make sure your source data has mostly distinct `UPDATED_AT` values. If too many rows share the same timestamp, CDI is more likely to re-select rows at boundary timestamps in later runs. This can increase duplicate syncs and data point consumption.
+
+For more information about CDI boundary behavior, see [Avoid resyncing rows with duplicate timestamps]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
+
+### Where do I run these SQL checks?
+
+Run the checks directly in your data warehouse SQL editor, against the same table or view used by your CDI integration:
+
+- Snowflake: **Projects** > **Worksheets** (for more information, see [Snowflake Worksheets](https://docs.snowflake.com/en/user-guide/ui-snowsight-worksheets-gs))
+- Redshift: Query Editor v2 (for more information, see [Using Amazon Redshift Query Editor v2](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2.html))
+- BigQuery: BigQuery Studio SQL workspace (for more information, see [BigQuery Studio introduction](https://cloud.google.com/bigquery/docs/bigquery-studio-introduction))
+- Databricks: SQL editor (SQL warehouse) (for more information, see [Databricks SQL editor](https://docs.databricks.com/en/sql/user/sql-editor/))
+- Fabric: SQL query editor
+
+Use this process before enabling or scaling a large sync:
+
+1. Identify the exact CDI source table or view and the sync window you want to validate.
+2. Open your warehouse SQL editor and select the same database and schema used by CDI, then use a role with read access to the source table or view.
+3. Run the distinct timestamp count query to measure how many distinct `UPDATED_AT` values exist in that window.
+4. Run the query that groups by `UPDATED_AT` and counts rows to find timestamps with unusually high row counts.
+5. If many rows share identical timestamps, adjust your ingestion process so consecutive batches use progressively newer `UPDATED_AT` values, or increase timestamp precision so rows are more distributed.
+6. Re-run both queries until concentration is reduced, then launch or scale your sync.
+7. After launch, monitor **CDI** > **Sync Log** for unexpected re-sync volume at boundary timestamps.
+
+Use checks like these in your warehouse:
+
+```sql
+SELECT
+  COUNT(*) AS total_rows,
+  COUNT(DISTINCT UPDATED_AT) AS distinct_timestamps,
+  ROUND(COUNT(*) * 1.0 / NULLIF(COUNT(DISTINCT UPDATED_AT), 0), 2) AS avg_rows_per_timestamp
+FROM YOUR_CDI_SOURCE_TABLE
+WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
+  AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP);
+```
+
+```sql
+SELECT
+  UPDATED_AT,
+  COUNT(*) AS rows_at_timestamp
+FROM YOUR_CDI_SOURCE_TABLE
+WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
+  AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP)
+GROUP BY UPDATED_AT
+ORDER BY rows_at_timestamp DESC
+LIMIT 20;
+```
+
+If your warehouse doesn't support `LIMIT` (for example, Fabric), use an equivalent syntax such as `TOP`.
+
 ## Why can a CDI sync with a small number of rows still take several minutes?
 
-A CDI sync includes a fixed startup period before row processing begins. Because this startup time is similar across sync sizes, a small sync can still take several minutes and may appear slower in rows per minute. Total sync time still depends on your source query complexity, data shape, and available capacity in your data warehouse. For more information, see [Data warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+A CDI sync includes a fixed startup period before row processing begins. Because this startup time is similar across sync sizes, a small sync can still take several minutes and may appear slower in rows per minute. Total sync time still depends on your source query complexity, data shape, and available capacity in your data warehouse. For more information, see [Data warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ## During a sync, is the order preserved if multiple records share the same ID?
 
@@ -182,4 +234,4 @@ Braze has the following measures in place for CDI:
 We recommend you and your team set up the following security measures on your side: 
 
 - Restrict credential access to the minimum required for CDI to operate. This is because we need to be able to run select (and count) on the specific tables and views.
-- Restrict the IPs that can access the tables to officially published [Braze IPs]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+- Restrict the IPs that can access the tables to officially published [Braze IPs]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).

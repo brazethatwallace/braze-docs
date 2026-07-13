@@ -13,7 +13,7 @@ tool: Canvas
 guide_featured_title: "Articles de la section"
 guide_featured_list:
   - name: Modifier les Canvas après le lancement
-    link: /docs/post-launch_edits/
+    link: /docs/post-launch_edits
     image: /assets/img/braze_icons/edit-05.svg
   - name: Enregistrer des brouillons pour Canvas
     link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_drafts

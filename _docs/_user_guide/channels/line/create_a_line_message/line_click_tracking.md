@@ -32,7 +32,7 @@ To set up click tracking for a text message:
 
 1. Drag a **Text** message into the composer and add a URL to the text field.
 
-![LINE message composer with a Text message containing a long URL: https://braze.com/docs/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
+![LINE message composer with a Text message containing a long URL: {{site.baseurl}}/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
 2. Go to the **Settings** tab and confirm **Click Tracking** is turned on. Click tracking is turned on by default for all new messages.
@@ -98,7 +98,7 @@ https://example.com/{{url_var}}
 
 ## Shorten URLs rendered by Liquid variables
 
-Braze shortens URLs that are rendered by Liquid, even those included in API-trigger properties. For example, if {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} represents a valid URL, we will shorten and track that URL before sending the LINE message.
+Braze shortens URLs that are rendered by Liquid, even those included in API-trigger properties. For example, if {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} represents a valid URL, we shorten and track that URL before sending the LINE message.
 
 ## Testing
 

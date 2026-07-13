@@ -22,7 +22,7 @@ The Braze and Heap integration enables you to [import Heap data to Braze](#data-
 | Braze Data Import key | This can be captured in the Braze dashboard from **Partner Integrations** > **Technology Partners** and then select **Heap**. |
 | Braze REST endpoint | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance. |
 | Braze Currents | In order to export data from Braze to Heap, you need [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) enabled on your account. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 - Re-engage users who have abandoned a funnel: Trigger re-engagement messaging when users abandon the purchase or subscription funnel.
@@ -39,7 +39,7 @@ In Braze, navigate to **Partner Integrations** > **Technology Partners** and the
 
 On this page, you can find your data import key and a REST endpoint. Take note of both of these values and provide them to your Heap account manager to finish setting up the integration.
 
-![]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
+![Braze Heap technology partner page showing the data import key and endpoint.]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
 
 ### Step 2: Segment imported users in Braze
 

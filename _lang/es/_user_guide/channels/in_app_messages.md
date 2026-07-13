@@ -19,8 +19,8 @@ search_rank: 5
 Antes de poder enviar mensajes dentro de la aplicación, necesitas integrar el [SDK de Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) en tu aplicación o sitio web. No se requiere ninguna configuración adicional.
 
 Para las versiones mínimas del SDK y los requisitos específicos de cada característica, consulta:
-- [Editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
-- [Tipos de mensaje]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/)
+- [Editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- [Tipos de mensaje]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types)
 
 ## Casos de uso {#use-cases}
 
@@ -28,11 +28,11 @@ Con el rico nivel de contenido que ofrecen los mensajes dentro de la aplicación
 
 | Caso de uso | Explicación |
 | --- | --- |
-| Preparación para push | Ejecuta una campaña de [preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) utilizando un mensaje enriquecido dentro de la aplicación para mostrar a tus clientes el beneficio de optar por las notificaciones push de tu aplicación o sitio, y presentarles una solicitud para conceder permiso de push.
+| Preparación para push | Ejecuta una Campaign de [preparación para push]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) utilizando un mensaje enriquecido dentro de la aplicación para mostrar a tus clientes el beneficio de optar por las notificaciones push de tu aplicación o sitio, y presentarles una solicitud para conceder permiso de push.
 | Ventas y promociones | Usa mensajes modales dentro de la aplicación para recibir a los clientes con contenido multimedia visualmente atractivo que contenga códigos promocionales estáticos u ofertas. Incentívalos a realizar compras o conversiones cuando de otro modo no lo habrían hecho. |
 | Fomentar la adopción de características | Anima a los clientes a usar otras partes de tu aplicación o a aprovechar un servicio. |
-| Campañas altamente personalizadas | Coloca mensajes dentro de la aplicación como lo primero que tus clientes ven cuando entran en tu aplicación o sitio. Añade algunas características de personalización de Braze, como [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), para impulsar a los usuarios a tomar acción y así hacer que tu alcance sea más efectivo.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Campaigns altamente personalizadas | Coloca mensajes dentro de la aplicación como lo primero que tus clientes ven cuando entran en tu aplicación o sitio. Añade algunas características de personalización de Braze, como [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), para impulsar a los usuarios a tomar acción y así hacer que tu alcance sea más efectivo.
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 Otros casos de uso a considerar incluyen los siguientes:
 
@@ -70,13 +70,13 @@ Los mensajes a pantalla completa son exactamente lo que esperarías: ocupan toda
 {% endtab %}
 {% endtabs %}
 
-Además de estas plantillas de mensaje predeterminadas, también puedes personalizar aún más tu mensajería utilizando mensajes dentro de la aplicación con HTML personalizado, modales web con CSS o formularios de captura de correo electrónico web. Para más información, consulta [Personalización]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
+Además de estas plantillas de mensaje predeterminadas, también puedes personalizar aún más tu mensajería utilizando mensajes dentro de la aplicación con HTML personalizado, modales web con CSS o formularios de captura de correo electrónico web. Para más información, consulta [Personalizar]({{site.baseurl}}/user_guide/channels/in_app_messages/customize).
 
-Para saber cómo la entrega con plantilla en el momento de la visualización afecta el registro de **cancelación**, consulta [Preguntas frecuentes sobre mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/).
+Para saber cómo la entrega con plantilla en el momento de la visualización afecta el registro de **cancelación**, consulta [Preguntas frecuentes sobre mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
 
 ## Próximos pasos {#next-steps}
 
-- [Crea un mensaje dentro de la aplicación con el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)
-- [Crea un mensaje dentro de la aplicación con el editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/)
+- [Crea un mensaje dentro de la aplicación con el editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)
+- [Crea un mensaje dentro de la aplicación con el editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional)
 
 {% multi_lang_include alerts/important_alerts.md alert='network dependency' %}

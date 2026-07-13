@@ -8,9 +8,11 @@ channel: email
 
 ---
 
-# E-Mail-Richtlinien
+# E-Mail-Richtlinien {#email-guidelines}
 
 > Beim Erstellen Ihrer E-Mail-Campaign ist es wichtig zu beachten, wie Ihre E-Mail-Nachrichten bei Ihren verschiedenen Nutzer:innen und E-Mail-Anbietern (ESPs) ankommen.
+
+## Allgemein {#general}
 
 Hier sind einige schnelle Tipps, die Sie beim Erstellen Ihrer Inhalte beachten sollten:
 
@@ -23,11 +25,11 @@ Hier sind einige schnelle Tipps, die Sie beim Erstellen Ihrer Inhalte beachten s
 - Braze verbessert die Ladezeiten durch die Verwendung eines globalen CDN zum Hosten aller E-Mail-Bilder.
 - Auf Mobilgeräten sind Bildspalten schmal (~100px pro Spalte), sodass Zeilen mit mehreren Bildern trotzdem passen (zum Beispiel vier Bilder ≈ vier nutzbare Spalten).
 
-### Implementierung von Alternativtext
+## Alternativtext {#alternative-text}
 
 Da Spam-Filter sowohl nach einer HTML- als auch nach einer Nur-Text-Version einer Nachricht suchen, ist die Verwendung von Nur-Text-Alternativen eine gute Möglichkeit, Ihren Spam-Score zu senken. Darüber hinaus kann Alternativtext `(alt="")` dazu dienen, Bilder in Ihrem E-Mail-Text zu ergänzen und in einigen Fällen zu ersetzen, die möglicherweise vom E-Mail-Anbieter der Nutzer:innen herausgefiltert wurden. Screenreader lesen den Alternativtext vor, um Bilder zu erklären. Dies ist daher eine Gelegenheit, in einfacher Sprache wichtige Informationen über ein Bild bereitzustellen.
 
-### E-Mail-Validierung
+## E-Mail-Validierung {#email-validation}
 
 {% alert important %}
 Die Validierung wird für Dashboard-E-Mail-Adressen, E-Mail-Adressen von Endnutzer:innen (Ihren Kund:innen) sowie für Absender- und Antwort-Adressen einer E-Mail-Nachricht verwendet.
@@ -37,9 +39,9 @@ Die E-Mail-Validierung erfolgt, wenn die E-Mail-Adresse einer Nutzer:in aktualis
 
 E-Mail-Adressen, die über die Braze-Server angesprochen werden, müssen gemäß den Standards von [RFC 2822](https://datatracker.ietf.org/doc/html/rfc2822) validiert werden. Braze akzeptiert bestimmte Zeichen nicht und erkennt sie als ungültig. Wenn eine E-Mail einen Bounce verursacht, markiert Braze die E-Mail als ungültig, und der Abo-Status wird nicht geändert.
 
-Informationen zu nicht zulässigen Zeichen und E-Mail-Validierungsregeln finden Sie unter [E-Mail-Validierung]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/#how-it-works).
+Informationen zu nicht zulässigen Zeichen und E-Mail-Validierungsregeln finden Sie unter [E-Mail-Validierung]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation#how-it-works).
 
-### Festlegen von Absender- und Antwort-Adressen
+## Absender- und Antwort-Adressen {#from-and-reply-to-addresses}
 
 Stellen Sie beim Festlegen Ihrer Absender-Adressen sicher, dass Ihre Absender-E-Mail-Domain mit Ihrer Versand-Domain übereinstimmt (z. B. `marketing.yourdomain.com`). Andernfalls kann es zu einer SPF- und DKIM-Fehlausrichtung kommen. Alle Antwort-E-Mails können auf Ihre Root-Domain gesetzt werden.
 
@@ -47,18 +49,28 @@ Stellen Sie beim Festlegen Ihrer Absender-Adressen sicher, dass Ihre Absender-E-
 Unicode-Kodierung wird in Absender-Adressen nicht unterstützt.
 {% endalert %}
 
-## Layout (Drag-and-Drop und benutzerdefiniertes HTML)
+## Anhänge in E-Mails {#attachments}
+
+Wenn Sie Anhänge zu E-Mail-Nachrichten hinzufügen, beachten Sie die folgenden Best Practices für die Zustellbarkeit:
+
+- Spam-Filter scannen Anhänge und können Ihre Nachricht markieren.
+- E-Mail-Anbieter benötigen manchmal länger, um Nachrichten mit Anhängen zu akzeptieren.
+- Außerhalb von Eins-zu-eins-Nachrichten können Anhänge Ihre Nachricht im Posteingang riskant erscheinen lassen.
+- Halten Sie jeden Anhang unter 2&nbsp;MB.
+- Senden Sie keine sensiblen Informationen als Anhang. Leiten Sie Nutzer:innen stattdessen zu Ihrem sicheren Portal weiter, um die Informationen dort einzusehen.
+
+## Layout (Drag-and-Drop und benutzerdefiniertes HTML) {#layout-drag-and-drop-and-custom-html}
 
 Das Layout kann brechen, wenn von Braze generiertes HTML/CSS mit benutzerdefiniertem HTML in Konflikt gerät. Gehen Sie in diesem Fall wie folgt vor:
 
-- Entfernen Sie zuerst benutzerdefiniertes HTML/CSS
-- Überprüfen Sie, ob benutzerdefinierte Schriftarten in der Vorschau korrekt geladen werden
-- Überprüfen Sie das Padding von Zeilen und Spalten
+- Entfernen Sie zuerst benutzerdefiniertes HTML/CSS.
+- Überprüfen Sie, ob benutzerdefinierte Schriftarten in der Vorschau korrekt geladen werden.
+- Überprüfen Sie das Padding von Zeilen und Spalten.
 - Bevorzugen Sie tabellenbasierte Layouts und bleiben Sie innerhalb der Breite des Editors.
 
 Content Blocks, die HTML von außerhalb des Editors einbinden, können ebenfalls das Layout beeinträchtigen.
 
-## Verwendung von UTM-Parametern in E-Mail-URLs
+## UTM-Parameter in E-Mail-URLs {#utm-parameters-in-email-urls}
 
 UTM-Parameter kennzeichnen URLs für Analytics. Sie können sie mit Liquid und angepassten Attributen erstellen.
 
@@ -66,7 +78,7 @@ UTM-Parameter kennzeichnen URLs für Analytics. Sie können sie mit Liquid und a
 - Vermeiden Sie Leerzeichen und Sonderzeichen in Werten (verwenden Sie `_` oder `-`).
 - Bestätigen Sie, dass Ihr Analytics-Tool UTMs verarbeitet. Entfernen Sie nachgestellte Leerzeichen in Liquid-`capture`-Blöcken. UTMs unterscheiden zwischen Groß- und Kleinschreibung.
 
-### Überprüfung von HTML-Details
+### Überprüfung von HTML-Details {#check-html-details}
 
 Beachten Sie, dass einige HTML-Tags und -Attribute nicht zulässig sind, da sie potenziell Schadcode im Browser ausführen könnten.
 

@@ -14,7 +14,7 @@ description: "Cet article présente en détail l'endpoint Braze permettant de r�
 /email/unsubscribes
 {% endapimethod %}
 
-> Utilisez cet endpoint pour renvoyer les derniers e-mails désabonnés pendant la période allant de `start_date` à `end_date`. Pour un historique complet de l'état d'abonnement, utilisez [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) pour suivre ces données.
+> Utilisez cet endpoint pour renvoyer les derniers e-mails désabonnés pendant la période allant de `start_date` à `end_date`. Pour un historique complet de l'état d'abonnement, utilisez [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) pour suivre ces données.
 
 Vous pouvez utiliser cet endpoint pour configurer une synchronisation bidirectionnelle entre Braze et d'autres systèmes de messagerie ou votre propre base de données.
 
@@ -22,7 +22,7 @@ Vous pouvez utiliser cet endpoint pour configurer une synchronisation bidirectio
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `email.unsubscribe`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `email.unsubscribe`.
 
 ## Limite de débit {#rate-limit}
 
@@ -38,7 +38,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `offset` | Facultatif | Entier | Point de départ facultatif dans la liste à partir duquel récupérer les résultats. |
 | `sort_direction` | Facultatif | Chaîne de caractères | Indiquez la valeur `asc` pour trier les désabonnements du plus ancien au plus récent. Indiquez la valeur `desc` pour trier du plus récent au plus ancien. Si `sort_direction` n'est pas inclus, l'ordre par défaut est du plus récent au plus ancien. |
 | `email` | Facultatif <br>(voir la note) | Chaîne de caractères | Si ce paramètre est fourni, l'endpoint indiquera si l'utilisateur s'est désabonné ou non. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}
 Vous devez fournir une `end_date`, ainsi qu'un `email` ou une `start_date`.
@@ -48,7 +48,7 @@ Si votre plage de dates contient plus de désabonnements que la valeur `limit`, 
 
 ## Exemple de requête {#example-request}
 ```
-curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@braze.com' \
+curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 

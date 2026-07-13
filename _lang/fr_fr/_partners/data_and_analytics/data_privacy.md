@@ -1,4 +1,4 @@
 ---
-nav_title: Conformité et confidentialité des données
+nav_title: Confidentialité des données et conformité
 config_only: true
 ---

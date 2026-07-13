@@ -2,17 +2,27 @@
 
 Mit dem Google Tag Manager (GTM) können Sie per Fernzugriff Tags auf Ihrer Website hinzufügen, entfernen und bearbeiten, ohne dass eine Freigabe des Produktionscodes oder technische Ressourcen erforderlich sind. Braze bietet die folgenden Templates für das Internet-SDK an:
 
-|Tag-Typ|Anwendungsfall|
+| Tag-Typ | Anwendungsfall |
 |--------|--------|
-| Initialisierungs-Tag | Mit diesem Tag können Sie [das Braze Internet-SDK integrieren]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web), ohne den Code Ihrer Website ändern zu müssen.|
-| Aktions-Tag | Mit diesem Tag können Sie [Content-Cards erstellen]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), [Nutzer:innen-Attribute festlegen]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web) und [die Datenerfassung verwalten]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Initialisierungs-Tag | Mit diesem Tag können Sie [das Braze Internet-SDK integrieren]({{site.baseurl}}/developer_guide/sdk_integration/?tab=google%20tag%20manager&sdktab=web), ohne den Code Ihrer Website ändern zu müssen. |
+| Aktions-Tag | Mit diesem Tag können Sie [Content Cards erstellen]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#web_using-google-tag-manager), [Nutzer:innen-Attribute festlegen]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=google%20tag%20manager&sdktab=web) und [die Datenerfassung verwalten]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?tab=google%20tag%20manager&sdktab=web). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Über Google Tag Manager für das Internet" }
 
-## Angepasste Events mit GTM protokollieren
+## Tag-Sequenzierung für Braze-Aktions-Tags {#tag-sequencing-for-braze-action-tags}
+
+Angepasste Events und andere Braze-Aktions-Tags können fehlschlagen, wenn sie ausgelöst werden, bevor das **Braze Initialization**-Tag das Internet-SDK vollständig geladen hat. Öffnen Sie in Google Tag Manager das Aktions-Tag, gehen Sie zu **Advanced Settings** > **Tag Sequencing**, wählen Sie **A tag that fires before [this tag] is fired** und wählen Sie Ihr Braze Initialization-Tag aus.
+
+Weitere Details finden Sie unter [Tag-Sequenzierung für angepasste Events überprüfen]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web#tag-sequencing).
+
+## Käufe mit GTM protokollieren {#log-purchases-with-gtm}
+
+Rufen Sie in Braze-Aktions-Tags und Custom HTML-Tags `braze.logPurchase()` auf, um Umsätze zu erfassen. Der veraltete Namespace `appboy.logPurchase()` wird in aktuellen Internet-SDK-Integrationen nicht unterstützt.
+
+## Angepasste Events mit GTM protokollieren {#logging-custom-events-with-gtm}
 
 Sie können angepasste Events mit einem **Custom HTML**-Tag in GTM protokollieren. Dieser Ansatz nutzt den GTM [Data Layer](https://developers.google.com/tag-platform/tag-manager/datalayer), um Event-Daten von Ihrer Website an ein GTM-Tag zu übergeben, das das Braze Internet-SDK aufruft.
 
-### 1. Schritt: Event in den Data Layer pushen
+### 1. Schritt: Event in den Data Layer pushen {#step-1-push-the-event-to-the-data-layer}
 
 Pushen Sie in Ihrem Website-Code ein Event in den Data Layer, wo immer Sie das angepasste Event triggern möchten. Um beispielsweise ein angepasstes Event zu protokollieren, wenn ein Button angeklickt wird:
 
@@ -20,14 +30,14 @@ Pushen Sie in Ihrem Website-Code ein Event in den Data Layer, wo immer Sie das a
 <button onclick="dataLayer.push({'event': 'my_custom_event'});">Track Event</button>
 ```
 
-### 2. Schritt: Trigger in GTM erstellen
+### 2. Schritt: Trigger in GTM erstellen {#step-2-create-a-trigger-in-gtm}
 
 1. Gehen Sie in Ihrem GTM-Container zu **Triggers** und erstellen Sie einen neuen Trigger.
 2. Setzen Sie den **Trigger Type** auf **Custom Event**.
 3. Setzen Sie den **Event Name** auf denselben Wert, den Sie in den Data Layer gepusht haben (zum Beispiel `my_custom_event`).
 4. Wählen Sie aus, wann der Trigger ausgelöst werden soll (zum Beispiel **All Custom Events**).
 
-### 3. Schritt: Custom HTML-Tag erstellen
+### 3. Schritt: Custom HTML-Tag erstellen {#step-3-create-a-custom-html-tag}
 
 1. Gehen Sie in GTM zu **Tags** und erstellen Sie ein neues Tag.
 2. Setzen Sie den **Tag Type** auf **Custom HTML**.
@@ -39,7 +49,7 @@ Pushen Sie in Ihrem Website-Code ein Event in den Data Layer, wo immer Sie das a
     </script>
     ```
 
-4. Wählen Sie unter **Triggering** den Trigger aus, den Sie in Schritt 2 erstellt haben.
+4. Wählen Sie unter **Triggering** den Trigger aus, den Sie in [Schritt 2](#step-2-create-a-trigger-in-gtm) erstellt haben.
 5. Speichern und veröffentlichen Sie Ihren Container.
 
 Um Event-Eigenschaften einzubeziehen, übergeben Sie diese als zweites Argument:
@@ -50,7 +60,7 @@ window.braze.logCustomEvent("my_custom_event", {"property_key": "property_value"
 </script>
 ```
 
-## Googles EU-Richtlinie zur Einwilligung der Nutzer:innen
+## Googles EU-Richtlinie zur Einwilligung der Nutzer:innen {#googles-eu-user-consent-policy}
 
 {% alert important %}
 Google aktualisiert seine [EU-Richtlinie zur Einwilligung der Nutzer:innen](https://www.google.com/about/company/user-consent-policy/) als Reaktion auf die Änderungen des [Digital Markets Act (DMA)](https://ads-developers.googleblog.com/2023/10/updates-to-customer-match-conversion.html), der seit dem 6. März 2024 in Kraft ist. Diese neue Änderung verlangt von Werbetreibenden, dass sie ihren Endnutzer:innen aus dem EWR und Großbritannien bestimmte Informationen offenlegen und die erforderlichen Einwilligungen von ihnen einholen. Mehr erfahren Sie in der folgenden Dokumentation.

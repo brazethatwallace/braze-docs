@@ -8,7 +8,7 @@ tool: Location
 hidden: true
 ---
 
-# monitoramento de localização
+# Monitoramento de localização {#location-tracking}
 {% multi_lang_include archive/windows_deprecation.md %}
 
 1. Verifique se, em seu arquivo `Package.appxmanifest`, a opção `location` está marcada.

@@ -15,10 +15,10 @@ channel:
 > Las tarjetas de contacto (a veces conocidas como vCard o archivos de contacto virtual (VCF)) son un formato de archivo estandarizado para enviar información empresarial y de contacto que puedes importar fácilmente en libretas de direcciones o agendas de contactos.
 
 {% alert note %}
-El envío de una tarjeta de contacto se cobra como un MMS. Revisa tu volumen esperado de MMS y el uso de créditos de mensajes cuando crees tarjetas de contacto, y confirma los costos en tu [página de facturación]({{site.baseurl}}/user_guide/administer/global/billing/) de Braze.
+El envío de una tarjeta de contacto se cobra como un MMS. Revisa tu volumen esperado de MMS y el uso de créditos de mensajes o de acción cuando crees tarjetas de contacto, y confirma los costos en tu [página de facturación]({{site.baseurl}}/user_guide/administer/global/billing) de Braze.
 {% endalert %}
 
-Las tarjetas de contacto se pueden crear [programáticamente](https://www.twilio.com/blog/send-vcard-twilio-sms) y cargar en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#media-library) de Braze, o crearse a través de nuestro generador de tarjetas de contacto integrado. A estas tarjetas se les pueden asignar propiedades comunes como el nombre de tu empresa, número de teléfono, dirección, correo electrónico y una foto pequeña. Para empezar a crear tarjetas de contacto, primero asegúrate de tener configurado MMS en Braze.
+Las tarjetas de contacto se pueden crear [programáticamente](https://www.twilio.com/blog/send-vcard-twilio-sms) y cargar en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) de Braze, o crearse a través de nuestro generador de tarjetas de contacto integrado. A estas tarjetas se les pueden asignar propiedades comunes como el nombre de tu empresa, número de teléfono, dirección, correo electrónico y una foto pequeña. Para empezar a crear tarjetas de contacto, primero asegúrate de tener configurado MMS en Braze.
 
 ## Generador de tarjetas de contacto {#contact-card-generator}
 
@@ -42,17 +42,23 @@ Ten en cuenta que los códigos alfanuméricos no son compatibles con la mensajer
 
 #### Cargar foto de contacto de la tarjeta {#upload-contact-card-contact-photo}
 
-Puedes cargar una foto de contacto en miniatura opcional para tu tarjeta de contacto. Recomendamos una imagen JPEG o PNG de 240 x 240&nbsp;px. Cualquier imagen de alta resolución que se cargue se redimensionará a 240 x 240&nbsp;px para asegurar la capacidad de entrega de tu mensaje, ya que los mensajes MMS de más de 5&nbsp;MB pueden fallar.
+Puedes cargar una foto de contacto opcional para tu tarjeta de contacto. Recomendamos una imagen JPEG o PNG de 240 x 240&nbsp;px. Cualquier imagen de alta resolución que se cargue se redimensionará a 240 x 240&nbsp;px para asegurar la capacidad de entrega del mensaje, ya que los mensajes MMS de más de 5&nbsp;MB pueden fallar.
+
+{% alert note %}
+La imagen cargada aparece en la tarjeta de contacto cuando el destinatario la abre; el [campo **Full Name**](#add-more-information) determina lo que aparece en la miniatura del chat de mensajes.
+{% endalert %}
 
 #### Añadir más información {#add-more-information}
 
 Otros campos te permiten insertar tu nombre, subtítulo, dirección y otra información de contacto que tu usuario pueda querer tener disponible.
 
+El campo **Full Name** determina las iniciales que aparecen en la miniatura del chat de mensajes. Cuando el campo está marcado como opcional y se deja en blanco, los destinatarios ven un círculo blanco en lugar de las iniciales.
+
 ### Paso 4: Guardar tu tarjeta de contacto {#step-4-saving-your-contact-card}
 
-Una vez que hayas introducido todos los campos necesarios, haz clic en **Generate Contact Card** y se adjuntará automáticamente a tu campaña o Canvas. Desde aquí, puedes añadir un mensaje, probar tu tarjeta de contacto y lanzar tu campaña o Canvas.
+Una vez que hayas introducido todos los campos necesarios, selecciona **Generate Contact Card** y se adjuntará automáticamente a tu campaña o Canvas. Desde aquí, puedes añadir un mensaje, probar tu tarjeta de contacto y lanzar tu campaña o Canvas.
 
-La tarjeta de contacto también se guardará en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#media-library) para reutilizarla fácilmente en futuras campañas y Canvas.
+La tarjeta de contacto también se guardará en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) para reutilizarla fácilmente en futuras campañas y Canvas.
 
 ## Añadir una tarjeta de contacto existente {#adding-an-existing-contact-card}
 

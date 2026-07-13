@@ -14,9 +14,9 @@ We recommend using the [Swift Package Manager (SwiftPM)](https://swift.org/packa
 {% tab Swift Package Manager %}
 #### Step 1.1: Import SDK version
 
-Open your project and navigate to your project's settings. Select the **Swift Packages** tab and click on the <i class="fas fa-plus"></i> add button below the packages list.
+Open your project and navigate to your project's settings. Select the **Swift Packages** tab and click on the <i class="fas fa-plus"></i> add button under the packages list.
 
-![]({% image_buster /assets/img/swiftpackages.png %})
+![Xcode project settings with the Swift Packages tab and add package button.]({% image_buster /assets/img/swiftpackages.png %})
 
 {% alert note %}
 Starting in version 7.4.0, the Braze Swift SDK has additional distribution channels as [static XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-static) and [dynamic XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic). If you'd like to use either of these formats instead, follow the installation instructions from its respective repository.
@@ -24,7 +24,7 @@ Starting in version 7.4.0, the Braze Swift SDK has additional distribution chann
 
 Enter the URL of our iOS Swift SDK repository `https://github.com/braze-inc/braze-swift-sdk` in the text field. Under the **Dependency Rule** section, select the SDK version. Finally, click **Add Package**.
 
-![]({% image_buster /assets/img/importsdk_example.png %})
+![Xcode Add Package dialog with the Braze Swift SDK repository URL entered.]({% image_buster /assets/img/importsdk_example.png %})
 
 #### Step 1.2: Select your packages
 
@@ -35,6 +35,7 @@ The Braze Swift SDK separates features into standalone libraries to provide deve
 | `BrazeKit`      | Main SDK library providing support for analytics and push notifications.                                                                                        |
 | `BrazeLocation` | Location library providing support for location analytics and geofence monitoring.                                                                              |
 | `BrazeUI`       | Braze-provided user interface library for in-app messages, Content Cards, and Banners. Import this library if you intend to use the default UI components. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Select your packages" }
 
 {: .ws-td-nw-1}
 
@@ -48,12 +49,13 @@ The Braze Swift SDK separates features into standalone libraries to provide deve
 | -------------------------- | ------------------------------------------------------------------------------------- |
 | `BrazeNotificationService` | Notification service extension library providing support for rich push notifications. |
 | `BrazePushStory`           | Notification content extension library providing support for Push Stories.            |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About Extension libraries" }
 
 {: .ws-td-nw-1}
 
 Select the package that best suits your needs and click **Add Package**. Make sure you select `BrazeKit` at a minimum.
 
-![]({% image_buster /assets/img/add_package.png %})
+![Xcode package products list selecting BrazeKit before adding the package.]({% image_buster /assets/img/add_package.png %})
 {% endtab %}
 
 {% tab CocoaPods %}
@@ -95,6 +97,7 @@ The Braze Swift SDK separates features into standalone libraries to provide deve
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `pod 'BrazeLocation'` | Location library providing support for location analytics and geofence monitoring.                                                                              |
 | `pod 'BrazeUI'`       | Braze-provided user interface library for in-app messages, Content Cards, and Banners. Import this library if you intend to use the default UI components. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About additional libraries" }
 
 {: .ws-td-nw-1}
 
@@ -106,6 +109,7 @@ The Braze Swift SDK separates features into standalone libraries to provide deve
 | -------------------------------- | ------------------------------------------------------------------------------------- |
 | `pod 'BrazeNotificationService'` | Notification service extension library providing support for rich push notifications. |
 | `pod 'BrazePushStory'`           | Notification content extension library providing support for Push Stories.            |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Extension libraries" }
 
 {: .ws-td-nw-1}
 
@@ -150,8 +154,9 @@ The Braze Swift SDK contains a variety of standalone XCFrameworks, which gives y
 | `BrazeKitCompat`           | No        | Compatibility library containing all the `Appboy` and `ABK*` classes and methods that were available in the `Appboy-iOS-SDK` version 4.X.X. For usage details, refer to the minimal migration scenario in the [migration guide](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/).            |
 | `BrazeUICompat`            | No        | Compatibility library containing all the `ABK*` classes and methods that were available in the `AppboyUI` library from `Appboy-iOS-SDK` version 4.X.X. For usage details, refer to the minimal migration scenario in the [migration guide](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/). |
 | `SDWebImage`               | No        | Dependency used only by `BrazeUICompat` in the minimal migration scenario.                                                                                                                                                                                                                                                           |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Choose your frameworks" }
 
-{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Choose your frameworks" }
 
 #### Step 1.3: Prepare your files
 
@@ -466,6 +471,10 @@ Update `YOUR-APP-IDENTIFIER-API-KEY` and `YOUR-BRAZE-ENDPOINT` with the correct 
 {% endsubtab %}
 {% endsubtabs local %}
 
+{% alert note %}
+`Braze.init` returns immediately on the calling thread. The SDK processes startup work on an internal queue. Reading sync properties such as `braze.deviceId` directly after `init` on the main thread will block the calling thread until the SDK has completed its post-initialization operations. For main-thread or latency-sensitive contexts, use `braze.getDeviceId(_:)` (Swift) or `[braze getDeviceIdWithCompletion:^(NSString *deviceId) { ... }]` (Objective-C) to read the value without blocking.
+{% endalert %}
+
 ## Optional configurations
 
 ### Logging
@@ -482,8 +491,9 @@ The default log level for the Braze Swift SDK is `.error`&#8212;it's also the mi
 | `.info`     | `BRZLoggerLevelInfo`     | Log general SDK information (user changes, etc.) + `.error`. |
 | `.error`    | `BRZLoggerLevelError`    | Log errors.                                                  |
 | `.disabled` | `BRZLoggerLevelDisabled` | No logging occurs.                                           |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
 #### Setting the log level
 

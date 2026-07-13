@@ -12,10 +12,6 @@ toc_headers: h2
 
 > Os modelos de carrossel do WhatsApp permitem criar mensagens interativas com vários cartões pelos quais os usuários podem deslizar. Cada carrossel pode conter até 10 cartões com imagens ou vídeos, além de botões personalizáveis para engajamento. Esse recurso é ideal para apresentar seus produtos e serviços, ou conteúdo em várias etapas em um formato visualmente atraente.
 
-{% alert note %}
-Os modelos de carrossel do WhatsApp estão em acesso antecipado. Fale com seu gerente de sucesso do cliente se tiver interesse em participar desse acesso antecipado.
-{% endalert %}
-
 ## Pré-requisitos {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -56,13 +52,13 @@ Preencha os campos obrigatórios.
 | Idioma do modelo | Selecione o idioma do seu modelo. A Meta restringe os modelos a um único idioma, então escolha o idioma que seu público verá. |
 | Nome do modelo | Insira um nome descritivo que ajude a identificar este modelo posteriormente. Os nomes de modelo não podem conter espaços — use underscores ou remova os espaços completamente (como `carousel_example` ou `carouselexample`). |
 | Categoria | Definida automaticamente como **Marketing**. Todas as mensagens de carrossel são categorizadas como mensagens de marketing. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Configurar as definições do modelo" }
 
 ![Painel de detalhes do modelo de WhatsApp com uma conta do WhatsApp Business selecionada, inglês como idioma do modelo e o nome do modelo "welcome_message".]({% image_buster /assets/img/whatsapp/templates/whatsapp_template_details.png %}){: style="max-width:70%"}
 
 ### Etapa 3: Adicionar conteúdo do corpo {#step-3-add-body-content}
 
-Toda mensagem de carrossel deve começar com o conteúdo do corpo, que é o texto exibido acima dos cartões do carrossel.
+Toda mensagem de carrossel deve começar com o conteúdo do corpo, que é o texto exibido antes dos cartões do carrossel.
 
 Você pode incluir variáveis Liquid para personalização, como {% raw %}`{{first_name}}`{% endraw %}, que cria um espaço de variável vazio que pode ser preenchido com conteúdo dinâmico ou modificado posteriormente ao usar o modelo em Campaigns. As variáveis não podem ser colocadas no início ou no final do conteúdo do corpo.
 
@@ -101,7 +97,7 @@ Use variáveis Liquid estrategicamente para personalizar conteúdo como porcenta
 
 ### Etapa 6: Pré-visualizar e enviar {#step-6-preview-and-submit}
 
-1. Use a seção **Pré-visualização** para ver como seu carrossel aparecerá para os usuários.
+1. Use a seção **Prévia** para ver como seu carrossel aparecerá para os usuários.
 2. Selecione **Enviar para revisão da Meta** para que a Braze envie o modelo para aprovação da Meta.
 3. A aprovação geralmente leva poucos minutos, mas pode levar até 24 horas.
 4. Verifique o status do modelo na lista de **Modelos** na página de modelos do WhatsApp ou no seletor de Canvas e Campaign.
@@ -171,7 +167,7 @@ Após a composição, prossiga com o fluxo de lançamento da sua Campaign ou Can
 - **Posicionamento do conteúdo do corpo:** as variáveis não podem ser colocadas no final do conteúdo do corpo. Adicione pelo menos uma palavra ou sinal de pontuação após cada variável.
 - **Estrutura consistente dos cartões:** todos os cartões devem ter o mesmo formato, tipo de mídia e configuração de botões. Planeje seu conteúdo de acordo.
 - **Quantidade ideal de cartões:** embora você possa criar até 10 cartões, considere a experiência do usuário. Muitos cartões podem ser cansativos; de 3 a 5 cartões funcionam bem para a maioria dos casos de uso.
-- **Valores padrão:** ao usar variáveis Liquid, sempre forneça valores padrão para uma pré-visualização precisa. Isso ajuda a confirmar que a mensagem é exibida corretamente caso determinados dados do perfil do usuário estejam ausentes.
+- **Valores padrão:** ao usar variáveis Liquid, sempre forneça valores padrão para uma prévia precisa. Isso ajuda a confirmar que a mensagem é exibida corretamente caso determinados dados do perfil do usuário estejam ausentes.
 
 ### Contas do WhatsApp Business e grupos de inscrições {#whatsapp-business-accounts-and-subscription-groups}
 
@@ -193,4 +189,4 @@ Após a composição, prossiga com o fluxo de lançamento da sua Campaign ou Can
 | As variáveis não são preenchidas no teste | Verifique se a sintaxe Liquid está correta e se os atributos existem nos perfis dos seus usuários. Confira se há erros de digitação nos nomes das variáveis e verifique se os valores padrão estão definidos quando apropriado. |
 | O nome do modelo contém espaços | Os nomes de modelo não podem conter espaços. Use underscores (`template_name`) ou remova os espaços completamente (`templatename`). |
 | Não é possível alterar o número de cartões | O número de cartões é fixado quando você cria o modelo e não pode ser alterado após o envio. Se precisar de um número diferente de cartões, será necessário criar um novo modelo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }

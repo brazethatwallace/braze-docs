@@ -17,14 +17,14 @@ tool: Canvas
 
 이 템플릿을 성공적으로 사용하려면 다음이 필요합니다:
 
-- 상품 정보가 포함된 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)
-- 메시지를 보내려는 상품에 대해 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/#how-back-in-stock-notifications-work)이 설정되어 있어야 합니다
+- 상품 정보가 포함된 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/create)
+- 메시지를 보내려는 상품에 대해 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#how-back-in-stock-notifications-work)이 설정되어 있어야 합니다
 
 ## 필요에 맞게 템플릿 맞춤 설정하기 {#tailoring-the-template-to-your-needs}
 
 슬랙스, 청바지, 큐롯 등 다양한 종류의 바지를 전문으로 하는 소비자 직접 판매(D2C) 의류 소매업체인 PantsLabyrinth에서 일하고 있다고 가정해 보겠습니다. 재입고 템플릿을 사용하여 인기 청바지인 Classic Straight Leg이 재입고되었을 때 다양한 채널을 통해 고객에게 알릴 수 있습니다.
 
-Canvas를 만들기 전에 스트레이트 레그 바지 재고 정보가 포함된 [카탈로그를 설정]({{site.baseurl}}/user_guide/data/activation/catalogs/create/)하고 Classic Straight Leg 청바지에 대한 [재입고 알림을 설정]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/#setting-up-back-in-stock-notifications)합니다. 사용자가 앱에서 Classic Straight Leg 청바지를 즐겨찾기하는 커스텀 이벤트를 수행하면 알림을 구독하도록 설정했습니다.
+Canvas를 만들기 전에 스트레이트 레그 바지 재고 정보가 포함된 [카탈로그를 설정]({{site.baseurl}}/user_guide/data/activation/catalogs/create)하고 Classic Straight Leg 청바지에 대한 [재입고 알림을 설정]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#setting-up-back-in-stock-notifications)합니다. 사용자가 앱에서 Classic Straight Leg 청바지를 즐겨찾기하는 커스텀 이벤트를 수행하면 알림을 구독하도록 설정했습니다.
 
 재입고 템플릿에 접근하려면 새 Canvas를 만들 때 **Use a Canvas template** > **Braze templates**를 선택합니다. 그런 다음 **Back in Stock** 옆에 있는 **Apply Template**을 선택합니다. 이제 필요에 맞게 템플릿을 살펴보겠습니다.
 
@@ -91,10 +91,10 @@ Classic Straight Leg 청바지를 구매할 가능성이 높은 사용자로 타
 
 ### 6단계: Canvas 커스터마이즈하기 {#step-6-customize-your-canvas}
 
-이제 사용자에게 발송할 채널과 콘텐츠를 커스터마이즈하여 Canvas를 구축합니다. 네 가지 템플릿 채널(모바일 및 웹 푸시, SMS, 이메일)을 모두 사용하고 [인텔리전트 채널]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/) 필터를 사용하므로 추가하거나 제거할 항목이 없습니다.
+이제 사용자에게 발송할 채널과 콘텐츠를 커스터마이즈하여 Canvas를 구축합니다. 네 가지 템플릿 채널(모바일 및 웹 푸시, SMS, 이메일)을 모두 사용하고 [인텔리전트 채널]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) 필터를 사용하므로 추가하거나 제거할 항목이 없습니다.
 
 {% alert tip %}
-[Canvas 진입 속성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)을 사용하여 참조하는 제품에 따라 Canvas의 메시지를 커스터마이즈할 수 있습니다.
+[Canvas 진입 속성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)을 사용하여 참조하는 제품에 따라 Canvas의 메시지를 커스터마이즈할 수 있습니다.
 {% endalert %}
 
 각 메시지 단계를 살펴보며 콘텐츠를 업데이트하는 것으로 커스터마이즈를 시작합니다.
@@ -113,5 +113,5 @@ Classic Straight Leg 청바지를 구매할 가능성이 높은 사용자로 타
 Canvas를 테스트하고 검토하여 예상대로 작동하는지 확인한 후 **Launch Canvas**를 선택하여 시작합니다. 이제 Classic Straight Leg 청바지를 즐겨찾기하고 메시징 채널을 구독한 사용자는 재입고 시 알림을 받게 됩니다!
 
 {% alert tip %}
-Canvas를 시작하기 전과 후에 고려해야 할 사항은 [시작 전후 체크리스트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)를 확인하세요.
+Canvas를 시작하기 전과 후에 고려해야 할 사항은 [시작 전후 체크리스트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)를 확인하세요.
 {% endalert %}

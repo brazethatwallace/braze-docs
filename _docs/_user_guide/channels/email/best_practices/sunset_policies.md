@@ -45,17 +45,17 @@ Segmentation filters help prevent your messaging from appearing like spam by let
 - Will you deliver any special campaigns to users before excluding them from your segments?
 - Which messaging channels will your sunset policy apply to? 
 
-For example, if you have users who opt in to [Apple's Mail Privacy Protection (MPP)]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp/), consider how this may impact your email campaigns and deliverability metrics and determine how to best structure your sunset policy.
+For example, if you have users who opt in to [Apple's Mail Privacy Protection (MPP)]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp), consider how this may impact your email campaigns and deliverability metrics and determine how to best structure your sunset policy.
 
 To incorporate sunset policies into your campaigns, create a [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#creating-a-segment) that automatically excludes users who have marked your emails as spam or have not interacted with your messages for a certain period of time.  
 
 To set up these segments, choose the `Has Marked You As Spam` and `Last Engaged With Message` filters located under the **Retargeting** section in the filter dropdown. 
 
-When you apply the `Last Engaged With Message` filter, specify the type of messaging (push, email, or in-app notification) that the user has or has not interacted with, as well as the number of days it has been since the user last interacted. After you create a segment, choose to target this segment with any [messaging channel]({{site.baseurl}}/user_guide/channels/).
+When you apply the `Last Engaged With Message` filter, specify the type of messaging (push, email, or in-app notification) that the user has or has not interacted with, as well as the number of days it has been since the user last interacted. After you create a segment, choose to target this segment with any [messaging channel]({{site.baseurl}}/user_guide/channels).
 
 ![Segment Details page with the filter "Last Engaged with Message" selected.]({% image_buster /assets/img_archive/email_sunset_policies_new.png %})
 
-While Braze automatically stops sending emails to users who have marked you as spam, the `Has Marked You As Spam` filter allows you to also send these users targeted push messages and in-app notifications. This filter is useful for [retargeting campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#retarget-campaigns). For instance, you can send unengaged users messages that remind them of the features and deals that they are missing out on when they don't open your emails.
+While Braze automatically stops sending emails to users who have marked you as spam, the `Has Marked You As Spam` filter allows you to also send these users targeted push messages and in-app notifications. This filter is useful for [retargeting campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#retarget-campaigns). For instance, you can send unengaged users messages that remind them of the features and deals that they are missing out on when they don't open your emails.
 
 Sunset policies can be especially helpful in email campaigns that target lapsing users. While these campaigns focus on segments that have not interacted with your app for a period of time, they can put the deliverability of your emails at risk if they repeatedly include unengaged recipients. Sunset policies allow you to target lapsing users without landing in the spam folder.
 

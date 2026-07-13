@@ -20,7 +20,7 @@ description: "이 문서에서는 날짜별 일일 앱 제거 내보내기 Braze
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `kpi.uninstalls.data_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `kpi.uninstalls.data_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -32,8 +32,8 @@ description: "이 문서에서는 날짜별 일일 앱 제거 내보내기 Braze
 | -------- | -------- | --------- | ----------- |
 | `length` | 필수 | 정수 | 반환되는 시리즈에 포함할 `ending_at` 이전 최대 일수. 1에서 100 사이여야 합니다(경계값 포함). |
 | `ending_at` | 선택 사항 | 날짜/시간 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 시리즈가 종료되는 날짜. 기본값은 요청 시점입니다. |
-| `app_id` | 선택 사항 | 문자열 | [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지에서 가져온 앱 API 식별자. 제외하면 워크스페이스의 모든 앱에 대한 결과가 반환됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | 선택 사항 | 문자열 | [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) 페이지에서 가져온 앱 API 식별자. 제외하면 워크스페이스의 모든 앱에 대한 결과가 반환됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 {% raw %}

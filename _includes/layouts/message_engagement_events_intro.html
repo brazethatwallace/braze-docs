@@ -1,2 +1,5 @@
-<h1> Message engagement events </h1>
-<p class="api_text">Use the search bar or the checkboxes below to find the events you need to use Currents effectively. <br> <br>  These schema consist of the Braze Events that are directly related to message sending. </p>
+{%- assign loc = site.data.i18n[site.language] -%}
+{%- assign i18n_en = site.data.i18n.en -%}
+{%- assign glossary_page_title = page.article_title | default: page.nav_title -%}
+<h1>{{ glossary_page_title }}</h1>
+<p class="api_text">{{ loc.message_engagement_events_glossary_intro | default: i18n_en.message_engagement_events_glossary_intro }}</p>

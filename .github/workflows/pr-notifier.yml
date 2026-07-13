@@ -1,0 +1,56 @@
+name: PR Notifier
+
+on:
+  schedule:
+    # Runs every 15 minutes, 9am–5:45pm ET (EDT = UTC-4 → 13–21 UTC)
+    # If you're in EST (Nov–Mar, UTC-5), change 13-21 to 14-22
+    - cron: '*/15 13-21 * * 1-5'
+  workflow_dispatch:
+
+concurrency:
+  group: pr-notifier
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v7
+        with:
+          ref: develop
+
+      - name: Restore state from state branch
+        run: |
+          # Shallow checkout only fetches develop; fetch of pr-notifier-state updates
+          # FETCH_HEAD but does not create origin/pr-notifier-state, so use FETCH_HEAD.
+          git fetch origin pr-notifier-state 2>/dev/null && \
+          git checkout FETCH_HEAD -- pr-notifier/state.json || \
+          echo "No existing state branch found, starting fresh."
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+
+      - name: Write config from secret
+        env:
+          CONFIG: ${{ secrets.PR_NOTIFIER_CONFIG }}
+        run: echo "$CONFIG" > pr-notifier/config.json
+
+      - name: Run PR notifier
+        run: python3 pr-notifier/check_prs.py
+
+      - name: Commit updated state
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git fetch origin pr-notifier-state 2>/dev/null || true
+          git checkout -B pr-notifier-state
+          git add pr-notifier/state.json
+          git diff --staged --quiet || git commit -m "chore: update pr-notifier state [skip ci]"
+          git push origin pr-notifier-state --force

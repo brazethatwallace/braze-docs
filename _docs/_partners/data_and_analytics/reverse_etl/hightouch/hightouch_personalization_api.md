@@ -10,13 +10,13 @@ search_tag: Partner
 
 > Hightouch's [Personalization API](https://hightouch.com/docs/destinations/personalization-api) is a managed service that lets you host a low-latency data API based on any dataset in your cloud data warehouse.
 
-![]({% image_buster /assets/img/hightouch/cohort7.png %})
+![Hightouch Personalization API architecture diagram showing data flow from a data warehouse through Hightouch to mobile apps, web experiences, and dynamic emails.]({% image_buster /assets/img/hightouch/cohort7.png %})
 
 The Braze and Hightouch integration allows you to use the API with [Braze Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) to pull up-to-date customer or object data into your campaigns or Canvases at the time-of-send.
 
 Hightouch's Personalization API provides a REST endpoint to use within your Braze configuration. Specifically, you can use the Braze Connected Content offering to make a GET request to the Personalization API to retrieve all information related to a particular identifier. The data exposed by this API could represent customer, product, or any other object data. 
 
-![]({% image_buster /assets/img/hightouch/cohort6.png %})
+![Diagram showing data from Snowflake, BigQuery, and Redshift flowing through the Hightouch Personalization API to Braze Connected Content.]({% image_buster /assets/img/hightouch/cohort6.png %})
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ Hightouch's Personalization API provides a REST endpoint to use within your Braz
 | Defined use cases | Before setting up the API, you must determine your use case for this integration. Reference the following list for common use cases. |
 | Data stored in a cloud data warehouse or other source | Hightouch integrates with [over 25+ data sources](https://hightouch.com/integrations) |
 | Hightouch API key | This can be created within **Hightouch > Settings > API keys > Add API key**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% tabs %}
 {% tab Use Cases %}
@@ -119,12 +119,12 @@ For example, you could include this snippet in a campaign or Canvas:
 
 You can use Liquid templating to reference the properties returned in the JSON payload and use them in your messaging.
 
-For the example payload below:
+For the following example payload:
 
 ```json
 {
     "user_id": 12345,
-    "full_name": "Jane Doe",
+    "full_name": "Alex Smith",
     "lifetime_value": 1492.18,
     "churn_risk": 0.04,
     "90_day_summary": {
@@ -155,7 +155,7 @@ For the example payload below:
         ],
         "upcoming_album_release": {
             "title": "Universal Language",
-            "artist": "Simon Doty",
+            "artist": "Alex Lee",
             "label": "Anjunadeep",
             "release_date": "2023-04-28"
         }
@@ -170,7 +170,7 @@ The following Liquid references would return this example data:
 | {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %}| Aphex Twin |
 | {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %}| San Francisco, CA |
 | {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %}| Universal Language |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Call personalization API through Braze Connected Content" }
 
 ## Troubleshooting
 

@@ -19,7 +19,7 @@ channel:
 | --- | --- |
 | Classificação de qualidade | Uma classificação baseada nas mensagens recentes que seus clientes receberam nos últimos sete dias. Essa classificação é determinada pelo feedback dos seus clientes, como o motivo para bloquear seu número de telefone e outros problemas reportados. Consulte a documentação da Meta para saber mais [sobre sua classificação de qualidade](https://www.facebook.com/business/help/896873687365001).|
 | Limite de envio de mensagens | O número máximo de conversas iniciadas pela empresa que você pode começar com cada um dos seus números de telefone em um período contínuo de 24 horas. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definitions" }
 
 ## Integração {#onboarding}
 
@@ -29,7 +29,7 @@ Consulte a documentação da Meta para saber mais sobre [como verificar seu limi
 
 ## Taxa de transferência {#throughput}
 
-A Meta inicia cada número de telefone comercial registrado com uma taxa de transferência de 80 mensagens por segundo. Fazer upgrade para 1.000 mensagens por segundo pode acontecer automaticamente ou mediante solicitação. Informações.
+A Meta inicia cada número de telefone comercial registrado com uma taxa de transferência de 80 mensagens por segundo. O upgrade para 1.000 mensagens por segundo pode acontecer automaticamente ou mediante solicitação.
 
 Consulte a documentação da Meta para saber mais sobre sua [taxa de transferência](https://developers.facebook.com/docs/whatsapp/cloud-api/overview#throughput).
 

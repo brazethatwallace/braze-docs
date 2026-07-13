@@ -1,20 +1,20 @@
 ---
-nav_title: "GET : Voir les informations sur les modèles d’e-mail"
-article_title: "GET : Voir les informations sur les modèles d’e-mail"
+nav_title: "GET : Voir les informations sur les modèles d'e-mail"
+article_title: "GET : Voir les informations sur les modèles d'e-mail"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Afficher les modèles d’e-mail."
+description: "Cet article présente en détail l'endpoint Braze Afficher les modèles d'e-mail."
 
 ---
 {% api %}
-# Voir les informations sur les modèles d’e-mail
+# Voir les informations sur les modèles d'e-mail {#see-email-template-information}
 {% apimethod get %}
 /templates/email/info
 {% endapimethod %}
 
-> Utilisez cet endpoint pour obtenir des informations sur vos modèles d’e-mail.
+> Utilisez cet endpoint pour obtenir des informations sur vos modèles d'e-mail.
 
 {% alert important %}
 Les modèles créés à l'aide de l'éditeur par glisser-déposer pour l'e-mail ne sont pas acceptés.
@@ -22,21 +22,21 @@ Les modèles créés à l'aide de l'éditeur par glisser-déposer pour l'e-mail 
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
-## Conditions préalables
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l’autorisation `templates.email.info`.
+## Conditions préalables {#prerequisites}
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `templates.email.info`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Paramètres de demande
+## Paramètres de demande {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
-| `email_template_id`  | Requis | Chaîne de caractères | Voir l'[identifiant API du modèle d'e-mail]({{site.baseurl}}/api/identifier_types/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id` | Requis | Chaîne de caractères | Voir l'[identifiant API du modèle d'e-mail]({{site.baseurl}}/api/identifier_types). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Paramètres de demande" }
 
-## Exemple de demande
+## Exemple de demande {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/info?email_template_id={{email_template_id}}' \
@@ -44,7 +44,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/
 ```
 {% endraw %}
 
-## Réponse
+## Réponse {#response}
 
 ```json
 {
@@ -62,6 +62,6 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/
 }
 ```
 
-Les images de cette réponse apparaîtront dans la variable `body` sous forme HTML.
+Les images de cette réponse apparaîtront dans la variable `body` sous forme de HTML.
 
 {% endapi %}

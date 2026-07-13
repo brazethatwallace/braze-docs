@@ -22,7 +22,7 @@ The Braze and RudderStack integration offers a native SDK integration for your A
 | Braze REST API key | A Braze REST API key with `users.track`, `users.identify`, `users.delete`, and `users.alias.new` permissions.<br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze app key | To get your app key in the Braze dashboard go to **Settings** > **App Settings** > **Identification** and find your app name. Save the associated identifier string.
 | Data center | Your data center aligns with your Braze dashboard [instance]({{site.baseurl}}/api/basics/#endpoints).  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -35,8 +35,6 @@ To start sending data to Braze, you first need to make sure a source is set up i
 Now that your data source is set up, in the RudderStack dashboard, select **ADD DESTINATION** under **Destinations**. From the list of available destinations, select **Braze** and click **Next**.
 
 In the Braze destination, provide the app key, Braze REST API key, data cluster, and native SDK option (device mode only). The native SDK option will use the Braze native SDK to send events if toggled on. 
-
-![]({% image_buster /assets/img/RudderStack/braze_settings.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
 
 ### Step 3: Choose the type of integration
 
@@ -179,7 +177,7 @@ rudderanalytics.identify("1hKOmRA4GRlm", {
         "age": 27,
         "id": 1,
         "identifier": "id",
-        "name": "Mike"
+        "name": "Alex"
       }
     ]
   },
@@ -220,7 +218,7 @@ rudderanalytics.track("Product Viewed", {
           "age": 30,
           "id": 2,
           "identifier": "id",
-          "name": "Mike"
+          "name": "Alex"
         },
         {
           "age": 27,

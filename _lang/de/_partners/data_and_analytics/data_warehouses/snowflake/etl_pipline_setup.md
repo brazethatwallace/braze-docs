@@ -1,22 +1,22 @@
 ---
-nav_title: "ETL Ereignis-Pipeline einrichten"
-article_title: Snowflake ETL Ereignis-Pipeline einrichten
+nav_title: "ETL-Ereignis-Pipeline einrichten"
+article_title: Snowflake ETL-Ereignis-Pipeline einrichten
 page_order: 2
-description: "Auf dieser Partnerseite finden Sie ein Beispiel für die Einrichtung einer E-Mail-Klick-Abfrage, auf das Sie bei der Einrichtung Ihrer eigenen Abfragen referenzieren können."
+description: "Auf dieser Partnerseite finden Sie ein Beispiel für die Einrichtung einer E-Mail-Klick-Abfrage, das Sie bei der Einrichtung Ihrer eigenen Abfragen als Referenz verwenden können."
 page_type: partner
 search_tag: Partner
 
 ---
 
-# ETL Ereignis-Pipeline einrichten
+# ETL-Ereignis-Pipeline einrichten {#etl-event-pipeline-setup}
 
-> Auf dieser Partnerseite finden Sie ein Beispiel für die Einrichtung einer E-Mail-Klick-Abfrage, auf das Sie bei der Einrichtung Ihrer eigenen Abfragen referenzieren können.
+> Auf dieser Partnerseite finden Sie ein Beispiel für die Einrichtung einer E-Mail-Klick-Abfrage, das Sie bei der Einrichtung Ihrer eigenen Abfragen als Referenz verwenden können.
 
-Sie können diese Abfrage für E-Mail-Klicks verwenden, um die Interaktionen mit bestimmten E-Mails in Ihren Kampagnen und Canvase von Braze zu analysieren.
+Sie können diese E-Mail-Klick-Abfrage verwenden, um die Interaktionen mit bestimmten E-Mails in Ihren Braze-Campaigns und Canvases zu analysieren.
 
-## Richten Sie diese Abfrage ein
+## Diese Abfrage einrichten {#set-up-this-query}
 
-Erstellen Sie eine Datenbank für `BRAZE`, dann erstellen Sie eine Datenbank für `BRAZE_CURRENTS;`, falls keine existiert:
+Erstellen Sie eine Datenbank für `BRAZE` und anschließend eine Datenbank für `BRAZE_CURRENTS;`, falls noch keine existiert:
 
 ```sql
 use schema BRAZE_CURRENTS.public;
@@ -94,11 +94,11 @@ COPY INTO
 show pipes;
 ```
 
-## Machen Sie mehr mit diesem Abfragebeispiel
+## Mehr mit diesem Abfragebeispiel machen {#do-more-with-this-query-example}
 
-Kopieren Sie die `notification_channel` aus der Ausgabe des vorangegangenen Befehls und verwenden Sie diese bei der Konfiguration von S3-Bucket-Benachrichtigungen.
+Kopieren Sie den `notification_channel` aus der Ausgabe des vorangegangenen Befehls und verwenden Sie diesen bei der Konfiguration von S3-Bucket-Benachrichtigungen.
 
-Manuelle Synchronisierung von S3 zu Snowflake für den folgenden angegebenen Pipe-Namen:
+Synchronisieren Sie manuell von S3 zu Snowflake für den folgenden angegebenen Pipe-Namen:
 ```sql
 ALTER PIPE
   pipe_users_messages_email_click
@@ -113,7 +113,7 @@ SELECT
   )
 ```
 
-Zeigen Sie schließlich den Verlauf des Kopierens der Tabelle an, indem Sie `*` auswählen:
+Zeigen Sie abschließend den Kopierverlauf der Tabelle an, indem Sie `*` auswählen aus:
 ```sql
 table(braze_currents.information_schema.copy_history(table_name=>'users_messages_email_click', start_time=> dateadd(hours, -1, current_timestamp())));
 ```

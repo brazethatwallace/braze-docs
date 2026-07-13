@@ -35,7 +35,7 @@ For a use case where you need to create or update a user profile in Braze withou
 
 ```json
 {
- "email_address": "test@braze.com",
+ "email_address": "test@example.com",
  "fields_to_export": ["braze_id", "user_aliases"]
 }
 ```
@@ -48,17 +48,17 @@ If the request does not return a user profile, you can choose to either create a
 
 Use the user track endpoint to create a user alias, using your chosen identifier as the alias name. By including `_update_existing_only` as `false` within the attribute, event, or purchase object where the new user alias is defined, you can create the alias profile and add attributes, events, and purchases to that profile simultaneously. 
 
-In order for the user alias to be a sendable profile, you must include the email address in the `email` field, as shown below.
+In order for the user alias to be a sendable profile, you must include the email address in the `email` field, as shown in the following example.
 
 ```json
 {
    "attributes": [
    {
      "user_alias" : {
-       "alias_name" : "test@braze.com",
+       "alias_name" : "test@example.com",
        "alias_label" : "email"
      },
-     "email": "test@braze.com",
+     "email": "test@example.com",
      "_update_existing_only": false,
      "string_attribute": "sherman",
      "boolean_attribute_1": true,
@@ -79,7 +79,7 @@ Use the email address as the identifier in the user track endpoint.
 {
     "attributes": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "string_attribute": "fruit",
             "boolean_attribute_1": true,
             "integer_attribute": 25,
@@ -126,14 +126,14 @@ This functionality is in early access.
 ### Currents
 
 Currents are a near real-time message engagement analytics streaming tool in Braze. This will stream user-level data on all sends, deliveries, opens, clicks, etc., for campaigns and Canvases sent from the customer's workspace. A couple of things to note: Currents are priced per connector for the customer, so all-new Currents Partners must go through an EA process. We ask that our Partners have five customers as part of the EA before we build the custom-branded UI and publicly make the connector available. 
-- [Partner documentation]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [Partner documentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 - [Message Engagement Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) - all customers who purchase a Currents connector will have access to these events.
 - [User Behavior Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) - not all customers who purchase a Current connector will purchase an "all events" connector that will include these events. 
 
 ### Snowflake Data Share
 
 Customers who purchase a Snowflake Data Share connector will automatically have access to both message engagement and user behavior events. When Snowflake Data Share is used as a partner integration, Braze will provision a share to the Partner’s Snowflake instance on behalf of the customer. As a note, cross-region data share is a higher price-point for our customers, so we ask that Partners who want to integrate with Snowflake the guidance that they need an account in `US-EAST-1` and/or `EU-CENTRAL-1`
-- [Partner documentation]({{site.baseurl}}/partners/isv_partners/currents_integration/)
+- [Partner documentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/)
 
 ## Building and triggering campaigns and Canvases
 
@@ -157,7 +157,7 @@ Customers can set up campaigns and Canvases to be API-triggered. The API request
     - Data that can be dynamically populated into the message at the time of sending.
 
 ### API campaigns
-When creating API campaigns (different from the API-triggered campaigns referenced above), the Braze dashboard is only used to generate a `campaign_id`, which lets the customer track analytics for campaign reporting. The campaign message itself is defined within the API request. 
+When creating API campaigns (different from the API-triggered campaigns referenced in this section), the Braze dashboard is only used to generate a `campaign_id`, which lets the customer track analytics for campaign reporting. The campaign message itself is defined within the API request. 
 - [Send API campaign immediately]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)
 - [Schedule an API campaign]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/)
 

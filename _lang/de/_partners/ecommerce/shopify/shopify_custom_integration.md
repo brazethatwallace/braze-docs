@@ -1,6 +1,6 @@
 ---
-nav_title: Shopify Angepasste Integration einrichten
-article_title: "Shopify Angepasste Integration einrichten"
+nav_title: Shopify angepasste Integration einrichten
+article_title: Shopify angepasste Integration einrichten
 description: "In diesem Referenzartikel erfahren Sie, wie Sie eine Verbindung zu einem Shopify Hydrogen Shop oder einem beliebigen Headless-Shopify-Shop herstellen, indem Sie eine angepasste Storefront verwenden."
 page_type: partner
 search_tag: Partner
@@ -16,7 +16,7 @@ Dieser Leitfaden verwendet das Hydrogen-Framework von Shopify als Beispiel. Sie 
 
 Um Ihren Shopify Headless Shop mit Braze zu integrieren, müssen Sie diese beiden Ziele erreichen:
 
-1. **Initialisieren und laden Sie das Braze Web SDK, um das Onsite-Tracking zu ermöglichen**<br><br> Fügen Sie manuell Code in Ihre Shopify-Website ein, um das Braze Onsite-Tracking zu aktivieren. Durch die Implementierung des Braze SDK in Ihrem Shopify Headless Shop können Sie Onsite-Aktivitäten nachverfolgen, einschließlich Sitzungen, anonymes Nutzerverhalten, Aktionen vor dem Checkout und alle [angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) oder [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), die Sie zusammen mit Ihrem Entwicklungsteam einbeziehen möchten. Sie können auch alle Kanäle hinzufügen, die von den SDKs unterstützt werden, wie In-App-Nachrichten oder Content Cards.
+1. **Initialisieren und laden Sie das Braze Web SDK, um das Onsite-Tracking zu ermöglichen**<br><br> Fügen Sie manuell Code in Ihre Shopify-Website ein, um das Braze Onsite-Tracking zu aktivieren. Durch die Implementierung des Braze SDK in Ihrem Shopify Headless Shop können Sie Onsite-Aktivitäten nachverfolgen, einschließlich Sitzungen, anonymes Nutzer:innenverhalten, Aktionen vor dem Checkout und alle [angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) oder [angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), die Sie zusammen mit Ihrem Entwicklungsteam einbeziehen möchten. Sie können auch alle Kanäle hinzufügen, die von den SDKs unterstützt werden, wie In-App-Nachrichten oder Content Cards.
 
 {: start="2"}
 2. **Installieren Sie die Braze Shopify-Integration**<br><br> Nachdem Sie Ihren Shopify-Shop mit Braze verbunden haben, erhalten Sie über Shopify-Webhooks Zugriff auf Kundendaten, Checkout-, Bestell- und Produktdaten.
@@ -29,7 +29,7 @@ Um diese Ziele zu erreichen, gehen Sie folgendermaßen vor:
 
 ## Initialisieren und laden Sie das Braze Web SDK {#initialize-and-load-the-braze-web-sdk}
 
-### 1. Schritt: Erstellen Sie eine Braze-Website-App {#step-1}
+### Schritt 1: Erstellen Sie eine Braze-Website-App {#step-1}
 
 Gehen Sie in Braze zu **Einstellungen** > **App-Einstellungen** und wählen Sie dann **App hinzufügen**. Geben Sie „Shopify“ als App-Namen ein.
 
@@ -37,7 +37,7 @@ Gehen Sie in Braze zu **Einstellungen** > **App-Einstellungen** und wählen Sie 
 Der Shop muss „Shopify“ heißen, sonst funktioniert die Integration möglicherweise nicht richtig.
 {% endalert %}
 
-### 2. Schritt: Subdomain und Umgebungsvariablen hinzufügen {#step-2}
+### Schritt 2: Subdomain und Umgebungsvariablen hinzufügen {#step-2}
 
 1. Richten Sie Ihre Shopify-Subdomain ein, um [den Traffic von Ihrem Online-Shop auf Hydrogen umzuleiten](https://shopify.dev/docs/storefronts/headless/hydrogen/migrate/redirect-traffic).
 2. Fügen Sie einen [Callback-URI](https://shopify.dev/docs/storefronts/headless/building-with-the-customer-account-api/hydrogen#step-2-set-up-the-environment) für die Anmeldung hinzu. (Der URI wird automatisch hinzugefügt, wenn die Domain hinzugefügt wird.)
@@ -46,18 +46,18 @@ Der Shop muss „Shopify“ heißen, sonst funktioniert die Integration möglich
     - `BRAZE_API_KEY`
     - `BRAZE_API_URL`
 
-### 3. Schritt: Onsite-Tracking aktivieren {#step-3-enable-onsite-tracking}
+### Schritt 3: Onsite-Tracking aktivieren {#step-3-enable-onsite-tracking}
 
 Der erste Schritt besteht darin, das Braze Web SDK zu initialisieren. Wir empfehlen, dazu unser NPM-Paket zu installieren:
 
 ```java
-npm install --save @braze/web-sdk@5.4.0
+npm install --save @braze/web-sdk@6.8.0
 # or, using yarn:
 # yarn add @braze/web-sdk
 ```
 
 {% alert important %}
-Die Version des Braze Web SDK muss 5.4.0 sein.
+Die Version des Braze Web SDK muss 5.4.0 oder höher sein.
 {% endalert %}
 
 [Nehmen Sie dann diese Einstellung]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web) als Top-Level-Schlüssel in Ihre `vite.config.js`-Datei auf:
@@ -133,7 +133,7 @@ export async function loader(args) {
 Content-Security-Policies (die sich normalerweise in der Hydrogen-Datei `entry.server.jsx` befinden) können die Funktionalität von Braze-Skripten sowohl in lokalen als auch in Produktionsumgebungen beeinflussen. Wir empfehlen, mit Vorschau-Builds zu testen, die über Oxygen an Shopify gesendet werden, oder mit angepassten Deployments. Wenn Sie auf Probleme stoßen, müssen Sie Ihre CSP so konfigurieren, dass unser JavaScript funktioniert.
 {% endalert %}
 
-### 4. Schritt: Ein Shopify-Konto-Anmelde-Event hinzufügen {#step-4-add-a-shopify-account-login-event}
+### Schritt 4: Ein Shopify-Konto-Anmelde-Event hinzufügen {#step-4-add-a-shopify-account-login-event}
 
 Verfolgen Sie, wann sich Käufer:innen bei ihrem Konto anmelden, und synchronisieren Sie ihre Nutzerinformationen mit Braze. Dazu gehört der Aufruf unserer `changeUser`-Methode, um Kund:innen mit einer externen Braze-ID zu identifizieren.
 
@@ -306,7 +306,7 @@ export async function loader(args) {
 }
 ```
 
-### 5. Schritt: Tracking für die Events „Produkt angesehen“ und „Warenkorb aktualisiert“ hinzufügen {#step-5-add-tracking-for-product-viewed-and-cart-updated-events}
+### Schritt 5: Tracking für die Events „Produkt angesehen“ und „Warenkorb aktualisiert“ hinzufügen {#step-5-add-tracking-for-product-viewed-and-cart-updated-events}
 
 #### Events „Produkt angesehen“ {#product-viewed-events}
 
@@ -572,42 +572,37 @@ function CartLineUpdateButton({children, lines}) {
 
 ## Installieren Sie die Braze Shopify-Integration {#install-the-braze-shopify-integration}
 
-### 1. Schritt: Verbinden Sie Ihren Shopify-Shop {#step-1-connect-your-shopify-store}
+### Schritt 1: Verbinden Sie Ihren Shopify-Shop {#step-1-connect-your-shopify-store}
 
-Rufen Sie die Shopify-Partnerseite auf, um Ihre Einrichtung zu starten. Wählen Sie zunächst **Einrichtung beginnen**, um die Braze-Anwendung aus dem Shopify App Store zu installieren. Folgen Sie den geführten Schritten, um den Installationsvorgang abzuschließen.
+Rufen Sie die Shopify-Partnerseite auf, um Ihre Einrichtung zu starten. Wählen Sie zunächst **Begin Setup**, um die Braze-Anwendung aus dem Shopify App Store zu installieren. Folgen Sie den geführten Schritten, um den Installationsvorgang abzuschließen.
 
-![Einrichtungsseite für die Shopify-Integration im Braze-Dashboard.]({% image_buster /assets/img/Shopify/braze_shopify_integration_page.png %})
+![Einrichtungsseite für die Shopify-Integration im Braze-Dashboard.]({% image_buster /assets/img/shopify/braze_shopify_integration_page.png %})
 
-### 2. Schritt: Braze SDKs aktivieren {#step-2-enable-braze-sdks}
+### Schritt 2: Braze SDKs aktivieren {#step-2-enable-braze-sdks}
 
-Für Shopify Hydrogen oder Headless-Shops wählen Sie die Option **Angepasste Einrichtung**.
+Für Shopify Hydrogen oder Headless-Shops wählen Sie die Option **Custom setup**.
 
 Bevor Sie mit dem Onboarding-Prozess fortfahren, vergewissern Sie sich, dass Sie das Braze SDK auf Ihrer Shopify-Website aktiviert haben.
 
-![Einrichtungsschritt zur Aktivierung der Braze SDKs.]({% image_buster /assets/img/Shopify/enable_braze_sdks_setup.png %})
+![Einrichtungsschritt zur Aktivierung der Braze SDKs.]({% image_buster /assets/img/shopify/enable_braze_sdks_setup.png %})
 
-### 3. Schritt: Shopify-Daten tracken {#step-3-track-shopify-data}
+### Schritt 3: Shopify-Daten tracken {#step-3-track-shopify-data}
 
-Verbessern Sie Ihre Integration, indem Sie weitere Shopify-Events und -Attribute hinzufügen, die von Shopify-Webhooks unterstützt werden. Ausführliche Informationen zu den Daten, die durch diese Integration getrackt werden, finden Sie unter [Shopify-Daten-Features]({{site.baseurl}}/shopify_data_features/).
+Verbessern Sie Ihre Integration, indem Sie weitere Shopify-Events und -Attribute hinzufügen, die von Shopify-Webhooks unterstützt werden. Ausführliche Informationen zu den Daten, die durch diese Integration getrackt werden, finden Sie unter [Shopify-Daten-Features]({{site.baseurl}}/shopify_data_features).
 
-![Einrichtungsschritt zum Tracking von Shopify-Daten.]({% image_buster /assets/img/Shopify/track_shopify_data_setup.png %})
+![Einrichtungsschritt zum Tracking von Shopify-Daten.]({% image_buster /assets/img/shopify/track_shopify_data_setup.png %})
 
-### 4. Schritt: Historisches Backfill (optional) {#step-4-historical-backfill-optional}
+### Schritt 4: Historisches Backfill (optional) {#step-4-historical-backfill-optional}
 
-Durch die angepasste Einrichtung haben Sie die Möglichkeit, Ihre Shopify-Kund:innen und -Bestellungen aus den letzten 90 Tagen zu laden, bevor Sie Ihre Shopify-Integration verbinden. Um diesen initialen Datenladevorgang einzubeziehen, aktivieren Sie das Kontrollkästchen für die Option zum initialen Datenladen.
+Durch die angepasste Einrichtung können Sie optional denselben historischen Shopify-Datenladevorgang wie bei der [Standard-Integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration#historical-backfill-setup) einbeziehen: Bestell-Events der letzten 90 Tage und Nutzerprofile des letzten Jahres, jeweils ab dem Datum Ihrer Integrationsfertigstellung zurückgerechnet. Um diesen initialen Datenladevorgang einzubeziehen, aktivieren Sie das Kontrollkästchen für die Option zum initialen Datenladen.
 
 Wenn Sie das Backfill lieber später durchführen möchten, können Sie die Ersteinrichtung jetzt abschließen und zu einem späteren Zeitpunkt zu diesem Schritt zurückkehren.
 
-![Abschnitt zum Einrichten des historischen Daten-Backfills.]({% image_buster /assets/img/Shopify/historical_backfill_setup.png %})
+![Abschnitt zum Einrichten des historischen Daten-Backfills.]({% image_buster /assets/img/shopify/historical_backfill_setup.png %})
 
-Diese Tabelle enthält die Daten, die initial über das Backfill geladen werden.
+Die vollständige Liste der Daten im initialen Ladevorgang, das Verhalten der Umsatzberichte und die Überwachung der Synchronisierung finden Sie unter [Historisches Backfill]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill).
 
-| Von Braze empfohlene Events | Angepasste Shopify-Events | Braze-Standardattribute | Braze-Abo-Status |
-| --- | --- | --- | --- |
-| {::nomarkdown}<ul><li>Bestellung aufgegeben</li><li>Bestellung storniert</li><li>Bestellung erstattet</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>E-Mail</li><li>Vorname</li><li>Nachname</li><li>Telefon</li><li>Ort</li><li>Land</li><li>Gesamtumsatz</li><li>Gesamterstattungen</li><li>Gesamtbestellungen</li></ul>{:/} | {::nomarkdown}<ul><li>E-Mail-Marketing-Abos, die mit diesem Shopify-Shop verknüpft sind</li><li>SMS-Marketing-Abos, die mit diesem Shopify-Shop verknüpft sind</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
-
-### 5. Schritt: Angepasstes Daten-Tracking einrichten (erweitert) {#step-5-custom-data-tracking-setup-advanced}
+### Schritt 5: Angepasstes Daten-Tracking einrichten (erweitert) {#step-5-custom-data-tracking-setup-advanced}
 
 Mit den Braze SDKs können Sie angepasste Events oder angepasste Attribute tracken, die über die für diese Integration unterstützten Daten hinausgehen. Angepasste Events erfassen eindeutige Interaktionen in Ihrem Shop, wie zum Beispiel:
 
@@ -618,7 +613,8 @@ Mit den Braze SDKs können Sie angepasste Events oder angepasste Attribute track
 }
 </style>
 
-<table style="width: 100%;">
+<table aria-label="Angepasstes Daten-Tracking einrichten (erweitert)" style="width: 100%;">
+  <caption>Angepasstes Daten-Tracking einrichten (erweitert)</caption>
   <thead>
     <tr>
       <th style="width: 50%;">Angepasste Events</th>
@@ -646,11 +642,11 @@ Mit den Braze SDKs können Sie angepasste Events oder angepasste Attribute track
 
 Das SDK muss auf dem Gerät der Nutzer:innen initialisiert sein (auf Aktivitäten lauschen), um Events oder angepasste Attribute zu protokollieren. Weitere Informationen zur Protokollierung angepasster Daten finden Sie unter [User object](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html) und [logCustomEvent](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcustomevent).
 
-### 6. Schritt: Konfigurieren Sie, wie Sie Nutzer:innen verwalten (optional) {#step-6}
+### Schritt 6: Konfigurieren Sie, wie Sie Nutzer:innen verwalten (optional) {#step-6}
 
-Wählen Sie Ihren `external_id`-Typ aus der Dropdown-Liste aus.
+Wählen Sie Ihren `external_id`-Typ aus dem Dropdown aus.
 
-![Abschnitt „Abonnent:innen sammeln“.]({% image_buster /assets/img/Shopify/external_id_standard.png %})
+![Abschnitt „Abonnent:innen sammeln“.]({% image_buster /assets/img/shopify/external_id_standard.png %})
 
 {% alert important %}
 Die Verwendung einer E-Mail-Adresse oder einer gehashten E-Mail-Adresse als externe Braze-ID kann die Identitätsverwaltung über Ihre Datenquellen hinweg vereinfachen. Es ist jedoch wichtig, die potenziellen Risiken für den Datenschutz und die Datensicherheit zu berücksichtigen.<br><br>
@@ -667,12 +663,12 @@ Die nächsten Schritte hängen von Ihrer Auswahl der externen ID ab:<br><br>
 - **Wenn Sie Shopify-Kunden-ID, E-Mail oder gehashte E-Mail ausgewählt haben:** Überspringen Sie die Schritte 6.1–6.3 und fahren Sie direkt mit Schritt 6.4 fort.
 {% endalert %}
 
-#### Schritt 6.1: Das Metafeld `braze.external_id` erstellen {#step-61-create-the-brazeexternalid-metafield}
+#### Schritt 6.1: Das Metafeld `braze.external_id` erstellen {#step-61-create-the-brazeexternal_id-metafield}
 
-1. Gehen Sie in Ihrem Shopify-Admin-Panel zu **Einstellungen** > **Metafelder**.
-2. Wählen Sie **Kunden** > **Definition hinzufügen**.
-3. Geben Sie für **Namespace und Schlüssel** den Wert `braze.external_id` ein.
-4. Wählen Sie unter **Typ** den **ID-Typ** aus.
+1. Gehen Sie in Ihrem Shopify-Admin-Panel zu **Settings** > **Metafields**.
+2. Wählen Sie **Customers** > **Add definition**.
+3. Geben Sie für **Namespace and key** den Wert `braze.external_id` ein.
+4. Wählen Sie unter **Type** den **ID Type** aus.
 
 Nachdem das Metafeld erstellt wurde, befüllen Sie es für Ihre Kund:innen. Wir empfehlen die folgenden Ansätze:
 
@@ -689,17 +685,17 @@ Sie müssen einen öffentlichen Endpunkt erstellen, den Braze zum Abrufen der ex
 
 Braze sendet die folgenden Parameter an Ihren Endpunkt:
 
-| Parameter            | Erforderlich | Datentyp | Beschreibung                                                      |
+| Parameter | Erforderlich | Datentyp | Beschreibung |
 |----------------------|----------|-----------|------------------------------------------------------------------|
-| shopify_customer_id  | Ja      | String    | Die Shopify-Kunden-ID.                                         |
-| shopify_storefront   | Ja      | String    | Der Storefront-Name für die Anfrage. Beispiel: `<storefront_name>.myshopify.com` |
-| email_address        | Nein       | String    | Die E-Mail-Adresse der angemeldeten Nutzer:innen. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Null-Werte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+| shopify_customer_id | Ja | String | Die Shopify-Kunden-ID. |
+| shopify_storefront | Ja | String | Der Storefront-Name für die Anfrage. Beispiel: `<storefront_name>.myshopify.com` |
+| email_address | Nein | String | Die E-Mail-Adresse der angemeldeten Nutzer:innen. <br><br>Dieses Feld kann in bestimmten Webhook-Szenarien fehlen. Ihre Endpunkt-Logik sollte hier Null-Werte berücksichtigen (z. B. die E-Mail über die shopify_customer_id abrufen, wenn Ihre interne Logik dies erfordert). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpunkt-Spezifikationen" }
 
 ##### Beispiel-Endpunkt {#example-endpoint}
 
 ```http
-GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 
@@ -738,33 +734,33 @@ Sie haben die Möglichkeit, Ihre E-Mail- oder SMS-Marketing-Opt-ins von Shopify 
 
 Wenn Sie die E-Mail- oder SMS-Kanäle nutzen, können Sie Ihre E-Mail- und SMS-Marketing-Opt-in-Status mit Braze synchronisieren. Wenn Sie E-Mail-Marketing-Opt-ins von Shopify synchronisieren, erstellt Braze automatisch eine E-Mail-Abo-Gruppe für alle Nutzer:innen, die mit diesem Shop verknüpft sind. Sie müssen einen eindeutigen Namen für diese Abo-Gruppe erstellen.
 
-![Abschnitt „Abonnent:innen sammeln“ mit der Option, E-Mail- oder SMS-Marketing-Opt-ins zu sammeln.]({% image_buster /assets/img/Shopify/collect_email_subscribers.png %})
+![Abschnitt „Abonnent:innen sammeln“ mit der Option, E-Mail- oder SMS-Marketing-Opt-ins zu sammeln.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
-Wie in der [Shopify-Übersicht]({{site.baseurl}}/shopify_overview/) erwähnt, müssen Ihre Entwickler:innen den Braze-SDK-Code integrieren, wenn Sie ein Erfassungsformular eines Drittanbieters verwenden möchten. So können Sie die E-Mail-Adresse und den globalen E-Mail-Abo-Status aus Formularübermittlungen erfassen. Konkret müssen Sie diese Methoden in Ihrer `theme.liquid`-Datei implementieren und testen:<br><br>
+Wie in der [Shopify-Übersicht]({{site.baseurl}}/shopify_overview) erwähnt, müssen Ihre Entwickler:innen den Braze-SDK-Code integrieren, wenn Sie ein Erfassungsformular eines Drittanbieters verwenden möchten. So können Sie die E-Mail-Adresse und den globalen E-Mail-Abo-Status aus Formularübermittlungen erfassen. Konkret müssen Sie diese Methoden in Ihrer `theme.liquid`-Datei implementieren und testen:<br><br>
 - [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): Legt die E-Mail-Adresse im Nutzerprofil fest
 - [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): Aktualisiert den globalen E-Mail-Abo-Status
 {% endalert %}
 
-### 7. Schritt: Produkte synchronisieren (optional) {#step-7-sync-products-optional}
+### Schritt 7: Produkte synchronisieren (optional) {#step-7-sync-products-optional}
 
-Sie können alle Produkte aus Ihrem Shopify-Shop mit einem Braze-Katalog synchronisieren, um die Personalisierung von Nachrichten zu vertiefen. Automatische Updates erfolgen nahezu in Realtime, sodass Ihr Katalog immer die neuesten Produktdetails enthält. Weitere Informationen finden Sie unter [Shopify-Produktsynchronisation]({{site.baseurl}}/shopify_catalogs/).
+Sie können alle Produkte aus Ihrem Shopify-Shop mit einem Braze-Katalog synchronisieren, um die Personalisierung von Nachrichten zu vertiefen. Automatische Updates erfolgen nahezu in Realtime, sodass Ihr Katalog immer die neuesten Produktdetails enthält. Weitere Informationen finden Sie unter [Shopify-Produktsynchronisation]({{site.baseurl}}/shopify_catalogs).
 
-![Einrichtungsschritt zur Synchronisierung von Produktdaten mit Braze.]({% image_buster /assets/img/Shopify/sync_product_data.png %})
+![Einrichtungsschritt zur Synchronisierung von Produktdaten mit Braze.]({% image_buster /assets/img/shopify/sync_product_data.png %})
 
-### 8. Schritt: Kanäle aktivieren {#step-8-activate-channels}
+### Schritt 8: Kanäle aktivieren {#step-8-activate-channels}
 
 Um In-App-Nachrichten, Content Cards und Feature-Flags über die direkte Shopify-Integration zu aktivieren, fügen Sie jeden Kanal zu Ihrem SDK hinzu. Folgen Sie den unten stehenden Dokumentationslinks für jeden Kanal:
 
-- **In-App-Nachrichten:** Informationen zur Aktivierung von In-App-Nachrichten für Lead-Capture-Formular-Anwendungsfälle finden Sie unter [In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/).
-- **Content Cards:** Informationen zur Aktivierung von Content Cards für Posteingangs- oder Website-Banner-Anwendungsfälle finden Sie unter [Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
-- **Feature-Flags:** Informationen zur Aktivierung von Feature-Flags für Website-Experimentier-Anwendungsfälle finden Sie unter [Feature-Flags]({{site.baseurl}}/developer_guide/feature_flags/).
+- **In-App-Nachrichten:** Informationen zur Aktivierung von In-App-Nachrichten für Lead-Capture-Formular-Anwendungsfälle finden Sie unter [In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages).
+- **Content Cards:** Informationen zur Aktivierung von Content Cards für Posteingangs- oder Website-Banner-Anwendungsfälle finden Sie unter [Content Cards]({{site.baseurl}}/developer_guide/content_cards).
+- **Feature-Flags:** Informationen zur Aktivierung von Feature-Flags für Website-Experimentier-Anwendungsfälle finden Sie unter [Feature-Flags]({{site.baseurl}}/developer_guide/feature_flags).
 
-### 9. Schritt: Einrichtung abschließen {#step-9-finish-setup}
+### Schritt 9: Einrichtung abschließen {#step-9-finish-setup}
 
-Nachdem Sie alle Schritte durchlaufen haben, wählen Sie **Einrichtung beenden**, um zur Partnerseite zurückzukehren. Aktivieren Sie dann die Braze-App-Einbettung auf Ihrer Shopify-Admin-Seite, wie durch das angezeigte Banner angezeigt.
+Nachdem Sie alle Schritte durchlaufen haben, wählen Sie **Finish Setup**, um zur Partnerseite zurückzukehren. Aktivieren Sie dann die Braze-App-Einbettung auf Ihrer Shopify-Admin-Seite, wie durch das angezeigte Banner angezeigt.
 
-![Banner, das Sie auffordert, die Braze-App-Einbettung in Shopify zu aktivieren, damit Sie die Einrichtung Ihrer Integration abschließen können.]({% image_buster /assets/img/Shopify/shopify_app_embed_banner.png %})
+![Banner, das Sie auffordert, die Braze-App-Einbettung in Shopify zu aktivieren, damit Sie die Einrichtung Ihrer Integration abschließen können.]({% image_buster /assets/img/shopify/shopify_app_embed_banner.png %})
 
 #### Beispiel-Code {#example-code}
 

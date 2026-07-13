@@ -26,6 +26,51 @@ Revisa la siguiente documentación de Meta para obtener orientación sobre nombr
 
 ## Actualizaciones de productos de WhatsApp {#whatsapp-product-updates}
 
+### 2026: Nombres de usuario de empresa {#2026-business-usernames}
+*Última actualización en mayo de 2026*
+
+Meta está introduciendo nombres de usuario de empresa para WhatsApp, un nombre para mostrar opcional que las empresas pueden adoptar para su número de teléfono de WhatsApp. Cuando se establece un nombre de usuario, aparece en las ventanas de chat de WhatsApp y WhatsApp Business en lugar del número de teléfono. Ten en cuenta que adoptar un nombre de usuario no oculta tu número de teléfono; siempre permanece visible en tu perfil de empresa.
+
+Los nombres de usuario son únicos en todos los números de teléfono de WhatsApp: dos números, ya sean de consumidor o de empresa, no pueden compartir el mismo nombre de usuario. No distinguen entre mayúsculas y minúsculas a efectos de unicidad, pero los puntos y los guiones bajos se tratan como caracteres distintos. Por ejemplo, `myid`, `my.id` y `my_id` se consideran nombres de usuario diferentes, mientras que `myID` y `myid` se tratan como el mismo.
+
+Los nombres de usuario de empresa deben cumplir los siguientes requisitos de formato:
+
+- Contener solo letras en inglés (a–z), dígitos (0–9), puntos (`.`) o guiones bajos (`_`)
+- Tener entre 3 y 35 caracteres de longitud
+- Contener al menos una letra en inglés
+- No comenzar ni terminar con un punto, y no contener dos puntos consecutivos
+- No comenzar con `www`
+- No terminar con un sufijo de dominio común (como `.com`, `.org` o `.net`)
+
+#### Reclamar un nombre de usuario reservado {#claiming-a-reserved-username}
+
+Antes de que la función de nombres de usuario esté ampliamente disponible, Meta puede haber prerreservado un nombre de usuario para tu empresa, generalmente coincidiendo con un nombre de página de Facebook o nombre de usuario de Instagram existente. Puedes reclamar este nombre de usuario reservado o elegir uno diferente a través de [WhatsApp Manage](https://business.facebook.com/wa/manage/). Los nombres de usuario reclamados no se activan hasta que Meta haga disponible la función.
+
+Si el nombre de usuario reservado coincide con uno ya asociado a tu página de Facebook o cuenta de Instagram, primero debes vincular tu número de teléfono de empresa a esa página o cuenta. Puedes hacer esto mientras reclamas el nombre de usuario en WhatsApp Manager o Meta Business Suite, o agregando tu número de teléfono directamente desde la página o cuenta correspondiente. La vinculación requiere control total de la página o cuenta, o acceso parcial básico con el permiso `manage_phone`.
+
+#### Prioridad de visualización en ventanas de chat {#display-priority-in-chat-windows}
+
+Cuando tu perfil de empresa aparece en una ventana de chat, WhatsApp utiliza el siguiente orden de prioridad (de mayor a menor):
+
+1. Nombre de contacto guardado
+2. Nombre de empresa verificado o nombre de Cuenta Oficial de Empresa (OBA)
+3. Nombre de usuario
+4. Número de teléfono
+
+Para obtener más información, consulta la documentación de Meta sobre [nombres de usuario de empresa](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids/#business-usernames).
+
+### Abril de 2026: Archivado automático de plantillas inactivas {#april-2026-automatic-archival-of-inactive-templates}
+*Última actualización en abril de 2026*
+
+- Meta archiva automáticamente las plantillas que han estado inactivas durante 12 meses o más.
+- El archivado automático está habilitado para todas las cuentas de WhatsApp Business y no se puede desactivar.
+- La actividad de plantillas incluye crear, editar, enviar, apelar o desarchivar una plantilla.
+- Las plantillas archivadas no se pueden enviar y están programadas para eliminación permanente después de 28 días.
+- Puedes desarchivar plantillas dentro de la ventana de 28 días para restaurarlas y cancelar la eliminación programada.
+- Las notificaciones se envían a través del webhook `message_template_status_update`, correo electrónico y un banner único en WhatsApp Manager.
+
+Para obtener más información, consulta la documentación de Meta sobre [archivado de plantillas](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival).
+
 ### Junio de 2026: ID de usuario con alcance de empresa {#june-2026-business-scoped-user-ids}
 *Última actualización en marzo de 2026*
 
@@ -46,7 +91,7 @@ Revisa la siguiente documentación de Meta para obtener orientación sobre nombr
 - Anteriormente abierto a todos los clientes a través de WhatsApp Manager
 - Ahora restringido a: gobierno/grandes anunciantes de Meta, anunciantes directos o a través de un BSP como Braze (hasta 5 por semana)
 - Nuevos requisitos previos: verificación de empresa, verificación en dos pasos, nombre para mostrar aprobado, notoriedad
-- Ponte en contacto con tu administrador del éxito del cliente para obtener asistencia
+- Ponte en contacto con tu administrador de éxito de cliente para obtener asistencia
 
 ### Octubre de 2025: Reducciones de tarifas de precios regionales {#october-2025-regional-pricing-rate-cuts}
 *Última actualización en marzo de 2026*
@@ -90,12 +135,12 @@ Meta limitará la cantidad de mensajes de plantilla de marketing que un usuario 
 
 Una excepción es que, si una persona responde a un mensaje de marketing, se iniciará una ventana de servicio al cliente de 24 horas. Los mensajes de marketing enviados dentro de esta ventana no contarán para el límite de esa persona.
 
-El límite específico varía según el usuario, dependiendo de su nivel de interacción. Obtén más información sobre los límites de mensajes de plantilla de marketing por usuario de WhatsApp [aquí](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
+El límite específico varía según el usuario, dependiendo de su nivel de interacción. Obtén más información sobre los límites de mensajes de plantilla de marketing por usuario de WhatsApp en la [documentación de límites de mensajes de plantilla de marketing por usuario de WhatsApp](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
 
 ### Enero de 2025: WhatsApp pausará el envío de mensajes de marketing a usuarios de EE. UU. a partir del 1 de abril {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *Última actualización en enero de 2025*
 
-WhatsApp pausará el envío de mensajes de marketing a usuarios de EE. UU. (personas con números de teléfono de EE. UU.) a partir del 1 de abril de 2025. Los mensajes de [utilidad, servicio, autenticación](https://developers.facebook.com/docs/whatsapp/pricing/) y los [mensajes de respuesta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#response-messages) seguirán estando permitidos en EE. UU.
+WhatsApp pausará el envío de mensajes de marketing a usuarios de EE. UU. (personas con números de teléfono de EE. UU.) a partir del 1 de abril de 2025. Los mensajes de [utilidad, servicio, autenticación](https://developers.facebook.com/docs/whatsapp/pricing/) y los [mensajes de respuesta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) seguirán estando permitidos en EE. UU.
 
 El envío de mensajes de marketing (además de todos los demás tipos de mensajes) a todos los demás países o regiones sigue estando permitido y no se verá afectado.
 
@@ -209,7 +254,7 @@ Ten en cuenta que WhatsApp utiliza el mismo sistema para evaluar la calidad de l
 
 En última instancia, esta actualización te proporciona un ciclo de retroalimentación más rápido (30 minutos en comparación con horas o días con la pausa de plantillas), para que puedas ajustar tus plantillas y proporcionar una mejor experiencia del cliente.
 
-**Si tienes más preguntas sobre esta actualización, ponte en contacto con tu representante socio de Meta.**
+**Si tienes más preguntas sobre esta actualización, ponte en contacto con tu representante partner de Meta.**
 
 ### Junio de 2023: Experimentación de mensajería {#june-2023-messaging-experimentation}
 *Última actualización en junio de 2023*

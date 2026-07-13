@@ -14,7 +14,7 @@ channel: push
 
 ![Message in-app de push primer pour une application de streaming. La notification indique « Recevoir des notifications push de Movie Cannon ? Les notifications peuvent inclure de nouveaux films, séries TV ou d'autres avis et peuvent être désactivées à tout moment. »]({% image_buster /assets/img_archive/push_primer_iam.png %}){: style="float:right;max-width:40%;margin-left:15px;border:none;"}
 
-Pour créer un message in-app de push primer dans Braze, vous pouvez utiliser le comportement au clic du bouton « Demander l'autorisation push » lors de la création d'un message in-app pour iOS, Android ou le Web.
+Pour créer un message in-app de push primer dans Braze, vous pouvez utiliser le comportement au clic du bouton « Request Push Permission » lors de la création d'un message in-app pour iOS, Android ou le Web.
 
 ## Conditions préalables {#prerequisites}
 
@@ -30,7 +30,7 @@ De plus, notez les détails spécifiques à chaque plateforme suivants :
 |----------|----------------------|
 | **Android 12 et versions antérieures** | L'implémentation de push primers n'est pas recommandée car le push est activé par défaut. |
 | **Android 13+** | Si un utilisateur refuse votre invite d'autorisation push deux fois, Android bloque les invites ultérieures, y compris les messages de push primer de Braze. Pour accorder l'autorisation après cela, les utilisateurs doivent activer manuellement le push pour votre application dans les paramètres de leur appareil. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 {% endtab %}
 
 {% tab swift %}
@@ -40,6 +40,7 @@ De plus, notez les détails spécifiques à chaque plateforme suivants :
 - L'invite ne s'affiche pas si le paramètre push de l'application est explicitement activé ou désactivé. Elle ne s'affiche que pour les utilisateurs disposant d'une [autorisation provisoire](https://developer.apple.com/documentation/usernotifications/asking_permission_to_use_notifications#3544375).
   - **Le paramètre push de l'application est activé :** Braze n'affiche pas le message in-app, car l'utilisateur s'est déjà abonné.
   - **Le paramètre push de l'application est désactivé :** Vous devez rediriger l'utilisateur vers les paramètres de notification push de votre application dans les paramètres de l'appareil.
+- **Retester après un refus :** Si un utilisateur refuse l'invite native, iOS ne l'affiche plus pour cette installation de l'application. Pour retester le flux de push primer, les utilisateurs doivent généralement désinstaller et réinstaller l'application, ou modifier l'autorisation de notification pour votre application dans **Réglages**.
 
 ### Suppression manuelle du code {#manual-code-removal}
 
@@ -76,11 +77,11 @@ android.permission.POST_NOTIFICATIONS
 
 ## Étape 1 : Créer un message in-app {#step-1-create-an-in-app-message}
 
-Tout d'abord, [créez un message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/), puis sélectionnez votre type de message et votre disposition.
+Tout d'abord, [créez un message in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), puis sélectionnez votre type de message et votre disposition.
 
 Pour vous assurer d'avoir suffisamment d'espace pour votre message et vos boutons, utilisez une disposition de message en plein écran ou en fenêtre modale. Si vous choisissez le plein écran, notez qu'une image est requise.
 
-## Étape 2 : Construire votre message {#step-2-build-your-message}
+## Étape 2 : Rédiger votre message {#step-2-build-your-message}
 
 Il est maintenant temps d'ajouter votre texte ! N'oubliez pas qu'un push primer est censé préparer l'utilisateur à activer les notifications push. Dans le corps de votre message, nous vous suggérons de mettre en avant les raisons pour lesquelles vos utilisateurs devraient activer les notifications push. Soyez précis sur le type de notifications que vous souhaitez envoyer et la valeur qu'elles peuvent apporter.
 
@@ -96,7 +97,7 @@ Tandis qu'une application de streaming pourrait utiliser le suivant :
 Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time.
 ```
 
-Pour les bonnes pratiques et les ressources supplémentaires, consultez [Créer des invites d'abonnement personnalisées]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Pour les bonnes pratiques et les ressources supplémentaires, consultez [Créer des invites d'abonnement personnalisées]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 ## Étape 3 : Spécifier le comportement des boutons {#button-actions}
 
@@ -148,11 +149,11 @@ Lorsqu'un utilisateur possède plusieurs appareils avec des états d'abonnement 
 - Appareil B : iOS, non abonné aux notifications push
 
 **Filtres de segment qui ne fonctionnent pas :**
-- `Push enabled = false` - L'utilisateur est activé pour le push sur son appareil Android, il n'entre donc pas dans le segment. Le segment n'inclut pas l'appareil iOS.
-- `Push subscription status is not opted in` - L'utilisateur est activé pour le push sur son appareil Android, il n'entre donc pas dans le segment. Le segment n'inclut pas l'appareil iOS.
+- `Push enabled = false` – L'utilisateur est activé pour le push sur son appareil Android, il n'entre donc pas dans le segment. Le segment n'inclut pas l'appareil iOS.
+- `Push subscription status is not opted in` – L'utilisateur est activé pour le push sur son appareil Android, il n'entre donc pas dans le segment. Le segment n'inclut pas l'appareil iOS.
 
 **Filtres de segment qui fonctionnent :**
-- `Push enabled for iOS = false` - L'utilisateur est activé pour le push sur son appareil Android, mais nous ne ciblons que les appareils iOS, donc l'utilisateur entre dans le segment. Le segment inclut l'appareil iOS.
+- `Push enabled for iOS = false` – L'utilisateur est activé pour le push sur son appareil Android, mais nous ne ciblons que les appareils iOS, donc l'utilisateur entre dans le segment. Le segment inclut l'appareil iOS.
 
 {% enddetails %}
 
@@ -163,10 +164,10 @@ Lorsqu'un utilisateur possède plusieurs appareils avec des états d'abonnement 
 - Appareil B : Provisoirement activé mais non abonné
 
 **Filtres de segment qui ne fonctionnent pas :**
-- `Push enabled = false` - L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
-- `Provisionally opted in = true` - L'appareil A est entièrement abonné, ce qui signifie qu'il n'est pas dans un état provisoire. L'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
-- `Push enabled for app > iOS = false` - L'appareil A est abonné aux notifications push sur iOS, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
-- `Push subscription status is not opted in` - L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
+- `Push enabled = false` – L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
+- `Provisionally opted in = true` – L'appareil A est entièrement abonné, ce qui signifie qu'il n'est pas dans un état provisoire. L'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
+- `Push enabled for app > iOS = false` – L'appareil A est abonné aux notifications push sur iOS, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
+- `Push subscription status is not opted in` – L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas l'appareil B.
 
 **Résultat :** L'utilisation de toute combinaison de ces filtres push entraîne l'exclusion d'au moins un appareil du segment.
 
@@ -180,15 +181,15 @@ Lorsqu'un utilisateur possède plusieurs appareils avec des états d'abonnement 
 - Appareil C : Non abonné aux notifications push
 
 **Filtres de segment qui ne fonctionnent pas :**
-- `Push enabled = false` - L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas les appareils B et C.
-- `Push enabled for app > X = false` - L'appareil A est abonné aux notifications push sur l'application spécifiée, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas les appareils B et C.
-- `Push subscription status is not opted in` - L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas les appareils B et C.
+- `Push enabled = false` – L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas les appareils B et C.
+- `Push enabled for app > X = false` – L'appareil A est abonné aux notifications push sur l'application spécifiée, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas les appareils B et C.
+- `Push subscription status is not opted in` – L'appareil A est abonné aux notifications push, donc l'utilisateur n'entre pas dans le segment. Le segment n'inclut pas les appareils B et C.
 
 **Résultat :** L'utilisation de toute combinaison de ces filtres push laisse au moins un appareil non ciblé.
 
 {% enddetails %}
 
-#### Solution : Utiliser le push primer sans code {#solution-use-the-no-code-push-primer}
+#### Solution : utiliser le push primer sans code {#solution-use-the-no-code-push-primer}
 
 La solution recommandée est d'utiliser le push primer sans code (l'action de bouton « Request Push Permission ») sans filtres de segmentation supplémentaires sur le statut push.
 
@@ -217,4 +218,4 @@ Le filtre Liquid `targeted_device` examine uniquement l'appareil sur lequel le m
 
 ## Étape 6 : Événements de conversion {#step-6-conversion-events}
 
-Braze suggère des paramètres par défaut pour les conversions, mais vous pouvez configurer des [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) autour des push primers.
+Braze suggère des paramètres par défaut pour les conversions, mais vous pouvez configurer des [événements de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) autour des push primers.

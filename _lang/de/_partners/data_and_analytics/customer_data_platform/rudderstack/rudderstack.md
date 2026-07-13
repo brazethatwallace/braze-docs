@@ -20,9 +20,9 @@ Die Integration von Braze und RudderStack bietet eine native SDK-Integration fü
 | RudderStack-Konto | Sie benötigen ein [RudderStack-Konto](https://app.rudderstack.com/), um die Vorteile dieser Partnerschaft zu nutzen. |
 | Konfigurierte Quelle | Eine [Quelle](https://www.rudderstack.com/docs/dashboard-guides/sources/) ist im Wesentlichen die Herkunft aller Daten, die an RudderStack gesendet werden, wie Websites, mobile Apps oder Backend-Server. Bevor Sie Braze als Ziel in RudderStack einrichten, müssen Sie die Quelle konfigurieren. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track`, `users.identify`, `users.delete` und `users.alias.new`.<br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-App-Schlüssel | Um Ihren App-Schlüssel im Braze-Dashboard zu erhalten, gehen Sie zu **Einstellungen** > **App-Einstellungen** > **Identifizierung** und suchen Sie den Namen Ihrer App. Speichern Sie den zugehörigen Bezeichner-String.
-| Datenzentrum | Ihr Datenzentrum stimmt mit Ihrer Braze-Dashboard-[Instanz]({{site.baseurl}}/api/basics/#endpoints) überein.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze-App-Schlüssel | Um Ihren App-Schlüssel im Braze-Dashboard zu erhalten, gehen Sie zu **Einstellungen** > **App Settings** > **Identification** und suchen Sie den Namen Ihrer App. Speichern Sie den zugehörigen Bezeichner-String.
+| Datenzentrum | Ihr Datenzentrum stimmt mit Ihrer Braze-Dashboard-[Instanz]({{site.baseurl}}/api/basics#endpoints) überein.  |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
@@ -35,8 +35,6 @@ Um mit dem Senden von Daten an Braze zu beginnen, müssen Sie zunächst sicherst
 Da Ihre Datenquelle nun eingerichtet ist, wählen Sie im RudderStack-Dashboard unter **Destinations** die Option **ADD DESTINATION** aus. Wählen Sie aus der Liste der verfügbaren Ziele **Braze** aus und klicken Sie auf **Next**.
 
 Geben Sie im Braze-Ziel den App-Schlüssel, den Braze REST-API-Schlüssel, den Daten-Cluster und die native SDK-Option (nur im Gerätemodus) an. Die Option „Natives SDK“ verwendet das native Braze SDK zum Senden von Ereignissen, wenn sie aktiviert ist.
-
-![]({% image_buster /assets/img/RudderStack/braze_settings.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
 
 ### 3. Schritt: Wählen Sie die Art der Integration {#step-3-choose-the-type-of-integration}
 
@@ -94,18 +92,18 @@ Um [Ereignisse über den Hybrid-Modus zu senden](https://www.rudderstack.com/doc
 
 Nach Abschluss der Ersteinrichtung konfigurieren Sie die folgenden Einstellungen, um Ihre Daten in Braze korrekt zu empfangen:
 
-- **Abo-Gruppen im Gruppenaufruf aktivieren**: Aktivieren Sie diese Einstellung, um den Abo-Gruppenstatus in Ihren Gruppenereignissen zu senden. Weitere Informationen finden Sie unter [Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group).
-- **Angepasste-Attribute-Operation verwenden**: Aktivieren Sie diese Einstellung, wenn Sie die Funktionalität der [verschachtelten angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) in Braze nutzen möchten, um Segmente zu erstellen und Ihre Nachrichten mithilfe eines angepassten Attributobjekts zu personalisieren. Weitere Informationen finden Sie unter [Nutzer:innen-Traits als verschachtelte angepasste Attribute senden](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
-- **Ereignisse für anonyme Nutzer:innen tracken**: Aktivieren Sie diese Einstellung, um anonyme Nutzer:innen-Aktivitäten zu tracken und diese Informationen an Braze zu senden.
+- **Enable subscription groups in group call**: Aktivieren Sie diese Einstellung, um den Abo-Gruppenstatus in Ihren Gruppenereignissen zu senden. Weitere Informationen finden Sie unter [Group](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#group).
+- **Use Custom Attributes Operation**: Aktivieren Sie diese Einstellung, wenn Sie die Funktionalität der [verschachtelten angepassten Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) in Braze nutzen möchten, um Segmente zu erstellen und Ihre Nachrichten mithilfe eines angepassten Attributobjekts zu personalisieren. Weitere Informationen finden Sie unter [Send user traits as nested custom attributes](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#send-user-traits-as-nested-custom-attributes).
+- **Track events for anonymous users**: Aktivieren Sie diese Einstellung, um anonyme Nutzer:innen-Aktivitäten zu tracken und diese Informationen an Braze zu senden.
 
 ### Einstellungen des Gerätemodus {#device-mode-settings}
 
 Die folgenden Einstellungen gelten nur, wenn Sie Ereignisse über den [Gerätemodus](https://www.rudderstack.com/docs/destinations/rudderstack-connection-modes/#device-mode) an Braze senden:
 
-- **Clientseitige Filterung von Ereignissen**: Mit dieser Einstellung können Sie festlegen, welche Ereignisse für Braze gesperrt oder zugelassen werden sollen. Weitere Informationen zu dieser Einstellung finden Sie unter [Client-side Events Filtering](https://www.rudderstack.com/docs/sources/event-streams/sdks/event-filtering/).
-- **Traits deduplizieren**: Aktivieren Sie diese Einstellung, um die Nutzer:innen-Traits im [`identify`](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#identify)-Aufruf zu deduplizieren.
-- **Braze-Protokolle anzeigen**: Diese Einstellung gilt nur, wenn Sie das [JavaScript SDK](https://www.rudderstack.com/docs/sources/event-streams/sdks/rudderstack-javascript-sdk/) als Quelle verwenden. Aktivieren Sie sie, um die Braze-Protokolle für Ihre Nutzer:innen anzuzeigen.
-- **OneTrust-Cookie-Kategorien**: Mit dieser Einstellung können Sie die [OneTrust-Cookie-Zustimmungsgruppen](https://www.rudderstack.com/docs/sources/event-streams/sdks/onetrust/javascript/) mit Braze verknüpfen.
+- **Client-side Events Filtering**: Mit dieser Einstellung können Sie festlegen, welche Ereignisse für Braze gesperrt oder zugelassen werden sollen. Weitere Informationen zu dieser Einstellung finden Sie unter [Client-side Events Filtering](https://www.rudderstack.com/docs/sources/event-streams/sdks/event-filtering/).
+- **Deduplicate Traits**: Aktivieren Sie diese Einstellung, um die Nutzer:innen-Traits im [`identify`](https://www.rudderstack.com/docs/destinations/streaming-destinations/braze/#identify)-Aufruf zu deduplizieren.
+- **Show Braze logs**: Diese Einstellung gilt nur, wenn Sie das [JavaScript SDK](https://www.rudderstack.com/docs/sources/event-streams/sdks/rudderstack-javascript-sdk/) als Quelle verwenden. Aktivieren Sie sie, um die Braze-Protokolle für Ihre Nutzer:innen anzuzeigen.
+- **OneTrust Cookie Categories**: Mit dieser Einstellung können Sie die [OneTrust-Cookie-Zustimmungsgruppen](https://www.rudderstack.com/docs/sources/event-streams/sdks/onetrust/javascript/) mit Braze verknüpfen.
 
 ## Unterstützte Methoden {#supported-methods}
 
@@ -117,10 +115,10 @@ Braze unterstützt die RudderStack-Methoden identify, track, screen, page, group
 Die RudderStack-[`identify`-Methode](https://rudderstack.com/docs/destinations/marketing/braze/#identify) verknüpft Nutzer:innen mit ihren Aktionen. RudderStack erfasst eine eindeutige Nutzer-ID und optionale Traits wie Name, E-Mail, IP-Adresse usw.
 
 **Delta-Verwaltung für identify-Aufrufe**<br>
-Wenn Sie Ereignisse über den Gerätemodus an Braze senden, können Sie Kosten sparen, indem Sie Ihre `identify`-Aufrufe deduplizieren. Aktivieren Sie dazu die Dashboard-Einstellung „Traits deduplizieren“. RudderStack sendet dann nur die geänderten oder modifizierten Attribute (Traits) an Braze.
+Wenn Sie Ereignisse über den Gerätemodus an Braze senden, können Sie Kosten sparen, indem Sie Ihre `identify`-Aufrufe deduplizieren. Aktivieren Sie dazu die Dashboard-Einstellung **Deduplicate Traits**. RudderStack sendet dann nur die geänderten oder modifizierten Attribute (Traits) an Braze.
 
 **Nutzer:in löschen**<br>
-Sie können eine:n Nutzer:in in Braze mit der [Verordnung „Unterdrückung mit Löschen“](https://www.rudderstack.com/docs/api/data-regulation-api/#adding-a-suppression-with-delete-regulation) der RudderStack [Data Regulation API](https://www.rudderstack.com/docs/api/data-regulation-api/) löschen.
+Sie können eine:n Nutzer:in in Braze mit der [Verordnung „Suppression with Delete“](https://www.rudderstack.com/docs/api/data-regulation-api/#adding-a-suppression-with-delete-regulation) der RudderStack [Data Regulation API](https://www.rudderstack.com/docs/api/data-regulation-api/) löschen.
 
 {% endtab %}
 {% tab Track %}
@@ -128,7 +126,7 @@ Sie können eine:n Nutzer:in in Braze mit der [Verordnung „Unterdrückung mit 
 Die [`track`-Methode](https://rudderstack.com/docs/destinations/marketing/braze/#track) von RudderStack erfasst alle Nutzer:innen-Aktivitäten und die mit diesen Aktivitäten verbundenen Eigenschaften.
 
 **Bestellung abgeschlossen**<br>
-Wenn Sie die [RudderStack eCommerce API](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/) verwenden, um die track-Methode für ein Ereignis mit dem Namen `Order Completed` aufzurufen, sendet RudderStack die in diesem Ereignis aufgeführten Produkte an Braze als [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data/#revenue-data).
+Wenn Sie die [RudderStack E-Commerce API](https://www.rudderstack.com/docs/event-spec/ecommerce-events-spec/) verwenden, um die track-Methode für ein Ereignis mit dem Namen `Order Completed` aufzurufen, sendet RudderStack die in diesem Ereignis aufgeführten Produkte an Braze als [`purchases`]({{site.baseurl}}/user_guide/data_and_analytics/export_braze_data/exporting_revenue_data#revenue-data).
 
 {% endtab %}
 {% tab Screen %}
@@ -146,7 +144,7 @@ Mit der [`page`-Methode](https://rudderstack.com/docs/destinations/marketing/bra
 Mit der [`group`-Methode](https://rudderstack.com/docs/destinations/marketing/braze/#group) von RudderStack können Sie eine:n Nutzer:in mit einer Gruppe verknüpfen.
 
 **Abo-Gruppenstatus**<br>
-Um den Abo-Gruppenstatus zu aktualisieren, aktivieren Sie im RudderStack-Dashboard die Einstellung „Abo-Gruppen im Gruppenaufruf aktivieren“ und senden Sie den Abo-Gruppenstatus im Gruppenaufruf.
+Um den Abo-Gruppenstatus zu aktualisieren, aktivieren Sie im RudderStack-Dashboard die Einstellung „Enable subscription groups in group call“ und senden Sie den Abo-Gruppenstatus im Gruppenaufruf.
 
 {% endtab %}
 {% tab Alias %}
@@ -158,7 +156,7 @@ Die [`alias`-Methode](https://www.rudderstack.com/docs/destinations/streaming-de
 
 ## Nutzer:innen-Traits als verschachtelte angepasste Attribute senden {#send-user-traits-as-nested-custom-attributes}
 
-Sie können die Nutzer:innen-Traits als verschachtelte angepasste Attribute an Braze senden und Hinzufüge-, Aktualisierungs- und Entfernungsoperationen darauf ausführen. Aktivieren Sie dazu die Einstellung „Angepasste-Attribute-Operation-Dashboard verwenden“ in RudderStack, während Sie das Braze-Ziel konfigurieren. Dieses Feature ist nur im Cloud-Modus verfügbar.
+Sie können die Nutzer:innen-Traits als verschachtelte angepasste Attribute an Braze senden und Hinzufüge-, Aktualisierungs- und Entfernungsoperationen darauf ausführen. Aktivieren Sie dazu die Einstellung „Use Custom Attributes Operation“ im Dashboard in RudderStack, während Sie das Braze-Ziel konfigurieren. Dieses Feature ist nur im Cloud-Modus verfügbar.
 
 Sie können die Nutzer:innen-Traits als verschachtelte angepasste Attribute in Ihren `identify`-Ereignissen im folgenden Format senden:
 ```javascript
@@ -179,7 +177,7 @@ rudderanalytics.identify("1hKOmRA4GRlm", {
         "age": 27,
         "id": 1,
         "identifier": "id",
-        "name": "Mike"
+        "name": "Alex"
       }
     ]
   },
@@ -220,7 +218,7 @@ rudderanalytics.track("Product Viewed", {
           "age": 30,
           "id": 2,
           "identifier": "id",
-          "name": "Mike"
+          "name": "Alex"
         },
         {
           "age": 27,
@@ -253,5 +251,5 @@ rudderanalytics.track("Product Viewed", {
 ```
 
 {% alert note %}
-Für die Operationen „Aktualisieren“ und „Entfernen“ ist `identifier` ein erforderlicher Schlüssel. Wenn im verschachtelten Array keine Operationen zum Hinzufügen, Aktualisieren oder Entfernen vorhanden sind, verwendet RudderStack standardmäßig die Operation „Erstellen“, um die Eigenschaften zu erstellen. Weitere Informationen zum Senden von verschachtelten angepassten Attributen finden Sie unter [Array von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/).
+Für die Operationen „Aktualisieren“ und „Entfernen“ ist `identifier` ein erforderlicher Schlüssel. Wenn im verschachtelten Array keine Operationen zum Hinzufügen, Aktualisieren oder Entfernen vorhanden sind, verwendet RudderStack standardmäßig die Operation „Erstellen“, um die Eigenschaften zu erstellen. Weitere Informationen zum Senden von verschachtelten angepassten Attributen finden Sie unter [Array von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 {% endalert %}

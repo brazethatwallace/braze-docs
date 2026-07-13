@@ -2,7 +2,7 @@
 nav_title: Peak
 article_title: Peak
 description: "This reference article outlines the partnership between Braze and Peak, a decision intelligence platform, allows you to take predicted churn probability and attributes based on customer behaviors and interactions, and import them into Braze to use in customer segmentation and targeting."
-alias: /partners/Peak/
+alias: /partners/peak/
 page_type: partner
 search_tag: Partner
 
@@ -27,6 +27,7 @@ As a starting point, a Peak tenant must host the integration between Peak and Br
 | Peak tenant | An instance of the Peak platform, known as a tenant, is required to host and orchestrate the integration. |
 | Decision intelligence solution | Integration between Peak and Braze is based on AI-driven outputs and thus requires a Peak or Customer deployed solution within your tenant. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. <br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

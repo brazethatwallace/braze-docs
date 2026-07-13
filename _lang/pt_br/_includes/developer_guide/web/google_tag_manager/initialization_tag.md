@@ -35,7 +35,7 @@ Insira as informações mínimas necessárias:
 | **API Key**   | Sua [chave de API da Braze]({{site.baseurl}}/api/basics/#about-rest-api-keys), encontrada no dashboard da Braze em **Settings** > **App Settings**. |
 | **API Endpoint** | A URL do seu endpoint REST. Seu endpoint dependerá da URL da Braze para [sua instância]({{site.baseurl}}/api/basics/#endpoints). |
 | **SDK Version**  | A versão `MAJOR.MINOR` mais recente do SDK Web da Braze listada no [changelog]({{site.baseurl}}/developer_guide/changelogs/?sdktab=web). Por exemplo, se a versão mais recente for `4.1.2`, digite `4.1`. Para saber mais, consulte [Sobre o gerenciamento de versões do SDK]({{site.baseurl}}/developer_guide/sdk_integration/version_management/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configure a tag" }
 
 Para configurações adicionais de inicialização, selecione **Braze Initialization Options** e escolha as opções que você precisar.
 
@@ -61,6 +61,7 @@ A Braze Initialization Tag expõe as seguintes opções. A maioria delas mapeia 
 | **Open Cards in New Tab** | `openCardsInNewTab` | Abre links de cartões de conteúdo em uma nova guia ao usar a interface padrão do feed. |
 | **Service Worker Location** | `serviceWorkerLocation` | Caminho personalizado para o arquivo do service worker (padrão: `/service-worker.js`). |
 | **Session Timeout (seconds)** | `sessionTimeoutInSeconds` | Tempo limite da sessão em segundos (padrão: 1800). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Etapa 4: Escolha as opções de inicialização" }
 
 {% alert note %}
 Para ativar [mensagens no app em HTML personalizado]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) ao usar a Braze Initialization Tag no Google Tag Manager, selecione **Allow HTML In-App Messages** em **Braze Initialization Options**. Essa caixa de seleção mapeia para a opção de inicialização `allowUserSuppliedJavascript` em `braze.initialize()` e a define como `true`. A Braze Initialization Tag do Google Tag Manager usa esse rótulo em vez do nome da opção.

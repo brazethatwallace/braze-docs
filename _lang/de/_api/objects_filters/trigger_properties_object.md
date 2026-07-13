@@ -17,7 +17,7 @@ Wenn Sie eine API-Anfrage stellen, die ein Objekt in `trigger_properties` enthä
 Beachten Sie, dass Trigger-Eigenschaften zwar als Template in Nachrichten eingefügt werden können, aber standardmäßig nicht automatisch im Nutzerprofil gespeichert werden.
 
 {% alert note %}
-Das Objekt `trigger_properties` und die Syntax {% raw %}`api_trigger_properties.${product_name}`{% endraw %} werden nur in Campaigns unterstützt. Um Nachrichten mit Schlüsseln und Werten aus einer API-Trigger-Anfrage für Canvas anzupassen, verwenden Sie das [Canvas-Eingangs-Eigenschaften-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). Das Objekt `trigger_properties` hat eine maximale Größe von 50 KB.
+Das Objekt `trigger_properties` und die Syntax {% raw %}`api_trigger_properties.${product_name}`{% endraw %} werden nur in Campaigns unterstützt. Um Nachrichten mit Schlüsseln und Werten aus einer API-Trigger-Anfrage für Canvas anzupassen, verwenden Sie das [Canvas-Eingangs-Eigenschaften-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). Das Objekt `trigger_properties` hat eine maximale Größe von 50 KB.
 {% endalert %}
 
 ## Objektinhalt {#object-body}

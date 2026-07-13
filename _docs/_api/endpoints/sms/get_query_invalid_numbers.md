@@ -13,13 +13,13 @@ description: "This article outlines details about Query invalid phone numbers Br
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> Use this endpoint to pull a list of phone numbers that have been marked "invalid" within a certain time frame. See [Invalid Phone Number Handling]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/#handling-invalid-phone-numbers) documentation for more information.
+> Use this endpoint to pull a list of phone numbers that have been marked "invalid" within a certain time frame. See [Invalid Phone Number Handling]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers) documentation for more information.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `sms.invalid_phone_numbers` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `sms.invalid_phone_numbers` permission.
 
 ## Rate limit
 
@@ -35,7 +35,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | `offset` | Optional | Integer | Optional beginning point in the list to retrieve from. |
 | `phone_numbers` | Optional <br>(see note) | Array of Strings in e.164 format | If provided, we will return the phone number if it has been found to be invalid. |
 | `reason` | Optional <br>(see note) | String | Available values are "provider_error" (provider error indicates phone cannot receive SMS) or "deactivated" (phone number has been deactivated). If omitted, all reasons are returned. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 {% alert note %}
 You must provide either a `start_date` and an `end_date` OR `phone_numbers`. If you provide all three, `start_date`, `end_date`, and `phone_numbers`, we prioritize the given phone numbers and disregard the date range.

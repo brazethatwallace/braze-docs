@@ -46,7 +46,7 @@ To test your email message in Inbox Vision:
 5. Select **Run Inbox Vision**. This may take between two to ten minutes to complete.
 
 {% alert note %}
-Inbox Vision doesn't support email messages that include [abort logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) because these emails render as static content.
+Inbox Vision doesn't support email messages that include [abort logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) because these emails render as static content.
 {% endalert %}
 
 ### Previewing as a user
@@ -111,7 +111,7 @@ Inbox Vision categorizes issues under the four foundational [POUR principles](ht
 | Operable | User interface components and navigation must be operable.<br><br>Users must be able to operate the interface (the interface cannot require interaction that a user cannot perform). |
 | Understandable | Information and the operation of the user interface must be understandable.<br><br>Users must be able to understand the information as well as the operation of the user interface (the content or operation cannot be beyond their understanding). |
 | Robust | Content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technologies.<br><br>Users must be able to access the content as technologies advance (as technologies and user agents evolve, the content should remain accessible). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="POUR categories" }
 
 #### Severity levels
 
@@ -125,10 +125,10 @@ Inbox Vision classifies accessibility issues by severity to help you prioritize 
 | Minor | Issues that have a relatively low impact on accessibility and may cause only minor inconvenience. |
 | Needs review | Unable to detect if there might be an issue or not. This can occur when we are unable to determine the contrast ratio as the text is placed on a background image. You must manually review because it cannot be automatically determined. |
 | Passed | Passed WCAG A, AA, or accessibility best practice. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Severity levels" }
 
 {% alert important %}
-The drag-and-drop editor does not support setting a document `<title>` element, so the accessibility scanner always fails this check.<br><br>This limitation is tracked for future improvements. If this affects your workflows or your users, [share your feedback]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard#sharing-feedback) so we can prioritize impactful fixes.
+The drag-and-drop editor does not support setting a document `<title>` element, so the accessibility scanner always fails this check.<br><br>This limitation is tracked for future improvements. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
 {% endalert %}
 
 ### Understanding automated accessibility testing
@@ -139,7 +139,7 @@ The drag-and-drop editor does not support setting a document `<title>` element, 
 
 ### Review your email subscriber list
 
-Reference the [email insights dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) to determine the most popular device type and providers where your subscribers are engaging. If you need more granularity, such as the browser, device model, and more, you can leverage your [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) data or [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) to retrieve this level of detail about your users’ recent email engagement.
+Reference the [email insights dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) to determine the most popular device type and providers where your subscribers are engaging. If you need more granularity, such as the browser, device model, and more, you can leverage your [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) data or [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) to retrieve this level of detail about your users’ recent email engagement.
 
 Otherwise, Braze defaults to the top 20 previews based on general industry and expert data, which covers the majority of where your subscribers are engaging with your emails. If your data analysis points to other, more popular previews, you can define a default set of previews every time you run Inbox Vision.
 
@@ -155,7 +155,7 @@ We suggest running Inbox Vision when the email message is production-ready or cl
 
 Running Inbox Vision every time you make a single edit or change can quickly consume previews. We suggest making all the necessary changes to the email first, and then running Inbox Vision to preview how all your changes can affect the rendering of your email across environments.
 
-Braze runs tests through actual email clients and works to ensure renderings are accurate. If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/braze_support/).
+Braze runs tests through actual email clients and works to ensure renderings are accurate. If you consistently see an issue with a client, open a [support ticket]({{site.baseurl}}/braze_support).
 
 ### Test accuracy versus live inboxes
 

@@ -16,7 +16,7 @@ description: "Braze 플랫폼에서 나중에 사용할 웹훅 템플릿을 생�
 
 ## 1단계: 웹훅 템플릿 편집기로 이동 {#step-1-go-to-the-webhook-template-editor}
 
-Braze 대시보드에서 **템플릿** > **웹훅 템플릿**으로 이동합니다.
+Braze 대시보드에서 **콘텐츠** > **웹훅**으로 이동합니다.
 
 ![미리 디자인된 웹훅 템플릿과 저장된 웹훅 템플릿이 있는 '웹훅 템플릿' 페이지.]({% image_buster /assets/img_archive/webhook_template_campaign.png %})
 
@@ -24,13 +24,13 @@ Braze 대시보드에서 **템플릿** > **웹훅 템플릿**으로 이동합니
 
 여기에서 새 템플릿을 생성하거나, 미리 디자인된 웹훅 템플릿 중 하나를 사용하거나, 기존 템플릿을 편집할 수 있습니다.
 
-예를 들어, [LINE]({{site.baseurl}}/user_guide/channels/line/)을 메시징 채널로 사용하는 경우, **LINE Carousel** 또는 **LINE Image**의 미리 디자인된 템플릿을 사용하여 여러 웹훅을 설정할 수 있습니다.
+예를 들어, [LINE]({{site.baseurl}}/user_guide/channels/line)을 메시징 채널로 사용하는 경우, **LINE Carousel** 또는 **LINE Image**의 미리 디자인된 템플릿을 사용하여 여러 웹훅을 설정할 수 있습니다.
 
 ## 3단계: 템플릿 세부 정보 입력 {#step-3-fill-out-template-details}
 
 1. 웹훅 템플릿에 고유한 이름을 지정합니다.
 2. (선택 사항) 이 템플릿의 사용 목적을 설명하는 템플릿 설명을 추가합니다.
-3. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) 및 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)를 추가하여 템플릿을 쉽게 찾고 필터링할 수 있도록 합니다.
+3. 필요에 따라 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) 및 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 추가하여 템플릿을 쉽게 찾고 필터링할 수 있도록 합니다.
 
 ## 4단계: 템플릿 구축 {#step-4-build-your-template}
 
@@ -55,4 +55,4 @@ Braze 대시보드에서 **템플릿** > **웹훅 템플릿**으로 이동합니
 
 ## 템플릿 관리 {#managing-your-templates}
 
-웹훅 템플릿을 [복제 및 아카이브]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/)하여 템플릿 목록을 더 효과적으로 정리하고 관리할 수 있습니다.
+웹훅 템플릿을 [복제 및 아카이브]({{site.baseurl}}/user_guide/messaging/templates/managing_templates)하여 템플릿 목록을 더 효과적으로 정리하고 관리할 수 있습니다.

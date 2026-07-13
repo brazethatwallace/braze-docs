@@ -18,13 +18,13 @@ No special coordination with Braze is required for **BIMI** (Brand Indicators fo
 
 ## Methods of authentication
 
-### Sender Policy Framework (SPF)
+### Sender Policy Framework (SPF) {#spf}
 
 This method confirms that your Braze email-sending IP address is authorized to send mail on your behalf. SPF is your basic authentication and is accomplished by publishing the text records in DNS settings. The receiving server will check the DNS records and determine whether they are authentic. This method is designed to validate the email sender.
 
 Braze sets up your SPF record when we configure your IPs and domains. Beyond adding the DNS records we provide, you don't need to take further action.
 
-### Domain Keys Identified Mail (DKIM)
+### Domain Keys Identified Mail (DKIM) {#dkim}
 
 This method confirms that your Braze email-sending domain is authorized to send mail on your behalf. This method is designed to validate the sender's authenticity and validates the integrity of the message is preserved. It also uses individual cryptographic digital signatures so ISPs can be sure the mail they're delivering is the same as the mail you sent.
 
@@ -32,7 +32,7 @@ Braze signs the mail with your secret private key. The ISPs verify the signature
 
 Braze sets up your DKIM record when we configure your IPs and domains. Beyond adding the DNS records we provide, you don't need to take further action.
 
-### Domain-based Message Authentication, Reporting, and Conformance (DMARC)
+### Domain-based Message Authentication, Reporting, and Conformance (DMARC) {#dmarc}
 
 [Domain-based Message Authentication, Reporting & Conformance (DMARC)](https://dmarc.org/) is an email authentication protocol for email senders to prove the legitimacy of their mail, which enables mailbox receiver confidence and encourages mail acceptance. DMARC allows email senders to specify how to handle emails that were not authenticated using Sender Policy Framework (SPF) or Domain Keys Identified Mail (DKIM). This is achieved by verifying that both SPF and DKIM checks are passed. 
 
@@ -51,7 +51,7 @@ Set a DMARC policy on the root domain so it applies to all subdomains. This avoi
 | None | Tell the mailbox provider to perform no actions against messages that fail. |
 | Quarantine | Tell the mailbox provider to send messages that fail to the spam folder. |
 | Reject | Tell the mailbox provider that messages that fail will go to the spam folder and should be blocked. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How it works" }
 
 #### How to check your domain's DMARC authentication
 
@@ -61,11 +61,44 @@ There are two options to check your domain's DMARC authentication:
     - **MXToolbox**: If you set your DMARC as the root domain, enter that into MXToolbox. If you set the DMARC at the subdomain, enter the sub-domain into MXToolbox. Be aware that MXToolbox doesn't "look up or down" when performing lookups. This means if you set the DMARC at the root domain and enter the subdomain, MXToolbox will show a failure as it doesn't know the DMARC has been set at the root domain.
 - **Option 2:** Open an email from your domain or subdomain in your mailbox, and find the original message to check whether DMARC is passing authentication on this email.
 
-For example, if you’re using Gmail, follow these steps:
+The steps vary by email client:
 
-1. Click the **More** <i class="fa-solid fa-ellipsis"></i> in an email message.
+{% tabs %}
+{% tab Gmail %}
+
+1. Select **More** <i class="fa-solid fa-ellipsis"></i> in an email message.
 2. Select **Show original**.
 3. Check if you have a "PASS" status for **DMARC**.
 
 ![An email that has "PASS" as the DMARC value.]({% image_buster /assets/img_archive/dmarc_example.png %})
+
+{% endtab %}
+{% tab Outlook %}
+
+1. Open the email.
+2. Select the arrow next to **Reply**.
+3. Select **Show message source**.
+4. Check if you have a "PASS" status for **DMARC**.
+
+{% endtab %}
+{% tab Apple Mail %}
+
+1. Open the email.
+2. Select **View** on the menu bar.
+3. Select **Message** > **Raw Source**.
+4. Check if you have a "PASS" status for **DMARC**.
+
+{% endtab %}
+{% endtabs %}
+
+#### Troubleshoot DMARC failures
+
+If DMARC shows **FAIL** for messages sent through Braze:
+
+1. Open a recent message's raw headers or authentication results and note whether **SPF** and **DKIM** each pass or fail.
+2. **Alignment:** DMARC passes when *either* SPF *or* DKIM aligns with the **From** domain. Alignment means the **From** domain matches the domain that passed SPF (often the **Return-Path** / envelope domain) *or* the domain in the DKIM **d=** signature.
+3. If SPF passes but DMARC fails, the Return-Path domain may not align with your **From** domain—confirm your [branded sending and tracking domains]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains) match the domains you publish SPF and DKIM for.
+4. If DKIM fails, verify the Braze-provided DKIM DNS records are present and unchanged.
+
+Third-party checkers (for example, [MXToolbox](https://mxtoolbox.com/dmarc.aspx)) help confirm published records; always validate with a live message from Braze as well.
 

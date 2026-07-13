@@ -1,20 +1,20 @@
 ---
 nav_title: "GET: Ver información sobre la plantilla de correo electrónico"
-article_title: "GET: Ver información sobre plantillas de correo electrónico"
+article_title: "GET: Ver información sobre la plantilla de correo electrónico"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Ver plantilla de correo electrónico de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Ver plantilla de correo electrónico de Braze."
 
 ---
 {% api %}
-# Ver información sobre la plantilla de correo electrónico
+# Ver información sobre la plantilla de correo electrónico {#see-email-template-information}
 {% apimethod get %}
 /templates/email/info
 {% endapimethod %}
 
-> Utiliza este punto final para obtener información sobre tus plantillas de correo electrónico.
+> Utiliza este punto de conexión para obtener información sobre tus plantillas de correo electrónico.
 
 {% alert important %}
 No se aceptan plantillas creadas con el editor de arrastrar y soltar para correo electrónico.
@@ -22,21 +22,21 @@ No se aceptan plantillas creadas con el editor de arrastrar y soltar para correo
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
-## Requisitos previos
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `templates.email.info`.
+## Requisitos previos {#prerequisites}
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `templates.email.info`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `email_template_id`  | Obligatoria | Cadena | Ver [el identificador API de la plantilla de correo electrónico]({{site.baseurl}}/api/identifier_types/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id` | Obligatorio | Cadena | Ver [el identificador de API de la plantilla de correo electrónico]({{site.baseurl}}/api/identifier_types). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/info?email_template_id={{email_template_id}}' \
@@ -44,7 +44,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/
 ```
 {% endraw %}
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {

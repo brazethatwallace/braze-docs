@@ -1,53 +1,53 @@
-{% multi_lang_include developer_guide/prerequisites/swift.md %} [プッシュ通知の設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)も必要だ。これにはフレーム`UNNotification`ワークの実装が含まれる。
+{% multi_lang_include developer_guide/prerequisites/swift.md %} [プッシュ通知の設定]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)も必要です。これには`UNNotification`フレームワークの実装が含まれます。
 
-プッシュ通知を受け取るには、以下の最小SDKバージョンが必要だ：
+Push Storiesを受信するには、以下の最小SDKバージョンが必要です。
 
 {% sdk_min_versions swift:5.0.0 %}
 
-## プッシュ通知のストーリーの設定
+## Push Storiesの設定 {#setting-up-push-stories}
 
-### ステップ 1: 通知コンテンツ拡張ターゲットを追加する{#notification-content-extension}
+### ステップ 1: 通知コンテンツ拡張ターゲットを追加する {#notification-content-extension}
 
-アプリ・プロジェクトで、メニュー「**ファイル」＞「新規作成」＞「ターゲット**」と進み、新しい`Notification Content Extension` ・ターゲットを追加してアクティブにする。
+アプリプロジェクトで、メニュー**File > New > Target**に移動し、新しい`Notification Content Extension`ターゲットを追加してアクティブにします。
 
-![]({% image_buster /assets/img/swift/push_story/add_content_extension.png %})
+![Push Stories用のNotification Content Extensionを作成するXcodeターゲットピッカー]({% image_buster /assets/img/swift/push_story/add_content_extension.png %})
 
-Xcode によって新しいターゲットが生成され、次のようなファイルが自動的に作成されるはずです。
+Xcodeによって新しいターゲットが生成され、以下のファイルが自動的に作成されます。
 
 - `NotificationViewController.swift`
 - `MainInterface.storyboard`
 
-### ステップ2:機能を有効にする {#enable-capabilities}
+### ステップ 2: 機能を有効にする {#enable-capabilities}
 
-Xcodeで、メインのアプリターゲットに**「署名&機能**」パネルを使って「バックグラウンドモード」機能を追加する。**バックグラウンドフェッチ**と**リモート通知**の両方のチェックボックスを選択します。
+Xcodeで、メインアプリターゲットの**Signing & Capabilities**パネルを使用してBackground Modes機能を追加します。**Background fetch**と**Remote notifications**の両方のチェックボックスを選択します。
 
 ![]({% image_buster /assets/img/swift/push_story/enable_background_mode.png %})
 
-#### アプリグループの追加
+#### アプリグループの追加 {#adding-an-app-group}
 
-さらに、Xcodeの「**署名&機能**」ペインから、メインアプリターゲットと通知コンテンツ拡張ターゲットの両方に「アプリグループ」機能を追加する。次に、**＋**ボタンをクリックする。アプリのバンドル ID を使用してアプリグループを作成します。たとえば、アプリのバンドル ID が `com.company.appname` の場合、アプリグループに `group.com.company.appname.xyz` という名前を付けることができます。
+さらに、Xcodeの**Signing & Capabilities**パネルから、メインアプリターゲットと通知コンテンツ拡張ターゲットの両方にApp Groups機能を追加します。次に、**+**ボタンをクリックします。アプリのバンドルIDを使用してアプリグループを作成します。たとえば、アプリのバンドルIDが`com.company.appname`の場合、アプリグループに`group.com.company.appname.xyz`という名前を付けることができます。
 
 {% alert important %}
-ここでいうApp Groupsとは、Appleの[App Groups Entitlementの](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_application-groups)ことであり、Brazeのワークスペース（旧App Group）IDのことではない。
+ここでいうApp Groupsとは、Appleの[App Groups Entitlement](https://developer.apple.com/documentation/bundleresources/entitlements/com_apple_security_application-groups)のことであり、Brazeのワークスペース（旧アプリグループ）IDのことではありません。
 {% endalert %}
 
-アプリをアプリグループに追加しないと、アプリがプッシュペイロードからの特定のフィールドの入力に失敗し、期待したとおりに完全に動作しない可能性があります。
+アプリをアプリグループに追加しないと、アプリがプッシュペイロードからの特定のフィールドの入力に失敗し、期待どおりに完全に動作しない可能性があります。
 
-### ステップ3:アプリにPush Storyフレームワークを追加する {#enable-capabilities}
+### ステップ 3: アプリにPush Storyフレームワークを追加する
 
 {% tabs local %}
 {% tab Swift Package Manager %}
 
-[Swift Package Manager の統合ガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/)に従って、`BrazePushStory` を `Notification Content Extension` に追加します。
+[Swift Package Managerの統合ガイド]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/sdk_integration/?tab=swift%20package%20manager/)に従って、`BrazePushStory`を`Notification Content Extension`に追加します。
 
-![Xcodeで、フレームワークとライブラリーの下にある「+」アイコンを選択してフレームワークを追加する。]({% image_buster /assets/img/swift/push_story/spm1.png %})
+![Xcodeで、フレームワークとライブラリの下にある「+」アイコンを選択してフレームワークを追加します。]({% image_buster /assets/img/swift/push_story/spm1.png %})
 
-![]({% image_buster /assets/img/swift/push_story/spm2.png %})
+![通知コンテンツ拡張ターゲットにBrazePushStoryを追加するXcodeパッケージプロダクト選択画面]({% image_buster /assets/img/swift/push_story/spm2.png %})
 
 {% endtab %}
 {% tab CocoaPods %}
 
-Podfile に次の行を追加します。
+Podfileに次の行を追加します。
 
 ```ruby
 target 'YourAppTarget' do
@@ -70,39 +70,39 @@ end
 リッチプッシュの実装方法については、[リッチ通知]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/rich_notifications/?tab=swift%20package%20manager)を参照してください。
 {% endalert %}
 
-Podfile を更新したら、ターミナル内で Xcode アプリプロジェクトのディレクトリーに移動し、`pod install`　を実行します。
+Podfileを更新したら、ターミナル内でXcodeアプリプロジェクトのディレクトリに移動し、`pod install`を実行します。
 
 {% endtab %}
 {% tab Manual %}
 
-[GitHub リリースページ](https://github.com/braze-inc/braze-swift-sdk/releases)から最新の `BrazePushStory.zip` をダウンロードして展開し、`BrazePushStory.xcframework` をプロジェクトの `Notification Content Extension` に追加します。
+[GitHubリリースページ](https://github.com/braze-inc/braze-swift-sdk/releases)から最新の`BrazePushStory.zip`をダウンロードして展開し、`BrazePushStory.xcframework`をプロジェクトの`Notification Content Extension`に追加します。
 
-![]({% image_buster /assets/img/swift/push_story/manual1.png %})
+![BrazePushStory.xcframeworkがDo Not Embed選択で追加されたXcodeフレームワーク設定]({% image_buster /assets/img/swift/push_story/manual1.png %})
 
 {% alert important %}
-[**埋め込み**] 列の下で、**BrazePushStory.xcframework** に対して [**埋め込まない**] が選択されていることを確認します。
+**Embed**列の下で、**BrazePushStory.xcframework**に対して**Do Not Embed**が選択されていることを確認してください。
 {% endalert %}
 
 {% endtab %}
 {% endtabs %}
 
-### ステップ4: 通知ビューコントローラーを更新する{#enable-capabilities}
+### ステップ 4: 通知ビューコントローラーを更新する
 
-`NotificationViewController.swift` に以下の行を追加し、ヘッダーファイルをインポートする：
+`NotificationViewController.swift`に以下の行を追加し、ヘッダーファイルをインポートします。
 
 ```swift
 import BrazePushStory
 ```
 
-次に、[`BrazePushStory.NotificationViewController`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazepushstory/notificationviewcontroller/) を継承してデフォルトの実装を置き換えます。
+次に、[`BrazePushStory.NotificationViewController`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazepushstory/notificationviewcontroller/)を継承してデフォルトの実装を置き換えます。
 
 ```swift
 class NotificationViewController: BrazePushStory.NotificationViewController {}
 ```
 
-#### プッシュストーリーイベントのカスタム処理
+#### プッシュストーリーイベントのカスタム処理 {#custom-handling-push-story-events}
 
-独自のカスタムロジックを実装してプッシュストーリー通知イベントを処理する場合は、上記のように `BrazePushStory.NotificationViewController` を継承し、以下のように [`didReceive`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazepushstory/notificationviewcontroller/didreceive(_:)) メソッドをオーバーライドします。
+独自のカスタムロジックを実装してプッシュストーリー通知イベントを処理する場合は、上記のように`BrazePushStory.NotificationViewController`を継承し、以下の例のように[`didReceive`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazepushstory/notificationviewcontroller/didreceive(_:))メソッドをオーバーライドします。
 
 ```swift
 import BrazePushStory
@@ -112,42 +112,44 @@ import UserNotificationsUI
 class NotificationViewController: BrazePushStory.NotificationViewController {
   override func didReceive(_ notification: UNNotification) {
     super.didReceive(notification)
-    
+
     // Custom handling logic
   }
-  
+
   override func didReceive(_ response: UNNotificationResponse, completionHandler completion: @escaping (UNNotificationContentExtensionResponseOption) -> Void) {
     super.didReceive(response, completionHandler: completion)
-    
+
     // Custom handling logic
   }
 }
 ```
 
-### ステップ5:通知コンテンツ拡張 plist を設定する{#notification-content-extension}
+### ステップ 5: 通知コンテンツ拡張plistを設定する
 
-`Notification Content Extension` の`Info.plist` ファイルを開き、`NSExtension \ NSExtensionAttributes` の下に以下のキーを追加・変更する：
+`Notification Content Extension`の`Info.plist`ファイルを開き、`NSExtension \ NSExtensionAttributes`の下に以下のキーを追加・変更します。
 
-| キー                                              | タイプ    | 値                  |
+| キー                                              | タイプ    | 値                      |
 |--------------------------------------------------|---------|------------------------|
-| `UNNotificationExtensionCategory`                | string  | `ab_cat_push_story_v2` |
+| `UNNotificationExtensionCategory`                | 文字列  | `ab_cat_push_story_v2` |
 | `UNNotificationExtensionDefaultContentHidden`    | ブール値 | `YES`                  |
-| `UNNotificationExtensionInitialContentSizeRatio` | 数値  | `0.6`                  |
+| `UNNotificationExtensionInitialContentSizeRatio` | 数値    | `0.6`                  |
 | `UNNotificationExtensionUserInteractionEnabled`  | ブール値 | `YES`                  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ5: 通知コンテンツ拡張plistの設定" }
 
-さらに、同じ`Info.plist`ファイルに次の最上位`Braze`ディクショナリを追加する。[ステップ2](#enable-capabilities)で作成したアプリグループに`REPLACE_WITH_APPGROUP`置き換えること：
+さらに、同じ`Info.plist`ファイルに以下の最上位`Braze`ディクショナリを追加します。`REPLACE_WITH_APPGROUP`を[ステップ2](#enable-capabilities)で作成したアプリグループに置き換えてください。
 
-| キー              | タイプ   | 値                    |
+| キー              | タイプ   | 値                       |
 |------------------|--------|--------------------------|
-| `Braze.AppGroup` | string | `REPLACE_WITH_APPGROUP`  |
+| `Braze.AppGroup` | 文字列 | `REPLACE_WITH_APPGROUP`  |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ5: 通知コンテンツ拡張plistの設定" }
 
-あなたの`Info.plist` ファイルは、以下の画像と一致するはずだ：
+`Info.plist`ファイルは以下の画像と一致するはずです。
 
-![]({% image_buster /assets/img/swift/push_story/notificationcontentextension_plist.png %})
+![Brazeプッシュストーリーキーとアプリグループ設定が含まれたNotification Content ExtensionのInfo.plist]({% image_buster /assets/img/swift/push_story/notificationcontentextension_plist.png %})
 
-### ステップ 6: メインアプリでの Braze 統合の更新{#update-braze}
+### ステップ 6: メインアプリでのBraze統合を更新する {#update-braze}
 
-Brazeを初期化する前に、アプリグループの名前をBraze設定の [`push.appGroup`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/appgroup)プロパティに割り当てる。
+Brazeを初期化する前に、アプリグループの名前をBraze設定の[`push.appGroup`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/appgroup)プロパティに割り当てます。
 
 ```swift
 let configuration = Braze.Configuration(apiKey: "<YOUR-BRAZE-API-KEY>",

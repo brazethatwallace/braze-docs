@@ -24,10 +24,10 @@ Braze와 Transifex 통합은 연결된 콘텐츠를 사용하여 리소스 문�
 
 ## 필수 조건 {#prerequisites}
 
-| 요구 사항| 설명|
-| ---| ---|
+| 요구 사항 | 설명 |
+| --- | --- |
 | Transifex 계정 | 이 파트너십을 이용하려면 [Transifex 계정](https://www.transifex.com/signin/)이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 

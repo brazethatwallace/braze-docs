@@ -15,14 +15,14 @@ You can upload user attributes and events through a CSV import in Braze, a serve
 
 ### Braze CSV import
 
-You can use CSV import to record and update the following user attributes and custom events. To get started, see [CSV Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/).
+You can use CSV import to record and update the following user attributes and custom events. To get started, see [CSV Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import).
 
 |Type|Definition|Example|Maximum file size|
 |---|---|---|---|
 |Default Attributes|Reserved user attributes recognized by Braze.|`first_name`, `email`|500 MB|
 |Custom Attributes|User attributes unique to your business.|`last_destination_searched`|500 MB|
 |Custom Events|Events unique to your business that represent user actions.|`trip_booked`|50 MB|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Braze CSV import" }
 
 #### Constructing your CSV {#constructing-your-csv}
 
@@ -31,22 +31,22 @@ Braze accepts user data in standard CSV format. Default and custom attribute imp
 When you upload a large CSV through **Import Users** in the dashboard, the page may appear unresponsive or respond slowly while Braze receives the file and runs the calculation step. Let the upload and calculation finish—total time ranges from a few minutes to a few hours depending on file size, and larger files take longer to calculate.
 
 {% alert note %}
-When importing custom events with properties, you must use dot notation in your CSV column headers. For more information about formatting custom events, refer to [Understanding custom event formatting]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/?tab=custom%20events#understanding-custom-event-formatting).
+When importing custom events with properties, you must use dot notation in your CSV column headers. For more information about formatting custom events, refer to [Understanding custom event formatting]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import?tab=custom%20events#understanding-custom-event-formatting).
 {% endalert %}
 
 ### Lambda user CSV import
 
 Use our serverless S3 Lambda CSV import script to upload user attributes to Braze. This solution works as a CSV uploader where you drop your CSVs into an S3 bucket, and the scripts upload it through our API.
 
-Estimated execution times for a file with 1,000,000 rows should be around five minutes. See [User attribute CSV to Braze import](https://www.braze.com/docs/user_guide/data/unification/cloud_ingestion) for more information.
+Estimated execution times for a file with 1,000,000 rows should be around five minutes. See [User attribute CSV to Braze import]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) for more information.
 
 ### REST API
 
-Use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) to record custom events, user attributes, and purchases for users.
+Use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to record custom events, user attributes, and purchases for users.
 
 ### Cloud Data Ingestion
 
-Use Braze [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) to import and maintain user attributes.
+Use Braze [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) to import and maintain user attributes.
 
 ## HTML validation
 

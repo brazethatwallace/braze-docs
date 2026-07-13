@@ -22,7 +22,9 @@ Braze [`.unitypackage`](https://docs.unity3d.com/Manual/AssetPackages.html)는 C
     - 이 패키지는 [SDWebImage](https://github.com/SDWebImage/SDWebImage) 프레임워크가 포함되지 않는다는 점을 제외하면 `Appboy.unitypackage`와 유사합니다. iOS 앱에 SDWebImage 프레임워크를 포함하지 않으려는 경우에 유용합니다.
 
 {% alert note %}
-Unity 2.6.0부터 번들로 제공되는 Braze Android SDK 아티팩트에는 [AndroidX](https://developer.android.com/jetpack/androidx) 종속성이 필요합니다. 이전에 `jetified unitypackage`를 사용했다면 해당하는 `unitypackage`로 안전하게 전환할 수 있습니다.
+Unity 2.6.0부터 번들로 제공되는 Braze Android SDK 아티팩트에는 [AndroidX](https://developer.android.com/jetpack/androidx) 종속성이 필요합니다. 이전에 `jetified` unitypackage를 사용했다면 해당하는 `unitypackage`로 안전하게 전환할 수 있습니다.
+
+Android 빌드가 "This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled" 오류로 실패하는 경우, Unity 퍼블리싱 설정에서 [Custom Gradle Properties Template](https://docs.unity3d.com/Manual/class-PlayerSettingsAndroid.html#Publishing)을 활성화하세요. 그런 다음 `Assets/Plugins/Android/gradleTemplate.properties`를 열고 `android.useAndroidX=true`로 설정합니다. 작동하는 템플릿은 [Braze Unity 샘플 앱](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples)과 해당 [`gradleTemplate.properties`](https://github.com/braze-inc/braze-unity-sdk/blob/master/unity-samples/Assets/Plugins/Android/gradleTemplate.properties) 파일을 참조하세요.
 {% endalert %}
 {% endtab %}
 
@@ -124,7 +126,7 @@ Braze SDK가 작동할 수 있도록 [`AndroidManifest.xml`](https://docs.unity3
 
 패키지 이름을 찾으려면 **File > Build Settings > Player Settings > Android Tab**을 클릭합니다.
 
-![]({% image_buster /assets/img_archive/UnityPackageName.png %})
+![애플리케이션 패키지 이름이 표시된 Unity Player Settings Android 탭.]({% image_buster /assets/img_archive/UnityPackageName.png %})
 
 `AndroidManifest.xml`에서 `REPLACE_WITH_YOUR_PACKAGE_NAME`의 모든 인스턴스를 이전 단계의 `Package Name`으로 바꿔야 합니다.
 
@@ -167,7 +169,7 @@ Braze는 Unity iOS 통합을 자동화하기 위한 네이티브 Unity 솔루션
 2. **Automate Unity iOS Integration** 확인란을 선택합니다.
 3. **Braze API Key** 필드에 **설정 관리**에서 찾은 애플리케이션의 API 키를 입력합니다.
 
-![]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
+![Automate Unity iOS Integration 및 Braze API Key 필드가 표시된 Unity Braze Configuration 창.]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
 
 애플리케이션에서 이미 다른 `UnityAppController` 서브클래스를 사용하고 있는 경우, 서브클래스 구현을 `AppboyAppDelegate.mm`과 병합해야 합니다.
 {% endtab %}

@@ -22,19 +22,23 @@ description: "This reference article covers using an array of objects as a data 
 Updating or removing items in an array requires identifying the item by key and value, so consider including a unique identifier for each item in the array. The uniqueness is scoped only to the array and is useful if you want to update and remove specific objects from your array. This is not enforced by Braze.
 
 {% alert important %}
-When a nested custom attribute in your request contains any invalid values (such as invalid time formats or `null` values), Braze drops all nested custom attribute updates in the request from processing. This applies to all nested structures within that specific attribute. Verify that all values within nested custom attributes are valid before sending. For more information, refer to [Create and update users]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#how-does-userstrack-handle-invalid-nested-custom-attributes).
+When a nested custom attribute in your request contains any invalid values (such as invalid time formats or `null` values), Braze drops all nested custom attribute updates in the request from processing. This applies to all nested structures within that specific attribute. Verify that all values within nested custom attributes are valid before sending. For more information, refer to [Create and update users]({{site.baseurl}}/api/endpoints/user_data/post_user_track#how-does-userstrack-handle-invalid-nested-custom-attributes).
 {% endalert %}
 
 {% alert tip %}
-For more information on using arrays of objects for user attributes objects, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+For more information on using arrays of objects for user attributes objects, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
 {% endalert %}
 
 ## API example
+
+Use these examples when you send `/users/track` requests that create or update nested custom attributes stored as arrays of objects. The payload uses `$add`, `$remove`, and `$update` operators so you can change specific objects without rebuilding the full array on every request.
 
 {% tabs local %}
 {% tab Create %}
 
 The following is a `/users/track` example with a `pets` array. To capture the properties of the pets, send an API request that lists `pets` as an array of objects. Note that each object has been assigned a unique `id` that can be referenced later when making updates.
+
+Use this format when you want to create the attribute for the first time or replace the entire array with a new baseline set of objects.
 
 ```json
 {
@@ -46,13 +50,13 @@ The following is a `/users/track` example with a `pets` array. To capture the pr
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }
@@ -63,6 +67,8 @@ The following is a `/users/track` example with a `pets` array. To capture the pr
 {% tab Add %}
 
 Add another item to the array using the `$add` operator. The following example shows adding three more pet objects to the user's `pets` array.
+
+Use `$add` when you need to append one or more new objects and keep existing objects unchanged.
 
 ```json
 {
@@ -75,19 +81,19 @@ Add another item to the array using the `$add` operator. The following example s
             "id": 3,
             "type": "dog",
             "breed": "corgi",
-            "name": "Doug"
+            "name": "Biscuit"
           },
           {
             "id": 4,
             "type": "fish",
             "breed": "salmon",
-            "name": "Larry"
+            "name": "Pepper"
           },
            {
             "id": 5,
             "type": "bird",
             "breed": "parakeet",
-            "name": "Mary"
+            "name": "Noodle"
           }
         ]
       }
@@ -98,9 +104,11 @@ Add another item to the array using the `$add` operator. The following example s
 {% endtab %}
 {% tab Update %}
 
-Update values for specific objects within an array using the `_merge_objects` parameter and the `$update` operator. Similar to updates to simple [nested custom attribute]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body) objects, this performs a deep merge.
+Update values for specific objects within an array using the `_merge_objects` parameter and the `$update` operator. Similar to updates to other [nested custom attribute]({{site.baseurl}}/nested_custom_attribute_support#api-request-body) objects, this performs a deep merge.
 
 Note that `$update` can't be used to remove a nested property from an object inside an array. To do this, you'll need to remove the entire item from the array and then add the object without that specific key (using a combination of `$remove` and `$add`).
+
+Use `$update` when the object already exists and you want to change one or more fields by matching on `$identifier_key` and `$identifier_value`.
 
 The following example shows updating the `breed` property to `goldfish` for the object with an `id` of `4`. This request example also updates the object with `id` equals `5` with a new `name` of `Annette`. Since the `_merge_objects` parameter is set to `true`, all other fields for these two objects remain the same.
 
@@ -142,6 +150,8 @@ You must set `_merge_objects` to true, or your objects will be overwritten. `_me
 
 Remove objects from an array using the `$remove` operator in combination with a matching key (`$identifier_key`) and value (`$identifier_value`).
 
+Use `$remove` when you want to delete all matching objects for a known identifier pair, such as `id = 2` or `type = dog`.
+
 The following example shows removing any object in the `pets` array that has an `id` with a value of `1`, an `id` with a value of `2`, and a `type` with a value of `dog`. If there are multiple objects with the `type` value of `dog`, all matching objects will be removed.
 
 ```json
@@ -182,6 +192,8 @@ When a single `/users/track` request includes `$add`, `$remove`, and `$update` o
 2. `$remove`
 3. `$update`
 
+This order applies within a single attribute update object in one request and determines the final state of the array after all operations are evaluated.
+
 Because `$add` runs before `$remove`, you can't use a `$remove` followed by `$add` as an upsert mechanism within a single request. The `$add` is processed first, then the `$remove` deletes the item. To upsert, send the `$remove` in a separate request before the `$add`.
 
 ### Timestamps
@@ -208,7 +220,7 @@ When including fields like timestamps in an array of objects, use the `$time` fo
 ```
 
 {% alert tip %}
-For more information, see [Nested Custom Attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+For more information, see [Nested Custom Attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 {% endalert %}
 
 ## SDK example
@@ -228,7 +240,7 @@ val json = JSONArray()
         .put("id", 2)
         .put("type", "cat")
         .put("breed", "calico")
-        .put("name", "Gerald")
+        .put("name", "Pixel")
     )
 
 braze.getCurrentUser { user ->
@@ -250,12 +262,12 @@ val json = JSONObject()
             .put("id", 4)
             .put("type", "fish")
             .put("breed", "salmon")
-            .put("name", "Larry"))
+            .put("name", "Pepper"))
         .put(JSONObject()
             .put("id", 5)
             .put("type", "bird")
             .put("breed", "parakeet")
-            .put("name", "Mary")
+            .put("name", "Noodle")
         )
     )
 
@@ -326,13 +338,13 @@ let json: [[String: Any?]] = [
     "id": 1,
     "type": "dog",
     "breed": "beagle",
-    "name": "Gus"
+    "name": "Mochi"
   ],
   [
     "id": 2,
     "type": "cat",
     "breed": "calico",
-    "name": "Gerald"
+    "name": "Pixel"
   ]
 ]
 
@@ -348,19 +360,19 @@ let json: [String: Any?] = [
       "id": 3,
       "type": "dog",
       "breed": "corgi",
-      "name": "Doug"
+      "name": "Biscuit"
     ],
     [
       "id": 4,
       "type": "fish",
       "breed": "salmon",
-      "name": "Larry"
+      "name": "Pepper"
     ],
     [
       "id": 5,
       "type": "bird",
       "breed": "parakeet",
-      "name": "Mary"
+      "name": "Noodle"
     ]
   ]
 ]
@@ -432,12 +444,12 @@ const json = [{
   "id": 1,
   "type": "dog",
   "breed": "beagle",
-  "name": "Gus"
+  "name": "Mochi"
 }, {
   "id": 2,
   "type": "cat",
   "breed": "calico",
-  "name": "Gerald"
+  "name": "Pixel"
 }];
 braze.getUser().setCustomUserAttribute("pets", json);
 ```
@@ -456,12 +468,12 @@ const json = {
     "id":  4,
     "type":  "fish",
     "breed":  "salmon",
-    "name":  "Larry",
+    "name":  "Pepper",
   }, {
     "id":  5,
     "type":  "bird",
     "breed":  "parakeet",
-    "name":  "Mary",
+    "name":  "Noodle",
   }]
 };
 braze.getUser().setCustomUserAttribute("pets", json, true);
@@ -533,7 +545,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-In this scenario, you can use Liquid to loop through the `pets` array and print out a statement for each pet. [Assign a variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) to the `pets` custom attribute and use dot notation to access properties on an object. Specify the name of the object, followed by a period `.`, followed by the property name.
+In this scenario, you can use Liquid to loop through the `pets` array and print out a statement for each pet. [Assign a variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) to the `pets` custom attribute and use dot notation to access properties on an object. Specify the name of the object, followed by a period `.`, followed by the property name.
 
 ## Segmentation
 
@@ -550,7 +562,7 @@ For example, if you want to filter a `top_3_movies` array of objects based on th
 
 ### Levels of nesting
 
-You can create a segment with up to one level of array nesting (array within another array). For example, given the following attributes, you can make a segment for `pets[].name` contains `Gus`, but you can't make a segment for `pets[].nicknames[]` contains `Gugu`.
+You can create a segment with up to one level of array nesting (array within another array). For example, given the following attributes, you can make a segment for `pets[].name` contains `Mochi`, but you can't make a segment for `pets[].nicknames[]` contains `Gugu`.
 
 {% raw %}
 ```json
@@ -563,20 +575,20 @@ You can create a segment with up to one level of array nesting (array within ano
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus",
+          "name": "Mochi",
           "nicknames": [
-            "Gugu",
-            "Gusto"
+            "MoMo",
+            "Mochi"
           ]
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald",
+          "name": "Pixel",
           "nicknames": [
-            "GeGe",
-            "Gerry"
+            "PiPi",
+            "Pixel"
           ]
         }
       ]
@@ -605,13 +617,13 @@ Creating a new array logs one data point for each attribute in an object. This e
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }

@@ -5,11 +5,11 @@ alias: "/conversions_dashboard_v2/"
 description: "Das Conversions-Dashboard ermöglicht es Ihnen, Conversions über Kampagnen, Canvases und Kanäle hinweg mit verschiedenen Attributionsmethoden zu analysieren."
 page_order: 3
 page_type: reference
-tool: 
+tool:
   - Reports
 ---
 
-# Conversions-Dashboard
+# Conversions-Dashboard {#conversions-dashboard}
 
 > Das Conversions-Dashboard analysiert Conversions über Kampagnen, Canvases und Kanäle hinweg mithilfe verschiedener [Attributionsmethoden](#attribution-methods). Bei der Messung Ihrer Conversions können Sie den Zeitraum, das Konversions-Event und das Konversionsfenster festlegen.
 
@@ -19,8 +19,8 @@ So richten Sie Ihren Conversions-Dashboard-Bericht ein:
 
 1. Gehen Sie zu **Analytics** > **Conversions**.
 2. Wählen Sie einen **Datumsbereich** für Ihren Bericht aus – bis zu einem 90-Tage-Fenster.
-3. Wählen Sie die Kampagnen oder Canvases (oder beides) aus, die Sie analysieren möchten. 
-   - (Optional) Filtern Sie Kampagnen und Canvases, indem Sie einen Tag auswählen.  
+3. Wählen Sie die Kampagnen oder Canvases (oder beides) aus, die Sie analysieren möchten.
+   - (Optional) Filtern Sie Kampagnen und Canvases, indem Sie einen Tag auswählen.
 4. Wählen Sie die **Kanäle** aus, die Sie für Ihre Nachrichten analysieren möchten.
 5. Wählen Sie eine **Aufschlüsselung nach**-Ebene, um verschiedene Datendimensionen anzuzeigen, z. B. nach Variante, Canvas-Schritt, Land oder Sprache.
 6. (Optional) Wenn Sie Conversions eines Events berechnen möchten, das nicht als Konversions-Event in der Kampagne oder dem Canvas eingerichtet wurde, aktivieren Sie [Angepasste Events verwenden](#using-custom-events).
@@ -49,7 +49,7 @@ Um Conversions eines Events zu berechnen, das nicht als Konversions-Event in der
 Wenn Sie ein angepasstes Event auswählen, wird das Dropdown-Menü **Konversions-Event** auf der Seite nicht angezeigt, und Sie müssen den Bericht erneut ausführen, um Conversions für verschiedene angepasste Events anzuzeigen.
 {% endalert %}
 
-### Hinweise
+### Hinweise {#considerations}
 
 Damit Nutzer:innen im Bericht gezählt werden, müssen sie innerhalb des ausgewählten Datumsbereichs die folgenden Kriterien erfüllen:
 1. In den Canvas oder die Kampagne eintreten.
@@ -63,7 +63,7 @@ Nehmen wir zum Beispiel an, eine Nutzerin bzw. ein Nutzer tut Folgendes:
 
 Diese Nutzerin bzw. dieser Nutzer wird **nicht** in einem Bericht mit dem Datumsbereich 1. Oktober bis 7. Oktober erscheinen. Das liegt daran, dass der Eintritt in den Canvas vor dem Berichtszeitraum erfolgte, obwohl das Konversions-Event innerhalb des definierten Datumsbereichs stattfand. Damit die Person im Bericht erscheint, muss der Datumsbereich den 30. September einschließen.
 
-## Ihren Bericht verstehen
+## Ihren Bericht verstehen {#understanding-your-report}
 
 Ihr Bericht ist in drei Abschnitte unterteilt:
 
@@ -85,13 +85,13 @@ Die folgende Tabelle beschreibt mögliche Metriken.
 | Konversionsrate (Empfänger:innen) | Berechnet als: (Anzahl der Conversions) / (Anzahl der Empfänger:innen) |
 | Attributionsmethode | Definiert durch die [Attributionsmethode](#attribution-methods), die Sie beim Einrichten des Berichts ausgewählt haben. Bei Last-Touch-Attribution oder wenn mehrere Kanäle ausgewählt sind, wird dies als [Touches](#terms-to-know) angezeigt. |
 | Konversionsrate (Attributionsmethode) | Definiert durch die [Attributionsmethode](#attribution-methods), die Sie beim Einrichten des Berichts ausgewählt haben. Wenn mehrere Kanäle ausgewählt sind, wird standardmäßig Last-Touch-Attribution verwendet. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion-Details" }
 
-Wenn Sie beim [Einrichten Ihres Berichts](#setting-up-your-report) (Schritt 5) Details auf Aufschlüsselungsebene für Kampagnen oder Canvases ausgewählt haben, können Sie auf <i class="fas fa-angle-down"></i> klicken, um die Tabelle zu erweitern.
+Wenn Sie beim [Einrichten Ihres Berichts](#setting-up-your-report) (Schritt 5) Details auf Aufschlüsselungsebene für Kampagnen oder Canvases ausgewählt haben, können Sie auf <i class="fas fa-angle-down"></i> **Erweitern** klicken, um die Tabelle zu erweitern.
 
 ### Konversionstrichter {#conversion-funnel}
 
-Dieses Balkendiagramm zeigt die absoluten Zahlen für jedes [Engagement-Event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) basierend auf dem ausgewählten Kanal. Die Conversion-Anzahl wird gemäß der ausgewählten Attributionsmethode definiert.
+Dieses Balkendiagramm zeigt die absoluten Zahlen für jedes [Engagement-Event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) basierend auf dem ausgewählten Kanal. Die Conversion-Anzahl wird gemäß der ausgewählten Attributionsmethode definiert.
 
 Standardmäßig werden alle ausgewählten Kampagnen und Canvases angezeigt. Um eine Kampagne oder einen Canvas abzuwählen, klicken Sie auf den Namen der Kampagne oder des Canvas, die/den Sie ausschließen möchten. Für zusätzliche Details zum Engagement-Event können Sie mit der Maus über jeden Balken fahren.
 
@@ -101,15 +101,15 @@ Um die Zeitreihendaten herunterzuladen, wählen Sie eine Download-Option: PNG, J
 Dieses Diagramm zeigt nur Daten für jeweils einen einzelnen Kanal an. Verwenden Sie das Dropdown-Menü **Kanal** im Chart, um einen einzelnen Kanal auszuwählen.
 {% endalert %}
 
-![Konversionstrichter-Balkendiagramm für zwei E-Mail-Kampagnen mit ähnlichen Ergebnissen für E-Mail zugestellt, E-Mail geöffnet, E-Mail angeklickt und Conversions.]({% image_buster /assets/img_archive/conversions2_funnel.png %})
+![Konversionstrichter-Balkendiagramm für zwei E-Mail-Kampagnen mit ähnlichen Ergebnissen für „E-Mail zugestellt“, „E-Mail geöffnet“, „E-Mail angeklickt“ und „Conversions“.]({% image_buster /assets/img_archive/conversions2_funnel.png %})
 
 ### Conversions im Zeitverlauf {#conversions-over-time}
 
 Dieses Zeitreihendiagramm enthält eine Darstellung der Conversions pro Kampagne oder Canvas im Zeitverlauf. Standardmäßig werden alle ausgewählten Kampagnen und Canvases angezeigt. Um eine Kampagne oder einen Canvas abzuwählen, klicken Sie auf den Namen der Kampagne oder des Canvas, die/den Sie ausschließen möchten.
 
-Um die Zeitreihendaten herunterzuladen, wählen Sie <i class="fas fa-bars"></i> und dann Ihre Download-Option. Verfügbare Optionen sind PNG, JPEG, PDF, SVG oder CSV.
+Um die Zeitreihendaten herunterzuladen, wählen Sie <i class="fas fa-bars" title="Chart-Kontextmenü"></i> **Chart-Kontextmenü** und dann Ihre Download-Option. Verfügbare Optionen sind PNG, JPEG, PDF, SVG oder CSV.
 
-![Zeitreihendiagramm „Conversions im Zeitverlauf" für zwei E-Mail-Kampagnen, das Conversions nach Tag zeigt.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
+![Zeitreihendiagramm „Conversions im Zeitverlauf“ für zwei E-Mail-Kampagnen, das Conversions nach Tag zeigt.]({% image_buster /assets/img_archive/conversions2_over_time.png %})
 
 ### Attributionsmethoden {#attribution-methods}
 
@@ -121,29 +121,29 @@ Um die Zeitreihendaten herunterzuladen, wählen Sie <i class="fas fa-bars"></i> 
 | Bei Klick | Gesamtzahl der Conversions, die nach dem Klick auf die Nachricht stattfanden | Berechnet als (Eindeutige Klick-Conversions) / (Eindeutige Empfänger:innen) | {::nomarkdown}<ul><li>Bei E-Mail-Klick</li><li>Bei Content-Card-Klick</li><li>Bei IAM-Klick</li></ul>{:/} |
 | Bei Impression | Gesamtzahl der Conversions, die nach einer Impression stattfanden | Berechnet als (Eindeutige Impressions-Conversions) / (Eindeutige Empfänger:innen) | {::nomarkdown}<ul><li>Bei IAM-Impression</li><li>Bei Content-Card-Impression</li></ul>{:/} |
 | Bei Last-Touch | Conversions, bei denen die gesamte Zuordnung der zuletzt berührten oder angeklickten Nachricht innerhalb des Konversionsfensters zugeschrieben wird. | Berechnet als (Anzahl der Touches) / (Eindeutige Empfänger:innen) | Last-Touch-Attribution wird automatisch ausgewählt, wenn dem Bericht mehrere Kanäle hinzugefügt werden. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Attributionsmethoden" }
 
 ## Wichtige Begriffe {#terms-to-know}
 
 | Begriff | Definition |
 | --- | --- |
 | Touch | Eine physische Interaktion oder ein Touchpoint mit einer Nachricht.<br><br>Touches können umfassen:<br>{::nomarkdown}<ul><li>E-Mail-Klick</li><li>Push-Öffnung</li><li>Content-Card-Klick</li><li>In-App-Nachrichten-Klick</li><li>SMS-Klick</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Wichtige Begriffe" }
 
-## Fehlerbehebung
+## Fehlerbehebung {#troubleshooting}
 
-### Warum habe ich niedrige Kampagnen- oder Canvas-Conversions?
+### Warum habe ich niedrige Kampagnen- oder Canvas-Conversions? {#why-do-i-have-low-campaign-or-canvas-conversions}
 
 Ihre Conversions sind möglicherweise nicht so hoch, wie Sie es im Vergleich zu früheren Kampagnen oder Ihren Erwartungen erwarten. Conversions hängen von zwei Schlüsselfaktoren ab: Event-Tracking und Conversion-Fristen.
 
 Überprüfen Sie zur Fehlerbehebung Ihr Event-Tracking und Ihre Conversion-Fristen.
 
-#### Event-Tracking
+#### Event-Tracking {#event-tracking}
 
-Wenn eine Kampagne einen Sitzungsstart oder ein angepasstes Event auslöst, sollten Sie sicherstellen, dass dieses Event oder diese Sitzung häufig genug stattfindet, um die Nachricht auszulösen. Überprüfen Sie das [Home-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/home/) für Sitzungsdaten oder Ihren Bericht zu [angepassten Events]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/).
+Wenn eine Kampagne einen Sitzungsstart oder ein angepasstes Event auslöst, sollten Sie sicherstellen, dass dieses Event oder diese Sitzung häufig genug stattfindet, um die Nachricht auszulösen. Überprüfen Sie das [Home-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/home) für Sitzungsdaten oder Ihren Bericht zu [angepassten Events]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting).
 
-#### Conversion-Fristen
+#### Conversion-Fristen {#conversion-deadlines}
 
 Für jedes Konversions-Event, das Sie pro Kampagne auswählen, legen Sie die [Frist]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#creating-a-campaign-with-conversion-tracking) fest. Das bedeutet, dass Sie ein Zeitlimit festlegen, innerhalb dessen eine Conversion stattfinden muss, damit sie für die jeweilige Kampagne gezählt wird.
 
-Stellen Sie sicher, dass Sie die Informationen zu den [Conversion-Tracking-Regeln]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules) überprüft haben, um Ihre Kampagnenmetriken zu verstehen. Informationen zu Nutzer-Conversions in Canvas finden Sie in den [Canvas-FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs#how-are-user-conversions-tracked-in-a-canvas).
+Stellen Sie sicher, dass Sie die Informationen zu den [Conversion-Tracking-Regeln]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules) überprüft haben, um Ihre Kampagnenmetriken zu verstehen. Informationen zu Nutzer:innen-Conversions in Canvas finden Sie in den [Canvas-FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs#how-are-user-conversions-tracked-in-a-canvas).

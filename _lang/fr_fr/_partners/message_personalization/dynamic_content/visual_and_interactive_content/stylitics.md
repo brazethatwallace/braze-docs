@@ -10,48 +10,48 @@ search_tag: Partner
 
 # Stylitics
 
-> [Stylitics](https://stylitics.com/) est une plateforme SaaS basée sur le cloud pour les détaillants permettant d'automatiser et de distribuer du contenu visuel à grande échelle. Les offres groupées de Stylitics inspirent en contextualisant les produits, en renforçant la confiance dans les achats et en augmentant l'engagement, ce qui conduit finalement à une valeur moyenne de commande et à des taux de conversion plus élevés.
+> [Stylitics](https://stylitics.com/) est une plateforme SaaS basée sur le cloud destinée aux retailers, permettant d'automatiser et de distribuer du contenu visuel à grande échelle. Les offres groupées de Stylitics inspirent en contextualisant les produits, en renforçant la confiance dans les achats et en augmentant l'engagement, ce qui conduit à une valeur moyenne de commande et à des taux de conversion plus élevés.
 
 _Cette intégration est maintenue par Stylitics._
 
-## À propos de l'intégration
+## À propos de l'intégration {#about-the-integration}
 
 Votre intégration Braze et Stylitics vous permet d'améliorer vos campagnes d'e-mail existantes avec un contenu groupé attrayant et pertinent, créant une expérience client personnalisée.
 
-![]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
+![Exemple de contenu groupé Stylitics intégré dans une expérience e-mail Braze.]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
 | Compte Stylitics | Un compte [Stylitics](https://stylitics.com/) est requis pour profiter de ce partenariat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Cas d'utilisation
+## Cas d'usage {#use-cases}
 
-La liste suivante présente quelques exemples courants de programmes d'e-mail déclenchés :
-- E-mails de panier abandonné 
-- E-mails de navigation abandonnés 
+La liste suivante présente quelques exemples courants de programmes d'e-mails déclenchés :
+- E-mails de panier abandonné
+- E-mails de navigation abandonnée
 - E-mails de confirmation d'expédition
-- E-mails post-achat 
+- E-mails post-achat
 
-## Intégration
+## Intégration {#integration}
 
-Stylitics fournit des données de bundle pour cette intégration. Votre fournisseur de services d'e-mailing peut créer ou mettre à jour le modèle d'e-mail pour inclure les bundles Stylitics. Stylitics ne peut pas modifier la mise en page ou le design des e-mails. 
+Stylitics fournit les données de bundle pour cette intégration. Votre fournisseur de services d'e-mailing peut créer ou mettre à jour le modèle d'e-mail pour inclure les bundles Stylitics. Stylitics ne peut pas modifier la mise en page ou le design des e-mails.
 
-1. Intégrez le lot dans l'e-mail. ESP détermine la position et la personnalisation.
-2. ESP met à jour le code de l'e-mail de déclencheur pour inclure le contenu de Stylitics.
-3. ESP testera, prévisualisera et lancera la série de mises à jour déclenchées. 
+1. Intégrez le bundle dans l'e-mail. L'ESP détermine la position et la personnalisation.
+2. L'ESP met à jour le code de l'e-mail déclenché pour inclure le contenu Stylitics.
+3. L'ESP testera, prévisualisera et lancera la série déclenchée mise à jour.
 
-Stylitics ne fournira que les données du lot d’articles. Vous et votre ESP aurez accès aux données utilisateurs et pourrez intégrer les ensembles de données Stylitics pour les envoyer aux utilisateurs.
+Stylitics ne fournira que les données de bundle pour les articles. Entre vous et votre ESP, vous disposerez des données utilisateurs et pourrez intégrer les données de bundle Stylitics pour les envoyer aux utilisateurs.
 
-## échange de donnée
+## Échange de données {#data-exchange}
 
 Les trois approches suivantes vous permettent d'inclure des bundles Stylitics dans vos e-mails déclenchés.
 
-### 1\. approche API (recommandée)
+### 1. Approche API (recommandée) {#1-api-approach-recommended}
 
-Vous ou votre ESP pouvez effectuer un appel API par élément pour remplir les données du bundle dans votre e-mail. Stylitics recommande d'utiliser leur API pour effectuer des appels d’API car elle est prête à l'emploi.
+Vous ou votre ESP pouvez effectuer un appel API par article pour alimenter les données de bundle dans votre e-mail. Stylitics recommande d'utiliser leur API pour effectuer des appels API, car elle est prête à l'emploi immédiatement.
 
 {% alert note %}
 Si vous exécutez un test A/B géré par Stylitics, les paramètres `styliticsCID` et `styliticsoverride` doivent être ajoutés aux URL PDP des articles Stylitics sur lesquels l'utilisateur clique dans l'e-mail.
@@ -59,48 +59,48 @@ Si vous exécutez un test A/B géré par Stylitics, les paramètres `styliticsCI
 Par exemple, {% raw %}`&styliticsoverride=001?styliticsCID=email[clientname]`{% endraw %}
 {% endalert %}
 
-### 2\. Approche de fichier plat
-Vous ou votre ESP pouvez référencer les données du lot d'un article dans un fichier plat pour alimenter votre e-mail avec des données du lot. Stylitics peut aplatir les données du lot dans un fichier au format CSV, TXT ou XML et vous les envoyer quotidiennement. Ils peuvent également aider à ajuster le format de fichier selon les besoins de votre ESP. Notez que cela prend 2 à 3 semaines pour créer ce fichier.
+### 2. Approche par fichier plat {#2-flat-file-approach}
 
-#### Exigences:
-- **Emplacement** : Stylitics peut déposer le fichier sur son SFTP pour que vous puissiez le récupérer quotidiennement, ou vous pouvez lui envoyer vos identifiants SFTP pour qu’il puisse déposer le fichier. 
-- **Temps**: Stylitics déposera le fichier chaque matin. Faites-leur savoir à quelle heure vous avez besoin du fichier. 
-- **Clé de fichier**: Vous et Stylitics devez vous mettre d'accord sur la chaîne de caractères des données de l'article à utiliser comme clé du fichier afin que votre ESP puisse référencer les données. L’unité de gestion des stocks ou les paramètres `item_group_id` et `item_number` sont couramment utilisés. 
+Vous ou votre ESP pouvez référencer les données de bundle d'un article dans un fichier plat pour alimenter votre e-mail avec les données de bundle. Stylitics peut aplatir les données de bundle au format CSV, TXT ou XML et vous les envoyer quotidiennement. Ils peuvent également ajuster le format du fichier selon les besoins de votre ESP. Notez que la création de ce fichier prend 2 à 3 semaines.
 
-### 3\. Approche d'extraction de données de site web
-Les fournisseurs peuvent extraire le contenu Stylitics de l'interface de votre site et insérer des données de lots dans les e-mails. Aucun travail supplémentaire de Stylitics n'est requis. 
+#### Exigences : {#requirements}
+- **Emplacement** : Stylitics peut déposer le fichier sur le SFTP Stylitics pour que vous puissiez le récupérer quotidiennement, ou vous pouvez leur envoyer vos identifiants SFTP pour qu'ils déposent le fichier.
+- **Horaire** : Stylitics déposera le fichier chaque matin. Faites-leur savoir si vous avez besoin du fichier à une heure précise.
+- **Clé de fichier** : vous et Stylitics devez vous mettre d'accord sur la chaîne de caractères des données de l'article à utiliser comme clé du fichier afin que votre ESP puisse référencer les données. L'unité de gestion des stocks, `item_group_id` ou `item_number` sont couramment utilisés.
 
-## Meilleures pratiques pour l’utilisation des modèles d’e-mails 
+### 3. Approche par extraction de données du site web {#3-website-data-extraction-approach}
 
-Vous et votre ESP créerez un modèle d'e-mail HTML pour insérer des données et des lots Stylitics. Voici quelques meilleures pratiques et recommandations. 
-- Afficher 2 à 4 lots dans l'e-mail pour l'article le plus cher ou le premier article à plein tarif que l'utilisateur a acheté ou avec lequel il a interagi 
-- Appeler plusieurs `item_numbers` et afficher les premières réponses du bundle 
-- Ayez une option de repli s'il n'y a pas de lots disponibles pour l'article 
-	- Masquer la section où les bundles Stylitics sont en ligne 
-	- Afficher les lots pour le prochain article que l'utilisateur a consulté 
-- Afficher les images du lot et une liste de titres de produit et de vignettes pour garantir un taux de clics clair pour l'utilisateur
+Les fournisseurs peuvent extraire le contenu Stylitics depuis l'interface de votre site et insérer les données de bundle dans les e-mails. Aucun travail supplémentaire de la part de Stylitics n'est requis.
+
+## Bonnes pratiques pour les modèles d'e-mail {#email-template-best-practices}
+
+Vous et votre ESP créerez un modèle d'e-mail HTML pour insérer les données et bundles Stylitics. Voici quelques bonnes pratiques et recommandations :
+- Afficher 2 à 4 bundles dans l'e-mail pour l'article le plus cher ou le premier article à plein tarif que l'utilisateur a acheté ou avec lequel il a interagi
+- Appeler plusieurs `item_numbers` et afficher les premières réponses de bundle
+- Prévoir une option de repli s'il n'y a pas de bundles disponibles pour l'article
+	- Masquer la section où se trouvent les bundles Stylitics
+	- Afficher les bundles pour le prochain article consulté par l'utilisateur
+- Afficher les images de bundle ainsi qu'une liste de titres de produits et de vignettes pour garantir un parcours de clic clair pour l'utilisateur
 
 {% alert note %}
-Le widget JavaScript de Stylitics ne peut pas être inséré dans les e-mails car les e-mails ne supportent pas JavaScript.
+Le widget JavaScript de Stylitics ne peut pas être inséré dans les e-mails, car les e-mails ne prennent pas en charge JavaScript.
 {% endalert %}
 
-## Analyses
+## Analyses {#analytics}
 
-Stylitics fournit les données du lot pour ce type de programme d'e-mails. Par conséquent, nous demandons un partage de données ouvert entre vous, votre système automatisé de communication et Stylitics. Nous vous demandons, si possible, de nous envoyer les indicateurs suivants pour nous permettre de connaître l'impact de notre programme et l’améliorer :
-- Emails envoyés 
-- E-mails ouverts 
-- Vues et engagements 
-- Taux de clics 
-- Ajouts au panier 
+Stylitics fournit les données de bundle pour ce type de programme d'e-mail. Par conséquent, nous demandons un partage de données ouvert entre vous, votre ESP et Stylitics. Si possible, nous souhaitons recevoir les indicateurs suivants de votre part afin de comprendre l'impact et d'améliorer le programme :
+- E-mails envoyés
+- E-mails ouverts
+- Vues et engagements
+- Taux de clics
+- Ajouts au panier
 - Achats
 
-## Prochaines étapes 
+## Prochaines étapes {#next-steps}
 
-Contactez votre gestionnaire de compte Stylitics pour coordonner les prochaines étapes et le calendrier du programme d'e-mails. Quelques prochaines étapes incluent : 
-- Décidez quels e-mails vous souhaitez utiliser
-- Connectez Stylitics à votre fournisseur de services de messagerie pour discuter de l'échange de données afin de choisir entre l'option API ou fichier plat 
-- Créez des maquettes avec votre ESP 
-- S'aligner sur l'analyse 
-- S'aligner sur le calendrier de lancement 
-
-
+Contactez votre gestionnaire de compte Stylitics pour coordonner les prochaines étapes et le calendrier du programme d'e-mail. Voici quelques prochaines étapes :
+- Décider quels e-mails vous souhaitez utiliser
+- Connecter Stylitics avec votre ESP pour discuter de l'échange de données et choisir entre l'option API ou l'option fichier plat
+- Créer des maquettes avec votre ESP
+- S'aligner sur les analyses
+- S'aligner sur le calendrier de lancement

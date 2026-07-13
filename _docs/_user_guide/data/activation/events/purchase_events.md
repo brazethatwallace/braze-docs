@@ -17,25 +17,25 @@ Purchase events are purchase actions taken by your users, and are used to record
 
 ## Log purchase events
 
-You can log purchases by passing a [purchase object]({{site.baseurl}}/api/objects_filters/purchase_object/) through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), or using one of our SDK libraries listed below.
+You can log purchases by passing a [purchase object]({{site.baseurl}}/api/objects_filters/purchase_object) through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track), or using one of our SDK libraries listed in the following section.
 
 {% alert note %}
-Purchase event properties use the same data types as [custom event properties]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events/#expected-format).
+Purchase event properties use the same data types as [custom event properties]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_events#expected-format).
 {% endalert %}
 
 The following lists methods used across various platforms to log purchases. Within these pages, you'll also find documentation on how to add properties and quantities to your purchase event. You can further target your users based on these properties.
 
-- [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-purchases)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=unity)
-- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#logging-purchases)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_purchases/?tab=roku)
+- [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-purchases)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=unity)
+- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#logging-purchases)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_purchases?tab=roku)
 
 ## View purchase data
 
-After you have set up and begun logging purchase events, you can view this purchase data on a user's profile in the [Overview tab]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#overview-tab).
+After you have set up and begun logging purchase events, you can view this purchase data on a user's profile in the [Overview tab]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab).
 
 ## Use purchase data
 
@@ -63,12 +63,12 @@ The following segmentation filters are available when targeting users:
 - X Purchase Property in Y Days
 - X Purchases in Last Y Days
 
-For details on each filter, refer to the [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) glossary and filter by "Purchase behavior".
+For details on each filter, refer to the [Segmentation filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) glossary and filter by "Purchase behavior".
 
 ![Filtering for users who made exactly three purchases]({% image_buster /assets/img/purchase_filter_example.gif %}){: style="max-width:80%;"}
 
 {% alert tip %} 
-To segment on the number of times a specific purchase has occurred, record that purchase individually as an [incrementing custom attribute]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#custom-attribute-storage).
+To segment on the number of times a specific purchase has occurred, record that purchase individually as an [incrementing custom attribute]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#custom-attribute-storage).
 {% endalert %}
 
 ### Personalization
@@ -123,7 +123,8 @@ You can find this data on the [Revenue Report]({{site.baseurl}}/user_guide/analy
     }
 </style>
 
-<table>
+<table aria-label="Revenue calculations">
+  <caption>Revenue calculations</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -195,7 +196,7 @@ For example, if you have an eCommerce application and want to message a user aft
 
 ![Action-based delivery settings to send a campaign to users who purchase headphones with a brand name equal to HeadphoneMart]({% image_buster /assets/img/purchase2.png %}){: style="max-width:80%;margin-left:15px;"}
 
-Refer to [purchase properties object]({{site.baseurl}}/api/objects_filters/purchase_object/#purchase-properties-object) for more.
+Refer to [purchase properties object]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-properties-object) for more.
 
 ### Event property segmentation
 
@@ -208,17 +209,19 @@ These segmentation filters include:
 - Has made any purchases with property Y with value V X times in the last Y days
 - Adds 1-30 day segmentation on all purchases, events, and properties within purchases and events
 
-Unlike with [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/), segments used are updated in real-time, support an unlimited amount of segments, offer a look back history of at most 30 days, and incur data points. Because of the additional data point charge, you must contact your Braze customer success manager to get event properties turned on for your custom events.
+Unlike with [Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension), segments used are updated in real-time, support an unlimited amount of segments, offer a look back history of at most 30 days, and incur data points. Because of the additional data point charge, you must contact your Braze customer success manager to get event properties turned on for your custom events.
 
 When approved, additional properties can be added in the dashboard under **Data Settings** > **Custom Events** by selecting **Manage Properties**. You can then use these event properties in the target step of the campaign or Canvas builder.
 
+{% include data_activation/segmentable_purchase_properties_keys_note.md %}
+
 ### Canvas entry properties and event properties
 
-{% multi_lang_include canvas_entry_event_properties.md %}
+{% multi_lang_include canvas/entry_event_properties.md %}
 
 ### Log purchases at the order level
 
-To log purchases at the order level instead of the product level, use the order name or order category as the `product_id`. Refer to our [purchase object specification]({{site.baseurl}}/api/objects_filters/purchase_object/#product-id-naming-conventions) to learn more. 
+To log purchases at the order level instead of the product level, use the order name or order category as the `product_id`. Refer to our [purchase object specification]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions) to learn more. 
 
 ### Product ID naming conventions
 
@@ -230,5 +233,5 @@ This makes products straightforward to identify for segmentation and triggering.
 
 You may occasionally identify purchase events that either log too many data points, are no longer useful to your marketing strategy, or were recorded in error. To stop this data from being sent to Braze, you can blocklist the custom data object while your engineering team works to remove it from the backend of your app or website.
 
-In the Braze dashboard, you can manage blocklisting from **Data Settings** > **Products**. Check out [Managing custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) to learn more.
+In the Braze dashboard, you can manage blocklisting from **Data Settings** > **Products**. Check out [Managing custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) to learn more.
 

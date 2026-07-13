@@ -1,7 +1,7 @@
 ---
 nav_title: 사용자 데이터
 article_title: Braze의 사용자 데이터
-page_order: 3.5
+page_order: 4
 layout: dev_guide
 guide_top_header: "Braze의 사용자 데이터"
 guide_top_text: "Braze 구현을 완료하기 전에 마케팅 팀과 개발 팀 간에 마케팅 목표에 대해 충분히 논의하세요. 이러한 목표를 고려하고 목표에서 역으로 추적할 데이터와 Braze로 해당 데이터를 추적하는 방법을 결정하는 것이 좋습니다."
@@ -12,28 +12,28 @@ description: "이 랜딩 페이지는 사용자 데이터 수집에 관한 문�
 guide_featured_title: "섹션 문서"
 guide_featured_list:
   - name: SDK 데이터 수집
-    link: /docs/user_guide/data/unification/user_data/sdk_data_collection/
+    link: /docs/user_guide/data/unification/user_data/sdk_data_collection
     image: /assets/img/braze_icons/bar-chart-01.svg
   - name: 고객 프로필 수명주기
-    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle/
+    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle
     image: /assets/img/braze_icons/refresh-ccw-05.svg
-  - name: 데이터 수집 모범 사례
-    link: /docs/user_guide/data/unification/user_data/best_practices/
-    image: /assets/img/braze_icons/thumbs-up.svg
-  - name: 데이터 수집 활용 사례 예시
-    link: /docs/user_guide/data/unification/user_data/collection_use_case/
+  - name: 수집 사용 사례
+    link: /docs/user_guide/data/unification/user_data/collection_use_case
     image: /assets/img/braze_icons/data.svg
+  - name: 수집 모범 사례
+    link: /docs/user_guide/data/unification/user_data/best_practices
+    image: /assets/img/braze_icons/thumbs-up.svg
   - name: 사용자 가져오기
-    link: /docs/user_guide/data/unification/user_data/import_users/
+    link: /docs/user_guide/audience/manage_audience/import_users
     image: /assets/img/braze_icons/users-01.svg
   - name: 사용자 삭제
-    link: /docs/user_guide/data/unification/user_data/delete_users/
+    link: /docs/user_guide/audience/manage_audience/user_profiles/delete_users
     image: /assets/img/braze_icons/edit-05.svg
   - name: 익명 사용자
-    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/
+    link: /docs/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users
     image: /assets/img/braze_icons/user-circle.svg
-  - name: 사용자 언어 코드
-    link: /docs/user_guide/data/unification/user_data/language_codes/
+  - name: 언어 코드
+    link: /docs/user_guide/data/unification/user_data/language_codes
     image: /assets/img/braze_icons/globe-04.svg
 ---
 

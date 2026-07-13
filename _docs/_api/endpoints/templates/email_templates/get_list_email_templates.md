@@ -19,7 +19,7 @@ description: "This article outlines details about the List available email templ
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## Prerequisites
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `templates.email.list` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `templates.email.list` permission.
 
 ## Rate limit
 
@@ -33,7 +33,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) wi
 | `modified_before`  |  Optional | String in [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) format | Retrieve only templates updated at or before the given time. |
 | `limit` | Optional | Positive number | Maximum number of templates to retrieve. Default to 100 if not provided, with a maximum acceptable value of 1000. |
 | `offset`  |  Optional | Positive number | Number of templates to skip before returning rest of the templates that fit the search criteria. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```

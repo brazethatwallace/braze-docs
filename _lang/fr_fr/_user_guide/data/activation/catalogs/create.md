@@ -10,9 +10,9 @@ description: "Cet article de référence explique comment créer des catalogues 
 
 > La création d'un catalogue consiste à importer un fichier CSV de données non-utilisateurs dans Braze. Vous pouvez ensuite accéder à ces informations pour enrichir vos messages. N'importe quel type de données peut être intégré à un catalogue. Il s'agit généralement de métadonnées provenant de votre entreprise, comme des informations produits pour un site e-commerce ou des informations sur les cours pour un fournisseur de formation.
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
-Les cas d'utilisation courants des catalogues sont les suivants :
+Les cas d'usage courants des catalogues sont les suivants :
 
 - Produits
 - Services
@@ -25,7 +25,18 @@ Une fois ces informations importées, vous pouvez y accéder dans vos messages d
 
 ## Types de données pris en charge {#supported-data-types}
 
-Pour consulter les types de données de catalogue pris en charge, leurs descriptions, la manière dont chacun peut être créé ou mis à jour (CSV vs API et CDI), ainsi que les formats et exemples, reportez-vous à la section [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
+Le tableau suivant répertorie les types de données de catalogue pris en charge et la manière dont ils peuvent être créés ou mis à jour.
+
+| Type de données | Description | Disponible via import CSV | Disponible via API et CDI |
+|--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
+| Chaîne de caractères | Une séquence de caractères. | ✅ Oui | ✅ Oui |
+| Nombre | Une valeur numérique, entière ou décimale. | ✅ Oui | ✅ Oui |
+| Valeur booléenne | Une valeur `true` ou `false`. | ✅ Oui | ✅ Oui |
+| Date | Une chaîne de caractères au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). | ✅ Oui | ✅ Oui |
+| Géolocalisation | Un tableau de coordonnées `[longitude, latitude]`. La latitude doit être comprise entre -90 et 90 ; la longitude doit être comprise entre -180 et 180. Par exemple, `[-73.988103, 40.779109]`. | ✅ Oui | ✅ Oui |
+| Objet JSON | Un objet imbriqué avec des paires clé-valeur. Peut être affiché dans la plateforme, mais ne peut être créé ou mis à jour que via l'API ou le CDI. | ⛔ Non | ✅ Oui |
+| Tableau de chaînes de caractères | Une liste de chaînes de caractères. Peut être affiché dans la plateforme, mais ne peut être créé ou mis à jour que via l'API ou le CDI. Maximum de 100 éléments. | ⛔ Non | ✅ Oui |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## Création d'un catalogue {#creating-a-catalog}
 
@@ -44,7 +55,7 @@ Avant de télécharger votre fichier CSV, assurez-vous qu'il répond aux exigenc
 | Taille du fichier | Pour les forfaits gratuits, la taille totale de tous les fichiers CSV d'une entreprise est limitée à 100 Mo. Pour les plans Pro, la taille maximale d'un seul fichier CSV est de 2 Go. |
 | Valeurs des champs | Chaque cellule (valeur de champ) peut contenir jusqu'à 5 000 caractères. |
 | Caractères valides | La colonne `id` et toutes les valeurs d'en-tête ne peuvent contenir que des lettres, des chiffres, des tirets et des traits de soulignement. |
-| Types de données | Les types de données pris en charge pour les téléchargements CSV comprennent les chaînes de caractères, les nombres, les booléens et les dates. Pour obtenir la liste complète des types de données, y compris ceux disponibles uniquement via l'API et le CDI, consultez la section [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
+| Types de données | Les types de données pris en charge pour les imports CSV comprennent les chaînes de caractères, les nombres, les booléens, les dates et la géolocalisation. Pour obtenir la liste complète des types de données, y compris ceux disponibles uniquement via l'API et le CDI, consultez la section [Types de données pris en charge](#supported-data-types). |
 | Formatage | Formatez tout le texte en minuscules afin de garantir la cohérence. |
 | Encodage | Enregistrez et téléchargez le fichier CSV en utilisant l'encodage UTF-8. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
@@ -57,15 +68,15 @@ Vous avez besoin de plus d'espace pour vos fichiers CSV ? Contactez votre gestio
 
 Glissez-déposez votre fichier dans la zone de téléchargement ou sélectionnez **Upload CSV** et choisissez votre fichier.
 
-![]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
+![Glissez-déposez votre fichier dans la zone de téléchargement ou sélectionnez Upload CSV et choisissez votre fichier.]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
 
 Sélectionnez un type de données pour chaque colonne.
 
 {% alert note %}
-Ce type de données ne peut pas être modifié après la configuration de votre catalogue. De plus, la valeur `NULL` n'est pas prise en charge dans le téléchargement CSV et sera traitée comme une chaîne de caractères.
+Ce type de données ne peut pas être modifié après la configuration de votre catalogue. De plus, la valeur `NULL` n'est pas prise en charge dans l'import CSV et sera traitée comme une chaîne de caractères.
 {% endalert %}
 
-![]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![Sélection du type de données pour chaque colonne du catalogue. La valeur NULL n'est pas prise en charge dans l'import CSV et sera traitée comme une chaîne de caractères.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 Saisissez un nom et une description facultative pour votre catalogue. Tenez compte des exigences suivantes lorsque vous nommez votre catalogue :
 
@@ -94,7 +105,7 @@ Pour ce tutoriel, nous utilisons un catalogue qui répertorie deux jeux, leur pr
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table class="tg" aria-label="Tutoriel : Création d'un catalogue à partir d'un fichier CSV">
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -125,7 +136,7 @@ Nous allons créer le catalogue en téléchargeant un fichier CSV. Les types de 
 Ce type de données ne peut pas être modifié après la configuration de votre catalogue.
 {% endalert %}
 
-![Quatre noms de colonnes du catalogue : « id », « title », « price », « image_link ».]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
+![Quatre noms de colonnes de catalogue : « id », « title », « price », « image_link ».]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
 
 Ensuite, nous nommerons ce catalogue « games_catalog » et sélectionnerons le bouton **Process Catalog**. Braze vérifie alors que le catalogue ne contient pas d'erreurs avant de le créer.
 
@@ -133,20 +144,18 @@ Ensuite, nous nommerons ce catalogue « games_catalog » et sélectionnerons le 
 
 Notez que vous ne pourrez pas modifier ce nom après la création du catalogue. Vous pouvez toutefois supprimer un catalogue et en télécharger une version mise à jour en utilisant le même nom.
 
-Après avoir créé le catalogue, vous pouvez commencer à y faire référence [dans une campagne]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
+Après avoir créé le catalogue, vous pouvez commencer à y faire référence [dans une campagne]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
 {% endtab %}
 
-{% tab Create in browser %}
+{% tab Créer dans le navigateur %}
 ### Conditions préalables {#prerequisites}
 
-Avant de pouvoir modifier ou créer des catalogues dans le navigateur, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) suivantes pour votre espace de travail :
+Avant de pouvoir modifier ou créer des catalogues dans le navigateur, vous devez disposer des [autorisations utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) suivantes pour votre espace de travail :
 
-- Afficher les catalogues
+- Consulter les catalogues
 - Modifier les catalogues
 - Exporter les catalogues
 - Supprimer les catalogues
-
-{% multi_lang_include deprecations/user_permissions.md %}
 
 ### Étape 1 : Saisissez les détails du catalogue {#step-1-enter-catalog-details}
 
@@ -166,11 +175,11 @@ Vous pouvez également [utiliser des modèles dans un nom de catalogue](#templat
 
 Sélectionnez votre catalogue dans la liste, puis choisissez **Update Catalog** > **Add fields**. Saisissez le **Field name** et utilisez le menu déroulant pour sélectionner le type de données. Répétez l'opération autant de fois que nécessaire.
 
-![Deux exemples de champs : « rating » et « name ».]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
+![Deux exemples de champs « rating » et « name ».]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
 Sélectionnez **Update Catalog** > **Add items** pour ajouter un élément à votre catalogue en saisissant les informations dans les champs que vous avez précédemment ajoutés. Ensuite, sélectionnez **Save Item** ou **Save and Add Another** pour continuer à ajouter vos éléments.
 
-![Ajouter un élément au catalogue.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
+![Ajout d'un élément de catalogue.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
 {% alert note %}
 Braze traite les valeurs temporelles sur la base de l'horodatage du tableau de bord. Par exemple, si une colonne a pour valeur « 03/13/2024 » et que votre fuseau horaire est celui du Pacifique, cette heure sera importée dans Braze sous la forme « 12 mars 2024, 17 h 00 ».
@@ -178,7 +187,20 @@ Braze traite les valeurs temporelles sur la base de l'horodatage du tableau de b
 {% endtab %}
 {% endtabs %}
 
-Pour consulter les types de données de catalogue avec leurs formats et exemples, reportez-vous à la section [Types de données]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
+## Types de données de catalogue {#catalog-data-types}
+
+Les catalogues prennent en charge différents types de données pour vous aider à organiser et structurer efficacement vos données. Le tableau suivant décrit chaque type de données pris en charge et la correspondance avec les noms de types CSV et API :
+
+| Type de données | Format | Exemple | Description |
+|-----------|--------|---------|-------------|
+| Chaîne de caractères | Texte | `"Hello World"` | Toute séquence de caractères utilisée pour des données textuelles telles que des noms, des descriptions et des identifiants. Équivalent au type `string` dans les imports CSV et API. |
+| Date | ISO 8601 ou horodatage Unix (secondes) | `"2024-03-15T14:30:00Z"` | Valeurs de date et d'heure au format ISO 8601 ou horodatage Unix en secondes. Équivalent au type `time` dans l'API et au type `datetime` dans les imports CSV. |
+| Valeur booléenne | `true` ou `false` | `true` | Valeurs logiques représentant les états vrai ou faux. Équivalent au type `boolean` dans les imports CSV et API. |
+| Nombre | Entier ou décimal | `42` ou `19.99` | Valeurs numériques comprenant les entiers et les nombres à virgule flottante pour les prix, les quantités, les notes, etc. Équivalent aux types `integer` et `float` dans les imports CSV et au type `number` dans l'API. |
+| Géolocalisation | Tableau `[longitude, latitude]` | `[-73.988103, 40.779109]` | Une paire de coordonnées représentant un emplacement géographique. La longitude doit être comprise entre -180 et 180 ; la latitude doit être comprise entre -90 et 90. La valeur `type` de l'API est `geo`. Peut être ajoutée via le tiroir **Add Fields** dans l'interface des catalogues, l'import CSV ou la REST API. |
+| Objet | Objet JSON | `{"key": "value", "price": 10}` | Structures de données imbriquées complexes. La valeur `type` de l'API est `object`. Affiché comme objet JSON dans le tableau de bord. Disponible uniquement via l'API ou l'ingestion de données cloud (CDI). |
+| Tableau | Tableau de chaînes de caractères | `["red", "blue", "green"]` | Listes de valeurs de type chaîne de caractères. La valeur `type` de l'API est `array`. Affiché comme tableau de chaînes de caractères dans le tableau de bord. Disponible uniquement via l'API ou le CDI. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ## Utilisation de modèles dans les noms de catalogues {#template-catalog-names}
 
@@ -201,19 +223,19 @@ Pour mettre à jour votre catalogue après avoir téléchargé un fichier CSV ou
 
 ### Avec la REST API {#using-the-rest-api}
 
-Au fur et à mesure que vous créez des catalogues, vous pouvez également utiliser l'[endpoint Lister les catalogues]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) pour obtenir la liste des catalogues d'un espace de travail.
+Au fur et à mesure que vous créez des catalogues, vous pouvez également utiliser l'[endpoint Lister les catalogues]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) pour obtenir la liste des catalogues d'un espace de travail.
 
-La REST API prend en charge tous les [types de données de catalogue]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types), y compris les objets JSON et les tableaux de chaînes de caractères. Les objets JSON et les tableaux de chaînes de caractères ne peuvent être créés ou mis à jour que via la REST API.
+La REST API prend en charge tous les [types de données de catalogue](#supported-data-types), y compris les objets JSON et les tableaux de chaînes de caractères. Les objets JSON et les tableaux de chaînes de caractères ne peuvent être créés ou mis à jour que via la REST API.
 
-### Avec l'Ingestion de données cloud {#using-cloud-data-ingestion}
+### Avec l'ingestion de données cloud {#using-cloud-data-ingestion}
 
-Vous pouvez gérer vos catalogues via l'[Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) en synchronisant régulièrement les données de vos catalogues directement depuis votre entrepôt de données (tel que Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3).
+Vous pouvez gérer vos catalogues via l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) en synchronisant régulièrement les données de vos catalogues directement depuis votre entrepôt de données (tel que Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3).
 
 ## Gérer les éléments du catalogue {#managing-catalog-items}
 
 En plus de gérer vos catalogues, vous pouvez utiliser des endpoints synchrones et asynchrones pour gérer les éléments du catalogue. Cela inclut la possibilité de modifier et de supprimer des éléments, ainsi que de consulter les détails d'un élément.
 
-Par exemple, si vous souhaitez modifier un élément de catalogue spécifique, vous pouvez utiliser l'[endpoint `/catalogs/catalog_name/items/item_id`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/).
+Par exemple, si vous souhaitez modifier un élément de catalogue spécifique, vous pouvez utiliser l'[endpoint `/catalogs/catalog_name/items/item_id`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item).
 
 ## Stockage des catalogues {#tiers}
 
@@ -223,7 +245,7 @@ La version gratuite des catalogues prend en charge des fichiers CSV d'une taille
 Les droits d'utilisation des packages affichés dans le tableau de bord de Braze sont arrondis à l'unité la plus proche à des fins d'affichage. Vous conservez toutefois l'intégralité des droits d'utilisation achetés. Pour demander une mise à niveau du stockage des catalogues, contactez votre gestionnaire de compte Braze.
 {% endalert %}
 
-#### Version gratuite {#free-version}
+### Version gratuite {#free-version}
 
 La taille de stockage pour la version gratuite des catalogues est de 100&nbsp;Mo maximum. Vous pouvez avoir un nombre illimité d'éléments tant qu'ils ne dépassent pas 100&nbsp;Mo au total.
 

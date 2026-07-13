@@ -8,19 +8,19 @@ channel: email
 
 ---
 
-# Estilo de e-mail
+# Estilo de e-mail {#email-styling}
 
 > Este artigo descreve as práticas recomendadas de estilo de e-mail, incluindo linhas de assunto, pré-cabeçalho, tamanho do e-mail e recomendações de imagens.
 
-## Estilo de endereço
+## Estilo de endereço {#address-styling}
 
-A **Linha de Assunto** é uma das primeiras coisas que os destinatários verão ao receber sua mensagem. O uso de 6 a 10 palavras produzirá as taxas de abertura mais altas.
+A linha de assunto é uma das primeiras coisas que os destinatários veem ao receber sua mensagem. O uso de 6 a 10 palavras produz as taxas de abertura mais altas.
 
-Há também diferentes abordagens para criar uma boa linha de assunto, desde fazer uma pergunta para despertar o interesse do leitor ou ser mais direto, até personalizá-la para engajar sua clientela. Não se limite a uma única linha de assunto, aproveite os [Testes A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/#what-are-multivariate-and-ab-testing/) para experimentar novas linhas e avaliar sua eficácia. As linhas de assunto não devem ter mais de 35 caracteres para serem exibidas adequadamente no celular.
+Há também diferentes abordagens para criar uma boa linha de assunto, desde fazer uma pergunta para despertar o interesse do leitor ou ser mais direto, até personalizá-la para engajar sua clientela. Não se limite a uma única linha de assunto, aproveite os [testes A/B]({{site.baseurl}}/user_guide/messaging/ab_testing#what-are-multivariate-and-ab-testing) para experimentar novas linhas e avaliar sua eficácia. As linhas de assunto não devem ter mais de 35 caracteres para serem exibidas adequadamente no celular.
 
 O campo "De" deve mostrar claramente quem é o remetente. Tente não usar o nome de uma pessoa ou uma abreviação incomum. Em vez disso, use um nome reconhecível, como o nome da sua marca. Se o uso do nome de uma pessoa for adequado aos métodos de personalização de e-mail da sua marca, mantenha a consistência para desenvolver um relacionamento com o destinatário. O nome "De" não deve ter mais de 25 caracteres para ser exibido adequadamente no celular.
 
-### Endereços sem resposta
+### Endereços sem resposta {#no-reply-addresses}
 
 Endereços de e-mail sem resposta geralmente não são recomendados por vários motivos, pois eles desengajam seus leitores. Muitos destinatários respondem ao e-mail para cancelar inscrição. Se não puderem fazer isso, a próxima ação mais comum é marcar o e-mail como spam.
 
@@ -63,7 +63,7 @@ Aqui estão algumas práticas recomendadas para ter em mente ao escrever seus pr
   | Android Gmail          | 24      |
   | iOS Nativo             | 82      |
   | iOS Gmail              | 30      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Limites de caracteres do pré-cabeçalho" }
 
   |  Cliente de e-mail desktop  |  Limite  |
   |:----------------------:|:-------:|
@@ -71,7 +71,7 @@ Aqui estão algumas práticas recomendadas para ter em mente ao escrever seus pr
   | Outlook '13            | 38      |
   | Outlook for Mac '15   | 53      |
   | Outlook '16            | 50      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Limites de caracteres do pré-cabeçalho" }
 
 
   |  Cliente de e-mail webmail  |  Limite  |
@@ -81,19 +81,19 @@ Aqui estão algumas práticas recomendadas para ter em mente ao escrever seus pr
   | Outlook.com            | 49      |
   | Office 365             | 40      |
   | Mail.ru                | 64      |
-  {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+  {: .reset-td-br-1 .reset-td-br-2 aria-label="Limites de caracteres do pré-cabeçalho" }
 
 ## Tamanho do e-mail {#email-size}
 
 O tamanho do e-mail refere-se ao tamanho do HTML da sua mensagem na Braze (o corpo que você cria e o que a Braze adiciona quando a mensagem é enviada).
 
 - Certifique-se de limitar o tamanho do seu e-mail. Corpos de e-mail maiores que 102&nbsp;KB não apenas sobrecarregam os servidores da Braze, mas também são cortados pelo Gmail e outros clientes de e-mail.
-- Imagens hospedadas que você referencia por URL não são incorporadas no HTML da mesma forma que colar grandes ativos inline. Recomendamos usar a [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) e vincular por `href`, o que ajuda a manter a mensagem menor.
+- Imagens hospedadas que você referencia por URL não são incorporadas no HTML da mesma forma que colar grandes ativos inline. Recomendamos usar a [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) e vincular por `href`, o que ajuda a manter a mensagem menor.
 
 |   Somente texto   | Texto com imagens |     Largura do e-mail    |
 |:-------------:|:----------------:|:------------------:|
 | 25&nbsp;KB máximo |   60&nbsp;KB máximo   | 600 pixels máximo |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tamanho do e-mail" }
 
 Para reduzir o risco de corte:
 
@@ -126,7 +126,7 @@ Consulte a tabela a seguir para os comprimentos de texto recomendados.
 | Comprimento da linha de assunto | 35 caracteres máximo (para exibição ideal em dispositivos móveis) (6 a 10 palavras) |
 | Comprimento do nome do remetente | 25 caracteres máximo (para exibição ideal em dispositivos móveis) |
 | Comprimento do pré-cabeçalho | 85 caracteres máximo |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comprimento do texto" }
 
 ## Tamanho da imagem {#image-size}
 
@@ -135,17 +135,21 @@ Consulte a tabela a seguir para os tamanhos de imagem recomendados. Imagens meno
 |     Tamanho    | Largura da imagem do cabeçalho |  Largura da imagem do corpo  |   Tipos de arquivo  |
 |:-----------:|:------------------:|:------------------:|:-------------:|
 | 5&nbsp;MB máximo | 600 pixels máximo | 480 pixels máximo | PNG, JPEG, GIF |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tamanho da imagem" }
+
+{% alert note %}
+O Gmail web e o Gmail para dispositivos móveis geralmente não renderizam SVG (e o suporte a WEBP é inconsistente). Use PNG ou JPEG para imagens que precisam ser exibidas de forma confiável no Gmail.
+{% endalert %}
 
 ## Deep linking {#deep-linking}
 
-Com notificações por push e mensagens no app, um [deep link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/) leva os usuários diretamente a um destino específico dentro de um app. No entanto, deep links exigem que o app esteja instalado, e os e-mails não oferecem uma forma de saber se os destinatários têm o app. Isso significa que deep links em e-mails podem resultar em erros para destinatários que não têm o app instalado.
+Com notificações por push e In-App Messages, um [deep link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) leva os usuários diretamente a um destino específico dentro de um app. No entanto, deep links exigem que o app esteja instalado, e os e-mails não oferecem uma forma de saber se os destinatários têm o app. Isso significa que deep links em e-mails podem resultar em erros para destinatários que não têm o app instalado.
 
-Em vez disso, use [links universais e App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/), que funcionam como URLs padrão. Você pode configurá-los para abrir o app ou direcionar os usuários a uma página específica. Eles também podem redirecionar para a loja de apps ou voltar para uma página da web quando o app não está instalado.
+Em vez disso, use [links universais e App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links), que funcionam como URLs padrão. Você pode configurá-los para abrir o app ou direcionar os usuários a uma página específica. Eles também podem redirecionar para a loja de apps ou voltar para uma página da web quando o app não está instalado.
 
 ## Content Blocks com imagens transparentes {#content-blocks-with-transparent-images}
 
-Quando um Content Block contém uma imagem com fundo transparente (por exemplo, um logotipo) e é inserido por uma Liquid tag, você pode ver uma cor de fundo aparecer atrás da imagem. Essa cor vem das [configurações de estilo global de e-mail]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/) do editor de arrastar e soltar — especificamente a **Cor de fundo do e-mail**. Se suas configurações de estilo global usam uma cor diferente de branco, essa cor aparecerá no lugar.
+Quando um Content Block contém uma imagem com fundo transparente (por exemplo, um logotipo) e é inserido por uma Liquid tag, você pode ver uma cor de fundo aparecer atrás da imagem. Essa cor vem das [configurações de estilo global de e-mail]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings) do editor de arrastar e soltar — especificamente a **Cor de fundo do e-mail**. Se suas configurações de estilo global usam uma cor diferente de branco, essa cor aparecerá no lugar.
 
 Para exibir o Content Block conforme o esperado:
 

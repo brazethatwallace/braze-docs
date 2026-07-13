@@ -10,17 +10,17 @@ channel:
 
 # Bring Your Own WhatsAppコネクター {#bring-your-own-whatsapp-connector}
 
-> Bring Your Own（BYO）WhatsAppコネクターは、BrazeとInfobipのパートナーシップを提供するもので、BrazeにInfobip WhatsApp Business Manager（WABA）へのアクセスを許可します。これにより、Brazeでセグメンテーション、パーソナライゼーション、Campaignオーケストレーションを活用しながら、メッセージングコストをInfobipと直接管理・支払いできます。Brazeは、送信メッセージ、受信メッセージ処理、WhatsAppフロー、分析など、WhatsAppチャネルが提供する既存の機能をすべて維持します。
+> Bring Your Own（BYO）WhatsAppコネクターは、BrazeとInfobipのパートナーシップを提供するもので、BrazeにInfobip WhatsApp Business Manager（WABA）へのアクセスを許可します。これにより、Brazeでセグメンテーション、パーソナライゼーション、キャンペーンオーケストレーションを活用しながら、メッセージングコストをInfobipと直接管理・支払いできます。Brazeは、送信メッセージ、受信メッセージ処理、WhatsAppフロー、分析など、WhatsAppチャネルが提供する既存の機能をすべて維持します。
 
 ## 要件 {#requirements}
 
 | 要件 | 説明 |
 | --- | --- |
 | Infobipアカウント | BYO WhatsAppコネクターを使用するには、Infobipアカウントが必要です。 |
-| メッセージングクレジット | WhatsAppメッセージを送信する際に、Brazeメッセージングクレジットを消費します。 |
-| WhatsApp要件 | すべての[WhatsApp要件]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites)を完了してください。 |
+| メッセージまたはアクションクレジット | WhatsAppメッセージを送信する際に、Brazeアクションクレジットを消費します。 |
+| WhatsApp要件 | すべての[WhatsApp要件]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#prerequisites)を完了してください。 |
 | 電話番号 | 利便性のため、[Infobipを通じて電話番号を取得する](https://www.infobip.com/docs/numbers/getting-started)ことをお勧めします。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="要件" }
 
 ## セットアップ {#set-up}
 
@@ -30,11 +30,11 @@ BYO WhatsAppコネクターをセットアップする前に、WhatsApp Business
 
 - WhatsApp Business Accountと電話番号がこれまでパートナーに接続されたことがない
 - WhatsApp Business Accountがネイティブ統合を通じてBrazeに直接接続されている
-    - [WhatsApp電話番号の移行]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number/)の手順に従い、電話番号を1つずつ新しいWhatsApp Business Accountに移行してください。
+    - [WhatsApp電話番号の移行]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number)の手順に従い、電話番号を1つずつ新しいWhatsApp Business Accountに移行してください。
 - WhatsApp Business AccountがBrazeおよびInfobip以外のソリューションプロバイダーに接続されている
-    - [WhatsApp電話番号の移行]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number/)の手順に従い、電話番号を1つずつ新しいWhatsApp Business Accountに移行してください。
+    - [WhatsApp電話番号の移行]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number)の手順に従い、電話番号を1つずつ新しいWhatsApp Business Accountに移行してください。
 
-## ステップ 1: Infobipアカウント情報の取得 {#step-1}
+## ステップ 1:Infobipアカウント情報の取得 {#step-1}
 
 1. Infobipで、WhatsApp Business Accountに使用するアカウントを特定します。
 2. **Developer Tools** > **API Keys** に移動し、**Create API Key** を選択します。
@@ -62,7 +62,7 @@ BYO WhatsAppコネクターをセットアップする前に、WhatsApp Business
 
 ![APIベースURLがハイライトされた「API keys」ページ。]({% image_buster /assets/img/whatsapp/byo_connector/api_base_url.png %})
 
-## ステップ 2: 埋め込みサインアップの開始 {#step-2-start-the-embedded-signup}
+## ステップ 2:埋め込みサインアップの開始 {#step-2-start-the-embedded-signup}
 
 1. Brazeで、**パートナー連携** > **テクノロジーパートナー** > **WhatsApp** に移動します。
 2. **BYO Connector - Infobip** タブを選択します。
@@ -72,7 +72,7 @@ BYO WhatsAppコネクターをセットアップする前に、WhatsApp Business
 {: start="3"}
 3. [ステップ 1](#step-1)で取得したAPIキーとベースURLを入力します。
 4. **Connect** を選択します。
-5. 以下の点に注意しながら、[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/#whatsapp-embedded-signup-workflow)を進めます:
+5. 以下の点に注意しながら、[埋め込みサインアップワークフロー]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup#whatsapp-embedded-signup-workflow)を進めます:
 - 別のBusiness Solution Providerが使用しているビジネスポートフォリオと同じものは選択できません。
 - 別のBusiness Solution Providerが使用している電話番号は選択できません。
 - 既存のWABAを選択するのではなく、新しいWABAを作成する必要があります。
@@ -89,11 +89,11 @@ BYO WhatsAppコネクターをセットアップする前に、WhatsApp Business
 各WhatsApp Business Accountを1つのInfobipアカウントに接続してください。追加の電話番号やサブスクリプショングループを接続するたびに、WhatsApp Business Accountがすでにinfobipアカウントに接続されている場合は、既存アカウントのAPI認証情報を再入力する必要があります。
 {% endalert %}
 
-## ステップ 3: メッセージの送信 {#step-3-sending-messages}
+## ステップ 3:メッセージの送信 {#step-3-sending-messages}
 
 以下を含むネイティブ統合の送信プロセスに従ってください:
-- [サブスクリプショングループへのユーザー登録]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)
-- [WhatsAppメッセージの作成]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)
+- [サブスクリプショングループへのユーザー登録]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)
+- [WhatsAppメッセージの作成]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)
 
 ## セットアップのトラブルシューティング {#troubleshooting-setup}
 
@@ -106,10 +106,7 @@ WhatsApp Business Accountが別のBrazeワークスペースに接続されて�
 1. WhatsApp Business AccountがBrazeまたは別のパートナーに接続されていないことを確認してください。
 2. WhatsApp Business Account内の電話番号が別のInfobipアカウントに接続されていないことを確認してください。インポートされた番号の場合は、Infobipで番号を見つけて **Cancel number** を選択できます。
 
-![Infobip番号の「Cancel number」ボタン。]({% image_buster /assets/img/whatsapp/byo_connector/cancel_number.png %})
-
 ## 注意事項 {#considerations}
-
 
 Brazeの既存機能はすべてサポートされていますが、以下のユースケースは現在サポートされていません。
 
@@ -117,4 +114,4 @@ Brazeの既存機能はすべてサポートされていますが、以下のユ
 | --- | --- |
 | BrazeとInfobipの両方で受信メッセージを処理する | いずれかのシステムによってトリガーされるロジックチェーンが発生し、重複した、場合によっては矛盾するメッセージスレッドが生成される可能性があるためです。 |
 | BrazeとInfobipの両方からメッセージを送信する | Brazeに接続されたWhatsApp Business Accountの場合、すべての送信はBrazeから行われます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="注意事項" }

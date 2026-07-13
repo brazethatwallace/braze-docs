@@ -3,30 +3,30 @@ nav_title: E-Mail
 article_title: E-Mail
 page_order: 3
 page_type: landing
-description: "Erstellen Sie angepasste und personalisierte E-Mail-Kampagnen in Braze mit Drag-and-Drop- und HTML-Editoren, Abo-Management und mehr."
+description: "Erstellen Sie angepasste und personalisierte E-Mail-Campaigns in Braze mit Drag-and-Drop- und HTML-Editoren, Abo-Management und mehr."
 channel:
   - email
 search_rank: 2
 ---
 
-# E-Mail
+# E-Mail {#email}
 
-> Mit E-Mail bei Braze können Sie vollständig angepasste und personalisierte E-Mail-Nachrichten in Campaigns oder Canvas erstellen, die die Aufmerksamkeit Ihrer Nutzer:innen außerhalb Ihrer App oder Website gewinnen. Passen Sie Ihre E-Mail-Nachrichten an – von der Verwaltung Ihrer Zielgruppe bis hin zu auffälligen Multimedia-Inhalten. Beispiele für Campaigns finden Sie in den Braze-[Fallstudien](https://www.braze.com/customers/).
+> Mit E-Mail bei Braze können Sie vollständig angepasste und personalisierte E-Mail-Nachrichten in Campaigns oder Canvas erstellen, die die Aufmerksamkeit Ihrer Nutzer:innen außerhalb Ihrer App oder Website gewinnen. Passen Sie Ihre E-Mail-Nachrichten an – von der Verwaltung Ihrer Zielgruppe bis hin zu auffälligen Multimedia-Inhalten. Beispiele für E-Mail-Campaigns finden Sie in den Braze-[Fallstudien](https://www.braze.com/customers/).
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Bevor Sie E-Mails mit Braze senden können, müssen Sie Ihre dedizierten IPs, Domains, E-Mail-Authentifizierung und IP-Warming konfigurieren. Eine vollständige Anleitung finden Sie unter [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup/).
+Bevor Sie E-Mails mit Braze senden können, müssen Sie Ihre dedizierten IPs, Domains, E-Mail-Authentifizierung und IP-Warming konfigurieren. Eine vollständige Anleitung finden Sie unter [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup).
 
-## Passen Sie Ihre E-Mails an
+## Passen Sie Ihre E-Mails an {#customize-your-emails}
 
 Sie können Ihr E-Mail-Messaging auf vielfältige Weise anpassen, zum Beispiel:
 
-- [Braze-E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/)
-- [Angepasste HTML-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template/)
-- [Blöcke für den Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/)
-- [Nutzer:innen-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions/)
+- [Braze-E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)
+- [Angepasste HTML-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)
+- [Editor-Blöcke (E-Mail)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)
+- [Nutzer:innen-Abos]({{site.baseurl}}/user_guide/channels/email/subscriptions)
 
-## Anwendungsfälle
+## Anwendungsfälle {#use-cases}
 
 | Anwendungsfall | Erklärung |
 | --- | --- |
@@ -35,8 +35,8 @@ Sie können Ihr E-Mail-Messaging auf vielfältige Weise anpassen, zum Beispiel:
 | Rich-Nachrichten | Ermöglichen Sie umfangreiche und dynamische HTML-Nachrichten. |
 | Multimediale Inhalte | Einfache Platzierung von Multimedia-Inhalten, die Nutzer:innen ansprechen, wie z. B. Videos und Bilder. |
 | Newsletter | Versenden Sie bequem monatliche oder wöchentliche Newsletter, um das Engagement der Nutzer:innen aufrechtzuerhalten. |
-| Transaktionen | Benachrichtigen Sie Nutzer:innen über kürzliche Käufe und liefern Sie wichtige Produkt- und Versandinformationen mit [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/).
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Transaktionen | Benachrichtigen Sie Nutzer:innen über kürzliche Käufe und liefern Sie wichtige Produkt- und Versandinformationen mit [Transaktions-E-Mails]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email).
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Anwendungsfälle" }
 
 ## E-Mail-Dienste {#email-services}
 
@@ -58,8 +58,8 @@ Diese Dienste können Folgendes umfassen:
   - Empfehlungen zur Verbesserung der E-Mail-Programm-Performance und der Ergebnisse unter Nutzung von Daten und bewährten Best Practices
 - Krisenbewältigung und Behebung von Ereignissen, die zu Problemen wie einer Blocklist für die Zustellbarkeit führen
 
-## Nächste Schritte
+## Nächste Schritte {#next-steps}
 
-- [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup/)
-- [E-Mail mit dem Drag-and-Drop-Editor erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)
-- [E-Mail mit dem HTML-Editor erstellen]({{site.baseurl}}/user_guide/channels/email/html_editor/)
+- [E-Mail-Einrichtung]({{site.baseurl}}/user_guide/channels/email/email_setup)
+- [E-Mail mit dem Drag-and-Drop-Editor erstellen]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)
+- [E-Mail mit dem HTML-Editor erstellen]({{site.baseurl}}/user_guide/channels/email/html_editor)

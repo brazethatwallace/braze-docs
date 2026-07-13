@@ -1,6 +1,6 @@
 ---
-nav_title: Liquid ユースケースライブラリ
-article_title: Liquid ユースケースライブラリ
+nav_title: Liquidユースケースライブラリ
+article_title: Liquidユースケースライブラリ
 page_order: 10
 search_rank: 2
 excerpt_separator: ""
@@ -20,7 +20,7 @@ Anniversaries and holidays
 
 - [ユーザーの記念年に基づいてメッセージをパーソナライズする](#anniversary-year)
 - [ユーザーの誕生日週に基づいてメッセージをパーソナライズする](#birthday-week)
-- [誕生月のユーザーにCampaignを送信する](#birthday-month)
+- [誕生月のユーザーにキャンペーンを送信する](#birthday-month)
 - [主要な祝日にメッセージを送信しないようにする](#holiday-avoid)
 
 ### ユーザーの記念年に基づいてメッセージをパーソナライズする {#anniversary-year}
@@ -93,7 +93,7 @@ No birthday for you!
 
 `last_week`と`next_week`のステートメントも含めて、メッセージングをさらにパーソナライズしています。
 
-### 誕生月のユーザーにCampaignを送信する {#birthday-month}
+### 誕生月のユーザーにキャンペーンを送信する {#birthday-month}
 
 このユースケースでは、ユーザーの誕生月を計算し、誕生日が今月かどうかを確認し、該当する場合は特別なメッセージを送信する方法を示します。
 
@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [一致するカスタム属性に基づいてメッセージをパーソナライズする](#attribute-matching)
+- [ヨーロッパの数値表記規則に合わせて通貨をフォーマットする](#european-currency-format)
 - [2つのカスタム属性を減算して差額を金額として表示する](#attribute-monetary-difference)
 - [フルネームがfirst_nameフィールドに保存されている場合にユーザーの名を参照する](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### ヨーロッパの数値表記規則に合わせて通貨をフォーマットする {#european-currency-format}
+
+小数点にカンマ、千の位にピリオドを使用するロケール（ドイツやイタリアなど）では、[`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter)フィルターと[`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters)フィルターを`replace`と組み合わせて区切り文字を入れ替えます。ピリオドとカンマが同じパスで入れ替わらないように、`#`を一時的なプレースホルダーとして使用します。
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**出力:** `1.234.567,89`
+
+**説明:** `money`フィルターは小数点以下を追加しますが、通貨記号やロケール固有の区切り文字は追加しません。`number_with_delimiter`はUS形式の千の位区切りを追加し、`replace`フィルターでヨーロッパ形式に変換します。
 {% endraw %}
 
 ### 2つのカスタム属性を減算して差額を金額として表示する {#attribute-monetary-difference}
@@ -604,7 +619,7 @@ Custom event
 {% endapitags %}
 
 - [カスタムイベントが現在から2時間以内の場合にプッシュ通知を中止する](#event-abort-push)
-- [ユーザーがカスタムイベントを3回実行するたびにCampaignを送信する](#event-three-times)
+- [ユーザーがカスタムイベントを3回実行するたびにキャンペーンを送信する](#event-three-times)
 - [1つのカテゴリからのみ購入したユーザーにメッセージを送信する](#event-purchased-one-category)
 - [過去1か月間にカスタムイベントが発生した回数を追跡する](#track)
 
@@ -630,9 +645,9 @@ Still traveling to {{event_properties.${toStation}}} in more than 24 hours? Book
 ```
 {% endraw %}
 
-### ユーザーがカスタムイベントを3回実行するたびにCampaignを送信する {#event-three-times}
+### ユーザーがカスタムイベントを3回実行するたびにキャンペーンを送信する {#event-three-times}
 
-このユースケースでは、ユーザーがカスタムイベントを3回実行したかどうかを確認し、該当する場合はメッセージを表示するかCampaignを送信します。
+このユースケースでは、ユーザーがカスタムイベントを3回実行したかどうかを確認し、該当する場合はメッセージを表示するかキャンペーンを送信します。
 
 {% raw %}
 ```liquid
@@ -667,7 +682,7 @@ Did you forget something in your shopping cart?
 
 ### 過去1か月間にカスタムイベントが発生した回数を追跡する {#track}
 
-このユースケースでは、当月の1日から前月までの間にカスタムイベントが記録された回数を計算します。その後、users/trackコールを実行してこの値をカスタム属性として保存できます。なお、このCampaignは月次データを使用できるようになるまで、2か月連続で実行する必要があります。
+このユースケースでは、当月の1日から前月までの間にカスタムイベントが記録された回数を計算します。その後、users/trackコールを実行してこの値をカスタム属性として保存できます。なお、このキャンペーンは月次データを使用できるようになるまで、2か月連続で実行する必要があります。
 
 {% raw %}
 ```liquid
@@ -858,10 +873,10 @@ Miscellaneous
 
 ### マーケティングメールをブロックしている顧客へのメール送信を避ける {#misc-avoid-blocked-emails}
 
-このユースケースでは、Content Blocksに保存されたブロック済みユーザーのリストを取得し、それらのブロック済みユーザーが今後のCampaignやCanvasesで連絡やターゲティングされないようにします。
+このユースケースでは、Content Blockに保存されたブロック済みユーザーのリストを取得し、それらのブロック済みユーザーが今後のキャンペーンやキャンバスで連絡やターゲティングされないようにします。
 
 {% alert important %}
-このLiquidを使用するには、まずブロック済みメールのリストをContent Blocks内に保存してください。リストには、メールアドレス間に余分なスペースや文字を挿入しないでください（例：`test@braze.com,abc@braze.com`）。
+このLiquidを使用するには、まずブロック済みメールのリストをContent Block内に保存してください。リストには、メールアドレス間に余分なスペースや文字を挿入しないでください（例：`test@braze.com,abc@braze.com`）。
 {% endalert %}
 
 {% raw %}
@@ -877,10 +892,10 @@ Your message here!
 ```
 {% endraw %}
 
-**説明:** ここでは、ブロック済みメールのContent Blocksを参照して、潜在的な受信者のメールがこのリストに含まれているかどうかを確認します。メールが見つかった場合、メッセージは送信されません。
+**説明:** ここでは、ブロック済みメールのContent Blockを参照して、潜在的な受信者のメールがこのリストに含まれているかどうかを確認します。メールが見つかった場合、メッセージは送信されません。
 
 {% alert note %}
-Content Blocksのサイズ制限は5 MBです。
+Content Blockのサイズ制限は5 MBです。
 {% endalert %}
 
 ### 顧客のサブスクリプション状態を使用してメッセージ内のコンテンツをパーソナライズする {#misc-personalize-content}
@@ -937,7 +952,7 @@ Today's offer from {{store}}
 
 このユースケースでは、カスタムイベントに基づいて今後のリマインダーを設定できます。このシナリオ例では、26日以上先のポリシー更新日に対してリマインダーを設定し、ポリシー更新日の26日前、13日前、7日前、または2日前にリマインダーを送信します。
 
-このユースケースでは、以下を[WebhookのCampaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)またはキャンバスステップの本文に配置する必要があります。
+このユースケースでは、以下を[Webhookのキャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)またはキャンバスステップの本文に配置する必要があります。
 
 {% raw %}
 ```liquid
@@ -1366,12 +1381,16 @@ Time zones
 - [ユーザーのタイムゾーンに応じてメッセージをパーソナライズする](#personalize-timezone)
 - [カスタム属性にCSTタイムゾーンを付加する](#time-append-cst)
 - [タイムスタンプを挿入する](#time-insert-timestamp)
-- [ユーザーのローカルタイムゾーンの時間枠内でのみCanvasプッシュを送信する](#time-canvas-window)
-- [ユーザーのローカルタイムゾーンの時間枠内で繰り返しアプリ内メッセージCampaignを送信する](#time-reocurring-iam-window)
+- [ユーザーのローカルタイムゾーンの時間枠内でのみキャンバスプッシュを送信する](#time-canvas-window)
+- [ユーザーのローカルタイムゾーンの時間枠内で繰り返しアプリ内メッセージキャンペーンを送信する](#time-reocurring-iam-window)
 - [ユーザーのローカルタイムゾーンで平日と週末に異なるメッセージを送信する](#time-weekdays-vs-weekends)
 - [ユーザーのローカルタイムゾーンの時間帯に基づいて異なるメッセージを送信する](#time-of-day)
 - [送信時に時間範囲外の場合にメッセージを中止する](#abort-send-time-hour-range)
 - [固定タイムゾーンの時間枠外でメッセージを中止する](#abort-fixed-timezone-window)
+
+{% alert note %}
+ユーザーが予期しないローカル時刻にメッセージを受信した場合、デバイスまたはプロファイルのタイムゾーンが変更された可能性があります（たとえば、旅行後など）。ローカルタイム配信では、送信時のプロファイルのタイムゾーンを使用します。{% raw %}`{{${time_zone}}}`{% endraw %}などの値が期待どおりに反映されるには、ユーザーが通常の地域で新しいセッションを開始する必要がある場合があります。ただし、[ユーザーのタイムゾーンをテンプレートに挿入する](#users-time-zone)ことは可能です。
+{% endalert %}
 
 ### ユーザーのタイムゾーンをテンプレートに挿入する {#users-time-zone}
 
@@ -1450,7 +1469,7 @@ Message for time zone yy.
 ```
 {% endraw %}
 
-### ユーザーのローカルタイムゾーンの時間枠内でのみCanvasプッシュを送信する {#time-canvas-window}
+### ユーザーのローカルタイムゾーンの時間枠内でのみキャンバスプッシュを送信する {#time-canvas-window}
 
 このユースケースでは、ユーザーのローカルタイムゾーンでの時刻を確認し、設定された時間内であれば特定のメッセージを表示します。
 
@@ -1466,7 +1485,7 @@ Here's a message that will send between 8 am and 8 pm!
 ```
 {% endraw %}
 
-### ユーザーのローカルタイムゾーンの時間枠内で繰り返しアプリ内メッセージCampaignを送信する {#time-reoccurring-iam-window}
+### ユーザーのローカルタイムゾーンの時間枠内で繰り返しアプリ内メッセージキャンペーンを送信する {#time-reocurring-iam-window}
 
 このユースケースでは、ユーザーの現在の時刻が設定された時間枠内にある場合にメッセージを表示します。
 
@@ -1520,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} これは[クワイエットアワー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options)の逆です。{% endalert %}
+{% alert note %} これは[クワイエットアワー]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options)の逆です。{% endalert %}
 
 ### 送信時に時間範囲外の場合にメッセージを中止する {#abort-send-time-hour-range}
 
@@ -1567,8 +1586,8 @@ Week/Day/Month
 {% endapitags %}
 
 - [前月の名前をメッセージに取り込む](#month-name)
-- [毎月末にCampaignを送信する](#month-end)
-- [月の最後の（平日）にCampaignを送信する](#day-of-month-last)
+- [毎月末にキャンペーンを送信する](#month-end)
+- [月の最後の（平日）にキャンペーンを送信する](#day-of-month-last)
 - [月の各日に異なるメッセージを送信する](#day-of-month)
 - [曜日ごとに異なるメッセージを送信する](#day-of-week)
 - [特定のカレンダー日にメッセージを中止する](#abort-specific-calendar-date)
@@ -1622,7 +1641,7 @@ Here's an overview of what your spending looked like in {{last_month_name}}.
 ```
 {% endraw %}
 
-### 毎月末にCampaignを送信する {#month-end}
+### 毎月末にキャンペーンを送信する {#month-end}
 
 このユースケースでは、現在の日付が日付リストに含まれているかどうかを確認し、日付に応じて特定のメッセージを表示します。
 
@@ -1642,7 +1661,7 @@ The date is correct
 ```
 {% endraw %}
 
-### 月の最後の（平日）にCampaignを送信する {#day-of-month-last}
+### 月の最後の（平日）にキャンペーンを送信する {#day-of-month-last}
 
 このユースケースでは、現在の月と日を取得し、現在の日が月の最後の平日に該当するかどうかを計算します。
 
@@ -1796,3 +1815,5 @@ Default copy
 {% endraw %}
 
 {% endapi %}
+
+このライブラリの多くの例では、条件が満たされない場合に送信をスキップするために`abort_message`タグを使用しています。Liquidによる送信中止の完全なリファレンス（日付や時間ベースのパターンを含む）については、[Liquidメッセージの中止]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)を参照してください。

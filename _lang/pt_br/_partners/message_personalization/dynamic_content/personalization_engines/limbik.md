@@ -21,8 +21,9 @@ Os itens a seguir são necessários para usar a Limbik com a Braze:
 | --- | --- |
 | `account_id` da Limbik | Fale com a equipe de conta da Limbik ou faça uma solicitação GET para o endpoint `/rest/api/organizations` da Limbik |
 | Token de acesso da Limbik (`access_token`) | Faça uma solicitação POST para o endpoint `login` da Limbik e use o valor `access_token` retornado como token Bearer no cabeçalho `Authorization`. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões de "Messages". Crie uma no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| `campaign_id` da Braze | Acesse **Messaging** > **Campaigns** e selecione uma campaign. Se a campaign desejada ainda não existir, crie uma e salve-a. Na parte inferior da página da campaign, encontre o identificador de API da Campaign. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões de "Messages". Crie uma no dashboard da Braze em **Settings** > **API Keys**. |
+| `campaign_id` da Braze | Acesse **Messaging** > **Campaigns** e selecione uma Campaign. Se a Campaign desejada ainda não existir, crie uma e salve-a. Na parte inferior da página da Campaign, encontre o identificador de API da Campaign. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 Antes de usar qualquer um dos endpoints de previsão, você deve primeiro identificar a qual organização (`account_id`) você tem acesso. Embora a maioria dos clientes tenha apenas uma organização, algumas contas podem ter várias organizações disponíveis.
 
@@ -165,7 +166,7 @@ A resposta contém os seguintes campos principais:
 
 ### Uso com a Braze {#using-with-braze}
 
-O campo `additionalDetail` da resposta da Limbik contém o texto da mensagem que você envia à Braze. Um padrão de integração comum é passar esse valor em `trigger_properties.payload` ao chamar o endpoint de envio por gatilho da Braze. No exemplo a seguir, substitua `{{additionalDetail}}` pela string real do campo `additionalDetail` da Limbik e substitua `{{YOUR_CAMPAIGN_ID}}` pelo ID da sua campaign.
+O campo `additionalDetail` da resposta da Limbik contém o texto da mensagem que você envia à Braze. Um padrão de integração comum é passar esse valor em `trigger_properties.payload` ao chamar o endpoint de envio por gatilho da Braze. No exemplo a seguir, substitua `{{additionalDetail}}` pela string real do campo `additionalDetail` da Limbik e substitua `{{YOUR_CAMPAIGN_ID}}` pelo ID da sua Campaign.
 
 ### Exemplo de solicitação de mensagem por gatilho da Braze {#braze-trigger-message-request-example}
 

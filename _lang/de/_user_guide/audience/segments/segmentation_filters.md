@@ -4,7 +4,7 @@ nav_title: Segmentierungsfilter
 article_title: Segmentierungsfilter
 layout: glossary_page
 glossary_top_header: "Segmentierungsfilter"
-glossary_top_text: "Das Braze SDK bietet Ihnen ein leistungsstarkes Arsenal an Filtern, um Ihre Nutzer:innen anhand bestimmter Features und Attribute zu segmentieren und gezielt anzusprechen. Sie können diese Filter nach Filterkategorie durchsuchen oder eingrenzen.<br><br>Um mehr über die verschiedenen Datentypen angepasster Attribute zu erfahren, die Sie zur Segmentierung von Nutzer:innen verwenden können, lesen Sie <a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">Datentypen angepasster Attribute</a>."
+glossary_top_text: "Das Braze SDK bietet Ihnen ein leistungsstarkes Arsenal an Filtern, um Ihre Nutzer:innen anhand bestimmter Features und Attribute zu segmentieren und gezielt anzusprechen. Sie können diese Filter nach Filterkategorie durchsuchen oder eingrenzen.<br><br>Um mehr über die verschiedenen Datentypen angepasster Attribute zu erfahren, die Sie zur Segmentierung von Nutzer:innen verwenden können, lesen Sie <a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">Datentypen angepasster Attribute</a>. Beachten Sie, dass Intervallfilter auf 100 Jahre begrenzt sind."
 
 page_type: glossary
 tool: Segments
@@ -38,7 +38,7 @@ glossary_tags:
 glossaries:
   - name: Segment Membership
     display_name: "Segment-Zugehörigkeit"
-    description: "Ermöglicht es Ihnen, überall dort, wo Filter verwendet werden (z. B. in Segments, Campaigns und anderen), nach Segment-Zugehörigkeit zu filtern und mehrere verschiedene Segments innerhalb einer Campaign anzusprechen. <br><br>Beachten Sie, dass Segments, die diesen Filter bereits verwenden, nicht weiter in andere Segments eingeschlossen oder verschachtelt werden können, da dies einen Zyklus erzeugen könnte, bei dem Segment A Segment B einschließt, das dann wiederum versucht, Segment A einzuschließen. In diesem Fall würde das Segment sich ständig selbst referenzieren, sodass es unmöglich wäre zu berechnen, wer tatsächlich dazugehört. Außerdem erhöht eine solche Verschachtelung die Komplexität und kann die Verarbeitung verlangsamen. Erstellen Sie stattdessen das Segment, das Sie einschließen möchten, mit denselben Filtern neu."
+    description: "Ermöglicht es Ihnen, überall dort, wo Filter verwendet werden (z. B. in Segmenten, Campaigns und anderen), nach Segment-Zugehörigkeit zu filtern und mehrere verschiedene Segmente innerhalb einer Campaign anzusprechen. <br><br>Um die Segment-Zugehörigkeit zu einem bestimmten Zeitpunkt festzuhalten, exportieren Sie Nutzer:innen aus dem Segment im Dashboard oder rufen Sie den Endpunkt <a href=\"/docs/api/endpoints/export/user_data/post_users_segment/\"><code>/users/export/segment</code></a> auf, bevor Sie eine Campaign oder ein Canvas senden. Braze speichert keine nutzerbezogene Segmentierungshistorie, sodass Sie nicht rückwirkend prüfen können, ob ein:e Nutzer:in zu einem vergangenen Zeitpunkt in einem Segment war. Weitere Informationen finden Sie unter <a href=\"/docs/user_guide/data/distribution/export_braze_data/segment_data_to_csv/\">Segmentdaten als CSV exportieren</a>.<br><br>Beachten Sie, dass Segmente, die diesen Filter bereits verwenden, nicht weiter in andere Segmente eingeschlossen oder verschachtelt werden können, da dies einen Zyklus erzeugen könnte, bei dem Segment A Segment B einschließt, das dann wiederum versucht, Segment A einzuschließen. In diesem Fall würde das Segment sich ständig selbst referenzieren, sodass es unmöglich wäre zu berechnen, wer tatsächlich dazugehört. Außerdem erhöht eine solche Verschachtelung die Komplexität und kann die Verarbeitung verlangsamen. Erstellen Sie stattdessen das Segment, das Sie einschließen möchten, mit denselben Filtern neu.<br><br>Wenn ein Segment nicht im Dropdown-Menü des Filters **Segment Membership** erscheint, erstellen Sie es mit denselben Filtern neu und wählen Sie das neue Segment aus, oder bestätigen Sie, dass es nicht bereits auf eine Weise von dieser Zielgruppe abhängt, die einen Zyklus erzeugen würde."
     tags:
       - Segment or CSV membership
   - name: Braze Segment Extensions
@@ -93,27 +93,27 @@ glossaries:
       - Custom events
   - name: X Custom Event In Y Days
     display_name: "X angepasste Events in Y Tagen"
-    description: "Bestimmt, ob ein:e Nutzer:in ein speziell aufgezeichnetes Event zwischen 0 und 50 Mal in der letzten angegebenen Anzahl von Kalendertagen zwischen 1 und 30 ausgeführt hat. (Kalendertag = 1 Kalendertag betrachtet 24–48 Stunden der Nutzerhistorie)<br> <a href=\"/docs/x-in-y-behavior/\"> Mehr über das X-in-Y-Verhalten erfahren.</a> <br><br>Beispiel:<br>Warenkorb-Abbruch genau 0 Mal im letzten 1 Kalendertag<br><br>Zeitzone:<br>UTC – Um alle Zeitzonen zu berücksichtigen, betrachtet 1 Kalendertag 24–48 Stunden der Nutzerhistorie, abhängig vom Zeitpunkt der Segment-Auswertung; bei 2 Kalendertagen werden 48–72 Stunden der Nutzerhistorie betrachtet, und so weiter."
+    description: "Bestimmt, ob ein:e Nutzer:in ein speziell aufgezeichnetes Event zwischen 0 und 50 Mal in der letzten angegebenen Anzahl von Kalendertagen zwischen 1 und 30 ausgeführt hat. (Kalendertag = 1 Kalendertag betrachtet 24–48 Stunden der Nutzerhistorie)<br> <a href=\"/docs/x-in-y-behavior\"> Mehr über das X-in-Y-Verhalten erfahren.</a> <br><br>Beispiel:<br>Warenkorb-Abbruch genau 0 Mal im letzten 1 Kalendertag<br><br>Zeitzone:<br>UTC – Um alle Zeitzonen zu berücksichtigen, betrachtet 1 Kalendertag 24–48 Stunden der Nutzerhistorie, abhängig vom Zeitpunkt der Segment-Auswertung; bei 2 Kalendertagen werden 48–72 Stunden der Nutzerhistorie betrachtet, und so weiter."
     tags:
       - Custom events
   - name: X Custom Event Property In Y Days
     display_name: "X angepasste Event-Eigenschaft in Y Tagen"
-    description: "Bestimmt, ob ein:e Nutzer:in ein speziell aufgezeichnetes Event in Bezug auf eine bestimmte Eigenschaft zwischen 0 und 50 Mal in der letzten angegebenen Anzahl von Kalendertagen zwischen 1 und 30 ausgeführt hat. (Kalendertag = 1 Kalendertag betrachtet 24–48 Stunden der Nutzerhistorie)<br><a href=\"/docs/x-in-y-behavior/\">Mehr über das X-in-Y-Verhalten erfahren.</a> <br><br>Beispiel:<br> Zu Favoriten hinzugefügt mit Eigenschaft „event_name“ genau 0 Mal im letzten 1 Kalendertag<br><br>Zeitzone:<br>UTC – Um alle Zeitzonen zu berücksichtigen, betrachtet 1 Kalendertag 24–48 Stunden der Nutzerhistorie, abhängig vom Zeitpunkt der Segment-Auswertung; bei 2 Kalendertagen werden 48–72 Stunden der Nutzerhistorie betrachtet, und so weiter."
+    description: "Bestimmt, ob ein:e Nutzer:in ein speziell aufgezeichnetes Event in Bezug auf eine bestimmte Eigenschaft zwischen 0 und 50 Mal in der letzten angegebenen Anzahl von Kalendertagen zwischen 1 und 30 ausgeführt hat. (Kalendertag = 1 Kalendertag betrachtet 24–48 Stunden der Nutzerhistorie)<br><a href=\"/docs/x-in-y-behavior\">Mehr über das X-in-Y-Verhalten erfahren.</a> <br><br>Beispiel:<br> Zu Favoriten hinzugefügt mit Eigenschaft „event_name“ genau 0 Mal im letzten 1 Kalendertag<br><br>Zeitzone:<br>UTC – Um alle Zeitzonen zu berücksichtigen, betrachtet 1 Kalendertag 24–48 Stunden der Nutzerhistorie, abhängig vom Zeitpunkt der Segment-Auswertung; bei 2 Kalendertagen werden 48–72 Stunden der Nutzerhistorie betrachtet, und so weiter."
     tags:
       - Custom events
   - name: Email Address
     display_name: "E-Mail-Adresse"
-    description: "Ermöglicht es Ihnen, Ihre Campaign-Empfänger:innen anhand einzelner E-Mail-Adressen für Tests zu bestimmen. Dies kann auch verwendet werden, um Transaktions-E-Mails an alle Ihre Nutzer:innen (einschließlich abgemeldeter) zu senden, indem Sie den Spezifizierer „E-Mail-Adresse ist nicht leer“ im Filter verwenden, sodass Sie die Zustellung von E-Mails unabhängig vom Opt-in-Status maximieren können. <br><br>Dieser Filter prüft nur, ob Nutzerprofile eine E-Mail-Adresse haben, während der Filter <a href=\"/docs/user_guide/audience/segments/segmentation_filters#email-available\">E-Mail verfügbar</a> zusätzliche Kriterien prüft."
+    description: "Ermöglicht es Ihnen, Ihre Kampagnenempfänger:innen anhand einzelner E-Mail-Adressen für Tests zu bestimmen. Dies kann auch verwendet werden, um Transaktions-E-Mails an alle Ihre Nutzer:innen (einschließlich abgemeldeter) zu senden, indem Sie den Spezifizierer „E-Mail-Adresse ist nicht leer“ im Filter verwenden, sodass Sie die Zustellung von E-Mails unabhängig vom Opt-in-Status maximieren können. <br><br>Dieser Filter prüft nur, ob Nutzerprofile eine E-Mail-Adresse haben, während der Filter <a href=\"/docs/user_guide/audience/segments/segmentation_filters#email-available\">E-Mail verfügbar</a> zusätzliche Kriterien prüft."
     tags:
       - Other Filters
   - name: External User ID
     display_name: "Externe Nutzer-ID"
-    description: "Ermöglicht es Ihnen, Ihre Campaign-Empfänger:innen anhand einzelner Nutzer-IDs für Tests zu bestimmen."
+    description: "Ermöglicht es Ihnen, Ihre Kampagnenempfänger:innen anhand einzelner Nutzer-IDs für Tests zu bestimmen."
     tags:
       - Other Filters
   - name: "Random Bucket #"
     display_name: "Zufällige Bucket-Nummer"
-    description: "Segmentiert Ihre Nutzer:innen anhand einer zufällig zugewiesenen Nummer (0 bis 9999 einschließlich). Ermöglicht die Erstellung gleichmäßig verteilter Segments aus wirklich zufälligen Nutzer:innen für A/B- und multivariate Tests."
+    description: "Segmentiert Ihre Nutzer:innen anhand einer zufällig zugewiesenen Nummer (0 bis 9999 einschließlich). Ermöglicht die Erstellung gleichmäßig verteilter Segmente aus wirklich zufälligen Nutzer:innen für A/B- und multivariate Tests."
     tags:
       - Other Filters
   - name: Session Count
@@ -128,7 +128,7 @@ glossaries:
       - Sessions
   - name: X Sessions In Last Y Days
     display_name: "X Sitzungen in den letzten Y Tagen"
-    description: "Segmentiert Ihre Nutzer:innen nach der Anzahl der Sitzungen (zwischen 0 und 50), die sie in Ihrer App in der letzten angegebenen Anzahl von Kalendertagen zwischen 1 und 30 hatten. <br> <a href=\"/docs/x-in-y-behavior/\">Mehr über das X-in-Y-Verhalten erfahren.</a>"
+    description: "Segmentiert Ihre Nutzer:innen nach der Anzahl der Sitzungen (zwischen 0 und 50), die sie in Ihrer App in der letzten angegebenen Anzahl von Kalendertagen zwischen 1 und 30 hatten. <br> <a href=\"/docs/x-in-y-behavior\">Mehr über das X-in-Y-Verhalten erfahren.</a>"
     tags:
       - Sessions
   - name: First Used App
@@ -158,22 +158,22 @@ glossaries:
       - Sessions
   - name: Received Message from Campaign
     display_name: "Nachricht von Campaign erhalten"
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Campaign erhalten haben. <br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gilt dies, wenn die letzte Nachricht an den SMS- oder RCS-Anbieter zugestellt wird. Dies garantiert nicht, dass die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Campaign erhalten haben. <br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gelten Nutzer:innen als „empfangen“ zum Sendezeitpunkt. Selbst wenn die Nachricht das Gerät des/der Nutzer:in nicht erreicht, entspricht der/die Nutzer:in diesem Filter.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat."
     tags:
       - Retargeting
   - name: Received Campaign Variant
     display_name: "Kampagnenvariante erhalten"
-    description: "Segmentiert Ihre Nutzer:innen danach, welche Variante einer multivariaten Campaign sie erhalten haben.<br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gilt dies, wenn die letzte Nachricht an den SMS- oder RCS-Anbieter zugestellt wird. Dies garantiert nicht, dass die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat."
+    description: "Segmentiert Ihre Nutzer:innen danach, welche Variante einer multivariaten Campaign sie erhalten haben.<br><br>Dieser Filter gilt für multivariate und multivariate Quick-Push-Campaigns. API-Campaigns, standardmäßige Multichannel-Campaigns und Feature-Flag-Experiment-Campaigns erscheinen nicht in der Campaign-Auswahl. Reine Webhook-Campaigns erscheinen nicht in der Campaign-Auswahl.<br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gelten Nutzer:innen als „empfangen“ zum Sendezeitpunkt. Selbst wenn die Nachricht das Gerät des/der Nutzer:in nicht erreicht, entspricht der/die Nutzer:in diesem Filter.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat."
     tags:
       - Retargeting
   - name: Received Message from Canvas Step
     display_name: "Nachricht von Canvas-Schritt erhalten"
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Canvas-Komponente erhalten haben.<br><br>Für Content Cards und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gilt dies, wenn die letzte Nachricht an den SMS- oder RCS-Anbieter zugestellt wird. Dies garantiert nicht, dass die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Canvas-Komponente erhalten haben.<br><br>Für Content Cards und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gelten Nutzer:innen als „empfangen“ zum Sendezeitpunkt. Selbst wenn die Nachricht das Gerät des/der Nutzer:in nicht erreicht, entspricht der/die Nutzer:in diesem Filter.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat."
     tags:
       - Retargeting
   - name: Last Received Message from Specific Canvas Step
     display_name: "Letzte Nachricht von bestimmtem Canvas-Schritt erhalten"
-    description: "Segmentiert Ihre Nutzer:innen danach, wann sie eine bestimmte Canvas-Komponente erhalten haben.<br><br> Da die Daten für alle Profile aktualisiert werden, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), wenn eine Zustellung, ein Öffnen oder ein Klick erfolgt, kann ein:e Nutzer:in, der/die einen Bezeichner mit jemandem teilt, der eine Nachricht erhalten hat, diesem Filter möglicherweise nicht entsprechen, auch wenn ihm/ihr die Nachricht nie explizit gesendet wurde. Verwenden Sie „Canvas-Variante betreten“, um Nutzerprofile von Duplikaten zu isolieren.<br><br> Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Canvas-Komponenten erhalten haben."
+    description: "Segmentiert Ihre Nutzer:innen danach, wann sie eine bestimmte Canvas-Komponente erhalten haben.<br><br> Da die Daten für alle Profile aktualisiert werden, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), wenn eine Zustellung, ein Öffnen oder ein Klick erfolgt, kann ein:e Nutzer:in, der/die einen Bezeichner mit jemandem teilt, der eine Nachricht erhalten hat, diesem Filter möglicherweise nicht entsprechen, auch wenn ihm/ihr die Nachricht nie explizit gesendet wurde. Verwenden Sie „Entered Canvas Variation“, um Nutzerprofile von Duplikaten zu isolieren.<br><br> Dieser Filter berücksichtigt nicht, wann Nutzer:innen andere Canvas-Komponenten erhalten haben."
     tags:
       - Retargeting
   - name: Last Received Message from Specific Campaign
@@ -183,7 +183,7 @@ glossaries:
       - Retargeting
   - name: Received Message from Campaign or Canvas with Tag
     display_name: "Nachricht von Campaign oder Canvas mit Tag erhalten"
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Campaign oder ein bestimmtes Canvas mit einem bestimmten Tag erhalten haben.<br><br> Für Content Cards, Banner (nur Campaigns) und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gilt dies, wenn die letzte Nachricht an den SMS- oder RCS-Anbieter zugestellt wird. Dies garantiert nicht, dass die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine bestimmte Campaign oder ein bestimmtes Canvas mit einem bestimmten Tag erhalten haben.<br><br>Braze wertet nur die letzten 200 gesendeten Campaigns und Canvases aus, die den ausgewählten Tag verwenden, wenn dieser Filter ausgeführt wird.<br><br> Für Content Cards, Banner (nur Campaigns) und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gelten Nutzer:innen als „empfangen“ zum Sendezeitpunkt. Selbst wenn die Nachricht das Gerät des/der Nutzer:in nicht erreicht, entspricht der/die Nutzer:in diesem Filter.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat."
     tags:
       - Retargeting
   - name: Last Received Message from Campaign or Canvas With Tag
@@ -233,17 +233,17 @@ glossaries:
       - Devices
   - name: Clicked/Opened Campaign
     display_name: "Campaign angeklickt/geöffnet"
-    description: "Filtert nach Interaktion mit einer bestimmten Campaign. Bei E-Mail-Nachrichten umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen.<br><br> Für E-Mails gibt es auch die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern. Klicks auf Abmeldelinks und Präferenzzentren werden bei diesem Filter nicht berücksichtigt. Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen:<br>- Wenn die E-Mail geöffnet oder angeklickt wird, werden auch die Profile aller anderen Nutzer:innen mit derselben E-Mail-Adresse aktualisiert. <br>- Wenn der/die ursprüngliche Nutzer:in die E-Mail-Adresse nach dem Senden der Nachricht und vor dem Öffnen oder Klicken ändert, wird das Öffnen oder der Klick auf alle verbleibenden Nutzer:innen mit dieser E-Mail-Adresse anstatt auf den/die ursprüngliche:n Nutzer:in angewendet.<br><br>Für SMS und RCS wird eine Interaktion definiert als:<br>- Der/die Nutzer:in hat zuletzt eine Antwort-SMS oder -RCS gesendet, die einer bestimmten Keyword-Kategorie entspricht. Dies wird der zuletzt empfangenen Campaign aller Nutzer:innen mit dieser Telefonnummer zugeordnet. Die Campaign muss in den letzten vier Stunden empfangen worden sein.<br>- Der/die Nutzer:in hat zuletzt einen verkürzten Link in einer SMS- oder RCS-Nachricht mit aktiviertem Nutzer-Klick-Tracking aus einer bestimmten Campaign ausgewählt."
+    description: "Filtert nach Interaktion mit einer bestimmten Campaign. Bei In-App-Nachrichten umfassen angeklickte In-App-Nachrichten Body- und Button-Klicks. Schließ- und Dismiss-Aktionen oder das Schließen der Nachricht mit dem X werden nicht gezählt.<br><br>Bei E-Mails umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen. Dieser Filter bietet auch die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern. Klicks auf Abmeldelinks und Präferenzzentren werden bei diesem Filter nicht berücksichtigt. Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen:<br>- Wenn die E-Mail geöffnet oder angeklickt wird, werden auch die Profile aller anderen Nutzer:innen mit derselben E-Mail-Adresse aktualisiert. <br>- Wenn der/die ursprüngliche Nutzer:in die E-Mail-Adresse nach dem Senden der Nachricht und vor dem Öffnen oder Klicken ändert, wird das Öffnen oder der Klick auf alle verbleibenden Nutzer:innen mit dieser E-Mail-Adresse anstatt auf den/die ursprüngliche:n Nutzer:in angewendet.<br><br>Für SMS und RCS wird eine Interaktion definiert als:<br>- Der/die Nutzer:in hat zuletzt eine Antwort-SMS oder -RCS gesendet, die einer bestimmten Keyword-Kategorie entspricht. Dies wird der zuletzt empfangenen Campaign aller Nutzer:innen mit dieser Telefonnummer zugeordnet. Die Campaign muss in den letzten vier Stunden empfangen worden sein.<br>- Der/die Nutzer:in hat zuletzt einen verkürzten Link in einer SMS- oder RCS-Nachricht mit aktiviertem Nutzer-Klick-Tracking aus einer bestimmten Campaign ausgewählt."
     tags:
       - Retargeting
   - name: Clicked/Opened Campaign or Canvas With Tag
     display_name: "Campaign oder Canvas mit Tag angeklickt/geöffnet"
-    description: "Filtert nach Interaktion mit einer bestimmten Campaign, die einen bestimmten Tag hat. Bei E-Mail-Nachrichten umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen.<br><br> Für E-Mails gibt es die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern. Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen:<br>- Wenn die E-Mail geöffnet oder angeklickt wird, werden auch die Profile aller anderen Nutzer:innen mit derselben E-Mail-Adresse aktualisiert. <br>- Wenn der/die ursprüngliche Nutzer:in die E-Mail-Adresse nach dem Senden der Nachricht und vor dem Öffnen oder Klicken ändert, wird das Öffnen oder der Klick auf alle verbleibenden Nutzer:innen mit dieser E-Mail-Adresse anstatt auf den/die ursprüngliche:n Nutzer:in angewendet.<br><br>Für SMS und RCS wird eine Interaktion definiert als:<br>- Der/die Nutzer:in hat zuletzt eine Antwort-SMS oder -RCS gesendet, die einer bestimmten Keyword-Kategorie entspricht. Dies wird der zuletzt empfangenen Campaign aller Nutzer:innen mit dieser Telefonnummer zugeordnet. Die Campaign muss in den letzten vier Stunden empfangen worden sein.<br>- Der/die Nutzer:in hat zuletzt einen verkürzten Link in einer SMS- oder RCS-Nachricht mit aktiviertem Nutzer-Klick-Tracking aus einer bestimmten Campaign oder einem Canvas-Schritt mit Tag ausgewählt."
+    description: "Filtert nach Interaktion mit einer bestimmten Campaign, die einen bestimmten Tag hat. Bei In-App-Nachrichten umfassen angeklickte In-App-Nachrichten Body- und Button-Klicks. Schließ- und Dismiss-Aktionen oder das Schließen der Nachricht mit dem X werden nicht gezählt.<br><br>Bei E-Mails umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen. Dieser Filter bietet auch die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern. Wenn mehrere Nutzer:innen dieselbe E-Mail-Adresse teilen:<br>- Wenn die E-Mail geöffnet oder angeklickt wird, werden auch die Profile aller anderen Nutzer:innen mit derselben E-Mail-Adresse aktualisiert. <br>- Wenn der/die ursprüngliche Nutzer:in die E-Mail-Adresse nach dem Senden der Nachricht und vor dem Öffnen oder Klicken ändert, wird das Öffnen oder der Klick auf alle verbleibenden Nutzer:innen mit dieser E-Mail-Adresse anstatt auf den/die ursprüngliche:n Nutzer:in angewendet.<br><br>Für SMS und RCS wird eine Interaktion definiert als:<br>- Der/die Nutzer:in hat zuletzt eine Antwort-SMS oder -RCS gesendet, die einer bestimmten Keyword-Kategorie entspricht. Dies wird der zuletzt empfangenen Campaign aller Nutzer:innen mit dieser Telefonnummer zugeordnet. Die Campaign muss in den letzten vier Stunden empfangen worden sein.<br>- Der/die Nutzer:in hat zuletzt einen verkürzten Link in einer SMS- oder RCS-Nachricht mit aktiviertem Nutzer-Klick-Tracking aus einer bestimmten Campaign oder einem Canvas-Schritt mit Tag ausgewählt."
     tags:
       - Retargeting
   - name: Clicked/Opened Step
     display_name: "Schritt angeklickt/geöffnet"
-    description: "Filtert nach Interaktion mit einer bestimmten Canvas-Komponente. Bei E-Mail-Nachrichten umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen.<br><br>Für E-Mails gibt es die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern.<br><br>Für SMS und RCS wird eine Interaktion definiert als:<br>- Der/die Nutzer:in hat zuletzt eine Antwort-SMS oder -RCS gesendet, die einer bestimmten Keyword-Kategorie entspricht. Dies wird der zuletzt empfangenen Campaign aller Nutzer:innen mit dieser Telefonnummer zugeordnet. Die Campaign muss in den letzten vier Stunden empfangen worden sein. <br>- Der/die Nutzer:in hat zuletzt einen verkürzten Link in einer SMS- oder RCS-Nachricht mit aktiviertem Nutzer-Klick-Tracking aus einem bestimmten Canvas-Schritt ausgewählt."
+    description: "Filtert nach Interaktion mit einer bestimmten Canvas-Komponente. Bei In-App-Nachrichten umfassen angeklickte In-App-Nachrichten auch Body- und Button-Klicks. Schließ- und Dismiss-Aktionen oder das Schließen der Nachricht mit dem X werden nicht gezählt.<br><br>Bei E-Mails umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen. Dieser Filter bietet auch die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern.<br><br>Für SMS und RCS wird eine Interaktion definiert als:<br>- Der/die Nutzer:in hat zuletzt eine Antwort-SMS oder -RCS gesendet, die einer bestimmten Keyword-Kategorie entspricht. Dies wird der zuletzt empfangenen Campaign aller Nutzer:innen mit dieser Telefonnummer zugeordnet. Die Campaign muss in den letzten vier Stunden empfangen worden sein. <br>- Der/die Nutzer:in hat zuletzt einen verkürzten Link in einer SMS- oder RCS-Nachricht mit aktiviertem Nutzer-Klick-Tracking aus einem bestimmten Canvas-Schritt ausgewählt."
     tags:
       - Retargeting
   - name: Clicked Alias in Campaign
@@ -263,7 +263,7 @@ glossaries:
       - Retargeting
   - name: Hard Bounced
     display_name: "Hard Bounce"
-    description: "Segmentiert Ihre Nutzer:innen danach, ob ihre E-Mail-Adresse einen Hard Bounce verursacht hat (z. B. die E-Mail-Adresse ist ungültig)."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob ihre E-Mail-Adresse einen Hard Bounce verursacht hat (z. B. die E-Mail-Adresse ist ungültig). Um Nutzer:innen mit ungültigen E-Mails zu exportieren, rufen Sie den Endpunkt <a href=\"/docs/api/endpoints/email/get_list_hard_bounces/\"><code>/email/hard_bounces</code></a> auf oder erstellen Sie ein Segment mit Filtern wie „E-Mail-Adresse ist nicht leer“, „E-Mail ist nicht verfügbar“ und „E-Mail-Abo-Status ist nicht abgemeldet“."
     tags:
       - Retargeting
   - name: Soft Bounced
@@ -287,12 +287,12 @@ glossaries:
     tags:
       - Retargeting
   - name: Converted From Campaign
-    display_name: "Conversion aus Campaign"
+    display_name: "Über Campaign konvertiert"
     description: "Segmentiert Ihre Nutzer:innen danach, ob sie bei einer bestimmten Campaign konvertiert haben. Dieser Filter schließt Nutzer:innen in der Kontrollgruppe nicht ein."
     tags:
       - Retargeting
   - name: Converted From Canvas
-    display_name: "Conversion aus Canvas"
+    display_name: "Über Canvas konvertiert"
     description: "Segmentiert Ihre Nutzer:innen danach, ob sie bei einem bestimmten Canvas konvertiert haben. Dieser Filter schließt Nutzer:innen in der Kontrollgruppe nicht ein."
     tags:
       - Retargeting
@@ -318,11 +318,11 @@ glossaries:
       - Retargeting
   - name: Last Received Any Message
     display_name: "Letzte beliebige Nachricht erhalten"
-    description: "Segmentiert Ihre Nutzer:innen, indem die letzte empfangene Nachricht bestimmt wird. (24-Stunden-Zeitraum)<br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in zuletzt eine Impression protokolliert hat, nicht wenn die Card oder In-App-Nachricht zuletzt gesendet wurde.<br><br>Für Push und Webhooks gilt dies, wenn eine beliebige Nachricht an den/die Nutzer:in gesendet wurde.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wurde, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gilt dies, wenn die letzte Nachricht an den SMS- oder RCS-Anbieter zugestellt wurde. Dies garantiert nicht, dass die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat.<br><br>Beispiel:<br>Letzte Nachricht erhalten vor weniger als 1 Tag = vor weniger als 24 Stunden<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
+    description: "Segmentiert Ihre Nutzer:innen, indem die letzte empfangene Nachricht bestimmt wird. (24-Stunden-Zeitraum)<br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in zuletzt eine Impression protokolliert hat, nicht wenn die Card oder In-App-Nachricht zuletzt gesendet wurde.<br><br>Für Push und Webhooks gilt dies, wenn eine beliebige Nachricht an den/die Nutzer:in gesendet wurde.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wurde, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wurde.<br><br> Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird).<br><br> Für SMS und RCS gelten Nutzer:innen als „empfangen“ zum Sendezeitpunkt. Selbst wenn die Nachricht das Gerät des/der Nutzer:in nicht erreicht, entspricht der/die Nutzer:in diesem Filter.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat.<br><br>Beispiel:<br>Letzte Nachricht erhalten vor weniger als 1 Tag = vor weniger als 24 Stunden<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Retargeting
   - name: Last Engaged With Message
-    display_name: "Zuletzt mit Nachricht interagiert"
+    display_name: "Letzte Interaktion mit Nachricht"
     description: "Segmentiert Ihre Nutzer:innen nach dem letzten Zeitpunkt, zu dem sie auf einen Ihrer Messaging-Kanäle geklickt oder ihn geöffnet haben (Banner, Content Cards, E-Mail, In-App, SMS, RCS, Push, WhatsApp).<br><br>Für Content Cards, Banner und In-App-Nachrichten gilt dies, wenn ein:e Nutzer:in eine Impression protokolliert, nicht wenn die Card oder In-App-Nachricht gesendet wird.<br><br> Für Push und Webhooks gilt dies, wenn die Nachricht an den/die Nutzer:in gesendet wird.<br><br> Für WhatsApp gilt dies, wenn die letzte Nachrichten-API-Anfrage an WhatsApp gesendet wird, nicht wenn die Nachricht auf dem Gerät des/der Nutzer:in zugestellt wird.<br><br> Bei E-Mail-Nachrichten umfasst das Öffnen-Event sowohl maschinelle als auch nicht-maschinelle Öffnungen. (24-Stunden-Zeitraum)<br><br>Für E-Mails entspricht das Zielprofil diesem Filter, wenn eine E-Mail-Anfrage an den E-Mail-Anbieter gesendet wird (unabhängig davon, ob sie tatsächlich zugestellt wird). Dies umfasst auch die Option, nach „beliebige E-Mail geöffnet (maschinelle Öffnungen)“ und „beliebige E-Mail geöffnet (andere Öffnungen)“ zu filtern.<br><br> Für SMS und RCS gilt dies, wenn der/die Nutzer:in zuletzt einen verkürzten Link in einer Nachricht mit aktiviertem Nutzer-Klick-Tracking ausgewählt hat.<br><br> Wenn eine Nachricht zugestellt, geöffnet oder angeklickt wird, aktualisiert Braze die Daten für alle Profile, die denselben Kanalbezeichner teilen (z. B. E-Mail oder Telefonnummer), sodass Nutzer:innen, die einen Bezeichner mit jemandem teilen, der die Nachricht erhalten hat, diesem Filter entsprechen können, auch wenn ihr Profil die Campaign nicht direkt erhalten hat.<br><br>Zeitzone:<br>Zeitzone des Unternehmens"
     tags:
       - Retargeting
@@ -333,7 +333,7 @@ glossaries:
       - Retargeting
   - name: Feature Flags
     display_name: "Feature-Flags"
-    description: "Das Segment Ihrer Nutzer:innen, bei denen ein bestimmtes <a href=\"/docs/developer_guide/feature_flags/\">Feature-Flag</a> derzeit aktiviert ist."
+    description: "Das Segment Ihrer Nutzer:innen, bei denen ein bestimmtes <a href=\"/docs/developer_guide/feature_flags\">Feature-Flag</a> derzeit aktiviert ist."
     tags:
       - Retargeting
   - name: Subscription Group
@@ -343,7 +343,7 @@ glossaries:
       - Channel subscription behavior
   - name: Email Available
     display_name: "E-Mail verfügbar"
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine gültige E-Mail-Adresse haben und ob sie E-Mails abonniert haben oder dafür angemeldet sind. Dieser Filter prüft drei Kriterien&#58; ob der/die Nutzer:in E-Mails abbestellt hat, ob Braze einen Hard Bounce erhalten hat und ob die E-Mail als Spam markiert wurde. Wenn eines dieser Kriterien erfüllt ist oder keine E-Mail für eine:n Nutzer:in existiert, wird der/die Nutzer:in nicht eingeschlossen.<br><br>Nutzer:innen, deren E-Mail-Verfügbarkeit <code>false</code> ist, werden aus der Campaign-Zielgruppe ausgeschlossen und erhalten die E-Mail nicht – selbst wenn Ihre Sendeeinstellungen so konfiguriert sind, dass an alle Nutzer:innen (einschließlich abgemeldeter) gesendet wird.<br><br>Für E-Mails, bei denen der Opt-in-Status relevant ist, verwenden Sie „E-Mail verfügbar“ anstelle von <a href=\"/docs/user_guide/audience/segments/segmentation_filters#email-address\">E-Mail-Adresse</a>. Die zusätzlichen Kriterien helfen Ihnen, Nutzer:innen anzusprechen, die berechtigt sind, E-Mails zu empfangen."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie eine gültige E-Mail-Adresse haben und ob sie E-Mails abonniert haben oder dafür angemeldet sind. Dieser Filter prüft drei Kriterien&#58; ob der/die Nutzer:in E-Mails abbestellt hat, ob Braze einen Hard Bounce erhalten hat und ob die E-Mail als Spam markiert wurde. Wenn eines dieser Kriterien erfüllt ist oder keine E-Mail für eine:n Nutzer:in existiert, wird der/die Nutzer:in nicht eingeschlossen.<br><br>Nutzer:innen, deren E-Mail-Verfügbarkeit <code>false</code> ist, werden aus der Kampagnenzielgruppe ausgeschlossen und erhalten die E-Mail nicht – selbst wenn Ihre Sendeeinstellungen so konfiguriert sind, dass an alle Nutzer:innen (einschließlich abgemeldeter) gesendet wird.<br><br>Für E-Mails, bei denen der Opt-in-Status relevant ist, verwenden Sie „E-Mail verfügbar“ anstelle von <a href=\"/docs/user_guide/audience/segments/segmentation_filters#email-address\">E-Mail-Adresse</a>. Die zusätzlichen Kriterien helfen Ihnen, Nutzer:innen anzusprechen, die berechtigt sind, E-Mails zu empfangen."
     tags:
       - Channel subscription behavior
   - name: Email Opt In Date
@@ -408,12 +408,12 @@ glossaries:
       - Purchase behavior
   - name: X Purchases in Last Y Days
     display_name: "X Käufe in den letzten Y Tagen"
-    description: "Segmentiert Ihre Nutzer:innen nach der Anzahl der Käufe (zwischen 0 und 50), die sie in der letzten angegebenen Anzahl von Kalendertagen zwischen 1 und 30 getätigt haben. <br> <a href=\"/docs/x-in-y-behavior/\">Mehr über das X-in-Y-Verhalten erfahren.</a>"
+    description: "Segmentiert Ihre Nutzer:innen nach der Anzahl der Käufe (zwischen 0 und 50), die sie in der letzten angegebenen Anzahl von Kalendertagen zwischen 1 und 30 getätigt haben. <br> <a href=\"/docs/x-in-y-behavior\">Mehr über das X-in-Y-Verhalten erfahren.</a>"
     tags:
       - Purchase behavior
   - name: X Purchase Property In Y Days
     display_name: "X Kaufeigenschaft in Y Tagen"
-    description: "Segmentiert Ihre Nutzer:innen nach der Anzahl der Käufe in Bezug auf eine bestimmte Kaufeigenschaft in der letzten angegebenen Anzahl von Kalendertagen zwischen 1 und 30. <br> <a href=\"/docs/x-in-y-behavior/\">Mehr über das X-in-Y-Verhalten erfahren.</a>"
+    description: "Segmentiert Ihre Nutzer:innen nach der Anzahl der Käufe in Bezug auf eine bestimmte Kaufeigenschaft in der letzten angegebenen Anzahl von Kalendertagen zwischen 1 und 30. <br> <a href=\"/docs/x-in-y-behavior\">Mehr über das X-in-Y-Verhalten erfahren.</a>"
     tags:
       - Purchase behavior
   - name: First Made Purchase
@@ -443,7 +443,7 @@ glossaries:
       - Purchase behavior
   - name: X Money Spent in Y Days
     display_name: "X Betrag in Y Tagen ausgegeben"
-    description: "Segmentiert Ihre Nutzer:innen nach dem Geldbetrag, den sie in Ihrer App in der letzten angegebenen Anzahl von Kalendertagen zwischen 1 und 30 ausgegeben haben. Dieser Betrag umfasst nur die Summe der letzten 50 Käufe. <br> <a href=\"/docs/x-in-y-behavior/\">Mehr über das X-in-Y-Verhalten erfahren.</a>"
+    description: "Segmentiert Ihre Nutzer:innen nach dem Geldbetrag, den sie in Ihrer App in der letzten angegebenen Anzahl von Kalendertagen zwischen 1 und 30 ausgegeben haben. Dieser Betrag umfasst nur die Summe der letzten 50 Käufe. <br> <a href=\"/docs/x-in-y-behavior\">Mehr über das X-in-Y-Verhalten erfahren.</a>"
     tags:
       - Purchase behavior
   - name: Last order placed (last 730 days)
@@ -502,8 +502,8 @@ glossaries:
     tags:
       - Demographic attributes
   - name: City
-    display_name: "Stadt"
-    description: "Segmentiert Ihre Nutzer:innen nach ihrer zuletzt angegebenen Standortstadt."
+    display_name: "Ort"
+    description: "Segmentiert Ihre Nutzer:innen nach ihrem zuletzt angegebenen Standortort."
     tags:
       - Demographic attributes
   - name: Language
@@ -547,18 +547,18 @@ glossaries:
     tags:
       - App
   - name: Most Recent App Version Name
-    display_name: "Neuester App-Versionsname"
+    display_name: "Aktuellster App-Versionsname"
     description: "Segmentiert nach dem aktuellen Namen der App-Version des/der Nutzer:in.<br><br>Bei Verwendung von „kleiner als“ oder „kleiner als oder gleich“ gibt dieser Filter <code>true</code> zurück, wenn die Haupt-App-Version nicht existiert, da der/die Nutzer:in älter als die App-Version ist. Das bedeutet, dass der/die Nutzer:in automatisch dem Filter entspricht, wenn die letzte Haupt-App-Version nicht existiert."
     tags:
       - App
   - name: Most Recent App Version Number
-    display_name: "Neueste App-Versionsnummer"
-    description: "Segmentiert nach der aktuellen App-Versionsnummer der App des/der Nutzer:in.<br><br>Bei Verwendung von „kleiner als“ oder „kleiner als oder gleich“ gibt dieser Filter <code>true</code> zurück, wenn die Haupt-App-Version nicht existiert, da der/die Nutzer:in älter als die App-Version ist. Das bedeutet, dass der/die Nutzer:in automatisch dem Filter entspricht, wenn die letzte Haupt-App-Version nicht existiert.<br><br>Es kann einige Zeit dauern, bis die aktuellen App-Versionen befüllt werden. Die App-Version im Nutzerprofil wird aktualisiert, wenn die Information vom SDK erfasst wird, was davon abhängt, wann Nutzer:innen ihre Apps öffnen. Wenn der/die Nutzer:in die App nicht öffnet, wird die aktuelle Version nicht aktualisiert. Diese Filter gelten auch nicht rückwirkend. Es empfiehlt sich, „größer als“ oder „gleich“ für aktuelle und zukünftige Versionen zu verwenden, aber die Verwendung von Filtern für vergangene Versionen kann zu unerwartetem Verhalten führen."
+    display_name: "Aktuellste App-Versionsnummer"
+    description: "Segmentiert nach der aktuellen App-Versionsnummer der App des/der Nutzer:in. Die Versionsnummer in den Klammern wird zum Filtern verwendet, während die vorangestellte Nummer als Referenz dient – z. B. ist bei „3.7.0(134.0.0.0)“ die gefilterte Versionsnummer „134.0.0.0“.<br><br>Bei Verwendung von „kleiner als“ oder „kleiner als oder gleich“ gibt dieser Filter <code>true</code> zurück, wenn die Haupt-App-Version nicht existiert, da der/die Nutzer:in älter als die App-Version ist. Das bedeutet, dass der/die Nutzer:in automatisch dem Filter entspricht, wenn die letzte Haupt-App-Version nicht existiert.<br><br>Es kann einige Zeit dauern, bis die aktuellen App-Versionen befüllt werden. Die App-Version im Nutzerprofil wird aktualisiert, wenn die Information vom SDK erfasst wird, was davon abhängt, wann Nutzer:innen ihre Apps öffnen. Wenn der/die Nutzer:in die App nicht öffnet, wird die aktuelle Version nicht aktualisiert. Diese Filter gelten auch nicht rückwirkend. Es empfiehlt sich, „größer als“ oder „gleich“ für aktuelle und zukünftige Versionen zu verwenden, aber die Verwendung von Filtern für vergangene Versionen kann zu unerwartetem Verhalten führen."
     tags:
       - App
   - name: Uninstalled
     display_name: "Deinstalliert"
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie Ihre App deinstalliert und nicht erneut installiert haben."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie derzeit im Backend als deinstalliert markiert sind. Nutzer:innen, die die App deinstalliert und später erneut installiert haben, sind nicht enthalten. Dieser Filter spiegelt den aktuellen Deinstallationsstatus wider, nicht ein historisches Protokoll jedes Deinstallations-Events."
     tags:
       - Uninstall
   - name: Device Carrier
@@ -587,12 +587,12 @@ glossaries:
     tags:
       - Devices
   - name: Most Recent Device Locale
-    display_name: "Neuestes Geräte-Locale"
+    display_name: "Aktuellstes Geräte-Locale"
     description: "Segmentiert Ihre Nutzer:innen nach den <a href=\"/docs/user_guide/messaging/messaging_fundamentals/localization\">Locale-Informationen</a> des zuletzt verwendeten Geräts."
     tags:
       - Devices
   - name: Most Recent Watch Model
-    display_name: "Neuestes Smartwatch-Modell"
+    display_name: "Aktuellstes Smartwatch-Modell"
     description: "Segmentiert Ihre Nutzer:innen nach ihrem neuesten Smartwatch-Modell."
     tags:
       - Devices
@@ -603,17 +603,17 @@ glossaries:
       - Devices
   - name: Web Browser
     display_name: "Webbrowser"
-    description: "Segmentiert Ihre Nutzer:innen nach dem Webbrowser, den sie für den Zugriff auf Ihre Website verwenden."
+    description: "Segmentiert Ihre Nutzer:innen nach dem Webbrowser, den sie für den Zugriff auf Ihre Website verwenden. Dieser Filter gleicht mit jedem Browser in der Gerätehistorie des/der Nutzer:in ab, nicht nur mit dem zuletzt verwendeten Browser."
     tags:
       - Devices
   - name: Device IDFA
     display_name: "Geräte-IDFA"
-    description: "Ermöglicht es Ihnen, Ihre Campaign-Empfänger:innen anhand der IDFA für Tests zu bestimmen."
+    description: "Ermöglicht es Ihnen, Ihre Kampagnenempfänger:innen anhand der IDFA für Tests zu bestimmen."
     tags:
       - Advertising use cases
   - name: Device IDFV
     display_name: "Geräte-IDFV"
-    description: "Ermöglicht es Ihnen, Ihre Campaign-Empfänger:innen anhand der IDFV für Tests zu bestimmen."
+    description: "Ermöglicht es Ihnen, Ihre Kampagnenempfänger:innen anhand der IDFV für Tests zu bestimmen."
     tags:
       - Advertising use cases
   - name: Device Google Ad ID
@@ -637,13 +637,13 @@ glossaries:
     tags:
       - Advertising use cases
   - name: Most Recent Location
-    display_name: "Letzter Standort"
+    display_name: "Aktuellster Standort"
     description: "Segmentiert Ihre Nutzer:innen nach dem zuletzt aufgezeichneten Standort, an dem sie Ihre App verwendet haben."
     tags:
       - Location
   - name: Location Available
     display_name: "Standort verfügbar"
-    description: "Segmentiert Ihre Nutzer:innen danach, ob sie ihren Standort gemeldet haben. Um diesen Filter zu verwenden, muss Ihre App <a href=\"/docs/search/?query=location%20tracking\">Standort-Tracking integriert</a> haben."
+    description: "Segmentiert Ihre Nutzer:innen danach, ob sie ihren Standort gemeldet haben. Um diesen Filter zu verwenden, muss Ihre App <a href=\"/docs/search?query=location%20tracking\">Standort-Tracking integriert</a> haben."
     tags:
       - Location
   - name: Amplitude Cohorts
@@ -697,7 +697,7 @@ glossaries:
     tags:
       - Install attribution
   - name: Install Attribution Campaign
-    display_name: "Install-Attribution – Campaign"
+    display_name: "Install-Attribution – Kampagne"
     description: "Segmentiert Ihre Nutzer:innen nach der Werbekampagne, der ihre Installation zugeordnet wurde."
     tags:
       - Install attribution
@@ -723,7 +723,7 @@ glossaries:
       - Intelligence and predictive
   - name: Event Likelihood Score
     display_name: "Event-Wahrscheinlichkeits-Score"
-    description: "Segmentiert Ihre Nutzer:innen nach der Wahrscheinlichkeit, ein Event auszuführen, gemäß einer bestimmten Prognose."
+    description: "Segmentiert Ihre Nutzer:innen nach dem Wahrscheinlichkeits-Score, ein Event auszuführen, gemäß einer bestimmten Prognose."
     tags:
       - Intelligence and predictive
   - name: Intelligent Channel
@@ -732,7 +732,7 @@ glossaries:
     tags:
       - Intelligence and predictive
   - name: Message Open Likelihood
-    display_name: "Nachrichten-Öffnungswahrscheinlichkeit"
+    display_name: "Wahrscheinlichkeit des Nachrichtenöffnens"
     description: "Filtert Ihre Nutzer:innen basierend auf ihrer <a href=\"/docs/user_guide/brazeai/intelligence_suite/intelligent_channel#individual-channels\">Wahrscheinlichkeit, eine Nachricht auf einem bestimmten Kanal zu öffnen</a>, auf einer Skala von 0–100 %. Nutzer:innen ohne ausreichende Daten zur Messung einer Wahrscheinlichkeit für einen Kanal können mit „ist leer“ ausgewählt werden.<br><br>Für E-Mails werden maschinelle Öffnungen von der Wahrscheinlichkeitsberechnung ausgeschlossen."
     tags:
       - Intelligence and predictive

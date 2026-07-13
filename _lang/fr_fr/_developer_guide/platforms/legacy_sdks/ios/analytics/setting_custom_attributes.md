@@ -14,7 +14,7 @@ noindex: true
 
 Braze fournit des méthodes pour assigner des attributs aux utilisateurs. Vous pourrez ensuite filtrer et segmenter vos utilisateurs en fonction de ces attributs depuis le tableau de bord.
 
-Avant de procéder à l'implémentation, pensez à consulter les exemples d'options de segmentation offertes par les événements personnalisés, les attributs personnalisés et les événements d'achat dans nos [bonnes pratiques]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), ainsi que nos notes sur les [conventions de nommage des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+Avant de procéder à l'implémentation, pensez à consulter les exemples d'options de segmentation offertes par les événements personnalisés, les attributs personnalisés et les événements d'achat dans nos [bonnes pratiques]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection), ainsi que nos notes sur les [conventions de nommage des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Affecter des attributs utilisateur par défaut {#assigning-default-user-attributes}
 
@@ -54,7 +54,7 @@ Les attributs suivants doivent être définis sur l'objet `ABKUser` :
 
 ## Affecter des attributs utilisateur personnalisés {#assigning-custom-user-attributes}
 
-Au-delà des attributs utilisateur par défaut, Braze vous permet de définir des attributs personnalisés avec plusieurs types de données. Consultez notre documentation sur la [collecte de données utilisateur]({{site.baseurl}}/developer_guide/analytics/) pour en savoir plus sur les options de segmentation offertes par chacun de ces attributs.
+Au-delà des attributs utilisateur par défaut, Braze vous permet également de définir des attributs personnalisés avec plusieurs types de données. Consultez notre documentation sur la [collecte de données utilisateur]({{site.baseurl}}/developer_guide/analytics) pour en savoir plus sur les options de segmentation offertes par chacun de ces attributs.
 
 ### Attribut personnalisé avec une valeur de chaîne de caractères {#custom-attribute-with-a-string-value}
 
@@ -233,7 +233,7 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 
 ### Définir un attribut personnalisé via la REST API {#setting-a-custom-attribute-via-the-rest-api}
 
-Vous pouvez également utiliser notre REST API pour définir les attributs utilisateur. Reportez-vous à la [documentation de l'API utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) pour plus de détails.
+Vous pouvez également utiliser notre REST API pour définir les attributs utilisateur. Reportez-vous à la [documentation de l'API utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) pour plus de détails.
 
 ### Limites de valeur des attributs personnalisés {#custom-attribute-value-limits}
 
@@ -253,11 +253,11 @@ Pour configurer un abonnement pour vos utilisateurs (par e-mail ou notification 
 | `ABKOptedin` | Abonné, avec consentement explicite |
 | `ABKSubscribed` | Abonné, sans consentement explicite |
 | `ABKUnsubscribed` | Désabonné ou refus explicite |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuration des abonnements utilisateur" }
 
 Les utilisateurs qui autorisent une application à leur envoyer des notifications push ont par défaut le statut `ABKOptedin`, car iOS exige un consentement explicite.
 
-Les utilisateurs sont automatiquement définis sur `ABKSubscribed` dès la réception d'une adresse e-mail valide. Nous vous recommandons toutefois de mettre en place un processus d'abonnement explicite et de définir cette valeur sur `OptedIn` dès réception du consentement explicite de votre utilisateur. Reportez-vous à [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/email/subscriptions/) pour plus de détails.
+Les utilisateurs sont automatiquement définis sur `ABKSubscribed` dès la réception d'une adresse e-mail valide. Nous vous recommandons toutefois de mettre en place un processus d'abonnement explicite et de définir cette valeur sur `OptedIn` dès réception du consentement explicite de votre utilisateur. Reportez-vous à [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/email/subscriptions) pour plus de détails.
 
 ### Définir les abonnements par e-mail {#setting-email-subscriptions}
 
@@ -297,4 +297,4 @@ Appboy.sharedInstance()?.user.setPushNotificationSubscriptionType(ABKNotificatio
 {% endtab %}
 {% endtabs %}
 
-Reportez-vous à [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/email/subscriptions/) pour plus de détails.
+Reportez-vous à [Gérer les abonnements des utilisateurs]({{site.baseurl}}/user_guide/channels/email/subscriptions) pour plus de détails.

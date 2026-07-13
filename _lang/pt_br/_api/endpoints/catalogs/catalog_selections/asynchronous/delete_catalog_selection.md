@@ -6,34 +6,34 @@ page_order: 1
 
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint da Braze Excluir seleção de catálogo"
+description: "Este artigo descreve detalhes sobre o endpoint da Braze Excluir seleção de catálogo."
 
 ---
 {% api %}
-# Excluir seleção de catálogo
+# Excluir seleção de catálogo {#delete-catalog-selection}
 {% apimethod delete %}
 /catalogs/{catalog_name}/selections/{selection_name}
 {% endapimethod %}
 
-> Use esse ponto de extremidade para excluir uma seleção de catálogo.
+> Use esse endpoint para excluir uma seleção de catálogo.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `catalogs.delete_selection`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.delete_selection`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog selections' %}
 
-## Parâmetros da jornada
+## Parâmetros de jornada {#path-parameters}
 
 | Parâmetro        | Obrigatória | Tipo de dados | Descrição                    |
 | ---------------- | -------- | --------- | ------------------------------ |
 | `catalog_name`   | Obrigatória | String    | Nome do catálogo.           |
 | `selection_name` | Obrigatória | String    | Nome da seleção do catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de jornada" }
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```
 curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaurants/selections/favorite_list' \
@@ -41,11 +41,11 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 ```
 
-## Resposta
+## Resposta {#response}
 
-Existem dois códigos de status para este endpoint: `202` e `404`.
+Existem dois códigos de status para esse endpoint: `202` e `404`.
 
-### Exemplo de resposta bem-sucedida
+### Exemplo de resposta bem-sucedida {#example-success-response}
 
 O código de status `202` poderia retornar o seguinte corpo de resposta:
 
@@ -55,9 +55,9 @@ O código de status `202` poderia retornar o seguinte corpo de resposta:
 }
 ```
 
-### Exemplo de resposta de erro
+### Exemplo de resposta de erro {#example-error-response}
 
-O código de status `404` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para obter mais informações sobre os erros que você pode encontrar.
+O código de status `404` poderia retornar o seguinte corpo de resposta. Consulte [Solução de problemas](#troubleshooting) para saber mais sobre os erros que você pode encontrar.
 
 ```json
 {
@@ -77,7 +77,7 @@ O código de status `404` poderia retornar o seguinte corpo de resposta. Consult
 }
 ```
 
-## Solução de problemas
+## Solução de problemas {#troubleshooting}
 
 A tabela a seguir lista os possíveis erros retornados e as etapas de solução de problemas associadas.
 
@@ -85,6 +85,6 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | -------------------- | -------------------------------------------------------- |
 | `catalog-not-found`  | Verifique se o nome do catálogo é válido.                    |
 | `invalid-selection`  | Verifique se o nome da seleção é válido.                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
 {% endapi %}

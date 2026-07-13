@@ -12,7 +12,7 @@ channel:
 
 > Embora nossas mensagens no app padrão possam ser personalizadas de diversas formas, você pode obter ainda mais controle sobre a aparência das suas campanhas usando mensagens projetadas e criadas com HTML, CSS e JavaScript. Com uma composição simples, você pode desbloquear funcionalidades e identidade visual personalizadas para atender a qualquer necessidade.
 
-Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## Como funciona {#how-it-works}
 
@@ -42,7 +42,7 @@ Além do JavaScript personalizado, os SDKs da Braze também podem enviar dados d
 ### Rastreamento de clique em botão (descontinuado) {#button-click-tracking-deprecated}
 
 {% alert warning %}
-O uso de `abButtonID` não é compatível com os tipos de mensagem [HTML com pré-visualização]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview/). Para saber mais, consulte nosso [guia de upgrade]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview).
+O uso de `abButtonID` não é compatível com os tipos de mensagem [HTML com pré-visualização]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview). Para saber mais, consulte nosso [guia de upgrade]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview).
 {% endalert %}
 
 Para registrar cliques em botões para análise de dados de mensagens no app, você pode adicionar `abButtonId` como parâmetro de consulta a qualquer deep link, URL de redirecionamento ou elemento âncora `<a>`. Use `?abButtonId=0` para registrar um clique no "Botão 1" e `?abButtonId=1` para registrar um clique no "Botão 2".
@@ -98,26 +98,26 @@ Para usar a pré-visualização HTML para mensagens no app, você deve fazer upg
 {% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}
 
 {% alert warning %}
-Como esse tipo de mensagem só pode ser recebido por determinadas versões mais recentes do SDK, usuários em versões não compatíveis do SDK não receberão a mensagem. Considere adotar esse tipo de mensagem depois que uma parcela significativa da sua base de usuários estiver acessível, ou direcione apenas os usuários cuja versão do app seja posterior aos requisitos. Saiba mais sobre [filtrar pela versão mais recente do app]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Como esse tipo de mensagem só pode ser recebido por determinadas versões mais recentes do SDK, usuários em versões não compatíveis do SDK não receberão a mensagem. Considere adotar esse tipo de mensagem depois que uma parcela significativa da sua base de usuários estiver acessível, ou direcione apenas os usuários cuja versão do app seja posterior aos requisitos. Saiba mais sobre [filtrar pela versão mais recente do app]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 {% endalert %}
 
 ### Criando uma campanha {#instructions}
 
-Os usuários do seu app mobile precisam fazer upgrade para as versões compatíveis do SDK para receber uma mensagem no app de **Código personalizado**. Recomendamos que você [incentive os usuários a fazer upgrade]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/) dos seus apps mobile antes de lançar campanhas que dependam de versões mais recentes do SDK da Braze.
+Os usuários do seu app mobile precisam fazer upgrade para as versões compatíveis do SDK para receber uma mensagem no app de **Código personalizado**. Recomendamos que você [incentive os usuários a fazer upgrade]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features) dos seus apps mobile antes de lançar campanhas que dependam de versões mais recentes do SDK da Braze.
 
 #### Arquivos de ativos {#asset-files}
 
-Ao criar mensagens no app com código personalizado e upload de HTML, você pode fazer upload de ativos da campanha para a [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) para referenciá-los na sua mensagem.
+Ao criar mensagens no app com código personalizado e upload de HTML, você pode fazer upload de ativos da campanha para a [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) para referenciá-los na sua mensagem.
 
 Os seguintes tipos de arquivo são compatíveis para upload:
 
-| Tipo de arquivo       | Extensão do arquivo             |
-| :-------------------- | :------------------------------ |
+| Tipo de arquivo       | Extensão do arquivo               |
+| :-------------------- | :-------------------------------- |
 | Arquivos de fonte     | `.ttf`, `.woff`, `.otf`, `.woff2` |
 | Imagens SVG           | `.svg`                            |
 | Arquivos JavaScript   | `.js`                             |
 | Arquivos CSS          | `.css`                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Arquivos de ativos" }
 
 A Braze recomenda fazer upload de ativos para a Biblioteca de mídia por dois motivos:
 
@@ -128,37 +128,49 @@ A Braze recomenda fazer upload de ativos para a Biblioteca de mídia por dois mo
 
 Você pode adicionar ativos novos ou existentes à sua campanha.
 
-Para adicionar novos ativos à sua campanha, use a seção de arrastar e soltar para fazer upload de um arquivo. Ativos adicionados nesta seção também serão automaticamente adicionados à Biblioteca de mídia. Para adicionar ativos que você já enviou para a Biblioteca de mídia, selecione **Add from Media Library**.
+Para adicionar novos ativos à sua campanha, use a seção de arrastar e soltar para fazer upload de um arquivo. Ativos adicionados nesta seção também serão automaticamente adicionados à Biblioteca de mídia. Para adicionar ativos que você já enviou para a Biblioteca de mídia, selecione **Adicionar da Biblioteca de mídia**.
 
-Depois que seus ativos forem adicionados, eles aparecerão na seção **Assets for this campaign**.
+Depois que seus ativos forem adicionados, eles aparecerão na seção **Ativos desta campanha**.
 
 Se o nome de um arquivo de ativo corresponder ao de um ativo HTML local, ele será substituído automaticamente (por exemplo, `cat.png` é enviado e `<img src="cat.png" />` existe).
 
-Caso contrário, passe o mouse sobre um ativo da lista e selecione <i class="fas fa-copy"></i> **Copy** para copiar a URL do arquivo para a área de transferência. Em seguida, cole a URL do ativo copiado no seu HTML como faria normalmente ao referenciar um ativo remoto.
+Caso contrário, passe o mouse sobre um ativo da lista e selecione <i class="fas fa-copy"></i> **Copiar** para copiar a URL do arquivo para a área de transferência. Em seguida, cole a URL do ativo copiado no seu HTML como faria normalmente ao referenciar um ativo remoto.
 
 ### Editor de HTML {#html-editor}
 
 As alterações que você fizer no HTML são renderizadas automaticamente no painel de pré-visualização conforme você digita. Quaisquer métodos JavaScript [`brazeBridge`](#bridge) que você usar no seu HTML não atualizarão perfis de usuário durante a pré-visualização no dashboard.
 
 {% alert tip %}
-Você pode selecionar <i class="fa-solid fa-magnifying-glass"></i> **Search** dentro do editor de HTML para pesquisar no seu código!
+Você pode selecionar <i class="fa-solid fa-magnifying-glass"></i> **Pesquisar** dentro do editor de HTML para pesquisar no seu código!
 {% endalert %}
 
 ### Rastreamento de botões {#button-tracking-improvements}
 
-Você pode rastrear o desempenho dentro da sua mensagem no app com código personalizado usando o método JavaScript [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/). Isso permite que você rastreie programaticamente "Botão 1", "Botão 2" e "Cliques no corpo" usando `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` ou `brazeBridge.logClick()`, respectivamente.
+Você pode rastrear o desempenho dentro da sua mensagem no app com código personalizado usando o método JavaScript [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types). Isso permite que você rastreie programaticamente "Botão 1", "Botão 2" e "Cliques no corpo" usando `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` ou `brazeBridge.logClick()`, respectivamente.
 
 | Cliques    | Método                       |
 | ---------- | ---------------------------- |
 | Botão 1    | `brazeBridge.logClick('0')` |
 | Botão 2    | `brazeBridge.logClick('1')` |
 | Clique no corpo | `brazeBridge.logClick()`    |
-| Rastreamento de botão personalizado |`brazeBridge.logClick('your custom name here')`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Rastreamento de botão personalizado | `brazeBridge.logClick('your custom name here')` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rastreamento de botões" }
 
 {% alert note %}
 Esse método de rastreamento de botões substitui os métodos anteriores de rastreamento automático de cliques (como `?abButtonId=0`), que foram removidos.
 {% endalert %}
+
+Use [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) para mensagens HTML com pré-visualização quando você precisar de mais de dois botões rastreados. O Botão 1 e o Botão 2 correspondem a `'0'` e `'1'`; botões adicionais usam IDs personalizados (até 100 IDs únicos por campanha). Para restrições de caracteres em IDs de botão, consulte [Rastreamento de botões](#button-tracking-improvements).
+
+### Solução de problemas com links HTML personalizados e comportamento de fechamento {#troubleshoot-custom-html-links-and-close-behavior}
+
+#### Cliques em botões não abrem o link {#button-clicks-do-not-open-the-link}
+
+Se um botão na sua mensagem no app com HTML personalizado não carregar ao ser clicado, verifique se o link usa uma URL válida ou um esquema de deep link compatível. URLs malformadas ou esquemas personalizados não compatíveis podem impedir que a ação de clique seja concluída.
+
+#### Cliques no corpo ao fechar a mensagem {#body-clicks-when-closing-the-message}
+
+Chamar `brazeBridge.closeMessage()` fecha a mensagem, mas não registra análise de dados por conta própria. Para registrar um clique no corpo quando o usuário fecha a mensagem, chame `brazeBridge.logClick()` antes de `brazeBridge.closeMessage()` para que o registro de cliques permaneça consistente entre plataformas.
 
 ### Alterações incompatíveis com versões anteriores {#backward-incompatible-changes}
 
@@ -172,3 +184,4 @@ Esse método de rastreamento de botões substitui os métodos anteriores de rast
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Alterações incompatíveis com versões anteriores" }

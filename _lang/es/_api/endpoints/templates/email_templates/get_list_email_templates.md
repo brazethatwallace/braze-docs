@@ -5,43 +5,43 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Enumerar las plantillas de correo electrónico disponibles de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Listar plantillas de correo electrónico disponibles de Braze."
 
 ---
 {% api %}
-# Lista de plantillas de correo electrónico disponibles
+# Listar plantillas de correo electrónico disponibles {#list-available-email-templates}
 {% apimethod get %}
 /templates/email/list
 {% endapimethod %}
 
-> Utilice este punto final para obtener una lista de las plantillas de correo electrónico disponibles en su cuenta Braze.
+> Utiliza este punto de conexión para obtener una lista de las plantillas de correo electrónico disponibles en tu cuenta de Braze.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
-## Requisitos previos
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `templates.email.list`.
+## Requisitos previos {#prerequisites}
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `templates.email.list`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `modified_after`  | Opcional | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)  | Recupera solo las plantillas actualizadas a partir de la hora indicada o después. |
-| `modified_before`  |  Opcional | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)  | Recuperar sólo las plantillas actualizadas a la hora indicada o antes. |
-| `limit` | Opcional | Número positivo | Número máximo de plantillas a recuperar. Por defecto 100 si no se indica, con un valor máximo aceptable de 1000. |
-| `offset`  |  Opcional | Número positivo | Número de plantillas que se omiten antes de devolver el resto de plantillas que se ajustan a los criterios de búsqueda. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `modified_after` | Opcional | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera solo las plantillas actualizadas a partir de la hora indicada o después. |
+| `modified_before` | Opcional | Cadena en formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera solo las plantillas actualizadas a la hora indicada o antes. |
+| `limit` | Opcional | Número positivo | Número máximo de plantillas a recuperar. Predeterminado en 100 si no se indica, con un valor máximo aceptable de 1000. |
+| `offset` | Opcional | Número positivo | Número de plantillas que se omiten antes de devolver el resto de plantillas que se ajustan a los criterios de búsqueda. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/templates/email/list?modified_after=2020-01-01T01:01:01.000000&modified_before=2020-02-01T01:01:01.000000&limit=1&offset=0' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
 {% alert important %}
 Las plantillas creadas con el editor de arrastrar y soltar para correo electrónico no se proporcionan en esta respuesta.
@@ -59,6 +59,3 @@ Las plantillas creadas con el editor de arrastrar y soltar para correo electrón
 }
 ```
 {% endapi %}
-
-
-

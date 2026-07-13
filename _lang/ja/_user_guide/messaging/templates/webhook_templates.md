@@ -12,11 +12,11 @@ description: "Brazeプラットフォーム内で後から使用するためのW
 
 # Webhook テンプレートを作成する {#create-a-webhook-template}
 
-> webhookを構築してカスタマイズする際に、Brazeプラットフォーム内で後から使用するためのWebhookテンプレートを作成して活用できます。これにより、さまざまなCampaignsにわたって一貫したwebhookを構築できます。
+> webhookを構築してカスタマイズする際に、Brazeプラットフォーム内で後から使用するためのWebhookテンプレートを作成して活用できます。これにより、さまざまなキャンペーンにわたって一貫したwebhookを構築できます。
 
 ## ステップ 1:Webhook テンプレートエディターに移動する {#step-1-go-to-the-webhook-template-editor}
 
-Brazeダッシュボードで、**テンプレート** > **Webhook テンプレート**に移動します。
+Brazeダッシュボードで、**コンテンツ** > **Webhook**に移動します。
 
 ![事前にデザインされたWebhookテンプレートと保存済みWebhookテンプレートが表示された「Webhook テンプレート」ページ。]({% image_buster /assets/img_archive/webhook_template_campaign.png %})
 
@@ -24,13 +24,13 @@ Brazeダッシュボードで、**テンプレート** > **Webhook テンプレ�
 
 ここから、新しいテンプレートを作成するか、事前にデザインされたWebhookテンプレートを使用するか、既存のテンプレートを編集するかを選択できます。
 
-たとえば、メッセージングチャネルとして[LINE]({{site.baseurl}}/user_guide/channels/line/)を使用している場合、**LINE Carousel**や**LINE Image**の事前デザインテンプレートを使用して複数のwebhookを設定できます。
+たとえば、メッセージングチャネルとして[LINE]({{site.baseurl}}/user_guide/channels/line)を使用している場合、**LINE Carousel**や**LINE Image**の事前デザインテンプレートを使用して複数のwebhookを設定できます。
 
 ## ステップ 3:テンプレートの詳細を入力する {#step-3-fill-out-template-details}
 
 1. Webhookテンプレートにユニークな名前を付けます。
 2. （オプション）テンプレートの使用目的を説明するテンプレートの説明を追加します。
-3. テンプレートの検索やフィルタリングに役立つよう、必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)や[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/)を追加します。
+3. テンプレートの検索やフィルタリングに役立つよう、必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)や[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。
 
 ## ステップ 4:テンプレートを構築する {#step-4-build-your-template}
 
@@ -47,12 +47,12 @@ Brazeダッシュボードで、**テンプレート** > **Webhook テンプレ�
 
 ## ステップ 6:テンプレートを保存する {#step-6-save-your-template}
 
-**Save Template**を選択してテンプレートを保存してください。これで、任意のCampaignでこのテンプレートを使用する準備が整いました。
+**Save Template**を選択してテンプレートを保存してください。これで、任意のキャンペーンでこのテンプレートを使用する準備が整いました。
 
 {% alert note %}
-既存のテンプレートに加えた編集は、そのテンプレートの以前のバージョンを使用して作成されたCampaignsには反映されません。
+既存のテンプレートに加えた編集は、そのテンプレートの以前のバージョンを使用して作成されたキャンペーンには反映されません。
 {% endalert %}
 
 ## テンプレートを管理する {#managing-your-templates}
 
-Webhookテンプレートを[複製およびアーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/)して、テンプレートのリストをより適切に整理・管理できます。
+Webhookテンプレートを[複製およびアーカイブ]({{site.baseurl}}/user_guide/messaging/templates/managing_templates)して、テンプレートのリストをより適切に整理・管理できます。

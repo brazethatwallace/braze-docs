@@ -20,7 +20,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `purchases.revenue_series`.
+Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `purchases.revenue_series`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -28,14 +28,14 @@ Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseur
 
 ## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `ending_at` | Opcional | Fecha y hora (cadena [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Fecha en la que debe finalizar la exportación de datos. De forma predeterminada, la hora de la solicitud. |
-| `length` | Obligatoria | Entero | Número máximo de días antes de `ending_at` a incluir en la serie devuelta. Debe estar comprendido entre 1 y 100 (ambos inclusive). |
+| `length` | Obligatorio | Entero | Número máximo de días antes de `ending_at` a incluir en la serie devuelta. Debe estar comprendido entre 1 y 100 (ambos inclusive). |
 | `unit` | Opcional | Cadena | Unidad de tiempo entre puntos de datos. Puede ser día u hora; por defecto, día. |
-| `app_id` | Opcional | Cadena | Identificador de API de la aplicación recuperado de la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/). Si se excluye, se devolverán los resultados de todas las aplicaciones de un espacio de trabajo. |
+| `app_id` | Opcional | Cadena | Identificador de API de la aplicación recuperado de la página [Claves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Si se excluye, se devolverán los resultados de todas las aplicaciones de un espacio de trabajo. |
 | `product` | Opcional | Cadena | Nombre del producto por el que filtrar la respuesta. Si se excluye, se devolverán los resultados de todas las aplicaciones. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -62,5 +62,5 @@ curl --location --request GET 'https://rest.iad-01.braze.com/purchases/revenue_s
 {% endapi %}
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

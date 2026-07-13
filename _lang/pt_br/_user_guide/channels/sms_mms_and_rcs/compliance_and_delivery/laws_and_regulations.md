@@ -69,7 +69,7 @@ Aqui estão alguns links que você pode precisar consultar ao criar sua campanha
 
 A privacidade do cliente é fundamental para um relacionamento significativo e respeitoso. Respeitar a privacidade e as informações de um cliente é mais uma oportunidade de criar um vínculo entre ele e sua marca. Às vezes, o uso de ferramentas de marketing pode colocar dados e privacidade em segundo plano.
 
-Felizmente, a Braze segue as diretrizes de muitas [regulamentações de segurança]({{site.baseurl}}/developer_guide/disclosures/security_qualifications/#security-qualifications), incluindo o [GDPR]({{site.baseurl}}/dp-technical-assistance/).
+Felizmente, a Braze segue as diretrizes de muitas [regulamentações de segurança]({{site.baseurl}}/developer_guide/disclosures/security_qualifications#security-qualifications), incluindo o [GDPR]({{site.baseurl}}/dp-technical-assistance).
 
 A [CTIA](https://www.ctia.org/) (uma associação comercial que representa a indústria de comunicações sem fio nos Estados Unidos) recomenda que você mantenha e exiba de forma visível uma política de privacidade clara e fácil de entender.
 
@@ -81,13 +81,13 @@ A Lei de Proteção ao Consumidor de Telefonia ([TCPA](https://en.wikipedia.org/
 
 Lembre-se de cumprir o [Registro Nacional de Não Ligar](https://www.donotcall.gov/).
 
-A Braze usa [Grupos de inscrições]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/) para gerenciar grupos de usuários com base no nível de consentimento deles.
+A Braze usa [Grupos de inscrições]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing) para gerenciar grupos de usuários com base no nível de consentimento deles.
 
 #### Conformidade por meio de descadastramento aproximado (fuzzy opt-out) {#compliance-through-fuzzy-opt-out}
 
 Para ajudar a automatizar o reconhecimento de solicitações de descadastramento não padronizadas, você pode ativar o descadastramento aproximado (fuzzy opt-out) nas configurações do seu grupo de inscrições, caso seja um cliente nos EUA.
 
-- **Configuração imediata:** Por padrão, o descadastramento aproximado envia uma mensagem de esclarecimento. Para aplicar um descadastramento imediato em vez de um esclarecimento, você pode configurar seu espaço de trabalho seguindo as instruções na [seção de descadastramento aproximado (fuzzy opt-out)]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/#configure-fuzzy-opt-out).
+- **Configuração imediata:** Por padrão, o descadastramento aproximado envia uma mensagem de esclarecimento. Para aplicar um descadastramento imediato em vez de um esclarecimento, você pode configurar seu espaço de trabalho seguindo as instruções na [seção de descadastramento aproximado (fuzzy opt-out)]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out#configure-fuzzy-opt-out).
 - **Adições manuais de palavras-chave:** Recomendamos adicionar manualmente palavras de alto risco à sua categoria de palavras-chave de **Descadastramento**, como "REMOVE", "END", "HALT", "CEASE", "DISCONTINUE" e "UNSUBSCRIBE", além das palavras-chave padrão já fornecidas.
 
 ### Spam e cadência {#spam-and-cadence}

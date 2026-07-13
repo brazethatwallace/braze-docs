@@ -24,19 +24,19 @@ L'envoi de messages bidirectionnel vous permet d'envoyer des messages et de trai
 Les SMS, MMS et RCS avec Braze vous offrent la possibilité de créer des déclencheurs de mots-clés, des réponses personnalisées, de définir des ensembles de mots-clés pour plusieurs langues et d'établir des catégories de mots-clés personnalisées.
 
 {% alert note %}
-Braze utilise l'ensemble complet de vos mots-clés de désabonnement ([mots-clés par défaut]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) et [mots-clés personnalisés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/) pour la gestion exacte des désabonnements et le [désabonnement approximatif]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
+Braze utilise l'ensemble complet de vos mots-clés de désabonnement ([mots-clés par défaut]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) et [mots-clés personnalisés]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)) pour la gestion exacte des désabonnements et le [désabonnement approximatif]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out).
 {% endalert %}
 
 {% tabs %}
 {% tab Ajouter des déclencheurs de mots-clés %}
 
-#### Ajouter des déclencheurs de mots-clés {#add-keyword-triggers}
+### Ajouter des déclencheurs de mots-clés {#add-keyword-triggers}
 
 En plus des mots-clés d'abonnement et de désabonnement par défaut, vous pouvez également définir vos propres mots-clés pour déclencher des réponses d'abonnement, de désabonnement et d'aide.
 
 Pour définir vos propres mots-clés, procédez comme suit :
 
-1. Dans le tableau de bord de Braze, accédez à **Audience** > **Subscription Group Management** et sélectionnez un groupe d'abonnement **SMS/MMS/RCS**.<br><br>
+1. Dans le tableau de bord de Braze, accédez à **Audience** > **Gestion des groupes d'abonnement** et sélectionnez un groupe d'abonnement **SMS/MMS/RCS**.
 2. Sous **Global Keywords**, sélectionnez l'icône de crayon à côté de la catégorie de mots-clés à laquelle vous souhaitez ajouter un mot-clé. ![Mots-clés d'abonnement avec l'icône de crayon affichée.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
 3. Dans l'onglet qui s'ouvre, ajoutez un mot-clé que vous souhaitez utiliser pour déclencher cette catégorie de mots-clés. Notez que les mots-clés ne sont pas sensibles à la casse et que les mots-clés universels comme `START`, `YES` et `UNSTOP` ne peuvent pas être modifiés. ![Modification des mots-clés pour la catégorie « Opt-In ». Les mots-clés ajoutés sont « START », « UNSTOP » et « YES ». Le champ du message de réponse indique « You have been unsubscribed to messages from this number. Reply HELP for help. Reply STOP to unsubscribe. Message and data rates may apply. »]({% image_buster /assets/img/sms/keyword_edit2.png %})
 
@@ -45,36 +45,36 @@ Les règles suivantes s'appliquent aux mots-clés et aux réponses de mots-clés
 | Mots-clés | Réponses de mots-clés |
 | -------- | ----------------- |
 | - Caractères encodés en UTF-8 valides<br>- Maximum de 20 mots-clés par catégorie au total<br>- Longueur maximale de 34 caractères<br>- Longueur minimale de 1 caractère<br>- Ne peuvent pas contenir d'espaces<br>- Doivent être insensibles à la casse et uniques dans le groupe d'abonnement | - Ne peuvent pas être vides<br>- Longueur maximale de 300 caractères<br>- Caractères UTF-8 valides |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ajouter des déclencheurs de mots-clés" }
 
 {% alert tip %}
-Vous souhaitez voir comment ces mots-clés peuvent être utilisés dans vos Campaigns et Canvas pour recibler et déclencher des messages ? Consultez [Reciblage des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) pour plus d'informations.
+Vous souhaitez voir comment ces mots-clés peuvent être utilisés dans vos Campaigns et Canvas pour recibler et déclencher des messages ? Consultez [Reciblage des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) pour plus d'informations.
 {% endalert %}
 {% endtab %}
 
 {% tab Gérer les réponses %}
 
-#### Gérer les réponses {#manage-responses}
+### Gérer les réponses {#manage-responses}
 
 Vous pouvez gérer vos propres réponses envoyées aux utilisateurs après qu'ils ont envoyé un mot-clé correspondant à une catégorie de mots-clés spécifique.
 
-1. Dans le tableau de bord de Braze, accédez à **Audience** > **Subscription Group Management** et sélectionnez un groupe d'abonnement **SMS/MMS/RCS**. <br><br>
+1. Dans le tableau de bord de Braze, accédez à **Audience** > **Gestion des groupes d'abonnement** et sélectionnez un groupe d'abonnement **SMS/MMS/RCS**. <br><br>
 2. Sous **Global Keywords**, sélectionnez une catégorie de mots-clés pour modifier une réponse en sélectionnant l'icône de crayon. ![Mots-clés d'abonnement avec l'icône de crayon affichée.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. Dans l'onglet qui s'ouvre, modifiez votre réponse. Gardez à l'esprit nos [six règles pour assurer la conformité]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right) lors de la création de votre réponse, et lisez les règles suivantes qui s'appliquent aux mots-clés et aux réponses de mots-clés. ![Réponses]({% image_buster /assets/img/sms/keyword_home.png %}){: style="max-width:70%;"}<br><br>
+3. Dans l'onglet qui s'ouvre, modifiez votre réponse. Gardez à l'esprit nos [six règles pour assurer la conformité]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-six-rules-to-get-compliance-right) lors de la création de votre réponse, et lisez les règles suivantes qui s'appliquent aux mots-clés et aux réponses de mots-clés.<br><br>
 4. Pour raccourcir automatiquement les URL statiques dans votre réponse, activez le bouton **Link Shortening**. Le compteur de caractères se mettra à jour pour afficher la longueur attendue de l'URL raccourcie. ![Un GIF montrant la mise à jour du compteur de caractères lorsque le bouton « Link Shortening » est activé.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
-##### Considérations {#considerations}
+#### Considérations {#considerations}
 
 | Mots-clés | Réponses de mots-clés |
 | -------- | ----------------- |
 | - Caractères encodés en UTF-8 valides<br>- Maximum de 20 mots-clés par catégorie au total<br>- Longueur maximale de 34 caractères<br>- Longueur minimale de 1 caractère<br>- Ne peuvent pas contenir d'espaces<br>- Doivent être insensibles à la casse et uniques dans le groupe d'abonnement | - Ne peuvent pas être vides<br>- Longueur maximale de 300 caractères<br>- Caractères UTF-8 valides |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considérations" }
 
 {% endtab %}
 {% endtabs %}
 
 {% alert tip %}
-Si un Canvas basé sur une action est déclenché par un message SMS, MMS ou RCS entrant, vous pouvez référencer les propriétés SMS, MMS ou RCS dans la première [étape de message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) du Canvas.
+Si un Canvas basé sur une action est déclenché par un message SMS, MMS ou RCS entrant, vous pouvez référencer les propriétés SMS, MMS ou RCS dans la première [étape de message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) du Canvas.
 {% endalert %}
 
 ## Prise en charge multilingue {#multi-language-support}
@@ -90,7 +90,7 @@ Sélectionnez **Add a Language** et choisissez votre langue cible ou recherchez 
 Les langues autres que l'anglais ne sont pas fournies avec des mots-clés et des réponses prédéfinis. Les expéditeurs devront donc travailler avec leurs équipes marketing et juridiques pour ajouter les mots-clés requis à cet ensemble. Sinon, Braze ne traitera pas les messages entrants localisés pour ces langues.
 {% endalert %}
 
-Si vous devez supprimer une langue, sélectionnez le bouton **Delete Language** en bas à droite.
+Si vous devez supprimer une langue, sélectionnez le bouton **Delete Language** en bas de la page.
 
 ![Page des mots-clés globaux avec l'onglet « Italian » sélectionné. Des onglets supplémentaires existent pour chaque langue ajoutée.]({% image_buster /assets/img/sms/multi-language2.png %})
 
@@ -110,21 +110,21 @@ Pour créer une catégorie de mots-clés personnalisée, procédez comme suit :
 2. Sélectionnez **Add custom keyword**. ![Champs pour ajouter de nouveaux mots-clés.]({% image_buster /assets/img/sms/sms_custom_step.png %}){: style="max-width:90%;"}
 3. Indiquez un nom de catégorie de mots-clés et définissez les mots-clés qu'un utilisateur peut envoyer pour recevoir le message de réponse.
 
-Une fois cette catégorie de mots-clés créée, elle sera disponible pour [filtrer et déclencher]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) dans vos campagnes et Canvas.
+Une fois cette catégorie de mots-clés créée, elle sera disponible pour [filtrer et déclencher]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) dans vos Campaigns et Canvas.
 
 Les mots-clés créés dans les catégories de mots-clés personnalisées respectent toutes les règles et validations applicables à la création de nouveaux mots-clés.
 
 ### Mots-clés spécifiques au cycle de vie {#lifecycle-specific-keywords}
 
-Si vous avez un cas d'utilisation où vous souhaitez limiter le moment où un client peut envoyer un mot-clé spécifique au cours de son cycle de vie (par exemple, lors de son onboarding initial) pour recevoir une réponse, vous pouvez utiliser le déclencheur **Sent inbound SMS to subscription group within keyword category OTHER** dans votre campagne ou Canvas et définir les mots-clés que vos utilisateurs peuvent envoyer à un moment donné.
+Si vous avez un cas d'usage où vous souhaitez limiter le moment où un client peut envoyer un mot-clé spécifique au cours de son cycle de vie (par exemple, lors de son onboarding initial) pour recevoir une réponse, vous pouvez utiliser le déclencheur **Sent inbound SMS to subscription group within keyword category OTHER** dans votre Campaign ou Canvas et définir les mots-clés que vos utilisateurs peuvent envoyer à un moment donné.
 
 Ce déclencheur prend en charge le filtrage sur le message entrant spécifique en utilisant des comparaisons « est » ou « n'est pas » du message, ainsi que des règles d'expression régulière « correspond » ou « ne correspond pas » pour valider la saisie de l'utilisateur.
 
-#### Canvas
+#### Canvas {#canvas}
 
 ![Étape Canvas basée sur une action avec le déclencheur « Send inbound SMS to subscription group "Messaging Service" within keyword category "Other" » où le corps du message correspond à l'expression régulière « caret symbol skip ».]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
 
-#### Campaign
+#### Campaign {#campaign}
 
 ![Campaign basée sur une action avec le déclencheur « Send inbound SMS to subscription group "Marketing Message Service A" within keyword category "Other" » où le corps du message est « Keyword1 » ou est « Keyword2 » ou n'est pas « Keyword A ».]({% image_buster /assets/img/sms/campaign_trigger.png %}){: style="max-width:90%;"}
 
@@ -134,14 +134,14 @@ Nous recommandons vivement de configurer une réponse automatique lorsque des ut
 
 Pour envoyer une réponse par défaut, par exemple « Désolé ! Nous n'avons pas reconnu ce mot-clé. », procédez comme suit :
 
-1. Créez une [campagne SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
+1. Créez une [Campaign SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
 2. Pour **Audience cible**, choisissez **Tous les utilisateurs** (le déclencheur limite toujours qui reçoit le message).
 3. Pour **Planification**, choisissez **Livraison par événement**.
 4. Définissez le déclencheur sur **Send inbound SMS** au groupe d'abonnement approprié **within keyword category OTHER**.
 5. Dans l'étape **Messaging**, saisissez le corps de la réponse que vous souhaitez que les utilisateurs reçoivent.
 
-Pour savoir comment Braze gère les messages entrants provenant de numéros de téléphone **inconnus** (avant qu'un profil n'existe), consultez [Gestion des numéros de téléphone inconnus]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers/).
+Pour savoir comment Braze gère les messages entrants provenant de numéros de téléphone **inconnus** (avant qu'un profil n'existe), consultez [Gestion des numéros de téléphone inconnus]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers).
 
 {% alert tip %}
-Vous souhaitez voir comment ces mots-clés et catégories de mots-clés peuvent être utilisés dans vos campagnes et Canvas pour recibler et déclencher des messages ? Consultez [Reciblage des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) pour plus d'informations.
+Vous souhaitez voir comment ces mots-clés et catégories de mots-clés peuvent être utilisés dans vos Campaigns et Canvas pour recibler et déclencher des messages ? Consultez [Reciblage des utilisateurs]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) pour plus d'informations.
 {% endalert %}

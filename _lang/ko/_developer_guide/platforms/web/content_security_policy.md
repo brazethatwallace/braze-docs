@@ -20,7 +20,7 @@ description: "이 문서에서는 Braze 웹 SDK에 필요한 콘텐츠 보안 �
 
 ## Nonce 속성 {#nonce}
 
-`nonce` 값을 `script-src` 또는 `style-src` 지시문에서 사용하는 경우, 해당 값을 `contentSecurityNonce` 초기화 옵션에 전달하여 SDK에서 새로 생성하는 스크립트 및 스타일에 전파합니다.
+`nonce` 값을 `script-src` 또는 `style-src` 지시문에서 사용하는 경우, 해당 값을 `contentSecurityNonce` 초기화 옵션에 전달하여 SDK에서 새로 생성하는 스크립트 및 스타일에 전파하세요.
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -36,29 +36,29 @@ braze.initialize(apiKey, {
 ### `connect-src` {#connect-src}
 
 {% alert warning %}
-URL은 선택한 `baseUrl` 초기화 옵션의 [API SDK 엔드포인트]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)와 일치해야 합니다.
+URL은 선택한 `baseUrl` 초기화 옵션의 [API SDK 엔드포인트]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)와 일치해야 합니다.
 {% endalert %}
 
 | URL | 정보 |
 |---|-----------|
-| `connect-src https://sdk.iad-01.braze.com` | SDK가 Braze API와 통신할 수 있도록 허용합니다. 선택한 `baseUrl` 초기화 옵션의 [API SDK 엔드포인트]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)와 일치하도록 이 URL을 변경하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `connect-src https://sdk.iad-01.braze.com` | SDK가 Braze API와 통신할 수 있도록 허용합니다. 선택한 `baseUrl` 초기화 옵션의 [API SDK 엔드포인트]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)와 일치하도록 이 URL을 변경하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="connect-src" }
 
 ### `script-src` {#script-src}
 
 | URL | 정보 |
 |---|-----------|
 | `script-src https://js.appboycdn.com` | CDN 호스팅 통합을 사용할 때 필요합니다. |
-| `script-src 'unsafe-eval'` | `appboyQueue`에 대한 참조가 포함된 통합 스니펫을 사용할 때 필요합니다. 이 지시문을 사용하지 않으려면 대신 [NPM을 사용하여 SDK를 통합]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/?tab=package%20manager)하세요. |
+| `script-src 'unsafe-eval'` | `appboyQueue`에 대한 참조가 포함된 통합 스니펫을 사용할 때 필요합니다. 이 지시문을 사용하지 않으려면 대신 [NPM을 사용하여 SDK를 통합]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup?tab=package%20manager)하세요. |
 | `script-src 'nonce-...'`<br>또는<br>`script-src 'unsafe-inline'` | 커스텀 HTML과 같은 특정 인앱 메시지에 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="script-src" }
 
 ### `img-src` {#img-src}
 
 | URL | 정보 |
 |---|-----------|
 | `img-src: appboy-images.com braze-images.com cdn.braze.eu` | Braze CDN 호스팅 이미지를 사용할 때 필요합니다. 호스트 이름은 대시보드 클러스터에 따라 다를 수 있습니다.<br><br>**중요:** 커스텀 글꼴을 사용하는 경우 `font-src`도 포함해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="img-src" }
 
 ## Font Awesome {#font-awesome}
 

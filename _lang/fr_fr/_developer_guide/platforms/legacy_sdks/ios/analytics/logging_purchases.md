@@ -16,7 +16,7 @@ Enregistrez les achats in-app afin de pouvoir suivre vos chiffres d'affaires au 
 
 Braze prend en charge les achats dans plusieurs devises. Les achats que vous effectuez dans une devise autre qu'USD seront affichés dans le tableau de bord en USD en fonction du taux de change à la date à laquelle ils ont été enregistrés.
 
-Avant la mise en œuvre, assurez-vous de consulter des exemples des options de segmentation offertes par les événements personnalisés, les attributs personnalisés et les événements d'achat dans nos [meilleures pratiques]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), ainsi que nos notes sur les [conventions de nommage des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+Avant la mise en œuvre, assurez-vous de consulter des exemples des options de segmentation offertes par les événements personnalisés, les attributs personnalisés et les événements d'achat dans nos [meilleures pratiques]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection), ainsi que nos notes sur les [conventions de nommage des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Suivi des achats et des chiffres d'affaires {#tracking-purchases-and-revenue}
 
@@ -48,7 +48,7 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 
 ### Ajouter des propriétés {#properties-purchases}
 
-Vous pouvez ajouter des métadonnées sur les achats en passant soit un [tableau de propriétés d'événement]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#nested-objects), soit un `NSDictionary` rempli avec des valeurs de `NSNumber`, `NSString` ou `NSDate`.
+Vous pouvez ajouter des métadonnées sur les achats en passant soit un [tableau de propriétés d'événement]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#nested-objects), soit un `NSDictionary` rempli avec des valeurs de `NSNumber`, `NSString` ou `NSDate`.
 
 Consultez la [documentation de la classe iOS](http://appboy.github.io/appboy-ios-sdk/docs/interface_appboy.html#aaca4b885a8f61ac9fad3936b091448cc) pour plus de détails.
 
@@ -86,7 +86,7 @@ Si vous transmettez une valeur de 10 USD et une quantité de 3, cela s'enregistr
 {% endalert %}
 
 ### Enregistrer les achats au niveau de la commande {#log-purchases-at-the-order-level}
-Si vous souhaitez enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, vous pouvez utiliser le nom de la commande ou la catégorie de commande comme `product_id`. Pour en savoir plus, reportez-vous aux [spécifications de l'objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object/#product-id-naming-conventions).
+Si vous souhaitez enregistrer les achats au niveau de la commande plutôt qu'au niveau du produit, vous pouvez utiliser le nom de la commande ou la catégorie de commande comme `product_id`. Pour en savoir plus, reportez-vous aux [spécifications de l'objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions).
 
 ### Clés réservées {#reserved-keys}
 
@@ -101,4 +101,4 @@ Les clés suivantes sont réservées et ne peuvent pas être utilisées comme pr
 
 ### REST API
 
-Vous pouvez également utiliser notre REST API pour enregistrer les achats. Reportez-vous à la [documentation de l'API utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) pour plus de détails.
+Vous pouvez également utiliser notre REST API pour enregistrer les achats. Reportez-vous à la [documentation de l'API utilisateur]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) pour plus de détails.

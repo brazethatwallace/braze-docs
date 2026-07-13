@@ -32,7 +32,7 @@ Para configurar el seguimiento de clics en un mensaje de texto:
 
 1. Arrastra un mensaje de **Text** al creador de mensajes y añade una URL al campo de texto.
 
-![Creador de mensajes de LINE con un mensaje de texto que contiene una URL larga: https://braze.com/docs/user_guide/channels/line/create/]({% image_buster /assets/img/line/click_tracking_text_message.png %})
+![Creador de mensajes de LINE con un mensaje de texto que contiene una URL larga.]({% image_buster /assets/img/line/click_tracking_text_message.png %})
 
 {: start="2"}
 2. Ve a la pestaña **Settings** y confirma que **Click Tracking** está activado. El seguimiento de clics está activado de forma predeterminada para todos los mensajes nuevos.
@@ -41,7 +41,7 @@ Para configurar el seguimiento de clics en un mensaje de texto:
 Puedes ver vistas previas del enlace acortado en la pestaña **Settings** o **Preview & Test**. El enlace completo se mostrará en el creador de mensajes mientras construyes tu mensaje.
 {% endalert %}
 
-![Pestaña "Settings" del creador de mensajes de LINE con "Click Tracking" activado y un mensaje de texto de vista previa que contiene una URL acortada: https://olaf.brz.ai/p/9rcfdqdD]({% image_buster /assets/img/line/click_tracking_settings.png %})
+![Pestaña "Settings" del creador de mensajes de LINE con "Click Tracking" activado y un mensaje de texto de vista previa que contiene una URL acortada.]({% image_buster /assets/img/line/click_tracking_settings.png %})
 
 ### Mensajes enriquecidos {#rich-messages}
 

@@ -26,7 +26,7 @@ A integração entre a Braze e a PassKit permite que você aumente e meça o eng
 | `userDefinedID` | Para atualizar adequadamente os eventos personalizados e os atributos personalizados para seus usuários entre a PassKit e a Braze, é necessário definir o ID externo da Braze como `userDefinedID`. Esse `userDefinedID` é usado ao fazer chamadas de API para os endpoints da PassKit. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
 | Endpoint REST da Braze  | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -66,9 +66,9 @@ Há muitos componentes diferentes que podem ser incluídos em sua carga útil, m
 
 | Componente | Obrigatória | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-|`person.externalId` | Obrigatória | String | Definido como o ID externo da Braze, isso é crucial para que os retornos de chamada da PassKit para a Braze funcionem, permitindo que os usuários da empresa tenham cupons para várias ofertas em uma Campaign. Não é aplicado como único. |
-| `members.member.externalId` | Opcional | String | Definido como o ID externo da Braze, você pode usar seu ID externo para atualizar o passe de associação. A definição desse campo impõe que o usuário seja único no programa de associação.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `person.externalId` | Obrigatória | String | Definido como o ID externo da Braze, isso é crucial para que os retornos de chamada da PassKit para a Braze funcionem, permitindo que os usuários da empresa tenham cupons para várias ofertas em uma Campaign. Não é aplicado como único. |
+| `members.member.externalId` | Opcional | String | Definido como o ID externo da Braze, você pode usar seu ID externo para atualizar o passe de associação. A definição desse campo impõe que o usuário seja único no programa de associação. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Etapa 1: defina sua carga útil de dados de passe" }
 
 Para obter uma lista completa dos campos disponíveis, seus tipos e descrições úteis, consulte a [documentação da PassKit no GitHub](https://github.com/PassKit/smart-pass-link-from-csv-generator).
 
@@ -88,7 +88,7 @@ Para obter uma lista completa dos campos disponíveis, seus tipos e descrições
 
 ### Etapa 2: criar e codificar uma variável de carga útil indefinida {#step-2-create-and-encode-an-undefined-payload-variable}
 
-Crie e nomeie um novo bloco de conteúdo navegando até **Templates** > **Content Blocks** no dashboard da Braze.
+Crie e nomeie um novo bloco de conteúdo navegando até **Content** > **Content Block** no dashboard da Braze.
 
 Selecione **Create Content Block** para começar.
 
@@ -220,7 +220,7 @@ Antes de começar, aqui estão os parâmetros comuns de carga útil JSON que voc
 | `campaignId` (cupom) <br><br> `programId` (associação) | String | O ID do modelo de Campaign ou programa que você criou na PassKit. Para encontrar isso, vá para a guia **Settings** no seu projeto de passes da PassKit. |
 | `expiryDate` | IO8601 datetime | A data de vencimento do passe. Após a data de vencimento, o passe será automaticamente anulado (consulte `isVoided`). Esse valor substituirá o modelo e o valor da data de término da Campaign. |
 | `status` | String | O status atual de um cupom, como `REDEEMED` ou `UNREDEEMED`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parâmetros da carga útil" }
 
 ### Etapa 1: crie seu modelo de webhook da Braze {#step-1-create-your-braze-webhook-template}
 

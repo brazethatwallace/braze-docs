@@ -28,7 +28,7 @@ Uma vez lançado, seu agente vai:
 
 Uma vez lançado, seu agente precisa de dados de feedback para aprender e melhorar. Isso inclui dados de conversões, dados de engajamento e dados de ativações que informam ao agente o que aconteceu após as decisões de engajamento com clientes serem enviadas.
 
-Para requisitos detalhados sobre a preparação desses ativos de dados de feedback essenciais, consulte [Preparando suas fontes de dados]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/).
+Para requisitos detalhados sobre a preparação desses ativos de dados de feedback essenciais, consulte [Preparando suas fontes de dados]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data).
 
 {% alert note %}
 Se o agente estiver nativamente integrado com a plataforma de engajamento com clientes (como a Braze ou o Salesforce Marketing Cloud), pode não haver etapas de configuração adicionais necessárias para os dados de feedback, já que eles podem ser enviados automaticamente com os dados de cliente.

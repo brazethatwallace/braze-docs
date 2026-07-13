@@ -16,11 +16,11 @@ platform:
 
 {% tabs %}
 {% tab Android %}
-### Push com bounce: MismatchSenderId {#push-bounced-mismatchsenderid}
+## Push com bounce: MismatchSenderId {#push-bounced-mismatchsenderid}
 `MismatchSenderId` indica uma falha de autenticação. O Firebase Cloud Messaging (FCM) autentica com alguns dados essenciais: senderID e chave de API do FCM. Ambos devem ser validados quanto à precisão. Para saber mais, consulte a [documentação do Android](https://firebase.google.com/docs/cloud-messaging/http-server-ref#error-codes) sobre esse problema.
 
 Falhas comuns podem incluir:
-- [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-1-enable-firebase) incorreto
+- [senderID]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-1-enable-firebase) incorreto
 - Registro múltiplo, caso o registro seja feito com outro serviço de push usando um senderID diferente
 
 ### Push com bounce: InvalidRegistration {#push-bounced-invalidregistration}
@@ -29,23 +29,32 @@ Falhas comuns podem incluir:
 - As pessoas estão se registrando em vários serviços. Atualmente, esperamos que os intents de registro de push cheguem no formato antigo. Portanto, se as pessoas estiverem se registrando em vários lugares e capturarmos intents de outros serviços, podemos obter tokens por push malformados.
 
 ### Push com bounce: NotRegistered {#notregistered}
+
 `NotRegistered` geralmente significa que o app foi excluído do dispositivo (como nosso sinal de desinstalação). Isso também pode ocorrer se houver registro múltiplo e um segundo registro invalidar o token por push que a Braze recebe.
 
 ### DEVICE_UNREGISTERED {#device-unregistered}
 
-Este erro aparece no Registro de atividades de envio de mensagem como:
-
-`Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
+Este erro aparece no Registro de atividades de envio de mensagem como: `Received 'Error: DEVICE_UNREGISTERED, ' sending to '[Token String]'`
 
 Isso geralmente ocorre por um dos seguintes motivos:
 
 - O usuário desinstalou o app. Essa é a causa mais comum. Quando o app é removido de um dispositivo, o token por push se torna inválido.
 - As credenciais de push foram atualizadas no app. Se sua equipe alterou as credenciais ou certificados do FCM incluídos no app, os usuários que se registraram com as credenciais anteriores terão tokens inválidos até que o app os registre novamente.
-- Uma lógica personalizada está cancelando o registro de usuários do push. Isso é raro, mas é tecnicamente possível cancelar programaticamente o registro de um dispositivo do push usando o SDK do Firebase/Android.
+- Uma lógica personalizada está cancelando o registro de usuários do push. Isso é raro, mas é tecnicamente possível cancelar programaticamente o registro de um dispositivo do push usando o [SDK do Firebase/Android](https://firebase.google.com/docs/reference/android/com/google/firebase/messaging/FirebaseMessaging#deleteToken()).
 
 {% alert note %}
 Este erro não significa que o usuário está com push desativado — apenas que um token específico foi removido do perfil dele. Isso é comum para usuários que estão testando funcionalidades e instalando e desinstalando o app com frequência. Para verificar se o usuário ainda possui tokens válidos, acesse **Pesquisa de usuários** e revise a seção **Configurações de contato** na guia **Engajamento**.
 {% endalert %}
+
+### Entidade solicitada não encontrada {#requested-entity-was-not-found}
+
+Este erro pode ocorrer pelos seguintes motivos:
+
+- O usuário final desinstalou o app. Você pode verificar o perfil do usuário para confirmar se esse é o caso.
+- Há um canal de notificação inválido. Dependendo da sua integração, os dispositivos podem ter tokens por push que são válidos apenas para determinados canais de notificação. Ao enviar para um canal inválido, a mensagem sofre bounce.
+- O tamanho da carga útil é muito grande.
+
+Para saber mais, consulte a [documentação do Google](https://firebase.google.com/docs/cloud-messaging/manage-tokens#stale-and-expired-tokens) sobre tokens de registro obsoletos e expirados.
 
 {% endtab %}
 {% tab iOS %}
@@ -73,7 +82,7 @@ Próximas etapas:
 
 O erro `BadToken` pode ocorrer por vários motivos:
 - O token por push não está sendo enviado corretamente para a Braze (por exemplo, em `registerDeviceToken:` ou o equivalente da sua plataforma).
-	- Verifique o token no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). Ele geralmente deve se parecer com uma longa string de letras e números (como `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). Se não for o caso, verifique o código envolvido no envio do token por push para a Braze.<br><br>
+	- Verifique o token no [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). Ele geralmente deve se parecer com uma longa string de letras e números (como `6e407a9be8d07f0cdeb9e714733a89445f57a89ec890d63867c482a483506fa6`). Se não for o caso, verifique o código envolvido no envio do token por push para a Braze.<br><br>
 - Ambiente de provisionamento incompatível:
 	- Se você se registrar com um certificado de desenvolvimento e tentar enviar com um de produção, poderá ver este erro.
 	- A Braze só oferece suporte a certificados universais para ambientes de produção. Testar push em ambientes de desenvolvimento com um certificado universal não funcionará.

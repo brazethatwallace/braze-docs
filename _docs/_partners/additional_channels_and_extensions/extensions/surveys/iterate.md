@@ -27,7 +27,7 @@ With the Braze SDK installed in your app or website, you can use the segmentatio
 |Iterate account | A [Iterate account](https://iteratehq.com) is required to take advantage of this partnership. |
 | Braze REST API key | A Braze REST API key with `users.track` permissions. To send surveys via Braze in-app messages, you'll also need the `kpi.mau.data_series` permission.<br><br> This can be created in the Braze dashboard from **Settings** > **API Keys**.|
 | Braze REST endpoint  | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Use cases
 

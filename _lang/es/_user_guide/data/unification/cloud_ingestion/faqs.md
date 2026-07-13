@@ -17,7 +17,7 @@ Este tipo de correo electrónico suele significar que hay un problema con tu con
 
 ### CDI no puede acceder al almacén de datos o a la tabla utilizando tus credenciales {#cdi-cant-access-the-data-warehouse-or-table-using-your-credentials}
 
-Esto podría significar que las credenciales en CDI son incorrectas o están mal configuradas en el almacén de datos. Para más información, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Esto podría significar que las credenciales en CDI son incorrectas o están mal configuradas en el almacén de datos. Para más información, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ### No se encuentra la tabla {#the-table-cannot-be-found}
 
@@ -41,9 +41,9 @@ Test Connection se ejecuta en tu almacén de datos, por lo que aumentar la capac
 
 ### Error al conectar con la instancia de Snowflake: la solicitud entrante con IP no tiene autorización para acceder a Snowflake {#error-connecting-to-snowflake-instance-incoming-request-with-ip-is-not-allowed-to-access-snowflake}
 
-Intenta añadir las IP oficiales de Braze a tu lista de IP permitidas. Para obtener más información, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/) o permite las direcciones IP pertinentes:
+Intenta añadir las IP oficiales de Braze a tu lista de IP permitidas. Para obtener más información, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations) o permite las direcciones IP pertinentes:
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 ### Error al ejecutar SQL debido a la configuración del cliente: 002003 (42S02): error de compilación SQL: no existe o no está autorizado {#error-executing-sql-due-to-customer-config-002003-42s02-sql-compilation-error-does-not-exist-or-not-authorized}
 
@@ -71,7 +71,7 @@ Si recibes este error, asegúrate de que el usuario está utilizando la clave p�
 
 Test Connection se ejecuta en tu almacén de datos, por lo que aumentar la capacidad del almacén puede mejorar su velocidad. El uso de una instancia SQL sin servidor minimizará el tiempo de calentamiento y mejorará el rendimiento de las consultas, pero puede dar lugar a costes de integración ligeramente superiores.
 
-### Permiso denegado para la relación {table_name} {#permission-denied-for-relation-tablename}
+### Permiso denegado para la relación {table_name} {#permission-denied-for-relation-table_name}
 
 Si recibes este error:
 
@@ -130,9 +130,9 @@ Si recibes este error, consulta [Databricks: Forbidden error while accessing S3 
 
 ## ¿Cómo actualizo mis preferencias de alertas por correo electrónico para las integraciones CDI? {#how-do-i-update-my-email-alert-preferences-for-cdi-integrations}
 
-Cada integración tiene sus propias preferencias de notificación. Ve a la página CDI y selecciona el nombre de la integración que deseas actualizar. En la sección **Notification preferences** puedes actualizar cómo recibes las alertas relativas a la integración seleccionada.
+Cada integración tiene sus propias preferencias de notificación. Ve a la página CDI y selecciona el nombre de la integración que deseas actualizar. En la sección **Preferencias de notificación** puedes actualizar cómo recibes las alertas relativas a la integración seleccionada.
 
-## ¿Qué sucede si un `UPDATED_AT` futuro se sincroniza con una integración? {#what-happens-if-a-future-updatedat-gets-synced-with-an-integration}
+## ¿Qué sucede si un `UPDATED_AT` futuro se sincroniza con una integración? {#what-happens-if-a-future-updated_at-gets-synced-with-an-integration}
 
 CDI utiliza `UPDATED_AT` para decidir qué datos son nuevos. Después de sincronizar un `UPDATED_AT` futuro, no se procesarán los datos anteriores a esa fecha y hora futuras. Para solucionarlo:
 
@@ -142,7 +142,7 @@ CDI utiliza `UPDATED_AT` para decidir qué datos son nuevos. Después de sincron
 
 ## ¿Por qué "Rows Synced" no coincide con el número de mi almacén? {#why-doesnt-rows-synced-match-the-number-in-my-warehouse}
 
-CDI utiliza `UPDATED_AT` para decidir qué registros recoger durante una sincronización. Mira [esta ilustración]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/#what-gets-synced) para ver cómo funciona. Al inicio de una sincronización, CDI realiza una consulta en tu almacén para obtener todos los registros con `UPDATED_AT` posterior al valor `UPDATED_AT` procesado anteriormente. Los registros que se encuentren exactamente en la marca de tiempo límite también pueden volver a sincronizarse si nuevas filas comparten esa marca de tiempo. Cualquier registro recogido en el momento en que se ejecuta la consulta se sincroniza en Braze. Estos son los casos habituales en los que un registro puede no sincronizarse:
+CDI utiliza `UPDATED_AT` para decidir qué registros recoger durante una sincronización. Mira [esta ilustración]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#what-gets-synced) para ver cómo funciona. Al inicio de una sincronización, CDI realiza una consulta en tu almacén para obtener todos los registros con `UPDATED_AT` posterior al valor `UPDATED_AT` procesado anteriormente. Los registros que se encuentren exactamente en la marca de tiempo límite también pueden volver a sincronizarse si nuevas filas comparten esa marca de tiempo. Cualquier registro recogido en el momento en que se ejecuta la consulta se sincroniza en Braze. Estos son los casos habituales en los que un registro puede no sincronizarse:
 
 - Estás añadiendo registros a la tabla con un valor `UPDATED_AT` que ya ha sido procesado.
 - Estás actualizando los valores de los registros después de que hayan sido procesados por una sincronización, pero dejando `UPDATED_AT` sin cambios.
@@ -152,9 +152,61 @@ CDI utiliza `UPDATED_AT` para decidir qué registros recoger durante una sincron
 Para evitar estos comportamientos en el futuro, recomendamos utilizar valores `UPDATED_AT` que aumenten monotónicamente y no actualizar la tabla durante la ejecución de la sincronización programada.
 {% endalert %}
 
+## ¿Necesito valores `UPDATED_AT` mayoritariamente distintos para importaciones CDI grandes? {#do-i-need-mostly-distinct-updated_at-values-for-large-cdi-imports}
+
+Sí. Para ejecuciones de gran volumen (por ejemplo, más de aproximadamente 10 millones de filas), asegúrate de que tus datos de origen tengan valores `UPDATED_AT` mayoritariamente distintos. Si demasiadas filas comparten la misma marca de tiempo, es más probable que CDI vuelva a seleccionar filas en las marcas de tiempo límite en ejecuciones posteriores. Esto puede aumentar las sincronizaciones duplicadas y el consumo de puntos de datos.
+
+Para más información sobre el comportamiento de CDI en los límites, consulta [Evitar la resincronización de filas con marcas de tiempo duplicadas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
+
+### ¿Dónde ejecuto estas comprobaciones SQL? {#where-do-i-run-these-sql-checks}
+
+Ejecuta las comprobaciones directamente en el editor SQL de tu almacén de datos, contra la misma tabla o vista utilizada por tu integración CDI:
+
+- Snowflake: **Projects** > **Worksheets** (para más información, consulta [Snowflake Worksheets](https://docs.snowflake.com/en/user-guide/ui-snowsight-worksheets-gs))
+- Redshift: Query Editor v2 (para más información, consulta [Using Amazon Redshift Query Editor v2](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2.html))
+- BigQuery: BigQuery Studio SQL workspace (para más información, consulta [BigQuery Studio introduction](https://cloud.google.com/bigquery/docs/bigquery-studio-introduction))
+- Databricks: SQL editor (SQL warehouse) (para más información, consulta [Databricks SQL editor](https://docs.databricks.com/en/sql/user/sql-editor/))
+- Fabric: SQL query editor
+
+Sigue este proceso antes de habilitar o escalar una sincronización grande:
+
+1. Identifica la tabla o vista de origen CDI exacta y la ventana de sincronización que deseas validar.
+2. Abre el editor SQL de tu almacén y selecciona la misma base de datos y esquema utilizados por CDI, luego usa un rol con acceso de lectura a la tabla o vista de origen.
+3. Ejecuta la consulta de recuento de marcas de tiempo distintas para medir cuántos valores `UPDATED_AT` distintos existen en esa ventana.
+4. Ejecuta la consulta que agrupa por `UPDATED_AT` y cuenta filas para encontrar marcas de tiempo con recuentos de filas inusualmente altos.
+5. Si muchas filas comparten marcas de tiempo idénticas, ajusta tu proceso de ingesta para que los lotes consecutivos utilicen valores `UPDATED_AT` progresivamente más recientes, o aumenta la precisión de las marcas de tiempo para que las filas estén más distribuidas.
+6. Vuelve a ejecutar ambas consultas hasta que la concentración se reduzca, luego lanza o escala tu sincronización.
+7. Después del lanzamiento, monitoriza **CDI** > **Sync Log** para detectar un volumen de resincronización inesperado en las marcas de tiempo límite.
+
+Usa comprobaciones como estas en tu almacén:
+
+```sql
+SELECT
+  COUNT(*) AS total_rows,
+  COUNT(DISTINCT UPDATED_AT) AS distinct_timestamps,
+  ROUND(COUNT(*) * 1.0 / NULLIF(COUNT(DISTINCT UPDATED_AT), 0), 2) AS avg_rows_per_timestamp
+FROM YOUR_CDI_SOURCE_TABLE
+WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
+  AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP);
+```
+
+```sql
+SELECT
+  UPDATED_AT,
+  COUNT(*) AS rows_at_timestamp
+FROM YOUR_CDI_SOURCE_TABLE
+WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
+  AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP)
+GROUP BY UPDATED_AT
+ORDER BY rows_at_timestamp DESC
+LIMIT 20;
+```
+
+Si tu almacén no admite `LIMIT` (por ejemplo, Fabric), usa una sintaxis equivalente como `TOP`.
+
 ## ¿Por qué una sincronización CDI con un número pequeño de filas puede tardar varios minutos? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
 
-Una sincronización CDI incluye un periodo de inicio fijo antes de que comience el procesamiento de filas. Dado que este tiempo de inicio es similar independientemente del tamaño de la sincronización, una sincronización pequeña puede tardar varios minutos y parecer más lenta en filas por minuto. El tiempo total de sincronización sigue dependiendo de la complejidad de la consulta de origen, la forma de los datos y la capacidad disponible en tu almacén de datos. Para más información, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Una sincronización CDI incluye un periodo de inicio fijo antes de que comience el procesamiento de filas. Dado que este tiempo de inicio es similar independientemente del tamaño de la sincronización, una sincronización pequeña puede tardar varios minutos y parecer más lenta en filas por minuto. El tiempo total de sincronización sigue dependiendo de la complejidad de la consulta de origen, la forma de los datos y la capacidad disponible en tu almacén de datos. Para más información, consulta [Integraciones de almacenes de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ## Durante una sincronización, ¿se mantiene el orden si varios registros comparten el mismo ID? {#during-a-sync-is-the-order-preserved-if-multiple-records-share-the-same-id}
 
@@ -164,7 +216,7 @@ El orden de procesamiento no es 100 % predecible. Por ejemplo, si hay varias fil
 
 Si tu integración CDI tiene habilitada la opción **Update existing users only**, solo se actualizarán los usuarios que ya existen en Braze y no se crearán nuevos usuarios. Esto significa que si una fila de tu tabla de sincronización hace referencia a un `EXTERNAL_ID` que no coincide con ningún usuario existente de Braze, esa fila se omite.
 
-Para crear nuevos usuarios a través de CDI, desactiva la opción **Update existing users only** en la configuración de la integración. Ve a **Data Settings** > **Cloud Data Ingestion** y selecciona una integración.
+Para crear nuevos usuarios a través de CDI, desactiva la opción **Update existing users only** en la configuración de la integración. Ve a **Configuración de datos** > **Cloud Data Ingestion** y selecciona una integración.
 
 ## ¿Cuáles son las medidas de seguridad de CDI? {#what-are-the-security-measures-for-cdi}
 
@@ -182,4 +234,4 @@ Braze cuenta con las siguientes medidas para CDI:
 Te recomendamos que tú y tu equipo establezcan las siguientes medidas de seguridad:
 
 - Restringe el acceso a las credenciales al mínimo necesario para el funcionamiento de CDI. Esto se debe a que necesitamos poder ejecutar select (y count) en las tablas y vistas específicas.
-- Restringe las IP que pueden acceder a las tablas a las [IP de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) publicadas oficialmente.
+- Restringe las IP que pueden acceder a las tablas a las [IP de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views) publicadas oficialmente.

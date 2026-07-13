@@ -18,7 +18,7 @@ A conexão do Cloudinary à Braze dá às marcas acesso à mídia visual armazen
 Esta página descreve quatro métodos de integração possíveis, mas não exaustivos, entre o Cloudinary e a Braze. Esses métodos de integração dependem principalmente da modificação de links de ativos copiados manualmente da Biblioteca de mídia do Cloudinary.
 
 {% alert important %}
-Métodos de integração mais avançados, incluindo o uso de [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) para chamar a [API de administração](https://cloudinary.com/documentation/admin_api#banner) do Cloudinary, são possíveis, mas a abordagem varia de acordo com o cliente. Entre em contato com o gerente de sucesso do cliente do Cloudinary e da Braze para obter orientação.
+Métodos de integração mais avançados, incluindo o uso de [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para chamar a [API de administração](https://cloudinary.com/documentation/admin_api#banner) do Cloudinary, são possíveis, mas a abordagem varia de acordo com o cliente. Entre em contato com o gerente de sucesso do cliente do Cloudinary e da Braze para obter orientação.
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -26,7 +26,7 @@ Métodos de integração mais avançados, incluindo o uso de [Conteúdo conectad
 | Requisitos | Descrição |
 |-----------------------|-----------------|
 | Conta do Cloudinary  | É necessário ter uma [conta no Cloudinary](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) para aproveitar essa parceria  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Métodos de integração {#integration-methods}
 
@@ -41,7 +41,7 @@ Alguns desses métodos de integração usam as transformações `f_auto` e `q_au
 
 A maneira mais direta de usar imagens e vídeos diretamente do DAM do Cloudinary em suas Campaigns e Canvas da Braze é copiar a URL da página de **ativos** da Biblioteca de mídia do Cloudinary.
 
-![Visualização em grade da biblioteca de ativos de imagem do Cloudinary, com o canto superior direito de uma das imagens destacado, mostrando uma dica de ferramenta "Copy URL".]({% image_buster /assets/img/cloudinary/one.png %})
+![Visualização em grade da biblioteca de ativos de imagem do Cloudinary, com uma imagem destacada e uma dica de ferramenta "Copy URL" visível.]({% image_buster /assets/img/cloudinary/one.png %})
 
 ### Configuração de imagens e GIFs {#images-and-gifs-setup}
 
@@ -72,10 +72,10 @@ A maneira mais direta de usar imagens e vídeos diretamente do DAM do Cloudinary
 ```
 {% endraw %}
 
-Consulte [Vídeo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/) para considerações específicas sobre Android e iOS.
+Consulte [Vídeo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html) para considerações específicas sobre Android e iOS.
 
 {% endtab %}
-{% tab Convert videos into GIFs %}
+{% tab Converter vídeos em GIFs %}
 
 ## Converta vídeos em GIFs para e-mails {#convert-videos-to-gifs-for-emails}
 
@@ -97,7 +97,7 @@ https://res.cloudinary.com/demo/video/upload/c_scale,w_500,e_loop/f_auto:animate
 {% endraw %}
 
 {% endtab %}
-{% tab Target attributes %}
+{% tab Atributos de direcionamento %}
 
 ## Selecione dinamicamente os ativos da campanha com base nos atributos de direcionamento {#dynamically-select-campaign-assets-based-on-targeting-attributes}
 
@@ -117,7 +117,7 @@ Se uma correspondência exata não for encontrada, a função seleciona automati
 Consulte o [repositório `braze-personalization` no GitHub](https://github.com/cloudinary-devs/braze-personalization) do Cloudinary para obter instruções sobre como criar e aplicar funções personalizadas, além de um exemplo de função personalizada para seleção de ativos e opções de fallback para uma determinada campanha. Para mais orientações, entre em contato com a equipe de suporte do Cloudinary.
 {% endalert %}
 
-### Pré-requisitos {#prerequisites}
+### Pré-requisitos
 
 Para ativar a seleção dinâmica de ativos, o Cloudinary deve ser capaz de retornar um conjunto de ativos com base em tags e metadados. Se o tipo de entrega de lista for restrito, o Cloudinary não poderá fornecer a lista dinâmica necessária para a seleção personalizada de ativos nas Campaigns da Braze.
 - Libere o tipo de entrega de lista: abra as Configurações de segurança no Console do Cloudinary e desmarque o item de lista de recursos em Tipos de imagem restritos.
@@ -140,8 +140,8 @@ Este exemplo presume que os ativos no Cloudinary têm dois campos SMD definidos 
 {% assign audience = {{custom_attribute.${sample_audience_identifier}}} %}
 {% assign locale = {{${language}}}%}
 
-// The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
-<img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
+// The URL for the "samples" tag used in the campaign is https://solutions-demo-res.cloudinary.com/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
+<img src="https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
 ```
 {% endraw %}
 
@@ -149,19 +149,19 @@ Este exemplo presume que os ativos no Cloudinary têm dois campos SMD definidos 
 
 - URL de saída para usuários com público `internal` e locale `en`:
 ```
-https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - URL de saída para usuários com público `external` e locale `es`:
 ```
-https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - URL da imagem de fallback:
 ```
-https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 
 {% endtab %}
-{% tab Personalized image generation %}
+{% tab Geração de imagens personalizadas %}
 
 ## Geração de imagens personalizadas {#personalized-image-generation}
 
@@ -171,7 +171,7 @@ O exemplo a seguir demonstra como a transformação `l_text` pode ser usada para
 
 Para mais orientações sobre como os parâmetros de transformação podem ser usados para projetar um ativo, entre em contato com a equipe de suporte do Cloudinary.
 
-### Exemplo de transformação `l_text` {#example-ltext-transformation}
+### Exemplo de transformação `l_text` {#example-l_text-transformation}
 
 {% raw %}
 ```bash
@@ -190,7 +190,7 @@ Para mais orientações sobre como os parâmetros de transformação podem ser u
 ```
 {% endraw %}
 
-![Uma igreja branca com telhado azul com vista para o mar. No canto superior esquerdo da imagem, as palavras "John Smith" estão sobrepostas em um retângulo escuro e opaco.]({% image_buster /assets/img/cloudinary/two.png %})
+![Uma igreja branca com telhado azul com vista para o mar, com as palavras "John Smith" exibidas em um retângulo escuro e semitransparente sobre a imagem.]({% image_buster /assets/img/cloudinary/two.png %})
 
 ```
 {% endtab %}

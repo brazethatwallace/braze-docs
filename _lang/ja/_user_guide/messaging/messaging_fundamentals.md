@@ -4,12 +4,12 @@ article_title: メッセージングの基本
 layout: dev_guide
 page_order: 1
 guide_top_header: "基本"
-guide_top_text: "メッセージの受信者、送信タイミング、成功の測定方法を設定します。これらの概念は、<a href='/docs/user_guide/get_started/campaigns_and_canvases'>CampaignまたはCanvas</a> のどちらを使用する場合にも適用されます。"
+guide_top_text: "メッセージの受信者、送信タイミング、成功の測定方法を設定します。<a href='/docs/user_guide/get_started/campaigns_and_canvases'>キャンペーンまたはキャンバス</a> のどちらを使用する場合にも適用されます。このセクションでは、オーディエンスターゲティング、配信とエントリタイプ、コンバージョンイベントのトラッキング、フリークエンシーキャップ、再適格性ルール、ローカライゼーション、アクセシビリティ、起動前チェックリストについて説明します。メッセージを作成する前にこれらの概念を確認し、適切なユーザーに過度な負担をかけずにメッセージを届けましょう。"
 page_type: landing
 tool:
-  - Campaigns
-  - Canvas
-description: "CampaignsとCanvasesに共通する概念：ターゲティング、配信、コンバージョンイベント、起動前のワークフロー。"
+  - キャンペーン
+  - キャンバス
+description: "キャンペーンとキャンバスに共通する概念：ターゲティング、配信、コンバージョンイベント、起動前のワークフロー。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
@@ -19,6 +19,9 @@ guide_featured_list:
   - name: 配信とエントリタイプ
     link: /docs/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types
     image: /assets/img/braze_icons/line-chart-up-01.svg
+  - name: ディスパッチ ID
+    link: /docs/user_guide/messaging/messaging_fundamentals/dispatch_id
+    image: /assets/img/braze_icons/key-01.svg
   - name: 再適格性
     link: /docs/user_guide/messaging/messaging_fundamentals/re_eligibility
     image: /assets/img/braze_icons/users-01.svg

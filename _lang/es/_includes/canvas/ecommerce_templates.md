@@ -9,13 +9,13 @@ Utiliza la plantilla **Navegación abandonada** para promover la interacción co
 
 #### Configuración {#setup}
 
-En la página de Canvas, selecciona **Usar una plantilla de Canvas** > **Plantillas de Braze** y, a continuación, aplica la plantilla **Navegación abandonada**.
+En la página de Canvas, selecciona **Use a Canvas Template** > **Braze templates** y, a continuación, aplica la plantilla **Abandoned browse**.
 
 ##### Configuración predeterminada {#default-settings}
 
 Los siguientes ajustes están preconfigurados en tu Canvas:
 - Conceptos básicos
-    - Nombre del Canvas: **Navegación abandonada**
+    - Nombre del Canvas: **Abandoned browse**
     - Evento de conversión: `ecommerce.order placed`
         - Fecha límite de conversión: 3 días
 - Horario de entrada
@@ -42,7 +42,7 @@ A continuación se muestra un ejemplo de cómo añadir un bloque de producto HTM
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned browse product personalization for emails" style="width:100%">
   <tr>
     <th><img src="{{context.${image_url}}}" width="200" height="200"><img></th>
     <th align="left">
@@ -73,15 +73,15 @@ Utiliza la plantilla **Carrito abandonado** para cubrir posibles pérdidas de ve
 
 ![Plantilla de Canvas "Carrito abandonado" aplicada con "Reglas de entrada" expandidas.]({% image_buster /assets/img_archive/abandoned_cart.png %})
 
-#### Configuración {#setup}
+#### Configuración
 
-En la página de Canvas, selecciona **Usar una plantilla de Canvas** > **Plantillas de Braze** y, a continuación, aplica la plantilla **Carrito abandonado**.
+En la página de Canvas, selecciona **Use a Canvas Template** > **Braze templates** y, a continuación, aplica la plantilla **Abandoned cart**.
 
-##### Configuración predeterminada {#default-settings}
+##### Configuración predeterminada
 
 Los siguientes ajustes están preconfigurados en tu Canvas:
 - Conceptos básicos
-    - Nombre del Canvas: **Carrito abandonado**
+    - Nombre del Canvas: **Abandoned cart**
     - Evento de conversión: `ecommerce.order_placed`
         - Fecha límite de conversión: 3 días
 - Horario de entrada
@@ -121,7 +121,7 @@ A continuación se muestra un ejemplo de cómo añadir un bloque HTML con tu eti
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned cart product personalization for emails #abandoned-cart-checkout" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -174,16 +174,16 @@ Utiliza la plantilla **Pago abandonado** para dirigirte a los clientes que inici
 
 ![Plantilla de Canvas "Pago abandonado" aplicada con "Reglas de entrada" expandidas.]({% image_buster /assets/img_archive/abandoned_checkout.png %})
 
-#### Configuración {#setup}
+#### Configuración
 
-En la página de Canvas, selecciona **Usar una plantilla de Canvas** > **Plantillas de Braze** y, a continuación, aplica la plantilla **Pago abandonado**.
+En la página de Canvas, selecciona **Use a Canvas Template** > **Braze templates** y, a continuación, aplica la plantilla **Abandoned checkout**.
 
-##### Configuración predeterminada {#default-settings}
+##### Configuración predeterminada
 
 Los siguientes ajustes están preconfigurados en tu Canvas:
 
 - Conceptos básicos
-    - Nombre del Canvas: **Pago abandonado**
+    - Nombre del Canvas: **Abandoned checkout**
     - Evento de conversión: `ecommerce.order_placed`
         - Fecha límite de conversión: 3 días
 - Horario de entrada
@@ -212,7 +212,7 @@ A continuación se muestra un ejemplo de cómo añadir un bloque HTML con tu eti
 
 {% raw %}
 ```java
-<table style="width:100%">
+<table aria-label="Abandoned checkout personalization for emails" style="width:100%">
   {% shopping_cart {{context.${cart_id}}} :abort_if_not_abandoned false %}
   {% for item in shopping_cart.products %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
@@ -241,7 +241,7 @@ El parámetro `abort_if_not_abandoned` es específico del caso de uso de pago ab
 | ----- | -------- |
 | `true` (predeterminado) | El mensaje se cancela si el carrito no ha sido abandonado, es decir, si el usuario ya ha completado su pedido. |
 | `false` | El mensaje se envía aunque el carrito no esté en estado de abandono, lo que permite que el correo electrónico incluya los detalles del carrito independientemente del estado actual del proceso de pago. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="abortifnotabandoned #abort-if-not-abandoned" }
 
 Establece `abort_if_not_abandoned` en `false` cuando quieras enviar el recordatorio de pago independientemente de si el carrito todavía se considera abandonado en el momento del envío. Si omites el parámetro o lo estableces en `true`, Braze cancela el mensaje para los usuarios que ya han completado su compra.
 
@@ -258,20 +258,20 @@ Establece `abort_if_not_abandoned` en `false` cuando quieras enviar el recordato
 
 ### Confirmación de pedido y cuestionario de satisfacción {#order-confirmation-and-feedback-survey}
 
-Utiliza la plantilla **Confirmación de pedido y cuestionario de satisfacción** para confirmar los pedidos realizados con éxito y mejorar la satisfacción del cliente.
+Utiliza la plantilla **Order confirmation & feedback survey** para confirmar los pedidos realizados con éxito y mejorar la satisfacción del cliente.
 
 ![Plantilla de Canvas "Confirmación de pedido" aplicada con "Reglas de entrada" expandidas.]({% image_buster /assets/img_archive/order_confirmation_feedback.png %})
 
-#### Configuración {#setup}
+#### Configuración
 
-En la página de Canvas, selecciona **Usar una plantilla de Canvas** > **Plantillas de Braze** y, a continuación, aplica la plantilla **Confirmación de pedido y cuestionario de satisfacción**.
+En la página de Canvas, selecciona **Use a Canvas Template** > **Braze templates** y, a continuación, aplica la plantilla **Order confirmation & feedback survey**.
 
-##### Configuración predeterminada {#default-settings}
+##### Configuración predeterminada
 
 Los siguientes ajustes están preconfigurados en tu Canvas:
 
 - Conceptos básicos
-    - Nombre del Canvas: **Confirmación de pedido con cuestionario de satisfacción**
+    - Nombre del Canvas: **Order confirmation with feedback survey**
     - Evento de conversión: `ecommerce.session_start`
         - Fecha límite de conversión: 10 días
 - Horario de entrada
@@ -296,7 +296,7 @@ A continuación se muestra un ejemplo de cómo añadir un bloque de producto HTM
 
 {% raw %}
 ```json
-<table style="width:100%">
+<table aria-label="Order confirmation personalization for emails" style="width:100%">
   {% for item in {{context.${products}}} %}
   {% catalog_items <add_your_catalog_name> {{item.variant_id}} %}
   <tr>

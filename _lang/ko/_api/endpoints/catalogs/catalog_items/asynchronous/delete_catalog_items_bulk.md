@@ -10,7 +10,7 @@ description: "이 문서에서는 여러 카탈로그 항목 삭제 Braze 엔드
 
 ---
 {% api %}
-# 여러 카탈로그 항목 삭제
+# 여러 카탈로그 항목 삭제 {#delete-multiple-catalog-items}
 {% apimethod delete %}
 /catalogs/{catalog_name}/items
 {% endapimethod %}
@@ -21,29 +21,29 @@ description: "이 문서에서는 여러 카탈로그 항목 삭제 Braze 엔드
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#647c82e8-8b38-4df2-bde2-b1d8e19fd332 {% endapiref %}
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.delete_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.delete_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog item' %}
 
-## 경로 매개변수
+## 경로 매개변수 {#path-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `catalog_name` | Required | 문자열 | 카탈로그의 이름입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalog_name` | 필수 | 문자열 | 카탈로그의 이름입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `items` | 필수 | 배열 | 항목 객체가 포함된 배열입니다. 항목 객체에는 Braze가 삭제해야 하는 항목을 참조하는 `id`가 포함되어야 합니다. 요청당 최대 50개의 항목 개체가 허용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `items` | 필수 | 배열 | 항목 오브젝트가 포함된 배열입니다. 항목 오브젝트에는 Braze가 삭제해야 하는 항목을 참조하는 `id`가 포함되어야 합니다. 요청당 최대 50개의 항목 오브젝트가 허용됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 예시 요청
+## 예시 요청 {#example-request}
 
 ```
 curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaurants/items' \
@@ -58,11 +58,11 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 }'
 ```
 
-## 응답
+## 응답 {#response}
 
-이 엔드포인트에 대한 상태 코드 응답은 `202`, `400`, `404` 의 세 가지가 있습니다 .
+이 엔드포인트에 대한 상태 코드 응답은 `202`, `400`, `404` 세 가지가 있습니다.
 
-### 성공 응답의 예
+### 성공 응답 예시 {#example-success-response}
 
 `202` 상태 코드는 다음과 같은 응답 본문을 반환할 수 있습니다.
 
@@ -72,9 +72,9 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 }
 ```
 
-### 오류 응답의 예
+### 오류 응답 예시 {#example-error-response}
 
-`400` 상태 코드는 다음과 같은 응답 본문을 반환할 수 있습니다. 발생할 수 있는 오류에 대한 자세한 내용은 [문제 해결을](#troubleshooting) 참조하세요.
+`400` 상태 코드는 다음과 같은 응답 본문을 반환할 수 있습니다. 발생할 수 있는 오류에 대한 자세한 내용은 [문제 해결](#troubleshooting)을 참조하세요.
 
 ```json
 {
@@ -90,19 +90,19 @@ curl --location --request DELETE 'https://rest.iad-03.braze.com/catalogs/restaur
 }
 ```
 
-## 문제 해결
+## 문제 해결 {#troubleshooting}
 
-다음 표에는 가능한 반환 오류와 관련된 문제 해결 단계가 나와 있습니다.
+다음 표에는 반환될 수 있는 오류와 관련 문제 해결 단계가 나와 있습니다.
 
 | 오류 | 문제 해결 |
 | --- | --- |
 | `catalog-not-found` | 카탈로그 이름이 유효한지 확인합니다. |
-| `ids-too-large` | 아이템 ID는 250자를 초과할 수 없습니다. |
+| `ids-too-large` | 항목 ID는 250자를 초과할 수 없습니다. |
 | `ids-not-unique` | 요청에서 항목 ID가 고유한지 확인합니다. |
 | `ids-not-strings` | 항목 ID는 문자열 유형이어야 합니다. |
-| `items-missing-ids` | 일부 품목에는 품목 ID가 없습니다. 각 항목에 항목 ID가 있는지 확인합니다. |
-| `invalid-ids` | 항목 ID는 문자, 숫자, 하이픈, 밑줄만을 포함할 수 있습니다. |
-| `request-includes-too-many-items` | 요청에 항목이 너무 많습니다. 요청당 아이템 한도는 50개입니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `items-missing-ids` | 일부 항목에 항목 ID가 없습니다. 각 항목에 항목 ID가 있는지 확인합니다. |
+| `invalid-ids` | 항목 ID에는 문자, 숫자, 하이픈, 밑줄만 포함할 수 있습니다. |
+| `request-includes-too-many-items` | 요청에 항목이 너무 많습니다. 요청당 항목 한도는 50개입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

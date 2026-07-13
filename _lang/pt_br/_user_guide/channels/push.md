@@ -19,8 +19,8 @@ search_rank: 3
 
 Antes de começar, certifique-se de ter o seguinte:
 
-- **Push integrado ao seu app ou site.** Trabalhe com seus desenvolvedores para configurar isso. Para etapas detalhadas, consulte os guias de integração para [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android) e [Web]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web).
-- **Uma estratégia de opt-in para push.** Os usuários devem conceder permissão de push em seus dispositivos. Considere usar [mensagens de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) para explicar o valor antes de solicitar a permissão.
+- **Push integrado ao seu app ou site.** Trabalhe com seus desenvolvedores para configurar isso. Para etapas detalhadas, consulte os guias de integração para [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android) e [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
+- **Uma estratégia de aceitação para push.** Os usuários devem conceder permissão de push em seus dispositivos. Considere usar [mensagens no app de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) para explicar o valor antes de solicitar a permissão.
 
 ## Casos de uso {#use-cases}
 
@@ -30,7 +30,7 @@ Antes de começar, certifique-se de ter o seguinte:
 | Primeiras compras | Depois que os usuários estiverem confortáveis usando seu app, você pode usar notificações por push para ajudar a convertê-los em compradores dentro do app. |
 | Novos recursos | As notificações por push podem ser eficazes para informar usuários desengajados sobre novos recursos que podem atraí-los de volta ao seu app. |
 | Ofertas por tempo limitado | Se você tem uma oferta com prazo, o push é uma ótima maneira de avisar seus usuários antes que ela expire. Essas mensagens geralmente carregam um alto senso de urgência e são ideais para lembrar usuários recentemente inativos sobre seu app. Por exemplo, se seu app é um jogo e você oferece um bônus de moeda no jogo por uma sequência diária de partidas, alertar um usuário de que sua sequência está em risco pode ser um push eficaz depois que ele atingir um certo número de dias. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Regulamentações de mensagens push {#push-message-regulations}
 
@@ -46,9 +46,15 @@ Suas mensagens push devem seguir as [Diretrizes de Revisão da Apple App Store](
 | Apple [4.5.4](https://developer.apple.com/app-store/review/guidelines/#apple-sites-and-services) | O push não deve ser necessário para o funcionamento do app e não deve conter informações pessoais sensíveis ou confidenciais. Não use push para promoções ou marketing direto, a menos que os clientes façam opt-in explicitamente por meio de linguagem de consentimento na interface do seu app e possam cancelar a inscrição dentro do app. |
 | Apple [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) | Você não pode monetizar recursos integrados como notificações por push, a câmera ou o giroscópio, nem serviços da Apple como Apple Music ou iCloud. |
 | Google Play — [Uso não autorizado ou imitação de funcionalidade do sistema](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | Os apps não devem imitar ou interferir nas notificações do sistema. Notificações em nível de sistema são apenas para recursos essenciais do app (por exemplo, um app de companhia aérea notificando usuários sobre ofertas ou um jogo notificando usuários sobre promoções dentro do jogo). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Regulamentações de mensagens push" }
+
+## Perguntas frequentes {#frequently-asked-questions}
+
+### Quando a Braze registra um envio bem-sucedido para push? {#when-does-braze-record-a-successful-send-for-push}
+
+A Braze normalmente registra um **envio** assim que a mensagem é despachada da Braze para a Apple, o Google ou seu serviço de web push. **Entregues**, aberturas, bounces e sinais de desinstalação são rastreados separadamente e podem chegar depois. Use as análises em nível de etapa e de Campaign junto com a [solução de problemas de push]({{site.baseurl}}/user_guide/channels/push/troubleshooting) quando os **envios** e as métricas subsequentes parecerem desalinhados.
 
 ## Próximas etapas {#next-steps}
 
-- [Configuração de push]({{site.baseurl}}/user_guide/channels/push/push_setup/)
-- [Criar uma mensagem push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)
+- [Configuração de push]({{site.baseurl}}/user_guide/channels/push/push_setup)
+- [Criar uma mensagem push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)

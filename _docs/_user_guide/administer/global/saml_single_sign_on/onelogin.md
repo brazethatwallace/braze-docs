@@ -19,7 +19,7 @@ Upon setup, you will be asked to provide a sign-on URL and an Assertion Consumer
 |---|---|
 | Braze Domain | You will need your Braze domain to set up Braze within OneLogin. If your instance is `US-01`, you will need to input your dashboard URL into the OneLogin dashboard. <br><br> For example, if your dashboard URL is `https://dashboard-01.braze.com`, you need to input `dashboard-01.braze.com`.  |
 | RelayState API key | To enable IdP login, go to **Settings** > **API Keys** and create an API key with `sso.saml.login` permissions. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## IdP-initiated login within OneLogin
 
@@ -27,9 +27,9 @@ Upon setup, you will be asked to provide a sign-on URL and an Assertion Consumer
 
 1. Log into [OneLogin](https://app.onelogin.com/login). Click on **Administration**.![OneLogin Administration page.]({% image_buster /assets/img/onelogin_1.jpg %})<br><br>
 2. Go to **Apps** > **Add Apps** in the top navigation bar. Search for "Braze" and select the Braze app.![Search results for Braze in OneLogin.]({% image_buster /assets/img/onelogin_2.jpg %})<br><br>
-3. Save the Braze app to your Company.![]({% image_buster /assets/img/onelogin_3.jpg %})<br><br>
+3. Save the Braze app to your Company.![2. Go to Apps > Add Apps in the top navigation bar. Search for "Braze" and select the Braze app.!Search results for Braze in OneLogin.]({% image_buster /assets/img/onelogin_3.jpg %})<br><br>
 4. When saved, go to **Configuration** and add your **Braze Domain** and **RelayState** API key.![OneLogin Configuration tab for the Braze app.]({% image_buster /assets/img/onelogin_4.png %})<br><br>
-5. Braze expects the SAML assertions in a [specific format]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#configure-your-identity-provider). Under **Parameters** the attributes supported by Braze should be pre-populated. Verify that they are correct.![Braze SAML parameters in OneLogin.]({% image_buster /assets/img/onelogin_5.jpg %})<br><br>
+5. Braze expects the SAML assertions in a [specific format]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#configure-your-identity-provider). Under **Parameters** the attributes supported by Braze should be pre-populated. Verify that they are correct.![Braze SAML parameters in OneLogin.]({% image_buster /assets/img/onelogin_5.jpg %})<br><br>
 6. Copy the **Certificate** and **SAML 2.0 Endpoint (HTTP)** needed to set up the Braze dashboard from under the **SSO** tab.![Certificates to copy from the Braze app SSO tab in OneLogin.]({% image_buster /assets/img/onelogin_6.jpg %})
 
 ### Step 2: Configure OneLogin within Braze
@@ -45,11 +45,11 @@ On this page, input the following:
 | `SAML Name` | This will appear as the button text on the login screen. This is typically your identity provider's name, like "OneLogin". |
 | `Target URL` | This is the `SAML 2.0 Endpoint (HTTP)` URL provided by OneLogin.|
 | `Certificate` | The `x.509` PEM encoded certificate is provided by your OneLogin. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure OneLogin within Braze" }
 
 ![SAML SSO settings with the toggle selected.]({% image_buster /assets/img/samlsso.png %})
 
 {% alert tip %}
-If you want your Braze account users to only sign in with SAML SSO, you can [restrict single sign-on authentication]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#restriction) from the **Company Settings** page.
+If you want your Braze account users to only sign in with SAML SSO, you can [restrict single sign-on authentication]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) from the **Company Settings** page.
 {% endalert %}
 

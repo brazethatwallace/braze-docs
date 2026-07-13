@@ -5,7 +5,7 @@ description: "Cet article explique comment utiliser les recommandations d'articl
 page_order: 1.2
 ---
 
-# Utiliser les recommandations d'articles dans vos messages
+# Utiliser les recommandations d'articles dans vos messages {#use-item-recommendations-in-your-messaging}
 
 > Une fois votre recommandation entraînée, vous pouvez utiliser Liquid pour récupérer et afficher les éléments recommandés dans vos messages en travaillant directement avec l'objet Liquid `product_recommendation`.
 
@@ -13,40 +13,40 @@ page_order: 1.2
 Pour une présentation étape par étape, consultez notre cours d'apprentissage Braze : [Créer des expériences personnalisées grâce à l'intelligence artificielle](https://learning.braze.com/ai-item-recommendations-use-case/1996254).
 {% endalert %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Avant de pouvoir utiliser des recommandations dans vos messages, vous devrez [créer et entraîner un moteur de recommandation]({{site.baseurl}}/user_guide/brazeai/recommendations/creating_recommendations/). L'entraînement peut durer entre 10 minutes et 36 heures&#8212;vous recevrez un e-mail lorsqu'il sera terminé ou si une erreur s'est produite.
+Avant de pouvoir utiliser des recommandations dans vos messages, vous devrez [créer et entraîner un moteur de recommandation]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations). L'entraînement peut durer entre 10 minutes et 36 heures&#8212;vous recevrez un e-mail lorsqu'il sera terminé ou si une erreur s'est produite.
 
-## Utiliser des recommandations dans vos messages
+## Utiliser des recommandations dans vos messages {#using-recommendations-in-your-messaging}
 
-### Étape 1 : Ajouter le code Liquid
+### Étape 1 : Ajouter le code Liquid {#step-1-add-liquid-code}
 
 Une fois l'entraînement de votre recommandation terminé, vous pouvez personnaliser vos messages avec Liquid pour y insérer les produits les plus populaires de ce catalogue.
 
 {% tabs local %}
-{% tab pre-formatted code %}
+{% tab code préformaté %}
 ![Fenêtre modale « Ajouter une personnalisation » avec la recommandation d'articles comme type de personnalisation.]({% image_buster /assets/img/add_personalization.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
 
-Vous pouvez générer du Liquid à partir de la section **Ajouter une personnalisation** dans votre compositeur de messages :
+Vous pouvez générer du Liquid à partir de la section **Add personalization** dans votre compositeur de messages :
 
-1. Dans tous les compositeurs de messages qui prennent en charge la personnalisation, sélectionnez <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Ajouter une personnalisation"></i> pour ouvrir la fenêtre de personnalisation.
-2. Pour le **type de personnalisation**, sélectionnez **Recommandation produit**.
-3. Pour **Nom de la recommandation d'article**, sélectionnez la recommandation que vous venez de créer.
-4. Pour **Nombre de produits prédits**, indiquez le nombre de meilleurs produits que vous souhaitez insérer. Par exemple, vous pouvez afficher les trois produits les plus achetés.
-5. Pour les **informations à afficher**, sélectionnez les champs du catalogue à inclure pour chaque article. Les valeurs de ces champs pour chaque article seront tirées du catalogue associé à cette recommandation.
-6. Sélectionnez l'icône **Copier** et collez le Liquid à l'endroit voulu dans votre message.
+1. Dans tous les compositeurs de messages qui prennent en charge la personnalisation, sélectionnez <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Ajouter une personnalisation"></i> **Add personalization** pour ouvrir la fenêtre de personnalisation.
+2. Pour **Personalization Type**, sélectionnez **Item Recommendation**.
+3. Pour **Item Recommendation Name**, sélectionnez la recommandation que vous venez de créer.
+4. Pour **Number of Predicted Items**, indiquez le nombre de meilleurs produits que vous souhaitez insérer. Par exemple, vous pouvez afficher les trois produits les plus achetés.
+5. Pour **Information to Display**, sélectionnez les champs du catalogue à inclure pour chaque article. Les valeurs de ces champs pour chaque article seront tirées du catalogue associé à cette recommandation.
+6. Sélectionnez l'icône **Copy** et collez le Liquid à l'endroit voulu dans votre message.
 {% endtab %}
 
-{% tab custom code %}
+{% tab code personnalisé %}
 Vous pouvez écrire du code Liquid personnalisé en faisant référence à l'objet `product_recommendation` d'un catalogue. Cet objet contient toutes les données de recommandation produit générées dynamiquement pour ce catalogue, structurées sous la forme d'un tableau d'objets où chaque objet représente un article recommandé.
 
-|Spécification|Détails|
+| Spécification | Détails |
 |-------------|-------|
-|**Structure**|Chaque élément est accessible sous la forme `items[index]`, où l'index commence à 0 (pour le premier élément) et s'incrémente pour les éléments suivants.|
-|**Champs du catalogue**|Chaque élément du tableau contient des paires clé-valeur correspondant à des champs (colonnes) du catalogue. Par exemple, les champs de catalogue courants pour les recommandations produit sont les suivants :<br>- `name` ou `title`<br>- `price`<br>- `image_url`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **Structure** | Chaque élément est accessible sous la forme `items[index]`, où l'index commence à 0 (pour le premier élément) et s'incrémente pour les éléments suivants. |
+| **Champs du catalogue** | Chaque élément du tableau contient des paires clé-valeur correspondant à des champs (colonnes) du catalogue. Par exemple, les champs de catalogue courants pour les recommandations produit sont les suivants :<br>- `name` ou `title`<br>- `price`<br>- `image_url` |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1 : Ajouter le code Liquid" }
 
-Utilisez l'étiquette `assign` pour récupérer les données de `product_recommendation` et les affecter à une variable.
+Utilisez la balise `assign` pour récupérer les données de `product_recommendation` et les affecter à une variable.
 
 {% raw %}
 ```liquid
@@ -56,11 +56,11 @@ Utilisez l'étiquette `assign` pour récupérer les données de `product_recomme
 
 Remplacez les éléments suivants :
 
-|Marque substitutive|Description|
+| Marque substitutive | Description |
 |-----------|-----------|
-|`recommendation_name`|Le nom de la recommandation d'intelligence artificielle que vous avez créée dans Braze.|
-|`items`|La variable contenant le tableau des éléments recommandés.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `recommendation_name` | Le nom de la recommandation d'intelligence artificielle que vous avez créée dans Braze. |
+| `items` | La variable contenant le tableau des éléments recommandés. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1 : Ajouter le code Liquid" }
 
 Ensuite, faites référence à des éléments spécifiques et à leurs champs en utilisant l'indexation de tableau et la notation par points :
 
@@ -71,7 +71,7 @@ Ensuite, faites référence à des éléments spécifiques et à leurs champs en
 ```
 {% endraw %}
 
-Pour inclure plusieurs éléments, faites référence à chaque élément individuellement par son index. `.name` et `.price` récupèrent le champ correspondant du catalogue. 
+Pour inclure plusieurs éléments, faites référence à chaque élément individuellement par son index. `.name` et `.price` récupèrent le champ correspondant du catalogue.
 
 {% raw %}
 ```liquid
@@ -86,13 +86,13 @@ Les recommandations d'intelligence artificielle renvoient plusieurs produits sou
 {% endtab %}
 {% endtabs %}
 
-### Étape 2 : Référencer une image (facultatif)
+### Étape 2 : Référencer une image (facultatif) {#step-2-reference-an-image-optional}
 
-Si le catalogue de votre recommandation comporte des liens vers des images, vous pouvez y faire référence dans votre message. 
+Si le catalogue de votre recommandation comporte des liens vers des images, vous pouvez y faire référence dans votre message.
 
 {% tabs %}
-{% tab Drag-and-drop%}
-Dans l'éditeur par glisser-déposer d'e-mail, ajoutez un bloc d'image à votre e-mail, puis sélectionnez le bloc d'image pour ouvrir les **propriétés de l'image**.
+{% tab Glisser-déposer %}
+Dans l'éditeur par glisser-déposer d'e-mail, ajoutez un bloc d'image à votre e-mail, puis sélectionnez le bloc d'image pour ouvrir les **Image properties**.
 
 ![Panneau des propriétés de l'image dans l'éditeur par glisser-déposer]({% image_buster /assets/img/image_with_liquid.png %}){: style="max-width:45%"}
 
@@ -106,13 +106,13 @@ Basculez sur **Image with Liquid**, puis ajoutez ce qui suit dans le champ **Dyn
 
 Remplacez les éléments suivants :
 
-|Marque substitutive|Description|
+| Marque substitutive | Description |
 |-----------|-----------|
-|`recommendation_name`|Le nom de votre recommandation.|
-|`image_url_field`|Le nom du champ de votre catalogue qui contient les URL des images.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `recommendation_name` | Le nom de votre recommandation. |
+| `image_url_field` | Le nom du champ de votre catalogue qui contient les URL des images. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Référencer une image (facultatif)" }
 
-Pour inclure une image substitutive dans vos e-mails de prévisualisation et de test, sélectionnez **Choisir une image**, puis choisissez une image dans votre bibliothèque multimédia ou saisissez l'URL d'une image depuis votre site d'hébergement.
+Pour inclure une image substitutive dans vos e-mails de prévisualisation et de test, sélectionnez **Choose image**, puis choisissez une image dans votre bibliothèque multimédia ou saisissez l'URL d'une image depuis votre site d'hébergement.
 {% endtab %}
 
 {% tab HTML %}
@@ -127,10 +127,10 @@ Pour les références d'images en HTML, définissez l'attribut `src` de l'image 
 
 Remplacez les éléments suivants :
 
-|Marque substitutive|Description|
+| Marque substitutive | Description |
 |-----------|-----------|
-|`recommendation_name`|Le nom de votre recommandation.|
-|`image_url_field`|Le nom du champ de votre catalogue qui contient les URL des images.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `recommendation_name` | Le nom de votre recommandation. |
+| `image_url_field` | Le nom du champ de votre catalogue qui contient les URL des images. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Référencer une image (facultatif)" }
 {% endtab %}
 {% endtabs %}

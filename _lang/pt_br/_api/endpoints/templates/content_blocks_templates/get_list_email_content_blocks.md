@@ -10,16 +10,18 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Listar 
 ---
 {% api %}
 # Listar Content Blocks disponíveis {#list-available-content-blocks}
+
 {% apimethod get %}
 /content_blocks/list
 {% endapimethod %}
 
-> Use esse endpoint para listar as informações dos seus [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) existentes.
+> Use esse endpoint para listar as informações dos seus [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) existentes.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d87048f-68fd-46c9-aa15-3a970e99540e {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `content_blocks.list`.
+
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `content_blocks.list`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -29,11 +31,11 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
-| `modified_after`  | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera apenas Content Blocks atualizados no momento ou após o momento especificado. |
-| `modified_before`  |  Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera apenas Content Blocks atualizados antes ou no momento especificado. |
+| `modified_after` | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera apenas Content Blocks atualizados no momento ou após o momento especificado. |
+| `modified_before` | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera apenas Content Blocks atualizados antes ou no momento especificado. |
 | `limit` | Opcional | Número positivo | Número máximo de Content Blocks a serem recuperados. O padrão é 100 se não for fornecido, com um valor máximo aceitável de 1000. |
-| `offset`  |  Opcional | Número positivo | Número de Content Blocks a serem ignorados antes de retornar o restante dos modelos que atendem aos critérios de pesquisa. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `offset` | Opcional | Número positivo | Número de Content Blocks a serem ignorados antes de retornar o restante dos modelos que atendem aos critérios de pesquisa. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```
@@ -75,6 +77,6 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `Content Block number limit exceeds maximum of 1000` | Altere o parâmetro `limit` para um número inteiro menor que 1000. |
 | `Offset is invalid` | O parâmetro `offset` deve ser um número inteiro maior que 0. |
 | `Offset must be greater than 0` | Altere o parâmetro `offset` para um número inteiro maior que 0. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
 {% endapi %}

@@ -12,14 +12,14 @@ description: "이 참조 문서에서는 Segment 데이터를 CSV로 내보내�
 > 이 페이지에서는 Segment에서 사용자 데이터의 CSV 내보내기를 요청하는 방법과 내보내기에 포함된 데이터에 대해 설명합니다.
 
 {% alert note %}
-CSV 내보내기 옵션은 해당 워크스페이스에 대해 ["사용자 데이터 내보내기" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 있는 회사 사용자에게만 **사용자 데이터** 드롭다운에 표시됩니다.
+CSV 내보내기 옵션은 해당 워크스페이스에 대해 ["사용자 데이터 내보내기" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 있는 회사 사용자에게만 **사용자 데이터** 드롭다운에 표시됩니다.
 {% endalert %}
 
 Segment 데이터를 CSV로 내보내려면 Segment를 편집하는 동안 **사용자 데이터** 드롭다운을 선택하고 Segment의 사용자 데이터 또는 이메일 주소 중 하나를 선택하여 내보냅니다.
 
-![사용자 데이터 드롭다운이 있는 Segment 세부 정보 섹션에 내보내기 옵션이 표시됩니다.]({% image_buster /assets/img_archive/csvexport.png %})
+![내보내기 옵션이 표시된 사용자 데이터 드롭다운이 있는 Segment 세부 정보 섹션.]({% image_buster /assets/img_archive/csvexport.png %})
 
-메인 **Segments** 페이지에서 Segment의 <i class="fas fa-gear" aria-label="설정 메뉴 열기"></i> **설정** 드롭다운을 선택하여 CSV 내보내기를 요청할 수도 있습니다.
+메인 **Segments** 페이지에서 Segment의 <i class="fas fa-gear" aria-label="설정"></i> **설정** 드롭다운을 선택하여 CSV 내보내기를 요청할 수도 있습니다.
 
 ![메인 Segments 페이지의 설정 드롭다운.]({% image_buster /assets/img_archive/csvexport2.png %})
 
@@ -29,11 +29,19 @@ Segment 데이터를 CSV로 내보내려면 Segment를 편집하는 동안 **사
 
 CSV 출력에는 내보내기 시점에 Segment에서 캡처된 각 고객 프로필의 데이터가 포함되어 있습니다. 기어 아이콘과 CSV 내보내기를 선택하여 모든 Segment를 내보낼 수 있습니다. Braze는 보고서를 백그라운드에서 생성하고 현재 로그인한 사용자에게 이메일로 전송합니다.
 
+## Segment CSV 내보내기 세부 정보 {#segment-csv-export-details}
+
+{% alert note %}
+대시보드 사용자는 CSV 내보내기 옵션을 사용하려면 **사용자 데이터 내보내기** 권한이 필요합니다. 이 권한이 없으면 CSV 내보내기 옵션이 표시되지 않습니다.
+{% endalert %}
+
+**CSV 내보내기 이메일 주소**에는 Segment에서 이메일 주소가 있는 사용자의 행만 포함됩니다. 예를 들어, Segment에 100,000명의 사용자가 있지만 50,000명만 이메일 주소가 있는 경우 **CSV 내보내기 이메일 주소**는 약 50,000개의 행을 생성합니다. **CSV 내보내기 사용자 데이터**는 Segment의 모든 사용자 데이터를 내보냅니다.
+
 {% alert important %}
 파일 크기 제한으로 인해 Segment의 예상 크기가 500,000명 이상의 사용자일 경우 내보내기가 실패할 수 있습니다. 이 제한은 정확한 계산이 아닌 Segment의 예상 크기를 사용한다는 점에 유의하세요. 자세한 내용은 [대규모 Segment 내보내기](#exporting-large-segments)를 참조하세요.
 {% endalert %}
 
-[Amazon S3 인증정보]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3/#amazon-s3-integration)를 Braze에 연결한 경우, CSV는 대신 S3 버킷의 `segment-export/SEGMENT_ID/YYYY-MM-dd/users-RANDOMSTRING.zip` 키 아래에 업로드됩니다. 이메일로 전송된 다운로드 링크에 액세스하려면 대시보드에 로그인해야 합니다.
+[Amazon S3 인증정보]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3#amazon-s3-integration)를 Braze에 연결한 경우, CSV는 대신 S3 버킷의 `segment-export/SEGMENT_ID/YYYY-MM-dd/users-RANDOMSTRING.zip` 키 아래에 업로드됩니다. 이메일로 전송된 다운로드 링크에 액세스하려면 대시보드에 로그인해야 합니다.
 
 {% multi_lang_include alerts/important_alerts.md alert='S3 file bucket export' %}
 
@@ -83,10 +91,10 @@ CSV 출력에는 내보내기 시점에 Segment에서 캡처된 각 고객 프�
 | windows_ad_ids | Windows 광고 ID |
 | Custom events | 내보내기 시 선택에 따라 다름 |
 | Custom attributes | 내보내기 시 선택에 따라 다름 |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV 내보내기 사용자 데이터" }
 
 {% alert note %}
-캔버스 단계에서 사용자 데이터를 내보내면 CSV에는 해당 캔버스 단계의 전체 수명 동안 해당 단계에 있었던 모든 사용자가 포함됩니다. 내보내기를 날짜 범위나 다른 기간으로 제한할 수 없습니다. 이러한 내보내기를 실행하는 방법은 [Canvas 데이터 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data/)를 참조하세요.
+캔버스 단계에서 사용자 데이터를 내보내면 CSV에는 해당 캔버스 단계의 전체 수명 동안 해당 단계에 있었던 모든 사용자가 포함됩니다. 내보내기를 날짜 범위나 다른 기간으로 제한할 수 없습니다. 이러한 내보내기를 실행하는 방법은 [Canvas 데이터 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_canvas_data)를 참조하세요.
 {% endalert %}
 
 ### CSV 내보내기 이메일 주소 {#csv-export-email-addresses}
@@ -100,10 +108,14 @@ CSV 출력에는 내보내기 시점에 Segment에서 캡처된 각 고객 프�
 | unsubscribed_from_emails_at | 이메일 구독 취소 날짜 |
 | opted_in_to_emails_at | 이메일 옵트인 날짜 |
 | user_aliases | 사용자 별칭(있는 경우) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV 내보내기 이메일 주소" }
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움말은 [문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/) 문서를 참조하세요.
+CSV 및 API 내보내기에 대한 도움말은 [문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting) 문서를 참조하세요.
+{% endalert %}
+
+{% alert note %}
+구독 그룹 데이터는 Segment 내보내기를 통해 사용할 수 없습니다. 구독 상태별로 사용자를 식별하려면 구독 그룹 멤버십을 기반으로 별도의 Segment를 생성하고 해당 Segment를 내보내세요.
 {% endalert %}
 
 ## 대규모 Segment 내보내기 {#exporting-large-segments}
@@ -118,16 +130,18 @@ CSV 및 API 내보내기에 대한 도움말은 [문제 해결]({{site.baseurl}}
 {% endtab %}
 {% tab 무작위 버킷 번호 %}
 
-[무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/)를 사용하여 사용자 기반을 여러 Segments로 나눈 다음 내보내기 후에 결합할 수도 있습니다. 예를 들어, Segment를 두 개의 다른 Segments로 나누어야 하는 경우 다음 필터를 사용하여 수행할 수 있습니다:
+[무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers)를 사용하여 사용자 기반을 여러 Segments로 나눈 다음 내보내기 후에 결합할 수도 있습니다. 예를 들어, Segment를 두 개의 다른 Segments로 나누어야 하는 경우 다음 필터를 사용하여 수행할 수 있습니다:
 - Segment 1: 무작위 버킷 번호가 5000보다 작음(0-4999 포함)
 - Segment 2: 무작위 버킷 번호가 4999보다 큼(5000-9999 포함)
 
 {% endtab %}
 {% tab 엔드포인트 %}
 
-다음 엔드포인트를 활용하여 특정 Segment의 사용자 데이터를 내보낼 수도 있습니다. 이러한 엔드포인트에는 데이터 제한이 적용됩니다.
-- [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
-- [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/)
+다음 엔드포인트를 활용하여 특정 Segment의 사용자 데이터를 내보낼 수도 있습니다. 이러한 엔드포인트에는 데이터 제한 및 [사용량 제한]({{site.baseurl}}/api/basics)이 적용됩니다.
+- [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
+- [`/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group)
+
+[Amazon S3 인증정보]({{site.baseurl}}/partners/data_and_infrastructure_agility/data_warehouses/amazon_s3#amazon-s3-integration)를 연결한 경우, [Segment CSV 내보내기 세부 정보](#segment-csv-export-details)에 설명된 대로 이메일 다운로드 링크 외에 대규모 내보내기를 버킷으로 전달할 수 있습니다.
 
 {% endtab %}
 {% endtabs %}

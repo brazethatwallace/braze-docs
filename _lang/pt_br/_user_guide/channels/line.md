@@ -22,24 +22,24 @@ Antes de começar, verifique se você tem o seguinte:
 
 - [Conta empresarial do LINE](https://www.linebiz.com/jp-en/manual/OfficialAccountManager/tutorial-steps/?list=7171) com status premium ou verificado
 - [Conta de desenvolvedor do LINE](https://developers.line.biz/en/docs/line-developers-console/login-account/)
-- [Canal de API de mensagens do LINE](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
+- [Canal da API de mensagens do LINE](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-Para um passo a passo completo, consulte [Configuração do LINE]({{site.baseurl}}/user_guide/channels/line/line_setup/).
+Para um passo a passo completo, consulte [Configuração do LINE]({{site.baseurl}}/user_guide/channels/line/line_setup).
 
 ## Casos de uso {#use-cases}
 
 | Caso de uso | Explicação |
 | --- | --- |
-| Promoções e ofertas | Envie mensagens promocionais direcionadas, cupons e ofertas por tempo limitado diretamente aos clientes na plataforma de mensagens preferida deles. |
+| Promoções e ofertas | Envie mensagens promocionais direcionadas, cupons e ofertas por tempo limitado diretamente aos clientes na plataforma de envio de mensagens preferida deles. |
 | Programas de fidelidade | Engaje clientes fiéis com recompensas personalizadas, atualizações de saldo de pontos e benefícios exclusivos para membros. |
 | Suporte ao cliente | Ative conversas bidirecionais para lidar com consultas, fornecer informações sobre produtos e resolver problemas. |
 | Notificações de pedidos | Mantenha os clientes informados com confirmações de pedidos, atualizações de envio e notificações de entrega. |
 | Engajamento em eventos | Impulsione a participação e o engajamento em eventos com convites, lembretes e mensagens de acompanhamento. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
 ## Próximas etapas {#next-steps}
 
-- [Configuração do LINE]({{site.baseurl}}/user_guide/channels/line/line_setup/)
-- [Criar uma mensagem LINE]({{site.baseurl}}/user_guide/channels/line/create_a_line_message/)
+- [Configuração do LINE]({{site.baseurl}}/user_guide/channels/line/line_setup)
+- [Criar uma mensagem LINE]({{site.baseurl}}/user_guide/channels/line/create_a_line_message)

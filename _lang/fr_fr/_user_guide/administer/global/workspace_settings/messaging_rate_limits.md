@@ -7,7 +7,7 @@ description: "Cet article de référence décrit les limites de débit d'envoi d
 page_order: 10
 ---
 
-# Limites de débit d'envoi de messages de l'espace de travail
+# Limites de débit d'envoi de messages de l'espace de travail {#workspace-messaging-rate-limits}
 
 > Utilisez les limites de débit d'envoi de messages de l'espace de travail pour réguler le rythme de distribution de vos messages sortants depuis votre plateforme, afin de vous assurer que vos utilisateurs reçoivent bien les messages dont ils ont besoin.
 
@@ -15,7 +15,7 @@ page_order: 10
 Les limites de débit d'envoi de messages de l'espace de travail sont déployées progressivement. Il est possible que ces paramètres ne soient pas encore visibles dans votre tableau de bord.
 {% endalert %}
 
-## Fonctionnement
+## Fonctionnement {#how-it-works}
 
 Les limites de débit d'envoi de messages de l'espace de travail s'appliquent à l'ensemble des messages envoyés dans votre espace de travail. En définissant et en optimisant une limite de débit au niveau de l'espace de travail, vous pouvez mieux contrôler le trafic sortant de vos messages Braze, évitant ainsi d'éventuels pics de demande susceptibles d'affecter les performances du serveur.
 {% alert note %}
@@ -30,11 +30,11 @@ Par exemple, supposons que vous ayez une limite de débit d'envoi de messages de
 | Campaign 1 | 100 000            | 12 h          |
 | Campaign 2 | 100 000            | 12 h          |
 | Campaign 3 | 100 000            | 12 h          |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fonctionnement" }
 
 Les messages sont distribués sur un intervalle de 3 minutes.
 
-Les messages sont traités en parallèle. Une fois traités, ils sont planifiés de manière à respecter la limite de débit d'envoi de messages de l'espace de travail selon le principe du premier arrivé, premier servi. Cela signifie que dans l'exemple ci-dessus, les messages envoyés chaque minute sont un mélange variable des Campaigns 1, 2 et 3 totalisant 100 000.
+Les messages sont traités en parallèle. Une fois traités, ils sont planifiés de manière à respecter la limite de débit d'envoi de messages de l'espace de travail selon le principe du premier arrivé, premier servi. Cela signifie que dans cet exemple, les messages envoyés chaque minute sont un mélange variable des Campaigns 1, 2 et 3 totalisant 100 000.
 
 ![Exemple de distribution des messages pour les trois Campaigns.]({% image_buster /assets/img/workspace_messaging_rate_limits2.png %})
 
@@ -44,7 +44,7 @@ Considérons l'exemple suivant avec une limite de débit d'envoi de messages de 
 |------------|--------------------|---------------|
 | Campaign 1 | 1 000 000          | 9 h           |
 | Campaign 2 | 1 000 000          | 9 h 05        |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fonctionnement" }
 
 Voici le calendrier de distribution prévu et les messages envoyés par minute :
 
@@ -57,14 +57,14 @@ Voici le calendrier de distribution prévu et les messages envoyés par minute :
 Après avoir défini la limite de débit d'envoi de messages de l'espace de travail, vous pouvez l'augmenter. Cependant, chaque message déjà traité avant l'augmentation utilise la limite précédemment définie.
 {% endalert %}
 
-## Définir la limite de débit d'envoi de messages de votre espace de travail
+## Définir la limite de débit d'envoi de messages de votre espace de travail {#setting-your-workspace-messaging-rate-limit}
 
 1. Dans le tableau de bord de Braze, accédez à **Paramètres** > **Paramètres de l'espace de travail** > **Limites de débit d'envoi de messages**.
 2. Sélectionnez **+ Ajouter une limite de débit**, puis sélectionnez un canal de communication.
 3. Pour **Messages par minute**, saisissez la limite de débit.
 4. Sélectionnez **Enregistrer**.
 
-## Informations importantes
+## Informations importantes {#things-to-know}
 
 La limite de débit s'applique à la distribution, c'est-à-dire au début de la tentative d'envoi du message. Lorsque le temps nécessaire pour finaliser l'envoi fluctue, le nombre d'envois terminés peut légèrement dépasser la limite de débit pendant certaines minutes. Au fil du temps, le nombre d'envois par minute se stabilise en moyenne à un niveau ne dépassant pas la limite de débit.
 
@@ -74,9 +74,9 @@ Braze essaie de répartir uniformément la distribution des messages tout au lon
 
 Notez que vous pouvez toujours définir des limites de débit individuelles dans vos Campaigns et Canvas. Celles-ci sont appliquées indépendamment des limites de débit d'envoi de messages de l'espace de travail.
 
-### Messages non inclus dans les limites de débit d'envoi de messages de l'espace de travail
+### Messages non inclus dans les limites de débit d'envoi de messages de l'espace de travail {#messages-not-included-in-the-workspace-messaging-rate-limits}
 
-- Les messages envoyés via les [Campaigns d'e-mail transactionnel]({{site.baseurl}}/user_guide/channels/transactional_email/) ne sont pas inclus dans les limites de débit d'envoi de messages de l'espace de travail. Cela signifie qu'ils sont soumis à leur propre limite de débit et ne sont pas comptabilisés dans les limites de débit d'envoi de messages de l'espace de travail définies.
-- Les messages envoyés aux [groupes initiateurs]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups) et les [envois de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) ne sont pas inclus dans les limites de débit d'envoi de messages de l'espace de travail. Cela signifie qu'ils ne sont pas soumis à une limite de débit et ne sont pas comptabilisés dans les limites de débit d'envoi de messages de l'espace de travail définies.
+- Les messages envoyés via les [Campaigns d'e-mail transactionnel]({{site.baseurl}}/user_guide/channels/transactional_email) ne sont pas inclus dans les limites de débit d'envoi de messages de l'espace de travail. Cela signifie qu'ils sont soumis à leur propre limite de débit et ne sont pas comptabilisés dans les limites de débit d'envoi de messages de l'espace de travail définies.
+- Les messages envoyés aux [groupes initiateurs]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) et les [envois de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) ne sont pas inclus dans les limites de débit d'envoi de messages de l'espace de travail. Cela signifie qu'ils ne sont pas soumis à une limite de débit et ne sont pas comptabilisés dans les limites de débit d'envoi de messages de l'espace de travail définies.
 - Les réponses automatiques SMS ne sont pas incluses dans les limites de débit d'envoi de messages de l'espace de travail. Cela signifie qu'elles ne sont pas soumises à une limite de débit et ne sont pas comptabilisées dans les limites de débit d'envoi de messages de l'espace de travail définies.
-- Les limites de débit d'envoi de messages de l'espace de travail ne sont pas prises en charge pour les messages in-app, les indicateurs de fonctionnalité et les bannières.
+- Les limites de débit d'envoi de messages de l'espace de travail ne sont pas prises en charge pour les messages in-app, les feature flags et les bannières.

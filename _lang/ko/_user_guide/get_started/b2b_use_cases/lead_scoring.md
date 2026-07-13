@@ -32,18 +32,18 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 1. **진입 스케줄** 단계로 이동하여 **행동 기반** 진입 스케줄을 선택합니다. 사용자가 특정 동작을 수행하면 Canvas에 진입하게 됩니다.
 
 2. **행동 기반 옵션**에서 다음 두 가지 동작을 추가합니다.
-    - 리드 스코어링 속성 이름(예: `lead score`)으로 **커스텀 속성 값 변경**. 아직 리드 스코어링 속성을 만들지 않았다면 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)의 단계를 따르세요. 이렇게 하면 리드 점수가 변경될 때마다 사용자가 Canvas에 진입합니다.
+    - 리드 스코어링 속성 이름(예: `lead score`)으로 **커스텀 속성 값 변경**. 아직 리드 스코어링 속성을 만들지 않았다면 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)의 단계를 따르세요. 이렇게 하면 리드 점수가 변경될 때마다 사용자가 Canvas에 진입합니다.
     - **이메일 주소 추가**
 
 !["행동 기반" 진입 스케줄과 커스텀 속성 "lead score" 변경 및 이메일 주소 추가의 행동 기반 옵션으로 Canvas를 만드는 2단계.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
 
 ### 3단계: 타겟 오디언스 식별 {#step-3-identify-your-target-audience}
 
-#### 3a단계: Segment 선택 {#step-3a-select-segments}
+#### 3a단계: Segments 선택 {#step-3a-select-segments}
 
-모든 사용자가 리드 스코어링 대상이므로, 타겟팅할 사용자 [Segment]({{site.baseurl}}/user_guide/audience/segments/)를 선택하고 추가 [필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 적용하여 회사별 규칙을 추가할 수 있습니다. 예를 들어, 직원, 이미 고객인 사용자 등을 제외할 수 있습니다.
+모든 사용자가 리드 스코어링 대상이므로, 타겟팅할 사용자 [Segments]({{site.baseurl}}/user_guide/audience/segments)를 선택하고 추가 [필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)를 적용하여 회사별 규칙을 추가할 수 있습니다. 예를 들어, 직원, 이미 고객인 사용자 등을 제외할 수 있습니다.
 
-![Segment와 필터를 선택하여 진입 오디언스를 좁히는 옵션이 있는 Canvas 생성 3단계.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
+![Segments와 필터를 선택하여 진입 오디언스를 좁히는 옵션이 있는 Canvas 생성 3단계.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
 #### 3b단계: Canvas 재진입 자격 설정 {#step-3b-set-canvas-re-eligibility}
 
@@ -68,7 +68,7 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 
 #### 4a단계: 행동 경로 추가 {#step-4a-add-an-action-path}
 
-배리언트 아래에서 더하기 아이콘을 선택한 다음 **행동 경로**를 선택합니다.
+배리언트 아래에서 <i class="fas fa-plus" aria-label="추가"></i> **추가**를 선택한 다음 **행동 경로**를 선택합니다.
 
 ![더하기 아이콘으로 열린 메뉴에 "행동 경로"가 표시된 Canvas.]({% image_buster /assets/img/b2b/action_paths_simple.png %}){: style="max-width:60%;"}
 
@@ -93,7 +93,7 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 
 #### 4d단계: 사용자 업데이트 단계 추가 {#step-4d-add-user-update-steps}
 
-행동 경로 아래에 생성된 각 Canvas 경로에 사용자 업데이트 단계를 추가합니다.
+행동 경로에서 생성된 각 Canvas 경로에 사용자 업데이트 단계를 추가합니다.
 
 ![각 행동 그룹에 대한 분기된 사용자 업데이트 경로가 있는 행동 경로를 표시하는 Canvas.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
 
@@ -102,10 +102,10 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 
 | 필드 | 동작 |
 | --- | --- |
-| **속성 이름** | 2단계에서 선택한 리드 점수 속성(`lead score`)을 선택합니다. |
-| **동작** | 경로가 점수를 증가시키면 **Increment By**로, 경로가 점수를 감소시키면 **Decrement By**로 변경합니다. |
+| **Attribute Name** | 2단계에서 선택한 리드 점수 속성(`lead score`)을 선택합니다. |
+| **Action** | 경로가 점수를 증가시키면 **Increment By**로, 경로가 점수를 감소시키면 **Decrement By**로 변경합니다. |
 | **Increment By** 또는 **Decrement By** | 리드 점수에서 증가하거나 감소할 포인트 수를 입력합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="4d단계: 사용자 업데이트 단계 추가" }
 
 ### 5단계: Canvas 시작 {#step-5-launch-your-canvas}
 
@@ -113,11 +113,11 @@ Braze에서 리드 스코어링 워크플로를 만드는 두 가지 주요 단�
 
 ## 외부 리드 스코어링 {#external-lead-scoring}
 
-[기술 파트너]({{site.baseurl}}/partners/home/), 자체 내부 리드 스코어링 모델, 머신 러닝 또는 다른 리드 스코어링 도구를 사용하든, 여러 가지 옵션이 있습니다.
+[기술 파트너]({{site.baseurl}}/partners/home), 자체 내부 리드 스코어링 모델, 머신 러닝 또는 다른 리드 스코어링 도구를 사용하든, 여러 가지 옵션이 있습니다.
 
 ### 외부 파트너 {#external-partners}
 
-[기술 파트너]({{site.baseurl}}/partners/home/)를 확인하여 리드 스코어링 기능을 제공하는 B2B 파트너에 대해 알아보세요. 원하는 도구가 보이지 않나요? [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users) API 엔드포인트를 호출하여 통합할 수 있습니다.
+[기술 파트너]({{site.baseurl}}/partners/home)를 확인하여 리드 스코어링 기능을 제공하는 B2B 파트너에 대해 알아보세요. 원하는 도구가 보이지 않나요? [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users) API 엔드포인트를 호출하여 통합할 수 있습니다.
 
 ### 내부 리드 스코어링 데이터 모델 {#internal-lead-scoring-data-models}
 
@@ -130,15 +130,15 @@ Braze를 리드 스코어링 모델을 포함한 내부 데이터 모델과 다�
 
 마케팅 도구로서 Braze는 팀의 내부 리드 스코어 모델을 보완할 수 있는 매우 관련성 높은 데이터를 포함하고 있습니다.
 
-예를 들어, 메시징 참여 데이터(예: 이메일 열기 및 클릭, 랜딩 페이지 참여 등)는 리드의 참여 수준을 결정할 수 있습니다. Braze 스트리밍 내보내기 데이터 솔루션을 사용하여 이 데이터를 클라우드 데이터 웨어하우스로 다시 전달하고 리드 스코어링 모델의 입력으로 사용할 수 있습니다.
+예를 들어, 메시징 인게이지먼트 데이터(예: 이메일 열람 및 클릭, 랜딩 페이지 참여 등)는 리드의 참여 수준을 결정할 수 있습니다. Braze 스트리밍 내보내기 데이터 솔루션을 사용하여 이 데이터를 클라우드 데이터 웨어하우스로 다시 전달하고 리드 스코어링 모델의 입력으로 사용할 수 있습니다.
 
-- [Braze 커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)
-- [Snowflake Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
+- [Braze 커런츠]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- [Snowflake Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)
 
 {% endtab %}
 {% tab 대상으로서의 Braze %}
 
-내부 팀이 리드 스코어링 모델을 생성하고 실행한 후, 해당 데이터를 Braze로 다시 가져와서 관련 메시징을 위해 리드를 더 잘 세분화하고 타겟팅할 수 있습니다. [Braze 클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)을 사용하면 됩니다.
+내부 팀이 리드 스코어링 모델을 생성하고 실행한 후, 해당 데이터를 Braze로 다시 가져와서 관련 메시징을 위해 리드를 더 잘 세분화하고 타겟팅할 수 있습니다. [Braze 클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 사용하면 됩니다.
 
 클라우드 데이터 수집을 통해 내부 팀은 사용자 식별자, 최신 리드 점수 및 점수가 업데이트된 타임스탬프가 포함된 새 테이블 또는 뷰를 생성합니다. Braze가 테이블 또는 뷰를 가져와서 리드 점수를 고객 프로필에 추가합니다.
 
@@ -184,7 +184,7 @@ Braze의 리드 상태로 Salesforce의 리드 레코드를 업데이트하려�
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>토큰을 가져오려면 OAuth 2.0 클라이언트 자격 증명 흐름에 대해 [연결된 앱을 구성](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)한 다음 연결된 콘텐츠를 사용하여 Salesforce에서 베어러를 가져옵니다. <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2a단계: 웹훅 작성" }
 
 ![Salesforce 웹훅 URL, PATCH HTTP 메서드, 원시 텍스트 요청 본문 및 요청 헤더로 구성되는 웹훅.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 
@@ -192,7 +192,7 @@ Braze의 리드 상태로 Salesforce의 리드 레코드를 업데이트하려�
 
 이 Campaign은 사용자의 리드 점수가 변경될 때마다 트리거되어야 합니다. 이 Campaign은 점수가 변경된 모든 사용자에 대해 트리거되지만, 현재 MQL이 아니고 이전 단계에서 설정한 임계값을 초과한 사용자에게만 영향을 미칩니다.
 
-**전달 예약** 단계에서 다음을 선택합니다.
+**배달 예약** 단계에서 다음을 선택합니다.
 - **행동 기반** 전달 유형
 - 리드 스코어링 속성 이름과 **새로운 값** 동작으로 **커스텀 속성 값 변경** 트리거 동작
 

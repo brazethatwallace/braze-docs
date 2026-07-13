@@ -1,8 +1,9 @@
 ---
 nav_title: Grouparoo
 page_order: 1
-description: "Este artigo descreve a parceria entre a Braze e o Grouparoo, uma ferramenta de ETL reversa de código aberto usada para alimentar as ferramentas de marketing, vendas e suporte com dados de seu data warehouse."
 page_type: update
+noindex: true
+description: "Este artigo descreve a parceria entre a Braze e o Grouparoo, uma ferramenta de ETL reversa de código aberto usada para alimentar as ferramentas de marketing, vendas e suporte com dados do seu data warehouse."
 
 ---
 
@@ -12,61 +13,60 @@ page_type: update
 O suporte ao Grouparoo foi descontinuado a partir de abril de 2022.
 {% endalert %}
 
-> [O Grouparoo](https://www.grouparoo.com/) é uma ferramenta de ETL reversa de código aberto que sincroniza os dados de seu depósito com as ferramentas de marketing, vendas e suporte. Sua interface de usuário centrada em modelos permite que membros não técnicos da equipe configurem e programem sincronizações de dados.
+> O [Grouparoo](https://www.grouparoo.com/) é uma ferramenta de ETL reversa de código aberto que sincroniza os dados do seu warehouse com as ferramentas de marketing, vendas e suporte. Sua interface de usuário centrada em modelos permite que membros não técnicos da equipe configurem e programem sincronizações de dados.
 
-A integração entre o Braze e o Grouparoo sincroniza os dados do warehouse com o Braze. As programações de sincronização automática mantêm as comunicações com os clientes atualizadas com informações atualizadas.
+A integração entre a Braze e o Grouparoo sincroniza os dados do warehouse com a Braze. As programações de sincronização automática mantêm as comunicações com os clientes atualizadas com informações recentes.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 | ----------- | ----------- |
-| Conta e projeto do Grouparoo | É necessário ter uma conta e um projeto do Grouparoo para aproveitar essa parceria.<br><br>Essa integração pode ser usada com a edição comunitária gratuita e com as soluções empresariais fornecidas pelo Grouparoo. A instalação ocorrerá na interface de usuário de configuração do Grouparoo. |
-| Chave da API REST do Braze | Uma chave da API REST do Braze com usuários e permissões de rastreamento. <br><br> Isso pode ser criado no dashboard do Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST do Braze | [Sua URL de endpoint REST.](https://www.grouparoo.com/) Seu endpoint dependerá do URL do Braze para sua instância. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Conta e projeto do Grouparoo | É necessário ter uma conta e um projeto do Grouparoo para aproveitar essa parceria.<br><br>Essa integração pode ser usada com a edição comunitária gratuita e com as soluções empresariais fornecidas pelo Grouparoo. A configuração ocorrerá na interface de usuário de configuração do Grouparoo. |
+| Chave da API REST da Braze | Uma chave da API REST da Braze com permissões de usuários e rastreamento. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| Endpoint REST da Braze | [A URL do seu endpoint REST](https://www.grouparoo.com/). Seu endpoint dependerá da URL da Braze para sua instância. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-## Integração
+## Integração {#integration}
 
-### Etapa 1: Criar um app Braze no Grouparoo
+### Etapa 1: Criar um app da Braze no Grouparoo {#step-1-create-a-braze-app-in-grouparoo}
 
-No Grouparoo, navegue até **Apps** e selecione **Braze** para criar um novo aplicativo Braze. Na janela modal exibida, informe sua chave de API da Braze e o endpoint REST.
+No Grouparoo, navegue até **Apps** e selecione **Braze** para criar um novo app da Braze. Na janela modal exibida, informe sua chave de API da Braze e o endpoint REST.
 
-![]({% image_buster /assets/img/grouparoo/add-app.png %})
+![O modal Criar app da Braze no Grouparoo, com campos para a chave de API da Braze e o endpoint REST.]({% image_buster /assets/img/grouparoo/add-app.png %})
 
-### Etapa 2: Configurar um modelo e uma fonte de dados
+### Etapa 2: Configurar um modelo e uma fonte de dados {#step-2-set-up-a-model-and-data-source}
 
 Essa integração requer que você tenha um modelo existente e uma fonte de dados configurada antes de prosseguir para a próxima etapa. Se você não tiver essa configuração, visite a documentação do Grouparoo para saber como configurar um [modelo](https://www.grouparoo.com/docs/config/models) e uma [fonte de dados](https://www.grouparoo.com/docs/config/sources).
 
-### Etapa 3: Criar um destino Braze no Grouparoo
+### Etapa 3: Criar um destino da Braze no Grouparoo {#step-3-create-a-braze-destination-in-grouparoo}
 
-#### Selecionar o modo de sincronização
+#### Selecionar o modo de sincronização {#select-sync-mode}
 
-No Grouparoo, selecione seu modelo na barra de navegação. Em seguida, vá até a seção **Destinations (Destinos)** e clique em **Add new Destination (Adicionar novo destino)**.
+No Grouparoo, selecione seu modelo na barra de navegação. Em seguida, vá até a seção **Destinations** e clique em **Add new Destination**.
 
-Em seguida, selecione o app **Braze** que você criou, nomeie os destinos e selecione o modo de sincronização desejado entre os seguintes:
-- **Sincronização**: Adicione, atualize e remova usuários do Braze conforme necessário. Essa opção procura novos registros, alterações em registros existentes e exclusões.
-- **Aditivo**: Adicione e atualize os usuários da Braze conforme necessário, mas não remova ninguém. Essa opção procura novos usuários para adicionar ao Braze e alterações nos usuários existentes do Braze, mas não controla as exclusões.
-- **Enriquecer**: Atualize apenas os usuários que já existem no Braze. Não adicione ou remova usuários. Essa opção atualizará apenas os usuários existentes no Braze.
+Em seguida, selecione o app **Braze** que você criou, nomeie o destino e selecione o modo de sincronização desejado entre os seguintes:
+- **Sync**: Adicione, atualize e remova usuários da empresa conforme necessário. Essa opção procura novos registros, alterações em registros existentes e exclusões.
+- **Additive**: Adicione e atualize os usuários da empresa conforme necessário, mas não remova ninguém. Essa opção procura novos usuários para adicionar à Braze e alterações nos usuários existentes da empresa, mas não controla as exclusões.
+- **Enrich**: Atualize apenas os usuários que já existem na Braze. Não adicione ou remova usuários. Essa opção atualizará apenas os usuários existentes na Braze.
 
-#### Mapeamento do campo de propriedade
+#### Mapeamento do campo de propriedade {#property-field-mapping}
 
-Em seguida, você deve mapear os campos de propriedade do Grouparoo para os campos de propriedade do Braze. 
+Em seguida, você deve mapear os campos de propriedade do Grouparoo para os campos de propriedade da Braze.
 
-![Exemplo de campos de mapeamento de propriedades. O ID de usuário do Grouparoo é definido para mapear para o e-mail external_id., o firstName e o lastName são definidos como campos equivalentes de "e-mail", "first_name", e "last_name" do Grouparoo.]({% image_buster /assets/img/grouparoo/mapping.png %}){: style="max-width:80%;"}
+![Exemplo de campos de mapeamento de propriedades. O userID do Grouparoo é definido para mapear para external_id. email, firstName e lastName são definidos como campos equivalentes "email", "first_name" e "last_name" do Grouparoo.]({% image_buster /assets/img/grouparoo/mapping.png %}){: style="max-width:80%;"}
 
-Certifique-se de que o campo `external_id` do Braze esteja mapeado para a chave primária em sua tabela de origem. Mapeie o restante dos campos conforme necessário para seu caso de uso.
+Certifique-se de que o campo `external_id` da Braze esteja mapeado para a chave primária na sua tabela de origem. Mapeie o restante dos campos conforme necessário para seu caso de uso.
 
-**Enviar seção Propriedades do registro**: Uma lista de campos de perfil de usuário predefinidos disponíveis para mapear dados. Qualquer um deles pode ser sincronizado a partir das propriedades do Grouparoo.
+Seção **Send Record Properties**: Uma lista de campos de perfil de usuário predefinidos disponíveis para mapear dados. Qualquer um deles pode ser sincronizado a partir das propriedades do Grouparoo.
 
-Seção de **campos opcionais do perfil de usuário do Braze**: Crie campos de perfil de usuário Braze personalizados opcionais. Se você clicar em **Add New Braze User Profile Field (Adicionar novo campo de perfil de usuário Braze)**, verá todas as propriedades disponíveis que podem ser mapeadas para o Braze. O nome de qualquer novo campo que você criar será o mesmo da propriedade Grouparoo, mas poderá ser renomeado.
+Seção **Optional Braze User Profile Fields**: Crie campos de perfil de usuário da Braze personalizados opcionais. Se você clicar em **Add New Braze User Profile Field**, verá todas as propriedades disponíveis que podem ser mapeadas para a Braze. O nome de qualquer novo campo que você criar será o mesmo da propriedade do Grouparoo, mas poderá ser renomeado.
 
-#### Grupos Grouparoo
+#### Grupos do Grouparoo {#grouparoo-groups}
 
-Além do mapeamento, você também pode optar por adicionar grupos do Grouparoo a grupos de inscrições do Braze. 
+Além do mapeamento, você também pode optar por adicionar grupos do Grouparoo a grupos de inscrições da Braze.
 
-![Em "Braze Subscription Groups" (Grupos de inscrição Braze) na janela de configuração de destino do Grouparoo, o grupo Grouparoo "High value with recent automotive purchase" (Alto valor com compra automotiva recente) será adicionado ao grupo de inscrições Braze "High value with recent automotive purchase" (Alto valor com compra automotiva recente).]({% image_buster /assets/img/grouparoo/lists.png %}){: style="max-width:80%;"}
+![Em "Braze Subscription Groups" na janela de configuração de destino do Grouparoo, o grupo do Grouparoo "High value with recent automotive purchase" será adicionado ao grupo de inscrições da Braze "High value with recent automotive purchase".]({% image_buster /assets/img/grouparoo/lists.png %}){: style="max-width:80%;"}
 
 {% alert important %}
 Mais detalhes e atualizações sobre essa integração podem ser encontrados na [documentação do Grouparoo](https://www.grouparoo.com/docs/integrations/grouparoo-braze).
 {% endalert %}
-

@@ -3,7 +3,7 @@ nav_title: Barrierefreiheit
 article_title: Barrierefreie Nachrichten in Braze erstellen
 page_order: 0.5
 page_type: reference
-description: "Dieser Referenzartikel erklärt, warum Barrierefreiheit in Ihren Marketinginhalten wichtig ist und wie Sie barrierefreie Nachrichten in Braze erstellen können."
+description: "Dieser Referenzartikel erklärt, warum Barrierefreiheit in Marketinginhalten wichtig ist, wie die Barrierefreiheitssprache (HTML lang) in Braze kanalübergreifend funktioniert und wie Sie barrierefreie Nachrichten in Braze erstellen können."
 ---
 
 # Barrierefreie Nachrichten in Braze erstellen {#build-accessible-messages-in-braze}
@@ -103,7 +103,7 @@ Je nach individuellen Bedürfnissen sind diese Nutzer:innen angewiesen auf:
 {% endtab %}
 {% endtabs %}
 
-## Best Practices
+## Best Practices {#best-practices}
 
 Barrierefreie Inhalte zu erstellen muss nicht überwältigend sein. Kleine, durchdachte Entscheidungen können einen großen Unterschied machen. Dieser Abschnitt führt Sie durch praktische Tipps, die mehr Menschen helfen, Ihre Nachrichten erfolgreich zu lesen, zu navigieren und mit ihnen zu interagieren. Ob Sie Ihren Text anpassen, Ihre Buttons gestalten oder Alt-Text zu Bildern hinzufügen – jede Verbesserung trägt zu einem inklusiveren Erlebnis bei. Legen wir los.
 
@@ -122,7 +122,7 @@ Sobald Ihre Struktur steht, ist der nächste Schritt sicherzustellen, dass Ihre 
 
 - **Schreiben Sie kurze, klare Sätze:** Kurze Sätze sind für alle leicht verständlich, besonders für Menschen, die Screenreader verwenden oder Schwierigkeiten haben, komplexe Informationen zu verarbeiten. Schreiben Sie auf dem Leseniveau der siebten Klasse in den USA. Sie können Ressourcen wie die [Hemingway App](https://hemingwayapp.com/) verwenden, um das Leseniveau Ihres Textes zu überprüfen.
 - **Wählen Sie lesbare Schriftgrößen und Abstände:** Text, der zu klein ist, kann schwer zu lesen sein – besonders auf Mobilgeräten. Verwenden Sie mindestens 14px für Fließtext. Machen Sie Überschriften größer, damit Nutzer:innen den Unterschied deutlich erkennen können. Zusätzlicher Zeilenabstand (etwa 1,5-fache Zeilenhöhe) und Absatzabstände verbessern die Lesbarkeit, besonders für Menschen mit visuellen oder kognitiven Bedürfnissen.
-- **Vermeiden Sie Blocksatz:** Blocksatz erzeugt ungleichmäßige Abstände zwischen Wörtern, was das Lesen für Menschen mit Legasthenie oder kognitiven Behinderungen erschwert. Erwägen Sie, Inhalte, die über mehr als zwei Zeilen umbrechen, für Links-nach-rechts-Sprachen linksbündig oder für [Rechts-nach-links-Sprachen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/) rechtsbündig auszurichten.
+- **Vermeiden Sie Blocksatz:** Blocksatz erzeugt ungleichmäßige Abstände zwischen Wörtern, was das Lesen für Menschen mit Legasthenie oder kognitiven Behinderungen erschwert. Erwägen Sie, Inhalte, die über mehr als zwei Zeilen umbrechen, für Links-nach-rechts-Sprachen linksbündig oder für [Rechts-nach-links-Sprachen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages) rechtsbündig auszurichten.
 - **Verwenden Sie Fett, Kursiv und Großbuchstaben sparsam:** Zu viel hervorgehobener Text erschwert das Lesen – besonders für Menschen mit Legasthenie oder Sehbeeinträchtigungen. Halten Sie es einfach.
 
 #### Klarheit und Benutzerfreundlichkeit {#clarity-and-usability}
@@ -131,7 +131,43 @@ Zum Schluss sprechen wir über die feineren Details – die Dinge, die Nutzer:in
 
 - **Beschriften Sie Links und Buttons klar:** Stellen Sie sicher, dass Ihr [Link](#links)- und [Button](#buttons)-Text klar erklärt, was als Nächstes passiert. Das hilft Menschen, die Screenreader verwenden oder mit der Tastatur navigieren, zu wissen, was sie erwartet.
 - **Gehen Sie sparsam mit Symbolen und Emojis um:** Sonderzeichen und Emojis können Ihre Inhalte verspielt machen, aber sie können verwirrend sein, wenn sie von Screenreadern vorgelesen werden. Verwenden Sie sie sparsam und stellen Sie sicher, dass sie keinen klaren, beschreibenden Text ersetzen.
-- **Testen Sie auf Textabschneidung:** Testen Sie Ihren Text immer, indem Sie eine [Testnachricht senden]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages/), um sicherzustellen, dass Ihr Text nicht abgeschnitten wird. Wenn Ihre Nachricht abgeschnitten wird, schadet das sowohl Ihnen als auch Ihrer Zielgruppe, da Ihre Inhalte sie nicht erreichen.
+- **Testen Sie auf Textabschneidung:** Testen Sie Ihren Text immer, indem Sie eine [Testnachricht senden]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages), um sicherzustellen, dass Ihr Text nicht abgeschnitten wird. Wenn Ihre Nachricht abgeschnitten wird, schadet das sowohl Ihnen als auch Ihrer Zielgruppe, da Ihre Inhalte sie nicht erreichen.
+
+### Barrierefreiheitssprache {#accessibility-language}
+
+Die **Barrierefreiheitssprache** teilt Screenreadern und anderen assistiven Tools mit, in welcher Sprache Ihr Inhalt verfasst ist. Für Kanäle, die eine vollständige HTML-Seite oder E-Mail senden, kann Braze ein Sprach-Tag (`lang`) hinzufügen, wenn Sie es im Editor oder über Liquid festlegen. Das unterstützt das [WCAG 2.1 Erfolgskriterium 3.1.1 Sprache der Seite (Stufe A)](https://www.w3.org/WAI/WCAG21/Understanding/language-of-page.html).
+
+Wenn Sie die Barrierefreiheitssprache leer lassen und kein sicherer Standardwert verfügbar ist, lässt Braze das Sprach-Tag weg. Wenn keine Sprache festgelegt ist, greifen assistive Tools oft auf die Telefon- oder Computersprache der Person zurück. Wenn diese von der Nachrichtensprache abweicht, kann die Aussprache falsch klingen.
+
+Campaigns und Canvases verwenden dieselben Editoren für diese Optionen, es sei denn, ein Feature ist für Ihren Workspace nicht verfügbar.
+
+#### Barrierefreiheitssprache konfigurieren {#configure-accessibility-language}
+
+Wenn Ihr Editor diese Option enthält, gehen Sie zum Abschnitt **Accessibility** in den Nachrichteneinstellungen. Wählen Sie eine Sprache aus dem Dropdown oder verwenden Sie Liquid (zum Beispiel {% raw %}`{{accessibility_language}}`{% endraw %}, wenn [mehrsprachige Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) aktiviert sind und die **Einstellungen für die Lokalisierung** konfiguriert sind).
+
+#### Mehrsprachige Nachrichten {#multi-language-messages}
+
+Legen Sie in den **Einstellungen für die Lokalisierung** eine Barrierefreiheitssprache für jede Locale fest, damit Liquid {% raw %}`{{accessibility_language}}`{% endraw %} für lokalisierte Sendungen ausfüllen kann. Ob dieser Wert für neue Nachrichten bereits vorausgewählt ist, hängt vom Kanal ab. Für CSV- und Übersetzungs-Workflows beginnen Sie mit [Spracheinstellungen und Barrierefreiheit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#language-settings-and-accessibility).
+
+#### Kanal- und Editor-Unterstützung {#channel-and-editor-support}
+
+Verwenden Sie diese Tabelle, um Kanäle zu vergleichen. Standardwerte können abweichen, prüfen Sie daher stichprobenartig, was Ihre Zielgruppe tatsächlich erhält.
+
+| Kanal | Wissenswertes |
+| --- | --- |
+| E-Mail (Drag-and-Drop, vollständiges Template) | Legen Sie die Sprache im Editor fest. Bei mehrsprachigen Nachrichten kann ein vollständiges E-Mail-Template die Sprache jeder Locale automatisch zuordnen. Wenn Sie nur Content Blocks (einzelne Zeile) verwenden, funktionieren diese Abkürzungen nicht auf die gleiche Weise – wählen Sie die Sprache selbst, wo der Editor es erlaubt. |
+| E-Mail (HTML-Code) | Braze fügt kein Sprach-Tag für Sie hinzu. Fügen Sie es in Ihrem HTML hinzu, wenn Sie es benötigen. |
+| In-App-Nachrichten (Drag-and-Drop) | Wenn Sie unter **Accessibility** eine Sprache auswählen, fügt Braze diese Sprache dem äußeren HTML der Nachricht hinzu, sodass Screenreader die gesamte Nachricht als diese Sprache behandeln. Bei aktivierten mehrsprachigen Nachrichten können neue Nachrichten standardmäßig Ihre Locale-Sprachen verwenden. Die **Vorschau** zeigt möglicherweise keine Sprache an, bis Sie eine unter **Einstellungen** auswählen. |
+| Banner | Gleiches Verhalten wie bei In-App-Nachrichten. |
+| Landing-Pages | Sie können die Sprache auf der Live-Seite festlegen. Wählen Sie eine Sprache oder verwenden Sie Liquid, wenn Ihr Konto Liquid auf Landing-Pages erlaubt. Standardwerte unterscheiden sich ebenfalls von In-App-Nachrichten und Bannern – prüfen Sie die veröffentlichte Seite. |
+| Content Cards | Cards verwenden ein **Language**-Feld für Apps anstelle einer expliziten Barrierefreiheitssprache. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Kanal- und Editor-Unterstützung" }
+
+Wenn Sie HTML selbst schreiben, können Sie trotzdem ein Sprach-Tag für einen Teil der Nachricht hinzufügen (zum Beispiel einen Satz in einer anderen Sprache). Weitere Muster finden Sie unter [Benutzerdefiniertes HTML](#custom-html).
+
+#### Standardreferenz {#standards-reference}
+
+Wenn Braze ein Sprach-Tag auf Root-Ebene zum HTML hinzufügt, folgt es der HTML-Regel [`lang`](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang). Testtools suchen oft nach [`html-has-lang`](https://dequeuniversity.com/rules/axe/4.2/html-has-lang). Content Cards verwenden stattdessen Ihr **Language**-Feld anstelle dieses HTML-Musters.
 
 ### Buttons {#buttons}
 
@@ -204,7 +240,7 @@ Schreiben Sie Linktexte, die klar beschreiben, wohin der Link die Nutzer:innen f
 | Schlecht | Besser | Am besten |
 | --- | --- | --- |
 | Hier klicken | Hier klicken, um den heutigen Wetterbericht aufzurufen | Heutiger Wetterbericht |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Beschreibenden Linktext schreiben" }
 
 Wie bei allen Inhalten gilt: Halten Sie es unkompliziert mit so wenig überflüssigen Wörtern wie möglich.
 
@@ -449,7 +485,7 @@ Wenn ein Bild als Link oder Call-to-Action fungiert, beschreiben Sie die beabsic
 
 Wenn das Bild keinen Zweck hat, machen Sie das ebenfalls deutlich. Dekorative Bilder, wie Logos, sollten ein leeres Alt-Tag (`alt=""`) haben, damit Screenreader wissen, dass sie es überspringen können. Ohne dieses wird normalerweise stattdessen der Bilddateiname vorgelesen.
 
-### Videos
+### Videos {#videos}
 
 Videos sind ansprechend, aber wenn sie nicht barrierefrei sind, riskieren Sie, einen Teil Ihrer Zielgruppe auszuschließen. Verwenden Sie die folgenden Tipps, um Ihre Videoinhalte inklusiver zu gestalten:
 
@@ -504,7 +540,7 @@ Sie können Ihre Farbwahl mit dem [WebAim Contrast Checker Tool](https://webaim.
 Wenn Sie benutzerdefiniertes HTML in Ihren Nachrichten verwenden:
 
 - Verwenden Sie [semantisches HTML](https://developer.mozilla.org/en-US/docs/Learn/Accessibility/HTML). Das bedeutet, die richtigen HTML-Elemente für ihren vorgesehenen Zweck zu verwenden, anstatt ein Element so zu gestalten, dass es wie ein anderes aussieht. Die meisten HTML-Elemente haben eine eigene integrierte Barrierefreiheitsunterstützung.
-- Setzen Sie das [`lang`-Attribut](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) in Ihrem HTML, um die Sprache Ihres Inhalts zu identifizieren. Screenreader verwenden für jede Sprache unterschiedliche Klangbibliotheken, basierend auf der Aussprache und den Eigenschaften dieser Sprache. Wenn dies nicht angegeben ist, nimmt ein Screenreader an, dass der Inhalt in der Standardsprache geschrieben ist, die der/die Nutzer:in beim Einrichten des Screenreaders gewählt hat. Wenn die Nachricht nicht tatsächlich in der Standardsprache verfasst ist, kann der Screenreader die Nachricht möglicherweise nicht korrekt aussprechen.
+- Für die Sprache auf Dokumentebene, bei der Braze HTML-Metadaten beim Export hinzufügen kann, lesen Sie den Abschnitt [Barrierefreiheitssprache](#accessibility-language); das Verhalten variiert je nach Kanal. Wenn Sie Inhalte selbst auszeichnen, setzen Sie das [`lang`-Attribut](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/lang) in Ihrem HTML, um die Sprache Ihres Inhalts zu identifizieren. Screenreader verwenden für jede Sprache unterschiedliche Klangbibliotheken, basierend auf der Aussprache und den Eigenschaften dieser Sprache. Wenn dies nicht angegeben ist, nimmt ein Screenreader an, dass der Inhalt in der Standardsprache geschrieben ist, die der/die Nutzer:in beim Einrichten des Screenreaders gewählt hat. Wenn die Nachricht nicht tatsächlich in der Standardsprache verfasst ist, kann der Screenreader die Nachricht möglicherweise nicht korrekt aussprechen.
 
 {% raw %}
 ```html
@@ -513,7 +549,7 @@ Wenn Sie benutzerdefiniertes HTML in Ihren Nachrichten verwenden:
 {% endraw %}
 
 {% alert note %}
-Bei Verwendung des E-Mail-Drag-and-Drop-Editors kann der Sprachwert für die E-Mail festgelegt werden, indem Sie zum Tab **Einstellungen** gehen und den entsprechenden Sprachwert auswählen.
+Bei Verwendung des E-Mail-Drag-and-Drop-Editors legen Sie die Sprache über den Tab **Einstellungen** fest, wenn diese Steuerung verfügbar ist. Vollständige Templates und reine Content-Block-E-Mails können unterschiedliche Standardwerte für die Barrierefreiheitssprache verwenden – siehe [Barrierefreiheitssprache](#accessibility-language). Andere Kanäle werden ebenfalls in diesem Abschnitt behandelt.
 {% endalert %}
 
 - Verwenden Sie [ARIA-Attribute](#aria-attributes), um zusätzlichen Kontext bereitzustellen. Diese Attribute liefern assistiven Technologien zusätzliche Informationen und helfen, die Rolle, den Zustand oder die Eigenschaften von UI-Elementen zu verdeutlichen, die andernfalls unklar sein könnten.
@@ -597,8 +633,8 @@ E-Mails, die im E-Mail-Drag-and-Drop-Editor erstellt werden, haben Präsentation
 
 Um Ihnen zu helfen, Barrierefreiheitsprobleme frühzeitig zu erkennen und zu beheben, bietet Braze automatisierte Barrierefreiheitstests in den folgenden Bereichen:
 
-- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/#accessibility-testing) für E-Mails
-- [Barrierefreiheits-Scanner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message#accessibility-scanner) für Nachrichten, die mit unserem HTML-Editor erstellt wurden (zum Beispiel HTML-In-App-Nachrichten, HTML Content Blocks, [benutzerdefinierte E-Mail-Fußzeilen]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/), [E-Mail-Opt-in-Seiten]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-opt-in-page) und [E-Mail-Abmeldeseiten]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#creating-a-custom-unsubscribe-page)).
+- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing) für E-Mails
+- [Barrierefreiheits-Scanner]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner) für Nachrichten, die mit unserem HTML-Editor erstellt wurden (zum Beispiel HTML-In-App-Nachrichten, HTML Content Blocks, [benutzerdefinierte E-Mail-Fußzeilen]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [E-Mail-Opt-in-Seiten]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-opt-in-page) und [E-Mail-Abmeldeseiten]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-unsubscribe-page)).
 
 Diese Tests prüfen Ihre Nachricht anhand des Standards der Web Content Accessibility Guidelines ([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) – einer Reihe international anerkannter technischer Standards für barrierefreie Inhalte. Alle Probleme, die automatisch erkannt werden können, werden markiert und nach Schweregrad kategorisiert, um Ihnen bei der Priorisierung zu helfen.
 
@@ -623,7 +659,7 @@ Einige Beispiele für das, was automatisierte Tools nicht zuverlässig erkennen 
 - Ob Text auf Hintergrundbildern die Farbkontrastanforderungen erfüllt
 - Ob Anweisungen oder Beschriftungen klar und für alle Nutzer:innen hilfreich sind
 
-Diese Einschränkungen sind nicht Braze-spezifisch – sie gelten für alle automatisierten Barrierefreiheitstools. Automatisierte Prüfungen können nicht jede assistive Technologie, jeden Screenreader oder jedes Nutzerbedürfnis simulieren. Deshalb ist Barrierefreiheit keine einmalige Prüfung – sie ist eine kontinuierliche Praxis.
+Diese Einschränkungen sind nicht Braze-spezifisch – sie gelten für alle automatisierten Barrierefreiheitstools. Automatisierte Prüfungen können nicht jede assistive Technologie, jeden Screenreader oder jedes Nutzerbedürfnis simulieren. Deshalb ist Barrierefreiheit keine einmalige Prüfung&#8212;sie ist eine kontinuierliche Praxis.
 
 Selbst wenn Ihre Nachricht jede automatisierte Prüfung besteht, ist es dennoch wichtig:
 

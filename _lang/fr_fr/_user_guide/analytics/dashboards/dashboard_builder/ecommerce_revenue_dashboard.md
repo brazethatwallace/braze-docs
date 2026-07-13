@@ -6,17 +6,19 @@ page_order: 1
 description: "Cet article présente un aperçu du tableau de bord eCommerce Revenue - Last Touch Attribution."
 ---
 
-# Tableau de bord des revenus eCommerce
+# Tableau de bord des revenus eCommerce {#ecommerce-revenue-dashboard}
 
-> Le tableau de bord **eCommerce Revenue - Last Touch Attribution** suit le chiffre d'affaires attribué au dernier point de contact pour les campagnes et les Canvas à l'aide des [événements recommandés eCommerce]({{site.baseurl}}/ecommerce_events/). Utilisez ce tableau de bord pour identifier les messages qui génèrent du chiffre d'affaires et suivre les performances globales de votre eCommerce au fil du temps.
+> Le tableau de bord **eCommerce Revenue - Last Touch Attribution** suit le chiffre d'affaires attribué au dernier point de contact pour les campagnes et les Canvas à l'aide des [événements recommandés eCommerce]({{site.baseurl}}/ecommerce_events). Utilisez ce tableau de bord pour identifier les messages qui génèrent du chiffre d'affaires et suivre les performances globales de votre eCommerce au fil du temps.
 
 {% alert note %}
-Les événements recommandés eCommerce sont actuellement en accès anticipé. Contactez votre gestionnaire de la satisfaction client Braze si vous souhaitez participer à cet accès anticipé. <br><br>Si vous utilisez le nouveau [connecteur Shopify]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector), ces événements recommandés seront automatiquement disponibles via l'intégration. Dans le cas contraire, ces événements doivent être implémentés avant que les données n'apparaissent dans ce tableau de bord.
+Si vous utilisez le nouveau [connecteur Shopify]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores?tab=shopify%20connector), les événements recommandés eCommerce sont automatiquement disponibles via l'intégration. Dans le cas contraire, ces événements doivent être implémentés avant que les données n'apparaissent dans ce tableau de bord.
 {% endalert %}
 
 Pour accéder à votre tableau de bord des revenus eCommerce, rendez-vous dans **Analytics** > **Générateur de tableaux de bord**, puis sélectionnez **eCommerce Revenue - Last Touch Attribution**. Ce tableau de bord présente le chiffre d'affaires attribué à la dernière campagne ou au dernier Canvas avec lequel un utilisateur a interagi avant de passer une commande, dans la fenêtre de conversion sélectionnée.
 
-## Indicateurs disponibles
+![Tableau de bord eCommerce Revenue - Last Touch Attribution affichant des statistiques pour le chiffre d'affaires eCommerce, les commandes quotidiennes passées et le chiffre d'affaires eCommerce quotidien moyen, ainsi qu'un graphique du chiffre d'affaires eCommerce au fil du temps.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_dashboard.png %})
+
+## Indicateurs disponibles {#available-metrics}
 
 | Indicateur | Définition |
 | --- | --- |
@@ -26,9 +28,11 @@ Pour accéder à votre tableau de bord des revenus eCommerce, rendez-vous dans *
 | Chiffre d'affaires eCommerce au fil du temps | Série temporelle du chiffre d'affaires attribué sur la plage de dates sélectionnée. |
 | Chiffre d'affaires eCommerce par campagne | Chiffre d'affaires attribué ventilé par campagne. |
 | Chiffre d'affaires eCommerce par Canvas | Chiffre d'affaires attribué ventilé par Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Indicateurs disponibles" }
 
-## Modèle d'attribution
+![Graphiques du chiffre d'affaires eCommerce par campagne et du chiffre d'affaires eCommerce par Canvas.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_charts.png %})
+
+## Modèle d'attribution {#attribution-model}
 
 Le tableau de bord **eCommerce Revenue - Last Touch Attribution** utilise l'attribution au dernier point de contact. Cela signifie que le chiffre d'affaires est attribué à la campagne ou au Canvas Braze le plus récent avec lequel un utilisateur a interagi avant de passer une commande.
 
@@ -45,7 +49,7 @@ Les interactions de message suivantes sont considérées comme des événements 
 Les interactions de message doivent avoir eu lieu dans la fenêtre de conversion sélectionnée. Les commandes sans interaction de message éligible dans la fenêtre de conversion ne sont pas attribuées.
 {% endalert %}
 
-## Données incluses
+## Données incluses {#included-data}
 
 Le tableau de bord **eCommerce Revenue - Last Touch Attribution** exploite les données des événements recommandés eCommerce :
 
@@ -66,13 +70,12 @@ Le chiffre d'affaires et le nombre de commandes utilisent les calculs standardis
 | --- | --- |
 | Chiffre d'affaires total | Somme des valeurs des commandes passées − Somme des valeurs remboursées |
 | Total des commandes | Commandes distinctes passées − Commandes distinctes annulées |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Données incluses" }
 
-### Données exclues
+### Données exclues {#excluded-data}
 
 Les achats enregistrés via l'ancien événement d'achat (legacy purchase event) ne sont pas inclus. Le tableau de bord **eCommerce Revenue - Last Touch Attribution** ne prend actuellement pas en charge les fonctionnalités liées aux anciens événements d'achat, telles que le LTV ou le reporting des revenus au sein des campagnes ou des Canvas.
 
-
-## Gestion des devises
+## Gestion des devises {#currency-handling}
 
 Tous les revenus sont affichés en USD. Les devises autres que l'USD sont converties en USD au taux de change en vigueur à la date de l'événement. Pour éviter la conversion, définissez la devise en dur sur `USD` lors de l'envoi des événements.

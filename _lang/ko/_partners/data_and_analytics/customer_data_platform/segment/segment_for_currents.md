@@ -21,9 +21,9 @@ Braze와 Segment 통합을 통해 Braze Currents를 활용하여 Braze 이벤트
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Segment 계정 | 이 파트너십을 활용하려면 [Segment 계정](https://app.segment.com/login)이 필요합니다. |
-| Braze 대상 | Segment 통합에서 이미 [Braze를 대상으로 설정]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/)해야 합니다.<br><br>여기에는 [연결 설정]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings)에서 올바른 Braze 데이터 센터와 REST API 키를 제공하는 것이 포함됩니다. |
-| Currents | 데이터를 Segment로 다시 내보내려면 계정에 [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze 대상 | Segment 통합에서 이미 [Braze를 대상으로 설정]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/)해야 합니다.<br><br>여기에는 [연결 설정]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings)에서 올바른 Braze 데이터 센터와 REST API 키를 제공하는 것이 포함됩니다. |
+| Currents | 데이터를 Segment로 다시 내보내려면 계정에 [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents)가 설정되어 있어야 합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -45,11 +45,11 @@ Segment 쓰기 키를 최신 상태로 유지하는 것이 중요합니다. 커�
 
 ### 3단계: 메시지 참여 이벤트 내보내기 {#step-3-export-message-engagement-events}
 
-다음으로, 내보내려는 메시지 참여 이벤트를 선택합니다. 아래 나열된 내보내기 이벤트 및 속성 테이블을 참조하세요. Segment로 전송되는 모든 이벤트에는 사용자의 `external_user_id`가 `userId`로, 사용자의 `braze_id`가 `anonymousId`로 포함됩니다.
+다음으로, 내보내려는 메시지 참여 이벤트를 선택합니다. 아래 나열된 내보내기 이벤트 및 등록정보 테이블을 참조하세요. Segment로 전송되는 모든 이벤트에는 사용자의 `external_user_id`가 `userId`로, 사용자의 `braze_id`가 `anonymousId`로 포함됩니다.
 
 **Include events from anonymous users**가 체크되어 있는 경우에만 Braze가 `external_user_id`가 없는 사용자의 이벤트 데이터를 전송한다는 점에 유의하세요.
 
-{% multi_lang_include early_access_beta_alert.md feature='Anonymous user export' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Anonymous user export' %}
 
 ![Braze의 Segment Currents 페이지에서 사용 가능한 모든 메시지 참여 이벤트 목록.]({% image_buster /assets/img/segment/segment_currents_data_config.png %})
 
@@ -61,75 +61,13 @@ Segment 쓰기 키를 최신 상태로 유지하는 것이 중요합니다. 커�
 
 ## Currents 업데이트하기 {#updating-your-current}
 
-{% multi_lang_include updating_currents.md %}
+{% multi_lang_include currents/updating_currents.md %}
 
 ## 지원되는 Currents 이벤트 {#supported-currents-events}
 
-Braze는 Currents [사용자 동작]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) 및 [메시지 참여]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) 이벤트 용어집에 나열된 다음 데이터를 Segment로 내보내는 것을 지원합니다:
+Braze는 다음 이벤트를 Segment로 내보내는 것을 지원합니다:
 
-### 동작 {#behaviors}
-- 제거: `users.behaviors.Uninstall`
-- 구독(글로벌 상태 변경): `users.behaviors.subscription.GlobalStateChange`
-- 구독 그룹(상태 변경): `users.behaviors.subscriptiongroup.StateChange`
+- [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-### Campaigns
-- 중단: `users_campaigns_abort`
-- 전환: `users.campaigns.Conversion`
-- EnrollinControl: `users.campaigns.EnrollInControl`
-
-### Canvas
-- 중단: `users_canvas_abort`
-- 전환: `users.canvas.Conversion`
-- 진입: `users.canvas.Entry`
-- 종료(일치하는 오디언스, 수행된 이벤트)
-  - `users.canvas.exit.MatchedAudience`
-  - `users.canvas.exit.PerformedEvent`
-- 실험 단계(전환, 분할 진입)
-  - `users.canvas.experimentstep.Conversion`
-  - `users.canvas.experimentstep.SplitEntry`
-
-### 메시지 {#messages}
-- 콘텐츠 카드(중단, 클릭, 닫기, 노출, 전송)
-  - `users.messages.contentcard.Abort`
-  - `users.messages.contentcard.Click`
-  - `users.messages.contentcard.Dismiss`
-  - `users.messages.contentcard.Impression`
-  - `users.messages.contentcard.Send`
-- 이메일(중단, 반송, 클릭, 전달, 스팸 신고, 열기, 전송, 소프트 반송, 수신 거부)
-  - `users.messages.email.Abort`
-  - `users.messages.email.Bounce`
-  - `users.messages.email.Click`
-  - `users.messages.email.Delivery`
-  - `users.messages.email.MarkAsSpam`
-  - `users.messages.email.Open`
-  - `users.messages.email.Send`
-  - `users.messages.email.SoftBounce`
-  - `users.messages.email.Unsubscribe`
-- 인앱 메시지(중단, 클릭, 노출)
-  - `users.messages.inappmessage.Abort`
-  - `users.messages.inappmessage.Click`
-  - `users.messages.inappmessage.Impression`
-- 푸시 알림(중단, 반송, iOS 포그라운드, 열기, 전송)
-  - `users.messages.pushnotification.Abort`
-  - `users.messages.pushnotification.Bounce`
-  - `users.messages.pushnotification.IosForeground`
-  - `users.messages.pushnotification.Open`
-  - `users.messages.pushnotification.Send`
-- SMS(중단, 통신사 전송, 전달, 전달 실패, 인바운드 수신, 거부, 전송, 짧은 링크 클릭)
-  - `users.messages.sms.Abort`
-  - `users.messages.sms.Delivery`
-  - `users.messages.sms.DeliveryFailure`
-  - `users.messages.sms.InboundReceive`
-  - `users.messages.sms.Rejection`
-  - `users.messages.sms.Send`
-  - `users.messages.sms.ShortLinkClick`
-- 웹훅(중단, 전송)
-  - `users.messages.webhook.Abort`
-  - `users.messages.webhook.Send`
-- WhatsApp(중단, 전달, 실패, 인바운드 수신, 읽음, 전송)
-  - `users.messages.whatsapp.Abort`
-  - `users.messages.whatsapp.Delivery`
-  - `users.messages.whatsapp.Failure`
-  - `users.messages.whatsapp.InboundReceive`
-  - `users.messages.whatsapp.Read`
-  - `users.messages.whatsapp.Send`
+각 이벤트의 페이로드 구조에 대해서는 [메시지 참여 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 및 [고객 행동 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)에서 **Segment** 탭을 선택하세요.

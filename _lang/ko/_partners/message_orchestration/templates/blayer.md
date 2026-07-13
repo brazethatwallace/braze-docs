@@ -1,7 +1,7 @@
 ---
 nav_title: B.Layer
 article_title: B.Layer
-description: "This reference article outlines the partnership between Braze and B.Layer, an in-app message builder, you can use to create custom-designed in-app messages simply, rapidly, and without coding."
+description: "이 참조 문서에서는 Braze와 인앱 메시지 빌더인 B.Layer 간의 파트너십을 설명합니다. B.Layer를 사용하면 코딩 없이 간편하고 빠르게 커스텀 디자인 인앱 메시지를 만들 수 있습니다."
 alias: /partners/blayer-inapps/
 page_type: partner
 search_tag: Partner
@@ -10,60 +10,58 @@ search_tag: Partner
 
 # B.Layer
 
-> [B.Layer](https://blayer.phiture.com) is Phiture's in-app message builder that helps mobile apps' CRM teams to create custom-designed in-app messages simply, rapidly, and without coding. 
+> [B.Layer](https://blayer.phiture.com)는 Phiture의 인앱 메시지 빌더로, 모바일 앱 CRM 팀이 코딩 없이 간편하고 빠르게 커스텀 디자인 인앱 메시지를 만들 수 있도록 도와줍니다.
 
-_This integration is maintained by B.Layer._
+_이 통합은 B.Layer에서 유지 관리합니다._
 
-## 통합 정보
+## 통합 정보 {#about-the-integration}
 
-Braze와 B.Layer 통합을 통해 B.Layer 인앱 메시지 빌더를 사용하면 zip 파일 또는 인라인 HTML로 내보낼 수 있는 온브랜드 인앱 메시지를 Braze에 구축할 수 있습니다. This integration does not require additional developer resources, saving you time and budget.
+Braze와 B.Layer 통합을 통해 B.Layer 인앱 메시지 빌더를 사용하면 zip 파일 또는 인라인 HTML로 Braze에 내보낼 수 있는 온브랜드 인앱 메시지를 구축할 수 있습니다. 이 통합은 추가 개발자 리소스가 필요하지 않으므로 시간과 비용을 절약할 수 있습니다.
 
-![]({% image_buster /assets/img/blayer/blayer2.png %})
+![브랜드 인앱 메시지를 미리 보여주는 B.Layer 빌더 인터페이스]({% image_buster /assets/img/blayer/blayer2.png %})
 
-## 전제 조건
+## 필수 조건 {#prerequisites}
 
-| Requirement | Description |
+| 요구 사항 | 설명 |
 | ----------- | ----------- |
-| B.Layer account | A [B.Layer](https://blayer.phiture.com) account is required to take advantage of this partnership. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| B.Layer 계정 | 이 파트너십을 활용하려면 [B.Layer](https://blayer.phiture.com) 계정이 필요합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## Use cases
+## 사용 사례 {#use-cases}
 
-With B.Layer there are endless opportunities to build and experiment with, including product recommendation sliders, multi-screen onboarding or surveys, NPS, email capture, special offers, and more.
+B.Layer를 사용하면 제품 추천 슬라이더, 멀티 스크린 온보딩 또는 설문조사, 순고객추천지수, 이메일 수집, 특별 혜택 등 무한한 가능성을 구축하고 실험할 수 있습니다.
 
-They are working with brands like Lifesum, Blinkist, OnX Hunt, and many more to help improve their user experience without extra resources. We are also among the finalist of the APS Awards 2022 in the app innovation category.
+B.Layer는 Lifesum, Blinkist, OnX Hunt 등 다양한 브랜드와 협력하여 추가 리소스 없이 사용자 경험을 개선하도록 돕고 있습니다. 또한 APS Awards 2022 앱 혁신 부문 최종 후보에 선정되기도 했습니다.
 
-## Integration
+## 통합 {#integration}
 
-### Step 1: Create your in-app message
+### 1단계: 인앱 메시지 만들기 {#step-1-create-your-in-app-message}
 
-#### Set brand colors and fonts
+#### 브랜드 색상 및 글꼴 설정 {#set-brand-colors-and-fonts}
 
-In B.Layer, on the hamburger menu at the top of the page, click **Brand assets > add your brand assets**. Here, you can assign your brand color and fonts.
-You are all set. Now you can start designing your in-app message.
+B.Layer에서 페이지 상단의 햄버거 메뉴를 클릭한 다음 **Brand assets > add your brand assets**를 클릭합니다. 여기에서 브랜드 색상과 글꼴을 할당할 수 있습니다.
+이제 준비가 완료되었습니다. 인앱 메시지 디자인을 시작할 수 있습니다.
 
-![]({% image_buster /assets/img/blayer/blayer4.png %})
+![색상 및 글꼴을 구성하는 B.Layer 브랜드 에셋 화면]({% image_buster /assets/img/blayer/blayer4.png %})
 
-#### Design your in-app message
+#### 인앱 메시지 디자인 {#design-your-in-app-message}
 
-To design your in-app message, select a single in-app message. Next, style your message and add the components you need. Each component can be adjusted.
+인앱 메시지를 디자인하려면 단일 인앱 메시지를 선택합니다. 그런 다음 메시지 스타일을 지정하고 필요한 구성요소를 추가합니다. 각 구성요소는 조정할 수 있습니다.
 
-![]({% image_buster /assets/img/blayer/blayer5.png %})
+![구성요소 및 스타일 컨트롤이 있는 B.Layer 메시지 편집기]({% image_buster /assets/img/blayer/blayer5.png %})
 
-### Download your in-app message
+### 인앱 메시지 다운로드 {#download-your-in-app-message}
 
-Once you are done, download your message. Your message can be downloaded as a ZIP or inline HTML. 
+완료되면 메시지를 다운로드합니다. 메시지는 ZIP 또는 인라인 HTML로 다운로드할 수 있습니다.
 
-### Step 2: Add B.Layer custom code
+### 2단계: B.Layer 커스텀 코드 추가 {#step-2-add-blayer-custom-code}
 
-In Braze, create a custom code in-app message. If you have a ZIP file, drag and drop it into the box above the code section. If you have an inline HTML file, paste the inline HTML into the HTML section.
+Braze에서 사용자 지정 코드 인앱 메시지를 생성합니다. ZIP 파일이 있는 경우 이 섹션의 업로드 상자에 드래그 앤 드롭합니다. 인라인 HTML 파일이 있는 경우 인라인 HTML을 HTML 섹션에 붙여넣습니다.
 
-![]({% image_buster /assets/img/blayer/blayer6.png %})
+![B.Layer 내보내기 콘텐츠가 포함된 Braze 사용자 지정 코드 인앱 메시지 편집기]({% image_buster /assets/img/blayer/blayer6.png %})
 
-## Button tracking
+## 버튼 추적 {#button-tracking}
 
-With B.Layer, you can log button interactions or text input as a Braze attribute. That can be done within the editor. A popular example is an NPS survey.
+B.Layer를 사용하면 버튼 상호작용이나 텍스트 입력을 Braze 속성으로 기록할 수 있습니다. 이 작업은 편집기 내에서 수행할 수 있습니다. 대표적인 예로 순고객추천지수 설문조사가 있습니다.
 
-B.Layer uses Braze button tracking added to the links you enter (for example, `?button=0`). This way, you can see the button clicks in the analytics part of your campaign.
-
-
+B.Layer는 입력한 링크에 추가된 Braze 버튼 추적을 사용합니다(예: `?button=0`). 이를 통해 Campaign의 분석 섹션에서 버튼 클릭 수를 확인할 수 있습니다.

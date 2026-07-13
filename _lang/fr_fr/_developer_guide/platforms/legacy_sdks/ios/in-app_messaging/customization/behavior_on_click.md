@@ -11,9 +11,9 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Personnaliser le comportement des messages in-app lorsque l'utilisateur clique dessus
+# Personnaliser le comportement des messages in-app au clic {#customize-in-app-message-behavior-on-click}
 
-La propriété de `inAppMessageClickActionType` sur le `ABKInAppMessage` définit le comportement d’action après avoir cliqué sur le message in-app. Cette propriété est en lecture seule. Si vous souhaitez modifier le comportement de clic du message in-app, vous pouvez employer la méthode suivante sur `ABKInAppMessage` :
+La propriété `inAppMessageClickActionType` sur l'objet `ABKInAppMessage` définit le comportement de l'action après le clic sur le message in-app. Cette propriété est en lecture seule. Si vous souhaitez modifier le comportement au clic du message in-app, vous pouvez appeler la méthode suivante sur `ABKInAppMessage` :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -32,21 +32,21 @@ inAppMessage.setInAppMessageClickAction(clickActionType: clickActionType, withUR
 {% endtab %}
 {% endtabs %}
 
-Le `inAppMessageClickActionType` peut être défini sur l’une des valeurs suivantes :
+Le `inAppMessageClickActionType` peut être défini sur l'une des valeurs suivantes :
 
 | `ABKInAppMessageClickActionType` | Comportement au clic |
 | -------------------------- | -------- |
-| `ABKInAppMessageRedirectToURI` | L’URI donné s’affiche lorsque l’on clique sur le message, et le message est rejeté. Notez que le paramètre `uri` ne peut pas être nul. |
-| `ABKInAppMessageNoneClickAction` | Le message sera rejeté lorsque vous cliquerez. Notez que le paramètre `uri` sera ignoré, et la propriété `uri` sur le `ABKInAppMessage` sera définie sur nul. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `ABKInAppMessageRedirectToURI` | L'URI donné s'affiche lorsque l'on clique sur le message, et le message est fermé. Notez que le paramètre `uri` ne peut pas être nul. |
+| `ABKInAppMessageNoneClickAction` | Le message sera fermé lorsque l'on clique dessus. Notez que le paramètre `uri` sera ignoré, et la propriété `uri` sur l'objet `ABKInAppMessage` sera définie sur nul. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Personnaliser le comportement des messages in-app au clic" }
 
 {% alert important %}
-Pour les messages in-app contenant des boutons, le message `clickAction` sera également inclus dans la charge utile finale si l'action de clic est ajoutée avant l'ajout du texte du bouton.
+Pour les messages in-app contenant des boutons, le `clickAction` du message sera également inclus dans le payload final si l'action de clic est ajoutée avant l'ajout du texte du bouton.
 {% endalert %}
 
-## Personnaliser les clics sur le corps du message in-app
+## Personnaliser les clics sur le corps du message in-app {#customizing-in-app-message-body-clicks}
 
-La méthode de délégation [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) suivante est appelée lorsque l’on clique sur un message in-app :
+La méthode de délégation [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) suivante est appelée lorsque l'on clique sur un message in-app :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -65,9 +65,9 @@ func onInAppMessageClicked(inAppMessage: ABKInAppMessage!) -> Bool
 {% endtab %}
 {% endtabs %}
 
-## Personnaliser les clics sur le bouton du message in-app
+## Personnaliser les clics sur les boutons du message in-app {#customizing-in-app-message-button-clicks}
 
-Pour les clics sur les boutons de message in-app et les boutons de message in-app HTML (par exemple, des liens), [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) inclut les méthodes de délégation suivantes :
+Pour les clics sur les boutons de message in-app et les boutons de message in-app HTML (tels que les liens), [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) inclut les méthodes de délégation suivantes :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -95,9 +95,9 @@ func onInAppMessageHTMLButtonClicked(inAppMessage: ABKInAppMessageHTML!,
 {% endtab %}
 {% endtabs %}
 
-Chaque méthode renvoie une valeur `BOOL` pour indiquer si Braze doit continuer à exécuter l’action de clic.
+Chaque méthode renvoie une valeur `BOOL` pour indiquer si Braze doit continuer à exécuter l'action de clic.
 
-Pour accéder au type d’action du clic d’un bouton dans une méthode de délégation, vous pouvez utiliser le code suivant :
+Pour accéder au type d'action de clic d'un bouton dans une méthode de délégation, vous pouvez utiliser le code suivant :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -127,11 +127,10 @@ if inAppMessage is ABKInAppMessageImmersive {
 {% endtab %}
 {% endtabs %}
 
-Lorsqu’un message in-app comporte des boutons, les seules actions de clic qui seront exécutées sont celles du modèle `ABKInAppMessageButton`. Le corps du message in-app ne sera pas cliquable, même si le modèle `ABKInAppMessage` est doté de l'action de clic par défaut.
+Lorsqu'un message in-app comporte des boutons, les seules actions de clic exécutées sont celles du modèle `ABKInAppMessageButton`. Le corps du message in-app ne sera pas cliquable, même si le modèle `ABKInAppMessage` dispose de l'action de clic par défaut.
 
-## Déclarations de méthode
+## Déclarations de méthode {#method-declarations}
 
-Pour plus d’informations, voir les fichiers d’en-tête suivants :
+Pour plus d'informations, consultez les fichiers d'en-tête suivants :
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
-

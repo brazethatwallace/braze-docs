@@ -1,18 +1,24 @@
 ---
 nav_title: エディターブロック
-article_title: エディターブロック
+article_title: ドラッグ＆ドロップエディターブロック
 alias: "/dnd/editor_blocks/"
 channel:
 - email
 - in-app messages
+- landing pages
+- banners
+- preference center
 page_order: 3
-description: "この参照記事では、メールおよびアプリ内メッセージのドラッグ＆ドロップエディターで提供されるさまざまなエディターブロックについて説明します。"
+page_type: reference
+description: "この参照記事では、メール、アプリ内メッセージ、ランディングページ、バナー、およびドラッグ＆ドロップメールユーザー設定センターのドラッグ＆ドロップエディターで使用できるエディターブロックについて説明します。"
 tool: Media
 ---
 
 # ドラッグ＆ドロップエディターブロック {#drag-and-drop-editor-blocks}
 
-> エディターブロックは、**ドラッグ＆ドロップエディター**で使用できるさまざまなブロックです。この参照記事では、メッセージで使用できるさまざまな種類のコンテンツを表すタイルを紹介します。
+> エディターブロックは、ドラッグ＆ドロップエディターで行や列にドラッグするタイルです。
+
+使用しているエディターを選択してください:
 
 {% sdktabs %}
 
@@ -22,6 +28,18 @@ tool: Media
 
 {% sdktab in-app messages %}
 {% multi_lang_include drag_and_drop/iam_editor_blocks.md %}
+{% endsdktab %}
+
+{% sdktab landing pages %}
+{% multi_lang_include drag_and_drop/landing_page_editor_blocks.md %}
+{% endsdktab %}
+
+{% sdktab banners %}
+{% multi_lang_include drag_and_drop/banner_editor_blocks.md %}
+{% endsdktab %}
+
+{% sdktab preference center %}
+{% multi_lang_include drag_and_drop/preference_center_editor_blocks.md %}
 {% endsdktab %}
 
 {% endsdktabs %}

@@ -22,7 +22,7 @@ Die Segmente werden in Gruppen von 100 zurückgegeben, sortiert nach dem Zeitpun
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `segments.list`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `segments.list`.
 
 ## Rate-Limit
 
@@ -34,7 +34,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | -------- | -------- | --------- | ----------- |
 | `page` | Optional | Integer | Die Seite der zurückzugebenden Segmente, Standardwert ist 0 (gibt den ersten Satz von bis zu 100 zurück). |
 | `sort_direction` | Optional | String | - Erstellungszeit vom neuesten zum ältesten sortieren: Geben Sie den Wert `desc` an.<br> - Erstellungszeit vom ältesten zum neuesten sortieren: Geben Sie den Wert `asc` an. <br><br>Wenn `sort_direction` nicht angegeben ist, ist die Standardreihenfolge vom ältesten zum neuesten. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 ```
@@ -60,7 +60,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
 ```
 
 {% alert tip %}
-Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Hilfe zu CSV- und API-Exporten finden Sie unter [Fehlerbehebung bei Exporten]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

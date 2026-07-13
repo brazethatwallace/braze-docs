@@ -23,7 +23,7 @@ Context steps allow you to create and use temporary data during a user's journey
 Context variables exist only for that specific Canvas journey. They don't change the user's profile permanently and don't appear in other Canvases. This makes them ideal for temporary information that's relevant only to a specific campaign or workflow.
 
 {% alert tip %}
-For a full reference on context variables, including data types, usage, and best practices, see the [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/).
+For a full reference on context variables, including data types, usage, and best practices, see the [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 {% endalert %}
 
 Within a Context step, you can define or update up to 10 context variables. These variables can be used to personalize delays, segment users dynamically, and enrich messaging throughout the Canvas. For example, you could create a context variable for a user's scheduled flight time, then use it to set personalized delays and send reminders.
@@ -33,7 +33,7 @@ You can set context variables in two ways:
 - **At Canvas entry:** Properties from the custom event or API trigger are automatically populated as context variables.
 - **In a Context step:** Define or update context variables manually by adding a Context step.
 
-Each context variable requires a name, a data type, and a value (set using Liquid or the Add Personalization tool). When defined, you can reference context variables throughout the Canvas using Liquid, such as {% raw %}`{{context.${flight_time}}}`{% endraw %}. In the **Context variable name** field, you can also enter the context variable name or select it from the dropdown in the step editor. For details, see [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/).
+Each context variable requires a name, a data type, and a value (set using Liquid or the Add Personalization tool). When defined, you can reference context variables throughout the Canvas using Liquid, such as {% raw %}`{{context.${flight_time}}}`{% endraw %}. In the **Context variable name** field, you can also enter the context variable name or select it from the dropdown in the step editor. For details, see [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 
 Each Canvas entry redefines context variables based on the latest entry data and Canvas setup, allowing users to have multiple active journeys with their own context. For example, if a customer has two upcoming flights, they'll have two separate journey states running simultaneously&#8212;each with its own flight-specific context variables like departure time and destination. This allows you to send personalized reminders about their 2 pm flight to New York while sending different updates about their 8 am flight to Los Angeles tomorrow, so that each message stays relevant to the specific booking.
 
@@ -58,7 +58,7 @@ Without Connected Content, Context steps process much faster because there are n
 - The total size of all variables in a step cannot exceed 50 KB.
 - Variables passed in using API triggers share the same namespace as those created in Context steps; redefining a variable in a Context step overrides the API value.
 
-For more details and advanced usage, see [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/).
+For more details and advanced usage, see [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 
 ## Creating a Context step
 
@@ -77,13 +77,13 @@ You can define up to 10 context variables for each Context step.
 To define a context variable:
 
 1. Give your context variable a **name**.
-2. Select a [data type]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#data-types).
+2. Select a [data type]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#data-types).
 3. Write a Liquid expression manually or use **Add Personalization** to create a Liquid snippet from pre-existing attributes.
 4. Select **Preview** to check the value of your context variable.
 5. (Optional) To add additional variables, select **Add Context variable** and repeat steps 1-4.
 6. When you're finished, select **Done**.
 
-Now you can use your context variable anywhere you use Liquid, such as in Message and User Update steps, by selecting **Add Personalization**. In the **Context variable name** field, you can also enter the context variable name or select it from the dropdown in the step editor. For a full walkthrough, see [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/).
+Now you can use your context variable anywhere you use Liquid, such as in Message and User Update steps, by selecting **Add Personalization**. In the **Context variable name** field, you can also enter the context variable name or select it from the dropdown in the step editor. For a full walkthrough, see [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 
 {% alert important %}
 When referencing context variables, always use the format {% raw %}`{{context.${variable_name}}}`{% endraw %}.
@@ -91,13 +91,19 @@ When referencing context variables, always use the format {% raw %}`{{context.${
 
 ### Context variable filters
 
-You can create filters using context variables in [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) and [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/) steps. For filter setup, comparison logic, and advanced examples, see [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#context-variable-filters).
+You can create filters using context variables in [Audience Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) and [Decision Split]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) steps.
+
+To route users based on an [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) response, add the Agent step before your Audience Paths or Decision Split step. The Agent step stores its output in Canvas context, which you can evaluate with context variable filters in those branching steps.
+
+If the agent returns an object and you want to filter on a nested property, enter the path in the **Context variable name** field using dot notation instead of only the top-level variable name (for example, `intent_agent.persona` when `persona` is nested under `intent_agent`).
+
+For filter setup, comparison logic, and advanced examples, see [Context variables reference]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#context-variable-filters).
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
 
 ## Previewing user paths
 
-We recommend testing and [previewing your user paths]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths/) to make sure your messages are sent to the right audience and context variables are evaluated to the expected outcomes.
+We recommend testing and [previewing your user paths]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) to make sure your messages are sent to the right audience and context variables are evaluated to the expected outcomes.
 
 {% alert note %}
 If you're previewing your Canvas in the **Preview & Test Send** section of the editor, the timestamp in the test message preview **does not** standardize to UTC because this panel generates previews as strings. This means if a Canvas is set up to accept a `time` object, the message preview does not accurately preview what occurs when the Canvas is live. To test your Canvas most accurately, we recommend previewing user paths instead.
@@ -109,7 +115,7 @@ If the context variable is valid, you can reference the variable throughout your
 
 ## Converting Connected Content strings to JSON
 
-When making a [Connected Content call]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) in a Context step, JSON returned from the call is evaluated as a string data type for consistency and error prevention. If you want to convert this string into JSON, convert it by using `as_json_string`. For example:
+When making a [Connected Content call]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) in a Context step, JSON returned from the call is evaluated as a string data type for consistency and error prevention. If you want to convert this string into JSON, convert it by using `as_json_string`. For example:
 
 {%raw%}
 ```liquid
@@ -135,7 +141,7 @@ In these circumstances:
 
 When troubleshooting, monitor the _Not Updated_ metric to check that your context variable is updating correctly. If the context variable is invalid, your users can continue in your Canvas past the Context step, but may not qualify for later steps.
 
-Refer to [Data types]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#data-types) for the example setups for each data type.
+Refer to [Data types]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#data-types) for the example setups for each data type.
 
 ### Delays in sending with Connected Content
 
@@ -174,7 +180,7 @@ In all circumstances, we strongly recommend using [Liquid time_zone filters]({{s
 
 Now that Canvas Context is generally available, the following details apply:
 
-- All timestamps with a [datetime type]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/) from [trigger event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) in action-based Canvases are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
+- All timestamps with a [datetime type]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties) from [trigger event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) in action-based Canvases are in [UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time).
 - This change impacts all action-based Canvases, whether the specific Canvas is using a Context step or not.
 
 #### What is the reason for this change?
@@ -196,7 +202,7 @@ Here's an example of how to do this:
 | {% raw %}```{{canvas_entry_properties.${timestamp_property}}}```{% endraw %} | `2025-08-05T08:15:30:250-0800` | No |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 4:15pm` | No
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | time_zone: "America/Los_Angeles" | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 8:15am` | Yes |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Does this change impact Canvas entry properties?" }
 
 #### What is a practical example of how the new timestamp behavior might affect my messages? {#faq-example}
 
@@ -254,7 +260,7 @@ Yes. All variables in a Context step are evaluated in a sequence, meaning you co
 |`favorite_cuisine`| {% raw %}`{{custom_attribute.${Favorite Cuisine}}}`{% endraw %} | A user's favorite type of cuisine. |
 |`promo_code`| {% raw %}`EATFRESH`{% endraw %} | The available discount code for a user. |
 |`personalized_message`|  {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | A personalized message that combines the previous variables. In a Message step, you could use the Liquid snippet {% raw %}`{{context.${personalized_message}}}`{% endraw %} to reference the context variable to deliver a personalized message to each user. You could also use a Context step to save the [promo code]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes#creating-a-promotion-code-list) value and template it in other steps throughout a Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Can variables reference each other in a singular Context step?" }
 
 This also applies across multiple Context steps. For example, imagine this sequence:
 

@@ -3,7 +3,7 @@ nav_title: Crear notificaciones enriquecidas
 article_title: "Creación de notificaciones push enriquecidas para Android"
 page_order: 3
 page_layout: tutorial
-description: "Este tutorial explica cómo configurar notificaciones enriquecidas de Android para tus Campaigns de Braze."
+description: "Este tutorial cubre cómo configurar notificaciones enriquecidas de Android para tus Campaigns de Braze."
 platform: Android
 channel:
   - Push
@@ -35,9 +35,9 @@ Aunque Braze proporciona instrucciones sobre cómo configurar notificaciones pus
 
 ## Configurar tu notificación enriquecida de Android {#setting-up-your-android-rich-notification}
 
-### Paso 1: Crear una Campaign push {#step-1-create-a-push-campaign}
+### Paso 1: Crear una campaña push {#step-1-create-a-push-campaign}
 
-Sigue los pasos para [crear una Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message) y redactar una notificación push para Android. Utilizarás el mismo compositor para configurar notificaciones push que no contengan contenido enriquecido.
+Sigue los pasos para [crear una campaña]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message) y redactar una notificación push para Android. Utilizarás el mismo compositor para configurar notificaciones push que no contengan contenido enriquecido.
 
 ### Paso 2: Añadir texto descriptivo {#step-2-add-captioning}
 
@@ -49,10 +49,10 @@ Añade el **Summary Text** que deseas mostrar antes de la imagen en la notificac
 
 Añade tu imagen en el campo **Android Notification Image** en el compositor del mensaje. Las imágenes se pueden cargar directamente a través del dashboard o especificando una URL de contenido alojada en otro lugar.
 
-Para obtener detalles sobre las imágenes compatibles, consulta [Especificaciones de imagen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#push).
+Para obtener detalles sobre las imágenes compatibles, consulta [Especificaciones de imagen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#push).
 
 ![La sección de imagen de notificación de Android donde puedes añadir una imagen o introducir una URL de imagen.]({% image_buster /assets/img_archive/android_rich_image.png %})
 
-### Paso 4: Continuar creando tu Campaign {#step-4-continue-creating-your-campaign}
+### Paso 4: Continuar creando tu campaña {#step-4-continue-creating-your-campaign}
 
-Una vez que el contenido de tu notificación enriquecida se haya cargado en el dashboard, puedes continuar [planificando tu Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+Una vez que el contenido de tu notificación enriquecida se haya cargado en el dashboard, puedes continuar [planificando tu campaña]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).

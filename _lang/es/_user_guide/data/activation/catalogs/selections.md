@@ -8,13 +8,9 @@ description: "Este artículo de referencia explica cómo crear y usar seleccione
 
 # Selecciones {#selections}
 
-> Esta página explica cómo crear y usar selecciones con tus [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs/).
+> Las selecciones son grupos de datos que puedes usar para personalizar un mensaje para cada usuario en tu campaña. Cuando usas una selección, básicamente estás configurando filtros personalizados basados en columnas específicas de tu catálogo. Esto puede incluir filtros por marca, tamaño, ubicación, fecha de adición y más. Te da control sobre lo que muestras a los usuarios al permitirte definir criterios que los artículos deben cumplir primero.<br><br>Esta página explica cómo crear y usar selecciones con tus catálogos.
 
-## Cómo funciona {#how-it-works}
-
-Las selecciones son grupos de datos que pueden usarse para personalizar un mensaje para cada usuario en tu campaña. Cuando usas una selección, básicamente estás configurando filtros personalizados basados en columnas específicas de tu catálogo. Esto puede incluir filtros por marca, tamaño, ubicación, fecha de adición y más. Te da control sobre lo que muestras a los usuarios al permitirte definir criterios que los artículos deben cumplir primero.
-
-Después de crear un catálogo, puedes seguir haciendo referencia a los datos de tu catálogo incorporando selecciones en tus campañas o recomendaciones de Braze.
+Después de crear un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs), puedes seguir haciendo referencia a los datos de tu catálogo incorporando selecciones en tus campañas o recomendaciones de Braze.
 
 ![La sección Selecciones en un catálogo de ejemplo.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -22,20 +18,48 @@ Después de crear un catálogo, puedes seguir haciendo referencia a los datos de
 
 - Puedes crear hasta 30 selecciones por catálogo.
 - Puedes añadir hasta 10 filtros por selección.
-- Las selecciones son ideales para refinar las recomendaciones a partir de los datos de catálogo de Braze. Si buscas inspiración, consulta [Acerca de las recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) para ver ejemplos de casos de uso.
+- Las selecciones son ideales para refinar las recomendaciones a partir de los datos de catálogo de Braze. Si buscas inspiración, consulta [Acerca de las recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/recommendations) para ver ejemplos de casos de uso.
+
+## Filtros de geolocalización {#geolocation-filters}
+
+Si tu catálogo incluye un [tipo de campo de geolocalización]({{site.baseurl}}/user_guide/data/activation/catalogs/create#supported-data-types), puedes usar filtros basados en geolocalización en tus selecciones para mostrar artículos del catálogo según su proximidad a un punto geográfico.
+
+Hay dos operadores de geolocalización disponibles:
+
+| Operador | Descripción |
+| -------- | ----------- |
+| `geo within` | Devuelve artículos cuyo campo de geolocalización se encuentra dentro de un radio especificado de un punto central. |
+| `geo outside` | Devuelve artículos cuyo campo de geolocalización se encuentra fuera de un radio especificado de un punto central. |
+{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+
+Cuando se aplica un filtro de geolocalización, los resultados se ordenan por distancia, con el artículo más cercano primero.
+
+### Configurar el punto central con Liquid {#setting-the-center-point-with-liquid}
+
+Puedes configurar el punto central de forma dinámica usando Liquid. Por ejemplo, para filtrar artículos en relación con la ubicación más reciente de cada usuario, usa el atributo {% raw %}`{{${most_recent_location}}}`{% endraw %} como valor del filtro:
+
+{% raw %}
+```
+{{${most_recent_location}}}
+```
+{% endraw %}
+
+### Caso de uso: mostrar las ubicaciones de tiendas más cercanas {#use-case-show-the-nearest-store-locations}
+
+Supongamos que tu catálogo contiene un campo `store_location` de tipo geolocalización. Puedes crear una selección que use el operador `geo within` para devolver ubicaciones de tiendas dentro de un radio determinado de la ubicación más reciente de cada usuario. Configura el valor del filtro como {% raw %}`{{${most_recent_location}}}`{% endraw %} para que el punto central se actualice por usuario. Dado que los resultados se ordenan por distancia, el primer artículo devuelto siempre será la tienda más cercana.
 
 ## Crear una selección {#creating-a-selection}
 
 Para crear una selección, haz lo siguiente.
 
-1. Ve a **Catalogs** y selecciona tu catálogo de la lista.
-2. Selecciona la pestaña **Selection** y haz clic en **Create Selection**.
+1. Ve a **Catálogos** y selecciona tu catálogo de la lista.
+2. Selecciona la pestaña **Selección** y haz clic en **Crear selección**.
 3. Dale a tu selección un nombre y una descripción opcional.
 4. En **Filter Field**, selecciona la columna del catálogo por la que deseas filtrar. Los campos de cadena con más de 1000 caracteres no se pueden seleccionar para filtros.
 5. Termina de definir los criterios de filtrado seleccionando el operador correspondiente (por ejemplo, "equals" o "does not equal") y el atributo.
 6. En la sección **Sort type**, determina cómo se ordenan los resultados. De forma predeterminada, los resultados se devuelven sin un orden particular. Para especificar la ordenación por un campo concreto, desactiva **Randomize Sort Order** y especifica el **Sort Field** y el **Sort Order** (ascendente o descendente).
-7. En la sección **Results limit**, introduce los resultados (hasta 50).
-8. Selecciona **Create Selection**.
+7. En la sección **Results limit**, introduce el límite de resultados (hasta 50).
+8. Selecciona **Crear selección**.
 
 ### Probar y previsualizar {#test-and-preview}
 
@@ -53,9 +77,9 @@ El Liquid de Contenido conectado no es compatible con esta configuración de fil
 
 ## Usar selecciones en la mensajería {#using-selections-in-messaging}
 
-Después de crear tu selección, personaliza tus mensajes con Liquid para insertar los elementos filtrados de ese catálogo. Puedes hacer que Braze genere el Liquid por ti desde la ventana de personalización que se encuentra en los creadores de mensajes:
+Después de crear tu selección, personaliza tus mensajes con Liquid para insertar los artículos filtrados de ese catálogo. Puedes hacer que Braze genere el Liquid por ti desde la ventana de personalización que se encuentra en los creadores de mensajes:
 
-1. En cualquier creador de mensajes que admita personalización, selecciona <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Añadir personalización"></i> para abrir la ventana de personalización.
+1. En cualquier creador de mensajes que admita personalización, selecciona <i class="fa-solid fa-circle-plus" style="color: #12aec5;" title="Añadir personalización"></i> **Añadir personalización** para abrir la ventana de personalización.
 2. En **Personalization Type**, selecciona **Catalog Items**.
 3. Selecciona el nombre de tu catálogo.
 4. En **Item selection method**, selecciona **Use a selection**.
@@ -63,7 +87,7 @@ Después de crear tu selección, personaliza tus mensajes con Liquid para insert
 5. En **Information to Display**, selecciona qué campos del catálogo deben incluirse para cada artículo.
 6. Selecciona el icono **Copy** y pega el Liquid donde sea necesario en tu mensaje.
 
-![El modal Add Personalization con las siguientes selecciones: "Catalog Items" para "Personalization Type", "Games" para "Catalog Name", "Selections" para "Selection Type", "game_selection" para "Selection", y "title" y "description_en" para "Information to Display".]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}
+![El modal Añadir personalización con las siguientes selecciones: "Catalog Items" para "Personalization Type", "Games" para "Catalog Name", "Selections" para "Selection Type", "game_selection" para "Selection", y "title" y "description_en" para "Information to Display".]({% image_buster /assets/img_archive/catalog_selections6.png %}){: style="max-width:70%;"}
 
 ## Caso de uso {#use-case}
 

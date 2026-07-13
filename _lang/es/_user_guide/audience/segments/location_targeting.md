@@ -51,6 +51,6 @@ Para las regiones poligonales, puedes designar de forma más específica qué á
 
 Combinar el soporte existente de balizas o geovallas con nuestras funciones de segmentación y mensajería te proporciona más información sobre las acciones físicas de tus usuarios para que puedas enviarles mensajes en consecuencia. Puedes aprovechar el seguimiento de ubicación con algunos de nuestros socios:
 
-- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
-- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
-- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
+- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)
+- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)

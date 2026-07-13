@@ -19,7 +19,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | --- | --- |
 | Kameleoon-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Kameleoon-Konto. |
 | Braze-Konto | Ein aktives Braze-Konto mit dem auf Ihrer Webseite integrierten [Braze Web SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web). Außerdem muss die Segmentierung nach Event-Eigenschaften aktiviert sein. Informationen zur Anforderung finden Sie unter [Überlegungen](#considerations). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -101,7 +101,8 @@ Darüber hinaus sind diese Events über [angepasste Event-Objekte von Currents](
 
 Bevor Sie die Segmentierung nach Event-Eigenschaften verwenden können, muss diese in Braze aktiviert werden. Verwenden Sie das folgende Template, um Ihren Braze-CSM oder das Support-Team zu kontaktieren und den Zugang anzufragen.
 
-   <table>
+   <table aria-label="Segmentierung nach Event-Eigenschaften anfragen">
+     <caption>Segmentierung nach Event-Eigenschaften anfragen</caption>
    <thead>
       <tr>
          <th>Feld</th>
@@ -126,7 +127,7 @@ Bevor Sie die Segmentierung nach Event-Eigenschaften verwenden können, muss die
       </tr>
    </tbody>
    </table>
-   {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+   {: .reset-td-br-1 .reset-td-br-2 aria-label="Segmentierung nach Event-Eigenschaften anfragen" }
 
 ### Braze-Datenpunkte {#braze-data-points}
 

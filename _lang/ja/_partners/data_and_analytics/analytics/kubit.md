@@ -1,7 +1,7 @@
 ---
 nav_title: Kubit
 article_title: Kubit
-description: "このリファレンス記事では、Braze と Kubit のパートナーシップについて説明します。Kubit は、製品インサイトを提供するノーコードのセルフサービス分析プラットフォームであり、Kubit ユーザーコホートをインポートして、Braze メッセージングでそれらのコホートをターゲットにできます。"
+description: "このリファレンス記事では、BrazeとKubitのパートナーシップについて説明します。Kubitは、製品インサイトを即座に提供するノーコードのセルフサービス分析プラットフォームであり、KubitユーザーコホートをインポートしてBrazeメッセージングでターゲットにすることができます。"
 alias: /partners/kubit/
 page_type: partner
 search_tag: Partner
@@ -10,20 +10,20 @@ search_tag: Partner
 
 # Kubit
 
-> [Kubit](https://kubit.ai/) はノーコードのセルフサービス分析プラットフォームであり、製品インサイトを瞬時に提供できます。 
+> [Kubit](https://kubit.ai/)は、製品インサイトを即座に提供するノーコードのセルフサービス分析プラットフォームです。
 
-BrazeとKubitの統合により、[Kubitユーザーコホートをインポート]({{site.baseurl}}/partners/data_and_analytics/cohort_import/kubit/)し、Brazeメッセージングでターゲットにすることができる。また、[Snowflake セキュアデータシェアリング]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)を使用することで、Braze の生のキャンペーンおよびインプレッションデータを Kubit の製品分析と統合し、これらのキャンペーンの効果をリアルタイムで測定できます。このアプローチは、エンジニアリングの努力を必要とすることなく、ユーザーのライフサイクル全体に対する洞察を提供する。
+BrazeとKubitの統合により、[Kubitユーザーコホートをインポート]({{site.baseurl}}/partners/data_and_analytics/cohort_import/kubit/)し、Brazeメッセージングでターゲットにすることができます。さらに、[Snowflakeセキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)を使用することで、Brazeの生のキャンペーンおよびインプレッションデータをKubitの製品分析と統合し、これらのキャンペーンの効果をリアルタイムで測定できます。このアプローチにより、エンジニアリングの作業を必要とすることなく、ユーザーのライフサイクル全体に関するインサイトを得ることができます。
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 |---|---|
-|Kubitエンタープライズアカウント | このパートナーシップを利用するには、Kubitエンタープライズアカウントが必要である。 |
-| ユーザーIDの一致 | KubitとBrazeの顧客データは、2つのプラットフォームでユーザーIDが一致していなければならない。これには匿名UUIDも含まれる。BrazeがどのようにユーザーIDを設定するかについては、当社の[ドキュメントを]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android)参照のこと。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+| Kubitエンタープライズアカウント | このパートナーシップを利用するには、Kubitエンタープライズアカウントが必要です。 |
+| ユーザーIDの一致 | KubitとBrazeの顧客データは、2つのプラットフォーム間でユーザーIDが一致している必要があります。これには匿名UUIDも含まれます。BrazeがどのようにユーザーIDを設定するかについては、[ドキュメント]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
-## KubitでBrazeのデータを分析する
+## KubitでBrazeデータを分析する {#analyzing-braze-data-in-kubit}
 
-[Snowflakeの安全なデータ共有を]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)利用して、Brazeの生のキャンペーンデータとインプレッションデータをKubitと共有し、Kubitのセルフサービス分析に組み込むことで、ユーザーのライフサイクルの全体像を把握できる。
+[Snowflakeセキュアデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)を活用して、Brazeの生のキャンペーンおよびインプレッションデータをKubitと共有し、Kubitのセルフサービス分析に組み込むことで、ユーザーのライフサイクルの全体像を把握できます。
 
-参考までに、Kubitアナリティクスに組み込むことが可能な[Brazeの全フィールドを]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ed79384e6ac6a97fe3b3d9f76852b7c2)以下に示す。このステップの詳細は顧客によって大きく異なり、特別な設定を必要とします。詳しくは、Kubitアカウント・マネージャーまたは[support@kubit.ai](support@kubit.ai)まで。
+参考として、Kubit分析に組み込むことが可能なすべての[Brazeフィールド](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)をこちらで確認できます。このステップの詳細は顧客ごとに大きく異なり、特別な設定が必要です。詳しくは、Kubitアカウントマネージャーまたは[support@kubit.ai](support@kubit.ai)までお問い合わせください。

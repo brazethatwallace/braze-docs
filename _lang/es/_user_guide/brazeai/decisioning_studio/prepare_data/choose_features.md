@@ -13,7 +13,7 @@ description: "Este artículo de referencia cubre cómo construir característica
 Si tienes equipos internos de ciencia de datos o ingeniería de datos, están mejor posicionados para construir y seleccionar características, ya que tienen más contexto sobre qué señales en tus datos son significativas.
 
 {% alert note %}
-Para los clientes de Braze, las características de cliente se pasan típicamente a Decisioning Studio a través de atributos personalizados en los perfiles de usuario. Para más detalles sobre atributos personalizados frente a eventos personalizados y sus respectivas estrategias de actualización, consulta [Instantáneas frente a flujos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/).
+Para los clientes de Braze, las características de cliente se pasan típicamente a Decisioning Studio a través de atributos personalizados en los perfiles de usuario. Para más detalles sobre atributos personalizados frente a eventos personalizados y sus respectivas estrategias de actualización, consulta [Instantáneas frente a flujos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams).
 {% endalert %}
 
 ## Tipos de características de cliente {#types-of-customer-features}
@@ -26,7 +26,7 @@ Hay cuatro categorías comunes de características de cliente:
 | **Propensión del usuario** | Puntuaciones derivadas de modelos sobre la probabilidad del cliente de hacer algo | `churn_risk_score`, `purchase_intent_score`, `upsell_affinity` |
 | **Comportamiento del usuario** | Resúmenes de la actividad del cliente en una ventana de tiempo | `clicks_past_30d`, `purchases_past_7d`, `app_logins_past_14d` |
 | **Ambiental** | Señales contextuales externas al cliente | `is_promotional_period`, `is_holiday`, `regional_economic_index` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de características de cliente" }
 
 Juntos, estos tipos de características le dan al modelo la información que necesita para identificar segmentos, distinguir entre clientes y adaptar las recomendaciones en consecuencia.
 
@@ -35,8 +35,8 @@ Juntos, estos tipos de características le dan al modelo la información que nec
 Ten en cuenta lo siguiente al seleccionar y construir características:
 
 - **Cobertura:** Las características deben cubrir a todos los clientes en tu audiencia objetivo. Una característica que falta o es nula para una gran parte de tu audiencia le da al modelo menos con qué trabajar para esos clientes.
-- **Granularidad:** Todas las características deben estar agregadas a nivel de cliente. Consulta [Usa el ID externo de Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/) para orientación sobre lo que significa "nivel de cliente" en la práctica.
-- **Frescura:** Las características deben actualizarse en un calendario basado en tiempo, no en uno basado en eventos. Consulta [Instantáneas frente a flujos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) para entender por qué esto importa.
+- **Granularidad:** Todas las características deben estar agregadas a nivel de cliente. Consulta [Usa el ID externo de Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id) para orientación sobre lo que significa "nivel de cliente" en la práctica.
+- **Frescura:** Las características deben actualizarse en un calendario basado en tiempo, no en uno basado en eventos. Consulta [Instantáneas frente a flujos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) para entender por qué esto importa.
 - **Validez:** Los valores de las características deben estar dentro de rangos que tengan sentido dada la definición. Una característica para "compras en los últimos 30 días" nunca debería ser negativa.
 - **Dispersión:** Evita características que sean cero o nulas para la gran mayoría de los clientes, a menos que haya una razón de negocio clara. Las características dispersas añaden ruido sin añadir señal.
 - **Correlación:** Evita incluir características que estén altamente correlacionadas entre sí. Las características redundantes pueden introducir sesgo y ralentizar el entrenamiento sin mejorar las predicciones.

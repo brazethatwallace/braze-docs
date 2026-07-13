@@ -1,10 +1,10 @@
-Les messages in-app personnalisés et les bannières HTML personnalisés intégrés à l'application prennent en charge un « pont » JavaScript pour s'interfacer avec le SDK Braze, ce qui vous permet de déclencher des actions Braze personnalisées lorsque les utilisateurs cliquent sur des éléments contenant des liens ou interagissent avec votre contenu. Ces méthodes existent avec la variable globale `brazeBridge` ou `appboyBridge`.
+Les messages in-app HTML personnalisés et les bannières prennent en charge un « pont » JavaScript pour s'interfacer avec le SDK Braze, ce qui vous permet de déclencher des actions Braze personnalisées lorsque les utilisateurs cliquent sur des éléments contenant des liens ou interagissent avec votre contenu. Ces méthodes existent avec la variable globale `brazeBridge` ou `appboyBridge`.
 
 {% alert important %}
-Braze vous recommande d'utiliser la variable globale `brazeBridge`. La variable globale `appboyBridge` est obsolète mais continuera à fonctionner pour les utilisateurs existants. Si vous utilisez `appboyBridge`, nous vous suggérons de migrer vers `brazeBridge`. <br><br> `appboyBridge` est obsolète dans les versions suivantes du SDK :<br><br>
-- Web : [3.3.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/web/changelog/#330)
-- Android : [14.0.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog/#1400)
-- iOS : [4.2.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog/#420)
+Braze vous recommande d'utiliser la variable globale `brazeBridge`. La variable globale `appboyBridge` est obsolète mais continuera à fonctionner pour les utilisateurs existants. Si vous utilisez `appboyBridge`, nous vous suggérons de migrer vers `brazeBridge`. <br><br> `appboyBridge` est obsolète dans les versions suivantes du SDK :<br><br>
+- Web : [3.3.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/web/changelog/#330)
+- Android : [14.0.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog/#1400)
+- iOS : [4.2.0+]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog/#420)
 {% endalert %}
 
 Par exemple, pour enregistrer un attribut personnalisé et un événement personnalisé, puis fermer le message, vous pouvez utiliser le code JavaScript suivant dans votre code HTML personnalisé :
@@ -32,9 +32,9 @@ window.addEventListener("ab.BridgeReady", function(){
 </script>
 ```
 
-### Méthodes de pont Javascript {#bridge}
+### Méthodes du pont JavaScript {#bridge}
 
-Les méthodes JavaScript suivantes sont prises en charge dans le code HTML personnalisé pour les messages in-app et les bannières intégrés à l'application :
+Les méthodes JavaScript suivantes sont prises en charge dans le code HTML personnalisé pour les messages in-app et les bannières :
 
 <style>
 /* Makes first column wider */
@@ -50,44 +50,36 @@ Les méthodes JavaScript suivantes sont prises en charge dans le code HTML perso
 }
 </style>
 
-{% alert note %}
-Vous ne pouvez pas faire référence à Liquid pour insérer <code>customAttributes</code> en méthodes JavaScript Bridge.
-{% endalert %}
-
 {% multi_lang_include archive/appboyBridge.md %}
 
-### Suivi du clic de bouton
+### Suivi des clics de bouton {#button-click-tracking}
 
-Veuillez utiliser la`brazeBridge.logClick(button_id)`méthode pour suivre les clics dans votre code HTML personnalisé.
+Utilisez la méthode `brazeBridge.logClick(button_id)` pour suivre les clics dans votre code HTML personnalisé.
 
-{% alert note %}
-**Bannières :** Seul`brazeBridge.logClick()`(sans arguments) est pris en charge. Les ID des boutons et le suivi des boutons personnalisés sont uniquement pris en charge pour les messages in-app.
-{% endalert %}
+Pour les messages in-app, vous pouvez suivre par programmation « Button 1 », « Button 2 » et les « Body Clicks » en utilisant respectivement `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` ou `brazeBridge.logClick()`.
 
-Pour les messages in-app, il est possible de suivre par programmation les « Boutons 1 » et « Bouton 2 » et les « Clics sur le corps » en utilisant respectivement`brazeBridge.logClick('0')` ,`brazeBridge.logClick('1')` , ou `brazeBridge.logClick()`.
-
-| Clics     | Méthode                       | Pris en charge |
+| Clics | Méthode | Pris en charge |
 | ---------- | ---------------------------- | --------- |
-| Clic dans le corps | `brazeBridge.logClick()`    | Messages in-app et bannières |
-| Bouton 1   | `brazeBridge.logClick('0')` | Messages in-app uniquement |
-| Bouton 2   | `brazeBridge.logClick('1')` | Messages in-app uniquement |
-| Suivi personnalisé des boutons |`brazeBridge.logClick('your custom name here')`| Messages in-app uniquement |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Clic dans le corps | `brazeBridge.logClick()` | Messages in-app et bannières |
+| Button 1 | `brazeBridge.logClick('0')` | Messages in-app uniquement |
+| Button 2 | `brazeBridge.logClick('1')` | Messages in-app uniquement |
+| Suivi personnalisé des boutons | `brazeBridge.logClick('your custom name here')` | Messages in-app et bannières |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Suivi des clics de bouton" }
 
-Pour les messages in-app, il est possible de suivre plusieurs événements de clic sur un bouton par impression. Par exemple, pour fermer un message et enregistrer un clic sur le bouton 2 :
+Pour les messages in-app, vous pouvez suivre plusieurs événements de clic sur un bouton par impression. Par exemple, pour fermer un message et enregistrer un clic sur Button 2 :
 
 ```html
 <a href="#" onclick="brazeBridge.logClick('1');brazeBridge.closeMessage()">✖</a>
 ```
 
-Vous pouvez également suivre de nouveaux noms de boutons personnalisés (jusqu’à 100 noms uniques par campagne). Par exemple, `brazeBridge.logClick('blue button')` ou `brazeBridge.logClick('viewed carousel page 3')`.
+Vous pouvez également suivre de nouveaux noms de boutons personnalisés, jusqu'à 100 noms uniques par campagne. Par exemple, `brazeBridge.logClick('blue button')` ou `brazeBridge.logClick('viewed carousel page 3')`.
 
 {% alert tip %}
-Lorsque vous utilisez des méthodes JavaScript dans un`onclick`attribut, veuillez encadrer les valeurs de chaîne de caractères entre guillemets simples afin d'éviter tout conflit avec l'attribut HTML entre guillemets doubles.
+Lorsque vous utilisez des méthodes JavaScript dans un attribut `onclick`, encadrez les valeurs de chaîne de caractères entre guillemets simples afin d'éviter tout conflit avec l'attribut HTML entre guillemets doubles.
 {% endalert %}
 
-#### Restrictions (messages in-app uniquement)
+#### Restrictions (messages in-app uniquement) {#limitations-in-app-messages-only}
 
-- Vous pouvez avoir jusqu’à 100 ID de boutons uniques par campagne.
-- Les ID de boutons peuvent contenir jusqu’à 255 caractères chacun.
+- Vous pouvez avoir jusqu'à 100 ID de boutons uniques par campagne.
+- Les ID de boutons peuvent contenir jusqu'à 255 caractères chacun.
 - Les ID de boutons ne peuvent inclure que des lettres, des chiffres, des espaces, des tirets et des traits de soulignement.

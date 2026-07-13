@@ -22,7 +22,18 @@ Der obere Bereich der Seite **Canvas Details** enthält die wichtigsten Canvas-S
 
 Dies ist ein idealer Ort, um sich einen Überblick darüber zu verschaffen, wie Ihr Canvas im Vergleich zu Ihrem Ziel abschneidet.
 
-![]({% image_buster /assets/img_archive/Journey_5.png %})
+### Erreichbare Nutzer:innen und exakte Statistiken {#reachable-users-and-exact-statistics}
+
+Wenn **[Exakte Statistiken berechnen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#single-user-segments)** für Zielgruppen ausgeführt wird, die mit Ihrem Canvas verknüpft sind, zeigt Braze möglicherweise kurzzeitig eine gerundete Schätzung im Bereich **Erreichbare Nutzer:innen** an. Der exakte Wert ersetzt die Schätzung, sobald die Berechnung abgeschlossen ist. Wählen Sie **Show Additional Stats** für eine vollständige Aufschlüsselung nach Kanal. Der Canvas-Builder dokumentiert denselben Ablauf unter **Zielpopulation**; siehe [Zielpopulation berechnen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#calculating-target-population).
+
+![Die Seite „Canvas Details“ mit den wichtigsten Statistiken, darunter gesendete Nachrichten, Konversionsrate, Gesamteintritte, Gesamtumsatz, Gesamtaustritte und geschätzte Zielgruppe, mit Kanal- und Statistikfiltern.]({% image_buster /assets/img_archive/Journey_5.png %})
+
+{% alert tip %}
+Wenn ein Segment, das Sie aus Canvas-Aktivitäten erstellt haben, weniger erreichbare Nutzer:innen anzeigt, als Sie aufgrund der Canvas Analytics erwarten, gibt es zwei häufige Gründe:
+
+- **Schätzung durch Stichproben:** Segment-Statistiken können eine Schätzung auf Basis einer Zufallsstichprobe mit einem 95-%-Konfidenzintervall von ±1 % anzeigen, anstatt einer exakten Zählung.
+- **Nutzer:innen erfüllen die Kriterien nicht mehr:** Einige Nutzer:innen, die in den Canvas Analytics gezählt werden, qualifizieren sich möglicherweise nicht mehr für das Segment – beispielsweise weil sie sich abgemeldet haben oder sich ihre Profildaten seit der Ausführung des Canvas geändert haben. Überprüfen Sie die **historische Performance** des Canvas auf ein hohes Volumen an Abmeldungen.
+{% endalert %}
 
 ### Änderungen seit der letzten Ansicht {#changes-since-last-viewed}
 
@@ -54,7 +65,7 @@ Im Tab **Analyze Variants** können Sie eine Aufschlüsselung der Performance na
 
 Sie können schnell effektive Varianten erkennen und die richtige Kadenz, den richtigen Inhalt, die richtigen Trigger, das richtige Timing und mehr identifizieren.
 
-![]({% image_buster /assets/img_archive/analyze_variants.png %})
+![Das Modal „Analyze Canvas“ mit dem ausgewählten Tab „Analyze Variants“, das eine Vergleichstabelle für Pfad 1 und Pfad 2 mit Eintritten, Sendungen, Umsatz, Konversionsraten, prozentualer Veränderung und Konfidenzmetriken zeigt.]({% image_buster /assets/img_archive/analyze_variants.png %})
 
 Zu den grundlegenden Metriken gehören:
 
@@ -69,7 +80,7 @@ Wie Conversions wird auch der Umsatz technisch auf Canvas-Ebene erfasst, aber de
 Wenn Nutzer:innen beispielsweise zwei Schritte abschließen und dann einen Kauf tätigen, wird dieser Umsatz der zweiten Komponente und der Variante zugeordnet, in die sie eingetreten sind. Wenn sie den Canvas betreten, aber einen Kauf tätigen, bevor sie die erste Canvas-Komponente erhalten, wird dieser Umsatz der Variante zugeordnet, in die sie eingetreten sind, aber keiner Komponente.
 {% endalert %}
 
-Darüber hinaus können Sie eine detailliertere Aufschlüsselung der [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) sehen, einschließlich:
+Darüber hinaus können Sie eine detailliertere Aufschlüsselung der [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) sehen, einschließlich:
 
 - Conversion-Gesamtzahlen und Konversionsraten für jedes Konversions-Event
 - Uplift gegenüber der Kontrollvariante
@@ -97,8 +108,8 @@ Für unser letztes Beispiel nehmen wir an, wir haben einen Canvas mit aktivierte
 
 ### Funnel-Bericht {#funnel-report}
 
-Funnel-Berichte bieten einen visuellen Bericht, mit dem Sie die Journeys analysieren können, die Ihre Kund:innen nach dem Empfang eines Canvas durchlaufen. Wenn Ihr Canvas eine Kontrollgruppe oder mehrere Varianten verwendet, können Sie verstehen, wie die verschiedenen Varianten den Konversionstrichter auf einer detaillierteren Ebene beeinflusst haben, und auf Basis dieser Daten optimieren. Weitere Informationen zu Funnel-Berichten finden Sie unter [Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/).
+Funnel-Berichte bieten einen visuellen Bericht, mit dem Sie die Journeys analysieren können, die Ihre Kund:innen nach dem Empfang eines Canvas durchlaufen. Wenn Ihr Canvas eine Kontrollgruppe oder mehrere Varianten verwendet, können Sie verstehen, wie die verschiedenen Varianten den Konversionstrichter auf einer detaillierteren Ebene beeinflusst haben, und auf Basis dieser Daten optimieren. Weitere Informationen zu Funnel-Berichten finden Sie unter [Funnel-Berichte]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports).
 
 ### Bindungsbericht {#retention-report}
 
-Nutzerbindung ist eine der wichtigsten Metriken für jeden Marketer. Engagierte Nutzer:innen, die immer wieder zurückkommen, zeigen, dass das Unternehmen gesund ist. Braze ermöglicht es Ihnen, die Nutzerbindung direkt auf der Seite **Canvas Analytics** zu messen. Weitere Informationen darüber, wie Sie Ihren Bindungsbericht lesen und interpretieren können, finden Sie unter [Bindungsberichte]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/).
+Nutzerbindung ist eine der wichtigsten Metriken für jeden Marketer. Engagierte Nutzer:innen, die immer wieder zurückkommen, zeigen, dass das Unternehmen gesund ist. Braze ermöglicht es Ihnen, die Nutzerbindung direkt auf der Seite **Canvas Analytics** zu messen. Weitere Informationen darüber, wie Sie Ihren Bindungsbericht lesen und interpretieren können, finden Sie unter [Bindungsberichte]({{site.baseurl}}/user_guide/analytics/reports/retention_reports).

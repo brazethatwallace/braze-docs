@@ -21,7 +21,7 @@ The Braze and Eppo integration allows you to set up A/B tests in Braze and analy
 |------------------------------------|-------------------------------------------------------------------------------------|
 | Eppo account                       | An Eppo account is required to take advantage of this partnership.                   |
 | Currents or Snowflake Data Sharing | Currents or Snowflake Data Sharing is required for Eppo to analyze experiment data. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -31,7 +31,7 @@ Eppo analyzes experiments directly in your data warehouse. To enable the integra
 
 ### Step 2: Set up your experiment in a Braze campaign or Canvas
 
-You can use native A/B testing features in your campaigns and Canvases. To learn more, see [Multivariate and A/B testing](https://www.braze.com/docs/user_guide/engagement_tools/testing/multivariant_testing#what-are-multivariate-and-ab-testing).
+You can use native A/B testing features in your campaigns and Canvases. To learn more, see [Multivariate and A/B testing]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing#what-are-multivariate-and-ab-testing).
 
 ### Step 3: Set up Eppo to measure Braze experiments
 

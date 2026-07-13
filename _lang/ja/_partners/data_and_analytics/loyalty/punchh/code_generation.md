@@ -37,7 +37,7 @@ JWT.IOライブラリーは、JSONウェブトークンをデコード、検証�
 
 次の`ClaimType`名を使用して、ゲストとクーポンの一意性を確保できます。
 
-- `campaign_id`：システム生成のPunchhキャンペーンIDを表します。
+- `campaign_id`：システム生成のPunchh キャンペーン IDを表します。
 - `email`：ユーザーのメールアドレスを表します。
 - `first_name`：ユーザーの名を取得します。
 - `last_name`：ユーザーの姓を取得します。
@@ -77,10 +77,11 @@ Punchhの動的クーポンコードAPIを使用するには、JWTトークン�
 
 以下を置き換えてください。
 
-| プレースホルダー        | 説明                                          |
+| プレースホルダー | 説明 |
 |--------------------|------------------------------------------------------|
 | `DYNAMIC_COUPON_GENERATION_TOKEN` | 動的クーポン生成トークン。 |
-| `CAMPAIGN_ID`                     | Campaign ID。                     |
+| `CAMPAIGN_ID` | キャンペーン ID。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Generate signature and construct URL" }
 
 ### ステップ3：クーポンコードをメッセージ本文に追加する {#step-3-append-coupon-code-to-message-body}
 
@@ -103,7 +104,7 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX?sign
 JSON応答を返すには、[先ほど作成した](#step-1-create-a-coupon-campaign-in-punchh)動的生成URLに`{% raw %}{{jwt}}{% endraw %}`を追加し、URL文字列のトークンの後に`.json`を追加します。リンクは以下のようになります。
 
 {% raw %}
-```liquid
+`````````liquid
 https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json?sign={{jwt}}
 ```
 {% endraw %}
@@ -111,10 +112,10 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json
 その後、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)を活用して、コードをプレーンテキストとして任意のメッセージ本文に挿入できます。例：
 
 {% raw %}
-```liquid
+`````````liquid
 {% connected_content https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json?sign={{jwt}} :save punchh_coupon %}
 {{punchh_coupon.coupon}}
-````
+```
 {% endraw %}
 
 #### メールコンテンツ内の画像にリンクする {#linking-an-image-inside-email-content}
@@ -126,15 +127,15 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json
 3. リンクをHTML{% raw %}`<img>`{% endraw %}タグに埋め込みます。
 
 {% tabs local %}
-{% tab example input %}
+{% tab 入力例 %}
 {% raw %}
-```liquid
+`````````liquid
 <img src="https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.png?sign={{jwt}}">
-````
+```
 {% endraw %}
 {% endtab %}
 
-{% tab example output %}
+{% tab 出力例 %}
 ![クーポンコード画像タグのレンダリング出力。]({% image_buster /assets/img/punchh/punchh9.png %})
 {% endtab %}
 {% endtabs %}
@@ -150,4 +151,4 @@ https://fakebrandz.punchh.com/request_coupons/7xY3bL9jRfZ1pA6mc8qD2eS4vT5wX.json
 | `usage_exceeded` | The usage for this coupon code's campaign is full. Please try next time. | コードの使用数が、使用を許可されたユーザー数を超えています。例えば、ダッシュボード設定で3,000人のユーザーによるコード使用を許可しており、ユーザー数が3,000人を超えた場合、このエラーが発生します。 |
 | `usage_exceeded_by_guest` | This promo code has already been processed. | ユーザーによるコードの使用回数が、許可された回数を超えています。例えば、ダッシュボード設定で1つのコードをユーザーが3回使用できるようにしている場合、それ以上使用するとこのエラーが発生します。 |
 | `already_used_by_other_guest` | This promo code has already been used by some other guest. | 別のユーザーがすでにこのコードを使用しています。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Error messages" }

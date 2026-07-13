@@ -18,7 +18,7 @@ guide_featured_list:
   - name: Opt-ins e descadastramentos
     link: /docs/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs
     image: /assets/img/braze_icons/toggle-01-left.svg
-  - name: Enviar mensagens para usuários
+  - name: Mensagens de usuários
     link: /docs/user_guide/channels/whatsapp/message_processing/messaging_users
     image: /assets/img/braze_icons/send-01.svg
   - name: Lidar com números de telefone desconhecidos

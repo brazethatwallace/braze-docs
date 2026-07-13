@@ -1,44 +1,46 @@
 ---
 nav_title: Glossar
-article_title: Glossar Layout
+article_title: Glossar-Layout
 page_order: 0
 noindex: true
 ---
 
-# Beispiel-Layout: Glossar
+# Beispiel-Layout: Glossar {#example-layout-glossary}
 
-> Das Layout des Glossars ist in YAML. Es erfordert mehrere Komponenten und Parameter. Glossar-Layouts eignen sich gut für lokalisierte, durchsuchbare Inhalte, wie Wörterbücher und bestimmte Inhaltskategorien.
+> Das Glossar-Layout ist in YAML verfasst. Es erfordert mehrere Komponenten und Parameter. Glossar-Layouts eignen sich gut für lokalisierte, durchsuchbare Inhalte wie Wörterbücher und bestimmte Inhaltskategorien.
 
-## Erforderliche Komponenten
+## Erforderliche Komponenten {#required-components}
 
-1. YAML-Notation für Öffnungen und Schließungen. Mit anderen Worten: `---` vor dem Inhalt und `---` danach. 
-2. Anführungszeichen um bestimmte Parameterinhalte. (Header-Parameter, Textparameter, Inhalte mit Bindestrichen oder anderen Sonderzeichen).
-3. Glossar Tags Notation (Dies sind Filter Tags)
+1. YAML-Notation für Öffnungen und Schließungen. Mit anderen Worten: `---` vor dem Inhalt und `---` danach.
+2. Anführungszeichen um bestimmte Parameterinhalte. (Header-Parameter, Textparameter, Inhalte mit Bindestrichen oder anderen Sonderzeichen.)
+3. Glossar-Tags-Notation (Dies sind Filter-Tags)
 
-## Erforderliche Parameter
+## Erforderliche Parameter {#required-parameters}
 
-|Parameter | Inhaltstyp | Details |
+| Parameter | Inhaltstyp | Details |
 |---|---|---|
-|`page_order`| Numerisch | Ordnen Sie die Seite innerhalb des Abschnitts. Diese Reihenfolge wird in der linken Navigation angezeigt. |
-| `nav-title`| Alphanumerisch | Titel, der in der linken Navigation erscheinen wird. |
-|`layout`| Alphanumerisch - Keine Leerzeichen | Wählen Sie ein Layout aus dem [Layoutbereich](https://github.com/Appboy/braze-docs/tree/develop/_layouts) der Dokumentation aus. | 
-|`glossary_top_header` | Alphanumerisch | Erfordert doppelte Anführungszeichen. Der Titel erscheint oben auf der Seite. |
-|`glossary_top_text`| String, Alphanumerisch | Beschreiben Sie Ihre Glossarseite. Dies erscheint über der Suchleiste und den Filtern (falls Sie diese aktiviert haben). Dies ist im Wesentlichen in HTML geschrieben, so dass Sie \`\`\`\` verwenden können.<br> um Zeilenumbrüche zu erstellen. | 
-|`glossary_tag_name` | Einzelnes Wort, Alphanumerisch | Benennen Sie Ihre Filter. Diese erscheinen in Kontrollkästchen unterhalb der Suchleiste sowie in den Daten darunter. | 
-|`glossary_filter_text`| String, Alphanumerisch | Beschreiben Sie Ihre Filter. Wird in der Regel zur Belehrung verwendet. | 
-|`glossary_tags`| Mehr YAML plus Inhalt. | Format wie unten gezeigt: <br> glossary_tags: <br>  \- Name: Content-Cards <br>  \- Name: E-Mail | 
-| `glossaries`| Mehr YAML plus Inhalt. | Siehe [Glossare Parameter](#glossaries-parameters) unten. |
+| `page_order` | Numerisch | Ordnen Sie die Seite innerhalb des Abschnitts. Diese Reihenfolge wird in der linken Navigation angezeigt. |
+| `nav-title` | Alphanumerisch | Titel, der in der linken Navigation erscheint. |
+| `layout` | Alphanumerisch – Keine Leerzeichen | Wählen Sie ein Layout aus dem [Layout-Abschnitt](https://github.com/Appboy/braze-docs/tree/develop/_layouts) der Dokumentation aus. |
+| `glossary_top_header` | Alphanumerisch | Erfordert doppelte Anführungszeichen. Der Titel erscheint oben auf der Seite. |
+| `glossary_top_text` | String, Alphanumerisch | Beschreiben Sie Ihre Glossarseite. Dies erscheint über der Suchleiste und den Filtern (falls Sie diese aktiviert haben). Dies ist im Wesentlichen in HTML geschrieben, sodass Sie ```<br>``` verwenden können, um Zeilenumbrüche zu erstellen. |
+| `glossary_tag_name` | Einzelnes Wort, Alphanumerisch | Benennen Sie Ihre Filter. Diese erscheinen in Kontrollkästchen unterhalb der Suchleiste sowie in den Daten darunter. |
+| `glossary_filter_text` | String, Alphanumerisch | Beschreiben Sie Ihre Filter. Wird in der Regel zur Anleitung verwendet. |
+| `glossary_tags` | Weiteres YAML plus Inhalt. | Format wie unten gezeigt: <br> glossary_tags: <br>  - name: Content Cards <br>  - name: Email |
+| `glossaries` | Weiteres YAML plus Inhalt. | Siehe [Glossar-Parameter](#glossaries-parameters) unten. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Required Parameters" }
 
-### Glossare Parameter
+### Glossar-Parameter {#glossaries-parameters}
 
-|Parameter | Inhaltstyp | Details |
+| Parameter | Inhaltstyp | Details |
 |---|---|---|
-|`name`| Alphanumerisch | Benennen Sie Ihren Artikel im Glossar.| 
-|`description`| String, Alphanumerisch | Beschreiben Sie Ihren Artikel im Glossar. | 
-|`calculation`| String | (optional) Beschreiben Sie, wie Ihr Glossarartikel berechnet wird (wird normalerweise bei der Beschreibung von Daten oder Metriken verwendet. | 
-|`tags`| Alphanumerisch | Sollte mit dem übereinstimmen, was als `name` unter `glossary_tags` aufgeführt ist. Führen Sie so viele auf, wie zutreffend sind. Wenn Sie `All` schreiben, wird der Artikel in alle Filter aufgenommen.|
+| `name` | Alphanumerisch | Benennen Sie Ihren Glossar-Artikel. |
+| `description` | String, Alphanumerisch | Beschreiben Sie Ihren Glossar-Artikel. |
+| `calculation` | String | (optional) Beschreiben Sie, wie Ihr Glossar-Artikel berechnet wird (wird normalerweise bei der Beschreibung von Daten oder Metriken verwendet). |
+| `tags` | Alphanumerisch | Sollte mit dem übereinstimmen, was als `name` unter `glossary_tags` aufgeführt ist. Führen Sie so viele auf, wie zutreffend sind. Wenn Sie `All` schreiben, wird der Artikel in alle Filter aufgenommen. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Glossaries Parameters" }
 
-## Beispiel
+## Beispiel {#example}
 
 ```
 ---

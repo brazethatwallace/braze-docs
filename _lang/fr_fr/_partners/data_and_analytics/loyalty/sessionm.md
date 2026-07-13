@@ -9,14 +9,14 @@ search_tag: Partner
 
 # Plateforme de fidélisation SessionM {#sessionm-loyalty-platform}
 
-> [SessionM](https://www.mastercardservices.com/en/capabilities/sessionm) est une plateforme d'engagement client et de fidélisation qui offre des fonctionnalités de gestion de campagne et des solutions de gestion de la fidélisation pour aider les marketeurs à mener des actions de ciblage afin d'augmenter l'engagement et la rentabilité.
+> [SessionM](https://sessionm.com/) est une plateforme d'engagement client et de fidélisation, faisant partie de Capillary Technologies, qui offre des fonctionnalités de gestion de campagne et des solutions de gestion de la fidélisation pour aider les marketeurs à mener des actions de ciblage afin d'augmenter l'engagement et la rentabilité.
 
 ## Conditions préalables {#prerequisites}
 
 | Source | Condition | Description |
 | --- | --- | --- |
-| Braze | Une clé API REST de Braze | Une clé API REST de Braze avec les autorisations `trigger_send`. Elle peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
-| Braze | Un endpoint REST de Braze | L'URL de votre endpoint REST. Votre endpoint dépendra de l'URL de Braze pour [votre instance]({{site.baseurl}}/api/basics/#endpoints). |
+| Braze | Une clé API REST de Braze | Une clé API REST de Braze avec les autorisations `trigger_send`. Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Braze | Un endpoint REST de Braze | L'URL de votre endpoint REST. Votre endpoint dépendra de l'URL de Braze pour [votre instance]({{site.baseurl}}/api/basics#endpoints). |
 | Braze et SessionM | Identifiant correspondant | Pour utiliser l'intégration, assurez-vous que SessionM et Braze disposent tous deux d'un enregistrement des identifiants utilisés par chaque plateforme. Les références à `user_id` correspondent à l'identifiant utilisateur de SessionM généré au moment de la création du profil dans SessionM. |
 | SessionM | Un compte SessionM | Un compte SessionM est nécessaire pour profiter de ce partenariat. |
 | SessionM | Un endpoint REST SessionM Core | Votre endpoint dépendra de l'URL SessionM de votre instance. Il peut être créé dans le tableau de bord SessionM depuis **Digital Properties**. |
@@ -24,16 +24,12 @@ search_tag: Partner
 | SessionM | Un secret API REST SessionM Core | Le secret API SessionM associé à votre instance et à l'intégration Braze. Cette clé peut être utilisée pour tous les appels de base, y compris les tags. Elle peut être créée dans le tableau de bord SessionM depuis **Digital Properties**. |
 | SessionM | Un endpoint REST SessionM Connect | Votre endpoint dépendra de l'URL SessionM de votre instance. Contactez votre gestionnaire de compte technique SessionM ou l'équipe Delivery pour l'obtenir. |
 | SessionM | Une chaîne d'autorisation REST SessionM Connect | La chaîne d'autorisation Basic de SessionM Connect associée à votre instance. Cette chaîne d'authentification peut être utilisée pour tous les appels basés sur Connect, y compris get_user_offers. Veuillez contacter votre gestionnaire de compte technique SessionM ou l'équipe Delivery pour l'obtenir. |
-| SessionM | Un Retailer ID REST SessionM Connect | Un identifiant guid unique du client spécifique associé à votre instance. Contactez votre gestionnaire de compte technique SessionM ou l'équipe Delivery pour l'obtenir. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| SessionM | Un Retailer ID REST SessionM Connect | Un identifiant GUID unique du client spécifique associé à votre instance. Contactez votre gestionnaire de compte technique SessionM ou l'équipe Delivery pour l'obtenir. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Conditions préalables" }
 
-{% alert note %}
-Si vous utilisez l'[ancienne navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), vous pouvez créer une clé API depuis **Developer Console** > **API Settings**.
-{% endalert %}
+## Cas d'usage {#use-cases}
 
-## Cas d'utilisation {#use-cases}
-
-Les cas d'utilisation suivants illustrent quelques façons de tirer parti de l'intégration de SessionM et de Braze.
+Les cas d'usage suivants illustrent quelques façons de tirer parti de l'intégration de SessionM et de Braze.
 
 - Créez une segmentation qui intègre les données de toutes les plateformes de fidélisation, de gestion de la clientèle et d'envoi de messages.
 - Utilisez une segmentation robuste pour cibler des ensembles d'utilisateurs spécifiques avec des offres et des promotions.
@@ -66,15 +62,15 @@ En utilisant un **corps de requête** en texte brut, composez le corps du webhoo
 }
  ```
 
-![]({% image_buster /assets/img/sessionm/SessionMWebhookComposer.png %}){: style="max-width:85%;"}
+![Compositeur de webhook SessionM avec le payload JSON pour la configuration du déclencheur de campagne Braze.]({% image_buster /assets/img/sessionm/SessionMWebhookComposer.png %}){: style="max-width:85%;"}
 
-Dans l'onglet **Settings**, ajoutez les paires clé-valeur pour chaque champ d'en-tête de requête :
+Dans l'onglet **Paramètres**, ajoutez les paires clé-valeur pour chaque champ d'en-tête de requête :
     - Créez une clé `Content-Type` avec la valeur correspondante `application/json`
     - Créez une clé `Authorization` avec la valeur correspondante `Basic YOUR-ENCODED-STRING-KEY`. Contactez votre équipe SessionM pour obtenir la clé de chaîne encodée pour votre endpoint.
 
 ![Paramètres du webhook.]({% image_buster /assets/img/sessionm/SessionMWebhookSettings.png %}){: style="max-width:85%;"}
 
-Planifiez votre envoi, définissez vos **Target Audiences** pour cibler le segment [que vous avez créé précédemment](#step-1-create-a-segment-in-braze), puis lancez votre campagne.
+Planifiez votre envoi, définissez vos **audiences cibles** pour cibler le segment [que vous avez créé précédemment](#step-1-create-a-segment-in-braze), puis lancez votre campagne.
 
 {% alert important %}
 Ce processus peut également être effectué via un client API, tel que Postman, en effectuant une requête directement vers l'[endpoint SessionM Tag](https://docs.sessionm.com/developer/APIs/Core/Customers/customers_tags.htm#create-or-increment-a-customer-tag) en spécifiant le client, le nom du tag et une durée de vie pour chaque utilisateur dans l'appel (un seul utilisateur par appel).
@@ -117,7 +113,7 @@ SessionM ajoute ensuite l'offre au portefeuille du client dans l'état émis.
 
 ### Étape 2 : Appeler l'API du portefeuille d'offres SessionM {#step-2-call-sessionm-offer-wallet-api}
 
-Dans une campagne ou une étape Canvas avec les offres SessionM, utilisez le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) pour effectuer un appel API vers l'[endpoint SessionM `get_user_offers`](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/).
+Dans une campagne ou une étape Canvas avec les offres SessionM, utilisez le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) pour effectuer un appel API vers l'[endpoint SessionM `get_user_offers`](https://domains-connecteast1.ent-sessionm.com/offers/swagger/ui/index#!/InfoV232583210323232323232323232323232This32API32allows32for32the32querying32of32information32about32offers32in32a32read45only32fashion4610323232323232323232323232May32be32initiated32by32the32dashboard32or32the32mobile32app4610323232323232323232323232/InfoV2_GetUserOffers/).
 
 Dans la requête de contenu connecté, spécifiez le `user_id` SessionM de l'utilisateur et votre `retailer_id` pour récupérer la liste complète des offres actives que le client a dans son portefeuille. Chaque requête vers cet endpoint ne peut concerner qu'un seul utilisateur. Contactez l'équipe SessionM pour obtenir la clé de chaîne encodée pour l'en-tête d'autorisation Basic dans votre appel de contenu connecté.
 
@@ -227,11 +223,11 @@ Créez dans Braze une campagne ou un Canvas déclenché par API qui sera déclen
 
 ![Propriétés du déclencheur API.]({% image_buster /assets/img/sessionm/apiTriggerProperties.png %})
 
-Dans l'onglet **Schedule Delivery**, notez l'ID de la campagne ou du Canvas car il sera ajouté aux **paramètres avancés** de la campagne SessionM.
+Dans l'onglet **Planification de l'envoi**, notez l'ID de la campagne ou du Canvas car il sera ajouté aux **Paramètres avancés** de la campagne SessionM.
 
 ![Campagne déclenchée par API.]({% image_buster /assets/img/sessionm/apiTriggerCampaign.png %})
 
-Finalisez les détails de votre campagne ou de votre Canvas et sélectionnez **Launch**.
+Finalisez les détails de votre campagne ou de votre Canvas et sélectionnez **Lancer**.
 
 ### Étape 3 : Créer une campagne promotionnelle ou de messages dans SessionM {#step-3-create-a-sessionm-promotional-or-messaging-campaign}
 

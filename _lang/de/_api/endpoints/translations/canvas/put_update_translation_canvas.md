@@ -1,7 +1,7 @@
 ---
 nav_title: "PUT: Übersetzung in einem Canvas aktualisieren"
 article_title: "PUT: Übersetzung in einem Canvas aktualisieren"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 1
 
 layout: api_page
@@ -15,15 +15,13 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt „Übersetzung in 
 /canvas/translations
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für ein Canvas zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/).
+> Verwenden Sie diesen Endpunkt, um mehrere Übersetzungen für ein Canvas zu aktualisieren. Weitere Informationen zu den Übersetzungsfeatures finden Sie unter [Locales in Nachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
 
-Wenn Sie Übersetzungen aktualisieren möchten, nachdem ein Canvas gestartet wurde, müssen Sie zunächst [Ihre Nachricht als Entwurf speichern]({{site.baseurl}}/post-launch_edits/).
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+Wenn Sie Übersetzungen aktualisieren möchten, nachdem ein Canvas gestartet wurde, müssen Sie zunächst [Ihre Nachricht als Entwurf speichern]({{site.baseurl}}/post-launch_edits).
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `canvas.translations.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `canvas.translations.update`.
 
 ## Rate-Limit
 
@@ -42,7 +40,7 @@ Für diesen Endpunkt gibt es keine Pfadparameter.
 | `message_variation_id` | Erforderlich | String | Die ID Ihrer Nachrichtenvariante. |
 | `locale_id` | Erforderlich | String | Die ID (UUID) der Locale. |
 | `translation_map` | Erforderlich | Objekt | Objekt, das die neuen Übersetzungen enthält. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 {% alert note %}
 Alle Übersetzungs-IDs gelten als universelle eindeutige Bezeichner (UUIDs), die in der Antwort des GET-Endpunkts zu finden sind.

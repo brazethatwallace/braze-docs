@@ -30,11 +30,11 @@ For example, let’s say you have a workspace messaging rate limit of 100,000 me
 | Campaign 1 | 100,000            | 12 pm     |
 | Campaign 2 | 100,000            | 12 pm     |
 | Campaign 3 | 100,000            | 12 pm     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How it works" }
 
 The messages are dispatched over a 3-minute interval.
 
-Messages are processed in parallel. When processed, messages are scheduled out to respect the workspace messaging rate limit on a first-come, first-served basis. This means that in the example above, the messages sent out each minute are a varying mix from Campaigns 1, 2, and 3 that add up to 100,000.
+Messages are processed in parallel. When processed, messages are scheduled out to respect the workspace messaging rate limit on a first-come, first-served basis. This means that in this example, the messages sent out each minute are a varying mix from Campaigns 1, 2, and 3 that add up to 100,000.
 
 ![Example of how messages are dispatched for the three campaigns.]({% image_buster /assets/img/workspace_messaging_rate_limits2.png %})
 
@@ -44,7 +44,7 @@ Consider the next example with a workspace messaging rate limit of 100,000 messa
 |------------|--------------------|-----------|
 | Campaign 1 | 1,000,000          | 9 am      |
 | Campaign 2 | 1,000,000          | 9:05 am   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How it works" }
 
 The following is the expected dispatch schedule and messages sent per minute:
 
@@ -76,7 +76,7 @@ Note that you can still set individual rate limits in your campaigns and Canvase
 
 ### Messages not included in the workspace messaging rate limits
 
-- Messages sent using [Transactional Email campaigns]({{site.baseurl}}/user_guide/channels/transactional_email/) are not included in the workspace messaging rate limits. This means they are rate-limited and are not counted toward any set workspace messaging rate limits.
-- Messages to [Seed Groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups) and [test sends]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) are not included in the workspace messaging rate limits. This means they are not rate-limited and are not counted toward any set workspace messaging rate limits.
+- Messages sent using [Transactional Email campaigns]({{site.baseurl}}/user_guide/channels/transactional_email) are not included in the workspace messaging rate limits. This means they are rate-limited and are not counted toward any set workspace messaging rate limits.
+- Messages to [Seed Groups]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups) and [test sends]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) are not included in the workspace messaging rate limits. This means they are not rate-limited and are not counted toward any set workspace messaging rate limits.
 - SMS auto-responses are not included in the workspace messaging rate limits. This means they are not rate-limited and are not counted toward any set workspace messaging rate limits.
 - Workspace messaging rate limits aren't supported for in-app messages, feature flags, and Banners.

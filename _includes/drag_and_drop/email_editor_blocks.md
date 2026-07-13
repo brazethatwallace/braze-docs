@@ -1,235 +1,251 @@
-## Using email editor blocks
+## Email editor blocks
 
-Editor blocks are located under the **Content** section for email messages. To use an editor block, drag an editor block inside a column in the drag-and-drop editor. It will auto-adjust to the column width. Each editor block has its owns settings, such as granular control on padding.
+Editor blocks are in the **Content** section for email messages. Drag a block inside a column in the **Drag-And-Drop Editor**; it auto-adjusts to the column width.
 
-For more information on how to use and customize these editor blocks in your email, check out [Other customizations]({{site.baseurl}}/user_guide/message_building_by_channel/email/drag_and_drop/#other-customizations).
+For more information about creating emails in the **Drag-And-Drop Editor**, see [Create an email with drag-and-drop]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/) and <a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">Other customizations</a> in that article.
 
 {% alert tip %}
 You can also add [custom attributes]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/) to any URL within the `Image`, `Button`, or `Text` editor blocks.
 {% endalert %}
 
-## Types
-
-The following table describes how users can use each editor block type.
-
-| Name | Description |
-|---|---|
-|Title| Adds text for Headers within the email. | 
-|Paragraph| Enters text into their message. A toolbar helps with font and text editing functionality. | 
-|List| Adds a bulleted list. |
-|Button| Adds a standard button. Properties for this block allow for editing and setting links easily. | 
-|Divider| Inserts a solid, dotted, or dashed line to help with spacing.|
-|Spacer| Adds space, or "padding", between other blocks. |
-|Image| Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). | 
-|Video| Creates a link to the video content. |
-|Social| Inserts social media platform icon. You can upload custom images for brand specific icons. |
-|Icons| Inserts an icon. You can upload custom images. Braze uses an oversized placeholder icon until you upload an image. |
-|HTML| Inserts raw HTML. Recommended for [Liquid]({{site.baseurl}}/liquid/), such as Connected Content or conditional statements. | 
-|Menu| Creates a flexible menu for the message you're designing. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-### Personalization in email
-
-- **Liquid:** Under **Content** > **Personalization**, select an attribute, copy the snippet, and paste it into a text block (basic Liquid) or HTML block (advanced Liquid). In general, while you can use basic Liquid in text blocks, we recommend using HTML blocks for heavier logic to avoid layout issues. Note that Liquid isn't supported in image blocks or in button URL fields.
-- **Connected Content:** Add an **HTML** block and place your {% raw %}`{% connected_content %}`{% endraw %} call there.
-
-## Properties
-
-Details for each editor block's properties are provided in the following tables.
-
 ### Title
-Refer to the following table for details on the `Title` editor block properties.
 
-| Properties | Description |
+Adds text for headers within the email.
+
+| Property | Description |
 |---|---|
-|Title| Selects the heading style. | 
-|Font family| This is the font style for your title. |
-|Font weight| This is the overall boldness of the font. |
-|Font size| Determines the size of your text. |
-|Text color| Modifies the color of the title. |
-|Link color| Modifies the color of the link. |
-|Align| Moves the title to be left, center, or right-oriented. |
-|Line height| Modifies the distance between lines of text. |
-|Line spacing| Modifies the distance in between each character. |
-|Text direction| Default left-to-right, but can be edited to be [right-to-left]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Title | Selects the heading style. |
+| Font family | The font style for your title. |
+| Font weight | The overall boldness of the font. |
+| Font size | Determines the size of your text. |
+| Text color | Modifies the color of the title. |
+| Link color | Modifies the color of the link. |
+| Align | Moves the title to be left, center, or right-oriented. |
+| Line height | Modifies the distance between lines of text. |
+| Letter spacing | Modifies the distance in between each character. |
+| Text direction | Default left-to-right, but can be edited to be [right-to-left]({{site.baseurl}}/right_to_left_messages/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
 ### Paragraph
 
-Refer to the following table for details on the `Paragraph` editor block properties.
+Enters text into the message. A toolbar helps with font and text editing functionality.
 
-| Properties | Description |
+| Property | Description |
 |---|---|
-|Font family| This is the font style for your paragraph text. |
-|Font weight| This is the overall boldness of the font. |
-|Font size| Determines the size of your text. |
-|Text color| Modifies the color of the title. |
-|Link color| Modifies the color of the link. |
-|Align| Moves the title to be left, center, or right-oriented. |
-|Paragraph spacing| Modifies the space between paragraphs. |
-|Line height| Modifies the distance between lines of text. |
-|Letter spacing| Modifies the distance in between each character. |
-|Text direction| Default left-to-right, but can be edited to be [right-to-left]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Font family | The font style for your paragraph text. |
+| Font weight | The overall boldness of the font. |
+| Font size | Determines the size of your text. |
+| Text color | Modifies the color of the text. |
+| Link color | Modifies the color of the link. |
+| Align | Moves the text to be left, center, or right-oriented. |
+| Paragraph spacing | Modifies the space between paragraphs. |
+| Line height | Modifies the distance between lines of text. |
+| Letter spacing | Modifies the distance in between each character. |
+| Text direction | Default left-to-right, but can be edited to be [right-to-left]({{site.baseurl}}/right_to_left_messages/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
 ### List
 
-Refer to the following table for details on the `List` editor block properties.
+Adds a bulleted list.
 
-| Properties | Description |
+| Property | Description |
 |---|---|
-|List type| This is the type of list. Can be either bulleted or numbered. |
-|List style type| Determines the style of your list. |
-|Start list from| Determines the starting number for your list. |
-|Font family| This is the font style for your paragraph text. |
-|Font weight| This is the overall boldness of the font. |
-|Font size| Determines the size of your text. |
-|Text color| Modifies the color of the title. |
-|Link color| Modifies the color of the link. |
-|Align| Moves the title to be left, center, or right-oriented. |
-|List items spacing| Modifies the space between list items. |
-|List items indent| Modifies the indentation of list items. |
-|Line height| Modifies the distance between lines of text. |
-|Letter spacing| Modifies the distance in between each character. |
-|Text direction| Default left-to-right, but can be edited to be [right-to-left]({{site.baseurl}}/right_to_left_messages/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| List type | The type of list. Can be either bulleted or numbered. |
+| List style type | Determines the style of your list. |
+| Start list from | Determines the starting number for your list. |
+| Font family | The font style for your paragraph text. |
+| Font weight | The overall boldness of the font. |
+| Font size | Determines the size of your text. |
+| Text color | Modifies the color of the text. |
+| Link color | Modifies the color of the link. |
+| Align | Moves the text to be left, center, or right-oriented. |
+| List items spacing | Modifies the space between list items. |
+| List items indent | Modifies the indentation of list items. |
+| Line height | Modifies the distance between lines of text. |
+| Letter spacing | Modifies the distance in between each character. |
+| Text direction | Default left-to-right, but can be edited to be [right-to-left]({{site.baseurl}}/right_to_left_messages/). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
+
+### Button
+
+Adds a standard button. Properties allow for editing styling and setting link behavior.
+
+| Property | Description |
+|---|---|
+| Button options | Sets various button options, such as font, size, width, color, and padding. |
+| Button hover | The style of the button when a user hovers over it using a mouse or trackpad. Includes the button's background color, font color, and border styles. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button" }
+
+#### On-click behavior
+
+| Property | Description |
+|---|---|
+| Link type | Determines the action when clicking the button and sets the appropriate protocol. |
+| URL | Dynamic based on the **Open web page** link type. |
+| Mail to, subject, and body | For the **Send email** link type, sets the recipient email address, subject, and content that will populate in a draft email when the user selects the button. |
+| Tel | For the **Make call** and **Send SMS** link type, sets the phone number the user will call or text when selecting the button. |
+| Message | For the **Send SMS** link type, sets the content that will populate in a draft SMS message when the user selects the button. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="On-click behavior" }
 
 ### Divider
 
-Refer to the following table for details on the `Divider` editor block.
+Inserts a solid, dotted, or dashed line to help with spacing.
 
-| Properties | Description |
+| Property | Description |
 |---|---|
-|Transparent| If enabled, 'line' and 'width' options are removed. |
-|Line| The different line formats, whether dotted, spotted, or solid. In addition, you can modify the thickness and color of the divider line. |
-|Width | Adjusts the spread of the divider in increments of 5.  |
-|Align| Moves the line to be either left, center, or right-oriented. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Transparent | If enabled, the line and width options are removed. |
+| Line | The different line formats, whether dotted, dashed, or solid. You can also modify the thickness and color of the divider line. |
+| Width | Adjusts the spread of the divider in increments of 5. |
+| Align | Moves the line to be either left, center, or right-oriented. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Divider" }
 
 ### Spacer
 
-Refer to the following table for details on the `Spacer` editor block.
+Adds space or padding between other blocks.
 
-| Properties | Description |
+| Property | Description |
 |---|---|
-|Height| Adjusts the height of the spacer block. The default is 60px.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Height | Adjusts the height of the spacer block. The default is 60px. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Spacer" }
 
 ### Image
 
-Refer to the following table for details on the `Image` editor block. For dynamic images (images with Liquid or Connected Content), you must set a fallback image to use the auto-width settings. For image specifications, refer to our [email image specifications]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/image_specs/#email).
+Inserts an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). For dynamic images (images with Liquid or Connected Content), you must set a fallback image to use the auto-width settings. For image specifications, see [email image specifications]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#email).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-| Properties | Description |
+| Property | Description |
 |---|---|
-|Auto Width| Modifies the width of the image in pixels. |
-|Align| Orients the image to either the left, center or right of the block. |
-|Image with Liquid| Use [Liquid]({{site.baseurl}}/liquid/) logic to dynamically set different images within the same block of content. |
-|URL| Set an image using the address to where it's hosted. |
-|Alternate text| A short description of the image that gives users the same information that's shown in the image. This is essential for screen-reader accessibility or when the image fails to load. |
-|Image with Rounded Corners| Render the image with rounded corners. By default, images are rendered with squared corners. |
-|Action| Triggers an action when the user clicks the image.|
-|Block Options| Sets padding around the image block. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Auto width | Modifies the width of the image in pixels. |
+| Align | Sets image alignment to left, center, or right within the block. |
+| Image with Liquid | Use [Liquid]({{site.baseurl}}/liquid/) logic to dynamically set different images within the same block of content. |
+| URL | Set an image using the address to where it's hosted. |
+| Alternate text | A short description of the image that gives users the same information shown in the image. Essential for screen-reader accessibility or when the image fails to load. |
+| Image with rounded corners | Renders the image with rounded corners. By default, images are rendered with squared corners. |
+| Action | Triggers an action when the user clicks the image. |
+| Block options | Sets padding around the image block. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 {% alert tip %}
-For `Auto Width`, automatic image resizing picks the best size for the image based on a combination of image width and available space in the layout:
-- Images wider than the available space will be set at 100% width and will keep this ratio on mobile, using the entire device display width.
-- Images smaller than the available space will use the image's natural size to avoid distortion effects or blurry pictures.
+For **Auto width**, automatic image resizing picks the best size for the image based on a combination of image width and available space in the layout:
+- Images wider than the available space are set at 100% width and keep this ratio on mobile, using the entire device display width.
+- Images smaller than the available space use the image's natural size to avoid distortion effects or blurry pictures.
 {% endalert %}
+
+#### Gmail download button behavior
+
+Gmail automatically appends a download button to images that do not have a hyperlink (`href`) associated with them. However, if the image's aspect ratio is 299 x 524 px or smaller, Gmail will not display the download button.
+
+To prevent the download button from appearing on larger images, you can apply the "#" link workaround:
+
+1. Select the **Image** block.
+2. In the **Block Options** panel, go to the **Link** section.
+3. Set the **Link type** to **Open web page**.
+4. Enter a pound sign (`#`) in the **URL** input field.
+
+Adding this link prevents Gmail from displaying the download button while not affecting the user experience.
 
 ### Video
 
-Refer to the following table for details on the `Video` editor block.
+Creates a link to video content. Only YouTube and Vimeo are supported.
 
-| Properties | Description |
+| Property | Description |
 |---|---|
-|URL| The URL for the video. Note that only YouTube and Vimeo are supported. |
-|Title| Auto-generated from the video meta data or can be customized. |
-|Play Icon Style| Includes different options for the play button located at the top of a video image. |
-|Play Icon Color| Option to select either **Light** or **Dark** for the play button. |
-|Play Icon Size| Choose the pixel size for the play button. Pre-fixed range from 50&nbsp;px to 80&nbsp;px (incremented by 5&nbsp;px). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| URL | The URL for the video. |
+| Title | Auto-generated from the video metadata or can be customized. |
+| Play icon style | Includes different options for the play button located at the top of a video image. |
+| Play icon color | Option to select either **Light** or **Dark** for the play button. |
+| Play icon size | Choose the pixel size for the play button. Predefined range from 50&nbsp;px to 80&nbsp;px (incremented by 5&nbsp;px). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video" }
 
 {% alert tip %}
-Videos hosted by Vimeo will only work if they are set to public. All other security settings available within Vimeo (for example, "Hide from Vimeo.com") will generate a different link format that is not supported by this Content Block. These types of links are altered by the builder, which prevents Braze from generating a thumbnail.
+Videos hosted by Vimeo only work if they are set to public. All other security settings available within Vimeo (for example, "Hide from Vimeo.com") generate a different link format that is not supported by this Content Block. These types of links are altered by the builder, which prevents Braze from generating a thumbnail.
 {% endalert %}
 
 ### Social
 
-Refer to the following table for details on the `Social` editor block.
+Inserts social media platform icons. You can upload custom images for brand-specific icons.
 
-| Properties | Description |
+| Property | Description |
 |---|---|
-|Select icon collection| Sets the style of your icon collection. |
-|Configure icon collection| Sets the URL for each social icon. Includes the **More options** toggle to edit the title and alternative text. |
-|Align| Moves the social icon to be left, center, or right-oriented. |
-|Icon spacing| Determines the spacing between each social icon. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Select icon collection | Sets the style of your icon collection. |
+| Configure icon collection | Sets the URL for each social icon. Includes the **More options** toggle to edit the title and alternative text. |
+| Align | Moves the social icon to be left, center, or right-oriented. |
+| Icon spacing | Determines the spacing between each social icon. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Social" }
 
 ### Icons
 
-Refer to the following table for details on the `Icons` editor block.
+Inserts an icon. You can upload custom images. Braze uses an oversized placeholder icon until you upload an image.
 
-| Properties | Description |
+| Property | Description |
 |---|---|
-|Font family| This is the font style for your paragraph text. |
-|Font weight| This is the overall boldness of the font. |
-|Font size| Determines the size of your text. |
-|Text color| Modifies the color of the title. |
-|Link color| Modifies the color of the link. |
-|Align| Moves the icon to be left, center, or right-oriented. |
-|Letter spacing| Modifies the distance in between each character. |
-|Icon size| Determines the size of your icon. |
-|Icon spacing| Modifies the space of the icon. |
-|Icon padding| Modifies the padding of the icon. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Font family | The font style for your paragraph text. |
+| Font weight | The overall boldness of the font. |
+| Font size | Determines the size of your text. |
+| Text color | Modifies the color of the title. |
+| Link color | Modifies the color of the link. |
+| Align | Moves the icon to be left, center, or right-oriented. |
+| Letter spacing | Modifies the distance in between each character. |
+| Icon size | Determines the size of your icon. |
+| Icon spacing | Modifies the space of the icon. |
+| Icon padding | Modifies the padding of the icon. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icons" }
 
 ### HTML
 
-Refer to the following table for details on the `HTML` editor block.
+Inserts raw HTML. Recommended for [Liquid]({{site.baseurl}}/liquid/), such as Connected Content or conditional statements.
 
-| properties | description |
+| Property | Description |
 |---|---|
-|html editor| Enter the raw HTML. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| HTML | Add or edit raw HTML, including [Liquid]({{site.baseurl}}/liquid/) for personalization or conditional logic. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
 ### Menu
 
-Refer to the following table for details on the `Menu` editor block.
+Creates a flexible menu for the message you're designing.
 
-| Properties | Description |
+| Property | Description |
 |---|---|
-|Configure menu items| Add a menu item. |
-|Font Family| The style to be used for your menu. |
-|Font Size| The size of your menu. |
-|Text Color| Modifies the color of the menu. |
-|Link Color| Modifies the color of the menu text. |
-|Align| Moves the menu to be left, center, or right-oriented. |
-|Letter spacing| Modifies the distance in between each character. |
-|Layout| Determines the layout to be either horizontal or vertical. |
-|Separator| Add character(s) between the menu options. |
-|Mobile menu| Includes options to modify the icon size, color, and icon type when shown on a mobile device. |
-|Item padding| Modifies the padding by using either the **+** or **-** button, or by entering a specific number. |
-|All sides| Sets a consistent padding number if Item padding is disabled. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Configure menu items | Add a menu item. |
+| Font family | The font style for the menu. |
+| Font size | The size of your menu. |
+| Text color | Modifies the color of the menu. |
+| Link color | Modifies the color of the menu text. |
+| Align | Moves the menu to be left, center, or right-oriented. |
+| Letter spacing | Modifies the distance in between each character. |
+| Layout | Determines the layout to be either horizontal or vertical. |
+| Separator | Adds character(s) between the menu options. |
+| Mobile menu | Includes options to modify the icon size, color, and icon type when shown on a mobile device. |
+| Item padding | Modifies the padding by using either the **+** or **-** button, or by entering a specific number. |
+| All sides | Sets a consistent padding number if item padding is disabled. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Menu" }
 
-## Actions
+### Product
 
-You can assign an action that occurs when a user taps a button, link, or image in the message. You can also use [Liquid]({{site.baseurl}}/liquid/) to personalize the actions. Details for each editor block's actions are provided in the following tables.
+Renders product rows from a [Product Catalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/), either as static items from a catalog Selection (up to 12) or as dynamic products driven by a [Canvas eCommerce trigger]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/) (up to 24).
 
-### Button
+| Property | Description |
+| --- | --- |
+| Content type | Sets whether products come from a fixed catalog **Selection** (**Static**, up to 12 products) or from a Canvas eCommerce recommendation trigger (**Dynamic**, up to 24 products). **Dynamic** is only available in Canvas message steps. |
+| Catalog | Selects which Product Catalog supplies product data and field mappings. |
+| Selection | *(Static only)* Selects which filtered set on the catalog defines which products appear. |
+| Show source details | Toggles help text showing the underlying catalog or event field mapped to each product field. |
+| Variant image | Shows or hides the variant image for each product tile. |
+| Product title | Shows or hides the product title for each tile. |
+| Price | Shows or hides the product price. |
+| Button for product URL | Shows or hides a call-to-action button linking to the product URL. |
+| Quantity | *(Dynamic, Canvas only, when the entry trigger is not a product view event)* Shows or hides the product quantity from the trigger event. |
+| Product orientation | Sets the image position within each tile: **Image left**, **Image center**, or **Image right**. |
+| Alignment | Sets the horizontal alignment of content within each tile. |
+| Max products per row | Sets how many products appear per row: **1**, **2**, or **3** (**3** is only available when orientation is **Image center**). |
+| Product spacing | Sets spacing between products: **Auto** or **Custom**. |
+| Custom spacing | *(When **Custom** is selected)* Sets the gap in pixels between products. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Product" }
 
-Refer to the following table for details on the `Button` editor block.
+## Personalization
 
-| Properties | Description |
-|---|---|
-|Link Type| Determines the action when clicking the button and sets the appropriate protocol. |
-|URL| Dynamic based on the **Open web page** link type.|
-|Mail to, Subject, and Body| For the **Send email** link type, this sets the recipient email address, subject, and content that will populate in a draft email when the user selects the button.|
-|Tel| For the **Make call** and **Send SMS** link type, this sets the phone number the user will call or text when selecting the button.|
-|Message| For the **Send SMS** link type, this sets the content that will populate in a draft SMS message when the user selects the button.|
-|Button options| Sets various button options, such as font, width, color, and others.|
-|Button Hover| The style of the button when a user hovers over it using a mouse or trackpad. This includes the button's background color, font color, and border styles.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+You can add personalization to your email using Liquid or Connected Content.
+
+- **Liquid:** Under **Content** > **Personalization**, select an attribute, copy the snippet, and paste it into a Title, Paragraph, or List block (basic Liquid) or HTML block (advanced Liquid). In general, while you can use basic Liquid in Title, Paragraph, and List blocks, we recommend using HTML blocks for heavier logic to avoid layout issues. Note that Liquid isn't supported in image blocks or in button URL fields.
+- **[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/):** Add an **HTML** block and place your {% raw %}`{% connected_content %}`{% endraw %} call there.

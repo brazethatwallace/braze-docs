@@ -20,7 +20,7 @@ Anniversaries and holidays
 
 - [Personalizar mensajes según el año de aniversario de un usuario](#anniversary-year)
 - [Personalizar mensajes según la semana de cumpleaños de un usuario](#birthday-week)
-- [Enviar campañas a usuarios en su mes de cumpleaños](#birthday-month)
+- [Enviar Campaigns a usuarios en su mes de cumpleaños](#birthday-month)
 - [Evitar enviar mensajes en festivos importantes](#holiday-avoid)
 
 ### Personalizar mensajes según el año de aniversario de un usuario {#anniversary-year}
@@ -93,7 +93,7 @@ No birthday for you!
 
 También incluimos declaraciones para `last_week` y `next_week` para personalizar aún más tu mensajería.
 
-### Enviar campañas a usuarios en su mes de cumpleaños {#birthday-month}
+### Enviar Campaigns a usuarios en su mes de cumpleaños {#birthday-month}
 
 Este caso de uso muestra cómo calcular el mes de cumpleaños de un usuario, verificar si su cumpleaños cae en el mes actual y, de ser así, enviar un mensaje especial.
 
@@ -543,6 +543,7 @@ Custom attribute
 {% endapitags %}
 
 - [Personalizar un mensaje basado en atributos personalizados coincidentes](#attribute-matching)
+- [Formatear moneda para convenciones numéricas europeas](#european-currency-format)
 - [Restar dos atributos personalizados para mostrar la diferencia como valor monetario](#attribute-monetary-difference)
 - [Hacer referencia al nombre de un usuario si su nombre completo está almacenado en el campo first_name](#attribute-first-name)
 
@@ -564,6 +565,20 @@ You are at a dead-end of a dirt road. The road goes to the east. In the distance
 There is a shovel here.
 {% endif %}
 ```
+{% endraw %}
+
+### Formatear moneda para convenciones numéricas europeas {#european-currency-format}
+
+Para las configuraciones regionales que usan una coma como separador decimal y un punto como separador de miles (por ejemplo, Alemania o Italia), usa los filtros [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) y [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) con `replace` para intercambiar los separadores. Usa `#` como marcador de posición temporal para que los puntos y las comas no se intercambien en la misma pasada.
+
+{% raw %}
+```liquid
+{{ 1234567.89 | money | number_with_delimiter | replace: '.', '#' | replace: ',', '.' | replace: '#', ',' }}
+```
+
+**Resultado:** `1.234.567,89`
+
+**Explicación:** El filtro `money` añade decimales pero no añade un símbolo de moneda ni separadores específicos de la configuración regional. `number_with_delimiter` añade separadores de miles al estilo estadounidense, y los filtros `replace` los convierten al formato europeo.
 {% endraw %}
 
 ### Restar dos atributos personalizados para mostrar la diferencia como valor monetario {#attribute-monetary-difference}
@@ -604,7 +619,7 @@ Custom event
 {% endapitags %}
 
 - [Cancelar notificación push si un evento personalizado está dentro de dos horas a partir de ahora](#event-abort-push)
-- [Enviar una campaña cada vez que un usuario realiza un evento personalizado tres veces](#event-three-times)
+- [Enviar una Campaign cada vez que un usuario realiza un evento personalizado tres veces](#event-three-times)
 - [Enviar un mensaje a usuarios que solo han comprado de una categoría](#event-purchased-one-category)
 - [Rastrear cuántas veces ocurrió un evento personalizado en el último mes](#track)
 
@@ -630,9 +645,9 @@ Still traveling to {{event_properties.${toStation}}} in more than 24 hours? Book
 ```
 {% endraw %}
 
-### Enviar una campaña cada vez que un usuario realiza un evento personalizado tres veces {#event-three-times}
+### Enviar una Campaign cada vez que un usuario realiza un evento personalizado tres veces {#event-three-times}
 
-Este caso de uso verifica si un usuario ha realizado un evento personalizado tres veces y, de ser así, mostrará un mensaje o enviará una campaña.
+Este caso de uso verifica si un usuario ha realizado un evento personalizado tres veces y, de ser así, mostrará un mensaje o enviará una Campaign.
 
 {% raw %}
 ```liquid
@@ -667,7 +682,7 @@ Este caso de uso captura una lista de las categorías de las que un usuario ha c
 
 ### Rastrear cuántas veces ocurrió un evento personalizado en el último mes {#track}
 
-Este caso de uso calcula el número de veces que se ha registrado un evento personalizado entre el 1.º del mes actual y el mes anterior. Luego puedes ejecutar una llamada users/track para actualizar y almacenar este valor como un atributo personalizado. Ten en cuenta que esta campaña necesitaría ejecutarse durante dos meses consecutivos antes de que los datos mensuales puedan usarse.
+Este caso de uso calcula el número de veces que se ha registrado un evento personalizado entre el 1.º del mes actual y el mes anterior. Luego puedes ejecutar una llamada users/track para actualizar y almacenar este valor como un atributo personalizado. Ten en cuenta que esta Campaign necesitaría ejecutarse durante dos meses consecutivos antes de que los datos mensuales puedan usarse.
 
 {% raw %}
 ```liquid
@@ -858,10 +873,10 @@ Miscellaneous
 
 ### Evitar enviar correos electrónicos a clientes que han bloqueado correos de marketing {#misc-avoid-blocked-emails}
 
-Este caso de uso toma una lista de usuarios bloqueados guardada en un bloque de contenido y verifica que esos usuarios bloqueados no sean contactados ni segmentados en próximas campañas o Canvas.
+Este caso de uso toma una lista de usuarios bloqueados guardada en un Content Block y verifica que esos usuarios bloqueados no sean contactados ni segmentados en próximas Campaigns o Canvas.
 
 {% alert important %}
-Para usar este Liquid, primero guarda la lista de correos electrónicos bloqueados dentro de un bloque de contenido. La lista no debe tener espacios adicionales ni caracteres insertados entre las direcciones de correo electrónico (por ejemplo, `test@braze.com,abc@braze.com`).
+Para usar este Liquid, primero guarda la lista de correos electrónicos bloqueados dentro de un Content Block. La lista no debe tener espacios adicionales ni caracteres insertados entre las direcciones de correo electrónico (por ejemplo, `test@braze.com,abc@braze.com`).
 {% endalert %}
 
 {% raw %}
@@ -877,10 +892,10 @@ Your message here!
 ```
 {% endraw %}
 
-**Explicación:** Aquí verificamos si el correo electrónico de tu destinatario potencial está en esta lista haciendo referencia al bloque de contenido de correos electrónicos bloqueados. Si se encuentra el correo electrónico, el mensaje no se enviará.
+**Explicación:** Aquí verificamos si el correo electrónico de tu destinatario potencial está en esta lista haciendo referencia al Content Block de correos electrónicos bloqueados. Si se encuentra el correo electrónico, el mensaje no se enviará.
 
 {% alert note %}
-Los bloques de contenido tienen un límite de tamaño de 5 MB.
+Los Content Blocks tienen un límite de tamaño de 5 MB.
 {% endalert %}
 
 ### Usar el estado de suscripción de un cliente para personalizar contenido en mensajes {#misc-personalize-content}
@@ -937,7 +952,7 @@ Today's offer from {{store}}
 
 Este caso de uso permite a los usuarios configurar recordatorios próximos basados en eventos personalizados. El escenario de ejemplo permite a un usuario establecer un recordatorio para una fecha de renovación de póliza que está a 26 o más días de distancia, donde los recordatorios se envían 26, 13, 7 o 2 días antes de la fecha de renovación de la póliza.
 
-Con este caso de uso, lo siguiente debe ir en el cuerpo de una [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) o paso en Canvas.
+Con este caso de uso, lo siguiente debe ir en el cuerpo de una [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) o paso en Canvas.
 
 {% raw %}
 ```liquid
@@ -1367,11 +1382,15 @@ Time zones
 - [Añadir la zona horaria CST a un atributo personalizado](#time-append-cst)
 - [Insertar una marca de tiempo](#time-insert-timestamp)
 - [Enviar una notificación push de Canvas solo durante una ventana de tiempo en la zona horaria local del usuario](#time-canvas-window)
-- [Enviar una campaña recurrente de mensajes dentro de la aplicación entre una ventana de tiempo en la zona horaria local del usuario](#time-reocurring-iam-window)
+- [Enviar una Campaign recurrente de mensajes dentro de la aplicación entre una ventana de tiempo en la zona horaria local del usuario](#time-reocurring-iam-window)
 - [Enviar diferentes mensajes en días laborables versus fines de semana en la zona horaria local del usuario](#time-weekdays-vs-weekends)
 - [Enviar diferentes mensajes según la hora del día en la zona horaria local del usuario](#time-of-day)
 - [Cancelar un mensaje fuera de un rango de horas en el momento del envío](#abort-send-time-hour-range)
 - [Cancelar un mensaje fuera de una ventana de tiempo en una zona horaria fija](#abort-fixed-timezone-window)
+
+{% alert note %}
+Si un usuario recibe un mensaje en una hora local inesperada, es posible que la zona horaria de su dispositivo o perfil haya cambiado (por ejemplo, después de viajar). La entrega en hora local usa la zona horaria del perfil en el momento del envío; los usuarios pueden necesitar una nueva sesión en su región habitual antes de que valores como {% raw %}`{{${time_zone}}}`{% endraw %} reflejen lo que esperas. Sin embargo, puedes [insertar la zona horaria del usuario en una plantilla](#users-time-zone).
+{% endalert %}
 
 ### Insertar la zona horaria del usuario en una plantilla {#users-time-zone}
 
@@ -1388,9 +1407,9 @@ Para asignar una variable que refleje la fecha y hora actuales en la zona horari
 ```
 {% endraw %}
 
-- `now`: Esto recupera la fecha y hora actuales en UTC.
-- `time_zone`: Esto recupera la zona horaria local del usuario desde el atributo predeterminado usando la etiqueta de personalización {% raw %}`{{${time_zone}}}`{% endraw %}.
-- `date`: Esto formatea la fecha y hora local del usuario según tus especificaciones. En el ejemplo anterior, el sistema muestra una cadena formateada como "February 26, 2026". Para más opciones de formato, consulta [strftime.net](strftime.net).
+- `now`: Recupera la fecha y hora actuales en UTC.
+- `time_zone`: Recupera la zona horaria local del usuario desde el atributo predeterminado usando la etiqueta de personalización {% raw %}`{{${time_zone}}}`{% endraw %}.
+- `date`: Formatea la fecha y hora local del usuario según tus especificaciones. En el ejemplo anterior, el sistema muestra una cadena formateada como "February 26, 2026". Para más opciones de formato, consulta [strftime.net](strftime.net).
 
 #### Aplicar la zona horaria del usuario con atributos personalizados {#apply-the-users-time-zone-with-custom-attributes}
 
@@ -1466,7 +1485,7 @@ Here's a message that will send between 8 am and 8 pm!
 ```
 {% endraw %}
 
-### Enviar una campaña recurrente de mensajes dentro de la aplicación entre una ventana de tiempo en la zona horaria local del usuario {#time-reoccurring-iam-window}
+### Enviar una Campaign recurrente de mensajes dentro de la aplicación entre una ventana de tiempo en la zona horaria local del usuario {#time-reoccurring-iam-window}
 
 Este caso de uso mostrará un mensaje si la hora actual del usuario cae dentro de una ventana establecida.
 
@@ -1520,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} Esto es lo opuesto a las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
+{% alert note %} Esto es lo opuesto a las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options). {% endalert %}
 
 ### Cancelar un mensaje fuera de un rango de horas en el momento del envío {#abort-send-time-hour-range}
 
@@ -1567,8 +1586,8 @@ Week/Day/Month
 {% endapitags %}
 
 - [Insertar el nombre del mes anterior en un mensaje](#month-name)
-- [Enviar una campaña al final de cada mes](#month-end)
-- [Enviar una campaña el último (día laborable) del mes](#day-of-month-last)
+- [Enviar una Campaign al final de cada mes](#month-end)
+- [Enviar una Campaign el último (día laborable) del mes](#day-of-month-last)
 - [Enviar un mensaje diferente cada día del mes](#day-of-month)
 - [Enviar un mensaje diferente cada día de la semana](#day-of-week)
 - [Cancelar un mensaje en una fecha específica del calendario](#abort-specific-calendar-date)
@@ -1622,7 +1641,7 @@ Here's an overview of what your spending looked like in {{last_month_name}}.
 ```
 {% endraw %}
 
-### Enviar una campaña al final de cada mes {#month-end}
+### Enviar una Campaign al final de cada mes {#month-end}
 
 Este caso de uso verificará si la fecha actual cae dentro de una lista de fechas y, según la fecha, mostrará un mensaje específico.
 
@@ -1642,7 +1661,7 @@ The date is correct
 ```
 {% endraw %}
 
-### Enviar una campaña el último (día laborable) del mes {#day-of-month-last}
+### Enviar una Campaign el último (día laborable) del mes {#day-of-month-last}
 
 Este caso de uso captura el mes y día actuales y calcula si el día actual cae dentro del último día laborable del mes.
 
@@ -1796,3 +1815,5 @@ Este caso de uso cancela el mensaje cuando Liquid se ejecuta en un día de la se
 {% endraw %}
 
 {% endapi %}
+
+Muchos ejemplos en esta biblioteca usan la etiqueta `abort_message` para omitir un envío cuando no se cumplen las condiciones. Para una referencia completa sobre cómo cancelar envíos con Liquid, incluidos patrones basados en fecha y hora, consulta [Cancelar mensajes Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).

@@ -28,17 +28,17 @@ tool: Segments
 | 변수 필드 | 설명 |
 | --- | --- |
 | `Catalog` | 사용자를 타겟팅하는 데 사용하는 카탈로그의 이름입니다. |
-| `Catalog field`| `Custom event property`와 동일한 값을 포함하는 카탈로그의 필드입니다. 일반적으로 ID 유형입니다. 이커머스 사용 사례에서는 `shopify_id`가 됩니다. |
+| `Catalog field` | `Custom event property`와 동일한 값을 포함하는 카탈로그의 필드입니다. 일반적으로 ID 유형입니다. 이커머스 사용 사례에서는 `shopify_id`가 됩니다. |
 | `Custom event` | `Catalog field`와 일치하는 값을 가진 속성정보가 포함된 커스텀 이벤트의 이름입니다. 이커머스 사용 사례에서는 `Made Order`가 됩니다. |
-| `Custom event property` | `Catalog field`와 값이 일치하는 커스텀 이벤트 속성정보의 이름입니다. 이커머스 예시 사용 사례에서는 `Shopify_ID`가 됩니다.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `Custom event property` | `Catalog field`와 값이 일치하는 커스텀 이벤트 속성정보의 이름입니다. 이커머스 예시 사용 사례에서는 `Shopify_ID`가 됩니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="카탈로그 Segment 생성하기" }
 
 {: start="4"}
 4. 필요한 경우, 카탈로그 내 특정 필드 값으로 세그먼트하기 위해 사용 사례에 맞는 추가 선택 필드를 입력합니다:
 - `Catalog field`: 이 카탈로그 내의 특정 필드(열 이름)
 - `Value`: 해당 필드 또는 열 내의 특정 값 <br><br> 건강 앱을 예로 들면, 예약할 수 있는 각 의사에 대한 카탈로그에 `specialty`라는 필드가 있고 `vision` 또는 `dental`과 같은 값이 포함되어 있다고 가정합니다. `dental` 값을 가진 의사를 방문한 사용자를 세그먼트하려면 `specialty`를 `Catalog field`로 선택하고 `dental`을 `Value`로 선택합니다.
 
-5. SQL Segment를 생성한 후 **미리보기 실행**을 클릭하여 쿼리가 사용자를 반환하는지 또는 오류가 있는지 확인하는 것을 권장합니다. [쿼리 결과 미리보기]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#previewing-results), [SQL 세그먼트 확장 관리]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#managing-sql-segment-extensions) 등에 대한 자세한 내용은 [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)을 확인하세요.
+5. SQL Segment를 생성한 후 **미리보기 실행**을 클릭하여 쿼리가 사용자를 반환하는지 또는 오류가 있는지 확인하는 것을 권장합니다. [쿼리 결과 미리보기]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#previewing-results), [SQL 세그먼트 확장 관리]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-sql-segment-extensions) 등에 대한 자세한 내용은 [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)을 확인하세요.
 
 {% alert note %}
 `CATALOGS_ITEMS_SHARED` 테이블을 사용하는 SQL Segment를 생성하는 경우 카탈로그 ID를 지정해야 합니다. 예를 들어:
@@ -72,12 +72,12 @@ LIMIT 10
 
 ### 새로고침 설정 지정하기 {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## 활용 사례 {#use-cases}
 
 {% tabs local %}
-{% tab Health %}
+{% tab 건강 %}
 
 ### 건강 앱 {#health-app}
 
@@ -91,13 +91,13 @@ LIMIT 10
 
 | 변수 | 속성정보 |
 | --- | --- |
-| `Catalog`| Doctors |
+| `Catalog` | Doctors |
 | `Catalog field` | doctor ID |
-| `Custom event`| Booked Visit|
+| `Custom event` | Booked Visit |
 | `Custom event property` | doctor ID |
 | `(Under Filter SQL Results) Catalog field` | Specialty |
-| `(Under Filter SQL Results) Value`| Dental |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `(Under Filter SQL Results) Value` | Dental |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="건강 앱" }
 
 {% endtab %}
 {% tab SaaS %}
@@ -115,12 +115,12 @@ B2B SaaS 플랫폼이 있고 기존 고객의 직원인 사용자를 세그먼�
 | 변수 | 속성정보 |
 | --- | --- |
 | `Catalog` | Accounts |
-| `Catalog field `| account ID |
+| `Catalog field ` | account ID |
 | `Custom event` | Event Attendance |
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS 플랫폼" }
 
 {% endtab %}
 {% endtabs %}
@@ -129,7 +129,7 @@ B2B SaaS 플랫폼이 있고 기존 고객의 직원인 사용자를 세그먼�
 
 ### 카탈로그 Segment를 실행하면 SQL 세그먼트 확장 크레딧이 소비되나요? {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
 
-예, 카탈로그 Segments는 SQL로 구동되며 SQL 세그먼트 확장 크레딧을 소비합니다. 자세한 내용은 [SQL Segments 사용량]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#monitoring-your-sql-segments-usage)을 확인하세요.
+예, 카탈로그 Segments는 SQL로 구동되며 SQL 세그먼트 확장 크레딧을 소비합니다. 자세한 내용은 [SQL Segments 사용량]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage)을 확인하세요.
 
 ### 카탈로그 Segment를 생성하면 SQL 세그먼트 확장 할당량이 소비되나요? {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
 
@@ -137,4 +137,4 @@ B2B SaaS 플랫폼이 있고 기존 고객의 직원인 사용자를 세그먼�
 
 ### 현재 템플릿이 지원하지 않는 카탈로그 Segment 사용 사례가 있습니다. 어떻게 설정해야 하나요? {#i-have-a-catalog-segment-use-case-that-the-current-template-doesnt-serve-how-should-i-set-that-up}
 
-고객지원 매니저에게 문의하거나 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/)에 연락하여 추가 안내를 받으세요.
+고객지원 매니저에게 문의하거나 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 연락하여 추가 안내를 받으세요.

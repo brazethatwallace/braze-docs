@@ -14,7 +14,7 @@ platform:
 
 # Content Cards 피드 커스터마이즈 {#customize-the-feed-for-content-cards}
 
-> Content Cards 피드는 모바일 또는 웹 애플리케이션에 표시되는 Content Cards의 시퀀스입니다. 이 문서에서는 피드 새로고침 시기 설정, 카드 순서 지정, 여러 피드 관리, "빈 피드" 오류 메시지 등을 구성하는 방법을 다룹니다. 콘텐츠 카드 유형의 전체 목록은 [Content Cards 정보]({{site.baseurl}}/developer_guide/content_cards/)를 참조하세요.
+> Content Cards 피드는 모바일 또는 웹 애플리케이션에 표시되는 Content Cards의 시퀀스입니다. 이 문서에서는 피드 새로고침 시기 설정, 카드 순서 지정, 여러 피드 관리, "빈 피드" 오류 메시지 등을 구성하는 방법을 다룹니다. 콘텐츠 카드 유형의 전체 목록은 [Content Cards 정보]({{site.baseurl}}/developer_guide/content_cards)를 참조하세요.
 
 {% multi_lang_include developer_guide/_shared/about_session_lifecycle.md %}
 
@@ -49,6 +49,8 @@ function refresh() {
   braze.requestContentCardsRefresh();
 }
 ```
+
+Content Cards 링크를 같은 탭이 아닌 새 브라우저 탭에서 열려면 웹 SDK 초기화 옵션에서 `openCardsInNewTab: true`를 설정하세요. 초기화 옵션에 대한 자세한 내용은 [웹 SDK 리포지토리 가이드]({{site.baseurl}}/developer_guide/sdk_repository_guides/web)를 참조하세요.
 
 {% endtab %}
 {% tab android %}
@@ -126,7 +128,7 @@ Braze는 토큰 버킷 알고리즘을 사용하여 다음과 같은 사용량 �
 - `subscribeToContentCards()`는 사용량 제한이 적용된 경우에도 캐시된 카드를 반환합니다
 
 {% alert important %}
-Braze SDK는 성능 및 안정성을 위해 사용량 제한을 적용합니다. 자동화된 테스트를 실행하거나 수동 QA를 수행할 때 이 점을 유의하세요. 자세한 내용은 [Braze SDK 사용량 제한]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits/)을 참조하세요.
+Braze SDK는 성능 및 안정성을 위해 사용량 제한을 적용합니다. 자동화된 테스트를 실행하거나 수동 QA를 수행할 때 이 점을 유의하세요. 자세한 내용은 [Braze SDK 사용량 제한]({{site.baseurl}}/developer_guide/sdk_integration/rate_limits)을 참조하세요.
 {% endalert %}
 
 ## 표시되는 카드 순서 커스터마이즈 {#customizing-displayed-card-order}
@@ -353,7 +355,7 @@ let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze,
 
 사용자가 Content Cards를 받을 자격이 없는 경우 SDK는 "We have no updates. Please check again later."라는 "빈 피드" 오류 메시지를 표시합니다. 이 "빈 피드" 오류 메시지는 다음과 같이 커스터마이즈할 수 있습니다:
 
-![빈 피드 오류 메시지. "This is a custom empty state message."]({% image_buster/assets/img/content_cards/content-card-customization-empty.png %})
+![빈 피드 오류 메시지. "This is a custom empty state message."라고 표시됩니다.]({% image_buster/assets/img/content_cards/content-card-customization-empty.png %})
 
 {% tabs %}
 {% tab web %}
@@ -383,7 +385,7 @@ let viewController = BrazeContentCardUI.ViewController(braze: AppDelegate.braze,
 </style>
 ```
 
-Content Cards 스타일 요소 커스터마이즈에 대한 자세한 내용은 [스타일 커스터마이즈]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/)를 참조하세요.
+Content Cards 스타일 요소 커스터마이즈에 대한 자세한 내용은 [스타일 커스터마이즈]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style)를 참조하세요.
 {% endsubtab %}
 {% subtab Jetpack Compose %}
 Jetpack Compose로 "빈 피드" 오류 메시지를 커스터마이즈하려면 `emptyString`을 [`ContentCardsList`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards/-content-cards-list.html)에 전달할 수 있습니다. [`emptyTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-list-styling/index.html#1193499348%2FProperties%2F-1725759721)을 `ContentCardListStyling`에 전달하여 이 메시지를 추가로 커스터마이즈할 수도 있습니다.
@@ -445,7 +447,7 @@ Content Cards는 앱에서 필터링하여 특정 카드만 표시할 수 있으
 
 ### 1단계: 카드에 키-값 페어 설정 {#step-1-set-key-value-pairs-on-cards}
 
-콘텐츠 카드 캠페인을 생성할 때 각 카드에 [키-값 페어 데이터]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior/)를 설정합니다. 이 키-값 페어를 사용하여 카드를 분류합니다. 키-값 페어는 카드의 데이터 모델에 있는 `extras` 등록정보에 저장됩니다.
+콘텐츠 카드 캠페인을 생성할 때 각 카드에 [키-값 페어 데이터]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/behavior)를 설정합니다. 이 키-값 페어를 사용하여 카드를 분류합니다. 키-값 페어는 카드의 데이터 모델에 있는 `extras` 등록정보에 저장됩니다.
 
 이 예제에서는 `feed_type` 키로 키-값 페어를 설정하여 카드가 표시될 Content Cards 피드를 지정합니다. 값은 `home_screen` 또는 `marketing`과 같이 커스텀 피드에 따라 달라집니다.
 

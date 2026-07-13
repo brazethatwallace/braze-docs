@@ -25,7 +25,7 @@ Only make updates to your account schema when the sync is paused or not schedule
 
 ## How syncing works
 
-- Each sync imports rows where `UPDATED_AT` is later than the last synced timestamp. Rows at the exact boundary timestamp may be re-synced if new rows share that same timestamp. For more information, see [Avoid resyncing rows with duplicate timestamps]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+- Each sync imports rows where `UPDATED_AT` is later than the last synced timestamp. Rows at the exact boundary timestamp may be re-synced if new rows share that same timestamp. For more information, see [Avoid resyncing rows with duplicate timestamps]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 - Data from the integration creates or updates accounts based on the provided `id`.
 - If `DELETED` is `true`, the account is deleted.
 - Syncing doesn’t log data points, but all synced data counts toward your total accounts usage, measured by total stored data—there’s no need to limit to only changed data.
@@ -140,7 +140,7 @@ To integrate your data source with your data warehouse:
     | `ID` | String | Yes |
     | `NAME` | String | Yes |
     | `DELETED` | Boolean | Optional |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
 
 {:start="3"}
 3. Create a user and grant permissions. If you already have credentials from another sync, you can reuse them as long as they have access to the accounts table.
@@ -151,7 +151,7 @@ To integrate your data source with your data warehouse:
     | BigQuery User | Allows Braze to run queries, read metadata, and list tables. |
     | BigQuery Data Viewer | Allows Braze to view datasets and contents. |
     | BigQuery Job User | Allows Braze to run jobs. |
-    {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 aria-label="Sync your account data" }
 
     After granting permissions, generate a JSON key. See [Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete) for instructions. You’ll upload it in the Braze dashboard later.
 
@@ -187,7 +187,7 @@ To integrate your data source with your data warehouse:
     | `ID` | String | Yes |
     | `NAME` | String | Yes |
     | `DELETED` | Boolean | Optional |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
 
 {:start="3"}
 3. Create a personal access token in Databricks:
@@ -236,7 +236,7 @@ To sync account data from file storage, create a source file with the following 
 | `PAYLOAD` | Yes | JSON string of the fields to sync to the account in Braze |  
 | `DELETED` | Optional | Boolean indicating to delete the account from Braze |  
 | `UPDATED_AT` | _*Unsupported_ | File storage doesn't support `UPDATED_AT` columns |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
 
 {% alert note %}
 Filenames must follow AWS rules and be unique. Append timestamps to help ensure uniqueness. For more on Amazon S3 syncing, see [File Storage Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).

@@ -14,24 +14,25 @@ description: "이 참조 문서에서는 Braze REST API를 사용하여 프로�
 
 ## 보내는 두 가지 방법 {#two-ways-to-send}
 
-| | [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) | [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) |
+| | [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) | [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) |
 | --- | --- | --- |
 | **Campaign ID** | 선택 사항. 대시보드 Campaign 추적 없이 발송하려면 생략하거나, 대시보드에서 추적하려면 API Campaign ID와 각 메시지에 `message_variation_id`를 함께 제공합니다. | 필수. |
 | **메시지 내용** | 요청에 `messages` 오브젝트를 포함해야 합니다(예: `messages.whats_app`, `messages.email`). | 허용되지 않음. 메시지 내용은 Braze 대시보드의 Campaign에서 정의됩니다. |
 | **사용 사례** | API 요청에 완전히 명시된 내용으로 메시지를 전송합니다. | API를 통해 사전 구축된 Campaign(대시보드 내 콘텐츠)을 특정 수신자에게 트리거합니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="보내는 두 가지 방법" }
 
-전체 요청 및 응답 세부 정보는 [즉시 메시지 보내기(API 전용)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) 및 [API 트리거 전달을 사용한 Campaign 보내기]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) 엔드포인트 참조 문서를 확인하세요.
+전체 요청 및 응답 세부 정보는 [즉시 메시지 보내기(API 전용)]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) 및 [API 트리거 전달을 사용한 Campaign 보내기]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) 엔드포인트 참조 문서를 확인하세요.
 
 ---
 
 ## 옵션 1: 요청에 메시지 내용을 포함하여 전송(`/messages/send`) {#option-1-send-with-message-content-in-the-request-messagessend}
 
-API 요청에서 전체 메시지 내용을 지정하려는 경우 이 엔드포인트를 사용합니다. `messages` 오브젝트(예: `messages.whats_app`, `messages.email` 또는 `messages.sms`)를 **반드시** 포함해야 합니다. Campaign 추적 없이 발송하려면 `campaign_id`를 생략하거나, 대시보드에서 발송 내역을 추적하려면 각 메시지에 API Campaign ID와 `message_variation_id`를 포함하세요(자세한 내용은 [엔드포인트 참조]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) 문서를 확인하세요).
+API 요청에서 전체 메시지 내용을 지정하려는 경우 이 엔드포인트를 사용합니다. `messages` 오브젝트(예: `messages.whats_app`, `messages.email` 또는 `messages.sms`)를 **반드시** 포함해야 합니다. Campaign 추적 없이 발송하려면 `campaign_id`를 생략하거나, 대시보드에서 발송 내역을 추적하려면 각 메시지에 API Campaign ID와 `message_variation_id`를 포함하세요(자세한 내용은 [엔드포인트 참조]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) 문서를 확인하세요).
 
 **필수:** `messages.send` 권한이 있는 API 키.
 
 {% alert important %}
-`external_user_ids`에 포함된 각 수신자는 Braze에 이미 존재해야 합니다. 발송과 함께 사용자를 생성하려면 먼저 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하거나, [옵션 2](#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend)(API 트리거 Campaign)를 대신 사용하세요.
+`external_user_ids`에 포함된 각 수신자는 Braze에 이미 존재해야 합니다. 발송과 함께 사용자를 생성하려면 먼저 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하거나, [옵션 2](#option-2-trigger-a-campaign-with-content-in-the-dashboard-campaignstriggersend)(API 트리거 Campaign)를 대신 사용하세요.
 {% endalert %}
 
 ### 예시: WhatsApp 템플릿 메시지 {#example-whatsapp-template-message}
@@ -59,10 +60,10 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-전체 WhatsApp 오브젝트 사양은 [WhatsApp 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/whats_app_object/)를 참조하세요.
+전체 WhatsApp 오브젝트 사양은 [WhatsApp 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/whats_app_object)를 참조하세요.
 
 {% alert note %}
-`/messages/send` 엔드포인트는 TEXT 또는 IMAGE 헤더가 포함된 WhatsApp 템플릿만 지원합니다. DOCUMENT, VIDEO 또는 기타 미디어 헤더 유형의 경우 [API 트리거 Campaign 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) 또는 Braze 대시보드를 대신 사용하세요.
+`/messages/send` 엔드포인트는 TEXT 또는 IMAGE 헤더가 포함된 WhatsApp 템플릿만 지원합니다. DOCUMENT, VIDEO 또는 기타 미디어 헤더 유형의 경우 [API 트리거 Campaign 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) 또는 Braze 대시보드를 대신 사용하세요.
 {% endalert %}
 
 ### 예시: 이메일 {#example-email}
@@ -81,7 +82,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-다른 채널에 대해서는 [메시징 오브젝트]({{site.baseurl}}/api/objects_filters/#messaging-objects)를 참조하세요.
+다른 채널에 대해서는 [메시징 오브젝트]({{site.baseurl}}/api/objects_filters#messaging-objects)를 참조하세요.
 
 ---
 
@@ -98,7 +99,7 @@ Braze 대시보드에서 메시지 콘텐츠가 구축된 경우(API 트리거 C
 3. 메시지 채널(WhatsApp, 이메일, SMS 등)을 추가하고 대시보드에서 메시지 내용을 구축합니다.
 4. **Campaign ID**를 기록합니다(여러 메시지 배리언트를 사용하는 경우 **Send ID**도 함께 기록). API 요청에서 이 값들을 사용하게 됩니다.
 
-API 트리거 Campaign 구축에 대한 자세한 내용은 [API 트리거 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/)을 참조하세요.
+API 트리거 Campaign 구축에 대한 자세한 내용은 [API 트리거 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)을 참조하세요.
 
 ### 2단계: API를 통해 Campaign 트리거 {#step-2-trigger-the-campaign-via-the-api}
 
@@ -121,7 +122,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 }
 ```
 
-전체 요청 본문(`trigger_properties`, `send_to_existing_only`, `attributes` 등 포함)은 [API 트리거 전달을 사용한 Campaign 보내기]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#request-body) 엔드포인트 참조 문서를 확인하세요.
+전체 요청 본문(`trigger_properties`, `send_to_existing_only`, `attributes` 등 포함)은 [API 트리거 전달을 사용한 Campaign 보내기]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#request-body) 엔드포인트 참조 문서를 확인하세요.
 
 ---
 
@@ -133,6 +134,6 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 ## 고려 사항 {#considerations}
 
-- 지원되는 환경에서 Braze [개인화 기능]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/)을 활용하여 콘텐츠를 맞춤 설정하세요.
+- 지원되는 환경에서 Braze [개인화 기능]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize)을 활용하여 콘텐츠를 맞춤 설정하세요.
 - 관련 규정을 준수하고 필수적인 수신 거부 옵션 및 개인정보 처리방침을 포함하도록 메시징을 구성하세요.
-- 추가 엔드포인트(스케줄링, Canvas 트리거 등)에 대해서는 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 참조하세요.
+- 추가 엔드포인트(스케줄링, Canvas 트리거 등)에 대해서는 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 참조하세요.

@@ -1,4 +1,4 @@
-{% multi_lang_include developer_guide/prerequisites/xamarin.md %} Additionally, you'll need to [set up silent push notifications]({{site.baseurl}}/developer_guide/push_notifications/silent).
+{% multi_lang_include developer_guide/prerequisites/xamarin.md %}
 
 ## Prerequisites
 
@@ -14,7 +14,7 @@ This is the minimum SDK versions needed to start using geofences:
 
 ---
 
-Next, follow the platform-specific instructions below for either Android or iOS:
+Next, follow the platform-specific following instructions for either Android or iOS:
 
 {% tabs %}
 {% tab Android %}
@@ -105,7 +105,7 @@ Add a usage description string for location services in your `Info.plist`:
 ```
 
 {% alert important %}
-Apple has deprecated `NSLocationAlwaysUsageDescription`. Use the keys above for iOS 14+.
+Apple has deprecated `NSLocationAlwaysUsageDescription`. Use the listed keys for iOS 14+.
 {% endalert %}
 
 ### Step 4: Enable geofences in your Braze configuration

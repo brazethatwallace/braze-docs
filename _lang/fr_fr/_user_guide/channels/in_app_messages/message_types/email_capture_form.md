@@ -10,18 +10,18 @@ channel:
 
 # Formulaire de capture d'e-mail {#email-capture-form}
 
-> Les messages de capture d'e-mail vous permettent d'inviter facilement les utilisateurs de votre site à soumettre leur adresse e-mail, qui sera ensuite disponible dans leur profil utilisateur pour être utilisée dans toutes vos campagnes de communication.
+> Les messages de capture d'e-mail vous permettent d'inviter les utilisateurs de votre site à soumettre leur adresse e-mail. Braze ajoute l'adresse à leur profil utilisateur pour l'utiliser dans toutes vos campagnes de communication.
 
-Ce type de message est disponible dans l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Ce type de message est disponible dans l'[éditeur traditionnel]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## Fonctionnement {#how-it-works}
 
-Lorsqu'un utilisateur final saisit son adresse e-mail dans ce formulaire, l'adresse e-mail est ajoutée à son profil utilisateur.
+Lorsqu'un utilisateur final saisit son adresse e-mail dans ce formulaire, Braze ajoute l'adresse e-mail à son profil utilisateur.
 
-- Pour les [utilisateurs anonymes]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#anonymous-user-profiles) qui n'ont pas encore de compte, l'adresse e-mail sera conservée dans le profil utilisateur anonyme lié à l'appareil de l'utilisateur.
-- Si une adresse e-mail existe déjà dans le profil utilisateur, l'adresse existante sera remplacée par la nouvelle adresse saisie.
-- Si l'utilisateur connu possède une adresse e-mail signalée comme ayant subi un [échec d'envoi définitif]({{site.baseurl}}/help/help_articles/email/email_bounces/#email-bounces), Braze vérifiera si la nouvelle adresse e-mail saisie diffère de celle présente dans le profil Braze. Si l'adresse e-mail fournie est différente, elle sera mise à jour et le statut d'échec d'envoi définitif sera supprimé.
-- Si un utilisateur saisit une adresse e-mail invalide, il verra le message d'erreur : « Veuillez saisir une adresse e-mail valide. »
+- Pour les [utilisateurs anonymes]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles) qui n'ont pas encore de compte, l'adresse e-mail est conservée dans le profil utilisateur anonyme lié à l'appareil de l'utilisateur.
+- Si une adresse e-mail existe déjà dans le profil utilisateur, la nouvelle adresse saisie remplace l'adresse existante.
+- Si l'utilisateur connu possède une adresse e-mail signalée comme ayant subi un [échec d'envoi définitif]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#hard-bounce), Braze vérifie si la nouvelle adresse e-mail saisie diffère de celle présente dans son profil Braze. Si l'adresse e-mail fournie est différente, Braze met à jour l'adresse e-mail et supprime le statut d'échec d'envoi définitif.
+- Si un utilisateur saisit une adresse e-mail invalide, il voit le message d'erreur : « Veuillez saisir une adresse e-mail valide. »
     - Adresses e-mail invalides :
         - `example`
         - `example@`
@@ -30,17 +30,17 @@ Lorsqu'un utilisateur final saisit son adresse e-mail dans ce formulaire, l'adre
     - Adresses e-mail valides :
         - `example@gmail.com`
         - `example@gnail.com` (avec une faute de frappe)
-    - Pour plus d'informations sur la validation des e-mails dans Braze, consultez les [Directives techniques et notes relatives aux e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/).
+    - Pour plus d'informations sur la validation des e-mails dans Braze, consultez les [Directives techniques et notes relatives aux e-mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 {% details En savoir plus sur les utilisateurs identifiés et anonymes %}
 
-De manière générale, la logique du formulaire de capture d'e-mail est simple. Il définit l'adresse e-mail dans le profil utilisateur Braze de l'utilisateur actuellement actif. Cependant, le comportement diffère selon que l'utilisateur est identifié (connecté, `changeUser` appelé) ou non.
+Le formulaire de capture d'e-mail définit l'adresse e-mail sur le profil utilisateur actuellement actif dans Braze. Le comportement diffère selon que l'utilisateur est identifié (connecté, `changeUser` appelé) ou non.
 
 Si un utilisateur anonyme saisit son adresse e-mail dans le formulaire et le soumet, Braze ajoute l'adresse e-mail à son profil. Si `changeUser` est appelé ultérieurement au cours de son parcours web et qu'un nouvel `external_id` est attribué (par exemple lorsqu'un nouvel utilisateur s'inscrit au service), toutes les données du profil utilisateur anonyme sont fusionnées, y compris l'adresse e-mail.
 
-Si `changeUser` est appelé avec un `external_id` existant, le profil utilisateur anonyme est orphelin et les [champs de données spécifiques du profil utilisateur]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge_updates-behavior) qui n'existent pas encore dans le profil de l'utilisateur identifié sont fusionnés, mais les champs qui existent déjà sont perdus, y compris l'adresse e-mail.
+Si `changeUser` est appelé avec un `external_id` existant, le profil utilisateur anonyme est orphelin et les [champs de données spécifiques du profil utilisateur]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior) qui n'existent pas encore dans le profil de l'utilisateur identifié sont fusionnés, mais les champs qui existent déjà sont perdus, y compris l'adresse e-mail.
 
-Pour plus d'informations, consultez le [Cycle de vie du profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+Pour plus d'informations, consultez le [Cycle de vie du profil utilisateur]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
 {% enddetails %}
 
@@ -62,10 +62,12 @@ Ensuite, personnalisez votre formulaire selon vos besoins. Vous pouvez personnal
 - Différentes couleurs pour le texte de l'en-tête et du corps, les boutons et l'arrière-plan
 - Paires clé-valeur
 - Style du texte de l'en-tête et du corps, des boutons, de la couleur de bordure des boutons, de l'arrière-plan et de la superposition
+- Bouton d'envoi
+    - Notez que le bouton d'envoi n'apparaît qu'après la saisie d'une adresse e-mail valide par l'utilisateur. Cela vous aide à collecter des adresses e-mail complètes.
 
 ![Éditeur pour le formulaire de capture d'e-mail.]({% image_buster /assets/img/email_capture.png %})
 
-Si vous avez besoin de personnalisations supplémentaires, choisissez **Custom Code** comme **Message Type**. Vous pouvez utiliser ce [modèle de fenêtre modale de capture d'e-mail](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal) du dépôt GitHub [Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates) comme code de départ.
+Si vous avez besoin de personnalisations supplémentaires, choisissez **Custom Code** comme **Message Type**. Utilisez ce [modèle de fenêtre modale de capture d'e-mail](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal) du dépôt GitHub [Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates) comme code de départ.
 
 ## Étape 3 : Définir votre audience d'entrée {#step-3-set-your-entry-audience}
 
@@ -80,6 +82,6 @@ Vous pouvez également combiner les deux filtres avec une logique `AND`, si vous
 
 Après avoir lancé le formulaire de capture d'e-mail et collecté les adresses e-mail de vos utilisateurs, vous pouvez cibler les utilisateurs ayant rempli le formulaire.
 
-1. Dans n'importe quel filtre de Segment dans Braze, sélectionnez le filtre `Clicked/Opened Campaign`.
+1. Dans n'importe quel filtre de segment dans Braze, sélectionnez le filtre `Clicked/Opened Campaign`.
 2. Dans le menu déroulant, sélectionnez `clicked in-app message button 1`.
 3. Sélectionnez la campagne de votre formulaire de capture d'e-mail.

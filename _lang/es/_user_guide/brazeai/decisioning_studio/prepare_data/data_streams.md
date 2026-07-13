@@ -14,7 +14,7 @@ description: "Este artículo de referencia explica la diferencia entre los datos
 
 Una instantánea representa el estado de un cliente en un momento específico. Responde a la pregunta: "¿Cómo se ve este cliente ahora mismo?"
 
-Una instantánea es estática y agregada. Refleja el resultado acumulado de todos los cambios hasta ese momento. Es ideal para perfiles de clientes, características calculadas (por ejemplo, "días desde la última compra", "nivel de fidelización", "puntuación de abandono").
+Una instantánea es estática y agregada. Refleja el resultado acumulado de todos los cambios hasta ese momento. Es ideal para perfiles de clientes, características calculadas (por ejemplo, "días desde la última compra", "nivel de fidelización", "puntuación de cancelación").
 
 ### Campos obligatorios {#required-fields}
 
@@ -22,7 +22,7 @@ Una instantánea es estática y agregada. Refleja el resultado acumulado de todo
 |-------|-----------|
 | Identificador del cliente | A quién describe este registro |
 | Fecha de la instantánea | Cuándo se tomó esta instantánea |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos obligatorios" }
 
 ### Cómo deben actualizarse las instantáneas {#how-snapshots-should-be-updated}
 
@@ -42,7 +42,7 @@ WHERE snapshot_date = {t-1} -- on pipeline run date t, export the snapshot from 
 
 ## Datos de transmisión de eventos (flujo) {#event-stream-data-flow}
 
-Una transmisión de eventos registra acciones discretas a medida que ocurren. Responde a la pregunta: "¿Qué hizo este cliente y cuándo?" Una transmisión de eventos es ideal para datos sin procesar, inmutables, incrementales y cronológicos. Cada registro representa algo que sucedió en un momento específico. Por ejemplo, usa esta transmisión de datos para registros de activación, registros de interacción (aperturas, clics), eventos de conversión o canjes de cupones.
+Una transmisión de eventos registra acciones discretas a medida que ocurren. Responde a la pregunta: "¿Qué hizo este cliente y cuándo?" Una transmisión de eventos es ideal para datos sin procesar, inmutables, incrementales y cronológicos. Cada registro representa algo que sucedió en un momento específico. Por ejemplo, usa esta transmisión de datos para registros de activación, registros de participación (aperturas, clics), eventos de conversión o canjes de cupones.
 
 ### Campos obligatorios
 
@@ -51,9 +51,9 @@ Una transmisión de eventos registra acciones discretas a medida que ocurren. Re
 | Identificador del cliente | A quién se refiere este evento |
 | Tipo de evento | Qué sucedió (por ejemplo, activación, conversión, clic) |
 | Marca de tiempo del evento | Cuándo ocurrió realmente el evento |
-| Marca de tiempo de creación | Cuándo se creó este registro en tu sistema (consulta la nota a continuación) |
+| Marca de tiempo de creación | Cuándo se creó este registro en tu sistema (consulta la nota en la siguiente sección) |
 | Propiedades del evento | Metadatos adicionales sobre el evento; cuanto más enriquecidos sean, mejor podrá Decisioning Studio vincular eventos a lo largo del recorrido del cliente |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos obligatorios" }
 
 {% alert important %}
 La marca de tiempo del evento y la marca de tiempo de creación son campos diferentes y ambos son obligatorios. La marca de tiempo del evento registra cuándo ocurrió realmente la acción. La marca de tiempo de creación registra cuándo se escribió la entrada de datos en tu sistema, lo cual puede ser posterior debido a retrasos en el procesamiento. No confundas ambas.
@@ -95,7 +95,7 @@ Los atributos personalizados almacenan el estado a nivel de usuario en un moment
 
 ### Braze Currents: datos de transmisión de eventos {#braze-currents-event-stream-data}
 
-Braze Currents proporciona datos de flujo de eventos sin procesar e inmutables. La tabla `USER_BEHAVIOR_CUSTOM_EVENTS` captura cada instancia de un evento personalizado a medida que ocurre, lo que la convierte en la fuente correcta para eventos de activación, interacción y conversión.
+Braze Currents proporciona datos de flujo de eventos sin procesar e inmutables. La tabla `USER_BEHAVIOR_CUSTOM_EVENTS` captura cada instancia de un evento personalizado a medida que ocurre, lo que la convierte en la fuente correcta para eventos de activación, participación y conversión.
 
 {% alert tip %}
 Trata los atributos personalizados como la fuente del estado del cliente y Braze Currents como la fuente de los eventos de comportamiento del cliente. No uses atributos personalizados para pasar datos de eventos sin procesar a Decisioning Studio.

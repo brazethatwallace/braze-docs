@@ -1,6 +1,6 @@
 ---
 nav_title: "Kindle und FireOS Push-Objekt"
-article_title: Kindle und FireOS Push-Nachrichten Objekt
+article_title: Kindle und FireOS Push-Nachrichten-Objekt
 page_order: 7
 page_type: reference
 channel: push
@@ -11,9 +11,9 @@ description: "Dieser Referenzartikel erklärt die verschiedenen Komponenten des 
 
 ---
 
-# Kindle und FireOS Push-Objekt
+# Kindle und FireOS Push-Objekt {#kindle-and-fireos-push-object}
 
-> Mit dem Objekt `kindle_push` können Sie Kindle- und FireOS-Push-Benachrichtigungen über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging) ändern oder erstellen.
+> Mit dem Objekt `kindle_push` können Sie Kindle- und FireOS-Push-Benachrichtigungen über unsere [Messaging-Endpunkte]({{site.baseurl}}/api/endpoints/messaging/) ändern oder erstellen.
 
 ```json
 {

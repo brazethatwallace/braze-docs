@@ -64,7 +64,7 @@ Após a verificação do seu domínio, seus domínios personalizados aparecerão
 
 ![Lista de domínios personalizados e status.]({% image_buster /assets/img/custom_domain_statuses.png %}){: style="max-width:60%;"}
 
-O monitoramento em tempo real alertará você no dashboard da Braze se algum dos seus domínios ativos tiver um problema, para que seus links personalizados permaneçam utilizáveis. Se você encontrar algum problema, consulte os detalhes do erro no app ou entre em contato com o [Suporte]({{site.baseurl}}/braze_support/) da Braze para obter assistência.
+O monitoramento em tempo real alertará você no dashboard da Braze se algum dos seus domínios ativos tiver um problema, para que seus links personalizados permaneçam utilizáveis. Se você encontrar algum problema, consulte os detalhes do erro no app ou entre em contato com o [Suporte]({{site.baseurl}}/braze_support) da Braze para obter assistência.
 
 ## Atribuindo domínios personalizados a grupos de inscrições {#assigning-custom-domains-to-subscription-groups}
 
@@ -72,9 +72,7 @@ Após serem configurados, os domínios personalizados podem ser atribuídos a um
 
 1. Acesse **Público** > **Gerenciamento de grupos de inscrições**.
 2. Encontre e selecione seu grupo de inscrições na lista.
-3. Em **Informações do grupo de inscrições**, selecione seu domínio personalizado como o **Link Shortening Domain**.
-
-![Configurações de grupos de inscrições que permitem selecionar um domínio de encurtamento de links.]({% image_buster /assets/img/custom_domain.png %})
+3. Em **Informações do grupo de inscrições**, selecione seu domínio personalizado no menu suspenso **Link Shortening Domain**.
 
 Campaigns enviadas com o encurtamento de links ativado usarão o domínio atribuído associado ao seu grupo de inscrições de SMS, RCS ou WhatsApp.
 
@@ -108,4 +106,4 @@ Sim. Após a verificação de um domínio personalizado, ele pode ser usado em t
 
 ### E se eu tiver dúvidas ou precisar de suporte adicional? {#what-if-i-have-questions-or-need-further-support}
 
-Para orientações mais detalhadas sobre como configurar e gerenciar domínios personalizados, incluindo etapas de solução de problemas e requisitos técnicos, [fale com o Suporte]({{site.baseurl}}/braze_support/).
+Para orientações mais detalhadas sobre como configurar e gerenciar domínios personalizados, incluindo etapas de solução de problemas e requisitos técnicos, [fale com o Suporte]({{site.baseurl}}/braze_support).

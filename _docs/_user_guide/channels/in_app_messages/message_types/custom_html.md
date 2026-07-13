@@ -12,7 +12,7 @@ channel:
 
 > While our standard in-app messages can be customized in a variety of ways, you can gain even greater control over the look and feel of your campaigns using messages designed and built using HTML, CSS, and JavaScript. With some simple composition, you can unlock custom functionality and branding to match any of your needs. 
 
-This message type is available in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+This message type is available in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## How it works
 
@@ -42,7 +42,7 @@ In addition to custom JavaScript, Braze SDKs can also send analytics data with t
 ### Button click tracking (deprecated)
 
 {% alert warning %}
-The use of `abButtonID` is not supported in [HTML with Preview]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview/) message types. For more information, see our [upgrade guide]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#html-upload-with-preview).
+The use of `abButtonID` is not supported in [HTML with Preview]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview) message types. For more information, see our [upgrade guide]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#html-upload-with-preview).
 {% endalert %}
 
 To log button clicks for in-app message analytics, you can add `abButtonId` as a query parameter to any deep link, redirect URL, or anchor element `<a>`. Use `?abButtonId=0` to log a "Button 1" click, and `?abButtonId=1` to log a "Button 2" click.
@@ -103,11 +103,11 @@ Because this message type can only be received by certain later SDK versions, us
 
 ### Creating a campaign {#instructions}
 
-Your mobile app users need to upgrade to the supported SDK versions to receive a **Custom Code** in-app message. We recommend that you [nudge users to upgrade]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/) their mobile apps before launching campaigns that depend on newer Braze SDK versions.
+Your mobile app users need to upgrade to the supported SDK versions to receive a **Custom Code** in-app message. We recommend that you [nudge users to upgrade]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features) their mobile apps before launching campaigns that depend on newer Braze SDK versions.
 
 #### Asset files
 
-When creating custom code in-app messages with HTML upload, you can upload campaign assets to the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) to reference in your message.
+When creating custom code in-app messages with HTML upload, you can upload campaign assets to the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) to reference in your message.
 
 The following file types are supported for upload:
 
@@ -117,7 +117,7 @@ The following file types are supported for upload:
 | SVG Images       | `.svg`                            |
 | JavaScript Files | `.js`                             |
 | CSS Files        | `.css`                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Asset files" }
 
 Braze recommends uploading assets to the media library for two reasons:
 
@@ -146,7 +146,7 @@ You can select <i class="fa-solid fa-magnifying-glass"></i> **Search** within th
 
 ### Button tracking {#button-tracking-improvements}
 
-You can track performance within your custom code in-app message using the [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/) JavaScript method. This allows you to programmatically track "Button 1", "Button 2", and "Body Clicks" using `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')`, or `brazeBridge.logClick()`, respectively.
+You can track performance within your custom code in-app message using the [`brazeBridge.logClick(button_id)`]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types) JavaScript method. This allows you to programmatically track "Button 1", "Button 2", and "Body Clicks" using `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')`, or `brazeBridge.logClick()`, respectively.
 
 | Clicks     | Method                       |
 | ---------- | ---------------------------- |
@@ -154,11 +154,23 @@ You can track performance within your custom code in-app message using the [`bra
 | Button 2   | `brazeBridge.logClick('1')` |
 | Body click | `brazeBridge.logClick()`    |
 | Custom button tracking |`brazeBridge.logClick('your custom name here')`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button tracking #button-tracking-improvements" }
 
 {% alert note %}
 This method of button tracking replaces the prior automatic click tracking methods (such as `?abButtonId=0`), which have been removed.
 {% endalert %}
+
+Use [`brazeBridge.logClick(button_id)`](#button-tracking-improvements) for HTML with preview messages when you need more than two tracked buttons. Button 1 and Button 2 map to `'0'` and `'1'`; additional buttons use custom IDs (up to 100 unique IDs per campaign). For character restrictions on button IDs, see [Button tracking](#button-tracking-improvements).
+
+### Troubleshoot custom HTML links and close behavior
+
+#### Button clicks do not open the link
+
+If a button in your custom HTML in-app message does not load when clicked, verify that the link uses a valid URL or supported deep link scheme. Malformed URLs or unsupported custom schemes can prevent the click action from completing.
+
+#### Body clicks when closing the message
+
+Calling `brazeBridge.closeMessage()` closes the message but does not log analytics on its own. To log a body click when the user closes the message, call `brazeBridge.logClick()` before `brazeBridge.closeMessage()` so click logging stays consistent across platforms.
 
 ### Backward incompatible changes {#backward-incompatible-changes}
 
@@ -172,4 +184,5 @@ This method of button tracking replaces the prior automatic click tracking metho
    |<code>&lt;a href="braze://close?abButtonId=0"&gt;Close Button&lt;/a&gt;</code>|<code>&lt;a href="#" onclick="brazeBridge.logClick('0');brazeBridge.closeMessage()"&gt;Close Button&lt;/a&gt;</code>|
    |<code>&lt;a href="app://deeplink?abButtonId=0">Track button 1&lt;/a&gt;</code>|<code>&lt;a href="app://deeplink" onclick="brazeBridge.logClick('0')"&gt;Track button 1&lt;/a&gt;</code>|
    |<code>&lt;script&gt;<br>location.href = "braze://close?abButtonId=1"<br>&lt;/script&gt;</code>|<code>&lt;script&gt;<br>window.addEventListener("ab.BridgeReady", function(){<br>&nbsp;&nbsp;brazeBridge.logClick("1");<br>&nbsp;&nbsp;brazeBridge.closeMessage();<br>});<br>&lt;/script&gt;</code>|
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Backward incompatible changes #backward-incompatible-changes" }
 

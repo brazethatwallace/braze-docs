@@ -9,9 +9,9 @@ search_tag: Partner
 
 # Simon AI
 
-> [Simon AI][1]のエージェンティックマーケティングプラットフォームは、マーケティングチームが真の1対1パーソナライゼーションを実現するのを支援します。コンポーザブルCDPと、Snowflake AIデータクラウド上で直接動作するAIエージェントを組み合わせ、マーケターのデータおよび実行チームとして機能します。
+> [Simon AI][1]のエージェンティックマーケティングプラットフォームは、マーケティングチームが真の1対1パーソナライゼーションを実現するのを支援します。コンポーザブルな顧客データプラットフォームと、Snowflake AIデータクラウド上で直接動作するAIエージェントを組み合わせ、マーケターのデータおよび実行チームとして機能します。
 
-BrazeとSimon AIの統合を使用して、高度なオーディエンスを構築し、リアルタイムかつノーコードのオーケストレーションのためにBrazeに同期できます。この統合により、Simon AIのID解決、顧客データ統合、AI駆動のセグメンテーションを活用して、よりパーソナライズされた効果的なBraze Campaignsを下流で実行できます。
+BrazeとSimon AIの統合を使用して、高度なオーディエンスを構築し、リアルタイムかつノーコードのオーケストレーションのためにBrazeに同期できます。この統合により、Simon AIのID解決、顧客データ統合、AI駆動のセグメンテーションを活用して、よりパーソナライズされた効果的なBrazeキャンペーンを下流で実行できます。
 
 ## 前提条件 {#prerequisites}
 
@@ -22,12 +22,12 @@ BrazeとSimon AIの統合を使用して、高度なオーディエンスを構�
 | Simon AI | Simon AI内からBraze統合を利用するには、既存のSimon AIアカウントが必要です。 |
 | Braze REST APIキー | `users.track`、`campaigns.trigger.schedule.create`、および`campaigns.trigger.send`の権限を持つBraze REST APIキー。<br><br>これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | BrazeダッシュボードURL | [RESTエンドポイントURL][3]。エンドポイントは、お使いのインスタンスのBraze URLによって異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
-- Braze Canvasまたはメールをトリガーする
-- Segmentプロパティを渡して維持する
+- Brazeキャンバスまたはメールをトリガーする
+- セグメントプロパティを渡して維持する
 - トレイトとコンタクトプロパティを同期する
 
 {% alert note %}
@@ -40,7 +40,7 @@ SimonとBrazeの統合を使用する場合、Simonは各同期時にデルタ�
 
 Braze統合を使用するには、まずSimonでBrazeアカウントを認証します。
 
-1. 左側のナビゲーションから**Integrations**をクリックし、Brazeまでスクロールします。
+1. ナビゲーションメニューから**Integrations**をクリックし、Brazeまでスクロールします。
 2. Braze [REST APIキー][2]と[ダッシュボードURL][3]を入力します。
 3. **Save Changes**をクリックします。
 
@@ -54,9 +54,9 @@ Simon AIでBrazeアカウントを認証した後、[フロー][4]と[ジャー�
 
 3つのアクションが利用可能です。
 
-- **Sync Simon segment attribute**: Segmentの詳細をBrazeの新規または既存のカスタム属性と同期します。
-- **Trigger a Braze Canvas**: Simon Segmentデータを活用するBraze Canvasをトリガーします。
-- **Send a Braze campaign**: SimonからBraze Campaign全体を起動します。
+- **Sync Simon segment attribute**：セグメントの詳細をBrazeの新規または既存のカスタム属性と同期します。
+- **Trigger a Braze キャンバス**：Simonのセグメントデータを活用するBrazeキャンバスをトリガーします。
+- **Send a Braze campaign**：SimonからBrazeキャンペーン全体を起動します。
 
 ![Simon AIで利用可能なBrazeアクションのリストを表示するドロップダウン。][9]{: style="max-width:60%"}
 
@@ -64,7 +64,7 @@ Simon AIでBrazeアカウントを認証した後、[フロー][4]と[ジャー�
 
 ### トレイトとコンタクトプロパティの同期 {#sync-traits-and-contact-properties}
 
-データ消費を最小限に抑えるために、Segment内のすべての顧客のすべてのフィールドを更新するのではなく、デフォルトで同期する特定のトレイトを選択できます。
+データ消費を最小限に抑えるために、セグメント内のすべての顧客のすべてのフィールドを更新するのではなく、デフォルトで同期する特定のトレイトを選択できます。
 
 {% alert note %}
 トレイト同期を開始するには、[Simonサポートセンター](https://docs.simondata.com/docs/support-center)でリクエストを送信してください。アカウントマネージャーが、以下のステップに進める準備ができたらお知らせします。

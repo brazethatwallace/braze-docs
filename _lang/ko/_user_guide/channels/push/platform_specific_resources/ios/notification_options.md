@@ -17,19 +17,19 @@ channel:
 
 ## 알림 그룹 {#notification-groups}
 
-메시지를 분류하고 사용자의 알림 트레이에 그룹화하려면 Braze를 통해 iOS의 알림 그룹 기능을 활용할 수 있습니다.
+메시지를 분류하고 사용자의 알림 트레이에서 그룹화하려면 Braze를 통해 iOS의 알림 그룹 기능을 활용할 수 있습니다.
 
 iOS 푸시 Campaign을 생성한 다음 **설정** 탭으로 이동하여 **알림 그룹** 드롭다운을 엽니다.
 
 ![값이 'Coupons'로 선택된 '알림 그룹' 드롭다운이 있는 '설정' 탭.]({% image_buster /assets/img_archive/notification_group_dropdown.png %}){: style="max-width:50%;" }
 
-드롭다운에서 알림 그룹을 선택합니다. 알림 그룹 설정이 오작동하거나 드롭다운에서 **None**을 선택하면 메시지가 워크스페이스에 정의된 모든 사용자에게 정상적으로 자동 전송됩니다.
+드롭다운에서 알림 그룹을 선택하세요. 알림 그룹 설정이 오작동하거나 드롭다운에서 **None**을 선택하면 메시지가 워크스페이스에 정의된 모든 사용자에게 정상적으로 자동 전송됩니다.
 
-여기에 알림 그룹이 나열되지 않은 경우 iOS 스레드 ID를 사용하여 추가할 수 있습니다. 추가하려는 각 알림 그룹에 대해 하나의 iOS 스레드 ID가 필요합니다. 그런 다음 드롭다운에서 **Manage Notification Groups**를 클릭하고 나타나는 **Manage iOS Push Notification Groups** 창에서 필수 필드를 입력하여 알림 그룹에 추가합니다.
+여기에 알림 그룹이 나열되지 않은 경우 iOS 스레드 ID를 사용하여 추가할 수 있습니다. 추가하려는 각 알림 그룹에 대해 하나의 iOS 스레드 ID가 필요합니다. 그런 다음 드롭다운에서 **Manage Notification Groups**를 클릭하고 나타나는 **Manage iOS Push Notification Groups** 창에서 필수 필드를 입력하여 알림 그룹에 추가하세요.
 
 ![iOS 푸시 알림 그룹을 관리하는 창.]({% image_buster /assets/img_archive/managenotgroups.png %}){: style="max-width:70%;" }
 
-iOS 푸시 Campaign을 생성한 다음 작성기 상단을 확인합니다. 거기에 **Notification Groups**라는 레이블이 있는 드롭다운이 표시됩니다.
+iOS 푸시 Campaign을 생성한 다음 작성기 상단을 확인하세요. 거기에 **Notification Groups**라는 레이블이 있는 드롭다운이 표시됩니다.
 
 ### 요약 인수 {#summary-arguments}
 
@@ -39,15 +39,15 @@ iOS 푸시 Campaign을 생성한 다음 작성기 상단을 확인합니다. 거
 동일한 스레드 ID를 가진 알림이 알림 트레이에서 그룹화되는 방식은 OS의 제어 하에 있습니다. iOS는 최적이라고 판단하는 바에 따라 동일한 스레드 ID를 가진 알림을 개별적으로 또는 그룹으로 표시할 수 있습니다.
 {% endalert %}
 
-**Push Composer**에서 **Alert Options** 상자를 선택합니다.
+**Push Composer**에서 **Alert Options** 상자를 선택하세요.
 
-그런 다음 `summary-arg` 및 `summary-arg-count`를 키로 선택하고 해당 열에 값을 입력합니다. `summary-arg`에 값을 설정하지 않으면 기본값 1이 적용됩니다.
+그런 다음 `summary-arg` 및 `summary-arg-count`를 키로 선택하고 해당 열에 값을 입력하세요. `summary-arg`에 값을 설정하지 않으면 기본값 1이 적용됩니다.
 
 ### 요약 카테고리 {#summary-categories}
 
 요약 카테고리를 사용하면 알림이 그룹화될 때 표시되는 전체 요약을 커스텀할 수 있습니다. 여러 카테고리를 생성하고 적용할 수 있습니다.
 
-메시지에서 카테고리를 사용하려면 개발자와 협력하여 다음 예제를 사용하여 구현합니다:
+메시지에서 카테고리를 사용하려면 개발자와 협력하여 다음 예제를 참고해 구현하세요:
 
 ```
 UNNotificationCategory *newsCategory = [UNNotificationCategory categoryWithIdentifier:@"news"
@@ -66,25 +66,25 @@ UNNotificationCategory *newsCategory = [UNNotificationCategory categoryWithIdent
 `%u`와 `%@`는 각각 요약 수와 요약 인수에 대한 서식 문자열입니다. 요약이 표시되면 이러한 자리 표시자가 `summary-count` 및 `summary-arg`의 값으로 대체됩니다.
 {% endalert %}
 
-앱에서 이 설정이 완료되면 **Notification Buttons** 상자를 선택하고 **Enter Pre-registered iOS Category**를 선택하여 요약 카테고리를 사용합니다.
+앱에서 이 설정이 완료되면 **Notification Buttons** 상자를 선택하고 **Enter Pre-registered iOS Category**를 선택하여 요약 카테고리를 사용하세요.
 
-그런 다음 앱에서 설정한 요약 카테고리 식별자를 입력합니다.
+그런 다음 앱에서 설정한 요약 카테고리 식별자를 입력하세요.
 
 ### 임시 푸시 인증 및 조용한 알림 {#provisional-push}
 
-Apple은 브랜드가 사용자가 공식적으로 명시적 옵트인하기 전에 사용자의 알림 센터에 조용한 푸시 알림을 보낼 수 있는 옵션을 제공하여 메시지의 가치를 일찍 보여줄 수 있는 기회를 줍니다. 앱에서 [임시 푸시 알림을 설정](#set-up-provisional-push-notifications)하기만 하면 임시 푸시 토큰이 있는 모든 사용자가 메시지를 수신합니다.
+Apple은 브랜드가 사용자가 공식적으로 명시적 옵트인하기 전에 사용자의 알림 센터에 조용한 푸시 알림을 보낼 수 있는 옵션을 제공하여, 메시지의 가치를 일찍 보여줄 수 있는 기회를 줍니다. 앱에서 [임시 푸시 알림을 설정](#set-up-provisional-push-notifications)하기만 하면 임시 푸시 토큰이 있는 모든 사용자가 메시지를 수신합니다.
 
-기존 iOS 푸시 토큰과 달리 임시 푸시 토큰은 "체험 패스" 역할을 하여 브랜드가 사용자가 Apple의 기본 푸시 옵트인 안내를 보고 클릭하기 전에 새로운 사용자에게 도달할 수 있게 합니다. 이 기능을 사용하면 푸시 알림이 새 사용자의 알림 트레이에 직접 전달되며 향후 알림을 "유지" 또는 "끄기" 옵션이 제공됩니다. "옵트인" 여정을 경험하는 대신 사용자는 "옵트아웃" 여정에 더 가까운 경험을 하게 됩니다.
+기존 iOS 푸시 토큰과 달리 임시 푸시 토큰은 "체험 패스" 역할을 하여, 브랜드가 사용자가 Apple의 기본 푸시 옵트인 안내를 보고 클릭하기 전에 새로운 사용자에게 도달할 수 있게 합니다. 이 기능을 사용하면 푸시 알림이 새 사용자의 알림 트레이에 직접 전달되며 향후 알림을 "유지" 또는 "끄기" 옵션이 제공됩니다. "옵트인" 여정을 경험하는 대신 사용자는 "옵트아웃" 여정에 더 가까운 경험을 하게 됩니다.
 
 {% alert tip %}
-임시 승인은 옵트인율을 크게 높일 수 있는 잠재력이 있지만, 사용자가 메시지에서 가치를 느낄 때만 가능합니다. [사용자 세분화]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/), [위치 타겟팅]({{site.baseurl}}/user_guide/audience/locations_and_geofences/), [개인화]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) 기능을 사용하여 적절한 사용자가 적시에 이러한 "체험" 알림을 받을 수 있도록 하세요. 그런 다음 사용자가 앱 경험에 가치를 더한다는 것을 알고 푸시 알림에 완전히 옵트인하도록 유도할 수 있습니다.
+임시 승인은 옵트인율을 크게 높일 수 있는 잠재력이 있지만, 사용자가 메시지에서 가치를 느낄 때만 가능합니다. [사용자 세분화]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), [위치 타겟팅]({{site.baseurl}}/user_guide/audience/locations_and_geofences), [개인화]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) 기능을 사용하여 적절한 사용자가 적시에 이러한 "체험" 알림을 받을 수 있도록 하세요. 그런 다음 사용자가 앱 경험에 가치를 더한다는 것을 알고 푸시 알림에 완전히 옵트인하도록 유도할 수 있습니다.
 {% endalert %}
 
-사용자가 어떤 옵션을 선택하든 해당 토큰 또는 [구독 상태]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/)가 고객 프로필의 **참여** 탭 아래 [연락처 설정]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab)에 추가됩니다.
+사용자가 어떤 옵션을 선택하든 해당 토큰 또는 [구독 상태]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)가 고객 프로필의 **참여** 탭 아래 [연락처 설정]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab)에 추가됩니다.
 
 ![푸시 가입됨 상태가 있는 연락처 설정.]({% image_buster /assets/img/profile-push-prov-auth.png %}){: width="50%"}
 
-[세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)를 사용하여 사용자가 임시 승인되었는지 여부에 따라 타겟팅할 수 있습니다.
+[세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)를 사용하여 사용자가 임시 승인되었는지 여부에 따라 타겟팅할 수 있습니다.
 
 ![사용자를 타겟팅하기 위한 샘플 Segment 필터 'Provisionally Authorized on iOS Stopwatch (iOS) is true'가 있는 Segment 세부 정보 패널.]({% image_buster /assets/img/segment-push-prov-auth.png %})
 
@@ -98,10 +98,10 @@ Apple은 브랜드가 사용자가 공식적으로 명시적 옵트인하기 전
 
 #### 임시 푸시 알림 설정 {#set-up-provisional-push-notifications}
 
-Braze에서는 다음 스니펫을 예제로 사용하여 Braze iOS SDK 구현 내 토큰 등록 스니펫에서 코드를 업데이트하여 임시 인증에 등록할 수 있습니다(이를 개발자에게 전달하거나 [통합 프로세스 중에 임시 푸시 인증을 구현]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#using-usernotification-framework-ios-10)하도록 하세요).
+Braze에서는 다음 스니펫을 예제로 사용하여 Braze iOS SDK 구현 내 토큰 등록 스니펫에서 코드를 업데이트하여 임시 인증에 등록할 수 있습니다(이를 개발자에게 전달하거나 [통합 프로세스 중에 임시 푸시 인증을 구현]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#using-usernotification-framework-ios-10)하도록 하세요).
 
 {% alert warning %}
-임시 푸시 인증 구현은 iOS 12 이상만 지원하며 배포 대상이 그 이전인 경우 오류가 발생합니다. 이에 대한 자세한 내용은 [여기 상세 구현 설명서에서 확인할 수 있습니다]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#using-usernotification-framework-ios-10).
+임시 푸시 인증 구현은 iOS 12 이상만 지원하며 배포 대상이 그 이전인 경우 오류가 발생합니다. 이에 대한 자세한 내용은 [여기 상세 구현 설명서에서 확인할 수 있습니다]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#using-usernotification-framework-ios-10).
 {% endalert %}
 
 {% tabs local %}
@@ -138,7 +138,7 @@ iOS 15의 새로운 집중 모드를 통해 사용자는 앱 알림이 소리나
 
 앱은 긴급도에 따라 알림에 포함할 중단 수준을 지정할 수 있습니다.
 
-iOS 푸시 알림의 중단 수준을 변경하려면 **Settings** 탭을 선택하고 **Interruption Level** 드롭다운 메뉴에서 원하는 수준을 선택합니다.
+iOS 푸시 알림의 중단 수준을 변경하려면 **설정** 탭을 선택하고 **Interruption Level** 드롭다운 메뉴에서 원하는 수준을 선택하세요.
 
 ![중단 수준을 선택하는 드롭다운.]({% image_buster /assets/img/ios/interruption_level.png %}){: style="max-width:50%"}
 
@@ -148,13 +148,13 @@ iOS 푸시 알림의 중단 수준을 변경하려면 **Settings** 탭을 선택
 
 중단 수준과 설명은 다음 표를 참조하세요.
 
-|중단 수준|설명|사용 시기|집중 모드 돌파|
+| 중단 수준 | 설명 | 사용 시기 | 집중 모드 돌파 |
 |--|--|--|--|
-|[Passive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/passive)|소리, 진동 또는 화면 켜기 없이 알림을 보냅니다.|즉각적인 주의가 필요하지 않은 알림.|아니요|
-|[Active](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active) (기본값)|사용자가 집중 모드에 있지 않은 경우에만 소리, 진동을 울리고 화면을 켭니다.|집중 모드가 활성화되어 있지 않은 한 즉각적인 주의가 필요한 알림.|아니요|
-|[Time Sensitive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive)|집중 모드 중에도 소리, 진동을 울리고 화면을 켭니다. 이를 위해서는 Xcode에서 앱에 **Time Sensitive Notifications capability**를 추가해야 합니다.|집중 모드에 관계없이 사용자에게 알려야 하는 시의적절한 알림(예: 차량 공유 또는 배달 알림).|예|
-|[Critical](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical)|전화기의 **Do Not Disturb** 스위치가 활성화되어 있어도 소리, 진동을 울리고 화면을 켭니다. 이를 위해서는 [Apple의 명시적 승인이 필요합니다](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/).|악천후 또는 안전 경보와 같은 긴급 상황|예|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| [Passive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/passive) | 소리, 진동 또는 화면 켜기 없이 알림을 보냅니다. | 즉각적인 주의가 필요하지 않은 알림. | 아니요 |
+| [Active](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/active) (기본값) | 사용자가 집중 모드에 있지 않은 경우에만 소리, 진동을 울리고 화면을 켭니다. | 집중 모드가 활성화되어 있지 않은 한 즉각적인 주의가 필요한 알림. | 아니요 |
+| [Time Sensitive](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/timesensitive) | 집중 모드 중에도 소리, 진동을 울리고 화면을 켭니다. 이를 위해서는 Xcode에서 앱에 **Time Sensitive Notifications capability**를 추가해야 합니다. | 집중 모드에 관계없이 사용자에게 알려야 하는 시의적절한 알림(예: 차량 공유 또는 배달 알림). | 예 |
+| [Critical](https://developer.apple.com/documentation/usernotifications/unnotificationinterruptionlevel/critical) | 전화기의 **Do Not Disturb** 스위치가 활성화되어 있어도 소리, 진동을 울리고 화면을 켭니다. 이를 위해서는 [Apple의 명시적 승인이 필요합니다](https://developer.apple.com/contact/request/notifications-critical-alerts-entitlement/). | 악천후 또는 안전 경보와 같은 긴급 상황 | 예 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="중단 수준 (iOS 15+)" }
 
 ### 관련성 점수 (iOS 15+) {#relevance-score}
 
@@ -166,7 +166,7 @@ iOS 15에서는 사용자가 하루 중 지정된 시간에 여러 알림의 다
 
 모든 알림은 사용자의 알림 센터에서 계속 접근할 수 있습니다.
 
-iOS 알림의 관련성 점수를 설정하려면 **Settings** 탭에서 `0.0`에서 `1.0` 사이의 값을 입력합니다. 예를 들어, 가장 중요한 메시지는 `1.0`으로 보내야 하며, 중간 중요도의 메시지는 `0.5`로 보낼 수 있습니다.
+iOS 알림의 관련성 점수를 설정하려면 **설정** 탭에서 `0.0`에서 `1.0` 사이의 값을 입력하세요. 예를 들어, 가장 중요한 메시지는 `1.0`으로 보내야 하며, 중간 중요도의 메시지는 `0.5`로 보낼 수 있습니다.
 
 ![관련성 점수 '0.5'.]({% image_buster /assets/img/ios/relevance-score.png %}){: style="max-width:80%;"}
 
@@ -174,5 +174,5 @@ iOS 알림의 관련성 점수를 설정하려면 **Settings** 탭에서 `0.0`�
 
 다양한 메시지 유형의 최대 메시지 길이에 대한 자세한 내용은 다음 리소스를 참조하세요:
 
-- [이미지 및 텍스트 사양]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/)
-- [iOS 글자 수 가이드라인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count)
+- [이미지 및 텍스트 사양]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats)
+- [iOS 글자 수 가이드라인]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count)

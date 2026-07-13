@@ -22,7 +22,7 @@ description: "この記事では、セグメントリストのエクスポート
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`segments.list` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`segments.list` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -34,7 +34,7 @@ description: "この記事では、セグメントリストのエクスポート
 | -------- | -------- | --------- | ----------- |
 | `page` | オプション | 整数 | 返すセグメントのページ。デフォルトは0（最大100件の最初のセットを返します）。 |
 | `sort_direction` | オプション | 文字列 | - 作成日時を新しいものから古いものへソートする場合: 値 `desc` を渡します。<br> - 作成日時を古いものから新しいものへソートする場合: 値 `asc` を渡します。<br><br>`sort_direction` が含まれていない場合、デフォルトの順序は古いものから新しいものになります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 ```
@@ -60,7 +60,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
 ```
 
 {% alert tip %}
-CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)」を参照してください。
 {% endalert %}
 
 {% endapi %}

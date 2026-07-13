@@ -7,13 +7,13 @@ channel: push
 platform:
   - Android
   - FireOS
-description: "Este artigo de referência explica os diferentes componentes do objeto push do Braze Kindle e do FireOS."
+description: "Este artigo de referência explica os diferentes componentes do objeto push da Braze para Kindle e FireOS."
 
 ---
 
-# Objeto push do Kindle e do FireOS
+# Objeto push do Kindle e do FireOS {#kindle-and-fireos-push-object}
 
-> O objeto `kindle_push` permite que você modifique ou crie notificações por push do Kindle e do FireOS por meio de nossos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).
+> O objeto `kindle_push` permite que você modifique ou crie notificações por push do Kindle e do FireOS por meio de nossos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging/).
 
 ```json
 {
@@ -29,4 +29,4 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 }
 ```
 
-O parâmetro `priority` aceitará valores de `-2` a `2`, em que `-2` representa a prioridade mais baixa e `2` representa a prioridade mais alta. `0` é o valor padrão. Quaisquer valores enviados que estejam fora desse intervalo de números inteiros terão como padrão o endereço `0`.
+O parâmetro `priority` aceita valores de `-2` a `2`, em que `-2` representa a prioridade mais baixa e `2` representa a prioridade mais alta. `0` é o valor padrão. Quaisquer valores enviados fora desse intervalo de números inteiros terão como padrão o valor `0`.

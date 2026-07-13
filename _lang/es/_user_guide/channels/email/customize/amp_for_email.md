@@ -9,11 +9,11 @@ channel:
 
 ---
 
-# AMP para correo electrónico
+# AMP para correo electrónico {#amp-for-email}
 
-> Con [AMP para correo electrónico](https://amp.dev/about/email), puedes añadir elementos interactivos a tus correos electrónicos y mejorar las comunicaciones con tus clientes, ofreciendo una experiencia completa directamente en el buzón de entrada de tu usuario. AMP lo hace posible mediante el uso de varios componentes que pueden utilizarse para crear ofertas de correo electrónico atractivas, como cuestionarios, formularios de opinión, campañas de votación, reseñas, centros de suscripción y mucho más. Herramientas como estas pueden ofrecer oportunidades para aumentar la interacción y la retención.
+> Con [AMP para correo electrónico](https://amp.dev/about/email), puedes añadir elementos interactivos a tus correos electrónicos y mejorar las comunicaciones con tus clientes, ofreciendo una experiencia completa directamente en el buzón de entrada de tu usuario. AMP lo hace posible mediante el uso de varios componentes que pueden utilizarse para crear ofertas de correo electrónico atractivas, como cuestionarios, formularios de opinión, campañas de votación, reseñas, centros de suscripción y mucho más. Herramientas como estas pueden ofrecer oportunidades para aumentar la participación y la retención.
 
-## Requisitos
+## Requisitos {#requirements}
 
 Braze no es responsable de que los usuarios se registren en Google ni de que cumplan los requisitos de seguridad necesarios. AMP para correo electrónico solo está disponible para SparkPost y SendGrid.
 
@@ -22,10 +22,10 @@ Braze no es responsable de que los usuarios se registren en Google ni de que cum
 | AMP para correo electrónico activado | AMP está disponible para todos los usuarios. |
 | Habilitación de cuenta de Gmail | Consulta [Habilitar cuenta de Gmail](#enabling-gmail-account). |
 | Autenticación de remitente de Google | Gmail [autentica al remitente](https://developers.google.com/gmail/ampemail/security-requirements#sender_authentication) de los correos electrónicos AMP con DKIM, SPF y DMARC. Estos deben estar configurados para tu cuenta. <br><br>- [Domain Keys Identified Mail](https://en.wikipedia.org/wiki/DomainKeys_Identified_Mail) (DKIM) <br>- [Sender Policy Framework](https://en.wikipedia.org/wiki/Sender_Policy_Framework)(SPF)<br>- [Domain-based Message Authentication, Reporting, and Conformance](https://en.wikipedia.org/wiki/DMARC)(DMARC)
-| Elementos de correo electrónico AMP | Un correo electrónico AMP atractivo incluye el uso estratégico de varios componentes. Consulta la pestaña Esenciales en la sección [Componentes](#components) a continuación. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Elementos de correo electrónico AMP | Un correo electrónico AMP atractivo incluye el uso estratégico de varios componentes. Consulta la pestaña Esenciales en la sección [Componentes](#components). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
-### Clientes de correo electrónico compatibles
+### Clientes de correo electrónico compatibles {#supported-email-clients}
 
 Antes de poder enviar correos electrónicos AMP a los usuarios, debes registrarte con nuestros clientes de correo electrónico. El proceso de registro implica enviar un correo electrónico de prueba en AMP HTML para obtener la aprobación. Los tiempos de aprobación varían según el cliente. Sigue los enlaces de registro para obtener más información.
 
@@ -35,27 +35,32 @@ Antes de poder enviar correos electrónicos AMP a los usuarios, debes registrart
 | FairEmail | [FairEmail](https://email.faircode.eu/) |
 | Yahoo | [Yahoo](https://senders.yahooinc.com/amp/) |
 | Mail.ru | [Mail.ru](https://postmaster.mail.ru/amp/) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Clientes de correo electrónico compatibles" }
 
 Para obtener una lista completa de clientes de correo electrónico compatibles, consulta la [documentación de AMP](https://amp.dev/support/faq/email-support).
 
+#### Envío a proveedores no registrados {#send-to-unregistered-providers}
+
+Si envías un correo electrónico AMP a proveedores como Yahoo o Mail.ru antes de completar su proceso de registro, esos proveedores ignoran la parte AMP del correo electrónico y muestran la versión alternativa en HTML o texto plano. La parte AMP en sí no causa problemas de capacidad de entrega para remitentes no registrados.
+
 ### Habilitar cuenta de Gmail {#enabling-gmail-account}
 
-Ve a la configuración de Gmail y selecciona **Habilitar correo electrónico dinámico** en **General**.
+Ve a la configuración de Gmail y selecciona **Enable dynamic email** en la pestaña **General**.
 
-![Un ejemplo de la configuración de Gmail con la casilla «Habilitar correo electrónico dinámico» seleccionada.]({% image_buster /assets/img/dynamic-content.png %})
+![Un ejemplo de la configuración de Gmail con la casilla "Enable dynamic email" seleccionada.]({% image_buster /assets/img/dynamic-content.png %})
 
 ## Uso de la API {#api-usage}
 
-También puedes usar AMP para correo electrónico con nuestra API. Si utilizas cualquiera de los [puntos de conexión de mensajería]({{site.baseurl}}/api/endpoints/messaging/) de Braze para enviar un correo electrónico, añade `amp_body` como especificación de objeto como se muestra a continuación.
+También puedes usar AMP para correo electrónico con nuestra API. Si utilizas cualquiera de los [endpoints de mensajería]({{site.baseurl}}/api/endpoints/messaging) de Braze para enviar un correo electrónico, añade `amp_body` como especificación de objeto como se muestra en la siguiente sección.
 
-### Especificación del objeto de correo electrónico
+### Especificación del objeto de correo electrónico {#email-object-specification}
 
 ```json
 {
   "app_id": (required, string) see app identifier above,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set),
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
   "amp_body": (optional, updates the text-amp-html MIME type) the email body in AMP HTML. The MIME (Multipurpose Internet Mail Extensions) type to be referenced is "text/x-amp-html",
   "body": (required unless email_template_id is given, valid HTML),
@@ -69,7 +74,7 @@ También puedes usar AMP para correo electrónico con nuestra API. Si utilizas c
 }
 ```
 
-## Crear tu correo electrónico AMP
+## Crear tu correo electrónico AMP {#create-your-amp-email}
 
 Primero, crea tu correo electrónico AMP usando [componentes](#components). A continuación, usa la [API de Braze](#api-usage) para enviar tu mensaje, asegurándote de incluir `amp_body` para tu AMP HTML.
 
@@ -99,7 +104,7 @@ Cada uno de estos elementos es obligatorio en el cuerpo de tu correo electrónic
 | Identificación <br><br> `⚡4email` o `amp4email`| Identifica tu correo electrónico como un correo electrónico AMP HTML. | `<!doctype html>` <br> `<html ⚡4email>` <br> `<head>` |
 | Cargar el runtime de AMP <br><br> `<script>` | Permite que AMP se ejecute en tu correo electrónico usando JavaScript. | `<script async src="https://cdn.ampproject.org/v0.js"></script>`|
 | Plantilla CSS | Oculta el contenido hasta que AMP se haya cargado. <br> Los proveedores de correo electrónico que admiten correos electrónicos AMP aplican comprobaciones de seguridad que solo permiten la ejecución de scripts AMP verificados en sus clientes. | `<style amp4email-boilerplate>body{visibility:hidden}</style>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Componentes" }
 
   {% endtab %}
   {% tab Dinámicos %}
@@ -110,7 +115,7 @@ Usa estos componentes para crear diseños y comportamientos dinámicos en tus co
 |---------|--------------|---------|
 | [Acordeón](https://amp.dev/documentation/components/amp-accordion?format=email) <br><br> `amp-accordion`| Permite a los usuarios ver el esquema del contenido y saltar a cualquier sección. | `<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>` |
 | [Formularios](https://amp.dev/documentation/components/amp-form?format=email) <br><br> `amp-form`| Crea formularios para enviar campos de entrada en un documento AMP. | `<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Componentes" }
 
 {% alert note %}
 Cualquier componente que requiera autenticar al usuario debe usar [tokens de acceso de Google](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) o [tokens de aserción proxy](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens).
@@ -125,7 +130,7 @@ Cualquier componente que requiera autenticar al usuario debe usar [tokens de acc
 | [Imagen animada](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-anim`| Muestra una imagen animada (generalmente un GIF) gestionada a través del runtime. | `<script async custom-element="amp-anim" src="https://cdn.ampproject.org/v0/amp-anim-0.1.js"></script>` |
 | [Carrusel](https://amp.dev/documentation/components/amp-carousel?format=email) <br><br> `amp-carousel`| Muestra múltiples piezas de contenido similares a lo largo de un eje horizontal. | `<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>` |
 | [Imagen](https://amp.dev/documentation/components/amp-img?format=email) | Un reemplazo gestionado por el runtime para la etiqueta HTML `img`. <br>  También puedes crear un [lightbox para tu imagen](https://amp.dev/documentation/components/amp-image-lightbox?format=email). | `<amp-img alt="A view of the sea"` <br> `src="images/sea.jpg"` <br> `width="900"` <br>  `height="675"` <br>  `layout="responsive">`  <br> `</amp-img>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Componentes" }
 
 {% alert note %}
 Cualquier componente que requiera autenticar al usuario debe usar [tokens de acceso de Google](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) o [tokens de aserción proxy](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens).
@@ -137,7 +142,7 @@ Cualquier componente que requiera autenticar al usuario debe usar [tokens de acc
 | Componente | Descripción |
 |---------|--------------|
 | [Enlace de datos y expresiones](https://amp.dev/documentation/components/amp-anim?format=email) <br><br> `amp-bind`| Añade interactividad personalizada con estado a tus páginas AMP mediante enlace de datos y expresiones similares a JavaScript. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Componentes" }
 
 {% alert note %}
 Cualquier componente que requiera autenticar al usuario debe usar [tokens de acceso de Google](https://developers.google.com/gmail/ampemail/authenticating-requests#access_tokens) o [tokens de aserción proxy](https://developers.google.com/gmail/ampemail/authenticating-requests#proxy_assertion_tokens).
@@ -148,7 +153,7 @@ Cualquier componente que requiera autenticar al usuario debe usar [tokens de acc
 
 Para obtener una lista completa de componentes AMP, consulta la [documentación de AMP](https://amp.dev/documentation/components/?format=email).
 
-### Casos de uso
+### Ejemplos {#use-cases}
 
 {% tabs local %}
 {% tab Cuestionarios interactivos %}
@@ -189,13 +194,13 @@ Los ejemplos incluyen:
 {% endtab %}
 {% endtabs %}
 
-### Uso de amp-mustache
+### Uso de amp-mustache {#use-amp-mustache}
 
 De forma similar a Liquid, AMP admite un lenguaje de scripting para casos de uso más avanzados. Este componente se llama [`amp-mustache`](https://amp.dev/documentation/components/amp-mustache/?format=email). Al incluir cualquier lenguaje de marcado Mustache, necesitarás envolverlo con la etiqueta [`raw`](https://shopify.github.io/liquid/tags/raw/) de Liquid. Ten en cuenta que Liquid y Mustache comparten estilos de sintaxis.
 
 Al envolver tu contenido con la etiqueta `raw`, el motor de procesamiento de Braze ignorará cualquier contenido entre las etiquetas `raw` y enviará la variable Mustache que tu equipo necesita.
 
-## Métricas y análisis
+## Métricas y análisis {#metrics-and-analytics}
 
 <style>
     .no-split {
@@ -203,7 +208,8 @@ Al envolver tu contenido con la etiqueta `raw`, el motor de procesamiento de Bra
     }
 </style>
 
-<table>
+<table aria-label="Métricas y análisis">
+  <caption>Métricas y análisis</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -212,29 +218,32 @@ Al envolver tu contenido con la etiqueta `raw`, el motor de procesamiento de Bra
     </thead>
     <tbody>
         <tr>
-            <td class="no-split">Aperturas totales</td>
+            <td class="no-split">Total Opens</td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Opens' %} Para correos electrónicos AMP, este es el total de aperturas de las versiones HTML y texto plano.</td>
         </tr>
         <tr>
-            <td class="no-split">Clics totales</td>
+            <td class="no-split">Total Clicks</td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='Total Clicks' %} Para correos electrónicos AMP, este es el total de clics en las versiones HTML y texto plano.</td>
         </tr>
         <tr>
-            <td class="no-split">Aperturas AMP</td>
+            <td class="no-split">AMP Opens</td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='AMP Opens' %}</td>
         </tr>
         <tr>
-            <td class="no-split">Clics AMP</td>
+            <td class="no-split">AMP Clicks</td>
             <td class="no-split">{% multi_lang_include analytics/metrics.md metric='AMP Clicks' %}</td>
         </tr>
     </tbody>
 </table>
 
-## Pruebas y solución de problemas
+## Pruebas y solución de problemas {#test-and-troubleshoot}
 
-Ten en cuenta que los clics totales y los clics únicos no tienen en cuenta los clics que ocurren desde un mensaje AMP (solo HTML y texto plano). Los clics específicos de AMP se atribuyen a la métrica *amp_click*.
 
-Antes de enviar tu correo electrónico AMP, te recomendamos que realices pruebas según estas [directrices de Gmail](https://developers.google.com/gmail/ampemail/testing-dynamic-email).
+Antes de enviar tu correo electrónico AMP, te recomendamos:
+
+- Realizar pruebas según estas [directrices de Gmail](https://developers.google.com/gmail/ampemail/testing-dynamic-email).
+- Usar el [Gmail AMP for Email Playground](https://amp.gmail.dev/playground/) para validar el marcado AMP.
+  - Si tu correo electrónico AMP usa etiquetas de Liquid, reemplázalas con valores estáticos de marcador de posición antes de pegarlas en el Gmail AMP for Email Playground. Las etiquetas de Liquid sin renderizar provocan errores de validación.
 
 Para que tu correo electrónico AMP se entregue a cualquier cuenta de Gmail, el correo electrónico debe cumplir las siguientes condiciones:
 
@@ -243,10 +252,25 @@ Para que tu correo electrónico AMP se entregue a cualquier cuenta de Gmail, el 
 - El correo electrónico debe incluir la parte MIME de AMP antes de la parte MIME de HTML.
 - La parte MIME de AMP debe ser menor de 100&nbsp;KB.
 
-Si ninguna de estas condiciones está causando el error, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact/).
+Ten en cuenta que los clics totales y los clics únicos no tienen en cuenta los clics que ocurren desde un mensaje AMP (solo HTML y texto plano). Los clics específicos de AMP se atribuyen a la métrica *amp_click*.
 
-### Preguntas frecuentes
+Si ninguna de estas condiciones está causando el error, ponte en contacto con [Soporte]({{site.baseurl}}/support_contact).
 
-#### ¿Debería segmentar con correos electrónicos AMP?
+### Configurar el buzón de entrada de Gmail para renderizar correos electrónicos AMP {#configure-gmail-inbox-to-render-amp-emails}
+
+Puedes configurar tu buzón de entrada de Gmail para renderizar correos electrónicos AMP con fines de prueba haciendo lo siguiente:
+
+1. En Gmail, selecciona **Settings** en la barra de herramientas de tu buzón de entrada.
+2. Selecciona **See all settings**.
+3. En la pestaña **General**, ve a la sección **Dynamic email** y confirma que la casilla **Enable dynamic email** está seleccionada.
+4. A continuación, selecciona **Developer Settings** y marca la casilla **Always allow dynamic emails from this sender:**.
+5. Introduce el mismo dominio que aparece en la dirección De de tu mensaje de prueba.
+6. Guarda los cambios.
+
+Ahora puedes enviar el correo electrónico de prueba a tu cuenta de Gmail, y los correos electrónicos AMP deberían renderizarse en Gmail.
+
+### Preguntas frecuentes {#frequently-asked-questions}
+
+#### ¿Debería segmentar con correos electrónicos AMP? {#should-i-segment-with-amp-emails}
 
 Recomendamos no segmentar para enviar a todos los diferentes tipos de usuarios. Esto se debe a que enviamos los mensajes AMP en formato multipart, incluyendo diferentes versiones en el correo electrónico original. Si un usuario no puede ver la versión AMP, se mostrará por defecto la versión HTML.

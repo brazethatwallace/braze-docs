@@ -8,7 +8,7 @@ description: "Este artículo explica cómo crear una predicción de eventos en e
 
 # Crear una predicción de evento {#create-an-event-prediction}
 
-> Una predicción es una instancia de un modelo de aprendizaje automático entrenado y todos los parámetros y datos que utiliza. Para saber más sobre Predictive Events, consulta el [resumen de Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/).
+> Una predicción es una instancia de un modelo de aprendizaje automático entrenado y todos los parámetros y datos que utiliza. Para saber más sobre Predictive Events, consulta el [resumen de Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events).
 
 En Braze, ve a **Analytics** > **Predictive Events**.
 
@@ -25,32 +25,32 @@ Hay un límite de cinco predicciones activas simultáneamente. Antes de comprar 
 {: start="2"}
 2. Dale a tu predicción un nombre único. También puedes proporcionar una descripción para guardar cualquier nota relevante.
 
-![]({% image_buster /assets/img/purchasePrediction/purchases_step1.png %})
+![Captura de pantalla relacionada con el paso 1: crear una nueva predicción.]({% image_buster /assets/img/purchasePrediction/purchases_step1.png %})
 
 {: start="3"}
 3. Haz clic en **Forward** para pasar al siguiente paso. <br><br>Opcionalmente, puedes hacer clic en **Generar ahora** para utilizar toda la configuración predeterminada y pasar al último paso de la creación. Tendrás la oportunidad de revisar la configuración antes de iniciar el proceso de construcción. Además, puedes volver a cualquier paso más tarde haciendo clic en él en la barra superior.
 
 ## Paso 2: Especificar seguimiento de eventos {#event-tracking}
 
-Especifica si los eventos de tus usuarios se almacenan en Braze como [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) o el [evento de pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed).
+Especifica si los eventos de tus usuarios se almacenan en Braze como [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) o el [evento de pedido realizado]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed).
 
 Aquí verás si el método seleccionado proporciona suficientes datos para que Braze cree un modelo de aprendizaje automático. Si no se cumple el requisito, intenta seleccionar el otro método de registro si también lo utiliza tu aplicación. Desafortunadamente, si no es así, Braze no puede crear una predicción con la cantidad de datos disponibles. Si crees que estás viendo este error de forma incorrecta, ponte en contacto con tu administrador del éxito del cliente.
 
-#### Ventana de eventos {#event-window}
+### Ventana de eventos {#event-window}
 
 La ventana de eventos es el intervalo de tiempo en el que quieres predecir si un usuario realizará el evento. Se puede configurar hasta 60 días. Esta ventana se utiliza para consultar datos históricos para entrenar la predicción. Además, después de crear la predicción y de que los usuarios reciban puntuaciones, la puntuación de probabilidad indica la probabilidad de que un usuario realice el evento en el número de días especificado por la ventana de eventos.
 
 ### Paso 3: Filtra tu audiencia de predicción (opcional) {#audience}
 
-Tu audiencia de predicción es el grupo de usuarios cuya puntuación de probabilidad te gustaría predecir. Si lo deseas, puedes realizar una predicción sobre toda tu población de usuarios. Para ello, deja seleccionada la opción predeterminada **All Users**.
+Tu audiencia de predicción es el grupo de usuarios cuya puntuación de probabilidad te gustaría predecir. Si lo deseas, puedes realizar una predicción sobre toda tu población de usuarios. Para ello, deja seleccionada la opción predeterminada **Todos los usuarios**.
 
-Dependiendo de tu caso de uso, es posible que desees utilizar filtros para especificar los usuarios que deseas evaluar para el modelo. Para ello, selecciona **Define my own prediction audience** y elige tus filtros de audiencia. Por ejemplo, es posible que quieras centrarte en los usuarios que han estado utilizando tu aplicación durante al menos 30 días seleccionando el filtro "First Used App" establecido en 30 días. Al configurar esta audiencia, le indicas a Braze que deseas que tu modelo aprenda específicamente de los usuarios que (en el momento en que se ejecuta el modelo) han utilizado la aplicación durante al menos 30 días.
+Dependiendo de tu caso de uso, es posible que desees utilizar filtros para especificar los usuarios que deseas evaluar para el modelo. Para ello, selecciona **Define mi propia audiencia de predicción** y elige tus filtros de audiencia. Por ejemplo, es posible que quieras centrarte en los usuarios que han estado utilizando tu aplicación durante al menos 30 días seleccionando el filtro "First Used App" establecido en 30 días. Al configurar esta audiencia, le indicas a Braze que deseas que tu modelo aprenda específicamente de los usuarios que (en el momento en que se ejecuta el modelo) han utilizado la aplicación durante al menos 30 días.
 
 {% alert important %}
 Centra tus filtros en las características de los usuarios relevantes para tu caso de uso, como usuarios activos, nuevos usuarios, usuarios de alto valor o usuarios de un país específico. Evita filtrar tu audiencia de predicción en función de si los usuarios ya han realizado el evento que estás prediciendo. La audiencia de predicción define de quién quieres que aprenda el modelo, no el resultado del evento en sí. El modelo debe observar tanto a los usuarios que han completado el evento como a los que no lo han hecho para aprender con precisión y predecir la probabilidad de que se complete el evento en el futuro.
 {% endalert %}
 
-La audiencia de predicción define el grupo de usuarios que el modelo de aprendizaje automático analiza para aprender del pasado. Braze te mostrará el tamaño estimado de tu audiencia de predicción. Si especificas la audiencia deseada y no cumples con los requisitos mínimos para ejecutar el modelo, intenta especificar un filtro más amplio o utiliza la opción **All Users**. Ten en cuenta que muchos casos de uso no requieren que selecciones una audiencia de predicción específica. Por ejemplo, si tu caso de uso consiste en dirigirte a los usuarios de la región de la UE con mayor probabilidad de abandono, puedes ejecutar tu modelo en todos los usuarios y, a continuación, incluir un filtro para la región de la UE en el Segment de la Campaign.
+La audiencia de predicción define el grupo de usuarios que el modelo de aprendizaje automático analiza para aprender del pasado. Braze te mostrará el tamaño estimado de tu audiencia de predicción. Si especificas la audiencia deseada y no cumples con los requisitos mínimos para ejecutar el modelo, intenta especificar un filtro más amplio o utiliza la opción **Todos los usuarios**. Ten en cuenta que muchos casos de uso no requieren que selecciones una audiencia de predicción específica. Por ejemplo, si tu caso de uso consiste en dirigirte a los usuarios de la región de la UE con mayor probabilidad de abandono, puedes ejecutar tu modelo en todos los usuarios y, a continuación, incluir un filtro para la región de la UE en el segmento de la Campaign.
 
 {% alert note %}
 La audiencia de la predicción no puede superar los 100 millones de usuarios.

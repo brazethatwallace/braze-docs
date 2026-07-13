@@ -40,7 +40,7 @@ Before you start, you need the following:
 | Braze Data Transformation | You need access to the "Data Settings" tab in Braze to configure webhook listeners. |
 | Matching IDs | The user's `external_id` in Braze must match their `loyaltyCardNumber` (or another default identifier) in Open Loyalty. |
 | Tenant ID | Your Open Loyalty Tenant ID (required for Outbound updates). |
-{: .reset-td-br-1 .reset-td-br-2 role=“presentation”}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -56,7 +56,7 @@ First, create a data transformation in Braze to generate a unique URL for receiv
      * **Transformation name**: Provide a descriptive name (for example, "Open Loyalty Point Update Events").
      * **Select destination**: Choose **POST: Track users**.
 4.  Click **Create Transformation**.
-5.  Locate the **Webhook URL** on the right side and click **Copy**.
+5.  Locate the **Webhook URL** in the details panel and click **Copy**.
 
 {% alert important %}
 Keep this URL safe; you need it for the next step.

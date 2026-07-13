@@ -23,6 +23,7 @@ Braze에서 Limbik을 사용하려면 다음이 필요합니다:
 | Limbik 액세스 토큰(`access_token`) | Limbik의 `login` 엔드포인트에 POST 요청을 보내고, 반환된 `access_token` 값을 `Authorization` 헤더의 Bearer 토큰으로 사용하세요. |
 | Braze REST API 키 | "Messages" 권한이 있는 Braze REST API 키. Braze 대시보드에서 **Settings** > **API Keys**로 이동하여 생성하세요. |
 | Braze `campaign_id` | **Messaging** > **Campaigns**로 이동하여 Campaign을 선택하세요. 원하는 Campaign이 아직 없으면 새로 생성하고 저장하세요. Campaign 페이지 하단에서 Campaign API 식별자를 찾을 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 예측 엔드포인트를 사용하기 전에 먼저 접근 가능한 조직(`account_id`)을 확인해야 합니다. 대부분의 고객은 하나의 조직만 가지고 있지만, 일부 계정에는 여러 조직이 있을 수 있습니다.
 

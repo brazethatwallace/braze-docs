@@ -2,7 +2,7 @@
 nav_title: Seasonal promotion with image
 article_title: Seasonal Promotion with Background Image
 alias: "/seasonal_promotion/"
-page_order: 8
+page_order: 9
 description: "This page covers how to use the in-app message drag-and-drop editor to promote a seasonal offer or deal to drive user engagement."
 ---
 
@@ -30,11 +30,11 @@ To get started building your seasonal promotion, select the button component in 
 
 ![The in-app message editor with a side menu for customizing the button element.]({% image_buster /assets/img/drag_and_drop/templates/seasonal_promo_button.png %})
 
-You can also add additional messages to your seasonal promotion in the **Pages** section, and then link them together for a sequential flow. For example, you can put together a sequence of messages that briefly describe the product's capabilities and end with a button that takes users to the product page. Learn how to do that in [Connect pages together]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+You can also add additional messages to your seasonal promotion in the **Pages** section, and then link them together for a sequential flow. For example, you can put together a sequence of messages that briefly describe the product's capabilities and end with a button that takes users to the product page. Learn how to do that in [Connect pages together]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### Step 4: Style your message
 
-Customize the look and feel of your seasonal promotion using the drag-and-drop [in-app message components]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components). Add your own background image by replacing the default background image URL in the **Message container** menu or remove the URL and select your image from the [Media Library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
+Customize the look and feel of your seasonal promotion using the drag-and-drop [in-app message components]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components). Add your own background image by replacing the default background image URL in the **Message container** menu or remove the URL and select your image from the [Media Library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
 ![The in-app message editor with a side menu for selecting the background image.]({% image_buster /assets/img/drag_and_drop/templates/seasonal_promo_image.png %})
 

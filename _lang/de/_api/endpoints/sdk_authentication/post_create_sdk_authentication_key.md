@@ -1,30 +1,30 @@
 ---
-nav_title: "POST: Erstellen Sie einen SDK-Authentifizierungsschlüssel."
+nav_title: "POST: SDK-Authentifizierungsschlüssel erstellen"
 article_title: "POST: SDK-Authentifizierungsschlüssel erstellen"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 0
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt Details zum SDK-Authentifizierungsschlüssel Braze Endpunkt erstellen."
+description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „SDK-Authentifizierungsschlüssel erstellen“."
 ---
 
 {% api %}
-# SDK Authentifizierungsschlüssel erstellen
+# SDK-Authentifizierungsschlüssel erstellen {#create-sdk-authentication-key}
 {% apimethod post %}
 /app_group/sdk_authentication/create
 {% endapimethod %}
 
 > Verwenden Sie diesen Endpunkt, um einen neuen SDK-Authentifizierungsschlüssel für Ihre App zu erstellen.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `sdk_authentication.create`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `sdk_authentication.create`.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Anfragetext
+## Anfragetext {#request-body}
 ```
 Content-Type: application/json
 Authorization: Bearer YOUR-REST-API-KEY
@@ -38,17 +38,17 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Erforderlich | String | Der Bezeichner der App APIs. |
-| `rsa_public_key_str` | Erforderlich | String | Der String für den öffentlichen RSA-Schlüssel. Muss ein gültiger öffentlicher RSA-Schlüssel sein, sonst wird ein Fehler zurückgegeben. |
+| `app_id` | Erforderlich | String | Der API-Bezeichner der App. |
+| `rsa_public_key_str` | Erforderlich | String | Der String für den öffentlichen RSA-Schlüssel. Muss ein gültiger öffentlicher RSA-Schlüssel sein, andernfalls wird ein Fehler zurückgegeben. |
 | `description` | Erforderlich | String | Beschreibung für den SDK-Authentifizierungsschlüssel. |
-| `make_primary` | Optional | Boolesch | Wenn er auf `true` gesetzt ist, wird dieser Schlüssel zum primären SDK-Authentifizierungsschlüssel, wenn er erstellt wird. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `make_primary` | Optional | Boolescher Wert | Wenn auf `true` gesetzt, wird dieser Schlüssel bei der Erstellung zum primären SDK-Authentifizierungsschlüssel. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 
 ```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_authentication/create' \
@@ -62,27 +62,27 @@ curl --location --request POST 'https://rest.iad-01.braze.com/app_group/sdk_auth
 }'
 ```
 
-## Antwort
+## Antwort {#response}
 ```json
 {
   "id": "key id"
 }
 ```
 
-## Antwort-Parameter
+## Antwortparameter {#response-parameters}
 
 | Parameter | Datentyp | Beschreibung |
 | --------- | --------- | ----------- |
-| `id` | String | Die ID des neu erstellten SDK Authentifizierungsschlüssels. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| `id` | String | Die ID des neu erstellten SDK-Authentifizierungsschlüssels. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Antwortparameter" }
 
-### Validierungsregeln
+### Validierungsregeln {#validation-rules}
 
 Für diesen Endpunkt gelten die folgenden Validierungsregeln:
 
-- Sie können bis zu 3 SDK Authentifizierungsschlüssel pro App haben.
-- Der RSA Public Key String muss ein gültiger RSA Public Key im richtigen Format sein.
-- Die `app_id` muss ein gültiger Bezeichner für die App API sein.
+- Sie können bis zu 3 SDK-Authentifizierungsschlüssel pro App haben.
+- Der RSA-Public-Key-String muss ein gültiger öffentlicher RSA-Schlüssel im richtigen Format sein.
+- Die `app_id` muss ein gültiger API-Bezeichner der App sein.
 - Die Beschreibung darf nicht leer sein.
 
 {% endapi %}

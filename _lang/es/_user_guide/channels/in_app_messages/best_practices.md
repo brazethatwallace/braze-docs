@@ -15,7 +15,7 @@ guide_featured_list:
   link: /docs/user_guide/channels/in_app_messages/best_practices/prep_guide
   image: /assets/img/braze_icons/book-closed.svg
 - name: "Lo que debes saber antes de enviar"
-  link: /docs/know_before_send/
+  link: /docs/know_before_send
   image: /assets/img/braze_icons/send-01.svg
 - name: "Solicitud de valoración en la aplicación para iOS"
   link: /docs/user_guide/channels/in_app_messages/best_practices/ios_app_rating_prompt

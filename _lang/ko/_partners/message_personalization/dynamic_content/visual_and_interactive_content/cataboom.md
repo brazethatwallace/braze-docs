@@ -9,7 +9,7 @@ search_tag: Partner
 
 # CataBoom
 
-> [CataBoom](https://www.cataboom.com/)은 게임화 플랫폼입니다. 브랜드는 이를 사용하여 스핀 투 윈 게임, 퀴즈, 인스턴트 윈 게임 등 인터랙티브 디지털 경험을 구축하고 출시합니다. 이러한 경험은 참여를 심화하고 퍼스트파티 데이터를 수집합니다.
+> [CataBoom](https://www.cataboom.com/)은 게임화 플랫폼입니다. 브랜드는 이를 사용하여 스핀 투 윈 게임, 퀴즈, 인스턴트 윈 게임 등 인터랙티브 디지털 경험을 구축하고 출시합니다. 이러한 경험은 인게이지먼트를 심화하고 퍼스트파티 데이터를 수집합니다.
 
 *이 통합은 CataBoom에서 유지 관리합니다.*
 
@@ -24,9 +24,9 @@ Braze와 CataBoom 통합을 사용하여 메시지에 개인화된 게임 링크
 | 필수 조건 | 설명 |
 | --- | --- |
 | Catapult 계정 | 이 통합을 사용하려면 Catapult 계정이 필요합니다. |
-| Braze REST API 키 (선택 사항) | Catapult 웹훅을 사용하는 경우, 사용 사례에 필요한 사용자 데이터 권한이 있는 Braze REST API 키가 필요합니다. Braze에서 **설정** > **API 키** > **API 키**로 이동하여 키를 생성하세요. |
-| Braze REST 엔드포인트 (선택 사항) | Catapult 웹훅을 사용하는 경우, [Braze 인스턴스]({{site.baseurl}}/api/basics/#endpoints)에 해당하는 Braze URL과 일치하는 REST 엔드포인트 URL을 사용하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze REST API 키 (선택 사항) | Catapult 웹훅을 사용하는 경우, 사용 사례에 필요한 사용자 데이터 권한이 있는 Braze REST API 키가 필요합니다. Braze에서 **설정** > **API 및 식별자** > **API 키**로 이동하여 키를 생성하세요. |
+| Braze REST 엔드포인트 (선택 사항) | Catapult 웹훅을 사용하는 경우, [Braze 인스턴스]({{site.baseurl}}/api/basics#endpoints)에 해당하는 Braze URL과 일치하는 REST 엔드포인트 URL을 사용하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 1단계: 게임 경험 만들기 {#step-1-create-your-game-experience}
 
@@ -34,14 +34,14 @@ Catapult 플랫폼에서 게임 경험을 만드세요. 다음 단계에서는 *
 
 1. Campaign을 생성합니다.
 
-오른쪽 상단에서 **New Campaign**을 선택합니다. Campaign 이름을 입력하고, URL 슬러그를 선택하고, 게임 카테고리와 게임 유형을 선택합니다.
+상단 내비게이션 영역에서 **New Campaign**을 선택합니다. Campaign 이름을 입력하고, URL 슬러그를 선택하고, 게임 카테고리와 게임 유형을 선택합니다.
 
 ![Campaign 이름, URL, 게임 카테고리, 게임 유형 필드가 있는 CataBoom 대시보드 New Campaign 양식.]({% image_buster /assets/img/cataboom/new_campaign.png %})
 
 {: start="2"}
 2. Request Unique URL API를 활성화합니다.
 
-왼쪽 메뉴에서 **Link Configuration**을 선택합니다.
+내비게이션 메뉴에서 **Link Configuration**을 선택합니다.
 
 **Link Configuration** 페이지에서 **Request Unique URL API**를 활성화합니다. 이 옵션은 나중에 Braze에서 콘텐츠 카드 등에 사용할 수 있는 시스템 간 URL을 생성합니다.
 
@@ -50,7 +50,7 @@ Catapult 플랫폼에서 게임 경험을 만드세요. 다음 단계에서는 *
 {: start="3"}
 3. 플레이 추적을 Account ID로 설정합니다.
 
-왼쪽 메뉴에서 **Play Control**을 선택합니다.
+내비게이션 메뉴에서 **Play Control**을 선택합니다.
 
 **Play Control** 페이지의 **Play Tracking** 아래에서 **Play Count Tracked By**를 **Account ID Parameter**로 설정합니다.
 
@@ -58,12 +58,12 @@ Catapult 플랫폼에서 게임 경험을 만드세요. 다음 단계에서는 *
 
 ![Play Count Tracked By가 Account ID Parameter로 설정된 CataBoom Play Control 페이지.]({% image_buster /assets/img/cataboom/play_control.png %})
 
-이제 Braze에서 테스트를 실행하기에 충분한 구성이 완료되었습니다. 아래의 선택 단계는 일반적인 전체 게임 설정을 완료합니다. Catapult는 게임플레이를 커스터마이즈하는 데 사용할 수 있는 다양한 설정도 제공합니다.
+이제 Braze에서 테스트를 실행하기에 충분한 구성이 완료되었습니다. 이 섹션의 선택 단계는 일반적인 전체 게임 설정을 완료합니다. Catapult는 게임플레이를 커스터마이즈하는 데 사용할 수 있는 다양한 설정도 제공합니다.
 
 {: start="4"}
 4. 크리에이티브를 추가합니다 (선택 사항).
 
-왼쪽 메뉴에서 **Creative**를 선택합니다.
+내비게이션 메뉴에서 **Creative**를 선택합니다.
 
 자산을 업로드합니다. Catapult는 게임 경험에 대한 전체 브랜딩 제어를 지원합니다.
 
@@ -72,7 +72,7 @@ Catapult 플랫폼에서 게임 경험을 만드세요. 다음 단계에서는 *
 {: start="5"}
 5. 확률 기반 게임의 상품을 구성합니다 (선택 사항).
 
-왼쪽 메뉴에서 **Summary**를 선택합니다.
+내비게이션 메뉴에서 **Summary**를 선택합니다.
 
 **Summary** 페이지에서 **Prize Options**를 확장합니다.
 
@@ -90,7 +90,7 @@ Catapult는 시간 기반 상품, 확률 기반 상품 또는 둘 다를 지원�
 
 1. 플레이 URL에 대한 연결된 콘텐츠를 추가합니다.
 
-콘텐츠 카드에서 필요에 따라 문구와 동적 콘텐츠를 추가합니다. CataBoom Request Unique URL을 [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/) 태그로 감쌉니다. Catapult에서 사용하는 식별자와 일치하는 Braze 개인화 태그를 사용하여 `AccountID` 쿼리 파라미터를 추가합니다. 이 예시에서는 {% raw %}`{{${user_id}}}`{% endraw %}를 사용합니다.
+콘텐츠 카드에서 필요에 따라 문구와 동적 콘텐츠를 추가합니다. CataBoom Request Unique URL을 [연결된 콘텐츠]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content) 태그로 감쌉니다. Catapult에서 사용하는 식별자와 일치하는 Braze 개인화 태그를 사용하여 `AccountID` 쿼리 파라미터를 추가합니다. 이 예시에서는 {% raw %}`{{${user_id}}}`{% endraw %}를 사용합니다.
 
 기본 URL과 `username` 및 `password` 쿼리 파라미터를 Catapult에서 해당 Campaign의 **Link Configuration** 페이지에 있는 값으로 교체하세요.
 
@@ -100,7 +100,7 @@ Catapult는 시간 기반 상품, 확률 기반 상품 또는 둘 다를 지원�
 ```
 {% endraw %}
 
-저장된 `result`를 카드에서 사용합니다(예: 링크 URL 또는 메시지 본문). Campaign에 대한 CataBoom API의 응답 형식을 따르세요. 쿼리 파라미터와 URL의 Liquid에 대한 자세한 내용은 [API 호출하기]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/)를 참조하세요.
+저장된 `result`를 카드에서 사용합니다(예: 링크 URL 또는 메시지 본문). Campaign에 대한 CataBoom API의 응답 형식을 따르세요. 쿼리 파라미터와 URL의 Liquid에 대한 자세한 내용은 [API 호출하기]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call)를 참조하세요.
 
 ![메시지 필드에 연결된 콘텐츠가 표시되고 카드의 모바일 미리보기가 있는 Braze 콘텐츠 카드 작성기.]({% image_buster /assets/img/cataboom/braze_content_card.png %})
 

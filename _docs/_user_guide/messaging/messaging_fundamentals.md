@@ -4,7 +4,7 @@ article_title: Messaging fundamentals
 layout: dev_guide
 page_order: 1
 guide_top_header: "Fundamentals"
-guide_top_text: "Set who receives your message, when it sends, and how you measure success. These concepts apply whether you use a <a href='/docs/user_guide/get_started/campaigns_and_canvases'>campaign or a Canvas</a>."
+guide_top_text: "Set who receives your message, when it sends, and how you measure success—whether you use a <a href='/docs/user_guide/get_started/campaigns_and_canvases'>campaign or a Canvas</a>. This section covers audience targeting, delivery and entry types, conversion event tracking, frequency capping, re-eligibility rules, localization, accessibility, and the pre-launch checklist. Review these concepts before building so your messages reach the right users without overwhelming them."
 page_type: landing
 tool:
   - Campaigns
@@ -19,6 +19,9 @@ guide_featured_list:
   - name: Delivery and entry types
     link: /docs/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types
     image: /assets/img/braze_icons/line-chart-up-01.svg
+  - name: Dispatch ID
+    link: /docs/user_guide/messaging/messaging_fundamentals/dispatch_id
+    image: /assets/img/braze_icons/key-01.svg
   - name: Re-eligibility
     link: /docs/user_guide/messaging/messaging_fundamentals/re_eligibility
     image: /assets/img/braze_icons/users-01.svg

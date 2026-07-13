@@ -10,7 +10,7 @@ channel:
 
 # Set up KakaoTalk
 
-> This article covers how to set up the [KakaoTalk messaging channel]({{site.baseurl}}/kakaotalk/) in Braze, including how to set up users, reconcile user IDs, and create KakaoTalk test users.
+> This article covers how to set up the [KakaoTalk messaging channel]({{site.baseurl}}/kakaotalk) in Braze, including how to set up users, reconcile user IDs, and create KakaoTalk test users.
 
 ## Prerequisites
 
@@ -20,7 +20,18 @@ channel:
 | KakaoTalk Business channel | Your KakaoTalk account must be a KakaoTalk Business channel to send KakaoTalk messages through Braze. When you create an account, its default status is basic. To make your account a Business channel, you'll need to verify your business and provide relevant documentation. |
 | KakaoTalk Sender Key | A valid KakaoTalk Sender Key. |
 | Contact phone number | A contact phone number for your KakaoTalk channel's administrator. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze cluster IPs allowlisted | IP allowlist registration is required for all customers. Register the Braze IP addresses for your cluster before you integrate KakaoTalk in Braze. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+
+### Register Braze IP addresses {#register-braze-ip-addresses}
+
+Register the Braze IP addresses for your cluster in your Comm.One dashboard.
+
+1. In your Comm.One dashboard, go to **Account Management (계정 관리)**, select the menu icon, then select **View Details (자세히보기)**.
+2. Select **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)**.
+3. Add the IP addresses for your Braze cluster. For the complete list of IPs by cluster, see [IP allowlisting]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
+
+![Comm.One dashboard showing where you can add IP addresses.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
 ### Types of KakaoTalk accounts
 
@@ -28,7 +39,7 @@ channel:
 | --- | --- |
 | Basic channel | A standard KakaoTalk channel that any organization can set up. It enables broadcast messaging and 1:1 chat through KakaoTalk. |
 | [Business channel](https://www.kakaocorp.com/page/service/service/KakaoTalkChannel) | An upgraded, business-verified KakaoTalk channel that requires an application and verification process. It offers enhanced features, such as {::nomarkdown}<ul><li>Verified badge</li><li>Appearance as a recommended channel</li><li>Support for business messaging</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types of KakaoTalk accounts" }
 
 #### Apply for a business channel 
 
@@ -56,7 +67,7 @@ After gathering your documentation, follow these steps:
 ### Step 1: Connect the KakaoTalk channel to Braze
 
 1. Go to **Partner Integrations** > **Technology Partners** and select your KakaoTalk provider.
-2. Gather the required credentials for your provider (see below), then enter them into the **Technology Partners** page and save.
+2. Gather the required credentials for your provider (See the following section), then enter them into the **Technology Partners** page and save.
 3. Use the newly saved credentials for sending.
 
 #### CJ OliveNetworks
@@ -70,7 +81,7 @@ Go to your [Comm.One dashboard](https://ums.cjmplace.com/) and gather the follow
 | **Channel name (카카오톡 채널 프로필명)** | In your Comm.One dashboard, go to **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Sender number (연락처)** | {::nomarkdown}<ol><li>Go to <b>Account Management (계정 관리)</b>, select the menu icon, then select <b>View Details (자세히보기)</b>.</li><li>Go to <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ul>{:/} |
 | **Credential (ID) & Password (비밀번호)** | Go to the same location for the **Sender number (사업자 등록번호)**, then go to **API** > **Brand Message (브랜드 메시지)**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
 {% tabs local %}
 {% tab Comm.One Login ID (로그인 아이디) %}
@@ -81,6 +92,12 @@ Go to your [Comm.One dashboard](https://ums.cjmplace.com/) and gather the follow
 {% tab Sender Key (발신프로필 키) %}
 
 ![Comm.One dashboard showing a censored Sender Key.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
+
+{% alert important %}
+You can integrate a KakaoTalk Sender Key into only one workspace at a time. To use the same Sender Key in a different workspace, you must first archive the KakaoTalk subscription group in the original workspace, then contact [Braze Support]({{site.baseurl}}/braze_support) to remove the integration. After Braze removes the integration, you can set up the integration in the new workspace.
+{% endalert %}
+
+![Credentials for a Braze KakaoTalk channel.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
 
 {% endtab %}
 {% tab Channel name (카카오톡 채널 프로필명) %}
@@ -95,13 +112,11 @@ Go to your [Comm.One dashboard](https://ums.cjmplace.com/) and gather the follow
 {% endtab %}
 {% endtabs %}
 
-![Fields on the Technology Partners page for CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
-
-![Credentials for a Braze KakaoTalk channel.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
-
 {% alert note %}
 Only the channels mapped to a single common ID can be registered.
 {% endalert %}
+
+![Fields on the Technology Partners page for CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 
@@ -114,14 +129,12 @@ Go to your Infobip dashboard and gather the following information.
 | **Sender name / Sender key** | Select **Channels and Numbers** > **Channels**, then select the **Senders** tab. |
 | **Sender profile UUID** | Provided directly by Infobip. Contact Infobip if you don't have this information. |
 | **Channel name** | Provided directly by Infobip. Contact Infobip if you don't have this information. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Infobip" }
 
 ## Set user profiles
 
-User profiles must have phone numbers to message them through KakaoTalk. Phone numbers are shown on the user profile and in the format that they are provided. Currently, unlike SMS or WhatsApp, KakaoTalk uses the standard phone field (and not a number that has been changed into the E.164 format).
-
-![User profile for a test user with a phone number in an unedited format.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
+User profiles must have phone numbers in E.164 format to message them through KakaoTalk. Phone numbers are shown on the user profile. KakaoTalk requires phone numbers to be in E.164 format (for example, `+821025749774`). This differs from some other messaging channels that may accept phone numbers in multiple formats.
 
 ### Import phone numbers
 
-Import phone numbers by [uploading a CSV or using the API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/) to create a user.
+Import phone numbers by [uploading a CSV or using the API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users) to create a user. Ensure phone numbers are in E.164 format before importing.

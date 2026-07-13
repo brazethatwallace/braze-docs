@@ -11,10 +11,6 @@ alias: /delete_users/
 
 > Saiba como excluir um usuário individual ou um segmento de usuários diretamente pelo dashboard da Braze.
 
-{% alert important %}
-A exclusão de usuários está atualmente em acesso antecipado. Fale com seu gerente de sucesso do cliente se tiver interesse em participar.
-{% endalert %}
-
 ## Pré-requisitos {#prerequisites}
 
 Para excluir usuários, você precisa ser administrador ou ter a permissão **Delete Users**. Para visualizar registros de exclusão de usuários, você precisa ser administrador ou ter a permissão **View User Deletion Records**. As seguintes permissões controlam a exclusão de usuários e os registros de exclusão:
@@ -23,7 +19,7 @@ Para excluir usuários, você precisa ser administrador ou ter a permissão **De
 |------------|-------------|
 | Delete Users | Exclui permanentemente usuários de forma individual ou em massa. |
 | View User Deletion Records | Visualiza registros de exclusão de usuários. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Sobre a exclusão de usuários {#about-user-deletion}
 
@@ -31,10 +27,10 @@ A exclusão de usuários permite gerenciar seu banco de dados removendo perfis q
 
 | Consideração | Informações |
 |---------------|---------|
-| Tamanho máximo | Você pode excluir até 100 milhões de perfis de usuários ao excluir um segmento. |
+| Tamanho máximo | Você pode excluir até 10 milhões de perfis de usuários ao excluir um segmento. |
 | Período de espera | Todas as exclusões de segmentos exigem um período de espera de 7 dias, mais o tempo necessário para processar as exclusões. |
 | Limite de tarefas | Apenas um segmento pode ser excluído por vez, o que inclui o período de espera de 7 dias. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sobre a exclusão de usuários" }
 
 ## Excluindo usuários {#deleting-users}
 
@@ -52,11 +48,10 @@ Exclusões de usuários individuais são permanentes — os perfis não podem se
 
 Na página do perfil, selecione <i class="fa-solid fa-ellipsis-vertical"></i> **Show options** > **Delete User**. Lembre-se de que pode levar alguns minutos para que o usuário seja totalmente excluído na Braze.
 
-![Um usuário na Braze com o menu de reticências verticais aberto, mostrando a opção de excluir o usuário.]({% image_buster /assets/img/audience_management/deleting_users/delete_user.png %}){: style="max-width:85%;"}
 
 ### Excluindo um segmento {#delete-segment}
 
-Se ainda não fez isso, [crie um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) contendo os perfis de usuários que você deseja excluir. Certifique-se de incluir todos os perfis de usuários se estiver excluindo usuários duplicados.
+Se ainda não fez isso, [crie um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) contendo os perfis de usuários que você deseja excluir. Certifique-se de incluir todos os perfis de usuários se estiver excluindo usuários duplicados.
 
 Na Braze, acesse **Audience** > **Manage Audience** e selecione a guia **Delete Users**.
 
@@ -73,7 +68,7 @@ Digite **DELETE** para confirmar sua solicitação e selecione **Delete users**.
 Os usuários neste segmento não serão excluídos imediatamente. Em vez disso, serão marcados como pendentes de exclusão pelos próximos 7 dias. Após esse período, eles serão excluídos e enviaremos um e-mail para informá-lo.
 
 {% alert tip %}
-Para garantir que exatamente esses usuários sejam excluídos independentemente de alterações no segmento, um filtro de segmento chamado **Pending Deletion** é criado automaticamente. Você pode [usar esse filtro]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters) para verificar o status das exclusões pendentes.
+Para garantir que exatamente esses usuários sejam excluídos independentemente de alterações no segmento, um filtro de segmento chamado **Pending Deletion** é criado automaticamente. Você pode [usar esse filtro]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters) para verificar o status das exclusões pendentes.
 {% endalert %}
 
 ## Confirmando exclusões de segmentos {#confirming-segment-deletions}
@@ -90,7 +85,7 @@ Você tem 7 dias para cancelar exclusões de segmentos pendentes. Para cancelar,
 
 ![A guia "Delete Users" na seção "Manage Audience" do dashboard da Braze.]({% image_buster /assets/img/audience_management/deleting_users/delete_users_tab.png %}){: style="max-width:85%;"}
 
-Ao lado de uma exclusão de segmento pendente, selecione <i class="fa-solid fa-eye"></i> para abrir os detalhes do registro de exclusão.
+Ao lado de uma exclusão de segmento pendente, selecione <i class="fa-solid fa-eye"></i> **View details** para abrir os detalhes do registro de exclusão.
 
 ![Uma exclusão de segmento pendente na guia "Delete Users".]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
@@ -108,7 +103,7 @@ Você pode verificar o status de uma exclusão usando [filtros de segmento](#seg
 
 ### Filtros de segmento {#segment-filters}
 
-Quando você solicita a exclusão de um segmento de usuários, um [filtro de segmento]({{site.baseurl}}/user_guide/audience/segments/managing_segments/#filters) chamado **Pending Deletion** é criado automaticamente. Você pode usá-lo para:
+Quando você solicita a exclusão de um segmento de usuários, um [filtro de segmento]({{site.baseurl}}/user_guide/audience/segments/managing_segments#filters) chamado **Pending Deletion** é criado automaticamente. Você pode usá-lo para:
 
 - Ver o conjunto exato de usuários vinculados a uma data de execução de exclusão específica.
 - Excluir esses usuários de Campaigns para que não recebam mensagens antes da remoção.
@@ -132,29 +127,25 @@ Nesta página, você encontra as seguintes informações gerais para todas as ex
 | Solicitante | O usuário que iniciou a solicitação de exclusão. |
 | Nome do segmento | O nome do segmento usado para selecionar os usuários pendentes de exclusão. |
 | Status | Indica se a solicitação de exclusão está pendente, em andamento ou concluída. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gerenciar público" }
 
-Para mais detalhes sobre uma solicitação específica, selecione <i class="fa-solid fa-eye"></i> para exibir os detalhes do registro de exclusão. Aqui você também pode [cancelar exclusões de segmentos pendentes](#cancel).
+Para mais detalhes sobre uma solicitação específica, selecione <i class="fa-solid fa-eye"></i> **View details** para exibir os detalhes do registro de exclusão. Aqui você também pode [cancelar exclusões de segmentos pendentes](#cancel).
 
 ![Uma exclusão de segmento pendente na guia "Delete Users".]({% image_buster /assets/img/audience_management/deleting_users/pending_deletion.png %})
 
 ### Relatório de eventos de segurança {#security-event-report}
 
-Você também pode verificar o status de exclusões anteriores baixando um relatório de eventos de segurança. Para saber mais, consulte [Configurações de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#security-event-report).
+Você também pode verificar o status de exclusões anteriores baixando um relatório de eventos de segurança. Para saber mais, consulte [Configurações de segurança]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#security-event-report).
 
 ## Perguntas frequentes {#faq}
 
-### Posso excluir segmentos com mais de 100 milhões de usuários? {#can-i-delete-segments-with-more-than-100-million-users}
+### Posso excluir segmentos com mais de 10 milhões de usuários? {#can-i-delete-segments-with-more-than-10-million-users}
 
-Não. Você não pode excluir segmentos com mais de 100 milhões de usuários. Se precisar de ajuda para excluir um segmento desse tamanho, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+Não. Você não pode excluir segmentos com mais de 10 milhões de usuários. Se precisar de ajuda para excluir um segmento desse tamanho, entre em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
-### Parece que não consigo excluir 100 milhões de usuários e estou limitado a excluir apenas 10 milhões. Isso é um bug? {#it-looks-like-i-am-not-able-to-delete-100-million-users-and-am-limited-to-deleting-only-10-million-is-this-a-bug}
+### Só consigo excluir até 10 milhões de usuários por vez. Isso é um bug? {#i-can-only-delete-up-to-10-million-users-at-a-time-is-this-a-bug}
 
-Não, isso não é um bug. Alguns clientes têm um limite no número de usuários que podem excluir durante o programa de acesso antecipado (EA).
-
-À medida que o programa de EA avança, essa capacidade é projetada para aumentar até que todos os clientes possam excluir até 100 milhões de usuários.
-
-Se quiser aumentar essa capacidade, entre em contato com seu gerente de conta da Braze. As solicitações são concedidas a critério da equipe de produto.
+Não, isso não é um bug. O número máximo de perfis de usuários que podem ser excluídos em uma única execução de exclusão de segmento é 10 milhões.
 
 ### A mesclagem automatizada de usuários afeta a exclusão de usuários? {#does-automated-user-merging-affect-user-deletion}
 
@@ -173,3 +164,7 @@ Sim. No entanto, você pode adicionar um filtro de inclusão de segmento para ex
 Exclusões de usuários individuais são permanentes.
 
 Você pode [cancelar exclusões de segmentos](#cancel) dentro dos primeiros 7 dias. No entanto, os usuários já excluídos antes do cancelamento não podem ser restaurados.
+
+### Posso excluir usuários pela API em vez do dashboard? {#can-i-delete-users-with-the-api-instead-of-the-dashboard}
+
+Sim. Para lotes menores, você pode usar o [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete), que aceita até 50 identificadores por solicitação e está sujeito ao [limite de taxa]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#rate-limit) desse endpoint. A exclusão de segmentos pelo dashboard é mais adequada para públicos muito grandes, mas inclui o [período de espera de 7 dias](#about-user-deletion).

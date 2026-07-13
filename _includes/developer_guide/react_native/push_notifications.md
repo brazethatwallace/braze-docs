@@ -82,7 +82,7 @@ If you were previously using `expo-notifications` to manage your push key, run `
 
 ### Step 2: Request push notifications permission
 
-Use the `Braze.requestPushPermission()` method (available on v1.38.0 and up) to request permission for push notifications from the user on iOS and Android 13+. For Android 12 and below, this method is a no-op.
+Use the `Braze.requestPushPermission()` method (available on v1.38.0 and up) to request permission for push notifications from the user on iOS and Android 13+. For Android 12 and earlier, this method is a no-op.
 
 This method takes in a required parameter that specifies which permissions the SDK should request from the user on iOS. These options have no effect on Android.
 
@@ -114,7 +114,7 @@ Braze.addListener(Braze.Events.PUSH_NOTIFICATION_EVENT, data => {
 
 ##### Push notification event fields
 
-For a full list of push notification fields, refer to the table below:
+For a full list of push notification fields, refer to the following table:
 
 | Field Name         | Type      | Description |
 | ------------------ | --------- | ----------- |
@@ -127,16 +127,16 @@ For a full list of push notification fields, refer to the table below:
 | `badge_count`      | Number   | Represents the badge count of the notification. |
 | `timestamp`        | Number | Represents the time at which the payload was received by the application. |
 | `is_silent`        | Boolean   | If `true`, the payload is received silently. For details on sending Android silent push notifications, refer to [Silent push notifications on Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android). For details on sending iOS silent push notifications, refer to [Silent push notifications on iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift). |
-| `is_braze_internal`| Boolean   | This will be `true` if a notification payload was sent for an internal SDK feature, such as geofences sync, Feature Flag sync, or uninstall tracking. The payload is received silently for the user. |
+| `is_braze_internal`| Boolean   | This will be `true` if a notification payload was sent for an internal SDK feature, such as Feature Flag sync or uninstall tracking. The payload is received silently for the user. |
 | `image_url`        | String    | Specifies the URL associated with the notification image. |
 | `braze_properties` | Object    | Represents Braze properties associated with the campaign (key-value pairs). |
 | `ios`              | Object    | Represents iOS-specific fields. |
 | `android`          | Object    | Represents Android-specific fields. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push notification event fields" }
 
 ### Step 3: Enable deep linking (optional)
 
-To enable Braze to handle deep links inside React components when a push notification is clicked, first implement the steps described in [React Native Linking](https://reactnative.dev/docs/linking) library, or with your solution of choice. Then, follow the additional steps below.
+To enable Braze to handle deep links inside React components when a push notification is clicked, first implement the steps described in [React Native Linking](https://reactnative.dev/docs/linking) library, or with your solution of choice. Then, follow the additional steps.
 
 To learn more about what deep links are, see our [FAQ article]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
 
@@ -389,7 +389,7 @@ Then, create and register your `BrazeReactDelegate` in `didFinishLaunchingWithOp
 {% endsubtab %}
 {% endsubtabs %}
 
-For an example integration, reference our sample app [here](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm).
+For an example integration, reference our sample app [in this AppDelegate example](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm).
 {% endtab %}
 {% endtabs %}
 
@@ -446,7 +446,7 @@ Braze.getInitialPushPayload((payload) => {
 ```
 
 {% alert note %}
-In Expo-managed workflow, the Braze Expo Plugin handles native push processing automatically. You control foreground UI via the Expo Notifications presentation options shown above.
+In Expo-managed workflow, the Braze Expo Plugin handles native push processing automatically. You control foreground UI via the Expo Notifications presentation options shown earlier.
 {% endalert %}
 
 For bare workflow integrations, follow the native iOS and Android approaches instead.

@@ -20,7 +20,7 @@ channel:
 | External system | A third-party AI or communication system capable of building and managing chatbots, automated client service systems using APIs, or both. |
 | Braze and WhatsApp integration | A WhatsApp number managed by Braze |
 | Braze REST API Key | A REST API key with `campaigns.trigger.send` permissions. This can be created in the Braze dashboard by going to **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## How it works
 
@@ -30,7 +30,7 @@ The integration workflow can be divided into two key flows:
 **Inbound flow:** A user's message arrives in Braze and is then forwarded to your external system for processing.
 **Outbound flow:** After processing the message, your external system sends a response to Braze, which then delivers the message to the end-user.
 
-To efficiently automate this communication, this integration uses two key Braze features: [webhook campaigns]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) and [API-triggered campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/).
+To efficiently automate this communication, this integration uses two key Braze features: [webhook campaigns]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) and [API-triggered campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery).
 
 ![Architecture of the integration between the Braze WhatsApp channel and an external system.]({% image_buster /assets/img/whatsapp/external_system_architecture.png %})
 ## Configuring the integration

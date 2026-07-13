@@ -4,11 +4,17 @@ article_title: In-App-Templates
 page_order: 4
 layout: dev_guide
 guide_top_header: "In-App-Templates"
-guide_top_text: "In-App-Templates sind nur im Drag-and-Drop-Editor verfügbar. Speichern Sie Ihre eigenen Templates aus dem Composer oder verwenden Sie ein vorgefertigtes Braze-Template, um schnell loszulegen."
-description: "Erfahren Sie mehr über In-App-Templates in Braze, einschließlich Braze-Templates und angepasster Templates, die Sie im Drag-and-Drop-Editor erstellen können."
+guide_top_text: "Erstellen und verwalten Sie In-App-Templates unter **Templates** > **In-App Message Templates**. Speichern Sie Layouts aus dem Drag-and-Drop-Editor oder erstellen Sie Farbprofile und CSS-Templates für den traditionellen Editor. Sie können auch mit einem vorgefertigten Braze-Template starten."
+description: "Erfahren Sie mehr über In-App-Templates in Braze, einschließlich der Erstellung von Templates, Braze-Templates sowie Farbprofilen und CSS-Templates für den traditionellen Editor."
 
-guide_featured_title: "Braze-Templates"
+guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
+  - name: Ein In-App-Template erstellen
+    link: /docs/user_guide/messaging/templates/in_app_message_templates/in_app_message_template
+    image: /assets/img/braze_icons/brush-02.svg
+
+guide_menu_title: "Braze-Templates"
+guide_menu_list:
   - name: Onboarding-Ablauf
     link: /docs/user_guide/messaging/templates/in_app_message_templates/onboarding
     image: /assets/img/braze_icons/flag-01.svg
@@ -36,16 +42,6 @@ guide_featured_list:
   - name: Saisonale Aktion mit Bild
     link: /docs/user_guide/messaging/templates/in_app_message_templates/seasonal_promo
     image: /assets/img/braze_icons/calendar-check-02.svg
-
-guide_menu_title: "Andere Template-Typen"
-guide_menu_list:
-  - name: Farbprofile und CSS-Templates
-    link: /docs/user_guide/channels/in_app_messages/traditional/customize/color_profiles_and_css
-    image: /assets/img/braze_icons/brush-02.svg
 ---
 
-## Als Template speichern {#saving-as-a-template}
-
-Wenn Sie eine In-App-Nachricht im Drag-and-Drop-Editor erstellen, können Sie Ihre Arbeit als Template speichern, indem Sie in der Composer-Symbolleiste **Als Template speichern** auswählen. Ihre gespeicherten Templates stehen Ihnen beim nächsten Erstellen einer In-App-Nachricht zur Verfügung und geben Ihnen einen Vorsprung, da Layout und Styling bereits vorhanden sind.
-
-Um auf Ihre gespeicherten Templates zuzugreifen, gehen Sie zu **Templates** > **In-App-Templates**.
+Informationen zum Speichern von Templates aus dem Composer, zum Erstellen von Farbprofilen oder CSS-Templates und zum Verwalten Ihrer Bibliothek finden Sie unter [Ein In-App-Template erstellen]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template).

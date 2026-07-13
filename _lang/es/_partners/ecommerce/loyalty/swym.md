@@ -24,9 +24,9 @@ Antes de empezar, necesitarás lo siguiente:
 | Requisito          | Descripción                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Swym  | Las aplicaciones Swym Wishlist Plus, Back in Stock, o ambas, deben estar instaladas en tu plataforma de comercio electrónico (Shopify o BigCommerce), y debes tener el plan Enterprise.       |
-| Una clave de API REST de Braze  | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
+| Una clave de API REST de Braze  | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
 | Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze para tu instancia.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Casos de uso {#use-cases}
 
@@ -38,7 +38,7 @@ Al conectar las aplicaciones Wishlist Plus y Back in Stock Alerts de Swym con Br
 
 Actualmente, la integración de Braze con Swym es una integración gestionada y no es autoservicio. Para empezar, ponte en contacto con el equipo de soporte de Swym en [support@getswym.com](mailto:support@getswym.com) y proporciona la siguiente información para que Swym pueda configurar la integración en tu nombre:
 
-1. Genera una [clave de API REST]({{site.baseurl}}/api/basics/#about-rest-api-keys) en tu panel de Braze con el permiso `users.track`.
+1. Genera una [clave de API REST]({{site.baseurl}}/api/basics/#about-rest-api-keys) en tu dashboard de Braze con el permiso `users.track`.
 
 ![Generación de una clave de API en Braze.]({% image_buster /assets/img/swym/braze-api-key.png %})
 
@@ -47,11 +47,11 @@ Para proteger tus claves de API, Swym recomienda que compartas las credenciales 
 {% endalert %}
 
 {: start="2"}
-2. Braze gestiona varias instancias para su panel y sus puntos de conexión REST. Proporciona el [punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints) de la instancia que tienes aprovisionada.
+2. Braze gestiona varias instancias para su dashboard y sus puntos de conexión REST. Proporciona el [punto de conexión REST]({{site.baseurl}}/api/basics/#endpoints) de la instancia que tienes aprovisionada.
 
 3. Después de compartir la clave de API y la URL de instancia con el equipo de soporte de Swym, ellos configurarán la integración por ti y te responderán con una confirmación.
 
-4. Una vez completada la configuración, los eventos personalizados de Swym se registrarán automáticamente en Braze. Puedes ver la lista de eventos Swym registrados en el panel de Braze yendo a **Data Settings** > **Custom Events**.
+4. Una vez completada la configuración, los eventos personalizados de Swym se registrarán automáticamente en Braze. Puedes ver la lista de eventos Swym registrados en el dashboard de Braze yendo a **Data Settings** > **Custom Events**.
 
 5. Visualiza las propiedades de cada evento Swym seleccionando **Manage Properties** del evento personalizado correspondiente. Estas propiedades contienen los valores del evento que pueden utilizarse para personalizar tus mensajes.
 
@@ -74,7 +74,7 @@ Desde tu aplicación Wishlist Plus, ve a la pestaña **Marketing** y busca la se
 | Alerta de bajada de precios | Un producto de una lista de deseos se pone en oferta |
 | Alerta de existencias bajas | Un producto de una lista de deseos se está agotando |
 | Alerta de nuevo en stock | Se repone un producto de una lista de deseos |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos de la aplicación Swym Wishlist Plus" }
 
 #### Eventos de la aplicación Swym Back in Stock Alerts {#swym-back-in-stock-alerts-app-events}
 
@@ -83,11 +83,11 @@ Desde tu aplicación Wishlist Plus, ve a la pestaña **Marketing** y busca la se
 | Confirmación de disponibilidad | El comprador se suscribe para recibir una notificación cuando un producto vuelva a estar en stock |
 | Alerta de reabastecimiento | Se repone el producto para el que un comprador solicitó una alerta de disponibilidad |
 | Recordatorio de reabastecimiento | Alerta de seguimiento (normalmente unas 24 horas después de la primera alerta de reabastecimiento, configurable) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Eventos de la aplicación Swym Back in Stock Alerts" }
 
 ### Paso 3: Crea una campaña o Canvas en Braze {#step-3-create-a-braze-campaign-or-canvas}
 
-Para automatizar la entrega de mensajes personalizados para tus compradores, debes crear una campaña o Canvas independiente en Braze para cada evento al que te hayas suscrito. Cada campaña o Canvas debe configurarse para desencadenarse en función del evento específico y utilizar las propiedades del evento correspondientes para rellenar contenido dinámico en tus mensajes. Para una guía paso a paso, puedes consultar [Primeros pasos: Campaigns y Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
+Para automatizar la entrega de mensajes personalizados para tus compradores, debes crear una campaña o Canvas independiente en Braze para cada evento al que te hayas suscrito. Cada campaña o Canvas debe configurarse para desencadenarse en función del evento específico y utilizar las propiedades del evento correspondientes para rellenar contenido dinámico en tus mensajes. Para una guía paso a paso, puedes consultar [Primeros pasos: campañas y Canvas]({{site.baseurl}}/user_guide/get_started/campaigns_and_canvases/).
 
 ![Un evento basado en la acción.]({% image_buster /assets/img/swym/braze-canvas-setup.png %})
 

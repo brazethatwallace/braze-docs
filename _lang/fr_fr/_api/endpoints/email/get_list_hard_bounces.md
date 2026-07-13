@@ -1,55 +1,55 @@
 ---
-nav_title: "GET : Extraire les e-mails ayant reçu un échec d'envoi définitif"
-article_title: "GET : Extraire les e-mails ayant reçu un échec d'envoi définitif"
+nav_title: "GET : Extraire les e-mails ayant reçu un échec d'envoi définitif"
+article_title: "GET : Extraire les e-mails ayant reçu un échec d'envoi définitif"
 search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Cet article présente en détail l’endpoint Braze Interroger ou lister les adresses e-mail ayant reçu un échec d'envoi définitif."
+description: "Cet article présente en détail l'endpoint Braze permettant d'interroger ou de lister les adresses e-mail ayant reçu un échec d'envoi définitif."
 
 ---
 {% api %}
-# Extraire les e-mails ayant reçu un échec d'envoi définitif
+# Extraire les e-mails ayant reçu un échec d'envoi définitif {#query-hard-bounced-emails}
 {% apimethod get %}
 /email/hard_bounces
 {% endapimethod %}
 
-> Utilisez cet endpoint pour extraire une liste d’adresses e-mail ayant rejeté définitivement vos e-mails au cours d'une certaine période.
+> Utilisez cet endpoint pour extraire une liste d'adresses e-mail ayant rejeté définitivement vos e-mails au cours d'une certaine période.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#7c2ef84f-ddf5-451a-a72c-beeabc06ad9d {% endapiref %}
 
-## Conditions préalables
+## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l’autorisation `email.hard_bounces`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `email.hard_bounces`.
 
-## Limite de débit
+## Limite de débit {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Paramètres de demande
+## Paramètres de requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | ----------|-----------| ----------|----- |
-| `start_date` | En option* | Chaîne de caractères au format YYYY-MM-DD| \*L'un des sites `start_date` ou `email` est requis. Il s'agit de la date de début de la plage de récupération des échecs d'envoi définitifs, qui doit être antérieure à `end_date`. Ce traitement est effectué à minuit (UTC) par l’API. |
-| `end_date` | Requis | Chaîne de caractères au format YYYY-MM-DD | Date de fin de la période d'extraction des échecs d'envoi définitifs. Ce traitement est effectué à minuit (UTC) par l’API. |
-| `limit` | Facultatif | Entier | Champ facultatif pour limiter le nombre de résultats renvoyés. Par défaut à 100, le maximum est 500. |
-| `offset` | Facultatif | Entier | Point de départ facultatif dans la liste où récupérer les informations. |
-| `email` | En option* | Chaîne de caractères | \*L'un des sites `start_date` ou `email` est requis. Si cette information est fournie, nous indiquerons si l'utilisateur a fait l'objet d'un échec d'envoi définitif. Vérifiez que les chaînes d'e-mails sont correctement formatées. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `start_date` | Facultatif* | Chaîne de caractères au format AAAA-MM-JJ | *L'un des paramètres `start_date` ou `email` est requis. Il s'agit de la date de début de la plage de récupération des échecs d'envoi définitifs, qui doit être antérieure à `end_date`. L'API traite cette valeur comme minuit (UTC). |
+| `end_date` | Requis | Chaîne de caractères au format AAAA-MM-JJ | Date de fin de la période d'extraction des échecs d'envoi définitifs. L'API traite cette valeur comme minuit (UTC). |
+| `limit` | Facultatif | Entier | Champ facultatif permettant de limiter le nombre de résultats renvoyés. La valeur par défaut est 100, le maximum est 500. |
+| `offset` | Facultatif | Entier | Point de départ facultatif dans la liste à partir duquel récupérer les résultats. |
+| `email` | Facultatif* | Chaîne de caractères | *L'un des paramètres `start_date` ou `email` est requis. Si ce paramètre est fourni, nous indiquerons si l'utilisateur a fait l'objet d'un échec d'envoi définitif. Vérifiez que les chaînes d'e-mails sont correctement formatées. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert important %}
-Vous devez fournir un `end_date` et un `email` ou un `start_date`. Si vous fournissez les trois, une `start_date`, une `end_date`, et un `email`, nous donnerons la priorité aux e-mails communiqués et ignorerons la plage de dates.
+Vous devez fournir un `end_date`, ainsi qu'un `email` ou un `start_date`. Si vous fournissez les trois, à savoir `start_date`, `end_date` et `email`, nous donnerons la priorité aux e-mails communiqués et ignorerons la plage de dates.
 {% endalert %}
 
-Si votre plage de dates dépasse le nombre `limit` d'échecs d'envoi définitifs, vous devrez effectuer plusieurs appels d’API, en augmentant à chaque fois le `offset` jusqu’à ce qu’un appel renvoie un résultat inférieur à `limit` ou égal à zéro. L'inclusion des paramètres `offset` et `limit` avec `email` peut renvoyer une réponse vide.
+Si votre plage de dates contient plus d'échecs d'envoi définitifs que la valeur `limit`, vous devrez effectuer plusieurs appels API en augmentant à chaque fois le `offset`, jusqu'à ce qu'un appel renvoie un nombre de résultats inférieur à `limit` ou égal à zéro. L'inclusion des paramètres `offset` et `limit` avec `email` peut renvoyer une réponse vide.
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 
-## Réponse
+## Réponse {#response}
 Les entrées sont répertoriées par ordre décroissant.
 
 ```json

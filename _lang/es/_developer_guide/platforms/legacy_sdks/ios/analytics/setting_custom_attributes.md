@@ -14,7 +14,7 @@ noindex: true
 
 Braze proporciona métodos para asignar atributos a los usuarios. Podrás filtrar y segmentar a tus usuarios según estos atributos en el dashboard.
 
-Antes de la implementación, asegúrate de revisar los ejemplos de las opciones de segmentación que ofrecen los eventos personalizados, los atributos personalizados y los eventos de compra en nuestras [mejores prácticas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), así como nuestras notas sobre [las convenciones de denominación de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+Antes de la implementación, asegúrate de revisar los ejemplos de las opciones de segmentación que ofrecen los eventos personalizados, los atributos personalizados y los eventos de compra en nuestras [mejores prácticas]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection), así como nuestras notas sobre [las convenciones de denominación de eventos]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Asignar atributos predeterminados al usuario {#assigning-default-user-attributes}
 
@@ -54,7 +54,7 @@ Los siguientes atributos deben establecerse en el objeto `ABKUser`:
 
 ## Asignar atributos personalizados al usuario {#assigning-custom-user-attributes}
 
-Además de los atributos predeterminados de usuario, Braze también te permite definir atributos personalizados utilizando varios tipos de datos diferentes. Consulta nuestra [recopilación de datos de usuario]({{site.baseurl}}/developer_guide/analytics/) para obtener más información sobre las opciones de segmentación que te ofrece cada uno de estos atributos.
+Además de los atributos predeterminados de usuario, Braze también te permite definir atributos personalizados utilizando varios tipos de datos diferentes. Consulta nuestra [recopilación de datos de usuario]({{site.baseurl}}/developer_guide/analytics) para obtener más información sobre las opciones de segmentación que te ofrece cada uno de estos atributos.
 
 ### Atributo personalizado con un valor de cadena {#custom-attribute-with-a-string-value}
 
@@ -233,7 +233,7 @@ Appboy.sharedInstance()?.user.incrementCustomUserAttribute("your_attribute_key",
 
 ### Configurar un atributo personalizado a través de la REST API {#setting-a-custom-attribute-via-the-rest-api}
 
-También puedes utilizar nuestra REST API para establecer atributos de usuario. Consulta la [documentación de la API de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data) para más detalles.
+También puedes utilizar nuestra REST API para establecer atributos de usuario. Consulta la [documentación de la API de usuario]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data) para más detalles.
 
 ### Límites del valor del atributo personalizado {#custom-attribute-value-limits}
 
@@ -252,12 +252,12 @@ Para configurar una suscripción para tus usuarios (por correo electrónico o pu
 | ------------------- | ---------- |
 | `ABKOptedin` | Suscrito y con adhesión voluntaria explícita |
 | `ABKSubscribed` | Suscrito, pero sin adhesión voluntaria explícita |
-| `ABKUnsubscribed` | No suscrito y/o con exclusión voluntaria explícita |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `ABKUnsubscribed` | No suscrito o con exclusión voluntaria explícita |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configuración de las suscripciones de los usuarios" }
 
 Los usuarios que conceden permiso para que una aplicación les envíe notificaciones push tienen de forma predeterminada el estado `ABKOptedin`, ya que iOS requiere una adhesión voluntaria explícita.
 
-Los usuarios se configurarán en `ABKSubscribed` automáticamente al recibir una dirección de correo electrónico válida; sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor en `OptedIn` al recibir el consentimiento explícito de tu usuario. Consulta la sección [Gestión de las suscripciones de los usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions/) para obtener más detalles.
+Los usuarios se configurarán en `ABKSubscribed` automáticamente al recibir una dirección de correo electrónico válida; sin embargo, te sugerimos que establezcas un proceso de adhesión voluntaria explícito y configures este valor en `OptedIn` al recibir el consentimiento explícito de tu usuario. Consulta la sección [Gestión de las suscripciones de los usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions) para obtener más detalles.
 
 ### Configuración de las suscripciones por correo electrónico {#setting-email-subscriptions}
 
@@ -297,4 +297,4 @@ Appboy.sharedInstance()?.user.setPushNotificationSubscriptionType(ABKNotificatio
 {% endtab %}
 {% endtabs %}
 
-Consulta la sección [Gestión de las suscripciones de los usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions/) para obtener más detalles.
+Consulta la sección [Gestión de las suscripciones de los usuarios]({{site.baseurl}}/user_guide/channels/email/subscriptions) para obtener más detalles.

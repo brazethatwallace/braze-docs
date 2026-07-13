@@ -23,7 +23,7 @@ guide_featured_list:
     link: /docs/user_guide/messaging/canvas/canvas_components/audience_paths
     image: /assets/img/braze_icons/users-01.svg 
   - name: Audience Sync step
-    link: /docs/partners/canvas_audience_sync/
+    link: /docs/partners/canvas_audience_sync
     image: /assets/img/braze_icons/refresh-ccw-02.svg
   - name: Content Optimizer step
     link: /docs/user_guide/messaging/canvas/canvas_components/content_optimizer_step
@@ -74,4 +74,4 @@ When creating your user journeys, you may want to also test for the most effecti
 
 ### Integration
 
-Want to sync up with your brand's first-party user data? Leverage the available audience sync options for [Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/) and [Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/).
+Want to sync up with your brand's first-party user data? Leverage the available audience sync options for [Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) and [Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync).

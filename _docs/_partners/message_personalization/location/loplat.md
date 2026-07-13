@@ -25,7 +25,7 @@ The Braze and loplat integration allows you to use loplat's location services (s
 | loplat X account | A loplat X account is required to take advantage of this integration.<br><br>Email [support@loplat.com](mailto:support@loplat.com) to request a loplat X account. |
 | loplat SDK | loplat SDK recognizes users' store visits, processes location events, and distinguishes whether users are staying at a place or moving. You can use loplat SDK to analyze your store's footfall, send push messages when users enter your store, etc.<br><br>Note that the SDK is only available for Android and iOS. |
 | Braze REST API key | A Braze REST API key with the following permissions:<br>- `users.track`<br>- `campaigns.trigger.send`<br>- `campaigns.list`<br>- `canvas.trigger.send`<br>- `canvas.list`<br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -53,7 +53,7 @@ Create a new API key in the Braze dashboard. Copy the API key and paste it at **
 3. Go to loplat X and create a campaign following the instructions in the [loplat X user's guide](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e#2ed232c885014f19b1870b9fca4230fb).
 4. Paste the Braze campaign ID under the **Campaign Message Settings**, and launch the campaign.
 
-![]({% image_buster /assets/img/loplat/loplat_api_triggered_delivery.png %})
+![loplat X campaign settings showing Braze campaign ID for API-triggered delivery.]({% image_buster /assets/img/loplat/loplat_api_triggered_delivery.png %})
 
 #### Action-based delivery
 
@@ -63,6 +63,6 @@ With the integration, you can apply location conditions by sending geofence info
 3. Go to the Braze dashboard and create a campaign or Canvas that sends with **Action-Based Delivery**.
 4. Select the custom event you created in loplat X to set a location trigger action.
 
-![]({% image_buster /assets/img/loplat/loplat_action_based_delivery.png %})
+![Braze action-based campaign setup using a loplat custom event as trigger.]({% image_buster /assets/img/loplat/loplat_action_based_delivery.png %})
 
 

@@ -15,16 +15,16 @@ tool: Canvas
 Consultar o histórico de versões do Canvas pode ser especialmente útil para manter um registro da evolução de um Canvas. Por exemplo, se você fizer uma alteração em grande escala, pode consultar versões anteriores do Canvas para entender melhor como seus fluxos de trabalho progrediram.
 
 {% alert tip %}
-Para obter uma lista completa dos Canvas no seu espaço de trabalho (por exemplo, para uma auditoria), use o [endpoint Exportar lista de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) e pagine pelos resultados.
+Para obter uma lista completa dos Canvas no seu espaço de trabalho (por exemplo, para uma auditoria), use o [endpoint Exportar lista de Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) e pagine pelos resultados.
 {% endalert %}
 
 ## Gerenciando versões {#managing-versions}
 
-![]({% image_buster /assets/img_archive/canvas_version_history.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
+![Captura de tela relacionada ao gerenciamento de versões.]({% image_buster /assets/img_archive/canvas_version_history.png %}){: style="float:right;max-width:35%;margin-left:15px;"}
 
-Para criar uma nova versão, clique em **Update Canvas**. Isso permite que você faça alterações sem sobrescrever a configuração anterior do Canvas. Quando uma nova versão do Canvas é criada, os usuários que já estão no Canvas avançarão pelo fluxo de trabalho da nova versão. Os usuários que entrarem no Canvas também entrarão na nova versão.
+Para criar uma nova versão, clique em **Atualizar Canvas**. Isso permite que você faça alterações sem sobrescrever a configuração anterior do Canvas. Quando uma nova versão do Canvas é criada, os usuários que já estão no Canvas avançarão pelo fluxo de trabalho da nova versão. Os usuários que entrarem no Canvas também entrarão na nova versão.
 
-Para acessar o histórico de versões, navegue até os detalhes do Canvas na parte superior do seu Canvas e selecione **# Versions**. Aqui, você tem acesso à barra lateral **Version history**. Selecione qualquer uma das versões do Canvas na barra lateral para visualizar e comparar os detalhes do Canvas. Para alternar entre a análise de dados do Canvas e a configuração do Canvas, clique em **View Analytics** ou **View Canvas** na barra de ferramentas inferior.
+Para acessar o histórico de versões, navegue até os detalhes do Canvas na parte superior do seu Canvas e selecione **# Versions**. Aqui, você tem acesso à barra lateral **Version history**. Selecione qualquer uma das versões do Canvas na barra lateral para visualizar e comparar os detalhes do Canvas. Para alternar entre a análise de dados do Canvas e a configuração do Canvas, clique em **Ver análise de dados** ou **View Canvas** na barra de ferramentas inferior.
 
 {% alert note %}
 Os Canvas listados em **Version history** são somente para visualização.

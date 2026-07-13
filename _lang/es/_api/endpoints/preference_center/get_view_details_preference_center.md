@@ -9,7 +9,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ---
 {% api %}
-# Ver detalles del centro de preferencias
+# Ver detalles del centro de preferencias {#view-details-for-preference-center}
 {% apimethod get %}
 /preference_center/v1/{preferenceCenterExternalID}
 {% endapimethod %}
@@ -18,33 +18,33 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6a47fd7c-2997-4832-aedb-d101a2dd03a5 {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `preference_center.get`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `preference_center.get`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='get preference center' %}
 
-## Parámetros de ruta
+## Parámetros de ruta {#path-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-|`preferenceCenterExternalID`| Obligatoria | Cadena | El ID de tu centro de preferencias. |
-{: role="presentation" }
+| `preferenceCenterExternalID` | Obligatorio | Cadena | El ID de tu centro de preferencias. |
+{: aria-label="Parámetros de ruta" }
 
-## Parámetros de solicitud
+## Parámetros de solicitud {#request-parameters}
 
 No hay parámetros de solicitud para este punto de conexión.
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```
 curl --location -g --request GET https://rest.iad-01.braze.com/preference_center/v1/preference_center_external_id \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Respuesta
+## Respuesta {#response}
 ```json
 {
   "name": "My Preference Center",

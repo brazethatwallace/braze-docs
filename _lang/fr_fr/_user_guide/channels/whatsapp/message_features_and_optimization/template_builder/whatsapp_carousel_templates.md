@@ -12,10 +12,6 @@ toc_headers: h2
 
 > Les modèles carrousel WhatsApp vous permettent de créer des messages interactifs à plusieurs cartes que les utilisateurs peuvent faire défiler. Chaque carrousel peut contenir jusqu'à 10 cartes avec des images ou des vidéos, ainsi que des boutons personnalisables pour l'engagement. Cette fonctionnalité est idéale pour présenter vos produits et services, ou du contenu en plusieurs étapes dans un format visuellement attrayant.
 
-{% alert note %}
-Les modèles carrousel WhatsApp sont en accès anticipé. Contactez votre gestionnaire de la satisfaction client si vous souhaitez participer à cet accès anticipé.
-{% endalert %}
-
 ## Conditions préalables {#prerequisites}
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -56,15 +52,15 @@ Remplissez les champs requis.
 | Langue du modèle | Sélectionnez la langue de votre modèle. Meta limite les modèles à une seule langue, choisissez donc la langue que votre audience verra. |
 | Nom du modèle | Saisissez un nom descriptif qui vous aidera à identifier ce modèle ultérieurement. Les noms de modèles ne peuvent pas contenir d'espaces — utilisez des underscores ou supprimez les espaces entièrement (par exemple `carousel_example` ou `carouselexample`). |
 | Catégorie | Automatiquement définie sur **Marketing**. Tous les messages carrousel sont catégorisés comme messages marketing. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Configurer les paramètres du modèle" }
 
 ![Panneau de détails du modèle WhatsApp avec un compte WhatsApp Business sélectionné, l'anglais comme langue du modèle et un nom de modèle « welcome_message ».]({% image_buster /assets/img/whatsapp/templates/whatsapp_template_details.png %}){: style="max-width:70%"}
 
 ### Étape 3 : Ajouter le contenu du corps {#step-3-add-body-content}
 
-Chaque message carrousel doit commencer par un contenu de corps, c'est-à-dire le texte qui apparaît au-dessus des cartes du carrousel.
+Chaque message carrousel doit commencer par un contenu de corps, c'est-à-dire le texte qui apparaît avant les cartes du carrousel.
 
-Vous pouvez inclure des variables Liquid pour la personnalisation, comme {% raw %}`{{first_name}}`{% endraw %}, ce qui crée un emplacement de variable vide pouvant être rempli avec du contenu dynamique ou modifié ultérieurement lors de l'utilisation du modèle dans des campagnes. Les variables ne peuvent pas être placées tout au début ou à la fin du contenu du corps.
+Vous pouvez inclure des variables Liquid pour la personnalisation, comme {% raw %}`{{first_name}}`{% endraw %}, ce qui crée un emplacement de variable vide pouvant être rempli avec du contenu dynamique ou modifié ultérieurement lors de l'utilisation du modèle dans des Campaigns. Les variables ne peuvent pas être placées tout au début ou à la fin du contenu du corps.
 
 ### Étape 4 : Configurer les paramètres du carrousel {#step-4-configure-carousel-settings}
 
@@ -112,7 +108,7 @@ L'envoi de test n'est pas disponible tant que Meta n'a pas approuvé le modèle.
 
 ## Utiliser les modèles carrousel {#use-carousel-templates}
 
-Une fois votre modèle carrousel approuvé par Meta, vous pouvez l'utiliser dans des campagnes et des Canvas. Le processus est similaire pour les deux types de messages.
+Une fois votre modèle carrousel approuvé par Meta, vous pouvez l'utiliser dans des Campaigns et des Canvas. Le processus est similaire pour les deux types de messages.
 
 ### Étape 1 : Créer un message WhatsApp {#step-1-create-a-whatsapp-message}
 
@@ -155,14 +151,14 @@ Lorsque votre modèle se charge, il contient du contenu verrouillé et du conten
 
 #### Exemple {#example}
 
-{% raw %}Par exemple, supposons que votre modèle inclut une variable de pourcentage de réduction : `{{discount_percentage}}`. Dans la campagne, vous pouvez la conserver ou la remplacer par `{{custom_attributes.vip_discount}}`.{% endraw %} Meta exige uniquement que l'emplacement de la variable soit rempli — le Liquid spécifique utilisé est flexible.
+{% raw %}Par exemple, supposons que votre modèle inclut une variable de pourcentage de réduction : `{{discount_percentage}}`. Dans la Campaign, vous pouvez la conserver ou la remplacer par `{{custom_attributes.vip_discount}}`.{% endraw %} Meta exige uniquement que l'emplacement de la variable soit rempli — le Liquid spécifique utilisé est flexible.
 
 {% endtab %}
 {% endtabs %}
 
-### Étape 4 : Lancer votre campagne ou Canvas {#step-4-launch-your-campaign-or-canvas}
+### Étape 4 : Lancer votre Campaign ou Canvas {#step-4-launch-your-campaign-or-canvas}
 
-Après la composition, poursuivez avec le workflow de lancement de votre campagne ou Canvas, y compris les tests. Le modèle carrousel fonctionne comme tout autre modèle de message WhatsApp.
+Après la composition, poursuivez avec le workflow de lancement de votre Campaign ou Canvas, y compris les tests. Le modèle carrousel fonctionne comme tout autre modèle de message WhatsApp.
 
 ## Bonnes pratiques {#best-practices}
 
@@ -170,27 +166,27 @@ Après la composition, poursuivez avec le workflow de lancement de votre campagn
 
 - **Placement du contenu du corps :** les variables ne peuvent pas être placées à la fin du contenu du corps. Ajoutez au moins un mot ou un signe de ponctuation après chaque variable.
 - **Structure de carte cohérente :** toutes les cartes doivent avoir la même forme, le même type de média et la même configuration de boutons. Planifiez votre contenu en conséquence.
-- **Nombre optimal de cartes :** bien que vous puissiez créer jusqu'à 10 cartes, pensez à l'expérience utilisateur. Trop de cartes peuvent être accablantes ; 3 à 5 cartes fonctionnent bien pour la plupart des cas d'utilisation.
+- **Nombre optimal de cartes :** bien que vous puissiez créer jusqu'à 10 cartes, pensez à l'expérience utilisateur. Trop de cartes peuvent être accablantes ; 3 à 5 cartes fonctionnent bien pour la plupart des cas d'usage.
 - **Valeurs par défaut :** lorsque vous utilisez des variables Liquid, fournissez toujours des valeurs par défaut pour une prévisualisation précise. Cela permet de confirmer que le message s'affiche correctement si certaines données du profil utilisateur sont manquantes.
 
 ### Comptes WhatsApp Business et groupes d'abonnement {#whatsapp-business-accounts-and-subscription-groups}
 
 - **Comprendre le partage de modèles :** les modèles sont partagés entre tous les groupes d'abonnement au sein du même compte WhatsApp Business (WABA), mais pas entre différents WABA. Planifiez en conséquence si vous gérez plusieurs WABA.
-- **Organiser par WABA :** si vous avez plusieurs WABA, envisagez d'organiser vos modèles par compte professionnel pour éviter toute confusion lors de la sélection de modèles dans les campagnes.
+- **Organiser par WABA :** si vous avez plusieurs WABA, envisagez d'organiser vos modèles par compte professionnel pour éviter toute confusion lors de la sélection de modèles dans les Campaigns.
 
 ### Tests et approbation {#testing-and-approval}
 
 - **Prévisualiser avant la soumission :** prévisualisez toujours vos modèles pour détecter les erreurs avant de les soumettre à Meta pour approbation.
-- **Prévoir le délai d'approbation :** bien que l'approbation ne prenne généralement que quelques minutes, tenez compte des retards potentiels lors de la planification des lancements de campagnes.
+- **Prévoir le délai d'approbation :** bien que l'approbation ne prenne généralement que quelques minutes, tenez compte des retards potentiels lors de la planification des lancements de Campaigns.
 - **Tester minutieusement :** après l'approbation, testez votre carrousel avec des données utilisateur réelles pour confirmer que toutes les variables se remplissent correctement et que l'expérience utilisateur est fluide.
 
 ## Résolution des problèmes {#troubleshooting}
 
 | Problème | Solution |
 | --- | --- |
-| Le modèle n'apparaît pas dans la campagne | Vérifiez que le groupe d'abonnement sélectionné appartient au même WABA que le modèle. Vérifiez également que l'état du modèle est **Approved** et non encore **Draft** ou **Pending**. |
+| Le modèle n'apparaît pas dans la Campaign | Vérifiez que le groupe d'abonnement sélectionné appartient au même WABA que le modèle. Vérifiez également que l'état du modèle est **Approved** et non encore **Draft** ou **Pending**. |
 | Impossible de placer une variable à la fin du corps | Déplacez la variable plus tôt dans le texte et ajoutez au moins un caractère ou un signe de ponctuation après. Il s'agit d'une exigence de Meta pour les modèles WhatsApp. |
 | Les variables ne se remplissent pas lors du test | Assurez-vous que votre syntaxe Liquid est correcte et que les attributs existent dans vos profils utilisateur. Vérifiez les fautes de frappe dans les noms de variables et confirmez que les valeurs par défaut sont définies le cas échéant. |
 | Le nom du modèle contient des espaces | Les noms de modèles ne peuvent pas contenir d'espaces. Utilisez des underscores à la place (`template_name`) ou supprimez les espaces entièrement (`templatename`). |
 | Impossible de modifier le nombre de cartes | Le nombre de cartes est fixé lors de la création du modèle et ne peut pas être modifié après la soumission. Si vous avez besoin d'un nombre différent de cartes, vous devrez créer un nouveau modèle. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes" }

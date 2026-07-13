@@ -25,7 +25,7 @@ Os termos a seguir são referenciados ao longo do guia do Decisioning Studio.
 | **Dimensões** | As dimensões podem ser entendidas como os *tipos de alavancas* que o agente de decisão pode acionar para maximizar a métrica de sucesso. Dimensões típicas incluem oferta, linha de assunto, criativo, canal ou horário de envio. |
 | **Banco de ações** | O banco de ações define as *opções específicas* às quais o agente de decisão tem acesso para cada "alavanca" de dimensão. Por exemplo, para uma dimensão de canal, você define os canais específicos aos quais o agente de decisão tem acesso. Para uma dimensão de oferta, você define as ofertas específicas que o agente de decisão pode testar. |
 | **Restrições** | Em geral, o agente de decisão pode realizar qualquer combinação de ações que você colocar no banco de ações. No entanto, você também pode definir restrições para limitar as ações do agente de decisão e respeitar regras de negócio críticas. Por exemplo, isso pode ser impedir que uma oferta específica seja selecionada para clientes em uma região não elegível, ou definir um orçamento máximo para o agente de decisão gastar. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conceitos-chave" }
 
 ![Visão geral de alto nível de um agente de decisão]({% image_buster /assets/img/decisioning_studio/decisioning_studio_high_level_agent.png %})
 
@@ -39,25 +39,25 @@ Ao configurar um agente de decisão, você precisará pensar em quatro elementos
 
 ### O "objetivo": defina sua métrica de sucesso {#the-goal-define-your-success-metric}
 
-> Qual resultado você quer que o agente maximize?
+*Qual resultado você quer que o agente maximize?*
 
 Sua métrica de sucesso é o resultado de negócio que o agente vai otimizar. Ela deve estar diretamente alinhada com seus objetivos de negócio — não métricas intermediárias como cliques ou aberturas, mas resultados reais de negócio como receita, conversões, ARPU ou lifetime value do cliente.
 
 ### O "quem": selecione seu público {#the-who-select-your-audience}
 
-> Quem o agente de decisão vai engajar?
+*Quem o agente de decisão vai engajar?*
 
 Defina o público que seu agente vai atender. Pode ser todos os clientes, um segmento específico (como membros de um programa de fidelidade) ou clientes em uma etapa específica do ciclo de vida (como compradores recentes ou assinantes em risco).
 
 ### O "quê": configure seu banco de ações {#the-what-configure-your-action-bank}
 
-> Quais opções o agente pode escolher para impulsionar o resultado?
+*Quais opções o agente pode escolher para impulsionar o resultado?*
 
 O banco de ações define todas as alavancas que o agente pode acionar: as dimensões (como canal, oferta, horário e frequência) e as opções específicas dentro de cada dimensão. O agente experimenta diferentes combinações dessas opções para descobrir o que funciona melhor para cada cliente.
 
 ### O "como": configure suas restrições {#the-how-configure-your-constraints}
 
-> Quais regras o agente deve seguir?
+*Quais regras o agente deve seguir?*
 
 Restrições são as regras que o agente deve seguir. Isso pode ser impedir que uma oferta específica seja selecionada para clientes em uma região não elegível, ou definir um orçamento máximo para o agente de decisão gastar.
 
@@ -132,4 +132,4 @@ Você pode criar um agente de fidelidade e engajamento para maximizar compras de
 
 ## Próximas etapas {#next-steps}
 
-Pronto para criar seu próprio agente de decisão? Consulte [Primeiros passos com o Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/) para um guia que orienta você na conexão de fontes de dados, configuração da orquestração, design do seu agente e lançamento em produção.
+Pronto para criar seu próprio agente de decisão? Consulte [Primeiros passos com o Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) para um guia que orienta você na conexão de fontes de dados, configuração da orquestração, design do seu agente e lançamento em produção.

@@ -14,7 +14,7 @@ You can use these additional methods to build a custom Content Cards Feed within
 | `braze.logContentCardClicked(contentCard)`    | Logs a click for the given Content Card object.                                                            |
 | `braze.logContentCardImpression(contentCard)` | Logs an impression for the given Content Card object.                                                      |
 | `braze.logContentCardDismissed(contentCard)`  | Logs a dismissal for the given Content Card object.                                                        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
 
 ## Receiving Content Card data
 
@@ -24,7 +24,7 @@ The `BrazeContentCard` [object](https://pub.dev/documentation/braze_plugin/lates
 
 ### Listen for Content Card data in the Dart layer
 
-To receive Content Card data in the Dart layer, use the code below to create a `StreamSubscription` and call `braze.subscribeToContentCards()`. Remember to `cancel()` the stream subscription when it is no longer needed.
+To receive Content Card data in the Dart layer, use the following code to create a `StreamSubscription` and call `braze.subscribeToContentCards()`. Remember to `cancel()` the stream subscription when it is no longer needed.
 
 ```dart
 // Create stream subscription

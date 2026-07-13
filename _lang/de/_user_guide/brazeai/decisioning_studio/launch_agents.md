@@ -28,7 +28,7 @@ Nach dem Start wird Ihr Agent:
 
 Nach dem Start benötigt Ihr Agent Feedback-Daten, um zu lernen und sich zu verbessern. Dazu gehören Conversion-Daten, Engagement-Daten und Aktivierungsdaten, die dem Agent mitteilen, was nach dem Versand der Customer-Engagement-Entscheidungen passiert ist.
 
-Detaillierte Anforderungen zur Vorbereitung dieser wichtigen Feedback-Datenbestände finden Sie unter [Datenquellen vorbereiten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/).
+Detaillierte Anforderungen zur Vorbereitung dieser wichtigen Feedback-Datenbestände finden Sie unter [Datenquellen vorbereiten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data).
 
 {% alert note %}
 Wenn der Agent nativ in die Customer-Engagement-Plattform integriert ist (z. B. Braze oder Salesforce Marketing Cloud), sind möglicherweise keine zusätzlichen Konfigurationsschritte für Feedback-Daten erforderlich, da diese automatisch mit den Kundendaten gesendet werden können.

@@ -18,11 +18,15 @@ tool:
 
 The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two key components to simplify your workflow, without additional use of HTML.
 
-<table style="width: 100%; table-layout: fixed;">
+<table aria-label="About the editor" style="width: 100%; table-layout: fixed;">
+    <caption>Content and Rows editor components</caption>
+    <thead>
     <tr>
         <th style="width: 50%;">Content</th>
         <th style="width: 50%;">Rows</th>
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td style="text-align: center;">
             <img src="{% image_buster /assets/img/dnd/dnd_content.png %}" alt="The 'Rows' tab that includes different structural combinations for your email layout." style="max-width: 100%; height: auto;">
@@ -31,8 +35,9 @@ The drag-and-drop editor uses [Content](#content) and [Rows](#rows) as the two k
             <img src="{% image_buster /assets/img/dnd/dnd_rows.png %}" alt="The 'Content' tab that includes basic blocks, media, and advanced" style="max-width: 100%; height: auto;">
         </td>
     </tr>
+    </tbody>
 </table>
-{: .reset-td-br-1 role="presentation"}
+{: .reset-td-br-1 aria-label="About the editor" }
 
 ### Content
 
@@ -65,7 +70,11 @@ Although the drag-and-drop editor simplifies your workflow with these blocks, yo
 
 ### Rows
 
-**Rows** are structural units that define the horizontal composition of a section of the message by using columns. You can either empty rows or [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Using more than one column allows you to put different content elements side by side. This way, you can add all the structural elements you need to your message, regardless of the template you selected when you started.
+**Rows** are structural units that define the horizontal composition of a section of the message by using columns. You can either empty rows or [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Using more than one column allows you to put different content elements side by side. This way, you can add all the structural elements you need to your message, regardless of the template you selected when you started.
+
+#### Nesting images inside text blocks
+
+You cannot nest an image inside a paragraph or other text block in the drag-and-drop editor. To place an image beside or within a text layout, use columns in a **Row**: for example, a multi-column row on desktop with **Hide on mobile** for that row, and a separate mobile-only row (with **Hide on desktop** and **Do not stack on mobile** as needed) so the image and text align cleanly on small screens.
 
 #### Cards Style
 
@@ -74,6 +83,10 @@ Although the drag-and-drop editor simplifies your workflow with these blocks, yo
 ## Using the drag-and-drop editor
 
 Not sure whether your email message should be sent using a campaign or a Canvas? Campaigns are better for single, targeted messaging campaigns, while Canvases are better for multi-step user journeys.
+
+{% alert note %}
+You can't save a drag-and-drop email from a campaign or Canvas directly to **Templates** > **Email Templates** as an email template. Build under **Templates** first, or see [Can I save my drag-and-drop email as a template after I build it within my campaign or Canvas?]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/faq#can-i-save-my-drag-and-drop-email-as-a-template-after-i-build-it-within-my-campaign-or-canvas) for recreating a drag-and-drop template or exporting HTML with **Download file**.
+{% endalert %}
 
 After you've selected where to build your message, let's dive into the steps to create a drag-and-drop email.
 
@@ -86,7 +99,7 @@ After selecting the drag-and-drop editor as your editing experience, you can cho
 - Use a saved drag-and-drop email template.
 
 {% alert note %}
-To use an existing custom HTML template or templates created by a third party, you must recreate the template by going to **Templates** > **Email Templates** and selecting **Drag-And-Drop Editor** as your editing experience.
+To use an existing custom HTML template or templates created by a third party, you must recreate the template by going to **Content** > **Email** and selecting **Drag-And-Drop Editor** as your editing experience.
 {% endalert %}
 
 You can also access all templates from the **Templates** section.
@@ -115,7 +128,7 @@ Check out [Other customizations](#other-customizations) for other ways to furthe
 As you build your email, you can toggle between a desktop and mobile view to preview how your email messaging will look for your user groups. This will check that your content is responsive, and you can make any necessary adjustments along the way.
 
 {% alert tip %}
-Need help creating awesome copy? Try using the [AI copywriting assistant]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). Input a product name or description, and the AI will generate human-like marketing copy for use in your messaging.
+Need help creating awesome copy? Try using the [AI copywriting assistant]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Input a product name or description, and the AI will generate human-like marketing copy for use in your messaging.
 
 ![Copywriter button, located in the Content panel next to Style Settings in the drag-and-drop editor.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
@@ -133,7 +146,17 @@ Once you've finished designing and building your email message, it's time to add
 
 A preview in the right-hand panel will populate with the sending information you've added. This information can also be updated by navigating to **Settings** > **Email Preferences** > **Sending Configuration**.
 
-#### Personalizing your email header (advanced)
+#### Add email attachments
+
+In **Sending Settings** > **Advanced**, you can add email attachments by the following methods:
+
+- **Upload a file:** Drag and drop or browse to upload a file directly from your computer to the email. Braze validates the file type and size (up to 2&nbsp;MB by default) before uploading, then these files are uploaded to the media library. Files that are larger than 2&nbsp;MB limit cannot be uploaded.
+- **Use the media library:** Browse and select from assets already stored in the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). PDFs, Word documents, Excel files, and PowerPoint presentations are all supported. 
+- **Add from URL:** Enter a URL pointing to the file and provide a display filename. Because Braze cannot probe arbitrary URLs for size during email composition, the file size is enforced at send time. Note that Liquid is not supported in this field.
+
+Refer to [Email guidelines]({{site.baseurl}}/user_guide/channels/email/best_practices/email_guidelines) for specific best practices to consider.
+
+#### Personalize your email header (advanced)
 
 Under **Sending Settings**, you can add personalization for email headers and email extras, which allows you to send additional data back to other email service providers. Personalizing an email header, such as including a recipient's name, can also contribute to the likelihood of your email being opened.
 
@@ -149,7 +172,7 @@ After adding your sending information, it's time to finally test your email.
 If the email looks different in the editor than in preview or test send, confirm that all tags are closed, image attributes have values, and background images aren't blurred at edges.
 {% endalert %}
 
-Go to the **Preview and Test** section. Here, you have the option of previewing your email as a user or sending a test message. This section also includes [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision/), which allows you to check that your email has rendered correctly across different mobile and web clients.
+Go to the **Preview and Test** section. Here, you have the option of previewing your email as a user or sending a test message. This section also includes [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision), which allows you to check that your email has rendered correctly across different mobile and web clients.
 
 {% alert tip %}
 You can also use the **Dark Mode Preview** toggle in the preview panel to view your email body in dark mode and adjust your email as needed. 
@@ -181,9 +204,9 @@ Inbox Vision allows you to view your email campaigns from the perspective of ema
 
 It's important to test and check the finer details of your email message. For example, background images in email messaging may sometimes cause white lines or disconnects to appear between images, or clients such as Windows Outlook may not show background images. Using Inbox Vision can help identify these discrepancies between clients. In this scenario, set a fallback background color so that these images can render as expected.
 
-For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=email).
+For more information, see [Send test messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=email).
 
-After using the drag-and-drop editor to design and create your email message, continue to [build]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) the remainder of your campaign or Canvas.
+After using the drag-and-drop editor to design and create your email message, continue to [build]({{site.baseurl}}/user_guide/channels/email/html_editor#step-4-build-the-remainder-of-your-campaign-or-canvas) the remainder of your campaign or Canvas.
 
 {% details About the updated HTML engine %}
 The underlying engine that produces HTML from the drag-and-drop editor has been optimized and updated, resulting in benefits related to HTML file compression and rendering.
@@ -191,8 +214,9 @@ The underlying engine that produces HTML from the drag-and-drop editor has been 
 Our average exported HTML data footprint size has been reduced, leading to faster loading and rendering, reduced mobile clipping, and reduced bandwidth consumption.
 
 HTML rendering has improved based on the following updates that minimize the number of conditional comments and CSS media queries. As a result, HTML files are smaller and more efficiently coded.
-- Migration from a `<div>` element-based design to a standard `<table>` formatted codebase
-- [Editor blocks]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks/) have been re-coded for conciseness
+- Migration from a `<div>` element-based design to a standard `<table aria-label="Use Inbox Vision">` formatted codebase
+  <caption>Use Inbox Vision</caption>
+- [Editor blocks (email)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) have been re-coded for conciseness
 - The final HTML code is compressed to remove whitespace between tags
 - Transparent dividers are automatically converted into content padding
 {% enddetails %}
@@ -202,7 +226,7 @@ HTML rendering has improved based on the following updates that minimize the num
 As you continue building drag-and-drop emails, you can further customize each email body by using a combination of these creative details to capture your audience's attention and interest in your message.
 
 {% alert tip %}
-You can create a custom theme for your drag-and-drop editor using [global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings/).
+You can create a custom theme for your drag-and-drop editor using [global style settings]({{site.baseurl}}/user_guide/channels/email/customize/email_global_style_settings).
 {% endalert %}
 
 ### Auto-width images
@@ -248,7 +272,7 @@ Liquid personalization is not supported for image blocks and button link type fi
 
 #### Dynamic images
 
-You can choose to include dynamic images in your email messaging by including [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/#about-connected-content) or [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) in your image source attribute. For example, instead of a static image, you can insert {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} as the image URL to include a user's first name in the image. This helps personalize your emails to each user.
+You can choose to include dynamic images in your email messaging by including [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content) or [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in your image source attribute. For example, instead of a static image, you can insert {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} as the image URL to include a user's first name in the image. This helps personalize your emails to each user.
 
 {% alert important %}
 Your image URL must begin with `https://`. Using `http://` crashes your app.
@@ -260,7 +284,7 @@ When composing your message, you can toggle the text direction between left-to-r
 
 ![Email drag-and-drop editor menu with button to toggle text alignment between right-to-left and left-to-right.]({% image_buster /assets/img/dnd/dnd_template1.png %}){: style="max-width:50%;"}
 
-The final appearance of right-to-left messages depends largely on how service providers render them. For best practices on crafting right-to-left messages that display as accurately as possible, refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+The final appearance of right-to-left messages depends largely on how service providers render them. For best practices on crafting right-to-left messages that display as accurately as possible, refer to [Creating right-to-left messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ### HTML
 
@@ -280,11 +304,11 @@ Another common use case is to flag specific links as universal links. Universal 
 * **SendGrid:** `universal = "true"`
 * **SparkPost:** `data-msys-sublink = "open-in-app"` (a [custom sub-path](https://support.sparkpost.com/docs/tech-resources/deep-links-self-serve#custom-link-sub-paths) must be configured)
 
-To set up universal links, refer to [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/).
+To set up universal links, refer to [Universal links and App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links).
 
-Alternatively, you can integrate with one of our attribution partners, such as [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/) or [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/appsflyer/#email-deep-linking-and-click-tracking), to manage universal links.
+Alternatively, you can integrate with one of our attribution partners, such as [Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking) or [AppsFlyer]({{site.baseurl}}/partners/message_orchestration/attribution/appsflyer/appsflyer#email-deep-linking-and-click-tracking), to manage universal links.
 
-Lastly, predefined attributes are available to help make your message accessible. Learn more at our dedicated [Building accessible messages in Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) article.
+Lastly, predefined attributes are available to help make your message accessible. Learn more at our dedicated [Building accessible messages in Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) article.
 
 #### Custom head tags
 
@@ -301,7 +325,7 @@ Anything added outside of `<head>` tags will be added after the `<body>` tag in 
 | `meta` | Provides metadata such as page description or keywords. | `<meta name="description" content="Free Web tutorials">` |
 | `style` | Embeds internal CSS styles. | `<style type="text/css" media="screen">body { font-size: 16px; }</style>` |
 | `title` | Sets the title of the document shown in browser tabs. | `<title>StyleRyde</title>` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Allowed tags and attributes by tag" }
 
 | Tag | Attribute | Description | Example |
 | --- | --- | --- | --- |
@@ -319,7 +343,7 @@ Anything added outside of `<head>` tags will be added after the `<body>` tag in 
 | `style` | `type` | MIME type of the style content. | {% raw %}```<style type="text/css">p { color: red; }</style>```{% endraw %} |
 | `style` | `media` | Specifies the media or device for which styles apply. | ```<style media="print">body { font-size: 12pt; }</style>``` |
 | `title` | No attributes | The `title` tag doesn't accept any attributes. | ```<title>Kitchenerie</title>``` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Allowed tags and attributes by tag" }
 
 {% alert note %}
 Link names can be up to 63 bytes and are automatically truncated if they exceed the limit.

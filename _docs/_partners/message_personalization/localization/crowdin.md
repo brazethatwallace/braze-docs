@@ -28,7 +28,7 @@ Crowdin offers two apps for Braze: [Braze Campaigns & Canvas](https://store.crow
 | **Canvas steps** | ✅ Supported | ❌ Not supported |
 | **Email templates** | ❌ Not supported | ✅ Supported |
 | **Content Blocks** | ❌ Not supported | ✅ Supported |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Choose the right Crowdin app" }
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ Crowdin offers two apps for Braze: [Braze Campaigns & Canvas](https://store.crow
 | **Braze REST API key** | A Braze REST API key with permissions for campaigns, Canvas, Content Blocks, custom attributes, email, and templates. |
 | **Braze REST endpoint** | Your specific Braze REST endpoint URL (for example, `https://rest.iad-03.braze.com`). |
 | **Braze multi-language settings** | Locales must be configured in your Braze dashboard under **Settings** > **Localization Settings**. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Braze Campaigns & Canvas integration
 
@@ -61,7 +61,7 @@ Before you connect Crowdin, add your target languages in Braze.
 
 ### Step 2: Set up the Braze project in Crowdin
 
-1. In your Crowdin Enterprise or Crowdin.com account, go to the **Store** in the left-hand menu.
+1. In your Crowdin Enterprise or Crowdin.com account, go to **Store** in the navigation menu.
 2. Search for **Braze Campaigns & Canvas**, then select **Install**.
 
 ![Crowdin Store with Braze Campaigns & Canvas selected and Install highlighted.]({% image_buster /assets/img/crowdin/crowdin_store_campaigns_canvas.png %})
@@ -87,7 +87,7 @@ Select **Log in with Braze Campaigns & Canvas**.
 
 After you connect your account, map each Crowdin project language to the matching Braze locale.
 
-1. In the **Braze Campaigns & Canvas** integration dashboard, select the **Settings** gear icon in the top-right corner.
+1. In the **Braze Campaigns & Canvas** integration dashboard, select the **Settings** gear icon in the top action bar.
 
 ![Braze Campaigns & Canvas integration screen with Settings in the top action bar.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_settings.png %})
 
@@ -118,21 +118,21 @@ Save your Braze message as a **Draft** before Crowdin can detect and pull the co
 
 The integration screen has two sides:
 
-- **Right side (Braze):** Your campaigns and Canvases.
-- **Left side (Crowdin):** Content already synced for translation.
+- **Braze panel:** Your campaigns and Canvases.
+- **Crowdin panel:** Content already synced for translation.
 
 ![Crowdin and Braze Campaigns & Canvas panels with folders for campaigns and locales, Sync to Braze, and Sync to Crowdin.]({% image_buster /assets/img/crowdin/crowdin_campaigns_canvas_sync_panels.png %})
 
 #### Syncing content
 
-1. On the **Braze (Right)** side, select the checkbox for the campaign or Canvas to translate.
+1. In the **Braze** panel, select the checkbox for the campaign or Canvas to translate.
 2. Select **Sync to Crowdin**.
-3. When the sync is complete, the file appears on the **Crowdin (Left)** side. Translators can open the strings in the Crowdin Editor.
+3. When the sync is complete, the file appears in the **Crowdin** panel. Translators can open the strings in the Crowdin Editor.
 
 #### Returning translations to Braze
 
 1. When translations are 100% complete in Crowdin, return to the **Integrations** tab.
-2. Select the completed content on the **Crowdin (Left)** side.
+2. Select the completed content in the **Crowdin** panel.
 3. Select **Sync to Braze**. This pushes the translated strings into the corresponding language variants in your Braze campaign.
 
 ### Step 6: Preview the message as a multi-language user in Braze
@@ -180,10 +180,10 @@ Authorize the connection with your Braze API credentials:
 
 The integration screen shows your Braze library:
 
-- **Right side (Braze):** **Email Templates** and **Content Blocks** you can sync.
-- **Left side (Crowdin):** Content in translation.
+- **Braze panel:** **Email Templates** and **Content Blocks** you can sync.
+- **Crowdin panel:** Content in translation.
 
-1. On the **Braze (Right)** side, select the checkbox next to the templates or blocks you want to localize.
+1. In the **Braze** panel, select the checkbox next to the templates or blocks you want to localize.
 2. Select **Sync to Crowdin**.
 3. Crowdin pulls the HTML source. Translators work in the Crowdin Editor with a live **WYSIWYG preview** so the layout stays intact.
 
@@ -193,7 +193,7 @@ The integration screen shows your Braze library:
 
 When translations reach 100% completion:
 
-1. Select the completed files on the **Crowdin (Left)** side.
+1. Select the completed files in the **Crowdin** panel.
 2. Select **Sync to Braze**.
 3. Crowdin automatically creates localized versions of these assets in your Braze media library (for example, `Template_Name_fr`).
 

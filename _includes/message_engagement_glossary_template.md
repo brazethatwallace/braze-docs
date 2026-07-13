@@ -1,4 +1,7 @@
 ---
+# This file is a template consumed by the external `braze-currents-generate-docs` tool
+# (braze-agent-plugins / braze-currents plugin) to generate the Currents event glossary
+# docs. It is not referenced from within braze-docs, so do not delete it as "unused".
 nav_title: Message engagement events
 layout: message_engagement_events_glossary
 alias: /message_events_glossary/
@@ -8,7 +11,12 @@ page_type: glossary
 description: "This glossary lists the various Message Engagement Events that Braze can track and send to chosen Data Warehouses using Currents."
 tool: Currents
 search_rank: 6
+lazy_partner_tabs: true
 ---
+
+<div class="api-glossary-preamble" markdown="1">
+
+{% details Schema scope and related resources %}
 
 Storage schemas apply to the flat file event data we send to Data Warehouse Storage partners (Google Cloud Storage, Amazon S3, and Microsoft Azure Blob Storage). For schemas that apply to the other partners, refer to our list of [available partners]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) and check their respective pages.
 
@@ -18,9 +26,11 @@ These events are also available as SQL tables in the [Query Builder]({{site.base
 
 Contact your account manager or open a [support ticket]({{site.baseurl}}/braze_support/) if you need access to additional event entitlements. If you can't find what you need in this article, check out our [Customer Behavior Events Library]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/) or our [Currents sample data examples](https://github.com/Appboy/currents-examples/tree/master/sample-data).
 
+{% enddetails %}
+
 {% details Explanation of message engagement event structure and platform values %}
 
-### Event structure
+## Event structure
 
 This event breakdown shows what type of information is generally included in a message engagement event. With a solid understanding of its components, your developers and business intelligence strategy team can use the incoming Currents event data to make data-driven reports and charts, and take advantage of other valuable data metrics.
 
@@ -36,7 +46,7 @@ Note the naming conventions for user IDs.
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | The unique identifier that is automatically assigned by Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | The unique identifier of a user's profile that is set by the customer. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="User ID schema" }
 
 ### Platform values
 
@@ -52,28 +62,26 @@ Certain events return a `platform` value that specifies the platform of the user
 | Web | `web` |
 | tvOS | `tvos` |
 | Roku | `roku` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Platform values" }
 
 {% enddetails %}
 
-{% alert important %}
-Currents will drop events with excessively large payloads of greater than 900&nbsp;KB.
-{% endalert %}
+{% details Considerations for message engagement events %}
 
-{% alert note %}
-Objects related to Canvas Flow have IDs that can be used for grouping and translated to human-readable names through the [Export Canvas details endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
-{% endalert %}
+- Currents drops events with payloads greater than 900&nbsp;KB.
+- Objects related to Canvas Flow have IDs you can use for grouping and translate to human-readable names through the [Export Canvas details endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/).
+- Certain fields might not show their most recent state immediately after you update a campaign or Canvas:
+  - `campaign_name`
+  - `canvas_name`
+  - `canvas_step_name`
+  - `conversion_behavior`
+  - `canvas_variation_name`
+  - `experiment_split_name`
+  - `message_variation_name`
+- If you need complete consistency for these fields, wait one hour after the last update before you send messages to your users.
 
-{% alert note %}
-Certain fields might take longer to display their most recent state after a campaign or Canvas is updated. These fields are:
-<ul>
-  <li>"campaign_name"</li>
-  <li>"canvas_name"</li>
-  <li>"canvas_step_name"</li>
-  <li>"conversion_behavior"</li>
-  <li>"canvas_variation_name"</li>
-  <li>"experiment_split_name"</li>
-  <li>"message_variation_name"</li>
-</ul>
-If complete consistency is required, we recommend waiting an hour from the last update to these fields before sending out your messaging to your users.
-{% endalert %}
+{% enddetails %}
+
+</div>
+
+<!--overview-end-->

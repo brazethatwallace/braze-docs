@@ -13,7 +13,7 @@ channel:
 
 # Push Max
 
-> Learn about Push Max and how you can use this feature to potentially improve the deliverability of Android push notifications to [Chinese OEM devices]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability/).
+> Learn about Push Max and how you can use this feature to potentially improve the deliverability of Android push notifications to [Chinese OEM devices]({{site.baseurl}}/user_guide/channels/push/best_practices/chinese_push_deliverability).
 
 ## What is Push Max?
 
@@ -25,7 +25,7 @@ Some Android devices manufactured by Chinese Original Equipment Manufacturers (O
 
 - Available for Android push notifications only
 - Not supported for action-based or API-triggered messages
-- Not supported when the option to [only send to the user's last used device]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#device-options) is selected
+- Not supported when the option to [only send to the user's last used device]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#device-options) is selected
 
 ## Prerequisites
 
@@ -66,7 +66,7 @@ The following two features, Intelligent Timing and Time to Live, can be used in 
 
 ### Intelligent Timing
 
-Push Max works best when [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) is turned on. Intelligent Timing can calculate and send the push notification at a time when the user is most likely to be using the app and the push is most likely to be delivered.
+Push Max works best when [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) is turned on. Intelligent Timing can calculate and send the push notification at a time when the user is most likely to be using the app and the push is most likely to be delivered.
 
 ### Time to Live (TTL)
 
@@ -80,10 +80,10 @@ By default, Time to Live is set to 28 days, which is the maximum. You can decrea
 
 ### Promotion codes
 
-We recommend that you don't use Braze [promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/) in messages where Push Max is turned on.
+We recommend that you don't use Braze [promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) in messages where Push Max is turned on.
 
 This is because promotion codes are unique. If a push notification that contains a promotion code fails to deliver, when that notification is resent due to Push Max, a new promotion code will be sent. This can result in you consuming promotion codes faster than expected.
 
 ### Canvas event properties and entry properties
 
-Push Max may not work as expected if you include Liquid references to [Canvas entry properties or event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) in your message. This is because the entry and event properties are not available when Push Max is attempting to resend the message.
+Push Max may not work as expected if you include Liquid references to [Canvas entry properties or event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) in your message. This is because the entry and event properties are not available when Push Max is attempting to resend the message.

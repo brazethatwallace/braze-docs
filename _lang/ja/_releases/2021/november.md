@@ -12,7 +12,7 @@ Brazeは、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/repo
 
 ## マシンオープンレポート指標 {#machine-open-reporting-metric}
 
-新しいメール指標「[マシンオープン]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/#machine-opens)」が、CanvasおよびCampaignの分析ページでメール向けに利用可能になりました。この指標は、人為的ではないメール開封（Appleのサーバーによって開封されたものなど）を特定し、開封総数のサブセットとして表示されます。
+新しいメール指標「[マシンオープン]({{site.baseurl}}/user_guide/message_building_by_channel/email/reporting_and_analytics/analytics_glossary/#machine-opens)」が、キャンバスおよびキャンペーンの分析ページでメール向けに利用可能になりました。この指標は、人為的ではないメール開封（Appleのサーバーによって開封されたものなど）を特定し、開封総数のサブセットとして表示されます。
 
 ## random_bucket_number Liquid変数 {#randombucketnumber-liquid-variable}
 メッセージパーソナライゼーションの[サポートされているLiquid変数]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/supported_personalization_tags/#supported-personalization-tags)のリストに、変数`random_bucket_number`が追加されました。
@@ -29,7 +29,7 @@ Brazeに新しい[`/purchases/product_list`エンドポイント]({{site.baseurl
 ## 新しいBrazeパートナーシップ {#new-braze-partnerships}
 
 ### Adobe - 顧客データプラットフォーム {#adobe-customer-data-platform}
-Brazeと[Adobe]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/adobe/#adobe)の統合により、ブランドはAdobeデータ（カスタム属性やSegments）をリアルタイムでBrazeに接続・マッピングできます。ブランドはこのデータに基づいて行動し、パーソナライズされたターゲットを絞ったエクスペリエンスをユーザーに提供できます。
+Brazeと[Adobe]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/adobe/#adobe)の統合により、ブランドはAdobeデータ（カスタム属性やセグメント）をリアルタイムでBrazeに接続・マッピングできます。ブランドはこのデータに基づいて行動し、パーソナライズされたターゲットを絞ったエクスペリエンスをユーザーに提供できます。
 
 ### BlueConic - 顧客データプラットフォーム {#blueconic-customer-data-platform}
 [Blueconic]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/blueconic/#blueconic)を使用すると、会社ユーザーはデータを永続的な個別のプロファイルに統合し、顧客タッチポイントやシステムを横断して同期できます。これにより、カスタマーライフサイクルオーケストレーション、モデリングと分析、デジタル製品とエクスペリエンス、オーディエンスベースの収益化など、成長に重点を置いた幅広いイニシアチブをサポートできます。
@@ -38,13 +38,13 @@ Brazeと[Adobe]({{site.baseurl}}/partners/data_and_infrastructure_agility/custom
 Brazeと[Worthy]({{site.baseurl}}/partners/message_personalization/dynamic_content/worthy/#worthy)の統合により、Worthyのドラッグ＆ドロップダイナミックコンテンツエディターを使用して、パーソナライズされたリッチなアプリ内エクスペリエンスを簡単に作成し、Brazeを通じて配信できます。
 
 ### Judo - ダイナミックコンテンツ {#judo-dynamic-content}
-[Judo]({{site.baseurl}}/partners/message_personalization/dynamic_content/judo/#judo)とBrazeの統合により、Campaignのコンポーネントを上書きしてJudoエクスペリエンスに置き換えることができます。BrazeのデータはJudoエクスペリエンスでパーソナライズされたコンテンツをサポートするために使用できます。ユーザーイベントとエクスペリエンスからのデータは、アトリビューションとターゲティングのためにBrazeにフィードバックできます。
+[Judo]({{site.baseurl}}/partners/message_personalization/dynamic_content/judo/#judo)とBrazeの統合により、キャンペーンのコンポーネントを上書きしてJudoエクスペリエンスに置き換えることができます。BrazeのデータはJudoエクスペリエンスでパーソナライズされたコンテンツをサポートするために使用できます。ユーザーイベントとエクスペリエンスからのデータは、アトリビューションとターゲティングのためにBrazeにフィードバックできます。
 
 ### Line - メッセージング {#line-messaging}
 [Line]({{site.baseurl}}/partners/message_orchestration/additional_channels/messaging/line/#line)とBrazeの統合により、BrazeのWebhook、高度なセグメンテーション、パーソナライゼーション、およびトリガー機能を活用して、[Line Messaging API](https://developers.line.biz/en/docs/messaging-api/overview/)を介してLineのユーザーにメッセージを送信できます。
 
 ### RevenueCat - 決済 {#revenuecat-payments}
-[RevenueCat]({{site.baseurl}}/partners/data_and_infrastructure_agility/payments/revenuecat/#revenuecat)とBrazeの統合により、顧客の購入およびサブスクリプションライフサイクルイベントをプラットフォーム間で自動的に同期できます。これにより、無料トライアル中にオプトアウトした顧客への働きかけや、請求に問題のある顧客へのリマインダーの送信など、顧客のサブスクリプションライフサイクルステージに対応するCampaignを作成できます。
+[RevenueCat]({{site.baseurl}}/partners/data_and_infrastructure_agility/payments/revenuecat/#revenuecat)とBrazeの統合により、顧客の購入およびサブスクリプションライフサイクルイベントをプラットフォーム間で自動的に同期できます。これにより、無料トライアル中にオプトアウトした顧客への働きかけや、請求に問題のある顧客へのリマインダーの送信など、顧客のサブスクリプションライフサイクルステージに対応するキャンペーンを作成できます。
 
 ### Punchh - ロイヤルティ {#punchh-loyalty}
 [Punchh]({{site.baseurl}}/partners/message_orchestration/channel_extensions/loyalty/punchh/#punchh)はBrazeと提携し、ギフトやロイヤルティのために2つのプラットフォーム間でデータを同期しています。Brazeで公開されたデータはセグメンテーションに利用でき、Brazeで設定されたWebhookテンプレートを介してユーザーデータをPunchhに同期できます。

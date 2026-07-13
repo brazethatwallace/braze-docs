@@ -4,14 +4,14 @@ article_title: 데이터 활성화
 page_order: 2
 layout: dev_guide
 guide_top_header: "데이터 활성화"
-guide_top_text: "Braze에서 데이터를 통합했다면 이제 사용할 차례입니다. [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)과 [세그먼트]({{site.baseurl}}/user_guide/audience/segments/)를 통해 고객의 행동과 선호도를 실시간으로 파악하세요. 그런 다음 타겟 메시지를 생성하고, 경험을 개인화하며, 고객의 실시간 행동에 반응하는 고객 여정을 설정하여 데이터를 활성화하세요. <br><br>Braze의 데이터 활성화는 커스텀 데이터를 기반으로 합니다. 자세한 내용은 [커스텀 데이터]({{site.baseurl}}/user_guide/data/activation/)를 참조하세요."
+guide_top_text: "Braze에서 데이터를 통합했다면 이제 사용할 차례입니다. [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)과 [Segments]({{site.baseurl}}/user_guide/audience/segments)를 통해 고객의 동작과 선호도를 실시간으로 파악하세요. 그런 다음 타겟 메시지를 생성하고, 경험을 개인화하며, 고객의 실시간 동작에 반응하는 고객 여정을 설정하여 데이터를 활성화하세요. <br><br>Braze의 데이터 활성화는 커스텀 데이터를 기반으로 합니다. 자세한 내용은 [커스텀 데이터]({{site.baseurl}}/user_guide/data/activation)를 참조하세요."
 page_type: landing
 description: "커스텀 속성, 이벤트, 카탈로그로 데이터를 활성화하세요. 데이터 유형을 이해하고, 커스텀 데이터를 관리하며, 타겟 메시지를 구축하세요."
 
 guide_featured_title: "커스텀 데이터"
 guide_featured_list:
   - name: 커스텀 데이터
-    link: /docs/user_guide/data/activation
+    link: /docs/user_guide/data/activation/custom_data
     image: /assets/img/braze_icons/table.svg
   - name: 데이터 유형
     link: /docs/user_guide/data/activation/custom_data/data_types

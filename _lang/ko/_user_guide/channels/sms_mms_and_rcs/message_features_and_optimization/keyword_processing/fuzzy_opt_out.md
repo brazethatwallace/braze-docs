@@ -15,18 +15,18 @@ page_order: 4
 
 ![인바운드 퍼지 수신 거부 메시지 "Please stopppp"에 대한 응답으로 아웃바운드 수신 거부 메시지를 보여주는 iOS 메시지 채팅.]({% image_buster /assets/img/sms/fuzzy1.jpg %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-> Braze를 통해 SMS, MMS, RCS를 전송하는 사용자는 정의된 관련 법률, 규정 및 업계 표준을 준수해야 합니다. 수신 거부와 관련하여, TCPA와 같은 법률은 사용자가 동의 철회를 합리적으로 구성하는 메시지(예: "STOP", "STOPALL", "UNSUBSCRIBE", "CANCEL", "END", "QUIT"과 같은 인식된 수신 거부 키워드)를 보내면 해당 메시징 프로그램과 관련된 모든 후속 메시지가 중단되어야 한다고 규정합니다. Braze는 인식된 수신 거부 키워드를 자동으로 처리하고 사용자의 구독을 해지합니다.<br><br> 퍼지 수신 거부는 구독 그룹의 **수신 거부** 카테고리에 대해 구성된 **수신 거부 키워드**(즉, [기본 수신 거부 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) 또는 [커스텀 수신 거부 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)와 일치하지 않지만 수신 거부 의도를 나타내는 인바운드 메시지를 인식하려고 시도하여 이 기능을 확장합니다. 예를 들어, "goodbye" 또는 "leave me alone"과 같은 메시지가 해당됩니다.
+> Braze를 통해 SMS, MMS, RCS를 전송하는 사용자는 정의된 관련 법률, 규정 및 업계 표준을 준수해야 합니다. 수신 거부와 관련하여, TCPA와 같은 법률은 사용자가 동의 철회를 합리적으로 구성하는 메시지(예: "STOP", "STOPALL", "UNSUBSCRIBE", "CANCEL", "END", "QUIT"과 같은 인식된 수신 거부 키워드)를 보내면 해당 메시징 프로그램과 관련된 모든 후속 메시지가 중단되어야 한다고 규정합니다. Braze는 인식된 수신 거부 키워드를 자동으로 처리하고 사용자의 구독을 해지합니다.<br><br> 퍼지 수신 거부는 구독 그룹의 **수신 거부** 카테고리에 대해 구성된 **수신 거부 키워드**(즉, [기본 수신 거부 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) 또는 [커스텀 수신 거부 키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling))와 일치하지 않지만 수신 거부 의도를 나타내는 인바운드 메시지를 인식하려고 시도하여 이 기능을 확장합니다. 예를 들어, "goodbye" 또는 "leave me alone"과 같은 메시지가 해당됩니다.
 
 퍼지 수신 거부는 기본적으로 비활성화되어 있습니다. 퍼지 수신 거부가 활성화되어 있고 인바운드 메시지가 "퍼지"로 판단되면, Braze가 자동으로 사용자의 구독을 해지하거나 수동으로 수신 거부하는 방법을 안내하는 메시지를 전송하도록 구성할 수 있습니다. 미국 브랜드의 경우, TCPA 요건을 준수하기 위해 사용자의 구독을 자동으로 해지하는 것이 강력히 권장됩니다.
 
 {% alert note %}
-현재 영어를 [로컬 언어]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/#multi-language-support)로 사용하여 생성된 수신 거부 키워드(기본 및 커스텀)만 지원됩니다.
+현재 영어를 [로컬 언어]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling#multi-language-support)로 사용하여 생성된 수신 거부 키워드(기본값 및 커스텀)만 지원됩니다.
 {% endalert %}
 
 ## 퍼지로 판단되는 기준 {#what-is-deemed-as-fuzzy}
 
-인바운드 응답이 "퍼지"로 판단되는 기준은 다음과 같습니다(비교는 기본 및 커스텀 키워드를 포함하여 **수신 거부** 카테고리의 모든 키워드를 사용합니다):
-- QWERTY 키보드에서 한 글자를 왼쪽 또는 오른쪽에 있는 글자로 바꿨을 때 일치하는 수신 거부 키워드가 생성되는 경우.
+인바운드 응답이 "퍼지"로 판단되는 기준은 다음과 같습니다(비교는 기본값 및 커스텀 키워드를 포함하여 **수신 거부** 카테고리의 모든 키워드를 사용합니다):
+- QWERTY 키보드에서 한 글자를 인접한 키로 바꿨을 때 일치하는 수신 거부 키워드가 생성되는 경우.
 - 메시지의 부분 문자열이 수신 거부 키워드와 일치하는 경우.
 
 예를 들어, "Stpo" 또는 "Please stopppp"은 퍼지로 판단되며, 퍼지 수신 거부 응답이 전송됩니다. 이후 사용자가 수신 거부 키워드로 응답하면 구독 해지 이벤트가 트리거됩니다.
@@ -48,7 +48,7 @@ page_order: 4
 
 ## 퍼지 수신 거부 메시지 모범 사례 {#best-practices-for-fuzzy-opt-out-messages}
 
-가입자에게 명확하고 규정을 준수하며 긍정적인 경험을 보장하려면, 퍼지 수신 거부 메시지를 신중하게 구성하는 것이 중요합니다. 퍼지 수신 거부 메시지의 주요 목적은 **지정된 수신 거부 키워드와 유사하지만 정확히 일치하지 않는 메시지를 보낸 사용자를 안내하는 것**입니다. 이 메시지는 사용자가 성공적으로 구독을 해지하는 방법을 안내합니다.
+구독자에게 명확하고 규정을 준수하며 긍정적인 경험을 보장하려면, 퍼지 수신 거부 메시지를 신중하게 구성하는 것이 중요합니다. 퍼지 수신 거부 메시지의 주요 목적은 **지정된 수신 거부 키워드와 유사하지만 정확히 일치하지 않는 메시지를 보낸 사용자를 안내하는 것**입니다. 이 메시지는 사용자가 성공적으로 구독을 해지하는 방법을 안내합니다.
 
 ### 중요 고려 사항 {#critical-considerations}
 
@@ -56,7 +56,7 @@ page_order: 4
 **Send opt-out instructions**를 선택한 경우, 퍼지 수신 거부 메시지를 구독 해지 확인으로 구성하지 **마세요**. 퍼지 수신 거부 메시지에는 사용자가 이미 성공적으로 구독을 해지했음을 암시하는 문구가 포함되어서는 안 됩니다. 예를 들어, "구독이 해지되었습니다", "이 번호에서 더 이상 메시지를 받지 않습니다", "수신 거부가 완료되었습니다"와 같은 문구를 사용하지 **마세요**.
 {% endalert %}
 
-퍼지 수신 거부 메시지는 사용자가 성공적으로 수신 거부하기 전에 전송됩니다. 확인 문구(예: "구독이 해지되었습니다")를 사용하면 가입자가 실제로는 구독이 해지되지 않았는데 해지된 것으로 오해하게 되어, 원치 않는 메시지가 계속 전송되고 가입자 불만 및 심각한 규정 준수 위험이 발생할 수 있습니다.
+퍼지 수신 거부 메시지는 사용자가 성공적으로 수신 거부하기 전에 전송됩니다. 확인 문구(예: "구독이 해지되었습니다")를 사용하면 구독자가 실제로는 구독이 해지되지 않았는데 해지된 것으로 오해하게 되어, 원치 않는 메시지가 계속 전송되고 구독자 불만 및 심각한 규정 준수 위험이 발생할 수 있습니다.
 
 퍼지 일치 시 사용자의 구독을 즉시 해지하려면 **Automatically unsubscribe** 설정을 대신 사용하세요.
 

@@ -68,7 +68,7 @@ Nonobstant ce qui précède, dans le cas où le client envoie des messages mobil
 
 ### Conditions d'exception pour l'utilisation des webhooks {#webhook-use-exception-terms}
 
-Applicable aux clients ayant souscrit à des crédits de messages à compter du 9 décembre 2024 (selon la date d'entrée en vigueur du bon de commande) : les restrictions décrites dans la documentation de conformité du canal webhooks ne s'appliquent pas à l'utilisation de webhooks pour l'envoi de messages mobiles via une plateforme de fournisseur tiers.
+Applicable aux clients ayant souscrit à des crédits d'action à compter du 9 décembre 2024 (selon la date d'entrée en vigueur du bon de commande) : les restrictions décrites dans la documentation de conformité du canal webhooks ne s'appliquent pas à l'utilisation de webhooks pour l'envoi de messages mobiles via une plateforme de fournisseur tiers.
 
 ### Bring Your Own (BYO) SMS Connector
 
@@ -102,7 +102,7 @@ Les conditions supplémentaires suivantes s'appliquent dans le cadre de l'utilis
 
 ### Conditions applicables du fournisseur tiers {#applicable-third-party-provider-terms}
 
-Le client doit se conformer à toutes les conditions préalables, conditions et politiques applicables au canal WhatsApp, y compris toute condition requise par WhatsApp, LLC et ses sociétés affiliées, comme décrit sur la page de [configuration WhatsApp](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp/overview/) de Braze.
+Le client doit se conformer à toutes les conditions préalables, conditions et politiques applicables au canal WhatsApp, y compris toute condition requise par WhatsApp, LLC et ses sociétés affiliées, comme décrit sur la page de [configuration WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) de Braze.
 
 ### Conditions d'exception pour l'utilisation des webhooks
 
@@ -118,7 +118,7 @@ Les conditions supplémentaires suivantes s'appliquent dans le cadre de l'utilis
 
 ### Conditions préalables {#pre-requisites}
 
-Pour envoyer des messages via le canal LINE, les clients doivent obtenir un compte officiel LINE vérifié, qui est approuvé et accordé par LINE à sa seule discrétion. Les clients doivent s'assurer d'obtenir un compte officiel vérifié auprès de LINE avant d'acheter des crédits de messages Braze pour l'utilisation du canal LINE.
+Pour envoyer des messages via le canal LINE, les clients doivent obtenir un compte officiel LINE vérifié, qui est approuvé et accordé par LINE à sa seule discrétion. Les clients doivent s'assurer d'obtenir un compte officiel vérifié auprès de LINE avant d'acheter des crédits d'action Braze pour l'utilisation du canal LINE.
 
 ### Conditions applicables du fournisseur tiers
 

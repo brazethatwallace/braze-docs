@@ -18,7 +18,7 @@ description: "This article outlines details about Cancel exports by segment Braz
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `segments.list` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `segments.list` permission.
 
 ## Rate limit
 
@@ -42,7 +42,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
 | `segment_id` | Required | String | The `segment_id` to cancel its ongoing exports. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```

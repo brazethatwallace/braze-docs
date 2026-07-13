@@ -24,10 +24,10 @@ BrazeとTransifexの統合では、コネクテッドコンテンツを使用し
 
 ## 前提条件 {#prerequisites}
 
-| 必要条件| 説明|
-| ---| ---|
+| 必要条件 | 説明 |
+| --- | --- |
 | Transifexアカウント | このパートナーシップを利用するには、[Transifexアカウント](https://www.transifex.com/signin/)が必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 

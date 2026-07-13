@@ -20,7 +20,7 @@ description: "이 문서에서는 매출 데이터 내보내기 Braze 엔드포�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `purchases.revenue_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `purchases.revenue_series` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -30,12 +30,12 @@ description: "이 문서에서는 매출 데이터 내보내기 Braze 엔드포�
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `ending_at` | 선택 사항 | 날짜/시간([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 내보내기가 종료되는 날짜입니다. 요청 시점으로 기본 설정됩니다. |
-| `length` | 필수 | 정수 | 반환된 시리즈에 포함할 `ending_at` 전 최대 일수. 1에서 100 사이여야 합니다(포함). |
-| `unit` | 선택 사항 | 문자열 | 데이터 포인트 간의 시간 단위. 일 또는 시간일 수 있으며 기본값은 일입니다. |
-| `app_id` | 선택 사항 | 문자열 | [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지에서 검색한 앱 API 식별자입니다. 제외하면 워크스페이스의 모든 앱에 대한 결과가 반환됩니다. |
+| `ending_at` | 선택 사항 | 날짜/시간([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 문자열) | 데이터 내보내기가 종료되는 날짜입니다. 요청 시점이 기본값입니다. |
+| `length` | 필수 | 정수 | 반환되는 시리즈에 포함할 `ending_at` 이전 최대 일수입니다. 1에서 100 사이여야 합니다(경계값 포함). |
+| `unit` | 선택 사항 | 문자열 | 데이터 포인트 간의 시간 단위입니다. day 또는 hour를 지정할 수 있으며, 기본값은 day입니다. |
+| `app_id` | 선택 사항 | 문자열 | [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) 페이지에서 가져온 앱 API 식별자입니다. 제외하면 워크스페이스의 모든 앱에 대한 결과가 반환됩니다. |
 | `product` | 선택 사항 | 문자열 | 응답을 필터링할 제품 이름입니다. 제외하면 모든 앱에 대한 결과가 반환됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 
@@ -62,5 +62,5 @@ curl --location --request GET 'https://rest.iad-01.braze.com/purchases/revenue_s
 {% endapi %}
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}

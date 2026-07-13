@@ -432,7 +432,7 @@ The Shopify integration uses [eCommerce recommended events]({{site.baseurl}}/use
 | `source`           | `{{event_properties.${source}}}`                    |
 | `sku`              | `{{event_properties.${metadata}[0].sku}}`          |
 | `type`             | `event_properties.${type}`          |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -469,7 +469,7 @@ Then you can add the following shopping cart Liquid tags into your message.
 | `sku`              | `{{ shopping_cart.products[0].metadata[0].sku }}`  |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `metadata (value)` | `{{ shopping_cart.metadata[0].<add_value_here> }}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert tip %}
@@ -515,7 +515,7 @@ Then you can add the following Liquid tags into your message to reference the pr
 | `sku`              | `{{ shopping_cart.products[0].metadata.sku }}`     |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `checkout_url`     | `{{ shopping_cart.metadata[0].checkout_url }}`     |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -544,7 +544,7 @@ Then you can add the following Liquid tags into your message to reference the pr
 | tags                    | `{{event_properties.${metadata}.tags}}`             |
 | referring_site          | `{{event_properties.${metadata}.referring_site}}`   |
 | payment_gateway_names    | `{{event_properties.${metadata}.payment_gateway_names}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert tip %}
@@ -599,7 +599,7 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -650,7 +650,7 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -684,13 +684,13 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Order cancelled %}
-**Event**: `shopify_cancelled_order`<br>
-**Type**: [Custom Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Event**: `ecommerce.order_cancelled`<br>
+**Type**: Recommended event<br>
 **Triggered**: When a user’s order is cancelled<br> 
 **Data source**: Braze REST API<br>
 **Use Case**: (Transactional) Order cancellation confirmation
@@ -721,12 +721,12 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
-**Event**: `shopify_order_refunded`<br>
-**Type**: [Custom Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Event**: `ecommerce.order_refunded`<br>
+**Type**: Recommended event<br>
 **Triggered**: When a user’s order is refunded<br>
 **Data source**: Braze REST API<br>
 **Use Case**: (Transactional) Refund confirmation
@@ -746,7 +746,7 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 | Item Price | `{{event_properties.${line_items}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -762,7 +762,7 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 | Variable | Liquid templating |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
-{: .reset-br-td-1 .reset-br-td-2 role="presentation" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
 {% endraw %}
 
 {% alert note %}
@@ -809,7 +809,7 @@ The Shopify integration currently doesn't support populating the Braze [purchase
 | `shopify_last_order_name` | The name of the customer's last order. This is directly related to the `name` field on the order resource. |
 | `shopify_zipcode` | The customer's zipcode from their default address. |
 | `shopify_province` | The customer's province from their default address. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Shopify custom attributes" }
 
 {% alert important %}
 A known issue with the current Shopify API version prevents the `shopify_last_order_name` user attribute from correctly populating. The impact on users is as follows:<br><br>
@@ -824,11 +824,11 @@ This page will be updated after Shopify resolves this issue.
 
 To add Liquid personalization for your Shopify custom attributes, select **+ Personalization**. Then select **Custom Attributes** as your personalization type.
 
-![The "Add Personalization" section with the "Attribute" dropdown extended.]({% image_buster /assets/img/Shopify/add_personalization_2.png %}){: style="max-width:40%;"}
+![The "Add Personalization" section with the "Attribute" dropdown extended.]({% image_buster /assets/img/shopify/add_personalization_2.png %}){: style="max-width:40%;"}
 
 After selecting your custom attribute, input a default value and copy the Liquid snippet into your message.
 
-![Pasting a Liquid snippet into a message.]({% image_buster /assets/img/Shopify/copy_liquid_snippet.png %})
+![Pasting a Liquid snippet into a message.]({% image_buster /assets/img/shopify/copy_liquid_snippet.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -853,26 +853,37 @@ For more information on what data is collected by the Braze SDKs, see [SDK data 
 
 ## Historical backfill
 
-During your Shopify store onboarding, you can initiate an initial data sync through historical backfill to immediately engage with your customers. As part of this backfill, Braze runs an initial data sync of all customers and order-placed events from the last 90 days prior to your Shopify integration connection. When Braze imports your Shopify customers, we assign the `external_id` type that you chose in your configuration settings.
+> Historical Shopify data is imported from before you connect Braze—order events from the past 90 days and customer data from the past year. Both timeframes are counted back from the date you complete your integration.
+
+Through the [Shopify standard integration setup]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) or [Shopify custom integration setup]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/), you can turn on historical backfill to target past customers. This imports your Shopify orders (order-related events) from the past 90 days and user profiles from the past year. Both timeframes are counted back from the date you complete your integration.
+
+When Braze imports your Shopify customers, we assign the `external_id` type that you chose in your configuration settings.
 
 {% alert note %}
-If you plan to integrate with a custom external ID (for either the [standard integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/#step-4-configure-how-you-manage-users) or the [custom integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/#step-6-configure-how-you-manage-users-optional)), you will be required to add your custom external ID as a Shopify customer metafield to all existing Shopify customer profiles and then perform the historical backfill. 
+If you're an existing Braze customer with active campaigns or Canvases, review how imported customers and order events affect your segments and journeys before you enable historical backfill.
 {% endalert %}
 
-The synced order event data is available for segmentation, but the revenue data itself does not populate in the user profile or the [Revenue – Last Touch Attribution dashboard]({{site.baseurl}}/user_guide/analytics/reporting/dashboard_builder/#revenue---last-touch-attribution).
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 ### Setting up Shopify historical backfill
 
 1. Turn on historical backfill in the **Track Shopify data** step.
 
-![The "Track Shopify data" step of the Shopify integration showing historical backfill selected.]({% image_buster /assets/img/Shopify/historical_data_backfill_sync.png %})
+![The "Track Shopify data" step of the Shopify integration showing historical backfill selected.]({% image_buster /assets/img/shopify/historical_data_backfill_sync.png %})
 
 {: start="2"}
 
 2. After you complete your integration setup, Braze will begin the initial data sync. You can monitor progress on the **Shopify Data** tab of your integration settings. 
 
-![The Shopify Integration Settings page with a spinner showing that events are actively syncing.]({% image_buster /assets/img/Shopify/historical_data_backfill_syncing.png %})
+![The Shopify Integration Settings page with a spinner showing that events are actively syncing.]({% image_buster /assets/img/shopify/historical_data_backfill_syncing.png %})
 
-### Synced data 
+### Synced data
 
-For the initial data sync, Braze will import customers and order placed from the last 90 days prior to your Shopify integration connection. When Braze imports your Shopify customers, it will assign the `external_id` type that you chose in your configuration settings.
+For the initial data sync, Braze imports order events from the past 90 days and user profiles from the past year, each counted back from the date you complete your integration. When Braze imports your Shopify customers, it assigns the `external_id` type that you chose in your configuration settings.
+
+The following table summarizes the data included in that initial load.
+
+| Braze recommended events | Shopify custom events | Braze standard attributes | Braze subscription statuses |
+| --- | --- | --- | --- |
+| {::nomarkdown}<ul><li>Order placed</li><li>Order cancelled</li><li>Order refunded</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>Email</li><li>First Name</li><li>Last Name</li><li>Phone</li><li>City</li><li>Country</li><li>Total Revenue</li><li>Total Refunds</li><li>Total Orders</li></ul>{:/} | {::nomarkdown}<ul><li>Email marketing subscriptions associated with this Shopify store</li><li>SMS marketing subscriptions associated with this Shopify store</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Synced data" }

@@ -12,16 +12,16 @@ tool: Canvas
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:
-  - name: Editando Canvas após o lançamento
-    link: /docs/post-launch_edits/
+  - name: Editar Canvas após o lançamento
+    link: /docs/post-launch_edits
     image: /assets/img/braze_icons/edit-05.svg
-  - name: Salvando rascunhos de Canvas
+  - name: Salvar rascunhos para Canvas
     link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_drafts
     image: /assets/img/braze_icons/save-03.svg
   - name: Histórico de versões do Canvas
     link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_version_history
     image: /assets/img/braze_icons/list.svg
-  - name: Clonando Canvas
+  - name: Clonar Canvas
     link: /docs/user_guide/messaging/canvas/managing_canvases/cloning_canvases
     image: /assets/img/braze_icons/copy-04.svg
 

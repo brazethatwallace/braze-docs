@@ -20,7 +20,7 @@ description: "Cet article décrit l'endpoint Braze permettant d'exporter le rés
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `canvas.data_summary`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `canvas.data_summary`.
 
 ## Limite de débit {#rate-limit}
 
@@ -30,20 +30,21 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant API Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Requis | Chaîne de caractères | Voir [Identifiant API Canvas]({{site.baseurl}}/api/identifier_types). |
 | `ending_at` | Requis | Datetime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date de fin de l'exportation des données. Par défaut, correspond à l'heure de la requête. |
 | `starting_at` | Facultatif* | Datetime <br>(chaîne [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)) | Date de début de l'exportation des données. <br><br>* `length` ou `starting_at` est requis. |
 | `length` | Facultatif* | Chaîne de caractères | Nombre maximal de jours avant `ending_at` à inclure dans la série renvoyée. Doit être compris entre 1 et 14 (inclus). <br><br>* `length` ou `starting_at` est requis. |
 | `include_variant_breakdown` | Facultatif | Valeur booléenne | Indique s'il faut inclure les statistiques des variantes (par défaut `false`). |
 | `include_step_breakdown` | Facultatif | Valeur booléenne | Indique s'il faut inclure les statistiques par étape (par défaut `false`). |
 | `include_deleted_step_data` | Facultatif | Valeur booléenne | Indique s'il faut inclure les statistiques des étapes supprimées (par défaut `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert important %}
-**Alignement des fuseaux horaires :** les analyses du tableau de bord de Braze sont agrégées quotidiennement dans le fuseau horaire configuré pour votre société dans le tableau de bord. Assurez-vous que vos horodatages correspondent au fuseau horaire de votre société afin que vos statistiques concordent avec le tableau de bord. Par exemple, si le fuseau horaire de votre société est UTC+2, l'horodatage devrait être 00 h 00 UTC+2.
+Les analyses Canvas sont agrégées par jour dans le fuseau horaire configuré pour votre société dans Braze (le même fuseau horaire utilisé par le tableau de bord). L'API normalise `starting_at` et `ending_at` à minuit dans ce fuseau horaire.
 {% endalert %}
 
 ## Exemple de requête {#example-request}
+
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summary?canvas_id={{canvas_id}}&ending_at=2018-05-30T23:59:59-05:00&starting_at=2018-05-28T23:59:59-05:00&length=5&include_variant_breakdown=true&include_step_breakdown=true&include_deleted_step_data=true' \
@@ -52,6 +53,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 {% endraw %}
 
 ## Réponse {#response}
+
+{% alert note %}
+Dans `total_stats`, `variant_stats` et `step_stats`, `conversions` correspond au nombre de conversions pour l'[événement de conversion principal]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) du Canvas. Lorsque vous configurez des événements de conversion supplémentaires, le payload peut également inclure `conversions1`, `conversions2` et des champs indexés supérieurs pour le deuxième, le troisième événement et les suivants. Cela est similaire à la [réponse multivariée]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response) pour l'endpoint `/campaigns/data_series`. Lorsqu'ils sont présents, les champs se terminant par `_by_entry_time` attribuent ces conversions en fonction de l'heure d'entrée dans le Canvas.
+{% endalert %}
 
 ```json
 {
@@ -99,11 +104,12 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_summ
 ```
 
 {% alert important %}
-**Champ `influenced_opens` :** dans la réponse de l'API, le champ `influenced_opens` représente le nombre total d'ouvertures (ouvertures directes et ouvertures influencées combinées). Dans le tableau de bord de Braze, le terme « ouvertures influencées » désigne uniquement les ouvertures influencées, à l'exclusion des ouvertures directes. Cela est dû à une convention de nommage héritée dans l'API.
+Dans la réponse de l'API, le champ `influenced_opens` représente le nombre total d'ouvertures (ouvertures directes et ouvertures influencées combinées). Dans le tableau de bord de Braze, le terme « ouvertures influencées » désigne uniquement les ouvertures influencées, à l'exclusion des ouvertures directes. Cela est dû à une convention de nommage héritée dans l'API.
 {% endalert %}
 
-{% alert tip %}
-Pour obtenir de l'aide sur les exportations CSV et API, consultez la section [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
-{% endalert %}
+## Articles connexes {#related-articles}
+
+- [Résolution des problèmes d'exportation]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)
+
 
 {% endapi %}

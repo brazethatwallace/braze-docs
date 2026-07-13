@@ -24,7 +24,7 @@ In addition to this article, we also recommend checking out our [Quality Assuran
 You can filter by the following content logged in the **Message Activity Log**:
 
 - Push notification errors
-- Aborted message errors
+- Aborted templated in-app message errors
 - Webhook errors
 - Mail errors
 - API message records
@@ -36,16 +36,23 @@ You can filter by the following content logged in the **Message Activity Log**:
 - WhatsApp errors
 - Live Activity errors
 - Bad user trigger errors
-- Braze Agents [daily invocation limit]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#monitor-your-agent) errors
-- Braze Agents unavailable [model]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) errors
+- Braze Agents [daily invocation limit]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#monitor-your-agent) errors
+- Braze Agents unavailable [model]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) errors
 
 These messages can come from our own system, your apps or platforms, or our third-party partners. This can result in an infinite number of messages that can appear in this log.
 
 ## Understanding log messages
 
-To determine what your messages mean, pay attention to the wording of each message and the columns that correspond with it, as it can help you troubleshoot using context clues. 
+To determine what your messages mean, pay attention to the wording of each message and the columns that correspond with it, as it can help you troubleshoot using context clues.
 
-For example, if you have a log entry whose message states "empty-cart_app" and you aren't sure what that means, look to the left at the **Type** column. If you see "Aborted Message Error", you can safely assume the message was what was written as the [abort message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages) using Liquid, and that the message was aborted because the intended recipient of the message had an empty cart in your app.
+For example, **Aborted Message Error** entries can occur for many reasons, not only [Liquid abort messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages). Read the **Message** column for the specific reason:
+
+- If the send was aborted by a Liquid `abort_message` tag, the **Message** column shows the exact Liquid snippet that was called, for example {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %}.
+- For other abort reasons, the **Message** column explains why the send was aborted.
+
+### API campaign payloads
+
+The Message Activity Log records different information depending on the type of API campaign. The [`/messages/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) logs the message body (messages) in API message records, while the [`/campaigns/trigger/send` endpoint]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) does not log the request payload or `api_trigger_properties` in the Message Activity Log.
 
 ### Common messages
 
@@ -57,9 +64,9 @@ The following messages listed are for example purposes and may not exactly match
 |---|---|---|
 | Soft Bounce | The email address same@example.com soft bounced. | The email address was valid and the email message reached the recipient's mail server, but was rejected for a "temporary" issue. <br><br>Common soft bounce reasons include: {::nomarkdown} <ul> <li> The mailbox was full (the user is over their quota) </li> <li> The server was down </li> <li> The message was too large for the recipient’s inbox </li>  </ul> {:/} If an email has received a soft bounce, we usually retry within a 72 hour period, but the number of retry attempts varies from receiver to receiver. |
 | Hard Bounce | The email account that you tried to reach does not exist. Try double-checking the recipient's email address for typos or unnecessary spaces. | Your message never reached this person's inbox because there was no inbox to reach. If you want to dig further in, messages like this can sometimes have links in the **View Details** column that allow you to view the intended recipient's profile.|
-| Block | Spam message is rejected because of anti-spam policy. | Your message got categorized as spam. This mail error is logged for a user if we’ve received an event from the ESP indicating the email was dropped. It might just be for that intended recipient, but if you're seeing this message a lot, you might want to re-evaluate your send habits or the content of your message. Also, think back—did you [warm up your IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)? If not, contact Braze for advice on getting this going.|
-| Aborted Message Error | empty-cart_web | If you have an app with a cart or you create a send with an abort message in the Liquid, you can customize what message is returned to you if the send is aborted. In this case, the message returned is empty-cart_web.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| Block | Spam message is rejected because of anti-spam policy. | Your message got categorized as spam. This mail error is logged for a user if we’ve received an event from the ESP indicating the email was dropped. It might just be for that intended recipient, but if you're seeing this message a lot, you might want to re-evaluate your send habits or the content of your message. Also, think back—did you [warm up your IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)? If not, contact Braze for advice on getting this going.|
+| Aborted Message Error | {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %} | When a send is aborted by a Liquid `abort_message` tag, the **Message** column shows the exact Liquid snippet that was called. Other **Aborted Message Error** entries can have different messages that describe the abort reason. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Common messages" }
 
 ### Why isn't my message listed here?
 

@@ -22,7 +22,7 @@ Um snapshot é estático e agregado. Ele reflete o resultado acumulado de todas 
 |-------|---------|
 | Identificador do cliente | Quem este registro descreve |
 | Data do snapshot | Quando este snapshot foi capturado |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos obrigatórios" }
 
 ### Como os snapshots devem ser atualizados {#how-snapshots-should-be-updated}
 
@@ -51,9 +51,9 @@ Um fluxo de eventos registra ações discretas conforme elas acontecem. Ele resp
 | Identificador do cliente | Sobre quem é este evento |
 | Tipo de evento | O que aconteceu (por exemplo, ativação, conversão, clique) |
 | Timestamp do evento | Quando o evento realmente ocorreu |
-| Timestamp de criação | Quando este registro foi criado no seu sistema (veja a nota abaixo) |
+| Timestamp de criação | Quando este registro foi criado no seu sistema (veja a nota na seção a seguir) |
 | Propriedades do evento | Metadados adicionais sobre o evento; quanto mais rico for, melhor o Decisioning Studio poderá vincular eventos ao longo da jornada do cliente |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos obrigatórios" }
 
 {% alert important %}
 O timestamp do evento e o timestamp de criação são campos diferentes e ambos são obrigatórios. O timestamp do evento registra quando a ação realmente aconteceu. O timestamp de criação registra quando a entrada de dados foi gravada no seu sistema, o que pode ser posterior devido a atrasos no processamento. Não confunda os dois.

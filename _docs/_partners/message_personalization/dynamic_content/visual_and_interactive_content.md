@@ -13,6 +13,8 @@ valid_partner_list:
   url: /docs/partners/blings/
 - name: CataBoom
   url: /docs/partners/cataboom/
+- name: DailyPlay
+  url: /docs/partners/dailyplay/
 - name: Cloudinary
   url: /docs/partners/cloudinary/
 - name: Future Anthem
@@ -29,6 +31,8 @@ valid_partner_list:
   url: /docs/partners/playable/
 - name: SEEN
   url: /docs/partners/seen/
+- name: Stayfilm
+  url: /docs/partners/stayfilm/
 - name: Storyly
   url: /docs/partners/storyly/
 - name: Stylitics

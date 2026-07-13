@@ -57,7 +57,7 @@ Suivez ces bonnes pratiques pour éviter les problèmes liés aux limites de dé
 | Actualiser le contenu uniquement lorsque c'est nécessaire | Actualiser le contenu à chaque action de l'utilisateur (comme les événements de défilement) |
 | Laisser le SDK gérer automatiquement le traitement par lots | Forcer la transmission immédiate des données (sauf en cas d'absolue nécessité) |
 | Se concentrer sur les événements qui apportent une valeur ajoutée à l'analyse | Appeler les méthodes du SDK rapidement les unes après les autres sans tenir compte de la fréquence |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bonnes pratiques" }
 
 ## Obtenir de l'aide {#getting-help}
 
@@ -69,7 +69,7 @@ Si vous rencontrez des problèmes liés à la limite de débit du SDK, examinez 
 - `logCustomEvent()`
 - `logPurchase()`
 
-Lorsque vous contactez l'[Assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/), incluez les informations suivantes pour chacune des méthodes réseau du SDK que vous utilisez :
+Lorsque vous contactez l'[Assistance Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support), incluez les informations suivantes pour chacune des méthodes réseau du SDK que vous utilisez :
 
 ```plaintext
 Method name:

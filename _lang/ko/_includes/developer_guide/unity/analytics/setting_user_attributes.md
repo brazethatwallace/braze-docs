@@ -34,7 +34,7 @@ BrazeBinding.SetUserLastName("last name");
 {% endtab %}
 {% tab Email %}
 ```csharp
-BrazeBinding.SetUserEmail("email@email.com");
+BrazeBinding.SetUserEmail("user@example.com");
 ```
 {% endtab %}
 {% tab Gender %}
@@ -84,7 +84,7 @@ BrazeBinding.SetUserFirstName(null);
 
 ## 커스텀 사용자 속성 {#custom-user-attributes}
 
-기본 사용자 속성 외에도 Braze에서는 여러 가지 데이터 유형을 사용하여 커스텀 속성을 정의할 수 있습니다. 각 속성의 세분화 옵션에 대한 자세한 내용은 [사용자 데이터 수집]({{site.baseurl}}/developer_guide/analytics/)을 참조하세요.
+기본 사용자 속성 외에도 Braze에서는 여러 가지 데이터 유형을 사용하여 커스텀 속성을 정의할 수 있습니다. 각 속성의 세분화 옵션에 대한 자세한 내용은 [사용자 데이터 수집]({{site.baseurl}}/developer_guide/analytics)을 참조하세요.
 
 ### 커스텀 속성 설정 {#setting-custom-attributes}
 
@@ -167,7 +167,7 @@ AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 
 ### REST API 사용 {#using-the-rest-api}
 
-REST API를 사용하여 사용자 속성을 설정하거나 해제할 수도 있습니다. 자세한 내용은 [사용자 데이터 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)를 참조하세요.
+REST API를 사용하여 사용자 속성을 설정하거나 해제할 수도 있습니다. 자세한 내용은 [사용자 데이터 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)를 참조하세요.
 
 ## 사용자 구독 설정 {#setting-user-subscriptions}
 
@@ -181,24 +181,24 @@ AppboyBinding.SetUserEmailNotificationSubscriptionType()
 AppboyBinding.SetPushNotificationSubscriptionType()`
 ```
 
-두 함수 모두 `Appboy.Models.AppboyNotificationSubscriptionType`을 인수로 받으며, 세 가지 상태가 있습니다:
+두 함수 모두 `Appboy.Models.AppboyNotificationSubscriptionType`을 인수로 받으며, 세 가지 상태가 있습니다.
 
 | 구독 상태 | 정의 |
 | ------------------- | ---------- |
 | `OPTED_IN` | 가입됨, 명시적으로 옵트인한 상태 |
 | `SUBSCRIBED` | 가입됨, 명시적으로 옵트인하지 않은 상태 |
 | `UNSUBSCRIBED` | 구독 취소 및/또는 명시적으로 수신 거부한 상태 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 구독 설정" }
 
 {% alert note %}
-Windows에서는 사용자에게 푸시 알림을 보내기 위해 명시적인 옵트인이 필요하지 않습니다. 사용자가 푸시에 등록되면 기본적으로 `OPTED_IN`이 아닌 `SUBSCRIBED`로 설정됩니다. 자세한 내용은 [구독 및 명시적 옵트인 구현]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions) 설명서를 참조하세요.
+Windows에서는 사용자에게 푸시 알림을 보내기 위해 명시적인 옵트인이 필요하지 않습니다. 사용자가 푸시에 등록되면 기본적으로 `OPTED_IN`이 아닌 `SUBSCRIBED`로 설정됩니다. 자세한 내용은 [구독 및 명시적 옵트인 구현]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions) 설명서를 참조하세요.
 {% endalert %}
 
 | 구독 유형 | 설명 |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType`      | 유효한 이메일 주소를 수신하면 사용자는 자동으로 `SUBSCRIBED`로 설정됩니다. 그러나 명시적인 옵트인 프로세스를 설정하고 사용자의 명시적인 동의를 받은 후 이 값을 `OPTED_IN`으로 설정하는 것이 좋습니다. 자세한 내용은 [사용자 구독 변경]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) 문서를 참조하세요. |
-| `PushNotificationSubscriptionType`       | 유효한 푸시 등록 시 사용자는 자동으로 `SUBSCRIBED`로 설정됩니다. 그러나 명시적인 옵트인 프로세스를 설정하고 사용자의 명시적인 동의를 받은 후 이 값을 `OPTED_IN`으로 설정하는 것이 좋습니다. 자세한 내용은 [사용자 구독 변경]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) 문서를 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `EmailNotificationSubscriptionType` | 유효한 이메일 주소를 수신하면 사용자는 자동으로 `SUBSCRIBED`로 설정됩니다. 그러나 명시적인 옵트인 프로세스를 설정하고 사용자의 명시적인 동의를 받은 후 이 값을 `OPTED_IN`으로 설정하는 것이 좋습니다. 자세한 내용은 [사용자 구독 변경]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) 문서를 참조하세요. |
+| `PushNotificationSubscriptionType` | 유효한 푸시 등록 시 사용자는 자동으로 `SUBSCRIBED`로 설정됩니다. 그러나 명시적인 옵트인 프로세스를 설정하고 사용자의 명시적인 동의를 받은 후 이 값을 `OPTED_IN`으로 설정하는 것이 좋습니다. 자세한 내용은 [사용자 구독 변경]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions) 문서를 참조하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용자 구독 설정" }
 
 {% alert note %}
 이러한 유형은 `Appboy.Models.AppboyNotificationSubscriptionType`에 해당합니다.

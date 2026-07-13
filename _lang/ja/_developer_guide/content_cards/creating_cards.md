@@ -14,7 +14,7 @@ platform:
 
 # コンテンツカードを作成する {#create-content-cards}
 
-> この記事では、カスタムコンテンツカードを実装するときに使用する基本的なアプローチと、3つの一般的なユースケースについて説明します。Content Cardsカスタマイズガイドの他の記事をすでに読んで、デフォルトでできることとカスタムコードが必要なことを理解していることを前提としています。特に、カスタムコンテンツカードの[分析を記録]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/)する方法を理解しておくと役立ちます。
+> この記事では、カスタムコンテンツカードを実装するときに使用する基本的なアプローチと、3つの一般的なユースケースについて説明します。Content Cardsカスタマイズガイドの他の記事をすでに読んで、デフォルトでできることとカスタムコードが必要なことを理解していることを前提としています。特に、カスタムコンテンツカードの[分析を記録]({{site.baseurl}}/developer_guide/content_cards/logging_analytics)する方法を理解しておくと役立ちます。
 
 {% multi_lang_include banners/content_card_alert.md %}
 
@@ -49,7 +49,7 @@ platform:
 * **`id`:** コンテンツカードの ID 文字列を表します。カスタムコンテンツカードから分析を記録するために使用される一意の識別子です。
 * **`extras`:** Brazeダッシュボードからのすべてのキーと値のペアを含みます。
 
-`id` と `extras` 以外のすべてのプロパティは、カスタムコンテンツカードでは解析がオプションです。データモデルの詳細については、各プラットフォームの統合記事を参照してください: [Android]({{site.baseurl}}/developer_guide/content_cards/?sdktab=android)、[iOS]({{site.baseurl}}/developer_guide/content_cards/?sdktab=swift)、[Web]({{site.baseurl}}/developer_guide/content_cards/?sdktab=web)。
+`id` と `extras` 以外のすべてのプロパティは、カスタムコンテンツカードでは解析がオプションです。データモデルの詳細については、各プラットフォームの統合記事を参照してください: [Android]({{site.baseurl}}/developer_guide/content_cards?sdktab=android)、[iOS]({{site.baseurl}}/developer_guide/content_cards?sdktab=swift)、[Web]({{site.baseurl}}/developer_guide/content_cards?sdktab=web)。
 
 {% tabs local %}
 {% tab web %}
@@ -77,7 +77,7 @@ braze.openSession();
 ```
 
 {% alert note %}
-Content Cardsは、`openSession()` の前に `subscribeToContentCardsUpdates()` が呼び出された場合にのみ、セッション開始時に更新されます。いつでも[フィードを手動で更新]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/)することもできます。
+Content Cardsは、`openSession()` の前に `subscribeToContentCardsUpdates()` が呼び出された場合にのみ、セッション開始時に更新されます。いつでも[フィードを手動で更新]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed)することもできます。
 {% endalert %}
 
 {% endtab %}
@@ -125,7 +125,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 {% endsubtab %}
 {% subtab Kotlin %}
 
-#### ステップ 2a:プライベートサブスクライバー変数を作成する {#step-2a-create-a-private-subscriber-variable}
+#### ステップ 2a:プライベートサブスクライバー変数を作成する
 
 カードの更新を購読するには、まずカスタムクラスでサブスクライバーを保持するプライベート変数を宣言します。
 
@@ -133,7 +133,7 @@ Braze.getInstance(context).removeSingleSubscription(mContentCardsUpdatedSubscrib
 private var contentCardsUpdatedSubscriber: IEventSubscriber<ContentCardsUpdatedEvent>? = null
 ```
 
-#### ステップ 2b:更新を購読する {#step-2b-subscribe-to-updates}
+#### ステップ 2b:更新を購読する
 
 以下のコードを追加して、Brazeからのコンテンツカードの更新を購読します。通常、カスタムコンテンツカードアクティビティの `Activity.onCreate()` 内に配置します。
 
@@ -150,7 +150,7 @@ Braze.getInstance(context).subscribeToContentCardsUpdates(mContentCardsUpdatedSu
 Braze.getInstance(context).requestContentCardsRefresh(true)
 ```
 
-#### ステップ 2c:購読を解除する {#step-2c-unsubscribe}
+#### ステップ 2c:購読を解除する
 
 カスタムアクティビティが画面外に移動したときに購読を解除します。以下のコードをアクティビティの `onDestroy()` ライフサイクルメソッドに追加します。
 
@@ -217,37 +217,37 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 
 ### ステップ 3:分析を実装する {#step-3-implement-analytics}
 
-コンテンツカードのインプレッション、クリック、却下は、カスタムビューでは自動的に記録されません。すべての指標がBrazeダッシュボードの分析に適切に記録されるように、[それぞれのメソッドを実装]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/)する必要があります。
+コンテンツカードのインプレッション、クリック、却下は、カスタムビューでは自動的に記録されません。すべての指標がBrazeダッシュボードの分析に適切に記録されるように、[それぞれのメソッドを実装]({{site.baseurl}}/developer_guide/content_cards/logging_analytics)する必要があります。
 
 ### ステップ 4:カードをテストする（オプション） {#step-4-test-your-card-optional}
 
 コンテンツカードをテストするには:
 
 1. [`changeUser()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser) メソッドを呼び出して、アプリケーションでアクティブユーザーを設定します。
-2. Brazeで**Campaigns**に移動し、[新しいContent Cards Campaignを作成します]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/)。
-3. Campaignで**テスト**を選択し、テストユーザーの `user-id` を入力します。準備ができたら、**テストを送信**を選択します。すぐにデバイスでコンテンツカードを起動できます。
+2. Brazeで**キャンペーン**に移動し、[新しいContent Cardsキャンペーンを作成します]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card)。
+3. キャンペーンで**Test**を選択し、テストユーザーの `user-id` を入力します。準備ができたら、**Send Test**を選択します。すぐにデバイスでコンテンツカードを起動できます。
 
-![BrazeのContent Cards Campaignでは、自分のユーザー ID をテスト受信者として追加し、コンテンツカードをテストすることができます。]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card Campaign Test")
+![BrazeのContent Cardsキャンペーンでは、自分のユーザー IDをテスト受信者として追加し、コンテンツカードをテストすることができます。]({% image_buster /assets/img/react-native/content-card-test.png %} "Content Card キャンペーン Test")
 
 ## コンテンツカードの配置 {#content-card-placements}
 
-Content Cardsはさまざまな方法で使用できます。3つの一般的な実装は、メッセージセンター、ダイナミックな画像広告、または画像カルーセルとして使用することです。これらの配置ごとに、[キーと値のペア]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#key-value-pairs)（データモデルの `extras` プロパティ）をContent Cardsに割り当て、その値に基づいて、ランタイム時にカードの動作、外観、または機能をダイナミックに調整します。
+Content Cardsはさまざまな方法で使用できます。3つの一般的な実装は、メッセージセンター、ダイナミックな画像広告、または画像カルーセルとして使用することです。これらの配置ごとに、[キーと値のペア]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#key-value-pairs)（データモデルの `extras` プロパティ）をContent Cardsに割り当て、その値に基づいて、ランタイム時にカードの動作、外観、または機能をダイナミックに調整します。
 
-![]({% image_buster /assets/img_archive/cc_placements.png %}){: style="border:0px;"}
+![3つのContent Cards配置例（メッセージ受信トレイ、ダイナミック画像広告、画像カルーセル）を示す図。]({% image_buster /assets/img_archive/cc_placements.png %}){: style="border:0px;"}
 
 ### メッセージ受信トレイ {#message-inbox}
 
-Content Cardsを使用してメッセージセンターをシミュレーションできます。この形式では、各メッセージはクリック時のイベントを動作させる[キーと値のペア]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#key-value-pairs)を含む独自のカードです。これらのキーと値のペアは、ユーザーが受信トレイのメッセージをクリックしたときに、アプリケーションが遷移先を決定する際に参照する重要な識別子です。キーと値のペアの値は任意です。
+Content Cardsを使用してメッセージセンターをシミュレーションできます。この形式では、各メッセージはクリック時のイベントを動作させる[キーと値のペア]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#key-value-pairs)を含む独自のカードです。これらのキーと値のペアは、ユーザーが受信トレイのメッセージをクリックしたときに、アプリケーションが遷移先を決定する際に参照する重要な識別子です。キーと値のペアの値は任意です。
 
 #### 例 {#example}
 
-たとえば、ユーザーにおすすめの有効化を促すコールトゥアクションと、新しいサブスクライバーSegmentに付与されるクーポンコードという2つのメッセージカードを作成できます。
+たとえば、ユーザーにおすすめの読書の有効化を促すコールトゥアクションと、新しいサブスクライバーセグメントに付与されるクーポンコードという2つのメッセージカードを作成できます。
 
 `body`、`title`、`buttonText` などのキーは、マーケターが設定できるシンプルな文字列値を持つ場合があります。`terms` のようなキーは、法務部門が承認したフレーズの小さなコレクションを提供する値を持つ場合があります。`style` や `class_type` などのキーには、アプリやサイトでのカードのレンダリング方法を決定するために設定できる文字列値があります。
 
 {% tabs local %}
-{% tab Reading recommendations %}
-おすすめカードのキーと値のペア:
+{% tab おすすめの読書 %}
+おすすめの読書カードのキーと値のペア:
 
 | キー         | 値                                                                |
 |------------|----------------------------------------------------------------------|
@@ -255,10 +255,10 @@ Content Cardsを使用してメッセージセンターをシミュレーショ�
 | `style`      | info                                                                 |
 | `class_type` | notification_center                                                 |
 | `card_priority` | 1                                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="例" }
 {% endtab %}
 
-{% tab New subscriber coupon %}
+{% tab 新しいサブスクライバークーポン %}
 新しいサブスクライバークーポンのキーと値のペア:
 
 | キー         | 値                                                            |
@@ -270,13 +270,13 @@ Content Cardsを使用してメッセージセンターをシミュレーショ�
 | `class_type` | notification_center                                              |
 | `card_priority` | 2                                                              |
 | `terms`      | new_subscribers_only                                             |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="例" }
 {% endtab %}
 {% endtabs %}
 
 {% details Androidの追加情報 %}
 
-AndroidとFireOS SDKでは、メッセージセンターのロジックはBrazeのキーと値のペアが提供する `class_type` 値によって駆動されます。[`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards/) メソッドを使用すると、これらのクラスタイプをフィルタリングして識別できます。
+AndroidとFireOS SDKでは、メッセージセンターのロジックはBrazeのキーと値のペアが提供する `class_type` 値によって駆動されます。[`createContentCardable`]({{site.baseurl}}/developer_guide/content_cards) メソッドを使用すると、これらのクラスタイプをフィルタリングして識別できます。
 
 {% tabs local %}
 {% tab Kotlin %}
@@ -403,15 +403,15 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Content Cardsカルーセルを実装するには:
 
-1. [Content Cardsの変更]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#refreshing-the-feed)を監視し、Content Cardsの到着を処理するカスタムロジックを作成します。
+1. [Content Cardsの変更]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#refreshing-the-feed)を監視し、Content Cardsの到着を処理するカスタムロジックを作成します。
 2. カスタムのクライアント側ロジックを作成して、カルーセルに一度に表示するカードの数を指定します。たとえば、配列から最初の5つのContent Cardsオブジェクトを選択したり、キーと値のペアを導入して条件付きロジックを構築したりできます。
 
 {% alert tip %}
-カルーセルをセカンダリContent Cardsフィードとして実装する場合は、[キーと値のペアを使用してカードを正しいフィードにソート]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds)してください。
+カルーセルをセカンダリContent Cardsフィードとして実装する場合は、[キーと値のペアを使用してカードを正しいフィードにソート]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds)してください。
 {% endalert %}
 
 ### 画像のみ {#image-only}
 
 Content Cardsは「カード」のように見せる必要はありません。たとえば、Content Cardsは、ホームページや指定されたページの上部に永続的に表示されるダイナミックな画像として表示できます。
 
-これを実現するには、マーケターが**画像のみ**タイプのContent CardsでCampaignまたはキャンバスステップを作成します。次に、[Content Cardsを補足コンテンツとして]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior/#content-cards-as-supplemental-content)使用するのに適したキーと値のペアを設定します。
+これを実現するには、マーケターが**Image Only**タイプのContent Cardsでキャンペーンまたはキャンバスステップを作成します。次に、[Content Cardsを補足コンテンツとして]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_behavior#content-cards-as-supplemental-content)使用するのに適したキーと値のペアを設定します。

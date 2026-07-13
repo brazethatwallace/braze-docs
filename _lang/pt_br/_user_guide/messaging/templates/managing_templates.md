@@ -26,7 +26,7 @@ Para duplicar um modelo individual, selecione <i class="fas fa-ellipsis-v"></i> 
 <br><br>
 
 {% alert note %}
-Para modelos de [bloco de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/), uma cópia de rascunho é criada. Para todos os outros modelos, uma nova cópia duplicada é criada automaticamente.
+Para modelos de [bloco de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks), uma cópia de rascunho é criada. Para todos os outros modelos, uma nova cópia duplicada é criada automaticamente.
 {% endalert %}
 
 {% endtab %}
@@ -60,5 +60,5 @@ Para arquivar múltiplos modelos, selecione a caixa de seleção ao lado de cada
 ![Seção de modelos de e-mail de arrastar e soltar salvos que mostra dois modelos selecionados e uma barra de ferramentas com a opção de arquivar.]({% image_buster /assets/img/archive_multiple_template.png %}){: style="max-width:60%;"}
 
 {% alert important %}
-O arquivamento não está disponível atualmente para [modelos de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/#link-templates).
+O arquivamento não está disponível atualmente para [modelos de link]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-templates).
 {% endalert %}

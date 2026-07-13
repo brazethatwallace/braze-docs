@@ -1,8 +1,8 @@
 {% multi_lang_include developer_guide/prerequisites/flutter.md %}
 
-## Registrando dados de mensagens
+## Registrando dados de mensagens {#logging-message-data}
 
-Para registrar análises de dados usando o `BrazeInAppMessage`, passe a instância para a função de análise de dados desejada:
+Para registrar análise de dados usando o `BrazeInAppMessage`, passe a instância para a função de análise de dados desejada:
 
 - `logInAppMessageClicked`
 - `logInAppMessageImpression`
@@ -19,13 +19,13 @@ braze.logInAppMessageImpression(inAppMessage);
 braze.logInAppMessageButtonClicked(inAppMessage, 0);
 ```
 
-## Acessando dados de mensagens
+## Acessando dados de mensagens {#accessing-message-data}
 
 Para acessar os dados de mensagens no app no seu app Flutter, o `BrazePlugin` oferece suporte ao envio de dados de mensagens no app usando [Dart Streams](https://dart.dev/tutorials/language/streams).
 
 O objeto `BrazeInAppMessage` é compatível com um subconjunto de campos disponíveis nos objetos do modelo nativo, incluindo `uri`, `message`, `header`, `buttons`, `extras`, entre outros.
 
-### Ouvir dados de mensagens no app na camada Dart
+### Ouvir dados de mensagens no app na camada Dart {#listen-for-in-app-message-data-in-the-dart-layer}
 
 Para receber os dados da mensagem no app na camada Dart, use o código abaixo para criar um `StreamSubscription` e chamar `braze.subscribeToInAppMessages()`. Lembre-se de usar `cancel()` na inscrição do stream quando ela não for mais necessária.
 
@@ -43,7 +43,7 @@ inAppMessageStreamSubscription.cancel();
 
 Para ver um exemplo, consulte [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) no app de amostra do Braze Flutter SDK.
 
-### Encaminhar dados de mensagens no app a partir da camada nativa
+### Encaminhar dados de mensagens no app a partir da camada nativa {#forward-in-app-message-data-from-the-native-layer}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
@@ -84,7 +84,7 @@ class CustomInAppMessagePresenter: BrazeInAppMessageUI {
 {% endtab %}
 {% endtabs %}
 
-### Reproduzindo o retorno de chamada para mensagens no app (opcional)
+### Reproduzindo o retorno de chamada para mensagens no app (opcional) {#replaying-the-callback-for-in-app-messages-optional}
 
 Para armazenar mensagens no app disparadas antes que o retorno de chamada esteja disponível e reproduzi-las depois que ele for definido, adicione a seguinte entrada ao mapa `customConfigs` ao inicializar o `BrazePlugin`:
 ```dart

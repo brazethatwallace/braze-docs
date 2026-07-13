@@ -19,7 +19,7 @@ La configuration du RCS est aussi simple que celle du SMS. Poursuivez votre lect
 
 Pour être éligible à l'envoi de RCS avec Braze, votre entreprise doit remplir trois critères au préalable :
 
-1. Votre contrat Braze actuel doit inclure des crédits de messages.
+1. Votre contrat Braze actuel doit inclure des crédits de messages ou d'actions.
 2. Vous devez envoyer vos messages RCS vers l'un des pays pris en charge par Braze :
 - États-Unis
 - Royaume-Uni
@@ -32,7 +32,7 @@ Pour être éligible à l'envoi de RCS avec Braze, votre entreprise doit remplir
 - France
 - Italie
 - Colombie
-3. Vous devez obtenir une ou plusieurs unités de gestion des stocks RCS à 0 $ dans votre contrat.
+3. Vous devez obtenir une ou plusieurs unités de gestion des stocks RCS dans votre contrat.
 
 ## Étape 2 : Enregistrer un expéditeur vérifié RCS {#step-2-register-an-rcs-verified-sender}
 
@@ -50,6 +50,24 @@ Lorsque vous aurez soumis vos formulaires complétés à Braze, nous finaliseron
 
 Nous vous recommandons vivement de revoir votre expérience actuelle d'abonnement SMS, vos groupes d'abonnement et la segmentation de votre audience avant de déployer votre première campagne RCS. Si nécessaire, votre gestionnaire de la satisfaction client est toujours disponible pour vous guider et vous aider tout au long du processus de configuration.
 
+#### Fonctionnement de la solution de repli SMS avec les événements et la segmentation {#how-sms-fallback-works-with-events-and-segmentation}
+
+{% tabs %}
+{% tab Comportement des événements %}
+
+Lorsque vous utilisez la solution de repli SMS avec le RCS, le comportement des événements dépend de la réussite ou non de l'envoi du message via RCS :
+
+- **Si l'envoi RCS réussit :** vous recevez un événement d'envoi RCS et un événement de réception/distribution RCS.
+- **Si l'envoi RCS bascule vers le SMS :** vous recevez un événement d'envoi RCS, un événement de rejet RCS et un événement de réception/distribution SMS. L'événement de réception/distribution SMS contient `IS_SMS_FALLBACK=TRUE`.
+
+{% endtab %}
+{% tab Comportement de la segmentation %}
+
+Pour le SMS et le RCS, les [filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) de messages reçus (tels que [Message reçu d'une campagne]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) et [Message reçu d'une étape Canvas]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)) sont évalués au moment de l'envoi du message, et non lorsqu'il atteint l'appareil de l'utilisateur. Avec la solution de repli SMS activée, les utilisateurs peuvent toujours correspondre à ces filtres si un message RCS est rejeté et bascule vers le SMS, ou si le SMS de repli n'est pas distribué sur l'appareil de l'utilisateur.
+
+{% endtab %}
+{% endtabs %}
+
 ### Délai d'approbation par les opérateurs {#timeline-for-carrier-approval}
 
 Le délai d'approbation par les opérateurs varie selon les pays et peut également varier au sein d'un même pays. Gardez à l'esprit que le marché du RCS en est encore à ses débuts, de sorte que les processus des opérateurs et des agrégateurs évoluent rapidement. Aux États-Unis, Braze estime que le délai d'approbation par les opérateurs pour un expéditeur vérifié RCS se situe généralement dans une fourchette de 4 à 6 semaines, un expéditeur de test étant généralement approuvé en une semaine.
@@ -58,7 +76,7 @@ Lorsque votre expéditeur vérifié RCS sera approuvé, notre équipe opération
 
 ## Étape 3 : Configurer les groupes d'abonnement {#step-3-set-up-subscription-groups}
 
-Selon votre intégration, Braze peut ajouter des expéditeurs vérifiés RCS à vos groupes d'abonnement SMS existants ou en créer de nouveaux. Pour des instructions de configuration détaillées, consultez [Groupes d'abonnement SMS et RCS]({{site.baseurl}}/sms_rcs_subscription_groups/).
+Selon votre intégration, Braze peut ajouter des expéditeurs vérifiés RCS à vos groupes d'abonnement SMS existants ou en créer de nouveaux. Pour des instructions de configuration détaillées, consultez [Groupes d'abonnement SMS et RCS]({{site.baseurl}}/sms_rcs_subscription_groups).
 
 ## Migrer le trafic SMS vers le RCS {#migrating-sms-traffic-to-rcs}
 
@@ -72,13 +90,13 @@ Créez un Canvas et donnez-lui un nom facilement identifiable (par exemple « Tr
 
 ### Étape 2 : Définir votre audience {#step-2-define-your-audience}
 
-Définissez votre audience en utilisant l'une des méthodes suivantes. Ensuite, accédez à l'étape **Paramètres d'envoi** et sélectionnez **Utilisateurs abonnés ou ayant donné leur consentement**.
+Définissez votre audience en utilisant l'une des méthodes suivantes. Ensuite, accédez à l'étape **Paramètres d'envoi** et sélectionnez **Utilisateurs abonnés ou inscrits**.
 
 | Méthode | Description |
 |---------|-------------|
-| **Créer un segment** | Créez un Segment qui inclut tous les utilisateurs d'un groupe d'abonnement ou un sous-ensemble à l'aide de filtres de segmentation (par exemple, un échantillon aléatoire de 5-10 %). Les Segments se mettent à jour avant chaque envoi pour refléter votre base d'utilisateurs actuelle. |
+| **Créer un segment** | Créez un segment qui inclut tous les utilisateurs d'un groupe d'abonnement ou un sous-ensemble à l'aide de filtres de segmentation (par exemple, un échantillon aléatoire de 5-10 %). Les segments se mettent à jour avant chaque envoi pour refléter votre base d'utilisateurs actuelle. |
 | **Appliquer des filtres de campagne ou de Canvas** | Affinez l'audience à l'étape **Audience cible** de votre campagne ou Canvas. Ajustez les options de ciblage sans quitter la page pour plus de flexibilité. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Définir votre audience" }
 
 ### Étape 3 : Configurer une étape de mise à jour utilisateur {#step-3-configure-a-user-update-step}
 
@@ -103,14 +121,14 @@ Ajoutez une étape de mise à jour utilisateur à votre Canvas. Dans cette étap
 ```
 {% endraw %}
 
-![« Objet de mise à jour utilisateur » contenant le code JSON mentionné précédemment.]({% image_buster /assets/img/sms/user_update_object.png %})
+![Objet de mise à jour utilisateur contenant le code JSON mentionné précédemment.]({% image_buster /assets/img/sms/user_update_object.png %})
 
 ### Étape 4 : Tester le Canvas {#step-4-test-the-canvas}
 
-Nous vous recommandons vivement de [tester votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/) pour confirmer qu'il fonctionne comme prévu avant de l'envoyer à votre audience plus large.
+Nous vous recommandons vivement de [tester votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases) pour confirmer qu'il fonctionne comme prévu avant de l'envoyer à votre audience plus large.
 
 ### Étape 5 : Lancer votre Canvas {#step-5-launch-your-canvas}
 
 Après avoir testé votre Canvas avec succès, lancez-le pour votre sous-ensemble d'utilisateurs !
 
-Pour confirmer que vos utilisateurs ont été migrés avec succès, nous vous recommandons de vérifier quelques profils utilisateur individuels qui ont été mis à jour. Dans l'onglet **Engagement**, recherchez **Paramètres de contact** et faites défiler pour voir les groupes d'abonnement auxquels l'utilisateur est abonné. Le bouton bascule du groupe d'abonnement RCS devrait maintenant être activé.
+Pour confirmer que vos utilisateurs ont été migrés avec succès, nous vous recommandons de vérifier quelques profils utilisateur individuels qui ont été mis à jour. Dans l'onglet **Engagement**, recherchez **Contact Settings** et faites défiler pour voir les groupes d'abonnement auxquels l'utilisateur est abonné. Le bouton bascule du groupe d'abonnement RCS devrait maintenant être activé.

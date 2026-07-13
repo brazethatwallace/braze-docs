@@ -9,36 +9,36 @@ description: "이 문서에서는 SDK 인증 키 목록 Braze 엔드포인트에
 ---
 
 {% api %}
-# SDK 인증 키 목록
+# SDK 인증 키 목록 {#list-sdk-authentication-keys}
 {% apimethod get %}
 /app_group/sdk_authentication/keys
 {% endapimethod %}
 
 > 이 엔드포인트를 사용하여 앱의 모든 SDK 인증 키를 검색할 수 있습니다.
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `sdk_authentication.keys` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `sdk_authentication.keys` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 요청 매개변수
+## 요청 매개변수 {#request-parameters}
 
-| 매개변수 | 필수 | 데이터 유형 | Description |
+| 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Required | 문자열 | 앱 API 식별자입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `app_id` | 필수 | 문자열 | 앱 API 식별자입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 예시 요청
+## 예시 요청 {#example-request}
 
 ```bash
 curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authentication/keys?app_id=01234567-89ab-cdef-0123-456789abcdef' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 응답
+## 응답 {#response}
 
 ```json
 {
@@ -59,22 +59,22 @@ curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authe
 }
 ```
 
-## 응답 매개변수
+## 응답 매개변수 {#response-parameters}
 
-| 매개변수 | 데이터 유형 | Description |
+| 매개변수 | 데이터 유형 | 설명 |
 | --------- | --------- | ----------- |
-| `keys` | 배열 | SDK 인증 키 개체의 배열입니다. |
+| `keys` | 배열 | SDK 인증 키 오브젝트의 배열입니다. |
 | `keys[].id` | 문자열 | SDK 인증 키의 ID입니다. |
 | `keys[].rsa_public_key` | 문자열 | RSA 공개 키 문자열입니다. |
 | `keys[].description` | 문자열 | SDK 인증 키에 대한 설명입니다. |
 | `keys[].is_primary` | 부울 | 이 키가 기본 SDK 인증 키인지 여부입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="응답 매개변수" }
 
-### 유효성 검사 규칙
+### 유효성 검사 규칙 {#validation-rules}
 
 이 엔드포인트에는 다음과 같은 유효성 검사 규칙이 있습니다:
 
-- `app_id` 매개변수는 유효한 앱 API 식별자이어야 합니다.
-- 앱이 작업 공간에 있어야 합니다.
+- `app_id` 매개변수는 유효한 앱 API 식별자여야 합니다.
+- 앱이 워크스페이스에 존재해야 합니다.
 
 {% endapi %}

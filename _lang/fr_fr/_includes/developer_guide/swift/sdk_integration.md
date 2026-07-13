@@ -1,81 +1,83 @@
-## Intégration du SDK Swift
+## Intégration du SDK Swift {#integrating-the-swift-sdk}
 
-Vous pouvez intégrer et personnaliser le SDK Braze Swift à l'aide du gestionnaire de paquets swift (SPM), de CocoaPods ou de méthodes d'intégration manuelles. Pour plus d'informations sur les différents symboles SDK, veuillez consulter [la documentation de référence Braze Swift](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/).
+Vous pouvez intégrer et personnaliser le SDK Braze Swift à l'aide du gestionnaire de paquets Swift (SPM), de CocoaPods ou de méthodes d'intégration manuelles. Pour plus d'informations sur les différents symboles du SDK, consultez la [documentation de référence Braze Swift](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/).
 
-### Conditions préalables
+### Conditions préalables {#prerequisites}
 
-Avant de commencer, veuillez vérifier que votre environnement est pris en charge par la [dernière version du SDK Braze Swift](https://github.com/braze-inc/braze-swift-sdk#version-information).
+Avant de commencer, vérifiez que votre environnement est pris en charge par la [dernière version du SDK Braze Swift](https://github.com/braze-inc/braze-swift-sdk#version-information).
 
-### Étape 1 : Veuillez installer le SDK Braze Swift.
+### Étape 1 : Installer le SDK Braze Swift {#step-1-install-the-braze-swift-sdk}
 
-Nous vous recommandons d'utiliser le [gestionnaire de paquets swift (SwiftPM)](https://swift.org/package-manager/) ou [CocoaPods](http://cocoapods.org/) pour installer le SDK Braze Swift. Vous pouvez également installer le SDK manuellement.
+Nous vous recommandons d'utiliser le [gestionnaire de paquets Swift (SwiftPM)](https://swift.org/package-manager/) ou [CocoaPods](http://cocoapods.org/) pour installer le SDK Braze Swift. Vous pouvez également installer le SDK manuellement.
 
 {% tabs local %}
 {% tab Swift Package Manager %}
-#### Étape 1.1 : Importer la version SDK
+#### Étape 1.1 : Importer la version du SDK {#step-11-import-sdk-version}
 
-Ouvrez votre projet et naviguez vers les paramètres de votre projet. Sélectionnez l'onglet **Paquets Swift** et cliquez sur le bouton d'ajout <i class="fas fa-plus"></i> sous la liste des paquets.
+Ouvrez votre projet et accédez aux paramètres de votre projet. Sélectionnez l'onglet **Swift Packages** et cliquez sur le bouton d'ajout <i class="fas fa-plus"></i> sous la liste des paquets.
 
-![]({% image_buster /assets/img/swiftpackages.png %})
+![Paramètres du projet Xcode avec l'onglet Swift Packages et le bouton d'ajout de paquet.]({% image_buster /assets/img/swiftpackages.png %})
 
 {% alert note %}
-À partir de la version 7.4.0, le SDK Braze Swift dispose de canaux de distribution supplémentaires sous la forme de [XCFrameworks statiques](https://github.com/braze-inc/braze-swift-sdk-prebuilt-static) et de [XCFrameworks dynamiques](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic). Si vous souhaitez utiliser l'un de ces formats à la place, suivez les instructions d'installation de leur dépôt respectif.
+À partir de la version 7.4.0, le SDK Braze Swift dispose de canaux de distribution supplémentaires sous la forme de [XCFrameworks statiques](https://github.com/braze-inc/braze-swift-sdk-prebuilt-static) et de [XCFrameworks dynamiques](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic). Si vous souhaitez utiliser l'un de ces formats à la place, suivez les instructions d'installation du dépôt correspondant.
 {% endalert %}
 
-Saisissez l'URL de notre référentiel de SDK Swift iOS `https://github.com/braze-inc/braze-swift-sdk` dans le champ de texte. Dans la section **Dependency Rule (Règle de dépendance)**, sélectionnez la version du SDK. Enfin, cliquez sur **Ajouter un paquet**.
+Saisissez l'URL de notre dépôt SDK Swift iOS `https://github.com/braze-inc/braze-swift-sdk` dans le champ de texte. Dans la section **Dependency Rule**, sélectionnez la version du SDK. Enfin, cliquez sur **Add Package**.
 
-![]({% image_buster /assets/img/importsdk_example.png %})
+![Boîte de dialogue Xcode d'ajout de paquet avec l'URL du dépôt du SDK Braze Swift saisie.]({% image_buster /assets/img/importsdk_example.png %})
 
-#### Étape 1.2 : Veuillez sélectionner vos forfaits
+#### Étape 1.2 : Sélectionner vos paquets {#step-12-select-your-packages}
 
 Le SDK Swift de Braze sépare les fonctionnalités en bibliothèques autonomes pour offrir aux développeurs un meilleur contrôle sur les fonctionnalités à importer dans leurs projets.
 
-| Offre         | Détails                                                                                                                                                         |
+| Paquet | Détails |
 | --------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `BrazeKit`      | Bibliothèque SDK principale avec prise en charge des analyses et des notifications push.                                                                                        |
-| `BrazeLocation` | Bibliothèque de localisations avec prise en charge des analyses de localisation et de la surveillance des géorepérages.                                                                              |
-| `BrazeUI`       | Bibliothèque d'interface utilisateur fournie par Braze pour les messages in-app, les cartes de contenu et les bannières. Veuillez importer cette bibliothèque si vous avez l'intention d'utiliser les composants d'interface utilisateur par défaut. |
+| `BrazeKit`      | Bibliothèque SDK principale avec prise en charge de l'analytique et des notifications push. |
+| `BrazeLocation` | Bibliothèque de localisation avec prise en charge de l'analytique de localisation et de la surveillance des géorepérages. |
+| `BrazeUI`       | Bibliothèque d'interface utilisateur fournie par Braze pour les messages in-app, les Content Cards et les bannières. Importez cette bibliothèque si vous avez l'intention d'utiliser les composants d'interface utilisateur par défaut. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Select your packages" }
 
 {: .ws-td-nw-1}
 
-##### À propos des bibliothèques d'extension
+##### À propos des bibliothèques d'extension {#about-extension-libraries}
 
 {% alert warning %}
 [BrazeNotificationService](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications) et [BrazePushStory](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories) sont des modules d'extension qui fournissent des fonctionnalités supplémentaires et ne doivent pas être ajoutés directement à la cible de votre application principale. Suivez plutôt les guides liés pour les intégrer séparément dans leurs extensions cibles respectives.
 {% endalert %}
 
-| Offre                    | Détails                                                                               |
+| Paquet | Détails |
 | -------------------------- | ------------------------------------------------------------------------------------- |
-| `BrazeNotificationService` | Bibliothèque d'extension du service de notification prenant en charge les notifications push riches. |
-| `BrazePushStory`           | Bibliothèque d'extension de contenu de notification fournissant un support pour les contenus push.            |
+| `BrazeNotificationService` | Bibliothèque d'extension du service de notification prenant en charge les notifications push enrichies. |
+| `BrazePushStory`           | Bibliothèque d'extension de contenu de notification fournissant la prise en charge des Push Stories. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About Extension libraries" }
 
 {: .ws-td-nw-1}
 
-Sélectionnez le paquet qui correspond le mieux à vos besoins et cliquez sur **Ajouter un paquet**. Veillez à sélectionner au moins `BrazeKit`.
+Sélectionnez le paquet qui correspond le mieux à vos besoins et cliquez sur **Add Package**. Veillez à sélectionner au minimum `BrazeKit`.
 
-![]({% image_buster /assets/img/add_package.png %})
+![Liste des produits de paquets Xcode avec BrazeKit sélectionné avant l'ajout du paquet.]({% image_buster /assets/img/add_package.png %})
 {% endtab %}
 
 {% tab CocoaPods %}
-#### Étape 1.1 : Installer CocoaPods
+#### Étape 1.1 : Installer CocoaPods {#step-11-install-cocoapods}
 
-Pour obtenir des instructions détaillées, veuillez consulter [le guide de démarrage](https://guides.cocoapods.org/using/getting-started.html) de CocoaPods. Sinon, vous pouvez exécuter la commande suivante pour démarrer rapidement :
+Pour des instructions détaillées, consultez le [guide de démarrage](https://guides.cocoapods.org/using/getting-started.html) de CocoaPods. Sinon, vous pouvez exécuter la commande suivante pour démarrer rapidement :
 
 ```bash
 $ sudo gem install cocoapods
 ```
 
-Si vous rencontrez des difficultés, veuillez consulter [le guide de résolution des problèmes](http://guides.cocoapods.org/using/troubleshooting.html) de CocoaPods.
+Si vous rencontrez des difficultés, consultez le [guide de résolution des problèmes](http://guides.cocoapods.org/using/troubleshooting.html) de CocoaPods.
 
-#### Étape 1.2 : Construction du Podfile
+#### Étape 1.2 : Construire le Podfile {#step-12-constructing-the-podfile}
 
-Ensuite, veuillez créer un fichier dans le répertoire de votre projet Xcode nommé `Podfile`.
+Ensuite, créez un fichier dans le répertoire de votre projet Xcode nommé `Podfile`.
 
 {% alert note %}
-À partir de la version 7.4.0, le SDK Braze Swift dispose de canaux de distribution supplémentaires sous la forme de [XCFrameworks statiques](https://github.com/braze-inc/braze-swift-sdk-prebuilt-static) et de [XCFrameworks dynamiques](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic). Si vous souhaitez utiliser l'un de ces formats à la place, suivez les instructions d'installation de leur dépôt respectif.
+À partir de la version 7.4.0, le SDK Braze Swift dispose de canaux de distribution supplémentaires sous la forme de [XCFrameworks statiques](https://github.com/braze-inc/braze-swift-sdk-prebuilt-static) et de [XCFrameworks dynamiques](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic). Si vous souhaitez utiliser l'un de ces formats à la place, suivez les instructions d'installation du dépôt correspondant.
 {% endalert %}
 
-Ajoutez la ligne suivante à votre Podfile :
+Ajoutez la ligne suivante à votre Podfile :
 
 ```
 target 'YourAppTarget' do
@@ -83,46 +85,48 @@ target 'YourAppTarget' do
 end
 ```
 
-`BrazeKit` contient la bibliothèque principale du SDK, avec la prise en charge des analyses et des notifications push.
+`BrazeKit` contient la bibliothèque principale du SDK, avec la prise en charge de l'analytique et des notifications push.
 
-Nous vous suggérons la version Braze afin que les mises à jour du pod récupèrent automatiquement tout ce qui est plus petit qu’une mise à jour mineure de la version. Cela ressemble à `pod 'BrazeKit' ~> Major.Minor.Build`. Si vous souhaitez intégrer automatiquement la dernière version de Braze SDK, même avec des modifications majeures, vous pouvez utiliser `pod 'BrazeKit'` dans votre Podfile.
+Nous vous suggérons de versionner Braze afin que les mises à jour du pod récupèrent automatiquement tout ce qui est inférieur à une mise à jour mineure de version. Cela ressemble à `pod 'BrazeKit' ~> Major.Minor.Build`. Si vous souhaitez intégrer automatiquement la dernière version du SDK Braze, même avec des modifications majeures, vous pouvez utiliser `pod 'BrazeKit'` dans votre Podfile.
 
-##### À propos des bibliothèques supplémentaires
+##### À propos des bibliothèques supplémentaires {#about-additional-libraries}
 
 Le SDK Swift de Braze sépare les fonctionnalités en bibliothèques autonomes pour offrir aux développeurs un meilleur contrôle sur les fonctionnalités à importer dans leurs projets. En plus de `BrazeKit`, vous pouvez ajouter les bibliothèques suivantes à votre Podfile :
 
-| Bibliothèque               | Détails                                                                                                                                                         |
+| Bibliothèque | Détails |
 | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `pod 'BrazeLocation'` | Bibliothèque de localisations avec prise en charge des analyses de localisation et de la surveillance des géorepérages.                                                                              |
-| `pod 'BrazeUI'`       | Bibliothèque d'interface utilisateur fournie par Braze pour les messages in-app, les cartes de contenu et les bannières. Veuillez importer cette bibliothèque si vous avez l'intention d'utiliser les composants d'interface utilisateur par défaut. |
+| `pod 'BrazeLocation'` | Bibliothèque de localisation avec prise en charge de l'analytique de localisation et de la surveillance des géorepérages. |
+| `pod 'BrazeUI'`       | Bibliothèque d'interface utilisateur fournie par Braze pour les messages in-app, les Content Cards et les bannières. Importez cette bibliothèque si vous avez l'intention d'utiliser les composants d'interface utilisateur par défaut. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About additional libraries" }
 
 {: .ws-td-nw-1}
 
-###### Bibliothèques d'extension
+###### Bibliothèques d'extension {#extension-libraries}
 
-[BrazeNotificationService](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications) et [BrazePushStory](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories) sont des modules d'extension qui fournissent des fonctionnalités supplémentaires et ne doivent pas être ajoutés directement à la cible de votre application principale. Au lieu de cela, vous devrez créer des cibles d'extension distinctes pour chacun de ces modules et importer les modules Braze dans leurs cibles correspondantes.
+[BrazeNotificationService](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications) et [BrazePushStory](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories) sont des modules d'extension qui fournissent des fonctionnalités supplémentaires et ne doivent pas être ajoutés directement à la cible de votre application principale. Vous devrez créer des cibles d'extension distinctes pour chacun de ces modules et importer les modules Braze dans leurs cibles correspondantes.
 
-| Bibliothèque                          | Détails                                                                               |
+| Bibliothèque | Détails |
 | -------------------------------- | ------------------------------------------------------------------------------------- |
-| `pod 'BrazeNotificationService'` | Bibliothèque d'extension du service de notification prenant en charge les notifications push riches. |
-| `pod 'BrazePushStory'`           | Bibliothèque d'extension de contenu de notification fournissant un support pour les contenus push.            |
+| `pod 'BrazeNotificationService'` | Bibliothèque d'extension du service de notification prenant en charge les notifications push enrichies. |
+| `pod 'BrazePushStory'`           | Bibliothèque d'extension de contenu de notification fournissant la prise en charge des Push Stories. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Extension libraries" }
 
 {: .ws-td-nw-1}
 
-#### Étape 1.3 : Installer le SDK
+#### Étape 1.3 : Installer le SDK {#step-13-install-the-sdk}
 
-Pour installer le SDK Cocoapod Braze, accédez au répertoire de votre projet d’application Xcode au sein de votre terminal et exécutez la commande suivante :
+Pour installer le CocoaPod du SDK Braze, accédez au répertoire de votre projet d'application Xcode dans votre terminal et exécutez la commande suivante :
 ```
 pod install
 ```
 
-À ce stade, vous devriez pouvoir ouvrir le nouvel espace de travail du projet Xcode créé par CocoaPods. Assurez-vous d’utiliser cet espace de travail Xcode au lieu de votre projet Xcode.
+À ce stade, vous devriez pouvoir ouvrir le nouvel espace de travail du projet Xcode créé par CocoaPods. Assurez-vous d'utiliser cet espace de travail Xcode au lieu de votre projet Xcode.
 
-![Un dossier Braze Example décompressé pour afficher le nouveau fichier « BrazeExample.workspace.]({% image_buster /assets/img/braze_example_workspace.png %})
+![Un dossier Braze Example décompressé pour afficher le nouveau fichier « BrazeExample.workspace ».]({% image_buster /assets/img/braze_example_workspace.png %})
 
-#### Mise à jour du SDK à l'aide de CocoaPods
+#### Mise à jour du SDK à l'aide de CocoaPods {#updating-the-sdk-using-cocoapods}
 
-Pour mettre à jour un Cocoapod, il vous suffit de lancer la commande suivante dans votre répertoire de projet :
+Pour mettre à jour un CocoaPod, il vous suffit d'exécuter la commande suivante dans votre répertoire de projet :
 
 ```
 pod update
@@ -130,40 +134,41 @@ pod update
 {% endtab %}
 
 {% tab Manual %}
-#### Étape 1.1 : Téléchargez le SDK Braze
+#### Étape 1.1 : Télécharger le SDK Braze {#step-11-download-the-braze-sdk}
 
-Accédez à la [page du SDK Braze sur GitHub](https://github.com/braze-inc/braze-swift-sdk/releases), puis téléchargez `braze-swift-sdk-prebuilt.zip`.
+Accédez à la [page de publication du SDK Braze sur GitHub](https://github.com/braze-inc/braze-swift-sdk/releases), puis téléchargez `braze-swift-sdk-prebuilt.zip`.
 
 ![La page de publication du SDK Braze sur GitHub.]({% image_buster /assets/img/swift/sdk_integration/download-braze-swift-sdk-prebuilt.png %})
 
-#### Étape 1.2 : Choisissez vos frameworks
+#### Étape 1.2 : Choisir vos frameworks {#step-12-choose-your-frameworks}
 
-Le SDK Swift Braze contient une série de XCFrameworks autonomes, ce qui vous donne la liberté d'intégrer les fonctionnalités que vous souhaitez sans avoir besoin de toutes les intégrer. Référez-vous au tableau suivant pour choisir vos XCFrameworks :
+Le SDK Swift de Braze contient une variété de XCFrameworks autonomes, ce qui vous donne la liberté d'intégrer les fonctionnalités que vous souhaitez&#8212;sans avoir besoin de toutes les intégrer. Référez-vous au tableau suivant pour choisir vos XCFrameworks :
 
-| Offre                    | Requis ? | Description                                                                                                                                                                                                                                                                                                                          |
+| Paquet | Requis ? | Description |
 | -------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `BrazeKit`                 | Oui       | Bibliothèque SDK principale avec prise en charge des analyses et des notifications push.                                                                                                                                                                                                                                                         |
-| `BrazeLocation`            | Non        | Bibliothèque de localisations avec prise en charge des analyses de localisation et de la surveillance des géorepérages.                                                                                                                                                                                                                                               |
-| `BrazeUI`                  | Non        | Bibliothèque d'interface utilisateur fournie par Braze pour les messages in-app, les cartes de contenu et les bannières. Veuillez importer cette bibliothèque si vous avez l'intention d'utiliser les composants d'interface utilisateur par défaut.                                                                                                                                                                      |
-| `BrazeNotificationService` | Non        | Bibliothèque d'extension de service de notification qui fournit une prise en charge des notifications push enrichies. N'ajoutez pas cette bibliothèque directement à la cible de votre application principale, mais [ajoutez plutôt la bibliothèque `BrazeNotificationService` séparément](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications).                 |
-| `BrazePushStory`           | Non        | Bibliothèque d'extension de contenu de notification qui fournit une prise en charge des Push Stories. N'ajoutez pas cette bibliothèque directement à la cible de votre application principale, mais [ajoutez plutôt la bibliothèque `BrazePushStory` séparément](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories).                                                 |
-| `BrazeKitCompat`           | Non        | Bibliothèque de compatibilité contenant toutes les classes et méthodes `Appboy` et `ABK*` qui étaient disponibles dans le `Appboy-iOS-SDK` version 4.X.X. Pour plus de détails sur l'utilisation, reportez-vous au scénario de migration minimal dans le [guide de migration](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/).            |
-| `BrazeUICompat`            | Non        | Bibliothèque de compatibilité contenant toutes les classes et méthodes `ABK*` qui étaient disponibles dans la bibliothèque `AppboyUI` du `Appboy-iOS-SDK` version 4.X.X. Pour plus de détails sur l'utilisation, reportez-vous au scénario de migration minimal dans le [guide de migration](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/). |
-| `SDWebImage`               | Non        | Dépendance utilisée uniquement par `BrazeUICompat` dans le scénario de migration minimal.                                                                                                                                                                                                                                                           |
+| `BrazeKit`                 | Oui       | Bibliothèque SDK principale avec prise en charge de l'analytique et des notifications push. |
+| `BrazeLocation`            | Non       | Bibliothèque de localisation avec prise en charge de l'analytique de localisation et de la surveillance des géorepérages. |
+| `BrazeUI`                  | Non       | Bibliothèque d'interface utilisateur fournie par Braze pour les messages in-app, les Content Cards et les bannières. Importez cette bibliothèque si vous avez l'intention d'utiliser les composants d'interface utilisateur par défaut. |
+| `BrazeNotificationService` | Non       | Bibliothèque d'extension du service de notification prenant en charge les notifications push enrichies. N'ajoutez pas cette bibliothèque directement à la cible de votre application principale, mais [ajoutez plutôt la bibliothèque `BrazeNotificationService` séparément](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b2-rich-push-notifications). |
+| `BrazePushStory`           | Non       | Bibliothèque d'extension de contenu de notification prenant en charge les Push Stories. N'ajoutez pas cette bibliothèque directement à la cible de votre application principale, mais [ajoutez plutôt la bibliothèque `BrazePushStory` séparément](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/b3-push-stories). |
+| `BrazeKitCompat`           | Non       | Bibliothèque de compatibilité contenant toutes les classes et méthodes `Appboy` et `ABK*` qui étaient disponibles dans le `Appboy-iOS-SDK` version 4.X.X. Pour plus de détails sur l'utilisation, reportez-vous au scénario de migration minimal dans le [guide de migration](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/). |
+| `BrazeUICompat`            | Non       | Bibliothèque de compatibilité contenant toutes les classes et méthodes `ABK*` qui étaient disponibles dans la bibliothèque `AppboyUI` du `Appboy-iOS-SDK` version 4.X.X. Pour plus de détails sur l'utilisation, reportez-vous au scénario de migration minimal dans le [guide de migration](https://braze-inc.github.io/braze-swift-sdk/documentation/braze/appboy-migration-guide/). |
+| `SDWebImage`               | Non       | Dépendance utilisée uniquement par `BrazeUICompat` dans le scénario de migration minimal. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 1.2: Choose your frameworks" }
 
-{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .ws-td-nw-1 .reset-td-br-1 .reset-td-br-2 aria-label="Step 1.2: Choose your frameworks" }
 
-#### Étape 1.3 : Préparez vos fichiers
+#### Étape 1.3 : Préparer vos fichiers {#step-13-prepare-your-files}
 
-Décidez si vous souhaitez utiliser des XCFrameworks **statiques** ou **dynamiques**, puis préparez vos fichiers :
+Décidez si vous souhaitez utiliser des XCFrameworks **statiques** ou **dynamiques**, puis préparez vos fichiers :
 
 1. Créez un répertoire temporaire pour vos XCFrameworks.
-2. Dans `braze-swift-sdk-prebuilt`, ouvrez le répertoire `dynamic` et déplacez `BrazeKit.xcframework` dans votre répertoire. Votre répertoire devrait être similaire à ce qui suit :
+2. Dans `braze-swift-sdk-prebuilt`, ouvrez le répertoire `dynamic` et déplacez `BrazeKit.xcframework` dans votre répertoire. Votre répertoire devrait ressembler à ceci :
     ```bash
     temp_dir
     └── BrazeKit.xcframework
     ```
-3. Déplacez chacun de vos [XCFrameworks choisis](#swift_step-2-choose-your-frameworks) dans votre répertoire temporaire. Votre répertoire devrait être similaire à ce qui suit :
+3. Déplacez chacun de vos [XCFrameworks choisis](#swift_step-2-choose-your-frameworks) dans votre répertoire temporaire. Votre répertoire devrait ressembler à ceci :
     ```bash
     temp_dir
     ├── BrazeKit.xcframework
@@ -172,31 +177,31 @@ Décidez si vous souhaitez utiliser des XCFrameworks **statiques** ou **dynamiqu
     └── SDWebImage.xcframework
     ```
 
-#### Étape 1.4 : Intégrez vos frameworks
+#### Étape 1.4 : Intégrer vos frameworks {#step-14-integrate-your-frameworks}
 
-Ensuite, intégrez les XCFrameworks **dynamiques** ou **statiques** que vous [avez préparés précédemment](#swift_step-3-prepare-your-files) :
+Ensuite, intégrez les XCFrameworks **dynamiques** ou **statiques** que vous [avez préparés précédemment](#swift_step-3-prepare-your-files) :
 
-Dans votre projet Xcode, sélectionnez votre cible de build, puis **Général**. Sous **Frameworks, bibliothèques et contenu intégré**, faites glisser et déposez les [fichiers que vous avez préparés précédemment](#swift_step-3-prepare-your-files).
+Dans votre projet Xcode, sélectionnez votre cible de build, puis **General**. Sous **Frameworks, Libraries, and Embedded Content**, glissez-déposez les [fichiers que vous avez préparés précédemment](#swift_step-3-prepare-your-files).
 
-![Exemple de projet Xcode avec chaque bibliothèque Braze configurée sur « Embed&Sign ».]({% image_buster /assets/img/swift/sdk_integration/embed-and-sign.png %})
+![Exemple de projet Xcode avec chaque bibliothèque Braze configurée sur « Embed & Sign ».]({% image_buster /assets/img/swift/sdk_integration/embed-and-sign.png %})
 
 {% alert note %}
-À partir du SDK Swift 12.0.0, il est recommandé de toujours sélectionner **Embed&Sign** pour les Braze XCFrameworks, tant pour les variantes statiques que dynamiques. Cela garantit que les ressources du framework sont correctement intégrées dans votre ensemble d'applications.
+À partir du SDK Swift 12.0.0, vous devez toujours sélectionner **Embed & Sign** pour les XCFrameworks Braze, tant pour les variantes statiques que dynamiques. Cela garantit que les ressources des frameworks sont correctement intégrées dans votre bundle d'application.
 {% endalert %}
 
 {% alert tip %}
-Pour activer la prise en charge des GIF, veuillez ajouter `SDWebImage.xcframework`, à l’emplacement/localisation soit dans , soit`braze-swift-sdk-prebuilt/static`dans `braze-swift-sdk-prebuilt/dynamic`.
+Pour activer la prise en charge des GIF, ajoutez `SDWebImage.xcframework`, situé dans `braze-swift-sdk-prebuilt/static` ou `braze-swift-sdk-prebuilt/dynamic`.
 {% endalert %}
 
-#### Erreurs courantes pour les projets Objective-C
+#### Erreurs courantes pour les projets Objective-C {#common-errors-for-objective-c-projects}
 
-Si votre projet Xcode ne contient que des fichiers Objective-C, il se peut que vous obteniez des erreurs de « symbole manquant » lorsque vous essayez de créer votre projet. Pour corriger ces erreurs, ouvrez votre projet et ajoutez un fichier Swift vide à votre arborescence de fichiers. Ceci obligera votre chaîne d'outils de création à intégrer [Swift Runtime](https://support.apple.com/kb/dl1998) et à lier les frameworks appropriés pendant le temps de création.
+Si votre projet Xcode ne contient que des fichiers Objective-C, il se peut que vous obteniez des erreurs de « symbole manquant » lorsque vous essayez de compiler votre projet. Pour corriger ces erreurs, ouvrez votre projet et ajoutez un fichier Swift vide à votre arborescence de fichiers. Cela forcera votre chaîne d'outils de compilation à intégrer le [Swift Runtime](https://support.apple.com/kb/dl1998) et à lier les frameworks appropriés lors de la compilation.
 
 ```bash
 FILE_NAME.swift
 ```
 
-Remplacez `FILE_NAME` par n'importe quelle chaîne sans espace. Votre fichier devrait ressembler à ce qui suit :
+Remplacez `FILE_NAME` par n'importe quelle chaîne de caractères sans espace. Votre fichier devrait ressembler à ceci :
 
 ```bash
 empty_swift_file.swift
@@ -204,16 +209,16 @@ empty_swift_file.swift
 {% endtab %}
 {% endtabs local %}
 
-### Étape 2 : Configurer l'initialisation différée (facultatif)
+### Étape 2 : Configurer l'initialisation différée (facultatif) {#step-2-set-up-delayed-initialization-optional}
 
 Vous pouvez choisir de retarder l'initialisation du SDK Braze Swift, ce qui est utile si votre application doit charger une configuration ou attendre le consentement de l'utilisateur avant de démarrer le SDK. L'initialisation différée garantit que les notifications push Braze et les jetons push reçus avant l'initialisation du SDK sont mis en file d'attente et traités une fois le SDK initialisé.
 
 Pour utiliser l'initialisation différée, la version minimale requise du SDK Braze est la suivante :
 {% sdk_min_versions swift:11.2.0 %}
 
-#### Étape 2.1 : Veuillez vous préparer à une initialisation retardée.
+#### Étape 2.1 : Préparer l'initialisation différée {#step-21-prepare-for-delayed-initialization}
 
-Veuillez appeler`Braze.prepareForDelayedInitialization()`dès que possible au cours du cycle de vie de votre application, idéalement avant ou pendant`application(_:didFinishLaunchingWithOptions:)`. Cela garantit que les notifications push reçues avant l'initialisation du SDK sont correctement capturées et traitées ultérieurement.
+Appelez `Braze.prepareForDelayedInitialization()` le plus tôt possible dans le cycle de vie de votre application, idéalement dans ou avant `application(_:didFinishLaunchingWithOptions:)`. Cela garantit que les notifications push reçues avant l'initialisation du SDK sont correctement capturées et traitées ultérieurement.
 
 {% alert note %}
 Ceci s'applique uniquement aux notifications push provenant de Braze. Les autres notifications push sont gérées normalement par les délégués système.
@@ -268,7 +273,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Prepare the SDK for delayed initialization
   [Braze prepareForDelayedInitialization];
-  
+
   // ... Additional non-Braze setup code
 
   return YES;
@@ -277,15 +282,15 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 {% endtab %}
 {% endtabs %}
 
-Lorsque vous utilisez l'initialisation différée, l'automatisation des notifications push est implicitement activée. Vous pouvez [personnaliser la](#swift_step-23-customize-push-automation-optional) configuration [de l'automatisation des notifications push](#swift_step-23-customize-push-automation-optional) en transmettant un`pushAutomation`paramètre.
+Lorsque vous utilisez l'initialisation différée, l'automatisation des notifications push est implicitement activée. Vous pouvez [personnaliser la configuration de l'automatisation des notifications push](#swift_step-23-customize-push-automation-optional) en transmettant un paramètre `pushAutomation`.
 
-#### Étape 2.2 : Configurer le comportement des analyses push (facultatif)
+#### Étape 2.2 : Configurer le comportement de l'analytique push (facultatif) {#step-22-configure-push-analytics-behavior-optional}
 
-Lorsque l'initialisation différée est activée, les analyses push sont mises en file d'attente par défaut. Cependant, vous pouvez choisir de mettre explicitement en file d'attente ou de supprimer les analyses push.
+Lorsque l'initialisation différée est activée, les données analytiques push sont mises en file d'attente par défaut. Cependant, vous pouvez choisir de mettre explicitement en file d'attente ou d'ignorer les données analytiques push.
 
-##### Mettre explicitement en file d'attente
+##### Mettre explicitement en file d'attente {#explicitly-queue}
 
-Pour mettre explicitement en file d'attente les analyses push (comportement par défaut), veuillez transmettre`.queue`au`analyticsBehavior`paramètre. Les événements analytiques en file d'attente avant l'initialisation seront traités et transférés vers le serveur lors de l'initialisation.
+Pour mettre explicitement en file d'attente les données analytiques push (comportement par défaut), transmettez `.queue` au paramètre `analyticsBehavior`. Les événements analytiques push mis en file d'attente avant l'initialisation seront traités et envoyés au serveur lors de l'initialisation.
 
 {% tabs local %}
 {% tab Swift %}
@@ -300,9 +305,9 @@ Braze.prepareForDelayedInitialization(analyticsBehavior: .queue)
 {% endtab %}
 {% endtabs %}
 
-##### Chute
+##### Ignorer {#drop}
 
-Pour ignorer les analyses push reçues avant l'initialisation du SDK, veuillez transmettre`.drop`au`analyticsBehavior`paramètre. Avec cette option, tout événement d'analyse push qui se produit alors que le SDK n'est pas initialisé sera ignoré.
+Pour ignorer les données analytiques push reçues avant l'initialisation du SDK, transmettez `.drop` au paramètre `analyticsBehavior`. Avec cette option, tout événement analytique push qui se produit alors que le SDK n'est pas initialisé sera ignoré.
 
 {% tabs local %}
 {% tab Swift %}
@@ -317,9 +322,9 @@ Braze.prepareForDelayedInitialization(analyticsBehavior: .drop)
 {% endtab %}
 {% endtabs %}
 
-#### Étape 2.3 : Personnaliser l'automatisation des notifications push (facultatif)
+#### Étape 2.3 : Personnaliser l'automatisation des notifications push (facultatif) {#step-23-customize-push-automation-optional}
 
-Vous pouvez personnaliser la configuration de l'automatisation des notifications push en transmettant un`pushAutomation`paramètre. Par défaut, toutes les fonctionnalités d'automatisation sont activées, à l'exception de `requestAuthorizationAtLaunch`.
+Vous pouvez personnaliser la configuration de l'automatisation des notifications push en transmettant un paramètre `pushAutomation`. Par défaut, toutes les fonctionnalités d'automatisation sont activées, à l'exception de `requestAuthorizationAtLaunch`.
 
 {% tabs local %}
 {% tab SWIFT %}
@@ -349,21 +354,21 @@ automation.requestAuthorizationAtLaunch = NO;
 {% endtab %}
 {% endtabs %}
 
-#### Étape 2.4 : Initialiser le SDK
+#### Étape 2.4 : Initialiser le SDK {#step-24-initialize-the-sdk}
 
-Après la période de délai que vous avez choisie (par exemple, après avoir récupéré la configuration depuis un serveur ou après avoir obtenu le consentement de l'utilisateur), veuillez initialiser le SDK comme d'habitude :
+Après la période de délai que vous avez choisie (par exemple, après avoir récupéré la configuration depuis un serveur ou après avoir obtenu le consentement de l'utilisateur), initialisez le SDK comme d'habitude :
 
 {% tabs local %}
 {% tab SWIFT %}
 ```swift
-func initializeBraze() {  
-  let configuration = Braze.Configuration(apiKey: "YOUR-API-KEY", endpoint: "YOUR-ENDPOINT")    
-  
-  // Enable push automation to match the delayed initialization configuration  
-  configuration.push.automation = true    
-  let braze = Braze(configuration: configuration)    
-  
-  // Store the Braze instance for later use 
+func initializeBraze() {
+  let configuration = Braze.Configuration(apiKey: "YOUR-API-KEY", endpoint: "YOUR-ENDPOINT")
+
+  // Enable push automation to match the delayed initialization configuration
+  configuration.push.automation = true
+  let braze = Braze(configuration: configuration)
+
+  // Store the Braze instance for later use
   AppDelegate.braze = braze
 }
 ```
@@ -372,11 +377,11 @@ func initializeBraze() {
 ```objc
 - (void)initializeBraze {
   BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:@"YOUR-API-KEY" endpoint:@"YOUR-ENDPOINT"];
-  
+
   // Enable push automation to match the delayed initialization configuration
   configuration.push.automation = [[BRZConfigurationPushAutomation alloc] initWithAutomationEnabled:YES];
   Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
-  
+
   // Store the Braze instance for later use
   AppDelegate.braze = braze;
 }
@@ -385,13 +390,13 @@ func initializeBraze() {
 {% endtabs %}
 
 {% alert note %}
-Lorsque le SDK est initialisé, toutes les notifications push, tous les jetons push et tous les liens profonds en file d'attente sont automatiquement traités.
+Lorsque le SDK est initialisé, toutes les notifications push, tous les jetons push et tous les deep links en file d'attente sont automatiquement traités.
 {% endalert %}
 
-### Étape 3 : Mettre à jour la délégation de votre application
+### Étape 3 : Mettre à jour le délégué de votre application {#step-3-update-your-app-delegate}
 
 {% alert important %}
-Ce qui suit suppose que vous avez déjà ajouté un`AppDelegate`  à votre projet (qui n'est pas généré par défaut) et que vous n'utilisez pas la fonctionnalité d'initialisation différée. Si vous n'envisagez pas d'utiliser un SDK`AppDelegate`, veuillez initialiser le SDK Braze dès que possible, par exemple lors du lancement de l'application. Si vous utilisez la fonctionnalité d'initialisation différée, veuillez vous reporter à [l'étape 2.4](#swift_step-24-initialize-the-sdk) pour initialiser le SDK et ignorer cette étape.
+Ce qui suit suppose que vous avez déjà ajouté un `AppDelegate` à votre projet (qui n'est pas généré par défaut) et que vous n'utilisez pas la fonctionnalité d'initialisation différée. Si vous n'envisagez pas d'utiliser un `AppDelegate`, veillez à initialiser le SDK Braze le plus tôt possible, par exemple lors du lancement de l'application. Si vous utilisez la fonctionnalité d'initialisation différée, reportez-vous à l'[étape 2.4](#swift_step-24-initialize-the-sdk) pour initialiser le SDK et ignorez cette étape.
 {% endalert %}
 
 {% subtabs local %}
@@ -410,7 +415,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-Enfin, dans `AppDelegate.swift`, ajoutez l'extrait de code suivant à votre méthode `application:didFinishLaunchingWithOptions:` :
+Le SDK nécessite que votre application conserve une référence forte à l'instance de Braze tout au long de son utilisation. Pour éviter tout effet secondaire inattendu, assurez-vous d'avoir entièrement capturé cette référence avant d'accéder à ou de modifier des propriétés ou méthodes de l'instance de Braze.
+
+Enfin, dans `AppDelegate.swift`, ajoutez l'extrait de code suivant à votre méthode `application:didFinishLaunchingWithOptions:` :
 
 ```swift
 let configuration = Braze.Configuration(
@@ -421,12 +428,12 @@ let braze = Braze(configuration: configuration)
 AppDelegate.braze = braze
 ```
 
-Mettez à jour `YOUR-APP-IDENTIFIER-API-KEY` et `YOUR-BRAZE-ENDPOINT` avec la valeur correcte à partir de la page **Paramètres de l'application.**  Consultez nos [types d'identifiants d'API]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) pour plus d'informations sur l'endroit où trouver la clé API de votre identifiant d'appli.
+Mettez à jour `YOUR-APP-IDENTIFIER-API-KEY` et `YOUR-BRAZE-ENDPOINT` avec la valeur correcte depuis votre page **App Settings**. Consultez nos [types d'identifiants API]({{site.baseurl}}/api/identifier_types/?tab=app%20ids) pour plus d'informations sur l'endroit où trouver la clé API de votre identifiant d'application.
 
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 
-Ajoutez la ligne de code suivante à votre fichier `AppDelegate.m` :
+Ajoutez la ligne de code suivante à votre fichier `AppDelegate.m` :
 
 ```objc
 @import BrazeKit;
@@ -448,7 +455,9 @@ static Braze *_braze;
 @end
 ```
 
-Enfin, dans votre fichier `AppDelegate.m`, ajoutez l'extrait de code suivant dans votre méthode `application:didFinishLaunchingWithOptions:` :
+Le SDK nécessite que votre application conserve une référence forte à l'instance de Braze tout au long de son utilisation. Pour éviter tout effet secondaire inattendu, assurez-vous d'avoir entièrement capturé cette référence avant d'accéder à ou de modifier des propriétés ou méthodes de l'instance de Braze.
+
+Enfin, dans votre fichier `AppDelegate.m`, ajoutez l'extrait de code suivant dans votre méthode `application:didFinishLaunchingWithOptions:` :
 
 ```objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:"YOUR-APP-IDENTIFIER-API-KEY"
@@ -457,33 +466,38 @@ Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 AppDelegate.braze = braze;
 ```
 
-Mettez à jour `YOUR-APP-IDENTIFIER-API-KEY` et `YOUR-BRAZE-ENDPOINT` avec la valeur correcte à partir de votre page **Gérer les paramètres.**  Consultez notre [documentation sur l'API]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key) pour savoir où trouver la clé API de votre identifiant d'application.
+Mettez à jour `YOUR-APP-IDENTIFIER-API-KEY` et `YOUR-BRAZE-ENDPOINT` avec la valeur correcte depuis votre page **Manage Settings**. Consultez notre [documentation API]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) pour plus d'informations sur l'endroit où trouver la clé API de votre identifiant d'application.
 
 {% endsubtab %}
 {% endsubtabs local %}
 
-## Configurations optionnelles
+{% alert note %}
+`Braze.init` retourne immédiatement sur le thread appelant. Le SDK traite le travail de démarrage sur une file d'attente interne. La lecture de propriétés synchrones telles que `braze.deviceId` directement après `init` sur le thread principal bloquera le thread appelant jusqu'à ce que le SDK ait terminé ses opérations post-initialisation. Pour les contextes sensibles au thread principal ou à la latence, utilisez `braze.getDeviceId(_:)` (Swift) ou `[braze getDeviceIdWithCompletion:^(NSString *deviceId) { ... }]` (Objective-C) pour lire la valeur sans blocage.
+{% endalert %}
 
-### Journalisation
+## Configurations optionnelles {#optional-configurations}
 
-Pour obtenir un aperçu centralisé sur toutes les plateformes, veuillez consulter [la section Journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Pour apprendre à interpréter les résultats du journal, veuillez consulter [la section Lecture des journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
+### Journalisation {#logging}
 
-#### Niveaux de journalisation
+Pour obtenir un aperçu centralisé sur toutes les plateformes, consultez la section [Journalisation détaillée]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging). Pour apprendre à interpréter les résultats des journaux, consultez la section [Lecture des journaux détaillés]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs).
 
-Le niveau de journalisation par défaut pour le SDK Braze Swift est `.error`— il s'agit également du niveau minimum pris en charge lorsque les journaux sont activés. Voici la liste complète des niveaux de journalisation :
+#### Niveaux de journalisation {#log-levels}
 
-| Swift       | Objectif-C              | Description                                                  |
+Le niveau de journalisation par défaut pour le SDK Braze Swift est `.error`&#8212;il s'agit également du niveau minimum pris en charge lorsque les journaux sont activés. Voici la liste complète des niveaux de journalisation :
+
+| Swift       | Objective-C              | Description                                                  |
 | ----------- | ------------------------ | ------------------------------------------------------------ |
-| `.debug`    | `BRZLoggerLevelDebug`    | Enregistrer les informations de débogage.`.info``.error`              |
-| `.info`     | `BRZLoggerLevelInfo`     | Enregistrer des informations générales sur le SDK (changements au niveau des utilisateurs, etc.) + `.error`. |
-| `.error`    | `BRZLoggerLevelError`    | Erreurs de journalisation.                                                  |
-| `.disabled` | `BRZLoggerLevelDisabled` | Aucun enregistrement n'a lieu.                                           |
+| `.debug`    | `BRZLoggerLevelDebug`    | Journalise les informations de débogage + `.info` + `.error`. |
+| `.info`     | `BRZLoggerLevelInfo`     | Journalise les informations générales du SDK (changements utilisateur, etc.) + `.error`. |
+| `.error`    | `BRZLoggerLevelError`    | Journalise les erreurs.                                       |
+| `.disabled` | `BRZLoggerLevelDisabled` | Aucune journalisation n'a lieu.                               |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Log levels" }
 
-#### Définition du niveau de journalisation
+#### Définir le niveau de journalisation {#setting-the-log-level}
 
-Vous pouvez définir le niveau de journalisation lors de l'exécution dans votre`Braze.Configuration`objet. Pour obtenir des informations détaillées sur l'utilisation, veuillez consulter [`Braze.Configuration.Logger`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/logger-swift.class).
+Vous pouvez définir le niveau de journalisation lors de l'exécution dans votre objet `Braze.Configuration`. Pour des informations détaillées sur l'utilisation, consultez [`Braze.Configuration.Logger`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/logger-swift.class).
 
 {% tabs %}
 {% tab swift %}

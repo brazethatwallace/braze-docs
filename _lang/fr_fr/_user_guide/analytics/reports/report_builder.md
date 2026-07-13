@@ -11,9 +11,9 @@ page_order: 3
 
 # Générateur de rapports {#report-builder}
 
-> Cette page explique comment utiliser le Générateur de rapports pour créer et consulter des rapports détaillés à partir des données Braze, et comment ajouter des rapports à des tableaux de bord.
+> Cette page explique comment utiliser le générateur de rapports pour créer et consulter des rapports détaillés à partir des données Braze, et comment ajouter des rapports à des tableaux de bord.
 
-La vidéo suivante offre un aperçu de la création et de la personnalisation de rapports dans le Générateur de rapports.
+La vidéo suivante offre un aperçu de la création et de la personnalisation de rapports dans le générateur de rapports.
 
 {% multi_lang_include video.html id="oi66kwwldv" source="wistia" %}
 
@@ -22,8 +22,8 @@ La vidéo suivante offre un aperçu de la création et de la personnalisation de
 1. Accédez à **Analytics** > **Report Builder (New)**.
 2. Sélectionnez la flèche **More options** à côté du bouton **Create New Report**, puis sélectionnez **Use a report template**.<br><br>![Menu déroulant du bouton « Create New Report » avec les options de créer un rapport personnalisé ou d'utiliser un modèle.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
 3. Sélectionnez l'un des modèles de rapport dans la bibliothèque de modèles Braze.
-    - Utilisez les menus déroulants **Row items** et **Tags** pour trouver les rapports pertinents pour vos cas d'utilisation.<br><br>![Fenêtre « Braze report templates » avec une liste de modèles Braze à sélectionner.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
-4. Suivez l'étape 3 et les suivantes dans [Créer un rapport](#creating-a-report) pour personnaliser davantage le rapport selon votre cas d'utilisation.
+    - Utilisez les menus déroulants **Row items** et **Tags** pour trouver les rapports pertinents pour vos cas d'usage.<br><br>![Fenêtre « Braze report templates » avec une liste de modèles Braze à sélectionner.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
+4. Suivez l'étape 3 et les suivantes dans [Créer un rapport](#creating-a-report) pour personnaliser davantage le rapport selon votre cas d'usage.
 
 ## Créer un rapport {#creating-a-report}
 
@@ -79,7 +79,7 @@ L'exécution du rapport peut prendre quelques minutes, en fonction de la plage d
 Votre sélection pour **Rows** affecte les indicateurs que vous pouvez sélectionner.
 
 {% alert tip %}
-Si vous souhaitez créer un rapport sur les variantes ou les étapes de Canvas, sélectionnez **Canvases** pour les lignes et laissez le champ vide ou sélectionnez **Date** comme détail. Cela crée un menu déroulant **Canvas View** pour afficher les indicateurs du Canvas uniquement, ou regrouper les indicateurs par variante, étape ou message.
+Si vous souhaitez créer un rapport sur les variantes ou les étapes de Canvas, sélectionnez **Canvases** pour les lignes et laissez le champ vide ou sélectionnez **Date** comme détail. Cela crée un menu déroulant **Canvas View** pour afficher les indicateurs du Canvas uniquement, ou regrouper les indicateurs par variante, étape ou message.<br><br> Lorsque vous regroupez par étape, le tableau d'aperçu lors de la configuration de votre rapport affiche un maximum de 50 lignes. Exécutez le rapport ou exportez-le au format CSV pour afficher toutes les lignes.
 
 ![Le menu déroulant « Canvas View » ouvert.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -87,19 +87,21 @@ Si vous souhaitez créer un rapport sur les variantes ou les étapes de Canvas, 
 | Indicateur | Description |
 | --- | --- |
 | Indicateurs de conversion | Disponibles pour Campaigns, Canvas, Campaigns et Canvas. |
-| Entrées | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, Étiquettes. |
+| Entrées | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. |
 | Date du dernier envoi | Disponible pour Campaigns, Canvas, Campaigns et Canvas. S'affiche uniquement pour les Campaigns planifiées — ne se remplit pas pour les Campaigns déclenchées par une action ou par l'API. |
 | Envois | Disponibles pour chaque canal pertinent. |
-| Messages envoyés | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, Étiquettes. |
+| Messages envoyés | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. |
 | Ligne d'objet | Disponible pour les Campaigns e-mail avec un détail par **Variant**, les Canvas et les Canvas avec un détail par **Variant**. |
-| Chiffre d'affaires total | Disponible pour Campaigns, Canvas, Campaigns et Canvas, Étiquettes. Non disponible avec le détail par **Channels**. |
-| Impressions uniques | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, Étiquettes. |
-| Destinataires uniques | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, Étiquettes. Non disponible avec le détail par **Channels**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Chiffre d'affaires total | Disponible pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. Non disponible avec le détail par **Channels**. |
+| Impressions uniques | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. |
+| Destinataires uniques | Disponibles pour Campaigns, Canvas, Campaigns et Canvas, étiquettes. Non disponible avec le détail par **Channels**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Disponibilité des indicateurs" }
 
 ### Variantes de message supprimées {#deleted-message-variants}
 
-Les statistiques des variantes de message supprimées ne s'affichent pas lorsque vous décomposez votre rapport par Campaigns ou Canvas. Cependant, les totaux au niveau du canal incluent toutes les statistiques, que la variante ait été supprimée ou non. Par exemple, les *Envois* pour l'e-mail incluent tous les envois d'e-mails, mais si vous décomposez ces statistiques par Campaign, les chiffres peuvent être inférieurs car les envois des variantes de message supprimées sont filtrés.
+Les statistiques des variantes de message supprimées ne s'affichent pas lorsque vous décomposez votre rapport par Campaigns ou Canvas. Cependant, les totaux au niveau du canal incluent toutes les statistiques, que la variante ait été supprimée ou non. Par exemple, les *envois* pour l'e-mail incluent tous les envois d'e-mails, mais si vous décomposez ces statistiques par Campaign, les chiffres peuvent être inférieurs car les envois des variantes de message supprimées sont filtrés.
+
+Dans le même rapport, les *destinataires uniques* peuvent être supérieurs aux *impressions uniques* lorsqu'une variante de message a été supprimée après l'envoi. Les *destinataires uniques* au niveau de la Campaign peuvent toujours inclure les utilisateurs qui ont reçu la variante supprimée, tandis que les *impressions uniques* omettent les statistiques des variantes supprimées dans les agrégations au niveau du message.
 
 ## Consulter un rapport {#viewing-a-report}
 
@@ -141,7 +143,7 @@ Vous pouvez partager un lien vers le rapport en sélectionnant **Share** et l'un
 1. Sélectionnez l'icône en pointillés en haut du tableau du rapport.
 2. Sélectionnez **Add to dashboard**.
 3. Choisissez si vous souhaitez créer un nouveau tableau de bord ou l'ajouter à un tableau de bord existant.<br><br>![Fenêtre avec des options pour choisir si vous souhaitez ajouter le rapport à un nouveau tableau de bord ou à un tableau de bord existant.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. Suivez les étapes dans [Générateur de tableaux de bord]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/) pour en savoir plus sur la création d'un tableau de bord.
+4. Suivez les étapes dans [Générateur de tableaux de bord]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) pour en savoir plus sur la création d'un tableau de bord.
 
 ## Résolution des problèmes {#troubleshooting}
 
@@ -150,3 +152,9 @@ Vous pouvez partager un lien vers le rapport en sélectionnant **Share** et l'un
 Une Campaign ou un Canvas apparaît dans le rapport lorsque sa date de **Last sent** se situe dans la fenêtre de **Last sent** que vous avez configurée. Les **Sends** et les autres indicateurs ne se remplissent que pour l'activité comprise dans la plage de dates **Show data for**. Si le message n'a pas été envoyé pendant la période **Show data for**, la ligne peut tout de même lister la Campaign ou le Canvas avec zéro envoi.
 
 Par exemple, supposons que **Last sent** est du 1er janvier 2025 au 14 avril 2025, de sorte qu'une Campaign est incluse, mais **Show data for** est du 1er décembre 2024 au 14 janvier 2025. Si cette Campaign n'a eu aucun envoi en décembre ou en janvier, elle apparaît tout de même dans le tableau sans indicateurs d'envoi.
+
+### Le lien de téléchargement a expiré {#download-link-has-expired}
+
+Les liens de téléchargement de rapport expirent après une heure. Si votre lien a expiré, générez un nouveau rapport et téléchargez-le dans l'heure. Il n'est pas possible de prolonger le délai d'expiration.
+
+Si vous avez un [compartiment Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) connecté dans **Partner Integrations**, vous pouvez éventuellement récupérer les données de rapports plus anciens en parcourant directement votre compartiment S3.

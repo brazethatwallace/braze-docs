@@ -12,7 +12,7 @@ noindex: true
 
 # Vinculación en profundidad para iOS {#deep-linking-for-ios}
 
-Para obtener información introductoria sobre los vínculos profundos, consulta [el artículo de nuestra Guía del usuario]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking). Si quieres implementar vínculos en profundidad por primera vez en tu aplicación Braze, los pasos siguientes te ayudarán a empezar.
+Para obtener información introductoria sobre los vínculos profundos, consulta [el artículo de nuestra Guía del usuario]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking). Si quieres implementar vínculos en profundidad por primera vez en tu aplicación Braze, los pasos siguientes te ayudarán a empezar.
 
 ## Paso 1: Registrar un esquema {#step-1-register-a-scheme}
 
@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![]({% image_buster /assets/img_archive/deep_link.png %})
+![Ejemplo de configuración de vínculo profundo en el panel de Braze.]({% image_buster /assets/img_archive/deep_link.png %})
 
 # Enlaces universales {#universal-links}
 

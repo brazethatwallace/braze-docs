@@ -143,6 +143,6 @@ Ouvrez le lien Branch depuis l'application Notes sur un appareil iOS physique. S
 | Le lien fonctionne depuis les notifications push mais pas depuis les e-mails | Le domaine de suivi des clics ne dispose pas du fichier AASA | Hébergez le fichier AASA sur le domaine de suivi des clics de votre ESP ; voir [Configuration des e-mails](#deep-linking-in-email) |
 | `shouldOpenURL` ne se déclenche jamais pour les liens Branch | `forwardUniversalLinks` non activé | Définissez `configuration.forwardUniversalLinks = true` |
 | Le lien Branch fonctionne depuis Notes mais pas depuis Braze | `BrazeDelegate` renvoie `true` pour les URL Branch | Vérifiez la correspondance de domaine dans `shouldOpenURL` avec votre domaine Branch |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Problèmes courants" }
 
 Pour plus de scénarios de résolution des problèmes de liens profonds, consultez [Résolution des problèmes de liens profonds]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).

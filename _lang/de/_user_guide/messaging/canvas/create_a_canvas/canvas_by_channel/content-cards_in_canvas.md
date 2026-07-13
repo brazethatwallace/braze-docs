@@ -41,6 +41,16 @@ Obwohl Sie eine Ablaufdauer von mehr als 30 Tagen angeben können, existiert die
 
 Seien Sie vorsichtig, wenn Sie ein Ablaufdatum festlegen, das mehr als 30 Tage nach dem Start des Canvas liegt. Wenn Nutzer:innen den Nachrichtenschritt mehr als 30 Tage vor dem angegebenen Ablaufdatum erreichen, wird die Card nicht gesendet.
 
+#### Personalisierter Ablauf mit Liquid {#personalized-expiry-with-liquid}
+
+Wenn Sie Liquid-Personalisierung verwenden, um die Ablaufdauer festzulegen (z. B. mithilfe angepasster Attribute oder Canvas-Eingangs-Eigenschaften), unterscheidet sich das Verhalten von absoluten oder relativen Daten:
+
+- Wenn der personalisierte Ablauf eine Dauer von mehr als 30 Tagen ergibt, begrenzt Braze diese automatisch auf das Maximum von 30 Tagen.
+- Die Content-Card wird dennoch mit der begrenzten Ablaufdauer an die Nutzer:innen gesendet.
+- Die Nutzer:innen schreiten zum nächsten Schritt im Canvas fort.
+
+Diese Begrenzung stellt sicher, dass Cards mit personalisiertem Ablauf auch dann zugestellt werden, wenn die aufgelöste Dauer das Plattformlimit überschreitet. Im Verarbeitungsprotokoll wird das Ergebnis als „Personalized expiration capped by max TTL“ angezeigt, mit Details wie `reason=capped_by_max_ttl` und `capped=true`.
+
 ### Ablaufverhalten {#expiration-behavior}
 
 Die Content-Card bleibt im Feed der Nutzer:innen verfügbar, bis sie ihr Ablaufdatum erreicht – auch wenn die Nutzer:innen zu nachfolgenden Schritten in der Canvas-Journey fortschreiten. Wenn Sie nicht möchten, dass die Content-Card noch aktiv ist, wenn die nächsten Schritte im Canvas ausgeliefert werden, stellen Sie sicher, dass der Ablauf kürzer ist als die Verzögerung bei nachfolgenden Schritten.
@@ -55,24 +65,24 @@ Content Cards können entfernt werden, wenn Nutzer:innen einen Kauf tätigen ode
 
 ## Berichte und Analytics {#reporting-and-analytics}
 
-Nach dem Start eines Content-Card-Schritts in Canvas können Sie verschiedene Metriken für diesen Schritt analysieren. Dazu gehören die Anzahl der gesendeten Nachrichten, eindeutige Empfänger:innen, Konversionsraten, Gesamtumsatz und mehr.
+Nach dem Start eines Content-Card-Schritts in Canvas können Sie verschiedene Metriken für diesen Schritt analysieren. Dazu gehören die Anzahl der gesendeten Nachrichten, eindeutige tägliche Impressionen, Konversionsraten, Gesamtumsatz und mehr.
 
 ![Analytics für einen Nachrichtenschritt mit der Content-Card-Nachrichten-Performance.]({% image_buster /assets/img_archive/content-cards-in-canvas-analytics.png %})
 
-Weitere Informationen zu den verfügbaren Metriken und deren Definitionen finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Weitere Informationen zu den verfügbaren Metriken und deren Definitionen finden Sie in unserem [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 ## Anwendungsfälle {#use-cases}
 
-#### Aktionsangebote {#promotional-offers}
+### Aktionsangebote {#promotional-offers}
 
 Fügen Sie Cards zum Feed der Nutzer:innen hinzu, sobald diese sich für bestimmte Aktionen und Werbeangebote qualifizieren. Wenn Nutzer:innen beispielsweise nach einer Aktion oder einem Kauf für ein neues Angebot berechtigt werden, können Sie ihnen über Canvas eine Content-Card – zusätzlich zu anderen Messaging-Kanälen – senden, sodass das Angebot beim nächsten Öffnen der App verfügbar ist.
 
-#### Push-Benachrichtigungs-Posteingang {#push-notification-inbox}
+### Push-Benachrichtigungs-Posteingang {#push-notification-inbox}
 
 Es gibt Situationen, in denen Nutzer:innen eine Push-Benachrichtigung verwerfen oder eine E-Mail löschen, Sie sie aber dennoch an das Angebot erinnern oder es bewerben möchten, falls sie es sich anders überlegen.
 
 Mit Canvas können Sie eine Komponente hinzufügen, die sowohl eine Content-Card als auch eine Push-Benachrichtigung sendet, um Nutzer:innen einen persistenten „Posteingang“ mit Cards zu bieten, die zu den per Push gesendeten Aktionsnachrichten passen.
 
-#### Mehrere Feeds basierend auf Kategorien {#multiple-feeds-based-on-categories}
+### Mehrere Feeds basierend auf Kategorien {#multiple-feeds-based-on-categories}
 
-Sie können Ihre Content Cards in mehrere Feeds aufteilen, basierend auf Kategorien wie verschiedenen Themen, die Nutzer:innen durchsuchen können, oder transaktionalen und Marketing-Feeds. Weitere Informationen zum Erstellen mehrerer Feeds mithilfe von Schlüssel-Wert-Paaren finden Sie in unserem Leitfaden zum [Anpassen von Content-Card-Feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).
+Sie können Ihre Content Cards in mehrere Feeds aufteilen, basierend auf Kategorien wie verschiedenen Themen, die Nutzer:innen durchsuchen können, oder transaktionalen und Marketing-Feeds. Weitere Informationen zum Erstellen mehrerer Feeds mithilfe von Schlüssel-Wert-Paaren finden Sie in unserem Leitfaden zum [Anpassen von Content-Card-Feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).

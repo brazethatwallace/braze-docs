@@ -7,7 +7,7 @@ description: "In diesem Referenzartikel erfahren Sie, wie Sie Kataloge verwenden
 
 # Verwendung von Katalogen {#using-catalogs}
 
-> Nachdem Sie einen Katalog erstellt haben, können Sie in Ihren Braze-Campaigns über [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) auf Nicht-Nutzerdaten verweisen. Sie können Kataloge in allen Ihren Messaging-Kanälen verwenden, auch überall dort, wo Liquid im Drag-and-Drop-Editor unterstützt wird.
+> Nachdem Sie einen Katalog erstellt haben, können Sie in Ihren Braze-Campaigns über [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) auf Nicht-Nutzerdaten verweisen. Sie können Kataloge in allen Ihren Messaging-Kanälen verwenden, auch überall dort, wo Liquid im Drag-and-Drop-Editor unterstützt wird.
 
 ## Kataloge in einer Nachricht verwenden {#using-catalogs-in-a-message}
 
@@ -17,9 +17,9 @@ Das folgende Video zeigt Ihnen, wie Sie Kataloge in einer Nachricht verwenden.
 
 ### 1. Schritt: Personalisierungsart hinzufügen {#step-one-personalization}
 
-Wählen Sie im Nachrichten-Editor Ihrer Wahl das <i class="fas fa-plus-circle"></i> Plus-Symbol, um das Modal **Add Personalization** zu öffnen, und wählen Sie **Catalog Items** als **Personalization type** aus. Wählen Sie anschließend den Namen Ihres Katalogs aus. In unserem vorherigen Beispiel wählen wir den Katalog „Games“.
+Wählen Sie im Nachrichten-Editor Ihrer Wahl <i class="fas fa-plus-circle"></i> **Add Personalization** und wählen Sie **Catalog Items** als **Personalization type** aus. Wählen Sie anschließend den Namen Ihres Katalogs aus. In unserem vorherigen Beispiel wählen wir den Katalog „Games“.
 
-![]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
+![Modal „Add Personalization“ mit ausgewählten Catalog Items, gewähltem Games-Katalog und einer Liquid-Vorschau, die den catalog_items-Tag zeigt.]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
 Wir können sofort die folgende Liquid-Vorschau sehen:
 
@@ -64,7 +64,7 @@ Sie sind nicht auf einen Artikel pro Nachricht beschränkt. Verwenden Sie das Mo
 
 Sehen Sie sich dieses Beispiel an, in dem wir die `id` von drei Spielen – Tales, Teslagrad und Acaratus – für **Catalog Items** hinzufügen und `title` für **Information to Display** auswählen.
 
-![]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
+![Modal „Add Personalization“ mit drei ausgewählten Katalogartikel-IDs und „title“ als anzuzeigende Information, mit einer Liquid-Vorschau, die jeden Artikeltitel auflistet.]({% image_buster /assets/img_archive/catalog_multiple_items.png %}){: style="max-width:70%" }
 
 Wir können unsere Nachricht weiter personalisieren, indem wir etwas Text um unser Liquid herum hinzufügen:
 
@@ -80,7 +80,7 @@ Das Ergebnis sieht folgendermaßen aus:
 ```Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
 
 {% alert tip %}
-Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to create groups of data for more personalized messaging!
+Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) to create groups of data for more personalized messaging!
 {% endalert %}
 
 ### Using Liquid `if` statements
@@ -119,6 +119,14 @@ Message if the venue name's size is 10 characters or fewer.
 
 In diesem Beispiel werden je nachdem, ob das Feld `venue_name` mehr oder weniger als 10 Zeichen hat, unterschiedliche Nachrichten angezeigt. Wenn `venue_name` leer ist, wird die Nachricht abgebrochen.
 
+Um auszugeben, wie viele Artikel eine Auswahl zurückgibt, verwenden Sie den Liquid-Filter `size` auf dem `items`-Array nach dem Tag, nicht auf einem einzelnen Feld:
+
+{% raw %}
+```liquid
+{% catalog_selection_items item-list selections %}{{ items | size }}
+```
+{% endraw %}
+
 {% alert tip %}
 Um Liquid-Syntaxfehler zu vermeiden, wählen Sie den **+** Plus-Button im Nachrichten-Editor, um Katalog-Liquid-Tags automatisch einzufügen.
 {% endalert %}
@@ -143,6 +151,10 @@ So sieht das aus, wenn das Liquid gerendert wird:
 
 ![Beispiel einer Content Card mit gerenderten Katalog-Liquid-Tags.]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
 
+{% alert important %}
+Vermeiden Sie in **HTML**-Kanälen wie E-Mail zusätzliche Leerzeichen oder Zeilenumbrüche zwischen dem schließenden {% raw %}`{% catalog_items ... %}`{% endraw %}-Tag und dem Liquid, das die Bild-URL ausgibt (z. B. {% raw %}`{{ items[0].image_link }}`{% endraw %}). Zusätzliche Leerzeichen im Template können verhindern, dass die Bild-URL in der gerenderten Nachricht korrekt aufgelöst wird. Halten Sie den URL-Ausdruck direkt neben dem Katalog-Tag, wie in: {% raw %}`<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">`{% endraw %}.
+{% endalert %}
+
 ### Templates für Katalogartikel
 
 Sie können auch Templates verwenden, um Katalogartikel auf der Grundlage angepasster Attribute dynamisch abzurufen. Nehmen wir zum Beispiel an, eine Nutzerin oder ein Nutzer hat das angepasste Attribut `wishlist`, das ein Array von Spiele-IDs aus Ihrem Katalog enthält.
@@ -162,7 +174,7 @@ Sie können auch Templates verwenden, um Katalogartikel auf der Grundlage angepa
 JSON-Objekte in Katalogen werden nur über die API aufgenommen. Sie können ein JSON-Objekt nicht über eine CSV-Datei hochladen.
 {% endalert %}
 
-Mit Liquid-Templates können Sie die Wunschlisten-IDs dynamisch abrufen und sie dann in Ihrer Nachricht verwenden. Dazu [weisen Sie Ihrem angepassten Attribut eine Variable zu]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) und verwenden dann das Modal **Add Personalization**, um einen bestimmten Artikel aus dem Array abzurufen. Variablen, die als ID eines Katalogartikels referenziert werden, müssen in geschweifte Klammern eingeschlossen werden, um korrekt referenziert zu werden, z. B. `{{result}}`.
+Mit Liquid-Templates können Sie die Wunschlisten-IDs dynamisch abrufen und sie dann in Ihrer Nachricht verwenden. Dazu [weisen Sie Ihrem angepassten Attribut eine Variable zu]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) und verwenden dann das Modal **Add Personalization**, um einen bestimmten Artikel aus dem Array abzurufen. Variablen, die als ID eines Katalogartikels referenziert werden, müssen in geschweifte Klammern eingeschlossen werden, um korrekt referenziert zu werden, z. B. `{{result}}`.
 
 {% alert tip %}
 Denken Sie daran, dass Arrays bei `0` beginnen, nicht bei `1`.
@@ -194,13 +206,13 @@ Sie können Kataloge auch manuell mit Liquid-Logik zusammenstellen. Beachten Sie
 
 #### Templates für Katalogartikel einschließlich Liquid
 
-Ähnlich wie bei [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) müssen Sie das `:rerender`-Flag in einem Liquid-Tag verwenden, um den Liquid-Inhalt eines Katalogartikels zu rendern. Beachten Sie, dass das `:rerender`-Flag nur eine Ebene tief wirkt, d. h. es gilt nicht für verschachtelte Liquid-Tag-Aufrufe.
+Ähnlich wie bei [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) müssen Sie das `:rerender`-Flag in einem Liquid-Tag verwenden, um den Liquid-Inhalt eines Katalogartikels zu rendern. Beachten Sie, dass das `:rerender`-Flag nur eine Ebene tief wirkt, d. h. es gilt nicht für verschachtelte Liquid-Tag-Aufrufe.
 
 Wenn ein Katalogartikel Nutzerprofil-Felder enthält (innerhalb eines Liquid-Personalisierungs-Tags), müssen diese Werte in Liquid zu einem früheren Zeitpunkt in der Nachricht und vor dem Templating definiert werden, damit das Liquid ordnungsgemäß gerendert werden kann. Wenn das `:rerender`-Flag nicht angegeben wird, wird der rohe Liquid-Inhalt ausgegeben.
 
 Wenn zum Beispiel ein Katalog mit dem Namen „Messages“ einen Artikel mit diesem Liquid enthält:
 
-![]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
+![Katalog-Tabellenzeile mit der ID „greet_msg“ und einer Spalte „Welcome_Message“, die eine Willkommensnachricht mit einer Liquid-Variable für den Vornamen enthält.]({% image_buster /assets/img_archive/catalog_liquid_templating.png %}){: style="max-width:80%;"}
 
 Um den folgenden Liquid-Inhalt zu rendern:
 
@@ -227,6 +239,20 @@ Welcome to our store, Peter!
 Katalog-Liquid-Tags können innerhalb von Katalogen nicht rekursiv verwendet werden.
 {% endalert %}
 
+## Fehlerbehebung bei der Katalogpersonalisierung
+
+Wenn Katalog- oder Auswahl-Liquid in einer Nachricht oder einem Canvas-Schritt nicht wie erwartet angezeigt wird, überprüfen Sie Folgendes:
+
+| Symptom | Was zu prüfen ist |
+| --- | --- |
+| Die Vorschau zeigt Artikel an, aber Live-Sendungen sind leer | Bestätigen Sie, dass die **Artikel-IDs** des Katalogs zum Sendezeitpunkt existieren. Wenn die ID in Ihrem Liquid nicht mit einer Zeile übereinstimmt, gibt Braze ein leeres Artikel-Array zurück – siehe [Liquid verwenden](#using-liquid). Prüfen Sie auf Tippfehler und auf ID-Quellen (wie Event-Eigenschaften), die beim Trigger oder im Nutzerprofil fehlen. |
+| Die Editor-Vorschau funktioniert in einer Campaign, aber nicht in Canvas | Bestätigen Sie, dass Sie den richtigen Liquid-Kontext verwenden – **Canvas-Kontexteigenschaften** im Vergleich zu **Event-Eigenschaften** – und dass diese Felder beim Trigger vorhanden sind. Siehe [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). |
+| Eine Auswahl gibt keine Artikel zurück | Überprüfen Sie die [Auswahlfilter]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) und Limits; bestätigen Sie, dass die Katalogdaten synchronisiert sind und die Spaltennamen mit Ihren Filtern übereinstimmen. |
+| `:rerender` oder die Template-Zustellung sieht falsch aus | Für verschachteltes Liquid in Katalogfeldern benötigen Sie `:rerender` und die korrekte Reihenfolge der Variablen – siehe [Templates für Katalogartikel einschließlich Liquid](#templating-catalog-items-including-liquid). In-App-Nachrichten mit Templates werden zum Trigger-Zeitpunkt aufgelöst; siehe [Was sind In-App-Nachrichten mit Templates?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages). Einige Kanäle schränken Katalog-Tags ein (z. B. bestimmte **:rerender**-Verwendungen mit Banner) – siehe [Werden alle Liquid-Tags unterstützt?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported) in den Banner-FAQ. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung bei der Katalogpersonalisierung" }
+
+Allgemeine Informationen zum Liquid-Verhalten finden Sie unter [Liquid-Anwendungsfälle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) und [Liquid verwenden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
+
 ## Strukturierung Ihrer Katalogdaten
 
 Wenn Sie planen, wie Sie Ihre Katalogdaten strukturieren, beginnen Sie mit Ihrem beabsichtigten Anwendungsfall und gestalten Sie den Katalog entsprechend. Jede Zeile im Katalog stellt einen Artikel dar (mit einer eindeutigen `id`). Die Spalten sollten die Attribute für diesen Artikel enthalten, wie z. B. URLs, Beschreibungstexte, Bild-URLs, Preis, Bewertung, Größe oder Farbe.
@@ -244,7 +270,7 @@ Bei Standard-Katalogaufrufen gleichen Sie einen Wert mit der `id`-Spalte ab. Ind
 
 ### Wann Sie Katalogauswahlen verwenden sollten
 
-[Katalogauswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) ermöglichen es Ihnen, über jede Spalte in Ihrem Katalog zu filtern und bis zu 50 übereinstimmende Artikel zurückzugeben. Indem Sie angepasste Attribute oder Event-Eigenschaften in die Auswahlfilter einfügen, werden die Ergebnisse für jede Nutzerin und jeden Nutzer personalisiert. Häufige Anwendungsfälle sind:
+[Katalogauswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) ermöglichen es Ihnen, über jede Spalte in Ihrem Katalog zu filtern und bis zu 50 übereinstimmende Artikel zurückzugeben. Indem Sie angepasste Attribute oder Event-Eigenschaften in die Auswahlfilter einfügen, werden die Ergebnisse für jede Nutzerin und jeden Nutzer personalisiert. Häufige Anwendungsfälle sind:
 
 - Artikel, deren Kategorie den Präferenzen einer Nutzerin oder eines Nutzers entspricht
 - Artikel, die zur bevorzugten Marke, Küche oder Größe einer Nutzerin oder eines Nutzers passen

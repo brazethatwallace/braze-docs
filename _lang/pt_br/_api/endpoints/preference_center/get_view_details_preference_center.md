@@ -1,15 +1,15 @@
 ---
-nav_title: "GET: Exibir detalhes da Central de Preferências"
-article_title: "GET: Exibir detalhes da Central de Preferências"
+nav_title: "GET: Ver informações da Central de Preferências"
+article_title: "GET: Ver informações da Central de Preferências"
 search_tag: Endpoint
 page_order: 3
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint \"Exibir detalhes da Central de Preferências\" da Braze."
+description: "Este artigo descreve detalhes sobre o endpoint \"Ver informações da Central de Preferências\" da Braze."
 
 ---
 {% api %}
-# Exibir detalhes da Central de Preferências
+# Ver informações da Central de Preferências {#view-details-for-preference-center}
 {% apimethod get %}
 /preference_center/v1/{preferenceCenterExternalID}
 {% endapimethod %}
@@ -18,33 +18,33 @@ description: "Este artigo descreve detalhes sobre o endpoint \"Exibir detalhes d
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6a47fd7c-2997-4832-aedb-d101a2dd03a5 {% endapiref %}
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `preference_center.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `preference_center.get`.
 
-## Limite de taxa
+## Limite de taxa {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='get preference center' %}
 
-## Parâmetros de path
+## Parâmetros de caminho {#path-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-|`preferenceCenterExternalID`| Obrigatória | String | O ID da sua Central de Preferências. |
-{: role="presentation" }
+| `preferenceCenterExternalID` | Obrigatória | String | O ID da sua Central de Preferências. |
+{: aria-label="Parâmetros de caminho" }
 
-## Parâmetros de solicitação
+## Parâmetros de solicitação {#request-parameters}
 
 Não há parâmetros de solicitação para esse endpoint.
 
-## Exemplo de solicitação
+## Exemplo de solicitação {#example-request}
 
 ```
 curl --location -g --request GET https://rest.iad-01.braze.com/preference_center/v1/preference_center_external_id \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Resposta
+## Resposta {#response}
 ```json
 {
   "name": "My Preference Center",

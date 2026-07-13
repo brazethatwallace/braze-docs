@@ -2,13 +2,13 @@
 nav_title: Formulaire d'inscription SMS, RCS et WhatsApp
 article_title: Formulaire d'inscription SMS, RCS et WhatsApp
 alias: "/phone_number_capture/"
-page_order: 1
+page_order: 2
 description: "Cette page explique comment créer un formulaire d'inscription SMS, RCS et WhatsApp avec l'éditeur par glisser-déposer pour les messages in-app."
 ---
 
 # Formulaire d'inscription SMS, RCS et WhatsApp {#sms-rcs-and-whatsapp-sign-up-form}
 
-> Les formulaires d'inscription SMS, RCS et WhatsApp sont des modèles disponibles dans l'éditeur par glisser-déposer pour les In-App Messages. Utilisez ces modèles pour collecter les numéros de téléphone des utilisateurs et développer vos groupes d'abonnement SMS, MMS, RCS et WhatsApp.
+> Les formulaires d'inscription SMS, RCS et WhatsApp sont des modèles disponibles dans l'éditeur par glisser-déposer pour les messages in-app. Utilisez ces modèles pour collecter les numéros de téléphone des utilisateurs et développer vos groupes d'abonnement SMS, MMS, RCS et WhatsApp.
 
 ![Trois exemples de messages in-app créés à l'aide du modèle de formulaire d'inscription par téléphone.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_example2.png %})
 
@@ -34,7 +34,7 @@ Pour commencer à créer votre formulaire d'inscription, sélectionnez le compos
 
 ![Zone de prévisualisation lors de la création d'un formulaire d'inscription avec le composant de saisie du numéro de téléphone sélectionné.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%"}
 
-Depuis le menu latéral, spécifiez le groupe d'abonnement pour lequel ce modèle collectera les numéros de téléphone. Pour respecter les bonnes pratiques de conformité, vous ne pouvez collecter le consentement que pour un seul groupe d'abonnement par formulaire d'inscription par numéro de téléphone. Cependant, si vous le souhaitez, vous pouvez utiliser plusieurs formulaires pour collecter le consentement pour d'autres groupes d'abonnement.
+Depuis le menu latéral, spécifiez le groupe d'abonnement pour lequel ce modèle collectera les numéros de téléphone. Pour respecter les bonnes pratiques de conformité, vous ne pouvez collecter le consentement que pour un seul groupe d'abonnement par formulaire d'inscription. Cependant, si vous le souhaitez, vous pouvez utiliser plusieurs formulaires pour collecter le consentement pour d'autres groupes d'abonnement.
 
 ![Menu déroulant des groupes d'abonnement avec un groupe d'abonnement sélectionné.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_subscription.png %}){: style="max-width:40%"}
 
@@ -44,7 +44,7 @@ Par défaut, nous collectons les numéros à l'échelle mondiale, mais vous pouv
 
 #### Numéros de téléphone invalides {#invalid-phone-numbers}
 
-Si vos utilisateurs saisissent un numéro de téléphone contenant des caractères spéciaux non acceptés, ils verront un indicateur d'erreur générique qui n'est pas personnalisable et ne pourront pas soumettre le formulaire. Vous pouvez visualiser le comportement d'erreur dans l'onglet **Preview & Test** et sur votre appareil de test. Consultez cet article pour découvrir [comment Braze formate les numéros de téléphone]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#importing-phone-numbers).
+Si vos utilisateurs saisissent un numéro de téléphone contenant des caractères spéciaux non acceptés, ils verront un indicateur d'erreur générique qui n'est pas personnalisable et ne pourront pas soumettre le formulaire. Vous pouvez visualiser le comportement d'erreur dans l'onglet **Preview & Test** et sur votre appareil de test. Consultez cet article pour découvrir [comment Braze formate les numéros de téléphone]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers).
 
 ### Étape 4 : Ajouter une clause de non-responsabilité (pour les formulaires d'inscription SMS et RCS) {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
 
@@ -62,11 +62,11 @@ Nous avons fourni une clause de non-responsabilité à titre d'exemple dans le m
 Cette documentation n'est pas destinée à fournir, et ne peut pas être considérée comme fournissant, des conseils juridiques.
 {% endalert %}
 
-Pour plus d'informations sur la conformité SMS et RCS, consultez [Lois et réglementations pour les SMS, MMS et RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
+Pour plus d'informations sur la conformité SMS et RCS, consultez [Lois et réglementations pour les SMS, MMS et RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ### Étape 5 : Styliser votre message {#step-5-style-your-message}
 
-Personnalisez l'apparence de votre message à l'aide des [composants de messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) par glisser-déposer.
+Personnalisez l'apparence de votre message à l'aide des [composants de messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) par glisser-déposer.
 
 ## Analyser les résultats {#analyzing-the-results}
 

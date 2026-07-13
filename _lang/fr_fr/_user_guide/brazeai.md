@@ -52,3 +52,16 @@ guide_featured_list:
 ---
 
 <br>
+
+## Aperçu des fonctionnalités {#feature-overview}
+
+| Votre objectif | Fonctionnalité recommandée |
+| --- | --- |
+| Personnaliser le texte des messages par utilisateur en fonction de son contexte | [Agents Braze]({{site.baseurl}}/user_guide/brazeai/agents) ([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) ou [catalogue]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)) ; pour un brouillon ponctuel, [IA générative]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
+| Optimiser le contenu des messages (objet, CTA, etc.) qui fonctionne le mieux au fil du temps | [Optimiseur de contenu]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (e-mail, notifications push ou SMS/MMS/RCS) ou [variante gagnante]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) |
+| Maximiser un indicateur métier (chiffre d'affaires, conversions) grâce à des décisions individualisées sur les offres, les canaux et le timing | [Studio de prise de décision]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
+| Identifier les utilisateurs susceptibles de se désengager ou d'effectuer un événement | [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) ou [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
+| Recommander des produits spécifiques d'un catalogue dans les messages | [Recommandations d'articles]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
+| Envoyer au meilleur moment ou via le meilleur canal pour chaque utilisateur | [Timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), [canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
+| Créer ou affiner le texte et les visuels directement dans le tableau de bord | [Operator]({{site.baseurl}}/user_guide/brazeai/operator) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aperçu des fonctionnalités" }

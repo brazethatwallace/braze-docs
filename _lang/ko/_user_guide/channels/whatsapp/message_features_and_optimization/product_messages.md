@@ -32,7 +32,7 @@ channel:
 | WhatsApp 비즈니스 계정 | WhatsApp 제품 메시지를 사용하려면 Braze에 연결된 WhatsApp 비즈니스 계정이 있어야 합니다. |
 | Meta 카탈로그 | Commerce Manager에서 Meta 카탈로그를 설정해야 합니다. |
 | 약관 준수 | [Meta Commerce 약관 및 정책](https://www.facebook.com/policies_center/commerce)을 준수해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요구 사항" }
 
 ## 제품 메시지 유형 {#product-message-types}
 
@@ -90,7 +90,7 @@ ID를 사용하여 수동으로 제품을 선택하거나, [설정](#setting-up-
 !["Catalog_products" 카탈로그에 대한 WhatsApp Manager 설정 페이지.]({% image_buster /assets/img/whatsapp/meta_catalog_settings.png %}){: style="max-width:90%;"}
 
 {: start="4"}
-4. Braze에서 [임베디드 가입]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/) 프로세스를 진행하여 권한을 제공합니다. 권한을 제공할 카탈로그를 **모두** 선택해야 합니다. 이렇게 하면 Braze 통합 제품 선택기가 활성화됩니다.
+4. Braze에서 [임베디드 가입]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup) 프로세스를 진행하여 권한을 제공합니다. 권한을 제공할 카탈로그를 **모두** 선택해야 합니다. 이렇게 하면 Braze 통합 제품 선택기가 활성화됩니다.
 
 ![권한을 제공하기 위해 5개의 카탈로그가 선택된 창.]({% image_buster /assets/img/whatsapp/select_catalogs.png %}){: style="max-width:50%;"}
 
@@ -159,7 +159,7 @@ Meta Business Manager에서 **Commerce Manager**로 이동하여 조직을 선�
 
 ## 인바운드 제품 질문 수신 {#receiving-inbound-product-questions}
 
-사용자는 제품 또는 카탈로그 메시지에 제품 질문으로 응답할 수 있습니다. 이러한 질문은 인바운드 메시지로 도착하며, [행동 경로]({{site.baseurl}}/action_paths/)를 사용하여 분류할 수 있습니다.
+사용자는 제품 또는 카탈로그 메시지에 제품 질문으로 응답할 수 있습니다. 이러한 질문은 인바운드 메시지로 도착하며, [행동 경로]({{site.baseurl}}/action_paths)를 사용하여 분류할 수 있습니다.
 
 또한 Braze는 이러한 질문에서 제품 ID와 카탈로그 ID를 추출하므로, 응답을 자동화하거나 다른 팀(예: 고객지원)에 질문을 전달하려는 경우 해당 세부 정보를 포함할 수 있습니다. 예를 들어, `inbound_product_id` 또는 `inbound_catalog_id`의 WhatsApp 등록정보를 사용하여 응답을 개인화할 수 있습니다.
 
@@ -196,7 +196,7 @@ Meta Business Manager에서 **Commerce Manager**로 이동하여 조직을 선�
 - **Source:** "whats_app"으로 표시
 - **Metadata:** 카탈로그 ID 및 메시지 텍스트와 같은 추가 데이터
 
-추가적인 Braze 장바구니 이벤트 정보는 [eCommerce 권장 이벤트 유형]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/#types-of-ecommerce-recommended-events)에서 확인할 수 있습니다.
+추가적인 Braze 장바구니 이벤트 정보는 [eCommerce 권장 이벤트 유형]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events)에서 확인할 수 있습니다.
 
 ### 트리거 응답 설정 {#setting-up-a-triggered-response}
 
@@ -249,7 +249,7 @@ eCommerce 시스템에 API 호출을 하여 개인화된 결제 URL을 생성합
 #### 설정
 
 1. [`ecommerce.cart_update`]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.cart_updated) eCommerce 이벤트에 의해 트리거되는 웹훅 Campaign 또는 Canvas 단계를 생성하여 장바구니 데이터를 eCommerce 시스템에 전송합니다.
-2. 동일한 eCommerce 이벤트에 의해 트리거되는 WhatsApp Campaign 또는 Canvas 메시지 단계를 생성하여 사용자에게 장바구니 URL이 포함된 WhatsApp 응답 메시지를 보냅니다. 후속 응답 메시지의 안내에 따라 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 사용합니다.
+2. 동일한 eCommerce 이벤트에 의해 트리거되는 WhatsApp Campaign 또는 Canvas 메시지 단계를 생성하여 사용자에게 장바구니 URL이 포함된 WhatsApp 응답 메시지를 보냅니다. 후속 응답 메시지의 안내에 따라 [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 사용합니다.
 
 ![연결된 콘텐츠 호출의 결제 경험 워크플로를 보여주는 다이어그램: Meta가 Braze에 주문 수신 메시지를 보내면, Braze가 eCommerce 플랫폼과 양방향 호출을 수행한 후 WhatsApp 메시지를 전송합니다.]({% image_buster /assets/img/whatsapp/connected_content_checkout.png %})
 

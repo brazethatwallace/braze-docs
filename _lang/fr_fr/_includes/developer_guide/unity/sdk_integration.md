@@ -23,6 +23,8 @@ Plusieurs packages Braze Unity sont disponibles au téléchargement sur la [page
 
 {% alert note %}
 À partir d'Unity 2.6.0, l'artefact groupé du SDK Android de Braze nécessite les dépendances [AndroidX](https://developer.android.com/jetpack/androidx). Si vous utilisiez auparavant un `jetified unitypackage`, vous pouvez effectuer la transition en toute sécurité vers le `unitypackage` correspondant.
+
+Si les compilations Android échouent avec le message « This project uses AndroidX dependencies, but the 'android.useAndroidX' property is not enabled », activez [Custom Gradle Properties Template](https://docs.unity3d.com/Manual/class-PlayerSettingsAndroid.html#Publishing) dans vos paramètres de publication Unity. Ouvrez ensuite `Assets/Plugins/Android/gradleTemplate.properties` et définissez `android.useAndroidX=true`. Pour un modèle fonctionnel, consultez l'[application exemple Braze Unity](https://github.com/braze-inc/braze-unity-sdk/tree/master/unity-samples) et son fichier [`gradleTemplate.properties`](https://github.com/braze-inc/braze-unity-sdk/blob/master/unity-samples/Assets/Plugins/Android/gradleTemplate.properties).
 {% endalert %}
 {% endtab %}
 
@@ -124,7 +126,7 @@ Toutes les classes Activity enregistrées dans votre fichier `AndroidManifest.xm
 
 Pour trouver le nom de votre package, cliquez sur **File > Build Settings > Player Settings > Android Tab**.
 
-![]({% image_buster /assets/img_archive/UnityPackageName.png %})
+![Onglet Android des paramètres du lecteur Unity affichant le nom du package de l'application.]({% image_buster /assets/img_archive/UnityPackageName.png %})
 
 Dans votre `AndroidManifest.xml`, toutes les instances de `REPLACE_WITH_YOUR_PACKAGE_NAME` doivent être remplacées par votre `Package Name` de l'étape précédente.
 
@@ -167,7 +169,7 @@ Braze fournit une solution Unity native pour automatiser l'intégration Unity iO
 2. Cochez la case **Automate Unity iOS Integration**.
 3. Dans le champ **Braze API Key**, saisissez la clé API de votre application disponible dans **Gérer les paramètres**.
 
-![]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
+![Fenêtre de configuration Braze dans Unity avec les champs Automate Unity iOS Integration et Braze API Key.]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
 
 Si votre application utilise déjà une autre sous-classe de `UnityAppController`, vous devrez fusionner votre implémentation de sous-classe avec `AppboyAppDelegate.mm`.
 {% endtab %}

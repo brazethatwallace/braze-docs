@@ -12,10 +12,6 @@ channel:
 
 > The WhatsApp Template Builder lets you create and submit WhatsApp message templates directly in Braze—no need to switch between Braze and the Meta Business Manager. After Meta approves your template, use it in as many campaigns and Canvases as you'd like.
 
-{% alert note %}
-The WhatsApp Template Builder is currently in early access. Contact your Braze account manager for access.
-{% endalert %}
-
 ## Prerequisites
 
 {% multi_lang_include whatsapp/template_prerequisites.md %}
@@ -24,7 +20,7 @@ The WhatsApp Template Builder is currently in early access. Contact your Braze a
 
 ### Step 1: Go to WhatsApp Templates
 
-Go to **Templates** > **WhatsApp Templates**, then select **Create new template**.
+Go to **Content** > **WhatsApp**, then select **Create new template**.
 
 ![WhatsApp templates page with button to create a new template.]({% image_buster /assets/img/whatsapp/templates/create_whatsapp_template.png %})
 
@@ -37,20 +33,20 @@ Fill in the following fields:
 | **Account** | The WhatsApp Business Account (WABA) you’d like to submit the template to. All subscription groups and phone numbers within a WABA will share template access. |
 | **Language** | The language for this template. WhatsApp requires a separate template for each language. |
 | **Template name** | A unique name for your template. Template names can only contain lowercase letters, numbers, and underscores. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure template settings" }
 
 ### Step 3: Choose a layout
 
 Under **Layout**, select the template type:
 
 - **Default:** A standard WhatsApp message. This is the layout covered in this article.  
-- **Carousel:** A message with horizontally scrollable cards. For more information, see [Carousel templates]({{site.baseurl}}/whatsapp_carousel_templates/).
+- **Carousel:** A message with horizontally scrollable cards. For more information, see [Carousel templates]({{site.baseurl}}/whatsapp_carousel_templates).
 
 ### Step 4: Build your template
 
 #### Header (optional)
 
-Add a header to appear above the message body. You can choose:
+Add a header to appear before the message body. You can choose:
 
 - **Text:** A short text header.  
 - **Media:** An image, video, or document (URL only). Braze stores the media reference and submits a sample to Meta for approval.  
@@ -69,7 +65,7 @@ You can add personalization wherever the **+** plus button appears. Not all fiel
 
 #### Footer (optional)
 
-Add a short footer to appear below the message body.
+Add a short footer to appear after the message body.
 
 #### Buttons (optional)
 
@@ -81,7 +77,7 @@ Add up to 10 buttons to your template. Button types have different categories an
 | Phone number | Call to Action buttons | {::nomarkdown}<ul><li><b>Maximum count:</b> 1</li><li><b>Button text:</b> Up to 25 characters</li><li><b>Phone number:</b> Valid phone number with country code, without + (such as "14155552671")</li></ul> {:/}|
 | Visit website | Call to Action buttons | {::nomarkdown}<ul><li><b>Maximum count:</b> 2</li><li><b>Button text:</b> Up to 25 characters</li><li><b>Website URL:</b> Up to 2,000 characters</li></ul> {:/}|
 | Copy offer code | Call to Action buttons | {::nomarkdown}<ul><li><b>Maximum count:</b> 1</li><li><b>Button text:</b> "Copy offer code" (can't be edited)</li><li><b>Offer code:</b> Up to 15 characters</li></ul> {:/}|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Buttons (optional)" }
 
 ![WhatsApp template composer with quick reply and call to action buttons.]({% image_buster /assets/img/whatsapp/templates/buttons.png %})
 
@@ -110,7 +106,7 @@ After Meta approves your template, you can use it in a WhatsApp campaign or Canv
 4. Update any variable content or personalization as needed. Fields locked by Meta (shown in gray) cannot be edited. To change locked content, you must edit and resubmit the template for approval.  
 5. Use the **Test** tab to preview the message, update body variables, and confirm the message looks as expected before launch.
 
-For more information about building WhatsApp campaigns, see [Create a WhatsApp message]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/).
+For more information about building WhatsApp campaigns, see [Create a WhatsApp message]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
 ## Frequently asked questions
 

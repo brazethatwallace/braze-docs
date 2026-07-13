@@ -17,12 +17,12 @@ _Cette intégration est maintenue par Mention Me._
 
 Avant de commencer, vous aurez besoin des éléments suivants :
 
-| Prérequis          | Description                                                                                                                                |
+| Prérequis | Description |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Un compte Mention Me   | Un compte [Mention Me](https://mention-me.com/login) est nécessaire pour bénéficier de ce partenariat.                                                                     |
-| Une clé REST API Braze  | Une clé REST API Braze avec les autorisations `users.track` et `templates.email.create`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
-| Un endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Un compte Mention Me | Un compte [Mention Me](https://mention-me.com/login) est nécessaire pour bénéficier de ce partenariat. |
+| Une clé REST API Braze | Une clé REST API Braze avec les autorisations `users.track` et `templates.email.create`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
+| Un endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Cas d'utilisation {#use-cases}
 
@@ -32,7 +32,7 @@ Avant de commencer, vous aurez besoin des éléments suivants :
 
 ## Quelles données sont envoyées de Mention Me à Braze ? {#what-data-is-sent-from-mention-me-to-braze}
 
-Lorsque vous configurez cette intégration, Mention Me crée automatiquement vos attributs clients et vos événements — il n'est donc pas nécessaire de le faire au préalable.
+Lorsque vous configurez cette intégration, Mention Me crée automatiquement vos attributs clients et vos événements&#8212;il n'est donc pas nécessaire de le faire au préalable.
 
 Les adresses e-mail de vos clients dans Braze seront utilisées pour associer les événements et les attributs personnalisés pertinents. Mention Me enverra des événements et des attributs de profil de contact pour tout prospect ou client existant qui déclenche cet événement via Mention Me, quel que soit son statut d'abonnement.
 

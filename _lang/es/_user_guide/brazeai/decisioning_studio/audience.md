@@ -18,7 +18,7 @@ description: "Aprende a definir y configurar la audiencia para tu agente de Braz
 | **Control aleatorio** | Clientes que reciben opciones seleccionadas aleatoriamente (comparación de referencia) |
 | **Business-as-Usual (opcional)** | Clientes que reciben el recorrido de marketing actual (para comparar con el rendimiento existente) |
 | **Holdout (opcional)** | Clientes que no reciben comunicaciones (para medir el impacto general de la campaña) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Grupos de tratamiento" }
 
 ## Configura tu audiencia {#configure-your-audience}
 
@@ -64,4 +64,4 @@ Para determinar si esto es factible, consulta la documentación de tu plataforma
 
 Después de definir tu audiencia, procede a configurar la orquestación:
 
-- [Configurar la orquestación]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [Configurar la orquestación]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

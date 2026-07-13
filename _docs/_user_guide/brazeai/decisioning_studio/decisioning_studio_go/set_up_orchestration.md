@@ -18,9 +18,9 @@ Decisioning Studio Go supports the following Customer Engagement Platforms:
 |-----|-----------------|--------------|
 | **Braze** | API-triggered campaigns | Native integration, real-time triggering |
 | **Salesforce Marketing Cloud** | Journey Builder with API Events | SQL query automation, data extensions |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported CEPs" }
 
-Select your CEP below to get started with the integration setup.
+Select your CEP from this list to get started with the integration setup.
 
 {% tabs %}
 {% tab Braze %}
@@ -36,7 +36,7 @@ To integrate Decisioning Studio Go with Braze, you'll create an API key, configu
 3. Enter a name for your API key. An example is "DecisioningStudioGoEmail".
 4. Select the permissions based on the following categories:
     - **User Data:** select `users.track`, `users.delete`, `users.export.ids`, `users.export.segment`
-    - **Messages:** select `messages.send`
+    - **Messages:** select `messages.send`, `messages.schedule.create`, `messages.schedule.update`, `messages.schedule.delete`
     - **Campaigns:** select all listed permissions
     - **Canvas:** select all listed permissions
     - **Segments:** select all listed permissions
@@ -105,7 +105,7 @@ Braze offers app IDs (referred to as API keys in the Braze dashboard) that you c
 
 To test your integration, you'll need a user ID:
 
-If your workspace uses [identifier field-level encryption]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/), any new test user you create with the `/users/track` endpoint must follow the email requirements for encrypted workspaces. Send the `email` field as the Base64-encoded HMAC-SHA256 hash of the downcased email value, and send `email_encrypted` as the encrypted email value generated with your configured PII encryption keys.
+If your workspace uses [identifier field-level encryption]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption), any new test user you create with the `/users/track` endpoint must follow the email requirements for encrypted workspaces. Send the `email` field as the Base64-encoded HMAC-SHA256 hash of the downcased email value, and send `email_encrypted` as the encrypted email value generated with your configured PII encryption keys.
 
 1. In the Braze dashboard, go to **Audience** > **Search Users**.
 2. Search for the user by their external user ID, user alias, email, phone number, or push token.
@@ -326,7 +326,7 @@ Now, you can check to make sure the automation is running successfully. Contact 
 {: start="5"}
 5. Enter the template ID of your first email template, then select **Done**.
 6. Select **Summary** to save this path.
-7. Add a path for each of your email templates, then repeat steps 4-6 above to set the filter criteria so that the template ID matches the ID value of each template.
+7. Add a path for each of your email templates, then repeat steps 4-6 in the prior sequence to set the filter criteria so that the template ID matches the ID value of each template.
 8. Select **Done** to save the **Decision Split** node.
 
 ![Two paths in a Decision Split for each email template ID.]({% image_buster /assets/img/decisioning_studio_go/journey10.png %}){: style="max-width:65%;"}
@@ -377,4 +377,4 @@ You're all set! You can now begin triggering sends through BrazeAI Decisioning S
 
 Now that you've set up orchestration, proceed to design your agent:
 
-- [Design your agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [Design your agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

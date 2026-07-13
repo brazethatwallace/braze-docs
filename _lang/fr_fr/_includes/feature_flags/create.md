@@ -1,6 +1,6 @@
 # Créer des indicateurs de fonctionnalité {#create-feature-flags}
 
-> Les indicateurs de fonctionnalité vous permettent d'activer ou de désactiver à distance des fonctionnalités pour une sélection d'utilisateurs. Créez un indicateur de fonctionnalité dans le tableau de bord de Braze. Donnez-lui un nom et un `ID`, une audience cible et un pourcentage d'utilisateurs pour lesquels activer cette fonctionnalité. Ensuite, en utilisant ce même `ID` dans le code de votre application ou de votre site web, vous pouvez exécuter certaines parties de votre logique métier de manière conditionnelle. Pour en savoir plus sur les indicateurs de fonctionnalité et leur utilisation dans Braze, consultez la section [À propos des indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/).
+> Les indicateurs de fonctionnalité vous permettent d'activer ou de désactiver à distance des fonctionnalités pour une sélection d'utilisateurs. Créez un indicateur de fonctionnalité dans le tableau de bord de Braze. Donnez-lui un nom et un `ID`, une audience cible et un pourcentage d'utilisateurs pour lesquels activer cette fonctionnalité. Ensuite, en utilisant ce même `ID` dans le code de votre application ou de votre site web, vous pouvez exécuter certaines parties de votre logique métier de manière conditionnelle. Pour en savoir plus sur les indicateurs de fonctionnalité et leur utilisation dans Braze, consultez la section [À propos des indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags).
 
 ## Conditions préalables {#prerequisites}
 
@@ -12,25 +12,25 @@ Pour utiliser les indicateurs de fonctionnalité, assurez-vous que vos SDK sont 
 
 ### Autorisations Braze {#braze-permissions}
 
-Pour gérer les indicateurs de fonctionnalité dans le tableau de bord, vous devez être administrateur ou disposer des [autorisations]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) suivantes :
+Pour gérer les indicateurs de fonctionnalité dans le tableau de bord, vous devez être administrateur ou disposer des [autorisations]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) suivantes :
 
-| Autorisation                                                                    | Ce que vous pouvez faire                           |
+| Autorisation                                                                  | Ce que vous pouvez faire                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
-| **Gérer les indicateurs de fonctionnalité**                                                      | Afficher, créer et modifier des indicateurs de fonctionnalité.     |
-| **Accéder aux campagnes, Canvas, cartes, indicateurs de fonctionnalité, segments, bibliothèque multimédia** | Consulter la liste des indicateurs de fonctionnalité disponibles. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Manage Feature Flags**                                                      | Afficher, créer et modifier des indicateurs de fonctionnalité.     |
+| **Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library** | Consulter la liste des indicateurs de fonctionnalité disponibles. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Autorisations Braze" }
 
 ## Création d'un indicateur de fonctionnalité {#creating-a-feature-flag}
 
 ### Étape 1 : Créer un nouvel indicateur de fonctionnalité {#step-1-create-a-new-feature-flag}
 
-Allez dans **Envoi de messages** > **Indicateurs de fonctionnalité**, puis sélectionnez **Créer un indicateur de fonctionnalité**.
+Allez dans **Messaging** > **Feature Flags**, puis sélectionnez **Create Feature Flag**.
 
 ![Tableau de données présentant un indicateur de fonctionnalité existant et expliquant comment en créer un nouveau.]({% image_buster /assets/img/feature_flags/create_ff.png %}){: style="max-width:75%"}
 
 ### Étape 2 : Renseigner les détails {#step-2-fill-out-the-details}
 
-Sous **Détails de l'indicateur de fonctionnalité**, saisissez un nom, un ID et une description pour votre indicateur de fonctionnalité.
+Sous **Feature flag details**, saisissez un nom, un ID et une description pour votre indicateur de fonctionnalité.
 
 ![Un formulaire permettant d'ajouter un nom, un ID, une description et des propriétés à un indicateur de fonctionnalité.]({% image_buster /assets/img/feature_flags/create_ff_properties.png %}){: style="max-width:75%"}
 
@@ -41,48 +41,49 @@ Sous **Détails de l'indicateur de fonctionnalité**, saisissez un nom, un ID et
 | ID           | L'ID unique que vous utiliserez dans votre code pour vérifier si cette fonctionnalité est [activée pour un utilisateur](#enabled). Cet ID ne pourra pas être modifié ultérieurement. Consultez donc les [bonnes pratiques en matière de nommage des ID](#naming-conventions) avant de continuer. |
 | Description  | Une description facultative qui donne un peu de contexte à votre indicateur de fonctionnalité.   |
 | Propriétés   | Propriétés facultatives permettant de configurer à distance votre indicateur de fonctionnalité. Elles peuvent être remplacées dans les étapes du Canvas ou les expériences d'indicateur de fonctionnalité. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Renseigner les détails" }
 
 ### Étape 2a : Créer des propriétés personnalisées {#step-2a-create-custom-properties}
 
-Sous **Propriétés**, vous avez la possibilité de créer des propriétés personnalisées auxquelles votre application peut accéder via le SDK Braze lorsque votre fonctionnalité est activée. Vous pouvez attribuer une chaîne de caractères, une valeur booléenne, une image, un horodatage, un JSON ou une valeur numérique à chaque variable, ainsi que définir une valeur par défaut.
+Sous **Properties**, vous avez la possibilité de créer des propriétés personnalisées auxquelles votre application peut accéder via le SDK Braze lorsque votre fonctionnalité est activée. Vous pouvez attribuer une chaîne de caractères, une valeur booléenne, une image, un horodatage, un JSON ou une valeur numérique à chaque variable, ainsi que définir une valeur par défaut.
 
 {% tabs local %}
 {% tab example %}
 Dans l'exemple suivant, l'indicateur de fonctionnalité affiche une bannière de rupture de stock pour une boutique en ligne à l'aide des propriétés personnalisées répertoriées :
 
-|Nom de la propriété|Type|Valeur|
+| Nom de la propriété | Type | Valeur |
 |--|--|--|
-|`banner_height`|`number`|`75`|
-|`banner_color`|`string`|`blue`|
-|`banner_text`|`string`|`Widgets are out of stock until July 1.`|
-|`dismissible`|`boolean`|`false`|
-|`homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
-|`account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
-|`footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
+| `banner_height` | `number` | `75` |
+| `banner_color` | `string` | `blue` |
+| `banner_text` | `string` | `Widgets are out of stock until July 1.` |
+| `dismissible` | `boolean` | `false` |
+| `homepage_icon` | `image` | `http://s3.amazonaws.com/[bucket_name]/` |
+| `account_start` | `timestamp` | `2011-01-01T12:00:00Z` |
+| `footer_settings` | `JSON` | `{ "colors": [ "red", "blue", "green" ], "placement": 123 }` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2a : Créer des propriétés personnalisées" }
 
 {% alert tip %}
-Il n'y a pas de limite au nombre de propriétés que vous pouvez ajouter. Toutefois, les propriétés d'un indicateur de fonctionnalité sont limitées à un total de 10 Ko. Les valeurs des propriétés et les clés sont limitées à 255 caractères.
+Il n'y a pas de limite au nombre de propriétés que vous pouvez ajouter. Toutefois, les propriétés d'un indicateur de fonctionnalité sont limitées à un total de 10 000 caractères.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
 ### Étape 4 : Choisir les segments à cibler {#step-4-choose-segments-to-target}
 
-Avant de déployer un indicateur de fonctionnalité, vous devez choisir un [segment]({{site.baseurl}}/user_guide/engagement_tools/segments/) d'utilisateurs à cibler. Sélectionnez **Ajouter une règle** sur votre indicateur nouvellement créé, puis utilisez les menus déroulants de groupe de filtres et de segment pour filtrer les utilisateurs de votre audience cible. Ajoutez plusieurs filtres pour affiner davantage votre audience.
+Avant de déployer un indicateur de fonctionnalité, vous devez choisir un [segment]({{site.baseurl}}/user_guide/engagement_tools/segments) d'utilisateurs à cibler. Sélectionnez **Add Rule** sur votre indicateur nouvellement créé, puis utilisez les menus déroulants de groupe de filtres et de segment pour filtrer les utilisateurs de votre audience cible. Ajoutez plusieurs filtres pour affiner davantage votre audience.
 
-![Une zone de texte intitulée « Déploiement du trafic » avec la possibilité d'ajouter des segments et des filtres.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
+![Une zone de texte intitulée « Rollout Traffic » avec la possibilité d'ajouter des segments et des filtres.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
 ### Étape 5 : Définir le trafic de déploiement {#rollout}
 
-Par défaut, les indicateurs de fonctionnalité sont toujours inactifs, ce qui vous permet de séparer la date de publication de votre fonctionnalité de l'activation totale pour les utilisateurs. Pour débuter votre déploiement, utilisez la section **Déploiement du trafic** afin de saisir un pourcentage dans la zone de texte. Cela déterminera le pourcentage d'utilisateurs aléatoires dans le segment sélectionné qui bénéficieront de cette nouvelle fonctionnalité.
+Par défaut, les indicateurs de fonctionnalité sont toujours inactifs, ce qui vous permet de séparer la date de publication de votre fonctionnalité de l'activation totale pour les utilisateurs. Pour débuter votre déploiement, utilisez la section **Rollout Traffic** afin de saisir un pourcentage dans la zone de texte. Cela déterminera le pourcentage d'utilisateurs aléatoires dans le segment sélectionné qui bénéficieront de cette nouvelle fonctionnalité.
 
 {% alert important %}
 Ne définissez pas votre trafic de déploiement au-dessus de 0 % tant que vous n'êtes pas prêt à lancer votre nouvelle fonctionnalité. Lorsque vous définissez initialement votre indicateur de fonctionnalité dans le tableau de bord, laissez ce paramètre à 0 %.
 {% endalert %}
 
 {% alert important %}
-Pour déployer un indicateur avec une seule règle ou auprès d'une audience unique, ajoutez votre première règle en sélectionnant les critères de segmentation et les pourcentages de déploiement. Enfin, vérifiez que la règle **Tous les autres** est désactivée, puis enregistrez votre indicateur.
+Pour déployer un indicateur avec une seule règle ou auprès d'une audience unique, ajoutez votre première règle en sélectionnant les critères de segmentation et les pourcentages de déploiement. Enfin, vérifiez que la règle **Everyone Else** est désactivée, puis enregistrez votre indicateur.
 {% endalert %}
 
 ## Déploiement d'indicateurs de fonctionnalité à règles multiples {#multi-rule-feature-flag-rollouts}
@@ -91,36 +92,36 @@ Utilisez le déploiement d'indicateurs de fonctionnalité à règles multiples p
 
 ### Ordre d'évaluation {#evaluation-order}
 
-Les règles des indicateurs de fonctionnalité sont évaluées de haut en bas, dans l'ordre dans lequel elles sont répertoriées. Un utilisateur est qualifié pour la première règle qu'il remplit. Si un utilisateur ne répond à aucune règle, son éligibilité est déterminée par la règle par défaut « Tous les autres ».
+Les règles des indicateurs de fonctionnalité sont évaluées de haut en bas, dans l'ordre dans lequel elles sont répertoriées. Un utilisateur est qualifié pour la première règle qu'il remplit. Si un utilisateur ne répond à aucune règle, son éligibilité est déterminée par la règle par défaut « Everyone Else ».
 
 ### Qualification de l'utilisateur {#user-qualification}
 
 - Si un utilisateur répond aux critères de la première règle, il est immédiatement éligible pour recevoir l'indicateur de fonctionnalité.
 - Si un utilisateur ne répond pas aux critères de la première règle, il est évalué selon la deuxième règle, et ainsi de suite.
 
-L'évaluation séquentielle se poursuit jusqu'à ce qu'un utilisateur réponde aux critères d'une règle ou atteigne la règle « Tous les autres » en bas de la liste.
+L'évaluation séquentielle se poursuit jusqu'à ce qu'un utilisateur réponde aux critères d'une règle ou atteigne la règle « Everyone Else » en bas de la liste.
 
-### Règle « Tous les autres » {#everyone-else-rule}
+### Règle « Everyone Else » {#everyone-else-rule}
 
-La règle « Tous les autres » sert de règle par défaut. Si un utilisateur ne répond à aucune des règles précédentes, son éligibilité à l'indicateur de fonctionnalité sera déterminée par le paramètre de basculement de la règle « Tous les autres ». Par exemple, si la règle « Tous les autres » est basculée sur « Off » dans l'état par défaut, un utilisateur qui ne répond aux critères d'aucune autre règle ne recevra pas l'indicateur de fonctionnalité au début de sa session.
+La règle « Everyone Else » sert de règle par défaut. Si un utilisateur ne répond à aucune des règles précédentes, son éligibilité à l'indicateur de fonctionnalité sera déterminée par le paramètre de basculement de la règle « Everyone Else ». Par exemple, si la règle « Everyone Else » est basculée sur « Off » dans l'état par défaut, un utilisateur qui ne répond aux critères d'aucune autre règle ne recevra pas l'indicateur de fonctionnalité au début de sa session.
 
 ### Réorganisation des règles {#re-ordering-rules}
 
 Par défaut, les règles sont classées dans l'ordre dans lequel elles ont été créées, mais il est possible de les réorganiser en les glissant-déposant dans le tableau de bord.
 
-![Une image illustrant qu'un utilisateur peut ajouter une règle à un indicateur de fonctionnalité.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
+![Illustration montrant qu'un utilisateur peut ajouter une règle à un indicateur de fonctionnalité.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
 
-![Une image présentant un résumé d'un indicateur de fonctionnalité avec plusieurs règles ajoutées et une règle « Tous les autres ».]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
+![Résumé d'un indicateur de fonctionnalité avec plusieurs règles ajoutées et une règle « Everyone Else ».]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
 
-### Cas d'utilisation des indicateurs de fonctionnalité multi-règles {#multi-rule-feature-flag-use-cases}
+### Cas d'usage des indicateurs de fonctionnalité à règles multiples {#multi-rule-feature-flag-use-cases}
 
 #### Déployer progressivement une page de paiement {#gradually-release-a-checkout-page}
 
-Supposons que vous travailliez pour une marque de commerce électronique et que vous disposiez d'une nouvelle page de paiement que vous souhaitez déployer dans différentes régions afin d'assurer sa stabilité. À l'aide des indicateurs de fonctionnalité multi-règles, vous pouvez définir les éléments suivants :
+Supposons que vous travailliez pour une marque de commerce électronique et que vous disposiez d'une nouvelle page de paiement que vous souhaitez déployer dans différentes régions afin d'assurer sa stabilité. À l'aide des indicateurs de fonctionnalité à règles multiples, vous pouvez définir les éléments suivants :
 
 - **Règle n° 1 :** Votre segment américain est défini sur 100 %.
 - **Règle n° 2 :** Votre segment est défini sur 50 % de vos utilisateurs brésiliens, de sorte que tous ne reçoivent pas le flux en même temps.
-- **Règle n° 3 (Tous les autres) :** Pour tous les autres utilisateurs, activez votre règle « Tous les autres » et définissez-la sur 15 %, afin qu'une partie des utilisateurs puisse effectuer le paiement avec le nouveau flux.
+- **Règle n° 3 (Everyone Else) :** Pour tous les autres utilisateurs, activez votre règle « Everyone Else » et définissez-la sur 15 %, afin qu'une partie des utilisateurs puisse effectuer le paiement avec le nouveau flux.
 
 #### Commencer par les testeurs internes {#reach-internal-testers-first}
 
@@ -128,7 +129,7 @@ Supposons que vous soyez gestionnaire de produit et que vous souhaitiez vous ass
 
 ## Utilisation du champ « enabled » pour vos indicateurs de fonctionnalité {#enabled}
 
-Une fois votre indicateur de fonctionnalité défini, configurez votre application ou votre site pour vérifier s'il est activé ou non pour un utilisateur donné. Lorsqu'il est activé, vous définirez une action ou référencerez les propriétés variables de l'indicateur de fonctionnalité en fonction de votre cas d'utilisation. Le SDK Braze fournit des méthodes getter pour récupérer l'état de l'indicateur de fonctionnalité et ses propriétés dans votre application.
+Une fois votre indicateur de fonctionnalité défini, configurez votre application ou votre site pour vérifier s'il est activé ou non pour un utilisateur donné. Lorsqu'il est activé, vous définirez une action ou référencerez les propriétés variables de l'indicateur de fonctionnalité en fonction de votre cas d'usage. Le SDK Braze fournit des méthodes getter pour récupérer l'état de l'indicateur de fonctionnalité et ses propriétés dans votre application.
 
 Les indicateurs de fonctionnalité sont actualisés automatiquement au début de la session, afin que vous puissiez afficher la version la plus récente de votre fonctionnalité au moment du lancement. Le SDK met ces valeurs en cache pour qu'elles puissent être utilisées hors ligne.
 
@@ -886,17 +887,17 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 ## Vérification de l'éligibilité des utilisateurs {#checking-user-eligibility}
 
-Pour vérifier les indicateurs de fonctionnalité auxquels un utilisateur est éligible dans Braze, rendez-vous dans **Audience** > **Rechercher des utilisateurs**, puis recherchez et sélectionnez un utilisateur.
+Pour vérifier les indicateurs de fonctionnalité auxquels un utilisateur est éligible dans Braze, rendez-vous dans **Audience** > **Search Users**, puis recherchez et sélectionnez un utilisateur.
 
-Dans l'onglet **Éligibilité aux indicateurs de fonctionnalité**, vous pouvez filtrer la liste des indicateurs de fonctionnalité éligibles par plateforme, application ou appareil. Vous pouvez également prévisualiser le payload qui sera renvoyé à l'utilisateur en sélectionnant <i class="fa-solid fa-eye"></i> à côté d'un indicateur de fonctionnalité.
+Dans l'onglet **Feature Flags Eligibility**, vous pouvez filtrer la liste des indicateurs de fonctionnalité éligibles par plateforme, application ou appareil. Vous pouvez également prévisualiser le payload qui sera renvoyé à l'utilisateur en sélectionnant <i class="fa-solid fa-eye" aria-label="Prévisualiser"></i> à côté d'un indicateur de fonctionnalité.
 
-![Une image présentant le tableau des indicateurs de fonctionnalité auxquels un utilisateur est éligible.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
+![Tableau des indicateurs de fonctionnalité auxquels un utilisateur est éligible.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
 ## Consulter le journal des modifications {#viewing-the-changelog}
 
-Pour afficher le journal des modifications d'un indicateur de fonctionnalité, ouvrez cet indicateur et sélectionnez **Journal des modifications**.
+Pour afficher le journal des modifications d'un indicateur de fonctionnalité, ouvrez cet indicateur et sélectionnez **Changelog**.
 
-![Page « Modifier » d'un indicateur de fonctionnalité, avec le bouton « Journal des modifications » mis en évidence.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
+![Page de modification d'un indicateur de fonctionnalité, avec le bouton « Changelog » mis en évidence.]({% image_buster /assets/img/feature_flags/changelog/open_changelog.png %}){: style="max-width:60%;"}
 
 Vous pouvez y consulter la date d'une modification, son auteur, la catégorie à laquelle elle appartient, et bien d'autres informations.
 
@@ -904,7 +905,7 @@ Vous pouvez y consulter la date d'une modification, son auteur, la catégorie à
 
 ## Segmentation avec les indicateurs de fonctionnalité {#segmentation}
 
-Braze garde automatiquement la trace des utilisateurs pour lesquels un indicateur de fonctionnalité est actuellement activé. Vous pouvez créer un segment ou cibler un envoi de messages à l'aide du [filtre **Indicateur de fonctionnalité**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags). Pour plus d'informations sur le filtrage des segments, consultez [Créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Braze garde automatiquement la trace des utilisateurs pour lesquels un indicateur de fonctionnalité est actuellement activé. Vous pouvez créer un segment ou cibler un envoi de messages à l'aide du [filtre **Indicateur de fonctionnalité**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Pour plus d'informations sur le filtrage des segments, consultez [Créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
 ![La section « Filtres » avec « Feature Flag » saisi dans la barre de recherche du filtre.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
@@ -933,7 +934,7 @@ Remplacez les éléments suivants :
 | `BEHAVIOR`  | Le comportement de la fonctionnalité. Dans votre code, assurez-vous que le comportement est désactivé par défaut et évitez d'utiliser des expressions telles que `disabled` dans le nom de l'indicateur de fonctionnalité. |
 | `PRODUCT`   | Le produit auquel appartient la fonctionnalité.                                                                                       |
 | `FEATURE`    | Le nom de la fonctionnalité.                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conventions de nommage" }
 
 Voici un exemple d'indicateur de fonctionnalité où `show` est le comportement, `animation_profile` est le produit et `driver` est la fonctionnalité :
 

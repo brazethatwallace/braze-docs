@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Canva
 
-> [Canva](https://www.canva.com/)는 소셜 미디어 게시물, 프레젠테이션, 동영상 등을 위한 시각적 콘텐츠를 만들 수 있는 그래픽 디자인 플랫폼 및 도구입니다. Canva의 Braze 앱은 정적 디자인을 미디어 라이브러리로 전송하는 것 외에도 **이메일** 디자인을 Braze 이메일 템플릿으로 내보내는 기능을 지원합니다.
+> [Canva](https://www.canva.com/)는 소셜 미디어 게시물, 프레젠테이션, 비디오 등을 위한 시각적 콘텐츠를 만들 수 있는 그래픽 디자인 플랫폼 및 도구입니다. Canva의 Braze 앱은 정적 디자인을 미디어 라이브러리로 전송하는 것 외에도 **이메일** 디자인을 Braze 이메일 템플릿으로 내보내는 기능을 지원합니다.
 
 ## 통합 소개 {#about-the-integration}
 
@@ -20,7 +20,7 @@ Braze와 Canva 통합은 두 가지 내보내기 경로를 지원합니다.
 | --- | --- |
 | **이미지 또는 디자인을 미디어 라이브러리로** | 디자인을 자산으로 Braze 미디어 라이브러리에 전송합니다. |
 | **이메일 디자인을 Braze로** | Canva **이메일** 문서를 제목란 메타데이터를 포함하여 Braze 이메일 템플릿으로 게시합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="통합 소개" }
 
 ## Braze와 Canva 통합하기 {#integrate-braze-with-canva}
 
@@ -44,6 +44,15 @@ Braze 앱을 처음 사용할 때—**Apps** 메뉴(미디어 라이브러리 �
 
 Braze 미디어 라이브러리에 파일을 저장하려는 표준 Canva 디자인에 이 흐름을 사용합니다.
 
+다음 동영상은 Canva에서 Braze 미디어 라이브러리로 디자인을 전송하는 방법을 보여줍니다.
+
+동영상: Canva에서 Braze 앱을 열고 미디어 라이브러리 내보내기를 시작합니다.
+
+{% multi_lang_include video.html id="uf5krks2cx" source="wistia" %}
+
+동영상: Braze 워크스페이스를 선택하고 미디어 라이브러리로 내보내기를 완료합니다.
+{% multi_lang_include video.html id="3d09tafx7c" source="wistia" %}
+
 1. 디자인의 **Apps** 메뉴에서 Braze 앱을 엽니다. 아직 연결되지 않은 경우 **Connect**를 선택하고 [Braze 계정 인증하기](#step-2-authorize-your-braze-account)의 단계를 완료합니다.
 2. 대상 워크스페이스를 선택하고, 필요에 따라 파일 이름을 입력한 후 **Start Export**를 선택합니다.
 
@@ -59,7 +68,7 @@ Braze 미디어 라이브러리에 파일을 저장하려는 표준 Canva 디자
 Canva 파일이 **이메일** 디자인 유형인 경우 이 흐름을 사용합니다. HTML을 Braze에 템플릿으로 게시합니다(이미지 흐름과 유사한 메타데이터이지만, **Apps** 대신 **Share**에서 시작합니다).
 
 1. Canva에서 **이메일** 디자인을 만들거나 엽니다. 처음부터 메시지를 작성하거나 Canva 이메일 템플릿을 사용합니다.
-2. 에디터 오른쪽 상단의 **Share**를 클릭하고 **Braze**를 선택합니다. Braze가 목록에 없으면 **See more**를 열고 **More options**로 스크롤하여 Braze를 찾습니다.
+2. 에디터 액션 바에서 **Share**를 클릭하고 **Braze**를 선택합니다. Braze가 목록에 없으면 **See more**를 열고 **More options**로 스크롤하여 Braze를 찾습니다.
 
 ![Canva의 추가 게시 방법에서 More options 아래의 Braze.]({% image_buster /assets/img/canva_integration/canva-share-more-options-braze.png %})
 

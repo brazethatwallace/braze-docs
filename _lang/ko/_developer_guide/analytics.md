@@ -26,13 +26,13 @@ Braze를 구현하는 동안 팀과 마케팅 목표에 대해 논의하여 추�
 
 ## 자동으로 수집되는 데이터 {#automatically-collected-data}
 
-특정 사용자 데이터(예: 처음 사용한 앱, 마지막으로 사용한 앱, 총 세션 수, 기기 OS 등)는 SDK에서 자동으로 수집됩니다. 통합 가이드에 따라 SDK를 구현하면 이 [기본 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/) 기능을 활용할 수 있습니다. 이 목록을 확인하면 사용자에 대한 동일한 정보를 두 번 이상 저장하지 않도록 하는 데 도움이 됩니다. 세션 시작 및 종료를 제외하고, 자동으로 추적되는 모든 기타 데이터는 데이터 포인트 사용량에 포함되지 않습니다.
+특정 사용자 데이터(예: 처음 사용한 앱, 마지막으로 사용한 앱, 총 세션 수, 기기 OS 등)는 SDK에서 자동으로 수집됩니다. 통합 가이드에 따라 SDK를 구현하면 이 [기본 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection) 기능을 활용할 수 있습니다. 이 목록을 확인하면 사용자에 대한 동일한 정보를 두 번 이상 저장하지 않도록 하는 데 도움이 됩니다. 세션 시작 및 종료를 제외하고, 자동으로 추적되는 모든 기타 데이터는 데이터 포인트 사용량에 포함되지 않습니다.
 
-특정 데이터 항목의 기본 수집을 차단하는 프로세스를 허용 목록에 추가하려면 [SDK 프라이머]({{site.baseurl}}/developer_guide/getting_started/sdk_overview/) 문서를 참조하세요.
+특정 데이터 항목의 기본 수집을 차단하는 프로세스를 허용 목록에 추가하려면 [SDK 프라이머]({{site.baseurl}}/developer_guide/getting_started/sdk_overview) 문서를 참조하세요.
 
 ## 커스텀 이벤트 {#custom-events}
 
-커스텀 이벤트는 사용자가 수행하는 동작으로, 애플리케이션과의 가치 있는 사용자 상호 작용을 추적하는 데 가장 적합합니다. 커스텀 이벤트를 기록하면 구성 가능한 지연 시간으로 후속 캠페인을 얼마든지 트리거할 수 있으며, 해당 이벤트의 최신성 및 빈도에 따라 다음과 같은 세분화 필터를 사용할 수 있습니다.
+커스텀 이벤트는 사용자가 수행하는 동작으로, 애플리케이션과의 가치 있는 사용자 상호 작용을 추적하는 데 가장 적합합니다. 커스텀 이벤트를 기록하면 구성 가능한 지연 시간으로 후속 Campaign을 얼마든지 트리거할 수 있으며, 해당 이벤트의 최신성 및 빈도에 따라 다음과 같은 세분화 필터를 사용할 수 있습니다.
 
 | 세분화 옵션 | 드롭다운 필터 | 입력 옵션 |
 | ---------------------| --------------- | ------------- |
@@ -46,14 +46,14 @@ Braze를 구현하는 동안 팀과 마케팅 목표에 대해 논의하여 추�
 | 커스텀 이벤트가 **X회(최대 = 50) 초과**하여 발생했는지 확인합니다 | **MORE THAN** | 지난 **Y일 동안(Y = 1,3,7,14,21,30)** |
 | 커스텀 이벤트가 **X회(최대 = 50) 미만으로** 발생했는지 확인합니다 | **LESS THAN** | 지난 **Y일 동안(Y = 1,3,7,14,21,30)** |
 | 커스텀 이벤트가 **정확히 X회(최대 = 50)만큼** 발생했는지 확인합니다 | **EXACTLY** | 지난 **Y일 동안(Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Custom events" }
 
 Braze는 세분화를 위해 이러한 이벤트가 발생한 횟수와 각 사용자가 마지막으로 수행한 시간을 기록합니다. **커스텀 이벤트** 분석 페이지에서 각 커스텀 이벤트의 발생 빈도를 집계하여 볼 수 있을 뿐만 아니라 시간 경과에 따른 Segment별로 더 자세히 분석할 수 있습니다. Campaign이 마지막으로 전송된 시간을 나타내기 위해 Braze에서 시계열에 겹쳐 표시하는 회색 선을 보고 Campaign이 커스텀 이벤트 활동에 어떤 영향을 미쳤는지 확인하는 데 특히 유용합니다.
 
-![신용 카드를 추가하고 30일 동안 검색한 사용자에 대한 통계를 보여주는 커스텀 이벤트 분석 그래프.]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
+![30일 동안 신용 카드를 추가하고 검색한 사용자에 대한 통계를 보여주는 커스텀 이벤트 분석 그래프.]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
 {% alert note %}
-[커스텀 속성 증분]({{site.baseurl}}/api/endpoints/messaging/)을 사용하면 커스텀 이벤트와 유사한 사용자 동작에 대한 카운터를 유지할 수 있습니다. 그러나 시계열에서 커스텀 속성 데이터는 볼 수 없습니다. 시계열로 분석할 필요가 없는 사용자 동작은 이 방법을 통해 기록해야 합니다.
+[커스텀 속성 증분]({{site.baseurl}}/api/endpoints/messaging)을 사용하면 커스텀 이벤트와 유사한 사용자 동작에 대한 카운터를 유지할 수 있습니다. 그러나 시계열에서 커스텀 속성 데이터는 볼 수 없습니다. 시계열로 분석할 필요가 없는 사용자 동작은 이 방법을 통해 기록해야 합니다.
 {% endalert %}
 
 ### 커스텀 이벤트 저장 {#custom-event-storage}
@@ -68,7 +68,7 @@ Braze는 세분화를 위해 이러한 이벤트가 발생한 횟수와 각 사�
 
 ![장바구니를 포기하고 장바구니 값을 100 이상 200 미만으로 남겨둔 사용자에게 Campaign을 보내는 커스텀 이벤트 예제입니다.]({% image_buster /assets/img_archive/customEventProperties.png %} "customEventProperties.png")
 
-커스텀 이벤트 속성정보를 사용하여 메시징 템플릿 내에서 개인화할 수도 있습니다. 트리거 이벤트와 함께 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)을 사용하는 모든 Campaign은 해당 이벤트의 커스텀 이벤트 속성정보를 사용하여 메시징 개인화를 수행할 수 있습니다. 게임 애플리케이션이 레벨을 완료한 사용자에게 메시지를 보내려는 경우, 사용자가 해당 레벨을 완료하는 데 걸린 시간을 등록정보로 추가하여 메시지를 더욱 개인화할 수 있습니다. 이 예에서는 [조건 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/)을 사용하여 세 개의 서로 다른 Segment에 대해 메시지를 개인화합니다. ``time_spent``라는 커스텀 이벤트 속성정보는 ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``를 호출하여 메시지에 포함할 수 있습니다.
+커스텀 이벤트 속성정보를 사용하여 메시징 템플릿 내에서 개인화할 수도 있습니다. 트리거 이벤트와 함께 [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)을 사용하는 모든 Campaign은 해당 이벤트의 커스텀 이벤트 속성정보를 사용하여 메시징 개인화를 수행할 수 있습니다. 게임 애플리케이션이 레벨을 완료한 사용자에게 메시지를 보내려는 경우, 사용자가 해당 레벨을 완료하는 데 걸린 시간을 등록정보로 추가하여 메시지를 더욱 개인화할 수 있습니다. 이 예에서는 [조건 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic)을 사용하여 세 개의 서로 다른 Segment에 대해 메시지를 개인화합니다. ``time_spent``라는 커스텀 이벤트 속성정보는 ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``를 호출하여 메시지에 포함할 수 있습니다.
 
 {% raw %}
 ```liquid
@@ -110,7 +110,7 @@ Talk to villagers for essential tips on how to beat levels!
 | 문자열 속성이 입력한 문자열과 **일치하지 않는지** 확인합니다 | **DOES NOT EQUAL** | **문자열** |
 | 사용자 프로필에 문자열 속성이 **존재하는지** 확인합니다 | **IS BLANK** | **N/A** |
 | 사용자 프로필에 문자열 속성이 **존재하지 않는지** 확인합니다 | **IS NOT BLANK** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Strings (alphanumeric characters)" }
 
 {% alert important %}
 **DOES NOT MATCH REGEX** 필터를 사용하여 세분화할 때는 해당 고객 프로필에 값이 할당된 커스텀 속성이 이미 존재해야 합니다. Braze는 사용자를 적절하게 타겟팅하기 위해 "OR" 로직을 사용하여 커스텀 속성이 비어 있는지 확인할 것을 권장합니다.
@@ -120,7 +120,7 @@ Talk to villagers for essential tips on how to beat levels!
 정규표현식 필터를 사용하는 방법에 대한 자세한 내용은 [Perl 호환 정규표현식(PCRE)](http://www.regextester.com/pregsyntax.html) 설명서를 참조하세요.
 <br>
 정규식에 대한 추가 리소스:
-- [Braze를 사용한 정규식]({{site.baseurl}}/user_guide/audience/segments/regex/)
+- [Braze를 사용한 정규식]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [정규식 디버거 및 테스터](https://regex101.com/)
 - [정규식 튜토리얼](https://medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -153,7 +153,7 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 | 배열 속성에 입력된 값 **또는** 정규표현식과 **부분 일치하는 값이 포함**되었는지 확인합니다 | **MATCHES REGEX** | **문자열** **또는** **정규표현식** |
 | 배열 속성에 **값이 있는지** 확인합니다 | **HAS A VALUE** | **N/A** |
 | 배열 속성이 **비어 있는지** 확인합니다 | **IS EMPTY** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Arrays" }
 
 {% alert note %}
 [Perl 호환 정규표현식(PCRE)](http://www.regextester.com/pregsyntax.html)을 사용합니다.
@@ -178,17 +178,17 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 | 시간 속성이 **X일을 초과**한 **이전** 시점인지 확인합니다 | **MORE THAN** | **이전 일수** |
 | 시간 속성이 **X일 미만**의 **이전** 시점인지 확인합니다 | **LESS THAN** | **이전 일수** |
 | 시간 속성이 **향후 X일을 초과**한 **향후** 시점인지 확인합니다 | **IN MORE THAN** | **향후 일수** |
-| 시간 속성이 **향후 X일 미만**의 **향후** 시점인지 확인합니다 | **IN LESS THAN** | **향후 일수**  |
+| 시간 속성이 **향후 X일 미만**의 **향후** 시점인지 확인합니다 | **IN LESS THAN** | **향후 일수** |
 | 사용자 프로필에 시간 속성이 **존재하는지** 확인합니다 | **BLANK** | **N/A** |
 | 사용자 프로필에 시간 속성이 **존재하지 않는지** 확인합니다 | **IS NOT BLANK** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dates" }
 
 #### 숫자 {#integers}
 
 숫자 속성은 다양한 사용 사례가 있습니다. 증분 숫자 커스텀 속성은 특정 동작이나 이벤트가 발생한 횟수를 저장하는 데 유용합니다. 표준 숫자는 신발 사이즈, 허리 사이즈 또는 사용자가 특정 제품 기능이나 카테고리를 조회한 횟수를 기록하는 등 다양한 용도로 활용됩니다.
 
 {% alert note %}
-지출 금액은 이 방법으로 기록해서는 안 됩니다. 대신 [구매 메서드]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#purchase-events--revenue-tracking)를 통해 기록해야 합니다.
+지출 금액은 이 방법으로 기록해서는 안 됩니다. 대신 [구매 메서드]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#purchase-events--revenue-tracking)를 통해 기록해야 합니다.
 {% endalert %}
 
 다음 표에서는 숫자 속성에 사용할 수 있는 세분화 옵션을 설명합니다.
@@ -201,20 +201,20 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 | 숫자 속성이 **숫자**와 **같지 않은지** 확인합니다 | **DOES NOT EQUAL** | **숫자** |
 | 사용자 프로필에 숫자 속성이 **존재하는지** 확인합니다 | **EXISTS** | **N/A** |
 | 사용자 프로필에 숫자 속성이 **존재하지 않는지** 확인합니다 | **DOES NOT EXIST** | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Numbers #integers" }
 
 #### 부울(참/거짓) {#booleans-truefalse}
 
-부울 속성은 구독 상태 및 사용자에 대한 기타 간단한 이진 데이터를 저장하는 데 유용합니다. 제공되는 입력 옵션을 사용하면 해당 속성에 대한 기록이 아직 없는 사용자 외에도 변수를 부울로 명시적으로 설정한 사용자를 찾을 수 있습니다.
+부울 속성은 구독 상태 및 사용자에 대한 기타 간단한 이진 데이터를 저장하는 데 유용합니다. 제공되는 입력 옵션을 사용하면 해당 속성에 대한 기록이 아직 없는 사용자 외에도 부울 값이 명시적으로 설정된 사용자를 찾을 수 있습니다.
 
 다음 표에서는 부울 속성에 사용할 수 있는 세분화 옵션을 설명합니다.
 
 | 세분화 옵션 | 드롭다운 필터 | 입력 옵션 |
 | ---------------------| --------------- | ------------- |
-| 부울 값이 다음과 **같은지** 확인합니다 | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET** 또는 **FALSE OR NOT SET** |
-| 사용자 프로필에 부울 값이 **존재하는지** 확인합니다 | **EXISTS**  | **N/A** |
-| 사용자 프로필에 부울 값이 **존재하지 않는지** 확인합니다 | **DOES NOT EXIST**  | **N/A** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| 부울 값이 다음과 **같은지** 확인합니다 | **IS** | **TRUE**, **FALSE**, **TRUE OR NOT SET** 또는 **FALSE OR NOT SET** |
+| 사용자 프로필에 부울 값이 **존재하는지** 확인합니다 | **EXISTS** | **N/A** |
+| 사용자 프로필에 부울 값이 **존재하지 않는지** 확인합니다 | **DOES NOT EXIST** | **N/A** |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Booleans (true/false)" }
 
 ## 구매 이벤트 / 매출 추적 {#purchase-events-revenue-tracking}
 
@@ -234,7 +234,7 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 | 구매가 **X(최대 = 50)회 이상** 발생했는지 확인합니다 | **MORE THAN** | 지난 **Y일 동안(Y = 1,3,7,14,21,30)** |
 | 구매가 **X(최대 = 50)회 미만으로** 발생했는지 확인합니다 | **LESS THAN** | 지난 **Y일 동안(Y = 1,3,7,14,21,30)** |
 | 구매가 **정확히 X(최대 = 50)회** 발생했는지 확인합니다 | **EXACTLY** | 지난 **Y일 동안(Y = 1,3,7,14,21,30)** |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Purchase events / revenue tracking" }
 
 {% alert note %}
 특정 구매가 발생한 횟수를 기준으로 세분화하려면 해당 구매를 [증분 커스텀 속성](#integers)으로 개별적으로 기록해야 합니다.
@@ -287,7 +287,7 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 
 1. 7일 동안 로그인하지 않았지만 프로모션 크레딧이 있는 사용자에게 크레딧이 존재하며 앱으로 돌아와서 사용해야 한다는 사실을 알려주세요!
 2. 낮은 운전자 평점을 준 사용자에게 메시지를 보내 라이딩이 만족스럽지 않은 이유에 대한 직접적인 고객 피드백을 받습니다.
-3. [메시지 템플릿 및 개인화 기능]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/)을 사용하여 고유 프로모션 코드 속성을 사용자 대상 메시지에 포함할 수 있습니다.
+3. [메시지 템플릿 및 개인화 기능]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize)을 사용하여 고유 프로모션 코드 속성을 사용자 대상 메시지에 포함할 수 있습니다.
 
 ## 모범 사례 {#best-practices}
 
@@ -306,8 +306,8 @@ abUser.addToCustomAttributeArray('favorite_foods', 'ice cream'); // => ['pasta',
 각 사용자에 대해 사용자 ID를 설정해야 합니다. 사용자가 앱을 열었을 때 변경되지 않고 액세스할 수 있어야 합니다. 이 식별자를 제공하는 것을 **강력히 권장합니다**. 그러면 다음과 같은 기능을 수행할 수 있습니다:
 
 - 여러 기기와 플랫폼에서 사용자를 추적하여 행동 및 인구 통계 데이터의 품질을 개선합니다.
-- [사용자 데이터 API]({{site.baseurl}}/api/endpoints/user_data/)를 사용하여 사용자에 대한 데이터를 가져옵니다.
-- 일반 메시지와 트랜잭션 메시지 모두에 대한 [메시징 API]({{site.baseurl}}/api/endpoints/messaging/)로 특정 사용자를 타겟팅합니다.
+- [사용자 데이터 API]({{site.baseurl}}/api/endpoints/user_data)를 사용하여 사용자에 대한 데이터를 가져옵니다.
+- 일반 메시지와 트랜잭션 메시지 모두에 대한 [메시징 API]({{site.baseurl}}/api/endpoints/messaging)로 특정 사용자를 타겟팅합니다.
 
 사용자 ID는 512자 미만이어야 하며, 쉽게 알아낼 수 없는 비공개 항목이어야 합니다(예: 일반 이메일 주소나 사용자 이름이 아님). 이러한 식별자를 사용할 수 없는 경우, Braze는 사용자에게 고유 식별자를 할당하지만 사용자 ID에 나열된 기능은 사용할 수 없습니다. 개인과 연결된 고유 식별자가 없는 사용자에 대해서는 사용자 ID를 설정하지 않아야 합니다. 기기 식별자를 전달해도 Braze에서 기본적으로 제공하는 자동 익명 사용자 추적 기능과 비교했을 때 아무런 이점이 없습니다. 다음은 적합한 사용자 ID와 부적합한 사용자 ID의 몇 가지 예입니다.
 

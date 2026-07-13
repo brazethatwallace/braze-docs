@@ -35,65 +35,65 @@ Sie müssen sicherstellen, dass die folgenden Punkte erstellt, vervollständigt 
 | ----------- | ------ | ----------- |
 | TikTok for Business Center Konto | [TikTok](https://business.tiktok.com/) | Ein zentrales Tool zur Verwaltung der TikTok-Assets Ihrer Marke (wie Anzeigenkonten, Seiten, Apps). |
 | TikTok-Anzeigenkonto | [TikTok](https://ads.tiktok.com/) | Ein aktives TikTok-Anzeigenkonto, das mit dem Business Center-Konto Ihrer Marke verknüpft ist.<br><br>Vergewissern Sie sich, dass Ihr TikTok Business Center Manager-Admin Ihnen Administratorrechte für die TikTok-Anzeigenkonten erteilt hat, die Sie mit Braze verwenden möchten. |
-| TikTok-Bedingungen & -Richtlinien | [TikTok](https://ads.tiktok.com/i18n/official/policy/terms) | Sie erklären sich damit einverstanden, alle erforderlichen Bedingungen, Richtlinien und Dokumentationen von TikTok in Bezug auf Ihre Nutzung von Pinterest Audience Sync einzuhalten, einschließlich aller Bedingungen, Richtlinien und Dokumentationen, auf die darin verwiesen wird, wie z. B.: die kommerziellen Nutzungsbedingungen, die Werbebedingungen, die Datenschutzrichtlinie, die Bedingungen für angepasste Zielgruppen, die Nutzungsbedingungen für Entwickler:innen, die Vereinbarung über die gemeinsame Nutzung von Entwicklerdaten, die Werberichtlinien, die Markenrichtlinien und die Community-Richtlinien. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| TikTok-Bedingungen und -Richtlinien | [TikTok](https://ads.tiktok.com/i18n/official/policy/terms) | Sie erklären sich damit einverstanden, alle erforderlichen Bedingungen, Richtlinien und Dokumentationen von TikTok in Bezug auf Ihre Nutzung von Pinterest Audience Sync einzuhalten, einschließlich aller Bedingungen, Richtlinien und Dokumentationen, auf die darin verwiesen wird, wie z. B.: die kommerziellen Nutzungsbedingungen, die Werbebedingungen, die Datenschutzrichtlinie, die Bedingungen für angepasste Zielgruppen, die Nutzungsbedingungen für Entwickler:innen, die Vereinbarung über die gemeinsame Nutzung von Entwicklerdaten, die Werberichtlinien, die Markenrichtlinien und die Community-Richtlinien. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Voraussetzungen" }
 
 ## Integration
 
-### 1. Schritt: Mit TikTok verbinden {#step-1-connect-to-tiktok}
+### Schritt 1: Mit TikTok verbinden {#step-1-connect-to-tiktok}
 
 {% alert important %}
-Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin) haben, um TikTok mit Ihrem Braze-Konto zu verbinden.
+Sie müssen die [Berechtigung „Admin“]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#admin) haben, um TikTok mit Ihrem Braze-Konto zu verbinden.
 {% endalert %}
 
-Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologiepartner** und wählen Sie **TikTok** aus. Wählen Sie unter TikTok Audience Sync die Option **TikTok verbinden** aus.
+Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **TikTok** aus. Wählen Sie unter TikTok Audience Sync die Option **TikTok verbinden** aus.
 
 ![Die TikTok-Technologie-Seite in Braze enthält einen Übersichtsabschnitt und einen Abschnitt „TikTok Audience Sync“ mit dem Button „Connected TikTok“.]({% image_buster /assets/img/tiktok/tiktok1.png %}){: style="max-width:75%;"}
 
 Sie werden dann auf die TikTok-OAuth-Seite weitergeleitet, um Braze für die Verwaltung von Anzeigenkonten und Zielgruppen zu autorisieren. Nachdem Sie **Bestätigen** ausgewählt haben, werden Sie zurück zu Braze geleitet, um auszuwählen, mit welchen TikTok-Anzeigenkonten Sie synchronisieren möchten.
 
-![]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
+![TikTok-OAuth-Autorisierungsseite mit Zugriffsanfrage für die Braze-Zielgruppenverwaltung.]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
 
 Sobald die Verbindung erfolgreich hergestellt wurde, kehren Sie zur Partnerseite zurück. Hier können Sie sehen, welche Konten verbunden sind, und die Verbindung zu bestehenden Konten trennen.
 
-![]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
+![Braze-TikTok-Partnerseite mit verbundenen TikTok-Anzeigenkonten.]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
 
-Ihre TikTok-Verbindung wird auf der Ebene der Braze-App-Gruppe angewendet. Wenn Ihr TikTok-Administrator Sie aus Ihrem TikTok Business Center oder dem Zugriff auf die verbundenen TikTok-Konten entfernt, erkennt Braze ein ungültiges Token. Infolgedessen werden Ihre aktiven Canvases, die TikTok Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
+Ihre TikTok-Verbindung wird auf der Ebene des Braze-Workspace angewendet. Wenn Ihr TikTok-Administrator Sie aus Ihrem TikTok Business Center oder dem Zugriff auf die verbundenen TikTok-Konten entfernt, erkennt Braze ein ungültiges Token. Infolgedessen werden Ihre aktiven Canvases, die TikTok Audience-Komponenten verwenden, Fehler anzeigen, und Braze wird die Nutzer:innen nicht synchronisieren können.
 
-### 2. Schritt: Eine TikTok Audience-Komponente in Canvas hinzufügen {#step-2-add-a-tiktok-audience-component-in-canvas}
+### Schritt 2: Eine TikTok Audience-Komponente in Canvas hinzufügen {#step-2-add-a-tiktok-audience-component-in-canvas}
 
 Fügen Sie eine Komponente in Ihrem Canvas hinzu und wählen Sie **Audience Sync** aus.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Canvas-Schrittauswahl mit der Option „Audience Sync“-Komponente.]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![Audience Sync-Komponentenkarte, die einem Canvas-Pfad hinzugefügt wurde.]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
-### 3. Schritt: Sync-Einrichtung {#step-3-sync-setup}
+### Schritt 3: Sync-Einrichtung {#step-3-sync-setup}
 
 Klicken Sie auf den Button **Custom Audience**, um den Komponenteneditor zu öffnen.
 
 Wählen Sie **TikTok** als gewünschten Audience Sync Partner aus.
 
-![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![Audience Sync-Komponenteneditor mit TikTok als ausgewähltem Sync-Partner.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 Wählen Sie dann das gewünschte TikTok-Anzeigenkonto aus. Geben Sie in der Dropdown-Liste **Choose a New or Existing Audience** den Namen einer neuen oder bestehenden Zielgruppe ein.
 
-![]({% image_buster /assets/img/tiktok/tiktok11.png %})
+![TikTok Audience Sync-Editor mit Anzeigenkontoauswahl und Zielgruppen-Dropdown.]({% image_buster /assets/img/tiktok/tiktok11.png %})
 
 {% tabs %}
-{% tab Create a New Audience %}
+{% tab Neue Zielgruppe erstellen %}
 
 **Eine neue Zielgruppe erstellen**<br>
 Geben Sie einen Namen für die neue Zielgruppe ein, wählen Sie **Add Users to Audience** und wählen Sie die Felder aus, die Sie mit TikTok synchronisieren möchten. Speichern Sie anschließend Ihre Zielgruppe, indem Sie unten im Schritteditor auf den Button **Create Audience** klicken.
 
-![]({% image_buster /assets/img/audience_sync/tiktok3.png %})
+![Formular zum Erstellen einer neuen Zielgruppe im TikTok Audience Sync-Schritt mit ausgewählten Abgleichfeldern.]({% image_buster /assets/img/audience_sync/tiktok3.png %})
 
 Braze zeigt am oberen Rand des Schritteditors eine Benachrichtigung an, wenn die Zielgruppe erfolgreich erstellt wurde oder wenn Fehler auftreten. Nutzer:innen können diese Zielgruppe referenzieren, um Nutzer:innen später im Canvas-Verlauf zu entfernen, da die Zielgruppe im Entwurfsmodus erstellt wurde.
 
-![]({% image_buster /assets/img/audience_sync/tiktok2.png %})
+![Erfolgsbenachrichtigung im Audience Sync-Schritt nach dem Erstellen einer neuen TikTok-Zielgruppe.]({% image_buster /assets/img/audience_sync/tiktok2.png %})
 
 Wenn Sie ein Canvas mit einer neuen Zielgruppe starten, synchronisiert Braze die Nutzer:innen nahezu in Realtime, sobald sie den Zielgruppen-Schritt betreten.
 
 {% endtab %}
-{% tab Sync with an Existing Audience %}
+{% tab Mit bestehender Zielgruppe synchronisieren %}
 
 **Mit einer bestehenden Zielgruppe synchronisieren**<br>
 Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden TikTok-Zielgruppen hinzuzufügen, um sicherzustellen, dass diese Zielgruppen auf dem neuesten Stand sind. Um mit einer bestehenden Zielgruppe zu synchronisieren, geben Sie den Namen der bestehenden Zielgruppe in das Dropdown-Menü ein und wählen Sie **Add to the Audience**. Braze fügt dann Nutzer:innen nahezu in Realtime hinzu, sobald sie den TikTok Audience-Schritt betreten.
@@ -103,7 +103,8 @@ Braze bietet auch die Möglichkeit, Nutzer:innen zu bestehenden TikTok-Zielgrupp
 {% endtab %}
 {% endtabs %}
 
-### 4. Schritt: Canvas starten {#step-4-launch-canvas}
+### Schritt 4: Canvas starten {#step-4-launch-canvas}
+
 Sobald Sie Ihre TikTok Audience-Komponente konfiguriert haben, starten Sie einfach den Canvas! Es wird eine neue Zielgruppe erstellt, und Nutzer:innen, die die TikTok Audience-Komponente durchlaufen, werden in diese Zielgruppe auf TikTok übertragen. Wenn Ihr Canvas nachfolgende Komponenten enthält, werden Ihre Nutzer:innen zum nächsten Schritt in ihrer User Journey vorangebracht.
 
 Sie können die Zielgruppe in TikTok einsehen, indem Sie Ihr **Ads Manager Account** aufrufen und **Audiences** aus dem Dropdown-Menü **Assets** auswählen. Auf der Seite **Audience** sehen Sie die Größe jeder Zielgruppe, sobald sie &#126;1.000 erreicht hat.
@@ -129,7 +130,7 @@ Die folgende Tabelle enthält Metriken und Beschreibungen, die Ihnen helfen, die
 | Nutzer:innen ausstehend | Anzahl der Nutzer:innen, die derzeit von Braze für die Synchronisierung mit TikTok verarbeitet werden. |
 | Fehlerhafte Nutzer:innen | Anzahl der Nutzer:innen, die aufgrund eines API-Fehlers nach etwa 13 Stunden Wiederholungsversuchen nicht mit TikTok synchronisiert wurden. Mögliche Fehlerursachen können ein ungültiges TikTok-Token sein oder die Löschung der Zielgruppe auf TikTok. |
 | Canvas verlassen | Anzahl der Nutzer:innen, die den Canvas verlassen haben. Dies tritt auf, wenn der letzte Schritt in einem Canvas eine Audience Sync-Komponente ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytics verstehen" }
 
 {% alert important %}
 Beachten Sie, dass es bei den Metriken „Nutzer:innen synchronisiert“ und „Fehlerhafte Nutzer:innen“ aufgrund des Bulk-Flushers bzw. der 13-stündigen Wiederholungsversuche zu Verzögerungen bei der Berichterstattung kommen kann.

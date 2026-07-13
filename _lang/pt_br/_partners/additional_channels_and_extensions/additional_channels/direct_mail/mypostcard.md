@@ -11,7 +11,7 @@ search_tag: Partner
 
 # MyPostcard
 
-> O [MyPostcard](https://www.mypostcard.com), um aplicativo global líder em cartões postais, capacita você a executar campanhas de mala direta com facilidade, proporcionando uma maneira simples e lucrativa de se conectar com seus clientes.
+> O [MyPostcard](https://www.mypostcard.com), um app global líder em cartões postais, capacita você a executar campanhas de mala direta com facilidade, proporcionando uma maneira simples e lucrativa de se conectar com seus clientes.
 
 Use a integração do MyPostcard com a Braze para enviar facilmente correspondências impressas aos seus clientes.
 
@@ -22,7 +22,7 @@ Use a integração do MyPostcard com a Braze para enviar facilmente correspondê
 | Conta MyPostcard B2B             | O registro no MyPostcard é necessário para aproveitar esta integração.                                                  |
 | Chave de API B2B e credenciais   | Você pode encontrar sua chave de API e as credenciais na ferramenta de administração B2B do MyPostcard.                 |
 | Campanha B2B MyPostcard aprovada | Para aproveitar esta integração, você precisa configurar uma campanha de mala direta impressa na ferramenta B2B do MyPostcard. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -38,26 +38,23 @@ Para integrar com o MyPostcard, [faça login ou inscreva-se](https://www.mypostc
 
 ### Etapa 1: Crie seu modelo de webhook da Braze {#step-1-create-your-braze-webhook-template}
 
-Crie um modelo de webhook do MyPostcard para usar em futuras Campaigns ou Canvas navegando até **Modelos** > **Modelos de webhook** na plataforma Braze.
-
-{% alert note %}
-Se você estiver usando a [navegação mais antiga]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/), acesse **Engajamento** > **Modelos e mídia** > **Modelos de webhook**.
-{% endalert %}
+Para criar um modelo de webhook do MyPostcard para usar em futuras Campaigns ou Canvas, acesse **Conteúdo** > **Webhook** na plataforma Braze. Em seguida, selecione **Create webhook template**.
 
 Se você quiser criar uma campanha de webhook do MyPostcard única ou usar um modelo existente, selecione **Webhook** na Braze ao criar uma nova campanha. Preencha os seguintes campos:
 
 | Campo           | Descrição                                                 |
 |-----------------|-----------------------------------------------------------|
-| **URL do webhook** | A URL do webhook conforme mostrada na ferramenta de administração B2B. |
-| **Corpo da solicitação** | Texto bruto (formato JSON encontrado na ferramenta de administração B2B). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Webhook URL** | A URL do webhook conforme mostrada na ferramenta de administração B2B. |
+| **Request Body** | Texto bruto (formato JSON encontrado na ferramenta de administração B2B). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 1: Crie seu modelo de webhook da Braze" }
 
 #### Método de solicitação e cabeçalhos {#request-method-and-headers}
 
 O MyPostcard requer um método HTTP juntamente com os seguintes cabeçalhos HTTP a serem incluídos no modelo.
 
 {% raw %}
-<table>
+<table aria-label="Método de solicitação e cabeçalhos">
+  <caption>Método de solicitação e cabeçalhos</caption>
   <thead>
     <tr>
       <th><strong>Campo</strong></th>
@@ -66,15 +63,15 @@ O MyPostcard requer um método HTTP juntamente com os seguintes cabeçalhos HTTP
   </thead>
   <tbody>
     <tr>
-      <td><strong>Método HTTP</strong></td>
+      <td><strong>HTTP Method</strong></td>
       <td><code>POST</code></td>
     </tr>
     <tr>
-      <td><strong>Nome de usuário</strong></td>
+      <td><strong>Username</strong></td>
       <td><code>{{ '&lt;username&gt;' }}</code></td>
     </tr>
     <tr>
-      <td><strong>Senha</strong></td>
+      <td><strong>Password</strong></td>
       <td><code>{{ '&lt;password&gt;' }}</code></td>
     </tr>
     <tr>
@@ -84,7 +81,7 @@ O MyPostcard requer um método HTTP juntamente com os seguintes cabeçalhos HTTP
   </tbody>
 </table>
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Método de solicitação e cabeçalhos" }
 
 #### Corpo da solicitação {#request-body}
 

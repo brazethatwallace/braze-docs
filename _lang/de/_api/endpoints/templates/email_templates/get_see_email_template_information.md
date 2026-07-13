@@ -1,20 +1,20 @@
 ---
-nav_title: "GET: Siehe Informationen zur E-Mail-Vorlage"
-article_title: "GET: Siehe E-Mail Template Informationen"
+nav_title: "GET: E-Mail-Template-Informationen anzeigen"
+article_title: "GET: E-Mail-Template-Informationen anzeigen"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts E-Mail Template Braze sehen."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts zum Anzeigen von E-Mail-Template-Informationen."
 
 ---
 {% api %}
-# Siehe Informationen zur E-Mail-Vorlage
+# E-Mail-Template-Informationen anzeigen {#see-email-template-information}
 {% apimethod get %}
 /templates/email/info
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um Informationen über Ihre E-Mail Templates zu erhalten.
+> Verwenden Sie diesen Endpunkt, um Informationen über Ihre E-Mail-Templates zu erhalten.
 
 {% alert important %}
 Templates, die mit dem Drag-and-Drop-Editor für E-Mails erstellt wurden, werden nicht akzeptiert.
@@ -22,21 +22,21 @@ Templates, die mit dem Drag-and-Drop-Editor für E-Mails erstellt wurden, werden
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e98d2d5b-62fe-4358-b391-9fe9e460d0ac {% endapiref %}
 
-## Voraussetzungen
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `templates.email.info`.
+## Voraussetzungen {#prerequisites}
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `templates.email.info`.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `email_template_id`  | Erforderlich | String | Siehe [E-Mail Template API Bezeichner]({{site.baseurl}}/api/identifier_types/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `email_template_id` | Erforderlich | String | Siehe [E-Mail-Template-API-Bezeichner]({{site.baseurl}}/api/identifier_types). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
-## Beispiel Anfrage
+## Beispielanfrage {#example-request}
 {% raw %}
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/info?email_template_id={{email_template_id}}' \
@@ -44,7 +44,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/templates/email/
 ```
 {% endraw %}
 
-## Antwort
+## Antwort {#response}
 
 ```json
 {

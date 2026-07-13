@@ -10,7 +10,7 @@ Vous aurez besoin des [autorisations « Voir les informations confidentielles »
 
 Pour créer une nouvelle requête, accédez à **Analytics** > **Query Builder**, puis sélectionnez **Create SQL Query**.
 
-![Les options « Query Template » et « SQL Editor » se trouvent dans la liste déroulante « Create SQL Query ».]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
+![Les options « Query Template » et « SQL Editor » dans la liste déroulante « Create SQL Query ».]({% image_buster /assets/img_archive/create_sql_query_button.png %}){: style="max-width:60%;"}
 
 Si vous avez besoin d'inspiration ou d'aide pour rédiger votre requête, choisissez **Query Template** et sélectionnez un [modèle préétabli]({{site.baseurl}}/user_guide/analytics/query_builder/query_templates/). Pour commencer avec une requête vierge, sélectionnez **SQL Editor**.
 
@@ -48,7 +48,7 @@ Pour afficher les détails d'une table dans le Générateur de requêtes :
 
 1. Depuis la page **Query Builder**, ouvrez le panneau **Reference** et sélectionnez **Available Data Tables** pour afficher les tables de données disponibles et leurs noms.
 3. Sélectionnez <i class="fas fa-chevron-down" alt=""></i> **See Details** pour afficher la description de la table et des informations sur ses colonnes, comme les types de données.
-4. Pour insérer le nom de la table dans votre SQL, sélectionnez <i class="fas fa-copy" title="Copy table name to SQL editor"></i>.
+4. Pour insérer le nom de la table dans votre SQL, sélectionnez <i class="fas fa-copy" title="Copier le nom de la table dans l'éditeur SQL"></i>.
 
 Restreindre votre requête à une période spécifique vous aidera à obtenir des résultats plus rapidement. Voici un exemple de requête qui récupère le nombre d'achats et le chiffre d'affaires généré au cours de la dernière heure.
 
@@ -73,7 +73,7 @@ Si vous effectuez une requête sur `CANVAS_ID`, `CANVAS_VARIATION_API_ID` ou `CA
 | `CANVAS_ID` | Canvas Name |
 | `CANVAS_VARIATION_API_ID` | Canvas Variant Name |
 | `CAMPAIGN_ID` | Campaign Name |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conseils" }
 
 Cette requête récupère les trois ID et leurs colonnes de noms associées, avec un maximum de 100 lignes :
 

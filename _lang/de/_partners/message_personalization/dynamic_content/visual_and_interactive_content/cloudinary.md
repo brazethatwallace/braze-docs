@@ -18,15 +18,15 @@ Durch die Verbindung von Cloudinary mit Braze erhalten Marken Zugriff auf visuel
 Auf dieser Seite werden vier mögliche, aber nicht erschöpfende Integrationsmethoden zwischen Cloudinary und Braze beschrieben. Diese Integrationsmethoden beruhen in erster Linie auf der manuellen Änderung von Asset-Links, die aus der Medienbibliothek von Cloudinary kopiert wurden.
 
 {% alert important %}
-Fortgeschrittenere Integrationsmethoden, einschließlich der Verwendung von [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) zum Aufrufen der [Admin-API](https://cloudinary.com/documentation/admin_api#banner) von Cloudinary, sind möglich, aber die Vorgehensweise variiert von Kund:in zu Kund:in. Wenden Sie sich an Ihren Customer-Success-Manager von Cloudinary und Braze, wenn Sie Hilfe benötigen.
+Fortgeschrittenere Integrationsmethoden, einschließlich der Verwendung von [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) zum Aufrufen der [Admin-API](https://cloudinary.com/documentation/admin_api#banner) von Cloudinary, sind möglich, aber die Vorgehensweise variiert von Kund:in zu Kund:in. Wenden Sie sich an Ihren Customer-Success-Manager von Cloudinary und Braze, wenn Sie Hilfe benötigen.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
 
-| Anforderungen     | Beschreibung |
+| Anforderungen | Beschreibung |
 |-----------------------|-----------------|
-| Cloudinary-Konto  | Ein [Cloudinary-Konto](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen.  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Cloudinary-Konto | Ein [Cloudinary-Konto](https://cloudinary.com/users/register_free?utm_source=braze+docs+page) ist erforderlich, um die Vorteile dieser Partnerschaft zu nutzen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integrationsmethoden {#integration-methods}
 
@@ -39,9 +39,9 @@ Einige dieser Integrationsmethoden nutzen die `f_auto`- und `q_auto`-Cloudinary-
 
 ## Campaign-Assets über Cloudinary DAM auswählen {#select-campaign-assets-through-cloudinary-dam}
 
-Der direkteste Weg, Bilder und Videos direkt aus dem DAM von Cloudinary in Ihren Campaigns und Canvases zu verwenden, besteht darin, die URL von der **Asset**-Seite der Cloudinary-Medienbibliothek zu kopieren.
+Der direkteste Weg, Bilder und Videos direkt aus dem DAM von Cloudinary in Ihren Braze-Campaigns und Canvases zu verwenden, besteht darin, die URL von der **Asset**-Seite der Cloudinary-Medienbibliothek zu kopieren.
 
-![Eine Rasteransicht der Bild-Asset-Bibliothek von Cloudinary, wobei oben rechts bei einem der Bilder ein Tooltip „URL kopieren“ hervorgehoben ist.]({% image_buster /assets/img/cloudinary/one.png %})
+![Eine Rasteransicht der Bild-Asset-Bibliothek von Cloudinary, wobei ein Bild hervorgehoben ist und ein Tooltip „URL kopieren“ sichtbar ist.]({% image_buster /assets/img/cloudinary/one.png %})
 
 ### Bilder und GIFs einrichten {#images-and-gifs-setup}
 
@@ -72,10 +72,10 @@ Der direkteste Weg, Bilder und Videos direkt aus dem DAM von Cloudinary in Ihren
 ```
 {% endraw %}
 
-Siehe [Video]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html/) für spezielle Überlegungen zu Android und iOS.
+Siehe [Video]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/video_in_custom_html) für spezielle Überlegungen zu Android und iOS.
 
 {% endtab %}
-{% tab Convert videos into GIFs %}
+{% tab Videos in GIFs umwandeln %}
 
 ## Videos in GIFs für E-Mails umwandeln {#convert-videos-to-gifs-for-emails}
 
@@ -97,7 +97,7 @@ https://res.cloudinary.com/demo/video/upload/c_scale,w_500,e_loop/f_auto:animate
 {% endraw %}
 
 {% endtab %}
-{% tab Target attributes %}
+{% tab Targeting-Attribute %}
 
 ## Campaign-Assets dynamisch auf Basis von Targeting-Attributen auswählen {#dynamically-select-campaign-assets-based-on-targeting-attributes}
 
@@ -117,7 +117,7 @@ Wenn keine exakte Übereinstimmung gefunden wird, wählt die Funktion automatisc
 Eine Anleitung zum Erstellen und Anwenden angepasster Funktionen sowie ein Beispiel für eine angepasste Funktion zur Auswahl von Assets und Fallback-Optionen für eine bestimmte Campaign finden Sie im [`braze-personalization`-GitHub-Repo](https://github.com/cloudinary-devs/braze-personalization) von Cloudinary. Für weitere Unterstützung wenden Sie sich bitte an Ihr Cloudinary-Support-Team.
 {% endalert %}
 
-### Voraussetzungen {#prerequisites}
+### Voraussetzungen
 
 Um eine dynamische Auswahl von Assets zu ermöglichen, muss Cloudinary in der Lage sein, eine Reihe von Assets auf der Grundlage von Tags und Metadaten zurückzugeben. Wenn der Zustellungstyp „Liste“ eingeschränkt ist, kann Cloudinary nicht die dynamische Liste bereitstellen, die für die personalisierte Auswahl von Assets in Braze-Campaigns benötigt wird.
 - Heben Sie die Einschränkung des Zustellungstyps „Liste“ auf: Öffnen Sie die Sicherheitseinstellungen in Ihrer Cloudinary-Konsole und deaktivieren Sie den Eintrag „Ressourcenliste“ unter „Eingeschränkte Bildtypen“.
@@ -140,8 +140,8 @@ In diesem Beispiel wird davon ausgegangen, dass Assets in Cloudinary über zwei 
 {% assign audience = {{custom_attribute.${sample_audience_identifier}}} %}
 {% assign locale = {{${language}}}%}
 
-// The URL for the "samples" tag used in the campaign is https://papish.cloudinary.us/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
-<img src="https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
+// The URL for the "samples" tag used in the campaign is https://solutions-demo-res.cloudinary.com/image/list/v1690000000/samples.json, which is the base for the dynamic image URL.
+<img src="https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_#{locale}/$audience_!{audience}!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/campaigns/samples.json" alt="Banner">
 ```
 {% endraw %}
 
@@ -149,29 +149,29 @@ In diesem Beispiel wird davon ausgegangen, dass Assets in Cloudinary über zwei 
 
 - Ausgabe-URL für Nutzer:innen mit Zielgruppe `internal` und Lokalisierung `en`:
 ```
-https://papish.cloudinary.us/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/f_auto,q_auto/$locale_!en!/$audience_!Internal!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - Ausgabe-URL für Nutzer:innen mit Zielgruppe `external` und Lokalisierung `es`:
 ```
-https://papish.cloudinary.us/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!es!/$audience_!External!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 - Fallback-Bild-URL:
 ```
-https://papish.cloudinary.us/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
+https://solutions-demo-res.cloudinary.com/image/list/$locale_!unknown!/$audience_!unknown!/fn_select:js:v1700000000:segmentedBanner.js/v1690000000/samples.json
 ```
 
 {% endtab %}
-{% tab Personalized image generation %}
+{% tab Personalisierte Bilderstellung %}
 
 ## Personalisierte Bilderstellung {#personalized-image-generation}
 
 Die [Text-Overlay-Transformationen](https://cloudinary.com/documentation/accessible_media_visual_audio_clarity#text_overlays_on_images_and_videos/) von Cloudinary verwenden Nutzerdaten aus Braze direkt in einem Cloudinary-Asset.
 
-Das folgende Beispiel zeigt, wie die `l_text`-Transformation verwendet werden kann, um den Namen einer/eines Nutzers:in in ein Asset einzufügen. Weitere Anpassungen können Sie vornehmen, indem Sie bei der Entwicklung von Campaigns und Canvases Liquid-Tags nutzen, um festzulegen, welcher Text in die `l_text`-Parameter eingefügt werden soll.
+Das folgende Beispiel zeigt, wie die `l_text`-Transformation verwendet werden kann, um den Namen einer/eines Nutzer:in in ein Asset einzufügen. Weitere Anpassungen können Sie vornehmen, indem Sie bei der Entwicklung von Campaigns und Canvases Liquid-Tags nutzen, um festzulegen, welcher Text in die `l_text`-Parameter eingefügt werden soll.
 
 Wenn Sie mehr darüber erfahren möchten, wie Transformations-Parameter zur Gestaltung eines Assets verwendet werden können, wenden Sie sich an Ihr Cloudinary-Support-Team.
 
-### Beispiel einer `l_text`-Transformation {#example-ltext-transformation}
+### Beispiel einer `l_text`-Transformation {#example-l_text-transformation}
 
 {% raw %}
 ```bash

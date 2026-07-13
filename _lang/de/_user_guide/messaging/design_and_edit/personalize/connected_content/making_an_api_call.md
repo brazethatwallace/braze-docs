@@ -6,7 +6,7 @@ description: "Dieser Referenzartikel behandelt, wie Sie einen Connected-Content-
 search_rank: 2
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/connected-content){: style="float:right;width:120px;border:0;" class="noimgborder"}Connected-Content-API-Aufruf durchführen
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/connected-content){: style="float:right;width:120px;border:0;" class="noimgborder"}Connected-Content-API-Aufruf durchführen {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomconnected-content-stylefloatrightwidth120pxborder0-classnoimgbordermake-a-connected-content-api-call}
 
 > Verwenden Sie Connected-Content, um beliebige über eine API zugängliche Informationen direkt in Nachrichten einzufügen, die Sie an Nutzer:innen senden. Sie können Inhalte entweder direkt von Ihrem Webserver oder von öffentlich zugänglichen APIs abrufen.<br><br>Diese Seite behandelt, wie Sie Connected-Content-API-Aufrufe durchführen, fortgeschrittene Connected-Content-Anwendungsfälle, Fehlerbehandlung und mehr.
 
@@ -18,13 +18,13 @@ Ein Versand entspricht nicht einem Connected-Content-Aufruf. Braze garantiert ke
 
 Braze kann denselben Connected-Content-API-Aufruf pro Empfänger:in mehr als einmal durchführen. Häufige Gründe sind:
 
-- **E-Mail mit mehreren Teilen:** Eine einzelne E-Mail kann separate Rendering-Durchläufe für den HTML-Body, den Nur-Text-Body und die Accelerated Mobile Pages (AMP)-Version (falls vorhanden) auslösen. Jeder Durchlauf kann Connected-Content in diesem Teil auslösen, sodass eine:r Empfänger:in mehrere identische oder ähnliche Aufrufe erzeugen kann.
+- **E-Mail mit mehreren Teilen:** Eine einzelne E-Mail kann separate Rendering-Durchläufe für den HTML-Body, den Nur-Text-Body und die Accelerated Mobile Pages (AMP)-Version (falls vorhanden) auslösen. Jeder Durchlauf kann Connected-Content in diesem Teil auslösen, sodass eine Empfängerin oder ein Empfänger mehrere identische oder ähnliche Aufrufe erzeugen kann.
 - **Validierung und Wiederholungsversuche:** Nachrichten-Payloads können pro Empfänger:in mehrmals für Validierung, Wiederholungslogik oder andere interne Zwecke gerendert werden.
 - **Kanalverhalten:** Connected-Content wird ausgeführt, wenn die Nachricht gerendert wird. Bei In-App-Nachrichten wird die Nachricht zum Zeitpunkt der Impression gerendert.
 
 Wenn Sie in Ihren Logs mehr Connected-Content-Aufrufe als Versendungen oder Empfänger:innen sehen, ist dieses Verhalten erwartungsgemäß. Hinweise zur Reduzierung der Last und zur Skalierungsplanung finden Sie unter [Best Practices für Endpunkte mit hohem Volumen](#best-practices-for-high-volume-endpoints).
 
-## Einen Connected-Content-Aufruf senden
+## Einen Connected-Content-Aufruf senden {#sending-a-connected-content-call}
 
 {% raw %}
 
@@ -37,7 +37,7 @@ Zum Beispiel greift der folgende Nachrichtentext auf die URL `http://numbersapi.
 Hi there, here is some fun trivia for you!: {{result.text}}
 ```
 
-### Variablen hinzufügen
+### Variablen hinzufügen {#adding-variables}
 
 Sie können auch Nutzerprofil-Attribute als Variablen in den URL-String einfügen, wenn Sie Connected-Content-Anfragen stellen.
 
@@ -55,13 +55,13 @@ Attributwerte müssen von `${}` umgeben sein, damit sie in unserer Version der L
 
 Connected-Content-Anfragen unterstützen ausschließlich GET- und POST-Anfragen.
 
-## Fehlerbehandlung
+## Fehlerbehandlung {#error-handling}
 
 Wenn die URL nicht verfügbar ist und eine 404-Seite erreicht, rendert Braze an deren Stelle einen leeren String. Wenn die URL eine HTTP-500- oder 502-Seite erreicht, schlägt die URL bei der Wiederholungslogik fehl.
 
-Wenn der Endpunkt JSON zurückgibt, können Sie dies erkennen, indem Sie prüfen, ob der `connected`-Wert null ist, und dann [die Nachricht bedingt abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/). Braze erlaubt nur URLs, die über Port 80 (HTTP) und 443 (HTTPS) kommunizieren.
+Wenn der Endpunkt JSON zurückgibt, können Sie dies erkennen, indem Sie prüfen, ob der `connected`-Wert null ist, und dann [die Nachricht bedingt abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content). Braze erlaubt nur URLs, die über Port 80 (HTTP) und 443 (HTTPS) kommunizieren.
 
-### Erkennung ungesunder Hosts
+### Erkennung ungesunder Hosts {#unhealthy-host-detection}
 
 Connected-Content verwendet einen Mechanismus zur Erkennung ungesunder Hosts, der erkennt, wenn der Zielhost eine hohe Rate an erheblicher Langsamkeit oder Überlastung aufweist, was zu Timeouts, zu vielen Anfragen oder anderen Ergebnissen führt, die Braze daran hindern, erfolgreich mit dem Zielendpunkt zu kommunizieren. Er dient als Schutzmaßnahme, um unnötige Last zu reduzieren, die den Zielhost möglicherweise belastet. Er dient auch dazu, die Braze-Infrastruktur zu stabilisieren und schnelle Messaging-Geschwindigkeiten aufrechtzuerhalten.
 
@@ -69,30 +69,30 @@ Wenn der Zielhost eine hohe Rate an erheblicher Langsamkeit oder Überlastung au
 
 Wenn Anfragen an den Zielhost durch den Detektor für ungesunde Hosts angehalten werden, rendert Braze weiterhin Nachrichten und folgt Ihrer Liquid-Logik, als ob es einen Fehler-Antwortcode erhalten hätte. Wenn Sie sicherstellen möchten, dass diese Connected-Content-Anfragen wiederholt werden, wenn sie durch den Detektor für ungesunde Hosts angehalten werden, verwenden Sie die Option `:retry`. Weitere Informationen zur Option `:retry` finden Sie unter [Connected-Content-Wiederholungsversuche]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries).
 
-Wenn Sie glauben, dass die Erkennung ungesunder Hosts Probleme verursacht, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact/).
+Wenn Sie glauben, dass die Erkennung ungesunder Hosts Probleme verursacht, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/support_contact).
 
 {% alert note %}
 Sie können bestimmte URLs auf eine Allowlist setzen, die für Connected-Content verwendet werden sollen. Um auf dieses Feature zuzugreifen, kontaktieren Sie Ihren Customer-Success-Manager.
 {% endalert %}
 
 {% alert tip %}
-Besuchen Sie [Fehlerbehebung bei Webhook- und Connected-Content-Anfragen]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection), um mehr über die Fehlerbehebung bei häufigen Fehlercodes zu erfahren.
+Weitere Informationen zu häufigen Fehlercodes finden Sie unter [Fehlerbehebung bei Webhook- und Connected-Content-Anfragen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection).
 {% endalert %}
 
-### Rate-Limits (429) versus Erkennung ungesunder Hosts
+### Rate-Limits (429) versus Erkennung ungesunder Hosts {#rate-limits-429-versus-unhealthy-host-detection}
 
 Folgende Mechanismen sind unterschiedlich:
 
-- **429 Too Many Requests:** Ihr Endpunkt (oder ein vorgelagerter Dienst) gibt diese Antwort zurück. Das bedeutet, dass Ihr Server oder Ihre Middleware den Datenverkehr ablehnt, oft weil ein eigenes Rate-Limit vorhanden ist. Braze wendet kein separates Rate-Limit auf Connected-Content an; das Connected-Content-Anfragevolumen skaliert direkt mit Ihrem [Rate-Limit für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting). Da Nachrichten pro Empfänger:in mehrmals gerendert werden können (z. B. für E-Mail-HTML, Nur-Text und AMP), kann die Anzahl der Connected-Content-Anfragen dieses Rate-Limit überschreiten – gehen Sie nicht davon aus, dass sie kleiner oder gleich den von Ihnen festgelegten Nachrichten pro Minute ist. Wenn Sie 429-Fehler sehen, skalieren Sie Ihren Endpunkt oder Ihre Middleware, um das erwartete Anfragevolumen zu bewältigen, oder senken Sie das Rate-Limit der Kampagne oder des Canvas-Schritts, damit weniger Nachrichten (und somit weniger Connected-Content-Aufrufe) pro Minute gesendet werden.
-- **Erkennung ungesunder Hosts:** Eine Braze-seitige Schutzmaßnahme, die nach einer hohen Rate und einem hohen Volumen an *Fehlern* in einem Einminutenfenster ausgelöst wird. Die Fehleranzahl umfasst die Statuscodes `408`, `429`, `502`, `503`, `504` und `529`. Wenn ausgelöst, hält Braze Anfragen an diesen Host vorübergehend an und simuliert eine Fehlerantwort. Dies ist unabhängig von Ihrem eigenen Rate-Limiting. Für Erkennungsschwellenwerte und weitere Details siehe [Fehlerbehebung bei Webhook- und Connected-Content-Anfragen]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors/#unhealthy-host-detection). Um die Erkennung ungesunder Hosts zu vermeiden, stellen Sie sicher, dass Ihr Endpunkt das unter [Connected-Content-Aufrufvolumen verstehen](#understanding-connected-content-call-volume) und [Best Practices für Endpunkte mit hohem Volumen](#best-practices-for-high-volume-endpoints) beschriebene Aufrufvolumen bewältigen kann.
+- **429 Too Many Requests:** Ihr Endpunkt (oder ein vorgelagerter Dienst) gibt diese Antwort zurück. Das bedeutet, dass Ihr Server oder Ihre Middleware den Datenverkehr ablehnt, oft weil ein eigenes Rate-Limit vorhanden ist. Braze wendet kein separates Rate-Limit auf Connected-Content an; das Connected-Content-Anfragevolumen skaliert direkt mit Ihrem [Rate-Limit für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting). Da Nachrichten pro Empfänger:in mehrmals gerendert werden können (z. B. für E-Mail-HTML, Nur-Text und AMP), kann die Anzahl der Connected-Content-Anfragen dieses Rate-Limit überschreiten – gehen Sie nicht davon aus, dass sie kleiner oder gleich den von Ihnen festgelegten Nachrichten pro Minute ist. Wenn Sie 429-Fehler sehen, skalieren Sie Ihren Endpunkt oder Ihre Middleware, um das erwartete Anfragevolumen zu bewältigen, oder senken Sie das Rate-Limit der Campaign oder des Canvas-Schritts, damit weniger Nachrichten (und somit weniger Connected-Content-Aufrufe) pro Minute gesendet werden.
+- **Erkennung ungesunder Hosts:** Eine Braze-seitige Schutzmaßnahme, die nach einer hohen Rate und einem hohen Volumen an *Fehlern* in einem Einminutenfenster ausgelöst wird. Die Fehleranzahl umfasst die Statuscodes `408`, `429`, `502`, `503`, `504` und `529`. Wenn ausgelöst, hält Braze Anfragen an diesen Host vorübergehend an und simuliert eine Fehlerantwort. Dies ist unabhängig von Ihrem eigenen Rate-Limiting. Für Erkennungsschwellenwerte und weitere Details siehe [Fehlerbehebung bei Webhook- und Connected-Content-Anfragen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content#unhealthy-host-detection). Um die Erkennung ungesunder Hosts zu vermeiden, stellen Sie sicher, dass Ihr Endpunkt das unter [Connected-Content-Aufrufvolumen verstehen](#understanding-connected-content-call-volume) und [Best Practices für Endpunkte mit hohem Volumen](#best-practices-for-high-volume-endpoints) beschriebene Aufrufvolumen bewältigen kann.
 
-## Effiziente Performance ermöglichen
+## Effiziente Performance ermöglichen {#allowing-for-efficient-performance}
 
 Da Braze Nachrichten mit sehr hoher Geschwindigkeit zustellt, stellen Sie sicher, dass Ihr Server Tausende gleichzeitiger Verbindungen verarbeiten kann, damit er beim Abrufen von Inhalten nicht überlastet wird. Wenn Sie öffentliche APIs verwenden, bestätigen Sie, dass Ihre Nutzung keine Rate-Limits verletzt, die der API-Anbieter möglicherweise einsetzt. Braze erfordert aus Performance-Gründen, dass die Serverantwortzeit weniger als zwei Sekunden beträgt; wenn der Server länger als zwei Sekunden für die Antwort benötigt, wird der Inhalt nicht eingefügt.
 
 Weitere Informationen zur Planung der Endpunktkapazität und zur Reduzierung des Aufrufvolumens finden Sie unter [Best Practices für Endpunkte mit hohem Volumen](#best-practices-for-high-volume-endpoints).
 
-## Wissenswertes
+## Wissenswertes {#things-to-know}
 
 * Braze berechnet keine Gebühren für API-Aufrufe, und diese werden nicht auf Ihre Datenpunkt-Nutzung angerechnet.
 * Es gibt ein Limit von 1 MB für Connected-Content-Antworten.
@@ -104,13 +104,13 @@ Weitere Informationen zur Planung der Endpunktkapazität und zur Reduzierung des
 Wenn Ihre Nachrichten Connected-Content verwenden und Sie mit hohem Volumen senden, planen Sie mehr Anfragen ein als die Anzahl der Empfänger:innen oder Versendungen:
 
 1. **Spitzenlast schätzen:** Verwenden Sie einen konservativen Multiplikator bei der Dimensionierung Ihres Endpunkts oder Ihrer Middleware – Connected-Content-Anfragen können die Anzahl der Empfänger:innen oder gesendeten Nachrichten übersteigen. Zum Beispiel kann bei E-Mails eine einzelne Empfängerin oder ein einzelner Empfänger mehrere Aufrufe erzeugen (HTML, Nur-Text und AMP), sodass Empfänger:innen × 2 oder × 3 oft als konservative Schätzung verwendet wird.
-2. **Caching wo angemessen nutzen:** GET-Anfragen werden standardmäßig gecacht. Für POST-Anfragen fügen Sie `:cache_max_age` hinzu, wenn die Antwort für einen Zeitraum wiederverwendet werden kann (z. B. Token oder Inhalte, die sich nicht pro Anfrage ändern). Siehe [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/) und die [FAQ zum POST-Caching](#what-is-caching-behavior) weiter unten.
-3. **Rate-Limiting für die Zustellgeschwindigkeit festlegen:** [Rate-Limiting für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) bei Kampagnen oder Canvas-Schritten ist der einzige Hebel, um das Connected-Content-Anfragevolumen indirekt zu begrenzen – Braze begrenzt Connected-Content selbst nicht per Rate-Limit. Es ist nur ein Proxy und kein perfekter, da Connected-Content-Anfragen nicht 1:1 mit Nachrichten korrespondieren. Verwenden Sie es, um das Nachrichten- (und damit Connected-Content-) Volumen innerhalb dessen zu halten, was Ihr Endpunkt bewältigen kann.
+2. **Caching wo angemessen nutzen:** GET-Anfragen werden standardmäßig gecacht. Für POST-Anfragen fügen Sie `:cache_max_age` hinzu, wenn die Antwort für einen Zeitraum wiederverwendet werden kann (z. B. Token oder Inhalte, die sich nicht pro Anfrage ändern). Siehe [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) und die [FAQ zum POST-Caching](#what-is-caching-behavior) im folgenden Abschnitt.
+3. **Rate-Limiting für die Zustellgeschwindigkeit festlegen:** [Rate-Limiting für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) bei Campaigns oder Canvas-Schritten ist der einzige Hebel, um das Connected-Content-Anfragevolumen indirekt zu begrenzen – Braze begrenzt Connected-Content selbst nicht per Rate-Limit. Es ist nur ein Proxy und kein perfekter, da Connected-Content-Anfragen nicht 1:1 mit Nachrichten korrespondieren. Verwenden Sie es, um das Nachrichten- (und damit Connected-Content-) Volumen innerhalb dessen zu halten, was Ihr Endpunkt bewältigen kann.
 4. **Für Idempotenz und Wiederholungsversuche konzipieren:** Braze kann Ihren Endpunkt pro Empfänger:in mehr als einmal aufrufen. Stellen Sie sicher, dass Ihr Endpunkt doppelte Anfragen ohne fehlerhafte Nebeneffekte tolerieren kann.
 
-## Authentifizierungstypen
+## Authentifizierungstypen {#authentication-types}
 
-### Einfache Authentifizierung verwenden
+### Einfache Authentifizierung verwenden {#using-basic-authentication}
 
 Wenn die URL eine einfache Authentifizierung erfordert, kann Braze Zugangsdaten für die einfache Authentifizierung für Sie speichern, die Sie in Ihrem API-Aufruf verwenden können. Sie können vorhandene Zugangsdaten für die einfache Authentifizierung verwalten und neue hinzufügen unter **Einstellungen** > **Connected-Content**.
 
@@ -118,11 +118,11 @@ Wenn die URL eine einfache Authentifizierung erfordert, kann Braze Zugangsdaten 
 
 Um neue Zugangsdaten hinzuzufügen, wählen Sie **Zugangsdaten hinzufügen** > **Einfache Authentifizierung**.
 
-![Dropdown „Zugangsdaten hinzufügen" mit der Option zur Verwendung von einfacher Authentifizierung oder Token-Authentifizierung.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
+![Dropdown „Zugangsdaten hinzufügen“ mit der Option zur Verwendung von einfacher Authentifizierung oder Token-Authentifizierung.]({% image_buster /assets/img/connected_content/add_credential_button.png %}){: style="max-width:60%"}
 
 Geben Sie Ihren Zugangsdaten einen Namen und geben Sie den Benutzernamen und das Passwort ein.
 
-![Das Fenster „Neue Zugangsdaten erstellen" mit der Option, einen Namen, Benutzernamen und ein Passwort einzugeben.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
+![Das Fenster „Neue Zugangsdaten erstellen“ mit der Option, einen Namen, Benutzernamen und ein Passwort einzugeben.]({% image_buster /assets/img/connected_content/basic_auth_token.png %}){: style="max-width:60%"}
 
 Sie können diese Zugangsdaten für die einfache Authentifizierung dann in Ihren API-Aufrufen verwenden, indem Sie den Namen des Tokens referenzieren:
 
@@ -136,15 +136,15 @@ Hi there, here is some fun trivia for you!: {% connected_content https://yourweb
 Wenn Sie Zugangsdaten löschen, beachten Sie, dass alle Connected-Content-Aufrufe, die versuchen, diese zu verwenden, abgebrochen werden.
 {% endalert %}
 
-Gespeicherte Zugangsdaten gelten für {% raw %}`{% connected_content %}`{% endraw %}-Anfragen, während Braze eine Nachricht rendert. Sie werden nicht auf die primäre HTTP-Anfrage angewendet, die in einem [Webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#authentication-and-connected-content-credentials)-Schritt konfiguriert ist. Verwenden Sie Anfrage-Header oder einen {% raw %}`{% connected_content %}`{% endraw %}-Tag innerhalb eines Webhook-Header- oder Body-Felds, wenn Sie Secrets für diesen Aufruf abrufen müssen.
+Gespeicherte Zugangsdaten gelten für {% raw %}`{% connected_content %}`{% endraw %}-Anfragen, während Braze eine Nachricht rendert. Sie werden nicht auf die primäre HTTP-Anfrage angewendet, die in einem [Webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#authentication-and-connected-content-credentials)-Schritt konfiguriert ist. Verwenden Sie Anfrage-Header oder einen {% raw %}`{% connected_content %}`{% endraw %}-Tag innerhalb eines Webhook-Header- oder Body-Felds, wenn Sie Secrets für diesen Aufruf abrufen müssen.
 
-### Token-Authentifizierung verwenden
+### Token-Authentifizierung verwenden {#using-token-authentication}
 
 Bei der Verwendung von Braze Connected-Content stellen Sie möglicherweise fest, dass bestimmte APIs ein Token anstelle eines Benutzernamens und Passworts erfordern. Braze kann auch Zugangsdaten speichern, die Token-Authentifizierungs-Header-Werte enthalten.
 
 Um Zugangsdaten hinzuzufügen, die Token-Werte enthalten, wählen Sie **Zugangsdaten hinzufügen** > **Token-Authentifizierung**. Fügen Sie dann die Schlüssel-Wert-Paare für Ihre API-Aufruf-Header und die zulässige Domain hinzu.
 
-![Ein Beispiel-Token „token_credential_abc" mit Token-Authentifizierungsdetails.]({% image_buster /assets/img/connected_content/token_auth.png %}){: style="max-width:60%"}
+![Ein Beispiel-Token „token_credential_abc“ mit Token-Authentifizierungsdetails.]({% image_buster /assets/img/connected_content/token_auth.png %}){: style="max-width:60%"}
 
 Sie können diese Zugangsdaten dann in Ihren API-Aufrufen verwenden, indem Sie den Namen der Zugangsdaten referenzieren:
 
@@ -162,13 +162,13 @@ Sie können diese Zugangsdaten dann in Ihren API-Aufrufen verwenden, indem Sie d
 ```
 {% endraw %}
 
-### Open Authentication (OAuth) verwenden
+### Open Authentication (OAuth) verwenden {#using-open-authentication-oauth}
 
 Einige API-Konfigurationen erfordern das Abrufen eines Zugriffstokens, das dann zur Authentifizierung des API-Endpunkts verwendet werden kann, auf den Sie zugreifen möchten.
 
-#### 1. Schritt: Zugriffstoken abrufen
+#### Schritt 1: Zugriffstoken abrufen {#step-1-retrieve-the-access-token}
 
-Das folgende Beispiel veranschaulicht das Abrufen und Speichern eines Zugriffstokens in einer lokalen Variablen, die dann zur Authentifizierung des nachfolgenden API-Aufrufs verwendet werden kann. Ein `:cache_max_age`-Parameter kann hinzugefügt werden, um die Gültigkeitsdauer des Zugriffstokens abzugleichen und die Anzahl der ausgehenden Connected-Content-Aufrufe zu reduzieren. Weitere Informationen finden Sie unter [Konfigurierbares Caching]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables/#configurable-caching).
+Das folgende Beispiel veranschaulicht das Abrufen und Speichern eines Zugriffstokens in einer lokalen Variablen, die dann zur Authentifizierung des nachfolgenden API-Aufrufs verwendet werden kann. Ein `:cache_max_age`-Parameter kann hinzugefügt werden, um die Gültigkeitsdauer des Zugriffstokens abzugleichen und die Anzahl der ausgehenden Connected-Content-Aufrufe zu reduzieren. Weitere Informationen finden Sie unter [Konfigurierbares Caching]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching).
 
 {% raw %}
 ```
@@ -185,7 +185,7 @@ Das folgende Beispiel veranschaulicht das Abrufen und Speichern eines Zugriffsto
 ```
 {% endraw %}
 
-#### 2. Schritt: API mit dem abgerufenen Zugriffstoken autorisieren
+#### Schritt 2: API mit dem abgerufenen Zugriffstoken autorisieren {#step-2-authorize-the-api-using-the-retrieved-access-token}
 
 Nachdem das Token gespeichert wurde, kann es dynamisch in den nachfolgenden Connected-Content-Aufruf eingesetzt werden, um die Anfrage zu autorisieren:
 
@@ -203,16 +203,15 @@ Nachdem das Token gespeichert wurde, kann es dynamisch in den nachfolgenden Conn
 ```
 {% endraw %}
 
-### Zugangsdaten bearbeiten
+### Zugangsdaten bearbeiten {#editing-credentials}
 
 Sie können den Namen der Zugangsdaten für Authentifizierungstypen bearbeiten.
 
 - Für die einfache Authentifizierung können Sie den Benutzernamen und das Passwort aktualisieren. Beachten Sie, dass das zuvor eingegebene Passwort nicht sichtbar sein wird.
 - Für die Token-Authentifizierung können Sie die Header-Schlüssel-Wert-Paare und die zulässige Domain aktualisieren. Beachten Sie, dass die zuvor festgelegten Header-Werte nicht sichtbar sein werden.
 
-![Die Option zum Bearbeiten von Zugangsdaten.]({% image_buster /assets/img/connected_content/edit_credentials.png %}){: style="max-width:60%"}
 
-## Connected-Content-IP-Allowlisting
+## Connected-Content-IP-Allowlisting {#connected-content-ip-allowlisting}
 
 Wenn eine Nachricht mit Connected-Content von Braze gesendet wird, stellen die Braze-Server automatisch Netzwerkanfragen an die Server unserer Kund:innen oder Drittanbieter, um Daten abzurufen. Mit IP-Allowlisting können Sie überprüfen, ob Connected-Content-Anfragen tatsächlich von Braze stammen, was eine zusätzliche Sicherheitsebene hinzufügt.
 
@@ -220,9 +219,9 @@ Braze sendet Connected-Content-Anfragen von den folgenden IP-Bereichen. Die aufg
 
 Braze verfügt über einen reservierten Satz von IPs, die für alle Dienste verwendet werden, von denen nicht alle zu einem bestimmten Zeitpunkt aktiv sind. Dies ist so konzipiert, dass Braze bei Bedarf von einem anderen Rechenzentrum senden oder Wartungsarbeiten durchführen kann, ohne Kund:innen zu beeinträchtigen. Braze kann eine, eine Teilmenge oder alle der folgenden aufgelisteten IPs verwenden, wenn Connected-Content-Anfragen gestellt werden.
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
-### `User-Agent`-Header
+### `User-Agent`-Header {#user-agent-header}
 
 Braze fügt allen Connected-Content- und Webhook-Anfragen einen `User-Agent`-Header hinzu, der dem folgenden ähnelt:
 
@@ -234,18 +233,20 @@ Braze Sender 75e404755ae1270441f07eb238f0faf25e44dfdc
 Beachten Sie, dass sich der Hash-Wert regelmäßig ändert. Wenn Sie den Datenverkehr nach `User-Agent` filtern, lassen Sie alle Werte zu, die mit `Braze Sender` beginnen.
 {% endalert %}
 
-## Fehlerbehebung
+## Fehlerbehebung {#troubleshooting}
 
-Verwenden Sie [Webhook.site](https://webhook.site/), um Ihre Connected-Content-Aufrufe zu debuggen.
+Verwenden Sie [Webhook.site](https://webhook.site/), um Ihre Connected-Content-Aufrufe zu debuggen und Probleme mit den Anfrage-Headern, dem Anfrage-Body und anderen Informationen zu diagnostizieren, die im Aufruf gesendet werden.
 
 1. Ersetzen Sie die URL in Ihrem Connected-Content-Aufruf durch die eindeutige URL, die auf der Website generiert wurde.
-2. Zeigen Sie eine Vorschau an und testen Sie Ihre Kampagne oder Ihren Canvas-Schritt, um die Anfragen auf dieser Website einzusehen.
+2. Zeigen Sie eine Vorschau an und testen Sie Ihre Campaign oder Ihren Canvas-Schritt, um die Anfragen auf dieser Website einzusehen.
 
-Mit diesem Tool können Sie Probleme mit den Anfrage-Headern, dem Anfrage-Body und anderen Informationen diagnostizieren, die im Aufruf gesendet werden.
+Sie können auch überprüfen, ob der Liquid-Tag die Parameter enthält, die Ihr Endpunkt erwartet (z. B. `:method`, `:headers`, `:content_type`, `:body` und `:basic_auth`, wenn erforderlich). Wenn Sie sich auf den HTTP-Statuscode-Schlüssel in einem gespeicherten JSON-Objekt verlassen, muss der Endpunkt ein JSON-Objekt und einen `2XX`-Status zurückgeben.
 
-## Häufig gestellte Fragen
+Bei hohen Fehlerraten von Ihrem Host lesen Sie [Erkennung ungesunder Hosts]({{site.baseurl}}/help/help_articles/api/webhook_connected_content_errors#unhealthy-host-detection) und [Connected-Content-Aufrufvolumen](#understanding-connected-content-call-volume).
 
-### Warum gibt es mehr Connected-Content-Aufrufe als Nutzer:innen oder Versendungen?
+## Häufig gestellte Fragen {#frequently-asked-questions}
+
+### Warum gibt es mehr Connected-Content-Aufrufe als Nutzer:innen oder Versendungen? {#why-are-there-more-connected-content-calls-than-users-or-sends}
 
 Braze kann denselben Connected-Content-API-Aufruf pro Empfänger:in mehr als einmal durchführen, um einen Nachrichten-Payload zu rendern. Nachrichten-Payloads können pro Empfänger:in mehrmals für Validierung, Wiederholungslogik oder andere interne Zwecke gerendert werden. Beachten Sie jedoch, dass nur einer der Connected-Content-Aufrufe eine Nachricht befüllt.
 
@@ -253,13 +254,13 @@ Es ist zu erwarten, dass ein Connected-Content-API-Aufruf pro Empfänger:in mehr
 
 Weitere Details und Maßnahmen zur Abhilfe finden Sie unter [Connected-Content-Aufrufvolumen verstehen](#understanding-connected-content-call-volume) und [Best Practices für Endpunkte mit hohem Volumen](#best-practices-for-high-volume-endpoints).
 
-### Wie funktioniert Rate-Limiting mit Connected-Content?
+### Wie funktioniert Rate-Limiting mit Connected-Content? {#how-does-rate-limiting-work-with-connected-content}
 
-Connected-Content hat kein eigenes Rate-Limit. Stattdessen basiert das Rate-Limit auf der Nachrichtenversandrate. Wir empfehlen, das Messaging-Rate-Limit unter Ihrem beabsichtigten Connected-Content-Rate-Limit festzulegen, wenn es mehr Connected-Content-Aufrufe als gesendete Nachrichten gibt.
+Connected-Content hat kein eigenes Rate-Limit. Stattdessen basiert das Rate-Limit auf der Nachrichtenversandrate. Wir empfehlen, das Messaging-Rate-Limit höher als Ihr beabsichtigtes Connected-Content-Rate-Limit festzulegen, wenn es mehr Connected-Content-Aufrufe als gesendete Nachrichten gibt.
 
 ### Wie verhält sich das Caching? {#what-is-caching-behavior}
 
-GET-Anfragen werden standardmäßig gecacht (siehe [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/)). **POST-Anfragen werden standardmäßig nicht gecacht**, aber Sie können das Caching aktivieren, indem Sie `:cache_max_age` zum Connected-Content-Aufruf hinzufügen. Dies kann die Endpunktlast reduzieren, wenn dieselbe POST-Anfrage (z. B. eine Token- oder Inhaltsanfrage) innerhalb des Cache-Fensters wiederholt durchgeführt würde.
+GET-Anfragen werden standardmäßig gecacht (siehe [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)). **POST-Anfragen werden standardmäßig nicht gecacht**, aber Sie können das Caching aktivieren, indem Sie `:cache_max_age` zum Connected-Content-Aufruf hinzufügen. Dies kann die Endpunktlast reduzieren, wenn dieselbe POST-Anfrage (z. B. eine Token- oder Inhaltsanfrage) innerhalb des Cache-Fensters wiederholt durchgeführt würde.
 
 {% raw %}
 ```liquid
@@ -267,14 +268,14 @@ GET-Anfragen werden standardmäßig gecacht (siehe [Antworten cachen]({{site.bas
 ```
 {% endraw %}
 
-Caching kann helfen, doppelte Connected-Content-Aufrufe zu reduzieren, garantiert aber nicht einen einzelnen Aufruf pro Nutzer:in. Die Cache-Dauer liegt zwischen fünf Minuten und vier Stunden. Vollständige Details finden Sie unter [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses/).
+Caching kann helfen, doppelte Connected-Content-Aufrufe zu reduzieren, garantiert aber nicht einen einzelnen Aufruf pro Nutzer:in. Die Cache-Dauer liegt zwischen fünf Minuten und vier Stunden. Vollständige Details finden Sie unter [Antworten cachen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses).
 
-### Was ist das HTTP-Standardverhalten von Connected-Content?
+### Was ist das HTTP-Standardverhalten von Connected-Content? {#what-is-the-connected-content-http-default-behavior}
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
-### Was passiert, wenn ich denselben Connected-Content-Aufruf an mehreren Stellen verwende?
+### Was passiert, wenn ich denselben Connected-Content-Aufruf an mehreren Stellen verwende? {#what-happens-if-i-use-the-same-connected-content-call-in-multiple-places}
 
-Jeder Connected-Content-Tag wird separat ausgewertet, auch wenn mehrere Tags dieselbe URL und dieselben Parameter verwenden. Wenn URL und Cache-Einstellungen es erlauben, können identische Anfragen aus dem Cache bedient werden, anstatt eine neue ausgehende Anfrage auszulösen (siehe [Antworten cachen]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/caching_responses/) für Details).
+Jeder Connected-Content-Tag wird separat ausgewertet, auch wenn mehrere Tags dieselbe URL und dieselben Parameter verwenden. Wenn URL und Cache-Einstellungen es erlauben, können identische Anfragen aus dem Cache bedient werden, anstatt eine neue ausgehende Anfrage auszulösen (siehe [Antworten cachen]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/caching_responses) für Details).

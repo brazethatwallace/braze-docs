@@ -7,11 +7,11 @@ description: "이 문서에서는 Braze에서 Microsoft Entra 싱글 사인온 �
 
 ---
 
-# Microsoft Entra SSO
+# Microsoft Entra SSO {#microsoft-entra-sso}
 
 > [Microsoft Entra SSO](https://learn.microsoft.com/en-us/entra/identity/saas-apps/braze-tutorial)는 Microsoft의 클라우드 기반 ID 및 액세스 관리 서비스로, 직원들이 로그인하고 리소스에 액세스할 수 있도록 도와줍니다. Entra SSO를 사용하면 비즈니스 요구 사항에 따라 앱 및 앱 리소스에 대한 액세스를 제어할 수 있습니다.
 
-## 요구 사항
+## 요구 사항 {#requirements}
 
 설정 시 Assertion Consumer Service(ACS) URL을 제공하라는 요청을 받게 됩니다.
 
@@ -20,21 +20,21 @@ description: "이 문서에서는 Braze에서 Microsoft Entra 싱글 사인온 �
 | Assertion Consumer Service(ACS) URL | `https://<SUBDOMAIN>.braze.com/auth/saml/callback` <br> 일부 ID 공급자에서는 이를 Reply URL, Audience URL 또는 Audience URI라고도 합니다. |
 | Entity ID | `braze_dashboard`|
 | RelayState API 키 | ID 공급자 로그인을 활성화하려면 **설정** > **API 키**로 이동하여 `sso.saml.login` 권한이 있는 API 키를 생성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="요구 사항" }
 
-## Microsoft Entra SSO 내 서비스 공급자(SP) 시작 로그인
+## Microsoft Entra SSO 내 서비스 공급자(SP) 시작 로그인 {#service-provider-sp-initiated-login-within-microsoft-entra-sso}
 
-### 1단계: 갤러리에서 Braze 추가
+### 1단계: 갤러리에서 Braze 추가 {#step-1-add-braze-from-the-gallery}
 
 1. Microsoft Entra 관리 센터에서 **Identity** > **Applications** > **Enterprise Applications**로 이동한 다음 **New application**을 선택합니다.
 2. 검색 상자에서 **Braze**를 검색하고 결과 패널에서 선택한 다음 **Add**를 선택합니다.
 
-### 2단계: Microsoft Entra SSO 구성
+### 2단계: Microsoft Entra SSO 구성 {#step-2-configure-microsoft-entra-sso}
 
 1. Microsoft Entra 관리 센터에서 Braze 애플리케이션 통합 페이지로 이동하여 **Single sign-on**을 선택합니다.
 2. **Select a single sign-on method** 페이지에서 방법으로 **SAML**을 선택합니다.
 3. **Set up Single Sign-On with SAML** 페이지에서 **Basic SAML Configuration**의 편집 아이콘을 선택합니다.
-4. [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/#braze-instances)와 다음 패턴을 결합한 **Reply URL**을 입력하여 IdP 시작 모드로 애플리케이션을 구성합니다: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
+4. [Braze 인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints#braze-instances)와 다음 패턴을 결합한 **Reply URL**을 입력하여 IdP 시작 모드로 애플리케이션을 구성합니다: `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
 5. **Relay State** 필드에 Relay State 생성 API 키를 입력하여 RelayState를 구성합니다.
 
 {% alert important %}
@@ -103,8 +103,8 @@ Microsoft Entra 관리 센터에서 Braze를 설정한 후, Microsoft Entra가 �
 | `SAML Name` | 로그인 화면에서 버튼 텍스트로 표시됩니다. 일반적으로 "Microsoft Entra"와 같은 ID 공급자의 이름입니다. |
 | `Target URL` | Microsoft Entra에서 제공하는 로그인 URL입니다.|
 | `Certificate` | `x.509` PEM 인코딩 인증서는 ID 공급자가 제공합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: Braze 내에서 Microsoft Entra SSO 구성" }
 
 {% alert tip %}
-Braze 계정 사용자가 SAML SSO로만 로그인하도록 하려면 **회사 설정** 페이지에서 [싱글 사인온 인증을 제한]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#restriction)할 수 있습니다.
+Braze 계정 사용자가 SAML SSO로만 로그인하도록 하려면 **회사 설정** 페이지에서 [싱글 사인온 인증을 제한]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction)할 수 있습니다.
 {% endalert %}

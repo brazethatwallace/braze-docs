@@ -22,7 +22,7 @@ Follow these steps to build a Gmail promotion card for an email campaign. Note t
 
 ### Step 1: Create an email campaign
 
-First, [create your email campaign]({{site.baseurl}}/user_guide/channels/email/html_editor/), and select the **HTML code editor** as your editing experience.
+First, [create your email campaign]({{site.baseurl}}/user_guide/channels/email/html_editor), and select the **HTML code editor** as your editing experience.
 
 ### Step 2: Add details to Gmail Promotion card
 
@@ -86,7 +86,7 @@ We recommend uploading your product images to the media library, then copying an
 | Currency | (optional) The currency of the price. |
 | Price | The price of the promotion. |
 | Discount Value | The amount discounted from the original price. | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize your Gmail Promotion card" }
 
 ![An example of a product carousel from a company named Motto with the email heading "Our best-selling socks are on sale", with three images of socks and their discounted prices.]({% image_buster /assets/img_archive/product_carousel.png %}){: style="max-width:40%;"}
 
@@ -98,7 +98,7 @@ We recommend uploading your product images to the media library, then copying an
 After building your Gmail Promotion card, select **Generate HTML code**. Copy and paste the script into the `<head>` element of your email's HTML. 
 
 {% alert tip %}
-For the drag-and-drop editor, copy and paste the generated HTML code into the [custom head tags]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#custom-head-tags) section under **Sending Settings**.
+For the drag-and-drop editor, copy and paste the generated HTML code into the [custom head tags]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#custom-head-tags) section under **Sending Settings**.
 {% endalert %}
 
 {% alert warning %}

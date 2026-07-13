@@ -12,14 +12,14 @@ channel:
 
 > Cet article couvre les informations sur l'entreprise et la campagne SMS dont Braze a besoin si vous travaillez avec Braze pour enregistrer votre 10DLC.
 
-Si vous avez acheté l'aide de Braze pour enregistrer votre 10DLC, vous devrez nous envoyer toutes les informations requises listées ci-dessous à l'adresse e-mail indiquée, comme convenu dans votre contrat avec nous.
+Si vous avez acheté l'aide de Braze pour enregistrer votre 10DLC, vous devrez nous envoyer toutes les informations requises listées ci-dessous à l'adresse e-mail indiquée dans la section suivante, comme convenu dans votre contrat avec nous.
 
-Veuillez inclure toutes les captures d'écran et pièces jointes pertinentes et envoyer le tout à [smsapplications@braze.com](mailto:smsapplications@braze.com). Si vous avez des questions sur le 10DLC, consultez le [guide SMS 10DLC de Braze]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) ou contactez votre gestionnaire de la satisfaction client Braze.
+Veuillez inclure toutes les captures d'écran et pièces jointes pertinentes et envoyer le tout à [smsapplications@braze.com](mailto:smsapplications@braze.com). Si vous avez des questions sur le 10DLC, consultez le [guide SMS 10DLC de Braze]({{site.baseurl}}/assets/pdf/SMS_10DLC_Guide.pdf) ou contactez votre CSM Braze.
 
 
 ## Informations sur l'entreprise (10DLC) {#company-information-10dlc}
 
-Tous les opérateurs américains exigent les informations ci-dessous sur l'entreprise pour les nouvelles soumissions de campagne.
+Tous les opérateurs américains exigent les informations suivantes sur l'entreprise pour les nouvelles soumissions de campagne.
 
 
 | Champ                                                         | Options (le cas échéant)                                       | Description                                                  |
@@ -28,7 +28,7 @@ Tous les opérateurs américains exigent les informations ci-dessous sur l'entre
 | Type d'entreprise                                                 | {::nomarkdown} <ul><li>Corporation</li><li>Co-operative</li><li>Limited Liability Corporation</li><li>Non-profit</li><li>Partnership</li><li>Sole Proprietorship</li></ul> {:/}|   |
 | EIN / Numéro d'identification fiscale de l'entreprise                                  |                                                               | Le numéro utilisé pour identifier votre entreprise.   |
 | Type d'identifiant d'enregistrement de l'entreprise                                 | {::nomarkdown}<ul><li>USA: Employer Identification Number (EIN)</li><li>Canada: Canadian Corporation Number (CCN)</li><li>Great Britain: Company Number</li><li>Australia: Company Number from ASIC (ACN)</li><li>India: Corporate Identity Number</li><li>VAT Number</li><li>Israel: Registration Number</li><li>Other</li></ul>{:/}  |                                                              |
-| Si vous avez sélectionné « Other » pour le type d'identifiant d'enregistrement, précisez quel autre registre vous utiliserez pour identifier votre entreprise.|                                                              |
+| Si vous avez sélectionné « Other » pour le type d'identifiant d'enregistrement de l'entreprise, précisez quel autre registre vous utiliserez pour identifier votre entreprise. |                                                              |
 | Secteur d'activité de l'entreprise                                             | {::nomarkdown} <ul><li>Automotive</li><li>Agriculture</li><li>Banking</li><li>Consumer</li><li>Education</li><li>Electronics</li><li>Engineering</li><li>Energy</li><li>Fast Moving Consumer Goods</li><li>Financial</li><li>Fintech</li><li>Food & Beverage</li><li>Government</li><li>Healthcare</li><li>Hospitality</li><li>Insurance</li><li>Jewelry</li><li>Legal</li><li>Manufacturing</li><li>Media</li><li>Not-for-Profit</li><li>Oil & Gas</li><li>Online</li><li>Raw Materials</li><li>Real Estate</li><li>Religion</li><li>Retail</li><li>Technology</li><li>Telecommunications</li><li>Transportation</li><li>Travel</li></ul>{:/} | |
 | URL du site web                                                   |                                                               | Le site web fourni doit refléter la marque enregistrée et être accessible. |
 | Régions d'activité de l'entreprise (sélectionnez toutes celles qui s'appliquent)        | {::nomarkdown} <ul><li>Africa</li><li>Asia</li><li>Europe</li><li>Latin America</li><li>USA & Canada</li></ul>{:/}    |    |
@@ -48,16 +48,16 @@ Tous les opérateurs américains exigent les informations ci-dessous sur l'entre
 | Adresse légale complète de l'entreprise (rue, ville, État, code postal)        |                                                               |                                                              |
 | Type de société (privée, à but non lucratif, gouvernementale, cotée (veuillez fournir le symbole boursier)) |                                       |                                                              |
 | Si société cotée, indiquez votre symbole boursier                         |                                                               |                                                              |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Informations sur l'entreprise (10DLC)" }
 
 ## Informations sur la campagne SMS {#sms-campaign-information}
 
-Nous devrons enregistrer chaque groupe d'abonnement SMS contenant un code long américain avec sa propre campagne A2P 10DLC (parfois appelée cas d'utilisation). Veuillez fournir les informations ci-dessous une fois pour chacun de vos groupes d'abonnement SMS contenant un code long américain.
+Nous devrons enregistrer chaque groupe d'abonnement SMS contenant un code long américain avec sa propre campagne A2P 10DLC (parfois appelée cas d'usage). Veuillez fournir ces informations une fois pour chacun de vos groupes d'abonnement SMS contenant un code long américain.
 
 | Champ | Options (le cas échéant) | Description |
 | ------ | ------------------------ | --------------- |
-| Cas d'utilisation de la campagne (choisissez celui qui correspond le mieux) | {::nomarkdown} <ul><li>Marketing</li><li>Account Notifications</li><li>Delivery Notifications</li><li>Customer Care</li><li>Security Alert</li><li>Fraud Alert Messaging</li><li>Higher Education</li><li>Mixed</li><li>Polling and Voting</li><li>Public Service Announcement</li></ul>{:/} | Remarque : si vous prévoyez d'utiliser un cas d'utilisation « Mixed » pour un groupe d'abonnement, consultez au préalable votre gestionnaire de la satisfaction client ou votre gestionnaire d'onboarding pour obtenir des détails importants. |
-| Nom de la campagne | | {::nomarkdown}<p>Le nom de la campagne SMS doit être affiché de manière cohérente dans vos messages, vos conditions d'utilisation et partout où vos utilisateurs s'inscrivent à votre programme.</p><p>Exemples :</p><ul><li>Braze Marking Alerts</li><li>Braze Account Notifications</li><li>Braze Cart Reminders</li></ul>{:/} |
+| Cas d'usage de la campagne (choisissez celui qui correspond le mieux) | {::nomarkdown} <ul><li>Marketing</li><li>Account Notifications</li><li>Delivery Notifications</li><li>Customer Care</li><li>Security Alert</li><li>Fraud Alert Messaging</li><li>Higher Education</li><li>Mixed</li><li>Polling and Voting</li><li>Public Service Announcement</li></ul>{:/} | Remarque : si vous prévoyez d'utiliser un cas d'usage « Mixed » pour un groupe d'abonnement, consultez au préalable votre CSM ou votre gestionnaire d'onboarding pour obtenir des détails importants. |
+| Nom de la campagne | | {::nomarkdown}<p>Le nom de la campagne SMS doit être affiché de manière cohérente dans vos messages, vos conditions d'utilisation et partout où vos utilisateurs s'inscrivent à votre programme.</p><p>Exemples :</p><ul><li>Braze Marketing Alerts</li><li>Braze Account Notifications</li><li>Braze Cart Reminders</li></ul>{:/} |
 | Description de la campagne | | Cette campagne envoie des messages marketing et promotionnels aux utilisateurs qui s'abonnent pour recevoir des SMS, y compris des offres spéciales/coupons et des notifications de rappel de panier. |
 | Adresse e-mail du service client | | Où les utilisateurs finaux peuvent-ils envoyer un e-mail pour obtenir de l'aide et de l'assistance ? |
 | Numéro de téléphone du service client | | Où les utilisateurs finaux peuvent-ils appeler pour obtenir de l'aide et de l'assistance ? |
@@ -68,10 +68,10 @@ Nous devrons enregistrer chaque groupe d'abonnement SMS contenant un code long a
 | Mots-clés de désabonnement | | {::nomarkdown} <p>Les utilisateurs finaux doivent pouvoir envoyer un mot-clé par SMS pour arrêter de recevoir des messages de cette campagne. Par défaut, Braze configure les mots-clés suivants :</p><ul>  <li>STOP</li><li>STOPALL</li><li>UNSUBSCRIBE</li><li>CANCEL</li><li>END</li><li>QUIT</li></ul><p>Veuillez nous indiquer si vous souhaitez ajouter des mots-clés.</p>{:/} |
 | Message de désabonnement | | À la réception des mots-clés de désabonnement de la part des utilisateurs finaux, les opérateurs s'attendent à une réponse automatique qui doit accuser réception de la demande de désabonnement et confirmer qu'aucun autre message ne sera envoyé. Il est également recommandé que ces messages de désabonnement incluent le nom de la marque (par exemple, Braze Marketing Alerts : Vous êtes désabonné de tous les messages. Répondez HELP pour obtenir de l'aide.) <br><br>320 caractères maximum|
 | Mots-clés d'aide | | Les utilisateurs finaux doivent pouvoir envoyer un mot-clé par SMS pour recevoir de l'aide. Par défaut, Braze configure les mots-clés suivants : -HELP -INFO Veuillez nous indiquer si vous souhaitez ajouter des mots-clés. |
-| Message d'aide | | À la réception des mots-clés d'aide de la part des utilisateurs finaux, les opérateurs s'attendent à une réponse automatique qui peut inclure le nom de la marque et des coordonnées de support supplémentaires (par exemple, Braze Marketing Alerts : Pour obtenir de l'aide, appelez le 555-555-555. Des frais de messages et de données peuvent s'appliquer. La fréquence des messages peut varier. Envoyez STOP pour annuler.)<br><br>320 caractères maximum|
+| Message d'aide | | À la réception des mots-clés d'aide de la part des utilisateurs finaux, les opérateurs s'attendent à une réponse automatique qui peut inclure le nom de la marque et des coordonnées d'assistance supplémentaires (par exemple, Braze Marketing Alerts : Pour obtenir de l'aide, appelez le 555-555-555. Des frais de messages et de données peuvent s'appliquer. La fréquence des messages peut varier. Envoyez STOP pour annuler.)<br><br>320 caractères maximum|
 | Exemple de message 1 sur 2 | | Customer/Brand Updates: Hello and Welcome to Customer Brand Updates. Please visit our website at www.customerwebsite.com. Please type HELP for help or STOP to opt out. |
 | Exemple de message 2 sur 2 | | Customer/Brand Updates: Check out our latest holiday sale for 20% off all items through Monday. Please visit our website at www.customerwebsite.com. Please type HELP for help or STOP to opt out. |
-| Volume quotidien estimé | | Veuillez indiquer le nombre moyen estimé de messages envoyés par jour pour ce cas d'utilisation/groupe d'abonnement particulier, par exemple 10 000. |
+| Volume quotidien estimé | | Veuillez indiquer le nombre moyen estimé de messages envoyés par jour pour ce cas d'usage/groupe d'abonnement particulier, par exemple 10 000. |
 | Liste de vérification de l'appel à l'action | | {::nomarkdown} <p>L'appel à l'action doit inclure les éléments suivants :</p><ol><li>Description du produit</li><li>Divulgation de la fréquence des messages</li><li>Lien vers les conditions générales complètes</li><li>Lien vers la politique de confidentialité complète</li><li>Instructions pour le mot-clé STOP</li><li>Instructions pour le mot-clé HELP</li><li>Mention « Message and Data Rates may apply »</li></ol> {:/} |
 | Exemple d'appel à l'action | | ![Exemple d'appel à l'action contenant tous les détails requis.]({{site.baseurl}}/assets/img_archive/10dlc_cta_example.png) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Informations sur la campagne SMS" }

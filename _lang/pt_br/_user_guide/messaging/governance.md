@@ -4,12 +4,12 @@ article_title: Governança
 layout: dev_guide
 page_order: 2
 guide_top_header: "Governança"
-guide_top_text: "Gerencie o ciclo de vida e a organização das suas Campaigns e Canvas. Consulte os artigos abaixo para configurar fluxos de aprovação, arquivar ou duplicar itens, copiá-los entre espaços de trabalho e usar status e tags para manter seu espaço de trabalho organizado."
+guide_top_text: "Gerencie o ciclo de vida e a organização das suas Campaigns, Canvas e landing pages. Consulte os artigos abaixo para configurar fluxos de aprovação, arquivar ou duplicar itens, copiá-los entre espaços de trabalho e usar status e tags para manter seu espaço de trabalho organizado."
 page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Aprovações, arquivamento, duplicação, cópia entre espaços de trabalho, status e tags para Campaigns e Canvas."
+description: "Aprovações, arquivamento, duplicação, cópia entre espaços de trabalho, status e tags para Campaigns, Canvas e landing pages."
 
 guide_featured_title: "Artigos da seção"
 guide_featured_list:

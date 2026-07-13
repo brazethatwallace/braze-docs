@@ -2,7 +2,7 @@
 nav_title: Promoción de temporada con imagen
 article_title: Promoción de temporada con imagen de fondo
 alias: "/seasonal_promotion/"
-page_order: 8
+page_order: 9
 description: "Esta página explica cómo usar el editor de arrastrar y soltar de mensajes dentro de la aplicación para promocionar una oferta o descuento de temporada e impulsar la interacción de los usuarios."
 ---
 
@@ -30,11 +30,11 @@ Para comenzar a crear tu promoción de temporada, selecciona el componente de bo
 
 ![El editor de mensajes dentro de la aplicación con un menú lateral para personalizar el elemento de botón.]({% image_buster /assets/img/drag_and_drop/templates/seasonal_promo_button.png %})
 
-También puedes añadir mensajes adicionales a tu promoción de temporada en la sección **Pages** y luego vincularlos para crear un flujo secuencial. Por ejemplo, puedes armar una secuencia de mensajes que describa brevemente las capacidades del producto y termine con un botón que lleve a los usuarios a la página del producto. Aprende cómo hacerlo en [Conectar páginas entre sí]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+También puedes añadir mensajes adicionales a tu promoción de temporada en la sección **Pages** y luego vincularlos para crear un flujo secuencial. Por ejemplo, puedes armar una secuencia de mensajes que describa brevemente las capacidades del producto y termine con un botón que lleve a los usuarios a la página del producto. Aprende cómo hacerlo en [Conectar páginas entre sí]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### Paso 4: Dale estilo a tu mensaje {#step-4-style-your-message}
 
-Personaliza la apariencia de tu promoción de temporada usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastrar y soltar. Añade tu propia imagen de fondo reemplazando la URL de imagen de fondo predeterminada en el menú **Message container** o elimina la URL y selecciona tu imagen desde la [Biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/).
+Personaliza la apariencia de tu promoción de temporada usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastrar y soltar. Añade tu propia imagen de fondo reemplazando la URL de imagen de fondo predeterminada en el menú **Message container** o elimina la URL y selecciona tu imagen desde la [Biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library).
 
 ![El editor de mensajes dentro de la aplicación con un menú lateral para seleccionar la imagen de fondo.]({% image_buster /assets/img/drag_and_drop/templates/seasonal_promo_image.png %})
 

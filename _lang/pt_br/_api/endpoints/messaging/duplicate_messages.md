@@ -1,5 +1,5 @@
 ---
-nav_title: Envio de mensagens duplicadas
+nav_title: Mensagens duplicadas
 config_only: true
 noindex: true
 ---

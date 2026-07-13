@@ -19,13 +19,13 @@ channel:
 > Zusätzlich zur Änderung des Abo-Status von Nutzer:innen und dem Senden automatischer Antworten basierend auf eingehenden Schlüsselwörtern zeichnet Braze auch Interaktionen im Nutzerprofil auf, um Nachrichten zu filtern und zu triggern.<br><br>Diese Filter und Trigger ermöglichen es Ihnen, Aktionen basierend auf Nutzer:innen zu filtern, die SMS-, MMS- und RCS-Kampagnen erhalten haben oder darauf geantwortet haben, oder Nutzer:innen weiter anzusprechen, die auf gekürzte URLs geklickt haben.
 
 {% alert tip %}
-Um mehr über angepasste Schlüsselwörter zu erfahren und wie Sie Zwei-Wege-Messaging einrichten, um diese Retargeting-Optionen zu nutzen, besuchen Sie unseren Artikel zu [angepassten Schlüsselwörtern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/).
+Um mehr über angepasste Schlüsselwörter zu erfahren und wie Sie Zwei-Wege-Messaging einrichten, um diese Retargeting-Optionen zu nutzen, besuchen Sie unseren Artikel zu [angepassten Schlüsselwörtern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling).
 {% endalert %}
 
 ## Retargeting-Optionen {#retargeting-options}
 
 {% alert note %}
-Beim Aufbau von Zielgruppen mit Nutzer:innen-Retargeting möchten Sie möglicherweise bestimmte Nutzer:innen basierend auf ihren Präferenzen ein- oder ausschließen, und um Datenschutzgesetze einzuhalten, wie z. B. das Recht auf „Nicht verkaufen oder teilen“ gemäß dem CUP. Marketer sollten die relevanten Filter für die Berechtigung von Nutzer:innen in ihren Canvas- und/oder Campaign-Eintrittskriterien implementieren.
+Beim Aufbau von Zielgruppen mit Nutzer:innen-Retargeting möchten Sie möglicherweise bestimmte Nutzer:innen basierend auf ihren Präferenzen ein- oder ausschließen, um Datenschutzgesetze einzuhalten, wie z. B. das Recht auf „Nicht verkaufen oder teilen“ gemäß dem CUP. Marketer sollten die relevanten Filter für die Berechtigung von Nutzer:innen in ihren Canvas- und/oder Campaign-Eintrittskriterien implementieren.
 {% endalert %}
 
 ### Nutzer:innen nach SMS, MMS und RCS filtern {#filter-users-by-sms-mms-and-rcs}
@@ -44,17 +44,17 @@ Wenn eine Nachricht empfangen, geöffnet oder angeklickt wird, aktualisiert Braz
 
 Filtert Nutzer:innen, die eine Nachricht von einer bestimmten Campaign erhalten haben. Mit diesem Filter haben Sie auch die Möglichkeit, diejenigen herauszufiltern, die keine Nachrichten von einer Campaign erhalten haben.
 
-![Segmentierungsfilter „Hat Nachricht erhalten von Campaign „SMS retargeting“.]({% image_buster /assets/img/sms/filter1.png %})
+![Segmentierungsfilter „Hat Nachricht erhalten von Campaign „SMS retargeting“".]({% image_buster /assets/img/sms/filter1.png %})
 
 ### Nachrichten triggern, wenn Nutzer:innen SMS, MMS oder RCS erhalten {#trigger-messages}
 
 Um Nachrichten zu triggern, wenn Nutzer:innen SMS-, MMS- oder RCS-Nachrichten von einer bestimmten Campaign erhalten, wählen Sie **Interact with Campaign** als Trigger-Aktion für eine aktionsbasierte Campaign. Wählen Sie dann **Receive SMS** und die SMS-, MMS- oder RCS-Campaign, die Sie verwenden möchten.
 
-![]({% image_buster /assets/img/sms/trigger.png %})
+![Um Nachrichten zu triggern, wenn Nutzer:innen SMS-, MMS- oder RCS-Nachrichten von einer bestimmten Campaign erhalten, wählen Sie „Interact with Campaign“ als Trigger-Aktion für eine aktionsbasierte Campaign. Wählen Sie dann „Receive SMS“ und die SMS-, MMS- oder RCS-Campaign, die Sie verwenden möchten.]({% image_buster /assets/img/sms/trigger.png %})
 
 ### Nach erweiterten Tracking-Links filtern {#filter-by-advanced-tracking-links}
 
-Retargeten Sie Nutzer:innen, die auf Kampagnen mit [erweiterten Tracking-Links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) geklickt haben.
+Retargeten Sie Nutzer:innen, die auf Kampagnen mit [erweiterten Tracking-Links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) geklickt haben.
 Nur Kampagnen mit aktiviertem erweitertem Tracking erscheinen in den folgenden Dropdowns:
 
 #### Nutzer:innen retargeten, die auf eine bestimmte SMS-, MMS- oder RCS-Campaign geklickt haben {#retarget-users-who-have-clicked-a-specific-sms-mms-or-rcs-campaign}
@@ -63,7 +63,7 @@ Nur Kampagnen mit aktiviertem erweitertem Tracking erscheinen in den folgenden D
 2. Wählen Sie **clicked shortened sms link**.
 3. Wählen Sie die gewünschte Campaign.
 
-![]({% image_buster /assets/img/sms/retargeting5.png %})
+![Screenshot zum Retargeting von Nutzer:innen, die auf eine bestimmte SMS-, MMS- oder RCS-Campaign geklickt haben.]({% image_buster /assets/img/sms/retargeting5.png %})
 
 #### Nutzer:innen retargeten, die auf einen bestimmten Canvas-Schritt geklickt haben {#retarget-users-who-have-clicked-a-specific-canvas-step}
 
@@ -71,11 +71,11 @@ Nur Kampagnen mit aktiviertem erweitertem Tracking erscheinen in den folgenden D
 2. Wählen Sie **clicked shortened sms link**.
 3. Wählen Sie den gewünschten Canvas und Canvas-Schritt.
 
-![]({% image_buster /assets/img/keyword_example1.jpg %})
+![Screenshot zum Retargeting von Nutzer:innen, die auf einen bestimmten Canvas-Schritt geklickt haben.]({% image_buster /assets/img/keyword_example1.jpg %})
 
 ## Schlüsselwortkategorie-spezifisches Retargeting {#keyword-category-specific-retargeting}
 
-Zusätzlich zu den drei Standard-Schlüsselwortkategorien (Opt-in, Opt-out und Hilfe) können Sie auch bis zu 25 eigene Schlüsselwortkategorien erstellen, mit denen Sie beliebige Schlüsselwörter und Antworten identifizieren können. Diese Kategorien können zum Filtern und Retargeting verwendet werden. Um mehr über globale Schlüsselwortkategorien und deren Einrichtung zu erfahren, lesen Sie [Schlüsselwortverarbeitung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/).
+Zusätzlich zu den drei Standard-Schlüsselwortkategorien (Opt-in, Opt-out und Hilfe) können Sie auch bis zu 25 eigene Schlüsselwortkategorien erstellen, mit denen Sie beliebige Schlüsselwörter und Antworten identifizieren können. Diese Kategorien können zum Filtern und Retargeting verwendet werden. Um mehr über globale Schlüsselwortkategorien und deren Einrichtung zu erfahren, lesen Sie [Schlüsselwortverarbeitung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing).
 
 ### Nach Aktualität filtern {#filter-by-recency}
 
@@ -106,7 +106,7 @@ Nachrichten können getriggert werden, wenn Nutzer:innen eingehende Nachrichten 
 Bei der Auswertung, ob eine eingehende Nachricht einem definierten Trigger-Ereignis entspricht, werden führende und nachfolgende Leerzeichen vor der Auswertung entfernt.
 
 {% alert tip %}
-Wenn ein aktionsbasierter Canvas durch eine eingehende SMS- oder MMS-Nachricht getriggert wird, können Sie [unterstützte SMS-Liquid-Eigenschaften]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) in jedem Canvas-Schritt bis zum nächsten Aktions-Pfad referenzieren.
+Wenn ein aktionsbasierter Canvas durch eine eingehende SMS- oder MMS-Nachricht getriggert wird, können Sie [unterstützte SMS-Liquid-Eigenschaften]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) in jedem Canvas-Schritt bis zum nächsten Aktions-Pfad referenzieren.
 {% endalert %}
 
 #### Nach eingehender Schlüsselwortkategorie triggern {#trigger-by-inbound-keyword-category}

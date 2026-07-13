@@ -24,7 +24,7 @@ Braze와 Judo 통합은 Campaign 및 Canvases에서 맞춤형 경험을 제공�
 |---|---|
 | Judo 계정 | 이 파트너십을 활용하려면 [Judo](https://www.judo.app/) 계정이 필요합니다. |
 | Judo SDK | Judo SDK를 [iOS](https://github.com/judoapp/judo-ios/) 및/또는 [Android](https://github.com/judoapp/judo-android) 앱에 통합해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 활용 사례 {#use-cases}
 
@@ -42,10 +42,8 @@ Judo는 모바일 앱에서 Judo와 Braze SDK를 병렬로 통합하는 데 필�
 
 앱에 Judo-Braze 통합 라이브러리를 설치하고 설정합니다. 이렇게 하면 이벤트 추적이 자동으로 활성화됩니다.
 
-- [iOS 설치
-안내](https://github.com/judoapp/judo-braze-ios/wiki#installation)
-- [Android 설치
-안내](https://github.com/judoapp/judo-braze-android/wiki#installation).
+- [iOS 설치 안내](https://github.com/judoapp/judo-braze-ios/wiki#installation)
+- [Android 설치 안내](https://github.com/judoapp/judo-braze-android/wiki#installation).
 
 ### 2단계: 인앱 메시징 구성 {#step-2-configure-in-app-messaging}
 
@@ -53,10 +51,8 @@ Judo는 모바일 앱에서 Judo와 Braze SDK를 병렬로 통합하는 데 필�
 
 각 통합 라이브러리에 포함된 인앱 메시지 설정 문서를 참조하세요:
 
-- [iOS 인앱 메시징
-설정](https://github.com/judoapp/judo-braze-ios/wiki#in-app-messaging-setup)
-- [Android 인앱 메시징
-설정](https://github.com/judoapp/judo-braze-android/wiki#in-app-messaging-setup).
+- [iOS 인앱 메시징 설정](https://github.com/judoapp/judo-braze-ios/wiki#in-app-messaging-setup)
+- [Android 인앱 메시징 설정](https://github.com/judoapp/judo-braze-android/wiki#in-app-messaging-setup).
 
 ## 이 통합 사용하기 {#using-this-integration}
 

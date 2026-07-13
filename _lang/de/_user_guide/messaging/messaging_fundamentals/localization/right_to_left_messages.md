@@ -15,7 +15,7 @@ description: "Diese Seite behandelt Best Practices für das Erstellen von Nachri
 
 Beachten Sie beim Erstellen einer Rechts-nach-links-Nachricht Folgendes:
 
-- **Darstellung im Braze-Dashboard:** Wenn eine Nachricht auf dem Gerät einer Nutzerin oder eines Nutzers erscheint, wird ihr Erscheinungsbild weitgehend durch das Betriebssystem und die Spracheinstellungen des Geräts bestimmt&#8212;das bedeutet, dass das, was Sie im Dashboard sehen, nicht immer zu 100 % genau ist.
+- **Darstellung im Braze-Dashboard:** Wenn eine Nachricht auf dem Gerät von Nutzer:innen erscheint, wird ihr Erscheinungsbild weitgehend durch das Betriebssystem und die Spracheinstellungen des Geräts bestimmt&#8212;das bedeutet, dass das, was Sie im Dashboard sehen, nicht immer zu 100 % genau ist.
 - **Darstellung auf dem Gerät:** Apple und Android haben erheblichen Einfluss darauf, wie Nachrichten dargestellt werden, während E-Mail-Anbieter (ESPs) einen gewissen Einfluss haben. Die HTML-E-Mail-Anpassung in Braze kann flexibler sein; dennoch kann dieselbe Nachricht auf verschiedenen Geräten je nach den Einstellungen der Nutzer:innen unterschiedlich dargestellt werden.
 
 Überprüfen Sie außerdem Satzzeichen und Emojis, um festzustellen, ob Ihre Nachricht standardmäßig oder von rechts nach links dargestellt wird.
@@ -24,7 +24,7 @@ Beachten Sie beim Erstellen einer Rechts-nach-links-Nachricht Folgendes:
 |------------------|------------------------|
 | Zeigt das Ausrufezeichen und Emoji am **Ende** der Sätze an. | Zeigt das Ausrufezeichen und Emoji am **Anfang** des Satzes an. |
 | ![Ein Beispiel für eine standardmäßige Rechts-nach-links-Nachricht.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![Ein Beispiel für eine Links-nach-rechts-Nachricht.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Darstellung von Nachrichten" }
 
 ## Eine Rechts-nach-links-Nachricht erstellen {#creating-a-right-to-left-message}
 
@@ -42,6 +42,14 @@ So erstellen Sie Ihre Rechts-nach-links-Nachricht in Braze:
 Die Kopieren-und-Einfügen-Methode für Push-Nachrichten kann bei längeren Push-Benachrichtigungen schwierig sein, da längerer Inhalt auf einem Mobilgerät in mehrere Zeilen umgebrochen werden kann. Wenn Sie Ihren Nachrichtentext von außerhalb von Braze kopieren (z. B. aus einem Word-Dokument) und direkt in Braze einfügen, können sich die Satzausrichtung und Wortplatzierung ändern. Um dies zu vermeiden, kopieren und fügen Sie in Abschnitten ein und fügen Sie einen Zeilenumbruch hinzu. Kopieren und fügen Sie beispielsweise die ersten fünf Wörter ein, fügen Sie einen Zeilenumbruch hinzu, kopieren Sie die nächsten fünf Wörter, fügen Sie einen Zeilenumbruch hinzu, und so weiter.
 
 Die Vorschau- und Testfunktionen sind für Links-nach-rechts-Nachrichten konzipiert, sodass Rechts-nach-links-Nachrichten im Abschnitt **Preview & Test** nicht korrekt dargestellt werden, aber auf den Geräten der Nutzer:innen korrekt dargestellt werden, wenn deren Einstellungen entsprechend konfiguriert sind. Wir empfehlen, Nachrichten in einer Live-Umgebung an sich selbst zu senden, um zu bestätigen, dass sie basierend auf den Geräteeinstellungen korrekt dargestellt werden.
+
+### Ausrichtung von Titel und Text {#title-and-body-alignment}
+
+Bei Push-Benachrichtigungen folgt die Titelausrichtung in der Regel den Spracheinstellungen des Geräts, während die Textausrichtung dem ersten starken Richtungszeichen in jeder Zeile folgen kann (behandeln Sie jede Zeile nach einem Zeilenumbruch separat). Das bedeutet, dass eine einzelne Push-Benachrichtigung die Ausrichtung zeilenübergreifend mischen kann – zum Beispiel eine Rechts-nach-links-Textzeile gefolgt von einer Links-nach-rechts-Zeile. Wenn Sie ein vorhersehbares Layout benötigen, achten Sie auf eine einheitliche Schreibrichtung und verwenden Sie Zeilenumbrüche zwischen gemischtsprachigen Abschnitten.
+
+{% alert note %}
+Die Darstellung hängt weiterhin vom Betriebssystem des Geräts und dem Push-Client ab. Senden Sie [Testnachrichten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) an Ihre eigenen Geräte, um die Ausrichtung zu bestätigen, bevor Sie live gehen.
+{% endalert %}
 
 ### Bidirektionaler Text {#bi-directional-text}
 

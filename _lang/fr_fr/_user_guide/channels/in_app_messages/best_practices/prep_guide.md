@@ -15,9 +15,9 @@ toc_headers: h2
 
 ## Considérations générales {#general-considerations}
 
-- Si vous créez une Campaign, combien de variantes de ce message souhaitez-vous afficher ? Pour des idées de tests de variantes, consultez [Conseils pour différents canaux]({{site.baseurl}}/user_guide/messaging/ab_testing/#tips-different-channels).
+- Si vous créez une Campaign, combien de variantes de ce message souhaitez-vous afficher ? Pour des idées de tests de variantes, consultez [Conseils pour différents canaux]({{site.baseurl}}/user_guide/messaging/ab_testing#tips-different-channels).
 - Si vous créez un Canvas, ce message sera-t-il associé à d'autres canaux de communication dans cette étape ?
-- Quand souhaitez-vous que [votre message expire]({{site.baseurl}}/canvas_in-app_messages/) ?
+- Quand souhaitez-vous que [votre message expire]({{site.baseurl}}/canvas_in-app_messages) ?
 
 ## Considérations de ciblage {#targeting-considerations}
 
@@ -25,11 +25,11 @@ toc_headers: h2
 - Où souhaitez-vous que vos utilisateurs voient votre message ? Dans votre application web ? Dans votre application mobile ?
 - Quel événement doit déclencher ce message ?
 - Certains de vos utilisateurs utilisent-ils des versions plus anciennes de votre application ? Si c'est le cas, ils pourraient ne pas être en mesure de voir certains éléments de votre message.
-- Pour quel type d'appareil ou d'appareils créez-vous ce message ? N'oubliez pas que vous pouvez prévisualiser votre message en utilisant la boîte **Preview** ou l'onglet **Test**. Consultez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) pour plus d'informations.
+- Pour quel type d'appareil ou d'appareils créez-vous ce message ? N'oubliez pas que vous pouvez prévisualiser votre message en utilisant la boîte **Preview** ou l'onglet **Test**. Consultez [Envoyer des messages de test]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) pour plus d'informations.
 
 ## Planification, délais et démarrages de session {#scheduling-delays-and-session-starts}
 
-Lorsqu'une Campaign de message in-app a un **Schedule Delay** avec un déclencheur au démarrage de session, un utilisateur qui démarre une session puis ferme l'application avant que le message in-app ne s'affiche peut toujours recevoir ce message au prochain démarrage de session, après l'expiration du délai.
+Lorsqu'une Campaign de message in-app a un **Planifier un délai** avec un déclencheur au démarrage de session, un utilisateur qui démarre une session puis ferme l'application avant que le message in-app ne s'affiche peut toujours recevoir ce message au prochain démarrage de session, après l'expiration du délai.
 
 Ce timing peut produire un comportement d'affichage inattendu, surtout si l'option **Re-evaluate campaign eligibility before displaying** n'est pas sélectionnée sur la Campaign.
 
@@ -40,15 +40,16 @@ Par exemple, un utilisateur pourrait recevoir un message in-app avec un délai d
 - Quelles langues utiliserez-vous dans ce message ?
 - Quel est le texte de votre en-tête et de votre corps de message ? Sont-ils accrocheurs et pertinents pour votre utilisateur ?
 - Les messages in-app ne s'affichent que pendant une durée définie. Votre texte est-il concis et mémorable ?
-- Utiliserez-vous [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/) pour ajouter du texte personnalisé ?
-- Pour les messages in-app en plein écran, votre image ou autre média se trouve-t-elle dans la [zone de sécurité]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen/#image-safe-zone) ?
+- Utiliserez-vous [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) pour ajouter du texte personnalisé ?
+- Les utilisateurs ont-ils besoin de copier le texte du message (comme un code de réduction ou un code promotionnel) ? Sur iOS et Android, les utilisateurs peuvent effectuer un appui long sur du texte ou des champs de saisie pour copier le contenu. L'appui long ne fonctionne pas sur les images, utilisez donc du texte ou des champs de saisie au lieu d'images contenant des codes ou d'autres éléments que les utilisateurs pourraient avoir besoin de copier.
+- Pour les messages in-app en plein écran, votre image ou autre média se trouve-t-elle dans la [zone de sécurité]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone) ?
 - Pour les messages in-app de type sondage, souhaitez-vous enregistrer des attributs ou des soumissions ? Avez-vous configuré votre page de confirmation ?
 
 ## Considérations de conversion {#conversion-considerations}
 
 - Quel est votre objectif pour ce message ? Comment pouvez-vous le représenter dans votre message ?
-- Vos boutons offrent-ils des options qui ont du sens pour votre utilisateur ? Quel est votre [appel à l'action principal]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#buttons) ?
-- Créez-vous des [liens profonds vers d'autres contenus in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) ? Utilisez-vous ce message in-app pour envoyer et accepter une [demande d'autorisation ou d'amorçage push]({{site.baseurl}}/user_guide/channels/push/best_practices/) ?
+- Vos boutons offrent-ils des options qui ont du sens pour votre utilisateur ? Quel est votre [appel à l'action principal]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#buttons) ?
+- Créez-vous des [liens profonds vers d'autres contenus in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) ? Utilisez-vous ce message in-app pour envoyer et accepter une [demande d'autorisation ou d'amorçage push]({{site.baseurl}}/user_guide/channels/push/best_practices) ?
 - Avez-vous une option de sortie du message ? Si ce n'est pas le cas, vous pouvez toujours copier et coller cet extrait de code pour créer un bouton rapide :
     ```html
     <a href="appboy://close">X</a>

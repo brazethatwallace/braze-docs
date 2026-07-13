@@ -50,7 +50,8 @@ Quando você registra receita em uma moeda sem taxa de câmbio, a Braze registra
     }
 </style>
 
-<table>
+<table aria-label="Entendendo os cálculos de receita">
+  <caption>Entendendo os cálculos de receita</caption>
     <thead>
         <tr>
             <th>Métrica</th>
@@ -89,14 +90,14 @@ Consulte a tabela **Product Breakdown** para ver uma lista dos produtos comprado
 
 ## Exportando dados de receita {#exporting-revenue-data}
 
-Para exportar seus dados de receita, selecione <i class="fas fa-bars" title="Menu de contexto do gráfico"></i> no gráfico **Performance Over Time** e selecione sua opção de exportação.
+Para exportar seus dados de receita, selecione <i class="fas fa-bars" title="Menu de contexto do gráfico"></i> **Menu de contexto do gráfico** no gráfico **Performance Over Time** e selecione sua opção de exportação.
 
 {% alert tip %}
-Procurando mais formas de obter dados de receita? Tente adicionar comportamento de compra (assim como compra de um produto) a Campaigns ou Canvas como [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
+Procurando mais formas de obter dados de receita? Tente adicionar comportamento de compra (assim como compra de um produto) a Campaigns ou Canvas como [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
 {% endalert %}
 
-Você também pode visualizar estatísticas de receita caso a caso nas páginas de [análise de dados de Campaign]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) ou [análise de dados de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).
+Você também pode visualizar estatísticas de receita caso a caso nas páginas de [análise de dados de Campaign]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) ou [análise de dados de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).
 
 {% alert tip %}
-Relatórios de receita não podem ser exportados via API. Para ajuda com exportações CSV, consulte [solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Relatórios de receita não podem ser exportados via API. Para ajuda com exportações CSV, consulte [solução de problemas de exportação]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

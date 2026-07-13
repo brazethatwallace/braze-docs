@@ -10,18 +10,18 @@ channel:
 
 # E-Mail-Erfassungsformular {#email-capture-form}
 
-> E-Mail-Erfassungsnachrichten ermöglichen es Ihnen, Nutzer:innen Ihrer Website einfach aufzufordern, ihre E-Mail-Adresse einzugeben. Diese wird anschließend in ihrem Nutzerprofil gespeichert und steht für alle Ihre Messaging-Kampagnen zur Verfügung.
+> E-Mail-Erfassungsnachrichten ermöglichen es Ihnen, Nutzer:innen Ihrer Website aufzufordern, ihre E-Mail-Adresse einzugeben. Braze fügt die Adresse ihrem Nutzerprofil hinzu, damit sie in all Ihren Messaging-Kampagnen verwendet werden kann.
 
-Dieser Nachrichtentyp ist im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) verfügbar.
+Dieser Nachrichtentyp ist im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) verfügbar.
 
 ## So funktioniert es {#how-it-works}
 
-Wenn eine Endnutzer:in ihre E-Mail-Adresse in dieses Formular eingibt, wird die E-Mail-Adresse ihrem Nutzerprofil hinzugefügt.
+Wenn Endnutzer:innen ihre E-Mail-Adresse in dieses Formular eingeben, fügt Braze die E-Mail-Adresse ihrem Nutzerprofil hinzu.
 
-- Bei [anonymen Nutzer:innen]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#anonymous-user-profiles), die noch kein Konto haben, wird die E-Mail-Adresse im anonymen Nutzerprofil gespeichert, das mit dem Gerät der Nutzer:in verknüpft ist.
+- Bei [anonymen Nutzer:innen]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles), die noch kein Konto haben, wird die E-Mail-Adresse im anonymen Nutzerprofil gespeichert, das mit dem Gerät der Nutzer:in verknüpft ist.
 - Wenn bereits eine E-Mail-Adresse im Nutzerprofil vorhanden ist, wird die bestehende E-Mail-Adresse durch die neu eingegebene überschrieben.
-- Wenn die bekannte Nutzer:in eine E-Mail-Adresse hat, die als [Hard Bounce]({{site.baseurl}}/help/help_articles/email/email_bounces/#email-bounces) markiert ist, wird geprüft, ob die neu eingegebene E-Mail-Adresse von der im Braze-Profil gespeicherten abweicht. Wenn die angegebene E-Mail-Adresse anders ist, wird die E-Mail-Adresse aktualisiert und der Hard-Bounce-Status entfernt.
-- Wenn eine Nutzer:in eine ungültige E-Mail-Adresse eingibt, wird die Fehlermeldung angezeigt: „Please enter a valid email.“
+- Wenn bekannte Nutzer:innen eine E-Mail-Adresse haben, die als [Hard Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#hard-bounce) markiert ist, prüft Braze, ob die neu eingegebene E-Mail-Adresse von der im Braze-Profil gespeicherten abweicht. Wenn die angegebene E-Mail-Adresse anders ist, aktualisiert Braze die E-Mail-Adresse und entfernt den Hard-Bounce-Status.
+- Wenn Nutzer:innen eine ungültige E-Mail-Adresse eingeben, wird die Fehlermeldung angezeigt: „Please enter a valid email.“
     - Ungültige E-Mail-Adressen:
         - `example`
         - `example@`
@@ -30,17 +30,17 @@ Wenn eine Endnutzer:in ihre E-Mail-Adresse in dieses Formular eingibt, wird die 
     - Gültige E-Mail-Adressen:
         - `example@gmail.com`
         - `example@gnail.com` (mit Tippfehler)
-    - Weitere Informationen zur E-Mail-Validierung in Braze finden Sie unter [Technische Richtlinien und Hinweise für E-Mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/).
+    - Weitere Informationen zur E-Mail-Validierung in Braze finden Sie unter [Technische Richtlinien und Hinweise für E-Mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 {% details Mehr zu identifizierten und anonymen Nutzer:innen %}
 
-Im Allgemeinen ist die Logik hinter dem E-Mail-Erfassungsformular unkompliziert. Es setzt die E-Mail-Adresse im Nutzerprofil in Braze für die aktuell aktive Nutzer:in. Das bedeutet jedoch, dass sich das Verhalten unterscheidet, je nachdem, ob die Nutzer:in identifiziert (eingeloggt, `changeUser` aufgerufen) ist oder nicht.
+Das E-Mail-Erfassungsformular setzt die E-Mail-Adresse im aktuell aktiven Nutzerprofil in Braze. Das Verhalten unterscheidet sich je nachdem, ob die Nutzer:in identifiziert (eingeloggt, `changeUser` aufgerufen) ist oder nicht.
 
 Wenn eine anonyme Nutzer:in ihre E-Mail-Adresse in das Formular eingibt und absendet, fügt Braze die E-Mail-Adresse ihrem Profil hinzu. Wenn `changeUser` später in der Web-Journey aufgerufen wird und eine neue `external_id` zugewiesen wird (z. B. wenn sich eine neue Nutzer:in beim Dienst registriert), werden alle anonymen Nutzerprofildaten einschließlich der E-Mail-Adresse zusammengeführt.
 
-Wenn `changeUser` mit einer bestehenden `external_id` aufgerufen wird, wird das anonyme Nutzerprofil verwaist und [bestimmte Nutzerprofil-Datenfelder]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge_updates-behavior), die noch nicht im identifizierten Profil vorhanden sind, werden zusammengeführt. Felder, die bereits vorhanden sind, gehen jedoch verloren – einschließlich der E-Mail-Adresse.
+Wenn `changeUser` mit einer bestehenden `external_id` aufgerufen wird, wird das anonyme Nutzerprofil verwaist und [bestimmte Nutzerprofil-Datenfelder]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior), die noch nicht im identifizierten Profil vorhanden sind, werden zusammengeführt. Felder, die bereits vorhanden sind, gehen jedoch verloren – einschließlich der E-Mail-Adresse.
 
-Weitere Informationen finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+Weitere Informationen finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
 {% enddetails %}
 
@@ -62,10 +62,12 @@ Passen Sie als Nächstes Ihr Formular nach Bedarf an. Sie können die folgenden 
 - Verschiedene Farben für Überschrift und Textkörper, Buttons und Hintergrund
 - Schlüssel-Wert-Paare
 - Stil für Überschrift und Textkörper, Buttons, Button-Rahmenfarbe, Hintergrund und Overlay
+- Senden-Button
+    - Hinweis: Der Senden-Button wird erst angezeigt, nachdem Nutzer:innen eine gültige E-Mail-Adresse eingegeben haben. So stellen Sie sicher, dass vollständige E-Mail-Adressen erfasst werden.
 
 ![Composer für das E-Mail-Erfassungsformular.]({% image_buster /assets/img/email_capture.png %})
 
-Wenn Sie weitere Anpassungen vornehmen möchten, wählen Sie **Custom Code** als Ihren **Message Type**. Sie können dieses [E-Mail-Erfassungs-Modal-Template](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal) aus dem [Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates) GitHub-Repository als Ausgangscode verwenden.
+Wenn Sie weitere Anpassungen vornehmen möchten, wählen Sie **Custom Code** als Ihren **Message Type**. Verwenden Sie dieses [E-Mail-Erfassungs-Modal-Template](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates/5-email-capture-modal) aus dem [Braze Templates](https://github.com/braze-inc/in-app-message-templates/tree/master/braze-templates) GitHub-Repository als Ausgangscode.
 
 ## 3. Schritt: Ihre Entry-Zielgruppe festlegen {#step-3-set-your-entry-audience}
 

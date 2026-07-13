@@ -17,19 +17,19 @@ description: "BrazeAI Decisioning Studioエージェントのオーディエン�
 | **Decisioning Studio** | AIによって最適化されたおすすめを受け取る顧客 |
 | **ランダムコントロール** | ランダムに選択されたオプションを受け取る顧客（ベースライン比較用） |
 | **Business-as-Usual（オプション）** | 現在のマーケティングジャーニーを受け取る顧客（既存のパフォーマンスとの比較用） |
-| **ホールドアウト（オプション）** | コミュニケーションを受け取らない顧客（Campaign全体の影響を測定するため） |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| **ホールドアウト（オプション）** | コミュニケーションを受け取らない顧客（キャンペーン全体の影響を測定するため） |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トリートメントグループ" }
 
 ## オーディエンスの設定 {#configure-your-audience}
 
 {% tabs %}
 {% tab Braze %}
 
-1. ターゲットにしたいオーディエンスのSegmentを作成します。
-2. Segment IDをAI意思決定サービスチームに提供します。
+1. ターゲットにしたいオーディエンスのセグメントを作成します。
+2. セグメント IDをAI意思決定サービスチームに提供します。
 
 {% alert note %}
-Brazeでは、複数のSegmentsを取り込み、それらを組み合わせてオーディエンスを作成できます。Decisioning StudioはBusiness-as-Usual比較CampaignのためにSegmentを取り込むことができます。これらのパターンはすべて使用可能です。
+Brazeでは、複数のセグメントを取り込み、それらを組み合わせてオーディエンスを作成できます。Decisioning StudioはBusiness-as-Usual比較キャンペーンのためにセグメントを取り込むことができます。これらのパターンはすべて使用可能です。
 {% endalert %}
 
 {% endtab %}
@@ -52,7 +52,7 @@ Brazeでは、複数のSegmentsを取り込み、それらを組み合わせて�
 
 ### その他のリソース {#additional-resources}
 
-- [Twilio Segment](https://www.twilio.com/docs/segment/connections/storage/catalog/google-cloud-storage)
+- [Twilio セグメント](https://www.twilio.com/docs/segment/connections/storage/catalog/google-cloud-storage)
 - [トレジャーデータ](https://docs.treasuredata.com/int/google-cloud-storage-export-integration)
 - [ActionIQ](https://info.actioniq.com/hubfs/ActionIQ%20Industry%20Brief%20Solutions/ActionIQ_Integrations_Brief.pdf)
 - [Adobe Experience Platform](https://experienceleague.adobe.com/en/docs/experience-platform/destinations/catalog/cloud-storage/google-cloud-storage)
@@ -64,4 +64,4 @@ Brazeでは、複数のSegmentsを取り込み、それらを組み合わせて�
 
 オーディエンスを定義したら、オーケストレーションのセットアップに進みます。
 
-- [オーケストレーションのセットアップ]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [オーケストレーションのセットアップ]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

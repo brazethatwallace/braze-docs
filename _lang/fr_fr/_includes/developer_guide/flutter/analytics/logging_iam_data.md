@@ -1,6 +1,6 @@
 {% multi_lang_include developer_guide/prerequisites/flutter.md %}
 
-## Enregistrement des données des messages
+## Enregistrement des données des messages {#logging-message-data}
 
 Pour enregistrer les analyses à l'aide de votre `BrazeInAppMessage`, passez l'instance dans la fonction d'analyse souhaitée :
 
@@ -19,13 +19,13 @@ braze.logInAppMessageImpression(inAppMessage);
 braze.logInAppMessageButtonClicked(inAppMessage, 0);
 ```
 
-## Accès aux données des messages
+## Accès aux données des messages {#accessing-message-data}
 
 Pour accéder aux données des messages in-app dans votre application Flutter, le `BrazePlugin` prend en charge l'envoi de données de messages in-app à l'aide de [Dart Streams](https://dart.dev/tutorials/language/streams).
 
 L'objet `BrazeInAppMessage` prend en charge un sous-ensemble de champs disponibles dans les objets du modèle natif, notamment `uri`, `message`, `header`, `buttons`, `extras`, et d'autres.
 
-### Écouter les données des messages in-app dans la couche Dart
+### Écouter les données des messages in-app dans la couche Dart {#listen-for-in-app-message-data-in-the-dart-layer}
 
 Pour recevoir les données des messages in-app dans la couche Dart, utilisez le code ci-dessous pour créer un `StreamSubscription` et appeler `braze.subscribeToInAppMessages()`. N'oubliez pas d'appeler `cancel()` sur l'abonnement au flux lorsqu'il n'est plus nécessaire.
 
@@ -43,7 +43,7 @@ inAppMessageStreamSubscription.cancel();
 
 Consultez [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) dans l'exemple d'application du SDK Flutter de Braze.
 
-### Transmettre les données des messages in-app depuis la couche native
+### Transmettre les données des messages in-app depuis la couche native {#forward-in-app-message-data-from-the-native-layer}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
@@ -51,7 +51,7 @@ Consultez [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master
 Les données des messages in-app sont automatiquement transmises depuis les couches natives Android et iOS. Aucune configuration supplémentaire n'est requise.
 
 {% endtab %}
-{% tab Flutter SDK 17.1.0 and earlier %}
+{% tab Flutter SDK 17.1.0 et antérieur %}
 
 Si vous utilisez le SDK Flutter 17.1.0 ou une version antérieure, la transmission des données des messages in-app depuis la couche native iOS nécessite une configuration manuelle. Votre application contient probablement l'un des éléments suivants. Pour migrer vers le SDK Flutter 18.0.0, supprimez l'appel à `BrazePlugin.processInAppMessage(_:)` — la transmission des données est désormais gérée automatiquement.
 
@@ -84,7 +84,7 @@ class CustomInAppMessagePresenter: BrazeInAppMessageUI {
 {% endtab %}
 {% endtabs %}
 
-### Rejouer le rappel pour les messages in-app (facultatif)
+### Rejouer le rappel pour les messages in-app (facultatif) {#replaying-the-callback-for-in-app-messages-optional}
 
 Pour stocker tous les messages in-app déclenchés avant que le rappel ne soit disponible et les rejouer une fois celui-ci défini, ajoutez l'entrée suivante au mappage `customConfigs` lors de l'initialisation du `BrazePlugin` :
 ```dart

@@ -1,12 +1,11 @@
 ---
 permalink: /support_contact/
-nav_title: Help | Braze
+nav_title: Ajuda | Braze
 hide_nav: true
 layout: basic
 hide_toc: true
 ---
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.css" />
-
+<!-- Legacy Algolia/DocSearch CSS and autocomplete JS removed; support suggestions use SearchUnify (see in-page fetch to searchunify.com). -->
 
 <style type="text/css">
   .legal-disclaimer{
@@ -411,72 +410,6 @@ line-height: 18px; /* 138.462% */
   }
 }
 
-.algolia-autocomplete-listbox-2 {
-    display: inline !important;
-}
-
-#algolia-autocomplete-listbox-2 {
-  position: relative !important;
-}
-
-.algolia-autocomplete {
-  line-height: normal;
-  display: inline !important;
-}
-#search-input {
-    padding: 0 0 20px;
-    position: relative;
-}
-
-#search-input input[type="text"] {
-    padding: .5em 0 .5em 0;
-    outline: 0;
-    border: 0;
-    border-bottom: solid 2px #c9c9c9;
-    width: 100%;
-    font-size: 15px;
-    display: inline-block;
-    background-image:url(/docs/assets/img/search_black_shark.svg);
-    background-position: right 10px top 9px;
-    background-size: 14px 14px;
-    background-repeat: no-repeat;
-}
-
-#search-input .fa-search {
-  line-height: normal;
-  position: relative;
-  top: 15px;
-  left: 5px;
-}
-
-.aa-suggestion {
-  margin-top: 5px;
-  line-height: 25px;
-}
-
-#ticket_search div.aa-suggestion {
-  color: #6d6d70;
-  cursor: pointer;
-  display: inline;
-  border-bottom-width: 0px;
-}
-
-#ticket_search aa-suggestions:hover div {
-  text-decoration: none;
-  color: #6d6d70;
-  border-bottom-width: 2px;
-  border-color: #3accdd;
-}
-
-
-#ticket_search aa-suggestion--highlight{
-
-}
-
-#ticket_search .algolia-docsearch-footer {
-  padding-top: 5px;
-}
-
 .gradient-line {
   background: linear-gradient(90deg, rgba(201,196,255,1) 30%, rgba(128,30,215,1) 60%, rgba(255,165,36,1) 90%);
   height: 3px;
@@ -641,33 +574,6 @@ a:hover {
   color: #3accdd;
   text-decoration: none;
 }
-#support-search-panel .aa-Panel {
-  top: 0px !important;
-  position: static;
-  box-shadow: none;
-}
-#support-search-panel .aa-Item {
-  top: 0px !important;
-  position: static;
-  box-shadow: none;
-  min-height: 1.8em;
-  line-height: 1.3em;
-}
-#support-search-panel .aa-PanelLayout {
-  padding-top: 0px;
-}
-#support-search-div {
-  padding-bottom: 15px;
-}
-#support-search-div .aa-Form {
-  box-shadow: none;
-  border-color: transparent;
-  border-radius: 0px;
-  border-bottom: solid 2px #c9c9c9;
-}
-#support-search-div .aa-Form button {
-  padding-top: 10px;
-}
 .hidden {
               display: none !important;
             }
@@ -751,8 +657,17 @@ a:hover {
         .form-group textarea:focus,
         .form-group select:focus {
             border-color: #3498db;
+        }
+        .form-group input[type="text"]:focus-visible,
+        .form-group textarea:focus-visible,
+        .form-group select:focus-visible {
+            outline: 2px solid #801ED7;
+            outline-offset: 2px;
+        }
+        .form-group input[type="text"]:focus:not(:focus-visible),
+        .form-group textarea:focus:not(:focus-visible),
+        .form-group select:focus:not(:focus-visible) {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {
@@ -916,8 +831,15 @@ a:hover {
         .form-group input[type="text"]:focus,
         .form-group textarea:focus {
             border-color: #3498db;
+        }
+        .form-group input[type="text"]:focus-visible,
+        .form-group textarea:focus-visible {
+            outline: 2px solid #801ED7;
+            outline-offset: 2px;
+        }
+        .form-group input[type="text"]:focus:not(:focus-visible),
+        .form-group textarea:focus:not(:focus-visible) {
             outline: none;
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
         }
 
         .form-group textarea {
@@ -1105,7 +1027,7 @@ a:hover {
   <path d="M9.14095 7.94993L7.54095 4.37893C7.46284 4.20119 7.33468 4.05003 7.17211 3.9439C7.00954 3.83776 6.81959 3.78125 6.62545 3.78125C6.4313 3.78125 6.24135 3.83776 6.07878 3.9439C5.91621 4.05003 5.78806 4.20119 5.70995 4.37893L4.10995 7.94993L0.584947 9.57193C0.408701 9.6548 0.259678 9.78611 0.155296 9.95053C0.0509136 10.1149 -0.0045166 10.3057 -0.0045166 10.5004C-0.0045166 10.6952 0.0509136 10.8859 0.155296 11.0503C0.259678 11.2148 0.408701 11.3461 0.584947 11.4289L4.10695 13.0509L5.70695 16.6219C5.78506 16.7997 5.91321 16.9508 6.07578 17.057C6.23835 17.1631 6.4283 17.2196 6.62245 17.2196C6.81659 17.2196 7.00654 17.1631 7.16911 17.057C7.33168 16.9508 7.45984 16.7997 7.53795 16.6219L9.13795 13.0509L12.6599 11.4289C12.8362 11.3461 12.9852 11.2148 13.0896 11.0503C13.194 10.8859 13.2494 10.6952 13.2494 10.5004C13.2494 10.3057 13.194 10.1149 13.0896 9.95053C12.9852 9.78611 12.8362 9.6548 12.6599 9.57193L9.14095 7.94993Z" fill="#801ED7"/>
   <path d="M17.0259 6.41957L17.8209 4.63457L19.5819 3.82857C19.6699 3.78709 19.7443 3.72143 19.7964 3.63928C19.8485 3.55712 19.8761 3.46185 19.8761 3.36457C19.8761 3.2673 19.8485 3.17203 19.7964 3.08987C19.7443 3.00772 19.6699 2.94206 19.5819 2.90057L17.8209 2.09257L17.0259 0.292575C16.9869 0.203559 16.9229 0.127833 16.8415 0.074658C16.7602 0.0214831 16.6651 -0.00683594 16.5679 -0.00683594C16.4708 -0.00683594 16.3757 0.0214831 16.2943 0.074658C16.213 0.127833 16.1489 0.203559 16.1099 0.292575L15.3149 2.07757L13.5449 2.89257C13.4569 2.93406 13.3826 2.99972 13.3305 3.08187C13.2784 3.16403 13.2507 3.2593 13.2507 3.35658C13.2507 3.45385 13.2784 3.54912 13.3305 3.63128C13.3826 3.71343 13.4569 3.77909 13.5449 3.82057L15.3059 4.62657L16.1009 6.42657C16.142 6.51509 16.2076 6.58992 16.29 6.64212C16.3724 6.69433 16.4681 6.7217 16.5657 6.72096C16.6632 6.72022 16.7585 6.69141 16.8401 6.63796C16.9218 6.58452 16.9863 6.5087 17.0259 6.41957Z" fill="#E9371F"/>
 </svg>
-<div class='gpt-text'>Gerando… </div>
+<div class='gpt-text'>Gerando... </div>
 <div class='gpt-text1'>Resposta gerada para você </div>
                  </div>
 
@@ -1331,11 +1253,6 @@ nextButton.addEventListener('keypress', function(e) {
 
 document.addEventListener('DOMContentLoaded', function() {
 
-function support_doc_submit(){
-  window.location = base_url + '/search/?query=' + encodeURIComponent($('#support-search-form .aa-Form .aa-Input').val());
-  return false;
-}
-
 String.prototype.mapReplace = function(map) {
   var mstr = this;
   for (var wd in map) {
@@ -1363,7 +1280,7 @@ var ticket_lookuptable = {
   'Label': '* What can we help you with?',
   'SelectDefault': 'Select a topic...',
   'LinksTitle': ['Marketer documentation','Developer documentation','Marketer troubleshooting guide','Frequently Asked Questions'],
-  'Links': ['{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/developer_guide/platform_wide/platform_features/','{{site.baseurl}}/help/home/','{{site.baseurl}}/help/faqs/'],
+  'Links': ['{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/developer_guide/platform_wide/platform_features/','{{site.baseurl}}/user_guide/home/','{{site.baseurl}}/user_guide/home/'],
   'SelectOption': {
     'Technical Issue': {
       'Label': '* Category',
@@ -1635,7 +1552,7 @@ var ticket_lookuptable = {
             },
             'Message Composition by Channel' : {
               'LinksTitle': ['Available Channels','Know Before You Send: Channels'],
-              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/help/help_articles/campaigns_and_canvas/know_before_send/'],
+              'Links' : ['{{site.baseurl}}/user_guide/channels','{{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/'],
               'Label': 'Channel *',
               'SelectDefault': 'Select channel...',
               'SelectOption' : {
@@ -1687,12 +1604,12 @@ var ticket_lookuptable = {
             'Password Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Locked Out of Account'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#password-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#password-error']
             },
             'Instance Error' : {
               'ShowSubmit': true,
               'LinksTitle': ['Instance Error'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/#instance-error']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/#instance-error']
             },
             'SAML and Single Sign On' : {
               'ShowSubmit': true,
@@ -1702,7 +1619,7 @@ var ticket_lookuptable = {
             'Other' : {
               'ShowSubmit': true,
               'LinksTitle': ['Account Login Issues'],
-              'Links' : ['{{site.baseurl}}/help/help_articles/account/locked_out/']
+              'Links' : ['{{site.baseurl}}/user_guide/administer/personal/accessing_your_account/']
             }
           }
         },
@@ -1754,7 +1671,7 @@ var ticket_lookuptable = {
       'Label': '* Category',
       'SelectDefault': 'Select a category...',
       'LinksTitle': ['Campaign Ideas and Strategies','Canvas Ideas and Strategies','Building Accessible Messages in Braze','Braze Learning Course: Create Customer Journeys with Canvas Flow'],
-      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/help/accessibility/','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
+      'Links': ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/','{{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies','{{site.baseurl}}/developer_guide/platforms/web/accessibility','https://learning.braze.com/create-customer-journeys-with-canvas-flow'],
       'SelectOption' : {
         'Tools and Use Cases' : {
           'ShowSubmit': true,
@@ -1764,7 +1681,7 @@ var ticket_lookuptable = {
         'Best Practices and Frequently Asked Questions' :{
           'ShowSubmit': true,
           'LinksTitle': ['Best Practices and Frequently Asked Questions'],
-          'Links':  ['{{site.baseurl}}/help/faqs']
+          'Links':  ['{{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/best_practices/']
         },
         'Other' :{
           'ShowSubmit': true,
@@ -2230,122 +2147,6 @@ $( document ).ready(function() {
     }
     return str;
   }
-  const algoliaInsightsPluginSupport = createAlgoliaInsightsPlugin({
-    insightsClient,
-    onItemsChange({ insights, insightsEvents }) {
-      const events = insightsEvents.map((insightsEvent) => ({
-        ...insightsEvent,
-        eventName: 'Viewed from Support Search',
-      }));
-      insights.viewedObjectIDs(...events);
-    },
-    onSelect({ insights, insightsEvents }) {
-      const events = insightsEvents.map((insightsEvent) => ({
-        ...insightsEvent,
-        eventName: 'Clicked from Support Search',
-      }));
-      insights.clickedObjectIDsAfterSearch(...events);
-    },
-  });
-  autocomplete({
-    container: "#support-search-div",
-    panelContainer: "#support-search-panel",
-    debug: true,
-    placeholder: "Search",
-    plugins: [algoliaInsightsPluginSupport],
-    detachedMediaQuery: 'none',
-    onSubmit(e){
-      var query = e.state.query;
-      window.location = base_url + '/search/?query=' + encodeURIComponent(query);
-    },
-    getSources() {
-      return [{
-          sourceId: "querySuggestions",
-          getItemInputValue: ({ item }) => item.query,
-          getItems({ query }) {
-            return getAlgoliaResults({
-              searchClient,
-              queries: [
-                {
-                  indexName: "DocSearch",
-                  query,
-                  params: {
-                    hitsPerPage: 5,
-                    attributesToSnippet: ["description:12"],
-                    snippetEllipsisText: " ...",
-                    clickAnalytics: true,
-                  },
-                },
-              ],
-            });
-          },
-          getItemUrl({ item }) {
-           return base_url + item.url;
-         },
-         templates: {
-           noResults({createElement}) {
-             return createElement("div", {
-               dangerouslySetInnerHTML: {
-                 __html: '<div class="no_results">No results were found with your current search. Try to change the search query.</div>',
-                 },
-               })
-          },
-
-          item({ item, createElement }) {
-            var content = "";
-            var title = "";
-            var type = "";
-            var category = "";
-            var platform = "";
-            var subname = "";
-            var heading = "";
-
-            if ("nav_title" in item) {
-              title = item.nav_title.replaceUnder();
-            } else {
-              title = item.title.replaceUnder();
-            }
-            if ("type" in item) {
-              type = item.type.replaceUnder().upCaseWord();
-            }
-            if ("category" in item) {
-              category = item.category.replaceUnder();
-            }
-
-            if ("platform" in item) {
-              if (Array.isArray(item.platform)){
-                platform = item.platform.join(',').replace(/\%20/g, ' ').replace(/\_/g, ' ') + ' > ';
-              }
-              else {
-                platform = item.platform.replace(/\%20/g, ' ').replace(/\_/g, ' ') + ' > ';
-              }
-            }
-            if ("headings" in item) {
-              if (item["headings"]) {
-                heading = item["headings"][item["headings"].length - 1];
-              }
-            }
-
-            var url = item.url;
-            if (heading) {
-              url += "#" + string_to_slug(heading);
-            }
-            var resulttemplate = '<a href="' +
-                base_url + url + '"><div class="title"> * ' +
-                platform + title + ' <div class="category">' +
-                subname.replace(/\_/g, " ") +
-                "</div></div></a>";
-            return createElement("div", {
-              dangerouslySetInnerHTML: {
-                __html: resulttemplate,
-              },
-            });
-          },
-        },
-      }];
-    }
-  });
-
  if (navigator.userAgent.toLowerCase().indexOf('firefox') > -1 ) {
    var ff_div = $('#firefox_warning').detach();
    ff_div.insertBefore($('#basic_page')).show();

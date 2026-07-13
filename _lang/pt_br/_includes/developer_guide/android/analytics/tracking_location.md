@@ -34,11 +34,11 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 Para rastrear continuamente a localização de um usuário, você precisa declarar a intenção do app de coletar dados de localização adicionando pelo menos uma das seguintes permissões ao arquivo `AndroidManifest.xml`.
 
-|Permissão|Descrição|
+| Permissão | Descrição |
 |---|---|
 | `ACCESS_COARSE_LOCATION` | Usa o provedor não GPS mais eficiente em termos de bateria (como uma rede doméstica). Normalmente, isso é suficiente para a maioria das necessidades de dados de localização. No modelo de permissões em tempo de execução, conceder a permissão de local autoriza implicitamente a coleta de dados de localização precisa. |
 | `ACCESS_FINE_LOCATION`   | Inclui dados de GPS para uma localização mais precisa. No modelo de permissões em tempo de execução, conceder a permissão de local também abrange o acesso à localização precisa. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Continuously tracking the location" }
 
 Seu `AndroidManifest.xml` deve ser semelhante ao seguinte:
 

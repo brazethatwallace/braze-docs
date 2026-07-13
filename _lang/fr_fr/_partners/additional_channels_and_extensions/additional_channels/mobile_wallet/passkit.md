@@ -26,7 +26,7 @@ L'intégration de Braze et PassKit vous permet d'augmenter et de mesurer l'engag
 | `userDefinedID` | Pour mettre à jour de manière appropriée les événements personnalisés et les attributs personnalisés de vos utilisateurs entre PassKit et Braze, vous devez définir l'ID externe de Braze comme `userDefinedID`. Ce `userDefinedID` est utilisé lors des appels d'API aux endpoints PassKit. |
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Endpoint REST Braze  | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -50,7 +50,7 @@ Pour transmettre des données depuis PassKit, assurez-vous d'avoir défini votre
 
 ## Créer un pass à l'aide d'un lien SmartPass {#create-pass-using-a-smartpass-link}
 
-Dans Braze, vous pouvez configurer un lien SmartPass pour générer une URL unique permettant à vos clients d'installer leur pass sur Android ou iOS. Pour ce faire, vous devez définir un payload de données SmartPass chiffré qui peut être appelé depuis un Content Block Braze. Ce [Content Block]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks) peut ensuite être réutilisé pour les futurs pass et coupons. Les éléments suivants sont utilisés lors de votre intégration :
+Dans Braze, vous pouvez configurer un lien SmartPass pour générer une URL unique permettant à vos clients d'installer leur pass sur Android ou iOS. Pour ce faire, vous devez définir un payload de données SmartPass chiffré qui peut être appelé depuis un bloc de contenu Braze. Ce [bloc de contenu]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/content_blocks/#content-blocks) peut ensuite être réutilisé pour les futurs pass et coupons. Les éléments suivants sont utilisés lors de votre intégration :
 
 - **URL PassKit** : l'URL de votre PassKit est une URL unique pour votre programme PassKit.<br>Chaque programme possède une URL unique, que vous trouverez dans l'onglet **Distribution** de votre programme ou projet PassKit. (par exemple, https://pub1.pskt.io/c/ww0jir)<br><br>
 - **Secret PassKit** : en plus de l'URL, vous devez avoir à portée de main la clé PassKit pour ce programme.<br>Elle est disponible sur la même page que l'URL de PassKit.<br><br>
@@ -68,7 +68,7 @@ Vous pouvez inclure de nombreux composants dans votre payload, mais voici deux �
 | --------- | -------- | ---- | ----------- |
 |`person.externalId` | Requis | Chaîne de caractères | Défini comme l'ID externe de Braze, il est crucial pour que les rappels de PassKit vers Braze fonctionnent, car il permet aux utilisateurs de l'entreprise d'obtenir des coupons pour plusieurs offres au cours d'une seule Campaign. Non imposé comme unique. |
 | `members.member.externalId` | Facultatif | Chaîne de caractères | Défini comme l'ID externe de Braze, vous pouvez utiliser votre ID externe pour mettre à jour le pass de membre. La définition de ce champ impose l'unicité de l'utilisateur au sein du programme d'adhésion.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Étape 1 : Définir le payload des données de votre pass" }
 
 Pour une liste complète des champs disponibles, de leurs types et des descriptions utiles, consultez la [documentation GitHub de PassKit](https://github.com/PassKit/smart-pass-link-from-csv-generator).
 
@@ -88,13 +88,13 @@ Pour une liste complète des champs disponibles, de leurs types et des descripti
 
 ### Étape 2 : Créer et encoder une variable de payload non définie {#step-2-create-and-encode-an-undefined-payload-variable}
 
-Créez et nommez un nouveau Content Block en accédant à **Templates** > **Content Blocks** dans le tableau de bord de Braze.
+Créez et nommez un nouveau bloc de contenu en accédant à **Contenu** > **Blocs de contenu** dans le tableau de bord de Braze.
 
-Sélectionnez **Create Content Block** pour commencer.
+Sélectionnez **Créer un bloc de contenu** pour commencer.
 
-Ensuite, vous devez définir votre **balise Liquid de Content Block**. Après avoir enregistré ce Content Block, cette balise Liquid peut être référencée lors de la rédaction de messages. Dans cet exemple, nous avons attribué à la balise Liquid la valeur {% raw %}`{{content_blocks.${passKit_SmartPass_url}}}`{% endraw %}.
+Ensuite, vous devez définir votre **balise Liquid de bloc de contenu**. Après avoir enregistré ce bloc de contenu, cette balise Liquid peut être référencée lors de la rédaction de messages. Dans cet exemple, nous avons attribué à la balise Liquid la valeur {% raw %}`{{content_blocks.${passKit_SmartPass_url}}}`{% endraw %}.
 
-Dans ce Content Block, nous n'inclurons pas directement le payload, mais nous le référencerons dans une variable {% raw %}`{{passData}}`{% endraw %}. Le premier extrait de code que vous devez ajouter à votre Content Block capture un encodage Base64 de la variable {% raw %}`{{passData}}`{% endraw %}.
+Dans ce bloc de contenu, nous n'inclurons pas directement le payload, mais nous le référencerons dans une variable {% raw %}`{{passData}}`{% endraw %}. Le premier extrait de code que vous devez ajouter à votre bloc de contenu capture un encodage Base64 de la variable {% raw %}`{{passData}}`{% endraw %}.
 {% raw %}
 ```liquid
 {% capture base64JsonPayload %}{{passDatapassData|base64_encode}}{% endcapture %}
@@ -105,7 +105,7 @@ Dans ce Content Block, nous n'inclurons pas directement le payload, mais nous le
 
 Ensuite, vous allez créer votre signature de chiffrement en utilisant un hachage [SHA1 HMAC](https://en.wikipedia.org/wiki/HMAC) de l'URL du projet et du payload.
 
-Le deuxième extrait de code que vous devez ajouter à votre Content Block capture l'URL à utiliser pour le hachage.
+Le deuxième extrait de code que vous devez ajouter à votre bloc de contenu capture l'URL à utiliser pour le hachage.
 {% raw %}
 ```liquid
 {% capture url %}{{projectUrl}}?data={{base64JsonPayload}}{% endcapture %}
@@ -135,7 +135,7 @@ Enfin, assurez-vous d'appeler votre URL finale afin qu'elle affiche votre URL Sm
 ```
 {% endraw %}
 
-À ce stade, vous avez créé un Content Block qui ressemble à ceci :
+À ce stade, vous avez créé un bloc de contenu qui ressemble à ceci :
 
 {% raw %}
 ```liquid
@@ -154,24 +154,24 @@ Enfin, assurez-vous d'appeler votre URL finale afin qu'elle affiche votre URL Sm
 Dans cet exemple, des paramètres UTM ont été ajoutés pour suivre la source de ces installations jusqu'à Braze et cette Campaign.
 
 {% alert tip %}
-N'oubliez pas d'enregistrer votre Content Block avant de quitter la page.
+N'oubliez pas d'enregistrer votre bloc de contenu avant de quitter la page.
 {% endalert %}
 
 ### Étape 5 : Assembler tous les éléments {#step-5-putting-it-all-together}
 
-Une fois ce Content Block créé, il peut être réutilisé ultérieurement.
+Une fois ce bloc de contenu créé, il peut être réutilisé ultérieurement.
 
-Vous remarquerez peut-être que deux variables ne sont pas définies dans l'exemple de Content Block.<br>
+Vous remarquerez peut-être que deux variables ne sont pas définies dans l'exemple de bloc de contenu.<br>
 {% raw %}`{{passData}}`{% endraw %} - Votre payload de données de pass JSON défini à l'[étape 1](#passkit-integrations) <br>
 {% raw %}`{{projectUrl}}`{% endraw %} - L'URL de votre projet ou programme que vous trouverez dans l'onglet de distribution de votre projet PassKit.
 
-Cette décision est intentionnelle et favorise la réutilisation du Content Block. Comme ces variables sont uniquement référencées et ne sont pas créées dans le Content Block, elles peuvent être modifiées sans avoir à recréer le Content Block.
+Cette décision est intentionnelle et favorise la réutilisation du bloc de contenu. Comme ces variables sont uniquement référencées et ne sont pas créées dans le bloc de contenu, elles peuvent être modifiées sans avoir à recréer le bloc de contenu.
 
 Par exemple, vous souhaitez peut-être modifier l'offre de lancement pour inclure davantage de points initiaux dans votre programme de fidélité, ou peut-être souhaitez-vous créer une carte de membre ou un coupon secondaire. Ces scénarios nécessiteraient différents `projectURLs` PassKit ou différents payloads de pass, que vous définiriez par Campaign dans Braze.
 
 #### Composition du corps du message {#composing-the-message-body}
 
-Vous devez capturer ces deux variables dans le corps de votre message, puis appeler votre Content Block.
+Vous devez capturer ces deux variables dans le corps de votre message, puis appeler votre bloc de contenu.
 Capturez votre payload JSON minifié à partir de l'[étape 1](#passkit-integrations) :
 
 **Attribuer l'URL du projet**
@@ -188,7 +188,7 @@ Capturez votre payload JSON minifié à partir de l'[étape 1](#passkit-integrat
 ```
 {% endraw %}
 
-**Référencer le Content Block que vous venez de créer**
+**Référencer le bloc de contenu que vous venez de créer**
 {% raw %}
 ```liquid
 {{content_block.${passkit_SmartPass_url}}}
@@ -196,7 +196,7 @@ Capturez votre payload JSON minifié à partir de l'[étape 1](#passkit-integrat
 {% endraw %}
 
 Le corps de votre message devrait ressembler à ceci :
-![Image du compositeur de messages du Content Block avec le JSON capturé et la référence du Content Block affichée.]({% image_buster /assets/img/passkit/passkit1.png %}){: style="max-width:70%"}
+![Image du compositeur de messages du bloc de contenu avec le JSON capturé et la référence du bloc de contenu affichée.]({% image_buster /assets/img/passkit/passkit1.png %}){: style="max-width:70%"}
 
 L'URL de sortie de l'exemple est la suivante :
 ![URL de sortie qui inclut une longue chaîne de caractères alphanumériques générée de manière aléatoire.]({% image_buster /assets/img/passkit/passkit2.png %}){: style="max-width:70%"}
@@ -220,11 +220,11 @@ Avant de commencer, voici les paramètres de payload JSON courants que vous pouv
 | `campaignId` (coupon) <br><br> `programId` (adhésion) | Chaîne de caractères | L'ID du modèle de Campaign ou de programme que vous avez créé dans PassKit. Pour le trouver, rendez-vous dans l'onglet **Settings** de votre projet PassKit Pass. |
 | `expiryDate` | Date/heure IO8601 | La date d'expiration du pass. Après la date d'expiration, le pass est automatiquement annulé (voir `isVoided`). Cette valeur remplacera le modèle et la valeur de la date de fin de Campaign. |
 | `status` | Chaîne de caractères | L'état actuel d'un coupon, tel que `REDEEMED` ou `UNREDEEMED`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paramètres du payload" }
 
 ### Étape 1 : Créer votre modèle de webhook Braze {#step-1-create-your-braze-webhook-template}
 
-Pour créer un modèle de webhook PassKit à utiliser dans de futures Campaigns ou Canvas, accédez à la section **Templates & Media** dans le tableau de bord de Braze. Si vous souhaitez créer une campagne webhook PassKit unique ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle campagne.
+Pour créer un modèle de webhook PassKit à utiliser dans de futures Campaigns ou Canvas, accédez à la section **Modèles et médias** dans le tableau de bord de Braze. Si vous souhaitez créer une campagne webhook PassKit unique ou utiliser un modèle existant, sélectionnez **Webhook** dans Braze lors de la création d'une nouvelle campagne.
 
 Une fois que vous avez sélectionné le modèle de webhook PassKit, vous devriez voir ce qui suit :
 - **URL du webhook** : `https://api-pub1.passkit.io/coupon/singleUse/coupon`
@@ -257,10 +257,10 @@ Pour configurer le webhook, renseignez les nouveaux détails de l'événement da
 
 Votre texte brut sera automatiquement mis en évidence s'il s'agit d'une balise Braze applicable.
 
-Prévisualisez votre requête dans le panneau **Preview** ou accédez à l'onglet **Test**, où vous pouvez sélectionner un utilisateur aléatoire, un utilisateur existant ou personnaliser le vôtre pour tester votre webhook.
+Prévisualisez votre requête dans le panneau **Prévisualisation** ou accédez à l'onglet **Test**, où vous pouvez sélectionner un utilisateur aléatoire, un utilisateur existant ou personnaliser le vôtre pour tester votre webhook.
 
 {% alert important %}
-N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Saved Webhook Templates** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+N'oubliez pas d'enregistrer votre modèle avant de quitter la page ! <br>Les modèles de webhook mis à jour se trouvent dans la liste **Modèles de webhook enregistrés** lors de la création d'une nouvelle [campagne webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}
 
 ## Récupérer les détails du pass via le contenu connecté {#retrieve-pass-details-via-connected-content}

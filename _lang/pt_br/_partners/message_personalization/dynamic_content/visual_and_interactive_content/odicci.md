@@ -39,7 +39,7 @@ Antes de começar, você precisará do seguinte:
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | Uma conta na Odicci | É necessário ter uma conta na Odicci com acesso à seção **Integrações** para aproveitar essa parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com as permissões `users.track` e `campaigns.list`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração da Odicci {#integrating-odicci}
 
@@ -57,7 +57,7 @@ Antes de começar, você precisará do seguinte:
 ### Etapa 2: Obter sua chave da API REST da Braze {#step-2-obtain-your-braze-rest-api-key}
 
 1. Faça login na sua conta Braze.
-2. Acesse **Developer Console > REST API Keys**.
+2. Acesse **Console de desenvolvedor > REST API Keys**.
 3. Crie uma nova chave de API ou copie uma existente com a permissão `users.track`.
 
 ### Etapa 3: Ativar a integração no nível da experiência {#step-3-activate-the-integration-at-the-experience-level}

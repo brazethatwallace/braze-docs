@@ -2,15 +2,15 @@
 nav_title: "Ejemplos de consultas"
 article_title: Consultas de ejemplo de Snowflake
 page_order: 1
-description: "Esta página de socio ofrece algunas consultas de ejemplo de posibles casos de uso como referencia a la hora de configurar tus consultas de Snowflake."
+description: "Esta página del partner ofrece algunas consultas de ejemplo de posibles casos de uso como referencia a la hora de configurar tus consultas de Snowflake."
 page_type: partner
 search_tag: Partner
 
 ---
 
-# Ejemplos de consultas {#sample-queries}
+# Consultas de ejemplo {#sample-queries}
 
-> Esta página de socio ofrece algunas consultas de ejemplo de posibles casos de uso como referencia a la hora de configurar tus consultas.
+> Esta página del partner ofrece algunas consultas de ejemplo de posibles casos de uso como referencia a la hora de configurar tus consultas.
 
 {% tabs %}
 {% tab Filter By Time%}
@@ -199,13 +199,66 @@ GROUP BY email_address;
 {% endtab %}
 {% tab Unique Email Opens %}
 
-Utiliza esta consulta para aproximar las **aperturas únicas** a partir de los eventos de apertura de correo electrónico de Snowflake; por ejemplo, para conciliarlas con la columna **Aperturas únicas** del dashboard.
+Utiliza esta consulta de Unique Opens de correo electrónico para analizar las aperturas únicas de correo electrónico en una ventana de tiempo determinada. El algoritmo para calcularlo es el siguiente:
+  1. Particionar los eventos por la clave (`app_group_id`, `message_variation_id`, `dispatch_id`, `email_address`).
+  2. En cada partición, ordenar los eventos por tiempo. El primer evento siempre es un evento único.
+  3. Para cada evento posterior, si ocurrió más de siete días después de su predecesor, se considera un evento único.
+
+Puedes utilizar las [funciones de ventana](https://docs.snowflake.com/en/sql-reference/functions-analytic.html) de Snowflake para lograrlo. La siguiente consulta devuelve todas las aperturas de correo electrónico en los últimos 365 días e indica qué eventos son únicos en la columna `is_unique`:
+
+```sql
+SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600;
+```
+
+Para devolver solo los eventos únicos, utiliza la cláusula `QUALIFY`:
+```sql
+SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
+QUALIFY is_unique = true;
+```
+
+Para ver recuentos de eventos únicos agrupados por dirección de correo electrónico:
+```sql
+WITH unique_events AS(
+  SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, iff(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
+QUALIFY is_unique = true)
+SELECT email_address, count(*) AS count
+FROM unique_events
+GROUP BY email_address;
+```
+
+Para un enfoque alternativo limitado a una Campaign, un Canvas o un paso en Canvas específico, utiliza la siguiente consulta. Establece las variables de rango de fechas e identificador y, a continuación, ejecuta las sentencias `SELECT` para obtener las aperturas únicas calculadas de tres formas:
+
+Los resultados de la consulta pueden diferir ligeramente de las métricas del panel en algunos espacios de trabajo. Por ejemplo, la unicidad puede particionarse por `email_address`, y algunos eventos de apertura históricos pueden no incluir una dirección de correo electrónico tras la eliminación del perfil. En esos casos, puede que no sea posible una paridad exacta para el mismo periodo de tiempo.
 
 Este ejemplo devuelve tres recuentos:
 
-- **Aperturas únicas (en 7 días):** aperturas únicas en un periodo continuo de siete días.
-- **Aperturas únicas (durante la ventana de fechas):** aperturas únicas dentro del periodo de tiempo indicado, independientemente de cualquier apertura que haya ocurrido antes de dicho periodo.
-- **Aperturas únicas (para correos electrónicos entregados en el mismo periodo):** aperturas únicas en las que el evento de entrega asociado también ocurrió dentro de la misma ventana (útil cuando solo quieres aperturas vinculadas a mensajes entregados en ese periodo).
+- **Unique Opens (en 7 días):** aperturas únicas en un periodo continuo de siete días.
+- **Unique Opens (durante la ventana de fechas):** aperturas únicas dentro del periodo de tiempo indicado, independientemente de cualquier apertura que haya ocurrido antes de dicho periodo.
+- **Unique Opens (para correos electrónicos entregados en el mismo periodo):** aperturas únicas en las que el evento de entrega asociado también ocurrió dentro de la misma ventana.
 
 {% raw %}
 ```sql
@@ -213,16 +266,16 @@ Este ejemplo devuelve tres recuentos:
     Set or comment out variables if not required. These are set per session.
     You can obtain the from and to dates from the Campaign/Canvas/Canvas step URL. These are the startDate and endDate parameters.
 
-    For example, endDate=1656799199&startDate=1656194400
+    For example, endDate=1234567890&startDate=1234500000
 
     To run, select all of this code block (CMD + A) and run to first set the necessary variables and run the SELECT statements below.
 */
 
-SET fromDateTime = '1656194400';
-SET toDateTime = '1656799199';
+SET fromDateTime = '1234500000';
+SET toDateTime = '1234567890';
 -- SET campaignID = '';
 -- SET canvasID = '';
-SET canvasStepID = '61b0a249745a0c5ac67a11d3';
+SET canvasStepID = '0123456789abcdef01234567';
 
 SELECT
     'Unique Opens (over 7 days)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
@@ -272,6 +325,5 @@ WHERE
                 umed.time between $fromDateTime and $toDateTime);
 ```
 {% endraw %}
-
 {% endtab %}
 {% endtabs %}

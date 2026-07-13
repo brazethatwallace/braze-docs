@@ -16,11 +16,11 @@ Integrating the Firebase Unity SDK may cause your `AndroidManifest.xml` to be ov
 
 #### Step 1.2: Set your Firebase credentials
 
-You need to input your Firebase Server Key and Sender ID into the Braze dashboard. To do this, log in to the [Firebase Developers Console](https://console.firebase.google.com/) and select your Firebase project. Next, select **Cloud Messaging** under **Settings** and copy the Server Key and Sender ID:<br>![]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
+You need to input your Firebase Server Key and Sender ID into the Braze dashboard. To do this, log in to the [Firebase Developers Console](https://console.firebase.google.com/) and select your Firebase project. Next, select **Cloud Messaging** under **Settings** and copy the Server Key and Sender ID:<br>![Firebase console Cloud Messaging settings showing the Server Key and Sender ID.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
 
 In Braze, select your Android app on the **App Settings** page under **Manage Settings**. Next, enter your Firebase Server Key in the **Firebase Cloud Messaging Server Key** field and Firebase Sender ID in the **Firebase Cloud Messaging Sender** ID field.
 
-![]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
+![Braze Android app settings with Firebase Cloud Messaging server key and sender ID fields.]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
 {% endtab %}
 
 {% tab Swift %}
@@ -53,7 +53,7 @@ Our automatic push notification solution takes advantage of iOS 12's Provisional
 
 {% tabs %}
 {% tab Android %}
-#### Step 2.1: Configure push settings
+#### Step 2.1: Configure push settings {#unity_step-21-configure-push-settings}
 
 The Braze SDK can automatically handle push registration with the Firebase Cloud Messaging Servers to have devices receive push notifications. In Unity, enable **Automate Unity Android Integration**, then configure the following **Push Notification** settings.
 
@@ -62,8 +62,13 @@ The Braze SDK can automatically handle push registration with the Firebase Cloud
 | Automatic Firebase Cloud Messaging Registration Enabled | Instructs the Braze SDK to automatically retrieve and send an FCM push token for a device.                                                                |
 | Firebase Cloud Messaging Sender ID     | The Sender ID from your Firebase console.                                                                                                                |
 | Handle Push Deeplinks Automatically    | Whether the SDK should handle opening deep links or opening the app when push notifications are clicked.                                                  |
-| Small Notification Icon Drawable       | The drawable should be displayed as the small icon whenever a push notification is received. The notification will use the application icon as the small icon if no icon is provided. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| Small Notification Icon Drawable       | Android drawable resource reference for the small icon shown when a push arrives. Enter the full reference including the `@drawable/` prefix (for example, `@drawable/hourglass_icon`). The automated integration writes this value into `braze.xml` as entered. If you leave this empty, the notification uses the application icon as the small icon. |
+| Large Notification Icon Drawable       | Optional large icon for notifications. Use the same `@drawable/` format as the small icon (for example, `@drawable/my_large_icon`). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
+
+{% alert note %}
+**Small Notification Icon Drawable** and **Large Notification Icon Drawable** appear under **Push Configuration** in **Braze > Braze Configuration**. Both values are written into `braze.xml` as you enter them. Include the `@drawable/` prefix yourself—the Braze Unity integration does not add it for you (for example, `<drawable name="com_braze_push_small_notification_icon">@drawable/hourglass_icon</drawable>`).
+{% endalert %}
 {% endtab %}
 
 {% tab Swift %}
@@ -166,7 +171,7 @@ The required ADM Jar file may be placed anywhere in your project according to th
 
 Lastly, you must add the Client Secret and Client ID you obtained in [Step 1](#unity_step-1-enable-adm) to the Braze dashboard's **Manage Settings** page.
 
-![]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
+![Braze Fire OS app settings page with ADM client ID and client secret fields.]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -293,7 +298,7 @@ To learn more about ADM push listeners, see [Amazon: Integrate Amazon Device Mes
 
 {% tabs %}
 {% tab Android %}
-#### Deep linking to in-app resources
+### Deep linking to in-app resources
 
 Although Braze can handle standard deep links (such as website URLs, Android URIs, etc.) by default, creating custom deep links requires an additional Manifest setup.
 
@@ -301,7 +306,13 @@ For setup guidance, visit [Deep Linking to In-App Resources](https://developer.a
 
 #### Adding Braze push notification icons
 
-To add push icons to your project, create an Android Archive (AAR) plug-in or Android library that contains the icon image files. For steps and information, refer to Unity's documentation: [Android Library Projects and Android Archive plug-ins](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+{% alert important %}
+Do not add notification icon images under `Assets/Plugins/Android/res`. Unity [deprecated providing Android resources in that path](https://support.unity.com/hc/en-us/articles/115005875443-Providing-Android-resources-in-Assets-Plugins-Android-res-is-deprecated), which can surface build warnings or validation errors. Package your icon drawables in an [Android Archive (AAR) plug-in](https://docs.unity3d.com/Manual/AndroidAARPlugins.html) or Android library project instead so they merge into the built app's resources like any other drawable.
+{% endalert %}
+
+To add push icons to your project, create an AAR plug-in or Android library that contains the icon image files under `res/drawable*` (or density-specific folders), then reference each icon in **Braze > Braze Configuration** using the full `@drawable/` resource name (see [Step 2.1: Configure push settings](#unity_step-21-configure-push-settings)). For Unity's packaging and import steps, see [Android Library Projects and Android Archive plug-ins](https://docs.unity3d.com/Manual/AndroidAARPlugins.html).
+
+For small icon artwork rules (alpha-only, no color), see [Android push notifications]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android), Step 2: Conform small icons to design guidelines.
 {% endtab %}
 
 {% tab Swift %}

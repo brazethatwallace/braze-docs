@@ -28,23 +28,17 @@ jobs:
             console.log('PR Body:', prBody);
             
             let reviewersToAdd = [];
-            let teamsToAdd = [];
             const labels = (pr.labels || []).map(l => l.name.toLowerCase());
             const legalTeam = 'ats-91';
             let scanIncomplete = false;
-            
-            // Rule 1: If PR has Deploy label (nightly deploy PRs), add docs-team only
-            if (labels.includes('deploy')) {
-              console.log('Deploy PR - adding docs-team');
-              teamsToAdd.push('docs-team');
+            const isDeployPR = labels.includes('deploy');
+            core.setOutput('isDeployPR', isDeployPR ? 'true' : 'false');
+
+            // Deploy PRs: docs-team is added in the follow-up step (needs GH_TOKEN REST API).
+            if (isDeployPR) {
+              console.log('Deploy PR - docs-team will be added in follow-up step');
             } else {
-              // Rule 2: If Copilot is assigned, add docs-team
-              if (assignees.includes('github-copilot[bot]')) {
-                console.log('Copilot is assigned - adding docs-team');
-                teamsToAdd.push('docs-team');
-              }
-            
-            // Rule 3: If PR diff contains privacy/legal/GDPR keywords, add legal team
+            // If PR diff contains privacy/legal/GDPR keywords, add legal reviewer
             let diff = '';
 
             try {
@@ -141,13 +135,6 @@ jobs:
             }
             }
 
-            // Auto-translation PRs: request Copilot code review (same login as auto-translate.yml).
-            // Skip when `deploy` is present so Rule 1 stays docs-team only.
-            if (labels.includes('auto-translation') && !labels.includes('deploy')) {
-              console.log('Auto-translation PR - requesting Copilot review');
-              reviewersToAdd.push('copilot-pull-request-reviewer[bot]');
-            }
-
             // Get current reviewers to avoid duplicates
             const { data: currentReviewers } = await github.rest.pulls.listRequestedReviewers({
               owner: context.repo.owner,
@@ -156,38 +143,25 @@ jobs:
             });
             
             const existingReviewers = currentReviewers.users.map(u => u.login);
-            const existingTeams = currentReviewers.teams.map(t => t.slug);
             
             console.log('Existing reviewers:', existingReviewers);
-            console.log('Existing teams:', existingTeams);
             
-            // Filter out already-added reviewers and teams
             reviewersToAdd = reviewersToAdd.filter(r => !existingReviewers.includes(r));
-            teamsToAdd = teamsToAdd.filter(t => !existingTeams.includes(t));
             
             console.log('Reviewers to add:', reviewersToAdd);
-            console.log('Teams to add:', teamsToAdd);
             
-            // Add reviewers if any
-            if (reviewersToAdd.length > 0 || teamsToAdd.length > 0) {
+            if (reviewersToAdd.length > 0) {
               try {
                 await github.rest.pulls.requestReviewers({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
                   pull_number: prNumber,
-                  reviewers: reviewersToAdd,
-                  team_reviewers: teamsToAdd
+                  reviewers: reviewersToAdd
                 });
                 
                 console.log('Successfully added reviewers');
                 
-                // Add a comment explaining why reviewers were added
                 let commentBody = '🤖 **Automated Reviewer Assignment**: I have automatically added reviewers based on the following:\n\n';
-                
-                if (teamsToAdd.includes('docs-team')) {
-                  const reason = labels.includes('deploy') ? 'Deploy PR' : 'Copilot is assigned to this PR';
-                  commentBody += `- 📝 **@braze-inc/docs-team** - ${reason}\n`;
-                }
                 
                 if (reviewersToAdd.includes(legalTeam)) {
                   const legalReason = scanIncomplete
@@ -196,10 +170,6 @@ jobs:
                   commentBody += `- ⚖️ **@${legalTeam}** - ${legalReason}\n`;
                 }
 
-                if (labels.includes('auto-translation') && !labels.includes('deploy') && reviewersToAdd.includes('copilot-pull-request-reviewer[bot]')) {
-                  commentBody += '- 🤖 **Copilot** - Auto-translation pull request\n';
-                }
-                
                 await github.rest.issues.createComment({
                   owner: context.repo.owner,
                   repo: context.repo.repo,
@@ -214,3 +184,30 @@ jobs:
             } else {
               console.log('No new reviewers to add');
             }
+
+      - name: Add docs-team reviewer for deploy PRs
+        if: steps.check.outputs.isDeployPR == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          set -euo pipefail
+          PR="${{ github.event.pull_request.number }}"
+          REPO="${{ github.repository }}"
+
+          if gh api "repos/${REPO}/pulls/${PR}/requested_reviewers" \
+            --jq '.teams[].slug' | grep -qx 'docs-team'; then
+            echo "docs-team already requested"
+            exit 0
+          fi
+
+          # REST API accepts team slugs with repo-scoped PATs. gh pr edit uses GraphQL
+          # and requires read:org to resolve braze-inc/docs-team (GH_TOKEN has repo only).
+          if gh api --method POST "repos/${REPO}/pulls/${PR}/requested_reviewers" \
+            -f 'team_reviewers[]=docs-team'; then
+            gh pr comment "$PR" --repo "$REPO" \
+              --body $'🤖 **Automated Reviewer Assignment**: I have automatically added reviewers based on the following:\n\n- 📝 **@braze-inc/docs-team** - Deploy PR'
+          else
+            echo "Could not add docs-team via GH_TOKEN; posting manual request comment"
+            gh pr comment "$PR" --repo "$REPO" \
+              --body '🤖 **Automated Reviewer Assignment**: Could not auto-add **@braze-inc/docs-team** as a team reviewer (token permissions). Please add the team manually for this Deploy PR.'
+          fi

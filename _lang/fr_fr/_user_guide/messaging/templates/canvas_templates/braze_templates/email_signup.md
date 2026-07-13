@@ -17,13 +17,13 @@ Cet article vous guidera à travers un cas d'utilisation du modèle **Inscriptio
 
 Pour utiliser ce modèle avec succès, vous avez besoin des éléments suivants :
 
-- Un [message in-app multi-pages]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page) avec une page pour capturer les e-mails de vos utilisateurs et une autre pour communiquer un message de confirmation.
+- Un [message in-app multi-pages]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page) avec une page pour capturer les e-mails de vos utilisateurs et une autre pour communiquer un message de confirmation.
 - Un e-mail de confirmation pour que les utilisateurs vérifient leur adresse e-mail.
 - Un e-mail de bienvenue avec un code de promotion exclusif pour les utilisateurs qui effectuent le double abonnement.
 
 ## Adapter le modèle à vos besoins {#tailoring-the-template-to-your-needs}
 
-Imaginons que vous travaillez pour Steppington, une application de santé connue pour ses fonctionnalités telles que le suivi des calories, les cours d'exercice numériques et les marathons flash-mob. Avant de créer le Canvas, vous [configurez des messages in-app et dans le navigateur multi-pages]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page) qui incluent une série de questions engageantes pour déterminer l'expérience et l'impression d'un utilisateur lors de sa première utilisation de l'application.
+Imaginons que vous travaillez pour Steppington, une application de santé connue pour ses fonctionnalités telles que le suivi des calories, les cours d'exercice numériques et les marathons flash-mob. Avant de créer le Canvas, vous [configurez des messages in-app et dans le navigateur multi-pages]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page) qui incluent une série de questions engageantes pour déterminer l'expérience et l'impression d'un utilisateur lors de sa première utilisation de l'application.
 
 Pour accéder au modèle, lors de la création d'un nouveau Canvas, sélectionnez **Use a Canvas template** > **Braze templates**. Ensuite, à côté de **Email sign-up with double opt-in**, sélectionnez **Apply Template**. Nous pouvons maintenant parcourir le modèle pour l'adapter à nos besoins.
 
@@ -64,7 +64,7 @@ Pour la **Entry Window**, mettez à jour le **Started Time (Required)** à la da
 
 ### Étape 4 : Sélectionner l'audience cible {#step-4-select-the-target-audience}
 
-Définissez votre audience cible comme les utilisateurs de Steppington qui n'ont pas d'adresse e-mail dans leur profil utilisateur en conservant le [filtre de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) par défaut du modèle `Email Available is false`.
+Définissez votre audience cible comme les utilisateurs de Steppington qui n'ont pas d'adresse e-mail dans leur profil utilisateur en conservant le [filtre de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) par défaut du modèle `Email Available is false`.
 
 ![Audience d'entrée avec le filtre « Email Available is false ».]({% image_buster /assets/img/canvas_templates/email_signup6.png %}){: style="max-width:90%;"}
 
@@ -105,5 +105,5 @@ L'étape Message **Verify Email** est déclenchée lors de la deuxième session 
 Après avoir testé et vérifié votre Canvas pour vous assurer qu'il fonctionne comme prévu, lancez-le en sélectionnant **Launch Canvas**.
 
 {% alert tip %}
-Consultez notre [liste de vérification pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
+Consultez notre [liste de vérification pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
 {% endalert %}

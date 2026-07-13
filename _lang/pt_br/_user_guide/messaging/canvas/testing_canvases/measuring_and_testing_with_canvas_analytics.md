@@ -22,7 +22,18 @@ A parte superior da página **Canvas Details** contém as estatísticas gerais d
 
 Este é um ótimo lugar para ter uma visão geral e verificar como seu Canvas está performando em relação ao seu objetivo.
 
-![]({% image_buster /assets/img_archive/Journey_5.png %})
+### Usuários contatáveis e estatísticas exatas {#reachable-users-and-exact-statistics}
+
+Quando a opção **[Calcular estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#single-user-segments)** está em execução para públicos vinculados ao seu Canvas, a Braze pode exibir brevemente uma estimativa arredondada na área **Usuários contatáveis**. O total exato substitui a estimativa quando o cálculo é concluído. Selecione **Show Additional Stats** para ver um detalhamento completo por canal. O construtor de Canvas documenta o mesmo fluxo em **Público-alvo**; consulte [Calculando o público-alvo]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#calculating-target-population).
+
+![A página Canvas Details mostrando estatísticas gerais, incluindo mensagens enviadas, taxa de conversão, total de entradas, receita total, total de saídas e público estimado, com filtros de canal e estatísticas.]({% image_buster /assets/img_archive/Journey_5.png %})
+
+{% alert tip %}
+Se um segmento que você criou a partir da atividade do Canvas mostrar menos usuários contatáveis do que o esperado com base na análise de dados do Canvas, existem dois motivos comuns:
+
+- **Amostragem de estimativa:** As estatísticas do segmento podem exibir uma estimativa baseada em uma amostra aleatória com um intervalo de confiança de 95% de ±1%, em vez de uma contagem exata.
+- **Usuários que não atendem mais aos critérios:** Alguns usuários contabilizados na análise de dados do Canvas podem não se qualificar mais para o segmento — por exemplo, porque cancelaram a inscrição ou seus dados de perfil mudaram desde que o Canvas foi executado. Verifique o **Desempenho histórico** do Canvas para um alto volume de cancelamentos de inscrição.
+{% endalert %}
 
 ### Alterações desde a última visualização {#changes-since-last-viewed}
 
@@ -54,7 +65,7 @@ Na guia **Analyze Variants**, você pode ver um detalhamento de desempenho por v
 
 Você pode identificar rapidamente variantes eficazes e encontrar as cadências, conteúdos, gatilhos, horários e outros elementos mais adequados.
 
-![]({% image_buster /assets/img_archive/analyze_variants.png %})
+![O modal Analyze Canvas com a guia Analyze Variants selecionada, mostrando uma tabela comparativa para Path 1 e Path 2 com entradas, envios, receita, taxas de conversão, variação percentual e métricas de intervalo de confiança.]({% image_buster /assets/img_archive/analyze_variants.png %})
 
 As métricas básicas incluem:
 
@@ -69,7 +80,7 @@ Assim como as conversões, a receita é tecnicamente rastreada no nível do Canv
 Por exemplo, se um usuário concluir duas etapas e depois fizer uma compra, essa receita é atribuída ao segundo componente e à variante na qual ele entrou. Se ele entrar no Canvas, mas fizer uma compra antes de receber o primeiro componente do Canvas, essa receita é atribuída à variante na qual ele entrou, mas não a nenhum componente.
 {% endalert %}
 
-Além disso, você pode ver um detalhamento mais explícito dos [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), incluindo:
+Além disso, você pode ver um detalhamento mais explícito dos [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), incluindo:
 
 - Totais de conversão e taxas de conversão para cada evento de conversão
 - Uplift em relação à variante de controle
@@ -97,8 +108,8 @@ Para nosso último exemplo, vamos supor que temos um Canvas com reelegibilidade 
 
 ### Relatório de funil {#funnel-report}
 
-O relatório de funil oferece um relatório visual que permite analisar as jornadas que seus clientes percorrem após receberem um Canvas. Se o seu Canvas usa um grupo de controle ou múltiplas variantes, você poderá entender como as diferentes variantes impactaram o funil de conversão em um nível mais granular e otimizar com base nesses dados. Para saber mais sobre relatórios de funil, consulte [Relatórios de funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/).
+O relatório de funil oferece um relatório visual que permite analisar as jornadas que seus clientes percorrem após receberem um Canvas. Se o seu Canvas usa um grupo de controle ou múltiplas variantes, você poderá entender como as diferentes variantes impactaram o funil de conversão em um nível mais granular e otimizar com base nesses dados. Para saber mais sobre relatórios de funil, consulte [Relatórios de funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports).
 
 ### Relatório de retenção {#retention-report}
 
-A retenção de usuários é uma das métricas mais importantes para qualquer profissional de marketing. Manter usuários engajados voltando para mais indica que a integridade do negócio está em dia. A Braze agora permite que você meça a retenção de usuários diretamente na página **Canvas Analytics**. Para saber mais sobre como ler e interpretar seu relatório de retenção, confira [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/).
+A retenção de usuários é uma das métricas mais importantes para qualquer profissional de marketing. Manter usuários engajados voltando para mais indica que o negócio está saudável. A Braze agora permite que você meça a retenção de usuários diretamente na página **Analytics** do Canvas. Para saber mais sobre como ler e interpretar seu relatório de retenção, confira [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports).

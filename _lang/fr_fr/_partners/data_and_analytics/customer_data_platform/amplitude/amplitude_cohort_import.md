@@ -1,6 +1,6 @@
 ---
 nav_title: Amplitude
-article_title: "Importation de cohortes d'Amplitude"
+article_title: Importation de cohortes d'Amplitude
 description: "Cet article de référence décrit la fonctionnalité d'importation de la cohorte d'Amplitude, une plateforme d'analyse de produits et d'aide à la décision."
 page_type: partner
 search_tag: Partner
@@ -8,7 +8,7 @@ search_tag: Partner
 
 # Importation de cohortes Amplitude {#amplitude-cohort-import}
 
-> Cet article explique comment importer des cohortes d'utilisateurs d'[Amplitude](https://amplitude.com/) vers Braze. Pour plus d'informations sur l'intégration d'Amplitude et de ses autres fonctionnalités, consultez l'[article principal sur Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/).
+> Cet article explique comment importer des cohortes d'utilisateurs d'[Amplitude](https://amplitude.com/) vers Braze. Pour plus d'informations sur l'intégration d'Amplitude et de ses autres fonctionnalités, consultez l'[article principal sur Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences).
 
 ## Intégration de l'importation de données {#data-import-integration}
 
@@ -18,20 +18,19 @@ Toute intégration que vous configurez sera prise en compte dans le volume de po
 
 Dans Braze, accédez à **Intégrations partenaires** > **Partenaires technologiques** et sélectionnez **Amplitude**. Vous y trouverez l'endpoint REST et pourrez générer votre clé d'importation des données Braze.
 
-Une fois générée, vous pouvez créer une nouvelle clé ou invalider une clé existante. La clé d'importation des données et l'endpoint REST sont utilisés à l'étape suivante lors de la configuration d'un postback dans le tableau de bord d'Amplitude.<br><br>![]({% image_buster /assets/img/amplitude3.png %})
+Une fois générée, vous pouvez créer une nouvelle clé ou invalider une clé existante. La clé d'importation des données et l'endpoint REST sont utilisés à l'étape suivante lors de la configuration d'un postback dans le tableau de bord d'Amplitude.<br><br>![Page partenaire technologique Amplitude dans Braze affichant la clé d'importation des données et l'endpoint.]({% image_buster /assets/img/amplitude3.png %})
 
 ### Étape 2 : Configurer l'intégration de Braze dans Amplitude {#step-2-set-up-the-braze-integration-in-amplitude}
 
 Dans Amplitude, accédez à **Sources & Destinations** > **[nom du projet]** > **Destinations** > **Braze**. Dans l'invite qui s'affiche, indiquez la clé d'importation des données Braze et l'endpoint REST, puis cliquez sur **Save**.
 
-![]({% image_buster /assets/img/amplitude.png %})
+![Paramètres de destination Amplitude pour la synchronisation de cohortes Braze avec les identifiants saisis.]({% image_buster /assets/img/amplitude.png %})
 
 ### Étape 3 : Exporter une cohorte Amplitude vers Braze {#step-3-export-an-amplitude-cohort-to-braze}
 
-Tout d'abord, pour exporter des utilisateurs d'Amplitude vers Braze, créez une [cohorte](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) d'utilisateurs que vous souhaitez exporter. Amplitude peut synchroniser les cohortes avec Braze à l'aide des identifiants suivants :
-- Alias d'utilisateur
-- ID de l'appareil
+Tout d'abord, pour exporter des utilisateurs d'Amplitude vers Braze, créez une [cohorte](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) d'utilisateurs que vous souhaitez exporter. Ensuite, pour capturer les utilisateurs identifiés et anonymes, configurez deux synchronisations pour cette cohorte avec les propriétés de mappage d'identifiants suivantes :
 - ID utilisateur (ID externe)
+- ID de l'appareil
 
 Vous pouvez configurer plusieurs connexions Braze dans votre compte Amplitude. Cela vous permet de configurer une connexion pour synchroniser les ID utilisateur des utilisateurs connus et une autre pour synchroniser les ID d'appareil des utilisateurs anonymes.
 

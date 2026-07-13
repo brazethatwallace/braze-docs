@@ -29,7 +29,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Ein OtherLevels-Konto   | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein OtherLevels-Konto erforderlich.                                                                     |
 | Ein Braze-REST-API-Schlüssel  | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 | Ein Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 Diese Integration erfordert den Aufruf der OtherLevels Experience Platform API als Teil des Video-Generierungsprozesses, bevor Nachrichten von Braze an Ihre Nutzer:innen gesendet werden können. cURL-Beispiele werden als Teil dieser Dokumentation bereitgestellt, wir empfehlen jedoch die Verwendung von API-Clients wie Postman, um die API-Aufrufe zu automatisieren.
 
@@ -132,7 +132,7 @@ Ersetzen Sie Folgendes:
 | `TALENT_TEMPLATE` | Eine Talent-Template-ID. OtherLevels wird bei der Kontoeinrichtung mit Ihnen zusammenarbeiten, um ein Talent (Avatar) zu erstellen. Sie erhalten eine oder mehrere Talent-IDs, die Sie verwenden können.                                                 |
 | `TALENT_MODEL` | Eine Talent-Model-ID. OtherLevels wird bei der Kontoeinrichtung mit Ihnen zusammenarbeiten, um ein Talent (Avatar) zu erstellen. Sie erhalten ein oder mehrere Talent-Modelle, die Sie verwenden können.                                                 |
 | `INSERT_SCRIPT` | Das genaue Skript, das das Talent während des Videos sprechen soll.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Call the OtherLevels Experience Platform API to generate a video #step-1" }
 
 Als Teil der API-Antwort gibt OtherLevels eine JSON-Nutzlast zurück, die einen erfolgreichen API-Aufruf anzeigt. Die JSON-Datei enthält eine eindeutige `recipe_id` zur Identifizierung des generierten Videos. Die `recipe_id` wird im nächsten Schritt benötigt.
 
@@ -144,7 +144,7 @@ Hier ist eine Beispielantwort der API:
 ```
 {% endraw %}
 
-### 2. Schritt: Festlegen der `recipe_id` als angepasstes Attribut {#step-2}
+### 2. Schritt: Festlegen der `recipe_id` als angepasstes Attribut {#step-2-setting-the-recipe_id-as-a-custom-attribute}
 
 Die `recipe_id`, die Sie in [Schritt 1](#step-1) erhalten haben, wird nun als angepasstes Braze-Attribut für die Nutzer:innen festgelegt, an die Sie die Videos senden möchten.
 
@@ -178,9 +178,9 @@ Ersetzen Sie Folgendes:
 | `BRAZE_API_KEY`         | Ihr Braze-REST-API-Schlüssel mit der Berechtigung `users.track`.                                                                                                                                      |
 | `USER_ID`              | Die Nutzer-ID der Person, die dieses Video erhalten soll. Weitere Beispiele für verwendbare Bezeichner finden Sie unter [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users).                                                                                                                                                  |
 | `RECIPE_ID`       | Die `recipe_id`, die Sie aus der OtherLevels-API-Antwort in [Schritt 1](#step-1) erhalten haben.                                                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Setting the recipeid as a custom attribute" }
 
-### 3. Schritt: Versand über Braze Connected-Content {#step-3}
+### 3. Schritt: Versand über Braze Connected-Content {#step-3-sending-through-braze-connected-content}
 
 Um die GenAI-Videos als iOS-Push-Nachrichten an Ihre Nutzer:innen zu senden, gehen Sie folgendermaßen vor:
 
@@ -210,7 +210,7 @@ Der Video-Hintergrund kann über den Schlüssel `bg_image` festgelegt werden.
 | Parameter             | Beschreibung                  |
 |-------------------------|----------------------------|
 | `url`    | HTTPS-URL für das Hintergrundbild. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
 
 Die Größe des Video-Hintergrunds kann über den Schlüssel `resize_image` festgelegt werden. Wir empfehlen, dass das Hintergrundbild dieselbe Größe hat wie die hier konfigurierte.
 
@@ -218,7 +218,7 @@ Die Größe des Video-Hintergrunds kann über den Schlüssel `resize_image` fest
 |-------------------------|----------------------------|
 | `width`    | Breite des Hintergrundbildes, mit Optionen für Hoch- und Querformat. |
 | `height`     | Höhe des Hintergrundbildes, mit Optionen für Hoch- und Querformat.                              |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
 
 Video-Overlay-Optionen können über den Schlüssel `image_video_overlay` festgelegt werden.
 
@@ -229,7 +229,7 @@ Video-Overlay-Optionen können über den Schlüssel `image_video_overlay` festge
 | `color`              | Farbe des Overlays, angegeben in RGB zusammen mit dem Transparenzwert.                                                                   |
 | `y_pos`       | Y-Achsen-Versatz vom Zentrum.                                                              |
 | `x_pos`    | X-Achsen-Versatz vom Zentrum. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
 
 ### Talent und Skript {#talent-and-script}
 
@@ -242,7 +242,7 @@ Das Sprachmodell, das zur Verarbeitung von Eingabeskripten verwendet wird, funkt
 | Parameter             | Beschreibung                  |
 |-------------------------|----------------------------|
 | `speed`    | Legen Sie die Geschwindigkeit fest, mit der das Talent das Skript lesen soll. Zum Beispiel: `1.5`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Talent and script" }
 
 ## Zusätzliche Hinweise {#additional-considerations}
 

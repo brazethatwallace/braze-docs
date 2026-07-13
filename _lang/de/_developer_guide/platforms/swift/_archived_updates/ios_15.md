@@ -1,5 +1,5 @@
 ---
-nav_title: iOS 15 upgraden Anleitung
+nav_title: iOS 15 Upgrade-Leitfaden
 article_title: Upgrade-Leitfaden für das iOS 15 SDK
 page_order: 7
 platform: iOS
@@ -8,71 +8,70 @@ hidden: true
 noindex: true
 ---
 
-# Upgrade-Leitfaden für das iOS 15-SDK
+# Upgrade-Leitfaden für das iOS 15 SDK {#ios-15-sdk-upgrade-guide}
 
-> Dieser Leitfaden beschreibt die Änderungen, die mit iOS 15 (WWDC21) eingeführt wurden, und die erforderlichen Schritte für ein Upgrade Ihrer Braze iOS SDK-Integration. Eine vollständige Liste der neuen iOS 15 Updates finden Sie in den [iOS 15 Versionshinweisen](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes) von Apple.
+> Dieser Leitfaden beschreibt die Änderungen, die mit iOS 15 (WWDC21) eingeführt wurden, und die erforderlichen Upgrade-Schritte für Ihre Braze iOS SDK-Integration. Eine vollständige Liste der neuen iOS 15 Updates finden Sie in den [iOS 15 Versionshinweisen](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes) von Apple.
 
 
-## Änderungen an der Transparenz der UI-Navigationen
+## Transparenzänderungen bei UI-Navigationen {#transparency-changes-to-ui-navigations}
 
-Im Rahmen unserer jährlichen Tests von iOS-Betas haben wir eine von Apple vorgenommene Änderung festgestellt, die dazu führt, dass bestimmte UI-Navigationsleisten transparent statt undurchsichtig erscheinen. Dies wird unter iOS 15 sichtbar sein, wenn Sie das Braze Standard UI für Content-Cards verwenden oder wenn Deeplinks im Internet innerhalb Ihrer App statt in einer separaten Browser-App geöffnet werden.
+Im Rahmen unserer jährlichen Tests von iOS-Betas haben wir eine von Apple vorgenommene Änderung festgestellt, die dazu führt, dass bestimmte UI-Navigationsleisten transparent statt undurchsichtig erscheinen. Dies wird unter iOS 15 sichtbar sein, wenn Sie die Braze Standard-UI für Content Cards verwenden oder wenn Web-Deeplinks innerhalb Ihrer App statt in einer separaten Browser-App geöffnet werden.
 
-Um diese visuelle Veränderung in iOS 15 zu vermeiden, empfehlen wir Ihnen dringend, so schnell wie möglich auf das [Braze iOS SDK v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2) zu upgraden, bevor die Nutzer:innen ihr Telefon auf das neue Betriebssystem iOS 15 aktualisieren.
+Um diese visuelle Veränderung in iOS 15 zu vermeiden, empfehlen wir Ihnen dringend, so schnell wie möglich auf das [Braze iOS SDK v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2) zu upgraden, bevor Nutzer:innen ihr Telefon auf das neue Betriebssystem iOS 15 aktualisieren.
 
 ## Neue Benachrichtigungseinstellungen {#notification-settings}
 
-Mit iOS 15 wurden neue Features für Benachrichtigungen eingeführt, die den Nutzer:innen helfen, sich zu konzentrieren und häufige Unterbrechungen während des Tages zu vermeiden. Wir freuen uns, Ihnen Unterstützung für diese neuen Features anbieten zu können. Diese Features erfordern keine zusätzlichen SDK-Upgrades und werden nur auf Nutzer von iOS 15-Geräten angewendet.
+Mit iOS 15 wurden neue Features für Benachrichtigungen eingeführt, die Nutzer:innen helfen, sich zu konzentrieren und häufige Unterbrechungen während des Tages zu vermeiden. Wir freuen uns, Unterstützung für diese neuen Features anbieten zu können. Diese Features erfordern keine zusätzlichen SDK-Upgrades und werden nur auf Nutzer:innen von iOS 15-Geräten angewendet.
 
 ### Fokus-Modi {#focus-mode}
 
-Nutzer:innen von iOS 15 können jetzt "Fokus-Modi" erstellen - angepasste Profile, mit denen sie festlegen, welche Benachrichtigungen ihren Fokus durchbrechen und prominent angezeigt werden sollen.
+Nutzer:innen von iOS 15 können jetzt „Fokus-Modi“ erstellen – angepasste Profile, mit denen sie festlegen, welche Benachrichtigungen ihren Fokus durchbrechen und prominent angezeigt werden sollen.
 
-![]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![Nutzer:innen von iOS 15 können „Fokus-Modi“ erstellen – angepasste Profile, mit denen sie festlegen, welche Benachrichtigungen ihren Fokus durchbrechen und prominent angezeigt werden sollen.]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 ### Unterbrechungsstufen {#interruption-levels}
 
 In iOS 15 können Push-Benachrichtigungen mit einer von vier Unterbrechungsstufen gesendet werden:
 
-* **Passiv** (neu): Kein Ton, keine Vibration, kein Aufwachen des Bildschirms, kein Durchbrechen der Fokuseinstellungen
-* **Aktiv** (Standard) - Erlaubt Ton, Vibration, Aufwachen des Bildschirms, kein Durchbrechen der Fokuseinstellungen.
-* **Zeitsensitiv** (neu): Erlaubt Ton, Vibration, Aufwachen des Bildschirms, kann die Systemsteuerung durchbrechen, falls zulässig
-* **Kritisch**: Erlaubt Ton, Vibration, Aufwachen des Bildschirms, kann die Systemsteuerung durchbrechen und den Ruftonschalter umgehen
+* **Passiv** (neu) – Kein Ton, keine Vibration, kein Aufwachen des Bildschirms, kein Durchbrechen der Fokuseinstellungen.
+* **Aktiv** (Standard) – Erlaubt Ton, Vibration, Aufwachen des Bildschirms, kein Durchbrechen der Fokuseinstellungen.
+* **Zeitsensitiv** (neu) – Erlaubt Ton, Vibration, Aufwachen des Bildschirms, kann die Systemsteuerung durchbrechen, falls zulässig.
+* **Kritisch** – Erlaubt Ton, Vibration, Aufwachen des Bildschirms, kann die Systemsteuerung durchbrechen und den Ruftonschalter umgehen.
 
-Unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#interruption-level) erfahren Sie mehr darüber, wie Sie diese Option in iOS Push einstellen können.
+Unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#interruption-level) erfahren Sie mehr darüber, wie Sie diese Option in iOS Push einstellen können.
 
-### Zusammenfassung der Benachrichtigung {#notification-summary}
+### Zusammenfassung der Benachrichtigungen {#notification-summary}
 
-![]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![Screenshot zur Zusammenfassung der Benachrichtigungen.]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
-In iOS 15 können Nutzer(optional) bestimmte Zeiten am Tag auswählen, um eine Zusammenfassung der Benachrichtigungen zu erhalten. Benachrichtigungen, die keine unmittelbare Aufmerksamkeit erfordern (z.B. wenn sie als "passiv" gesendet werden oder während sich der Nutzer:innen im Fokusmodus befindet), werden gruppiert, um ständige Unterbrechungen während des Tages zu vermeiden.
+In iOS 15 können Nutzer:innen (optional) bestimmte Zeiten am Tag auswählen, um eine Zusammenfassung der Benachrichtigungen zu erhalten. Benachrichtigungen, die keine unmittelbare Aufmerksamkeit erfordern (z. B. wenn sie als „passiv“ gesendet werden oder während sich die Nutzer:innen im Fokusmodus befinden), werden gruppiert, um ständige Unterbrechungen während des Tages zu vermeiden.
 
-Für jede Benachrichtigung, die Sie versenden, können Sie bald einen "Relevanzwert" angeben, um zu steuern, welche Benachrichtigung oben in der Zusammenfassung erscheinen soll.
+Für jede Benachrichtigung, die Sie versenden, können Sie bald einen „Relevanzwert“ angeben, um zu steuern, welche Benachrichtigung oben in der Zusammenfassung erscheinen soll.
 
-Unter [iOS Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#relevance-score) erfahren Sie mehr darüber, wie Sie den "Relevanzwert" einer Benachrichtigung festlegen.
+Unter [iOS-Benachrichtigungsoptionen]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#relevance-score) erfahren Sie mehr darüber, wie Sie den „Relevanzwert“ einer Benachrichtigung festlegen.
 
-## Standort Buttons {#location-buttons}
+## Standort-Buttons {#location-buttons}
 
-iOS 15 bietet Nutzern eine neue, bequeme Möglichkeit, den Zugriff auf Standorte innerhalb einer App vorübergehend zu gewähren. 
+iOS 15 bietet Nutzer:innen eine neue, bequeme Möglichkeit, den Zugriff auf den Standort innerhalb einer App vorübergehend zu gewähren.
 
-Der neue Standort-Button basiert auf der bestehenden Berechtigung "Einmalig zulassen", ohne dass Nutzer, die in der gleichen Sitzung mehrfach klicken, wiederholt aufgefordert werden.
+Der neue Standort-Button basiert auf der bestehenden Berechtigung „Einmalig zulassen“, ohne dass Nutzer:innen, die in der gleichen Sitzung mehrfach klicken, wiederholt aufgefordert werden.
 
 Weitere Informationen finden Sie in Apples Video [Meet the Location Button](https://developer.apple.com/videos/play/wwdc2021/10102/) von der diesjährigen Worldwide Developer Conference (WWDC).
 
 {% alert tip %}
-Mit diesem Feature haben Sie die Möglichkeit, Nutzer um Erlaubnis zu fragen! Nutzer, die bereits vor iOS 15 Standortberechtigungen abgelehnt haben, erhalten beim Klick auf den Standort-Button eine Aufforderung mit der Möglichkeit, die Berechtigung ein letztes Mal aus dem abgelehnten Zustand zurückzusetzen.
+Mit diesem Feature haben Sie eine zusätzliche Möglichkeit, Nutzer:innen um Erlaubnis zu fragen! Nutzer:innen, die bereits vor iOS 15 Standortberechtigungen abgelehnt haben, erhalten beim Klick auf den Standort-Button eine Aufforderung mit der Möglichkeit, die Berechtigung ein letztes Mal aus dem abgelehnten Zustand zurückzusetzen.
 {% endalert %}
 
-### Verwendung von Standort-Buttons bei Braze
+### Verwendung von Standort-Buttons mit Braze {#using-location-buttons-with-braze}
 
-Für die Verwendung von Standort Buttons mit Braze ist keine zusätzliche Integration erforderlich. Ihre App sollte den Standort eines Nutzers:innen wie gewohnt weitergeben (sobald dieser seine Zustimmung erteilt hat).
+Für die Verwendung von Standort-Buttons mit Braze ist keine zusätzliche Integration erforderlich. Ihre App sollte den Standort der Nutzer:innen wie gewohnt weitergeben (sobald diese ihre Zustimmung erteilt haben).
 
-Laut Apple wird für Nutzer:innen, die den Zugriff auf den Standort im Hintergrund bereits freigegeben haben, die Option "Während der Nutzung der App" diese Berechtigung auch nach dem Upgrade auf iOS 15 weiterhin gewähren.
+Laut Apple wird für Nutzer:innen, die den Zugriff auf den Standort im Hintergrund bereits freigegeben haben, die Option „Während der Nutzung der App“ diese Berechtigung auch nach dem Upgrade auf iOS 15 weiterhin gewähren.
 
 ## Apple Mail {#mail}
 
 In diesem Jahr hat Apple zahlreiche Updates in Bezug auf E-Mail-Tracking und Datenschutz angekündigt. Weitere Informationen finden Sie in unserem [Blogbeitrag](https://www.braze.com/resources/articles/9-ways-email-marketers-can-respond-to-apples-mail-privacy-protection-feature).
 
-## Standort der Safari IP-Adresse
+## Safari-IP-Adressstandort {#safari-ip-address-location}
 
-In iOS 15 werden Nutzer:in die Lage versetzt, Safari so zu konfigurieren, dass der anhand ihrer IP-Adressen ermittelte Standort anonymisiert oder verallgemeinert wird. Denken Sie daran, wenn Sie standortbasiertes Targeting oder Segmentierung verwenden.
-
+In iOS 15 können Nutzer:innen Safari so konfigurieren, dass der anhand ihrer IP-Adressen ermittelte Standort anonymisiert oder verallgemeinert wird. Beachten Sie dies, wenn Sie standortbasiertes Targeting oder Segmentierung verwenden.

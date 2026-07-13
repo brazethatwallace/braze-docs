@@ -12,7 +12,7 @@ description: "Este artículo de referencia describe cómo crear notificaciones d
 
 ## Cómo funciona {#how-it-works}
 
-Cuando un usuario desencadena un evento personalizado para un artículo, lo suscribiremos automáticamente para que reciba notificaciones de bajada de precio de ese artículo. Cuando el precio del artículo cumpla tu regla de inventario (como una caída superior al 50 %), todos los suscriptores serán elegibles para recibir notificaciones a través de una campaña o Canvas. Sin embargo, solo los usuarios que hayan optado por recibir notificaciones las recibirán.
+Cuando un usuario desencadena un evento personalizado para un artículo, lo suscribiremos automáticamente para que reciba notificaciones de bajada de precio de ese artículo. Cuando el precio del artículo cumpla tu regla de inventario (como una caída superior al 50 %), todos los suscriptores serán elegibles para recibir notificaciones a través de una Campaign o Canvas. Sin embargo, solo los usuarios que hayan optado por recibir notificaciones las recibirán.
 
 ## Configuración de un evento personalizado para notificaciones de bajada de precio {#setting-a-custom-event-for-price-drop-notifications}
 
@@ -23,16 +23,16 @@ Puedes crear una suscripción a bajadas de precio para un usuario y un artículo
 - Un usuario realiza un evento personalizado seleccionado
 - El evento personalizado tiene una propiedad `type` que incluye `price_drop` (`type` debe ser una matriz)
 
-Para configurar notificaciones tanto de bajada de precio como de reposición de existencias en el mismo evento, puedes utilizar la propiedad `type`, que debe ser una matriz. Cuando un artículo tenga un cambio de precio que cumpla tu regla de precios, buscaremos a todos tus usuarios suscritos a ese artículo (usuarios que realizaron el evento de suscripción) y enviaremos un evento personalizado de Braze que puedes utilizar para desencadenar una campaña o Canvas.
+Para configurar notificaciones tanto de bajada de precio como de reposición de existencias en el mismo evento, puedes utilizar la propiedad `type`, que debe ser una matriz. Cuando un artículo tenga un cambio de precio que cumpla tu regla de precios, buscaremos a todos tus usuarios suscritos a ese artículo (usuarios que realizaron el evento de suscripción) y enviaremos un evento personalizado de Braze que puedes utilizar para desencadenar una Campaign o Canvas.
 
-Las propiedades del evento se envían junto con tu usuario, por lo que puedes incluir los detalles del artículo en la plantilla de la campaña o Canvas que lo envía.
+Las propiedades del evento se envían junto con tu usuario, por lo que puedes incluir los detalles del artículo en la plantilla de la Campaign o Canvas que lo envía.
 
 ## Configurar las notificaciones de bajada de precios {#setting-up-price-drop-notifications}
 
 Sigue estos pasos para configurar las notificaciones de bajada de precios en un catálogo específico.
 
-1. Ve a tu catálogo y selecciona la pestaña **Settings**.
-2. Selecciona el alternador **Price Drop**.
+1. Ve a tu catálogo y selecciona la pestaña **Configuración**.
+2. Selecciona el alternador **Bajada de precio**.
 3. Si no se ha realizado la configuración global del catálogo, se te pedirá que configures los eventos y propiedades personalizados que se utilizarán para desencadenar las notificaciones. <br><br> ![Cajón de configuración del catálogo.]({% image_buster /assets/img/catalog_settings_drawer.png %}){: style="max-width:70%;"}
 
 | Campo | Descripción |
@@ -40,8 +40,8 @@ Sigue estos pasos para configurar las notificaciones de bajada de precios en un 
 | **Catálogo alternativo** | El catálogo utilizado para la suscripción si no hay una propiedad `catalog_name` en el evento personalizado. |
 | **Evento personalizado para suscribirse** | El evento personalizado utilizado para suscribir a un usuario a las notificaciones del catálogo. Cuando se produzca este evento, se suscribirá al usuario que lo haya realizado. |
 | **Evento personalizado para cancelar suscripción** | El evento personalizado utilizado para cancelar la suscripción de un usuario a las notificaciones. Este evento es opcional. Si el usuario no realiza este evento, se le cancelará la suscripción transcurridos 90 días o cuando se desencadene el evento de bajada de precio, lo que ocurra primero. |
-| **Propiedad del evento de ID de artículo** | La propiedad en el evento personalizado anterior que se utiliza para determinar el artículo para una suscripción o cancelación de suscripción. Esta propiedad del evento personalizado debe contener un ID de artículo que exista en un catálogo. El evento personalizado debe contener una propiedad `catalog_name` para especificar en qué catálogo se encuentra este artículo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Propiedad del evento de ID de artículo** | La propiedad en el evento personalizado mencionado anteriormente en esta sección que se utiliza para determinar el artículo para una suscripción o cancelación de suscripción. Esta propiedad del evento personalizado debe contener un ID de artículo que exista en un catálogo. El evento personalizado debe contener una propiedad `catalog_name` para especificar en qué catálogo se encuentra este artículo. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurar notificaciones de bajada de precios" }
 
 A continuación se muestra un ejemplo de evento personalizado:
 
@@ -63,19 +63,19 @@ A continuación se muestra un ejemplo de evento personalizado:
 ```
 
 {: start="4"}
-4. Selecciona **Save** y continúa con la siguiente sección para configurar las reglas de notificación.
+4. Selecciona **Guardar** y continúa con la siguiente sección para configurar las reglas de notificación.
 
 ### Configuración de reglas de notificación {#setting-up-notification-rules}
 
-1. Ve a la página **Settings** de tu catálogo.
-2. Para **Notification rules**, selecciona una de las siguientes opciones:<br>
+1. Ve a la página **Configuración** de tu catálogo.
+2. Para **Reglas de notificación**, selecciona una de las siguientes opciones:<br>
 
-    - **Notify all subscribed users:** Notifica a todos los clientes que están esperando cuando baje el precio del artículo.
-    - **Set notification limits:** Notifica a un número específico de clientes según el periodo de notificación que hayas configurado. Braze notificará al número especificado de clientes en incrementos hasta que no haya más clientes a los que notificar, o hasta que el precio del artículo vuelva a subir. La tasa de notificación no puede superar los 10.000 usuarios por minuto.<br>
+    - **Notificar a todos los usuarios suscritos:** Notifica a todos los clientes que están esperando cuando baje el precio del artículo.
+    - **Establecer límites de notificación:** Notifica a un número específico de clientes según el periodo de notificación que hayas configurado. Braze notificará al número especificado de clientes en incrementos hasta que no haya más clientes a los que notificar, o hasta que el precio del artículo vuelva a subir. La tasa de notificación no puede superar los 10.000 usuarios por minuto.<br>
 
-2. Configura el **Price field in catalog**. Es el campo del catálogo que se utilizará para determinar el precio del artículo. Debe ser de tipo numérico.
-3. Configura la **Price drop rule**. Esta es la lógica utilizada para determinar si se debe enviar una notificación. Una bajada de precio se puede configurar como un cambio porcentual del precio o como un cambio en el valor del campo de precio.
-4. Selecciona **Save settings**.
+2. Configura el **Campo de precio en el catálogo**. Es el campo del catálogo que se utilizará para determinar el precio del artículo. Debe ser de tipo numérico.
+3. Configura la **Regla de bajada de precio**. Esta es la lógica utilizada para determinar si se debe enviar una notificación. Una bajada de precio se puede configurar como un cambio porcentual del precio o como un cambio en el valor del campo de precio.
+4. Selecciona **Guardar configuración**.
 
 ![Configuración del catálogo que muestra la característica de bajada de precios activada. La regla de bajada de precios consiste en un cambio del tres por ciento sobre el precio original.]({% image_buster /assets/img/price_drop_notifications.png %})
 
@@ -90,7 +90,7 @@ Después de configurar las notificaciones de bajada de precios en un catálogo, 
 1. Configura un Canvas basado en acciones.
 2. Selecciona **Perform Price Drop Event** como desencadenante.
 3. Selecciona el nombre del catálogo con las notificaciones de bajada de precios.
-4. Continúa [configurando]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) tu Canvas como lo harías normalmente.
+4. Continúa [configurando]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) tu Canvas como lo harías normalmente.
 
 Ahora, tus clientes recibirán una notificación cuando baje el precio de un artículo.
 
@@ -109,5 +109,5 @@ Utiliza la etiqueta de Liquid {%raw%}``{% catalog_items <name_of_your_catalog> {
 ## Consideraciones {#considerations}
 
 - Los usuarios se suscriben por 90 días. Si un artículo no baja de precio en 90 días, el usuario se elimina de la suscripción.
-- Cuando se utiliza la regla de notificación **Notify all subscribed users**, Braze notificará a 100.000 usuarios en 10 minutos.
+- Cuando se utiliza la regla de notificación **Notificar a todos los usuarios suscritos**, Braze notificará a 100.000 usuarios en 10 minutos.
 - Braze admite hasta 50.000 artículos actualizados diariamente que son elegibles para desencadenar notificaciones de bajada de precios. Puedes tener hasta 100 millones de suscripciones activas en un momento dado, donde cada suscripción representa un perfil de usuario suscrito para seguir un artículo del catálogo.

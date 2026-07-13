@@ -25,7 +25,7 @@ The following terms are referenced throughout the Decisioning Studio guide.
 | **Dimensions** | Dimensions can be thought of as the *types of levers* which the decisioning agent can pull to maximize the success metric. Typical dimensions include offer, subject line, creative, channel, or send time. |
 | **Action bank** | The action bank defines the *specific options* which the decisioning agent has access to for each dimension "lever". For instance, for a channel dimension, you define the specific channels the decisioning agent has access to. For an offer dimension, you define the specific offers the decisioning agent can test. |
 | **Constraints** | In general, the decisioning agent could take any combination of actions that you put in the action bank. However, you can also define constraints to limit the decisioning agent's actions to respect critical business rules. For example, this could be preventing a specific offer from being selected for customers in an ineligible geography, or setting a maximum budget for the decisioning agent to spend. |
-{: .reset-td-br-1 .reset-td-br-2}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
 
 ![A high level overview of a decisioning agent]({% image_buster /assets/img/decisioning_studio/decisioning_studio_high_level_agent.png %})
 
@@ -39,25 +39,25 @@ When setting up a decisioning agent, you'll need to think through four main desi
 
 ### The "goal": Define your success metric
 
-> What outcome do you want the agent to maximize?
+*What outcome do you want the agent to maximize?*
 
 Your success metric is the business outcome the agent will optimize for. This should align directly with your business objectives, not proxy metrics like clicks or opens, but real business results like revenue, conversions, ARPU, or customer lifetime value.
 
 ### The "who": Select your audience
 
-> Who will the decisioning agent engage?
+*Who will the decisioning agent engage?*
 
 Define the audience that your agent will serve. This could be all customers, a specific segment (like loyalty program members), or customers at a particular stage of their lifecycle (like recent purchasers or at-risk subscribers).
 
 ### The "what": Configure your action bank
 
-> What options can the agent choose from to drive the outcome?
+*What options can the agent choose from to drive the outcome?*
 
 The action bank defines all the levers the agent can pull: the dimensions (like channel, offer, timing, and frequency) and the specific options within each dimension. The agent experiments with different combinations of these options to find what works best for each customer.
 
 ### The "how": Configure your constraints
 
-> What rules should the agent follow?
+*What rules should the agent follow?*
 
 Constraints are the rules that the agent must follow. This could be preventing a specific offer from being selected for customers in an ineligible geography, or setting a maximum budget for the decisioning agent to spend.
 
@@ -132,4 +132,4 @@ You could build a loyalty and engagement agent to maximize purchases by new enro
 
 ## Next steps
 
-Ready to build your own decisioning agent? See [Get Started with Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/) for a guide that walks you through connecting data sources, setting up orchestration, designing your agent, and launching to production.
+Ready to build your own decisioning agent? See [Get Started with Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) for a guide that walks you through connecting data sources, setting up orchestration, designing your agent, and launching to production.

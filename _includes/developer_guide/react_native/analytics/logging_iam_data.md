@@ -12,7 +12,7 @@ You can use these methods by passing your `BrazeInAppMessage` instance to log an
 | `hideCurrentInAppMessage()`                               | Dismisses the currently displayed in-app message.                                     |
 | `performInAppMessageAction(inAppMessage)`                 | Performs the action for an in-app message.                                            |
 | `performInAppMessageButtonAction(inAppMessage, buttonId)` | Performs the action for an in-app message button.                                     |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Methods for logging" }
 
 ## Handling message data
 
@@ -126,7 +126,7 @@ To use this delegate, assign it to `brazeInAppMessagePresenter.delegate` after i
 
 ### Overriding the default native UI
 
-If you wish to fully customize the presentation of your in-app messages at the native iOS layer, conform to the [`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) protocol and assign your custom presenter following the sample below:
+If you wish to fully customize the presentation of your in-app messages at the native iOS layer, conform to the [`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) protocol and assign your custom presenter following this sample:
 
 ```objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:apiKey endpoint:endpoint];

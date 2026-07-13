@@ -34,19 +34,19 @@ Braze와 Jampp 통합을 통해 회사 사용자는 Braze 웹훅 이벤트를 �
 | iOS 앱 ID | iOS용 고유 Braze 애플리케이션 식별자(예: "012345678"). |
 | Braze SDK에서 IDFA 수집 활성화 | IDFA 수집은 Braze SDK 내에서 선택 사항이며 기본적으로 비활성화되어 있습니다. |
 | 커스텀 속성을 통한 Google 광고 ID 수집 | Google 광고 ID 수집은 고객에게 선택 사항이며 [커스텀 속성]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#custom-attribute-data-types)으로 수집할 수 있습니다.
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 
 ### 1단계: Braze에서 웹훅 템플릿 생성 {#step-1-create-a-webhook-template-in-braze}
 
-향후 Campaigns 또는 Canvases에서 사용할 Jampp 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **템플릿** > **웹훅 템플릿**으로 이동합니다.
+향후 Campaigns 또는 Canvases에서 사용할 Jampp 웹훅 템플릿을 생성하려면 Braze 대시보드에서 **콘텐츠** > **웹훅**으로 이동합니다. 그런 다음 **웹훅 템플릿 생성**을 선택합니다.
 
 일회성 Jampp 웹훅 Campaign을 만들거나 기존 템플릿을 사용하려면 새 Campaign을 생성할 때 Braze에서 **웹훅**을 선택합니다.
 
 새 웹훅 템플릿에서 다음 필드를 입력합니다:
-- **요청 본문**: Raw Text
-- **웹훅 URL**:
+- **Request Body**: Raw Text
+- **Webhook URL**:
 {% raw %}
 ```liquid
 {% assign event_name = 'your_jampp_event_name' %}
@@ -78,8 +78,8 @@ Braze는 기기 IDFA/AAID를 자동으로 수집하지 않으므로 이러한 �
 
 Jampp 웹훅에는 HTTP 메서드와 요청 헤더가 필요합니다.
 
-- **HTTP 메서드**: GET
-- **요청 헤더**:
+- **HTTP Method**: GET
+- **Request Headers**:
   - **Content-Type**: application/json
 
 ![Braze 웹훅 빌더에 표시되는 요청 헤더, HTTP 메서드 및 메시지 미리보기.]({% image_buster /assets/img/jampp_method.png %})

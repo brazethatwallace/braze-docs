@@ -107,7 +107,7 @@ Range Reports are some of the most intuitive reports to read. They clearly state
 - **All Users Row**: Also known as the Report Summary Row, summarizes the retention data for the entire time period. Note that if a user has received the campaign or Canvas in multiple cohorts, their results will be counted twice here. 
 - **Percentages/Numbers**: Shows the percentage or number of users who performed the event X or more days after receiving the campaign or Canvas on Z day. These percentages are the weighted average percentages. Incomplete values will be denoted by an asterisk.
 - **Date Range**: Set on the campaign or Canvas **Details** page, the date range includes all users who received the campaign or Canvas during this window, and of those users, the data of those that performed their retention event during the date range will appear in the report.
-- **Units**: You can adjust the units between the percentage of users and the number of users in the upper right-hand corner of the chart, specific units may prove to be more significant when judging the impact of a campaign or Canvas.
+- **Units**: You can adjust the units between the percentage of users and the number of users from the chart controls, specific units may prove to be more significant when judging the impact of a campaign or Canvas.
 - **Color Mapping**: In your retention report, higher percentages or number of users are assigned darker shades of blue. Lower percentages or number of users are assigned lighter shades of blue. This is done to help users visualize this data.
 - **Retention Report Graph**: This graph summarizes the results for all cohorts for the selected date range.
 
@@ -139,7 +139,7 @@ Some use cases for showing performance by variant:
 - **Retention Rate**: Shows the retention rate by variant. The retention rate is equivalent to the number of users that performed the retention event divided by the total users that have received the campaign or Canvas.
 - **Percentage Change from Control**: Quantifies the percentage change per variant from the control group.
 - **Confidence**: {% multi_lang_include analytics/metrics.md metric='Confidence' %} Braze compares each variant's conversion rate against the control's conversion rate with a statistical procedure called a Z Test to calculate a [confidence]({{site.baseurl}}/user_guide/messaging/ab_testing#understanding-confidence) percentage.
-- **Units**: You can adjust the units between the percentage of users and the number of users in the upper right-hand corner of the chart, specific units may prove to be more significant when judging the impact of a campaign or Canvas.
+- **Units**: You can adjust the units between the percentage of users and the number of users from the chart controls, specific units may prove to be more significant when judging the impact of a campaign or Canvas.
 - **Variant Graph**: This graph summarizes the results by variant for the selected date range.
 
 ## Things to look for in your retention reports

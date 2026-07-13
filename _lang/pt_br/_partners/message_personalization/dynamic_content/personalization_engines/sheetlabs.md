@@ -21,13 +21,13 @@ A integração da Sheetlabs com a Braze permite que você use o [Conteúdo conec
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta Sheetlabs | É necessário ter uma [conta Sheetlabs](https://sheetlabs.com/) para aproveitar essa parceria. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
 A integração entre a Braze e a Sheetlabs permite executar os seguintes casos de uso:
 
-1. **Separar o acesso do profissional de marketing do acesso à campanha da Braze**: Algumas equipes desejam evitar dar a todos os funcionários acesso para configurar diretamente os modelos e o conteúdo da Braze. Em vez disso, eles querem que a equipe atualize o conteúdo de marketing em uma planilha. A Sheetlabs faz a ponte entre as planilhas e a Braze e pode ser atualizada em tempo real.
+1. **Separar o acesso do profissional de marketing do acesso à Campaign da Braze**: Algumas equipes desejam evitar dar a todos os funcionários acesso para configurar diretamente os modelos e o conteúdo da Braze. Em vez disso, eles querem que a equipe atualize o conteúdo de marketing em uma planilha. A Sheetlabs faz a ponte entre as planilhas e a Braze e pode ser atualizada em tempo real.
 2. **Traduções**: Os modelos da Braze não oferecem suporte nativo a traduções. Se quiser oferecer suporte a vários idiomas, você deverá criar vários modelos. Ao usar a Sheetlabs em conjunto com a Braze, você pode ter um único modelo da Braze traduzido para vários idiomas.
 3. **Extensão de atributos personalizados**: A Braze fornece um certo número de atributos personalizados que podem ser configurados. Ao usar a Sheetlabs em conjunto com a Braze, você pode adicionar outros atributos personalizados além dessa alocação inicial.
 

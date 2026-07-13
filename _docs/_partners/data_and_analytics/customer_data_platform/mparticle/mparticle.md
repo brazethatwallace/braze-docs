@@ -27,7 +27,7 @@ The Braze and mParticle integration allows you to seamlessly control the flow of
 | Braze instance | Your Braze instance can be found on the [API overview page]({{site.baseurl}}/api/basics/#endpoints) (for example, `US-01` or `US-02`). |
 | Braze app identifier key | Your app identifier key. <br><br>This can be found at **Manage Settings** > **API Key** in the Braze dashboard. |
 | Workspace REST API key | (Server-to-server) A Braze REST API key<br><br>This can be created at **Developer Console** > **API Settings** > **API Key** in the Braze dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -104,14 +104,14 @@ To create an audience in mParticle:
 
 | Field Name               | Description                                                                                                                                                                   |
 | ------------------------ | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| API key                  | Found in the Braze dashboard at **Settings** > **API Keys**.<br><br>If you are using the older navigation, you can find API keys at **Developer Console** > **API Settings**. |
+| API key                  | In the Braze dashboard, go to **Settings** > **API Keys**. |
 | API key operating system | Select which operating system your Braze API key corresponds to. This selection will limit the types of push tokens forwarded on an audience update.                          |
 | Send segments as         | The method of sending audiences to Braze. See the section [Forwarding audiences](#forwarding-audiences) for details.                                                          |
 | Workspace REST API key   | Braze REST API key with full permissions. This can be created in the Braze dashboard from **Settings** > **API Keys**.                                                        |
 | External identity type   | The mParticle user identity type to forward as an external ID to Braze. We recommend leaving this to the default value, Customer ID.                                          |
 | Email identity type      | The mParticle user identity type to forward as the email to Braze.                                                                                                            |
 | Braze instance           | Specify which cluster your Braze data will be forwarded to.                                                                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create an audience in mParticle #sendsettings" }
 
 {:start="3"}
 3. Lastly **Save** your audience.
@@ -150,9 +150,9 @@ In mParticle, navigate to **Setup > Outputs > Add Outputs** and select **Braze**
 | Email identity type | The mParticle user identity type to forward as an email to Braze. We recommend leaving this to the default value, Email, |
 | Braze instance | The cluster your Braze data will be forwarded to; this should be the same cluster your dashboard is on. |
 | Enable event stream forwarding | (Server-to-server) When enabled, all events will be forwarded in real-time. If not, all events will be forwarded in bulk. When choosing to enable event stream forwarding, ensure that the data you are passing to Braze will respect [rate limits]({{site.baseurl}}/api/api_limits/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configure your Braze output settings" }
 
-![]({% image_buster /assets/img_archive/configure_settings.png %})
+![mParticle Braze output settings with app identifier, identity mapping, and instance fields.]({% image_buster /assets/img_archive/configure_settings.png %})
 
 ### Embedded kit integration
 
@@ -184,7 +184,7 @@ mParticle's [Braze event kit integration guide](https://docs.mparticle.com/integ
 
 In mParticle, navigate to **Connections** > **Connect** > **[Your desired platform]** > **Connect Output** to add Braze as an output. Then, select **Save**.
 
-![]({% image_buster /assets/img_archive/mParticle_event_config.png %})
+![mParticle event kit connection setup for Braze output.]({% image_buster /assets/img_archive/mParticle_event_config.png %})
 
 Not all connection settings will apply to all platforms and integration types. For a breakdown of connection settings and the platforms they apply to, see [mParticle's documentation](https://docs.mparticle.com/integrations/braze/event/#connection-settings).
 
@@ -204,7 +204,7 @@ For server-side data to be forwarded to Braze, it must include an `external_id`;
 
 In mParticle, navigate to **Connections > Connect > [Your desired platform] > Connect Output** to add Braze as an output. **Save** when completed. 
 
-![]({% image_buster /assets/img_archive/mParticle_connections.png %})
+![mParticle Connections screen for adding Braze as an output on a platform.]({% image_buster /assets/img_archive/mParticle_connections.png %})
 
 Not all connection settings will apply to all platforms and integration types. For a breakdown of connection settings and the platforms they apply to, see [mParticle's documentation](https://docs.mparticle.com/integrations/braze/event/#connection-settings).
 
@@ -230,7 +230,7 @@ Braze doesn't support timestamps before year 0 or after year 3000 in `Time` type
 | Custom event | Custom event | mParticle custom events are recognized by Braze as a custom event. Event attributes are forwarded as custom event properties.<br><br>Event attributes passed to Braze as event properties support string, numeric, boolean, or date objects but do not support arrays or nested objects. |
 | Purchase commerce event | Purchase event | Purchase commerce events will be mapped to Braze purchase events. <br><br>Toggle the setting value for bundle commerce event data to log purchases at the order-level or product-level. For example, if `false`, a single incoming event with two unique products, promotions, or impressions would result in at least two outgoing Braze events. If set to `true`, it would result in a single outgoing event with a nested products, promotions or impressions array, respectively.<br><br>For more information on the additional commerce fields that will be logged, see [mParticle's documentation](https://docs.mparticle.com/integrations/braze/event/#purchase-events). <br><br>When setting "bundle commerce event data" as `false` product attributes passed to Braze as purchase event properties, support string, numeric, boolean, or date objects but do not support arrays or nested objects.|
 | All other commerce events | Custom event | All other commerce events will be mapped to custom events. <br><br>Toggle the setting value for bundle commerce event data to log purchases at the order-level or product-level. For example, if `false`, a single incoming event with two unique products, promotions, or impressions would result in at least two outgoing Braze events. If set to `true`, it would result in a single outgoing event with a nested products, promotions or impressions array, respectively.<br><br>In addition to certain default commerce values, product attributes will be logged as Braze event properties. For more information on the additional commerce fields that will be logged, see [mParticle's documentation](https://docs.mparticle.com/integrations/braze/event/#other-commerce-events)<br><br>When setting "bundle commerce event data" as `false` product attributes passed to Braze as event properties, support string, numeric, boolean, or date objects but do not support arrays or nested objects. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Data mapping" }
 
 #### User identity mapping
 For each mParticle output, you can select the external identity type to send to Braze as the `external_id`. While the default value is customer ID, you can choose to map another ID, such as `MPID`, to send to Braze as the `external_id`. Be aware that choosing an identifier other than the customer ID may influence how data is sent in Braze. 
@@ -276,6 +276,7 @@ If push notifications are not working when using the Braze event kit (embedded k
 3. **Method swizzling:** The mParticle Apple kit uses method swizzling to automatically forward push tokens and handle push notification events. If you have disabled swizzling or another SDK is interfering, push tokens may not reach Braze. Verify that swizzling is enabled in your mParticle configuration.
 4. **Manual token handling:** If you manage push tokens manually (for example, by implementing `application:didRegisterForRemoteNotificationsWithDeviceToken:`), make sure you are passing the token to mParticle by assigning it to the push notification token property, for example: `MParticle.sharedInstance().pushNotificationToken = deviceToken`. The kit will then forward it to Braze.
 5. **Environment mismatch:** Confirm the APNs credential environment (development vs. production) matches your app's build. For details, refer to [iOS push troubleshooting]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift).
+6. **Kit initialization timing:** If you access the Braze instance from `didFinishLaunchingWithOptions`, the mParticle kit may not be ready when a push arrives. Initialize push handling in [`userNotificationCenter(_:didReceive:withCompletionHandler:)`]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) (or the equivalent notification response delegate) so the Braze kit is active when the user opens a notification.
 
 ### Sending unnecessary or duplicate data to Braze
 Braze counts a data point each time an attribute is passed to Braze, even if the value is unchanged. For this reason, Braze recommends only forwarding data needed to action on within Braze and ensuring that only deltas of attributes are being passed.

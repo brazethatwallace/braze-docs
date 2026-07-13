@@ -13,38 +13,38 @@ search_tag: Partner
 
 _Esta integração é mantida pela StackAdapt._
 
-A integração entre Braze e StackAdapt permite que você sincronize dados de perfil de usuário da Braze no StackAdapt Data Hub. Ao conectar as duas plataformas, você pode criar uma visão unificada de seus clientes e ativar dados primários para melhorar o desempenho dos anúncios.
+A integração entre a Braze e a StackAdapt permite que você sincronize dados de perfil de usuário da Braze no StackAdapt Data Hub. Ao conectar as duas plataformas, você pode criar uma visão unificada de seus clientes e ativar dados primários para melhorar o desempenho dos anúncios.
 
-## Casos de uso
+## Casos de uso {#use-cases}
 
-- **Reengajar usuários inativos:** Identifique usuários que se desinscreveram das listas de marketing por e-mail na Braze e direcione-os com anúncios programáticos na StackAdapt para reengajá-los por meio de um canal diferente.
-- **Criar experiências multicanal:** Estenda a jornada de um usuário além do e-mail. Por exemplo, se um usuário clicar em uma campanha de e-mail na Braze, você pode usar a StackAdapt para mostrar a ele um anúncio programático complementar, reforçando a mensagem e impulsionando uma ação adicional.
-- **Personalizar em escala:** Aproveite pontos de dados granulares da Braze, como "Cidade Natal" ou "Idioma", para servir anúncios e e-mails altamente relevantes, localizados e específicos para o idioma.
+- **Reengajar usuários inativos:** Identifique usuários que cancelaram a inscrição das listas de marketing por e-mail na Braze e direcione-os com anúncios programáticos na StackAdapt para reengajá-los por meio de um canal diferente.
+- **Criar experiências multicanal:** Estenda a jornada de um usuário além do e-mail. Por exemplo, se um usuário clicar em uma Campaign de e-mail na Braze, você pode usar a StackAdapt para mostrar a ele um anúncio programático complementar, reforçando a mensagem e impulsionando uma ação adicional.
+- **Personalizar em escala:** Aproveite pontos de dados granulares da Braze, como "Cidade Natal" ou "Idioma", para veicular anúncios e e-mails altamente relevantes, localizados e específicos para o idioma.
 - **Aprofundar a compreensão do seu público:** Ao sincronizar atributos de perfil, você pode criar segmentos de público mais ricos na StackAdapt, permitindo um direcionamento mais preciso e experiências de anúncios personalizadas.
 
-## Pré-requisitos
+## Pré-requisitos {#prerequisites}
 
-| Requisito | Descrição         |
+| Requisito | Descrição |
 | ----------- | ------------------- |
-| **Conta StackAdapt**  | Você precisa de uma conta StackAdapt ativa com permissões para gerenciar integrações do Data Hub. |
-| **Chave da API REST do Braze**  | Uma chave da API REST do Braze com as seguintes permissões: <br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get<br><br>Isso pode ser criado no painel da Braze em **Configurações** > **Chaves de API.** |
-| **Endpoint REST  do Braze** | [Sua URL de endpoint REST.](https://www.braze.com/docs/api/basics/#endpoints) Seu endpoint depende do URL do Braze para sua instância. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Conta StackAdapt** | Você precisa de uma conta StackAdapt ativa com permissões para gerenciar integrações do Data Hub. |
+| **Chave da API REST da Braze** | Uma chave da API REST da Braze com as seguintes permissões: <br>- users.export.ids<br>- users.export.segment<br>- email.unsubscribe<br>- email.hard_bounces<br>- messages.schedule_broadcasts<br>- campaigns.list<br>- campaigns.details<br>- canvas.list<br>- canvas.details<br>- segments.list<br>- segments.details<br>- purchases.product_list<br>- events.list<br>- feed.list<br>- feed.details<br>- templates.email.info<br>- templates.email.list<br>- subscription.status.get<br>- subscription.groups.get<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| **Endpoint REST da Braze** | [Sua URL de endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
-## Como funciona?
+## Como funciona {#how-it-works}
 
-O StackAdapt Data Hub se conecta diretamente à sua conta Braze para puxar atributos de perfil de usuário. Isso permite que você aproveite os dados de cliente do Braze diretamente no StackAdapt para segmentação e ativação avançadas do público.
+O StackAdapt Data Hub se conecta diretamente à sua conta da Braze para extrair atributos de perfil de usuário. Isso permite que você aproveite os dados de cliente da Braze diretamente na StackAdapt para segmentação e ativação avançadas do público.
 
-### Fluxo de dados
+### Fluxo de dados {#data-flow}
 
-1. O StackAdapt inicia uma conexão segura com sua instância do Braze usando as credenciais da API fornecidas.
-2. O StackAdapt recupera dados de perfil de usuário e especificamente as propriedades que você selecionou e mapeou.
-3. Os dados são normalizados e ingeridos em seu Hub de Dados do StackAdapt, tornando-se disponíveis para segmentação e uso em suas campanhas.
-4. A integração permite sincronizações de dados programadas (por exemplo, diárias) para manter seus públicos do StackAdapt atualizados com os dados de perfil mais recentes do Braze.
+1. A StackAdapt inicia uma conexão segura com sua instância da Braze usando as credenciais de API fornecidas.
+2. A StackAdapt recupera dados de perfil de usuário e especificamente as propriedades que você selecionou e mapeou.
+3. Os dados são normalizados e ingeridos no seu StackAdapt Data Hub, tornando-se disponíveis para segmentação e uso em suas campanhas.
+4. A integração permite sincronizações de dados programadas (por exemplo, diárias) para manter seus públicos da StackAdapt atualizados com os dados de perfil mais recentes da Braze.
 
-## Campos sincronizados
+## Campos sincronizados {#fields-synced}
 
-O StackAdapt pode sincronizar uma variedade de campos de perfil do Braze, incluindo, mas não se limitando a:
+A StackAdapt pode sincronizar uma variedade de campos de perfil da Braze, incluindo, mas não se limitando a:
 
 {% tabs local %}
 {% tab Standard attributes %}
@@ -57,9 +57,9 @@ O StackAdapt pode sincronizar uma variedade de campos de perfil do Braze, inclui
 - País
 - Gênero
 - Fuso horário
-- Criação às
+- Data de criação
 - ID externo
-- Idioma 
+- Idioma
 
 {% endtab %}
 {% tab Custom attributes %}
@@ -68,49 +68,49 @@ Atributos que são específicos para seu app ou negócio, definidos com base nas
 {% endtab %}
 {% tab Attribution data %}
 - Anúncio atribuído
-- Grupo de anúncios atribuídos
-- Campanha de atribuição
-- Fonte atribuída
+- Grupo de anúncios atribuído
+- Campaign atribuída
+- Origem atribuída
 
 {% endtab %}
 {% tab Subscription status %}
-- Status de inscrição no e-mail
-- Status de inscrição para push 
+- Status de inscrição de e-mail
+- Status de inscrição de push
 
-É crucial mapear com precisão os campos no Braze que refletem o consentimento do usuário para comunicações de marketing (por exemplo, status de inscrição em e-mail) para que seus esforços publicitários permaneçam em conformidade com as preferências e regulamentos de privacidade do usuário.
+É crucial mapear com precisão os campos na Braze que refletem o consentimento do usuário para comunicações de marketing (por exemplo, status de inscrição de e-mail) para que seus esforços publicitários permaneçam em conformidade com as preferências do usuário e as regulamentações de privacidade.
 
 {% endtab %}
 {% endtabs %}
 
-## Configuração da integração
+## Configuração da integração {#setting-up-the-integration}
 
-Siga estas etapas para importar seus perfis de usuário do Braze:
+Siga estas etapas para importar seus perfis de usuário da Braze:
 
-1. Faça login na sua conta do StackAdapt.
-2. No menu de navegação, selecione **Hub de Dados**.
-3. Selecione **Importar Perfis**, em seguida, selecione **Braze** na lista de integrações disponíveis.
-4. Insira suas credenciais da API do Braze quando solicitado.
-- **Chave da API REST do Braze:** Localizada no Braze indo para **Configurações** > **Chaves da API**. Como uma melhor prática de segurança, recomendamos criar uma chave de API dedicada para sua integração com o StackAdapt.
-- **Chave do App Braze:** Localizada no Braze indo para **Configurações** > **Chaves da API** ou **Gerenciar Apps**.
-- **Braze URL do Endpoint REST:** A URL base para sua instância do Braze (por exemplo, ```https://rest.iad-01.braze.com```).
-5. Selecione **Conectar** para verificar as credenciais.
+1. Faça login na sua conta da StackAdapt.
+2. No menu de navegação, selecione **Data Hub**.
+3. Selecione **Import Profiles** e, em seguida, selecione **Braze** na lista de integrações disponíveis.
+4. Insira suas credenciais de API da Braze quando solicitado.
+- **Braze REST API Key:** Localizada na Braze em **Configurações** > **Chaves de API**. Como melhor prática de segurança, recomendamos criar uma chave de API dedicada para sua integração com a StackAdapt.
+- **Braze App Key:** Localizada na Braze em **Configurações** > **Chaves de API** ou **Manage Apps**.
+- **Braze REST Endpoint URL:** A URL base para sua instância da Braze (por exemplo, `https://rest.iad-01.braze.com`).
+5. Selecione **Connect** para verificar as credenciais.
 
-![Conexão Braze no StackAdapt.]({% image_buster /assets/img/stackadapt/stackadapt_braze_connection_settings.png %})
+![Conexão da Braze na StackAdapt.]({% image_buster /assets/img/stackadapt/stackadapt_braze_connection_settings.png %})
 
 {: start="6"}
-6\. Escolha sua conexão e selecione seu anunciante do StackAdapt.
-7\. Configure suas **Mapeamentos de Propriedades**. Revise e confirme os mapeamentos padrão e as propriedades pré-selecionadas que o StackAdapt sugere.
-8\. (Opcional) Se você quiser importar propriedades adicionais, selecione-as marcando as respectivas caixas de seleção e especifique se contêm PII e seu tipo de dado.
+6. Escolha sua conexão e selecione seu anunciante da StackAdapt.
+7. Configure seus **Property Mappings**. Revise e confirme os mapeamentos padrão e as propriedades pré-selecionadas que a StackAdapt sugere.
+8. (Opcional) Se você quiser importar propriedades adicionais, selecione-as marcando as respectivas caixas de seleção e especifique se contêm IPI e seu tipo de dado.
 
-![Conexão Braze no StackAdapt.]({% image_buster /assets/img/stackadapt/stackadapt_mappings.png %})
+![Mapeamentos de propriedades na conexão da Braze com a StackAdapt.]({% image_buster /assets/img/stackadapt/stackadapt_mappings.png %})
 
 {: start="9"}
-9\. Adicione seus perfis a uma **Lista** ou crie uma nova para que você possa agrupar e segmentar seus perfis.
-10\. Selecione **Ativar Integração** para iniciar a sincronização inicial de dados.
+9. Adicione seus perfis a uma **List** ou crie uma nova para que você possa agrupar e segmentar seus perfis.
+10. Selecione **Activate Integration** para iniciar a sincronização inicial de dados.
 
-## Considerações
+## Considerações {#considerations}
 
-- **Importando eventos e propriedades personalizados:** Este recurso ainda não é suportado.
-- **Latência de dados:** Pode levar até 24 horas para importar todos os dados do perfil do usuário.
-- **Gerenciamento de consentimento:** Confirme que suas práticas de coleta de dados no Braze estão alinhadas com as regulamentações de privacidade e que você possui o consentimento necessário para usar dados de clientes para fins publicitários. O StackAdapt depende do status de consentimento passado de seus sistemas de origem.
-- **Consistência de atributos:** Para maximizar a eficácia de seus dados, mantenha a consistência na forma como os atributos são nomeados e preenchidos no Braze antes de sincronizá-los com o StackAdapt.
+- **Importação de eventos e propriedades personalizados:** Este recurso ainda não é suportado.
+- **Latência de dados:** Pode levar até 24 horas para importar todos os dados de perfil de usuário.
+- **Gerenciamento de consentimento:** Confirme que suas práticas de coleta de dados na Braze estão alinhadas com as regulamentações de privacidade e que você possui o consentimento necessário para usar dados de clientes para fins publicitários. A StackAdapt depende do status de consentimento passado pelos seus sistemas de origem.
+- **Consistência de atributos:** Para maximizar a eficácia dos seus dados, mantenha a consistência na forma como os atributos são nomeados e preenchidos na Braze antes de sincronizá-los com a StackAdapt.

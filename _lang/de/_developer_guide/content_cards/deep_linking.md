@@ -14,7 +14,7 @@ platform:
 
 # Deeplinking in Content Cards {#deep-linking-in-content-cards}
 
-> Erfahren Sie, wie Sie mit dem Braze SDK Deeplinks innerhalb einer Content-Card setzen können. Um mehr über Deeplinks zu erfahren, lesen Sie bitte [Was ist Deeplinking?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+> Erfahren Sie, wie Sie mit dem Braze SDK Deeplinks innerhalb einer Content-Card setzen können. Um mehr über Deeplinks zu erfahren, lesen Sie bitte [Was ist Deeplinking?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 {% sdktabs %}
 {% sdktab web %}

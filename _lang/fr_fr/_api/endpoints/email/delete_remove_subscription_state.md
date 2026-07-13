@@ -1,44 +1,44 @@
 ---
-nav_title: "DELETE : Supprimer le statut d’abonnement par adresse e-mail ou numéro de téléphone"
-article_title: "DELETE : Supprimer le statut d’abonnement par adresse e-mail ou numéro de téléphone"
+nav_title: "DELETE : Supprimer l'état d'abonnement par adresse e-mail ou numéro de téléphone"
+article_title: "DELETE : Supprimer l'état d'abonnement par adresse e-mail ou numéro de téléphone"
 search_tag: Endpoint
 page_order: 0
 hidden: true
 layout: api_page
 page_type: reference
-description: "Cet article présente les détails concernant l’endpoint Supprimer le statut d’abonnement par adresse e-mail ou numéro de téléphone de Braze."
+description: "Cet article présente les détails concernant l'endpoint Braze Supprimer l'état d'abonnement par adresse e-mail ou numéro de téléphone."
 
 ---
 
 {% api %}
-# Supprimer le statut d’abonnement par adresse e-mail ou numéro de téléphone
+# Supprimer l'état d'abonnement par adresse e-mail ou numéro de téléphone {#delete-subscription-state-by-email-address-or-phone-number}
 {% apimethod delete %}
-/utilisateurs/abonnement
+/users/subscription
 {% endapimethod %}
 
-> Utilisez cet endpoint pour supprimer la valeur de l'état de l'abonnement basée sur une adresse e-mail ou un numéro de téléphone.
+> Utilisez cet endpoint pour supprimer la valeur de l'état d'abonnement en fonction d'une adresse e-mail ou d'un numéro de téléphone.
 
-## Paramètres de demande
+## Paramètres de la requête {#request-parameters}
 
 | Paramètre | Requis | Type de données | Description |
 | --- | --- | --- | --- |
 | `email` | Oui | Chaîne de caractères | L'adresse e-mail de l'utilisateur (doit comprendre au moins une adresse et au plus 50 adresses). |
-| `phone` | Oui | Chaîne de caractères | Le numéro de téléphone de l'utilisateur (doit comprendre au moins un numéro de téléphone et au plus 50 numéros de téléphone). Nous vous recommandons de fournir ces informations sous le format E.164. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `phone` | Oui | Chaîne de caractères | Le numéro de téléphone de l'utilisateur (doit comprendre au moins un numéro de téléphone et au plus 50 numéros de téléphone). Nous vous recommandons de le fournir au format E.164. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de la requête" }
 
-## Exemple de demande
+## Exemple de requête {#example-request}
 
 ```http
 Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 {
   {phone: "+12125551212"},
-  {email: "dont.spam@me.com"},
+  {email: "dont.spam@example.com"},
   {phone: "+17185551212"}
 }
 ```
 
-## Réponse
+## Réponse {#response}
 
 ```json
 {

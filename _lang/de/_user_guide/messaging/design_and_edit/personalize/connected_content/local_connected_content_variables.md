@@ -6,7 +6,7 @@ description: "Dieser Referenzartikel behandelt die Verwendung und Speicherung lo
 search_rank: 1
 ---
 
-# Lokale Connected-Content-Variablen
+# Lokale Connected-Content-Variablen {#local-connected-content-variables}
 
 > Diese Seite bietet eine Übersicht über lokale Connected-Content-Variablen und deren Verwendung und Speicherung.
 
@@ -22,11 +22,15 @@ Sie können auch `:save your_variable_name` nach der URL angeben, um die Daten u
 ```
 {% endraw %}
 
-Metaweather ist eine kostenlose Wetter-API, die eine „Where-on-Earth ID" verwendet, um das Wetter in einem Gebiet zurückzugeben. Verwenden Sie diesen Code nur zu Test- und Lernzwecken.
+Metaweather ist eine kostenlose Wetter-API, die eine „Where-on-Earth ID“ verwendet, um das Wetter in einem Gebiet zurückzugeben. Verwenden Sie diesen Code nur zu Test- und Lernzwecken.
 
->  Auf die gespeicherte Variable kann nur innerhalb des Feldes zugegriffen werden, das die `connected_content`-Anfrage enthält. Wenn Sie beispielsweise die Variable `localweather` sowohl im Nachrichtenfeld als auch im Titelfeld verwenden möchten, sollten Sie die `connected_content`-Anfrage in beiden Feldern durchführen. Wenn die Anfrage identisch ist, verwendet Braze die zwischengespeicherten Ergebnisse, anstatt eine zweite Anfrage an den Zielserver zu senden. Connected-Content-Aufrufe über HTTP POST werden jedoch standardmäßig nicht zwischengespeichert und führen eine zweite Anfrage an den Zielserver durch. Wenn Sie POST-Aufrufen Caching hinzufügen möchten, lesen Sie die Option [`cache_max_age`](#configurable-caching).
+Auf die gespeicherte Variable kann nur innerhalb des Feldes zugegriffen werden, das die `connected_content`-Anfrage enthält. Wenn Sie beispielsweise die Variable `localweather` sowohl im Nachrichtenfeld als auch im Titelfeld verwenden möchten, sollten Sie die `connected_content`-Anfrage in beiden Feldern durchführen.
 
-## JSON-Parsing
+GET-Anfragen werden in der Regel standardmäßig zwischengespeichert, mit einigen Ausnahmen (z. B. URLs, die hochkardinalige Nutzer:innen-Attribute enthalten, `:no_cache` oder Antwort-Bodys größer als 1 MB). Wenn identische GET-Anfragen in mehr als einem Feld vorkommen, verwendet Braze die zwischengespeicherte Antwort, anstatt den Endpunkt erneut aufzurufen. Einzelheiten zum Cache-Verhalten finden Sie unter [Antworten zwischenspeichern]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses).
+
+Connected-Content-Aufrufe über HTTP POST werden standardmäßig nicht zwischengespeichert. Um POST-Antworten zwischenzuspeichern, fügen Sie `:cache_max_age` zum Tag hinzu. Siehe [Standard-Cache-Einstellungen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses#default-cache-settings).
+
+## JSON-Parsing {#json-parsing}
 
 Connected-Content interpretiert alle JSON-formatierten Ergebnisse als lokale Variable, wenn Sie `:save` angeben. Zum Beispiel gibt ein wetterbezogener Connected-Content-Endpunkt das folgende JSON-Objekt zurück, das Sie durch Angabe von `:save localweather` in einer lokalen Variablen `localweather` speichern.
 {% raw %}
@@ -82,28 +86,28 @@ Enjoy the weather!
 ```
 {% endraw %}
 
-Wenn die API mit {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%endraw%} den Wert `Rain` zurückgibt, würde die Nutzer:in dann diese Push-Benachrichtigung erhalten.
+Wenn die API mit {%raw%}`{{localweather.consolidated_weather[0].weather_state_name}}`{%endraw%} den Wert `Rain` zurückgibt, würden die Nutzer:innen dann diese Push-Benachrichtigung erhalten.
 
-![Push-Benachrichtigung mit der Nachricht „It's raining! Grab an umbrella!"]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){:style="max-width:50%" }
+![Push-Benachrichtigung mit der Nachricht „It's raining! Grab an umbrella!“]({% image_buster /assets/img_archive/connected_weather_push2.png %} "Connected Content Push Usage Example"){:style="max-width:50%" }
 
-{% multi_lang_include connected_content.md section='default behavior' %}
+{% multi_lang_include connected_content/sections.md section='default behavior' %}
 
 ## HTTP POST
 
-{% multi_lang_include connected_content.md section='http post' %}
+{% multi_lang_include connected_content/sections.md section='http post' %}
 
-### Bereitstellung eines JSON-Bodys
+### Bereitstellung eines JSON-Bodys {#providing-json-body}
 
 Wenn Sie Ihren eigenen JSON-Body bereitstellen möchten, können Sie ihn inline schreiben, sofern keine Leerzeichen vorhanden sind. Wenn Ihr Body Leerzeichen enthält, sollten Sie eine Assign- oder Capture-Anweisung verwenden. Das heißt, alle drei folgenden Varianten sind zulässig:
 
 {% raw %}
-##### Inline: keine Leerzeichen zulässig
+##### Inline: keine Leerzeichen zulässig {#inline-spaces-not-allowed}
 
 ```js
 {% connected_content https://example.com/api/endpoint :method post :body {"foo":"bar","baz":"{{1|plus:1}}"} :content_type application/json %}
 ```
 
-##### Body in einer Capture-Anweisung: Leerzeichen zulässig
+##### Body in einer Capture-Anweisung: Leerzeichen zulässig {#body-in-a-capture-statement-spaces-allowed}
 
 ```js
 {% capture postbody %}
@@ -134,7 +138,7 @@ Wenn Sie Ihren eigenen JSON-Body bereitstellen möchten, können Sie ihn inline 
 {% endraw %}
 
 {% raw %}
-##### Body in einer Assign-Anweisung: Leerzeichen zulässig
+##### Body in einer Assign-Anweisung: Leerzeichen zulässig {#body-in-an-assign-statement-spaces-allowed}
 
 ```js
 {% assign postbody = '{"foo":"bar", "baz": "2"}' %}
@@ -142,7 +146,7 @@ Wenn Sie Ihren eigenen JSON-Body bereitstellen möchten, können Sie ihn inline 
 ```
 {% endraw %}
 
-## HTTP-Statuscodes
+## HTTP-Statuscodes {#http-status-codes}
 
 Sie können den HTTP-Status eines Connected-Content-Aufrufs nutzen, indem Sie ihn zunächst als lokale Variable speichern und dann den Schlüssel `__http_status_code__` verwenden. Zum Beispiel:
 

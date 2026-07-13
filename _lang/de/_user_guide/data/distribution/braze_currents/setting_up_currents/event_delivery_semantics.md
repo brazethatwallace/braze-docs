@@ -8,17 +8,17 @@ tool: Currents
 
 ---
 
-# Semantik der Zustellung von Events
+# Semantik der Zustellung von Events {#event-delivery-semantics}
 
 > Auf dieser Seite wird beschrieben und definiert, wie Currents die Flat-File-Event-Daten verwaltet, die wir an Data Warehouse-Speicherpartner senden.
 
-„Currents für Datenspeicher“ ist ein kontinuierlicher Datenstrom von unserer Plattform zu einem Speicher-Bucket auf einer unserer Data Warehouse-[Partnerverbindungen]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/). Currents schreibt Avro-Dateien in regelmäßigen Abständen in Ihren Speicher-Bucket, sodass Sie die Event-Daten mit Ihrem eigenen Business-Intelligence-Toolset (BI) verarbeiten und analysieren können.
+„Currents für Datenspeicher“ ist ein kontinuierlicher Datenstrom von unserer Plattform zu einem Speicher-Bucket auf einer unserer Data Warehouse-[Partnerverbindungen]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners). Currents schreibt Avro-Dateien in regelmäßigen Abständen in Ihren Speicher-Bucket, sodass Sie die Event-Daten mit Ihrem eigenen Business-Intelligence-Toolset (BI) verarbeiten und analysieren können.
 
 {% alert important %}
-Dieser Inhalt **gilt nur für die Flat-File-Event-Daten, die wir an Data Warehouse-Speicherpartner (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden**. <br><br>Inhalte, die für andere Partner gelten, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) und auf den jeweiligen Seiten.
+Dieser Inhalt **gilt nur für die Flat-File-Event-Daten, die wir an Data Warehouse-Speicherpartner (Google Cloud Storage, Amazon S3 und Microsoft Azure Blob Storage) senden**. <br><br>Inhalte, die für andere Partner gelten, finden Sie in unserer Liste der [verfügbaren Partner]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) und auf den jeweiligen Seiten.
 {% endalert %}
 
-## Test-Events
+## Test-Events {#test-events}
 
 Wenn Sie eine Currents-Integration einrichten, klicken Sie auf **Test-Events senden**, um die Verbindung mit Ihrem Speicher-Bucket zu überprüfen. Diese Test-Events bestätigen, dass Ihre Integration Daten korrekt empfangen und verarbeiten kann.
 
@@ -28,21 +28,21 @@ Wenn Sie eine Currents-Integration einrichten, klicken Sie auf **Test-Events sen
 Dies ist das erwartete Verhalten. Test-Events dienen in erster Linie zum Testen der Verbindung und des Integrations-Setups, nicht zur Validierung der Datengenauigkeit. Um echte Events mit genauen Daten zu sehen, verwenden Sie eine Test-Currents-Integration, um tatsächliche Event-Daten durch Ihre Pipeline zu senden.
 {% endalert %}
 
-## „At-least-once“-Zustellung
+## „At-least-once“-Zustellung {#at-least-once-delivery}
 
 Als Hochdurchsatzsystem bietet Currents eine „At-least-once“-Zustellung von Events, was bedeutet, dass gelegentlich doppelte Events in Ihren Speicher-Bucket geschrieben werden können. Dies kann passieren, wenn Events aus unserer Warteschlange aus irgendeinem Grund erneut verarbeitet werden.
 
 Wenn Ihre Anwendungsfälle eine „Exactly-once“-Zustellung erfordern, können Sie das eindeutige Bezeichnerfeld, das mit jedem Event gesendet wird (`id`), zur Deduplizierung von Events verwenden. Da die Datei unserer Kontrolle entgeht, sobald sie in Ihren Speicher-Bucket geschrieben wird, können wir keine Deduplizierung von unserer Seite garantieren.
 
-## Zeitstempel
+## Zeitstempel {#timestamps}
 
 Alle von Currents exportierten Zeitstempel werden in der UTC-Zeitzone gesendet. Für einige Events, bei denen es verfügbar ist, wird auch ein Zeitzonen-Feld mitgeliefert, das die Ortszeit der Nutzer:innen zum Zeitpunkt des Events im IANA-Format (Internet Assigned Numbers Authority) enthält.
 
-### Latenz
+### Latenz {#latency}
 
 Events, die über SDK oder API an Braze gesendet werden, können einen Zeitstempel aus der Vergangenheit enthalten. Das häufigste Beispiel ist, wenn SDK-Daten in eine Warteschlange gestellt werden, etwa wenn keine mobile Konnektivität besteht. In diesem Fall spiegelt der Event-Zeitstempel wider, wann das Event generiert wurde. Das bedeutet, dass ein gewisser Prozentsatz der Events eine hohe Latenz aufweisen wird.
 
-## Apache-Avro-Format
+## Apache-Avro-Format {#apache-avro-format}
 
 Die Braze-Currents-Datenspeicher-Integrationen geben Daten im `.avro`-Format aus. Wir haben [Apache Avro](https://avro.apache.org/) gewählt, weil es ein flexibles Datenformat ist, das nativ Schema-Evolution unterstützt und von einer Vielzahl von Datenprodukten unterstützt wird:
 
@@ -57,7 +57,7 @@ Currents erstellt für jeden Event-Typ eine Datei im folgenden Format:
 ```
 
 {% alert tip %}
-Sie können den Code wegen der Scrollleiste nicht sehen? Erfahren Sie [hier]({{site.baseurl}}/user_guide/), wie Sie das beheben können.
+Sie können den Code wegen der Scrollleiste nicht sehen? Erfahren Sie [auf der Startseite des Braze-Benutzerhandbuchs]({{site.baseurl}}/user_guide), wie Sie das beheben können.
 {% endalert %}
 
 Beispielsweise kann ein Pfad für ein Push-Sende-Event so aussehen:
@@ -80,13 +80,13 @@ Das Pfadsegment `version` ist ein einfacher ganzzahliger Currents-Versionswert, 
 | `<environment>` | Für den internen Gebrauch durch Braze. |
 | `<partition>` | Für den internen Gebrauch durch Braze. Ganzzahl. |
 | `<offset>` | Für den internen Gebrauch durch Braze. Ganzzahl. Beachten Sie, dass verschiedene Dateien, die innerhalb derselben Stunde gesendet werden, einen unterschiedlichen `<offset>`-Parameter haben. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Apache-Avro-Format" }
 
 {% alert tip %}
 Dateibenennungskonventionen können sich ändern. Braze empfiehlt, alle Schlüssel in Ihrem Bucket zu durchsuchen, die das Präfix &lt;your-bucket-prefix&gt; haben.
 {% endalert %}
 
-### Avro-Schreibschwellenwert
+### Avro-Schreibschwellenwert {#avro-write-threshold}
 
 Unter normalen Umständen schreibt Braze alle 5 Minuten oder alle 15.000 Events Datendateien in Ihren Speicher-Bucket – je nachdem, was zuerst eintritt. Bei hoher Last können wir größere Datendateien mit bis zu 100.000 Events pro Datei schreiben.
 
@@ -94,7 +94,7 @@ Unter normalen Umständen schreibt Braze alle 5 Minuten oder alle 15.000 Events 
 Currents schreibt niemals leere Dateien.
 {% endalert %}
 
-### Avro-Schema-Änderungen
+### Avro-Schema-Änderungen {#avro-schema-changes}
 
 Von Zeit zu Zeit kann Braze Änderungen am Avro-Schema vornehmen, wenn Felder hinzugefügt, geändert oder entfernt werden. Für unsere Zwecke gibt es hier zwei Arten von Änderungen: nicht-brechende und brechende. Alle Schema-Änderungen werden in Currents-Releases gebündelt, und jedes Release erhöht das Segment `version=<currents_version>` im Speicherpfad (z. B. von `version=6` auf `version=7`). Currents-Events, die in Azure Blob Storage, Google Cloud Storage und Amazon S3 geschrieben werden, verwenden das folgende Pfadformat:
 
@@ -102,7 +102,7 @@ Von Zeit zu Zeit kann Braze Änderungen am Avro-Schema vornehmen, wenn Felder hi
 <your-bucket-prefix>/<currents-integration-id>/event_type=<event-type>/date=<date>/version=<currents_version>/<environment>/<avro-file>
 ```
 
-#### Nicht-brechende Änderungen
+#### Nicht-brechende Änderungen {#non-breaking-changes}
 
 Wenn ein Feld zum Avro-Schema hinzugefügt wird, betrachten wir dies als nicht-brechende Änderung. Hinzugefügte Felder sind immer „optionale“ Avro-Felder (z. B. mit einem Standardwert von `null`), sodass sie gemäß der [Avro-Schema-Auflösungsspezifikation](http://avro.apache.org/docs/current/spec.html#schema+resolution) mit älteren Schemas „übereinstimmen“. Diese Ergänzungen sollten bestehende ETL-Prozesse (Extract, Transform, Load) nicht beeinträchtigen, da das Feld einfach ignoriert wird, bis es zu Ihrem ETL-Prozess hinzugefügt wird.
 
@@ -110,10 +110,10 @@ Wenn ein Feld zum Avro-Schema hinzugefügt wird, betrachten wir dies als nicht-b
 Wir empfehlen, dass Ihr ETL-Setup explizit die zu verarbeitenden Felder angibt, um zu vermeiden, dass der Ablauf beim Hinzufügen neuer Felder unterbrochen wird.
 {% endalert %}
 
-#### Brechende Änderungen
+#### Brechende Änderungen {#breaking-changes}
 
 Wenn ein Feld aus dem Avro-Schema entfernt oder darin geändert wird, betrachten wir dies als brechende Änderung. Brechende Änderungen können Anpassungen an bestehenden ETL-Prozessen erfordern, da Felder, die zuvor verwendet wurden, möglicherweise nicht mehr wie erwartet aufgezeichnet werden.
 
 Alle brechenden Änderungen werden vor dem Release im Voraus kommuniziert.
 
-Eine vollständige Änderungshistorie nach Version finden Sie im [Currents-Changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/).
+Eine vollständige Änderungshistorie nach Version finden Sie im [Currents-Changelog]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs).

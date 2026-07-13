@@ -27,13 +27,14 @@ The Braze and Remerge integration helps you develop robust, cross-channel lifecy
 | Android app ID | Your unique Braze application identifier for Android (such as "com.example"). |
 | iOS app ID | Your unique Braze application identifier for iOS (such as "012345678"). |
 | Enable IDFA collection in Braze SDK | IDFA collection is optional within the Braze SDK and disabled by default. | 
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
 ### Step 1: Create your Braze webhook template
 
-To create a Remerge webhook template for future campaigns or Canvases, navigate to the **Templates** > **Webhook Templates** in the Braze platform. 
+To create a Remerge webhook template for future campaigns or Canvases, go to **Content** > **Webhook** in the Braze platform. Then, select **Create webhook template**.
+
 
 If you would like to create a one-off Remerge webhook campaign or use an existing template, select **Webhook** in Braze when creating a new campaign.
 

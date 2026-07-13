@@ -30,7 +30,7 @@ Além disso, observe os seguintes detalhes específicos de cada plataforma:
 |----------|----------------------|
 | **Android 12 e anteriores** | A implementação de push primers não é recomendada porque o push é aceito por padrão. |
 | **Android 13+** | Se um usuário negar o prompt de permissão de push duas vezes, o Android bloqueia prompts adicionais — incluindo mensagens de push primer da Braze. Para conceder permissão após isso, os usuários devem ativar manualmente o push para o seu app nas configurações do dispositivo. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 {% endtab %}
 
 {% tab swift %}
@@ -40,6 +40,7 @@ Além disso, observe os seguintes detalhes específicos de cada plataforma:
 - O prompt não é exibido se a configuração de push do app estiver explicitamente ativada ou desativada. Ele só é exibido para usuários com [autorização provisória](https://developer.apple.com/documentation/usernotifications/asking_permission_to_use_notifications#3544375).
   - **Configuração de push do app ativada:** a Braze não exibe a mensagem no app, pois o usuário já aceitou.
   - **Configuração de push do app desativada:** você precisa redirecionar o usuário para as configurações de notificação por push do app dentro das configurações do dispositivo.
+- **Reteste após recusa:** Se um usuário recusar o prompt nativo, o iOS não o exibirá novamente para aquela instalação do app. Para retestar o fluxo de push primer, os usuários geralmente precisam desinstalar e reinstalar o app, ou alterar a permissão de notificação para o seu app em **Configurações**.
 
 ### Remoção manual de código {#manual-code-removal}
 
@@ -76,7 +77,7 @@ android.permission.POST_NOTIFICATIONS
 
 ## Etapa 1: Criar uma mensagem no app {#step-1-create-an-in-app-message}
 
-Primeiro, [crie uma mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) e selecione o tipo e a disposição da mensagem.
+Primeiro, [crie uma mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) e selecione o tipo e a disposição da mensagem.
 
 Para garantir que você tenha espaço suficiente para a mensagem e os botões, use uma disposição de mensagem em tela cheia ou modal. Se você escolher tela cheia, observe que uma imagem é obrigatória.
 
@@ -96,7 +97,7 @@ Enquanto um app de streaming pode usar o seguinte:
 Get push notifications from Movie Cannon? Notifications may include new movies, TV shows, or other notices and can be turned off at any time.
 ```
 
-Para práticas recomendadas e recursos adicionais, consulte [Criando prompts de opt-in personalizados]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Para práticas recomendadas e recursos adicionais, consulte [Criando prompts de opt-in personalizados]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 ## Etapa 3: Especificar o comportamento dos botões {#button-actions}
 
@@ -217,4 +218,4 @@ O filtro Liquid `targeted_device` analisa apenas o dispositivo onde a mensagem e
 
 ## Etapa 6: Eventos de conversão {#step-6-conversion-events}
 
-A Braze sugere configurações padrão para conversões, mas você pode querer configurar [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) relacionados a push primers.
+A Braze sugere configurações padrão para conversões, mas você pode querer configurar [eventos de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) relacionados a push primers.

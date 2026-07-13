@@ -15,12 +15,12 @@ tool:
 
 Pour les campagnes, le type de distribution détermine quand vos utilisateurs entreront dans votre campagne et quand elle sera envoyée. Comme un Canvas est conçu comme un parcours utilisateur continu, le concept de planification de l'envoi de messages est appelé type d'entrée.
 
-| Types de distribution<nobr> et d'entrée | Description                                                                                                                                                                                                                                                                                                                                      |
+| Types de distribution<nobr> et d'entrée | Description |
 |---------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Planification**       | Ce type de planification est conçu pour les messages ponctuels que vous souhaitez envoyer immédiatement, comme les campagnes relatives à un événement en cours. <br><br>Lors de l'envoi de messages de test destinés uniquement à vous-même ou à votre équipe, cette option vous permet de les distribuer immédiatement.                                                                                   |
-| **Livraison par événement**    | Les messages de livraison par événement, ou les campagnes et Canvas déclenchés par événement, sont très efficaces pour les messages transactionnels ou basés sur des accomplissements. Vous pouvez les déclencher pour qu'ils soient envoyés après qu'un utilisateur a effectué une certaine action, au lieu d'envoyer votre message à des jours précis.                                                                                           |
-| **Déclenché par API**   | Les messages déclenchés par API vous permettent de gérer le contenu du message, les tests multivariés et les règles de rééligibilité dans le tableau de bord de Braze tout en déclenchant la distribution de ce contenu depuis vos propres serveurs et systèmes. <br><br>La requête API pour déclencher le message peut également inclure des données supplémentaires à intégrer dans le message en temps réel. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| **Planification** | Ce type de planification est conçu pour les messages ponctuels que vous souhaitez envoyer immédiatement, comme les campagnes relatives à un événement en cours. <br><br>Lors de l'envoi de messages de test destinés uniquement à vous-même ou à votre équipe, cette option vous permet de les distribuer immédiatement. |
+| **Livraison par événement** | Les messages de livraison par événement, ou les campagnes et Canvas déclenchés par événement, sont très efficaces pour les messages transactionnels ou basés sur des accomplissements. Vous pouvez les déclencher pour qu'ils soient envoyés après qu'un utilisateur a effectué une certaine action, au lieu d'envoyer votre message à des jours précis. |
+| **Déclenché par API** | Les messages déclenchés par API vous permettent de gérer le contenu du message, les tests multivariés et les règles de rééligibilité dans le tableau de bord de Braze tout en déclenchant la distribution de ce contenu depuis vos propres serveurs et systèmes. <br><br>La requête API pour déclencher le message peut également inclure des données supplémentaires à intégrer dans le message en temps réel. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Types de distribution et d'entrée" }
 
 ## Options temporelles {#time-based-options}
 
@@ -30,7 +30,7 @@ Vous pouvez choisir parmi les options suivantes lors de l'utilisation de la dist
 
 - Envoyer dès le lancement de la campagne
 - Envoyer à une heure désignée
-- [Timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
+- [Timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)
 {% endtab %}
 
 {% tab canvas %}
@@ -66,10 +66,10 @@ La fenêtre d'entrée de votre Canvas détermine quels utilisateurs peuvent entr
 
 {% tabs %}
 {% tab campaign %}
-Lorsque vous sélectionnez le déclenchement par API comme option de distribution, vous recevrez un ID de campagne pour identifier quelle campagne envoyer avec l'[endpoint `/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#prerequisites).
+Lorsque vous sélectionnez le déclenchement par API comme option de distribution, vous recevrez un ID de campagne pour identifier quelle campagne envoyer avec l'[endpoint `/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#prerequisites).
 {% endtab %}
 
 {% tab canvas %}
-Lorsque vous sélectionnez le déclenchement par API comme type d'entrée, vous recevrez un ID de Canvas pour identifier quel Canvas envoyer avec l'[endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/).
+Lorsque vous sélectionnez le déclenchement par API comme type d'entrée, vous recevrez un ID de Canvas pour identifier quel Canvas envoyer avec l'[endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 {% endtab %}
 {% endtabs %}

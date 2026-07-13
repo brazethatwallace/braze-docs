@@ -135,6 +135,10 @@ To access the Content Cards data model, call [`contentCards.cards`](https://braz
 let cards: [Braze.ContentCard] = AppDelegate.braze?.contentCards.cards
 ```
 
+{% alert note %}
+Reading `contentCards.cards`, `contentCards.unviewedCards`, or `contentCards.lastUpdate` blocks the calling thread until the SDK has completed its post-initialization operations. Use the non-blocking getters in [Non-blocking snapshot accessors](#non-blocking-snapshot-accessors) for main-thread or latency-sensitive contexts.
+{% endalert %}
+
 Additionally, you can also maintain a subscription to observe for changes in your Content Cards. You can do so in one of two ways: 
 1. Maintaining a cancellable; or 
 2. Maintaining an `AsyncStream`.
@@ -156,6 +160,27 @@ let cancellable = AppDelegate.braze?.contentCards.subscribeToUpdates { [weak sel
 let stream: AsyncStream<[Braze.ContentCard]> = AppDelegate.braze?.contentCards.cardsStream
 ```
 
+### Non-blocking snapshot accessors {#non-blocking-snapshot-accessors}
+
+Use these methods to read the current cached state without blocking the calling thread. Each completion handler is always delivered on the main thread.
+
+```swift
+// All cached cards.
+AppDelegate.braze?.contentCards.getCachedContentCards { cards in
+  // Use `cards` here.
+}
+
+// Unviewed cards only (excludes control cards).
+AppDelegate.braze?.contentCards.getUnviewedCards { cards in
+  // Use `cards` here.
+}
+
+// Date of the last server sync for the current user (nil until the first sync completes).
+AppDelegate.braze?.contentCards.getLastUpdate { date in
+  // Use `date` here.
+}
+```
+
 {% endsubtab %}
 {% subtab Objective-C %}
 
@@ -172,19 +197,30 @@ BRZCancellable *cancellable = [self.braze.contentCards subscribeToUpdates:^(NSAr
 }];
 ```
 
+To read the current cached state without blocking the calling thread, use the following methods. Each completion handler is delivered on the main thread.
+
+```objc
+// All cached cards.
+[AppDelegate.braze.contentCards getCachedContentCardsWithCompletion:^(NSArray<BRZContentCardRaw *> *cards) {
+  // Use `cards` here.
+}];
+
+// Unviewed cards only (excludes control cards).
+[AppDelegate.braze.contentCards getUnviewedCardsWithCompletion:^(NSArray<BRZContentCardRaw *> *cards) {
+  // Use `cards` here.
+}];
+
+// Date of the last server sync for the current user (nil until the first sync completes).
+[AppDelegate.braze.contentCards getLastUpdateWithCompletion:^(NSDate * _Nullable date) {
+  // Use `date` here.
+}];
+```
+
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}
 
 {% tab react native %}
-
-To get the Content Card data, use the `getContentCards` method:
-
-```javascript
-import Braze from "@braze/react-native-sdk";
-
-const cards = await Braze.getContentCards();
-```
 
 To listen for updates, subscribe to Content Card update events:
 
@@ -201,16 +237,18 @@ const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (upda
 });
 ```
 
+To get the most recently cached Content Card data:
+
+```javascript
+import Braze from "@braze/react-native-sdk";
+
+const cachedCards = await Braze.getCachedContentCards();
+```
+
 To request a manual refresh of Content Cards from Braze servers:
 
 ```javascript
 Braze.requestContentCardsRefresh();
-```
-
-To get cached Content Cards without a network request:
-
-```javascript
-const cachedCards = await Braze.getCachedContentCards();
 ```
 
 {% endtab %}
@@ -388,7 +426,7 @@ function onCardClick(card) {
 |---|---|
 | `url` | A valid URL, or a valid Braze action URL with the scheme `brazeActions://`. |
 | `openLinkInNewTab` | (Optional) Whether the URL should open in a new tab. Defaults to `false`. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Handling on-click behavior" }
 
 {% alert important %}
 If you don't call `handleBrazeAction()`, on-click behaviors configured in the Braze dashboard (such as "Log Custom Event" or "Navigate to URL") won't execute for cards displayed in a custom feed.
@@ -397,12 +435,12 @@ If you don't call `handleBrazeAction()`, on-click behaviors configured in the Br
 {% endtab %}
 {% tab android %}
 
-On-click behavior is handled automatically by the default Content Cards UI. For custom implementations, use the [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html) interface described in the [Logging analytics](#logging-analytics) section above.
+On-click behavior is handled automatically by the default Content Cards UI. For custom implementations, use the [`IContentCardsActionListener`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards.listeners/-i-content-cards-action-listener/index.html) interface described in the [Logging analytics](#logging-analytics) section.
 
 {% endtab %}
 {% tab swift %}
 
-On-click behavior is handled automatically by the default Content Cards UI. For custom implementations, use the [`BrazeContentCardUIViewControllerDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcarduiviewcontrollerdelegate) protocol described in the [Logging analytics](#logging-analytics) section above.
+On-click behavior is handled automatically by the default Content Cards UI. For custom implementations, use the [`BrazeContentCardUIViewControllerDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazecontentcarduiviewcontrollerdelegate) protocol described in the [Logging analytics](#logging-analytics) section.
 
 {% endtab %}
 {% endtabs %}

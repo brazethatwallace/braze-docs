@@ -16,7 +16,7 @@ La integración de Algolia y Braze utiliza [Contenido conectado]({{site.baseurl}
 ## Casos de uso {#use-cases}
 
 - **Promocionar productos en tendencia:** Extrae automáticamente productos en tendencia o de alto rendimiento de Algolia en los mensajes de Braze para promocionar artículos de alto interés y aumentar la interacción.
-- **Personalizar campañas con inteligencia de búsqueda:** Personaliza las campañas de Braze utilizando la inteligencia de búsqueda y navegación de Algolia para entregar productos o categorías alineados con los intereses de cada usuario.
+- **Personalizar campañas con inteligencia de búsqueda:** Personaliza las Campaigns de Braze utilizando la inteligencia de búsqueda y navegación de Algolia para entregar productos o categorías alineados con los intereses de cada usuario.
 
 ## Requisitos previos {#prerequisites}
 
@@ -58,7 +58,7 @@ X-Algolia-Application-Id: {ALGOLIA_APP_ID}
 
 En este ejemplo, la consulta recupera los cuatro primeros resultados de una página que utiliza un filtro de categoría basado en un atributo llamado `category_page_id`. El parámetro `attributesToRetrieve` limita la respuesta para mantener la carga útil en un tamaño manejable.
 
-**Ejemplo de caso de uso:** Para destacar resultados de búsqueda de `https://www.yoursite.com/weekly-offers` en una campaña de ofertas semanales de Braze, consulta el índice de Algolia correspondiente y aplica filtros para recuperar los mejores resultados de esa página.
+**Ejemplo de caso de uso:** Para destacar resultados de búsqueda de `https://www.yoursite.com/weekly-offers` en una Campaign de ofertas semanales de Braze, consulta el índice de Algolia correspondiente y aplica filtros para recuperar los mejores resultados de esa página.
 
 {% alert tip %}
 Recupera campos adicionales usando `attributesToRetrieve` para mejorar la personalización, como valoraciones, reseñas o descuentos.
@@ -76,7 +76,7 @@ X-Algolia-API-Key: {ALGOLIA_API_KEY}
 X-Algolia-Application-Id: {ALGOLIA_APP_ID}
 ```
 
-#### Ejemplo de carga útil de consulta {#example-query-payload}
+#### Ejemplo de carga útil de consulta
 
 ```json
 {
@@ -183,7 +183,7 @@ Después de obtener los resultados de Algolia, usa Liquid para analizar la respu
 ```
 {% endraw %}
 
-Esto genera una lista de productos a partir de los resultados de Search API dentro del cuerpo del mensaje. Cada enlace de producto dirige a los usuarios a una página de detalle de producto (PDP) o a una página de inicio específica de la campaña.
+Esto genera una lista de productos a partir de los resultados de Search API dentro del cuerpo del mensaje. Cada enlace de producto dirige a los usuarios a una página de detalle de producto (PDP) o a una página de inicio específica de la Campaign.
 
 {% endtab %}
 {% tab Recommend API %}
@@ -203,7 +203,7 @@ Esto genera una lista de productos a partir de los resultados de Search API dent
 ```
 {% endraw %}
 
-Esto genera una lista de productos recomendados a partir de los resultados de Recommend API dentro del cuerpo del mensaje. Cada enlace de producto dirige a los usuarios a una página de detalle de producto (PDP) o a una página de inicio específica de la campaña.
+Esto genera una lista de productos recomendados a partir de los resultados de Recommend API dentro del cuerpo del mensaje. Cada enlace de producto dirige a los usuarios a una página de detalle de producto (PDP) o a una página de inicio específica de la Campaign.
 
 {% endtab %}
 {% endtabs %}

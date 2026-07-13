@@ -68,7 +68,7 @@ Ungeachtet des Vorstehenden gelten für den Fall, dass Kund:innen mobile Nachric
 
 ### Ausnahme für die Webhook-Nutzung {#webhook-use-exception-terms}
 
-Gilt für Kund:innen, die ab dem 9. Dezember 2024 Message Credits abonniert haben (gemäß dem Datum des Inkrafttretens des Bestellformulars): Die in der Compliance-Dokumentation des Webhooks-Kanals beschriebenen Einschränkungen gelten nicht für die Nutzung von Webhooks zum Versand mobiler Nachrichten über eine Drittanbieter-Plattform.
+Gilt für Kund:innen, die ab dem 9. Dezember 2024 Action Credits abonniert haben (gemäß dem Datum des Inkrafttretens des Bestellformulars): Die in der Compliance-Dokumentation des Webhooks-Kanals beschriebenen Einschränkungen gelten nicht für die Nutzung von Webhooks zum Versand mobiler Nachrichten über eine Drittanbieter-Plattform.
 
 ### Bring Your Own (BYO) SMS Connector
 
@@ -102,7 +102,7 @@ Die folgenden zusätzlichen Bedingungen gelten für die Nutzung des WhatsApp-Kan
 
 ### Geltende Drittanbieter-Bedingungen {#applicable-third-party-provider-terms}
 
-Die Kund:innen müssen alle Voraussetzungen, Bedingungen und Richtlinien einhalten, die für den WhatsApp-Kanal gelten, einschließlich aller von WhatsApp, LLC und den mit ihr verbundenen Unternehmen geforderten Bedingungen, wie auf der Braze-Seite zur [WhatsApp-Einrichtung](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp/overview/) beschrieben.
+Die Kund:innen müssen alle Voraussetzungen, Bedingungen und Richtlinien einhalten, die für den WhatsApp-Kanal gelten, einschließlich aller von WhatsApp, LLC und den mit ihr verbundenen Unternehmen geforderten Bedingungen, wie auf der Braze-Seite zur [WhatsApp-Einrichtung]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) beschrieben.
 
 ### Ausnahme für die Webhook-Nutzung
 
@@ -118,14 +118,13 @@ Die folgenden zusätzlichen Bedingungen gelten für die Nutzung des LINE-Kanals 
 
 ### Voraussetzungen {#pre-requisites}
 
-Um Nachrichten über den LINE-Kanal zu versenden, müssen Kund:innen ein verifiziertes offizielles LINE-Konto (LINE Verified Official Account) erhalten, das von LINE nach eigenem Ermessen genehmigt und gewährt wird. Kund:innen sollten sicherstellen, dass sie ein verifiziertes offizielles Konto von LINE erhalten, bevor sie Braze Message Credits für die Nutzung des LINE-Kanals erwerben.
+Um Nachrichten über den LINE-Kanal zu versenden, müssen Kund:innen ein verifiziertes offizielles LINE-Konto (LINE Verified Official Account) erhalten, das von LINE nach eigenem Ermessen genehmigt und gewährt wird. Kund:innen sollten sicherstellen, dass sie ein verifiziertes offizielles Konto von LINE erhalten, bevor sie Braze Action Credits für die Nutzung des LINE-Kanals erwerben.
 
 ### Geltende Drittanbieter-Bedingungen
 
 Durch die Nutzung des LINE-Kanals erklären sich die Kund:innen damit einverstanden, alle geltenden Bedingungen und Richtlinien der LY Corporation und ihrer verbundenen Unternehmen (zusammen „LINE“) einzuhalten und an diese gebunden zu sein, einschließlich, aber nicht beschränkt auf die Nutzungsbedingungen für offizielle LINE-Konten, die Nutzungsbedingungen für die Official Account API, die Richtlinien für offizielle LINE-Konten, die LINE-Nutzerdatenrichtlinie sowie alle Richtlinien, Bedingungen, Leitlinien und Dokumentationen, auf die darin verwiesen wird (zusammen die „LINE-Bedingungen“). Zur Klarstellung: Die Kund:innen sind verantwortlich für: (i) die Sicherstellung, dass alle im Zusammenhang mit LINE verarbeiteten Daten gemäß den geltenden LINE-Bedingungen verarbeitet werden; und (ii) alle Gebühren oder Zahlungen, die an LINE für die Nutzung der LINE-Dienste im Zusammenhang mit dem LINE-Kanal fällig werden.
 
 Ungeachtet anderslautender Bestimmungen in den LINE-Bedingungen bleiben die Kund:innen in erster Linie für ihre Nutzung der LINE-Dienste haftbar.
-
 
 ## 5. Shopify-Integration – Compliance-Dokumentation {#shopify-integration-compliance-documentation}
 
@@ -148,6 +147,7 @@ Die Kund:innen erkennen an, dass Drittanbieter alle Daten, Anzeigen oder Inhalte
 ## 7. Nachrichtenarchivierung und Verschlüsselung auf Feldebene – Compliance-Dokumentation {#message-archiving-and-field-level-encryption-compliance-documentation}
 
 ### Haftungsausschluss
+
 Die Kund:innen erkennen an, dass die Nutzung der Nachrichtenarchivierung und/oder der Verschlüsselung auf Feldebene (jeweils das „**Feature**“) die Versandgeschwindigkeit von Nachrichten, die über die Braze-Dienste gesendet werden, beeinträchtigen kann. Braze haftet nicht für solche Auswirkungen, und etwaige Zusagen zur Versandgeschwindigkeit gelten nicht, wenn die Kund:innen das Feature nutzen. Das Feature kann zur Unterstützung der Compliance-Bemühungen der Kund:innen verwendet werden, jedoch erkennen die Kund:innen an, dass Braze keine Zusicherungen oder Gewährleistungen dahingehend abgibt, ob die Nutzung des Features selbst die Compliance-Verpflichtungen der Kund:innen erfüllt, und lehnt jegliche diesbezügliche Haftung ab.
 
 ## 8. Agentenkonsole – Compliance-Dokumentation {#agent-console-compliance-documentation}

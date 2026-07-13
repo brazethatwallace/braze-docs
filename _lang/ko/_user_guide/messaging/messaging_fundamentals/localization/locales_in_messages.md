@@ -9,7 +9,7 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 
 # 다국어 메시지 {#multi-language-messages}
 
-> 워크스페이스에 로캘을 추가한 후, 단일 푸시, 이메일, 배너, 인앱 메시지 또는 Content Block 내에서 다양한 언어로 사용자를 타겟팅할 수 있습니다.
+> 워크스페이스에 로캘을 추가한 후, 단일 푸시, 이메일, 배너, 인앱 메시지 또는 콘텐츠 블록 내에서 다양한 언어로 사용자를 타겟팅할 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -20,23 +20,23 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 {% tabs %}
 {% tab 다국어 로캘 %}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 {% endtab %}
 {% tab 메시지 유형 %}
 
 | 기능 | 필수 사용자 권한 |
 | --- | --- |
-| 메시지&nbsp;유형 | Campaigns 및 Canvases에 로캘과 번역을 추가하려면 다음 권한이 필요합니다:<br><br> {::nomarkdown}세분화된 권한: <ul><li>Campaigns 편집</li><li>Canvases 편집</li></ul> 레거시 권한: <ul><li>Campaigns, Canvases, 카드, Content Blocks, 기능 플래그, Segments, 미디어 라이브러리, 위치, 프로모션 코드 및 환경설정 센터에 접근</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 메시지&nbsp;유형 | Campaigns 및 Canvases에 로캘과 번역을 추가하려면 다음 권한이 필요합니다:<br><br> <ul><li>Campaigns 편집</li><li>Canvases 편집</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건"}
 
 {% endtab %}
 {% tab 템플릿 %}
 
 | 기능 | 필수 사용자 권한 |
 | --- | --- |
-| 템플릿 | 로캘과 번역을 추가하려는 템플릿 유형에 대해 다음 권한이 필요합니다:<br><br> {::nomarkdown}세분화된 권한: <ul><li>이메일 템플릿 편집</li><li>IAM 템플릿 편집</li><li>콘텐츠 블록 템플릿 편집</li></ul> 레거시 권한: <ul><li>Campaigns, Canvases, 카드, Content Blocks, 기능 플래그, Segments, 미디어 라이브러리, 위치, 프로모션 코드 및 환경설정 센터에 접근</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 템플릿 | 로캘과 번역을 추가하려는 템플릿 유형에 대해 다음 권한이 필요합니다:<br><br> <ul><li>이메일 템플릿 편집</li><li>IAM 템플릿 편집</li><li>콘텐츠 블록 템플릿 편집</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 {% endtab %}
 {% endtabs %}
@@ -45,7 +45,7 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 
 ### 1단계: 로캘 설정 {#step-1-set-up-locales}
 
-메시지에 번역을 추가하려면 먼저 [지원하려는 로캘을 생성]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/)해야 합니다. 로캘은 메시징에 사용할 수 있는 언어(및 선택적으로 지역) 변형을 정의합니다.
+메시지에 번역을 추가하려면 먼저 [지원하려는 로캘을 생성]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)해야 합니다. 로캘은 메시징에 사용할 수 있는 언어(및 선택적으로 지역) 변형을 정의합니다.
 
 ### 2단계: 번역할 콘텐츠 표시 {#step-2-mark-content-for-translation}
 
@@ -69,7 +69,7 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 | --- | --- |
 | 프로토콜(`https://`)은 번역 태그 밖에 유지하세요. 도메인과 경로만 감싸세요(예: `example.com/en`). | 번역자가 실수로 특수 문자를 변경하거나 제거하여 링크가 깨질 수 있습니다. |
 | 쿼리 매개변수(예: `?utm_source=promo`)를 번역 태그 안에 포함하지 마세요. | 번역자가 실수로 특수 문자를 변경하거나 제거하여 링크가 깨질 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="표준(정적) URL" }
 
 두 가지 권장 사항을 모두 따르는 표준 URL은 다음과 같습니다:
 
@@ -87,7 +87,7 @@ URL이 Liquid로 생성되는 경우(예: {% raw %}`{% landing_page_url %}`{% en
 | --- | --- |
 | Liquid 생성 URL은 현지화가 필요한 경우에만 번역 태그로 감싸세요. | Liquid 구문이 올바르게 렌더링되려면 신중하게 보존해야 합니다. |
 | 쿼리 매개변수(예: `?utm_source=promo`)를 번역 태그 안에 포함하지 마세요. | 번역자가 실수로 특수 문자를 변경하거나 제거하여 링크가 깨질 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid 생성 URL" }
 
 두 가지 권장 사항을 모두 따르는 Liquid 생성 URL은 다음과 같습니다:
 
@@ -197,7 +197,7 @@ Canvas가 시작된 후에 생성된 캔버스 단계에서 번역 API를 사용
 
 ### Content Blocks에 번역 저장 {#save-translations-in-content-blocks}
 
-Content Blocks는 메시지와 동일한 방식으로 다국어를 지원합니다. Content Blocks를 생성하거나 편집할 때 콘텐츠에 번역 태그를 지정하고, 로캘을 추가하고, CSV 또는 [번역 API]({{site.baseurl}}/api/endpoints/translations/)를 사용하여 번역을 업로드할 수 있습니다.
+Content Blocks는 메시지와 동일한 방식으로 다국어를 지원합니다. Content Blocks를 생성하거나 편집할 때 콘텐츠에 번역 태그를 지정하고, 로캘을 추가하고, CSV 또는 [번역 API]({{site.baseurl}}/api/endpoints/translations)를 사용하여 번역을 업로드할 수 있습니다.
 
 저장된 번역은 Content Block과 연결된 상태로 유지됩니다. 블록이 메시지에 추가되면 해당 번역이 자동으로 포함됩니다.
 
@@ -213,7 +213,7 @@ Content Blocks는 메시지와 동일한 방식으로 다국어를 지원합니�
 
 ### 이메일 링크 추적 {#email-link-tracking}
 
-이메일 Campaign에서 Braze는 각 URL에 추적 정보(쿼리 매개변수)를 추가하여 링크를 추적합니다. 이 동작은 [링크 별칭 지정]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) 및 [링크 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/) 모두를 지원합니다.
+이메일 Campaign에서 Braze는 각 URL에 추적 정보(쿼리 매개변수)를 추가하여 링크를 추적합니다. 이 동작은 [링크 별칭 지정]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing)과 [링크 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template) 모두를 지원합니다.
 
 URL이 번역 태그로 감싸져 있으면 Braze가 추적 정보를 어디에 추가해야 하는지 결정하지 못할 수 있습니다. 이를 올바르게 작동시키려면 URL 끝에 추적이 추가되어야 할 위치를 나타내는 특수 문자를 포함해야 합니다.
 
@@ -227,13 +227,13 @@ URL은 두 가지 특수 문자를 사용하여 이를 제어합니다:
 | 표준 URL | 예 | URL에 이미 `?`가 포함되어 있는 경우 URL 끝(닫는 번역 태그 뒤)에 `&`를 사용합니다. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
 | Liquid 생성 | 아니요 | 생성된 URL에 아직 `?`가 포함되어 있지 않은 경우 닫는 번역 태그 뒤에 `?`를 사용합니다. | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
 | Liquid 생성 | 예 | 생성된 URL에 이미 `?`가 포함되어 있는 경우 닫는 번역 태그 뒤에 `&`를 사용합니다. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이메일 링크 추적" }
 
 ### 언어 설정 및 접근성 {#language-settings-and-accessibility}
 
-HTML 기반 채널(이메일, 인앱 메시지, 배너, 랜딩 페이지 및 Content Cards)의 경우, Braze는 렌더링된 메시지에 접근성 언어(`lang`) 속성을 추가합니다. 이 속성은 스크린 리더와 같은 보조 기술이 텍스트를 올바르게 해석하고 발음하는 데 도움을 줍니다.
+WCAG 컨텍스트, 채널 및 에디터 동작(랜딩 페이지 포함), 메시지 수준 **Accessibility** 설정에 대해서는 [접근성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility)의 [접근성 언어]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language)부터 시작하세요.
 
-이 속성이 없으면 스크린 리더는 콘텐츠가 사용자가 설정 시 기기에서 설정한 기본 언어로 되어 있다고 가정합니다. 메시지가 다른 언어로 되어 있는 경우 스크린 리더가 모든 내용을 올바르게 발음하지 못할 수 있습니다.
+**다국어 메시지**를 사용할 때, 현지화된 발송이 적절한 언어를 선언하도록 접근성 언어를 각 로캘에 맞추세요.
 
 #### 접근성 언어 구성 {#configuring-the-accessibility-language}
 
@@ -241,19 +241,17 @@ HTML 기반 채널(이메일, 인앱 메시지, 배너, 랜딩 페이지 및 Con
 
 ##### 메시지 수준 {#message-level}
 
-메시지 설정에서 **Accessibility** 섹션으로 이동하여 드롭다운에서 언어를 선택하거나 Liquid를 사용하여 접근성 언어를 동적으로 설정합니다. 이는 메시지의 모든 콘텐츠에 적용됩니다.
+메시지 수준에서는 메시지 설정의 **Accessibility** 섹션에서 접근성 언어를 설정합니다. 언어 선택, Liquid 사용 및 채널별 제한 사항에 대해서는 [접근성 언어]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language)를 참조하세요.
 
 ##### 로캘 수준 {#locale-level}
 
-다국어 메시지의 경우, **현지화 설정**에서 각 로캘에 접근성 언어를 설정합니다. 새 메시지가 생성되면 **Accessibility** 섹션에서 기본적으로 {% raw %}`{{accessibility_language}}`{% endraw %}가 선택됩니다. 이는 접근성 언어를 로캘 설정에 매핑합니다.
+다국어 메시지의 경우, **현지화 설정**에서 각 로캘에 접근성 언어를 설정합니다. **Accessibility** 섹션에서 {% raw %}`{{accessibility_language}}`{% endraw %}를 사용하면 문서 또는 카드 언어가 해당 로캘 값에 매핑됩니다.
 
-#### 표준 {#standards}
-
-접근성 언어는 HTML `lang` 속성에 매핑되며, 이는 [WCAG 2.1 레벨 A 요구 사항](https://dequeuniversity.com/rules/axe/4.2/html-has-lang)(성공 기준 3.1.1)입니다. 다국어 콘텐츠의 경우, HTML에서 `lang` 속성을 직접 사용하여 개별 콘텐츠 블록에 언어를 설정할 수도 있습니다.
+새 메시지에서 해당 토큰이 기본적으로 표시되는지 여부는 채널과 에디터에 따라 다릅니다. 예를 들어, 인앱 메시지와 배너는 랜딩 페이지 및 드래그 앤 드롭 이메일과 다르게 동작합니다. 자세한 내용은 [접근성 언어]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language)를 참조하세요.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
-#### 번역 태그의 제한은 무엇인가요? {#what-are-the-limits-for-translation-tags}
+### 번역 태그의 제한은 무엇인가요? {#what-are-the-limits-for-translation-tags}
 
 번역 태그를 사용할 때 다음 제한이 적용됩니다:
 
@@ -281,7 +279,7 @@ HTML 기반 채널(이메일, 인앱 메시지, 배너, 랜딩 페이지 및 Con
 
 #### 로캘 중 하나에서 번역된 텍스트를 변경할 수 있나요?
 
-네. CSV를 사용하는 경우 먼저 파일에서 편집한 다음 다시 업로드하여 번역된 텍스트를 변경합니다. [번역 API]({{site.baseurl}}/api/endpoints/translations/)를 사용하는 경우 업데이트 엔드포인트를 사용하여 변경합니다.
+네. CSV를 사용하는 경우 먼저 파일에서 편집한 다음 다시 업로드하여 번역된 텍스트를 변경합니다. [번역 API]({{site.baseurl}}/api/endpoints/translations)를 사용하는 경우 업데이트 엔드포인트를 사용하여 변경합니다.
 
 #### Braze에서 어떤 유효성 검사나 추가 확인을 수행하나요? {#what-validations-or-extra-checks-does-braze-do}
 
@@ -298,4 +296,4 @@ HTML 기반 채널(이메일, 인앱 메시지, 배너, 랜딩 페이지 및 Con
 | 번역 태그에 전체 URL 또는 Liquid 생성 URL이 포함되어 있습니다. | 깨진 링크 또는 링크 추적 문제가 발생할 경우를 대비하여 URL이 포함된 번역 태그가 식별됩니다. |
 | 번역 태그에 쿼리 매개변수가 포함되어 있습니다. | 깨진 링크 또는 링크 추적 문제가 발생할 경우를 대비하여 쿼리 매개변수가 포함된 번역 태그가 식별됩니다. |
 | 번역 태그에 HTML 속성 또는 구조가 포함되어 있습니다. | 스타일 및 서식 문제가 발생할 경우를 대비하여 HTML 속성 또는 구조가 포함된 번역 태그가 식별됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze에서 어떤 유효성 검사나 추가 확인을 수행하나요?" }

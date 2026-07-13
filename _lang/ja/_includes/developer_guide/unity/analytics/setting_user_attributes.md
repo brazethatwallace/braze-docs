@@ -2,9 +2,9 @@
 
 ## デフォルトのユーザー属性 {#default-user-attributes}
 
-### 事前定義されたメソッド {#predefined-methods}
+### 定義済みメソッド {#predefined-methods}
 
-Brazeは、`BrazeBinding`オブジェクトを使用して以下のユーザー属性を設定するための事前定義されたメソッドを提供しています。詳しくは[Braze Unity宣言ファイル](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)を参照してください。
+Brazeは、`BrazeBinding`オブジェクトを使用して以下のユーザー属性を設定するための定義済みメソッドを提供しています。詳しくは[Braze Unity宣言ファイル](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/BrazePlatform.cs)を参照してください。
 
 - 名
 - 姓
@@ -34,7 +34,7 @@ BrazeBinding.SetUserLastName("last name");
 {% endtab %}
 {% tab Email %}
 ```csharp
-BrazeBinding.SetUserEmail("email@email.com");
+BrazeBinding.SetUserEmail("user@example.com");
 ```
 {% endtab %}
 {% tab Gender %}
@@ -84,7 +84,7 @@ BrazeBinding.SetUserFirstName(null);
 
 ## カスタムユーザー属性 {#custom-user-attributes}
 
-デフォルトのユーザー属性に加え、Brazeではいくつかのデータタイプを使用してカスタム属性を定義することもできます。各属性のセグメンテーションオプションの詳細については、[データ収集]({{site.baseurl}}/developer_guide/analytics/)を参照してください。
+デフォルトのユーザー属性に加え、Brazeではいくつかのデータタイプを使用してカスタム属性を定義することもできます。各属性のセグメンテーションオプションの詳細については、[ユーザーデータ収集]({{site.baseurl}}/developer_guide/analytics)を参照してください。
 
 ### カスタム属性の設定 {#setting-custom-attributes}
 
@@ -167,7 +167,7 @@ AppboyBinding.UnsetCustomUserAttribute("custom attribute key");
 
 ### REST APIの使用 {#using-the-rest-api}
 
-REST APIを使用して、ユーザー属性を設定または解除することもできます。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)を参照してください。
+REST APIを使用して、ユーザー属性を設定または解除することもできます。詳細については、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)を参照してください。
 
 ## ユーザーサブスクリプションの設定 {#setting-user-subscriptions}
 
@@ -188,17 +188,17 @@ AppboyBinding.SetPushNotificationSubscriptionType()`
 | `OPTED_IN` | 購読中、かつ明示的にオプトイン済み |
 | `SUBSCRIBED` | 購読中、ただし明示的にオプトインしていない |
 | `UNSUBSCRIBED` | 配信停止済み、または明示的にオプトアウト済み、あるいはその両方 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーサブスクリプションの設定" }
 
 {% alert note %}
-Windowsでは、ユーザーにプッシュ通知を送る際に明示的なオプトインは必要ありません。ユーザーがプッシュ登録されると、デフォルトで`OPTED_IN`ではなく`SUBSCRIBED`に設定されます。詳細については、[サブスクリプションと明示的なオプトインの実装]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions)に関するドキュメントを参照してください。
+Windowsでは、ユーザーにプッシュ通知を送る際に明示的なオプトインは必要ありません。ユーザーがプッシュ登録されると、デフォルトで`OPTED_IN`ではなく`SUBSCRIBED`に設定されます。詳細については、[サブスクリプションと明示的なオプトインの実装]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions#managing-user-subscriptions)に関するドキュメントを参照してください。
 {% endalert %}
 
-| サブスクリプションタイプ                        | 説明 |
+| サブスクリプションタイプ | 説明 |
 |------------------------------------------|-------------|
-| `EmailNotificationSubscriptionType`      | 有効なメールアドレスを受信すると、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を`OPTED_IN`に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
-| `PushNotificationSubscriptionType`       | 有効なプッシュ登録時に、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を`OPTED_IN`に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions)のドキュメントを参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `EmailNotificationSubscriptionType` | 有効なメールアドレスを受信すると、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を`OPTED_IN`に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions)のドキュメントを参照してください。 |
+| `PushNotificationSubscriptionType` | 有効なプッシュ登録時に、ユーザーは自動的に`SUBSCRIBED`に設定されます。ただし、明示的なオプトインプロセスを確立し、ユーザーから明示的な同意を受け取った時点でこの値を`OPTED_IN`に設定することをお勧めします。詳細については、[ユーザーサブスクリプションの変更]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions#changing-subscriptions)のドキュメントを参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーサブスクリプションの設定" }
 
 {% alert note %}
 これらのタイプは`Appboy.Models.AppboyNotificationSubscriptionType`に属します。

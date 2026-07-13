@@ -51,7 +51,7 @@ KakaoTalk 클릭 추적 설정은 작성기의 **Link options** 섹션에서 관
 
 ## 커스텀 도메인 {#custom-domains}
 
-KakaoTalk 클릭 추적을 사용하면 자체 도메인을 사용하여 단축 URL의 외관을 개인화할 수 있으며, 일관된 브랜드 이미지를 전달하는 데 도움이 됩니다. 자세한 내용은 [커스텀 도메인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains/)을 참조하세요.
+KakaoTalk 클릭 추적을 사용하면 자체 도메인을 사용하여 단축 URL의 외관을 개인화할 수 있으며, 일관된 브랜드 이미지를 전달하는 데 도움이 됩니다. 자세한 내용은 [커스텀 도메인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/custom_domains)을 참조하세요.
 
 ## URL의 Liquid 개인화 {#liquid-personalization-in-urls}
 
@@ -88,7 +88,7 @@ Campaign 또는 Canvas를 시작하기 전에 먼저 메시지를 미리보기�
 
 ## 보고 {#reporting}
 
-KakaoTalk 성과 테이블에는 배리언트별 클릭 이벤트 수와 관련 클릭률을 보여주는 **Total Clicks** 열이 포함되어 있습니다. KakaoTalk 측정기준에 대한 자세한 내용은 [KakaoTalk 보고]({{site.baseurl}}/kakaotalk_reporting/)를 참조하세요.
+KakaoTalk 성과 테이블에는 배리언트별 클릭 이벤트 수와 관련 클릭률을 보여주는 **Total Clicks** 열이 포함되어 있습니다. KakaoTalk 측정기준에 대한 자세한 내용은 [KakaoTalk 보고]({{site.baseurl}}/kakaotalk_reporting)를 참조하세요.
 
 클릭 데이터는 분석 대시보드에 자동으로 보고됩니다.
 

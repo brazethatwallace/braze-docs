@@ -1,19 +1,19 @@
 ---
-nav_title: "Kindle 및 FireOS 푸시 개체"
-article_title: Kindle 및 FireOS 푸시 메시징 개체
+nav_title: "Kindle 및 FireOS 푸시 오브젝트"
+article_title: Kindle 및 FireOS 푸시 메시징 오브젝트
 page_order: 7
 page_type: reference
 channel: push
 platform:
   - Android
   - FireOS
-description: "이 참조 문서에서는 Braze Kindle 및 FireOS 푸시 개체의 다양한 구성 요소에 대해 설명합니다."
+description: "이 참조 문서에서는 Braze Kindle 및 FireOS 푸시 오브젝트의 다양한 구성요소에 대해 설명합니다."
 
 ---
 
-# Kindle 및 FireOS 푸시 개체
+# Kindle 및 FireOS 푸시 오브젝트 {#kindle-and-fireos-push-object}
 
-> `kindle_push` 개체를 사용하면 [메시징 엔드포인트를]({{site.baseurl}}/api/endpoints/messaging) 통해 Kindle 및 FireOS 푸시 알림을 수정하거나 생성할 수 있습니다.
+> `kindle_push` 오브젝트를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 통해 Kindle 및 FireOS 푸시 알림을 수정하거나 생성할 수 있습니다.
 
 ```json
 {
@@ -29,4 +29,4 @@ description: "이 참조 문서에서는 Braze Kindle 및 FireOS 푸시 개체�
 }
 ```
 
-`priority` 매개변수는 `-2`에서 `2` 사이의 값을 허용하며, 이때 `-2`는 가장 낮은 우선순위를, `2`는 가장 높은 우선순위를 나타냅니다. 기본값은 `0`입니다. 해당 정수 범위를 벗어나는 값을 전송하면 기본값은 `0` 입니다.
+`priority` 매개변수는 `-2`에서 `2` 사이의 값을 허용하며, `-2`는 가장 낮은 우선순위를, `2`는 가장 높은 우선순위를 나타냅니다. `0`이 기본값입니다. 해당 정수 범위를 벗어나는 값을 전송하면 기본값인 `0`으로 설정됩니다.

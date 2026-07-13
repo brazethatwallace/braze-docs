@@ -12,17 +12,17 @@ tool: Campaigns
 
 > Este artigo fornece respostas para algumas perguntas frequentes sobre Campaigns.
 
-### Como crio uma Campaign multicanal? {#how-do-i-create-a-multichannel-campaign}
+## Como crio uma Campaign multicanal? {#how-do-i-create-a-multichannel-campaign}
 
-Para criar uma Campaign multicanal, selecione **Messaging** > **Campaigns**. Em seguida, selecione **Create Campaign** > **Multichannel**. A partir daí, você pode selecionar entre os seguintes canais de envio de mensagens: Content Cards, e-mail, LINE, notificações por push, SMS/MMS/RCS, webhook ou WhatsApp.
+Consulte [Campaigns multicanais]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) em **Criar uma Campaign** para etapas de configuração e canais suportados.
 
 ### Posso adicionar um grupo de controle à minha Campaign multicanal? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-Não, os grupos de controle em Campaigns são destinados ao envio de mensagens em canal individual, como E-mail A versus E-mail B. Como alternativa, experimente usar o [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) para testar diferentes canais, conteúdos de mensagens e horários de entrega.
+Consulte [Grupos de controle]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-control-groups) em **Criar uma Campaign**. Para testes entre canais, use o [Canvas]({{site.baseurl}}/user_guide/messaging/canvas).
 
 ### Quais são algumas formas de começar a testar e otimizar Campaigns? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
-Campaigns multivariantes e Canvas com múltiplas variantes são uma ótima forma de começar! Por exemplo, você pode executar uma [Campaign multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing/) para testar uma mensagem com diferentes textos ou linhas de assunto. Canvas com múltiplas variantes podem ajudar a testar fluxos de trabalho inteiros.
+Campaigns multivariantes e Canvas com múltiplas variantes são uma ótima forma de começar! Por exemplo, você pode executar uma [Campaign multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing) para testar uma mensagem com diferentes textos ou linhas de assunto. Canvas com múltiplas variantes podem ajudar a testar fluxos de trabalho inteiros.
 
 ### Por que a taxa de abertura da minha Campaign diminuiu? {#why-did-the-open-rate-for-my-campaign-decrease}
 
@@ -38,7 +38,7 @@ Uma possível explicação é que a Campaign ou o Canvas tem a reelegibilidade a
 
 Por exemplo, se você tiver um Canvas que possui notificações por push tanto para iOS quanto para web, um determinado usuário com dispositivos móvel e desktop pode receber mais de uma mensagem.
 
-### Por que *Destinatários únicos* é maior do que o número de usuários que eu direcionei? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Por que *Destinatários únicos* é maior do que o número de usuários que eu direcionei? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 *Destinatários únicos* pode ser maior do que o público esperado porque a Braze rastreia destinatários únicos diários para fins de relatório. Isso permite que a Braze atribua conversões dentro da janela de conversão cada vez que um usuário recebe a mensagem, em vez de consolidar múltiplos recebimentos em uma única contagem vitalícia (o que distorceria os cálculos de conversão).
 
@@ -48,13 +48,11 @@ O mesmo padrão se aplica a Campaigns recorrentes e à reelegibilidade: se dois 
 
 ### Por que o número de conversões pode exceder o número de usuários únicos em Campaigns multicanais? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-Em Campaigns multicanais, a Braze conta as conversões por canal, não por usuário. Quando um usuário realiza uma única ação de conversão dentro da janela de conversão, a Braze atribui essa conversão a cada canal pelo qual o usuário recebeu uma mensagem. Isso significa que, se um usuário receber mensagens em múltiplos canais (por exemplo, e-mail e push) e converter, a Braze conta múltiplas conversões, uma para cada canal. Como resultado, a contagem total de conversões pode exceder o número de usuários únicos que converteram.
-
-Por exemplo, se uma Campaign multicanal envia tanto um e-mail quanto uma notificação por push para um usuário, e esse usuário realiza uma ação de conversão após receber ambas as mensagens e dentro da janela de conversão, a Braze conta isso como duas conversões — uma atribuída ao e-mail e uma atribuída ao push — mesmo sendo uma única ação do mesmo usuário.
+Consulte [Conversões e relatórios]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-conversions) em **Criar uma Campaign** e [Regras de rastreamento de conversão]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules) em **Eventos de conversão**.
 
 ### Por que minha Campaign tem uma base de usuários contatáveis menor do que o segmento que estou usando para a Campaign? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
-Se você tiver um [Grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group/) configurado, isso impedirá que uma porcentagem do seu público contatável receba Campaigns. Isso significa que o número de usuários contatáveis do seu segmento pode, às vezes, ser maior do que o número de usuários contatáveis da sua Campaign, mesmo que a Campaign esteja usando o mesmo segmento.
+Se você tiver um [Grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) configurado, isso impedirá que uma porcentagem do seu público contatável receba Campaigns. Isso significa que o número de usuários contatáveis do seu segmento pode, às vezes, ser maior do que o número de usuários contatáveis da sua Campaign, mesmo que a Campaign esteja usando o mesmo segmento.
 
 ### O que a entrega por fuso horário local oferece? {#what-does-local-time-zone-delivery-offer}
 
@@ -66,13 +64,13 @@ Por exemplo, uma empresa sediada em Londres que envia uma Campaign às 12h alcan
 
 A Braze determinará automaticamente o fuso horário de um usuário a partir do seu dispositivo. Isso garante precisão de fuso horário e cobertura completa dos seus usuários. Usuários criados pela API de Usuários ou sem um fuso horário definido terão o fuso horário da sua empresa como fuso horário padrão até serem reconhecidos no seu app pelo SDK.
 
-Você pode verificar o fuso horário da sua empresa nas [configurações da empresa]({{site.baseurl}}/user_guide/administer/global/admin_settings/) no dashboard.
+Você pode verificar o fuso horário da sua empresa nas [configurações da empresa]({{site.baseurl}}/user_guide/administer/global/admin_settings) no dashboard.
 
 ### Quando a Braze avalia os usuários para entrega por fuso horário local? {#when-does-braze-evaluate-users-for-local-time-zone-delivery}
 
 A Braze avalia os usuários para elegibilidade de entrada em:
 
-- Horário de Samoa (UTC+13) ou UTC+14 durante o horário de verão
+- Horário de Samoa (UTC+13) no dia programado
 - O horário local do dia programado
 
 Para que um usuário seja elegível para entrada, ele deve ser elegível em ambas as verificações. Por exemplo, se um Canvas está programado para ser lançado em 7 de agosto de 2021 às 14h no fuso horário local, o direcionamento de um usuário localizado em Nova York exigiria as seguintes verificações de elegibilidade:
@@ -80,7 +78,9 @@ Para que um usuário seja elegível para entrada, ele deve ser elegível em amba
 - Nova York em 6 de agosto de 2021 às 21h
 - Nova York em 7 de agosto de 2021 às 14h
 
-O usuário deve estar no segmento por 24 horas antes do lançamento. Se o usuário não for elegível na primeira verificação, a Braze não tentará a segunda verificação.
+Para entrar, o usuário deve corresponder ao seu público e filtros em ambos os momentos de avaliação. Se o usuário não for elegível na primeira verificação, a Braze não executará a segunda verificação. Não há um tempo mínimo que o usuário precise estar no segmento antes do lançamento. Apenas a elegibilidade em cada verificação importa.
+
+Esse comportamento de avaliação é separado de [com quanta antecedência você programa a Campaign no dashboard](#how-do-i-schedule-a-local-time-zone-campaign). Programar com pelo menos 24 horas de antecedência é uma recomendação porque ajuda as mensagens a serem entregues ao longo de toda a janela de 24 horas de fuso horário local, não um requisito de que cada usuário esteja no público por 24 horas.
 
 #### Exemplos {#examples}
 
@@ -88,7 +88,7 @@ Por exemplo, se uma Campaign está programada para ser entregue às 19h UTC, com
 
 Como outro exemplo, digamos que você queira criar duas Campaigns programadas para enviar no mesmo dia — uma de manhã e uma à noite — e adicionar um filtro para que os usuários só possam receber a segunda Campaign se já tiverem recebido a primeira. Com a entrega por fuso horário local, alguns usuários podem não receber a segunda Campaign. Isso acontece porque verificamos a elegibilidade quando o fuso horário do usuário é identificado. Portanto, se o horário programado ainda não ocorreu no fuso horário dele, ele não recebeu a primeira Campaign, o que significa que não será elegível para a segunda Campaign.
 
-Para uma visualização de como um usuário pode estar em um segmento durante a primeira verificação, mas não na segunda, veja esta linha do tempo:
+A linha do tempo a seguir assume uma definição de segmento que inclui uma janela de associação limitada por tempo. Neste exemplo, os usuários saem do segmento 24 horas após entrarem. Esse comportamento de filtro é uma razão pela qual um usuário pode passar na primeira verificação e falhar na segunda.
 
 ![Linha do tempo de um usuário entrando no segmento antes da primeira verificação e saindo antes da segunda.]({% image_buster /assets/img/local_time_zone_diagram.png %})
 
@@ -102,6 +102,8 @@ Para uma visualização de como um usuário pode estar em um segmento durante a 
 {% enddetails %}
 
 ### Como programo uma Campaign por fuso horário local? {#how-do-i-schedule-a-local-time-zone-campaign}
+
+A seção anterior descreve quando a Braze avalia a elegibilidade para entrega por fuso horário local (as duas verificações). Esta seção descreve quando você define a programação da Campaign no dashboard (tempo de antecedência) e quais usuários ainda recebem a mensagem se você programar com menos de 24 horas de antecedência.
 
 Ao programar uma Campaign, escolha enviá-la em um horário designado e selecione **Send campaign to users in their local time zone**.
 
@@ -160,19 +162,23 @@ Para evitar isso, garanta que as atualizações de atributos personalizados ou e
 
 ### Por que o número de usuários entrando em uma Campaign não corresponde ao número esperado? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-O número de usuários entrando em uma Campaign pode diferir do número esperado devido à forma como públicos e gatilhos são avaliados. Na Braze, o público é avaliado antes do gatilho (a menos que se use um gatilho de [mudança de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value). Isso fará com que os usuários saiam da Campaign se não fizerem parte inicialmente do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
+O número de usuários entrando em uma Campaign pode diferir do número esperado devido à forma como públicos e gatilhos são avaliados. Na Braze, o público é avaliado antes do gatilho (a menos que se use um gatilho de [mudança de atributo]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)). Isso fará com que os usuários saiam da Campaign se não fizerem parte inicialmente do público selecionado antes que quaisquer ações de gatilho sejam avaliadas.
 
 {% alert tip %}
 Para assistência adicional com solução de problemas de Campaigns, entre em contato com o suporte da Braze dentro de 30 dias da ocorrência do problema, pois temos apenas os últimos 30 dias de registros de diagnóstico.
 {% endalert %}
 
+### Por que os usuários receberam minha Campaign duas vezes após eu editá-la? {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
+
+Se você editar uma Campaign ativa sem pará-la primeiro, os usuários podem receber a mensagem duas vezes. Isso acontece porque editar uma Campaign ativa reenfileira os usuários para a versão atualizada enquanto a fila original ainda está sendo processada. Usuários que ainda não receberam a mensagem original podem acabar em ambas as filas. Para evitar isso, sempre [pare a Campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch#stopping-your-campaign) antes de fazer alterações.
+
 ### Qual é a diferença entre as opções Exportar dados de usuários em CSV e Exportar endereços de e-mail em CSV na página de análise de dados da minha Campaign? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
-Selecionar a opção **Exportar endereços de e-mail em CSV** baixa dados apenas de usuários com endereços de e-mail. Por exemplo, se você tem um segmento de 100.000 usuários, mas apenas 50.000 deles possuem endereços de e-mail, e você clica em **Exportar endereços de e-mail em CSV**, a exportação conterá apenas 50.000 linhas de dados. Em comparação, selecionar **Exportar dados de usuários em CSV** exporta todos os dados de usuários.
+Selecionar a opção **CSV Export Email Addresses** baixa dados apenas de usuários com endereços de e-mail. Por exemplo, se você tem um segmento de 100.000 usuários, mas apenas 50.000 deles possuem endereços de e-mail, e você clica em **CSV Export Email Addresses**, a exportação conterá apenas 50.000 linhas de dados. Em comparação, selecionar **CSV Export User Data** exporta todos os dados de usuários.
 
 ### Posso pesquisar uma Campaign pelo seu identificador de API? {#can-i-search-for-a-campaign-by-its-api-identifier}
 
-Sim, use o filtro `api_id:YOUR_API_ID` na página **Campaigns** para pesquisar uma Campaign pelo seu identificador de API. Consulte [pesquisando Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns/) para saber mais.
+Sim, use o filtro `api_id:YOUR_API_ID` na página **Campaigns** para pesquisar uma Campaign pelo seu identificador de API. Consulte [pesquisando Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns) para saber mais.
 
 ### Por que os espaços em branco aparecem de forma diferente em campos de entrada versus texto exibido? {#why-does-whitespace-appear-differently-in-input-fields-versus-displayed-text}
 
@@ -187,6 +193,14 @@ Por exemplo, se você inserir um nome de Campaign ou parâmetro UTM com múltipl
 Campaigns disparadas por API permitem que você gerencie o texto da Campaign, testes multivariantes e regras de reelegibilidade dentro do dashboard da Braze enquanto aciona a entrega desse conteúdo a partir dos seus próprios servidores e sistemas. Essas mensagens também podem incluir dados adicionais para serem modelados nas mensagens em tempo real.
 
 Campaigns da API são usadas para rastrear as mensagens enviadas usando a API. Diferentemente da maioria das Campaigns, você não especifica a mensagem, os destinatários ou a programação, mas sim passa os identificadores nas suas chamadas de API.
+
+### Como posso confirmar se meus usuários receberam uma Campaign disparada por API? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
+
+Você pode [criar um segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) usando o filtro **Received Campaign** e selecionar a Campaign disparada por API específica que deseja verificar. Após salvar o segmento, use o [endpoint `/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) para exportar os usuários desse segmento.
+
+### Posso excluir uma Campaign? {#can-i-delete-a-campaign}
+
+Não, mas você pode [arquivar uma Campaign]({{site.baseurl}}/user_guide/messaging/governance/archiving).
 
 ### Qual é a diferença entre Campaigns baseadas em ação e Campaigns disparadas por API? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
@@ -206,7 +220,7 @@ Campaigns de entrega baseada em ação ou Campaigns disparadas por evento são m
 | Prós | Contras |
 | ---- | ---- |
 | • Visibilidade das cargas úteis JSON recebidas na plataforma (se o evento for disparado por um usuário teste) através do **Registro de atividades de envio de mensagem**<br><br>• Elementos de personalização são incluídos nas propriedades do evento personalizado<br><br>• O evento personalizado pode ser usado para criar segmentos de usuários elegíveis para a mensagem | • Consome pontos de dados |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Baseadas em ação" }
 
 #### Disparadas por API {#api-triggered}
 
@@ -215,11 +229,11 @@ Campaigns disparadas por API e disparadas por servidor são ideais para lidar co
 | Benefícios | Considerações |
 | ---- | ---- |
 | • Não registra pontos de dados<br><br>• Elementos de personalização são incluídos nas propriedades da carga útil JSON | • Não permite criar um segmento de usuários elegíveis para a mensagem nas propriedades da carga útil JSON<br><br>• Não é possível ver as cargas úteis JSON recebidas com o **Registro de atividades de envio de mensagem** |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Disparadas por API" }
 
 ### O que devo incluir ao enviar um ticket de suporte para um erro "Request Timed Out"? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
-Se você encontrar um erro "Request Timed Out" ao criar ou editar uma Campaign ou Canvas e precisar entrar em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/), inclua as seguintes informações para ajudar a acelerar a resolução:
+Se você encontrar um erro "Request Timed Out" ao criar ou editar uma Campaign ou Canvas e precisar entrar em contato com o [suporte da Braze]({{site.baseurl}}/braze_support), inclua as seguintes informações para ajudar a acelerar a resolução:
 
 - **Gravação de tela:** Uma gravação dos passos que você seguiu antes de ver o erro, incluindo quaisquer transições de página.
 - **Timestamp e fuso horário:** O horário exato em que o erro ocorreu e seu fuso horário.
@@ -232,7 +246,7 @@ Se você encontrar um erro "Request Timed Out" ao criar ou editar uma Campaign o
 Se você adicionar ou alterar um limite máximo de destinatários em uma Campaign ativa, o limite pode não ser refletido na sua análise de dados de envio pelos seguintes motivos:
 
 - **Limite adicionado após o lançamento:** Se o limite máximo de destinatários não estiver definido quando a Campaign for lançada, as mensagens que já estão enfileiradas antes de você aplicar o limite ainda serão enviadas. O limite só entra em vigor para envios que você enfileirar após salvar a alteração.
-- **Interação com limite de taxa:** Se uma Campaign também tem limite de taxa, as mensagens podem ser distribuídas ao longo de uma janela de tempo mais longa. O limite máximo de destinatários é avaliado quando as mensagens são enfileiradas, não quando são entregues. Se o limite for alterado enquanto as mensagens já estão na fila, o limite original se aplica a essas mensagens.
+- **Interação com limite de frequência:** Se uma Campaign também tem limite de frequência, as mensagens podem ser distribuídas ao longo de uma janela de tempo mais longa. O limite máximo de destinatários é avaliado quando as mensagens são enfileiradas, não quando são entregues. Se o limite for alterado enquanto as mensagens já estão na fila, o limite original se aplica a essas mensagens.
 - **Campaigns recorrentes:** Para Campaigns recorrentes, cada envio programado avalia o limite máximo de destinatários de forma independente. Alterar o limite entre envios não ajusta retroativamente as contagens de envios anteriores.
 
 Para evitar desalinhamentos, defina o limite máximo de destinatários antes de lançar a Campaign e evite modificá-lo enquanto os envios estiverem em andamento.
@@ -243,17 +257,44 @@ Vários fatores podem fazer com que o número de envios seja menor do que o tama
 
 - **Entrega baseada em ação:** Os usuários só geram envios após realizarem o gatilho, então os envios se acumulam ao longo do tempo e podem ficar atrás da estimativa inicial mostrada quando você criou a Campaign.
 - **Edições de público após o lançamento:** Alterar filtros de entrada ou de direcionamento após o lançamento pode deixar o snapshot de **Público estimado** fora de sincronia com quem ainda se qualifica em envios posteriores (por exemplo, quando os usuários não são elegíveis para reentrar).
-- **Etapa Jornadas do público:** Para Canvas, uma etapa [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) envia mensagens apenas para os usuários que correspondem à ramificação de maior prioridade para a qual se qualificam, o que pode reduzir os envios em comparação com uma contagem simples de segmento.
-- **Grupos de controle:** Se um [Grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group/) ou grupo de controle no nível da Campaign estiver em uso, uma parte do público é retida da entrega.
+- **Etapa Jornadas do público:** Para Canvas, uma etapa [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) envia mensagens apenas para os usuários que correspondem à ramificação de maior prioridade para a qual se qualificam, o que pode reduzir os envios em comparação com uma contagem simples de segmento.
+- **Grupos de controle:** Se um [Grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) ou grupo de controle no nível da Campaign estiver em uso, uma parte do público é retida da entrega.
 - **Horário e janelas de entrega:** Para Campaigns por fuso horário local ou programadas, os usuários devem se qualificar tanto na entrada quanto no momento do envio; usuários em determinados fusos horários podem ficar fora da janela de entrega.
 - **Deduplicação de e-mail:** Sua Campaign ou Canvas direciona múltiplos usuários com e-mails correspondentes, então um usuário aleatório com aquele endereço de e-mail é escolhido no momento do envio. A mensagem é enviada apenas uma vez e deduplicada para que não seja enviada ao mesmo e-mail várias vezes, mas o tamanho estimado do público inclui todos os usuários.
-- **Filtros de entregabilidade de e-mail:** Para Campaigns de e-mail, a Braze exclui usuários que tiveram hard bounce, cancelaram a inscrição de e-mails, foram marcados como spam, não possuem endereço de e-mail no perfil ou não estão inscritos em um grupo de inscrições obrigatório. Essas verificações são executadas no momento do envio, então um usuário presente no seu segmento ainda pode ser excluído da contagem real de envios.
+- **Filtros de entregabilidade de e-mail:** Para Campaigns de e-mail, a Braze exclui usuários que tiveram hard bounce, cancelaram a inscrição de e-mails, foram marcados como SPAM, não possuem endereço de e-mail no perfil ou não estão inscritos em um grupo de inscrições obrigatório. Essas verificações são executadas no momento do envio, então um usuário presente no seu segmento ainda pode ser excluído da contagem real de envios.
 - **Limite de frequência global:** Limites no nível do espaço de trabalho podem impedir que usuários elegíveis recebam outra mensagem na mesma janela, o que reduz os envios realizados.
 - **Usuários recém-importados:** Perfis que acabaram de se tornar elegíveis podem não receber até a próxima avaliação ou rodada de envio, então as contagens se atualizam em uma execução posterior.
 - **Alcançabilidade de push:** Para Campaigns de push, confirme que o público está habilitado para push no app correto. Se você não filtrar por usuários habilitados para push, o público estimado pode incluir perfis que não podem receber push. Verifique **Usuários contatáveis** na etapa **Público-alvo** para uma estimativa operacional mais precisa.
-- **Limite de taxa:** Se o limite de taxa estiver aplicado, as mensagens são distribuídas ao longo do tempo e alguns envios podem ser adiados ou ainda não refletidos na contagem.
+- **Limite de velocidade de entrega:** Um [limite de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) limita quantas mensagens a Braze envia por minuto durante uma única ocorrência de envio. A Braze distribui a entrega ao longo de uma janela mais longa, então alguns envios podem ser adiados, ainda não refletidos na contagem, ou não concluídos se o limite for baixo em relação ao público elegível.
 - **Janelas de reelegibilidade:** Usuários que ainda não são reelegíveis não receberão novamente durante o período de espera, então os envios ficam abaixo do tamanho estimado do público para esse período.
 - **Janela de relatório:** O intervalo de tempo da análise de dados pode não incluir todos os envios.
 - **Reavaliação do segmento:** Para Campaigns baseadas em ação ou programadas que reavaliam no momento do envio, os usuários que estavam no segmento quando a Campaign foi enfileirada podem não se qualificar mais quando a mensagem é realmente enviada.
 - **Limites de envio:** Um número máximo de usuários (ou limite similar) em **Público-alvo** interrompe a entrega quando o limite é atingido.
-- **Filtros rigorosos de dispositivo ou navegador:** Filtros que correspondem apenas às versões mais recentes de apps ou navegadores reduzem o conjunto alcançável no momento do envio em comparação com uma pré-visualização ampla de segmento.
+- **Filtros rigorosos de dispositivo ou navegador:** Filtros que correspondem apenas às versões mais recentes de apps ou navegadores reduzem o conjunto alcançável no momento do envio em comparação com uma prévia ampla de segmento.
+
+### Onde estão as perguntas frequentes sobre limite de frequência global? {#where-are-frequently-asked-questions-about-global-frequency-capping}
+
+Para perguntas sobre dias corridos, push silencioso, webhooks, comportamento do Canvas e tópicos relacionados, consulte as [Perguntas frequentes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq) de [Limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
+
+### Por que minha Campaign está com taxas de envio mais baixas? {#why-is-my-campaign-experiencing-lower-send-rates}
+
+Se você perceber que suas Campaigns programadas diárias estão enviando para menos usuários ao longo do tempo, verifique o seguinte:
+
+- **Verifique se a reelegibilidade está ativada:** Sem reelegibilidade, a Braze envia a mensagem para cada usuário apenas uma vez. Em Campaigns programadas diárias, apenas os usuários que correspondem ao público e que ainda não receberam a mensagem são elegíveis para cada envio. À medida que mais usuários recebem a mensagem, cada envio posterior tem menos usuários elegíveis, então o volume de envios diminui.
+- **Verifique se o público tem associação fixa:** Públicos construídos a partir de uma lista fixa de usuários (como uma [importação de CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) usada como filtro de segmento) não ganham novos membros automaticamente. Sem novos entrantes, o volume de envios não pode se recuperar à medida que os usuários são alcançados.
+
+Para [limites de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) e outros fatores que reduzem os envios em uma única ocorrência, consulte [Por que os envios são menores do que o tamanho estimado do público?](#why-are-sends-lower-than-the-estimated-audience-size).
+
+### Por que os destinatários únicos podem exceder os envios para e-mail e SMS? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
+
+Para e-mail e SMS, a Braze incrementa **Destinatários únicos** antes da tentativa de envio pelo ESP e incrementa **Envios** após uma resposta bem-sucedida do ESP. Erros permanentes (como endereços de e-mail inválidos) ou endereços duplicados fazem com que os destinatários únicos excedam os envios.
+
+### Por que **Último envio** não corresponde ao meu horário de envio programado? {#why-doesnt-last-sent-match-my-scheduled-send-time}
+
+Para uma Campaign com um único envio programado, **Último envio** corresponde ao horário de lançamento. Para Campaigns recorrentes com **Enviar no fuso horário local** ativado, **Último envio** pode aparecer antes do horário programado porque os envios para usuários em fusos horários mais adiantados (por exemplo, GMT vs. PST) são concluídos antes do horário programado do seu espaço de trabalho.
+
+### Por que uma Campaign histórica parada não mostra mais métricas na página **Analytics**? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
+
+A guia **Analytics** exibe por padrão os últimos 90 dias. Se a Campaign enviou pela última vez fora dessa janela, as métricas podem aparecer como zero até que você ajuste o intervalo de datas na página **Analytics** para incluir o período em que a Campaign enviou. Para saber mais, consulte [Análise de dados de Campaigns]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics).
+
+**Restaurar dados de interação** não restaura a análise de dados de Campaigns. Isso se aplica apenas a filtros de redirecionamento e ao histórico de interações do usuário. Para saber mais, consulte [Dados de interação de envio de mensagens]({{site.baseurl}}/messaging_interaction_data).

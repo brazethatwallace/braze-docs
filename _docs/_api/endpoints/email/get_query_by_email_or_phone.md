@@ -23,7 +23,7 @@ description: "This article outlines the details about the List subscription stat
 | --- | --- | --- | --- |
 | `email` | Yes | String | The email address of the user (must include at least one address and at most 50 addresses). |
 | `phone` | Yes | String | The phone number of the user (must include at least one phone number and at most 50 phone numbers). We recommend providing this in E.164 format. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```
@@ -39,7 +39,7 @@ Entries are listed in descending order.
 {
   "emails": [
     {
-      "email": "example@braze.com",
+      "email": "example@example.com",
       "email_subscribe": {
         "email_subscription_event_date": "2019-11-20T19:58:04.825Z",
         "email_subscription_state": "Subscribed"

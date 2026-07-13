@@ -20,7 +20,7 @@ description: "Erfahren Sie, wie Sie auf BrazeAI Operator<sup>TM</sup> zugreifen 
 ![Das Symbol „BrazeAI Operator“ neben einem Nutzerprofil.]({% image_buster /assets/img/operator/operator_icon.png %})
 
 {:start="2"}
-2. Das Operator-Chat-Panel öffnet sich auf der rechten Seite des Bildschirms.
+2. Das Operator-Chat-Panel öffnet sich in einem Seitenpanel.
 
 ![Das Chat-Panel von Operator.]({% image_buster /assets/img/operator/operator_chat_panel.png %})
 
@@ -39,7 +39,7 @@ Beschreiben Sie in natürlicher Sprache, was Sie erreichen möchten. Prompts kö
 - **Einfach:** Warum wird mein Liquid nicht gerendert?
 - **Komplex:** Wie kann ich sicherstellen, dass der `abort_message`-Tag meiner Nachricht das Nutzerattribut enthält, das den Abbruch verursacht hat?
 
-Operator kann Schritt-für-Schritt-Anleitungen, Links zur Braze-Dokumentation und Erklärungen in einfacher Sprache bereitstellen. Klare und spezifische Fragen führen zu hilfreicheren Antworten. Operator verwendet [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), das über starke Schlussfolgerungsfähigkeiten verfügt und sich für komplexe, mehrstufige Aufgaben eignet.
+Operator kann Schritt-für-Schritt-Anleitungen, Links zur Braze-Dokumentation und Erklärungen in einfacher Sprache bereitstellen. Klare und spezifische Fragen führen zu hilfreicheren Antworten. Operator verwendet [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), das über starke Schlussfolgerungsfähigkeiten verfügt und sich für komplexe, mehrstufige Aufgaben eignet. Sofort einsetzbare Beispiele finden Sie in der [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Best Practices {#best-practices}
 
@@ -55,7 +55,7 @@ Behandeln Sie Operator wie eine Konversation, nicht wie eine Suchmaschine. Kurze
 
 Fügen Sie Markenrichtlinien als Kontext zu Operator-Abfragen hinzu, damit die Antworten dem Stil, Tonfall und der Persönlichkeit Ihrer Marke entsprechen. Operator nutzt die in Ihrem Workspace konfigurierten Markenrichtlinien, was dazu beiträgt, ein einheitliches Messaging zu gewährleisten, wenn er Texte vorschlägt oder Features erläutert.
 
-Um Markenrichtlinien festzulegen, navigieren Sie zu **Einstellungen** > **Markenrichtlinien**. Weitere Informationen finden Sie unter [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/).
+Um Markenrichtlinien festzulegen, navigieren Sie zu **Einstellungen** > **Markenrichtlinien**. Weitere Informationen finden Sie unter [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines).
 
 ![Auswahl der Markenrichtlinien im Chat-Panel von Operator.]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
 
@@ -63,23 +63,23 @@ Um Markenrichtlinien festzulegen, navigieren Sie zu **Einstellungen** > **Marken
 
 Operator erkennt automatisch Ihren Standort in Braze und passt die Antworten entsprechend an. Wenn Sie beispielsweise Operator während der Erstellung eines Canvas öffnen, kann er Ihnen relevante Schritte vorschlagen oder Anleitungen zu Canvas-Features geben, ohne dass Sie erklären müssen, an welcher Stelle Ihres Arbeitsablaufs Sie sich befinden.
 
-Dank dieser Kontextbezogenheit können Sie kürzere, natürlichere Fragen stellen, wie beispielsweise „Wie füge ich eine Verzögerung hinzu?“ anstelle von „Wie füge ich einen Verzögerungsschritt in einen Canvas-Workflow ein?“
+Dank dieser Kontextbezogenheit können Sie kürzere, natürlichere Fragen stellen, wie beispielsweise „Wie füge ich eine Verzögerung hinzu?“ anstelle von „Wie füge ich einen Verzögerungsschritt in einen Canvas-Workflow ein?“. Sofort einsetzbare Prompts, geordnet nach Dashboard-Seite, finden Sie in der [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Arbeiten mit Operator-Antworten {#work-with-operator-responses}
 
 ### Starten Sie mit den vorgeschlagenen Prompts {#get-started-with-suggested-prompts}
 
-Wenn Sie Operator öffnen, werden Ihnen auf Basis häufiger Aufgaben und Ihrer aktuellen Seite vorgeschlagene Prompts angezeigt. Wählen Sie einen aus, um schnell loszulegen, oder geben Sie Ihre eigene Frage ein.
+Wenn Sie eine Konversation mit Operator öffnen, werden Ihnen auf Basis häufiger Aufgaben und Ihrer aktuellen Seite vorgeschlagene Prompts angezeigt. Wählen Sie einen aus, um schnell loszulegen, oder geben Sie Ihre eigene Frage ein.
 
 ### Verstehen Sie, wie Operator denkt {#understand-how-operator-thinks}
 
-Operator zeigt seine Argumentationsschritte in ausblendbaren Abschnitten mit der Bezeichnung **Reasoned** an. Wählen Sie das Dropdown-Menü aus, um diese Abschnitte zu erweitern und nachzuvollziehen, wie Operator zu einer Antwort gelangt ist. Dies ist hilfreich, wenn Sie die Logik hinter einem Vorschlag verstehen oder den Ansatz überprüfen möchten.
+Operator zeigt seine Argumentationsschritte in ausblendbaren Abschnitten mit der Bezeichnung **Reasoned** an. Wählen Sie das Dropdown aus, um diese Abschnitte zu erweitern und nachzuvollziehen, wie Operator zu einer Antwort gelangt ist. Dies ist hilfreich, wenn Sie die Logik hinter einem Vorschlag verstehen oder den Ansatz überprüfen möchten.
 
-![Das ausgeblendete Dropdown-Menü „Reasoned“ in einer Antwort von Operator.]({% image_buster /assets/img/operator/operator_reasoning_collapsed.png %}){:style="max-width:40%"}
+![Das ausgeblendete Dropdown „Reasoned“ in einer Antwort von Operator.]({% image_buster /assets/img/operator/operator_reasoning_collapsed.png %}){:style="max-width:40%"}
 
 ### Aktionen mit Operator ausführen {#take-action-with-operator}
 
-Operator kann direkt im Braze-Dashboard Änderungen vorschlagen und ausführen, beispielsweise Formularfelder ausfüllen, Einstellungen aktualisieren oder Inhalte generieren. Jede vorgeschlagene Änderung wird Ihnen als Aktionskarte zur Überprüfung und Genehmigung vorgelegt, bevor sie wirksam wird. Weitere Informationen zur Funktionsweise finden Sie unter [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/).
+Operator kann direkt im Braze-Dashboard Änderungen vorschlagen und ausführen, beispielsweise Formularfelder ausfüllen, Einstellungen aktualisieren oder Inhalte generieren. Jede vorgeschlagene Änderung wird Ihnen als Aktionskarte zur Überprüfung und Genehmigung vorgelegt, bevor sie wirksam wird. Weitere Informationen zur Funktionsweise finden Sie unter [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
 
 ### Antworten in andere Tools kopieren {#copy-responses-to-other-tools}
 
@@ -132,16 +132,12 @@ Verwenden Sie am Ende jeder Antwort die Daumen-hoch- oder Daumen-runter-Buttons,
 
 ## Datenschutz und Sicherheit {#data-privacy-and-security}
 
-### Modellanbieter als Unterauftragsverarbeiter oder Drittanbieter {#model-providers-as-sub-processors-or-third-party-providers}
-
-Wenn Sie eine Integration mit einem LLM-Anbieter nutzen, der von Braze über die Braze-Dienste bereitgestellt wird („von Braze bereitgestelltes LLM“), fungieren die Anbieter dieses von Braze bereitgestellten LLM als Unterauftragsverarbeiter von Braze, vorbehaltlich der Bestimmungen des Datenverarbeitungszusatzes (DPA) zwischen Ihnen und Braze. BrazeAI Operator<sup>TM</sup> verfügt über eine Integration mit OpenAI.
-
-### Wie Daten mit OpenAI verwendet werden {#how-data-is-used-with-openai}
-
-Um KI-Ausgaben über BrazeAI-Features zu generieren, die OpenAI nutzen („Ausgabe“), übermittelt Braze bestimmte Informationen („Eingabe“) an OpenAI. Die Eingabe umfasst Ihre Prompts, die im Dashboard angezeigten Inhalte und die für Ihre Anfragen relevanten Workspace-Daten. Gemäß [den Verpflichtungen der API-Plattform von OpenAI](https://openai.com/enterprise-privacy/) werden Daten, die über Braze an die API von OpenAI gesendet werden, nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Zwischen Ihnen und Braze ist die Ausgabe Ihr geistiges Eigentum. Braze erhebt keine Ansprüche auf das Urheberrecht an solchen Ausgaben. Braze übernimmt keinerlei Gewährleistung in Bezug auf KI-generierte Inhalte, einschließlich der Ausgabe.
+BrazeAI Operator<sup>TM</sup> verfügt über eine Integration mit OpenAI, das als Unterauftragsverarbeiter von Braze fungiert und dem Datenverarbeitungszusatz (DPA) zwischen Ihnen und Braze unterliegt. Daten, die über Braze an OpenAI gesendet werden, werden nicht zum Trainieren oder Verbessern von OpenAI-Modellen verwendet. Einzelheiten zur HIPAA-Konformität, Datenaufbewahrung, PII-Handhabung und Governance finden Sie unter [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Nächste Schritte {#next-steps}
 
-- [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/): Erfahren Sie, wie Sie die von Operator vorgeschlagenen Änderungen überprüfen und genehmigen können
-- [Support-Tickets einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/): Reichen Sie Support-Tickets direkt über Operator ein
-- [Fehlerbehebung]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/): Häufige Probleme und Lösungen
+- [Prompt-Bibliothek]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Durchsuchen Sie Beispiel-Prompts, geordnet nach Dashboard-Seite
+- [Aktionen überprüfen]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Erfahren Sie, wie Sie die von Operator vorgeschlagenen Änderungen überprüfen und genehmigen können
+- [Support-Tickets einreichen]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets): Reichen Sie Support-Tickets direkt über Operator ein
+- [Fehlerbehebung]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Häufige Probleme und Lösungen
+- [Datenschutz und Sicherheit]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security): Informationen zu HIPAA-Konformität, Datenaufbewahrung und PII-Minimierung

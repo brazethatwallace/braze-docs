@@ -14,7 +14,7 @@ noindex: true
 
 # In-App-Nachrichten {#in-app-messages}
 
-Mit [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/) können Sie Inhalte an Ihre Nutzer:innen übermitteln, ohne sie mit einer Push-Benachrichtigung zu unterbrechen. Angepasste und maßgeschneiderte In-App-Nachrichten verbessern das Nutzererlebnis und helfen Ihrer Zielgruppe, den größtmöglichen Nutzen aus Ihrer App zu ziehen. Mit einer Vielzahl von Layouts und Anpassungswerkzeugen, aus denen Sie wählen können, binden In-App-Nachrichten Ihre Nutzer:innen mehr als je zuvor.
+Mit [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages) können Sie Inhalte an Ihre Nutzer:innen übermitteln, ohne sie mit einer Push-Benachrichtigung zu unterbrechen. Angepasste und maßgeschneiderte In-App-Nachrichten verbessern das Nutzererlebnis und helfen Ihrer Zielgruppe, den größtmöglichen Nutzen aus Ihrer App zu ziehen. Mit einer Vielzahl von Layouts und Anpassungswerkzeugen, aus denen Sie wählen können, binden In-App-Nachrichten Ihre Nutzer:innen mehr als je zuvor.
 
 In unseren [Fallstudien](https://www.braze.com/customers) finden Sie Beispiele für In-App-Nachrichten.
 
@@ -36,7 +36,7 @@ Alle In-App-Nachrichten sind Unterklassen von `ABKInAppMessage`, die das grundle
 {% alert important %}
 In-App-Nachrichten werden standardmäßig nach Abschluss der standardmäßigen SDK-Integration aktiviert, einschließlich der GIF-Unterstützung.
 <br><br>
-Beachten Sie, dass die Integration von `SDWebImage` erforderlich ist, wenn Sie unsere Braze UI für die Anzeige von Bildern in iOS In-App-Nachrichten oder Content Cards verwenden möchten.
+Beachten Sie, dass die Integration von `SDWebImage` erforderlich ist, wenn Sie unsere Braze UI für die Anzeige von Bildern in iOS-In-App-Nachrichten oder Content Cards verwenden möchten.
 {% endalert %}
 
 ### Erwartete Verhaltensweisen nach Nachrichtentypen {#expected-behaviors-by-message-types}
@@ -59,16 +59,16 @@ So sieht es aus, wenn Ihre Nutzer:innen eine unserer Standardarten von In-App-Na
 ![Eine modale In-App-Nachricht in der Mitte eines Smartphone-Displays mit dem Text „Menschen sind kompliziert. Custom Engagement sollte es nicht sein.“ Im Hintergrund wird die gleiche In-App-Nachricht in der Mitte einer Internetseite angezeigt.]({% image_buster /assets/img/modal-behavior.gif %}){: style="border:0px;"}
 
 {% endtab %}
-{% tab Full Screen %}
+{% tab Vollbild %}
 
 [`Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_full.html)-In-App-Nachrichten sind nützlich, um den Inhalt und die Wirkung Ihrer Nutzerkommunikation zu maximieren. Die obere Hälfte einer `full`-In-App-Nachricht enthält ein Bild, die untere Hälfte Text und bis zu zwei Buttons mit Klickaktionen und Analytics-Funktionalität.
 
 ![Eine Vollbild-In-App-Nachricht, die über den gesamten Bildschirm des Telefons angezeigt wird und lautet: „Menschen sind kompliziert. Custom Engagement sollte es nicht sein.“ Im Hintergrund wird die gleiche In-App-Nachricht weitgehend in der Mitte einer Internetseite angezeigt.]({% image_buster /assets/img/full-screen-behavior.gif %}){: style="border:0px;"}
 
 {% endtab %}
-{% tab Custom HTML %}
+{% tab Benutzerdefiniertes HTML %}
 
-[`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html)-In-App-Nachrichten sind nützlich, um vollständig angepasste Nutzerinhalte zu erstellen. Der gesamte Inhalt von benutzerdefinierten HTML-Full-In-App-Nachrichten wird in einer `WKWebView` angezeigt und kann optional anderen Rich Content wie Bilder und Schriftarten enthalten. So haben Sie die volle Kontrolle über das Aussehen und die Funktionalität der Nachrichten. <br><br>iOS-In-App-Nachrichten unterstützen eine JavaScript-`brazeBridge`-Schnittstelle, um Methoden des Braze Web SDK aus Ihrem HTML-Code heraus aufzurufen. Weitere Details finden Sie in unseren [Best Practices]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/).
+[`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html)-In-App-Nachrichten sind nützlich, um vollständig angepasste Nutzerinhalte zu erstellen. Der gesamte Inhalt von benutzerdefinierten HTML-Full-In-App-Nachrichten wird in einer `WKWebView` angezeigt und kann optional anderen Rich Content wie Bilder und Schriftarten enthalten. So haben Sie die volle Kontrolle über das Aussehen und die Funktionalität der Nachrichten. <br><br>iOS-In-App-Nachrichten unterstützen eine JavaScript-`brazeBridge`-Schnittstelle, um Methoden des Braze Web SDK aus Ihrem HTML-Code heraus aufzurufen. Weitere Details finden Sie in unseren [Best Practices]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices).
 
 Das folgende Beispiel zeigt eine paginierte HTML-Full-In-App-Nachricht:
 

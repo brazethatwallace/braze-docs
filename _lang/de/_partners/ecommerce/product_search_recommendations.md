@@ -1,4 +1,4 @@
 ---
-nav_title: Produktsuche & Empfehlungen
+nav_title: Produktsuche und Empfehlungen
 config_only: true
 ---

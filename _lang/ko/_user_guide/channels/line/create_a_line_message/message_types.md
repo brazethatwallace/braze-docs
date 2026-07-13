@@ -15,7 +15,7 @@ alias: /line/create/message_types/
 
 > 이 문서에서는 작성할 수 있는 LINE 메시지 유형과 관련 사양 및 제한 사항을 다룹니다.
 
-LINE 메시지를 작성할 때 메시지 유형을 작성기로 드래그 앤 드롭한 다음 커스텀할 수 있습니다.
+LINE 메시지를 작성할 때 메시지 유형을 작성기로 드래그 앤 드롭한 다음 커스터마이징할 수 있습니다.
 
 ![텍스트, 이미지, 리치 메시지, 카드 기반 메시지 등 작성기 편집기로 드래그할 수 있는 메시지 유형이 표시된 메시지 유형 패널.]({% image_buster /assets/img/line/line_message_types.png %}){: style="max-width:40%;"}
 
@@ -32,7 +32,7 @@ LINE 텍스트 메시지는 최대 5,000자까지 포함할 수 있으며 이모
 
 ## 이미지 {#image}
 
-LINE 이미지 메시지는 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), URL 또는 Liquid를 통해 추가할 수 있습니다. 이러한 이미지는 독립형이며 클릭 가능한 링크를 포함하지 않습니다.
+LINE 이미지 메시지는 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), URL 또는 Liquid를 통해 추가할 수 있습니다. 이러한 이미지는 독립형이며 클릭 가능한 링크를 포함하지 않습니다.
 
 사용 사례:
 - 휴가지를 소개하여 사용자가 항공권 구매를 고려하도록 유도
@@ -45,15 +45,15 @@ LINE 이미지 메시지는 [미디어 라이브러리]({{site.baseurl}}/user_gu
 
 URL 이미지는 다음과 같은 사용 사례에 활용합니다:
 - 이미지 소스 속성에 Liquid를 포함하여 Liquid 동적 이미지를 사용합니다. 예를 들어, 이미지 URL로 {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %}를 삽입하여 이미지에 사용자의 이름을 포함할 수 있습니다.
-- [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)를 사용하여 웹 서버 또는 공개적으로 접근 가능한 API에서 직접 이미지를 가져옵니다.
-- [Braze 카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)를 사용하여 가져온 CSV 파일 및 API 엔드포인트에서 이미지에 접근합니다.
+- [연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)를 사용하여 웹 서버 또는 공개적으로 접근 가능한 API에서 직접 이미지를 가져옵니다.
+- [Braze 카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs)를 사용하여 가져온 CSV 파일 및 API 엔드포인트에서 이미지에 접근합니다.
 
 | **사양** | **권장 속성** |
 |--------------------------|----------------------------|
 | 이미지 파일 URL 길이 | 최대 2,000자  |
 | 이미지 형식          | PNG, JPEG             |
 | 파일 크기     |  최대 10&nbsp;MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL image" }
 
 ## 리치 메시지 (이미지 맵) {#rich-messages-image-map}
 
@@ -74,7 +74,7 @@ LINE 리치 메시지는 이미지의 특정 영역을 선택하면 열리는 �
 | 이미지 형식          | PNG(투명 가능), JPEG             |
 | 종횡비          | 1:1 (너비:높이)
 | 파일 크기     |  최대 10&nbsp;MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image map" }
 
 ### URI 링크 {#uri-link}
 
@@ -82,7 +82,7 @@ LINE 리치 메시지는 이미지의 특정 영역을 선택하면 열리는 �
 |--------------------------|----------------------------|
 | 글자 수      | 최대 1,000 |
 | 스킴              | HTTP, HTTPS, LINE, tel |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URI link" }
 
 ### 텍스트
 
@@ -106,7 +106,7 @@ LINE 카드 기반 메시지를 사용하면 사용자가 캐러셀처럼 여러
 | 열                  | 최대 10개 |
 | 종횡비             | 직사각형: 1.51:1 <br> 정사각형: 1:1  |
 | 제목                    | 최대 40자
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message" }
 
 
 ### 이미지
@@ -117,7 +117,7 @@ LINE 카드 기반 메시지를 사용하면 사용자가 캐러셀처럼 여러
 | 이미지 형식              | JPEG 또는 PNG |
 | 너비                     | 1,024픽셀  |
 | 파일 크기                 | 1 MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 
 ### 텍스트
@@ -126,4 +126,4 @@ LINE 카드 기반 메시지를 사용하면 사용자가 캐러셀처럼 여러
 |-------------------------|----------------------------|
 | 글자 수              | 최대 120자(이미지 또는 제목 없음) <br> 최대 60자(이미지 또는 제목이 포함된 메시지)  |
 | 동작                 | 최대 3개 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Text" }

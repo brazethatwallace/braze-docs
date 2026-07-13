@@ -2,7 +2,7 @@
 nav_title: Registro de correo electrónico con descuento
 article_title: Registro de correo electrónico con descuento
 alias: "/email_discount/"
-page_order: 3
+page_order: 4
 description: "Esta página de referencia explica cómo usar el editor de arrastrar y soltar de mensajes dentro de la aplicación para crear un formulario de registro de correo electrónico que ofrece un descuento a los nuevos suscriptores."
 ---
 
@@ -26,7 +26,7 @@ Al crear un mensaje dentro de la aplicación de arrastrar y soltar, selecciona *
 
 ### Paso 3: Personaliza tu componente de registro de correo electrónico {#step-3-customize-your-email-sign-up-component}
 
-Para empezar a crear tu formulario de registro de correo electrónico, selecciona el elemento de captura de correo electrónico en el editor. De forma predeterminada, las direcciones de correo electrónico recopiladas tendrán el grupo de suscripción global **Suscrito**. Para que los usuarios se adhieran a grupos de suscripción específicos, consulta [Actualización de los estados de suscripción de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states).
+Para empezar a crear tu formulario de registro de correo electrónico, selecciona el elemento de captura de correo electrónico en el editor. De forma predeterminada, las direcciones de correo electrónico recopiladas tendrán el grupo de suscripción global **Suscrito**. Para que los usuarios se adhieran a grupos de suscripción específicos, consulta [Actualización de los estados de suscripción de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states).
 
 Puedes personalizar el texto del marcador de posición y el texto de la etiqueta del elemento de captura de correo electrónico.
 
@@ -42,7 +42,7 @@ Puedes personalizar el texto del marcador de posición y el texto de la etiqueta
 
 ### Paso 5: Dale estilo a tu mensaje {#step-5-style-your-message}
 
-Personaliza la apariencia de tu formulario de registro y descuento usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastrar y soltar.
+Personaliza la apariencia de tu formulario de registro y descuento usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastrar y soltar.
 
 ## Análisis de los resultados {#analyzing-the-results}
 

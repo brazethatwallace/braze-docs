@@ -21,9 +21,9 @@ guide_featured_list:
     image: /assets/img/braze_icons/briefcase-01.svg
   - name: Étape Parcours d'audience
     link: /docs/user_guide/messaging/canvas/canvas_components/audience_paths
-    image: /assets/img/braze_icons/users-01.svg 
+    image: /assets/img/braze_icons/users-01.svg
   - name: Étape Audience Sync
-    link: /docs/partners/canvas_audience_sync/
+    link: /docs/partners/canvas_audience_sync
     image: /assets/img/braze_icons/refresh-ccw-02.svg
   - name: Étape Optimiseur de contenu
     link: /docs/user_guide/messaging/canvas/canvas_components/content_optimizer_step
@@ -54,11 +54,11 @@ guide_featured_list:
     image: /assets/img/braze_icons/user-check-01.svg
 ---
 
-## À propos des composants Canvas
+## À propos des composants Canvas {#about-canvas-components}
 
 Les composants Canvas vous permettent de créer de nouveaux parcours utilisateur pour optimiser vos processus et renforcer l'efficacité de vos communications.
 
-### Personnaliser les parcours utilisateur
+### Personnaliser les parcours utilisateur {#customizing-user-journeys}
 
 ![Exemple de parcours utilisateur Canvas avec une étape Arbre décisionnel suivie d'étapes de délai et d'étapes de message.]({% image_buster /assets/img/canvas_intro/canvas_intro.gif %}){: style="float:right;max-width:55%;margin-left:15px;"}
 
@@ -68,10 +68,10 @@ Les composants [Arbre décisionnel]({{site.baseurl}}/user_guide/messaging/canvas
 
 Les composants [Délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) vous permettent de retarder une étape individuelle de votre Canvas. Cette étape de délai autonome est idéale pour envoyer des messages à vos utilisateurs à un moment précis. De plus, les composants de délai peuvent élargir la portée de votre audience en laissant davantage de temps à vos utilisateurs pour remplir les critères du composant.
 
-### Tests
+### Tests {#testing}
 
 Lors de la création de vos parcours utilisateur, vous pouvez également tester quel chemin Canvas est le plus efficace. Grâce aux [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step), vous pouvez tester plusieurs chemins Canvas à n'importe quelle étape. Vous pouvez aussi utiliser les connexions entre les étapes comme aperçu général. Les connexions orange indiquent que l'étape précédente fait passer immédiatement les utilisateurs à l'étape suivante.
 
-### Intégration
+### Intégration {#integration}
 
-Vous souhaitez synchroniser les données first-party de votre marque ? Tirez parti des options d'audience sync disponibles pour [Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/) et [Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/).
+Vous souhaitez synchroniser les données first-party de votre marque ? Tirez parti des options d'Audience Sync disponibles pour [Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) et [Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync).

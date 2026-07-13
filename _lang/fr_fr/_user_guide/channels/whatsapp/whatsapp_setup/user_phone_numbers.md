@@ -17,7 +17,7 @@ Les numéros de téléphone sont affichés dans le profil utilisateur au format 
 
 ## Importation des numéros de téléphone {#importing-phone-numbers}
 
-Vous pouvez importer des numéros de téléphone en [chargeant un fichier CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv) ou [via l'API]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) pour créer un utilisateur.
+Vous pouvez importer des numéros de téléphone en [chargeant un fichier CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) ou [via l'API]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint) pour créer un utilisateur.
 
 ### Formatage {#formatting}
 
@@ -29,9 +29,9 @@ Tous les numéros américains doivent être des numéros de téléphone valides 
 
 Tous les numéros internationaux doivent commencer par un `+`, suivi de l'indicatif du pays puis du numéro de téléphone (par exemple `+442071838750`).
 
-![]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
+![Capture d'écran relative au formatage.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
 
-Cependant, pour garantir l'exactitude dans le cas où vous envoyez vers plusieurs régions avec des indicatifs de pays ou régionaux différents, il est recommandé d'utiliser le format `E.164`, même pour les numéros de téléphone basés aux États-Unis.
+Cependant, pour garantir la précision lorsque vous envoyez vers plusieurs régions avec des indicatifs de pays ou régionaux différents, il est recommandé d'utiliser le format `E.164`, même pour les numéros de téléphone basés aux États-Unis.
 
 Vous pouvez voir les différences entre le formatage local des numéros et le formatage universel `E.164` dans le tableau suivant :
 
@@ -40,11 +40,11 @@ Vous pouvez voir les différences entre le formatage local des numéros et le fo
 | États-Unis | `4155552671` | 1 | `+14155552671` |
 | Royaume-Uni | `02071838750` | 44 | `+442071838750` |
 | Brésil | `1155256325` | 55 | `+551155256325` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 reset-td-br-4}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Formatage" }
 
 ### Ajout d'utilisateurs à un groupe d'abonnement WhatsApp {#adding-users-to-whatsapp-a-subscription-group}
 
-Pour qu'un client puisse recevoir un message WhatsApp, il doit disposer d'un numéro de téléphone valide et avoir donné son consentement à un groupe d'abonnement. Pour en savoir plus, consultez la section [Groupes d'abonnement WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/).
+Pour qu'un client puisse recevoir un message WhatsApp, il doit disposer d'un numéro de téléphone valide et avoir donné son consentement à un groupe d'abonnement. Pour en savoir plus, consultez la section [Groupes d'abonnement WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 
 ### Plusieurs utilisateurs avec le même numéro de téléphone {#multiple-users-with-the-same-phone-number}

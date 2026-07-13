@@ -22,7 +22,7 @@ Nutzen Sie die Integration von MyPostcard und Braze, um Ihren Kund:innen mühelo
 | MyPostcard B2B-Konto           | Um die Vorteile dieser Integration zu nutzen, müssen Sie sich bei MyPostcard registrieren.                                          |
 | B2B-API-Schlüssel und Zugangsdaten        | Sie finden Ihren API-Schlüssel und die Zugangsdaten im MyPostcard B2B Admin Tool.                                         |
 | Genehmigte MyPostcard B2B-Kampagne | Um die Vorteile dieser Integration zu nutzen, müssen Sie eine Print-Mailing-Kampagne im MyPostcard B2B-Tool einrichten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -38,11 +38,7 @@ Um MyPostcard zu integrieren, [melden Sie sich an oder registrieren Sie sich](ht
 
 ### 1. Schritt: Erstellen Sie Ihr Braze-Webhook-Template {#step-1-create-your-braze-webhook-template}
 
-Erstellen Sie ein MyPostcard-Webhook-Template zur Verwendung in zukünftigen Campaigns oder Canvases, indem Sie auf der Braze-Plattform zu **Templates** > **Webhook-Templates** navigieren.
-
-{% alert note %}
-Wenn Sie die [ältere Navigation]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/) verwenden, gehen Sie zu **Engagement** > **Templates und Medien** > **Webhook-Templates**.
-{% endalert %}
+Um ein MyPostcard-Webhook-Template zur Verwendung in zukünftigen Campaigns oder Canvases zu erstellen, navigieren Sie auf der Braze-Plattform zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template** aus.
 
 Wenn Sie eine einmalige MyPostcard-Webhook-Campaign erstellen oder ein vorhandenes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus. Füllen Sie die folgenden Felder aus:
 
@@ -50,14 +46,15 @@ Wenn Sie eine einmalige MyPostcard-Webhook-Campaign erstellen oder ein vorhanden
 |---------------|-----------------------------------------------------------|
 | **Webhook URL** | Die Webhook-URL, wie sie im B2B Admin Tool angezeigt wird.             |
 | **Request Body** | Rohtext (JSON-Format, zu finden im B2B Admin Tool).        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your Braze webhook template" }
 
 #### Anfragemethode und Header {#request-method-and-headers}
 
 MyPostcard erfordert eine HTTP-Methode zusammen mit den folgenden HTTP-Headern, die in das Template aufgenommen werden müssen.
 
 {% raw %}
-<table>
+<table aria-label="Request method and headers">
+  <caption>Anfragemethode und Header</caption>
   <thead>
     <tr>
       <th><strong>Feld</strong></th>
@@ -74,7 +71,7 @@ MyPostcard erfordert eine HTTP-Methode zusammen mit den folgenden HTTP-Headern, 
       <td><code>{{ '&lt;username&gt;' }}</code></td>
     </tr>
     <tr>
-      <td><strong>Password</strong></td>
+      <td><strong>Passwort</strong></td>
       <td><code>{{ '&lt;password&gt;' }}</code></td>
     </tr>
     <tr>
@@ -84,7 +81,7 @@ MyPostcard erfordert eine HTTP-Methode zusammen mit den folgenden HTTP-Headern, 
   </tbody>
 </table>
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request method and headers" }
 
 #### Anfragetext {#request-body}
 
@@ -94,7 +91,7 @@ Kopieren Sie den Anfragetext, der im B2B Admin Tool angezeigt wird, und füllen 
 
 ### 2. Schritt: Vorschau Ihrer Anfrage {#step-2-preview-your-request}
 
-Sehen Sie sich als Nächstes eine Vorschau Ihrer Anfrage im Panel **Preview** an oder wechseln Sie zum Tab **Test**, wo Sie eine:n zufällige:n Nutzer:in, eine:n bestehende:n Nutzer:in oder eine:n angepasste:n Nutzer:in auswählen können, um Ihren Webhook zu testen. Vergessen Sie nicht, Ihr Template zu speichern, bevor Sie die Seite verlassen!
+Sehen Sie sich als Nächstes eine Vorschau Ihrer Anfrage im Panel **Vorschau** an oder wechseln Sie zum Tab **Test**, wo Sie eine:n zufällige:n Nutzer:in, eine:n bestehende:n Nutzer:in oder eine:n angepasste:n Nutzer:in auswählen können, um Ihren Webhook zu testen. Vergessen Sie nicht, Ihr Template zu speichern, bevor Sie die Seite verlassen!
 
 ![Tab „Webhook testen“ mit verschiedenen Feldern zur Validierung der Implementierung.]({% image_buster /assets/img/mypostcard/mypostcard_test.jpg %})
 

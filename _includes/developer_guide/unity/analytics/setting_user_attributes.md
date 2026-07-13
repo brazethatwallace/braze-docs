@@ -34,7 +34,7 @@ BrazeBinding.SetUserLastName("last name");
 {% endtab %}
 {% tab Email %}
 ```csharp
-BrazeBinding.SetUserEmail("email@email.com");
+BrazeBinding.SetUserEmail("user@example.com");
 ```
 {% endtab %}
 {% tab Gender %}
@@ -188,7 +188,7 @@ Both functions take `Appboy.Models.AppboyNotificationSubscriptionType` as argume
 | `OPTED_IN` | Subscribed, and explicitly opted in |
 | `SUBSCRIBED` | Subscribed, but not explicitly opted in |
 | `UNSUBSCRIBED` | Unsubscribed and/or explicitly opted out |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
 
 {% alert note %}
 No explicit opt-in is required by Windows to send users push notifications. When a user is registered for push, they are set to `SUBSCRIBED` rather than `OPTED_IN` by default. To learn more, check out our documentation on [implementing subscriptions and explicit opt-ins]({{site.baseurl}}/user_guide/message_building_by_channel/email/managing_user_subscriptions/#managing-user-subscriptions).
@@ -198,7 +198,7 @@ No explicit opt-in is required by Windows to send users push notifications. When
 |------------------------------------------|-------------|
 | `EmailNotificationSubscriptionType`      | Users will be set to `SUBSCRIBED` automatically upon receipt of a valid email address. However, we suggest that you establish an explicit opt-in process and set this value to `OPTED_IN` upon receipt of explicit consent from your user. Visit our [Changing User Subscriptions]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) doc for more details. |
 | `PushNotificationSubscriptionType`       | Users will be set to `SUBSCRIBED` automatically upon valid push registration. However, we suggest that you establish an explicit opt-in process and set this value to `OPTED_IN` upon receipt of explicit consent from your user. Visit our [Changing User Subscriptions]({{site.baseurl}}/user_guide/administrative/manage_your_users/managing_user_subscriptions/#changing-subscriptions) doc for more details. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Setting user subscriptions" }
 
 {% alert note %}
 These types fall under `Appboy.Models.AppboyNotificationSubscriptionType`.

@@ -16,13 +16,13 @@ In addition to supporting [core Shopify product data](#supported-shopify-catalog
 
 ## Set up your Shopify product sync {#set-up}
 
-If you have already installed your Shopify store, you can still sync your products by following the instructions below. 
+If you have already installed your Shopify store, you can still sync your products by following the instructions in this section. 
 
 ### Step 1: Turn on the sync
 
 You can sync your products to a Braze catalog through the Shopify install flow or on the Shopify partner page. 
 
-![Step 3 of the set up process with "Shopify Variant ID" as the "Catalog product identifier".]({% image_buster /assets/img/Shopify/sync_products_step1.png %})
+![Step 3 of the set up process with "Shopify Variant ID" as the "Catalog product identifier".]({% image_buster /assets/img/shopify/sync_products_step1.png %})
 
 ### Step 2: Select your product identifier
 
@@ -48,7 +48,7 @@ You can optionally enable syncing for product tags, Shopify Collections, and met
 Add product tags, Shopify Collections, and metafields in Shopify first. If they do not exist in Shopify, they will not appear in Braze.
 {% endalert %}
 
-![Settings to sync Shopify products and variants to Braze.]({% image_buster /assets/img/Shopify/additional_product_data.png %})
+![Settings to sync Shopify products and variants to Braze.]({% image_buster /assets/img/shopify/additional_product_data.png %})
 
 {% tabs global %}
 {% tab Product tags %}
@@ -56,25 +56,25 @@ Add product tags, Shopify Collections, and metafields in Shopify first. If they 
 1. On the **Sync product data to Braze** page, select the **Sync product tags** checkbox to open the **Select product tags** modal. 
 2. Select up to 20 product tags to sync to your Braze catalog. Only the tags you select will be synced.
 
-![Select product tags modal with a selection of tags.]({% image_buster /assets/img/Shopify/select_product_tags.png %}){: style="max-width:80%;"}
+![Select product tags modal with a selection of tags.]({% image_buster /assets/img/shopify/select_product_tags.png %}){: style="max-width:80%;"}
 
 {% endtab %}
 {% tab Product metafields %}
 
 1. If you have an existing Shopify integration, reauthorize the Braze Shopify app to install new required scopes to sync products. If you're a new customer, go to the next step.
 
-![Banner saying to reauthorize the Braze Shopify app.]({% image_buster /assets/img/Shopify/banner_to_reauthorize.png %})
+![Banner saying to reauthorize the Braze Shopify app.]({% image_buster /assets/img/shopify/banner_to_reauthorize.png %})
 
 {: start="2"}
 2. Select **Sync product metafields** to open the metafield configuration modal. 
 
-![Sync product data to Braze section with options to select from multiple settings, including collections.]({% image_buster /assets/img/Shopify/select_collections.png %})
+![Sync product data to Braze section with options to select from multiple settings, including collections.]({% image_buster /assets/img/shopify/select_collections.png %})
 
 {: start="3"}
 3. Select up to 20 of the searchable metafields to sync. Each becomes a separate column in your catalog to use in features like Catalog Selections or Segment Extensions. 
 - When naming metafields, note that spaces become "_" and all special characters are removed to account for Braze catalog field naming restrictions.
 
-![Modal to select product metafields.]({% image_buster /assets/img/Shopify/select_metafields.png %}){: style="max-width:80%;"}
+![Modal to select product metafields.]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
 
 {% subtabs %}
 {% subtab Supported metafields %}
@@ -93,7 +93,9 @@ Braze supports the following metafield objects some of their respective types.
 | `number_integer`                                 | Integer                                                |
 | `single_line_text_field`, `list.single_line_text_field` | String, Array of Strings                        |
 | `url`, `list.url`                                | String (URL), Array of Strings (URLs)                  |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `metaobject_reference`, `list.metaobject_reference` | String, Array of Strings                          |
+| `mixed_reference`, `list.mixed_reference`        | String, Array of Strings                               |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure additional product data (optional) #step-3" }
 
 {% endsubtab %}
 {% subtab Unsupported metafields %}
@@ -125,7 +127,7 @@ Braze does not support metafield objects, including some respective list types:
 Braze uses the Shopify Collection ID to identify synced collections, which are then used when building Catalog selections and segment filters. 
 {% endalert %}
 
-![Modal to select collections from a dropdown.]({% image_buster /assets/img/Shopify/selected_collections.png %}){: style="max-width:80%;"}
+![Modal to select collections from a dropdown.]({% image_buster /assets/img/shopify/selected_collections.png %}){: style="max-width:80%;"}
 
 {% endtab %}
 {% endtabs %}
@@ -140,11 +142,11 @@ After saving your configuration, Braze will begin syncing your products and upda
 
 You can leave the page once the sync is in progress; Braze sends you a dashboard notification when the sync completes. After the completion, the status updates to **Active** and you can view your products by selecting the catalog name on your Shopify partner page.
 
-![Integration settings page with a product sync status.]({% image_buster /assets/img/Shopify/track_sync_progress.png %})
+![Integration settings page with a product sync status.]({% image_buster /assets/img/shopify/track_sync_progress.png %})
 
 You can also view synced product tags, metafields, and collections within your Shopify catalog as new columns. 
 
-![Shopify catalog with synced data.]({% image_buster /assets/img/Shopify/synced_catalog.png %})
+![Shopify catalog with synced data.]({% image_buster /assets/img/shopify/synced_catalog.png %})
 
 {% alert important %}
 If your sync exceeds your catalog storage limit, Braze stops syncing and new product updates are no longer reflected. Contact your customer success manager to upgrade your tier if needed.
@@ -156,7 +158,7 @@ Each sync type has a summary card on the Shopify partner page showing the total 
 
 You can modify your Shopify product sync, including managing your product tags, collections, and product metafields at any time from the Shopify partner page.
 
-![Integration settings pag with an active product catalog sync.]({% image_buster /assets/img/Shopify/active_catalog_sync.png %})
+![Integration settings pag with an active product catalog sync.]({% image_buster /assets/img/shopify/active_catalog_sync.png %})
 
 {% alert important %}
 Changing your synced selections may affect active campaigns, Canvases, or catalog selections that reference them. Update active content so they work properly when you apply the changes.
@@ -189,7 +191,7 @@ Changing your synced selections may affect active campaigns, Canvases, or catalo
 | `product_tags`       | array          | `["Summer", "Sale", "New"]`<br><br>Requires product tag syncing.                 |
 | `collection_ids`     | array          | `[123456789012, 987654321098]` (Shopify collection IDs)<br><br>Requires Shopify collection syncing. |
 | `Metafield columns`  | Varies by type | Each synced metafield appears as a separate column named by its key. See [Supported metafields](#step-3) in the "Product metafields" tab of step 3 for information. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported Shopify catalog data" }
 
 {% alert warning %}
 Your Shopify catalog is managed by Shopify. To update your catalog, make changes directly in your Shopify store, and they will automatically sync to Braze. To delete your Shopify catalog, go to the Shopify partner page in Braze and [deactivate the sync](#deactivate).
@@ -214,18 +216,22 @@ Product tags are stored as an array field on each catalog item. To configure pro
 
 1. In Shopify, give relevant products in Shopify the product tag of "Women's".
 
-![A product type of "Women's - Sweaters" with the tags of "Women's", "Sweaters", and "Men".]({% image_buster /assets/img/Shopify/product_tag_womens.png %}){: style="max-width:40%;"}
+![A product type of "Women's - Sweaters" with the tags of "Women's", "Sweaters", and "Men".]({% image_buster /assets/img/shopify/product_tag_womens.png %}){: style="max-width:40%;"}
 
 {: start="2"}
 2. In Braze, enable tag syncing and select the "Women's" product tag.
 
-![Modal to select Shopify product tags, with 15 clothing-related tags selected, including "Women's".]({% image_buster /assets/img/Shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
+![Modal to select Shopify product tags, with 15 clothing-related tags selected, including "Women's".]({% image_buster /assets/img/shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
 
 ### Personalization
 
+{% alert note %}
+When referencing product tags or collections in catalog selections, use only the value itself without the array brackets `[]` or quotes `""` that appear in the catalog data. For example, if a product tag displays as `["Women's"]` in your catalog, write `Women's` in your selection filter.
+{% endalert %}
+
 1. Create a catalog selection that filters for products that have the respective product tag, such as "Women's". You can only use one unique array field within a single catalog selection, and up to 50 products in your catalog selection.
 
-![A catalog selection that filters for product tags that have the attribute "Women's".]({% image_buster /assets/img/Shopify/edit_product_tags_selection.png %})
+![A catalog selection that filters for product tags that have the attribute "Women's".]({% image_buster /assets/img/shopify/edit_product_tags_selection.png %})
 
 {: start="2"}
 2. In the message composer, add the selection where you want to template in the products from the catalog selection that are tagged with "Women's". For example, you could use an HTML product block like this:
@@ -287,7 +293,7 @@ Checkout the latest women's clothing:
 ```
 {% endraw %}
 
-![Push notification composer with a catalog selection pulling in three items with a product tag.]({% image_buster /assets/img/Shopify/add_personalization_product_tags.png %})
+![Push notification composer with a catalog selection pulling in three items with a product tag.]({% image_buster /assets/img/shopify/add_personalization_product_tags.png %})
 
 ### Catalog segmentation (SQL) 
 
@@ -332,18 +338,18 @@ Each synced metafield becomes a separate column in your catalog, with data type 
 
 1. In Shopify, set the `seasonal` product metafield on relevant products to `summer` (this is a metafield value, not a product tag).
 
-![Modal to add product metafields, including metafield seasonal with value summer.]({% image_buster /assets/img/Shopify/summer_product_metafield.png %}){: style="max-width:80%;"}
+![Modal to add product metafields, including metafield seasonal with value summer.]({% image_buster /assets/img/shopify/summer_product_metafield.png %}){: style="max-width:80%;"}
 
 {: start="2"}
 2. In Braze, enable metafield syncing and select `custom.seasonal` (or the namespace and key that match your Shopify metafield).
 
-![Modal to select product metafields, with an expanded dropdown that has four items selected, including custom.seasonal.]({% image_buster /assets/img/Shopify/select_metafields.png %}){: style="max-width:80%;"}
+![Modal to select product metafields, with an expanded dropdown that has four items selected, including custom.seasonal.]({% image_buster /assets/img/shopify/select_metafields.png %}){: style="max-width:80%;"}
 
 ### Personalization
 
 1. Create a [catalog selection]({{site.baseurl}}/catalog_selections/) that filters for metafields that include the respective value.
 
-![A catalog selection that filters for metafields that have the attribute summer.]({% image_buster /assets/img/Shopify/metafields_selection.png %})
+![A catalog selection that filters for metafields that have the attribute summer.]({% image_buster /assets/img/shopify/metafields_selection.png %})
 
 {: start="2"}
 2. In the message composer, add the selection where you want to template in product metafields. For example, you could use an HTML product block like this: 
@@ -405,7 +411,7 @@ Check out the latest summer products:
 ```
 {% endraw %}
 
-![Push notification composer with a catalog selection pulling in three items using a metafield-based selection.]({% image_buster /assets/img/Shopify/add_personalization_metafields.png %})
+![Push notification composer with a catalog selection pulling in three items using a metafield-based selection.]({% image_buster /assets/img/shopify/add_personalization_metafields.png %})
 
 ### Catalog segmentation (SQL) 
 
@@ -585,12 +591,12 @@ Use Shopify collections to pull curated product groupings into your messages tha
 
 1. In Shopify, create a "New Women's Products - In Stock" collection with your top-performing products.
 
-![List of Shopify collections, including "New Women's Products - In Stock".]({% image_buster /assets/img/Shopify/shopify_collections.png %})
+![List of Shopify collections, including "New Women's Products - In Stock".]({% image_buster /assets/img/shopify/shopify_collections.png %})
 
 {: start="2"}
 2. In Braze, enable collection syncing and select "Women's Products - In Stock".
 
-![Modal to select collections, with an extended dropdown that selects four collections.]({% image_buster /assets/img/Shopify/select_collections_id.png %})
+![Modal to select collections, with an extended dropdown that selects four collections.]({% image_buster /assets/img/shopify/select_collections_id.png %})
 
 {% alert note %}
 For Shopify collections, you must use the **Collection ID**, which is found in the URL when you view the collection. For example, a URL of `https://admin.shopify.com/store/se-team-ecommerce/collections/470645342446` has the Collection ID of `470645342446`.
@@ -598,10 +604,14 @@ For Shopify collections, you must use the **Collection ID**, which is found in t
 
 ### Personalization
 
+{% alert note %}
+When referencing collection IDs in catalog selections, use only the numeric ID value without the array brackets `[]` that appear in the catalog data. For example, if collection IDs display as `[123456789012, 987654321098]` in your catalog, write just the numeric ID (such as `470645342446`) in your selection filter.
+{% endalert %}
+
 1. Create a catalog selection named "New Women’s Products - In Stock" that is filtered with products that have that collection's ID. You can only use one unique array field within a single catalog selection, and up to 50 products in your collection.
  - You can also create your own custom selections by filtering with the **Collections** field.
 
-![A catalog selection that filters for collections that have the Collection ID attribute "470645342446".]({% image_buster /assets/img/Shopify/collections_selection.png %})
+![A catalog selection that filters for collections that have the Collection ID attribute "470645342446".]({% image_buster /assets/img/shopify/collections_selection.png %})
 
 {: start="2"}
 2. In your message, template in your collection by using your created selection or directly referencing the collection. For example, you could use an HTML product block like this: 
@@ -663,7 +673,7 @@ Checkout the latest women's clothing:
 ```
 {% endraw %}
 
-![Push notification composer with a catalog selection pulling in three items with a product tag.]({% image_buster /assets/img/Shopify/add_personalization_collections.png %})
+![Push notification composer with a catalog selection pulling in three items with a product tag.]({% image_buster /assets/img/shopify/add_personalization_collections.png %})
 
 ### Catalog segmentation (SQL) 
 
@@ -717,5 +727,5 @@ If your Shopify product sync runs into an error, it could be a result of the fol
 | Server Error | This occurs if there is a server error on Shopify’s side when we attempt to sync your products. | [Deactivate sync](#deactivate) and re-sync your entire inventory of products again. |
 | Duplicate SKU | This occurs if you use a SKU as your catalog item ID and have products with the same SKU. Because the catalog item ID must be unique, all your products must have unique SKUs. | Audit your full list of products and variants in Shopify to make sure that there are no duplicate SKUs. If there are duplicate SKUs, update these to be unique SKUs only in your Shopify store account. After this is corrected, [deactivate sync](#deactivate) and re-sync your entire inventory of products again. |
 | Catalog Limit Exceeded | This occurs if you exceed your catalog limit. Braze will be unable to finish the sync or keep the syncing active due to no more storage availability. | There are two solutions to this issue:<br><br>1. Contact your account manager to upgrade your tier to increase your catalog limit. <br><br>2. Free up storage space by deleting any of the following:<br>- Catalog items from other catalogs<br>- Other catalogs<br>- Selections created<br><br> After using either of the solutions, the sync must be deactivated and then re-synced. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Troubleshooting" }
 

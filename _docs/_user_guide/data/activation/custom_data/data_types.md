@@ -99,17 +99,17 @@ Administrators can also create custom attributes and mark them as PII from this 
 
 ### Adding descriptions
 
-You can add a description to a custom attribute after it's created if you have the `Manage Events, Attributes, Purchases` [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). Edit the custom attribute and input whatever you like, such as a note for your team.
+You can add a description to a custom attribute after it's created if you have the `Manage Events, Attributes, Purchases` [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions). Edit the custom attribute and input whatever you like, such as a note for your team.
 
 ### Adding tags
 
-You can add tags to a custom attribute after it's created if you have the "Manage Events, Attributes, Purchases" [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/). You can then use the tags to filter the list of attributes. 
+You can add tags to a custom attribute after it's created if you have the "Manage Events, Attributes, Purchases" [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions). You can then use the tags to filter the list of attributes. 
 
 ### Removing custom attributes
 
 There are two ways you can remove custom attributes from user profiles:
 
-* Select the custom attribute name to be removed in a [User Update step]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
+* Select the custom attribute name to be removed in a [User Update step]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
 * Set the `null` value in your API request to the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
 
 #### Setting the `null` value
@@ -145,19 +145,19 @@ The following lists methods across various platforms that are used to set custom
 
 {% details Expand for documentation by platform %}
 
-- [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
-- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
-- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
+- [Android and FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
+- [.NET MAUI (formerly Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
 
 ## Custom attribute storage
 
-All data stored on the **User Profile**, including custom attribute data, is retained indefinitely as long as each profile is [active]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
+All data stored on the **User Profile**, including custom attribute data, is retained indefinitely as long as each profile is [active]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users).
 
 ## Custom attribute data types
 
@@ -170,8 +170,8 @@ The following data types may be stored as custom attributes:
 - [Strings](#strings)
 - [Arrays](#arrays)
 - [Time](#time)
-- [Objects]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [Arrays of objects]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [Objects]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
+- [Arrays of objects]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
 ### Booleans (true/false) {#booleans}
 
@@ -184,13 +184,13 @@ For **Boolean** attributes, the following segmentation options are available.
 | Check if the boolean value **is** either true, false, true or not set, or false or not set | **IS**  | **TRUE**, **FALSE**, **TRUE OR NOT SET**, or **FALSE OR NOT SET** | If this filter specifies `coffee_drinker`, a user will match this filter in the following circumstances: <br> {::nomarkdown}<ul><li>If this filter is <code>true</code> and the user has the value <code>coffee_drinker</code></li><li>If this filter is <code>false</code> and the user doesn't have the value <code>coffee_drinker</code></li><li>If this filter is <code>true or not set</code> and the user has the value <code>coffee_drinker</code> or no value</li><li>If this filter is <code>false or not set</code> and the user doesn't have <code>coffee_drinker</code> or any value</li></ul>{:/} |
 | Check if the boolean value **exists** on a user's profile and is not null | **IS NOT BLANK**  | **N/A** | If this filter specifies `coffee_drinker` and a user has a value for the attribute `coffee_drinker`, the user will match this filter. |
 | Check if the boolean value **does not exist** on a user's profile or is null | **IS BLANK**  | **N/A** | If this filter specifies `coffee_drinker` and a user either doesn't have the attribute `coffee_drinker` or the value for `coffee_drinker` is null, the user will match this filter.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 {% endtab %}
 {% tab Numbers %}
 
 {% alert tip %}
-Money spent should not be recorded by this method. Rather it should be recorded via [purchase events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/).
+Money spent should not be recorded by this method. Rather it should be recorded via [purchase events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
 {% endalert %}
 
 For **Number** attributes, the following segmentation options are available.
@@ -203,7 +203,7 @@ For **Number** attributes, the following segmentation options are available.
 | Check if the numeric attribute **is less than** a **number**| **LESS THAN** | **NUMBER** | If this filter specifies `10` and a user profile has a value lesser than `10`, the user will match this filter. |
 | Check if the numeric attribute **exists** on a user's profile and is not null | **IS NOT BLANK** | **N/A** | If a user profile contains the specified numeric attribute, regardless of value, the user will match this filter. |
 | Check if the numeric attribute **does not exist** on a user's profile or is null | **IS BLANK** | **N/A** | If a user profile doesn't contain the specified numeric attribute or the attribute's value is null, the user will match this filter.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Booleans (true/false) #booleans" }
 
 #### Number attribute details
 
@@ -227,7 +227,7 @@ For **String** attributes, the following segmentation options are available.
 | Check if the string attribute **does not exactly match any** of the inputted strings | **IS NONE OF** |**STRING**<br>Case sensitive; multiple strings allowed (256 maximum) | If this filter specifies `book`, `bookmark`, and `reading light`, and a user profile doesn't contain any of those strings, the user will match the filter.|
 | Check if the string attribute **partially matches any** of the inputted strings | **CONTAINS ANY OF** | **STRING**<br>Case sensitive; multiple strings allowed (256 maximum) | If this filter specifies `gold` and a user profile contains `gold` in any string, such as `gold_tier` or `former_gold_tier`, the user will match the filter. |
 | Check if the string attribute **does not partially match any** of the inputted strings | **DOESN'T CONTAIN ANY OF** | **STRING**<br>Case sensitive; multiple strings allowed (256 maximum) | If this filter specifies `gold` and a user profile doesn't contain `gold` in any string, the user will match this filter.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% multi_lang_include alerts/note_alerts.md alert='Custom Attributes time attribute' %}
 
@@ -240,7 +240,7 @@ When segmenting using the **DOES NOT MATCH REGEX** filter, you must already have
 
 Arrays have a maximum size of 100&nbsp;KB. The default length for an attribute is up to 500 items (for example, if you're sending an attribute such as "Movies Watched" set to 500, when a user watches a 501st movie, the first movie is removed and the most recent is added). Note that if you input any values with spaces in between, before, or after words, Braze will also check for the same spaces.
 
-Array-type custom attributes cannot be imported via [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/). To upload array values, use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/cloud_ingestion/).
+Array-type custom attributes cannot be imported via [CSV import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import). To upload array values, use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) or [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/cloud_ingestion).
 
 {% alert note %}
 The option to increase the maximum length will not be available if the attribute is set to automatically detect the data type; the data type must be set to array.
@@ -261,12 +261,12 @@ For **Array** attributes, the following segmentation options are available.
 | Check if the array attribute **does not include a value which partially match any** of the inputted values | **VALUES DON'T CONTAIN ANY OF** | **STRING**<br>Case sensitive; multiple values allowed (256 maximum) | If this filter specifies `gold` and a user profile array doesn't contain `gold` in any strings, the user will match this filter. This means users with string values like `gold_tier` and `former_gold_tier` won't match this filter.|
 | Check if the array attribute **includes all** of the inputted values | **IS ALL OF** | **STRING**<br>Case sensitive; multiple values allowed (256 maximum) | If this filter specifies `sci-fi, fantasy, romance` and a user profile has all of those values, the user will match this filter. The user can also have `horror` or other values and match this filter.|
 | Check if the array attribute **does not include all of** the inputted values | **ISN'T ALL OF** | **STRING**<br>Case sensitive; multiple values allowed (256 maximum)|  If this filter specifies `sci-fi, fantasy, romance` and a user profile doesn't have all of those values, the user will match this filter.|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 {% alert tip %}
 For more on how to use regular expressions (regex), check out these resources:
 - [Perl compatible regular expressions (PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Regex with Braze]({{site.baseurl}}/user_guide/audience/segments/regex/)
+- [Regex with Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Regex debugger and tester](https://www.regex101.com/)
 - [Regex tutorial](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -296,7 +296,7 @@ For **Time** attributes, the following segmentation options are available.
 | Check if the time attribute is **less than X number** of **days in the future** | **IN LESS THAN** | **NUMBER OF DAYS IN FUTURE**  | If this filter specifies `7` and a user profile has a date that is less than seven days in the future, the user will match this filter.|
 | Check if the time attribute **exists** on a user's profile and is not null | **IS NOT BLANK** | **N/A** | If this filter specifies a time attribute that is on a user profile, the user will match this filter.|
 | Check if the time attribute **does not exist** on a user's profile or is null | **IS BLANK** | **N/A** | If this filter specifies a time attribute that isn't on a user profile, the user will match this filter. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Number attribute details" }
 
 #### Time attribute details
 
@@ -309,12 +309,12 @@ For **Time** attributes, the following segmentation options are available.
 {% endtab %}
 {% tab Objects %}
 
-You can use nested custom attributes to send objects as a data type for custom attributes. For more information, refer to [Nested custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+You can use nested custom attributes to send objects as a data type for custom attributes. For more information, refer to [Nested custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% endtab %}
 {% tab Arrays of objects %}
 
-Use an array of objects to group related attributes. For more details, refer to [Array of objects]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/).
+Use an array of objects to group related attributes. For more details, refer to [Array of objects]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects).
 
 {% endtab %}
 {% endtabs %}
@@ -331,7 +331,7 @@ We've consolidated the list of operators available to use in attribute filters, 
 | String | does not equal | is none of | At least 1 value |
 | Array | includes value | includes any of | At least 1 value |
 | Array | doesn't include value | includes none of | At least 1 value |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Consolidated operators #consolidated-operators" }
 
 ## Event property data types {#event-property-data-types}
 
@@ -345,19 +345,19 @@ Event-property-specific rules:
 
 - **Time (Datetime):** Use [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) or `yyyy-MM-dd'T'HH:mm:ss:SSSZ` format. Not supported within arrays.
 - **Array:** Datetimes are not supported within arrays.
-- **Nested object:** See [Nested objects]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects/).
+- **Nested object:** See [Nested objects]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 - **Payload:** Event property objects that contain array or object values can be up to 102,400 bytes (100&nbsp;KiB).
 
 You can change the data type of your custom event property, but be aware of the impacts of [changing data types](#changing-custom-attribute-or-event-data-type) after data has been collected.
 
-For full event property behavior, reserved keys, and usage in triggers and personalization, see [Custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/).
+For full event property behavior, reserved keys, and usage in triggers and personalization, see [Custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties).
 
 ## Purchase events and revenue {#purchase-events-and-revenue}
 
-Purchase and revenue data is recorded through [purchase events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/) or recommended eCommerce events.
+Purchase and revenue data is recorded through [purchase events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events) or recommended eCommerce events.
 
 {% alert note %}
-Recommended events have pre-defined schemas with set data types. For details, refer to [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/).
+Recommended events have pre-defined schemas with set data types. For details, refer to [eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 {% endalert %}
 
 Logging purchase events establishes the Lifetime Value (LTV) for each user profile, and this data is viewable on the revenue page in time-series. You can segment on money spent, last purchase date, number of purchases in a time window, and more.
@@ -368,7 +368,7 @@ Purchase event property values (the `properties` object on a purchase) support t
 
 {% include data_activation/purchase_event_property_data_types.md %}
 
-For the full purchase object schema and examples, see [Purchase object]({{site.baseurl}}/api/objects_filters/purchase_object/). For logging purchase events, segmentation filters, and full details, refer to [Purchase events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/).
+For the full purchase object schema and examples, see [Purchase object]({{site.baseurl}}/api/objects_filters/purchase_object). For logging purchase events, segmentation filters, and full details, refer to [Purchase events]({{site.baseurl}}/user_guide/data/activation/events/purchase_events).
 
 ## Changing custom attribute or event data type {#changing-custom-attribute-or-event-data-type}
 
@@ -382,7 +382,7 @@ To change the data type of a custom attribute or event:
 If you change the data type of a custom attribute or event (for example, changing `time` to `string`), consider the following:
 
 - **Filters are not automatically updated.** Segments, campaigns, Canvases, or other locations that use the changed attribute or event are not updated. Before you change the data type, stop any campaigns or Canvases that use the attribute in segments or filters, and remove the attribute from filters that reference it.
-- **Existing user data is not retroactively updated.** If the changed attribute was on a user profile before the change, that value remains the old data type. Users can fall out of segments that contain the changed attribute because the filter looks for the new data type. Update those user profiles (for example, with the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)) so they match the new type and re-enter the segment if needed.
+- **Existing user data is not retroactively updated.** If the changed attribute was on a user profile before the change, that value remains the old data type. Users can fall out of segments that contain the changed attribute because the filter looks for the new data type. Update those user profiles (for example, with the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track)) so they match the new type and re-enter the segment if needed.
 - **New data must match the new type.** API calls that send the previous data type for the changed attribute are not accepted. Send the new data type.
 
 {% alert important %}
@@ -401,7 +401,7 @@ Catalogs support the types listed in the [Definitions](#definitions) table. The 
 | Time | Date and time in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format or Unix timestamp in seconds. | ✅ Yes | ✅ Yes |
 | JSON object (Object) | Nested object with key-value pairs. Displayed in the platform but can only be created or updated through the API or CDI. | ❌ No | ✅ Yes |
 | String array (Array) | A list of strings. Displayed in the platform but can only be created or updated through the API or CDI. Maximum of 100 elements. | ❌ No | ✅ Yes |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog data types #catalog-data-types" }
 
 ### Format and examples
 
@@ -413,6 +413,6 @@ Catalogs support the types listed in the [Definitions](#definitions) table. The 
 | Number | Integer or decimal | <code>42</code> or <code>19.99</code> |
 | Object | JSON object | <code>{"key": "value", "price": 10}</code> |
 | Array | Array of strings | <code>["red", "blue", "green"]</code> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Format and examples" }
 
-For creating and updating catalogs, see [Create a catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create/).
+For creating and updating catalogs, see [Create a catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create).

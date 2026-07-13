@@ -16,13 +16,13 @@ description: "이 문서에서는 캠페인 세부 정보 내보내기 Braze 엔
 
 > 이 엔드포인트를 사용하여 `campaign_id`로 식별할 수 있는 지정된 캠페인에 대한 관련 정보를 검색할 수 있습니다.
 
-Canvas 데이터를 검색하려면 [Canvas 세부 정보 내보내기]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) 엔드포인트를 참조하세요.
+Canvas 데이터를 검색하려면 [Canvas 세부 정보 내보내기]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) 엔드포인트를 참조하세요.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#aad2a811-7237-43b1-9d64-32042eabecd9 {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `campaigns.details` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `campaigns.details` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -32,10 +32,10 @@ Canvas 데이터를 검색하려면 [Canvas 세부 정보 내보내기]({{site.b
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | 필수 | 문자열 | [캠페인 API 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요.<br><br> API 캠페인용 `campaign_id`는 대시보드 내의 [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) 페이지와 **Campaign Details** 페이지에서 찾을 수 있으며, [캠페인 목록 내보내기 엔드포인트](#campaign-list-endpoint)를 사용할 수도 있습니다. |
+| `campaign_id` | 필수 | 문자열 | [캠페인 API 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요.<br><br> API 캠페인용 `campaign_id`는 대시보드 내의 [API 키]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) 페이지와 **Campaign Details** 페이지에서 찾을 수 있으며, [캠페인 목록 내보내기 엔드포인트](#campaign-list-endpoint)를 사용할 수도 있습니다. |
 | `post_launch_draft_version` | 선택 사항 | 부울 | 출시 후 초안이 있는 메시지의 경우 이 값을 `true`로 설정하면 사용 가능한 모든 초안 변경 사항이 표시됩니다. 기본값은 `false`입니다. |
 | `include_has_translatable_content` | 선택 사항 | 부울 | `true`로 설정하면 API 응답에 각 메시지에 대한 `has_translatable_content` 필드가 포함됩니다. 기본값은 `false`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 {% raw %}
@@ -114,7 +114,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab In-app messages %}
+{% tab 인앱 메시지 %}
 
 응답 형식은 인앱 메시지 유형에 따라 다릅니다. 설문조사 인앱 메시지는 `type` 및 `data` 필드를 반환합니다. 다른 인앱 메시지 유형(슬라이드업, 모달, 전체화면)은 `name`, `message`, `extras` 필드를 반환합니다.
 
@@ -158,7 +158,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Push %}
+{% tab 푸시 %}
 
 ```json
 {
@@ -186,7 +186,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Webhook %}
+{% tab 웹훅 %}
 
 ```json
 {
@@ -233,7 +233,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Control messages %}
+{% tab 제어 메시지 %}
 
 ```json
 {
@@ -252,7 +252,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 
 
 {% tabs %}
-{% tab Clicks email %}
+{% tab 이메일 클릭 %}
 
 ```json
 {
@@ -262,7 +262,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Opens email %}
+{% tab 이메일 열기 %}
 
 ```json
 {
@@ -272,7 +272,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Makes purchase (any purchase) %}
+{% tab 구매(모든 구매) %}
 
 ```json
 {
@@ -282,7 +282,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Makes purchase (specific product) %}
+{% tab 구매(특정 제품) %}
 
 ```json
 {
@@ -293,7 +293,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 ```
 
 {% endtab %}
-{% tab Performs custom event %}
+{% tab 커스텀 이벤트 수행 %}
 
 ```json
 {
@@ -305,7 +305,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 
 
 {% endtab %}
-{% tab Upgrades app %}
+{% tab 앱 업그레이드 %}
 
 ```json
 {
@@ -315,7 +315,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 }
 ```
 {% endtab %}
-{% tab Uses app %}
+{% tab 앱 사용 %}
 
 ```json
 {
@@ -329,7 +329,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/detail
 {% endtabs %}
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}
 
 {% endapi %}

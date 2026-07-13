@@ -68,7 +68,7 @@ Não obstante o acima exposto, no caso de o Cliente enviar Mensagens para Celula
 
 ### Termos de exceção para uso de webhooks {#webhook-use-exception-terms}
 
-Aplicável a Clientes que contrataram Créditos de Mensagem em ou após 9 de dezembro de 2024 (conforme a Data de Vigência do Formulário de Pedido): as restrições descritas na Documentação de Conformidade do Canal de Webhooks não se aplicam ao uso de webhooks para envio de Mensagens para Celular por meio de uma plataforma de Prestador de Serviços Terceirizado.
+Aplicável a Clientes que contrataram Créditos de Ação em ou após 9 de dezembro de 2024 (conforme a Data de Vigência do Formulário de Pedido): as restrições descritas na Documentação de Conformidade do Canal de Webhooks não se aplicam ao uso de webhooks para envio de Mensagens para Celular por meio de uma plataforma de Prestador de Serviços Terceirizado.
 
 ### Bring Your Own (BYO) SMS Connector
 
@@ -102,7 +102,7 @@ Os seguintes termos adicionais se aplicam em relação ao uso do Canal do WhatsA
 
 ### Termos aplicáveis do prestador de serviços terceirizado {#applicable-third-party-provider-terms}
 
-O Cliente deve cumprir quaisquer pré-requisitos, termos e políticas aplicáveis ao Canal do WhatsApp, incluindo quaisquer termos exigidos pelo WhatsApp, LLC e suas afiliadas do grupo, conforme descrito na página de [configuração do WhatsApp](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp/overview/) da Braze.
+O Cliente deve cumprir quaisquer pré-requisitos, termos e políticas aplicáveis ao Canal do WhatsApp, incluindo quaisquer termos exigidos pelo WhatsApp, LLC e suas afiliadas do grupo, conforme descrito na página de [configuração do WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) da Braze.
 
 ### Termos de exceção para uso de webhooks
 
@@ -118,7 +118,7 @@ Os seguintes termos adicionais se aplicam em relação ao uso do Canal LINE pelo
 
 ### Pré-requisitos {#pre-requisites}
 
-Para enviar Mensagens pelo Canal LINE, os clientes devem obter uma Conta Oficial Verificada do LINE, que é aprovada e concedida pelo LINE a seu próprio critério. Os clientes devem garantir que obtenham uma Conta Oficial Verificada do LINE antes de adquirir Créditos de Mensagem da Braze para uso do Canal LINE.
+Para enviar Mensagens pelo Canal LINE, os clientes devem obter uma Conta Oficial Verificada do LINE, que é aprovada e concedida pelo LINE a seu próprio critério. Os clientes devem garantir que obtenham uma Conta Oficial Verificada do LINE antes de adquirir Créditos de Ação da Braze para uso do Canal LINE.
 
 ### Termos aplicáveis do prestador de serviços terceirizado
 

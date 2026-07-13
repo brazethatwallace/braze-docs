@@ -20,7 +20,7 @@ description: "이 문서에서는 사용자 지정 이벤트 목록 내보내기
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `events.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `events.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -31,9 +31,9 @@ description: "이 문서에서는 사용자 지정 이벤트 목록 내보내기
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | -------- | -------- | --------- | ----------- |
 | `page` | 선택 사항 | 정수 | 반환할 이벤트 이름의 페이지이며, 기본값은 0입니다(최대 250개의 첫 번째 집합을 반환합니다). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
@@ -55,10 +55,10 @@ curl --location --request GET 'https://rest.iad-01.braze.com/events/list?page=3'
 
 ### 심각한 오류 응답 코드 {#fatal-export}
 
-요청에 심각한 오류가 발생할 경우 반환되는 상태 코드 및 관련 오류 메시지는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors/#fatal-errors)을 참조하세요.
+요청에 심각한 오류가 발생할 경우 반환되는 상태 코드 및 관련 오류 메시지는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors#fatal-errors)을 참조하세요.
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 방문하세요.
+CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 방문하세요.
 {% endalert %}
 
 {% endapi %}

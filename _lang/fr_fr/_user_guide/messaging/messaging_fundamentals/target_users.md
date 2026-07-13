@@ -20,21 +20,21 @@ tool:
 Sous **Options de ciblage**, vous pouvez utiliser les options suivantes pour choisir les utilisateurs que vous souhaitez cibler pour votre campagne ou Canvas. Seuls les utilisateurs correspondant à vos critères définis recevront le message. Gardez à l'esprit que l'appartenance exacte à un segment est toujours calculée juste avant l'envoi du message.
 
 {% tabs local %}
-{% tab segment unique %}
+{% tab Segment unique %}
 Pour cibler les membres d'un segment précédemment créé, sélectionnez un segment dans le menu déroulant sous **Cibler des utilisateurs par segment**.
 {% endtab %}
 
-{% tab segments multiples %}
+{% tab Segments multiples %}
 Pour cibler les utilisateurs appartenant à plusieurs segments précédemment créés, ajoutez plusieurs segments depuis le menu déroulant sous **Cibler des utilisateurs par segment**. L'audience cible résultante sera composée des utilisateurs appartenant à la fois au premier segment, au deuxième segment, au troisième segment, etc.
 {% endtab %}
 
-{% tab filtres multiples %}
+{% tab Filtres multiples %}
 Pour cibler des utilisateurs sans ajouter de segment, vous pouvez utiliser une série de filtres. Il s'agit d'une audience ad hoc créée lors de la composition du message, ce qui vous permet de ne pas avoir à créer de segment pour les envois ponctuels.
 
 ![Filtres supplémentaires pour un message ciblant les utilisateurs ayant ouvert une application pour la dernière fois dans la journée, n'ayant jamais reçu de campagne ou d'étape du Canvas, et ayant effectué un achat il y a moins de 30 jours.]({% image_buster /assets/img_archive/additional_filters.png %}){: style="max-width:90%;"}
 {% endtab %}
 
-{% tab segments et filtres %}
+{% tab Segments et filtres %}
 Vous pouvez également cibler les utilisateurs d'un ou plusieurs segments précédemment créés qui correspondent aussi à des filtres supplémentaires. Après avoir sélectionné vos segments, vous pouvez affiner davantage votre audience dans la section **Filtres supplémentaires**. Ceci est illustré dans la capture d'écran suivante, qui cible les utilisateurs appartenant au segment « Utilisateurs actifs quotidiens », au segment « N'a jamais ouvert d'e-mail » et ayant effectué un achat il y a plus de 30 jours.
 
 ![Options de ciblage pour un message incluant deux segments et un filtre supplémentaire pour un dernier achat effectué il y a moins de 30 jours.]({% image_buster /assets/img_archive/target_segmenter.png %}){: style="max-width:90%;"}
@@ -55,7 +55,7 @@ Supposons que vous souhaitiez envoyer un message in-app uniquement aux applicati
 ![Un segment ciblant les utilisateurs d'une application spécifique, « Test_Android ».]({% image_buster /assets/img_archive/app_test_android.png %}){: style="max-width:60%;"}
 
 {: start="2"}
-2. Dans votre campagne ou Canvas, accédez à l'étape **Audiences cibles** et confirmez que votre segment est ajouté dans la section **Cibler des utilisateurs par segment**.
+2. Dans l'étape **Audiences cibles**, confirmez que votre segment est ajouté dans la section **Cibler des utilisateurs par segment**.
 
 ![L'étape « Audiences cibles » avec un exemple de segment sélectionné.]({% image_buster /assets/img_archive/target_users_by_segment_example.png %})
 
@@ -67,37 +67,37 @@ Cela ne fonctionnera pas si vous ajoutez votre segment dans la section **Filtres
 {% endtabs %}
 
 {% alert tip %}
-Pour les campagnes par e-mail, vous pouvez cibler des groupes initiateurs dans la section **Groupes initiateurs**. Notez que les groupes initiateurs ne sont pas disponibles pour les campagnes API, bien que vous puissiez inclure des groupes initiateurs via une entrée déclenchée par API dans une campagne. Pour plus d'informations, consultez [Groupes initiateurs]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#seed-groups).
+Pour les campagnes par e-mail, vous pouvez cibler des groupes initiateurs dans la section **Groupes initiateurs**. Notez que les groupes initiateurs ne sont pas disponibles pour les campagnes API, bien que vous puissiez inclure des groupes initiateurs via une entrée déclenchée par API dans une campagne. Pour plus d'informations, consultez [Groupes initiateurs]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups).
 {% endalert %}
 
 ### Étape 2 : Tester votre audience {#step-2-test-your-audience}
 
-Après avoir ajouté des segments et des filtres à votre audience, vous pouvez vérifier si votre audience est configurée comme prévu en [recherchant un utilisateur]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) pour confirmer s'il correspond aux critères de l'audience.
+Après avoir ajouté des segments et des filtres à votre audience, vous pouvez vérifier si votre audience est configurée comme prévu en [recherchant un utilisateur]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) pour confirmer s'il correspond aux critères de l'audience.
 
 ![La section « Recherche d'utilisateur » avec un bouton « Rechercher un utilisateur ».]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:70%"}
 
 #### Résumé de l'audience {#audience-summary}
 
-Le **Résumé de l'audience** affiche un aperçu des personnes composant votre audience cible. Ici, vous pouvez limiter davantage votre audience en définissant un plafond maximum d'utilisateurs ou en [limitant le débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) de la vitesse de distribution.
+Le **Résumé de l'audience** affiche un aperçu des personnes composant votre audience cible. Ici, vous pouvez limiter davantage votre audience en définissant un plafond maximum d'utilisateurs ou en [limitant le débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) de distribution.
 
-![La section « Résumé de l'audience » avec des options pour définir un plafond maximum d'utilisateurs ou limiter le débit de la vitesse de distribution.]({% image_buster /assets/img_archive/audience_summary.png %})
+![La section « Résumé de l'audience » avec des options pour définir un plafond maximum d'utilisateurs ou limiter le débit de distribution.]({% image_buster /assets/img_archive/audience_summary.png %})
 
 #### Test A/B {#ab-testing}
 
 Dans la section **Test A/B**, vous pouvez configurer un test pour comparer les réponses des utilisateurs à plusieurs versions de la même campagne marketing. Ces versions partagent des objectifs marketing similaires mais diffèrent par la formulation et le style. L'objectif est d'identifier la version de la campagne qui accomplit le mieux vos objectifs marketing.
 
-Pour plus d'informations et de bonnes pratiques, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+Pour plus d'informations et de bonnes pratiques, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 #### Statistiques de l'audience {#audience-statistics}
 
-Braze fournit des statistiques détaillées sur l'audience des canaux ciblés dans le pied de page. Plus votre base d'utilisateurs est importante, plus le nombre d'**utilisateurs pouvant être atteints** est susceptible d'être une estimation approximative. Le nombre d'utilisateurs pouvant être atteints peut diminuer si vous utilisez un [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group/) ou si vous configurez des critères d'éligibilité aux messages.
+Braze fournit des statistiques détaillées sur l'audience des canaux ciblés dans le pied de page. Plus votre base d'utilisateurs est importante, plus le nombre d'**utilisateurs pouvant être atteints** est susceptible d'être une estimation approximative. Le nombre d'utilisateurs pouvant être atteints peut diminuer si vous utilisez un [Groupe de contrôle global]({{site.baseurl}}/user_guide/audience/global_control_group) ou si vous configurez des critères d'éligibilité aux messages.
 
-- Pour déterminer un nombre précis d'utilisateurs pouvant être atteints, sélectionnez [Calculer les statistiques exactes]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#calculating-exact-statistics), car cette fonction parcourt chaque utilisateur de votre base.
+- Pour déterminer un nombre précis d'utilisateurs pouvant être atteints, sélectionnez [Calculer les statistiques exactes]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics), car cette fonction parcourt chaque utilisateur de votre base.
 - Pour voir quel pourcentage de votre base d'utilisateurs est ciblé ou la valeur vie client (LTV) pour ce segment, sélectionnez **Afficher les statistiques supplémentaires**.
 
 ##### Pourquoi le nombre de l'audience cible peut différer du nombre d'utilisateurs pouvant être atteints {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 
-{% multi_lang_include segments.md section='Differing audience size' %}
+{% multi_lang_include audience/segments.md section='Differing audience size' %}
 
 ![La section « Population totale » avec des estimations du nombre d'utilisateurs pouvant être atteints pour chaque canal ciblé.]({% image_buster /assets/img_archive/multi_channel_footer.png %})
 

@@ -17,11 +17,11 @@ channel:
 
 ## Allgemein {#general}
 
-### Was ist eine `app_id` im SMS-API-Objekt? {#what-is-an-appid-in-the-sms-api-object}
+### Was ist eine `app_id` im SMS-API-Objekt? {#what-is-an-app_id-in-the-sms-api-object}
 
 Der App-Bezeichner-API-Schlüssel oder die `app_id` ist ein Parameter, der Aktivitäten mit einer bestimmten App in Ihrem Workspace verknüpft. Er legt fest, mit welcher App innerhalb des Workspace Sie interagieren. Sie werden beispielsweise feststellen, dass Sie eine `app_id` für Ihre iOS-App, eine `app_id` für Ihre Android-App und eine `app_id` für Ihre Web-Integration haben.
 
-Sie finden Ihre `app_id`, indem Sie zu **Einstellungen** > **App-Einstellungen** navigieren und den Abschnitt **Identification** suchen.
+Sie finden Ihre `app_id`, indem Sie zu **Einstellungen** > **App Settings** navigieren und den Abschnitt **Identification** suchen.
 
 ### Was passiert, wenn mehrere Nutzer:innen dieselbe Telefonnummer haben? {#what-happens-if-multiple-users-have-the-same-phone-number}
 
@@ -58,7 +58,7 @@ Einige Nachteile dieses Ansatzes sind:
 
 ### Wie wird SMS abgerechnet? {#how-will-i-be-billed-for-sms}
 
-Neben den Gebühren für Short- und Langcodes stellt Braze ein Kontingent an SMS-Nachrichten für verschiedene Länder bereit. Das heißt, wir arbeiten mit Ihnen zusammen, um eine bestimmte Anzahl von Nachrichten-Segmenten für verschiedene Länder festzulegen, die Sie zum Senden von SMS-Campaigns verwenden. Die Abrechnung erfolgt nach der Anzahl der gesendeten Nachrichten-Segmente pro Land. Weitere Informationen zur Berechnung von Nachrichten-Segmenten finden Sie in unserem Leitfaden [Nachrichten-Segmente und Zeichenlimits]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/). Ihr Account Manager wird Sie kontaktieren, um Sie zu informieren, wenn Sie sich Ihrem Maximum nähern, und stellt relevante Berichte bereit, damit Sie informiert bleiben. Bei weiteren Fragen zu Mehrkosten wenden Sie sich an Ihre Braze-Vertretung.
+Neben den Gebühren für Short- und Langcodes stellt Braze ein Kontingent an SMS-Nachrichten für verschiedene Länder bereit. Das heißt, wir arbeiten mit Ihnen zusammen, um eine bestimmte Anzahl von Nachrichten-Segmenten für verschiedene Länder festzulegen, die Sie zum Senden von SMS-Campaigns verwenden. Die Abrechnung erfolgt nach der Anzahl der gesendeten Nachrichten-Segmente pro Land. Weitere Informationen zur Berechnung von Nachrichten-Segmenten finden Sie in unserem Leitfaden [Nachrichten-Segmente und Zeichenlimits]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Ihr Account Manager wird Sie kontaktieren, um Sie zu informieren, wenn Sie sich Ihrem Maximum nähern, und stellt relevante Berichte bereit, damit Sie informiert bleiben. Bei weiteren Fragen zu Mehrkosten wenden Sie sich an Ihre Braze-Vertretung.
 
 ### Unterscheiden sich die Preise für MMS und SMS? {#does-mms-and-sms-pricing-differ}
 
@@ -68,7 +68,7 @@ MMS und SMS haben unterschiedliche Kosten und werden separat nach Volumen abgere
 
 Obwohl wir nicht versprechen können, dass Sie nie Mehrkosten haben werden, können Sie diese Vorsichtsmaßnahmen befolgen, um die Wahrscheinlichkeit einer Überschreitung Ihrer zugewiesenen Limits zu verringern:
 
-- Achten Sie auf die Zeichenanzahl in Ihrer SMS. Unbeabsichtigt mehr als ein Segment zu senden, kann Mehrkosten verursachen. Weitere Details finden Sie in unserer [Segment-Aufschlüsselung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/).
+- Achten Sie auf die Zeichenanzahl in Ihrer SMS. Unbeabsichtigt mehr als ein Segment zu senden, kann Mehrkosten verursachen. Weitere Details finden Sie in unserer [Segment-Aufschlüsselung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Berechnen Sie Ihre SMS-Zeichen sorgfältig unter Berücksichtigung von Liquid oder Connected-Content. Der Braze-SMS-Composer in Ihrem Dashboard schätzt die Nutzung dieser Features nicht ein und berücksichtigt sie nicht.
 - Berücksichtigen Sie die Art der Kodierung, die Ihre Nachricht verwendet – wenn Ihre Nachricht GSM-7-Kodierung verwendet, können Sie in der Regel davon ausgehen, dass Sie eine Nachricht mit 128 Zeichen pro Nachrichten-Segment senden können. Wenn Ihre Nachricht [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set)-Kodierung verwendet, können Sie in der Regel davon ausgehen, dass Sie eine Nachricht mit 67 Zeichen pro Nachrichten-Segment senden können.
 - Testen, testen und nochmals testen! Testen Sie Ihre SMS-Nachrichten immer vor dem Start, insbesondere bei Verwendung von Liquid und Connected-Content.
@@ -94,9 +94,9 @@ Sie können jeden beliebigen Link in jede SMS-Campaign einfügen. Es gibt jedoch
 
 - Links können einen großen Teil des 160-Zeichen-Limits für SMS beanspruchen. Wenn Sie einen Link und Text einfügen, kann dies zu zwei SMS-Nachrichten statt nur einer führen.
 - Unternehmen verwenden häufig Link-Shortener, um die Auswirkung eines Links auf die Zeichenanzahl zu begrenzen. Wenn jedoch ein gekürzter Link über einen Langcode gesendet wird, können Carrier die Nachricht blockieren oder ablehnen, da sie die Link-Weiterleitung als verdächtig einstufen könnten.
-- Die Verwendung eines [Shortcodes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/) wäre der zuverlässigste Nummerntyp für das Einfügen von Links.
+- Die Verwendung eines [Shortcodes]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup) wäre der zuverlässigste Nummerntyp für das Einfügen von Links.
 
-Braze verfügt auch über ein eigenes Link-Shortening-Feature, das Links automatisch kürzt und Click-through-Analytics bereitstellt. Weitere Informationen finden Sie unter [Link-Shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/).
+Braze verfügt auch über ein eigenes Link-Shortening-Feature, das Links automatisch kürzt und Click-through-Analytics bereitstellt. Weitere Informationen finden Sie unter [Link-Shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening).
 
 ### Muss die Senderate für SMS-Nachrichten begrenzt werden? {#do-you-need-to-rate-limit-how-fast-you-send-sms-messages}
 
@@ -112,11 +112,11 @@ Bevor Sie SMS-Nachrichten mit URLs an Nutzer:innen in bestimmten Ländern senden
 2. Stellen Sie sicher, dass Sie (die Marke) eine Beziehung zu den Kund:innen haben.
 3. Stellen Sie sicher, dass der Inhalt für die Beziehung relevant ist und dem entspricht, wofür sich die/der Nutzer:in angemeldet hat.
 
-Weitere Richtlinien zur Vermeidung von Spam-Erkennung finden Sie unter [Richtlinien zu SMS-Gesetzen und -Vorschriften]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
+Weitere Richtlinien zur Vermeidung von Spam-Erkennung finden Sie unter [Richtlinien zu SMS-Gesetzen und -Vorschriften]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ### Wie viele Zeichen verbraucht ein Emoji? {#how-many-characters-does-an-emoji-use}
 
-Emojis können knifflig sein, da es keine standardmäßige Zeichenanzahl für alle Emojis gibt. Es besteht das Risiko, dass das Emoji das Zeichenlimit überschreitet und die SMS in mehrere Nachrichten aufteilt, obwohl sie im Braze-Composer als eine Nachricht angezeigt wird. Beim Testen Ihrer Nachrichten können Sie mit unserem [Segment-Rechner]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator) besser überprüfen, ob eine Nachricht aufgeteilt wird.
+Emojis können knifflig sein, da es keine standardmäßige Zeichenanzahl für alle Emojis gibt. Es besteht das Risiko, dass das Emoji das Zeichenlimit überschreitet und die SMS in mehrere Nachrichten aufteilt, obwohl sie im Braze-Composer als eine Nachricht angezeigt wird. Beim Testen Ihrer Nachrichten können Sie mit unserem [Segment-Rechner]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator) besser überprüfen, ob eine Nachricht aufgeteilt wird.
 
 ## Abo-Gruppen und Opt-in/Opt-out {#subscription-groups-and-opt-inopt-out}
 
@@ -130,7 +130,7 @@ Wie sieht das im Nutzerprofil aus? Die Abo-Gruppe wird auf 2 Striche (- -) zurü
 
 ### Wenn ein:e Nutzer:in abgemeldet ist und ein Keyword an unseren Short- und Langcode sendet, erhält er/sie die Antwort, die wir für dieses Keyword in Braze konfiguriert haben? {#if-a-user-is-opted-out-and-sends-a-keyword-to-our-short-and-long-code-do-they-receive-the-response-we-configured-for-that-keyword-in-braze}
 
-Wenn ein:e Nutzer:in abgemeldet ist und ein Keyword aus einer der [Standard-Keyword-Kategorien]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) sendet, erhält er/sie die Antwort für dieses Keyword. Wenn ein:e Nutzer:in abgemeldet ist und ein [angepasstes Keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/) sendet, erhält er/sie die Antwort für dieses Keyword nicht.
+Wenn ein:e Nutzer:in abgemeldet ist und ein Keyword aus einer der [Standard-Keyword-Kategorien]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) sendet, erhält er/sie die Antwort für dieses Keyword. Wenn ein:e Nutzer:in abgemeldet ist und ein [angepasstes Keyword]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling) sendet, erhält er/sie die Antwort für dieses Keyword nicht.
 
 ### Erfassen SMS-Event-Eigenschaften Keywords in einem Satz? {#will-sms-event-properties-capture-keywords-in-a-sentence}
 
@@ -144,11 +144,11 @@ Ja. Behalten Sie dies beim Testen von Nachrichten im Hinterkopf.
 
 ### Muss ein:e Nutzer:in Teil einer SMS-Abo-Gruppe sein, um SMS-Testnachrichten zu erhalten? {#does-a-user-need-to-be-part-of-an-sms-subscription-group-to-receive-sms-test-messages}
 
-Ja. Nutzer:innen müssen eine gültige Telefonnummer haben und Teil der SMS-Abo-Gruppe sein, die für den Testversand verwendet wird.
+Ja. Nutzer:innen müssen eine gültige Telefonnummer haben, Teil der SMS-Abo-Gruppe sein, die für den Testversand verwendet wird, und mindestens ein Land unter **Geographic Permissions** für SMS ausgewählt haben.
 
 ### Gibt es eine Möglichkeit zu sehen, ob ein Alias in einem Nutzerprofil existiert? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
-Aliase sind im Nutzerprofil nicht sichtbar. Sie müssten die [Nutzerdaten exportieren]({{site.baseurl}}/api/endpoints/export/)-Endpunkte verwenden, um zu bestätigen, dass Aliase gesetzt sind.
+Aliase sind im Nutzerprofil nicht sichtbar. Sie müssten die Endpunkte zum [Exportieren von Nutzerdaten]({{site.baseurl}}/api/endpoints/export) verwenden, um zu bestätigen, dass Aliase gesetzt sind.
 
 ## MMS
 
@@ -181,6 +181,23 @@ Darüber hinaus kann es in bestimmten Situationen erforderlich sein, dass Twilio
 
 ## RCS
 
+### Warum wird meine RCS-Nachricht auf iOS-Geräten nicht korrekt dargestellt? {#why-doesnt-my-rcs-message-render-accurately-on-ios-devices}
+
+RCS-Nachrichten können auf einem iOS-Gerät je nach Betriebssystem und Messaging-App unterschiedlich dargestellt werden. Auf iOS-Geräten können folgende Verhaltensweisen auftreten:
+
+- Vorgeschlagene Aktionen aus verschiedenen RCS-Nachrichten im selben Konversationsthread können gruppiert und in der falschen Reihenfolge angezeigt werden.
+- Rich-Card-Buttons und vorgeschlagene Aktionen, die sich außerhalb der Rich Card befinden, können auch nach dem Tippen auf einen Rich-Card-Button oder eine vorgeschlagene Aktion sichtbar bleiben.
+
+{% alert note %}
+Braze sendet den von Ihnen erstellten RCS-Payload, während der Messaging-Client steuert, wie vorgeschlagene Aktionen sortiert, gruppiert und ausgeblendet werden. Testen Sie RCS-Nachrichten – insbesondere solche, die Rich Cards mit vorgeschlagenen Aktionen oder vorgeschlagenen Antworten verwenden – unbedingt auf Android- und iOS-Geräten, bevor Sie sie senden.
+{% endalert %}
+
 ### Kann ich vorab aufgezeichnete Sprachnachrichten mit RCS senden? {#can-i-send-pre-recorded-voicemails-with-rcs}
 
 Ja, Sie können Mediennachrichten verwenden, um Audio-Dateien zu unterstützen.
+
+### Warum stimmen REST-API-SMS-Opt-ins nicht mit **Total Opt-Ins** in der SMS/MMS/RCS-Performance überein? {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
+
+**Total Opt-Ins** und **Total Opt-Outs** im Dashboard [SMS/MMS/RCS-Performance]({{site.baseurl}}/user_guide/analytics/dashboards) zählen Abo-Änderungen, die durch eingehende SMS-Keyword-Verarbeitung ausgelöst werden (z. B. wenn ein:e Nutzer:in ein Opt-in-Keyword an Ihren Shortcode sendet). Sie umfassen nicht jedes Abo-Update, das über die REST API, das Dashboard oder andere Quellen vorgenommen wird.
+
+Um Opt-ins und Opt-outs nach Quelle zu analysieren, verwenden Sie den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) auf `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` und filtern Sie nach `STATE_CHANGE_SOURCE` (z. B. **Rest API** versus **Inbound Message**).

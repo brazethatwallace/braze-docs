@@ -68,7 +68,7 @@ Sin perjuicio de lo anterior, en caso de que el cliente envíe mensajes móviles
 
 ### Términos de excepción para el uso de webhooks {#webhook-use-exception-terms}
 
-Aplicable a los clientes que se hayan suscrito a créditos de mensajes a partir del 9 de diciembre de 2024 (según la fecha de entrada en vigor del formulario de pedido): las restricciones descritas en la documentación de conformidad del canal de webhooks no se aplican al uso de webhooks para enviar mensajes móviles a través de una plataforma de proveedor externo.
+Aplicable a los clientes que se hayan suscrito a créditos de acción a partir del 9 de diciembre de 2024 (según la fecha de entrada en vigor del formulario de pedido): las restricciones descritas en la documentación de conformidad del canal de webhooks no se aplican al uso de webhooks para enviar mensajes móviles a través de una plataforma de proveedor externo.
 
 ### Conector SMS propio (BYO) {#bring-your-own-byo-sms-connector}
 
@@ -102,7 +102,7 @@ Los siguientes términos adicionales se aplican en relación con el uso del cana
 
 ### Términos aplicables del proveedor externo {#applicable-third-party-provider-terms}
 
-El cliente deberá cumplir con todos los requisitos previos, términos y políticas aplicables al canal WhatsApp, incluidos los términos requeridos por WhatsApp, LLC y sus empresas afiliadas, como se describe en la página de [configuración de WhatsApp](https://www.braze.com/docs/user_guide/message_building_by_channel/whatsapp/overview/) de Braze.
+El cliente deberá cumplir con todos los requisitos previos, términos y políticas aplicables al canal WhatsApp, incluidos los términos requeridos por WhatsApp, LLC y sus empresas afiliadas, como se describe en la página de [configuración de WhatsApp]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/overview/) de Braze.
 
 ### Términos de excepción para el uso de webhooks
 
@@ -118,7 +118,7 @@ Los siguientes términos adicionales se aplican en relación con el uso del cana
 
 ### Requisitos previos {#pre-requisites}
 
-Para enviar mensajes a través del canal LINE, los clientes deben obtener una cuenta oficial verificada de LINE, que es aprobada y otorgada por LINE a su entera discreción. Los clientes deben asegurarse de obtener una cuenta oficial verificada de LINE antes de adquirir créditos de mensajes de Braze para el uso del canal LINE.
+Para enviar mensajes a través del canal LINE, los clientes deben obtener una cuenta oficial verificada de LINE, que es aprobada y otorgada por LINE a su entera discreción. Los clientes deben asegurarse de obtener una cuenta oficial verificada de LINE antes de adquirir créditos de acción de Braze para el uso del canal LINE.
 
 ### Términos aplicables del proveedor externo
 
@@ -148,7 +148,6 @@ El cliente reconoce que los proveedores externos pueden revisar, examinar y/o el
 ## 7. Documentación de conformidad del archivado de mensajes y cifrado a nivel de campo {#message-archiving-and-field-level-encryption-compliance-documentation}
 
 ### Exención de responsabilidad
-
 El cliente reconoce que el uso del archivado de mensajes y/o el cifrado a nivel de campo (cada uno, la "**Característica**") puede afectar la velocidad de envío de los mensajes enviados a través de los servicios de Braze. Braze no será responsable de dicho impacto, y cualquier compromiso de velocidad de envío no se aplicará cuando el cliente esté utilizando la característica. La característica puede utilizarse para respaldar los esfuerzos de cumplimiento del cliente; sin embargo, el cliente reconoce que Braze no hace declaraciones ni garantías con respecto a si el uso de la característica en sí satisface las obligaciones de cumplimiento del cliente, y renuncia a toda responsabilidad en relación con ello.
 
 ## 8. Documentación de conformidad de la Consola de Agente {#agent-console-compliance-documentation}

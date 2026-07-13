@@ -31,7 +31,7 @@ Il s'agit d'un test distinct du score de confiance, qui décrit uniquement la pe
 
 ### Pourquoi la distribution des variantes n'est-elle pas uniforme ? {#why-isnt-the-variant-distribution-even}
 
-L'affectation des variantes est aléatoire à chaque envoi, de sorte que la répartition réelle peut ne pas correspondre exactement aux pourcentages que vous avez configurés, en particulier avec des échantillons de petite taille. Pour en savoir plus, consultez [Distribution des variantes]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution/).
+L'affectation des variantes est aléatoire à chaque envoi, de sorte que la répartition réelle peut ne pas correspondre exactement aux pourcentages que vous avez configurés, en particulier avec des échantillons de petite taille. Pour en savoir plus, consultez [Distribution des variantes]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/variant_distribution).
 
 ## Exécution et conclusion des tests {#running-and-concluding-tests}
 
@@ -57,7 +57,7 @@ Le même principe s'applique, car les chemins de Canvas qui suivent une expérie
 
 #### Puis-je effectuer des actions pour redistribuer les utilisateurs dans les campagnes et les Canvas ? {#can-i-take-actions-to-redistribute-users-in-campaigns-and-canvases}
 
-La seule façon de redistribuer les utilisateurs dans les Canvas est d'utiliser les [chemins aléatoires dans les Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/#step-1-choose-the-number-of-paths-and-audience-distribution), qui randomisent toujours l'affectation des chemins lorsque les utilisateurs entrent à nouveau dans le Canvas. Cependant, il ne s'agit pas d'une expérience standard et cela pourrait invalider les résultats de l'expérience, car le groupe de contrôle peut être contaminé par des utilisateurs du groupe de traitement.
+La seule façon de redistribuer les utilisateurs dans les Canvas est d'utiliser les [chemins aléatoires dans les Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#step-1-choose-the-number-of-paths-and-audience-distribution), qui randomisent toujours l'affectation des chemins lorsque les utilisateurs entrent à nouveau dans le Canvas. Cependant, il ne s'agit pas d'une expérience standard et cela pourrait invalider les résultats de l'expérience, car le groupe de contrôle peut être contaminé par des utilisateurs du groupe de traitement.
 
 ## Confiance et biais {#confidence-and-bias}
 
@@ -67,6 +67,8 @@ La confiance augmente avec le temps si toutes les autres conditions restent cons
 
 La confiance mesure le degré de certitude de Braze quant au fait que la variante est différente du contrôle. À mesure que davantage de messages sont envoyés, la puissance statistique du test augmente, ce qui renforce la confiance dans le fait que les différences de performance mesurées ne sont pas dues au hasard. En général, un échantillon plus large augmente notre confiance dans l'identification de petites différences de performance entre les variantes et le contrôle.
 
+Cependant, si les taux de conversion entre les variantes et le contrôle convergent (se rapprochent) à mesure que davantage de messages sont envoyés, la confiance peut diminuer, car l'écart mesuré qui vous intéresse se réduit, ce qui peut l'emporter sur l'avantage d'un échantillon plus large.
+
 ### L'affectation aux groupes de contrôle et de test peut-elle introduire un biais dans les tests ? {#can-control-and-test-group-assignments-introduce-bias-to-testing}
 
 Il n'existe aucun moyen pratique pour que les attributs ou comportements d'un utilisateur avant la création d'une campagne ou d'un Canvas particulier varient systématiquement entre les variantes et le contrôle.
@@ -75,4 +77,4 @@ Pour affecter les utilisateurs aux variantes de message, aux variantes de Canvas
 
 ### Pourquoi ne puis-je pas utiliser la limite de débit avec un groupe de contrôle ? {#why-cant-i-use-rate-limiting-with-a-control-group}
 
-Braze ne prend actuellement pas en charge la limite de débit avec les tests A/B comportant un groupe de contrôle. En effet, la limite de débit ne s'applique pas au groupe de contrôle de la même manière qu'aux variantes, ce qui introduit un biais. Envisagez plutôt d'utiliser la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), qui ajuste automatiquement le pourcentage d'utilisateurs recevant chaque variante en fonction des analyses et de la performance de la campagne.
+Braze ne prend actuellement pas en charge la limite de débit avec les tests A/B comportant un groupe de contrôle. En effet, la limite de débit ne s'applique pas au groupe de contrôle de la même manière qu'aux variantes, ce qui introduit un biais. Envisagez plutôt d'utiliser la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), qui ajuste automatiquement le pourcentage d'utilisateurs recevant chaque variante en fonction des analyses et de la performance de la campagne.

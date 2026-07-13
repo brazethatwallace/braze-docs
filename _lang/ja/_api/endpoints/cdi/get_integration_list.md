@@ -1,43 +1,43 @@
 ---
-nav_title: "取得:リストの統合"
-article_title: "取得:リスト統合"
-search_tag: エンドポイント
+nav_title: "GET: 統合一覧の取得"
+article_title: "GET: 統合一覧の取得"
+search_tag: Endpoint
 page_order: 1
 alias: /api/cdi/get_integration_list/
 layout: api_page
 page_type: reference
-description: "この記事では、「リスト統合」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「統合一覧の取得」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# リストの統合
+# 統合一覧の取得 {#list-integrations}
 {% apimethod get %}
 /cdi/integrations
 {% endapimethod %}
 
-> 既存の統合のリストを返すには、このエンドポイントを使う。
+> このエンドポイントを使用して、既存の統合の一覧を返します。
 
 
 {% alert note %}
-このエンドポイントを使用するには、`cdi.integration_list` 権限を持つ API キーを生成する必要があります。
+このエンドポイントを使用するには、`cdi.integration_list` 権限を持つAPIキーを生成する必要があります。
 {% endalert %}
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='cdi list integrations' %}
 
-## クエリーパラメーター
+## クエリパラメーター {#query-parameters}
 
-このエンドポイントを呼び出すと、10個のアイテムが返される。10を超える統合のあるリストについては、応答の例に示すように、`Link` ヘッダーを使用して次のページのデータを取得します。
+このエンドポイントへの各呼び出しでは、10件のアイテムが返されます。10件を超える統合があるリストについては、応答例に示すように、`Link` ヘッダーを使用して次のページのデータを取得してください。
 
-| パラメータ | 必須かどうか | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `cursor` | オプション | 文字列 | 統合リストのページネーションを決定する。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `cursor` | オプション | 文字列 | 統合リストのページネーションを決定します。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="クエリパラメーター" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 
-### カーソルなし
+### カーソルなし {#without-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations' \
@@ -45,7 +45,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-### カーソル付き
+### カーソル付き {#with-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations?cursor=c2tpcDow' \
@@ -53,14 +53,14 @@ curl --location --request GET 'https://rest.iad-03.braze.com/cdi/integrations?cu
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答
+## 応答 {#response}
 
-### 成功応答の例
+### 成功応答の例 {#example-success-response}
 
 ステータスコード `200` は、次の応答本文を返す可能性があります。
 
 {% alert note %}
-`Link` ヘッダーは、統合の合計が10以下の場合は存在しません。カーソルのない呼び出しでは、`prev` は表示されません。項目の最後のページを見ると、`next` は表示されません。
+統合の合計が10件以下の場合、`Link` ヘッダーは存在しません。カーソルなしの呼び出しでは、`prev` は表示されません。アイテムの最後のページを表示している場合、`next` は表示されません。
 {% endalert %}
 
 ```
@@ -88,15 +88,15 @@ Link: </cdi/integrations?cursor=c2tpcDow>; rel="prev",</cdi/integrations?cursor=
 }
 ```
 
-## トラブルシューティング
+## トラブルシューティング {#troubleshooting}
 
-次のテーブルに、返される可能性のあるエラーと、関連するトラブルシューティングステップを示します。
+次の表に、返される可能性のあるエラーと、関連するトラブルシューティングステップを示します。
 
 | エラー | トラブルシューティング |
 | --- | --- |
-| `400 Invalid cursor` | `cursor` が有効であることを確認します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `400 Invalid cursor` | `cursor` が有効であることを確認してください。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
-その他のステータスコードと関連するエラーメッセージについては、[致命的なエラー&応答]({{site.baseurl}}/api/errors/#fatal-errors)を参照のこと。
+その他のステータスコードと関連するエラーメッセージについては、[致命的なエラーと応答]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
 
 {% endapi %}

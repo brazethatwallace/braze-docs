@@ -21,8 +21,9 @@ Folgendes ist erforderlich, um Limbik mit Braze zu verwenden:
 | --- | --- |
 | Limbik `account_id` | Wenden Sie sich an Ihr Limbik-Kontoteam oder senden Sie eine GET-Anfrage an Limbiks `/rest/api/organizations`-Endpunkt. |
 | Limbik-Zugriffstoken (`access_token`) | Senden Sie eine POST-Anfrage an Limbiks `login`-Endpunkt und verwenden Sie den zurückgegebenen `access_token`-Wert als Bearer-Token im `Authorization`-Header. |
-| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit „Messages“-Berechtigungen. Erstellen Sie einen im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
+| Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit „Messages“-Berechtigungen. Erstellen Sie einen im Braze-Dashboard unter **Settings** > **API Keys**. |
 | Braze `campaign_id` | Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie eine Campaign aus. Falls die gewünschte Campaign noch nicht existiert, erstellen Sie eine und speichern Sie sie. Am Ende der Campaign-Seite finden Sie den Campaign-API-Bezeichner. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 Bevor Sie einen der Prognose-Endpunkte verwenden, müssen Sie zunächst ermitteln, auf welche Organisation (`account_id`) Sie Zugriff haben. Während die meisten Kund:innen nur eine Organisation haben, stehen einigen Konten möglicherweise mehrere Organisationen zur Verfügung.
 

@@ -2,7 +2,7 @@
 nav_title: Formulario de registro de SMS, RCS y WhatsApp
 article_title: Formulario de registro de SMS, RCS y WhatsApp
 alias: "/phone_number_capture/"
-page_order: 1
+page_order: 2
 description: "Esta página explica cómo crear un formulario de registro de SMS, RCS y WhatsApp con el editor de arrastrar y soltar de mensajes dentro de la aplicación."
 ---
 
@@ -44,7 +44,7 @@ De forma predeterminada, recopilamos números a nivel global; sin embargo, puede
 
 #### Números de teléfono no válidos {#invalid-phone-numbers}
 
-Si tus usuarios introducen un número de teléfono que incluye caracteres especiales no aceptados, verán un indicador de error genérico que no es personalizable y no podrán enviar el formulario. Puedes ver el comportamiento del error en la pestaña **Preview & Test** y en tu dispositivo de prueba. Consulta este artículo para saber [cómo Braze formatea los números de teléfono]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#importing-phone-numbers).
+Si tus usuarios introducen un número de teléfono que incluye caracteres especiales no aceptados, verán un indicador de error genérico que no es personalizable y no podrán enviar el formulario. Puedes ver el comportamiento del error en la pestaña **Preview & Test** y en tu dispositivo de prueba. Consulta este artículo para saber [cómo Braze formatea los números de teléfono]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers).
 
 ### Paso 4: Añade el texto de exención de responsabilidad (para formularios de registro de SMS y RCS) {#step-4-add-disclaimer-language-for-sms-and-rcs-sign-up-forms}
 
@@ -62,11 +62,11 @@ Hemos proporcionado un texto de exención de responsabilidad como marcador de po
 Esta documentación no pretende proporcionar, ni se puede confiar plenamente en ella como fuente de asesoramiento legal.
 {% endalert %}
 
-Para más información sobre el cumplimiento de SMS y RCS, consulta [Leyes y regulaciones para SMS, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
+Para más información sobre el cumplimiento de SMS y RCS, consulta [Leyes y regulaciones para SMS, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ### Paso 5: Dale estilo a tu mensaje {#step-5-style-your-message}
 
-Personaliza la apariencia de tu mensaje usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastrar y soltar.
+Personaliza la apariencia de tu mensaje usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastrar y soltar.
 
 ## Análisis de los resultados {#analyzing-the-results}
 

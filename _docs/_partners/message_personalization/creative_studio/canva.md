@@ -20,7 +20,7 @@ The Braze and Canva integration supports two export paths:
 | --- | --- |
 | **Image or design to Media Library** | Sends your design as an asset to the Braze media library. |
 | **Email design to Braze** | Publishes a Canva **Email** document as a Braze email template, including subject line metadata. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="About the integration" }
 
 ## Integrate Braze with Canva
 
@@ -44,6 +44,15 @@ For **email** exports, Canva may ask you to sign in again and approve additional
 
 Use this flow for standard Canva designs when you want a file in the Braze media library.
 
+The following videos show how to send designs from Canva to your Braze media library.
+
+Video: Open the Braze app in Canva and start a media library export.
+
+{% multi_lang_include video.html id="uf5krks2cx" source="wistia" %}
+
+Video: Choose a Braze workspace and complete the export to the media library.
+{% multi_lang_include video.html id="3d09tafx7c" source="wistia" %}
+
 1. From the **Apps** menu in your design, open the Braze app. If you aren't connected yet, select **Connect** and complete the steps in [Authorize your Braze account](#step-2-authorize-your-braze-account).
 2. Choose your destination workspace, optionally enter a filename, and select **Start Export**.
 
@@ -59,7 +68,7 @@ Use this flow for standard Canva designs when you want a file in the Braze media
 Use this flow when your Canva file is an **Email** design type. It publishes HTML to Braze as a template (similar metadata to the image flow, but you start from **Share** instead of **Apps**).
 
 1. In Canva, create or open an **Email** design. Build your message from scratch or use a Canva email template.
-2. Click **Share** in the upper right of the editor and select **Braze**. If Braze isn't listed, open **See more**, scroll to **More options** to find Braze.
+2. Click **Share** in the editor action bar and select **Braze**. If Braze isn't listed, open **See more**, scroll to **More options** to find Braze.
 
 ![More ways to publish in Canva with Braze under More options.]({% image_buster /assets/img/canva_integration/canva-share-more-options-braze.png %})
 

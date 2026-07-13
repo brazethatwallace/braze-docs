@@ -13,9 +13,9 @@ tool: Canvas
 guide_featured_title: "섹션 문서"
 guide_featured_list:
   - name: 시작 후 캔버스 편집
-    link: /docs/post-launch_edits/
+    link: /docs/post-launch_edits
     image: /assets/img/braze_icons/edit-05.svg
-  - name: 캔버스 초안 저장
+  - name: 캔버스 임시저장본 저장
     link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_drafts
     image: /assets/img/braze_icons/save-03.svg
   - name: 캔버스 버전 기록

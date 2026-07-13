@@ -57,4 +57,4 @@ braze.getUser().setEmail(<email address>);
 {: start="4"}
 4. Sur Braze, fusionnez les profils utilisateurs sur l'e-mail.
 
-Si vous rencontrez des profils utilisateurs en double, vous pouvez utiliser notre [outil de fusion en bloc]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/duplicate_users/#bulk-merging) pour vous aider à rationaliser vos données.
+Si vous rencontrez des profils utilisateurs en double, vous pouvez utiliser notre [outil de fusion en bloc]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/duplicate_users#bulk-merging) pour vous aider à rationaliser vos données.

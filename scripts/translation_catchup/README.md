@@ -2,7 +2,7 @@
 
 ## Steady state (default)
 
-When **Auto-translate** is wired for **push to `main`** (`_docs/**`, `_includes/**`) and the **weekday schedule**, routine English updates are picked up automatically after nightly **develop → main** deploys. You **do not** need this catch-up folder for day-to-day work.
+When **Auto-translate** is wired for **push to `main`** (`_docs/**`, `_includes/**`) and the **weekday schedule**, routine English updates are picked up automatically after nightly **snapshot deploy PRs** merge into `main`. You **do not** need this catch-up folder for day-to-day work.
 
 Use the steps below only when automation was **paused**, you need a **historical diff** (`since_commit`), or you want **smaller batched PRs** instead of one huge workflow run.
 

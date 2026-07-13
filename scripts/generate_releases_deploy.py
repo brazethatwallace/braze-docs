@@ -3,13 +3,19 @@
 Generate deploy PR + merged-contributor-PR lists for release notes.
 
 Requires: gh CLI, authenticated for braze-inc/braze-docs.
-Optional: git (for --auto-from-last-release-tag) to resolve the latest `v.*` tag.
+Optional: git to resolve the latest `v.*` tag (fetched by default).
 
 Examples:
   # From day after latest v.* tag through today (UTC) — default output path
-  python3 scripts/generate_releases_deploy.py --git-repo-root . --auto-from-last-release-tag
+  python3 scripts/generate_releases_deploy.py
 
-  # Explicit window (optional overrides)
+  # Custom output path (same auto window)
+  python3 scripts/generate_releases_deploy.py scripts/temp/my_deploy_list.md
+
+  # Explicit window
+  python3 scripts/generate_releases_deploy.py 2026-03-06 2026-04-02 "April 2026"
+
+  # Explicit window via flags
   python3 scripts/generate_releases_deploy.py \\
     --merged-search "2026-03-06..2026-04-02" \\
     --window-start "2026-03-06T00:00:00Z" \\
@@ -23,6 +29,7 @@ from __future__ import annotations
 import argparse
 import json
 import re
+import shutil
 import subprocess
 import sys
 from collections import defaultdict
@@ -30,6 +37,7 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 
 DEFAULT_REPO = "braze-inc/braze-docs"
+DATE_ONLY = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 SQUASH_END = re.compile(r"\(#(\d+)\)\s*$")
 MERGE_PR = re.compile(r"^Merge pull request #(\d+)\b", re.IGNORECASE)
@@ -128,6 +136,84 @@ def _run_git(cwd: str, *git_args: str) -> str:
     return r.stdout.strip()
 
 
+def require_gh() -> None:
+    if shutil.which("gh") is None:
+        sys.exit(
+            "Error: 'gh' (GitHub CLI) is required to run this command. On macOS, run:\n"
+            "  brew install gh\n"
+            "  gh auth login"
+        )
+
+
+def resolve_git_repo_root(explicit: str | None) -> Path:
+    if explicit and explicit != ".":
+        return Path(explicit).resolve()
+    for candidate in (Path.cwd(), Path(__file__).resolve().parent.parent):
+        try:
+            root = _run_git(str(candidate), "rev-parse", "--show-toplevel")
+            return Path(root)
+        except RuntimeError:
+            continue
+    return Path.cwd().resolve()
+
+
+def resolve_output_path(path: str, repo_root: Path) -> Path:
+    out = Path(path)
+    if out.is_absolute():
+        return out
+    return (repo_root / out).resolve()
+
+
+def fetch_release_tags(git_repo_root: Path) -> None:
+    for args in (
+        ["git", "fetch", "origin", "main", "--tags", "--quiet"],
+        ["git", "fetch", "origin", "--tags", "--quiet"],
+    ):
+        r = subprocess.run(
+            args,
+            cwd=str(git_repo_root),
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+        if r.returncode == 0:
+            return
+
+
+def apply_positional_args(
+    positional: list[str],
+    *,
+    repo_root: Path,
+    args: argparse.Namespace,
+) -> None:
+    if not positional:
+        return
+    if len(positional) == 1 and not DATE_ONLY.match(positional[0]):
+        args.output = str(resolve_output_path(positional[0], repo_root))
+        return
+    if len(positional) == 3:
+        start_date, end_date, month_title = positional
+        args.merged_search = f"{start_date}..{end_date}"
+        args.window_start = f"{start_date}T00:00:00Z"
+        args.window_end = f"{end_date}T23:59:59Z"
+        args.month_title = month_title
+        return
+    if len(positional) == 4:
+        start_date, end_date, month_title, output = positional
+        args.merged_search = f"{start_date}..{end_date}"
+        args.window_start = f"{start_date}T00:00:00Z"
+        args.window_end = f"{end_date}T23:59:59Z"
+        args.month_title = month_title
+        args.output = str(resolve_output_path(output, repo_root))
+        return
+    sys.exit(
+        "error: invalid positional arguments.\n"
+        "  Usage: python3 scripts/generate_releases_deploy.py\n"
+        "         python3 scripts/generate_releases_deploy.py <output.md>\n"
+        "         python3 scripts/generate_releases_deploy.py <start> <end> <month-title> [output.md]"
+    )
+
+
 def auto_window_from_last_v_tag(git_repo_root: str) -> tuple[str, str, str, str, date, date]:
     """
     Last v.* tag in the repo, then window starts the next calendar day (UTC) after that tag's
@@ -178,20 +264,26 @@ def auto_window_from_last_v_tag(git_repo_root: str) -> tuple[str, str, str, str,
 
 def main() -> None:
     p = argparse.ArgumentParser(description="Generate deploy + merged-PR markdown via gh.")
+    p.add_argument(
+        "positional",
+        nargs="*",
+        metavar="arg",
+        help="Optional: [output.md] or <start> <end> <month-title> [output.md]",
+    )
     p.add_argument("--repo", default=DEFAULT_REPO)
     p.add_argument(
         "--git-repo-root",
-        default=".",
-        help="Git repo used with --auto-from-last-release-tag (default: cwd)",
+        default=None,
+        help="Git repo used to resolve the latest v.* tag (default: auto-detect from cwd or script location)",
     )
     p.add_argument(
         "--auto-from-last-release-tag",
         action="store_true",
-        help="Set merged/window from latest v.* tag: day after tag commit → today (UTC)",
+        help="Set merged/window from latest v.* tag: day after tag commit → today (UTC); default when no explicit window is passed",
     )
     p.add_argument(
         "--merged-search",
-        help='e.g. "2026-03-06..2026-04-02" for gh --search (omit with --auto-from-last-release-tag)',
+        help='e.g. "2026-03-06..2026-04-02" for gh --search (omit for auto window from latest v.* tag)',
     )
     p.add_argument("--window-start", help="ISO UTC, inclusive")
     p.add_argument("--window-end", help="ISO UTC, inclusive")
@@ -201,12 +293,28 @@ def main() -> None:
         "-o",
         help="Output .md path (default: scripts/temp/releases_deploy_<start>_to_<end>.md)",
     )
+    p.add_argument(
+        "--no-fetch-tags",
+        action="store_true",
+        help="Skip git fetch origin --tags before resolving the latest v.* tag",
+    )
     args = p.parse_args()
+
+    require_gh()
+    repo_root = resolve_git_repo_root(args.git_repo_root)
+    args.git_repo_root = str(repo_root)
+    apply_positional_args(args.positional, repo_root=repo_root, args=args)
+
+    explicit_window = bool(args.merged_search or args.window_start or args.window_end)
+    if not explicit_window:
+        args.auto_from_last_release_tag = True
 
     start_day: date | None = None
     end_day: date | None = None
 
     if args.auto_from_last_release_tag:
+        if not args.no_fetch_tags:
+            fetch_release_tags(repo_root)
         ms, ws, we, mt, start_day, end_day = auto_window_from_last_v_tag(args.git_repo_root)
         args.merged_search = ms
         args.window_start = ws
@@ -216,17 +324,17 @@ def main() -> None:
     else:
         if not args.merged_search or not args.window_start or not args.window_end:
             p.error(
-                "Either pass --auto-from-last-release-tag or all of "
-                "--merged-search, --window-start, and --window-end"
+                "Pass an explicit window with --merged-search, --window-start, and --window-end, "
+                "or use positional <start> <end> <month-title>, or omit flags for the auto window."
             )
         if not args.month_title:
-            p.error("--month-title is required when not using --auto-from-last-release-tag")
+            p.error("--month-title is required when not using the auto window from the latest v.* tag")
 
     window_start = parse_window(args.window_start)
     window_end = parse_window(args.window_end)
 
     if not args.output:
-        root = Path(args.git_repo_root).resolve()
+        root = repo_root
         if start_day is None:
             start_day = window_start.date()
         if end_day is None:

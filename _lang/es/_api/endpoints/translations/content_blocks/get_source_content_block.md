@@ -15,13 +15,11 @@ description: "Este artículo describe los detalles sobre el punto de conexión d
 /content_blocks/translations/source
 {% endapimethod %}
 
-> Usa este punto de conexión para ver todas las fuentes de traducción predeterminadas de las etiquetas de traducción de un bloque de contenido. Estos son los valores dentro de {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulta [Configuraciones regionales en mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) para obtener más información sobre las características de traducción.
-
-{% include early_access_beta_alert.md feature='This endpoint' %}
+> Usa este punto de conexión para ver todas las fuentes de traducción predeterminadas de las etiquetas de traducción de un bloque de contenido. Estos son los valores dentro de {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. Consulta [Configuraciones regionales en mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `content_blocks.translations.get`.
+Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `content_blocks.translations.get`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -29,11 +27,11 @@ Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseur
 
 ## Parámetros de consulta {#query-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
-| `content_block_id` | Obligatoria | Cadena | El ID de tu bloque de contenido. |
+| `content_block_id` | Obligatorio | Cadena | El ID de tu bloque de contenido. |
 | `locale_id` | Opcional | Cadena | Un UUID de configuración regional para filtrar las respuestas. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de consulta" }
 
 {% alert note %}
 Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.

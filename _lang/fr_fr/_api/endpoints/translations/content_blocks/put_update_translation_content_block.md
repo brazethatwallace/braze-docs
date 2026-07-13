@@ -15,13 +15,11 @@ description: "Cet article présente en détail l'endpoint Mettre à jour la trad
 /content_blocks/translations
 {% endapimethod %}
 
-> Utilisez cet endpoint pour mettre à jour plusieurs traductions d'un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour en savoir plus sur les fonctionnalités de traduction.
-
-{% include early_access_beta_alert.md feature='This endpoint' %}
+> Utilisez cet endpoint pour mettre à jour plusieurs traductions d'un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) pour en savoir plus sur les fonctionnalités de traduction.
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `content_blocks.translations.update`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `content_blocks.translations.update`.
 
 ## Limite de débit {#rate-limit}
 
@@ -38,7 +36,7 @@ Cet endpoint ne comporte pas de paramètres de chemin.
 | `content_block_id` | Requis | Chaîne de caractères | L'ID de votre bloc de contenu. |
 | `locale_id` | Requis | Chaîne de caractères | L'ID (UUID) de la locale. |
 | `translation_map` | Requis | Objet | Objet contenant les nouvelles traductions. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}
 Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), qui peuvent être trouvés dans la réponse de l'endpoint GET.

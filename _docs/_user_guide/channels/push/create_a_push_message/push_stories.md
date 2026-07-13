@@ -15,8 +15,8 @@ channel:
 
 | Android Example (Expanded) | IOS Example (Expanded) |
 | :-----: | :----------: |
-| ![]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| ![Push stories Android preview.]({% image_buster /assets/img_archive/pushstories_android_preview.png %}) | ![Push stories iOS preview]({% image_buster /assets/img_archive/pushstories_ios_preview.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Push Stories" }
 
 {% alert note %}
 On iOS SDK versions 3.13.0+, due to a change in how the SDK downloads images, a thumbnail of the first image will not show on the condensed view of the push. Ensure that your message copy prompts users to expand the push to see the images.
@@ -31,11 +31,11 @@ The following SDK versions are required to receive Push Stories:
 
 ## How to use Push Stories
 
-![]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
+![Push stories composer dropdown]({% image_buster /assets/img_archive/pushstories_composer_dropdown2.png %}){: style="float:right;max-width:50%;margin-left:15px;margin-bottom:15px;"}
 
 To use Push Stories, do the following:
 
-1. Create a [push campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/).
+1. Create a [push campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 2. For your **Notification Type**, select **Push Stories**.
 3. Select **iOS** or **Android**. Note that if you select both for a push message, the option to create a Push Story won't appear. 
 
@@ -43,14 +43,13 @@ To use Push Stories, do the following:
 
 To create a page, perform the following steps:
 
-1. Click **Manage Pages** from the main composer.
-    <br><br>![]({% image_buster /assets/img_archive/pushstories_add_pages.png %}){: style="max-width:70%"}<br><br>
+1. Select **Add new page** from the main composer.
 2. Insert an image for each page, along with the click behavior for that image.
 3. If desired, add a **Title** and **Description** for each page. If you use a title and description for one page, they must be inserted for all pages.
 
 The previews will be reflected and are interactive.
 
-![]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
+![Push stories composer]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
 If you are pulling in images with [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content), ensure that your image URL begins with `https://`. Using `http://` will crash your app.
@@ -58,7 +57,7 @@ If you are pulling in images with [Connected Content]({{site.baseurl}}/user_guid
 
 ### Image and text specifications
 
-The following image and text specifications apply to the photo carousel portion of Push Stories. For information on the basic push that users interact with to activate the Push Story, refer to [Push message and image formats]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+The following image and text specifications apply to the photo carousel portion of Push Stories. For information on the basic push that users interact with to activate the Push Story, refer to [Push message and image formats]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).
 
 {% tabs %}
 {% tab Images %}
@@ -109,5 +108,4 @@ In certain situations where all the pages do not load, for example, due to a los
 
 #### Push Story doesn't dismiss after clicking the image 
 
-By default, Push Stories are not dismissed on Android after a user clicks on the image. If you'd like to dismiss the notification, call [`cancelNotification`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-notification-utils/index.html#-1466259649%2FFunctions%2F-1725759721).  
-
+By default, Push Stories are not dismissed on Android after a user clicks on the image. If you'd like to dismiss the notification, call [`cancelNotification`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.push/-braze-notification-utils/index.html#-1466259649%2FFunctions%2F-1725759721).

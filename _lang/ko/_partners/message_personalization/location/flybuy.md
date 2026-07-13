@@ -26,7 +26,7 @@ Flybuy는 풍부한 사용자 인텔리전스 이벤트를 Braze에 전달하여
 |---|---|
 | Flybuy 계정 | 하나 이상의 프로젝트가 있는 Flybuy 계정이 필요합니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키가 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -54,11 +54,11 @@ Flybuy는 로그인한 사용자에 대해 `loyalty_id`를 Braze `external_id`�
 
 커스텀 이벤트와 커스텀 속성을 사용하여 다양한 개인화된 경험을 구현할 수 있습니다.
 
-### 픽업 경험이 좋지 않았던 고객의 오디언스 Segment 구축 {#build-an-audience-segment-of-customers-who-had-a-bad-pickup-experience}
+### 픽업 경험이 좋지 않았던 고객의 오디언스 세그먼트 구축 {#build-an-audience-segment-of-customers-who-had-a-bad-pickup-experience}
 
 예를 들어, 픽업 경험을 별 5개 미만으로 평가한 모든 고객을 타겟팅합니다.
 
-![좋지 않은 픽업 경험에 대한 Segment]({% image_buster /assets/img/flybuy/flybuy1.png %})
+![좋지 않은 픽업 경험에 대한 세그먼트]({% image_buster /assets/img/flybuy/flybuy1.png %})
 
 ### 고객이 가상 픽업 구역에 진입할 때 알림 트리거 {#trigger-an-alert-when-a-customer-enters-a-virtual-pickup-area}
 
@@ -68,11 +68,11 @@ Flybuy는 로그인한 사용자에 대해 `loyalty_id`를 Braze `external_id`�
 
 ![고객이 가상 픽업 구역에 진입할 때 알림 트리거 메시지]({% image_buster /assets/img/flybuy/flybuy2a.png %})
 
-### 대기 시간이 길었던 고객의 오디언스 Segment 구축 {#build-an-audience-segment-of-customers-who-had-a-long-wait-time}
+### 대기 시간이 길었던 고객의 오디언스 세그먼트 구축 {#build-an-audience-segment-of-customers-who-had-a-long-wait-time}
 
 예를 들어, 가상 매장 구역을 나갈 때 대기 시간이 2분을 초과한 모든 고객을 타겟팅합니다.
 
-![대기 시간이 길었던 고객의 오디언스 Segment 구축]({% image_buster /assets/img/flybuy/flybuy3.png %})
+![대기 시간이 길었던 고객의 오디언스 세그먼트 구축]({% image_buster /assets/img/flybuy/flybuy3.png %})
 
 ### 고객이 잘못된 위치로 향할 때 경로 수정 알림 트리거 {#trigger-a-course-correction-alert-when-a-customer-is-headed-to-the-wrong-location}
 
@@ -82,7 +82,7 @@ Flybuy는 로그인한 사용자에 대해 `loyalty_id`를 Braze `external_id`�
 
 예를 들어, VIP 고객이 자주 방문하는 위치에 도착했을 때 특별 혜택을 전송합니다.
 
-### 주문에서 누락된 항목이 있었던 고객의 오디언스 Segment 구축 {#build-an-audience-segment-of-customers-who-were-missing-items-in-their-order}
+### 주문에서 누락된 항목이 있었던 고객의 오디언스 세그먼트 구축 {#build-an-audience-segment-of-customers-who-were-missing-items-in-their-order}
 
 예를 들어, 디지털 주문에서 항목이 누락되었다고 코멘트한 모든 고객을 타겟팅합니다.
 

@@ -1,21 +1,21 @@
-## À propos du SDK Flutter Braze
+## À propos du SDK Flutter Braze {#about-the-flutter-braze-sdk}
 
-Une fois le SDK Braze Flutter intégré sur Android et iOS, vous pourrez utiliser l'API Braze dans vos [applications Flutter](https://flutter.dev/) écrites en Dart. Ce plug-in offre des fonctionnalités d'analyse de base et vous permet d'intégrer des messages in-app et des cartes de contenu pour iOS et Android à l'aide d'une base de code unique.
+Une fois le SDK Braze Flutter intégré sur Android et iOS, vous pourrez utiliser l'API Braze dans vos [applications Flutter](https://flutter.dev/) écrites en Dart. Ce plug-in offre des fonctionnalités d'analyse de base et vous permet d'intégrer des messages in-app et des Content Cards pour iOS et Android à l'aide d'une base de code unique.
 
-## Intégration du SDK Flutter
+## Intégration du SDK Flutter {#integrating-the-flutter-sdk}
 
-### Conditions préalables
+### Conditions préalables {#prerequisites}
 
 Avant d'intégrer le SDK Braze Flutter, vous devez effectuer les opérations suivantes :
 
 | Prérequis | Description |
 | --- | --- |
-| Identifiant d'application API Braze | Pour trouver l'identifiant de votre application, rendez-vous dans **Paramètres** > **API et identifiants** > **Identifiants d'application**. Pour plus d'informations, consultez [Types d'identifiants API]({{site.baseurl}}/api/identifier_types/#app-identifier).|
-| Endpoint du SDK Braze | L'URL de votre endpoint SDK (par exemple, `sdk.<cluster>.braze.com`). Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).|
+| Identifiant d'application API Braze | Pour trouver l'identifiant de votre application, rendez-vous dans **Paramètres** > **API et identifiants** > **Identifiants d'application**. Pour plus d'informations, consultez [Types d'identifiants API]({{site.baseurl}}/api/identifier_types#app-identifier). |
+| Endpoint du SDK Braze | L'URL de votre endpoint SDK (par exemple, `sdk.<cluster>.braze.com`). Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 | SDK Flutter | Installez le [SDK Flutter](https://docs.flutter.dev/get-started/install) officiel et assurez-vous qu'il répond aux exigences de [la version minimale prise en charge](https://github.com/braze-inc/braze-flutter-sdk#requirements) par le SDK Braze Flutter. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-### Étape 1 : Intégrez la bibliothèque Braze
+### Étape 1 : Intégrez la bibliothèque Braze {#step-1-integrate-the-braze-library}
 
 Ajoutez le package du SDK Braze Flutter depuis la ligne de commande. Cela ajoutera la ligne appropriée à votre `pubspec.yaml`.
 
@@ -23,14 +23,14 @@ Ajoutez le package du SDK Braze Flutter depuis la ligne de commande. Cela ajoute
 flutter pub add braze_plugin
 ```
 
-### Étape 2 : Configuration complète du SDK natif
+### Étape 2 : Configuration complète du SDK natif {#step-2-complete-native-sdk-setup}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
 
-#### 2.1 Configurer Android
+#### 2.1 Configurer Android {#21-set-up-android} {#21-set-up-android}
 
-##### Fournir les identifiants à la compilation
+##### Fournir les identifiants à la compilation {#provide-credentials-at-compile-time}
 
 Créez un fichier `braze.xml` dans le dossier `android/res/values` de votre projet. La clé API et l'endpoint sont fournis au moment de l'exécution depuis Dart, ils ne sont donc pas requis dans ce fichier. Pour activer l'initialisation différée, ajoutez `com_braze_enable_delayed_initialization` au fichier :
 
@@ -42,7 +42,7 @@ Créez un fichier `braze.xml` dans le dossier `android/res/values` de votre proj
 </resources>
 ```
 
-##### Fournir les identifiants au moment de l'exécution
+##### Fournir les identifiants au moment de l'exécution {#provide-credentials-at-runtime}
 
 Vous pouvez également activer l'initialisation différée de manière programmatique dans votre `MainActivity.kt` :
 
@@ -64,7 +64,7 @@ Ajoutez les autorisations requises à votre fichier `AndroidManifest.xml` :
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-#### 2.2 Configurer iOS
+#### 2.2 Configurer iOS {#22-set-up-ios} {#22-set-up-ios}
 
 Dans votre méthode `application(_:didFinishLaunchingWithOptions:)` existante, ajoutez un appel à `BrazePlugin.configure(_:postInitialization:)` pour enregistrer votre configuration. L'instance Braze est créée ultérieurement lorsque `initialize()` est appelé depuis Dart. La clé API et l'endpoint ne sont pas définis ici.
 
@@ -140,9 +140,9 @@ Ajoutez le code suivant à votre fichier `AppDelegate.m` :
 {% endtab %}
 {% tab Flutter SDK 17.1.0 and earlier %}
 
-#### 2.1 Configurer Android
+#### 2.1 Configurer Android {#21-set-up-android-1}
 
-Pour vous connecter aux serveurs Braze, créez un fichier `braze.xml` dans le dossier `android/res/values` de votre projet. Collez le code suivant et remplacez la clé API d'identification et l'endpoint par vos valeurs :
+Pour vous connecter aux serveurs Braze, créez un fichier `braze.xml` dans le dossier `android/res/values` de votre projet. Collez le code suivant et remplacez la clé d'identification API et l'endpoint par vos valeurs :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -159,7 +159,7 @@ Ajoutez les autorisations requises à votre fichier `AndroidManifest.xml` :
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-#### 2.2 Configurer iOS
+#### 2.2 Configurer iOS {#22-set-up-ios-1}
 
 {% subtabs %}
 {% subtab SWIFT %}
@@ -235,7 +235,7 @@ static Braze *_braze = nil;
 {% endtab %}
 {% endtabs %}
 
-### Étape 3 : Configurez le plug-in
+### Étape 3 : Configurez le plug-in {#step-3-set-up-the-plugin}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
@@ -248,9 +248,9 @@ import 'package:braze_plugin/braze_plugin.dart';
 final BrazePlugin braze = BrazePlugin();
 ```
 
-Appelez ensuite `initialize()` avec votre clé API d'identifiant d'application et votre endpoint SDK pour créer l'instance Braze. Consultez les options ci-dessous pour savoir où appeler cette méthode dans votre application.
+Appelez ensuite `initialize()` avec votre clé API d'identifiant d'application et votre endpoint SDK pour créer l'instance Braze. Consultez les options ci-dessous pour savoir où appeler cette méthode dans le flux de votre application.
 
-#### Initialisation standard
+#### Initialisation standard {#standard-initialization}
 
 Pour initialiser le SDK au démarrage de votre application, appelez `initialize()` dans `initState()` :
 
@@ -262,7 +262,7 @@ void initState() {
 }
 ```
 
-#### Initialisation différée
+#### Initialisation différée {#delayed-initialization}
 
 Pour reporter l'initialisation du SDK à un moment ultérieur de la session — par exemple, après que l'utilisateur a donné son consentement ou s'est connecté — appelez `initialize()` lorsque vous êtes prêt :
 
@@ -274,10 +274,10 @@ void onUserConsent() {
 ```
 
 {% alert warning %}
-Les notifications push et les liens profonds reçus avant l'appel à `initialize()` ne sont pas traités sur iOS. Sur Android, les liens profonds provenant des notifications push ne sont pas résolus tant que le SDK attend d'être initialisé. Si votre application repose sur les notifications push ou les liens profonds au lancement, utilisez plutôt l'[initialisation standard](#standard-initialization).
+Les notifications push et les deep links reçus avant l'appel à `initialize()` ne sont pas traités sur iOS. Sur Android, les deep links provenant des notifications push ne sont pas résolus tant que le SDK attend d'être initialisé. Si votre application repose sur les notifications push ou les deep links au lancement, utilisez plutôt l'[initialisation standard](#standard-initialization).
 {% endalert %}
 
-#### Clés API spécifiques à chaque plateforme
+#### Clés API spécifiques à chaque plateforme {#platform-specific-api-keys}
 
 Étant donné que vos applications Android et iOS utilisent des clés API différentes, utilisez la détection de plateforme :
 
@@ -291,7 +291,7 @@ if (Platform.isAndroid) {
 }
 ```
 
-#### Réinitialisation
+#### Réinitialisation {#re-initialization}
 
 Vous pouvez appeler `initialize()` plusieurs fois pour réinitialiser le SDK avec une clé API et un endpoint différents en cours de session. Chaque appel détruit l'instance Braze précédente et en crée une nouvelle.
 
@@ -317,8 +317,9 @@ Afin d'éviter tout comportement indéfini, n'allouez et n'utilisez qu'une seule
 {% endtab %}
 {% endtabs %}
 
-## Test de l'intégration
-Vous pouvez vérifier que le SDK est correctement intégré en consultant les statistiques de session dans le tableau de bord. Si vous exécutez votre application sur l'une ou l'autre plateforme, vous devriez voir apparaître une nouvelle session dans le tableau de bord (dans la section **Aperçu**).
+## Test de l'intégration {#testing-the-integration}
+
+Vous pouvez vérifier que le SDK est correctement intégré en consultant les statistiques de session dans le tableau de bord. Si vous exécutez votre application sur l'une ou l'autre plateforme, vous devriez voir apparaître une nouvelle session dans le tableau de bord (dans la section **Overview**).
 
 Ouvrez une session pour un utilisateur spécifique en appelant le code suivant dans votre application.
 

@@ -2,13 +2,13 @@
 nav_title: "データ共有"
 article_title: Snowflake データ共有
 page_order: 0
-description: "このリファレンス記事では、Snowflake セキュアデータ共有の統合について説明します。この統合により、BrazeのエンゲージメントおよびCampaignデータにSnowflakeインスタンスから直接アクセスできます。"
+description: "このリファレンス記事では、Snowflake セキュアデータ共有の統合について説明します。この統合により、BrazeのエンゲージメントおよびキャンペーンデータにSnowflakeインスタンスから直接アクセスできます。"
 page_type: partner
 search_tag: Partner
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Snowflake データ共有 {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
+# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/snowflake-secure-data-sharing-via-braze/){: style="float:right;width:120px;border:0;" class="noimgborder"}Snowflake データ共有 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsnowflake-secure-data-sharing-via-braze-stylefloatrightwidth120pxborder0-classnoimgbordersnowflake-data-sharing}
 
 > Snowflakeの[セキュアデータ共有](https://docs.snowflake.net/manuals/user-guide/data-sharing-intro.html)を使用すると、一般的なデータプロバイダーとの関係で生じるワークフローの摩擦や遅延、障害点、不要なコストを心配することなく、BrazeのSnowflakeポータル上のデータに安全にアクセスできます。データ共有は、以下の統合または[Snowflakeリーダーアカウント]({{site.baseurl}}/user_guide/data/braze_currents/how_braze_uses_currents/#snowflake-reader-accounts)を通じて設定できます。
 
@@ -24,7 +24,7 @@ Snowflakeデータ共有は、Brazeデータディストリビューションの
 
 さらに、Snowflakeの組み込みロールと権限機能を使用することで、Brazeから共有されたデータへのアクセスは、Snowflakeアカウントおよびそのデータに対して既に設定されているアクセス制御を使用して管理・統制できます。アクセスは、自社データと同じ方法で制限および監視できます。
 
-- **インサイトまでの時間を短縮**<br>構築に数週間かかるETLプロセスに別れを告げましょう。BrazeとSnowflakeの独自のアーキテクチャにより、すべてのカスタマーエンゲージメントおよびCampaignデータは、データレイクに到着した瞬間からすぐにアクセスおよびクエリが可能です。データのコピーや移動は行われないため、最も関連性が高く最新の情報のみに基づいてカスタマーエクスペリエンスを提供できます。
+- **インサイトまでの時間を短縮**<br>構築に数週間かかるETLプロセスに別れを告げましょう。BrazeとSnowflakeの独自のアーキテクチャにより、すべてのカスタマーエンゲージメントおよびキャンペーンデータは、データレイクに到着した瞬間からすぐにアクセスおよびクエリが可能です。データのコピーや移動は行われないため、最も関連性が高く最新の情報のみに基づいてカスタマーエクスペリエンスを提供できます。
 - **データのサイロ化を解消**<br>チャネルやプラットフォーム全体で顧客の全体像を構築できます。データ共有により、Brazeのカスタマーエンゲージメントデータと他のすべてのSnowflakeデータの結合がこれまで以上に簡単になり、単一の信頼できる情報源からより豊富なインサイトを得ることができます。
 - **エンゲージメントの比較評価**<br>Brazeベンチマークを使用してカスタマーエンゲージメント戦略を最適化しましょう。BrazeとSnowflakeを活用したこのインタラクティブツールにより、チャネル、業界、デバイスプラットフォーム全体のベンチマークとブランドのエンゲージメントデータを比較できます。
 
@@ -36,7 +36,7 @@ Snowflakeのデータ共有の詳細については、[セキュアデータ共�
 | ----------- | ----------- |
 | Brazeへのアクセス | データ共有を設定するには、Brazeアカウントマネージャーまたはカスタマーサクセスマネージャーにお問い合わせください。 |
 | Snowflakeアカウント | `admin` 権限を持つSnowflakeアカウント。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## セキュアデータ共有の設定 {#setting-up-secure-data-sharing}
 
@@ -44,7 +44,7 @@ Snowflakeでは、データ共有は[データプロバイダー](https://docs.s
 
 ### ステップ1: Brazeからデータシェアを送信する {#step-1-send-the-datashare-from-braze}
 
-1. Brazeで、**パートナー連携** > **データ共有**に移動します。
+1. Brazeで、**Partner Integrations** > **Data Sharing**に移動します。
 2. Snowflakeアカウントの詳細とロケーターを入力します。アカウントロケーターを取得するには、送信先アカウントで `SELECT CURRENT_ACCOUNT()` を実行します。
 3. CRRシェアを使用している場合は、クラウドプロバイダーとリージョンを指定します。
 4. 完了したら、**Create Datashare**を選択します。これにより、データシェアがSnowflakeアカウントに送信されます。
@@ -77,7 +77,7 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下
 - 生のイベントまたはユーザーデータをCRM（Salesforceなど）にマッピング
 - その他
 
-[生のテーブルスキーマはこちらからダウンロードできます。]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %})
+[生のテーブルスキーマをダウンロードできます。](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)
 
 ### ユーザーIDスキーマ {#user-id-schema}
 
@@ -87,7 +87,7 @@ Currentsと同様に、Snowflakeセキュアデータ共有を使用して以下
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Brazeによって自動的に割り当てられるユニーク識別子です。 |
 | `external_id` | `"EXTERNAL_USER_ID"` | 顧客が設定するユーザープロファイルのユニーク識別子です。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ユーザーIDスキーマ" }
 
 ## 重要な情報と制限事項 {#important-information-and-limitations}
 

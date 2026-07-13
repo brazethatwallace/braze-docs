@@ -1,11 +1,15 @@
 # Nightly Release Deploy
 #
-# Creates a deploy PR (develop → main) on a schedule. Approval and merge are
-# done manually on the PR to satisfy branch protection rules.
+# Opens a deploy PR from a snapshot branch (cut from develop at run time) into main.
+# The PR body lists merges on the snapshot that are not on main, so new commits on
+# develop after the cut do not change this PR until a new nightly run supersedes it.
 #
-# Also triggers after the nightly sitemap update workflow completes (i.e., when
-# the sitemap PR is opened). This refreshes the deploy PR title and body for the
-# day. Note: sitemap lastmod changes land on develop only after that PR is merged.
+# If an older open auto-deploy-* PR already targets main, this workflow creates the new
+# PR first, then comments on the old PR, closes it, and deletes its remote head branch.
+#
+# Optional Slack (bot token): add secrets SLACK_BOT_TOKEN and SLACK_DEPLOY_NOTIFY_CHANNEL
+# (channel ID, e.g. C0123…). Invite the bot to the channel. Notifies on success (PR
+# opened or nothing to deploy) and failure. If secrets are unset, notifications are skipped.
 #
 name: Nightly Release Deploy
 
@@ -13,18 +17,18 @@ on:
   schedule:
     - cron: '0 8 * * 1-5' # 12am PT / 3am ET, Sun-Thu nights (Mon-Fri UTC)
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Nightly sitemap last-modified update"]
-    types: [completed]
+
+concurrency:
+  group: nightly-release-deploy
+  cancel-in-progress: false
 
 jobs:
   create-pr:
     runs-on: ubuntu-latest
-    # Run on schedule/dispatch always; on workflow_run only if the sitemap job succeeded.
-    if: >-
-      github.event_name != 'workflow_run' ||
-      github.event.workflow_run.conclusion == 'success'
-    # Opt into Node.js 24 for JS actions; avoids Node 20 deprecation failures
+    outputs:
+      deploy_status: ${{ steps.snapshot.outputs.status }}
+      pr_number: ${{ steps.snapshot.outputs.pr_number }}
+      pr_url: ${{ steps.snapshot.outputs.pr_url }}
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
     permissions:
@@ -32,53 +36,135 @@ jobs:
       pull-requests: write
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 
-      - name: Check for diff between develop and main
-        id: diff
-        run: |
-          git fetch origin main develop
-          if git diff --quiet origin/main..origin/develop; then
-            echo "No changes between develop and main. Skipping."
-            echo "skipped=true" >> "$GITHUB_OUTPUT"
-          else
-            echo "skipped=false" >> "$GITHUB_OUTPUT"
-          fi
-
-      - name: Generate deploy body text
-        if: steps.diff.outputs.skipped != 'true'
-        run: |
-          export PROJECT_ROOT="$GITHUB_WORKSPACE"
-          export PRIMARY_BRANCH="main"
-          mkdir -p "$PROJECT_ROOT/scripts/temp"
-          chmod +x "$PROJECT_ROOT/scripts/create_deploy_text.sh"
-          DEPLOY_TEXT=$("$PROJECT_ROOT/scripts/create_deploy_text.sh" || true)
-
-          if [ -z "$DEPLOY_TEXT" ]; then
-            DEPLOY_TEXT="No PR details available."
-          fi
-
-          echo "$DEPLOY_TEXT" > "$RUNNER_TEMP/deploy_body.txt"
-
-      - name: Create or find Pull Request
-        if: steps.diff.outputs.skipped != 'true'
+      - name: Snapshot branch, body, PR, supersede previous deploy PRs
+        id: snapshot
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          TITLE="Nightly Deploy — $(date -u +'%B %d, %Y')"
-          BODY=$(cat "$RUNNER_TEMP/deploy_body.txt")
-          EXISTING=$(gh pr list --base main --head develop --state open --json number --jq '.[0].number // empty')
+          set -euo pipefail
+          REPO="${{ github.repository }}"
+          RUN_ID="${{ github.run_id }}"
 
-          if [ -n "$EXISTING" ]; then
-            echo "Reusing existing PR #$EXISTING — updating title, body, and label."
-            gh pr edit "$EXISTING" --title "$TITLE" --body "$BODY" --add-label "Deploy"
-          else
-            gh pr create \
-              --base main \
-              --head develop \
-              --title "$TITLE" \
-              --body "$BODY" \
-              --label "Deploy"
+          git fetch origin main develop
+          if git diff --quiet origin/main..origin/develop; then
+            echo "No changes between develop and main. Skipping."
+            {
+              echo "status=skipped"
+              echo "pr_number="
+              echo "pr_url="
+            } >> "$GITHUB_OUTPUT"
+            exit 0
           fi
+
+          BRANCH="auto-deploy-$(date -u +'%Y-%m-%d')-${RUN_ID}"
+
+          OLD_JSON=$(gh pr list --repo "$REPO" --base main --state open \
+            --json number,headRefName \
+            --jq '[.[] | select(.headRefName | startswith("auto-deploy-"))]')
+
+          git checkout -B "$BRANCH" origin/develop
+          git push origin "$BRANCH"
+
+          export PROJECT_ROOT="$GITHUB_WORKSPACE"
+          export PRIMARY_BRANCH="main"
+          export DEPLOY_SOURCE_BRANCH="$BRANCH"
+          mkdir -p "$PROJECT_ROOT/scripts/temp"
+          chmod +x "$PROJECT_ROOT/scripts/create_deploy_text.sh"
+          DEPLOY_TEXT=$("$PROJECT_ROOT/scripts/create_deploy_text.sh" || true)
+          if [ -z "$DEPLOY_TEXT" ]; then
+            DEPLOY_TEXT="No PR details available."
+          fi
+          BODY_FILE="$RUNNER_TEMP/deploy_body.txt"
+          echo "$DEPLOY_TEXT" > "$BODY_FILE"
+
+          TITLE="Nightly Deploy — $(date -u +'%B %d, %Y')"
+          BODY=$(cat "$BODY_FILE")
+
+          gh pr create --repo "$REPO" \
+            --base main \
+            --head "$BRANCH" \
+            --title "$TITLE" \
+            --body "$BODY" \
+            --label "Deploy"
+
+          NEW_NUM=$(gh pr list --repo "$REPO" --base main --head "$BRANCH" --state open \
+            --json number --jq '.[0].number // empty')
+          if [ -z "$NEW_NUM" ]; then
+            echo "Could not resolve PR number for head $BRANCH"
+            exit 1
+          fi
+
+          mapfile -t old_pr_lines < <(echo "$OLD_JSON" | jq -r '.[] | "\(.number) \(.headRefName)"')
+          for line in "${old_pr_lines[@]}"; do
+            [ -z "$line" ] && continue
+            read -r old_num old_ref <<< "$line"
+            if [ "$old_ref" = "$BRANCH" ]; then
+              continue
+            fi
+            gh pr comment --repo "$REPO" "$old_num" \
+              --body "Superseded by #${NEW_NUM}. This deploy PR was replaced by a newer snapshot cut from \`develop\`." \
+              || echo "Warning: could not comment on PR #${old_num} (continuing)."
+            gh pr close --repo "$REPO" "$old_num" \
+              || echo "Warning: could not close PR #${old_num} (may already be closed; continuing)."
+            git push origin ":refs/heads/${old_ref}" || echo "Note: could not delete origin/${old_ref} (may already be gone)."
+          done
+
+          PR_URL="https://github.com/${REPO}/pull/${NEW_NUM}"
+          {
+            echo "status=created"
+            echo "pr_number=${NEW_NUM}"
+            echo "pr_url=${PR_URL}"
+          } >> "$GITHUB_OUTPUT"
+
+  notify:
+    name: Slack notification
+    needs: create-pr
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post Nightly Release Deploy result to Slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+          SLACK_DEPLOY_NOTIFY_CHANNEL: ${{ secrets.SLACK_DEPLOY_NOTIFY_CHANNEL }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          DEPLOY_STATUS: ${{ needs.create-pr.outputs.deploy_status }}
+          PR_URL: ${{ needs.create-pr.outputs.pr_url }}
+          PR_NUMBER: ${{ needs.create-pr.outputs.pr_number }}
+          JOB_RESULT: ${{ needs.create-pr.result }}
+        run: |
+          set -euo pipefail
+          if [ -z "${SLACK_BOT_TOKEN:-}" ] || [ -z "${SLACK_DEPLOY_NOTIFY_CHANNEL:-}" ]; then
+            echo "Slack not configured (set SLACK_BOT_TOKEN and SLACK_DEPLOY_NOTIFY_CHANNEL); skipping."
+            exit 0
+          fi
+
+          if [ "$JOB_RESULT" = "failure" ]; then
+            TEXT=":x: *Nightly Release Deploy* failed\n${RUN_URL}"
+          elif [ "$DEPLOY_STATUS" = "skipped" ]; then
+            TEXT=":white_check_mark: *Nightly Release Deploy* — no PR (no diff between \`develop\` and \`main\`)\n${RUN_URL}"
+          elif [ "$DEPLOY_STATUS" = "created" ] && [ -n "$PR_URL" ]; then
+            TEXT=":white_check_mark: *Nightly Release Deploy* — opened PR <${PR_URL}|#${PR_NUMBER}>"
+          else
+            TEXT="*Nightly Release Deploy* finished (result: ${JOB_RESULT}, status: ${DEPLOY_STATUS:-unknown})\n${RUN_URL}"
+          fi
+
+          PAYLOAD=$(jq -n \
+            --arg ch "$SLACK_DEPLOY_NOTIFY_CHANNEL" \
+            --arg text "$TEXT" \
+            '{
+              channel: $ch,
+              unfurl_links: false,
+              blocks: [{type: "section", text: {type: "mrkdwn", text: $text}}]
+            }')
+
+          RESP=$(curl -sS -X POST https://slack.com/api/chat.postMessage \
+            -H "Authorization: Bearer ${SLACK_BOT_TOKEN}" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d "$PAYLOAD")
+
+          echo "$RESP" | jq .
+          echo "$RESP" | jq -e '.ok == true' >/dev/null

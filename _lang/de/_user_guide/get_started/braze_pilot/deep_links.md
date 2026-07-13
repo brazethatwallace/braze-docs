@@ -8,7 +8,7 @@ description: "Dieser Referenzartikel beschreibt kurz die erforderlichen Integrat
 
 # Navigations-Deeplinks in Braze Pilot {#navigation-deep-links-in-braze-pilot}
 
-> Braze Pilot unterstützt Deeplinking von Braze-Messaging zu bestimmten Bereichen der Pilot-App. So können Sie Engagement-Anwendungsfälle erstellen und Nutzer:innen in verschiedene Bereiche der Pilot-Anwendung leiten. Sie können auch optionale Deeplink-Parameter verwenden, um den Inhalt bestimmter Seiten in der App für die Nutzer:innen anzupassen. Weitere Informationen zum Deeplinking finden Sie unter [Deeplinking zu In-App-Inhalten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+> Braze Pilot unterstützt Deeplinking von Braze-Messaging zu bestimmten Bereichen der Pilot-App. So können Sie Engagement-Anwendungsfälle erstellen und Nutzer:innen in verschiedene Bereiche der Pilot-Anwendung leiten. Sie können auch optionale Deeplink-Parameter verwenden, um den Inhalt bestimmter Seiten in der App für die Nutzer:innen anzupassen. Weitere Informationen zum Deeplinking finden Sie unter [Deeplinking zu In-App-Inhalten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 ## Allgemein {#general}
 
@@ -21,7 +21,7 @@ Dies sind die Deeplinks für die Hauptnavigationsseiten in der Pilot-App.
 | Einrichtung | `braze-pilot://navigation/setup` |
 | Sprache ändern | `braze-pilot://navigation/selectlanguage` |
 | Kamera | `braze-pilot://navigation/camera` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Allgemein" }
 
 ## Steppington
 Dies sind die Deeplinks für die App der fiktiven Marke Steppington in Pilot.
@@ -39,7 +39,7 @@ Dies sind die Deeplinks für die App der fiktiven Marke Steppington in Pilot.
 | Steppington+-Seite | `braze-pilot://navigation/steppington/plus` |
 | Zielbildschirm | `braze-pilot://navigation/steppington/goals` |
 | Ziele-ändern-Bildschirm | `braze-pilot://navigation/steppington/changegoals` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deeplinks ohne Parameter" }
 
 ### Deeplinks mit Parametern {#steppington-deep-links-with-parameters}
 
@@ -47,7 +47,7 @@ Dies sind die Deeplinks für die App der fiktiven Marke Steppington in Pilot.
 | --- | --- |
 | Training | `braze-pilot://navigation/steppington/workout` |
 | Aktives Training | `braze-pilot://navigation/steppington/activeworkout` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deeplinks mit Parametern" }
 
 #### Akzeptierte Parameter {#steppington-accepted-parameters}
 
@@ -75,7 +75,8 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Akzeptierte Parameter">
+  <caption>Akzeptierte Parameter</caption>
     <thead>
         <tr>
             <th>Parameter</th>
@@ -121,7 +122,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>workout</code></td>
-            <td>Der Name des Trainings. Wird im <code>st_completed_class</code>-Event gesendet.</td>
+            <td>Der Name des Trainings. Wird im <code>st_completed_class</code>-Ereignis gesendet.</td>
             <td>Ja</td>
             <td></td>
             <td>Zahl</td>
@@ -129,7 +130,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>calories</code></td>
-            <td>Die Anzahl der Kalorien, die auf dem aktiven Trainingsbildschirm angezeigt werden. Wird im <code>st_completed_class</code>-Event gesendet.</td>
+            <td>Die Anzahl der Kalorien, die auf dem aktiven Trainingsbildschirm angezeigt werden. Wird im <code>st_completed_class</code>-Ereignis gesendet.</td>
             <td>Nein</td>
             <td>Zufallszahl zwischen 500 und 1.250</td>
             <td>Zahl</td>
@@ -137,7 +138,7 @@ th:nth-child(6), td:nth-child(6) {
         </tr>
         <tr>
             <td><code>length</code></td>
-            <td>Die Dauer des Trainings. Wird im <code>st_completed_class</code>-Event gesendet.</td>
+            <td>Die Dauer des Trainings. Wird im <code>st_completed_class</code>-Ereignis gesendet.</td>
             <td>Nein</td>
             <td></td>
             <td>Zahl</td>
@@ -204,7 +205,7 @@ th:nth-child(6), td:nth-child(6) {
 | `YOGA_HOME` | ![Ein Symbol einer Person in einer Yoga-Pose.]({% image_buster /assets/img/braze_pilot/yoga_home_icon.png %}){:style="max-width:30%"} |
 | `BICYCLE_HOME` | ![Ein Fahrrad-Symbol.]({% image_buster /assets/img/braze_pilot/bicycle_home_icon.png %}){:style="max-width:30%"} |
 | `DUMBBELL_HOME` | ![Ein Hantel-Symbol.]({% image_buster /assets/img/braze_pilot/dumbbell_home_icon.png %}){:style="max-width:30%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Symboloptionen" }
 
 ## PantsLabyrinth
 Dies sind die Deeplinks für die App der fiktiven Marke PantsLabyrinth in Pilot.
@@ -222,14 +223,14 @@ Dies sind die Deeplinks für die App der fiktiven Marke PantsLabyrinth in Pilot.
 | Auflistungsbildschirm | `braze-pilot://navigation/pantslabyrinth/listing` |
 | Warenkorbseite | `braze-pilot://navigation/pantslabyrinth/cart` |
 | Wunschliste | `braze-pilot://navigation/pantslabyrinth/wishlist` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deeplinks ohne Parameter" }
 
 ### Deeplinks mit Parametern {#pantslabyrinth-deep-links-with-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
 | Artikeldetailseite | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deeplinks mit Parametern" }
 
 #### Akzeptierte Parameter {#pantslabyrinth-accepted-parameters}
 
@@ -257,7 +258,8 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Akzeptierte Parameter">
+  <caption>Akzeptierte Parameter</caption>
     <thead>
         <tr>
             <th>Parameter</th>
@@ -358,14 +360,14 @@ Dies sind die Deeplinks für die App der fiktiven Marke MovieCanon in Pilot.
 | Startbildschirm | `braze-pilot://navigation/moviecannon/splash` |
 | Willkommensbildschirm | `braze-pilot://navigation/moviecannon/welcome` |
 | Filmübersichtsseite | `braze-pilot://navigation/moviecannon/moviecannon` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deeplinks ohne Parameter" }
 
 ### Deeplinks mit Parametern {#moviecanon-deep-links-with-parameters}
 
 | Bildschirm | Deeplink |
 | --- | --- |
 | Filmdetailseite | `braze-pilot://navigation/moviecannon/moviedetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deeplinks mit Parametern" }
 
 #### Akzeptierte Parameter {#moviecanon-accepted-parameters}
 
@@ -376,4 +378,4 @@ Dies sind die Deeplinks für die App der fiktiven Marke MovieCanon in Pilot.
 | `thumbnail` | Die Web-URL des Vorschaubilds, das vor dem Film angezeigt wird. | Ja | String | `https://picsum.photos/400` |
 | `video` | Der Index in der Liste der anzuzeigenden Videos. | Nein | Zahl | 0 |
 | `description` | Die Beschreibung des Videos. | Ja | String | `This%20video%20is%20awesome%21` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Akzeptierte Parameter" }

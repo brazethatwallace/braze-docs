@@ -28,7 +28,7 @@ The following is required before you begin:
 | iOS or Android app | This integration supports iOS and Android apps. Depending on your platform, code snippets may be required in your application. |
 | Linkrunner SDK | You must install the [Linkrunner SDK](https://docs.linkrunner.io/introduction). |
 | Braze SDK | You must integrate the [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -73,9 +73,7 @@ In your Braze dashboard, go to **Settings** > **Setup and Testing** > **APIs and
    - `users.track`
    - `users.export.ids`
 3. Save the API key.
-4. Copy the API key and REST endpoint.
-
-![This image shows the API Keys page in Braze where you can create and manage API keys, including the data import key and REST endpoint needed for the Linkrunner integration.]({% image_buster /assets/img/attribution/linkrunner/1.png %})
+4. Copy the API key and REST endpoint. Paste these into Linkrunner in the next step. Treat the API key as a secret and do not share it publicly.
 
 ### Step 3: Configure Braze in Linkrunner's dashboard
 

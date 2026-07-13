@@ -37,7 +37,7 @@ Remplacez les éléments suivants :
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | `variable_type`   | Le type de variable prédéfini que vous souhaitez utiliser, comme `campaign` ou `catalog_fields`. Pour la liste complète, consultez [Types de variables pris en charge](#variable-types). |
 | `custom_label` | Le libellé utilisé pour identifier la variable dans l'onglet **Variables** de votre Générateur de requêtes. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1 : Ajouter une variable" }
 
 Dans l'exemple suivant, le nombre total d'utilisateurs entre le premier et le dernier jour d'un mois est interrogé pour une Campaign. Chaque variable se verra attribuer une valeur à l'étape suivante.
 
@@ -147,7 +147,7 @@ is_multi_select: 'true'
 
 ![Un exemple de liste à sélection multiple rendu dans Braze.]({% image_buster /assets/img_archive/sql_variables_productname.png %}){: style="max-width:50%;"}
 
-#### Options
+#### Options {#options}
 
 Pour fournir la liste des options sélectionnables sous la forme d'un libellé et d'une valeur. Le libellé est ce qui est affiché et la valeur est ce par quoi la variable est remplacée lorsque l'option est sélectionnée. Cela ne peut pas être utilisé seul&#8212;il doit être utilisé en combinaison avec une [liste](#list).
 
@@ -183,7 +183,7 @@ Vous pouvez définir la plage de dates sur l'une des options suivantes. Si `star
 | Date de début | Spécifie une date de début | Nécessite `start_date` |
 | Date de fin | Spécifie une date de fin | Nécessite `end_date` |
 | Plage de dates | Spécifie à la fois une date de début et une date de fin | Nécessite à la fois `start_date` et `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plage de dates" }
 
 Votre Liquid sera utilisé pour afficher un calendrier dans la plage de dates donnée :
 
@@ -443,7 +443,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### Segments
 
-Pour sélectionner des Segments dont le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) est activé. Défini sur l'identifiant analytique du Segment, qui correspond aux identifiants stockés dans la colonne `user_segment_membership_ids` dans les tables où cette colonne est disponible.
+Pour sélectionner des Segments dont le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) est activé. Défini sur l'identifiant analytique du Segment, qui correspond aux identifiants stockés dans la colonne `user_segment_membership_ids` dans les tables où cette colonne est disponible.
 
 {% tabs %}
 {% tab utilisation %}
@@ -505,7 +505,7 @@ Pour savoir si la valeur d'une variable est remplie. Cela est utile pour les var
 ```
 {% endraw %}
 
-### Visible
+### Visible {#visible}
 
 Pour déterminer si les variables sont visibles. Toutes les variables sont visibles par défaut dans l'onglet **Variables**, où vous pouvez saisir des valeurs.
 
@@ -583,7 +583,7 @@ placeholder: 'enter some value'
 {% endtab %}
 {% endtabs %}
 
-### Description
+### Description {#description}
 
 Pour spécifier le texte de description affiché sous le champ de saisie de la variable.
 

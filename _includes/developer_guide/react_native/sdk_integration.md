@@ -14,11 +14,17 @@ Starting with SDK version 6.0.0, Braze uses a React Native Turbo Module, which i
 If your iOS app conforms to `RCTAppDelegate` and follows our previous `AppDelegate` setup, review the samples in [Complete native setup](#reactnative_step-2-complete-native-setup) to prevent crashes when subscribing to events in the Turbo Module.
 {% endalert %}
 
+## React and React Native version requirements
+
+Braze doesn't publish separate minimum React versions beyond what the React Native SDK supports. To integrate the SDK, use React Native version 0.71 or later. For the full list of supported React Native versions, see the [React Native SDK GitHub repository](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
+
+When you upgrade React, React Native, or the Braze SDK, review the SDK [CHANGELOG](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) for breaking changes before you deploy.
+
 ## Integrating the React Native SDK
 
 ### Prerequisites
 
-To integrate the SDK, React Native version 0.71 or later is required. For the full list of supported versions, see our [React Native SDK GitHub repository](https://github.com/braze-inc/braze-react-native-sdk?tab=readme-ov-file#version-support).
+For supported React Native versions and upgrade guidance, see [React and React Native version requirements](#react-and-react-native-version-requirements).
 
 ### Step 1: Integrate the Braze library
 
@@ -67,7 +73,7 @@ In your `app.json`, add the Braze Expo plugin. The API key and endpoint are no l
 | `enableFirebaseCloudMessaging`                | boolean | Android only. Whether to use Firebase Cloud Messaging for push notifications.             |
 | `firebaseCloudMessagingSenderId`              | string  | Android only. Your Firebase Cloud Messaging sender ID.                                    |
 | `sessionTimeout`                              | integer | The Braze session timeout for your application in seconds.                                                                                               |
-| `enableSdkAuthentication`                     | boolean | Whether to enable the [SDK Authentication](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication) feature.      |
+| `enableSdkAuthentication`                     | boolean | Whether to enable the [SDK Authentication]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) feature.      |
 | `logLevel`                                    | integer | The log level for your application. The default log level is 8 and minimally logs info. To enable verbose logging for debugging, use log level 0.    |
 | `minimumTriggerIntervalInSeconds`             | integer | The minimum time interval in seconds between triggers. Defaults to 30 seconds.                                                                           |
 | `enableAutomaticLocationCollection`           | boolean | Whether automatic location collection is enabled (if the user permits).                                                                                  |
@@ -85,7 +91,7 @@ In your `app.json`, add the Braze Expo plugin. The API key and endpoint are no l
 | `iosPushStoryAppGroup`                        | string  | iOS only. The app group used for iOS Push Stories.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | iOS only. Whether the device ID uses a randomly generated UUID.                                                                                       |
 | `iosForwardUniversalLinks`                    | boolean | iOS only. Specifies if the SDK should automatically recognize and forward universal links to the system methods (default: `false`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2.2 Add the plugin to your app.json" }
 
 The following code snippet shows an example `app.json` configuration:
 
@@ -131,7 +137,7 @@ When using `androidNotificationLargeIcon` and `androidNotificationSmallIcon`, fo
 
 To use custom push notification icons with the Braze Expo plugin:
 
-1. Create your icon files following the Icon requirements listed below.
+1. Create your icon files following the Icon requirements listed in the Icon requirements.
 2. Place them in your project's Android native directories at `android/app/src/main/res/drawable-<density>/`.
    For example, use `android/app/src/main/res/drawable-mdpi/` and `android/app/src/main/res/drawable-hdpi/`.
 3. Alternatively, if you're managing assets in your React Native directory, you can use Expo's [app.json icon configuration](https://docs.expo.dev/versions/latest/config/app/#icon) or create an [Expo config plugin](https://docs.expo.dev/config-plugins/introduction/) to copy the icons to the Android drawable folders during prebuild.
@@ -294,7 +300,7 @@ override fun onNewIntent(intent: Intent) {
 
 To import certain Braze libraries, such as BrazeUI, into an Objective-C++ file, you must use the `#import` syntax. Starting in version `7.4.0` of the Braze Swift SDK, binaries have an [optional distribution channel as dynamic XCFrameworks](https://github.com/braze-inc/braze-swift-sdk-prebuilt-dynamic), which are compatible with this syntax.
 
-If you'd like to use this distribution channel, manually override the CocoaPods source locations in your Podfile. Reference the sample below and replace `{your-version}` with the relevant version you wish to import:
+If you'd like to use this distribution channel, manually override the CocoaPods source locations in your Podfile. Reference this sample and replace `{your-version}` with the relevant version you wish to import:
 
 ```ruby
 pod 'BrazeKit', :podspec => 'https://raw.githubusercontent.com/braze-inc/braze-swift-sdk-prebuilt-dynamic/{your-version}/BrazeKit.podspec'
@@ -426,7 +432,7 @@ In your `app.json`, add the Braze Expo plugin. You can provide the following con
 | `enableFirebaseCloudMessaging`                | boolean | Android only. Whether to use Firebase Cloud Messaging for push notifications. Introduced in React Native SDK v1.38.0 and Expo Plugin v0.4.0.             |
 | `firebaseCloudMessagingSenderId`              | string  | Android only. Your Firebase Cloud Messaging sender ID. Introduced in React Native SDK v1.38.0 and Expo Plugin v0.4.0.                                    |
 | `sessionTimeout`                              | integer | The Braze session timeout for your application in seconds.                                                                                               |
-| `enableSdkAuthentication`                     | boolean | Whether to enable the [SDK Authentication](https://www.braze.com/docs/developer_guide/platform_wide/sdk_authentication#sdk-authentication) feature.      |
+| `enableSdkAuthentication`                     | boolean | Whether to enable the [SDK Authentication]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) feature.      |
 | `logLevel`                                    | integer | The log level for your application. The default log level is 8 and minimally logs info. To enable verbose logging for debugging, use log level 0.    |
 | `minimumTriggerIntervalInSeconds`             | integer | The minimum time interval in seconds between triggers. Defaults to 30 seconds.                                                                           |
 | `enableAutomaticLocationCollection`           | boolean | Whether automatic location collection is enabled (if the user permits).                                                                                  |
@@ -444,7 +450,7 @@ In your `app.json`, add the Braze Expo plugin. You can provide the following con
 | `iosPushStoryAppGroup`                        | string  | iOS only. The app group used for iOS Push Stories.                                                                                                       |
 | `iosUseUUIDAsDeviceId`                        | boolean | iOS only. Whether the device ID will use a randomly generated UUID.                                                                                       |
 | `iosForwardUniversalLinks`                    | boolean | iOS only. Specifies if the SDK should automatically recognize and forward universal links to the system methods (default: `false`). When enabled, the SDK will automatically forward universal links to the system methods defined in [Supporting universal links in your app](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/forwarduniversallinks/). Introduced in React Native SDK v11.1.0 and Expo Plugin v3.2.0. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2.2: Add the plugin to your app.json" }
 
 The following code snippet shows an example `app.json` configuration:
 
@@ -493,7 +499,7 @@ When using `androidNotificationLargeIcon` and `androidNotificationSmallIcon`, fo
 
 To use custom push notification icons with the Braze Expo plugin:
 
-1. Create your icon files following the Icon requirements listed below.
+1. Create your icon files following the Icon requirements listed in the Icon requirements.
 2. Place them in your project's Android native directories at `android/app/src/main/res/drawable-<density>/` (for example, `android/app/src/main/res/drawable-mdpi/`, `drawable-hdpi/`, or similar.)
 3. Alternatively, if you're managing assets in your React Native directory, you can use Expo's [app.json icon configuration](https://docs.expo.dev/versions/latest/config/app/#icon) or create an [Expo config plugin](https://docs.expo.dev/config-plugins/introduction/) to copy the icons to the Android drawable folders during prebuild.
 
@@ -784,7 +790,7 @@ The following code snippet shows how to import the library in your React Native 
 import Braze from "@braze/react-native-sdk";
 ```
 
-Then call `Braze.initialize()` with your app identifier API key and SDK endpoint to create the Braze instance. See the options below for where to call this method in your app.
+Then call `Braze.initialize()` with your app identifier API key and SDK endpoint to create the Braze instance. See the following options for where to call this method in your app flow.
 
 #### Standard initialization
 

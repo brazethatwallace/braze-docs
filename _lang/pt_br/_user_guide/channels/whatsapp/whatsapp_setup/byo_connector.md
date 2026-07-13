@@ -17,10 +17,10 @@ channel:
 | Requisito | Descrição |
 | --- | --- |
 | Conta Infobip | Uma conta Infobip é necessária para usar o conector BYO WhatsApp.
-| Créditos de envio de mensagens | Você consome créditos de envio de mensagens da Braze ao enviar mensagens pelo WhatsApp. |
-| Requisitos do WhatsApp | Conclua todos os [requisitos do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/#prerequisites). |
+| Créditos de mensagem ou ação | Você consome créditos de ação da Braze ao enviar mensagens pelo WhatsApp. |
+| Requisitos do WhatsApp | Conclua todos os [requisitos do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup#prerequisites). |
 | Número de telefone | Sugerimos que você [adquira um número de telefone pela Infobip](https://www.infobip.com/docs/numbers/getting-started) por conveniência. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos" }
 
 ## Configuração {#set-up}
 
@@ -30,9 +30,9 @@ Antes de configurar o conector BYO WhatsApp, confirme que os envios anteriores d
 
 - A conta WhatsApp Business e o número de telefone nunca foram conectados a um parceiro antes
 - A conta WhatsApp Business está conectada diretamente à Braze pela integração nativa.
-    - Siga as etapas em [Migração de número de telefone do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number/) para migrar seus números de telefone para uma nova conta WhatsApp Business, um número de telefone por vez.
+    - Siga as etapas em [Migração de número de telefone do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number) para migrar seus números de telefone para uma nova conta WhatsApp Business, um número de telefone por vez.
 - A conta WhatsApp Business está conectada a um provedor de soluções diferente da Braze e da Infobip
-    - Siga as etapas em [Migração de número de telefone do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number/) para migrar seus números de telefone para uma nova conta WhatsApp Business, um número de telefone por vez.
+    - Siga as etapas em [Migração de número de telefone do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/whatsapp_phone_numbers/migrate_a_phone_number) para migrar seus números de telefone para uma nova conta WhatsApp Business, um número de telefone por vez.
 
 ## Etapa 1: Recuperar informações da conta Infobip {#step-1}
 
@@ -72,7 +72,7 @@ Antes de configurar o conector BYO WhatsApp, confirme que os envios anteriores d
 {: start="3"}
 3. Insira a chave de API e a URL base da [Etapa 1](#step-1).
 4. Selecione **Connect**.
-5. Prossiga pelo [fluxo de trabalho de cadastro incorporado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/#whatsapp-embedded-signup-workflow) com estas considerações:
+5. Prossiga pelo [fluxo de trabalho de cadastro incorporado]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup#whatsapp-embedded-signup-workflow) com estas considerações:
 - Você não pode selecionar o mesmo portfólio de negócios que é usado por um provedor de soluções de negócios diferente.
 - Você não pode selecionar um número de telefone que está sendo usado por outro provedor de soluções de negócios.
 - Você deve criar um novo WABA, não selecionar um existente.
@@ -92,8 +92,8 @@ Conecte cada conta WhatsApp Business a uma única conta Infobip. Cada vez que vo
 ## Etapa 3: Envio de mensagens {#step-3-sending-messages}
 
 Siga o processo de envio da integração nativa, incluindo:
-- [Inscrever usuários no grupo de inscrições]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)
-- [Criar uma mensagem do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)
+- [Inscrever usuários no grupo de inscrições]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)
+- [Criar uma mensagem do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)
 
 ## Solução de problemas de configuração {#troubleshooting-setup}
 
@@ -106,10 +106,7 @@ Confirme que sua conta WhatsApp Business não está conectada a um espaço de tr
 1. Confirme que sua conta WhatsApp Business não está conectada à Braze ou a outro parceiro.
 2. Confirme que nenhum número de telefone na sua conta WhatsApp Business está conectado a uma conta Infobip diferente. Para números importados, você pode encontrar o número na Infobip e selecionar **Cancel number**.
 
-![O botão "Cancel number" para um número da Infobip.]({% image_buster /assets/img/whatsapp/byo_connector/cancel_number.png %})
-
 ## Considerações {#considerations}
-
 
 Embora todas as funcionalidades existentes com a Braze sejam suportadas, estes casos de uso atualmente não são suportados.
 
@@ -117,4 +114,4 @@ Embora todas as funcionalidades existentes com a Braze sejam suportadas, estes c
 | --- | --- |
 | Processar mensagens de entrada na Braze e na Infobip | Isso impede cadeias lógicas que são acionadas por qualquer um dos sistemas, consequentemente gerando threads de mensagens duplicadas e potencialmente contraditórias. |
 | Enviar mensagens pela Braze e pela Infobip | Para contas WhatsApp Business conectadas à Braze, todo o envio é originado pela Braze. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerações" }

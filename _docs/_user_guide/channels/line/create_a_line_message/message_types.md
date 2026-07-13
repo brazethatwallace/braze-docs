@@ -32,7 +32,7 @@ Use cases include:
 
 ## Image
 
-A LINE image message can be added through the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), a URL, or Liquid. These images are standalone and don't contain clickable links.
+A LINE image message can be added through the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), a URL, or Liquid. These images are standalone and don't contain clickable links.
 
 Use cases include:
 - Showcase a vacation destination to inspire users to look into purchasing plane tickets
@@ -45,15 +45,15 @@ Use cases include:
 
 Use URL images for use cases that incorporate:
 - Liquid dynamic images by including the Liquid in your image source attribute. For example, you can insert {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} as the image URL to include a user's first name in the image
-- [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) by pulling images directly from your web server or publicly accessible APIs
-- [Braze catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs/) by accessing images from imported CSV files and API endpoints
+- [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) by pulling images directly from your web server or publicly accessible APIs
+- [Braze catalogs]({{site.baseurl}}/user_guide/data/activation/catalogs) by accessing images from imported CSV files and API endpoints
 
 | **Specifications** | **Recommended properties** |
 |--------------------------|----------------------------|
 | Image file URL length | 2,000 characters maximum  |
 | Image format          | PNG, JPEG             |
 | File size     |  10&nbsp;MB maximum |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL image" }
 
 ## Rich messages (image map)
 
@@ -74,7 +74,7 @@ Use cases include:
 | Image format          | PNG (can be transparent), JPEG             |
 | Aspect ratio          | 1:1 (width:height)
 | File size     |  10&nbsp;MB maximum |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image map" }
 
 ### URI link 
 
@@ -82,7 +82,7 @@ Use cases include:
 |--------------------------|----------------------------|
 | Character count      | 1,000 maximum |
 | Schemes              | HTTP, HTTPS, LINE, tel |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URI link" }
 
 ### Text 
 
@@ -106,7 +106,7 @@ Use cases include:
 | Columns                  | 10 maximum |
 | Aspect ratio             | Rectangle: 1.51:1 <br> Square: 1:1  |
 | Title                    | 40 characters maximum
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Message" }
 
 
 ### Image
@@ -117,7 +117,7 @@ Use cases include:
 | Image format              | JPEG or PNG |
 | Width                     | 1,024 pixels  |
 | File size                 | 1 MB |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
 
 
 ### Text
@@ -126,6 +126,6 @@ Use cases include:
 |-------------------------|----------------------------|
 | Characters              | 120 maximum (no image or title) <br> 60 maximum (message with an image or title)  |
 | Actions                 | 3 maximum |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Text" }
 
 

@@ -38,7 +38,7 @@ Branchのドキュメントに従って[ユニバーサルリンク](https://hel
 
 #### ステップ 2:Associated Domainsの設定 {#step-2-configure-associated-domains}
 
-Xcodeで、アプリターゲット > **Signing & Capabilities** に移動し、**Associated Domains** にBranchリンクドメインを追加します：
+Xcodeで、アプリターゲット > **Signing & Capabilities** に移動し、**Associated Domains**にBranchリンクドメインを追加します：
 
 ```
 applinks:yourapp.app.link
@@ -53,14 +53,14 @@ Braze SDKの設定で`forwardUniversalLinks`を`true`に設定し、SDKがユニ
 
 {% tabs %}
 {% tab swift %}
-```swift
+`````````swift
 let configuration = Braze.Configuration(apiKey: "<BRAZE_API_KEY>", endpoint: "<BRAZE_ENDPOINT>")
 configuration.forwardUniversalLinks = true
 let braze = Braze(configuration: configuration)
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:@"<BRAZE_API_KEY>"
                                                                   endpoint:@"<BRAZE_ENDPOINT>"];
 configuration.forwardUniversalLinks = YES;
@@ -75,7 +75,7 @@ Braze *braze = [[Braze alloc] initWithConfiguration:configuration];
 
 {% tabs %}
 {% tab swift %}
-```swift
+`````````swift
 func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
   if let host = context.url.host,
      host.contains("app.link") || host.contains("yourdomain.com") {
@@ -89,7 +89,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
 ```
 {% endtab %}
 {% tab OBJECTIVE-C %}
-```objc
+`````````objc
 - (BOOL)braze:(Braze *)braze shouldOpenURL:(BRZURLContext *)context {
   NSString *host = context.url.host;
   if (host && ([host containsString:@"app.link"] || [host containsString:@"yourdomain.com"])) {
@@ -117,7 +117,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
 
 ## トラブルシューティング {#troubleshooting}
 
-BrazeのCampaignsからBranchリンクが期待どおりに動作しない場合は、以下のステップに従ってください。
+BrazeのキャンペーンからBranchリンクが期待どおりに動作しない場合は、以下のステップに従ってください。
 
 ### Braze外でリンクが動作するか確認する {#verify-the-link-works-outside-of-braze}
 
@@ -139,9 +139,9 @@ BrazeのCampaignsからBranchリンクが期待どおりに動作しない場合
 |---|---|---|
 | BranchリンクがSafariで開く | BranchドメインのAASAが無効または欠落 | Associated DomainsとAASAファイルを確認する |
 | Branchリンクは開くが間違った画面に遷移する | Branchリンクデータの設定ミス | Branchダッシュボードでルーティングルールを確認する |
-| プッシュからは動作するがメールからは動作しない | クリックトラッキングドメインにAASAが欠落 | ESPのクリックトラッキングドメインにAASAをホストする。[メール設定](#deep-linking-in-email)を参照 |
+| プッシュからは動作するがメールからは動作しない | クリックトラッキングドメインにAASAが欠落 | メールサービスプロバイダー (ESP) のクリックトラッキングドメインにAASAをホストする。[メール設定](#deep-linking-in-email)を参照 |
 | `shouldOpenURL`がBranchリンクに対して発火しない | `forwardUniversalLinks`が有効になっていない | `configuration.forwardUniversalLinks = true`を設定する |
 | Branchリンクがメモアプリからは動作するがBrazeからは動作しない | `BrazeDelegate`がBranch URLに対して`true`を返している | `shouldOpenURL`のドメインチェックがBranchドメインと一致しているか確認する |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Common issues" }
 
 その他のディープリンクのトラブルシューティングシナリオについては、[ディープリンクのトラブルシューティング]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/)を参照してください。

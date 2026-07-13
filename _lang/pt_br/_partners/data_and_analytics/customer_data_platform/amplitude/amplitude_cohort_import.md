@@ -8,7 +8,7 @@ search_tag: Partner
 
 # Importação de coorte do Amplitude {#amplitude-cohort-import}
 
-> Este artigo aborda como importar coortes de usuários do [Amplitude](https://amplitude.com/) para a Braze. Para saber mais sobre a integração do Amplitude e suas outras funcionalidades, consulte o artigo principal do [Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences/).
+> Este artigo aborda como importar coortes de usuários do [Amplitude](https://amplitude.com/) para a Braze. Para saber mais sobre a integração do Amplitude e suas outras funcionalidades, consulte o artigo principal do [Amplitude]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/amplitude/amplitude_audiences).
 
 ## Integração de importação de dados {#data-import-integration}
 
@@ -18,20 +18,19 @@ Qualquer integração que você configurar será contabilizada no volume de pont
 
 Na Braze, navegue até **Integrações de parceiros** > **Parceiros de tecnologia** e selecione **Amplitude**. Lá, você encontrará o endpoint REST e poderá gerar sua chave de importação de dados da Braze.
 
-Após a geração, você pode criar uma nova chave ou invalidar uma existente. A chave de importação de dados e o endpoint REST são usados na próxima etapa ao configurar um postback no dashboard do Amplitude.<br><br>![]({% image_buster /assets/img/amplitude3.png %})
+Após a geração, você pode criar uma nova chave ou invalidar uma existente. A chave de importação de dados e o endpoint REST são usados na próxima etapa ao configurar um postback no dashboard do Amplitude.<br><br>![Página da parceira de tecnologia Amplitude na Braze mostrando a chave de importação de dados e o endpoint.]({% image_buster /assets/img/amplitude3.png %})
 
 ### Etapa 2: Configurar a integração da Braze no Amplitude {#step-2-set-up-the-braze-integration-in-amplitude}
 
 No Amplitude, navegue até **Sources & Destinations** > **[nome do projeto]** > **Destinations** > **Braze**. No prompt exibido, forneça a chave de importação de dados e o endpoint REST da Braze e clique em **Save**.
 
-![]({% image_buster /assets/img/amplitude.png %})
+![Configurações de destino do Amplitude para sincronização de coorte com a Braze com credenciais preenchidas.]({% image_buster /assets/img/amplitude.png %})
 
 ### Etapa 3: Exportar uma coorte do Amplitude para a Braze {#step-3-export-an-amplitude-cohort-to-braze}
 
-Primeiro, para exportar usuários do Amplitude para a Braze, crie uma [coorte](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) de usuários que deseja exportar. O Amplitude pode sincronizar coortes com a Braze usando os seguintes identificadores:
-- Alias do usuário
-- ID do dispositivo
+Primeiro, para exportar usuários do Amplitude para a Braze, crie uma [coorte](https://help.amplitude.com/hc/en-us/articles/231881448-Behavioral-Cohorts) de usuários que deseja exportar. Em seguida, para capturar usuários identificados e anônimos, configure duas sincronizações para essa coorte com as seguintes propriedades de mapeamento de identificadores:
 - ID do usuário (ID externo)
+- ID do dispositivo
 
 Você pode configurar várias conexões com a Braze na sua conta do Amplitude. Isso permite configurar uma conexão para sincronizar IDs de usuário para usuários conhecidos e outra para sincronizar IDs de dispositivo para usuários anônimos.
 

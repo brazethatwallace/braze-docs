@@ -7,7 +7,7 @@ description: "Cet article de référence couvre le journal des événements util
 
 ---
 
-# Journal des événements utilisateur
+# Journal des événements utilisateur {#event-user-log}
 
 > Le journal des événements utilisateur peut vous aider à analyser, déboguer ou résoudre les problèmes liés à votre intégration Braze. Cet onglet vous fournit un journal des erreurs qui détaille le type d'erreur, l'application à laquelle elle est associée, le moment où elle s'est produite, et offre souvent la possibilité de consulter les données brutes associées.
 
@@ -40,13 +40,13 @@ Les journaux des événements utilisateurs restent disponibles dans le tableau d
 
 ![Journaux bruts pour les événements]({% image_buster /assets/img_archive/rawlogs.png %}){: style="max-width:60%;"}
 
-## Résolution des problèmes
+## Résolution des problèmes {#troubleshooting}
 
-### Journaux SDK manquants pour les utilisateurs test
+### Journaux SDK manquants pour les utilisateurs test {#missing-sdk-logs-for-test-users}
 
-Si vous avez ajouté un utilisateur à un groupe interne, mais qu'il n'affiche aucun journal SDK dans le journal des événements utilisateurs, cela peut être dû à une option de configuration manquante. Pour capturer les journaux SDK, assurez-vous de sélectionner **Enregistrer les événements utilisateur pour les membres du groupe** dans les **Paramètres du groupe interne** pour ce [groupe interne]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/).
+Si vous avez ajouté un utilisateur à un groupe interne, mais qu'il n'affiche aucun journal SDK dans le journal des événements utilisateurs, cela peut être dû à une option de configuration manquante. Pour capturer les journaux SDK, assurez-vous de sélectionner **Enregistrer les événements utilisateur pour les membres du groupe** dans les **Paramètres du groupe interne** pour ce [groupe interne]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups).
 
-### Délai dans la mise à jour des journaux
+### Délai dans la mise à jour des journaux {#delay-in-logs-updates}
 
 Il s'agit potentiellement d'une lenteur normale de notre API.
 
@@ -54,11 +54,11 @@ Lorsque vous appelez des méthodes du SDK, celui-ci met généralement ces évé
 
 Si vous souhaitez que les événements arrivent le plus rapidement possible, essayez d'appeler la fonction `requestImmediateDataFlush()`.
 
-### Échecs d'impression des messages in-app
+### Échecs d'impression des messages in-app {#in-app-message-impression-failures}
 
-Si un message in-app ne s'affiche pas, vous pouvez trouver la raison dans le journal des événements utilisateurs en développant les données JSON brutes de la requête SDK concernée et en recherchant le champ `error_code` dans la réponse. Le `error_code` identifie la raison spécifique de l'échec de l'impression (par exemple, une valeur de couleur invalide ou un problème de rendu). Partagez ce code d'erreur avec l'[assistance Braze]({{site.baseurl}}/braze_support/) si une investigation plus approfondie est nécessaire.
+Si un message in-app ne s'affiche pas, vous pouvez trouver la raison dans le journal des événements utilisateurs en développant les données JSON brutes de la requête SDK concernée et en recherchant le champ `error_code` dans la réponse. Le `error_code` identifie la raison spécifique de l'échec de l'impression (par exemple, une valeur de couleur invalide ou un problème de rendu). Partagez ce code d'erreur avec l'[assistance Braze]({{site.baseurl}}/braze_support) si une investigation plus approfondie est nécessaire.
 
-### La fin de session et le début de session ont des horodatages similaires (iOS)
+### La fin de session et le début de session ont des horodatages similaires (iOS) {#session-end-and-session-start-have-similar-timestamps-ios}
 
 Le journal des événements utilisateurs affiche l'horodatage du moment où Braze a été notifié de la fin de la session, ce qui sera quelques millisecondes avant le début de la session suivante. Braze ne peut pas savoir que la session s'est terminée avant que l'application ne soit rouverte, car iOS interrompt de manière agressive l'exécution des threads lorsque l'application est en arrière-plan — aucune donnée ne peut donc être envoyée à Braze tant que l'application n'est pas rouverte.
 

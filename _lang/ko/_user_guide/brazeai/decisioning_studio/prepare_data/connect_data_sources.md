@@ -23,7 +23,7 @@ Decisioning Studio는 고객 데이터를 연결하기 위한 다양한 통합 �
 | **Braze 클라우드 데이터 수집(CDI)** | 외부 데이터 웨어하우스 연결 | 중간 |
 | **클라우드 스토리지(GCS, AWS, Azure)** | 다른 플랫폼에서의 직접 데이터 내보내기 | 중간 |
 | **CEP 통합** | SFMC, Klaviyo 데이터 확장 | 중간 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="지원되는 통합 패턴" }
 
 ## 고객 데이터 유형 {#customer-data-types}
 
@@ -35,7 +35,7 @@ Decisioning Studio는 고객 데이터를 연결하기 위한 다양한 통합 �
 | **고객 행동** | 활동 및 참여 패턴 | 계정 로그인, 기기 유형, 고객 서비스 상호작용, 제품 사용 |
 | **거래 내역** | 구매 및 전환 데이터 | 구매한 제품, 거래 금액, 결제 방법, 구매 채널 |
 | **마케팅 참여** | 커뮤니케이션에 대한 반응 | 이메일 열람/클릭, SMS 참여, 웹 및 모바일 활동, 설문조사 응답 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="고객 데이터 유형" }
 
 {% alert tip %}
 에이전트가 고객에 대해 더 많은 정보를 가질수록 더 나은 성과를 냅니다. 비즈니스에 특히 중요한 인사이트에 대한 데이터를 포함하는 것을 고려하세요(예: AI가 로열티 고객을 어떻게 다르게 대우하는지 확인하고 싶으신가요? 고객 데이터에 로열티 상태가 포함되어 있는지 확인하세요).
@@ -50,7 +50,7 @@ Decisioning Studio는 고객 데이터를 연결하기 위한 다양한 통합 �
 
 BrazeAI Decisioning Studio는 이미 Braze 데이터 플랫폼으로 전송하고 있는 모든 데이터를 사용할 수 있습니다.
 
-Decisioning Studio에 사용하고 싶지만 현재 고객 프로필이나 커스텀 속성에 저장되어 있지 않은 고객 데이터가 있는 경우, [Braze 클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)을 사용하여 다른 소스에서 데이터를 수집하는 것이 권장됩니다.
+Decisioning Studio에 사용하고 싶지만 현재 고객 프로필이나 커스텀 속성에 저장되어 있지 않은 고객 데이터가 있는 경우, [Braze 클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 사용하여 다른 소스에서 데이터를 수집하는 것이 권장됩니다.
 
 CDI는 다음과의 직접 통합을 지원합니다:
 
@@ -61,16 +61,16 @@ CDI는 다음과의 직접 통합을 지원합니다:
 - Microsoft Fabric
 - AWS S3
 
-지원되는 소스의 전체 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)을 참조하세요.
+지원되는 소스의 전체 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 참조하세요.
 
 Braze 데이터 플랫폼으로 전송하는 데이터에 만족하면, AI Decisioning Services 팀에 연락하여 고객 프로필의 어떤 필드나 커스텀 속성을 인공지능 의사 결정에 사용해야 하는지 논의하세요.
 
-이 프로세스를 간소화하려면, Decisioning Studio에서 사용해야 하는 고객 행동을 가장 잘 나타내는 Braze 고객 프로필 속성 목록을 작성하세요([내보내기 가능한 필드 목록]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#fields-to-export) 참조). 서비스 팀은 인공지능 의사 결정에 가장 적합한 필드를 결정하기 위한 디스커버리 세션을 진행하는 데도 도움을 줄 수 있습니다.
+이 프로세스를 간소화하려면, Decisioning Studio에서 사용해야 하는 고객 행동을 가장 잘 나타내는 Braze 고객 프로필 속성 목록을 작성하세요([내보내기 가능한 필드 목록]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#fields-to-export) 참조). 서비스 팀은 인공지능 의사 결정에 가장 적합한 필드를 결정하기 위한 디스커버리 세션을 진행하는 데도 도움을 줄 수 있습니다.
 
 데이터를 전송하는 다른 옵션은 다음과 같습니다:
 
 - SDK를 통해 Braze 커스텀 이벤트 전송
-- REST 엔드포인트([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/))를 사용하여 이벤트 전송
+- REST 엔드포인트([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track))를 사용하여 이벤트 전송
 
 이러한 패턴은 더 많은 엔지니어링 작업이 필요하지만, 현재 Braze 구성에 따라 더 적합할 수 있습니다. 자세한 내용은 AI Decisioning Services 팀에 문의하세요.
 
@@ -101,7 +101,7 @@ Klaviyo 통합의 경우:
 API 키 설정에 대한 자세한 내용은 [Klaviyo 설명서](https://help.klaviyo.com/hc/en-us/articles/115005237908)를 참조하세요.
 
 {% endtab %}
-{% tab Cloud Storage %}
+{% tab 클라우드 스토리지 %}
 
 ### 기타 클라우드 솔루션(Google Cloud Storage, Azure, AWS) {#other-cloud-solutions-google-cloud-storage-azure-aws}
 
@@ -139,4 +139,4 @@ API 키 설정에 대한 자세한 내용은 [Klaviyo 설명서](https://help.kl
 
 데이터 소스를 연결한 후 오케스트레이션 설정을 진행하세요:
 
-- [오케스트레이션 설정]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [오케스트레이션 설정]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

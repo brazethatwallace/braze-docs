@@ -23,9 +23,9 @@ A disponibilidade de SMS, MMS e RCS depende do seu pacote da Braze. Entre em con
 
 Antes de começar, verifique se você tem o seguinte:
 
-- Short codes, long codes ou IDs de remetente alfanuméricos configurados. Para saber mais, consulte [Configuração do remetente]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/).
-- Familiaridade com leis e regulamentações de SMS, incluindo TCPA e requisitos de operadoras. Para saber mais, consulte [Leis e regulamentações]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
-- Consentimento explícito de opt-in coletado dos usuários. Para saber mais, consulte [Coleta de opt-ins de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins/).
+- Short codes, long codes ou IDs de remetente alfanuméricos configurados. Para saber mais, consulte [Configuração do remetente]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup).
+- Familiaridade com leis e regulamentações de SMS, incluindo TCPA e requisitos de operadoras. Para saber mais, consulte [Leis e regulamentações]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
+- Consentimento explícito de opt-in coletado dos usuários. Para saber mais, consulte [Coleta de opt-ins de usuários]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/collecting_user_opt_ins).
 
 ## Casos de uso {#use-cases}
 
@@ -36,7 +36,7 @@ Antes de começar, verifique se você tem o seguinte:
 | Autenticação de dois fatores | Envie códigos de verificação únicos para login em contas e confirmação de transações. |
 | Ofertas promocionais | Alcance os clientes com promoções por tempo limitado, promoções relâmpago e descontos personalizados diretamente no celular. |
 | Suporte ao cliente | Possibilite conversas bidirecionais para resolver dúvidas dos clientes, coletar feedback ou confirmar solicitações de atendimento. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Casos de uso" }
 
 ## Comparação entre SMS, MMS e RCS {#sms-mms-and-rcs-compared}
 
@@ -53,9 +53,9 @@ O RCS (Rich Communication Services) evolui o SMS com uma experiência mais rica 
 - Exibir um perfil de remetente verificado com identidade visual para que as mensagens sejam fáceis de confiar.
 - Oferecer confirmações de leitura e indicadores de digitação onde as operadoras permitirem.
 
-O RCS é ideal para casos de uso como atualizações transacionais (envios, compromissos), promoções com criativos ricos, suporte ao cliente com caminhos de resposta rápida e integração ou tutoriais que se beneficiam de mídia e ações estruturadas. Para configuração e migração do SMS, consulte [Configuração do RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup/).
+O RCS é ideal para casos de uso como atualizações transacionais (envios, compromissos), promoções com criativos ricos, suporte ao cliente com caminhos de resposta rápida e integração ou tutoriais que se beneficiam de mídia e ações estruturadas. Para configuração e migração do SMS, consulte [Configuração do RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup).
 
 ## Próximas etapas {#next-steps}
 
-- [Configuração de mensagens]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/)
-- [Criar uma mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/)
+- [Configuração de mensagens]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup)
+- [Criar uma mensagem]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create)

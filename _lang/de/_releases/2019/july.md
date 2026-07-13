@@ -23,7 +23,7 @@ Braze unterstützt:
 - [Azure Active Directory]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/microsoft_entra_sso/)
 - [Okta]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/okta/)
 
-## Adjust-Ereignis-API-Schlüssel wird angezeigt {#adjust-event-api-key-shows}
+## Adjust-Event-API-Schlüssel wird angezeigt {#adjust-event-api-key-shows}
 
 Wir haben die Partnerseite von Adjust aktualisiert, um diesen API-Schlüssel für Kund:innen zugänglich zu machen.
 
@@ -34,11 +34,11 @@ Einige neue Partner haben sich unserem Alloys-Programm angeschlossen und sind in
 - [Talon.One]({{site.baseurl}}/partners/talonone/)
 - [Voucherify]({{site.baseurl}}/partners/voucherify/)
 
-## Verbesserung der Kampagnendetails {#campaign-details-improvement}
+## Verbesserung der Campaign-Details {#campaign-details-improvement}
 
-Erweiterte Kampagnendetails werden jetzt im Abschnitt … warten Sie es ab … **Kampagnendetails** auf der **Kampagnenseite** angezeigt!
+Erweiterte Campaign-Details werden jetzt im Abschnitt … warten Sie es ab … **Campaign Details** auf der Seite **Campaign** angezeigt!
 
-## Nur eigene anzeigen in Segments & Canvas {#show-only-mine-in-segments-canvas}
+## „Nur eigene anzeigen“ in Segments und Canvas {#show-only-mine-in-segments-canvas}
 
 Der Filter „Nur eigene anzeigen“ auf der Seite **Campaigns** hat sich als äußerst beliebt erwiesen. Deshalb fügen wir diese Option jetzt auch den Listen für Canvas und Segments hinzu!
 
@@ -75,7 +75,7 @@ Betrachten Sie [mehrere Campaigns gleichzeitig, um ihre relative Performance zu 
 ## Template der Versand-ID in Nachrichten mit Liquid {#template-dispatch-id-into-messages-with-liquid}
 
 {% alert note %}
-Das Verhalten für `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/help/help_articles/data/dispatch_id/) in Canvases und Campaigns.
+Das Verhalten für `dispatch_id` unterscheidet sich zwischen Canvas und Campaigns, da Braze Canvas-Schritte (mit Ausnahme von Eingangsschritten, die geplant werden können) als getriggerte Ereignisse behandelt, auch wenn sie „geplant“ sind. Erfahren Sie mehr über das [`dispatch_id`-Verhalten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) in Canvases und Campaigns.
 {% endalert %}
 
 Wenn Sie den Versand einer Nachricht aus der Nachricht heraus verfolgen möchten (z. B. in einer URL), können Sie die `dispatch_id` als Template einfügen. Die Formatierung dafür finden Sie in unserer Liste der unterstützten Tags für die Personalisierung unter [Canvas-Attribute]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).

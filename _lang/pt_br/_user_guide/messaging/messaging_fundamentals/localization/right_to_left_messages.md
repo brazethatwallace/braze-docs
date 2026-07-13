@@ -24,7 +24,7 @@ Além disso, verifique a pontuação e os emojis para determinar se sua mensagem
 |------------------|------------------------|
 | Exibe o ponto de exclamação e o emoji no **final** das frases. | Exibe o ponto de exclamação e o emoji no **início** da frase. |
 | ![Um exemplo de mensagem com renderização padrão.]({% image_buster /assets/img/right-to-left/standard.png %}) | ![Um exemplo de mensagem da direita para a esquerda.]({% image_buster /assets/img/right-to-left/right-to-left.png %}) |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Aparência da mensagem" }
 
 ## Criando uma mensagem da direita para a esquerda {#creating-a-right-to-left-message}
 
@@ -42,6 +42,14 @@ Para criar sua mensagem da direita para a esquerda na Braze:
 O método de copiar e colar para mensagens push pode ser difícil de usar com notificações por push mais longas, pois conteúdos mais extensos podem ser renderizados em várias linhas em um dispositivo móvel. Se você copiar o texto da mensagem de fora da Braze (como de um documento do Word) e colá-lo diretamente na Braze, o alinhamento das frases e o posicionamento das palavras podem mudar. Para evitar esse cenário, copie e cole em partes e adicione uma quebra de linha. Por exemplo, copie e cole as cinco primeiras palavras, adicione uma quebra de linha, copie as próximas cinco palavras, adicione uma quebra de linha, e assim por diante.
 
 As funções de pré-visualização e teste são feitas para mensagens da esquerda para a direita, então mensagens da direita para a esquerda não serão renderizadas corretamente na seção **Preview & Test**, mas serão renderizadas corretamente nos dispositivos dos usuários se as configurações estiverem definidas para isso. Sugerimos enviar mensagens para você mesmo em um ambiente real para confirmar que elas são renderizadas corretamente com base nas configurações do dispositivo.
+
+### Alinhamento do título e do corpo {#title-and-body-alignment}
+
+Para notificações por push, o alinhamento do título geralmente segue as configurações de idioma do dispositivo, enquanto o alinhamento do corpo pode seguir o primeiro caractere direcional forte em cada linha (trate cada linha após uma quebra de linha separadamente). Isso significa que uma única notificação por push pode misturar alinhamentos entre linhas — por exemplo, uma linha de corpo da direita para a esquerda seguida por uma linha da esquerda para a direita. Quando você precisar de um layout previsível, mantenha a consistência direcional e use quebras de linha entre segmentos de idiomas mistos.
+
+{% alert note %}
+A renderização ainda depende do sistema operacional do dispositivo e do cliente de push. Envie [mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) para seus próprios dispositivos para confirmar o alinhamento antes de publicar.
+{% endalert %}
 
 ### Texto bidirecional {#bi-directional-text}
 

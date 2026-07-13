@@ -26,7 +26,7 @@ _이 통합은 Future Anthem에서 유지 관리합니다._
 | Future Anthem 계정 | Future Anthem 계정이 필요합니다. |
 | Braze REST API 키 | [`users.track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)에 대한 권한이 있는 Braze REST API 키. Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | 인스턴스에 맞는 Braze [REST 엔드포인트]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)(예: `rest.iad-01.com`). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 활용 사례 {#use-cases}
 
@@ -42,6 +42,7 @@ Future Anthem 고객 성공 팀이 통합 설정을 도와드립니다. Future A
 | Future Anthem의 속성 예시 | Braze의 속성 예시 |
 | ----------------------------------- | --------------------------- |
 | ![플레이어의 프로필 속성을 보여주는 Future Anthem 대시보드.]({% image_buster /assets/img/future_anthem/future_anthem_example_attributes.png %}) | ![Future Anthem에서 동기화된 커스텀 오브젝트 속성을 보여주는 Braze 고객 프로필.]({% image_buster /assets/img/future_anthem/braze_example_attributes.png %}) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Integration" }
 
 ## Braze 커스텀 속성 {#braze-custom-attributes}
 
@@ -57,7 +58,7 @@ Future Anthem 고객 성공 팀이 통합 설정을 도와드립니다. Future A
 | 누적 베팅 추천 (이벤트 라벨) | `{"Bet_1": "Haaland goal vs. Manchester United", "Bet_2": "Liverpool vs. Everton"}` | 오브젝트 |
 | 누적 베팅 추천 (숫자 배당률) | `{"Bet_1": 1.5, "Bet_2": 2}` | 오브젝트 |
 | 베팅 빌더 베팅 추천 | `{"Sport":"American Football", "Competition":"NFL", "Event":"Seahawks@Giants", "Market":"MoneyLine", "Selection":"Seahawks"}` | 오브젝트 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 {% tab 보너스 추천 %}
@@ -73,7 +74,7 @@ Future Anthem 고객 성공 팀이 통합 설정을 도와드립니다. Future A
 | Bet and Get 보너스 가치 추천 | 20 | 숫자 |
 | 기타 보너스 가치 추천 | 0 | 숫자 |
 | 미래 CLTV | 3126 | 숫자 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 {% tab 게임 추천 %}
@@ -88,7 +89,7 @@ Future Anthem 고객 성공 팀이 통합 설정을 도와드립니다. Future A
 | 다음 추천 (게임 시퀀싱) | Fishin' Frenzy The Big Catch, Big Banker, 9 Masks of Fire, Super Lion, Fishin' Bigger Pots of Gold | 배열 |
 | 인기 게임 | Temple of Iris, Fishin' Frenzy, Fishing Reward, Crazy Time, Fluffy Favourites | 배열 |
 | 트렌딩 게임 | Pig Banker, Hyper Gold, Pyramid King, Gold Cash | 배열 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 
@@ -97,7 +98,7 @@ Future Anthem 고객 성공 팀이 통합 설정을 도와드립니다. Future A
 | 하위 카테고리 | 예시 | 데이터 유형 |
 | ----------- | ------- | --------- |
 | 플레이어가 속한 클러스터 표시 | High Value Game Diverse | 문자열 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 
@@ -107,7 +108,7 @@ Future Anthem 고객 성공 팀이 통합 설정을 도와드립니다. Future A
 | ----------- | ------- | --------- |
 | 위험 점수 | 0.5 | 숫자 |
 | 위험 플레이어 | True | 부울 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze custom attributes" }
 
 {% endtab %}
 {% endtabs %}

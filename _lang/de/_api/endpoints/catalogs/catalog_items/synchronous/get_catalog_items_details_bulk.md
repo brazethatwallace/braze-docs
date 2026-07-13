@@ -1,16 +1,16 @@
 ---
 nav_title: "GET: Details zu mehreren Artikeln im Katalog auflisten"
-article_title: "GET: Mehrere Katalogartikel auflisten Details"
+article_title: "GET: Details zu mehreren Artikeln im Katalog auflisten"
 search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Endpunkts List multiple catalog item details Braze."
+description: "Dieser Artikel beschreibt die Details zum Braze-Endpunkt „Details zu mehreren Artikeln im Katalog auflisten“."
 
 ---
 {% api %}
-# Details zu mehreren Artikeln im Katalog auflisten
+# Details zu mehreren Artikeln im Katalog auflisten {#list-multiple-catalog-item-details}
 {% apimethod get %}
 /catalogs/{catalog_name}/items
 {% endapimethod %}
@@ -19,37 +19,37 @@ description: "Dieser Artikel beschreibt die Details des Endpunkts List multiple 
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#63a19dd5-10e0-4649-bdf0-097216748bbb {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `catalogs.get_items`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `catalogs.get_items`.
 
 ## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='synchronous catalog item' %}
 
-## Pfad-Parameter
+## Pfad-Parameter {#path-parameters}
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `catalog_name` | Erforderlich | String | Name des Katalogs. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Pfad-Parameter" }
 
-## Abfrageparameter
+## Abfrageparameter {#query-parameters}
 
-Beachten Sie, dass jeder Aufruf dieses Endpunkts 50 Artikel zurückgibt. Bei einem Katalog mit mehr als 50 Artikeln verwenden Sie die Kopfzeile `Link`, um die Daten auf der nächsten Seite abzurufen, wie in der folgenden Beispielantwort gezeigt.
+Beachten Sie, dass jeder Aufruf dieses Endpunkts 50 Artikel zurückgibt. Bei einem Katalog mit mehr als 50 Artikeln verwenden Sie den `Link`-Header, um die Daten auf der nächsten Seite abzurufen, wie in der folgenden Beispielantwort gezeigt.
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
 | `cursor` | Optional | String | Bestimmt die Paginierung der Katalogartikel. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Abfrageparameter" }
 
-## Parameter der Anfrage
+## Anfrageparameter {#request-parameters}
 
 Für diesen Endpunkt gibt es keinen Anfragetext.
 
-## Beispiel-Anfragen
+## Beispielanfragen {#example-requests}
 
-### Ohne Cursor
+### Ohne Cursor {#without-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurants/items' \
@@ -57,7 +57,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-### Mit Cursor
+### Mit Cursor {#with-cursor}
 
 ```
 curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurants/items?cursor=c2tpcDow' \
@@ -65,16 +65,16 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs/restaurant
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Antwort
+## Antwort {#response}
 
-Es gibt drei Status Code Antworten für diesen Endpunkt: `200`, `400`, und `404`.
+Es gibt drei Statuscode-Antworten für diesen Endpunkt: `200`, `400` und `404`.
 
-### Beispiel für eine erfolgreiche Antwort
+### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
-Der Status Code `200` könnte den folgenden Response Header und Body zurückgeben.
+Der Statuscode `200` könnte den folgenden Antwort-Header und -Body zurückgeben.
 
 {% alert note %}
-Die Kopfzeile `Link` ist nicht vorhanden, wenn der Katalog weniger als oder gleich 50 Artikel enthält. Bei Anrufen ohne Cursor wird `prev` nicht angezeigt. Wenn Sie sich die letzte Seite der Artikel ansehen, wird `next` nicht angezeigt.
+Der `Link`-Header ist nicht vorhanden, wenn der Katalog 50 oder weniger Artikel enthält. Bei Aufrufen ohne Cursor wird `prev` nicht angezeigt. Wenn Sie die letzte Seite der Artikel betrachten, wird `next` nicht angezeigt.
 {% endalert %}
 
 ```
@@ -116,9 +116,9 @@ Link: </catalogs/all_restaurants/items?cursor=c2tpcDow>; rel="prev",</catalogs/a
 }
 ```
 
-### Beispiel einer Fehlerantwort
+### Beispiel für eine Fehlerantwort {#example-error-response}
 
-Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [Fehlerbehebung](#troubleshooting) finden Sie weitere Informationen zu Fehlern, die bei Ihnen auftreten können.
+Der Statuscode `400` könnte den folgenden Antworttext zurückgeben. Weitere Informationen zu Fehlern, die auftreten können, finden Sie unter [Fehlerbehebung](#troubleshooting).
 
 ```json
 {
@@ -138,14 +138,14 @@ Der Status Code `400` könnte den folgenden Antwortkörper zurückgeben. Unter [
 }
 ```
 
-## Fehlersuche
+## Fehlerbehebung {#troubleshooting}
 
 In der folgenden Tabelle finden Sie eine Liste möglicher zurückgegebener Fehler und die entsprechenden Schritte zur Fehlerbehebung.
 
-| Fehler | Fehlersuche |
+| Fehler | Fehlerbehebung |
 | --- | --- |
 | `catalog-not-found` | Prüfen Sie, ob der Katalogname gültig ist. |
-| `invalid-cursor` | Prüfen Sie, ob Ihre `cursor` gültig ist. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `invalid-cursor` | Prüfen Sie, ob Ihr `cursor` gültig ist. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

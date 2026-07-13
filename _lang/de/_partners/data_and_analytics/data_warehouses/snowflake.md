@@ -16,7 +16,7 @@ Braze bietet zwei Integrationen mit Snowflake an. Zusammen ermöglichen sie eine
 
 ## Eine Integration auswählen {#choosing-an-integration}
 
-### Data Sharing (Braze zu Snowflake) {#data-sharing-braze-to-snowflake}
+### Datenfreigabe (Braze zu Snowflake) {#data-sharing-braze-to-snowflake}
 
 Snowflake [Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/) bietet Ihnen sicheren Realtime-Zugriff auf Braze-Engagement- und Kampagnendaten direkt in Ihrer Snowflake-Instanz. Es werden keine Daten zwischen Konten kopiert oder übertragen – die gesamte Freigabe erfolgt über die einzigartige Dienstebene und den Metadaten-Store von Snowflake.
 
@@ -26,7 +26,7 @@ Snowflake [Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/dat
 - Braze-Daten mit anderen Daten in Ihrem Snowflake Data Warehouse verknüpfen
 - Ihre Engagement-Daten über Kanäle, Branchen und Geräteplattformen hinweg vergleichen
 
-Einrichtungsanweisungen finden Sie unter [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/).
+Einrichtungsanweisungen finden Sie unter [Snowflake Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/).
 
 ### Cloud-Datenaufnahme (Snowflake zu Braze) {#cloud-data-ingestion-snowflake-to-braze}
 
@@ -47,8 +47,8 @@ Bevor Sie dieses Feature nutzen können, müssen Sie Folgendes abschließen:
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Braze-Zugang | Um auf dieses Feature in Braze zuzugreifen, wenden Sie sich an Ihren Braze-Konto-Manager oder Customer-Success-Manager. |
-| Snowflake-Konto | Ein Snowflake-Konto mit `admin`-Berechtigungen. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Snowflake-Konto | Ein Snowflake-Konto mit `admin`-Berechtigungen. Für Kund:innen ohne HIPAA-Anforderungen wird Snowflake Standard oder Enterprise Edition unterstützt. Für HIPAA-konforme Datenfreigabe ist die Business Critical Edition erforderlich. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Secure Data Sharing einrichten {#setting-up-secure-data-sharing}
 
@@ -56,7 +56,7 @@ Bei Snowflake findet Data Sharing zwischen einem [Datenanbieter](https://docs.sn
 
 ### 1. Schritt: Datashare von Braze senden {#step-1-send-the-datashare-from-braze}
 
-1. Gehen Sie in Braze zu **Partnerintegrationen** > **Data Sharing**.
+1. Gehen Sie in Braze zu **Partnerintegrationen** > **Datenfreigabe**.
 2. Geben Sie Ihre Snowflake-Kontodaten und Ihren Locator ein. Um Ihren Account-Locator zu ermitteln, führen Sie `SELECT CURRENT_ACCOUNT()` im Zielkonto aus.
 3. Wenn Sie einen CRR-Share verwenden, geben Sie den Cloud-Anbieter und die Region an.
 4. Wenn Sie fertig sind, wählen Sie **Datashare erstellen**. Dadurch wird der Datashare an Ihr Snowflake-Konto gesendet.
@@ -89,7 +89,7 @@ Nachdem der Data Share bereitgestellt wurde, müssen Sie aus dem eingehenden Dat
 
 Eine vollständige Liste der verfügbaren Tabellen und Spalten finden Sie in der [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). Snowflake Data Sharing umfasst alle Tabellen in dieser Referenz sowie zusätzliche Snowflake-exklusive Tabellen für Snapshots, Campaign- und Canvas-Changelogs, Agentenkonsole-Ereignisse und Nachrichtenwiederholungsereignisse.
 
-Sie können auch [die Rohtabellenschemata herunterladen]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) (als Textdatei).
+Sie können auch [die Rohtabellenschemata herunterladen](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) (als Textdatei).
 
 ### Nutzer-ID-Schema {#user-id-schema}
 
@@ -99,7 +99,7 @@ Beachten Sie die folgenden Unterschiede zwischen den Namenskonventionen von Braz
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | Der eindeutige Bezeichner, der automatisch von Braze zugewiesen wird. |
 | `external_id` | `"EXTERNAL_USER_ID"` | Der eindeutige Bezeichner eines Nutzerprofils, der von der Kundschaft festgelegt wird. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer-ID-Schema" }
 
 ## Wichtige Informationen und Einschränkungen {#important-information-and-limitations}
 
@@ -150,7 +150,7 @@ Ereignisdaten in den Data-Sharing-Ansichten (z. B. `USERS_BEHAVIORS_CUSTOMEVENT_
 | ----- | ------- |
 | `TIME` | Unix-Zeitstempel, zu dem das Ereignis stattgefunden hat. Verwenden Sie dieses Feld bevorzugt, wenn Sie nach dem Zeitpunkt des Vorkommens filtern. |
 | `SF_CREATED_AT` | Zeitstempel, zu dem die Zeile in Snowflake geladen wurde (Aufnahmezeitpunkt). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abfrage gemeinsam genutzter Daten: TIME und Abfrage-Performance" }
 
 ### Geschwindigkeit, Performance und Kosten der Abfragen {#speed-performance-cost-of-queries}
 

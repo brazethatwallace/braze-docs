@@ -140,7 +140,7 @@ Para todos los tipos de mensajes dentro de la aplicación enumerados en la sigui
 | Deslizamiento hacia arriba                            |     1:1      |         140         |
 | Modal (solo imagen)                 |     1:1      |         140         |
 | Modal (con texto)                  |    29:10     |         140         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Character and image limits" }
 
 ### Reducir el tamaño de los archivos de mensajes dentro de la aplicación {#keeping-in-app-message-file-sizes-small}
 

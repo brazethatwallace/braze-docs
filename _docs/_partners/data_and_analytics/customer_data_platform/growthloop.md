@@ -25,7 +25,7 @@ The Braze and GrowthLoop integration allows you to segment customer data directl
 | GrowthLoop growth or enterprise account | A GrowthLoop account is required to take advantage of this partnership. |
 | Braze Rest API key | A Braze REST API key with all permissions.<br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**. |
 | Braze REST endpoint | Your REST endpoint URL. Your endpoint will depend on the [Braze URL for your instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" } 
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -39,7 +39,7 @@ Send customer lists from your data warehouse to Braze, targeting email and push 
 
 ### Configure Braze connection in GrowthLoop
 
-When you sign into the Segmentation Platform within GrowthLoop, navigate to the **Destinations** tab on the left sidebar and click **New Destination** in the top right corner.
+When you sign into the Segmentation Platform within GrowthLoop, navigate to the **Destinations** tab in the navigation sidebar and click **New Destination** in the action bar.
 
 Scroll until you can find Braze, and click **Add Braze**.
 

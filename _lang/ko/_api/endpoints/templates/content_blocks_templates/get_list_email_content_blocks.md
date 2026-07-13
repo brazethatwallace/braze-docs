@@ -14,12 +14,12 @@ description: "이 문서에서는 사용 가능한 Content Blocks 목록 Braze �
 /content_blocks/list
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 기존 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) 정보를 나열할 수 있습니다.
+> 이 엔드포인트를 사용하여 기존 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) 정보를 나열할 수 있습니다.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#6d87048f-68fd-46c9-aa15-3a970e99540e {% endapiref %}
 
 ## 필수 조건 {#prerequisites}
-이 엔드포인트를 사용하려면 `content_blocks.list` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `content_blocks.list` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -29,13 +29,13 @@ description: "이 문서에서는 사용 가능한 Content Blocks 목록 Braze �
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
-| `modified_after`  | 선택 사항 | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 문자열 | 지정된 시간 또는 그 이후에 업데이트된 Content Blocks만 검색합니다. |
-| `modified_before`  |  선택 사항 | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 문자열 | 지정된 시간 또는 그 이전에 업데이트된 Content Blocks만 검색합니다. |
+| `modified_after` | 선택 사항 | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 문자열 | 지정된 시간 또는 그 이후에 업데이트된 Content Blocks만 검색합니다. |
+| `modified_before` | 선택 사항 | [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 형식의 문자열 | 지정된 시간 또는 그 이전에 업데이트된 Content Blocks만 검색합니다. |
 | `limit` | 선택 사항 | 양수 | 검색할 수 있는 최대 Content Blocks 수입니다. 제공하지 않으면 기본값은 100이며, 허용되는 최대 값은 1000입니다. |
-| `offset`  |  선택 사항 | 양수 | 검색 기준에 맞는 나머지 템플릿을 반환하기 전에 건너뛸 Content Blocks 수입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `offset` | 선택 사항 | 양수 | 검색 기준에 맞는 나머지 템플릿을 반환하기 전에 건너뛸 Content Blocks 수입니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/content_blocks/list?modified_after=2020-01-01T01:01:01.000000&modified_before=2020-02-01T01:01:01.000000&limit=100&offset=1' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
@@ -75,6 +75,6 @@ curl --location --request GET 'https://rest.iad-01.braze.com/content_blocks/list
 | `Content Block number limit exceeds maximum of 1000` | `limit` 매개변수를 1000보다 작은 정수로 변경하세요. |
 | `Offset is invalid` | `offset` 매개변수는 0보다 큰 정수여야 합니다. |
 | `Offset must be greater than 0` | `offset` 매개변수를 0보다 큰 정수로 변경하세요. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

@@ -9,14 +9,14 @@ guide_top_text: "Los siguientes artículos se facilitan a nuestros socios ISV de
 
 guide_featured_title: "Documentación para socios"
 guide_featured_list:
-- name: Integración API
+- name: Integración de socios de API
   link: /docs/partners/isv_partners/api_partner
   image: /assets/img/braze_icons/user-circle.svg
 - name: Integración de la importación de cohortes
   link: /docs/partners/isv_partners/cohort_import
   image: /assets/img/braze_icons/users-01.svg
-- name: Integración de corrientes
-  link: /docs/partners/isv_partners/currents_integration
+- name: Conector HTTP personalizado
+  link: /docs/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector/
   image: /assets/img/braze_icons/waves.svg
 - name: Uso compartido de datos de Snowflake
   link: /docs/partners/isv_partners/snowflake_datasharing

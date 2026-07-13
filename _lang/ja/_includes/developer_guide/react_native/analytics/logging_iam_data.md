@@ -1,30 +1,30 @@
 {% multi_lang_include developer_guide/prerequisites/react_native.md %}
 
-## ロギングの方法
+## ロギングのメソッド {#methods-for-logging}
 
 これらのメソッドを使用するには、`BrazeInAppMessage` インスタンスを渡して分析をログに記録し、アクションを実行します。
 
-| 方法                                                    | 説明                                                                           |
+| メソッド                                                    | 説明                                                                           |
 | --------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `logInAppMessageClicked(inAppMessage)`                    | 提供されたアプリ内メッセージデータのクリックを記録する。                                    |
-| `logInAppMessageImpression(inAppMessage)`                 | 提供されたアプリ内メッセージデータのインプレッションを記録する。                              |
-| `logInAppMessageButtonClicked(inAppMessage, buttonId)`    | 提供されたアプリ内メッセージデータとボタンIDのボタンクリックを記録する。               |
-| `hideCurrentInAppMessage()`                               | 現在表示されているアプリ内メッセージを解除する。                                     |
-| `performInAppMessageAction(inAppMessage)`                 | アプリ内メッセージのアクションを実行する。                                            |
-| `performInAppMessageButtonAction(inAppMessage, buttonId)` | アプリ内メッセージボタンのアクションを実行する。                                     |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| `logInAppMessageClicked(inAppMessage)`                    | 提供されたアプリ内メッセージデータのクリックを記録します。                                    |
+| `logInAppMessageImpression(inAppMessage)`                 | 提供されたアプリ内メッセージデータのインプレッションを記録します。                              |
+| `logInAppMessageButtonClicked(inAppMessage, buttonId)`    | 提供されたアプリ内メッセージデータとボタンIDのボタンクリックを記録します。               |
+| `hideCurrentInAppMessage()`                               | 現在表示されているアプリ内メッセージを閉じます。                                     |
+| `performInAppMessageAction(inAppMessage)`                 | アプリ内メッセージのアクションを実行します。                                            |
+| `performInAppMessageButtonAction(inAppMessage, buttonId)` | アプリ内メッセージボタンのアクションを実行します。                                     |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ロギングのメソッド" }
 
-## メッセージデータを扱う
+## メッセージデータの処理 {#handling-message-data}
 
-ほとんどの場合、`Braze.addListener` メソッドを使用して、アプリ内メッセージからのデータを処理するイベントリスナーを登録できます。| 
+ほとんどの場合、`Braze.addListener` メソッドを使用して、アプリ内メッセージからのデータを処理するイベントリスナーを登録できます。
 
-さらに、`Braze.subscribeToInAppMessage` メソッドを呼び出して、アプリ内メッセージがトリガーされたときに SDK に `inAppMessageReceived` イベントを発行させることで、JavaScript レイヤーのアプリ内メッセージデータにアクセスできます。|アプリ内メッセージがトリガーされてリスナーによって受信されたときに独自のコードを実行するには、このメソッドにコールバックを渡します。
+さらに、`Braze.subscribeToInAppMessage` メソッドを呼び出して、アプリ内メッセージがトリガーされたときにSDKに `inAppMessageReceived` イベントを発行させることで、JavaScriptレイヤーのアプリ内メッセージデータにアクセスできます。アプリ内メッセージがトリガーされてリスナーによって受信されたときに独自のコードを実行するには、このメソッドにコールバックを渡します。
 
-メッセージデータの扱い方をカスタマイズするには、以下の実装例を参照のこと：
+メッセージデータの処理方法をカスタマイズするには、以下の実装例を参照してください。
 
 {% tabs local %}
 {% tab basic %}
-デフォルトの行動を強化するため、またはiOSやAndroidのネイティブコードをカスタマイズするアクセス権がない場合は、デフォルトのUIを無効にしながら、アプリ内メッセージイベントをBrazeから受信することをお勧めします。デフォルトの UI を無効にするには、`false` を `Braze.subscribeToInAppMessage` メソッドに渡し、アプリ内メッセージデータを使用して JavaScript で独自のメッセージを作成します。デフォルトのUIを無効にする場合は、メッセージングの分析を手動で行う必要がある。
+デフォルトの動作を強化するため、またはネイティブのiOSやAndroidコードをカスタマイズするアクセス権がない場合は、デフォルトのUIを無効にしながら、Brazeからアプリ内メッセージイベントを受信することをお勧めします。デフォルトのUIを無効にするには、`Braze.subscribeToInAppMessage` メソッドに `false` を渡し、アプリ内メッセージデータを使用してJavaScriptで独自のメッセージを作成します。デフォルトのUIを無効にする場合は、メッセージの分析を手動でログに記録する必要があります。
 
 ```javascript
 import Braze from "@braze/react-native-sdk";
@@ -48,17 +48,17 @@ Braze.subscribeToInAppMessage(false, (event) => {
 {% endtab %}
 
 {% tab advanced %}
-組み込み UI を使用してアプリ内メッセージを表示するかどうかを決定するためのより高度なロジックを組み込むには、ネイティブレイヤーを介してアプリ内メッセージを実装します。
+組み込みUIを使用してアプリ内メッセージを表示するかどうかを決定するためのより高度なロジックを組み込むには、ネイティブレイヤーを介してアプリ内メッセージを実装します。
 
 {% alert warning %}
-これは高度なカスタマイズオプションであるため、デフォルトの Braze 実装をオーバーライドすると、アプリ内メッセージイベントを JavaScript リスナーに送信するロジックも無効になることに注意してください。[アプリ内メッセージデータへのアクセス](#accessing-in-app-message-data)の説明に従って `Braze.subscribeToInAppMessage` または `Braze.addListener` を引き続き使用する場合は、イベントの公開を自分で処理する必要があります。
+これは高度なカスタマイズオプションであるため、デフォルトのBraze実装をオーバーライドすると、アプリ内メッセージイベントをJavaScriptリスナーに送信するロジックも無効になることに注意してください。[アプリ内メッセージデータへのアクセス](#accessing-in-app-message-data)の説明に従って `Braze.subscribeToInAppMessage` または `Braze.addListener` を引き続き使用する場合は、イベントの発行を自分で処理する必要があります。
 {% endalert %}
 
 {% subtabs %}
 {% subtab Android %}
-[カスタムマネージャーリスナー]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners)に関する Android の記事で説明されているように、`IInAppMessageManagerListener` を実装します。`beforeInAppMessageDisplayed` 実装では、`inAppMessage` データにアクセスして JavaScript レイヤーに送信し、戻り値に基づいてネイティブメッセージを表示するかどうかを決定できます。
+[カスタムマネージャーリスナー]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners)に関するAndroidの記事で説明されているように、`IInAppMessageManagerListener` を実装します。`beforeInAppMessageDisplayed` 実装では、`inAppMessage` データにアクセスしてJavaScriptレイヤーに送信し、戻り値に基づいてネイティブメッセージを表示するかどうかを決定できます。
 
-これらの値の詳細については、[Android のドキュメントを]({{site.baseurl}}/developer_guide/in_app_messages/)参照してください。
+これらの値の詳細については、[Androidのドキュメント]({{site.baseurl}}/developer_guide/in_app_messages)を参照してください。
 
 ```java
 // In-app messaging
@@ -78,15 +78,15 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 ```
 {% endsubtab %}
 {% subtab iOS %}
-### デフォルトの UI デリゲートをオーバーライドする
+### デフォルトのUIデリゲートをオーバーライドする {#overriding-the-default-ui-delegate}
 
-既定では、`braze` インスタンスを初期化すると、[`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/) が作成されて割り当てられます。`BrazeInAppMessageUI` は [`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) プロトコルの実装であり、受信したアプリ内メッセージの処理をカスタマイズするために使用できる `delegate` プロパティが付属しています。
+デフォルトでは、`braze` インスタンスを初期化すると、[`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/)が作成されて割り当てられます。`BrazeInAppMessageUI` は [`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) プロトコルの実装であり、受信したアプリ内メッセージの処理をカスタマイズするために使用できる `delegate` プロパティが付属しています。
 
-1. [こちらの iOS の記事](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui)で説明されているように、`BrazeInAppMessageUIDelegate` デリゲートを実装します。
+1. [こちらのiOSの記事](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui)で説明されているように、`BrazeInAppMessageUIDelegate` デリゲートを実装します。
 
-2. `inAppMessage(_:displayChoiceForMessage:)` デリゲートメソッドでは、`inAppMessage` データにアクセスして JavaScript レイヤーに送信し、戻り値に基づいてネイティブメッセージを表示するかどうかを決定できます。
+2. `inAppMessage(_:displayChoiceForMessage:)` デリゲートメソッドでは、`inAppMessage` データにアクセスしてJavaScriptレイヤーに送信し、戻り値に基づいてネイティブメッセージを表示するかどうかを決定できます。
 
-これらの値の詳細については、[iOS のドキュメント](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/)を参照してください。
+これらの値の詳細については、[iOSのドキュメント](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/)を参照してください。
 
 ```objc
 - (enum BRZInAppMessageUIDisplayChoice)inAppMessage:(BrazeInAppMessageUI *)ui
@@ -107,10 +107,10 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 }
 ```
 
-このデリゲートを使用するには、`braze` インスタンスを初期化した後に `brazeInAppMessagePresenter.delegate` に割り当てます。 
+このデリゲートを使用するには、`braze` インスタンスを初期化した後に `brazeInAppMessagePresenter.delegate` に割り当てます。
 
 {% alert note %}
-`BrazeUI` は Objective-C または Swift でのみインポートできます。Objective-C++ を使用している場合は、これを別のファイルで処理する必要があります。
+`BrazeUI` はObjective-CまたはSwiftでのみインポートできます。Objective-C++を使用している場合は、これを別のファイルで処理する必要があります。
 {% endalert %}
 
 ```objc
@@ -124,9 +124,9 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 }
 ```
 
-### デフォルトのネイティブ UI をオーバーライドする
+### デフォルトのネイティブUIをオーバーライドする {#overriding-the-default-native-ui}
 
-ネイティブ iOS レイヤーでアプリ内メッセージの表示を完全にカスタマイズしたい場合は、[`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) プロトコルに従い、以下のサンプルに従ってカスタムプレゼンターを割り当てます。
+ネイティブiOSレイヤーでアプリ内メッセージの表示を完全にカスタマイズしたい場合は、[`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) プロトコルに準拠し、以下のサンプルに従ってカスタムプレゼンターを割り当てます。
 
 ```objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:apiKey endpoint:endpoint];

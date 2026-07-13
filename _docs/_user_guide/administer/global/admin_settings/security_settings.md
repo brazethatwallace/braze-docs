@@ -44,7 +44,7 @@ Use this field to define how long Braze will keep your session active. After Bra
 
 You can restrict your users from logging in using a password or SSO.
 
-For [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/), customers need to set up their SAML settings before enforcing. If customers use Google SSO, they only need to enforce the security settings page with no additional lift.
+For [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), customers need to set up their SAML settings before enforcing. If customers use Google SSO, they only need to enforce the security settings page with no additional lift.
 
 ## Dashboard IP allowlisting
 
@@ -99,39 +99,21 @@ If 2FA is enforced at the company level, users who don't set it up on their own 
 2FA is required for all company users only if Single Sign-On (SSO) isn't enabled. If SSO is in use, 2FA doesn't need to be enforced at the company level.
 {% endalert %}
 
-## Setting up two-factor authentication (2FA)
+## Manually set up 2FA
 
-### Setting up 2FA with Authy
+To manually activate two-factor authentication (2FA) on your Braze account, follow these steps:
 
-1. Download the Authy App from your device's app store.
-2. In Braze, input your phone number.
-3. Tap the notification sent to your device prompting you to open the Authy app.
-4. Launch the Authy app on your device to retrieve the code.
-5. In Braze, input the verification code you received from Authy.
-
-If you encounter issues during the setup process and are redirected to the Braze homepage or login screen, try the following:
-
-- Use incognito or private browsing mode: Attempt setup again with an incognito or private browsing window. This can bypass issues caused by browser extensions or plugins.
-- Try a different browser profile: If the problem persists, consider using a different browser profile to eliminate conflicts with installed plugins.
-
-### Setting up 2FA when it isn't enforced
-
-To manually activate two-factor authentication (2FA) on your Braze account when it isn't enforced, follow these steps:
-
-1. Download a 2FA app like Authy, Google Authenticator, Okta Verify, or similar from the App Store (iOS), Google Play Store (Android), or the web. Or, if you prefer to set up 2FA with email or SMS, skip to step 2.
-2. In Braze, go to Manage Account, scroll to the **Two-Factor Authentication** section, then select **Start Setup**.
-3. Enter your password into the login modal, then select **Check Password**.
-4. In the **Two-Factor Authentication Setup** modal, enter your phone number, then select **Enable**.
-5. Copy the generated seven-digit code from your 2FA app, email, or SMS message, then go back to Braze and paste it into the **Two-Factor Authentication Setup** modal. Select **Verify**.
-6. (Optional) To avoid entering 2FA for the next 30 days, enable the **Remember this account for 30 days** option.
+1. In Braze, select your profile icon in the global header, then select **Manage your account**. Scroll to the **Two-Factor Authentication** section, then select **Start Setup**.
+2. Enter your password into the login modal, then select **Check Password**.
+3. In the **Two-Factor Authentication Setup** modal, enter your phone number, then select **Enable**.
+4. Copy the generated seven-digit code from your email or SMS message, then go back to Braze and paste it into the **Two-Factor Authentication Setup** modal. Select **Verify**.
+5. (Optional) To avoid entering 2FA for the next 30 days, enable the **Remember this account for 30 days** option.
 
 ## Elevated Access
 
 Elevated Access adds an extra layer of security for sensitive actions in your Braze dashboard. When active, users need to re-verify their account before exporting a segment or viewing an API key. To use Elevated Access, go to **Settings** > **Admin Settings** > **Security Settings** and toggle it on. 
 
 If a user can’t re-verify, they’ll be redirected to where they left off and won’t be able to continue with the sensitive action. After they successfully re-verify, they won’t need to do so again for the next hour—unless they log out first.
-
-![Elevated Access toggle.]({% image_buster /assets/img/elevated_access.png %})
 
 ## Downloading a security event report {#security-event-report}
 
@@ -143,9 +125,25 @@ To download this report, do the following:
 2. Select the **Security Settings** tab and go to the **Security Event Download** section.
 3. Select **Download report**. 
 
-This manual report download contains only the most recent 10,000 security events for your account.
+This manual report download contains only the most recent 10,000 security events for your account. If your exported CSV contains exactly 10,001 rows (including the header row), you reached the 10,000-event report cap and older events may not be included.
 
-To export security events to Amazon S3 without this row limit, see [Security events export with Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+To export security events to Amazon S3 without this row limit, see [Security events export with Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
+
+### CSV column definitions
+
+The Security Event report CSV contains the following columns:
+
+| Column | Description |
+|--------|-------------|
+| CreatedAt | Timestamp when the event was recorded, in UTC. |
+| EmailAtTimeOfEvent | Email address of the dashboard user who triggered the event, as recorded when the event occurred. |
+| CurrentEmail | Current email address of the dashboard user who triggered the event. If the user no longer exists, their developer ID is used instead. |
+| EventName | Type of security event. See the **Reported security events** dropdown after this table. |
+| OtherAccount | Email address of another dashboard user affected by the event, when applicable (for example, when an account is added or removed). |
+| JsonProperties | Event-specific properties in JSON format. The fields included vary by event type. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="CSV column definitions" }
+
+[S3 exports]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3) include these columns plus `Version`, the schema version for the export format (currently `1`).
 
 {% details Reported security events %}
 ### Login and account
@@ -177,8 +175,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment
@@ -265,15 +263,15 @@ Removed Push Credential
 The **View PII** permission is only accessible to a few select company users. By default, all admins have their **View PII** permission turned on in user permissions. This means they can see all standard and custom attributes that your company has defined as PII throughout the dashboard. When this permission is turned off for users, those users won't be able to see any of those attributes.
 
 {% alert note %}
-You need the **View PII** permission to use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries/), because it allows direct access to some customer data.
+You need the **View PII** permission to use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), because it allows direct access to some customer data.
 {% endalert %}
 
-For the existing team permission capabilities, refer to [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#available-limited-and-team-role-permissions).
+For the existing team permission capabilities, refer to [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
 
 ### Defining PII
 
 {% alert important %}
-Selecting and defining certain fields as PII fields only affects what users can view on the Braze dashboard and does not impact how the End User data in such PII fields is handled.<br><br>Consult your legal team to align your dashboard's settings with any privacy regulations and policies applicable to your company, including those related to [data retention]({{site.baseurl}}/data_retention/).
+Selecting and defining certain fields as PII fields only affects what users can view on the Braze dashboard and does not impact how the End User data in such PII fields is handled.<br><br>Consult your legal team to align your dashboard's settings with any privacy regulations and policies applicable to your company, including those related to [data retention]({{site.baseurl}}/data_retention).
 {% endalert %}
 
 You can select the fields your company designates as PII in the dashboard. To do this, go to **Company Settings** > **Admin Settings** > **Security Settings**.
@@ -284,8 +282,8 @@ The following attributes can be designated as PII and hidden from company users 
 
 | Standard attributes | Custom attributes |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>Email address </li> <li> Phone number </li> <li> First name </li> <li> Last name </li> <li> Gender </li> <li> Birthday </li> <li> Device IDs </li> <li> Most recent location </li> </ul> {:/} | {::nomarkdown} <ul> <li> All custom attributes<ul><li>Individual custom attributes can be marked as PII if you don't need to hide all attributes.</li></ul></li> </ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| {::nomarkdown}<ul> <li>Email address </li> <li> Phone number </li> <li> First name </li> <li> Last name </li> <li> Gender </li> <li> Birthday </li> <li> Device IDs </li> <li> LINE ID </li> <li> Most recent location </li> </ul> {:/} | {::nomarkdown} <ul> <li> All custom attributes<ul><li>Individual custom attributes can be marked as PII if you don't need to hide all attributes.</li></ul></li> </ul> {:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Potential PII attributes" }
 
 ### Limited areas
 
@@ -298,7 +296,7 @@ The following assumes that all fields are set as PII, and the users mentioned ar
 | {::nomarkdown} <ul> <li> Segments </li> <li> Campaigns </li> <li> Canvas </li> </ul> {:/} | In the **User Data** dropdown: {::nomarkdown} <ul> <li> The user won't have the <b>CSV Export Email Address</b> option. </li> <li> The user won't be provided the preceding standard and custom attributes in the CSV file when selecting <b>CSV Export User Data</b>. </li> </ul> {:/} | |
 | Internal test group | The user won't have access to the preceding standard attributes of any user added to the internal test group. | |
 | Message activity log | The user won't have access to the preceding standard attributes for any users identified in the message activity log. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Limited areas" }
 
 {% alert note %}
 When previewing a message, the **View PII** permission isn't applied, so users can see the [preceding standard attributes](#potential-pii-attributes) if they were referenced in the message through Liquid.
@@ -319,7 +317,7 @@ You are responsible for determining the correct preferences for your workspace. 
 | Custom event | properties |  |
 | Purchase event | properties |  |
 | Message send | message_extras | Several event types contain a `message_extras` field. The preference applies to all message send event types that support `message_extras`, including event types added in the future. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Relevant fields" }
 
 {% alert warning %}
 **Deletion is permanent!** If you opt to remove any fields from Snowflake for deleted users, the setting applies to all historical data in your workspaces and any events for users deleted in the future. After Braze has run the process to apply the settings to historical event data for deleted users, you **cannot restore** the data.
@@ -344,7 +342,7 @@ If you find yourself caught in a loop after successfully entering your phone num
 3. Restart your PC or laptop.
 4. Attempt to set up 2FA again.
 
-If the problem persists after these steps, contact [Support]({{site.baseurl}}/braze_support/) for assistance.
+If the problem persists after these steps, contact [Support]({{site.baseurl}}/braze_support) for assistance.
 
 ### Can't enable two-factor authentication (2FA)
 
@@ -368,5 +366,5 @@ If issues persist, delete the old profile in the Authy app and scan the QR code 
 
 For more information about authentication and access, see:
 
-- [SAML & single sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) to set up SSO with your identity provider.
-- [Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) to control what actions users can perform in the dashboard.
+- [SAML & single sign-on]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) to set up SSO with your identity provider.
+- [Permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) to control what actions users can perform in the dashboard.

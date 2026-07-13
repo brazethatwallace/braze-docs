@@ -1,32 +1,32 @@
 ---
-nav_title: "Gmail-Aktionen einrichten"
-article_title: "Gmail-Aktionen einrichten"
+nav_title: "Gmail-Tab „Aktionen“"
+article_title: "Gmail-Tab „Aktionen“"
 page_order: 8
-description: "In diesem Referenzartikel erfahren Sie, wie Sie mit Braze die Gmail-Karte für Mobilgeräteaktionen aus Ihrer E-Mail-Kampagne erstellen."
+description: "In diesem Referenzartikel erfahren Sie, wie Sie mit Braze die Gmail-Karte für Mobilgeräteaktionen aus Ihrer E-Mail-Campaign erstellen."
 channel:
   - email
 toc_headers: h2
 ---
 
-# Gmail-Tab „Aktionen“
+# Gmail-Tab „Aktionen“ {#gmail-promotions-tab}
 
-> Der [Gmail-Tab „Aktionen“ für Mobilgeräte](https://developers.google.com/gmail/promotab/) ermöglicht es Marketern, über Annotationen in einer „Karte“ mehr Informationen zu senden als nur die Betreffzeile oder den Preheader. Braze bietet ein integriertes Tool, mit dem Sie die Karte aus Ihrer E-Mail-Kampagne erstellen können.
+> Der [Gmail-Tab „Aktionen“ für Mobilgeräte](https://developers.google.com/gmail/promotab/) ermöglicht es Marketern, über Annotationen in einer „Karte“ mehr Informationen zu senden als nur die Betreffzeile oder den Preheader. Braze bietet ein integriertes Tool, mit dem Sie die Karte aus Ihrer E-Mail-Campaign erstellen können.
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 Leiten Sie zunächst Ihre Domains und Subdomains an das Outreach-Team für den Gmail-Tab „Aktionen“ unter <a href="mailto:p-promo-outreach@google.com">p-promo-outreach@google.com</a> weiter, um auf die Allowlist von Gmail gesetzt zu werden. So können Sie alle Features nutzen, die reichhaltige Bilder anzeigen, wie z. B. das Produktkarussell für den Gmail-Tab „Aktionen“.
 
 ## Karten in Braze erstellen {#build-the-card-with-braze}
 
-Befolgen Sie diese Anleitung, um eine Gmail-Aktionskarte für eine E-Mail-Kampagne zu erstellen. Beachten Sie, dass das Verlassen des Bereichs **Inhalt** im Editor die Felder und Informationen auf dem Tab **Gmail Promotion** zurücksetzt. Schließen Sie die Einrichtung Ihrer Aktionskarte ab und kopieren Sie den generierten HTML-Code, damit Sie ihn nicht verlieren.
+Befolgen Sie diese Anleitung, um eine Gmail-Aktionskarte für eine E-Mail-Campaign zu erstellen. Beachten Sie, dass das Verlassen des Bereichs **Content** im Editor die Felder und Informationen auf dem Tab **Gmail Promotion** zurücksetzt. Schließen Sie die Einrichtung Ihrer Aktionskarte ab und kopieren Sie den generierten HTML-Code, damit Sie ihn nicht verlieren.
 
-### 1. Schritt: E-Mail-Kampagne erstellen {#step-1-create-an-email-campaign}
+### 1. Schritt: E-Mail-Campaign erstellen {#step-1-create-an-email-campaign}
 
-[Erstellen Sie zunächst Ihre E-Mail-Kampagne]({{site.baseurl}}/user_guide/channels/email/html_editor/) und wählen Sie den **HTML-Code-Editor** als Bearbeitungsumgebung aus.
+[Erstellen Sie zunächst Ihre E-Mail-Campaign]({{site.baseurl}}/user_guide/channels/email/html_editor) und wählen Sie den **HTML code editor** als Bearbeitungsumgebung aus.
 
 ### 2. Schritt: Details zur Gmail-Aktionskarte hinzufügen {#step-2-add-details-to-gmail-promotion-card}
 
-Gehen Sie als Nächstes zum Bereich **Inhalt** des HTML-Editors und wählen Sie den Tab **Gmail Promotion**. Füllen Sie die Felder unter **Basic Information** aus und wählen Sie dann **Generate HTML Code**. Dadurch wird das Skript für Ihre Gmail-Aktionskarte im Abschnitt **Copy and Paste HTML code into `<Head>`** generiert.
+Gehen Sie als Nächstes zum Bereich **Content** des HTML-Editors und wählen Sie den Tab **Gmail Promotion**. Füllen Sie die Felder unter **Basic Information** aus und wählen Sie dann **Generate HTML Code**. Dadurch wird das Skript für Ihre Gmail-Aktionskarte im Abschnitt **Copy and Paste HTML code into `<Head>`** generiert.
 
 ![Ein Beispiel für die Erstellung einer Karte.]({% image_buster /assets/img/create-gmail-promo.png %})
 
@@ -86,7 +86,7 @@ Wir empfehlen, Ihre Produktbilder in die Medienbibliothek hochzuladen und dann d
 | Währung | (optional) Die Währung des Preises. |
 | Preis | Der Preis der Aktion. |
 | Rabattwert | Der vom Originalpreis abgezogene Betrag. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Gmail-Aktionskarte anpassen" }
 
 ![Ein Beispiel für ein Produktkarussell eines Unternehmens namens Motto mit der E-Mail-Überschrift „Unsere meistverkauften Socken sind im Angebot“, mit drei Bildern von Socken und ihren reduzierten Preisen.]({% image_buster /assets/img_archive/product_carousel.png %}){: style="max-width:40%;"}
 
@@ -98,7 +98,7 @@ Wir empfehlen, Ihre Produktbilder in die Medienbibliothek hochzuladen und dann d
 Nachdem Sie Ihre Gmail-Aktionskarte erstellt haben, wählen Sie **Generate HTML code**. Kopieren Sie das Skript und fügen Sie es in das `<head>`-Element des HTML-Codes Ihrer E-Mail ein.
 
 {% alert tip %}
-Für den Drag-and-Drop-Editor kopieren Sie den generierten HTML-Code und fügen ihn in den Abschnitt [Custom Head Tags]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/#custom-head-tags) unter **Sending Settings** ein.
+Für den Drag-and-Drop-Editor kopieren Sie den generierten HTML-Code und fügen ihn in den Abschnitt [Custom Head Tags]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#custom-head-tags) unter **Sending Settings** ein.
 {% endalert %}
 
 {% alert warning %}

@@ -6,15 +6,15 @@ page_order: 1
 layout: scrolly
 ---
 
-# チュートリアル: キーと値のペアを使用したメッセージスタイルのカスタマイズ
+# チュートリアル: キーと値のペアを使用したメッセージスタイルのカスタマイズ {#tutorial-customizing-message-styling-using-key-value-pairs}
 
-> このチュートリアルのサンプルコードに従って、Braze SDK のキーと値のペアを使用してアプリ内メッセージのスタイルをカスタマイズします。
+> このチュートリアルのサンプルコードに従って、Braze SDKのキーと値のペアを使用してアプリ内メッセージのスタイルをカスタマイズしましょう。
 
 {% sdktabs %}
 {% sdktab web %}
-{% multi_lang_include developer_guide/prerequisites/web.md %} ただし、追加の設定は不要だ。
+{% multi_lang_include developer_guide/prerequisites/web.md %} ただし、追加の設定は不要です。
 
-## Web のキーと値のペアを使用したメッセージスタイルのカスタマイズ
+## Webのキーと値のペアを使用したメッセージスタイルのカスタマイズ {#customizing-message-styling-using-key-value-pairs-for-web}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Customizing Message Styling Web" %}
 
@@ -47,44 +47,44 @@ braze.subscribeToInAppMessage(function (message) {
 !!step
 lines-index.js=2
 
-#### 1\.`automaticallyShowInAppMessages()` の呼び出しを削除する
+### 1. `automaticallyShowInAppMessages()` の呼び出しを削除する {#1-remove-calls-to-automaticallyshowinappmessages}
 
-後で実装するカスタムロジックをオーバーライドするため、[`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages) のすべての呼び出しを削除します。
+後で実装するカスタムロジックがオーバーライドされるため、[`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages) のすべての呼び出しを削除してください。
 
 !!step
 lines-index.js=6
 
-#### 2\.デバッグを有効にする(オプション)
+#### 2. デバッグを有効にする（オプション） {#2-enable-debugging-optional}
 
 開発中のトラブルシューティングを容易にするために、デバッグを有効にすることを検討してください。
 
 !!step
 lines-index.js=9-21
 
-#### 3\.アプリ内メッセージコールバックハンドラーにサブスクライバーする
+#### 3. アプリ内メッセージコールバックハンドラーにサブスクライブする {#3-subscribe-to-the-in-app-message-callback-handler}
 
-[`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) を使用してコールバックを登録し、アプリ内メッセージがトリガーされるたびにメッセージを受信します。
+[`subscribeToInAppMessage(callback)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) を使用してコールバックを登録し、アプリ内メッセージがトリガーされるたびにメッセージを受信できるようにします。
 
 !!step
 lines-index.js=10-13
 
-#### 4\.`message.extras` プロパティにアクセスします
+#### 4. `message.extras` プロパティにアクセスする {#4-access-the-messageextras-property}
 
-`message.extras` を使用して、カスタマイズタイプ、スタイル属性、またはダッシュボードで定義されているその他の値にアクセスします。すべての値は文字列として返されます。
+`message.extras` を使用して、カスタマイズタイプ、スタイル属性、またはダッシュボードで定義されたその他の値にアクセスします。すべての値は文字列として返されます。
 
 !!step
 lines-index.js=19
 
-#### 5\.条件付きで `showInAppMessage` を呼び出す
+#### 5. 条件付きで `showInAppMessage` を呼び出す {#5-conditionally-call-showinappmessage}
 
-メッセージを表示するには、[`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage) を呼び出します。それ以外の場合は、必要に応じて任意のカスタムプロパティを使用します。
+メッセージを表示するには、[`showInAppMessage(message)`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showinappmessage) を呼び出します。それ以外の場合は、必要に応じてカスタムプロパティを使用してください。
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab android %}
-{% multi_lang_include developer_guide/prerequisites/android.md %} [Androidではアプリ内メッセージをイネーブルメント]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages)する必要がある。
+{% multi_lang_include developer_guide/prerequisites/android.md %} また、[Androidのアプリ内メッセージを有効にする]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=android#android_enabling-in-app-messages)必要もあります。
 
-## Android のキーと値のペアを使用したメッセージスタイルのカスタマイズ
+## Androidのキーと値のペアを使用したメッセージスタイルのカスタマイズ {#customizing-message-styling-using-key-value-pairs-for-android}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Customizing Message Styling Android" %}
 
@@ -180,51 +180,51 @@ class CustomInAppMessageViewFactory : IInAppMessageViewFactory {
 !!step
 lines-MainApplication.kt=19
 
-#### 1\.デバッグを有効にする(オプション)
+### 1. デバッグを有効にする（オプション） {#1-enable-debugging-optional}
 
 開発中のトラブルシューティングを容易にするために、デバッグを有効にすることを検討してください。
 
 !!step
 lines-MainApplication.kt=28-30
 
-#### 2\.アクティビティライフサイクルコールバックを登録する
+#### 2. アクティビティライフサイクルコールバックを登録する {#2-register-activity-lifecycle-callbacks}
 
-アプリ内メッセージのライフサイクルを処理するBrazeのデフォルトリスナーを登録する。
+アプリ内メッセージのライフサイクルを処理するために、Brazeのデフォルトリスナーを登録します。
 
 !!step
 lines-CustomInAppMessageViewFactory.kt=8
 
-#### 3\.カスタムビューファクトリクラスの作成
+#### 3. カスタムビューファクトリクラスを作成する {#3-create-your-custom-view-factory-class}
 
-カスタムメッセージビューを構築して返すことができるように、クラスが [`IInAppMessageViewFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-i-in-app-message-view-factory/index.html) に準拠していることを確認してください。
+カスタムメッセージビューを構築して返せるように、クラスが [`IInAppMessageViewFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-i-in-app-message-view-factory/index.html) に準拠していることを確認してください。
 
 !!step
 lines-CustomInAppMessageViewFactory.kt=15-20
 
-#### 4\.Brazeのデフォルト工場への委任
+#### 4. Brazeのデフォルトファクトリに委任する {#4-delegate-to-brazes-default-factory}
 
-デフォルトのファクトリーに委任して、独自の条件変更を適用する前に、Braze の組み込みスタイリングを保持します。
+独自の条件付き変更を適用する前に、デフォルトのファクトリに委任してBrazeの組み込みスタイリングを保持します。
 
 !!step
 lines-CustomInAppMessageViewFactory.kt=30-32,35-41
 
-#### 5\.`inAppMessage.extras` からキーと値のペアにアクセスする
+#### 5. `inAppMessage.extras` からキーと値のペアにアクセスする {#5-access-key-value-pairs-from-inappmessageextras}
 
-`inAppMessage.extras` を使用して、カスタマイズタイプ、スタイル属性、またはダッシュボードで定義されているその他の値にアクセスします。ビューを返す前にスタイルのオーバーライドを適用します。
+`inAppMessage.extras` を使用して、カスタマイズタイプ、スタイル属性、またはダッシュボードで定義されたその他の値にアクセスします。ビューを返す前にスタイルのオーバーライドを適用してください。
 
 !!step
 lines-MainApplication.kt=33-34
 
-#### 6. カスタム `IInAppMessageViewFactory` を実装する
+#### 6. カスタム `IInAppMessageViewFactory` を実装する {#6-implement-a-custom-iinappmessageviewfactory}
 
-カスタムクラスに[`IInAppMessageViewFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-i-in-app-message-view-factory/index.html) を実装して、アプリ内メッセージビューを作成およびレンダリングします。
+カスタムクラスに [`IInAppMessageViewFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-i-in-app-message-view-factory/index.html) を実装して、アプリ内メッセージビューを構築およびレンダリングします。
 
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} [SWIFTのアプリ内メッセージ機能]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages)も[イネーブルメント]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages)する必要がある。
+{% multi_lang_include developer_guide/prerequisites/swift.md %} また、[Swiftのアプリ内メッセージを有効にする]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages)必要もあります。
 
-## Swift のキーと値のペアを使用したメッセージスタイルのカスタマイズ
+## Swiftのキーと値のペアを使用したメッセージスタイルのカスタマイズ {#customizing-message-styling-using-key-value-pairs-for-swift}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Customizing Message Styling Swift" %}
 
@@ -302,37 +302,37 @@ struct SampleApp: App {
 !!step
 lines-AppDelegate.swift=5
 
-#### 1\.`BrazeInAppMessageUIDelegate` を実装する
+### 1. `BrazeInAppMessageUIDelegate` を実装する {#1-implement-brazeinappmessageuidelegate}
 
-`AppDelegate` クラスでは、[`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/delegate) を実装して、後で`inAppMessage` メソッドをオーバーライドできます。
+`AppDelegate` クラスで [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/delegate) を実装し、後で `inAppMessage` メソッドをオーバーライドできるようにします。
 
 !!step
 lines-AppDelegate.swift=17
 
-#### 2\.デバッグを有効にする(オプション)
+#### 2. デバッグを有効にする（オプション）
 
 開発中のトラブルシューティングを容易にするために、デバッグを有効にすることを検討してください。
 
 !!step
 lines-AppDelegate.swift=30-50
 
-#### 3\.表示される前にメッセージを準備する
+#### 3. 表示前にメッセージを準備する {#3-prepare-messages-before-theyre-displayed}
 
-メッセージの準備中に、Braze は`inAppMessage(_:prepareWith:)` を呼び出します。これを使用してスタイルをカスタマイズしたり、キーと値のペアに基づいてロジックを適用したりします。
+メッセージの準備中に、Brazeは `inAppMessage(_:prepareWith:)` を呼び出します。これを使用してスタイルをカスタマイズしたり、キーと値のペアに基づいてロジックを適用したりできます。
 
 !!step
 lines-AppDelegate.swift=34
 
-#### 4\.`message.extras` からキーと値のペアにアクセスする
+#### 4. `message.extras` からキーと値のペアにアクセスする {#4-access-key-value-pairs-from-messageextras}
 
-`message.extras` を使用して、カスタマイズタイプ、スタイル属性、またはダッシュボードで定義されているその他の値にアクセスします。
+`message.extras` を使用して、カスタマイズタイプ、スタイル属性、またはダッシュボードで定義されたその他の値にアクセスします。
 
 !!step
 lines-AppDelegate.swift=38-46
 
-#### 5\.メッセージのスタイル属性を更新する
+#### 5. メッセージのスタイル属性を更新する {#5-update-the-messages-styling-attributes}
 
-[`inAppMessage(_:prepareWith:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) を使用して`PresentationContext` にアクセスすると、スタイル属性を直接変更できます。各アプリ内メッセージタイプは、異なる属性を公開します。
+[`inAppMessage(_:prepareWith:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:preparewith:)-11fog) を使用して `PresentationContext` にアクセスし、スタイル属性を直接変更できます。各アプリ内メッセージタイプは、それぞれ異なる属性を公開しています。
 
 {% endscrolly %}
 {% endsdktab %}

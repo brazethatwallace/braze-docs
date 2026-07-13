@@ -24,19 +24,19 @@ Two-way messaging allows you to send messages and process the responses to those
 SMS, MMS, and RCS with Braze gives you the option to create keyword triggers, custom responses, define keyword sets for multiple languages, and establish custom keyword categories. 
 
 {% alert note %}
-Braze uses your full set of opt-out keywords ([default keywords]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/) and [custom keywords]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/)) for exact opt-out handling and [fuzzy opt-out]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out/).
+Braze uses your full set of opt-out keywords ([default keywords]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) and [custom keywords]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling)) for exact opt-out handling and [fuzzy opt-out]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/fuzzy_opt_out).
 {% endalert %}
 
 {% tabs %}
 {% tab Add Keyword Triggers %}
 
-#### Add keyword triggers
+### Add keyword triggers
 
 In addition to the default opt-in and opt-out keywords, you may also define your own keywords to trigger Opt-In, Opt-Out, and Help responses.
 
 To define your own keywords, do the following:
 
-1. In the Braze dashboard, go to **Audience** > **Subscription Group Management** and select an **SMS/MMS/RCS** subscription group.<br><br>
+1. In the Braze dashboard, go to **Audience** > **Subscription Group Management** and select an **SMS/MMS/RCS** subscription group.
 2. Under **Global Keywords**, select the pencil icon next to the keyword category you want to add a keyword to. ![Opt-in keywords with the pencil icon displaying.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
 3. In the tab that opens, add a keyword you want to trigger this keyword category. Note that keywords are case insensitive, and universal keywords like `START`, `YES`, and `UNSTOP` cannot be changed. ![Editing keywords for "Opt-In" category. Added keywords are "START", "UNSTOP", and "YES". The reply message field reads "You have been unsubscribed to messages from this number. Reply HELP for help. Reply STOP to unsubscribe. Message and data rates may apply."]({% image_buster /assets/img/sms/keyword_edit2.png %})
 
@@ -45,36 +45,36 @@ The following rules apply to keywords and keyword responses:
 | Keywords | Keyword responses |
 | -------- | ----------------- |
 | - Valid UTF-8 encoded characters<br>- Maximum of 20 keywords per category total<br>- Maximum length of 34 characters<br>- Minimum length of 1 character <br>- Cannot contain spaces<br>- Required to be case insensitive and unique across the subscription group | - Cannot be blank<br>- Maximum length of 300 characters<br>- Valid UTF-8 characters |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Add keyword triggers" }
 
 {% alert tip %}
-Interested in seeing how these keywords can be used in your campaigns and Canvases to retarget and trigger messages? Visit [User retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) for more information.
+Interested in seeing how these keywords can be used in your campaigns and Canvases to retarget and trigger messages? Visit [User retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) for more information.
 {% endalert %}
 {% endtab %}
 
 {% tab Manage responses %}
 
-#### Manage responses
+### Manage responses
 
 You can manage your own responses that are sent to users after they text in a keyword to a specific keyword category.
 
 1. In the Braze dashboard, go to **Audience** > **Subscription Group Management** and select an **SMS/MMS/RCS** subscription group. <br><br>
 2. Under **Global Keywords**, select a keyword category to edit a response for by selecting the pencil icon. ![Opt-in keywords with the pencil icon displaying.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br> 
-3. In the tab that opens, edit your response. Be mindful of our [six rules to get compliance right]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/#the-six-rules-to-get-compliance-right) as you create your response, and read the following rules that apply to keywords and keyword responses. ![Responses]({% image_buster /assets/img/sms/keyword_home.png %}){: style="max-width:70%;"}<br><br>
+3. In the tab that opens, edit your response. Be mindful of our [six rules to get compliance right]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-six-rules-to-get-compliance-right) as you create your response, and read the following rules that apply to keywords and keyword responses.<br><br>
 4. To automatically shorten static URLs in your response, select the **Link Shortening** toggle. The character counter will update to show the expected length of the shortened URL. ![A GIF showing the character counter updating when the "Link Shortening" toggle is on.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
-##### Considerations
+#### Considerations
 
 | Keywords | Keyword responses |
 | -------- | ----------------- |
 | - Valid UTF-8 encoded characters<br>- Maximum of 20 keywords per category total<br>- Maximum length of 34 characters<br>- Minimum length of 1 character <br>- Cannot contain spaces<br>- Required to be case insensitive and unique across the subscription group | - Cannot be blank<br>- Maximum length of 300 characters<br>- Valid UTF-8 characters |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerations" }
 
 {% endtab %}
 {% endtabs %}
 
 {% alert tip %} 
-If an action-based Canvas is triggered by an inbound SMS, MMS, or RCS message, you can reference SMS, MMS, or RCS properties in the first [message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) of the Canvas.
+If an action-based Canvas is triggered by an inbound SMS, MMS, or RCS message, you can reference SMS, MMS, or RCS properties in the first [message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) of the Canvas.
 {% endalert %}
 
 ## Multi-language support
@@ -90,7 +90,7 @@ Select **Add a Language** and select your target language or search for a langua
 Non-English languages do not come with preset keywords and responses, so senders will need to work with their marketing and legal teams to add any required keywords to this set. Otherwise, Braze will not handle localized incoming messages for those languages. 
 {% endalert %}
 
-If you need to delete a language, select the **Delete Language** button at the bottom right.
+If you need to delete a language, select the **Delete Language** button at the bottom of the page.
 
 ![Global Keywords page with the "Italian" tab selected. Additional tabs exist for each added language.]({% image_buster /assets/img/sms/multi-language2.png %})
 
@@ -110,7 +110,7 @@ To create a custom keyword category, do the following:
 2. Select **Add custom keyword**. ![Fields to add new keywords.]({% image_buster /assets/img/sms/sms_custom_step.png %}){: style="max-width:90%;"}
 3. Provide a keyword category name and define which keywords a user can text in to receive the reply message.
 
-After this keyword category is created, it will be available to [filter and trigger]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) against in your campaigns and Canvases.
+After this keyword category is created, it will be available to [filter and trigger]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) against in your campaigns and Canvases.
 
 Keywords created in custom keyword categories adhere to all of the rules and validations for the creation of new keywords. 
 
@@ -134,15 +134,15 @@ We strongly recommend setting up an auto-response when subscribed users text som
 
 To send a default reply—for example, "Sorry! We didn't recognize that keyword."—do the following:
 
-1. Create an [SMS campaign]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
+1. Create an [SMS campaign]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
 2. For **Target audience**, choose **All users** (the trigger still limits who receives the message).
 3. For **Schedule**, choose **Action-based delivery**.
 4. Set the trigger to **Send inbound SMS** to the appropriate subscription group **within keyword category OTHER**.
 5. In the **Messaging** step, enter the response body you want users to receive.
 
-For how Braze handles inbound messages from **unknown** phone numbers (before a profile exists), see [Handle unknown phone numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers/).
+For how Braze handles inbound messages from **unknown** phone numbers (before a profile exists), see [Handle unknown phone numbers]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/unknown_phone_numbers).
 
 {% alert tip %}
-Interested in seeing how these keywords and keyword categories can be used in your campaigns and Canvases to retarget and trigger messages? Visit [User retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting/) for more information.
+Interested in seeing how these keywords and keyword categories can be used in your campaigns and Canvases to retarget and trigger messages? Visit [User retargeting]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) for more information.
 {% endalert %}
 

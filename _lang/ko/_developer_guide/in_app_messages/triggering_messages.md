@@ -18,10 +18,10 @@ platform:
 
 인앱 메시지는 SDK가 다음 커스텀 이벤트 유형 중 하나를 기록할 때 트리거됩니다: `Session Start`, `Push Click`, `Any Purchase`, `Specific Purchase`, `Custom Event`(마지막 두 개는 강력한 속성 필터를 포함합니다).
 
-사용자 세션이 시작되면 Braze는 모든 적격 인앱 메시지를 기기에 전달하는 동시에 자산을 프리페칭하여 표시 지연 시간을 최소화합니다. 트리거 이벤트에 적격 인앱 메시지가 두 개 이상 있는 경우 우선순위가 가장 높은 메시지만 전달됩니다. 자세한 내용은 [세션 수명 주기]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/#about-the-session-lifecycle)를 참조하세요.
+사용자 세션이 시작되면 Braze는 모든 적격 인앱 메시지를 기기에 전달하는 동시에 자산을 프리페칭하여 표시 지연 시간을 최소화합니다. 트리거 이벤트에 적격 인앱 메시지가 두 개 이상 있는 경우 우선순위가 가장 높은 메시지만 전달됩니다. 자세한 내용은 [세션 수명 주기]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#about-the-session-lifecycle)를 참조하세요.
 
 {% alert note %}
-인앱 메시지는 API 또는 API 이벤트를 통해 트리거할 수 없으며&#8212;SDK에서 기록한 커스텀 이벤트만 트리거할 수 있습니다. 로깅에 대해 자세히 알아보려면 [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events/)을 참조하세요.
+인앱 메시지는 API 또는 API 이벤트를 통해 트리거할 수 없으며&#8212;SDK에서 기록한 커스텀 이벤트만 트리거할 수 있습니다. 로깅에 대해 자세히 알아보려면 [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events)을 참조하세요.
 {% endalert %}
 
 ## 인앱 메시지 유형 {#types-of-in-app-messages}
@@ -30,9 +30,9 @@ Braze는 세션 시작 시 다음 유형의 인앱 메시지를 사용자 기기
 
 ### `inapp` (표준) {#inapp-standard}
 
-`inapp`(또는 "[표준]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/#standard-message-types)") 인앱 메시지는 Braze가 이미 알고 있는 커스텀 속성 등 필요한 정보가 이미 템플릿화되어 있습니다. 일반적으로 인앱 메시지가 기기에 다운로드되면 트리거 이벤트가 발생할 때 기기가 오프라인이거나 비행기 모드인 경우에도 SDK가 `inapp` 인앱 메시지를 표시합니다.
+`inapp`(또는 "[표준]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages#standard-message-types)") 인앱 메시지는 Braze가 이미 알고 있는 커스텀 속성 등 필요한 정보가 이미 템플릿화되어 있습니다. 일반적으로 인앱 메시지가 기기에 다운로드되면 트리거 이벤트가 발생할 때 기기가 오프라인이거나 비행기 모드인 경우에도 SDK가 `inapp` 인앱 메시지를 표시합니다.
 
-### `templated_iam` (템플릿) {#templatediam-templated}
+### `templated_iam` (템플릿) {#templated_iam-templated}
 
 `templated_iam`(또는 "템플릿") 인앱 메시지는 아직 필요한 정보가 템플릿화되지 않은 상태입니다. Braze는 메시지가 표시되기 전에 정보를 가져오기 위해 추가 요청을 해야 합니다.
 
@@ -148,21 +148,21 @@ braze.subscribeToInAppMessage(function(inAppMessage) {
 `braze.automaticallyShowInAppMessages()`를 제거하지 않고 `braze.showInAppMessage`를 호출하면 메시지가 두 번 표시될 수 있습니다.
 {% endalert %}
 
-메시지 타이밍에 대한 고급 제어(트리거된 메시지 지연 및 복원 포함)에 대해서는 [튜토리얼: 트리거된 메시지 지연 및 복원]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages/)을 참조하세요.
+메시지 타이밍에 대한 고급 제어(트리거된 메시지 지연 및 복원 포함)에 대해서는 [튜토리얼: 트리거된 메시지 지연 및 복원]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages)을 참조하세요.
 {% endtab %}
 
 {% tab android %}
-1. 커스텀 리스너를 설정하려면 [`IInAppMessageManagerListener`](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener)를 구현하세요.
+1. 커스텀 리스너를 설정하려면 [`IInAppMessageManagerListener`]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android&tab=global%20listener#android_step-1-implement-the-custom-manager-listener)를 구현하세요.
 2. [`beforeInAppMessageDisplayed()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage.listeners/-i-in-app-message-manager-listener/before-in-app-message-displayed.html) 메서드를 업데이트하여 [`InAppMessageOperation.DISCARD`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.inappmessage/-in-app-message-operation/-d-i-s-c-a-r-d/index.html)를 반환하도록 하세요.
 
-메시지 타이밍에 대한 고급 제어(나중에 표시 및 재대기열 포함)에 대해서는 [메시지 커스터마이징](https://www.braze.com/docs/developer_guide/in_app_messages/customization/?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener) 페이지를 참조하세요.
+메시지 타이밍에 대한 고급 제어(나중에 표시 및 재대기열 포함)에 대해서는 [메시지 커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/customization?tab=global%20listener&subtab=kotlin#android_step-2-instruct-braze-to-use-the-custom-manager-listener) 페이지를 참조하세요.
 {% endtab %}
 
 {% tab swift %}
 1. 앱에서 `BrazeInAppMessageUIDelegate` 델리게이트를 구현합니다. 전체 안내를 보려면 [튜토리얼: 인앱 메시지 UI](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui)를 참조하세요.
 2. `inAppMessage(_:displayChoiceForMessage:)` 델리게이트 메서드를 업데이트하여 `.discard`를 반환하도록 합니다.
 
-메시지 타이밍에 대한 고급 제어(트리거된 메시지 지연 및 복원 포함)에 대해서는 [튜토리얼: 트리거된 메시지 지연 및 복원]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages/)을 참조하세요.
+메시지 타이밍에 대한 고급 제어(트리거된 메시지 지연 및 복원 포함)에 대해서는 [튜토리얼: 트리거된 메시지 지연 및 복원]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages)을 참조하세요.
 {% endtab %}
 
 {% tab flutter %}
@@ -261,7 +261,7 @@ AppDelegate.braze = braze;
 
 #### 1단계: 무음 푸시 수신을 위한 푸시 콜백 만들기 {#step-1-create-a-push-callback-to-receive-the-silent-push}
 
-커스텀 푸시 콜백을 등록하여 특정 무음 푸시 알림을 수신 대기합니다. 자세한 내용은 [푸시 알림 설정]({{site.baseurl}}/developer_guide/push_notifications/#android_setting-up-push-notifications)을 참조하세요.
+커스텀 푸시 콜백을 등록하여 특정 무음 푸시 알림을 수신 대기합니다. 자세한 내용은 [푸시 알림 설정]({{site.baseurl}}/developer_guide/push_notifications#android_setting-up-push-notifications)을 참조하세요.
 
 인앱 메시지를 전달하기 위해 두 개의 이벤트가 기록됩니다. 하나는 서버에서, 다른 하나는 커스텀 푸시 콜백에서 기록됩니다. 동일한 이벤트가 중복되지 않도록 하려면, 푸시 콜백 내에서 기록된 이벤트는 일반적인 명명 규칙을 따라야 하며(예: "인앱 메시지 트리거 이벤트"), 서버에서 보낸 이벤트와 같은 이름이 아니어야 합니다. 이를 준수하지 않으면 단일 사용자 동작에 대해 기록된 중복 이벤트가 세분화 및 사용자 데이터에 영향을 미칠 수 있습니다.
 
@@ -304,9 +304,9 @@ Braze.getInstance(applicationContext).subscribeToPushNotificationEvents { event 
 
 #### 2단계: 푸시 Campaign 만들기 {#step-2-create-a-push-campaign}
 
-서버 전송 이벤트를 통해 트리거되는 [무음 푸시 Campaign]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android)을 만듭니다.
+서버 전송 이벤트를 통해 트리거되는 [무음 푸시 Campaign]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android)을 만듭니다.
 
-![]({% image_buster /assets/img_archive/serverSentPush.png %})
+![server_event 커스텀 이벤트 트리거를 사용한 실행 기반 전달로 구성된 무음 푸시 Campaign의 전달 단계.]({% image_buster /assets/img_archive/serverSentPush.png %})
 
 푸시 Campaign에는 이 푸시 Campaign이 SDK 커스텀 이벤트를 기록하기 위해 전송되었음을 나타내는 키-값 페어 추가 항목이 포함되어야 합니다. 이 이벤트는 인앱 메시지를 트리거하는 데 사용됩니다.
 
@@ -367,7 +367,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 
 #### 2단계: 무음 푸시 Campaign 생성 {#step-2-create-a-silent-push-campaign}
 
-서버 전송 이벤트를 통해 트리거되는 [무음 푸시 Campaign]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift)을 생성합니다.
+서버 전송 이벤트를 통해 트리거되는 [무음 푸시 Campaign]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift)을 생성합니다.
 
 ![고객 프로필에 커스텀 이벤트 "server_event"가 있는 사용자에게 전달될 실행 기반 인앱 메시지 Campaign.]({% image_buster /assets/img_archive/iosServerSentPush.png %})
 
@@ -379,7 +379,7 @@ func handleExtras(userInfo: [AnyHashable : Any]) {
 
 푸시 페이로드의 키-값 페어 추가 항목 내에서 원하는 값을 전송하여 이벤트 이름이나 이벤트 속성정보를 변경할 수 있습니다. 커스텀 이벤트를 기록할 때 이러한 추가 항목은 이벤트 이름의 매개변수 또는 이벤트 속성정보로 사용할 수 있습니다.
 
-#### 3단계: 인앱 메시지 Campaign 만들기 {#step-3-create-an-in-app-message-campaign}
+#### 3단계: 인앱 메시지 Campaign 만들기
 
 Braze 대시보드에서 사용자에게 표시되는 인앱 메시지 Campaign을 생성하세요. 이 Campaign은 실행 기반 전달이어야 하며, `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` 메서드 내에서 기록된 커스텀 이벤트에서 트리거되어야 합니다.
 

@@ -21,7 +21,7 @@ The Sheetlabs and Braze integration allows you to use [Connected Content]({{site
 | Requirement | Description |
 | ----------- | ----------- |
 | Sheetlabs account | A [Sheetlabs account](https://sheetlabs.com/) is required to take advantage of this partnership. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Use cases
 

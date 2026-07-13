@@ -14,7 +14,7 @@ tool:
 
 > Use o modelo de mensagem no app **Simple Survey** para coletar atributos de usuário, insights e preferências que impulsionam sua estratégia de Campaign.
 
-Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Esse tipo de mensagem está disponível no [editor tradicional]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 Casos de uso comuns de pesquisa incluem perguntar aos usuários como gostariam de usar seu app, saber mais sobre suas preferências pessoais ou perguntar sobre a satisfação com um recurso específico.
 
@@ -22,7 +22,7 @@ Casos de uso comuns de pesquisa incluem perguntar aos usuários como gostariam d
 
 ## Requisitos do SDK {#supported-sdk-versions}
 
-Essa mensagem no app só será entregue a dispositivos que suportem [Flex CSS](https://caniuse.com/flexbox) e deve ter pelo menos as seguintes [versões do SDK]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features/#filtering-by-most-recent-app-versions).
+Essa mensagem no app só será entregue a dispositivos que suportem [Flex CSS](https://caniuse.com/flexbox) e deve ter pelo menos as seguintes [versões do SDK]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/new_features#filtering-by-most-recent-app-versions).
 
 {% sdk_min_versions ios:3.23.0 android:8.0.0 web:2.5.0 %}
 
@@ -32,7 +32,7 @@ Para ativar mensagens no app em HTML pelo SDK Web, você deve fornecer a opção
 
 ## Criando uma pesquisa {#create}
 
-Ao criar uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/), selecione **Simple Survey** como seu **Message Type**.
+Ao criar uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional), selecione **Simple Survey** como seu **Message Type**.
 
 Esse modelo de pesquisa é compatível com apps mobile e navegadores web. Lembre-se de verificar se seus SDKs estão nas [versões mínimas do SDK](#supported-sdk-versions) necessárias para esse recurso.
 
@@ -60,7 +60,7 @@ Em seguida, determine se você vai [coletar atributos personalizados](#custom-at
 
 Selecione **Log attributes upon submission** para coletar atributos com base na resposta do usuário. Você pode usar essa opção para criar novos segmentos e Campaigns de redirecionamento. Por exemplo, em uma [pesquisa de satisfação](#user-satisfaction), você poderia enviar um e-mail de acompanhamento para todos os usuários que não ficaram satisfeitos.
 
-Para adicionar um atributo personalizado a cada opção, selecione um nome de atributo personalizado no menu suspenso (ou crie um novo) e insira o valor a ser definido quando essa opção for enviada. Você também pode criar um novo atributo personalizado na sua [página de Configurações]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/).
+Para adicionar um atributo personalizado a cada opção, selecione um nome de atributo personalizado no menu suspenso (ou crie um novo) e insira o valor a ser definido quando essa opção for enviada. Você também pode criar um novo atributo personalizado na sua [página de Configurações]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
 
 O tipo de dados dos seus atributos personalizados é importante dependendo de como você configurou sua pesquisa.
 
@@ -73,13 +73,13 @@ Quando a coleta de atributos personalizados está ativada, opções que comparti
 
 ##### Exemplo {#example}
 
-Por exemplo, em uma [pesquisa de preferências de notificação](#notification-preferences), você pode tornar cada opção um atributo booleano (verdadeiro/falso) para permitir que os usuários selecionem quais tópicos lhes interessam. Se um usuário marcar a opção "Promoções", isso atualizará seu [perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) com o atributo personalizado `Promotions Topic` definido como `true`. Se ele deixar a opção desmarcada, esse mesmo atributo permanecerá inalterado.
+Por exemplo, em uma [pesquisa de preferências de notificação](#notification-preferences), você pode tornar cada opção um atributo booleano (verdadeiro/falso) para permitir que os usuários selecionem quais tópicos lhes interessam. Se um usuário marcar a opção "Promoções", isso atualizará seu [perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) com o atributo personalizado `Promotions Topic` definido como `true`. Se ele deixar a opção desmarcada, esse mesmo atributo permanecerá inalterado.
 
 Você pode então usar o filtro `Custom Attribute` para criar um Segment para usuários com o atributo personalizado `Promotions Topic` `is` `true` para garantir que apenas os usuários interessados em suas promoções recebam as Campaigns relevantes.
 
 #### Registrar apenas as respostas {#no-attributes}
 
-Alternativamente, você pode escolher **Log responses only (no attributes)**. Quando essa opção é selecionada, as respostas da pesquisa são registradas como cliques em botões, mas os atributos personalizados não são registrados no perfil do usuário. Isso significa que você ainda pode visualizar as métricas de clique para cada opção da pesquisa (veja [Análise de dados](#analytics)), mas essa escolha não será refletida no perfil do usuário.
+Alternativamente, você pode escolher **Log responses only (no attributes)**. Quando essa opção é selecionada, as respostas da pesquisa são registradas como cliques em botões, mas os atributos personalizados não são registrados no perfil do usuário. Isso significa que você ainda pode visualizar as métricas de clique para cada opção da pesquisa (veja [Analisar resultados](#analytics)), mas essa escolha não será refletida no perfil do usuário.
 
 Essas métricas de clique não estão disponíveis para redirecionamento.
 
@@ -119,13 +119,13 @@ Você pode encontrar as métricas de desempenho da sua pesquisa expandindo o men
 - **Resultados da pesquisa** exibem um detalhamento de quantos usuários selecionaram cada opção de resposta, junto com a porcentagem do total de envios que cada opção representa.
 - **Métricas da página de confirmação** (se ativada) incluem quantos usuários visualizaram a tela de confirmação, clicaram no botão ou dispensaram sem interagir.
 
-Para definições das métricas de pesquisa, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary/) e filtre por "In-App Message".
+Para definições das métricas de pesquisa, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/analytics/metrics_glossary) e filtre por "In-App Message".
 
-Confira [Relatórios de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting/) para um detalhamento das métricas da sua Campaign.
+Confira [Relatórios de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) para um detalhamento das métricas da sua Campaign.
 
 ### Currents {#currents}
 
-As opções selecionadas fluirão automaticamente para o Currents, no campo `button_id` de [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#api_fzzdoylmrtwe). Cada opção será enviada com seu identificador universalmente único (UUID).
+As opções selecionadas fluirão automaticamente para o Currents, no campo `button_id` de [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe). Cada opção será enviada com seu identificador universalmente único (UUID).
 
 ## Casos de uso {#use-cases}
 
@@ -145,7 +145,7 @@ Para configurar isso, use uma pesquisa de seleção de escolha única com cinco 
 | 🙂 Nem satisfeito nem insatisfeito       | `customer_satisfaction` | 3     |
 | 😊 Satisfeito                            | `customer_satisfaction` | 4     |
 | 😍 Muito satisfeito                      | `customer_satisfaction` | 5     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Satisfação do usuário" }
 
 Quando um usuário envia a pesquisa, o valor selecionado é registrado como um atributo personalizado. Você pode então criar Campaigns de acompanhamento usando filtros de público. Por exemplo, direcione mensagens de recuperação para usuários cujo atributo `customer_satisfaction` seja "1" ou "2".
 
@@ -165,7 +165,7 @@ Para configurar isso, use uma pesquisa de seleção de múltipla escolha onde ca
 | Convites para eventos    | `wants_event_invites`  | `true` |
 | Pesquisas e feedback     | `wants_surveys`        | `true` |
 | Dicas e tutoriais        | `wants_tips`           | `true` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Preferências de notificação" }
 
 {% endtab %}
 {% tab Identificar objetivos do cliente %}
@@ -183,7 +183,7 @@ Para configurar isso, use uma pesquisa de seleção de escolha única com cada o
 | Agendar um compromisso       | `product_goal`   | `schedule`|
 | Suporte ao cliente           | `product_goal`   | `support` |
 | Apenas navegando             | `product_goal`   | `browse`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Identificar objetivos do cliente" }
 
 Quando um usuário envia a pesquisa, o valor selecionado é registrado como um atributo personalizado no perfil dele. Você pode então usar esses dados para personalizar experiências futuras ou segmentar usuários com base no objetivo principal deles.
 
@@ -203,7 +203,7 @@ Para configurar isso, use uma pesquisa de seleção de escolha única com cada o
 | Difícil de usar          | `upgrade_reason` | `difficult` |
 | Usando um concorrente    | `upgrade_reason` | `competitor`|
 | Outro motivo             | `upgrade_reason` | `other`     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Melhorar taxas de conversão" }
 
 Quando um usuário envia a pesquisa, o valor selecionado é salvo no perfil dele. Você pode então direcionar esses usuários com Campaigns adaptadas à objeção específica deles, como ofertas de desconto ou melhorias de usabilidade.
 
@@ -225,7 +225,7 @@ Para configurar isso, use uma pesquisa de seleção de múltipla escolha onde ca
 | Personalização      | `favorite_features`| `custom`     |
 | Preço / Valor       | `favorite_features`| `value`      |
 | Comunidade          | `favorite_features`| `community`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recursos favoritos" }
 
 Como essa pesquisa usa seleção de múltipla escolha, o perfil do usuário será atualizado com uma lista de todos os valores de recursos selecionados.
 

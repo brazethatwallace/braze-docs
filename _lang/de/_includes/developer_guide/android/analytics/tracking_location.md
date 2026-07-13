@@ -34,11 +34,11 @@ Braze.getInstance(context).getCurrentUser { brazeUser ->
 
 Um den Standort von Nutzer:innen kontinuierlich zu tracken, müssen Sie die Absicht Ihrer App, Standortdaten zu erfassen, deklarieren, indem Sie mindestens eine der folgenden Berechtigungen zu Ihrer `AndroidManifest.xml`-Datei hinzufügen.
 
-|Berechtigung|Beschreibung|
+| Berechtigung | Beschreibung |
 |---|---|
 | `ACCESS_COARSE_LOCATION` | Verwendet den batterieeffizientesten, nicht-GPS-basierten Anbieter (z. B. ein Heimnetzwerk). In der Regel reicht dies für die meisten Anforderungen an Standortdaten aus. Im Rahmen des Laufzeit-Berechtigungsmodells wird durch die Erteilung der Standortberechtigung implizit auch die Erfassung präziser Standortdaten genehmigt. |
 | `ACCESS_FINE_LOCATION`   | Enthält GPS-Daten für eine genauere Standortbestimmung. Im Rahmen des Laufzeit-Berechtigungsmodells umfasst die Erteilung der Standortberechtigung auch den Zugriff auf präzise Standortdaten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Continuously tracking the location" }
 
 Ihre `AndroidManifest.xml` sollte in etwa so aussehen:
 

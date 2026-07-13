@@ -8,7 +8,7 @@ description: "This reference article covers how to automatically export security
 
 # Security events export with Amazon S3
 
-> You can automatically export security events to Amazon S3, a cloud storage provider, with a daily job that runs at midnight UTC. After setting up, you don't need to manually export security events from the dashboard. The job exports the security events for the past 24 hours in CSV format to your configured S3 storage. The CSV file has the same structure as a manually exported report.
+> You can automatically export security events to Amazon S3, a cloud storage provider, with a daily job that runs at midnight UTC. After setting up, you don't need to manually export security events from the dashboard. The job exports the security events for the past 24 hours in CSV format to your configured S3 storage. The CSV file uses the same columns as a manually exported report, plus a `Version` column.
 
 {% alert note %}
 The 10,000-row limit applies only to the manual CSV report download from the dashboard. Security event exports to S3 aren't subject to this row limit.
@@ -75,17 +75,16 @@ Now, you’re ready to link your AWS credentials to your Braze account!
 1. In Braze, go to **Settings** > **Company Settings** > **Admin Settings** > **Security Settings** and scroll to the **Security Event Download** section.
 2. Toggle on **Export to AWS S3** under **Export to cloud storage** and select **AWS secret access key**, which enables the S3 export. 
 3. Input the following:
+
 - AWS access key ID
-- AWS secret access key
-    - When inputting this key, first select **Test Credentials** to confirm your credentials work.
 - AWS bucket name 
+- AWS secret access key 
+    - When inputting this key, first select **Test Credentials** to confirm your credentials work.
 
 ![The "Security Event Download" page with populated Braze account and Braze external IDs.]({% image_buster /assets/img/security_export/security_event_download1.png %})
 
 {: start="4"}
 4. Select **Save Changes**. 
-
-!["Save changes" button.]({% image_buster /assets/img/security_export/save_changes_button.png %}){: style="max-width:50%;"}
 
 You’ve integrated AWS S3 into your Braze account!
 
@@ -175,7 +174,5 @@ Your newly created role will appear in the list!
 3. Make sure **AWS role ARN** is selected, then input your role ARN and AWS S3 bucket name in the designated fields. 
 4. Select **Test Credentials** to confirm your credentials work properly.
 5. Select **Save Changes**. 
-
-!["Save changes" button.]({% image_buster /assets/img/security_export/save_changes_button.png %}){: style="max-width:40%;"}
 
 You’ve integrated AWS S3 into your Braze account!

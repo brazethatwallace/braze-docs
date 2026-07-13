@@ -14,12 +14,12 @@ alias: /line/reporting/
 > Después de lanzar tu campaña o Canvas, puedes ver las métricas clave en la página de detalles de la campaña o en los análisis de Canvas. Este artículo explica dónde puedes encontrar esas métricas y qué representan.
 
 {% alert tip %}
-¿Buscas definiciones de los términos y métricas de tu informe? Consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+¿Buscas definiciones de los términos y métricas de tu informe? Consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 {% endalert %}
 
 ## Análisis de campaña {#campaign-analytics}
 
-En la pestaña **Campaign Analytics**, puedes ver tus informes en una serie de paneles. Es posible que veas más o menos de los que se enumeran en las secciones siguientes, pero cada uno tiene su propósito.
+En la pestaña **Campaign Analytics**, puedes ver tus informes en una serie de paneles. Es posible que veas más o menos de los que se enumeran aquí, pero cada uno tiene su propósito.
 
 {% alert note %}
 Las estadísticas relacionadas con aperturas y clics de LINE solo se calculan si más de 20 usuarios realizan el evento en un día determinado.
@@ -33,7 +33,7 @@ Revisa este panel para ver métricas generales como el número de mensajes envia
 
 #### Grupos de control {#control-groups}
 
-Para medir el impacto de un mensaje de LINE individual, puedes añadir un [grupo de control]({{site.baseurl}}/user_guide/messaging/ab_testing/) a una prueba A/B. El panel de nivel superior **Campaign Details** no incluye métricas de la variante del grupo de control.
+Para medir el impacto de un mensaje de LINE individual, puedes añadir un [grupo de control]({{site.baseurl}}/user_guide/messaging/ab_testing) a una prueba A/B. El panel de nivel superior **Campaign Details** no incluye métricas de la variante del grupo de control.
 
 ### Rendimiento de LINE {#line-performance}
 
@@ -45,7 +45,7 @@ Si quieres simplificar tu vista, selecciona **+ Add/Remove Columns** y desmarca 
 
 #### Métricas de LINE {#line-metrics}
 
-Estas son algunas métricas clave de LINE que puedes ver en tus análisis. Para consultar las definiciones de todas las métricas de LINE utilizadas en Braze, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Estas son algunas métricas clave de LINE que puedes ver en tus análisis. Para consultar las definiciones de todas las métricas de LINE utilizadas en Braze, consulta el [Glosario de métricas de informes]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 | Término | Definición |
 | --- | --- |
@@ -54,7 +54,7 @@ Estas son algunas métricas clave de LINE que puedes ver en tus análisis. Para 
 | Aperturas totales | El número total de veces que los mensajes de LINE enviados fueron abiertos por los usuarios después de alcanzar un umbral mínimo de 20 mensajes por día. |
 | Clics únicos | El número total de mensajes de LINE enviados en los que los usuarios hicieron clic, después de alcanzar un umbral mínimo de 20 mensajes por día. |
 | Clics totales | El número total de veces que los usuarios hicieron clic en los mensajes de LINE enviados después de alcanzar un umbral mínimo de 20 mensajes por día. |
-{: .reset-td-br-1 .reset-td-br-2 }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas de LINE" }
 
 ### Rendimiento histórico {#historical-performance}
 
@@ -64,8 +64,8 @@ Para obtener un desglose día a día, selecciona el menú de hamburguesa <i clas
 
 ### Detalles del evento de conversión {#conversion-event-details}
 
-El panel **Conversion Event Details** te muestra el rendimiento de tus eventos de conversión para tu campaña. Para más información, consulta [Eventos de conversión]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation/).
+El panel **Conversion Event Details** te muestra el rendimiento de tus eventos de conversión para tu campaña. Para más información, consulta [Eventos de conversión]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation).
 
 ### Correlación de conversión {#conversion-correlation}
 
-El panel **Conversion Correlation** te ofrece información sobre qué atributos y comportamientos de los usuarios ayudan o perjudican los resultados que estableciste para las campañas. Para más información, consulta [Correlación de conversión]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation/).
+El panel **Conversion Correlation** te ofrece información sobre qué atributos y comportamientos de los usuarios ayudan o perjudican los resultados que estableciste para las campañas. Para más información, consulta [Correlación de conversión]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation).

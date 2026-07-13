@@ -2,7 +2,7 @@
 nav_title: Cadastro de e-mail com oferta
 article_title: Cadastro de e-mail com oferta especial
 alias: "/email_offer/"
-page_order: 5
+page_order: 6
 description: "Esta página explica como usar o editor de arrastar e soltar de mensagens no app para construir sua lista de e-mails oferecendo um desconto especial no cadastro."
 ---
 
@@ -26,7 +26,7 @@ Ao criar uma mensagem no app de arrastar e soltar, selecione **Email sign-up wit
 
 ### Etapa 3: Personalize o componente de cadastro de e-mail {#step-3-customize-your-email-sign-up-component}
 
-Para começar a criar seu formulário de cadastro de e-mail, selecione a página **Email sign-up** e, em seguida, selecione o elemento de captura de e-mail no editor. Por padrão, os endereços de e-mail coletados terão o grupo de inscrições global **Subscribed**. Para fazer opt-in de usuários em grupos de inscrições específicos, consulte [Atualizando estados de inscrição de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states).
+Para começar a criar seu formulário de cadastro de e-mail, selecione a página **Email sign-up** e, em seguida, selecione o elemento de captura de e-mail no editor. Por padrão, os endereços de e-mail coletados terão o grupo de inscrições global **Subscribed**. Para fazer opt-in de usuários em grupos de inscrições específicos, consulte [Atualizando estados de inscrição de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states).
 
 Você pode personalizar o texto de espaço reservado e o texto do rótulo do elemento de captura de e-mail.
 
@@ -42,7 +42,7 @@ Você pode personalizar o texto de espaço reservado e o texto do rótulo do ele
 
 ### Etapa 5: Estilize sua mensagem {#step-5-style-your-message}
 
-Personalize a aparência da sua oferta especial usando os [componentes de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastar e soltar.
+Personalize a aparência da sua oferta especial usando os [componentes de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastar e soltar.
 
 ## Analisando os resultados {#analyzing-the-results}
 

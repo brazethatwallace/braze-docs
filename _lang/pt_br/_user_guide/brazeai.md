@@ -19,7 +19,7 @@ guide_featured_list:
   - name: Servidor Braze MCP
     link: /docs/user_guide/brazeai/mcp_server
     image: /assets/img/braze_icons/dataflow-01.svg
-  - name: Otimizador de conteúdo
+  - name: Otimizador de Conteúdo
     link: /docs/user_guide/brazeai/content_optimizer
     image: /assets/img/braze_icons/image-user-check.svg
   - name: Estúdio de Decisões
@@ -52,3 +52,16 @@ guide_featured_list:
 ---
 
 <br>
+
+## Visão geral dos recursos {#feature-overview}
+
+| Seu objetivo | Recurso recomendado |
+| --- | --- |
+| Personalizar o texto da mensagem por usuário usando o contexto dele | [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) ([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) ou [catálogo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)); para rascunhos pontuais, [IA generativa]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
+| Otimizar qual conteúdo da mensagem (como assunto, CTA) tem melhor desempenho ao longo do tempo | [Otimizador de Conteúdo]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (e-mail, notificações por push ou SMS/MMS/RCS) ou [variante vencedora]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) |
+| Maximizar uma métrica de negócios (receita, conversões) com decisões 1:1 entre ofertas, canais e timing | [Estúdio de Decisões]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
+| Encontrar usuários com probabilidade de churn ou de realizar um evento | [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) ou [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
+| Recomendar produtos específicos de um catálogo nas mensagens | [Recomendações de itens]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
+| Enviar no melhor horário ou pelo melhor canal por usuário | [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), [Canal Inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
+| Criar ou refinar textos e criativos diretamente no dashboard | [Operator]({{site.baseurl}}/user_guide/brazeai/operator) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Visão geral dos recursos" }

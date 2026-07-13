@@ -237,7 +237,7 @@ Braze.configure(this, brazeConfig)
 
 Currently, Google doesn't list their supported HTML tags for Android directly in their documentation&#8212;this information can only be found in their [Git repository's `Html.java` file](https://android.googlesource.com/platform/frameworks/base/+/master/core/java/android/text/Html.java). Keep this in mind when referencing the following table, as this information was pulled from this file, and their supported HTML tags could be subject to change.
 
-<table>
+<table aria-label="Supported HTML tags">
   <thead>
     <tr>
       <th>Category</th>
@@ -326,7 +326,7 @@ Currently, Google doesn't list their supported HTML tags for Android directly in
     </tr>
   </tbody>
 </table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported HTML tags" }
 
 ## Rendering inline images
 
@@ -334,7 +334,7 @@ Currently, Google doesn't list their supported HTML tags for Android directly in
 
 You can showcase a larger image within your Android push notification using inline image push. With this design, users won't have to manually expand the push to enlarge the image. Unlike regular Android push notifications, inline image push images are in a 3:2 aspect ratio.
 
-![]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
+![Android push notification preview showing inline image push rendering.]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
 
 ### Compatibility
 
@@ -348,13 +348,13 @@ Devices running Android 12 will render differently due to changes in custom push
 
 When creating an Android push message, this feature is available in the **Notification Type** dropdown.
 
-![The push campaign editor showing the location of the "Notification Type" dropdown (above the standard push preview).]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
+![The push campaign editor showing the location of the "Notification Type" dropdown near the standard push preview.]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
 
 ## Settings
 
 There are many advanced settings available for Android push notifications sent through the Braze dashboard. This article will describe these features and how to use them successfully.
 
-![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
+![Braze Android push composer advanced settings panel.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
 ### Notification ID {#notification-id}
 
@@ -362,7 +362,7 @@ A **Notification ID** is a unique identifier for a message category of your choo
 
 ### Firebase Messaging Delivery priority {#fcm-priority}
 
-The [Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message) field lets you control whether a push is sent with "normal" or "high" priority to Firebase Cloud Messaging.
+The [Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages) field lets you control whether a push is sent with "normal" or "high" priority to Firebase Cloud Messaging.
 
 ### Time to live (TTL) {#ttl}
 
@@ -407,7 +407,7 @@ The priority levels that you can set on Android or Fire OS push notifications ar
 | Default  | Most notifications - use if your message doesn't explicitly fall under any of the other priority types | `0` |
 | Low      | Information that you want users to know about but does not require immediate action | `-1` |
 | Min      | Contextual or background information. | `-2` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Notification display priority #notification-priority" }
 
 For more information, refer to Google's [Android notification](http://developer.android.com/design/patterns/notifications.html) documentation.
 

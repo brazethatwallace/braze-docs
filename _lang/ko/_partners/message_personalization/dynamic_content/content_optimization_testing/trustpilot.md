@@ -24,7 +24,7 @@ search_tag: Partner
 | --- | --- |
 | Trustpilot 계정 | Trustpilot API에 접근할 수 있는 Trustpilot 계정이 필요합니다. |
 | Trustpilot 인증 키 | API 키를 설정하고 액세스 토큰을 요청해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 

@@ -21,11 +21,11 @@ These are the components that make up predictive event analytics:
 - [Estimated Accuracy](#estimated_results)
 - [Event Correlation Table](#correlation_table)
 
-The distribution of the likelihood scores for the entire prediction audience is displayed at the top of the page. Users in buckets further to the right have higher scores and are more likely to perform the event. Users in buckets further to the left are less likely to perform the event. The slider beneath the chart will allow you to select a section of users and estimate what the results would be of targeting those users.
+The distribution of the likelihood scores for the entire prediction audience is displayed at the top of the page. Users in buckets further to the end have higher scores and are more likely to perform the event. Users in buckets further to the start are less likely to perform the event. The slider beneath the chart will allow you to select a section of users and estimate what the results would be of targeting those users.
 
 As you move the slider handles to different positions, the bar in the left half of the panel will inform you how many users out of the entire prediction audience would be targeted using the part of the population you've selected.
 
-![]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"} 
+![As you move the slider handles to different positions, the bar in the left half of the panel will inform you how many users out of the entire prediction audience would be targeted using the part of the population you've selected.]({% image_buster /assets/img/purchasePrediction/purchaseTargeting.png %}){: style="max-width:90%"} 
 
 ## Likelihood score {#purchase_score}
 
@@ -41,10 +41,10 @@ The scores and the corresponding categories will be updated according to the sch
 
 ### Accessing user-level likelihood scores
 
-To view the likelihood score for a single user, look up that user in the dashboard and go to **Engagement** > **Predictions** to see their score. To access scores and categories for many users at once, create a [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) using the [Event Likelihood Score]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) or [Event Likelihood Category]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) filters, then export the users from that segment. When exporting, you can include the likelihood scores in the export data.
+To view the likelihood score for a single user, look up that user in the dashboard and go to **Engagement** > **Predictions** to see their score. To access scores and categories for many users at once, create a [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) using the [Event Likelihood Score]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score) or [Event Likelihood Category]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-category) filters, then export the users from that segment. When exporting, you can include the likelihood scores in the export data.
 
 {% alert note %}
-While both predictive events and [predictive churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) assign scores to users, there are important differences:<br><br>
+While both predictive events and [predictive churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) assign scores to users, there are important differences:<br><br>
 
 - **Predictive events** (purchase predictions): Consider all users in the prediction audience, regardless of whether they've performed the target event before. For example, a purchase prediction can identify users likely to make their first purchase.
 - **Predictive churn**: Only considers users who have already performed the custom event. Churn predictions identify users who have done something before and are likely to stop doing it. A user who has never logged in cannot be considered "churned" if they don't log in.
@@ -70,7 +70,7 @@ You can use the estimated accuracy to check how many selected users are expected
 
 All machine learning models make errors. There may be users in your selection who have a high likelihood score but do not end up actually performing the event. They would not perform the event if you took no action. They will be targeted anyway, so this is an error or "false positive." The full width of this second progress bar represents the expected number of users who will not perform the event, and the filled portion is those who will be incorrectly targeted using the current slider position.
 
-Using this information, we encourage you to decide how many of the true positives you want to capture, how many false positives you can accept being targeted, and what the cost of errors is for your business. If you are sending out a valuable promotion, you may want to target only non-purchasers (false positives) by favoring the left side of the chart. Or, you may want to encourage buyers who often purchase (true positives) to do so again by selecting a section of users that favors the right side of the chart.
+Using this information, we encourage you to decide how many of the true positives you want to capture, how many false positives you can accept being targeted, and what the cost of errors is for your business. If you are sending out a valuable promotion, you may want to target only non-purchasers (false positives) by favoring the lower-confidence side of the chart. Or, you may want to encourage buyers who often purchase (true positives) to do so again by selecting a section of users that favors the higher-confidence side of the chart.
 
 ## Prediction quality {#prediction_quality}
 
@@ -80,7 +80,7 @@ Using this information, we encourage you to decide how many of the true positive
 
 This analysis displays user attributes or behaviors that are correlated with events in the prediction audience. The attributes assessed are Age, Country, Gender, and Language. Behaviors that are analyzed include sessions, purchases, total dollars spent, custom events, and campaigns and Canvas steps received in the last 30 days.
 
-The tables are split into left and right for more and less likely to perform the event, respectively. For each row, the ratio by which the users with the behavior or attribute in the left column are more or less likely to perform the event is displayed in the right column. This number is the ratio of likelihood scores of users with this behavior or attribute divided by the likelihood to perform the event off the entire prediction audience.
+The tables are split into left and right for more and less likely to perform the event, respectively. For each row, the ratio by which the users with the behavior or attribute in the first column are more or less likely to perform the event is displayed in the second column. This number is the ratio of likelihood scores of users with this behavior or attribute divided by the likelihood to perform the event off the entire prediction audience.
 
 This table is updated only when the prediction retrains and not when user likelihood scores are updated.
 

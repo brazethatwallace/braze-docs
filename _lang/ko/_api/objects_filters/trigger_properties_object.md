@@ -17,7 +17,7 @@ tool: Campaigns
 트리거 등록정보는 메시지에 템플릿으로 사용할 수 있지만, 기본적으로 고객 프로필에 자동으로 저장되지는 않습니다.
 
 {% alert note %}
-`trigger_properties` 오브젝트 및 {% raw %}`api_trigger_properties.${product_name}`{% endraw %} 구문은 Campaigns에서만 지원됩니다. Canvas의 API 트리거 요청에서 키와 값을 사용하여 메시지를 커스터마이즈하려면 [Canvas 진입 등록정보 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)를 사용하세요. `trigger_properties` 오브젝트의 최대 크기 제한은 50KB입니다.
+`trigger_properties` 오브젝트 및 {% raw %}`api_trigger_properties.${product_name}`{% endraw %} 구문은 Campaigns에서만 지원됩니다. Canvas의 API 트리거 요청에서 키와 값을 사용하여 메시지를 커스터마이즈하려면 [Canvas 진입 등록정보 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)를 사용하세요. `trigger_properties` 오브젝트의 최대 크기 제한은 50KB입니다.
 {% endalert %}
 
 ## 오브젝트 본문 {#object-body}

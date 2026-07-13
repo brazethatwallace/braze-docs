@@ -25,7 +25,7 @@ The Antavo and Braze integration allows you to use loyalty program-related data 
 | Braze REST API key   | A Braze REST API key with the following permissions: `users.track`, `events.list`, `events.data_series`, and `events.get`.<br><br>This can be created in the Braze dashboard from **Settings** > **API Keys**.  |
 | Braze REST endpoint  | [Your REST endpoint URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Your endpoint will depend on the Braze URL for your instance.                |
 | Braze app identifier | Your app identifier key. <br><br>To locate this key in the Braze dashboard, go to **Settings** > **API Keys** and find the **Identification** section. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 

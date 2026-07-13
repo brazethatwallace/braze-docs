@@ -1,6 +1,6 @@
 ---
-nav_title: Friendbuy
-article_title: Friendbuy
+nav_title: FriendBuy
+article_title: FriendBuy
 description: "Erfahren Sie, wie Sie Friendbuy in Braze integrieren können."
 alias: /partners/friendbuy/
 page_type: partner
@@ -23,15 +23,15 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | Ein Friendbuy-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Friendbuy-Konto](https://retailer.friendbuy.io/). |
 | Ein Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Dieser kann im Braze-Dashboard unter **Settings** > **API Keys** erstellt werden. |
 | Ein Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints), die von der URL Ihrer Braze-Instanz abhängt. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration von Friendbuy {#integrating-friendbuy}
 
-Gehen Sie in [Friendbuy](https://retailer.friendbuy.io/) zu **Developer Center** > **Integrations** und wählen Sie dann auf der Braze-Integrationskarte **Add integration**.
+Gehen Sie in [Friendbuy](https://retailer.friendbuy.io/) zu **Developer Center** > **Integrations** und wählen Sie dann auf der Braze-Integrationskarte **Add integration** aus.
 
 ![Die Braze-Integrationskarte in Friendbuy.]({% image_buster /assets/img/friendbuy/choosing_braze.png %}){: style="max-width:75%;"}
 
-Geben Sie im Formular Ihren REST-Endpunkt und API-Schlüssel ein und wählen Sie dann **Install Integration**.
+Geben Sie im Formular Ihren REST-Endpunkt und API-Schlüssel ein und wählen Sie dann **Install Integration** aus.
 
 ![Das Friendbuy-Integrationsformular.]({% image_buster /assets/img/friendbuy/install_form.png %}){: style="max-width:55%;"}
 
@@ -54,7 +54,7 @@ Gehen Sie zurück zu Ihrem [Friendbuy-Konto](https://retailer.friendbuy.io/) und
 | **Friendbuy Coupon Status** | Der Status des zuletzt an die Kund:in verteilten Gutscheincodes. Hinweis: Der Status lautet „distributed“ oder „redeemed“. | String |
 | **Friendbuy Coupon Currency** | Währungscode (USD, CAD usw.) oder Prozentsatz (%) in Verbindung mit dem zuletzt an die Kund:in verteilten Gutscheincode. | String |
 | **Friendbuy Coupon Campaign ID** | Die Campaign-ID, die mit dem für eine Kund:in generierten Gutscheincode verknüpft ist. | String |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Angepasste Attribute" }
 
 ## Standardverhalten {#default-behavior}
 
@@ -73,4 +73,5 @@ Friendbuy verwendet den internationalen Standard (E.164), um echte Telefonnummer
 | Nur E-Mail | Nur die E-Mail-Adresse der Kund:in wird an Braze gesendet. |
 | Nur Telefon | Nur die Telefonnummer der Kund:in wird an Braze gesendet. |
 | Keines | Es werden keine Kundendaten an Braze gesendet. |
-| Beides | Die E-Mail-Adresse und Telefonnummer der Kund:in werden an Braze gesendet. |
+| Beides | Die E-Mail-Adresse und die Telefonnummer der Kund:in werden an Braze gesendet. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Verhalten bei Kontrollkästchen" }

@@ -18,7 +18,7 @@ description: "이 문서에서는 커스텀 속성 내보내기 Braze 엔드포�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `custom_attributes.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `custom_attributes.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -26,12 +26,12 @@ description: "이 문서에서는 커스텀 속성 내보내기 Braze 엔드포�
 
 ## 쿼리 매개변수 {#query-parameters}
 
-이 엔드포인트를 호출할 때마다 50개의 속성이 반환된다는 점에 유의하세요. 속성이 50개 이상인 경우 다음 예제 응답에 표시된 것처럼 `Link` 헤더를 사용하여 다음 페이지에서 데이터를 검색합니다.
+이 엔드포인트를 호출할 때마다 50개의 속성이 반환됩니다. 속성이 50개 이상인 경우 다음 예제 응답에 표시된 것처럼 `Link` 헤더를 사용하여 다음 페이지에서 데이터를 검색하세요.
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `cursor` | 선택 사항 | 문자열 | 커스텀 속성의 페이지네이션을 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="쿼리 매개변수" }
 
 ## 요청 예시 {#example-requests}
 
@@ -72,10 +72,10 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 
 ### 심각한 오류 응답 코드 {#fatal-export}
 
-요청에 심각한 오류가 발생할 경우 반환되는 상태 코드 및 관련 오류 메시지는 [심각한 오류]({{site.baseurl}}/api/errors/#fatal-errors)를 참조하세요.
+요청에 심각한 오류가 발생할 경우 반환되는 상태 코드 및 관련 오류 메시지는 [심각한 오류]({{site.baseurl}}/api/errors#fatal-errors)를 참조하세요.
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 방문하세요.
+CSV 및 API 내보내기에 대한 도움은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}
 
 {% endapi %}

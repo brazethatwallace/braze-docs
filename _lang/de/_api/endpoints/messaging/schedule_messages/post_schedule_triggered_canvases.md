@@ -1,7 +1,7 @@
 ---
 nav_title: "POST: Zeitplan für API-getriggerte Canvases"
 article_title: "POST: Zeitplan für API-getriggerte Canvases"
-search_tag: Endpunkt
+search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
@@ -10,7 +10,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Zeitp
 ---
 {% api %}
 # Zeitplan für API-getriggerte Canvases {#schedule-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/create
 {% endapimethod %}
 
@@ -20,13 +20,13 @@ Sie können `context` übergeben, das als Template in die Nachrichten eingefügt
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-Beachten Sie, dass Sie zum Versenden von Nachrichten über diesen Endpunkt eine [Canvas-ID]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier) benötigen, die beim Erstellen eines Canvas generiert wird.
+Beachten Sie, dass Sie zum Versenden von Nachrichten über diesen Endpunkt eine [Canvas-ID]({{site.baseurl}}/api/identifier_types#canvas-api-identifier) benötigen, die beim Erstellen eines Canvas generiert wird.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `canvas.trigger.schedule.create`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `canvas.trigger.schedule.create`.
 
 ## Rate-Limit
 
@@ -64,13 +64,13 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Erforderlich | String | Siehe [Canvas-Bezeichner]({{site.baseurl}}/api/identifier_types/). |
-| `recipients` | Optional | Array von Empfänger:innen-Objekten | Siehe [Empfänger:innen-Objekt]({{site.baseurl}}/api/objects_filters/recipient_object/). |
-| `audience` | Optional | Verbundenes Zielgruppen-Objekt | Siehe [verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience/). |
+| `canvas_id` | Erforderlich | String | Siehe [Canvas-Bezeichner]({{site.baseurl}}/api/identifier_types). |
+| `recipients` | Optional | Array von Empfänger:innen-Objekten | Siehe [Empfänger:innen-Objekt]({{site.baseurl}}/api/objects_filters/recipient_object). |
+| `audience` | Optional | Verbundenes Zielgruppen-Objekt | Siehe [verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience). |
 | `broadcast` | Optional | Boolescher Wert | Sie müssen `broadcast` auf true setzen, wenn Sie eine Nachricht an ein ganzes Segment senden, auf das eine Kampagne oder ein Canvas abzielt. Dieser Parameter ist standardmäßig auf false eingestellt (Stand: 31. August 2017). <br><br> Wenn `broadcast` auf true gesetzt ist, kann keine `recipients`-Liste angegeben werden. Seien Sie jedoch vorsichtig, wenn Sie `broadcast: true` setzen, denn wenn Sie dieses Flag unbeabsichtigt setzen, kann dies dazu führen, dass Ihre Nachricht an eine größere Zielgruppe als erwartet gesendet wird. |
-| `context` | Optional | Objekt | Schlüssel-Wert-Paare zur Personalisierung für alle Nutzer:innen in dieser Sendung. Siehe [Canvas-Kontext-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). |
-| `schedule` | Erforderlich | Zeitplan-Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `context` | Optional | Objekt | Schlüssel-Wert-Paare zur Personalisierung für alle Nutzer:innen in dieser Sendung. Siehe [Canvas-Kontext-Objekt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). |
+| `schedule` | Erforderlich | Zeitplan-Objekt | Siehe [Zeitplan-Objekt]({{site.baseurl}}/api/objects_filters/schedule_object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 ```

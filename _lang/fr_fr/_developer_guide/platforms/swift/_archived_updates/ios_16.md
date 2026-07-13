@@ -40,4 +40,4 @@ Braze prendra en charge ces nouvelles notifications push Web pour iOS et iPadOS 
 Bien que vous n'ayez pas besoin de mettre à jour votre SDK Braze pour iOS afin de prendre en charge iOS 16, voici deux autres mises à jour intéressantes :
 
 1. Braze a lancé un [nouveau SDK Swift](https://github.com/braze-inc/braze-swift-sdk). Il offre de meilleures performances, de nouvelles fonctionnalités et de nombreuses améliorations.
-2. Notre SDK Braze Swift prend en charge une nouvelle [fonctionnalité de « push primer » sans code]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) !
+2. Notre SDK Braze Swift prend en charge une nouvelle [fonctionnalité de « push primer » sans code]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) !

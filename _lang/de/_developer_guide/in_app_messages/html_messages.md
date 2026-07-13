@@ -8,7 +8,7 @@ description: "Erfahren Sie, wie Sie die Braze JavaScript-Schnittstelle zu Ihrer 
 
 # HTML In-App-Nachrichten {#html-in-app-messages}
 
-> Erfahren Sie, wie Sie die Braze JavaScript-Schnittstelle zu Ihrer App hinzufügen, damit Sie die Braze API nutzen können, um [HTML In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/) in Ihren angepassten WebViews zu erstellen.
+> Erfahren Sie, wie Sie die Braze JavaScript-Schnittstelle zu Ihrer App hinzufügen, damit Sie die Braze API nutzen können, um [HTML In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html) in Ihren angepassten WebViews zu erstellen.
 
 {% sdktabs %}
 {% sdktab android %}

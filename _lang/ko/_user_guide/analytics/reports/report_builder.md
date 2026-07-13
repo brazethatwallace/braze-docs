@@ -19,7 +19,7 @@ page_order: 3
 
 ## 보고서 템플릿 사용하기 {#using-a-report-template}
 
-1. **분석** > **보고서 빌더(신규)**로 이동합니다.
+1. **Analytics** > **보고서 빌더(신규)**로 이동합니다.
 2. **새 보고서 생성** 버튼 옆의 **추가 옵션** 화살표를 선택한 다음 **보고서 템플릿 사용**을 선택합니다.<br><br>!["새 보고서 생성" 버튼 드롭다운에 커스텀 보고서 생성 또는 템플릿 사용 옵션이 표시됩니다.]({% image_buster /assets/img/report_builder_2/create_new_report.png %}){: style="max-width:40%;"}<br><br>
 3. Braze 템플릿 라이브러리에서 보고서 템플릿 중 하나를 선택합니다.
     - **행 항목** 및 **태그** 드롭다운을 사용하여 사용 사례에 맞는 관련 보고서를 찾습니다.<br><br>!["Braze 보고서 템플릿" 창에 선택할 수 있는 Braze 템플릿 목록이 표시됩니다.]({% image_buster /assets/img/report_builder_2/report_templates.png %}){: style="max-width:90%;"}<br><br>
@@ -27,7 +27,7 @@ page_order: 3
 
 ## 보고서 생성하기 {#creating-a-report}
 
-1. **분석** > **보고서 빌더(신규)**로 이동합니다.
+1. **Analytics** > **보고서 빌더(신규)**로 이동합니다.
 2. **새 보고서 생성**을 선택합니다.
 3. **행** 드롭다운에서 보고할 항목을 선택합니다:
     - Campaigns
@@ -79,7 +79,7 @@ page_order: 3
 **행** 선택에 따라 선택할 수 있는 측정기준이 달라집니다.
 
 {% alert tip %}
-캔버스 배리언트 또는 단계에 대해 보고하려면 행에서 **Canvases**를 선택하고 드릴다운 필드를 비워 두거나 **날짜**를 선택합니다. 그러면 Canvas 전용 측정기준을 조회하거나 배리언트, 단계 또는 메시지별로 측정기준을 그룹화할 수 있는 **Canvas 보기** 드롭다운이 생성됩니다.
+캔버스 배리언트 또는 단계에 대해 보고하려면 행에서 **Canvases**를 선택하고 드릴다운 필드를 비워 두거나 **날짜**를 선택합니다. 그러면 Canvas 전용 측정기준을 조회하거나 배리언트, 단계 또는 메시지별로 측정기준을 그룹화할 수 있는 **Canvas 보기** 드롭다운이 생성됩니다.<br><br> 단계별로 그룹화하면 보고서 구성 중 미리보기 테이블에 최대 50개의 행이 표시됩니다. 모든 행을 보려면 보고서를 실행하거나 CSV로 내보내세요.
 
 ![열린 "Canvas 보기" 드롭다운.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -95,11 +95,13 @@ page_order: 3
 | 총 매출 | Campaigns, Canvases, Campaigns 및 Canvases, 태그에서 사용할 수 있습니다. **채널** 드릴다운에서는 사용할 수 없습니다. |
 | 고유 노출 횟수 | Campaigns, Canvases, Campaigns 및 Canvases, 태그에서 사용할 수 있습니다. |
 | 고유 수신자 | Campaigns, Canvases, Campaigns 및 Canvases, 태그에서 사용할 수 있습니다. **채널** 드릴다운에서는 사용할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="측정기준 가용성" }
 
 ### 삭제된 메시지 배리언트 {#deleted-message-variants}
 
 삭제된 메시지 배리언트의 통계는 Campaign 또는 Canvases별로 보고서를 분류할 때 표시되지 않습니다. 그러나 채널 수준 합계에는 배리언트 삭제 여부와 관계없이 모든 통계가 포함됩니다. 예를 들어, 이메일의 *발송*에는 모든 이메일 발송이 포함되지만, Campaign별로 통계를 분류하면 삭제된 메시지 배리언트의 발송이 필터링되므로 숫자가 더 낮을 수 있습니다.
+
+같은 보고서에서 메시지 배리언트가 발송 후 삭제된 경우 *고유 수신자*가 *고유 노출 횟수*보다 높을 수 있습니다. Campaign 수준의 *고유 수신자*에는 삭제된 배리언트를 수신한 사용자가 여전히 포함될 수 있지만, *고유 노출 횟수*는 메시지 수준 집계에서 삭제된 배리언트의 통계를 제외합니다.
 
 ## 보고서 조회하기 {#viewing-a-report}
 
@@ -141,7 +143,7 @@ page_order: 3
 1. 보고서 테이블 상단의 점선 아이콘을 선택합니다.
 2. **대시보드에 추가**를 선택합니다.
 3. 새 대시보드를 생성할지 기존 대시보드에 추가할지 선택합니다.<br><br>![보고서를 새 대시보드에 추가할지 기존 대시보드에 추가할지 선택하는 옵션이 있는 창.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. 대시보드 구축에 대해 자세히 알아보려면 [대시보드 빌더]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/)의 단계를 따르세요.
+4. 대시보드 구축에 대해 자세히 알아보려면 [대시보드 빌더]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder)의 단계를 따르세요.
 
 ## 문제 해결 {#troubleshooting}
 
@@ -150,3 +152,9 @@ page_order: 3
 Campaign 또는 Canvas는 **마지막 발송** 날짜가 구성한 **마지막 발송** 기간에 해당할 때 보고서에 표시됩니다. **발송** 및 기타 측정기준은 **데이터 표시 기간** 날짜 범위 내의 활동에 대해서만 채워집니다. **데이터 표시 기간** 동안 메시지가 발송되지 않은 경우에도 해당 행에 발송 수가 0인 Campaign 또는 Canvas가 표시될 수 있습니다.
 
 예를 들어, **마지막 발송**이 2025년 1월 1일~2025년 4월 14일이어서 Campaign이 포함되었지만, **데이터 표시 기간**이 2024년 12월 1일~2025년 1월 14일이라고 가정합니다. 해당 Campaign이 12월이나 1월에 발송이 없었다면 발송 측정기준 없이 테이블에 표시됩니다.
+
+### 다운로드 링크가 만료된 경우 {#download-link-has-expired}
+
+보고서 다운로드 링크는 1시간 후 만료됩니다. 링크가 만료된 경우 새 보고서를 생성하고 1시간 이내에 다운로드하세요. 만료 시간을 연장하는 방법은 없습니다.
+
+**파트너 통합**에 [Amazon S3 버킷]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3)이 연결되어 있는 경우, S3 버킷을 직접 탐색하여 이전 보고서의 데이터를 검색할 수 있습니다.

@@ -16,7 +16,7 @@ AlgoliaとBrazeの統合では、[コネクテッドコンテンツ]({{site.base
 ## ユースケース {#use-cases}
 
 - **トレンド商品のプロモーション:** Algoliaからトレンドまたはパフォーマンスの高い商品を自動的にBrazeメッセージに取り込み、注目度の高いアイテムをプロモーションしてエンゲージメントを向上させます。
-- **検索インテリジェンスによるCampaignsのパーソナライズ:** Algoliaの検索・閲覧インテリジェンスを活用してBraze Campaignsをパーソナライズし、各ユーザーの興味に合った商品やカテゴリを配信します。
+- **検索インテリジェンスによるキャンペーンのパーソナライズ:** Algoliaの検索・閲覧インテリジェンスを活用してBraze キャンペーンをパーソナライズし、各ユーザーの興味に合った商品やカテゴリを配信します。
 
 ## 前提条件 {#prerequisites}
 
@@ -58,7 +58,7 @@ X-Algolia-Application-Id: {ALGOLIA_APP_ID}
 
 この例では、`category_page_id`という属性に基づくカテゴリフィルターを使用するページから上位4件の結果を取得するクエリを実行します。`attributesToRetrieve`パラメーターはレスポンスを制限し、ペイロードを管理しやすいサイズに保ちます。
 
-**ユースケースの例:** 週間オファーのBraze Campaignで`https://www.yoursite.com/weekly-offers`の検索結果を表示するには、対応するAlgoliaインデックスにクエリを実行し、フィルターを適用してそのページの上位結果を取得します。
+**ユースケースの例:** 週間オファーのBraze キャンペーンで`https://www.yoursite.com/weekly-offers`の検索結果を表示するには、対応するAlgoliaインデックスにクエリを実行し、フィルターを適用してそのページの上位結果を取得します。
 
 {% alert tip %}
 `attributesToRetrieve`を使用して、評価、レビュー、割引などの追加フィールドを取得し、パーソナライゼーションを強化できます。
@@ -76,7 +76,7 @@ X-Algolia-API-Key: {ALGOLIA_API_KEY}
 X-Algolia-Application-Id: {ALGOLIA_APP_ID}
 ```
 
-#### クエリペイロードの例 {#example-query-payload}
+#### クエリペイロードの例
 
 ```json
 {
@@ -110,7 +110,7 @@ Brazeのコネクテッドコンテンツ機能を使用して、Algoliaエン�
 #### コネクテッドコンテンツSearchリクエストの例 {#example-connected-content-search-request}
 
 {% raw %}
-```liquid
+`````````liquid
 {% capture request_body %}
 {
   "query": "",
@@ -135,7 +135,7 @@ Brazeのコネクテッドコンテンツ機能を使用して、Algoliaエン�
 #### コネクテッドコンテンツRecommendリクエストの例 {#example-connected-content-recommend-request}
 
 {% raw %}
-```liquid
+`````````liquid
 {% capture request_body %}
 {
   "requests": [
@@ -171,7 +171,7 @@ Algoliaから結果を取得した後、Liquidを使用してAPIレスポンス�
 #### Search API用のLiquidメールテンプレートの例 {#example-liquid-email-template-for-search-api}
 
 {% raw %}
-```liquid
+`````````liquid
 {% for item in algolia_search.hits %}
   <div style="margin-bottom: 10px;">
     <img src="{{ item.image }}" alt="{{ item.name }}" width="100"/>
@@ -183,7 +183,7 @@ Algoliaから結果を取得した後、Liquidを使用してAPIレスポンス�
 ```
 {% endraw %}
 
-これにより、メッセージ本文内にSearch APIの結果から商品リストが生成されます。各商品リンクは、ユーザーを商品詳細ページ（PDP）またはCampaign固有のランディングページに誘導します。
+これにより、メッセージ本文内にSearch APIの結果から商品リストが生成されます。各商品リンクは、ユーザーを商品詳細ページ（PDP）またはキャンペーン固有のランディングページに誘導します。
 
 {% endtab %}
 {% tab Recommend API %}
@@ -191,7 +191,7 @@ Algoliaから結果を取得した後、Liquidを使用してAPIレスポンス�
 #### Recommend API用のLiquidメールテンプレートの例 {#example-liquid-email-template-for-recommend-api}
 
 {% raw %}
-```liquid
+`````````liquid
 {% for item in algolia_recommendations.hits %}
   <div style="margin-bottom: 10px;">
     <img src="{{ item.image }}" alt="{{ item.name }}" width="100"/>
@@ -203,7 +203,7 @@ Algoliaから結果を取得した後、Liquidを使用してAPIレスポンス�
 ```
 {% endraw %}
 
-これにより、メッセージ本文内にRecommend APIの結果からおすすめ商品リストが生成されます。各商品リンクは、ユーザーを商品詳細ページ（PDP）またはCampaign固有のランディングページに誘導します。
+これにより、メッセージ本文内にRecommend APIの結果からおすすめ商品リストが生成されます。各商品リンクは、ユーザーを商品詳細ページ（PDP）またはキャンペーン固有のランディングページに誘導します。
 
 {% endtab %}
 {% endtabs %}
@@ -212,7 +212,7 @@ Algoliaから結果を取得した後、Liquidを使用してAPIレスポンス�
 
 ### ユニーククエリの回避 {#avoiding-unique-queries}
 
-Algolia契約で定義されたレート制限に注意してください。ユーザー固有のクエリは、割り当てられたリクエスト数をすぐに超過する可能性があるため、避けてください。結果をパーソナライズするには、個々のユーザーIDではなくSegmentをターゲットにするか、特定のobjectIDではなくカテゴリやブランドでフィルタリングしてください。Brazeの属性を使用してレコメンデーションをさらにパーソナライズできます。
+Algolia契約で定義されたレート制限に注意してください。ユーザー固有のクエリは、割り当てられたリクエスト数をすぐに超過する可能性があるため、避けてください。結果をパーソナライズするには、個々のユーザーIDではなくセグメントをターゲットにするか、特定のobjectIDではなくカテゴリやブランドでフィルタリングしてください。Brazeの属性を使用してレコメンデーションをさらにパーソナライズできます。
 
 ### コネクテッドコンテンツ結果のキャッシュ {#caching-connected-content-results}
 

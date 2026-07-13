@@ -21,7 +21,7 @@ Jacquard X에서 제공하는 Dynamic Optimisation은 Braze 커런츠와 연결�
 | Jacquard 계정 | 이 파트너십을 활용하려면 [Jacquard 계정](https://www.jacquard.com/)이 필요합니다. |
 | Jacquard 연결 서버 토큰 | Braze Campaign의 비밀번호 역할을 하여 Jacquard 언어에 접근할 수 있게 해주는 긴 문자열입니다.<br><br>아직 제공받지 못한 경우 Jacquard 고객 성공 매니저에게 요청할 수 있습니다. |
 | Currents | 데이터를 Currents로 내보내려면 계정에 [Braze 커런츠]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 통합 {#integration}
 

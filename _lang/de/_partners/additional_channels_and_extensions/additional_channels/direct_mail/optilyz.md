@@ -25,7 +25,7 @@ Nutzen Sie die Webhook-Integration von optilyz und Braze, um Ihren Kund:innen Di
 | optilyz-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein optilyz-Konto. |
 | optilyz-API-Schlüssel<br><br>`<OPTILYZ_API_KEY>` | Ihr optilyz-Customer-Success-Manager stellt Ihnen Ihren optilyz-API-Schlüssel zur Verfügung.<br><br>Dieser API-Schlüssel ermöglicht es Ihnen, Ihre Braze- und optilyz-Konten zu verbinden. |
 | optilyz-Automatisierungs-ID<br><br>`<OPTILYZ_AUTOMATION_ID>` | Die Automatisierungs-ID finden Sie in einem Feld in der Kopfzeile der Seite.<br><br>Wenn Sie bei optilyz angemeldet sind, können Sie zu der Automatisierung navigieren, an die Sie Daten senden möchten.<br>Die Automatisierung muss zuerst aktiviert werden. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -40,7 +40,7 @@ Für die Integration mit optilyz verwenden Sie die [optilyz-API](https://www.opt
 
 ### 1. Schritt: Erstellen Sie Ihr Braze-Webhook-Template {#step-1-create-your-braze-webhook-template}
 
-Um ein optilyz-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie in der Braze-Plattform zu **Templates** > **Webhook-Templates**.
+Um ein optilyz-Webhook-Template zu erstellen, das Sie in zukünftigen Campaigns oder Canvases verwenden können, navigieren Sie in der Braze-Plattform zu **Content** > **Webhook**. Wählen Sie dann **Create webhook template** aus.
 
 Wenn Sie eine einmalige optilyz-Webhook-Campaign erstellen oder ein bestehendes Template verwenden möchten, wählen Sie bei der Erstellung einer neuen Campaign **Webhook** in Braze aus.
 

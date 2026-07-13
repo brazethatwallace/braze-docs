@@ -50,7 +50,8 @@ When you record revenue for a currency without an exchange rate, Braze records i
     }
 </style>
 
-<table>
+<table aria-label="Understanding revenue calculations">
+  <caption>Understanding revenue calculations</caption>
     <thead>
         <tr>
             <th>Metric</th>
@@ -89,16 +90,16 @@ Refer to the **Product Breakdown** table for a list of the products purchased du
 
 ## Exporting revenue data
 
-To export your revenue data, select <i class="fas fa-bars" title="Chart context menu"></i> in the **Performance Over Time** graph and select your export option.
+To export your revenue data, select <i class="fas fa-bars" title="Chart context menu"></i> **Chart context menu** in the **Performance Over Time** graph and select your export option.
 
 {% alert tip %}
-Looking for more ways to get revenue data? Try adding purchase behavior (as well as purchase of a product) to campaigns or Canvases as [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/).
+Looking for more ways to get revenue data? Try adding purchase behavior (as well as purchase of a product) to campaigns or Canvases as [conversion events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events).
 {% endalert %}
 
-You can also view revenue statistics on a case-by-case basis on the [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/) or [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/) pages.
+You can also view revenue statistics on a case-by-case basis on the [Campaign Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics) or [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) pages.
 
 {% alert tip %}
-Revenue reports cannot be exported through API. For help with CSV exports, refer to [export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Revenue reports cannot be exported through API. For help with CSV exports, refer to [export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 

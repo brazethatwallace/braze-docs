@@ -26,6 +26,51 @@ Review the following Meta documentation for guidance with display names, phone n
 
 ## WhatsApp product updates
 
+### 2026: Business usernames
+*Last Updated May 2026*
+
+Meta is introducing business usernames for WhatsApp—an optional display name that businesses can adopt for their WhatsApp phone number. When a username is set, it appears in WhatsApp and WhatsApp Business app chat windows in place of the phone number. Note that adopting a username does not hide your phone number; it alway remains visible in your business profile.
+
+Usernames are unique across all WhatsApp phone numbers—no two numbers, consumer or business, can share the same username. They are case-insensitive for the purposes of uniqueness, but periods and underscores are treated as distinct characters. For example, `myid`, `my.id`, and `my_id` are all considered different usernames, whereas `myID` and `myid` are treated as the same.
+
+Business usernames must meet the following format requirements:
+
+- Contains only English letters (a–z), digits (0–9), periods (`.`), or underscores (`_`)
+- Is between 3 and 35 characters long
+- Contains at least one English letter
+- Does not start or end with a period, and does not contain two consecutive periods
+- Does not start with `www`
+- Does not end with a common domain suffix (such as `.com`, `.org`, or `.net`)
+
+#### Claiming a reserved username
+
+Before the username feature is broadly available, Meta may have pre-reserved a username for your business—typically matching an existing Facebook Page or Instagram username. You can claim this reserved username or choose a different one through [WhatsApp Manage](https://business.facebook.com/wa/manage/). Claimed usernames are not activated until Meta makes the feature available.
+
+If the reserved username matches one already associated with your Facebook Page or Instagram account, you must first link your business phone number to that Page or account. You can do this while claiming the username in WhatsApp Manager or Meta Business Suite, or by adding your phone number directly from the relevant Page or account. Linking requires either full control of the Page or account, or basic partial access with the `manage_phone` permission.
+
+#### Display priority in chat windows
+
+When your business profile appears in a chat window, WhatsApp uses the following priority order (highest to lowest):
+
+1. Saved contact name
+2. Verified business name or Official Business Account (OBA) name
+3. Username
+4. Phone number
+
+For more information, see Meta's documentation on [business usernames](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids/#business-usernames).
+
+### April 2026: Automatic archival of inactive templates
+*Last Updated April 2026*
+
+- Meta automatically archives templates that have been inactive for 12 months or more.
+- Auto-archival is enabled for all WhatsApp Business Accounts and cannot be disabled.
+- Template activity includes creating, editing, sending, appealing, or unarchiving a template.
+- Archived templates cannot be sent and are scheduled for permanent deletion after 28 days.
+- You can unarchive templates within the 28-day window to restore them and cancel the scheduled deletion.
+- Notifications are sent via the `message_template_status_update` webhook, email, and a one-time WhatsApp Manager banner.
+
+For more information, see Meta's documentation on [template archival](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival).
+
 ### June 2026: Business-scoped user IDs
 *Last Updated March 2026*
 
@@ -90,12 +135,12 @@ Meta will limit the number of marketing template messages a user can receive acr
 
 One exception is, if a person responds to a marketing message, it will start a 24-hour customer service window. Marketing messages sent within this window will not count towards a person’s limit.
 
-The specific limit varies by user, depending on their engagement level. Learn more about WhatsApp's per-user marketing template message limits [here](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits). 
+The specific limit varies by user, depending on their engagement level. Learn more about WhatsApp's per-user marketing template message limits [WhatsApp's per-user marketing template message limits documentation](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits). 
 
 ### January 2025: WhatsApp pausing marketing message sending to US users starting April 1
 *Last Updated January 2025*
 
-WhatsApp will pause marketing message sending to US users (people with US phone numbers) starting April 1, 2025. [Utility, service, authentication](https://developers.facebook.com/docs/whatsapp/pricing/), and [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#response-messages) will still be allowed in the US. 
+WhatsApp will pause marketing message sending to US users (people with US phone numbers) starting April 1, 2025. [Utility, service, authentication](https://developers.facebook.com/docs/whatsapp/pricing/), and [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) will still be allowed in the US. 
 
 Marketing message sending (plus all other message types) to all other countries or regions is still allowed and will not be affected.
 
@@ -111,7 +156,7 @@ Meta recently updated their [opt-in policy](https://developers.facebook.com/docs
 1. The person has given their phone number.
 2. The person provided opt-in permission for general messaging, not just WhatsApp. 
 
-Businesses still need to comply with all local laws and follow the below requirements when obtaining opt-in:
+Businesses still need to comply with all local laws and follow the following requirements when obtaining opt-in:
 
 - Businesses must clearly state that a person is opting in to receive communication from the business
 - Businesses must clearly state the business name that a person is opting in to receive messages from

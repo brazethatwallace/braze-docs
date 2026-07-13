@@ -23,7 +23,7 @@ If a catalog item doesn't exist, this endpoint will create the item in your cata
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `catalogs.replace_items` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `catalogs.replace_items` permission.
 
 ## Rate limit
 
@@ -34,14 +34,14 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `catalog_name` | Required | String | Name of the catalog. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
 
 ## Request parameters
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
 | `items` | Required | Array | An array that contains item objects. Each object must have an ID. The item objects should contain fields that exist in the catalog. Up to 50 item objects are allowed per request. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 
@@ -55,9 +55,10 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
       "id": "restaurant1",
       "Name": "Restaurant",
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -78,9 +79,17 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 }'
 ```
 
+{% alert note %}
+The `Location` field uses the `geo` data type, which expects an array formatted as `[longitude, latitude]`.
+{% endalert %}
+
 ## Response
 
 There are three status code responses for this endpoint: `202`, `400`, and `404`.
+
+{% alert note %}
+The system can also return a `400` response if your company has reached its catalog storage limit. The free version of catalogs is capped at 100&nbsp;MB. For more information about storage tiers and how to upgrade, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
+{% endalert %}
 
 ### Example success response
 
@@ -121,6 +130,8 @@ The following table lists possible returned errors and their associated troubles
 | Error | Troubleshooting |
 | --- | --- |
 | `catalog-not-found` | Check that the catalog name is valid. |
+| `company-size-limit-already-reached` | The catalog storage size limit is reached. To learn about storage tiers, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
+| `company-size-limit-surge` | The request exceeds your company's remaining catalog storage. Try again with a smaller update. To learn about storage tiers, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations). |
 | `ids-not-string` | Confirm that each item ID is a string. |
 | `ids-not-unique` | Check that each item ID is unique. |
 | `ids-too-large` | Character limit for each item ID is 250 characters. |
@@ -133,6 +144,6 @@ The following table lists possible returned errors and their associated troubles
 | `too-deep-nesting-in-value-object` | Item objects can't have more than 50 levels of nesting. |
 | `request-includes-too-many-items` | Your request has too many items. The item limit per request is 50. |
 | `unable-to-coerce-value` | Item types can't be converted. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
 
 {% endapi %}

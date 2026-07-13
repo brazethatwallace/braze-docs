@@ -1,30 +1,31 @@
 ---
-nav_title: "Fuseaux horaires de l'espace de travail"
-article_title: "Fuseaux horaires de l'espace de travail pour l'envoi de messages"
+nav_title: Fuseaux horaires de l'espace de travail
+article_title: Fuseaux horaires de l'espace de travail
 alias: /workspace_time_zones/
 page_order: 3
 description: "Cet article de référence explique comment configurer différents fuseaux horaires pour vos espaces de travail Braze, ce qui permet aux équipes opérant dans différentes localisations géographiques de mieux contrôler la planification des campagnes et des Canvas."
+toc_headers: h2
 ---
 
-# Fuseaux horaires de l'espace de travail pour l'envoi de messages
+# Fuseaux horaires de l'espace de travail {#workspace-time-zones}
 
 > Les fuseaux horaires des espaces de travail permettent aux administrateurs de définir des fuseaux horaires spécifiques pour chaque espace de travail. Cela permet aux campagnes planifiées et aux Canvas (qui n'utilisent pas l'heure locale ou le timing intelligent) d'être envoyés selon le fuseau horaire désigné de l'espace de travail, plutôt que selon le fuseau horaire global de l'entreprise.
 
-{% multi_lang_include early_access_beta_alert.md feature='Workspace time zones' %}
+{% alert important %}
+Les fuseaux horaires des espaces de travail pour l'envoi de messages sont déployés progressivement. Il est possible que ces paramètres ne soient pas encore visibles dans votre tableau de bord.
+{% endalert %}
 
 Par défaut, un nouvel espace de travail hérite du fuseau horaire défini pour votre entreprise. Les administrateurs peuvent remplacer cette valeur par défaut pour un ou plusieurs espaces de travail en utilisant les fuseaux horaires des espaces de travail. Lorsque le fuseau horaire d'un espace de travail est défini, les campagnes planifiées et les Canvas au sein de cet espace de travail se réfèrent à ce nouveau fuseau horaire pour leurs heures d'envoi.
 
 Par exemple, si le fuseau horaire d'un espace de travail est défini sur PST et qu'une campagne dans cet espace de travail est planifiée pour être envoyée à 15 h PST, elle sera livrée à 15 h PST. Cela s'applique même si le fuseau horaire global de votre entreprise est différent (par exemple, EST, où 15 h PST correspond à 18 h EST).
 
-## Gestion des fuseaux horaires de l'espace de travail
+## Gérer les fuseaux horaires des espaces de travail {#manage-workspace-time-zones}
 
 Si vous êtes administrateur, vous pouvez accéder aux fuseaux horaires des espaces de travail et les gérer en allant dans **Paramètres** > **Paramètres d'administration** > **Fuseaux horaires de l'espace de travail**.
 
 Ici, vous pouvez consulter la liste de tous vos espaces de travail, leur fuseau horaire défini et la dernière modification du fuseau horaire. Utilisez la barre de recherche pour trouver des espaces de travail spécifiques par nom.
 
-![Page « Fuseaux horaires de l'espace de travail » avec une liste d'espaces de travail, leurs fuseaux horaires respectifs et la date de dernière modification des fuseaux horaires.]({% image_buster /assets/img/workspaces/time_zones/workspace_time_zones_page.png %})
-
-### Définir un fuseau horaire
+### Définir un fuseau horaire {#setting-a-time-zone}
 
 {% alert note %}
 La prise en compte des mises à jour de fuseau horaire peut prendre quelques minutes.
@@ -41,7 +42,6 @@ La prise en compte des mises à jour de fuseau horaire peut prendre quelques min
 3. Dans le menu déroulant, sélectionnez le fuseau horaire souhaité pour cet espace de travail.
 4. Sélectionnez **Enregistrer**.
 
-![Menu déroulant avec le fuseau horaire GMT sélectionné.]({% image_buster /assets/img/workspaces/time_zones/edit_single_workspace.png %})
 {% endtab %}
 {% tab Plusieurs espaces de travail %}
 
@@ -59,23 +59,23 @@ Vous pouvez appliquer un fuseau horaire spécifique à plusieurs espaces de trav
 {% endtab %}
 {% endtabs %}
 
-## Impact sur les campagnes et les Canvas
+## Impact sur les campagnes et les Canvas {#impact-on-campaigns-and-canvases}
 
 {% alert important %}
 Informez les équipes et les parties prenantes concernées au sein de chaque espace de travail de tout changement de fuseau horaire afin d'éviter toute confusion sur les planifications de campagnes.
 {% endalert %}
 
-- **Campagnes en heure locale et timing intelligent :** les campagnes et les Canvas qui utilisent l'heure locale de l'utilisateur ou le [timing intelligent]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery/#option-3-intelligent-timing) pour la distribution continueront de fonctionner comme avant et ne seront pas affectés par les fuseaux horaires des espaces de travail.
+- **Campagnes en heure locale et timing intelligent :** les campagnes et les Canvas qui utilisent l'heure locale de l'utilisateur ou le [timing intelligent]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/scheduled_delivery#option-3-intelligent-timing) pour la distribution continueront de fonctionner comme avant et ne seront pas affectés par les fuseaux horaires des espaces de travail.
 - **Campagnes et Canvas planifiés :** toute campagne ou tout Canvas planifié qui n'utilise pas l'heure locale de l'utilisateur ou le timing intelligent pour la distribution sera désormais envoyé en fonction du fuseau horaire sélectionné pour l'espace de travail.
 - **Campagnes planifiées avant un changement de fuseau horaire :** si vous avez planifié une campagne ou un Canvas avant de modifier le fuseau horaire de l'espace de travail, Braze conserve l'heure d'envoi d'origine et ne la replanifie pas. Par exemple, si une campagne est configurée pour être envoyée à 19 h PST et que le fuseau horaire de l'espace de travail est modifié en EST, la campagne sera toujours envoyée à 19 h PST (ce qui correspond désormais à 22 h EST). Le système continuera de se référer à l'heure d'origine, mais l'interprétera selon le nouveau fuseau horaire de l'espace de travail.
 
-## Impact sur les filtres d'audience basés sur la date
+## Impact sur les filtres d'audience basés sur la date {#impact-on-date-based-audience-filters}
 
 Lorsqu'un fuseau horaire d'espace de travail est mis à jour, les filtres d'audience qui utilisent des critères basés uniquement sur la date (sans heure spécifique) sont réévalués en fonction des limites du nouveau fuseau horaire.
 
 Pour les filtres tels que « A effectué l'événement personnalisé X pour la dernière fois après », Braze utilise le fuseau horaire de l'espace de travail pour déterminer le début et la fin de la journée calendaire. La modification de ce paramètre déplace le point de coupure de 23 h 59 pour cette date spécifique.
 
-### Exemple
+### Exemple {#example}
 
 Un espace de travail met à jour son fuseau horaire de l'heure de l'Est (EST) à l'heure du Pacifique (PST).
 
@@ -84,6 +84,15 @@ Un espace de travail met à jour son fuseau horaire de l'heure de l'Est (EST) à
 
 Suite à ce changement, un utilisateur qui effectue l'événement personnalisé à 22 h PST le 6 mars 2026 (soit 1 h EST le 7 mars 2026) est désormais inclus dans l'audience, car il se situe dans les limites du jour calendaire PST pour cette date.
 
-## Écarts dans les rapports
+## Impact sur les données de performance {#impact-on-performance-data}
 
-Les fuseaux horaires des espaces de travail offrent un contrôle précis sur l'envoi des campagnes, mais vous devez être conscient des écarts potentiels dans les rapports tant que cette fonctionnalité est en accès anticipé. Recoupez les points de données et tenez compte du fuseau horaire lors de l'analyse des rapports pour les espaces de travail avec des remplacements de fuseau horaire spécifiques.
+La mise à jour du fuseau horaire de votre espace de travail affecte la manière dont les données de performance sont agrégées et affichées dans votre tableau de bord. Étant donné que les analyses pour des données telles que les *utilisateurs actifs quotidiens* (DAU) s'appuient sur le fuseau horaire de l'espace de travail pour définir le début et la fin d'une journée de 24 heures, une modification de ce paramètre décale ces fenêtres de reporting.
+
+Lorsque vous modifiez le fuseau horaire, vous pouvez constater des fluctuations ou des « décalages » dans vos données historiques. Cela se produit parce que la fenêtre de 0 h 00 à 23 h 59 s'est déplacée par rapport à UTC.
+
+Prenons l'exemple suivant pour un espace de travail qui passe son fuseau horaire d'UTC à PST (UTC-8) :
+
+- **Avant le changement :** une « journée » pour le reporting est mesurée de 0 h 00 UTC à 23 h 59 UTC.
+- **Après le changement :** une « journée » pour le reporting est désormais mesurée de 0 h 00 PST à 23 h 59 PST.
+
+En conséquence, un événement survenu à 1 h 00 UTC le 1er janvier aurait été comptabilisé dans les statistiques du 1er janvier. Après le passage à PST, ce même événement (survenu à 17 h 00 PST le 31 décembre) serait attribué aux indicateurs de la veille dans le rapport mis à jour.

@@ -2,7 +2,7 @@
 nav_title: "Flujo de incorporación"
 article_title: "Flujo de incorporación"
 alias: "/onboarding_flow/"
-page_order: 0
+page_order: 1
 description: "Esta página explica cómo dar la bienvenida a nuevos usuarios, guiarlos a través de los beneficios e impulsar la acción mediante una llamada a la acción convincente."
 ---
 
@@ -28,11 +28,11 @@ Al crear un mensaje dentro de la aplicación de arrastrar y soltar, selecciona *
 
 Para empezar a construir tu flujo de incorporación, usa la sección **Pages** para añadir o eliminar mensajes de tu flujo. Una vez que tengas el número deseado de mensajes, selecciona los botones en cada página. Luego, usa el menú lateral para seleccionar a dónde van los usuarios cuando seleccionan el botón: ya sea que salgan del flujo o pasen al siguiente mensaje.
 
-Comprueba que tus mensajes estén conectados en orden secuencial para que los usuarios avancen correctamente por el flujo. Para conocer los pasos sobre cómo hacerlo, consulta [Conectar páginas entre sí]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+Comprueba que tus mensajes estén conectados en orden secuencial para que los usuarios avancen correctamente por el flujo. Para conocer los pasos sobre cómo hacerlo, consulta [Conectar páginas entre sí]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### Paso 4: Dale estilo a tu mensaje {#step-4-style-your-message}
 
-Personaliza la apariencia de tu flujo de incorporación usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastrar y soltar.
+Personaliza la apariencia de tu flujo de incorporación usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastrar y soltar.
 
 ## Analizar los resultados {#analyzing-the-results}
 

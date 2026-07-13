@@ -30,7 +30,7 @@ Ordena los segmentos de la lista ajustando los siguientes filtros:
 - **Estimated Size:** Rango aproximado de cuántos usuarios hay en los segmentos
 - **Tags:** Etiquetas asociadas con los segmentos
 - **Teams:** Equipos asociados con los segmentos
-- **Advanced Tracking Segments Only:** Ver solo los segmentos que tienen habilitado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking).
+- **Advanced Tracking Segments Only:** Ver solo los segmentos que tienen habilitado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking).
 
 ### Columnas {#columns}
 
@@ -42,7 +42,7 @@ Estas son las columnas de información que puedes seleccionar para mostrar en la
 - **Teams:** Equipos asociados con el segmento
 - **Estimated size:** Número estimado de usuarios en el segmento
 - **Canvases:** Número de Canvas que usan el segmento
-- **Campaigns:** Número de Campaigns que usan el segmento
+- **Campaigns:** Número de campañas que usan el segmento
 
 ### Mostrar solo destacados {#show-starred-only}
 
@@ -50,10 +50,10 @@ Seleccionar **Show Starred Only** reduce tu vista a los segmentos que fueron des
 
 ## Ver el uso de mensajería de un segmento {#messaging-use}
 
-Ve a la sección **Messaging Use** de un segmento para obtener un resumen de dónde se está usando el segmento, como dentro de otros segmentos, Campaigns y Canvas.
+Ve a la sección **Messaging Use** de un segmento para obtener un resumen de dónde se está usando el segmento, como dentro de otros segmentos, campañas y Canvas.
 
 {% alert note %}
-Para evitar bucles de segmentos que se referencian entre sí, los segmentos que usan el filtro **Segment Membership** no pueden ser referenciados por otros segmentos. Para más detalles, consulta [Filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+Para evitar bucles de segmentos que se referencian entre sí, los segmentos que usan el filtro **Segment Membership** no pueden ser referenciados por otros segmentos. Para más detalles, consulta [Filtros de segmentación]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 {% endalert %}
 
 ## Administrar segmentos específicos {#managing-specific-segments}
@@ -63,13 +63,13 @@ Para evitar bucles de segmentos que se referencian entre sí, los segmentos que 
 Para administrar un segmento específico, pasa el cursor sobre él y selecciona el icono de menú al final de la fila para revelar las siguientes opciones:
 - **Edit:** Edita los filtros de tu segmento.
 - **Duplicate:** Haz una copia de tu segmento.
-- **Archive:** Archiva el segmento. Ten en cuenta que esto también archivará cualquier Campaign o Canvas que use ese segmento.
+- **Archive:** Archiva el segmento. Ten en cuenta que esto también archivará cualquier campaña o Canvas que use ese segmento.
 - **Add to starred:** Destaca el segmento, lo que te permite acceder rápidamente a él marcando la casilla Show starred only en la sección de segmentos.
 
 También puedes realizar acciones masivas —específicamente archivar en masa y etiquetar en masa— marcando las casillas junto a los nombres de múltiples segmentos.
 
 {% alert tip %}
-Si necesitas una exportación legible por máquina de los segmentos existentes en el espacio de trabajo (no solo la vista de tabla actual), usa el [punto de conexión Exportar lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) y pagina a través de los resultados. Para auditar segmentos archivados, revísalos por separado en el dashboard de **Segments** usando el filtro de estado.
+Si necesitas una exportación legible por máquina de los segmentos existentes en el espacio de trabajo (no solo la vista de tabla actual), usa el [punto de conexión Exportar lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment) y pagina a través de los resultados. Para auditar segmentos archivados, revísalos por separado en el dashboard de **Segments** usando el filtro de estado.
 {% endalert %}
 
 ![Múltiples segmentos seleccionados con "CRM" seleccionado en el campo desplegable "Tag As".]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
@@ -88,6 +88,6 @@ Se buscarán todos los términos y cadenas ingresados en este campo. Por ejemplo
 
 ### Segmentos en Canvas {#segments-in-canvases}
 
-Para buscar todas las referencias de segmentos, incluidas las que están en otros segmentos, Campaigns o Canvas, ve a la sección [Uso de mensajería](#messaging-use) de un segmento. El filtro **Target segment** en la página de **Canvas** busca solo segmentos de audiencia de Canvas.
+Para buscar todas las referencias de segmentos, incluidas las que están en otros segmentos, campañas o Canvas, ve a la sección [Uso de mensajería](#messaging-use) de un segmento. El filtro **Target segment** en la página de **Canvas** busca solo segmentos de audiencia de Canvas.
 
 ![Filtro Target segment en la página de Canvas.]({% image_buster /assets/img/segment/target_segment.png %}){: style="max-width:45%;"}

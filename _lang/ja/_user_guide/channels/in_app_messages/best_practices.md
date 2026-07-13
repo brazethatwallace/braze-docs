@@ -15,7 +15,7 @@ guide_featured_list:
   link: /docs/user_guide/channels/in_app_messages/best_practices/prep_guide
   image: /assets/img/braze_icons/book-closed.svg
 - name: "送信前に知っておくべきこと"
-  link: /docs/know_before_send/
+  link: /docs/know_before_send
   image: /assets/img/braze_icons/send-01.svg
 - name: "iOSアプリ内評価プロンプト"
   link: /docs/user_guide/channels/in_app_messages/best_practices/ios_app_rating_prompt

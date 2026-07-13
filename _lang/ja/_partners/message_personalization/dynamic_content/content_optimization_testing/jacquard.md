@@ -19,9 +19,9 @@ Jacquard Xを活用したDynamic Optimisationは、Braze Currentsとコネクテ
 | 必要条件 | 説明 |
 |---|---|
 | Jacquardアカウント | このパートナーシップを活用するには、[Jacquardアカウント](https://www.jacquard.com/)が必要です。 |
-| Jacquard接続サーバートークン | Jacquardの言語にアクセスするための、Braze Campaignのパスワードとして機能する長い文字列です。<br><br>このトークンがまだ提供されていない場合は、Jacquardカスタマーサクセスマネージャーにリクエストできます。 |
+| Jacquard接続サーバートークン | Jacquardの言語にアクセスするための、Braze キャンペーンのパスワードとして機能する長い文字列です。<br><br>このトークンがまだ提供されていない場合は、Jacquardカスタマーサクセスマネージャーにリクエストできます。 |
 | Currents | Currentsにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 統合 {#integration}
 

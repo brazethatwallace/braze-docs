@@ -21,7 +21,7 @@ Sie können bis zu 200 Schritte in ein Canvas einfügen.
 
 ### Was ist der Unterschied zwischen einer Komponente und einem Schritt? {#whats-the-difference-between-a-component-and-a-step}
 
-Eine [Komponente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about/) ist ein einzelner Bestandteil Ihres Canvas, mit dem Sie die Effektivität Ihres Canvas bestimmen können. Komponenten können Aktionen wie das Aufteilen Ihrer User-Journey, das Hinzufügen einer Verzögerung und sogar das Testen mehrerer Canvas-Pfade umfassen. Ein Schritt in Canvas bezieht sich auf die personalisierte User-Journey in Ihren Canvas-Branches. Im Wesentlichen besteht Ihr Canvas aus einzelnen Komponenten, die Schritte für Ihre User-Journey bilden.
+Eine [Komponente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/about) ist ein einzelner Bestandteil Ihres Canvas, mit dem Sie die Effektivität Ihres Canvas bestimmen können. Komponenten können Aktionen wie das Aufteilen Ihrer User-Journey, das Hinzufügen einer Verzögerung und sogar das Testen mehrerer Canvas-Pfade umfassen. Ein Schritt in Canvas bezieht sich auf die personalisierte User-Journey in Ihren Canvas-Branches. Im Wesentlichen besteht Ihr Canvas aus einzelnen Komponenten, die Schritte für Ihre User-Journey bilden.
 
 ### Kann ich ein Canvas mit nicht verbundenen Schritten starten? {#can-i-launch-a-canvas-with-disconnected-steps}
 
@@ -37,7 +37,7 @@ Wir empfehlen, die Analytics-Ansicht auf wartende Nutzer:innen in einem Canvas-S
 
 Wir reihen einen Job für jeden Schritt in die Warteschlange ein – sie laufen ungefähr zur gleichen Zeit, und einer davon „gewinnt“. In der Praxis kann dies einigermaßen gleichmäßig verteilt sein, aber es gibt wahrscheinlich zumindest eine leichte Tendenz zugunsten des Schritts, der zuerst erstellt wurde.
 
-Darüber hinaus können wir keine Garantien dafür geben, wie diese Verteilung genau aussehen wird. Wenn Sie eine gleichmäßige Aufteilung wünschen, fügen Sie einen Filter für [zufällige Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/) hinzu.
+Darüber hinaus können wir keine Garantien dafür geben, wie diese Verteilung genau aussehen wird. Wenn Sie eine gleichmäßige Aufteilung wünschen, fügen Sie einen Filter für [zufällige Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) hinzu.
 
 ### Wie werden Canvas-Zielgruppen ausgewertet? {#how-are-canvas-audiences-evaluated}
 
@@ -45,13 +45,13 @@ Standardmäßig werden Filter und Segmente für vollständige Schritte im Canvas
 
 ### Wann wird ein Ausnahme-Event ausgelöst? {#when-does-an-exception-event-trigger}
 
-Ausnahme-Events werden nur ausgelöst, während der/die Nutzer:in darauf wartet, die zugehörige Canvas-Komponente zu erhalten. Wenn ein:e Nutzer:in eine Aktion im Voraus ausführt, wird das Ausnahme-Event nicht ausgelöst. Wenn Sie Nutzer:innen ausschließen möchten, die ein bestimmtes Event bereits im Voraus ausgeführt haben, verwenden Sie stattdessen [Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+Ausnahme-Events werden nur ausgelöst, während der/die Nutzer:in darauf wartet, die zugehörige Canvas-Komponente zu erhalten. Wenn ein:e Nutzer:in eine Aktion im Voraus ausführt, wird das Ausnahme-Event nicht ausgelöst. Wenn Sie Nutzer:innen ausschließen möchten, die ein bestimmtes Event bereits im Voraus ausgeführt haben, verwenden Sie stattdessen [Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 
 ### Wie wirkt sich die Bearbeitung eines Canvas auf Nutzer:innen aus, die sich bereits im Canvas befinden? {#how-does-editing-a-canvas-affect-users-already-in-the-canvas}
 
 Wenn Sie einige Schritte eines mehrstufigen Canvas bearbeiten, erhalten Nutzer:innen, die bereits zur Zielgruppe gehören, aber die Schritte noch nicht erhalten haben, die aktualisierte Version der Nachricht. Beachten Sie, dass dies nur geschieht, wenn sie noch nicht für den Schritt ausgewertet wurden.
 
-Weitere Informationen darüber, was Sie nach dem Start bearbeiten können, finden Sie unter [Canvas nach dem Start ändern]({{site.baseurl}}/post-launch_edits/).
+Weitere Informationen darüber, was Sie nach dem Start bearbeiten können, finden Sie unter [Canvas nach dem Start ändern]({{site.baseurl}}/post-launch_edits).
 
 ### Was passiert, wenn Sie ein Canvas stoppen? {#what-happens-when-you-stop-a-canvas}
 
@@ -63,7 +63,7 @@ Wenn Sie ein Canvas stoppen, gilt Folgendes:
 
 ### Sollte ich ein Canvas oder separate Canvases pro User-Lifecycle erstellen? {#should-i-build-one-canvas-or-separate-canvases-per-user-lifecycle}
 
-Je nachdem, was Sie mit Ihrem Canvas erreichen möchten, benötigen Sie möglicherweise unterschiedliche Ansätze für den Aufbau Ihrer User-Journey. Die Flexibilität von Canvas ermöglicht es Ihnen, User-Journeys für jede Phase des User-Lifecycles abzubilden. Schauen Sie sich unsere [Braze-Canvas-Templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/) an, um verschiedene Beispiele für optimierte Ansätze zur Erstellung effektiver User-Journeys zu sehen.
+Je nachdem, was Sie mit Ihrem Canvas erreichen möchten, benötigen Sie möglicherweise unterschiedliche Ansätze für den Aufbau Ihrer User-Journey. Die Flexibilität von Canvas ermöglicht es Ihnen, User-Journeys für jede Phase des User-Lifecycles abzubilden. Schauen Sie sich unsere [Braze-Canvas-Templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) an, um verschiedene Beispiele für optimierte Ansätze zur Erstellung effektiver User-Journeys zu sehen.
 
 ## Nachrichten und Zustellung {#messages-and-delivery}
 
@@ -83,6 +83,18 @@ Wenn _Gesendete Nachrichten_ für ein Canvas mit einem In-App-Nachrichten-Schrit
 
 In-App-Nachrichten werden vom SDK „abgerufen“ und nicht von Braze „gepusht“. In-App-Nachrichten für berechtigte Nutzer:innen werden automatisch beim Sitzungsstart zugestellt und „warten“ auf das Trigger-Event, bevor sie angezeigt werden. Da berechtigte Nutzer:innen die Nachricht beim Start einer Sitzung erhalten, meldet Braze dies nicht als Sende-Event. Wenn Nutzer:innen das Trigger-Event ausführen, wird die Nachricht angezeigt und Braze protokolliert eine Impression und markiert den Canvas-Schritt (oder die Campaign) als empfangen im Nutzerprofil. Folglich ist die Gesamtzahl der _Sends_ für In-App-Nachrichten null.
 
+### Warum haben Nutzer:innen meine In-App-Nachricht nach einer langen Verzögerung oder einem Branch nicht erhalten? {#why-didnt-users-receive-my-in-app-message-after-a-long-delay-or-branch}
+
+Nachdem vorgelagerte [Verzögerungs]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step)-Schritte und Zielgruppenprüfungen abgeschlossen sind, werden Nutzer:innen erst dann für eine In-App-Nachricht berechtigt, wenn sie den Nachrichten-Schritt erreichen. Wenn die Nachricht an einem Kalenderdatum oder innerhalb eines kurzen Zeitfensters **nach Verfügbarkeit des Schritts** abläuft, können Nutzer:innen auf langsameren Branches nach dem Ablauf ankommen und die Nachricht nie sehen. Stimmen Sie den Ablauf auf Ihre längsten realistischen Pfadverzögerungen ab. Weitere Informationen und Beispiele finden Sie unter [Ablauf von In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#in-app-message-expiration).
+
+### Warum sehe ich „Canvas Entry Properties may not be used in In-App Messages.“? {#why-do-i-see-canvas-entry-properties-may-not-be-used-in-in-app-messages}
+
+Diese Meldung erscheint, wenn die Personalisierung auf Felder verweist, die In-App-Nachrichten in Canvas nicht auflösen können. Verwenden Sie das `context`-Objekt wie unter [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) und [Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) beschrieben. Der Legacy-Liquid-Namespace `canvas_entry_properties` hat andere Einschränkungen als `context`. Wenn Sie Werte über mehrere Schritte hinweg beibehalten müssen, lesen Sie [Persistente Eigenschaften im originalen Canvas-Editor]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) mit Ihrem Braze-Team. Gespeicherte Werte werden gelöscht, wenn ein:e Nutzer:in das Canvas verlässt, bevor das Gerät die In-App-Payload herunterlädt.
+
+### Wo finde ich Button-Klicks für Drag-and-Drop-In-App-Nachrichten in Canvas? {#where-can-i-find-button-clicks-for-drag-and-drop-in-app-messages-in-canvas}
+
+Button-Level-Metriken für Drag-and-Drop-In-App-Nachrichten erscheinen auf der Analytics-Karte des **Nachrichten**-Schritts unter **Canvas-Details**, nicht nur in der übergeordneten Canvas-Zusammenfassung. Öffnen Sie das Canvas, wählen Sie den Nachrichten-Schritt aus und überprüfen Sie dort das In-App-Engagement. Informationen zu Berichtskonzepten finden Sie unter [Messen und Testen mit Canvas-Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).
+
 ### Kann ich unterschiedliche Sendezeiten für jede Variante im selben Canvas-Nachrichten-Schritt oder multivariaten Send planen? {#can-i-schedule-different-send-times-for-each-variant-in-the-same-canvas-message-step-or-multivariate-send}
 
 Nein. Varianten in derselben multivariaten Konfiguration oder demselben Nachrichten-Schritt teilen sich einen Zustellungszeitplan. Sie können nicht eine Variante um 18 Uhr und eine andere um 19 Uhr für denselben geplanten Send zuweisen.
@@ -90,14 +102,18 @@ Nein. Varianten in derselben multivariaten Konfiguration oder demselben Nachrich
 Um Sends zeitlich zu staffeln oder unterschiedliche Zeiten pro Pfad zu verwenden, probieren Sie die folgenden Methoden:
 
 - Separate Nachrichten-Schritte mit Verzögerungsschritten dazwischen, sodass jede Nachricht ihren eigenen Zeitplan hat.
-- Branches oder einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step/)-Schritt, damit Nutzer:innen Pfaden mit unterschiedlichem Timing folgen.
+- Branches oder einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt, damit Nutzer:innen Pfaden mit unterschiedlichem Timing folgen.
 - Separate Campaigns, wenn der Anwendungsfall nicht innerhalb eines Canvas bleiben muss.
 
-Für multivariate und A/B-Konzepte in Campaigns siehe [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+Für multivariate und A/B-Konzepte in Campaigns siehe [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
+
+### Was passiert, wenn ein:e Nutzer:in bei einem Canvas-Nachrichten-Schritt durch globales Frequency-Capping begrenzt wird? {#what-happens-if-a-user-is-global-frequency-capped-at-a-canvas-message-step}
+
+Er/sie erhält den Send für den begrenzten Kanal nicht, aber Nachrichten-Schritte leiten Nutzer:innen trotzdem weiter, wenn eine Nachricht aufgrund von globalem Frequency-Capping nicht gesendet wird. Für die schrittweisen Fortschrittsfälle siehe [Wie Nutzer:innen fortschreiten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance). Globales Frequency-Capping allein führt nicht dazu, dass Nutzer:innen ein Canvas verlassen; dieses Verhalten ist unabhängig von den **Zustellungsvalidierungen** eines Nachrichten-Schritts. Weitere Details finden Sie unter [Rate-Limiting und Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
 
 ### Warum sind die Sends niedriger als die geschätzte Zielgruppengröße? {#why-are-sends-lower-than-the-estimated-audience-size}
 
-Sends können aus vielen der gleichen Gründe niedriger sein als die **Geschätzte Zielgruppe** wie bei [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq/#why-are-sends-lower-than-the-estimated-audience-size), einschließlich Frequency Caps, strikter Geräte- oder Browser-Filter, Wiederzulassungsfenster, Rate-Limiting und kanalspezifischer Ausschlüsse (zum Beispiel Push-Erreichbarkeit oder E-Mail-Abo- und Zustellbarkeitsprüfungen).
+Sends können aus vielen der gleichen Gründe niedriger sein als die **geschätzte Zielgruppe** wie bei [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/faq#why-are-sends-lower-than-the-estimated-audience-size), einschließlich Frequency Caps, strikter Geräte- oder Browser-Filter, Wiederzulassungsfenster, Rate-Limiting und kanalspezifischer Ausschlüsse (zum Beispiel Push-Erreichbarkeit oder E-Mail-Abo- und Zustellbarkeitsprüfungen).
 
 Canvas-spezifische Faktoren gelten ebenfalls:
 
@@ -109,11 +125,24 @@ Canvas-spezifische Faktoren gelten ebenfalls:
 - **Maximale Eintritts- oder Zielgruppen-Caps:** Eintritts- oder Send-Caps stoppen zusätzliche Nutzer:innen, selbst wenn das zugrunde liegende Segment größer ist.
 - **Berichtszeitraum:** Der Analytics-Bereich umfasst möglicherweise nicht jeden Send, den Sie mit der Schätzung vergleichen.
 
-### Warum ist _Eindeutige Empfänger:innen_ höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-unique-recipients-higher-than-the-number-of-users-i-targeted}
+### Warum stimmen geschätzte Zielgruppe und Canvas-Nutzerzahlen nicht überein? {#why-dont-estimated-audience-and-canvas-user-counts-match}
+
+Die **geschätzte Zielgruppe** spiegelt wider, wer zum Zeitpunkt der Schätzung Ihren Segment- und Eintrittsfiltern entspricht. Nach diesem Zeitpunkt können verzögerte oder aktionsbasierte Eintritte, Wiederzulassung, API-Trigger oder Branch-Routing die Anzahl der Profile erhöhen, die die Journey berühren, im Vergleich zum Snapshot. Nutzer:innen können auch herausfallen, wenn Sendezeitfilter fehlschlagen, was die tatsächlichen Eintritte oder Sends verringert. Vergleichen Sie Timing, Caps und Auswertungseinstellungen zusammen mit [Warum sind die Sends niedriger als die geschätzte Zielgruppengröße?](#why-are-sends-lower-than-the-estimated-audience-size).
+
+### Warum ist _Eindeutige Empfänger:innen_ höher als die Anzahl der Nutzer:innen, die ich angesprochen habe? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
 _Eindeutige Empfänger:innen_ kann höher sein als die erwartete Zielgruppe, da Braze **eindeutige tägliche Empfänger:innen** für Canvas- und Campaign-Berichte trackt. Dies unterstützt eine genaue Conversion-Attribution jedes Mal, wenn ein:e Nutzer:in eine Nachricht in der Journey erhält.
 
 Wenn ein:e Nutzer:in beispielsweise am Montag und erneut am Freitag einen Canvas-Schritt erhält und nach jedem Send konvertiert, kann Braze zwei Empfänger:innen-Zeilen und zwei relevante Conversions zählen. Bei wiederkehrenden Eintritten oder Wiederzulassung kann dieselbe kleine Gruppe von Profilen über mehrere Tage hinweg mehrere _Eindeutige Empfänger:innen_ erzeugen.
+
+### Warum verzeichnet mein Canvas niedrigere Sendraten? {#why-is-my-canvas-experiencing-lower-send-rates}
+
+Wenn Sie feststellen, dass Ihr täglich geplantes Canvas im Laufe der Zeit an weniger Nutzer:innen sendet, prüfen Sie Folgendes:
+
+- **Prüfen Sie, ob die Wiederzulassung aktiviert ist:** Ohne Wiederzulassung lässt Braze jede:n Nutzer:in nur einmal in das Canvas eintreten. Bei täglich geplanten Canvases sind nur Nutzer:innen berechtigt, die der Zielgruppe entsprechen und das Canvas noch nicht betreten haben. Da immer mehr Nutzer:innen eintreten, hat jeder spätere Eintritt weniger berechtigte Nutzer:innen, sodass das Eintrittsvolumen sinkt.
+- **Prüfen Sie, ob die Zielgruppe eine feste Mitgliedschaft hat:** Zielgruppen, die aus einer festen Nutzerliste erstellt wurden (z. B. ein [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import), der als Segment-Filter verwendet wird), gewinnen nicht automatisch neue Mitglieder. Ohne neue Eintritte kann das Eintrittsvolumen nicht wieder ansteigen, wenn Nutzer:innen das Canvas betreten.
+
+Für [Rate-Limits bei der Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) und andere Faktoren, die Sends für ein einzelnes Vorkommen verringern, siehe [Warum sind die Sends niedriger als die geschätzte Zielgruppengröße?](#why-are-sends-lower-than-the-estimated-audience-size).
 
 ## Analytics und Conversions {#analytics-and-conversions}
 
@@ -162,9 +191,35 @@ Es gibt ein einstufiges Canvas mit aktivierten Ruhezeiten:
 
 Es ist üblich, dass die Conversions-Gesamtzahl einer Canvas-Variante größer ist als die Summe ihrer Schritt-Gesamtzahlen. Dies liegt daran, dass ein:e Nutzer:in ein Konversions-Event für eine Variante ausführen kann, sobald er/sie die Variante betritt. Dasselbe Konversions-Event zählt jedoch nicht für einen Canvas-Schritt. Jede:r Nutzer:in, der/die das Canvas betritt und das Konversions-Event vor dem Empfang des ersten Canvas-Schritts ausführt, wird zur Varianten-Conversions-Gesamtzahl gezählt, aber nicht zur Schritt-Gesamtzahl. Dasselbe gilt für Nutzer:innen, die das Canvas betreten, aber das Canvas verlassen, bevor sie einen Schritt erhalten.
 
+Beachten Sie, dass es auch möglich ist, dass ein:e Nutzer:in eine Variante betritt, keine Nachricht von einem Schritt erhält und dann konvertiert. In diesem Fall wird keine Conversion auf Schrittebene protokolliert. Da der/die Nutzer:in jedoch technisch gesehen konvertiert hat, wird eine Conversion auf Canvas-Ebene protokolliert.
+
+### Wie kann ich bestätigen, ob meine Nutzer:innen ein API-getriggertes Canvas erhalten haben? {#how-can-i-confirm-if-my-users-received-an-api-triggered-canvas}
+
+Sie können [ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), indem Sie einen Canvas-Filter verwenden, um zu bestätigen, ob Nutzer:innen das Canvas betreten oder einen bestimmten Canvas-Schritt erhalten haben. Verwenden Sie beispielsweise einen Canvas-Eintrittsfilter, wenn Sie bestätigen möchten, dass Nutzer:innen das API-getriggerte Canvas betreten haben, oder einen Filter für empfangene Schritte, wenn Sie bestätigen möchten, dass sie eine Nachricht aus dem Canvas erhalten haben. Verwenden Sie dann den [`/users/export/segment`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment), um die Nutzer:innen in diesem Segment zu exportieren.
+
+### Kann ich ein Canvas löschen? {#can-i-delete-a-canvas}
+
+Nein, aber Sie können [ein Canvas archivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving).
+
+### Wie kann ich ein archiviertes Canvas oder eine archivierte Campaign fortsetzen? {#how-do-i-resume-an-archived-canvas-or-campaign}
+
+Archivierte Nachrichten werden nicht gesendet, bis Sie sie in einen bearbeitbaren Zustand zurückversetzen. [Dearchivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving-campaigns-and-canvases) Sie die Campaign oder das Canvas, legen Sie den Eintrittszeitplan oder die Sendezeit auf ein zukünftiges Fenster fest (oder duplizieren Sie die Journey, wenn Sie eine saubere Kopie benötigen), und wählen Sie dann **Fortsetzen** oder starten Sie nach Bedarf. Siehe [Campaigns und Canvases archivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving).
+
+### Warum lässt sich mein Canvas nicht speichern, obwohl kein Fehler angezeigt wird? {#why-doesnt-my-canvas-save-when-no-error-appears}
+
+Leere **Angepasstes Attribut**-Filter in Zielgruppen- oder Schrittebenen-Filtern können das Speichern ohne detaillierte Validierungsmeldung blockieren. Öffnen Sie jede Filterkarte, entfernen Sie unvollständige Regeln für angepasste Attribute oder geben Sie sowohl den Attributnamen als auch den Wert ein, und wählen Sie dann erneut **Speichern**.
+
+### Warum ist ein Tag von meinem Canvas oder meiner Campaign verschwunden? {#why-did-a-tag-disappear-from-my-canvas-or-campaign}
+
+Wenn ein [Tag]({{site.baseurl}}/user_guide/messaging/governance/tags) aus Ihrem Workspace gelöscht wird, entfernt Braze es aus jeder Campaign und jedem Canvas, das darauf verwiesen hat. Diese Bereinigung erzeugt nicht immer einen eigenen Eintrag im Canvas-Änderungsprotokoll.
+
 ### Wie kann ich die Analytics für jede meiner Canvas-Komponenten anzeigen? {#how-can-i-view-analytics-for-each-of-my-canvas-components}
 
-Um die Analytics einer Canvas-Komponente anzuzeigen, gehen Sie zu Ihrem Canvas und scrollen Sie auf der Seite **Canvas-Details** nach unten. Hier können Sie die Analytics jeder Komponente einsehen. Weitere Details finden Sie unter [Canvas-Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/).
+Um die Analytics einer Canvas-Komponente anzuzeigen, gehen Sie zu Ihrem Canvas und scrollen Sie auf der Seite **Canvas-Details** nach unten. Hier können Sie die Analytics jeder Komponente einsehen. Weitere Details finden Sie unter [Canvas-Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics).
+
+### Wann ist das Engagement eines Canvas-Schritts im Nutzerprofil sichtbar? {#when-is-engagement-from-a-canvas-step-visible-on-a-user-profile}
+
+Filter wie `Received Message from Canvas Step` werden aktualisiert, nachdem Braze das entsprechende Sende-, Empfangs- oder Engagement-Event für diesen Schritt protokolliert hat. In-App-Nachrichten können Impressionen getrennt von Send-Metriken protokollieren. Siehe [Warum kann ein Canvas null Sends anzeigen, obwohl Impressionen protokolliert werden?](#why-may-a-canvas-show-zero-sends-even-though-impressions-are-logged). Dieselben Events erscheinen in den Schritt-Metriken unter **Canvas-Details**.
 
 ### Ist bei der Betrachtung der Anzahl eindeutiger Nutzer:innen Canvas-Analytics oder der Segmenter genauer? {#when-looking-at-the-number-of-unique-users-is-canvas-analytics-or-the-segmenter-more-accurate}
 
@@ -172,21 +227,27 @@ Der Segmenter ist eine genauere Statistik für eindeutige Nutzerdaten als Canvas
 
 ### Warum weicht die Anzahl der Nutzer:innen, die ein Canvas betreten, von der erwarteten Anzahl ab? {#why-does-the-number-of-users-entering-a-canvas-not-match-the-expected-number}
 
-Die Anzahl der Nutzer:innen, die ein Canvas betreten, kann von Ihrer erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (es sei denn, es wird ein [Änderung eines Attributs]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)-Trigger verwendet). Dies führt dazu, dass Nutzer:innen aus dem Canvas herausfallen, wenn sie nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
+Die Anzahl der Nutzer:innen, die ein Canvas betreten, kann von Ihrer erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (es sei denn, es wird ein [Änderung eines Attributs]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value)-Trigger verwendet). Dies führt dazu, dass Nutzer:innen aus dem Canvas herausfallen, wenn sie nicht Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
 
 ### Was passiert mit anonymen Nutzer:innen während ihrer Canvas-Journey? {#what-happens-to-anonymous-users-during-their-canvas-journey}
 
-Obwohl anonyme Nutzer:innen Canvases betreten und verlassen können, werden ihre Aktionen keinem bestimmten Nutzerprofil zugeordnet, bis sie identifiziert werden, sodass ihre Interaktionen möglicherweise nicht vollständig in Ihren Analytics getrackt werden. Sie können den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) verwenden, um einen Bericht über diese Metriken zu erstellen.
+Obwohl anonyme Nutzer:innen Canvases betreten und verlassen können, werden ihre Aktionen keinem bestimmten Nutzerprofil zugeordnet, bis sie identifiziert werden, sodass ihre Interaktionen möglicherweise nicht vollständig in Ihren Analytics getrackt werden. Sie können den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) verwenden, um einen Bericht über diese Metriken zu erstellen.
 
 {% alert tip %}
 Für weitere Unterstützung bei der Canvas-Fehlerbehebung wenden Sie sich bitte innerhalb von 30 Tagen nach Auftreten Ihres Problems an den Braze-Support, da uns nur die Diagnoseprotokolle der letzten 30 Tage zur Verfügung stehen.
 {% endalert %}
 
+### Kann ich Nutzer:innen, die sich derzeit in einer Canvas-Journey befinden, von einer Campaign oder einem Segment ausschließen? {#can-i-exclude-users-who-are-currently-in-a-canvas-journey-from-a-campaign-or-segment}
+
+Verwenden Sie [Segmentierungs-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) wie `Entered Canvas Variation`, `In Canvas Control Group` oder `Received Message from Canvas Step`, um Nutzer:innen basierend auf Canvas-Eintritt, Variantenzuweisung oder Schritt-Engagement anzusprechen. Diese Filter werten den Eintrittsverlauf und Interaktionen aus – sie geben nicht an, ob ein:e Nutzer:in noch aktiv eine Journey durchläuft.
+
+Um Nutzer:innen basierend auf aktiver Canvas-Teilnahme ein- oder auszuschließen, fügen Sie [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritte beim Canvas-Eintritt und -Austritt hinzu, um angepasste Attribute zu setzen und zu löschen, und filtern Sie dann in Campaigns oder Segmenten nach diesen Attributen.
+
 ## Segmentierung {#segmentation}
 
 ### Was ist der Unterschied zwischen „Hat keine Canvas-Variante betreten“ und „Ist nicht in der Canvas-Kontrollgruppe“? {#what-is-the-difference-between-has-not-entered-canvas-variation-and-is-not-in-canvas-control-group}
 
-Die vollständigen Filterdefinitionen finden Sie unter [Segmentierungs-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+Die vollständigen Filterdefinitionen finden Sie unter [Segmentierungs-Filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 
 #### Hat keine Canvas-Variante betreten {#has-not-entered-canvas-variation}
 
@@ -204,7 +265,7 @@ Beachten Sie, dass die Variantenzuweisung beim Canvas-Eintritt erfolgt. Wenn ein
 
 ### Wie konvertiere ich ein bestehendes Canvas vom originalen Editor zum aktuellen Editor? {#how-do-i-convert-an-existing-canvas-from-the-original-editor-to-the-current-editor}
 
-Sie können [Ihr Canvas klonen]({{site.baseurl}}/cloning_canvases/). Dadurch wird eine Kopie Ihres originalen Canvas im aktuellsten Canvas-Workflow erstellt.
+Sie können [Ihr Canvas klonen]({{site.baseurl}}/cloning_canvases). Dadurch wird eine Kopie Ihres originalen Canvas im aktuellsten Canvas-Workflow erstellt.
 
 ### Was sind die Hauptunterschiede zwischen dem aktuellen und dem originalen Canvas-Editor? {#what-are-the-main-differences-between-the-current-and-original-canvas-editors}
 
@@ -218,11 +279,11 @@ Zuvor enthielt jeder vollständige Schritt Informationen wie Verzögerungs- und 
 
 #### Fortschritt der Nachrichten-Komponente {#message-component-advancement}
 
-[Nachrichten-Komponenten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) leiten alle Nutzer:innen weiter, die den Schritt betreten. Es ist nicht erforderlich, das Fortschrittsverhalten der Nachricht festzulegen, was die Konfiguration des gesamten Schritts einfacher macht. Wenn Sie die Option **Fortschritt bei gesendeter Nachricht** implementieren möchten, fügen Sie einen separaten Zielgruppenpfad hinzu, um Nutzer:innen herauszufiltern, die den vorherigen Schritt nicht erhalten haben.
+[Nachrichten-Komponenten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) leiten alle Nutzer:innen weiter, die den Schritt betreten. Es ist nicht erforderlich, das Fortschrittsverhalten der Nachricht festzulegen, was die Konfiguration des gesamten Schritts einfacher macht. Wenn Sie die Option **Fortschritt bei gesendeter Nachricht** implementieren möchten, fügen Sie einen separaten Zielgruppenpfad hinzu, um Nutzer:innen herauszufiltern, die den vorherigen Schritt nicht erhalten haben.
 
 #### Verzögerungsverhalten „in“ {#delay-in-behavior}
 
-[Verzögerungskomponenten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) warten die gesamte Verzögerungszeit ab, bevor sie zum nächsten Schritt übergehen.
+[Verzögerungskomponenten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) warten die gesamte Verzögerungszeit ab, bevor sie zum nächsten Schritt übergehen.
 
 Nehmen wir an, am 12. April haben wir eine Verzögerungskomponente, bei der die Verzögerung so eingestellt ist, dass der/die Nutzer:in in einem Tag um 14 Uhr zum nächsten Schritt weitergeleitet wird. Ein:e Nutzer:in betritt die Komponente am 13. April um 14:01 Uhr.
 - Beim originalen Workflow würde der/die Nutzer:in am 14. April um 14 Uhr zum nächsten Schritt übergehen, was weniger als ein Tag ab dem Eintrittszeitpunkt ist.
@@ -230,7 +291,7 @@ Nehmen wir an, am 12. April haben wir eine Verzögerungskomponente, bei der die 
 
 #### Verhalten des intelligenten Timings {#intelligent-timing-behavior}
 
-Da [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) in der Nachrichten-Komponente gespeichert ist, werden Verzögerungen vor den Berechnungen des intelligenten Timings angewendet. Das bedeutet, dass Nutzer:innen je nach Eintrittszeitpunkt in die Komponente die Nachricht möglicherweise später erhalten als in einem Canvas, das mit dem originalen Canvas-Workflow erstellt wurde.
+Da [intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) in der Nachrichten-Komponente gespeichert ist, werden Verzögerungen vor den Berechnungen des intelligenten Timings angewendet. Das bedeutet, dass Nutzer:innen je nach Eintrittszeitpunkt in die Komponente die Nachricht möglicherweise später erhalten als in einem Canvas, das mit dem originalen Canvas-Workflow erstellt wurde.
 
 Nehmen wir an, Ihre Verzögerung ist auf 2 Tage eingestellt, intelligentes Timing ist aktiviert und hat bestimmt, dass die beste Sendezeit 14 Uhr ist. Ein:e Nutzer:in betritt den Verzögerungsschritt um 14:01 Uhr.
 - **Aktueller Workflow:** Es dauert 48 Stunden, bis die Verzögerung abgelaufen ist, sodass der/die Nutzer:in die Nachricht am dritten Tag um 14 Uhr erhält.
@@ -254,10 +315,66 @@ Ausnahme-Events werden mithilfe von Aktionspfaden erstellt. Aktionspfade unterst
 
 ### Was sollte ich angeben, wenn ich ein Support-Ticket für einen „Request Timed Out“-Fehler einreiche? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
-Wenn Sie beim Bearbeiten eines Canvas auf einen „Request Timed Out“-Fehler stoßen und den [Braze-Support]({{site.baseurl}}/braze_support/) kontaktieren müssen, geben Sie die folgenden Informationen an, um die Lösung zu beschleunigen:
+Wenn Sie beim Bearbeiten eines Canvas auf einen „Request Timed Out“-Fehler stoßen und den [Braze-Support]({{site.baseurl}}/braze_support) kontaktieren müssen, geben Sie die folgenden Informationen an, um die Lösung zu beschleunigen:
 
 - **Bildschirmaufnahme:** Eine Aufnahme der Schritte, die Sie vor dem Auftreten des Fehlers durchgeführt haben, einschließlich aller Seitenübergänge.
 - **Zeitstempel und Zeitzone:** Der genaue Zeitpunkt, zu dem der Fehler aufgetreten ist, und Ihre Zeitzone.
 - **Browser und Version:** Der Browser, den Sie verwenden (zum Beispiel Chrome 120, Safari 17), und ob Sie versucht haben, den Fehler in einem anderen Browser zu reproduzieren.
 - **Schritte zur Reproduktion:** Eine klare Beschreibung der Aktionen, die den Fehler auslösen, einschließlich aller beteiligten Canvas-Schritte oder Konfigurationen.
 - **Netzwerkprotokolle (optional):** Öffnen Sie die Entwicklertools Ihres Browsers (Tab **Netzwerk**), reproduzieren Sie den Fehler und exportieren Sie das Netzwerkprotokoll als HTTP-Archiv-(HAR)-Datei. Dies hilft dem Support-Team zu identifizieren, welcher API-Aufruf das Timeout verursacht.
+
+## Canvas-Zustellung und Fehlerbehebung {#canvas-delivery-and-troubleshooting}
+
+### Sind verwaiste Nutzer:innen berechtigt, Canvas-Nachrichten zu erhalten? {#are-orphaned-users-eligible-to-receive-canvas-messages}
+
+Nein. [Verwaiste Nutzer:innen]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#what-happens-when-you-identify-anonymous-users) sind nicht berechtigt, Nachrichten zu erhalten. Wenn ein Profil verwaist wird, während sich ein:e Nutzer:in in einer Canvas-Journey befindet, verlässt er/sie den Flow stillschweigend. Analytics zeigen möglicherweise nicht immer ein **Ausgetreten**-Event für diesen Austritt an, und die Workflow-Zusammenfassung kann ein `partial_update_token` ohne `exited_date` oder `exit_reason` enthalten.
+
+Weitere Informationen zu Zusammenführungen und verwaisten Profilen finden Sie unter [Doppelte Nutzer:innen zusammenführen]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users).
+
+### Wenn ich ein aktives Canvas oder eine aktive Campaign stoppe, werden bereits an den ESP gesendete Nachrichten trotzdem zugestellt? {#if-i-stop-an-active-canvas-or-campaign-do-messages-already-sent-to-the-esp-still-deliver}
+
+Ja. Nachdem Braze eine Anfrage an Ihren E-Mail-Anbieter (ESP) gesendet hat, kann Braze diesen Send nicht zurückrufen. Das Stoppen eines Canvas oder einer Campaign verhindert neue Sendeanfragen, aber Nachrichten, die bereits an den ESP übergeben wurden, können weiterhin zugestellt werden und die Send-Zähler erhöhen, während der ESP sie verarbeitet.
+
+Dies ist dasselbe Verhalten, das für das [Stoppen eines Canvas](#what-happens-when-you-stop-a-canvas) beschrieben wird: E-Mail-Sends, die sich bereits im Versand befinden, werden nicht sofort angehalten.
+
+### Wie kann ich bestätigen, dass ein Canvas-Webhook-Schritt ohne nutzersichtbaren Inhalt ausgelöst wurde? {#how-can-i-confirm-a-canvas-webhook-step-fired-without-user-visible-content}
+
+Braze trackt Webhook-**Sends** und zugehörige Zustellungsergebnisse für [Webhook]({{site.baseurl}}/user_guide/channels/webhooks)-Schritte in Campaigns und Canvases. Verwenden Sie Schritt-Analytics, [Webhook-Berichte]({{site.baseurl}}/user_guide/channels/webhooks/reporting) oder [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)-Webhook-Events, um zu bestätigen, dass der Schritt ausgeführt wurde. Die Anforderungsprotokolle Ihres Endpunkts bieten zusätzliche Bestätigung, wenn Sie einen serverseitigen Empfangsnachweis benötigen.
+
+Braze enthält kein integriertes unsichtbares Tracking-Pixel für Webhook-Schritte. Verlassen Sie sich auf Braze-Webhook-Metriken und die Protokollierung Ihres Endpunkts anstelle von benutzerdefinierten Ein-Pixel-Bildanfragen.
+
+### Warum hat ein:e Nutzer:in ein Canvas weniger oft betreten, als er/sie das Trigger-Event ausgeführt hat? {#why-did-a-user-enter-a-canvas-fewer-times-than-they-performed-the-trigger-event}
+
+Für aktionsbasierte und API-getriggerte Canvases dedupliziert Braze Trigger-Events, sodass ein:e Nutzer:in für dasselbe Canvas höchstens etwa **einmal pro Sekunde** eintreten kann. Wenn ein:e Nutzer:in dasselbe Trigger-Event mehrmals innerhalb einer Sekunde ausführt, wird nur ein Eintritt verarbeitet.
+
+Um mehrere Eintritte in derselben Sekunde zu ermöglichen, planen Sie Trigger-Events mit mindestens 1,1 Sekunden Abstand (zum Beispiel, wenn Sie das Event-Timing von Ihrem Server aus steuern). Für Campaign-ähnliches Verhalten, das mehrere gleichzeitige Trigger erlaubt, vergleichen Sie Ihren Anwendungsfall mit [Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns) mit entsprechenden Zeitplan- und Wiederzulassungseinstellungen.
+
+### Warum geht ein Test-Push an die falsche App, aber Live-Sends sehen korrekt aus? {#why-does-a-test-push-go-to-the-wrong-app-but-live-sends-look-correct}
+
+**Test-Push** auf einem Nutzerprofil wird an jedes Push-fähige Gerät für dieses Profil zugestellt. Wenn mehrere Apps auf einem Gerät installiert sind, liefert das Betriebssystem die Testbenachrichtigung in der Regel an die erste verfügbare App, die möglicherweise nicht die App ist, die Sie validieren möchten.
+
+Um app-spezifisches Targeting zu bestätigen, senden Sie eine Live- oder Testnachricht über eine Campaign oder ein Canvas mit einer engen Zielgruppe (zum Beispiel nach `external_id` filtern), anstatt sich allein auf **Test-Push** im Profil zu verlassen.
+
+Für **Canvas**-Nachrichten-Schritte mit mehreren Apps aktivieren Sie **Zielgruppe beim Nachrichtenversand validieren** im Nachrichten-Schritt, damit Segment- und Filterprüfungen zum Sendezeitpunkt ausgeführt werden. Weitere Informationen finden Sie unter [Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
+
+Allgemeine Informationen zum Test-Push-Verhalten finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) und [Push-FAQ]({{site.baseurl}}/user_guide/channels/push/faqs).
+
+### Wie debugge ich Push Stories auf iOS und Android? {#how-do-i-debug-push-stories-on-ios-and-android}
+
+Beginnen Sie mit [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories) für Einrichtungs- und Kreativanforderungen. Für Implementierung und Rich-Benachrichtigungsverarbeitung siehe [Rich-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/rich) und [Push Stories]({{site.baseurl}}/developer_guide/push_notifications/push_stories) im Entwicklerhandbuch.
+
+### Wer erhält die E-Mail „Canvas Messages Delayed 24+ Hours“? {#who-receives-the-canvas-messages-delayed-24-hours-email}
+
+Braze sendet diese Benachrichtigung, wenn Canvas-Nachrichten durch Rate-Limiting um 24 Stunden oder mehr verzögert werden. Die E-Mail geht an Dashboard-Nutzer:innen, die zuvor Änderungen am betroffenen Canvas vorgenommen haben (basierend auf den Canvas-Änderungsprotokollen). Wenn Braze diese Empfänger:innen nicht ermitteln kann, geht die E-Mail an die **Unternehmensadministrator:innen** des Workspace.
+
+### Wann hört ein:e Nutzer:in auf, Nachrichten nach einem Ausnahme-Event zu erhalten? {#when-does-a-user-stop-receiving-messages-after-an-exception-event}
+
+Braze protokolliert den Austritt, sobald das Ausnahme-Event eintritt, aber Nutzer:innen können innerhalb eines Schritts verbleiben, bis Timer ablaufen – am deutlichsten bei Verzögerungsschritten. Das Verhalten unterscheidet sich auch zwischen geplanten Schritten und Event-getriggerten Schritten. Für Zeitabläufe, Beispiele und Analytics-Nuancen siehe [Austrittskriterien]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria).
+
+### Warum zeigt mein Aktionspfade-Schritt einen Fehler an, wenn ich eine Link-Alias-Interaktion auswähle? {#why-does-my-action-paths-step-show-an-error-when-i-select-a-link-alias-interaction}
+
+Aktionsgruppen, die E-Mail-Interaktivitäts-Trigger verwenden (zum Beispiel **Klick auf Alias in E-Mail** oder **Alias in einer Campaign oder einem Canvas-Schritt angeklickt**), benötigen einen Nachrichten-Schritt, der die Nachricht mit diesem Link bereits gesendet hat. Fügen Sie Schritte hinzu oder ordnen Sie sie neu an, sodass die E-Mail vor der Auswertung des Aktionspfade-Schritts gesendet wird, oder wählen Sie eine Interaktion, die zu einer Nachricht passt, die der/die Nutzer:in bereits in diesem Canvas erhalten hat. Die vollständige Liste der Interaktions-Trigger finden Sie unter [Aktionsbasierte Zustellung]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery).
+
+### Wie wirken sich historische Zeitstempel angepasster Events auf aktionsbasierte Canvases und Campaigns aus? {#how-do-historical-custom-event-timestamps-affect-action-based-canvases-and-campaigns}
+
+Braze wertet aktionsbasierte Journeys aus, wenn qualifizierende Events aufgenommen werden und der/die Nutzer:in Ihre Zielgruppenregeln erfüllt. Wenn ein Event außerhalb des Zeitfensters, in dem Ihr Canvas oder Ihre Campaign aktiv war, auf dem Profil landet, oder bevor der/die Nutzer:in Ihrer Zielgruppe entsprach, erfolgen Eintritt oder nachgelagerte Sends möglicherweise nicht wie erwartet. Vergleichen Sie Event-Zeitstempel mit Go-Live-Zeiten und Segment-Zugehörigkeit mithilfe des Aktivitätsprotokolls im Nutzerprofil und den Fehlerbehebungsschritten unter [Fehlerbehebung bei angepassten Events]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#troubleshooting-custom-events). Wenn das Verhalten weiterhin nicht den Erwartungen entspricht, wenden Sie sich an den [Braze-Support]({{site.baseurl}}/braze_support).

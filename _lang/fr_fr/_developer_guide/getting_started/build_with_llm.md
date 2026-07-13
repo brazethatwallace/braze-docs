@@ -76,16 +76,16 @@ Enregistrez la configuration et redémarrez VS Code.
 {% endtabs %}
 
 {% alert note %}
-Context7 est différent du [serveur Braze MCP]({{site.baseurl}}/developer_guide/mcp_server/). Context7 permet à votre assistant d'intelligence artificielle d'accéder à la **documentation Braze**, tandis que le serveur Braze MCP offre un accès en lecture seule aux **données de votre espace de travail Braze** (telles que les Campaigns, les Segments et les analyses). Vous pouvez utiliser les deux ensemble pour bénéficier d'une expérience de développement assistée par l'intelligence artificielle plus complète.
+Context7 est différent du [serveur Braze MCP]({{site.baseurl}}/developer_guide/mcp_server). Context7 permet à votre assistant d'intelligence artificielle d'accéder à la **documentation Braze**, tandis que le serveur Braze MCP offre un accès en lecture seule aux **données de votre espace de travail Braze** (telles que les campagnes, les segments et les analyses). Vous pouvez utiliser les deux ensemble pour bénéficier d'une expérience de développement assistée par l'intelligence artificielle plus complète.
 {% endalert %}
 
 ## Rédiger des prompts pour le développement du SDK Braze {#writing-prompts-for-braze-sdk-development}
 
 Une fois Context7 configuré, incluez `use context7` dans vos prompts afin d'indiquer à votre assistant d'intelligence artificielle d'utiliser la documentation Braze comme contexte. Les exemples suivants illustrent comment rédiger des prompts efficaces pour les tâches courantes du SDK.
 
-### React Native SDK
+### React Native SDK {#react-native-sdk}
 
-Ces prompts illustrent les tâches d'intégration courantes pour le [SDK Braze React Native]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=react%20native).
+Ces prompts illustrent les tâches d'intégration courantes pour le [SDK Braze React Native]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=react%20native).
 
 #### Initialisation du SDK {#initializing-the-sdk}
 
@@ -120,11 +120,11 @@ Native SDK, including how to log impressions and button clicks
 programmatically. Use context7.
 ```
 
-### Web SDK
+### Web SDK {#web-sdk}
 
-Ces prompts illustrent les tâches d'intégration courantes pour le [SDK Web Braze]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web).
+Ces prompts illustrent les tâches d'intégration courantes pour le [SDK Web Braze]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web).
 
-#### Initialisation du SDK {#initializing-the-sdk}
+#### Initialisation du SDK
 
 ```text
 Using the Braze Web SDK, show me how to initialize the SDK with
@@ -166,8 +166,8 @@ Vous pouvez accéder à la documentation du guide du développeur Braze sous for
 
 | Fichier | Description |
 |------|-------------|
-| [llms.txt](https://www.braze.com/docs/developer_guide/llms.txt) | Un index des pages de documentation pour les développeurs Braze, avec titres et descriptions. Utilisez-le comme point de départ pour découvrir la documentation disponible. |
-| [llms-full.txt](https://www.braze.com/docs/developer_guide/llms-full.txt) | La documentation complète pour les développeurs Braze dans un seul fichier texte brut, formaté pour être utilisé par les LLM. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+| [llms.txt]({{site.baseurl}}/developer_guide/llms.txt) | Un index des pages de documentation pour les développeurs Braze, avec titres et descriptions. Utilisez-le comme point de départ pour découvrir la documentation disponible. |
+| [llms-full.txt]({{site.baseurl}}/developer_guide/llms-full.txt) | La documentation complète pour les développeurs Braze dans un seul fichier texte brut, formaté pour être utilisé par les LLM. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Documentation en texte brut" }
 
 Ces fichiers respectent la [norme llms.txt](https://llmstxt.org/), une convention émergente visant à rendre la documentation accessible aux outils d'intelligence artificielle. Vous pouvez référencer ces fichiers directement dans vos prompts ou coller leur contenu dans un LLM pour fournir du contexte.

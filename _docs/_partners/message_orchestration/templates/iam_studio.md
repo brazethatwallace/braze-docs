@@ -23,7 +23,7 @@ With the Braze and IAM Studio integration, you can easily insert customizable in
 | Requirement | Description |
 | ----------- | ----------- |
 | IAM Studio account | A [IAM Studio account](https://www.inappmessage.com/register) is required to take advantage of this partnership. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Use cases
 
@@ -74,12 +74,12 @@ Next, create your personalized in-app message by adding custom fonts and using L
 
 Once all editing has been completed, export the template by clicking **Export**. After exporting, the in-app message HTML code will be generated. Copy this code by clicking the **Copy code** button. 
 
-![]({% image_buster /assets/img/iam_studio/export_iam_code.png %}){: style="max-width:45%;"}
+![IAM Studio export dialog with generated in-app message HTML and copy code action.]({% image_buster /assets/img/iam_studio/export_iam_code.png %}){: style="max-width:45%;"}
 
 ### Step 4: Use code in Braze 
 
 Navigate to Braze, and in your in-app message, paste the custom code in the **HTML Input** box. Make sure to test your message to check it is displaying correctly.
 
-![]({% image_buster /assets/img/iam_studio/braze_campaign_editor.png %}){: style="max-width:85%;"}
+![Braze in-app message campaign editor with IAM Studio HTML pasted into the HTML Input box.]({% image_buster /assets/img/iam_studio/braze_campaign_editor.png %}){: style="max-width:85%;"}
 
 

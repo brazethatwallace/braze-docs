@@ -12,7 +12,7 @@ search_tag: Partner
 
 > A [Nexla](https://www.nexla.com) é líder em operações de dados unificadas e foi reconhecida como Gartner Cool Vendor em 2021. A plataforma Nexla fornece ferramentas para criar fluxos de dados escaláveis, proporcionando operações de dados governadas, colaboração e agilidade para equipes de negócios e de dados. As equipes que trabalham com dados obtêm uma experiência unificada com pouco ou nenhum código para integrar, transformar, provisionar e monitorar dados para qualquer caso de uso.
 
-A integração entre a Braze e a Nexla permite que os clientes que usam o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/) aproveitem a Nexla para extrair, transformar e carregar dados do data lake em outros locais em um formato personalizado, tornando os dados facilmente acessíveis em todo o seu ecossistema.
+A integração entre a Braze e a Nexla permite que os clientes que usam o [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents) aproveitem a Nexla para extrair, transformar e carregar dados do data lake em outros locais em um formato personalizado, tornando os dados facilmente acessíveis em todo o seu ecossistema.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -20,8 +20,8 @@ A integração entre a Braze e a Nexla permite que os clientes que usam o [Curre
 |---|---|
 | Conta Nexla | É necessário ter uma [conta Nexla](https://www.nexla.com/get-demo) para aproveitar essa parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze  | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Endpoint REST da Braze  | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -36,8 +36,8 @@ Se você ainda não tem uma conta Nexla, acesse o [site](https://www.nexla.com) 
 ### Etapa 2: Adicione sua fonte {#step-2-add-your-source}
 
 #### Se a Braze for sua fonte de dados {#if-braze-is-your-data-source}
-1. Na plataforma Nexla, navegue até **Flows > Create a New Flow** na barra de ferramentas à esquerda.
-2. Clique em **Create New Source**, selecione o conector Braze e clique em **Next**.
+1. Na plataforma Nexla, navegue até **Flows > Create a New Flow** na barra de ferramentas de navegação.
+2. Clique em **Create New Source**, selecione o conector da Braze e clique em **Next**.
 3. Selecione **Add a New Credential**, nomeie a credencial, adicione sua chave de API da Braze e o endpoint REST e clique em **Save**.
 4. Por fim, selecione seus dados e clique em **Save**.
 

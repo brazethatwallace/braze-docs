@@ -21,7 +21,7 @@ Using the Braze Audience Sync to LinkedIn, brands can add user data from their B
 
 This feature allows brands to control what specific first-party data is shared with LinkedIn. At Braze, the integrations you can and cannot share your first-party data with are given the utmost consideration. For more information, refer to our [privacy policy](https://www.braze.com/privacy).
 
-{% multi_lang_include early_access_beta_alert.md feature='Audience Sync to LinkedIn' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Audience Sync to LinkedIn' type='beta' %}
 
 ## Prerequisites
 
@@ -31,7 +31,7 @@ You must make sure that you have the following items created, completed, or acce
 | --- | --- | --- |
 | LinkedIn ad account | [LinkedIn](https://www.linkedin.com/campaignmanager) | An active LinkedIn ad account tied to your brand.<br><br>Make sure that you have accepted any relevant LinkedIn terms and conditions to access and use that account and that your LinkedIn admin has granted you the appropriate permissions to manage Audiences. |
 | LinkedIn Terms & Policies | LinkedIn | Agree to comply with any of LinkedIn’s required terms, policies, guidelines, and documentation related to your use of the LinkedIn Audience Sync, including any terms, policies, guidelines, and documentation incorporated by reference therein, which may include LinkedIn’s: Services Terms, Ads Agreement, Data Processing Agreement, and Professional Community Guidelines. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -57,9 +57,9 @@ Your LinkedIn connection will be applied at the Braze workspace level. If your L
 
 ### Step 2: Configure your Canvas entry criteria
 
-When building audiences for Ad Tracking, you may wish to include or exclude certain users based on their preferences, and to comply with privacy laws, such as the “Do Not Sell or Share” right under the [CCPA](https://oag.ca.gov/privacy/ccpa). Marketers should implement the relevant filters for users’ eligibility within their Canvas entry criteria. Below we list some options. 
+When building audiences for Ad Tracking, you may wish to include or exclude certain users based on their preferences, and to comply with privacy laws, such as the “Do Not Sell or Share” right under the [CCPA](https://oag.ca.gov/privacy/ccpa). Marketers should implement the relevant filters for users’ eligibility within their Canvas entry criteria. The following options can help.
 
-If you have collected the [iOS IDFA through the Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations/#optional-idfa-collection), you will be able to use the **Ads Tracking Enabled** filter. Select the value as `true` to only send users into Audience Sync destinations where they have opted in. 
+If you have collected the [iOS IDFA through the Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection), you will be able to use the **Ads Tracking Enabled** filter. Select the value as `true` to only send users into Audience Sync destinations where they have opted in. 
 
 ![An entry audience with the filter "Ad Tracking Enabled is true".]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 
@@ -117,7 +117,7 @@ Braze also offers the ability to add users to existing LinkedIn audiences to con
 
 ### Step 5: Launch Canvas
 
-Once you have configured your Audience Sync to LinkedIn, simply launch the Canvas! The new audience will be created, and users who flow through the Audience Sync step will be passed into this audience on LinkedIn. If your Canvas contains subsequent components, your users will advance to the next step in their user journey.
+Once you have configured your Audience Sync to LinkedIn, launch the Canvas! The new audience will be created, and users who flow through the Audience Sync step will be passed into this audience on LinkedIn. If your Canvas contains subsequent components, your users will advance to the next step in their user journey.
 
 You can view the audience on LinkedIn by going into your ad account and selecting **Audiences** under the **Assets** section of the navigation. From the **Audiences** page, you can see each audience's size after reaching more than 300 members.
 
@@ -142,7 +142,7 @@ The following table includes metrics and descriptions to help you better underst
 | Users Pending | Number of users currently being processed by Braze to sync into LinkedIn. |
 | Users Errored | Number of users who were not synced to LinkedIn due to an API error after about 13 hours of retries. Potential causes of errors can include an invalid LinkedIn token or if the audience was deleted on LinkedIn. |
 | Exited Canvas | Number of users who have exited the Canvas. This occurs when the last step in a Canvas is an Audience Sync component. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
 
 {% alert important %}
 Remember that there will be a delay in reporting for users synced and users errored metrics due to the bulk flusher and the 13-hour retry, respectively.

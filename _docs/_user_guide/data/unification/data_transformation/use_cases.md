@@ -25,13 +25,34 @@ When customers open customer service tickets on a platform like Zendesk, you can
 
 ## Integrating with Braze
 
-Braze has an integration with [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate/), a customer insights and survey platform. With Data Transformation, you can save multiple survey responses under one nested custom attribute, instead of to the existing integration that saves multiple custom attributes.
+Braze has an integration with [Iterate]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/surveys/iterate), a customer insights and survey platform. With Data Transformation, you can save multiple survey responses under one nested custom attribute, instead of to the existing integration that saves multiple custom attributes.
+
+## Sync HubSpot contact attributes
+
+If you use HubSpot as your CRM and Braze for messaging, you can use Data Transformation to convert HubSpot webhook payloads into Braze `/users/track` updates.
+
+This example checks for an `external_id`, copies the incoming user object, and sends all included fields to Braze as custom attributes.
+
+```
+function toBrazeTrackPayload(userObject) {
+  if (!userObject.external_id) {
+    throw new Error("Braze requires an 'external_id' field.");
+  }
+
+  return {
+    attributes: [userObject]
+  };
+}
+
+const brazePayload = toBrazeTrackPayload(payload);
+return brazePayload;
+```
 
 ## Example transformation code
 
 Consider this sample payload from Typeform, a survey platform, which sends whenever a survey response is received.
 
-![]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
+![Screenshot related to example transformation code.]({% image_buster /assets/img/data_transformation/data_transformation2.png %})
 
 {% tabs local %}
 {% tab Basic transformation %}

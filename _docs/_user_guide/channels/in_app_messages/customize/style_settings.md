@@ -7,7 +7,7 @@ page_order: 1
 
 # In-app message style settings
 
-> The drag-and-drop editing experience is divided into two sections: **Build** and **Preview & Test**. This article covers what you need to know for working within the **Build** tab of the editor and assumes you've already [created an in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/).
+> The drag-and-drop editing experience is divided into two sections: **Build** and **Preview & Test**. This article covers what you need to know for working within the **Build** tab of the editor and assumes you've already [created an in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop).
 
 !["Message styles" tab.]({% image_buster /assets/img_archive/dnd_iam_message_styles.png %}){: style="float:right;max-width:25%;margin-left:15px;max-width:30%"}
 
@@ -15,7 +15,7 @@ page_order: 1
 
 You can set certain styles to be applied across all relevant blocks in your in-app message from the **Message Styles** tab. For example, you may want to customize the font of all the text or the color of all links in your message.
 
-The styles in this section are used everywhere in your message except where you override it for a specific block. If your message has [multiple pages]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page), you can also override the message-level styles for individual pages, except for display type and max width.
+The styles in this section are used everywhere in your message except where you override it for a specific block. If your message has [multiple pages]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page), you can also override the message-level styles for individual pages, except for display type and max width.
 
 For an easier design experience, we recommend setting up message-level styles before you customize styles at the block level.
 
@@ -48,7 +48,7 @@ The drag-and-drop editor uses two key components for composing in-app messages: 
 
 ### Close x button
 
-For Modal and Fullscreen in-app messages, you can customize the close button displayed as <i class="fa-solid fa-xmark"></i> in the top-right corner of your message. Customization options include button position, size, fill color, background color, border style, and border radius.
+For Modal and Fullscreen in-app messages, you can customize the close button displayed as <i class="fa-solid fa-xmark"></i> at the top of your message. Customization options include button position, size, fill color, background color, border style, and border radius.
 
 ![Options to customize the close x button in in-app messages including button size, fill color, background color, border style, and border radius.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -76,7 +76,7 @@ As a best practice, format your row and column properties before formatting any 
 
 #### Background image
 
-You can add a background image to a row in the **Row properties** panel. Toggle on **Background image**, and then provide an image URL or select an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Finally, configure your alt text, size, position, and whether the image repeats to create patterns across the row.
+You can add a background image to a row in the **Row properties** panel. Toggle on **Background image**, and then provide an image URL or select an image from the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Finally, configure your alt text, size, position, and whether the image repeats to create patterns across the row.
 
 ![A row background image of a pizza that has a horizontal repeat pattern.]({% image_buster /assets/img_archive/background_row.png %})
 
@@ -90,7 +90,7 @@ Before you add blocks, set up [message-level styles](#set-message-level-styles) 
 
 ![Drag-and-drop boxes to select from.]({% image_buster /assets/img_archive/dnd_iam_editor_blocks.png %}){: style="max-width:40%"}
 
-Every block has its settings, such as granular control on padding. The right-side panel automatically switches to a styling panel for the selected content element. For more information, see [Editor block properties]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_properties).
+Every block has its settings, such as granular control on padding. The right-side panel automatically switches to a styling panel for the selected content element. For more information, see [Editor block properties]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties).
 
 As you build your in-app message, you can select a mobile, tablet, or desktop view in the toolbar to preview how your in-app message will look for your user groups. This will ensure that your content is responsive, and you can make any necessary adjustments along the way.
 
@@ -118,13 +118,13 @@ If you're having trouble selecting a certain block, you can use the up arrow in 
 
 ![Icon to add Liquid personalization.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
-To add [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) into your in-app message, select <i class="fa-solid fa-circle-plus"></i> **Add Personalization** from the editor toolbar. Here, you can add various personalization types such as default attributes, device attributes, custom attributes, and more.
+To add [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) into your in-app message, select <i class="fa-solid fa-circle-plus"></i> **Add Personalization** from the editor toolbar. Here, you can add various personalization types such as default attributes, device attributes, custom attributes, and more.
 
 Next, take your generated Liquid snippet and insert it into your message. After designing and building your in-app message, go to **Preview & Test** to preview your message.
 
 ### Using the AI copywriter
 
-When a text block is selected in your in-app message, click <i class="fa-solid fa-wand-magic-sparkles" title="AI copywriter"></i> in the block toolbar to launch the [AI-powered copywriting assistant]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). The AI copywriting assistant passes a brief product name or description to OpenAI’s GPT3 copy generation tool to generate human-like marketing copy for your messaging.
+When a text block is selected in your in-app message, select <i class="fa-solid fa-wand-magic-sparkles" title="AI copywriter"></i> **AI copywriter** in the block toolbar to launch the [AI-powered copywriting assistant]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). The AI copywriting assistant passes a brief product name or description to OpenAI's GPT3 copy generation tool to generate human-like marketing copy for your messaging.
 
 {% alert tip %}
 You can save a few clicks by highlighting text inside the block before clicking the icon. The highlighted text will be added to the tool, and copy will be generated immediately.
@@ -146,9 +146,9 @@ After making changes to the styling of an element, you can copy and paste those 
 
 ![Dropdown menu with option to copy styles.]({% image_buster /assets/img_archive/dnd_iam_copypaste_styles.png %}){: style="float:right;margin-left:15px;max-width:35%"}
 
-1. With the element selected, select <i class="fas fa-paintbrush" title="Copy or paste styles"></i> next to the properties panel name (For example, if you have a button selected, next to "Button properties").
+1. With the element selected, select <i class="fas fa-paintbrush" title="Copy or paste styles"></i> **Copy or paste styles** next to the properties panel name (For example, if you have a button selected, next to "Button properties").
 2. Click **Copy styles** and select the element where you would like to apply the copied style.
-3. Select <i class="fas fa-paintbrush" title="Copy or paste styles"></i> again and choose **Paste styles**.
+3. Select <i class="fas fa-paintbrush" title="Copy or paste styles"></i> **Copy or paste styles** again and choose **Paste styles**.
 
 #### Keyboard shortcuts
 
@@ -158,4 +158,4 @@ You can also use keyboard shortcuts to copy and paste styles:
 | ------------ | ---------------------------------------------- | ------------------------------------------------- |
 | Copy styles  | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>c</kbd> |
 | Paste styles | <kbd>⌘</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> | <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>v</kbd> |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Keyboard shortcuts" }

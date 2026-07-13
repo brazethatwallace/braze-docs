@@ -20,7 +20,7 @@ Il s'agit d'une intégration proposée par la communauté et qui n'est pas direc
 | --- | --- |
 | Configurer une boutique Shopify | Confirmez que vous avez déjà [configuré une boutique Shopify avec Braze]({{site.baseurl}}/shopify_overview/). |
 | Installer l'application Bulk Discount Code Bot | Téléchargez l'application [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) dans la boutique d'applications Shopify. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requirements" }
 
 ## Générer des codes de réduction uniques {#generating-unique-discount-codes}
 
@@ -42,7 +42,7 @@ Dans le fichier CSV, supprimez la ligne 1 pour retirer l'en-tête de colonne « 
 
 ### Étape 3 : Ajouter vos codes de réduction à Braze {#step-3-add-your-discount-codes-to-braze}
 
-Dans Braze, accédez à **Paramètres des données** > **Codes de promotion** > **Créer une liste de codes de promotion** et [configurez votre liste de codes de réduction]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list). Veillez à respecter la date d'expiration configurée par le Bulk Discounts Code Bot.
+Dans Braze, accédez à **Data Settings** > **Promotion Codes** > **Create Promotion Code List** et [configurez votre liste de codes de réduction]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list). Veillez à respecter la date d'expiration configurée par le Bulk Discounts Code Bot.
 
 Téléchargez ensuite votre fichier CSV et sélectionnez **Save List**.
 
@@ -56,10 +56,10 @@ Collez l'extrait de code Liquid dans une campagne ou une étape du Canvas.
 
 ![Un GIF montrant l'extrait de code Liquid ajouté à une étape du Canvas.][5]
 
-Si vous souhaitez que les utilisateurs reçoivent un code de réduction unique, quel que soit le nombre de fois où le code de réduction est référencé dans les campagnes ou les Canvas, créez une étape de [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) directement avant la première étape de message qui attribue le code de réduction à un attribut personnalisé, tel que « Promo Code ».
+Si vous souhaitez que les utilisateurs reçoivent un seul code de réduction unique, quel que soit le nombre de fois où le code de réduction est référencé dans les campagnes ou les Canvas, créez une étape de [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) directement avant la première étape de message qui attribue le code de réduction à un attribut personnalisé, tel que « Promo Code ».
 
 {% alert tip %}
-Vous pouvez également [créer un attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) en accédant à **Paramètres des données** > **Attributs personnalisés**.
+Vous pouvez également [créer un attribut personnalisé]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) en accédant à **Data Settings** > **Custom Attributes**.
 {% endalert %}
 
 Dans l'étape de Mise à jour utilisateur, procédez comme suit pour chaque champ :
@@ -85,9 +85,9 @@ Lorsqu'un code de réduction est référencé par plusieurs étapes du même Can
 
 {% enddetails %}
 
-[1]: {% image_buster /assets/img/Shopify/configure_discount_codes.png %}
-[2]: {% image_buster /assets/img/Shopify/export_discount_codes.png %}
-[3]: {% image_buster /assets/img/Shopify/edited_codes_csv.png %}
-[4]: {% image_buster /assets/img/Shopify/liquid_code_snippet.png %}
-[5]: {% image_buster /assets/img/Shopify/liquid_promo_code.gif %}
-[6]: {% image_buster /assets/img/Shopify/user_update_step.png %}
+[1]: {% image_buster /assets/img/shopify/configure_discount_codes.png %}
+[2]: {% image_buster /assets/img/shopify/export_discount_codes.png %}
+[3]: {% image_buster /assets/img/shopify/edited_codes_csv.png %}
+[4]: {% image_buster /assets/img/shopify/liquid_code_snippet.png %}
+[5]: {% image_buster /assets/img/shopify/liquid_promo_code.gif %}
+[6]: {% image_buster /assets/img/shopify/user_update_step.png %}

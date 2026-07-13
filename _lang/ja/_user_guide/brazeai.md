@@ -16,7 +16,7 @@ guide_featured_list:
   - name: エージェント
     link: /docs/user_guide/brazeai/agents
     image: /assets/img/braze_icons/star-06.svg
-  - name: Braze MCP サーバー
+  - name: Braze MCPサーバー
     link: /docs/user_guide/brazeai/mcp_server
     image: /assets/img/braze_icons/dataflow-01.svg
   - name: コンテンツオプティマイザー
@@ -25,19 +25,19 @@ guide_featured_list:
   - name: Decisioning Studio
     link: /docs/user_guide/brazeai/decisioning_studio
     image: /assets/img/braze_icons/stars-03.svg
-  - name: 生成 AI
+  - name: 生成AI
     link: /docs/user_guide/brazeai/generative_ai
     image: /assets/img/braze_icons/lightbulb-02.svg
-  - name: Intelligence Suite
+  - name: インテリジェントスイート
     link: /docs/user_guide/brazeai/intelligence_suite
     image: /assets/img/braze_icons/clock.svg
   - name: アイテムのおすすめ
     link: /docs/user_guide/brazeai/item_recommendations
     image: /assets/img/braze_icons/hearts.svg
-  - name: Operator
+  - name: オペレーター
     link: /docs/user_guide/brazeai/operator
     image: /assets/img/braze_icons/edit-05.svg
-  - name: Predictive Suite
+  - name: 予測スイート
     link: /docs/user_guide/brazeai/predictive_suite
     image: /assets/img/braze_icons/stars-01.svg
   - name: パーソナライズ済みパス
@@ -52,3 +52,16 @@ guide_featured_list:
 ---
 
 <br>
+
+## 機能の概要 {#feature-overview}
+
+| 目標 | おすすめの機能 |
+| --- | --- |
+| ユーザーのコンテキストを使用してメッセージコピーをユーザーごとにパーソナライズする | [Brazeエージェント]({{site.baseurl}}/user_guide/brazeai/agents)（[Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)または[カタログ]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)）、単発の下書きコピーには[生成AI]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
+| どのメッセージコンテンツ（件名、CTAなど）が時間の経過とともに最もパフォーマンスが高いかを最適化する | [コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)（メール、プッシュ通知、またはSMS/MMS/RCS）または[勝者バリアント]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) |
+| オファー、チャネル、タイミングにわたる1:1の意思決定でビジネス指標（収益、コンバージョン）を最大化する | [Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
+| 解約する可能性が高いユーザーやイベントを実行する可能性が高いユーザーを見つける | [解約予測]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn)または[予測イベント]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
+| メッセージ内でカタログから特定の製品をおすすめする | [アイテムのおすすめ]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
+| ユーザーごとに最適な時間や最適なチャネルで送信する | [インテリジェントタイミング]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)、[インテリジェントチャネル]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
+| ダッシュボードで直接コピーやクリエイティブを作成・改善する | [オペレーター]({{site.baseurl}}/user_guide/brazeai/operator) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="機能の概要" }

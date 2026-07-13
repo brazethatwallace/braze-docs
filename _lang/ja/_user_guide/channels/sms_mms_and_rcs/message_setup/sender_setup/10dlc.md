@@ -44,7 +44,7 @@ A2P 10DLCへの登録には、いくつかの種類の費用が含まれる場�
 | 登録費用 | 米国の主要ネットワーク全体にブランドとユースケースを登録する際に適用される少額の費用です。 |
 | セカンダリ審査費用 | ブランドは[ブランド信頼スコア](#trust-score)に異議を申し立て、全体的なスループットを向上させるためにセカンダリ審査プロセスをリクエストできます。このプロセスには費用がかかります。 |
 | キャリア費用 | 10DLC登録後にユーザーに送信されるアウトバウンドSMSおよびMMSメッセージに対してキャリアが課す費用です。2021年10月1日以降、未登録トラフィック（標準ロングコード）のキャリア費用は、登録済みトラフィック（10DLC）よりも高くなります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Costs" }
 
 最新の[費用見積もり](https://support.twilio.com/hc/en-us/articles/1260803965530-What-pricing-and-fees-are-associated-with-the-A2P-10DLC-service-)については、Twilio 10DLCの記事をご覧ください。
 
@@ -54,14 +54,14 @@ A2P 10DLCへの登録には、いくつかの種類の費用が含まれる場�
 
 #### ブランド信頼スコア {#trust-score}
 
-Campaign Registry（TCR）は、レピュテーションアルゴリズムを使用して企業に関連する特定の基準を審査し、各ブランドのメッセージングスループットを決定する信頼スコアを割り当てるサードパーティ機関です。この信頼スコアは、お客様が米国10DLCメッセージングに登録する際に割り当てられます。信頼スコアが高いほど、1秒あたりのメッセージ数（MPS）が向上します。
+キャンペーン Registry（TCR）は、レピュテーションアルゴリズムを使用して企業に関連する特定の基準を審査し、各ブランドのメッセージングスループットを決定する信頼スコアを割り当てるサードパーティ機関です。この信頼スコアは、お客様が米国10DLCメッセージングに登録する際に割り当てられます。信頼スコアが高いほど、1秒あたりのメッセージ数（MPS）が向上します。
 
 |     | 信頼スコア | AT&T | T-Mobile | Verizon |
 | --- | ----------- | ---- | -------- | ------- |
 | 高 | 75-100 | 75 MPS | 75 MPS | 75 MPS |
 | 中 | 50-74 | 40 MPS | 40 MPS | 40 MPS |
 | 低 | 1-49 | 4 MPS | 4 MPS | 4 MPS |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Brand trust score #trust-score" }
 
 {% alert tip %}
 Russell 3000 Indexに掲載されている企業は、10DLC登録および審査後に高いスループットとブランド信頼スコアが付与されます。
@@ -80,8 +80,8 @@ Russell 3000 Indexに掲載されている企業は、10DLC登録および審査
 | 標準ユースケース | 説明 |
 | ------------------ | ----------- |
 | マーケティング | セールや期間限定オファーなどのプロモーションコンテンツです。 |
-| ミックス | カスタマーケアなど、複数のユースケースをカバーするCampaignです。 |
-| 高等教育 | 高等教育機関向けのCampaignです。 |
+| ミックス | カスタマーケアなど、複数のユースケースをカバーするキャンペーンです。 |
+| 高等教育 | 高等教育機関向けのキャンペーンです。 |
 | 投票とアンケート | 顧客アンケートなど、政治以外の投票やアンケートです。 |
 | 公共広告 | 特定のトピックに関する認知度を高めるための公共広告です。 |
 | カスタマーケア | サポート、アカウント管理、その他の顧客対応です。 |
@@ -90,7 +90,7 @@ Russell 3000 Indexに掲載されている企業は、10DLC登録および審査
 | 2FA | OTPなど、アカウントの認証や確認です。 |
 | セキュリティアラート | システム侵害の通知です。 |
 | 不正アラート | 不正行為の可能性に関するメッセージングです。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Messaging use cases" }
 
 {% tabs %}
 {% tab 宣言済みユースケース %}
@@ -101,7 +101,7 @@ Russell 3000 Indexに掲載されている企業は、10DLC登録および審査
 | 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
 | 50-74	 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
 | 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Messaging use cases" }
 
 {% endtab %}
 {% tab ミックスマーケティングユースケース %}
@@ -113,7 +113,7 @@ Russell 3000 Indexに掲載されている企業は、10DLC登録および審査
 | 75-100 | 225 MPS | 75 MPS | 75 MPS | 75 MPS |
 | 50-74 | 120 MPS | 40 MPS | 40 MPS | 40 MPS |
 | 1-49 | 12 MPS | 4 MPS | 4 MPS | 4 MPS|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Messaging use cases" }
 
 {% endtab %}
 {% endtabs %}

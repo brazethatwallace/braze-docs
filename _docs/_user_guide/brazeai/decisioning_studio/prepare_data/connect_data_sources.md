@@ -23,7 +23,7 @@ Decisioning Studio supports multiple integration patterns for connecting custome
 | **Braze Cloud Data Ingestion (CDI)** | Connecting external data warehouses | Medium |
 | **Cloud Storage (GCS, AWS, Azure)** | Direct data exports from other platforms | Medium |
 | **CEP integrations** | SFMC, Klaviyo data extensions | Medium |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported integration patterns" }
 
 ## Customer data types
 
@@ -35,7 +35,7 @@ The following customer data assets help agents personalize more effectively:
 | **Customer behavior** | Activity and engagement patterns | Account logins, device type, customer service interactions, product usage |
 | **Transaction history** | Purchase and conversion data | Products purchased, transaction amounts, payment methods, purchase channels |
 | **Marketing engagement** | Responses to communications | Email opens/clicks, SMS engagement, web and mobile activity, survey responses |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Customer data types" }
 
 {% alert tip %}
 The more information agents have about your customers, the better they will perform. Consider including data on any insights that would be particularly important to your business (for example, do you want to see how AI treats your loyalty customers differently? Make sure loyalty status is in the customer data).
@@ -65,7 +65,7 @@ For the full list of supported sources, see [Cloud Data Ingestion]({{site.baseur
 
 Once you are satisfied with the data you are sending into the Braze Data Platform, contact your AI Decisioning Services team to discuss which fields on the user profile or custom attributes should be used for AI Decisioning.
 
-To streamline this process, create a list of Braze user profile attributes that you think best represent your customers' behaviors that should be used in Decisioning Studio (see the [list of available fields]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#fields-to-export)). Your services team can also help you conduct discovery sessions to decide which fields are most appropriate for AI Decisioning.
+To streamline this process, create a list of Braze user profile attributes that you think best represent your customers' behaviors that should be used in Decisioning Studio (see the [list of available fields]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#fields-to-export)). Your services team can also help you conduct discovery sessions to decide which fields are most appropriate for AI Decisioning.
 
 Other options for sending data include:
 
@@ -139,4 +139,4 @@ This guide explains the most common integration patterns. Information Security w
 
 After connecting your data sources, proceed to set up orchestration:
 
-- [Set up orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [Set up orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

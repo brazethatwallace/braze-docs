@@ -1,40 +1,40 @@
 ---
-nav_title: "POST:スケジュールされたAPIトリガーキャンバスを更新する"
-article_title: "POST:スケジュールされたAPIトリガー・キャンバスを更新する"
+nav_title: "POST: スケジュールされたAPIトリガーキャンバスを更新する"
+article_title: "POST: スケジュールされたAPIトリガーキャンバスを更新する"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "この記事では、「スケジュールされた API トリガーキャンバスを更新」Braze エンドポイントの詳細について説明します。"
+description: "この記事では、「スケジュールされたAPIトリガーキャンバスを更新」Brazeエンドポイントの詳細について説明します。"
 
 ---
 {% api %}
-# スケジュールされたAPIトリガーキャンバスを更新する
-{% apimethod postcore_endpoint|https://www.braze.com/docs/core_endpoints %}。
+# スケジュールされたAPIトリガーキャンバスを更新する {#update-scheduled-api-triggered-canvases}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/update
 {% endapimethod %}
 
-> このエンドポイントを使用して、ダッシュボードで作成されたスケジュール済みAPIトリガーキャンバスを更新する。
+> このエンドポイントを使用して、ダッシュボードで作成されたスケジュール済みAPIトリガーキャンバスを更新します。
 
-これにより、どのアクションがメッセージ送信のトリガーになるかを決めることができる。Brazeがテンプレート化した`trigger_properties` をメッセージ自体に渡すことができる。
+これにより、どのアクションがメッセージ送信のトリガーになるかを決めることができます。Brazeがメッセージ自体にテンプレート化する`trigger_properties`を渡すことができます。
 
-このエンドポイントを使用してメッセージを送信するには、[キャンバスを]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier)構築するときに作成されたキャンバスIDが必要であることに注意してほしい。
+このエンドポイントを使用してメッセージを送信するには、[キャンバス]({{site.baseurl}}/api/identifier_types#canvas-api-identifier)を構築するときに作成されたキャンバス IDが必要です。
 
-どのスケジュールも、スケジュール作成リクエストや以前のスケジュール更新リクエストで提供したものを完全に上書きする。
-  - 例えば、最初に`"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` を指定し、更新で`"schedule" : {"time" : "2015-02-20T14:14:47"}` を指定した場合、Brazeはユーザーのローカライゼーション時間ではなく、UTCで指定した時間にメッセージを送信する。
-  - スケジュールされたトリガーは、送信予定時刻に近いか、送信予定時刻中に更新されるため、Brazeは、ターゲットユーザーのすべて、一部、または全員に、直前の変更を適用する可能性がある。
+スケジュールは、スケジュール作成リクエストや以前のスケジュール更新リクエストで提供したものを完全に上書きします。
+  - たとえば、最初に`"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}`を指定し、更新で`"schedule" : {"time" : "2015-02-20T14:14:47"}`を指定した場合、Brazeはユーザーのローカル時間ではなく、UTCで指定した時間にメッセージを送信します。
+  - 送信予定時刻に近い、または送信予定時刻中に更新されたスケジュール済みトリガーはベストエフォートで更新されるため、Brazeはターゲットユーザーの全員、一部、またはいずれにも直前の変更を適用する可能性があります。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#8fdf158b-ce20-41d8-80e4-a9300a6706d4 {% endapiref %}
 
-## 前提条件
+## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、[API キー]({{site.baseurl}}/api/basics#rest-api-key/)と`canvas.trigger.schedule.update`の権限が必要です。
+このエンドポイントを使用するには、`canvas.trigger.schedule.update`権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
-## レート制限
+## レート制限 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
-## 要求本文:
+## リクエスト本文 {#request-body}
 
 ```
 Content-Type: application/json
@@ -51,16 +51,16 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-## リクエストパラメーター
+## リクエストパラメーター {#request-parameters}
 
-| パラメーター | required | データ型 | 説明 |
+| パラメーター | 必須 | データタイプ | 説明 |
 | --------- | ---------| --------- | ----------- |
-|`canvas_id`|必須|string| [キャンバス識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。 |
-| `schedule_id` | オプション | 文字列 | 更新する`schedule_id` （スケジュール作成のレスポンスから取得）。 |
-|`schedule` | 必須 | オブジェクト | [スケジュールオブジェクト]({{site.baseurl}}/api/objects_filters/schedule_object/)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `canvas_id` | 必須 | 文字列 | [キャンバス識別子]({{site.baseurl}}/api/identifier_types)を参照してください。 |
+| `schedule_id` | オプション | 文字列 | 更新する`schedule_id`（スケジュール作成の応答から取得）。 |
+| `schedule` | 必須 | オブジェクト | [スケジュールオブジェクト]({{site.baseurl}}/api/objects_filters/schedule_object)を参照してください。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
-## 例のリクエスト
+## リクエスト例 {#example-request}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/canvas/trigger/schedule/update' \
 --header 'Content-Type: application/json' \

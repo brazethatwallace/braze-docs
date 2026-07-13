@@ -26,6 +26,51 @@ Lesen Sie die folgende Meta-Dokumentation für Hinweise zu Anzeigenamen, Telefon
 
 ## WhatsApp-Produktupdates {#whatsapp-product-updates}
 
+### 2026: Geschäftliche Nutzernamen {#2026-business-usernames}
+*Zuletzt aktualisiert: Mai 2026*
+
+Meta führt geschäftliche Nutzernamen für WhatsApp ein – einen optionalen Anzeigenamen, den Unternehmen für ihre WhatsApp-Telefonnummer übernehmen können. Wenn ein Nutzername festgelegt ist, erscheint er in den Chat-Fenstern der WhatsApp- und WhatsApp-Business-App anstelle der Telefonnummer. Beachten Sie, dass die Übernahme eines Nutzernamens Ihre Telefonnummer nicht verbirgt; sie bleibt immer in Ihrem Unternehmensprofil sichtbar.
+
+Nutzernamen sind über alle WhatsApp-Telefonnummern hinweg eindeutig – keine zwei Nummern, weder von Verbraucher:innen noch von Unternehmen, können denselben Nutzernamen teilen. Für die Eindeutigkeit wird nicht zwischen Groß- und Kleinschreibung unterschieden, aber Punkte und Unterstriche werden als unterschiedliche Zeichen behandelt. Zum Beispiel sind `myid`, `my.id` und `my_id` alle unterschiedliche Nutzernamen, während `myID` und `myid` als identisch behandelt werden.
+
+Geschäftliche Nutzernamen müssen die folgenden Formatanforderungen erfüllen:
+
+- Enthält nur englische Buchstaben (a–z), Ziffern (0–9), Punkte (`.`) oder Unterstriche (`_`)
+- Ist zwischen 3 und 35 Zeichen lang
+- Enthält mindestens einen englischen Buchstaben
+- Beginnt oder endet nicht mit einem Punkt und enthält keine zwei aufeinanderfolgenden Punkte
+- Beginnt nicht mit `www`
+- Endet nicht mit einem gängigen Domain-Suffix (wie `.com`, `.org` oder `.net`)
+
+#### Einen reservierten Nutzernamen beanspruchen {#claiming-a-reserved-username}
+
+Bevor die Nutzernamen-Funktion allgemein verfügbar ist, hat Meta möglicherweise einen Nutzernamen für Ihr Unternehmen vorab reserviert – typischerweise passend zu einem bestehenden Facebook-Seiten- oder Instagram-Nutzernamen. Sie können diesen reservierten Nutzernamen beanspruchen oder einen anderen über [WhatsApp Manage](https://business.facebook.com/wa/manage/) wählen. Beanspruchte Nutzernamen werden erst aktiviert, wenn Meta die Funktion verfügbar macht.
+
+Wenn der reservierte Nutzername mit einem bereits mit Ihrer Facebook-Seite oder Ihrem Instagram-Konto verknüpften übereinstimmt, müssen Sie zunächst Ihre geschäftliche Telefonnummer mit dieser Seite oder diesem Konto verknüpfen. Sie können dies beim Beanspruchen des Nutzernamens im WhatsApp Manager oder in der Meta Business Suite tun, oder indem Sie Ihre Telefonnummer direkt von der entsprechenden Seite oder dem Konto hinzufügen. Die Verknüpfung erfordert entweder die vollständige Kontrolle über die Seite oder das Konto oder einen grundlegenden Teilzugriff mit der Berechtigung `manage_phone`.
+
+#### Anzeige-Priorität in Chat-Fenstern {#display-priority-in-chat-windows}
+
+Wenn Ihr Unternehmensprofil in einem Chat-Fenster erscheint, verwendet WhatsApp die folgende Prioritätsreihenfolge (von höchster zu niedrigster):
+
+1. Gespeicherter Kontaktname
+2. Verifizierter Unternehmensname oder Official Business Account (OBA)-Name
+3. Nutzername
+4. Telefonnummer
+
+Weitere Informationen finden Sie in Metas Dokumentation zu [geschäftlichen Nutzernamen](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids/#business-usernames).
+
+### April 2026: Automatische Archivierung inaktiver Templates {#april-2026-automatic-archival-of-inactive-templates}
+*Zuletzt aktualisiert: April 2026*
+
+- Meta archiviert automatisch Templates, die seit 12 Monaten oder länger inaktiv sind.
+- Die automatische Archivierung ist für alle WhatsApp-Geschäftskonten aktiviert und kann nicht deaktiviert werden.
+- Template-Aktivität umfasst das Erstellen, Bearbeiten, Senden, Einlegen eines Einspruchs oder Dearchivieren eines Templates.
+- Archivierte Templates können nicht gesendet werden und sind nach 28 Tagen zur endgültigen Löschung vorgesehen.
+- Sie können Templates innerhalb des 28-Tage-Fensters dearchivieren, um sie wiederherzustellen und die geplante Löschung abzubrechen.
+- Benachrichtigungen werden über den `message_template_status_update`-Webhook, per E-Mail und über ein einmaliges WhatsApp-Manager-Banner gesendet.
+
+Weitere Informationen finden Sie in Metas Dokumentation zur [Template-Archivierung](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/template-archival).
+
 ### Juni 2026: Geschäftsbezogene Nutzer-IDs {#june-2026-business-scoped-user-ids}
 *Zuletzt aktualisiert: März 2026*
 
@@ -90,12 +135,12 @@ Meta wird die Anzahl der Marketing-Template-Nachrichten begrenzen, die ein:e Nut
 
 Eine Ausnahme ist: Wenn eine Person auf eine Marketing-Nachricht antwortet, wird ein 24-Stunden-Kundenservice-Fenster gestartet. Marketing-Nachrichten, die innerhalb dieses Fensters gesendet werden, zählen nicht zum Limit der Person.
 
-Das spezifische Limit variiert je nach Nutzer:in, abhängig von deren Engagement-Level. Erfahren Sie mehr über WhatsApps Pro-Nutzer:in-Limits für Marketing-Template-Nachrichten [hier](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
+Das spezifische Limit variiert je nach Nutzer:in, abhängig von deren Engagement-Level. Erfahren Sie mehr über WhatsApps Pro-Nutzer:in-Limits für Marketing-Template-Nachrichten in der [Dokumentation zu WhatsApps Pro-Nutzer:in-Limits für Marketing-Template-Nachrichten](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
 
 ### Januar 2025: WhatsApp pausiert den Versand von Marketing-Nachrichten an US-Nutzer:innen ab dem 1. April {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *Zuletzt aktualisiert: Januar 2025*
 
-WhatsApp wird den Versand von Marketing-Nachrichten an US-Nutzer:innen (Personen mit US-Telefonnummern) ab dem 1. April 2025 pausieren. [Utility-, Service- und Authentifizierungsnachrichten](https://developers.facebook.com/docs/whatsapp/pricing/) sowie [Antwortnachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#response-messages) sind in den USA weiterhin erlaubt.
+WhatsApp wird den Versand von Marketing-Nachrichten an US-Nutzer:innen (Personen mit US-Telefonnummern) ab dem 1. April 2025 pausieren. [Utility-, Service- und Authentifizierungsnachrichten](https://developers.facebook.com/docs/whatsapp/pricing/) sowie [Antwortnachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) sind in den USA weiterhin erlaubt.
 
 Der Versand von Marketing-Nachrichten (sowie allen anderen Nachrichtentypen) in alle anderen Länder oder Regionen ist weiterhin erlaubt und wird nicht beeinträchtigt.
 
@@ -191,7 +236,7 @@ Letztes Jahr hat WhatsApp Template-Pacing für Marketing-Nachrichten als neue Me
 
 WhatsApp testet neue Ansätze, beginnend mit Verbraucher:innen in Indien, um wertvollere Erlebnisse zu schaffen und das Engagement mit den Marketing-Konversationen von Unternehmen zu maximieren. Dies kann die Begrenzung der Anzahl von Marketing-Konversationen umfassen, die eine Person von einem beliebigen Unternehmen in einem bestimmten Zeitraum erhält, beginnend mit einer kleinen Anzahl von Konversationen, die weniger wahrscheinlich gelesen werden. Braze erhält einen Fehlercode, wenn eine Nachricht nicht zugestellt wird.
 
-WhatsApp wird beginnen, Leseraten als Teil der Qualitätsbewertung für Marketing-Templates zu berücksichtigen, neben traditionellen Metriken wie Blockierungen und Meldungen. WhatsApp kann Marketing-Campaigns mit niedrigen Leseraten vorübergehend pausieren, um Unternehmen Zeit zu geben, die Templates mit dem geringsten Engagement zu überarbeiten, bevor das Volumen ab dem 1. April 2024 skaliert wird.
+WhatsApp wird beginnen, Leseraten als Teil der Qualitätsbewertung für Marketing-Templates zu berücksichtigen, neben traditionellen Metriken wie Blockierungen und Meldungen. WhatsApp kann Campaigns mit Marketing-Nachrichten und niedrigen Leseraten vorübergehend pausieren, um Unternehmen Zeit zu geben, die Templates mit dem geringsten Engagement zu überarbeiten, bevor das Volumen ab dem 1. April 2024 skaliert wird.
 
 ### Februar 2024: Experiment mit Marketing-Konversationen {#february-2024-marketing-conversations-experimentation}
 *Zuletzt aktualisiert: Februar 2024*
@@ -201,7 +246,7 @@ Ab dem 6. Februar 2024 testet WhatsApp neue Ansätze, beginnend mit Verbraucher:
 ### Oktober 2023: Template-Pacing {#october-2023-template-pacing}
 *Zuletzt aktualisiert: Oktober 2023*
 
-Ab dem 12. Oktober 2023 führt WhatsApp ein Konzept namens „Template-Pacing“ für Marketing-Nachrichten ein. Anstatt Ihre Nachricht gleichzeitig an Ihre gesamte Campaign-Zielgruppe zu senden, liefert „Template-Pacing“ die Nachricht zunächst an eine kleinere Teilmenge von Nutzer:innen, um Echtzeit-Feedback von Campaign-Empfänger:innen zu sammeln, bevor die verbleibenden Nachrichten gesendet werden.
+Ab dem 12. Oktober 2023 führt WhatsApp ein Konzept namens „Template-Pacing“ für Marketing-Nachrichten ein. Anstatt Ihre Nachricht gleichzeitig an Ihre gesamte Campaign-Zielgruppe zu senden, liefert „Template-Pacing“ die Nachricht zunächst an eine kleinere Teilmenge von Nutzer:innen, um Realtime-Feedback von Campaign-Empfänger:innen zu sammeln, bevor die verbleibenden Nachrichten gesendet werden.
 
 Das „Pace-Limit“ (die anfängliche Teilmenge der gesendeten Nachrichten) ist variabel und hängt vom Template ab. Nach dem ersten Versand hält WhatsApp die verbleibenden Nachrichten für maximal 30 Minuten zurück. Während dieser Halteperiode wird die Qualität des Templates basierend auf Kundenfeedback bewertet. Wenn das Feedback positiv ist und auf ein qualitativ hochwertiges Template hinweist, werden die verbleibenden Nachrichten zugestellt. Wenn das Feedback negativ ist, werden die verbleibenden nicht zugestellten Nachrichten verworfen, um weiteres negatives Feedback von einem größeren Teil Ihrer Kund:innen zu verhindern und Ihnen zu helfen, potenzielle Probleme mit der Qualitätsdurchsetzung zu vermeiden (wie Auswirkungen auf die Qualitätsbewertung der Telefonnummer).
 

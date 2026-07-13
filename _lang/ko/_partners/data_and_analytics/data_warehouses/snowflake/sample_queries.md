@@ -145,9 +145,9 @@ ORDER BY 1
 LIMIT 500;
 ```
 {% endtab %}
-{% tab 고유 이메일 클릭 수 %}
+{% tab 고유 이메일 클릭 %}
 
-이 고유 이메일 클릭 수 쿼리를 사용하여 지정된 기간 내의 고유 이메일 클릭을 분석할 수 있습니다. 이를 계산하는 알고리즘은 다음과 같습니다:
+이 고유 이메일 클릭 쿼리를 사용하여 지정된 기간 내의 고유 이메일 클릭을 분석할 수 있습니다. 이를 계산하는 알고리즘은 다음과 같습니다:
   1. 키(`app_group_id`, `message_variation_id`, `dispatch_id`, `email_address`)를 기준으로 이벤트를 파티셔닝합니다.
   2. 각 파티션에서 이벤트를 시간순으로 정렬하며, 첫 번째 이벤트는 항상 고유 이벤트입니다.
   3. 이후의 모든 이벤트에 대해, 이전 이벤트로부터 7일 이상 경과한 경우 고유 이벤트로 간주합니다.
@@ -199,13 +199,66 @@ GROUP BY email_address;
 {% endtab %}
 {% tab 고유 이메일 열람 %}
 
-이 쿼리를 사용하여 Snowflake 이메일 열람 이벤트에서 **고유 열람**을 근사적으로 계산할 수 있습니다. 예를 들어, 대시보드의 **고유 열람** 열과 비교하여 검증하는 데 활용할 수 있습니다.
+이 고유 이메일 열람 쿼리를 사용하여 지정된 기간 내의 고유 이메일 열람을 분석할 수 있습니다. 이를 계산하는 알고리즘은 다음과 같습니다:
+  1. 키(`app_group_id`, `message_variation_id`, `dispatch_id`, `email_address`)를 기준으로 이벤트를 파티셔닝합니다.
+  2. 각 파티션에서 이벤트를 시간순으로 정렬합니다. 첫 번째 이벤트는 항상 고유 이벤트입니다.
+  3. 이후의 모든 이벤트에 대해, 이전 이벤트로부터 7일 이상 경과한 경우 고유 이벤트로 간주합니다.
+
+Snowflake의 [윈도우 함수](https://docs.snowflake.com/en/sql-reference/functions-analytic.html)를 사용하여 이를 구현할 수 있습니다. 다음 쿼리는 최근 365일간의 모든 이메일 열람을 반환하며, `is_unique` 열에서 어떤 이벤트가 고유한지 표시합니다:
+
+```sql
+SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600;
+```
+
+고유 이벤트만 반환하려면 `QUALIFY` 절을 사용합니다:
+```sql
+SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, IFF(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
+QUALIFY is_unique = true;
+```
+
+이메일 주소별로 그룹화된 고유 이벤트 수를 확인하려면 다음을 사용합니다:
+```sql
+WITH unique_events AS(
+  SELECT id, app_group_id, message_variation_api_id, dispatch_id, email_address, time,
+  ROW_NUMBER()       OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) row_number,
+  LAG(time, 1, time) OVER (PARTITION BY app_group_id, message_variation_api_id, dispatch_id, email_address order by time) previous_time,
+  time - previous_time AS diff,
+  IFF(row_number = 1, true, iff(diff >= 7*24*3600, true, false)) AS is_unique
+FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
+WHERE
+  time < DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP()))
+  AND time > DATE_PART('EPOCH_SECOND', TO_TIMESTAMP(CURRENT_TIMESTAMP())) - 365*24*3600
+QUALIFY is_unique = true)
+SELECT email_address, count(*) AS count
+FROM unique_events
+GROUP BY email_address;
+```
+
+특정 Campaign, Canvas 또는 캔버스 단계로 범위를 지정하는 대안적인 접근 방식을 사용하려면 다음 쿼리를 사용합니다. 날짜 범위와 식별자 변수를 설정한 다음 `SELECT` 문을 실행하면 세 가지 방식으로 계산된 고유 열람을 반환합니다:
+
+쿼리 결과는 일부 워크스페이스에서 대시보드 측정기준과 약간 다를 수 있습니다. 예를 들어, 고유성은 `email_address`를 기준으로 파티셔닝할 수 있으며, 프로필 삭제 후 일부 과거 열람 이벤트에는 이메일 주소가 포함되지 않을 수 있습니다. 이러한 경우 동일한 기간에 대해 정확한 일치가 불가능할 수 있습니다.
 
 이 예시는 세 가지 수치를 반환합니다:
 
 - **고유 열람(7일 롤링):** 7일 롤링 기간 동안의 고유 열람 수입니다.
 - **고유 열람(지정 기간 내):** 지정된 기간 내의 고유 열람 수입니다. 해당 기간 이전에 발생한 열람과는 무관합니다.
-- **고유 열람(동일 기간 내 전달된 이메일 대상):** 동일한 기간 내에 전달 이벤트도 발생한 이메일에 대한 고유 열람 수입니다(해당 기간에 전달된 메시지에 연결된 열람만 확인하려는 경우 유용합니다).
+- **고유 열람(동일 기간 내 전달된 이메일 대상):** 동일한 기간 내에 전달 이벤트도 발생한 이메일에 대한 고유 열람 수입니다.
 
 {% raw %}
 ```sql
@@ -213,16 +266,16 @@ GROUP BY email_address;
     Set or comment out variables if not required. These are set per session.
     You can obtain the from and to dates from the Campaign/Canvas/Canvas step URL. These are the startDate and endDate parameters.
 
-    For example, endDate=1656799199&startDate=1656194400
+    For example, endDate=1234567890&startDate=1234500000
 
     To run, select all of this code block (CMD + A) and run to first set the necessary variables and run the SELECT statements below.
 */
 
-SET fromDateTime = '1656194400';
-SET toDateTime = '1656799199';
+SET fromDateTime = '1234500000';
+SET toDateTime = '1234567890';
 -- SET campaignID = '';
 -- SET canvasID = '';
-SET canvasStepID = '61b0a249745a0c5ac67a11d3';
+SET canvasStepID = '0123456789abcdef01234567';
 
 SELECT
     'Unique Opens (over 7 days)' metric, COUNT(DISTINCT(user_id, dispatch_id)) total
@@ -272,6 +325,5 @@ WHERE
                 umed.time between $fromDateTime and $toDateTime);
 ```
 {% endraw %}
-
 {% endtab %}
 {% endtabs %}

@@ -21,7 +21,7 @@ Dynamic Optimisation, alimenté par Jacquard X, utilise Braze Currents et le Con
 | Compte Jacquard | Un [compte Jacquard](https://www.jacquard.com/) est nécessaire pour bénéficier de ce partenariat. |
 | Jeton du serveur de connexion Jacquard | Une longue chaîne de caractères qui servira de mot de passe à votre Campaign Braze pour accéder à votre langage Jacquard.<br><br>Vous pouvez en faire la demande auprès de votre gestionnaire de la satisfaction client Jacquard si vous ne l'avez pas encore reçu. |
 | Currents | Pour pouvoir exporter des données vers Currents, vous devez avoir configuré [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) pour votre compte. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 

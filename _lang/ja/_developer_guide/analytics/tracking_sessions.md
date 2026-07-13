@@ -22,14 +22,14 @@ Web SDKでセッションライフサイクルを効果的に管理するには�
 
 ### 非アクティブ状態の測定方法 {#how-inactivity-is-measured}
 
-Web SDKは[SDKがトラッキングするイベント]({{site.baseurl}}/user_guide/data/activation/custom_data/events/#events)に基づいて非アクティブ状態を追跡します。SDKは内部タイマーを維持しており、トラッキング対象のイベントが送信されるたびにリセットされます。設定されたタイムアウト期間内にSDKがトラッキングするイベントが発生しない場合、セッションは非アクティブと見なされ終了します。
+Web SDKは[SDKがトラッキングするイベント]({{site.baseurl}}/user_guide/data/activation/custom_data/events#events)に基づいて非アクティブ状態を追跡します。SDKは内部タイマーを維持しており、トラッキング対象のイベントが送信されるたびにリセットされます。設定されたタイムアウト期間内にSDKがトラッキングするイベントが発生しない場合、セッションは非アクティブと見なされ終了します。
 
 Web SDKにおけるセッションライフサイクルの実装方法の詳細については、[Braze Web SDK GitHubリポジトリ](https://github.com/braze-inc/braze-web-sdk/blob/master/src/session.ts)内のセッション管理ソースコードを参照してください。
 
 **デフォルトでアクティビティと見なされるもの：**
 - Webアプリを開くか更新する
-- Brazeが提供するUI要素（[アプリ内メッセージ]({{site.baseurl}}/developer_guide/in_app_messages/)や[Content Cards]({{site.baseurl}}/developer_guide/content_cards/)など）とのインタラクション
-- トラッキングイベント（[カスタムイベント]({{site.baseurl}}/developer_guide/analytics/logging_events/)や[ユーザー属性の更新]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)など）を送信するSDKメソッドの呼び出し
+- Brazeが提供するUI要素（[アプリ内メッセージ]({{site.baseurl}}/developer_guide/in_app_messages)や[Content Cards]({{site.baseurl}}/developer_guide/content_cards)など）とのインタラクション
+- トラッキングイベント（[カスタムイベント]({{site.baseurl}}/developer_guide/analytics/logging_events)や[ユーザー属性の更新]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)など）を送信するSDKメソッドの呼び出し
 
 **デフォルトではアクティビティとしてカウントされないもの：**
 - 別のブラウザタブへの切り替え
@@ -38,7 +38,7 @@ Web SDKにおけるセッションライフサイクルの実装方法の詳細�
 - ページ上のスクロールやマウスの動き
 
 {% alert note %}
-Web SDKは、ブラウザの表示状態の変化、タブの切り替え、またはユーザーのフォーカスを自動的にトラッキングしません。ただし、ブラウザの[Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)を使用してカスタムイベントリスナーを実装し、[カスタムイベント]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)をBrazeに送信することで、これらのブラウザレベルのインタラクションをトラッキングできます。実装例については、[カスタム非アクティブ状態のトラッキング](#tracking-custom-inactivity)を参照してください。
+Web SDKは、ブラウザの表示状態の変化、タブの切り替え、またはユーザーのフォーカスを自動的にトラッキングしません。ただし、ブラウザの[Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)を使用してカスタムイベントリスナーを実装し、[カスタムイベント]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)をBrazeに送信することで、これらのブラウザレベルのインタラクションをトラッキングできます。実装例については、[カスタム非アクティブ状態のトラッキング](#tracking-custom-inactivity)を参照してください。
 {% endalert %}
 
 ### セッションタイムアウトの設定 {#session-timeout-configuration}
@@ -57,7 +57,7 @@ Web SDKは、ブラウザの表示状態の変化、タブの切り替え、ま�
 
 ### カスタム非アクティブ状態のトラッキング {#tracking-custom-inactivity}
 
-ブラウザの可視性やタブの切り替えに基づいて非アクティブ状態をトラッキングする必要がある場合は、JavaScriptコードにカスタムイベントリスナーを実装してください。`visibilitychange`などのブラウザイベントを使用してユーザーがページを離れたタイミングを検知し、必要に応じて[カスタムイベント]({{site.baseurl}}/developer_guide/analytics/logging_events/)を手動でBrazeに送信するか、[`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession)を呼び出してください。
+ブラウザの可視性やタブの切り替えに基づいて非アクティブ状態をトラッキングする必要がある場合は、JavaScriptコードにカスタムイベントリスナーを実装してください。`visibilitychange`などのブラウザイベントを使用してユーザーがページを離れたタイミングを検知し、必要に応じて[カスタムイベント]({{site.baseurl}}/developer_guide/analytics/logging_events)を手動でBrazeに送信するか、[`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession)を呼び出してください。
 
 ```javascript
 // Example: Track when user switches away from tab
@@ -73,7 +73,7 @@ document.addEventListener('visibilitychange', function() {
 });
 ```
 
-カスタムイベントの記録に関する詳細は、[カスタムイベントの記録]({{site.baseurl}}/developer_guide/analytics/logging_events/)を参照してください。セッションのライフサイクルとタイムアウト設定の詳細については、[デフォルトのセッションタイムアウトの変更](#change-session-timeout)を参照してください。
+カスタムイベントの記録に関する詳細は、[カスタムイベントの記録]({{site.baseurl}}/developer_guide/analytics/logging_events)を参照してください。セッションのライフサイクルとタイムアウト設定の詳細については、[デフォルトのセッションタイムアウトの変更](#change-session-timeout)を参照してください。
 
 ## セッション更新のサブスクライブ {#subscribing-to-session-updates}
 
@@ -259,12 +259,12 @@ React Native SDKはセッション管理のためにネイティブSDKに依存�
 
 SDKの外部でユーザーが作成された場合、ユーザープロファイルのセッション数が0件になることがあります。
 
-- **REST APIで作成された場合：**[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントを通じてリクエストに`app_id`を含めてユーザーが作成された場合、プロファイルはそのアプリに関連付けられて表示されますが、そのユーザーに対してSDKが初期化されていないため、セッションデータはありません。
-- **CSVインポートで作成された場合：**初回セッションまたは最終セッションのフィールドに値を含めずに[CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)でユーザーがインポートされた場合、プロファイルはセッション数0件で存在します。
+- **REST APIで作成された場合：**[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントを通じてリクエストに`app_id`を含めてユーザーが作成された場合、プロファイルはそのアプリに関連付けられて表示されますが、そのユーザーに対してSDKが初期化されていないため、セッションデータはありません。
+- **CSVインポートで作成された場合：**初回セッションまたは最終セッションのフィールドに値を含めずに[CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)でユーザーがインポートされた場合、プロファイルはセッション数0件で存在します。
 
 ### 一部のユーザーがセッションを記録していない {#some-users-are-not-logging-sessions}
 
-セッションはSDKが初期化された後にのみトラッキングされるため、SDK初期化をトリガーしないユーザーはセッションを記録しません。これは通常、ログインフロー、同意プロンプト、またはフィーチャーフラグの背後で初期化を遅延させるなど、SDKを初期化する前に条件付きロジックを使用している場合に発生します。実装ガイダンスについては、[遅延初期化]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift)を参照してください。これらのケースでは、条件を満たさないユーザーはセッションを開始しません。
+セッションはSDKが初期化された後にのみトラッキングされるため、SDK初期化をトリガーしないユーザーはセッションを記録しません。これは通常、ログインフロー、同意プロンプト、またはフィーチャーフラグの背後で初期化を遅延させるなど、SDKを初期化する前に条件付きロジックを使用している場合に発生します。実装ガイダンスについては、[遅延初期化]({{site.baseurl}}/developer_guide/sdk_initalization?sdktab=swift)を参照してください。これらのケースでは、条件を満たさないユーザーはセッションを開始しません。
 
 一部のユーザーがセッションを記録し、他のユーザーが記録していない場合は、以下を確認してください。
 
@@ -276,6 +276,6 @@ SDKの外部でユーザーが作成された場合、ユーザープロファ�
 
 - 問題を再現する手順
 - 影響を受けるアプリのバージョン
-- 問題が発生している間にキャプチャした[詳細SDKログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)（またはプラットフォーム別：[Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_enabling-logs)、[Swift]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_setting-the-log-level)、[Web]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_logging)）
+- 問題が発生している間にキャプチャした[詳細SDKログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)（またはプラットフォーム別：[Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_enabling-logs)、[Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#swift_setting-the-log-level)、[Web]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#web_logging)）
 - SDK初期化のコードスニペット
 - 初期化前に適用されている条件付きロジックの概要

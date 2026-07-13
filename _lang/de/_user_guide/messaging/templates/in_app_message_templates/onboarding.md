@@ -2,7 +2,7 @@
 nav_title: "Onboarding-Flow"
 article_title: "Onboarding-Flow"
 alias: "/onboarding_flow/"
-page_order: 0
+page_order: 1
 description: "Diese Seite beschreibt, wie Sie neue Nutzer:innen willkommen heißen, ihnen die Vorteile näherbringen und sie mit einem überzeugenden Call-to-Action zu Handlungen motivieren."
 ---
 
@@ -28,11 +28,11 @@ Wenn Sie eine Drag-and-Drop-In-App-Nachricht erstellen, wählen Sie **Onboarding
 
 Um mit dem Aufbau Ihres Onboarding-Flows zu beginnen, verwenden Sie den Abschnitt **Pages**, um Nachrichten zu Ihrem Flow hinzuzufügen oder zu löschen. Nachdem Sie die gewünschte Anzahl an Nachrichten festgelegt haben, wählen Sie die Buttons auf jeder Seite aus. Verwenden Sie dann das Seitenmenü, um festzulegen, wohin Nutzer:innen gelangen, wenn sie den Button auswählen – ob sie den Flow verlassen oder zur nächsten Nachricht weitergeleitet werden.
 
-Stellen Sie sicher, dass Ihre Nachrichten in sequenzieller Reihenfolge verbunden sind, damit Nutzer:innen den Flow korrekt durchlaufen. Informationen dazu finden Sie unter [Seiten miteinander verbinden]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+Stellen Sie sicher, dass Ihre Nachrichten in sequenzieller Reihenfolge verbunden sind, damit Nutzer:innen den Flow korrekt durchlaufen. Informationen dazu finden Sie unter [Seiten miteinander verbinden]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### 4. Schritt: Nachricht gestalten {#step-4-style-your-message}
 
-Passen Sie das Erscheinungsbild Ihres Onboarding-Flows mithilfe der Drag-and-Drop-[In-App-Nachrichten-Komponenten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) an.
+Passen Sie das Erscheinungsbild Ihres Onboarding-Flows mithilfe der Drag-and-Drop-[In-App-Nachrichten-Komponenten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) an.
 
 ## Ergebnisse analysieren {#analyzing-the-results}
 

@@ -13,7 +13,7 @@ The following table shows which features require native configuration:
 | Custom notification factory | N/A | Configure in native Java/Kotlin |
 | Badge customization | Configure in native Swift/Objective-C | N/A |
 | Custom sounds | Configure in native Swift/Objective-C | Configure in native Java/Kotlin |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push customization in React Native" }
 
 ### iOS customization
 

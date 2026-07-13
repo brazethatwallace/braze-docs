@@ -18,7 +18,7 @@ Les trois ressources d'événements requises (activations, engagements et conver
 - **Les engagements** indiquent au modèle comment les clients ont réagi au message
 - **Les conversions** indiquent au modèle si le résultat commercial final a été atteint
 
-Chacune de ces ressources doit être structurée sous forme de flux d'événements incrémentiel (et non un instantané). Consultez [Instantanés versus flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) pour plus de détails.
+Chacune de ces ressources doit être structurée sous forme de flux d'événements incrémentiel (et non un instantané). Consultez [Instantanés versus flux d'événements]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) pour plus de détails.
 
 {% alert note %}
 Si Decisioning Studio est nativement intégré à votre plateforme d'engagement client (comme Braze ou Salesforce Marketing Cloud), les données d'activation et d'engagement peuvent être collectées automatiquement sans configuration supplémentaire. Consultez votre documentation de configuration pour confirmer.
@@ -57,7 +57,7 @@ Les données de conversion décrivent ce qui s'est passé pour le client après 
 | Chaque enregistrement possède un horodatage indiquant quand l'événement de conversion s'est produit | Un timing précis est essentiel pour l'attribution. Le modèle doit savoir à quelle recommandation une conversion peut être attribuée. |
 | Si vous utilisez un indicateur de réussite non binaire (par exemple, le chiffre d'affaires plutôt que converti ou non converti), la valeur de l'indicateur doit être incluse dans chaque enregistrement de conversion | Decisioning Studio utilise la valeur de l'indicateur pour générer des expériences d'entraînement. Sans cette valeur, le modèle peut uniquement apprendre qu'une conversion a eu lieu, mais pas sa valeur. |
 | Si les conversions peuvent être directement attribuées à une communication spécifique (par exemple, l'utilisation d'un coupon), incluez les champs nécessaires pour relier la conversion à l'enregistrement d'activation | L'attribution directe fournit au modèle le signal d'apprentissage le plus clair. Si l'attribution directe n'est pas possible, Decisioning Studio utilise une attribution basée sur la proximité comme solution de repli. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Données de conversion" }
 
 ## Ressources facultatives {#optional-assets}
 

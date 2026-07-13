@@ -20,23 +20,23 @@ Watch the following video for an optional overview of setting up and using multi
 {% tabs %}
 {% tab Multi-language locales %}
 
-{% multi_lang_include locales.md section='multi-language prerequisites' %}
+{% multi_lang_include messaging/localization/locales.md section='multi-language prerequisites' %}
 
 {% endtab %}
 {% tab Message types %}
 
 | Feature | Required user permissions |
 | --- | --- |
-| Message&nbsp;types | You need these permissions to add locales and translations to campaigns and Canvases:<br><br> {::nomarkdown}Granular permissions: <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul> Legacy permissions: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Message&nbsp;types | You need these permissions to add locales and translations to campaigns and Canvases:<br><br> <ul><li>Edit Campaigns</li><li>Edit Canvases</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites"}
 
 {% endtab %}
 {% tab Templates %}
 
 | Feature | Required user permissions |
 | --- | --- |
-| Templates | You need these permissions for the template type you want to add locales and translations to:<br><br> {::nomarkdown}Granular permissions: <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul> Legacy permissions: <ul><li>Access Campaigns, Canvases, Cards, Content Blocks, Feature Flags, Segments, Media Library, Locations, Promotion Codes, and Preference Centers</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Templates | You need these permissions for the template type you want to add locales and translations to:<br><br> <ul><li>Edit Email Templates</li><li>Edit IAM Templates</li><li>Edit Content Block Templates</li></ul>{:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% endtab %}
 {% endtabs %}
@@ -45,7 +45,7 @@ Watch the following video for an optional overview of setting up and using multi
 
 ### Step 1: Set up locales
 
-Before you can add translations to a message, you must first [create the locales you want to support]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/). Locales define the language (and optionally region) variants available for messaging. 
+Before you can add translations to a message, you must first [create the locales you want to support]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings). Locales define the language (and optionally region) variants available for messaging. 
 
 ### Step 2: Mark content for translation
 
@@ -69,7 +69,7 @@ Static URLs are entered manually in the editor (for example, `https://example.co
 | --- | --- |
 | Keep the protocol (`https://`) outside of translation tags. Wrap only the domain and path (for example, `example.com/en`). | Translators may accidentally alter or remove special characters, causing broken links. |
 | Do not include query parameters inside translation tags (for example, `?utm_source=promo`). | Translators may accidentally alter or remove special characters, resulting in broken links. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Standard (static) URLs" }
 
 A standard URL that follows both recommendations is:
 
@@ -87,7 +87,7 @@ If your URL is generated with Liquid (for example, {% raw %}`{% landing_page_url
 | --- | --- |
 | Wrap the Liquid-generated URL in translation tags only if it must be localized. | Liquid syntax must be carefully preserved to render correctly. |
 | Do not include query parameters (for example, `?utm_source=promo`) inside translation tags.  | Translators may accidentally alter or remove special characters, resulting in broken links. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Liquid-generated URLs" }
 
 A Liquid-generated URL that follows both recommendations is:
 
@@ -197,7 +197,7 @@ When you duplicate a Canvas step, campaign, or variation, translations are inclu
 
 ### Save translations in Content Blocks
 
-Content Blocks support multi-language in the same way as messages. When creating or editing Content Blocks, you can tag content for translation, add locales, and upload translations using a CSV or the [translation API]({{site.baseurl}}/api/endpoints/translations/).
+Content Blocks support multi-language in the same way as messages. When creating or editing Content Blocks, you can tag content for translation, add locales, and upload translations using a CSV or the [translation API]({{site.baseurl}}/api/endpoints/translations).
 
 Saved translations remain associated with the Content Block. When the block is added to a message, its translations are automatically included.
 
@@ -213,7 +213,7 @@ When filling in the translation file for languages that are written from right-t
 
 ### Email link tracking
 
-In email campaigns, Braze tracks links by adding tracking information (query parameters) to each URL. This behavior supports both [link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/) and [link templating]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template/).
+In email campaigns, Braze tracks links by adding tracking information (query parameters) to each URL. This behavior supports both [link aliasing]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) and [link templating]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
 
 When a URL is wrapped in translation tags, Braze may not be able to determine where to add this tracking information. To ensure this works correctly, you must include a special character at the end of the URL to indicate where tracking should be added.
 
@@ -227,33 +227,31 @@ URLs use two special characters to control how this works:
 | Standard URL | Yes | Use `&` at the end of the URL (after the closing translation tag) if it already contains `?`. | {% raw %}```<a href="https://{% translation id_1 %}example.com{% endtranslation %}?ref=4&">Shop Now</a>```{% endraw %} |
 | Liquid generated | No | Use `?` after the closing translation tags if the generated URL does not already contain one. | {% raw %}```<a href="{% translation id_1 %}{{ product_url }}{% endtranslation %}?">Shop Now</a>``` {% endraw %} |
 | Liquid generated | Yes | Use `&` after the closing translation tag if the generated URL already contains a `?`. | {% raw %}```<a href="{% translation id_1 %}{% landing_page_url xyz %}{% endtranslation %}&">Shop Now</a>```{% endraw %} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Email link tracking" }
 
-### Language settings and accessibility
+### Language settings and accessibility {#language-settings-and-accessibility}
 
-For HTML-based channels (email, in-app message, Banners, landing pages, and Content Cards), Braze adds an accessibility language (`lang`) attribute to the rendered message. This attribute helps assistive technologies like screen readers correctly interpret and pronounce text.
+Start with [Accessibility language]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) in [Accessibility]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) for WCAG context, channel and editor behavior (including landing pages), and message-level **Accessibility** settings.
 
-Without this, a screen reader assumes content is in the default language the user set on their device during setup. If the message is in a different language, the screen reader may not pronounce everything correctly.
+When you use **multi-language messages**, align accessibility language with each locale so localized sends declare the appropriate language.
 
-#### Configuring the accessibility language
+#### Configure the accessibility language {#configuring-the-accessibility-language}
 
-You can set the accessibility language at two levels:
+You can set accessibility language at two levels:
 
 ##### Message level
 
-In your message settings, go to the **Accessibility** section and select a language from the dropdown or use Liquid to dynamically set the accessibility language. This applies to all content in the message. 
+At the message level, set accessibility language in the **Accessibility** section of your message settings. For selecting a language, using Liquid, and limitations by channel, refer to [Accessibility language]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language).
 
 ##### Locale level
 
-For multi-language messages, set the accessibility language on each locale in **Localization Settings**. When new messages are created, {% raw %}`{{accessibility_language}}`{% endraw %} is selected by default in the **Accessibility** section. This maps the accessibility language to your locale settings.
+For multi-language messages, set accessibility language for each locale in **Localization Settings**. You can use {% raw %}`{{accessibility_language}}`{% endraw %} in the **Accessibility** section so document or card language maps to those locale values.
 
-#### Standards
-
-The accessibility language maps to the HTML `lang` attribute, a [WCAG 2.1 Level A requirement](https://dequeuniversity.com/rules/axe/4.2/html-has-lang) (Success Criterion 3.1.1). For multi-language content, you can also set the language on individual content blocks using the `lang` attribute directly in your HTML.
+Whether that token appears by default for new messages depends on the channel and editor. For example, in-app messages and Banners behave differently from landing pages and drag-and-drop emails. Refer to [Accessibility language]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) for details.
 
 ## Frequently asked questions
 
-#### What are the limits for translation tags?
+### What are the limits for translation tags?
 
 When using translation tags, the following limits apply:
 
@@ -281,7 +279,7 @@ Additionally, consider wrapping smaller, semantically-related pieces of text to 
 
 #### Can I make a change to the translated copy in one of my locales?
 
-Yes. If using a CSV, first make the edit in the file, then upload it again to make a change to the translated copy. If  using the [translation API]({{site.baseurl}}/api/endpoints/translations/), use the Update endpoints to make changes.
+Yes. If using a CSV, first make the edit in the file, then upload it again to make a change to the translated copy. If  using the [translation API]({{site.baseurl}}/api/endpoints/translations), use the Update endpoints to make changes.
 
 #### What validations or extra checks does Braze do?
 
@@ -298,4 +296,4 @@ Yes. If using a CSV, first make the edit in the file, then upload it again to ma
 | Translation tags contain full URLs or Liquid-generated URLs. | Translation tags containing URLs are identified in case issues with broken links or link tracking occur. |
 | Translation tags include query parameters. | Translation tags containing query parameters are identified in case issues with broken links or link tracking occur. |
 | Translation tags contain HTML attributes or structures. | Translation tags containing HTML attributes or structures are identified in case issues with styles and formatting occur. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What validations or extra checks does Braze do?" }

@@ -27,11 +27,11 @@ Before you start, you need the following:
 
 |Requirement     | Description |                        
 |-----------------------|-----------------|
-| A Fullstory Session API Authorization Token   | See Step 1 below. |
-| A Braze Connected Content Authorization Token enabled | See the note below on Early Access. |
-| A Braze Canvas Context step | See the note below on Early Access. |
-| Enabled Braze AI Agent step | See the note below on Early Access. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| A Fullstory Session API Authorization Token   | See Step 1 in this guide. |
+| A Braze Connected Content Authorization Token enabled | See the Early Access note in this section. |
+| A Braze Canvas Context step | See the Early Access note in this section. |
+| Enabled Braze AI Agent step | See the Early Access note in this section. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 {% alert important %}
 Braze Agents, Canvas Context, and Connected Content Authorization Tokens are all in Early Access. If you're interested in leveraging this solution, speak to your Braze CSM about enabling these tools.
@@ -151,7 +151,7 @@ At this stage, the Canvas can access the response to the Connected Content call,
 {% endraw %}
 {% enddetails %}
 
-You can leverage any of the data available in the object above using the context Liquid tag later in the user's Canvas journey. The following steps show how you can use this data in an [Agent]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step) step.
+You can leverage any of the data available in the preceding object using the context Liquid tag later in the user's Canvas journey. The following steps show how you can use this data in an [Agent]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/agent_step) step.
 
 {% alert note %}
 To avoid unexpected behavior, include an Audience Path step after the Context step, which can drop users out of the context if their Context tag is empty, indicating the Connected Content call failed or otherwise returned no information.
@@ -162,7 +162,7 @@ To avoid unexpected behavior, include an Audience Path step after the Context st
 
 ### Produce appropriate copy
 
-By creating an [Agent step]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) in a Canvas triggered by Fullstory, and including the Context step outlined above, you can reference Fullstory’s session summary data in the agent. 
+By creating an [Agent step]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents) in a Canvas triggered by Fullstory, and including the Context step described in this section, you can reference Fullstory’s session summary data in the agent. 
 
 In this example, you use this data to allow the Braze agent to generate appropriate message copy for use in a Content Card, which can encourage the user to return to their abandoned basket.
 

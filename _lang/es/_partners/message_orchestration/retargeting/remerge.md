@@ -27,19 +27,20 @@ La integración de Braze y Remerge te ayuda a desarrollar sólidas campañas de 
 | ID de la aplicación Android | Tu identificador único de aplicación Braze para Android (como "com.example"). |
 | ID de la aplicación iOS | Tu identificador único de aplicación Braze para iOS (como "012345678"). |
 | Habilitar la recopilación de IDFA en el SDK de Braze | La recopilación de IDFA es opcional dentro del SDK de Braze y está desactivada de forma predeterminada. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
 ### Paso 1: Crea tu plantilla de webhook en Braze {#step-1-create-your-braze-webhook-template}
 
-Para crear una plantilla de webhook de Remerge para futuras Campaigns o Canvas, navega a **Plantillas** > **Plantillas de Webhook** en la plataforma Braze.
+Para crear una plantilla de webhook de Remerge para futuras Campaigns o Canvas, ve a **Content** > **Webhook** en la plataforma Braze. Luego, selecciona **Create webhook template**.
 
-Si deseas crear una campaña de webhook de Remerge única o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva campaña.
+
+Si deseas crear una Campaign de webhook de Remerge única o utilizar una plantilla existente, selecciona **Webhook** en Braze al crear una nueva Campaign.
 
 En tu nueva plantilla de webhook, rellena los siguientes campos:
-- **Cuerpo de la solicitud**: Texto sin procesar
-- **URL del webhook**:
+- **Request Body**: Raw Text
+- **Webhook URL**:
 {% raw %}
 ```liquid
 {% assign event_name = 'your_remerge_event_name' %}
@@ -72,8 +73,8 @@ Braze no recopila automáticamente el IDFA/AAID del dispositivo, por lo que debe
 
 El webhook de Remerge requiere un método HTTP y un encabezado de solicitud.
 
-- **Método HTTP**: GET
-- **Encabezados de solicitud**:
+- **HTTP Method**: GET
+- **Request Headers**:
   - **Content-Type**: application/json
 
 ![Los encabezados de solicitud, el método HTTP y la vista previa del mensaje mostrados en el constructor de webhook de Braze.]({% image_buster /assets/img_archive/httpmethod_remerge.png %})
@@ -87,5 +88,5 @@ No es necesario definir un cuerpo de solicitud para este webhook.
 Previsualiza el mensaje para asegurarte de que la solicitud se muestra correctamente para los distintos usuarios. Recomendamos previsualizar y enviar solicitudes de prueba tanto para usuarios de Android como de iOS. Si la solicitud es correcta, la API responderá con `HTTP 204`.
 
 {% alert important %}
-Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Plantillas de Webhook guardadas** al crear una nueva [campaña de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
+Recuerda guardar tu plantilla antes de salir de la página. <br>Las plantillas de webhook actualizadas pueden encontrarse en la lista **Plantillas de Webhook guardadas** al crear una nueva [Campaign de webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/).
 {% endalert %}

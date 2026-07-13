@@ -8,7 +8,7 @@ description: "이 문서에서는 Braze 대시보드 내에서 이벤트 예측�
 
 # 이벤트 예측 생성 {#create-an-event-prediction}
 
-> 예측은 학습된 머신 러닝 모델의 한 인스턴스와 그 모델이 사용하는 모든 매개변수 및 데이터입니다. Predictive Events에 대해 자세히 알아보려면 [Predictive Events 개요]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/)를 참조하세요.
+> 예측은 학습된 머신 러닝 모델의 한 인스턴스와 그 모델이 사용하는 모든 매개변수 및 데이터입니다. Predictive Events에 대해 자세히 알아보려면 [Predictive Events 개요]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events)를 참조하세요.
 
 Braze에서 **Analytics** > **Predictive Events**로 이동합니다.
 
@@ -25,18 +25,18 @@ Braze에서 **Analytics** > **Predictive Events**로 이동합니다.
 {: start="2"}
 2. 예측에 고유한 이름을 지정하세요. 설명을 입력하여 관련 메모를 저장할 수도 있습니다.
 
-![]({% image_buster /assets/img/purchasePrediction/purchases_step1.png %})
+![1단계: 새 예측 생성과 관련된 스크린샷.]({% image_buster /assets/img/purchasePrediction/purchases_step1.png %})
 
 {: start="3"}
 3. **Forward**를 클릭하여 다음 단계로 이동합니다. <br><br>선택적으로 **지금 구축**을 클릭하여 모든 기본 설정을 사용하고 마지막 생성 단계로 건너뛸 수 있습니다. 빌드 프로세스를 시작하기 전에 설정을 검토할 수 있습니다. 또한 상단 바에서 해당 단계를 클릭하여 나중에 원하는 단계로 돌아갈 수 있습니다.
 
 ## 2단계: 이벤트 추적 지정 {#event-tracking}
 
-사용자의 이벤트가 Braze에 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/), [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) 또는 [주문 완료 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed) 중 어떤 형태로 저장되는지 지정합니다.
+사용자의 이벤트가 Braze에 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events) 또는 [주문 완료 이벤트]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed) 중 어떤 형태로 저장되는지 지정합니다.
 
 여기에서 선택한 방법이 Braze가 머신 러닝 모델을 생성하기에 충분한 데이터를 제공하는지 확인할 수 있습니다. 요구 사항이 충족되지 않으면 애플리케이션에서 사용하는 다른 로깅 방법을 선택해 보세요. 안타깝게도 그렇지 않은 경우, Braze는 사용 가능한 데이터의 양으로 예측을 생성할 수 없습니다. 이 오류가 잘못 표시되고 있다고 생각되면 고객 성공 매니저에게 문의하세요.
 
-#### 이벤트 기간 {#event-window}
+### 이벤트 기간 {#event-window}
 
 이벤트 기간은 사용자가 이벤트를 수행할지 여부를 예측하려는 시간 프레임입니다. 최대 60일까지 설정할 수 있습니다. 이 기간은 예측 학습을 위해 과거 데이터를 쿼리하는 데 사용됩니다. 또한 예측이 생성되고 사용자가 점수를 받은 후, 가능성 점수는 사용자가 이벤트 기간에 지정된 일수 내에 이벤트를 수행할 가능성이 얼마나 되는지를 나타냅니다.
 
@@ -76,7 +76,7 @@ Braze에서 **Analytics** > **Predictive Events**로 이동합니다.
 
 ### 5단계: 예측 구축 {#step-5-build-prediction}
 
-입력한 세부 정보가 정확한지 확인한 후 **Build Prediction**을 선택합니다. **Save As Draft**를 선택하여 변경 사항을 초안 형태로 저장하고 이 페이지로 돌아와 나중에 모델을 빌드할 수도 있습니다.
+입력한 세부 정보가 정확한지 확인한 후 **Build Prediction**을 선택합니다. **임시저장**을 선택하여 변경 사항을 초안 형태로 저장하고 이 페이지로 돌아와 나중에 모델을 빌드할 수도 있습니다.
 
 **Build Prediction**을 클릭하면 모델을 생성하는 프로세스가 시작됩니다. 데이터 양에 따라 30분에서 몇 시간 정도 소요될 수 있습니다. 이 예측의 경우 모델 구축 프로세스 기간 동안 학습이 진행 중임을 설명하는 페이지가 표시됩니다. Braze 모델은 커스텀 이벤트, 구매 이벤트, eCommerce 이벤트, Campaign 상호작용 이벤트 및 세션 데이터를 고려합니다.
 

@@ -14,17 +14,18 @@ search_tag: Partner
 
 Der eingehende Webhook von Front enthält eine Nutzlast mit der vom Live-Agenten gesendeten Nachricht. Die Anfrage muss neu formatiert werden, bevor sie von Braze-Endpunkten akzeptiert werden kann. Das Front-Datentransformations-Template formatiert die Nutzlast um und schreibt ein angepasstes Event mit dem Titel **Outbound SMS Sent** in das Nutzerprofil, wobei der Nachrichtentext als Event-Eigenschaft übergeben wird.
 
-Bevor Sie eine neue Transformation in Braze einrichten, empfehlen wir Ihnen, die Support-Matrix für jede Ebene in unserer Dokumentation zur [Datentransformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/) zu lesen. Unsere Free- und Pro-Tiers bieten eine unterschiedliche Anzahl aktiver Transformationen und eingehender Anfragen pro Monat. Vergewissern Sie sich, dass Ihr aktueller Plan Ihren Anwendungsfall unterstützen kann.
+Bevor Sie eine neue Transformation in Braze einrichten, empfehlen wir Ihnen, die Support-Matrix für jede Ebene in unserer Dokumentation zur [Datentransformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) zu lesen. Unsere Free- und Pro-Tiers bieten eine unterschiedliche Anzahl aktiver Transformationen und eingehender Anfragen pro Monat. Vergewissern Sie sich, dass Ihr aktueller Plan Ihren Anwendungsfall unterstützen kann.
 
 ## Voraussetzungen {#prerequisites}
 
 Bevor Sie beginnen, benötigen Sie Folgendes:
 
-| Voraussetzung             | Beschreibung                                                               |
+| Voraussetzung | Beschreibung |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| Ein Front-Konto            | Um diese Partnerschaft zu nutzen, ist ein Front-Konto erforderlich.|
-| Braze-Datentransformations-Webhook-URL | Die [Braze-Datentransformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/) wird verwendet, um den eingehenden Webhook von Front so umzuformatieren, dass er vom Braze-Endpunkt /users/track akzeptiert werden kann.|
-| Ein Front-REST-API-Schlüssel         | Ein Front-REST-API-Schlüssel wird verwendet, um eine ausgehende Webhook-Anfrage von Braze an Front zu stellen. |
+| Ein Front-Konto | Um diese Partnerschaft zu nutzen, ist ein Front-Konto erforderlich. |
+| Braze-Datentransformations-Webhook-URL | Die [Braze-Datentransformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) wird verwendet, um den eingehenden Webhook von Front so umzuformatieren, dass er vom Braze-Endpunkt /users/track akzeptiert werden kann. |
+| Ein Front-REST-API-Schlüssel | Ein Front-REST-API-Schlüssel wird verwendet, um eine ausgehende Webhook-Anfrage von Braze an Front zu stellen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -33,13 +34,13 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 ## Front integrieren {#integrating-front}
 
-### 1. Schritt: Datentransformation erstellen {#step-1-set-up-a-data-transformation-in-braze}
+### 1. Schritt: Datentransformation erstellen {#step-1-create-a-data-transformation}
 
-Zunächst erstellen Sie eine neue Datentransformation in Braze. Die folgenden Schritte sind vereinfacht. Eine vollständige Anleitung finden Sie unter [Transformation erstellen]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation/).
+Zunächst erstellen Sie eine neue Datentransformation in Braze. Die folgenden Schritte sind vereinfacht. Eine vollständige Anleitung finden Sie unter [Transformation erstellen]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
 
-1. Gehen Sie in Braze zu **Dateneinstellungen** > **Datentransformationen** und wählen Sie dann **Transformation erstellen**.
-2. Wählen Sie unter **Bearbeitungserfahrung** die Option **Von Grund auf neu beginnen**.
-3. Wählen Sie unter **Ziel auswählen** die Option **POST: Nutzer:innen tracken**.
+1. Gehen Sie in Braze zu **Dateneinstellungen** > **Data Transformations** und wählen Sie dann **Create Transformation**.
+2. Wählen Sie unter **Editing Experience** die Option **Start from scratch**.
+3. Wählen Sie unter **Select Destination** die Option **POST: Track Users**.
 4. Kopieren Sie das folgende Transformations-Template, fügen Sie es ein, speichern und aktivieren Sie den Endpunkt.
     {% raw %}
     ```liquid
@@ -72,12 +73,10 @@ Zunächst erstellen Sie eine neue Datentransformation in Braze. Die folgenden Sc
     ```
     {% endraw %}
 
-    Ihre Transformation sollte in etwa so aussehen:
-
-    ![Ein Beispiel für eine Datentransformation.]({% image_buster /assets/img/front/data_transformation.png %})
+    Ihre Transformation sollte dem JavaScript-Beispiel oben entsprechen; passen Sie Eigenschaftsnamen und Pfade an die Payload Ihres Front-Webhooks an.
 
 {% alert tip %}
-Sie können dieses Template an Ihre speziellen Bedürfnisse anpassen. Sie können zum Beispiel den voreingestellten Namen des angepassten Events ändern. Weitere Informationen finden Sie unter [Übersicht über Datentransformationen]({{site.baseurl}}/user_guide/data/unification/data_transformation/).
+Sie können dieses Template an Ihre speziellen Bedürfnisse anpassen. Sie können zum Beispiel den voreingestellten Namen des angepassten Events ändern. Weitere Informationen finden Sie unter [Übersicht über Datentransformationen]({{site.baseurl}}/user_guide/data/unification/data_transformation).
 {% endalert %}
 
 ### 2. Schritt: Ausgehende SMS-Campaign erstellen {#step-2-create-an-outbound-sms-campaign}
@@ -86,7 +85,7 @@ Als Nächstes erstellen Sie eine SMS-Campaign, die auf Webhooks von Front wartet
 
 #### Schritt 2.1: Nachricht verfassen {#step-21-compose-your-message}
 
-Fügen Sie in das Textfeld **Nachricht** den folgenden Liquid-Code ein, zusammen mit einer Opt-out-Sprache oder anderen statischen Inhalten.
+Fügen Sie in das Textfeld **Message** den folgenden Liquid-Code ein, zusammen mit einer Opt-out-Sprache oder anderen statischen Inhalten.
 
 {% raw %}
 ```liquid
@@ -98,7 +97,7 @@ Ihre Nachricht sollte in etwa so aussehen:
 
 ![Eine Beispielnachricht mit Liquid-Code.]({% image_buster /assets/img/front/sms_to_braze.png %}){: style="max-width:80%;"}
 
-#### 2.2 Zustellung planen {#22-schedule-the-delivery}
+#### 2.2 Zustellung planen {#22-schedule-the-delivery} {#22-schedule-the-delivery}
 
 Wählen Sie als Zustellungstyp **Aktionsbasierte Zustellung** und dann als angepassten Event-Trigger **Outbound SMS Sent**.
 
@@ -108,21 +107,21 @@ Wählen Sie als Zustellungstyp **Aktionsbasierte Zustellung** und dann als angep
 Bei diesem angepassten Event handelt es sich um die Datentransformation, die in das Profil der Nutzer:innen geschrieben wird. Nachrichten von Agenten werden als Event-Eigenschaft dieses Events gespeichert.
 {% endalert %}
 
-Aktivieren Sie abschließend unter **Zustellungs-Kontrollgruppen** die Wiederzulassung.
+Aktivieren Sie abschließend unter **Zustellungssteuerung** die Wiederzulassung.
 
-![Wiederzulassung aktiviert unter „Zustellungs-Kontrollgruppen“.]({% image_buster /assets/img/front/braze_reeligibility.png %})
+![Wiederzulassung aktiviert unter „Zustellungssteuerung“.]({% image_buster /assets/img/front/braze_reeligibility.png %})
 
-### 3. Schritt: Angepassten Kanal erstellen {#step-3-configure-the-settings-for-your-new-custom-braze-channel}
+### 3. Schritt: Angepassten Kanal erstellen {#step-3-create-a-custom-channel}
 
-Gehen Sie im Front-Dashboard zu **Einstellungen** > **Kanäle** > **Kanäle hinzufügen**, wählen Sie dann **Benutzerdefinierter Kanal** und geben Sie einen Namen für Ihren neuen Braze-Kanal ein.
+Gehen Sie im Front-Dashboard zu **Settings** > **Channels** > **Add Channels**, wählen Sie dann **Custom Channel** und geben Sie einen Namen für Ihren neuen Braze-Kanal ein.
 
 ![Ein angepasster Kanal für Braze im Front-Dashboard.]({% image_buster /assets/img/front/front_custom_channel.png %})
 
 ### 4. Schritt: Einstellungen konfigurieren {#step-4-configure-the-settings}
 
-Geben Sie im Feld für den ausgehenden API-Endpunkt die Datentransformations-Webhook-URL ein, [die Sie zuvor erstellt haben](#step-1-set-up-a-data-transformation-in-braze). Alle ausgehenden Nachrichten von Live-Agenten auf Ihrem neuen Braze-Kanal werden hierher gesendet. Dieser Kanal stellt auch eine Endpunkt-URL bereit, an die Braze SMS-Nachrichten im Feld **Eingehende URL** weiterleiten kann.
+Geben Sie im Feld für den ausgehenden API-Endpunkt die Datentransformations-Webhook-URL ein, [die Sie zuvor erstellt haben](#step-1-set-up-a-data-transformation-in-braze). Alle ausgehenden Nachrichten von Live-Agenten auf Ihrem neuen Braze-Kanal werden hierher gesendet. Dieser Kanal stellt auch eine Endpunkt-URL bereit, an die Braze SMS-Nachrichten im Feld **Incoming URL** weiterleiten kann.
 
-Notieren Sie sich diese URL – Sie werden sie später benötigen.
+Notieren Sie sich diese URL&#8212;Sie werden sie später benötigen.
 
 ![Die Kanaleinstellungen für den neu erstellten Braze-Kanal in Front.]({% image_buster /assets/img/front/front_custom_channel2.png %}){: style="max-width:65%;"}
 
@@ -130,22 +129,22 @@ Notieren Sie sich diese URL – Sie werden sie später benötigen.
 
 Als Nächstes erstellen Sie zwei neue Webhook-Campaigns in Braze, damit Sie eingehende SMS von Kund:innen an den Posteingang von Front weiterleiten können.
 
-|Nummer|Zweck|
+| Nummer | Zweck |
 |---|---|
-|Webhook-Campaign 1|Signalisiert Front, dass ein Live-Chat-Gespräch angefragt wird.|
-|Webhook-Campaign 2|Leitet alle vom Kunden eingehenden SMS-Antworten an den Posteingang von Front weiter.|
-{: .reset-td-br-1 .reset-td-br-2 }
+| Webhook-Campaign 1 | Signalisiert Front, dass ein Live-Chat-Gespräch angefragt wird. |
+| Webhook-Campaign 2 | Leitet alle vom Kunden eingehenden SMS-Antworten an den Posteingang von Front weiter. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 5: Eingehende SMS-Weiterleitung einrichten" }
 
 #### Schritt 5.1: SMS-Schlüsselwortkategorie erstellen {#step-51-create-an-sms-keyword-category}
 
-Gehen Sie im Braze-Dashboard auf **Zielgruppe**, wählen Sie Ihre **SMS-Abo-Gruppe** und wählen Sie dann **Benutzerdefiniertes Schlüsselwort hinzufügen**. Um eine exklusive SMS-Schlüsselwortkategorie für Front zu erstellen, füllen Sie die folgenden Felder aus.
+Gehen Sie im Braze-Dashboard auf **Zielgruppe**, wählen Sie Ihre **SMS-Abo-Gruppe** und wählen Sie dann **Add Custom Keyword**. Um eine exklusive SMS-Schlüsselwortkategorie für Front zu erstellen, füllen Sie die folgenden Felder aus.
 
-|Feld|Beschreibung|
+| Feld | Beschreibung |
 |---|---|
-|Schlüsselwortkategorie|Der Name Ihrer Schlüsselwortkategorie, z. B. `FrontSMS1`.|
-|Schlüsselwörter|Ihre angepassten Schlüsselwörter, z. B. `TIMETOMOW`. Vermeiden Sie gebräuchliche Wörter, um versehentliche Trigger zu vermeiden. Beachten Sie, dass bei Schlüsselwörtern die Groß- und Kleinschreibung keine Rolle spielt – `lawn` würde also auf `LAWN` passen.|
-|Antwortnachricht|Die Nachricht, die gesendet wird, wenn ein Schlüsselwort erkannt wird, z. B. „Ein Landschaftsgärtner wird sich in Kürze bei Ihnen melden.“|
-{: .reset-td-br-1 .reset-td-br-2 }
+| Keyword Category | Der Name Ihrer Schlüsselwortkategorie, z. B. `FrontSMS1`. |
+| Keywords | Ihre angepassten Schlüsselwörter, z. B. `TIMETOMOW`. Vermeiden Sie gebräuchliche Wörter, um versehentliche Trigger zu vermeiden. Beachten Sie, dass bei Schlüsselwörtern die Groß- und Kleinschreibung keine Rolle spielt – `lawn` würde also auf `LAWN` passen. |
+| Reply Message | Die Nachricht, die gesendet wird, wenn ein Schlüsselwort erkannt wird, z. B. „Ein Landschaftsgärtner wird sich in Kürze bei Ihnen melden.“ |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 5.1: SMS-Schlüsselwortkategorie erstellen" }
 
 ![Ein Beispiel für eine SMS-Schlüsselwortkategorie in Braze.]({% image_buster /assets/img/front/front_keyword.png %}){: style="max-width:65%;"}
 
@@ -182,43 +181,43 @@ Konfigurieren Sie auf dem Tab „Einstellungen“ die Anfrage-Header `Authorizat
 
 #### Schritt 5.3: Erste Zustellung planen {#step-53-schedule-the-first-delivery}
 
-Wählen Sie für **Zustellung planen** die Option **Aktionsbasierte Zustellung** und dann als Trigger-Typ **Eingehende SMS-Nachricht senden**. Fügen Sie außerdem die SMS-Abo-Gruppe und die Schlüsselwortkategorie hinzu, die Sie [zuvor eingerichtet haben](#step-51-create-an-sms-keyword-category).
+Wählen Sie für **Zustellung planen** die Option **Aktionsbasierte Zustellung** und dann als Trigger-Typ **Send an SMS Inbound Message**. Fügen Sie außerdem die SMS-Abo-Gruppe und die Schlüsselwortkategorie hinzu, die Sie [zuvor eingerichtet haben](#step-51-create-an-sms-keyword-category).
 
 ![Die Seite „Zustellung planen“ für die erste Webhook-Campaign.]({% image_buster /assets/img/front/front_actionbased_keyword.png %})
 
-Aktivieren Sie unter **Zustellungs-Kontrollgruppen** die Wiederzulassung.
+Aktivieren Sie unter **Zustellungssteuerung** die Wiederzulassung.
 
-![Wiederzulassung ausgewählt unter „Zustellungs-Kontrollgruppen“ für die erste Webhook-Campaign.]({% image_buster /assets/img/front/braze_reeligibility.png %})
+![Wiederzulassung ausgewählt unter „Zustellungssteuerung“ für die erste Webhook-Campaign.]({% image_buster /assets/img/front/braze_reeligibility.png %})
 
 #### Schritt 5.4: Zweite Webhook-Campaign erstellen {#step-54-create-your-second-webhook-campaign}
 
-Da Ihre zweite Webhook-Campaign mit der ersten übereinstimmt, können Sie [die erste duplizieren und umbenennen]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns/#duplicating-segments-or-campaigns).
+Da Ihre zweite Webhook-Campaign mit der ersten übereinstimmt, können Sie [die erste duplizieren und umbenennen]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/duplicating_segments_and_campaigns#duplicating-segments-or-campaigns).
 
 #### Schritt 5.5: Zweite Zustellung planen {#step-55-schedule-the-second-delivery}
 
-Legen Sie für **Zustellung planen** den **aktionsbasierten Trigger** und die **SMS-Abo-Gruppe** genauso fest wie bei [der ersten Zustellung](#step-53-schedule-the-first-delivery). Wählen Sie jedoch für die **Schlüsselwortkategorie** die Option **Andere**.
+Legen Sie für **Zustellung planen** den **aktionsbasierten Trigger** und die **SMS-Abo-Gruppe** genauso fest wie bei [der ersten Zustellung](#step-53-schedule-the-first-delivery). Wählen Sie jedoch für die **Keyword Category** die Option **Other**.
 
-![Die Seite „Zustellung planen“ für die zweite Webhook-Campaign, wobei als Schlüsselwortkategorie „Andere“ gewählt wurde.]({% image_buster /assets/img/front/front_actionbased_other_keyword.png %})
+![Die Seite „Zustellung planen“ für die zweite Webhook-Campaign, wobei als Schlüsselwortkategorie „Other“ gewählt wurde.]({% image_buster /assets/img/front/front_actionbased_other_keyword.png %})
 
-#### Schritt 5.6: Zielgruppen-Filter hinzufügen {#step-56-add-an-audience-filter}
+#### Schritt 5.6: Zielgruppenfilter hinzufügen {#step-56-add-an-audience-filter}
 
-Ihre Webhook-Campaign kann jetzt eingehende SMS-Antworten Ihrer Kund:innen weiterleiten. Um SMS-Antworten zu filtern, sodass nur Nachrichten für Live-Chats weitergeleitet werden, fügen Sie den Segmentierungsfilter **Zuletzt empfangene Nachricht von bestimmter Campaign** zum **Schritt „Zielgruppen“** hinzu.
+Ihre Webhook-Campaign kann jetzt eingehende SMS-Antworten Ihrer Kund:innen weiterleiten. Um SMS-Antworten zu filtern, sodass nur Nachrichten für Live-Chats weitergeleitet werden, fügen Sie den Segmentierungsfilter **Last Received Message From Specific Campaign** zum Schritt **Zielgruppe** hinzu.
 
-![Ein Zielgruppen-Filter mit der Auswahl „Zuletzt empfangene Nachricht von bestimmter Campaign“.]({% image_buster /assets/img/front/front_segment_last_received_message.png %}){: style="max-width:65%;"}
+![Ein Zielgruppenfilter mit der Auswahl „Last Received Message From Specific Campaign“.]({% image_buster /assets/img/front/front_segment_last_received_message.png %}){: style="max-width:65%;"}
 
 Konfigurieren Sie dann Ihren Filter:
 
 1. Wählen Sie unter **Campaign** die SMS-Campaign aus, [die Sie zuvor erstellt haben](#step-2-create-an-outbound-sms-campaign).
-2. Wählen Sie für **Operator** die Option **Kleiner als**.
-3. Wählen Sie für **Zeitfenster** die Zeitspanne, die ein Chat ohne Antwort der Kund:innen geöffnet bleiben soll.
+2. Wählen Sie für **Operator** die Option **Less Than**.
+3. Wählen Sie für **Time Window** die Zeitspanne, die ein Chat ohne Antwort der Kund:innen geöffnet bleiben soll.
 
-![Die Konfigurationseinstellungen für den ausgewählten Zielgruppen-Filter.]({% image_buster /assets/img/front/front_target_audience.png %})
+![Die Konfigurationseinstellungen für den ausgewählten Zielgruppenfilter.]({% image_buster /assets/img/front/front_target_audience.png %})
 
 ## Überlegungen {#considerations}
 
 ### Abrechenbare Segmente {#billable-segments}
 
-- SMS-Nachrichten werden bei Braze pro Nachrichten-Segment berechnet. Wenn Sie verstehen, was ein Segment definiert und wie diese Nachrichten aufgeteilt werden, können Sie besser nachvollziehen, wie Ihnen Nachrichten in Rechnung gestellt werden. Weitere Informationen finden Sie in unserer [Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/).
+- SMS-Nachrichten werden bei Braze pro Nachrichtensegment berechnet. Wenn Sie verstehen, was ein Segment definiert und wie diese Nachrichten aufgeteilt werden, können Sie besser nachvollziehen, wie Ihnen Nachrichten in Rechnung gestellt werden. Weitere Informationen finden Sie in unserer [Dokumentation]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Lange Agentenantworten verbrauchen mehr abrechenbare Segmente.
 
 ### Datenpunkte protokollieren {#logging-data-points}

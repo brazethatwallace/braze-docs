@@ -1,49 +1,49 @@
 ---
-nav_title: "PUBLICAR: Crear varios elementos del catálogo"
-article_title: "PUBLICAR: Crear varios elementos de catálogo"
+nav_title: "POST: Crear varios elementos del catálogo"
+article_title: "POST: Crear varios elementos del catálogo"
 search_tag: Endpoint
 page_order: 3
 
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto final Crear varios elementos del catálogo de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Crear varios elementos del catálogo de Braze."
 
 ---
 {% api %}
-# Crear varios elementos del catálogo
+# Crear varios elementos del catálogo {#create-multiple-catalog-items}
 {% apimethod post %}
 /catalogs/{catalog_name}/items
 {% endapimethod %}
 
-> Utiliza este punto final para crear varios elementos en tu catálogo.
+> Utiliza este punto de conexión para crear varios elementos en tu catálogo.
 
-Cada solicitud puede admitir hasta 50 elementos. Este punto final es asíncrono.
+Cada solicitud puede admitir hasta 50 elementos. Este punto de conexión es asíncrono.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#cea18bb3-b83a-4160-81fe-8cd42aa6e7cc {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto final, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.add_items`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.add_items`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog item' %}
 
-## Parámetros de la ruta
+## Parámetros de ruta {#path-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `catalog_name` | Obligatoria | Cadena | Nombre del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de ruta" }
 
-## Parámetros de la solicitud
+## Parámetros de la solicitud {#request-parameters}
 
-| Parámetro | Obligatoria | Tipo de datos | Descripción |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
-| `items` | Obligatoria | Matriz | Un array que contiene objetos item. Los objetos de artículo deben contener todos los campos del catálogo. Se permite un máximo de 50 objetos por solicitud. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
+| `items` | Obligatorio | Matriz | Un array que contiene objetos de elementos. Los objetos de elementos deben contener todos los campos del catálogo. Se permite un máximo de 50 objetos de elementos por solicitud. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```
 curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restaurants/items' \
@@ -58,9 +58,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 5,
       "Loyalty_Program": true,
-      "Location": {
-        "Latitude": 33.6112,
-        "Longitude": -117.8711
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hamburger",
@@ -75,9 +76,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 10,
       "Loyalty_Program": true,
-      "Location": {
-        "Latitude": 40.7413,
-        "Longitude": -73.9764
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Hot Dog",
@@ -92,9 +94,10 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
       "Cuisine": "American",
       "Rating": 3,
       "Loyalty_Program": false,
-      "Location": {
-        "Latitude": 40.7489,
-        "Longitude": -73.9972
+      "Location": [-73.988103, 40.779109],
+      "Preferences": {
+        "favorite_brand": "Nike",
+        "shirt_size": "L"
       },
       "Top_Dishes": [
         "Buffalo Wings",
@@ -106,11 +109,15 @@ curl --location --request POST 'https://rest.iad-03.braze.com/catalogs/restauran
 }'
 ```
 
-## Respuesta
+{% alert note %}
+El campo `Location` utiliza el tipo de datos `geo`, que espera un array con el formato `[longitude, latitude]`.
+{% endalert %}
 
-Existen tres respuestas de código de estado para este punto final: `202`, `400` y `404`.
+## Respuesta {#response}
 
-### Ejemplo de respuesta positiva
+Existen tres respuestas de código de estado para este punto de conexión: `202`, `400` y `404`.
+
+### Ejemplo de respuesta correcta {#example-success-response}
 
 El código de estado `202` podría devolver el siguiente cuerpo de respuesta.
 
@@ -120,9 +127,9 @@ El código de estado `202` podría devolver el siguiente cuerpo de respuesta.
 }
 ```
 
-### Ejemplo de respuesta de error
+### Ejemplo de respuesta de error {#example-error-response}
 
-El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulte la sección [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puede encontrar.
+El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Consulta [Solución de problemas](#troubleshooting) para obtener más información sobre los errores que puedes encontrar.
 
 ```json
 {
@@ -142,25 +149,25 @@ El código de estado `400` podría devolver el siguiente cuerpo de respuesta. Co
 }
 ```
 
-## Solución de problemas
+## Solución de problemas {#troubleshooting}
 
 La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados para la solución de problemas.
 
 | Error | Solución de problemas |
 | --- | --- |
-| `catalog-not-found` | Compruebe que el nombre del catálogo es válido. |
-| `ids-not-strings` | Los ID de artículo deben ser de tipo cadena. |
-| `ids-not-unique` | Los ID de los artículos deben ser únicos en la solicitud. |
-| `ids-too-large` | Los ID de los artículos no pueden tener más de 250 caracteres. |
+| `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
+| `ids-not-strings` | Los ID de elementos deben ser de tipo cadena. |
+| `ids-not-unique` | Los ID de los elementos deben ser únicos en la solicitud. |
+| `ids-too-large` | Los ID de los elementos no pueden tener más de 250 caracteres. |
 | `invalid-ids` | Los ID de elementos solo pueden incluir letras, números, guiones y guiones bajos. |
-| `invalid-fields` | Confirme que todos los campos que está enviando en la solicitud API ya existen en el catálogo. Esto no está relacionado con el campo ID mencionado en el error. |
-| `invalid-keys-in-value-object` | Las claves de objeto de artículo no pueden incluir `.` ni `$`. |
+| `invalid-fields` | Confirma que todos los campos que envías en la solicitud de API ya existen en el catálogo. Esto no está relacionado con el campo ID mencionado en el error. |
+| `invalid-keys-in-value-object` | Las claves de objeto de elemento no pueden incluir `.` ni `$`. |
 | `item-array-invalid` | `items` debe ser un array de objetos. |
-| `items-missing-ids` | Algunos artículos no tienen ID de artículo. Compruebe que cada artículo tiene un ID de artículo. |
+| `items-missing-ids` | Algunos elementos no tienen ID de elemento. Comprueba que cada elemento tiene un ID de elemento. |
 | `items-too-large` | Los valores de los elementos no pueden superar los 5.000 caracteres. |
-| `request-includes-too-many-items` | Su solicitud tiene demasiados elementos. El límite de elementos por solicitud es de 50. |
-| `too-deep-nesting-in-value-object` | Los objetos item no pueden tener más de 50 niveles de anidamiento. |
-| `unable-to-coerce-value` | Los tipos de artículo no se pueden convertir. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `request-includes-too-many-items` | Tu solicitud tiene demasiados elementos. El límite de elementos por solicitud es de 50. |
+| `too-deep-nesting-in-value-object` | Los objetos de elementos no pueden tener más de 50 niveles de anidamiento. |
+| `unable-to-coerce-value` | Los tipos de elementos no se pueden convertir. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

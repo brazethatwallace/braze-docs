@@ -51,7 +51,7 @@ If a sending domain is also used as a bounce domain, you won't be able to store 
 |----------|-----------------------------|-----------------------------------------------|
 | US       | `smtp.sparkpostmail.com`    | `"v=spf1 redirect=_spf.sparkpostmail.com"`    |
 | EU       | `smtp.eu.sparkpostmail.com` | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="When the sending domain is also the bounce domain" }
 
 {% alert important %}
 To avoid SPF failures, you must create the MX and TXT records and have them propagated in the DNS **before** deleting the CNAME record.
@@ -80,4 +80,4 @@ Confirm your DKIM/SPF matches what you register per the instructions linked.
 {% endtab %}
 {% endtabs %}
 
-If you have any further questions, open a [support ticket]({{site.baseurl}}/braze_support/).
+If you have any further questions, open a [support ticket]({{site.baseurl}}/braze_support).

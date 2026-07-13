@@ -1,6 +1,6 @@
 ---
 nav_title: Enviar e-mails para o Apple Private Relay
-article_title: Envio de e-mails para o Apple Private Relay
+article_title: Enviar e-mails para o Apple Private Relay
 alias: /email_relay/
 page_order: 0
 description: "Este artigo aborda o processo de envio de e-mails para o Apple Private Relay."
@@ -9,7 +9,7 @@ channel:
 toc_headers: h2
 ---
 
-# Enviar e-mails para o Apple Private Relay
+# Enviar e-mails para o Apple Private Relay {#send-emails-to-apple-private-relay}
 
 > O recurso de login único (SSO) da Apple permite que seus usuários compartilhem seus endereços de e-mail (`example@icloud.com`) ou ocultem seus endereços de e-mail mascarando o que é fornecido às marcas (`tq1234snin@privaterelay.appleid.com`) em vez do endereço de e-mail pessoal. A Apple encaminhará as mensagens enviadas para os endereços de relay para o endereço de e-mail real do usuário.
 
@@ -17,7 +17,7 @@ Para enviar e-mails para o relay de e-mail privado da Apple, registre seus domí
 
 Se um usuário decidir desativar o encaminhamento de e-mail para o e-mail de relay do seu app, a Braze receberá informações de bounce de e-mail normalmente. Esses usuários podem gerenciar os apps que usam o login com a Apple na página de configurações do Apple ID (consulte a [documentação da Apple](https://support.apple.com/en-us/HT210426)).
 
-## Configurar o provedor de e-mail
+## Configurar o provedor de e-mail {#configure-your-email-provider}
 
 {% tabs %}
 {% tab SendGrid %}
@@ -41,7 +41,7 @@ Para configurar o Apple Private Relay para o SparkPost, siga estas etapas:
 2. Siga a [documentação da Apple](https://developer.apple.com/help/account/configure-app-capabilities/configure-private-email-relay-service) para registrar os domínios de e-mail.
 3. A Apple verificará automaticamente os domínios, mostrará quais estão verificados e fornecerá a opção de verificar novamente ou excluir os domínios.
 
-### Quando o domínio de envio também é o domínio de bounce
+### Quando o domínio de envio também é o domínio de bounce {#when-the-sending-domain-is-also-the-bounce-domain}
 
 Se um domínio de envio também for usado como domínio de bounce, você não poderá armazenar nenhum registro e precisará seguir estas etapas adicionais:
 
@@ -51,7 +51,7 @@ Se um domínio de envio também for usado como domínio de bounce, você não po
 |-----------|-------------------------------|-------------------------------------------------|
 | US        | `smtp.sparkpostmail.com`      | `"v=spf1 redirect=_spf.sparkpostmail.com"`      |
 | EU        | `smtp.eu.sparkpostmail.com`   | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"`   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Quando o domínio de envio também é o domínio de bounce" }
 
 {% alert important %}
 Para evitar falhas de SPF, você deve criar os registros MX e TXT e aguardar a propagação no DNS **antes** de excluir o registro CNAME.
@@ -80,4 +80,4 @@ Confirme que seu DKIM/SPF corresponde ao que você registrou conforme as instru�
 {% endtab %}
 {% endtabs %}
 
-Se você tiver mais dúvidas, abra um [ticket de suporte]({{site.baseurl}}/braze_support/).
+Se você tiver mais dúvidas, abra um [ticket de suporte]({{site.baseurl}}/braze_support).

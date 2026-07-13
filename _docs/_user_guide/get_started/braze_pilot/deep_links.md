@@ -8,7 +8,7 @@ description: "This reference article briefly covers the integration steps requir
 
 # Navigation deep links in Braze Pilot
 
-> Braze Pilot supports deep linking from Braze messaging to particular parts of the Pilot app. This allows you to create engagement use cases, driving users into various parts of the Pilot application. You can also use optional deep link parameters to customize the content on particular pages in the app for the user. For more on deep linking, see [Deep link to in-app content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+> Braze Pilot supports deep linking from Braze messaging to particular parts of the Pilot app. This allows you to create engagement use cases, driving users into various parts of the Pilot application. You can also use optional deep link parameters to customize the content on particular pages in the app for the user. For more on deep linking, see [Deep link to in-app content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 ## General
 
@@ -21,7 +21,7 @@ These are the deep links for the main navigation pages in the Pilot app.
 | Setup | `braze-pilot://navigation/setup` |
 | Change Language | `braze-pilot://navigation/selectlanguage` |
 | Camera | `braze-pilot://navigation/camera` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="General" }
 
 ## Steppington
 
@@ -40,7 +40,7 @@ These are the deep links for the Steppington fictional brand app in Pilot.
 | Steppington+ page | `braze-pilot://navigation/steppington/plus` |
 | Goals screen | `braze-pilot://navigation/steppington/goals` |
 | Change goals screen | `braze-pilot://navigation/steppington/changegoals` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
 
 ### Deep links with parameters
 
@@ -48,7 +48,7 @@ These are the deep links for the Steppington fictional brand app in Pilot.
 | --- | --- |
 | Workout | `braze-pilot://navigation/steppington/workout` |
 | Active Workout | `braze-pilot://navigation/steppington/activeworkout` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
 
 #### Accepted parameters
 
@@ -76,7 +76,8 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Accepted parameters">
+  <caption>Accepted parameters</caption>
     <thead>
         <tr>
             <th>Parameter</th>
@@ -205,7 +206,7 @@ th:nth-child(6), td:nth-child(6) {
 | `YOGA_HOME` | ![An icon of person in a yoga pose.]({% image_buster /assets/img/braze_pilot/yoga_home_icon.png %}){:style="max-width:30%"} |
 | `BICYCLE_HOME` | ![A bicycle icon.]({% image_buster /assets/img/braze_pilot/bicycle_home_icon.png %}){:style="max-width:30%"} |
 | `DUMBBELL_HOME` | ![A dumbbell icon.]({% image_buster /assets/img/braze_pilot/dumbbell_home_icon.png %}){:style="max-width:30%"} |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Icon options" }
 
 ## PantsLabyrinth
 
@@ -224,14 +225,14 @@ These are the deep links for the PantsLabyrinth fictional brand app in Pilot.
 | Listing screen | `braze-pilot://navigation/pantslabyrinth/listing` |
 | Cart page | `braze-pilot://navigation/pantslabyrinth/cart` |
 | Wishlist page | `braze-pilot://navigation/pantslabyrinth/wishlist` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
 
 ### Deep links with parameters
 
 | Screen | Deep link |
 | --- | --- |
 | Item details page | `braze-pilot://navigation/pantslabyrinth/itemdetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
 
 #### Accepted parameters
 
@@ -259,7 +260,8 @@ th:nth-child(6), td:nth-child(6) {
 }
 </style>
 
-<table>
+<table aria-label="Accepted parameters">
+  <caption>Accepted parameters</caption>
     <thead>
         <tr>
             <th>Parameter</th>
@@ -361,14 +363,14 @@ These are the deep links for the Steppington fictional brand app in Pilot.
 | Splash screen | `braze-pilot://navigation/moviecannon/splash` |
 | Welcome screen | `braze-pilot://navigation/moviecannon/welcome` |
 | Movie listing page | `braze-pilot://navigation/moviecannon/moviecannon` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links without parameters" }
 
 ### Deep links with parameters
 
 | Screen | Deep link |
 | --- | --- |
 | Movie details page | `braze-pilot://navigation/moviecannon/moviedetails` |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Deep links with parameters" }
 
 #### Accepted parameters
 
@@ -379,4 +381,4 @@ These are the deep links for the Steppington fictional brand app in Pilot.
 | `thumbnail` | The web URL of the thumbnail to be shown before the movie. | Yes | String | `https://picsum.photos/400` |
 | `video` | The index in the list of videos to be shown. | No | Number | 0 |
 | `description` | The description of the video. | Yes | String | `This%20video%20is%20awesome%21` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Accepted parameters" }

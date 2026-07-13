@@ -28,7 +28,7 @@ The classic card is great for standard messaging and notifications or even visua
 | Message Text | 13px; Regular Weight <br> Two to four lines of text is ideal. <br> You may use Liquid here to personalize your message. |
 | Link Text | Optional. <br> 13&nbsp;px <br> Link to web page or deep link to within  your app. |
 | Image | Optional. <br> Must be 1:1 ratio. <br> We recommend an image quality of 60 x 60&nbsp;px. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Content Card types" }
 
 {% endtab %}
 {% tab Captioned Image %}
@@ -43,7 +43,7 @@ The Captioned Image card is a great way to show off and attract attention to imp
 | Message Text | 13px; Regular Weight <br> Two to four lines of text is ideal. <br> You may use Liquid here to personalize your message. |
 | Link Text | Optional. <br> 13&nbsp;px <br> Link to web page or deep link to within your app. |
 | Image | Suggested be 4:3 ratio. <br> 600&nbsp;px minimum width.  <br> Supports high-resolution PNG, JPEG, and GIF. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Card types" }
 
 {% endtab %}
 {% tab Image-only %}
@@ -56,14 +56,14 @@ If you want more creative control, the image-only card is for you. Create your i
 | --- | ---|
 | Linked Card | Optional. <br> 13&nbsp;px <br> On-click behavior link to a web page or a deep link to within your app. |
 | Image | Any aspect ratio supported. <br> 600&nbsp;px minimum width.  <br> Supports high-resolution PNG, JPEG, and GIF. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Card types" }
 
 {% endtab %}
 {% endtabs %}
 
 ## Global creative details {#general}
 
-Content Cards support text and images, including GIFs, out of the box. At this time, custom styling for the card, such as different font colors or multiple images, can't be done in the dashboard. You can custom style your Content Card and feed during integration. For more details, refer to [Customize cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/) for the Braze SDK.
+Content Cards support text and images, including GIFs, out of the box. At this time, custom styling for the card, such as different font colors or multiple images, can't be done in the dashboard. You can custom style your Content Card and feed during integration. For more details, refer to [Customize cards]({{site.baseurl}}/developer_guide/content_cards/customizing_cards) for the Braze SDK.
 
 ### Dismissal behavior
 
@@ -83,6 +83,6 @@ Keep Content Cards relevant by setting them to dismiss when a user takes relevan
 
 | Content Cards for Android | Content Cards for iOS | Content Cards for Web |
 | --- | --- |---|
-| The Android SDK does not provide animated GIF support by default. For more details on activating GIF support, refer to [GIFs]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs/?sdktab=android). | The Swift SDK does not provide animated GIF support by default. For more details on activating GIF support, refer to the [GIF support tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support). | GIF support is included by default in the Web SDK integration. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| The Android SDK does not provide animated GIF support by default. For more details on activating GIF support, refer to [GIFs]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs?sdktab=android). | The Swift SDK does not provide animated GIF support by default. For more details on activating GIF support, refer to the [GIF support tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support). | GIF support is included by default in the Web SDK integration. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Using GIFs in Content Cards" }
 

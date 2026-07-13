@@ -26,4 +26,4 @@ guide_featured_list:
 
 Snowflake Data Sharing is part of Braze Data Distribution. Use it to query Braze engagement and campaign data directly in your Snowflake instance.
 
-For setup and implementation details, see [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing/). For additional Data Distribution options, see [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) and [Exporting Braze Data]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/).
+For setup and implementation details, see [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/data_sharing). For additional Data Distribution options, see [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) and [Exporting Braze Data]({{site.baseurl}}/user_guide/data/distribution/export_braze_data).

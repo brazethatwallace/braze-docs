@@ -27,7 +27,7 @@ _この統合はLobによって管理されています。_
 | --- | --- |
 | Lobアカウント | このパートナーシップを活用するには、Lobアカウントが必要です。 |
 | Lob APIキー | Lob APIキーは、Lobダッシュボードのお客様の名前の下にある設定セクションで確認できます。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## Braze webhookを使用したメールの送信 {#sending-mail-using-braze-webhooks}
 
@@ -38,13 +38,13 @@ Lobで実行する内容に応じて、webhookのHTTPリクエストで対応す
 | 基本URL | 利用可能なエンドポイント |
 | ------------ | ------------------- |
 | `https://api.lob.com/` | `/v1/addresses<br>/v1/addresses/{id}`<br>`/v1/verify`<br>`/v1/postcards`<br>`/v1/postcards/{id}`<br>`/v1/letter`<br>`/v1/letter/{id}`<br>`/v1/checks<br>/v1/checks/{id}`<br>`/v1/bank_accounts`<br>`/v1/bank_accounts/{id}`<br>`/v1/bank_accounts/{id}/verify`<br>`/v1/areas<br>/v1/areas/{id}`<br>`/v1/routes/{zip_code}`<br>`/v1/routes`<br>`/v1/countries<br>/v1/states`|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ステップ1: Lobエンドポイントの選択" }
 
 ### ステップ2: BrazeのWebhookテンプレートを作成する {#step-2-create-your-braze-webhook-template}
 
-今後のCampaignsやCanvasesで使用するLob Webhookテンプレートを作成するには、Brazeダッシュボードの**テンプレート** > **Webhookテンプレート**に移動します。
+今後のキャンペーンやキャンバスで使用するLob Webhookテンプレートを作成するには、Brazeダッシュボードの**コンテンツ** > **Webhook**に移動します。次に、**Webhookテンプレートを作成**を選択します。
 
-単発のLob Webhook Campaignを作成したい場合、または既存のテンプレートを使用したい場合は、新しいCampaignを作成する際にBrazeで**Webhook**を選択します。
+単発のLob Webhook キャンペーンを作成したい場合、または既存のテンプレートを使用したい場合は、新しいキャンペーンを作成する際にBrazeで**Webhook**を選択します。
 
 新しいWebhookテンプレートに、次のフィールドを入力してください:
 
@@ -87,10 +87,10 @@ Lobポストカードエンドポイントのリクエスト本文の例を次�
 
 ### ステップ3: リクエストをプレビューする {#step-3-preview-your-request}
 
-この時点で、Campaignはテストと送信の準備ができているはずです。エラーが発生した場合は、LobダッシュボードとBraze開発者コンソールのエラーメッセージログを確認してください。例えば、以下のエラーは、認証ヘッダーのフォーマットが正しくないために発生したものです。
+この時点で、キャンペーンはテストと送信の準備ができているはずです。エラーが発生した場合は、Lobダッシュボードと Braze開発者コンソールのエラーメッセージログを確認してください。例えば、以下のエラーは、認証ヘッダーのフォーマットが正しくないために発生したものです。
 
 {% alert important %}
-ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[webhook Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済みWebhookテンプレート**リストで見つけることができます。
+ページを離れる前にテンプレートを保存することを忘れないでください！<br>更新されたWebhookテンプレートは、新しい[webhook キャンペーン]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/)を作成するときに、**保存済み Webhook テンプレート**リストで見つけることができます。
 {% endalert %}
 
 ![時間、アプリ名、チャネル、エラーメッセージを示すメッセージエラーログ。エラーメッセージには、メッセージアラートとステータスコードが含まれます。]({% image_buster /assets/img_archive/error_log.png %})
@@ -108,7 +108,7 @@ Lobのデータ変換テンプレートは、[`/users/track`エンドポイン�
 1. Brazeダッシュボードで、**データ設定** > **データ変換**に移動し、**変換の作成**を選択します。
 2. 変換を表す短いわかりやすい名前を入力します。
 3. **編集エクスペリエンス**で、**テンプレートを使用**を選択し、Lobを検索してチェックボックスをオンにします。
-4. 完了したら、**変換を作成**を選択します。次のステップで使用する変換エディターにリダイレクトされます。
+4. 完了したら、**変換の作成**を選択します。次のステップで使用する変換エディターにリダイレクトされます。
 
 ### ステップ2: Lobテンプレートの入力 {#step-2-fill-out-the-lob-template}
 
@@ -159,5 +159,5 @@ return brazecall;
 
 ### ステップ3: Lobでwebhookを作成する {#step-3-create-a-webhook-in-lob}
 
-1. テンプレートの作成が完了したら、**アクティブ化する**を選択し、**Webhook URL**をクリップボードにコピーします。
+1. テンプレートの作成が完了したら、**Activate**を選択し、**Webhook URL**をクリップボードにコピーします。
 2. Lobで[新しいwebhookを作成し](https://help.lob.com/print-and-mail/getting-data-and-results/using-webhooks#receiving-a-webhook-1)、BrazeのWebhook URLを使用してwebhookを受信します。

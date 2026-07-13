@@ -1,6 +1,6 @@
 ---
 nav_title: Criar um catálogo
-article_title: Criar um Catálogo
+article_title: Criar um catálogo
 alias: "/catalogs/"
 page_order: 1
 description: "Este artigo de referência aborda como criar catálogos que fazem referência a dados de não usuários em suas campanhas da Braze por meio do Liquid."
@@ -25,11 +25,22 @@ Depois que essas informações forem importadas, você poderá começar a acess�
 
 ## Tipos de dados suportados {#supported-data-types}
 
-Para ver os tipos de dados de catálogo suportados, descrições, como cada um pode ser criado ou atualizado (CSV vs API e CDI), além de formato e exemplos, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
+A tabela a seguir lista os tipos de dados de catálogo suportados e como eles podem ser criados ou atualizados.
+
+| Tipo de dado | Descrição | Disponível via upload de CSV | Disponível via API e CDI |
+|--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
+| String | Uma sequência de caracteres. | ✅ Sim | ✅ Sim |
+| Número | Um valor numérico, inteiro ou decimal. | ✅ Sim | ✅ Sim |
+| Booleano | Um valor `true` ou `false`. | ✅ Sim | ✅ Sim |
+| Hora | Uma string formatada no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). | ✅ Sim | ✅ Sim |
+| Geolocalização | Um array de coordenadas `[longitude, latitude]`. A latitude deve estar entre -90 e 90; a longitude deve estar entre -180 e 180. Por exemplo, `[-73.988103, 40.779109]`. | ✅ Sim | ✅ Sim |
+| Objeto JSON | Um objeto aninhado com pares chave-valor. Pode ser exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. | ⛔ Não | ✅ Sim |
+| Array de strings | Uma lista de strings. Pode ser exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. Máximo de 100 elementos. | ⛔ Não | ✅ Sim |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ## Criação de um catálogo {#creating-a-catalog}
 
-Para criar um catálogo, acesse **Configurações de Dados** > **Catálogos** e selecione **Criar Novo Catálogo**. Em seguida, escolha uma das seguintes opções:
+Para criar um catálogo, acesse **Configurações de dados** > **Catálogos** e selecione **Criar novo catálogo**. Em seguida, escolha uma das seguintes opções:
 
 {% tabs local %}
 {% tab Upload CSV %}
@@ -37,14 +48,14 @@ Para criar um catálogo, acesse **Configurações de Dados** > **Catálogos** e 
 
 Antes de fazer upload do seu arquivo CSV, certifique-se de que ele atende aos seguintes requisitos:
 
-| Requisito CSV | Informações |
+| Requisito CSV | Detalhes |
 |-----------------|---------|
 | Cabeçalhos | A primeira coluna no arquivo CSV deve ser nomeada `id`, e cada linha deve ter um valor `id` único. |
 | Colunas | Um arquivo CSV pode ter no máximo 1.000 campos (colunas), e cada nome de coluna pode ter até 250 caracteres. |
 | Tamanho do arquivo | Para planos gratuitos, o tamanho total de todos os arquivos CSV em uma empresa é limitado a 100 MB. Para planos Pro, o tamanho máximo de um único arquivo CSV é de 2 GB. |
 | Valores de campo | Cada célula (valor do campo) pode conter até 5.000 caracteres. |
 | Caracteres válidos | A coluna `id` e todos os valores de cabeçalho podem conter apenas letras, números, hífens e sublinhados. |
-| Tipos de dados | Os tipos de dados suportados para uploads de CSV incluem string, número, booleano e hora. Para a lista completa de tipos de dados, incluindo aqueles disponíveis apenas por meio da API e CDI, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types). |
+| Tipos de dados | Os tipos de dados suportados para uploads de CSV incluem string, número, booleano, hora e geolocalização. Para a lista completa de tipos de dados, incluindo aqueles disponíveis apenas por meio da API e CDI, consulte [Tipos de dados suportados](#supported-data-types). |
 | Formatação | Formate todo o texto em letras minúsculas para manter a consistência. |
 | Codificação | Salve e faça upload do arquivo CSV usando a codificação UTF-8. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
@@ -55,9 +66,9 @@ Precisa de mais espaço para acomodar seus arquivos CSV? Fale com seu gerente de
 
 ### Etapa 2: Fazer upload do CSV {#step-2-upload-csv}
 
-Arraste e solte seu arquivo na zona de upload ou selecione **Fazer upload de CSV** e escolha seu arquivo.
+Arraste e solte seu arquivo na zona de upload ou selecione **Upload CSV** e escolha seu arquivo.
 
-![]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
+![Arraste e solte seu arquivo na zona de upload ou selecione Upload CSV e escolha seu arquivo.]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
 
 Selecione um tipo de dado para cada coluna.
 
@@ -65,7 +76,7 @@ Selecione um tipo de dado para cada coluna.
 Esse tipo de dados não pode ser editado após a configuração do catálogo. Além disso, o valor `NULL` não é compatível com o upload de CSV e será tratado como uma string.
 {% endalert %}
 
-![]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![Seleção de tipo de dado para cada coluna do catálogo. Esse tipo não pode ser editado após a configuração.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 Digite um nome e uma descrição opcional para seu catálogo. Tenha em mente os seguintes requisitos ao nomear seu catálogo:
 
@@ -79,7 +90,7 @@ Você também pode [usar modelos em um nome de catálogo](#template-catalog-name
 
 ![Um catálogo chamado "my_catalog".]({% image_buster /assets/img_archive/in_browser_catalog.png %}){: style="max-width:80%;"}
 
-Selecione **Processar Catálogo** para criar o catálogo.
+Selecione **Process Catalog** para criar o catálogo.
 
 {% alert important %}
 Seu arquivo CSV pode ser rejeitado se você ultrapassar seu [nível](#tiers).
@@ -94,7 +105,7 @@ Para este tutorial, estamos usando um catálogo que lista dois jogos, seu custo 
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg">
+<table class="tg" aria-label="Tutorial: Criação de um catálogo a partir de um arquivo CSV">
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -127,26 +138,24 @@ Esse tipo de dados não pode ser editado após a configuração do catálogo.
 
 ![Quatro nomes de colunas do catálogo: "id", "title", "price", "image_link".]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:85%;"}
 
-Em seguida, nomearemos este catálogo como "games_catalog" e selecionaremos o botão **Processar Catálogo**. A Braze verificará se há erros no catálogo antes da criação.
+Em seguida, nomearemos este catálogo como "games_catalog" e selecionaremos o botão **Process Catalog**. A Braze verificará se há erros no catálogo antes da criação.
 
 ![Um catálogo chamado "games_catalog".]({% image_buster /assets/img_archive/catalog_new_name.png %}){: style="max-width:85%;"}
 
 Observe que você não poderá editar esse nome depois que o catálogo for criado. Você pode excluir um catálogo e fazer upload novamente de uma versão atualizada usando o mesmo nome de catálogo.
 
-Depois de criar o catálogo, você pode começar a fazer referência ao [catálogo em uma campanha]({{site.baseurl}}/user_guide/data/activation/catalogs/use/).
+Depois de criar o catálogo, você pode começar a fazer referência ao [catálogo em uma campanha]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs).
 {% endtab %}
 
-{% tab Create in browser %}
+{% tab Criar no navegador %}
 ### Pré-requisitos {#prerequisites}
 
-Antes de poder editar ou criar catálogos no navegador, você precisa das seguintes [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para seu espaço de trabalho:
+Antes de poder editar ou criar catálogos no navegador, você precisa das seguintes [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para seu espaço de trabalho:
 
-- Ver Catálogos
-- Editar Catálogos
-- Exportar Catálogos
-- Excluir Catálogos
-
-{% multi_lang_include deprecations/user_permissions.md %}
+- Visualizar catálogos
+- Editar catálogos
+- Exportar catálogos
+- Excluir catálogos
 
 ### Etapa 1: Insira os detalhes do catálogo {#step-1-enter-catalog-details}
 
@@ -164,13 +173,13 @@ Você também pode [usar modelos em um nome de catálogo](#template-catalog-name
 
 ### Etapa 2: Crie seu catálogo {#step-2-create-your-catalog}
 
-Selecione seu catálogo na lista e, em seguida, selecione **Atualizar Catálogo** > **Adicionar campos**. Insira o **Nome do campo** e use o menu suspenso para selecionar o tipo de dado. Repita conforme necessário.
+Selecione seu catálogo na lista e, em seguida, selecione **Update Catalog** > **Add fields**. Insira o **Field name** e use o menu suspenso para selecionar o tipo de dado. Repita conforme necessário.
 
 ![Dois campos de exemplo: "rating" e "name".]({% image_buster /assets/img_archive/add_catalog_fields.png %}){: style="max-width:50%;"}
 
-Selecione **Atualizar Catálogo** > **Adicionar itens** para adicionar um item ao seu catálogo, inserindo as informações com base nos campos adicionados anteriormente. Em seguida, selecione **Salvar item** ou **Salvar e adicionar outro** para continuar adicionando seus itens.
+Selecione **Update Catalog** > **Add items** para adicionar um item ao seu catálogo, inserindo as informações com base nos campos adicionados anteriormente. Em seguida, selecione **Save Item** ou **Save and Add Another** para continuar adicionando seus itens.
 
-![Adicionar um item de catálogo.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
+![Adicionar um item ao catálogo.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
 {% alert note %}
 A Braze processa valores de tempo com base no registro de data e hora do dashboard. Por exemplo, se uma coluna tiver um valor de "03/13/2024" e seu fuso horário for o fuso horário do Pacífico, esse horário será importado para a Braze como "Mar 12, 2024, 5:00 PM".
@@ -178,7 +187,20 @@ A Braze processa valores de tempo com base no registro de data e hora do dashboa
 {% endtab %}
 {% endtabs %}
 
-Para ver os tipos de dados de catálogo com formato e exemplos, consulte [Tipos de dados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types).
+## Tipos de dados de catálogo {#catalog-data-types}
+
+Os catálogos suportam vários tipos de dados para ajudar você a organizar e estruturar seus dados de forma eficaz. A tabela a seguir descreve cada tipo de dado suportado e como ele é mapeado para nomes de tipo em CSV e API:
+
+| Tipo de dado | Formato | Exemplo | Descrição |
+|-----------|--------|---------|-------------|
+| String | Texto | `"Hello World"` | Qualquer sequência de caracteres usada para dados de texto, como nomes, descrições e IDs. Equivalente ao tipo `string` em importações CSV e API. |
+| Hora | ISO 8601 ou timestamp Unix (segundos) | `"2024-03-15T14:30:00Z"` | Valores de data e hora formatados como ISO 8601 ou timestamp Unix em segundos. Equivalente ao tipo `time` na API e ao tipo `datetime` em importações CSV. |
+| Booleano | `true` ou `false` | `true` | Valores lógicos representando estados verdadeiro ou falso. Equivalente ao tipo `boolean` em importações CSV e API. |
+| Número | Inteiro ou decimal | `42` ou `19.99` | Valores numéricos incluindo inteiros e números de ponto flutuante para preços, quantidades, avaliações e mais. Equivalente aos tipos `integer` e `float` em importações CSV e ao tipo `number` na API. |
+| Geolocalização | Array `[longitude, latitude]` | `[-73.988103, 40.779109]` | Um par de coordenadas representando uma localização geográfica. A longitude deve estar entre -180 e 180; a latitude deve estar entre -90 e 90. O valor de `type` na API é `geo`. Pode ser adicionado pelo painel **Add Fields** na interface de Catálogos, upload de CSV ou REST API. |
+| Objeto | Objeto JSON | `{"key": "value", "price": 10}` | Estruturas de dados aninhadas complexas. O valor de `type` na API é `object`. Exibido como Objeto JSON no dashboard. Disponível apenas via API ou Ingestão de dados na nuvem (CDI). |
+| Array | Array de strings | `["red", "blue", "green"]` | Listas de valores de string. O valor de `type` na API é `array`. Exibido como Array de strings no dashboard. Disponível apenas por meio da API ou CDI. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ## Usando modelos em nomes de catálogo {#template-catalog-names}
 
@@ -197,23 +219,23 @@ Ao nomear seu catálogo, você também pode usar modelos em um nome de catálogo
 
 ### No dashboard {#in-the-dashboard}
 
-Para atualizar seu catálogo após fazer upload de um CSV ou criar um catálogo no navegador, selecione **Atualizar Catálogo** > **Fazer Upload de CSV** e então selecione se deseja atualizar, adicionar ou excluir itens no seu catálogo.
+Para atualizar seu catálogo após fazer upload de um CSV ou criar um catálogo no navegador, selecione **Update Catalog** > **Upload CSV** e então selecione se deseja atualizar, adicionar ou excluir itens no seu catálogo.
 
 ### Usando a REST API {#using-the-rest-api}
 
-À medida que você cria mais catálogos, também pode usar o [endpoint List catalogs]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/) para retornar uma lista dos catálogos em um espaço de trabalho.
+À medida que você cria mais catálogos, também pode usar o [endpoint List catalogs]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) para retornar uma lista dos catálogos em um espaço de trabalho.
 
-A REST API suporta todos os [tipos de dados de catálogo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/#catalog-data-types), incluindo objetos JSON e arrays de string. Objetos JSON e arrays de string só podem ser criados ou atualizados por meio da REST API.
+A REST API suporta todos os [tipos de dados de catálogo](#supported-data-types), incluindo objetos JSON e arrays de strings. Objetos JSON e arrays de strings só podem ser criados ou atualizados por meio da REST API.
 
 ### Usando Ingestão de dados na nuvem {#using-cloud-data-ingestion}
 
-Você pode manter catálogos por meio da [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) sincronizando dados de catálogo diretamente do seu data warehouse (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3) de forma programada.
+Você pode manter catálogos por meio da [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) sincronizando dados de catálogo diretamente do seu data warehouse (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3) de forma programada.
 
 ## Gerenciamento de itens do catálogo {#managing-catalog-items}
 
 Além de gerenciar seus catálogos, você também pode usar endpoints assíncronos e síncronos para gerenciar os itens do catálogo. Isso inclui a capacidade de editar e excluir itens de catálogo e de listar detalhes de itens de catálogo.
 
-Por exemplo, se você quiser editar um item de catálogo individual, pode usar o [endpoint `/catalogs/catalog_name/items/item_id`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/).
+Por exemplo, se você quiser editar um item de catálogo individual, pode usar o [endpoint `/catalogs/catalog_name/items/item_id`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item).
 
 ## Armazenamento de catálogo {#tiers}
 
@@ -223,11 +245,11 @@ A versão gratuita dos catálogos suporta tamanhos de arquivo CSV de até 100 MB
 O direito ao pacote mostrado no dashboard da Braze é arredondado para a unidade mais próxima para fins visuais; no entanto, você ainda tem direito ao valor total adquirido. Para solicitar um upgrade do armazenamento de catálogos, fale com seu gerente de conta da Braze.
 {% endalert %}
 
-#### Versão gratuita {#free-version}
+### Versão gratuita {#free-version}
 
 O tamanho do armazenamento da versão gratuita dos catálogos é de até 100&nbsp;MB. Você pode ter itens ilimitados desde que estejam abaixo de 100&nbsp;MB.
 
-#### Catalogs Pro
+#### Catalogs Pro {#catalogs-pro}
 
 Em nível de empresa, o armazenamento máximo do Catalogs Pro é baseado no tamanho dos dados do catálogo. As opções de tamanho de armazenamento são: 5&nbsp;GB, 10&nbsp;GB ou 15&nbsp;GB. Observe que o armazenamento da versão gratuita (100&nbsp;MB) está incluído em cada um desses planos.
 

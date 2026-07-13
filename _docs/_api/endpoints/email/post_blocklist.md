@@ -10,7 +10,7 @@ description: "This article outlines the details about the Blocklist emails Braze
 ---
 {% api %}
 # Blocklist emails
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /email/blocklist
 {% endapimethod %}
 
@@ -20,7 +20,7 @@ description: "This article outlines the details about the Blocklist emails Braze
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `email.blacklist` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `email.blacklist` permission.
 
 ## Rate limit
 
@@ -44,7 +44,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parameter | Required | Data Type | Description |
 | -----------|----------| --------|------- |
 | `email` | Required | String or array | String email address to blocklist, or an array of up to 50 email addresses to blocklist. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request
 ```

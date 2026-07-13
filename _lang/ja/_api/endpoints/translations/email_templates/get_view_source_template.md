@@ -15,13 +15,11 @@ description: "この記事では、メールテンプレートのソース翻訳
 /templates/email/translations/source
 {% endapimethod %}
 
-> このエンドポイントを使用して、[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/)のソース翻訳を表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)を参照してください。
-
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' %}
+> このエンドポイントを使用して、[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates)のソース翻訳を表示します。翻訳機能の詳細については、[メッセージ内のロケール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`templates.email.info` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`templates.email.info` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -32,7 +30,7 @@ description: "この記事では、メールテンプレートのソース翻訳
 | パラメーター | 必須 | データタイプ | 説明 |
 |---------------|----------|-----------|---------------------------------|
 | `template_id` | 必須 | 文字列 | メールテンプレートのID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="クエリパラメーター" }
 
 ## リクエスト例 {#example-request}
 

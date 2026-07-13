@@ -1,0 +1,47 @@
+---
+description: Entry point for Braze Docs AI work — skills and canonical style guide
+alwaysApply: true
+---
+
+# Braze Docs AI bootstrap
+
+## New to this repo?
+
+This repo uses **skills** — reusable agent workflows for common documentation tasks — plus a human-authored **style guide** for writing conventions. In Cursor, invoke a skill with `/skill-name` in chat, or describe a routine `_docs/` edit and the agent routes to `braze-docs` automatically.
+
+The following table shows a few common entry points — not every skill or workflow in the repo.
+
+| Skill / resource | When to use | Example |
+|------------------|-------------|---------|
+| **braze-docs** | Drafting, editing, or reviewing `_docs/` articles; fixing links; merge conflicts | *"Update the CSV import page to mention the new column limit"* (no tag needed) |
+| **check-accessibility** | Pre-PR WCAG 2.2 AA check on changed docs or site files | `/check-accessibility` — *"Run an a11y check on my branch"* |
+| **create-pr** | Opening a draft PR with summary, verification checklist, and pre-PR gates | `/create-pr` — *"Open a draft PR for this branch"* |
+| **redirect-management** | Adding or validating redirects when pages move or rename | `/redirect-management` — *"Add a redirect for the renamed CSV import page"* |
+| **reference-repos** | Verifying product, API, or SDK behavior against source code | `/reference-repos` — *"Verify this endpoint limit against platform source"* |
+| **Style guide** | Voice, tone, formatting, images, API article structure | [`docs/contributing/style_guide/`](docs/contributing/style_guide/) — *"Does this section follow the writing style guide?"* |
+
+For every skill, invocation syntax, and when-to-use guidance, see **[CAPABILITIES.md](CAPABILITIES.md)**.
+
+For work under `_docs/` or root `_includes/`:
+
+- **Writing, links, merge conflicts, review:** Follow [`.github/skills/braze-docs/SKILL.md`](.github/skills/braze-docs/SKILL.md).
+- **Verifying product, API, or SDK behavior:** Follow [`.github/skills/reference-repos/SKILL.md`](.github/skills/reference-repos/SKILL.md). Open [`braze-workspace.code-workspace`](braze-workspace.code-workspace) so sibling SDK and `platform` repos are available.
+- **Screenshot PII audit:** Follow [`.github/skills/screenshot-pii-audit/SKILL.md`](.github/skills/screenshot-pii-audit/SKILL.md) when adding or updating `assets/img/` screenshots.
+- **Redundant image cleanup:** Follow [`.github/skills/image-curator/SKILL.md`](.github/skills/image-curator/SKILL.md) when removing low-value screenshots from English docs.
+
+**Canonical human style guide:** [`docs/contributing/style_guide/`](docs/contributing/style_guide/) — defer to those files over summaries in skills.
+
+**Non-Cursor agents:** See root [`AGENTS.md`](AGENTS.md) for skill paths and how to invoke them.
+
+## Contextual skill hints
+
+When the contributor has **not** already invoked a skill in the session (no chat `/skill-name` from the user, no explicit request to follow a skill file, and the agent is not already working from one), you may offer a **single brief, optional** suggestion based on what they are editing or the branch context. These are soft hints — do not auto-load a skill, redirect the task, or repeat a hint once declined or ignored.
+
+| Context | Suggestion (natural language) |
+|---------|-------------------------------|
+| Adding or editing files under `assets/img/` | Mention the [screenshot-pii-audit](.github/skills/screenshot-pii-audit/SKILL.md) skill — it OCR-scans screenshots for PII before they open a PR; CI blocks on PII hits. |
+| Drafting or revising `_docs/` or root `_includes/` without naming a skill | Note that describing the task is enough for routine edits ([braze-docs](.github/skills/braze-docs/SKILL.md) loads via the routing above). |
+| Current branch name suggests a merge (`merge/*`, `*-merge`, etc.) or edited files contain conflict markers | Suggest conflict-resolution help through [braze-docs](.github/skills/braze-docs/SKILL.md) Conflict mode — a written plan before bulk resolution keeps the contributor in control. |
+| Editing `assets/js/broken_redirect_list.js` or adding/validating redirects | Point to [redirect-management](.github/skills/redirect-management/SKILL.md) for redirect entries, scripts, and verification. Use [braze-docs](.github/skills/braze-docs/SKILL.md) Links mode for general cross-reference fixes. |
+| About to open a PR that touches markdown under `_docs/` or root `_includes/` | Mention [check-accessibility](.github/skills/check-accessibility/SKILL.md) and [spell-check](.github/skills/spell-check/SKILL.md) as pre-PR checks, and call out that Style QA via [create-pr](.github/skills/create-pr/SKILL.md) / [style-qa-changed-files](.github/skills/braze-docs/workflows/style-qa-changed-files.md) is required when prose diffs exist before opening the draft PR. |
+| Branch has commits ready for review and the user wants to submit changes | Suggest [create-pr](.github/skills/create-pr/SKILL.md) — `/create-pr` produces a repo-aligned draft PR description and runs pre-PR gates. |

@@ -6,7 +6,7 @@ description: "Esta página de referencia contiene tutoriales para principiantes 
 page_type: tutorial
 ---
 
-# Tutoriales: Escribir código Liquid
+# Tutoriales: Escribir código Liquid {#tutorials-writing-liquid-code}
 
 > ¿Eres nuevo en Liquid? Estos tutoriales te ayudarán a empezar a escribir código Liquid para casos de uso aptos para principiantes. Cada tutorial cubre una combinación diferente de objetivos de aprendizaje, como lógica condicional y operadores.
 
@@ -24,7 +24,7 @@ Cuando termines estos tutoriales, serás capaz de:
 | [Cuenta regresiva de evento](#countdown) | variables, filtros de fecha |
 | [Mensaje mensual de cumpleaños](#birthday) | variables, filtros de fecha, operadores |
 | [Promocionar un producto favorito](#favorite-product) | variables, filtros de fecha, ecuaciones, operadores |
-{: .reset-br-td-1 .reset-br-td-2}
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Tutoriales: Escribir código Liquid" }
 
 ## Mensajes personalizados para segmentos de usuarios {#segments}
 
@@ -316,6 +316,7 @@ Promocionemos el producto favorito de un usuario si su última fecha de compra f
 
 {: start="4"}
 4. Si tenemos la fecha de compra, necesitamos asignarla a una variable para poder compararla con la fecha de hoy. Primero, creemos un valor para la fecha de hoy asignando la variable `today` a `now` (la fecha y hora actuales) y usando el filtro `date: "%s"` para convertir el valor a un formato de marca de tiempo expresado en segundos. Añadiremos el filtro `plus: 0` para agregar un "0" a la marca de tiempo. Esto no cambia el valor de la marca de tiempo, pero es útil para usar la marca de tiempo en ecuaciones futuras.
+
 
 {% raw %}
 ```liquid

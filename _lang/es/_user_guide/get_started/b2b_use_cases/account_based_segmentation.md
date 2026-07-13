@@ -10,7 +10,7 @@ description: "Aprende a utilizar varias características de Braze para potenciar
 
 > Esta página muestra cómo utilizar varias características de Braze para potenciar tus casos de uso de segmentación basada en cuentas B2B.
 
-Puedes hacer la segmentación B2B basada en cuentas de dos formas, dependiendo de cómo configures tu [modelo de datos B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/):
+Puedes hacer la segmentación B2B basada en cuentas de dos formas, dependiendo de cómo configures tu [modelo de datos B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models):
 
 - Cuando utilices [catálogos para tus objetos de negocio](#option-1-when-using-catalogs-for-your-business-objects)
 - Cuando utilices [fuentes conectadas para tus objetos de negocio](#option-2-when-using-connected-sources-for-your-business-objects)
@@ -35,19 +35,19 @@ Supongamos que quieres segmentar a los usuarios que son empleados de una cuenta 
 
 Selecciona las siguientes variables para un caso de uso de segmentación basada en cuentas B2B:
 
-| Variable | propiedad |
+| Variable | Propiedad |
 | --- | --- |
 | Catálogo | Catálogo de cuentas |
 | Campo del catálogo | Id |
 | Evento personalizado | account_linked |
-| propiedad de evento personalizado | account_id |
+| Propiedad de evento personalizado | account_id |
 | (En Filtrar resultados SQL) Campo del catálogo | Clasificación |
 | (En Filtrar resultados SQL) Valor | Empresa |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Directrices sobre variables para casos de uso B2B" }
 
 #### Segmentación SQL sofisticada {#sophisticated-sql-segmentation}
 
-Para una segmentación más sofisticada o compleja, consulta [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/). Para ayudarte a empezar, aquí tienes algunas plantillas SQL que puedes utilizar para avanzar con la segmentación basada en cuentas B2B:
+Para una segmentación más sofisticada o compleja, consulta [Extensiones de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments). Para ayudarte a empezar, aquí tienes algunas plantillas SQL que puedes utilizar para avanzar con la segmentación basada en cuentas B2B:
 
 1. Crea un segmento comparando dos filtros en un mismo catálogo (como los usuarios que trabajan en el sector de la restauración para una cuenta de nivel empresarial). Debes incluir el ID del catálogo y el ID del elemento.
 
@@ -108,8 +108,8 @@ AND salesforce_opportunities.Stage = 'Closed Won'
 
 ### Opción 2: Cuando utilices fuentes conectadas para tus objetos de negocio {#option-2-when-using-connected-sources-for-your-business-objects}
 
-Para obtener información básica sobre cómo utilizar fuentes conectadas en la segmentación, consulta [Extensiones de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/). Utiliza las plantillas que se describen en [Cuando utilices catálogos](#option-1-when-using-catalogs-for-your-business-objects) como fuente de inspiración para dar formato a las tablas de origen, ya que puedes darles el formato que desees.
+Para obtener información básica sobre cómo utilizar fuentes conectadas en la segmentación, consulta [Extensiones de segmento CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments). Utiliza las plantillas que se describen en [Cuando utilices catálogos](#option-1-when-using-catalogs-for-your-business-objects) como fuente de inspiración para dar formato a las tablas de origen, ya que puedes darles el formato que desees.
 
 ## Utilizar tu extensión basada en cuentas en un segmento {#using-your-account-based-extension-in-a-segment}
 
-Después de haber creado tu segmentación a nivel de cuenta en los pasos anteriores, puedes incorporar directamente esas extensiones de segmento a tus criterios de segmentación. También es fácil añadir criterios demográficos incrementales de los usuarios, como el rol, la interacción con Campaigns anteriores, y más. Para más información, consulta [Utilizar tu extensión en un segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension/#step-6-use-your-extension-in-a-segment).
+Después de haber creado tu segmentación a nivel de cuenta en los pasos anteriores de esta sección, puedes incorporar directamente esas extensiones de segmento a tus criterios de segmentación. También es fácil añadir criterios demográficos incrementales de los usuarios, como el rol, la interacción con campañas anteriores, y más. Para más información, consulta [Utilizar tu extensión en un segmento]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment).

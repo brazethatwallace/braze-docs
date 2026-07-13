@@ -1,8 +1,10 @@
 ---
 layout: default
-hide_toc: true
+hide_toc: false
 hide_bottom_nav: false
 hide_breadcrumb: false
+hide_feedback: true
+hide_binary_feedback: false
 ---
 
 
@@ -31,15 +33,43 @@ hide_breadcrumb: false
 {%- unless hide_feedback -%}
 {%- assign hide_feedback = layout.hide_feedback -%}
 {%- endunless -%}
+{%- assign glossary_loc = site.data.i18n[site.language] -%}
 
 {% unless hide_nav %}
 <!-- button id="sidebar_toggle" class="btn btn-info d-print-none" data-toggle="collapse" aria-expanded="true" href="#nav_bar" >
    <i class="fas"></i>
 </button -->
 
+<script type="application/json" id="report-metrics-i18n-json">
+{
+  "noResults": {{ glossary_loc.report_metrics_no_results | jsonify }},
+  "showing": {{ glossary_loc.report_metrics_showing | jsonify }}
+}
+</script>
+<script type="application/json" id="report-metrics-channel-tag-labels-json">
+{{ glossary_loc.report_metrics_channel_tag_labels | jsonify }}
+</script>
 <script type="text/javascript">
 
+// Scope documents.js TOC to metric headings only (checked before document.ready)
+var toc_headers = '#api-main h2';
+var toc_minheaders = 1;
+
 $(document).ready(function() {
+  var reportMetricsI18n = { noResults: '', showing: '' };
+  try {
+    var _rmi = document.getElementById('report-metrics-i18n-json');
+    if (_rmi && _rmi.textContent) {
+      reportMetricsI18n = JSON.parse(_rmi.textContent);
+    }
+  } catch (e) { /* keep defaults */ }
+  var channelTagLabels = {};
+  try {
+    var _ctl = document.getElementById('report-metrics-channel-tag-labels-json');
+    if (_ctl && _ctl.textContent) {
+      channelTagLabels = JSON.parse(_ctl.textContent) || {};
+    }
+  } catch (e) { channelTagLabels = {}; }
   function string_to_slug(str) {
     str = str.replace(/^\s+|\s+$/g, ''); // trim
     str = str.toLowerCase();
@@ -130,7 +160,8 @@ $(document).ready(function() {
       var filter_div = $('<div>').addClass('api_filter_div');
       var filter_label = $('<label>').attr('for','api_' + filter_slug);
       var filter_cb = $('<input>').attr('id','api_' + filter_slug).attr('type','checkbox').attr('name','filter_' + filter_slug).val(v)
-      filter_label.append(filter_cb).append(' ' + alltags[v]);
+      var labelText = (channelTagLabels && Object.prototype.hasOwnProperty.call(channelTagLabels, v)) ? channelTagLabels[v] : alltags[v];
+      filter_label.append(filter_cb).append(' ' + labelText);
       filter_div.append(filter_label);
       tag_div.append(filter_div);
     })
@@ -138,13 +169,23 @@ $(document).ready(function() {
 
 
     var noResultsTimer = null;
+    var countTimer = null;
+    var lastAnnouncedCount = -1;
+    var altChar = false;
 
     function search_apis(api_hash) {
       var result_cnt = 0;
+      // Visual display elements (no aria roles — purely for sighted users)
+      var resultsCount = $('#results_count');
       var resultsMsg = $('#results_msg');
-      resultsMsg.html('');
+      // Live region elements (sr-only, globally placed for AT reliability)
+      var resultsCountLive = $('#results_count_live');
+      var resultsMsgLive = $('#results_msg_live');
+
       clearTimeout(noResultsTimer);
+      clearTimeout(countTimer);
       var api_div = $('#api_list .api_div');
+      var total_cnt = api_div.length;
       var search_str = $('#api_search').val().toLowerCase();
       var selected_vals = [];
       $('.api_filter_div input[type="checkbox"]:checked').each(function(k,v){
@@ -190,13 +231,57 @@ $(document).ready(function() {
           }
         }
       })
-      if (!result_cnt && !showall) {
-        // Debounce: cancel any pending announcement, then defer the set so the
-        // clear and set are separate DOM mutations. role="alert" (assertive) is
-        // more reliably announced by VoiceOver than role="status" (polite).
-        noResultsTimer = setTimeout(function() {
-          resultsMsg.html('<p>No metrics matching these filters</p>');
-        }, 250);
+      if (!showall) {
+        if (!result_cnt) {
+          // Clear visual elements immediately — no aria roles so no AT impact.
+          resultsCount.text('');
+          resultsMsg.text(reportMetricsI18n.noResults);
+          // Don't touch the sr-only live regions yet: an immediate clear of
+          // resultsCountLive (which may hold stale count text) would fire a
+          // mutation that VoiceOver starts processing, then the assertive alert
+          // 500ms later would land mid-cycle and get cut off.
+          // Instead, wait the same 900ms as the count path, then apply the
+          // 150ms clear-then-set gap so Safari sees removal and addition as
+          // distinct mutations.
+          noResultsTimer = setTimeout(function() {
+            resultsCountLive.text('');
+            resultsMsgLive.text('');
+            setTimeout(function() {
+              resultsMsgLive.text(reportMetricsI18n.noResults);
+            }, 150);
+          }, 900);
+        } else {
+          // Clear the no-results alert immediately, then defer the count update.
+          // 900ms gives VoiceOver time to finish its full post-keystroke cycle
+          // (character echo + field label) before the polite live region fires.
+          resultsMsg.text('');
+          resultsMsgLive.text('');
+          countTimer = setTimeout(function() {
+            var message = (reportMetricsI18n.showing || '').replace(/__COUNT__/g, result_cnt).replace(/__TOTAL__/g, total_cnt);
+            // VoiceOver suppresses re-announcement when the string is identical.
+            // Toggle a non-breaking space to force a unique mutation each time.
+            var liveMessage = message;
+            if (result_cnt === lastAnnouncedCount) {
+              altChar = !altChar;
+              if (altChar) liveMessage += ' ';
+            }
+            lastAnnouncedCount = result_cnt;
+            // Visual update immediately.
+            resultsCount.text(message);
+            // Live region: clear then repopulate after 150ms so Safari registers
+            // removal and addition as distinct mutations rather than batching them.
+            resultsCountLive.text('');
+            setTimeout(function() {
+              resultsCountLive.text(liveMessage);
+            }, 150);
+          }, 900);
+        }
+      } else {
+        resultsCount.text('');
+        resultsMsg.text('');
+        resultsCountLive.text('');
+        resultsMsgLive.text('');
+        lastAnnouncedCount = -1;
       }
     };
 
@@ -218,7 +303,7 @@ $(document).ready(function() {
       search_apis();
     }
 
-    $('#api_search').on('keyup',function(e){
+    $('#api_search').on('input',function(e){
       search_apis();
     });
 
@@ -245,7 +330,13 @@ $(document).ready(function() {
 <div class="col d-print-block " id="main_content" >
 
     <div id="api-main">
-    <div id="content_start"></div>
+    <!-- Live regions registered early so VoiceOver discovers them during initial tree scan.
+         Placed before the search input to avoid the Safari sibling-suppression bug. -->
+    <div class="api-sr-only">
+      <div id="results_count_live" role="status" aria-atomic="true"></div>
+      <div id="results_msg_live" role="alert" aria-atomic="true"></div>
+    </div>
+    <div id="content_start" tabindex="-1"></div>
 
     {%- unless hide_breadcrumb -%}
     <div id="breadcrumb">
@@ -257,16 +348,19 @@ $(document).ready(function() {
     {% multi_lang_include layouts/report_metrics_intro.html %}
 
     <div id="api_filter">
-        <input id="api_search" type="search" placeholder="Search" aria-label="Search glossary" />
+        <input id="api_search" type="text" role="searchbox" placeholder="{{ glossary_loc.report_metrics_search_placeholder }}" aria-label="{{ glossary_loc.report_metrics_search_aria }}" aria-describedby="search-hint" />
+        <span id="search-hint" class="api-sr-only">{{ glossary_loc.report_metrics_search_hint }}</span>
         <fieldset id="api_filter_list">
-          <legend>Filter by channel</legend>
+          <legend>{{ glossary_loc.report_metrics_filter_legend }}</legend>
         </fieldset>
     </div>
+
+    <div id="results_count"></div>
 
     <div id="api_list" class="flex mx-auto api_div">
       {{content}}
     </div>
-    <div id="results_msg" role="alert" aria-atomic="true"></div>
+    <div id="results_msg"></div>
 
 
   </div>
@@ -286,11 +380,14 @@ $(document).ready(function() {
 
     {% include footer.html class="footer_api" %}
 </div>
-{%- unless hide_toc -%}
 <!-- button id="toc_toggle" class="btn btn-info collapsed notoc d-print-none" data-toggle="collapse" aria-expanded="false" href="#toc_col" >
    <i class="fas"></i>
 </button -->
 <div class="d-none d-lg-block col-lg-2 d-print-none" id="toc_col">
+  {%- unless hide_toc -%}
   <div id="toc" ></div>
+  {%- endunless -%}
+  {% unless hide_binary_feedback -%}
+  {% include binary_feedback.html  %}
+  {% endunless -%}
 </div>
-{%- endunless -%}

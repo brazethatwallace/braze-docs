@@ -1,9 +1,9 @@
 ---
 nav_title: Integração
-article_title: Integração do Controlador de Visualização do Cartão de Conteúdo para iOS
+article_title: Integração do controlador de visualização de Content Cards para iOS
 platform: iOS
 page_order: 1
-description: "Este artigo de referência cobre as etapas de integração, modelos de dados e propriedades específicas do cartão disponíveis para apps iOS."
+description: "Este artigo de referência aborda as etapas de integração, modelos de dados e propriedades específicas de cartão disponíveis para seu app iOS."
 channel:
   - content cards
 search_rank: 3
@@ -12,15 +12,15 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# integração do cartão de conteúdo
+# Integração de Content Cards {#content-card-integration}
 
-## Modelo de dados de Cartões de Conteúdo
+## Modelo de dados de Content Cards {#content-cards-data-model}
 
-O modelo de dados dos cartões de conteúdo está disponível no SDK para iOS.
+O modelo de dados de Content Cards está disponível no SDK para iOS.
 
-### Obtenção dos dados
+### Obtenção dos dados {#getting-the-data}
 
-Para acessar o modelo de dados dos Cartões de Conteúdo, inscreva-se nos eventos de atualização dos Cartões de Conteúdo:
+Para acessar o modelo de dados de Content Cards, inscreva-se nos eventos de atualização de Content Cards:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -65,74 +65,74 @@ NotificationCenter.default.addObserver(self, selector:
 {% endtab %}
 {% endtabs %}
 
-Se você quiser alterar os dados do cartão depois de enviados pelo Braze, recomendamos armazenar uma cópia profunda dos dados do cartão localmente, atualizar os dados e exibi-los você mesmo. Os cartões são acessíveis via [`ABKContentCardsController`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_cards_controller.html).
+Se você quiser alterar os dados do cartão depois de enviados pela Braze, recomendamos armazenar uma cópia profunda dos dados do cartão localmente, atualizar os dados e exibi-los você mesmo. Os cartões são acessíveis via [`ABKContentCardsController`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_cards_controller.html).
 
-## modelo de cartão de conteúdo
+## Modelo de Content Card {#content-card-model}
 
-A Braze oferece três tipos de cartão de conteúdo: banner, imagem legendada e clássico. Cada tipo herda propriedades comuns de uma classe base `ABKContentCard` e possui as seguintes propriedades adicionais.
+A Braze oferece três tipos de Content Cards: banner, imagem legendada e clássico. Cada tipo herda propriedades comuns de uma classe base `ABKContentCard` e possui as seguintes propriedades adicionais.
 
-### Propriedades do modelo de cartão de conteúdo base - ABKContentCard
+### Propriedades do modelo de Content Card base - ABKContentCard {#base-content-card-model-properties-abkcontentcard}
 
-|Propriedade|Descrição|
+| Propriedade | Descrição |
 |---|---|
-|`idString` | (Somente leitura) O ID do cartão definido pelo Braze. |
-| `viewed` | Essa propriedade reflete se o usuário visualizou o cartão ou não.|
-| `created` | (Somente leitura) Esta propriedade é o timestamp unix do horário de criação do cartão da Braze. |
-| `expiresAt` | (Somente leitura) Esta propriedade é o timestamp unix do tempo de expiração do cartão.|
-| `dismissible` | Esta propriedade reflete se o usuário pode dispensar o cartão.|
-| `pinned` | Essa propriedade reflete se o cartão foi configurado como "fixado" no dashboard.|
-| `dismissed` | Esta propriedade reflete se o usuário descartou o cartão.|
-| `url` | A URL que será aberta após o cartão ser clicado. Pode ser um URL HTTP(s) ou um URL de protocolo.|
-| `openURLInWebView` | Esta propriedade determina se o URL será aberto dentro do app ou em um navegador web externo.|
-| `extras`| Um `NSDictionary` opcional de valores `NSString`.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `idString` | (Somente leitura) O ID do cartão definido pela Braze. |
+| `viewed` | Essa propriedade reflete se o usuário visualizou o cartão ou não. |
+| `created` | (Somente leitura) Essa propriedade é o timestamp unix do horário de criação do cartão na Braze. |
+| `expiresAt` | (Somente leitura) Essa propriedade é o timestamp unix do tempo de expiração do cartão. |
+| `dismissible` | Essa propriedade reflete se o usuário pode descartar o cartão. |
+| `pinned` | Essa propriedade reflete se o cartão foi configurado como "fixado" no dashboard. |
+| `dismissed` | Essa propriedade reflete se o usuário descartou o cartão. |
+| `url` | A URL que será aberta após o cartão ser clicado. Pode ser uma URL HTTP(s) ou uma URL de protocolo. |
+| `openURLInWebView` | Essa propriedade determina se a URL será aberta dentro do app ou em um navegador web externo. |
+| `extras` | Um `NSDictionary` opcional de valores `NSString`. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Base Content Card model properties - ABKContentCard" }
 
-### propriedades do cartão de conteúdo de banner - ABKBannerContentCard
+### Propriedades do Content Card de banner - ABKBannerContentCard {#banner-content-card-properties-abkbannercontentcard}
 
-|Propriedade|Descrição|
+| Propriedade | Descrição |
 |---|---|
-| `image` | Esta propriedade é o URL da imagem do cartão.|
-| `imageAspectRatio` | Esta propriedade é a proporção da imagem do cartão e serve como uma dica antes que o carregamento da imagem seja concluído. Observe que a propriedade pode não ser fornecida em certas circunstâncias. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `image` | Essa propriedade é a URL da imagem do cartão. |
+| `imageAspectRatio` | Essa propriedade é a proporção da imagem do cartão e serve como uma dica antes que o carregamento da imagem seja concluído. Observe que a propriedade pode não ser fornecida em certas circunstâncias. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Banner Content Card properties - ABKBannerContentCard" }
 
-### Propriedades do cartão de conteúdo da imagem legendada - ABKCaptionedImageCard
+### Propriedades do Content Card de imagem legendada - ABKCaptionedImageCard {#captioned-image-content-card-properties-abkcaptionedimagecard}
 
-|Propriedade|Descrição|
+| Propriedade | Descrição |
 |---|---|
-| `image` | Esta propriedade é o URL da imagem do cartão.|
-| `imageAspectRatio` | Esta propriedade é a proporção da imagem do cartão.|
-| `title` | O texto do título do cartão.|
-| `cardDescription` | O texto do corpo para o cartão.|
-| `domain` | O texto do link para a URL da propriedade, como @"blog.braze.com". Ele pode ser exibido na interface do usuário do cartão para indicar a ação/direção de clicar no cartão.|
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
-
-### Propriedades do cartão de conteúdo clássico - ABKClassicContentCard
-
-|Propriedade|Descrição|
-|---|---|
-| `image` | (Opcional) Esta propriedade é a URL da imagem do cartão.|
+| `image` | Essa propriedade é a URL da imagem do cartão. |
+| `imageAspectRatio` | Essa propriedade é a proporção da imagem do cartão. |
 | `title` | O texto do título do cartão. |
-| `cardDescription` | O texto do corpo para o cartão. |
-| `domain` | O texto do link para a URL da propriedade, como @"blog.braze.com". Ele pode ser exibido na interface do usuário do cartão para indicar a ação e a direção do clique no cartão. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| `cardDescription` | O texto do corpo do cartão. |
+| `domain` | O texto do link para a URL da propriedade, como @"blog.braze.com". Pode ser exibido na interface do cartão para indicar a ação/direção ao clicar no cartão. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image Content Card properties - ABKCaptionedImageCard" }
 
-## Métodos do cartão
+### Propriedades do Content Card clássico - ABKClassicContentCard {#classic-content-card-properties-abkclassiccontentcard}
 
-|Método|Descrição|
+| Propriedade | Descrição |
 |---|---|
-| `logContentCardImpression` | Registre manualmente uma impressão no Braze para um determinado cartão. |
-| `logContentCardClicked` | Registre manualmente um clique no Braze para um determinado cartão. O SDK só registrará um clique no cartão quando o cartão tiver a propriedade `url` com um valor válido. |
-| `logContentCardDismissed` | Registre manualmente uma dispensa no Braze para um cartão específico. O SDK só registrará um descarte de cartão se a propriedade `dismissed` do cartão ainda não estiver definida como `true`. |
+| `image` | (Opcional) Essa propriedade é a URL da imagem do cartão. |
+| `title` | O texto do título do cartão. |
+| `cardDescription` | O texto do corpo do cartão. |
+| `domain` | O texto do link para a URL da propriedade, como @"blog.braze.com". Pode ser exibido na interface do cartão para indicar a ação e a direção ao clicar no cartão. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic Content Card properties - ABKClassicContentCard" }
+
+## Métodos do cartão {#card-methods}
+
+| Método | Descrição |
+|---|---|
+| `logContentCardImpression` | Registre manualmente uma impressão na Braze para um determinado cartão. |
+| `logContentCardClicked` | Registre manualmente um clique na Braze para um determinado cartão. O SDK só registrará um clique no cartão quando o cartão tiver a propriedade `url` com um valor válido. |
+| `logContentCardDismissed` | Registre manualmente um descarte na Braze para um cartão específico. O SDK só registrará um descarte de cartão se a propriedade `dismissed` do cartão ainda não estiver definida como `true`. |
 | `isControlCard` | Determine se um cartão é o cartão de Controle para um teste A/B. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
 
-Para saber mais, consulte a [documentação de referência da classe](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_card.html)
+Para saber mais, consulte a [documentação de referência da classe](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_content_card.html).
 
-## Integração do controlador de visualização de Cartões de Conteúdo
+## Integração do controlador de visualização de Content Cards {#content-cards-view-controller-integration}
 
-Os Cartões de Conteúdo podem ser integrados com dois contextos de controlador de visualização: navegação ou modal.
+Content Cards podem ser integrados com dois contextos de controlador de visualização: navegação ou modal.
 
-### Contexto de navegação
+### Contexto de navegação {#navigation-context}
 
 Exemplo de como inserir uma instância `ABKContentCardsTableViewController` em um controlador de navegação:
 
@@ -163,9 +163,9 @@ navigationController?.pushViewController(contentCards, animated: true)
 Para personalizar o título da barra de navegação, defina a propriedade title do `navigationItem` da instância `ABKContentCardsTableViewController`.
 {% endalert %}
 
-### Contexto modal
+### Contexto modal {#modal-context}
 
-Este modal é usado para apresentar o controlador de visualização em uma visualização modal, com uma barra de navegação no topo e um botão **Concluído** na lateral da barra.
+Este modal é usado para apresentar o controlador de visualização em uma visualização modal, com uma barra de navegação no topo e um botão **Done** na lateral da barra.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -190,8 +190,8 @@ self.present(contentCards, animated: true, completion: nil)
 {% endtab %}
 {% endtabs %}
 
-Para exemplos de controlador de visualização, confira o [app de exemplo de Cartões de Conteúdo](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp).
+Para exemplos de controlador de visualização, confira o [app de exemplo de Content Cards](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp).
 
 {% alert note %}
-Para personalizar o cabeçalho, defina a propriedade de título do `navigationItem` pertencente à instância `ABKContentCardsTableViewController` incorporada na instância pai `ABKContentCardsViewController`.
+Para personalizar o cabeçalho, defina a propriedade title do `navigationItem` pertencente à instância `ABKContentCardsTableViewController` incorporada na instância pai `ABKContentCardsViewController`.
 {% endalert %}

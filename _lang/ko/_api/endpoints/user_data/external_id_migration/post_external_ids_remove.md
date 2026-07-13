@@ -9,7 +9,7 @@ description: "이 문서에서는 외부 ID 제거 엔드포인트에 대한 자
 
 ---
 {% api %}
-# 외부 ID 제거
+# 외부 ID 제거 {#remove-external-id}
 {% apimethod post %}
 /users/external_ids/remove
 {% endapimethod %}
@@ -19,20 +19,20 @@ description: "이 문서에서는 외부 ID 제거 엔드포인트에 대한 자
 요청당 최대 50개의 외부 ID를 보낼 수 있습니다.
 
 {% alert warning %}
-이 엔드포인트는 더 이상 사용되지 않는 ID를 완전히 제거하며 되돌릴 수 없습니다. 이 엔드포인트를 사용하여 시스템에서 사용자와 여전히 연결되어 있는 사용되지 않는 `external_ids` 을 제거하면 해당 사용자의 데이터를 영구적으로 찾을 수 없게 됩니다.
+이 엔드포인트는 더 이상 사용되지 않는 ID를 완전히 제거하며 되돌릴 수 없습니다. 이 엔드포인트를 사용하여 시스템에서 사용자와 여전히 연결되어 있는 사용되지 않는 `external_ids`를 제거하면 해당 사용자의 데이터를 영구적으로 찾을 수 없게 됩니다.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e16b5340-5f44-42b6-9033-2398faf8908e {% endapiref %}
 
-## Prerequisites
+## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.external_ids.remove` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.external_ids.remove` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key)가 필요합니다.
 
-## 사용량 제한
+## 사용량 제한 {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='external id migration' %}
 
-## 요청 본문
+## 요청 본문 {#request-body}
 
 ```
 Content-Type: application/json
@@ -45,14 +45,14 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-### 요청 매개변수
+### 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `external_ids` | 필수 | 문자열 배열 | 사용자가 제거할 외부 식별자. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `external_ids` | 필수 | 문자열 배열 | 제거할 사용자의 외부 식별자. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 요청 예시
+## 요청 예시 {#request-example}
 
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids/remove' \
@@ -70,7 +70,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids
 더 이상 사용되지 않는 ID만 제거할 수 있으며, 기본 외부 ID를 제거하려고 하면 오류가 발생합니다.
 {% endalert %}
 
-## 응답
+## 응답 {#response}
 
 응답은 모든 성공적인 제거와 실패한 제거를 관련 오류와 함께 확인합니다. `removal_errors` 필드의 오류 메시지는 원래 요청의 배열에 있는 인덱스를 참조합니다.
 
@@ -82,10 +82,10 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/external_ids
 }
 ```
 
-`message` 필드에 유효한 요청이 있으면 `success`를 반환합니다. 보다 구체적인 오류는 `removal_errors` 배열에 캡처됩니다. `message` 필드는 다음과 같은 경우 오류를 반환합니다.
+`message` 필드는 유효한 요청에 대해 `success`를 반환합니다. 보다 구체적인 오류는 `removal_errors` 배열에 캡처됩니다. `message` 필드는 다음과 같은 경우 오류를 반환합니다:
 - 잘못된 API 키
 - 빈 `external_ids` 배열
-- `external_ids` 50개 이상의 항목이 있는 배열
-- 속도 제한 초과(분당 1,000건 이상의 요청)
+- 50개 이상의 항목이 있는 `external_ids` 배열
+- 사용량 제한 초과(분당 1,000건 이상의 요청)
 
 {% endapi %}

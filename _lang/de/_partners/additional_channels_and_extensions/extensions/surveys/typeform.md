@@ -9,64 +9,64 @@ search_tag: Partner
 
 # Typeform
 
-> [Typeform](https://www.typeform.com/) ist ein einfach zu bedienendes Tool zum Sammeln von Daten, Feedback und mehr.
+> [Typeform](https://www.typeform.com/) ist ein benutzerfreundliches Tool zum Sammeln von Daten, Feedback und mehr.
 
 Durch die Integration von Braze und Typeform können Sie:
 
-- Update der Nutzerprofile in Braze mit Daten aus der Typeform-Antwort
-- Triggern Sie Messaging in Braze auf der Grundlage des Engagements eines Nutzers:innen in einem Formular
-- Personalisieren Sie Braze Messaging auf der Grundlage der Typeform-Antworten eines Nutzers:innen
+- Nutzerprofile in Braze mit Daten aus deren Typeform-Antworten aktualisieren
+- Messaging in Braze basierend auf dem Engagement von Nutzer:innen mit einem Typeform-Formular triggern
+- Braze Messaging basierend auf den Typeform-Antworten von Nutzer:innen personalisieren
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Typeform-Konto | Sie benötigen ein Typeform-Konto mit Zugriff auf Webhooks, um die Vorteile dieser Partnerschaft zu nutzen. |
-| Braze Data Transformation | Eine [Datentransformations-URL]({{site.baseurl}}/data_transformation/) ist erforderlich, um Daten von Typeform zu erhalten. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze Datentransformation | Eine [Datentransformations-URL]({{site.baseurl}}/data_transformation) ist erforderlich, um Daten von Typeform zu empfangen. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
-### Schritt 1: Richten Sie die Braze Data Transformation ein, um Webhooks von Typeform zu akzeptieren. {#step-1}
+### 1. Schritt: Braze Datentransformation einrichten, um Typeform-Webhooks zu akzeptieren {#step-1}
 
-{% multi_lang_include create_transformation.md location="typeform" %}
+{% multi_lang_include data_activation/create_transformation.md location="typeform" %}
 
-### Schritt 2: Typeform Webhooks einrichten
+### 2. Schritt: Typeform-Webhooks einrichten {#step-2-set-up-typeform-webhooks}
 
-Folgen Sie den Schritten in der [Dokumentation zu Typeforms Webhooks](https://www.typeform.com/help/a/webhooks-360029573471/), um einen Webhook einzurichten.
+Folgen Sie den Schritten in der [Typeform-Webhook-Dokumentation](https://www.typeform.com/help/a/webhooks-360029573471/), um einen Webhook einzurichten.
 
-Für Schritt 4 fügen Sie die URL Ihres Webhooks für die Datentransformation als **Ziel-URL** hinzu.
+Fügen Sie in Schritt 4 die Webhook-URL Ihrer Datentransformation als **Destination URL** hinzu.
 
-![]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
+![Typeform-Webhook-Einrichtung mit dem Feld „Destination URL“.]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
 
-Senden Sie ein Testereignis an Ihre Datentransformation, indem Sie auf **Zustellungen anzeigen** und dann auf **Testanfrage senden** klicken.
+Senden Sie ein Test-Event an Ihre Datentransformation, indem Sie auf **View deliveries** und dann auf **Send test request** klicken.
 
-![]({% image_buster /assets/img/typeform/typeform_test_request.png %})
+![Typeform-Seite „View deliveries“ mit ausgewähltem „Send test request“.]({% image_buster /assets/img/typeform/typeform_test_request.png %})
 
-### Schritt 3: Schreiben Sie Code für die Transformation, um die von Ihnen gewählten Typeform-Ereignisse zu akzeptieren.
+### 3. Schritt: Transformationscode schreiben, um die gewählten Typeform-Events zu akzeptieren {#step-3-write-transformation-code-to-accept-your-chosen-typeform-events}
 
-In diesem Schritt transformieren Sie die Webhook-Nutzdaten, die von Typeform gesendet werden, in einen Rückgabewert für ein JavaScript-Objekt.
+In diesem Schritt transformieren Sie die Webhook-Nutzlast, die von Typeform gesendet wird, in einen JavaScript-Objekt-Rückgabewert.
 
-1. Aktualisieren Sie Ihre Datentransformation und vergewissern Sie sich, dass Sie die Typeform-Testnutzlast in den **Webhook-Details** sehen können.
-2. Aktualisieren Sie Ihren Code für die Datentransformation, um die von Ihnen gewählten Typeform-Ereignisse zu unterstützen.
-3. Klicken Sie auf **Validieren**, um eine Vorschau auf die Ausgabe Ihres Codes zu erhalten und um zu prüfen, ob es sich um eine akzeptable `/users/track` Anfrage handelt.
+1. Aktualisieren Sie Ihre Datentransformation und vergewissern Sie sich, dass Sie die Typeform-Testnutzlast in den **Webhook Details** sehen können.
+2. Aktualisieren Sie Ihren Datentransformationscode, um die von Ihnen gewählten Typeform-Events zu unterstützen.
+3. Klicken Sie auf **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable `/users/track`-Anfrage handelt.
 4. Speichern und aktivieren Sie Ihre Datentransformation.
 
-![]({% image_buster /assets/img/typeform/typeform_test_result.png %})
+![Vorschau der Datentransformation mit einer erfolgreichen Validierung der Typeform-Testnutzlast.]({% image_buster /assets/img/typeform/typeform_test_result.png %})
 
-#### Format des Anfragekörpers
+#### Format des Anfragekörpers {#request-body-format}
 
-Dieser Rückgabewert muss dem Format des `/users/track` Anfragekörpers von Braze entsprechen:
+Dieser Rückgabewert muss dem Format des `/users/track`-Anfragekörpers von Braze entsprechen:
 
-- Der Code für die Transformation wird in der Programmiersprache JavaScript akzeptiert. Jeder Standard-JavaScript-Kontrollfluss, wie z.B. die if/else-Logik, wird unterstützt.
-- Der Code der Transformation greift über die Nutzlastvariable auf den Körper der Webhook-Anfrage zu. Diese Variable ist ein Objekt, das durch das Parsen des JSON-Körpers der Anfrage erstellt wird.
-- Alle Features, die in unserem `/users/track` Endpunkt unterstützt werden, werden unterstützt, einschließlich:
-    - Nutzer:in-Objekte, Ereignis-Objekte und Kauf-Objekte mit Attributen
-    - Verschachtelte Attribute und verschachtelte Eigenschaften von angepassten Events
+- Der Transformationscode wird in der Programmiersprache JavaScript akzeptiert. Jeder Standard-JavaScript-Kontrollfluss, wie z. B. die if/else-Logik, wird unterstützt.
+- Der Transformationscode greift über die Nutzlastvariable auf den Körper der Webhook-Anfrage zu. Diese Variable ist ein Objekt, das durch das Parsen des JSON-Anfragekörpers erstellt wird.
+- Alle Features, die in unserem `/users/track`-Endpunkt unterstützt werden, werden unterstützt, einschließlich:
+    - Nutzerattribut-Objekte, Event-Objekte und Kauf-Objekte
+    - Verschachtelte Attribute und verschachtelte Eigenschaften angepasster Events
     - Updates für Abo-Gruppen
-    - E-Mail Adresse als Bezeichner
+    - E-Mail-Adresse als Bezeichner
 
-## Beispiel für die Webhook-Nutzlast von Typeform
+## Beispiel für eine Typeform-Webhook-Nutzlast {#example-typeform-webhook-payload}
 
 ```http
 Content-Type: application/json
@@ -79,8 +79,8 @@ Content-Type: application/json
     "token": "7pctqdoqxg41to97pctqdibhqn6hqvto",
     "landed_at": "2023-10-06T23:57:52Z",
     "submitted_at": "2023-10-06T23:58:18Z",
-    "hidden": { 
-		"user_id": "hidden_value" 
+    "hidden": {
+		"user_id": "hidden_value"
     },
     "definition": {
       "id": "uaIA4a7Y",
@@ -322,18 +322,18 @@ Content-Type: application/json
 }
 ```
 
-## Anwendungsfälle der Datentransformation
+## Anwendungsfälle der Datentransformation {#data-transformation-use-cases}
 
-Im Folgenden finden Sie Beispiel-Templates, die mit unserem [Typeform Webhook-Payload](#example-typeform-webhook-payload) erstellt wurden. Diese Templates können als Ausgangspunkt verwendet werden. Sie können ganz von vorne anfangen oder bestimmte Komponenten löschen, wenn Sie es für richtig halten.
+Im Folgenden finden Sie Beispiel-Templates, die mit unserer [Beispiel-Typeform-Webhook-Nutzlast](#example-typeform-webhook-payload) erstellt wurden. Diese Templates können als Ausgangspunkt verwendet werden. Sie können ganz von vorne anfangen oder bestimmte Komponenten nach Bedarf löschen.
 
-In diesen Beispiel-Templates protokollieren wir ein angepasstes Event für das Profil von Braze. Der Titel des Typeforms wird als Name des angepassten Events übergeben, und die Ergebnisse des Typeforms werden als Event-Eigenschaften übergeben. Diese Beispieltemplates berücksichtigen nicht die Fragetypen Calendly, Dateiupload oder Zahlung in Typeform.
+In diesen Beispiel-Templates protokollieren wir ein angepasstes Event im Braze-Profil. Der Titel des Typeforms wird als Name des angepassten Events übergeben, und die Typeform-Ergebnisse werden als Event-Eigenschaften übergeben. Diese Beispiel-Templates berücksichtigen nicht die Fragetypen Calendly, Dateiupload oder Zahlung in Typeform.
 
-### Anwendungsfälle: E-Mail als Bezeichner
+### Anwendungsfall: E-Mail als Bezeichner {#use-case-email-as-identifier}
 
-In dieser Beispielvorlage verwenden wir eine E-Mail Adresse (die aus einer E-Mail Adressfrage innerhalb des Formulars erfasst wird) als Bezeichner.
+In diesem Beispiel-Template verwenden wir eine E-Mail-Adresse (die aus einer E-Mail-Adressfrage innerhalb des Typeforms erfasst wird) als Bezeichner.
 
 {% alert note %}
-Wenn Sie eine E-Mail Adresse als Bezeichner verwenden möchten, lesen Sie unsere [häufig gestellten Fragen]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions) für den Endpunkt `/users/track`, um weitere Informationen zum erwarteten Verhalten zu erhalten.
+Wenn Sie eine E-Mail-Adresse als Bezeichner verwenden möchten, lesen Sie unsere [häufig gestellten Fragen]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions) für den `/users/track`-Endpunkt, um weitere Informationen zum erwarteten Verhalten zu erhalten.
 {% endalert %}
 
 {% tabs local %}
@@ -470,11 +470,11 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### Anwendungsfälle: Bezeichner verwenden, die in ausgeblendeten Feldern übergeben werden
+### Anwendungsfall: Bezeichner verwenden, die in Hidden Fields übergeben werden {#use-case-using-identifier-passed-in-hidden-fields}
 
-Sie können Typeform Hidden Fields verwenden, um Daten in der Typeform Webhook-Nutzlast zu übergeben, wie z.B. die ID eines Nutzers:innen, ohne diese Informationen in der Typeform-Antwort weitergeben zu müssen.
+Sie können Typeform Hidden Fields verwenden, um Daten in der Typeform-Webhook-Nutzlast zu übergeben, wie z. B. die ID von Nutzer:innen, ohne diese Informationen in der Typeform-Antwort weitergeben zu müssen.
 
-In dieser Beispielvorlage verwenden wir ein "user_id" ausgeblendetes Feld und übergeben dieses als `external_id` in die Nutzdaten der Anfrage `/users/track`. Obwohl wir "user_id", verwenden, können die Felder an Ihre Bedürfnisse angepasst werden.
+In diesem Beispiel-Template verwenden wir ein Hidden Field „user_id“ und übergeben dieses als `external_id` in die Nutzlast der `/users/track`-Anfrage. Obwohl wir „user_id“ verwenden, können die Felder an Ihre Bedürfnisse angepasst werden.
 
 {% tabs local %}
 {% tab Input %}
@@ -610,14 +610,14 @@ return brazecall;
 {% endtab %}
 {% endtabs %}
 
-### Schritt 4: Veröffentlichen Sie Ihren Typeform Webhook
+### 4. Schritt: Typeform-Webhook veröffentlichen {#step-4-publish-your-typeform-webhook}
 
-Nachdem Sie Ihre Datentransformation geschrieben haben, klicken Sie auf **Validieren**, um sicherzustellen, dass Ihr Code für die Datentransformation richtig formatiert ist und wie erwartet funktioniert. Dann speichern und aktivieren Sie Ihre Datentransformation.
+Nachdem Sie Ihre Datentransformation geschrieben haben, klicken Sie auf **Validate**, um sicherzustellen, dass Ihr Datentransformationscode korrekt formatiert ist und wie erwartet funktioniert. Speichern und aktivieren Sie anschließend Ihre Datentransformation.
 
-Wenn diese Funktion aktiviert ist, werden angepasste Event-Daten im Profil eines Nutzers protokolliert, wenn dieser Ihr Formular ausfüllt.
+Wenn die Datentransformation aktiviert ist, werden angepasste Event-Daten im Profil von Nutzer:innen protokolliert, sobald diese Ihr Formular ausfüllen.
 
-![]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
+![Nutzerprofil mit einem protokollierten angepassten Event nach einer Typeform-Übermittlung.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 
-## Überwachung und Fehlerbehebung
+## Überwachung und Fehlerbehebung {#monitoring-and-troubleshooting}
 
-Im Abschnitt [Überwachung Ihrer Transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation) finden Sie weitere Informationen zur Überwachung und Fehlerbehebung Ihrer Transformation.
+Im Abschnitt [Überwachung Ihrer Transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation) finden Sie weitere Informationen zur Überwachung und Fehlerbehebung Ihrer Transformation.

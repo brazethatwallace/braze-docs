@@ -7,7 +7,7 @@ Before you start, verify your environment is supported by the [latest Braze Cord
 ### Step 1: Add the SDK to your project
 
 {% alert warning %}
-Only add the Braze Cordova SDK using the methods below. Do not attempt to install using other methods as it could lead to a security breach.
+Only add the Braze Cordova SDK using the following methods. Do not attempt to install using other methods as it could lead to a security breach.
 {% endalert %}
 
 If you're on Cordova 6 or later, you can add the SDK directly from GitHub. Alternatively, you can download a ZIP of the [GitHub repository](https://github.com/braze-inc/braze-cordova-sdk) and add the SDK manually.
@@ -60,7 +60,7 @@ Replace the following:
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | `BRAZE_API_KEY`       | Your [Braze REST API key]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys).              |
 | `CUSTOM_API_ENDPOINT` | A custom API endpoint. This endpoint is used to route your Braze instance data to the correct App Group in your Braze dashboard. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure your project" }
 
 The `platform` element in your `config.xml` file should be similar to the following:
 
@@ -167,7 +167,7 @@ You can add any of the following preferences to the `platform` element in your p
 | `ios_flush_interval_seconds`                      | Sets the interval in seconds between automatic data flushes. Defaults to 10 seconds.                                                                                                                                                                  |
 | `ios_use_automatic_request_policy`                | Sets whether the request policy for `Braze.Configuration.Api` should be automatic or manual.                                                                                                                                                          |
 | `should_opt_in_when_push_authorized`              | Sets if a user’s notification subscription state should automatically be set to `optedIn` when push permissions are authorized.                                                                                                                       |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Optional configurations #optional" }
 
 {% alert tip %}
 For more detailed information, see [GitHub: Braze iOS Cordova plugin](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/ios/BrazePlugin.m).
@@ -203,7 +203,7 @@ For more detailed information, see [GitHub: Braze iOS Cordova plugin](https://gi
 | `is_push_deep_link_back_stack_activity_enabled`                   | Sets whether Braze will add an activity to the back stack when automatically following deep links for push.                                                                                   |
 | `push_deep_link_back_stack_activity_class_name`                   | Sets the activity that Braze will add to the back stack when automatically following deep links for push.                                                                                     |
 | `should_opt_in_when_push_authorized`                              | Sets if Braze should automatically opt-in the user when push is authorized.                                                                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation"}
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Optional configurations #optional" }
 
 {% alert tip %}
 For more detailed information, see [GitHub: Braze Android Cordova plugin](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/android/BrazePlugin.kt).

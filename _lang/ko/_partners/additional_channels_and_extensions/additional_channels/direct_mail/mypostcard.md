@@ -17,12 +17,12 @@ MyPostcard와 Braze 통합을 사용하여 고객에게 인쇄 우편물을 손�
 
 ## 필수 조건 {#prerequisites}
 
-| 요구 사항                          | 설명                                                                                                             |
-|----------------------------------|-------------------------------------------------------------------------------------------------------------------------|
-| MyPostcard B2B 계정           | 이 통합을 활용하려면 MyPostcard에 등록해야 합니다.                                          |
-| B2B API 키 및 자격 증명        | MyPostcard B2B 관리 도구에서 API 키와 자격 증명을 확인할 수 있습니다.                                         |
+| 요구 사항 | 설명 |
+|---|---|
+| MyPostcard B2B 계정 | 이 통합을 활용하려면 MyPostcard에 등록해야 합니다. |
+| B2B API 키 및 자격 증명 | MyPostcard B2B 관리 도구에서 API 키와 자격 증명을 확인할 수 있습니다. |
 | 승인된 MyPostcard B2B 캠페인 | 이 통합을 활용하려면 MyPostcard B2B 도구에서 인쇄 우편 캠페인을 설정해야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 활용 사례 {#use-cases}
 
@@ -38,26 +38,23 @@ MyPostcard와 통합하려면 [로그인하거나 가입](https://www.mypostcard
 
 ### 1단계: Braze 웹훅 템플릿 생성 {#step-1-create-your-braze-webhook-template}
 
-향후 Campaigns 또는 Canvases에서 사용할 MyPostcard 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **템플릿** > **웹훅 템플릿**으로 이동하세요.
-
-{% alert note %}
-[구형 탐색]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/)을 사용하는 경우, **참여** > **템플릿 및 미디어** > **웹훅 템플릿**으로 이동하세요.
-{% endalert %}
+향후 Campaigns 또는 Canvases에서 사용할 MyPostcard 웹훅 템플릿을 생성하려면 Braze 플랫폼에서 **콘텐츠** > **웹훅**으로 이동하세요. 그런 다음 **웹훅 템플릿 생성**을 선택합니다.
 
 일회성 MyPostcard 웹훅 캠페인을 생성하거나 기존 템플릿을 사용하려면, 새 캠페인을 생성할 때 Braze에서 **Webhook**을 선택하세요. 다음 필드를 작성합니다:
 
-| 필드         | 설명                                               |
-|---------------|-----------------------------------------------------------|
-| **웹훅 URL** | B2B 관리 도구에 표시된 웹훅 URL입니다.             |
-| **요청 본문** | 원시 텍스트(B2B 관리 도구에서 확인할 수 있는 JSON 형식)입니다.        |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| 필드 | 설명 |
+|---|---|
+| **Webhook URL** | B2B 관리 도구에 표시된 웹훅 URL입니다. |
+| **Request Body** | 원시 텍스트(B2B 관리 도구에서 확인할 수 있는 JSON 형식)입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Create your Braze webhook template" }
 
 #### 요청 메서드 및 헤더 {#request-method-and-headers}
 
 MyPostcard는 템플릿에 HTTP 메서드와 함께 다음 HTTP 헤더를 포함해야 합니다.
 
 {% raw %}
-<table>
+<table aria-label="Request method and headers">
+  <caption>요청 메서드 및 헤더</caption>
   <thead>
     <tr>
       <th><strong>필드</strong></th>
@@ -66,15 +63,15 @@ MyPostcard는 템플릿에 HTTP 메서드와 함께 다음 HTTP 헤더를 포함
   </thead>
   <tbody>
     <tr>
-      <td><strong>HTTP 메서드</strong></td>
+      <td><strong>HTTP Method</strong></td>
       <td><code>POST</code></td>
     </tr>
     <tr>
-      <td><strong>사용자 이름</strong></td>
+      <td><strong>Username</strong></td>
       <td><code>{{ '&lt;username&gt;' }}</code></td>
     </tr>
     <tr>
-      <td><strong>비밀번호</strong></td>
+      <td><strong>Password</strong></td>
       <td><code>{{ '&lt;password&gt;' }}</code></td>
     </tr>
     <tr>
@@ -84,7 +81,7 @@ MyPostcard는 템플릿에 HTTP 메서드와 함께 다음 HTTP 헤더를 포함
   </tbody>
 </table>
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Request method and headers" }
 
 #### 요청 본문 {#request-body}
 

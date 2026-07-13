@@ -40,7 +40,7 @@ table td {
 | Mozart Data account | A Mozart Data account is required to take advantage of this partnership. [Sign up here.](https://app.mozartdata.com/signup)|
 | Snowflake Account<br>Option 1: New Account | Select **Create a New Snowflake Account** during the Mozart Data account creation process for Mozart Data to provision a new Snowflake account for you. |
 | Snowflake Account<br>Option 2: Existing Account | If your organization already has a Snowflake account, you can use the Mozart Data Connected option.<br><br>Select the **Already Have a Snowflake Account** option to connect an existing Snowflake account. To pursue this option, a user with account-level permissions must [follow these steps](https://help.mozartdata.com/docs/setting-up-data-warehouse#existingsnowflakeaccount). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integration
 
@@ -50,16 +50,16 @@ The integration is supported for both syncing data from [Braze to Mozart Data](#
 
 #### Step 1: Set up Braze connector
 
-1. In Mozart Data, go to **Connectors** and click **Add Connector**.
+1. In Mozart Data, go to **Connectors** and select **Add Connector**.
 2. Search for "Braze" and select the connector card.
 3. Enter a destination schema name where all of the synced data from Braze will be stored. We recommend using the default schema name `braze`.
-4. Click **Add Connector**.
+4. Select **Add Connector**.
 
 #### Step 2: Fill out the Fivetran connector form
 
-You will be redirected to the Fivetran connector page. On this page, fill out the given fields. Next, click **Continue** > **Save & Test** to complete the Fivetran connector.
+The Fivetran connector page opens after you finish step 1. Fill out the given fields, then select **Continue** > **Save & Test** to complete the Fivetran connector.
 
-Fivetran will begin syncing data from your Braze account to your Snowflake data warehouse. You can access query data from Mozart Data after the connector has finished syncing. 
+Fivetran begins syncing data from your Braze account to your Snowflake data warehouse. You can access query data from Mozart Data after the connector finishes syncing.
 
 ### Syncing data from Mozart Data to Braze
 
@@ -69,20 +69,18 @@ Follow the [Cloud Data Ingestion]({{site.baseurl}}/user_guide/data_and_analytics
 
 #### Step 2: Set up your Snowflake integration in Braze
 
-After setting up your Snowflake warehouse, in Mozart Data, go to the **Integration** page and select **Braze**. Here, you will find the credentials you will need to provide Braze.
+After setting up your Snowflake warehouse, in Mozart Data, go to the **Integration** page and select **Braze**. The **Braze** integration view lists the credentials to copy into Braze.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
+![Mozart Data Integration page with Braze selected and Snowflake connection credentials for use in Braze.]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
 
-Next, while signed into Braze, go to **Integrations > Technology Partners > Snowflake** to begin the integration process. Copy the credentials from Mozart Data and add them to the Snowflake Data import page. Click **Set up sync details** and input your Snowflake account and source table information. 
+Next, while signed into Braze, go to **Integrations > Technology Partners > Snowflake** to begin the integration process. Copy the credentials from Mozart Data and add them to the Snowflake Data import page. Select **Set up sync details** and input your Snowflake account and source table information. 
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
+![Braze Snowflake partner integration form with account, warehouse, database, and schema fields populated from Mozart Data credentials.]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
 
-Next, choose a name for your sync, provide contact emails, and select a data type and a sync frequency. 
-
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-importsync.png %}){: style="max-width:80%;"}
+Next, choose a name for your sync, provide contact emails, and select a data type and a sync frequency on the Braze Snowflake import configuration screen.
 
 #### Step 3: Add a public key to the Braze user
-At this point, you will need to go back to Snowflake to complete the setup. Add the public key displayed on the Braze dashboard to the user you created for Braze to connect to Snowflake.
+At this point, go back to Snowflake to complete the setup. Add the public key displayed on the Braze dashboard to the user you created for Braze to connect to Snowflake.
 
 For additional information on how to do this, see the [Snowflake documentation](https://docs.snowflake.com/en/user-guide/key-pair-auth.html). If you want to rotate the keys at any point, Mozart Data can generate a new key pair and provide you with the new public key.
 
@@ -92,9 +90,9 @@ ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='Braze12345...';
 
 #### Step 4: Test connection
 
-Once the user is updated with the public key, return to the Braze dashboard and click **Test connection**. If successful, you'll see a preview of the data. If, for some reason, the connection is unsuccessful, an error message will display to help troubleshoot the issue.
+Once the user is updated with the public key, return to the Braze dashboard and select **Test connection**. If successful, you'll see a preview of the data. If, for some reason, the connection is unsuccessful, an error message will display to help troubleshoot the issue.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-testsyncpublickey.png %}){: style="max-width:80%;"}
+![Braze Snowflake integration test connection result showing a successful preview after the public key is applied.]({% image_buster /assets/img/mozartdata/mozartdata-braze-testsyncpublickey.png %}){: style="max-width:80%;"}
 
 {% alert note %}
 You must successfully test an integration before it can move from Draft to Active state. If you need to close out of the creation page, your integration will be saved, and you can revisit the details page to make changes and test.  

@@ -11,15 +11,13 @@ page_order: 0
 
 ## Conditions préalables {#prerequisites}
 
-Pour accéder au générateur de pages d'accueil, vous avez besoin de [certaines autorisations]({{site.baseurl}}/user_guide/messaging/landing_pages/#prerequisites). Si vous n'avez pas accès, demandez de l'aide à votre administrateur Braze.
+Pour accéder au générateur de pages d'accueil, vous avez besoin de [certaines autorisations]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Si vous n'avez pas accès, demandez de l'aide à votre administrateur Braze.
 
 ## Créer une page d'accueil {#creating-a-landing-page}
 
 ### Étape 1 : Créer un nouveau brouillon {#step-1-create-a-new-draft}
 
 Accédez à **Messaging** > **Landing Pages**, puis sélectionnez **Create landing page**. Vous pouvez également sélectionner le nom d'une page d'accueil existante pour la dupliquer ou y apporter des modifications.
-
-![La section des pages d'accueil dans le tableau de bord de Braze.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
 
 ### Étape 2 : Saisir les détails de la page {#step-2-enter-the-page-details}
 
@@ -40,8 +38,8 @@ Nous vous recommandons de suivre ces bonnes pratiques :
 | Titre du site | Le titre qui s'affiche dans l'onglet du navigateur. | Utilisez jusqu'à 60 caractères. |
 | Méta-description | Un extrait de texte qui s'affiche dans les résultats de recherche. | Utilisez entre 140 et 160 caractères. |
 | Favicon | L'icône qui apparaît à côté du titre du site dans l'onglet du navigateur. | Utilisez un rapport hauteur/largeur de 1:1 et un type de fichier pris en charge : PNG, JPEG ou ICO. |
-| URL de la page | Il s'agit du chemin URL vers votre page d'accueil. Cette valeur est également référencée lors de l'utilisation des [étiquettes Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) que vous pouvez intégrer dans un message pour identifier automatiquement les utilisateurs lorsqu'ils soumettent votre formulaire. | Cette valeur doit être unique dans votre espace de travail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+| URL de la page | Il s'agit du chemin URL vers votre page d'accueil. Cette valeur est également référencée lors de l'utilisation des [étiquettes Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que vous pouvez intégrer dans un message pour identifier automatiquement les utilisateurs lorsqu'ils soumettent votre formulaire. | Cette valeur doit être unique dans votre espace de travail. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Détails du site" }
 
 ### Étape 3 : Personnaliser la page {#step-3-customize-the-page}
 
@@ -49,7 +47,7 @@ Si ce n'est pas déjà fait, sélectionnez **Enregistrer en tant que brouillon**
 
 ![Un exemple de page d'accueil en cours de création dans l'éditeur par glisser-déposer.]({% image_buster /assets/img/landing_pages/template.png %})
 
-L'éditeur utilise deux types de composants pour la composition des pages d'accueil : les blocs de base et les blocs de formulaire. Tous les blocs doivent être placés dans une ligne.
+L'éditeur utilise deux types de composants pour la composition des pages d'accueil : les blocs de base et les blocs de formulaire. Tous les blocs doivent être placés dans une ligne. Pour une référence dédiée de chaque bloc et de ses propriétés, consultez [Blocs de l'éditeur (pages d'accueil)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 ![La section « Build » contenant « Rows » et « Form Blocks ».]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -68,11 +66,11 @@ Vous pouvez utiliser ces blocs pour ajouter du contenu et personnaliser la dispo
 | Lien | Un lien hypertexte sur lequel les utilisateurs peuvent cliquer pour accéder à une URL spécifiée. Peut être intégré dans du texte ou autonome. |
 | Espacement | Un bloc invisible qui ajoute un espacement vertical entre les éléments pour améliorer la disposition et la lisibilité. |
 | Code personnalisé | Un bloc qui vous permet d'insérer et d'exécuter du HTML, CSS ou JavaScript personnalisé pour une personnalisation avancée. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Personnaliser la page" }
 
-##### Span text
+#### Span text {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab Blocs de formulaire %}
@@ -85,14 +83,14 @@ Vous pouvez utiliser ces blocs pour créer un formulaire qui relie les données 
 |---------------|-------------|
 | Capture d'e-mail | Un champ de formulaire pour les adresses e-mail. Lors de la soumission, l'adresse e-mail est ajoutée au profil de cet utilisateur dans Braze. |
 | Capture de téléphone | Un champ de formulaire pour les numéros de téléphone. Lors de la soumission, l'utilisateur est abonné à votre groupe d'abonnement SMS ou WhatsApp. |
-| Champ de saisie | Un champ de formulaire qui prend en charge les attributs standard (tels que le prénom et le nom) ou une chaîne d'attribut personnalisé de votre choix. |
-| Menu déroulant | Les utilisateurs peuvent sélectionner un élément dans une liste prédéfinie. Vous pouvez ajouter n'importe quelle chaîne d'attribut personnalisé à la liste. |
+| Champ de saisie | Un champ de formulaire qui prend en charge les attributs standard (tels que le prénom et le nom) ou une chaîne de caractères d'attribut personnalisé de votre choix. |
+| Menu déroulant | Les utilisateurs peuvent sélectionner un élément dans une liste prédéfinie. Vous pouvez ajouter n'importe quelle chaîne de caractères d'attribut personnalisé à la liste. |
 | Case à cocher | Si un utilisateur coche la case, l'attribut du bloc est défini sur `true`. Si elle n'est pas cochée, son attribut est défini sur `false`. |
 | Groupe de cases à cocher | Les utilisateurs peuvent sélectionner parmi plusieurs choix présentés. Les valeurs sont soit définies, soit ajoutées à un attribut personnalisé de type tableau défini. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
-Après avoir créé une page d'accueil avec un formulaire, assurez-vous d'intégrer son [étiquette Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) dans votre message. Grâce à cette étiquette, Braze peut automatiquement identifier et mettre à jour les profils utilisateurs existants lorsqu'ils soumettent le formulaire.
+Après avoir créé une page d'accueil avec un formulaire, assurez-vous d'intégrer son [étiquette Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) dans votre message. Grâce à cette étiquette, Braze peut automatiquement identifier et mettre à jour les profils utilisateurs existants lorsqu'ils soumettent le formulaire.
 {% endalert %}
 
 {% endtab %}
@@ -138,10 +136,6 @@ Si vous n'incluez pas de page de confirmation, les utilisateurs pourraient ne pa
 Si votre page de confirmation s'ouvre dans un nouvel onglet, un utilisateur qui revient à la page d'accueil d'origine et soumet à nouveau avec des informations mises à jour peut écraser la soumission précédente, ce qui entraîne des données incohérentes.
 {% endalert %}
 
-{% alert important %}
-Si vous configurez un bouton avec **Submit form when button is clicked** activé et utilisez **On-click Behavior** pour ouvrir une URL web dans un nouvel onglet, le bloqueur de pop-ups intégré de Safari sur iOS peut empêcher la navigation de fonctionner. Cela se produit parce que la soumission du formulaire suivie de l'ouverture d'un nouvel onglet est traitée comme un pop-up.<br><br>Pour éviter ce problème, configurez les boutons avec soumission de formulaire pour ouvrir l'URL résultante dans le même onglet (pas un nouvel onglet). Les boutons sans soumission de formulaire peuvent ouvrir des URL dans de nouveaux onglets sans problème.
-{% endalert %}
-
 ### Étape 5 : Prévisualiser la page {#step-5-preview-the-page}
 
 Vous pouvez prévisualiser votre page d'accueil dans l'onglet **Preview** de l'éditeur. Après avoir enregistré votre page d'accueil en tant que brouillon, vous pouvez visiter l'URL en accédant à **Landing Pages** et en sélectionnant **Copy URL** à côté de votre page d'accueil. Vous pouvez également partager l'URL avec des collaborateurs.
@@ -156,13 +150,17 @@ Avant de publier, assurez-vous que :
 
 Lorsque vous êtes prêt, sélectionnez **Publish Landing Page**.
 
+{% alert note %}
+Les bloqueurs de pop-ups et de publicités agressifs sur iOS et dans Safari (y compris les contrôles intégrés de Safari et les extensions tierces) peuvent avoir un impact négatif sur le comportement des pages d'accueil lorsqu'un bouton **Submit** de formulaire ouvre également une autre URL, que cette URL s'ouvre dans le même onglet ou dans un nouvel onglet.
+{% endalert %}
+
 ## Utiliser des modèles {#using-templates}
 
-Utilisez les modèles de pages d'accueil pour créer des modèles pour vos prochaines campagnes. Ces modèles sont accessibles et gérables à la fois dans l'éditeur de pages d'accueil et dans la section **Templates** du tableau de bord (**Templates** > **Landing Page Templates**). Les modèles de pages d'accueil nécessitent un nom et acceptent facultativement une description.
+Utilisez les modèles de pages d'accueil pour créer des modèles pour vos prochaines campagnes. Ces modèles sont accessibles et gérables à la fois dans l'éditeur de pages d'accueil et depuis la page **Landing Page Templates** (**Content** > **Landing Page**). Les modèles de pages d'accueil nécessitent un nom et acceptent facultativement une description.
 
 ## Gérer les modèles {#managing-templates}
 
-Vous pouvez prévisualiser, archiver, modifier ou dupliquer les modèles de pages d'accueil. Lors de la modification d'une page d'accueil, vous pouvez également enregistrer votre page d'accueil en tant que modèle, apporter des modifications au modèle ou supprimer le contenu de la page d'accueil.
+Vous pouvez prévisualiser, archiver ou modifier les modèles de pages d'accueil. Vous pouvez dupliquer vos propres modèles de pages d'accueil (situés dans **Your Templates**), mais pas les modèles Braze. Lors de la modification d'une page d'accueil, vous pouvez enregistrer votre page d'accueil en tant que modèle, apporter des modifications au modèle ou supprimer le contenu de la page d'accueil.
 
 ![Un menu déroulant avec des options pour enregistrer, modifier et supprimer une page d'accueil.]({% image_buster /assets/img/landing_pages/manage-lp-template.png %}){: style="max-width:60%;"}
 

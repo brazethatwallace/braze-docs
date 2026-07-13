@@ -13,7 +13,7 @@ platform:
 
 # Administrar ubicaciones de banners {#manage-banner-placements}
 
-> Aprende a crear y administrar ubicaciones de banners en el SDK de Braze, incluido el acceso a sus propiedades únicas y el registro de impresiones. Para obtener información más general, consulta [Acerca de los banners]({{site.baseurl}}/developer_guide/banners/).
+> Aprende a crear y administrar ubicaciones de banners en el SDK de Braze, incluido el acceso a sus propiedades únicas y el registro de impresiones. Para obtener información más general, consulta [Acerca de los banners]({{site.baseurl}}/developer_guide/banners).
 
 ## Acerca de las solicitudes de ubicación {#requests}
 
@@ -25,13 +25,27 @@ platform:
 
 Estas son las versiones mínimas del SDK necesarias para crear ubicaciones de banners:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
 
 {% multi_lang_include banners/creating_placements.md section="developer" %}
 
 ### Paso 2: Actualiza las ubicaciones en tu aplicación {#requestBannersRefresh}
 
-Las ubicaciones se pueden actualizar llamando a los métodos de actualización que se describen a continuación. Estas ubicaciones se almacenarán automáticamente en caché cuando expire la sesión de un usuario o cuando cambies los usuarios identificados utilizando el método `changeUser`.
+Para actualizar las ubicaciones, llama al método de actualización de tu SDK (`requestBannersRefresh()` en Web y Android, o `requestRefresh()` en Swift).
+
+El comportamiento de actualización de banners tiene dos rutas:
+
+1. **Actualización explícita:** puedes llamar al método de actualización en cualquier momento durante una sesión activa.
+2. **Actualización automática en una nueva sesión:** después de realizar al menos una solicitud de actualización explícita, el SDK puede volver a solicitar los ID de ubicación solicitados más recientemente cuando se inicia una nueva sesión de Braze (por ejemplo, después de `changeUser()` o tras un tiempo de espera de sesión).
+
+El rol de `subscribeToBannersUpdates()` varía según la plataforma:
+
+- **iOS y Android:** `subscribeToBannersUpdates()` (o `subscribeToUpdates()` en Swift) registra una devolución de llamada de actualización. La actualización automática al inicio de sesión no depende de que la suscripción esté activa.
+- **Web:** la actualización automática al inicio de sesión está vinculada a que `subscribeToBannersUpdates()` esté registrado. Sin una suscripción activa, el SDK no repite automáticamente la actualización en una nueva sesión.
+
+En todos los casos, debes realizar al menos una solicitud de actualización explícita por ciclo de vida de la aplicación para que el SDK sepa qué ID de ubicación mantener actualizados. Los banners no se obtienen automáticamente en el primer lanzamiento sin esa llamada inicial, y los ID de ubicación rastreados se restablecen tras reiniciar la aplicación.
+
+Las actualizaciones automáticas al inicio de sesión no consumen un token de límite de velocidad.
 
 {% alert tip %}
 Actualiza las ubicaciones lo antes posible para evitar retrasos en la descarga o visualización de los banners.
@@ -115,7 +129,7 @@ This feature is not currently supported on Roku.
 ### Paso 3: Escucha las actualizaciones {#subscribeToBannersUpdates}
 
 {% alert tip %}
-Si insertas banners utilizando los métodos del SDK de esta guía, todos los eventos de análisis (como impresiones y clics) se gestionarán automáticamente, y las impresiones solo se registrarán cuando el banner esté visible.
+Si insertas banners utilizando los métodos del SDK de esta guía, todos los eventos de análisis (como impresiones y clics) se gestionan automáticamente, y las impresiones solo se registran cuando el banner está visible.
 {% endalert %}
 
 {% tabs %}
@@ -160,36 +174,56 @@ useEffect(() => {
 {% endtab %}
 {% tab Swift %}
 
+{% alert note %}
+Tu listener de actualización de banners refleja el estado en memoria de los banners del SDK. Una sola actualización puede incluir ubicaciones que ya estaban en caché (por ejemplo, de una actualización anterior, otra pantalla o trabajo automático del SDK), no solo los ID de ubicación de tu llamada `requestRefresh` más reciente. Si solo te interesan ciertas ubicaciones, comprueba el ID de ubicación de cada banner en tu listener y omite el resto. Cuando hayas registrado tu listener, llama a `requestRefresh` para las ubicaciones que quieras sincronizar desde Braze.
+{% endalert %}
+
 ```swift
+let placementIds = ["global_banner", "navigation_square_banner"]
 let cancellable = brazeClient.braze()?.banners.subscribeToUpdates { banners in
   banners.forEach { placementId, banner in
     print("Received banner: \(banner) with placement ID: \(placementId)")
   }
 }
+// Always refresh after your subscriber is registered
+brazeClient.braze()?.banners.requestRefresh(placementIds: placementIds)
 ```
 
 {% endtab %}
 {% tab Android %}
+
+{% alert note %}
+Tu listener de actualización de banners refleja el estado en memoria de los banners del SDK. Una sola actualización puede incluir ubicaciones que ya estaban en caché (por ejemplo, de una actualización anterior, otra pantalla o trabajo automático del SDK), no solo los ID de ubicación de tu llamada `requestBannersRefresh` más reciente. Si solo te interesan ciertas ubicaciones, comprueba el ID de ubicación de cada banner en tu listener y omite el resto. Cuando hayas registrado tu listener, llama a `requestBannersRefresh` para las ubicaciones que quieras sincronizar desde Braze.
+{% endalert %}
+
 {% subtabs %}
 {% subtab Java %}
 
 ```java
+ArrayList<String> placementIds = new ArrayList<>();
+placementIds.add("global_banner");
+placementIds.add("navigation_square_banner");
 Braze.getInstance(context).subscribeToBannersUpdates(banners -> {
   for (Banner banner : banners.getBanners()) {
     Log.d(TAG, "Received banner: " + banner.getPlacementId());
   }
 });
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds);
 ```
 
 {% endsubtab %}
 {% subtab Kotlin %}
 
 ```kotlin
+val placementIds = listOf("global_banner", "navigation_square_banner")
 Braze.getInstance(context).subscribeToBannersUpdates { update ->
   for (banner in update.banners) {
     Log.d(TAG, "Received banner: " + banner.placementId)
   }
 }
+// Always refresh after your subscriber is registered
+Braze.getInstance(context).requestBannersRefresh(placementIds)
 ```
 
 {% endsubtab %}
@@ -248,7 +282,7 @@ This feature is not currently supported on Roku.
 ### Paso 4: Inserta utilizando el ID de ubicación {#insertBanner}
 
 {% alert tip %}
-Para obtener un tutorial completo paso a paso, consulta [Mostrar un banner por ID de ubicación]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/).
+Para obtener un tutorial completo paso a paso, consulta [Mostrar un banner por ID de ubicación]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners).
 {% endalert %}
 
 {% tabs %}
@@ -410,10 +444,45 @@ Si utilizas Android Views, usa este XML:
     app:placementId="global_banner" />
 ```
 
-Si utilizas Jetpack Compose, puedes usar esto:
+Para usar Jetpack Compose, añade el artefacto `com.braze:android-sdk-jetpack-compose` al módulo de tu aplicación. Usa la misma versión que tus otras dependencias del SDK Android de Braze. Este módulo es independiente de `android-sdk-ui` e incluye el composable [`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html) bajo `com.braze.jetpackcompose.banners`.
+
+{% alert note %}
+Algunas bibliotecas de UI de Compose definen su propio composable `Banner`. Importa `com.braze.jetpackcompose.banners.Banner` explícitamente para asegurarte de llamar a la API de Braze.
+{% endalert %}
 
 ```kotlin
-Banner(placementId = "global_banner")
+import com.braze.jetpackcompose.banners.Banner
+
+@Composable
+fun myBannerSlot() {
+    Banner(placementId = "global_banner")
+}
+```
+
+Opcionalmente, pasa `heightCallback` para recibir la altura renderizada en dp cuando cambie el tamaño del banner. Como referencia, consulta la [documentación KDoc de `Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html).
+
+Si no añades el módulo de Jetpack Compose, envuelve [`BannerView`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.banners/-banner-view/index.html) en [`AndroidView`](https://developer.android.com/reference/kotlin/androidx/compose/ui/viewinterop/AndroidView):
+
+```kotlin
+import android.view.ViewGroup
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.viewinterop.AndroidView
+import com.braze.ui.banners.BannerView
+
+@Composable
+fun myBannerSlot() {
+    AndroidView(
+        factory = { context ->
+            BannerView(context, "global_banner").apply {
+                layoutParams = ViewGroup.LayoutParams(
+                    ViewGroup.LayoutParams.MATCH_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT
+                )
+            }
+        },
+        update = { it.placementId = "global_banner" }
+    )
+}
 ```
 
 Para obtener el banner en Kotlin, utiliza:
@@ -500,7 +569,7 @@ This feature is not currently supported on Roku.
 
 ### Paso 5: Enviar un banner de prueba (opcional) {#handling-test-cards}
 
-Antes de lanzar una campaña de banners, puedes [enviar un banner de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=banners) para verificar tu integración. Los banners de prueba se almacenarán en una caché independiente en memoria y no se conservarán tras reiniciar la aplicación. Aunque no se necesita ninguna configuración adicional, tu dispositivo de prueba debe ser capaz de recibir notificaciones push en primer plano para poder mostrar la prueba.
+Antes de lanzar una campaña de banners, puedes [enviar un banner de prueba]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners) para verificar tu integración. Los banners de prueba se almacenan en una caché independiente en memoria y no se conservan tras reiniciar la aplicación. Aunque no se necesita ninguna configuración adicional, tu dispositivo de prueba debe ser capaz de recibir notificaciones push en primer plano para poder mostrar la prueba.
 
 {% alert note %}
 Los banners de prueba son como cualquier otro banner, salvo que se eliminan en la siguiente sesión de la aplicación.
@@ -508,7 +577,7 @@ Los banners de prueba son como cualquier otro banner, salvo que se eliminan en l
 
 ## Registrar impresiones {#log-impressions}
 
-Braze registra automáticamente las impresiones de los banners que están a la vista cuando utilizas métodos del SDK para insertar un banner, por lo que no es necesario realizar un seguimiento manual de las impresiones.
+Braze registra automáticamente las impresiones de los banners que están a la vista cuando utilizas métodos del SDK para insertar un banner&#8212;por lo que no es necesario realizar un seguimiento manual de las impresiones.
 
 ## Registrar clics {#logging-clicks}
 
@@ -528,13 +597,13 @@ Si tu banner utiliza el bloque de editor **Custom Code** en el panel de Braze, d
 </button>
 ```
 
-Para obtener la referencia completa, consulta [Código personalizado y puente JavaScript para banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-code). `brazeBridge` proporciona una capa de comunicación entre el HTML interno del banner y el SDK principal de Braze.
+Para obtener la referencia completa, consulta [Código personalizado y puente JavaScript para banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code). `brazeBridge` proporciona una capa de comunicación entre el HTML interno del banner y el SDK principal de Braze.
 
 ### Implementaciones de interfaz de usuario personalizadas (headless) {#custom-ui-implementations-headless}
 
 Si estás creando una interfaz de usuario totalmente personalizada utilizando las [propiedades personalizadas](#custom-properties) del banner en lugar de renderizar el HTML del banner, debes registrar manualmente los clics y las impresiones desde el código de tu aplicación. Dado que el SDK no muestra el banner, no tiene forma de realizar un seguimiento automático de las interacciones con tus elementos de interfaz de usuario personalizados.
 
-Para las firmas de los métodos y todos los detalles, consulta la [documentación de referencia del SDK de Braze]({{site.baseurl}}/developer_guide/references/).
+Para las firmas de los métodos y todos los detalles, consulta la [documentación de referencia del SDK de Braze]({{site.baseurl}}/developer_guide/references).
 
 #### Registrar impresiones {#logging-impressions}
 
@@ -655,10 +724,6 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 
 Los descartes de banners eliminan programáticamente un banner de una ubicación cuando un usuario lo descarta activamente. Una vez descartado, el banner se suprime para ese usuario. La próxima vez que se actualice la lista de ubicaciones, se devolverá un nuevo banner si el usuario es elegible para uno.
 
-{% alert important %}
-Los descartes de banners se encuentran actualmente en acceso anticipado. Si te interesa participar en el acceso anticipado, ponte en contacto con tu administrador del éxito del cliente.
-{% endalert %}
-
 ### Requisitos previos
 
 Estas son las versiones mínimas del SDK necesarias para registrar descartes de banners:
@@ -666,9 +731,10 @@ Estas son las versiones mínimas del SDK necesarias para registrar descartes de 
 {% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Integraciones {#integrations}
+
 #### Integraciones estándar de banners (editor de arrastrar y soltar) {#standard-banner-integrations-drag-and-drop-editor}
 
-Si tu banner utiliza el editor de arrastrar y soltar e incluye un componente de botón de descarte, no se necesita código adicional. Cuando un usuario hace clic en el botón de descarte, el mensaje se ocultará, se activará un descarte y luego se registrará un evento de descarte para los análisis.
+Si tu banner utiliza el editor de arrastrar y soltar e incluye un componente de botón de descarte, no se necesita código adicional. Cuando un usuario hace clic en el botón de descarte, el mensaje se oculta, se activa un descarte y luego se registra un evento de descarte para los análisis.
 
 #### Bloques de código personalizados
 
@@ -680,13 +746,103 @@ Si tu banner utiliza el bloque de editor **Custom Code**, puedes activar un desc
 </button>
 ```
 
-### Registrar análisis personalizados al descartar un banner {#log-custom-analytics-on-banner-dismissal}
+#### Descartar un banner programáticamente {#dismiss-a-banner-programmatically}
 
-Para ejecutar lógica adicional, como registrar análisis personalizados al descartar un banner, sobrescribe la devolución de llamada opcional `onDismiss` en tu vista de banner. De forma predeterminada, esta devolución de llamada está vacía.
+Si utilizas el `BrazeBannerView` estándar con el botón de descarte creado en el editor de arrastrar y soltar, no se necesita código adicional; el descarte se gestiona automáticamente.
+
+Para integraciones de interfaz de usuario personalizadas, puedes llamar al método de descarte directamente en tu instancia de Braze para descartar un banner programáticamente y registrar un evento de descarte. El método de descarte se puede llamar varias veces de forma segura: el SDK ignora las llamadas duplicadas para el mismo banner.
+
+Estas son las versiones mínimas del SDK necesarias para descartar un banner programáticamente:
+
+{% sdk_min_versions swift:15.1.0 android:42.3.0 web:6.9.0 reactnative:22.0.0 flutter:20.0.0 %}
 
 {% tabs %}
 {% tab Web %}
-El SDK Web no tiene una devolución de llamada `onDismiss` dedicada en `insertBanner`. En su lugar, usa `subscribeToBannersUpdates` para detectar cuándo se ha descartado un banner comprobando si ya no está presente en el mapa de banners actualizado.
+Pasa el objeto `Banner` a `braze.dismissBanner()`. Puedes obtener el objeto `Banner` de `braze.getAllBanners()` o de una devolución de llamada de `subscribeToBannersUpdates`.
+
+{% subtabs %}
+{% subtab JavaScript %}
+```javascript
+import * as braze from "@braze/web-sdk";
+
+const banners = braze.getAllBanners();
+const banner = banners["global_banner"];
+
+if (banner) {
+  braze.dismissBanner(banner);
+}
+```
+{% endsubtab %}
+{% subtab React %}
+```typescript
+import * as braze from "@braze/web-sdk";
+
+const banners = braze.getAllBanners();
+const banner = banners["global_banner"];
+
+if (banner) {
+  braze.dismissBanner(banner);
+}
+```
+{% endsubtab %}
+{% endsubtabs %}
+{% endtab %}
+
+{% tab Android %}
+{% subtabs %}
+{% subtab Java %}
+```java
+Braze.getInstance(context).dismissBanner("your-placement-id");
+```
+{% endsubtab %}
+{% subtab Kotlin %}
+```kotlin
+Braze.getInstance(context).dismissBanner("your-placement-id")
+```
+{% endsubtab %}
+{% endsubtabs %}
+{% endtab %}
+
+{% tab Swift %}
+
+Usa `dismiss()` en el contexto del banner cuando esté disponible. Este método es idempotente y activa la devolución de llamada `onDismiss` automáticamente. Si el contexto no está disponible, llama a `dismiss(using:)` directamente en el banner. Ambos métodos deben llamarse desde el hilo principal.
+
+```swift
+// Preferred: dismiss via context.
+banner.context?.dismiss()
+
+// Fallback: if context is unavailable.
+banner.dismiss(using: braze)
+```
+
+En Objective-C, estos están disponibles como `[banner.context dismiss]` y `[banner dismissUsing:braze]`.
+
+{% endtab %}
+
+{% tab React Native %}
+```javascript
+Braze.dismissBanner("your-placement-id");
+```
+{% endtab %}
+
+{% tab Flutter %}
+```dart
+braze.dismissBanner("your-placement-id");
+```
+{% endtab %}
+{% endtabs %}
+
+### Registrar análisis personalizados al descartar un banner {#log-custom-analytics-on-banner-dismissal}
+
+Para ejecutar lógica personalizada cuando se descarta un banner, como registrar análisis, usa la devolución de llamada de descarte de tu SDK. La devolución de llamada recibe un objeto de evento con el `placementId`, `stableKey` y `trackingId` del banner.
+
+{% tabs %}
+{% tab Web %}
+Usa [`Banner.subscribeToDismissedEvent()`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.banner.html#subscribetodismissedevent) para ejecutar lógica personalizada cuando se descarta un banner específico. Suscríbete al evento antes de mostrar el banner.
+
+{% alert note %}
+`Banner.subscribeToDismissedEvent()` requiere el SDK Web 6.9.0 o posterior. En versiones anteriores, usa `braze.subscribeToBannersUpdates()` y detecta el descarte comprobando si el banner ya no está presente en el mapa de banners actualizado.
+{% endalert %}
 
 {% subtabs %}
 {% subtab JavaScript %}
@@ -694,13 +850,13 @@ El SDK Web no tiene una devolución de llamada `onDismiss` dedicada en `insertBa
 import * as braze from "@braze/web-sdk";
 
 braze.subscribeToBannersUpdates((banners) => {
-  const globalBanner = banners["global_banner"];
+  const banner = banners["global_banner"];
 
-  if (!globalBanner) {
-    // The banner was dismissed or the user is no longer eligible.
-    // Run any custom analytics here.
-    console.log("Banner was dismissed");
-    return;
+  if (banner) {
+    banner.subscribeToDismissedEvent(() => {
+      // Run any custom logic here, such as logging custom analytics
+      console.log("Banner was dismissed");
+    });
   }
 });
 
@@ -714,13 +870,13 @@ import * as braze from "@braze/web-sdk";
 
 useEffect(() => {
   const subscriptionId = braze.subscribeToBannersUpdates((banners) => {
-    const globalBanner = banners["global_banner"];
+    const banner = banners["global_banner"];
 
-    if (!globalBanner) {
-      // The banner was dismissed or the user is no longer eligible.
-      // Run any custom analytics here.
-      console.log("Banner was dismissed");
-      return;
+    if (banner) {
+      banner.subscribeToDismissedEvent(() => {
+        // Run any custom logic here, such as logging custom analytics
+        console.log("Banner was dismissed");
+      });
     }
   });
 
@@ -748,8 +904,10 @@ import kotlin.Unit;
 
 // After obtaining your BannerView instance (for example from XML via findViewById, or `new BannerView(context, "global_banner")`)
 
-bannerView.setOnDismissCallback(() -> {
-  Log.d(TAG, "Successfully dismissed banner with placementId: " + bannerView.getPlacementId());
+bannerView.setOnDismissCallback((snapshot) -> {
+  Log.d(TAG, "placementId: " + snapshot.getPlacementId()
+    + ", stableKey: " + snapshot.getStableKey()
+    + ", trackingId: " + snapshot.getTrackingId());
 
   // Run any custom logic here, such as logging custom analytics
   return Unit.INSTANCE;
@@ -765,8 +923,8 @@ import com.braze.ui.banners.BannerView
 
 // After obtaining your BannerView instance (for example via findViewById or `BannerView(context, "global_banner")`)
 
-bannerView.onDismissCallback = {
-  Log.d(TAG, "Successfully dismissed banner with placementId: ${bannerView.placementId}")
+bannerView.onDismissCallback = { snapshot ->
+  Log.d(TAG, "placementId: ${snapshot.placementId}, stableKey: ${snapshot.stableKey}, trackingId: ${snapshot.trackingId}")
 
   // Run any custom logic here, such as logging custom analytics
 }
@@ -780,11 +938,43 @@ bannerView.onDismissCallback = {
 ```swift
 // After initializing your banner view instance using UIKit or SwiftUI
 
-bannerView.onDismiss = { dismissedBanner in
-  print("Successfully dismissed banner with placementId: \(dismissedBanner.placementId)")
+bannerView.onDismiss = { event in
+  print("Banner dismissed — placementId: \(event.placementId ?? "unknown")")
+  print("  stableKey: \(event.stableKey ?? "unknown")")
+  print("  trackingId: \(event.trackingId ?? "unknown")")
 
   // Run any custom logic here, such as logging custom analytics
 }
+```
+{% endtab %}
+
+{% tab React Native %}
+Establece la propiedad `onDismiss` en `Braze.BrazeBannerView` para ejecutar lógica personalizada cuando se descarta un banner.
+
+```javascript
+import Braze from "@braze/react-native-sdk";
+
+<Braze.BrazeBannerView
+  placementId="global_banner"
+  onDismiss={(event) => {
+    console.log("placementId:", event.placementId, "stableKey:", event.stableKey, "trackingId:", event.trackingId);
+    // Run any custom logic here, such as logging custom analytics
+  }}
+/>
+```
+{% endtab %}
+
+{% tab Flutter %}
+Establece el parámetro `onDismiss` en `BrazeBannerView` para ejecutar lógica personalizada cuando se descarta un banner.
+
+```dart
+BrazeBannerView(
+  placementId: 'global_banner',
+  onDismiss: (BrazeBannerDismissEvent event) {
+    print('placementId: ${event.placementId}, stableKey: ${event.stableKey}, trackingId: ${event.trackingId}');
+    // Run any custom logic here, such as logging custom analytics
+  },
+)
 ```
 {% endtab %}
 {% endtabs %}
@@ -801,9 +991,9 @@ En casos excepcionales en los que se acumule un gran número de descartes sin un
 
 Esto es lo que debes saber sobre las dimensiones y el tamaño de los banners:
 
-- Aunque el compositor te permite previsualizar los banners en diferentes dimensiones, esa información no se guarda ni se envía al SDK.
+- Aunque el creador te permite previsualizar los banners en diferentes dimensiones, esa información no se guarda ni se envía al SDK.
 - El HTML ocupará todo el ancho del contenedor en el que se muestre.
-- Recomendamos crear un elemento de dimensiones fijas y probar esas dimensiones en el compositor.
+- Recomendamos crear un elemento de dimensiones fijas y probar esas dimensiones en el creador.
 
 ## Propiedades personalizadas {#custom-properties}
 
@@ -815,13 +1005,13 @@ Puedes utilizar propiedades personalizadas de tu campaña de banners para recupe
 
 ### Requisitos previos
 
-Tendrás que [añadir propiedades personalizadas]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#custom-properties) a tu campaña de banners. Además, estas son las versiones mínimas del SDK necesarias para acceder a las propiedades personalizadas:
+Debes [añadir propiedades personalizadas]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties) a tu campaña de banners. Además, estas son las versiones mínimas del SDK necesarias para acceder a las propiedades personalizadas:
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 
 ### Acceder a las propiedades personalizadas {#access-custom-properties}
 
-Para acceder a las propiedades personalizadas de un banner, utiliza uno de los siguientes métodos según el tipo de propiedad definido en el dashboard. Si la clave no coincide con una propiedad de ese tipo o no existe, el método devuelve `null`.
+Para acceder a las propiedades personalizadas de un banner, utiliza uno de los siguientes métodos según el tipo de propiedad definido en el panel. Si la clave no coincide con una propiedad de ese tipo o no existe, el método devuelve `null`.
 
 {% tabs local %}
 {% tab Web %}

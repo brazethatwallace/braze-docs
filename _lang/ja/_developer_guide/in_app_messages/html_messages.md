@@ -8,7 +8,7 @@ description: "アプリにBraze JavaScriptインターフェイスを追加す�
 
 # HTMLアプリ内メッセージ {#html-in-app-messages}
 
-> アプリにBraze JavaScriptインターフェイスを追加して、Braze APIを使用してカスタムWebViewで[HTMLアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/)を作成する方法を説明します。
+> アプリにBraze JavaScriptインターフェイスを追加して、Braze APIを使用してカスタムWebViewで[HTMLアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html)を作成する方法を説明します。
 
 {% sdktabs %}
 {% sdktab android %}

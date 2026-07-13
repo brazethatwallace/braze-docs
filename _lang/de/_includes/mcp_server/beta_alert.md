@@ -1,3 +1,3 @@
 {% alert important %}
-Der Braze MCP Server befindet sich derzeit in der Beta-Phase. Wenn Sie uns bei der Verbesserung des Produkts unterstützen möchten, senden Sie uns bitte Ihr Feedback an [mcp-product@braze.com](mailto:mcp-product@braze.com).
+Für den lokal gehosteten Braze MCP-Server (Beta) findet diesen Sommer das Sunsetting statt. Er wird weiterhin funktionieren, aber wir fügen keine Endpunkte mehr hinzu und bieten keinen Support mehr für die Beta. Ein remote gehosteter MCP-Server von Braze wird diesen Sommer im Early Access verfügbar sein.
 {% endalert %}

@@ -10,6 +10,6 @@ Os valores das propriedades podem ser qualquer um dos seguintes tipos de dados:
 | String | 255 caracteres ou menos |
 | Array | Compatível; datetimes não são compatíveis com arrays. |
 | Objeto | Processado como strings (não como objetos aninhados). Para dados aninhados, use um valor da string (por exemplo, JSON serializado). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Table" }
 
 As seguintes chaves são reservadas e não podem ser usadas como nomes de propriedades: `time`, `product_id`, `quantity`, `event_name`, `price` e `currency`. Usar uma chave reservada no objeto `properties` retorna o erro "Invalid 'properties' field".
