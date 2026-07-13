@@ -37,6 +37,12 @@ As a convenience, a summary of supported personalization tags are provided. For 
 {% endraw %}
 
 {% alert note %}
+For WhatsApp, `{{whats_app.${inbound_media_urls}}}` URLs expire **seven days** after the inbound message is received. See [Inbound media storage and URL expiration]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#inbound-media-storage-and-url-expiration).
+{% endalert %}
+
+{% raw %}
+
+{% alert note %}
 API trigger properties must use two curly braces per tag: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Triple braces (for example `{{{...}}}`){% endraw %} are not valid Braze personalization syntax. See [Why is my API-triggered Liquid failing in Braze?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).
 {% endalert %}
 

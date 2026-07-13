@@ -201,6 +201,24 @@ To send information into Braze, for example, to indicate that a user is in an ac
 #### Does Braze store user responses? 
 Messages are only stored long enough to process them. To access user messages, use Currents. 
 
+#### Does Braze receive WhatsApp message report webhooks from users?
+No. When a user reports a message in WhatsApp, Meta uses that feedback for template quality and account enforcement. Braze does not receive a dedicated report webhook, and the user's Braze subscription status is not updated automatically.
+
+#### Does Braze support automatic SMS fallback when WhatsApp delivery fails?
+No. Braze does not offer a native WhatsApp-to-SMS fallback path. To retry on another channel, segment users with failed WhatsApp sends (for example, via Currents failure events) and target an SMS or email campaign.
+
+#### How long are inbound media URLs valid?
+The `{{whats_app.${inbound_media_urls}}}` Liquid field is valid for **seven days** from when Braze receives the inbound message. Braze stores the underlying media for 30 days, but the URL is not regenerated. See [Inbound media storage and URL expiration]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#inbound-media-storage-and-url-expiration).
+
+#### What affects WhatsApp response message latency?
+Response message latency depends on Canvas architecture, webhook round trips, and User Update batching. For sub-minute replies, minimize steps between the inbound trigger and the response message send, and avoid User Update batching delays when subscription state must update first.
+
+#### Are there special BSP requirements to launch WhatsApp in Brazil, Nigeria, Kenya, or Ghana?
+No Braze-specific blockers apply beyond standard Meta Cloud API availability. Confirm local compliance with your legal team. Official Business Account (OBA) applications may require the WABA to meet Meta's age and verification prerequisites.
+
+#### Can I use `{{whats_app.${inbound_profile_name}}}` for personalization?
+Yes, when available on the inbound event. This value reflects the name the user set in WhatsApp and may not match CRM data quality. Validate data before using it in customer-facing copy.
+
 #### What metrics are available in the Braze dashboard? 
 You can see unique recipients, sends, deliveries, reads, and failures in the Braze dashboard. Note that the end-users read receipts must be "On" for Braze to track reads. You can also set up conversion events to monitor campaign performance, similar to other channels. 
 
