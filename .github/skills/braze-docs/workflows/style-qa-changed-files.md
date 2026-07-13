@@ -25,7 +25,7 @@ Canonical human guide when a rule is ambiguous:
 Run this to inspect changed prose lines in scope:
 
 ```bash
-git diff --unified=0 origin/develop...HEAD -- _docs/**/*.md _includes/**/*.md
+git diff --unified=0 origin/develop...HEAD -- '_docs/**/*.md' '_includes/**/*.md'
 ```
 
 Interpret the output:
