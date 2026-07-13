@@ -29,7 +29,7 @@ You can also leverage external tools such as [Sender Score](https://www.sendersc
 
 [Suppression lists]({{site.baseurl}}/user_guide/audience/suppression_lists/) are groups of users defined with segment filters who do not receive campaigns or Canvases by default, even when they appear in the target segment. For inactive or disengaged recipients, a suppression list acts as a workspace-wide guardrail. When users meet your inactive criteria, they stop receiving most messaging without you editing every segment or campaign.
 
-To align with a sunset policy, build the suppression list with filters that capture users who should no longer get ongoing promotional email—for example `Last Engaged With Message` or other filters under **Retargeting**, using the same lookback window and channel choices you use for “unengaged” in your policy. Membership is dynamic, so users enter when they meet the filters and exit when they engage again.
+To align with a sunset policy, build the suppression list with filters that capture users who should no longer get ongoing promotional email (for example, `Last Engaged With Message` or other filters under **Retargeting**) using the same lookback window and channel choices you use for “unengaged” in your policy. Membership is dynamic, so users enter when they meet the filters and exit when they engage again.
 
 If you still want certain sends to reach inactive users, such as a final win-back or approved transactional journeys, configure exception tags on the suppression list so campaigns or Canvases with those tags still deliver when users are in the target audience. For setup steps, permissions, and limits, see [Setting up suppression lists]({{site.baseurl}}/user_guide/audience/suppression_lists/#setup).
 
