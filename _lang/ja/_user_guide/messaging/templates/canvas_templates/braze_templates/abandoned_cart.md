@@ -76,7 +76,7 @@ tool: Canvas
 2. キャンバス IDを確認し、[`/canvas/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)を使用して、アプリまたはWebサイトがカート放棄を検出した際にユーザーを追加します。
 3. オプションで、[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)（製品名やカートの詳細など）を渡して、下流のメッセージをパーソナライズできます。
 
-アクションベースのエントリを希望する場合は、**Action-Based**を選択し、ブランドがカート放棄を追跡する方法に合ったトリガーを選択します。たとえば、ログに記録された`abandoned_cart`イベントに対して**Perform Custom Event**を選択します。
+アクションベースのエントリを希望する場合は、**アクションベース**を選択し、ブランドがカート放棄を追跡する方法に合ったトリガーを選択します。たとえば、ログに記録された`abandoned_cart`イベントに対して**カスタムイベントを実行**を選択します。
 
 ### ステップ 4: キャンバスにエントリするユーザーを決定する {#step-4-determine-who-enters-the-canvas}
 

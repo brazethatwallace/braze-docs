@@ -6619,8 +6619,18 @@ _JA_CAMPAIGN_COMPOSER_UI = [
     ("**Schedule Delivery**", "**配信をスケジュール**"),
     ("**Action-Based Delivery**", "**アクションベースの配信**"),
     ("**Action-Based**", "**アクションベース**"),
-    ("**Send an SMS Inbound Message**", "**SMSインバウンドメッセージを送信する**"),
-    ("**Send a WhatsApp inbound message**", "**WhatsAppインバウンドメッセージを送信する**"),
+    ("**Perform Custom Event**", "**カスタムイベントを実行**"),
+    ("**Perform a Back in Stock Event**", "**再入荷イベントを実行**"),
+    ("**Start Time (Required)**", "**開始時刻 (必須)**"),
+    ("**Edit email body**", "**メール本文を編集**"),
+    ("**Campaign Monitoring**", "**キャンペーンモニタリング**"),
+    ("**Set Up Alert**", "**アラートを設定**"),
+    ("**Send an SMS Inbound Message**", "**SMS インバウンドメッセージを送信**"),
+    ("**SMSインバウンドメッセージを送信する**", "**SMS インバウンドメッセージを送信**"),
+    ("SMSインバウンドメッセージを送信する", "SMS インバウンドメッセージを送信"),
+    ("**Send a WhatsApp inbound message**", "**WhatsApp インバウンドメッセージを送信**"),
+    ("**WhatsAppインバウンドメッセージを送信する**", "**WhatsApp インバウンドメッセージを送信**"),
+    ("WhatsAppインバウンドメッセージを送信する", "WhatsApp インバウンドメッセージを送信"),
     ("**Entry Audience**", "**エントリオーディエンス**"),
     ("**Delivery Controls**", "**配信コントロール**"),
     ("「Delivery Controls」", "「配信コントロール」"),
@@ -6638,10 +6648,10 @@ _JA_CAMPAIGN_COMPOSER_UI = [
     ("**Create Campaign**", "**キャンペーンを作成**"),
     ("**Create キャンペーン**", "**キャンペーンを作成**"),
     ("**Audience** > **Search Users**", "**オーディエンス** > **ユーザーを検索**"),
-    ("**Settings** > **API Keys**", "**設定** > **APIキー**"),
+    ("**Settings** > **API Keys**", "**設定** > **API キー**"),
+    ("**Settings** > **App Settings** > **+ Add App**", "**設定** > **アプリ設定** > **アプリを追加**"),
     ("**Search Users**", "**ユーザーを検索**"),
     ("**View User Event Properties**", "**ユーザーイベントプロパティを表示**"),
-    ("**View PII**", "**PIIを表示**"),
     ("**Target Audience**", "**ターゲットオーディエンス**"),
     ("**Entry Schedule**", "**エントリスケジュール**"),
     ("**Pending Approval**", "**承認待ち**"),
@@ -6673,11 +6683,16 @@ def repair_ja_campaign_composer_ui(translated_path, translated_content, lang_key
     if "_lang/ja/" not in rel:
         return translated_content, []
 
+    from _glossary_locale_propagation import replace_outside_fences  # noqa: WPS433
+
     repairs = []
     new = translated_content
     for old, new_label in _JA_CAMPAIGN_COMPOSER_UI:
-        if old in new:
-            new = new.replace(old, new_label)
+        if old not in new:
+            continue
+        updated, count = replace_outside_fences(new, old, new_label)
+        if count:
+            new = updated
             repairs.append(
                 "ja_campaign_composer_ui — "
                 f"{old.strip('*')} → {new_label.strip('*')}"

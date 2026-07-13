@@ -26,7 +26,7 @@ BrazeとActionIQの統合により、ブランドはActionIQデータを直接Br
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | ActionIQアカウント | この統合を利用するには、ActionIQアカウントが必要です。 |
-| Braze REST APIキー | それぞれの統合に必要な権限を備えたBraze REST APIキー。詳細については、それぞれの要件セクションを参照してください。<br><br>このキーは、Brazeダッシュボードの**Settings** > **API Keys**から作成できます。 |
+| Braze REST APIキー | それぞれの統合に必要な権限を備えたBraze REST APIキー。詳細については、それぞれの要件セクションを参照してください。<br><br>このキーは、Brazeダッシュボードの**設定** > **API キー**から作成できます。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
@@ -49,7 +49,7 @@ BrazeとActionIQの統合により、ブランドはActionIQデータを直接Br
 
 #### 要件 {#requirements}
 
-`users.track`と`user.export.ids`の権限を持つBraze REST APIキーが必要です。これは、Brazeダッシュボードの**Settings** > **API Keys**で作成できます。
+`users.track`と`user.export.ids`の権限を持つBraze REST APIキーが必要です。これは、Brazeダッシュボードの**設定** > **API キー**で作成できます。
 
 ActionIQで、REST APIキーとBraze RESTエンドポイントを指定して、Braze接続を設定します。
 
@@ -63,7 +63,7 @@ ActionIQプラットフォームは、ストリーミングインジェストサ
 
 #### 要件
 
-`users.track`と`user.export.ids`の権限を持つBraze REST APIキーが必要です。これは、Brazeダッシュボードの**Settings** > **API Keys**で作成できます。
+`users.track`と`user.export.ids`の権限を持つBraze REST APIキーが必要です。これは、Brazeダッシュボードの**設定** > **API キー**で作成できます。
 
 イベント統合は以下の情報をBrazeに送信します。
 - イベント名
@@ -79,7 +79,7 @@ ActionIQプラットフォームは、ストリーミングインジェストサ
 
 #### 要件
 
-`campaigns.trigger.send`と`campaigns.list`の権限を持つBraze REST APIキーが必要です。これは、Brazeダッシュボードの**Settings** > **API Keys**で作成できます。
+`campaigns.trigger.send`と`campaigns.list`の権限を持つBraze REST APIキーが必要です。これは、Brazeダッシュボードの**設定** > **API キー**で作成できます。
 
 BrazeへのActionIQエクスポートでは、以下の値を送信する必要があります。
 - 消費者識別子（`braze_id`または`external_id`）
