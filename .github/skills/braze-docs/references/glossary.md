@@ -29,9 +29,9 @@ Legend: (caution) = use carefully, (banned) = do not use.
 - **can** — Use for optional actions. Don't use for directions; prefer imperative verbs.
 - **Canvas** — Always capitalized. Plural: Canvases.
 - **Canvas Flow** — Use only when differentiating from original editor.
-- **campaign** — Lowercase unless matching UI.
+- **campaign** — Lowercase in running text (`create a campaign`, `active campaigns`). Capitalize only when matching a capitalized UI label (for example, the **Campaigns** page). Never mid-sentence **Campaign** / **Campaigns** for the product concept.
 - **capacity** — Use instead of "limit" for custom data constraints.
-- **catalog** — Lowercase unless matching UI.
+- **catalog** — Lowercase in running text unless matching a capitalized UI label.
 - **Content Blocks** — Title case.
 - **Currents / Braze Currents** — Always capitalized.
 - **custom attributes** — Lowercase unless matching UI.
@@ -104,7 +104,7 @@ Legend: (caution) = use carefully, (banned) = do not use.
 
 - (banned) **sanity check** — Use "quick check" or "preliminary check".
 - **scheduled delivery** — Lowercase unless matching UI.
-- **Segment** (partner) — Capitalized. **segment** (audience) — lowercase.
+- **Segment** (partner) — Capitalized. **segment** (audience) — lowercase in running text (`create a segment`). Capitalize only when matching a capitalized UI label (for example, the **Segments** page) or the Segment partner name.
 - **Segment Extensions / Insights** — Title case.
 - **SQL Segment Extensions** — Title case.
 
