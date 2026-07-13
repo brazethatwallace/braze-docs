@@ -20,7 +20,9 @@ jobs:
     # reports "Skipped" instead of a misleading "Successful" when no preview is built.
     # DOCS_USERNAMES is a comma-separated list of GitHub logins (same var as
     # jira-non-docs-reviewer); an empty/unset value runs the bot for all authors.
-    if: ${{ !contains(format(',{0},', vars.DOCS_USERNAMES), format(',{0},', github.event.pull_request.user.login)) }}
+    # Match both "user1,user2" and "user1, user2" (space after comma). Expressions
+    # have no replace/trim, so check both delimiters; contains() is case-insensitive.
+    if: ${{ !contains(format(',{0},', vars.DOCS_USERNAMES), format(',{0},', github.event.pull_request.user.login)) && !contains(format(',{0},', vars.DOCS_USERNAMES), format(', {0},', github.event.pull_request.user.login)) }}
     runs-on: ubuntu-latest
     env:
       GH_TOKEN: ${{ github.token }}
