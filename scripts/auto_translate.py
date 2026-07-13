@@ -346,19 +346,72 @@ def _liquid_tag_line_pattern(tag_name):
     )
 
 
-def _remove_one_liquid_tag_line(content, tag_name, *, prefer_last=False, skip_first=False):
-    """Remove one standalone ``{% tag %}`` line from *content*."""
+def _unmatched_open_tag_matches(content, open_tag, close_tag):
+    """Return open-tag line matches that remain unmatched at end of *content*."""
+    events = []
+    for match in _liquid_tag_line_pattern(open_tag).finditer(content):
+        events.append((match.start(), 0, match))
+    for match in _liquid_tag_line_pattern(close_tag).finditer(content):
+        events.append((match.start(), 1, match))
+    events.sort(key=lambda item: (item[0], item[1]))
+    stack = []
+    for _, kind, match in events:
+        if kind == 0:
+            stack.append(match)
+        elif stack:
+            stack.pop()
+    return stack
+
+
+def _remove_one_liquid_tag_line(
+    content,
+    tag_name,
+    *,
+    prefer_last=False,
+    skip_first=False,
+    preserve_first_n=0,
+):
+    """Remove one standalone ``{% tag %}`` line from *content*.
+
+    ``preserve_first_n`` keeps the first N matches (use the English open-count
+    when dropping extras). ``skip_first=True`` is ``preserve_first_n=1``.
+    """
+    if skip_first:
+        preserve_first_n = max(preserve_first_n, 1)
     matches = list(_liquid_tag_line_pattern(tag_name).finditer(content))
     if not matches:
         raise ValueError(f"No standalone {{% {tag_name} %}} line found")
-    if skip_first:
-        if len(matches) <= 1:
-            raise ValueError(f"Only one {{% {tag_name} %}} line; cannot skip first")
-        pool = matches[1:]
-    else:
-        pool = matches
+    if preserve_first_n < 0:
+        raise ValueError("preserve_first_n must be >= 0")
+    if len(matches) <= preserve_first_n:
+        raise ValueError(
+            f"Only {len(matches)} {{% {tag_name} %}} line(s); "
+            f"cannot preserve first {preserve_first_n}"
+        )
+    pool = matches[preserve_first_n:]
     match = pool[-1] if prefer_last else pool[0]
-    return content[:match.start()] + content[match.end():]
+    return content[: match.start()] + content[match.end() :]
+
+
+def _remove_one_extra_liquid_open_tag(content, open_tag, close_tag, *, preserve_first_n=0):
+    """Remove one excess ``{% open %}`` line, preferring unmatched opens.
+
+    Prefer the last open that is still on the Liquid stack at EOF so a spurious
+    tag between two complete blocks is removed instead of a legitimate trailing
+    open (Bugbot: skip_first only protecting match[0] when en_open > 1).
+    Fall back to preserving the first ``preserve_first_n`` opens and dropping
+    the last remaining match.
+    """
+    unmatched = _unmatched_open_tag_matches(content, open_tag, close_tag)
+    if unmatched:
+        match = unmatched[-1]
+        return content[: match.start()] + content[match.end() :]
+    return _remove_one_liquid_tag_line(
+        content,
+        open_tag,
+        prefer_last=True,
+        preserve_first_n=preserve_first_n,
+    )
 
 
 def repair_liquid_paired_tags_from_english(
@@ -377,16 +430,18 @@ def repair_liquid_paired_tags_from_english(
         tr_close = _count_liquid_tag(translated_content, close_tag)
 
         while tr_open > en_open:
-            translated_content = _remove_one_liquid_tag_line(
+            translated_content = _remove_one_extra_liquid_open_tag(
                 translated_content,
                 open_tag,
-                prefer_last=True,
-                skip_first=en_open > 0,
+                close_tag,
+                preserve_first_n=en_open,
             )
             tr_open -= 1
 
         while tr_open > tr_close:
-            translated_content = translated_content.rstrip() + f"\n\n{{% {close_tag} %}}\n"
+            translated_content = (
+                translated_content.rstrip() + f"\n\n{{% {close_tag} %}}\n"
+            )
             tr_close += 1
 
         while tr_close > en_close:
