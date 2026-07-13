@@ -152,6 +152,45 @@ _SPATIAL_ALLOWLIST_RES: tuple = (
         r'(?:allotment|amount|volume|quota|count|number|total|minimum|maximum|limit|cap)\b',
         re.IGNORECASE,
     ),
+    # Numeric threshold phrasing.
+    re.compile(
+        r'(?:above|below)\s+(?:a|the)?\s*certain\s+threshold\b',
+        re.IGNORECASE,
+    ),
+    # Quantitative phrasing with modifiers (for example, "at or below the five-variant limit").
+    re.compile(
+        r'(?:at\s+or\s+)?(?:above|below)\s+the\s+(?:[a-z0-9-]+\s+){0,3}(?:threshold|limit|cap)\b',
+        re.IGNORECASE,
+    ),
+    # Version and platform compatibility comparisons. The gap between the
+    # platform keyword and "above"/"below" must stay within one sentence, so
+    # forbid sentence terminators followed by whitespace (for example,
+    # "SDK. See the steps below" must not be swallowed). Decimal points such
+    # as "5.0" are preserved because they are not followed by whitespace.
+    re.compile(
+        r'\b(?:version|sdk|ios|android)\b(?:(?![.!?]\s).){0,40}?\b(?:above|below)\b',
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r'\b(?:ios|android)\s+\d+(?:\.\d+)*\s+and\s+(?:above|below)\b',
+        re.IGNORECASE,
+    ),
+    re.compile(
+        r'\bv\d+(?:\.\d+){1,3}\s+and\s+(?:above|below)\b',
+        re.IGNORECASE,
+    ),
+    # Comparative adjective compounds (semantic, not layout).
+    re.compile(r'\b(?:above|below)-average\b', re.IGNORECASE),
+    re.compile(r'\b(?:above|below)\s+average\b', re.IGNORECASE),
+    # Idiomatic emphasis, not directional layout reference.
+    re.compile(r'\babove\s+and\s+beyond\b', re.IGNORECASE),
+    # Alignment option enums (literal UI values, not layout instructions).
+    re.compile(
+        r'(?:align(?:ment)?|orients?)'
+        r'.*?\b(?:left|center|right)\b\s*,\s*\b(?:left|center|right)\b\s*,?\s*or\s*\b(?:left|center|right)\b'
+        r'(?:\s+(?:of|within)\s+the\s+\w+)?',
+        re.IGNORECASE,
+    ),
     # Attribution/export subgroup hierarchy (semantic containment).
     re.compile(
         r'sub-?group(?:ing)?\s+(?:above|below)\s+\w+',
@@ -432,6 +471,10 @@ def _is_legal_sensitive_path(path: str) -> bool:
     # Explicitly legal path segments.
     if re.search(r'/(legal|contracts?)/', normalized):
         return True
+    # Known legal/policy pages under API docs.
+    normalized_no_lead = normalized.lstrip('/')
+    if normalized_no_lead == '_docs/_api/data_retention.md':
+        return True
 
     filename = normalized.rsplit('/', 1)[-1]
     stem = filename.rsplit('.', 1)[0]
@@ -450,7 +493,6 @@ def _is_legal_sensitive_path(path: str) -> bool:
     # `_docs/_docs_pages` houses site-level legal pages such as CLA.
     # Match only on token boundaries to avoid substring false positives
     # like "classification" matching "cla".
-    normalized_no_lead = normalized.lstrip('/')
     if normalized_no_lead.startswith('_docs/_docs_pages/'):
         legal_tokens = {'cla', 'privacy', 'terms', 'legal', 'license', 'agreement'}
         stem_tokens = [t for t in re.split(r'[^a-z0-9]+', stem) if t]
