@@ -20,7 +20,7 @@ Decisioning Studio Go supports the following Customer Engagement Platforms:
 | **Salesforce Marketing Cloud** | Journey Builder with API Events | SQL query automation, data extensions |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported CEPs" }
 
-Select your CEP below to get started with the integration setup.
+Select your CEP from this list to get started with the integration setup.
 
 {% tabs %}
 {% tab Braze %}
@@ -326,7 +326,7 @@ Now, you can check to make sure the automation is running successfully. Contact 
 {: start="5"}
 5. Enter the template ID of your first email template, then select **Done**.
 6. Select **Summary** to save this path.
-7. Add a path for each of your email templates, then repeat steps 4-6 above to set the filter criteria so that the template ID matches the ID value of each template.
+7. Add a path for each of your email templates, then repeat steps 4-6 in the prior sequence to set the filter criteria so that the template ID matches the ID value of each template.
 8. Select **Done** to save the **Decision Split** node.
 
 ![Two paths in a Decision Split for each email template ID.]({% image_buster /assets/img/decisioning_studio_go/journey10.png %}){: style="max-width:65%;"}

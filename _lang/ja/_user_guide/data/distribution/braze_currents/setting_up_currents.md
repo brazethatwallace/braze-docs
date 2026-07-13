@@ -8,7 +8,7 @@ tool: Currents
 search_rank: 8
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/currents-the-basics-2/){: style="float:right;width:120px;border:0;" class="noimgborder"}Currentsの設定 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcurrents-the-basics-2-stylefloatrightwidth120pxborder0-classnoimgborderset-up-currents}
+# [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/currents-the-basics-2/){: style="float:right;width:120px;border:0;" class="noimgborder"}Currentsの設定 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcurrents-the-basics-2-stylefloatrightwidth120pxborder0-classnoimgborderset-up-currents}
 
 > このページでは、Braze Currentsの連携と設定を行う一般的なプロセスを概説します。
 
@@ -78,7 +78,7 @@ Currentsフィールド変換を使用して、文字列フィールドを削除
 - **削除:** 文字列フィールドを`[REDACTED]`に置き換えます。これは、パートナーが欠落フィールドまたは空のフィールドを持つイベントを拒否する場合に役立ちます。
 - **ハッシュ:** SHA-256ハッシュアルゴリズムを文字列フィールドに適用します。
 
-これらのいずれかの変換を行う対象のフィールドを選択すると、そのフィールドが含まれるすべてのイベントにその変換が適用されます。例えば、ハッシュ化の対象として`email_address`を選択すると、メール送信、メール開封、メールバウンス、サブスクリプショングループの状態変更イベントの`email_address`フィールドがハッシュ化されます。
+これらのいずれかの変換を行う対象のフィールドを選択すると、そのフィールドが含まれるすべてのイベントにその変換が適用されます。例えば、ハッシュ化の対象として`email_address`を選択すると、メール送信、メール開封、メールバウンス、購読グループの状態変更イベントの`email_address`フィールドがハッシュ化されます。
 
 ![フィールド変換の追加]({% image_buster /assets/img/current3.png %})
 
@@ -88,7 +88,7 @@ Currentsフィールド変換を使用して、文字列フィールドを削除
 Currentsは、900&nbsp;KBを超える過度に大きなペイロードを持つイベントをドロップします。
 {% endalert %}
 
-テストする前に、[GitHubのサンプルCurrentsデータ](https://github.com/Appboy/currents-examples)をご確認ください。テストの準備ができたら、以下のオプションを選択します。
+テストする前に、[GitHubのサンプルCurrentsデータ](https://github.com/Appboy/currents-examples)をご確認ください。テストの準備ができたら、以下のセクションからオプションを選択します。
 
 #### テストイベントの送信 {#sending-test-events}
 

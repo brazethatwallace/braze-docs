@@ -26,10 +26,10 @@ No mínimo, será necessário ativar a integração no dashboard da RevenueCat p
 |---|---|
 | Conta e app do RevenueCat | Uma [conta RevenueCat](https://app.revenuecat.com/login) é necessária para aproveitar esta parceria. Você também deve ter um app RevenueCat configurado. |
 | SDK RevenueCat | Além do SDK da Braze necessário, recomendamos a instalação do [SDK RevenueCat](https://docs.revenuecat.com/docs/configuring-sdk) para fornecer aliases de usuário para a RevenueCat. |
-| Instância da Braze | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics/#endpoints).<br><br>A RevenueCat requer a instância da Braze para enviar do lado do servidor para o endpoint REST correto da Braze. |
+| Instância da Braze | Sua instância da Braze pode ser obtida com seu gerente de integração da Braze ou pode ser encontrada na [página de visão geral da API]({{site.baseurl}}/api/basics#endpoints).<br><br>A RevenueCat requer a instância da Braze para enviar do lado do servidor para o endpoint REST correto da Braze. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões `users.track`. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
 | Chave da API REST de teste da Braze (opcional) | Uma chave de API de teste pode ser usada para compras de teste e produção se você quiser que essas solicitações sejam enviadas para instâncias da Braze separadas. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -98,17 +98,17 @@ Se você deseja enviar um identificador de usuário único alternativo diferente
 
 | Chave | Descrição |
 |---|---|
-| `$brazeAliasName` | O `alias_name` da Braze no [objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/) |
-| `$brazeAliasLabel` | O `alias_label` da Braze no [objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Send user alias object to Braze (optional)" }
+| `$brazeAliasName` | O `alias_name` da Braze no [objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object) |
+| `$brazeAliasLabel` | O `alias_label` da Braze no [objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Enviar objeto de alias de usuário para a Braze (opcional)" }
 
-Ambos os atributos são necessários para que o [objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object/) seja enviado junto com seus dados de evento. Essas propriedades podem ser definidas manualmente, como qualquer outro [atributo de assinante RevenueCat](https://docs.revenuecat.com/docs/subscriber-attributes). Exemplos de snippets de código são mostrados na etapa 1.
+Ambos os atributos são necessários para que o [objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object) seja enviado junto com seus dados de evento. Essas propriedades podem ser definidas manualmente, como qualquer outro [atributo de assinante RevenueCat](https://docs.revenuecat.com/docs/subscriber-attributes). Exemplos de snippets de código são mostrados na etapa 1.
 
 ### Etapa 2: Enviar eventos do RevenueCat para a Braze {#step-2-send-revenuecat-events-to-braze}
 
 Depois de configurar o SDK de compras da RevenueCat e o SDK da Braze para ter a mesma identidade de usuário, você pode ativar a integração e configurar os nomes dos eventos no dashboard da RevenueCat.
 
-1. Navegue até o seu projeto no dashboard da RevenueCat e encontre o cartão **Integrations** no menu à esquerda. Selecione **+ New**.
+1. Navegue até o seu projeto no dashboard da RevenueCat e encontre o cartão **Integrations** no menu de navegação. Selecione **+ New**.
 2. Em seguida, selecione **Braze** entre as integrações disponíveis e adicione sua instância da Braze e a chave da API REST da Braze.
 3. Digite os nomes dos eventos que o RevenueCat enviará ou escolha os nomes dos eventos padrão. Mais detalhes sobre os eventos disponíveis podem ser encontrados na [etapa 3](#configure-event-names).
 4. Selecione se deseja que a RevenueCat relate os rendimentos (após a comissão da app store) ou a receita (vendas brutas).
@@ -127,10 +127,10 @@ Digite os nomes dos eventos que o RevenueCat enviará ou selecione entre os nome
 | Teste cancelado | Quando um usuário desativa as renovações de um produto de inscrição com renovação automática durante um período de teste gratuito. |
 | Renovação | Quando um produto de inscrição com renovação automática é renovado, ou um usuário recompra o produto de inscrição com renovação automática após uma interrupção na sua inscrição. |
 | Cancelamento | Quando um usuário desativa as renovações de um produto de inscrição com renovação automática durante o período pago normal. |
-| Compra sem inscrição | A compra de qualquer produto que não seja uma inscrição de renovação automática. |
+| Compra sem inscrição | A compra de qualquer produto que não seja uma inscrição com renovação automática. |
 | Expiração | Quando uma inscrição expira. |
 | Problema de cobrança | Quando houve um problema ao tentar cobrar o usuário. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Configure event names #configure-event-names" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configurar nomes de eventos" }
 
 Para eventos que incluem receita, a RevenueCat registrará automaticamente esse valor junto com o evento na Braze, como conversões de teste e renovações.
 
@@ -142,4 +142,4 @@ Depois de definir as configurações da Braze na RevenueCat, os eventos começar
 
 ### Adicionar uma chave de API sandbox para testes {#add-a-sandbox-api-key-for-testing}
 
-Se você fornecer apenas uma chave da API REST da Braze para a RevenueCat, apenas eventos de produção serão enviados. Se você também quiser enviar eventos de teste em sandbox, [crie outra chave da API REST da Braze]({{site.baseurl}}/api/basics/#app-group-rest-api-keys) e adicione-a às suas configurações da Braze na RevenueCat.
+Se você fornecer apenas uma chave da API REST da Braze para a RevenueCat, apenas eventos de produção serão enviados. Se você também quiser enviar eventos de teste em sandbox, [crie outra chave da API REST da Braze]({{site.baseurl}}/api/basics#app-group-rest-api-keys) e adicione-a às suas configurações da Braze na RevenueCat.

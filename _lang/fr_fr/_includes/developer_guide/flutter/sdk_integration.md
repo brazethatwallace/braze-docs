@@ -10,8 +10,8 @@ Avant d'intégrer le SDK Braze Flutter, vous devez effectuer les opérations sui
 
 | Prérequis | Description |
 | --- | --- |
-| Identifiant d'application API Braze | Pour trouver l'identifiant de votre application, rendez-vous dans **Paramètres** > **Clés API** > **Identifiants d'application**. Pour plus d'informations, consultez [Types d'identifiants API]({{site.baseurl}}/api/identifier_types/#app-identifier).|
-| Endpoint du SDK Braze | L'URL de votre endpoint SDK (par exemple, `sdk.<cluster>.braze.com`). Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints).|
+| Identifiant d'application API Braze | Pour trouver l'identifiant de votre application, rendez-vous dans **Paramètres** > **API et identifiants** > **Identifiants d'application**. Pour plus d'informations, consultez [Types d'identifiants API]({{site.baseurl}}/api/identifier_types#app-identifier). |
+| Endpoint du SDK Braze | L'URL de votre endpoint SDK (par exemple, `sdk.<cluster>.braze.com`). Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 | SDK Flutter | Installez le [SDK Flutter](https://docs.flutter.dev/get-started/install) officiel et assurez-vous qu'il répond aux exigences de [la version minimale prise en charge](https://github.com/braze-inc/braze-flutter-sdk#requirements) par le SDK Braze Flutter. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
@@ -28,7 +28,7 @@ flutter pub add braze_plugin
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
 
-#### 2.1 Configurer Android {#21-set-up-android}
+#### 2.1 Configurer Android {#21-set-up-android} {#21-set-up-android}
 
 ##### Fournir les identifiants à la compilation {#provide-credentials-at-compile-time}
 
@@ -64,7 +64,7 @@ Ajoutez les autorisations requises à votre fichier `AndroidManifest.xml` :
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-#### 2.2 Configurer iOS {#22-set-up-ios}
+#### 2.2 Configurer iOS {#22-set-up-ios} {#22-set-up-ios}
 
 Dans votre méthode `application(_:didFinishLaunchingWithOptions:)` existante, ajoutez un appel à `BrazePlugin.configure(_:postInitialization:)` pour enregistrer votre configuration. L'instance Braze est créée ultérieurement lorsque `initialize()` est appelé depuis Dart. La clé API et l'endpoint ne sont pas définis ici.
 
@@ -140,9 +140,9 @@ Ajoutez le code suivant à votre fichier `AppDelegate.m` :
 {% endtab %}
 {% tab Flutter SDK 17.1.0 and earlier %}
 
-#### 2.1 Configurer Android
+#### 2.1 Configurer Android {#21-set-up-android-1}
 
-Pour vous connecter aux serveurs Braze, créez un fichier `braze.xml` dans le dossier `android/res/values` de votre projet. Collez le code suivant et remplacez la clé API d'identification et l'endpoint par vos valeurs :
+Pour vous connecter aux serveurs Braze, créez un fichier `braze.xml` dans le dossier `android/res/values` de votre projet. Collez le code suivant et remplacez la clé d'identification API et l'endpoint par vos valeurs :
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -159,7 +159,7 @@ Ajoutez les autorisations requises à votre fichier `AndroidManifest.xml` :
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-#### 2.2 Configurer iOS
+#### 2.2 Configurer iOS {#22-set-up-ios-1}
 
 {% subtabs %}
 {% subtab SWIFT %}
@@ -248,7 +248,7 @@ import 'package:braze_plugin/braze_plugin.dart';
 final BrazePlugin braze = BrazePlugin();
 ```
 
-Appelez ensuite `initialize()` avec votre clé API d'identifiant d'application et votre endpoint SDK pour créer l'instance Braze. Consultez les options ci-dessous pour savoir où appeler cette méthode dans votre application.
+Appelez ensuite `initialize()` avec votre clé API d'identifiant d'application et votre endpoint SDK pour créer l'instance Braze. Consultez les options ci-dessous pour savoir où appeler cette méthode dans le flux de votre application.
 
 #### Initialisation standard {#standard-initialization}
 
@@ -274,7 +274,7 @@ void onUserConsent() {
 ```
 
 {% alert warning %}
-Les notifications push et les liens profonds reçus avant l'appel à `initialize()` ne sont pas traités sur iOS. Sur Android, les liens profonds provenant des notifications push ne sont pas résolus tant que le SDK attend d'être initialisé. Si votre application repose sur les notifications push ou les liens profonds au lancement, utilisez plutôt l'[initialisation standard](#standard-initialization).
+Les notifications push et les deep links reçus avant l'appel à `initialize()` ne sont pas traités sur iOS. Sur Android, les deep links provenant des notifications push ne sont pas résolus tant que le SDK attend d'être initialisé. Si votre application repose sur les notifications push ou les deep links au lancement, utilisez plutôt l'[initialisation standard](#standard-initialization).
 {% endalert %}
 
 #### Clés API spécifiques à chaque plateforme {#platform-specific-api-keys}

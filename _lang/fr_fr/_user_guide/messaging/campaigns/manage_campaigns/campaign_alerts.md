@@ -12,7 +12,7 @@ channel:
 
 ---
 
-# Alertes de campagne
+# Alertes de campagne {#campaign-alerts}
 
 > Nous souhaitons vous alerter lorsque quelque chose ne semble pas fonctionner comme prévu et vous offrir la tranquillité d'esprit que tout se déroule sans accroc. Les alertes de seuil de campagne vous permettent d'être la première personne informée si une campagne importante envoie plus ou moins de messages que prévu.
 
@@ -22,9 +22,9 @@ Les alertes de campagne sont disponibles pour les campagnes suivantes :
 - Campagnes basées sur une action
 - Campagnes déclenchées par API
 
-## Configurer votre alerte de campagne
+## Configurer votre alerte de campagne {#setting-up-your-campaign-alert}
 
-Accédez à la page d'analytique de votre campagne pour commencer à configurer votre alerte. Lorsque vous sélectionnez **Set Up Alert**, vous pouvez définir des seuils d'alerte supérieurs et inférieurs, ainsi que les destinataires et les canaux d'alerte.
+Accédez à la page d'analyse de votre campagne pour commencer à configurer votre alerte. Lorsque vous sélectionnez **Set Up Alert**, vous pouvez définir des seuils d'alerte supérieurs et inférieurs, ainsi que les destinataires et les canaux d'alerte.
 
 ![Boîte de dialogue de suivi de campagne avec deux boutons : Cancel et Save.]({% image_buster /assets/img_archive/campaign_alerts.png %})
 
@@ -36,7 +36,7 @@ Vous pouvez configurer une alerte par e-mail, une alerte par webhook, ou les deu
 Lorsque vous configurez des alertes de campagne pour des campagnes futures, vous pouvez recevoir des notifications avant le début de la campagne et après sa fin. En effet, les alertes de campagne continuent d'être envoyées tant que la campagne n'a pas été arrêtée manuellement.
 {% endalert %}
 
-## Payload du webhook d'alerte de campagne
+## Payload du webhook d'alerte de campagne {#campaign-alert-webhook-payload}
 
 Voici un exemple de payload pour le corps d'un webhook d'alerte de campagne. Cet exemple utilise une alerte configurée pour se déclencher lorsque le nombre de messages envoyés tombe en dessous de 500 pour un envoi de campagne donné.
 

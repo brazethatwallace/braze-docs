@@ -11,7 +11,7 @@ search_tag: Partner
 
 > La plateforme de marketing agentique [Simon AI][1] aide les équipes marketing à atteindre une véritable personnalisation individuelle. Elle combine un CDP composable avec des agents d'intelligence artificielle qui opèrent directement dans le Snowflake AI Data Cloud pour agir en tant qu'équipe de données et d'exécution du marketeur.
 
-Utilisez l'intégration de Braze et Simon AI pour créer et synchroniser des audiences avancées vers Braze pour une orchestration en temps réel et sans code. Grâce à cette intégration, vous pouvez tirer parti de la résolution d'identité, de l'unification des données client et de la segmentation pilotée par l'intelligence artificielle de Simon AI pour alimenter des campagnes Braze plus personnalisées et plus percutantes en aval.
+Utilisez l'intégration de Braze et Simon AI pour créer et synchroniser des audiences avancées vers Braze pour une orchestration en temps réel et sans code. Grâce à cette intégration, vous pouvez tirer parti de la résolution d'identité, de l'unification des données client et de la segmentation pilotée par l'IA de Simon AI pour alimenter des Campaigns Braze plus personnalisées et plus percutantes en aval.
 
 ## Conditions préalables {#prerequisites}
 
@@ -24,10 +24,10 @@ Pour commencer, vous devez authentifier votre compte Braze dans votre compte Sim
 | URL du tableau de bord de Braze | [L'URL de votre endpoint REST][3]. Votre endpoint dépendra de l'URL Braze de votre instance. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 - Déclencher un Canvas ou un e-mail Braze
-- Transmettre et maintenir les propriétés de segment
+- Transmettre et maintenir les propriétés de Segment
 - Synchroniser les traits et les propriétés de contact
 
 {% alert note %}
@@ -40,7 +40,7 @@ Lors de l'utilisation de l'intégration Simon et Braze, Simon n'envoie que les d
 
 Pour utiliser l'intégration Braze, authentifiez d'abord votre compte Braze dans Simon :
 
-1. Dans la navigation de gauche, cliquez sur **Integrations**, puis faites défiler jusqu'à Braze.
+1. Dans le menu de navigation, cliquez sur **Integrations**, puis faites défiler jusqu'à Braze.
 2. Saisissez votre [clé API REST][2] Braze et votre [URL du tableau de bord][3].
 3. Cliquez sur **Save Changes**.
 
@@ -54,9 +54,9 @@ Après avoir authentifié votre compte Braze dans Simon AI, vous pouvez ajouter 
 
 Trois actions sont disponibles :
 
-- **Sync Simon segment attribute** : synchronisez les détails de votre segment avec un attribut personnalisé nouveau ou existant dans Braze.
-- **Trigger a Braze Canvas** : déclenchez un Canvas Braze qui exploite les données de votre segment Simon.
-- **Send a Braze campaign** : lancez une campagne Braze complète depuis Simon.
+- **Sync Simon segment attribute** : synchronisez les détails de votre Segment avec un attribut personnalisé nouveau ou existant dans Braze.
+- **Trigger a Braze Canvas** : déclenchez un Canvas Braze qui exploite les données de votre Segment Simon.
+- **Send a Braze campaign** : lancez une Campaign Braze complète depuis Simon.
 
 ![Liste déroulante affichant les actions Braze disponibles dans Simon AI.][9]{: style="max-width:60%"}
 
@@ -64,7 +64,7 @@ Certaines actions ne sont disponibles que pour des types de Flows spécifiques o
 
 ### Synchroniser les traits et les propriétés de contact {#sync-traits-and-contact-properties}
 
-Pour minimiser la consommation de données, vous pouvez choisir des traits spécifiques à synchroniser par défaut, plutôt que de mettre à jour chaque champ pour tous les clients d'un segment.
+Pour minimiser la consommation de données, vous pouvez choisir des traits spécifiques à synchroniser par défaut, plutôt que de mettre à jour chaque champ pour tous les clients d'un Segment.
 
 {% alert note %}
 Pour commencer avec la synchronisation des traits, soumettez une demande dans le [centre d'assistance Simon](https://docs.simondata.com/docs/support-center). Votre gestionnaire de compte vous informera lorsque vous pourrez procéder aux étapes suivantes.
@@ -77,7 +77,7 @@ Une fois que les traits de contact ont été activés par votre gestionnaire de 
 3. Sélectionnez les champs que vous souhaitez synchroniser lorsque vous utilisez l'intégration Simon et Braze :
    1. **Number of traits** indique le nombre de traits disponibles dans ce jeu de données. Vous pouvez tous les sélectionner ou développer la ligne pour choisir des champs individuels.
    2. Modifiez le **Downstream name** si vous souhaitez que les noms de champs apparaissent différemment lorsqu'ils arrivent dans Braze.
-   3. Si c'est la première fois que vous intégrez Braze depuis Simon, cliquez sur **Backfill all contacts**. Le remplissage envoie tous les points de donnée à Braze la première fois que vous utilisez une action dans un flow ou un journey pour vous assurer que toutes vos données sont entièrement synchronisées. Ensuite, lors des synchronisations suivantes, seuls les traits que vous choisissez sur cet écran sont envoyés à Braze. Cela permet de vous assurer que vous n'êtes facturé que pour les données dont vous avez besoin.
+   3. Si c'est la première fois que vous intégrez Braze depuis Simon, cliquez sur **Backfill all contacts**. Le remplissage envoie tous les points de donnée à Braze la première fois que vous utilisez une action dans un Flow ou un Journey pour vous assurer que toutes vos données sont entièrement synchronisées. Ensuite, lors des synchronisations suivantes, seuls les traits que vous choisissez sur cet écran sont envoyés à Braze. Cela permet de vous assurer que vous n'êtes facturé que pour les données dont vous avez besoin.
 
 ![Sélection des traits à synchroniser dans Simon AI.][10]
 

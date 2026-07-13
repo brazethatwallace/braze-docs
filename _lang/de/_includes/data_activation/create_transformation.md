@@ -17,7 +17,7 @@ Wenn Sie bei Null anfangen, wählen Sie ein Ziel für Ihre Transformation. Sie k
 {% enddetails %}
 
 {% alert note %}
-Möchten Sie weitere Templates oder Ziele anfordern? Hinterlassen Sie gerne [Produktfeedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="additional templates or destinations" %}
 {% endalert %}
 
 Nachdem Sie Ihre Transformation erstellt haben, sehen Sie die Detailansicht der Transformation. Hier können Sie unter **Webhook-Details** den zuletzt empfangenen Webhook für diese Transformation einsehen und unter **Transformationscode** Ihren Transformationscode schreiben.

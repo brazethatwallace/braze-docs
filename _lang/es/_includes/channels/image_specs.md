@@ -3,7 +3,7 @@
 
 | Diseño | Comportamiento |
 | --- | --- |
-| Imagen y texto | Las imágenes altas o estrechas se reducirán y se centrarán horizontalmente. Las imágenes anchas se recortarán por los bordes izquierdo y derecho. |
+| Imagen y texto | Las imágenes altas o estrechas se reducirán y se centrarán horizontalmente. Las imágenes anchas se recortarán por los bordes horizontales. |
 | Solo imagen | El mensaje cambiará de tamaño para adaptarse a imágenes de la mayoría de las relaciones de aspecto. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Tabla" }
 
@@ -36,7 +36,7 @@ Todos los mensajes dentro de la aplicación tienen un tamaño de imagen recomend
 | Tipo | Relación de aspecto | Calidad de imagen | Notas |
 | --- | --- | --- | --- |
 | Retrato a pantalla completa con texto | 6:5 | Alta resolución 1200 x 1000 px <br>Resolución mínima 600 x 500 px | Se puede recortar por todos los lados, pero la imagen siempre ocupará el 50% superior de la ventana. |
-| Retrato a pantalla completa (solo imagen, con o sin botones) | 3:5 | Alta resolución 1200 x 2000 px <br> Resolución mínima 600 x 1000 px | El recorte puede producirse en los bordes izquierdo y derecho en los dispositivos más altos. |
+| Retrato a pantalla completa (solo imagen, con o sin botones) | 3:5 | Alta resolución 1200 x 2000 px <br> Resolución mínima 600 x 1000 px | El recorte puede producirse en los bordes horizontales en los dispositivos más altos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabla" }
 
 {% endtab %}
@@ -45,7 +45,7 @@ Todos los mensajes dentro de la aplicación tienen un tamaño de imagen recomend
 | Tipo | Relación de aspecto | Calidad de imagen | Notas |
 | --- | --- | --- | --- |
 | Pantalla completa apaisada con texto | 10:3 | Alta resolución 2000 x 600 px <br>Resolución mínima 1000 x 300 px | Se puede recortar por todos los lados, pero la imagen siempre ocupará el 50% superior de la ventana. |
-| Pantalla completa apaisada (solo imagen, con o sin botones) | 5:3 | Alta resolución 2000 x 600 px <br> Resolución mínima 1000 x 600 px | El recorte puede producirse en los bordes izquierdo y derecho en los dispositivos más altos. |
+| Pantalla completa apaisada (solo imagen, con o sin botones) | 5:3 | Alta resolución 2000 x 600 px <br> Resolución mínima 1000 x 600 px | El recorte puede producirse en los bordes horizontales en los dispositivos más altos. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabla" }
 
 {% endtab %}
@@ -62,7 +62,7 @@ Todos los mensajes dentro de la aplicación tienen un tamaño de imagen recomend
 | Tipo | Relación de aspecto | Calidad de imagen | Notas |
 | --- | --- | --- | --- |
 | Modal (solo imagen) | 1:1 | Resolución máxima recomendada: 1200 x 2000 px <br> Resolución mínima: 600 x 600 px | El mensaje cambiará de tamaño para adaptarse a imágenes de la mayoría de las relaciones de aspecto. La resolución máxima recomendada tiene una relación de aspecto de 3:5, lo que puede no proporcionar resultados óptimos. Aunque las imágenes más grandes son utilizables, pueden provocar tiempos de carga más largos. <br> La relación de aspecto ideal para las imágenes es 1:1, y si no se cumple esta relación, puede aparecer una advertencia durante la carga. Esta advertencia es una sugerencia para obtener mejores resultados y no impide la carga de imágenes más grandes. |
-| Modal con texto | 29:10 | Alta resolución 1450 x 500 px <br> Resolución mínima 600 x 205 px | Las imágenes altas se reducirán y se centrarán horizontalmente. Las imágenes anchas se recortarán por los bordes izquierdo y derecho. |
+| Modal con texto | 29:10 | Alta resolución 1450 x 500 px <br> Resolución mínima 600 x 205 px | Las imágenes altas se reducirán y se centrarán horizontalmente. Las imágenes anchas se recortarán por los bordes horizontales. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Tabla" }
 
 {% endtab %}

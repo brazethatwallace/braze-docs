@@ -56,13 +56,13 @@ Lorsque vous consultez vos résultats, vous pouvez comparer les taux de conversi
 L'utilisation d'un groupe de contrôle pour déterminer un gagnant par les *ouvertures* ou les *clics* n'est pas recommandée. Étant donné que le groupe de contrôle ne reçoit pas le message, ces utilisateurs ne peuvent effectuer aucune ouverture ni aucun clic. Par conséquent, le taux de conversion de ce groupe est de 0 % par définition et ne constitue pas une comparaison pertinente avec les variantes.
 {% endalert %}
 
-#### Groupes de contrôle avec les tests A/B {#control-groups-with-ab-testing}
+#### Groupes de contrôle et tests A/B {#control-groups-and-ab-testing}
 
-Lorsque vous utilisez une limite de débit avec un test A/B, la limite de débit n'est pas appliquée au groupe de contrôle de la même manière qu'au groupe de test, ce qui constitue une source potentielle de biais temporel. Utilisez des fenêtres de conversion appropriées pour éviter ce biais.
+Lorsque vous utilisez une limitation du débit avec un test A/B, la limitation du débit n'est pas appliquée au groupe de contrôle de la même manière qu'au groupe de test, ce qui constitue une source potentielle de biais temporel. Utilisez des fenêtres de conversion appropriées pour éviter ce biais.
 
-#### Groupes de contrôle avec la Sélection intelligente {#control-groups-with-intelligent-selection}
+#### Groupes de contrôle avec la sélection intelligente {#control-groups-with-intelligent-selection}
 
-La taille du groupe de contrôle pour une campagne avec la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) est basée sur le nombre de variantes. Si chaque variante est envoyée à plus de 20 % des utilisateurs, le groupe de contrôle représente 20 % et les variantes sont réparties équitablement sur les 80 % restants. Cependant, si vous avez suffisamment de variantes pour que chacune soit envoyée à moins de 20 % des utilisateurs, le groupe de contrôle doit être réduit. Lorsque la Sélection intelligente commence à analyser les performances de votre test, le groupe de contrôle augmente ou diminue en fonction des résultats.
+La taille du groupe de contrôle pour une campagne avec la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) est basée sur le nombre de variantes. Si chaque variante est envoyée à plus de 20 % des utilisateurs, le groupe de contrôle représente 20 % et les variantes sont réparties équitablement sur les 80 % restants. Cependant, si vous avez suffisamment de variantes pour que chacune soit envoyée à moins de 20 % des utilisateurs, le groupe de contrôle doit être réduit. Lorsque la sélection intelligente commence à analyser les performances de votre test, le groupe de contrôle augmente ou diminue en fonction des résultats.
 
 ## Étape 5 : Définir un événement de conversion (facultatif) {#step-5-designate-a-conversion-event-optional}
 
@@ -87,7 +87,7 @@ Selon le canal que vous sélectionnez, vous pouvez tester différents composants
 
 | Canal | Aspects du message que vous pouvez modifier | Résultats à observer |
 | ---------------------| --------------- | ------------- |
-| Push | Texte <br> Utilisation d'images et d'emojis <br> Liens profonds <br> Présentation des chiffres (par exemple, « triple » versus « augmentation de 200 % ») <br> Présentation du temps (par exemple, « se termine à minuit » versus « se termine dans 6 heures ») | Ouvertures <br> Taux de conversion |
+| Push | Texte <br> Utilisation d'images et d'emojis <br> Deep links <br> Présentation des chiffres (par exemple, « triple » versus « augmentation de 200 % ») <br> Présentation du temps (par exemple, « se termine à minuit » versus « se termine dans 6 heures ») | Ouvertures <br> Taux de conversion |
 | E-mail | Objet <br> Nom d'affichage <br> Formule de salutation <br> Corps du texte <br> Utilisation d'images et d'emojis <br> Présentation des chiffres (par exemple, « triple » versus « augmentation de 200 % ») <br> Présentation du temps (par exemple, « se termine à minuit » versus « se termine dans 6 heures ») | Ouvertures <br> Taux de conversion |
 | Message in-app | Aspects listés pour « push » <br> [Spécifications des images de messages in-app]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | Clics <br> Taux de conversion |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Conseils pour les différents canaux" }
@@ -100,7 +100,7 @@ De plus, la durée idéale de votre test peut varier selon le canal. Gardez à l
 
 Par exemple, si vous testez une notification push, vous pouvez obtenir des résultats significatifs plus rapidement qu'avec un test par e-mail, car les utilisateurs voient les notifications push immédiatement, alors qu'il peut s'écouler plusieurs jours avant qu'ils ne voient ou n'ouvrent un e-mail. Si vous testez des messages in-app, gardez à l'esprit que les utilisateurs doivent ouvrir l'application pour voir la campagne. Vous devriez donc attendre plus longtemps pour collecter les résultats, aussi bien de vos utilisateurs les plus actifs que de vos utilisateurs plus occasionnels.
 
-Si vous n'êtes pas sûr de la durée idéale de votre test, la fonctionnalité [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) peut être utile pour identifier efficacement une variante gagnante.
+Si vous n'êtes pas sûr de la durée idéale de votre test, la fonctionnalité [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) peut être utile pour identifier efficacement une variante gagnante.
 
 ### Choisir un segment {#choosing-a-segment}
 

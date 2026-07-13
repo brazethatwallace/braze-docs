@@ -17,10 +17,10 @@ hidden: true
 
 | Exigence   | Origine | Description |
 | --------------|------|-------------|
-| Clé API YOUBORA | [Paramètres YOUBORA](https://youbora.nicepeopleatwork.com/users/login) | Une clé API générée lors de l'inscription de l'utilisateur et qui se trouve dans l'onglet **Settings**. |
+| Clé API YOUBORA | [Paramètres YOUBORA](https://youbora.nicepeopleatwork.com/users/login) | Une clé API générée lors de l'inscription de l'utilisateur et qui se trouve sous **Settings**. |
 | ID | [Paramètres Braze](https://dashboard.braze.com/sign_in) | YOUBORA vous permet de lier le logiciel à Braze via un ***Braze ID***, un ***external User ID*** ou un ***User ID***. |
 | Endpoint | [Paramètres Braze](https://dashboard.braze.com/sign_in) | Un endpoint URL entièrement personnalisable et configurable via votre tableau de bord de Braze. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Conditions préalables" }
 
 # Intégration analytique {#analytics-integration}
 
@@ -48,8 +48,8 @@ Une fois tous les champs remplis, il suffit de cliquer sur le bouton **Connect**
 
 Une fois que vous avez terminé de configurer votre intégration avec Braze, accédez au produit **Users** et sélectionnez le **Sample Manager** dans le **Sections Manager**.
 
-Après avoir créé un échantillon dans le **Sample Manager**, vous pouvez maintenant cliquer sur l'icône à trois points sur le côté droit pour envoyer tous les utilisateurs de votre échantillon vers Braze.
+Après avoir créé un échantillon dans le **Sample Manager**, vous pouvez cliquer sur l'icône à trois points dans le menu d'actions de la ligne pour envoyer tous les utilisateurs de votre échantillon vers Braze.
 
 ![Gestionnaire d'échantillons NPAW]({% image_buster /assets/img/npaw_sample_manager.png %})
 
-Désormais, une fois que vous avez envoyé vos utilisateurs vers Braze, vous pouvez passer à l'action et concentrer vos Campaigns sur des segments d'utilisateurs pour réengager les utilisateurs inactifs, contacter vos utilisateurs les plus fidèles ou effectuer toute action sur n'importe quel segment d'utilisateurs !
+Désormais, une fois que vous avez envoyé vos utilisateurs vers Braze, vous pouvez passer à l'action et concentrer vos campagnes sur des segments d'utilisateurs pour réengager les utilisateurs inactifs, contacter vos utilisateurs les plus fidèles ou effectuer toute action sur n'importe quel segment d'utilisateurs !

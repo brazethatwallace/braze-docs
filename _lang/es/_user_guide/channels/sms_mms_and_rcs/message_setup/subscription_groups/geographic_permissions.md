@@ -22,7 +22,7 @@ Si eres administrador, puedes configurar los países que están en la lista de p
 
 ## Seleccionar países {#selecting-countries}
 
-Añade países a la lista de permitidos con el menú desplegable. Los países más comunes de SMS, MMS y RCS se muestran en la parte superior, y los demás aparecen debajo. También puedes buscar países escribiendo en el campo de texto.
+Añade países a la lista de permitidos con el menú desplegable. Los países más comunes de SMS, MMS y RCS se muestran en la parte superior, y los demás aparecen en la sección siguiente. También puedes buscar países escribiendo en el campo de texto.
 
 ![El menú desplegable de la "lista de países permitidos" con los países más comunes en la parte superior.]({% image_buster /assets/img/sms/allowlist_dropdown.png %}){: style="max-width:80%;"}
 
@@ -43,12 +43,12 @@ Ciertos países tienen un mayor riesgo de bombeo de tráfico de SMS, MMS y RCS. 
 Si permites el envío a estos países, primero debes reconocer el riesgo de hacerlo antes de que el país se añada a tu lista de permitidos.
 
 {% alert note %}
-Limita los países en tu lista de permitidos solo a aquellos necesarios para respaldar las necesidades de tu negocio. Esto minimizará tu potencial de tráfico fraudulento. Para más orientación sobre cómo prevenir el bombeo de tráfico de SMS, MMS y RCS, consulta [Preguntas frecuentes sobre el fraude de bombeo de tráfico SMS]({{site.baseurl}}/sms_traffic_pumping_fraud).
+Limita los países en tu lista de permitidos solo a aquellos necesarios para respaldar las necesidades de tu negocio. Esto minimizará tu potencial de tráfico fraudulento. Para más orientación sobre cómo prevenir el bombeo de tráfico de SMS, MMS y RCS, consulta [Preguntas frecuentes sobre el fraude de bombeo de tráfico de SMS]({{site.baseurl}}/sms_traffic_pumping_fraud).
 {% endalert %}
 
 ## Visibilidad de envíos fuera de la lista de permitidos {#visibility-of-sends-outside-the-allowlist}
 
-Los intentos de envío a países que no están en tu lista de países permitidos serán cancelados. Los mensajes cancelados se registrarán en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) y dentro del [evento de interacción de mensajes SMS cancelados]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
+Los intentos de envío a países que no están en tu lista de países permitidos serán cancelados. Los mensajes cancelados se registrarán en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) y dentro del [evento de participación de mensajes SMS cancelados]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events).
 
 Los mensajes cancelados para destinatarios en países que no están en tu lista de permitidos se muestran como **Aborted Message Errors** y tienen el mensaje "The recipient's phone number is in a blocked country".
 
@@ -58,7 +58,7 @@ Los mensajes cancelados para destinatarios en países que no están en tu lista 
 
 ### ¿Qué es el bombeo de tráfico de SMS, MMS y RCS? {#what-is-sms-mms-and-rcs-traffic-pumping}
 
-El bombeo de tráfico de SMS, MMS y RCS (también conocido como tráfico inflado artificialmente) es un esquema de fraude en aumento que puede resultar en una exposición financiera significativa para los clientes. Los estafadores pueden explotar tus formularios web públicos desprotegidos, flujos de autenticación o puntos de conexión de API para desencadenar grandes volúmenes de envíos de SMS, MMS y RCS (como confirmaciones de adhesión voluntaria, contraseñas de un solo uso o notificaciones) a números de teléfono que controlan o influyen. Los atacantes luego cobran una participación en los ingresos de redes móviles cómplices o desprevenidas por generar ese tráfico artificial. El impacto posterior introduce una exposición financiera significativa.
+El bombeo de tráfico de SMS, MMS y RCS (también conocido como tráfico inflado artificialmente) es un esquema de fraude en aumento que puede resultar en una exposición financiera significativa para los clientes. Los estafadores pueden explotar tus formularios web públicos desprotegidos, flujos de autenticación o endpoints de API para desencadenar grandes volúmenes de envíos de SMS, MMS y RCS (como confirmaciones de adhesión voluntaria, contraseñas de un solo uso o notificaciones) a números de teléfono que controlan o influyen. Los atacantes luego cobran una participación en los ingresos de redes móviles cómplices o desprevenidas por generar ese tráfico artificial. El impacto posterior introduce una exposición financiera significativa.
 
 ### ¿Qué son los países con alto riesgo de fraude? {#what-are-high-fraud-risk-countries}
 
@@ -68,8 +68,8 @@ Además, las restricciones de enrutamiento del sistema se aplican en función de
 
 ### Responsabilidad del cliente y responsabilidad financiera {#customer-responsibility-and-financial-liability}
 
-El cliente es responsable y se le facturará por todos los mensajes móviles enviados a través de los servicios en su nombre, incluidos los mensajes resultantes del bombeo de tráfico de SMS, MMS y RCS. Las medidas de seguridad de la plataforma, como la lista de países permitidos, te ayudarán a restringir la entrega a regiones de confianza. Sin embargo, en última instancia, proteger tus puntos de conexión externos y prevenir daños financieros devastadores sigue siendo responsabilidad exclusiva del cliente.
+El cliente es responsable y se le facturará por todos los mensajes móviles enviados a través de los servicios en su nombre, incluidos los mensajes resultantes del bombeo de tráfico de SMS, MMS y RCS. Las medidas de seguridad de la plataforma, como la lista de países permitidos, te ayudarán a restringir la entrega a regiones de confianza. Sin embargo, en última instancia, proteger tus endpoints externos y prevenir daños financieros devastadores sigue siendo responsabilidad exclusiva del cliente.
 
 ### Cómo prevenir el bombeo de tráfico {#how-to-prevent-traffic-pumping}
 
-No limitar la distribución de tus mensajes estrictamente a las regiones geográficas donde residen tus clientes reales crea una vulnerabilidad inmediata al fraude y un daño financiero grave. Para proteger tu empresa, debes restringir proactivamente tus regiones de entrega utilizando la lista de países permitidos. Además, y lo más importante, debes proteger cualquier formulario de solicitud de número de teléfono en línea o punto de conexión de API que desencadene envíos de SMS, MMS y RCS de acuerdo con las mejores prácticas de la industria, como se describe en [Comprender y prevenir el fraude de bombeo de tráfico de SMS, MMS y RCS]({{site.baseurl}}/sms_traffic_pumping_fraud).
+No limitar la distribución de tus mensajes estrictamente a las regiones geográficas donde residen tus clientes reales crea una vulnerabilidad inmediata al fraude y un daño financiero grave. Para proteger tu empresa, debes restringir proactivamente tus regiones de entrega utilizando la lista de países permitidos. Además, y lo más importante, debes proteger cualquier formulario de solicitud de número de teléfono en línea o endpoint de API que desencadene envíos de SMS, MMS y RCS de acuerdo con las mejores prácticas de la industria, como se describe en [Comprender y prevenir el fraude de bombeo de tráfico de SMS, MMS y RCS]({{site.baseurl}}/sms_traffic_pumping_fraud).

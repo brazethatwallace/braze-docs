@@ -71,11 +71,11 @@ table td {
 
 Téléchargez votre CSV contenant les relations utilisateur-compte dans Braze :
 
-1. Accédez à **Paramètres des données** > **Comptes**.
-2. Sélectionnez **Mettre à jour les données**.
-3. Sous **Téléchargement CSV**, sélectionnez **Utilisateurs**, puis téléchargez votre fichier dans Braze.
+1. Accédez à **Data Settings** > **Accounts**.
+2. Sélectionnez **Update data**.
+3. Sous **CSV upload**, sélectionnez **Users**, puis téléchargez votre fichier dans Braze.
 
-![Le menu déroulant « Mettre à jour les données » sur la page « Comptes » dans Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+![Le menu déroulant « Update data » sur la page « Accounts » dans Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
 ### Étape 2 : Importer les données de compte {#step-2-import-account-data}
 
@@ -113,17 +113,17 @@ table td {
 Bien que certains champs soient facultatifs, incluez-les dans la mesure du possible car ce sont des noms de champs réservés qui aident à garder vos données organisées.
 {% endalert %}
 
-Ensuite, importez vos données de compte dans Braze en téléchargeant un fichier CSV ou en utilisant la REST API Braze. Vous pouvez consulter ces données dans **Paramètres des données**. Vous ne pouvez pas modifier ces données dans l'éditeur du navigateur.
+Ensuite, importez vos données de compte dans Braze en téléchargeant un fichier CSV ou en utilisant la REST API Braze. Vous pouvez consulter ces données dans **Data Settings**. Vous ne pouvez pas modifier ces données dans l'éditeur du navigateur.
 
 #### Utiliser un fichier CSV
 
 Pour importer vos données via CSV :
 
-1. Accédez à **Paramètres des données** > **Comptes**.
-2. Sélectionnez **Mettre à jour les données**.
-3. Sous **Téléchargement CSV**, sélectionnez **Données de compte**, puis téléchargez votre fichier dans Braze.
+1. Accédez à **Data Settings** > **Accounts**.
+2. Sélectionnez **Update data**.
+3. Sous **CSV upload**, sélectionnez **Account Data**, puis téléchargez votre fichier dans Braze.
 
-![Le menu déroulant « Mettre à jour les données » sur la page « Comptes » dans Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+![Le menu déroulant « Update data » sur la page « Accounts » dans Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
 ## Utiliser l'API Braze {#using-the-braze-api}
 
@@ -158,9 +158,9 @@ Cette section explique comment utiliser l'API Braze pour :
 
 Comme `PUT` est idempotent, vous pouvez envoyer la même requête plusieurs fois et Braze met à jour les enregistrements existants plutôt que de créer des doublons. Cela en fait un choix fiable pour maintenir les enregistrements de compte à jour dans Braze.
 
-L'extrait de code suivant envoie une requête `PUT` à l'endpoint `/business/accounts`. Le tableau `accounts` contient plusieurs objets d'entreprise, chacun mappé aux champs de compte définis dans [Étape 2 : Importer les données de compte](#step-2-import-account-data). Braze traite chaque objet et crée ou met à jour l'enregistrement correspondant dans votre page **Comptes**. Cette opération est asynchrone. Braze met la requête en file d'attente et la traite en arrière-plan, ce qui la rend adaptée aux importations en masse où une confirmation immédiate n'est pas nécessaire.
+L'extrait de code suivant envoie une requête `PUT` à l'endpoint `/business/accounts`. Le tableau `accounts` contient plusieurs objets d'entreprise, chacun mappé aux champs de compte définis dans [Étape 2 : Importer les données de compte](#step-2-import-account-data). Braze traite chaque objet et crée ou met à jour l'enregistrement correspondant dans votre page **Accounts**. Cette opération est asynchrone. Braze met la requête en file d'attente et la traite en arrière-plan, ce qui la rend adaptée aux importations en masse où une confirmation immédiate n'est pas nécessaire.
 
-Pour créer plusieurs comptes, envoyez une requête `PUT` à `/business/accounts`. Si un compte n'existe pas, Braze ajoute un nouvel élément dans la page **Comptes**. Chaque requête peut prendre en charge jusqu'à 50 comptes. Notez que cette opération est asynchrone.
+Pour créer plusieurs comptes, envoyez une requête `PUT` à `/business/accounts`. Si un compte n'existe pas, Braze ajoute un nouvel élément dans la page **Accounts**. Chaque requête peut prendre en charge jusqu'à 50 comptes. Notez que cette opération est asynchrone.
 
 Votre requête devrait ressembler à ceci :
 
@@ -319,9 +319,9 @@ Après avoir [importé vos données dans Braze](#importing-data-to-braze), vous 
 
 Ensuite, créez un segment qui combine les données utilisateur et les données de compte. Dans cet exemple, vous ciblez les directeurs d'entreprises du secteur de la santé pour augmenter les inscriptions à un nouveau webinaire de votre entreprise de promotion de la santé.
 
-1. Accédez à **Audience** > **Segments**, puis sélectionnez **Créer un segment**.
+1. Accédez à **Audience** > **Segments**, puis sélectionnez **Create Segment**.
 2. Donnez un nom à votre segment.
-3. Dans le **générateur de segments**, sélectionnez le filtre **Entreprises** et configurez les filtres de segmentation suivants. Lorsque vous avez terminé, sélectionnez **Enregistrer**.
+3. Dans le **Segment Builder**, sélectionnez le filtre **Business** et configurez les filtres de segmentation suivants. Lorsque vous avez terminé, sélectionnez **Save**.
 
 | Filtre                          | Description                                      |
 |---------------------------------|--------------------------------------------------|
@@ -330,7 +330,7 @@ Ensuite, créez un segment qui combine les données utilisateur et les données 
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert important %}
-Actuellement, pour utiliser plusieurs filtres de compte, sélectionnez **Ajouter des critères** au lieu d'utiliser le menu déroulant **OU/ET**.
+Actuellement, pour utiliser plusieurs filtres de compte, sélectionnez **Add Criteria** au lieu d'utiliser le menu déroulant **OR/AND**.
 {% endalert %}
 
 ![Filtres de segmentation configurés pour créer un segment d'utilisateurs qui sont directeurs dans des entreprises du secteur de la santé.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/build_segment.png %})
@@ -345,7 +345,7 @@ Vous pouvez maintenant personnaliser votre message pour envoyer aux utilisateurs
 
 #### Étape 2.1 : Personnaliser avec les informations de compte {#step-21-personalize-with-account-information}
 
-Sélectionnez **Entreprises** comme type de personnalisation, puis sélectionnez **Nom** pour personnaliser le message avec le nom de l'entreprise de l'utilisateur.
+Sélectionnez **Business** comme type de personnalisation, puis sélectionnez **Name** pour personnaliser le message avec le nom de l'entreprise de l'utilisateur.
 
 Le contenu suivant est copié dans votre presse-papiers.
 

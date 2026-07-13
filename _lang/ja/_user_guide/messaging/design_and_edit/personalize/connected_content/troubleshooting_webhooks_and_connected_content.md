@@ -160,7 +160,7 @@ Webhookの場合、Brazeは異常ホスト検出によって停止されたHTTP�
 コネクテッドコンテンツの呼び出しがメッセージプレビューや送信で空白として表示される場合は、以下を確認してください。
 
 - **URL内のノーブレークスペース:** Brazeはリクエストを行う前に、コネクテッドコンテンツURLからノーブレークスペース（`&nbsp;` またはUnicode `U+00A0`）を除去します。URLがドキュメントやダッシュボードのフィールドからコピーされ、文字間にノーブレークスペースが挿入されていた場合、リクエストが失敗するか、使用可能なボディが返されない可能性があります。URLをプレーンテキストで再入力するか、隠れたスペースを削除してから、再度プレビューしてください。
-- **HTTPエラーと空のボディ:** ステータスコードが300以上の場合やホストがブロックされている場合、コネクテッドコンテンツは空の文字列をレンダリングすることがあります。[API呼び出しの実行]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)を参照し、**メッセージアクティビティログ**で失敗を確認してください。
+- **HTTPエラーと空のボディ:** このセクションで前述したステータスコード300以上やホストがブロックされている場合、コネクテッドコンテンツは空の文字列をレンダリングすることがあります。[API呼び出しの実行]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)を参照し、**メッセージアクティビティログ**で失敗を確認してください。
 
 ## 自動メールとメッセージアクティビティログのエントリ {#automated-emails-and-message-activity-log-entries}
 
@@ -189,7 +189,7 @@ Webhookの場合、Brazeは異常ホスト検出によって停止されたHTTP�
 これらのメールを受信するには、以下の手順を実行してください。
 
 1. **設定** > **管理者設定** > **通知設定**に移動します。
-2. **キャンバス & キャンペーン**セクションで**Connected Content Errors**と**Webhook Errors**を選択します。
+2. **キャンバスとキャンペーン**セクションで**Connected Content Errors**と**Webhook Errors**を選択します。
 
 ### メッセージアクティビティログのエントリ {#message-activity-log-entries}
 

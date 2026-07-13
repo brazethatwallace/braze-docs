@@ -40,12 +40,12 @@ Aquí tienes un resumen rápido de los cambios anunciados anteriormente:
 - Los precios de WhatsApp pasarán a un modelo "por mensaje" en lugar de un modelo "por conversación". **Las tarifas "por mensaje" serán las mismas que las tarifas actuales "por conversación".**
 - Las plantillas de utilidad enviadas en respuesta a mensajes de usuarios (es decir, dentro de una [ventana de servicio al cliente](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-messages#customer-service-windows) abierta) serán gratuitas.
 
-*Para más detalles sobre estos cambios, consulta la publicación anterior con fecha del 12 de marzo a continuación.*
+*Para más detalles sobre estos cambios, consulta la publicación anterior con fecha del 12 de marzo más adelante en este artículo.*
 
 Cambios adicionales del 1 de julio (anunciados por Meta el 15 de mayo):
 - Meta está actualizando las tarifas de utilidad y autenticación en varios mercados como parte de los esfuerzos continuos para garantizar que los precios estén a la par con los canales alternativos.
     - Los precios de mensajería de utilidad y autenticación están bajando en todos los mercados excepto Indonesia. En Indonesia, los precios de utilidad están aumentando y los precios de autenticación están disminuyendo.
-- Meta está refinando su definición de utilidad, basándose en la interacción y el sentimiento de los usuarios, trasladando así casos de uso específicos hacia y desde la categoría de utilidad. Consulta la nueva [definición de plantillas de utilidad](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines) de Meta.
+- Meta está refinando su definición de utilidad, basándose en la participación y el sentimiento de los usuarios, trasladando así casos de uso específicos hacia y desde la categoría de utilidad. Consulta la nueva [definición de plantillas de utilidad](https://developers.facebook.com/docs/whatsapp/pricing/updates-to-pricing#updates-to-template-category-guidelines) de Meta.
 
 Para la mayoría de los clientes, estas actualizaciones entrarán en vigor automáticamente el 1 de julio.
 
@@ -103,7 +103,7 @@ Recomendamos las siguientes mejores prácticas para tener en cuenta estos cambio
 Recomendamos las siguientes mejores prácticas para tener en cuenta estos cambios y maximizar tu presupuesto de marketing en WhatsApp:
 
 - Limita el envío de múltiples plantillas de mensaje del mismo tipo (sin una respuesta del usuario) en el período de 24 horas. Esto evita que se te cobre más de lo que se te cobraba anteriormente bajo el modelo "por conversación". Esta también es una mejor práctica para ofrecer experiencias de calidad a tus clientes y limitar la fatiga de mensajes.
-- Usa [mensajes de respuesta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) al responder a mensajes de usuarios finales. Los mensajes de respuesta son gratuitos.
+- Usa [mensajes de respuesta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) al responder a mensajes de usuarios finales. Los mensajes de respuesta son gratuitos.
 
 *Nota: Esta actualización estaba originalmente programada para el 1 de abril y **ahora el 1 de julio**.*
 
@@ -121,7 +121,7 @@ Las conversaciones de utilidad te permiten hacer seguimiento de acciones o solic
 
 #### ¿Cómo puedes beneficiarte de esta actualización? {#how-can-you-benefit-from-this-update}
 
-Te animamos a aprovechar esta actualización usando WhatsApp para mensajería transaccional. También puedes considerar trasladar algunos de tus mensajes SMS transaccionales a WhatsApp si tiene sentido para tu marca (según el alcance de tu audiencia y la interacción en cada canal). Por ejemplo, esta puede ser una buena opción para clientes en Asia, América Latina y Europa, donde WhatsApp es un canal muy utilizado.
+Te animamos a aprovechar esta actualización usando WhatsApp para mensajería transaccional. También puedes considerar trasladar algunos de tus mensajes SMS transaccionales a WhatsApp si tiene sentido para tu marca (según el alcance de tu audiencia y la participación en cada canal). Por ejemplo, esta puede ser una buena opción para clientes en Asia, América Latina y Europa, donde WhatsApp es un canal muy utilizado.
 
 ### Conversaciones de marketing {#marketing-conversations}
 
@@ -137,14 +137,14 @@ El 1 de noviembre de 2024, todas las conversaciones de servicio son gratuitas. L
 
 #### ¿Qué son las conversaciones de servicio? {#what-are-service-conversations}
 
-Las conversaciones de servicio te permiten responder a las consultas de los clientes. Esto incluye conversaciones iniciadas por un usuario final en las que la marca responde con un [mensaje de respuesta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) en lugar de una plantilla de mensaje.
+Las conversaciones de servicio te permiten responder a las consultas de los clientes. Esto incluye conversaciones iniciadas por un usuario final en las que la marca responde con un [mensaje de respuesta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) en lugar de una plantilla de mensaje.
 
 #### ¿Cómo puedes beneficiarte de esta actualización?
 
 Algunas conversaciones que anteriormente se cobraban como "servicio" ahora serán gratuitas. Estas incluyen:
 
-- [Campaigns de respuesta no reconocida]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages) en las que un usuario final envía un mensaje que no se reconoce y la marca responde con un mensaje genérico usando [mensajes de respuesta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages). Por ejemplo, un usuario final envía un mensaje sin una palabra clave y la marca responde con "No reconocemos tu mensaje, por favor comunícate con soporte al cliente."
-- Conversaciones que comienzan cuando un usuario final envía a la marca una palabra clave promocionada y la marca responde usando un [mensaje de respuesta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create/#response-messages). Ejemplos comunes son la adhesión voluntaria a la mensajería de WhatsApp o la participación en una promoción específica.
+- [Campaigns de respuesta no reconocida]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages) en las que un usuario final envía un mensaje que no se reconoce y la marca responde con un mensaje genérico usando [mensajes de respuesta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages). Por ejemplo, un usuario final envía un mensaje sin una palabra clave y la marca responde con "No reconocemos tu mensaje, por favor comunícate con soporte al cliente."
+- Conversaciones que comienzan cuando un usuario final envía a la marca una palabra clave promocionada y la marca responde usando un [mensaje de respuesta]({{site.baseurl}}/user_guide/message_building_by_channel/whatsapp/whatsapp_campaign/create#response-messages). Ejemplos comunes son la adhesión voluntaria a la mensajería de WhatsApp o la participación en una promoción específica.
 
 <br>
 
@@ -186,4 +186,4 @@ Información detallada sobre la reducción de conversaciones de utilidad a conti
 | Reino Unido                             | 44,7%                    |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
-Para comprender mejor cómo puedes aprovechar estas actualizaciones, comunícate con tu administrador del éxito del cliente.
+Para comprender mejor cómo puedes aprovechar estas actualizaciones, comunícate con tu administrador de éxito de cliente.

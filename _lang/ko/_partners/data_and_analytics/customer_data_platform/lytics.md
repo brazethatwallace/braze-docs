@@ -22,7 +22,7 @@ Braze와 Lytics 통합은 고객에 대한 통합 뷰를 제공하여 강력한 
 - Lytics에서 Braze로 직접 오디언스 내보내기
 - Braze Campaigns 또는 Canvases에서 Lytics로 실시간 이벤트를 전송하여 개인화된 캠페인을 구성하고 풍부한 고객 프로필을 구축
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 Braze를 Lytics에 연결하여 이메일, SMS, 푸시 활동을 [가져와](#importing-data-from-braze-to-lytics) Lytics 고객 프로필을 강화할 수 있습니다. Braze와 Lytics를 함께 사용하면 Lytics의 크로스채널, 행동 기반 오디언스를 [내보내](#integration) 퍼스트파티 데이터를 활용한 고도로 개인화된 Braze 고객 여정을 구축할 수도 있습니다.
 

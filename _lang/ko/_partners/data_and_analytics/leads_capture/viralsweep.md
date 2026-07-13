@@ -24,8 +24,8 @@ Braze와 ViralSweep 통합을 사용하면 ViralSweep 플랫폼에서 경품 행
 | ----------- | ----------- |
 | ViralSweep 계정 | 이 파트너십을 활용하려면 비즈니스 플랜을 사용하는 ViralSweep 계정이 필요합니다. |
 | Braze REST API 키 | 모든 사용자 데이터 및 이메일 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스]({{site.baseurl}}/api/basics/#endpoints)의 Braze URL에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스]({{site.baseurl}}/api/basics#endpoints)의 Braze URL에 따라 달라집니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -33,7 +33,7 @@ Braze와 ViralSweep 통합을 사용하면 ViralSweep 플랫폼에서 경품 행
 
 ViralSweep에서 **Integrations > Email & SMS > Add Service**로 이동하여 **Braze**를 선택합니다.
 
-![]({% image_buster /assets/img/viralsweep/connect.gif %})
+![이메일 및 SMS 서비스 아래에서 Braze가 선택된 ViralSweep 통합 페이지.]({% image_buster /assets/img/viralsweep/connect.gif %})
 
 ### 2단계: Braze 자격 증명 추가하기 {#step-2-add-braze-credentials}
 
@@ -43,7 +43,7 @@ ViralSweep에서 **Integrations > Email & SMS > Add Service**로 이동하여 **
 
 **Connect**를 클릭합니다.
 
-### 3단계: Braze 자격 증명 추가하기 {#step-3-add-braze-credentials}
+### 3단계: 연결 완료 {#step-3-add-braze-credentials}
 연결이 완료되었습니다! 이제 프로모션이 Braze에 연결되었으며, ViralSweep에서 수집한 모든 참가 정보가 자동으로 Braze로 전송됩니다.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
@@ -64,7 +64,7 @@ ViralSweep에서 **Integrations > Email & SMS > Add Service**로 이동하여 **
 - Referral link
 - Tracking campaign name
 
-### ViralSweep은 가입자 정보를 업데이트하나요? {#does-viralsweep-update-subscribers}
+### ViralSweep은 구독자 정보를 업데이트하나요? {#does-viralsweep-update-subscribers}
 네. 프로모션을 실행하여 ViralSweep이 누군가를 Braze로 전달한 후, 나중에 다른 프로모션을 실행했을 때 같은 사람이 참가하면 해당 사용자의 정보가 Braze에서 자동으로 업데이트됩니다(새로운 정보가 제공된 경우). 주로 추천 URL이 참가한 각 프로모션의 최신 URL로 업데이트되며, 프로모션 ID 필드에는 참가한 모든 프로모션의 ID가 포함됩니다.
 
 ## 문제 해결 {#troubleshooting}

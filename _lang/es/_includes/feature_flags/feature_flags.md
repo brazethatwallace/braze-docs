@@ -3,7 +3,7 @@
 > Los conmutadores de características te permiten habilitar o deshabilitar a distancia la funcionalidad para una selección específica o aleatoria de usuarios. Y lo que es más importante, te permiten activar y desactivar una característica en producción sin necesidad de desplegar código adicional ni actualizar la tienda de aplicaciones. Esto te permite desplegar nuevas características con seguridad y confianza.
 
 {% alert tip %}
-Cuando estés listo para crear tus propios conmutadores de características, consulta [Crear conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags/create/).
+Cuando estés listo para crear tus propios conmutadores de características, consulta [Crear conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags/create).
 {% endalert %}
 
 ## Requisitos previos {#prerequisites}
@@ -33,7 +33,7 @@ Con los conmutadores de características de Braze, podemos desplegar la caracter
 * Habilitaremos esta nueva característica solo para el 10% de los usuarios para determinar si contamos con el personal adecuado.
 * Si hay algún error, podemos desactivar rápidamente la característica en lugar de apresurarnos a enviar una nueva versión.
 
-Para desplegar gradualmente esta característica, podemos [crear un conmutador de características]({{site.baseurl}}/developer_guide/feature_flags/create/) llamado "Widget de chat en vivo".
+Para desplegar gradualmente esta característica, podemos [crear un conmutador de características]({{site.baseurl}}/developer_guide/feature_flags/create) llamado "Widget de chat en vivo".
 
 ![Detalles del conmutador de características de un ejemplo llamado Widget de chat en vivo. El ID es enable_live_chat. La descripción de este conmutador de características indica que el widget de chat en vivo se mostrará en la página de asistencia.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-livechat-1.png %})
 
@@ -111,6 +111,26 @@ if (liveChatEnabled) {
 
 {% endtab %}
 {% tab Swift %}
+
+{% alert note %}
+Leer `braze.featureFlags.featureFlags` o `braze.featureFlags.featureFlag(id:)` bloquea el hilo que realiza la llamada hasta que el SDK haya completado sus operaciones posteriores a la inicialización. Para contextos del hilo principal o sensibles a la latencia, utiliza [`getAllFeatureFlags(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/featureflags-swift.class/getallfeatureflags(_:)) en su lugar.
+
+```swift
+// Non-blocking — completion handler always delivers on the main thread.
+braze.featureFlags.getAllFeatureFlags { flags in
+  let liveChatEnabled = flags.first(where: { $0.id == "enable_live_chat" })?.enabled ?? false
+  liveChatView.isHidden = !liveChatEnabled
+}
+```
+
+En Objective-C:
+
+```objc
+[braze.featureFlags getAllFeatureFlagsWithCompletion:^(NSArray<BRZFeatureFlag *> *flags) {
+  // Use `flags` here.
+}];
+```
+{% endalert %}
 
 ```swift
 // Get the initial value from the Braze SDK
@@ -217,7 +237,7 @@ liveChatView.promoText = featureFlag?.stringProperty("text")
 {% endtab %}
 {% endtabs %}
 
-Ahora, el día antes de Acción de Gracias, solo tenemos que cambiar esos valores de propiedad en el dashboard de Braze.
+Ahora, el día antes de Acción de Gracias, solo tenemos que cambiar esos valores de propiedad en el panel de Braze.
 
 ![Conmutador de características con propiedades de enlace y texto que dirigen a una página de ventas de Acción de Gracias.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-navigation-link-2.png %})
 
@@ -233,7 +253,7 @@ Para coordinar eficazmente el despliegue de características y la mensajería, c
 
 ![Un conmutador de características con el nombre Programa de recompensas de fidelización. El ID es show_loyalty_program, y la descripción indica que muestra el nuevo programa de recompensas de fidelización en la pantalla de inicio y en la página de perfil.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-loyalty.png %})
 
-A continuación, en Canvas, crearemos un [paso de conmutador de características]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) que habilite el conmutador de características `show_loyalty_program` para nuestro segmento "Clientes de alto valor":
+A continuación, en Canvas, crearemos un [paso de conmutador de características]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags) que habilite el conmutador de características `show_loyalty_program` para nuestro segmento "Clientes de alto valor":
 
 ![Un ejemplo de un Canvas con un paso de división de audiencia en el que el segmento de clientes de alto valor activa el conmutador de características show_loyalty_program.]({% image_buster /assets/img/feature_flags/feature-flags-use-case-canvas-flow.png %})
 
@@ -243,7 +263,9 @@ Ahora, los usuarios de este segmento empezarán a ver el nuevo programa de fidel
 
 Utiliza los conmutadores de características para experimentar y confirmar tus hipótesis en torno a tu nueva característica. Al dividir el tráfico en dos o más grupos, puedes comparar el impacto de un conmutador de características en todos los grupos y determinar el mejor curso de acción en función de los resultados.
 
-Una [prueba A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/) es una potente herramienta que compara las respuestas de los usuarios a múltiples versiones de una variable.
+Para los experimentos de conmutadores de características, puedes tener hasta nueve grupos en total: un grupo de control más hasta ocho variantes.
+
+Una [prueba A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing) es una potente herramienta que compara las respuestas de los usuarios a múltiples versiones de una variable.
 
 En este ejemplo, nuestro equipo ha creado un nuevo proceso de pago para nuestra aplicación de comercio electrónico. Aunque estamos seguros de que mejora la experiencia del usuario, queremos hacer una prueba A/B para medir su impacto en los ingresos de nuestra aplicación.
 
@@ -308,7 +330,7 @@ if let featureFlag, featureFlag.enabled {
 {% endtab %}
 {% endtabs %}
 
-Configuraremos nuestra prueba A/B en un [experimento de conmutador de características]({{site.baseurl}}/developer_guide/feature_flags/experiments/).
+Configuraremos nuestra prueba A/B en un [experimento de conmutador de características]({{site.baseurl}}/developer_guide/feature_flags/experiments).
 
 Ahora, el 50% de los usuarios verán la experiencia antigua, mientras que el otro 50% verá la experiencia nueva. A continuación, podemos analizar las dos variantes para determinar qué proceso de pago ha dado lugar a una tasa de conversión más alta. {% multi_lang_include analytics/metrics.md metric='Conversion Rate' %}
 
@@ -320,7 +342,13 @@ Una vez determinado el ganador, podemos detener esta campaña y aumentar el porc
 
 Utiliza el filtro **Conmutador de características** para crear un segmento o dirigir la mensajería a los usuarios en función de si tienen habilitado un conmutador de características. Por ejemplo, supongamos que tenemos un conmutador de características que controla el contenido premium en nuestra aplicación. Podríamos crear un segmento que filtre a los usuarios que no tienen habilitado el conmutador de características, y luego enviar a ese segmento un mensaje instándoles a actualizar su cuenta para ver contenido premium.
 
-Para más información sobre cómo filtrar por segmentos, consulta [Crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+1. Abre tu segmento o la audiencia de tu mensaje.
+2. Añade el filtro **Conmutador de características**.
+3. Selecciona el conmutador de características.
+4. Establece el comparador en **es** para incluir a los usuarios que tienen habilitado el conmutador de características, o **no es** para incluir a los usuarios que no lo tienen.
+![Constructor de segmentos de Braze utilizando un filtro de valor habilitado de conmutador de características.]({% image_buster /assets/img/feature_flags/feature_flag_segmentation_filter.png %})
+
+Para más información sobre cómo filtrar por segmentos, consulta [Crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
 {% alert note %}
 Para evitar segmentos recursivos, no es posible crear un segmento que haga referencia a otros conmutadores de características.
@@ -333,9 +361,9 @@ Estas son las limitaciones de los conmutadores de características para los plan
 | Característica                                                                                                   | Versión gratuita     | Versión de pago      |
 | :---------------------------------------------------------------------------------------------------------------- | :--------------- | ----------------- |
 | [Conmutadores de características activos](#active-feature-flags)                                                                     | 10 por espacio de trabajo | 110 por espacio de trabajo |
-| [Experimentos activos de campaña]({{site.baseurl}}/developer_guide/feature_flags/experiments/)          | 1 por espacio de trabajo  | 100 por espacio de trabajo |
-| [Pasos en Canvas de conmutador de características]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags/) | Sin límites        | Sin límites         |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Plan limitations" }
+| [Experimentos activos de campaña]({{site.baseurl}}/developer_guide/feature_flags/experiments)          | 1 por espacio de trabajo  | 100 por espacio de trabajo |
+| [Pasos en Canvas de conmutador de características]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/feature_flags) | Sin límites        | Sin límites         |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Limitaciones del plan" }
 
 Se considera que un conmutador de características está activo y contará para tu límite si se da alguna de las siguientes circunstancias:
 
@@ -346,5 +374,5 @@ Se considera que un conmutador de características está activo y contará para 
 Aunque el mismo conmutador de características coincida con varios criterios, por ejemplo si se utiliza en un Canvas y el despliegue es del 50%, solo contará como 1 conmutador de características activo para tu límite.
 
 {% alert note %}
-Para adquirir la versión de pago de los conmutadores de características, ponte en contacto con tu director de cuentas de Braze o solicita una actualización en el dashboard de Braze.
+Para adquirir la versión de pago de los conmutadores de características, ponte en contacto con tu director de cuentas de Braze o solicita una actualización en el panel de Braze.
 {% endalert %}

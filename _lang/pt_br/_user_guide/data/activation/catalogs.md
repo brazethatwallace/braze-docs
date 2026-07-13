@@ -40,7 +40,7 @@ guide_menu_list:
 
 ## Casos de uso de catálogos {#catalog-use-cases}
 
-Você pode importar qualquer tipo de dados para um catálogo. Normalmente, os dados são metadados sobre ofertas, como produtos, descontos, promoções, eventos e similares. Veja os casos de uso abaixo para alguns exemplos de como usar esses dados para direcionar os usuários com envio de mensagens altamente relevantes.
+Você pode importar qualquer tipo de dados para um catálogo. Normalmente, os dados são metadados sobre ofertas, como produtos, descontos, promoções, eventos e similares. Veja os casos de uso na seção a seguir para alguns exemplos de como usar esses dados para direcionar os usuários com envio de mensagens altamente relevantes.
 
 ### Varejo e e-commerce {#retail-and-ecommerce}
 

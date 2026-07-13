@@ -16,6 +16,7 @@ Si votre [e-mail de test]({{site.baseurl}}/developer_guide/platform_wide/sending
 * [Conflits d'extensions](#check-conflicts)
 * [Rendu des e-mails](#check-rendering)
 * [Insertion CSS](#switch-css-inlining)
+* [Espace blanc sous les images](#white-space-under-images)
 
 ### Conflits d'extensions {#extension-conflicts}
 
@@ -35,5 +36,25 @@ Les e-mails s'affichent différemment selon les navigateurs et les clients de me
 ### Insertion CSS {#css-inlining}
 
 Il arrive que les prévisualisations dans Inbox Vision ne correspondent toujours pas à ce qui est envoyé avec Braze. Cela peut être dû à la différence d'insertion CSS effectuée par Braze et par d'autres outils. Si vous pensez que c'est le cas, désactivez l'insertion CSS.
+
+### Espace blanc sous les images {#white-space-under-images}
+
+Si vous remarquez un espace blanc ou des lignes apparaissant sous les images dans vos e-mails de test, cela est généralement dû à la façon dont les clients de messagerie affichent les éléments de type inline. Les images sont de type inline par défaut et sont alignées sur la ligne de base, ce qui permet aux navigateurs d'accommoder les jambages (la partie des lettres comme « g » ou « y » qui descend sous la ligne de base). Cela crée un petit écart qui apparaît sous forme d'espace blanc.
+
+Pour corriger ce problème, ajoutez `display: block;` au CSS de vos images :
+
+```html
+<style>
+  img {
+    display: block;
+  }
+</style>
+```
+
+Vous pouvez également appliquer le style directement à des images spécifiques :
+
+```html
+<img src="https://example.com/image.jpg" style="display: block;" alt="Image description" />
+```
 
 Vous avez encore besoin d'aide ? Ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support).

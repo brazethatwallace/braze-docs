@@ -22,14 +22,14 @@ page_order: 1.3
 
 Estas são métricas relacionadas ao público da sua recomendação, que incluem precisão, cobertura e tipo de recomendação.
 
-![Métricas de público de recomendação mostrando precisão (25,3%), cobertura (54,3%) e tipos de recomendação divididos entre itens personalizados e mais populares.]({% image_buster /assets/img/item_recs_analytics_1.png %})
+![Métricas de público de recomendação mostrando precisão, cobertura e tipos de recomendação divididos entre itens personalizados e mais populares.]({% image_buster /assets/img/item_recs_analytics_1.png %})
 
 Consulte a tabela a seguir para saber mais:
 
 | Métrica              | Descrição |
 | ------------------- | ---------- |
 | **Precisão**           | A porcentagem de vezes em que o modelo adivinhou corretamente o próximo item que um usuário comprou. A precisão depende muito do tamanho e da composição do seu catálogo específico e deve ser usada como um guia para entender com que frequência o modelo está correto.<br><br>Em testes anteriores, vimos modelos com bom desempenho com números de precisão variando de 6 a 20%. Essa métrica é atualizada na próxima vez que o modelo for retreinado.  |
-| **Cobertura**            | Qual porcentagem dos itens disponíveis no catálogo é recomendada a pelo menos um usuário. Você pode esperar uma cobertura maior de itens com recomendações personalizadas em comparação com os mais populares. |
+| **Cobertura**            | Qual porcentagem dos itens disponíveis no catálogo é recomendada a pelo menos um usuário. Você pode esperar uma cobertura maior de itens com recomendações personalizadas em comparação com as mais populares. |
 | **Tipo de recomendação** | A porcentagem de usuários que receberão recomendações personalizadas ou mais recentes em comparação com o fallback de itens mais populares. O fallback é enviado aos usuários que não têm dados suficientes para gerar uma recomendação personalizada ou mais recente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Público" }
 

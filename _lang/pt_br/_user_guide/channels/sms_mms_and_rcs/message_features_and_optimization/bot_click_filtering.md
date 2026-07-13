@@ -33,7 +33,7 @@ As seguintes métricas e fluxos de trabalho da Braze são impactados por cliques
     - **Etapas de experimento:** Exclui cliques de bots para resultados de experimentos confiáveis.
     - **Exportações de dados do Currents:** Inclui os campos `is_suspected_bot_click` e `suspected_bot_click_reason` para ajudar a analisar cliques humanos versus cliques de bots. Esses campos estão disponíveis no [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) e [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder).
 
-Cancelamentos de inscrição provenientes de cliques suspeitos de bots não são afetados. A Braze processa todas as solicitações de cancelamento de inscrição normalmente. Para bloquear esses cancelamentos de inscrição, [envie feedback de produto]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+Cancelamentos de inscrição provenientes de cliques suspeitos de bots não são afetados. A Braze processa todas as solicitações de cancelamento de inscrição normalmente. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## Campos do Currents em eventos de clique SMS {#currents-fields-in-sms-click-events}
 

@@ -25,9 +25,9 @@ description: "このリファレンス記事では、Liquid を使用してア�
 2. 実行するアクションをアプリに指示する。
 3. アクションに必要な追加データを提供する。
 
-ディープリンクは、アプリの特定の部分にリンクするカスタム URI であり、これら3つの要素をすべて含みます。重要なのはカスタムスキームを定義することです。`http:` はほぼすべての人が知っているスキームですが、スキームは任意の単語で始めることができます。スキームは文字で始まる必要がありますが、その後は文字、数字、プラス記号、マイナス記号、ドットを含めることができます。実際には、競合を防ぐための中央レジストリは存在しないため、スキームにドメイン名を含めることがベストプラクティスです。例えば、`twitter://` は X（旧 Twitter）のモバイルアプリを起動するための iOS URI です。
+ディープリンクは、アプリの特定の部分にリンクするカスタム URI であり、これら3つの要素をすべて含みます。重要なのはカスタムスキームを定義することです。`http:` はほぼすべての人が知っているスキームですが、スキームは任意の単語で始めることができます。スキームは文字で始まる必要がありますが、その後は文字、数字、プラス記号、マイナス記号、ドットを含めることができます。実際には、競合を防ぐための中央レジストリは存在しないため、スキームにドメイン名を含めることがベストプラクティスです。例えば、`twitter://` はX（旧 Twitter）のモバイルアプリを起動するための iOS URI です。
 
-ディープリンク内のコロン以降はすべて自由形式のテキストです。その構造と解釈は自由に定義できます。ただし、一般的な慣例として、先頭の `//` やクエリパラメーター（例: `?foo=1&bar=2`）を含む `http:` URL をモデルにすることが多いです。前述の例では、`twitter://user?screen_name=[id]` を使用してアプリ内の特定のプロファイルを起動します。
+ディープリンク内のコロン以降はすべて自由形式のテキストです。その構造と解釈は自由に定義できます。ただし、一般的な慣例として、先頭の `//` やクエリパラメーター（例: `?foo=1&bar=2`）を含む `http:` URL をモデルにすることが多いです。前述の例では、`twitter://user?screen_name=[id]` を使用してアプリ内の特定のプロフィールを起動します。
 
 {% alert important %}
 ラッパーフレームワーク（Flutter や Cordova など）で構築されたアプリの場合、Brazeはラッパー固有のディープリンクサポートを提供していません。ネイティブの iOS および Android レイヤーでディープリンクを設定する必要があります。Cordova については、[プッシュ通知でのディープリンク]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova)を参照してください。
@@ -35,7 +35,7 @@ description: "このリファレンス記事では、Liquid を使用してア�
 
 ### UTM タグとキャンペーンアトリビューション {#utm-tags-and-campaign-attribution}
 
-#### UTM タグとは? {#what-is-a-utm-tag}
+#### UTM タグとは {#what-is-a-utm-tag}
 
 [UTM（Urchin Traffic Manager）タグ](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article)を使用すると、キャンペーンアトリビューションの詳細をリンクに直接含めることができます。UTM タグは Google Analytics でキャンペーンアトリビューションデータを収集するために使用され、以下のプロパティを追跡できます。
 
@@ -53,11 +53,11 @@ Brazeはキャンペーンまたはキャンバスステップ内のすべての
 
 #### Brazeでの UTM タグの使用 {#using-utm-tags-with-braze}
 
-通常の HTTP（Web）リンクで UTM タグを使用する場合（例えば、メールキャンペーンのキャンペーンアトリビューションを行う場合）、組織がすでに Google Analytics を使用しているなら、[Google の URL ビルダー](https://ga-dev-tools.google/ga4/campaign-url-builder/)を使用して UTM リンクを生成できます。これらのリンクは、他のリンクと同様にBraze キャンペーンのコピーに簡単に埋め込むことができます。
+通常の HTTP（Web）リンクで UTM タグを使用する場合（例えば、メールキャンペーンのキャンペーンアトリビューションを行う場合）、組織がすでに Google Analytics を使用しているなら、[Google の URL ビルダー](https://ga-dev-tools.google/ga4/campaign-url-builder/)を使用して UTM リンクを生成できます。これらのリンクは、他のリンクと同様にBrazeキャンペーンのコピーに簡単に埋め込むことができます。
 
 アプリへのディープリンクで UTM タグを使用するには、アプリに関連する [Google Analytics SDK](https://developers.google.com/analytics/devguides/collection/) が統合され、ディープリンクを処理するように正しく設定されている必要があります。不明な場合は開発者に確認してください。
 
-Analytics SDKが統合・設定された後、Braze キャンペーンのディープリンクで UTM タグを使用できます。キャンペーンの UTM タグを設定するには、送信先 URL またはディープリンクに必要な UTM タグを含めます。以下の例では、プッシュ通知とアプリ内メッセージで UTM タグを使用する方法を示します。
+Analytics SDKが統合・設定された後、Brazeキャンペーンのディープリンクで UTM タグを使用できます。キャンペーンの UTM タグを設定するには、送信先 URL またはディープリンクに必要な UTM タグを含めます。以下の例では、プッシュ通知とアプリ内メッセージで UTM タグを使用する方法を示します。
 
 ##### UTM タグによるプッシュ開封とアプリ内メッセージクリックのアトリビューション {#attribute-push-opens-and-in-app-message-clicks-with-utm-tags}
 
@@ -100,7 +100,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-カスタム定義の Liquid 変数の短縮もサポートしています。以下にいくつかの例を示します。
+カスタム定義の Liquid 変数の短縮もサポートしています。以下のセクションにいくつかの例を示します。
 
 ### Liquid 変数を使用して URL を作成する {#create-a-url-using-liquid-variables}
 
@@ -115,7 +115,7 @@ https://example.com/{{url_var}}
 
 **サポートされているチャネル:** KakaoTalk、LINE、SMS、RCS、WhatsApp
 
-Liquid でレンダリングされた URL は、API トリガープロパティに含まれるものも含めて短縮されます。例えば、{% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} が有効な URL を表す場合、メッセージを送信する前にその URL を短縮して追跡します。
+Liquid でレンダリングされた URL は、API トリガープロパティに含まれるものも含めて短縮されます。例えば、{% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} が有効な URL を表す場合、メッセージを送信する前にその URL を短縮してトラッキングします。
 
 ### `/messages/send` エンドポイントでの URL 短縮 {#shorten-urls-in-messagessend-endpoint}
 

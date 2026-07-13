@@ -19,13 +19,13 @@ search_tag: Partner
 
 Braze와 Google Cloud Storage 통합을 사용하면 Currents 데이터를 Google Cloud Storage로 스트리밍할 수 있습니다. 이후 ETL 프로세스(Extract, Transform, Load)를 사용하여 Google BigQuery 등 다른 위치로 데이터를 전송할 수 있습니다.
 
-## 필수 조건 {#prerequisites}
+## 전제 조건 {#prerequisites}
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Google Cloud Storage 계정 | 이 파트너십을 활용하려면 Google Cloud Storage 계정이 필요합니다. |
-| Currents | 데이터를 Google Cloud Storage로 다시 내보내려면 계정에 [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)가 설정되어 있어야 합니다. 메시지 아카이브만 설정하는 경우에는 Currents가 필요하지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
+| Currents | 데이터를 Google Cloud Storage로 다시 내보내려면 계정에 [Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents)가 설정되어 있어야 합니다. 메시지 아카이브만 설정하는 경우에는 Currents가 필요하지 않습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="전제 조건" }
 
 ## 통합 {#integration}
 
@@ -41,7 +41,7 @@ Currents의 인증 방법으로 워크로드 ID 페더레이션(WIF)은 지원�
 
 Google Cloud Platform 콘솔에서 **IAM & admin** > **Roles** > **+ Create Role**로 이동하여 새 역할을 생성합니다.
 
-![]({% image_buster /assets/img/gcs1.png %})
+![역할 생성 작업이 표시된 Google Cloud IAM 역할 페이지.]({% image_buster /assets/img/gcs1.png %})
 
 역할에 이름을 지정한 다음 **+Add Permissions**를 선택하고 다음 권한을 추가합니다:
 
@@ -57,7 +57,7 @@ Google Cloud Platform 콘솔에서 **IAM & admin** > **Roles** > **+ Create Role
 
 완료되면 **Create**를 선택합니다.
 
-![]({% image_buster /assets/img/gcs2.png %})
+![스토리지 권한이 선택된 Google Cloud 커스텀 역할 편집기.]({% image_buster /assets/img/gcs2.png %})
 
 ### 2단계: 새 서비스 계정 생성 {#step-2-create-a-new-service-account}
 
@@ -65,7 +65,7 @@ Google Cloud Platform 콘솔에서 **IAM & admin** > **Roles** > **+ Create Role
 
 Google Cloud Platform 콘솔에서 **IAM & admin** > **Service Accounts**로 이동하여 **Create Service Account**를 선택하여 새 서비스 계정을 생성합니다.
 
-![]({% image_buster /assets/img/gcs3.png %})
+![Create Service Account가 선택된 Google Cloud 서비스 계정 페이지.]({% image_buster /assets/img/gcs3.png %})
 
 다음으로 서비스 계정에 이름을 지정하고 새로 생성한 커스텀 역할에 대한 액세스 권한을 부여합니다.
 
@@ -75,7 +75,7 @@ Google Cloud Platform 콘솔에서 **IAM & admin** > **Service Accounts**로 이
 
 페이지 하단에서 **Create Key** 버튼을 사용하여 Braze에서 사용할 **JSON** 비공개 키를 생성합니다. 키가 생성되면 컴퓨터에 다운로드됩니다.
 
-![]({% image_buster /assets/img/gcs5.png %})
+![JSON 키 유형으로 설정된 Google Cloud 서비스 계정 키 생성 대화 상자.]({% image_buster /assets/img/gcs5.png %})
 
 ### 3단계: Braze에서 Currents 설정 {#step-3-set-up-currents-in-braze}
 
@@ -89,7 +89,7 @@ Braze에서 **Currents** > **+ Create Current** > **Google Cloud Storage Data Ex
 
 ![Braze의 Google Cloud Storage Currents 페이지. 이 페이지에는 통합 이름, 연락처 이메일, GCS JSON 자격 증명, GCS 버킷 이름 및 접두사에 대한 필드가 있습니다.]({% image_buster /assets/img/gcs6.png %})
 
-마지막으로 페이지 하단으로 스크롤하여 내보내려는 메시지 참여 이벤트 또는 고객 행동 이벤트를 선택합니다. 완료되면 Current를 시작합니다.
+마지막으로 페이지 하단으로 스크롤하여 내보내려는 메시지 인게이지먼트 이벤트 또는 고객 행동 이벤트를 선택합니다. 완료되면 Current를 시작합니다.
 
 ### 4단계: Google Cloud Storage 내보내기 설정 {#step-4-set-up-google-cloud-storage-exports}
 

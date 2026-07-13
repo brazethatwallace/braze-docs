@@ -11,7 +11,7 @@ description: "Cet article explique comment résoudre les codes d'erreur liés au
 
 ## Erreurs 4XX {#4xx-errors}
 
-Les erreurs `4XX` indiquent un problème avec la requête envoyée à l'endpoint. Ces erreurs sont généralement causées par des requêtes erronées, notamment des paramètres mal formés, des en-têtes d'authentification manquants ou des URL incorrectes. Notez que ces erreurs s'appliquent également au [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
+Les erreurs `4XX` indiquent un problème avec la requête envoyée à l'endpoint. Ces erreurs sont généralement causées par des requêtes erronées, notamment des paramètres mal formés, des en-têtes d'authentification manquants ou des URL incorrectes. Notez que ces erreurs s'appliquent également au [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder).
 
 Consultez le tableau suivant pour les détails des codes d'erreur et les étapes de résolution :
 
@@ -108,7 +108,7 @@ table td {
       <td>Trop de requêtes ont été envoyées dans un laps de temps donné.</td>
       <td>
         <ul>
-          <li>Réduisez la limite de débit de votre campagne ou de votre étape du Canvas.</li>
+          <li>Réduisez la limite de débit de votre Campaign ou de votre étape Canvas.</li>
         </ul>
       </td>
     </tr>
@@ -160,7 +160,7 @@ Si vous pensez que la détection d'hôte non sain cause des problèmes, contacte
 Si un appel de contenu connecté s'affiche vide dans la prévisualisation ou l'envoi de votre message, vérifiez les points suivants :
 
 - **Espaces insécables dans l'URL :** Braze supprime les espaces insécables (`&nbsp;` ou Unicode `U+00A0`) des URL de contenu connecté avant d'effectuer la requête. Si votre URL a été copiée depuis un document ou un champ du tableau de bord qui a inséré des espaces insécables entre les caractères, la requête peut échouer ou ne renvoyer aucun corps exploitable. Retapez l'URL en texte brut ou supprimez les espaces masqués, puis prévisualisez à nouveau.
-- **Erreurs HTTP et corps vides :** pour les codes de statut supérieurs à 300 ou les hôtes bloqués, le contenu connecté peut renvoyer une chaîne vide. Consultez [Effectuer un appel API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) et examinez les échecs dans le **Journal d'activité des messages**.
+- **Erreurs HTTP et corps vides :** pour les codes de statut 300 ou supérieurs mentionnés plus haut dans cette section, ou les hôtes bloqués, le contenu connecté peut renvoyer une chaîne vide. Consultez [Effectuer un appel API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) et examinez les échecs dans le **Journal d'activité des messages**.
 
 ## E-mails automatisés et entrées du journal d'activité des messages {#automated-emails-and-message-activity-log-entries}
 
@@ -169,7 +169,7 @@ Si un appel de contenu connecté s'affiche vide dans la prévisualisation ou l'e
 Si vous rencontrez plus de 100 000 erreurs d'endpoint webhook ou de contenu connecté (y compris les nouvelles tentatives) dans un espace de travail sur une période de 24 heures, Braze vous envoie un e-mail contenant les informations suivantes pour résoudre les erreurs.
 
 - Nom de l'espace de travail
-- Un lien vers le Canvas ou la campagne
+- Un lien vers le Canvas ou la Campaign
 - URL de l'endpoint
 - Code d'erreur
 - Heure de la dernière observation de l'erreur

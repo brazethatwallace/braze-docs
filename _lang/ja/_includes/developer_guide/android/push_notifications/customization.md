@@ -81,7 +81,7 @@ Braze.getInstance(context).subscribeToPushNotificationEvents { event ->
 
 ## 通知表示のカスタマイズ {#customization-display}
 
-### ステップ 1:カスタム通知ファクトリーを作成する {#step-1-create-your-custom-notification-factory}
+### ステップ1:カスタム通知ファクトリーを作成する {#step-1-create-your-custom-notification-factory}
 
 サーバー側では面倒な方法や利用できない方法でプッシュ通知をカスタマイズしたい場合があります。通知表示を完全に制御できるように、独自の[`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)を定義してBrazeで表示する通知オブジェクトを作成する機能が追加されました。
 
@@ -127,7 +127,7 @@ override fun createNotification(brazeNotificationPayload: BrazeNotificationPaylo
 Brazeのプッシュデータキーに関するドキュメントは、[Android SDK](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-constants/index.html)を参照してください。
 {% endalert %}
 
-### ステップ 2:カスタム通知ファクトリーを設定する {#step-2-set-your-custom-notification-factory}
+### ステップ2:カスタム通知ファクトリーを設定する {#step-2-set-your-custom-notification-factory}
 
 Brazeにカスタム通知ファクトリーを使用するように指示するには、`setCustomBrazeNotificationFactory`メソッドを使用して[`IBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)を設定します。
 
@@ -207,7 +207,7 @@ Androidでは、プッシュ通知内で有効なHTML要素やタグが制限さ
 {% endtab %}
 
 {% tab BrazeConfig %}
-[`BrazeConfig`]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/runtime_configuration/#runtime-configuration)に以下を追加します。
+[`BrazeConfig`]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/runtime_configuration#runtime-configuration)に以下を追加します。
 
 {% subtabs local %}
 {% subtab JAVA %}
@@ -334,7 +334,7 @@ Braze.configure(this, brazeConfig)
 
 Androidのプッシュ通知では、インライン画像プッシュを使用して大きな画像を表示できます。このデザインにより、ユーザーは画像を拡大するために手動でプッシュを展開する必要がなくなります。通常のAndroidプッシュ通知とは異なり、インライン画像プッシュの画像は3:2のアスペクト比です。
 
-![]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
+![インライン画像プッシュのレンダリングを示すAndroidプッシュ通知のプレビュー。]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
 
 ### 互換性 {#compatibility}
 
@@ -348,19 +348,19 @@ Android 12を実行しているデバイスでは、カスタムプッシュ通�
 
 Androidプッシュメッセージを作成する場合、この機能は**通知タイプ**ドロップダウンで使用できます。
 
-![プッシュキャンペーンエディターで、標準のプッシュプレビューの上部に位置する「通知タイプ」ドロップダウンの場所を示している。]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
+![プッシュキャンペーンエディターで、標準のプッシュプレビューの近くに位置する「通知タイプ」ドロップダウンの場所を示している。]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
 
 ## 設定 {#settings}
 
 Brazeダッシュボードから送信されるAndroidプッシュ通知には、多くの高度な設定が利用可能です。この記事では、これらの機能とそれらを効果的に使用する方法について説明します。
 
-![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
+![Braze Androidプッシュコンポーザーの詳細設定パネル。]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
 ### 通知ID {#notification-id}
 
 **通知ID**は、選択したメッセージカテゴリの一意の識別子です。そのIDからの最新のメッセージのみを尊重するようメッセージングサービスに通知する役割を果たします。通知IDを設定すると、古くて無関係なメッセージのスタックではなく、最新で関連性の高いメッセージだけを送信できます。
 
-### Firebase メッセージング配信の優先度 {#fcm-priority}
+### Firebaseメッセージング配信の優先度 {#fcm-priority}
 
 [Firebase Messaging Delivery Priority](https://firebase.google.com/docs/cloud-messaging/android/message-priority#setting-priority-for-messages)フィールドでは、「通常」または「高」のどちらの優先度でプッシュをFirebase Cloud Messagingに送信するかを制御できます。
 
@@ -382,7 +382,7 @@ Brazeダッシュボードから送信されるAndroidプッシュ通知には�
 
 ### カスタムURI {#custom-uri}
 
-**カスタムURI**機能を使用すると、通知がクリックされたときの誘導先Web URLまたはAndroidリソースを指定できます。カスタムURIが指定されていない場合、通知をクリックするとユーザーはアプリに誘導されます。カスタムURIを使用してアプリ内でディープリンクし、アプリ外部のリソースにユーザーを誘導することができます。この設定は、[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)またはダッシュボードのプッシュコンポーザーの**詳細設定**から行うことができます。
+**カスタムURI**機能を使用すると、通知がクリックされたときの誘導先Web URLまたはAndroidリソースを指定できます。カスタムURIが指定されていない場合、通知をクリックするとユーザーはアプリに誘導されます。カスタムURIを使用してアプリ内でディープリンクし、アプリ外部のリソースにユーザーを誘導することができます。この設定は、[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging)またはダッシュボードのプッシュコンポーザーの**詳細設定**から行うことができます。
 
 ![Brazeプッシュコンポーザーのディープリンクの高度な設定。]({% image_buster /assets/img_archive/deep_link.png %})
 
@@ -402,11 +402,11 @@ AndroidまたはFire OSプッシュ通知で設定できる優先度レベルは
 
 | 優先度 | 説明／使用目的 | `priority`値（APIメッセージ用） |
 |----------|--------------------------|-------------------------------------|
-| 最大      | 緊急または一刻を争うメッセージ | `2` |
-| 高     | 友人からの新着メッセージなど、重要なコミュニケーション | `1` |
-| デフォルト  | ほとんどの通知 - メッセージが他の優先度タイプのいずれにも明示的に該当しない場合に使用します | `0` |
-| 低      | ユーザーに知ってもらいたいが、すぐに行動を起こす必要のない情報 | `-1` |
-| 最小      | 文脈に応じた情報またはバックグラウンド情報 | `-2` |
+| 最大 | 緊急または一刻を争うメッセージ | `2` |
+| 高 | 友人からの新着メッセージなど、重要なコミュニケーション | `1` |
+| デフォルト | ほとんどの通知 - メッセージが他の優先度タイプのいずれにも明示的に該当しない場合に使用します | `0` |
+| 低 | ユーザーに知ってもらいたいが、すぐに行動を起こす必要のない情報 | `-1` |
+| 最小 | 状況に即した情報またはバックグラウンド情報 | `-2` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="通知の表示優先度" }
 
 詳細については、Googleの[Android通知](http://developer.android.com/design/patterns/notifications.html)に関するドキュメントを参照してください。
@@ -415,7 +415,7 @@ AndroidまたはFire OSプッシュ通知で設定できる優先度レベルは
 
 Android Oでは、通知音は通知チャネルのプロパティになりました。開発者と協力して設定時にチャネルのサウンドを定義し、通知を送信するときにダッシュボードを使用して適切なチャネルを選択する必要があります。
 
-Android Oより前のバージョンを実行しているデバイスの場合、Brazeを使用するとダッシュボードコンポーザーを通じて個々のプッシュメッセージのサウンドを設定できます。これを行うには、デバイスのローカルサウンドリソースを指定します（例：`android.resource://com.mycompany.myapp/raw/mysound`）。このフィールドに「default」を指定すると、デフォルトの通知音がデバイスで再生されます。これは、[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging/)またはダッシュボードのプッシュコンポーザーの**詳細設定**で指定できます。
+Android Oより前のバージョンを実行しているデバイスの場合、Brazeを使用するとダッシュボードコンポーザーを通じて個々のプッシュメッセージのサウンドを設定できます。これを行うには、デバイスのローカルサウンドリソースを指定します（例：`android.resource://com.mycompany.myapp/raw/mysound`）。このフィールドに「default」を指定すると、デフォルトの通知音がデバイスで再生されます。これは、[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging)またはダッシュボードのプッシュコンポーザーの**詳細設定**で指定できます。
 
 ![Brazeプッシュコンポーザーのサウンドの高度な設定。]({% image_buster /assets/img_archive/sound_android.png %})
 

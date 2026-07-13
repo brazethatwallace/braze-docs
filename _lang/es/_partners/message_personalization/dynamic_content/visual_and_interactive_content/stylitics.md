@@ -10,7 +10,7 @@ search_tag: Partner
 
 # Stylitics
 
-> [Stylitics](https://stylitics.com/) es una plataforma SaaS basada en la nube que permite a los minoristas automatizar y distribuir contenidos visuales a gran escala. Los paquetes de Stylitics inspiran contextualizando los productos, aumentando la confianza en la compra e incrementando la interacción, lo que en última instancia conduce a un mayor valor medio de los pedidos y tasas de conversión.
+> [Stylitics](https://stylitics.com/) es una plataforma SaaS basada en la nube que permite a los minoristas automatizar y distribuir contenidos visuales a gran escala. Los paquetes de Stylitics inspiran contextualizando los productos, aumentando la confianza en la compra e incrementando la participación, lo que en última instancia conduce a un mayor valor medio de los pedidos y a mejores tasas de conversión.
 
 _Esta integración está mantenida por Stylitics._
 
@@ -18,16 +18,16 @@ _Esta integración está mantenida por Stylitics._
 
 Tu integración de Braze y Stylitics te permite mejorar tus campañas de correo electrónico existentes con contenidos agrupados atractivos y relevantes, creando una experiencia del cliente personalizada.
 
-![]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
+![Ejemplo de contenido agrupado de Stylitics integrado en una experiencia de correo electrónico de Braze.]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
-| Cuenta Stylitics | Es necesario disponer de una cuenta [Stylitics](https://stylitics.com/) para beneficiarse de esta asociación. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Cuenta Stylitics | Es necesario disponer de una cuenta de [Stylitics](https://stylitics.com/) para beneficiarse de esta asociación. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 A continuación se enumeran algunos ejemplos comunes de programas de correo electrónico desencadenados:
 - Correos electrónicos de carritos abandonados
@@ -51,7 +51,7 @@ Los tres enfoques siguientes te permiten incluir paquetes de Stylitics en tus co
 
 ### 1. Enfoque API (recomendado) {#1-api-approach-recommended}
 
-Tú o tu ESP pueden realizar una llamada a la API por artículo para rellenar los datos del paquete en tu correo electrónico. Stylitics te recomienda que utilices su API para hacer llamadas a la API, ya que está lista para ser utilizada inmediatamente.
+Tú o tu ESP pueden realizar una llamada a la API por artículo para rellenar los datos del paquete en tu correo electrónico. Stylitics te recomienda que utilices su API para hacer llamadas, ya que está lista para usarse de inmediato.
 
 {% alert note %}
 Si realizas una prueba A/B ejecutada por Stylitics, los parámetros `styliticsCID` y `styliticsoverride` deben añadirse a las URL PDP de los elementos de Stylitics en los que el usuario hace clic en el correo electrónico.
@@ -60,14 +60,16 @@ Por ejemplo, {% raw %}`&styliticsoverride=001?styliticsCID=email[clientname]`{% 
 {% endalert %}
 
 ### 2. Enfoque de archivo plano {#2-flat-file-approach}
+
 Tú o tu ESP pueden hacer referencia a los datos del paquete de un artículo en un archivo plano para rellenar los datos del paquete en tu correo electrónico. Stylitics puede aplanar los datos de los paquetes en formato CSV, TXT o XML y enviártelos diariamente. También pueden ayudar a ajustar el formato del archivo según las necesidades de tu ESP. Ten en cuenta que se tarda entre 2 y 3 semanas en crear este archivo.
 
 #### Requisitos: {#requirements}
-- **Ubicación**: Stylitics puede depositar el archivo en el SFTP de Stylitics para que lo recojas diariamente, o puedes enviarles tus credenciales SFTP para depositar el archivo.
+- **Ubicación**: Stylitics puede depositar el archivo en el SFTP de Stylitics para que lo recojas diariamente, o puedes enviarles tus credenciales SFTP para que depositen el archivo.
 - **Hora**: Stylitics depositará el archivo diariamente por la mañana. Indícales si necesitas el archivo para una hora concreta.
 - **Clave de archivo**: Tú y Stylitics deben ponerse de acuerdo sobre la cadena de datos del artículo que se utilizará como clave en el archivo para que tu ESP pueda hacer referencia a los datos. Se suelen utilizar SKU, `item_group_id` o `item_number`.
 
 ### 3. Enfoque de extracción de datos del sitio web {#3-website-data-extraction-approach}
+
 Los proveedores pueden rastrear el front end de tu sitio en busca de contenido de Stylitics e insertar los datos del paquete en los correos electrónicos. No se requiere ningún trabajo adicional por parte de Stylitics.
 
 ## Mejores prácticas para plantillas de correo electrónico {#email-template-best-practices}

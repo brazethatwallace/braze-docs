@@ -160,7 +160,7 @@ Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저
 연결된 콘텐츠 호출이 메시지 미리보기 또는 발송에서 빈 값으로 렌더링되는 경우 다음을 확인하세요:
 
 - **URL의 줄 바꿈 없는 공백:** Braze는 요청을 보내기 전에 연결된 콘텐츠 URL에서 줄 바꿈 없는 공백(`&nbsp;` 또는 유니코드 `U+00A0`)을 제거합니다. 문서나 대시보드 필드에서 복사한 URL에 문자 사이에 줄 바꿈 없는 공백이 삽입된 경우, 요청이 실패하거나 사용 가능한 본문을 반환하지 않을 수 있습니다. URL을 일반 텍스트로 다시 입력하거나 숨겨진 공백을 제거한 후 다시 미리보기하세요.
-- **HTTP 오류 및 빈 본문:** 300 이상의 상태 코드 또는 차단된 호스트의 경우, 연결된 콘텐츠는 빈 문자열을 렌더링할 수 있습니다. [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 참조하고 **메시지 활동 로그**에서 실패를 확인하세요.
+- **HTTP 오류 및 빈 본문:** 이 섹션 앞부분의 300 이상 상태 코드 또는 차단된 호스트의 경우, 연결된 콘텐츠는 빈 문자열을 렌더링할 수 있습니다. [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 참조하고 **메시지 활동 로그**에서 실패를 확인하세요.
 
 ## 자동 이메일 및 메시지 활동 로그 항목 {#automated-emails-and-message-activity-log-entries}
 
@@ -189,13 +189,13 @@ Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저
 이 이메일을 수신하도록 등록하려면 다음을 수행하세요:
 
 1. **설정** > **관리자 설정** > **알림 환경설정**으로 이동합니다.
-2. **Canvas & Campaigns** 섹션에서 **Connected Content Errors** 및 **Webhook Errors**를 선택합니다.
+2. **Canvas 및 Campaigns** 섹션에서 **Connected Content Errors** 및 **Webhook Errors**를 선택합니다.
 
 ### 메시지 활동 로그 항목 {#message-activity-log-entries}
 
 실패가 발생하면 이와 관련된 항목이 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에 하나 이상 있습니다. 요청이 재시도되어 최종적으로 성공하면 해당 세부 정보는 Currents 및 Snowflake 데이터 공유에서 확인할 수 있습니다. 재시도 후 요청이 최종적으로 성공하더라도 오류는 여전히 자동 이메일을 트리거할 수 있습니다.
 
-### Braze 커런츠의 추가 실패 인사이트 {#additional-failure-insights-in-braze-currents}
+### Braze Currents의 추가 실패 인사이트 {#additional-failure-insights-in-braze-currents}
 
 웹훅 관련 문제에 대한 투명성을 높이기 위해 Braze는 상세한 웹훅 실패 이벤트를 Currents 및 Snowflake 데이터 공유로 스트리밍합니다. 이러한 이벤트에는 실패한 웹훅 요청(HTTP `4xx` 또는 `5xx` 응답 등)이 포함되어 웹훅 문제가 메시지 전달에 어떤 영향을 미칠 수 있는지에 대한 더 많은 가시성을 제공합니다. 실패 이벤트에는 최종 오류뿐만 아니라 재시도 중인 오류도 포함됩니다.
 
@@ -203,4 +203,4 @@ Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저
 연결된 콘텐츠 요청은 이러한 웹훅 실패 이벤트에 포함되지 않습니다.
 {% endalert %}
 
-자세한 내용은 [메시지 참여 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)을 참조하세요.
+자세한 내용은 [메시지 인게이지먼트 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)을 참조하세요.

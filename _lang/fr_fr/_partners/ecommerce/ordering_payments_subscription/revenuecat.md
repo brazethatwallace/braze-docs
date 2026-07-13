@@ -26,12 +26,12 @@ Au minimum, vous devrez activer l'intégration depuis le tableau de bord de Reve
 |---|---|
 | Compte et application RevenueCat | Un [compte RevenueCat](https://app.revenuecat.com/login) est nécessaire pour bénéficier de ce partenariat. Vous devez également disposer d'une application RevenueCat configurée. |
 | SDK RevenueCat | En plus du SDK Braze requis, nous vous recommandons d'installer le [SDK RevenueCat](https://docs.revenuecat.com/docs/configuring-sdk) pour fournir des alias d'utilisateur à RevenueCat. |
-| Instance de Braze | Votre instance Braze peut être obtenue auprès de votre gestionnaire d'onboarding Braze ou sur la [page d'aperçu des API]({{site.baseurl}}/api/basics/#endpoints).<br><br>RevenueCat nécessite l'instance Braze pour envoyer les données côté serveur au bon endpoint REST de Braze. |
-| Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. <br><br> Cette clé peut être créée dans le tableau de bord de Braze depuis **Settings** > **API Keys**. |
+| Instance de Braze | Votre instance Braze peut être obtenue auprès de votre gestionnaire d'onboarding Braze ou sur la [page d'aperçu des API]({{site.baseurl}}/api/basics#endpoints).<br><br>RevenueCat nécessite l'instance Braze pour envoyer les données côté serveur au bon endpoint REST de Braze. |
+| Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. <br><br> Cette clé peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Clé API REST de test Braze (facultatif) | Une clé API de test peut être utilisée pour les achats de test et de production si vous souhaitez que ces requêtes soient envoyées à des instances Braze distinctes. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 - Déclenchez une campagne d'onboarding mettant en avant vos fonctionnalités premium lorsqu'un client commence un essai gratuit.
 - Envoyez un rappel pour mettre à jour les informations de facturation lorsqu'un événement « Problème de facturation » est reçu.
@@ -98,17 +98,17 @@ Si vous souhaitez envoyer un identifiant unique différent de l'ID de l'utilisat
 
 | Clé | Description |
 |---|---|
-| `$brazeAliasName` | Le champ `alias_name` de Braze dans l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/) |
-| `$brazeAliasLabel` | Le champ `alias_label` de Braze dans l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/) |
+| `$brazeAliasName` | Le champ `alias_name` de Braze dans l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object) |
+| `$brazeAliasLabel` | Le champ `alias_label` de Braze dans l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Envoi de l'objet alias d'utilisateur à Braze (facultatif)" }
 
-Ces deux attributs sont nécessaires pour que l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object/) soit envoyé avec vos données d'événement. Ces propriétés peuvent être définies manuellement, comme tout autre [attribut d'abonné RevenueCat](https://docs.revenuecat.com/docs/subscriber-attributes). Des extraits de code sont présentés à la première étape.
+Ces deux attributs sont nécessaires pour que l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object) soit envoyé avec vos données d'événement. Ces propriétés peuvent être définies manuellement, comme tout autre [attribut d'abonné RevenueCat](https://docs.revenuecat.com/docs/subscriber-attributes). Des extraits de code sont présentés à la première étape.
 
 ### Étape 2 : Envoyer des événements RevenueCat à Braze {#step-2-send-revenuecat-events-to-braze}
 
 Après avoir configuré le SDK d'achat RevenueCat et le SDK Braze pour qu'ils aient la même identité d'utilisateur, vous pouvez activer l'intégration et configurer les noms d'événements à partir du tableau de bord de RevenueCat.
 
-1. Accédez à votre projet dans le tableau de bord RevenueCat et recherchez la carte **Integrations** dans le menu de gauche. Sélectionnez **+ New**.
+1. Accédez à votre projet dans le tableau de bord RevenueCat et recherchez la carte **Integrations** dans le menu de navigation. Sélectionnez **+ New**.
 2. Ensuite, sélectionnez **Braze** parmi les intégrations disponibles et ajoutez votre instance Braze et la clé API REST Braze.
 3. Saisissez les noms d'événements que RevenueCat enverra ou choisissez les noms d'événements par défaut. Vous trouverez plus de détails sur les événements disponibles à l'[étape 3](#configure-event-names).
 4. Indiquez si vous souhaitez que RevenueCat rapporte les recettes (après la commission de la boutique d'applications) ou le chiffre d'affaires (ventes brutes).
@@ -142,4 +142,4 @@ Après avoir configuré les paramètres de Braze dans RevenueCat, les événemen
 
 ### Ajouter une clé API d'environnement de test pour les tests {#add-a-sandbox-api-key-for-testing}
 
-Si vous ne fournissez qu'une seule clé API REST Braze à RevenueCat, seuls les événements de production seront envoyés. Si vous souhaitez également envoyer des événements de test en bac à sable, [créez une autre clé API REST Braze]({{site.baseurl}}/api/basics/#app-group-rest-api-keys) et ajoutez-la à vos paramètres Braze dans RevenueCat.
+Si vous ne fournissez qu'une seule clé API REST Braze à RevenueCat, seuls les événements de production seront envoyés. Si vous souhaitez également envoyer des événements de test en bac à sable, [créez une autre clé API REST Braze]({{site.baseurl}}/api/basics#app-group-rest-api-keys) et ajoutez-la à vos paramètres Braze dans RevenueCat.

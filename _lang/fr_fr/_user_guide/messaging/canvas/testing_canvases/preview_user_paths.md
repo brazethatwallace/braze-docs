@@ -1,5 +1,5 @@
 ---
-nav_title: Prévisualisation des chemins d'utilisateurs
+nav_title: Prévisualisation des chemins utilisateur
 article_title: Prévisualisation des chemins utilisateur
 page_order: 0.3
 alias: /preview_user_paths/
@@ -103,7 +103,7 @@ Les webhooks s'exécutent lorsque des messages test sont envoyés, mais pas pend
 
 Pour une étape de message avec l'e-mail comme canal de communication, les groupes initiateurs envoient des copies initiatrices des e-mails lorsqu'un utilisateur atteint cette étape dans le Canvas. Ces copies initiatrices ne sont pas envoyées dans le cadre des propres parcours Canvas des destinataires du groupe initiateur, donc Braze n'exécute pas les [étapes de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) et n'évalue pas les variables de contexte pour ces destinataires. Si le contenu de votre e-mail fait référence à des variables de contexte, les destinataires du groupe initiateur reçoivent une copie initiatrice sans ces données renseignées. Pour tester des messages qui reposent sur des données de variables de contexte, utilisez la prévisualisation **Test Canvas** avec des envois de test au lieu des groupes initiateurs.
 
-## Cas d'utilisation {#use-case}
+## Cas d'usage {#use-case}
 
 Dans ce scénario, le Canvas est configuré pour cibler les utilisateurs qui n'ont pas eu de session dans une application. Ce parcours comprend une étape de message avec un e-mail de bienvenue, une étape de délai définie sur un jour et une étape de parcours d'audience qui se divise en deux chemins : les utilisateurs ayant au moins une session et tous les autres. Selon le parcours d'audience dans lequel un utilisateur se trouve, l'étape de message suivante est envoyée.
 

@@ -11,7 +11,7 @@ hidden: true
 
 # NPAW
 
-> A [NPAW](https://nicepeopleatwork.com/), também conhecida como _Nice People at Work_, é uma plataforma inteligente de análise de dados que fornece insights práticos para os principais profissionais de mídia online. Com a suíte de ferramentas YOUBORA da NPAW, os clientes da Braze agora podem aproveitar uma IA preditiva e robusta para entender melhor o comportamento do cliente e impulsionar o engajamento em todas as plataformas.
+> A [NPAW](https://nicepeopleatwork.com/), também conhecida como _Nice People at Work_, é uma plataforma inteligente de análise de dados que fornece insights práticos para os principais profissionais de mídia online. Com o pacote de ferramentas YOUBORA da NPAW, os clientes da Braze agora podem alavancar uma IA preditiva e robusta para entender melhor o comportamento do cliente e impulsionar o engajamento em todas as plataformas.
 
 # Pré-requisitos {#prerequisites}
 
@@ -26,7 +26,7 @@ hidden: true
 
 ## Acessando a página de integrações {#accessing-the-integrations-page}
 
-Após fazer login na sua conta da suíte de ferramentas YOUBORA, navegue até a página de integrações selecionando a opção **Integrações** no menu suspenso da conta.
+Após fazer login na sua conta do pacote de ferramentas YOUBORA, navegue até a página de integrações selecionando a opção **Integrations** no menu suspenso da conta.
 
 ![Menu suspenso da NPAW]({% image_buster /assets/img/npaw_dropdown.png %})
 
@@ -39,7 +39,7 @@ Na página de integração, role para baixo até ver a opção de integração *
 Preencha os campos com as informações coletadas na seção de pré-requisitos, em que:
 * **Connector Name** é uma string **alfanumérica** que será usada para se referir a esta integração no futuro. Esse valor pode ser definido como qualquer coisa que você quiser, desde que contenha **apenas** letras e números.
 * **User ID** é o ID previamente escolhido para vincular seu software YOUBORA à sua conta da Braze. Por exemplo, se você optar por realizar o vínculo via seu **Braze ID**, selecione **Braze ID** no menu suspenso para atribuir o valor ao campo adequado.
-* **API Key** é a sua chave de API da suíte de ferramentas YOUBORA encontrada anteriormente na seção **API** em **Settings**.
+* **API Key** é a sua chave de API do pacote de ferramentas YOUBORA encontrada anteriormente na seção **API** em **Settings**.
 * **Endpoint** é o endpoint de URL personalizável configurado anteriormente no seu dashboard da Braze.
 
 Depois que todos os campos forem preenchidos, basta clicar no botão **Connect** para estabelecer uma conexão e salvar as alterações feitas.
@@ -48,8 +48,8 @@ Depois que todos os campos forem preenchidos, basta clicar no botão **Connect**
 
 Depois de terminar de configurar sua integração com a Braze, navegue até o produto **Users** e selecione o **Sample Manager** dentro do **Sections Manager**.
 
-Depois de criar uma amostra no **Sample Manager**, você poderá clicar no ícone de três pontos no lado direito para enviar todos os usuários da sua amostra para a Braze.
+Depois de criar uma amostra no **Sample Manager**, você poderá clicar no ícone de três pontos no menu de ações da linha para enviar todos os usuários da sua amostra para a Braze.
 
 ![Gerenciador de amostras da NPAW]({% image_buster /assets/img/npaw_sample_manager.png %})
 
-Agora, depois de enviar seus usuários para a Braze, você pode agir e focar Campaigns em segmentos de usuários para reengajar usuários inativos, entrar em contato com seus usuários mais leais ou realizar qualquer ação em qualquer segmento de usuário!
+Agora, depois de enviar seus usuários para a Braze, você pode agir e focar Campaigns em segmentos de usuários para reengajar usuários inativos, entrar em contato com seus usuários mais leais ou realizar qualquer ação em qualquer segmento de usuários!

@@ -1,6 +1,6 @@
 # Crear conmutadores de características {#create-feature-flags}
 
-> Los conmutadores de características te permiten habilitar o deshabilitar a distancia la funcionalidad para una selección de usuarios. Crea un nuevo conmutador de características dentro del panel de Braze. Proporciona un nombre y un `ID`, una audiencia objetivo y un porcentaje de usuarios para los que habilitar esta característica. Luego, utilizando ese mismo `ID` en el código de tu aplicación o sitio web, puedes ejecutar condicionalmente determinadas partes de tu lógica empresarial. Para saber más sobre los conmutadores de características y cómo puedes utilizarlos en Braze, consulta [Acerca de los conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags/).
+> Los conmutadores de características te permiten habilitar o deshabilitar a distancia la funcionalidad para una selección de usuarios. Crea un nuevo conmutador de características dentro del panel de Braze. Proporciona un nombre y un `ID`, una audiencia objetivo y un porcentaje de usuarios para los que habilitar esta característica. Luego, utilizando ese mismo `ID` en el código de tu aplicación o sitio web, puedes ejecutar condicionalmente determinadas partes de tu lógica empresarial. Para saber más sobre los conmutadores de características y cómo puedes utilizarlos en Braze, consulta [Acerca de los conmutadores de características]({{site.baseurl}}/developer_guide/feature_flags).
 
 ## Requisitos previos {#prerequisites}
 
@@ -12,7 +12,7 @@ Para utilizar los conmutadores de características, asegúrate de que tus SDK es
 
 ### Permisos de Braze {#braze-permissions}
 
-Para gestionar los conmutadores de características en el dashboard, necesitarás ser administrador o tener los siguientes [permisos]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/):
+Para gestionar los conmutadores de características en el panel, necesitarás ser administrador o tener los siguientes [permisos]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions):
 
 | Permiso                                                                    | Qué puedes hacer                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
@@ -70,7 +70,7 @@ No hay límite en el número de propiedades que puedes añadir. Sin embargo, las
 
 ### Paso 4: Elige segmentos a los que dirigirte {#step-4-choose-segments-to-target}
 
-Antes de desplegar un conmutador de características, tienes que elegir un [segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/) de usuarios al que dirigirte. Selecciona **Add Rule** en tu conmutador recién creado y, a continuación, utiliza los menús desplegables de grupo de filtros y segmento para filtrar a los usuarios de tu audiencia objetivo. Añade varios filtros para reducir aún más tu audiencia.
+Antes de desplegar un conmutador de características, tienes que elegir un [segmento]({{site.baseurl}}/user_guide/engagement_tools/segments) de usuarios al que dirigirte. Selecciona **Add Rule** en tu conmutador recién creado y, a continuación, utiliza los menús desplegables de grupo de filtros y segmento para filtrar a los usuarios de tu audiencia objetivo. Añade varios filtros para reducir aún más tu audiencia.
 
 ![Un cuadro de texto denominado «Rollout Traffic» con la posibilidad de añadir segmentos y filtros.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
@@ -79,7 +79,7 @@ Antes de desplegar un conmutador de características, tienes que elegir un [segm
 De forma predeterminada, los conmutadores de características siempre están inactivos, lo que te permite separar la fecha de lanzamiento de la característica de la activación total de los usuarios. Para comenzar la implementación, utiliza la sección **Rollout Traffic** para introducir un porcentaje en el cuadro de texto. Esto seleccionará el porcentaje de usuarios aleatorios de tu segmento seleccionado que recibirán esta nueva característica.
 
 {% alert important %}
-No configures el tráfico de despliegue por encima del 0 % hasta que estés listo para que tu nueva característica entre en producción. Cuando definas inicialmente tu conmutador de características en el dashboard, deja esta configuración en 0 %.
+No configures el tráfico de despliegue por encima del 0 % hasta que estés listo para que tu nueva característica entre en producción. Cuando definas inicialmente tu conmutador de características en el panel, deja esta configuración en 0 %.
 {% endalert %}
 
 {% alert important %}
@@ -107,7 +107,7 @@ La regla «Everyone Else» actúa como regla predeterminada. Si un usuario no cu
 
 ### Reordenar reglas {#re-ordering-rules}
 
-De forma predeterminada, las reglas se ordenan en la secuencia en la que se crean, pero puedes reordenarlas arrastrándolas y soltándolas en el dashboard.
+De forma predeterminada, las reglas se ordenan en la secuencia en la que se crean, pero puedes reordenarlas arrastrándolas y soltándolas en el panel.
 
 ![Imagen que muestra que un usuario puede añadir una regla a un conmutador de características.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
 
@@ -318,7 +318,7 @@ m.Braze.logFeatureFlagImpression("expanded_user_profile");
 
 ### Acceder a las propiedades {#accessing-properties}
 
-Para acceder a las propiedades de un conmutador de características, utiliza uno de los métodos siguientes, según el tipo que hayas definido en el dashboard.
+Para acceder a las propiedades de un conmutador de características, utiliza uno de los métodos siguientes, según el tipo que hayas definido en el panel.
 
 Si no existe ninguna propiedad del tipo correspondiente para la clave que proporcionaste, estos métodos devolverán `null`.
 
@@ -905,7 +905,7 @@ Aquí puedes revisar cuándo se produjo un cambio, quién lo realizó, a qué ca
 
 ## Segmentación con conmutadores de características {#segmentation}
 
-Braze hace un seguimiento automático de los usuarios que tienen habilitado un conmutador de características. Puedes crear un segmento o dirigir mensajería utilizando el [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags). Para más información sobre cómo filtrar por segmentos, consulta [Crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Braze hace un seguimiento automático de los usuarios que tienen habilitado un conmutador de características. Puedes crear un segmento o dirigir mensajería utilizando el [filtro **Feature Flag**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Para más información sobre cómo filtrar por segmentos, consulta [Crear un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
 ![La sección «Filtros» con «Feature Flag» escrito en la barra de búsqueda del filtro.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
@@ -959,4 +959,4 @@ Añade una descripción a tu conmutador de características. Aunque se trata de 
 
 Todos somos culpables de dejar características activadas al 100 % durante más tiempo del necesario.
 
-Para ayudar a mantener limpio tu código (y el dashboard de Braze), elimina los conmutadores de características permanentes de tu base de código una vez que todos los usuarios se hayan actualizado y ya no necesites la opción de desactivar la característica. Esto ayuda a reducir la complejidad de tu entorno de desarrollo, pero también a mantener ordenada tu lista de conmutadores de características.
+Para ayudar a mantener limpio tu código (y el panel de Braze), elimina los conmutadores de características permanentes de tu base de código una vez que todos los usuarios se hayan actualizado y ya no necesites la opción de desactivar la característica. Esto ayuda a reducir la complejidad de tu entorno de desarrollo, pero también a mantener ordenada tu lista de conmutadores de características.

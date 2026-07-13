@@ -105,7 +105,7 @@ Adicione uma string de descrição de uso para os serviços de localização no 
 ```
 
 {% alert important %}
-A Apple descontinuou `NSLocationAlwaysUsageDescription`. Use as chaves acima para iOS 14+.
+A Apple descontinuou `NSLocationAlwaysUsageDescription`. Use as chaves listadas acima para iOS 14+.
 {% endalert %}
 
 ### Etapa 4: Ativar geofences na sua configuração da Braze {#step-4-enable-geofences-in-your-braze-configuration}

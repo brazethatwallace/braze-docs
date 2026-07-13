@@ -29,7 +29,7 @@ description: "Braze SDKのバージョン管理について説明します。"
 新しいSDKバージョンがリリースされたときに自動通知を受け取るには、任意のBraze SDKのGitHubリポジトリをウォッチできます。
 
 1. SDKのGitHubリポジトリに移動します（例：[braze-android-sdk](https://github.com/braze-inc/braze-android-sdk)、[braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk)、[braze-web-sdk](https://github.com/braze-inc/braze-web-sdk)）。
-2. 右上の**Watch**をクリックします。
+2. ページ上部の**Watch**をクリックします。
 3. **Custom**をクリックし、**Releases**を選択して、**Apply**をクリックします。
 
 新しいリリースが公開されるたびに、GitHub通知（および[通知設定](https://github.com/settings/notifications)に応じてメール）を受け取ります。SDKリポジトリの完全なリストについては、[参照、リポジトリ、サンプルアプリ]({{site.baseurl}}/developer_guide/references)をご覧ください。

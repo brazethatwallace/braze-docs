@@ -14,7 +14,7 @@ channel:
 
 # Uso del recuento de señales {#utilizing-badge-count}
 
-> El recuento de señales de iOS muestra el número de notificaciones no leídas dentro de tu aplicación, en forma de un círculo rojo en la esquina superior derecha del icono de la aplicación. En los últimos años, las señales se han convertido en un medio eficaz para reactivar la interacción con los usuarios de la aplicación.
+> El recuento de señales de iOS muestra el número de notificaciones no leídas dentro de tu aplicación, en forma de un círculo rojo en la parte superior del icono de la aplicación. En los últimos años, las señales se han convertido en un medio eficaz para reactivar la interacción con los usuarios de la aplicación.
 
 El recuento de señales se puede utilizar para reactivar la interacción con tus usuarios que no notaron una notificación push o que han desactivado las notificaciones push en primer plano. De manera similar, se puede utilizar para notificar a tus usuarios sobre mensajes no vistos, como actualizaciones dentro de la aplicación.
 
@@ -32,7 +32,7 @@ Establece el recuento de señales en 0 o "" para eliminar el recuento de señale
 
 ## Buenas prácticas {#best-practices}
 
-Para optimizar el poder de reactivación de la interacción de las señales, es crucial que configures los ajustes de señales de una manera que simplifique al máximo la experiencia del usuario.
+Para optimizar el poder de reactivación de las señales, es crucial que configures los ajustes de señales de una manera que simplifique al máximo la experiencia del usuario.
 
 ### Mantén el recuento de señales bajo {#keep-the-badge-count-low}
 Las investigaciones muestran que después de que el recuento de señales supera las dos cifras, los usuarios generalmente pierden interés en las actualizaciones y a menudo dejan de usar la aplicación por completo.

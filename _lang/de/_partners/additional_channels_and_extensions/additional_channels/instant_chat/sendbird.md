@@ -20,7 +20,7 @@ Die Integration von Braze und Sendbird ermöglicht es Unternehmensnutzer:innen:
 * Die Segmentierungs- und Triggerfunktionen von Braze zu nutzen, um personalisierte In-App-Benachrichtigungen zu initiieren.
 * Maßgeschneiderte In-App-Benachrichtigungen auf der Sendbird Notifications Plattform zu erstellen, die dann innerhalb der App-Umgebung zugestellt werden und das Engagement der Nutzer:innen erhöhen.
 
-Durch die Nutzung der gemeinsamen Fähigkeiten von Braze und Sendbird Notifications können Unternehmen das Customer-Engagement steigern und durch effektive In-App-Benachrichtigungsstrategien höhere Conversion-Raten erzielen.
+Durch die Nutzung der gemeinsamen Fähigkeiten von Braze und Sendbird Notifications können Unternehmen das Customer-Engagement steigern und durch effektive In-App-Benachrichtigungsstrategien höhere Konversionsraten erzielen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -29,12 +29,12 @@ Durch die Nutzung der gemeinsamen Fähigkeiten von Braze und Sendbird Notificati
 | Sendbird-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Sendbird-Konto. |
 | Sendbird UIKit | Sie müssen das Sendbird UIKit in Ihrer [iOS](https://sendbird.com/docs/notifications/v1/uikit/ios/install-uikit)- oder [Android](https://sendbird.com/docs/notifications/v1/uikit/android/install-uikit)-App installiert haben. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze REST-Endpunkt | [Ihre URL für den REST-Endpunkt]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
-![]({% image_buster /assets/img/sendbird/use-cases.png %})
+![Diagramm, das die Anwendungsfälle der Integration von Braze und Sendbird Notifications für Marketing- und Transaktionsnachrichten zusammenfasst.]({% image_buster /assets/img/sendbird/use-cases.png %})
 
 Die Integration von Braze und Sendbird Notifications bietet eine Reihe von Anwendungsfällen, um das Customer-Engagement zu steigern und ein außergewöhnliches Nutzererlebnis zu bieten:
 
@@ -47,7 +47,7 @@ Die Integration von Braze und Sendbird Notifications bietet eine Reihe von Anwen
 
 [Sendbird Templates](https://sendbird.com/docs/notifications/v1/templates) erlauben es Ihnen, personalisierte In-App-Benachrichtigungen zu versenden, indem Sie mehrere Templates für jeden Kanal erstellen und verwenden. Templates können auf dem Sendbird Dashboard erstellt und angepasst werden, ohne dass Sie Code schreiben müssen.
 
-![]({% image_buster /assets/img/sendbird/sendbird-dashboard-template.png %})
+![Sendbird-Dashboard-Template-Editor zum Erstellen von Benachrichtigungs-Templates.]({% image_buster /assets/img/sendbird/sendbird-dashboard-template.png %})
 
 ### 2. Schritt: Einrichten der Braze-Integration im Sendbird-Dashboard {#step-2-set-up-the-braze-integration-on-sendbird-dashboard}
 
@@ -59,7 +59,7 @@ Sobald Sie alle Felder ausgefüllt haben, klicken Sie auf **Save**, um die Integ
 
 Als Nächstes müssen Sie den [Sendbird Notification Builder](https://chrome.google.com/webstore/detail/apbhgfffamdcdogeijjcnjbmghahoaji) installieren. Mit dieser Google Chrome-Erweiterung können Sie angepasste Benachrichtigungen über Sendbird im Braze-Dashboard senden.
 
-![]({% image_buster /assets/img/sendbird/sendbird-notification-builder.png %})
+![Sendbird Notification Builder Chrome-Erweiterungspanel im Braze-Dashboard.]({% image_buster /assets/img/sendbird/sendbird-notification-builder.png %})
 
 #### Fügen Sie die Sendbird-Zugangsdaten zur Erweiterung hinzu {#add-sendbird-credentials-to-the-extension}
 
@@ -67,7 +67,7 @@ Sobald die Erweiterung installiert ist, klicken Sie auf das Sendbird-Symbol in d
 
 ### 4. Schritt: Sendbird-Nutzer-ID der Braze-Nutzer-ID zuordnen {#step-4-map-sendbird-user-id-to-braze-user-id}
 
-Eine Sendbird-Nutzer-ID muss als [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) zu einem Braze-Nutzerprofil hinzugefügt werden, damit die Integration genutzt werden kann. Sie können Nutzerprofile über CSV-Dateien von der Seite [Nutzerimport]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import/#csv) hochladen und aktualisieren. Alternativ können Sie auch die Braze-Nutzer-ID als Sendbird-Nutzer-ID verwenden.
+Eine Sendbird-Nutzer-ID muss als [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) zu einem Braze-Nutzerprofil hinzugefügt werden, damit die Integration genutzt werden kann. Sie können Nutzerprofile über CSV-Dateien von der Seite [Nutzerimport]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#csv) hochladen und aktualisieren. Alternativ können Sie auch die Braze-Nutzer-ID als Sendbird-Nutzer-ID verwenden.
 
 ### 5. Schritt: Richten Sie Ihr Webhook-Template ein {#step-5-set-up-your-webhook-template}
 
@@ -76,7 +76,7 @@ Gehen Sie in Braze unter **Templates und Medien** zu **Webhook-Templates** und w
 {% raw %}
 1. Geben Sie einen Template-Namen an und fügen Sie Teams und Tags nach Bedarf hinzu.
 2. Kopieren Sie einen Realtime- oder Batch-Endpunkt aus dem Sendbird Dashboard in die **Webhook-URL**.
-3. Klicken Sie im Feld **Receiver** auf das Symbol <i class="fas fa-plus"></i> und fügen Sie das Nutzerattribut ein, das der Sendbird-Nutzer-ID zugeordnet ist.
+3. Klicken Sie im Feld **Receiver** auf das Symbol <i class="fas fa-plus" aria-label="Hinzufügen"></i> und fügen Sie das Nutzerattribut ein, das der Sendbird-Nutzer-ID zugeordnet ist.
     - `{{ '{{' }}custom_attribute.${sendbird_id}}}` wenn Sie ein angepasstes Attribut `sendbird_id` als Sendbird-Nutzer-ID verwenden.
     - `{{ '{{' }}${user_id}}}` wenn Sie die Braze-Nutzer-ID als Sendbird-Nutzer-ID verwenden.
 4. Ersetzen Sie im Tab **Settings** den Wert `SENDBIRD_API_TOKEN` durch das Benachrichtigungs-API-Token aus dem Sendbird Dashboard.
@@ -102,7 +102,7 @@ Gehen Sie in Braze unter **Templates und Medien** zu **Webhook-Templates** und w
 
 ### Zustellungs- und Öffnungsstatus tracken {#track-delivery-and-open-status}
 
-Um den Zustellungs- und Öffnungsstatus der Benachrichtigungen in die Conversion-Metrik einer Campaign zu integrieren, fügen Sie ein angepasstes Event im Braze-Dashboard hinzu.
+Um den Zustellungs- und Öffnungsstatus der Benachrichtigungen in die Konversionsmetrik einer Campaign zu integrieren, fügen Sie ein angepasstes Event im Braze-Dashboard hinzu.
 
 1. Gehen Sie im Braze-Dashboard zu **Einstellungen > Einstellungen verwalten > Angepasste Events** und klicken Sie auf **+ Angepasstes Event hinzufügen**.
 2. Nachdem Sie ein angepasstes Event erstellt haben, klicken Sie auf **Eigenschaften verwalten**, fügen Sie eine Eigenschaft namens „status“ hinzu und wählen Sie als Eigenschaftstyp „String“.

@@ -217,7 +217,9 @@ DELIVERYFAILURE
 Demandbase
 Denada
 Deprioritization
+deprioritize
 deprioritized
+deprioritizes
 detangle
 Deutsch
 developerid

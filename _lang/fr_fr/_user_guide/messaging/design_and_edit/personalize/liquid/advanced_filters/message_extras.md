@@ -8,11 +8,11 @@ alias: "/message_extras_tag/"
 
 # Étiquette Liquid message extras {#message-extras-liquid-tag}
 
-> Utilisez l'étiquette Liquid `message_extras` pour annoter vos événements d'envoi avec des données dynamiques provenant du Contenu connecté, des Catalogues, des attributs personnalisés (tels que la langue, le pays), des propriétés d'entrée Canvas ou d'autres sources de données.
+> Utilisez l'étiquette Liquid `message_extras` pour annoter vos événements d'envoi avec des données dynamiques provenant du contenu connecté, des catalogues, des attributs personnalisés (tels que la langue, le pays), des propriétés d'entrée Canvas ou d'autres sources de données.
 
-L'étiquette Liquid `message_extras` ajoute des paires clé-valeur à l'événement d'envoi correspondant dans Currents et le Partage de données Snowflake.
+L'étiquette Liquid `message_extras` ajoute des paires clé-valeur à l'événement d'envoi correspondant dans Currents et le partage de données Snowflake.
 
-Pour renvoyer des données dynamiques ou supplémentaires à votre événement d'envoi Currents ou Partage de données Snowflake, insérez l'étiquette Liquid appropriée dans le corps de votre message.
+Pour renvoyer des données dynamiques ou supplémentaires à votre événement d'envoi Currents ou partage de données Snowflake, insérez l'étiquette Liquid appropriée dans le corps de votre message.
 
 Voici un exemple du format standard de l'étiquette Liquid pour `message_extras` :
 
@@ -22,7 +22,7 @@ Voici un exemple du format standard de l'étiquette Liquid pour `message_extras`
 ```
 {% endraw %}
 
-Vous pouvez ajouter ces étiquettes selon vos besoins pour vos paires clé-valeur dans le corps du message. Cependant, la longueur totale de toutes les clés et valeurs ne doit pas dépasser 1 000 octets (1&nbsp;Ko). Dans Currents et le Partage de données Snowflake, vous verrez un nouveau champ d'événement appelé `message_extras` pour vos événements d'envoi. Celui-ci génère une chaîne de caractères sérialisée en JSON dans un seul champ.
+Vous pouvez ajouter ces étiquettes selon vos besoins pour vos paires clé-valeur dans le corps du message. Cependant, la longueur totale de toutes les clés et valeurs ne doit pas dépasser 1 000 octets (1&nbsp;Ko). Dans Currents et le partage de données Snowflake, vous verrez un nouveau champ d'événement appelé `message_extras` pour vos événements d'envoi. Celui-ci génère une chaîne de caractères sérialisée en JSON dans un seul champ.
 
 ## Comment les données message extras sont envoyées via Currents {#how-message-extras-data-is-sent-using-currents}
 
@@ -34,9 +34,9 @@ L'étiquette `message_extras` est prise en charge pour tous les types de message
 
 ## Comment utiliser l'étiquette `message_extras` {#how-to-use-the-message_extras-tag}
 
-1. Dans le corps du message pour le canal, saisissez l'étiquette Liquid `message_extras`. Vous pouvez également utiliser la fenêtre modale **Add Personalization** et sélectionner **Message Extras** comme type de personnalisation.
+1. Dans le corps du message pour le canal, saisissez l'étiquette Liquid `message_extras`. Vous pouvez également utiliser la fenêtre modale **Ajouter une personnalisation** et sélectionner **Message Extras** comme type de personnalisation.
 
-![La fenêtre modale Add Personalization avec Message Extras sélectionné comme type de personnalisation.]({% image_buster /assets/img_archive/message_extras1.png %}){: style="max-width:35%;"}
+![La fenêtre modale Ajouter une personnalisation avec Message Extras sélectionné comme type de personnalisation.]({% image_buster /assets/img_archive/message_extras1.png %}){: style="max-width:35%;"}
 
 {: start="2"}
 
@@ -46,11 +46,11 @@ L'étiquette `message_extras` est prise en charge pour tous les types de message
 
 {: start="3"}
 
-3. Une fois votre campagne ou votre Canvas envoyé, Braze attachera les données dynamiques au moment de l'envoi via les événements d'envoi Currents ou Partage de données Snowflake au champ `message_extras`.
+3. Une fois votre campagne ou votre Canvas envoyé, Braze attachera les données dynamiques au moment de l'envoi via les événements d'envoi Currents ou partage de données Snowflake au champ `message_extras`.
 
 ## Vérification de la syntaxe {#checking-syntax}
 
-Toute autre saisie qui ne correspond pas au standard d'étiquette décrit ci-dessus risque de ne pas être transmise à Currents ou Snowflake. Vérifiez que votre syntaxe ou votre formatage ne contient aucun des éléments suivants :
+Toute autre saisie qui ne correspond pas au standard d'étiquette décrit plus haut dans cette section risque de ne pas être transmise à Currents ou Snowflake. Vérifiez que votre syntaxe ou votre formatage ne contient aucun des éléments suivants :
 
 - Délimiteurs inexistants, vides ou mal orthographiés
 - Clés en double (Braze enverra par défaut la première paire clé-valeur rencontrée)

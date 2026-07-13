@@ -1,6 +1,6 @@
 ---
 nav_title: 메시지 보관
-article_title: 메시지 아카이브
+article_title: 메시지 보관
 alias: "/message_archiving/"
 page_order: 1
 page_type: reference
@@ -112,7 +112,7 @@ Braze는 연결된 콘텐츠 및 Currents에 사용되는 것과 동일한 IP �
 }
 ```
 
-`extras` 필드는 HTML 편집기에서 이메일을 작성할 때 **이메일 추가 정보** 필드에 구성된 키-값 페어를 포함합니다. 이메일 추가 기능은 모든 이메일 서비스 공급자(SendGrid 및 SparkPost 포함)에서 작동하며, 사용 중인 공급자와 관계없이 보관된 메시지에 포함됩니다. 이메일 추가 기능 설정에 대한 자세한 내용은 [이메일 캠페인 생성]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras)을 참조하세요. Currents로 데이터를 보내려면 [메시지 추가 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras)를 참조하세요.
+`extras` 필드는 HTML 편집기에서 이메일을 작성할 때 **이메일 추가 정보** 필드에 구성된 키-값 페어를 포함합니다. 이메일 추가 기능은 모든 이메일 서비스 공급자(SendGrid 및 SparkPost 포함)에서 작동하며, 사용 중인 공급자와 관계없이 보관된 메시지에 포함됩니다. 이메일 추가 기능 설정에 대한 자세한 내용은 [이메일 Campaign 생성]({{site.baseurl}}/user_guide/channels/email/html_editor#adding-email-extras)을 참조하세요. Currents로 데이터를 보내려면 [메시지 추가 정보]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras)를 참조하세요.
 
 ![이메일 작성기의 이메일 추가 정보 섹션에 키 및 값 필드와 새 추가 항목 추가 옵션이 표시되어 있습니다.]({% image_buster /assets/img_archive/email_extras.png %}){: style="max-width:60%" }
 
@@ -225,7 +225,7 @@ JSON 페이로드 형식은 메시지마다 다를 수 있으며 시간이 지�
 
 ### Currents 데이터에 사용하는 현재 버킷을 유지하면서 메시지 보관 전용 새 버킷을 만들 수 있나요? {#can-i-create-a-new-bucket-specifically-for-message-archiving-while-keeping-the-current-bucket-used-for-currents-data}
 
-아니요. 이러한 전용 버킷 생성에 관심이 있다면 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal)을 제출해 주세요.
+아니요. {% multi_lang_include product_feedback_cta.md context="gap" feature="dedicated message archiving buckets while keeping a separate Currents bucket" %}
 
 ### 아카이브된 데이터는 Currents 데이터 내보내기 구조와 유사하게 기존 버킷의 전용 폴더에 기록되나요? {#is-archived-data-written-to-a-dedicated-folder-in-an-existing-bucket-similar-to-how-currents-data-exports-are-structured}
 

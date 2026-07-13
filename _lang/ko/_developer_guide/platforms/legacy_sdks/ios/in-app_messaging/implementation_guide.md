@@ -357,7 +357,7 @@ FaceTime을 통해 비디오를 공유하기 위해 커스텀 모달 인앱 메�
 
 ![구성 옵션 목록과 각 옵션 옆에 토글이 있는 인앱 메시지. 메시지 하단에 큰 파란색 제출 버튼이 있습니다.]({% image_buster /assets/img/iam_implementation/fullscreen.png %}){: style="float:right;max-width:23%;margin-left:15px;border:0;"}
 
-커스텀 전체 인앱 메시지를 사용하여 대화형이고 사용자 친화적인 프롬프트를 만들어 소중한 고객 데이터를 수집하세요. 오른쪽 예제는 알림 환경설정이 포함된 대화형 푸시 프라이머로 재구성된 커스텀 전체 인앱 메시지의 구현을 보여줍니다.
+커스텀 전체 인앱 메시지를 사용하여 인터랙티브하고 사용자 친화적인 프롬프트를 만들어 소중한 고객 데이터를 수집하세요. 오른쪽 예제는 알림 환경설정이 포함된 인터랙티브 푸시 프라이머로 재구성된 커스텀 전체 인앱 메시지의 구현을 보여줍니다.
 
 [`FullListViewController`](https://github.com/braze-inc/braze-growth-shares-ios-demo-app/blob/master/Braze-Demo/ViewController/In-App-Messages/FullListViewController/FullListViewController.swift)를 방문하여 시작하세요.
 

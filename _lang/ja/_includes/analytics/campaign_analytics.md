@@ -496,7 +496,7 @@ Brazeは、開封トラッキングピクセルが読み込まれたときにメ
 
 _延期_は_ソフトバウンス_とは異なります。この再試行期間中にメールが正常に配信されなかった場合、Brazeは送信されたキャンペーンごとに1つのソフトバウンスイベントを送信します。2025年2月25日以前は、これらの再試行は1回のキャンペーン送信に対して複数のソフトバウンスとしてカウントされていました。
 
-_延期_は現在、CurrentsまたはBraze Snowflake機能（クエリビルダー、SQLセグメント、Snowflakeデータ共有など）を使用した場合のみ利用可能です。キャンペーンやキャンバス分析にこれを含めたい場合は、[製品フィードバックを送信]({{site.baseurl}}/user_guide/administrative/access_braze/portal)してください。
+_延期_は現在、CurrentsまたはBraze Snowflake機能（クエリビルダー、SQLセグメント、Snowflakeデータ共有など）を使用した場合のみ利用可能です。{% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or キャンバス analytics" %}
 
 ##### 推定実質開封率 {#estimated-real-open-rate}
 

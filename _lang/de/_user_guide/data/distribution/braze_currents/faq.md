@@ -15,7 +15,7 @@ tool: Currents
 
 Um Campaign- oder Canvas-Metriken für einen definierten Zeitraum abzurufen, verwenden Sie einen der folgenden Ansätze:
 
-- Reichen Sie eine [Produktanfrage](https://portal.braze.com/) für datumsbasierte Exporte ein, wenn Sie Dashboard-ähnliche Berichte außerhalb der Standard-API-Zeitfenster benötigen.
+- {% multi_lang_include product_feedback_cta.md context="gap" feature="date-aligned campaign or Canvas exports for dashboard-style reporting outside standard API windows" %}
 - Rufen Sie die Endpunkte für [Campaign Analytics]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) oder [Canvas Analytics]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics) mit den Parametern `ending_at` und `length` auf (oder verwenden Sie [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) und [`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)) für Zeitreihendaten.
 - Streamen Sie Events mit [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) in Ihr Data Warehouse, wenn Sie fortlaufend abfragbare Nachrichten-Engagement-Daten in Amazon S3, Azure Blob Storage oder einem anderen unterstützten Ziel benötigen.
 

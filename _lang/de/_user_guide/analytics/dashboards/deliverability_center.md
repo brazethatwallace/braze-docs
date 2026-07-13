@@ -19,9 +19,9 @@ Um auf das Deliverability Center zuzugreifen, benötigen Sie die [Nutzer:innenbe
 
 {% details Nutzer:innenberechtigungen für das Deliverability Center %}
 
-- Campaigns anzeigen
-- Campaigns bearbeiten
-- Campaigns archivieren
+- Kampagnen anzeigen
+- Kampagnen bearbeiten
+- Kampagnen archivieren
 - Canvases anzeigen
 - Canvases bearbeiten
 - Canvases archivieren
@@ -162,13 +162,23 @@ Weitere Ideen zur Verbesserung der Zustellbarkeit finden Sie unter [Zustellbarke
 
 ## Microsoft Smart Network Data Services (SNDS) einrichten {#set-up-microsoft-smart-network-data-services-snds}
 
-Wenn Microsoft Ihr Haupt-Mailbox-Anbieter ist, können Sie diese Integration nutzen, um auf Ihre Microsoft-Reputationsdaten zuzugreifen und diese einzusehen. So können Sie den Zustand Ihrer IPs überwachen und besser einschätzen, wie Ihre E-Mails empfangen werden.
+Wenn Microsoft Ihr Haupt-Mailbox-Anbieter ist, können Sie Microsoft SNDS-Daten im Deliverability Center einsehen. Dies umfasst dedizierte Versand-IPs für Workspaces, die Amazon SES, SendGrid oder SparkPost verwenden. Nutzen Sie diese Daten, um den Zustand Ihrer IPs zu überwachen und zu verstehen, wie Microsoft-Posteingangsanbieter Ihren Versand bewerten.
+
+Microsoft SNDS liefert Daten auf IP-Ebene zu Spam-Beschwerden, Spam-Trap-Treffern und Versandvolumen, wie sie von Microsoft-Posteingangsanbietern wie Outlook, Hotmail und Live gemeldet werden.
 
 {% alert important %}
 Wenn Sie Ihre Daten nicht im Deliverability Center sehen, kontaktieren Sie den [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) mit einer Liste Ihrer IP-Adressen.
 {% endalert %}
 
-![Ein Beispiel für Ergebnisse von Microsoft SNDS, einschließlich Beispiel-IPs, Empfänger:innen, RCPT-Befehle, DATA-Befehle, Filterergebnis, Beschwerderate, Spam-Trap-Nachrichtenzeitraum (Start und Ende) und Spam-Trap-Treffer.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
+### Amazon SES
+
+Für Workspaces, die E-Mails über Amazon SES versenden, zeigt das Deliverability Center Microsoft SNDS-Metriken für Ihre dedizierten Versand-IPs an. Braze füllt bis zu 90 Tage historischer SNDS-Daten nach, wenn dieses Feature für Ihren Workspace aktiviert wird.
+
+{% alert note %}
+Amazon SES stellt keine Metriken für **Trap-Nachrichtenzeitraum Start** oder **Trap-Nachrichtenzeitraum Ende** bereit. Für SES-Versand-IPs werden diese Spalten in der Microsoft SNDS-Tabelle ausgeblendet. Sie können weiterhin andere SNDS-Metriken für diese IPs einsehen, einschließlich Spam-Trap-Treffer.
+{% endalert %}
+
+![Ein Beispiel für Ergebnisse von Microsoft SNDS, einschließlich Beispiel-IPs, Empfänger:innen, RCPT-Befehle, DATA-Befehle, Filterergebnis, Beschwerderate, Trap-Nachrichtenzeitraum Start und Ende sowie Spam-Trap-Treffer.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
 
 ### Metriken und Definitionen
 
@@ -209,6 +219,10 @@ Um die Beschwerderate zu berechnen, teilen Sie die Anzahl der Beschwerden durch 
 #### Spam-Trap-Treffer {#spam-trap-hits}
 
 Spam-Trap-Treffer sind die Anzahl der Nachrichten, die an „Trap-Konten“ gesendet wurden – Konten, die von Outlook.com betrieben werden und keine E-Mails anfordern. Es ist wahrscheinlich, dass alle an diese Trap-Konten gesendeten Nachrichten als Spam betrachtet werden. Daher ist es wichtig, diese Metrik zu überwachen und sicherzustellen, dass sie niedrig bleibt. Niedrige Spam-Trap-Treffer bedeuten, dass die Nachrichten nicht an diese Konten gesendet werden, sondern an tatsächliche Konten.
+
+#### Trap-Nachrichtenzeitraum Start und Ende {#trap-message-period-start-and-end}
+
+Diese Spalten zeigen an, wann die erste und letzte Nachricht, die an Trap-Konten gesendet wurde, während des Aktivitätszeitraums von der IP empfangen wurde. Amazon SES stellt diese Metriken nicht bereit, daher werden die Spalten ausgeblendet, wenn Sie nur SES-Versand-IPs in der Microsoft SNDS-Tabelle anzeigen.
 
 {% alert tip %}
 Wenn Sie nach Einträgen zu einer Ihrer verifizierten Domains in Braze suchen, beachten Sie, dass das Deliverability Center Ihre Daten von Google Postmaster oder Microsoft SNDS auflistet. Das bedeutet, dass eine der beiden Plattformen möglicherweise keine Daten hat, die sie mit Braze teilen kann. Alternativ können Sie versuchen, einen konsistenten E-Mail-Versand aufrechtzuerhalten, da dies zu einer höheren Reputation führen kann.

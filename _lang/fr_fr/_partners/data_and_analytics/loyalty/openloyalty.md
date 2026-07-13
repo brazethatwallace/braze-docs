@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Open Loyalty
 
-> [Open Loyalty](https://www.openloyalty.io/) est une plateforme de programmes de fidélisation basée sur le cloud qui vous permet de créer et de gérer des programmes de fidélisation et de récompenses pour vos clients. L'intégration de Braze et d'Open Loyalty synchronise les données de fidélisation, telles que le solde de points, les changements de niveau et les avertissements d'expiration, directement dans Braze en temps réel. Cela vous permet de déclencher des messages personnalisés (e-mail, push, SMS) lorsque le statut de fidélité d'un utilisateur change.
+> [Open Loyalty](https://www.openloyalty.io/) est une plateforme de programmes de fidélisation basée sur le cloud qui vous permet de créer et de gérer des programmes de fidélisation et de récompenses pour vos clients. L'intégration de Braze et d'Open Loyalty synchronise les données de fidélisation, telles que le solde de points, les changements de niveau et les avertissements d'expiration, directement dans Braze en temps réel. Cela vous permet de déclencher des messages personnalisés (e-mail, notification push, SMS) lorsque le statut de fidélité d'un utilisateur change.
 
 _Cette intégration est maintenue par Open Loyalty._
 
@@ -21,11 +21,11 @@ Cette intégration utilise les transformations de données de Braze pour capture
 * **Personnalisation** : utilisez les attributs de fidélité (solde actuel, nom du prochain palier) dans vos modèles Braze.
 * **Bidirectionnel** : mettez à jour les attributs personnalisés des clients d'Open Loyalty en fonction des données d'engagement de Braze.
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 Cette intégration couvre les flux de données suivants :
 
-1. **Synchronisation des événements vers Braze (entrant)** : suivez les changements de points, les passages à un niveau supérieur ou les échanges de récompenses en envoyant des données d'Open Loyalty à Braze. La Transformation des données convertit ces données en événement utilisateur.
+1. **Synchronisation des événements vers Braze (entrant)** : suivez les changements de points, les passages à un niveau supérieur ou les échanges de récompenses en envoyant des données d'Open Loyalty à Braze. La transformation des données convertit ces données en événement utilisateur.
 2. **Modification des membres Open Loyalty (sortant)** : mettez automatiquement à jour les données des membres dans Open Loyalty en fonction du comportement des utilisateurs dans Braze, par exemple en ajoutant des étiquettes « VIP » ou en mettant à jour des attributs personnalisés.
 
 ## Conditions préalables {#prerequisites}
@@ -40,11 +40,11 @@ Avant de commencer, vous devez disposer des éléments suivants :
 | Transformation des données Braze | Vous devez avoir accès à l'onglet « Data Settings » dans Braze pour configurer les récepteurs de webhook. |
 | Correspondance des ID | L'`external_id` de l'utilisateur dans Braze doit correspondre à son `loyaltyCardNumber` (ou à un autre identifiant par défaut) dans Open Loyalty. |
 | ID de locataire | Votre ID de locataire Open Loyalty (requis pour les mises à jour sortantes). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
-L'intégration principale synchronise les événements webhook d'Open Loyalty avec Braze à l'aide de la Transformation des données.
+L'intégration principale synchronise les événements webhook d'Open Loyalty avec Braze à l'aide de la transformation des données.
 
 ### Étape 1 : Générer l'URL du webhook dans Braze {#step-1-generate-the-webhook-url-in-braze}
 
@@ -56,7 +56,7 @@ Tout d'abord, créez une transformation de données dans Braze afin de générer
      * **Transformation name** : donnez un nom descriptif (par exemple, « Open Loyalty Point Update Events »).
      * **Select destination** : choisissez **POST: Track users**.
 4.  Cliquez sur **Create Transformation**.
-5.  Repérez l'**URL du webhook** sur le côté droit et cliquez sur **Copy**.
+5.  Repérez l'**URL du webhook** dans le panneau de détails et cliquez sur **Copy**.
 
 {% alert important %}
 Conservez cette URL en lieu sûr ; vous en aurez besoin pour l'étape suivante.
@@ -76,7 +76,7 @@ Indiquez à Open Loyalty d'envoyer des événements spécifiques à l'URL que vo
       * `User-Agent: partner-OpenLoyalty`
 4.  Enregistrez l'abonnement au webhook.
 
-### Étape 3 : Configurer la Transformation des données {#step-3-configure-the-data-transformation}
+### Étape 3 : Configurer la transformation des données {#step-3-configure-the-data-transformation}
 
 Écrivez la logique JavaScript dans Braze pour mapper le payload Open Loyalty entrant aux propriétés de Braze.
 
@@ -125,11 +125,11 @@ Une fois l'intégration entrante terminée, configurez les **mises à jour sorta
 
 ### Étape 1 : Configurer la Campaign webhook dans Braze {#step-1-configure-braze-webhook-campaign}
 
-Ce processus utilise les webhooks Braze pour envoyer une requête `PATCH` à l'API Open Loyalty Member (par exemple, pour ajouter une étiquette « VIP »).
+Ce processus utilise les webhooks de Braze pour envoyer une requête `PATCH` à l'API Open Loyalty Member (par exemple, pour ajouter une étiquette « VIP »).
 
 1.  Dans Braze, créez une nouvelle **Campaign** webhook (ou utilisez un webhook au sein d'un Canvas).
 2.  Cliquez sur **Compose Webhook**.
-3.  **URL du webhook** : construisez l'URL en utilisant votre instance Open Loyalty, l'ID du locataire et la variable Braze Liquid pour l'ID de l'utilisateur.
+3.  **URL du webhook** : construisez l'URL en utilisant votre instance Open Loyalty, l'ID du locataire et la variable Liquid de Braze pour l'ID de l'utilisateur.
     * Format :
       {% raw %}
       `https://<YOUR_OL_INSTANCE>/api/<TENANT_ID>/member/loyaltyCardNumber={{${user_id}}}`
@@ -166,7 +166,7 @@ Ce processus utilise les webhooks Braze pour envoyer une requête `PATCH` à l'A
 ## Résolution des problèmes {#troubleshooting}
 
 ### Vérifier les événements entrants {#verify-inbound-events}
-Lorsque la Transformation des données est active, les données apparaissent dans Braze sous la forme d'un événement personnalisé. Vérifiez-le en créant une Campaign avec un déclencheur **Perform Custom Event** et en vérifiant si l'événement que vous avez défini (par exemple, `Loyalty Event Triggered`) est disponible.
+Lorsque la transformation des données est active, les données apparaissent dans Braze sous la forme d'un événement personnalisé. Vérifiez-le en créant une Campaign avec un déclencheur **Perform Custom Event** et en vérifiant si l'événement que vous avez défini (par exemple, `Loyalty Event Triggered`) est disponible.
 
 ### Vérifier les webhooks sortants {#verify-outbound-webhooks}
 Vérifiez le journal d'activité des messages dans Braze pour vous assurer que le webhook a renvoyé un statut `200 OK`.

@@ -13,7 +13,7 @@ search_tag: Partner
 
 Grâce à l'intégration entre Braze et Constructor, vous pouvez utiliser la découverte de produits hors site de Constructor pour générer et fournir de manière dynamique des recommandations de produits personnalisées dans les messages Braze.
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 - **Suivi des paniers abandonnés et des commandes passées** : générez des recommandations de produits dynamiques basées sur le comportement de l'utilisateur et le contenu du panier pour envoyer des rappels de panier abandonné personnalisés ou des suggestions après la commande.
 - **Recommandations de produits similaires pour les articles du panier abandonné** : suggérez des produits similaires aux articles laissés dans le panier d'un utilisateur pour maintenir son intérêt et lui proposer des alternatives.
@@ -21,12 +21,12 @@ Grâce à l'intégration entre Braze et Constructor, vous pouvez utiliser la dé
 - **Campagnes de promotion** : envoyez des messages promotionnels personnalisés avec des recommandations de produits adaptées aux préférences des utilisateurs pour les ventes saisonnières ou les offres spéciales.
 - **Suggestions de produits visuellement similaires** : recommandez des articles visuellement similaires à ceux que l'utilisateur a récemment consultés, afin de l'aider à découvrir des options connexes qu'il pourrait préférer.
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
 | Condition | Description |
 |-------------|-------------|
 | Compte Constructor | Un compte Constructor avec son service de découverte hors site activé est nécessaire pour profiter de ce partenariat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
 ## Intégration {#integration}
 
@@ -59,7 +59,7 @@ Vous pouvez utiliser l'URL de l'API de découverte hors site de Constructor pour
 | `key` | La clé d'index Constructor pour ce client. |
 | `style_id` | Détermine les images affichées pour la fiche produit. Par exemple, différents `style_ids` affichent des images de fiches produits distinctes. |
 | `campaign_id` | ID unique pour la campagne d'e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paramètres" }
 
 ### Entrées facultatives {#optional-inputs}
 
@@ -67,4 +67,4 @@ Vous pouvez utiliser l'URL de l'API de découverte hors site de Constructor pour
 |-------------|-------------|
 | `item_id` | Représente l'élément initiateur. Nécessaire pour les stratégies basées sur les articles, telles que les alternatives, les complémentaires et les lots. Par exemple, le premier élément d'un e-mail est l'élément initiateur, les éléments suivants constituant des alternatives. |
 | `num_results` | Nombre de produits à ajouter à l'e-mail. La valeur par défaut est 10, jusqu'à 100. Par exemple, `num_results = 3` signifie que trois recommandations sont ajoutées. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Entrées facultatives" }

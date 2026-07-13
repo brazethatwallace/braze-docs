@@ -56,6 +56,10 @@ Si un message in-app est configuré pour expirer à une date et une heure spéci
 
 Cela se produit souvent lorsqu'une étape précédente, comme une étape de [délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), maintient les utilisateurs sur un parcours plus long. Par exemple, si vous lancez un Canvas le 22 mai avec un délai de 72 heures suivi d'un message in-app qui expire le 23 mai à minuit, les utilisateurs atteindront l'étape Message après l'heure d'expiration et ne verront pas le message in-app.
 
+### Groupes de contrôle et test A/B {#control-groups-and-ab-testing}
+
+Lorsque vous utilisez le test A/B Canvas avec des parcours de variantes et un parcours de contrôle, veillez à aligner les paramètres de durée d'expiration des messages in-app entre les parcours. Si le parcours de contrôle utilise une durée d'expiration plus courte que les parcours de variantes, les utilisateurs du groupe de contrôle peuvent atteindre l'étape après l'expiration, ce qui peut réduire les impressions du groupe de contrôle par rapport aux impressions des variantes et fausser les résultats de votre test.
+
 ## Cas d'utilisation {#use-cases}
 
 Braze vous recommande d'envisager l'utilisation de cette fonctionnalité dans vos Canvas promotionnels et d'onboarding.
@@ -175,7 +179,7 @@ Ces notifications push sont espacées autour d'un message in-app pour s'assurer 
 
 Un utilisateur peut déclencher deux messages in-app dans votre Canvas en même temps. Dans ce cas, Braze respectera l'ordre de priorité suivant pour déterminer quel message in-app est affiché.
 
-Sélectionnez **Définir la priorité exacte** et faites glisser les différentes étapes Canvas pour réorganiser leur priorité au sein du Canvas. Par défaut, les étapes situées plus tôt dans une variante du Canvas s'affichent avant les étapes ultérieures. Une fois vos étapes dans l'ordre de priorité souhaité, sélectionnez **Appliquer le tri**.
+Sélectionnez **Set exact priority** et faites glisser les différentes étapes Canvas pour réorganiser leur priorité au sein du Canvas. Par défaut, les étapes situées plus tôt dans une variante du Canvas s'affichent avant les étapes ultérieures. Une fois vos étapes dans l'ordre de priorité souhaité, sélectionnez **Apply sort**.
 
 ![Le trieur de priorité avec deux étapes « Welcome IAM » et « Followup IAM ».]({% image_buster /assets/img_archive/canvas_priority2.png %}){: style="max-width:85%"}
 
@@ -236,7 +240,7 @@ Un utilisateur doit entrer dans l'étape Canvas, démarrer une session, puis eff
 Les fonctionnalités Canvas suivantes ne sont pas disponibles avec les messages in-app et ne seront donc pas appliquées à vos messages in-app même si elles sont activées.
 
 - Timing intelligent
-- Limite de débit
+- Limitation du débit
 - Limite de fréquence
 - Critères de sortie
 - Heures calmes

@@ -33,7 +33,7 @@ Die folgenden Braze-Metriken und -Workflows werden durch Bot-Klicks beeinflusst:
     - **Experiment-Schritte:** Schließt Bot-Klicks für zuverlässige Experimentergebnisse aus.
     - **Currents-Datenexporte:** Enthält die Felder `is_suspected_bot_click` und `suspected_bot_click_reason`, um die Analyse von menschlichen gegenüber Bot-Klicks zu unterstützen. Diese Felder sind in [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) und [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) verfügbar.
 
-Abmeldungen durch vermutete Bot-Klicks sind davon nicht betroffen. Braze verarbeitet alle Abmeldeanfragen wie gewohnt. Um diese Abmeldungen zu blockieren, [reichen Sie Produktfeedback ein]({{site.baseurl}}/user_guide/administer/personal/braze_support).
+Abmeldungen durch vermutete Bot-Klicks sind davon nicht betroffen. Braze verarbeitet alle Abmeldeanfragen wie gewohnt. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## Currents-Felder in SMS-Klick-Ereignissen {#currents-fields-in-sms-click-events}
 

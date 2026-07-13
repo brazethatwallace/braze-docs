@@ -178,7 +178,7 @@ L'option **CSV Export Email Addresses** télécharge uniquement les données des
 
 ### Puis-je rechercher une campagne par son identifiant API ? {#can-i-search-for-a-campaign-by-its-api-identifier}
 
-Oui, utilisez le filtre `api_id:YOUR_API_ID` sur la page **Campaigns** pour rechercher une campagne par son identifiant API. Consultez [rechercher des campagnes]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns) pour en savoir plus.
+Oui, utilisez le filtre `api_id:YOUR_API_ID` sur la page **Campaigns** pour rechercher une campagne par son identifiant API. Consultez [Rechercher des campagnes]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns) pour en savoir plus.
 
 ### Pourquoi les espaces s'affichent-ils différemment dans les champs de saisie et dans le texte affiché ? {#why-does-whitespace-appear-differently-in-input-fields-versus-displayed-text}
 
@@ -219,7 +219,7 @@ Les campagnes à livraison par événement ou déclenchées par événement sont
 
 | Avantages | Inconvénients |
 | ---- | ---- |
-| • Visibilité des payloads JSON entrants dans la plateforme (si l'événement est déclenché par un utilisateur test) via le **Journal d'activité des messages**<br><br>• Les éléments de personnalisation sont inclus dans les propriétés d'événement personnalisées<br><br>• L'événement personnalisé peut être utilisé pour créer des Segments d'utilisateurs éligibles au message | • Consomme des points de donnée |
+| • Visibilité des payloads JSON entrants dans la plateforme (si l'événement est déclenché par un utilisateur test) via le **Journal d'activité des messages**<br><br>• Les éléments de personnalisation sont inclus dans les propriétés d'événement personnalisées<br><br>• L'événement personnalisé peut être utilisé pour créer des segments d'utilisateurs éligibles au message | • Consomme des points de donnée |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Livraison par événement" }
 
 #### Déclenchées par API {#api-triggered}

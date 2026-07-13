@@ -221,7 +221,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Nutzerdaten | Edit User Data | Nutzerdaten erstellen und aktualisieren |
 | Nutzerdaten | Export User Data | Nutzer:innen aus dem Dashboard herunterladen |
 | Doppelte Nutzer:innen | View User Merge Records | Eine Liste der Nutzer:innen-Zusammenführungsprotokolle anzeigen |
-| Nutzer:innen | View User Profiles (PII Redacted) | Nutzer:innen-Profile in einer PII-konformen Weise anzeigen |
+| Nutzer:innen | View User Profiles (PII Redacted) | Nutzer:innen-Profile in einer PII-konformen Weise anzeigen. Nutzer:innen mit dieser Berechtigung können keine Campaigns speichern oder starten, die auf als PII markierte angepasste Attribute verweisen, es sei denn, sie haben auch die Berechtigung „Als PII markierte angepasste Attribute anzeigen“. |
 | Nutzer:innen | View User Event Properties | Event-Eigenschaften im Tab **Event-Verlauf** in Nutzer:innen-Profilen anzeigen |
 | Doppelte Nutzer:innen | Merge Duplicate Users | Doppelte Nutzer:innen zu einem zusammenführen. Duplikate werden nach der Zusammenführung entfernt |
 | Nutzer:innen löschen | View User Deletion Records | Eine Liste der Nutzer:innen-Löschprotokolle anzeigen |
@@ -362,7 +362,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Domain-Einstellungen | Edit Domain Settings | Delegierte Domains und angepasste Domains unter „Verifizierte Domains“ hinzufügen |
 | Verschlüsselung auf Feldebene | Edit Identifier Field-Level Encryption | Einstellungen für die Verschlüsselung auf Feldebene aktivieren und aktualisieren |
 | Medienbibliothek-Assets | View Media Library Assets | Medienbibliothek-Assets anzeigen |
-| Medienbibliothek-Assets | Delete Media Library Assets | Medienbibliothek-Assets dauerhaft löschen |
+| Medienbibliothek-Assets | Delete Media Library Assets | Medienbibliothek-Assets aus der Benutzeroberfläche entfernen. Gelöschte Assets werden weiterhin von Braze gehostet, um zu verhindern, dass Nachrichten, die auf sie verweisen, beschädigt werden. Um ein Asset dauerhaft zu löschen, kontaktieren Sie den Braze-Support. |
 | Medienbibliothek-Assets | Edit Media Library Assets | Medienbibliothek-Assets erstellen und aktualisieren |
 | Medienbibliothek-Assets | Replace Media Library Assets | Die Datei eines vorhandenen Medienbibliothek-Assets ersetzen, wobei URL und Asset-ID stabil bleiben |
 | Messaging-Rate-Limits | View Messaging Rate Limits | Messaging-Rate-Limits auf Workspace-Ebene anzeigen |

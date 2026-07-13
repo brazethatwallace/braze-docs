@@ -23,7 +23,11 @@ description: "이 참조 문서에서는 Braze가 eCommerce 이벤트에 대해 
 
 ### eCommerce 이벤트 작동 방식 {#how-ecommerce-events-work}
 
-eCommerce 이벤트는 사전 정의된 이름과 속성정보 스키마를 가진 커스텀 이벤트입니다. [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events) 또는 [`/users/track` REST API 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 전송하며, Braze는 수집 시 각 이벤트를 해당 스키마에 대해 유효성 검사합니다. 유효성 검사를 통과하면 Braze는 해당 이벤트 유형에 특화된 후처리를 자동으로 적용합니다(예: 매출 필드 계산 및 사용자 프로필의 장바구니 상태 관리).
+eCommerce 이벤트는 사전 정의된 이름과 속성정보 스키마를 가진 커스텀 이벤트입니다. [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), [`/users/track` REST API 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track), 또는 [클라우드 데이터 수집(CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 사용하여 전송하며, Braze는 수집 시 각 이벤트를 해당 스키마에 대해 유효성 검사합니다. 유효성 검사를 통과하면 Braze는 해당 이벤트 유형에 특화된 후처리를 자동으로 적용합니다(예: 매출 필드 계산 및 사용자 프로필의 장바구니 상태 관리).
+
+{% alert note %}
+CSV 업로드는 eCommerce 이벤트를 지원하지 않습니다. 이러한 이벤트를 전송하려면 SDK, `/users/track`, 또는 CDI를 사용하세요.
+{% endalert %}
 
 eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에서 작동합니다: 수행된 커스텀 이벤트에 대한 트리거 및 필터, 커스텀 이벤트 리포팅 등. 그러나 스키마 유효성 검사를 통해 다음과 같은 추가 기능이 활성화됩니다:
 
@@ -1141,51 +1145,7 @@ eCommerce 이벤트를 전송하면 Braze는 해당 이벤트 이름에 대한 �
 비 USD 통화 값은 이벤트가 보고된 날짜의 환율을 사용하여 자동으로 USD로 변환됩니다. 이미 USD로 보고하고 있다면 의도하지 않은 변환을 방지하기 위해 통화를 `USD`로 하드코딩하세요.
 {% endalert %}
 
-## eCommerce 이벤트 구현 {#implement-ecommerce-events}
-
-[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)(서버 측) 또는 Braze SDK(클라이언트 측)를 통해 eCommerce 이벤트를 전송할 수 있습니다. SDK 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
-
-### 서버 측에서 이벤트 전송 {#send-events-server-side}
-
-`/users/track` 엔드포인트를 사용하여 백엔드에서 eCommerce 이벤트를 전송합니다. 각 이벤트에는 정확한 이벤트 이름, 사용자의 `external_id`, 이벤트 스키마와 일치하는 속성정보 오브젝트가 필요합니다.
-
-```json
-POST /users/track
-
-{
-  "events": [
-    {
-      "external_id": "user_abc123",
-      "name": "ecommerce.order_placed",
-      "time": "2026-04-26T14:32:00Z",
-      "properties": {
-        "order_id": "order_7891011",
-        "total_value": 84.99,
-        "currency": "USD",
-        "source": "custom_api",
-        "total_discounts": 10.00,
-        "products": [
-          {
-            "product_id": "sku_2001",
-            "product_name": "Trail Runner Pro",
-            "variant_id": "var_2001_black_10",
-            "quantity": 1,
-            "price": 94.99,
-            "metadata": {
-              "color": "black",
-              "size": "10"
-            }
-          }
-        ],
-        "metadata": {
-          "gift_wrapped": true,
-          "loyalty_points_earned": 170
-        }
-      }
-    }
-  ]
-}
-```
+## 구현 세부 사항 {#implementation-details}
 
 ### 데이터 포인트 및 과금 {#data-points-and-billing}
 
@@ -1233,7 +1193,7 @@ USD로만 운영하는 경우, 불필요한 변환을 방지하기 위해 모든
 | 최상위 수준에 추가 속성정보 없음 | 속성정보 아래의 커스텀 필드는 실패를 유발합니다. 대신 `metadata` 오브젝트를 사용하세요.                                         |
 | 값 제약 조건         | 금액 필드는 `0` 이상이어야 합니다. `currency`는 유효한 ISO 4217 문자열이어야 합니다.                                                  |
 | 제품별 필드        | `products[]`의 각 항목에는 `product_id`, `product_name`, `variant_id`, `quantity`, `price`가 포함되어야 합니다.                 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="유효성 검사 항목" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What we validate" }
 
 ### 유효성 검사를 하는 이유 {#why-we-validate}
 
@@ -1249,7 +1209,7 @@ eCommerce 이벤트는 매출 추적, {% raw %}`{% shopping_cart %}`{% endraw %}
 
 - [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log): 대시보드에서 사용자의 프로필을 열고 활동을 검토합니다. 추천 이벤트는 전체 속성정보 페이로드와 함께 표시되므로, 이벤트가 도착했는지와 값이 전송한 것과 일치하는지 확인할 수 있습니다.
 - [커스텀 이벤트 보고서]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report): **Analytics** > **Custom Events**로 이동하여 시간에 따른 각 추천 이벤트의 집계 수를 확인합니다. 이는 통합이 라이브 상태일 때 프로덕션 트래픽이 예상대로 흐르고 있는지 확인하는 데 유용합니다.
-- [테스트 사용자]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): 개발 워크스페이스에서 사용자를 테스트 사용자로 표시한 다음, 해당 사용자에 대해 통합에서 이벤트를 트리거합니다. 테스트 사용자는 대시보드에서 플래그가 지정되어 포괄적인 동작을 쉽게 격리하고 검사할 수 있습니다.
+- [테스트 사용자]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): 개발 워크스페이스에서 사용자를 테스트 사용자로 표시한 다음, 해당 사용자에 대해 통합에서 이벤트를 트리거합니다. 테스트 사용자는 대시보드에서 플래그가 지정되어 엔드투엔드 동작을 쉽게 격리하고 검사할 수 있습니다.
 
 ### 유효성 검사 실패 시 {#when-validation-fails}
 

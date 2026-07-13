@@ -46,7 +46,7 @@ Typeformの場合は以下のようになります。
 ![WebhookをBrazeユーザープロファイルにマッピングするデータ変換コードの例。]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
-Brazeデータ変換は、Webhookに特別な検証や認証を必要とする外部プラットフォームをまだサポートしていない可能性があります。Brazeデータ変換でこのタイプのプラットフォームを使用することに関心がある場合は、[製品フィードバック]({{site.baseurl}}/user_guide/administer/personal/product_portal)を残すことを検討してください。
+Brazeデータ変換は、Webhookに特別な検証や認証を必要とする外部プラットフォームをまだサポートしていない可能性があります。{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="webhook authentication for external platforms" %}
 {% endalert %}
 
 ## ステップ4:変換コードの記述 {#step-4-write-transformation-code}
@@ -56,9 +56,9 @@ JavaScriptコードの経験がほとんどないか、より詳しい手順を�
 開発者であるか、JavaScriptコードの経験が豊富な場合は、**上級 - POST:ユーザーの追跡**タブで、変換コードを記述するための大まかな手順を確認できます。
 
 {% alert tip %}
-AIで変換コードを生成するには、変換コードエディターの上にある**Code with Operator**を選択します。これを使用するには、変換にWebhookを送信する必要があります。ビルド済みテンプレートから開始するには、**Insert Template**を選択します。プロンプトの例については、[データ変換コードの生成]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code)を参照してください。
+AIで変換コードを生成するには、変換コードエディターで**オペレーターでコーディング**を選択します。これを使用するには、変換にWebhookを送信する必要があります。ビルド済みテンプレートから開始するには、**テンプレートを挿入**を選択します。プロンプトの例については、[データ変換コードの生成]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code)を参照してください。
 
-**Code with Operator**は、アカウントでOperatorが有効になっている場合にのみ使用できます。表示されない場合は、アカウントマネージャーにお問い合わせください。
+**オペレーターでコーディング**は、アカウントでオペレーターが有効になっている場合にのみ使用できます。表示されない場合は、アカウントマネージャーにお問い合わせください。
 {% endalert %}
 
 {% tabs %}
@@ -198,14 +198,14 @@ return brazecall;
 {% endtab %}
 {% tab 上級 - ユーザーの追跡 %}
 
-このステップでは、Webhookペイロードをソースプラットフォームからのデータに基づいてJavaScriptオブジェクトの戻り値に変換します。この戻り値は、`/users/track`エンドポイントのリクエスト本文の形式に準拠している必要があります。
+このステップでは、ソースプラットフォームからのWebhookペイロードをJavaScriptオブジェクトの戻り値に変換します。この戻り値は、`/users/track`エンドポイントのリクエスト本文の形式に準拠している必要があります。
 
 - 変換コードはJavaScriptプログラミング言語で記述します。if/elseロジックなど、標準的なJavaScript制御フローがすべてサポートされています。
 - 変換コードは、`payload`変数を介してWebhookリクエスト本文にアクセスします。この変数は、リクエスト本文のJSONを解析して読み込まれたオブジェクトです。
 - `/users/track`エンドポイントでサポートされるすべての機能がサポートされています。以下が含まれます。
   - ユーザー属性オブジェクト、イベントオブジェクト、購入オブジェクト
   - ネストされた属性とネストされたカスタムイベントプロパティ
-  - サブスクリプショングループの更新
+  - 購読グループの更新
   - 識別子としてのメールアドレス
 
 **Validate**を選択すると、コードの出力のプレビューが返され、`/users/track`リクエストとして受け入れられるかどうかがチェックされます。

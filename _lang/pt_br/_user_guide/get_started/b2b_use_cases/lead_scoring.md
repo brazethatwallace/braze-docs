@@ -23,7 +23,7 @@ Há duas etapas principais para criar um fluxo de trabalho de pontuação de lea
 
 ### Etapa 1: Criar um Canvas {#step-1-create-a-canvas}
 
-1. Acesse **Messaging** > **Canvas** e selecione **Create Canvas** e, em seguida, preencha os dados básicos do Canvas.
+1. Acesse **Envio de mensagens** > **Canvas** e selecione **Criar Canvas** e, em seguida, preencha os dados básicos do Canvas.
 
 2. Dê ao seu Canvas um nome relevante, como "Lead Scoring Canvas" e, para facilitar a localização, adicione uma tag como "Lead Management".<br><br>![Etapa 1 da criação de um Canvas com o nome "Lead Scoring Canvas" e a tag "Lead Management".]({% image_buster /assets/img/b2b/step_1_simple.png %}){: style="max-width:80%;"}
 
@@ -91,14 +91,14 @@ Em cada grupo de ação, selecione **Selecionar gatilho** e escolha o evento que
 
 ![Grupo de ação para adicionar um ponto com os gatilhos de "Iniciar sessão em qualquer app" e "Realizar evento personalizado".]({% image_buster /assets/img/b2b/action_groups_simple.png %}){: style="max-width:80%;"}
 
-#### Etapa 4d: Adicionar etapas de Atualização de usuário {#step-4d-add-user-update-steps}
+#### Etapa 4d: Adicionar etapas de atualização de usuário {#step-4d-add-user-update-steps}
 
-Adicione uma etapa de Atualização de usuário a cada jornada do Canvas criada abaixo da sua jornada de ação.
+Adicione uma etapa de atualização de usuário a cada jornada do Canvas criada na sua jornada de ação.
 
-![Canvas exibindo a jornada de ação com jornadas ramificadas de Atualização de usuário para cada grupo de ação.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
+![Canvas exibindo a jornada de ação com jornadas ramificadas de atualização de usuário para cada grupo de ação.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
 
 {: start="2"}
-Na guia **Redigir** de cada etapa de Atualização de usuário, faça o seguinte para os respectivos campos:
+Na guia **Redigir** de cada etapa de atualização de usuário, faça o seguinte para os respectivos campos:
 
 | Campo | Ação |
 | --- | --- |
@@ -140,7 +140,7 @@ Por exemplo, os dados de engajamento com mensagens (como aberturas e cliques de 
 
 Depois que suas equipes internas criarem e executarem seu modelo de pontuação de leads, você pode puxar esses dados de volta para a Braze para segmentar e direcionar melhor os leads para o envio de mensagens relevantes. Você pode fazer isso com a [Ingestão de dados na nuvem da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
-Com a Ingestão de dados na nuvem, suas equipes internas criarão uma nova tabela ou visualização com os identificadores de usuários, as pontuações de leads mais recentes e os timestamps de quando as pontuações foram atualizadas. A Braze pegará a tabela ou visualização e adicionará as pontuações de leads aos perfis de usuário.
+Com a ingestão de dados na nuvem, suas equipes internas criarão uma nova tabela ou visualização com os identificadores de usuários, as pontuações de leads mais recentes e os timestamps de quando as pontuações foram atualizadas. A Braze pegará a tabela ou visualização e adicionará as pontuações de leads aos perfis de usuário.
 
 {% endtab %}
 {% endtabs %}
@@ -204,4 +204,4 @@ Na etapa **Público-alvo**, inclua um filtro que exclua usuários cujos status d
 
 ### Etapa 3: Lance a campanha {#step-3-launch-campaign}
 
-Selecione **Launch** e veja o status do seu lead mudar no Salesforce à medida que seus clientes ultrapassam o limite de pontuação de lead MQL.
+Selecione **Lançar** e veja o status do seu lead mudar no Salesforce à medida que seus clientes ultrapassam o limite de pontuação de lead MQL.

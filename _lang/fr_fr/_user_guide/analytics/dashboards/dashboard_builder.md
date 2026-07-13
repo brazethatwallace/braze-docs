@@ -37,7 +37,7 @@ Une fois qu'un rapport du Générateur de rapports est ajouté à une tuile du G
 
 {: start="5"}
 5. Sélectionnez l'icône de crayon pour modifier l'affichage du titre et du type de graphique dans la tuile.
-    - Vous pouvez basculer entre différents types de graphiques sous la visualisation par défaut. Les options actuelles incluent les graphiques à barres (horizontaux ou verticaux) et les graphiques linéaires (disponibles uniquement si vous avez sélectionné **Date** comme option de ventilation dans la configuration du Générateur de rapports).<br><br>![Boutons de basculement pour les différents types de graphiques.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
+    - Vous pouvez basculer entre différents types de graphiques dans les commandes de type de graphique. Les options actuelles incluent les graphiques à barres (horizontaux ou verticaux) et les graphiques linéaires (disponibles uniquement si vous avez sélectionné **Date** comme option de ventilation dans la configuration du Générateur de rapports).<br><br>![Boutons de basculement pour les différents types de graphiques.]({% image_buster /assets/img/report_builder_types.png %})<br><br>
     - Utilisez le menu déroulant des indicateurs pour sélectionner les indicateurs à inclure dans votre visualisation. Par défaut, la première colonne du rapport sera l'indicateur affiché.
 6. Sélectionnez **Enregistrer** une fois que vous avez modifié la visualisation à votre convenance.
 7. Ajoutez un nom, une description et une étiquette pour retrouver plus facilement votre tableau de bord par la suite.
@@ -46,7 +46,7 @@ Une fois qu'un rapport du Générateur de rapports est ajouté à une tuile du G
 {: start="4"}
 4. Sélectionnez **+ Ajouter une tuile**, puis choisissez une requête que vous avez exécutée dans le Générateur de requêtes.
 5. Pour modifier l'affichage des résultats de la requête dans la tuile, sélectionnez l'icône de crayon pour changer le titre et le type de graphique.
-    - Vous pouvez basculer entre différents types de graphiques sous la visualisation par défaut. Les options actuelles incluent les tableaux, les graphiques à barres (horizontaux ou verticaux) et les graphiques linéaires.<br><br>![Boutons de basculement pour les différents types de graphiques.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
+    - Vous pouvez basculer entre différents types de graphiques dans les commandes de type de graphique. Les options actuelles incluent les tableaux, les graphiques à barres (horizontaux ou verticaux) et les graphiques linéaires.<br><br>![Boutons de basculement pour les différents types de graphiques.]({% image_buster /assets/img/query_builder_types.png %})<br><br>
         - Si vous choisissez l'une des options de graphique, utilisez le menu déroulant **Axe X** pour sélectionner une seule colonne de vos résultats de requête à utiliser comme axe X.
         - Utilisez le menu déroulant **Axe Y** pour sélectionner les indicateurs à inclure dans votre visualisation. Par défaut, toutes les colonnes de vos résultats de requête seront affichées ; désélectionnez celles que vous ne souhaitez pas visualiser.<br><br>![Boutons de basculement pour les différents types de graphiques.]({% image_buster /assets/img/query_builder_axis.png %})<br><br>
         - (Facultatif) Vous pouvez utiliser le menu déroulant **Regroupement** pour regrouper les résultats de votre requête. Par exemple, si vous avez un ID de campagne comme colonne de résultat et que vous souhaitez additionner toutes les lignes ayant cette valeur, utilisez le menu déroulant **Regroupement**.
@@ -78,7 +78,7 @@ Créez une copie de votre tuile en sélectionnant **Dupliquer la tuile** en bas 
 
 ### Ajuster la taille et la position des tuiles {#adjust-tile-size-and-position}
 
-Ajustez la taille de la tuile en faisant glisser le coin inférieur droit de la tuile, et ajustez la position de la tuile sur le tableau de bord en faisant glisser la poignée située dans le coin supérieur droit de la tuile.
+Ajustez la taille de la tuile en faisant glisser la poignée de redimensionnement, et ajustez la position de la tuile sur le tableau de bord en faisant glisser la poignée de la tuile.
 
 ## Exécuter un tableau de bord {#running-a-dashboard}
 
@@ -88,13 +88,13 @@ Ajustez la taille de la tuile en faisant glisser le coin inférieur droit de la 
 
 ### Tableaux de bord disponibles {#available-dashboards}
 
-Braze fournit des tableaux de bord préconfigurés pour les cas d'utilisation courants, comme l'analyse du chiffre d'affaires par attribution au dernier point de contact. Notez que la possibilité de modifier un tableau de bord n'est pas encore disponible. Contactez votre gestionnaire de la satisfaction client si vous souhaitez voir certains tableaux de bord à l'avenir.
+Braze fournit des tableaux de bord préconfigurés pour les cas d'usage courants, comme l'analyse du chiffre d'affaires par attribution au dernier point de contact. Notez que la possibilité de modifier un tableau de bord n'est pas encore disponible. Contactez votre gestionnaire du succès des clients si vous souhaitez voir certains tableaux de bord à l'avenir.
 
 #### Chiffre d'affaires - Attribution au dernier point de contact {#revenue-last-touch-attribution}
 
 Le tableau de bord **Revenue - Last Touch Attribution** fournit une vue d'ensemble du chiffre d'affaires par campagne, Canvas et canal. Toutes les données de chiffre d'affaires sont attribuées au dernier message avec lequel l'utilisateur a interagi pendant la fenêtre d'attribution.
 
-Les points de contact incluent le *clic sur un e-mail* (clic sur un lien), le *clic sur une carte de contenu*, le *clic sur un message in-app* (hors boutons de fermeture), les *ouvertures de notification push*, le *clic sur un lien court SMS*, la *lecture WhatsApp* et l'*envoi de webhook*.
+Les points de contact incluent le *clic sur un e-mail* (clic sur un lien), le *clic sur une content card*, le *clic sur un message in-app* (hors boutons de fermeture), les *ouvertures de notification push*, le *clic sur un lien court SMS*, la *lecture WhatsApp* et l'*envoi de webhook*.
 
 | Indicateur | Définition |
 | --- | --- |
@@ -127,11 +127,11 @@ Les points de contact incluent le *clic sur un e-mail* (clic sur un lien), le *c
 
 | Indicateur | Définition |
 |---|---|
-| Indicateurs e-mail hebdomadaires (taux) | Taux d'engagement e-mail (taux de réception, de rebond, d'ouverture, de clic et de désabonnement) regroupés par segment et affichés sous forme de série temporelle hebdomadaire. |
-| Indicateurs e-mail hebdomadaires (nombres) | Nombres d'engagement e-mail (envois, réceptions, rebonds, ouvertures, clics, désabonnements) regroupés par segment et affichés sous forme de série temporelle hebdomadaire. |
+| Indicateurs e-mail hebdomadaires (taux) | Taux d'engagement e-mail (taux de distribution, de rebond, d'ouverture, de clic et de désabonnement) regroupés par segment et affichés sous forme de série temporelle hebdomadaire. |
+| Indicateurs e-mail hebdomadaires (nombres) | Nombres d'engagement e-mail (envois, distributions, rebonds, ouvertures, clics, désabonnements) regroupés par segment et affichés sous forme de série temporelle hebdomadaire. |
 | Indicateurs d'achat hebdomadaires (taux) | Taux de conversion d'achat (chiffre d'affaires par destinataire) à partir des ouvertures et clics d'e-mails, regroupés par segment et affichés sous forme de série temporelle hebdomadaire. |
 | Indicateurs d'achat hebdomadaires (nombres) | Nombres d'achats et totaux de chiffre d'affaires à partir des ouvertures et clics d'e-mails, regroupés par segment et affichés sous forme de série temporelle hebdomadaire. |
-| Engagement e-mail par segment | Tableau récapitulatif montrant les indicateurs d'engagement e-mail totaux (envois, réceptions, rebonds, ouvertures, clics, désabonnements et leurs taux) agrégés par segment. |
+| Engagement e-mail par segment | Tableau récapitulatif montrant les indicateurs d'engagement e-mail totaux (envois, distributions, rebonds, ouvertures, clics, désabonnements et leurs taux) agrégés par segment. |
 | Achats et chiffre d'affaires par segment | Tableau récapitulatif montrant les indicateurs d'achat totaux (achats, chiffre d'affaires et chiffre d'affaires par destinataire) à partir des ouvertures et clics d'e-mails, agrégés par segment. |
 | Top 10 des campagnes pour les indicateurs d'engagement | Liste classée des campagnes ayant les indicateurs d'engagement e-mail les plus élevés (indicateur configurable pour le classement). |
 | 10 dernières campagnes pour les indicateurs d'engagement | Liste classée des campagnes ayant les indicateurs d'engagement e-mail les plus faibles (indicateur configurable pour le classement). |
@@ -156,4 +156,4 @@ Les points de contact incluent le *clic sur un e-mail* (clic sur un lien), le *c
 
 ## Partagez vos commentaires {#share-your-feedback-with-us}
 
-Sélectionnez le bouton **Envoyer des commentaires** ou contactez votre gestionnaire de la satisfaction client pour nous faire part de vos retours.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="Dashboard Builder" %}

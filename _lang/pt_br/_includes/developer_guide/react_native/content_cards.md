@@ -1,6 +1,6 @@
 ## Sobre os Content Cards no React Native {#about-react-native-content-cards}
 
-Os SDKs da Braze incluem um feed de cartão padrão para que você comece a usar os Content Cards. Para mostrar o feed do cartão, você pode usar o método `Braze.launchContentCards()`. O feed de cartão padrão incluído com o SDK da Braze lidará com toda a análise de dados, rastreamento, dispensas e renderização para os Content Cards de um usuário.
+Os SDKs da Braze incluem um feed de cartão padrão para que você comece a usar os Content Cards. Para mostrar o feed do cartão, você pode usar o método `Braze.launchContentCards()`. O feed de cartão padrão incluído com o SDK da Braze lidará com toda a análise de dados, rastreamento, dispensas e renderização dos Content Cards de um usuário.
 
 {% multi_lang_include developer_guide/prerequisites/react_native.md %}
 
@@ -26,7 +26,7 @@ Braze.requestContentCardsRefresh();
 Se você optar por criar sua própria interface do usuário para exibir cartões, deverá chamar `logContentCardImpression` para receber análises de dados desses cartões. Isso inclui os cartões `control`, que devem ser rastreados mesmo que não sejam exibidos ao usuário.
 {% endalert %}
 
-Você pode usar esses métodos adicionais para criar um feed de Content Cards personalizado em seu app:
+Você pode usar esses métodos adicionais para criar um feed de Content Cards personalizado no seu app:
 
 | Método                                   | Descrição                                                                                            |
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -38,7 +38,7 @@ Você pode usar esses métodos adicionais para criar um feed de Content Cards pe
 | `logContentCardImpression(cardId)`       | Registra uma impressão para o ID do cartão de conteúdo fornecido.                                                      |
 | `logContentCardDismissed(cardId)`        | Registra um descarte para o ID do cartão de conteúdo fornecido.                                                        |
 | `processContentCardClickAction(cardId)`  | Executa a ação de um determinado cartão.                                                               |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Cards methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métodos de cartões" }
 
 ## Tipos e propriedades do cartão {#card-types-and-properties}
 
@@ -63,45 +63,45 @@ O modelo de cartão básico fornece o comportamento fundamental para todos os ca
 | `dismissed`   | Se o usuário dispensou este cartão. Marcar um cartão como dispensado que já foi dispensado será uma operação nula. |
 | `dismissible` | Se o cartão pode ser descartado pelo usuário.                                                                           |
 | `url`         | (Opcional) A string de URL associada à ação de clique do cartão.                                                       |
-| `openURLInWebView` | Se os URLs para esse cartão devem ser abertos no Braze WebView ou não.                                            |
+| `openURLInWebView` | Se as URLs desse cartão devem ser abertas no Braze WebView ou não.                                            |
 | `isControl`   | Se este cartão é um cartão de controle. Os cartões de controle não devem ser exibidos ao usuário.                                |
 | `extras`      | O mapa de extras de chave-valor para este cartão.                                                                             |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Modelo de cartão básico" }
 
-Para uma referência completa do cartão base, consulte a documentação do [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct).
+Para uma referência completa do cartão base, consulte a documentação do [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/index.html) e do [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct).
 
 ### Somente imagem {#image-only}
 
-Os cartões somente de imagem são imagens clicáveis e em tamanho real.
+Os cartões somente de imagem são imagens clicáveis em tamanho real.
 
 | Propriedade           | Descrição                                                                                                       |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
 | `type`             | O tipo de Content Card, `IMAGE_ONLY`.                                                                              |
 | `image`            | A URL da imagem do cartão.                                                                                      |
-| `imageAspectRatio` | A proporção da imagem do cartão. Destina-se a servir como uma dica antes que o carregamento da imagem seja concluído. Note que a propriedade pode não ser fornecida em certas circunstâncias. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image only" }
+| `imageAspectRatio` | A proporção da imagem do cartão. Serve como uma dica antes que o carregamento da imagem seja concluído. Note que a propriedade pode não ser fornecida em certas circunstâncias. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Somente imagem" }
 
 Para uma referência completa do cartão somente de imagem, consulte a documentação para [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-image-only-card/index.html) e para [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/imageonly-swift.struct).
 
 ### Imagem com legenda {#captioned-image}
 
-Cartões de imagem com legenda são imagens em tamanho real clicáveis com texto descritivo acompanhante.
+Cartões de imagem com legenda são imagens clicáveis em tamanho real com texto descritivo acompanhante.
 
 | Propriedade           | Descrição                                                                                                       |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
 | `type`             | O tipo de Content Card, `CAPTIONED`.                                                                               |
 | `image`            | A URL da imagem do cartão.                                                                                      |
-| `imageAspectRatio` | A proporção da imagem do cartão. Destina-se a servir como uma dica antes que o carregamento da imagem seja concluído. Note que a propriedade pode não ser fornecida em certas circunstâncias. |
+| `imageAspectRatio` | A proporção da imagem do cartão. Serve como uma dica antes que o carregamento da imagem seja concluído. Note que a propriedade pode não ser fornecida em certas circunstâncias. |
 | `title`            | O texto do título do cartão.                                                                                      |
 | `cardDescription`  | O texto de descrição do cartão.                                                                                |
-| `domain`           | (Opcional) O texto do link para a URL da propriedade, por exemplo, `"braze.com/resources/"`. Pode ser exibido na interface do usuário do cartão para indicar a ação/direção de clicar no cartão. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image" }
+| `domain`           | (Opcional) O texto do link para a URL da propriedade, por exemplo, `"braze.com/resources/"`. Pode ser exibido na interface do usuário do cartão para indicar a ação/direção ao clicar no cartão. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Imagem com legenda" }
 
-Para uma referência completa do cartão de imagem com legenda, consulte a documentação do [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct).
+Para uma referência completa do cartão de imagem com legenda, consulte a documentação do [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-captioned-image-card/index.html) e do [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/captionedimage-swift.struct).
 
 ### Clássico {#classic}
 
-Os cartões clássicos têm um título, descrição e uma imagem opcional à esquerda do texto.
+Os cartões clássicos têm um título, descrição e uma imagem opcional antes do texto.
 
 | Propriedade           | Descrição                                                                                                       |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|
@@ -109,14 +109,14 @@ Os cartões clássicos têm um título, descrição e uma imagem opcional à esq
 | `image`            | (Opcional) A URL da imagem do cartão.                                                                           |
 | `title`            | O texto do título do cartão.                                                                                      |
 | `cardDescription`  | O texto de descrição do cartão.                                                                                |
-| `domain`           | (Opcional) O texto do link para a URL da propriedade, por exemplo, `"braze.com/resources/"`. Pode ser exibido na interface do usuário do cartão para indicar a ação/direção de clicar no cartão. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic" }
+| `domain`           | (Opcional) O texto do link para a URL da propriedade, por exemplo, `"braze.com/resources/"`. Pode ser exibido na interface do usuário do cartão para indicar a ação/direção ao clicar no cartão. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Clássico" }
 
-Para uma referência completa do Content Card clássico (anúncio de texto), consulte a documentação do [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classic-swift.struct). Para o cartão de imagem clássico (notícias curtas), consulte a documentação do [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html) e [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classicimage-swift.struct).
+Para uma referência completa do Content Card clássico (anúncio de texto), consulte a documentação do [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html) e do [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classic-swift.struct). Para o cartão de imagem clássico (notícias curtas), consulte a documentação do [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html) e do [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/classicimage-swift.struct).
 
 ### Controle {#control}
 
-Os cartões de controle incluem todas as propriedades básicas, com algumas diferenças importantes. E o mais importante:
+Os cartões de controle incluem todas as propriedades básicas, com algumas diferenças importantes. As principais são:
 
 - A propriedade `isControl` tem a garantia de ser `true`.
 - A propriedade `extras` tem a garantia de estar vazia.

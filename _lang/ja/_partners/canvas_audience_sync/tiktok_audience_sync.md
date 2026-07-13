@@ -4,7 +4,7 @@ article_title: キャンバスオーディエンスのTikTokへの同期
 alias: /tiktok_audience_sync/
 description: "このリファレンス記事では、Braze Audience Sync to TikTokを使用して、行動トリガー、セグメンテーションなどに基づいて広告を配信する方法について説明します。"
 tool:
-  - キャンバス
+  - Canvas
 page_order: 8
 
 ---
@@ -43,28 +43,28 @@ Braze Audience Sync to TikTokはAudience Sync Pro統合です。この統合の�
 ### ステップ1:TikTokに接続する {#step-1-connect-to-tiktok}
 
 {% alert important %}
-TikTokをBrazeアカウントに接続するには[「管理者」権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#admin)が必要です。
+TikTokをBrazeアカウントに接続するには[「管理者」権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#admin)が必要です。
 {% endalert %}
 
 Brazeダッシュボードで、**パートナー連携** > **テクノロジーパートナー**に移動し、**TikTok**を選択します。TikTok Audience Syncで、**Connect TikTok**を選択します。
 
-![BrazeのTikTokテクノロジーページには、概要セクションとTikTok Audience Syncセクションがあり、Connected TikTokボタンがあります。]({% image_buster /assets/img/tiktok/tiktok1.png %}){: style="max-width:75%;"}
+![BrazeのTikTokテクノロジーページには、概要セクションとTikTok Audience Syncセクションがあり、Connected TikTokボタンが表示されています。]({% image_buster /assets/img/tiktok/tiktok1.png %}){: style="max-width:75%;"}
 
 その後、TikTokのOAuthページにリダイレクトされ、Brazeの広告アカウント管理およびオーディエンス管理を承認するよう求められます。**Confirm**を選択すると、Brazeに戻り、同期するTikTok広告アカウントを選択できます。
 
-![]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
+![Brazeオーディエンス管理のアクセスを要求するTikTok OAuth認証ページ。]({% image_buster /assets/img/tiktok/tiktok2.png %}){: style="max-width:75%;"}
 
 接続に成功すると、パートナーページに戻ります。ここでは、接続されているアカウントを表示したり、既存のアカウントの接続を解除したりできます。
 
-![]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
+![接続されたTikTok広告アカウントを表示するBraze TikTokパートナーページ。]({% image_buster /assets/img/tiktok/tiktok3.png %}){: style="max-width:75%;"}
 
-TikTok接続はBrazeアプリグループレベルで適用されます。TikTokの管理者がTikTokビジネスセンターまたは接続されたTikTokアカウントへのアクセスからあなたを削除した場合、Brazeは無効なトークンを検出します。その結果、TikTokオーディエンスコンポーネントを使用しているアクティブなキャンバスにはエラーが表示され、Brazeはユーザーを同期できなくなります。
+TikTok接続はBrazeワークスペースレベルで適用されます。TikTokの管理者がTikTokビジネスセンターまたは接続されたTikTokアカウントへのアクセスからあなたを削除した場合、Brazeは無効なトークンを検出します。その結果、TikTokオーディエンスコンポーネントを使用しているアクティブなキャンバスにはエラーが表示され、Brazeはユーザーを同期できなくなります。
 
 ### ステップ2:キャンバスにTikTokオーディエンスコンポーネントを追加する {#step-2-add-a-tiktok-audience-component-in-canvas}
 
 キャンバスにコンポーネントを追加し、**Audience Sync**を選択します。
 
-![]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
+![Audience Syncコンポーネントオプションが表示されたキャンバスステップセレクター。]({% image_buster /assets/img/audience_sync/audience_sync3.png %}){: style="max-width:35%;"} ![キャンバスパスに追加されたAudience Syncコンポーネントカード。]({% image_buster /assets/img/audience_sync/audience_sync5.png %}){: style="max-width:28%;"}
 
 ### ステップ3:同期のセットアップ {#step-3-sync-setup}
 
@@ -72,11 +72,11 @@ TikTok接続はBrazeアプリグループレベルで適用されます。TikTok
 
 Audience Syncパートナーとして**TikTok**を選択します。
 
-![]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![同期パートナーとしてTikTokが選択されたAudience Syncコンポーネントエディター。]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 次に、目的のTikTok広告アカウントを選択します。**Choose a New or Existing Audience**ドロップダウンで、新規または既存のオーディエンスの名前を入力します。
 
-![]({% image_buster /assets/img/tiktok/tiktok11.png %})
+![広告アカウントの選択とオーディエンスドロップダウンが表示されたTikTok Audience Syncエディター。]({% image_buster /assets/img/tiktok/tiktok11.png %})
 
 {% tabs %}
 {% tab 新規オーディエンスの作成 %}
@@ -84,11 +84,11 @@ Audience Syncパートナーとして**TikTok**を選択します。
 **新規オーディエンスの作成**<br>
 新しいオーディエンスの名前を入力し、**Add Users to Audience**を選択し、TikTokと同期したいフィールドを選択します。次に、ステップエディターの下部にある**Create Audience**ボタンをクリックしてオーディエンスを保存します。
 
-![]({% image_buster /assets/img/audience_sync/tiktok3.png %})
+![マッチフィールドが選択されたTikTok Audience Syncステップの新規オーディエンス作成フォーム。]({% image_buster /assets/img/audience_sync/tiktok3.png %})
 
 オーディエンスが正常に作成された場合、またはエラーが発生した場合、Brazeはステップエディターの上部に通知を表示します。オーディエンスは下書きモードで作成されるため、後でキャンバスジャーニーでユーザーの削除にこのオーディエンスを参照できます。
 
-![]({% image_buster /assets/img/audience_sync/tiktok2.png %})
+![新しいTikTokオーディエンスの作成後にAudience Syncステップに表示される成功通知。]({% image_buster /assets/img/audience_sync/tiktok2.png %})
 
 新しいオーディエンスを使用してキャンバスを起動すると、ユーザーがオーディエンスステップに入る時点で、Brazeはほぼリアルタイムでユーザーを同期します。
 
@@ -104,17 +104,18 @@ Brazeは、オーディエンスを最新の状態に保つために、ユーザ
 {% endtabs %}
 
 ### ステップ4:キャンバスを起動する {#step-4-launch-canvas}
+
 TikTokオーディエンスコンポーネントを構成したら、キャンバスを起動するだけです！新しいオーディエンスが作成され、TikTokオーディエンスコンポーネントを通過するユーザーはTikTokのこのオーディエンスに送られます。キャンバスに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
 
 TikTokでオーディエンスを表示するには、**Ads Manager Account**にログインし、**Assets**のドロップダウンから**Audiences**を選択します。**Audience**ページで、各オーディエンスが&#126;1,000に達した後のサイズを確認できます。
 
-![指定したオーディエンスの指標をリストするTikTokページ]({% image_buster /assets/img/tiktok/tiktok5.png %})
+![指定したオーディエンスの指標をリストするTikTokページ。]({% image_buster /assets/img/tiktok/tiktok5.png %})
 
 ## ユーザーの同期とレート制限の考慮事項 {#user-syncing-and-rate-limit-considerations}
 
 ユーザーがAudience Syncステップに達すると、BrazeはTikTokのマーケティングAPIのレート制限を尊重しながら、ほぼリアルタイムで同期します。Brazeは、TikTokに送信する前に、5秒ごとにできるだけ多くのユーザーをバッチ処理します。
 
-TikTokのセグメント APIのレート制限では、1秒あたり50クエリ、1リクエストあたり10,000ユーザーを超えることはできません。顧客がこの制限に達した場合、Brazeは最大&#126;13時間まで同期を再試行します。それでも同期できない場合、BrazeはこれらのユーザーをUsers Errored指標にリストアップします。
+TikTokのセグメントAPIのレート制限では、1秒あたり50クエリ、1リクエストあたり10,000ユーザーを超えることはできません。顧客がこの制限に達した場合、Brazeは最大&#126;13時間まで同期を再試行します。それでも同期できない場合、BrazeはこれらのユーザーをUsers Errored指標にリストアップします。
 
 ## 分析の理解 {#understanding-analytics}
 

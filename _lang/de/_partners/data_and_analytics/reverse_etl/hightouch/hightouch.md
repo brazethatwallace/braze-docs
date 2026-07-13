@@ -13,7 +13,7 @@ search_tag: Partner
 
 Die Integration von Braze und Hightouch ermöglicht es Ihnen, bessere Campaigns in Braze mit aktuellen Kundendaten aus Ihrem Data Warehouse zu erstellen. Durch die automatische Synchronisierung von Kundendaten in Braze müssen Sie sich nicht mehr um die Datenkonsistenz kümmern und können sich auf den Aufbau erstklassiger Kundenerlebnisse konzentrieren.
 
-Mit dieser Integration können Sie auch [Nutzer:innen-Kohorten in Braze importieren]({{site.baseurl}}/partners/data_and_analytics/reverse_etl/hightouch/hightouch_cohort_import/) und gezielte Campaigns auf der Grundlage von Daten versenden, die möglicherweise nur in Ihrem Warehouse vorhanden sind.
+Mit dieser Integration können Sie auch [Nutzer:innen-Kohorten in Braze importieren]({{site.baseurl}}/partners/data_and_analytics/reverse_etl/hightouch/hightouch_cohort_import) und gezielte Campaigns auf der Grundlage von Daten versenden, die möglicherweise nur in Ihrem Warehouse vorhanden sind.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -21,7 +21,7 @@ Mit dieser Integration können Sie auch [Nutzer:innen-Kohorten in Braze importie
 |---|---|
 | Hightouch-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Hightouch-Konto. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit den Berechtigungen `users.track` und `users.export.ids`. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze REST-Endpunkt | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) ab.<br><br>Hightouch benötigt den Namen des Clusters, in dem sich Ihre Braze-Instanz befindet. Wenn Ihr Braze-Endpunkt zum Beispiel `https://rest.iad-01.braze.com` ist, benötigen Sie nur `iad-01`. |
+| Braze REST-Endpunkt | Ihre URL für den REST-Endpunkt. Ihr Endpunkt hängt von der [Braze-URL für Ihre Instanz]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) ab.<br><br>Hightouch benötigt den Namen des Clusters, in dem sich Ihre Braze-Instanz befindet. Wenn Ihr Braze-Endpunkt zum Beispiel `https://rest.iad-01.braze.com` ist, benötigen Sie nur `iad-01`. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -33,13 +33,13 @@ Mit dieser Integration können Sie auch [Nutzer:innen-Kohorten in Braze importie
 
 ## Integration
 
-### 1. Schritt: Erstellen Sie Ihr Hightouch-Braze-Ziel {#step-1-create-your-hightouch-braze-destination}
+### Schritt 1: Erstellen Sie Ihr Hightouch-Braze-Ziel {#step-1-create-your-hightouch-braze-destination}
 
 1. Klicken Sie auf der Hightouch-Plattform im Bereich **Destinations** auf **Add destination**.
 2. Wählen Sie **Braze** aus der Liste der verfügbaren Ziele aus.
-3. Geben Sie Ihren Braze REST-Endpunkt (ohne „https://rest.“) und Ihren Braze REST-API-Schlüssel an.<br><br>![]({% image_buster /assets/img/hightouch/hightouch_braze_setup.png %})
+3. Geben Sie Ihren Braze REST-Endpunkt (ohne „https://rest.“) und Ihren Braze REST-API-Schlüssel an.<br><br>![Hightouch-Braze-Zielkonfiguration mit Feldern für Endpunkt und API-Schlüssel.]({% image_buster /assets/img/hightouch/hightouch_braze_setup.png %})
 
-### 2. Schritt: Synchronisierung von Objekten und Ereignissen {#step-2-object-and-event-syncing}
+### Schritt 2: Synchronisierung von Objekten und Ereignissen {#step-2-object-and-event-syncing}
 
 Hightouch unterstützt die Synchronisierung sowohl mit Nutzer:innen-Objekten als auch mit Ereignissen.
 
@@ -47,7 +47,7 @@ Hightouch unterstützt die Synchronisierung sowohl mit Nutzer:innen-Objekten als
 |---|---|---|
 | Objekt | Synchronisiert Datensätze mit Objekten wie Nutzer:innen oder Organisationen in Ihrem Ziel. | Upsert oder Update |
 | Ereignisse | Synchronisiert Datensätze als Ereignisse in Ihr Ziel; dies geschieht häufig in Form eines Track-Aufrufs. | Ereignis-Tracking oder Kauf-Tracking |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2. Schritt: Synchronisierung von Objekten und Ereignissen" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Schritt 2: Synchronisierung von Objekten und Ereignissen" }
 
 {% alert note %}
 Weitere Informationen darüber, wie sich Synchronisierungen auf die Protokollierung von Datenpunkten auswirken, finden Sie bei [Hightouch](https://hightouch.com/docs/destinations/braze#syncing-and-data-point-consumption).

@@ -16,14 +16,14 @@ search_tag: Partner
 
 > A [Segment](https://segment.com) é uma plataforma de dados do cliente que ajuda você a coletar, limpar e ativar os dados dos seus clientes. Este artigo de referência fornece uma visão geral da conexão entre [Braze e Segment Engage](https://segment.com/docs/destinations/braze/#Engage), além de descrever os requisitos e processos para a implementação e o uso adequados.
 
-A integração entre Braze e Segment permite que você use o [Engage](https://segment.com/docs/engage/), o construtor de público integrado da Segment, para criar segmentos de usuários com base nos dados que você já coletou de diversas fontes. Esses públicos serão então sincronizados com a Braze como uma coorte, ou indicados no perfil do usuário por meio de [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) ou [eventos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events/#custom-events) que podem ser usados para criar segmentos na Braze para uso em redirecionamento de Campaign e Canvas.
+A integração entre Braze e Segment permite que você use o [Engage](https://segment.com/docs/engage/), o construtor de público integrado da Segment, para criar segmentos de usuários com base nos dados que você já coletou de diversas fontes. Esses públicos serão então sincronizados com a Braze como uma coorte, ou indicados no perfil do usuário por meio de [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) ou [eventos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-events) que podem ser usados para criar segmentos na Braze para uso em redirecionamento de Campaign e Canvas.
 
 ## Pré-requisitos {#prerequisites}
 
 | Requisito | Descrição |
 | ----------- | ----------- |
 | Conta da Segment | É necessário ter uma [conta da Segment](https://app.segment.com/login) para aproveitar essa parceria. |
-| Destino na nuvem da Braze | Você já deve ter [configurado a Braze como um destino]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) na sua integração com a Segment.<br><br>Isso inclui fornecer o data center correto da Braze e a chave da REST API nas suas [configurações de conexão]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings). |
+| Destino na nuvem da Braze | Você já deve ter [configurado a Braze como um destino]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment/#connection-settings/) na sua integração com a Segment.<br><br>Isso inclui fornecer o data center correto da Braze e a chave da REST API nas suas [configurações de conexão]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment/segment#connection-settings). |
 | Chave de importação de dados da Braze | Para sincronizar os públicos do Engage com a Braze como coortes, você deve gerar uma chave de importação de dados.<br><br>A importação de coorte está em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente da Braze para obter acesso a esse recurso. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
@@ -49,7 +49,7 @@ Siga [as instruções da Segment](https://segment.com/docs/connections/destinati
 ### Etapa 4: crie um segmento na Braze a partir do público do Engage {#step-4-create-a-braze-segment-from-the-engage-audience}
 Na Braze, navegue até **Segments**, crie um novo segmento e selecione **Segment Cohorts** como seu filtro. Aqui você pode escolher qual coorte da Segment deseja incluir. Depois que o segmento de coorte da Segment for criado, você pode selecioná-lo como um filtro de público ao criar uma Campaign ou Canvas.
 
-![]({% image_buster /assets/img/segment/segment3.png %})
+![Criador de segmentos da Braze usando o filtro Segment Cohorts.]({% image_buster /assets/img/segment/segment3.png %})
 
 ## Integração no modo nuvem {#cloud-mode-integration}
 
@@ -112,6 +112,6 @@ Embora a configuração padrão para a conexão da Braze com o Segment Engage se
 
 O dashboard da Segment oferece um recurso "Debugger" que permite aos clientes testar se os dados de uma "Source" estão sendo transferidos para um "Destination" conforme esperado.
 
-Esse recurso se conecta ao [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) da Braze, o que significa que só pode ser usado para usuários identificados (usuários que já possuem um ID de usuário no perfil de usuário da Braze).
+Esse recurso se conecta ao [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da Braze, o que significa que só pode ser usado para usuários identificados (usuários que já possuem um ID de usuário no perfil de usuário da Braze).
 
 Isso não funcionará para uma integração Braze lado a lado. Nenhum dado do servidor será transmitido se você não tiver inserido as informações corretas da REST API da Braze.

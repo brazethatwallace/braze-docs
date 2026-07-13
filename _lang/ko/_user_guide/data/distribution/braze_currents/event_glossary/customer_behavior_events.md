@@ -74,7 +74,7 @@ Random Bucket Number
 
 {% alert important %}
 이 Currents 이벤트는 "모든 이벤트 커넥터"를 구매한 고객만 사용할 수 있으며, Amazon S3, Microsoft Azure 및 Google Cloud Storage와 같은 저장 이벤트 커넥터에만 사용할 수 있습니다.
-<br><br>이 이벤트를 활성화하고 워크스페이스에서 기존 사용자의 무작위 버킷 번호에 대한 백필을 예약하려면 고객 성공 매니저에게 문의하세요.
+<br><br>이 이벤트를 활성화하고 워크스페이스에서 기존 사용자의 무작위 버킷 번호에 대한 백필을 스케줄하려면 고객 성공 매니저에게 문의하세요.
 {% endalert %}
 
 {% tabs %}
@@ -1262,6 +1262,10 @@ Live Activity, Push To Start Token
 {% endtab %}
 {% endtabs %}
 
+### 속성정보 세부 정보
+
+- Braze는 익명 사용자가 동일한 프로필에서 식별되고 기존 iOS 라이브 활동 푸시 시작 토큰이 해당 프로필에 유지될 때 `push_token_state_change_type`이 `"update"`로 설정된 "update" 이벤트를 발생시킵니다. 이 경우 `user_id`는 변경되지 않으며, `external_user_id`는 식별된 사용자의 외부 ID로 설정됩니다. 여기에는 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 엔드포인트를 통한 식별과 SDK `changeUser`가 기기의 익명 프로필에 외부 ID를 할당하는 경우가 포함됩니다.
+
 {% endapi %}
 
 {% api %}
@@ -1589,7 +1593,7 @@ Push, Token State Change
 
 ##### 추가 {#add}
 
-새 토큰이 등록될 때 "add" 이벤트가 수집됩니다. 사용자가 새 기기에서 앱을 처음 열거나, 이전에 토큰이 없었던 사용자에 대해 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트를 통해 `push_tokens`로 설정될 때 발생합니다.
+새 토큰이 등록될 때 "add" 이벤트가 수집됩니다. 사용자가 새 기기에서 앱을 처음 열거나, 이전에 토큰이 없었던 사용자에 대해 [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트를 통해 `push_tokens`로 토큰이 설정될 때 발생합니다. `time_ms` 필드는 추가 이벤트가 발생한 시점을 나타냅니다.
 
 {% alert note %}
 iOS Swift SDK 13.3.0 이상 및 Android SDK 40.0.0 이상에서는 푸시 권한 상태와 푸시 토큰이 함께 전송됩니다. 이러한 SDK의 새 등록에서는 "add" 이벤트에 `push_token_foreground_push_disabled`가 채워집니다(일반적으로 알림이 활성화된 경우 `false`).<br><br>
@@ -1599,7 +1603,9 @@ iOS Swift SDK 13.3.0 이상 및 Android SDK 40.0.0 이상에서는 푸시 권한
 
 ##### 업데이트 {#update}
 
-기존 토큰의 속성정보가 변경되지만 토큰 문자열 자체는 변경되지 않을 때 "update" 이벤트가 수집됩니다. 토큰은 동일한 문자열, 동일한 사용자 및 동일한 앱을 가지지만, 다음 필드 중 하나 이상이 변경되었습니다: `foreground_push_disabled`, APNs 게이트웨이, 웹 푸시 키, `provisionally_opted_in` 또는 `device_id`. 이러한 업데이트는 토큰 상태 동기화 이벤트(예: SDK가 새 권한 상태를 보고할 때)에서 발생하며, 푸시 전송 결과에서 발생하지 않습니다.
+기존 토큰의 속성정보가 변경되지만 토큰 문자열 자체는 변경되지 않을 때 "update" 이벤트가 수집됩니다. 토큰은 동일한 문자열, 동일한 사용자 및 동일한 앱을 가지지만, 다음 필드 중 하나 이상이 변경되었습니다: `foreground_push_disabled`, APNs 게이트웨이, 웹 푸시 키, `provisionally_opted_in` 또는 `device_id`. 이러한 업데이트는 토큰 상태 동기화 이벤트(예: SDK가 새 권한 상태를 보고할 때)에서 발생하며, 푸시 전송 결과에서 발생하지 않습니다. `time_ms` 필드는 업데이트 이벤트가 발생한 시점을 나타냅니다.
+
+Braze는 또한 익명 사용자가 동일한 프로필에서 식별되고 기존 푸시 토큰이 해당 프로필에 유지될 때 `push_token_state_change_type`이 `"update"`로 설정된 "update" 이벤트를 발생시킵니다. 이 경우 `user_id`는 변경되지 않으며, `external_user_id`는 식별된 사용자의 외부 ID로 설정됩니다. 여기에는 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 엔드포인트를 통한 식별과 SDK `changeUser`가 기기의 익명 프로필에 외부 ID를 할당하는 경우가 포함됩니다.
 
 {% alert note %}
 대부분의 경우, 앱 재설치 또는 백업 복원은 새로운 `push_token`과 새로운 `device_id`를 가진 새로운 "add" 이벤트를 발생시킵니다(SDK가 새로운 `device_id`를 생성하고 OS가 새로운 푸시 토큰 문자열을 제공하기 때문입니다). 이로 인해 사용자 프로필에 두 개의 별도 토큰 및 기기 항목이 생성되며, 이전 항목은 제거 추적 또는 Campaign 전송을 통해 나중에 정리됩니다.<br><br>
@@ -1617,8 +1623,15 @@ Braze가 토큰을 제거할 때 독립적인 "remove" 이벤트가 수집됩니
 
 푸시 반송으로 인해 토큰이 제거되면, Braze는 해당 토큰에 대해 `push_token_state_change_type = "remove"`를 발생시킵니다. `push_token_foreground_push_disabled`를 변경하는 "update" 이벤트는 발생시키지 않습니다.
 
+`time_ms` 필드는 제거 이벤트가 발생한 시점을 나타냅니다.
+
+{% alert note %}
+"remove" 이벤트의 경우, 다음 토큰 속성정보 필드는 채워지지 않습니다: `push_token_created_at`, `push_token_updated_at`, `push_token_foreground_push_disabled`, `push_token_provisionally_opted_in`, `ios_push_token_apns_gateway`, `web_push_token_public_key`, `web_push_token_user_auth`, `web_push_token_vapid_public_key`.
+{% endalert %}
+
 ##### 추가 및 제거 쌍 {#add-and-remove-pairs}
 
+추가 및 제거 쌍 이벤트는 동일한 전환에 대한 두 개의 연결된 토큰 상태 이벤트로, 하나의 "add" 이벤트와 하나의 "remove" 이벤트로 구성됩니다.
 추가 및 제거 쌍은 두 가지 범주로 나뉩니다:
 
 **토큰 문자열 새로고침(동일한 사용자):** OS가 동일한 기기에서 토큰 문자열을 회전시킵니다(예: APNs 또는 FCM 토큰 회전). "add" 이벤트(새 토큰)와 "remove" 이벤트(이전 토큰)는 동일한 `user_id`, 동일한 `device_id`, 다른 `push_token`, 그리고 동일한 `time_ms`를 가집니다.
@@ -1630,7 +1643,7 @@ Braze가 토큰을 제거할 때 독립적인 "remove" 이벤트가 수집됩니
 - [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) 엔드포인트 또는 중복 사용자 정리가 고아 사용자의 토큰을 생존 사용자에게 이동시킵니다.
 
 {% alert note %}
-익명 프로필이 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 엔드포인트를 통해 식별되면, `user_id`는 변경되지 않으며 토큰 상태 변경 이벤트가 발생하지 않습니다.
+REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 또는 SDK `changeUser`를 통해 익명 프로필에 외부 ID를 할당하는 동일 프로필 식별은 `user_id`를 변경하지 않으며 추가 및 제거 쌍 이벤트를 발생시키지 않습니다. 대신 Braze는 기존 각 푸시 토큰에 대해 "update" 이벤트를 발생시키고 `external_user_id`를 식별된 사용자의 외부 ID로 설정합니다. `changeUser`가 토큰을 한 사용자 프로필에서 다른 프로필로 이동시키는 경우, Braze는 위에서 설명한 추가 및 제거 쌍 이벤트를 여전히 발생시킵니다.
 {% endalert %}
 
 #### 최신 활성 토큰 상태 쿼리 {#querying-for-the-latest-active-token-state}

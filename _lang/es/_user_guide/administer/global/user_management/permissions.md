@@ -221,7 +221,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Datos de usuario | Edit User Data | Crear y actualizar datos de usuario |
 | Datos de usuario | Export User Data | Descargar usuarios del panel |
 | Usuarios duplicados | View User Merge Records | Ver una lista de registros de fusión de usuarios |
-| Usuarios | View User Profiles (PII Redacted) | Ver perfiles de usuario de manera compatible con PII |
+| Usuarios | View User Profiles (PII Redacted) | Ver perfiles de usuario de manera compatible con PII. Los usuarios con este permiso no pueden guardar ni lanzar Campaigns que hagan referencia a atributos personalizados marcados como PII a menos que también tengan el permiso "View Custom Attributes Marked as PII". |
 | Usuarios | View User Event Properties | Ver propiedades de eventos en la pestaña **Historial de eventos** de los perfiles de usuario |
 | Usuarios duplicados | Merge Duplicate Users | Combinar usuarios duplicados en uno solo. Los duplicados se eliminan después de la fusión |
 | Eliminar usuarios | View User Deletion Records | Ver una lista de registros de eliminación de usuarios |
@@ -362,7 +362,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Configuración de dominio | Edit Domain Settings | Añadir dominios delegados y dominios personalizados en Dominios verificados |
 | Cifrado a nivel de campo | Edit Identifier Field-Level Encryption | Habilitar y actualizar la configuración de cifrado a nivel de campo |
 | Activos de la biblioteca de medios | View Media Library Assets | Ver activos de la biblioteca de medios |
-| Activos de la biblioteca de medios | Delete Media Library Assets | Eliminar permanentemente activos de la biblioteca de medios |
+| Activos de la biblioteca de medios | Delete Media Library Assets | Eliminar activos de la biblioteca de medios de la interfaz. Los activos eliminados siguen alojados en Braze para evitar que se rompan los mensajes que los referencian. Para eliminar permanentemente un activo, ponte en contacto con soporte de Braze. |
 | Activos de la biblioteca de medios | Edit Media Library Assets | Crear y actualizar activos de la biblioteca de medios |
 | Activos de la biblioteca de medios | Replace Media Library Assets | Reemplazar el archivo de un activo existente de la biblioteca de medios manteniendo estables su URL e ID de activo |
 | Límites de velocidad de mensajería | View Messaging Rate Limits | Ver límites de velocidad de mensajería a nivel de espacio de trabajo |

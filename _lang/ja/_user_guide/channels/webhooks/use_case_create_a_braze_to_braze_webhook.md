@@ -14,6 +14,16 @@ description: "このリファレンス記事では、ユーザーの更新とBra
 
 この記事を最大限に活用するには、[Webhookの仕組み]({{site.baseurl}}/user_guide/channels/webhooks)と、Brazeで[Webhookを作成する]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)方法に精通している必要があります。
 
+## 別のキャンバスをトリガーするには「送信先」を使用する {#use-send-to-destination-for-triggering-another-canvas}
+
+キャンバス内から2番目のキャンバスをトリガーするには、Braze間Webhookではなく[送信先]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination)を使用してください。このキャンバスコンポーネントはキャンバスジャーニーの接続専用に設計されており、あるキャンバスから別のキャンバスにユーザーを送信するためのよりシンプルで効率的な方法を提供します。
+
+送信先は、ユーザーがステップに到達した時点で、送信先キャンバスのエントリ条件とオーディエンス条件に対してユーザーを評価します。Webhookの設定やAPIキーは不要です。条件を満たしたユーザーは送信先キャンバスに入り、後続のステップがある場合はソースキャンバスでジャーニーを続けることができます。
+
+{% alert tip %}
+キャンバスに[送信先]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination)を追加して、Webhookの設定やAPI呼び出しなしにユーザーを別のキャンバスジャーニーに送信できます。
+{% endalert %}
+
 ## ユーザーデータの変更にはユーザーの更新を使用する {#use-user-update-for-user-data-changes}
 
 キャンバス内からユーザープロファイルを更新する場合（[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)の変更、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)の記録、[購入]({{site.baseurl}}/user_guide/data/activation/events/purchase_events)の記録など）は、Braze間Webhookではなく[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)を使用してください。
@@ -28,12 +38,14 @@ description: "このリファレンス記事では、ユーザーの更新とBra
 
 ユーザーの更新は、ユーザープロファイルの更新に関して、Braze間Webhookとほぼ同じタスクを処理できます。単純なカスタム属性を超える複雑な更新には、[高度なJSONコンポーザー]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer)を使用できます。
 
-キャンバスステップからの直接的なユーザー更新以外のシナリオで、Braze内からBrazeの[REST API]({{site.baseurl}}/api/basics)を呼び出す必要がある場合に、Braze間Webhookを使用できます。一般的な例は以下のとおりです。
+送信先は、Webhookの設定なしにキャンバス内から2番目のキャンバスをトリガーするためのよりシンプルな方法を提供します。
 
-- 別のキャンバスから[APIトリガーキャンバス]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)をトリガーする
+専用のキャンバスコンポーネントがないシナリオで、Braze内からBrazeの[REST API]({{site.baseurl}}/api/basics)を呼び出す必要がある場合に、Braze間Webhookを使用できます。一般的な例は以下のとおりです。
+
+- キャンバスから[APIトリガーキャンペーン]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)をトリガーする
 - Braze内のあるワークフローが、専用のキャンバスコンポーネントを持たないAPIを呼び出す必要があるオーケストレーションパターンで、他の[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を呼び出す
 
-キャンバス内でのユーザー更新には、[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)を使用することを推奨します。
+キャンバス内でのユーザー更新には、[ユーザーの更新]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)を使用してください。別のキャンバスをトリガーするには、[送信先]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination)を使用してください。
 
 ## 前提条件 {#prerequisites}
 
@@ -45,8 +57,8 @@ Braze間Webhookを作成する一般的なワークフローは以下のステ�
 
 1. キャンペーンまたはキャンバスコンポーネントとして[Webhookを作成]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook)します。
 2. **Blank Template**を選択します。
-3. **作成**タブで、APIユースケースに合わせて**Webhook URL**と**Request Body**を指定します。
-4. **設定**タブで、エンドポイントの要件に応じて**HTTP Method**と**Request Headers**を指定します。
+3. **作成**タブで、APIユースケースに合わせて**Webhook URL**と**リクエストボディ**を指定します。
+4. **設定**タブで、エンドポイントの要件に応じて**HTTPメソッド**と**リクエストヘッダー**を指定します。
 5. 追加の配信設定（たとえば、カスタムイベントからのトリガー）を構成し、キャンペーンまたはキャンバスの残りの部分を構築します。
 
 ## 最初のキャンバスから2番目のキャンバスをトリガーする {#trigger-a-second-canvas-from-an-initial-canvas}
@@ -54,24 +66,24 @@ Braze間Webhookを作成する一般的なワークフローは以下のステ�
 このユースケースでは、2つのキャンバスを作成し、Braze間Webhookを使用して最初のキャンバスから2番目のキャンバスをトリガーします。これは、ユーザーが別のキャンバス内の特定のポイントに到達したときのエントリトリガーとして機能します。
 
 1. まず、2番目のキャンバス（最初のキャンバスによってトリガーされるキャンバス）を作成します。
-2. キャンバスの**エントリスケジュール**で、**API-Triggered**を選択します。
-3. **キャンバス ID**をメモしてください。後のステップで必要になります。
+2. キャンバスの**エントリスケジュール**で、**APIトリガー**を選択します。
+3. **キャンバスID**をメモしてください。後のステップで必要になります。
 4. 2番目のキャンバスのステップの構築を続け、キャンバスを保存します。
 5. 最後に、最初のキャンバスを作成します。2番目のキャンバスをトリガーしたいステップを見つけ、Webhookを含む新しいステップを作成します。
 
 Webhookを設定する際は、以下を参照してください。
 
 - **Webhook URL:** [RESTエンドポイントURL]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)の後に`/canvas/trigger/send`を付けます。たとえば、`US-06`インスタンスの場合、URLは`https://rest.iad-06.braze.com/canvas/trigger/send`になります。
-- **Request Body:** Raw Text
+- **リクエストボディ:** Raw Text
 
 ### リクエストヘッダーとメソッド {#request-headers-and-method}
 
-Brazeでは、APIキーを含む許可用のHTTPヘッダーと、コンテンツタイプを宣言するヘッダーが必要です。
+Brazeでは、APIキーを含む認可用のHTTPヘッダーと、コンテンツタイプを宣言するヘッダーが必要です。
 
-- **Request Headers:**
+- **リクエストヘッダー:**
   - **Authorization:** `Bearer YOUR_API_KEY`
   - **Content-Type:** `application/json`
-- **HTTP Method:** `POST`
+- **HTTPメソッド:** `POST`
 
 `YOUR_API_KEY`を`canvas.trigger.send`権限を持つBraze APIキーに置き換えてください。APIキーは、Brazeダッシュボードで**設定** > **APIキー**に移動して作成できます。
 
@@ -79,7 +91,7 @@ Brazeでは、APIキーを含む許可用のHTTPヘッダーと、コンテン�
 
 #### リクエストボディ {#request-body}
 
-テキストフィールドに`/canvas/trigger/send`リクエストを追加します。詳細については、[APIトリガー配信によるキャンバスメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)を参照してください。以下は、このエンドポイントのリクエストボディの例です。`your_canvas_id`は2番目のキャンバスのキャンバス IDです。
+テキストフィールドに`/canvas/trigger/send`リクエストを追加します。詳細については、[APIトリガー配信によるキャンバスメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)を参照してください。以下は、このエンドポイントのリクエストボディの例です。`your_canvas_id`は2番目のキャンバスのキャンバスIDです。
 
 {% raw %}
 ```json

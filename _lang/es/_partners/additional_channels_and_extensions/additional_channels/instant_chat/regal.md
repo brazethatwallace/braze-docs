@@ -179,14 +179,14 @@ Estos eventos hacen más que desencadenar comunicaciones (por ejemplo, un mensaj
 
 Por ejemplo, los eventos y atributos de Braze se pueden usar en Regal para:
 
-- **Personalizar el discurso del agente de IA**: Hacer referencia al comportamiento reciente o al interés en un producto directamente en las conversaciones.
-  - Ejemplo: Si un usuario exploró opciones de seguro de vida, el agente puede hacer referencia a `contact.firstName` y `contact.brazeProductInterest` en la conversación.
-- **Impulsar la lógica dinámica de la conversación**: Ajustar lo que el agente prioriza en tiempo real.
-  - Ejemplo: Si `contact.brazeAge` es mayor de 65, priorizar la cobertura de Medicare; de lo contrario, centrarse en los planes ACA y el estado actual del seguro.
-- **Habilitar el enrutamiento y la escalación inteligentes**: Enrutar conversaciones en función del valor o la intención.
-  - Ejemplo: Si `contact.brazeLeadTier` es "High Value", transferir a un agente senior después de la calificación; de lo contrario, continuar con el agente de IA.
-- **Alinear mensajes y ofertas**: Adaptar lo que el agente presenta en función del contexto de la campaña.
-  - Ejemplo: Si `contact.brazeCampaignName` es "Spring Mortgage Promo", destacar la oferta promocional durante la conversación.
+- **Personalizar el discurso del agente de IA**: hacer referencia al comportamiento reciente o al interés en un producto directamente en las conversaciones.
+  - Ejemplo: si un usuario exploró opciones de seguro de vida, el agente puede hacer referencia a `contact.firstName` y `contact.brazeProductInterest` en la conversación.
+- **Impulsar la lógica dinámica de la conversación**: ajustar lo que el agente prioriza en tiempo real.
+  - Ejemplo: si `contact.brazeAge` es mayor de 65, priorizar la cobertura de Medicare; de lo contrario, centrarse en los planes ACA y el estado actual del seguro.
+- **Habilitar el enrutamiento y la escalación inteligentes**: enrutar conversaciones en función del valor o la intención.
+  - Ejemplo: si `contact.brazeLeadTier` es "High Value", transferir a un agente senior después de la calificación; de lo contrario, continuar con el agente de IA.
+- **Alinear mensajes y ofertas**: adaptar lo que el agente presenta en función del contexto de la campaña.
+  - Ejemplo: si `contact.brazeCampaignName` es "Spring Mortgage Promo", destacar la oferta promocional durante la conversación.
 
 Crea un nuevo Canvas o una nueva Campaign con el título "Enviar evento de interés en producto a Regal".
 
@@ -280,11 +280,11 @@ Para configurar webhooks de informes:
 
 2. En la sección **Reporting Webhooks**, haz clic en **Create Webhooks**.
 
-3. En la entrada del punto de conexión del webhook, añade la URL del webhook de Transformación de datos de Braze para la Transformación de datos asociada.
+3. En la entrada del endpoint del webhook, añade la URL del webhook de Transformación de datos de Braze para la Transformación de datos asociada.
 
-#### Actualización de un punto de conexión {#updating-an-endpoint}
+#### Actualización de un endpoint {#updating-an-endpoint}
 
-Cuando editas un punto de conexión, la caché puede tardar hasta 5 minutos en actualizarse y enviar eventos a tu nuevo punto de conexión.
+Cuando editas un endpoint, la caché puede tardar hasta 5 minutos en actualizarse y enviar eventos a tu nuevo endpoint.
 
 #### Reintentos {#retries}
 
@@ -312,7 +312,7 @@ En las cargas útiles de eventos de Braze a Regal, Regal recomienda usar `traits
 - Braze no admite números de teléfono como identificador. Para utilizarlo como identificador, el número de teléfono puede configurarse como [alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases) en Braze.
 - Al utilizar la Transformación de datos de Braze, la dirección de correo electrónico puede utilizarse como identificador. Si la dirección de correo electrónico existe como perfil en Braze, se actualizará el perfil existente. Si la dirección de correo electrónico aún no existe en Braze, se creará un perfil solo para correo electrónico.
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 {% tabs %}
 {% tab Trigger an email %}

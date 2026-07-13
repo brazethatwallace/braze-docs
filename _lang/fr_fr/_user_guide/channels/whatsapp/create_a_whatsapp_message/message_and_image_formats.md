@@ -98,7 +98,7 @@ Les modèles de carrousel affichent un corps de message suivi de 2 à 10 cartes 
 
 Les messages de réponse (également appelés « messages de session » par Meta) ne peuvent être envoyés que dans la fenêtre de conversation de 24 heures. Celle-ci est ouverte et réinitialisée lorsqu'un utilisateur envoie un message à votre entreprise.
 
-Les messages de réponse composés directement dans l'éditeur de campagne ou de Canvas de Braze ne nécessitent pas l'approbation de Meta.
+Les messages de réponse composés directement dans l'éditeur de Campaign ou de Canvas de Braze ne nécessitent pas l'approbation de Meta.
 
 Braze prend en charge sept mises en page de messages de réponse :
 

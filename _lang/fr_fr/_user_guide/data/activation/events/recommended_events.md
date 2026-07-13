@@ -23,7 +23,11 @@ Comme ces événements suivent un schéma défini, chaque fonctionnalité prise 
 
 ### Fonctionnement des événements eCommerce {#how-ecommerce-events-work}
 
-Les événements eCommerce sont des événements personnalisés avec des noms et des schémas de propriétés prédéfinis. Vous les envoyez à l'aide du [SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events) ou de l'[endpoint REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), et Braze valide chaque événement par rapport à son schéma lors de l'ingestion. Lorsque la validation réussit, Braze applique automatiquement un post-traitement spécifique à ce type d'événement, comme le calcul des champs de chiffre d'affaires et la gestion de l'état du panier sur les profils utilisateurs.
+Les événements eCommerce sont des événements personnalisés avec des noms et des schémas de propriétés prédéfinis. Vous les envoyez à l'aide du [SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), de l'[endpoint REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou de l'[ingestion de données cloud (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), et Braze valide chaque événement par rapport à son schéma lors de l'ingestion. Lorsque la validation réussit, Braze applique automatiquement un post-traitement spécifique à ce type d'événement, comme le calcul des champs de chiffre d'affaires et la gestion de l'état du panier sur les profils utilisateurs.
+
+{% alert note %}
+Les imports CSV ne prennent pas en charge les événements eCommerce. Utilisez le SDK, `/users/track` ou CDI pour envoyer ces événements.
+{% endalert %}
 
 Les événements eCommerce fonctionnent partout où les autres événements personnalisés fonctionnent : déclencheurs et filtres pour les événements personnalisés effectués, rapports d'événements personnalisés, et plus encore. Cependant, leur validation de schéma débloque des fonctionnalités supplémentaires, notamment :
 
@@ -1141,51 +1145,7 @@ Le tableau suivant résume ce que Braze fait automatiquement pour chaque événe
 Les valeurs dans des devises autres que l'USD sont automatiquement converties en USD en utilisant le taux de change à la date à laquelle l'événement est signalé. Si vous déclarez déjà en USD, codez en dur `USD` comme devise pour éviter toute conversion involontaire.
 {% endalert %}
 
-## Implémenter les événements eCommerce {#implement-ecommerce-events}
-
-Vous pouvez envoyer des événements eCommerce via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) (côté serveur) ou via les SDK Braze (côté client). Pour des exemples d'implémentation SDK, consultez [Journaliser les événements eCommerce via le SDK Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
-
-### Envoyer des événements côté serveur {#send-events-server-side}
-
-Utilisez l'endpoint `/users/track` pour envoyer des événements eCommerce depuis votre backend. Chaque événement nécessite le nom exact de l'événement, l'`external_id` de l'utilisateur et un objet de propriétés correspondant au schéma de l'événement.
-
-```json
-POST /users/track
-
-{
-  "events": [
-    {
-      "external_id": "user_abc123",
-      "name": "ecommerce.order_placed",
-      "time": "2026-04-26T14:32:00Z",
-      "properties": {
-        "order_id": "order_7891011",
-        "total_value": 84.99,
-        "currency": "USD",
-        "source": "custom_api",
-        "total_discounts": 10.00,
-        "products": [
-          {
-            "product_id": "sku_2001",
-            "product_name": "Trail Runner Pro",
-            "variant_id": "var_2001_black_10",
-            "quantity": 1,
-            "price": 94.99,
-            "metadata": {
-              "color": "black",
-              "size": "10"
-            }
-          }
-        ],
-        "metadata": {
-          "gift_wrapped": true,
-          "loyalty_points_earned": 170
-        }
-      }
-    }
-  ]
-}
-```
+## Détails d'implémentation {#implementation-details}
 
 ### Points de données et facturation {#data-points-and-billing}
 

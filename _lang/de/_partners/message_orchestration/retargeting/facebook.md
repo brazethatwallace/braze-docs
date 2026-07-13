@@ -20,11 +20,11 @@ Häufige Anwendungsfälle für den Export von Facebook Custom Audiences sind:
 
 {% alert note %}
 Der Facebook Audience Export verwendet das **User Access Token**, um Anfragen zu autorisieren.<br><br>
-Wenn Sie dieses Feature zusammen mit dem Feature [Audience Sync to Facebook]({{site.baseurl}}/audience_sync_facebook/) verwenden, verwendet Braze standardmäßig das zuverlässigere **System User Token**, das Sie bereits erstellt haben, um Anfragen zu autorisieren.
+Wenn Sie dieses Feature zusammen mit dem Feature [Audience Sync to Facebook]({{site.baseurl}}/audience_sync_facebook) verwenden, verwendet Braze standardmäßig das zuverlässigere **System User Token**, das Sie bereits erstellt haben, um Anfragen zu autorisieren.
 {% endalert %}
 
 {% alert note %}
-Wenn Sie an den Beta-Tests für Meta Work Accounts teilnehmen, stellen Sie sicher, dass Sie Ihr Konto von der [Facebook-Partnerseite]({{site.baseurl}}/partners/canvas_steps/facebook_audience_sync/#step-1-connect-to-facebook) trennen und erneut verbinden.
+Wenn Sie an den Beta-Tests für Meta Work Accounts teilnehmen, stellen Sie sicher, dass Sie Ihr Konto von der [Facebook-Partnerseite]({{site.baseurl}}/partners/canvas_steps/facebook_audience_sync#step-1-connect-to-facebook) trennen und erneut verbinden.
 {% endalert %}
 
 ## Voraussetzungen {#prerequisites}
@@ -38,7 +38,7 @@ Wenn Sie an den Beta-Tests für Meta Work Accounts teilnehmen, stellen Sie siche
 
 ## Integration
 
-### 1. Schritt: Mit Facebook verbinden {#step-1-connect-to-facebook}
+### Schritt 1: Mit Facebook verbinden {#step-1-connect-to-facebook}
 
 1. Gehen Sie im Braze-Dashboard zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie **Facebook** aus.
 
@@ -55,10 +55,10 @@ Wenn Sie an den Beta-Tests für Meta Work Accounts teilnehmen, stellen Sie siche
 {% alert important %}
 Für Kund:innen, die bereits den Facebook-App-Überprüfungsprozess für [Ads Management](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) und [Ads Management Standard Access](https://developers.facebook.com/docs/marketing-api/access#standard) durchlaufen haben, ist Ihr System User Token für den Facebook-Audience-Schritt weiterhin gültig. Sie können das Facebook System User Token nicht über die Facebook-Partnerseite bearbeiten oder widerrufen. Stattdessen können Sie Ihr Facebook-Konto verbinden, um Ihr Facebook System User Token in Ihrem Braze-Workspace zu ersetzen.
 
-<br><br>Die neue Facebook-oAuth-Konfiguration gilt auch für [Facebook-Exporte über Segmente]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites).
+<br><br>Die neue Facebook-oAuth-Konfiguration gilt auch für [Facebook-Exporte über Segmente]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites).
 {% endalert %}
 
-### 2. Schritt: Ihre Nutzer:innen nach Facebook exportieren {#step-2-export-your-users-into-facebook}
+### Schritt 2: Ihre Nutzer:innen nach Facebook exportieren {#step-2-export-your-users-into-facebook}
 
 In Braze ist der Facebook Audience Export über die Seite **Segments** zugänglich.
 
@@ -82,17 +82,17 @@ Sie können in einem einzelnen Export nur ein Nutzer:innen-Feld auswählen. Wenn
 {% alert important %}
 Aus Datenschutzgründen erlaubt Facebook es Ihnen nicht, Folgendes zu sehen:
 
-- Die genauen Nutzer:innen, die erfolgreich zu einer Custom Audience hinzugefügt wurden. [Mehr erfahren.](https://www.facebook.com/business/help/112061095610075)
-- Die Größe der Custom Audience. [Mehr erfahren.](https://marketingland.com/exclusive-facebook-will-no-longer-show-audience-reach-estimates-for-custom-audiences-after-vulnerability-detected-236923)
+- Die genauen Nutzer:innen, die erfolgreich zu einer Custom Audience hinzugefügt wurden. [Erfahren Sie, warum Facebook einzelne Zielgruppenmitglieder ausblendet](https://www.facebook.com/business/help/112061095610075).
+- Die Größe der Custom Audience. [Erfahren Sie mehr über die Änderungen bei der Schätzung der Zielgruppengröße durch Facebook](https://marketingland.com/exclusive-facebook-will-no-longer-show-audience-reach-estimates-for-custom-audiences-after-vulnerability-detected-236923).
 {% endalert %}
 
 #### Konfigurieren Sie Ihren Zielgruppenexport {#configuring-your-audience-export}
 
 Beim Aufbau von Facebook-Zielgruppen können Sie bestimmte Nutzer:innen auf der Grundlage ihrer Präferenzen ein- oder ausschließen, um Datenschutzgesetze einzuhalten, wie z. B. das Recht „Nicht verkaufen oder teilen“ gemäß dem [CCPA](https://oag.ca.gov/privacy/ccpa). Marketer sollten die entsprechenden Filter für die Eignung der Nutzer:innen in ihre Canvas-Eingangskriterien aufnehmen. Nachfolgend finden Sie einige Optionen.
 
-- Wenn Sie den [iOS Identifier for Advertisers (IDFA) über das Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection) erfasst haben, können Sie den Filter **Ads Tracking Enabled** verwenden. Wählen Sie den Wert `true` aus, um Nutzer:innen nur in Audience-Sync-Ziele zu senden, für die sie ein Opt-in gegeben haben.
+- Wenn Sie den [iOS Identifier for Advertisers (IDFA) über das Braze SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection) erfasst haben, können Sie den Filter **Ads Tracking Enabled** verwenden. Wählen Sie den Wert `true` aus, um Nutzer:innen nur in Audience-Sync-Ziele zu senden, für die sie ein Opt-in gegeben haben.
 
-![]({% image_buster /assets/img/tiktok/tiktok16.png %}){: style="max-width:75%;"}
+![Canvas-Eingangsfilter, bei dem „Ads Tracking Enabled“ auf „true“ gesetzt ist.]({% image_buster /assets/img/tiktok/tiktok16.png %}){: style="max-width:75%;"}
 
 - Wenn Sie Opt-ins, Opt-outs, `Do Not Sell Or Share` oder andere angepasste Attribute erfassen, sollten Sie diese als Filter in Ihre Canvas-Eingangskriterien aufnehmen:
 
@@ -131,8 +131,8 @@ Wenn Sie beim Exportieren eines Segments als Facebook Audience einen Fehler erha
 
 Verwenden Sie die folgenden Prüfungen, um Ihre Einrichtung zu verifizieren:
 
-- **Prüfen Sie, ob Sie ein Admin der App sind:** Gehen Sie zu [developers.facebook.com](https://developers.facebook.com/), öffnen Sie **My Apps** und wählen Sie die App Ihres Unternehmens aus. Wenn Sie die App nicht sehen, muss Ihr Entwicklungsteam Sie möglicherweise hinzufügen. Gehen Sie im App-Dashboard im linken Menü zu **Roles**, um Ihre Rolle zu bestätigen (Admin, Developer, Tester oder Analytics User).
+- **Prüfen Sie, ob Sie ein Admin der App sind:** Gehen Sie zu [developers.facebook.com](https://developers.facebook.com/), öffnen Sie **My Apps** und wählen Sie die App Ihres Unternehmens aus. Wenn Sie die App nicht sehen, muss Ihr Entwicklungsteam Sie möglicherweise hinzufügen. Gehen Sie im App-Dashboard zu **Roles**, um Ihre Rolle zu bestätigen (Admin, Developer, Tester oder Analytics User).
 - **Prüfen Sie, ob Ihr Werbekonto mit Ihrer App verknüpft ist:** Gehen Sie im Facebook App Dashboard zu **Settings** > **Advanced**, scrollen Sie zu **Advertising Accounts** und fügen Sie die Facebook-Werbekonto-ID hinzu, die Sie für Braze-Zielgruppenexporte verwenden möchten, falls sie noch nicht aufgeführt ist.
-- **Prüfen Sie, ob Sie ein Admin des Werbekontos sind:** Gehen Sie zu [business.facebook.com](https://business.facebook.com/) und wählen Sie im Dropdown-Menü oben links **Business Settings** aus. Gehen Sie dann zu **Accounts** > **Ad accounts** und wählen Sie das Werbekonto aus. Bestätigen Sie Ihren Zugriff und dass Sie über die erforderlichen Berechtigungen zum Erstellen von Custom Audiences verfügen.
+- **Prüfen Sie, ob Sie ein Admin des Werbekontos sind:** Gehen Sie zu [business.facebook.com](https://business.facebook.com/), öffnen Sie im Hauptmenü **Business Settings** und gehen Sie dann zu **Accounts** > **Ad accounts**. Wählen Sie das Werbekonto aus. Bestätigen Sie Ihren Zugriff und dass Sie über die erforderlichen Berechtigungen zum Erstellen von Custom Audiences verfügen.
 
 Weitere Informationen finden Sie in der [Facebook Custom Audience API-Dokumentation](https://developers.facebook.com/docs/) und im [Facebook Business-Hilfecenter-Leitfaden zu Custom Audiences](https://www.facebook.com/business/help).

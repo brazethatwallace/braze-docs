@@ -15,7 +15,7 @@ tool: Currents
 
 特定の日付範囲のキャンペーンまたはキャンバスの指標を取得するには、以下のいずれかの方法を使用してください。
 
-- 標準APIの時間枠外でダッシュボードスタイルのレポートが必要な場合は、日付に合わせたエクスポートの[製品リクエスト](https://portal.braze.com/)を送信してください。
+- {% multi_lang_include product_feedback_cta.md context="gap" feature="date-aligned campaign or キャンバス exports for dashboard-style reporting outside standard API windows" %}
 - `ending_at`と`length`パラメーターを指定して[キャンペーン分析]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics)または[キャンバス分析]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)エンドポイントを呼び出すか、時系列データには[`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics)および[`/canvas/data_series`]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_analytics)を使用してください。
 - Amazon S3、Azure Blob Storage、またはその他のサポートされている送信先で、継続的にクエリ可能なメッセージエンゲージメントデータが必要な場合は、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)を使用してイベントをウェアハウスにストリーミングしてください。
 

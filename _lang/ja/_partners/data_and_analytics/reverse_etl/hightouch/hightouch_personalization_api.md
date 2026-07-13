@@ -71,24 +71,24 @@ Hightouchモデルは、ソースからどのようなデータを取得する�
 2. 次に[モデリング方法](https://hightouch.com/docs/models/creating-models)を選択します。すべての情報を1つのテーブルに結合する必要があるため、ビジュアルテーブルセレクタを使って定義できます。あるいは、必要なカラムだけを含むSQLを書いたり、既存のdbtモデル、Looker Looks、Sigmaワークブックに頼ることもできます。<br><br>
 3. 続行する前に、モデルをプレビューして、目的のデータをクエリしていることを確認します。デフォルトでは、Brazeはプレビューを最初の100レコードに制限しています。データを検証したら、**Continue** をクリックします。<br><br>
 4. モデルに名前を付けます（例:「User recommendations」）。<br><br>
-5. 最後に主キーを選択し、**Finish** をクリックします。主キーは、一意の識別子を持つ列である必要があります。これは、特定のユーザーのレコメンデーションを取得するためにPersonalization APIを呼び出すときに使用するフィールドでもあります。
+5. 最後に主キーを選択し、**Finish** をクリックします。主キーは、一意の識別子を持つカラムである必要があります。これは、特定のユーザーのレコメンデーションを取得するためにPersonalization APIを呼び出すときに使用するフィールドでもあります。
 
 ### ステップ3: Personalization APIを設定する {#step-3-configure-personalization-api}
 
 APIでリクエストを受信するための準備は、次の2つのステップからなります。
-- お客様のインフラに最も近い地域でPersonalization APIを有効にする
+- お客様のインフラに最も近いリージョンでPersonalization APIを有効にする
 - Hightouchが管理するキャッシュでマテリアライズするモデルを定義する同期を作成する
 
 以下の手順に従って、両方を完了させます。
 
 1. Hightouchで[**Destinations**](https://app.hightouch.com/destinations)に移動し、作成済みのHightouch Personalization APIを選択します。この送信先が有効になっていない場合は、[Hightouchサポート](mailto:friends@hightouch.com)にお問い合わせください。<br><br>
-2. 次に、適切な地域を選択します。インフラに最も近い地域を選択することで、応答時間を短縮できます。インフラに近いリージョンが表示されない場合は、[Hightouchサポート](mailto:friends@hightouch.com)にお問い合わせください。<br><br>
+2. 次に、適切なリージョンを選択します。インフラに最も近いリージョンを選択することで、応答時間を短縮できます。インフラに近いリージョンが表示されない場合は、[Hightouchサポート](mailto:friends@hightouch.com)にお問い合わせください。<br><br>
 3. [**Syncs** 概要ページ](https://app.hightouch.com/syncs)に移動し、**Add sync** ボタンをクリックします。次に、該当するモデルと、以前に設定した送信先を選択します。<br><br>
 4. 英数字のコレクション名を入力します。コレクションは概念的にはデータベースのテーブルに似ています。各コレクションは特定のデータタイプ（顧客や請求書など）を表します。コレクション名には英数字のみを使用する必要があり、Personalization APIエンドポイントの一部になります。<br><br>
-5. 次に、モデルのどの列をレコード検索のプライマリインデックスとして使用するかを指定します。このフィールドは、コレクション内の各レコードを一意に識別する必要があり、多くの場合、モデルの主キーと同じです。Personalization APIは、複数のインデックスでの検索をサポートしています。たとえば、`user_id`、`anonymous_id`、または`email_address`を使用して顧客プロファイルを取得できます。複数のインデックスを有効にする場合は、[Hightouchサポート](mailto:friends@hightouch.com)にご連絡ください。<br><br>
+5. 次に、モデルのどのカラムをレコード検索のプライマリインデックスとして使用するかを指定します。このフィールドは、コレクション内の各レコードを一意に識別する必要があり、多くの場合、モデルの主キーと同じです。Personalization APIは、複数のインデックスでの検索をサポートしています。たとえば、`user_id`、`anonymous_id`、または`email_address`を使用して顧客プロファイルを取得できます。複数のインデックスを有効にする場合は、[Hightouchサポート](mailto:friends@hightouch.com)にご連絡ください。<br><br>
 6. フィールドマッパーを使用して、APIレスポンスペイロードに含めるモデルのカラムを指定します。これらのフィールドの名前を変更したり、Liquidテンプレート言語を使用して変換を適用するために高度なマッパーを使用したりできます。<br><br>
 7. ユースケースに適した[削除動作](https://www.hightouch.com/docs/destinations/personalization-api#delete-behavior)を選択します。<br><br>
-8. 最後に**Continue**をクリックし、[同期スケジュール](https://hightouch.com/docs/syncs/schedule-sync-ui)を選択します。
+8. 最後に **Continue** をクリックし、[同期スケジュール](https://hightouch.com/docs/syncs/schedule-sync-ui)を選択します。
 
 Hightouchは、ウェアハウス内のデータをマネージドデータベースに同期し、Personalization APIを介して公開します。
 

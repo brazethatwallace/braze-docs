@@ -3,14 +3,14 @@ nav_title: 모범 사례
 hidden: true
 ---
 
-# 고객 프로필 수명주기 및 식별자 모범 사례 {#user-lifecycle-and-identifiers-best-practices}
+# 사용자 프로필 수명주기 및 식별자 모범 사례 {#user-lifecycle-and-identifiers-best-practices}
 
 ## 데이터 수집 {#data-collection}
 
 Braze가 데이터를 수집하는 방법에 대해 자세히 알아보세요:
 - [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)
 - [데이터 수집 모범 사례]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices)
-- [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
+- [사용자 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
 
 ## Braze 식별자 {#braze-identifiers}
 
@@ -48,7 +48,7 @@ Braze가 데이터를 수집하는 방법에 대해 자세히 알아보세요:
 
 사용자 추적 엔드포인트를 사용하여 선택한 식별자를 별칭 이름으로 사용하여 사용자 별칭을 생성합니다. 새 사용자 별칭이 정의된 속성, 이벤트 또는 구매 오브젝트 내에서 `_update_existing_only`를 `false`로 포함하면 별칭 프로필을 생성하고 해당 프로필에 속성, 이벤트 및 구매를 동시에 추가할 수 있습니다.
 
-사용자 별칭이 발송 가능한 프로필이 되려면 아래와 같이 `email` 필드에 이메일 주소를 포함해야 합니다.
+사용자 별칭이 발송 가능한 프로필이 되려면 다음 예시와 같이 `email` 필드에 이메일 주소를 포함해야 합니다.
 
 ```json
 {
@@ -121,18 +121,18 @@ Braze가 데이터를 수집하는 방법에 대해 자세히 알아보세요:
 - Braze에는 값의 변경 여부와 관계없이 고객 프로필에 "쓰기"될 때마다 데이터 포인트가 기록되는 데이터 포인트 모델이 있습니다.
 - 데이터 포인트는 코호트 가져오기와 사용자 추적 엔드포인트 모두에서 발생합니다.
 
-## 파트너로 참여 분석 스트리밍 {#engagement-analytics-streaming-to-partner}
+## 파트너로 인게이지먼트 분석 스트리밍 {#engagement-analytics-streaming-to-partner}
 
 ### Currents
 
-Currents는 Braze의 거의 실시간 메시지 참여 분석 스트리밍 도구입니다. 고객의 워크스페이스에서 전송된 Campaigns 및 Canvases에 대한 모든 발송, 전달, 열람, 클릭 등의 사용자 수준 데이터를 스트리밍합니다. 몇 가지 주의할 사항이 있습니다: Currents는 고객의 커넥터당 가격이 책정되므로 모든 신규 Currents 파트너는 EA 프로세스를 거쳐야 합니다. 커스텀 브랜드 UI를 구축하고 커넥터를 공개적으로 제공하기 전에 파트너에게 5명의 고객을 EA의 일부로 확보할 것을 요청합니다.
+Currents는 Braze의 거의 실시간 메시지 인게이지먼트 분석 스트리밍 도구입니다. 고객의 워크스페이스에서 전송된 Campaigns 및 Canvases에 대한 모든 발송, 전달, 열람, 클릭 등의 사용자 수준 데이터를 스트리밍합니다. 몇 가지 주의할 사항이 있습니다: Currents는 고객의 커넥터당 가격이 책정되므로 모든 신규 Currents 파트너는 EA 프로세스를 거쳐야 합니다. 커스텀 브랜드 UI를 구축하고 커넥터를 공개적으로 제공하기 전에 파트너에게 5명의 고객을 EA의 일부로 확보할 것을 요청합니다.
 - [파트너 설명서]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector)
-- [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) - Currents 커넥터를 구매한 모든 고객은 이러한 이벤트에 액세스할 수 있습니다.
+- [메시지 인게이지먼트 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) - Currents 커넥터를 구매한 모든 고객은 이러한 이벤트에 액세스할 수 있습니다.
 - [사용자 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) - Currents 커넥터를 구매하는 모든 고객이 이러한 이벤트를 포함하는 "모든 이벤트" 커넥터를 구매하는 것은 아닙니다.
 
 ### Snowflake 데이터 공유 {#snowflake-data-share}
 
-Snowflake 데이터 공유 커넥터를 구매한 고객은 자동으로 메시지 참여 및 사용자 행동 이벤트에 모두 액세스할 수 있습니다. Snowflake 데이터 공유를 파트너 통합으로 사용하는 경우, Braze는 고객을 대신하여 파트너의 Snowflake 인스턴스에 공유를 프로비저닝합니다. 참고로, 리전 간 데이터 공유는 고객에게 더 높은 비용을 요구하므로, Snowflake와 통합하려는 파트너에게 `US-EAST-1` 및/또는 `EU-CENTRAL-1`에 계정이 필요하다는 안내를 요청합니다.
+Snowflake 데이터 공유 커넥터를 구매한 고객은 자동으로 메시지 인게이지먼트 및 사용자 행동 이벤트에 모두 액세스할 수 있습니다. Snowflake 데이터 공유를 파트너 통합으로 사용하는 경우, Braze는 고객을 대신하여 파트너의 Snowflake 인스턴스에 공유를 프로비저닝합니다. 참고로, 리전 간 데이터 공유는 고객에게 더 높은 비용을 요구하므로, Snowflake와 통합하려는 파트너에게 `US-EAST-1` 및/또는 `EU-CENTRAL-1`에 계정이 필요하다는 안내를 요청합니다.
 - [파트너 설명서]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/custom_http_connector)
 
 ## Campaigns 및 Canvases 구축 및 트리거 {#building-and-triggering-campaigns-and-canvases}
@@ -157,7 +157,7 @@ Braze는 고객과 파트너가 고객의 워크스페이스 내에서 이메일
     - 발송 시점에 메시지에 동적으로 채워질 수 있는 데이터입니다.
 
 ### API Campaigns
-API Campaigns를 생성할 때(위에서 언급한 API 트리거 Campaigns와는 다름), Braze 대시보드는 고객이 Campaign 보고를 위한 분석을 추적할 수 있는 `campaign_id`를 생성하는 데만 사용됩니다. Campaign 메시지 자체는 API 요청 내에서 정의됩니다.
+API Campaigns를 생성할 때(이 섹션에서 언급한 API 트리거 Campaigns와는 다름), Braze 대시보드는 고객이 Campaign 보고를 위한 분석을 추적할 수 있는 `campaign_id`를 생성하는 데만 사용됩니다. Campaign 메시지 자체는 API 요청 내에서 정의됩니다.
 - [즉시 API Campaign 보내기]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 - [API Campaign 예약하기]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
 

@@ -14,7 +14,7 @@ platform:
 
 # Content Cardsの動作をカスタマイズする {#customize-the-behavior-of-content-cards}
 
-> この実装ガイドでは、Content Cardsの動作の変更、ペイロードへのキーと値のペアなどの追加、一般的なカスタマイズのレシピについて説明します。コンテンツカードタイプの完全なリストについては、[Content Cardsについて]({{site.baseurl}}/developer_guide/content_cards)を参照してください。
+> この実装ガイドでは、Content Cardsの動作の変更、ペイロードへのキーと値のペアなどの追加、一般的なカスタマイズのレシピについて説明します。Content Cardsタイプの完全なリストについては、[Content Cardsについて]({{site.baseurl}}/developer_guide/content_cards)を参照してください。
 
 ## キーと値のペア {#key-value-pairs}
 
@@ -63,7 +63,7 @@ Content Cardsを既存のフィードにシームレスにブレンドし、複�
 ## インタラクティブコンテンツとしてのContent Cards {#content-cards-as-interactive-content}
 ![画面左下に50%のプロモーションを示すインタラクティブなContent Cardが表示されている。クリックすると、カートにプロモーションが適用されます。]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
 
-Content Cardsを活用して、ユーザーのためのダイナミックでインタラクティブな体験を作成できます。右の例では、Content Cardのポップアップがチェックアウト時に表示され、ユーザーに最新のプロモーションを提供しています。このようなカードをうまく配置することで、ユーザーを特定のアクションに「後押し」することができます。
+Content Cardsを活用して、ユーザーのためのダイナミックでインタラクティブな体験を作成できます。右の例では、Content Cardsのポップアップがチェックアウト時に表示され、ユーザーに最新のプロモーションを提供しています。このようなカードをうまく配置することで、ユーザーを特定のアクションに「後押し」することができます。
 
 このユースケースのキーと値のペアには、希望する割引額として設定された`discount_percentage`と、`coupon_code`として設定された`class_type`が含まれます。これらのキーと値のペアによって、チェックアウト画面でタイプ別のContent Cardsをフィルタリングして表示できます。キーと値のペアを使用して複数のフィードを管理する方法の詳細については、[デフォルトのContent Cardsフィードのカスタマイズ]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds)を参照してください。
 <br>
@@ -75,7 +75,7 @@ Content Cardsを活用して、ユーザーのためのダイナミックでイ�
 
 ![Brazeのサンプルアプリ「Swifty」が表示されたiPhoneのホーム画面に、赤いバッジで数字の7が表示されている]({% image_buster /assets/img/cc_implementation/ios-unread-badge.png %}){: style="max-width:35%;float:right;margin-left:15px;border:none;"}
 
-バッジは小さなアイコンで、ユーザーの注意を引くのに最適です。バッジを使って新しいContent Cardsの内容をユーザーに知らせることで、ユーザーをアプリに呼び戻し、セッションを増やすことができます。
+バッジは小さなアイコンで、ユーザーの注意を引くのに最適です。バッジを使って新しいContent Cardsのコンテンツをユーザーに知らせることで、ユーザーをアプリに呼び戻し、セッションを増やすことができます。
 
 ### Content Cardsの未読数をバッジで表示する {#displaying-the-number-of-unread-content-cards-as-a-badge}
 

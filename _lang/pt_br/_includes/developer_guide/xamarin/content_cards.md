@@ -58,7 +58,7 @@ Para uma referência completa do cartão de imagem com legenda, consulte a docum
 
 ### Clássico {#classic}
 
-Os cartões clássicos têm um título, uma descrição e uma imagem opcional à esquerda do texto.
+Os cartões clássicos têm um título, uma descrição e uma imagem opcional antes do texto.
 
 | Propriedade | Descrição |
 |-------------------|-------------------------------------------------------------------------------------------------------------------|

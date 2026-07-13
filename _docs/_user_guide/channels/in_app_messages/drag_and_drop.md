@@ -33,7 +33,7 @@ Not sure whether your in-app message should be sent using a campaign or a [Canva
 
 {% details More information on minimum SDKs %}
 
-Messages created using the drag-and-drop editor can only be sent to users on the minimum SDK versions (see table above). If a user hasn't updated their application (that is, they're on an older SDK version), they will not receive the in-app message.
+Messages created using the drag-and-drop editor can only be sent to users on the minimum SDK versions (see the table in the previous section). If a user hasn't updated their application (that is, they're on an older SDK version), they will not receive the in-app message.
 
 To take advantage of all features available in the drag-and-drop editor, update your SDKs to the recommended SDK versions. This allows you to take advantage of the following additional features:
 
