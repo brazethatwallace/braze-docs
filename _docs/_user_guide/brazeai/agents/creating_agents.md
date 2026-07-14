@@ -107,15 +107,15 @@ When you use an [advanced output schema]({{site.baseurl}}/user_guide/brazeai/age
 
 #### Configure fallback values {#configure-fallback-values}
 
-Fallback values are available for **Canvas step agents** only. In the **Output** section for a Canvas agent, you can define values that Braze uses when an agent invocation fails—for example, when the LLM times out or returns an invalid API key error. Fallback values work like personalization defaults. You might set a static subject line or short message that still gives users useful output when the agent cannot run.
+Fallback values are available for Canvas Step Agents only. In the **Output** section for a Canvas Step Agent, you can define values that Braze uses when an agent invocation fails—for example, when the LLM times out or returns an invalid API key error. Fallback values work like personalization defaults. You might set a static subject line or short message that still gives users useful output when the agent cannot run.
 
-**Catalog agents** do not support configuring fallback values in Agent Console.
+Catalog Agents do not support configuring fallback values in Agent Console.
 
 ![Agent Console Output configuration showing the Fallback output field for a Number schema.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
 For Canvas agents, fallback values support [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) templating so you can reference user attributes or context variables in the fallback text.
 
-The fallback fields adapt to your Canvas agent's output format:
+The fallback fields adapt to your Canvas Step Agent's output format:
 
 | Output format | Fallback configuration |
 | --- | --- |
@@ -124,7 +124,7 @@ The fallback fields adapt to your Canvas agent's output format:
 | JSON schema (advanced schema) | Braze reads your JSON schema and generates an input field for each property so you can define a fallback value per key. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configure fallback values" }
 
-When a Canvas agent with fallback values runs in an [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze renders the fallback per user and stores it in the output variable instead of `null`. If you do not configure fallback values, failed invocations leave the Canvas output unset (`null`).
+When a Canvas Step Agent with fallback values runs in an [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze renders the fallback per user and stores it in the output variable instead of `null`. If you do not configure fallback values, failed invocations leave the Canvas output unset (`null`).
 
 For runtime behavior, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 

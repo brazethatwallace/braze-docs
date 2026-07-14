@@ -12,9 +12,9 @@ toc_headers: h2
 
 ## General
 
-### What is the difference between Canvas Agents and Catalog Agents?
+### What is the difference between Canvas Step Agents and Catalog Agents?
 
-When creating an agent, you specify if you want to create a Canvas Agent or Catalog Agent. This determines the types of instructions and options the agent can support. Canvas Agents process users in real-time within journeys, while Catalog Agents enrich catalog data by adding or updating columns with processed information.
+When creating an agent, you specify if you want to create a Canvas Step Agent or Catalog Agent. This determines the types of instructions and options the agent can support. Canvas Step Agents process users in real-time within journeys, while Catalog Agents enrich catalog data by adding or updating columns with processed information.
 
 ### What are the benefits of using Auto model versus bring-your-own (BYO) model?
 
@@ -43,13 +43,13 @@ Agents also cannot warn you when required data is missing—they proceed with wh
 
 Consider using [Operator]({{site.baseurl}}/user_guide/brazeai/operator) to troubleshoot why your agent is not following your instructions. Operator can provide step-by-step instructions and detailed explanations.
 
-### Why did my catalog agent skip some rows?
+### Why did my Catalog Agent skip some rows?
 
-Catalog agents skip a row when a column you marked **required to run** is blank or missing—for example, a `gender` field that has not been filled in. After you select input columns, enable the required-input control for the catalog field and choose which columns must contain values before the agent runs; selected columns start as required by default, but you can remove columns that are allowed to be empty without blocking the invocation. This avoids wasted tokens on incomplete data.
+Catalog Agents skip a row when a column you marked **required to run** is blank or missing—for example, a `gender` field that has not been filled in. After you select input columns, enable the required-input control for the catalog field and choose which columns must contain values before the agent runs; selected columns start as required by default, but you can remove columns that are allowed to be empty without blocking the invocation. This avoids wasted tokens on incomplete data.
 
 The agent also respects column dependencies. If an output column depends on other columns (for example, column D requires values in columns B and C), the agent does not run until those upstream columns are populated for that row.
 
-For more details, see [Catalog agent best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
+For more details, see [Catalog Agent best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
 ### My agent is struggling with a complex task. How might I improve its performance? {#subagent-approach}
 
@@ -68,7 +68,7 @@ A custom agent may time out if:
 - The agent instructions ask the agent to output a different output format than the one specified in the **Output** tab (for example, if the agent instructions ask for a string, but in **Output** tab the output is defined as a number)
 - The agent's task is too complex and would benefit from a [sub-agent approach](#subagent-approach) instead
 
-For Canvas agents, configure [fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in Agent Console so users still receive output when an invocation fails.
+For Canvas Step Agents, configure [fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in Agent Console so users still receive output when an invocation fails.
 
 ### Why did my agent do fine in testing but isn't getting any user-specific data when I launch it in a Canvas?
 
