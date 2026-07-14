@@ -869,7 +869,7 @@ You must return an object containing exactly three keys: "standardized_destinati
 
 Input & Output Example:
 <input_example>
-{{${first_name}}}: Sarah
+{{${first_name}}}: Jane
 {{context.${user_entered_destination}}}: Parisss
 Catalog search for destinations similar to "Parisss" returns: {"destination_name": "Paris"}
 </input_example>
