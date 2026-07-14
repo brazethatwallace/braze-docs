@@ -107,7 +107,7 @@ To make the most out of Braze, our SDK integrators often implement the Braze SDK
 A personalized integration allows for customized communication that is relevant to your users' experience.
 
 {% alert important %}
-Braze will ban or block users with over 5,000,000 sessions ("dummy users") and will no longer ingest their SDK events. For more information, refer to [Spam blocking]({{site.baseurl}}/user_archival#spam-blocking).
+Braze will ban or block users with over 5,000,000 sessions ("dummy users") and will no longer ingest their SDK events. For more information, refer to <a href="/docs/user_archival#spam-blocking">Spam blocking</a>.
 {% endalert %}
 
 

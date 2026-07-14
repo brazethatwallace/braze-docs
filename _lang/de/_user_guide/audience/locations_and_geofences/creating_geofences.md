@@ -107,7 +107,7 @@ Damit Geofencing zuverlässig funktioniert, müssen Nutzer:innen den genauen Sta
 
 Ein Standortberechtigungs-Primer ist eine In-App-Nachricht, die den Wert der Standortdatenfreigabe erklärt, bevor Nutzer:innen die native Betriebssystem-Berechtigungsaufforderung sehen. Da die native Standortaufforderung nur einmal (auf iOS) oder eine begrenzte Anzahl von Malen (auf Android) angezeigt werden kann, erhöht das vorherige Priming der Nutzer:innen die Opt-in-Raten.
 
-### 1. Schritt: Mit Ihrem Entwicklungsteam zusammenarbeiten {#step-1-work-with-your-development-team}
+### Schritt 1: Mit Ihrem Entwicklungsteam zusammenarbeiten {#step-1-work-with-your-development-team}
 
 Da Braze In-App-Nachrichten keine integrierte Button-Aktion zum Aufrufen der nativen Standortberechtigungsaufforderung enthalten, muss Ihr Entwicklungsteam die Standortberechtigungen auf der Geräteseite handhaben. Bevor Sie die In-App-Nachricht in Braze erstellen, koordinieren Sie sich mit Ihrem Entwicklungsteam, um Deeplinks einzurichten, die Ihre In-App-Nachricht aufrufen kann. Die spezifische Implementierung hängt von der Architektur Ihrer App ab, aber gängige Ansätze umfassen:
 
@@ -116,7 +116,7 @@ Da Braze In-App-Nachrichten keine integrierte Button-Aktion zum Aufrufen der nat
 
 Weitere Informationen zu Deeplinks finden Sie unter [Deeplinking zu In-App-Inhalten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls). Plattformspezifische Anleitungen zur Standort- und Geofence-Integration finden Sie unter [Geofences]({{site.baseurl}}/developer_guide/geofences) im Entwicklerhandbuch.
 
-### 2. Schritt: Die Standort-Primer-In-App-Nachricht erstellen {#step-2-build-the-location-primer-in-app-message}
+### Schritt 2: Die Standort-Primer-In-App-Nachricht erstellen {#step-2-build-the-location-primer-in-app-message}
 
 Erstellen Sie eine In-App-Nachricht-Campaign, die den Wert des Standortzugriffs erklärt. Alle In-App-Nachrichtentypen unterstützen dieses Opt-in, einschließlich Drag-and-Drop.
 
@@ -128,15 +128,15 @@ Erstellen Sie eine In-App-Nachricht-Campaign, die den Wert des Standortzugriffs 
 4. Fügen Sie einen primären Call-to-Action-Button hinzu (z. B. **Standort aktivieren**) und setzen Sie das Klickverhalten auf **Deeplink in App**, wobei Sie den Deeplink verwenden, den Ihr Entwicklungsteam erstellt hat, um die native Standortaufforderung auszulösen.
 5. Fügen Sie einen sekundären Button hinzu (z. B. **Nicht jetzt**), der die Nachricht schließt.
 
-### 3. Schritt: Die richtige Zielgruppe ansprechen {#step-3-target-the-right-audience}
+### Schritt 3: Die richtige Zielgruppe ansprechen {#step-3-target-the-right-audience}
 
 Für beste Ergebnisse zeigen Sie den Standort-Primer, wenn Nutzer:innen engagiert sind und wahrscheinlich einen Mehrwert in der Standortfreigabe sehen.
 
 - **Sprechen Sie Nutzer:innen an, die noch keinen Standortzugriff gewährt haben.** Arbeiten Sie mit Ihrem Entwicklungsteam zusammen, um die beste Methode zu bestimmen, Nutzer:innen basierend auf ihrem Standortberechtigungsstatus zu tracken und zu segmentieren.
-- **Zeigen Sie den Primer nach einer hochwertigen Aktion,** wie dem Abschluss eines Kaufs, dem Speichern eines Shops als Favorit oder dem Durchsuchen von Veranstaltungen in der Nähe. Nutzer:innen sind eher bereit, sich anzumelden, wenn sie den Vorteil verstehen.
+- **Zeigen Sie den Primer nach einer hochwertigen Aktion,** wie dem Abschluss eines Kaufs, dem Speichern eines Shops als Favorit oder dem Durchsuchen von Ereignissen in der Nähe. Nutzer:innen sind eher bereit, sich anzumelden, wenn sie den Vorteil verstehen.
 - **Vermeiden Sie es, den Primer beim ersten Start zu zeigen.** Warten Sie, bis Nutzer:innen genug Mehrwert aus der App erfahren haben, um ein personalisierteres Erlebnis zu wünschen.
 
-### 4. Schritt: Die empfohlene Berechtigungsstufe fördern {#step-4-encourage-the-recommended-permission-level}
+### Schritt 4: Die empfohlene Berechtigungsstufe fördern {#step-4-encourage-the-recommended-permission-level}
 
 Ihre Primer-Nachrichten sollten Nutzer:innen ermutigen, die Berechtigungsstufe zu gewähren, die Geofencing ermöglicht:
 
@@ -186,7 +186,7 @@ Diese Nachfassung gibt Nutzer:innen Kontext, warum das Upgrade auf „Immer erla
 
 ## Geofences manuell erstellen {#manually-create-geofences}
 
-### 1. Schritt: Ein Geofence-Set erstellen {#step-1-create-a-geofence-set}
+### Schritt 1: Ein Geofence-Set erstellen {#step-1-create-a-geofence-set}
 
 Um einen Geofence zu erstellen, erstellen Sie zuerst ein Geofence-Set.
 
@@ -195,7 +195,7 @@ Um einen Geofence zu erstellen, erstellen Sie zuerst ein Geofence-Set.
 3. Geben Sie unter **Set name** einen Namen für Ihr Geofence-Set ein.
 4. (Optional) Fügen Sie Tags hinzu, um Ihr Set zu filtern.
 
-### 2. Schritt: Die Geofences hinzufügen {#step-2-add-the-geofences}
+### Schritt 2: Die Geofences hinzufügen {#step-2-add-the-geofences}
 
 Fügen Sie als Nächstes Geofences zu Ihrem Geofence-Set hinzu.
 

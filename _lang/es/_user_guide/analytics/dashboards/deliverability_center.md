@@ -68,7 +68,7 @@ Para acceder al Centro de entrega, necesitas los [permisos de usuario]({{site.ba
 Antes de conectarte al Centro de entrega, necesitarás configurar una cuenta de Google Postmaster Tools. Puedes usar una cuenta de Gmail personal o de trabajo para configurar tu Google Postmaster.
 
 1. Ve al [panel de Google Postmaster Tools](https://postmaster.google.com/managedomains?pli=1).
-2. En la esquina inferior derecha, selecciona <i class="fas fa-plus-circle"></i> **Add domain**.
+2. En la parte inferior de la página, selecciona <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Introduce tu dominio raíz (principal) para autenticar tu correo electrónico. Asegúrate de que el registro TXT esté vinculado a este dominio raíz (principal), **no** al subdominio que estás usando a través de Braze. Verificar el dominio raíz (principal) te permite agregar subdominios posteriormente en Postmaster Tools sin crear registros TXT adicionales. Por ejemplo, al verificar `braze.com`, puedes agregar después `demo.braze.com` como un subdominio separado en Postmaster Tools para ver métricas a nivel de subdominio.
 4. Google genera un registro TXT que se puede agregar directamente al DNS de tu dominio. Esto generalmente lo gestiona quien administra tu DNS. Para obtener información y orientación sobre cómo actualizar tu DNS específico, consulta [Verificar tu dominio (pasos específicos del host)](https://support.google.com/a/topic/1409901).
 5. Selecciona **Next**. <br>![Un ejemplo de dominio "demo.braze.com" para autenticar un correo electrónico.]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -134,7 +134,7 @@ Usa la siguiente tabla para ayudarte a monitorear y comprender las calificacione
 | Alta | Tiene un buen historial de muy pocas quejas de correo no deseado. Cumple con las directrices de remitente de Gmail. Los correos electrónicos rara vez se filtran a la carpeta de correo no deseado. Tiene un buen historial de una tasa de correo no deseado muy baja. Cumple con las [directrices de remitente de Gmail](https://developers.google.com/gmail/markup/registering-with-google). |
 | Media/Aceptable | Conocido por generar interacción positiva, pero ocasionalmente ha recibido un bajo volumen de quejas de correo no deseado. La mayoría de los correos electrónicos de este dominio llegan al buzón de entrada (excepto cuando hay un aumento notable en los niveles de correo no deseado). |
 | Baja | Conocido por recibir quejas de correo no deseado regularmente. Es probable que los correos electrónicos de este remitente se filtren a la carpeta de correo no deseado. |
-| Mala | Tiene un historial de recibir tasas elevadas de quejas de correo no deseado. Los correos electrónicos de este dominio casi siempre se rechazan en el momento de la conexión o se filtren a la carpeta de correo no deseado. |
+| Mala | Tiene un historial de recibir tasas elevadas de quejas de correo no deseado. Los correos electrónicos de este dominio casi siempre se rechazan en el momento de la conexión o se filtran a la carpeta de correo no deseado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Reputación de dominio" }
 
 #### Autenticación {#authentication}

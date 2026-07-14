@@ -2,12 +2,36 @@
 nav_title: Solucionar problemas de webhooks e Conteúdo conectado
 article_title: Solucionar problemas de solicitações de webhook e Conteúdo conectado
 page_order: 4
-description: "Este artigo aborda como solucionar problemas de códigos de erro de webhook e Conteúdo conectado, incluindo o que são os erros e as etapas para resolvê-los."
+description: "Diagnostique erros de webhook e Conteúdo conectado usando um índice de sintomas, tabelas de erros HTTP e orientações sobre detecção de host não íntegro."
 ---
 
 # Solucionar problemas de solicitações de webhook e Conteúdo conectado {#troubleshoot-webhook-and-connected-content-requests}
 
-> Este artigo aborda como solucionar problemas de códigos de erro comuns para webhooks e Conteúdo conectado, além de fornecer explicações adicionais sobre como esses erros podem ocorrer nas suas solicitações.
+> Use esta página para solucionar códigos de erro comuns de webhooks e Conteúdo conectado. Para configuração, consulte [Criando um webhook]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) e [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
+
+## Comece aqui: identifique seu sintoma {#start-here-match-your-symptom}
+
+Identifique seu sintoma na tabela para navegar até a seção relevante.
+
+| Sintoma | Acessar |
+| --- | --- |
+| Erro de cliente `4XX` no Registro de atividades de envio de mensagem | [Erros 4XX](#4xx-errors) |
+| Erro de servidor `5XX` ou tempo limite | [Erros 5XX](#5xx-errors) |
+| `598 Host Unhealthy` ou solicitações interrompidas brevemente | [Detecção de host não íntegro](#unhealthy-host-detection) |
+| Conteúdo conectado aparece em branco na prévia ou no envio | [Conteúdo conectado não retorna corpo de resposta](#connected-content-returns-no-response-body) |
+| E-mail automatizado de erro da Braze | [E-mails automatizados e entradas no Registro de atividades de envio de mensagem](#automated-emails-and-message-activity-log-entries) |
+| Precisa de eventos de falha de webhook no Currents | [Insights adicionais de falhas no Braze Currents](#additional-failure-insights-in-braze-currents) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sintomas de webhook e Conteúdo conectado" }
+
+## Caminho de investigação padrão {#standard-investigation-path}
+
+Use este fluxo de trabalho quando uma solicitação de webhook ou Conteúdo conectado falhar ou renderizar incorretamente. Comece pela etapa 1.
+
+1. Abra o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) e anote o código de erro, o timestamp e a URL do endpoint.
+2. Para erros `4XX`, verifique a sintaxe da solicitação, os cabeçalhos de autenticação, o caminho da URL e o método HTTP na documentação do endpoint.
+3. Para erros `5XX`, verifique a integridade do endpoint, os limites de frequência e se a Braze marcou o host como não íntegro.
+4. Para Conteúdo conectado, pré-visualize a mensagem para um usuário teste e confirme que o Liquid não resolve para valores em branco ou que quebram o JSON.
+5. Se a detecção de host não íntegro pode estar envolvida, revise [Detecção de host não íntegro](#unhealthy-host-detection) antes de entrar em contato com o [suporte da Braze]({{site.baseurl}}/support_contact).
 
 ## Erros 4XX {#4xx-errors}
 
@@ -22,7 +46,6 @@ table td {
 </style>
 
 <table aria-label="Erros 4XX">
-  <caption>Erros 4XX</caption>
   <thead>
     <tr>
       <th>Código de erro</th>
@@ -142,8 +165,8 @@ Aqui estão dicas para solucionar erros `5XX` comuns:
 Os webhooks e o Conteúdo conectado da Braze utilizam um mecanismo de detecção de host não íntegro para detectar quando o host de destino apresenta uma alta taxa de lentidão significativa ou sobrecarga, resultando em tempos limite, muitas solicitações ou outros resultados que impedem a Braze de se comunicar com sucesso com o endpoint de destino. Ele atua como uma proteção para reduzir a carga desnecessária que pode estar causando dificuldades ao host de destino. Também serve para estabilizar a infraestrutura da Braze e manter velocidades rápidas de envio de mensagens.
 
 Os limites de detecção diferem entre webhooks e Conteúdo conectado:
-- **Para webhooks**: Se o número de **falhas exceder 3.000 em qualquer janela de tempo móvel de um minuto** (por combinação única de nome de host e grupo de apps&#8212;**não** por caminho de endpoint), a Braze interrompe temporariamente as solicitações ao host de destino por um minuto.
-- **Para Conteúdo conectado**: Se o número de **falhas exceder 3.000 E a taxa de erro exceder 90% em qualquer janela de tempo móvel de um minuto** (por combinação única de nome de host e grupo de apps&#8212;**não** por caminho de endpoint), a Braze interrompe temporariamente as solicitações ao host de destino por um minuto.
+- **Para webhooks**: Se o número de falhas exceder 3.000 em qualquer janela de tempo móvel de um minuto (por combinação única de nome de host e grupo de apps&#8212;não por caminho de endpoint), a Braze interrompe temporariamente as solicitações ao host de destino por um minuto.
+- **Para Conteúdo conectado**: Se o número de falhas exceder 3.000 E a taxa de erro exceder 90% em qualquer janela de tempo móvel de um minuto (por combinação única de nome de host e grupo de apps&#8212;não por caminho de endpoint), a Braze interrompe temporariamente as solicitações ao host de destino por um minuto.
 
 Quando as solicitações são interrompidas, a Braze simula respostas com um código de erro `598` para indicar a integridade comprometida. Após um minuto, a Braze retoma as solicitações em velocidade total se o host for considerado íntegro. Se o host ainda estiver não íntegro, a Braze aguarda mais um minuto antes de tentar novamente.
 
@@ -157,10 +180,12 @@ Se você acredita que a detecção de host não íntegro pode estar causando pro
 
 ### Conteúdo conectado não retorna corpo de resposta {#connected-content-returns-no-response-body}
 
-Se uma chamada de Conteúdo conectado aparece em branco na pré-visualização ou no envio da mensagem, verifique:
+**Sintoma:** uma chamada de Conteúdo conectado aparece em branco na prévia ou no envio da mensagem.
 
-- **Espaços não separáveis na URL:** A Braze remove espaços não separáveis (`&nbsp;` ou Unicode `U+00A0`) das URLs de Conteúdo conectado antes de fazer a solicitação. Se a URL foi copiada de um documento ou campo do dashboard que inseriu espaços não separáveis entre os caracteres, a solicitação pode falhar ou não retornar um corpo utilizável. Redigite a URL em texto simples ou remova os espaços ocultos e pré-visualize novamente.
-- **Erros HTTP e corpos vazios:** Para códigos de status anteriores nesta seção a partir de 300 ou hosts bloqueados, o Conteúdo conectado pode renderizar uma string vazia. Consulte [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) e revise as falhas no **Registro de atividades de envio de mensagem**.
+Se uma chamada de Conteúdo conectado aparece em branco na prévia ou no envio da mensagem, verifique:
+
+- **Espaços não separáveis na URL:** a Braze remove espaços não separáveis (`&nbsp;` ou Unicode `U+00A0`) das URLs de Conteúdo conectado antes de fazer a solicitação. Se a URL foi copiada de um documento ou campo do dashboard que inseriu espaços não separáveis entre os caracteres, a solicitação pode falhar ou não retornar um corpo utilizável. Redigite a URL em texto simples ou remova os espaços ocultos e pré-visualize novamente.
+- **Erros HTTP e corpos vazios:** para códigos de status maiores que 300 ou hosts bloqueados, o Conteúdo conectado pode renderizar uma string vazia. Consulte [Fazendo uma chamada de API]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) e revise as falhas no **Registro de atividades de envio de mensagem**.
 
 ## E-mails automatizados e entradas no Registro de atividades de envio de mensagem {#automated-emails-and-message-activity-log-entries}
 

@@ -13,7 +13,7 @@ tool:
 
 > Cuando el seguimiento analítico está activado para un segmento, puedes ver las sesiones, los eventos personalizados y los ingresos a lo largo del tiempo para ese segmento.
 
-Si no activas el seguimiento analítico para un segmento, podrás acceder a [las estadísticas en tiempo real]({{site.baseurl}}/user_guide/audience/segments/segment_data#segment-statistics) de ese segmento y dirigirte a sus usuarios con campañas. La única diferencia es si puedes acceder a las herramientas de análisis específicas mencionadas en esta página.
+Si no activas el seguimiento analítico para un segmento, podrás acceder a [las estadísticas en tiempo real]({{site.baseurl}}/user_guide/audience/segments/segment_data#segment-statistics) de ese segmento y dirigirte a sus usuarios con Campaigns. La única diferencia es si puedes acceder a las herramientas de análisis específicas mencionadas en esta página.
 
 ## Activar el seguimiento analítico por segmentos {#turning-on-segment-analytics}
 
@@ -21,7 +21,7 @@ En la sección **Segment Details** de la página de un segmento, activa **Analyt
 
 ![Activación del seguimiento analítico de un segmento]({% image_buster /assets/img_archive/A_Tracking_2.png %})
 
-Una aplicación puede tener activado el seguimiento de hasta 25 segmentos. Braze recomienda realizar un seguimiento de los segmentos que te resulten importantes para analizar los efectos de tus campañas sobre las sesiones, los ingresos y las compras.
+Una aplicación puede tener activado el seguimiento de hasta 25 segmentos. Braze recomienda realizar un seguimiento de los segmentos que te resulten importantes para analizar los efectos de tus Campaigns sobre las sesiones, los ingresos y las compras.
 
 {% alert note %}
 Después de habilitar el seguimiento analítico, puede haber un retraso hasta que se completen los datos del segmento. Si los datos no se completan en un plazo de 24 horas, [ponte en contacto con Soporte]({{site.baseurl}}/braze_support).
@@ -37,7 +37,7 @@ Los gráficos de ingresos y compras reflejan la actividad registrada después de
 
 Para comparar visualmente los datos de los segmentos en cualquier intervalo de tiempo personalizado, añade o elimina segmentos del gráfico. Selecciona **By Segment** en el desplegable **Breakdown** y, a continuación, selecciona tus segmentos en **Breakdown values**.
 
-Selecciona cualquier nombre de segmento encima del gráfico para activar o desactivar la visibilidad de las métricas de ese segmento.
+Selecciona cualquier nombre de segmento en la leyenda del gráfico para activar o desactivar la visibilidad de las métricas de ese segmento.
 
 ![Ingresos por múltiples segmentos]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
@@ -51,9 +51,9 @@ Del mismo modo, puedes encontrar datos sobre [las sesiones a lo largo del tiempo
 
 Para ver los datos de [los eventos personalizados a lo largo del tiempo para los segmentos]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics), ve a **Analytics** > **Custom Events Report**.
 
-## Utilización de las plantillas del Generador de consultas {#using-query-builder-templates}
+## Uso de las plantillas del generador de consultas {#using-query-builder-templates}
 
-Cuando el seguimiento analítico está activado, puedes utilizar las plantillas de informes del Generador de consultas para desglosar las métricas de rendimiento de campañas, Canvas, variantes y pasos por segmentos. Para saber más, consulta [Datos de segmentos]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment).
+Cuando el seguimiento analítico está activado, puedes utilizar las plantillas de informes del generador de consultas para desglosar las métricas de rendimiento de Campaigns, Canvas, variantes y pasos por segmentos. Para saber más, consulta [Datos de segmentos]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment).
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

@@ -33,8 +33,7 @@ Braze Segments는 동적 사용자 그룹을 생성할 수 있는 강력한 타�
 
 세그먼트 확장 테이블에서 **새 확장 만들기**를 선택한 다음, 세그먼트 확장 생성 경험을 선택합니다:
 
-- **간단한 확장:** 안내 양식을 사용하여 단일 이벤트에 초점을 맞춘 세그먼트 확장을 생성합니다.
-SQL을 사용하고 싶지 않을 때 가장 적합합니다.
+- **간단한 확장:** 안내 양식을 사용하여 단일 이벤트에 초점을 맞춘 세그먼트 확장을 생성합니다. SQL을 사용하고 싶지 않을 때 가장 적합합니다.
 - **템플릿으로 시작:** Snowflake 데이터를 사용하여 커스터마이즈 가능한 템플릿으로 SQL Segment를 생성합니다.
 - **증분 새로고침:** 최근 2일간의 데이터를 자동으로 새로고침하거나 필요에 따라 수동으로 새로고침하는 Snowflake SQL Segment를 작성합니다. 정확성과 비용 효율성의 균형을 맞추는 데 가장 적합합니다.
 - **전체 새로고침:** 수동 새로고침 시 전체 오디언스를 재계산하는 Snowflake 데이터 또는 [CDI 연결 소스]({{site.baseurl}}/cdi_segment_extensions)를 사용하여 SQL Segment를 작성합니다. 오디언스의 완전하고 최신 보기가 필요할 때 가장 적합합니다.
@@ -60,15 +59,15 @@ SQL을 사용하는 경험을 선택한 경우, 자세한 내용은 [SQL 세그�
 
 ### 3단계: 기준 선택하기 {#step-3-choose-your-criteria}
 
-타겟팅을 위해 구매, 메시지 참여, eCommerce 추천 이벤트 또는 커스텀 이벤트 기준 중에서 선택합니다. 원하는 이벤트 유형 기준을 선택한 후, 사용자 목록에 대해 타겟팅할 구매 항목, 메시지 상호작용, eCommerce 추천 이벤트 또는 커스텀 이벤트를 선택합니다. 그런 다음 사용자가 해당 이벤트를 완료해야 하는 횟수(초과, 미만 또는 동일)와 기간을 선택합니다. 세그먼트 확장의 경우 최대 730일(2년) 전까지 조회할 수 있습니다.
+타겟팅을 위해 구매, 메시지 인게이지먼트, 이커머스 추천 이벤트 또는 커스텀 이벤트 기준 중에서 선택합니다. 원하는 이벤트 유형 기준을 선택한 후, 사용자 목록에 대해 타겟팅할 구매 항목, 메시지 상호작용, 이커머스 추천 이벤트 또는 커스텀 이벤트를 선택합니다. 그런 다음 사용자가 해당 이벤트를 완료해야 하는 횟수(초과, 미만 또는 동일)와 기간을 선택합니다. 세그먼트 확장의 경우 최대 730일(2년) 전까지 조회할 수 있습니다.
 
 730일 이상의 이벤트 데이터를 기반으로 한 세분화는 **Segments**에 있는 다른 필터를 사용하여 수행할 수 있습니다. 기간을 선택할 때 지난 X일의 상대적 날짜 범위, 시작 날짜, 종료 날짜 또는 정확한 날짜 범위(날짜 A부터 날짜 B까지)를 지정할 수 있습니다.
 
 ![2025년 3월 1일부터 2025년 3월 31일까지의 날짜 범위에서 커스텀 이벤트를 2회 이상 수행한 사용자에 대한 세분화 기준.]({% image_buster /assets/img/segment/segment_extension1.png %})
 
-eCommerce 추천 이벤트를 사용하여 세그먼트 확장을 생성하는 경우, 먼저 기준으로 **eCommerce Recommended Event**를 선택한 다음, 드롭다운에서 이벤트를 선택합니다.
+이커머스 추천 이벤트를 사용하여 세그먼트 확장을 생성하는 경우, 먼저 기준으로 **eCommerce Recommended Event**를 선택한 다음, 드롭다운에서 이벤트를 선택합니다.
 
-![사용 가능한 추천 이벤트 드롭다운이 있는 eCommerce 추천 이벤트 기준.]({% image_buster /assets/img/segment/ecommerce_recommended_event_criterion.png %})
+![사용 가능한 추천 이벤트 드롭다운이 있는 이커머스 추천 이벤트 기준.]({% image_buster /assets/img/segment/ecommerce_recommended_event_criterion.png %})
 
 #### 이벤트 속성정보 세분화 {#event-property-segmentation}
 
@@ -84,18 +83,18 @@ eCommerce 추천 이벤트를 사용하여 세그먼트 확장을 생성하는 �
 
 ![날짜/시간 오브젝트를 기반으로 한 세분화.]({% image_buster /assets/img/segment/property4.png %})
 
-eCommerce 추천 이벤트를 사용하고 이벤트 속성정보를 추가하면, 해당 특정 eCommerce 추천 이벤트에 사용 가능한 속성정보로 속성정보 드롭다운이 자동으로 채워집니다.
+이커머스 추천 이벤트를 사용하고 이벤트 속성정보를 추가하면, 해당 특정 이커머스 추천 이벤트에 사용 가능한 속성정보로 속성정보 드롭다운이 자동으로 채워집니다.
 
 ![사용 가능한 속성정보 드롭다운이 있는 세그먼트 확장 세부 정보.]({% image_buster /assets/img/segment/ecommerce_recommended_event_properties.png %})
 
-[중첩된 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)를 기반으로 한 세분화도 지원합니다. 비교 드롭다운에서 중첩된 속성정보의 데이터 유형과 일치하는 비교를 선택합니다. 중첩된 속성정보를 포함하는 모든 eCommerce 추천 이벤트에 대해 동일한 중첩된 이벤트 속성정보 구문을 사용하여 중첩된 속성정보를 추가할 수 있습니다. 사용 가능한 다양한 중첩된 속성정보에 대한 정보는 [eCommerce 추천 이벤트 유형]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events)을 참조하세요. 세그먼트 확장의 속성정보 이름에 필요한 스키마를 생성하려면 [커스텀 이벤트의 중첩된 오브젝트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)의 단계를 따르세요.
+[중첩된 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)를 기반으로 한 세분화도 지원합니다. 비교 드롭다운에서 중첩된 속성정보의 데이터 유형과 일치하는 비교를 선택합니다. 중첩된 속성정보를 포함하는 모든 이커머스 추천 이벤트에 대해 동일한 중첩된 이벤트 속성정보 구문을 사용하여 중첩된 속성정보를 추가할 수 있습니다. 사용 가능한 다양한 중첩된 속성정보에 대한 정보는 [이커머스 추천 이벤트 유형]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events)을 참조하세요. 세그먼트 확장의 속성정보 이름에 필요한 스키마를 생성하려면 [커스텀 이벤트의 중첩된 오브젝트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)의 단계를 따르세요.
 
 ![중첩된 이벤트 속성정보를 기반으로 한 세분화.]({% image_buster /assets/img/segment/nested_segment_extensions.png %})
 
 세그먼트 확장은 이벤트 속성정보의 장기 저장에 의존하며 타임스탬프 속성정보 저장 제한이 없습니다. 지난 2년 이내에 추적된 이벤트 속성정보를 조회할 수 있습니다. 세그먼트 확장 내에서 이벤트 속성정보를 사용해도 데이터 포인트 사용량에 영향을 미치지 않습니다.
 
 {% alert note %}
-Segment에서 이벤트 속성정보나 중첩 고객 속성을 사용하기 위해 세그먼트 확장이 필요한 것은 아닙니다. 세그먼트 확장은 기본 Segment를 생성하는 데 사용되는 과거 기간을 확장할 뿐입니다. 지난 30일간의 이벤트 속성정보를 사용하거나 중첩 고객 속성을 사용하는 실시간 기본 [Segment]({{site.baseurl}}/user_guide/audience/segments)를 생성할 수 있습니다. 마찬가지로, 이벤트 속성정보를 기반으로 실시간으로 트리거되도록 [메시지를 예약]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)할 수 있으며, 세그먼트 확장이 필요하지 않습니다.
+Segment에서 이벤트 속성정보나 중첩 커스텀 속성을 사용하기 위해 세그먼트 확장이 필요한 것은 아닙니다. 세그먼트 확장은 기본 Segment를 생성하는 데 사용되는 과거 기간을 확장할 뿐입니다. 지난 30일간의 이벤트 속성정보를 사용하거나 중첩 커스텀 속성을 사용하는 실시간 기본 [Segment]({{site.baseurl}}/user_guide/audience/segments)를 생성할 수 있습니다. 마찬가지로, 이벤트 속성정보를 기반으로 실시간으로 트리거되도록 [메시지를 스케줄]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)할 수 있으며, 세그먼트 확장이 필요하지 않습니다.
 {% endalert %}
 
 ### 4단계: 새로고침 설정 지정하기(선택 사항) {#step-4-designate-refresh-settings-optional}
@@ -106,7 +105,7 @@ Segment에서 이벤트 속성정보나 중첩 고객 속성을 사용하기 위
 
 **저장**을 선택하면 세그먼트 확장이 처리되기 시작합니다. 세그먼트 확장을 생성하는 데 걸리는 시간은 사용자 수, 캡처하는 커스텀 이벤트 또는 구매 이벤트 수, 그리고 과거 이력을 조회하는 일수에 따라 달라집니다.
 
-세그먼트 확장이 처리되는 동안 세그먼트 확장 이름 옆에 작은 애니메이션이 표시되고, 세그먼트 확장 목록의 **Last Processed** 열에 "Processing"이라는 단어가 표시됩니다. 처리 중인 세그먼트 확장은 편집할 수 없습니다.
+세그먼트 확장이 처리되는 동안 세그먼트 확장 이름 옆에 작은 애니메이션이 표시되고, 세그먼트 확장 목록의 **마지막 처리** 열에 "Processing"이라는 단어가 표시됩니다. 처리 중인 세그먼트 확장은 편집할 수 없습니다.
 
 ![2개의 활성 확장이 있는 "세그먼트 확장" 페이지.]({% image_buster /assets/img/segment/segment_extension5.png %})
 
@@ -114,7 +113,7 @@ Segment에서 이벤트 속성정보나 중첩 고객 속성을 사용하기 위
 
 ### 6단계: Segment에서 확장 사용하기 {#step-6-use-your-extension-in-a-segment}
 
-세그먼트 확장을 생성한 후, Segment를 생성하거나 Campaign 또는 Canvas의 오디언스를 정의할 때 필터로 사용할 수 있습니다. **User Attributes** 섹션 아래의 필터 목록에서 **Braze Segment Extension**을 선택하여 시작합니다.
+세그먼트 확장을 생성한 후, Segment를 생성하거나 Campaign 또는 Canvas의 오디언스를 정의할 때 필터로 사용할 수 있습니다. **사용자 속성** 섹션 아래의 필터 목록에서 **Braze Segment Extension**을 선택하여 시작합니다.
 
 !["Braze Segment Extensions"를 표시하는 필터 드롭다운이 있는 "필터" 섹션.]({% image_buster /assets/img/segment/segment_extension7.png %})
 
@@ -122,7 +121,7 @@ Braze 세그먼트 확장 필터 목록에서 이 Segment에 포함하거나 제
 
 !["지난 56일간 이메일 클릭 1회" Segment를 포함하는 "Braze Segment Extensions" 필터.]({% image_buster /assets/img/segment/segment_extension6.png %})
 
-세그먼트 확장 기준을 보려면 **View Extension Details**를 선택하여 새 창에서 세부 정보를 표시합니다.
+세그먼트 확장 기준을 보려면 **확장 세부 정보 보기**를 선택하여 새 창에서 세부 정보를 표시합니다.
 
 !["지난 56일간 이메일 클릭 1회"에 대한 확장.]({% image_buster /assets/img/segment/segment_extension8.png %}){: style="max-width:70%;"}
 

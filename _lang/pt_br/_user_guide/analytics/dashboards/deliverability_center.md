@@ -68,7 +68,7 @@ Para acessar o Centro de Entregabilidade, você precisa das [permissões de usu�
 Antes de conectar ao Centro de Entregabilidade, você precisa configurar uma conta do Google Postmaster Tools. Você pode usar uma conta do Gmail pessoal ou corporativa para configurar o Google Postmaster.
 
 1. Acesse o [dashboard do Google Postmaster Tools](https://postmaster.google.com/managedomains?pli=1).
-2. No canto inferior direito, selecione <i class="fas fa-plus-circle"></i> **Add domain**.
+2. Na parte inferior da página, selecione <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Insira o domínio raiz (principal) para autenticar seu e-mail. Certifique-se de que o registro TXT esteja vinculado a esse domínio raiz (principal), e **não** ao subdomínio que você está usando na Braze. Verificar o domínio raiz (principal) permite que você adicione subdomínios posteriormente no Postmaster Tools sem criar registros TXT adicionais. Por exemplo, ao verificar `braze.com`, você pode adicionar `demo.braze.com` como um subdomínio separado no Postmaster Tools para visualizar métricas no nível do subdomínio.
 4. O Google gera um registro TXT que pode ser adicionado diretamente ao DNS do seu domínio. Geralmente, isso é gerenciado por quem administra o seu DNS. Para informações e orientações sobre como atualizar o seu DNS específico, consulte [Verificar seu domínio (etapas específicas por host)](https://support.google.com/a/topic/1409901).
 5. Selecione **Next**. <br>![Um exemplo de domínio "demo.braze.com" para autenticar um e-mail.]({% image_buster /assets/img_archive/domain_authentication.png %})

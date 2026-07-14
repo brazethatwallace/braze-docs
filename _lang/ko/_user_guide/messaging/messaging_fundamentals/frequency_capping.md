@@ -251,30 +251,34 @@ Campaign에서 사용량 제한과 최대 게재빈도 설정을 모두 활성�
 
 In-App Messages와 Content Cards는 모든 유형의 Campaign 또는 Canvas 구성요소에 대한 제한으로 계산되거나 포함되지 않습니다.
 
+##### 여러 기기에서의 푸시 알림 {#push-notifications-with-multiple-devices}
+
+푸시 Campaign의 경우, 최대 게재빈도 설정은 개별 기기가 아닌 Campaign 또는 Canvas 구성요소 수준에서 계산됩니다. 사용자 프로필에 푸시용으로 등록된 여러 기기(예: iPhone과 iPad)가 있는 경우, Campaign 수준의 최대 게재빈도 설정은 알림을 받는 기기 수에 관계없이 한 번의 발송으로 계산됩니다. 이는 일일 주기의 반복 Campaign이 일주일 동안 여러 번 반복되더라도 하루에 한 번의 발송으로 계산되는 것과 유사합니다.
+
 {% alert important %}
 글로벌 최대 게재빈도 설정은 사용자의 시간대를 기준으로 스케줄되며, 24시간 단위가 아닌 캘린더 일 기준으로 계산됩니다. 예를 들어, 하루에 1개 이하의 Campaign을 발송하는 최대 게재빈도 설정 규칙을 설정한 경우, 사용자가 현지 시간대로 오후 11시에 메시지를 받을 수 있으며, 1시간 후에 다른 메시지를 받을 자격이 있습니다.
 {% endalert %}
 
-#### 활용 사례 {#use-cases}
+#### 사용 사례 {#use-cases}
 
 {% tabs %}
-{% tab 활용 사례 1 %}
+{% tab 사용 사례 1 %}
 
-모든 Campaign 또는 Canvas 단계에서 사용자가 주당 3개 이하의 푸시 알림 Campaign 또는 Canvas 단계를 받도록 최대 게재빈도 설정 규칙을 설정했다고 가정해 보겠습니다.
+모든 Campaign 또는 캔버스 단계에서 사용자가 주당 3개 이하의 푸시 알림 Campaign 또는 캔버스 단계를 받도록 최대 게재빈도 설정 규칙을 설정했다고 가정해 보겠습니다.
 
 이번 주에 사용자가 3개의 푸시 알림, 2개의 인앱 메시지, 1개의 콘텐츠 카드를 받을 예정이라면, 모든 메시지를 받게 됩니다.
 
 {% endtab %}
-{% tab 활용 사례 2 %}
+{% tab 사용 사례 2 %}
 
-이 시나리오에서는 모든 Campaign 또는 Canvas 단계에서 사용자가 주당 2개 이하의 푸시 알림 Campaign 또는 Canvas 단계를 받도록 하는 최대 게재빈도 설정 규칙을 사용합니다.
+이 시나리오에서는 모든 Campaign 또는 캔버스 단계에서 사용자가 주당 2개 이하의 푸시 알림 Campaign 또는 캔버스 단계를 받도록 하는 최대 게재빈도 설정 규칙을 사용합니다.
 
 **다음 시나리오가 발생할 때:**
 
 - 사용자가 일주일 동안 동일한 `Campaign ABC`를 3번 트리거합니다.
 - 이 사용자는 월요일에 한 번, 수요일에 한 번, 목요일에 한 번 `Campaign ABC`를 트리거합니다.
 
-![모든 Campaign/Canvas 단계에서 사용자에게 매주 2개 이하의 푸시 알림 Campaign/Canvas 단계를 발송하는 규칙이 있는 최대 게재빈도 설정 섹션.]({% image_buster /assets/img/standard_rules_fnfn.png %})
+![모든 Campaign/캔버스 단계에서 사용자에게 매주 2개 이하의 푸시 알림 Campaign/캔버스 단계를 발송하는 규칙이 있는 최대 게재빈도 설정 섹션.]({% image_buster /assets/img/standard_rules_fnfn.png %})
 
 **그러면 예상되는 동작은 다음과 같습니다:**
 
@@ -292,12 +296,12 @@ In-App Messages와 Content Cards는 모든 유형의 Campaign 또는 Canvas 구�
 
 일반 최대 게재빈도 설정과 태그별 최대 게재빈도 설정을 결합할 수도 있습니다. 다음 규칙을 고려해 보세요:
 
-1. 모든 Campaign 및 Canvas 단계에서 주당 3개 이하의 푸시 알림 Campaign 또는 Canvas 구성요소. <br>**AND**
+1. 모든 Campaign 및 캔버스 단계에서 주당 3개 이하의 푸시 알림 Campaign 또는 Canvas 구성요소. <br>**AND**
 2. `promotional` 태그가 있는 주당 2개 이하의 푸시 알림 Campaign 또는 Canvas 구성요소.
 
 ![사용자에게 매주 발송할 수 있는 푸시 알림 Campaign/Canvases 수를 제한하는 두 가지 규칙이 있는 최대 게재빈도 설정 섹션.]({% image_buster /assets/img/tag_rule_fnfn.png %} "rules")
 
-결과적으로 사용자는 모든 Campaign 및 Canvas 단계에서 주당 3개 이하의 Campaign 발송을 받고, `promotional` 태그가 있는 푸시 알림 Campaign 또는 Canvas 구성요소는 2개 이하로 받게 됩니다.
+결과적으로 사용자는 모든 Campaign 및 캔버스 단계에서 주당 3개 이하의 Campaign 발송을 받고, `promotional` 태그가 있는 푸시 알림 Campaign 또는 Canvas 구성요소는 2개 이하로 받게 됩니다.
 
 {% alert important %}
 Canvases는 구성요소별이 아닌 Canvas 수준에서 태그가 지정됩니다. 따라서 각 Canvas 구성요소는 모든 Canvas 수준 태그를 상속합니다.
@@ -310,7 +314,7 @@ Canvases는 구성요소별이 아닌 Canvas 수준에서 태그가 지정됩니
 1. 모든 Campaign 및 Canvas 구성요소에서 주당 1개 이하의 푸시 알림 Campaign 또는 Canvas 구성요소. <br>**AND**
 2. `promotional` 태그가 있는 주당 3개 이하의 푸시 알림 Campaign 또는 Canvas 구성요소.
 
-![사용자에게 매주 발송되는 푸시 알림 Campaign/Canvas 단계 수를 제한하는 충돌하는 규칙이 있는 최대 게재빈도 설정 섹션.]({% image_buster /assets/img/global_rules.png %} "global rules")
+![사용자에게 매주 발송되는 푸시 알림 Campaign/캔버스 단계 수를 제한하는 충돌하는 규칙이 있는 최대 게재빈도 설정 섹션.]({% image_buster /assets/img/global_rules.png %} "global rules")
 
 이 예에서 사용자는 주어진 주에 "promotional" 태그가 있는 푸시 알림 Campaign 또는 Canvas 구성요소를 1개 이상 받지 않습니다. 이는 모든 Campaign 및 Canvas 구성요소에서 사용자가 1개 이상의 푸시 알림 Campaign 또는 Canvas 구성요소를 받지 않아야 한다고 지정했기 때문입니다. 즉, 가장 제한적인 적용 가능한 빈도 규칙이 주어진 사용자에게 적용됩니다.
 
@@ -318,7 +322,7 @@ Canvases는 구성요소별이 아닌 Canvas 수준에서 태그가 지정됩니
 
 태그별 최대 게재빈도 설정 규칙은 메시지가 발송되는 시점에 계산됩니다. 이는 태그별 최대 게재빈도 설정이 사용자가 과거에 받은 Campaign 또는 Canvases에 현재 있는 태그만 계산한다는 것을 의미합니다. 발송 당시 Campaign 또는 Canvases에 있었지만 이후 제거된 태그는 계산하지 않습니다. 사용자가 과거에 받은 메시지에 나중에 태그가 추가되었지만 최신 태그가 지정된 메시지가 발송되기 전인 경우에는 계산됩니다.
 
-##### 활용 사례 {#use-case}
+##### 사용 사례 {#use-case}
 
 다음 Campaign과 태그별 최대 게재빈도 설정 규칙을 고려해 보세요:
 
@@ -335,7 +339,7 @@ Canvases는 구성요소별이 아닌 Canvas 수준에서 태그가 지정됩니
 |---|---|
 | 사용자가 메시지를 받은 후, **Campaign B가 발송되기 전에** **Campaign A**에서 `promotional` 태그가 제거됩니다. | 사용자는 **Campaign B**를 받습니다. |
 | 사용자가 메시지를 받은 후 **Campaign A**에서 `promotional` 태그가 실수로 제거됩니다. <br> **Campaign B**가 발송되기 전 화요일에 **Campaign A**에 태그가 다시 추가됩니다. | 사용자는 **Campaign B**를 받지 않습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="활용 사례" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용 사례" }
 
 #### 대규모 발송 {#sending-at-large-scales}
 
@@ -345,13 +349,13 @@ Canvases는 구성요소별이 아닌 Canvas 수준에서 태그가 지정됩니
 
 > `Promotional` 태그가 있는 이메일 Campaign 또는 Canvas 구성요소를 사용자에게 매주 2개 이하로 발송.
 
-그리고 일주일 동안 최대 게재빈도 설정이 켜진 Campaign 및 Canvas 단계에서 사용자에게 100개 이상의 이메일을 발송하면, 2개 이상의 이메일이 사용자에게 발송될 수 있습니다.
+그리고 일주일 동안 최대 게재빈도 설정이 켜진 Campaign 및 캔버스 단계에서 사용자에게 100개 이상의 이메일을 발송하면, 2개 이상의 이메일이 사용자에게 발송될 수 있습니다.
 
 채널당 100개의 메시지는 대부분의 브랜드가 사용자에게 발송하는 것보다 많으므로, 이 제한의 영향을 받을 가능성은 낮습니다. 이 제한을 피하려면 일주일 동안 사용자가 받을 최대 이메일 수에 대한 제한을 설정할 수 있습니다.
 
 예를 들어, 다음 규칙을 설정할 수 있습니다:
 
-> 모든 Campaign 및 Canvas 단계에서 주당 3개 이하의 이메일 Campaign 또는 Canvas 구성요소.
+> 모든 Campaign 및 캔버스 단계에서 주당 3개 이하의 이메일 Campaign 또는 Canvas 구성요소.
 
 이 규칙은 최대 게재빈도 설정이 켜진 Campaign 또는 Canvas 구성요소에서 사용자가 주당 최대 3개의 이메일을 받으므로, 주당 100개 이상의 이메일을 받는 사용자가 없도록 합니다.
 
@@ -367,7 +371,7 @@ Canvases는 구성요소별이 아닌 Canvas 수준에서 태그가 지정됩니
 
 ### Canvas에서 최대 게재빈도가 적용된 사용자를 어떻게 식별할 수 있나요? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
 
-최대 게재빈도가 적용된 사용자는 해당 단계에 대한 발송 이벤트를 생성하지 않습니다. 이러한 사용자를 식별하려면 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)를 사용하여 메시지 최대 게재빈도 적용 이벤트를 추적할 수 있습니다. 또는 [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 생성하여 Canvas에 진입했지만 예상 메시지를 수신하지 못한 사용자를 분석할 수 있습니다.
+최대 게재빈도가 적용된 사용자는 해당 단계에 대한 발송 이벤트를 생성하지 않습니다. 이러한 사용자를 식별하려면 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)를 사용하여 메시지 최대 게재빈도 적용 이벤트를 추적할 수 있습니다. 또는 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 생성하여 Canvas에 진입했지만 예상 메시지를 수신하지 못한 사용자를 분석할 수 있습니다.
 
 ### 대시보드에 Campaign에 대한 사용량 제한 오류가 표시되는 이유는 무엇인가요? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
 

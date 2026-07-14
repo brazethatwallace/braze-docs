@@ -131,7 +131,7 @@ The following lists methods across various platforms that are used to set custom
 
 ## Custom attribute storage
 
-All data stored on the **User Profile**, including custom attribute data, is retained indefinitely as long as each profile is [active]({{site.baseurl}}/user_archival#active-users).
+All data stored on the **User Profile**, including custom attribute data, is retained indefinitely as long as each profile is <a href="/docs/user_archival#active-users">active</a>.
 
 For a full reference of all data types you can store as custom attributes—including booleans, numbers, strings, arrays, time, objects, and arrays of objects—see [Custom attribute data types]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types).
 

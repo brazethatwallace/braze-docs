@@ -10,14 +10,14 @@ noidex: true
 
 # Dashboard de referencias del sector {#industry-benchmarks-dashboard}
 
-> El dashboard de **referencias del sector** compara el rendimiento de interacción de tu espacio de trabajo con referencias agregadas y respetuosas con la privacidad de empresas similares en cada sector.
+> El dashboard de **referencias del sector** compara el rendimiento de participación de tu espacio de trabajo con referencias agregadas y respetuosas con la privacidad de empresas similares en cada sector.
 
 Usa el dashboard de **referencias del sector** para comparar el rendimiento de tu correo electrónico, push, Content Cards y SMS con el de empresas similares del sector, e identificar canales y regiones donde hay oportunidades de optimización.
 
 Para ver el dashboard de **referencias del sector**, ve a **Analytics** > **Dashboard Builder** y selecciona **Industry Benchmarks**. Si el dashboard no tiene datos, selecciona **Run Dashboard** para generar los resultados más recientes. Usa los filtros en la parte superior del dashboard para refinar los resultados por vertical del sector o periodo de tiempo.
 
 {% alert note %}
-El dashboard de **referencias del sector** se encuentra actualmente en acceso anticipado. Ponte en contacto con tu administrador del éxito del cliente si te interesa participar en el acceso anticipado.
+El dashboard de **referencias del sector** se encuentra actualmente en acceso anticipado. Ponte en contacto con tu administrador de éxito de cliente si te interesa participar en el acceso anticipado.
 {% endalert %}
 
 ## Acerca del dashboard {#about-the-dashboard}
@@ -29,7 +29,7 @@ El dashboard está organizado en cuatro secciones por canal: **Email**, **Notifi
 | Tarjetas de KPI | Muestran la tasa de tu espacio de trabajo para cada métrica clave, junto con la diferencia en comparación con la tasa del sector. Una flecha verde hacia arriba indica que tu espacio de trabajo está por encima de la tasa del sector; una flecha roja hacia abajo indica que está por debajo. |
 | Gráfico de tendencia mensual | Representa la tasa de tu espacio de trabajo frente a la tasa del sector a lo largo del tiempo, para que puedas identificar estacionalidad y tendencias a largo plazo. |
 | Desglose regional | Desglosa la tasa de tu espacio de trabajo frente a la tasa del sector en distintas regiones, para que puedas detectar dónde el rendimiento regional difiere del sector. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Section" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sección" }
 
 En cada gráfico, la serie de color más claro representa la referencia del sector y la serie más oscura (con el prefijo **Workspace**) representa tu propio rendimiento.
 
@@ -39,9 +39,9 @@ Cada métrica basada en canal está disponible en dos tipos:
 
 | Tipo de métrica | Descripción | Ejemplo |
 |----------|---------------------------------------|------------------------------------------------------|
-| _Total_ | Cuenta cada evento de interacción. | Si un usuario hace clic tres veces, se cuenta como tres clics. |
+| _Total_ | Cuenta cada evento de participación. | Si un usuario hace clic tres veces, se cuenta como tres clics. |
 | _Distinto_ | Cuenta usuarios únicos. | Si un usuario hace clic tres veces, se cuenta como un clic. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Metric type" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipo de métrica" }
 
 Las métricas se agrupan por las siguientes combinaciones de sector, región, subsector y fecha:
 
@@ -60,12 +60,12 @@ Selecciona una pestaña para ver las métricas de cada canal.
 {% tabs %}
 {% tab Correo electrónico %}
 
-<table aria-label="Email metrics"><thead><tr><th>Métrica</th><th>Descripción</th><th>Fórmula</th></tr></thead><tbody>
+<table aria-label="Métricas de correo electrónico"><thead><tr><th>Métrica</th><th>Descripción</th><th>Fórmula</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Unique Open Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} Esta tasa excluye las aperturas de máquina.</td><td class="no-split"><i>Unique Opens</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Unique Click Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %}</td><td class="no-split"><i>Unique Clicks</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Unique Click to Open Rate</i></td><td class="no-split">El porcentaje de usuarios que hicieron clic en un correo electrónico después de abrirlo.</td><td class="no-split"><i>Unique Clicks</i> / <i>Unique Opens</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Email metrics" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Métricas de correo electrónico" }
 
 ![Métricas de referencias del sector para correo electrónico mostradas en gráficos de líneas y gráficos de barras.]({% image_buster /assets/img/dashboards/email_industry.png %})
 
@@ -74,33 +74,33 @@ Selecciona una pestaña para ver las métricas de cada canal.
 
 Las métricas push están disponibles para iOS, Android, Web y en todas las plataformas combinadas.
 
-<table aria-label="Push metrics"><thead><tr><th>Métrica</th><th>Descripción</th><th>Fórmula</th></tr></thead><tbody>
+<table aria-label="Métricas push"><thead><tr><th>Métrica</th><th>Descripción</th><th>Fórmula</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Direct Open Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Direct Opens' %}</td><td class="no-split"><i>Direct Opens</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Influenced Open Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Influenced Opens' %}</td><td class="no-split"><i>Influenced Opens</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Total Open Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Opens' %}</td><td class="no-split">(<i>Direct Opens</i> + <i>Influenced Opens</i>) / <i>Unique Sends</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push metrics" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Métricas push" }
 
 ![Métricas de referencias del sector para push mostradas en gráficos de líneas y gráficos de barras.]({% image_buster /assets/img/dashboards/push_industry.png %})
 
 {% endtab %}
 {% tab SMS %}
 
-<table aria-label="SMS metrics"><thead><tr><th>Métrica</th><th>Descripción</th><th>Fórmula</th></tr></thead><tbody>
+<table aria-label="Métricas de SMS"><thead><tr><th>Métrica</th><th>Descripción</th><th>Fórmula</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Delivery Rate</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Deliveries' %}</td><td class="no-split"><i>Deliveries</i> / <i>Unique Sends</i></td></tr>
 <tr><td class="no-split"><i>Short Link Click Rate</i></td><td class="no-split">El porcentaje de usuarios que hicieron clic en un enlace corto después de recibir un SMS.</td><td class="no-split"><i>Short Link Clicks</i> / <i>Unique Sends</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS metrics" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Métricas de SMS" }
 
 ![Métricas de referencias del sector para SMS mostradas en gráficos de líneas y gráficos de barras.]({% image_buster /assets/img/dashboards/sms_industry.png %})
 
 {% endtab %}
 {% tab Content Cards %}
 
-<table aria-label="Content Cards metrics"><thead><tr><th>Métrica</th><th>Descripción</th><th>Fórmula</th></tr></thead><tbody>
+<table aria-label="Métricas de Content Cards"><thead><tr><th>Métrica</th><th>Descripción</th><th>Fórmula</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Click Rate</i></td><td class="no-split">El porcentaje de usuarios que recibieron una Content Card e hicieron clic en un enlace.</td><td class="no-split"><i>Unique Clicks</i> / <i>Unique Impressions</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Content Cards metrics" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Métricas de Content Cards" }
 
 ![Métricas de referencias del sector para Content Cards mostradas en gráficos de líneas y gráficos de barras.]({% image_buster /assets/img/dashboards/content_card_industry.png %})
 

@@ -37,7 +37,7 @@ Braze proporciona los siguientes filtros para ayudarte a limitar la velocidad a 
 
 #### Implementación de filtros {#implementing-filters}
 
-Supongamos que hemos creado un segmento llamado "Escaparate de filtros de reorientación" con un filtro "Última vez que usó la aplicación hace más de 7 días" para dirigirnos a los usuarios. Este sería un segmento estándar de reactivación de la interacción.
+Supongamos que hemos creado un segmento llamado "Escaparate de filtros de reorientación" con un filtro "Última vez que usó la aplicación hace más de 7 días" para dirigirnos a los usuarios. Este sería un segmento estándar de reactivación.
 
 Si tienes otros segmentos más específicos que reciben notificaciones recientemente, es posible que no quieras que tus usuarios sean objetivo de campañas más genéricas dirigidas a este segmento. Al añadir el filtro "Last Received Push" a este segmento, el usuario se ha asegurado de que, si ha recibido otra notificación en las últimas 24 horas, saldrá de este segmento durante las próximas 24 horas. Si aún cumple los demás criterios del segmento 24 horas después y no ha recibido más notificaciones, volverá a entrar en el segmento.
 
@@ -47,7 +47,7 @@ Añadir este filtro a todos los segmentos objetivo de campañas haría que tus u
 
 #### Establecer un límite máximo de usuarios {#setting-a-maximum-user-cap}
 
-En el paso **Target Audiences** del compositor de tu campaña, también puedes limitar el número total de usuarios que recibirán tu mensaje. Esto sirve como una verificación independiente de los filtros de tu campaña.
+En el paso **Target Audiences** del creador de tu campaña, también puedes limitar el número total de usuarios que recibirán tu mensaje. Esto sirve como una verificación independiente de los filtros de tu campaña.
 
 ![Resumen de audiencia con una casilla seleccionada para limitar el número de personas que reciben la campaña.]({% image_buster /assets/img_archive/total_limit.png %}){: style="max-width:50%;"}
 
@@ -83,7 +83,7 @@ Si anticipas que campañas grandes provocarán un pico en la actividad de los us
 
 Al dirigirte a usuarios durante la creación de una campaña, puedes navegar a **Target Audiences** (para Campaigns) o **Send Settings** (para Canvas) para seleccionar un límite de velocidad (en varios incrementos desde tan bajo como 10 hasta tan alto como 500 000 mensajes por minuto).
 
-Ten en cuenta que las campañas sin límite de velocidad pueden superar estos límites de entrega. Sin embargo, ten en cuenta que los mensajes se abortarán si se retrasan 72 horas o más debido a un límite de velocidad bajo. Si el límite de velocidad es demasiado bajo, el creador de la campaña recibirá alertas en el dashboard y por correo electrónico.
+Ten en cuenta que las campañas sin límite de velocidad pueden superar estos límites de entrega. Sin embargo, ten en cuenta que los mensajes se abortarán si se retrasan 72 horas o más debido a un límite de velocidad bajo. Si el límite de velocidad es demasiado bajo, el creador de la campaña recibirá alertas en el panel y por correo electrónico.
 
 {% alert tip %}
 Establece un [límite de velocidad de mensajería del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) para aplicar un límite de velocidad en todo un espacio de trabajo.
@@ -127,7 +127,7 @@ Si seleccionas un límite para notificaciones push, no puedes establecer límite
 **Actualizaciones de la interfaz de límite de velocidad**<br>
 Braze actualizó la interfaz de límite de velocidad para proporcionar más transparencia y control sobre cómo se aplican los límites de velocidad a las campañas multicanal y Canvas.<br><br>
 
-- **Campañas y Canvas existentes:** todas las campañas y Canvas existentes se han migrado a esta interfaz. Su comportamiento de entrega sigue siendo el mismo. El dashboard muestra si la campaña usa lógica compartida o por canal.<br>
+- **Campañas y Canvas existentes:** todas las campañas y Canvas existentes se han migrado a esta interfaz. Su comportamiento de entrega sigue siendo el mismo. El panel muestra si la campaña usa lógica compartida o por canal.<br>
 - **Nuevas campañas y Canvas:** para todas las nuevas campañas y Canvas, hay un interruptor manual para elegir tu lógica de límite de velocidad preferida. Asegúrate de seleccionar el comportamiento de límite de velocidad que se alinee con tu comportamiento previsto al establecer o actualizar un límite de velocidad de campaña o Canvas.
 {% endalert %}
 
@@ -166,11 +166,11 @@ En lugar de intentar compensar el retraso y enviar los 6000 mensajes restantes e
 | 9      | 0          | 6000                     |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Límite de velocidad y reintentos de contenido conectado" }
 
-Las solicitudes de contenido conectado no tienen un límite de velocidad independiente y seguirán el límite de velocidad del webhook. Esto significa que si hay una llamada de contenido conectado a un punto de conexión único por webhook, esperarías 5000 webhooks y también 5000 llamadas de contenido conectado por minuto. Ten en cuenta que el almacenamiento en caché puede afectar esto y reducir el número de llamadas de contenido conectado. Además, los reintentos pueden aumentar las llamadas de contenido conectado, por lo que recomendamos verificar que el punto de conexión de contenido conectado pueda manejar cierta fluctuación aquí.
+Las solicitudes de contenido conectado no tienen un límite de velocidad independiente y seguirán el límite de velocidad del webhook. Esto significa que si hay una llamada de contenido conectado a un endpoint único por webhook, esperarías 5000 webhooks y también 5000 llamadas de contenido conectado por minuto. Ten en cuenta que el almacenamiento en caché puede afectar esto y reducir el número de llamadas de contenido conectado. Además, los reintentos pueden aumentar las llamadas de contenido conectado, por lo que recomendamos verificar que el endpoint de contenido conectado pueda manejar cierta fluctuación aquí.
 
 {% alert note %}
 **Los límites de velocidad son límites de velocidad y no definen una velocidad de envío exacta.** Generalmente, los mensajes se distribuyen uniformemente dentro de cualquier minuto dado, y en la gran mayoría de los casos, se envían al límite configurado o muy cerca de él. Esto no siempre es así, por ejemplo, cuando los mensajes son muy grandes (como correos electrónicos con muchos Content Blocks, etiquetas de contenido conectado o etiquetas de elementos de catálogo), o cuando hay muchos abortos de Liquid (los mensajes abortados aún consumen un espacio y pueden reducir las tasas de envío efectivas).<br><br>
-En la práctica, la tasa de envío sostenida (mensajes completados por minuto) puede ser inferior al límite de velocidad configurado debido a reintentos, variabilidad de la red, latencia del punto de conexión posterior y suavizado por minuto. Si ves consistentemente un rendimiento significativamente inferior al esperado, verifica los tiempos de respuesta del contenido conectado, las tasas de error (como `429`) y el comportamiento de reintentos.
+En la práctica, la tasa de envío sostenida (mensajes completados por minuto) puede ser inferior al límite de velocidad configurado debido a reintentos, variabilidad de la red, latencia del endpoint posterior y suavizado por minuto. Si ves consistentemente un rendimiento significativamente inferior al esperado, verifica los tiempos de respuesta del contenido conectado, las tasas de error (como `429`) y el comportamiento de reintentos.
 {% endalert %}
 
 ## Acerca de la limitación de frecuencia {#about-frequency-capping}
@@ -199,7 +199,7 @@ Si necesitas llegar a un número específico de usuarios al usar ambas caracter�
 
 - **Aumenta tu límite de velocidad:** para tener en cuenta a los usuarios que tienen limitación de frecuencia. Por ejemplo, si quieres llegar a 500 usuarios pero esperas que algunos tengan limitación de frecuencia, establece tu límite de velocidad más alto (como 1000 usuarios).
 - **Usa solo el límite de velocidad:** si tu objetivo es controlar el volumen de mensajes enviados por campaña.
-- **Contacta a tu administrador del éxito del cliente:** para obtener ayuda en el diseño de una estrategia de mensajería sólida que equilibre tanto las necesidades del negocio como las consideraciones técnicas.
+- **Contacta a tu administrador de éxito de cliente:** para obtener ayuda en el diseño de una estrategia de mensajería sólida que equilibre tanto las necesidades del negocio como las consideraciones técnicas.
 
 ### Resumen de la característica {#freq-cap-feat-over}
 
@@ -227,7 +227,7 @@ Esto es independiente de las **validaciones de entrega** en un paso de mensaje. 
 
 Puede haber algunas campañas, como los mensajes transaccionales, que quieras que siempre lleguen al usuario, incluso si ya han alcanzado su límite de frecuencia. Por ejemplo, una aplicación de entregas puede querer enviar un correo electrónico o push cuando se entrega un artículo, independientemente de cuántas campañas haya recibido el usuario.
 
-Si quieres que una campaña en particular anule las reglas de limitación de frecuencia, puedes configurar esto en el dashboard de Braze al planificar la entrega de esa campaña alternando **Frequency Capping** a **OFF**.
+Si quieres que una campaña en particular anule las reglas de limitación de frecuencia, puedes configurar esto en el panel de Braze al planificar la entrega de esa campaña alternando **Frequency Capping** a **OFF**.
 
 Después de esto, se te preguntará si aún quieres que esta campaña cuente para tu límite de frecuencia. Los mensajes que cuentan para la limitación de frecuencia se incluyen en los cálculos del filtro de canal inteligente.
 
@@ -251,30 +251,34 @@ Cuando un solo despacho usa múltiples canales, ese despacho cuenta como máximo
 
 Los mensajes dentro de la aplicación y Content Cards no se cuentan como ni para los límites de campañas o componentes de Canvas de ningún tipo.
 
+##### Notificaciones push con múltiples dispositivos {#push-notifications-with-multiple-devices}
+
+Para las campañas push, la limitación de frecuencia cuenta a nivel de campaña o componente de Canvas, no por dispositivo individual. Si un perfil de usuario tiene múltiples dispositivos registrados para push (por ejemplo, un iPhone y un iPad), un límite de frecuencia a nivel de campaña cuenta eso como un solo envío, independientemente de cuántos dispositivos reciban la notificación. Esto es similar a cómo una campaña recurrente con una cadencia diaria cuenta como un envío por día, incluso si se repite varias veces a lo largo de la semana.
+
 {% alert important %}
 La limitación de frecuencia global se planifica según la zona horaria del usuario y se calcula por días calendario, no por períodos de 24 horas. Por ejemplo, si configuras una regla de limitación de frecuencia de no enviar más de una campaña por día, un usuario puede recibir un mensaje a las 11 pm en su zona horaria local, y sería elegible para recibir otro mensaje una hora después.
 {% endalert %}
 
-#### Casos de uso {#use-cases}
+#### Ejemplos {#use-cases}
 
 {% tabs %}
 {% tab Caso de uso 1 %}
 
-Supongamos que estableces una regla de limitación de frecuencia para que tus usuarios no reciban más de tres campañas o pasos de Canvas de notificaciones push por semana de todas las campañas o pasos de Canvas.
+Supongamos que estableces una regla de limitación de frecuencia para que tus usuarios no reciban más de tres campañas o pasos en Canvas de notificaciones push por semana de todas las campañas o pasos en Canvas.
 
 Si tu usuario está programado para recibir tres notificaciones push, dos mensajes dentro de la aplicación y una Content Card esta semana, recibirá todos esos mensajes.
 
 {% endtab %}
 {% tab Caso de uso 2 %}
 
-Este escenario usa una regla de limitación de frecuencia para que los usuarios no reciban más de dos campañas o pasos de Canvas de notificaciones push por semana de todas las campañas o pasos de Canvas.
+Este escenario usa una regla de limitación de frecuencia para que los usuarios no reciban más de dos campañas o pasos en Canvas de notificaciones push por semana de todas las campañas o pasos en Canvas.
 
 **Cuando ocurre el siguiente escenario:**
 
 - Un usuario activa la misma campaña `Campaign ABC` tres veces a lo largo de una semana.
 - Este usuario activa `Campaign ABC` una vez el lunes, una vez el miércoles y una vez el jueves.
 
-![Sección de limitación de frecuencia con la regla de no enviar más de 2 campañas/pasos de Canvas de notificaciones push de todas las campañas/pasos de Canvas a un usuario cada 1 semana.]({% image_buster /assets/img/standard_rules_fnfn.png %})
+![Sección de limitación de frecuencia con la regla de no enviar más de 2 campañas/pasos en Canvas de notificaciones push de todas las campañas/pasos en Canvas a un usuario cada 1 semana.]({% image_buster /assets/img/standard_rules_fnfn.png %})
 
 **Entonces, el comportamiento esperado es que:**
 
@@ -292,12 +296,12 @@ Con la limitación de frecuencia por etiqueta, las reglas se pueden establecer e
 
 También puedes combinar la limitación de frecuencia regular con la limitación de frecuencia por etiquetas. Considera las siguientes reglas:
 
-1. No más de tres campañas o componentes de Canvas de notificaciones push por semana de todas las campañas y pasos de Canvas. <br>**Y**
+1. No más de tres campañas o componentes de Canvas de notificaciones push por semana de todas las campañas y pasos en Canvas. <br>**Y**
 2. No más de dos campañas o componentes de Canvas de notificaciones push por semana con la etiqueta `promotional`.
 
 ![Sección de limitación de frecuencia con dos reglas que limitan cuántas campañas/Canvas de notificaciones push se pueden enviar a un usuario cada 1 semana.]({% image_buster /assets/img/tag_rule_fnfn.png %} "rules")
 
-Como resultado, tus usuarios no recibirán más de tres envíos de campaña por semana en todas las campañas y pasos de Canvas, y no más de dos campañas o componentes de Canvas de notificaciones push con la etiqueta `promotional`.
+Como resultado, tus usuarios no recibirán más de tres envíos de campaña por semana en todas las campañas y pasos en Canvas, y no más de dos campañas o componentes de Canvas de notificaciones push con la etiqueta `promotional`.
 
 {% alert important %}
 Los Canvas se etiquetan a nivel de Canvas, a diferencia del etiquetado por componente. Por lo tanto, cada componente de Canvas heredará todas las etiquetas a nivel de Canvas.
@@ -310,7 +314,7 @@ Cuando las reglas entran en conflicto, se aplica la regla de limitación de frec
 1. No más de una campaña o componente de Canvas de notificaciones push por semana de todas las campañas y componentes de Canvas. <br>**Y**
 2. No más de tres campañas o componentes de Canvas de notificaciones push por semana con la etiqueta `promotional`.
 
-![Sección de limitación de frecuencia con reglas en conflicto para limitar cuántas campañas/pasos de Canvas de notificaciones push se envían a un usuario cada 1 semana.]({% image_buster /assets/img/global_rules.png %} "global rules")
+![Sección de limitación de frecuencia con reglas en conflicto para limitar cuántas campañas/pasos en Canvas de notificaciones push se envían a un usuario cada 1 semana.]({% image_buster /assets/img/global_rules.png %} "global rules")
 
 En este ejemplo, tu usuario no recibirá más de una campaña o componente de Canvas de notificaciones push con la etiqueta "promotional" en una semana determinada, porque has especificado que los usuarios no deben recibir más de una campaña o componente de Canvas de notificaciones push de todas las campañas y componentes de Canvas. En otras palabras, la regla de frecuencia más restrictiva aplicable es la regla que se aplicará a un usuario determinado.
 
@@ -345,13 +349,13 @@ Por ejemplo, si tu regla de limitación de frecuencia por etiqueta es:
 
 > No más de dos campañas o componentes de Canvas de correo electrónico con la etiqueta `Promotional` a un usuario cada semana.
 
-Y envías al usuario más de 100 correos electrónicos de campañas y pasos de Canvas con la limitación de frecuencia activada a lo largo de una semana, es posible que se envíen más de dos correos electrónicos al usuario.
+Y envías al usuario más de 100 correos electrónicos de campañas y pasos en Canvas con la limitación de frecuencia activada a lo largo de una semana, es posible que se envíen más de dos correos electrónicos al usuario.
 
 Dado que 100 mensajes por canal son más mensajes de los que la mayoría de las marcas envían a sus usuarios, es poco probable que te veas afectado por esta limitación. Para evitar esta limitación, puedes establecer un límite para el número máximo de correos electrónicos que deseas que tus usuarios reciban a lo largo de una semana.
 
 Por ejemplo, podrías configurar la siguiente regla:
 
-> No más de tres campañas o componentes de Canvas de correo electrónico por semana de todas las campañas y pasos de Canvas.
+> No más de tres campañas o componentes de Canvas de correo electrónico por semana de todas las campañas y pasos en Canvas.
 
 Esta regla determina que ningún usuario reciba más de 100 correos electrónicos por semana porque, como máximo, los usuarios reciben tres correos electrónicos por semana de campañas o componentes de Canvas con la limitación de frecuencia activada.
 
@@ -363,13 +367,13 @@ Sí, cuando aumentas o reduces un límite de velocidad de Canvas, el límite act
 
 ### ¿La limitación de frecuencia hace que los usuarios salgan de un Canvas? {#does-frequency-capping-cause-users-to-exit-a-canvas}
 
-No. Si un usuario de Canvas tiene limitación de frecuencia debido a la configuración de limitación de frecuencia global, el usuario avanza inmediatamente al siguiente paso de Canvas. El usuario **no** sale del Canvas debido al límite de frecuencia.
+No. Si un usuario de Canvas tiene limitación de frecuencia debido a la configuración de limitación de frecuencia global, el usuario avanza inmediatamente al siguiente paso en Canvas. El usuario **no** sale del Canvas debido al límite de frecuencia.
 
 ### ¿Cómo puedo identificar a los usuarios que fueron limitados por frecuencia en un Canvas? {#how-can-i-identify-users-who-were-frequency-capped-in-a-canvas}
 
 Los usuarios con limitación de frecuencia no generan un evento de envío para ese paso. Para identificar a estos usuarios, puedes usar [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) para rastrear eventos de limitación de frecuencia de mensajes. Alternativamente, puedes crear una [extensión de Segment]({{site.baseurl}}/user_guide/audience/segments/segment_extension) para analizar a los usuarios que entraron en el Canvas pero no recibieron el mensaje esperado.
 
-### ¿Por qué el dashboard muestra un error de límite de velocidad para mi campaña? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
+### ¿Por qué el panel muestra un error de límite de velocidad para mi campaña? {#why-does-the-dashboard-show-a-rate-limit-error-for-my-campaign}
 
 Esto generalmente significa que el [límite de velocidad de entrega](#delivery-speed-rate-limiting) de la campaña está configurado demasiado bajo para el tamaño de la audiencia, por lo que completar el envío tardaría más de la ventana permitida y Braze muestra una advertencia. Aumenta el límite de velocidad de entrega, reduce la audiencia o usa **Limit send volume** para que cada envío planificado se complete dentro de la ventana de envío permitida. También puedes establecer un [límite de velocidad de mensajería del espacio de trabajo]({{site.baseurl}}/user_guide/administer/global/workspace_settings/messaging_rate_limits) para aplicar un límite en todas las campañas.
 

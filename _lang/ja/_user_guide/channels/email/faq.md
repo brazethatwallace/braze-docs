@@ -54,7 +54,7 @@ APIコールを通じてAPIキャンペーン（APIトリガーキャンペー�
 
 #### キャンバスと重複メールアドレス {#canvas-and-duplicate-email-addresses}
 
-キャンバスジャーニーでは、重複メールアドレスが1回の送信を受信するか複数回受信するかは、エントリのバッチ処理、ステップのタイミング、その他の要因によって異なります。ジャーニーで検証するまで、動作は未定義として扱ってください。可能であれば、重複プロファイルをマージまたは統合してください。{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in キャンバス" %}
+キャンバスジャーニーでは、重複メールアドレスが1回の送信を受信するか複数回受信するかは、エントリのバッチ処理、ステップのタイミング、その他の要因によって異なります。ジャーニーで検証するまで、動作は未定義として扱ってください。可能であれば、重複プロファイルをマージまたは統合してください。製品の変更が必要な場合は、Brazeチームを通じてフィードバックを送信してください。
 
 ### ユーザーのメールアドレスが別のユーザーと共有されているアドレスに変更された場合、購読状態はどうなりますか？ {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -244,7 +244,7 @@ Brazeの配信イベントは、メールがメールボックスプロバイダ
 
 Outlookは標準のブラウザレンダリングではなくMicrosoft Wordレンダリングを使用することが多く、画像が正しくレンダリングされなかったり、画像の周りにボーダーが追加されたりする場合があります。
 
-Outlookで画像が期待される幅よりも大きく表示される場合は、画像に以下のCSSを追加してください。
+Outlookで画像が期待される幅より大きく表示される場合は、画像に以下のCSSを追加してください。
 
 ```css
 max-width: 100%;

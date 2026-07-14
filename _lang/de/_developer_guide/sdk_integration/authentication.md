@@ -792,7 +792,7 @@ Nein, dieses Feature kann für bestimmte Apps aktiviert werden und muss nicht f�
 
 Wenn Sie damit beginnen, dieses Feature zu erzwingen, werden Anfragen von älteren App-Versionen von Braze abgelehnt und vom SDK erneut versucht. Nachdem Nutzer:innen ihre App auf eine unterstützte Version aktualisiert haben, werden diese in der Warteschlange befindlichen Anfragen wieder akzeptiert.
 
-Wenn möglich, sollten Sie Nutzer:innen zum Upgraden auffordern, wie Sie es bei jedem anderen Pflichtupdate tun würden. Alternativ können Sie das Feature [optional](#enforcement-options) lassen, bis Sie sehen, dass ein akzeptabler Prozentsatz der Nutzer:innen aktualisiert hat.
+Wenn möglich, sollten Sie Nutzer:innen zum Upgrade auffordern, wie Sie es bei jedem anderen Pflichtupdate tun würden. Alternativ können Sie das Feature [optional](#enforcement-options) lassen, bis Sie sehen, dass ein akzeptabler Prozentsatz der Nutzer:innen aktualisiert hat.
 
 ### Welche Gültigkeitsdauer sollte ich bei der Erstellung eines JWTs verwenden? {#faq-expiration}
 

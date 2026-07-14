@@ -50,7 +50,7 @@ Decisioning Studio GoをBrazeと統合するには、APIキーを作成し、API
 
 1. Brazeダッシュボードで、**設定** > **メール設定**に移動します。
 2. BrazeAI Decisioning Studio™ Goで使用する表示名を確認します。
-3. **From Display Name**をコピーし、BrazeAI Decisioning Studio™ Goポータルに**Email Display Name**として貼り付けます。
+3. **差出人の表示名**をコピーし、BrazeAI Decisioning Studio™ Goポータルに**メール表示名**として貼り付けます。
 4. 関連するメールアドレスをコピーし、BrazeAI Decisioning Studio™ Goポータルに**送信元メールアドレス**として貼り付けます。このメールアドレスはローカル部分とドメインを組み合わせたものです。
 
 ### ステップ3: BrazeのURLとApp IDを見つける {#step-3-find-your-braze-url-and-app-id}
@@ -73,33 +73,33 @@ BrazeはアプリID（BrazeダッシュボードではAPIキーと呼ばれま�
 
 1. Brazeダッシュボードで、**メッセージング** > **キャンペーン**に移動します。
 2. **キャンペーンを作成**を選択します。
-3. キャンペーンタイプとして、**API キャンペーン**を選択します。
+3. キャンペーンタイプとして、**APIキャンペーン**を選択します。
 4. キャンペーン名を入力します。例：「Decisioning Studio Go Email」
 
-![「Decisioning Studio Go Email」という名前のAPI キャンペーン。]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
+![「Decisioning Studio Go Email」という名前のAPIキャンペーン。]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
 
 {: start="5"}
-5. メッセージングチャネルとして、**Email**を選択します。
+5. メッセージングチャネルとして、**メール**を選択します。
 
-![API キャンペーンのメッセージングチャネルを選択するオプション。]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
+![APIキャンペーンのメッセージングチャネルを選択するオプション。]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
 
 {: start="6"}
-6. **追加オプション**で、**ユーザーがキャンペーンの受信資格を再取得できるようにする**チェックボックスを選択します。
-7. 再資格取得までの時間として、**1**を入力し、ドロップダウンから**Hours**を選択します。
+6. **追加オプション**で、**ユーザーがキャンペーンを再度受信できるようにする**チェックボックスを選択します。
+7. 再受信資格までの時間として、**1**を入力し、ドロップダウンから**時間**を選択します。
 
-![API キャンペーンの再資格設定が選択された状態。]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
+![APIキャンペーンの再受信資格設定が選択された状態。]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
 
 {: start="8"}
 8. **キャンペーンを保存**を選択します。
 
-### ステップ5: キャンペーン IDとメッセージIDをコピーする {#step-5-copy-your-campaign-and-message-ids}
+### ステップ5: キャンペーンIDとメッセージIDをコピーする {#step-5-copy-your-campaign-and-message-ids}
 
-1. API キャンペーンで、**キャンペーン ID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**キャンペーン ID**を貼り付けます。
+1. APIキャンペーンで、**キャンペーンID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**キャンペーンID**を貼り付けます。
 
 ![コピーして貼り付けるメッセージバリエーションIDの例。]({% image_buster /assets/img/decisioning_studio_go/campaign_id.png %})
 
 {: start="2"}
-2. **Message Variation ID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**Message Variation ID**を貼り付けます。
+2. **メッセージバリエーションID**をコピーします。次に、BrazeAI Decisioning Studio™ Goポータルに移動し、**メッセージバリエーションID**を貼り付けます。
 
 ### ステップ6: テストユーザーIDを確認する {#step-6-locate-a-test-user-id}
 

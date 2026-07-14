@@ -19,9 +19,9 @@ Um auf das Deliverability Center zuzugreifen, benötigen Sie die [Nutzer:innenbe
 
 {% details Nutzer:innenberechtigungen für das Deliverability Center %}
 
-- Kampagnen anzeigen
-- Kampagnen bearbeiten
-- Kampagnen archivieren
+- Campaigns anzeigen
+- Campaigns bearbeiten
+- Campaigns archivieren
 - Canvases anzeigen
 - Canvases bearbeiten
 - Canvases archivieren
@@ -68,7 +68,7 @@ Um auf das Deliverability Center zuzugreifen, benötigen Sie die [Nutzer:innenbe
 Bevor Sie sich mit dem Deliverability Center verbinden, müssen Sie ein Google Postmaster Tools-Konto einrichten. Sie können ein geschäftliches oder persönliches Gmail-Konto verwenden, um Google Postmaster einzurichten.
 
 1. Gehen Sie zum [Google Postmaster Tools-Dashboard](https://postmaster.google.com/managedomains?pli=1).
-2. Wählen Sie unten rechts <i class="fas fa-plus-circle"></i> **Add domain**.
+2. Wählen Sie unten auf der Seite <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Geben Sie Ihre Root-(Eltern-)Domain ein, um Ihre E-Mail zu authentifizieren. Stellen Sie sicher, dass der TXT-Eintrag mit dieser Root-(Eltern-)Domain verknüpft ist, **nicht** mit der Subdomain, die Sie über Braze verwenden. Durch die Verifizierung der Root-(Eltern-)Domain können Sie später Subdomains in den Postmaster Tools hinzufügen, ohne zusätzliche TXT-Einträge erstellen zu müssen. Wenn Sie beispielsweise `braze.com` verifizieren, können Sie später `demo.braze.com` als separate Subdomain in den Postmaster Tools hinzufügen, um Metriken auf Subdomain-Ebene einzusehen.
 4. Google generiert einen TXT-Eintrag, der direkt zum DNS Ihrer Domain hinzugefügt werden kann. Dies wird in der Regel von der Person verwaltet, die für Ihr DNS zuständig ist. Informationen und Anleitungen zur Aktualisierung Ihres spezifischen DNS finden Sie unter [Domain verifizieren (hostspezifische Schritte)](https://support.google.com/a/topic/1409901).
 5. Wählen Sie **Next**. <br>![Eine Beispiel-Domain „demo.braze.com“ zur Authentifizierung einer E-Mail.]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -158,7 +158,7 @@ In dieser Tabelle erfahren Sie, welcher Prozentsatz Ihres eingehenden und ausgeh
 | TLS ausgehend | Zeigt den Prozentsatz der ausgehenden E-Mails (von Gmail), die über TLS akzeptiert wurden, im Verhältnis zu allen an diese Domain gesendeten E-Mails. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verschlüsselung" }
 
-Weitere Ideen zur Verbesserung der Zustellbarkeit finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Lesen Sie auch unsere [Best Practices für E-Mails]({{site.baseurl}}/user_guide/channels/email/best_practices), um zu erfahren, was Sie vor dem Versand einer E-Mail-Kampagne überprüfen sollten.
+Weitere Ideen zur Verbesserung der Zustellbarkeit finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Lesen Sie auch unsere [Best Practices für E-Mails]({{site.baseurl}}/user_guide/channels/email/best_practices), um zu erfahren, was Sie vor dem Versand einer E-Mail-Campaign überprüfen sollten.
 
 ## Microsoft Smart Network Data Services (SNDS) einrichten {#set-up-microsoft-smart-network-data-services-snds}
 

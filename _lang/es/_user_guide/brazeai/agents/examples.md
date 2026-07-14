@@ -16,7 +16,7 @@ toc_headers: h2
 
 Estos ejemplos son puntos de partida, no agentes terminados. Para adaptar un ejemplo a tu escenario:
 
-1. Crea el agente para la superficie correspondiente —un [paso en Canvas de agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) o un agente de catálogo— y abre sus instrucciones.
+1. Crea el agente para la superficie correspondiente —un [paso en Canvas de tipo agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) o un agente de catálogo— y abre sus instrucciones.
 2. Copia el bloque de **instrucciones** del ejemplo correspondiente en esta biblioteca dentro de tu agente.
 3. Reemplaza las entradas de marcador de posición (nombre, estado de fidelización, variables de contexto, campos de catálogo) con las [variables de contexto]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) y campos que existan en tu espacio de trabajo.
 4. Agrega cualquier **contexto del agente** necesario, como tus [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines), para que el agente pueda aplicar tus reglas de voz, tono y formato.
@@ -26,7 +26,7 @@ Estos ejemplos son puntos de partida, no agentes terminados. Para adaptar un eje
 
 {% details Acerca de las categorías de ejemplos %}
 
-Cada ejemplo tiene asignada una categoría basada en el trabajo que realiza el agente, y una etiqueta de tipo de agente (agente de paso en Canvas o agente de catálogo) para filtrar.
+Cada ejemplo tiene asignada una categoría según el trabajo que realiza el agente, y una etiqueta de tipo de agente (agente de paso en Canvas o agente de catálogo) para filtrar.
 
 ### Generación de contenido {#content-generation}
 
@@ -34,11 +34,11 @@ Agentes que producen textos alineados con la marca para mensajería o superficie
 
 ### Agente de afinidad {#affinity-agent}
 
-Agentes que infieren los intereses o la motivación de un usuario a partir de atributos de perfil y comportamiento reciente, y luego recomiendan una siguiente experiencia, artículo o ruta en Canvas. Los ejemplos incluyen agrupación por intereses, enrutamiento de rutas a partir de acciones recientes y asignación de categorías en tiempo real a partir de señales de alta intención.
+Agentes que infieren los intereses o la motivación de un usuario a partir de atributos de perfil y comportamiento reciente, y luego recomiendan una siguiente experiencia, artículo o ruta en Canvas. Los ejemplos incluyen clasificación por intereses, enrutamiento de rutas a partir de acciones recientes y asignación de categorías en tiempo real a partir de señales de alta intención.
 
 ### Estandarización de datos {#data-standardization}
 
-Agentes que convierten entradas no estructuradas en campos estructurados y consistentes para herramientas y automatización posteriores. Los ejemplos incluyen clasificar el sentimiento y el tema de un cuestionario para un traspaso a CRM, o normalizar SMS entrantes o chat en intención, entidades y señales de cumplimiento.
+Agentes que convierten entradas no estructuradas en campos estructurados y consistentes para herramientas y automatización posteriores. Los ejemplos incluyen clasificar el sentimiento y el tema de un cuestionario para un traspaso a CRM, o normalizar SMS o chat entrantes en intención, entidades y señales de cumplimiento.
 
 ### Clasificación y enrutamiento {#classification-and-routing}
 
@@ -53,7 +53,7 @@ Agentes de catálogo que mejoran las filas del catálogo con textos localizados,
 </div>
 
 {% alert tip %}
-Cada ejemplo solicita al modelo que devuelva un campo `explanation` junto con su salida, lo que facilita el aseguramiento de calidad y la depuración. Mantén este campo mientras construyes y pruebas, y elimínalo del mapeo de salida final una vez que estés seguro de los resultados.
+Cada ejemplo solicita al modelo que devuelva un campo `explanation` junto con su salida, lo que facilita el control de calidad y la depuración. Mantén este campo mientras construyes y pruebas, y elimínalo del mapeo de salida final una vez que estés seguro de los resultados.
 {% endalert %}
 
 <!--overview-end-->
@@ -66,7 +66,7 @@ Cada ejemplo solicita al modelo que devuelva un campo `explanation` junto con su
 Content generation, canvas step agent
 {% endapitags %}
 
-Usa este agente de Canvas para generar líneas de asunto de correo electrónico coordinadas, preencabezados y título y cuerpo de notificaciones push para usuarios que buscaron en la aplicación pero no reservaron. El objetivo es reorientarlos en un recorrido en Canvas con mensajería localizada, segura para la marca, que impulse el pago respetando los límites de caracteres de cada canal.
+Usa este agente de Canvas para generar líneas de asunto de correo electrónico coordinadas, preencabezados y título y cuerpo de notificaciones push para usuarios que buscaron en la aplicación pero no reservaron. El objetivo es reorientarlos en un recorrido en Canvas con mensajería localizada, segura para la marca, que impulse la finalización de la compra respetando los límites de caracteres de cada canal.
 
 {% tabs local %}
 {% tab Requisitos previos %}
@@ -209,13 +209,13 @@ Input & Output Example:
 
 {% api %}
 
-## Categorizar usuarios en grupos de interés a partir de atributos existentes {#categorize-users-into-interest-buckets-from-existing-attributes}
+## Categorizar usuarios en contenedores de interés a partir de atributos existentes {#categorize-users-into-interest-buckets-from-existing-attributes}
 
 {% apitags %}
 Affinity agent, canvas step agent
 {% endapitags %}
 
-Este ejemplo describe cómo un agente de Canvas puede clasificar usuarios en grupos de interés específicos basándose en atributos personalizados existentes y señales de comportamiento de alta intención, y luego recomendar la mejor siguiente experiencia o artículo. El objetivo es enrutar a los usuarios hacia experiencias orientadas con precisión —como recuperación de carrito o recomendaciones específicas por categoría— basándose únicamente en datos verificados, sin alucinar atributos que no estén presentes.
+Este ejemplo describe cómo un agente de Canvas puede clasificar usuarios en contenedores de interés específicos basándose en atributos personalizados existentes y señales de comportamiento de alta intención, y luego recomendar la mejor siguiente experiencia o artículo. El objetivo es enrutar a los usuarios hacia experiencias orientadas con precisión —como recuperación de carrito o recomendaciones específicas por categoría— basándose únicamente en datos verificados, sin alucinar atributos que no estén presentes.
 
 {% tabs local %}
 {% tab Requisitos previos %}
@@ -448,7 +448,7 @@ Recent Search: "18v cordless drill"
 Classification and routing, canvas step agent
 {% endapitags %}
 
-Este ejemplo describe cómo un agente de Canvas puede evaluar un mensaje entrante de un cliente a la vez y devolver si debe tratarse como una solicitud de cancelar suscripción de mensajería futura (por ejemplo, STOP, cancelar suscripción o revocar consentimiento). El objetivo es generar un booleano estricto para que puedas ramificar recorridos de forma conservadora, reduciendo el riesgo de enviar mensajes después de la revocación mientras se evitan falsos positivos cuando el usuario claramente está haciendo una pregunta o continúa interactuando.
+Este ejemplo describe cómo un agente de Canvas puede evaluar un mensaje entrante de un cliente a la vez y devolver si debe tratarse como una solicitud de cancelar suscripción de mensajería futura (por ejemplo, STOP, cancelar suscripción o revocar consentimiento). El objetivo es generar un booleano estricto para que puedas ramificar recorridos de forma conservadora, reduciendo el riesgo de enviar mensajes después de la revocación y evitando falsos positivos cuando el usuario claramente está haciendo una pregunta o continúa interactuando.
 
 {% alert important %}
 La gestión de cancelación de suscripción y consentimiento conlleva obligaciones legales que varían según la región y el canal. Trata este ejemplo como un punto de partida y revisa tu lógica final contra tus propios requisitos de cumplimiento (como TCPA y RGPD) antes de confiar en él en producción.
@@ -617,7 +617,7 @@ Estas instrucciones asumen que la siguiente información está disponible:
     - **Campos de catálogo:**
         - **Catálogo:** `<Destination Catalog name>` que contiene una fila por destino (por ejemplo, tu catálogo de destinos en la aplicación).
         - **Campos:** `<Destination_Name>`, `<Country>`, `<Primary_Vibe>`, `<Price_Tier>`, que son nombres de columnas que se mapean al nombre del destino, país, ambiente principal y nivel de precio que las instrucciones utilizan.
-    - **Directrices de marca:** Las [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) de StyleRyde
+    - **Directrices de marca:** las [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) de StyleRyde
 
 {% endtab %}
 {% tab Instrucciones %}
@@ -750,7 +750,7 @@ Max Characters: 20
 Catalog enrichment, catalog agent
 {% endapitags %}
 
-Este ejemplo describe cómo un agente de catálogo puede mejorar artículos de catálogo existentes generando una descripción de producto mejorada (45–90 palabras), una categoría estandarizada y un conjunto de etiquetas a partir de los datos existentes del artículo. El objetivo es escalar el enriquecimiento de catálogo alineado con la marca en muchos productos sin redacción manual, evitando hechos alucinados o afirmaciones prohibidas.
+Este ejemplo describe cómo un agente de catálogo puede mejorar artículos de catálogo existentes generando una descripción de producto mejorada (45-90 palabras), una categoría estandarizada y un conjunto de etiquetas a partir de los datos existentes del artículo. El objetivo es escalar el enriquecimiento de catálogo alineado con la marca en muchos productos sin redacción manual, evitando hechos alucinados o afirmaciones prohibidas.
 
 {% tabs local %}
 {% tab Requisitos previos %}

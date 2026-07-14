@@ -13,7 +13,7 @@ search_rank: 3
 
 > プッシュ通知は、モバイルやWebを通じて時間的制約のあるアクションを促すメッセージを送信し、しばらくアプリを利用していないユーザーを再エンゲージメントするための実績ある方法です。ユーザーをコンテンツに直接誘導し、アプリケーションの価値を示すことができます。
 
-[![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/push-fundamentals){: style="float:right;width:120px;border:0;" class="noimgborder"}
+[![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/push-fundamentals){: style="float:right;width:120px;border:0;" class="noimgborder"}
 
 ## 前提条件 {#prerequisites}
 
@@ -47,6 +47,12 @@ search_rank: 3
 | Apple [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) | プッシュ通知、カメラ、ジャイロスコープなどの組み込み機能や、Apple Music、iCloudなどのAppleサービスを収益化してはなりません。 |
 | Google Play — [システム機能の不正使用または模倣](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | アプリはシステム通知を模倣したり、干渉したりしてはなりません。システムレベルの通知は、アプリの不可欠な機能にのみ使用できます（たとえば、航空会社アプリがユーザーにお得な情報を通知する場合や、ゲームがユーザーにゲーム内プロモーションを通知する場合など）。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="プッシュ通知に関する規制" }
+
+## よくある質問 {#frequently-asked-questions}
+
+### Brazeはプッシュの送信成功をいつ記録しますか？ {#when-does-braze-record-a-successful-send-for-push}
+
+Brazeは通常、メッセージがBrazeからApple、Google、またはWebプッシュサービスに向けて送信された時点で**送信**を記録します。**配信**、開封、バウンス、およびアンインストールシグナルは別途追跡され、後から届く場合があります。**送信**と下流の指標にずれがある場合は、ステップレベルおよびキャンペーンレベルの分析と[プッシュのトラブルシューティング]({{site.baseurl}}/user_guide/channels/push/troubleshooting)を併用してください。
 
 ## 次のステップ {#next-steps}
 

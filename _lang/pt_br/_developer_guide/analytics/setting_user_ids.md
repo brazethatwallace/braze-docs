@@ -75,6 +75,32 @@ AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
 ```
 {% endsubtab %}
 {% endsubtabs %}
+
+{% alert note %}
+`changeUser` enfileira a troca de usuário e retorna imediatamente na thread de chamada. Quaisquer setters de atributos chamados em `braze.user` depois disso são automaticamente serializados atrás das operações iniciadas por `changeUser`. A leitura de `braze.user.id` bloqueia a thread de chamada até que a troca de usuário seja totalmente concluída. Para contextos na thread principal ou sensíveis à latência, use as alternativas não bloqueantes.
+
+{% subtabs local %}
+{% subtab Swift %}
+```swift
+// Completion handler — always delivers on the main thread.
+AppDelegate.braze?.user.getId { userId in
+  print("User ID:", userId ?? "anonymous")
+}
+
+// Async/await (iOS 13.0+, tvOS 13.0+, watchOS 6.0+, macOS 10.15+)
+let userId = await AppDelegate.braze?.user.getId()
+```
+{% endsubtab %}
+{% subtab Objective-C %}
+```objc
+// Completion handler — always delivers on the main thread.
+[AppDelegate.braze.user getIdWithCompletion:^(NSString * _Nullable userId) {
+  NSLog(@"User ID: %@", userId ?: @"anonymous");
+}];
+```
+{% endsubtab %}
+{% endsubtabs local %}
+{% endalert %}
 {% endtab %}
 
 {% tab CORDOVA %}
@@ -193,7 +219,7 @@ Alternativamente, você pode fazer hash de um identificador único existente (co
 {% alert warning %}
 Não use um valor previsível ou um número incremental para seu ID de usuário. Isso pode expor sua organização a ataques maliciosos ou exfiltração de dados.
 
-Para maior segurança, use a [Autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication).
+Para maior segurança, use a [autenticação do SDK]({{site.baseurl}}/developer_guide/sdk_integration/authentication).
 {% endalert %}
 
 Embora seja essencial que você nomeie corretamente seus IDs de usuário desde o início, você sempre pode renomeá-los no futuro usando o endpoint [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration).

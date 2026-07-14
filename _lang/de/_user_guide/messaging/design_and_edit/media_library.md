@@ -18,7 +18,7 @@ tool: Media
 |---|---|
 | Berechtigung „View Media Library Assets“ | Medienbibliothek-Assets anzeigen |
 | Berechtigung „Edit Media Library Assets“ | Medienbibliothek-Assets erstellen und aktualisieren |
-| Berechtigung „Delete Media Library Assets“ | Medienbibliothek-Assets dauerhaft löschen |
+| Berechtigung „Delete Media Library Assets“ | Medienbibliothek-Assets aus der UI entfernen. Gelöschte Assets werden weiterhin von Braze gehostet, um zu verhindern, dass Nachrichten, die auf sie verweisen, fehlerhaft werden. Um ein Asset dauerhaft zu löschen, wenden Sie sich an den Braze-Support. |
 | Berechtigung „Replace Media Library Assets“ | Die Datei eines vorhandenen Medienbibliothek-Assets ersetzen, wobei URL und Asset-ID stabil bleiben |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Berechtigungen für die Medienbibliothek" }
 
@@ -69,11 +69,11 @@ Um ein Asset zu ersetzen, benötigen Sie die Berechtigung „Replace Media Libra
 
 - Die Ersatzdatei muss dieselbe Dateierweiterung wie das Original haben. Beispielsweise können Sie ein `.png`-Asset nicht durch eine `.jpg`-Datei ersetzen.
 - Video-Assets können nicht ersetzt werden.
-- Nach dem Ersetzen kann es aufgrund von CDN-Caching einige Zeit dauern, bis die aktualisierte Datei allen Verbraucher:innen angezeigt wird.
+- Nach dem Ersetzen kann es aufgrund von CDN-Caching einige Zeit dauern, bis die aktualisierte Datei allen Nutzer:innen angezeigt wird.
 
 ### Kanäle mit verarbeiteten Bildkopien {#channels-with-processed-image-copies}
 
-Einige Kanäle erstellen beim Einrichten der Nachricht eine optimierte Kopie des Bildes, was zu einer separaten URL führt. Das Ersetzen des ursprünglichen Medienbibliothek-Assets aktualisiert nicht, was Verbraucher:innen bei Nachrichten sehen, die über diese Kanäle erstellt wurden, einschließlich In-App-Nachrichten, Content Cards, Push-Benachrichtigungen und Banner.
+Einige Kanäle erstellen beim Einrichten der Nachricht eine optimierte Kopie des Bildes, was zu einer separaten URL führt. Das Ersetzen des ursprünglichen Medienbibliothek-Assets aktualisiert nicht, was Nutzer:innen bei Nachrichten sehen, die über diese Kanäle erstellt wurden, einschließlich In-App-Nachrichten, Content Cards, Push-Benachrichtigungen und Banner.
 
 Sie können ein Asset auch programmatisch über den Endpunkt [`PUT /media_library/replace_file`]({{site.baseurl}}/api/endpoints/media_library/manage_assets/replace_file) ersetzen.
 

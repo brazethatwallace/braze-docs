@@ -225,7 +225,7 @@ Si eliges usar solo un botón, se ajustará automáticamente para ocupar el espa
 
 Si decides dar formato a estos botones con tus propios colores, te recomendamos que uses el Botón 2 para tu resultado preferido.
 
-En otras palabras, si quieres que tu usuario haga clic en un botón más que en el otro, asegúrate de que esté a la derecha. El botón derecho a menudo ha mostrado un mejor potencial para recibir clics, especialmente si tiene un color algo contrastante o que destaque del resto del mensaje. Esto se enfatiza aún más cuando el botón de la izquierda se mezcla más visualmente con el mensaje.
+En otras palabras, si quieres que tu usuario haga clic en un botón más que en el otro, asegúrate de que sea el botón secundario. El botón secundario a menudo ha mostrado un mejor potencial para recibir clics, especialmente si tiene un color algo contrastante o que destaque del resto del mensaje. Esto se enfatiza aún más cuando el botón principal se mezcla más visualmente con el mensaje.
 
 ![Botones principal y secundario en un mensaje dentro de la aplicación]({% image_buster /assets/img/primary-secondary-buttons.png %})
 

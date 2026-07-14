@@ -41,9 +41,9 @@ MESSAGE HERE
 
 ## Können Nutzer:innen eine In-App-Nachricht erneut erhalten, nachdem sie sie geschlossen haben? {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
 
-### Campaigns
+### Campaigns {#campaigns}
 
-Bei In-App-Nachricht-Campaigns können Sie Nutzer:innen erlauben, erneut für den Empfang der Campaign berechtigt zu werden, indem Sie die erneute Berechtigung in den **Zustellungs-Kontrollgruppen** aktivieren (**Nutzer:innen erlauben, erneut für den Empfang der Campaign berechtigt zu werden**). Wie schnell sie die Nachricht erneut erhalten können, hängt vom eingestellten Zeitfenster für die erneute Berechtigung ab und davon, wie Braze den vorherigen Versand erfasst hat. Weitere Informationen finden Sie unter [Erneute Berechtigung für Campaigns und Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) zum Campaign-Verhalten, einschließlich der Beziehung zwischen erneuter Berechtigung und Nachrichtenempfang.
+Bei In-App-Nachricht-Campaigns können Sie Nutzer:innen erlauben, erneut für den Empfang der Campaign berechtigt zu werden, indem Sie die erneute Berechtigung in den **Zustellungskontrollen** aktivieren (**Nutzer:innen erlauben, erneut für den Empfang der Campaign berechtigt zu werden**). Wie schnell sie die Nachricht erneut erhalten können, hängt vom eingestellten Zeitfenster für die erneute Berechtigung ab und davon, wie Braze den vorherigen Versand erfasst hat. Weitere Informationen finden Sie unter [Erneute Berechtigung für Campaigns und Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) zum Campaign-Verhalten, einschließlich der Beziehung zwischen erneuter Berechtigung und Nachrichtenempfang.
 
 Wenn die erneute Berechtigung deaktiviert ist, erhalten Nutzer:innen dieselbe Campaign in der Regel nicht erneut allein basierend auf den Qualifizierungskriterien, nachdem sie sie bereits erhalten haben.
 
@@ -69,7 +69,7 @@ Ja, aber pro Auftreten eines [Trigger-Events]({{site.baseurl}}/user_guide/channe
 
 Wenn mehrere Nachrichten dieselbe Prioritätsstufe teilen, wird die zuletzt erstellte Nachricht zuerst angezeigt. Bei Sitzungsstart-Triggern wird die nächstaktuellste Nachricht in einer nachfolgenden Sitzung angezeigt; bei anderen Trigger-Typen wird die nächstaktuellste Nachricht beim nächsten Auftreten dieses Trigger-Events angezeigt, was innerhalb derselben Sitzung oder in einer späteren Sitzung sein kann.
 
-Um die Anzeigereihenfolge innerhalb einer Prioritätsstufe zu steuern, gehen Sie zu den Zustellungseinstellungen einer der Campaigns und wählen Sie **Genaue Priorität festlegen**. Ziehen Sie die Campaigns dann per Drag-and-Drop in die gewünschte Reihenfolge. Weitere Details finden Sie unter [Priorität wählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority).
+Um die Anzeigereihenfolge innerhalb einer Prioritätsstufe zu steuern, gehen Sie zu den Zustellungseinstellungen einer der Campaigns und wählen Sie **Exakte Priorität festlegen**. Ziehen Sie die Campaigns dann per Drag-and-Drop in die gewünschte Reihenfolge. Weitere Details finden Sie unter [Priorität wählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority).
 
 ## Wie berechnet Braze ein In-App-Nachricht-Ablaufdatum von „nach 1 Tag(en)“? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 

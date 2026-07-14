@@ -11,7 +11,7 @@ description: "Braze 대시보드를 벗어나지 않고 BrazeAI Operator에서 �
 
 ## 티켓 제출 방법 {#how-to-file-a-ticket}
 
-1. Operator에 질문한 다음 <i class="fa-regular fa-circle-question"></i> **고객지원 티켓 제출**을 선택합니다(또는 Operator에게 티켓 제출을 요청합니다).
+1. Operator에 질문한 다음 <i class="fa-regular fa-circle-question"></i> **고객지원 문의**를 선택합니다(또는 Operator에게 티켓 제출을 요청합니다).
 2. 이슈의 제목과 설명을 입력합니다.
 3. 포함할 첨부 파일과 컨텍스트 제안 사항을 검토합니다.
 4. 검토 후 **제출**을 선택합니다.

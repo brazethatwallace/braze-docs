@@ -11,7 +11,7 @@ description: "Saiba como abrir tickets de suporte diretamente pelo BrazeAI Opera
 
 ## Como abrir um ticket {#how-to-file-a-ticket}
 
-1. Faça uma pergunta ao Operator e selecione <i class="fa-regular fa-circle-question"></i> **File a support ticket** (ou peça ao Operator para abrir um).
+1. Faça uma pergunta ao Operator e selecione <i class="fa-regular fa-circle-question"></i> **Contact Support** (ou peça ao Operator para abrir um).
 2. Preencha o título e a descrição do problema.
 3. Revise os anexos e o contexto sugeridos para inclusão.
 4. Revise e selecione **Submit**.
@@ -23,7 +23,7 @@ Ao abrir um ticket pelo Operator, o seguinte contexto é incluído automaticamen
 - Mensagens recentes da sessão de chat com o Operator
 - Contexto da página ativa quando o Operator foi aberto
 - Nome do espaço de trabalho
-- Registros e informações da sessão relevantes
+- Registros e detalhes da sessão relevantes
 
 Você pode adicionar contexto adicional manualmente usando o campo de texto ou anexando arquivos.
 

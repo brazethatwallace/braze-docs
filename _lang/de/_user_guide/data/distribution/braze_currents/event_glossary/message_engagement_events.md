@@ -21,7 +21,7 @@ Speicherschemata gelten für die Flat-File-Ereignisdaten, die wir an Data-Wareho
 Diese Ereignisse sind auch als SQL-Tabellen im [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), in [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) und im [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) verfügbar. Für SQL-Tabellenschemata und Spaltendetails lesen Sie die [SQL-Tabellenreferenz]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
-Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support), wenn Sie Zugriff auf zusätzliche Ereignisberechtigungen benötigen. Falls Sie in diesem Artikel nicht finden, was Sie suchen, sehen Sie sich unsere [Kundenverhalten-Ereignisbibliothek]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
+Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support), wenn Sie Zugriff auf zusätzliche Ereignisberechtigungen benötigen. Wenn Sie in diesem Artikel nicht finden, was Sie suchen, sehen Sie sich unsere [Bibliothek der Kundenverhalten-Ereignisse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) oder unsere [Currents-Beispieldaten](https://github.com/Appboy/currents-examples/tree/master/sample-data) an.
 
 {% enddetails %}
 
@@ -29,9 +29,9 @@ Wenden Sie sich an Ihren Account Manager oder eröffnen Sie ein [Support-Ticket]
 
 ## Ereignisstruktur {#event-structure}
 
-Diese Ereignisaufschlüsselung zeigt, welche Art von Informationen in der Regel in einem Nachrichten-Engagement-Ereignis enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategieteam die eingehenden Currents-Ereignisdaten nutzen, um datengestützte Berichte und Charts zu erstellen und andere wertvolle Datenmetriken zu nutzen.
+Diese Aufschlüsselung zeigt, welche Art von Informationen in der Regel in einem Nachrichten-Engagement-Ereignis enthalten sind. Mit einem soliden Verständnis der Komponenten können Ihre Entwickler:innen und Ihr Business-Intelligence-Strategieteam die eingehenden Currents-Ereignisdaten nutzen, um datengestützte Berichte und Charts zu erstellen und weitere wertvolle Datenmetriken zu nutzen.
 
-![Aufschlüsselung eines Nachrichten-Engagement-Ereignisses, das ein E-Mail-Abmeldeereignis mit den aufgelisteten Eigenschaften zeigt, gruppiert nach nutzerspezifischen Eigenschaften, Campaign- oder Canvas-Tracking-Eigenschaften und ereignisspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %})
+![Aufschlüsselung eines Nachrichten-Engagement-Ereignisses, das ein E-Mail-Abmeldeereignis zeigt, mit den aufgelisteten Eigenschaften gruppiert nach nutzerspezifischen Eigenschaften, Campaign- oder Canvas-Tracking-Eigenschaften und ereignisspezifischen Eigenschaften]({% image_buster /assets/img/message_engagement_event.png %})
 
 Nachrichten-Engagement-Ereignisse bestehen aus **nutzerspezifischen** Eigenschaften, **Campaign-/Canvas-Tracking**-Eigenschaften und **ereignisspezifischen** Eigenschaften.
 
@@ -50,7 +50,7 @@ Beachten Sie die Namenskonventionen für Nutzer-IDs.
 Bestimmte Ereignisse geben einen `platform`-Wert zurück, der die Plattform des Geräts der Nutzer:in angibt.
 <br>Die folgende Tabelle zeigt die möglichen zurückgegebenen Werte:
 
-| Nutzergerät | Plattformwert |
+| Gerät der Nutzer:in | Plattformwert |
 | --- | --- |
 | iOS | `ios` |
 | Android | `android` |
@@ -237,69 +237,13 @@ Dies ist das Kafka-Datensatzschema für die Ausführung eines Tools. Ein Tool is
 {% endapi %}
 
 {% api %}
-## Ereignisse zur Nutzerlöschungsanfrage {#user-delete-request-events}
-
-{% apitags %}
-User Delete Request
-{% endapitags %}
-
-Wenn eine Nutzer:in auf Anfrage der Kund:in gelöscht wird.
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.UserDeleteRequest
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "id" : "(required, string) Globally unique ID for this event",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
-}
-```
-{% endtab %}
-{% endtabs %}
-
-{% endapi %}
-
-{% api %}
-## Verwaiste-Nutzer-Ereignisse {#user-orphan-events}
-
-{% apitags %}
-User Orphan
-{% endapitags %}
-
-Wenn eine Nutzer:in verwaist, d. h. das Nutzerprofil mit dem Profil einer anderen Nutzer:in zusammengeführt wird.
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.UserOrphan
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "app_id" : "(optional, string) API ID of the app on which this event occurred",
-  "device_id" : "(optional, string) ID of the device on which the event occurred",
-  "external_user_id" : "(optional, string) [PII] External ID of the user",
-  "id" : "(required, string) Globally unique ID for this event",
-  "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
-}
-```
-{% endtab %}
-{% endtabs %}
-
-{% endapi %}
-
-{% api %}
 ## Deinstallationsereignisse {#uninstall-events}
 
 {% apitags %}
 Uninstall
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn eine Nutzer:in eine App deinstalliert. Verwenden Sie diese Daten, um zu verfolgen, wann Nutzer:innen eine App deinstallieren. Derzeit handelt es sich um ein Nachrichten-Engagement-Ereignis, dies wird jedoch in Zukunft in ein Nutzerverhalten-Ereignis geändert.
+Dieses Ereignis tritt ein, wenn eine Nutzer:in eine App deinstalliert. Verwenden Sie diese Daten, um zu verfolgen, wann Nutzer:innen eine App deinstallieren. Derzeit handelt es sich um ein Nachrichten-Engagement-Ereignis, dies wird jedoch in Zukunft in ein Kundenverhalten-Ereignis geändert.
 
 {% alert important %}
 Dieses Ereignis wird nicht ausgelöst, wenn die Nutzer:in die App tatsächlich deinstalliert, da dies nicht exakt nachverfolgt werden kann. Braze sendet täglich einen stillen Push, um festzustellen, ob die App noch auf dem Gerät Ihrer Nutzer:in vorhanden ist. Wenn bei diesem stillen Push ein Fehler auftritt, wird davon ausgegangen, dass die App deinstalliert wurde.
@@ -693,7 +637,7 @@ Dieses Ereignis tritt ein, wenn Braze eine Anfrage zur Aktualisierung des global
 | Präferenzzentrum | Wenn eine Nutzer:in über das Präferenzzentrum aktualisiert wird |
 | Eingehende Nachricht | Wenn eine Nutzer:in durch eingehende Nachrichten von Endnutzer:innen über Kanäle wie z. B. SMS aktualisiert wird |
 | Migration | Wenn eine Nutzer:in durch interne Migrationen oder Wartungsskripte aktualisiert wird |
-| Nutzer zusammenführen | Wenn eine Nutzer:in durch den Prozess der Nutzerzusammenführung aktualisiert wird |
+| Nutzer:innen zusammenführen | Wenn eine Nutzer:in durch den Prozess der Nutzerzusammenführung aktualisiert wird |
 | Canvas-Schritt „Nutzeraktualisierung“ | Wenn eine Nutzer:in durch den Canvas-Schritt „Nutzeraktualisierung“ aktualisiert wird |
 | Push-Token-Registrierung | Wenn eine Nutzer:in durch den Token-Registrierungsprozess aktualisiert wird |
 | List-Unsubscribe | Wenn sich eine Nutzer:in über Braze-Mailto oder den Ein-Klick-List-Unsubscribe-Header abmeldet |
@@ -11596,7 +11540,7 @@ Dieses Ereignis wird von unserem [Swift SDK](https://github.com/braze-inc/braze-
 Push, Opens
 {% endapitags %}
 
-Dieses Ereignis tritt ein, wenn eine Nutzerin oder ein Nutzer direkt auf die Push-Benachrichtigung tippt, um die Anwendung zu öffnen. Derzeit beziehen sich Push-Open-Ereignisse speziell auf „direkte Öffnungen“ und nicht auf „gesamte Öffnungen“. Dies umfasst nicht die auf Campaign-Ebene angezeigten Statistiken zu „beeinflussten Öffnungen“, da diese nicht auf Nutzerebene zugeordnet werden.
+Dieses Ereignis tritt ein, wenn Nutzer:innen direkt auf die Push-Benachrichtigung tippen, um die Anwendung zu öffnen. Derzeit beziehen sich Push-Open-Ereignisse speziell auf „direkte Öffnungen“ und nicht auf „gesamte Öffnungen“. Dies umfasst nicht die auf Campaign-Ebene angezeigten Statistiken zu „beeinflussten Öffnungen“, da diese nicht auf Nutzerebene zugeordnet werden.
 
 {% alert note %}
 In seltenen Fällen kann eine Push-Öffnung vor dem entsprechenden Push-Sendeereignis in den Currents-Daten erscheinen. Dies kann folgende Ursachen haben:
@@ -19305,47 +19249,5 @@ Dieses Ereignis tritt ein, wenn eine Sendeanfrage erfolgreich zwischen Braze und
 ### Eigenschaftsdetails
 
 - `dispatch_id` ist eine ID für einen bestimmten Nachrichtenversand, z. B. den Versand einer Campaign. Alle Push-Ereignisse, die aus demselben Versand stammen, enthalten dieselbe `dispatch_id`. Verwenden Sie `dispatch_id`, um Ereignisse zu gruppieren, die zum selben Versand gehören. So können Sie den Lebenszyklus der Push-Nachricht für diesen Versand (z. B. Senden, Bounce und Öffnung) gruppieren und korrelieren.
-
-{% endapi %}
-
-{% api %}
-## Ereignisse zur Nutzerprofilaktualisierung {#user-profile-update-events}
-
-{% apitags %}
-Profile
-{% endapitags %}
-
-Dieses Ereignis stellt die Profilaktualisierungen für eine:n Nutzer:in dar.
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.profile.Update
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "app_id" : "(optional, string) API ID of the app on which this event occurred",
-  "archived" : "(optional, boolean) When set to True, indicates that this user was archived within Braze",
-  "country" : "(optional, string) [PII] Country of the user",
-  "custom_attributes" : "(optional, string) Valid JSON string of the updated custom attributes",
-  "dob" : "(optional, string) [PII] Date of birth of the user in ISO-8601 format",
-  "email_address" : "(optional, string) [PII] Email address of the user",
-  "external_user_id" : "(optional, string) [PII] External ID of the user",
-  "first_name" : "(optional, string) [PII] First name of the user",
-  "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
-  "home_city" : "(optional, string) [PII] Home city of the user",
-  "id" : "(required, string) Globally unique ID for this event",
-  "language" : "(optional, string) [PII] Language of the user",
-  "last_name" : "(optional, string) [PII] Last name of the user",
-  "phone_number" : "(optional, string) [PII] Phone number of the user in e.164 format",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "time_ms" : "(required, long) Time in milliseconds when the update happened",
-  "timezone" : "(optional, string) Time zone of the user",
-  "update_source" : "(required, string) The source of this update",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
-}
-```
-{% endtab %}
-{% endtabs %}
 
 {% endapi %}

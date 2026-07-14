@@ -231,7 +231,7 @@ Wenn Sie möchten, dass eine bestimmte Campaign die Frequency-Capping-Regeln üb
 
 Danach werden Sie gefragt, ob diese Campaign trotzdem auf Ihr Frequency-Cap angerechnet werden soll. Nachrichten, die auf das Frequency-Capping angerechnet werden, sind in den Berechnungen für den Filter „Intelligenter Kanal“ enthalten.
 
-Beim Senden von [API-Kampagnen]({{site.baseurl}}/developer_guide/rest_api/messaging#messaging), die oft transaktional sind, haben Sie die Möglichkeit anzugeben, dass eine Campaign die Frequency-Capping-Regeln ignorieren soll, indem Sie `override_frequency_capping` in der API-Anfrage auf `true` setzen.
+Beim Senden von [API-Campaigns]({{site.baseurl}}/developer_guide/rest_api/messaging#messaging), die oft transaktional sind, haben Sie die Möglichkeit anzugeben, dass eine Campaign die Frequency-Capping-Regeln ignorieren soll, indem Sie `override_frequency_capping` in der API-Anfrage auf `true` setzen.
 
 Standardmäßig werden neue Campaigns und Canvases, die Frequency-Caps nicht einhalten, auch nicht darauf angerechnet. Dies ist für jede Campaign und jedes Canvas konfigurierbar.
 
@@ -239,7 +239,7 @@ Standardmäßig werden neue Campaigns und Canvases, die Frequency-Caps nicht ein
 Dieses Verhalten ändert das Standardverhalten, wenn Sie Frequency-Capping für eine Campaign oder ein Canvas deaktivieren. Die Änderungen sind abwärtskompatibel und haben keinen Einfluss auf Nachrichten, die derzeit aktiv sind.
 {% endalert %}
 
-![Zustellungs-Kontrollgruppen-Bereich mit aktiviertem Frequency-Capping.]({% image_buster /assets/img_archive/frequencycappingupdate.png %}){: style="max-width:90%;"}
+![Zustellungskontroll-Bereich mit aktiviertem Frequency-Capping.]({% image_buster /assets/img_archive/frequencycappingupdate.png %}){: style="max-width:90%;"}
 
 #### Wie Sendungen auf Obergrenzen angerechnet werden {#how-sends-count-toward-caps}
 
@@ -250,6 +250,10 @@ Frequency-Capping wird pro Versand angewendet: Jedes Mal, wenn Braze eine Campai
 Wenn ein einzelner Versand mehrere Kanäle verwendet, wird dieser Versand höchstens einmal pro anwendbarer Frequency-Capping-Regel gezählt. Wenn Sie beispielsweise eine Multichannel-Campaign erstellen, die E-Mail, iOS-Push und Android-Push in einer Zustellung sendet, und Ihr Workspace Regeln für Push und E-Mail sowie eine Regel für alle Kanäle hat, zählt diese Zustellung einmal für die Push-Regel, einmal für die E-Mail-Regel und einmal für die Alle-Kanäle-Regel – sie zählt nicht einmal pro Push-Plattform oder pro Nachricht innerhalb der Sendung. Wenn Nutzer:innen auf eine Push- und eine E-Mail-Campaign pro Tag begrenzt sind und diese Multichannel-Campaign erhalten, sind sie für den Rest des Tages nicht mehr für zusätzliche Push- oder E-Mail-Campaigns berechtigt, es sei denn, eine Campaign ignoriert die Frequency-Capping-Regeln.
 
 In-App-Nachrichten und Content Cards werden nicht als Obergrenzen für Campaigns oder Canvas-Komponenten beliebigen Typs gezählt oder darauf angerechnet.
+
+##### Push-Benachrichtigungen mit mehreren Geräten {#push-notifications-with-multiple-devices}
+
+Für Push-Campaigns wird Frequency-Capping auf Campaign- oder Canvas-Komponentenebene gezählt, nicht pro einzelnem Gerät. Wenn ein Nutzerprofil mehrere Geräte für Push registriert hat (z. B. ein iPhone und ein iPad), zählt ein Frequency-Cap auf Campaign-Ebene dies als eine Sendung, unabhängig davon, wie viele Geräte die Benachrichtigung erhalten. Dies ist vergleichbar damit, wie eine wiederkehrende Campaign mit täglicher Kadenz als eine Sendung pro Tag zählt, auch wenn sie im Laufe der Woche mehrmals wiederholt wird.
 
 {% alert important %}
 Globales Frequency-Capping wird basierend auf der Zeitzone der Nutzer:innen geplant und nach Kalendertagen berechnet, nicht nach 24-Stunden-Zeiträumen. Wenn Sie beispielsweise eine Frequency-Capping-Regel einrichten, die nicht mehr als eine Campaign pro Tag sendet, können Nutzer:innen um 23 Uhr in ihrer lokalen Zeitzone eine Nachricht erhalten und wären eine Stunde später für eine weitere Nachricht berechtigt.

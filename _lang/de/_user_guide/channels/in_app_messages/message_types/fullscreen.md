@@ -45,7 +45,7 @@ Vollbild-In-App-Nachrichten füllen die gesamte Höhe eines Geräts aus und werd
 | Layout | Asset-Größe | Hinweise |
 |--- | --- | --- |
 | Bild und Text | Seitenverhältnis 6:5<br> Hohe Auflösung 1200 x 1000&nbsp;px<br> Minimum 600 x 500&nbsp;px | Zuschnitt kann an allen Seiten erfolgen, aber das Bild füllt immer die oberen 50 % des Viewports |
-| Nur Bild | Seitenverhältnis 3:5<br> Hohe Auflösung 1200 x 2000&nbsp;px<br> Minimum 600 x 1000&nbsp;px | Zuschnitt kann an den linken und rechten Rändern auf höheren Geräten erfolgen |
+| Nur Bild | Seitenverhältnis 3:5<br> Hohe Auflösung 1200 x 2000&nbsp;px<br> Minimum 600 x 1000&nbsp;px | Zuschnitt kann an der linken und rechten Seite auf höheren Geräten erfolgen |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Hochformat" }
 
 ### Querformat {#landscape}
@@ -53,7 +53,7 @@ Vollbild-In-App-Nachrichten füllen die gesamte Höhe eines Geräts aus und werd
 | Layout | Asset-Größe | Hinweise |
 |--- | --- | --- |
 | Bild und Text | Seitenverhältnis 10:3<br> Hohe Auflösung 2000 x 600px<br> Minimum 1000 x 300&nbsp;px | Zuschnitt kann an allen Seiten erfolgen, aber das Bild füllt immer die oberen 50 % des Viewports |
-| Nur Bild | Seitenverhältnis 5:3<br> Hohe Auflösung 2000 x 1200px<br> Minimum 1000 x 600&nbsp;px | Zuschnitt kann an den linken und rechten Rändern auf höheren Geräten erfolgen |
+| Nur Bild | Seitenverhältnis 5:3<br> Hohe Auflösung 2000 x 1200px<br> Minimum 1000 x 600&nbsp;px | Zuschnitt kann an der linken und rechten Seite auf höheren Geräten erfolgen |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Querformat" }
 
 ### Bildsicherer Bereich {#image-safe-zone}

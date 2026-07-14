@@ -11,7 +11,7 @@ page_order: 2
 
 ## À propos des recommandations de produits basées sur des règles {#about-rules-based-item-recommendations}
 
-Un moteur de recommandation basé sur des règles utilise les données des utilisateurs et les informations sur les produits pour suggérer des articles pertinents aux utilisateurs dans les messages. Il utilise [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) et les [catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs) Braze ou le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) pour personnaliser dynamiquement le contenu en fonction du comportement et des attributs de l'utilisateur.
+Un moteur de recommandation basé sur des règles utilise les données des utilisateurs et les informations sur les produits pour suggérer des articles pertinents aux utilisateurs dans les messages. Il utilise [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) et les [catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs) Braze ou le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) pour personnaliser dynamiquement le contenu en fonction du comportement et des attributs de l'utilisateur.
 
 {% alert important %}
 Les recommandations basées sur des règles reposent sur une logique fixe que vous devez définir manuellement. Cela signifie que vos recommandations ne s'ajusteront pas à l'historique d'achat et aux goûts d'un utilisateur, à moins que vous ne mettiez à jour la logique.<br><br>Pour créer des recommandations personnalisées basées sur l'IA qui s'adaptent automatiquement à l'historique de l'utilisateur, consultez les [recommandations de produits basées sur l'IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
@@ -19,7 +19,7 @@ Les recommandations basées sur des règles reposent sur une logique fixe que vo
 
 ## Options du moteur de recommandation {#recommendation-engine-options}
 
-Pour choisir le moteur de recommandation adapté à vos ressources disponibles et à vos cas d'utilisation, reportez-vous à ce tableau :
+Pour choisir le moteur de recommandation adapté à vos ressources disponibles et à vos cas d'usage, reportez-vous à ce tableau :
 
 <table aria-label="Options du moteur de recommandation" style="text-align: center;">
   <caption>Options du moteur de recommandation</caption>
@@ -77,7 +77,7 @@ Pour choisir le moteur de recommandation adapté à vos ressources disponibles e
 
 ## Créer un moteur de recommandation {#creating-a-recommendation-engine}
 
-Créez votre moteur de recommandation en utilisant soit un catalogue, soit du Contenu connecté :
+Créez votre moteur de recommandation en utilisant soit un catalogue, soit du contenu connecté :
 
 {% tabs local %}
 {% tab using a catalog %}
@@ -91,20 +91,20 @@ Pour créer votre moteur de recommandation à l'aide d'un catalogue :
 
 ### Exemple {#example}
 
-Imaginons que vous ayez une application de produits diététiques et que vous souhaitiez créer une campagne de cartes de contenu qui envoie différentes recettes en fonction de la durée d'inscription d'un utilisateur à votre application. Tout d'abord, créez et téléchargez un catalogue à l'aide d'un fichier CSV comprenant les informations suivantes :
+Imaginons que vous ayez une application de produits diététiques et que vous souhaitiez créer une campagne de content cards qui envoie différentes recettes en fonction de la durée d'inscription d'un utilisateur à votre application. Tout d'abord, créez et téléchargez un catalogue à l'aide d'un fichier CSV comprenant les informations suivantes :
 
 | Champ | Description |
 |-----|-----------|
 | **id** | Un nombre unique en corrélation avec le nombre de jours écoulés depuis l'inscription de l'utilisateur à votre application. Par exemple, `3` correspond à trois jours. |
 | **type** | La catégorie de recette, telle que `comfort`, `fresh`, et autres. |
-| **title** | Le titre de la carte de contenu qui sera envoyée pour chaque ID, par exemple « Préparer le déjeuner de cette semaine » ou « Taco, parlons-en ». |
+| **title** | Le titre de la content card qui sera envoyée pour chaque ID, par exemple « Préparer le déjeuner de cette semaine » ou « Taco, parlons-en ». |
 | **link** | Le lien vers l'article de la recette. |
 | **image_url** | L'image qui correspond à la recette. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Exemple" }
 
 Une fois le catalogue chargé dans Braze, confirmez que les informations importées sont exactes en sélectionnant votre catalogue depuis la page Catalogues et en ouvrant l'onglet **Prévisualisation**. Un nombre limité d'éléments apparaît dans l'aperçu et peut être affiché dans un ordre aléatoire, mais cela n'affecte pas le résultat du moteur de recommandation.
 
-Une fois le catalogue en place, [créez une campagne de cartes de contenu]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). Dans le compositeur, saisissez la logique Liquid pour déterminer quels utilisateurs doivent recevoir la campagne, ainsi que la recette et l'image à afficher. Dans ce cas d'utilisation, Braze extrait la `start_date` (ou date d'inscription) de l'utilisateur et la compare à la date du jour. La différence en jours détermine la carte de contenu à envoyer.
+Une fois le catalogue en place, [créez une campagne de content cards]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card). Dans le compositeur, saisissez la logique Liquid pour déterminer quels utilisateurs doivent recevoir la campagne, ainsi que la recette et l'image à afficher. Dans ce cas d'usage, Braze extrait la `start_date` (ou date d'inscription) de l'utilisateur et la compare à la date du jour. La différence en jours détermine la content card à envoyer.
 
 {% subtabs local %}
 {% subtab title %}
@@ -153,9 +153,9 @@ Une fois le catalogue en place, [créez une campagne de cartes de contenu]({{sit
 
 Par exemple :
 
-![Exemple de compositeur de message issu d'une campagne de cartes de contenu.]({% image_buster /assets/img/recs/content_card_preview.png %})
+![Exemple de compositeur de message issu d'une campagne de content cards.]({% image_buster /assets/img/recs/content_card_preview.png %})
 
-Dans la section **On click behavior**, saisissez la logique Liquid pour déterminer où les utilisateurs doivent être redirigés lorsqu'ils cliquent sur la carte de contenu sur les appareils iOS, Android et Web.
+Dans la section **On click behavior**, saisissez la logique Liquid pour déterminer où les utilisateurs doivent être redirigés lorsqu'ils cliquent sur la content card sur les appareils iOS, Android et Web.
 
 {% raw %}
 ```liquid
@@ -172,13 +172,13 @@ Par exemple :
 
 ![Exemple de bloc de comportement au clic dans le compositeur.]({% image_buster /assets/img/recs/on_click_behavior.png %}){: style="max-width:60%;"}<br><br>
 
-Accédez à l'onglet **Test** et sélectionnez **Custom user** sous **Preview message as user**. Saisissez une date dans le champ **Custom attribute** pour prévisualiser la carte de contenu qui serait envoyée à un utilisateur s'étant inscrit à cette date. <br><br>
+Accédez à l'onglet **Test** et sélectionnez **Custom user** sous **Preview message as user**. Saisissez une date dans le champ **Custom attribute** pour prévisualiser la content card qui serait envoyée à un utilisateur s'étant inscrit à cette date. <br><br>
 
 ![Un exemple d'attribut personnalisé nommé « start_date ».]({% image_buster /assets/img/recs/custom_attributes_test.png %})
 {% endtab %}
 
 {% tab using Connected Content %}
-Pour créer votre moteur de recommandation à l'aide du Contenu connecté, commencez par créer un nouvel endpoint à l'aide de l'une des méthodes suivantes :
+Pour créer votre moteur de recommandation à l'aide du contenu connecté, commencez par créer un nouvel endpoint à l'aide de l'une des méthodes suivantes :
 
 | Option | Description |
 |------|-----------|
@@ -217,7 +217,7 @@ Il s'agit d'un exemple de base que vous devrez peut-être modifier en fonction d
 
 ### Exemple
 
-Supposons que vous souhaitiez extraire des recommandations de restaurants de la base de données Zomato Restaurants et enregistrer le résultat dans une variable locale appelée `restaurants`. Vous pouvez effectuer l'appel de Contenu connecté suivant :
+Supposons que vous souhaitiez extraire des recommandations de restaurants de la base de données Zomato Restaurants et enregistrer le résultat dans une variable locale appelée `restaurants`. Vous pouvez effectuer l'appel de contenu connecté suivant :
 
 {% raw %}
 ```liquid
@@ -230,7 +230,7 @@ Supposons que vous souhaitiez extraire des recommandations de restaurants de la 
 
 Supposons ensuite que vous souhaitiez obtenir des recommandations de restaurants en fonction de la ville et du type de cuisine de l'utilisateur. Vous pouvez le faire en insérant dynamiquement les attributs personnalisés pour la ville et le type de cuisine de l'utilisateur au début de l'appel, puis en affectant la valeur de `restaurants` à la variable `city_food.restaurants`.
 
-L'appel de Contenu connecté se présente comme suit :
+L'appel de contenu connecté se présente comme suit :
 
 {% raw %}
 ```liquid

@@ -36,7 +36,7 @@ If any of your non-Braze SDKs collect tracking data, you'll need to review those
 
 ### Step 2: Create a privacy manifest
 
-First, check if you already have a privacy manifest by searching for a `PrivacyInfo.xcprivacy` file in your Xcode project. If you already have this file, you can continue to the next step. Otherwise, see [Apple: Create a privacy manifest](sdk-tracking.iad-01.braze.com).
+First, check if you already have a privacy manifest by searching for a `PrivacyInfo.xcprivacy` file in your Xcode project. If you already have this file, you can continue to the next step. Otherwise, see [Apple: Create a privacy manifest](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files).
 
 ### Step 3: Add your endpoint to the privacy manifest
 

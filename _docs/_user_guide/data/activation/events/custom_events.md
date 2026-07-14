@@ -85,7 +85,7 @@ Custom events require additional setup. Refer to the following platform document
 
 ## Custom event storage
 
-All data stored on the **User Profile**, including custom event metadata (first or last occurrence, total count, and X in Y over 30 days), is retained indefinitely as long as each profile is [active]({{site.baseurl}}/user_archival#active-users).
+All data stored on the **User Profile**, including custom event metadata (first or last occurrence, total count, and X in Y over 30 days), is retained indefinitely as long as each profile is <a href="/docs/user_archival#active-users">active</a>.
 
 ## View a user's event history
 

@@ -9,7 +9,7 @@ channel:
 search_rank: 3
 ---
 
-# Push {#push}
+# Push
 
 > As notificações por push são uma forma comprovada de enviar chamadas para ação urgentes por meio de dispositivos móveis ou web, além de reengajar usuários que não acessam o app há algum tempo. Elas direcionam o usuário diretamente ao conteúdo e demonstram o valor do seu aplicativo.
 
@@ -20,7 +20,7 @@ search_rank: 3
 Antes de começar, certifique-se de ter o seguinte:
 
 - **Push integrado ao seu app ou site.** Trabalhe com seus desenvolvedores para configurar isso. Para etapas detalhadas, consulte os guias de integração para [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android) e [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web).
-- **Uma estratégia de opt-in para push.** Os usuários devem conceder permissão de push em seus dispositivos. Considere usar [mensagens no app de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) para explicar o valor antes de solicitar a permissão.
+- **Uma estratégia de aceitação para push.** Os usuários devem conceder permissão de push em seus dispositivos. Considere usar [mensagens no app de push primer]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) para explicar o valor antes de solicitar a permissão.
 
 ## Casos de uso {#use-cases}
 
@@ -47,6 +47,12 @@ Suas mensagens push devem seguir as [Diretrizes de Revisão da Apple App Store](
 | Apple [4.10](https://developer.apple.com/app-store/review/guidelines/#monetizing-built-in-capabilities) | Você não pode monetizar recursos integrados como notificações por push, a câmera ou o giroscópio, nem serviços da Apple como Apple Music ou iCloud. |
 | Google Play — [Uso não autorizado ou imitação de funcionalidade do sistema](https://developers.google.com/android/play-protect/mobile-unwanted-software#muws-categories) | Os apps não devem imitar ou interferir nas notificações do sistema. Notificações em nível de sistema são apenas para recursos essenciais do app (por exemplo, um app de companhia aérea notificando usuários sobre ofertas ou um jogo notificando usuários sobre promoções dentro do jogo). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Regulamentações de mensagens push" }
+
+## Perguntas frequentes {#frequently-asked-questions}
+
+### Quando a Braze registra um envio bem-sucedido para push? {#when-does-braze-record-a-successful-send-for-push}
+
+A Braze normalmente registra um **envio** assim que a mensagem é despachada da Braze para a Apple, o Google ou seu serviço de web push. **Entregues**, aberturas, bounces e sinais de desinstalação são rastreados separadamente e podem chegar depois. Use as análises em nível de etapa e de Campaign junto com a [solução de problemas de push]({{site.baseurl}}/user_guide/channels/push/troubleshooting) quando os **envios** e as métricas subsequentes parecerem desalinhados.
 
 ## Próximas etapas {#next-steps}
 

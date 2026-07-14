@@ -60,7 +60,7 @@ Brazeの位置情報サービスとジオフェンスを使用するには、[`a
 ライブラリーが統合されたので、プロジェクトの`Resources/values`フォルダに`Braze.xml`ファイルを作成する必要があります。ファイルの内容は、次のコードスニペットのようになります。
 
 {% alert note %}
-`YOUR_API_KEY`を、Brazeダッシュボードの**Settings** > **API Keys**にあるAPIキーに必ず置き換えてください。
+`YOUR_API_KEY`を、Brazeダッシュボードの**設定** > **API キー**にあるAPIキーに必ず置き換えてください。
 {% endalert %}
 
 ```xml
@@ -102,7 +102,7 @@ RegisterActivityLifecycleCallbacks(new BrazeActivityLifecycleCallbackListener())
 Brazeインスタンスを設定する際に、次のスニペットを追加してインスタンスを設定します。
 
 {% alert note %}
-`YOUR_API_KEY`を、Brazeダッシュボードの**Settings** > **API Keys**にあるAPIキーに必ず置き換えてください。
+`YOUR_API_KEY`を、Brazeダッシュボードの**設定** > **API キー**にあるAPIキーに必ず置き換えてください。
 {% endalert %}
 
 ```csharp

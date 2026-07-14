@@ -3,6 +3,7 @@ nav_title: FAQ
 article_title: Agents FAQ
 description: "This article provides answers to frequently asked questions about Braze Agents."
 page_order: 10
+toc_headers: h2
 ---
 
 # Agents frequently asked questions
@@ -24,15 +25,17 @@ Benefits of using the Braze Auto model include:
 
 ### Where can I find my current agent usage?
 
-Go to **Settings** > **Billing** > **Credits Usage** to see details of your agent usage and credit costs.
+Go to **Settings** > **Billing** > **Credits Usage** > **Agent Console** to see credit consumption, invocation counts, and per-agent credit ratios. See [Daily invocation and credit limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits) for more details.
 
 ### Can I use conditional Liquid statements in agent instructions?
 
 No, attempting to write Liquid blocks like {% raw %}`{% if %}{% endraw %} statements can result in a validation error. Agents can handle different scenarios through natural language descriptions in the prompt instead.
 
-### Can agents access user data beyond the specific Liquid attributes or values that I pass to them?
+### Can agents access user data beyond the specific Liquid attributes or Canvas context that I pass to them?
 
-No. Agents only receive the specific user data points that are passed to it using Liquid as well as [resources]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) added to agent context. Agents cannot search user’s profiles for attributes that the marketer did not configure them to look for.
+No. Agents only receive the specific user data points that are passed using Liquid in instructions, [+ Agent context]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) selections, upstream [Context steps]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) in Canvas, or additional context on the Agent step. Agents cannot search user profiles for attributes you did not configure them to receive.
+
+Agents also cannot warn you when required data is missing—they proceed with whatever is in the prompt. Treat agent setup as deliberate input-to-output design: pass every field the agent needs and verify inputs in **Agent Console** > **Logs**. For guidance, see [What data agents receive]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive).
 
 ## Troubleshooting
 
@@ -67,6 +70,14 @@ A custom agent may time out if:
 
 For Canvas agents, configure [fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in Agent Console so users still receive output when an invocation fails.
 
+### Why did my agent do fine in testing but isn't getting any user-specific data when I launch it in a Canvas?
+
+If your agent works correctly during testing but does not receive user-specific data in a live Canvas, try these troubleshooting steps:
+
+- Make sure the user-specific data you want the agent to receive is entered as Liquid variables in the agent instructions.
+- If you have important data in Canvas context, use the **Add all Canvas context** option in the agent configuration to ensure the agent receives the entire Canvas context.
+- Make sure any Canvas context you want the agent to access is stored as Canvas context. Use a context step before the agent step to store this data.
+
 ## Compliance
 
 ### Is Agent Console GDPR/CCPA compliant?
@@ -77,4 +88,4 @@ Yes. When a Customer uses Braze Auto model (powered by Gemini), Google will be a
 
 Yes. When using the Braze Auto model, we have a specific HIPAA agreement, the Business Associate Addendum (BAA), with Google covering Gemini, which powers our Auto model.
 
-Our BAA applies only to customers using the Braze Auto model. If customers use their own LLM key, Braze does not send Protected Health Information (PHI) subject to HIPAA to an LLM on their behalf; customers send it directly. In this case, the BAA between Braze and Google does not apply. Data processing via their own LLM key is governed by the customer's contract and any BAA they have directly with their LLM provider.
+Our BAA applies only to customers using the Braze Auto model. If customers use their own LLM key, Braze does not send Protected Health Information (PHI) subject to HIPAA to an LLM on their behalf; customers send it directly. In this case, the BAA between Braze and Google does not apply. Data processing through their own LLM key is governed by the customer's contract and any BAA they have directly with their LLM provider.

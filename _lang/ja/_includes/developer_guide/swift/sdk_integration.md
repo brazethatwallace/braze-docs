@@ -55,7 +55,7 @@ Braze Swift SDKは、開発者がどの機能をプロジェクトにインポ�
 
 ご自身のニーズに最も適したパッケージを選択し、**Add Package**をクリックしてください。必ず最低でも`BrazeKit`を選択してください。
 
-![パッケージ追加前にBrazeKitが選択されたXcodeパッケージ製品リスト。]({% image_buster /assets/img/add_package.png %})
+![パッケージ追加前にBrazeKitが選択されたXcodeパッケージプロダクトリスト。]({% image_buster /assets/img/add_package.png %})
 {% endtab %}
 
 {% tab CocoaPods %}

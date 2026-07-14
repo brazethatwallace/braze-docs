@@ -4,7 +4,7 @@ article_title: Kampagne nach dem Start bearbeiten
 page_order: 1
 tool: Campaigns
 page_type: reference
-description: "Dieser Referenzartikel gibt einen Überblick darüber, welche Auswirkungen das Bearbeiten bestimmter Aspekte einer Kampagne nach dem Start hat."
+description: "Dieser Referenzartikel gibt einen Überblick darüber, welche Auswirkungen das Bearbeiten bestimmter Aspekte einer Kampagne nach dem Start hat, einschließlich der Weitergabe von Änderungen bei In-App-Nachrichten-Kampagnen."
 
 ---
 
@@ -30,7 +30,7 @@ Um Änderungen sicher vorzunehmen, halten Sie die Kampagne zuerst an und bearbei
 
 ## Kampagne anhalten {#stopping-your-campaign}
 
-Um eine Kampagne anzuhalten, öffnen Sie die Seite **Campaign Details** und wählen Sie **Kampagne anhalten**. Wenn eine Kampagne angehalten wird:
+Um eine Kampagne anzuhalten, öffnen Sie die Seite **Campaign Details** und wählen Sie **Stop Campaign**. Wenn eine Kampagne angehalten wird:
 
 - Geplante Nachrichten werden abgebrochen.
 - A/B-Tests, bei denen der erste Test bereits gesendet wurde, werden dauerhaft abgebrochen.
@@ -43,6 +43,27 @@ Um Ihre Kampagne fortzusetzen, wählen Sie **Resume**. Ihre Kampagne sendet dann
 Bei Kampagnen mit einer größeren Zielgruppe und Rate-Limits teilt Braze die Nachrichten in Batches auf und plant deren Versand zu unterschiedlichen Zeitpunkten. Wenn eine Kampagne angehalten wird, werden die Sendungen nicht sofort abgebrochen. Stattdessen werden sie abgebrochen, wenn sie mit der Ausführung beginnen und erkennen, dass die Kampagne angehalten wurde.
 
 Wenn Sie beispielsweise eine E-Mail-Kampagne mit Rate-Limits starten, sie für einige Stunden pausieren und dann fortsetzen, werden alle Nachrichten, die während der Pausenzeit zum Senden geplant waren, abgebrochen und nie gesendet. Alle verbleibenden Nachrichten, die nach der Wiederaufnahme der Kampagne geplant sind, werden weiterhin gesendet. Wenn die erneute Berechtigung für die Kampagne aktiviert ist, können Nutzer:innen erneut berechtigt werden, die Kampagne zu erhalten – zusätzlich zu allen Nachrichten, die bereits in der Warteschlange standen, bevor die Kampagne angehalten wurde.
+
+## In-App-Nachrichten-Kampagnen {#in-app-message-campaigns}
+
+Im Gegensatz zu Push oder E-Mail werden In-App-Nachrichten bei Sitzungsbeginn an Geräte übermittelt und lokal zwischengespeichert, bis der Trigger ausgelöst wird. Wenn Sie eine laufende In-App-Nachrichten-Kampagne bearbeiten – z. B. anhalten, ein [Enddatum]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger) festlegen, **Kampagnenberechtigung vor der Anzeige erneut prüfen** aktivieren, Inhalte aktualisieren, den Nachrichten-Trigger ändern oder die Zielgruppe anpassen – wird die aktualisierte Konfiguration übernommen, wenn Geräte bei ihrem nächsten Sitzungsbeginn die Trigger abrufen.
+
+Erwarten Sie Folgendes:
+
+- Geräte, die seit Ihrer Änderung keine neue Sitzung gestartet haben, verwenden möglicherweise weiterhin die vorherige Konfiguration, bis sie die Trigger erneut synchronisieren.
+- Geräte, die nach Ihrer Änderung eine Sitzung starten, erhalten die neueste Konfiguration.
+
+### Einen fehlerhaften Start rückgängig machen {#stop-a-mistaken-launch}
+
+Wenn Sie die falsche In-App-Nachrichten-Kampagne gestartet haben, wählen Sie **Stop Campaign** auf der Seite **Campaign Details**. Dies ist der schnellste Weg, um zu verhindern, dass neue Sitzungen die Nachricht herunterladen. Nutzer:innen, die den Payload bereits zwischengespeichert haben, bevor Sie die Kampagne angehalten haben, können die Nachricht weiterhin sehen, wenn sie die Trigger-Bedingungen erfüllen, bis ihr Gerät bei einer späteren Sitzung aktualisierte Trigger synchronisiert.
+
+[Archivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving) und Enddaten folgen denselben Weitergaberegeln: Sie stoppen die Zustellung für zukünftige Synchronisierungen, entfernen aber keine Nachrichten, die bereits auf Geräten zwischengespeichert sind. Wenn Sie die Kampagne möglicherweise überprüfen, duplizieren oder bearbeiten müssen, halten Sie sie zuerst an und archivieren Sie sie später, wenn Sie fertig sind.
+
+### Veraltete Zustellungen begrenzen {#limit-stale-deliveries}
+
+Wählen Sie **Kampagnenberechtigung vor der Anzeige erneut prüfen** in den Zustellungseinstellungen Ihrer Kampagne, damit Braze die Zielgruppenzugehörigkeit und den Kampagnenstatus direkt vor jeder Anzeige bestätigt. Dies hilft, Impressionen zu verhindern, nachdem eine Kampagne angehalten, archiviert oder ihr Enddatum überschritten wurde. Sie können diese Einstellung nach dem Start ein- oder ausschalten, aber sie folgt denselben Weitergaberegeln wie andere Änderungen: Geräte erhalten die aktualisierte Konfiguration erst bei ihrer nächsten Trigger-Synchronisierung.
+
+Weitere Informationen finden Sie unter [Zielnutzer:innen auswählen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target) und [Warum liefert meine archivierte In-App-Nachrichten-Kampagne weiterhin In-App-Nachrichten-Impressionen?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
 
 ## Getriggerte Kampagnen {#triggered-campaigns}
 
@@ -103,14 +124,14 @@ Um einen Entwurf zu erstellen, gehen Sie wie folgt vor:
 
 1. Gehen Sie zu Ihrer aktiven Kampagne.
 2. Nehmen Sie Ihre Änderungen vor.
-3. Wählen Sie **Als Entwurf speichern**. Beachten Sie, dass Sie nach dem Erstellen eines Entwurfs die aktive Kampagne nicht bearbeiten können, bis Sie Ihren Entwurf entweder starten oder verwerfen.
+3. Wählen Sie **Save as Draft**. Beachten Sie, dass Sie nach dem Erstellen eines Entwurfs die aktive Kampagne nicht bearbeiten können, bis Sie Ihren Entwurf entweder starten oder verwerfen.
 
 ![Ein Entwurf einer aktiven Kampagne mit der Option, die aktive Kampagne anzuzeigen.]({% image_buster /assets/img/campaign_draft.png %})
 
-Während Sie den Entwurf bearbeiten, können Sie auch die aktive Kampagne im Header des Kampagnenentwurfs oder im Footer der Kampagnen-Analytics referenzieren.
+Während Sie den Entwurf bearbeiten, können Sie auch die aktive Kampagne im Header des Kampagnenentwurfs oder in der Fußzeile der Kampagnen-Analytics referenzieren.
 
-Um zu einer aktiven Kampagne zurückzukehren, wählen Sie **Entwurf bearbeiten** in der Analytics-Ansicht oder der Ansicht der aktiven Kampagne.
+Um zu einer aktiven Kampagne zurückzukehren, wählen Sie **Edit Draft** in der Analytics-Ansicht oder der Ansicht der aktiven Kampagne.
 
 ### Priorisierung von In-App-Nachrichten {#in-app-message-prioritization}
 
-Die Priorität von In-App-Nachrichten wird sofort aktualisiert (bevor der Entwurf gestartet wird), wenn Sie **Genaue Priorität festlegen** auswählen und die Priorität im Verhältnis zu anderen Kampagnen oder Canvases festlegen.
+Die Priorität von In-App-Nachrichten wird sofort aktualisiert (bevor der Entwurf gestartet wird), wenn Sie **Set Exact Priority** auswählen und die Priorität im Verhältnis zu anderen Campaigns oder Canvases festlegen.

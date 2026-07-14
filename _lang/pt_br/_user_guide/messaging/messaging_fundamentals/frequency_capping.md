@@ -169,7 +169,7 @@ Em vez de tentar compensar o atraso e enviar as 6.000 mensagens restantes no seg
 As solicitações de Conteúdo conectado não são limitadas independentemente e seguirão o limite de taxa de webhook. Isso significa que, se houver uma chamada de Conteúdo conectado para um endpoint único por webhook, você esperaria 5.000 webhooks e também 5.000 chamadas de Conteúdo conectado por minuto. Observe que o cache pode afetar isso e reduzir o número de chamadas de Conteúdo conectado. Além disso, as novas tentativas podem aumentar as chamadas de Conteúdo conectado, então recomendamos verificar se o endpoint de Conteúdo conectado pode lidar com alguma flutuação aqui.
 
 {% alert note %}
-**Limites de taxa são limites de velocidade e não definem uma velocidade exata de envio.** Geralmente, as mensagens são distribuídas uniformemente dentro de qualquer minuto dado, e na grande maioria dos casos, são enviadas no limite configurado ou muito próximo dele. Nem sempre é o caso — por exemplo, quando as mensagens são muito grandes (como e-mails com muitos Content Blocks, tags de Conteúdo conectado ou tags de itens de Catálogo), ou quando há muitos abortos Liquid (mensagens abortadas ainda consomem um slot e podem reduzir as taxas efetivas de envio).<br><br>
+**Limites de taxa são limites de velocidade e não definem uma velocidade exata de envio.** Geralmente, as mensagens são distribuídas uniformemente dentro de qualquer minuto dado, e na grande maioria dos casos, são enviadas no limite configurado ou muito próximo dele. Nem sempre é o caso — por exemplo, quando as mensagens são muito grandes (como e-mails com muitos Content Blocks, tags de Conteúdo conectado ou tags de itens de Catálogo), ou quando há muitas interrupções Liquid (mensagens abortadas ainda consomem um slot e podem reduzir as taxas efetivas de envio).<br><br>
 Na prática, a taxa de envio sustentada (mensagens concluídas por minuto) pode ser menor que o limite de taxa configurado devido a novas tentativas, variabilidade de rede, latência do endpoint de destino e suavização por minuto. Se você consistentemente observar um desempenho significativamente menor do que o esperado, verifique os tempos de resposta do Conteúdo conectado, taxas de erro (como `429`) e comportamento de novas tentativas.
 {% endalert %}
 
@@ -219,7 +219,7 @@ Cada linha de limites de frequência é conectada usando o operador `AND`, e voc
 
 #### Comportamento quando os usuários atingem o limite de frequência ou uma mensagem é abortada em uma etapa do Canvas {#behavior-when-users-are-frequency-capped-or-a-message-is-aborted-on-a-canvas-step}
 
-O limite de frequência global sozinho não faz com que os usuários saiam de um Canvas. Em [etapas de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), os usuários ainda avançam quando uma mensagem não é enviada por causa do limite de frequência global, de acordo com [como os usuários avançam]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance) pela etapa. O mesmo se aplica quando uma mensagem é abortada (por exemplo, por uma condição de aborto Liquid): o usuário continua pelo Canvas como se a mensagem tivesse sido enviada.
+O limite de frequência global sozinho não faz com que os usuários saiam de um Canvas. Em [etapas de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), os usuários ainda avançam quando uma mensagem não é enviada por causa do limite de frequência global, de acordo com [como os usuários avançam]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#how-users-advance) pela etapa. O mesmo se aplica quando uma mensagem é abortada (por exemplo, por uma condição de interrupção Liquid): o usuário continua pelo Canvas como se a mensagem tivesse sido enviada.
 
 Isso é separado das **Validações de entrega** em uma etapa de Mensagem. Se um usuário não atender aos critérios de validação de entrega no momento do envio, ele pode sair do Canvas naquela etapa.
 
@@ -229,7 +229,7 @@ Pode haver algumas Campaigns, como mensagens transacionais, que você deseja que
 
 Se você deseja que uma Campaign específica ignore as regras de limite de frequência, pode configurar isso no dashboard da Braze ao agendar a entrega dessa Campaign, alternando **Limite de frequência** para **DESLIGADO**.
 
-Depois disso, será perguntado se você ainda deseja que essa Campaign conte para o seu limite de frequência. Mensagens que contam para o limite de frequência são incluídas nos cálculos do filtro de Canal Inteligente.
+Depois disso, será perguntado se você ainda deseja que essa Campaign conte para o seu limite de frequência. Mensagens que contam para o limite de frequência são incluídas nos cálculos do filtro de canal inteligente.
 
 Ao enviar [Campaigns da API]({{site.baseurl}}/developer_guide/rest_api/messaging#messaging), que geralmente são transacionais, você terá a capacidade de especificar que uma Campaign deve ignorar as regras de limite de frequência definindo `override_frequency_capping` como `true` na solicitação da API.
 
@@ -250,6 +250,10 @@ O limite de frequência é aplicado por despacho: cada vez que a Braze envia uma
 Quando um único despacho usa múltiplos canais, esse despacho conta no máximo uma vez por regra de limite de frequência aplicável. Por exemplo, se você criar uma Campaign multicanal que envia e-mail, push para iOS e push para Android em uma única entrega e seu espaço de trabalho tiver regras para push e e-mail, além de uma regra que se aplica a todos os canais, essa entrega conta uma vez para a regra de push, uma vez para a regra de e-mail e uma vez para a regra de todos os canais — não conta uma vez por plataforma de push ou por mensagem dentro do envio. Se os usuários estão limitados a uma Campaign de push e uma de e-mail por dia e recebem essa Campaign multicanal, eles não são elegíveis para Campaigns adicionais de push ou e-mail pelo resto do dia, a menos que uma Campaign ignore as regras de limite de frequência.
 
 Mensagens no app e Content Cards não são contabilizados como ou para limites em Campaigns ou componentes do Canvas de qualquer tipo.
+
+##### Notificações por push com múltiplos dispositivos {#push-notifications-with-multiple-devices}
+
+Para Campaigns de push, o limite de frequência conta no nível da Campaign ou componente do Canvas, não por dispositivo individual. Se um perfil de usuário tem múltiplos dispositivos registrados para push (por exemplo, um iPhone e um iPad), um limite de frequência no nível da Campaign conta isso como um envio, independentemente de quantos dispositivos recebem a notificação. Isso é semelhante a como uma Campaign recorrente com cadência diária conta como um envio por dia, mesmo que recorra várias vezes ao longo da semana.
 
 {% alert important %}
 O limite de frequência global é agendado com base no fuso horário do usuário e é calculado por dias corridos, não por períodos de 24 horas. Por exemplo, se você configurar uma regra de limite de frequência para enviar no máximo uma Campaign por dia, um usuário pode receber uma mensagem às 23h no seu fuso horário local e seria elegível para receber outra mensagem uma hora depois.

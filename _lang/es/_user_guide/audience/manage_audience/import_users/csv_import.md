@@ -60,7 +60,7 @@ Si estás cargando o actualizando perfiles de usuario que solo tienen alias, deb
 | :---- | :---- | :---- | :---- | :---- |
 | 182736485 | my_alt_identifier | Smith | smith@example.com | TRUE |
 | 182736486 | my_alt_identifier | Nguyen | nguyen@example.com | FALSE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Paso 2: Elige un identificador #choose-an-identifier" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Paso 2: Elige un identificador" }
 
 Cuando proporcionas tanto un `user_alias_name` como un `user_alias_label` en tu importación, Braze actualiza cualquier usuario existente con el mismo `user_alias_name` y `user_alias_label`. Si no se encuentra un usuario, Braze crea un nuevo usuario identificado con ese `user_alias_name` establecido.
 
@@ -342,7 +342,7 @@ Después del mapeado, puedes elegir entre las siguientes preferencias de segment
 |---|---|
 | Filtro de segmentación | Para convertir tu archivo CSV en una opción de reorientación al construir segmentos de usuarios, elige tu archivo del menú desplegable **Updated/Imported from CSV** y luego selecciona **Create targeting filter**. |
 | Nuevos segmentos | Para crear también un nuevo segmento a partir de tu nuevo filtro de segmentación, selecciona **Create targeting filter and add to new segment**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 6: Elige las preferencias de segmentación #targeting-preferences" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 6: Elige las preferencias de segmentación" }
 
 ![Un grupo de filtros con el filtro "Updated/Imported from CSV" que incluye un archivo CSV titulado "Halloween season fun".]({% image_buster /assets/img/csv_import/add_filter_group.png %}){: style="max-width:85%;"}
 

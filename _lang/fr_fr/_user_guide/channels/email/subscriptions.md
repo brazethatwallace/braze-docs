@@ -36,7 +36,7 @@ Braze désabonne automatiquement tout utilisateur qui se désabonne manuellement
 Si un utilisateur signale un ou plusieurs de vos e-mails comme spam, Braze n'envoie que des e-mails transactionnels à cet utilisateur. Les e-mails transactionnels correspondent à l'option **Send to all users including unsubscribed users** dans **Target Audience**.
 
 {% alert tip %}
-Consultez nos bonnes pratiques de [réchauffement d'adresses IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) pour des conseils sur la manière de réengager efficacement vos utilisateurs.
+Consultez nos bonnes pratiques d'[IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) pour des conseils sur la manière de réengager efficacement vos utilisateurs.
 {% endalert %}
 
 ### Rebonds et e-mails invalides {#bounces-and-invalid-emails}
@@ -214,7 +214,7 @@ Utilisez un processus de double abonnement pour améliorer votre portée. Braze 
 
 ## Abonnements et ciblage des campagnes {#subscriptions-and-campaign-targeting}
 
-Par défaut, Braze cible les campagnes avec des messages push ou e-mail vers les utilisateurs qui sont abonnés ou dont l'abonnement est confirmé. Modifiez cela dans **Target Audience** en sélectionnant le menu déroulant à côté de **Send to these users:**.
+Par défaut, Braze cible les campagnes avec des notifications push ou des e-mails vers les utilisateurs qui sont abonnés ou dont l'abonnement est confirmé. Modifiez cela dans **Target Audience** en sélectionnant le menu déroulant à côté de **Send to these users:**.
 
 Braze prend en charge trois états de ciblage :
 

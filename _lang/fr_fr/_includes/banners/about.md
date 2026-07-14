@@ -14,7 +14,7 @@ Avant de démarrer, assurez-vous d'avoir [créé des emplacements de bannières]
 
 Les bannières permettent aux équipes marketing et produit de personnaliser dynamiquement le contenu des applications ou des sites web, en tenant compte en temps réel de l'éligibilité et du comportement des utilisateurs. Elles affichent de manière persistante des messages en ligne, offrant des expériences non intrusives et contextuellement pertinentes qui peuvent être actualisées au début d'une session ou en cours de session lorsque votre application ou votre site web en fait explicitement la demande.
 
-Une fois les bannières intégrées à une application ou à un site web, les marketeurs peuvent concevoir et lancer des bannières à l'aide d'un éditeur simple par glisser-déposer, ce qui élimine le besoin d'une assistance continue de la part des développeurs, réduit la complexité et améliore l'efficacité.
+Une fois les bannières intégrées à une application ou à un site web, les marketeurs peuvent concevoir et lancer des bannières à l'aide d'un éditeur simple par glisser-déposer ou d'un éditeur HTML complet, ce qui élimine le besoin d'une assistance continue de la part des développeurs, réduit la complexité et améliore l'efficacité.
 
 | Cas d'usage | Explication |
 | --- | --- |
@@ -28,7 +28,7 @@ Une fois les bannières intégrées à une application ou à un site web, les ma
 
 Les fonctionnalités des bannières comprennent :
 
-- **Création de contenu simplifiée :** Créez et prévisualisez votre bannière à l'aide d'un éditeur visuel par glisser-déposer prenant en charge les images, le texte, les boutons, les formulaires de saisie d'adresse e-mail, le code personnalisé, et plus encore.
+- **Création de contenu simplifiée :** Créez et prévisualisez votre bannière à l'aide d'un éditeur visuel par glisser-déposer prenant en charge les images, le texte, les boutons, les formulaires de saisie d'adresse e-mail, le code personnalisé, et plus encore. Les équipes qui préfèrent gérer leur propre balisage peuvent utiliser l'éditeur HTML pour un contrôle total sur le HTML et les styles de la bannière, ou demander à [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages) de générer du HTML à partir d'une description.
 - **Emplacements flexibles :** Définissez plusieurs emplacements au sein de votre application ou site web où les bannières peuvent apparaître, ce qui permet un ciblage précis en fonction de contextes ou d'expériences utilisateur spécifiques.
 - **Personnalisation dynamique :** Les bannières recalculent la personnalisation (logique Liquid) et la segmentation à chaque actualisation de la bannière. Si un utilisateur met à jour son profil ou qu'un attribut personnalisé change, la prochaine actualisation de la bannière reflétera ces modifications.
 - **Priorisation native :** Définissez la priorité d'affichage lorsque plusieurs bannières ciblent le même emplacement, afin de garantir que le bon message parvienne aux utilisateurs au bon moment.
@@ -80,7 +80,7 @@ Chaque espace de travail peut prendre en charge jusqu'à 200 campagnes de banni�
 
 De plus, les messages de bannière ne prennent pas en charge les fonctionnalités suivantes :
 
-- Campagnes déclenchées par API et par événement
+- Campaigns déclenchées par API et par événement
 - Contenu connecté
 - Codes promotionnels
 - `catalog_items` utilisant [l'étiquette `:rerender`]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs#using-liquid)

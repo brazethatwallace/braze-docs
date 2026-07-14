@@ -48,7 +48,7 @@ To add an agent to your Canvas:
 2. Select the agent that processes data in this step.
 3. Define the output variable name. The output data type is set in the [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents).
 4. (Optional) Add additional context values for the agent to reference when it runs. This can include extra Liquid variables or Canvas context that you did not already bind in the agent setup—for example, values you only want to pass at send time from this step.
-5. Test and preview the agent output in the step preview.
+5. Test the agent using the in-step preview or [Test Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps) to walk the full user path.
 
 For output data types, Liquid templating, and screenshots, see [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
@@ -117,7 +117,7 @@ To add an agent to your catalog field:
 1. In your catalog, add a new field.
 2. Select **Apply AI agent**.
 3. Assign an agent to this field.
-4. Select which columns should be passed as input. If none are selected, the agent will have access to all columns in the catalog.
+4. Select which columns should be passed as input. If none are selected, the agent has access to all columns in the catalog.
 5. (Optional) Enable **Only run when required columns have values** to skip rows where one or more selected input columns are blank. When this option is on, select which of the input columns must be populated for the agent to run—all selected columns start as required by default, but you can remove any that are allowed to be empty without blocking a run.
 6. Decide if the agent should recalculate fields when catalog rows are updated. If you do not select this option, the agent runs only once per row.
 7. Select **Add fields** to deploy the agent and review cost estimations. The **Cost estimation** modal shows how many times the agent will run on this catalog, roughly equal to the total number of rows. To continue, select **Confirm**.
@@ -168,8 +168,8 @@ You can also manually override the agent-generated cell by selecting **Edit Item
 
 ### Error handling
 
-- Failed catalog invocations do not retry, including when the LLM provider returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors).
-- If the API call to the foundational model provider returns any other error, such as an invalid API key error, the field value does not update. Catalog agents do not support configuring fallback values in Agent Console.
+- If the LLM provider returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors), Braze continuously retries the request using exponential backoff until the call succeeds or Braze determines it cannot be completed.
+- For other failures (such as a timeout or invalid API key), the catalog field value does not update. Catalog agents do not support configuring fallback values in Agent Console.
 - You can review the agent's logs for details on failed runs.
 - Catalog agents are limited to processing input values up to 25 KB per row.
 
@@ -192,6 +192,8 @@ You can also monitor daily invocation limit errors at the [Message Activity Log]
 Select **View** for a specific agent call to see the input, output, and user ID.
 
 ![The details panel for an agent Random Sports Assignment that shows the input prompt, output response, and an associated user ID.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
+
+For Canvas step agents, logs include a **Fallback Output** section that shows any fallback output that was used when the invocation errored out.
 
 ### Use Currents
 

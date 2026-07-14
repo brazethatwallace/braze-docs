@@ -11,7 +11,7 @@ channel:
 
 # 到達性センター {#deliverability-center}
 
-> 到達性センターは、[Gmail Postmaster Tools](https://www.gmail.com/postmaster/) の使用をサポートし、送信済みメールのデータを追跡して送信ドメインに関するデータを収集することで、メールパフォーマンスに関するより深いインサイトを提供します。
+> 到達性センターは、[Gmail Postmaster Tools](https://www.gmail.com/postmaster/)の使用をサポートし、送信済みメールのデータを追跡して送信ドメインに関するデータを収集することで、メールパフォーマンスに関するより深いインサイトを提供します。
 
 メールの到達性は、キャンペーン成功の核心です。Brazeダッシュボードの到達性センターを使用すると、**IPレピュテーション**または**配信エラー**別にドメインを表示し、メールの到達性に関する潜在的な問題を発見してトラブルシューティングできます。
 
@@ -68,7 +68,7 @@ channel:
 到達性センターに接続する前に、Google Postmaster Toolsアカウントをセットアップする必要があります。仕事用または個人用のGmailアカウントを使用してGoogle Postmasterをセットアップできます。
 
 1. [Google Postmaster Toolsダッシュボード](https://postmaster.google.com/managedomains?pli=1)にアクセスします。
-2. 右下の<i class="fas fa-plus-circle"></i> **Add domain**を選択します。
+2. ページ下部の<i class="fas fa-plus-circle"></i> **Add domain**を選択します。
 3. ルート（親）ドメインを入力してメールを認証します。TXTレコードが、Brazeで使用しているサブドメインでは**なく**、このルート（親）ドメインに紐付けられていることを確認してください。ルート（親）ドメインを検証すると、追加のTXTレコードを作成せずに、後からPostmaster Toolsにサブドメインを追加できます。例えば、`braze.com`を検証すると、後から`demo.braze.com`をPostmaster Toolsに別のサブドメインとして追加し、サブドメインレベルの指標を確認できます。
 4. GoogleがTXTレコードを生成します。このレコードはドメインのDNSに直接追加できます。通常、DNSを管理している担当者がこの作業を行います。特定のDNSの更新方法に関する情報とガイダンスについては、[ドメインの確認（ホスト固有の手順）](https://support.google.com/a/topic/1409901)を参照してください。
 5. **Next**を選択します。<br>![メールを認証するためのドメイン「demo.braze.com」の例。]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -164,7 +164,7 @@ IPレピュテーションの評価を理解するには、以下の表を参照
 
 Microsoftがメインのメールボックスプロバイダーである場合、到達性センターでMicrosoft SNDSデータを表示できます。これには、Amazon SES、SendGrid、またはSparkPostを使用するワークスペースの専用送信IPが含まれます。このデータを使用して、IPの健全性を監視し、Microsoftの受信トレイプロバイダーが送信をどのように評価しているかを把握できます。
 
-Microsoft SNDSは、Outlook、Hotmail、Liveなどの Microsoft受信トレイプロバイダーから報告された、スパム苦情、スパムトラップヒット、送信量に関するIPレベルのデータを提供します。
+Microsoft SNDSは、Outlook、Hotmail、LiveなどのMicrosoft受信トレイプロバイダーから報告された、スパム苦情、スパムトラップヒット、送信量に関するIPレベルのデータを提供します。
 
 {% alert important %}
 到達性センターにデータが表示されない場合は、IPアドレスのリストを添えて[サポート]({{site.baseurl}}/user_guide/administer/personal/braze_support)にお問い合わせください。

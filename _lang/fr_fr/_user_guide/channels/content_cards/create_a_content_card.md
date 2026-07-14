@@ -27,7 +27,7 @@ Utilisez les Campaigns pour des messages simples et ponctuels (par exemple, info
 2. Sélectionnez **Content Cards** ou, pour les Campaigns ciblant plusieurs canaux, sélectionnez **Multichannel**.
 3. Donnez à votre Campaign un nom clair et explicite.
 4. Ajoutez des [équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) si nécessaire.
-   * Les étiquettes facilitent la recherche de vos Campaigns et la création de rapports. Par exemple, avec le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par les étiquettes pertinentes.
+   * Les étiquettes facilitent la recherche de vos Campaigns et la création de rapports. Par exemple, avec le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par les étiquettes pertinentes.
 5. Ajoutez et nommez autant de variantes que vous le souhaitez pour votre Campaign. Vous pouvez choisir différentes plateformes, types de messages et dispositions pour chacune de vos variantes. Pour en savoir plus sur les variantes, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
@@ -57,7 +57,7 @@ Pour en savoir plus sur le comportement attendu et l'apparence de chaque type, c
 
 | Type de message | Exemple | Description |
 |---|---|---|
-| [Classique]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic) | ![Une Content Card classique avec une petite icône et du texte encourageant à réserver un cours de sport.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | La carte classique a une disposition simple avec un titre en gras, un texte de message et une image optionnelle placée à gauche du titre et du texte. Il est préférable d'utiliser une image carrée ou une icône avec la carte classique. |
+| [Classique]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic) | ![Une Content Card classique avec une petite icône et du texte encourageant à réserver un cours de sport.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | La carte classique a une disposition simple avec un titre en gras, un texte de message et une image optionnelle placée au début du titre et du texte. Il est préférable d'utiliser une image carrée ou une icône avec la carte classique. |
 | [Image légendée]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image) | ![Une Content Card avec image légendée montrant un haltérophile et du texte encourageant à réserver un cours de sport.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | La carte avec image légendée met en valeur votre contenu avec du texte et une image accrocheuse. |
 | [Image uniquement]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner) | ![Une Content Card Image uniquement avec du texte seulement.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | La carte Image uniquement attire l'attention avec un espace dédié aux images, GIF et autres contenus créatifs non textuels. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Spécifier vos types de messages" }
@@ -159,7 +159,7 @@ Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuen
 
 {% tab Canvas %}
 
-Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la construction du reste de votre Canvas, la mise en œuvre de [tests multivariés]({{site.baseurl}}/user_guide/messaging/ab_testing) et de la [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la construction du reste de votre Canvas, la mise en œuvre de [tests multivariés]({{site.baseurl}}/user_guide/messaging/ab_testing) et de la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
 
 {% endtab %}
 {% endtabs %}
@@ -193,7 +193,7 @@ La totalité du payload de données d'une seule Content Card ne peut pas dépass
 
 L'utilisation de Liquid pour récupérer de longues chaînes de texte (par exemple, à partir d'attributs personnalisés) peut vous faire dépasser la limite.
 
-Le compositeur de Campaign affiche un avertissement si votre contenu statique dépasse la limite. (Nous ne prédisons pas la taille du contenu dynamique utilisant Liquid.) **Si la taille du message dépasse 2 Ko, il est abandonné au moment de l'envoi.** Vous pouvez voir ces abandons dans le Journal d'activité des messages avec la raison `Content card maximum size exceeded`.
+Le compositeur de Campaign affiche un avertissement si votre contenu statique dépasse la limite. (Nous ne prédisons pas la taille du contenu dynamique utilisant Liquid.) **Si la taille du message dépasse 2 Ko, il est abandonné au moment de l'envoi.** Vous pouvez voir ces abandons dans le journal d'activité des messages avec la raison `Content card maximum size exceeded`.
 
 {% alert important %}
 Lors des envois de test, les Content Cards dépassant 2 Ko peuvent tout de même être distribuées et affichées correctement.
@@ -204,7 +204,7 @@ Voici quelques bonnes pratiques pour gérer la taille du payload des Content Car
 * Utilisez des raccourcisseurs d'URL pour les liens longs. Les URL, en particulier celles avec des paramètres de suivi étendus, peuvent poser des problèmes de limite de taille. L'utilisation d'un service de raccourcissement d'URL peut réduire considérablement le nombre de caractères et libérer de l'espace dans le payload.
 * Tronquez le contenu dynamique avec Liquid. Lorsque vous personnalisez des cartes avec du texte dynamique provenant d'attributs utilisateur ou d'appels API, la longueur du contenu peut être imprévisible. Utilisez de manière proactive des filtres Liquid comme `truncate` pour limiter la longueur de tout texte dynamique.
 * Soyez efficace avec les URL multi-plateformes. La limite de 2 Ko inclut les URL de toutes les plateformes que vous définissez. L'utilisation d'URL longues et uniques pour chaque plateforme peut multiplier la taille du payload. Si possible, utilisez un lien unique fonctionnant sur toutes les plateformes, ou utilisez des raccourcisseurs d'URL si nécessaire.
-* Envisagez les bannières pour du contenu plus riche. Pour les cas d'utilisation nécessitant régulièrement de grandes quantités de contenu, les Content Cards ne sont peut-être pas le canal approprié. Les bannières n'ont pas la même limitation de payload de 2 Ko et sont mieux adaptées pour intégrer du contenu plus riche directement dans une application ou une expérience web.
+* Envisagez les bannières pour du contenu plus riche. Pour les cas d'usage nécessitant régulièrement de grandes quantités de contenu, les Content Cards ne sont peut-être pas le canal approprié. Les bannières n'ont pas la même limitation de payload de 2 Ko et sont mieux adaptées pour intégrer du contenu plus riche directement dans une application ou une expérience web.
 
 #### Nombre de cartes dans le flux {#number-of-cards-in-feed}
 
@@ -294,7 +294,7 @@ Imaginons que vous avez une Campaign déclenchée au démarrage d'une session av
 
 Vous pouvez supprimer manuellement les cartes des flux de tous les utilisateurs à tout moment en arrêtant la Campaign.
 
-1. Ouvrez la Campaign de Content Cards et sélectionnez **Arrêter la Campaign**.
+1. Ouvrez la Campaign de Content Cards et sélectionnez **Stop Campaign**.
 2. Lorsque vous y êtes invité, sélectionnez **Remove card after the next sync**. La carte est supprimée lors du prochain rafraîchissement du flux.
 
 ##### Suppression automatique des cartes {#action-based-card-removal}
@@ -320,7 +320,7 @@ Les Content Cards restent disponibles jusqu'à 30 jours après leur envoi ; apr�
 #### Faire durer les cartes plus de 30 jours {#making-cards-last-longer-than-30-days}
 
 {% alert tip %}
-Pour les cas d'utilisation nécessitant que les messages persistent au-delà de la limite de 30 jours des Content Cards, envisagez d'utiliser les bannières. Les bannières sont conçues pour la persistance et n'ont pas de date d'expiration obligatoire, ce qui leur permet de rester visibles aussi longtemps que nécessaire.
+Pour les cas d'usage nécessitant que les messages persistent au-delà de la limite de 30 jours des Content Cards, envisagez d'utiliser les bannières. Les bannières sont conçues pour la persistance et n'ont pas de date d'expiration obligatoire, ce qui leur permet de rester visibles aussi longtemps que nécessaire.
 {% endalert %}
 
 Si vous souhaitez qu'une carte semble toujours disponible, vous pouvez créer une Campaign récurrente qui remplace effectivement la carte tous les 30 jours :

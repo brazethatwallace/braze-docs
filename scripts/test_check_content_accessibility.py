@@ -163,6 +163,14 @@ class TestSpatialDirectionals:
         assert len(v) == 1
         assert v[0]['auto_fix_eligible'] is False
 
+    def test_marks_api_data_retention_as_manual_review_only(self):
+        v = spatial_violations_for_path(
+            'The details are listed below.\n',
+            '_docs/_api/data_retention.md',
+        )
+        assert len(v) == 1
+        assert v[0]['auto_fix_eligible'] is False
+
     def test_does_not_treat_terms_to_know_as_legal_sensitive(self):
         v = spatial_violations_for_path(
             'Review the list below before setup.\n',
@@ -178,6 +186,79 @@ class TestSpatialDirectionals:
         )
         assert len(v) == 1
         assert v[0]['auto_fix_eligible'] is True
+
+    def test_allows_below_a_certain_threshold_numeric_comparison(self):
+        v = spatial_violations_for(
+            'If the value drops below a certain threshold, throttle requests.\n'
+        )
+        assert v == []
+
+    def test_allows_at_or_below_variant_limit(self):
+        v = spatial_violations_for(
+            'Re-activate variants as long as this keeps the component at or below the five-variant limit.\n'
+        )
+        assert v == []
+
+    def test_allows_above_average_phrase(self):
+        v = spatial_violations_for(
+            'Users with above-average recency are grouped in this segment.\n'
+        )
+        assert v == []
+
+    def test_allows_below_average_phrase(self):
+        v = spatial_violations_for(
+            'Users in this cohort have below average purchase frequency.\n'
+        )
+        assert v == []
+
+    def test_allows_above_and_beyond_idiom(self):
+        v = spatial_violations_for(
+            'Our support team goes above and beyond for onboarding.\n'
+        )
+        assert v == []
+
+    def test_allows_ios_sdk_version_and_above(self):
+        v = spatial_violations_for(
+            'For devices using iOS SDK v5.7.0 and above, this behavior is expected.\n'
+        )
+        assert v == []
+
+    def test_allows_android_version_and_below(self):
+        v = spatial_violations_for(
+            'On Android 12 and below, users are considered subscribed on first session.\n'
+        )
+        assert v == []
+
+    def test_allows_version_phrase_with_below(self):
+        v = spatial_violations_for(
+            'This applies to any version below 2.4.1.\n'
+        )
+        assert v == []
+
+    def test_allows_version_or_above_with_decimal(self):
+        v = spatial_violations_for(
+            'This feature requires SDK version 5.0 and above.\n'
+        )
+        assert v == []
+
+    def test_flags_layout_below_after_sdk_sentence(self):
+        """The version allowlist must not span across a sentence boundary."""
+        v = spatial_violations_for('Update the SDK. See the steps below.\n')
+        assert len(v) == 1
+        assert 'below' in v[0]['message']
+
+    def test_flags_layout_below_after_platform_sentence(self):
+        v = spatial_violations_for(
+            'Install the Android SDK. The instructions below explain how.\n'
+        )
+        assert len(v) == 1
+        assert 'below' in v[0]['message']
+
+    def test_allows_left_center_right_alignment_options(self):
+        v = spatial_violations_for(
+            'Orients the image to either the left, center, or right of the block.\n'
+        )
+        assert v == []
 
     # ------------------------------------------------------------------
     # False-positive guard: "right" / "left" meaning "correct" or other
@@ -269,6 +350,10 @@ class TestSpatialDirectionals:
 
     def test_flags_left_of(self):
         v = spatial_violations_for('Select the icon to the left of the title.\n')
+        assert len(v) == 1
+
+    def test_flags_right_of_button(self):
+        v = spatial_violations_for('Choose the icon to the right of the button.\n')
         assert len(v) == 1
 
     def test_flags_right_hand_side(self):

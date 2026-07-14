@@ -358,7 +358,7 @@ Você pode desativar o rastreamento de cliques para links específicos adicionan
 
 #### SendGrid
 
-Se o seu prestador de serviço de e-mail for o SendGrid, use o código HTML `clicktracking=off` assim:
+Se o seu provedor de serviços de e-mail for o SendGrid, use o código HTML `clicktracking=off` assim:
 
 ```HTML
 <a clicktracking=off href="[INSERT https LINK HERE]">click here</a>
@@ -366,7 +366,7 @@ Se o seu prestador de serviço de e-mail for o SendGrid, use o código HTML `cli
 
 #### SparkPost
 
-Se o seu prestador de serviço de e-mail for o SparkPost, use o código HTML `data-msys-clicktrack="0"` assim:
+Se o seu provedor de serviços de e-mail for o SparkPost, use o código HTML `data-msys-clicktrack="0"` assim:
 
 ```HTML
 <a data-msys-clicktrack="0" href="[INSERT https LINK HERE]">click here</a>
@@ -374,7 +374,7 @@ Se o seu prestador de serviço de e-mail for o SparkPost, use o código HTML `da
 
 #### Amazon SES
 
-Se o seu prestador de serviço de e-mail for o Amazon SES, use o código HTML `ses:no-track` assim:
+Se o seu provedor de serviços de e-mail for o Amazon SES, use o código HTML `ses:no-track` assim:
 
 ```HTML
 <a ses:no-track href="[INSERT https LINK HERE]">click here</a>
@@ -451,4 +451,4 @@ Certifique-se de que você tem as definições corretas para os domínios que se
 Em alguns casos, o seu domínio de rastreamento de cliques pode não conseguir hospedar os arquivos `.well-known` necessários devido a limitações do ESP ou restrições de infraestrutura. Se você não conseguir hospedar o arquivo AASA ou Digital Asset Links no seu domínio de rastreamento, considere as seguintes opções:
 
 - **Desative seletivamente o rastreamento de cliques em URLs de deep link:** Você pode desativar o rastreamento de cliques para links universais específicos para que eles apontem diretamente para o seu domínio principal (onde você pode hospedar o arquivo AASA ou Digital Asset Links). Observe que esse método pode causar perda de análise de dados de cliques para esses links específicos. Consulte [Desativando o rastreamento de cliques link a link](#turning-off-click-tracking-on-a-link-to-link-basis) para instruções.
-- **Coloque um CDN na frente do subdomínio de rastreamento:** Se você precisar de cobertura completa de rastreamento de cliques e deep linking, pode colocar um CDN (como Cloudflare ou CloudFront) na frente do seu subdomínio de rastreamento. Configure o CDN para servir os arquivos `.well-known` localmente e encaminhar todo o restante do tráfego para o seu ESP. Essa abordagem é mais complexa, mas oferece controle total sobre o rastreamento de cliques e os links universais.
+- **Coloque uma CDN na frente do subdomínio de rastreamento:** Se você precisar de cobertura completa de rastreamento de cliques e deep linking, pode colocar uma CDN (como Cloudflare ou CloudFront) na frente do seu subdomínio de rastreamento. Configure a CDN para servir os arquivos `.well-known` localmente e encaminhar todo o restante do tráfego para o seu ESP. Essa abordagem é mais complexa, mas oferece controle total sobre o rastreamento de cliques e os links universais.

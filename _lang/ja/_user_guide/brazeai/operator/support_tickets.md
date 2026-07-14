@@ -1,26 +1,26 @@
 ---
 nav_title: サポートチケット
-article_title: BrazeAI オペレーター<sup>TM</sup>でサポートチケットを提出する
+article_title: BrazeAI Operator<sup>TM</sup>でサポートチケットを提出する
 page_order: 3
-description: "Brazeダッシュボードを離れることなく、BrazeAI オペレーターから直接サポートチケットを提出する方法を説明します。"
+description: "Brazeダッシュボードを離れることなく、BrazeAI Operatorから直接サポートチケットを提出する方法を説明します。"
 ---
 
-# BrazeAI オペレーターでサポートチケットを提出する {#file-support-tickets-with-brazeai-operator}
+# BrazeAI Operatorでサポートチケットを提出する {#file-support-tickets-with-brazeai-operator}
 
-> Brazeダッシュボードを離れることなく、BrazeAI オペレーター<sup>TM</sup>から直接サポートチケットを提出する方法を説明します。
+> Brazeダッシュボードを離れることなく、BrazeAI Operator<sup>TM</sup>から直接サポートチケットを提出する方法を説明します。
 
 ## チケットの提出方法 {#how-to-file-a-ticket}
 
-1. オペレーターに質問し、<i class="fa-regular fa-circle-question"></i> **サポートチケットを提出**を選択します（またはオペレーターにチケットの提出を依頼します）。
+1. オペレーターに質問し、<i class="fa-regular fa-circle-question"></i> **Contact Support** を選択します（またはオペレーターにチケットの提出を依頼します）。
 2. 問題のタイトルと説明を入力します。
 3. 提案された添付ファイルと含めるコンテキストを確認します。
-4. 確認して**送信**を選択します。
+4. 内容を確認して**Submit**を選択します。
 
 ## 自動的に含まれるコンテキスト {#auto-included-context}
 
 オペレーターからチケットを提出すると、以下のコンテキストが自動的に含まれます。
 
-- オペレーターチャットセッションの最近のメッセージ
+- オペレーターとのチャットセッションの最近のメッセージ
 - オペレーターを開いた時点のアクティブページのページコンテキスト
 - ワークスペース名
 - 関連するログとセッションの詳細

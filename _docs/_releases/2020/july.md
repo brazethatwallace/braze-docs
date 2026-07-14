@@ -21,7 +21,7 @@ The filter option for Canvas and campaign GET list endpoints allow your customer
 
 ## Currents `ad-id`
 
-Updated [storage connect documentation]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#content-card-click-events) to reflect the new `ad-id` (advertiser ID) fields to Currents.
+Updated [storage connect documentation]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#content-card-click-events) to reflect the new `ad-id` (advertiser ID) fields to Currents.
 
 ## BCC functionality
 

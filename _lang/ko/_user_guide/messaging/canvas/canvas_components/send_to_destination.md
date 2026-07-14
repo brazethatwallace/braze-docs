@@ -29,7 +29,7 @@ tool: Canvas
 
 대상 Canvas가 스케줄된 진입 스케줄을 사용하는 경우, 대상으로 보내기 단계는 해당 진입 스케줄을 우회합니다. 또한 대상 Canvas의 **진입 제어**에서 **Canvas가 스케줄될 때마다**로 설정된 [**진입 볼륨 제한**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls)도 우회합니다. 이 단계에서 전송된 사용자는 다음 스케줄된 평가 기간을 기다리지 않으며, 대상으로 보내기 단계에 도달할 때 대상 Canvas의 진입 및 오디언스 기준을 충족하면 즉시 평가되어 진입합니다.
 
-대상 Canvas가 동작 기반 진입을 사용하는 경우, 대상으로 보내기 단계는 사용자가 해당 Canvas에 진입하기 위해 구성된 진입 동작을 수행해야 하는 요구 사항을 우회합니다.
+대상 Canvas가 액션 기반 진입을 사용하는 경우, 대상으로 보내기 단계는 사용자가 해당 Canvas에 진입하기 위해 구성된 진입 액션을 수행해야 하는 요구 사항을 우회합니다.
 
 ## 대상으로 보내기 단계 생성 {#create-a-send-to-destination-step}
 
@@ -57,7 +57,7 @@ tool: Canvas
 
 ### 컨텍스트 변수가 유지되나요? {#are-context-variables-preserved}
 
-네. 소스 Canvas의 [컨텍스트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)는 항상 대상 Canvas로 전달됩니다.
+네. 소스 Canvas의 [컨텍스트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)는 대상 Canvas로 전달됩니다. 단, 컨텍스트 변수가 대상 Canvas로 전달되려면 소스 Canvas 내에서 호출되어야 합니다.
 
 ### API나 사용자 업데이트 우회 방법 대신 대상으로 보내기 단계를 사용하여 Canvases를 연결할 수 있나요? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
 

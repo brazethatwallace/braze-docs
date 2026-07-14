@@ -1,7 +1,7 @@
 ---
 nav_title: Beispiele
 article_title: Beispiele für Agent-Anweisungen
-description: "Durchsuchen Sie eine filterbare Bibliothek mit sofort anpassbaren Agent-Anweisungen für Braze Agents, geordnet nach Beispielkategorie."
+description: "Durchsuchen Sie eine filterbare Bibliothek mit sofort anpassbaren Agent-Anweisungen für Braze Agents, organisiert nach Beispielkategorie."
 page_order: 4
 page_type: glossary
 layout: agents_use_case_glossary
@@ -19,14 +19,14 @@ Diese Beispiele sind Ausgangspunkte, keine fertigen Agents. So passen Sie ein Be
 1. Erstellen Sie den Agent für die relevante Oberfläche – einen [Canvas-Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) oder einen Katalog-Agent – und öffnen Sie seine Anweisungen.
 2. Kopieren Sie den Block **Instructions** aus dem passenden Beispiel in dieser Bibliothek in Ihren Agent.
 3. Ersetzen Sie die Platzhalter-Eingaben (Vorname, Treuestatus, Kontextvariablen, Katalogfelder) durch die [Kontextvariablen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) und Felder, die in Ihrem Workspace vorhanden sind.
-4. Fügen Sie den erforderlichen **Agent context** hinzu, z. B. Ihre [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines), damit der Agent Ihre Vorgaben zu Stimme, Tonalität und Formatierung anwenden kann.
-5. Konfigurieren Sie die **Output**-Einstellungen des Agents so, dass sie mit den in den Anweisungen genannten Schlüsseln oder **Fields** übereinstimmen, und testen Sie alles vor dem Start.
+4. Fügen Sie den erforderlichen **Agent-Kontext** hinzu, z. B. Ihre [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines), damit der Agent Ihre Vorgaben zu Stimme, Tonalität und Formatierung anwenden kann.
+5. Konfigurieren Sie die **Ausgabe** des Agents so, dass sie mit den in den Anweisungen genannten Schlüsseln oder **Feldern** übereinstimmt, und testen Sie vor dem Start.
 
 {% enddetails %}
 
 {% details Über Beispielkategorien %}
 
-Jedem Beispiel ist eine Kategorie zugeordnet, die auf der Aufgabe basiert, die der Agent ausführt, sowie ein Agent-Typ-Tag (Canvas Step Agent oder Catalog Agent) zum Filtern.
+Jedem Beispiel ist eine Kategorie zugeordnet, die auf der Aufgabe basiert, die der Agent ausführt, sowie ein Agent-Typ-Tag (Canvas-Schritt-Agent oder Katalog-Agent) zum Filtern.
 
 ### Content-Generierung {#content-generation}
 
@@ -53,14 +53,14 @@ Katalog-Agents, die Katalogzeilen mit lokalisierten Texten, Kategorien, Tags ode
 </div>
 
 {% alert tip %}
-Jedes Beispiel fordert das Modell auf, neben der Ausgabe ein `explanation`-Feld zurückzugeben, was die Qualitätssicherung und das Debugging erleichtert. Behalten Sie dieses Feld bei, während Sie bauen und testen, und entfernen Sie es aus dem endgültigen Output-Mapping, sobald Sie mit den Ergebnissen zufrieden sind.
+Jedes Beispiel fordert das Modell auf, neben der Ausgabe ein `explanation`-Feld zurückzugeben, was die Qualitätssicherung und das Debugging erleichtert. Behalten Sie dieses Feld bei, während Sie bauen und testen, und entfernen Sie es aus der endgültigen Ausgabezuordnung, sobald Sie mit den Ergebnissen zufrieden sind.
 {% endalert %}
 
 <!--overview-end-->
 
 {% api %}
 
-## Personalisiertes Messaging basierend auf dem Kontext von Nutzer:innen erstellen {#write-personalized-messaging-based-on-a-users-context}
+## Personalisiertes Messaging basierend auf dem Kontext von Nutzer:innen verfassen {#write-personalized-messaging-based-on-a-users-context}
 
 {% apitags %}
 Content generation, canvas step agent
@@ -78,10 +78,10 @@ Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sin
 - Kontextvariable für den Ort, nach dem die Nutzer:innen zuletzt gesucht haben
 - Kontextvariable für die letzte Umfrageantwort der Nutzer:innen
 - Ein [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) namens „Logged multiple searches in the past 30D“, das Nutzer:innen mit mehreren protokollierten Suchen in den letzten 30 Tagen erfasst
-- **Agent context** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
-    - **Segment membership:** „Logged multiple searches in the past 30D“, damit der Agent prüfen kann, ob die Nutzer:innen in diesem Segment sind, wie in den Anweisungen beschrieben
-    - **All Canvas context:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
-    - **Brand guidelines:** `<Brand guidelines name>` ist erforderlich, damit der Agent die in diesen Anweisungen referenzierten Vorgaben zu Stimme, Tonalität und Formatierung anwenden kann.
+- **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
+    - **Segment-Zugehörigkeit:** „Logged multiple searches in the past 30D“, damit der Agent darauf verweisen kann, ob die Nutzer:innen in diesem Segment sind, wie in den Anweisungen beschrieben
+    - **Gesamter Canvas-Kontext:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
+    - **Markenrichtlinien:** `<Brand guidelines name>` ist erforderlich, damit der Agent die in diesen Anweisungen referenzierten Regeln zu Stimme, Tonalität und Formatierung anwenden kann.
 
 {% endtab %}
 {% tab Anweisungen %}
@@ -147,7 +147,7 @@ The user IS in the segment: “Logged multiple searches in the past 30D”.
 Data standardization, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Agent Nutzerfeedback aus Umfragen nach einer Reise analysieren und Sentiment sowie Themen kategorisieren kann. Das Ziel dieses Agents ist es, die nächsten Schritte für eine separate CRM-Plattform zu bestimmen.
+Dieses Beispiel beschreibt, wie ein Canvas-Agent Nutzerfeedback aus Umfragen nach der Reise analysieren und Sentiment sowie Themen kategorisieren kann. Das Ziel dieses Agents ist es, die nächsten Schritte für eine separate CRM-Plattform zu bestimmen.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -156,9 +156,9 @@ Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sin
 
 - Angepasstes Attribut für die Treuestufe der Nutzer:innen
 - Kontextvariablen für das letzte Reiseziel der Nutzer:innen
-- Kontextvariable für das Nutzerfeedback als Text
-- **Agent context** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
-    - **All Canvas context:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
+- Kontextvariable für Nutzerfeedback als Text
+- **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
+    - **Gesamter Canvas-Kontext:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
 
 {% endtab %}
 {% tab Anweisungen %}
@@ -209,7 +209,7 @@ Input & Output Example:
 
 {% api %}
 
-## Nutzer:innen anhand vorhandener Attribute in Interessen-Buckets einordnen {#categorize-users-into-interest-buckets-from-existing-attributes}
+## Nutzer:innen anhand vorhandener Attribute in Interessen-Buckets kategorisieren {#categorize-users-into-interest-buckets-from-existing-attributes}
 
 {% apitags %}
 Affinity agent, canvas step agent
@@ -224,8 +224,8 @@ Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sin
 
 - Nutzerattribute wie Land, Sprache, Lifecycle-Phase, Treuestufe, Lieblingskategorien, kürzlich angesehene Artikel, aktuelle Suchbegriffe, Warenkorb-Artikel und letzte Kaufkategorie
 - Kontextvariablen für Aktionen und Artikel mit hoher Kaufabsicht sowie zulässige Listen von Interessenkategorien, Erlebnis-Schlüsseln und Artikel-IDs
-- **Agent context** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
-    - **All Canvas context:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
+- **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
+    - **Gesamter Canvas-Kontext:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
 
 {% endtab %}
 {% tab Anweisungen %}
@@ -294,7 +294,7 @@ Recent Search: "cordless drill"
 Affinity agent, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Agent die aktuelle Motivation von Nutzer:innen aus dem jüngsten Verhalten und Kontext ableiten kann – z. B. aus kürzlich favorisierten Artikeln oder dem Suchverlauf – und den besten Route-Schlüssel für den nächsten Schritt zurückgibt. Das Ziel ist, jede:n Nutzer:in ohne manuelle Segmentierung auf den relevantesten Canvas-Pfad zu leiten.
+Dieses Beispiel beschreibt, wie ein Canvas-Agent die aktuelle Motivation von Nutzer:innen aus dem jüngsten Verhalten und Kontext ableiten kann – wie kürzlich favorisierte Artikel oder Suchverlauf – und den besten Route-Schlüssel für den nächsten Schritt zurückgibt. Das Ziel ist, jede:n Nutzer:in ohne manuelle Segmentierung auf den relevantesten Canvas-Pfad zu leiten.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -302,10 +302,10 @@ Dieses Beispiel beschreibt, wie ein Canvas-Agent die aktuelle Motivation von Nut
 Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sind:
 
 - Nutzerattribute wie Vorname, Land, Branche, Rolle, Fachgebiet und kürzlich genutzte Produkte
-- Engagement-Verlauf, einschließlich kürzlicher Campaign-Öffnungen, Klicks und Konversionen sowie der Nachrichten, die diese ausgelöst haben (nicht Engagement-Häufigkeit oder Zeitstempel der letzten Interaktion)
+- Engagement-Verlauf, einschließlich kürzlicher Campaign-Öffnungen, Klicks und Konversionen sowie der Nachrichten, die diese ausgelöst haben (nicht Engagement-Häufigkeit oder Zeitstempel der letzten Aktivität)
 - Kontextvariablen für die zulässigen Route-Schlüssel, kürzlich favorisierte Artikel, aktuelle Suchbegriffe und Trigger-spezifische Event-Eigenschaften
-- **Agent context** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
-    - **All Canvas context:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
+- **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
+    - **Gesamter Canvas-Kontext:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
 
 {% endtab %}
 {% tab Anweisungen %}
@@ -366,7 +366,7 @@ Recently Engaged Products: Drill bits
 Affinity agent, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Agent Nutzer:innen basierend auf aktuellen Aktionen mit hoher Kaufabsicht und Verhaltenskontext (über Canvas Context übergeben) ein bis drei Interessenkategorien zuweisen und dann das beste nächste Erlebnis oder den besten Artikel empfehlen kann. Das Ziel ist, den nächsten Schritt einer Customer Journey in Echtzeit mithilfe verifizierter Verhaltenssignale statt Annahmen zu personalisieren.
+Dieses Beispiel beschreibt, wie ein Canvas-Agent Nutzer:innen basierend auf aktuellen Aktionen mit hoher Kaufabsicht und Verhaltenskontext (über Canvas-Kontext übergeben) ein bis drei Interessenkategorien zuweisen und dann das beste nächste Erlebnis oder den besten Artikel empfehlen kann. Das Ziel ist, den nächsten Schritt einer Customer Journey in Echtzeit mithilfe verifizierter Verhaltenssignale statt Annahmen zu personalisieren.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -375,9 +375,9 @@ Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sin
 
 - Nutzerattribute wie Land, Sprache, Lifecycle-Phase, Treuestufe, Lieblingskategorien, kürzlich angesehene Artikel, aktuelle Suchbegriffe, Warenkorb-Artikel und letzte Kaufkategorie
 - Kontext mit hoher Kaufabsicht, einschließlich Aktionen und Artikel mit hoher Kaufabsicht, zuletzt angesehene Kategorie, aktuelle Sitzungssignale und zulässige Listen für Kategorien, Erlebnisse und Artikel-IDs
-- Engagement-Verlauf aus aktuellen Campaign- und Canvas-Interaktionsdaten, einschließlich der Nachrichten, die Öffnungen, Klicks und Konversionen ausgelöst haben (nicht Engagement-Häufigkeit oder Zeitstempel der letzten Interaktion)
-- **Agent context** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
-    - **All Canvas context:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
+- Engagement-Verlauf aus aktuellen Campaign- und Canvas-Interaktionsdaten, einschließlich der Nachrichten, die Öffnungen, Klicks und Konversionen ausgelöst haben (nicht Engagement-Häufigkeit oder Zeitstempel der letzten Aktivität)
+- **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
+    - **Gesamter Canvas-Kontext:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
 
 {% endtab %}
 {% tab Anweisungen %}
@@ -448,10 +448,10 @@ Recent Search: "18v cordless drill"
 Classification and routing, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Agent jeweils eine eingehende Kundennachricht auswerten und zurückgeben kann, ob sie als Anfrage zur Abmeldung von zukünftigem Messaging behandelt werden soll (z. B. STOP, Abmelden oder Einwilligung widerrufen). Das Ziel ist, einen strikten booleschen Wert auszugeben, damit Sie Journeys konservativ verzweigen können – so wird das Risiko reduziert, nach einem Widerruf weiter Nachrichten zu senden, während Fehlalarme vermieden werden, wenn Nutzer:innen offensichtlich eine Frage stellen oder weiterhin interagieren.
+Dieses Beispiel beschreibt, wie ein Canvas-Agent jeweils eine eingehende Kundennachricht auswerten und zurückgeben kann, ob sie als Anfrage zum Opt-out aus zukünftigem Messaging behandelt werden soll (z. B. STOP, Abmeldung oder Widerruf der Einwilligung). Das Ziel ist die Ausgabe eines strikten booleschen Werts, damit Sie Journeys konservativ verzweigen können – um das Risiko zu reduzieren, nach einem Widerruf weiter Nachrichten zu senden, und gleichzeitig Fehlalarme zu vermeiden, wenn Nutzer:innen offensichtlich eine Frage stellen oder weiterhin interagieren.
 
 {% alert important %}
-Opt-out- und Einwilligungsverarbeitung unterliegt rechtlichen Verpflichtungen, die je nach Region und Kanal variieren. Betrachten Sie dieses Beispiel als Ausgangspunkt und überprüfen Sie Ihre endgültige Logik anhand Ihrer eigenen Compliance-Anforderungen (wie TCPA und DSGVO), bevor Sie sie in der Produktion einsetzen.
+Opt-out- und Einwilligungsverarbeitung unterliegt rechtlichen Verpflichtungen, die je nach Region und Kanal variieren. Betrachten Sie dieses Beispiel als Ausgangspunkt und überprüfen Sie Ihre endgültige Logik anhand Ihrer eigenen Compliance-Anforderungen (wie TCPA und DSGVO), bevor Sie sich im Produktivbetrieb darauf verlassen.
 {% endalert %}
 
 {% tabs local %}
@@ -460,8 +460,8 @@ Opt-out- und Einwilligungsverarbeitung unterliegt rechtlichen Verpflichtungen, d
 Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sind:
 
 - Eingehender Nachrichtentext, der dem Agent zur Verfügung steht (z. B. eine Kontextvariable für die letzte SMS-Antwort oder einen anderen eingehenden Text der Nutzer:innen)
-- **Agent context** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
-    - **All Canvas context:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
+- **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
+    - **Gesamter Canvas-Kontext:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, die Sie nicht bereits in Ihren Agent-Anweisungen definiert haben, falls sie hilfreich oder relevant sind
 
 {% endtab %}
 {% tab Anweisungen %}
@@ -530,7 +530,7 @@ Input: “This sucks—what’s the promo code?” → false
 Data standardization, canvas step agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Canvas-Agent unstrukturierte, unordentliche eingehende SMS- oder Chat-Antworten in ein konsistentes, strukturiertes Format normalisieren kann – indem er die Absicht klassifiziert, Entitäten extrahiert und Compliance-Signale wie Opt-outs und PII kennzeichnet. Das Ziel ist, nachgelagerter Automatisierung und internen Benachrichtigungen saubere, maschinenlesbare Daten für zuverlässiges Routing bereitzustellen.
+Dieses Beispiel beschreibt, wie ein Canvas-Agent unstrukturierte, unordentliche eingehende SMS- oder Chat-Antworten in ein konsistentes, strukturiertes Format normalisieren kann – durch Klassifizierung der Absicht, Extraktion von Entitäten und Kennzeichnung von Compliance-Signalen wie Opt-outs und PII. Das Ziel ist, nachgelagerter Automatisierung und internen Benachrichtigungen saubere, maschinenlesbare Daten für zuverlässiges Routing bereitzustellen.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
@@ -538,8 +538,8 @@ Dieses Beispiel beschreibt, wie ein Canvas-Agent unstrukturierte, unordentliche 
 Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sind:
 
 - Der rohe eingehende Nachrichtentext (dem Agent in einer Canvas-Kontextvariable verfügbar)
-- **Agent context** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
-    - **All Canvas context:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, wie `last_outbound_message`, `conversation_context` und `channel`, falls sie hilfreich oder relevant sind
+- **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
+    - **Gesamter Canvas-Kontext:** Übergibt alle zusätzlichen Kontextvariablen an den Agent, wie `last_outbound_message`, `conversation_context` und `channel`, falls sie hilfreich oder relevant sind
 
 {% endtab %}
 {% tab Anweisungen %}
@@ -600,7 +600,7 @@ Raw message: "STOP sending me these texts!!!"
 
 {% api %}
 
-## Konversionsstarke Beschreibungen erstellen, die den Markenrichtlinien entsprechen {#write-high-converting-descriptions-that-align-with-brand-guidelines}
+## Konversionsstarke Beschreibungen verfassen, die den Markenrichtlinien entsprechen {#write-high-converting-descriptions-that-align-with-brand-guidelines}
 
 {% apitags %}
 Content generation, catalog agent
@@ -613,11 +613,11 @@ Dieses Beispiel beschreibt, wie ein Katalog-Agent Nutzerdaten und Markenrichtlin
 
 Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sind:
 
-- **Agent context** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
-    - **Catalog fields:**
-        - **Catalog:** `<Destination Catalog name>`, der eine Zeile pro Reiseziel enthält (z. B. Ihr In-App-Reisezielkatalog).
-        - **Fields:** `<Destination_Name>`, `<Country>`, `<Primary_Vibe>`, `<Price_Tier>` – Spaltennamen, die dem Reisezielnamen, Land, der primären Stimmung und der Preisstufe entsprechen, die in den Anweisungen verwendet werden.
-    - **Brand guidelines:** StyleRydes [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)
+- **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
+    - **Katalogfelder:**
+        - **Katalog:** `<Destination Catalog name>`, der eine Zeile pro Reiseziel enthält (z. B. Ihr In-App-Reisezielkatalog).
+        - **Felder:** `<Destination_Name>`, `<Country>`, `<Primary_Vibe>`, `<Price_Tier>` – Spaltennamen, die dem Reisezielnamen, Land, der primären Stimmung und der Preisstufe zugeordnet sind, die in den Anweisungen verwendet werden.
+    - **Markenrichtlinien:** Die [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) von StyleRyde
 
 {% endtab %}
 {% tab Anweisungen %}
@@ -674,17 +674,17 @@ Price Tier: $$$
 Catalog enrichment, catalog agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Katalog-Agent englische UI- und Marketing-Texte in die Zielsprache jeder Region übersetzen kann, wobei Katalogzeilen verwendet werden, die Gebietsschema, UI-Platzierung und Zeichenlimits definieren. Das Ziel ist, lokalisierten Text zu erstellen, den Sie Ihren Katalogspalten zuordnen, mit Erklärungen, wenn Kürzungen, Gebietsschema-Entscheidungen oder manuelle Überprüfung erforderlich sind.
+Dieses Beispiel beschreibt, wie ein Katalog-Agent englische UI- und Marketing-Strings in die Zielsprache jeder Region übersetzen kann, wobei Katalogzeilen verwendet werden, die Gebietsschema, UI-Platzierung und Zeichenlimits definieren. Das Ziel ist, lokalisierten Text zu erstellen, den Sie Ihren Katalogspalten zuordnen, mit Erklärungen, wenn Kürzungen, Gebietsschema-Entscheidungen oder manuelle Überprüfung erforderlich sind.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
 
 Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sind:
 
-- **Agent context** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
-    - **Catalog fields:**
-        - **Catalog:** „App Localization“, der eine Zeile pro zu übersetzenden String enthält.
-        - **Fields:** `<Source text>`, `<Target language code>`, `<UI category>`, `<Maximum character count>` – Spaltennamen, die dem Quellstring, dem Gebietsschema, der Platzierung und dem Zeichenlimit entsprechen, die in den Anweisungen verwendet werden.
+- **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
+    - **Katalogfelder:**
+        - **Katalog:** „App Localization“, der eine Zeile pro zu übersetzendem String enthält.
+        - **Felder:** `<Source text>`, `<Target language code>`, `<UI category>`, `<Maximum character count>` – Spaltennamen, die dem Quellstring, dem Gebietsschema, der Platzierung und dem Längenlimit zugeordnet sind, die in den Anweisungen verwendet werden.
 
 {% endtab %}
 {% tab Anweisungen %}
@@ -750,18 +750,18 @@ Max Characters: 20
 Catalog enrichment, catalog agent
 {% endapitags %}
 
-Dieses Beispiel beschreibt, wie ein Katalog-Agent vorhandene Katalogartikel verbessern kann, indem er eine optimierte Produktbeschreibung (45–90 Wörter), eine standardisierte Kategorie und eine Reihe von Tags aus den vorhandenen Artikeldaten generiert. Das Ziel ist, markenkonforme Kataloganreicherung über viele Produkte hinweg zu skalieren, ohne manuelles Copywriting, und dabei halluzinierte Fakten oder verbotene Behauptungen zu vermeiden.
+Dieses Beispiel beschreibt, wie ein Katalog-Agent vorhandene Katalogartikel anreichern kann, indem er eine verbesserte Produktbeschreibung (45–90 Wörter), eine standardisierte Kategorie und eine Reihe von Tags aus den vorhandenen Artikeldaten generiert. Das Ziel ist, markenkonforme Kataloganreicherung über viele Produkte hinweg zu skalieren, ohne manuelles Copywriting, und dabei halluzinierte Fakten oder verbotene Behauptungen zu vermeiden.
 
 {% tabs local %}
 {% tab Voraussetzungen %}
 
 Diese Anweisungen setzen voraus, dass die folgenden Informationen verfügbar sind:
 
-- **Agent context** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
-    - **Catalog fields:**
-        - **Catalog:** `<Catalog name>`, der eine Zeile pro Produktartikel enthält.
-        - **Fields:** `product_name`, `brand`, `price`, `currency`, `color`, `size`, `material`, `features`, `specs`, `use_cases`, `audience`, `keywords`, `existing_category` und `existing_tags`.
-    - **Brand guidelines:** `<Brand guidelines name>` wird verwendet, um generierte Beschreibungen an den Markenton anzupassen
+- **Agent-Kontext** aus den [Anweisungen der Agent-Konsole]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
+    - **Katalogfelder:**
+        - **Katalog:** `<Catalog name>`, der eine Zeile pro Produktartikel enthält.
+        - **Felder:** `product_name`, `brand`, `price`, `currency`, `color`, `size`, `material`, `features`, `specs`, `use_cases`, `audience`, `keywords`, `existing_category` und `existing_tags`.
+    - **Markenrichtlinien:** `<Brand guidelines name>` wird verwendet, um generierte Beschreibungen an die Markentonalität anzupassen
 
 {% endtab %}
 {% tab Anweisungen %}

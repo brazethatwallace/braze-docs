@@ -31,14 +31,28 @@ platform:
 
 ### 2단계: 앱에서 배치 새로고침 {#requestBannersRefresh}
 
-배치를 새로고침하려면 SDK의 새로고침 메서드를 호출하세요. `subscribeToBannersUpdates`가 활성 상태인 경우, SDK는 새 세션이 시작될 때와 `changeUser`를 호출할 때 캐시된 배치 ID를 자동으로 다시 게시합니다. 이 자동 새로고침은 사용량 제한 토큰을 소비하지 않습니다.
+배치를 새로고침하려면 SDK의 새로고침 메서드를 호출하세요(웹 및 Android에서는 `requestBannersRefresh()`, Swift에서는 `requestRefresh()`).
+
+배너 새로고침 동작에는 두 가지 경로가 있습니다:
+
+1. **명시적 새로고침:** 활성 세션 중 언제든지 새로고침 메서드를 호출할 수 있습니다.
+2. **새 세션에서 자동 새로고침:** 최소 한 번의 명시적 새로고침 요청을 한 후, 새 Braze 세션이 시작될 때(예: `changeUser()` 이후 또는 세션 타임아웃 이후) SDK가 가장 최근에 요청된 배치 ID를 자동으로 다시 요청할 수 있습니다.
+
+`subscribeToBannersUpdates()`의 역할은 플랫폼에 따라 다릅니다:
+
+- **iOS 및 Android:** `subscribeToBannersUpdates()`(또는 Swift에서는 `subscribeToUpdates()`)는 업데이트 콜백을 등록합니다. 자동 세션 시작 새로고침은 구독이 활성 상태인지 여부에 의존하지 않습니다.
+- **웹:** 자동 세션 시작 새로고침은 `subscribeToBannersUpdates()`가 등록되어 있는지에 연결됩니다. 활성 구독이 없으면 SDK는 새 세션에서 자동으로 새로고침을 반복하지 않습니다.
+
+모든 경우에 앱 수명 주기당 최소 한 번의 명시적 새로고침 요청을 해야 SDK가 어떤 배치 ID를 계속 업데이트할지 알 수 있습니다. 배너는 초기 호출 없이 첫 실행 시 자동으로 가져오지 않으며, 추적된 배치 ID는 앱 재시작 후 초기화됩니다.
+
+자동 세션 시작 새로고침은 사용량 제한 토큰을 소비하지 않습니다.
 
 {% alert tip %}
 배너 다운로드 또는 표시 지연을 방지하려면 가능한 한 빨리 배치를 새로고침하세요.
 {% endalert %}
 
 {% tabs %}
-{% tab Web %}
+{% tab 웹 %}
 
 ```javascript
 import * as braze from "@braze/web-sdk";
@@ -119,7 +133,7 @@ This feature is not currently supported on Roku.
 {% endalert %}
 
 {% tabs %}
-{% tab Web %}
+{% tab 웹 %}
 {% subtabs %}
 {% subtab JavaScript %}
 웹 Braze SDK와 함께 일반 JavaScript를 사용하는 경우 [`subscribeToBannersUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetobannersupdates)를 사용하여 배치 업데이트를 수신한 다음 [`requestBannersRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestbannersrefresh)를 호출하여 가져옵니다.
@@ -272,7 +286,7 @@ This feature is not currently supported on Roku.
 {% endalert %}
 
 {% tabs %}
-{% tab Web %}
+{% tab 웹 %}
 
 배너의 컨테이너 요소를 만듭니다. 너비와 높이를 설정해야 합니다.
 
@@ -531,6 +545,8 @@ BrazeBannerView(
 To get the Banner's data model in Flutter, use:
 ```
 
+Flutter에서 배너의 데이터 모델을 가져오려면 다음을 사용하세요:
+
 `getBanner` 메서드를 사용하여 사용자 캐시에 해당 배치가 있는지 확인할 수 있습니다.
 
 ```dart
@@ -589,14 +605,14 @@ Braze는 SDK 메서드를 사용하여 배너를 삽입할 때 보이는 배너�
 
 배너의 [커스텀 속성](#custom-properties)을 사용하여 배너 HTML을 렌더링하는 대신 완전히 커스텀 UI를 구축하는 경우, 애플리케이션 코드에서 클릭과 노출을 수동으로 기록해야 합니다. SDK가 배너를 렌더링하지 않기 때문에 커스텀 UI 요소와의 상호작용을 자동으로 추적할 방법이 없습니다.
 
-메서드 시그니처 및 전체 세부 정보는 [Braze SDK 참조 문서]({{site.baseurl}}/developer_guide/references)를 참조하세요.
+메서드 시그니처 및 전체 세부 정보는 [Braze SDK 참조 설명서]({{site.baseurl}}/developer_guide/references)를 참조하세요.
 
 #### 노출 기록 {#logging-impressions}
 
 커스텀 UI에서 배너가 "조회됨"으로 간주될 때 플랫폼의 배너 노출 메서드를 호출하세요. 중복 이벤트를 방지하기 위해 노출로 간주되는 기준에 대한 견고한 로직을 구축하세요. 예를 들어, 배너가 뷰포트에 진입할 때(또는 이에 상응하는 시점에)만 기록하고, 동일한 배너가 다시 스크롤되어 보이거나 새로운 뷰 이벤트 없이 구성요소가 다시 렌더링될 때는 다시 기록하지 마세요.
 
 {% tabs %}
-{% tab Web %}
+{% tab 웹 %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 
@@ -655,7 +671,7 @@ braze.logBannerImpression("placement_id_homepage_top");
 사용자가 커스텀 배너(또는 특정 버튼)를 탭할 때 플랫폼의 배너 클릭 메서드를 호출하세요. 클릭이 특정 버튼에 대한 것인 경우 선택적 `buttonId`를 전달하여 분석에서 클릭을 올바르게 귀속시킬 수 있습니다.
 
 {% tabs %}
-{% tab Web %}
+{% tab 웹 %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 
@@ -743,7 +759,7 @@ braze.logBannerClicked("placement_id_homepage_top", buttonId);  // buttonID para
 {% sdk_min_versions swift:15.1.0 android:42.3.0 web:6.9.0 reactnative:22.0.0 flutter:20.0.0 %}
 
 {% tabs %}
-{% tab Web %}
+{% tab 웹 %}
 `Banner` 객체를 `braze.dismissBanner()`에 전달합니다. `Banner` 객체는 `braze.getAllBanners()` 또는 `subscribeToBannersUpdates` 콜백에서 가져올 수 있습니다.
 
 {% subtabs %}
@@ -823,7 +839,7 @@ braze.dismissBanner("your-placement-id");
 배너가 해제될 때 분석 기록과 같은 커스텀 로직을 실행하려면 SDK의 해제 콜백을 사용하세요. 콜백은 배너의 `placementId`, `stableKey`, `trackingId`가 포함된 이벤트 객체를 수신합니다.
 
 {% tabs %}
-{% tab Web %}
+{% tab 웹 %}
 [`Banner.subscribeToDismissedEvent()`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.banner.html#subscribetodismissedevent)를 사용하여 특정 배너가 해제될 때 커스텀 로직을 실행합니다. 배너를 표시하기 전에 이벤트를 구독하세요.
 
 {% alert note %}
@@ -1000,7 +1016,7 @@ BrazeBannerView(
 배너의 커스텀 속성에 접근하려면 대시보드에서 정의된 속성 유형에 따라 다음 메서드 중 하나를 사용하세요. 키가 해당 유형의 속성과 일치하지 않거나 존재하지 않으면 메서드는 `null`을 반환합니다.
 
 {% tabs local %}
-{% tab Web %}
+{% tab 웹 %}
 ```javascript
 // Returns the Banner instance
 const banner = braze.getBanner("placement_id_homepage_top");

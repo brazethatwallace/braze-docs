@@ -225,7 +225,7 @@ Se você optar por usar apenas um botão, ele se ajustará automaticamente para 
 
 Se você decidir formatar esses botões com suas próprias cores, recomendamos usar o Botão 2 para o resultado que você mais deseja.
 
-Em outras palavras, se você quer que o usuário clique em um botão mais do que no outro, certifique-se de que ele esteja à direita. O botão da direita frequentemente demonstra melhor potencial de ser clicado, especialmente se tiver uma cor um pouco contrastante ou que se destaque do restante da mensagem. Isso é ainda mais evidente quando o botão da esquerda se mistura mais visualmente com a mensagem.
+Em outras palavras, se você quer que o usuário clique em um botão mais do que no outro, certifique-se de que ele seja o botão secundário. O botão secundário frequentemente demonstra melhor potencial de ser clicado, especialmente se tiver uma cor um pouco contrastante ou que se destaque do restante da mensagem. Isso é ainda mais evidente quando o botão principal se mistura mais visualmente com a mensagem.
 
 ![Botões principal e secundário em uma mensagem no app]({% image_buster /assets/img/primary-secondary-buttons.png %})
 

@@ -40,7 +40,7 @@ Chordはクラウドモード（Braze REST APIを介したサーバー間呼び�
 2. Destinationsの横にある**Add**を選択し、カタログから**Braze**を選択して、送信先名とBraze REST APIキーを入力します。
 3. 送信先を作成して接続を完了します。
 
-REST APIキーはBrazeダッシュボードの**Settings** > **API Keys**から作成します。古いナビゲーションを使用している場合は、**Developer Console** > **API Settings**に移動してください。Chordがワークスペースに対して異なる要件を文書化していない限り、キーには`users.track`と`users.identify`の権限が必要です。詳細については、[APIキー]({{site.baseurl}}/api/api_key/)を参照してください。
+REST APIキーはBrazeダッシュボードの**設定** > **API キー**から作成します。古いナビゲーションを使用している場合は、**開発者コンソール** > **API 設定**に移動してください。Chordがワークスペースに対して異なる要件を文書化していない限り、キーには`users.track`と`users.identify`の権限が必要です。詳細については、[APIキー]({{site.baseurl}}/api/api_key/)を参照してください。
 
 ### デバイスモード {#device-mode}
 

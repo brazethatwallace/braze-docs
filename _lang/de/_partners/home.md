@@ -62,6 +62,8 @@ valid_partner_list:
   url: /docs/partners/jebbit/
 - name: Iterate
   url: /docs/partners/iterate/
+- name: Refiner
+  url: /docs/partners/refiner/
 - name: EduMe
   url: /docs/partners/edume/
 - name: Fivetran

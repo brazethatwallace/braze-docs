@@ -24,25 +24,25 @@ Si es la primera vez que creas una campaña de correo electrónico, te recomenda
 
 ## Paso 1: Elige dónde crear tu mensaje {#step-1-choose-where-to-build-your-message}
 
-Usa campañas para mensajes simples y únicos. Usa Canvas para recorridos de usuario con múltiples pasos.
+Usa Campaigns para mensajes simples y únicos. Usa Canvas para recorridos de usuario con múltiples pasos.
 
 {% tabs %}
 {% tab Campaign %}
 
-1. Ve a **Messaging** > **Campaigns** y selecciona **Create Campaign**.
-2. Selecciona **Email** o, para campañas dirigidas a múltiples canales, selecciona **Multichannel**.
+1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear Campaign**.
+2. Selecciona **Correo electrónico** o, para campañas dirigidas a múltiples canales, selecciona **Multicanal**.
 3. Dale a tu campaña un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario.
-   * Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el [Generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder), puedes filtrar por etiquetas específicas.
-5. Añade y nombra tantas variantes como necesites para tu campaña. Para más información sobre este tema, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+   * Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder), puedes filtrar por etiquetas específicas.
+5. Añade y nombra tantas variantes como necesites para tu campaña. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copy from Variant** en el desplegable **Add Variant**.
+Si todos los mensajes de tu campaña van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copiar de variante** en el desplegable **Añadir variante**.
 {% endalert %}
 {% endtab %}
 {% tab Canvas %}
 
-1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando el compositor de Canvas.
+1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando el creador de Canvas.
 2. Después de configurar tu Canvas, añade un paso en el constructor de Canvas. Dale a tu paso un nombre claro y significativo.
 3. Elige una [planificación de paso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) y especifica un retraso según sea necesario.
 4. Filtra tu audiencia para este paso, según sea necesario. Puedes refinar aún más los destinatarios de este paso especificando segmentos y añadiendo filtros adicionales. Las opciones de audiencia se verificarán después del retraso, en el momento en que se envíen los mensajes.
@@ -91,7 +91,7 @@ Braze elimina automáticamente los controladores de eventos HTML referenciados c
 {% alert tip %}
 ¿Necesitas ayuda para crear textos increíbles? Prueba usar el [asistente de redacción con inteligencia artificial]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). Introduce un nombre o descripción de producto y la IA generará textos de marketing similares a los escritos por humanos para usar en tus mensajes.
 
-![Botón Lanzar el redactor con IA, ubicado en la pestaña Cuerpo del compositor de correo electrónico.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
+![Botón Lanzar el redactor con IA, ubicado en la pestaña Cuerpo del creador de correo electrónico.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_email.png %}){: style="max-width:80%"}
 {% endalert %}
 
 ¿Necesitas ayuda para crear mensajes de derecha a izquierda para idiomas como árabe y hebreo? Consulta [Crear mensajes de derecha a izquierda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages) para conocer las buenas prácticas.
@@ -124,7 +124,7 @@ Después de terminar de diseñar y construir tu mensaje de correo electrónico, 
 1. En **Sending Info**, selecciona un correo electrónico como **From Display Name + Address**. También puedes personalizar esto seleccionando **Customize From Display Name + Address**.
 2. Selecciona un correo electrónico como **Reply-To Address**. También puedes personalizar esto seleccionando **Customize Reply-To Address**.
 3. A continuación, selecciona un correo electrónico como **BCC Address** para hacer tu correo visible a esta dirección.
-4. Añade una línea del asunto a tu correo electrónico. Opcionalmente, también puedes añadir un preencabezado y un espacio en blanco después del preencabezado.
+4. Añade una línea del asunto a tu correo electrónico. Opcionalmente, también puedes añadir un preencabezado. Para añadir espacio en blanco después del preencabezado, selecciona la casilla **Add whitespace after preheader**.
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
@@ -233,7 +233,7 @@ Si ves algún problema con tu correo electrónico o quieres hacer cambios, selec
 
 {% alert tip %}
 Los clientes de correo electrónico que admiten texto de vista previa siempre extraen suficientes caracteres para llenar todo el espacio disponible de texto de vista previa. Sin embargo, esto puede dejarte en situaciones donde el texto de vista previa está incompleto o no optimizado.
-<br><br>Para evitar esto, puedes crear un espacio en blanco después del texto de vista previa deseado para que los clientes de correo electrónico no extraigan otro texto o caracteres que distraigan en el contenido del sobre. Para hacerlo, añade una cadena de no-uniones de ancho cero (‌`&zwnj;`) y espacios de no separación (`&nbsp;`) después del texto de vista previa que deseas mostrar. <br><br>Cuando se añade al final de tu texto de vista previa en la sección de preencabezado, el siguiente fragmento de código para el editor HTML añadirá el espacio en blanco que buscas:<br><br>
+<br><br>Para evitar esto, puedes crear un espacio en blanco después del texto de vista previa deseado para que los clientes de correo electrónico no extraigan otro texto o caracteres que distraigan en el contenido del sobre. En la sección **Sending Settings**, puedes seleccionar la casilla **Add whitespace after preheader** para añadir automáticamente espacio en blanco. <br><br>Alternativamente, si necesitas más control, puedes añadir manualmente una cadena de no-uniones de ancho cero (‌`&zwnj;`) y espacios de no separación (`&nbsp;`) después del texto de vista previa que deseas mostrar. <br><br>Cuando se añade al final de tu texto de vista previa en la sección de preencabezado, el siguiente fragmento de código para el editor HTML añadirá el espacio en blanco que buscas:<br><br>
 
 ```html
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
@@ -314,11 +314,11 @@ Braze te permite rastrear con qué frecuencia los usuarios realizan acciones esp
 - Realiza un evento personalizado específico
 - Abre el correo electrónico
 
-Puedes permitir una ventana de hasta 30 días durante la cual Braze cuenta una conversión si el usuario realiza la acción especificada. Aunque Braze rastrea aperturas y clics automáticamente, puedes establecer el evento de conversión como una apertura o un clic para usar [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
+Puedes permitir una ventana de hasta 30 días durante la cual Braze cuenta una conversión si el usuario realiza la acción especificada. Aunque Braze rastrea aperturas y clics automáticamente, puedes establecer el evento de conversión como una apertura o un clic para usar la [selección inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection).
 {% endtab %}
 
 {% tab Canvas %}
-Si aún no lo has hecho, completa las secciones restantes de los componentes de tu Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariantes e Intelligent Selection, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de los componentes de tu Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante y selección inteligente, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de nuestra documentación de Canvas.
 {% endtab %}
 {% endtabs %}
 

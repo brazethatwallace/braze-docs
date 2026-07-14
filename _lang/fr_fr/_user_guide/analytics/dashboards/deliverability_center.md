@@ -68,7 +68,7 @@ Pour accéder au Centre de livrabilité, vous devez disposer des [autorisations 
 Avant de vous connecter au Centre de livrabilité, vous devez configurer un compte Google Postmaster Tools. Vous pouvez utiliser un compte Gmail professionnel ou personnel pour cette configuration.
 
 1. Accédez au [tableau de bord Google Postmaster Tools](https://postmaster.google.com/managedomains?pli=1).
-2. En bas à droite, sélectionnez <i class="fas fa-plus-circle"></i> **Add domain**.
+2. En bas de la page, sélectionnez <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Saisissez votre domaine racine (parent) pour authentifier votre e-mail. Assurez-vous que l'enregistrement TXT est lié à ce domaine racine (parent), et **non** au sous-domaine que vous utilisez via Braze. La vérification du domaine racine (parent) vous permet d'ajouter ultérieurement des sous-domaines dans Postmaster Tools sans créer d'enregistrements TXT supplémentaires. Par exemple, en vérifiant `braze.com`, vous pouvez ensuite ajouter `demo.braze.com` comme sous-domaine distinct dans Postmaster Tools pour consulter les indicateurs au niveau du sous-domaine.
 4. Google génère un enregistrement TXT qui peut être ajouté directement au DNS de votre domaine. Celui-ci est généralement géré par la personne responsable de votre DNS. Pour obtenir des informations et des instructions sur la mise à jour de votre DNS spécifique, consultez [Vérifier votre domaine (étapes spécifiques à l'hébergeur)](https://support.google.com/a/topic/1409901).
 5. Sélectionnez **Next**. <br>![Un exemple de domaine « demo.braze.com » pour authentifier un e-mail.]({% image_buster /assets/img_archive/domain_authentication.png %})

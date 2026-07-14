@@ -48,7 +48,7 @@ Der Drag-and-Drop-Editor verwendet zwei Schlüsselkomponenten zum Erstellen von 
 
 ### Schließen-X-Button {#close-x-button}
 
-Für modale und Vollbild-In-App-Nachrichten können Sie den Schließen-Button anpassen, der als <i class="fa-solid fa-xmark"></i> in der oberen rechten Ecke Ihrer Nachricht angezeigt wird. Zu den Anpassungsoptionen gehören Button-Position, Größe, Füllfarbe, Hintergrundfarbe, Rahmenstil und Rahmenradius.
+Für modale und Vollbild-In-App-Nachrichten können Sie den Schließen-Button anpassen, der als <i class="fa-solid fa-xmark"></i> oben in Ihrer Nachricht angezeigt wird. Zu den Anpassungsoptionen gehören Button-Position, Größe, Füllfarbe, Hintergrundfarbe, Rahmenstil und Rahmenradius.
 
 ![Optionen zur Anpassung des Schließen-X-Buttons in In-App-Nachrichten, einschließlich Button-Größe, Füllfarbe, Hintergrundfarbe, Rahmenstil und Rahmenradius.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -146,9 +146,9 @@ Nachdem Sie Änderungen am Stil eines Elements vorgenommen haben, können Sie di
 
 ![Dropdown-Menü mit der Option zum Kopieren von Stilen.]({% image_buster /assets/img_archive/dnd_iam_copypaste_styles.png %}){: style="float:right;margin-left:15px;max-width:35%"}
 
-1. Wählen Sie bei ausgewähltem Element <i class="fas fa-paintbrush" title="Stile kopieren oder einfügen"></i> **Stile kopieren oder einfügen** neben dem Namen des Eigenschaftenpanels aus (wenn Sie beispielsweise einen Button ausgewählt haben, neben „Button properties“).
+1. Wählen Sie bei ausgewähltem Element <i class="fas fa-paintbrush" title="Stile kopieren oder einfügen"></i> **Copy or paste styles** neben dem Namen des Eigenschaftenpanels aus (wenn Sie beispielsweise einen Button ausgewählt haben, neben „Button properties“).
 2. Klicken Sie auf **Copy styles** und wählen Sie das Element aus, auf das Sie den kopierten Stil anwenden möchten.
-3. Wählen Sie erneut <i class="fas fa-paintbrush" title="Stile kopieren oder einfügen"></i> **Stile kopieren oder einfügen** und wählen Sie **Paste styles**.
+3. Wählen Sie erneut <i class="fas fa-paintbrush" title="Stile kopieren oder einfügen"></i> **Copy or paste styles** und wählen Sie **Paste styles**.
 
 #### Tastaturkürzel {#keyboard-shortcuts}
 

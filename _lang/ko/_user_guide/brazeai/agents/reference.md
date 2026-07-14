@@ -109,7 +109,23 @@ Canvas 재시도가 모두 소진되면, **로그** 세부 정보 패널에 **Er
 
 ### 예시 {#examples}
 
-에이전트 콘솔의 시작 구성은 [Operator로 구축된 에이전트 템플릿]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)을 참조하세요. 복사하거나 수정할 수 있는 전체 지침 예시는 [Braze 에이전트 사용 사례 라이브러리]({{site.baseurl}}/user_guide/brazeai/agents/use_cases)를 참조하세요.
+에이전트 콘솔의 시작 구성은 [Operator로 구축된 에이전트 템플릿]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)을 참조하세요.
+
+복사하거나 수정할 수 있는 전체 지침 예시는 [Braze 에이전트 사용 사례 라이브러리]({{site.baseurl}}/user_guide/brazeai/agents/examples)를 참조하세요.
+
+| 예시 | 카테고리 | 에이전트 유형 | 기능 |
+| --- | --- | --- | --- |
+| [사용자 컨텍스트를 기반으로 개인화된 메시지 작성]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-personalized-messaging-based-on-a-users-context) | 콘텐츠 생성 | Canvas 단계 에이전트 | 검색했지만 예약하지 않은 사용자를 위해 조율된 이메일 제목/프리헤더 및 푸시 제목/본문을 생성합니다. |
+| [사용자 피드백을 분석하여 다음 단계 결정]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | 데이터 표준화 | Canvas 단계 에이전트 | 여행 후 설문조사의 감정과 주제를 분류한 다음 CRM 다음 단계를 추천합니다. |
+| [기존 속성에서 사용자를 관심사 버킷으로 분류]({{site.baseurl}}/user_guide/brazeai/agents/examples#categorize-users-into-interest-buckets-from-existing-attributes) | 친밀도 에이전트 | Canvas 단계 에이전트 | 속성 및 높은 의도 신호에서 사용자를 관심사 버킷으로 분류한 다음 최적의 다음 경험 또는 항목을 추천합니다. |
+| [최근 행동에서 가장 관련성 높은 Canvas 경로로 사용자 라우팅]({{site.baseurl}}/user_guide/brazeai/agents/examples#route-users-to-the-most-relevant-canvas-path-from-recent-behavior) | 친밀도 에이전트 | Canvas 단계 에이전트 | 최근 행동에서 동기를 추론하고 사용자의 다음 캔버스 단계에 가장 적합한 경로 키를 반환합니다. |
+| [실시간 높은 의도 행동에서 사용자를 관심사 카테고리에 할당]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | 친밀도 에이전트 | Canvas 단계 에이전트 | 높은 의도 행동에서 관심사 카테고리를 할당하고 최적의 다음 경험 또는 항목을 추천합니다. |
+| [수신 거부 의도에 대한 인바운드 메시지 분류]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | 분류 및 라우팅 | Canvas 단계 에이전트 | 메시지가 수신 거부 요청인지 여부를 나타내는 엄격한 부울 값을 반환합니다. |
+| [자동화를 위해 인바운드 메시지를 구조화된 데이터로 표준화]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | 데이터 표준화 | Canvas 단계 에이전트 | 인바운드 SMS 또는 채팅을 다운스트림 자동화를 위한 구조화된 의도, 엔티티 및 규정 준수 플래그로 정규화합니다. |
+| [브랜드 가이드라인에 맞는 높은 전환율의 설명 작성]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | 콘텐츠 생성 | 카탈로그 에이전트 | 각 카탈로그 행에 대해 짧고 브랜드에 맞는 설명을 생성합니다. |
+| [지역별 사용 언어에 따른 번역 제공]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | 카탈로그 보강 | 카탈로그 에이전트 | 로케일 및 문자 제한에 따라 UI 및 마케팅 문자열을 현지화합니다. |
+| [설명, 카테고리 및 태그로 카탈로그 항목 보강]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | 카탈로그 보강 | 카탈로그 에이전트 | 기존 카탈로그 항목 데이터에서 향상된 설명, 카테고리 및 태그를 생성합니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="예시 요약" }
 
 ### Liquid 사용
 
@@ -232,7 +248,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 ## 사용자별 상호작용 기록 {#user-history}
 
-사용자의 상호작용 데이터에는 최근 Campaign 및 Canvas 열기, 클릭, 전환 데이터가 포함됩니다. 예를 들어, Canvas에서 평가될 때 에이전트가 참조할 수 있도록 이 컨텍스트를 포함할 수 있습니다. 사용자별 상호작용 기록은 에이전트가 개인화된 메시지 카피를 작성하는 역할을 할 때도 영향을 줄 수 있습니다.
+사용자의 상호작용 데이터에는 최근 Campaign 및 Canvas 열람, 클릭, 전환 데이터가 포함됩니다. 예를 들어, Canvas에서 평가될 때 에이전트가 참조할 수 있도록 이 컨텍스트를 포함할 수 있습니다. 사용자별 상호작용 기록은 에이전트가 개인화된 메시지 카피를 작성하는 역할을 할 때도 영향을 줄 수 있습니다.
 
 ## 에이전트 복제
 

@@ -143,6 +143,18 @@ Use these specific verbs when describing interactions with the Braze dashboard:
 | Metrics (in text) | *Italics* with initial caps. | The *Machine Opens* metric shows... |
 | Permissions | "Quotation marks". | Grant the "Manage Segments" permission. |
 
+### Bold text — UI labels only
+
+**Bold** dashboard UI labels the reader interacts with (buttons, pages, tabs, checkboxes, toggles, menu items). Do **not** bold words for emphasis, importance, or scanning.
+
+| Do | Don't |
+|---|---|
+| Click **Save**. | Click **Save** to **finalize** your changes. |
+| Go to the **Campaigns** page. | Create a **campaign** that targets… |
+| Turn on **Intelligent Timing**. | This is **important** for delivery. |
+
+If a sentence has no UI label, leave it in plain text. Prefer rewriting for clarity over adding bold.
+
 ### Code samples
 
 - Indent with two spaces per level.

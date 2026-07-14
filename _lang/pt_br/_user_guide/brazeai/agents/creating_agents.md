@@ -104,7 +104,7 @@ Os valores de fallback estão disponíveis apenas para **agentes de etapa do Can
 
 ![Configuração de saída do Console do agente mostrando o campo de saída de fallback para um esquema de número.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
-Para agentes Canvas, os valores de fallback suportam templates [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para que você possa referenciar atributos do usuário ou variáveis de contexto no texto de fallback.
+Para agentes Canvas, os valores de fallback suportam modelos [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para que você possa referenciar atributos do usuário ou variáveis de contexto no texto de fallback.
 
 Os campos de fallback se adaptam ao formato de saída do seu agente Canvas:
 
@@ -121,7 +121,7 @@ Para o comportamento em tempo de execução, veja [Tratamento de erros e comport
 
 ### Etapa 6: Teste o agente {#step-6-test-the-agent}
 
-O painel de **Pré-visualização** é uma instância do agente que aparece como um painel lado a lado dentro da experiência de configuração. Você pode usar essa seção para testar o agente enquanto está criando ou fazendo atualizações, vivenciando-o de maneira semelhante aos usuários finais. Essa etapa ajuda você a confirmar que ele está se comportando da maneira esperada e dá a chance de fazer ajustes antes de colocá-lo no ar.
+O painel de **Prévia** é uma instância do agente que aparece como um painel lado a lado dentro da experiência de configuração. Você pode usar essa seção para testar o agente enquanto está criando ou fazendo atualizações, vivenciando-o de maneira semelhante aos usuários finais. Essa etapa ajuda você a confirmar que ele está se comportando da maneira esperada e dá a chance de fazer ajustes antes de colocá-lo no ar.
 
 1. No campo **Teste seu agente**, insira dados de cliente de exemplo ou respostas de clientes — qualquer coisa que reflita cenários reais que seu agente vai lidar.
 2. Visualize a resposta do agente para um usuário aleatório, usuário existente ou usuário personalizado.
@@ -131,7 +131,7 @@ O painel de **Pré-visualização** é uma instância do agente que aparece como
 Os testes contam para o seu limite diário de invocação.
 {% endalert %}
 
-![Console do agente mostrando o painel de Pré-visualização para testar um agente personalizado. A interface exibe um campo de entradas de exemplo com dados de cliente, um botão Executar teste e uma área de resposta onde a saída do agente aparece.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
+![Console do agente mostrando o painel de Prévia para testar um agente personalizado. A interface exibe um campo de entradas de exemplo com dados de cliente, um botão Executar teste e uma área de resposta onde a saída do agente aparece.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
 
 Revise a saída com um olhar crítico. Considere as seguintes perguntas:
 
