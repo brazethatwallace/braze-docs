@@ -51,7 +51,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/events/data_seri
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": "success",
     "data" : [
         {
             "time" : (string) the point in time - as ISO 8601 extended when unit is "hour" and as ISO 8601 date when unit is "day",

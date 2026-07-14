@@ -53,7 +53,6 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
     "data" : [
         {
             "time": (string) the date as ISO 8601 date,

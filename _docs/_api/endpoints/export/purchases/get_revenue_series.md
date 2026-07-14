@@ -48,7 +48,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/purchases/revenue_s
 
 ```json
 {
-  "message": (required, string) the status of the export, returns 'success' when completed without errors,
+  "message": "success",
   "data" : [
     {
       "time" : (string) the date as ISO 8601 date,

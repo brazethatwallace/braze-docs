@@ -45,7 +45,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/segments/details
 
 ```json
 {
-      "message": (required, string) the status of the export, returns 'success' when completed without errors,
+      "message": "success",
       "created_at" : (string) the date created as ISO 8601 date,
       "updated_at" : (string) the date last updated as ISO 8601 date,
       "name" : (string) the segment name,

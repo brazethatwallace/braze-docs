@@ -55,7 +55,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/events?cursor=c2tpc
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": "success",
     "events" : [
         {
             "name": "The event name", (string) the event name,

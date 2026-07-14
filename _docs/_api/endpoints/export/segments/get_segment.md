@@ -46,7 +46,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
 
 ```json
 {
-    "message": (required, string) the status of the export, returns 'success' when completed without errors,
+    "message": "success",
     "segments" : [
         {
             "id" : (string) the Segment API identifier,
