@@ -25,6 +25,10 @@ on:
       - "scripts/test_check_table_accessibility.py"
       - ".github/workflows/check-table-accessibility.yml"
 
+concurrency:
+  group: check-table-accessibility-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   pull-requests: write
@@ -105,13 +109,30 @@ jobs:
         env:
           LINT_OUTCOME: ${{ steps.lint.outcome }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const marker = '<!-- braze-docs-table-a11y-bot -->';
+            const inlineMarker = '<!-- braze-docs-table-a11y-bot-inline -->';
+            const runLinkMarker = '<!-- braze-docs-a11y-run-link -->';
+            const stripRunLink = s => s.split(runLinkMarker)[0];
             const prNumber = context.payload.pull_request.number;
             const { owner, repo } = context.repo;
             const headSha = process.env.HEAD_SHA;
+            const runUrl = process.env.RUN_URL;
+
+            // --- Index existing bot inline suggestions by path:line so unchanged ---
+            // --- violations across pushes keep their comment instead of being ---
+            // --- deleted and reposted (and re-notifying the author) every run. ---
+            const reviewComments = await github.paginate(github.rest.pulls.listReviewComments, {
+              owner, repo, pull_number: prNumber, per_page: 100,
+            });
+            const existingInline = reviewComments.filter(c => c.body && c.body.includes(inlineMarker));
+            const existingByKey = new Map(
+              existingInline.map(c => [`${c.path}:${c.line ?? c.original_line}`, c])
+            );
+            const keepIds = new Set();
 
             // --- Helper: find or update/delete the summary comment ---
             async function syncSummaryComment(body) {
@@ -127,16 +148,23 @@ jobs:
                 }
                 return;
               }
-              if (existing) {
-                await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
-                core.info(`Updated table-accessibility comment ${existing.id}`);
-              } else {
-                await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
-                core.info('Created table-accessibility comment');
+              if (existing && stripRunLink(existing.body) === stripRunLink(body)) {
+                core.info(`Table-accessibility comment ${existing.id} unchanged — leaving in place`);
+                return;
               }
+              if (existing) {
+                await github.rest.issues.deleteComment({ owner, repo, comment_id: existing.id });
+                core.info(`Deleted stale table-accessibility comment ${existing.id}`);
+              }
+              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+              core.info('Created table-accessibility comment');
             }
 
             if (process.env.LINT_OUTCOME === 'success' || process.env.LINT_OUTCOME === 'skipped') {
+              for (const c of existingInline) {
+                await github.rest.pulls.deleteReviewComment({ owner, repo, comment_id: c.id });
+                core.info(`Deleted resolved inline suggestion ${c.id}`);
+              }
               await syncSummaryComment(null);
               return;
             }
@@ -158,9 +186,19 @@ jobs:
 
             for (const v of violations) {
               const inlineBody =
+                inlineMarker + '\n\n' +
                 `⚠️ **Table accessibility automation check failed** because ${v.message.charAt(0).toLowerCase() + v.message.slice(1)} ` +
                 `This must be resolved before the PR can be merged. Accept the suggested label or update the label to something more descriptive.\n\n` +
-                '```suggestion\n' + v.suggestion_content + '\n```';
+                '```suggestion\n' + v.suggestion_content + '\n```\n\n' +
+                '_Did the bot make a mistake? Add the `a11y-false-positive` label to this PR so we can track issues._';
+
+              const key = `${v.file}:${v.suggestion_line}`;
+              const existing = existingByKey.get(key);
+              if (existing && existing.body === inlineBody) {
+                keepIds.add(existing.id);
+                suggested++;
+                continue;
+              }
 
               try {
                 await github.rest.pulls.createReviewComment({
@@ -178,6 +216,14 @@ jobs:
                 // Line is not in the diff (e.g. context-only change) — fall back to comment
                 core.info(`Could not post inline suggestion for ${v.file}:${v.suggestion_line} — ${e.message}`);
                 fallback.push(v);
+              }
+            }
+
+            // Delete stale/superseded inline suggestions that weren't matched above.
+            for (const c of existingInline) {
+              if (!keepIds.has(c.id)) {
+                await github.rest.pulls.deleteReviewComment({ owner, repo, comment_id: c.id });
+                core.info(`Deleted stale inline suggestion ${c.id}`);
               }
             }
 
@@ -201,6 +247,11 @@ jobs:
                   ? `Inline suggestions have been posted on each flagged line — look for the **"Commit suggestion"** button in the **Files changed** tab, or apply them all at once with **"Commit all suggestions"**.`
                   : `Fix each one before merging.`)
               );
+              lines.push('');
+              lines.push(
+                '> **Did the bot make a mistake?** Add the `a11y-false-positive` label ' +
+                'to this PR so we can track issues.'
+              );
             }
 
             if (fallback.length > 0) {
@@ -216,5 +267,9 @@ jobs:
                 lines.push(`  \`\`\`\n  ${v.fix_hint}\n  \`\`\``);
               }
             }
+
+            lines.push('');
+            lines.push(runLinkMarker);
+            lines.push(`[View full workflow run](${runUrl})`);
 
             await syncSummaryComment(lines.join('\n'));
