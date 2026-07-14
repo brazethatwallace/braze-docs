@@ -22,7 +22,7 @@ The following is not bulk-migrated when you point SDKs or APIs at a new workspac
 | --- | --- |
 | **User profiles** | Profiles don't transfer as a packaged unit. Recreate or import users in the destination workspace (see [User profile data](#user-profile-data)). |
 | **Segments and filters** | Segment definitions stay in the source workspace. Rebuild segments in the destination workspace using the same logic where possible. |
-| **Messaging history** | Campaign and Canvas receipt history on a profile is tied to the source workspace. It doesn't appear on a new profile in another workspace unless you model it yourself (for example, via custom attributes), as noted in [Braze onboarding FAQs]({{site.baseurl}}/user_guide/onboarding_faq). |
+| **Messaging history** | Campaign and Canvas receipt history on a profile is tied to the source workspace. It doesn't appear on a new profile in another workspace unless you model it yourself (for example, via custom attributes), as noted in [Braze onboarding FAQs]({{site.baseurl}}/onboarding_faq). |
 | **Channel-specific configuration** | Sending domains, SMS subscriptions, WhatsApp numbers, and similar settings are workspace-scoped. Reconfigure them in the destination workspace where applicable. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="What Braze does not automatically migrate between workspaces" }
 
