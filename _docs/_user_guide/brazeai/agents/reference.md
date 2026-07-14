@@ -168,7 +168,7 @@ Make sure to either Liquid template these context variables in the agent instruc
 
 ![The details for an agent that has Liquid in its instructions.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
-For catalog agents, use **Fields** in the **Output** section rather than JSON schema; you can still write instructions that ask the model for key-value output matching those field names.
+For Catalog Agents, use **Fields** in the **Output** section rather than JSON schema; you can still write instructions that ask the model for key-value output matching those field names.
 
 For more details on prompting best practices, refer to guides from the following model providers:
 
@@ -187,7 +187,7 @@ Basic schemas are a simple output that an agent returns. This can be a string, a
 For example, if you want to collect user sentiment scores from a simple feedback survey to determine how satisfied your customers are after receiving a product, you can select **Number** as a basic schema to structure the output format.
 
 {% alert important %}
-Arrays are only available for Canvas agents, not catalog agents.
+Arrays are only available for Canvas Step Agents, not Catalog Agents.
 {% endalert %}
 
 ![Agent Console with number selected as a basic schema.]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
@@ -197,15 +197,15 @@ Arrays are only available for Canvas agents, not catalog agents.
 Advanced schema options include manually structuring fields or using JSON.
 
 - **Fields:** A no-code way to enforce an agent output that you can use consistently.
-- **JSON:** A code approach to creating a precise output format, where you can nest variables and objects within the JSON schema. Only available for Canvas agents, not catalog agents.
+- **JSON:** A code approach to creating a precise output format, where you can nest variables and objects within the JSON schema. Only available for Canvas Step Agents, not Catalog Agents.
 
 We recommend using advanced schemas when you want the agent to return a data structure with multiple values defined in a structured manner, rather than a single-value output. This allows the output to be better formatted as a consistent context variable.
 
 ### Fallback output
 
-Fallback values are available for **Canvas step agents** only. In the **Output** section of Agent Console for a Canvas Agent, you can define values that Braze uses when an invocation fails.
+Fallback values are available for Canvas Step Agents only. In the **Output** section of Agent Console for a Canvas Step Agent, you can define values that Braze uses when an invocation fails.
 
-For **JSON** schemas, Braze reads the schema and generates an input field for each property so you can set a fallback value per key. For **Fields** schemas, you enter a fallback value for each field. For basic schemas, you enter a single fallback value. Canvas agents support Liquid in fallback values.
+For **JSON** schemas, Braze reads the schema and generates an input field for each property so you can set a fallback value per key. For **Fields** schemas, you enter a fallback value for each field. For basic schemas, you enter a single fallback value. Canvas Step Agents support Liquid in fallback values.
 
 For setup steps, see [Configure fallback values]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values). For runtime behavior in Canvas, see [Error handling and fallback behavior]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
@@ -257,11 +257,11 @@ Choose specific catalogs for an agent to reference and to give your agent the co
 
 ![The "restaurants" catalog and "Loyalty_Program" column selected for the agent to search.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-When you deploy a catalog agent to a catalog field, enable the required-input control and choose which selected columns are **required to run** before the agent invokes. The agent skips a row only when one of those required columns is blank or missing—for example, a `gender` field that has not been filled in yet. Selected columns start as required by default, but you can remove columns that may be empty without blocking the run. This prevents wasted tokens on incomplete data.
+When you deploy a Catalog Agent to a catalog field, enable the required-input control and choose which selected columns are required to run before the agent invokes. The agent skips a row only when one of those required columns is blank or missing—for example, a `gender` field that has not been filled in yet. Selected columns start as required by default, but you can remove columns that may be empty without blocking the run. This prevents wasted tokens on incomplete data.
 
-Catalog agents also respect column order when input fields depend on each other. If column D should be generated from columns B and C, the agent does not run on column D until B and C contain values for that row.
+Catalog Agents also respect column order when input fields depend on each other. If column D should be generated from columns B and C, the agent does not run on column D until B and C contain values for that row.
 
-For deployment scenarios and examples, see [Use catalog agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents) and [Catalog agent best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
+For deployment scenarios and examples, see [Use Catalog Agents]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents) and [Catalog Agent best practices]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
 ## Segment membership context
 
