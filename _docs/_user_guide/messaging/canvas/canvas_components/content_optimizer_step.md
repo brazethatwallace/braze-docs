@@ -207,6 +207,26 @@ At this time, RCS messaging with Content Optimizer does not support SMS fallback
 {% endtab %}
 {% endtabs %}
 
+## Step states
+
+As a Content Optimizer step runs, Braze evaluates content variant performance and assigns the step one of three states, visible in the Canvas.
+
+| State | What it means |
+| --- | --- |
+| Learning | The agent is still collecting performance data across your content variants and hasn't found a consistent, reliable winner yet. |
+| Optimizing | The agent has found variants that consistently outperform others and is shifting delivery toward the winning combinations. |
+| Action Recommended | The step has run for a while without a clear winner emerging. Review your step setup to help the agent find one. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Optimizer step states" }
+
+### Actions to consider
+
+If your step enters the Action Recommended state, consider the following:
+
+- Increase how many users enter the Canvas, if possible. More sends give the agent more data to learn from.
+- In general, test more combinations rather than fewer (see [Best practices](#best-practices)). This gives the agent a clearer signal on what's winning. If your audience volume is low (averaging under approximately 3,000 sends per day), consider reducing the number of variants slightly instead, since too many combinations relative to your volume can slow learning.
+- Make your content variants more clearly distinct from each other in tone, structure, or content.
+- If you can't increase your audience and your variant count and content diversity already look right, your step may simply need more time to find winners.
+
 ## Edit a launched step
 
 After your Canvas is launched, you can update a running Content Optimizer step by opening it in the Canvas editor. You can:
@@ -215,7 +235,7 @@ After your Canvas is launched, you can update a running Content Optimizer step b
 - Deactivate variants to stop sending them to users.
 - Re-activate previously deactivated variants, as long as doing so keeps the component at or below the five-variant limit.
 
-When you publish changes, the optimizer resets and begins reallocating traffic from scratch across all active variants and combinations. Historical data from before the edit is retained and viewable in the **Content Analytics** tab.
+When you publish changes, the optimizer resets and begins reallocating traffic from scratch across all active variants and combinations. Avoid updating variants while the step is in the Learning state. Historical data from before the edit is retained and viewable in the **Content Analytics** tab.
 
 The following settings cannot be changed after launch:
 
@@ -227,19 +247,15 @@ For SMS/MMS/RCS steps, the subscription group and message type also cannot be ch
 
 ## Best practices
 
-- In general, we recommend testing more components rather than fewer for the Content Optimizer step. For example, instead of testing two components for email, test three.
-- Test at least 10 total combinations for best results.
-- If you’re optimizing for clicks, include subject lines in your tests, as stronger subject lines can contribute to increased opens and create more opportunities for clicks.
-- If you’re optimizing for opens, keep your testing focused on the subject line.
+- In general, test more components rather than fewer for the Content Optimizer step. For example, instead of testing two components for email, test three.
+- Testing at least 10 total combinations generally yields better results.
 - If this is your first time using Content Optimizer, consider using an [Experiment Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) step so only part of your audience enters the branch that contains the Content Optimizer step. For example, you could send half your users down a path with the Content Optimizer step and send the other half of your users down a control path that sends the Message Step with your current business-as-usual content. Then, gather data for 2-3 weeks and compare any key performance indicators (KPIs) or counter-metrics before you increase traffic to the paths with Content Optimizer steps. 
-  - For an effective one-to-one comparison, we recommend that your Content Optimizer step contains your business-as-usual content as one of the variants for each component.
-- Before updating a running step, wait for the performance rankings across all component variants to stabilize—meaning the same variants are consistently winning and losing for three to four days in a row. This typically takes about seven days, and a higher number of optimization events produces stronger, more accurate signal.
-- Avoid updating too early. Each time you publish changes, the optimizer resets. If you update before the step has time to identify what is working, you prevent it from capitalizing on its findings—and the step never gets the opportunity to shift meaningful traffic toward the best-performing combinations.
-- When you're ready to update, the recommended approach is to deactivate low-performing variants and add new ones that build on the traits of your top performers.
+  - For an effective one-to-one comparison, include your business-as-usual content as one of the variants for each component in your Content Optimizer step.
+- When you're ready to update after your Content Optimizer step has been in the Optimizing state for some time, deactivate low-performing variants and add new ones that build on the traits of your top performers.
 
 ## Considerations
 
-- Multi-language settings aren't supported in Content Optimizer steps. Instead, we recommend using one Content Optimizer step per language and branching paths individually.
+- Multi-language settings aren't supported in Content Optimizer steps. Instead, use one Content Optimizer step per language and branch paths individually.
 - Liquid tags for Content Optimizer components aren't supported in Message steps, so the Liquid aborts in Message steps.
 - After a Content Optimizer step is launched, you can't change which components are being tested, the content of existing active variants, or the optimization event. For SMS/MMS/RCS steps, the subscription group and message type also can't be changed.
 
