@@ -15,7 +15,7 @@ channel:
 
 ## Sobre o alias de link {#about-link-aliasing}
 
-Com o alias de link, você pode criar nomes gerados pelo usuário para identificar e rastrear links enviados em e-mails. Dessa forma, você pode usar esses aliases de link reconhecíveis nos seus e-mails para rastrear o engajamento e analisar a performance de Campaigns, sem precisar referenciar o link completo.
+Com o alias de link, você pode criar nomes gerados pelo usuário para identificar e rastrear links enviados em e-mails. Dessa forma, você pode usar esses aliases de link reconhecíveis nos seus e-mails para rastrear o engajamento e analisar o desempenho de Campaigns, sem precisar referenciar o link completo.
 
 Com o alias de link, você pode:
 
@@ -60,6 +60,10 @@ Você também pode definir um alias que será usado para referenciar um link esp
 
 {% alert note %}
 O alias de link é suportado apenas em atributos `href` dentro de tags de âncora HTML onde é seguro adicionar um parâmetro de consulta. É uma boa prática incluir um ponto de interrogação (?) no final do seu link para que a Braze possa facilmente adicionar o valor `lid`. Sem a adição do valor `lid`, a Braze não reconhecerá a URL para alias de link.
+{% endalert %}
+
+{% alert important %}
+No editor de arrastar e soltar, seu link deve incluir um ponto de interrogação (`?`) antes do símbolo de hash (`#`) na URL para que o alias de link apareça na guia **Link Management**.
 {% endalert %}
 
 ## Gerenciando aliases de link {#managing-link-aliases}
@@ -132,13 +136,13 @@ As tabelas a seguir fornecem exemplos de links no corpo de um e-mail, resultados
 
 ## Rastreando aliases de link {#tracking-link-aliases}
 
-Na barra lateral do editor, selecione **Content** > **Link Management** (em **Design and Build**) e, em seguida, selecione quais aliases você deseja que sejam **rastreados**. Os aliases rastreados ficam disponíveis nos filtros de segmentação que referenciam aliases de link (consulte [Filtros de segmentação](#segmentation-filters)). Você também pode enviar mensagens baseadas em ação ou mover usuários por um Canvas quando eles clicarem em um alias de link no e-mail — consulte [Filtros baseados em ação](#action-based-filters). A configuração de **rastreado** não altera se os cliques nesse link contam nos relatórios de performance de e-mail.
+Na barra lateral do editor, selecione **Content** > **Link Management** (em **Design and Build**) e, em seguida, selecione quais aliases você deseja que sejam **rastreados**. Os aliases rastreados ficam disponíveis nos filtros de segmentação que referenciam aliases de link (consulte [Filtros de segmentação](#segmentation-filters)). Você também pode enviar mensagens baseadas em ação ou mover usuários por um Canvas quando eles clicarem em um alias de link no e-mail — consulte [Filtros baseados em ação](#action-based-filters). A configuração de **rastreado** não altera se os cliques nesse link contam nos relatórios de desempenho de e-mail.
 
 {% alert tip %}
 Para rastrear métricas de engajamento de link, certifique-se de que seu link comece com HTTP ou HTTPS. Para desativar o rastreamento de cliques em links específicos, consulte [Links universais e App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis).
 {% endalert %}
 
-A Braze permite que você selecione links ilimitados para rastrear, embora você só possa redirecionar usuários com base nos links mais recentes que eles abriram. Os perfis de usuário incluem os 100 links clicados mais recentemente. Por exemplo, se você rastrear 500 links e um usuário clicar em todos os 500, você pode redirecionar ou criar Segments com base nos 100 links clicados mais recentemente.
+A Braze permite que você selecione links ilimitados para rastrear, embora você só possa redirecionar usuários com base nos links mais recentes que eles abriram. Os perfis de usuário incluem os 100 links clicados mais recentemente. Por exemplo, se você rastrear 500 links e um usuário clicar em todos os 500, você pode redirecionar ou criar segmentos com base nos 100 links clicados mais recentemente.
 
 ![A guia Link Management com dois links selecionados.]({% image_buster /assets/img/link_management_dnd.png %})
 
@@ -148,9 +152,15 @@ A Braze rastreia apenas os últimos 100 aliases de link clicados no nível do pe
 
 ### Filtros baseados em ação {#action-based-filters}
 
-Você pode criar mensagens baseadas em ação direcionando qualquer link (rastreado ou não rastreado) ou redirecionar usuários com base em se eles clicaram em um alias em qualquer Campaign de e-mail ou componente do Canvas.
+Quando o alias de link está ativado para o seu espaço de trabalho, você pode criar mensagens baseadas em ação direcionando qualquer link (rastreado ou não rastreado) ou redirecionar usuários com base em se eles clicaram em um alias em qualquer Campaign de e-mail ou componente do Canvas.
 
 ![Opções baseadas em ação para direcionar usuários que clicaram em um alias em um componente do Canvas ou interagiram com uma Campaign.]({% image_buster /assets/img/link_aliasing_action_based_filters.png %})
+
+- Se uma Campaign for arquivada, o rastreamento de link é desativado e esse alias de link não pode ser usado em um filtro diferente.
+- Se um link tem o rastreamento ativado e foi clicado em uma Campaign, você pode encontrar a Campaign como uma opção disponível no filtro de segmentação, mesmo que o rastreamento de link tenha sido desativado desde então, desde que pelo menos um link nessa mensagem ainda esteja sendo rastreado.
+- Você só pode selecionar um link rastreado como filtro se ele estiver em um Canvas ativo (lançado), usando o menu suspenso do filtro **Clicked Alias in Canvas Step**. Se o link estiver sendo rastreado em um rascunho de Canvas, você não pode selecionar o link rastreado como filtro.
+
+Para definir links como não rastreados, acesse **Settings** > **Email Preferences** > **Link Aliasing Settings**.
 
 ### Filtros de segmentação {#segmentation-filters}
 
@@ -164,7 +174,7 @@ Os filtros de segmentação a seguir se aplicam a eventos de clique que são ras
 
 #### Cancelando o rastreamento de links {#untracking-links}
 
-Cancelar o rastreamento de um link não realocará Segments existentes com o filtro para o alias não rastreado. Os dados antigos permanecerão nos perfis de usuário até serem substituídos por dados mais recentes.
+Cancelar o rastreamento de um link não realocará segmentos existentes com o filtro para o alias não rastreado. Os dados antigos permanecerão nos perfis de usuário até serem substituídos por dados mais recentes.
 
 Links em mensagens arquivadas são automaticamente desrastreados. No entanto, se mensagens arquivadas forem desarquivadas, os links precisarão ser rastreados novamente. Quando aliases de link são rastreados, os relatórios de link são indexados pelo alias em vez de domínios de nível superior ou URLs completas.
 
@@ -354,4 +364,4 @@ Se você não puder alterar seus sistemas de destino, entre em contato com o [su
 - Mensagens existentes que foram criadas enquanto o alias de link estava ativado ainda podem conter marcação de alias de link no HTML. Pode ser necessário remover manualmente os parâmetros `lid` restantes onde você não os deseja mais.
 - Se você editar uma Campaign existente, uma etapa de e-mail do Canvas ou um Content Block, pode ser necessário adicionar modelos de link novamente para que os links com modelo sejam exibidos corretamente.
 - Os relatórios de cliques para envios realizados enquanto o alias de link estava ativado podem não se alinhar perfeitamente com os relatórios após a desativação do recurso.
-- Segments que usam filtros baseados em alias de link (por exemplo, filtros **Clicked Alias**) podem parar de retornar os públicos esperados.
+- Segmentos que usam filtros baseados em alias de link (por exemplo, filtros **Clicked Alias**) podem parar de retornar os públicos esperados.

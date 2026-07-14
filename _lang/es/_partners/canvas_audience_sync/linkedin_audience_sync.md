@@ -59,7 +59,7 @@ Tu conexión a LinkedIn se aplicará a nivel del espacio de trabajo de Braze. Si
 
 Al crear audiencias para el seguimiento de anuncios, es posible que desees incluir o excluir a determinados usuarios en función de sus preferencias, y para cumplir con las leyes de privacidad, como el derecho de "No vender ni compartir" en virtud de la [CCPA](https://oag.ca.gov/privacy/ccpa). Los especialistas en marketing deben implementar los filtros pertinentes para la elegibilidad de los usuarios dentro de sus criterios de entrada en Canvas. A continuación enumeramos algunas opciones.
 
-Si has recopilado el [IDFA de iOS a través del SDK de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations#optional-idfa-collection), podrás utilizar el filtro **Ads Tracking Enabled**. Selecciona el valor como `true` para enviar solo a los usuarios a los destinos de Audience Sync en los que hayan optado por la adhesión voluntaria.
+Si has recopilado el [IDFA de iOS a través del SDK de Braze]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection), podrás utilizar el filtro **Ads Tracking Enabled**. Selecciona el valor como `true` para enviar solo a los usuarios a los destinos de Audience Sync en los que hayan optado por la adhesión voluntaria.
 
 ![Una audiencia de entrada con el filtro "El seguimiento de anuncios habilitado es verdadero".]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 

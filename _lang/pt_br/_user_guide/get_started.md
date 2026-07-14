@@ -12,7 +12,7 @@ description: "Familiarize-se com os conceitos principais que você precisará sa
 > Boas-vindas à Braze! Esta coleção de artigos vai ajudar você a começar a usar nossa plataforma e apresentar os principais termos, recursos e funcionalidades da Braze. Esta página apresenta os conceitos essenciais que você precisará conhecer ao trabalhar na Braze.
 
 {% alert tip %}
-Recomendamos fortemente que você confira nosso curso gratuito [Practitioner Learning Path](https://learning.braze.com/page/practitioner) junto com estes artigos. Não é necessário nenhum login ou conta especial. Se você é uma pessoa desenvolvedora e está buscando um resumo técnico da Braze, confira também [Primeiros passos para desenvolvedores]({{site.baseurl}}/developer_guide/getting_started/platform_overview).
+Recomendamos fortemente que você confira nosso curso gratuito [Practitioner Learning Path](https://learning.braze.com/page/practitioner) junto com estes artigos. Não é necessário nenhum login ou conta especial. Se você é uma pessoa desenvolvedora e está buscando um resumo técnico da Braze, confira também <a href="/docs/developer_guide/getting_started/platform_overview">Primeiros passos para desenvolvedores</a>.
 {% endalert %}
 
 Nas seções de Primeiros passos, focamos nas implementações mais comuns da Braze. No entanto, a Braze é incrivelmente flexível e pode ser personalizada para agregar valor à sua organização de diversas formas. Para garantir clareza e objetividade, fornecemos uma visão geral descritiva da configuração padrão em vez de instruções rígidas. Reconhecemos que cada organização tem necessidades distintas, e a Braze foi criada para atender a uma ampla gama de opções de personalização que podem ser adaptadas às suas necessidades específicas.

@@ -54,7 +54,7 @@ Ten en cuenta que el tipo de datos de la variable de salida se configura desde l
 | Cadena | Personalización de mensajes (líneas del asunto, textos, respuestas) |
 | Número | Puntuación, umbrales, enrutamiento en [rutas de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) |
 | Booleano | Ramificación Sí/No en [división de decisiones]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) |
-| Objeto | Aprovecha uno o más de los tipos de datos anteriores con una sola llamada LLM en una estructura de datos predecible |
+| Objeto | Aprovecha uno o más de los tipos de datos anteriores en esta sección con una sola llamada LLM en una estructura de datos predecible |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 3: Configurar la salida de tu agente" }
 
 Puedes usar una variable de salida en todo el Canvas utilizando la misma sintaxis de plantilla que usarías con una variable de contexto. Usa el filtro de Segment **Context Variable**, o inserta las respuestas del agente directamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
@@ -75,7 +75,16 @@ Ten en cuenta que el agente ya recibe automáticamente el contexto configurado e
 
 ### Paso 5: Probar el agente {#step-5-test-the-agent}
 
-Después de configurar tu paso de agente, puedes probar y previsualizar la salida de este paso.
+Puedes probar un paso de agente de dos formas:
+
+**Vista previa en el paso (constructor de Canvas):** Después de configurar el paso, usa la vista previa del paso para ver la salida del agente para un usuario aleatorio, un usuario existente o un usuario personalizado. Esto prueba el paso de forma aislada sin recorrer la ruta completa del Canvas.
+
+**Probar Canvas (recorrido completo):** Selecciona **Test Canvas** en el pie de página del Canvas para previsualizar la ruta del usuario de extremo a extremo. Cuando la prueba llegue a tu paso de agente, Braze preguntará **¿Quieres ejecutar el agente "{agentName}"?**
+
+- Selecciona **Sí** para añadir contexto opcionalmente, luego selecciona **Simulate response** para invocar al agente para el usuario de vista previa. Puedes describir entradas de ejemplo en lenguaje natural (por ejemplo, contenido del carrito o texto del mensaje) para complementar el perfil del usuario de prueba y cualquier contexto de Canvas ya establecido previamente.
+- Selecciona **No** para omitir la invocación en vivo y usar la **salida alternativa** configurada del agente desde la Consola de agente.
+
+Las invocaciones de **Simulate response** cuentan para el límite diario de invocaciones del agente y aparecen en **Agent Console** > **Logs**. Para conocer el comportamiento completo de Probar Canvas, consulta [Previsualizar rutas de usuario]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps).
 
 ![Previsualizar la salida del agente como un usuario aleatorio.]({% image_buster /assets/img/ai_agent/agent_step_preview.png %}){: style="max-width:80%;"}
 

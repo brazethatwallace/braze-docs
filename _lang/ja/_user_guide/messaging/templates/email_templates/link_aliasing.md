@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}リンクエイリアス {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
+# [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}リンクエイリアス {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
 
 > リンクエイリアスを使用して、Brazeから送信されるメールメッセージ内のリンクを識別するための、認識しやすいユーザー生成名を作成できます。これらのリンクは、セグメンテーションのリターゲティング、アクションベースのトリガー、およびリンク分析に利用できます。
 
@@ -60,6 +60,10 @@ Brazeは、すべてのリンクURLに`lid`（リンク識別子とも呼ばれ�
 
 {% alert note %}
 リンクエイリアスは、クエリパラメーターを安全に付加できるHTMLアンカータグ内の`href`属性でのみサポートされています。Brazeが`lid`値を簡単に付加できるように、リンクの末尾に疑問符（?）を含めることがベストプラクティスです。`lid`値を付加しないと、BrazeはリンクエイリアスのためにそのURLを認識しません。
+{% endalert %}
+
+{% alert important %}
+ドラッグ＆ドロップエディターでは、リンクエイリアスが**リンク管理**タブに表示されるためには、URL内のハッシュ記号（`#`）の前に疑問符（`?`）を含める必要があります。
 {% endalert %}
 
 ## リンクエイリアスの管理 {#managing-link-aliases}
@@ -148,9 +152,15 @@ Brazeは、プロファイルレベルで最後にクリックされた100件の
 
 ### アクションベースのフィルター {#action-based-filters}
 
-任意のリンク（追跡または未追跡）をターゲットとするアクションベースのメッセージを作成したり、メールキャンペーンまたはキャンバスコンポーネント全体でエイリアスをクリックしたかどうかに基づいてユーザーをリターゲティングしたりできます。
+ワークスペースでリンクエイリアスが有効になっている場合、任意のリンク（追跡または未追跡）をターゲットとするアクションベースのメッセージを作成したり、メールキャンペーンまたはキャンバスコンポーネント全体でエイリアスをクリックしたかどうかに基づいてユーザーをリターゲティングしたりできます。
 
 ![キャンバスコンポーネントでエイリアスをクリックしたユーザーまたはキャンペーンとインタラクションしたユーザーをターゲットにするアクションベースのオプション。]({% image_buster /assets/img/link_aliasing_action_based_filters.png %})
+
+- キャンペーンがアーカイブされると、リンクトラッキングはオフになり、そのリンクエイリアスは別のフィルターで使用できなくなります。
+- リンクのトラッキングがオンになっており、キャンペーンでクリックされた場合、リンクトラッキングがその後オフになっていても、そのメッセージ上の少なくとも1つのリンクがまだ追跡されている限り、セグメントフィルターで利用可能なオプションとしてキャンペーンを見つけることができます。
+- 追跡されたリンクをフィルターとして選択できるのは、**キャンバスステップでエイリアスをクリック**フィルタードロップダウンを使用して、アクティブ（起動済み）のキャンバスにある場合のみです。リンクがキャンバスの下書きで追跡されている場合、追跡されたリンクをフィルターとして選択することはできません。
+
+リンクを未追跡に設定するには、**設定** > **メール設定** > **リンクエイリアス設定**に移動します。
 
 ### セグメンテーションフィルター {#segmentation-filters}
 

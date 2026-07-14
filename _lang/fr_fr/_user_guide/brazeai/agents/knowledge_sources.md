@@ -1,14 +1,14 @@
 ---
 nav_title: Sources de connaissances
 article_title: Sources de connaissances
-permalink: "/knowledge_sources/"
 description: "Cet article de référence explique comment créer et gérer des sources de connaissances pour vos agents BrazeAI."
 page_type: reference
+page_order: 3.5
 ---
 
 # Sources de connaissances {#knowledge-sources}
 
-> Les sources de connaissances aident vos agents IA à interpréter les données du catalogue et à récupérer les informations pertinentes pour atteindre vos objectifs.
+> Les sources de connaissances aident vos agents IA à interpréter les données du catalogue et à récupérer les informations pertinentes pour atteindre vos objectifs. Pour une introduction aux agents Braze, consultez [Agents Braze]({{site.baseurl}}/user_guide/brazeai/agents). Pour ajouter des connaissances à un agent, consultez [Créer des agents personnalisés]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources).
 
 {% alert important %}
 Les sources de connaissances pour la Console des agents sont actuellement en accès anticipé. Contactez votre gestionnaire de compte Braze si vous souhaitez participer à cet accès anticipé.
@@ -43,15 +43,15 @@ Pour créer une source de connaissances :
 1. Accédez à **Console des agents** > **Sources de connaissances**.
 2. Sélectionnez **Ajouter une source de connaissances**. Dans le menu déroulant, sélectionnez **Catalogue**.
 3. Sélectionnez le catalogue dans le menu déroulant.
-4. Passez en revue les champs du catalogue et désélectionnez ceux qui ne s'appliquent pas au cas d'utilisation de votre agent. Nous recommandons d'exclure les champs du catalogue qui ne sont pas utiles pour la récupération ou la génération — limitez la source de connaissances aux seuls champs dont votre agent a besoin.
+4. Passez en revue les champs du catalogue et désélectionnez ceux qui ne s'appliquent pas au cas d'usage de votre agent. Nous recommandons d'exclure les champs du catalogue qui ne sont pas utiles pour la récupération ou la génération — limitez la source de connaissances aux seuls champs dont votre agent a besoin.
 5. (facultatif) Ajoutez une description pour décrire le contenu de la source de connaissances.
 6. Sélectionnez **Ajouter une source de connaissances**.
 
-Inclure tous les champs du catalogue peut ajouter un contexte inutile et réduire la qualité des résultats. Désélectionner les champs qui ne sont pas pertinents pour votre cas d'utilisation aide l'agent à se concentrer sur les données qui comptent.
+Inclure tous les champs du catalogue peut ajouter un contexte inutile et réduire la qualité des résultats. Désélectionner les champs qui ne sont pas pertinents pour votre cas d'usage aide l'agent à se concentrer sur les données qui comptent.
 
-![Une source de connaissances « nyc_restaurants » qui référence le catalogue « nyc_restaurants ».]({% image_buster /assets/unlisted_docs/img/knowledge_sources/knowledge_source_example.png %}){: style="max-width:80%;"}
+![Une source de connaissances « nyc_restaurants » qui référence le catalogue « nyc_restaurants ».]({% image_buster /assets/img/ai_agent/knowledge_source_example.png %})
 
-Vous pouvez également créer une source de connaissances pendant la création d'un agent en accédant à la section **Instructions** de votre agent. Ensuite, sélectionnez **Ajouter des connaissances** > **Créer une source de connaissances**.
+Vous pouvez également créer une source de connaissances pendant la création d'un agent en accédant à la section **Instructions** de votre agent. Sélectionnez **Ajouter des connaissances** > **Créer une source de connaissances**.
 
 ## Utiliser une source de connaissances dans votre agent IA {#use-a-knowledge-source-in-your-ai-agent}
 
@@ -60,7 +60,7 @@ Vous pouvez gérer les sources de connaissances depuis la section **Sources de c
 Pour utiliser une source de connaissances dans votre agent IA :
 
 1. Accédez à la section **Instructions** de votre agent.
-2. Ensuite, sélectionnez **+ Contexte de l'agent** > **Ajouter des connaissances**.
+2. Sélectionnez **+ Contexte de l'agent** > **Ajouter des connaissances**.
 3. Dans le menu déroulant, sélectionnez la source de connaissances.
 
 Votre agent peut désormais référencer la source de connaissances et récupérer les données pertinentes du catalogue.
@@ -69,16 +69,16 @@ Votre agent peut désormais référencer la source de connaissances et récupér
 
 ### Comment fonctionnent les sources de connaissances ? {#how-do-knowledge-sources-work}
 
-Convertir un catalogue en source de connaissances aide les agents Braze à comprendre le véritable sens des mots et des expressions contenus dans le catalogue, afin que les agents puissent trouver plus efficacement des données pertinentes pour produire de meilleurs résultats.
+Convertir un catalogue en source de connaissances aide les agents Braze à comprendre le véritable sens des mots et des expressions du catalogue, afin qu'ils puissent trouver plus efficacement des données pertinentes pour produire de meilleurs résultats.
 
 ### Quand dois-je créer une source de connaissances ? {#when-should-i-create-a-knowledge-source}
 
-Créez une source de connaissances lorsque vous souhaitez configurer un agent personnalisé (agent Canvas ou agent de catalogue) qui peut utiliser un catalogue comme contexte. L'utilisation de sources de connaissances est une meilleure façon d'attacher un catalogue comme contexte par rapport à la méthode existante.
+Créez une source de connaissances lorsque vous configurez un agent personnalisé (agent Canvas ou agent de catalogue) qui a besoin de données de catalogue comme contexte. Les sources de connaissances aident les agents à récupérer les données du catalogue de manière plus précise que si le catalogue était directement référencé dans les instructions de l'agent.
 
-### Si un agent a reçu une source de connaissances comme contexte, dois-je également lui attribuer le catalogue d'origine comme contexte ? {#if-an-agent-has-been-given-a-knowledge-source-as-context-do-i-also-need-to-assign-the-original-catalog-as-context}
+### Si un agent dispose d'une source de connaissances comme contexte, dois-je également lui attribuer le catalogue d'origine comme contexte ? {#if-an-agent-has-been-given-a-knowledge-source-as-context-do-i-also-need-to-assign-the-original-catalog-as-context}
 
 Non. La source de connaissances remplace le catalogue en tant que contexte de l'agent — vous n'avez pas besoin d'attacher les deux. Lorsque vous créez la source de connaissances, n'incluez que les champs du catalogue dont votre agent a besoin.
 
-### Comment évaluer l'efficacité d'une source de connaissances ? {#how-should-i-evaluate-the-efficacy-of-knowledge-source}
+### Comment évaluer l'efficacité d'une source de connaissances ? {#how-should-i-evaluate-the-effectiveness-of-a-knowledge-source}
 
-Dupliquez tout agent existant que vous utilisez et qui référence un catalogue standard, puis modifiez-le pour qu'il référence la source de connaissances équivalente. Effectuez quelques invocations de test dans la Console des agents pour vérifier la précision, puis envisagez soit de remplacer l'agent existant là où il est déployé, soit de réaliser un test A/B entre l'ancien agent et le nouvel agent (en utilisant le chemin d'expérience) pour comprendre l'impact sur les performances.
+Dupliquez un agent existant qui référence un catalogue standard, puis remplacez-le par la source de connaissances équivalente. Exécutez quelques invocations de test dans la Console des agents pour vérifier la précision, puis envisagez soit de remplacer l'agent existant là où il est déployé, soit de réaliser un test A/B entre l'ancien agent et le nouveau (en utilisant le chemin d'expérience) pour comprendre l'impact sur les performances.

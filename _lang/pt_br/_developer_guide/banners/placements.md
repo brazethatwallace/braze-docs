@@ -510,7 +510,7 @@ Para a integração mais simples, adicione o seguinte trecho de JavaScript XML (
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 
@@ -569,7 +569,7 @@ This feature is not currently supported on Roku.
 
 ### Etapa 5: Envie um Banner de teste (opcional) {#handling-test-cards}
 
-Antes de lançar uma Campaign de Banner, você pode [enviar um Banner de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners) para verificar sua integração. Banners de teste são armazenados em um cache separado na memória e não persistem entre reinicializações do app. Embora nenhuma configuração extra seja necessária, seu dispositivo de teste deve ser capaz de receber notificações por push em primeiro plano para que possa exibir o teste.
+Antes de lançar uma campanha de Banner, você pode [enviar um Banner de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners) para verificar sua integração. Banners de teste são armazenados em um cache separado na memória e não persistem entre reinicializações do app. Embora nenhuma configuração extra seja necessária, seu dispositivo de teste deve ser capaz de receber notificações por push em primeiro plano para que possa exibir o teste.
 
 {% alert note %}
 Banners de teste são como qualquer outro banner, exceto que são removidos na próxima sessão do app.
@@ -997,7 +997,7 @@ Aqui está o que você precisa saber sobre dimensões e tamanhos do Banner:
 
 ## Propriedades personalizadas {#custom-properties}
 
-Você pode usar propriedades personalizadas da sua Campaign de Banner para recuperar dados chave-valor através do SDK e modificar o comportamento ou a aparência do seu app. Por exemplo, você poderia:
+Você pode usar propriedades personalizadas da sua campanha de Banner para recuperar dados chave-valor através do SDK e modificar o comportamento ou a aparência do seu app. Por exemplo, você poderia:
 
 - Enviar metadados para suas análises de terceiros ou integrações.
 - Usar metadados como um `timestamp` ou objeto JSON para acionar lógica condicional.
@@ -1005,7 +1005,7 @@ Você pode usar propriedades personalizadas da sua Campaign de Banner para recup
 
 ### Pré-requisitos
 
-Você precisará [adicionar propriedades personalizadas]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties) à sua Campaign de Banner. Além disso, estas são as versões mínimas do SDK necessárias para acessar propriedades personalizadas:
+Você precisará [adicionar propriedades personalizadas]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-properties) à sua campanha de Banner. Além disso, estas são as versões mínimas do SDK necessárias para acessar propriedades personalizadas:
 
 {% sdk_min_versions swift:13.1.0 android:38.0.0 web:6.1.0 reactnative:17.0.0 flutter:15.1.0 %}
 

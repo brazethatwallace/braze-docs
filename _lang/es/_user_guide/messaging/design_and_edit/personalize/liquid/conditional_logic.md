@@ -290,7 +290,43 @@ Un [arreglo]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attri
 
 {% endraw %}
 
-Para arreglos, debes usar "contains" y no puedes usar "==".
+Para arreglos, debes usar `contains` y no puedes usar `==`.
+
+#### Cómo funciona `contains` con cadenas versus arreglos {#how-contains-works-with-strings-versus-arrays}
+
+El operador `contains` se comporta de manera diferente dependiendo de si está evaluando una cadena o un arreglo:
+
+- **Cadenas:** `contains` busca una subcadena en cualquier parte del texto.
+- **Arreglos:** `contains` busca una coincidencia exacta con un elemento completo dentro del arreglo.
+
+{% alert important %}
+Si un atributo está almacenado como un arreglo (por ejemplo, `["med1", "med2", "abc"]`), buscar `contains "ab"` se evaluará como `false` porque ningún elemento individual en esa lista es exactamente `"ab"`.
+{% endalert %}
+
+##### Coincidencia de subcadenas en arreglos {#substring-matching-on-arrays}
+
+Si necesitas buscar una coincidencia parcial (subcadena) dentro de un atributo de arreglo, primero debes convertir el arreglo en una sola cadena usando el filtro `join`.
+
+Dado que Braze no admite filtros en línea directamente dentro de bloques condicionales {% raw %}`{% if %}`{% endraw %}, debes seguir un proceso de dos pasos: primero, asigna el valor unido a una variable y luego ejecuta tu verificación condicional.
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+Dado que `join` combina los elementos del arreglo en una sola cadena (separador predeterminado: un solo espacio), las verificaciones de subcadenas pueden coincidir a través de los límites de los elementos (por ejemplo, `["Napa", "boulevard"]` se convierte en `Napa boulevard`, donde `contains "a b"` es `true`). Usa un separador explícito como "," para hacer los límites más claros y reducir las coincidencias accidentales entre elementos.
+{% endalert %}
 
 ### Hora {#time}
 

@@ -80,11 +80,25 @@ Los siguientes controles de flujo de invocación se aplican por espacio de traba
 
 Cuando muchos usuarios entran en un paso de agente a la vez, Braze pone en cola las invocaciones de acuerdo con estos límites, por lo que el procesamiento puede tardar más durante envíos de alto volumen.
 
+### Límites diarios de invocación y créditos {#daily-invocation-and-credit-limits}
+
+Cada agente tiene un límite diario de invocaciones (predeterminado 250 000; máximo 1 000 000 a menos que tu contrato permita un valor superior). Cada invocación, incluidas las vistas previas de la Consola de Agente y las ejecuciones de Canvas de prueba que utilizan **Simulate response**, cuenta para este límite.
+
+En la Consola de Agente, el **Límite diario de coste de créditos de acción** estima los créditos máximos que un agente puede consumir por día. Braze multiplica la **proporción de créditos** por invocación de tu espacio de trabajo para el modelo seleccionado por el límite diario de invocaciones.
+
+### Supervisar el uso de créditos {#monitor-credit-usage}
+
+Ve a **Configuración** > **Facturación** > **Uso de créditos** > **Consola de Agente** para ver el consumo de créditos, los recuentos de invocaciones y las proporciones de créditos por agente.
+
+Las proporciones de créditos provienen de tu contrato y aparecen en el panel de [Uso de créditos]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage) (pestaña **Credit Ratios** y pestaña **Agent Console**). La estimación se actualiza cuando cambias el modelo o el límite de invocaciones.
+
+Para gestionar el gasto, reduce el límite diario de invocaciones. Para modelos [trae tu propia clave (BYO)](#option-2-bring-your-own-api-key), también puedes elegir un modelo de menor coste o reducir el [nivel de razonamiento](#thinking-levels) para disminuir los costes de tokens del proveedor. **Braze Auto** no admite el ajuste del nivel de razonamiento.
+
 ### Errores de límite de velocidad {#rate-limit-errors}
 
-Si el proveedor de LLM devuelve un error de límite de velocidad durante un **paso de agente de Canvas**, Braze reintenta continuamente la solicitud utilizando retirada exponencial hasta que la llamada se complete correctamente o Braze determine que no se puede completar. Los **agentes de catálogo** no reintentan las invocaciones con límite de velocidad.
+Si el proveedor de LLM devuelve un error de límite de velocidad durante un paso de agente de Canvas o una invocación de agente de catálogo, Braze reintenta continuamente la solicitud utilizando retirada exponencial hasta que la llamada se complete correctamente o Braze determine que no se puede completar.
 
-Cuando se agotan los reintentos de Canvas, el panel de detalles de **Logs** muestra **Error** y el mensaje del proveedor (como `Rate limit exceeded`) en **Output**. Los reintentos son visibles en los registros, incluida la primera invocación independientemente de su éxito o fallo final. Para un usuario determinado, si se necesitan cuatro reintentos para obtener finalmente un éxito, puedes buscar el ID de usuario y ver los cinco (el original más cuatro reintentos) en **Logs**, y el original más los tres primeros reintentos mostrarán **Error** con `Rate limit exceeded`.
+Cuando se agotan los reintentos de Canvas o catálogo, el panel de detalles de **Logs** muestra **Error** y el mensaje del proveedor (como `Rate limit exceeded`) en **Output**. Los reintentos son visibles en los registros, incluida la primera invocación independientemente de su éxito o fallo final. Para un usuario determinado, si se necesitan cuatro reintentos para obtener finalmente un éxito, puedes buscar el ID de usuario y ver los cinco (el original más cuatro reintentos) en **Logs**, y el original más los tres primeros reintentos mostrarán **Error** con `Rate limit exceeded`.
 
 ![Detalles del registro de la Consola de Agente mostrando un error de límite de velocidad excedido en el campo Output.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
@@ -138,6 +152,19 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 {% endraw %}
 
 En la sección **Logs** de la **Consola de Agente**, puedes revisar los detalles de la entrada y salida del agente para comprender qué valor se obtiene de Liquid.
+
+### Qué datos reciben los agentes {#what-data-agents-receive}
+
+El contexto del agente no es una memoria conversacional abierta. A diferencia de un asistente de chat, un agente solo ve los datos que le pasas explícitamente en el momento de la invocación; no navega por perfiles de usuario, no infiere campos faltantes ni te avisa cuando falta información obligatoria.
+
+Diseña cada agente como un pipeline deliberado de entrada a salida. Conecta cada dato que el agente necesita utilizando uno o más de los siguientes métodos:
+
+1. **Liquid en las instrucciones:** Incluye atributos de usuario ({% raw %}`{{${first_name}}}`{% endraw %}) y [variables de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) ({% raw %}`{{context.${variable_name}}}`{% endraw %}) directamente en el prompt del agente.
+2. **+ Contexto del agente:** Selecciona catálogos, pertenencia a Segments, directrices de marca, **All Canvas Context** o datos de interacción del usuario en la Consola de Agente.
+3. [Pasos de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context): Establece o actualiza variables `context.*` en pasos anteriores del Canvas antes de que se ejecute un paso de agente.
+4. **Contexto adicional en el paso de agente:** Pasa cualquier valor adicional con plantilla Liquid que no se haya especificado con los otros métodos al agente en el momento del envío desde la configuración del paso.
+
+Asegúrate de incluir estas variables de contexto como plantilla Liquid en las instrucciones del agente o de seleccionar **Add All Canvas Context**. Si un valor no se pasa a través de uno de estos canales, el agente no lo recibe. Enumera las entradas obligatorias en tus instrucciones o en los [requisitos previos del caso de uso]({{site.baseurl}}/user_guide/brazeai/agents/use_cases), y verifica las entradas en **Consola de Agente** > **Logs** después de las pruebas.
 
 ![Los detalles de un agente que tiene Liquid en sus instrucciones.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
@@ -226,7 +253,7 @@ Si deseas recopilar comentarios de los usuarios sobre su experiencia gastronómi
 
 ## Catálogos y campos {#catalogs-and-fields}
 
-Elige catálogos específicos para que un agente los consulte y proporciónale el contexto necesario para que comprenda tus productos y otros datos que no sean de usuario cuando sea pertinente. Los agentes utilizan herramientas para encontrar solo los elementos relevantes y los envían al LLM para minimizar el uso de tokens.
+Elige catálogos específicos para que un agente los consulte y proporciónale el contexto necesario para que comprenda tus productos y otros datos que no sean de usuario cuando sea pertinente. Los agentes utilizan herramientas para encontrar solo los elementos relevantes y los envían al LLM para minimizar el uso de tokens. Para una mejor recuperación del catálogo, crea una [fuente de conocimiento]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources) y agrégala como contexto del agente en lugar de adjuntar el catálogo directamente.
 
 ![El catálogo «restaurants» y la columna «Loyalty_Program» seleccionados para que el agente realice la búsqueda.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
@@ -250,9 +277,25 @@ Puedes seleccionar [directrices de marca]({{site.baseurl}}/user_guide/administer
 
 Los datos de interacción de un usuario incluyen sus aperturas, clics y datos de conversión recientes de Campaign y Canvas. Por ejemplo, puedes incluir este contexto para que un agente lo consulte cuando se evalúa en Canvas. El historial de interacción específico del usuario también puede ayudar a influir en un agente cuando su tarea es redactar textos de mensajes personalizados.
 
+## Historial de versiones {#version-history}
+
+La Consola de Agente registra una nueva versión cada vez que guardas cambios en el agente. La pestaña **Historial de versiones** enumera cada versión guardada y las ediciones entre guardados.
+
+1. Abre el agente en la Consola de Agente.
+2. Selecciona la pestaña **Historial de versiones**.
+3. Selecciona una versión para revisar su configuración.
+
+Para inspeccionar qué cambió en una versión, selecciona **Ver**. Braze muestra una diferencia en línea de estilo código que resalta las adiciones y eliminaciones. El contenido eliminado aparece con estilo de tachado en rojo.
+
+Si necesitas restaurar instrucciones de una versión anterior, abre **Ver** para esa versión, copia el texto de las instrucciones y pégalo en tu campo **Instructions** actual.
+
+{% alert tip %}
+En la vista de diferencias en línea, presiona <kbd>⌘</kbd> + <kbd>A</kbd> (macOS) o <kbd>Ctrl</kbd> + <kbd>A</kbd> (Windows) para seleccionar todas las instrucciones sin el marcado de eliminación en rojo, de modo que puedas copiar y restaurar el texto limpio.
+{% endalert %}
+
 ## Duplicar agentes {#duplicate-agents}
 
-Para probar mejoras o iteraciones de un agente, puedes duplicar un agente y luego aplicar los cambios para compararlos con el original. También puedes tratar los agentes duplicados como control de versiones para realizar el seguimiento de las variaciones en los detalles del agente y cualquier impacto en tu mensajería. Para duplicar un agente:
+Duplica un agente para probar mejoras o iteraciones en paralelo con el original. Utiliza el [historial de versiones](#version-history) para revisar o restaurar configuraciones anteriores. Para duplicar un agente:
 
 1. Coloca el cursor sobre la fila del agente y selecciona el menú <i class="fas fa-ellipsis-vertical"></i>.
 2. Selecciona **Duplicar**.

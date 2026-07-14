@@ -510,7 +510,7 @@ Pour l'intégration la plus simple, ajoutez l'extrait de code JavaScript XML (JS
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 

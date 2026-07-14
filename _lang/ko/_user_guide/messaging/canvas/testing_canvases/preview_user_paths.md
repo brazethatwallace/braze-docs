@@ -33,9 +33,23 @@ Canvas를 편집할 권한이 없어도 미리보기를 실행할 수 있지만,
 - 지연
 - 행동 경로
 - 실험 경로
+- 에이전트
 - 사용자 업데이트(UI 편집기에서만 지원되며, JSON 편집기를 사용하는 단계는 건너뜁니다)
 
 테스트가 위에 나열되지 않은 단계 유형과 겹치는 경우, 지원되지 않는 단계는 건너뛰고 테스트 사용자는 다음 지원되는 단계로 계속 진행합니다.
+
+### 에이전트 단계 {#agent-steps}
+
+테스트 실행이 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)에 도달하면, Braze는 일시 중지하고 **에이전트 "{agentName}"을(를) 실행하시겠습니까?**라고 묻습니다. 계속 진행할 방법을 선택하세요:
+
+- **예:** 텍스트 필드에 선택적으로 컨텍스트를 추가한 다음(테스트 사용자의 프로필 및 여정에 이미 있는 Canvas 컨텍스트 외에), **Simulate response**를 선택하여 에이전트를 호출합니다. 장바구니 내용이나 인바운드 메시지 텍스트를 설명하는 등 일반 언어로 샘플 값을 입력하여 에이전트가 프로덕션에서 수신할 런타임 컨텍스트를 모방할 수 있습니다.
+- **아니요:** Braze는 에이전트를 호출하지 않습니다. 이 단계는 [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)의 **Output** 섹션에서 구성된 에이전트의 **대체 출력**을 사용합니다.
+
+**예**와 **Simulate response**를 선택하면, 에이전트가 미리보기 사용자에 대해 실행되고 출력을 에이전트 단계의 출력 변수에 저장한 후 테스트가 여정을 따라 계속됩니다. **Simulate response**의 호출은 에이전트의 일일 호출 한도에 포함되며 **Agent Console** > **Logs**에 표시됩니다.
+
+전체 Canvas 경로를 실행하지 않고 에이전트 단계를 개별적으로 테스트하려면 Canvas 빌더의 단계 내 미리보기를 사용하세요. 설정 세부 사항은 에이전트 단계의 [에이전트 테스트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#step-5-test-the-agent)를 참조하세요.
+
+에이전트 단계가 업스트림 [컨텍스트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)의 데이터에 의존하는 경우, **Test Canvas**를 실행하여 경로를 따라 컨텍스트 변수가 채워지도록 하세요. 시드 그룹은 시드 수신자에 대해 컨텍스트 단계나 컨텍스트 변수를 평가하지 않습니다.
 
 ### 캔버스 단계 세부 정보 {#canvas-step-details}
 

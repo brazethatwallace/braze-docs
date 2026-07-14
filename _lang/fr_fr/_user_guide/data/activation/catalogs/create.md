@@ -52,7 +52,7 @@ Avant de télécharger votre fichier CSV, assurez-vous qu'il répond aux exigenc
 |-----------------|---------|
 | En-têtes | La première colonne du fichier CSV doit être nommée `id`, et chaque ligne doit contenir une valeur `id` unique. |
 | Colonnes | Un fichier CSV peut contenir jusqu'à 1 000 champs (colonnes), et chaque nom de colonne peut comporter jusqu'à 250 caractères. |
-| Taille du fichier | Pour les forfaits gratuits, la taille totale de tous les fichiers CSV d'une entreprise est limitée à 100 Mo. Pour les plans Pro, la taille maximale d'un seul fichier CSV est de 2 Go. |
+| Taille du fichier | Pour les forfaits gratuits, la taille totale de tous les fichiers CSV d'une entreprise est limitée à 500 Mo. Pour les plans Pro, la taille maximale d'un seul fichier CSV est de 2 Go. |
 | Valeurs des champs | Chaque cellule (valeur de champ) peut contenir jusqu'à 5 000 caractères. |
 | Caractères valides | La colonne `id` et toutes les valeurs d'en-tête ne peuvent contenir que des lettres, des chiffres, des tirets et des traits de soulignement. |
 | Types de données | Les types de données pris en charge pour les imports CSV comprennent les chaînes de caractères, les nombres, les booléens, les dates et la géolocalisation. Pour obtenir la liste complète des types de données, y compris ceux disponibles uniquement via l'API et le CDI, consultez la section [Types de données pris en charge](#supported-data-types). |
@@ -239,7 +239,7 @@ Par exemple, si vous souhaitez modifier un élément de catalogue spécifique, v
 
 ## Stockage des catalogues {#tiers}
 
-La version gratuite des catalogues prend en charge des fichiers CSV d'une taille totale combinée de 100 Mo pour l'ensemble de votre entreprise, tandis que la version Catalogues Pro prend en charge des fichiers CSV d'une taille maximale de 2 Go par fichier.
+La version gratuite des catalogues prend en charge des fichiers CSV d'une taille totale combinée de 500 Mo pour l'ensemble de votre entreprise, tandis que la version Catalogues Pro prend en charge des fichiers CSV d'une taille maximale de 2 Go par fichier.
 
 {% alert important %}
 Les droits d'utilisation des packages affichés dans le tableau de bord de Braze sont arrondis à l'unité la plus proche à des fins d'affichage. Vous conservez toutefois l'intégralité des droits d'utilisation achetés. Pour demander une mise à niveau du stockage des catalogues, contactez votre gestionnaire de compte Braze.
@@ -247,11 +247,11 @@ Les droits d'utilisation des packages affichés dans le tableau de bord de Braze
 
 ### Version gratuite {#free-version}
 
-La taille de stockage pour la version gratuite des catalogues est de 100&nbsp;Mo maximum. Vous pouvez avoir un nombre illimité d'éléments tant qu'ils ne dépassent pas 100&nbsp;Mo au total.
+La taille de stockage pour la version gratuite des catalogues est de 500&nbsp;Mo maximum. Vous pouvez avoir un nombre illimité d'éléments tant qu'ils ne dépassent pas 500&nbsp;Mo au total.
 
 #### Catalogues Pro {#catalogs-pro}
 
-Au niveau de l'entreprise, le stockage maximum pour Catalogues Pro dépend de la taille des données du catalogue. Les options de taille de stockage sont les suivantes : 5&nbsp;Go, 10&nbsp;Go ou 15&nbsp;Go. L'espace de stockage de la version gratuite (100&nbsp;Mo) est inclus dans chacun de ces plans.
+Au niveau de l'entreprise, le stockage maximum pour Catalogues Pro dépend de la taille des données du catalogue. Les options de taille de stockage sont les suivantes : 5&nbsp;Go, 10&nbsp;Go ou 15&nbsp;Go. L'espace de stockage de la version gratuite (500&nbsp;Mo) est inclus dans chacun de ces plans.
 
 ## Spécifications {#specifications}
 

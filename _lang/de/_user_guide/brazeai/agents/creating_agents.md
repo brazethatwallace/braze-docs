@@ -23,14 +23,14 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 
 ## Funktionsweise {#how-it-works}
 
-Wenn Sie einen Agenten erstellen, definieren Sie dessen Zweck und legen Leitplanken für sein Verhalten fest. Nach der Live-Schaltung kann der Agent in Braze eingesetzt werden, um personalisierte Texte zu generieren, Entscheidungen in Realtime zu treffen oder Katalogfelder zu aktualisieren. Während Sie Ihren Agenten erstellen, können Sie ihn als Entwurf speichern, und Sie können einen Agenten jederzeit über das Dashboard pausieren oder aktualisieren.
+Wenn Sie einen Agenten erstellen, definieren Sie dessen Zweck und legen Leitplanken für sein Verhalten fest. Nach der Live-Schaltung kann der Agent in Braze eingesetzt werden, um personalisierte Texte zu generieren, Entscheidungen in Realtime zu treffen oder Katalogfelder zu aktualisieren. Während Sie Ihren Agenten erstellen, können Sie ihn als Entwurf speichern, und Sie können einen Agenten jederzeit über das Dashboard pausieren oder aktualisieren. Jedes Speichern erstellt eine neue Version, die Sie im Tab [Versionsverlauf]({{site.baseurl}}/user_guide/brazeai/agents/reference#version-history) überprüfen können.
 
 Die folgenden Anwendungsfälle veranschaulichen einige Möglichkeiten, angepasste Agenten zu nutzen.
 
 | Anwendungsfall | Beschreibung |
 | --- | --- |
 | Bearbeitung von Kundenfeedback | Leiten Sie das Feedback der Nutzer:innen an einen Agenten weiter, um die Stimmung zu analysieren und einfühlsame Follow-up-Nachrichten zu generieren. Bei besonders wertvollen Nutzer:innen kann der Agent die Antwort eskalieren oder Vergünstigungen hinzufügen. |
-| Inhalte lokalisieren | Übersetzen Sie Katalogtexte für globale Campaigns in andere Sprachen oder passen Sie Tonfall und Länge für regionsspezifische Kanäle an. Übersetzen Sie beispielsweise „Classic Clubmaster Sunglasses“ ins Spanische als „Gafas de sol Classic Clubmaster“ oder kürzen Sie Beschreibungen für SMS-Campaigns. |
+| Inhalte lokalisieren | Übersetzen Sie Katalogtexte für globale Kampagnen in andere Sprachen oder passen Sie Tonfall und Länge für regionsspezifische Kanäle an. Übersetzen Sie beispielsweise „Classic Clubmaster Sunglasses“ ins Spanische als „Gafas de sol Classic Clubmaster“ oder kürzen Sie Beschreibungen für SMS-Kampagnen. |
 | Bewertungen oder Feedback zusammenfassen | Fassen Sie die Stimmung oder das Feedback in einem neuen Feld zusammen, beispielsweise durch die Vergabe von Stimmungsbewertungen wie „Positiv“, „Neutral“ oder „Negativ“ oder durch die Erstellung einer kurzen Textzusammenfassung wie „Die meisten Kund:innen erwähnen die hervorragende Passform, bemerken jedoch den langsamen Versand.“ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Funktionsweise" }
 
@@ -62,6 +62,10 @@ Richten Sie anschließend die Details für Ihren Agenten ein:
 4. Wenn Sie nicht das **Braze Auto**-Modell verwenden, wählen Sie die [Denkstufe]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) des Modells aus. Sie können zwischen Minimal, Niedrig, Mittel oder Hoch wählen. Wir empfehlen, mit **Minimal** zu beginnen, die Antworten Ihres Agenten zu testen und diese bei Bedarf anzupassen.
 5. Legen Sie ein tägliches Ausführungslimit fest. Standardmäßig ist dieser Wert auf 250.000 eingestellt, kann jedoch auf 1.000.000 erhöht werden. Wenn Sie das Limit über 1.000.000 hinaus erhöhen möchten, wenden Sie sich an Ihren Customer-Success-Manager, um mehr zu erfahren.
 
+Das Feld **Daily action credit cost limit** gibt die maximale Anzahl an Credits an, die dieser Agent pro Tag verbrauchen kann. Braze berechnet diesen Wert aus dem Credit-Verhältnis pro Aufruf Ihres Workspace für das ausgewählte Modell (aus Ihrem Vertrag, angezeigt auf der Seite [Credit-Verhältnisse]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage)) multipliziert mit dem täglichen Ausführungslimit. Die Schätzung wird aktualisiert, wenn Sie das Modell oder das Ausführungslimit ändern.
+
+Um die Kosten zu steuern, senken Sie das tägliche Ausführungslimit. Bei [Bring-your-own (BYO)]({{site.baseurl}}/user_guide/brazeai/agents/reference#option-2-bring-your-own-api-key)-Modellen können Sie auch zu einem kostengünstigeren Modell wechseln oder die [Denkstufe]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) reduzieren. **Braze Auto** unterstützt keine Anpassung der Denkstufe. Verfolgen Sie die tatsächliche Nutzung unter **Settings** > **Billing** > **Credits Usage** > **Agent Console**.
+
 ![Agent-Console-Oberfläche zum Erstellen eines angepassten Agenten in Braze. Der Bildschirm zeigt Felder zur Eingabe des Agentennamens und der Beschreibung, zur Auswahl eines Modells und zur Festlegung eines täglichen Ausführungslimits.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### 4. Schritt: Anweisungen verfassen {#agent-instructions}
@@ -72,19 +76,24 @@ Nehmen Sie Anweisungen dafür auf, wie der Agent in unerwarteten oder unklaren S
 
 Lesen Sie den Abschnitt [Anweisungen verfassen]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions) für bewährte Verfahren und [Beispiele]({{site.baseurl}}/user_guide/brazeai/agents/reference#examples) für Anregungen, wie Sie Ihren Agenten anweisen können.
 
-{% alert tip %}
-Für Canvas-Agenten können Sie Liquid in Ihren Anweisungen verwenden, um auf Nutzerattribute wie Vor- und Nachname oder angepasste Attribute zu referenzieren. Jede Liquid-Variable in den Agentenanweisungen wird automatisch an den Canvas-Schritt übergeben, wenn Nutzer:innen den Schritt betreten.
-{% endalert %}
-
 #### Kontext hinzufügen {#add-resources}
+
+{% alert important %}
+Agenten erhalten nur Daten, die Sie explizit übergeben – sie durchsuchen keine Nutzerprofile und warnen Sie nicht, wenn erforderliche Daten fehlen. Verwenden Sie Liquid in Ihren Anweisungen, wählen Sie **+ Agent context** aus, fügen Sie vorgelagerte [Kontextschritte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) in Canvas hinzu oder übergeben Sie zusätzlichen Kontext im Agenten-Schritt. Eine vollständige Liste der Datenquellen und Designhinweise finden Sie unter [Welche Daten Agenten erhalten]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive).
+{% endalert %}
 
 Wählen Sie **+ Agent context** aus, um festzulegen, worauf Ihr Agent zugreifen kann. Dies beinhaltet:
 
 - [Katalogfelder]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields): Gewähren Sie dem Agenten Zugriff auf Ihre Katalogdaten für genauere Antworten.
+- [Wissensquellen]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources): Gewähren Sie dem Agenten Zugriff auf Katalogdaten über eine Wissensquelle für genauere Abfragen als beim direkten Anhängen eines Katalogs.
 - [Segmentzugehörigkeit]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): Ermöglichen Sie dem Agenten, Antworten basierend auf der Segmentzugehörigkeit der Nutzer:innen zu personalisieren. Sie können bis zu fünf Segmente auswählen.
 - [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): Referenzieren Sie die Richtlinien zur Markenstimme und zum Stil, die der Agent befolgen soll. Wenn Sie beispielsweise möchten, dass Ihr Agent SMS-Texte erstellt, um Nutzer:innen zur Anmeldung für eine Fitnessstudio-Mitgliedschaft zu motivieren, können Sie dieses Feld verwenden, um Ihre vordefinierte, motivierende Richtlinie zu referenzieren.
 - [Gesamter Canvas-Kontext]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analysieren Sie alle Canvas-Kontextdaten für Nutzer:innen, wenn dieser Agent aufgerufen wird, einschließlich aller Variablen, die nicht im Abschnitt **Instructions** referenziert werden.
 - [Nutzer:innen-Interaktionsdaten]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): Stellen Sie dem Agenten die aktuellen Öffnungs-, Klick- und Conversion-Daten der jeweiligen Nutzer:innen aus Campaigns und Canvas bereit.
+
+{% alert tip %}
+Für Canvas-Agenten können Sie Liquid in Ihren Anweisungen verwenden, um auf Nutzerattribute wie Vor- und Nachname oder angepasste Attribute zu referenzieren. Jede Liquid-Variable in den Agentenanweisungen wird automatisch an den Agenten-Schritt übergeben, wenn Nutzer:innen den Schritt betreten. Informationen dazu, wie Sie Canvas-Kontext und Profildaten gezielt übergeben, finden Sie unter [Welche Daten Agenten erhalten]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive).
+{% endalert %}
 
 ### 5. Schritt: Ausgabe auswählen {#select-output}
 

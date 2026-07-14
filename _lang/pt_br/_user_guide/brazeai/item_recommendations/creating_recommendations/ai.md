@@ -85,6 +85,10 @@ Caso não encontre sua seleção, lembre-se de que é preciso criá-la primeiro 
 
 Selecione o evento para o qual você deseja que essa recomendação seja otimizada. Esse evento geralmente é uma compra, mas também pode ser qualquer interação com um item.
 
+{% alert tip %}
+Ao configurar recomendações de itens de IA, a escolha do evento é importante. O evento de disparo determina quem recebe uma recomendação gerada por IA — as recomendações de itens de IA são geradas para usuários que concluíram o evento configurado, portanto essa escolha determina diretamente quem recebe as recomendações. Selecione um evento que cubra todo o segmento de público que você deseja alcançar.<br><br> Ao mesmo tempo, equilibre cobertura com relevância. Eventos do topo do funil (como Produto Visualizado) tendem a capturar um público mais amplo, mas são menos conectados aos resultados de negócio, enquanto eventos do fundo do funil (como Comprado) tendem a produzir recomendações mais direcionadas e relevantes para o negócio. O melhor evento é aquele que equilibra cobertura com impacto nos resultados.
+{% endalert %}
+
 Você pode otimizar para:
 
 - Eventos de compra com o [objeto Purchase]({{site.baseurl}}/api/objects_filters/purchase_object)
@@ -97,7 +101,7 @@ Se você escolher **Custom Event**, selecione seu evento na lista.
 ![O evento personalizado "purchase" selecionado como a forma como os eventos estão sendo rastreados atualmente.]({% image_buster /assets/img/item_recs_3.png %})
 
 {% alert note %}
-Eventos personalizados devem ter dados suficientes antes de aparecerem na lista de eventos. Se seu evento personalizado não aparecer, pode ser porque o backend da Braze ainda não o processou ou ele não possui dados suficientes para o treinamento do modelo. Recomendações de IA dependem de dados históricos para gerar insights, portanto, eventos recém-criados ou raramente acionados não estarão disponíveis até que mais dados sejam coletados.
+Eventos personalizados devem ter dados suficientes antes de aparecerem na lista de eventos. Se seu evento personalizado não aparecer, pode ser porque o backend da Braze ainda não o processou ou ele não possui dados suficientes para o treinamento do modelo. Recomendações de IA dependem de dados históricos para gerar insights, portanto, eventos recém-criados ou raramente disparados não estarão disponíveis até que mais dados sejam coletados.
 {% endalert %}
 
 ### Etapa 5: Selecione o nome da propriedade correspondente {#property-name}

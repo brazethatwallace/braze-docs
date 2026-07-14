@@ -23,7 +23,7 @@ Ao comparar o comportamento dos usuários que recebem mensagens com aqueles que 
 Com o grupo de controle global, você pode definir uma porcentagem de todos os usuários como grupo de controle. Quando salvo, os usuários do grupo não recebem nenhuma Campaign ou Canvas.
 
 {% alert important %}
-Seu grupo de controle global se aplica a todos os canais, Campaigns e Canvas, exceto [Campaigns da API]({{site.baseurl}}/api/api_campaigns). Isso significa que os usuários no seu grupo de controle ainda recebem Campaigns da API. No entanto, essa exceção não se aplica a Content Cards. Se você estiver usando uma campanha de Content Card disparada por API, os usuários no seu grupo de controle não as receberão.
+Seu grupo de controle global se aplica a todos os canais, Campaigns e Canvas, exceto [Campaigns da API]({{site.baseurl}}/api/api_campaigns). Isso significa que os usuários no seu grupo de controle ainda recebem Campaigns da API. No entanto, essa exceção não se aplica a Content Cards. Se você estiver usando uma Campaign de Content Card disparada por API, os usuários no seu grupo de controle não as receberão.
 {% endalert %}
 
 ### Atribuir usuários aleatoriamente ao grupo de controle global {#assign-users-randomly-to-the-global-control-group}
@@ -34,7 +34,7 @@ Quando seu grupo de controle global é gerado, todos os usuários com números d
 
 ### Atribuir usuários aleatoriamente ao grupo de tratamento para relatórios {#assign-users-randomly-to-the-treatment-group-for-reporting}
 
-A Braze também cria um grupo de tratamento para relatórios de uplift. O grupo de tratamento é um grupo de usuários selecionados aleatoriamente que não fazem parte do seu grupo de controle global, e é gerado usando o mesmo método de número de bucket aleatório do grupo de controle global.
+A Braze também cria um grupo de tratamento para relatórios de aumento. O grupo de tratamento é um grupo de usuários selecionados aleatoriamente que não fazem parte do seu grupo de controle global, e é gerado usando o mesmo método de número de bucket aleatório do grupo de controle global.
 
 Seu grupo de tratamento tem tamanho semelhante ao do seu grupo de controle global, mas é improvável que tenha exatamente o mesmo tamanho. Para [relatórios](#reporting), a Braze mede os comportamentos dos usuários no seu grupo de controle e dos usuários na sua amostra de tratamento. Cada espaço de trabalho tem no máximo um grupo de controle global e um grupo de amostra de tratamento. O grupo de amostra de tratamento é o mesmo grupo de usuários independentemente de como você configura seus relatórios de controle global.
 
@@ -122,7 +122,7 @@ Ao gerar seu relatório, escolha um evento — sessões ou qualquer evento perso
 
 Lembre-se de que as métricas percentuais no seu relatório são arredondadas. Por exemplo, em casos onde o número de conversões é uma porcentagem muito baixa do seu grupo de controle ou tratamento geral, a taxa de conversão pode ser arredondada para 0%.
 
-Este relatório também exibe uma porcentagem de [intervalo de confiança]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence) para sua métrica de variação em relação ao controle. Em casos onde a taxa de conversão entre seu controle e tratamento são idênticas, um intervalo de confiança de 0% é esperado — isso indica que há 0% de chance de uma diferença no desempenho entre os dois grupos.
+Este relatório também exibe uma porcentagem de [confiança]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence) para sua métrica de variação em relação ao controle. Em casos onde a taxa de conversão entre seu controle e tratamento são idênticas, uma confiança de 0% é esperada — isso indica que há 0% de chance de uma diferença no desempenho entre os dois grupos.
 
 #### Tamanhos dos grupos {#group-sizes}
 
@@ -136,9 +136,9 @@ Cada espaço de trabalho tem no máximo um grupo de controle global e um grupo d
 
 | Métrica | Definição | Cálculo |
 | -- | -- | -- |
-| Variação em relação ao controle | Calcula o uplift entre a taxa de conversão dos seus grupos de tratamento e controle. | ((Taxa de conversão do tratamento – taxa de conversão do controle) ÷ taxa de conversão do controle) * 100 |
-| Uplift incremental | A diferença no total de eventos entre seus grupos de tratamento e controle. Essa métrica busca responder à pergunta: "Quantos eventos de conversão a mais o grupo de tratamento alcançou?". | Total de eventos do tratamento – total de eventos do controle |
-| Porcentagem de uplift incremental | A porcentagem do total de eventos do seu tratamento que pode ser atribuída ao seu tratamento (versus comportamento natural do usuário). É calculada dividindo o uplift incremental (número) pelo número total de eventos do seu grupo de tratamento. | Uplift incremental (número) ÷ Total de eventos do grupo de tratamento |
+| Variação em relação ao controle | Calcula o aumento entre a taxa de conversão dos seus grupos de tratamento e controle. | ((Taxa de conversão do tratamento – taxa de conversão do controle) ÷ taxa de conversão do controle) \* 100 |
+| Aumento incremental | A diferença no total de eventos entre seus grupos de tratamento e controle. Essa métrica busca responder à pergunta: "Quantos eventos de conversão a mais o grupo de tratamento alcançou?". | Total de eventos do tratamento – total de eventos do controle |
+| Porcentagem de aumento incremental | A porcentagem do total de eventos do seu tratamento que pode ser atribuída ao seu tratamento (versus comportamento natural do usuário). É calculada dividindo o aumento incremental (número) pelo número total de eventos do seu grupo de tratamento. | Aumento incremental (número) ÷ Total de eventos do grupo de tratamento |
 | Taxa de conversão | A porcentagem estimada de usuários no seu grupo de controle ou tratamento que completam o evento selecionado durante o período selecionado. É calculada somando o número de eventos do período e dividindo pela soma de usuários dentro do grupo a cada dia. Isso só pode ser aproximado porque o tamanho do grupo flutua regularmente à medida que novos usuários entram no seu grupo de controle global, e os eventos são totais — e não únicos. Se o número de conversões for muito pequeno e seus grupos de controle ou tratamento forem muito grandes, a taxa de conversão pode ser arredondada para 0%. Se o número de eventos for muito alto — por exemplo, em casos onde um usuário pode realizar mais de um evento por dia — a taxa de conversão pode ser superior a 100%. | Soma do número de eventos para esses usuários nesse período ÷ soma de usuários no grupo a cada dia |
 | Tamanho estimado do grupo | O número estimado de usuários nos seus grupos de controle e tratamento durante o período selecionado. | O tamanho máximo de participação que seus grupos de controle e tratamento alcançaram durante o período que você escolheu para o relatório. |
 | Número total de eventos | O número total de vezes que o evento selecionado ocorreu durante o período escolhido. Não é único (por exemplo, se um usuário realiza um evento duas vezes durante o período, o evento é contado duas vezes). | Soma do número de vezes que um evento ocorreu a cada dia durante o período escolhido. |
@@ -154,7 +154,7 @@ Ao configurar seus grupos de controle globais e visualizar relatórios, aqui est
 | Não é possível salvar a porcentagem inserida ao designar um grupo de controle global. | Esse problema ocorre se você inserir um valor não inteiro ou um inteiro que não esteja entre 1 e 15 (inclusive). |
 | Erro "A Braze não consegue atualizar seu grupo de controle global" na página de configurações do controle global. | Isso geralmente indica que algum componente desta página foi alterado, provavelmente devido a ações realizadas por outro usuário na sua conta da Braze. Nesse caso, atualize a página e tente novamente. |
 | O relatório do grupo de controle global não tem dados. | Se você acessar o relatório do grupo de controle global sem ter salvo um grupo de controle global, não verá dados no relatório. Crie e salve um grupo de controle global e tente novamente. |
-| Minha taxa de conversão é 0% ou não estou vendo o gráfico, mesmo havendo mais de zero eventos ocorrendo. | Se o número de conversões for muito pequeno e seus grupos de controle ou tratamento forem muito grandes, a taxa de conversão pode ser arredondada para 0% e, portanto, não aparecer no gráfico. Você pode verificar isso conferindo a métrica de número total de eventos. Você pode comparar a eficácia dos seus dois grupos usando a métrica de porcentagem de uplift incremental. |
+| Minha taxa de conversão é 0% ou não estou vendo o gráfico, mesmo havendo mais de zero eventos ocorrendo. | Se o número de conversões for muito pequeno e seus grupos de controle ou tratamento forem muito grandes, a taxa de conversão pode ser arredondada para 0% e, portanto, não aparecer no gráfico. Você pode verificar isso conferindo a métrica de número total de eventos. Você pode comparar a eficácia dos seus dois grupos usando a métrica de porcentagem de aumento incremental. |
 | Minha taxa de conversão (ou outras métricas) está mudando drasticamente dependendo do período que estou visualizando. | Se você estiver visualizando dados em períodos curtos, é possível que suas métricas flutuem de dia para dia ou de semana para semana. Visualize as métricas ao longo de pelo menos um mês. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
@@ -180,7 +180,7 @@ Resumindo, os usuários no grupo de controle global são filtrados do público d
 
 #### Segments do grupo de controle global no console de desenvolvedor {#global-control-group-segments-on-the-developer-console}
 
-Você pode ver vários segmentos de **Global Control** na seção **Additional API Identifiers** da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Isso ocorre porque cada vez que o grupo de controle global é ativado ou desativado, um novo grupo de controle global é formado. Isso resulta em vários segmentos rotulados como "Global Control Group".
+Você pode ver vários Segments de **Global Control** na seção **Additional API Identifiers** da página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). Isso ocorre porque cada vez que o grupo de controle global é ativado ou desativado, um novo grupo de controle global é formado. Isso resulta em vários segmentos rotulados como "Global Control Group".
 
 Apenas um desses segmentos está ativo e pode ser consultado usando o [endpoint `/users/export/global_control_group`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group), ou exportado do dashboard. A exportação do dashboard indica especificamente quais subsegmentos compõem este grupo de controle global.
 
@@ -217,4 +217,4 @@ Decida quanto tempo executar seu experimento antes de iniciá-lo e, em seguida, 
 
 #### Pense em métricas valiosas {#think-about-valuable-metrics}
 
-Considere quaisquer comportamentos de base para as métricas nas quais você está mais interessado. Você está interessado em taxas de compra para planos de assinatura que são renovados apenas anualmente? Ou os clientes têm um hábito semanal para o evento que você gostaria de medir? Pense em quanto tempo leva para os usuários potencialmente alterarem seus comportamentos devido ao seu envio de mensagens. Depois de decidir quanto tempo seu experimento deve durar, certifique-se de não encerrar seu experimento ou registrar resultados finais antecipadamente, ou suas descobertas podem ser enviesadas.
+Considere quaisquer comportamentos de base para as métricas nas quais você está mais interessado. Você está interessado em taxas de compra para planos de inscrição que são renovados apenas anualmente? Ou os clientes têm um hábito semanal para o evento que você gostaria de medir? Pense em quanto tempo leva para os usuários potencialmente alterarem seus comportamentos devido ao seu envio de mensagens. Depois de decidir quanto tempo seu experimento deve durar, certifique-se de não encerrar seu experimento ou registrar resultados finais antecipadamente, ou suas descobertas podem ser enviesadas.

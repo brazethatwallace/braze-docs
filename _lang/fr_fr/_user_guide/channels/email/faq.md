@@ -66,9 +66,9 @@ Non. Les mises à jour apportées aux paramètres d'e-mails sortants ne s'appliq
 
 ### Qu'est-ce qu'un « bon » taux de distribution des e-mails ? {#what-is-a-good-email-delivery-rate}
 
-En général, le « chiffre magique » se situe autour de 98 % de messages distribués avec un taux de rebond ne dépassant pas 3 %. Si votre taux de distribution descend en dessous de ce seuil, il y a généralement lieu de s'inquiéter.
+En général, le « chiffre magique » se situe autour de 98 % de messages distribués avec un taux de rebond ne dépassant pas 3 %. Si moins de 98 % des messages sont distribués, il y a généralement lieu de s'inquiéter.
 
-Cependant, un taux supérieur à 98 % peut tout de même présenter des problèmes de livrabilité. Par exemple, si tous vos rebonds proviennent d'un seul domaine, c'est un signal clair d'un problème de réputation avec ce fournisseur.
+Cependant, un taux de distribution de 98 % ou plus peut tout de même présenter des problèmes de livrabilité. Par exemple, si tous vos rebonds proviennent d'un seul domaine, c'est un signal clair d'un problème de réputation avec ce fournisseur.
 
 De plus, les messages peuvent être distribués mais finir dans les courriers indésirables, ce qui indique des problèmes de réputation potentiellement graves. Il est important de surveiller non seulement le nombre de messages distribués, mais aussi les taux d'ouverture et de clics pour déterminer si les utilisateurs voient réellement les messages dans leur boîte de réception. Étant donné que les fournisseurs ne signalent généralement pas chaque instance de courrier indésirable, un taux de spam même de 1 % pourrait être préoccupant et nécessiter une analyse plus approfondie.
 
@@ -109,6 +109,35 @@ Bien que Braze n'envoie plus de demandes une fois la campagne ou le Canvas arrê
 Vous pouvez ne voir aucune ouverture ou clic d'e-mail s'il y a une mauvaise configuration de votre domaine de suivi. Cela peut être dû à l'une des raisons suivantes :
 - Il y a un problème SSL où les URL de suivi sont en `http` au lieu de `https`.
 - Il y a un problème avec votre CDN où la chaîne user agent sur les événements d'ouverture, les événements de clic, ou les deux, ne se renseigne pas.
+
+### Pourquoi est-ce que j'observe un comportement inhabituel d'ouverture ou de clic d'e-mails ? {#why-am-i-seeing-unusual-email-open-or-click-behavior}
+
+Si vous remarquez des schémas inattendus dans vos indicateurs d'ouverture ou de clic d'e-mails — comme un seul utilisateur semblant cliquer sur chaque lien immédiatement, ou des ouvertures ne s'enregistrant pas comme prévu — passez en revue les causes courantes suivantes :
+
+#### Le rognage de l'e-mail supprime le pixel de suivi {#email-clipping-removes-the-tracking-pixel}
+
+Lorsqu'un e-mail est rogné par le fournisseur de messagerie du destinataire (par exemple, Gmail rogne les messages dépassant environ 102 Ko), le contenu en bas de l'e-mail peut être tronqué. Étant donné que le pixel de suivi d'ouverture est généralement inséré en bas de l'e-mail, le rognage peut empêcher le suivi des ouvertures de fonctionner.
+
+**Comment identifier :** Vérifiez si l'e-mail affiche un lien « Afficher l'intégralité du message » ou similaire en bas. Vous pouvez utiliser [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) pour prévisualiser l'e-mail complet avec défilement et vérifier si le message est rogné.
+
+**Comment résoudre :** Vous pouvez configurer Braze pour placer le pixel de suivi en haut de l'e-mail au lieu du bas. Déplacer le pixel de suivi peut affecter la façon dont certains clients de messagerie affichent votre HTML, alors testez vos e-mails dans Inbox Vision après avoir effectué cette modification. Notez que si le destinataire a désactivé les images, les ouvertures ne peuvent pas être suivies quel que soit l'emplacement du pixel.
+
+#### Statistiques retardées ou clics sans ouvertures {#delayed-stats-or-clicks-without-opens}
+
+Le suivi des ouvertures repose sur le chargement de l'e-mail par le destinataire avec les images activées. Dans certains cas, les statistiques peuvent apparaître avec un retard ou des clics peuvent être enregistrés sans ouvertures correspondantes en raison de :
+
+- Le destinataire consulte l'e-mail dans un volet de prévisualisation sans l'ouvrir complètement, puis clique sur les liens directement depuis la prévisualisation.
+- Le client de messagerie ne charge pas les images (et donc le pixel de suivi) avant que le destinataire n'ait interagi avec les liens.
+
+#### Les logiciels de sécurité simulent des clics sur les liens {#security-software-simulates-link-clicks}
+
+Certains outils de sécurité des e-mails d'entreprise (tels que Barracuda, Proofpoint et services similaires) analysent les e-mails entrants en cliquant automatiquement sur tous les liens du message pour vérifier qu'ils sont sûrs. Cela peut entraîner l'apparition d'événements de clic quelques secondes après l'envoi, souvent avec chaque lien de l'e-mail cliqué en succession rapide.
+
+Ce comportement est plus courant avec les domaines de messagerie institutionnels (tels que les lycées, les universités et les environnements d'entreprise) et est plus probable lorsque votre domaine d'envoi diffère significativement de votre domaine de suivi. La configuration d'un [domaine de suivi personnalisé]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#custom-email-tracking-domain) peut réduire la fréquence de ces clics automatisés.
+
+**Comment identifier :** Recherchez l'adresse IP de l'événement de clic (disponible dans les données Currents) dans un moteur de recherche. Si l'IP est associée à un fournisseur de sécurité connu (tel que Barracuda Networks), les clics sont probablement automatisés. Vous pouvez également observer un en-tête `User-Agent` identique sur plusieurs clics automatisés.
+
+Pour plus de contexte sur la façon dont l'analyse de sécurité affecte les indicateurs d'e-mails, consultez [Gérer les augmentations des taux de clics]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
 
 ### Quels sont les risques potentiels de déclenchement de clics par les serveurs ? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
@@ -281,6 +310,14 @@ Tout d'abord, confirmez que vous disposez des [autorisations utilisateur]({{site
 ### Dois-je enregistrer des domaines pour les e-mails relais ou masqués ? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 Le [relais d'e-mail privé d'Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO) nécessite que vous enregistriez vos domaines d'envoi dans le portail développeur Apple pour éviter les rebonds. Google Shielded Email ne nécessite pas de processus d'enregistrement de domaine ou d'ajout à une liste d'autorisation manuel.
+
+### Puis-je ajouter des hyperliens dans les lignes d'objet ou les accroches des e-mails ? {#can-i-add-hyperlinks-in-email-subject-lines-or-preheaders}
+
+Non. L'ajout d'hyperliens dans les lignes d'objet des e-mails n'est pas pris en charge par les fournisseurs de boîtes aux lettres. Bien que certains fournisseurs analysent automatiquement les lignes d'objet et convertissent les adresses physiques, les dates ou les heures en liens cliquables, cela se fait automatiquement sur l'appareil du destinataire et échappe au contrôle de Braze (ou de tout ESP).
+
+De même, l'ajout d'hyperliens dans l'accroche n'est pas pris en charge dans l'industrie de l'e-mail.
+
+Si vous avez besoin d'une fonctionnalité similaire à du contenu cliquable dans la ligne d'objet ou la zone d'accroche, envisagez d'utiliser les [Promotions Gmail]({{site.baseurl}}/user_guide/channels/email/html_editor/gmail_promotions_tab) pour ajouter des annotations interactives à vos e-mails pour les utilisateurs Gmail.
 
 ### Que signifie la raison de rebond `unable to get mx info` ou `failed to get IPs from PTR record` ? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
 

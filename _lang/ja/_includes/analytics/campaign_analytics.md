@@ -935,7 +935,7 @@ Brazeの分析に加えて、WhatsAppビジネスマネージャーでテンプ�
 
 ### SMS Currentsイベント {#sms-currents-events}
 
-メールと同様に、BrazeはSMSメッセージがユーザーに届く過程で、メッセージに関連するユーザーレベルのイベントを受信します。受信SMSイベントはすべて、[SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events)イベントを通じてCurrentsイベントとしても送信されます。これにより、ユーザーがBrazeプラットフォーム外でテキスト入力したメッセージに対して、追加のアクションやレポートを実行できます。
+メールと同様に、BrazeはSMSメッセージがユーザーに届く過程で、メッセージに関連するユーザーレベルのイベントを受信します。受信SMSイベントはすべて、[SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events)イベントを通じてCurrentsイベントとしても送信されます。これにより、ユーザーがBrazeプラットフォーム外でテキスト入力したメッセージに対して、追加のアクションやレポートを実行できます。
 
 {% alert note %}
 受信メッセージは1,600文字を超えると切り捨てられます。

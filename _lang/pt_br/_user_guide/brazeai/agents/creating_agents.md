@@ -14,7 +14,7 @@ alias: /creating-agents/
 
 Antes de começar, você precisará do seguinte:
 
-- [Permissão]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) para acessar o **Console do agente** no seu espaço de trabalho. Verifique com seus administradores da Braze se você não vê essa opção.
+- [Permissão]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) para acessar o **Agent Console** no seu espaço de trabalho. Verifique com seus administradores da Braze se você não vê essa opção.
 - Permissão para criar e editar agentes de IA personalizados.
 - Uma ideia do que você quer que o agente realize. Os Braze Agents podem suportar as seguintes ações:
    - **Envio de mensagens personalizado:** Gerar linhas de assunto, manchetes, textos dentro do produto ou outros conteúdos.
@@ -23,7 +23,7 @@ Antes de começar, você precisará do seguinte:
 
 ## Como funciona {#how-it-works}
 
-Quando você cria um agente, define seu propósito e estabelece diretrizes sobre como ele deve se comportar. Depois que estiver ativo, o agente pode ser implantado na Braze para gerar textos personalizados, tomar decisões em tempo real ou atualizar campos de catálogo. Enquanto constrói seu agente, você pode salvá-lo como rascunho, e pode pausar ou atualizar um agente a qualquer momento pelo dashboard.
+Quando você cria um agente, define seu propósito e estabelece diretrizes sobre como ele deve se comportar. Depois que estiver ativo, o agente pode ser implantado na Braze para gerar textos personalizados, tomar decisões em tempo real ou atualizar campos de catálogo. Enquanto constrói seu agente, você pode salvá-lo como rascunho, e pode pausar ou atualizar um agente a qualquer momento pelo dashboard. Cada salvamento cria uma nova versão que você pode revisar na guia [Histórico de versões]({{site.baseurl}}/user_guide/brazeai/agents/reference#version-history).
 
 Os seguintes casos de uso mostram algumas maneiras de aproveitar agentes personalizados.
 
@@ -40,15 +40,15 @@ Os seguintes casos de uso mostram algumas maneiras de aproveitar agentes persona
 
 Para criar um agente, primeiro escolha o tipo de agente:
 
-1. Acesse **Console do agente**.
-2. Escolha **Agentes de etapa do Canvas** ou **Agentes de catálogo**.
+1. Acesse **Agent Console**.
+2. Escolha **Canvas Step Agents** ou **Catalog Agents**.
 
 ### Etapa 2: Escolher como construir um agente {#step-2-choose-how-to-build-an-agent}
 
-Selecione **Criar agente** e escolha uma das seguintes opções:
+Selecione **Create agent** e escolha uma das seguintes opções:
 
-- **Agente personalizado** para construir um agente do zero
-- Uma opção em **Criar um agente com Operator** para usar o [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) e aplicar um [modelo inicial](#agent-templates-built-with-operator)
+- **Custom agent** para construir um agente do zero
+- Uma opção em **Create an agent with Operator** para usar o [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) e aplicar um [modelo inicial](#agent-templates-built-with-operator)
 
 Se você usar o Operator, revise e aprove as alterações no chat antes de continuar para a próxima etapa.
 
@@ -59,10 +59,14 @@ Em seguida, configure as informações do seu agente:
 1. Digite um nome e uma descrição para ajudar sua equipe a entender seu propósito.
 2. (opcional) Adicione tags para filtrar seu agente.
 3. Escolha o [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) que seu agente deve usar.
-4. Se você não estiver usando o modelo **Braze Auto**, selecione o [nível de pensamento]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) do modelo. Você pode escolher entre mínimo, baixo, médio ou alto. Recomendamos começar com **Mínimo** e testar as respostas do seu agente, ajustando conforme necessário.
+4. Se você não estiver usando o modelo **Braze Auto**, selecione o [nível de pensamento]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels) do modelo. Você pode escolher entre mínimo, baixo, médio ou alto. Recomendamos começar com **Minimal** e testar as respostas do seu agente, ajustando conforme necessário.
 5. Defina um limite diário de invocação. Por padrão, esse valor é definido como 250.000, mas pode ser aumentado para 1.000.000. Se você tiver interesse em aumentar o limite acima de 1.000.000, entre em contato com seu gerente de sucesso do cliente para saber mais.
 
-![Interface do Console do agente para criar um agente personalizado na Braze. A tela exibe campos para inserir o nome e a descrição do agente, selecionar um modelo e definir um limite diário de invocação.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
+O campo **Daily action credit cost limit** especifica o número máximo de créditos que este agente pode consumir por dia. A Braze calcula esse valor a partir da proporção de créditos por invocação do seu espaço de trabalho para o modelo selecionado (do seu contrato, exibido na página [Credit Ratios]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage)) multiplicado pelo limite diário de invocação. A estimativa é atualizada quando você altera o modelo ou o limite de invocação.
+
+Para gerenciar custos, reduza o limite diário de invocação. Para modelos [traga sua própria chave (BYO)]({{site.baseurl}}/user_guide/brazeai/agents/reference#option-2-bring-your-own-api-key), você também pode mudar para um modelo de menor custo ou reduzir o [nível de pensamento]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels). O **Braze Auto** não suporta ajuste do nível de pensamento. Acompanhe o uso real em **Settings** > **Billing** > **Credits Usage** > **Agent Console**.
+
+![Interface do Agent Console para criar um agente personalizado na Braze. A tela exibe campos para inserir o nome e a descrição do agente, selecionar um modelo e definir um limite diário de invocação.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### Etapa 4: Escreva as instruções {#agent-instructions}
 
@@ -72,25 +76,30 @@ Inclua instruções sobre o que o agente deve fazer em cenários inesperados ou 
 
 Consulte [Escrevendo instruções]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions) para melhores práticas e [Exemplos]({{site.baseurl}}/user_guide/brazeai/agents/reference#examples) para inspiração sobre como orientar seu agente.
 
-{% alert tip %}
-Para agentes Canvas, você pode usar Liquid nas suas instruções para referenciar atributos do usuário, como primeiro e último nome, ou atributos personalizados. Qualquer variável Liquid nas instruções do agente é automaticamente passada para a etapa do agente quando um usuário entra na etapa.
-{% endalert %}
-
 #### Adicionar contexto {#add-resources}
 
-Selecione **+ Contexto do agente** para escolher o que seu agente pode referenciar. Isso inclui:
+{% alert important %}
+Os agentes recebem apenas os dados que você passa explicitamente — eles não pesquisam perfis de usuário nem avisam quando dados obrigatórios estão ausentes. Use Liquid nas suas instruções, selecione **+ Agent context**, adicione [etapas de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) anteriores no Canvas ou passe contexto adicional na etapa do agente. Para uma lista completa de fontes de dados e orientações de design, veja [Quais dados os agentes recebem]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive).
+{% endalert %}
+
+Selecione **+ Agent context** para escolher o que seu agente pode referenciar. Isso inclui:
 
 - [Campos de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields): Dê ao agente acesso aos dados do seu catálogo para respostas mais precisas.
+- [Fontes de conhecimento]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources): Dê ao agente acesso a dados de catálogo por meio de uma fonte de conhecimento para recuperação mais precisa do que anexar um catálogo diretamente.
 - [Associação a segmentos]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): Permita que o agente personalize respostas com base nos segmentos aos quais um usuário pertence. Você pode selecionar até cinco segmentos.
 - [Diretrizes da marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): Referencie a voz da marca e as diretrizes de estilo para o agente seguir. Por exemplo, se você quiser que seu agente gere textos de SMS para incentivar os usuários a se inscreverem em uma academia, você pode usar este campo para referenciar sua diretriz da marca motivacional e em negrito predefinida.
-- [Todo o contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analise todos os dados de contexto do Canvas para um usuário quando este agente for invocado, incluindo quaisquer variáveis que não estejam referenciadas na seção **Instruções**.
+- [Todo o contexto do Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analise todos os dados de contexto do Canvas para um usuário quando este agente for invocado, incluindo quaisquer variáveis que não estejam referenciadas na seção **Instructions**.
 - [Dados de interação do usuário]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): Forneça ao agente os dados recentes de aberturas, cliques e conversões de Campaigns e Canvas de cada usuário.
+
+{% alert tip %}
+Para agentes Canvas, você pode usar Liquid nas suas instruções para referenciar atributos do usuário, como primeiro e último nome, ou atributos personalizados. Qualquer variável Liquid nas instruções do agente é automaticamente passada para a etapa do agente quando um usuário entra na etapa. Veja [Quais dados os agentes recebem]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive) para saber como passar contexto do Canvas e dados de perfil de forma deliberada.
+{% endalert %}
 
 ### Etapa 5: Selecione a saída {#select-output}
 
-Na seção **Saída**, você pode organizar e definir a [saída]({{site.baseurl}}/user_guide/brazeai/agents/reference#outputs) do agente por esquemas básicos ou esquemas avançados. Se você usou um modelo do Operator, revise o esquema de saída pré-preenchido e edite conforme necessário.
+Na seção **Output**, você pode organizar e definir a [saída]({{site.baseurl}}/user_guide/brazeai/agents/reference#outputs) do agente por esquemas básicos ou esquemas avançados. Se você usou um modelo do Operator, revise o esquema de saída pré-preenchido e edite conforme necessário.
 
-Para melhores resultados, certifique-se de que o que você especifica na seção **Saída** corresponda às instruções do agente que você inseriu na [Etapa 4](#agent-instructions). Por exemplo, se você mencionou nas instruções do agente que deseja um objeto com duas strings, certifique-se de especificar um objeto com duas strings na seção **Saída**. Se as instruções do seu agente não estiverem alinhadas com a saída especificada, o agente pode ficar confuso, expirar ou gerar saídas indesejadas.
+Para melhores resultados, certifique-se de que o que você especifica na seção **Output** corresponda às instruções do agente que você inseriu na [Etapa 4](#agent-instructions). Por exemplo, se você mencionou nas instruções do agente que deseja um objeto com duas strings, certifique-se de especificar um objeto com duas strings na seção **Output**. Se as instruções do seu agente não estiverem alinhadas com a saída especificada, o agente pode ficar confuso, expirar ou gerar saídas indesejadas.
 
 {% alert tip %}
 Quando você usar um [esquema de saída avançado]({{site.baseurl}}/user_guide/brazeai/agents/reference#advanced-schemas), adicione um campo de string chamado `explanation` se quiser que o agente retorne sua justificativa além das outras saídas. Diga ao agente nas suas [instruções](#agent-instructions) para preencher `explanation` quando isso ajudar você a revisar ou depurar respostas.
@@ -98,11 +107,11 @@ Quando você usar um [esquema de saída avançado]({{site.baseurl}}/user_guide/b
 
 #### Configurar valores de fallback {#configure-fallback-values}
 
-Os valores de fallback estão disponíveis apenas para **agentes de etapa do Canvas**. Na seção **Saída** de um agente Canvas, você pode definir valores que a Braze usa quando uma invocação do agente falha — por exemplo, quando o LLM expira ou retorna um erro de chave de API inválida. Os valores de fallback funcionam como padrões de personalização. Você pode definir uma linha de assunto estática ou uma mensagem curta que ainda forneça uma saída útil aos usuários quando o agente não puder ser executado.
+Os valores de fallback estão disponíveis apenas para **agentes de etapa do Canvas**. Na seção **Output** de um agente Canvas, você pode definir valores que a Braze usa quando uma invocação do agente falha — por exemplo, quando o LLM expira ou retorna um erro de chave de API inválida. Os valores de fallback funcionam como padrões de personalização. Você pode definir uma linha de assunto estática ou uma mensagem curta que ainda forneça uma saída útil aos usuários quando o agente não puder ser executado.
 
-**Agentes de catálogo** não suportam a configuração de valores de fallback no Console do agente.
+**Agentes de catálogo** não suportam a configuração de valores de fallback no Agent Console.
 
-![Configuração de saída do Console do agente mostrando o campo de saída de fallback para um esquema de número.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
+![Configuração de saída do Agent Console mostrando o campo de saída de fallback para um esquema de número.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
 Para agentes Canvas, os valores de fallback suportam modelos [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para que você possa referenciar atributos do usuário ou variáveis de contexto no texto de fallback.
 
@@ -121,17 +130,17 @@ Para o comportamento em tempo de execução, veja [Tratamento de erros e comport
 
 ### Etapa 6: Teste o agente {#step-6-test-the-agent}
 
-O painel de **Prévia** é uma instância do agente que aparece como um painel lado a lado dentro da experiência de configuração. Você pode usar essa seção para testar o agente enquanto está criando ou fazendo atualizações, vivenciando-o de maneira semelhante aos usuários finais. Essa etapa ajuda você a confirmar que ele está se comportando da maneira esperada e dá a chance de fazer ajustes antes de colocá-lo no ar.
+O painel de **Preview** é uma instância do agente que aparece como um painel lado a lado dentro da experiência de configuração. Você pode usar essa seção para testar o agente enquanto está criando ou fazendo atualizações, vivenciando-o de maneira semelhante aos usuários finais. Essa etapa ajuda você a confirmar que ele está se comportando da maneira esperada e dá a chance de fazer ajustes antes de colocá-lo no ar.
 
-1. No campo **Teste seu agente**, insira dados de cliente de exemplo ou respostas de clientes — qualquer coisa que reflita cenários reais que seu agente vai lidar.
+1. No campo **Test your agent**, insira dados de cliente de exemplo ou respostas de clientes — qualquer coisa que reflita cenários reais que seu agente vai lidar.
 2. Visualize a resposta do agente para um usuário aleatório, usuário existente ou usuário personalizado.
-3. Selecione **Simular resposta**. O agente executará com base na sua configuração e exibirá sua resposta.
+3. Selecione **Simulate response**. O agente executará com base na sua configuração e exibirá sua resposta.
 
 {% alert note %}
 Os testes contam para o seu limite diário de invocação.
 {% endalert %}
 
-![Console do agente mostrando o painel de Prévia para testar um agente personalizado. A interface exibe um campo de entradas de exemplo com dados de cliente, um botão Executar teste e uma área de resposta onde a saída do agente aparece.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
+![Agent Console mostrando o painel de Preview para testar um agente personalizado. A interface exibe um campo de entradas de exemplo com dados de cliente, um botão Executar teste e uma área de resposta onde a saída do agente aparece.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
 
 Revise a saída com um olhar crítico. Considere as seguintes perguntas:
 
@@ -151,7 +160,7 @@ Seu agente está pronto para uso! Para mais detalhes, consulte [Implantar agente
 
 ## Modelos de agente criados com o Operator {#agent-templates-built-with-operator}
 
-O Operator pode pré-configurar instruções, campos de saída e contexto para os seguintes modelos iniciais do Console do agente. Escolha um modelo no Operator ou peça ao Operator para aplicar um pelo nome.
+O Operator pode pré-configurar instruções, campos de saída e contexto para os seguintes modelos iniciais do Agent Console. Escolha um modelo no Operator ou peça ao Operator para aplicar um pelo nome.
 
 ### Modelos de agente de etapa do Canvas {#canvas-step-agent-templates}
 

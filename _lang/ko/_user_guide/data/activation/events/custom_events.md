@@ -85,7 +85,7 @@ search_rank: 2
 
 ## 커스텀 이벤트 저장 {#custom-event-storage}
 
-**고객 프로필**에 저장된 모든 데이터(커스텀 이벤트 메타데이터(첫 번째 또는 마지막 발생, 총 횟수, 30일 동안의 X in Y) 포함)는 각 프로필이 [활성]({{site.baseurl}}/user_archival#active-users) 상태인 한 무기한 보존됩니다.
+**고객 프로필**에 저장된 모든 데이터(커스텀 이벤트 메타데이터(첫 번째 또는 마지막 발생, 총 횟수, 30일 동안의 X in Y) 포함)는 각 프로필이 <a href="/docs/user_archival#active-users">활성</a> 상태인 한 무기한 보존됩니다.
 
 ## 사용자의 이벤트 기록 보기 {#view-a-users-event-history}
 

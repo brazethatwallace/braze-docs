@@ -144,7 +144,7 @@ tool:
 | 일별 행 대 보고서 합계 | **데이터 표시**가 내보내기를 일별 행으로 분할하는 경우, 해당 행을 합산하여 동일한 범위의 대시보드 합계와 비교하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="참여 보고서 이메일 측정기준이 이메일 성능 대시보드와 다를 때 확인 사항" }
 
-참여 보고서 수치를 이메일 성능 대시보드 대신 **Campaign** 또는 **Canvas** 분석과 비교할 때 차이가 더 자주 발생합니다. Campaign 및 Canvas 페이지에서는 발송 날짜 측정기준(예: 발송 날짜에 귀속된 발송 수 또는 전환)과 이벤트 날짜 열람 및 클릭이 함께 표시될 수 있습니다. 아래의 [참여 보고서가 Canvas 또는 캠페인의 측정기준과 일치하지 않음](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign)을 참조하세요.
+참여 보고서 수치를 이메일 성능 대시보드 대신 **Campaign** 또는 **Canvas** 분석과 비교할 때 차이가 더 자주 발생합니다. Campaign 및 Canvas 페이지에서는 발송 날짜 측정기준(예: 발송 날짜에 귀속된 발송 수 또는 전환)과 이벤트 날짜 열람 및 클릭이 함께 표시될 수 있습니다. [참여 보고서가 Canvas 또는 캠페인의 측정기준과 일치하지 않음](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign)을 참조하세요.
 
 ### 참여 보고서가 Canvas 또는 캠페인의 측정기준과 일치하지 않음 {#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign}
 

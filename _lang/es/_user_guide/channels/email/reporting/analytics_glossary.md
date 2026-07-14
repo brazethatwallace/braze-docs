@@ -5,12 +5,12 @@ layout: email_report_metrics
 page_order: 0
 excerpt_separator: ""
 page_type: glossary
-description: "Este glosario incluye los términos que encontrarás en la sección de análisis de tu campaña de correo electrónico o Canvas, tras el lanzamiento. Este glosario no incluye las métricas de Currents."
+description: "Este glosario incluye los términos que encontrarás en la sección de análisis de tu Campaign de correo electrónico o Canvas, tras el lanzamiento. Este glosario no incluye las métricas de Currents."
 channel:
   - email
 ---
 
-> Este glosario define las métricas en la pestaña **Analytics** para campañas de correo electrónico y Canvas. Braze no ofrece una página alojada de «ver este correo electrónico en un navegador»; consulta [¿Puedo agregar un enlace de «ver este correo electrónico en un navegador» a mis correos electrónicos?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails) para una solución alternativa. Para otros problemas que abarcan varias métricas, consulta [Preguntas frecuentes sobre correo electrónico]({{site.baseurl}}/user_guide/channels/email/faq).
+> Este glosario define las métricas en la pestaña **Analytics** para Campaigns de correo electrónico y Canvas. Braze no ofrece una página alojada de «ver este correo electrónico en un navegador»; consulta [¿Puedo agregar un enlace de «ver este correo electrónico en un navegador» a mis correos electrónicos?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails) para una solución alternativa. Para otros problemas que abarcan varias métricas, consulta [Preguntas frecuentes sobre correo electrónico]({{site.baseurl}}/user_guide/channels/email/faq).
 
 <style>
   .calculation-line {
@@ -191,7 +191,7 @@ Count
 
 {% multi_lang_include analytics/metrics.md metric='Soft Bounce' %} Si un correo electrónico recibe un rebote blando, normalmente se reintentará en un plazo de 72 horas, pero el número de reintentos varía según el receptor.
 
-Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) o excluir a estos usuarios de tu envío con el [filtro de segmento de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los «envíos» y las «entregas» de tus campañas de correo electrónico.
+Aunque los rebotes blandos no se rastrean en los análisis de tu campaña, puedes monitorear los rebotes blandos en el [Registro de actividad de mensajes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) o excluir a estos usuarios de tu envío con el [filtro de Segment de rebote blando]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). En el Registro de actividad de mensajes, también puedes ver la razón de los rebotes blandos y comprender posibles discrepancias entre los «envíos» y las «entregas» de tus campañas de correo electrónico.
 
 <span class="calculation-line">Cálculo: Recuento </span>
 
@@ -265,6 +265,8 @@ Count, Percentage
 
 Cuando el [mapa de calor del correo electrónico]({{site.baseurl}}/user_guide/channels/email/reporting) muestra enlaces que no esperas, inspecciona el HTML del mensaje en busca de [bloques de contenido]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks) o espacios entre palabras que crean URL rastreadas. Usa la **tabla de enlaces por clics totales** en la vista del mapa de calor para identificar URL que no coinciden con el texto visible.
 
+Braze no expande las etiquetas de Liquid en la vista previa del mensaje, por lo que el renderizador del mapa de calor no puede hacer coincidir el enlace clicado en la vista previa. Este es el comportamiento esperado. El renderizador del mapa de calor intenta hacer coincidir las URL clicadas con las del mensaje. Cuando la URL es significativamente diferente, como cuando la URL completa se pasa como una propiedad de evento, el mapa de calor no puede identificarla.
+
 {% endapi %}
 
 {% api %}
@@ -305,7 +307,7 @@ Las _cancelaciones de suscripción_ reflejan el enlace estándar de cancelación
 
 #### Por qué las *cancelaciones de suscripción* y los clics en el enlace de cancelación de suscripción pueden diferir {#why-unsubscribes-and-unsubscribe-link-clicks-can-differ}
 
-En la página de **Analytics** de una campaña de correo electrónico o Canvas, compara el recuento de *Cancelaciones de suscripción* con los clics en la URL de cancelación de suscripción de Braze en el desglose por enlace cuando expandes **Total Clicks** o **Unique Clicks**. Ambos suelen coincidir, pero pueden diferir:
+En la página de **Analytics** de una Campaign de correo electrónico o Canvas, compara el recuento de *Cancelaciones de suscripción* con los clics en la URL de cancelación de suscripción de Braze en el desglose por enlace cuando expandes **Total Clicks** o **Unique Clicks**. Ambos suelen coincidir, pero pueden diferir:
 
 - **Más *cancelaciones de suscripción* que clics en la URL de cancelación de suscripción del cuerpo:** [List-unsubscribe]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe) es una vía adicional de cancelación de suscripción en el encabezado del correo electrónico (no el enlace en el cuerpo de tu mensaje). Cuando un usuario cancela su suscripción de esta forma, se contabiliza en *Cancelaciones de suscripción*, pero no como un clic en la URL de cancelación de suscripción rastreada en el cuerpo.
 - **Más clics en la URL de cancelación de suscripción del cuerpo que *cancelaciones de suscripción*:** Un usuario puede seleccionar ese enlace más de una vez. Si cancela su suscripción, se vuelve a suscribir y cancela de nuevo, los análisis de correo electrónico pueden registrar múltiples clics (por ejemplo, dos) en el desglose de clics.
@@ -412,7 +414,7 @@ Percentage
 
 #### Puntuaciones de probabilidad de apertura de mensajes (segmentación) {#message-open-likelihood-scores-segmentation}
 
-El filtro de segmento [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) puntúa la probabilidad de que un usuario abra un correo electrónico en una escala de 0 a 100 %. Los usuarios sin suficiente historial de envíos o aperturas para el canal aparecen en blanco. Para correo electrónico, las aperturas automáticas se excluyen del cálculo, que utiliza el historial de mensajes recientes en ese canal (consulta [Filtro de probabilidad de apertura de mensajes para canales individuales]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#individual-channels)).
+El filtro de Segment [`Message Open Likelihood`]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) puntúa la probabilidad de que un usuario abra un correo electrónico en una escala de 0 a 100 %. Los usuarios sin suficiente historial de envíos o aperturas para el canal aparecen en blanco. Para correo electrónico, las aperturas automáticas se excluyen del cálculo, que utiliza el historial de mensajes recientes en ese canal (consulta [Filtro de probabilidad de apertura de mensajes para canales individuales]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#individual-channels)).
 
 {% endapi %}
 
@@ -420,7 +422,7 @@ El filtro de segmento [`Message Open Likelihood`]({{site.baseurl}}/user_guide/au
 
 ### Enlaces de cancelación de suscripción y clics únicos {#unsubscribe-links-and-unique-clicks}
 
-Cuando un destinatario hace clic en un enlace de cancelación de suscripción, Braze lo cuenta como un clic porque la acción utiliza una URL. Esto se aplica a los enlaces de cancelación de suscripción proporcionados por Braze y a los enlaces de cancelación de suscripción personalizados en el cuerpo de tu mensaje. Esos clics contribuyen a *Clics únicos* y *Clics totales* junto con otros clics en enlaces. Para las definiciones de métricas, consulta [Clics únicos](#unique-clicks) más arriba en esta sección y [¿Por qué veo un número diferente de cancelaciones de suscripción que de clics en mi enlace de cancelación de suscripción?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+Cuando un destinatario hace clic en un enlace de cancelación de suscripción, Braze lo cuenta como un clic porque la acción utiliza una URL. Esto se aplica a los enlaces de cancelación de suscripción proporcionados por Braze y a los enlaces de cancelación de suscripción personalizados en el cuerpo de tu mensaje. Esos clics contribuyen a *Clics únicos* y *Clics totales* junto con otros clics en enlaces. Para las definiciones de métricas, consulta [Clics únicos](#unique-clicks) y [¿Por qué veo un número diferente de cancelaciones de suscripción que de clics en mi enlace de cancelación de suscripción?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### Ver en el navegador {#view-in-browser}
 

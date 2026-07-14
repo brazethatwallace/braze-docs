@@ -48,7 +48,7 @@ Pour ajouter un agent à votre Canvas :
 2. Sélectionnez l'agent qui traite les données dans cette étape.
 3. Définissez le nom de la variable de sortie. Le type de données de sortie est défini dans la [Console des agents]({{site.baseurl}}/user_guide/brazeai/agents).
 4. (Facultatif) Ajoutez des valeurs de contexte supplémentaires que l'agent pourra consulter lors de son exécution. Cela peut inclure des variables Liquid supplémentaires ou du contexte Canvas que vous n'avez pas encore lié dans la configuration de l'agent — par exemple, des valeurs que vous souhaitez transmettre uniquement au moment de l'envoi depuis cette étape.
-5. Testez et prévisualisez le résultat de l'agent dans l'aperçu de l'étape.
+5. Testez l'agent à l'aide de l'aperçu intégré à l'étape ou de [Tester le Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps) pour parcourir le chemin utilisateur complet.
 
 Pour les types de données de sortie, le templating Liquid et les captures d'écran, consultez [Étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
@@ -168,8 +168,8 @@ Vous pouvez également remplacer manuellement la cellule générée par l'agent 
 
 ### Gestion des erreurs {#error-handling}
 
-- Les invocations de catalogue ayant échoué ne font pas l'objet d'une nouvelle tentative, y compris lorsque le fournisseur LLM renvoie une [erreur de limite de débit]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors).
-- Si l'appel API vers le fournisseur de modèle fondamental renvoie une autre erreur, comme une erreur de clé API invalide, la valeur du champ n'est pas mise à jour. Les agents de catalogue ne prennent pas en charge la configuration de valeurs de repli dans la Console des agents.
+- Si le fournisseur LLM renvoie une [erreur de limite de débit]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors), Braze relance continuellement la requête en utilisant des délais exponentiels jusqu'à ce que l'appel aboutisse ou que Braze détermine qu'il ne peut pas être complété.
+- Pour les autres échecs (comme un délai d'attente dépassé ou une clé API invalide), la valeur du champ de catalogue n'est pas mise à jour. Les agents de catalogue ne prennent pas en charge la configuration de valeurs de repli dans la Console des agents.
 - Vous pouvez consulter les journaux de l'agent pour obtenir des détails sur les exécutions ayant échoué.
 - Les agents de catalogue sont limités au traitement de valeurs d'entrée de 25 Ko maximum par ligne.
 
@@ -192,6 +192,8 @@ Vous pouvez également surveiller les erreurs de limite d'invocations quotidienn
 Sélectionnez **View** pour un appel d'agent spécifique afin de consulter l'entrée, la sortie et l'ID utilisateur.
 
 ![Le panneau de détails d'un agent Random Sports Assignment affichant l'invite d'entrée, la réponse de sortie et l'ID utilisateur associé.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
+
+Pour les agents d'étape Canvas, les journaux incluent une section **Fallback Output** qui affiche toute sortie de repli utilisée lorsque l'invocation a échoué.
 
 ### Utiliser Currents {#use-currents}
 

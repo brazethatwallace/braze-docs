@@ -90,6 +90,7 @@ Beachten Sie die folgenden Verhaltensweisen, wenn Sie Dashboard-Zugriff zuweisen
 - **Workspace-Admin versus Unternehmensadmin:** Workspace-Admins verwalten Berechtigungen innerhalb zugewiesener Workspaces. Unternehmensadmins haben unternehmensweite Autorität, einschließlich der Möglichkeit, andere Dashboard-Nutzer:innen zu löschen.
 - **Eingeschränkte Nutzer:innen:** Eingeschränkte Nutzer:innen mit der Berechtigung „Dashboard-Nutzer:innen bearbeiten“ können andere eingeschränkte Nutzer:innen verwalten, aber keine Unternehmensadminkonten erstellen oder verwalten.
 - **Geltungsbereich „Dashboard-Nutzer:innen verwalten“:** Auf der Nutzer:innen-Detailseite werden Berechtigungen nur für Workspaces angezeigt, auf die die bearbeitende Person Zugriff hat. Eingeschränkte Nutzer:innen, die Nutzer:innen in einem Workspace bearbeiten können, sehen möglicherweise die Berechtigungs-Kontrollkästchen eines anderen Workspaces nicht.
+- **Button „Berechtigungen zuweisen“:** Wenn Sie Nutzer:innen bearbeiten und diese bereits Berechtigungen auf Workspace-Ebene oder Berechtigungssätze für jeden Workspace haben, den Sie verwalten können, verschwindet der Button **Berechtigungen zuweisen**. Dies geschieht, weil keine weiteren Workspaces mehr auf Workspace-Ebene zugewiesen werden können.
 - **Nutzerdaten exportieren:** Für den Export von Nutzerdaten ist zusätzlich zur Exportberechtigung ein Zugriff auf Workspace-Ebene erforderlich.
 - **Zusammengesetzte Berechtigungen:** Einige Bereiche erfordern mehrere Berechtigungen. Beispielsweise erfordert die Konfiguration von [Technologie-Partnern]({{site.baseurl}}/partners) in der Regel sowohl den Partnerzugriff als auch eine grundlegende Leseberechtigung für die zugehörigen Workspace-Features.
 - **Nutzerdaten importieren und aktualisieren:** Diese Berechtigung umfasst die Möglichkeit, App-Nutzer:innen-Profile über Importabläufe zu bearbeiten, nicht nur Dashboard-Nutzer:innen-Datensätze.
@@ -103,7 +104,7 @@ Um die aktuellen Admin-, Unternehmens- oder Workspace-Berechtigungen von Nutzer:
 {% tabs local %}
 {% tab Admin %}
 
-### Admin
+### Admin {#admin}
 
 Admins haben Zugriff auf alle Features und die Möglichkeit, alle Unternehmenseinstellungen zu ändern. Sie können:
 
@@ -133,7 +134,7 @@ Um die folgenden Berechtigungen auf Unternehmensebene für Nutzer:innen zu verwa
 {% endtab %}
 {% tab Workspace %}
 
-### Workspace
+### Workspace {#workspace}
 
 Sie können Nutzer:innen für jeden Workspace, dem sie in Braze angehören, unterschiedliche Berechtigungen erteilen. Um deren Berechtigungen auf Workspace-Ebene zu verwalten, wählen Sie **Select workspaces and permissions** und wählen Sie dann deren Berechtigungen manuell aus oder weisen Sie einen zuvor erstellten [Berechtigungssatz oder eine Rolle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) zu. Wenn Sie Nutzer:innen für verschiedene Workspaces unterschiedliche Berechtigungen erteilen müssen, wiederholen Sie diesen Vorgang so oft wie nötig. Eine Beschreibung der einzelnen Berechtigungen finden Sie unter [Liste der Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
@@ -175,7 +176,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 
 ## Liste der Berechtigungen {#list-of-permissions}
 
-### Messaging
+### Messaging {#messaging}
 
 | Produktbereich | Berechtigung | Definition |
 | --- | --- | --- |
@@ -228,7 +229,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Nutzer:innen löschen | Delete Users | Nutzer:innen dauerhaft einzeln oder in großen Mengen aus dem Dashboard löschen |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zielgruppen-Berechtigungen" }
 
-### Template
+### Template {#template}
 
 | Produktbereich | Berechtigung | Definition |
 | --- | --- | --- |

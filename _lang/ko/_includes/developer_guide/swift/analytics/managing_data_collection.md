@@ -36,7 +36,7 @@ Braze SDK 외 SDK에서 추적 데이터를 수집하는 경우 해당 정책을
 
 ### 2단계: 개인정보 보호 매니페스트 만들기 {#step-2-create-a-privacy-manifest}
 
-먼저 Xcode 프로젝트에서 `PrivacyInfo.xcprivacy` 파일을 검색하여 개인정보 보호 매니페스트가 이미 있는지 확인합니다. 이 파일이 이미 있는 경우 다음 단계로 계속 진행하면 됩니다. 그렇지 않은 경우 [Apple: 개인정보 매니페스트 만들기](sdk-tracking.iad-01.braze.com)를 참조하세요.
+먼저 Xcode 프로젝트에서 `PrivacyInfo.xcprivacy` 파일을 검색하여 개인정보 보호 매니페스트가 이미 있는지 확인합니다. 이 파일이 이미 있는 경우 다음 단계로 계속 진행하면 됩니다. 그렇지 않은 경우 [Apple: 개인정보 매니페스트 만들기](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files)를 참조하세요.
 
 ### 3단계: 개인정보 보호 매니페스트에 엔드포인트 추가하기 {#step-3-add-your-endpoint-to-the-privacy-manifest}
 
@@ -52,7 +52,7 @@ Xcode 프로젝트에서 앱의 `PrivacyInfo.xcprivacy` 파일을 연 다음, �
 
 !['NSPrivacyTracking'이 'YES'로 설정된 상태로 열린 'PrivacyInfo.xcprivacy' 파일.]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytracking.png %})
 
-**App Privacy Configuration**에서 **NSPrivacyTrackingDomains**를 선택합니다. 도메인 배열에서 새 요소를 추가하고 [이전에 `AppDelegate`에 추가]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/completing_integration#update-your-app-delegate)한 엔드포인트에 `sdk-tracking` 접두사를 붙인 값으로 설정합니다.
+**App Privacy Configuration**에서 **NSPrivacyTrackingDomains**를 선택합니다. 도메인 배열에서 새 요소를 추가하고 [이전에 `AppDelegate`에 추가한]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/completing_integration#update-your-app-delegate) 엔드포인트에 `sdk-tracking` 접두사를 붙인 값으로 설정합니다.
 
 !['NSPrivacyTrackingDomains' 아래에 Braze 추적 엔드포인트가 나열된 상태로 열린 'PrivacyInfo.xcprivacy' 파일.]({% image_buster /assets/img/apple/privacy_manifest/add_nsprivacytrackingdomains.png %})
 

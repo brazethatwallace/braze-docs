@@ -85,7 +85,7 @@ Angepasste Events erfordern eine zusätzliche Einrichtung. In der folgenden List
 
 ## Speicherung angepasster Events {#custom-event-storage}
 
-Alle im **Nutzerprofil** gespeicherten Daten, einschließlich Metadaten angepasster Events (erstes oder letztes Vorkommen, Gesamtanzahl und X in Y über 30 Tage), werden unbegrenzt aufbewahrt, solange jedes Profil [aktiv]({{site.baseurl}}/user_archival#active-users) ist.
+Alle im **Nutzerprofil** gespeicherten Daten, einschließlich Metadaten angepasster Events (erstes oder letztes Vorkommen, Gesamtanzahl und X in Y über 30 Tage), werden unbegrenzt aufbewahrt, solange jedes Profil <a href="/docs/user_archival#active-users">aktiv</a> ist.
 
 ## Event-Verlauf einer Nutzer:in anzeigen {#view-a-users-event-history}
 

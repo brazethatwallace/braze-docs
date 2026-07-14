@@ -7,7 +7,7 @@ description: "このページでは、カスタム属性について説明し、
 search_rank: 1
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタム属性 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-attributes}
+# [![Braze Learning コース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}カスタム属性 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-attributes}
 
 > このページでは、ユーザー固有の特性のコレクションであるカスタム属性について説明します。カスタム属性は、ユーザーに関する属性や、アプリケーション内の価値の低いアクションに関する情報を格納するのに最適です。
 
@@ -21,7 +21,7 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 
 一般的なカスタム属性のユースケースには、以下のようなものがあります。
 
-- ロイヤルティティア、サブスクリプションステータス、希望言語、プランタイプなどの特性に基づいてユーザーをセグメント化し、オーディエンスのターゲティングや抑制を行う
+- ロイヤルティティア、購読ステータス、希望言語、プランタイプなどの特性に基づいてユーザーをセグメント化し、オーディエンスのターゲティングや抑制を行う
 - ユーザーの名、報酬ポイント、お気に入りカテゴリなどの属性を参照して、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)でメッセージをパーソナライズする
 - オンボーディングステージ、アカウントステータス、トライアル終了日など、ライフサイクルステージやユーザーの状態をトラッキングする
 - [数値属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#numbers)で価値の低いアクションをカウントする（例：ユーザーが機能を閲覧するたびに`feature_views_count`属性をインクリメントする）
@@ -115,7 +115,7 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 
 ## カスタム属性を設定する {#set-custom-attributes}
 
-以下は、さまざまなプラットフォームでカスタム属性を設定するために使用される方法の一覧です。
+以下は、さまざまなプラットフォームでカスタム属性を設定するために使用されるメソッドの一覧です。
 
 {% details プラットフォーム別のドキュメントを展開 %}
 
@@ -131,7 +131,7 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 
 ## カスタム属性のストレージ {#custom-attribute-storage}
 
-**ユーザープロファイル**に保存されるすべてのデータ（カスタム属性データを含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_archival#active-users)である限り、無期限に保持されます。
+**ユーザープロファイル**に保存されるすべてのデータ（カスタム属性データを含む）は、各プロファイルが<a href="/docs/user_archival#active-users">アクティブ</a> である限り、無期限に保持されます。
 
 カスタム属性として保存できるすべてのデータタイプ（ブール値、数値、文字列、配列、時間、オブジェクト、オブジェクトの配列）の完全なリファレンスについては、[カスタム属性のデータタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types)を参照してください。
 

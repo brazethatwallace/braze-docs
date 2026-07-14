@@ -14,8 +14,8 @@ description: "Cet article de référence traite des données collectées par le 
 Braze est conçu pour offrir une collecte de données flexible. Vous pouvez intégrer le SDK de Braze de plusieurs manières :
 
 - **[Intégration minimale](#minimum-integration) :** Braze collecte automatiquement les données nécessaires à la communication avec les services de Braze.
-- **[Données facultatives collectées par défaut](#optional-data-collected-by-default) :** Braze capture automatiquement certaines données utiles pour la plupart de vos cas d'utilisation. Vous pouvez désactiver la collecte automatique de ces données si elles ne sont pas indispensables à la communication avec les services de Braze.
-- **[Données facultatives non collectées par défaut](#data-not-collected-by-default) :** Braze capture certaines données utiles pour des cas d'utilisation spécifiques, mais n'active pas automatiquement leur collecte pour des raisons de conformité générale. Vous pouvez choisir de collecter ces données lorsque cela correspond à vos besoins.
+- **[Données facultatives collectées par défaut](#optional-data-collected-by-default) :** Braze capture automatiquement certaines données utiles pour la plupart de vos cas d'usage. Vous pouvez désactiver la collecte automatique de ces données si elles ne sont pas indispensables à la communication avec les services de Braze.
+- **[Données facultatives non collectées par défaut](#data-not-collected-by-default) :** Braze capture certaines données utiles pour des cas d'usage spécifiques, mais n'active pas automatiquement leur collecte pour des raisons de conformité générale. Vous pouvez choisir de collecter ces données lorsque cela correspond à vos besoins.
 - **[Intégration personnalisée](#personalized-integration) :** Braze vous offre la possibilité de collecter des données supplémentaires en plus des données facultatives par défaut.
 
 ## Intégration minimale {#minimum-integration}
@@ -107,5 +107,5 @@ Pour tirer le meilleur parti de Braze, nos intégrateurs SDK implémentent gén�
 Une intégration personnalisée permet une communication sur mesure, adaptée à l'expérience de vos utilisateurs.
 
 {% alert important %}
-Braze bloquera les utilisateurs ayant plus de 5 000 000 de sessions (« utilisateurs fictifs ») et cessera d'ingérer leurs événements SDK. Pour plus d'informations, consultez la section [Filtrage du spam]({{site.baseurl}}/user_archival#spam-blocking).
+Braze bloquera les utilisateurs ayant plus de 5 000 000 de sessions (« utilisateurs fictifs ») et cessera d'ingérer leurs événements SDK. Pour plus d'informations, consultez la section <a href="/docs/user_archival#spam-blocking">Filtrage du spam</a>.
 {% endalert %}

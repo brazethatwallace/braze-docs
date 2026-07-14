@@ -14,7 +14,7 @@ page_order: 3
 Lorsque vous configurez un agent, vous pouvez choisir le modèle qu'il utilise pour générer des réponses. Deux possibilités s'offrent à vous : utiliser un modèle fourni par Braze ou apporter votre propre clé API.
 
 {% alert important %}
-Le modèle **Auto** fourni par Braze est optimisé pour les modèles dont les capacités de raisonnement sont suffisantes pour effectuer des tâches telles que la recherche dans un catalogue et la vérification d'appartenance à un segment. Si vous utilisez d'autres modèles, nous vous recommandons de les tester pour confirmer qu'ils sont adaptés à votre cas d'usage. Vous devrez peut-être ajuster vos [instructions](#writing-instructions) pour fournir différents niveaux de détails ou de raisonnement étape par étape selon la vitesse et les capacités du modèle choisi.
+Le modèle **Auto** fourni par Braze est optimisé pour les modèles dont les capacités de raisonnement sont suffisantes pour effectuer des tâches telles que la recherche dans un catalogue et la vérification d'appartenance à un Segment. Si vous utilisez d'autres modèles, nous vous recommandons de les tester pour confirmer qu'ils sont adaptés à votre cas d'usage. Vous devrez peut-être ajuster vos [instructions](#writing-instructions) pour fournir différents niveaux de détails ou de raisonnement étape par étape selon la vitesse et les capacités du modèle choisi.
 {% endalert %}
 
 ### Option 1 : utiliser un modèle fourni par Braze {#option-1-use-a-braze-powered-model}
@@ -80,11 +80,25 @@ Les contrôles du flux d'invocation suivants s'appliquent par espace de travail 
 
 Lorsque de nombreux utilisateurs entrent simultanément dans une étape Agent, Braze met les invocations en file d'attente selon ces limites, de sorte que le traitement peut prendre plus de temps lors d'envois à fort volume.
 
+### Limites quotidiennes d'invocations et de crédits {#daily-invocation-and-credit-limits}
+
+Chaque agent dispose d'une limite quotidienne d'invocations (250 000 par défaut ; 1 000 000 maximum, sauf si votre contrat autorise davantage). Chaque invocation, y compris les aperçus dans la Console des agents et les exécutions de Canvas de test utilisant **Simuler la réponse**, est comptabilisée dans cette limite.
+
+Dans la Console des agents, la **limite quotidienne de coût en crédits d'action** estime le nombre maximal de crédits qu'un agent peut consommer par jour. Braze multiplie le **ratio de crédits** par invocation de votre espace de travail pour le modèle sélectionné par la limite quotidienne d'invocations.
+
+### Surveiller la consommation de crédits {#monitor-credit-usage}
+
+Allez dans **Paramètres** > **Facturation** > **Utilisation des crédits** > **Console des agents** pour consulter la consommation de crédits, le nombre d'invocations et les ratios de crédits par agent.
+
+Les ratios de crédits proviennent de votre contrat et apparaissent dans le tableau de bord [Utilisation des crédits]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage) (onglet **Ratios de crédits** et onglet **Console des agents**). L'estimation se met à jour lorsque vous modifiez le modèle ou la limite d'invocations.
+
+Pour maîtriser les dépenses, réduisez la limite quotidienne d'invocations. Pour les modèles [avec votre propre clé (BYO)](#option-2-bring-your-own-api-key), vous pouvez également choisir un modèle moins coûteux ou réduire le [niveau de réflexion](#thinking-levels) pour diminuer les coûts de jetons du fournisseur. **Braze Auto** ne permet pas d'ajuster le niveau de réflexion.
+
 ### Erreurs de limite de débit {#rate-limit-errors}
 
-Si le fournisseur de LLM renvoie une erreur de limite de débit lors d'une **étape Agent dans Canvas**, Braze relance continuellement la requête en utilisant des délais exponentiels jusqu'à ce que l'appel aboutisse ou que Braze détermine qu'il ne peut pas être complété. Les **agents de catalogue** ne relancent pas les invocations soumises à une limite de débit.
+Si le fournisseur de LLM renvoie une erreur de limite de débit lors d'une étape Agent dans Canvas ou d'une invocation d'agent de catalogue, Braze relance continuellement la requête en utilisant des délais exponentiels jusqu'à ce que l'appel aboutisse ou que Braze détermine qu'il ne peut pas être complété.
 
-Lorsque les tentatives de relance dans Canvas sont épuisées, le panneau de détails des **Logs** affiche **Error** et le message du fournisseur (tel que `Rate limit exceeded`) dans **Output**. Les tentatives de relance sont visibles dans les logs, y compris la toute première invocation, quel que soit son résultat final. Pour un utilisateur donné, s'il faut quatre tentatives de relance pour obtenir un succès, vous pouvez rechercher l'ID utilisateur et voir les cinq entrées (l'originale plus quatre relances) dans les **Logs**, et l'originale ainsi que les trois premières relances afficheront **Error** avec `Rate limit exceeded`.
+Lorsque les tentatives de relance dans Canvas ou pour le catalogue sont épuisées, le panneau de détails des **Logs** affiche **Error** et le message du fournisseur (tel que `Rate limit exceeded`) dans **Output**. Les tentatives de relance sont visibles dans les logs, y compris la toute première invocation, quel que soit son résultat final. Pour un utilisateur donné, s'il faut quatre tentatives de relance pour obtenir un succès, vous pouvez rechercher l'ID utilisateur et voir les cinq entrées (l'originale plus quatre relances) dans les **Logs**, et l'originale ainsi que les trois premières relances afficheront **Error** avec `Rate limit exceeded`.
 
 ![Détails du log de la Console des agents montrant une erreur de dépassement de limite de débit dans le champ Output.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
@@ -138,6 +152,19 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 {% endraw %}
 
 Dans la section **Logs** de la **Console des agents**, vous pouvez examiner les détails des entrées et sorties de l'agent pour comprendre quelle valeur est rendue par Liquid.
+
+### Quelles données les agents reçoivent {#what-data-agents-receive}
+
+Le contexte d'un agent n'est pas une mémoire conversationnelle ouverte. Contrairement à un assistant de chat, un agent ne voit que les données que vous lui transmettez explicitement au moment de l'invocation : il ne parcourt pas les profils utilisateur, ne déduit pas les champs manquants et ne vous signale pas l'absence d'informations requises.
+
+Concevez chaque agent comme un pipeline délibéré d'entrée vers sortie. Transmettez chaque point de donnée dont l'agent a besoin en utilisant un ou plusieurs des moyens suivants :
+
+1. **Liquid dans les instructions :** intégrez des attributs utilisateur ({% raw %}`{{${first_name}}}`{% endraw %}) et des [variables de contexte Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) ({% raw %}`{{context.${variable_name}}}`{% endraw %}) directement dans le prompt de l'agent.
+2. **+ Contexte de l'agent :** sélectionnez des catalogues, l'appartenance à un Segment, des directives de marque, **Tout le contexte Canvas** ou des données d'interaction utilisateur dans la Console des agents.
+3. [Étapes de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) : définissez ou mettez à jour des variables `context.*` en amont dans le Canvas avant l'exécution d'une étape Agent.
+4. **Contexte supplémentaire sur l'étape Agent :** transmettez toute valeur supplémentaire modélisée en Liquid qui n'est pas déjà spécifiée par les autres méthodes à l'agent au moment de l'envoi depuis la configuration de l'étape.
+
+Veillez à intégrer ces variables de contexte dans les instructions de l'agent via Liquid ou à sélectionner **Ajouter tout le contexte Canvas**. Si une valeur n'est pas transmise par l'un de ces canaux, l'agent ne la reçoit pas. Listez les entrées requises dans vos instructions ou dans les [prérequis du cas d'usage]({{site.baseurl}}/user_guide/brazeai/agents/use_cases), et vérifiez les entrées dans **Console des agents** > **Logs** après les tests.
 
 ![Détails d'un agent qui utilise Liquid dans ses instructions.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
@@ -226,7 +253,7 @@ Si vous souhaitez collecter les retours utilisateur sur leur dernière expérien
 
 ## Catalogues et champs {#catalogs-and-fields}
 
-Choisissez des catalogues spécifiques auxquels un agent peut se référer pour lui donner le contexte nécessaire à la compréhension de vos produits et d'autres données non liées aux utilisateurs, le cas échéant. Les agents utilisent des outils pour trouver uniquement les éléments pertinents et les envoient au LLM afin de minimiser la consommation de jetons.
+Choisissez des catalogues spécifiques auxquels un agent peut se référer pour lui donner le contexte nécessaire à la compréhension de vos produits et d'autres données non liées aux utilisateurs, le cas échéant. Les agents utilisent des outils pour trouver uniquement les éléments pertinents et les envoient au LLM afin de minimiser la consommation de jetons. Pour une meilleure récupération des données du catalogue, créez une [source de connaissances]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources) et ajoutez-la comme contexte de l'agent au lieu d'attacher le catalogue directement.
 
 ![Le catalogue « restaurants » et la colonne « Loyalty_Program » sélectionnés pour la recherche de l'agent.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
@@ -236,11 +263,11 @@ Les agents de catalogue respectent également l'ordre des colonnes lorsque les c
 
 Pour les scénarios de déploiement et des exemples, consultez [Utiliser les agents de catalogue]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents) et [Bonnes pratiques pour les agents de catalogue]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
-## Contexte d'appartenance à un segment {#segment-membership-context}
+## Contexte d'appartenance à un Segment {#segment-membership-context}
 
-Vous pouvez sélectionner jusqu'à cinq segments pour que l'agent puisse croiser l'appartenance de chaque utilisateur à ces segments lorsqu'il est utilisé dans un Canvas. Supposons que votre agent ait accès à l'appartenance au segment « Utilisateurs fidèles » et qu'il soit utilisé dans un Canvas. Lorsque des utilisateurs entrent dans une étape Agent, celui-ci peut vérifier si chaque utilisateur est membre de chaque segment que vous avez spécifié dans la Console des agents, et utiliser l'appartenance (ou la non-appartenance) de chaque utilisateur comme contexte pour le LLM.
+Vous pouvez sélectionner jusqu'à cinq Segments pour que l'agent puisse croiser l'appartenance de chaque utilisateur à ces Segments lorsqu'il est utilisé dans un Canvas. Supposons que votre agent ait accès à l'appartenance au Segment « Utilisateurs fidèles » et qu'il soit utilisé dans un Canvas. Lorsque des utilisateurs entrent dans une étape Agent, celui-ci peut vérifier si chaque utilisateur est membre de chaque Segment que vous avez spécifié dans la Console des agents, et utiliser l'appartenance (ou la non-appartenance) de chaque utilisateur comme contexte pour le LLM.
 
-![Le segment « Utilisateurs fidèles » sélectionné pour l'accès à l'appartenance de l'agent.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
+![Le Segment « Utilisateurs fidèles » sélectionné pour l'accès à l'appartenance de l'agent.]({% image_buster /assets/img/ai_agent/segment_membership_context.png %}){: style="max-width:75%;"}
 
 ## Directives de marque {#brand-guidelines}
 
@@ -248,11 +275,27 @@ Vous pouvez sélectionner des [directives de marque]({{site.baseurl}}/user_guide
 
 ## Historique d'interaction spécifique à l'utilisateur {#user-history}
 
-Les données d'interaction d'un utilisateur incluent ses ouvertures, clics et données de conversion récents pour les campagnes et Canvas. Par exemple, vous pouvez inclure ce contexte pour qu'un agent le prenne en compte lorsqu'il est évalué dans un Canvas. L'historique d'interaction spécifique à l'utilisateur peut également influencer un agent dont le rôle est de rédiger des messages personnalisés.
+Les données d'interaction d'un utilisateur incluent ses ouvertures, clics et données de conversion récents pour les Campaign et Canvas. Par exemple, vous pouvez inclure ce contexte pour qu'un agent le prenne en compte lorsqu'il est évalué dans un Canvas. L'historique d'interaction spécifique à l'utilisateur peut également influencer un agent dont le rôle est de rédiger des messages personnalisés.
+
+## Historique des versions {#version-history}
+
+La Console des agents enregistre une nouvelle version chaque fois que vous enregistrez des modifications apportées à l'agent. L'onglet **Historique des versions** répertorie chaque version enregistrée et les modifications entre les enregistrements.
+
+1. Ouvrez l'agent dans la Console des agents.
+2. Sélectionnez l'onglet **Historique des versions**.
+3. Sélectionnez une version pour examiner sa configuration.
+
+Pour inspecter les modifications d'une version, sélectionnez **Voir**. Braze affiche un diff en ligne de style code qui met en évidence les ajouts et les suppressions. Le contenu supprimé apparaît avec un style barré en rouge.
+
+Si vous devez restaurer les instructions d'une version précédente, ouvrez **Voir** pour cette version, copiez le texte des instructions et collez-le dans votre champ **Instructions** actuel.
+
+{% alert tip %}
+Dans la vue du diff en ligne, appuyez sur <kbd>⌘</kbd> + <kbd>A</kbd> (macOS) ou <kbd>Ctrl</kbd> + <kbd>A</kbd> (Windows) pour sélectionner toutes les instructions sans le balisage de suppression en rouge, afin de pouvoir copier et restaurer le texte propre.
+{% endalert %}
 
 ## Dupliquer des agents {#duplicate-agents}
 
-Pour tester des améliorations ou des itérations d'un agent, vous pouvez dupliquer un agent puis appliquer des modifications afin de comparer avec l'original. Vous pouvez également utiliser la duplication comme un système de contrôle de version pour suivre les variations dans les détails de l'agent et leurs impacts sur votre communication. Pour dupliquer un agent :
+Dupliquez un agent pour tester des améliorations ou des itérations côte à côte avec l'original. Utilisez l'[historique des versions](#version-history) pour examiner ou restaurer des configurations antérieures. Pour dupliquer un agent :
 
 1. Survolez la ligne de l'agent et sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i>.
 2. Sélectionnez **Dupliquer**.

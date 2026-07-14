@@ -144,7 +144,7 @@ Wenn die Summen für dieselben Campaigns und denselben Zeitraum dennoch abweiche
 | Tägliche Zeilen vs. Berichtssummen | Wenn die **Datenanzeige** den Export in tägliche Zeilen aufteilt, summieren Sie diese Zeilen, um sie mit den Dashboard-Summen für denselben Zeitraum zu vergleichen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prüfpunkte, wenn Engagement-Bericht-E-Mail-Metriken vom E-Mail-Performance-Dashboard abweichen" }
 
-Abweichungen treten häufiger auf, wenn Engagement-Bericht-Werte mit **Campaign**- oder **Canvas**-Analytics verglichen werden, anstatt mit dem E-Mail-Performance-Dashboard. Campaign- und Canvas-Seiten können Sendedatum-Metriken (z. B. Sends oder Konversionen, die dem Sendedatum zugeordnet sind) neben Ereignisdatum-Öffnungen und -Klicks anzeigen. Siehe [Engagement-Bericht stimmt nicht mit den Metriken aus dem Canvas oder der Campaign überein](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign) weiter unten.
+Abweichungen treten häufiger auf, wenn Engagement-Bericht-Werte mit **Campaign**- oder **Canvas**-Analytics verglichen werden, anstatt mit dem E-Mail-Performance-Dashboard. Campaign- und Canvas-Seiten können Sendedatum-Metriken (z. B. Sends oder Konversionen, die dem Sendedatum zugeordnet sind) neben Ereignisdatum-Öffnungen und -Klicks anzeigen. Siehe [Engagement-Bericht stimmt nicht mit den Metriken aus dem Canvas oder der Campaign überein](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign).
 
 ### Engagement-Bericht stimmt nicht mit den Metriken aus dem Canvas oder der Campaign überein {#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign}
 

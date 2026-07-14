@@ -510,7 +510,7 @@ val banner = Braze.getInstance(context).getBanner("global_banner")
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 
@@ -544,8 +544,6 @@ BrazeBannerView(
 ),
 To get the Banner's data model in Flutter, use:
 ```
-
-Flutter에서 배너의 데이터 모델을 가져오려면 다음을 사용하세요:
 
 `getBanner` 메서드를 사용하여 사용자 캐시에 해당 배치가 있는지 확인할 수 있습니다.
 
