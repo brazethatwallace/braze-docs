@@ -222,15 +222,7 @@ Pour lire l'état mis en cache actuel sans bloquer le thread appelant, utilisez 
 
 {% tab react native %}
 
-Pour obtenir les données des Content Cards, utilisez la méthode `getContentCards` :
-
-```javascript
-import Braze from "@braze/react-native-sdk";
-
-const cards = await Braze.getContentCards();
-```
-
-Pour être informé des mises à jour, abonnez-vous aux événements de mise à jour des Content Cards :
+Pour écouter les mises à jour, abonnez-vous aux événements de mise à jour des Content Cards :
 
 ```javascript
 const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (update) => {
@@ -245,16 +237,18 @@ const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (upda
 });
 ```
 
+Pour obtenir les données des Content Cards les plus récemment mises en cache :
+
+```javascript
+import Braze from "@braze/react-native-sdk";
+
+const cachedCards = await Braze.getCachedContentCards();
+```
+
 Pour demander une actualisation manuelle des Content Cards depuis les serveurs Braze :
 
 ```javascript
 Braze.requestContentCardsRefresh();
-```
-
-Pour obtenir des Content Cards mises en cache sans requête réseau :
-
-```javascript
-const cachedCards = await Braze.getCachedContentCards();
 ```
 
 {% endtab %}

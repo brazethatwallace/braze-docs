@@ -284,7 +284,7 @@ Quando os usuários tocam em links de e-mail em dispositivos móveis, os caminho
 
 Para tratar um link de rastreamento de cliques do Amazon SES como um link universal ou App Link:
 
-1. Adicione atributos `ses:custom-path` às suas tags âncora no HTML do e-mail, ou adicione o atributo na seção **Atributos** do editor de arrastar e soltar para e-mail. O caminho personalizado é inserido na URL de rastreamento de cliques encapsulada.
+1. Adicione atributos `ses:custom-path` às suas tags âncora no HTML do e-mail, ou adicione o atributo na seção **Attributes** do editor de arrastar e soltar para e-mail. O caminho personalizado é inserido na URL de rastreamento de cliques encapsulada.
 
 Por exemplo:
 
@@ -448,7 +448,19 @@ Certifique-se de que você tem as definições corretas para os domínios que se
 
 #### O domínio de rastreamento não consegue servir arquivos .well-known {#tracking-domain-cant-serve-well-known-files}
 
-Em alguns casos, o seu domínio de rastreamento de cliques pode não conseguir hospedar os arquivos `.well-known` necessários devido a limitações do ESP ou restrições de infraestrutura. Se você não conseguir hospedar o arquivo AASA ou Digital Asset Links no seu domínio de rastreamento, considere as seguintes opções:
+Em alguns casos, o seu domínio de rastreamento de cliques pode não conseguir hospedar os arquivos `.well-known` necessários devido a limitações do provedor de serviços de e-mail ou restrições de infraestrutura. Se você não conseguir hospedar o arquivo AASA ou Digital Asset Links no seu domínio de rastreamento, considere as seguintes opções:
 
 - **Desative seletivamente o rastreamento de cliques em URLs de deep link:** Você pode desativar o rastreamento de cliques para links universais específicos para que eles apontem diretamente para o seu domínio principal (onde você pode hospedar o arquivo AASA ou Digital Asset Links). Observe que esse método pode causar perda de análise de dados de cliques para esses links específicos. Consulte [Desativando o rastreamento de cliques link a link](#turning-off-click-tracking-on-a-link-to-link-basis) para instruções.
-- **Coloque uma CDN na frente do subdomínio de rastreamento:** Se você precisar de cobertura completa de rastreamento de cliques e deep linking, pode colocar uma CDN (como Cloudflare ou CloudFront) na frente do seu subdomínio de rastreamento. Configure a CDN para servir os arquivos `.well-known` localmente e encaminhar todo o restante do tráfego para o seu ESP. Essa abordagem é mais complexa, mas oferece controle total sobre o rastreamento de cliques e os links universais.
+- **Coloque uma rede de distribuição de conteúdo (CDN) na frente do subdomínio de rastreamento:** Se você precisar de cobertura completa de rastreamento de cliques e deep linking, pode colocar uma CDN (como Cloudflare ou CloudFront) na frente do seu subdomínio de rastreamento. Configure a CDN para servir os arquivos `.well-known` localmente e encaminhar todo o restante do tráfego para o seu provedor de serviços de e-mail. Essa abordagem é mais complexa, mas oferece controle total sobre o rastreamento de cliques e os links universais.
+
+#### Links funcionam em um espaço de trabalho, mas não em outro {#links-working-in-one-workspace-but-not-another}
+
+Se os links universais ou App Links funcionam corretamente no seu espaço de trabalho de produção, mas falham no espaço de trabalho de desenvolvimento ou teste, verifique se o domínio do endereço de e-mail de envio corresponde ao domínio de rastreamento configurado nas configurações de e-mail de cada espaço de trabalho. Configurações inconsistentes entre espaços de trabalho podem fazer com que os links se comportem de maneira diferente, mesmo ao usar os mesmos modelos de e-mail e arquivos AASA ou Digital Asset Links.
+
+Para verificar a configuração de e-mail:
+
+1. Acesse **Configurações** > **Preferências de e-mail** no dashboard da Braze.
+2. Revise as **Configurações de e-mail de saída** em **Configuração de envio**.
+3. Confirme que o domínio de envio e o domínio de rastreamento estão devidamente alinhados para o espaço de trabalho onde os links não estão funcionando.
+
+Se o domínio de envio for diferente entre os espaços de trabalho, certifique-se de que cada espaço de trabalho tenha os registros DNS apropriados configurados e que os arquivos AASA (iOS) ou Digital Asset Links (Android) estejam acessíveis a partir de cada domínio de rastreamento.

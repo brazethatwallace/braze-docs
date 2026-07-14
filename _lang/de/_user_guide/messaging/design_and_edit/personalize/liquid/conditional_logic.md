@@ -290,7 +290,43 @@ Ein [Array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attrib
 
 {% endraw %}
 
-Für Arrays müssen Sie „contains“ verwenden und können nicht „==“ verwenden.
+Für Arrays müssen Sie `contains` verwenden und können nicht `==` verwenden.
+
+#### Wie `contains` bei Strings und Arrays funktioniert {#how-contains-works-with-strings-versus-arrays}
+
+Der `contains`-Operator verhält sich unterschiedlich, je nachdem, ob er einen String oder ein Array auswertet:
+
+- **Strings:** `contains` prüft auf einen Teilstring an beliebiger Stelle im Text.
+- **Arrays:** `contains` prüft auf eine exakte Übereinstimmung mit einem vollständigen Element im Array.
+
+{% alert important %}
+Wenn ein Attribut als Array gespeichert ist (zum Beispiel `["med1", "med2", "abc"]`), ergibt die Suche nach `contains "ab"` den Wert `false`, da kein einzelnes Element in dieser Liste exakt `"ab"` ist.
+{% endalert %}
+
+##### Teilstring-Suche in Arrays {#substring-matching-on-arrays}
+
+Wenn Sie nach einer teilweisen Übereinstimmung (Teilstring) innerhalb eines Array-Attributs suchen müssen, müssen Sie das Array zunächst mit dem `join`-Filter in einen einzelnen String umwandeln.
+
+Da Braze keine Inline-Filter direkt in bedingten {% raw %}`{% if %}`{% endraw %}-Blöcken unterstützt, müssen Sie einen zweistufigen Prozess befolgen: Weisen Sie zuerst den zusammengefügten Wert einer Variablen zu und führen Sie dann Ihre bedingte Prüfung durch.
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+Da `join` Array-Elemente zu einem String zusammenfügt (Standard-Trennzeichen: ein einzelnes Leerzeichen), können Teilstring-Prüfungen über Elementgrenzen hinweg übereinstimmen (zum Beispiel wird `["Napa", "boulevard"]` zu `Napa boulevard`, wobei `contains "a b"` den Wert `true` ergibt). Verwenden Sie ein explizites Trennzeichen wie „,“, um Grenzen deutlicher zu machen und versehentliche elementübergreifende Übereinstimmungen zu reduzieren.
+{% endalert %}
 
 ### Zeit {#time}
 

@@ -33,9 +33,23 @@ Se admiten los siguientes pasos:
 - Demora
 - Ruta de acción
 - Recorrido de experimentos
+- Agente
 - Actualización de usuario (solo en el editor de interfaz de usuario, lo que significa que se omiten los pasos que utilizan el editor JSON)
 
-Si la prueba coincide con un tipo de paso que no aparece en la lista anterior, se omite el paso no compatible y el usuario de prueba continúa con el siguiente paso compatible.
+Si la prueba coincide con un tipo de paso que no aparece en esta sección, se omite el paso no compatible y el usuario de prueba continúa con el siguiente paso compatible.
+
+### Pasos de agente {#agent-steps}
+
+Cuando una ejecución de prueba llega a un [paso de agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze se detiene y pregunta **¿Quieres ejecutar el agente "{agentName}"?** Elige cómo continuar:
+
+- **Sí:** Opcionalmente, agrega contexto en el campo de texto (además del perfil del usuario de prueba y cualquier contexto de Canvas que ya esté en el recorrido), luego selecciona **Simulate response** para invocar al agente. Puedes introducir valores de ejemplo en lenguaje natural —por ejemplo, describiendo el contenido del carrito o el texto de un mensaje entrante— para simular el contexto en tiempo de ejecución que el agente recibiría en producción.
+- **No:** Braze no invoca al agente. El paso utiliza la **salida alternativa** configurada del agente en la sección **Output** de la [consola de agentes]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values).
+
+Cuando seleccionas **Sí** y **Simulate response**, el agente se ejecuta para el usuario de vista previa, almacena su salida en la variable de salida del paso de agente y la prueba continúa a lo largo del recorrido. Las invocaciones desde **Simulate response** cuentan para el límite diario de invocaciones del agente y aparecen en **Agent Console** > **Logs**.
+
+Para probar un paso de agente de forma aislada (sin ejecutar el recorrido completo de Canvas), usa la vista previa dentro del paso en el constructor de Canvas. Para más detalles de configuración, consulta [Probar el agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#step-5-test-the-agent) en paso de agente.
+
+Si tu paso de agente depende de datos de un [paso de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) anterior, ejecuta **Test Canvas** para que las variables de contexto se completen a lo largo del recorrido. Los grupos semilla no evalúan los pasos de contexto ni las variables de contexto para los destinatarios semilla.
 
 ### Detalles del paso en Canvas {#canvas-step-details}
 

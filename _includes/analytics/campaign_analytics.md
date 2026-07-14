@@ -365,6 +365,12 @@ As another example, suppose you see five _Unique Impressions_ on a Banner campai
 
 _Unique Daily Impressions_ refers to the Banners that were actually seen.
 
+#### Discrepancies between control groups and variants
+
+When a Banner campaign uses a control group, control group impressions can be higher than variant impressions, even when the audience split between groups is even. This discrepancy is caused by a difference in how impressions are logged for control and variant Banners.
+
+Both control and variant impressions require the Banner placement to enter the viewport. Variant impressions are logged only when the full Banner is visible on screen. Control impressions can be logged as soon as the placement enters the viewport, before the full Banner would be visible for a variant.
+
 {% elsif include.channel == "email" %}
 
 #### Email metrics

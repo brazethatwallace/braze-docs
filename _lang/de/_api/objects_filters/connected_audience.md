@@ -9,7 +9,7 @@ description: "Dieser Artikel erklärt das verbundene Zielgruppen-Objekt, einschl
 
 # Verbundenes Zielgruppen-Objekt {#connected-audience-object}
 
-> Ein verbundener Zielgruppen-Filter ist ein dynamischer Zielgruppen-Filter, den Sie direkt in Ihrer API-Anfrage definieren. So können Sie zum Sendezeitpunkt die richtigen Nutzer:innen ansprechen, ohne Segments im Braze-Dashboard erstellen oder verwalten zu müssen.
+> Ein verbundener Zielgruppen-Filter ist ein dynamischer Zielgruppenfilter, den Sie direkt in Ihrer API-Anfrage definieren. So können Sie zum Sendezeitpunkt die richtigen Nutzer:innen ansprechen, ohne Segmente im Braze-Dashboard erstellen oder verwalten zu müssen.
 
 Anstatt für jede mögliche Zielgruppenkombination vorab ein Segment zu erstellen, übergeben Sie die Filterkriterien direkt in Ihrem API-Aufruf. Je nach Endpunkt wird dieses Objekt als `audience` oder `custom_audience` übergeben. Braze wertet jede:n Nutzer:in in Realtime anhand dieser Kriterien aus und stellt die Nachricht nur an Nutzer:innen zu, die den Kriterien entsprechen. Das bedeutet, dass eine einzelne Campaign, ein Canvas oder eine reine API-Nachrichtendefinition eine unbegrenzte Anzahl von Zielgruppenvarianten bedienen kann – vollständig gesteuert durch Ihre Geschäftslogik.
 
@@ -36,6 +36,8 @@ Sie können das verbundene Zielgruppen-Objekt an diesen Endpunkten verwenden:
 - [`/campaigns/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns)
 - [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases)
 - [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start) (verwendet `custom_audience`)
+
+Beachten Sie, dass der `audience`-Parameter kein Array von Objekten unterstützt.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -112,6 +114,19 @@ Das verbundene Zielgruppen-Objekt besteht entweder aus einem einzelnen verbunden
 ## Verbundene Zielgruppen-Filter {#connected-audience-filters}
 
 Kombinieren Sie mehrere Filter mit den Operatoren `AND` und `OR`, um einen verbundenen Zielgruppen-Filter zu erstellen.
+
+### Hinweise {#considerations}
+
+Verbundene Zielgruppen können Nutzer:innen nicht filtern nach:
+
+ - Standardattributen
+ - Angepassten Events
+ - Segmenten
+ - Nachrichten-Engagement-Ereignissen
+ - Verschachtelten angepassten Attributen
+
+Um diese Filter zu verwenden, empfehlen wir, sie in ein Zielgruppen-Segment zu integrieren und dieses Segment dann im `segment_id`-Parameter für den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters) anzugeben. Bei der Verwendung anderer Endpunkte müssen Sie das Segment zunächst zur API-getriggerten Campaign oder zum Canvas im Braze-Dashboard hinzufügen. Wenn Sie nach verschachtelten Attributen filtern müssen, verwenden Sie stattdessen ein [Standard-Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
+
 
 ### Filter für angepasste Attribute {#custom-attribute-filter}
 
@@ -239,15 +254,3 @@ Dieser Filter ermöglicht es Ihnen, basierend darauf zu segmentieren, wann die:d
 
 - **Zulässige Vergleiche:** `after`, `before`
 - **Zulässige Werte:** Datetime (ISO 8601 String)
-
-### Hinweise {#considerations}
-
-Verbundene Zielgruppen können Nutzer:innen nicht filtern nach:
-
- - Standardattributen
- - Angepassten Events
- - Segments
- - Nachrichten-Engagement-Ereignissen
- - Verschachtelten angepassten Attributen
-
-Um diese Filter zu verwenden, empfehlen wir, sie in ein Zielgruppen-Segment zu integrieren und dieses Segment dann im `segment_id`-Parameter für den [`/messages/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters) anzugeben. Bei der Verwendung anderer Endpunkte müssen Sie das Segment zunächst zur API-getriggerten Campaign oder zum Canvas im Braze-Dashboard hinzufügen.

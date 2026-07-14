@@ -58,7 +58,7 @@ Lexer Activate mettra automatiquement à jour vos profils Braze, en ajoutant ou 
 2. Sélectionnez l'activation Braze appropriée pour cette campagne.
 3. Ajoutez votre segment.
 4. Mettez à jour le nom de votre audience ; il deviendra votre valeur d'attribut dans Braze.
-5. Il s'agit de l'attribut personnalisé que nous allons mettre à jour dans Braze. Contactez le [service d'assistance de Lexer](support@lexer.io) pour le mettre à jour.
+5. Il s'agit de l'attribut personnalisé que nous allons mettre à jour dans Braze. Contactez le [service d'assistance de Lexer](mailto:support@lexer.io) pour le mettre à jour.
 6. Cochez l'action de liste appropriée — dans la plupart des cas, vous voudrez maintenir votre liste.
 7. Passez en revue les conditions générales et cliquez sur **SEND AUDIENCE**.
 

@@ -55,7 +55,7 @@ toc_headers: h2
 | 숫자 | 스코어링, 임계값, [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)에서의 라우팅 |
 | 부울 | [결정 분할]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)에서의 예/아니오 분기 |
 | 오브젝트 | 예측 가능한 데이터 구조에서 단일 LLM 호출로 이 섹션의 앞부분에 나온 데이터 유형 중 하나 이상을 활용 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 에이전트 출력 설정 #define-the-output-variable" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Set your agent's output #define-the-output-variable" }
 
 컨텍스트 변수와 동일한 템플릿 구문을 사용하여 Canvas 전체에서 출력 변수를 사용할 수 있습니다. **Context Variable** Segment 필터를 사용하거나, Liquid를 사용하여 에이전트 응답을 직접 템플릿화할 수 있습니다: {% raw %}`{{context.${response_variable_name}}}` {% endraw %}.
 
@@ -75,7 +75,16 @@ toc_headers: h2
 
 ### 5단계: 에이전트 테스트 {#step-5-test-the-agent}
 
-에이전트 단계를 설정한 후, 이 단계의 출력을 테스트하고 미리볼 수 있습니다.
+에이전트 단계는 두 가지 방법으로 테스트할 수 있습니다:
+
+**단계 내 미리보기(Canvas 빌더):** 단계를 설정한 후, 단계 미리보기를 사용하여 랜덤 사용자, 기존 사용자 또는 커스텀 사용자에 대한 에이전트 출력을 확인할 수 있습니다. 이 방법은 전체 Canvas 경로를 거치지 않고 단계를 독립적으로 테스트합니다.
+
+**Canvas 테스트(전체 여정):** Canvas 하단의 **Canvas 테스트**를 선택하여 사용자 경로를 처음부터 끝까지 미리볼 수 있습니다. 테스트가 에이전트 단계에 도달하면, Braze가 **에이전트 "{agentName}"을(를) 실행하시겠습니까?**라고 묻습니다.
+
+- **예**를 선택하면 선택적으로 컨텍스트를 추가한 다음 **응답 시뮬레이션**을 선택하여 미리보기 사용자에 대해 에이전트를 호출합니다. 일반 언어로 샘플 입력(예: 장바구니 내용 또는 메시지 텍스트)을 설명하여 테스트 사용자의 프로필과 업스트림에서 이미 설정된 Canvas 컨텍스트를 보완할 수 있습니다.
+- **아니오**를 선택하면 실시간 호출을 건너뛰고 에이전트 콘솔에서 설정된 에이전트의 **대체 출력**을 대신 사용합니다.
+
+**응답 시뮬레이션**의 호출은 에이전트의 일일 호출 한도에 포함되며 **에이전트 콘솔** > **로그**에 표시됩니다. 전체 Canvas 테스트 동작에 대해서는 [사용자 경로 미리보기]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps)를 참조하세요.
 
 ![랜덤 사용자로 에이전트 출력 미리보기.]({% image_buster /assets/img/ai_agent/agent_step_preview.png %}){: style="max-width:80%;"}
 
@@ -85,7 +94,7 @@ Braze가 에이전트 실패, 사용량 제한 오류 및 호출 흐름 제어�
 
 - 연결된 모델이 LLM 공급자로부터 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)를 반환하면, Braze는 호출이 성공하거나 완료할 수 없다고 판단할 때까지 지수 백오프를 사용하여 요청을 지속적으로 재시도합니다. 이후 사용자는 다음 캔버스 단계로 진행합니다.
 - 기타 실패(예: 타임아웃 오류 또는 잘못된 API 키)가 발생하거나 에이전트가 일일 호출 한도에 도달하면, 에이전트 콘솔에서 [대체 값이 설정]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)되어 있지 않은 한 출력 변수는 `null`로 설정됩니다. 대체 값이 설정된 경우, Braze는 사용자별로 Liquid를 사용하여 대체 값을 렌더링하고 그 결과를 출력 변수에 저장합니다. 일일 한도로 인해 호출이 차단된 경우에도 마찬가지입니다.
-- 대체 값을 설정하지 않은 경우, 다운스트림 메시지 단계에서 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)을 사용하여 null 출력을 처리하세요. 예를 들어, **개인화 추가** 모달에서 {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} 또는 {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}와 같은 기본 Liquid 값을 입력할 수 있습니다.
+- 대체 값을 설정하지 않은 경우, 다운스트림 메시지 단계에서 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)을 사용하여 null 출력을 처리하세요. 예를 들어, **개인화 추가** Modal에서 {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} 또는 {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}와 같은 기본 Liquid 값을 입력할 수 있습니다.
 - 동일한 입력에 대한 응답은 캐시되며, 몇 분 이내에 반복되는 동일한 호출에 재사용될 수 있습니다.
     - 캐시된 값을 사용하는 응답도 총 호출 수 및 일일 호출 수에 포함됩니다.
 - 에이전트 단계는 대량의 사용자를 처리하는 데 시간이 걸릴 수 있습니다. Braze는 [호출 흐름 제어]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls)에 따라 호출을 대기줄에 넣으므로, 대량 발송 시 사용자가 대기 상태로 남아 있을 수 있습니다. 로그를 확인하여 호출이 진행되고 있는지 확인하세요.
@@ -117,7 +126,7 @@ Braze가 에이전트 실패, 사용량 제한 오류 및 호출 흐름 제어�
 
 기존 여정 대비 에이전트의 성과와 크레딧 소비를 테스트하려면, [실험 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) 단계를 추가하여 오디언스의 일부만 에이전트 단계가 포함된 분기에 진입하도록 하세요.
 
-예를 들어, 하루에 수천 명의 사용자를 에이전트가 있는 경로로 보내고 나머지는 대조군 경로 또는 에이전트가 없는 경로로 보낼 수 있습니다. 1~2주간 데이터를 수집하고 경로 간 핵심 성과 지표(KPI), 반대 측정기준, 에이전트 크레딧 소비를 비교하세요. 이렇게 하면 에이전트 활성화 분기로의 트래픽을 늘리기 전에 신뢰를 구축하고 ROI를 입증할 수 있으며, 호출 소비를 제한하면서 진행할 수 있습니다.
+예를 들어, 하루에 수천 명의 사용자를 에이전트가 있는 경로로 보내고 나머지는 대조군 경로 또는 에이전트가 없는 경로로 보낼 수 있습니다. 1~2주간 데이터를 수집하고 경로 간 핵심 성과 지표(KPI), 반대 측정기준, 에이전트 크레딧 소비를 비교하세요. 이렇게 하면 에이전트 활성화 분기로의 트래픽을 늘리기 전에 신뢰를 구축하고 투자수익률(ROI)을 입증할 수 있으며, 호출 소비를 제한하면서 진행할 수 있습니다.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

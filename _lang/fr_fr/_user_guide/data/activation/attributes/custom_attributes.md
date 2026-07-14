@@ -17,9 +17,9 @@ Lorsqu'ils sont stockés dans Braze, les attributs personnalisés peuvent servir
 **Les noms doivent correspondre exactement.** Les clés d'attributs personnalisés sont **sensibles à la casse** — par exemple, `Home_City` et `home_city` sont deux attributs différents. Lorsque vous envoyez des données via la [REST API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou un SDK, Braze **supprime les espaces en début et en fin** des noms d'attributs, de sorte que `greeting` et ` greeting ` correspondent à la même clé. Utilisez la même orthographe et la même casse partout où vous référencez un attribut — dans **Paramètres des données** > **Attributs personnalisés**, les payloads API et SDK, et les imports CSV. Pour savoir comment Braze convertit les valeurs entrantes lorsque vous [forcez un type de données]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#data-type-coercion), consultez [Gérer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data).
 {% endalert %}
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
-Voici quelques cas d'utilisation courants des attributs personnalisés :
+Voici quelques cas d'usage courants des attributs personnalisés :
 
 - Cibler et exclure des audiences en segmentant les utilisateurs selon des caractéristiques telles que le niveau de fidélité, le statut d'abonnement, la langue préférée ou le type de forfait
 - Personnaliser les messages avec [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en référençant des attributs comme le prénom de l'utilisateur, ses points de récompense ou sa catégorie préférée
@@ -66,15 +66,15 @@ Les administrateurs peuvent également créer des attributs personnalisés et le
 
 Vous pouvez ajouter une description à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) `Manage Events, Attributes, Purchases`. Sélectionnez **Modifier la description** pour l'attribut personnalisé et saisissez ce que vous souhaitez, par exemple une note pour votre équipe.
 
-### Ajouter des étiquettes {#add-tags}
+### Ajouter des tags {#add-tags}
 
-Vous pouvez ajouter des étiquettes à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) « Manage Events, Attributes, Purchases ». Les étiquettes peuvent ensuite être utilisées pour filtrer la liste des attributs.
+Vous pouvez ajouter des tags à un attribut personnalisé après sa création si vous disposez de l'[autorisation utilisateur]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) « Manage Events, Attributes, Purchases ». Les tags peuvent ensuite être utilisés pour filtrer la liste des attributs.
 
 ### Supprimer des attributs personnalisés {#remove-custom-attributes}
 
 Il existe deux façons de supprimer des attributs personnalisés des profils utilisateur :
 
-* Sélectionnez le nom de l'attribut personnalisé à supprimer dans une [étape de Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#removing-custom-attributes).
+* Sélectionnez le nom de l'attribut personnalisé à supprimer dans une [étape de mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#removing-custom-attributes).
 * Définissez la valeur `null` dans votre requête API vers l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
 
 ### Exporter les données {#export-data}
@@ -97,9 +97,9 @@ L'attribut personnalisé ne doit pas être actuellement utilisé dans des Campai
 
 ### Points importants {#things-to-know}
 
-- **Les données utilisateur ne sont pas mises à jour rétroactivement.** Si un profil utilisateur contenait l'attribut avec l'ancien type de données, cette valeur reste inchangée. Le filtre de segmentation recherche le nouveau type de données, de sorte que les utilisateurs ayant l'ancienne valeur sont exclus des Segments correspondants tant que leur profil n'est pas mis à jour.
+- **Les données utilisateur ne sont pas mises à jour rétroactivement.** Si un profil utilisateur contenait l'attribut avec l'ancien type de données, cette valeur reste inchangée. Le filtre de segmentation recherche le nouveau type de données, de sorte que les utilisateurs ayant l'ancienne valeur sont exclus des segments correspondants tant que leur profil n'est pas mis à jour.
 - **Les nouvelles données doivent correspondre au nouveau type de données.** Après la modification, les appels API ou événements SDK qui envoient l'ancien type de données pour cet attribut ne seront pas acceptés. Seules les valeurs correspondant au nouveau type de données sont ingérées.
-- **Les filtres ne sont pas mis à jour automatiquement.** Les Segments et filtres de Campaigns référençant l'attribut modifié ne sont pas mis à jour rétroactivement. Vous devez les supprimer et les recréer après la modification.
+- **Les filtres ne sont pas mis à jour automatiquement.** Les segments et filtres de campagnes référençant l'attribut modifié ne sont pas mis à jour rétroactivement. Vous devez les supprimer et les recréer après la modification.
 
 ## Consulter les rapports d'utilisation {#view-usage-reports}
 
@@ -109,7 +109,7 @@ Vous pouvez consulter jusqu'à 100 rapports d'utilisation à la fois en cochant 
 
 ### Onglet Valeurs {#values-tab}
 
-Lors de la consultation d'un rapport d'utilisation, sélectionnez l'onglet **Valeurs** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Notez que les résultats étant issus d'un sous-ensemble d'utilisateurs, l'échantillon ne comprend pas toutes les valeurs existantes. L'onglet **Valeurs** ne doit donc pas être utilisé pour la résolution des problèmes ni pour des cas d'utilisation nécessitant l'intégration des données de tous les utilisateurs.
+Lors de la consultation d'un rapport d'utilisation, sélectionnez l'onglet **Valeurs** pour afficher les principales valeurs des attributs personnalisés sélectionnés, basées sur un échantillon d'environ 250 000 utilisateurs. Notez que les résultats étant issus d'un sous-ensemble d'utilisateurs, l'échantillon ne comprend pas toutes les valeurs existantes. L'onglet **Valeurs** ne doit donc pas être utilisé pour la résolution des problèmes ni pour des cas d'usage nécessitant l'intégration des données de tous les utilisateurs.
 
 ![Rapport d'utilisation pour les attributs personnalisés sélectionnés avec un onglet « Valeurs » ouvert montrant un graphique circulaire des valeurs de l'attribut pays, telles que « US » et « PR ».]({% image_buster /assets/img/usage_report_values.png %}){: style="max-width:80%;"}
 
@@ -131,7 +131,7 @@ Voici les méthodes utilisées sur les différentes plateformes pour définir de
 
 ## Stockage des attributs personnalisés {#custom-attribute-storage}
 
-Toutes les données stockées dans le **profil utilisateur**, y compris les données d'attributs personnalisés, sont conservées indéfiniment tant que chaque profil est [actif]({{site.baseurl}}/user_archival#active-users).
+Toutes les données stockées dans le **profil utilisateur**, y compris les données d'attributs personnalisés, sont conservées indéfiniment tant que chaque profil est <a href="/docs/user_archival#active-users">actif</a>.
 
 Pour une référence complète de tous les types de données pouvant être stockés en tant qu'attributs personnalisés — y compris les valeurs booléennes, les nombres, les chaînes de caractères, les tableaux, les dates, les objets et les tableaux d'objets — consultez [Types de données des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types).
 

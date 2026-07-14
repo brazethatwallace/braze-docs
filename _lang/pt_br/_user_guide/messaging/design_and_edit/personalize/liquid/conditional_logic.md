@@ -95,7 +95,7 @@ A tag `{% endif %}` sinaliza que você terminou um bloco `if`. Você deve inclui
 Nas tags `if`, `elsif` e `unless`, você pode usar operadores, mas não filtros. Nas tags `case` e `when`, cada ramificação corresponde quando a expressão `case` é igual a um valor `when`; filtros também não são suportados nessas expressões. Para avaliar um valor filtrado, atribua o resultado do filtro a uma variável primeiro e depois referencie essa variável na sua cláusula `case` ou `when`. Para mais detalhes, consulte [Onde usar operadores e filtros]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
-### Tutorial: Entregar conteúdo baseado em localização {#tutorial-deliver-location-based-content}
+### Tutorial: entregar conteúdo baseado em localização {#tutorial-deliver-location-based-content}
 
 Ao concluir este tutorial, você será capaz de usar tags com instruções "if", "elsif" e "else" para entregar conteúdo com base na localização do usuário.
 
@@ -290,7 +290,43 @@ Um [array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attribu
 
 {% endraw %}
 
-Para arrays, você deve usar "contains" e não pode usar "==".
+Para arrays, você deve usar `contains` e não pode usar `==`.
+
+#### Como `contains` funciona com strings versus arrays {#how-contains-works-with-strings-versus-arrays}
+
+O operador `contains` se comporta de maneira diferente dependendo se está avaliando uma string ou um array:
+
+- **Strings:** `contains` verifica se há uma substring em qualquer lugar dentro do texto.
+- **Arrays:** `contains` verifica se há uma correspondência exata com um elemento completo dentro do array.
+
+{% alert important %}
+Se um atributo estiver armazenado como um array (por exemplo, `["med1", "med2", "abc"]`), pesquisar `contains "ab"` será avaliado como `false` porque nenhum elemento individual nessa lista é exatamente `"ab"`.
+{% endalert %}
+
+##### Correspondência de substring em arrays {#substring-matching-on-arrays}
+
+Se você precisar procurar uma correspondência parcial (substring) dentro de um atributo de array, primeiro converta o array em uma única string usando o filtro `join`.
+
+Como a Braze não suporta filtros inline diretamente dentro de blocos condicionais {% raw %}`{% if %}`{% endraw %}, você deve seguir um processo de duas etapas: primeiro, atribua o valor unido a uma variável e, em seguida, execute sua verificação condicional.
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+Como `join` combina elementos do array em uma única string (separador padrão: um único espaço), verificações de substring podem corresponder entre limites de elementos (por exemplo, `["Napa", "boulevard"]` se torna `Napa boulevard`, onde `contains "a b"` é `true`). Use um separador explícito como "," para tornar os limites mais claros e reduzir correspondências acidentais entre elementos.
+{% endalert %}
 
 ### Hora {#time}
 

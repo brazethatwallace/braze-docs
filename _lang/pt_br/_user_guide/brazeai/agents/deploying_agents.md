@@ -48,7 +48,7 @@ Para adicionar um agente ao seu Canvas:
 2. Selecione o agente que processa dados nesta etapa.
 3. Defina o nome da variável de saída. O tipo de dado de saída é definido no [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents).
 4. (Opcional) Adicione valores de contexto adicionais para o agente consultar durante a execução. Isso pode incluir variáveis Liquid extras ou contexto do Canvas que você ainda não vinculou na configuração do agente — por exemplo, valores que você deseja passar apenas no momento do envio a partir desta etapa.
-5. Teste e visualize a saída do agente na prévia da etapa.
+5. Teste o agente usando a prévia na etapa ou [Testar Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps) para percorrer a jornada completa do usuário.
 
 Para tipos de dados de saída, templates Liquid e capturas de tela, consulte [Etapa de agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
@@ -168,8 +168,8 @@ Você também pode substituir manualmente a célula gerada pelo agente seleciona
 
 ### Tratamento de erros {#error-handling}
 
-- Invocações de catálogo com falha não são tentadas novamente, incluindo quando o provedor de LLM retorna um [erro de limite de frequência]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors).
-- Se a chamada de API para o provedor do modelo fundamental retornar qualquer outro erro, como um erro de chave de API inválida, o valor do campo não é atualizado. Agentes de catálogo não suportam a configuração de valores de fallback no Agent Console.
+- Se o provedor de LLM retornar um [erro de limite de frequência]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors), a Braze tenta novamente a solicitação continuamente usando backoff exponencial até que a chamada seja bem-sucedida ou a Braze determine que não pode ser concluída.
+- Para outras falhas (como timeout ou chave de API inválida), o valor do campo do catálogo não é atualizado. Agentes de catálogo não suportam a configuração de valores de fallback no Agent Console.
 - Você pode revisar os registros do agente para ver detalhes sobre execuções com falha.
 - Agentes de catálogo estão limitados a processar valores de entrada de até 25 KB por linha.
 
@@ -193,7 +193,9 @@ Selecione **Visualizar** em uma chamada de agente específica para ver a entrada
 
 ![O painel de detalhes para um agente de atribuição aleatória de esportes que mostra o prompt de entrada, a resposta de saída e um ID de usuário associado.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 
-### Use o Currents {#use-currents}
+Para agentes de etapa do Canvas, os registros incluem uma seção **Fallback Output** que mostra qualquer saída de fallback que foi usada quando a invocação apresentou erro.
+
+### Usar o Currents {#use-currents}
 
 Você também pode usar esses eventos do Currents para acessar os esquemas de registro do Kafka:
 

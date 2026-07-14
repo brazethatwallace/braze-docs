@@ -85,6 +85,10 @@ Si no puedes encontrar tu selección, asegúrate de que esté configurada en tu 
 
 Selecciona el evento para el que quieres que se optimice esta recomendación. Este evento suele ser una compra, pero también puede ser cualquier interacción con un elemento.
 
+{% alert tip %}
+Al configurar las recomendaciones de elementos de IA, tu elección de evento es importante. Tu evento desencadenante determina quién recibe una recomendación generada por IA: las recomendaciones de elementos de IA se generan para los usuarios que han completado el evento que configures, por lo que esta elección determina directamente quién recibe recomendaciones. Selecciona un evento que cubra todo el segmento de audiencia al que quieres llegar.<br><br> Al mismo tiempo, equilibra la cobertura con la relevancia. Los eventos de la parte superior del embudo (como Producto visto) tienden a captar una audiencia más amplia pero están menos conectados con los resultados de negocio, mientras que los eventos de la parte inferior del embudo (como Comprado) tienden a producir recomendaciones más específicas y relevantes para el negocio. El mejor evento es aquel que equilibra la cobertura con la influencia en los resultados finales.
+{% endalert %}
+
 Puedes optimizar para:
 
 - Eventos de compra con el [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object)

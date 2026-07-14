@@ -43,7 +43,7 @@ Die Rolle von `subscribeToBannersUpdates()` unterscheidet sich je nach Plattform
 - **iOS und Android:** `subscribeToBannersUpdates()` (oder `subscribeToUpdates()` bei Swift) registriert einen Update-Callback. Die automatische Aktualisierung bei Sitzungsstart ist nicht davon abhängig, ob das Abo aktiv ist.
 - **Web:** Die automatische Aktualisierung bei Sitzungsstart ist an die Registrierung von `subscribeToBannersUpdates()` gebunden. Ohne aktives Abo wiederholt das SDK die Aktualisierung bei einer neuen Sitzung nicht automatisch.
 
-In allen Fällen müssen Sie mindestens eine explizite Aktualisierungsanfrage pro App-Lebenszyklus stellen, damit das SDK weiß, welche Platzierungs-IDs aktuell gehalten werden sollen. Banner werden beim ersten Start nicht automatisch abgerufen, ohne diesen initialen Aufruf, und die erfassten Platzierungs-IDs werden nach einem Neustart der App zurückgesetzt.
+In allen Fällen müssen Sie mindestens eine explizite Aktualisierungsanfrage pro App-Lebenszyklus stellen, damit das SDK weiß, welche Platzierungs-IDs aktuell gehalten werden sollen. Banner werden beim ersten Start ohne diesen initialen Aufruf nicht automatisch abgerufen, und die erfassten Platzierungs-IDs werden nach einem Neustart der App zurückgesetzt.
 
 Automatische Aktualisierungen bei Sitzungsstart verbrauchen kein Rate-Limiting-Token.
 
@@ -510,7 +510,7 @@ Für die einfachste Integration fügen Sie das folgende JavaScript-XML-Snippet (
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 

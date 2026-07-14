@@ -144,7 +144,7 @@ Se os totais ainda diferirem para as mesmas Campaigns e período, verifique o se
 | Linhas diárias versus totais do relatório | Se **Data Display** dividir a exportação em linhas diárias, some essas linhas para comparar com os totais do dashboard para o mesmo intervalo. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verificações quando as métricas de e-mail do relatório de engajamento diferem do dashboard de desempenho de e-mail" }
 
-As diferenças são mais comuns quando os valores do relatório de engajamento são comparados com a análise de dados de **Campaign** ou **Canvas** em vez do dashboard de desempenho de e-mail. As páginas de Campaign e Canvas podem exibir métricas baseadas na data de envio (por exemplo, envios ou conversões atribuídas à data de envio) junto com aberturas e cliques baseados na data do evento. Consulte [O relatório de engajamento não corresponde às métricas do Canvas ou da Campaign](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign) abaixo.
+As diferenças são mais comuns quando os valores do relatório de engajamento são comparados com a análise de dados de **Campaign** ou **Canvas** em vez do dashboard de desempenho de e-mail. As páginas de Campaign e Canvas podem exibir métricas baseadas na data de envio (por exemplo, envios ou conversões atribuídas à data de envio) junto com aberturas e cliques baseados na data do evento. Consulte [O relatório de engajamento não corresponde às métricas do Canvas ou da Campaign](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign).
 
 ### O relatório de engajamento não corresponde às métricas do Canvas ou da Campaign {#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign}
 

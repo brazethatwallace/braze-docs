@@ -79,7 +79,7 @@ Zum Beispiel (bei gleichmäßiger Verteilung):
 - Variante 3: 2,5 %
 - Variante 4: 2 %
 
-Die Öffnungsrate ohne Optimierung beträgt 2,75 % (0,035*0,25 + 0,03*0,25 + 0,025*0,25 + 0,02*0,25). Die Variantenauswahl wählt Variante 1 mit 3,5 %, sodass die Steigerung 27,3 % beträgt.
+Die Öffnungsrate ohne Optimierung beträgt 2,75 % (.035\*.25 + .03\*.25 + 0.025\*.25 + 0.02\*.25). Die Variantenauswahl wählt Variante 1 mit 3,5 %, sodass die Steigerung 27,3 % beträgt.
 {% endtab %}
 
 {% tab Wiederkehrend %}
@@ -93,7 +93,7 @@ Zum Beispiel:
 - Variante 3: 2,5 %, 25 % der Kohorte
 - Variante 4: 2 %, 25 % der Kohorte
 
-Die Öffnungsrate ohne Optimierung beträgt 2,75 % (0,035*0,25 + 0,03*0,25 + 0,025*0,25 + 0,02*0,25). Die Variantenauswahl gewichtet die leistungsstärkeren Varianten stärker.
+Die Öffnungsrate ohne Optimierung beträgt 2,75 % (.035\*.25 + .03\*.25 + 0.025\*.25 + 0.02\*.25). Die Variantenauswahl gewichtet die leistungsstärkeren Varianten stärker.
 
 Nehmen wir an, sie verteilt wie folgt:
 - Variante 1: 65 %
@@ -101,7 +101,7 @@ Nehmen wir an, sie verteilt wie folgt:
 - Variante 3: 10 %
 - Variante 4: 5 %
 
-Dies ergibt eine gewählte Öffnungsrate von 3,075 % (0,035*0,65 + 0,03*0,15 + 0,025*0,1 + 0,02*0,05), was einer Steigerung von 11,8 % entspricht. Wir berechnen dies für jeden Zeitraum und bilden dann den Durchschnitt über den gesamten Optimierungszeitraum.
+Dies ergibt eine gewählte Öffnungsrate von 3,075 % (.035\*.65 + .03\*.15 + 0.025\*.1 + 0.02\*.05), was einer Steigerung von 11,8 % entspricht. Wir berechnen dies für jeden Zeitraum und bilden dann den Durchschnitt über den gesamten Optimierungszeitraum.
 {% endtab %}
 {% endtabs %}
 

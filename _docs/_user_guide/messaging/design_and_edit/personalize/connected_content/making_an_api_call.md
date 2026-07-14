@@ -185,6 +185,10 @@ The following example illustrates retrieving and saving an access token to a loc
 ```
 {% endraw %}
 
+{% alert note %}
+When the token endpoint expects `application/x-www-form-urlencoded` and you pass credentials in `:body`, URL-encode any special characters in parameter values. For example, forward slashes (`/`) become `%2F` and plus signs (`+`) become `%2B`. Unencoded special characters may cause OAuth token requests to fail.
+{% endalert %}
+
 #### Step 2: Authorize the API using the retrieved access token
 
 After the token is saved, it can be dynamically templated into the subsequent Connected Content call to authorize the request:

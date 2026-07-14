@@ -3,6 +3,7 @@ nav_title: FAQ
 article_title: FAQ sur les agents
 description: "Cet article répond aux questions fréquemment posées sur les agents Braze."
 page_order: 10
+toc_headers: h2
 ---
 
 # Questions fréquemment posées sur les agents {#agents-frequently-asked-questions}
@@ -24,15 +25,17 @@ Les avantages du modèle Auto de Braze incluent :
 
 ### Où puis-je consulter mon utilisation actuelle des agents ? {#where-can-i-find-my-current-agent-usage}
 
-Accédez à **Paramètres** > **Facturation** > **Utilisation des crédits** pour voir les détails de votre utilisation des agents et les coûts en crédits.
+Accédez à **Paramètres** > **Facturation** > **Utilisation des crédits** > **Console des agents** pour consulter la consommation de crédits, le nombre d'invocations et les ratios de crédits par agent. Consultez [Limites quotidiennes d'invocations et de crédits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits) pour plus de détails.
 
 ### Puis-je utiliser des instructions Liquid conditionnelles dans les instructions de l'agent ? {#can-i-use-conditional-liquid-statements-in-agent-instructions}
 
 Non, tenter d'écrire des blocs Liquid comme les instructions {% raw %}`{% if %}`{% endraw %} peut entraîner une erreur de validation. Les agents peuvent gérer différents scénarios grâce à des descriptions en langage naturel dans le prompt.
 
-### Les agents peuvent-ils accéder aux données utilisateur au-delà des attributs ou valeurs Liquid spécifiques que je leur transmets ? {#can-agents-access-user-data-beyond-the-specific-liquid-attributes-or-values-that-i-pass-to-them}
+### Les agents peuvent-ils accéder aux données utilisateur au-delà des attributs Liquid spécifiques ou du contexte Canvas que je leur transmets ? {#can-agents-access-user-data-beyond-the-specific-liquid-attributes-or-canvas-context-that-i-pass-to-them}
 
-Non. Les agents ne reçoivent que les points de donnée utilisateur spécifiques qui leur sont transmis via Liquid, ainsi que les [ressources]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources) ajoutées au contexte de l'agent. Les agents ne peuvent pas rechercher dans les profils des utilisateurs des attributs que le marketeur ne les a pas configurés pour trouver.
+Non. Les agents ne reçoivent que les points de donnée utilisateur spécifiques qui leur sont transmis via Liquid dans les instructions, les sélections [+ Contexte de l'agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources), les [étapes de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) en amont dans Canvas, ou le contexte supplémentaire sur l'étape Agent. Les agents ne peuvent pas rechercher dans les profils utilisateur des attributs que vous ne les avez pas configurés pour recevoir.
+
+Les agents ne peuvent pas non plus vous avertir lorsque des données requises sont manquantes — ils poursuivent avec ce qui se trouve dans le prompt. Considérez la configuration de l'agent comme une conception délibérée entrée-sortie : transmettez chaque champ dont l'agent a besoin et vérifiez les entrées dans **Console des agents** > **Logs**. Pour des conseils, consultez [Quelles données les agents reçoivent]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive).
 
 ## Résolution des problèmes {#troubleshooting}
 
@@ -62,10 +65,18 @@ Un agent personnalisé peut expirer si :
 
 - Les instructions de l'agent sont incomplètes ou contradictoires
 - Les instructions de l'agent ne couvrent pas tous les scénarios ou n'incluent pas de condition de repli (par exemple, « Si toutes les entrées sont vides, renvoyer "Could not personalize" »)
-- Les instructions de l'agent demandent un format de sortie différent de celui spécifié dans l'onglet **Output** (par exemple, si les instructions demandent une chaîne de caractères, mais que dans l'onglet **Output**, la sortie est définie comme un nombre)
+- Les instructions de l'agent demandent un format de sortie différent de celui spécifié dans l'onglet **Sortie** (par exemple, si les instructions demandent une chaîne de caractères, mais que dans l'onglet **Sortie**, la sortie est définie comme un nombre)
 - La tâche de l'agent est trop complexe et gagnerait à adopter une [approche par sous-agents](#subagent-approach)
 
 Pour les agents Canvas, configurez des [valeurs de repli]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) dans la Console des agents afin que les utilisateurs reçoivent tout de même une sortie lorsqu'une invocation échoue.
+
+### Pourquoi mon agent fonctionnait-il bien en test mais ne reçoit-il aucune donnée utilisateur spécifique lorsque je le lance dans un Canvas ? {#why-did-my-agent-do-fine-in-testing-but-isnt-getting-any-user-specific-data-when-i-launch-it-in-a-canvas}
+
+Si votre agent fonctionne correctement pendant les tests mais ne reçoit pas de données utilisateur spécifiques dans un Canvas en production, essayez les étapes de résolution suivantes :
+
+- Assurez-vous que les données utilisateur spécifiques que vous souhaitez transmettre à l'agent sont saisies en tant que variables Liquid dans les instructions de l'agent.
+- Si vous disposez de données importantes dans le contexte Canvas, utilisez l'option **Ajouter tout le contexte Canvas** dans la configuration de l'agent pour vous assurer que l'agent reçoit l'intégralité du contexte Canvas.
+- Assurez-vous que tout contexte Canvas auquel vous souhaitez que l'agent accède est stocké en tant que contexte Canvas. Utilisez une étape de contexte avant l'étape Agent pour stocker ces données.
 
 ## Conformité {#compliance}
 

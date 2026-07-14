@@ -222,15 +222,7 @@ Um den aktuellen zwischengespeicherten Zustand zu lesen, ohne den aufrufenden Th
 
 {% tab react native %}
 
-Um die Daten der Content Cards abzurufen, verwenden Sie die Methode `getContentCards`:
-
-```javascript
-import Braze from "@braze/react-native-sdk";
-
-const cards = await Braze.getContentCards();
-```
-
-Um über Updates informiert zu werden, abonnieren Sie die Update-Ereignisse der Content Cards:
+Um auf Updates zu reagieren, abonnieren Sie die Update-Ereignisse der Content Cards:
 
 ```javascript
 const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (update) => {
@@ -245,16 +237,18 @@ const subscription = Braze.addListener(Braze.Events.CONTENT_CARDS_UPDATED, (upda
 });
 ```
 
+Um die zuletzt zwischengespeicherten Content-Card-Daten abzurufen:
+
+```javascript
+import Braze from "@braze/react-native-sdk";
+
+const cachedCards = await Braze.getCachedContentCards();
+```
+
 Um eine manuelle Aktualisierung der Content Cards von den Braze-Servern anzufordern:
 
 ```javascript
 Braze.requestContentCardsRefresh();
-```
-
-Um zwischengespeicherte Content Cards ohne Netzwerkanfrage zu erhalten:
-
-```javascript
-const cachedCards = await Braze.getCachedContentCards();
 ```
 
 {% endtab %}

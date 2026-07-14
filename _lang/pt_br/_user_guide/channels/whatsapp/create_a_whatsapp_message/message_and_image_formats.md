@@ -63,6 +63,38 @@ Os modelos de marketing são o tipo mais comum usado na Braze. Eles consistem em
 
 As variáveis de modelo podem usar parâmetros nomeados (como {% raw %}`{{first_name}}`{% endraw %}) ou parâmetros posicionais (como {% raw %}`{{1}}`{% endraw %}). Na Braze, as variáveis podem ser substituídas por Liquid ou texto simples. Sempre inclua valores padrão para variáveis Liquid; mensagens com valores de variáveis ausentes não serão enviadas.
 
+### Modelos de oferta por tempo limitado {#limited-time-offer-templates}
+
+Os modelos de oferta por tempo limitado exibem uma oferta promocional com prazo definido, com uma contagem regressiva opcional conforme a oferta se aproxima do vencimento. Use esse layout para promoções com prazo determinado, como vendas sazonais ou ofertas personalizadas com base em um atributo do usuário.
+
+| Componente | Obrigatório | Notas |
+|---|---|---|
+| Cabeçalho | Não | Selecione **Nenhum** ou adicione mídia (imagem ou vídeo). Consulte [Especificações de mídia](#media-specifications) para requisitos de tipo de arquivo, tamanho e dimensões. |
+| Detalhes da oferta | Sim | Título da oferta, código da oferta e um vencimento opcional. |
+| Corpo | Sim | O conteúdo principal da mensagem. Suporta Liquid. |
+| Rodapé | Não | Texto complementar exibido após o corpo. |
+| Botões | Sim | **Copiar código da oferta** é incluído automaticamente. Você pode adicionar um botão **Visitar website**; nenhum outro tipo de botão é suportado para esse tipo de modelo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modelos de oferta por tempo limitado" }
+
+#### Detalhes da oferta {#offer-details}
+
+| Campo | Obrigatório | Notas |
+|---|---|---|
+| Título | Sim | Uma linha curta descrevendo a oferta. |
+| Código | Sim | O código da oferta que os destinatários irão copiar. Isso preenche o botão **Copiar código da oferta** automaticamente. |
+| Vencimento | Não | Defina uma data e hora fixas (por exemplo, uma data de término para uma promoção de verão) ou personalize com base em um atributo do usuário (por exemplo, o aniversário de cada usuário). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalhes da oferta" }
+
+Se você definir um vencimento, os destinatários verão uma contagem regressiva na mensagem que é atualizada conforme a oferta se aproxima do fim. Por exemplo, a mensagem pode inicialmente mostrar a data de término e depois mudar para algo como "Faltam 5 dias" quando a data de término estiver mais próxima. Se você não definir um vencimento, a oferta será exibida sem contagem regressiva. A Braze impede o envio de mensagens quando o vencimento já passou (por exemplo, se o vencimento for 1º de novembro de 2026, mas o horário de envio for 15 de novembro de 2026).
+
+#### Tipos de botão
+
+| Tipo de botão | Notas |
+|---|---|
+| Copiar código da oferta | Incluído automaticamente. O texto do botão é "Copy offer code" e não pode ser editado. |
+| Visitar website | O único outro botão que você pode adicionar. Máximo de 1. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de botão de oferta por tempo limitado" }
+
 ### Modelos de carrossel de cartões de mídia {#media-card-carousel-templates}
 
 Os modelos de carrossel exibem um corpo de mensagem seguido de 2 a 10 cartões de produto roláveis horizontalmente, cada um com seu próprio ativo de mídia e botões. Eles estão disponíveis apenas para mensagens de modelo de marketing.

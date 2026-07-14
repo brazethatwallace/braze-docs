@@ -32,7 +32,6 @@ Vous pouvez utiliser ces méthodes supplémentaires pour créer un flux de Conte
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `launchContentCards()`                   | Lance l'élément d'interface utilisateur Content Cards.                                                                 |
 | `requestContentCardsRefresh()`           | Demande les dernières Content Cards au serveur du SDK Braze. La liste de cartes qui en résulte est transmise à chacun des [récepteurs d'événements de carte de contenu](#reactnative_cards-methods) précédemment enregistrés. |
-| `getContentCards()`                      | Récupère les Content Cards du SDK Braze. Ceci renvoie une promesse qui se résout avec la dernière liste de cartes du serveur. |
 | `getCachedContentCards()`                | Renvoie le tableau de Content Cards le plus récent du cache.                                            |
 | `logContentCardClicked(cardId)`          | Enregistre un clic pour l'ID de Content Card donné. Cette méthode est uniquement utilisée pour les analyses. Pour exécuter l'action de clic, appelez `processContentCardClickAction(cardId)` en plus.                                                        |
 | `logContentCardImpression(cardId)`       | Enregistre une impression pour l'ID de Content Card donné.                                                      |

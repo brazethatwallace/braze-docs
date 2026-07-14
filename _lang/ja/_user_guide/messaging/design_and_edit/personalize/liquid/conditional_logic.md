@@ -290,7 +290,43 @@ blankの値は、ユーザープロファイルの属性が設定されていな
 
 {% endraw %}
 
-配列の場合、「contains」を使用する必要があり、「==」は使用できません。
+配列の場合、`contains` を使用する必要があり、`==` は使用できません。
+
+#### 文字列と配列での `contains` の動作の違い {#how-contains-works-with-strings-versus-arrays}
+
+`contains` 演算子は、文字列を評価する場合と配列を評価する場合で動作が異なります:
+
+- **文字列:** `contains` はテキスト内の任意の位置で部分文字列をチェックします。
+- **配列:** `contains` は配列内の完全な要素に対して完全一致をチェックします。
+
+{% alert important %}
+属性が配列として格納されている場合（たとえば `["med1", "med2", "abc"]`）、`contains "ab"` を検索すると `false` と評価されます。これは、そのリスト内のどの要素も正確に `"ab"` ではないためです。
+{% endalert %}
+
+##### 配列での部分文字列マッチング {#substring-matching-on-arrays}
+
+配列属性内で部分一致（部分文字列）を検索する必要がある場合は、まず `join` フィルターを使用して配列を1つの文字列に変換する必要があります。
+
+Brazeは条件 {% raw %}`{% if %}`{% endraw %} ブロック内でインラインフィルターを直接サポートしていないため、2ステップのプロセスに従う必要があります。まず結合された値を変数に割り当て、次に条件チェックを実行します。
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+`join` は配列要素を1つの文字列に結合するため（デフォルトの区切り文字: 半角スペース1つ）、部分文字列チェックが要素の境界をまたいで一致する可能性があります（たとえば、`["Napa", "boulevard"]` は `Napa boulevard` になり、`contains "a b"` が `true` になります）。明示的な区切り文字（「,」など）を使用すると、境界がより明確になり、意図しない要素間の一致を減らすことができます。
+{% endalert %}
 
 ### 時間 {#time}
 

@@ -110,7 +110,7 @@ Fügt Leerraum oder Padding zwischen anderen Blöcken hinzu.
 
 ### Bild {#image}
 
-Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) ein. Für dynamische Bilder (Bilder mit Liquid oder Connected-Content) müssen Sie ein Fallback-Bild festlegen, um die Einstellungen für die automatische Breitenanpassung zu verwenden. Informationen zu Bildspezifikationen finden Sie unter [E-Mail-Bildspezifikationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications#email).
+Fügt ein Bild aus der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) ein. Für dynamische Bilder (Bilder mit Liquid oder Connected Content) müssen Sie ein Fallback-Bild festlegen, um die Einstellungen für die automatische Breitenanpassung zu verwenden. Informationen zu Bildspezifikationen finden Sie unter [E-Mail-Bildspezifikationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications#email).
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -131,6 +131,19 @@ Für **Automatische Breite** wählt die automatische Bildgrößenanpassung die b
 - Bilder, die breiter sind als der verfügbare Platz, werden auf eine Breite von 100 % gesetzt und behalten dieses Verhältnis auf Mobilgeräten bei, wobei die gesamte Anzeigebreite des Geräts genutzt wird.
 - Bei Bildern, die kleiner sind als der verfügbare Platz, wird die natürliche Größe des Bildes verwendet, um Verzerrungseffekte oder unscharfe Bilder zu vermeiden.
 {% endalert %}
+
+#### Download-Button-Verhalten in Gmail {#gmail-download-button-behavior}
+
+Gmail fügt Bildern, denen kein Hyperlink (`href`) zugeordnet ist, automatisch einen Download-Button hinzu. Wenn das Seitenverhältnis des Bildes jedoch 299 × 524 px oder kleiner ist, zeigt Gmail den Download-Button nicht an.
+
+Um zu verhindern, dass der Download-Button bei größeren Bildern angezeigt wird, können Sie den „#“-Link-Workaround anwenden:
+
+1. Wählen Sie den **Bild**-Block aus.
+2. Gehen Sie im Panel **Blockoptionen** zum Abschnitt **Link**.
+3. Setzen Sie den **Link-Typ** auf **Open web page**.
+4. Geben Sie ein Rautezeichen (`#`) in das **URL**-Eingabefeld ein.
+
+Durch das Hinzufügen dieses Links verhindert Gmail die Anzeige des Download-Buttons, ohne die Nutzererfahrung zu beeinträchtigen.
 
 ### Video
 
@@ -181,7 +194,7 @@ Fügt ein Symbol ein. Sie können angepasste Bilder hochladen. Braze verwendet e
 
 ### HTML
 
-Fügt rohes HTML ein. Empfohlen für [Liquid]({{site.baseurl}}/liquid), wie z. B. Connected-Content oder bedingte Anweisungen.
+Fügt rohes HTML ein. Empfohlen für [Liquid]({{site.baseurl}}/liquid), wie z. B. Connected Content oder bedingte Anweisungen.
 
 | Eigenschaft | Beschreibung |
 |---|---|
@@ -210,7 +223,7 @@ Erstellt ein flexibles Menü für die Nachricht, die Sie entwerfen.
 
 ### Produkt {#product}
 
-Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks), entweder als statische Artikel aus einer Katalog-Auswahl (bis zu 12) oder als dynamische Produkte, die durch einen [Canvas-E-Commerce-Trigger]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases) gesteuert werden (bis zu 24).
+Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks), entweder als statische Artikel aus einer Katalogauswahl (bis zu 12) oder als dynamische Produkte, die durch einen [Canvas-E-Commerce-Trigger]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases) gesteuert werden (bis zu 24).
 
 | Eigenschaft | Beschreibung |
 | --- | --- |
@@ -232,7 +245,7 @@ Rendert Produktzeilen aus einem [Produktkatalog]({{site.baseurl}}/user_guide/mes
 
 ## Personalisierung {#personalization}
 
-Sie können Ihre E-Mail mithilfe von Liquid oder Connected-Content personalisieren.
+Sie können Ihre E-Mail mithilfe von Liquid oder Connected Content personalisieren.
 
 - **Liquid:** Wählen Sie unter **Inhalt** > **Personalisierung** ein Attribut aus, kopieren Sie das Snippet und fügen Sie es in einen Titel-, Absatz- oder Listenblock (einfaches Liquid) oder HTML-Block (erweitertes Liquid) ein. Generell können Sie zwar einfaches Liquid in Titel-, Absatz- und Listenblöcken verwenden, wir empfehlen jedoch HTML-Blöcke für komplexere Logik, um Layout-Probleme zu vermeiden. Beachten Sie, dass Liquid in Bildblöcken oder in Button-URL-Feldern nicht unterstützt wird.
-- **[Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content):** Fügen Sie einen **HTML**-Block hinzu und platzieren Sie Ihren {% raw %}`{% connected_content %}`{% endraw %}-Aufruf dort.
+- **[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content):** Fügen Sie einen **HTML**-Block hinzu und platzieren Sie Ihren {% raw %}`{% connected_content %}`{% endraw %}-Aufruf dort.

@@ -3,6 +3,7 @@ nav_title: FAQ
 article_title: Agents – FAQ
 description: "Dieser Artikel enthält Antworten auf häufig gestellte Fragen zu Braze Agents."
 page_order: 10
+toc_headers: h2
 ---
 
 # Agents – Häufig gestellte Fragen {#agents-frequently-asked-questions}
@@ -24,15 +25,17 @@ Vorteile des Braze Auto-Modells:
 
 ### Wo kann ich meine aktuelle Agent-Nutzung einsehen? {#where-can-i-find-my-current-agent-usage}
 
-Gehen Sie zu **Einstellungen** > **Abrechnung** > **Credit-Nutzung**, um Details zu Ihrer Agent-Nutzung und den Credit-Kosten einzusehen.
+Gehen Sie zu **Einstellungen** > **Abrechnung** > **Credit-Nutzung** > **Agentenkonsole**, um den Credit-Verbrauch, die Anzahl der Aufrufe und die Credit-Verhältnisse pro Agent einzusehen. Weitere Informationen finden Sie unter [Tägliche Aufruf- und Credit-Limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 
 ### Kann ich bedingte Liquid-Anweisungen in Agent-Anweisungen verwenden? {#can-i-use-conditional-liquid-statements-in-agent-instructions}
 
 Nein. Der Versuch, Liquid-Blöcke wie {% raw %}`{% if %}`{% endraw %}-Anweisungen zu schreiben, kann zu einem Validierungsfehler führen. Agents können verschiedene Szenarien stattdessen über natürlichsprachliche Beschreibungen im Prompt abdecken.
 
-### Können Agents auf Nutzerdaten zugreifen, die über die spezifischen Liquid-Attribute oder -Werte hinausgehen, die ich ihnen übergebe? {#can-agents-access-user-data-beyond-the-specific-liquid-attributes-or-values-that-i-pass-to-them}
+### Können Agents auf Nutzerdaten zugreifen, die über die spezifischen Liquid-Attribute oder den Canvas-Kontext hinausgehen, die ich ihnen übergebe? {#can-agents-access-user-data-beyond-the-specific-liquid-attributes-or-canvas-context-that-i-pass-to-them}
 
-Nein. Agents erhalten nur die spezifischen Datenpunkte, die ihnen über Liquid übergeben werden, sowie [Ressourcen]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources), die dem Agent-Kontext hinzugefügt wurden. Agents können nicht in Nutzerprofilen nach Attributen suchen, für deren Abfrage sie vom Marketer nicht konfiguriert wurden.
+Nein. Agents erhalten nur die spezifischen Datenpunkte, die über Liquid in den Anweisungen übergeben werden, über die Auswahl unter [+ Agent-Kontext]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources), über vorgelagerte [Kontext-Schritte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) in Canvas oder über zusätzlichen Kontext im Agent-Schritt. Agents können nicht in Nutzerprofilen nach Attributen suchen, für deren Empfang sie nicht konfiguriert wurden.
+
+Agents können Sie auch nicht warnen, wenn erforderliche Daten fehlen – sie arbeiten mit dem, was im Prompt vorhanden ist. Behandeln Sie die Agent-Einrichtung als bewusstes Input-zu-Output-Design: Übergeben Sie jedes Feld, das der Agent benötigt, und überprüfen Sie die Eingaben unter **Agentenkonsole** > **Logs**. Weitere Hinweise finden Sie unter [Welche Daten Agents erhalten]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive).
 
 ## Fehlerbehebung {#troubleshooting}
 
@@ -66,6 +69,14 @@ Ein angepasster Agent kann ein Timeout haben, wenn:
 - Die Aufgabe des Agents zu komplex ist und von einem [Sub-Agent-Ansatz](#subagent-approach) profitieren würde
 
 Konfigurieren Sie für Canvas-Agents [Fallback-Werte]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in der Agentenkonsole, damit Nutzer:innen auch dann eine Ausgabe erhalten, wenn ein Aufruf fehlschlägt.
+
+### Warum hat mein Agent im Test funktioniert, erhält aber nach dem Start in einem Canvas keine nutzerspezifischen Daten? {#why-did-my-agent-do-fine-in-testing-but-isnt-getting-any-user-specific-data-when-i-launch-it-in-a-canvas}
+
+Wenn Ihr Agent beim Testen korrekt funktioniert, aber in einem Live-Canvas keine nutzerspezifischen Daten erhält, versuchen Sie folgende Schritte zur Fehlerbehebung:
+
+- Stellen Sie sicher, dass die nutzerspezifischen Daten, die der Agent erhalten soll, als Liquid-Variablen in den Agent-Anweisungen eingetragen sind.
+- Wenn Sie wichtige Daten im Canvas-Kontext haben, verwenden Sie die Option **Gesamten Canvas-Kontext hinzufügen** in der Agent-Konfiguration, damit der Agent den vollständigen Canvas-Kontext erhält.
+- Stellen Sie sicher, dass alle Daten, auf die der Agent zugreifen soll, als Canvas-Kontext gespeichert sind. Verwenden Sie einen Kontext-Schritt vor dem Agent-Schritt, um diese Daten zu speichern.
 
 ## Compliance {#compliance}
 

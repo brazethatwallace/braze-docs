@@ -132,6 +132,19 @@ Para **Ancho automático**, el redimensionamiento automático de imagen elige el
 - Las imágenes más pequeñas que el espacio disponible utilizan el tamaño natural de la imagen para evitar efectos de distorsión o imágenes borrosas.
 {% endalert %}
 
+#### Comportamiento del botón de descarga en Gmail {#gmail-download-button-behavior}
+
+Gmail añade automáticamente un botón de descarga a las imágenes que no tienen un hipervínculo (`href`) asociado. Sin embargo, si la relación de aspecto de la imagen es de 299 x 524 px o menor, Gmail no mostrará el botón de descarga.
+
+Para evitar que el botón de descarga aparezca en imágenes más grandes, puedes aplicar la solución alternativa del enlace "#":
+
+1. Selecciona el bloque **Image**.
+2. En el panel **Block Options**, ve a la sección **Link**.
+3. Establece el **Link type** en **Open web page**.
+4. Introduce el signo de almohadilla (`#`) en el campo de entrada **URL**.
+
+Añadir este enlace evita que Gmail muestre el botón de descarga sin afectar la experiencia del usuario.
+
 ### Video
 
 Crea un enlace al contenido de video. Solo son compatibles YouTube y Vimeo.

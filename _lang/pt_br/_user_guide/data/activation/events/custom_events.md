@@ -85,7 +85,7 @@ Eventos personalizados requerem configuração adicional. Consulte a documentaç
 
 ## Armazenamento de eventos personalizados {#custom-event-storage}
 
-Todos os dados armazenados no **Perfil de usuário**, incluindo metadados de eventos personalizados (primeira ou última ocorrência, contagem total e X em Y ao longo de 30 dias), são retidos indefinidamente enquanto cada perfil estiver [ativo]({{site.baseurl}}/user_archival#active-users).
+Todos os dados armazenados no **Perfil de usuário**, incluindo metadados de eventos personalizados (primeira ou última ocorrência, contagem total e X em Y ao longo de 30 dias), são retidos indefinidamente enquanto cada perfil estiver <a href="/docs/user_archival#active-users">ativo</a>.
 
 ## Visualizar o histórico de eventos de um usuário {#view-a-users-event-history}
 
@@ -141,7 +141,7 @@ A tabela a seguir mostra os filtros disponíveis para segmentar usuários por ev
 
 A Braze registra o número de vezes que eventos personalizados ocorreram e a última vez que foram realizados por cada usuário para segmentação. Visualize essas análises de dados acessando **Analytics** > **Relatório de eventos personalizados**.
 
-Na página **Relatório de eventos personalizados** no dashboard, você pode visualizar de forma agregada a frequência com que cada evento personalizado ocorre. As linhas cinzas sobrepostas na série temporal indicam a última vez que uma Campaign foi enviada, o que é útil para ver como suas Campaigns afetaram a atividade de eventos personalizados.
+Na página **Relatório de eventos personalizados** no dashboard, você pode visualizar de forma agregada a frequência com que cada evento personalizado ocorre. As linhas cinzas sobrepostas na série temporal indicam a última vez que uma Campaign foi enviada, o que é útil para ver como suas campanhas afetaram a atividade de eventos personalizados.
 
 ![Gráfico de contagem de eventos personalizados na página de Eventos personalizados no dashboard mostrando tendências para um evento personalizado]({% image_buster /assets/img_archive/custom_event_analytics_example.png %} "custom_event_analytics_example.png")
 
