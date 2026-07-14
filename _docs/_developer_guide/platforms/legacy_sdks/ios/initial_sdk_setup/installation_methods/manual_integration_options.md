@@ -13,7 +13,7 @@ noindex: true
 # Manual integration
 
 {% alert tip %}
-We strongly recommend that you implement the SDK through a package manager such as [Swift Package Manager](swift_package_manager/), [CocoaPods](cocoapods/), or [Carthage](carthage_integration/). It will save you a lot of time and automate much of the process. However, if you are unable to do so, you may complete the integration manually by following the instructions.
+We strongly recommend that you implement the SDK through a package manager such as [Swift Package Manager]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods), or [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration). It will save you a lot of time and automate much of the process. However, if you are unable to do so, you may complete the integration manually by following the instructions.
 {% endalert %}
 
 ## Step 1: Downloading the Braze SDK
