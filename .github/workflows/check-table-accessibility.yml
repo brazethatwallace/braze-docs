@@ -176,6 +176,7 @@ jobs:
               violations = JSON.parse(fs.readFileSync('violations.json', 'utf8'));
             } catch (e) {
               core.warning('Could not read violations.json: ' + e.message);
+              return;
             }
 
             // --- Post inline suggestions with context ---
