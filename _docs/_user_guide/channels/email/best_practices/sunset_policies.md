@@ -31,9 +31,7 @@ You can also leverage external tools such as [Sender Score](https://www.sendersc
 
 To align with a sunset policy, build the suppression list with filters that capture users who should no longer get ongoing promotional email (for example, `Last Engaged With Message` or other filters under **Retargeting**) using the same lookback window and channel choices you use for “unengaged” in your policy. Membership is dynamic, so users enter when they meet the filters and exit when they engage again.
 
-If you still want certain sends to reach inactive users, such as a final win-back or approved transactional journeys, configure exception tags on the suppression list so campaigns or Canvases with those tags still deliver when users are in the target audience. For setup steps, permissions, and limits, see [Setting up suppression lists]({{site.baseurl}}/user_guide/audience/suppression_lists/#setup).
-
-Suppression lists work alongside segmentation, which can define who you include in a send.
+If you still want certain sends to reach inactive users, such as a final win-back or approved transactional journeys, configure exception tags on the suppression list so campaigns or Canvases with those tags still deliver when users are in the target audience. Suppression lists work alongside segmentation, which can define who you include in a send. For setup steps, permissions, and limits, see [Setting up suppression lists]({{site.baseurl}}/user_guide/audience/suppression_lists/#setup).
 
 ## Use segmentation filters
 
