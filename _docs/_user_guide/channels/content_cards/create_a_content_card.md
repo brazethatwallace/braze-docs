@@ -135,7 +135,12 @@ Content Cards can be delivered based on a scheduled time, an action, or an API t
 
 You can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) and determine the Content Card's expiration. Set a specific expiration date or the days until a Card expires, up to 30 days. All variants have identical expiration dates.
 
-If you choose to expire a card after a set duration (for example, after two weeks), the expiration is calculated from the card's send time. For scheduled campaigns, this is the scheduled launch time. For action-based campaigns, this is the time the user performs the triggering action. For example, if an action-based card is sent at 2 pm today with a 1-day expiration, it expires at 2 pm the following day.
+The expiration countdown starts from the card's send time:
+
+- **Scheduled campaigns:** The countdown begins at the scheduled launch time.
+- **Action-based campaigns:** The countdown begins when the user performs the triggering action.
+
+For example, if an action-based Content Card is sent at 2 pm today with a 1-day expiration, it expires at 2 pm the following day.
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
@@ -193,7 +198,7 @@ The entire data payload for a single Content Card cannot exceed 2 KB **after** a
 
 Using Liquid to pull in long strings of text (such as from custom attributes) can cause you to exceed the limit. 
 
-The campaign composer displays a warning if your static content exceeds the limit. (We do not predict the size for dynamic content using Liquid.) **If the message size exceeds 2 KB, it is aborted at send time.** You can see these aborts in the Message Activity Log with the reason `Content card maximum size exceeded`.
+The campaign composer displays a warning if your static content exceeds the limit. We do not predict the size for dynamic content using Liquid. If the message size exceeds 2 KB, it is aborted at send time. You can see these aborts in the Message Activity Log with the reason `Content card maximum size exceeded`.
 
 {% alert important %}
 During test sends, Content Cards that exceed 2 KB can still be delivered and displayed properly.
@@ -264,8 +269,8 @@ When you duplicate the campaign, you need to define the audience for the new ver
 
 ###### Impact
 
-* **Existing recipients:** New and existing recipients would see the updated card at the next feed refresh if they are eligible.
-* **Reporting:** Each version of the card would have separate analytics.
+- **Existing recipients:** New and existing recipients would see the updated card at the next feed refresh if they are eligible.
+- **Reporting:** Each version of the card would have separate analytics.
 
 Let's say you've set a campaign to be triggered by a session start, and it has re-eligibility set to 30 days. A user received the campaign two days ago, and you want to change the copy. First, you'd archive the campaign and remove the cards from the feed. Second, you'd duplicate the campaign and re-launch with the new copy. If the user has another session, they'll immediately receive the new card.
 
