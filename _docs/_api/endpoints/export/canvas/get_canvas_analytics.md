@@ -112,7 +112,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/data_seri
       ... (more stats by time)
     ]
   },
-  "message": (string) returns `success` when the request completes without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

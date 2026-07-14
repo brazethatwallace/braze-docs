@@ -49,7 +49,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sessions/data_se
 
 ```json
 {
-    "message": (string) returns `success` when the request completes without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "data" : [
         {
             "time" : (string) point in time - as ISO 8601 extended when unit is "hour" and as ISO 8601 date when unit is "day",

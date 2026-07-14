@@ -48,7 +48,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/purchases/quantity_
 
 ```json
 {
-  "message": (string) returns `success` when the request completes without errors,
+  "message": (string) returns 'success' when the request completes without errors,
   "data" : [
     {
       "time" : (string) the date as ISO 8601 date,

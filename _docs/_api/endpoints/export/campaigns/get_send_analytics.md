@@ -93,7 +93,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/sends/data_serie
         "revenue": (optional, float)
       }
     ],
-  "message": (string) returns `success` when the request completes without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

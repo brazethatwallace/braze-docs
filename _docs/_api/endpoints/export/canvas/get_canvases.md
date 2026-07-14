@@ -60,7 +60,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/canvas/list?page
   	},
     ... (more Canvases)
   ],
-  "message": (string) returns `success` when the request completes without errors
+  "message": (string) returns 'success' when the request completes without errors
 }
 ```
 

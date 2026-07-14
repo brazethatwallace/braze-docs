@@ -47,7 +47,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/kpi/dau/data_ser
 
 ```json
 {
-    "message": (string) returns `success` when the request completes without errors,
+    "message": (string) returns 'success' when the request completes without errors,
     "data" : [
         {
             "time" : (string) the date as ISO 8601 date,
