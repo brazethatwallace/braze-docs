@@ -132,7 +132,7 @@ In `total_stats`, `variant_stats`, and `step_stats`, `conversions` is the count 
       ... (more steps)
     }
   },
-  "message": "success"
+  "message": (string) returns `success` when the request completes without errors
 }
 ```
 
