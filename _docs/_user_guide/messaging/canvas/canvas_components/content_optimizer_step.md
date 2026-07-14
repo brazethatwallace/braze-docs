@@ -86,6 +86,8 @@ Content components are the individual elements of your message that you want to 
 - **Push notifications:** You can add up to two components per step and up to five variants per component, for a total of 25 unique content combinations.
 - **SMS/MMS/RCS:** You can add up to two content components per step, and up to five variants per component, for a total of 25 unique content combinations.
 
+When you use **Generate AI suggestions**, Braze sends content to OpenAI to generate variant ideas. Send-time traffic allocation does not use OpenAI. For details on what data is sent and how it is used, see [OpenAI and Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer#openai-and-content-optimizer).
+
 ![Options for adding and configuring content components in the Content Optimizer interface. The interface displays selectable components such as Subject, Body Header, Body Content, and Primary CTA, each with fields to enter different variants.]({% image_buster /assets/img/content_optimizer/add_content_components.png %})
 
 #### Step 4.1: Configure content components
