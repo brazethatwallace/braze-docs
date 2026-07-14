@@ -43,7 +43,7 @@ Braze offers four eCommerce Canvas templates.
 
 To begin personalizing your messages using Liquid tags, you can refer to the following resources:
 
-- [Shopify data]({{site.baseurl}}/shopify_features#shopify-data) reference with pre-defined liquid tags
+- <a href="/docs/partners/ecommerce/shopify/shopify_data_features#tracked-shopify-events">Shopify data</a> reference with pre-defined liquid tags
 - [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)
 
 ## Segmentation
