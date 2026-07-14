@@ -3,8 +3,9 @@
 AI style review for Braze Docs pull requests (Copilot-style editorial feedback).
 
 Fetches changed Markdown in a PR, sends diffs to Claude with the Braze writing
-style reference, and posts a pull request review with inline suggestion comments
-where GitHub allows one-click Commit.
+style reference, and posts inline suggestion comments on the diff where GitHub
+allows one-click Commit. Findings without postable inline suggestions (including
+PR-level notes) go in a single summary issue comment per run.
 
 Environment:
     PR_NUMBER          Required
@@ -1527,35 +1528,23 @@ def _post_single_review_comment(owner: str, repo: str, comment: dict) -> bool:
     return result.returncode == 0
 
 
-def post_pull_request_review(inline: list[dict], summary_notes: list[str]) -> tuple[int, list[dict]]:
-    """Returns (posted_inline, fallback_comments)."""
+def post_pull_request_review(inline: list[dict]) -> tuple[int, list[dict]]:
+    """Post inline suggestion comments via a pull request review. Returns (posted_inline, fallback_comments)."""
     owner, repo = REPO.split("/", 1)
     review_comments = [_inline_to_review_comment(item) for item in inline[:MAX_INLINE]]
     fallback: list[dict] = []
+
+    if not review_comments:
+        return 0, fallback
 
     summary_lines = [
         "## Docs style review (automated)\n",
         f"Model: `{REVIEW_MODEL}` · Inline suggestions: **{len(review_comments)}**",
         "",
+        "Open the **Files changed** tab and use **Commit suggestion** or "
+        "**Commit all suggestions** on inline comments where offered.",
+        "",
     ]
-    if review_comments:
-        summary_lines.append(
-            "Open the **Files changed** tab and use **Commit suggestion** or "
-            "**Commit all suggestions** on inline comments where offered."
-        )
-        summary_lines.append("")
-    if summary_notes:
-        summary_lines.append("### Additional notes")
-        summary_lines.append("")
-        for note in summary_notes:
-            summary_lines.append(f"- {note}")
-        summary_lines.append("")
-    if not review_comments and not summary_notes:
-        summary_lines.append(
-            "**No issues or errors found** for the changed Markdown in this PR."
-        )
-        summary_lines.append("")
-
     review_body = "\n".join(summary_lines).strip()
 
     payload: dict = {
@@ -1963,11 +1952,15 @@ def main() -> None:
 
     print(f"Model returned {len(validated)} valid inline suggestion(s)")
     has_findings = bool(validated) or bool(summary_notes)
-    if has_findings:
-        posted, fallback = post_pull_request_review(postable, summary_notes)
-        fallback.extend(_inline_to_review_comment(item) for item in outside_diff)
+    outside_fallback = [_inline_to_review_comment(item) for item in outside_diff]
+    posted = 0
+    fallback: list[dict] = []
+
+    if has_findings and postable:
+        posted, fallback = post_pull_request_review(postable)
+        fallback.extend(outside_fallback)
         print(f"Posted {posted} inline suggestion(s) on the PR diff.")
-        if posted == 0 and postable:
+        if posted == 0:
             print(
                 "Keeping prior inline comments because new suggestions could not be posted."
             )
@@ -1981,8 +1974,12 @@ def main() -> None:
             )
             print("Summary comment posted for this commit.")
             return
+    elif has_findings:
+        fallback = outside_fallback
+        print(
+            "No inline suggestions on the diff; posting findings in the summary comment only."
+        )
     else:
-        posted, fallback = 0, []
         print("No findings; skipping PR review (pass/fail only in summary comment).")
 
     sync_summary_comment(
