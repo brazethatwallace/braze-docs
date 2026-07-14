@@ -52,57 +52,58 @@ The following table summarizes messaging channel support for common TV and OTT p
         <tr>
             <td>Amazon Fire TV</td>
             <td><a href="https://github.com/braze-inc/braze-vega-sdk">Vega SDK</a></td>
-            <td>✅ Supported</td>
-            <td>✅ Supported</td>
-            <td>✅ Supported</td>
-            <td>🔧 Headless only</td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">Supported</span></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">Supported</span></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">Supported</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Headless only</span></td>
         </tr>
         <tr>
             <td>Android TV</td>
             <td><a href="https://github.com/braze-inc/braze-android-sdk">Android SDK</a></td>
-            <td>✅ Supported</td>
-            <td>✅ Supported</td>
-            <td>✅ Supported</td>
-            <td>🔧 Headless only</td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">Supported</span></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">Supported</span></td>
+            <td><span aria-hidden="true">✅</span><span class="sr-only">Supported</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Headless only</span></td>
         </tr>
         <tr>
             <td>LG TV (webOS)</td>
             <td><a href="https://github.com/braze-inc/braze-web-sdk">Web SDK</a></td>
-            <td>🔧 Headless only</td>
-            <td>🔧 Headless only</td>
-            <td>➖ OTT platform unsupported</td>
-            <td>🔧 Headless only</td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Headless only</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Headless only</span></td>
+            <td><span aria-hidden="true">➖</span><span class="sr-only">OTT platform unsupported</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Headless only</span></td>
         </tr>
         <tr>
             <td>Samsung Tizen TV</td>
             <td><a href="https://github.com/braze-inc/braze-web-sdk">Web SDK</a></td>
-            <td>🔧 Headless only</td>
-            <td>🔧 Headless only</td>
-            <td>➖ OTT platform unsupported</td>
-            <td>🔧 Headless only</td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Headless only</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Headless only</span></td>
+            <td><span aria-hidden="true">➖</span><span class="sr-only">OTT platform unsupported</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Headless only</span></td>
         </tr>
         <tr>
             <td>Roku</td>
             <td><a href="https://github.com/braze-inc/braze-roku-sdk">Roku SDK</a></td>
-            <td>🔧 Headless only</td>
-            <td>❌ Not supported by Braze</td>
-            <td>➖ OTT platform unsupported</td>
-            <td>❌ Not supported by Braze</td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Headless only</span></td>
+            <td><span aria-hidden="true">❌</span><span class="sr-only">Not supported by Braze</span></td>
+            <td><span aria-hidden="true">➖</span><span class="sr-only">OTT platform unsupported</span></td>
+            <td><span aria-hidden="true">❌</span><span class="sr-only">Not supported by Braze</span></td>
         </tr>
         <tr>
             <td>Apple TV OS (tvOS)</td>
             <td><a href="https://github.com/braze-inc/braze-swift-sdk">Swift SDK</a></td>
-            <td>🔧 Headless only</td>
-            <td>🔧 Headless only</td>
-            <td>❌ Not supported by Braze</td>
-            <td>🔧 Headless only</td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Headless only</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Headless only</span></td>
+            <td><span aria-hidden="true">❌</span><span class="sr-only">Not supported by Braze</span></td>
+            <td><span aria-hidden="true">🔧</span><span class="sr-only">Headless only</span></td>
         </tr>
     </tbody>
 </table>
 
-{% alert note %}
-In this table, **Headless only** means that you will need to build a custom UI.
-{% endalert %}
+- <span aria-hidden="true">✅</span> = Supported
+- <span aria-hidden="true">🔧</span> = Headless only (you'll need to build a custom UI)
+- <span aria-hidden="true">➖</span> = Not supported by the OTT platform
+- <span aria-hidden="true">❌</span> = Not supported by Braze
 
 ## Integration guides
 
