@@ -44,7 +44,7 @@ Features for Braze Agents include:
 
 ## About Braze Agents
 
-Agents are configured with instructions (system prompts) that define how they behave. When an agent runs, it uses your instructions along with any data you pass in to generate a response. They can't access user data beyond what is provided by the selected context and instructions.
+Agents are configured with instructions (system prompts) that define how they behave. When an agent runs, it uses your instructions along with any data you explicitly pass in to generate a response. They cannot access user data beyond what you configure—Liquid variables, Agent context selections, Canvas context variables, and Context step values. Agents do not search profiles or warn when data is missing. See [What data agents receive]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive).
 
 ### Key concepts
 
@@ -65,6 +65,7 @@ Agents are configured with instructions (system prompts) that define how they be
 The following limitations apply:
 
 - Each agent has a default daily invocation limit of 250,000 runs, which can be increased up to a maximum of 1,000,000 runs per day. Contact your customer success manager if you're interested in increasing this limit.
+- Agent Console shows a **Daily action credit cost limit** for each agent—the estimated maximum credits per day based on your model's per-invocation credit ratio and the daily invocation limit. See [Daily invocation and credit limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - By default, each run must complete within 20 seconds. After 20 seconds, the agent returns a `null` response where it is used.
     - If your agents consistently time out, contact your Braze account manager to increase this limit.
 - Input data is limited to 25 KB per request. Longer inputs are truncated.
@@ -77,7 +78,7 @@ To validate ROI before scaling, use an [Experiment Paths]({{site.baseurl}}/user_
 
 ## Error handling
 
-If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) from the LLM provider during a **Canvas Agent step**, Braze continuously retries the request using exponential backoff. Catalog agents do not retry rate-limited invocations. For other failures (such as a timeout or invalid API key), the Canvas agent output is set to `null` unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in Agent Console (Canvas step agents only). If an agent reaches its daily invocation limit, Braze applies configured fallback values when present; otherwise the output is set to `null`.
+If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) from the LLM provider during a **Canvas Agent step** or **catalog agent** invocation, Braze continuously retries the request using exponential backoff. For other failures (such as a timeout or invalid API key), the Canvas agent output is set to `null` unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in Agent Console (Canvas step agents only). Catalog agents do not retry non-rate-limit failures. If an agent reaches its daily invocation limit, Braze applies configured fallback values when present; otherwise the output is set to `null`.
 
 When many users enter an Agent step at once, processing may take longer because of [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls). Configure fallback values in Agent Console for Canvas agents so users still receive output when an invocation fails, or use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) in downstream Message steps.
 
