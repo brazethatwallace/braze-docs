@@ -16,7 +16,7 @@ For emails, your sending IP and domain reputation factor in engagement, spam rep
 
 ## Monitor IP and domain health
 
-Use the [Deliverability Center]({{site.baseurl}}/user_guide/analytics/dashboards/deliverability_center/) (**Analytics** > **Email Performance** > **Deliverability Center**) to track how mailbox providers see your sending:
+Use the [Deliverability Center]({{site.baseurl}}/user_guide/analytics/dashboards/deliverability_center/) to track how mailbox providers see your sending:
 
 - **Google Postmaster Tools** (after you connect your account): IP reputation, domain reputation, delivery errors, authentication (SPF, DKIM, DMARC), and encryption metrics for Gmail-related visibility.
 - **Microsoft Smart Network Data Services (SNDS)** (when configured for your IPs): Outlook and Microsoft mailbox IP health, including filter results, complaint rates, and spam trap hits.
