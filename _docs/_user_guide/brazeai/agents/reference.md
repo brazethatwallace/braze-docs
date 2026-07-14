@@ -96,7 +96,7 @@ To manage spend, lower the daily invocation limit. For [bring-your-own (BYO)](#o
 
 ### Rate limit errors
 
-If the LLM provider returns a rate limit error during a Canvas Agent step or Catalog Agent invocation, Braze continuously retries the request using exponential backoff until the call succeeds or Braze determines it cannot be completed.
+If the LLM provider returns a rate limit error during a Canvas Step Agent or Catalog Agent invocation, Braze continuously retries the request using exponential backoff until the call succeeds or Braze determines it cannot be completed.
 
 When Canvas or catalog retries are exhausted, the **Logs** details panel shows **Error** and the provider message (such as `Rate limit exceeded`) in **Output**. Retries are visible in logs, including the very first invocation regardless of its eventual success or failure. For a given user, if it takes four retries to finally get a success, you can search the user ID and see all five (original plus four retries) in the **Logs**, and the original plus the first three retries will show **Error** with `Rate limit exceeded`.
 

@@ -76,7 +76,7 @@ For examples, see [How it works]({{site.baseurl}}/user_guide/messaging/canvas/ca
 
 ### Error handling and fallback behavior {#fallback-behavior}
 
-The following applies to **Canvas step agents** in an [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
+The following applies to Canvas Step Agents in an [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 - If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) from the LLM provider, Braze continuously retries the request using exponential backoff until the call succeeds or Braze determines it cannot be completed; users then proceed to the next Canvas step.
 - For other failures (such as a timeout or invalid API key), the output variable is set to `null` unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in Agent Console.
