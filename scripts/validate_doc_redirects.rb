@@ -170,17 +170,23 @@ end
 # tell an author what kind of fix is needed:
 #   :heading_renamed        -- this exact link resolved fine on base; some
 #                               heading it points at changed or disappeared
-#   :new_link_wrong_anchor  -- this link (by source file + raw url) did not
-#                               exist on base at all; likely a typo or wrong
-#                               target in newly-added content
+#   :new_link_wrong_anchor  -- this link (by source file + target path +
+#                               anchor) did not exist on base at all; likely
+#                               a typo or wrong target in newly-added content
 #
-# Known limitation: classification keys off (source_file, raw_url) unchanged
-# across refs, so if the *source* file itself was renamed in this PR (already
-# tracked separately via git rename detection in required_redirects), the
-# same link reports under a different key and gets labeled
-# :new_link_wrong_anchor even though it's really a renamed-heading case.
-# Cosmetic only -- it doesn't change whether the check passes or fails, just
-# which fix-suggestion message an author sees.
+# Known limitations of the (source_file, target_path, anchor) identity key:
+# - If the *source* file itself was renamed in this PR (already tracked
+#   separately via git rename detection in required_redirects), the same
+#   link reports under a different key and gets labeled
+#   :new_link_wrong_anchor even though it's really a renamed-heading case.
+#   Cosmetic only -- it doesn't change whether the check passes or fails,
+#   just which fix-suggestion message an author sees.
+# - Two distinct links in the same source file that happen to resolve to the
+#   same (target_path, anchor) are indistinguishable by this key. If one was
+#   already broken on base, a newly-added second link to that same already-
+#   broken destination is classified as pre-existing debt rather than new
+#   breakage. Accepted: both links point at the literal same nonexistent
+#   destination, so a single heading fix resolves both.
 #
 # first_heading_warnings: links that DO resolve on HEAD, but whose anchor
 # matches the target page's first heading id. Non-blocking -- this is
