@@ -78,16 +78,28 @@ jobs:
             // the remaining markdown after it render live (spoofed links/headings). Use
             // an HTML <code> element with entity-escaping instead, which sidesteps
             // markdown code-span parsing entirely.
-            // Backslash-escape every ASCII punctuation character CommonMark treats
-            // as potentially significant (link/image brackets, emphasis, code-span
-            // backticks, headings, list markers, autolinks/raw HTML angle brackets,
-            // strikethrough). CommonMark renders "\X" as a literal "X" for punctuation,
-            // so this is visually a no-op but prevents the value from being parsed as
-            // markdown -- including when embedded inside a raw HTML <code> tag, since
-            // CommonMark still runs ordinary inline parsing (links, backslash escapes,
-            // code spans, etc.) on text between raw HTML tags; the tags don't create an
-            // opaque/literal region on their own.
-            const mdEscape = (s) => String(s).replace(/([\\`*_{}\[\]()#+\-.!|<>~])/g, '\\$1');
+            // Collapse embedded line breaks to a single space FIRST. A value that
+            // spans multiple physical lines (e.g. a markdown link whose destination was
+            // captured across lines by doc_anchor_links.rb) can otherwise break out of
+            // its enclosing list item / inline context entirely -- a blank line ends the
+            // current list item regardless of an unclosed <code> tag, and a bare "text\n===" line
+            // pair then forms a live Setext heading -- neither of which requires any of the
+            // punctuation below. Reducing the value to a single line removes the
+            // possibility of block-level (heading/list/blockquote/etc.) constructs forming
+            // inside it at all.
+            //
+            // Then backslash-escape every ASCII punctuation character CommonMark treats as
+            // potentially significant (link/image brackets, emphasis, code-span backticks,
+            // headings, list markers, autolinks/raw HTML angle brackets, strikethrough,
+            // Setext heading underlines). CommonMark renders "\X" as a literal "X" for
+            // punctuation, so this is visually a no-op but prevents the value from being
+            // parsed as markdown -- including when embedded inside a raw HTML <code> tag,
+            // since CommonMark still runs ordinary inline parsing (links, backslash
+            // escapes, code spans, etc.) on text between raw HTML tags; the tags don't
+            // create an opaque/literal region on their own.
+            const mdEscape = (s) => String(s)
+              .replace(/\r\n|\r|\n/g, ' ')
+              .replace(/([\\`*_{}\[\]()#+\-.!=|<>~])/g, '\\$1');
             const code = (s) => `<code>${mdEscape(s)}</code>`;
 
             // Only used inside the ```js fenced block below, which is a different
