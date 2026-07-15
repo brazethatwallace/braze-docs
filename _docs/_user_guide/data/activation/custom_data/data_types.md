@@ -1,4 +1,4 @@
-2---
+---
 nav_title: Data types
 article_title: Data types
 page_order: 1
