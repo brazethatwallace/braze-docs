@@ -168,10 +168,8 @@ def doc_title(heading_map, path)
   heading_map.dig(path, "title") || path
 end
 
-# Returns [newly_broken, first_heading_warnings].
-#
-# newly_broken: links whose anchor does not resolve on HEAD and were not
-# already broken on base (mirrors required_redirects' "only fail on new
+# Returns newly_broken: links whose anchor does not resolve on HEAD and were
+# not already broken on base (mirrors required_redirects' "only fail on new
 # breakage" rule). Each entry is tagged with a :category so the report can
 # tell an author what kind of fix is needed:
 #   :heading_renamed        -- this exact link resolved fine on base; some
@@ -193,11 +191,6 @@ end
 #   broken destination is classified as pre-existing debt rather than new
 #   breakage. Accepted: both links point at the literal same nonexistent
 #   destination, so a single heading fix resolves both.
-#
-# first_heading_warnings: links that DO resolve on HEAD, but whose anchor
-# matches the target page's first heading id. Non-blocking -- this is
-# advisory since a link to a page's first heading behaves identically to
-# linking the page directly.
 def required_anchor_fixes(heading_map_base, heading_map_head, links_base, links_head)
   base_keys = links_base.map { |l| anchor_link_key(l) }.to_set
   broken_before_keys = links_base.reject { |l| anchor_resolves?(heading_map_base, l) }
@@ -214,19 +207,47 @@ def required_anchor_fixes(heading_map_base, heading_map_head, links_base, links_
     newly_broken << { link: l, category: category }
   end
 
-  first_heading_warnings = links_head.select do |l|
-    next false unless anchor_resolves?(heading_map_head, l)
-
-    entry = heading_map_head[l.target_path]
-    entry && !entry["heading_ids"].to_a.empty? && entry["heading_ids"].first == l.anchor
-  end
-
-  [newly_broken, first_heading_warnings]
+  newly_broken
 end
 
-def git_diff_name_status(base_ref)
+def first_heading_link?(heading_map_head, link)
+  return false unless anchor_resolves?(heading_map_head, link)
+
+  entry = heading_map_head[link.target_path]
+  entry && !entry["heading_ids"].to_a.empty? && entry["heading_ids"].first == link.anchor
+end
+
+# Every path this PR added, modified, or renamed-to, under _docs/ or root
+# _includes/ (the same scan domain as anchor_scan_files). Used to scope the
+# first-heading warning to links living in files this PR actually touched --
+# scanning every resolving link sitewide produced hundreds of warnings on
+# pre-existing, unrelated content and wasn't useful signal for a reviewer.
+def changed_or_added_files(diff_rows)
+  diff_rows.each_with_object(Set.new) do |row, set|
+    case row[0]
+    when :rename
+      set << row[2] # only the new path can appear as a link source in HEAD
+    when :a, :m, :t
+      set << row[1]
+    end
+  end
+end
+
+# links that DO resolve on HEAD, live in a file this PR touched, and whose
+# anchor matches the target page's first heading id. Non-blocking -- this is
+# advisory since a link to a page's first heading behaves identically to
+# linking the page directly, and a reviewer would reasonably want to
+# double-check whether that was intentional -- but only for content this PR
+# is actually responsible for, not the whole site's pre-existing links.
+def first_heading_warnings_for(heading_map_head, links_head, changed_files)
+  links_head.select do |l|
+    changed_files.include?(l.source_file) && first_heading_link?(heading_map_head, l)
+  end
+end
+
+def git_diff_name_status(base_ref, paths: ["_docs/"])
   range = "#{base_ref}...HEAD"
-  out = sh_capture("git", "diff", "--name-status", "-M20%", range, "--", "_docs/")
+  out = sh_capture("git", "diff", "--name-status", "-M20%", range, "--", *paths)
   rows = []
   out.each_line do |line|
     line = line.chomp
@@ -342,9 +363,11 @@ def validate!(options)
   # is a mutable ref (branch or remote-tracking branch) that could advance.
   diff_rows = git_diff_name_status(resolve_ref)
   needed, stats = required_redirects(map_base, map_head, diff_rows)
-  newly_broken_anchors, first_heading_warnings = required_anchor_fixes(
-    heading_map_base, heading_map_head, links_base, links_head
-  )
+  newly_broken_anchors = required_anchor_fixes(heading_map_base, heading_map_head, links_base, links_head)
+
+  anchor_diff_rows = git_diff_name_status(resolve_ref, paths: ["_docs/", "_includes/"])
+  changed_files = changed_or_added_files(anchor_diff_rows)
+  heading_warnings = first_heading_warnings_for(heading_map_head, links_head, changed_files)
 
   redirect_path = File.join(REPO_ROOT, REDIRECT_REL)
   redirects = parse_redirect_file(redirect_path)
@@ -411,7 +434,7 @@ def validate!(options)
         "category" => row[:category].to_s
       }
     },
-    anchor_warnings: first_heading_warnings.map { |l|
+    anchor_warnings: heading_warnings.map { |l|
       {
         "source_file" => l.source_file,
         "source_title" => doc_title(heading_map_head, l.source_file),
@@ -474,10 +497,10 @@ def validate!(options)
     end
   end
 
-  if first_heading_warnings.any?
+  if heading_warnings.any?
     puts "Warning (non-blocking): links pointing at a target page's first heading behave"
     puts "identically to linking the page directly. Please confirm these are intentional:"
-    first_heading_warnings.each { |l| puts "  - #{l.source_file}: #{l.raw_url}" }
+    heading_warnings.each { |l| puts "  - #{l.source_file}: #{l.raw_url}" }
     puts ""
   end
 

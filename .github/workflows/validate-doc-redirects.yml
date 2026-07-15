@@ -188,22 +188,22 @@ jobs:
               if (kind === 'renamed') {
                 return `${anchorCode} on ${titleCode} no longer exists -- referenced by ${count} ${article}`;
               }
-              if (kind === 'typo') {
-                return `${anchorCode} on ${titleCode} doesn't exist -- check for a typo (referenced by ${count} ${article})`;
-              }
-              return `${anchorCode} is the first heading on ${titleCode} -- linking it behaves the same as linking the page directly (referenced by ${count} ${article})`;
+              return `${anchorCode} on ${titleCode} doesn't exist -- check for a typo (referenced by ${count} ${article})`;
             };
 
+            // Grouped but NOT collapsed: a bold summary line naming what broke, followed
+            // by a plain (always-visible) bullet list of the referencing articles. Using
+            // ordinary markdown here (rather than <details>/<summary>, a raw HTML block
+            // that receives no inline markdown processing) means mdEscape's backslash
+            // escapes are actually consumed by the renderer instead of showing up
+            // literally in the comment.
             const MAX_GROUPS = 20;
             const renderGroups = (groups, kind) => {
               const capped = groups.slice(0, MAX_GROUPS);
               const blocks = capped.map((g) => [
-                '<details>',
-                `<summary>${summaryFor(kind, g)}</summary>`,
+                `**${summaryFor(kind, g)}**`,
                 '',
                 ...listItems(g.sources, (t) => `- ${text(t)}`),
-                '',
-                '</details>',
               ].join('\n'));
               if (groups.length > MAX_GROUPS) {
                 blocks.push(`…and ${groups.length - MAX_GROUPS} more affected heading(s) -- see the full report in the workflow run log.`);
@@ -283,17 +283,23 @@ jobs:
             };
 
             const buildWarningsBody = (report) => {
-              const warnGroups = groupAnchorItems(report.anchor_warnings || []);
-              if (!warnGroups.length) return null;
+              const warnings = report.anchor_warnings || [];
+              if (!warnings.length) return null;
+
+              const entries = listItems(
+                warnings,
+                (w) => [`Page: ${code(w.source_title)}`, `Link: ${code(w.link)}`].join('\n'),
+                (n) => `…and ${n} more (see the full report in the workflow run log)`
+              );
 
               return truncate([
                 WARNINGS_MARKER,
                 '',
                 '### Anchor warnings (non-blocking)',
                 '',
-                'These links resolve fine, but point at a target page\'s first heading -- which behaves identically to linking the page directly in a browser. Please confirm each is intentional:',
+                'These links resolve fine, but they point to the first heading on the target page. If this was intentional, you can ignore this message. Otherwise, update the link to remove the anchor.',
                 '',
-                renderGroups(warnGroups, 'warning'),
+                entries.join('\n\n'),
               ].join('\n'));
             };
 
