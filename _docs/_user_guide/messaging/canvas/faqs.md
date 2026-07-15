@@ -203,7 +203,7 @@ No, but you can [archive a Canvas]({{site.baseurl}}/user_guide/messaging/governa
 
 ### How do I resume an archived Canvas or campaign?
 
-Archived messages do not send until you return them to an editable state. [Unarchive]({{site.baseurl}}/user_guide/messaging/governance/archiving/#unarchiving-campaigns-and-canvases) the campaign or Canvas, set the entry schedule or send time to a future window (or duplicate the journey if you need a clean copy), then **Resume** or launch as required. See [Archive campaigns and Canvases]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+Archived messages do not send until you return them to an editable state. [Unarchive]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving) the campaign or Canvas, set the entry schedule or send time to a future window (or duplicate the journey if you need a clean copy), then **Resume** or launch as required. See [Archive campaigns and Canvases]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
 
 ### Why doesn't my Canvas save when no error appears?
 
