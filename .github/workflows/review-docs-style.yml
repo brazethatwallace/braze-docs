@@ -4,6 +4,7 @@
 #
 # Posts inline review comments with ```suggestion blocks where possible (Commit suggestion).
 # PR-level notes and non-diff findings go in one summary issue comment per run.
+# Commit-able single-line fixes should land in inline suggestions when possible.
 # Each run replaces prior automated inline comments and the summary issue comment.
 # Requires: ANTHROPIC_API_KEY repository secret.
 #
