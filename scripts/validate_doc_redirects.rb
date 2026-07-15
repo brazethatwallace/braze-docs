@@ -22,6 +22,7 @@ require "optparse"
 require "set"
 require "tempfile"
 require "tmpdir"
+require_relative "doc_anchor_links"
 
 REPO_ROOT = begin
   out, err, st = Open3.capture3("git", "rev-parse", "--show-toplevel")
@@ -30,6 +31,7 @@ REPO_ROOT = begin
   out.strip
 end
 DUMP_SCRIPT = File.expand_path("jekyll_url_map_dump.rb", __dir__)
+HEADING_DUMP_SCRIPT = File.expand_path("jekyll_heading_id_dump.rb", __dir__)
 REDIRECT_REL = "assets/js/broken_redirect_list.js"
 RX_VALIDURL = /validurls\['([^']+)'\]\s*=\s*'([^']*)'(?:;)?/
 
@@ -113,6 +115,101 @@ def jekyll_url_map(site_root)
   JSON.parse(File.read(tmp.path))
 ensure
   tmp&.unlink
+end
+
+def jekyll_heading_id_map(site_root)
+  tmp = Tempfile.new(["jekyll-heading-id-map", ".json"])
+  tmp.close
+  Dir.chdir(site_root) do
+    sh!("bundle", "exec", "ruby", HEADING_DUMP_SCRIPT, tmp.path)
+  end
+  JSON.parse(File.read(tmp.path))
+ensure
+  tmp&.unlink
+end
+
+# Every markdown file this check scans for anchor-bearing links: all of
+# _docs/ and root _includes/. (find_broken_links.ts excludes a "_docs/
+# _contributing/" directory for example/tooling docs with intentionally
+# non-resolving links, but that directory does not exist in this repo --
+# the real contributing docs live at docs/contributing/ and
+# _includes/contributing/, outside the _docs/ collection entirely -- so no
+# equivalent exclusion is needed here. If a future _docs/_contributing/-
+# style directory is added with deliberately-broken example links, add an
+# exclusion here matching its real path at that time.)
+def anchor_scan_files(root)
+  docs = Dir.glob(File.join(root, "_docs", "**", "*.md"))
+  includes = Dir.glob(File.join(root, "_includes", "**", "*.md"))
+  (docs + includes).map { |p| p.delete_prefix("#{root}/") }
+end
+
+def build_anchor_link_index(root)
+  anchor_scan_files(root).flat_map do |rel_path|
+    content = File.read(File.join(root, rel_path))
+    DocAnchorLinks.extract(rel_path, content)
+  end
+end
+
+def anchor_resolves?(heading_map, link)
+  entry = heading_map[link.target_path]
+  return false if entry.nil?
+
+  (entry["all_ids"] || []).include?(link.anchor) ||
+    (entry["local_redirect_keys"] || []).include?(link.anchor)
+end
+
+def anchor_link_key(link)
+  [link.source_file, link.raw_url]
+end
+
+# Returns [newly_broken, first_heading_warnings].
+#
+# newly_broken: links whose anchor does not resolve on HEAD and were not
+# already broken on base (mirrors required_redirects' "only fail on new
+# breakage" rule). Each entry is tagged with a :category so the report can
+# tell an author what kind of fix is needed:
+#   :heading_renamed        -- this exact link resolved fine on base; some
+#                               heading it points at changed or disappeared
+#   :new_link_wrong_anchor  -- this link (by source file + raw url) did not
+#                               exist on base at all; likely a typo or wrong
+#                               target in newly-added content
+#
+# Known limitation: classification keys off (source_file, raw_url) unchanged
+# across refs, so if the *source* file itself was renamed in this PR (already
+# tracked separately via git rename detection in required_redirects), the
+# same link reports under a different key and gets labeled
+# :new_link_wrong_anchor even though it's really a renamed-heading case.
+# Cosmetic only -- it doesn't change whether the check passes or fails, just
+# which fix-suggestion message an author sees.
+#
+# first_heading_warnings: links that DO resolve on HEAD, but whose anchor
+# matches the target page's first heading id. Non-blocking -- this is
+# advisory since a link to a page's first heading behaves identically to
+# linking the page directly.
+def required_anchor_fixes(heading_map_base, heading_map_head, links_base, links_head)
+  base_keys = links_base.map { |l| anchor_link_key(l) }.to_set
+  broken_before_keys = links_base.reject { |l| anchor_resolves?(heading_map_base, l) }
+                                  .map { |l| anchor_link_key(l) }.to_set
+
+  newly_broken = []
+  links_head.each do |l|
+    next if anchor_resolves?(heading_map_head, l)
+
+    key = anchor_link_key(l)
+    next if broken_before_keys.include?(key)
+
+    category = base_keys.include?(key) ? :heading_renamed : :new_link_wrong_anchor
+    newly_broken << { link: l, category: category }
+  end
+
+  first_heading_warnings = links_head.select do |l|
+    next false unless anchor_resolves?(heading_map_head, l)
+
+    entry = heading_map_head[l.target_path]
+    entry && !entry["heading_ids"].to_a.empty? && entry["heading_ids"].first == l.anchor
+  end
+
+  [newly_broken, first_heading_warnings]
 end
 
 def git_diff_name_status(base_ref)
@@ -211,6 +308,14 @@ def validate!(options)
     map_base = jekyll_url_map(worktree)
     puts "Building URL map for HEAD…"
     map_head = jekyll_url_map(REPO_ROOT)
+
+    puts "Building heading-id map for #{base_ref} (#{resolve_ref[0..12]})…"
+    heading_map_base = jekyll_heading_id_map(worktree)
+    puts "Building heading-id map for HEAD…"
+    heading_map_head = jekyll_heading_id_map(REPO_ROOT)
+
+    links_base = build_anchor_link_index(worktree)
+    links_head = build_anchor_link_index(REPO_ROOT)
   ensure
     success = system("git", "-C", REPO_ROOT, "worktree", "remove", "-f", worktree, out: File::NULL, err: File::NULL)
     FileUtils.remove_entry(tmp_parent, true)
@@ -225,6 +330,9 @@ def validate!(options)
   # is a mutable ref (branch or remote-tracking branch) that could advance.
   diff_rows = git_diff_name_status(resolve_ref)
   needed, stats = required_redirects(map_base, map_head, diff_rows)
+  newly_broken_anchors, first_heading_warnings = required_anchor_fixes(
+    heading_map_base, heading_map_head, links_base, links_head
+  )
 
   redirect_path = File.join(REPO_ROOT, REDIRECT_REL)
   redirects = parse_redirect_file(redirect_path)
@@ -278,7 +386,17 @@ def validate!(options)
     missing: missing,
     wrong_target: wrong,
     deleted_pages: deleted_warn,
-    required_mappings: required_mappings
+    required_mappings: required_mappings,
+    anchor_issues: newly_broken_anchors.map { |row|
+      {
+        "source_file" => row[:link].source_file,
+        "link" => row[:link].raw_url,
+        "category" => row[:category].to_s
+      }
+    },
+    anchor_warnings: first_heading_warnings.map { |l|
+      { "source_file" => l.source_file, "link" => l.raw_url, "anchor" => l.anchor, "target" => l.target_path }
+    }
   }
 
   if options[:json_out]
@@ -315,12 +433,40 @@ def validate!(options)
     puts ""
   end
 
-  if missing.empty? && wrong.empty? && deleted_warn.empty?
-    puts "OK — all required redirects are present and targets match."
+  if newly_broken_anchors.any?
+    renamed = newly_broken_anchors.select { |r| r[:category] == :heading_renamed }
+    new_wrong = newly_broken_anchors.select { |r| r[:category] == :new_link_wrong_anchor }
+
+    if renamed.any?
+      puts "Broken anchors (heading was renamed or removed -- update the link's anchor):"
+      renamed.each { |r| puts "  - #{r[:link].source_file}: #{r[:link].raw_url}" }
+      puts ""
+    end
+
+    if new_wrong.any?
+      puts "Broken anchors (new link points at a nonexistent anchor -- check for a typo or wrong target):"
+      new_wrong.each { |r| puts "  - #{r[:link].source_file}: #{r[:link].raw_url}" }
+      puts ""
+    end
+  end
+
+  if first_heading_warnings.any?
+    puts "Warning (non-blocking): links pointing at a target page's first heading behave"
+    puts "identically to linking the page directly. Please confirm these are intentional:"
+    first_heading_warnings.each { |l| puts "  - #{l.source_file}: #{l.raw_url}" }
+    puts ""
+  end
+
+  if missing.empty? && wrong.empty? && deleted_warn.empty? && newly_broken_anchors.empty?
+    puts "OK — all required redirects are present, targets match, and no new anchor drift found."
     exit 0
   end
 
-  puts "FAILED — fix #{REDIRECT_REL} before merging."
+  if missing.any? || wrong.any? || deleted_warn.any?
+    puts "FAILED — fix #{REDIRECT_REL} before merging."
+  else
+    puts "FAILED — fix the broken anchor link(s) above before merging."
+  end
   exit 1
 end
 
