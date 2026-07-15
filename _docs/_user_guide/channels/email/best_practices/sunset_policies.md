@@ -24,7 +24,7 @@ Segmentation filters help prevent your messaging from appearing like spam by let
 
 For example, if you have users who opt in to [Apple's Mail Privacy Protection (MPP)]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp), consider how this may impact your email campaigns and deliverability metrics and determine how to best structure your sunset policy.
 
-To incorporate sunset policies into your campaigns, create a [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#creating-a-segment) that automatically excludes users who have marked your emails as spam or have not interacted with a your messages for a certain period of time.  
+To incorporate sunset policies into your campaigns, create a [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) that automatically excludes users who have marked your emails as spam or have not interacted with a your messages for a certain period of time.  
 
 To set up these segments, choose the `Has Marked You As Spam` and `Last Engaged With Message` filters located under the **Retargeting** section in the filter dropdown. 
 
