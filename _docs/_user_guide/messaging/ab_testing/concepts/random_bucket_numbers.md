@@ -60,7 +60,7 @@ When using random bucket number segments in a Canvas, for example as a filter in
 
 ### Random audience re-entry using random bucket numbers
 
-Random audience re-entry can be useful for [A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing#what-are-multivariate-and-ab-testing) or targeting specific user groups in your campaigns. To perform random audience re-entry with random bucket numbers, do the following:
+Random audience re-entry can be useful for [A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing) or targeting specific user groups in your campaigns. To perform random audience re-entry with random bucket numbers, do the following:
 
 1. [Create your segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 2. Define the random buckets. In your campaign or Canvas, use the random bucket filter to split your audience into different groups. For example, you can specify exactly two random buckets to split your audience into (50% of users per bucket).

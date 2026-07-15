@@ -28,7 +28,7 @@ As you build out your campaigns over time, you may notice lapses in your audienc
 
 ### Identify your audience
 
-Leverage segments and filters to your advantage by defining your audience. Consider who your campaign and messages are targeting. With this key information, you can create [multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) that offer the flexibility of building your messages in different channels to match your audience's notification preferences.
+Leverage segments and filters to your advantage by defining your audience. Consider who your campaign and messages are targeting. With this key information, you can create [multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) that offer the flexibility of building your messages in different channels to match your audience's notification preferences.
 
 It's also important to understand your [active users]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns) to show your appreciation to your consistent users.
 

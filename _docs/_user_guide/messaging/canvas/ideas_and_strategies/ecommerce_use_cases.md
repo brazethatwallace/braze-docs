@@ -75,7 +75,7 @@ To segment by nested event properties, you can leverage [Segment Extensions]({{s
 
 ### Custom events report
 
-You can track eCommerce recommended event volume in the [Custom Events report]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics). Filter by **Perform Custom Event**, then specify the [eCommerce recommended event name]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events) to view its performance over time.
+You can track eCommerce recommended event volume in the [Custom Events report]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics). Filter by **Perform Custom Event**, then specify the [eCommerce recommended event name]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) to view its performance over time.
 
 ![Custom Events chart displaying results for six selected events.]({% image_buster /assets/img/ecommerce/custom_events_chart.png %})
 

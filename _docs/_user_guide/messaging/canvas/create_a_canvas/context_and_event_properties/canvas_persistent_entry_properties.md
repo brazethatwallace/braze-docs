@@ -22,7 +22,7 @@ Entry properties can be used in action-based and API-triggered Canvases. These e
 
 - [Canvas entry properties object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
 - [Event properties object]({{site.baseurl}}/api/objects_filters/event_object)
-- [Purchase object]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product_id)
+- [Purchase object]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product-id)
 
 Properties passed in from these objects can be referenced by using the `canvas_entry_properties` Liquid tag. For example, a request with `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` could add the word "shoes" to a message by adding the Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 
