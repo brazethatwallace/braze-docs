@@ -99,7 +99,7 @@ jobs:
             // create an opaque/literal region on their own.
             const mdEscape = (s) => String(s)
               .replace(/\r\n|\r|\n/g, ' ')
-              .replace(/([\\`*_{}\[\]()#+\-.!=|<>~])/g, '\\$1');
+              .replace(/([\\`*_{}\[\]()#+\-.!=:|<>~])/g, '\\$1');
             const code = (s) => `<code>${mdEscape(s)}</code>`;
 
             // Only used inside the ```js fenced block below, which is a different
