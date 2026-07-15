@@ -102,5 +102,18 @@ RSpec.describe DocAnchorLinks do
       content = "Use the syntax `[text](url#anchor)` to link to a section."
       expect(described_class.extract("_docs/_api/x.md", content)).to eq([])
     end
+
+    it "ignores a bare-# anchor link that resolves to the site root, rather than treating it as same-page" do
+      content = "[home](/docs/#some-anchor)"
+      expect(described_class.extract("_docs/_api/x.md", content)).to eq([])
+    end
+
+    it "still treats a truly bare #anchor (no path at all) as same-page" do
+      content = "See [the section above](#about-rate-limiting)."
+      links = described_class.extract("_docs/_api/basics.md", content)
+
+      expect(links.length).to eq(1)
+      expect(links.first.target_path).to eq("_docs/_api/basics.md")
+    end
   end
 end

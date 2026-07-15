@@ -69,11 +69,20 @@ module DocAnchorLinks
     path_part = path_part.split("?").first.to_s
     return if anchor.empty?
 
-    if path_part.empty? || path_part == "/"
+    if path_part.empty?
       links << Link.new(source_file: source_file, kind: kind, raw_url: raw_url,
                          target_path: source_file, anchor: anchor)
       return
     end
+
+    # A bare "/" (e.g. "/docs/#anchor" normalized above) points at the site
+    # root, not the current document -- treating it as same-page (as an
+    # earlier version of this code did) is wrong whenever source_file isn't
+    # itself the homepage. There's no real _docs/ file behind the bare root
+    # in this Jekyll site (the homepage is served separately, outside the
+    # _docs/ collection this checker scans), so there's nothing correct to
+    # resolve it to; skip it rather than guess.
+    return if path_part == "/"
 
     last_segment = path_part.split("/").last.to_s
     return if last_segment.include?(".") # points at a real file (image, pdf, etc.), not a page
