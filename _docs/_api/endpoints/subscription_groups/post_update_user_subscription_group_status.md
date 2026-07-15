@@ -28,7 +28,7 @@ If you want to see examples or test this endpoint for **SMS and RCS Subscription
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `subscription.status.set` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `subscription.status.set` permission.
 
 {% alert note %}
 If you're interested in using this endpoint with [LINE subscription groups]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups), contact your customer success manager.
