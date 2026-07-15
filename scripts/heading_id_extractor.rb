@@ -1,4 +1,3 @@
-# scripts/heading_id_extractor.rb
 # frozen_string_literal: true
 
 # Pure string/data extraction used by jekyll_heading_id_dump.rb. No Jekyll

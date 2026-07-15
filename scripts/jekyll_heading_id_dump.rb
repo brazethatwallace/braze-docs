@@ -1,4 +1,3 @@
-# scripts/jekyll_heading_id_dump.rb
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
