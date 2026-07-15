@@ -88,7 +88,7 @@ The `Location` field uses the `geo` data type, which expects an array formatted 
 There are three status code responses for this endpoint: `202`, `400`, and `404`.
 
 {% alert note %}
-The system can also return a `400` response if your company has reached its catalog storage limit. The free version of catalogs is capped at 100&nbsp;MB. For more information about storage tiers and how to upgrade, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
+The system can also return a `400` response if your company has reached its catalog storage limit. The free version of catalogs is capped at 500&nbsp;MB. For more information about storage tiers and how to upgrade, see [Data storage limitations]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations).
 {% endalert %}
 
 ### Example success response
