@@ -4,7 +4,7 @@
 # Pure string/data extraction used by jekyll_heading_id_dump.rb. No Jekyll
 # dependency, so this is unit-testable without booting a Jekyll site.
 module HeadingIdExtractor
-  ID_ATTR_RE = /\sid=["']([^"']+)["']/.freeze
+  ID_ATTR_RE = /<[a-zA-Z][a-zA-Z0-9]*(?:\s[^>]*)?\sid=["']([^"']+)["'][^>]*>/.freeze
   HEADING_ID_RE = /<h[1-6][^>]*\sid=["']([^"']+)["']/.freeze
 
   # Every element id present anywhere in a fully-rendered page (Liquid +

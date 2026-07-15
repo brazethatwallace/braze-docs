@@ -25,6 +25,16 @@ RSpec.describe HeadingIdExtractor do
     it "returns an empty array for html with no ids" do
       expect(described_class.all_ids("<p>hello</p>")).to eq([])
     end
+
+    it "does not match id-looking text that isn't inside a real tag (e.g. an escaped code sample)" do
+      html = %(<p>Example: &lt;div id="my-example"&gt;&lt;/div&gt;</p>)
+      expect(described_class.all_ids(html)).to eq([])
+    end
+
+    it "matches ids on any real element, not just headings" do
+      html = %(<a id="jump-target" href="#">Link</a>)
+      expect(described_class.all_ids(html)).to eq(["jump-target"])
+    end
   end
 
   describe ".heading_ids" do
