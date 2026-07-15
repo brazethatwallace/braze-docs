@@ -81,7 +81,7 @@ Attribution fields from partner integrations (the `attributed_*` fields in an ex
 
 ### Push tokens
 
-When users already have push tokens from a previous provider or app version, you can import tokens for mobile apps through the API, or rely on the SDK after integration. Web push tokens have API limitations. For full detail and examples, see [Migrating push tokens]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+When users already have push tokens from a previous provider or app version, you can import tokens for mobile apps through the API, or rely on the SDK after integration. Web push tokens have API limitations. For full detail and examples, see [Migrating push tokens]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 ### WhatsApp
 

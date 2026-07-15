@@ -133,7 +133,7 @@ The report contains all statistics selected in the [Add Stats](#add-statistics-t
 
 ### Engagement report metrics differ from the Email Performance Dashboard
 
-Engagement reports and the [Email Performance Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/) use the same email metric definitions. Both attribute opens and clicks to the day each event **occurred**, and both calculate *Unique Opens* and *Unique Clicks* as seven-day unique counts per day that are summed across your selected date range. For definitions, see [Email metrics]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#email-metrics) and [How metrics are calculated]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#how-metrics-are-calculated) on the channel performance dashboards page.
+Engagement reports and the [Email Performance Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/) use the same email metric definitions. Both attribute opens and clicks to the day each event **occurred**, and both calculate *Unique Opens* and *Unique Clicks* as seven-day unique counts per day that are summed across your selected date range. For definitions, see [Email metrics]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary) and [How metrics are calculated]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#how-metrics-are-calculated) on the channel performance dashboards page.
 
 If totals still differ for the same campaigns and period, check the following:
 
