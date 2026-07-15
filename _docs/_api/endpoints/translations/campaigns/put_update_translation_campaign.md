@@ -21,7 +21,7 @@ If you want to update translations after a campaign has been launched, you'll ne
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `campaigns.translations.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `campaigns.translations.update` permission.
 
 ## Rate limit
 
