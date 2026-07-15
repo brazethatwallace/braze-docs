@@ -23,7 +23,7 @@ Each request can support up to 50 items. This endpoint is asynchronous.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `catalogs.delete_items` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `catalogs.delete_items` permission.
 
 ## Rate limit
 
