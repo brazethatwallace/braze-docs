@@ -19,6 +19,10 @@ on:
       - "scripts/apply_validurl_rhs_from_csv.rb"
       - "scripts/normalize_broken_redirect_list.rb"
       - "scripts/collapse_validurls_chains.rb"
+      - "scripts/heading_id_extractor.rb"
+      - "scripts/jekyll_heading_id_dump.rb"
+      - "scripts/doc_anchor_links.rb"
+      - "spec/scripts/**"
 
 permissions:
   contents: read
@@ -41,6 +45,9 @@ jobs:
         with:
           ruby-version: "3.3"
           bundler-cache: true
+
+      - name: "Run anchor/redirect helper specs"
+        run: bundle exec rspec spec/scripts/
 
       - name: "Validate redirects"
         run: bundle exec ruby scripts/validate_doc_redirects.rb --base "origin/${{ github.base_ref }}" --skip-fetch
