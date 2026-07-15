@@ -24,7 +24,7 @@ Archived Canvases will not be included in the API response unless the `include_a
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `canvas.list` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `canvas.list` permission.
 
 ## Rate limit
 
