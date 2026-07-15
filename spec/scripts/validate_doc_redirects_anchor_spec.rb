@@ -101,5 +101,17 @@ RSpec.describe "anchor drift detection in validate_doc_redirects.rb" do
 
       expect(warnings).to be_empty
     end
+
+    it "treats a link as pre-existing debt even if its raw markdown text changed (title/whitespace), as long as source/target/anchor are unchanged" do
+      heading_map = { "_docs/a.md" => { "all_ids" => ["foo"], "heading_ids" => ["foo"], "local_redirect_keys" => [] } }
+      l_base = DocAnchorLinks::Link.new(source_file: "_docs/b.md", kind: :md, raw_url: "/a#already-broken \"old title\"",
+                                         target_path: "_docs/a.md", anchor: "already-broken")
+      l_head = DocAnchorLinks::Link.new(source_file: "_docs/b.md", kind: :md, raw_url: "/a#already-broken",
+                                         target_path: "_docs/a.md", anchor: "already-broken")
+
+      newly_broken, = required_anchor_fixes(heading_map, heading_map, [l_base], [l_head])
+
+      expect(newly_broken).to be_empty
+    end
   end
 end

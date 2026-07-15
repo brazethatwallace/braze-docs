@@ -159,7 +159,7 @@ def anchor_resolves?(heading_map, link)
 end
 
 def anchor_link_key(link)
-  [link.source_file, link.raw_url]
+  [link.source_file, link.target_path, link.anchor]
 end
 
 # Returns [newly_broken, first_heading_warnings].
