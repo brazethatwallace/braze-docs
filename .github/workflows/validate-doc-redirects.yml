@@ -71,14 +71,29 @@ jobs:
 
             // Values below (old_url, source_file, link, etc.) come from the PR's own
             // file paths and link text, so a PR author fully controls their content.
-            // Insert a zero-width space after every backtick so an attacker-supplied
-            // backtick can't fuse with another backtick into a longer delimiter run,
-            // AND pad both ends of the escaped value with a zero-width space so a
-            // backtick at the very start/end can't fuse with the wrapping inline-code
-            // delimiter itself. Together this prevents breaking out of the surrounding
-            // single backtick span to inject live markdown (fake headings, spoofed
-            // links, @mentions) into the comment.
-            const esc = (s) => '\u200b' + String(s).replace(/`/g, '`' + '\u200b') + '\u200b';
+            // Do NOT wrap untrusted values in markdown backtick spans: CommonMark/GFM
+            // code-span matching pairs backtick runs of equal length wherever they next
+            // occur in the block, not just adjacently, so any single backtick anywhere
+            // in the value (however it's escaped) can still close the span early and let
+            // the remaining markdown after it render live (spoofed links/headings). Use
+            // an HTML <code> element with entity-escaping instead, which sidesteps
+            // markdown code-span parsing entirely.
+            // Backslash-escape every ASCII punctuation character CommonMark treats
+            // as potentially significant (link/image brackets, emphasis, code-span
+            // backticks, headings, list markers, autolinks/raw HTML angle brackets,
+            // strikethrough). CommonMark renders "\X" as a literal "X" for punctuation,
+            // so this is visually a no-op but prevents the value from being parsed as
+            // markdown -- including when embedded inside a raw HTML <code> tag, since
+            // CommonMark still runs ordinary inline parsing (links, backslash escapes,
+            // code spans, etc.) on text between raw HTML tags; the tags don't create an
+            // opaque/literal region on their own.
+            const mdEscape = (s) => String(s).replace(/([\\`*_{}\[\]()#+\-.!|<>~])/g, '\\$1');
+            const code = (s) => `<code>${mdEscape(s)}</code>`;
+
+            // Only used inside the ```js fenced block below, which is a different
+            // injection surface (a lone line of 3+ backticks could close the fence
+            // early): break up any run of backticks so a run of 3 can never form.
+            const escForFence = (s) => String(s).replace(/`/g, '`' + '\u200b');
 
             const MAX_ITEMS_PER_SECTION = 30;
             const listItems = (items, render, moreRender) => {
@@ -142,7 +157,7 @@ jobs:
               sections.push([
                 `#### Deleted pages (need a manual redirect target in \`${redirectRel}\`)`,
                 '',
-                ...listItems(report.deleted_pages, (r) => `- \`${esc(r.old_url)}\``),
+                ...listItems(report.deleted_pages, (r) => `- ${code(r.old_url)}`),
               ].join('\n'));
             }
 
@@ -153,7 +168,7 @@ jobs:
                 '```js',
                 ...listItems(
                   report.missing,
-                  (r) => `validurls['${esc(r.old_url)}'] = '${esc(r.expected_new)}';`,
+                  (r) => `validurls['${escForFence(r.old_url)}'] = '${escForFence(r.expected_new)}';`,
                   (n) => `// …and ${n} more (see the full report in the workflow run log)`
                 ),
                 '```',
@@ -165,9 +180,9 @@ jobs:
                 '#### Wrong redirect target',
                 '',
                 ...listItems(report.wrong_target, (r) => [
-                  `- \`${esc(r.old_url)}\``,
-                  `  - expected: \`${esc(r.expected_new)}\``,
-                  `  - mapped: \`${esc(r.mapped_new)}\``,
+                  `- ${code(r.old_url)}`,
+                  `  - expected: ${code(r.expected_new)}`,
+                  `  - mapped: ${code(r.mapped_new)}`,
                 ].join('\n')),
               ].join('\n'));
             }
@@ -179,7 +194,7 @@ jobs:
               sections.push([
                 '#### Broken anchors (heading was renamed or removed -- update the link\'s anchor)',
                 '',
-                ...listItems(renamed, (a) => `- \`${esc(a.source_file)}\`: \`${esc(a.link)}\``),
+                ...listItems(renamed, (a) => `- ${code(a.source_file)}: ${code(a.link)}`),
               ].join('\n'));
             }
 
@@ -187,7 +202,7 @@ jobs:
               sections.push([
                 '#### Broken anchors (new link points at a nonexistent anchor -- check for a typo or wrong target)',
                 '',
-                ...listItems(newWrong, (a) => `- \`${esc(a.source_file)}\`: \`${esc(a.link)}\``),
+                ...listItems(newWrong, (a) => `- ${code(a.source_file)}: ${code(a.link)}`),
               ].join('\n'));
             }
 
@@ -197,7 +212,7 @@ jobs:
                 '',
                 'These behave identically to linking the page directly -- please confirm they\'re intentional (this does not block merge):',
                 '',
-                ...listItems(report.anchor_warnings, (w) => `- \`${esc(w.source_file)}\`: \`${esc(w.link)}\``),
+                ...listItems(report.anchor_warnings, (w) => `- ${code(w.source_file)}: ${code(w.link)}`),
               ].join('\n'));
             }
 
