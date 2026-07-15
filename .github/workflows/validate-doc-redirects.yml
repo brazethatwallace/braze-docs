@@ -288,7 +288,7 @@ jobs:
               return truncate([
                 ERRORS_MARKER,
                 '',
-                '### Redirect / anchor check failed',
+                '### ❌ Redirect / anchor check failed',
                 '',
                 'This PR changes a doc URL or a heading anchor without a matching fix. Details below.',
                 '',
@@ -309,7 +309,7 @@ jobs:
               return truncate([
                 WARNINGS_MARKER,
                 '',
-                '### Anchor warnings (non-blocking)',
+                '### ⚠️ Anchor warnings (non-blocking)',
                 '',
                 'These links resolve fine, but they point to the first heading on the target page. If this was intentional, you can ignore this message. Otherwise, update the link to remove the anchor.',
                 '',
@@ -358,7 +358,7 @@ jobs:
                 await syncComment(ERRORS_MARKER, [
                   ERRORS_MARKER,
                   '',
-                  '### Redirect / anchor check failed',
+                  '### ❌ Redirect / anchor check failed',
                   '',
                   `The check failed before it could produce a structured report. See the [workflow run](${runUrl}) log for details.`,
                 ].join('\n'));
