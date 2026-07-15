@@ -149,6 +149,41 @@ Abort logic allows you to stop a message from being sent if the conditions are m
 
 No. The {% raw %}`{% abort_message %}`{% endraw %} tag accepts a static string in quotes, not Liquid personalization. Use other Liquid logic before the tag if you need conditional abort behavior.
 
+### How do I mask phone numbers with Liquid?
+
+You can mask phone numbers using the `slice` filter to extract specific digits and the `append` filter to combine them with masking characters.
+
+#### Mask all but the last four digits
+
+To display a 10-digit phone number as `******7890`:
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### Show the first three and last four digits
+
+To display a 10-digit phone number as `123***7890`:
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
+
 ## Canvas, catalogs, and trigger properties
 
 ### Why is my API-triggered Liquid failing in Braze?
