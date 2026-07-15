@@ -597,7 +597,7 @@ If your Banner uses the **Custom Code** editor block in the Braze dashboard, you
 </button>
 ```
 
-For the full reference, see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code). The `brazeBridge` provides a communication layer between the Banner's internal HTML and the parent Braze SDK.
+For the full reference, see [Custom code and JavaScript bridge for Banners]({{site.baseurl}}/user_guide/channels/banners/custom_code). The `brazeBridge` provides a communication layer between the Banner's internal HTML and the parent Braze SDK.
 
 ### Custom UI implementations (headless)
 
