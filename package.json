@@ -1,7 +1,8 @@
 {
   "scripts": {
     "spellcheck": "cspell lint --no-progress",
-    "fblinks": "ts-node ./scripts/find_broken_links.ts"
+    "fblinks": "ts-node ./scripts/find_broken_links.ts",
+    "generate-bulk-redirects": "python3 scripts/generate_bulk_redirects.py"
   },
   "devDependencies": {
     "@lhci/cli": "^0.15.1",
