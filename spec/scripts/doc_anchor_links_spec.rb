@@ -46,7 +46,7 @@ RSpec.describe DocAnchorLinks do
     end
 
     it "ignores links whose last path segment looks like a file (has an extension)" do
-      content = "![alt]({% image_buster /assets/img/foo.png %}#ignored)"
+      content = "[manual link](/assets/manual.pdf#page=2)"
       expect(described_class.extract("_docs/_api/x.md", content)).to eq([])
     end
 
@@ -95,6 +95,11 @@ RSpec.describe DocAnchorLinks do
         [not a real link]({{site.baseurl}}/api/basics#rest-api-key-permissions)
         ```
       MD
+      expect(described_class.extract("_docs/_api/x.md", content)).to eq([])
+    end
+
+    it "does not extract a link shown as a literal example inside inline code" do
+      content = "Use the syntax `[text](url#anchor)` to link to a section."
       expect(described_class.extract("_docs/_api/x.md", content)).to eq([])
     end
   end

@@ -47,6 +47,7 @@ module DocAnchorLinks
   def self.strip_non_prose(content)
     content
       .gsub(/```.*?```/m, "")
+      .gsub(/`[^`\n]+`/, "")
       .gsub(%r{<script.*?</script>}mi, "")
       .gsub(%r{<style.*?</style>}mi, "")
   end
