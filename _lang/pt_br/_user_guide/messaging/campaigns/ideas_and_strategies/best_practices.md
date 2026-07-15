@@ -28,7 +28,7 @@ Isso permite otimizar os dados que você envia para a Braze e agilizar sua capac
 
 ### Identifique seu público {#identify-your-audience}
 
-Aproveite segmentos e filtros a seu favor ao definir seu público. Considere quem sua campanha e mensagens estão direcionando. Com essa informação essencial, você pode criar [campanhas multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) que oferecem a flexibilidade de construir suas mensagens em diferentes canais para atender às preferências de notificação do seu público.
+Aproveite segmentos e filtros a seu favor ao definir seu público. Considere quem sua campanha e mensagens estão direcionando. Com essa informação essencial, você pode criar [campanhas multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) que oferecem a flexibilidade de construir suas mensagens em diferentes canais para atender às preferências de notificação do seu público.
 
 Também é importante entender seus [usuários ativos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns) para demonstrar apreço pelos seus usuários mais consistentes.
 

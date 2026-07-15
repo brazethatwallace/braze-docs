@@ -20,24 +20,24 @@ search_rank: 1
 | -------------  | ---- |
 | 표준(기본값) 속성 | `{{${city}}}` <br> `{{${country}}}` <br> `{{${date_of_birth}}}` <br> `{{${email_address}}}` <br> `{{${first_name}}}` <br> `{{${gender}}}` <br> `{{${language}}}` <br> `{{${last_name}}}` <br> `{{${last_used_app_date}}}` <br> `{{${most_recent_app_version}}}` <br> `{{${most_recent_locale}}}` <br> `{{${most_recent_location}}}` <br> `{{${phone_number}}}` <br> `{{${time_zone}}}` <br> `{{${user_id}}}` <br> `{{${braze_id}}}` <br> `{{${random_bucket_number}}}` <br> `{{subscribed_state.${email_global}}}` <br> `{{subscribed_state.${subscription_group_id}}}` |
 | 기기 속성 | `{{most_recently_used_device.${carrier}}}` <br> `{{most_recently_used_device.${id}}}` <br> `{{most_recently_used_device.${idfa}}}` <br> `{{most_recently_used_device.${model}}}` <br> `{{most_recently_used_device.${os}}}` <br> `{{most_recently_used_device.${platform}}}` <br> `{{most_recently_used_device.${google_ad_id}}}` <br> `{{most_recently_used_device.${roku_ad_id}}}` <br> `{{most_recently_used_device.${foreground_push_enabled}}}`|
-| <a href='/docs/user_guide/channels/email/subscriptions#managing-user-subscriptions'>이메일 목록 속성</a> | `{{${set_user_to_unsubscribed_url}}}` <br>이 태그는 이전의 `{{${unsubscribe_url}}}` 태그를 대체합니다. 이전 태그는 기존에 생성된 이메일에서 여전히 작동하지만, 새로운 태그를 사용하는 것을 권장합니다. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
+| <a href='/docs/user_guide/channels/email/subscriptions#changing-email-subscriptions'>이메일 목록 속성</a> | `{{${set_user_to_unsubscribed_url}}}` <br>이 태그는 이전의 `{{${unsubscribe_url}}}` 태그를 대체합니다. 이전 태그는 기존에 생성된 이메일에서 여전히 작동하지만, 새로운 태그를 사용하는 것을 권장합니다. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
 | <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>SMS 속성</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
 | <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>WhatsApp 속성</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
 | Campaign 속성 및 캔버스 단계 속성 | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
 | Canvas 속성 | `{{canvas.${name}}}` <br> `{{canvas.${api_id}}}` <br> `{{canvas.${variant_name}}}` <br> `{{canvas.${variant_api_id}}}` |
 | 카드 속성 | `{{card.${api_id}}}` <br> `{{card.${name}}}` |
 | 지오펜싱 이벤트 | `{{event_properties.${geofence_name}}}` <br> `{{event_properties.${geofence_set_name}}}` |
-| 이벤트 등록정보 <br> (워크스페이스에 맞게 커스텀됩니다.)| `{{event_properties.${your_custom_event_property}}}` |
+| 이벤트 속성정보 <br> (워크스페이스에 맞게 커스텀됩니다.)| `{{event_properties.${your_custom_event_property}}}` |
 | Canvas 컨텍스트 변수 | `{{context.${your_context_variable}}}` |
 | 커스텀 속성 <br> (워크스페이스에 맞게 커스텀됩니다.) | `{{custom_attribute.${your_custom_attribute}}}` |
-| <a href='/docs/api/objects_filters/trigger_properties_object'>API 트리거 등록정보</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
-| Canvas 진입 등록정보 | `{{context.${property_name}}}` |
+| <a href='/docs/api/objects_filters/trigger_properties_object'>API 트리거 속성정보</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
+| Canvas 진입 속성정보 | `{{context.${property_name}}}` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="지원되는 태그 요약" }
 
 {% endraw %}
 
 {% alert note %}
-API 트리거 등록정보는 태그당 두 개의 중괄호를 사용해야 합니다: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. 세 개의 중괄호(예: `{{{...}}}`){% endraw %}는 유효한 Braze 개인화 구문이 아닙니다. [Braze에서 API 트리거 Liquid가 실패하는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze)를 참조하세요.
+API 트리거 속성정보는 태그당 두 개의 중괄호를 사용해야 합니다: {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. 세 개의 중괄호(예: `{{{...}}}`){% endraw %}는 유효한 Braze 개인화 구문이 아닙니다. [Braze에서 API 트리거 Liquid가 실패하는 이유는 무엇인가요?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze)를 참조하세요.
 {% endalert %}
 
 ### 지원되는 속성 {#supported-attributes}
@@ -80,11 +80,11 @@ https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
 | `{{most_recently_used_device.${google_ad_id}}}` | Android 기기의 경우, 애플리케이션이 선택적 Google Play Advertising ID 수집으로 구성되어 있으면 이 값은 Google Play Advertising Identifier입니다. Android가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{most_recently_used_device.${roku_ad_id}}}` | Roku 기기의 경우, 애플리케이션이 Braze로 구성되었을 때 수집되는 Roku Advertising Identifier입니다. Roku가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{most_recently_used_device.${model}}}` | 기기의 모델명입니다(사용 가능한 경우). 예를 들어 "iPhone 6S", "Nexus 6P", "Firefox"가 있습니다. |
-| `{{most_recently_used_device.${os}}}` | 기기의 운영체제입니다(사용 가능한 경우). 예를 들어 "iOS 9.2.1", "Android (Lollipop)", "Windows"가 있습니다. |
+| `{{most_recently_used_device.${os}}}` | 기기의 운영 체제입니다(사용 가능한 경우). 예를 들어 "iOS 9.2.1", "Android (Lollipop)", "Windows"가 있습니다. |
 | `{{most_recently_used_device.${platform}}}` | 기기의 플랫폼입니다(사용 가능한 경우). 설정된 경우 값은 `ios`, `android`, `kindle`, `android_china`, `web`, `tvos` 중 하나입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="가장 최근에 사용한 기기 정보" }
 
-기기 통신사, 모델명, 운영체제의 범위가 매우 넓기 때문에, 이러한 값에 조건부로 의존하는 Liquid를 철저히 테스트하는 것을 권장합니다. 특정 기기에서 사용할 수 없는 경우 이 값은 `null`입니다.
+기기 통신사, 모델명, 운영 체제의 범위가 매우 넓기 때문에, 이러한 값에 조건부로 의존하는 Liquid를 철저히 테스트하는 것을 권장합니다. 특정 기기에서 사용할 수 없는 경우 이 값은 `null`입니다.
 
 ## 타겟 앱 정보 {#targeted-app-information}
 
@@ -119,14 +119,14 @@ User is in list of apps
 | `{{targeted_device.${google_ad_id}}}` | Android 기기의 경우, 애플리케이션이 [선택적 Google Play Advertising ID 수집]으로 구성되어 있으면 이 값은 Google Play Advertising Identifier입니다. Android가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{targeted_device.${roku_ad_id}}}` | Roku 기기의 경우, 애플리케이션이 Braze로 구성되었을 때 수집되는 Roku Advertising Identifier입니다. Roku가 아닌 기기의 경우 이 값은 null입니다. |
 | `{{targeted_device.${model}}}` | 기기의 모델명입니다(사용 가능한 경우). 예를 들어 "iPhone 6S", "Nexus 6P", "Firefox"가 있습니다. |
-| `{{targeted_device.${os}}}` | 기기의 운영체제입니다(사용 가능한 경우). 예를 들어 "iOS 9.2.1", "Android (Lollipop)", "Windows"가 있습니다. |
+| `{{targeted_device.${os}}}` | 기기의 운영 체제입니다(사용 가능한 경우). 예를 들어 "iOS 9.2.1", "Android (Lollipop)", "Windows"가 있습니다. |
 | `{{targeted_device.${platform}}}` | 기기의 플랫폼입니다(사용 가능한 경우). 설정된 경우 값은 `ios`, `android`, `kindle`, `android_china`, `web`, `tvos` 중 하나입니다. `most_recently_used_device` 개인화 태그도 사용할 수 있습니다. |
 | `{{targeted_device.${foreground_push_enabled}}}` | 타겟 기기에서 포그라운드 푸시가 활성화된 경우 이 값은 `true`이고, 그렇지 않으면 `false`입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="타겟 기기 정보" }
 
 {% endraw %}
 
-기기 통신사, 모델명, 운영체제의 범위가 매우 넓기 때문에, 이러한 값에 조건부로 의존하는 로직을 철저히 테스트하는 것을 권장합니다. 특정 기기에서 사용할 수 없는 경우 이 값은 `null`입니다.
+기기 통신사, 모델명, 운영 체제의 범위가 매우 넓기 때문에, 이러한 값에 조건부로 의존하는 로직을 철저히 테스트하는 것을 권장합니다. 특정 기기에서 사용할 수 없는 경우 이 값은 `null`입니다.
 
 또한 푸시 알림의 경우, 푸시 토큰이 API를 통해 가져온 경우와 같은 특정 상황에서 Braze가 푸시 알림에 연결된 기기를 식별하지 못할 수 있으며, 이로 인해 해당 메시지의 값이 `null`이 될 수 있습니다.
 
@@ -334,9 +334,9 @@ Show variant B
 ```
 {% endraw %}
 
-## eCommerce 장바구니 태그 {#shopping-cart-tag}
+## 이커머스 장바구니 태그 {#shopping-cart-tag}
 
-`shopping_cart` 태그는 eCommerce [유기한 장바구니]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20cart#abandoned-cart) 및 [유기한 결제]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout) eCommerce Canvas 사용 사례에서 사용자의 장바구니 내용에 접근합니다. `CART_ID`를 실제 장바구니 ID 값(예: {% raw %}`{{context.${cart_id}}}`{% endraw %})으로 교체하세요.
+`shopping_cart` 태그는 이커머스 [유기한 장바구니]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20cart#abandoned-cart) 및 [유기한 결제]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout) 이커머스 Canvas 사용 사례에서 사용자의 장바구니 내용에 접근합니다. `CART_ID`를 실제 장바구니 ID 값(예: {% raw %}`{{context.${cart_id}}}`{% endraw %})으로 교체하세요.
 
 {% raw %}
 ```liquid

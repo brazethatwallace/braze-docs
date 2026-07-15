@@ -86,7 +86,7 @@ Um loop de feedback de e-mail (FBL) permite que os remetentes monitorem sua repu
 
 ### O que são pixels de rastreamento de abertura? {#what-are-open-tracking-pixels}
 
-[Pixels de rastreamento de abertura]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel) utilizam o domínio de rastreamento de cliques do remetente para rastrear eventos de abertura de e-mail. O pixel é uma tag de imagem adicionada ao HTML do e-mail. Geralmente é o último elemento HTML dentro da tag body. Quando um usuário carrega seu e-mail, uma solicitação é feita para preencher a imagem a partir do domínio de rastreamento personalizado, o que registra um evento de abertura.
+[Pixels de rastreamento de abertura]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) utilizam o domínio de rastreamento de cliques do remetente para rastrear eventos de abertura de e-mail. O pixel é uma tag de imagem adicionada ao HTML do e-mail. Geralmente é o último elemento HTML dentro da tag body. Quando um usuário carrega seu e-mail, uma solicitação é feita para preencher a imagem a partir do domínio de rastreamento personalizado, o que registra um evento de abertura.
 
 ### O que acontece quando uma Campaign de e-mail ou Canvas é interrompido? {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
 
@@ -133,11 +133,11 @@ O rastreamento de abertura depende de o destinatário carregar o e-mail com imag
 
 Algumas ferramentas corporativas de segurança de e-mail (como Barracuda, Proofpoint e serviços similares) escaneiam e-mails recebidos clicando automaticamente em todos os links da mensagem para verificar se são seguros. Isso pode resultar em eventos de clique aparecendo segundos após o envio, frequentemente com todos os links do e-mail clicados em rápida sucessão.
 
-Esse comportamento é mais comum com domínios de e-mail institucionais (como escolas, universidades e ambientes corporativos) e é mais provável quando seu domínio de envio difere significativamente do seu domínio de rastreamento. Configurar um [domínio de rastreamento personalizado com marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#custom-email-tracking-domain) pode reduzir a frequência desses cliques automatizados.
+Esse comportamento é mais comum com domínios de e-mail institucionais (como escolas, universidades e ambientes corporativos) e é mais provável quando seu domínio de envio difere significativamente do seu domínio de rastreamento. Configurar um [domínio de rastreamento personalizado com marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) pode reduzir a frequência desses cliques automatizados.
 
 **Como identificar:** Pesquise o endereço IP do evento de clique (disponível nos dados do Currents) em um mecanismo de busca. Se o IP estiver associado a um provedor de segurança conhecido (como Barracuda Networks), os cliques provavelmente são automatizados. Você também pode ver um cabeçalho User-Agent consistente em vários cliques automatizados.
 
-Para mais contexto sobre como o escaneamento de segurança afeta as métricas de e-mail, consulte [Lidando com aumentos nas taxas de clique]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+Para mais contexto sobre como o escaneamento de segurança afeta as métricas de e-mail, consulte [Lidando com aumentos nas taxas de clique]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### Quais são os riscos potenciais de disparar cliques de servidor? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
@@ -181,7 +181,7 @@ Para mitigar isso:
 - **Use uma Central de Preferências:** Em vez de um link direto de cancelamento de inscrição, use uma [Central de Preferências]({{site.baseurl}}/user_guide/channels/email/subscriptions) que exija interação do usuário para confirmar a ação de cancelamento de inscrição. Scanners de segurança normalmente não completam formulários de múltiplas etapas.
 - **Revise os registros de cancelamento de inscrição:** Verifique o cabeçalho `User-Agent` e o endereço IP nos dados de eventos de cancelamento de inscrição do Currents para identificar padrões consistentes com escaneamento automatizado (como cabeçalhos `User-Agent` consistentes em múltiplos cancelamentos de inscrição).
 
-Para mais detalhes sobre como o escaneamento do lado do servidor pode afetar as métricas de e-mail, consulte [Lidando com aumentos nas taxas de clique]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+Para mais detalhes sobre como o escaneamento do lado do servidor pode afetar as métricas de e-mail, consulte [Lidando com aumentos nas taxas de clique]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### Por que minha taxa de abertura por máquina mudou inesperadamente? {#why-has-my-machine-open-rate-changed-unexpectedly}
 

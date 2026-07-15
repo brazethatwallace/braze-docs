@@ -45,7 +45,7 @@ toc_headers: h2
 
 ### ステップ3:エージェントの出力を設定する {#define-the-output-variable}
 
-エージェントの出力は「出力変数」と呼ばれ、簡単にアクセスできるように[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types)に保存されます。出力変数を定義するには、変数に名前を付けます。
+エージェントの出力は「出力変数」と呼ばれ、簡単にアクセスできるように[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-filters)に保存されます。出力変数を定義するには、変数に名前を付けます。
 
 出力変数のデータタイプは[エージェントコンソール]({{site.baseurl}}/user_guide/brazeai/agents)から設定されます。エージェントの出力は、文字列、数値、ブール値、またはオブジェクトとして保存できます。これにより、キャンバスでのテキストパーソナライゼーションと条件ロジックの両方に柔軟に対応できます。各タイプの一般的な用途は以下のとおりです。
 
@@ -68,7 +68,7 @@ toc_headers: h2
 エージェントステップの実行時に参照する追加のコンテキスト値を含めることができます。キャンバスで通常使用する任意のLiquidテンプレート値を入力できます。
 
 {% alert note %}
-エージェントは**Instructions**セクションで設定されたコンテキストを自動的に受信しています。そこで既に設定されたLiquid変数をここで再入力する必要はありません。
+エージェントは**指示**セクションで設定されたコンテキストを自動的に受信しています。そこで既に設定されたLiquid変数をここで再入力する必要はありません。
 {% endalert %}
 
 ![Liquidを使用してエージェントステップに追加のコンテキストを追加するオプション。]({% image_buster /assets/img/ai_agent/agent_step_context.png %}){: style="max-width:80%;"}
@@ -86,7 +86,7 @@ toc_headers: h2
 
 **応答をシミュレート**からの呼び出しは、エージェントの1日の呼び出し上限にカウントされ、**エージェントコンソール** > **ログ**に表示されます。テストキャンバスの完全な動作については、[ユーザーパスのプレビュー]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps)を参照してください。
 
-![ランダムなユーザーとしてエージェントの出力をプレビューします。]({% image_buster /assets/img/ai_agent/agent_step_preview.png %}){: style="max-width:80%;"}
+![ランダムなユーザーとしてエージェントの出力をプレビューする画面。]({% image_buster /assets/img/ai_agent/agent_step_preview.png %}){: style="max-width:80%;"}
 
 ## エラー処理 {#error-handling}
 
@@ -105,9 +105,9 @@ Brazeがエージェントの失敗、レート制限エラー、呼び出しフ
 
 | 指標 | 説明 |
 | --- | --- |
-| *Entered* | ユーザーがエージェントステップに入った回数です。 |
-| *Proceeded to Next Step* | エージェントステップを通過した後、フロー内の次のステップに進んだユーザー数です。 |
-| *Exited キャンバス* | エージェントステップを通過した後、キャンバスを退出したユーザー数です。 |
+| _Entered_ | ユーザーがエージェントステップに入った回数です。 |
+| _Proceeded to Next Step_ | エージェントステップを通過した後、フロー内の次のステップに進んだユーザー数です。 |
+| _Exited Canvas_ | エージェントステップを通過した後、キャンバスを退出したユーザー数です。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="分析" }
 
 ## ベストプラクティス {#best-practices}

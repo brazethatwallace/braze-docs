@@ -28,7 +28,7 @@ Necesitarás lo siguiente para integrar LINE con Braze:
 El envío de mensajes LINE desde Braze consume los créditos de mensaje o de acción de tu cuenta.
 
 {% alert note %}
-**Configurar `native_line_id`**: Puedes configurar `native_line_id` enviando actualizaciones de usuario a Braze (por ejemplo, con el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) o [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). Si tu SDK del lado del cliente no tiene un campo dedicado para `native_line_id`, envíalo en actualizaciones de usuario del lado del servidor usando uno de estos métodos.
+**Configurar `native_line_id`**: Puedes configurar `native_line_id` enviando actualizaciones de usuario a Braze (por ejemplo, con el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) o [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). Si tu SDK del lado del cliente no tiene un campo dedicado para `native_line_id`, envíalo en actualizaciones de usuario del lado del servidor usando uno de estos métodos.
 {% endalert %}
 
 ## Tipos de cuentas LINE {#types-of-line-accounts}
@@ -73,7 +73,7 @@ Solo puedes tener una cuenta LINE en un único espacio de trabajo. Si tienes mú
 
 Este paso es necesario si tienes un usuario LINE existente e identificado, ya que Braze posteriormente extraerá automáticamente su estado de suscripción y actualizará el perfil de usuario correcto. Si no has reconciliado previamente usuarios con su ID de LINE, omite este paso.
 
-Puedes importar o actualizar usuarios usando cualquiera de los métodos que Braze admite, incluido el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) o [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
+Puedes importar o actualizar usuarios usando cualquiera de los métodos que Braze admite, incluido el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) o [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 Independientemente del método que uses, actualiza `native_line_id` para proporcionar el ID de LINE del usuario. Para obtener más información sobre `native_line_id`, consulta [Configuración de usuario](#user-setup).
 
@@ -95,7 +95,7 @@ Después de que se complete el proceso de integración, Braze extraerá automát
 
 | Tipo de información | Ubicación |
 | --- | --- |
-| Provider ID | Selecciona tu proveedor y luego ve a ***Settings** > **Basic information** |
+| Provider ID | Selecciona tu proveedor y luego ve a **Settings** > **Basic information** |
 | Channel ID | Selecciona tu proveedor y luego ve a **Channels** > tu canal > **Basic settings** |
 | Channel secret | Selecciona tu proveedor y luego ve a **Channels** > tu canal > **Basic settings**. |
 | Channel access token | Selecciona tu proveedor y luego ve a **Channels** > tu canal > **Messaging API**. Si no hay un token de acceso del canal, selecciona **Issue**. |
@@ -254,7 +254,7 @@ Estos son ejemplos de cómo los usuarios pueden ser actualizados después de seg
 1. El canal obtiene un nuevo seguidor de LINE.
 2. Braze crea un perfil de usuario anónimo con el atributo `native_line_id` establecido como el ID de LINE del seguidor, y un alias de usuario de `line_id` establecido como el ID de LINE del seguidor. El perfil tiene un estado de suscripción de `subscribed`.
 3. El usuario es identificado como poseedor del ID de LINE a través de la [reconciliación de usuarios](#user-id-reconciliation).
-  - El perfil de usuario anónimo puede ser identificado usando el [endpoint `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify). Las actualizaciones posteriores (a través del [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) o [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) a este perfil de usuario pueden dirigirse al usuario por este `external_id` conocido.
+  - El perfil de usuario anónimo puede ser identificado usando el [endpoint `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify). Las actualizaciones posteriores (a través del [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) o [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) a este perfil de usuario pueden dirigirse al usuario por este `external_id` conocido.
 
 {% raw %}
 ```json
@@ -272,7 +272,7 @@ Estos son ejemplos de cómo los usuarios pueden ser actualizados después de seg
 ```
 {% endraw %}
 
-  - Se puede crear un nuevo perfil de usuario (a través del [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) o [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) estableciendo el `native_line_id`. Este nuevo perfil heredará el estado de suscripción del perfil de usuario anónimo existente. Ten en cuenta que esto resultará en múltiples perfiles compartiendo el mismo `native_line_id`. Estos se pueden fusionar en cualquier momento usando el endpoint `/users/merge` en el proceso descrito en el [Paso 5](#step-5-merge-profiles-optional).
+  - Se puede crear un nuevo perfil de usuario (a través del [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) o [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) estableciendo el `native_line_id`. Este nuevo perfil heredará el estado de suscripción del perfil de usuario anónimo existente. Ten en cuenta que esto resultará en múltiples perfiles compartiendo el mismo `native_line_id`. Estos se pueden fusionar en cualquier momento usando el endpoint `/users/merge` en el proceso descrito en el [Paso 5](#step-5-merge-profiles-optional).
 
 ##### La creación del perfil de usuario ocurre antes de seguir LINE {#user-profile-creation-occurs-before-line-follow}
 
@@ -311,7 +311,7 @@ Para adquirir el ID de LINE correcto para cada usuario, configura LINE Login baj
 
 4. Guarda el ID de LINE del usuario (`native_line_id`) en el perfil del usuario con un correo electrónico coincidente en tu base de datos, o crea un nuevo perfil de usuario con el correo electrónico y el ID de LINE del usuario.
 
-5. Envía la información de usuario nueva o actualizada a Braze usando el [endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users), [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) o [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
+5. Envía la información de usuario nueva o actualizada a Braze usando el [endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) o [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 #### Flujos de trabajo {#workflows}
 
@@ -391,7 +391,7 @@ if (user && isLoggedIn && lineUserId) {
 
 ## Creación de usuarios de prueba LINE en Braze {#creating-line-test-users-in-braze}
 
-Puedes probar tu canal LINE antes de configurar la [reconciliación de usuarios](#user-id-reconciliation) creando un Canvas o Campaign de "Quién soy".
+Puedes probar tu canal LINE antes de configurar la [reconciliación de usuarios](#user-id-reconciliation) creando un Canvas o una Campaign de "Quién soy".
 
 1. Configura un Canvas que devuelva el ID de usuario de Braze de un usuario con una palabra desencadenante específica. <br><br>Ejemplo de desencadenante <br><br>![Desencadenante para enviar la Campaign a usuarios que enviaron un LINE entrante a un grupo de suscripción específico.]({% image_buster /assets/img/line/trigger.png %}){: style="max-width:80%;"}<br><br>Ejemplo de mensaje<br><br>![Mensaje LINE que muestra el ID de usuario de Braze.]({% image_buster /assets/img/line/message.png %}){: style="max-width:40%;"}<br><br>
 

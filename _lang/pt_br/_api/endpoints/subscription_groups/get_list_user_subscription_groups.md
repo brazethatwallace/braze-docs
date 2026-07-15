@@ -30,19 +30,19 @@ Se você quiser ver exemplos ou testar este endpoint para **grupos do WhatsApp**
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `subscription.groups.get`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `subscription.groups.get`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `external_id` | Obrigatória | String | O `external_id` do usuário (deve incluir no mínimo um e no máximo 50 `external_ids`). |
-| `email` | Obrigatória* | String | O endereço de e-mail do usuário, que pode ser passado como uma matriz de strings. Deve incluir pelo menos um endereço de e-mail (com um máximo de 50). |
-| `phone` | Obrigatória* | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | O número de telefone do usuário. Deve incluir pelo menos um número de telefone (com um máximo de 50). |
+| `external_id` | Obrigatório | String | O `external_id` do usuário (deve incluir no mínimo um e no máximo 50 `external_ids`). |
+| `email` | Obrigatório* | String | O endereço de e-mail do usuário, que pode ser passado como uma matriz de strings. Deve incluir pelo menos um endereço de e-mail (com um máximo de 50). |
+| `phone` | Obrigatório* | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | O número de telefone do usuário. Deve incluir pelo menos um número de telefone (com um máximo de 50). |
 | `limit` | Opcional | Número inteiro | O limite do número máximo de resultados retornados. O `limit` padrão (e máximo) é 100. |
 | `offset` | Opcional | Número inteiro | Número de modelos a serem ignorados antes de retornar o restante dos modelos que atendem aos critérios de pesquisa. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }

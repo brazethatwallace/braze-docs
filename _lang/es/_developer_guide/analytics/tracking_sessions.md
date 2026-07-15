@@ -1,6 +1,6 @@
 ---
 nav_title: Seguimiento de sesiones
-article_title: Realiza el seguimiento de las sesiones a través del SDK de Braze
+article_title: Seguimiento de sesiones a través del SDK de Braze
 page_order: 3.3
 description: "Aprende a realizar el seguimiento de las sesiones a través del SDK de Braze."
 
@@ -259,12 +259,11 @@ Si estableces un tiempo de espera para la sesión, toda la semántica de la sesi
 
 Un perfil de usuario puede tener 0 sesiones si el usuario fue creado fuera del SDK:
 
-- **Creado mediante la REST API:** Si un usuario se crea a través del punto de conexión [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) con un `app_id` en la solicitud, el perfil aparece asociado a esa aplicación pero no tiene datos de sesión porque el SDK nunca se inicializó para ese usuario.
+- **Creado mediante la REST API:** Si un usuario se crea a través del endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) con un `app_id` en la solicitud, el perfil aparece asociado a esa aplicación pero no tiene datos de sesión porque el SDK nunca se inicializó para ese usuario.
 - **Creado mediante importación CSV:** Si un usuario se importa a través de [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) sin valores para los campos de primera o última sesión, el perfil existe con 0 sesiones.
 
 ### Algunos usuarios no registran sesiones {#some-users-are-not-logging-sessions}
-
-Dado que las sesiones solo se rastrean después de que el SDK se inicializa, los usuarios que no desencadenan la inicialización del SDK no registran ninguna sesión. Esto suele ocurrir cuando tu aplicación utiliza lógica condicional antes de inicializar el SDK, como retrasar la inicialización detrás de un flujo de inicio de sesión, una solicitud de consentimiento o un conmutador de características. Para obtener orientación sobre la implementación, consulta [Inicialización diferida]({{site.baseurl}}/developer_guide/sdk_initalization?sdktab=swift). En estos casos, cualquier usuario que no cumpla la condición nunca inicia una sesión.
+Dado que las sesiones solo se rastrean después de que el SDK se inicializa, los usuarios que no desencadenan la inicialización del SDK no registran ninguna sesión. Esto suele ocurrir cuando tu aplicación utiliza lógica condicional antes de inicializar el SDK, como retrasar la inicialización detrás de un flujo de inicio de sesión, una solicitud de consentimiento o un conmutador de características. Para obtener orientación sobre la implementación, consulta [Inicialización diferida]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#step-2-set-up-delayed-initialization-optional). En estos casos, cualquier usuario que no cumpla la condición nunca inicia una sesión.
 
 Si algunos usuarios registran sesiones y otros no, verifica lo siguiente:
 

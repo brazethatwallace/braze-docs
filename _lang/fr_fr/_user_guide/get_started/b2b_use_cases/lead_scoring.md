@@ -105,7 +105,7 @@ Dans l'onglet **Compose** de chaque étape User Update, procédez comme suit pou
 | **Attribute Name** | Sélectionnez l'attribut d'évaluation des prospects choisi à l'étape 2 (`lead score`). |
 | **Action** | Changez l'action en **Increment By** si le parcours augmente le score ou **Decrement By** si le parcours diminue le score. |
 | **Increment By** ou **Decrement By** | Saisissez le nombre de points à ajouter ou à retrancher du score du prospect. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4d: Add User Update steps" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 4d : Ajouter des étapes User Update" }
 
 ### Étape 5 : Lancer votre Canvas {#step-5-launch-your-canvas}
 
@@ -117,7 +117,7 @@ Que vous utilisiez l'un de nos [partenaires technologiques]({{site.baseurl}}/par
 
 ### Partenaires externes {#external-partners}
 
-Consultez la page [Partenaires technologiques]({{site.baseurl}}/partners/home) pour en savoir plus sur nos partenaires B2B proposant des fonctionnalités d'évaluation des prospects. Votre outil n'y figure pas ? Vous pouvez l'intégrer en appelant notre endpoint d'API [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users).
+Consultez la page [Partenaires technologiques]({{site.baseurl}}/partners/home) pour en savoir plus sur nos partenaires B2B proposant des fonctionnalités d'évaluation des prospects. Votre outil n'y figure pas ? Vous pouvez l'intégrer en appelant notre endpoint d'API [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ### Modèles de données internes pour l'évaluation des prospects {#internal-lead-scoring-data-models}
 
@@ -184,7 +184,7 @@ Pour mettre à jour l'enregistrement du prospect dans Salesforce avec le statut 
 | --- | --- |
 | Authorization | {% raw %}`Bearer {{result.access_token}}`{% endraw %}<br><br>Pour récupérer un jeton, [configurez une application connectée](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) pour le flux d'identifiants client OAuth 2.0, puis utilisez le contenu connecté pour récupérer le bearer depuis Salesforce : <br><br>{% raw %}<code>{% connected_content https://[instance].my.salesforce.com/services/oauth2/token <br>:method post <br> :body client_id=[client_id]&client_secret=[client_secret]&grant_type=client_credentials <br>:save result %}{% endraw %} <br> Bearer {% raw %}{{result.access_token}}</code>{% endraw %} |
 | Content-Type | application/json |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2a: Compose webhook" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2a : Composer le webhook" }
 
 ![Webhook composé avec une URL de webhook Salesforce, une méthode HTTP PATCH, un corps de requête en texte brut et des en-têtes de requête.]({% image_buster /assets/img/b2b/webhook.png %}){: style="max-width:80%;"}
 
@@ -193,8 +193,8 @@ Pour mettre à jour l'enregistrement du prospect dans Salesforce avec le statut 
 La Campaign doit se déclencher chaque fois que le score du prospect change. Elle se déclenchera pour tout utilisateur dont le score évolue, mais n'affectera que les utilisateurs qui ne sont pas encore MQL et qui ont franchi le seuil défini à l'étape précédente.
 
 Dans l'étape **Schedule Delivery**, sélectionnez les éléments suivants :
-- Un type de réception/distribution **Action-Based**
-- Une action de déclenchement **Change Custom Attribute Value** avec le nom de votre attribut d'évaluation des prospects et une action de **any new value**
+- Un type de distribution **Action-Based**
+- Une action de déclenchement **Change Custom Attribute Value** avec le nom de votre attribut d'évaluation des prospects et une action **any new value**
 
 #### Étape 2c : Identifier l'audience cible {#step-2c-identify-target-audience}
 

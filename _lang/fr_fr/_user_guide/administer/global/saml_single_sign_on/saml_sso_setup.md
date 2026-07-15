@@ -203,5 +203,5 @@ Si certains utilisateurs ne parviennent pas à se connecter avec Google SSO, vé
 
 Après avoir configuré l'authentification unique (SSO) SAML, vous pouvez :
 
-- [Imposer la connexion SSO uniquement]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) dans vos paramètres de sécurité pour empêcher les utilisateurs de se connecter avec un mot de passe.
+- [Imposer la connexion SSO uniquement]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) dans vos paramètres de sécurité pour empêcher les utilisateurs de se connecter avec un mot de passe.
 - [Configurer le provisionnement juste-à-temps SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) afin que les nouveaux utilisateurs créent automatiquement des comptes Braze lors de leur première connexion SSO.

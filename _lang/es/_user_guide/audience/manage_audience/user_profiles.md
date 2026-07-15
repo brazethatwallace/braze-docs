@@ -166,7 +166,7 @@ Los siguientes eventos de interacción con mensajes están disponibles para corr
 
 ##### Eventos de cancelación de mensajes {#message-abort-events}
 
-Los eventos de cancelación de mensajes ocurren cuando un mensaje enviado a un usuario fue cancelado debido a lógica condicional en [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) o [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages), o por tiempos de espera en el renderizado de Liquid.
+Los eventos de cancelación de mensajes ocurren cuando un mensaje enviado a un usuario fue cancelado debido a lógica condicional en [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) o [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-connected-content), o por tiempos de espera en el renderizado de Liquid.
 
 Los eventos de cancelación están disponibles para los siguientes canales:
 
@@ -179,7 +179,7 @@ Los eventos de cancelación actualmente no están disponibles para mensajes dent
 
 ##### Eventos de limitación de frecuencia {#frequency-cap-events}
 
-Un evento de limitación de frecuencia ocurre cuando un usuario califica para recibir un mensaje, pero en realidad no lo recibe debido a la configuración de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping). Puedes personalizar la configuración de limitación de frecuencia desde **Configuración** > **Reglas de limitación de frecuencia**.
+Un evento de limitación de frecuencia ocurre cuando un usuario califica para recibir un mensaje, pero en realidad no lo recibe debido a la configuración de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Puedes personalizar la configuración de limitación de frecuencia desde **Configuración** > **Reglas de limitación de frecuencia**.
 
 ##### Destinos en blanco {#blank-destinations}
 

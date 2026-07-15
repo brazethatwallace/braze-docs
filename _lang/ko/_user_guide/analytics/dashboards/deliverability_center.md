@@ -13,7 +13,7 @@ channel:
 
 > 전달 가능성 센터는 [Gmail Postmaster Tools](https://www.gmail.com/postmaster/)를 활용하여 발송된 이메일에 대한 데이터를 추적하고 발송 도메인에 대한 데이터를 수집함으로써 이메일 성능에 대한 더 깊은 인사이트를 제공합니다.
 
-이메일 전달 가능성은 Campaign(캠페인) 성공의 핵심입니다. Braze 대시보드의 전달 가능성 센터를 사용하면 **IP Reputation** 또는 **Delivery Errors**별로 도메인을 확인하여 이메일 전달 가능성과 관련된 잠재적 문제를 발견하고 해결할 수 있습니다.
+이메일 전달 가능성은 Campaign 성공의 핵심입니다. Braze 대시보드의 전달 가능성 센터를 사용하면 **IP Reputation** 또는 **Delivery Errors**별로 도메인을 확인하여 이메일 전달 가능성과 관련된 잠재적 문제를 발견하고 해결할 수 있습니다.
 
 전달 가능성 센터에 접근하려면 워크스페이스에 대해 아래 드롭다운에 나열된 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 필요합니다.
 
@@ -158,7 +158,7 @@ IP 평판 등급을 이해하려면 다음 표를 참조하세요:
 | TLS 아웃바운드 | 해당 도메인으로 발송된 모든 메일 중 TLS를 통해 수락된 발신 메일(Gmail에서)의 비율을 표시합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="암호화" }
 
-전달 가능성을 개선하는 더 많은 아이디어는 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps)을 참조하세요. 이메일 캠페인을 발송하기 전에 확인해야 할 사항은 [이메일 모범 사례]({{site.baseurl}}/user_guide/channels/email/best_practices)를 참조하세요.
+전달 가능성을 개선하는 더 많은 아이디어는 [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)을 참조하세요. 이메일 Campaign을 발송하기 전에 확인해야 할 사항은 [이메일 모범 사례]({{site.baseurl}}/user_guide/channels/email/best_practices)를 참조하세요.
 
 ## Microsoft Smart Network Data Services(SNDS) 설정 {#set-up-microsoft-smart-network-data-services-snds}
 

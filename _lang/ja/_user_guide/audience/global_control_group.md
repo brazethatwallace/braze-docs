@@ -28,7 +28,7 @@ toc_headers: h2
 
 ### グローバルコントロールグループへのユーザーのランダム割り当て {#assign-users-randomly-to-the-global-control-group}
 
-Brazeは[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#step-1-segment-your-users-by-the-random-bucket-attribute)の複数の範囲をランダムに選択し、選択されたバケットに含まれるユーザーを対象とします。他の目的でランダムバケット番号を現在使用している場合は、[注意事項](#things-to-watch-for)を確認してください。
+Brazeは[ランダムバケット番号]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#create-segments-using-random-bucket-numbers)の複数の範囲をランダムに選択し、選択されたバケットに含まれるユーザーを対象とします。他の目的でランダムバケット番号を現在使用している場合は、[注意事項](#things-to-watch-for)を確認してください。
 
 グローバルコントロールグループが生成されると、該当するランダムバケット番号を持つすべてのユーザーがグループに含まれます。さらに、この時点以降に参加した新規ユーザー（グローバルコントロールグループの生成後に獲得されたユーザー）で、これらのランダムバケット番号を持つユーザーもグローバルコントロールグループに追加されます。同様に、多くのユーザーが削除された場合、削除されたユーザーの一定割合がこのグループに含まれているため、グローバルコントロールグループのサイズが縮小することが予想されます。これにより、グループのサイズはユーザー群全体に対する一定の割合として維持されます。
 

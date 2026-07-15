@@ -22,7 +22,7 @@ Verwenden Sie dieses Feld, um die erforderliche Mindestlänge des Passworts zu �
 
 ### Passwortkomplexität
 
-Wählen Sie **Enforce complex passwords**, um zu verlangen, dass die Passwörter mindestens eines der folgenden Elemente enthalten müssen:
+Wählen Sie **Enforce complex passwords**, um zu verlangen, dass Passwörter mindestens eines der folgenden Elemente enthalten müssen:
 - Großbuchstabe
 - Kleinbuchstabe
 - Zahl
@@ -266,7 +266,7 @@ Die Berechtigung **View PII** ist nur für einige ausgewählte Unternehmensnutze
 Sie benötigen die Berechtigung **View PII**, um den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries) zu verwenden, da dieser direkten Zugriff auf einige Kundendaten ermöglicht.
 {% endalert %}
 
-Informationen zu den bestehenden Team-Berechtigungsfunktionen finden Sie unter [Nutzerberechtigungen festlegen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
+Informationen zu den bestehenden Team-Berechtigungsfunktionen finden Sie unter [Nutzerberechtigungen festlegen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ### PII definieren
 

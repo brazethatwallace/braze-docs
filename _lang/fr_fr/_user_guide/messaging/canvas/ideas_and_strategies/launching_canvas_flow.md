@@ -38,7 +38,7 @@ Pour plus de détails sur les filtres de segmentation disponibles pour cibler vo
 
 ### Regrouper plusieurs requêtes API {#batch-multiple-api-requests}
 
-Effectuez vos requêtes dans un même appel API, plutôt que dans plusieurs appels, pour vous assurer que le profil utilisateur est créé ou mis à jour en premier. Consultez [Utiliser plusieurs endpoints]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#using-multiple-api-endpoints) pour plus d'exemples.
+Effectuez vos requêtes dans un même appel API, plutôt que dans plusieurs appels, pour vous assurer que le profil utilisateur est créé ou mis à jour en premier. Consultez [Utiliser plusieurs endpoints]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-2-using-multiple-api-endpoints) pour plus d'exemples.
 
 ### Ajouter un délai {#add-a-delay}
 
@@ -77,7 +77,7 @@ Les [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_com
 
 ### Chemins d'expérience {#experiment-paths}
 
-De manière similaire aux Parcours d'actions, vous pouvez utiliser les étapes [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) dans votre Canvas pour tester plusieurs parcours les uns par rapport aux autres, ainsi qu'un groupe de contrôle. Cela permet de suivre les performances de chaque parcours et de prendre des décisions éclairées lors de la construction de votre Canvas.
+De manière similaire aux parcours d'actions, vous pouvez exploiter les étapes [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) dans votre Canvas pour tester plusieurs parcours les uns par rapport aux autres, ainsi qu'un groupe de contrôle. Cela permet de suivre les performances de chaque parcours et de prendre des décisions éclairées lors de la construction de votre Canvas.
 
 ## Tester avant le lancement {#testing-before-launch}
 

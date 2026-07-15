@@ -20,7 +20,7 @@ description: "Cet article décrit l'endpoint Braze permettant d'exporter le rés
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `canvas.data_summary`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `canvas.data_summary`.
 
 ## Limite de débit {#rate-limit}
 

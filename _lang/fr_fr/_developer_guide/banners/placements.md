@@ -597,7 +597,7 @@ Si votre bannière utilise le bloc éditeur **Code personnalisé** dans le table
 </button>
 ```
 
-Pour la référence complète, consultez [Code personnalisé et pont JavaScript pour les bannières]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code). Le `brazeBridge` fournit une couche de communication entre le HTML interne de la bannière et le SDK Braze parent.
+Pour la référence complète, consultez [Code personnalisé et pont JavaScript pour les bannières]({{site.baseurl}}/user_guide/channels/banners/custom_code). Le `brazeBridge` fournit une couche de communication entre le HTML interne de la bannière et le SDK Braze parent.
 
 ### Implémentations d'interface utilisateur personnalisées (headless) {#custom-ui-implementations-headless}
 

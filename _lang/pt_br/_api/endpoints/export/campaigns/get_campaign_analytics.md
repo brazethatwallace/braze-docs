@@ -24,7 +24,7 @@ Os dados retornados incluem quantas mensagens foram enviadas, abertas, clicadas 
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `campaigns.data_series`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `campaigns.data_series`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -32,10 +32,10 @@ Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `campaign_id` | Obrigatória | String | Consulte o [identificador de API da campanha]({{site.baseurl}}/api/identifier_types).<br><br> O `campaign_id` para Campaigns da API pode ser encontrado na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) e na página **Campaign Details** no seu dashboard, ou você pode usar o [endpoint Listar Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns). |
-| `length` | Obrigatória | Inteiro | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
+| `campaign_id` | Obrigatório | String | Consulte o [identificador de API da campanha]({{site.baseurl}}/api/identifier_types).<br><br> O `campaign_id` para Campaigns da API pode ser encontrado na página [Chaves de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) e na página **Campaign Details** no seu dashboard, ou você pode usar o [endpoint Listar Campaigns]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaigns). |
+| `length` | Obrigatório | Inteiro | Número máximo de dias antes de `ending_at` para incluir na série retornada. Deve estar entre 1 e 100 (inclusive). |
 | `ending_at` | Opcional | Datetime <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) string) | Data em que a série de dados deve terminar. O padrão é o horário da solicitação. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
@@ -238,4 +238,4 @@ Para obter ajuda com exportações de CSV e API, acesse [Resolução de problema
 
 O endpoint [`/campaigns/data_series`]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics) retorna estatísticas diárias agregadas (por exemplo, `delivery_failed` para SMS ou `errors` para webhooks). Ele não retorna motivos de falha por destinatário.
 
-Para falhas de envio, bounces e cancelamentos por mensagem de Campaigns disparadas por API ou Campaigns da API, use o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) no dashboard. Para relatórios personalizados sobre eventos de envio e entrega, use o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) com [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) ou SQL personalizado. Você também pode transmitir eventos de falha por meio de Currents ou Compartilhamento de dados do Snowflake se o seu espaço de trabalho tiver esses produtos ativados.
+Para falhas de envio, bounces e interrupções por mensagem de Campaigns disparadas por API ou Campaigns da API, use o [Registro de atividades de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) no dashboard. Para relatórios personalizados sobre eventos de envio e entrega, use o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) com [modelos de consulta]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) ou SQL personalizado. Você também pode transmitir eventos de falha por meio de Currents ou Compartilhamento de Dados do Snowflake se o seu espaço de trabalho tiver esses produtos ativados.

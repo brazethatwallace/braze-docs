@@ -28,7 +28,7 @@ Au fil du développement de vos campagnes, vous pourriez constater un déclin de
 
 ### Identifiez votre audience {#identify-your-audience}
 
-Tirez parti des segments et des filtres en définissant votre audience. Réfléchissez à qui votre campagne et vos messages s'adressent. Grâce à ces informations clés, vous pouvez créer des [campagnes multicanales]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) offrant la flexibilité de concevoir vos messages sur différents canaux en fonction des préférences de notification de votre audience.
+Tirez parti des segments et des filtres en définissant votre audience. Réfléchissez à qui votre campagne et vos messages s'adressent. Grâce à ces informations clés, vous pouvez créer des [campagnes multicanales]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) offrant la flexibilité de concevoir vos messages sur différents canaux en fonction des préférences de notification de votre audience.
 
 Il est également important de bien comprendre vos [utilisateurs actifs]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns) afin de montrer votre reconnaissance envers vos utilisateurs les plus fidèles.
 
@@ -38,7 +38,7 @@ Il est également important de bien comprendre vos [utilisateurs actifs]({{site.
 
 Si votre objectif est d'attirer l'attention de vos utilisateurs sur une nouvelle fonctionnalité ou une nouvelle version de l'application, adoptez une stratégie multicanale axée sur les canaux in-app. Les [messages in-app]({{site.baseurl}}/in-app_messages) et les [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards) sont généralement moins intrusifs si l'utilisateur ne souhaite pas effectuer la mise à jour immédiatement.
 
-N'oubliez pas d'inclure des [liens profonds]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) vers la boutique d'applications appropriée.
+N'oubliez pas d'inclure des [deep links]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls) vers la boutique d'applications appropriée.
 
 Convaincre les utilisateurs de mettre à jour leur application ou de changer leurs habitudes d'utilisation peut s'avérer difficile. Présentez-leur tous les avantages de la nouvelle version ou des nouvelles fonctionnalités, et montrez-leur en quoi cela améliorera leur expérience.
 

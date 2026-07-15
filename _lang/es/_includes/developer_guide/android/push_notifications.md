@@ -454,7 +454,7 @@ En tu `braze.xml`, especifica:
 <string name="com_braze_fallback_firebase_cloud_messaging_service_classpath">com.company.OurFirebaseMessagingService</string>
 ```
 
-o configúralo mediante la [configuración en tiempo de ejecución:]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)
+o configúralo mediante la [configuración en tiempo de ejecución:]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -540,7 +540,7 @@ Para habilitar que Braze abra automáticamente tu aplicación y cualquier víncu
 <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
 ```
 
-Este indicador también se puede establecer mediante la [configuración en tiempo de ejecución]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android):
+Este indicador también se puede establecer mediante la [configuración en tiempo de ejecución]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration):
 
 {% tabs %}
 {% tab JAVA %}
@@ -649,7 +649,7 @@ El panel de Braze permite configurar vínculos profundos o URL web en Campaigns 
 
 El SDK de Android, de forma predeterminada, colocará la actividad principal iniciadora de tu aplicación anfitriona en la pila de actividades cuando se sigan vínculos profundos push. Braze te permite configurar una actividad personalizada para que se abra en la pila de actividades en lugar de tu actividad principal iniciadora, o desactivar por completo la pila de actividades.
 
-Por ejemplo, para establecer una actividad llamada `YourMainActivity` como actividad de la pila trasera mediante la [configuración en tiempo de ejecución]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android):
+Por ejemplo, para establecer una actividad llamada `YourMainActivity` como actividad de la pila trasera mediante la [configuración en tiempo de ejecución]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration):
 
 {% tabs %}
 {% tab JAVA %}
@@ -691,7 +691,7 @@ Para configurar el nombre visible para el usuario del canal de notificación pre
 
 Para configurar la descripción visible para el usuario del canal de notificación predeterminado de Braze, utiliza [`BrazeConfig.setDefaultNotificationChannelDescription()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.configuration/-braze-config/-builder/set-default-notification-channel-description.html).
 
-Actualiza cualquier campaña de API con el parámetro del [objeto push de Android]({{site.baseurl}}/api/objects_filters/messaging/android_object) para incluir el campo `notification_channel`. Si no se especifica este campo, Braze enviará la carga útil de la notificación con el ID del canal [alternativo del dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel).
+Actualiza cualquier Campaign de API con el parámetro del [objeto push de Android]({{site.baseurl}}/api/objects_filters/messaging/android_object) para incluir el campo `notification_channel`. Si no se especifica este campo, Braze enviará la carga útil de la notificación con el ID del canal [alternativo del panel]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel).
 
 Aparte del canal de notificación predeterminado, Braze no creará ningún canal. Todos los demás canales deben ser definidos mediante programación por la aplicación anfitriona y luego introducidos en el panel de Braze.
 
@@ -706,7 +706,7 @@ El nombre y la descripción predeterminados del canal también se pueden configu
 
 #### Prueba de visualización {#testing-display}
 
-En este punto, deberías poder ver las notificaciones enviadas desde Braze. Para probarlo, ve a la página **Campaigns** en tu panel de Braze y crea una Campaign de **notificación push**. Elige **Android Push** y diseña tu mensaje. A continuación, haz clic en el icono del ojo en el compositor para obtener el remitente de prueba. Introduce el ID de usuario o la dirección de correo electrónico de tu usuario actual y haz clic en **Send Test**. Deberías ver aparecer la notificación push en tu dispositivo.
+En este punto, deberías poder ver las notificaciones enviadas desde Braze. Para probarlo, ve a la página **Campaigns** en tu panel de Braze y crea una Campaign de **notificación push**. Elige **Android Push** y diseña tu mensaje. A continuación, haz clic en el icono del ojo en el creador para obtener el remitente de prueba. Introduce el ID de usuario o la dirección de correo electrónico de tu usuario actual y haz clic en **Send Test**. Deberías ver aparecer la notificación push en tu dispositivo.
 
 ![La pestaña "Test" de una Campaign de notificaciones push en el panel de Braze.]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 
@@ -742,7 +742,7 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR
 }' https://rest.iad-01.braze.com/messages/send
 ```
 
-Este ejemplo utiliza la instancia `US-01`. Si no estás en esta instancia, sustituye el punto de conexión `US-01` por [tu punto de conexión]({{site.baseurl}}/api/basics#endpoints).
+Este ejemplo utiliza la instancia `US-01`. Si no estás en esta instancia, sustituye el endpoint `US-01` por [tu endpoint]({{site.baseurl}}/api/basics#endpoints).
 
 ## Notificaciones push de conversaciones {#conversation-push-notifications}
 

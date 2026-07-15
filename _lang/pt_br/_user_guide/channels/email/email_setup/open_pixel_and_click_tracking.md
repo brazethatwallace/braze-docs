@@ -9,11 +9,11 @@ description: "Este artigo de referência aborda como implementar o pixel de rast
 
 # Pixel de abertura e rastreamento de cliques de e-mail {#email-open-pixel-and-click-tracking}
 
-> O [rastreamento por pixel de abertura]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel) e o rastreamento de cliques podem ser ativados ou desativados para cada perfil de usuário. Essa flexibilidade ajuda você a seguir as leis regionais de privacidade, nos casos em que um perfil de usuário individual indica que não deseja mais ser rastreado.
+> O [rastreamento por pixel de abertura]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) e o rastreamento de cliques podem ser ativados ou desativados para cada perfil de usuário. Essa flexibilidade ajuda você a seguir as leis regionais de privacidade, nos casos em que um perfil de usuário individual indica que não deseja mais ser rastreado.
 
 ## Ativando o pixel de abertura ou o rastreamento de cliques {#turning-on-open-pixel-or-click-tracking}
 
-Ao importar ou atualizar um perfil de usuário por meio de [API]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields), [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) ou [Ingestão de dados na nuvem (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), dois campos estão disponíveis para modificação:
+Ao importar ou atualizar um perfil de usuário por meio de [API]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields), [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou [Ingestão de dados na nuvem (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), dois campos estão disponíveis para modificação:
 
 - `email_open_tracking_disabled`: Aceita `true` ou `false`. Defina como `false` para adicionar o pixel de rastreamento de abertura a todos os e-mails futuros enviados a esse usuário. Disponível apenas para SparkPost e SendGrid.
 - `email_click_tracking_disabled`: Aceita `true` ou `false`. Defina como `false` para adicionar o rastreamento de cliques a todos os links em e-mails futuros enviados a esse usuário. Disponível apenas para SparkPost e SendGrid.

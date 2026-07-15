@@ -96,7 +96,7 @@ dimension: external_id {
 - 属性は、**Look内のフィールドとして含まれている**場合にのみ送信されます。
 - サポートされているタイプは`Strings`、`Boolean`、`Numbers`、`Dates`です。
 - 属性名は大文字と小文字を区別します。
-- [標準ユーザープロファイル]({{site.baseurl}}/api/endpoints/user_data#braze-user-profile-fields)名と完全に一致する限り、標準属性も設定できます。
+- [標準ユーザープロファイル]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)名と完全に一致する限り、標準属性も設定できます。
 - 完全なタグは引用符で囲む必要があります。例: `tags: ["braze[first_name]"]`。他のタグを割り当てることもできますが、無視されます。
 - 追加情報は[GitHub](https://github.com/looker/actions/tree/master/src/actions/braze)で確認できます。
 

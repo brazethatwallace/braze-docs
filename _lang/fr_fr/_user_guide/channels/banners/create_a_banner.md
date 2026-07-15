@@ -220,7 +220,7 @@ Braze vous permet de suivre les [événements de conversion]({{site.baseurl}}/us
 
 {% tab Canvas %}
 
-Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la finalisation de votre Canvas, la mise en œuvre de [tests multivariés]({{site.baseurl}}/user_guide/messaging/ab_testing) et de la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), et bien plus encore, consultez l'étape [Créer votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la finalisation de votre Canvas, la mise en œuvre de [tests multivariés]({{site.baseurl}}/user_guide/messaging/ab_testing) et de la [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), et bien plus encore, consultez l'étape [Créer votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
 
 Pour contrôler la rééligibilité des étapes de bannière dans un Canvas, utilisez les paramètres de réentrée du Canvas. Pour en savoir plus, consultez [Rééligibilité pour les Campaigns et les Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 

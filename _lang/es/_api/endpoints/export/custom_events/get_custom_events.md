@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar lista de eventos personalizados de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar lista de eventos personalizados de Braze."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /events/list
 {% endapimethod %}
 
-> Utiliza este punto de conexión para exportar una lista de eventos personalizados que se han registrado para tu aplicación. Los nombres de los eventos se devuelven en grupos de 250, ordenados alfabéticamente.
+> Utiliza este endpoint para exportar una lista de eventos personalizados que se han registrado para tu aplicación. Los nombres de los eventos se devuelven en grupos de 250, ordenados alfabéticamente.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#93ecd8a5-305d-4b72-ae33-2d74983255c1 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `events.list`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `events.list`.
 
 ## Límite de velocidad {#rate-limit}
 

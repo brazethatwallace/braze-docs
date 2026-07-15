@@ -28,6 +28,16 @@ Der Content Optimizer ist ein Agent, der in einem Canvas-Schritt ausgeführt wir
 
 Erfahren Sie, wie Sie einen [Content Optimizer-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step) erstellen.
 
+{% multi_lang_include brazeai/generative_ai/policy.md %}
+
+### OpenAI und Content Optimizer {#openai-and-content-optimizer}
+
+Der Content Optimizer verwendet OpenAI nur dann, wenn Sie explizit KI-generierte Variantenvorschläge anfordern. OpenAI wird nicht verwendet, um zu entscheiden, welche Variante einzelne Nutzer:innen erhalten, oder um den Sendeverkehr zuzuweisen.
+
+- **Verwendet OpenAI:** Wenn Sie **Generate AI suggestions** für eine Inhaltskomponente auswählen, sendet Braze Ihre Ausgangsvariante, Anweisungen, optionale [Markenrichtlinien]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) und (bei gestarteten Schritten mit ausreichenden Sendedaten) aggregierten Performance-Kontext an OpenAI, um Variantenideen zu generieren.
+- **Bandit-Optimierung:** Der proprietäre Multi-Armed-Bandit-Algorithmus von Braze übernimmt die Traffic-Zuweisung, die Variantenauswahl zum Sendezeitpunkt und die Performance-basierte Optimierung. Siehe [Funktionsweise](#how-it-works).
+- **Manuelle Eingabe:** Sie können Varianten selbst eingeben, ohne Inhalte an OpenAI zu senden.
+
 ## Anwendungsfälle {#use-cases}
 
 ### E-Mail {#email}
@@ -60,6 +70,8 @@ Erfahren Sie, wie Sie einen [Content Optimizer-Schritt]({{site.baseurl}}/user_gu
 
 ## Funktionsweise {#how-it-works}
 
+Der Bandit-Algorithmus von Braze übernimmt die in diesem Abschnitt beschriebene Optimierung.
+
 Der Content Optimizer verwendet einen nicht-kontextuellen [Multi-Armed-Bandit](https://en.wikipedia.org/wiki/Multi-armed_bandit)-Algorithmus, um leistungsstarken Varianten mehr Sendungen zuzuweisen und die Zuweisung an leistungsschwache Varianten zu reduzieren. Im Laufe der Zeit führt dies zu einer kontinuierlichen Verbesserung Ihrer Nachrichteninhalte bei minimalem manuellem Aufwand.
 
 Der proprietäre Bandit-Optimierungsalgorithmus von Braze wurde speziell für die kombinatorische Natur des Content Optimizer-Schritts entwickelt. Da jede Nachricht aus mehreren Komponenten besteht, lernt der Algorithmus gleichzeitig über die Performance jeder einzelnen Komponente (wie Betreffzeile, Textkörper, CTA) sowie über deren Wechselwirkungen, wenn sie zu einer Nachricht kombiniert werden. Konkret bedeutet dies: Wenn eine bestimmte Kombination gesendet wird, profitieren alle Kombinationen, die dieselben Komponenten enthalten, von den Daten dieser Sendung. Dadurch kann der Bandit im Vergleich zu einem Standard-Bandit-Algorithmus mit derselben Datenmenge wesentlich schneller lernen.
@@ -84,7 +96,7 @@ Am besten eignet sich der Content Optimizer für täglich wiederkehrende Eintrit
 | Inhaltskomponenten | Elemente innerhalb einer Nachricht (z. B. Betreffzeile oder primärer CTA), die getestet und optimiert werden können. Marketer müssen den entsprechenden Liquid-Tag an der Stelle in die Nachricht einfügen, an der die Komponente erscheinen soll. |
 | Inhaltsvarianten | Die verschiedenen Werte, die eine Inhaltskomponente annehmen kann. |
 | Inhaltskombinationen | Eindeutige Nachrichten, die durch die Kombination verschiedener Inhaltsvarianten erstellt werden. |
-| Optimierungs-Event | Legt fest, wie der Content Optimizer die Performance bewertet und den Traffic im Laufe der Zeit auf Inhaltskombinationen verteilt – beispielsweise Klicks oder Öffnungen für E-Mails. Gilt für alle Inhaltskomponenten in einem Schritt. Der Content Optimizer lernt kontinuierlich aus diesem Event und verschiebt die Zustellung automatisch hin zu leistungsstärkeren Inhaltskombinationen. |
+| Optimierungs-Event | Legt fest, wie der Content Optimizer die Performance bewertet und den Traffic im Laufe der Zeit auf Inhaltskombinationen verteilt – beispielsweise Klicks oder Öffnungen für E-Mails. Gilt für alle Inhaltskomponenten in einem Schritt. Der Content Optimizer lernt kontinuierlich aus diesem Ereignis und verschiebt die Zustellung automatisch hin zu leistungsstärkeren Inhaltskombinationen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Wichtige Konzepte" }
 
 ## Hinweise {#considerations}
@@ -101,8 +113,6 @@ Am besten eignet sich der Content Optimizer für täglich wiederkehrende Eintrit
    - Bis zu 5 Varianten für jede Komponente
 - Pro Nutzer:in und Eintritt wird nur eine Nachricht gesendet. Es gibt keine Speicherung früherer Sendungen bei Wiedereintritten.
 - Marketer müssen Liquid-Tags manuell für jede Komponente im Nachrichten-Editor einfügen, an der Stelle, an der die definierten Inhaltsvarianten gerendert werden sollen.
-
-{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## Nächste Schritte {#next-steps}
 

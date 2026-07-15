@@ -13,7 +13,7 @@ search_tag: Partner
 > Die [Zendesk Support Suite](https://www.zendesk.com/support-suite/) (ZSS) bietet Unternehmen die Möglichkeit, über Omnichannel-Support per E-Mail, Webchat, Voice oder Social-Messaging-Apps natürliche Konversationen mit ihren Kund:innen zu führen. Zendesk bietet ein optimiertes Ticketing-System, das Wert auf Tracking und Priorisierung von Interaktionen legt und es Unternehmen ermöglicht, eine einheitliche historische Übersicht über ihre Kund:innen zu erhalten.
 
 Die Server-zu-Server-Integration von Braze und Zendesk ermöglicht Ihnen die Nutzung von:
-- Braze-Webhooks zur Automatisierung der Erstellung von Support-Tickets in Zendesk aufgrund von Nachrichten-Engagement in Nutzer-Journeys in Braze. Nachdem Sie beispielsweise eine Integration erfolgreich implementiert und getestet haben, kann Braze ein Support-Ticket erstellen, wenn eine Nutzerin oder ein Nutzer eine In-App-Nachricht mit der Frage „Gefällt Ihnen unsere App?“ negativ beantwortet, sodass Ihr Support-Team mit der Kundin oder dem Kunden nachfassen kann.
+- Braze-Webhooks zur Automatisierung der Erstellung von Support-Tickets in Zendesk aufgrund von Nachrichten-Engagement in Nutzer-Journeys in Braze. Nachdem Sie beispielsweise eine Integration erfolgreich implementiert und getestet haben, kann Braze ein Support-Ticket erstellen, wenn Nutzer:innen eine In-App-Nachricht mit der Frage „Gefällt Ihnen unsere App?“ negativ beantworten, sodass Ihr Support-Team mit den Kund:innen nachfassen kann.
 - Zendesk-Webhooks zur Unterstützung bidirektionaler Anwendungsfälle wie dem Update des Nutzerprofils in Braze aufgrund einer Aktivität in Zendesk. Wenn zum Beispiel ein Ticket gelöst wurde, protokollieren Sie ein Ereignis im Nutzerprofil in Braze.
 
 ## Voraussetzungen {#prerequisites}
@@ -43,7 +43,7 @@ Weitere Anwendungsfälle können über die [Zendesk-Support-APIs](https://develo
 
 #### Anfrage-Header und Methode {#request-header-and-method}
 
-Zendesk benötigt einen HTTP-Header für die Autorisierung und eine HTTP-Methode. Ersetzen Sie im Tab **Einstellungen** <email_address> durch Ihre Zendesk-Admin-E-Mail und <api_token> durch Ihr Zendesk-API-Token.
+Zendesk benötigt einen HTTP-Header für die Autorisierung und eine HTTP-Methode. Ersetzen Sie im Tab **Settings** <email_address> durch Ihre Zendesk-Admin-E-Mail und <api_token> durch Ihr Zendesk-API-Token.
 
 - **HTTP-Methode**: POST
 - **Anfrage-Header**:
@@ -84,7 +84,7 @@ Definieren Sie die Ticketdetails wie Typ, Betreff und Status in Ihrem Webhook-Pa
 
 Ihr Rohtext wird automatisch hervorgehoben, wenn es sich um einen passenden Braze-Tag handelt.
 
-Eine Vorschau Ihrer Anfrage finden Sie im Panel **Vorschau** oder auf dem Tab **Test**, wo Sie eine zufällige Nutzerin oder einen zufälligen Nutzer, eine bereits vorhandene Person oder eine eigene Konfiguration auswählen können, um Ihren Webhook zu testen.
+Eine Vorschau Ihrer Anfrage finden Sie im Panel **Preview**. Alternativ können Sie zum Tab **Test** navigieren, wo Sie zufällige Nutzer:innen, bereits vorhandene Nutzer:innen oder eine eigene Konfiguration auswählen können, um Ihren Webhook zu testen.
 
 Prüfen Sie abschließend, ob das Ticket auf der Zendesk-Seite erstellt wurde.
 
@@ -103,7 +103,7 @@ Wenn Sie einen gemeinsamen Bezeichner für Braze und Zendesk haben, empfiehlt es
 - Geben Sie einen Namen und eine Beschreibung für den Webhook ein.
 - Geben Sie die URL des Braze-Endpunkts ein, den Ihr Webhook verwenden soll. {% raw %}Unser Beispiel verwendet `https://{{instance_url}}/users/track`.{% endraw %}
 - Wählen Sie POST als Anfragemethode des Webhooks und setzen Sie das Anfrageformat auf JSON.
-- Wählen Sie die Bearer-Token-Authentifizierungsmethode für den Webhook und geben Sie Ihren [Braze-API-Schlüssel]({{site.baseurl}}/api/basics#creating-and-managing-rest-api-keys) an.
+- Wählen Sie die Bearer-Token-Authentifizierungsmethode für den Webhook und geben Sie Ihren [Braze-API-Schlüssel]({{site.baseurl}}/api/basics#creating-rest-api-keys) an.
   - Vergewissern Sie sich, dass der API-Schlüssel, den Sie verwenden, die [richtigen Berechtigungen]({{site.baseurl}}/api/basics#rest-api-key-permissions) für den Braze-Endpunkt hat, den Ihr Webhook verwendet.<br><br>
 5. (Empfohlen) Testen Sie den Webhook, um zu überprüfen, ob er ordnungsgemäß funktioniert.<br><br>
 6. Bei Trigger- und Automatisierungs-Webhooks müssen Sie den Webhook mit einem Trigger oder einer Automatisierung verbinden, bevor Sie die Einrichtung abschließen. Im folgenden Schritt finden Sie ein Beispiel für die Erstellung eines Triggers für den Webhook. Nachdem der Trigger erstellt wurde, können Sie zu dieser Seite zurückkehren und **Finish setup** auswählen.
@@ -118,7 +118,7 @@ In unserem Beispiel unten wird ein Trigger verwendet, um den Webhook aufzurufen,
 2. Wählen Sie **Add trigger**.<br><br>
 3. Benennen Sie Ihren Trigger und wählen Sie eine Kategorie aus.<br><br>
 4. Wählen Sie **Add condition**, um festzulegen, welche Bedingungen den Webhook auslösen sollen. Zum Beispiel: „Status category changed to closed“ oder „Status category changed to solved“.![Zendesk-Trigger-Bedingungseditor mit Statuskategorie-Bedingungen.]({% image_buster /assets/img_archive/zendesk1.png %}){: style="max-width:70%;"}<br><br>
-5. Wählen Sie **Add action**, wählen Sie **Notify active webhook** und wählen Sie aus der Dropdown-Liste den Webhook aus, den Sie im vorherigen Schritt erstellt haben.<br><br>
+5. Wählen Sie **Add action**, wählen Sie **Notify active webhook** und wählen Sie aus dem Dropdown den Webhook aus, den Sie im vorherigen Schritt erstellt haben.<br><br>
 6. Definieren Sie den JSON-Body so, dass er Ihrem Braze-Endpunkt entspricht, und verwenden Sie variable Platzhalter von Zendesk, um die relevanten Felder dynamisch zu füllen.<br>![Zendesk-Webhook-Aktions-Payload-Editor mit JSON-Body-Variablen.]({% image_buster /assets/img_archive/zendesk3.png %}){: style="max-width:70%;"}<br><br>
 7. Wählen Sie **Create**.<br><br>
 8. Kehren Sie zu Ihrem Webhook zurück und klicken Sie auf **Finish setup**.

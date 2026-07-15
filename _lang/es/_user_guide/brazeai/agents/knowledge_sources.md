@@ -73,7 +73,7 @@ Convertir un catálogo en una fuente de conocimiento ayuda a Braze Agents a comp
 
 ### ¿Cuándo debo crear una fuente de conocimiento? {#when-should-i-create-a-knowledge-source}
 
-Crea una fuente de conocimiento cuando estés configurando un agente personalizado (agente de Canvas o agente de catálogo) que necesite datos del catálogo como contexto. Las fuentes de conocimiento ayudan a los agentes a recuperar datos del catálogo con mayor precisión que si se hace referencia al catálogo directamente en las instrucciones del agente.
+Crea una fuente de conocimiento cuando estés configurando un agente personalizado (agente de paso en Canvas o agente de catálogo) que necesite datos del catálogo como contexto. Las fuentes de conocimiento ayudan a los agentes a recuperar datos del catálogo con mayor precisión que si se hace referencia al catálogo directamente en las instrucciones del agente.
 
 ### Si a un agente se le ha proporcionado una fuente de conocimiento como contexto, ¿también necesito asignar el catálogo original como contexto? {#if-an-agent-has-been-given-a-knowledge-source-as-context-do-i-also-need-to-assign-the-original-catalog-as-context}
 

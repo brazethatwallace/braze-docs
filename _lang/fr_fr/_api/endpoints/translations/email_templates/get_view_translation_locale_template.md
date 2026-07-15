@@ -19,7 +19,7 @@ description: "Cet article décrit les détails de l'endpoint permettant d'affich
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `templates.translations.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `templates.translations.get`.
 
 ## Limite de débit {#rate-limit}
 
@@ -27,10 +27,10 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 
 ## Paramètres de requête {#query-parameters}
 
-| Paramètre     | Requis | Type de données | Description                     |
+| Paramètre | Requis | Type de données | Description |
 |---------------|----------|-----------|---------------------------------|
-| `template_id` | Requis | Chaîne de caractères    | L'ID de votre modèle d'e-mail. |
-| `locale_id`   | Facultatif | Chaîne de caractères    | L'ID (UUID) de la locale.           |
+| `template_id` | Requis | Chaîne de caractères | L'ID de votre modèle d'e-mail. |
+| `locale_id` | Facultatif | Chaîne de caractères | L'ID (UUID) de la locale. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}

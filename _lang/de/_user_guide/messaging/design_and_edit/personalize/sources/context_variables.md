@@ -181,7 +181,7 @@ Kontextvariablen werden deklariert und sind nur im Geltungsbereich eines Canvas 
 
 ![Beispiel eines Decision-Split-Schritts mit der Option, einen Filter mit einer Kontextvariable zu erstellen.]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
 
-Ähnlich wie Canvas-Kontextvariablen vordefinierte Typen haben, müssen die Vergleiche zwischen Kontextvariablen und statischen Werten [übereinstimmende Datentypen]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#supported-data-types) aufweisen. Der Kontextvariablen-Filter ermöglicht Vergleiche über mehrere Datentypen für boolesche Werte, Zahlen, Strings, Zeit und Tag des Jahres, ähnlich wie die Vergleiche für [verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Ähnlich wie Canvas-Kontextvariablen vordefinierte Typen haben, müssen die Vergleiche zwischen Kontextvariablen und statischen Werten [übereinstimmende Datentypen]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) aufweisen. Der Kontextvariablen-Filter ermöglicht Vergleiche über mehrere Datentypen für boolesche Werte, Zahlen, Strings, Zeit und Tag des Jahres, ähnlich wie die Vergleiche für [verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 
 {% alert note %}
 Verwenden Sie denselben Datentyp für Ihre Kontextvariable und den Vergleich. Wenn Ihre Kontextvariable beispielsweise ein Zeit-Datentyp ist, verwenden Sie Zeitvergleiche (wie „vor“ oder „nach“). Die Verwendung nicht übereinstimmender Datentypen (wie String-Vergleiche mit einer Zeit-Kontextvariable) kann zu unerwartetem Verhalten führen.

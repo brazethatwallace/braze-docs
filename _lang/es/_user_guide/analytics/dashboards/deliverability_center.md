@@ -19,12 +19,12 @@ Para acceder al Centro de entrega, necesitas los [permisos de usuario]({{site.ba
 
 {% details Permisos de usuario para el Centro de entrega %}
 
-- Ver Campaigns
-- Editar Campaigns
-- Archivar Campaigns
-- Ver Canvas
-- Editar Canvas
-- Archivar Canvas
+- Campaigns anzeigen
+- Campaigns editar
+- Campaigns archivar
+- Canvas anzeigen
+- Canvas editar
+- Canvas archivar
 - Ver reglas de limitación de frecuencia
 - Editar reglas de limitación de frecuencia
 - Ver priorización de mensajes
@@ -158,7 +158,7 @@ Consulta esta tabla para comprender qué porcentaje de tu tráfico de entrada y 
 | TLS de salida | Muestra el porcentaje de correo saliente (de Gmail) aceptado a través de TLS en comparación con todo el correo enviado a ese dominio. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cifrado" }
 
-Para más ideas sobre cómo mejorar la capacidad de entrega, lee [Problemas de capacidad de entrega y trampas de correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Asegúrate de consultar nuestras [Mejores prácticas de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices) para conocer lo que debes verificar antes de enviar una campaña de correo electrónico.
+Para más ideas sobre cómo mejorar la capacidad de entrega, lee [Problemas de capacidad de entrega y trampas de correo no deseado]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps). Asegúrate de consultar nuestras [Mejores prácticas de correo electrónico]({{site.baseurl}}/user_guide/channels/email/best_practices) para conocer lo que debes verificar antes de enviar una campaña de correo electrónico.
 
 ## Configurar Microsoft Smart Network Data Services (SNDS) {#set-up-microsoft-smart-network-data-services-snds}
 

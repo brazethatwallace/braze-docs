@@ -25,7 +25,7 @@ channel:
 
 ### ユーザープロファイルとプッシュ変更ログ {#user-profiles-and-push-changelog}
 
-ユーザーのプロファイル（[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > ユーザーを選択 > **エンゲージメント**タブ）では、**Contact Settings**にプッシュサブスクリプション状態が表示され、**Push Registered For**（Brazeがそのプロファイルにフォアグラウンドプッシュを送信するために使用できるアプリとプラットフォーム）、およびトークンの移動、エラー、登録更新に関する**Push Changelog**が表示されます。**Push Registered For**とフォアグラウンドおよびバックグラウンドの認可の読み方については、[プッシュ登録ステータスの確認]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status)を参照してください。
+ユーザーのプロファイル（[**ユーザー検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles) > ユーザーを選択 > **エンゲージメント**タブ）では、**Contact Settings**にプッシュサブスクリプション状態が表示され、**Push Registered For**（Brazeがそのプロファイルにフォアグラウンドプッシュを送信するために使用できるアプリとプラットフォーム）、およびトークンの移動、エラー、登録更新に関する**Push Changelog**が表示されます。**Push Registered For**とフォアグラウンドおよびバックグラウンドの認可の読み方については、[プッシュ登録ステータスの確認]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#checking-push-registration-status)を参照してください。
 
 iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ認可からバックグラウンドのみに移行した場合（たとえば、ユーザーがシステム設定で通知をオフにし、SDKがその変更を報告した場合）、プッシュ変更ログに「Push token was updated from foreground push enabled to foreground push disabled」などのエントリが含まれることがあります。
 
@@ -57,7 +57,7 @@ iOSおよびAndroidでは、デバイスがフォアグラウンドプッシュ�
 
 <sup>* アプリが仮承認プッシュを使用していない場合、ユーザーがプッシュ通知を許可するまで`Foreground Push Enabled`は`false`です。アプリが仮承認プッシュを使用している場合、最初のセッション開始時に`Foreground Push Enabled`は`true`になります。詳細については、[仮承認とサイレントプッシュ](#provisional-push)を参照してください。</sup>
 
-<sup>** [Braze Swift SDKバージョン7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0)以降、`optInWhenPushAuthorized`設定プロパティにより、プッシュ権限が承認された際にプッシュサブスクリプション状態が自動的に`Opted-In`に設定されるかどうかを制御できます。詳細については、[プッシュサブスクリプション状態の更新](#update-push-subscription-state)を参照してください。</sup>
+<sup>** [Braze Swift SDKバージョン7.5.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/7.5.0)以降、`optInWhenPushAuthorized`設定プロパティにより、プッシュ権限が承認された際にプッシュサブスクリプション状態が自動的に`Opted-In`に設定されるかどうかを制御できます。詳細については、[プッシュトークン](#push-tokens)を参照してください。</sup>
 
 ## プッシュ権限 {#push-permission}
 
@@ -92,7 +92,7 @@ Android 13より前は、プッシュ通知の送信に権限は不要でした�
 
 iOS 12（2018年リリース）より前は、すべてのユーザーがプッシュ通知を受け取るために明示的にオプトインする必要がありました。
 
-iOS 12で、Appleは[仮承認](https://www.braze.com/resources/articles/mastering-provisional-push)を導入しました。これにより、ブランドはユーザーが明示的にオプトインする前に、ユーザーの通知センターにサイレントプッシュ通知を送信でき、メッセージの価値を早期に示す機会が得られます。詳細については、[仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push-authentication--quiet-notifications)を参照してください。
+iOS 12で、Appleは[仮承認](https://www.braze.com/resources/articles/mastering-provisional-push)を導入しました。これにより、ブランドはユーザーが明示的にオプトインする前に、ユーザーの通知センターにサイレントプッシュ通知を送信でき、メッセージの価値を早期に示す機会が得られます。詳細については、[仮承認]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push)を参照してください。
 
 ### Web {#web}
 
@@ -180,7 +180,7 @@ iOSやAndroidではアプリがいつでも権限プロンプトを表示でき�
 
 ユーザーがブラウザ内で通知を無効にした場合、そのユーザーに送信される次のプッシュ通知はバウンスし、Brazeはユーザーのプッシュトークンを適切に更新します。これは、プッシュ有効フィルター（`Background or Foreground Push Enabled`、`Foreground Push Enabled`、`Foreground Push Enabled for App`）の適格性を管理するために使用されます。ユーザーのプロファイルに設定されたサブスクリプションステータスはユーザーレベルの設定であり、プッシュがバウンスしても変更されません。
 
-### 410 Webプッシュトークンエラー {#410-web-push-token-errors} {#410-web-push-token-errors}
+### 410 Webプッシュトークンエラー {#410-web-push-token-errors}
 
 `410: Gone`エラーが発生した場合、これはユーザーがOS設定のブラウザからWebプッシュ通知を無効にした場合、同じデバイスで別のユーザーとしてログインしている場合、またはユーザーがしばらくWebサイトにアクセスしていない場合に発生する可能性があります。
 

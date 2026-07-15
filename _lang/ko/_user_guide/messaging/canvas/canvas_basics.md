@@ -31,7 +31,7 @@ tool: Canvas
   {% endtab %}
 
   {% tab Canvas 빌더 %}
-  Canvas 빌더는 Canvas를 생성할 때 수행할 단계를 매핑합니다. 여기에는 Canvas 이름 지정 및 Teams 추가와 같은 기본 사항이 포함됩니다. 기본적으로 Canvas 빌더는 Canvas 구축을 시작하기 전에 필요한 핵심 설정입니다. 여기에서 [진입 스케줄]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2b-set-your-canvas-entry-schedule), [타겟 오디언스]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2c-set-your-target-entry-audience), [발송 설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2d-select-your-send-settings)을 편집하는 옵션을 통해 사용자가 고객 여정을 시작하고 완료하는 방식을 제어할 수 있습니다.<br><br> !["New Canvas"라는 이름의 Canvas에 대한 기본설정 섹션의 Canvas 빌더.]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
+  Canvas 빌더는 Canvas를 생성할 때 수행할 단계를 매핑합니다. 여기에는 Canvas 이름 지정 및 Teams 추가와 같은 기본 사항이 포함됩니다. 기본적으로 Canvas 빌더는 Canvas 구축을 시작하기 전에 필요한 핵심 설정입니다. 여기에서 [진입 스케줄]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule), [타겟 오디언스]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-13-set-your-target-entry-audience), [발송 설정]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings)을 편집하는 옵션을 통해 사용자가 고객 여정을 시작하고 완료하는 방식을 제어할 수 있습니다.<br><br> !["New Canvas"라는 이름의 Canvas에 대한 기본설정 섹션의 Canvas 빌더.]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
 
   {% endtab %}
 
@@ -62,9 +62,9 @@ Canvas에 태그를 추가하고 단계와 배리언트에 이름을 지정할 �
 
 *"무엇을"을 기반으로, 왜 이 Canvas를 구축하나요?*
 
-명확한 목표를 염두에 두는 것은 항상 중요하며, Canvas는 세션 참여, 구매, 커스텀 이벤트와 같은 KPI에 대한 성과를 파악하는 데 도움을 줍니다.
+명확한 목표를 염두에 두는 것은 항상 중요하며, Canvas는 세션 참여, 구매, 커스텀 이벤트와 같은 핵심 성과 지표(KPI)에 대한 성과를 파악하는 데 도움을 줍니다.
 
-하나 이상의 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 선택하면 Canvas 내에서 성과를 최적화하는 방법을 이해할 수 있습니다. Canvas에 여러 배리언트 또는 대조군이 있는 경우, Braze는 전환 이벤트를 사용하여 이 목표를 달성하기 위한 최적의 배리언트를 결정합니다.
+하나 이상의 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)를 선택하면 Canvas 내에서 성과를 최적화하는 방법을 이해할 수 있습니다. Canvas에 여러 배리언트 또는 대조군이 있는 경우, Braze는 전환 이벤트를 사용하여 이 목표를 달성하기 위한 최적의 배리에이션을 결정합니다.
 
 * **세션 시작**: 사용자가 다시 돌아와서 앱에 참여하기를 원합니다.
 * **구매하기**: 사용자가 구매하기를 원합니다.

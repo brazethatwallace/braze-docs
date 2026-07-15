@@ -16,7 +16,7 @@ toc_headers: h2
 
 > Verwenden Sie die globale Kontrollgruppe, um einen Prozentsatz aller Nutzer:innen festzulegen, die keine Campaigns oder Canvases erhalten sollen. So können Sie die Gesamtwirkung Ihrer Messaging-Maßnahmen im Zeitverlauf analysieren.
 
-Indem Sie das Verhalten von Nutzer:innen, die Nachrichten erhalten, mit dem Verhalten derjenigen vergleichen, die keine erhalten, können Sie besser nachvollziehen, wie Ihre Marketing-Campaigns und Canvases zu einer Steigerung von Sitzungen und angepassten Events beitragen.
+Indem Sie das Verhalten von Nutzer:innen, die Nachrichten erhalten, mit dem Verhalten derjenigen vergleichen, die keine erhalten, können Sie besser nachvollziehen, wie Ihre Marketing-Kampagnen und Canvases zu einer Steigerung von Sitzungen und angepassten Events beitragen.
 
 ## So funktioniert die globale Kontrollgruppe {#how-the-global-control-group-works}
 
@@ -28,7 +28,7 @@ Ihre globale Kontrollgruppe gilt für alle Kanäle, Campaigns und Canvases, mit 
 
 ### Nutzer:innen zufällig der globalen Kontrollgruppe zuweisen {#assign-users-randomly-to-the-global-control-group}
 
-Braze wählt zufällig mehrere Bereiche von [zufälligen Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#step-1-segment-your-users-by-the-random-bucket-attribute) aus und nimmt Nutzer:innen aus diesen ausgewählten Buckets auf. Wenn Sie derzeit zufällige Bucket-Nummern für andere Zwecke verwenden, lesen Sie den Abschnitt [Worauf Sie achten sollten](#things-to-watch-for).
+Braze wählt zufällig mehrere Bereiche von [zufälligen Bucket-Nummern]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#create-segments-using-random-bucket-numbers) aus und nimmt Nutzer:innen aus diesen ausgewählten Buckets auf. Wenn Sie derzeit zufällige Bucket-Nummern für andere Zwecke verwenden, lesen Sie den Abschnitt [Worauf Sie achten sollten](#things-to-watch-for).
 
 Wenn Ihre globale Kontrollgruppe generiert wird, gehören alle Nutzer:innen mit zufälligen Bucket-Nummern zur Gruppe. Darüber hinaus werden auch neue Nutzer:innen, die nach diesem Zeitpunkt hinzukommen (also nach der Generierung der globalen Kontrollgruppe gewonnen wurden) und diese zufälligen Bucket-Nummern haben, ebenfalls der globalen Kontrollgruppe hinzugefügt. Ebenso können Sie erwarten, dass die Größe Ihrer globalen Kontrollgruppe schrumpft, wenn viele Nutzer:innen gelöscht werden, da ein Prozentsatz dieser gelöschten Nutzer:innen in diese Gruppe gefallen ist. Dadurch bleibt die Größe Ihrer Gruppe als konstanter Prozentsatz relativ zu Ihrer gesamten Nutzerbasis erhalten.
 
@@ -194,7 +194,7 @@ Zwei wichtige Regeln, die Sie beachten sollten:
 
 Wenn Ihre Gesamtzielgruppe kleiner als 10.000 ist, sollten Sie Ihren Prozentsatz erhöhen, um eine Gruppe von über 1.000 Nutzer:innen zu erstellen. In diesem Fall sollten Sie Ihren Prozentsatz jedoch nicht über 15 % erhöhen. Beachten Sie, dass es umso schwieriger ist, einen statistisch belastbaren Test durchzuführen, je kleiner Ihr gesamter Workspace ist.
 
-- Einige Abwägungen, die Sie bei der Größe Ihrer Kontrollgruppe berücksichtigen sollten: Sie benötigen eine ausreichend große Anzahl von Kund:innen in Ihrer Kontrollgruppe, damit jede erstellte Verhaltensanalyse vertrauenswürdig ist. Je größer Ihre Kontrollgruppe jedoch ist, desto weniger Kund:innen erhalten Ihre Campaigns, was ein Nachteil ist, wenn Sie Ihre Campaigns nutzen, um Engagement und Conversions zu steigern.
+- Einige Abwägungen, die Sie bei der Größe Ihrer Kontrollgruppe berücksichtigen sollten: Sie benötigen eine ausreichend große Anzahl von Kund:innen in Ihrer Kontrollgruppe, damit jede erstellte Verhaltensanalyse vertrauenswürdig ist. Je größer Ihre Kontrollgruppe jedoch ist, desto weniger Kund:innen erhalten Ihre Kampagnen, was ein Nachteil ist, wenn Sie Ihre Kampagnen nutzen, um Engagement und Conversions zu steigern.
 - Der ideale Prozentsatz Ihrer Gesamtzielgruppe hängt davon ab, wie groß Ihre Gesamtzielgruppe ist. Je größer Ihre Gesamtzielgruppe ist, desto kleiner kann Ihr Prozentsatz sein. Wenn Sie jedoch eine kleine Zielgruppe haben, benötigen Sie einen größeren Prozentsatz für Ihre Kontrollgruppe.
 
 ### Experimentdauer {#experiment-duration}

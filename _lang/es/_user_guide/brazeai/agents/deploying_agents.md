@@ -26,13 +26,13 @@ Seleccionas el tipo de agente en **Agent Console** cuando creas el agente. Para 
 
 Apunta a casos de uso de alto valor en los que los agentes puedan generar el mayor retorno de la inversión (ROI), y elige audiencias con probabilidades de responder. Una audiencia más pequeña y con grandes oportunidades suele superar a una audiencia grande con pocas oportunidades.
 
-Para los agentes de Canvas, empieza con usuarios que tengan señales fuertes —como búsquedas recientes, alta participación o datos de perfil enriquecidos— antes de expandirte a segmentos más amplios. Para los agentes de catálogo, prioriza las filas en las que las columnas de entrada que necesitas ya estén rellenadas, de modo que cada invocación tenga suficiente contexto para producir resultados útiles.
+Para los agentes de paso en Canvas, empieza con usuarios que tengan señales fuertes —como búsquedas recientes, alta participación o datos de perfil enriquecidos— antes de expandirte a segmentos más amplios. Para los agentes de catálogo, prioriza las filas en las que las columnas de entrada que necesitas ya estén rellenadas, de modo que cada invocación tenga suficiente contexto para producir resultados útiles.
 
 Para probar el ROI a pequeña escala antes de desplegar un agente de forma amplia, utiliza un paso de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que solo una parte de tu audiencia entre en la rama que contiene tu paso Agente.
 
 ## Usar agentes de paso en Canvas {#use-canvas-step-agents}
 
-Después de crear un agente de Canvas, añádelo a un Canvas como paso Agente para personalizar mensajes u orientar la toma de decisiones en tiempo real.
+Después de crear un agente de paso en Canvas, añádelo a un Canvas como paso Agente para personalizar mensajes u orientar la toma de decisiones en tiempo real.
 
 ### Cómo funciona {#how-it-works}
 
@@ -76,7 +76,7 @@ Para ver ejemplos, consulta [Cómo funciona]({{site.baseurl}}/user_guide/messagi
 
 ### Gestión de errores y comportamiento alternativo {#fallback-behavior}
 
-Lo siguiente se aplica a los **agentes de paso en Canvas** en un [paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
+Lo siguiente se aplica a los agentes de paso en Canvas en un [paso Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 - Si el modelo conectado devuelve un [error de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) del proveedor del LLM, Braze reintenta continuamente la solicitud utilizando retirada exponencial hasta que la llamada se complete correctamente o Braze determine que no puede completarse; a continuación, los usuarios avanzan al siguiente paso en Canvas.
 - Para otros fallos (como un tiempo de espera agotado o una clave de API no válida), la variable de salida se establece en `null` a menos que el agente tenga [valores alternativos configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) en Agent Console.

@@ -86,7 +86,7 @@ Canvas 여정의 경우, 중복 이메일 주소가 한 번 발송을 수신하�
 
 ### 열람 추적 픽셀이란 무엇인가요? {#what-are-open-tracking-pixels}
 
-[열람 추적 픽셀]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel)은 발신자의 이메일 클릭 추적 도메인을 활용하여 이메일 열람 이벤트를 추적합니다. 이 픽셀은 이메일의 HTML에 추가되는 이미지 태그입니다. 가장 일반적으로 body 태그 내의 마지막 HTML 요소입니다. 사용자가 이메일을 로드하면 브랜드 추적 도메인에서 이미지를 채우기 위한 요청이 이루어지며, 이를 통해 열람 이벤트가 기록됩니다.
+[열람 추적 픽셀]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement)은 발신자의 이메일 클릭 추적 도메인을 활용하여 이메일 열람 이벤트를 추적합니다. 이 픽셀은 이메일의 HTML에 추가되는 이미지 태그입니다. 가장 일반적으로 body 태그 내의 마지막 HTML 요소입니다. 사용자가 이메일을 로드하면 브랜드 추적 도메인에서 이미지를 채우기 위한 요청이 이루어지며, 이를 통해 열람 이벤트가 기록됩니다.
 
 ### 이메일 Campaign이나 Canvas가 중지되면 어떻게 되나요? {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
 
@@ -133,11 +133,11 @@ Campaign이나 Canvas가 중지된 후에는 Braze가 더 이상 요청을 보�
 
 일부 기업 이메일 보안 도구(예: Barracuda, Proofpoint 및 유사 서비스)는 메시지의 모든 링크를 자동으로 클릭하여 안전한지 확인하기 위해 수신 이메일을 스캔합니다. 이로 인해 발송 후 몇 초 이내에 클릭 이벤트가 나타날 수 있으며, 종종 이메일의 모든 링크가 빠르게 연속으로 클릭됩니다.
 
-이 동작은 기관 이메일 도메인(예: 고등학교, 대학교, 기업 환경)에서 더 일반적이며, 발송 도메인이 추적 도메인과 크게 다를 때 더 자주 발생합니다. [커스텀 브랜드 추적 도메인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#custom-email-tracking-domain)을 설정하면 이러한 자동 클릭의 빈도를 줄일 수 있습니다.
+이 동작은 기관 이메일 도메인(예: 고등학교, 대학교, 기업 환경)에서 더 일반적이며, 발송 도메인이 추적 도메인과 크게 다를 때 더 자주 발생합니다. [커스텀 브랜드 추적 도메인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)을 설정하면 이러한 자동 클릭의 빈도를 줄일 수 있습니다.
 
 **확인 방법:** 클릭 이벤트의 IP 주소(Currents 데이터에서 확인 가능)를 검색 엔진에서 조회하세요. IP가 알려진 보안 공급자(예: Barracuda Networks)와 연결되어 있으면 클릭이 자동화된 것일 가능성이 높습니다. 여러 자동 클릭에 걸쳐 일관된 User-Agent 헤더가 나타날 수도 있습니다.
 
-보안 스캔이 이메일 측정기준에 미치는 영향에 대한 추가 정보는 [클릭률 증가 처리]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates)를 참조하세요.
+보안 스캔이 이메일 측정기준에 미치는 영향에 대한 추가 정보는 [클릭률 증가 처리]({{site.baseurl}}/user_guide/channels/email/reporting)를 참조하세요.
 
 ### 서버 클릭을 트리거할 수 있는 잠재적 위험은 무엇인가요? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
@@ -181,7 +181,7 @@ Braze는 이메일 내에서 다음 Liquid가 사용되는 경우 탈퇴 링크�
 - **환경설정 센터를 사용하세요:** 직접 탈퇴 링크 대신 탈퇴 동작을 확인하기 위해 사용자 상호작용이 필요한 [환경설정 센터]({{site.baseurl}}/user_guide/channels/email/subscriptions)를 사용하세요. 보안 스캐너는 일반적으로 다단계 양식을 완료하지 않습니다.
 - **탈퇴 로그를 검토하세요:** Currents 탈퇴 이벤트 데이터에서 `User-Agent` 헤더와 IP 주소를 확인하여 자동 스캔과 일치하는 패턴(예: 여러 탈퇴에 걸쳐 일관된 `User-Agent` 헤더)을 식별하세요.
 
-서버 측 스캔이 이메일 측정기준에 미치는 영향에 대한 자세한 내용은 [클릭률 증가 처리]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates)를 참조하세요.
+서버 측 스캔이 이메일 측정기준에 미치는 영향에 대한 자세한 내용은 [클릭률 증가 처리]({{site.baseurl}}/user_guide/channels/email/reporting)를 참조하세요.
 
 ### 머신 열람률이 예기치 않게 변경된 이유는 무엇인가요? {#why-has-my-machine-open-rate-changed-unexpectedly}
 

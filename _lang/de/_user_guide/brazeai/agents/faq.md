@@ -12,9 +12,9 @@ toc_headers: h2
 
 ## Allgemein {#general}
 
-### Was ist der Unterschied zwischen Canvas-Agents und Katalog-Agents? {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
+### Was ist der Unterschied zwischen Canvas-Schritt-Agents und Katalog-Agents? {#what-is-the-difference-between-canvas-step-agents-and-catalog-agents}
 
-Beim Erstellen eines Agents legen Sie fest, ob Sie einen Canvas-Agent oder einen Katalog-Agent erstellen möchten. Dies bestimmt, welche Arten von Anweisungen und Optionen der Agent unterstützen kann. Canvas-Agents verarbeiten Nutzer:innen in Realtime innerhalb von Journeys, während Katalog-Agents Katalogdaten anreichern, indem sie Spalten mit verarbeiteten Informationen hinzufügen oder aktualisieren.
+Beim Erstellen eines Agents legen Sie fest, ob Sie einen Canvas-Schritt-Agent oder einen Katalog-Agent erstellen möchten. Dies bestimmt, welche Arten von Anweisungen und Optionen der Agent unterstützen kann. Canvas-Schritt-Agents verarbeiten Nutzer:innen in Realtime innerhalb von Journeys, während Katalog-Agents Katalogdaten anreichern, indem sie Spalten mit verarbeiteten Informationen hinzufügen oder aktualisieren.
 
 ### Welche Vorteile bietet das Auto-Modell im Vergleich zum Bring-your-own-Modell (BYO)? {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 
@@ -68,7 +68,7 @@ Ein angepasster Agent kann ein Timeout haben, wenn:
 - Die Agent-Anweisungen ein anderes Ausgabeformat verlangen als das im Tab **Ausgabe** festgelegte (z. B. wenn die Agent-Anweisungen einen String verlangen, aber im Tab **Ausgabe** die Ausgabe als Zahl definiert ist)
 - Die Aufgabe des Agents zu komplex ist und von einem [Sub-Agent-Ansatz](#subagent-approach) profitieren würde
 
-Konfigurieren Sie für Canvas-Agents [Fallback-Werte]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in der Agentenkonsole, damit Nutzer:innen auch dann eine Ausgabe erhalten, wenn ein Aufruf fehlschlägt.
+Konfigurieren Sie für Canvas-Schritt-Agents [Fallback-Werte]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in der Agentenkonsole, damit Nutzer:innen auch dann eine Ausgabe erhalten, wenn ein Aufruf fehlschlägt.
 
 ### Warum hat mein Agent im Test funktioniert, erhält aber nach dem Start in einem Canvas keine nutzerspezifischen Daten? {#why-did-my-agent-do-fine-in-testing-but-isnt-getting-any-user-specific-data-when-i-launch-it-in-a-canvas}
 

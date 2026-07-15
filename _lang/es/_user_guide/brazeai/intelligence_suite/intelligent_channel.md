@@ -2,7 +2,7 @@
 nav_title: Filtro de canal
 article_title: Filtro de canal inteligente
 page_order: 1.5
-description: "Este artículo cubre el filtro de canal inteligente, un filtro que selecciona la parte de tu audiencia para la que el canal de mensajería seleccionado es su mejor canal. En este caso, mejor significa que tiene la mayor probabilidad de interacción, dado el historial del usuario."
+description: "Este artículo cubre el filtro de canal inteligente, un filtro que selecciona la parte de tu audiencia para la que el canal de mensajería seleccionado es su mejor canal. En este caso, mejor significa que tiene la mayor probabilidad de participación, dado el historial del usuario."
 search_rank: 11
 ---
 
@@ -14,16 +14,16 @@ search_rank: 11
 
 ![El filtro de canal inteligente con un desplegable para los distintos canales que se pueden seleccionar.]({% image_buster /assets/img/intelligent_channel_filter.png %}){: style="float:right;max-width:40%;margin-left:10px;margin-top:10px;border:0"}
 
-En este caso, mejor significa el canal que tiene la mayor probabilidad de interacción, dado el historial del usuario. Puedes seleccionar como canal correo electrónico, SMS, WhatsApp, notificación push web o push móvil (incluyendo cualquier SO o dispositivo móvil disponible).
+En este caso, mejor significa el canal que tiene la mayor probabilidad de participación, dado el historial del usuario. Puedes seleccionar como canal correo electrónico, SMS, WhatsApp, notificación push web o push móvil (incluyendo cualquier SO o dispositivo móvil disponible).
 
-El canal inteligente calcula la tasa de interacción de cada usuario para cada uno de los canales disponibles tomando la proporción de interacciones con los mensajes (aperturas o clics) con respecto al número de mensajes recibidos durante los últimos seis meses de actividad. Los canales disponibles se clasifican según sus respectivas tasas de interacción, y el canal con la tasa más alta es el «más interactuado» para ese usuario.
+El canal inteligente calcula la tasa de participación de cada usuario para cada uno de los canales disponibles tomando la proporción de interacciones con los mensajes (aperturas o clics) con respecto al número de mensajes recibidos durante los últimos seis meses de actividad. Los canales disponibles se clasifican según sus respectivas tasas de participación, y el canal con la tasa más alta es el «más participativo» para ese usuario.
 
-Cada vez que se envía un mensaje a un usuario, o un usuario interactúa con un mensaje, la tasa de interacción se recalcula en cuestión de segundos. Un usuario solo puede contabilizarse como que ha interactuado con un mensaje una vez (por ejemplo, una apertura y un clic en el mismo correo electrónico hará que ese mensaje se marque como interactuado solo una vez, no dos).
+Cada vez que se envía un mensaje a un usuario, o un usuario interactúa con un mensaje, la tasa de participación se recalcula en cuestión de segundos. Un usuario solo puede contabilizarse como que ha interactuado con un mensaje una vez (por ejemplo, una apertura y un clic en el mismo correo electrónico hará que ese mensaje se marque como interactuado solo una vez, no dos).
 
 Para habilitar el filtro de canal inteligente, selecciona el filtro **Intelligent Channel** en la página **Target Audiences** al crear una Campaign de correo electrónico, notificación push web o push móvil.
 
 {% alert important %}
-Para calcular la tasa de interacción del canal SMS, activa [el acortamiento de enlaces SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview) con seguimiento avanzado y seguimiento de clics. Sin este seguimiento, los SMS pueden seleccionarse como el canal inteligente con una tasa de interacción del 0 % debido a nuestro [comportamiento de desempate]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
+Para calcular la tasa de participación del canal SMS, activa [el acortamiento de enlaces SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) con seguimiento avanzado y seguimiento de clics. Sin este seguimiento, los SMS pueden seleccionarse como el canal inteligente con una tasa de participación del 0 % debido a nuestro [comportamiento de desempate]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
 {% endalert %}
 
 ## La opción «Datos insuficientes» {#the-not-enough-data-option}
@@ -42,9 +42,9 @@ Las Campaigns y los pasos en Canvas que ignoren la [limitación de frecuencia]({
 
 ## La opción «Push móvil» {#the-mobile-push-option}
 
-El push móvil incorpora Android, iOS, Kindle y otros canales de dispositivos móviles disponibles en Braze. Al calcular el canal inteligente, Braze examina cada tipo de dispositivo móvil por separado y luego elige la tasa de interacción más alta entre ellos para representar la categoría «Push móvil» al compararla con el correo electrónico y la notificación push web.
+El push móvil incorpora Android, iOS, Kindle y otros canales de dispositivos móviles disponibles en Braze. Al calcular el canal inteligente, Braze examina cada tipo de dispositivo móvil por separado y luego elige la tasa de participación más alta entre ellos para representar la categoría «Push móvil» al compararla con el correo electrónico y la notificación push web.
 
-Por ejemplo, si un usuario tiene varios dispositivos móviles, su tasa de interacción móvil estaría representada por la tasa más alta mostrada en todos los dispositivos. Sin embargo, esto no obligaría al usuario a recibir notificaciones push exclusivamente en ese dispositivo. Esta tasa solo se utiliza cuando se comparan las tasas contra el correo electrónico y la notificación push web.
+Por ejemplo, si un usuario tiene varios dispositivos móviles, su tasa de participación móvil estaría representada por la tasa más alta mostrada en todos los dispositivos. Sin embargo, esto no obligaría al usuario a recibir notificaciones push exclusivamente en ese dispositivo. Esta tasa solo se utiliza cuando se comparan las tasas contra el correo electrónico y la notificación push web.
 
 ## Filtro de probabilidad de apertura de mensajes para canales individuales {#individual-channels}
 
@@ -56,7 +56,7 @@ Ten en cuenta que un usuario debe haber recibido al menos tres mensajes en un ca
 
 ### Desempate {#tie-breaking}
 
-Como algunos usuarios habrán recibido pocos mensajes, no es raro que haya empates en las tasas de interacción entre los canales disponibles para un usuario determinado (por ejemplo, un solo usuario tiene una tasa de interacción de 0,2 **tanto** para el correo electrónico como para el push móvil). En tales casos, los empates se desharán dando prioridad (otorgando una clasificación más alta) al canal con los eventos de apertura más recientes.
+Como algunos usuarios habrán recibido pocos mensajes, no es raro que haya empates en las tasas de participación entre los canales disponibles para un usuario determinado (por ejemplo, un solo usuario tiene una tasa de participación de 0,2 **tanto** para el correo electrónico como para el push móvil). En tales casos, los empates se desharán dando prioridad (otorgando una clasificación más alta) al canal con los eventos de apertura más recientes.
 
 ### Canales inalcanzables {#unreachable-channels}
 
@@ -64,4 +64,4 @@ Un usuario puede tener datos suficientes para que Braze determine una clasificac
 
 ### Dimensionamiento de la audiencia {#audience-sizing}
 
-El canal inteligente te permite dirigirte selectivamente y por adelantado a la fracción de usuarios que tienen muchas más probabilidades de interactuar con un mensaje que el resto de tu audiencia. No es probable que represente a la mayoría de los usuarios de una audiencia típica. Más bien, puedes esperar que este filtro encuentre entre el 5 y el 20 % de tu audiencia habitual que tiene un historial establecido de interacción en un canal concreto.
+El canal inteligente te permite dirigirte selectivamente y por adelantado a la fracción de usuarios que tienen muchas más probabilidades de interactuar con un mensaje que el resto de tu audiencia. No es probable que represente a la mayoría de los usuarios de una audiencia típica. Más bien, puedes esperar que este filtro encuentre entre el 5 y el 20 % de tu audiencia habitual que tiene un historial establecido de participación en un canal concreto.

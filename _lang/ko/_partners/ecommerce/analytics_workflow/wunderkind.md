@@ -25,7 +25,7 @@ Wunderkind Signals 통합을 사용하면 장바구니 유기, 제품 유기, �
 | Wunderkind 계정 | Signals가 활성화된 Wunderkind 계정이 필요합니다. 자격 여부를 확인하려면 Wunderkind 담당자에게 문의하세요. |
 | Braze 계정 | Canvas 접근 권한이 있는 Braze 계정이 필요합니다. Wunderkind 팀에 계정 내 시트를 부여해야 합니다. 자세한 내용은 [Braze 계정에 Wunderkind 접근 권한 부여](https://support.wunderkind.co/hc/en-us/articles/47921719757339-Grant-Wunderkind-Access-to-Your-Braze-Account)를 참조하세요. |
 | Braze REST API 키 | 설정 중에 특정 권한이 있는 전용 API 키를 생성합니다([1단계](#step-1-create-a-braze-api-key-for-wunderkind) 참조). |
-| 사용자 식별 | Wunderkind는 일반적으로 `user_alias`와 `alias_label: "wknd_email_id"`를 사용하여 소비자를 Braze에서 확인합니다(이메일을 `alias_name`으로 사용하는 경우가 많습니다). 각 [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) 수신자는 `external_user_id`, `user_alias`, `braze_id`, `email` 중 정확히 하나를 포함해야 합니다([수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object)). `email`을 사용하는 경우 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)을 포함하세요. `user_alias`를 사용하는 경우 트리거 전에 프로필이 이미 Braze에 존재해야 합니다. [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 또는 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)를 사용하여 먼저 사용자와 별칭을 생성하거나 업데이트하세요. 자세한 내용은 [제한 사항](#limitations)을 참조하세요. |
+| 사용자 식별 | Wunderkind는 일반적으로 `user_alias`와 `alias_label: "wknd_email_id"`를 사용하여 소비자를 Braze에서 확인합니다(이메일을 `alias_name`으로 사용하는 경우가 많습니다). 각 [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) 수신자는 `external_user_id`, `user_alias`, `braze_id`, `email` 중 정확히 하나를 포함해야 합니다([수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object)). `email`을 사용하는 경우 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)을 포함하세요. `user_alias`를 사용하는 경우 트리거 전에 프로필이 이미 Braze에 존재해야 합니다. [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 또는 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)를 사용하여 먼저 사용자와 별칭을 생성하거나 업데이트하세요. 자세한 내용은 [제한 사항](#limitations)을 참조하세요. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 작동 방식 {#how-it-works}
@@ -142,7 +142,7 @@ Wunderkind는 6가지 신호 유형을 지원합니다. 각 유형은 `/canvas/t
 `recipients`의 각 오브젝트는 `external_user_id`, `user_alias`, `braze_id`, `email` 중 정확히 하나를 포함해야 합니다. 자세한 내용은 [수신자 오브젝트]({{site.baseurl}}/api/objects_filters/recipient_object)를 참조하세요.
 
 {% alert note %}
-각 예시는 **하나의** Braze 수신자 식별자를 사용합니다. 처음 6개는 `user_alias`만 사용하고, 마지막 하나는 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)과 함께 `email`만 사용합니다. 예시 JSON에서는 검토 도구가 해당 값(`"email"`)을 Braze의 수신자 `email` 필드와 혼동하지 않도록 `context` 내의 `WkChannel` 키를 생략합니다. 프로덕션에서는 [공통 필드(모든 Canvas 유형) 테이블](#canvas-types-table)에 문서화된 대로 `context`에 `"WkChannel": "email"`을 포함하세요.
+각 예시는 **하나의** Braze 수신자 식별자를 사용합니다. 처음 6개는 `user_alias`만 사용하고, 마지막 하나는 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)과 함께 `email`만 사용합니다. 예시 JSON에서는 검토 도구가 해당 값(`"email"`)을 Braze의 수신자 `email` 필드와 혼동하지 않도록 `context` 내의 `WkChannel` 키를 생략합니다. 프로덕션에서는 [공통 필드(모든 Canvas 유형) 테이블](#canvas-types-table)에 문서화된 대로 `context`에 `"WkChannel": "email"`을 포함하세요.
 {% endalert %}
 
 다음 예시는 Wunderkind가 신원을 확인하는 방식에 맞춰 `wknd_email_id`와 함께 `user_alias`를 사용합니다.
@@ -417,7 +417,7 @@ Wunderkind는 **Braze 커런츠**를 사용하여 Braze에서 성과 데이터�
 | ------ | ------ |
 | 전달된 발송 수 | Braze 커런츠 |
 | 이메일 열람 | Braze 커런츠 |
-| 클릭 수 | Braze 커런츠 |
+| 클릭 | Braze 커런츠 |
 | 전환 | Braze 커런츠(설정 시 정의된 이벤트) |
 | 탈퇴 | Braze 커런츠 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Reporting" }
@@ -427,7 +427,7 @@ Wunderkind는 **Braze 커런츠**를 사용하여 Braze에서 성과 데이터�
 - **수신 거부/옵트아웃 동기화 없음.** 수신 거부는 Braze에서 기본적으로 관리해야 합니다. 참고: Braze Signals로 마이그레이션하는 기존 Wunderkind 고객의 경우, Wunderkind가 팀과 협력하여 현재 설정을 유지합니다.
 - **이메일 채널만 지원.** SMS는 현재 이 통합을 통해 지원되지 않습니다.
 - **Canvas 트리거 전에 고객 프로필이 존재해야 합니다.** `user_alias` 수신자를 사용하는 [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)는 해당 별칭이 이미 있는 **기존** Braze 프로필만 확인합니다. 별칭에 `send_to_existing_only`를 사용할 수 없으며, Canvas 트리거는 별칭만으로 새 프로필을 생성하지 않습니다. 먼저 사용자를 생성하거나 업데이트하고 `wknd_email_id` 별칭을 설정해야 합니다(예: [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 또는 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) 사용). Wunderkind는 Braze가 처리를 완료할 수 있도록 해당 업서트 후 잠시 대기한 다음 트리거를 실행할 수 있습니다.
-- **이메일을 식별자로 사용하는 경우.** Canvas 트리거가 `user_alias` 대신 `email`로 수신자를 식별하는 경우, Braze에서 요구하는 대로 해당 수신자 오브젝트에 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)을 포함하세요.
+- **이메일을 식별자로 사용하는 경우.** Canvas 트리거가 `user_alias` 대신 `email`로 수신자를 식별하는 경우, Braze에서 요구하는 대로 해당 수신자 오브젝트에 [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)을 포함하세요.
 
 
 ## 추가 리소스 {#additional-resources}

@@ -27,7 +27,7 @@ toc_headers: h2
 3. Ponle a tu Campaign un nombre claro y significativo.
 4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario.
    * Las etiquetas facilitan encontrar tus Campaigns y generar informes a partir de ellas. Por ejemplo, al usar el [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder), puedes filtrar por etiquetas específicas.
-5. Añade y nombra tantas variantes como necesites para tu Campaign. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
+5. Añade y nombra tantas variantes como necesites para tu Campaign. Puedes elegir diferentes plataformas, tipos de mensaje y diseños para cada una de las variantes añadidas. Para más información sobre este tema, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 Si todos los mensajes de tu Campaign van a ser similares o tener el mismo contenido, redacta tu mensaje antes de añadir variantes adicionales. Luego puedes elegir **Copiar de variante** en el desplegable **Añadir variante**.
@@ -38,7 +38,7 @@ Si todos los mensajes de tu Campaign van a ser similares o tener el mismo conten
 
 1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando el creador de Canvas.
 2. Después de configurar tu Canvas, añade un paso en el constructor de Canvas. Ponle a tu paso un nombre claro y significativo.
-3. Elige una [planificación de paso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) y especifica un retraso según sea necesario. Ten en cuenta que los pasos que contienen mensajes dentro de la aplicación no pueden estar basados en acciones.
+3. Elige una [planificación de paso]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) y especifica un retraso según sea necesario. Ten en cuenta que los pasos que contienen mensajes dentro de la aplicación no pueden estar basados en acciones.
 4. Filtra tu audiencia para este paso, según sea necesario. Puedes refinar aún más los destinatarios de este paso especificando Segments y añadiendo filtros adicionales. Las opciones de audiencia se comprobarán después del retraso, en el momento en que se envíen los mensajes.
 5. Elige tu [comportamiento de avance]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Elige cualquier otro canal de mensajería que desees combinar con tu mensaje.
@@ -147,14 +147,14 @@ Estos mensajes dentro de la aplicación son personalizables según tus necesidad
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#custom-html-messages'>Mensaje HTML personalizado</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html#custom-html-messages'>Mensaje HTML personalizado</a></td>
     <td>Mensajes personalizados que funcionan según lo definido en tu código personalizado (HTML, CSS y/o JavaScript).</td>
     <td>N/A</td>
     <td>Debes establecer la opción de inicialización <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> en <code>true</code> para que tu mensaje dentro de la aplicación funcione.</td>
     <td>Esta es una buena opción si quieres todas las ventajas de los mensajes dentro de la aplicación pero necesitas funcionalidad adicional o que la apariencia se mantenga acorde a tu marca. Puedes modificar cada pequeño detalle del mensaje: fuente, color, forma, tamaño, botones, etc. <br><br>Ejemplos de casos de uso incluyen pedir a los usuarios comentarios sobre la aplicación, formularios de captura de correo electrónico o mensajes paginados</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#email-capture-form'>Formulario de captura de correo electrónico</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form#email-capture-form'>Formulario de captura de correo electrónico</a></td>
     <td>Normalmente se usa para capturar el correo electrónico del espectador.</td>
     <td>N/A</td>
     <td>Debes establecer la opción de inicialización <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> en <code>true</code> para que tu mensaje dentro de la aplicación funcione.</td>
@@ -362,10 +362,10 @@ Para establecer prioridades dentro de estos contenedores, haz clic en **Set Exac
 
 ### Elige los usuarios objetivo {#choose-users-to-target}
 
-A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo Segments o filtros para delimitar tu audiencia. Recibirás automáticamente una instantánea de cómo se ve aproximadamente la población de ese segmento. Ten en cuenta que la pertenencia exacta al segmento siempre se calcula antes de que se envíe el mensaje.
+A continuación, debes [dirigirte a los usuarios]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users) eligiendo Segments o filtros para delimitar tu audiencia. Recibirás automáticamente una instantánea de cómo se ve aproximadamente la población de ese Segment. Ten en cuenta que la pertenencia exacta al Segment siempre se calcula antes de que se envíe el mensaje.
 
 {% alert note %}
-Si hay un retraso en el paso del mensaje dentro de la aplicación, la pertenencia al segmento se evaluará después del retraso. Si el usuario es elegible, el mensaje dentro de la aplicación se sincronizará en la siguiente sesión disponible.
+Si hay un retraso en el paso del mensaje dentro de la aplicación, la pertenencia al Segment se evaluará después del retraso. Si el usuario es elegible, el mensaje dentro de la aplicación se sincronizará en la siguiente sesión disponible.
 {% endalert %}
 
 #### Reevaluar la elegibilidad de la Campaign y Liquid {#re-evaluate-campaign-eligibility-and-liquid}
@@ -397,7 +397,7 @@ Braze te permite rastrear con qué frecuencia los usuarios realizan acciones esp
 {% endtab %}
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante y selección inteligente, y más, consulta el paso [Construye tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariantes y selección inteligente, y más, consulta el paso [Construye tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de nuestra documentación de Canvas.
 
 Para información sobre opciones de mensajes dentro de la aplicación específicas de Canvas, consulta [Mensajes dentro de la aplicación en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas).
 

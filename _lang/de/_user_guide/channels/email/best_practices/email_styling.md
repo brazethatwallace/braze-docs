@@ -3,7 +3,7 @@ nav_title: E-Mail-Styling
 article_title: E-Mail-Styling
 page_order: 2
 page_type: reference
-description: "In diesem Artikel finden Sie eine Übersicht über Best Practices für das E-Mail-Styling, die Sie bei der Erstellung Ihrer E-Mail-Campaigns als Referenz nutzen können."
+description: "In diesem Artikel finden Sie Best Practices für das E-Mail-Styling, einschließlich Betreffzeilen, Preheader-Text, E-Mail-Größe und Bildempfehlungen."
 channel: email
 
 ---
@@ -16,7 +16,7 @@ channel: email
 
 Die Betreffzeile ist eines der ersten Dinge, die Empfänger:innen sehen, wenn sie Ihre Nachricht erhalten. Wenn Sie sich auf 6 bis 10 Wörter beschränken, erzielen Sie die höchsten Öffnungsraten.
 
-Es gibt auch verschiedene Ansätze für eine gute Betreffzeile – von einer Frage, um das Interesse der Leser:innen zu wecken, über eine direktere Formulierung bis hin zur Personalisierung, um Ihre Kundschaft gezielt anzusprechen. Bleiben Sie nicht bei einer einzigen Betreffzeile, sondern nutzen Sie [A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing#what-are-multivariate-and-ab-testing), um neue Betreffzeilen auszuprobieren und ihre Wirksamkeit zu messen. Die Betreffzeilen sollten nicht länger als 35 Zeichen sein, damit sie auf Mobilgeräten richtig angezeigt werden.
+Es gibt auch verschiedene Ansätze für eine gute Betreffzeile – von einer Frage, um das Interesse der Leser:innen zu wecken, über eine direktere Formulierung bis hin zur Personalisierung, um Ihre Kundschaft gezielt anzusprechen. Bleiben Sie nicht bei einer einzigen Betreffzeile, sondern nutzen Sie [A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/faq#what-is-the-difference-between-ab-testing-and-multivariate-testing), um neue Betreffzeilen auszuprobieren und ihre Wirksamkeit zu messen. Die Betreffzeilen sollten nicht länger als 35 Zeichen sein, damit sie auf Mobilgeräten richtig angezeigt werden.
 
 Im Feld „Von“ sollte klar ersichtlich sein, wer der Sender ist. Verwenden Sie möglichst nicht den Namen einer Person oder eine ungewöhnliche Abkürzung. Verwenden Sie stattdessen einen wiedererkennbaren Namen wie Ihren Markennamen. Wenn die Verwendung eines Personennamens zu den Personalisierungsmethoden Ihrer Marke für E-Mails passt, bleiben Sie konsequent, um eine Beziehung zu den Empfänger:innen aufzubauen. Der „Von“-Name sollte nicht länger als 25 Zeichen sein, damit er auf Mobilgeräten richtig angezeigt wird.
 
@@ -156,7 +156,7 @@ Um den Content-Block wie beabsichtigt anzuzeigen:
 - Setzen Sie die Spalten-Hintergrundfarbe des Content-Blocks so, dass sie mit dem E-Mail- oder Template-Hintergrund übereinstimmt.
 - Alternativ können Sie den Drag-and-Drop-Content-Block in einen HTML-Content-Block umwandeln und dessen Hintergrund auf transparent setzen.
 
-Wenn Sie denselben Content-Block in Bereichen mit unterschiedlichen Hintergründen verwenden müssen (z. B. Body und Footer), erstellen Sie zwei Versionen des Blocks, jeweils mit der passenden Spalten-Hintergrundfarbe.
+Wenn Sie denselben Content-Block in Bereichen mit unterschiedlichen Hintergründen verwenden müssen (z. B. Body und Fußzeile), erstellen Sie zwei Versionen des Blocks, jeweils mit der passenden Spalten-Hintergrundfarbe.
 
 Wenn Sie den Content-Block lieber als Zeile in die E-Mail ziehen möchten, können Sie den Zeilen-Spaltenhintergrund auf transparent setzen, um den globalen Hintergrund zu überschreiben.
 

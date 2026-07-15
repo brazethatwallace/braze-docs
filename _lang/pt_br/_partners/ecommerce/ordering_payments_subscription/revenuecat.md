@@ -130,7 +130,7 @@ Digite os nomes dos eventos que o RevenueCat enviará ou selecione entre os nome
 | Compra sem inscrição | A compra de qualquer produto que não seja uma inscrição com renovação automática. |
 | Expiração | Quando uma inscrição expira. |
 | Problema de cobrança | Quando houve um problema ao tentar cobrar o usuário. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Configurar nomes de eventos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Configurar nomes de eventos" }
 
 Para eventos que incluem receita, a RevenueCat registrará automaticamente esse valor junto com o evento na Braze, como conversões de teste e renovações.
 
@@ -142,4 +142,4 @@ Depois de definir as configurações da Braze na RevenueCat, os eventos começar
 
 ### Adicionar uma chave de API sandbox para testes {#add-a-sandbox-api-key-for-testing}
 
-Se você fornecer apenas uma chave da API REST da Braze para a RevenueCat, apenas eventos de produção serão enviados. Se você também quiser enviar eventos de teste em sandbox, [crie outra chave da API REST da Braze]({{site.baseurl}}/api/basics#app-group-rest-api-keys) e adicione-a às suas configurações da Braze na RevenueCat.
+Se você fornecer apenas uma chave da API REST da Braze para a RevenueCat, apenas eventos de produção serão enviados. Se você também quiser enviar eventos de teste em sandbox, [crie outra chave da API REST da Braze]({{site.baseurl}}/api/basics#creating-rest-api-keys) e adicione-a às suas configurações da Braze na RevenueCat.

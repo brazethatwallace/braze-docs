@@ -44,7 +44,7 @@ search_rank: 1
 
 1. キャンバスコンポーザーを使用して[キャンバスを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
 2. キャンバスの設定が完了したら、キャンバスビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
-3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)を選択し、必要に応じて遅延を指定します。
+3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)を選択し、必要に応じて遅延を指定します。
 4. 必要に応じて、このステップのオーディエンスをフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
 5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
@@ -63,7 +63,7 @@ Brazeでは、メールキャンペーンを作成する際に2つの編集エ�
 
 ![メール編集エクスペリエンスとして、ドラッグ＆ドロップエディター、HTMLエディター、またはテンプレートから選択する画面。]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-次に、既存の[メールテンプレート]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template)を選択するか、ファイルから[テンプレートをアップロード]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)するか（HTMLエディターのみ）、空白のテンプレートを使用できます。
+次に、既存の[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)を選択するか、ファイルから[テンプレートをアップロード]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)するか（HTMLエディターのみ）、空白のテンプレートを使用できます。
 
 HTMLエディターを使用していて、デバイスがダークモードの場合にGmailモバイルアプリで背景色の一貫性を保つ必要がある場合は、[Gmailモバイルアプリとダークモードの背景色](#gmail-dark-mode)を参照してください。
 
@@ -275,7 +275,7 @@ Apple Mailアプリでは、HTMLメール内の画像リンクがクリック可
 APIトリガーキャンペーンの場合、トリガーアクションが**キャンペーンとのインタラクション**に設定されている場合、インタラクションとして**受信**オプションを選択すると、Brazeが選択したキャンペーンを送信済みとしてマークした時点で新しいキャンペーンがトリガーされます。これは、そのメッセージがバウンスしたり配信に失敗した場合でも同様です。
 {% endalert %}
 
-キャンペーンの期間を設定したり、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を指定したり、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)ルールを設定したりすることもできます。
+キャンペーンの期間を設定したり、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を指定したり、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)ルールを設定したりすることもできます。
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
@@ -318,7 +318,7 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 {% endtab %}
 
 {% tab キャンバス %}
-まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas)ステップを参照してください。
 {% endtab %}
 {% endtabs %}
 

@@ -44,7 +44,7 @@ Weitere Informationen zum Erstellen eines Standort-Segments finden Sie unter [St
 
 ## Festes Setzen des Standard-Standortattributs {#hard-setting-the-default-location-attribute}
 
-Sie können auch den [`users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) in unserer API verwenden, um das Standardattribut [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) zu aktualisieren. Ein Beispiel:
+Sie können auch den [`users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) in unserer API verwenden, um das Standardattribut [`current_location`]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) zu aktualisieren. Ein Beispiel:
 
 ```
 https://[your_braze_rest_endpoint]/users/track

@@ -56,7 +56,7 @@ Hay tres acciones disponibles:
 
 - **Sync Simon segment attribute**: sincroniza los detalles de tu segmento con un atributo personalizado nuevo o existente en Braze.
 - **Trigger a Braze Canvas**: desencadena un Canvas de Braze que aproveche los datos de tu segmento de Simon.
-- **Send a Braze campaign**: lanza una Campaign completa de Braze desde Simon.
+- **Send a Braze campaign**: lanza una campaña completa de Braze desde Simon.
 
 ![Menú desplegable que muestra la lista de acciones de Braze disponibles en Simon AI.][9]{: style="max-width:60%"}
 
@@ -82,7 +82,7 @@ Después de que tu director de cuentas active los rasgos de contacto:
 ![Selección de rasgos de sincronización en Simon AI.][10]
 
 [1]: https://www.simon.ai/
-[2]: {{site.baseurl}}/api/basics/#creating-and-managing-rest-api-keys
+[2]: {{site.baseurl}}/api/basics#creating-rest-api-keys
 [3]: {{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints
 [4]: https://docs.simondata.com/docs/campaigns-flows
 [5]: https://docs.simondata.com/docs/campaigns-journeys-two

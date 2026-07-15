@@ -26,7 +26,7 @@ O Tealium AudienceStreams e o EventStreams oferecem ações de conector com e se
 | Conta Tealium | É necessária uma [conta Tealium](https://my.tealiumiq.com/) com acesso ao lado do servidor. Recomendamos que você também use as integrações do lado do cliente para aproveitar essa parceria. |
 | Chave da API REST | Uma chave da API REST da Braze com as permissões `users.track`, `users.delete` e `subscription.status.set`.<br><br>Isso pode ser criado no **dashboard da Braze > Console de desenvolvedor > Chave da API REST > Criar nova chave de API** |
 | [Endpoint REST da Braze]({{site.baseurl}}/api/basics#endpoints) | Sua URL de endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## Integração {#integration}
 
@@ -151,7 +151,7 @@ Essa ação permite rastrear atributos de usuário, evento e compra, tudo em uma
 | Parâmetros | Descrição |
 | ---------- | ----------- |
 | ID do usuário | Use esse campo para mapear o campo de ID do usuário da Tealium para seu equivalente na Braze. Mapeie um ou mais atributos de ID de usuário. Quando várias IDs são especificadas, o primeiro valor não vazio é escolhido com base na seguinte ordem de prioridade: ID externo, ID da Braze, nome do alias e rótulo do alias.<br><br>- A ID externa e a ID da Braze não devem ser especificadas se estiver importando tokens por push.<br>- Se estiver especificando um alias de usuário, o nome do alias e o rótulo do alias devem ser definidos. <br><br>Para saber mais, confira o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da Braze. |
-| Atributos do usuário | Use os nomes de campo de perfil de usuário existentes na Braze para atualizar os valores de perfil de usuário no dashboard da Braze ou adicione seus próprios dados personalizados de [atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) aos perfis de usuário.<br><br>- Por padrão, novos usuários serão criados se não houver nenhum.<br>- Ao definir **Update Existing Only** como `true`, somente os usuários existentes serão atualizados, e nenhum novo usuário será criado.<br>- Se um atributo da Tealium estiver vazio, ele será convertido em nulo e removido do perfil de usuário da Braze. Os enriquecimentos devem ser usados se os valores nulos não devem ser enviados à Braze para remover um atributo de usuário. |
+| Atributos do usuário | Use os nomes de campo de perfil de usuário existentes na Braze para atualizar os valores de perfil de usuário no dashboard da Braze ou adicione seus próprios dados personalizados de [atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) aos perfis de usuário.<br><br>- Por padrão, novos usuários serão criados se não houver nenhum.<br>- Ao definir **Update Existing Only** como `true`, somente os usuários existentes serão atualizados, e nenhum novo usuário será criado.<br>- Se um atributo da Tealium estiver vazio, ele será convertido em nulo e removido do perfil de usuário da Braze. Os enriquecimentos devem ser usados se os valores nulos não devem ser enviados à Braze para remover um atributo de usuário. |
 | Modificar atributos do usuário | Use esse campo para incrementar ou decrementar certos atributos do usuário<br><br>- Os atributos de números inteiros podem ser incrementados por números inteiros positivos ou negativos.<br>- Os atributos de arrays podem ser modificados adicionando ou removendo valores dos arrays existentes. |
 | Evento | Um evento representa uma única ocorrência de um evento personalizado por um usuário específico em um registro de data e hora. Use esse campo para rastrear e mapear atributos de eventos como os do [objeto de evento]({{site.baseurl}}/api/objects_filters/event_object) da Braze. <br><br>- O atributo de evento `Name` é obrigatório para cada evento mapeado.<br>- O atributo de evento `Time` é automaticamente definido para a hora atual, a menos que seja explicitamente mapeado. <br>- Por padrão, novos eventos serão criados se não houver nenhum. Ao definir `Update Existing Only` como `true`, somente os eventos existentes serão atualizados, e nenhum novo evento será criado.<br>- Mapeie atributos do tipo array para adicionar vários eventos. Os atributos do tipo array devem ter o mesmo comprimento.<br>- Atributos de valor único podem ser usados e aplicados a cada evento. |
 | Modelo de evento | Forneça modelos de eventos a serem referenciados nos dados do corpo. Os modelos podem ser usados para transformar os dados antes de enviá-los à Braze. Consulte o [Guia de modelos](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) da Tealium para saber mais. |
@@ -159,7 +159,7 @@ Essa ação permite rastrear atributos de usuário, evento e compra, tudo em uma
 | Compra | Use esse campo para rastrear e mapear os atributos de compra do usuário, como os do [objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object) da Braze.<br><br>- Os atributos de compra `Product ID`, `Currency` e `Price` são obrigatórios para cada compra mapeada.<br>- O atributo de compra `Time` é automaticamente definido para a hora atual, a menos que seja explicitamente mapeado.<br>- Por padrão, novas compras serão criadas se não houver nenhuma. Ao definir `Update Existing Only` como `true`, somente as compras existentes serão atualizadas, e nenhuma nova compra será criada.<br>- Mapeie atributos do tipo array para adicionar vários itens de compra. Os atributos do tipo array devem ter o mesmo comprimento.<br>- Os atributos de valor único podem ser usados e se aplicarão a cada item. |
 | Modelo de compra | Os modelos podem ser usados para transformar os dados antes de serem enviados à Braze.<br>- Defina um modelo de compra se você precisar de suporte a objetos aninhados.<br>- Quando um modelo de compra é definido, a configuração definida na seção de compras da sua ação será ignorada.<br>- Consulte o [Guia de modelos](https://docs.tealium.com/server-side/connectors/webhook-connectors/trimou-templating-engine/) da Tealium para saber mais. |
 | Variável do modelo de compra | Forneça variáveis de modelo de produto como entrada de dados. Consulte o [Guia de variáveis de modelo](https://docs.tealium.com/server-side/connectors/webhook-connectors/template-variables/) da Tealium para saber mais. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Ação" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![Exemplo de ação Track User da Tealium com atributos de usuário e campos de evento mapeados.]({% image_buster /assets/img/tealium/track_user_example2.png %}){: style="max-width:90%"}
 
@@ -171,7 +171,7 @@ Essa ação permite excluir usuários do dashboard da Braze.
 | Parâmetros | Descrição |
 | ---------- | ----------- |
 | ID do usuário | Use esse campo para mapear o campo de ID do usuário da Tealium para seu equivalente na Braze.<br><br>- Mapeie um ou mais atributos de ID de usuário. Quando várias IDs são especificadas, o primeiro valor não vazio é escolhido com base na seguinte ordem de prioridade: ID externo, ID da Braze, nome do alias e rótulo do alias.<br>- Ao especificar um alias de usuário, o nome do alias e o rótulo do alias devem ser definidos.<br><br>Para saber mais, consulte o [endpoint `/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) da Braze. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Ação" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![Ação Excluir usuário da Tealium com mapeamentos de ID de usuário da Braze configurados.]({% image_buster /assets/img/tealium/track_user_delete2.png %}){: style="max-width:90%"}
 
@@ -184,7 +184,7 @@ Essa ação permite adicionar ou remover usuários dos grupos de inscrições pa
 | Tipo de grupo | Use esse campo para indicar se esse é um grupo de inscrições para SMS ou para e-mail. |
 | Tipo de atualização | Mapeie essa ação para um evento de cancelamento de inscrição ou de inscrição. |
 | Atributos | - ID do grupo de inscrições (obrigatório): O ID do grupo de inscrições relacionado ao tipo de grupo mapeado no campo anterior.<br>- ID externo: O ID externo do usuário.<br><br>Específico do grupo de e-mail:<br>- E-mail: O endereço de e-mail do usuário.<br>**Se o ID externo não estiver definido, o e-mail será obrigatório.**<br><br>Específico do grupo de SMS:<br>- Telefone: O número de telefone no formato E.164. Por exemplo, +14155552671.<br>**Se o ID externo não estiver definido, o telefone será obrigatório.** |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Ação" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Action" }
 
 ![Ação de atualização de status do grupo de inscrições da Tealium com mapeamentos de tipo de grupo e tipo de atualização.]({% image_buster /assets/img/tealium/update_subscription.png %}){: style="max-width:90%"}
 

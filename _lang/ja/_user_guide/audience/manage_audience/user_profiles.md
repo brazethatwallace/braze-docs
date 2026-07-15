@@ -100,7 +100,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 ### イベント履歴タブ {#event-history-tab}
 
 {% alert note %}
-**イベント履歴**タブを表示するには、**ユーザーを検索**、**ユーザーイベントプロパティを表示**、および**PIIを表示**の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。イベントプロパティには個人データが含まれる場合があるためです。
+**イベント履歴**タブを表示するには、**ユーザーを検索**、**ユーザーイベントプロパティを表示**、および**View PII**の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。イベントプロパティには個人データが含まれる場合があるためです。
 {% endalert %}
 
 **イベント履歴**タブには、ユーザーが記録したカスタムイベントと購入が表示されます。イベントデータが正しく到着しているかを確認し、ダッシュボード上で直接ユーザーレベルの問題をトラブルシューティングするために使用します。データのエクスポートや外部ツールは不要です。
@@ -147,7 +147,7 @@ RCSイベントは現在、**メッセージ履歴**タブではサポートさ�
 
 #### イベントの表示と理解 {#viewing-and-understanding-events}
 
-**メッセージ履歴**テーブルの各イベントについて、メッセージングチャネル、イベントタイプ、イベント発生のタイムスタンプ、関連するキャンペーンまたはキャンバスメッセージ、およびユーザーのデバイスデータを確認できます。特定のイベントでフィルタリングするには、**Filters**をクリックしてリストからイベントを選択します。
+**メッセージ履歴**テーブルの各イベントについて、メッセージングチャネル、イベントタイプ、イベント発生のタイムスタンプ、関連するキャンペーンまたはキャンバスメッセージ、およびユーザーのデバイスデータを確認できます。特定のイベントでフィルタリングするには、**フィルター**をクリックしてリストからイベントを選択します。
 
 ##### メッセージエンゲージメントイベント {#message-engagement-events}
 
@@ -166,7 +166,7 @@ RCSイベントは現在、**メッセージ履歴**タブではサポートさ�
 
 ##### メッセージ中止イベント {#message-abort-events}
 
-メッセージ中止イベントは、ユーザーに送信されたメッセージが[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)または[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages)の条件ロジック、またはLiquidレンダリングのタイムアウトにより中止された場合に発生します。
+メッセージ中止イベントは、ユーザーに送信されたメッセージが[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)または[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-connected-content)の条件ロジック、またはLiquidレンダリングのタイムアウトにより中止された場合に発生します。
 
 中止イベントは以下のチャネルで利用できます。
 
@@ -179,7 +179,7 @@ RCSイベントは現在、**メッセージ履歴**タブではサポートさ�
 
 ##### フリークエンシーキャップイベント {#frequency-cap-events}
 
-フリークエンシーキャップイベントは、ユーザーがメッセージの受信対象となったものの、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)設定により実際にはメッセージを受信しなかった場合に発生します。フリークエンシーキャップの設定は、**Settings** > **Frequency Capping Rules**からカスタマイズできます。
+フリークエンシーキャップイベントは、ユーザーがメッセージの受信対象となったものの、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)設定により実際にはメッセージを受信しなかった場合に発生します。フリークエンシーキャップの設定は、**設定** > **フリークエンシーキャップルール**からカスタマイズできます。
 
 ##### 空白の送信先 {#blank-destinations}
 

@@ -14,7 +14,7 @@ description: "Este artigo de referência fornece etapas para criar uma transform
 
 | Requisito | Descrição |
 | --- | --- |
-| Autenticação de dois fatores ou SSO | Você deve ter a [autenticação de dois fatores]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication) (2FA) ou o [login único]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) ativado para sua conta. |
+| Autenticação de dois fatores ou SSO | Você deve ter a [autenticação de dois fatores]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication-2fa) (2FA) ou o [login único]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) ativado para sua conta. |
 | Permissões corretas | Você deve ser um administrador de conta ou um administrador de espaço de trabalho, ou ter permissões de usuário para "Gerenciar Transformações". |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 

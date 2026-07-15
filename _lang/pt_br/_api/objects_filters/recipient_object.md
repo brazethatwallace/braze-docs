@@ -13,7 +13,7 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 
 Você deve incluir um dos seguintes neste objeto: `external_user_id`, `user_alias`, `braze_id` ou `email`. **As solicitações devem especificar apenas um.**
 
-O objeto de destinatários permite combinar o [objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object), o [objeto de propriedades do gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object), o [objeto de propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) e o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+O objeto de destinatários permite combinar o [objeto de alias do usuário]({{site.baseurl}}/api/objects_filters/user_alias_object), o [objeto de propriedades do gatilho]({{site.baseurl}}/api/objects_filters/trigger_properties_object), o [objeto de propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) e o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 ## Corpo do objeto {#object-body}
 
@@ -40,8 +40,8 @@ Esse perfil ainda precisa atender às regras de público e elegibilidade de cana
 - [ID da Braze]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)
 - [Aliases do usuário]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
 - [ID de usuário externo]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
-- [Priorização]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email)
-- [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)
+- [Priorização]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)
+- [Objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)
 
 ## Deduplicação do objeto de destinatário {#recipient-object-deduping}
 

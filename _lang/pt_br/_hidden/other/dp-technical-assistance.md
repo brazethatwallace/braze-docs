@@ -65,7 +65,7 @@ De acordo com as Leis de Proteção de Dados, os titulares de dados podem ter o 
 
 ### Recomendação da Braze
 
-Para fornecer Dados Pessoais da Braze em um formato legível por máquina em resposta a uma solicitação de acesso do titular dos dados, você pode exportar o perfil do usuário final fazendo uma chamada de API para as [REST APIs]({{site.baseurl}}/api/endpoints/export/#user-export) da Braze com o identificador de usuário (definido por você como o `external_id` fornecido à Braze) e/ou o identificador do dispositivo.
+Para fornecer Dados Pessoais da Braze em um formato legível por máquina em resposta a uma solicitação de acesso do titular dos dados, você pode exportar o perfil do usuário final fazendo uma chamada de API para as [REST APIs]({{site.baseurl}}/api/endpoints/export) da Braze com o identificador de usuário (definido por você como o `external_id` fornecido à Braze) e/ou o identificador do dispositivo.
 
 #### BrazeAI Decisioning Studio™
 
@@ -77,7 +77,7 @@ Os indivíduos têm o direito de ter seus Dados Pessoais corrigidos se estiverem
 
 ### Recomendação da Braze
 
-Caso um titular dos dados solicite a retificação de imprecisões nos Dados Pessoais que estão sendo processados por você ou pela Braze em seu nome, você pode usar os SDKs da Braze ou as [REST APIs]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) da Braze para corrigir esses Dados Pessoais.
+Caso um titular dos dados solicite a retificação de imprecisões nos Dados Pessoais que estão sendo processados por você ou pela Braze em seu nome, você pode usar os SDKs da Braze ou as [REST APIs]({{site.baseurl}}/api/endpoints/user_data/post_user_track) da Braze para corrigir esses Dados Pessoais.
 
 ## O direito à exclusão {#the-right-to-erasure}
 
@@ -87,7 +87,7 @@ O direito à exclusão também é conhecido como "direito de ser esquecido" ou "
 
 #### Exclusão padrão {#standard-deletion}
 
-Depois de interromper a coleta de dados, você pode usar o [endpoint da REST API de exclusão de usuário da Braze]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/) para excluir um usuário final, o que removerá todos os registros desse usuário final dos Serviços Braze:
+Depois de interromper a coleta de dados, você pode usar o [endpoint da REST API de exclusão de usuário da Braze]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) para excluir um usuário final, o que removerá todos os registros desse usuário final dos Serviços Braze:
 
 - Para usuários finais que têm um external_id nos Serviços Braze, você pode usar esse ID para excluir os dados desse usuário final.
 - Para usuários finais anônimos que não têm um external_id nos Serviços Braze, é possível recuperar o identificador de dispositivo desse usuário final usando o SDK da Braze e usar o identificador de dispositivo para encontrar o perfil de usuário final associado a esse dispositivo. Em seguida, é possível usar a API de exclusão de usuário para excluir o perfil associado a esse usuário final.
@@ -116,7 +116,7 @@ Para atender a uma solicitação de direito à exclusão em relação a Dados Pe
   <tr>
     <td>
         <p>Os clientes podem criar campos personalizados para propriedades de eventos e extras de mensagens. Esses campos não se destinam a Dados Pessoais e, portanto, não estão incluídos no processo de exclusão padrão descrito acima. Se, no entanto, você usar a Braze para inserir ou coletar Dados Pessoais por meio de propriedades de eventos e extras de mensagens, poderá configurar o processo de exclusão disparado pelo endpoint da REST API de exclusão de usuários para incluir também esses campos, de modo que os dados contidos nesses campos também sejam excluídos.</p>
-        <p>As configurações padrão são aplicadas no nível da empresa, mas você pode optar por excluir os seguintes campos quando o processo de exclusão for executado, no nível do grupo de app/espaço de trabalho:</p>
+        <p>As configurações padrão são aplicadas no nível da empresa, mas você pode optar por excluir os seguintes campos quando o processo de exclusão for executado, no nível do grupo de apps/espaço de trabalho:</p>
     <ul>
         <li>PROPERTIES para USERS_BEHAVIORS_CUSTOMEVENT</li>
         <li>PROPERTIES para USERS_BEHAVIORS_PURCHASE</li>
@@ -155,7 +155,7 @@ Os titulares dos dados podem ter o direito de "bloquear" ou suprimir o processam
 
 ### Recomendação da Braze
 
-Os Serviços Braze não suportam a restrição do processamento de categorias individuais de Dados Pessoais. Caso tenha sido solicitado por um titular de dados a restringir o processamento de determinados subconjuntos dos Dados Pessoais desse titular, você deve usar as [APIs da Braze]({{site.baseurl}}/api/home/) para exportar todo(s) o(s) perfil(is) desse usuário final e, em seguida, [excluí-lo(s)]({{site.baseurl}}/api/endpoints/user_data/#user-delete-endpoint) da Braze. As APIs da Braze podem ser usadas para reimportar esses dados caso o usuário final permita posteriormente que você processe esses subconjuntos específicos de seus Dados Pessoais. Além disso, recomenda-se que o usuário final desinstale ou saia de todos os aplicativos que usam o SDK da Braze para interromper a coleta de dados adicionais sobre o titular dos dados.
+Os Serviços Braze não suportam a restrição do processamento de categorias individuais de Dados Pessoais. Caso tenha sido solicitado por um titular de dados a restringir o processamento de determinados subconjuntos dos Dados Pessoais desse titular, você deve usar as [APIs da Braze]({{site.baseurl}}/api/home) para exportar todo(s) o(s) perfil(is) desse usuário final e, em seguida, [excluí-lo(s)]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) da Braze. As APIs da Braze podem ser usadas para reimportar esses dados caso o usuário final permita posteriormente que você processe esses subconjuntos específicos de seus Dados Pessoais. Além disso, recomenda-se que o usuário final desinstale ou saia de todos os aplicativos que usam o SDK da Braze para interromper a coleta de dados adicionais sobre o titular dos dados.
 
 Para clientes que usam apenas o BrazeAI Decisioning Studio™, você não deve mais enviar dados para o Decisioning Studio.
 
@@ -165,7 +165,7 @@ O direito à portabilidade de dados permite que os titulares de dados obtenham e
 
 ### Recomendação da Braze
 
-Semelhante ao direito de acesso, você pode usar a [REST API]({{site.baseurl}}/api/endpoints/export/#user-export) da Braze para exportar os Dados Pessoais de um usuário final e fornecê-los ao titular dos dados de acordo com sua solicitação. Além disso, entre em contato com o gerente da sua conta com os customer_id(s) e/ou e-mail(s) relevantes para solicitar uma cópia de quaisquer Dados Pessoais mantidos no BrazeAI Decisioning Studio.
+Semelhante ao direito de acesso, você pode usar a [REST API]({{site.baseurl}}/api/endpoints/export) da Braze para exportar os Dados Pessoais de um usuário final e fornecê-los ao titular dos dados de acordo com sua solicitação. Além disso, entre em contato com o gerente da sua conta com os customer_id(s) e/ou e-mail(s) relevantes para solicitar uma cópia de quaisquer Dados Pessoais mantidos no BrazeAI Decisioning Studio.
 
 ## O direito de contestar {#the-right-to-object}
 
@@ -177,7 +177,7 @@ Os indivíduos podem ter o direito de se opor a:
 
 ### Recomendação da Braze
 
-A Braze oferece a capacidade de marcar um Perfil de Usuário como tendo cancelado a inscrição de SMS, e-mails ou notificações por push por meio de nossas [REST APIs]({{site.baseurl}}/api/home/) e dos SDKs para [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes/), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes/) e [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes/). Se receber objeções dos titulares dos dados quanto ao recebimento de tais mensagens, você pode usar as APIs da Braze para cancelar a inscrição desses usuários finais.
+A Braze oferece a capacidade de marcar um Perfil de Usuário como tendo cancelado a inscrição de SMS, e-mails ou notificações por push por meio de nossas [REST APIs]({{site.baseurl}}/api/home) e dos SDKs para [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/analytics/setting_custom_attributes), [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_custom_attributes) e [Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_custom_attributes). Se receber objeções dos titulares dos dados quanto ao recebimento de tais mensagens, você pode usar as APIs da Braze para cancelar a inscrição desses usuários finais.
 
 Se isso não for suficiente, para evitar o processamento de Dados Pessoais de usuários finais pela Braze, o perfil do usuário final deverá ser excluído da mesma forma especificada no "Direito à exclusão".
 
@@ -198,7 +198,7 @@ De acordo com algumas leis de privacidade estaduais dos EUA, os titulares dos da
 
 Ao criar públicos para fins de direcionamento de anúncios para seus titulares de dados, você deve garantir que excluiu todos os titulares de dados que se opuseram à publicidade direcionada, por exemplo, consumidores da Califórnia que exerceram seu direito de "Não vender ou compartilhar" nos termos da CCPA.
 
-Para saber mais sobre como criar públicos para sincronizar com plataformas de terceiros, consulte [Sincronização de públicos]({{site.baseurl}}/partners/canvas_steps/).
+Para saber mais sobre como criar públicos para sincronizar com plataformas de terceiros, consulte [Sincronização de públicos]({{site.baseurl}}/partners/canvas_steps).
 
 ## O direito à não discriminação {#the-right-to-non-discrimination}
 

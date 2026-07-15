@@ -86,7 +86,7 @@ Une boucle de rétroaction par e-mail (FBL) permet aux expéditeurs de surveille
 
 ### Que sont les pixels de suivi d'ouverture ? {#what-are-open-tracking-pixels}
 
-Les [pixels de suivi d'ouverture]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel) utilisent le domaine de suivi des clics de l'expéditeur pour suivre les événements d'ouverture d'e-mails. Le pixel est une balise image ajoutée au HTML de l'e-mail. Il s'agit le plus souvent du dernier élément HTML dans la balise body. Lorsqu'un utilisateur charge son e-mail, une requête est effectuée pour charger l'image depuis le domaine de suivi personnalisé, ce qui enregistre un événement d'ouverture.
+Les [pixels de suivi d'ouverture]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) utilisent le domaine de suivi des clics de l'expéditeur pour suivre les événements d'ouverture d'e-mails. Le pixel est une balise image ajoutée au HTML de l'e-mail. Il s'agit le plus souvent du dernier élément HTML dans la balise body. Lorsqu'un utilisateur charge son e-mail, une requête est effectuée pour charger l'image depuis le domaine de suivi personnalisé, ce qui enregistre un événement d'ouverture.
 
 ### Que se passe-t-il lorsqu'une campagne e-mail ou un Canvas est arrêté(e) ? {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
 
@@ -133,11 +133,11 @@ Le suivi des ouvertures repose sur le chargement de l'e-mail par le destinataire
 
 Certains outils de sécurité des e-mails d'entreprise (tels que Barracuda, Proofpoint et services similaires) analysent les e-mails entrants en cliquant automatiquement sur tous les liens du message pour vérifier qu'ils sont sûrs. Cela peut entraîner l'apparition d'événements de clic quelques secondes après l'envoi, souvent avec chaque lien de l'e-mail cliqué en succession rapide.
 
-Ce comportement est plus courant avec les domaines de messagerie institutionnels (tels que les lycées, les universités et les environnements d'entreprise) et est plus probable lorsque votre domaine d'envoi diffère significativement de votre domaine de suivi. La configuration d'un [domaine de suivi personnalisé]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#custom-email-tracking-domain) peut réduire la fréquence de ces clics automatisés.
+Ce comportement est plus courant avec les domaines de messagerie institutionnels (tels que les lycées, les universités et les environnements d'entreprise) et est plus probable lorsque votre domaine d'envoi diffère significativement de votre domaine de suivi. La configuration d'un [domaine de suivi personnalisé]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) peut réduire la fréquence de ces clics automatisés.
 
 **Comment identifier :** Recherchez l'adresse IP de l'événement de clic (disponible dans les données Currents) dans un moteur de recherche. Si l'IP est associée à un fournisseur de sécurité connu (tel que Barracuda Networks), les clics sont probablement automatisés. Vous pouvez également observer un en-tête `User-Agent` identique sur plusieurs clics automatisés.
 
-Pour plus de contexte sur la façon dont l'analyse de sécurité affecte les indicateurs d'e-mails, consultez [Gérer les augmentations des taux de clics]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+Pour plus de contexte sur la façon dont l'analyse de sécurité affecte les indicateurs d'e-mails, consultez [Gérer les augmentations des taux de clics]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### Quels sont les risques potentiels de déclenchement de clics par les serveurs ? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
@@ -181,7 +181,7 @@ Pour atténuer ce problème :
 - **Utilisez un centre de préférences :** Au lieu d'un lien de désabonnement direct, utilisez un [centre de préférences]({{site.baseurl}}/user_guide/channels/email/subscriptions) qui nécessite une interaction de l'utilisateur pour confirmer l'action de désabonnement. Les scanners de sécurité ne complètent généralement pas les formulaires à plusieurs étapes.
 - **Examinez les journaux de désabonnement :** Vérifiez l'en-tête `User-Agent` et l'adresse IP dans vos données d'événements de désabonnement Currents pour identifier des schémas cohérents avec une analyse automatisée (tels que des en-têtes `User-Agent` identiques sur plusieurs désabonnements).
 
-Pour plus de détails sur la façon dont l'analyse côté serveur peut affecter les indicateurs d'e-mails, consultez [Gérer les augmentations des taux de clics]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+Pour plus de détails sur la façon dont l'analyse côté serveur peut affecter les indicateurs d'e-mails, consultez [Gérer les augmentations des taux de clics]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### Pourquoi mon taux d'ouvertures automatiques a-t-il changé de manière inattendue ? {#why-has-my-machine-open-rate-changed-unexpectedly}
 

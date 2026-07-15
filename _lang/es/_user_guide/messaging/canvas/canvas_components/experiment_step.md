@@ -20,11 +20,11 @@ Cuando incluyes un paso de recorrido de experimentos en tu recorrido de usuario,
 
 Para usar recorridos de experimentos, tu Canvas debe incluir eventos de conversión. Aunque no puedes añadir eventos de conversión después de que un Canvas se haya lanzado, puedes clonar el Canvas lanzado y añadir eventos de conversión para agregar recorridos de experimentos.
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 Los recorridos de experimentos son ideales para probar la entrega, la cadencia, el texto del mensaje y las combinaciones de canales.
 
-- **Entrega:** Compara los resultados entre mensajes enviados con diferentes [retrasos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) de tiempo, basados en acciones del usuario ([Rutas de acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)), y usando [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#canvas).<br><br>
+- **Entrega:** Compara los resultados entre mensajes enviados con diferentes [retrasos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) de tiempo, basados en acciones del usuario ([Rutas de Acción]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)), y usando [sincronización inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#step-1-add-intelligent-timing-1).<br><br>
 - **Cadencia:** Prueba múltiples flujos de mensajería durante un período específico. Por ejemplo, podrías probar dos cadencias de incorporación diferentes:
     - Cadencia 1: Enviar 2 mensajes en las primeras 2 semanas del usuario
     - Cadencia 2: Enviar 3 mensajes en las primeras 2 semanas del usuario
@@ -69,7 +69,7 @@ Para prevenir la contaminación del experimento, si tu Canvas tiene un experimen
 
 ## Seguimiento del rendimiento {#tracking-performance}
 
-Desde la página de **Canvas Analytics**, selecciona el recorrido de experimentos para abrir una [tabla detallada]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#performance-breakdown-by-variant) idéntica a la pestaña **Analyze Variants** para comparar estadísticas detalladas de rendimiento y conversión entre rutas. También puedes exportar la tabla vía CSV y comparar los cambios porcentuales para las métricas de interés en relación con la ruta o el control que selecciones.
+Desde la página de **Canvas Analytics**, selecciona el recorrido de experimentos para abrir una [tabla detallada]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch) idéntica a la pestaña **Analyze Variants** para comparar estadísticas detalladas de rendimiento y conversión entre rutas. También puedes exportar la tabla vía CSV y comparar los cambios porcentuales para las métricas de interés en relación con la ruta o el control que selecciones.
 
 Cada paso en cada ruta muestra estadísticas en la vista de [análisis de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics), igual que cualquier paso en Canvas. Sin embargo, ten en cuenta que los análisis de pasos individuales y los análisis de recorridos de experimentos miden las conversiones de manera diferente:
 
@@ -88,17 +88,17 @@ Aprovecha la ruta ganadora para hacer seguimiento del rendimiento durante un per
 La métrica ganadora y los análisis mostrados en los recorridos de experimentos pueden diferir:
 
 - El evento de conversión que configuras para la **ruta ganadora** o los **recorridos personalizados** determina cómo Braze compara las rutas y selecciona un ganador durante la ventana del experimento.
-- Los análisis de recorridos de experimentos siguen el mismo marco de [eventos de conversión]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events) de Canvas que el resto del Canvas, incluyendo tu [evento de conversión primaria]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events#primary-conversion-event). Como resultado, las métricas destacadas en el dashboard pueden no coincidir con la métrica ganadora.
+- Los análisis de recorridos de experimentos siguen el mismo marco de [eventos de conversión]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events) de Canvas que el resto del Canvas, incluyendo tu [evento de conversión primaria]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events#primary-conversion-event). Como resultado, las métricas destacadas en el panel pueden no coincidir con la métrica ganadora.
 - Para push, *Direct Opens* y *Total Opens* difieren. Para más información, consulta [Influenced Opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
 
 ### Configuración adicional {#additional-settings}
 
 Los recorridos de experimentos registran a los usuarios que entran en cada paso y convierten mientras están en la ruta asignada. Esto hace seguimiento de todos los eventos de conversión especificados en la configuración del Canvas. En la pestaña **Additional Settings**, ingresa cuántos días (entre 1 y 30) quieres que este experimento haga seguimiento de las conversiones. La ventana de tiempo que especifiques aquí determina durante cuánto tiempo se hace seguimiento de los eventos de conversión (elegidos en la configuración del Canvas) para el experimento. Las ventanas de conversión por evento especificadas en la configuración del Canvas no se aplican al seguimiento de este paso y son reemplazadas por esta ventana de conversión.
 
-La ventana de conversión comienza cuando el usuario entra al paso de recorrido de experimentos, no cuando se envía un mensaje posterior. Si una ruta incluye retrasos, como un paso de retraso o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), esos retrasos consumen parte de la ventana de conversión.
+La ventana de conversión comienza cuando el usuario entra al paso de recorrido de experimentos, no cuando se envía un mensaje posterior. Si una ruta incluye retrasos, como un paso de retraso o [sincronización inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), esos retrasos consumen parte de la ventana de conversión.
 
 {% alert important %}
-Si estás usando Intelligent Timing en un paso de mensaje dentro de una ruta de experimentos, el tiempo entre la entrada al experimento y el envío real del mensaje reduce la ventana de conversión efectiva para esa ruta. Por ejemplo, si tu experimento tiene una ventana de conversión de 5 días e Intelligent Timing retrasa el mensaje 2 días, los usuarios en esa ruta solo tienen 3 días después de recibir el mensaje para convertir dentro de la ventana del experimento, aunque los análisis propios del paso de mensaje hacen seguimiento de las conversiones desde el momento del envío del mensaje.<br><br>Para obtener análisis de experimentos más limpios, coloca cualquier retraso (como pasos de retraso) **antes** del paso de recorrido de experimentos en lugar de dentro de una ruta de experimentos. De esta manera, todas las rutas comienzan desde el mismo punto y los retrasos no consumen parte de la ventana de conversión.
+Si estás usando sincronización inteligente en un paso de mensaje dentro de un recorrido de experimentos, el tiempo entre la entrada al experimento y el envío real del mensaje reduce la ventana de conversión efectiva para esa ruta. Por ejemplo, si tu experimento tiene una ventana de conversión de 5 días y la sincronización inteligente retrasa el mensaje 2 días, los usuarios en esa ruta solo tienen 3 días después de recibir el mensaje para convertir dentro de la ventana del experimento, aunque los análisis propios del paso de mensaje hacen seguimiento de las conversiones desde el momento del envío del mensaje.<br><br>Para obtener análisis de experimentos más limpios, coloca cualquier retraso (como pasos de retraso) **antes** del paso de recorrido de experimentos en lugar de dentro de un recorrido de experimentos. De esta manera, todas las rutas comienzan desde el mismo punto y los retrasos no consumen parte de la ventana de conversión.
 {% endalert %}
 
 ## Preguntas frecuentes {#frequently-asked-questions}
@@ -109,4 +109,4 @@ Los _envíos_ posteriores dependen de los pasos de cada ruta, los retrasos, la e
 
 ### ¿Cuánto dura la ventana de conversión del experimento? {#how-long-does-the-experiment-conversion-window-last}
 
-La ventana de conversión de **Additional Settings** (de 1 a 30 días) comienza cuando el usuario entra al paso de recorrido de experimentos. El tiempo transcurrido en pasos de retraso posteriores o esperando Intelligent Timing cuenta dentro de esa ventana. Consulta [Seguimiento del rendimiento](#tracking-performance) para más detalles.
+La ventana de conversión de **Additional Settings** (de 1 a 30 días) comienza cuando el usuario entra al paso de recorrido de experimentos. El tiempo transcurrido en pasos de retraso posteriores o esperando la sincronización inteligente cuenta dentro de esa ventana. Consulta [Seguimiento del rendimiento](#tracking-performance) para más detalles.

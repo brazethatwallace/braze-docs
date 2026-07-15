@@ -15,7 +15,7 @@ platform:
   - Unity
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}はじめに：統合の概要 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
+# [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/sdk-integration-basics){: style="float:right;width:120px;border:0;" class="noimgborder"}はじめに：統合の概要 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomsdk-integration-basics-stylefloatrightwidth120pxborder0-classnoimgbordergetting-started-integration-overview}
 
 > この記事では、オンボーディングプロセスの基本的な概要を説明します。
 
@@ -77,11 +77,11 @@ CRMチームは、近い将来に立ち上げるメッセージングのユー�
 
 ### カスタマイズの計画 {#customizations-planning}
 
-マーケティング担当者に、希望するカスタマイズについて相談してください。例えば、デフォルトのBraze Content Cardsを実装しますか？ブランドガイドラインに合うようにルック＆フィールを少し調整しますか？コンポーネントのためにまったく新しいUIを開発し、Brazeにその分析を追跡させますか？カスタマイズのレベルが異なれば、必要なスコープのレベルも異なります。
+マーケターに、希望するカスタマイズについて相談してください。例えば、デフォルトのBraze Content Cardsを実装しますか？ブランドガイドラインに合うようにルック＆フィールを少し調整しますか？コンポーネントのためにまったく新しいUIを開発し、Brazeにその分析を追跡させますか？カスタマイズのレベルが異なれば、必要なスコープのレベルも異なります。
 
 ### ダッシュボードへのアクセス {#getting-dashboard-access}
 
-BrazeダッシュボードはウェブUIインターフェイスです。マーケティング担当者はダッシュボードを使って仕事をし、コンテンツを作成します。開発者はダッシュボードを使い、APIキーやプッシュ通知の認証情報など、アプリを統合するための設定を管理します。
+Brazeダッシュボードは、ウェブUIインターフェイスです。マーケターはダッシュボードを使って仕事をし、コンテンツを作成します。開発者はダッシュボードを使い、APIキーやプッシュ通知の認証情報など、アプリを統合するための設定を管理します。
 
 チーム管理者は、ダッシュボードであなた（およびBrazeへのアクセスが必要な他のチームメンバー全員）をユーザーとして追加する必要があります。
 
@@ -89,7 +89,7 @@ BrazeダッシュボードはウェブUIインターフェイスです。マー�
 
 チーム管理者はまた、さまざまな[ワークスペース]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)を作成します。ワークスペースは、ユーザー、セグメント、APIキーなどのデータを1つの場所にグループ化します。ベストプラクティスとして、同じアプリやよく似たアプリの異なるバージョンのみを1つのワークスペースにまとめることをお勧めします。
 
-重要なのは、ワークスペースが複数のプラットフォーム（iOSやAndroidなど）用のAPIキーを提供することです。SDKデータを特定のワークスペースに関連付けるには、対応するAPIキーを使用します。ワークスペースに移動して、各アプリのAPIキーにアクセスしてください。各APIキーがスコープした作業を実行するための正しい権限を持っていることを確認してください。詳細は[APIプロビジョニングの記事]({{site.baseurl}}/api/basics#rest-api-key)を参照してください。
+重要なのは、ワークスペースが複数のプラットフォーム（iOSやAndroidなど）用のAPIキーを提供することです。SDKデータを特定のワークスペースに関連付けるには、対応するAPIキーを使用します。ワークスペースに移動して、各アプリのAPIキーにアクセスしてください。各APIキーがスコープした作業を実行するための正しい権限を持っていることを確認してください。詳細は[APIプロビジョニングの記事]({{site.baseurl}}/api/basics#rest-api-key-permissions)を参照してください。
 
 {% alert important %}
 開発用と本番用で異なる環境を設定することが重要です。テスト環境を設定することで、オンボーディングやQAで実際にお金を使うことを防ぐことができます。テスト環境を作成するには、テスト用ワークスペースをセットアップし、本番用ワークスペースにテストデータを入力しないように、必ずそのAPIキーを使用してください。
@@ -115,7 +115,7 @@ BrazeはiOSアプリ、Androidアプリ、ウェブアプリなどをサポー�
 
 CDPとサイドバイサイドの統合を行う場合は、CDPのSDKからの呼び出しをBraze SDKにマッピングします。基本的に、以下を実行します。
 * 識別呼び出しを`changeUser`（[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html)、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/)、[web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)）にマッピングし、属性を設定します。
-* データフラッシュ呼び出しを`requestImmediateDataFlush`（[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush())、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush())、[web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush)）にマッピングします。
+* データフラッシュ呼び出しを`requestImmediateDataFlush`（[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush())、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush()、[web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush)）にマッピングします。
 * カスタムイベントや購入を記録します。
 
 選択したプラットフォームによっては、Braze SDKと選択したCDP間の統合例を利用できる場合があります。詳細は[CDPテクノロジーパートナーのリスト]({{site.baseurl}}/partners/data_and_analytics)を参照してください。
@@ -155,13 +155,13 @@ APIを使用する際は、リクエストをバッチ処理し、デルタ値�
 
 Brazeはデータがすべてです。Brazeのデータはユーザープロファイルに保存されます。
 
-データポイントとは、マーケティング担当者にとって適切なデータを確実に取得するための仕組みであり、単に「どんな」データでも集めればいいというものではありません。[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)について理解を深めてください。
+データポイントとは、マーケターにとって適切なデータを確実に取得するための仕組みであり、単に「どんな」データでも集めればいいというものではありません。[データポイント]({{site.baseurl}}/user_guide/data/infrastructure/data_points)について理解を深めてください。
 
 ### レガシーユーザーデータの移行 {#migrating-legacy-user-data}
 
 Brazeの[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、Brazeの外部で記録された履歴データを移行できます。よくインポートされるデータの例としては、プッシュトークンや過去の購入履歴などがあります。このエンドポイントは、単発のインポートや定期的なバッチ更新に使用できます。
 
-また、ダッシュボードに一度だけ[CSVをアップロード]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv)することで、ユーザーをインポートし、顧客の属性値を更新することもできます。CSVのアップロードはマーケティング担当者にとって便利ですが、REST APIを使えばより柔軟に対応できます。
+また、ダッシュボードに一度だけ[CSVをアップロード]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv)することで、ユーザーをインポートし、顧客の属性値を更新することもできます。CSVのアップロードはマーケターにとって便利ですが、REST APIを使えばより柔軟に対応できます。
 
 ### セッショントラッキングの設定 {#setting-up-session-tracking}
 
@@ -197,7 +197,7 @@ QAを始める前に、本番環境とテスト環境がセットアップされ
 | 匿名ユーザープロファイルを作成します。 | プッシュキャンペーンがデバイスに正しく送信され、エンゲージメントが記録されているかテストします。 |
 | `changeUser()`メソッドが呼び出されたときに、匿名ユーザープロファイルが既知のユーザープロファイルになることを確認します。 | アプリ内メッセージが配信され、指標が記録されることをテストします。 |
 |                           | Content Cardsが配信され、指標が記録されていることをテストします。 |
-|                           | コネクテッドコンテンツを促進します（例：AccuWeather）。 |
+|                           | Connected Contentを促進します（例：AccuWeather）。 |
 |                           | すべてのメッセージチャネルの統合が正しく連携していることを確認します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="品質保証" }
 
@@ -243,9 +243,9 @@ Brazeの[GitHub](https://github.com/braze-inc/)を通じて、Brazeプラット�
 
 ### レート制限の確認 {#finding-your-rate-limits}
 
-予想されるSDKスループットに基づく現在の制限を確認するには、**設定** > **APIキー** > **APIとSDKの制限**に進みます。
+予想されるSDKスループットに基づく現在の制限を確認するには、**設定** > **APIと識別子** > **APIとSDKの制限**に進みます。
 
-過去の使用状況については、**設定** > **APIキー** > **APIとSDKのダッシュボード**を参照してください。
+過去の使用状況については、**設定** > **APIと識別子** > **APIとSDKのダッシュボード**を参照してください。
 
 ### より高いレート制限のリクエスト {#requesting-higher-rate-limits}
 

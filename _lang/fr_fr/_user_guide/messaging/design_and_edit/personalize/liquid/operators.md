@@ -8,7 +8,7 @@ description: "Cette page de référence présente les opérateurs pris en charge
 
 # Opérateurs {#operators}
 
-> Liquid prend en charge de nombreux [opérateurs](https://docs.shopify.com/themes/liquid/basics/operators) que vous pouvez utiliser dans vos instructions conditionnelles. Cette page présente les opérateurs pris en charge par Liquid et fournit des cas d'utilisation pour les intégrer dans vos messages.
+> Liquid prend en charge de nombreux [opérateurs](https://docs.shopify.com/themes/liquid/basics/operators) que vous pouvez utiliser dans vos instructions conditionnelles. Cette page présente les opérateurs pris en charge par Liquid et fournit des cas d'usage pour les intégrer dans vos messages.
 
 Ce tableau répertorie les opérateurs pris en charge. Notez que les parenthèses sont des caractères non valides dans Liquid et empêchent vos balises de fonctionner.
 
@@ -26,7 +26,7 @@ Ce tableau répertorie les opérateurs pris en charge. Notez que les parenthèse
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Opérateurs" }
 
 {% alert note %}
-Les opérateurs peuvent être utilisés dans les instructions conditionnelles (`if`, `elsif`, `unless`) mais pas dans les instructions `assign`, les boucles `for` ou les crochets d'accès aux tableaux. Dans les balises `case` et `when`, chaque branche compare l'expression `case` à une valeur `when` en utilisant l'égalité plutôt que des expressions d'opérateurs arbitraires. Pour des exemples, consultez [Logique conditionnelle de messagerie]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags). Pour une explication complète, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
+Les opérateurs peuvent être utilisés dans les instructions conditionnelles (`if`, `elsif`, `unless`) mais pas dans les instructions `assign`, les boucles `for` ou les crochets d'accès aux tableaux. Dans les balises `case` et `when`, chaque branche compare l'expression `case` à une valeur `when` en utilisant l'égalité plutôt que des expressions d'opérateurs arbitraires. Pour des exemples, consultez [Logique conditionnelle de communication]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when). Pour une explication complète, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
 ## Regrouper des conditions sans parenthèses {#grouping-conditions-without-parentheses}
@@ -205,7 +205,7 @@ Si un utilisateur n'a joué à aucun jeu ou si cet attribut personnalisé n'exis
 Hey! I've got a deal for you. Buy 2 of our newest releases and get 10% off!
 ```
 
-### Annuler un message en fonction de la localisation {#abort-message-based-on-location}
+### Annuler un message en fonction de l'emplacement {#abort-message-based-on-location}
 
 Vous pouvez annuler un message en fonction de pratiquement n'importe quel critère. Annulons un message si un utilisateur ne se trouve pas dans une zone spécifique, car il pourrait ne pas être éligible à la promotion, au spectacle ou à la livraison.
 
@@ -243,7 +243,7 @@ Stream now!
 
 ![Un compositeur de notification push avec le code Liquid complet du tutoriel.]({% image_buster /assets/img/abort-if.png %})
 
-Vous pouvez également [annuler des messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) en fonction du Contenu connecté.
+Vous pouvez également [annuler des messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content) en fonction du contenu connecté.
 
 ## Résolution des problèmes {#troubleshooting}
 

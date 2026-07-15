@@ -365,6 +365,12 @@ Autre exemple : supposons que vous observiez cinq _impressions uniques_ sur une 
 
 Les _impressions quotidiennes uniques_ désignent les bannières qui ont été effectivement vues.
 
+#### Écarts entre les groupes de contrôle et les variantes {#discrepancies-between-control-groups-and-variants}
+
+Lorsqu'une campagne de bannières utilise un groupe de contrôle, les impressions du groupe de contrôle peuvent être supérieures à celles des variantes, même lorsque la répartition de l'audience entre les groupes est égale. Cet écart est dû à une différence dans la manière dont les impressions sont enregistrées pour les bannières de contrôle et les variantes.
+
+Les impressions de contrôle et de variante nécessitent toutes deux que l'emplacement de la bannière entre dans la zone visible. Les impressions de variante ne sont enregistrées que lorsque la bannière complète est visible à l'écran. Les impressions de contrôle peuvent être enregistrées dès que l'emplacement entre dans la zone visible, avant que la bannière complète ne soit visible pour une variante.
+
 {% elsif include.channel == "email" %}
 
 #### Indicateurs des e-mails {#email-metrics}
@@ -593,7 +599,7 @@ Les rapports pour les _clics sur le bouton 1_ et les _clics sur le bouton 2_ ne 
     </tbody>
 </table>
 
-#### Écarts entre les groupes de contrôle et les variantes {#discrepancies-between-control-groups-and-variants}
+#### Écarts entre les groupes de contrôle et les variantes
 
 Lorsqu'une campagne de messages in-app a une répartition 50-50 entre les variantes, il arrive que le groupe de contrôle ait un pourcentage légèrement supérieur à celui de la variante (par exemple 51 % pour le groupe de contrôle et 49 % pour la variante). Cet écart est dû à une différence dans le temps de rendu — par exemple, lorsque les messages de la variante utilisent des images volumineuses ou du contenu connecté avec modèle et que les utilisateurs quittent avant la fin du rendu, tandis que le groupe de contrôle enregistre les impressions sans afficher de message.
 

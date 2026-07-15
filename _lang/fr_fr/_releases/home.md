@@ -811,7 +811,7 @@ La plateforme de données comportementales de [Fullstory]({{site.baseurl}}/partn
 
 #### DOTS.ECO - Extensions
 
-[DOTS.ECO]({{site.baseurl}}/partners/docs.eco) vous permet de récompenser les utilisateurs avec un impact environnemental réel grâce à des certificats numériques traçables. Chaque certificat peut inclure des métadonnées telles qu'une URL de certificat et une URL d'image partageables, afin que les utilisateurs puissent voir (et revoir) leur preuve d'impact.
+[DOTS.ECO]({{site.baseurl}}/partners/dots.eco) vous permet de récompenser les utilisateurs avec un impact environnemental réel grâce à des certificats numériques traçables. Chaque certificat peut inclure des métadonnées telles qu'une URL de certificat et une URL d'image partageables, afin que les utilisateurs puissent voir (et revoir) leur preuve d'impact.
 
 #### Mailizio - Orchestration des messages {#mailizio-message-orchestration}
 

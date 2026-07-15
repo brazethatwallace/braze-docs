@@ -24,7 +24,7 @@ La integración de Braze y WSC Sports te permite incluir medios deportivos ricos
 | ----------- | ----------- |
 | Cuenta WSC | Se necesita una cuenta WSC para beneficiarse de esta asociación. |
 | Clave de API REST de Braze | Una clave de API REST de Braze con permisos de **Messages**, **Segments**, **Campaigns** y **Canvas**. <br><br> Se puede crear en el panel de Braze desde **Configuración** > **Claves de API**. |
-{: .reset-td-br-1 .reset-td-br_2 aria-label="Requisitos previos" }
+{: .reset-td-br_1 .reset-td-br_2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
@@ -34,13 +34,13 @@ La aplicación WSC Sports gestiona el proceso de extremo a extremo, desde la sel
 
 ![Panel de ajustes de envío de WSC Sports con selección de Campaign y Segment de Braze.]({% image_buster /assets/img/wsc_sports/braze_integration.jpg %} "braze_integration.jpg"){: style="float:right;max-width:25%;margin-bottom:15px;"}
 
-Antes de iniciar la integración, asegúrate de que tienes las Campaigns y los Segments de usuarios deseados creados en Braze. Una vez completado, en la plataforma WSC Sports, selecciona el vídeo que desees y, en los ajustes de envío, selecciona el Segment de usuarios de Braze y el ID de Campaign que quieras utilizar. Por último, elige la hora a la que quieres que se envíe tu mensaje push.
+Antes de iniciar la integración, asegúrate de que tienes las Campaigns y los segmentos de usuarios deseados creados en Braze. Una vez completado, en la plataforma WSC Sports, selecciona el vídeo que desees y, en los ajustes de envío, selecciona el segmento de usuarios de Braze y el ID de Campaign que quieras utilizar. Por último, elige la hora a la que quieres que se envíe tu mensaje push.
 
 #### Llamada a la API {#api-call}
 
-Una vez enviada, WSC Sports entregará la notificación push a los Segments de usuarios elegidos, utilizando los siguientes endpoints de Braze, en función de las opciones seleccionadas:
+Una vez enviada, WSC Sports entregará la notificación push a los segmentos de usuarios elegidos, utilizando los siguientes endpoints de Braze, en función de las opciones seleccionadas:
 - [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages#create-scheduled-messages)
-- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#sending-messages-immediately-via-api-only)
+- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only)
 
 El cuerpo resultante del mensaje es el siguiente:
 ```

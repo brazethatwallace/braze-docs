@@ -18,7 +18,7 @@ Este artículo te guiará a través de un caso de uso de la plantilla **De vuelt
 Para utilizar esta plantilla con éxito, necesitarás lo siguiente:
 
 - Un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create) que contenga información sobre tu artículo
-- Las [notificaciones de vuelta en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#how-back-in-stock-notifications-work) deben estar configuradas para el artículo sobre el que deseas enviar mensajes a los usuarios
+- Las [notificaciones de vuelta en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#back-in-stock-notifications) deben estar configuradas para el artículo sobre el que deseas enviar mensajes a los usuarios
 
 ## Adaptar la plantilla a tus necesidades {#tailoring-the-template-to-your-needs}
 
@@ -26,13 +26,13 @@ Supongamos que trabajamos para PantsLabyrinth, un minorista de ropa directo al c
 
 Antes de crear el Canvas, [configuramos un catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create) que contiene información sobre nuestro inventario de pantalones de pierna recta y [configuramos las notificaciones de vuelta en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#setting-up-back-in-stock-notifications) para los jeans Classic Straight Leg. Lo configuramos para que los usuarios se suscriban a las notificaciones después de realizar el evento personalizado de marcar como favoritos los jeans Classic Straight Leg en la aplicación.
 
-Para acceder a la plantilla de vuelta en stock, al crear un nuevo Canvas, selecciona **Use a Canvas template** > **Braze templates**. Luego, junto a **Back in Stock**, selecciona **Apply Template**. Ahora podemos recorrer la plantilla para adaptarla a nuestras necesidades.
+Para acceder a la plantilla de vuelta en stock, al crear un nuevo Canvas, selecciona **Usar una plantilla de Canvas** > **Plantillas de Braze**. Luego, junto a **Back in Stock**, selecciona **Aplicar plantilla**. Ahora podemos recorrer la plantilla para adaptarla a nuestras necesidades.
 
 ### Paso 1: Configurar los detalles {#step-1-set-up-the-details}
 
 Ajustemos los detalles del Canvas para reflejar nuestro objetivo.
 
-1. Selecciona **Edit** junto al nombre de la plantilla.
+1. Selecciona **Editar** junto al nombre de la plantilla.
 
 ![El título y la descripción actuales del Canvas.]({% image_buster /assets/img/canvas_templates/back_in_stock_old_name_description.png %}){: style="max-width:45%;"}
 
@@ -45,13 +45,13 @@ Ajustemos los detalles del Canvas para reflejar nuestro objetivo.
 
 ### Paso 2: Asignar eventos de conversión {#step-2-assign-conversion-events}
 
-Cambia el **Primary Conversion Event - A** a **Make a specific purchase** y selecciona **Classic Straight Leg** como nombre del producto.
+Cambia el **evento de conversión primaria - A** a **Realizar una compra específica** y selecciona **Classic Straight Leg** como nombre del producto.
 
 ![Sección "Asignar eventos de conversión" para el tipo de evento de conversión de compra del producto Classic Straight Leg con un plazo de conversión de 7 días.]({% image_buster /assets/img/canvas_templates/back_in_stock_2.png %})
 
 ### Paso 3: Adaptar el horario de entrada {#step-3-tailor-the-entry-schedule}
 
-Mantengamos el horario de entrada como **Action-Based** para que los usuarios entren en nuestro Canvas cuando realicen una acción, que la plantilla ya tiene configurada como **Perform a Back in Stock Event**.
+Mantengamos el horario de entrada como **Basado en acciones** para que los usuarios entren en nuestro Canvas cuando realicen una acción, que la plantilla ya tiene configurada como **Realizar un evento de vuelta en stock**.
 
 Haremos dos ajustes en este paso:
 
@@ -60,18 +60,18 @@ Haremos dos ajustes en este paso:
 ![Paso "Horario de entrada" para un Canvas basado en acciones.]({% image_buster /assets/img/canvas_templates/back_in_stock_3.png %})
 
 {: start="2"}
-2. Establece la **Start Time (Required)** en la fecha y hora de inicio deseadas.
+2. Establece la **Hora de inicio (obligatoria)** en la fecha y hora de inicio deseadas.
 
 ![Sección "Ventana de entrada" con una hora de inicio del 2 de enero de 2025 a las 12 am.]({% image_buster /assets/img/canvas_templates/back_in_stock_4.png %})
 
-### Paso 4: Seleccionar la audiencia objetivo {#step-4-select-the-target-audience}
+### Paso 4: Seleccionar el público objetivo {#step-4-select-the-target-audience}
 
-Definiremos nuestra audiencia objetivo como los usuarios que creemos que tienen más probabilidades de comprar los jeans Classic Straight Leg.
+Definiremos nuestro público objetivo como los usuarios que creemos que tienen más probabilidades de comprar los jeans Classic Straight Leg.
 
 1. Selecciona nuestro segmento objetivo, "Favorited - Classic Straight Leg Jeans", que consiste en usuarios que han marcado como favoritos nuestros jeans Classic Straight Leg en nuestra aplicación o sitio web.
 2. Selecciona un filtro para incluir usuarios que hayan comprado "Jeans" más de "0" veces.
 
-![Paso "Audiencia objetivo" con el segmento "Favorited - Classic Straight Leg Jeans".]({% image_buster /assets/img/canvas_templates/back_in_stock_5.png %})
+![Paso "Público objetivo" con el segmento "Favorited - Classic Straight Leg Jeans".]({% image_buster /assets/img/canvas_templates/back_in_stock_5.png %})
 
 {: start="3"}
 3. Ajusta los controles de entrada para permitir que los usuarios vuelvan a entrar en el Canvas después de la duración máxima del Canvas, para reducir la probabilidad de que los usuarios activen el mismo paso de forma concurrente.
@@ -104,13 +104,13 @@ Comenzaremos nuestra personalización recorriendo cada paso de mensaje para actu
 3. Repite los pasos 1 y 2 para todos los pasos de mensaje restantes, incluyendo:
     - El mensaje "In-Product Msg & Email" que se envía después del retraso de un día
     - Los mensajes "Push+Email Alert" que se envían a los usuarios que no han realizado una compra
-4. Actualiza el paso de rutas de acción seleccionando el grupo de acción **Purchase**. Luego, selecciona **Make a specific purchase** y elige los jeans Classic Straight Leg como producto.
+4. Actualiza el paso de Rutas de Acción seleccionando el grupo de acción **Purchase**. Luego, selecciona **Realizar una compra específica** y elige los jeans Classic Straight Leg como producto.
 
-![Paso de Canvas de push móvil con un mensaje notificando a los usuarios que un producto vuelve a estar en stock.]({% image_buster /assets/img/canvas_templates/back_in_stock_9.png %})
+![Paso en Canvas de push móvil con un mensaje notificando a los usuarios que un producto vuelve a estar en stock.]({% image_buster /assets/img/canvas_templates/back_in_stock_9.png %})
 
 ### Paso 7: Probar y lanzar tu Canvas {#step-7-test-and-launch-your-canvas}
 
-Después de probar y revisar nuestro Canvas para asegurarnos de que funciona como se espera, lo lanzaremos seleccionando **Launch Canvas**. ¡Ahora nuestros usuarios que han marcado como favoritos nuestros jeans Classic Straight Leg y se han suscrito a nuestros canales de mensajería recibirán notificaciones cuando vuelvan a estar en stock!
+Después de probar y revisar nuestro Canvas para asegurarnos de que funciona como se espera, lo lanzaremos seleccionando **Lanzar Canvas**. ¡Ahora nuestros usuarios que han marcado como favoritos nuestros jeans Classic Straight Leg y se han suscrito a nuestros canales de mensajería recibirán notificaciones cuando vuelvan a estar en stock!
 
 {% alert tip %}
 Consulta nuestra [lista de verificación previa y posterior al lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para conocer las cosas a considerar antes y después de lanzar un Canvas.

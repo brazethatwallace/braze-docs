@@ -265,7 +265,7 @@ Heben Sie Artikel hervor, die Ihre Nutzer:innen in letzter Zeit besonders häufi
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/ai_item_recommendations).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Trending**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
@@ -285,7 +285,7 @@ Heben Sie Artikel hervor, die Ihren Nutzer:innen in letzter Zeit besonders häuf
 {% enddetails %}
 
 {% details Einrichtung %}
-1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/ai_item_recommendations).
+1. Erstellen Sie eine [KI-Artikelempfehlung]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/ai).
 2. Setzen Sie den **Typ** auf **Trending**.
 3. Wählen Sie Ihren Katalog aus.
 4. (Optional) Fügen Sie eine Auswahl hinzu, um Ihre Empfehlung auf relevante Artikel zu beschränken.
@@ -351,7 +351,7 @@ Eine Online-Buchhandlung könnte zum Beispiel eine „Überrasch mich“-Funktio
 
 ### Regelbasiert {#rules-based}
 
-Ein [regelbasiertes Empfehlungssystem]({{site.baseurl}}/rules_based_recommendations) verwendet Nutzerdaten und Produktinformationen, um relevante Artikel in Nachrichten vorzuschlagen. Es verwendet Liquid und entweder Braze-Kataloge oder Connected-Content, um Inhalte auf der Grundlage von Nutzerverhalten und Attributen dynamisch zu personalisieren.
+Ein [regelbasiertes Empfehlungssystem]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/rules_based) verwendet Nutzerdaten und Produktinformationen, um relevante Artikel in Nachrichten vorzuschlagen. Es verwendet Liquid und entweder Braze-Kataloge oder Connected-Content, um Inhalte auf der Grundlage von Nutzerverhalten und Attributen dynamisch zu personalisieren.
 
 Regelbasierte Empfehlungen basieren auf einer festen Logik, die Sie manuell einstellen müssen. Das bedeutet, dass sich Ihre Empfehlungen nicht an den individuellen Kaufverlauf und die Vorlieben von Nutzer:innen anpassen, es sei denn, Sie aktualisieren die Logik. Daher eignet sich diese Methode am besten für Empfehlungen, die keine häufigen Updates erfordern.
 

@@ -13,7 +13,7 @@ page_type: reference
 > El paso del agente Optimizador de contenidos te permite configurar y probar múltiples versiones de componentes de contenido dentro de un solo paso. Te ayuda a experimentar con variaciones de contenido y optimiza automáticamente hacia las combinaciones de mejor rendimiento a lo largo del tiempo. Para una introducción, consulta [Optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
-El Optimizador de contenidos está actualmente en beta. Para obtener ayuda para empezar, ponte en contacto con tu administrador del éxito del cliente.
+El Optimizador de contenidos está actualmente en beta. Para obtener ayuda para empezar, ponte en contacto con tu administrador de éxito de cliente.
 {% endalert %}
 
 ## Crear un paso del Optimizador de contenidos {#create-a-content-optimizer-step}
@@ -76,7 +76,7 @@ Los componentes compatibles para optimizar incluyen:
 
 ### Paso 3: Especificar los ajustes de entrega {#step-3-specify-delivery-settings}
 
-En la pestaña **Delivery Settings**, puedes especificar si el paso debe usar Intelligent Timing o validaciones de entrega. Para más detalles, consulta [Editar ajustes de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings) en el paso de mensaje.
+En la pestaña **Delivery Settings**, puedes especificar si el paso debe usar sincronización inteligente o validaciones de entrega. Para más detalles, consulta [Editar ajustes de entrega]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings) en el paso de mensaje.
 
 ### Paso 4: Añadir componentes de contenido y variantes {#step-4}
 
@@ -85,6 +85,8 @@ Los componentes de contenido son los elementos individuales de tu mensaje que qu
 - **Correo electrónico:** Puedes añadir hasta tres componentes de contenido por paso y hasta cinco variantes por componente, para un total de 125 combinaciones de contenido únicas.
 - **Notificaciones push:** Puedes añadir hasta dos componentes por paso y hasta cinco variantes por componente, para un total de 25 combinaciones de contenido únicas.
 - **SMS/MMS/RCS:** Puedes añadir hasta dos componentes de contenido por paso y hasta cinco variantes por componente, para un total de 25 combinaciones de contenido únicas.
+
+Cuando usas **Generate AI suggestions**, Braze envía contenido a OpenAI para generar ideas de variantes. La asignación de tráfico en el momento del envío no utiliza OpenAI. Para más detalles sobre qué datos se envían y cómo se utilizan, consulta [OpenAI y el Optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer#openai-and-content-optimizer).
 
 ![Opciones para añadir y configurar componentes de contenido en la interfaz del Optimizador de contenidos. La interfaz muestra componentes seleccionables como Subject, Body Header, Body Content y Primary CTA, cada uno con campos para introducir diferentes variantes.]({% image_buster /assets/img/content_optimizer/add_content_components.png %})
 
@@ -144,7 +146,7 @@ Para cada componente seleccionado, define un conjunto de versiones alternativas 
 
 Después de definir al menos dos variantes para cada componente, copia la etiqueta de Liquid asociada para cada uno y pégala en la ubicación correspondiente de tu mensaje base.
 
-- Por ejemplo, si estás optimizando la línea del asunto, pega la etiqueta {% raw %}`{% message_component "Subject" %}`{% endraw %} en el campo de asunto del compositor de correo electrónico.
+- Por ejemplo, si estás optimizando la línea del asunto, pega la etiqueta {% raw %}`{% message_component "Subject" %}`{% endraw %} en el campo de asunto del creador de correo electrónico.
 - También puedes incluir etiquetas de componentes dentro de texto más largo para probar solo una parte del componente. Por ejemplo: {% raw %}`Hey there, {% message_component "Subject" %}`{% endraw %}.
 
 ![Opciones para añadir y configurar componentes de contenido como Subject, Body Header, Body Content y Primary CTA. Cada componente tiene campos para introducir diferentes variantes.]({% image_buster /assets/img/content_optimizer/optimization_liquid_in_use.png %})
@@ -179,7 +181,7 @@ El evento de optimización seleccionado se aplica a todos los componentes de con
 
 Para correo electrónico, puedes optimizar para uno de los siguientes eventos. El agente utiliza las aperturas y los clics que se registran dentro de los 7 días posteriores al envío de un mensaje para dirigir la entrega hacia las combinaciones de contenido de mayor rendimiento.
 
-| Evento | Descripción | Casos de uso |
+| Evento | Descripción | Ejemplos |
 | --- | --- | --- |
 | Aperturas | Optimiza para combinaciones que logran que los destinatarios abran el correo electrónico. | Probar líneas del asunto o buscar aumentar la visibilidad |
 | Clics | Optimiza para combinaciones que impulsan la interacción con enlaces. No incluye clics de bots ni clics de cancelar suscripción reconocidos por Braze. | Impulsar tráfico, interacción o conversión desde enlaces |
@@ -205,6 +207,26 @@ En este momento, la mensajería RCS con el Optimizador de contenidos no admite a
 {% endtab %}
 {% endtabs %}
 
+## Estados del paso {#step-states}
+
+A medida que un paso del Optimizador de contenidos se ejecuta, Braze evalúa el rendimiento de las variantes de contenido y asigna al paso uno de tres estados, visibles en el Canvas.
+
+| Estado | Qué significa |
+| --- | --- |
+| Aprendiendo | El agente aún está recopilando datos de rendimiento de tus variantes de contenido y no ha encontrado un ganador consistente y fiable todavía. |
+| Optimizando | El agente ha encontrado variantes que superan consistentemente a las demás y está dirigiendo la entrega hacia las combinaciones ganadoras. |
+| Acción recomendada | El paso ha estado ejecutándose durante un tiempo sin que surja un ganador claro. Revisa la configuración de tu paso para ayudar al agente a encontrar uno. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estados del paso del Optimizador de contenidos" }
+
+### Acciones a considerar {#actions-to-consider}
+
+Si tu paso entra en el estado Acción recomendada, considera lo siguiente:
+
+- Aumenta la cantidad de usuarios que entran al Canvas, si es posible. Más envíos le dan al agente más datos de los que aprender.
+- En general, prueba más combinaciones en lugar de menos (consulta [Buenas prácticas](#best-practices)). Esto le da al agente una señal más clara sobre qué está ganando. Si el volumen de tu audiencia es bajo (un promedio inferior a aproximadamente 3000 envíos por día), considera reducir ligeramente el número de variantes, ya que demasiadas combinaciones en relación con tu volumen pueden ralentizar el aprendizaje.
+- Haz que tus variantes de contenido sean más claramente distintas entre sí en tono, estructura o contenido.
+- Si no puedes aumentar tu audiencia y la cantidad de variantes y la diversidad de contenido ya se ven bien, es posible que tu paso simplemente necesite más tiempo para encontrar ganadoras.
+
 ## Editar un paso lanzado {#edit-a-launched-step}
 
 Después de que tu Canvas se lance, puedes actualizar un paso del Optimizador de contenidos en ejecución abriéndolo en el editor de Canvas. Puedes:
@@ -213,7 +235,7 @@ Después de que tu Canvas se lance, puedes actualizar un paso del Optimizador de
 - Desactivar variantes para dejar de enviarlas a los usuarios.
 - Reactivar variantes previamente desactivadas, siempre que hacerlo mantenga el componente en o por debajo del límite de cinco variantes.
 
-Cuando publicas los cambios, el optimizador se reinicia y comienza a reasignar tráfico desde cero entre todas las variantes y combinaciones activas. Los datos históricos anteriores a la edición se conservan y se pueden consultar en la pestaña **Content Analytics**.
+Cuando publicas los cambios, el optimizador se reinicia y comienza a reasignar tráfico desde cero entre todas las variantes y combinaciones activas. Evita actualizar variantes mientras el paso está en el estado Aprendiendo. Los datos históricos anteriores a la edición se conservan y se pueden consultar en la pestaña **Content Analytics**.
 
 Los siguientes ajustes no se pueden cambiar después del lanzamiento:
 
@@ -225,19 +247,15 @@ Para los pasos de SMS/MMS/RCS, el grupo de suscripción y el tipo de mensaje tam
 
 ## Buenas prácticas {#best-practices}
 
-- En general, recomendamos probar más componentes en lugar de menos para el paso del Optimizador de contenidos. Por ejemplo, en lugar de probar dos componentes para correo electrónico, prueba tres.
-- Prueba al menos 10 combinaciones totales para obtener mejores resultados.
-- Si estás optimizando para clics, incluye líneas del asunto en tus pruebas, ya que líneas del asunto más efectivas pueden contribuir a un aumento de aperturas y crear más oportunidades para clics.
-- Si estás optimizando para aperturas, mantén tus pruebas enfocadas en la línea del asunto.
-- Si es la primera vez que usas el Optimizador de contenidos, considera usar un paso de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que solo una parte de tu audiencia entre en la rama que contiene el paso del Optimizador de contenidos. Por ejemplo, podrías enviar a la mitad de tus usuarios por un recorrido con el paso del Optimizador de contenidos y enviar a la otra mitad por un recorrido de control que envíe el paso de mensaje con tu contenido habitual. Luego, recopila datos durante 2-3 semanas y compara cualquier indicador clave de rendimiento (KPI) o contraindicador antes de aumentar el tráfico hacia los recorridos con pasos del Optimizador de contenidos.
-  - Para una comparación efectiva uno a uno, recomendamos que tu paso del Optimizador de contenidos contenga tu contenido habitual como una de las variantes para cada componente.
-- Antes de actualizar un paso en ejecución, espera a que las clasificaciones de rendimiento de todas las variantes de componentes se estabilicen, es decir, que las mismas variantes estén ganando y perdiendo de forma consistente durante tres o cuatro días seguidos. Esto suele tardar unos siete días, y un mayor número de eventos de optimización produce una señal más fuerte y precisa.
-- Evita actualizar demasiado pronto. Cada vez que publicas cambios, el optimizador se reinicia. Si actualizas antes de que el paso haya tenido tiempo de identificar qué funciona, le impides aprovechar sus hallazgos, y el paso nunca tiene la oportunidad de dirigir tráfico significativo hacia las combinaciones de mejor rendimiento.
-- Cuando estés listo para actualizar, el enfoque recomendado es desactivar las variantes de bajo rendimiento y añadir nuevas que se basen en las características de tus mejores variantes.
+- En general, prueba más componentes en lugar de menos para el paso del Optimizador de contenidos. Por ejemplo, en lugar de probar dos componentes para correo electrónico, prueba tres.
+- Probar al menos 10 combinaciones totales generalmente produce mejores resultados.
+- Si es la primera vez que usas el Optimizador de contenidos, considera usar un paso de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que solo una parte de tu audiencia entre en la rama que contiene el paso del Optimizador de contenidos. Por ejemplo, podrías enviar a la mitad de tus usuarios por un recorrido con el paso del Optimizador de contenidos y enviar a la otra mitad por un recorrido de control que envíe el paso de mensaje con tu contenido habitual. Luego, recopila datos durante 2-3 semanas y compara cualquier indicador clave de rendimiento (KPI) o contraindicador antes de aumentar el tráfico hacia los recorridos con pasos del Optimizador de contenidos.
+  - Para una comparación efectiva uno a uno, incluye tu contenido habitual como una de las variantes para cada componente en tu paso del Optimizador de contenidos.
+- Cuando estés listo para actualizar después de que tu paso del Optimizador de contenidos haya estado en el estado Optimizando durante un tiempo, desactiva las variantes de bajo rendimiento y añade nuevas que se basen en las características de tus mejores variantes.
 
 ## Consideraciones {#considerations}
 
-- La configuración multilingüe no es compatible con los pasos del Optimizador de contenidos. En su lugar, recomendamos usar un paso del Optimizador de contenidos por idioma y ramificar los recorridos individualmente.
+- La configuración multilingüe no es compatible con los pasos del Optimizador de contenidos. En su lugar, usa un paso del Optimizador de contenidos por idioma y ramifica los recorridos individualmente.
 - Las etiquetas de Liquid para componentes del Optimizador de contenidos no son compatibles con los pasos de mensaje, por lo que Liquid se interrumpe en los pasos de mensaje.
 - Después de que se lance un paso del Optimizador de contenidos, no puedes cambiar qué componentes se están probando, el contenido de las variantes activas existentes ni el evento de optimización. Para los pasos de SMS/MMS/RCS, el grupo de suscripción y el tipo de mensaje tampoco se pueden cambiar.
 
@@ -258,7 +276,7 @@ Las aperturas únicas y los clics se capturan dentro de los siete días posterio
 | Métrica | Descripción |
 | --- | --- |
 | Envíos | El número de envíos atribuidos a esta variante para ese componente en este paso, utilizando el mismo conteo de envíos a nivel de paso que [*Envíos*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#sends) en la tabla [Rendimiento por combinación](#performance-by-combination). |
-| Aperturas | Cuando esta columna aparece para tu canal, el número de aperturas **únicas** para esta variante dentro de los siete días posteriores al envío. Consulta [*Aperturas únicas*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-opens). |
+| Aperturas | Cuando esta columna aparece para tu canal, el número de aperturas **únicas** para esta variante dentro de los siete días posteriores al envío. Consulta [*Unique Opens*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-opens). |
 | Tasa de apertura | Cuando esta columna aparece, el porcentaje de envíos para esta variante que registraron al menos una apertura única cualificada dentro de los siete días. |
 | Clics | El número de clics **únicos** para esta variante dentro de los siete días posteriores al envío. Consulta [*Clics totales*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#total-clicks), [*Clics únicos*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-clicks) y [Paso 5: Seleccionar el evento de optimización](#step-5-select-optimization-event). |
 | Tasa de clics | El porcentaje de envíos para esta variante que registraron al menos un clic único cualificado dentro de los siete días, utilizando la misma ventana de paso que la tabla [Rendimiento por combinación](#performance-by-combination). Para más información, consulta [Por qué los análisis del paso difieren de los análisis generales](#why-step-analytics-differ-from-general-analytics). |
@@ -277,7 +295,7 @@ Las aperturas únicas y los clics se capturan dentro de los siete días posterio
 | Métrica | Descripción |
 | --- | --- |
 | Envíos | El número total de mensajes enviados desde este paso utilizando esta combinación. Los conteos siguen el mismo significado general que [*Envíos*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#sends), limitados a cada combinación. |
-| Aperturas | El número de aperturas únicas para esta combinación dentro de los siete días posteriores al envío. Para saber cómo se definen las aperturas únicas para correo electrónico, consulta [*Aperturas únicas*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-opens). |
+| Aperturas | El número de aperturas únicas para esta combinación dentro de los siete días posteriores al envío. Para saber cómo se definen las aperturas únicas para correo electrónico, consulta [*Unique Opens*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-opens). |
 | Tasa de apertura | El porcentaje de envíos para esta combinación que registraron al menos una apertura única cualificada dentro de los siete días. |
 | Clics | El número de clics únicos para esta combinación dentro de los siete días posteriores al envío. Para saber cómo Braze define los clics por canal, consulta [*Clics totales*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#total-clicks) y [*Clics únicos*]({{site.baseurl}}/user_guide/analytics/metrics_glossary#unique-clicks). |
 | Tasa de clics | El porcentaje de envíos para esta combinación que registraron al menos un clic único cualificado dentro de los siete días. Dado que el Optimizador de contenidos utiliza los conteos deduplicados de siete días del paso, esta tasa puede no coincidir con las tasas de clics en los análisis generales de Campaign. Para más información, consulta [Por qué los análisis del paso difieren de los análisis generales](#why-step-analytics-differ-from-general-analytics). |

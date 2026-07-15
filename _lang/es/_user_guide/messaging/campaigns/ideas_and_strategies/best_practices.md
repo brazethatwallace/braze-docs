@@ -28,7 +28,7 @@ A medida que desarrollas tus campañas con el tiempo, es posible que notes caíd
 
 ### Identifica tu audiencia {#identify-your-audience}
 
-Aprovecha los segmentos y filtros a tu favor definiendo tu audiencia. Considera a quién se dirigen tu campaña y tus mensajes. Con esta información clave, puedes crear [campañas multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) que ofrecen la flexibilidad de construir tus mensajes en diferentes canales para adaptarse a las preferencias de notificación de tu audiencia.
+Aprovecha los segmentos y filtros a tu favor definiendo tu audiencia. Considera a quién se dirigen tu campaña y tus mensajes. Con esta información clave, puedes crear [campañas multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) que ofrecen la flexibilidad de construir tus mensajes en diferentes canales para adaptarse a las preferencias de notificación de tu audiencia.
 
 También es importante comprender a tus [usuarios activos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns) para mostrar tu agradecimiento a tus usuarios más constantes.
 

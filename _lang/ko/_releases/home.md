@@ -61,7 +61,7 @@ Amazon SES를 통해 이메일을 전송하는 워크스페이스의 경우, [�
 
 기존 진입점은 각 레거시 어시스턴트 버튼이 있던 위치에 그대로 유지됩니다. 독립형 어시스턴트를 여는 대신, 이러한 진입점은 이제 작업에 맞게 사전 범위가 지정된 동적 프롬프트와 함께 Operator 패널을 엽니다. 이러한 진입점은 기존 워크플로우를 조정하지 않고도 이러한 기능을 사용할 수 있도록 Operator로의 직접 경로를 제공합니다.
 
-#### Campaign(캠페인) 생성 및 편집을 위한 Operator 지원 {#operator-support-for-campaign-creation-and-editing}
+#### Campaign 생성 및 편집을 위한 Operator 지원 {#operator-support-for-campaign-creation-and-editing}
 
 [Operator]({{site.baseurl}}/user_guide/brazeai/operator)는 이제 메시지 작성뿐만 아니라 전체 캠페인을 생성하고 편집할 수 있습니다. 단일 자연어 프롬프트 또는 캠페인 브리프에서 Operator는 메시지 작성, 전달 예약, 오디언스 타겟팅, 전환 이벤트 할당 등 검토 준비가 된 캠페인을 처음부터 끝까지 구축한 다음 검토 단계에서 구축한 내용을 요약합니다. 이전에는 Operator가 메시지 작성(캠페인 생성 5단계 중 하나)만 할 수 있었지만, 이제 나머지 예약, 타겟, 할당 및 검토 단계에 대한 가시성과 제어 권한을 갖게 되었습니다.
 
@@ -675,7 +675,7 @@ Braze는 사용자 액세스를 관리하는 더 유연한 방법인 [세분화�
 
 [Canva]({{site.baseurl}}/partners/canva)는 Canva의 이미지를 Braze 미디어 라이브러리에 직접 동기화하여 크리에이티브 워크플로우를 간소화하고 모든 메시징 채널에서 시각적 자산을 최신 상태로 유지합니다.
 
-#### DOTS.ECO - 보상 {#dotseco-rewards}
+#### DOTS.ECO - 리워드 {#dotseco-rewards}
 
 [DOTS.ECO]({{site.baseurl}}/partners/additional_channels_and_extensions/extensions/rewards/dots_eco)를 사용하면 추적 가능한 디지털 인증서를 통해 실제 환경에 미치는 영향에 대해 사용자에게 보상할 수 있습니다. 각 인증서에는 공유 가능한 인증서 URL 및 이미지 URL과 같은 메타데이터가 포함될 수 있어 사용자가 자신의 영향력 증명을 보고 다시 방문할 수 있습니다.
 
@@ -811,7 +811,7 @@ Radius Networks의 [Flybuy]({{site.baseurl}}/partners/message_personalization/lo
 
 #### DOTS.ECO - 확장 {#dotseco-extensions}
 
-[DOTS.ECO]({{site.baseurl}}/partners/docs.eco)를 사용하면 추적 가능한 디지털 인증서를 통해 실제 환경에 미치는 영향에 대해 사용자에게 보상할 수 있습니다. 각 인증서에는 공유 가능한 인증서 URL 및 이미지 URL과 같은 메타데이터가 포함될 수 있어 사용자가 자신의 영향력 증명을 보고 다시 방문할 수 있습니다.
+[DOTS.ECO]({{site.baseurl}}/partners/dots.eco)를 사용하면 추적 가능한 디지털 인증서를 통해 실제 환경에 미치는 영향에 대해 사용자에게 보상할 수 있습니다. 각 인증서에는 공유 가능한 인증서 URL 및 이미지 URL과 같은 메타데이터가 포함될 수 있어 사용자가 자신의 영향력 증명을 보고 다시 방문할 수 있습니다.
 
 #### Mailizio - 메시지 오케스트레이션 {#mailizio-message-orchestration}
 

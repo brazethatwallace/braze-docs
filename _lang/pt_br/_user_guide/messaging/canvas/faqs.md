@@ -129,11 +129,11 @@ Fatores específicos do Canvas também se aplicam:
 
 O **Público estimado** reflete quem corresponde ao seu segmento e filtros de entrada no momento em que a estimativa é executada. Após esse momento, entradas atrasadas ou baseadas em ação, reelegibilidade, gatilhos de API ou roteamento de ramos podem aumentar quantos perfis interagem com a jornada em comparação com o snapshot. Os usuários também podem sair quando os filtros no momento do envio falham, o que reduz as entradas ou envios realizados. Compare o timing, os limites e as configurações de avaliação junto com [Por que os envios são menores que o tamanho estimado do público?](#why-are-sends-lower-than-the-estimated-audience-size).
 
-### Por que _Destinatários únicos_ é maior que o número de usuários que eu segmentei? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
+### Por que *Destinatários únicos* é maior que o número de usuários que eu segmentei? {#why-is-_unique-recipients_-higher-than-the-number-of-users-i-targeted}
 
-_Destinatários únicos_ pode ser maior que o público esperado porque a Braze rastreia **destinatários únicos diários** para relatórios de Canvas e Campaign. Isso permite uma atribuição de conversão precisa cada vez que um usuário recebe uma mensagem na jornada.
+*Destinatários únicos* pode ser maior que o público esperado porque a Braze rastreia **destinatários únicos diários** para relatórios de Canvas e Campaign. Isso permite uma atribuição de conversão precisa cada vez que um usuário recebe uma mensagem na jornada.
 
-Por exemplo, se um usuário recebe uma etapa do Canvas na segunda-feira e novamente na sexta-feira e converte após cada envio, a Braze pode contar duas linhas de destinatários e duas conversões dentro do escopo. Com entradas recorrentes ou reelegibilidade, o mesmo pequeno conjunto de perfis pode produzir múltiplos _Destinatários únicos_ ao longo de vários dias.
+Por exemplo, se um usuário recebe uma etapa do Canvas na segunda-feira e novamente na sexta-feira e converte após cada envio, a Braze pode contar duas linhas de destinatários e duas conversões dentro do escopo. Com entradas recorrentes ou reelegibilidade, o mesmo pequeno conjunto de perfis pode produzir múltiplos *Destinatários únicos* ao longo de vários dias.
 
 ### Por que meu Canvas está com taxas de envio mais baixas? {#why-is-my-canvas-experiencing-lower-send-rates}
 
@@ -203,7 +203,7 @@ Não, mas você pode [arquivar um Canvas]({{site.baseurl}}/user_guide/messaging/
 
 ### Como retomo um Canvas ou uma Campaign arquivada? {#how-do-i-resume-an-archived-canvas-or-campaign}
 
-Mensagens arquivadas não são enviadas até que você as retorne a um estado editável. [Desarquive]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving-campaigns-and-canvases) a Campaign ou o Canvas, defina o cronograma de entrada ou horário de envio para uma janela futura (ou duplique a jornada se precisar de uma cópia limpa) e então **Retome** ou lance conforme necessário. Consulte [Arquivar Campaigns e Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving).
+Mensagens arquivadas não são enviadas até que você as retorne a um estado editável. [Desarquive]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving) a Campaign ou o Canvas, defina o cronograma de entrada ou horário de envio para uma janela futura (ou duplique a jornada se precisar de uma cópia limpa) e então **Retome** ou lance conforme necessário. Consulte [Arquivar Campaigns e Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving).
 
 ### Por que meu Canvas não salva quando nenhum erro aparece? {#why-doesnt-my-canvas-save-when-no-error-appears}
 

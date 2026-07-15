@@ -55,7 +55,7 @@ Braze 에이전트의 기능은 다음과 같습니다:
 | 컨텍스트 | 에이전트가 배포된 곳에서 런타임에 전달되는 데이터로, 고객 프로필 필드나 카탈로그 행 등이 있습니다. 이 입력은 에이전트가 출력을 생성하는 데 사용하는 정보를 제공합니다. |
 | [Canvas 컨텍스트 변수]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#how-context-variables-work) | 특정 Canvas를 통한 사용자 여정 내에서 생성하고 사용할 수 있는 임시 데이터입니다. |
 | [출력 변수]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#define-the-output-variable) | 캔버스 단계에서 사용될 때 에이전트가 생성하는 출력입니다. 출력 변수는 콘텐츠를 개인화하거나 워크플로 경로를 안내하기 위해 에이전트의 결과를 저장합니다. 출력 변수는 문자열, 숫자 또는 부울 데이터 유형일 수 있습니다. |
-| [실행](#limitations) | 에이전트의 단일 실행입니다. 일일 한도에 포함됩니다. |
+| [호출](#limitations) | 에이전트의 단일 실행입니다. 일일 한도에 포함됩니다. |
 | [출력 형식]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#select-output) | 에이전트 응답의 미리 정의된 데이터 구조입니다. |
 | [지식 소스]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources) | 카탈로그를 에이전트 지침에서 직접 참조하는 것보다 더 정확하게 카탈로그에서 데이터를 검색하는 데 사용되는 에이전트 컨텍스트의 한 유형입니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="핵심 개념" }
@@ -64,8 +64,8 @@ Braze 에이전트의 기능은 다음과 같습니다:
 
 다음 제한 사항이 적용됩니다:
 
-- 각 에이전트는 기본적으로 하루 250,000회의 실행 한도가 있으며, 하루 최대 1,000,000회까지 늘릴 수 있습니다. 이 한도를 늘리고 싶다면 고객 성공 매니저에게 문의하세요.
-- 에이전트 콘솔에는 각 에이전트에 대한 **일일 동작 크레딧 비용 한도**가 표시됩니다. 이는 모델의 실행당 크레딧 비율과 일일 실행 한도를 기반으로 한 하루 최대 예상 크레딧입니다. [일일 실행 및 크레딧 한도]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits)를 참조하세요.
+- 각 에이전트는 기본적으로 하루 250,000회의 호출 한도가 있으며, 하루 최대 1,000,000회까지 늘릴 수 있습니다. 이 한도를 늘리고 싶다면 고객 성공 매니저에게 문의하세요.
+- 에이전트 콘솔에는 각 에이전트에 대한 **일일 동작 크레딧 비용 한도**가 표시됩니다. 이는 모델의 호출당 크레딧 비율과 일일 호출 한도를 기반으로 한 하루 최대 예상 크레딧입니다. [일일 호출 및 크레딧 한도]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits)를 참조하세요.
 - 기본적으로 각 실행은 20초 이내에 완료되어야 합니다. 20초가 지나면 에이전트는 사용된 곳에서 `null` 응답을 반환합니다.
     - 에이전트가 지속적으로 시간 초과되는 경우 Braze 계정 매니저에게 문의하여 이 한도를 늘리세요.
 - 입력 데이터는 요청당 25KB로 제한됩니다. 더 긴 입력은 잘립니다.
@@ -78,9 +78,11 @@ Braze 에이전트의 기능은 다음과 같습니다:
 
 ## 오류 처리 {#error-handling}
 
-**Canvas 에이전트 단계** 또는 **카탈로그 에이전트** 실행 중에 연결된 모델이 LLM 제공업체로부터 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)를 반환하면, Braze는 지수 백오프를 사용하여 요청을 지속적으로 재시도합니다. 시간 초과나 잘못된 API 키와 같은 기타 실패의 경우, 에이전트 콘솔에서 [대체 값이 구성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)되어 있지 않으면 Canvas 에이전트 출력은 `null`로 설정됩니다(Canvas 단계 에이전트만 해당). 카탈로그 에이전트는 사용량 제한 이외의 실패에 대해 재시도하지 않습니다. 에이전트가 일일 실행 한도에 도달하면, Braze는 구성된 대체 값이 있을 경우 이를 적용하고, 그렇지 않으면 출력은 `null`로 설정됩니다.
+Canvas 단계 에이전트 또는 카탈로그 에이전트 호출 중에 연결된 모델이 LLM 제공업체로부터 [사용량 제한 오류]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)를 반환하면, Braze는 지수 백오프를 사용하여 요청을 지속적으로 재시도합니다.
 
-많은 사용자가 동시에 에이전트 단계에 진입하면, [실행 흐름 제어]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls)로 인해 처리 시간이 더 오래 걸릴 수 있습니다. Canvas 에이전트의 경우 에이전트 콘솔에서 대체 값을 구성하여 실행이 실패하더라도 사용자가 출력을 받을 수 있도록 하거나, 다운스트림 메시지 단계에서 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)을 사용하세요.
+시간 초과나 잘못된 API 키와 같은 기타 실패의 경우, 에이전트 콘솔에서 [대체 값이 구성]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)되어 있지 않으면 Canvas 단계 에이전트 출력은 `null`로 설정됩니다(Canvas 단계 에이전트만 해당). 카탈로그 에이전트는 사용량 제한 이외의 실패에 대해 재시도하지 않습니다. 에이전트가 일일 호출 한도에 도달하면, Braze는 구성된 대체 값이 있을 경우 이를 적용하고, 그렇지 않으면 출력은 `null`로 설정됩니다.
+
+많은 사용자가 동시에 에이전트 단계에 진입하면, [호출 흐름 제어]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls)로 인해 처리 시간이 더 오래 걸릴 수 있습니다. Canvas 단계 에이전트의 경우 에이전트 콘솔에서 대체 값을 구성하여 호출이 실패하더라도 사용자가 출력을 받을 수 있도록 하거나, 다운스트림 메시지 단계에서 [기본 Liquid 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)을 사용하세요.
 
 ## 내 데이터는 어떻게 사용되고 Braze 제공 LLM에 전송되나요? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 

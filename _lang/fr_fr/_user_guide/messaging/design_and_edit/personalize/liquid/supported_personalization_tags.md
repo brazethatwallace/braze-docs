@@ -20,7 +20,7 @@ Pour plus de commodité, voici un résumé des étiquettes de personnalisation p
 | -------------  | ---- |
 | Attributs standard (par défaut) | `{{${city}}}` <br> `{{${country}}}` <br> `{{${date_of_birth}}}` <br> `{{${email_address}}}` <br> `{{${first_name}}}` <br> `{{${gender}}}` <br> `{{${language}}}` <br> `{{${last_name}}}` <br> `{{${last_used_app_date}}}` <br> `{{${most_recent_app_version}}}` <br> `{{${most_recent_locale}}}` <br> `{{${most_recent_location}}}` <br> `{{${phone_number}}}` <br> `{{${time_zone}}}` <br> `{{${user_id}}}` <br> `{{${braze_id}}}` <br> `{{${random_bucket_number}}}` <br> `{{subscribed_state.${email_global}}}` <br> `{{subscribed_state.${subscription_group_id}}}` |
 | Attributs de l'appareil | `{{most_recently_used_device.${carrier}}}` <br> `{{most_recently_used_device.${id}}}` <br> `{{most_recently_used_device.${idfa}}}` <br> `{{most_recently_used_device.${model}}}` <br> `{{most_recently_used_device.${os}}}` <br> `{{most_recently_used_device.${platform}}}` <br> `{{most_recently_used_device.${google_ad_id}}}` <br> `{{most_recently_used_device.${roku_ad_id}}}` <br> `{{most_recently_used_device.${foreground_push_enabled}}}`|
-| <a href='/docs/user_guide/channels/email/subscriptions#managing-user-subscriptions'>Attributs de liste e-mail</a> | `{{${set_user_to_unsubscribed_url}}}` <br>Cette étiquette remplace l'ancienne étiquette `{{${unsubscribe_url}}}`. Bien que l'ancienne étiquette fonctionne toujours dans les e-mails créés précédemment, nous vous recommandons d'utiliser la nouvelle à la place. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
+| <a href='/docs/user_guide/channels/email/subscriptions#changing-email-subscriptions'>Attributs de liste e-mail</a> | `{{${set_user_to_unsubscribed_url}}}` <br>Cette étiquette remplace l'ancienne étiquette `{{${unsubscribe_url}}}`. Bien que l'ancienne étiquette fonctionne toujours dans les e-mails créés précédemment, nous vous recommandons d'utiliser la nouvelle à la place. <br><br> `{{${set_user_to_one_click_list_unsubscribe}}}` <br> `{{${set_user_to_subscribed_url}}}` <br> `{{${set_user_to_opted_in_url}}}` |
 | <a href='/docs/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting#trigger-messages'>Attributs SMS</a> | `{{sms.${inbound_message_body}}}` <br> `{{sms.${inbound_media_urls}}}` |
 | <a href='/docs/user_guide/channels/whatsapp/message_processing/messaging_users'>Attributs WhatsApp</a> | `{{whats_app.${inbound_message_body}}}` <br> `{{whats_app.${inbound_media_urls}}}` <br> `{{whats_app.${inbound_flow_response}}}` <br> `{{whats_app.${inbound_product_id}}}` <br> `{{whats_app.${inbound_catalog_id}}}` <br> `{{whats_app.${inbound_profile_name}}}` |
 | Attributs de Campaign et attributs d'étape Canvas | `{{campaign.${api_id}}}` <br> `{{campaign.${dispatch_id}}}` <br> `{{campaign.${name}}}` <br> `{{campaign.${message_name}}}` <br> `{{campaign.${message_api_id}}}` |
@@ -136,7 +136,7 @@ De plus, pour les notifications push, il est possible que Braze ne puisse pas d�
 
 Dans certaines circonstances, vous pouvez choisir d'utiliser la [logique conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic) au lieu de définir une valeur par défaut. La logique conditionnelle vous permet d'envoyer des messages différents en fonction de la valeur d'un attribut personnalisé. De plus, vous pouvez utiliser la logique conditionnelle pour [interrompre les messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) destinés aux clients dont les valeurs d'attribut sont null ou vides.
 
-#### Cas d'utilisation {#use-case}
+#### Cas d'usage {#use-case}
 
 Par exemple, imaginons que vous envoyez une notification de solde de récompenses à vos clients. Il n'existe pas de bonne façon de gérer les clients avec des soldes faibles ou null en utilisant des valeurs par défaut.
 
@@ -168,7 +168,7 @@ Dans ce cas, deux options peuvent être plus adaptées que la définition d'une 
    {% endif %}
    ```
 
-Dans ce cas d'utilisation, un utilisateur dont le prénom est vide ou null reçoit le message « Thanks for downloading! ». Vous devriez inclure une [valeur par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) pour le prénom afin de vous assurer que votre client ne voit pas de code Liquid en cas d'erreur.
+Dans ce cas d'usage, un utilisateur dont le prénom est vide ou null reçoit le message « Thanks for downloading! ». Vous devriez inclure une [valeur par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) pour le prénom afin de vous assurer que votre client ne voit pas de code Liquid en cas d'erreur.
 
 {% endraw %}
 
@@ -176,7 +176,7 @@ Dans ce cas d'utilisation, un utilisateur dont le prénom est vide ou null reço
 
 Vous pouvez utiliser l'étiquette `assign` pour créer une variable dans le composeur de messages. Nous vous recommandons d'utiliser un nom unique pour votre variable. Si vous créez une variable avec un nom similaire aux étiquettes de personnalisation prises en charge (comme `language`), cela peut affecter votre logique de messagerie.
 
-Après avoir créé une variable, vous pouvez la référencer dans votre logique de messagerie ou votre message. Cette étiquette est pratique lorsque vous souhaitez reformater du contenu renvoyé par notre fonctionnalité de [Contenu connecté]({% image_buster /assets/img_archive/personalized_firstname_.png %}). Vous pouvez en savoir plus dans la documentation Shopify sur les [étiquettes de variable](https://docs.shopify.com/themes/liquid/tags/variable-tags).
+Après avoir créé une variable, vous pouvez la référencer dans votre logique de messagerie ou votre message. Cette étiquette est pratique lorsque vous souhaitez reformater du contenu renvoyé par notre fonctionnalité de [contenu connecté]({% image_buster /assets/img_archive/personalized_firstname_.png %}). Vous pouvez en savoir plus dans la documentation Shopify sur les [étiquettes de variable](https://docs.shopify.com/themes/liquid/tags/variable-tags).
 
 {% alert tip %}
 Vous vous retrouvez à assigner les mêmes variables dans chaque message ? Au lieu de réécrire l'étiquette `assign` à chaque fois, vous pouvez enregistrer cette étiquette en tant que bloc de contenu et la placer en haut de votre message.
@@ -189,7 +189,7 @@ Vous vous retrouvez à assigner les mêmes variables dans chaque message ? Au li
 Tant que le bloc de contenu se trouve en haut de votre message, chaque fois que la variable est insérée dans votre message en tant qu'objet, elle fait référence à l'attribut personnalisé que vous avez choisi.
 {% endalert %}
 
-### Cas d'utilisation
+### Cas d'usage
 
 Imaginons que vous permettez à vos clients d'échanger leurs points de récompense contre des prix après avoir accumulé 100 points de récompense. Vous souhaitez donc envoyer un message uniquement aux clients dont le solde de points serait supérieur ou égal à 100 s'ils effectuaient cet achat supplémentaire :
 
@@ -207,9 +207,9 @@ Make a purchase to bring your rewards points to {{new_points_balance}} and cash 
 ## Étiquettes d'itération {#iteration-tags}
 
 {% raw %}
-Les étiquettes d'itération permettent d'exécuter un bloc de code de manière répétée. Le cas d'utilisation ci-dessous utilise l'étiquette `for`.
+Les étiquettes d'itération permettent d'exécuter un bloc de code de manière répétée. Le cas d'usage ci-dessous utilise l'étiquette `for`.
 
-### Cas d'utilisation
+### Cas d'usage
 
 Imaginons que vous organisez une vente sur des baskets Nike et que vous souhaitez envoyer un message aux clients qui ont exprimé un intérêt pour Nike. Vous disposez d'un tableau de marques de produits consultées sur le profil de chaque client. Ce tableau peut contenir jusqu'à 25 marques de produits, mais vous souhaitez uniquement envoyer un message aux clients qui ont consulté un produit Nike parmi leurs 5 consultations de produits les plus récentes.
 
@@ -226,7 +226,7 @@ Sale on Converse!
 {% endif %}
 ```
 
-Dans ce cas d'utilisation, nous vérifions les cinq premiers éléments du tableau des marques de baskets consultées. Si l'un de ces éléments est Converse, nous créons la variable `converse_viewer` et la définissons sur true.
+Dans ce cas d'usage, nous vérifions les cinq premiers éléments du tableau des marques de baskets consultées. Si l'un de ces éléments est Converse, nous créons la variable `converse_viewer` et la définissons sur true.
 
 Ensuite, nous envoyons le message de vente lorsque `converse_viewer` est true. Sinon, nous interrompons le message.
 
@@ -240,7 +240,7 @@ Avec le [contrôle des espaces](https://shopify.github.io/liquid/basics/whitespa
 
 ## Codes de statut HTTP {#http-personalization}
 
-Vous pouvez utiliser le statut HTTP d'un appel de [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) en l'enregistrant d'abord en tant que variable locale, puis en utilisant la clé `__http_status_code__`. Par exemple :
+Vous pouvez utiliser le statut HTTP d'un appel de [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) en l'enregistrant d'abord en tant que variable locale, puis en utilisant la clé `__http_status_code__`. Par exemple :
 
 ```html
 {% connected_content https://example.com/api/endpoint :save connected %}
@@ -251,16 +251,16 @@ Vous pouvez utiliser le statut HTTP d'un appel de [Contenu connecté]({{site.bas
 {% endraw %}
 
 {% alert note %}
-Cette clé n'est ajoutée automatiquement à l'objet de Contenu connecté que si l'endpoint renvoie un objet JSON. Si l'endpoint renvoie un tableau ou un autre type, cette clé ne peut pas être définie automatiquement dans la réponse.
+Cette clé n'est ajoutée automatiquement à l'objet de contenu connecté que si l'endpoint renvoie un objet JSON. Si l'endpoint renvoie un tableau ou un autre type, cette clé ne peut pas être définie automatiquement dans la réponse.
 {% endalert %}
 
 ## Envoyer des messages en fonction de la langue, de la locale la plus récente et du fuseau horaire {#send-messages-based-on-language-most-recent-locale-and-time-zone}
 
 Dans certaines situations, vous pouvez souhaiter envoyer des messages spécifiques à des locales particulières. Par exemple, le portugais brésilien est généralement différent du portugais européen.
 
-### Cas d'utilisation : localiser en fonction de la locale récente {#use-case-localize-based-on-recent-locale}
+### Cas d'usage : localiser en fonction de la locale récente {#use-case-localize-based-on-recent-locale}
 
-Voici un cas d'utilisation montrant comment utiliser la locale la plus récente pour affiner la localisation d'un message internationalisé.
+Voici un cas d'usage montrant comment utiliser la locale la plus récente pour affiner la localisation d'un message internationalisé.
 
 {% raw %}
 
@@ -286,13 +286,13 @@ Message in default language
 {% endif %}
 ```
 
-Dans ce cas d'utilisation, les clients dont la locale la plus récente est `pt_BR` reçoivent un message en portugais brésilien, et les clients dont la locale la plus récente est `pt_PT` reçoivent un message en portugais européen. Les clients qui ne remplissent pas les deux premières conditions mais dont la langue est définie sur le portugais reçoivent un message dans le type de portugais par défaut de votre choix.
+Dans ce cas d'usage, les clients dont la locale la plus récente est `pt_BR` reçoivent un message en portugais brésilien, et les clients dont la locale la plus récente est `pt_PT` reçoivent un message en portugais européen. Les clients qui ne remplissent pas les deux premières conditions mais dont la langue est définie sur le portugais reçoivent un message dans le type de portugais par défaut de votre choix.
 
-### Cas d'utilisation : cibler les utilisateurs par fuseau horaire {#use-case-target-users-by-time-zone}
+### Cas d'usage : cibler les utilisateurs par fuseau horaire {#use-case-target-users-by-time-zone}
 
 Vous pouvez également cibler les utilisateurs par leur fuseau horaire. Par exemple, envoyez un message s'ils sont dans le fuseau EST et un autre s'ils sont dans le fuseau PST. Pour ce faire, enregistrez l'heure actuelle en UTC et comparez-la avec l'heure actuelle de l'utilisateur à l'aide d'une instruction if/else pour envoyer le bon message au bon fuseau horaire. Vous devez configurer la Campaign pour qu'elle soit envoyée dans le fuseau horaire local de l'utilisateur, afin qu'il reçoive la Campaign au bon moment.
 
-Consultez le cas d'utilisation suivant pour savoir comment rédiger un message délivré entre 14 h et 15 h avec un contenu spécifique pour chaque fuseau horaire.
+Consultez le cas d'usage suivant pour savoir comment rédiger un message délivré entre 14 h et 15 h avec un contenu spécifique pour chaque fuseau horaire.
 
 ```liquid
 {% assign hour_in_utc = 'now' | date: '%H' | plus:0 %}
@@ -320,7 +320,7 @@ L'étiquette `{% random %}` renvoie un nombre aléatoire. Vous pouvez l'utiliser
 
 {% endraw %}
 
-### Cas d'utilisation : envoyer des variantes aléatoires aux utilisateurs {#use-case-send-users-random-variants}
+### Cas d'usage : envoyer des variantes aléatoires aux utilisateurs {#use-case-send-users-random-variants}
 
 {% raw %}
 ```liquid
@@ -336,7 +336,7 @@ Show variant B
 
 ## Étiquette de panier d'achat eCommerce {#shopping-cart-tag}
 
-L'étiquette `shopping_cart` accède au contenu du panier d'un utilisateur dans les cas d'utilisation eCommerce Canvas de [panier abandonné]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20cart#abandoned-cart) et de [paiement abandonné]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout). Remplacez `CART_ID` par la valeur réelle de l'ID du panier, comme {% raw %}`{{context.${cart_id}}}`{% endraw %}.
+L'étiquette `shopping_cart` accède au contenu du panier d'un utilisateur dans les cas d'usage eCommerce Canvas de [panier abandonné]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20cart#abandoned-cart) et de [paiement abandonné]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout). Remplacez `CART_ID` par la valeur réelle de l'ID du panier, comme {% raw %}`{{context.${cart_id}}}`{% endraw %}.
 
 {% raw %}
 ```liquid
@@ -344,7 +344,7 @@ L'étiquette `shopping_cart` accède au contenu du panier d'un utilisateur dans 
 ```
 {% endraw %}
 
-Le paramètre `abort_if_not_abandoned` dans cet exemple s'applique uniquement au cas d'utilisation de [paiement abandonné]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout) lorsqu'il est utilisé avec l'événement `ecommerce.checkout_started`. Il ne s'applique pas aux cas d'utilisation de panier abandonné. Pour plus de détails, consultez [`abort_if_not_abandoned`]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abort-if-not-abandoned).
+Le paramètre `abort_if_not_abandoned` dans cet exemple s'applique uniquement au cas d'usage de [paiement abandonné]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout) lorsqu'il est utilisé avec l'événement `ecommerce.checkout_started`. Il ne s'applique pas aux cas d'usage de panier abandonné. Pour plus de détails, consultez [`abort_if_not_abandoned`]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abort-if-not-abandoned).
 
 [31]:https://docs.shopify.com/themes/liquid/tags/variable-tags
 [32]:https://docs.shopify.com/themes/liquid/tags/iteration-tags

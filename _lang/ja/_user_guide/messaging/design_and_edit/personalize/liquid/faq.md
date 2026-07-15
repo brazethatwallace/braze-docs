@@ -22,11 +22,11 @@ Brazeは現在、ShopifyのLiquidを100%サポートしているわけではな�
 
 #### 詳しくはどこで学べますか？ {#where-can-i-learn-more}
 
-Liquidの詳細については、ガイド付きの[Liquidによるダイナミックパーソナライゼーション](https://learning.braze.com/path/dynamic-personalization-with-liquid) Braze Learningパスをご覧ください。また、[Liquidユースケースライブラリー]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases)を参照して、Liquidを使用したパーソナライゼーションの例やインスピレーションを得ることもできます。
+Liquidの詳細については、ガイド付きの[Liquidによるダイナミックパーソナライゼーション](https://learning.braze.com/path/dynamic-personalization-with-liquid) Braze Learningパスをご覧ください。また、[Liquidユースケースライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases)を参照して、Liquidを使用したパーソナライゼーションの例やインスピレーションを得ることもできます。
 
-### パーソナライゼーションにおけるLiquidとコネクテッドコンテンツの違いは何ですか？ {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
+### パーソナライゼーションにおけるLiquidとConnected Contentの違いは何ですか？ {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
 
-Brazeのコネクテッドコンテンツは、Liquidタグの一例です。パーソナライゼーションにも使用されますが、このデータはBraze内に保存されたデータではなく、外部エンドポイントから取得されます。メッセージのパーソナライズ方法を拡張する方法について詳しくは、専用の[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)セクションをご覧ください。
+BrazeのConnected Contentは、Liquidタグの一例です。パーソナライゼーションにも使用されますが、このデータはBraze内に保存されたデータではなく、外部エンドポイントから取得されます。メッセージのパーソナライズ方法を拡張する方法について詳しくは、専用の[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)セクションをご覧ください。
 
 ### Liquidテンプレートとは何ですか？ {#what-is-liquid-templating}
 
@@ -64,7 +64,7 @@ URLやクエリ文字列での使用（名前に`%`やスペースが含まれ�
 
 Brazeには、メッセージで使用できるセグメント用のLiquidコードを生成する組み込み機能があります。具体的には、オブジェクト内の複数の条件に一致するセグメントを作成できます。
 
-詳細については、[マルチ条件セグメンテーション]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation)をご覧ください。
+詳細については、[マルチ条件セグメンテーション]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects)をご覧ください。
 
 ### イベント属性を使用して、イベントがトリガーするメッセージをパーソナライズするにはどうすればよいですか？ {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
@@ -89,7 +89,7 @@ Liquidはネイティブで配列の配列をサポートしていません。�
 - `assign`は、ブール値、数値、単純な文字列など、単一の値を格納するシンプルな変数に使用します。同じ行で単一のフィルターを適用することもできます。
 - `capture`は、複数の変数、文字列、または複雑な式を含む可能性のあるテキストブロックを格納するために使用します。
 
-他のLiquid変数やカスタム属性をパラメーターとして利用するURLなど、単一の`assign`ステートメントでは複雑すぎる値の場合に`capture`を使用してください。`capture`は、コネクテッドコンテンツ呼び出しの本文でLiquid変数を実装する場合にも推奨されます。
+他のLiquid変数やカスタム属性をパラメーターとして利用するURLなど、単一の`assign`ステートメントでは複雑すぎる値の場合に`capture`を使用してください。`capture`は、Connected Content呼び出しの本文でLiquid変数を実装する場合にも推奨されます。
 
 #### 例 {#examples}
 
@@ -120,13 +120,13 @@ Join our VIP program to unlock free shipping.
 
 ### Liquid変数は件名と本文の間で引き継がれますか？ {#do-liquid-variables-carry-between-subject-line-and-body}
 
-いいえ。Brazeは各メッセージコンポーネント（件名、HTML本文、プリヘッダー、プッシュタイトルなど）を個別にレンダリングします。あるフィールドで行った割り当てやキャプチャは、別のフィールドでは使用できません。値が必要な各フィールドでLiquidまたはコネクテッドコンテンツの呼び出しを繰り返してください。
+いいえ。Brazeは各メッセージコンポーネント（件名、HTML本文、プリヘッダー、プッシュタイトルなど）を個別にレンダリングします。あるフィールドで行った割り当てやキャプチャは、別のフィールドでは使用できません。値が必要な各フィールドでLiquidまたはConnected Contentの呼び出しを繰り返してください。
 
 ### forループロジックとは何ですか？また、どのように使用できますか？ {#what-is-for-loop-logic-and-how-can-i-use-it}
 
 forループは[反復タグ](https://shopify.github.io/liquid/tags/iteration/)とも呼ばれます。Liquidスニペットでforループロジックを使用すると、条件が満たされるまでLiquidブロックを繰り返し処理できます。
 
-Brazeでは、配列カスタム属性のアイテムのチェック、または[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)呼び出しの応答で返される値やオブジェクトのリストのチェックに使用できます。具体的には、forループロジックをメッセージングの一部として使用して、製品が在庫にあるかどうか、または製品が最低評価を満たしているかどうかを確認できます。
+Brazeでは、配列カスタム属性のアイテムのチェック、または[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)、[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)呼び出しの応答で返される値やオブジェクトのリストのチェックに使用できます。具体的には、forループロジックをメッセージングの一部として使用して、製品が在庫にあるかどうか、または製品が最低評価を満たしているかどうかを確認できます。
 
 例えば、「Games」というカタログに「cheap_games」というセレクションがあるとします。「cheap_games」のゲームタイトルを取得するには、次のLiquidスニペットを使用できます：
 
@@ -217,8 +217,8 @@ Content BlockをLiquidでテンプレート化すると、ブロック内のモ�
 
 このエラーは通常、波括弧の過不足を示しています。{% raw %}`{{ }}`{% endraw %}を別のLiquidタグ式の中にネストしないでください。例えば、属性参照を追加の波括弧で囲むのではなく、{% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %}を使用してください。
 
-### アプリ内メッセージでコネクテッドコンテンツのリトライが利用できないのはなぜですか？ {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+### アプリ内メッセージでConnected Contentのリトライが利用できないのはなぜですか？ {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
 
 {% raw %}
-リトライ付きの`{% connected_content %}`タグは、一部のアプリ内メッセージ形式を含むすべてのメッセージタイプでサポートされているわけではありません。リトライパラメーターを削除するか、リトライ付きコネクテッドコンテンツ呼び出しにサポートされているチャネルを使用してください。
+リトライ付きの`{% connected_content %}`タグは、一部のアプリ内メッセージ形式を含むすべてのメッセージタイプでサポートされているわけではありません。リトライパラメーターを削除するか、リトライ付きConnected Content呼び出しにサポートされているチャネルを使用してください。
 {% endraw %}

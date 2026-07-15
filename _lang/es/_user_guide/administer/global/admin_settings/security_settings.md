@@ -111,7 +111,7 @@ Para activar manualmente la autenticación de dos factores (2FA) en tu cuenta Br
 
 ## Acceso elevado {#elevated-access}
 
-El acceso elevado añade una capa adicional de seguridad para acciones sensibles en tu panel de Braze. Cuando está activo, los usuarios necesitan volver a verificar su cuenta antes de exportar un segmento o ver una clave de API. Para usar el acceso elevado, ve a **Configuración** > **Configuración de administrador** > **Configuración de seguridad** y actívalo.
+El acceso elevado añade una capa adicional de seguridad para acciones sensibles en tu panel de Braze. Cuando está activo, los usuarios necesitan volver a verificar su cuenta antes de exportar un Segment o ver una clave de API. Para usar el acceso elevado, ve a **Configuración** > **Configuración de administrador** > **Configuración de seguridad** y actívalo.
 
 Si un usuario no puede volver a verificarse, será redirigido a donde estaba y no podrá continuar con la acción sensible. Después de verificarse correctamente, no necesitará hacerlo de nuevo durante la siguiente hora, a menos que cierre sesión primero.
 
@@ -266,7 +266,7 @@ El permiso **View PII** solo es accesible para unos pocos usuarios seleccionados
 Necesitas el permiso **View PII** para usar el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), ya que permite el acceso directo a algunos datos de clientes.
 {% endalert %}
 
-Para las capacidades existentes de permisos de equipo, consulta [Configurar permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
+Para las capacidades existentes de permisos de equipo, consulta [Configurar permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ### Definir PII {#defining-pii}
 

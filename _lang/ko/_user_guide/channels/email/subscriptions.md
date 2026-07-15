@@ -55,7 +55,7 @@ Braze SDK를 사용하여 사용자의 구독 상태를 업데이트합니다.
 
 #### REST API
 
-[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 사용자의 [`email_subscribe` 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)을 업데이트합니다. 예를 들어, 사용자가 커스텀 탈퇴 링크를 사용할 때 이메일 구독 상태를 탈퇴됨으로 설정하려면 요청의 사용자 속성에 `email_subscribe: "unsubscribed"`를 포함합니다.
+[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 사용자의 [`email_subscribe` 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)을 업데이트합니다. 예를 들어, 사용자가 커스텀 탈퇴 링크를 사용할 때 이메일 구독 상태를 탈퇴됨으로 설정하려면 요청의 사용자 속성에 `email_subscribe: "unsubscribed"`를 포함합니다.
 
 #### 고객 프로필 {#user-profile}
 

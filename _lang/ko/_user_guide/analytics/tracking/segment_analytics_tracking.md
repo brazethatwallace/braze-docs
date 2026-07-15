@@ -43,7 +43,7 @@ Segment 페이지의 **Segment Details** 섹션에서 **Analytics Tracking**을 
 
 ## 시간별 세션 {#sessions-over-time}
 
-마찬가지로 **Home** 페이지에서 [이 특정 Segment의 시간 경과에 따른 세션]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data) 데이터를 확인할 수 있습니다.
+마찬가지로 **Home** 페이지에서 [이 특정 Segment의 시간 경과에 따른 세션]({{site.baseurl}}/user_guide/analytics/dashboards/home) 데이터를 확인할 수 있습니다.
 
 ![Segment별 세션 데이터]({% image_buster /assets/img_archive/events_over_time2.png %})
 
@@ -53,7 +53,7 @@ Segment 페이지의 **Segment Details** 섹션에서 **Analytics Tracking**을 
 
 ## 쿼리 빌더 템플릿 사용 {#using-query-builder-templates}
 
-분석 추적이 켜져 있으면 쿼리 빌더 보고서 템플릿을 사용하여 Campaigns, Canvas, 배리언트 및 단계에 대한 성능 측정기준을 Segments별로 세분화할 수 있습니다. 자세히 알아보려면 [Segment 데이터]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment)를 확인하세요.
+분석 추적이 켜져 있으면 쿼리 빌더 보고서 템플릿을 사용하여 Campaigns, Canvas, 배리언트 및 단계에 대한 성능 측정기준을 Segments별로 세분화할 수 있습니다. 자세히 알아보려면 [Segment 데이터]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment)를 확인하세요.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 

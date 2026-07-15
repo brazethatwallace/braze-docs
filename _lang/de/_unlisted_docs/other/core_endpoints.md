@@ -30,11 +30,11 @@ Die Kern-Endpunkte umfassen:
 - [`/canvas/trigger/schedule/delete`][16]
 - [`/subscription/status/set`][17]
 
-[1]: {{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track
+[1]: {{site.baseurl}}/api/endpoints/user_data/post_user_track
 [2]: {{site.baseurl}}/api/endpoints/user_data/post_user_delete
-[3]: {{site.baseurl}}/api/endpoints/email/post_email_subscription_status/#change-users-email-subscription-status
+[3]: {{site.baseurl}}/api/endpoints/email/post_email_subscription_status#change-email-subscription-status
 [4]: {{site.baseurl}}/api/endpoints/email/post_blocklist/
-[5]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#sending-messages-immediately-via-api-only
+[5]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only
 [6]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/#create-scheduled-messages
 [7]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_messages/
 [8]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_messages/
@@ -42,7 +42,7 @@ Die Kern-Endpunkte umfassen:
 [10]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/
 [11]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_campaigns/
 [12]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages/
-[13]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#sending-canvas-messages-via-api-triggered-delivery
+[13]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#send-canvas-messages-using-api-triggered-delivery
 [14]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/#schedule-api-triggered-canvases
 [15]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/
 [16]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages/

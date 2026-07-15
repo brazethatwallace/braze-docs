@@ -95,7 +95,7 @@ Braze prend en charge les objets de métachamps suivants ainsi que certains de l
 | `url`, `list.url` | Chaîne de caractères (URL), Tableau de chaînes de caractères (URL) |
 | `metaobject_reference`, `list.metaobject_reference` | Chaîne de caractères, Tableau de chaînes de caractères |
 | `mixed_reference`, `list.mixed_reference` | Chaîne de caractères, Tableau de chaînes de caractères |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Configurer des données produit supplémentaires (facultatif) #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métachamps pris en charge" }
 
 {% endsubtab %}
 {% subtab Métachamps non pris en charge %}
@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-Vous pouvez également configurer des [notifications de baisse de prix]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) et des [notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) !<br><br> Notez que pour chaque cas d'usage, vous devez créer un événement personnalisé qui capture le statut d'abonnement d'un utilisateur dans votre catalogue. L'événement personnalisé nécessite une propriété d'événement qui correspond soit au [SKU, soit au Shopify Variant ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier) que vous avez sélectionné dans le cadre de la synchronisation de vos produits Shopify.
+Vous pouvez également configurer des [notifications de baisse de prix]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) et des [notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) !<br><br> Notez que pour chaque cas d'usage, vous devez créer un événement personnalisé qui capture le statut d'abonnement d'un utilisateur dans votre catalogue. L'événement personnalisé nécessite une propriété d'événement qui correspond soit au <a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKU, soit au Shopify Variant ID</a> que vous avez sélectionné dans le cadre de la synchronisation de vos produits Shopify.
 {% endalert %}
 
 ## Désactiver la synchronisation des produits {#deactivate}

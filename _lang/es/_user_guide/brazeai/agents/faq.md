@@ -12,9 +12,9 @@ toc_headers: h2
 
 ## General {#general}
 
-### ¿Cuál es la diferencia entre los agentes de Canvas y los agentes de catálogo? {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
+### ¿Cuál es la diferencia entre los agentes de paso en Canvas y los agentes de catálogo? {#what-is-the-difference-between-canvas-step-agents-and-catalog-agents}
 
-Al crear un agente, especificas si quieres crear un agente de Canvas o de catálogo. Esto determina los tipos de instrucciones y opciones que el agente puede admitir. Los agentes de Canvas procesan usuarios en tiempo real dentro de los recorridos, mientras que los agentes de catálogo enriquecen los datos del catálogo añadiendo o actualizando columnas con información procesada.
+Al crear un agente, especificas si quieres crear un agente de paso en Canvas o un agente de catálogo. Esto determina los tipos de instrucciones y opciones que el agente puede admitir. Los agentes de paso en Canvas procesan usuarios en tiempo real dentro de los recorridos, mientras que los agentes de catálogo enriquecen los datos del catálogo añadiendo o actualizando columnas con información procesada.
 
 ### ¿Cuáles son los beneficios de usar el modelo Auto frente al modelo propio (BYO)? {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 
@@ -68,7 +68,7 @@ Un agente personalizado puede agotar el tiempo de espera si:
 - Las instrucciones del agente le piden que genere un formato de salida diferente al especificado en la pestaña **Output** (por ejemplo, si las instrucciones del agente piden una cadena, pero en la pestaña **Output** la salida está definida como un número)
 - La tarea del agente es demasiado compleja y se beneficiaría de un [enfoque de subagentes](#subagent-approach) en su lugar
 
-Para los agentes de Canvas, configura [valores alternativos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) en Agent Console para que los usuarios sigan recibiendo una salida cuando una invocación falle.
+Para los agentes de paso en Canvas, configura [valores alternativos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) en Agent Console para que los usuarios sigan recibiendo una salida cuando una invocación falle.
 
 ### ¿Por qué mi agente funcionó bien en las pruebas pero no recibe datos específicos del usuario cuando lo lanzo en un Canvas? {#why-did-my-agent-do-fine-in-testing-but-isnt-getting-any-user-specific-data-when-i-launch-it-in-a-canvas}
 

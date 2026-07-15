@@ -5,7 +5,7 @@ page_order: 1
 description: "この記事では、LINE メッセージのキャンペーンまたはキャンバスを作成する方法について説明します。"
 page_type: reference
 tool:
- - キャンペーン
+ - Campaigns
 channel:
  - LINE
 alias: /line/create/
@@ -13,11 +13,11 @@ alias: /line/create/
 
 # LINE メッセージの作成 {#create-a-line-message}
 
-> LINE キャンペーンを使用すると、顧客に直接リーチし、プログラムによるチャットが可能になります。Liquidやその他のダイナミックコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
+> LINEキャンペーンを使用すると、顧客に直接リーチし、プログラムによるチャットが可能になります。Liquidやその他のダイナミックコンテンツを使用して、ユーザーとのパーソナルな体験を作り出し、ブランドとの控えめなユーザー体験を促進・向上させる環境を構築できます。
 
 ## 前提条件 {#prerequisites}
 
-LINE メッセージを作成する前に、以下を行ってください。
+LINEメッセージを作成する前に、以下を行ってください。
 
 1. LINEの概要を確認します。
 2. ポリシー、制限、コンテンツルールを確認します。
@@ -34,15 +34,15 @@ BrazeからLINEメッセージを送信すると、アカウントのメッセ�
 
 **手順:**
 
-1. **メッセージング** > **キャンペーン** に移動し、**キャンペーンを作成** を選択します。
-2. **LINE** を選択するか、複数チャネルをターゲットとするキャンペーンの場合は **マルチチャネル キャンペーン** を選択します。
+1. **メッセージング** > **キャンペーン**に移動し、**キャンペーンを作成**を選択します。
+2. **LINE**を選択するか、複数チャネルをターゲットとするキャンペーンの場合は**マルチチャネル**を選択します。
 3. キャンペーンにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。
    * タグを使用すると、キャンペーンを見つけやすくなり、レポートを作成しやすくなります。
 5. キャンペーンに必要な数のバリアントを追加し、名前を付けます。追加したバリアントごとに、異なるプラットフォーム、メッセージタイプ、レイアウトを選択できます。このトピックの詳細については、[多変量テストとABテスト]({{site.baseurl}}/user_guide/messaging/ab_testing)を参照してください。
 
 {% alert tip %}
-キャンペーン内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加** ドロップダウンから **バリアントからコピー** を選択できます。
+キャンペーン内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
 {% endalert %}
 
 {% endtab %}
@@ -52,7 +52,7 @@ BrazeからLINEメッセージを送信すると、アカウントのメッセ�
 
 1. キャンバスコンポーザーを使用して[キャンバスを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
 2. キャンバスを設定したら、キャンバスビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
-3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)を選択し、必要に応じて遅延を指定します。
+3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)を選択し、必要に応じて遅延を指定します。
 4. 必要に応じて、このステップのオーディエンスをフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、メッセージ送信時に遅延後にチェックされます。
 5. [昇格動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
@@ -80,7 +80,7 @@ Liquidを使用する予定がある場合は、パーソナライゼーショ�
 
 ## ステップ 3:メッセージをプレビューしてテストする {#step-3-preview-and-test-your-message}
 
-**Test** タブに切り替えて、コンテンツテストグループまたは個々のユーザーにテストLINEメッセージを送信するか、Braze内でユーザーとしてメッセージを直接プレビューします。
+**Test**タブに切り替えて、コンテンツテストグループまたは個々のユーザーにテストLINEメッセージを送信するか、Braze内でユーザーとしてメッセージを直接プレビューします。
 
 ![テストメッセージのプレビューが表示された「Tests」タブ。]({% image_buster /assets/img/line/test_preview.png %})
 
@@ -97,11 +97,11 @@ Liquidを使用する予定がある場合は、パーソナライゼーショ�
 
 LINEメッセージは、スケジュールされた時間、アクション、またはAPIトリガーに基づいて配信できます。スケジュールとトリガーオプションの詳細については、[キャンペーンのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)を参照してください。
 
-配信コントロールを指定できます。たとえば、ユーザーがキャンペーンを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)ルールを有効にすることができます。アクションベースの配信では、キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)も設定できます。
+配信コントロールを指定できます。たとえば、ユーザーがキャンペーンを[再受信可能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility)にすることや、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)ルールを有効にすることができます。アクションベースの配信では、キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)も設定できます。
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
-セグメントまたはフィルターを選択してオーディエンスを絞り込むことで、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)にします。サブスクリプショングループはすでに選択されているはずです。これにより、ユーザーが希望するコミュニケーションのレベルやカテゴリによってユーザーが絞り込まれます。
+セグメントまたはフィルターを選択してオーディエンスを絞り込むことで、[ユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)にします。購読グループはすでに選択されているはずです。これにより、ユーザーが希望するコミュニケーションのレベルやカテゴリによってユーザーが絞り込まれます。
 
 セグメントからより大きなオーディエンスを選択し、オプションで[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を使用してそのセグメントをさらに絞り込みます。おおよそのセグメント人口のスナップショットが自動的に表示されます。正確なセグメントメンバーシップは、メッセージが送信される前に常に計算されることに注意してください。
 
@@ -128,4 +128,4 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 
 キャンペーンまたはキャンバスの最後の構築が完了したら、詳細を確認し、テストしてから送信してください。
 
-次に、[LINEレポート]({{site.baseurl}}/line/reporting)を確認して、LINE キャンペーンの結果にアクセスする方法を学びましょう。
+次に、[LINEレポート]({{site.baseurl}}/line/reporting)を確認して、LINEキャンペーンの結果にアクセスする方法を学びましょう。

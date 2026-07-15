@@ -168,7 +168,7 @@ Algumas configurações de API exigem a recuperação de um token de acesso que 
 
 #### Etapa 1: Recuperar o token de acesso {#step-1-retrieve-the-access-token}
 
-O exemplo a seguir ilustra a recuperação e o salvamento de um token de acesso em uma variável local, que pode então ser usada para autenticar a chamada de API subsequente. Um parâmetro `:cache_max_age` pode ser adicionado para corresponder ao tempo de validade do token de acesso e reduzir o número de chamadas de Conteúdo conectado de saída. Consulte [Cache configurável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching) para mais informações.
+O exemplo a seguir ilustra a recuperação e o salvamento de um token de acesso em uma variável local, que pode então ser usada para autenticar a chamada de API subsequente. Um parâmetro `:cache_max_age` pode ser adicionado para corresponder ao tempo de validade do token de acesso e reduzir o número de chamadas de Conteúdo conectado de saída. Consulte [Cache configurável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) para mais informações.
 
 {% raw %}
 ```
@@ -184,6 +184,10 @@ O exemplo a seguir ilustra a recuperação e o salvamento de um token de acesso 
 %}
 ```
 {% endraw %}
+
+{% alert note %}
+Quando o endpoint de token espera `application/x-www-form-urlencoded` e você passa credenciais em `:body`, codifique em URL quaisquer caracteres especiais nos valores dos parâmetros. Por exemplo, barras (`/`) se tornam `%2F` e sinais de mais (`+`) se tornam `%2B`. Caracteres especiais não codificados podem causar falha nas solicitações de token OAuth.
+{% endalert %}
 
 #### Etapa 2: Autorizar a API usando o token de acesso recuperado {#step-2-authorize-the-api-using-the-retrieved-access-token}
 

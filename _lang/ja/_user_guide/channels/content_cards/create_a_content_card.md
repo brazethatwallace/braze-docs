@@ -57,9 +57,9 @@ search_rank: 3.9
 
 | メッセージタイプ | 例 | 説明 |
 |---|---|---|
-|[クラシック]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic)| ![ワークアウトクラスの予約を促す小さなアイコンとテキストを含むクラシックContent Card。]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) |クラシックカードは、太字のタイトル、メッセージテキスト、およびタイトルとテキストの先頭に配置されるオプションの画像を含むシンプルなレイアウトです。クラシックカードには正方形の画像またはアイコンを使用するのが最適です。|
-|[キャプション付き画像]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image)| ![ウェイトリフターの画像とワークアウトクラスの予約を促すテキストを含むキャプション付きContent Card。]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | キャプション付き画像カードは、コピーと目を引く画像でコンテンツを紹介します。|
-|[画像のみ]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner)| ![テキストのみの画像のみContent Card。]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 画像のみカードは、画像、GIF、その他のクリエイティブなテキスト以外のコンテンツ用のスペースで注目を集めます。|
+|[クラシック]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types)| ![ワークアウトクラスの予約を促す小さなアイコンとテキストを含むクラシックContent Card。]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) |クラシックカードは、太字のタイトル、メッセージテキスト、およびタイトルとテキストの先頭に配置されるオプションの画像を含むシンプルなレイアウトです。クラシックカードには正方形の画像またはアイコンを使用するのが最適です。|
+|[キャプション付き画像]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types)| ![ウェイトリフターの画像とワークアウトクラスの予約を促すテキストを含むキャプション付きContent Card。]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | キャプション付き画像カードは、コピーと目を引く画像でコンテンツを紹介します。|
+|[画像のみ]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types)| ![テキストのみの画像のみContent Card。]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | 画像のみカードは、画像、GIF、その他のクリエイティブなテキスト以外のコンテンツ用のスペースで注目を集めます。|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ2:メッセージタイプを指定する" }
 
 ## ステップ3:Content Cardsを作成する {#step-3-compose-a-content-card}
@@ -135,7 +135,12 @@ Content Cardsは、スケジュールされた時刻、アクション、また�
 
 キャンペーンの期間と[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を設定し、Content Cardsの有効期限を決定することもできます。特定の有効期限日またはカードの有効期限が切れるまでの日数（最大30日）を設定します。すべてのバリアントの有効期限は同一です。
 
-設定された期間後にカードの有効期限が切れるように選択した場合（たとえば2週間後）、有効期限はカードの送信時刻から計算されます。スケジュールされたキャンペーンの場合、これはスケジュールされた起動時刻です。アクションベースのキャンペーンの場合、これはユーザーがトリガーアクションを実行した時刻です。たとえば、アクションベースのカードが本日午後2時に送信され、有効期限が1日の場合、翌日の午後2時に有効期限が切れます。
+有効期限のカウントダウンはカードの送信時刻から開始されます。
+
+- **スケジュールされたキャンペーン：**カウントダウンはスケジュールされた起動時刻に開始されます。
+- **アクションベースのキャンペーン：**カウントダウンはユーザーがトリガーアクションを実行した時点で開始されます。
+
+たとえば、アクションベースのContent Cardsが本日午後2時に送信され、有効期限が1日の場合、翌日の午後2時に有効期限が切れます。
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
@@ -159,7 +164,7 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 
 {% tab キャンバス %}
 
-まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの部分の構築方法、[多変量テスト]({{site.baseurl}}/user_guide/messaging/ab_testing)や[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)の実装方法などの詳細については、キャンバスドキュメントの[キャンバスの構築]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの部分の構築方法、[多変量テスト]({{site.baseurl}}/user_guide/messaging/ab_testing)や[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)の実装方法などの詳細については、キャンバスドキュメントの[キャンバスの構築]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas)ステップを参照してください。
 
 {% endtab %}
 {% endtabs %}
@@ -193,7 +198,7 @@ Content Cardsは起動後に編集できません。新しいユーザーへの�
 
 Liquidを使用して長いテキスト文字列（カスタム属性からなど）を取得すると、制限を超える可能性があります。
 
-キャンペーンコンポーザーは、静的コンテンツが制限を超えた場合に警告を表示します。（Liquidを使用した動的コンテンツのサイズは予測しません。）**メッセージサイズが2 KBを超えた場合、送信時に中止されます。**これらの中止は、メッセージアクティビティログで理由`Content card maximum size exceeded`として確認できます。
+キャンペーンコンポーザーは、静的コンテンツが制限を超えた場合に警告を表示します。Liquidを使用した動的コンテンツのサイズは予測しません。メッセージサイズが2 KBを超えた場合、送信時に中止されます。これらの中止は、メッセージアクティビティログで理由`Content card maximum size exceeded`として確認できます。
 
 {% alert important %}
 テスト送信時には、2 KBを超えるContent Cardsでも配信および正常に表示される場合があります。
@@ -228,7 +233,7 @@ Content Cardsのペイロードサイズを管理するためのベストプラ�
 
 再適格性を有効にすると、ユーザーがキャンペーンに「再エントリ」できるまでのカウントダウンは、メッセージが送信された後に開始されます。このカウントダウンが開始される具体的なタイミングは、カード作成の設定によって異なります：
 
-- [ファーストインプレッション時]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression)を使用するContent Cardsは、インプレッション時刻を使用して再適格性を計算します。
+- [ファーストインプレッション時]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences)を使用するContent Cardsは、インプレッション時刻を使用して再適格性を計算します。
 - キャンペーン起動時、マルチチャネルキャンペーン、またはキャンバスステップエントリ時に作成されたContent Cardsは、送信時刻またはインプレッション時刻のいずれか遅い方を使用します。
 
 #### 30日間の有効期限と再適格性 {#the-30-day-expiration-and-re-eligibility}
@@ -264,8 +269,8 @@ Content Cardsが送信された後、ユーザーに配信される準備がで�
 
 ###### 影響 {#impact}
 
-* **既存の受信者：**新規および既存の受信者は、適格であれば次のフィード更新時に更新されたカードを確認できます。
-* **レポート：**カードの各バージョンには個別の分析があります。
+- **既存の受信者：**新規および既存の受信者は、適格であれば次のフィード更新時に更新されたカードを確認できます。
+- **レポート：**カードの各バージョンには個別の分析があります。
 
 たとえば、セッション開始時にトリガーされるキャンペーンを設定し、再適格性を30日に設定したとします。ユーザーが2日前にキャンペーンを受信し、コピーを変更したいとします。まず、キャンペーンをアーカイブしてフィードからカードを削除します。次に、キャンペーンを複製し、新しいコピーで再起動します。ユーザーが別のセッションを開始すると、すぐに新しいカードを受信します。
 
@@ -283,8 +288,8 @@ Content Cardsが送信された後、ユーザーに配信される準備がで�
 
 ###### 影響
 
-* **既存の受信者：**すでにカードを受信したユーザーは、再適格になるまで更新されたカードを受信しません。再適格性がオフの場合、新しいカードを受信することはありません。
-* **レポート：**1つのキャンペーンに、起動されたカードバージョンのすべてのレポート分析が含まれます。Brazeは起動されたバージョン間を区別しません。
+- **既存の受信者：**すでにカードを受信したユーザーは、再適格になるまで更新されたカードを受信しません。再適格性がオフの場合、新しいカードを受信することはありません。
+- **レポート：**1つのキャンペーンに、起動されたカードバージョンのすべてのレポート分析が含まれます。Brazeは起動されたバージョン間を区別しません。
 
 たとえば、セッション開始時にトリガーされ、再適格性が30日に設定されたキャンペーンがあるとします。ユーザーが2日前にキャンペーンを受信し、コピーを変更したいとします。まず、キャンペーンを停止してフィードからカードを削除します。次に、新しいコピーでキャンペーンを再公開します。ユーザーが別のセッションを開始すると、28日後に新しいカードを受信します。
 

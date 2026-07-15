@@ -72,7 +72,7 @@ No topo da página, há blocos de resumo com as principais métricas do período
 
 ### Resultados de mensagens ao longo do tempo {#message-outcomes-over-time}
 
-Este gráfico de série temporal mostra um detalhamento por hora dos motivos pelos quais uma mensagem foi abortada ou um usuário foi removido de um Canvas. Os rótulos de resultado neste gráfico são rótulos normalizados do dashboard, não valores brutos do payload de eventos. Este gráfico não exibe o número de envios.
+Este gráfico de série temporal mostra um detalhamento por hora dos motivos pelos quais uma mensagem foi abortada ou um usuário foi removido de um Canvas. Os rótulos de resultado neste gráfico são rótulos normalizados do dashboard, não valores brutos da carga útil de eventos. Este gráfico não exibe o número de envios.
 
 ### Registro granular de resultados de mensagens {#message-outcomes-granular-log}
 
@@ -154,7 +154,7 @@ Os resultados de interrupção no Messaging Diagnostics são rótulos legíveis 
 | Resultado de interrupção | Explicação |
 | ---- | ---- |
 | Partner delivery error | A Braze tentou enviar esta mensagem ao seu parceiro de entrega por 24 horas, mas o parceiro retornou erros temporários durante todo o período. |
-| Push credentials invalid | As [credenciais de push]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token) para este app estão ausentes ou inválidas, então o envio foi cancelado. Atualize suas credenciais em **Configurações do app**. |
+| Push credentials invalid | As [credenciais de push]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) para este app estão ausentes ou inválidas, então o envio foi cancelado. Atualize suas credenciais em **Configurações do app**. |
 | Subscription group failure | A mensagem não pôde ser enviada devido a problemas de configuração do grupo de inscrições ou do serviço de envio de mensagens. Motivos comuns incluem números de envio ausentes para SMS ou WhatsApp, ou MMS não suportado no serviço de envio de mensagens configurado. |
 | User not eligible for channel | O usuário não é elegível para receber esta mensagem no canal selecionado. Motivos comuns incluem identificadores de canal ausentes ou inválidos, nenhum token por push elegível, restrições de estado de inscrição, capacidade de canal não suportada ou países bloqueados para canais baseados em telefone. |
 | Webhook failed | O webhook recebeu um código de resposta malsucedido (não `2xx`). Consulte o [Registro de atividades de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting) para mais detalhes. Registros com mais de 60 horas são limpos e não estão mais acessíveis; erros de webhook são amostrados em até 20 registros por hora. |

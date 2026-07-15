@@ -158,7 +158,7 @@ IPレピュテーションの評価を理解するには、以下の表を参照
 | TLS送信 | そのドメインに送信されたすべてのメールに対して、TLS経由で受け入れられた送信メール（Gmailから）の割合を表示します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="暗号化" }
 
-到達性の改善に関するその他のアイデアについては、[到達性の落とし穴とスパムトラップ]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps)をお読みください。メールキャンペーンを送信する前に確認すべき事項については、[メールのベストプラクティス]({{site.baseurl}}/user_guide/channels/email/best_practices)も参照してください。
+到達性の改善に関するその他のアイデアについては、[到達性の落とし穴とスパムトラップ]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)をお読みください。メールキャンペーンを送信する前に確認すべき事項については、[メールのベストプラクティス]({{site.baseurl}}/user_guide/channels/email/best_practices)も参照してください。
 
 ## Microsoft Smart Network Data Services（SNDS）のセットアップ {#set-up-microsoft-smart-network-data-services-snds}
 

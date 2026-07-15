@@ -35,24 +35,24 @@ Braze stellt zwar Anleitungen zur Einrichtung von Rich-Push-Benachrichtigungen b
 
 ## Einrichten Ihrer Android-Rich-Benachrichtigung {#setting-up-your-android-rich-notification}
 
-### 1. Schritt: Push-Campaign erstellen {#step-1-create-a-push-campaign}
+### Schritt 1: Push-Campaign erstellen {#step-1-create-a-push-campaign}
 
-Folgen Sie den Schritten zum [Erstellen einer Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message), um eine Push-Benachrichtigung für Android zu verfassen. Sie verwenden denselben Composer für die Einrichtung von Push-Benachrichtigungen, die keinen Rich-Inhalt enthalten.
+Folgen Sie den Schritten zum [Erstellen einer Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message), um eine Push-Benachrichtigung für Android zu verfassen. Sie verwenden denselben Composer für die Einrichtung von Push-Benachrichtigungen, die keinen Rich-Inhalt enthalten.
 
-### 2. Schritt: Beschriftung hinzufügen {#step-2-add-captioning}
+### Schritt 2: Beschriftung hinzufügen {#step-2-add-captioning}
 
 Fügen Sie den **Summary Text** hinzu, der vor dem Bild in der Benachrichtigung angezeigt werden soll.
 
 ![Eine Rich-Push-Benachrichtigung von einer Tierfutter-App namens „Dog“, die darauf hinweist, dass es Zeit ist, mehr Futter für Spot zu bestellen, mit Zusammenfassungstext.]({% image_buster /assets/img_archive/android_rich_summarytext.png %})
 
-### 3. Schritt: Medien hinzufügen {#step-3-add-media}
+### Schritt 3: Medien hinzufügen {#step-3-add-media}
 
 Fügen Sie Ihr Bild im Feld **Android Notification Image** im Composer der Nachricht hinzu. Bilder können direkt über das Dashboard hochgeladen oder durch Angabe einer Content-URL, die an anderer Stelle gehostet wird, hinzugefügt werden.
 
-Einzelheiten zu unterstützten Bildern finden Sie unter [Bildspezifikationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#push).
+Einzelheiten zu unterstützten Bildern finden Sie unter [Bildspezifikationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#image-specifications).
 
 ![Der Abschnitt „Android Notification Image“, in dem Sie ein Bild hinzufügen oder eine Bild-URL eingeben können.]({% image_buster /assets/img_archive/android_rich_image.png %})
 
-### 4. Schritt: Campaign weiter erstellen {#step-4-continue-creating-your-campaign}
+### Schritt 4: Campaign weiter erstellen {#step-4-continue-creating-your-campaign}
 
 Nachdem Ihr Rich-Benachrichtigungsinhalt in das Dashboard hochgeladen wurde, können Sie mit der [Planung Ihrer Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) fortfahren.

@@ -203,7 +203,7 @@ Canvas 필터를 사용하여 [Segment를 생성]({{site.baseurl}}/user_guide/au
 
 ### 아카이브된 Canvas 또는 Campaign을 다시 시작하려면 어떻게 하나요? {#how-do-i-resume-an-archived-canvas-or-campaign}
 
-아카이브된 메시지는 편집 가능한 상태로 되돌리기 전까지 전송되지 않습니다. Campaign 또는 Canvas를 [아카이브 해제]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving-campaigns-and-canvases)하고, 진입 스케줄 또는 전송 시간을 미래 기간으로 설정한 다음(또는 깨끗한 사본이 필요한 경우 여정을 복제한 다음), 필요에 따라 **재개** 또는 시작하세요. [Campaign 및 Canvases 아카이브]({{site.baseurl}}/user_guide/messaging/governance/archiving)를 참조하세요.
+아카이브된 메시지는 편집 가능한 상태로 되돌리기 전까지 전송되지 않습니다. Campaign 또는 Canvas를 [아카이브 해제]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving)하고, 진입 스케줄 또는 전송 시간을 미래 기간으로 설정한 다음(또는 깨끗한 사본이 필요한 경우 여정을 복제한 다음), 필요에 따라 **재개** 또는 시작하세요. [Campaign 및 Canvases 아카이브]({{site.baseurl}}/user_guide/messaging/governance/archiving)를 참조하세요.
 
 ### 오류가 표시되지 않는데 Canvas가 저장되지 않는 이유는 무엇인가요? {#why-doesnt-my-canvas-save-when-no-error-appears}
 

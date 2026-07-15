@@ -24,7 +24,7 @@ A integração entre a Braze e a Snowplow permite que você encaminhe eventos da
 
 O [Event Forwarding](https://docs.snowplow.io/docs/destinations/forwarding-events/) da Snowplow é um recurso complementar pago disponível para os clientes da Snowplow. Para encaminhar eventos para a Braze sem esse complemento, use a integração [Google Tag Manager Server-Side](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/) da Snowplow.
 
-Aproveite os ricos dados de comportamento da Snowplow para promover interações poderosas centradas no cliente na Braze e enviar mensagens personalizadas em tempo real.
+Aproveite os ricos dados comportamentais da Snowplow para promover interações poderosas centradas no cliente na Braze e enviar mensagens personalizadas em tempo real.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -33,16 +33,16 @@ Aproveite os ricos dados de comportamento da Snowplow para promover interações
 | Pipeline da Snowplow | Você precisa de um pipeline da Snowplow em funcionamento. |
 | Acesso ao Console da Snowplow | Você deve ter acesso ao Console da Snowplow para configurar os encaminhadores de eventos. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões: `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` e `users.alias.update`. <br><br> Você pode criar isso no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
+| Endpoint REST da Braze | [Sua URL de endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Seu endpoint depende da URL da Braze para sua instância. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
 ### Entrega personalizada baseada em ação {#personalized-action-based-delivery}
-Use qualquer um dos inúmeros eventos avançados que a Snowplow coleta por padrão ou defina seus eventos personalizados para moldar jornadas de clientes ainda mais granulares que façam sentido para sua empresa. Aproveite os ricos dados de comportamento da Snowplow para projetar funis de clientes e gerar valor para suas equipes de marketing e de produtos, ajudando-as a maximizar a conversão e o uso do produto por meio da Braze.
+Use qualquer um dos inúmeros eventos avançados que a Snowplow coleta por padrão ou defina seus eventos personalizados para moldar jornadas de clientes ainda mais granulares que façam sentido para sua empresa. Aproveite os ricos dados comportamentais da Snowplow para projetar funis de clientes e gerar valor para suas equipes de marketing e de produtos, ajudando-as a maximizar a conversão e o uso do produto por meio da Braze.
 
 ### Segmentação dinâmica {#dynamic-segmentation}
-Crie públicos dinâmicos na Braze com base nos dados comportamentais de alta qualidade da Snowplow: à medida que os usuários realizam ações em seu produto, app ou site, é possível aproveitar os dados de comportamento em tempo real coletados pela Snowplow para adicionar ou remover automaticamente usuários de segmentos relevantes na Braze.
+Crie públicos dinâmicos na Braze com base nos dados comportamentais de alta qualidade da Snowplow: à medida que os usuários realizam ações em seu produto, app ou website, é possível aproveitar os dados comportamentais em tempo real coletados pela Snowplow para adicionar ou remover automaticamente usuários de segmentos relevantes na Braze.
 
 ## Integração {#integration}
 
@@ -59,9 +59,9 @@ Para criar o encaminhador de eventos:
 
 Ao configurar o encaminhador, você pode escolher quais eventos da Snowplow serão encaminhados e mapeá-los para os tipos de objetos da Braze:
 
-1. **[Atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)**: Atualize os dados do perfil do usuário e as propriedades personalizadas do usuário.
-2. **[Eventos personalizados]({{site.baseurl}}/api/objects_filters/event_object/)**: Envie ações e comportamentos do usuário.
-3. **[Compras]({{site.baseurl}}/api/objects_filters/purchase_object/)**: Envie dados de transação com detalhes do produto.
+1. **[Atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)**: Atualize os dados do perfil do usuário e as propriedades personalizadas do usuário.
+2. **[Eventos personalizados]({{site.baseurl}}/api/objects_filters/event_object)**: Envie ações e comportamentos do usuário.
+3. **[Compras]({{site.baseurl}}/api/objects_filters/purchase_object)**: Envie dados de transação com detalhes do produto.
 
 Para cada tipo de objeto, você pode configurar mapeamentos de campo para especificar como os dados de eventos da Snowplow são mapeados para os campos da Braze. Consulte a documentação [Creating forwarders](https://docs.snowplow.io/docs/destinations/forwarding-events/creating-forwarders/) da Snowplow para obter instruções detalhadas de configuração e mapeamento de campos.
 
@@ -82,8 +82,8 @@ Você pode enviar propriedades personalizadas além dos campos padrão. A estrut
 
 Para nomes de propriedades que contenham espaços, use a notação de colchetes (por exemplo, `["account type"]` ou `properties["campaign source"]`).
 
-Consulte a [documentação do Event Object]({{site.baseurl}}/api/objects_filters/event_object/) para obter detalhes sobre os tipos de dados compatíveis, os requisitos de nomenclatura de propriedades e os limites de tamanho da carga útil.
+Consulte a [documentação do Event Object]({{site.baseurl}}/api/objects_filters/event_object) para obter detalhes sobre os tipos de dados compatíveis, os requisitos de nomenclatura de propriedades e os limites de tamanho da carga útil.
 
 ## Limitações {#limitations}
 
-**Limites de taxa:** A Braze impõe um limite de taxa de 3.000 chamadas de API a cada três segundos para a API Track Users. Como a Snowplow não oferece suporte a lotes para encaminhadores de eventos, esse limite de taxa da API também funciona como o limite de taxa de eventos. Se a taxa de transferência de entrada exceder 3.000 eventos a cada três segundos, a latência poderá aumentar.
+**Limites de frequência:** A Braze impõe um limite de frequência de 3.000 chamadas de API a cada três segundos para a API Track Users. Como a Snowplow não oferece suporte a lotes para encaminhadores de eventos, esse limite de frequência da API também funciona como o limite de frequência de eventos. Se a taxa de transferência de entrada exceder 3.000 eventos a cada três segundos, a latência poderá aumentar.

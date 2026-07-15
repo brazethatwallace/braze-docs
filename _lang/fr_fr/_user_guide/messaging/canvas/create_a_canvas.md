@@ -9,7 +9,7 @@ search_rank: 1
 
 # Créer un Canvas {#create-a-canvas}
 
-> Cet article de référence couvre les étapes nécessaires à la création, la gestion et le test d'un Canvas. Suivez ce guide ou consultez notre [cours d'apprentissage Canvas sur Braze Learning](https://learning.braze.com/quick-overview-canvas-setup). Vous pouvez également partir d'un [modèle de Canvas Braze]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) pour accélérer votre configuration. Pour en savoir plus, consultez [Modèles de canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates).
+> Cet article de référence couvre les étapes nécessaires à la création, la gestion et le test d'un Canvas. Suivez ce guide ou consultez notre [cours d'apprentissage Canvas sur Braze Learning](https://learning.braze.com/quick-overview-canvas-setup). Vous pouvez également partir d'un [modèle de Canvas Braze]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) pour accélérer votre configuration. Pour en savoir plus, consultez [Modèles de Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates).
 
 {% details Développer pour les détails de l'éditeur Canvas d'origine %}
 Vous ne pouvez plus créer ni dupliquer de Canvas avec l'éditeur Canvas d'origine. Braze recommande de [cloner vos Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases) vers l'éditeur le plus récent.
@@ -68,10 +68,10 @@ Le générateur de Canvas vous guidera étape par étape dans la configuration d
 
 ### Étape 1.1 : Commencer par les bases de votre Canvas {#step-11-start-with-your-canvas-basics}
 
-Ici, vous nommerez votre Canvas, assignerez des [Équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams) et créerez ou ajouterez des [Étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags). Vous pouvez également assigner des événements de conversion pour le Canvas.
+Ici, vous nommerez votre Canvas, assignerez des [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams) et créerez ou ajouterez des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags). Vous pouvez également assigner des événements de conversion pour le Canvas.
 
 {% alert tip %}
-Étiquetez vos Canvas pour les retrouver facilement et créer des rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
+Étiquetez vos Canvas pour les retrouver facilement et créer des rapports. Par exemple, lorsque vous utilisez le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
 {% endalert %}
 
 ![La page de détails du Canvas, avec des champs pour le nom du Canvas, la description, l'emplacement et les étiquettes.]({% image_buster /assets/img/canvas_details.png %}){: style="max-width:70%;"}
@@ -125,7 +125,7 @@ Vous pouvez utiliser les endpoints suivants pour la livraison déclenchée par A
 {% endtab %}
 {% endtabs %}
 
-Après avoir sélectionné votre méthode de livraison, ajustez les paramètres en fonction de votre cas d'utilisation, puis passez à la définition de votre audience cible.
+Après avoir sélectionné votre méthode de livraison, ajustez les paramètres en fonction de votre cas d'usage, puis passez à la définition de votre audience cible.
 
 {% details Comportement de déduplication pour les Canvas utilisant l'éditeur d'origine %}
 Si la fenêtre de rééligibilité est inférieure à la durée maximale du Canvas, un utilisateur pourra ré-entrer et recevoir les messages de plusieurs composants. Dans le cas limite où la ré-entrée d'un utilisateur atteint le même composant que son entrée précédente, Braze dédupliquera les messages de ce composant.
@@ -169,7 +169,7 @@ La définition des [critères de sortie]({{site.baseurl}}/user_guide/messaging/c
 
 #### Calculer la population cible {#calculating-target-population}
 
-Dans la section **Population cible**, vous pouvez consulter un résumé de votre audience, comme vos segments sélectionnés et les filtres supplémentaires, ainsi qu'une répartition du nombre d'utilisateurs pouvant être atteints par canal de communication. Pour calculer le nombre exact d'utilisateurs pouvant être atteints dans votre audience cible au lieu de l'estimation par défaut, sélectionnez [Calculer les statistiques exactes]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics).
+Dans la section **Population cible**, vous pouvez consulter un résumé de votre audience, comme vos segments sélectionnés et les filtres supplémentaires, ainsi qu'une répartition du nombre d'utilisateurs pouvant être atteints par canal de communication. Pour calculer le nombre exact d'utilisateurs pouvant être atteints dans votre audience cible au lieu de l'estimation par défaut, sélectionnez [Calculer les statistiques exactes]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics).
 
 Notez que :
 
@@ -187,7 +187,7 @@ Pour afficher des statistiques supplémentaires, comme le chiffre d'affaires moy
 
 ### Étape 1.4 : Sélectionner vos paramètres d'envoi {#step-14-select-your-send-settings}
 
-Sélectionnez **Paramètres d'envoi** pour modifier vos paramètres d'abonnement, activer la limite de débit et activer les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). En activant la [limite de débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-canvas-components) ou la [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping), vous pouvez alléger la pression marketing exercée sur vos utilisateurs et vous assurer de ne pas les sur-solliciter.
+Sélectionnez **Paramètres d'envoi** pour modifier vos paramètres d'abonnement, activer la limitation du débit et activer les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours). En activant la [limitation du débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) ou la [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping), vous pouvez alléger la pression marketing exercée sur vos utilisateurs et vous assurer de ne pas les sur-solliciter.
 
 Pour les Canvas ciblant les canaux e-mail et push, vous pouvez souhaiter limiter votre Canvas aux seuls utilisateurs ayant explicitement donné leur accord (en excluant les utilisateurs abonnés ou désabonnés). Par exemple, supposons que vous ayez trois utilisateurs avec des statuts d'abonnement différents :
 
@@ -212,7 +212,7 @@ Lorsque l'option **Envoyer au prochain horaire disponible** est sélectionnée, 
 ## Étape 2 : Construire votre Canvas {#step-2-build-your-canvas}
 
 {% alert tip %}
-Gagnez du temps et simplifiez la création de votre Canvas en utilisant les [modèles de Canvas Braze]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) ! Parcourez notre bibliothèque de modèles prédéfinis pour trouver celui qui correspond à votre cas d'utilisation et personnalisez-le selon vos besoins spécifiques. Pour en savoir plus, consultez [Modèles de canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates).
+Gagnez du temps et simplifiez la création de votre Canvas en utilisant les [modèles de Canvas Braze]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates) ! Parcourez notre bibliothèque de modèles prédéfinis pour trouver celui qui correspond à votre cas d'usage et personnalisez-le selon vos besoins spécifiques. Pour en savoir plus, consultez [Modèles de Canvas]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates).
 {% endalert %}
 
 ### Étape 2.1 : Ajouter une variante {#step-21-add-a-variant}
@@ -226,11 +226,11 @@ Vous pouvez ajouter des variantes supplémentaires en sélectionnant le bouton p
 ![Deux exemples de variantes dans un Canvas Braze.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-Par défaut, l'affectation de la variante du Canvas est déterminée par un hachage déterministe de l'ID utilisateur et de l'ID Canvas (et non par le [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) d'un utilisateur), ce qui signifie qu'un utilisateur donné est systématiquement affecté à la même variante lors d'une ré-entrée, tant que les pourcentages de répartition des variantes restent inchangés. Si vous ajustez la répartition des variantes après le lancement, les utilisateurs peuvent être affectés à des variantes différentes lorsqu'ils ré-entrent dans le Canvas. <br><br>Si vous avez besoin d'une affectation qui reste fixe même lorsque les pourcentages de répartition changent, utilisez une seule variante de Canvas et orientez les utilisateurs avec une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths). Au début du parcours, utilisez une étape [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) pour stocker un nombre aléatoire dans un attribut personnalisé, puis filtrez sur cet attribut dans les Parcours d'audience.
+Par défaut, l'affectation de la variante du Canvas est déterminée par un hachage déterministe de l'ID utilisateur et de l'ID Canvas (et non par le [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) d'un utilisateur), ce qui signifie qu'un utilisateur donné est systématiquement affecté à la même variante lors d'une ré-entrée, tant que les pourcentages de répartition des variantes restent inchangés. Si vous ajustez la répartition des variantes après le lancement, les utilisateurs peuvent être affectés à des variantes différentes lorsqu'ils ré-entrent dans le Canvas. <br><br>Si vous avez besoin d'une affectation qui reste fixe même lorsque les pourcentages de répartition changent, utilisez une seule variante de Canvas et orientez les utilisateurs avec une étape [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths). Au début du parcours, utilisez une étape [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) pour stocker un nombre aléatoire dans un attribut personnalisé, puis filtrez sur cet attribut dans les parcours d'audience.
 
 {% details Développer pour les étapes %}
 
-1. Créez un attribut personnalisé de type **Nombre** pour stocker votre nombre aléatoire. Nommez-le de manière facile à retrouver, comme `lottery_number` ou `random_assignment`. Dans votre tableau de bord, accédez à **Paramètres des données** > **Attributs personnalisés**.<br><br>
+1. Créez un attribut personnalisé de type **Nombre** pour stocker votre nombre aléatoire. Nommez-le de manière facile à retrouver, comme `lottery_number` ou `random_assignment`. Dans votre tableau de bord, accédez à **Data Settings** > **Custom Attributes**.<br><br>
 2. Utilisez une seule variante de Canvas (ou ajoutez la même étape Mise à jour utilisateur à chaque variante). Ajoutez une étape [Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) au début du parcours. Cette étape génère et stocke le nombre aléatoire avant que les utilisateurs n'atteignent votre étape Parcours d'audience.<br><br>
 3. Dans l'étape Mise à jour utilisateur, sélectionnez l'[éditeur JSON avancé]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Utilisez la balise {% raw %}{% random %}{% endraw %} pour générer le nombre. Pour plus de détails, consultez [Envoyer des messages avec un nombre aléatoire]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#send-messages-with-a-random-number). Par exemple, {% raw %}`{% random 10 %}`{% endraw %} renvoie un entier de 0 à 9. Définissez l'attribut personnalisé de l'étape 1 en utilisant un JSON comme celui-ci :<br><br>{% raw %}
 ```json
@@ -300,7 +300,7 @@ Le composant Message gère les messages envoyés aux utilisateurs. Vous pouvez s
 
 ![L'étape « Configurer les messages », avec « Canaux de communication » sélectionné, affichant la liste des canaux de communication disponibles, tels que notification push Android, Content Cards, e-mail, et plus encore.]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
-Sélectionnez **Terminé** après avoir fini de configurer votre composant Canvas.
+Sélectionnez **Done** après avoir fini de configurer votre composant Canvas.
 
 {% tabs local %}
 {% tab Propriétés d'entrée du Canvas %}
@@ -327,7 +327,7 @@ Dans la première étape de message suivant un parcours d'actions, vous pouvez u
 
 ### Étape 2.3 : Modifier les connexions {#step-23-edit-connections}
 
-Pour déplacer une connexion entre des étapes, sélectionnez la flèche reliant les deux composants, puis sélectionnez un composant différent. Pour supprimer la connexion, sélectionnez la flèche puis **Annuler la connexion** dans le pied de page du compositeur de Canvas.
+Pour déplacer une connexion entre des étapes, sélectionnez la flèche reliant les deux composants, puis sélectionnez un composant différent. Pour supprimer la connexion, sélectionnez la flèche puis **Cancel Connection** dans le pied de page du compositeur de Canvas.
 
 Si une seule variante comporte plusieurs branches avec la même audience et le même horaire d'envoi, Braze ne garantit pas une répartition égale entre ces branches. La répartition peut favoriser la branche créée en premier. Pour une répartition égale, utilisez des filtres de [numéro de compartiment aléatoire]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) sur chaque branche. Pour en savoir plus, consultez [Que se passe-t-il si l'audience et l'horaire d'envoi sont identiques pour un Canvas qui a une variante, mais plusieurs branches ?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-if-the-audience-and-send-time-are-identical-for-a-canvas-that-has-one-variant-but-multiple-branches).
 
@@ -345,19 +345,19 @@ Dans cet exemple, notre Canvas est divisé en deux variantes. La variante 1 reç
 
 ### Sélection intelligente pour Canvas {#intelligent-selection-for-canvas}
 
-Les fonctionnalités de Sélection intelligente sont désormais disponibles dans les Canvas multivariés. De manière similaire à la fonctionnalité de [Sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) pour les Campaigns multivariées, la Sélection intelligente pour Canvas analyse les performances de chaque variante du Canvas et ajuste le pourcentage d'utilisateurs dirigés vers chaque variante. Cette répartition est basée sur les indicateurs de performance de chaque variante afin de maximiser le nombre total attendu de conversions.
+Les fonctionnalités de sélection intelligente sont désormais disponibles dans les Canvas multivariés. De manière similaire à la fonctionnalité de [sélection intelligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) pour les Campaigns multivariées, la sélection intelligente pour Canvas analyse les performances de chaque variante du Canvas et ajuste le pourcentage d'utilisateurs dirigés vers chaque variante. Cette répartition est basée sur les indicateurs de performance de chaque variante afin de maximiser le nombre total attendu de conversions.
 
-Gardez à l'esprit que les Canvas multivariés vous permettent de tester non seulement le contenu, mais aussi le timing et les canaux. Grâce à la Sélection intelligente, vous pouvez tester les Canvas plus efficacement et avoir la certitude que vos utilisateurs seront envoyés sur le meilleur parcours Canvas possible.
+Gardez à l'esprit que les Canvas multivariés vous permettent de tester non seulement le contenu, mais aussi le timing et les canaux. Grâce à la sélection intelligente, vous pouvez tester les Canvas plus efficacement et avoir la certitude que vos utilisateurs seront envoyés sur le meilleur parcours Canvas possible.
 
 ![L'option « Sélection intelligente » est activée dans la page « Modifier la répartition des variantes ». Pendant l'analyse et l'optimisation du Canvas, une barre horizontale s'affiche sur la page, divisée en plusieurs sections de couleurs et tailles différentes. Il s'agit uniquement d'une représentation visuelle qui ne correspond à aucune analyse spécifique.]({% image_buster /assets/img_archive/canvas_intelligent_selection.png %})
 
-La Sélection intelligente pour Canvas optimise les résultats de votre Canvas en effectuant des ajustements graduels en temps réel de la répartition des utilisateurs dans chaque variante. Lorsque l'algorithme statistique détermine un gagnant décisif parmi vos variantes, il élimine les variantes sous-performantes et dirige tous les futurs destinataires éligibles du Canvas vers les variantes gagnantes.
+La sélection intelligente pour Canvas optimise les résultats de votre Canvas en effectuant des ajustements graduels en temps réel de la répartition des utilisateurs dans chaque variante. Lorsque l'algorithme statistique détermine un gagnant décisif parmi vos variantes, il élimine les variantes sous-performantes et dirige tous les futurs destinataires éligibles du Canvas vers les variantes gagnantes.
 
-Pour cette raison, la Sélection intelligente fonctionne mieux sur les Canvas qui accueillent fréquemment de nouveaux utilisateurs.
+Pour cette raison, la sélection intelligente fonctionne mieux sur les Canvas qui accueillent fréquemment de nouveaux utilisateurs.
 
 ## Étape 4 : Enregistrer et lancer {#step-4-save-and-launch}
 
-Une fois la création de votre Canvas terminée, sélectionnez **Lancer le Canvas** pour enregistrer et lancer votre Canvas. Après le lancement, vous pourrez consulter les analyses de votre parcours au fur et à mesure sur la page **Détails du Canvas**.
+Une fois la création de votre Canvas terminée, sélectionnez **Launch Canvas** pour enregistrer et lancer votre Canvas. Après le lancement, vous pourrez consulter les analyses de votre parcours au fur et à mesure sur la page **Canvas Details**.
 
 Vous pouvez également enregistrer votre Canvas en tant que brouillon si vous devez y revenir ultérieurement.
 

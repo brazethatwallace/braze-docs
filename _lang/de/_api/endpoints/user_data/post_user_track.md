@@ -59,7 +59,7 @@ Für jede in der folgenden Tabelle aufgeführte Anfragekomponente müssen Sie ei
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Optional | Array von Attribut-Objekten | Siehe [Nutzer:innen-Attribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `attributes` | Optional | Array von Attribut-Objekten | Siehe [Nutzer:innen-Attribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
 | `events` | Optional | Array von Event-Objekten | Siehe [Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | Optional | Array von Kauf-Objekten | Siehe [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }

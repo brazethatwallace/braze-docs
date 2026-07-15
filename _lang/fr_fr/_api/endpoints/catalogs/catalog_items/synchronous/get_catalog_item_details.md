@@ -21,7 +21,7 @@ description: "Cet article présente en détail l'endpoint Braze Lister les déta
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `catalogs.get_item`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `catalogs.get_item`.
 
 ## Limite de débit {#rate-limit}
 

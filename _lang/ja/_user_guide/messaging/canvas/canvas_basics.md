@@ -31,7 +31,7 @@ tool: Canvas
   {% endtab %}
 
   {% tab キャンバスビルダー %}
-  キャンバスビルダーは、キャンバスを作成する際に必要なステップを示します。キャンバスの命名やチームの追加などの基本情報が含まれます。基本的に、キャンバスビルダーはcanvasの構築を開始する前に必要な重要な設定です。ここでは、[エントリスケジュール]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2b-set-your-canvas-entry-schedule)、[ターゲットオーディエンス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2c-set-your-target-entry-audience)、[送信設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2d-select-your-send-settings)を編集するオプションを使って、ユーザーがカスタマージャーニーを開始し完了する方法をコントロールできます。<br><br> ![「New キャンバス」という名前のキャンバスの基本情報セクションにあるキャンバスビルダー。]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
+  キャンバスビルダーは、キャンバスを作成する際に必要なステップを示します。キャンバスの命名やチームの追加などの基本情報が含まれます。基本的に、キャンバスビルダーはキャンバスの構築を開始する前に必要な重要な設定です。ここでは、[エントリスケジュール]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule)、[ターゲットオーディエンス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-13-set-your-target-entry-audience)、[送信設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings)を編集するオプションを使って、ユーザーがカスタマージャーニーを開始し完了する方法をコントロールできます。<br><br> ![「New キャンバス」という名前のキャンバスの基本情報セクションにあるキャンバスビルダー。]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
 
   {% endtab %}
 
@@ -56,13 +56,13 @@ tool: Canvas
 
 名前の力を過小評価しないでください。Brazeはコラボレーションのために構築されているため、チームと目標をどのように共有するかを固める良い機会です。
 
-キャンバス内のステップやバリアントにタグを追加したり名前を付けたりできます。カスタマージャーニーの詳細については、[ユーザーライフサイクルのマッピング](https://learning.braze.com/mapping-customer-lifecycles)に関するBrazeラーニングコースをご覧ください。
+キャンバス内のステップやバリアントにタグを追加したり名前を付けたりできます。カスタマージャーニーの詳細については、[ユーザーライフサイクルのマッピング](https://learning.braze.com/mapping-customer-lifecycles)に関するBraze Learningコースをご覧ください。
 
 ### 「なぜ」：コンバージョンイベントを特定する {#the-why-identify-conversion-events}
 
 *「何を」を踏まえて、なぜこのキャンバスを構築するのですか？*
 
-明確な目標を持つことは常に重要であり、キャンバスはセッションエンゲージメント、購入、カスタムイベントなどのKPIに対するパフォーマンスを把握するのに役立ちます。
+明確な目標を持つことは常に重要であり、キャンバスはセッションエンゲージメント、購入、カスタムイベントなどのKPIsに対するパフォーマンスを把握するのに役立ちます。
 
 少なくとも1つの[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を選択することで、キャンバス内のパフォーマンスを最適化する方法を理解できるようになります。キャンバスに複数のバリアントやコントロールグループがある場合、Brazeはコンバージョンイベントを使用して、この目標を達成するための最適なバリエーションを判断します。
 
@@ -138,7 +138,7 @@ tool: Canvas
 
 ### 逆算して考える {#work-backwards}
 
-目標の中には、より小さなサブ目標があるものもあります。例えば、無料ユーザーをサブスクリプションに転換することを目指している場合、サブスクリプションサービスの概要を記載したページが必要かもしれません。訪問者は購入前にオプションを確認する必要があるかもしれません。チェックアウトページの前にこのページを表示することにメッセージングの取り組みを集中させることができます。顧客が目標に到達するためにたどるべきジャーニーを逆算して理解することが、コンバージョンへと導く鍵です。
+目標の中には、より小さなサブ目標があるものもあります。例えば、無料ユーザーを購読に転換することを目指している場合、購読サービスの概要を記載したページが必要かもしれません。訪問者は購入前にオプションを確認する必要があるかもしれません。チェックアウトページの前にこのページを表示することにメッセージングの取り組みを集中させることができます。顧客が目標に到達するためにたどるべきジャーニーを逆算して理解することが、コンバージョンへと導く鍵です。
 
 ### メッセージングに変化をつける {#mix-up-your-messaging}
 

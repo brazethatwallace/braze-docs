@@ -97,7 +97,7 @@ Une autre condition de concurrence courante peut survenir lorsque vous configure
 
 #### Vérifier votre audience après un délai {#check-your-audience-after-a-delay}
 
-Pour éviter d'utiliser des filtres d'audience contenant les critères de déclenchement, nous recommandons de vérifier votre audience avant la distribution. Par exemple, vous pouvez [utiliser les validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#edit-delivery-settings) dans les étapes de message Canvas comme vérification supplémentaire pour confirmer que votre audience remplit les critères de distribution au moment de l'envoi du message. Vous pouvez également tirer parti des critères de sortie du Canvas pour faire sortir les utilisateurs à tout moment du parcours s'ils remplissent vos critères.
+Pour éviter d'utiliser des filtres d'audience contenant les critères de déclenchement, nous recommandons de vérifier votre audience avant la distribution. Par exemple, vous pouvez [utiliser les validations de distribution]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings) dans les étapes de message Canvas comme vérification supplémentaire pour confirmer que votre audience remplit les critères de distribution au moment de l'envoi du message. Vous pouvez également tirer parti des critères de sortie du Canvas pour faire sortir les utilisateurs à tout moment du parcours s'ils remplissent vos critères.
 
 Pour les campagnes, vous pouvez utiliser des événements de sortie pour permettre aux campagnes avec un événement déclencheur d'annuler les messages destinés aux utilisateurs qui effectuent l'événement de sortie pendant le délai.
 

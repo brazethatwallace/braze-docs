@@ -12,9 +12,9 @@ toc_headers: h2
 
 ## 一般 {#general}
 
-### キャンバスエージェントとカタログエージェントの違いは何ですか？ {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
+### キャンバスステップエージェントとカタログエージェントの違いは何ですか？ {#what-is-the-difference-between-canvas-step-agents-and-catalog-agents}
 
-エージェントを作成する際に、キャンバスエージェントとカタログエージェントのどちらを作成するかを指定します。これにより、エージェントがサポートできる指示やオプションの種類が決まります。キャンバスエージェントはジャーニー内でリアルタイムにユーザーを処理し、カタログエージェントは処理された情報で列を追加または更新することでカタログデータを充実させます。
+エージェントを作成する際に、キャンバスステップエージェントとカタログエージェントのどちらを作成するかを指定します。これにより、エージェントがサポートできる指示やオプションの種類が決まります。キャンバスステップエージェントはジャーニー内でリアルタイムにユーザーを処理し、カタログエージェントは処理された情報で列を追加または更新することでカタログデータを充実させます。
 
 ### Autoモデルと独自モデル（BYO）を使用するメリットの違いは何ですか？ {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 
@@ -68,7 +68,7 @@ Braze Autoモデルを使用するメリットには以下があります。
 - エージェントの指示が、**出力**タブで指定された出力形式とは異なる出力形式を要求している（例：エージェントの指示では文字列を要求しているが、**出力**タブでは出力が数値として定義されている）
 - エージェントのタスクが複雑すぎるため、[サブエージェントアプローチ](#subagent-approach)の方が適している
 
-キャンバスエージェントの場合、呼び出しが失敗してもユーザーが出力を受け取れるように、エージェントコンソールで[フォールバック値]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)を設定してください。
+キャンバスステップエージェントの場合、呼び出しが失敗してもユーザーが出力を受け取れるように、エージェントコンソールで[フォールバック値]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)を設定してください。
 
 ### テストではうまくいったのに、キャンバスで起動するとユーザー固有のデータが取得されないのはなぜですか？ {#why-did-my-agent-do-fine-in-testing-but-isnt-getting-any-user-specific-data-when-i-launch-it-in-a-canvas}
 

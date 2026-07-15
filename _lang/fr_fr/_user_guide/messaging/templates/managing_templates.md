@@ -51,14 +51,14 @@ Les modèles dupliqués peuvent être retrouvés en triant la colonne **Dernièr
 
 Pour archiver un modèle individuel, sélectionnez <i class="fas fa-ellipsis-v"></i> **Plus d'options** sur l'écran de la grille des modèles et sélectionnez **Archiver**. Lorsqu'un modèle est archivé, notez les différents scénarios suivants :
 
-- Les campagnes actives continuent d'utiliser le modèle archivé sans interruption.
-- Les brouillons de campagnes conservent le contenu du modèle archivé et peuvent être modifiés et lancés.
-- Pour modifier un modèle archivé, vous devez d'abord le désarchiver. De même, pour utiliser un modèle archivé dans une campagne, vous devez d'abord désarchiver le modèle.
+- Les Campaigns actives continuent d'utiliser le modèle archivé sans interruption.
+- Les brouillons de Campaigns conservent le contenu du modèle archivé et peuvent être modifiés et lancés.
+- Pour modifier un modèle archivé, vous devez d'abord le désarchiver. De même, pour utiliser un modèle archivé dans une Campaign, vous devez d'abord désarchiver le modèle.
 
 Pour archiver plusieurs modèles, cochez la case à côté de chaque modèle que vous souhaitez archiver. Après avoir sélectionné plusieurs modèles, sélectionnez **Archiver**. Vous pouvez retrouver vos modèles archivés en sélectionnant **Archivé** sous **Afficher** dans la grille des modèles.
 
 ![Section des modèles d'e-mail par glisser-déposer enregistrés montrant deux modèles sélectionnés et une barre d'outils avec l'option d'archivage.]({% image_buster /assets/img/archive_multiple_template.png %}){: style="max-width:60%;"}
 
 {% alert important %}
-L'archivage n'est actuellement pas disponible pour les [modèles de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing#link-templates).
+L'archivage n'est actuellement pas disponible pour les [modèles de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing).
 {% endalert %}

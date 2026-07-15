@@ -25,7 +25,7 @@ Die Integration von Wunderkind Signals ermöglicht es, Verhaltenssignale mit hoh
 | Wunderkind-Konto | Ein Wunderkind-Konto mit aktivierten Signals ist erforderlich. Kontaktieren Sie Ihre Wunderkind-Vertretung, um die Berechtigung zu bestätigen. |
 | Braze-Konto | Ein Braze-Konto mit Canvas-Zugang ist erforderlich. Dem Wunderkind-Team muss ein Platz in Ihrem Konto gewährt werden. Alle Details finden Sie unter [Wunderkind Zugang zu Ihrem Braze-Konto gewähren](https://support.wunderkind.co/hc/en-us/articles/47921719757339-Grant-Wunderkind-Access-to-Your-Braze-Account). |
 | Braze REST-API-Schlüssel | Sie erstellen während der Einrichtung einen dedizierten API-Schlüssel mit bestimmten Berechtigungen (siehe [Schritt 1](#step-1-create-a-braze-api-key-for-wunderkind)). |
-| Nutzeridentifizierung | Wunderkind löst eine:n Verbraucher:in in Braze typischerweise über `user_alias` mit `alias_label: "wknd_email_id"` auf (häufig mit der E-Mail als `alias_name`). Jede:r [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)-Empfänger:in muss genau eines der folgenden Felder enthalten: `external_user_id`, `user_alias`, `braze_id` oder `email` ([Recipients-Objekt]({{site.baseurl}}/api/objects_filters/recipient_object)); wenn Sie `email` verwenden, fügen Sie [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email) hinzu. Bei Verwendung von `user_alias` muss das Profil bereits in Braze existieren, bevor der Trigger ausgelöst wird. Erstellen oder aktualisieren Sie Nutzer:innen und Aliase zunächst mit [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify). Weitere Informationen finden Sie unter [Einschränkungen](#limitations). |
+| Nutzeridentifizierung | Wunderkind löst eine:n Verbraucher:in in Braze typischerweise über `user_alias` mit `alias_label: "wknd_email_id"` auf (häufig mit der E-Mail als `alias_name`). Jede:r [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)-Empfänger:in muss genau eines der folgenden Felder enthalten: `external_user_id`, `user_alias`, `braze_id` oder `email` ([Recipients-Objekt]({{site.baseurl}}/api/objects_filters/recipient_object)); wenn Sie `email` verwenden, fügen Sie [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers) hinzu. Bei Verwendung von `user_alias` muss das Profil bereits in Braze existieren, bevor der Trigger ausgelöst wird. Erstellen oder aktualisieren Sie Nutzer:innen und Aliase zunächst mit [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify). Weitere Informationen finden Sie unter [Einschränkungen](#limitations). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## So funktioniert es {#how-it-works}
@@ -142,7 +142,7 @@ Wunderkind unterstützt sechs Signaltypen. Jeder liefert einen eigenen Satz von 
 Jedes Objekt in `recipients` muss genau eines der folgenden Felder enthalten: `external_user_id`, `user_alias`, `braze_id` oder `email`. Weitere Informationen finden Sie im [Recipients-Objekt]({{site.baseurl}}/api/objects_filters/recipient_object).
 
 {% alert note %}
-Jedes Beispiel verwendet **einen** Braze-Empfänger-Bezeichner. Die ersten sechs verwenden nur `user_alias`; das letzte verwendet nur `email` mit [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email). Das Beispiel-JSON lässt den `WkChannel`-Schlüssel innerhalb von `context` weg, damit Überprüfungstools dessen Wert (`"email"`) nicht mit dem Braze-Empfängerfeld `email` verwechseln. In der Produktion fügen Sie `"WkChannel": "email"` in `context` ein, wie in der [Tabelle „Gemeinsame Felder (alle Canvas-Typen)“](#canvas-types-table) dokumentiert.
+Jedes Beispiel verwendet **einen** Braze-Empfänger-Bezeichner. Die ersten sechs verwenden nur `user_alias`; das letzte verwendet nur `email` mit [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers). Das Beispiel-JSON lässt den `WkChannel`-Schlüssel innerhalb von `context` weg, damit Überprüfungstools dessen Wert (`"email"`) nicht mit dem Braze-Empfängerfeld `email` verwechseln. In der Produktion fügen Sie `"WkChannel": "email"` in `context` ein, wie in der [Tabelle „Gemeinsame Felder (alle Canvas-Typen)“](#canvas-types-table) dokumentiert.
 {% endalert %}
 
 Die folgenden Beispiele verwenden `user_alias` mit `wknd_email_id`, entsprechend der Art, wie Wunderkind Identitäten auflöst.
@@ -409,17 +409,17 @@ Verschachteln Sie keine Braze-Ausgabe-Tags innerhalb der `for`-Tag-Bedingung. We
 
 ## Reporting
 
-Wunderkind nimmt Performance-Daten aus Braze über **Braze-Currents** auf, die Roh-Ereignisse an Google Cloud Storage streamen. Wunderkind normalisiert und aggregiert diese Ereignisse dann gegen das auslösende Signal für 1:1-Attribution-Reporting.
+Wunderkind nimmt Performance-Daten aus Braze über **Braze Currents** auf, die Roh-Ereignisse an Google Cloud Storage streamen. Wunderkind normalisiert und aggregiert diese Ereignisse dann gegen das auslösende Signal für 1:1-Attribution-Reporting.
 
 Die folgenden Metriken werden in Kürze im Wunderkind-Reporting-Dashboard verfügbar sein:
 
 | Metrik | Quelle |
 | ------ | ------ |
-| Zugestellte Sendungen | Braze-Currents |
-| E-Mail-Öffnungen | Braze-Currents |
-| Klicks | Braze-Currents |
-| Conversions | Braze-Currents (Ereignis wird bei der Einrichtung definiert) |
-| Abmeldungen | Braze-Currents |
+| Zugestellte Sendungen | Braze Currents |
+| E-Mail-Öffnungen | Braze Currents |
+| Klicks | Braze Currents |
+| Conversions | Braze Currents (Ereignis wird bei der Einrichtung definiert) |
+| Abmeldungen | Braze Currents |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Reporting" }
 
 ## Einschränkungen {#limitations}
@@ -427,7 +427,7 @@ Die folgenden Metriken werden in Kürze im Wunderkind-Reporting-Dashboard verfü
 - **Keine Unterdrückungs-/Opt-out-Synchronisierung.** Die Unterdrückung muss nativ in Braze verwaltet werden. Hinweis: Für bestehende Wunderkind-Kund:innen, die zu Braze Signals migrieren, arbeitet Wunderkind mit Ihrem Team zusammen, um Ihre aktuelle Einrichtung beizubehalten.
 - **Nur E-Mail-Kanal.** SMS wird derzeit über diese Integration nicht unterstützt.
 - **Nutzerprofil muss vor dem Canvas-Trigger existieren.** [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) mit einer `user_alias`-Empfängerin bzw. einem `user_alias`-Empfänger löst nur **bestehende** Braze-Profile auf, die diesen Alias bereits haben. Sie können `send_to_existing_only` nicht mit Aliasen verwenden, und der Canvas-Trigger erstellt kein komplett neues Profil allein aus dem Alias. Die Nutzerin bzw. der Nutzer muss zuerst erstellt oder aktualisiert und der `wknd_email_id`-Alias gesetzt werden (zum Beispiel mit [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)). Wunderkind wartet möglicherweise kurz nach diesem Upsert, damit Braze die Verarbeitung abschließen kann, bevor der Trigger ausgelöst wird.
-- **E-Mail als Bezeichner.** Wenn der Canvas-Trigger die Empfängerin bzw. den Empfänger mit `email` anstelle von `user_alias` identifiziert, fügen Sie [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email) zu diesem Empfängerobjekt hinzu, wie von Braze gefordert.
+- **E-Mail als Bezeichner.** Wenn der Canvas-Trigger die Empfängerin bzw. den Empfänger mit `email` anstelle von `user_alias` identifiziert, fügen Sie [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers) zu diesem Empfängerobjekt hinzu, wie von Braze gefordert.
 
 
 ## Zusätzliche Ressourcen {#additional-resources}
@@ -436,4 +436,4 @@ Die folgenden Metriken werden in Kürze im Wunderkind-Reporting-Dashboard verfü
 - [Wunderkind Developer Portal — Integrationsübersicht](https://developer.wunderkind.co/docs/integration-overview)
 - [Canvas-Nachrichten mit API-getriggerter Zustellung senden]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)
 - [Canvas-Kontext-Objekt]({{site.baseurl}}/api/objects_filters/context_object)
-- [Braze-Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)

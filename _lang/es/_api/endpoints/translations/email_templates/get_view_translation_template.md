@@ -6,7 +6,7 @@ page_order: 3
 
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles sobre el punto de conexión Ver todas las traducciones y configuraciones regionales para plantillas de correo electrónico."
+description: "Este artículo describe los detalles sobre el endpoint Ver todas las traducciones y configuraciones regionales para plantillas de correo electrónico."
 ---
 
 {% api %}
@@ -15,11 +15,11 @@ description: "Este artículo describe los detalles sobre el punto de conexión V
 /templates/email/translations/
 {% endapimethod %}
 
-> Usa este punto de conexión para ver todas las traducciones y configuraciones regionales de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates). Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
+> Usa este endpoint para ver todas las traducciones y configuraciones regionales de una [plantilla de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates). Consulta [Configuraciones regionales en los mensajes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) para obtener más información sobre las características de traducción.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `templates.translations.get`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `templates.translations.get`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -27,13 +27,13 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de consulta {#query-parameters}
 
-| Parámetro     | Obligatorio | Tipo de datos | Descripción                     |
+| Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---------------|----------|-----------|---------------------------------|
-| `template_id` | Obligatorio | Cadena    | El ID de tu plantilla de correo electrónico. |
+| `template_id` | Obligatorio | Cadena | El ID de tu plantilla de correo electrónico. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de consulta" }
 
 {% alert note %}
-Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del punto de conexión GET.
+Todos los ID de traducción se consideran identificadores únicos universales (UUID), que se pueden encontrar en la respuesta del endpoint GET.
 {% endalert %}
 
 ## Ejemplo de solicitud {#example-request}
@@ -48,7 +48,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/tra
 
 ## Respuesta {#response}
 
-Hay cuatro respuestas de código de estado para este punto de conexión: `200`, `400`, `404` y `429`.
+Hay cuatro respuestas de código de estado para este endpoint: `200`, `400`, `404` y `429`.
 
 ### Ejemplo de respuesta correcta {#example-success-response}
 

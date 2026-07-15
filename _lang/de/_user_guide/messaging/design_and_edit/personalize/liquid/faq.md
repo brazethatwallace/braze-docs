@@ -64,7 +64,7 @@ Informationen zur Verwendung in URLs und Query-Strings (z. B. wenn ein Name `%` 
 
 Braze verfügt über ein integriertes Feature, das Liquid-Code für Segmente generiert, der in einer Nachricht verwendet werden kann. Konkret können Sie ein Segment erstellen, das mehrere Kriterien in einem Objekt abgleicht.
 
-Weitere Informationen finden Sie unter [Multi-Kriterien-Segmentierung]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation).
+Weitere Informationen finden Sie unter [Multi-Kriterien-Segmentierung]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects).
 
 ### Wie verwende ich Event-Eigenschaften, um eine Nachricht zu personalisieren, die ein Event triggert? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
@@ -189,9 +189,9 @@ Wenn Sie zusätzliche Abstände in gesendeten Nachrichten bemerken, die Content 
 ```
 {% endraw %}
 
-### Warum fehlt mein Content Block unter **Row** im Drag-and-Drop-Suchtool? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
+### Warum fehlt mein Content Block unter **Zeile** im Drag-and-Drop-Suchtool? {#why-is-my-content-block-missing-from-row-in-the-drag-and-drop-search-tool}
 
-Einige Content Blocks werden im Drag-and-Drop-Editor unter **Row** nicht angezeigt. Fügen Sie einen HTML-Block über den Tab **Content** (**Advanced**) hinzu und fügen Sie dann den Content-Block-Liquid-Tag in diesen HTML-Block ein, um den Blockinhalt zu rendern.
+Einige Content Blocks werden im Drag-and-Drop-Editor unter **Zeile** nicht angezeigt. Fügen Sie einen HTML-Block über den Tab **Inhalt** (**Erweitert**) hinzu und fügen Sie dann den Content-Block-Liquid-Tag in diesen HTML-Block ein, um den Blockinhalt zu rendern.
 
 ### Warum unterscheidet sich die Vorschau meines Drag-and-Drop-Content-Blocks von der Ansicht im Editor? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
 

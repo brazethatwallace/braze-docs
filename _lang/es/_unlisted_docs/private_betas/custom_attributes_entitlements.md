@@ -14,13 +14,13 @@ Cuando se almacenan en Braze, los atributos personalizados pueden utilizarse par
 
 Los derechos de uso determinan tu capacidad de atributos personalizados, que rastrea el número de nombres de atributos diferentes que defines. Puedes tener hasta 1000 atributos personalizados por espacio de trabajo. Si necesitas aumentar tu capacidad, ponte en contacto con tu director de cuentas de Braze para obtener más información.
 
-A medida que tu espacio de trabajo se acerque al número máximo de atributos personalizados, recibirás notificaciones en el dashboard y por correo electrónico para ayudarte a mantenerte al día.
+A medida que tu espacio de trabajo se acerque al número máximo de atributos personalizados, recibirás notificaciones en el panel y por correo electrónico para ayudarte a mantenerte al día.
 
 Incluso después de alcanzar la capacidad, los atributos personalizados existentes aún pueden recibirse. Sin embargo, no podrás crear nuevos atributos personalizados. Los datos recibidos para atributos personalizados que aún no existan no se procesarán.
 
 ## Administrar atributos personalizados {#managing-custom-attributes}
 
-Para crear y administrar atributos personalizados en el dashboard, ve a **Configuración de datos** > **Atributos personalizados**.
+Para crear y administrar atributos personalizados en el panel, ve a **Configuración de datos** > **Atributos personalizados**.
 
 ![Cuatro atributos personalizados que son booleanos.]({% image_buster /assets/unlisted_docs/img/custom_attributes_entitlements/export_custom_attributes.png %})
 
@@ -34,26 +34,26 @@ Desde esta página, puedes ver, administrar, crear o bloquear atributos personal
 
 ### Lista de bloqueo {#blocklisting}
 
-Los atributos personalizados pueden bloquearse individualmente en el menú de acciones, o se pueden seleccionar hasta 100 atributos y bloquearlos de forma masiva. Si bloqueas un atributo personalizado, no se recopilarán datos sobre ese atributo, los datos existentes no estarán disponibles a menos que se reactive, y los atributos bloqueados no aparecerán en filtros ni gráficos. Además, si el atributo está actualmente referenciado por filtros o desencadenadores en otras áreas del dashboard de Braze, aparecerá un modal de advertencia explicando que todas las instancias de los filtros o desencadenadores que lo referencian serán eliminadas y archivadas.
+Los atributos personalizados pueden bloquearse individualmente en el menú de acciones, o se pueden seleccionar hasta 100 atributos y bloquearlos de forma masiva. Si bloqueas un atributo personalizado, no se recopilarán datos sobre ese atributo, los datos existentes no estarán disponibles a menos que se reactive, y los atributos bloqueados no aparecerán en filtros ni gráficos. Además, si el atributo está actualmente referenciado por filtros o desencadenadores en otras áreas del panel de Braze, aparecerá un modal de advertencia explicando que todas las instancias de los filtros o desencadenadores que lo referencian serán eliminadas y archivadas.
 
 ### Marcar como información de identificación personal (PII) {#marking-as-personally-identifiable-information-pii}
 
-Los administradores también pueden crear atributos personalizados y marcarlos como PII desde esta página. Estos atributos solo serán visibles para los administradores y los usuarios del dashboard con el permiso "Ver atributos personalizados marcados como PII".
+Los administradores también pueden crear atributos personalizados y marcarlos como PII desde esta página. Estos atributos solo serán visibles para los administradores y los usuarios del panel con el permiso "Ver atributos personalizados marcados como PII".
 
 ### Añadir descripciones {#adding-descriptions}
 
-Puedes añadir una descripción a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Edita el atributo personalizado e introduce lo que desees, como una nota para tu equipo.
+Puedes añadir una descripción a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) `Manage Events, Attributes, Purchases`. Edita el atributo personalizado e introduce lo que desees, como una nota para tu equipo.
 
 ### Añadir etiquetas {#adding-tags}
 
-Puedes añadir etiquetas a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) "Manage Events, Attributes, Purchases". Las etiquetas pueden utilizarse para filtrar la lista de atributos.
+Puedes añadir etiquetas a un atributo personalizado después de crearlo si tienes el [permiso de usuario]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) "Manage Events, Attributes, Purchases". Las etiquetas pueden utilizarse para filtrar la lista de atributos.
 
 ### Eliminar atributos personalizados {#removing-custom-attributes}
 
 Hay dos formas de eliminar atributos personalizados de los perfiles de usuario:
 
-* Selecciona el nombre del atributo personalizado a eliminar en un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes).
-* Establece el valor `null` en tu solicitud de API al [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track).
+* Selecciona el nombre del atributo personalizado a eliminar en un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
+* Establece el valor `null` en tu solicitud de API al [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ### Ver informes de uso {#viewing-usage-reports}
 
@@ -74,16 +74,16 @@ A continuación se enumeran los métodos en varias plataformas que se utilizan p
 - [Android y FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
 - [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
-- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
+- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
 
 ## Almacenamiento de atributos personalizados {#custom-attribute-storage}
 
-Todos los datos almacenados en el **perfil de usuario**, incluidos los datos de atributos personalizados, se conservan indefinidamente mientras cada perfil esté [activo]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
+Todos los datos almacenados en el **perfil de usuario**, incluidos los datos de atributos personalizados, se conservan indefinidamente mientras cada perfil esté [activo]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users).
 
 ## Tipos de datos de atributos personalizados {#custom-attribute-data-types}
 
@@ -96,8 +96,8 @@ Los siguientes tipos de datos pueden almacenarse como atributos personalizados:
 - [Cadenas](#strings)
 - [Arrays](#arrays)
 - [Tiempo](#time)
-- [Objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [Arrays de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [Objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
+- [Arrays de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
 ### Booleanos (verdadero/falso) {#booleans}
 
@@ -158,7 +158,7 @@ Ten en cuenta que si introduces valores con espacios entre, antes o después de 
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-Una cadena de fecha como "12-1-2021" o "12/1/2021" se convertirá en un objeto datetime y se tratará como un [atributo de tiempo]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time).
+Una cadena de fecha como "12-1-2021" o "12/1/2021" se convertirá en un objeto datetime y se tratará como un [atributo de tiempo]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#time).
 {% endalert %}
 
 {% alert important %}
@@ -171,7 +171,7 @@ Los atributos de array son buenos para almacenar listas de información relacion
 
 De forma predeterminada, la longitud máxima de un array para un atributo está establecida en 25 y puede aumentarse hasta 100 para un array individual. Por ejemplo, si estás enviando un atributo como "Películas vistas" y está establecido en 100, cuando un usuario vea una película número 101, la primera película se eliminará del array y se añadirá la más reciente.
 
-Si deseas que este máximo se aumente, ponte en contacto con tu administrador del éxito del cliente. Tu administrador del dashboard puede entonces aumentar la longitud máxima para arrays individuales a más de 100 desde la pestaña **Atributos personalizados** de la página **Administrar configuración**.
+Si deseas que este máximo se aumente, ponte en contacto con tu administrador de éxito del cliente. Tu administrador del panel puede entonces aumentar la longitud máxima para arrays individuales a más de 100 desde la pestaña **Atributos personalizados** de la página **Administrar configuración**.
 
 Ten en cuenta que si introduces valores con espacios entre, antes o después de las palabras, Braze también comprobará esos mismos espacios.
 
@@ -197,14 +197,14 @@ La opción de aumentar la longitud máxima no estará disponible si el atributo 
 {% alert tip %}
 Para más información sobre cómo usar expresiones regulares (regex), consulta estos recursos:
 - [Expresiones regulares compatibles con Perl (PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Regex con Braze]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/)
+- [Regex con Braze]({{site.baseurl}}/user_guide/engagement_tools/segments/regex)
 - [Depurador y probador de regex](https://www.regex101.com/)
 - [Tutorial de regex](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
 
 ### Tiempo {#time}
 
-Los atributos de tiempo son útiles para almacenar la última vez que se realizó una acción específica, para que puedas ofrecer mensajes de reactivación de la interacción específicos a tus usuarios.
+Los atributos de tiempo son útiles para almacenar la última vez que se realizó una acción específica, para que puedas ofrecer mensajes de reactivación específicos a tus usuarios.
 
 Los filtros de tiempo que usan fechas relativas (por ejemplo, hace más de 1 día, hace menos de 2 días) miden 1 día como 24 horas. Cualquier campaña que ejecutes usando estos filtros incluirá a todos los usuarios en incrementos de 24 horas. Por ejemplo, `last used app more than 1 day ago` capturará a todos los usuarios que "usaron la aplicación por última vez hace más de 24 horas" desde el momento exacto en que se ejecuta la campaña. Lo mismo será cierto para campañas configuradas con rangos de fechas más largos, por lo que cinco días desde la activación significarán las 120 horas anteriores.
 
@@ -236,11 +236,11 @@ La última fecha en que ocurrió un evento personalizado o un evento de compra s
 
 ### Objetos {#objects}
 
-Puedes usar atributos personalizados anidados para enviar objetos como tipo de datos para atributos personalizados. Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+Puedes usar atributos personalizados anidados para enviar objetos como tipo de datos para atributos personalizados. Para más información, consulta [Atributos personalizados anidados]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support).
 
 ### Arrays de objetos {#arrays-of-objects}
 
-Usa un array de objetos para agrupar atributos relacionados. Para más detalles, consulta nuestro artículo sobre [Array de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/).
+Usa un array de objetos para agrupar atributos relacionados. Para más detalles, consulta nuestro artículo sobre [Array de objetos]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects).
 
 ### Operadores consolidados {#consolidated-operators}
 
@@ -273,7 +273,7 @@ Usar nuestros métodos de compra para registrar compras dentro de la aplicación
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert tip %}
-Si deseas segmentar por el número de veces que se ha realizado una compra específica, también debes registrar esa compra individualmente como un [atributo personalizado incremental]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes).
+Si deseas segmentar por el número de veces que se ha realizado una compra específica, también debes registrar esa compra individualmente como un [atributo personalizado incremental]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes#incrementingdecrementing-custom-attributes).
 {% endalert %}
 
-Puedes cambiar el tipo de datos de tu atributo personalizado, pero debes tener en cuenta los impactos de [cambiar los tipos de datos]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/).
+Puedes cambiar el tipo de datos de tu atributo personalizado, pero debes tener en cuenta los impactos de [cambiar los tipos de datos]({{site.baseurl}}/help/help_articles/data/change_custom_data_type).

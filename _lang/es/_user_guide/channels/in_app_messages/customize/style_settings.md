@@ -92,7 +92,7 @@ Antes de añadir bloques, configura los [estilos a nivel de mensaje](#set-messag
 
 Cada bloque tiene su propia configuración, como control granular del relleno. El panel del lado derecho cambia automáticamente a un panel de estilos para el elemento de contenido seleccionado. Para más información, consulta [Propiedades de bloques del editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties).
 
-A medida que construyes tu mensaje dentro de la aplicación, puedes seleccionar una vista de móvil, tableta o escritorio en la barra de herramientas para previsualizar cómo se verá tu mensaje dentro de la aplicación para tus grupos de usuarios. Esto asegurará que tu contenido sea responsivo y podrás hacer los ajustes necesarios sobre la marcha.
+A medida que construyes tu mensaje dentro de la aplicación, puedes seleccionar una vista de móvil, tableta o escritorio en la barra de herramientas para previsualizar cómo se verá tu mensaje dentro de la aplicación para tus grupos de usuarios. Esto asegurará que tu contenido sea adaptable y podrás hacer los ajustes necesarios sobre la marcha.
 
 ## Detalles creativos {#creative-details}
 
@@ -113,6 +113,31 @@ Puedes añadir una imagen al fondo de tu mensaje desde la pestaña **Message sty
 {% alert tip %}
 Si tienes problemas para seleccionar un bloque determinado, puedes usar la flecha hacia arriba en la barra de herramientas en línea del bloque para mover el foco hacia arriba a cada bloque padre.
 {% endalert %}
+
+#### Intercambiar imágenes de fondo con Liquid {#swap-background-images-with-liquid}
+
+Para intercambiar dinámicamente imágenes de fondo basándote en datos del usuario (como atributos personalizados o propiedades del usuario), usa bloques Liquid {% raw %}`{% capture %}`{% endraw %} para asignar la URL de imagen correcta a una variable antes de que se carguen el HTML y el CSS.
+
+Coloca tu lógica Liquid al inicio de tu mensaje y luego haz referencia a la variable capturada en el campo de URL de la imagen de fondo. Esto selecciona la imagen correcta según los datos de cada usuario.
+
+Después de capturar la URL de la imagen, usa {% raw %}`{{ image_url | strip }}`{% endraw %} para generar la URL con cualquier espacio en blanco adicional eliminado. Luego puedes pegar este Liquid en el campo de URL de la imagen de fondo para mostrar dinámicamente diferentes imágenes para diferentes usuarios.
+
+##### Ejemplo {#example}
+
+{% raw %}
+```liquid
+{% capture image_url %}
+{% if {{custom_attribute.${membership_tier}}} == 'gold' %}
+https://example.com/images/gold-background.png
+{% elsif {{custom_attribute.${membership_tier}}} == 'silver' %}
+https://example.com/images/silver-background.png
+{% else %}
+https://example.com/images/default-background.png
+{% endif %}
+{% endcapture %}
+{{ image_url | strip }}
+```
+{% endraw %}
 
 ### Añadir Liquid {#adding-liquid}
 

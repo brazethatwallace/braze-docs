@@ -811,7 +811,7 @@ Die [Plattform für Verhaltensdaten von Fullstory]({{site.baseurl}}/partners/ful
 
 #### DOTS.ECO – Erweiterungen {#dotseco-extensions}
 
-[DOTS.ECO]({{site.baseurl}}/partners/docs.eco) ermöglicht es Ihnen, Nutzer:innen mit realen Umweltauswirkungen durch nachverfolgbare digitale Zertifikate zu belohnen. Jedes Zertifikat kann Metadaten wie eine teilbare Zertifikats-URL und Bild-URL enthalten, sodass Nutzer:innen ihren Wirkungsnachweis einsehen (und erneut aufrufen) können.
+[DOTS.ECO]({{site.baseurl}}/partners/dots.eco) ermöglicht es Ihnen, Nutzer:innen mit realen Umweltauswirkungen durch nachverfolgbare digitale Zertifikate zu belohnen. Jedes Zertifikat kann Metadaten wie eine teilbare Zertifikats-URL und Bild-URL enthalten, sodass Nutzer:innen ihren Wirkungsnachweis einsehen (und erneut aufrufen) können.
 
 #### Mailizio – Nachrichtenorchestrierung {#mailizio-message-orchestration}
 

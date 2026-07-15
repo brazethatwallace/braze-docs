@@ -232,7 +232,7 @@ Strings e arrays exigem apóstrofos retos ao redor deles, enquanto booleanos e i
 
 ### Booleano {#boolean}
 
-[Booleanos]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans) são valores binários e podem ser definidos como `true` ou `false`, como `registration_complete: true`. Valores booleanos não têm apóstrofos ao redor deles.
+[Booleanos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#booleans) são valores binários e podem ser definidos como `true` ou `false`, como `registration_complete: true`. Valores booleanos não têm apóstrofos ao redor deles.
 
 {% raw %}
 
@@ -244,7 +244,7 @@ Strings e arrays exigem apóstrofos retos ao redor deles, enquanto booleanos e i
 
 ### Número {#number}
 
-[Números]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers) são valores numéricos, que podem ser inteiros ou decimais. Por exemplo, um usuário pode ter `shoe_size: 10` ou `levels_completed: 287`. Valores numéricos não têm apóstrofos ao redor deles.
+[Números]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) são valores numéricos, que podem ser inteiros ou decimais. Por exemplo, um usuário pode ter `shoe_size: 10` ou `levels_completed: 287`. Valores numéricos não têm apóstrofos ao redor deles.
 
 {% raw %}
 
@@ -266,7 +266,7 @@ Você também pode usar outros [operadores básicos](https://shopify.dev/docs/th
 
 ### String {#string}
 
-Uma [string]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings) é composta por caracteres alfanuméricos e armazena um dado sobre o seu usuário. Por exemplo, você pode ter `favorite_color: red` ou `phone_number: 3025981329`. Valores de string devem ter apóstrofos ao redor deles.
+Uma [string]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) é composta por caracteres alfanuméricos e armazena um dado sobre o seu usuário. Por exemplo, você pode ter `favorite_color: red` ou `phone_number: 3025981329`. Valores de string devem ter apóstrofos ao redor deles.
 
 {% raw %}
 
@@ -280,7 +280,7 @@ Para strings, você pode usar tanto "==" quanto "contains" no seu Liquid.
 
 ### Array {#array}
 
-Um [array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays) é uma lista de informações sobre o seu usuário. Por exemplo, um usuário pode ter `last_viewed_shows: stranger things, planet earth, westworld`. Valores de array devem ter apóstrofos ao redor deles.
+Um [array]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) é uma lista de informações sobre o seu usuário. Por exemplo, um usuário pode ter `last_viewed_shows: stranger things, planet earth, westworld`. Valores de array devem ter apóstrofos ao redor deles.
 
 {% raw %}
 
@@ -330,7 +330,7 @@ Como `join` combina elementos do array em uma única string (separador padrão: 
 
 ### Hora {#time}
 
-Um registro de data e hora de quando um evento ocorreu. Valores de [hora]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time) devem ter um [filtro matemático]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) aplicado para serem usados em lógica condicional.
+Um registro de data e hora de quando um evento ocorreu. Valores de [hora]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) devem ter um [filtro matemático]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) aplicado para serem usados em lógica condicional.
 
 {% raw %}
 

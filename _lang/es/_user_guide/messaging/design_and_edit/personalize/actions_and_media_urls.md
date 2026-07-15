@@ -100,7 +100,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-También admitimos el acortamiento de variables Liquid definidas de forma personalizada. A continuación se muestran varios ejemplos:
+También admitimos el acortamiento de variables Liquid definidas de forma personalizada, como en los siguientes ejemplos:
 
 ### Crear una URL usando variables Liquid {#create-a-url-using-liquid-variables}
 

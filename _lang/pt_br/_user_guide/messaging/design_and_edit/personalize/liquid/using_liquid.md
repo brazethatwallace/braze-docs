@@ -2,7 +2,7 @@
 nav_title: Usar Liquid
 article_title: Usar Liquid
 page_order: 0
-description: "Este artigo de referência fornece uma visão geral dos casos de uso comuns do Liquid e como incluir Liquid tags nas suas mensagens."
+description: "Este artigo de referência fornece uma visão geral dos casos de uso comuns do Liquid e como incluir Liquid tags no seu envio de mensagens."
 search_rank: 2
 ---
 
@@ -84,7 +84,7 @@ Operadores (como `==`, `!=`, `>`, `and`, `or`) e filtros (como `| size`, `| plus
 | Acesso a array (`[ ]`) | Não suportado | Não suportado |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Onde usar operadores e filtros" }
 
-[^case_when_ops]: Nas tags `case` e `when`, o Liquid compara a expressão `case` com cada valor `when` usando igualdade (semelhante a encadear `if` e `elsif` com `==`). Você não pode usar operadores de comparação ou lógicos arbitrários dentro de uma cláusula `when` da mesma forma que faz com `if` e `elsif`. Para exemplos, consulte [Lógica de mensagens condicionais]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags).
+[^case_when_ops]: Nas tags `case` e `when`, o Liquid compara a expressão `case` com cada valor `when` usando igualdade (semelhante a encadear `if` e `elsif` com `==`). Você não pode usar operadores de comparação ou lógicos arbitrários dentro de uma cláusula `when` da mesma forma que faz com `if` e `elsif`. Para exemplos, consulte [Lógica de mensagens condicionais]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when).
 
 Quando você precisar de um valor filtrado em um contexto que não suporta filtros, atribua o resultado a uma variável primeiro.
 
@@ -216,8 +216,8 @@ Quando você alterna entre os editores HTML e clássico, snippets Liquid e Conte
 
 Você pode inserir variáveis pré-formatadas com valores padrão por meio do modal **Adicionar personalização**, localizado próximo a qualquer campo de texto com modelo.
 
-![O modal Adicionar personalização que aparece após selecionar inserir personalização. O modal tem campos para tipo de personalização, atributo, valor padrão opcional e exibe uma pré-visualização da sintaxe Liquid.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
+![O modal Adicionar personalização que aparece após selecionar inserir personalização. O modal tem campos para tipo de personalização, atributo, valor padrão opcional e exibe uma prévia da sintaxe Liquid.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
 
-O modal inserirá o Liquid com o valor padrão especificado no ponto onde o cursor estava. O ponto de inserção também é indicado pela caixa de pré-visualização, que mostra o texto antes e depois. Se um bloco de texto estiver destacado, o texto destacado será substituído.
+O modal inserirá o Liquid com o valor padrão especificado no ponto onde o cursor estava. O ponto de inserção também é indicado pela caixa de prévia, que mostra o texto antes e depois. Se um bloco de texto estiver destacado, o texto destacado será substituído.
 
 ![Um GIF do modal Adicionar personalização mostrando o usuário inserindo "fellow traveler" como valor padrão, e o modal substituindo o texto destacado "name" no criador pelo snippet Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})

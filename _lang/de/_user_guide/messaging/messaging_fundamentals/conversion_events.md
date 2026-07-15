@@ -55,7 +55,7 @@ Beachten Sie Folgendes dazu, wie Braze mit mehreren Conversions umgeht:
 
 Das primäre Konversions-Event ist das erste Event, das Sie während der Erstellung einer Campaign oder eines Canvas hinzufügen. Dieses Event hat den größten Einfluss auf Ihr Engagement und Ihre Berichterstattung. Braze verwendet Ihr primäres Konversions-Event, um:
 
-- Die Gewinnervariante in [multivariaten]({{site.baseurl}}/user_guide/messaging/ab_testing#multivariate-and-ab-testing) Campaigns oder Canvases zu berechnen.
+- Die Gewinnervariante in [multivariaten]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations#winning-variant) Campaigns oder Canvases zu berechnen.
 - Das Zeitfenster zu bestimmen, in dem der Umsatz für die Campaign oder den Canvas berechnet wird.
 - Die Nachrichtenverteilung für Campaigns und Canvases mithilfe der [intelligenten Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) anzupassen.
 

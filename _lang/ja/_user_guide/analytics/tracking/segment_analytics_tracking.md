@@ -43,7 +43,7 @@ tool:
 
 ## セッション数の推移 {#sessions-over-time}
 
-同様に、[この特定セグメントのセッション数の推移]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data)に関するデータは、**Home**ページで確認できます。
+同様に、[この特定セグメントのセッション数の推移]({{site.baseurl}}/user_guide/analytics/dashboards/home)に関するデータは、**Home**ページで確認できます。
 
 ![セグメント別のセッションデータ]({% image_buster /assets/img_archive/events_over_time2.png %})
 
@@ -53,7 +53,7 @@ tool:
 
 ## クエリビルダーテンプレートの使用 {#using-query-builder-templates}
 
-分析の追跡をオンにすると、クエリビルダーのレポートテンプレートを使用して、キャンペーン、キャンバス、バリアント、ステップのパフォーマンス指標をセグメント別に分類できます。詳細については、[セグメントデータ]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment)を参照してください。
+分析の追跡をオンにすると、クエリビルダーのレポートテンプレートを使用して、キャンペーン、キャンバス、バリアント、ステップのパフォーマンス指標をセグメント別に分類できます。詳細については、[セグメントデータ]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 

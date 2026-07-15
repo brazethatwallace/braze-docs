@@ -1,17 +1,17 @@
 ---
-nav_title: API 키
-article_title: API 키
+nav_title: API 및 식별자
+article_title: API 및 식별자
 page_order: 0
 page_type: reference
-description: "이 문서에서는 워크스페이스의 API 식별자를 표시하는 API 키 페이지에 대해 설명합니다."
+description: "이 문서에서는 워크스페이스의 API 식별자를 표시하는 API 및 식별자 페이지에 대해 설명합니다."
 
 ---
 
 # API 키 {#api-keys}
 
-> **API 키** 페이지는 모든 REST API 키를 한 곳에서 관리할 수 있는 중앙 허브입니다. 여기에서 각 워크스페이스의 API 키 및 앱 식별자 세트에 접근할 수 있습니다.
+> **API 및 식별자** 페이지는 모든 REST API 키를 한 곳에서 관리할 수 있는 중앙 허브입니다. 여기에서 각 워크스페이스의 API 키 및 앱 식별자 세트에 접근할 수 있습니다.
 
-**API 키** 페이지는 **설정**에서 찾을 수 있습니다.
+**API 및 식별자** 페이지는 **설정**에서 찾을 수 있습니다.
 
 ## API 키
 
@@ -26,7 +26,7 @@ description: "이 문서에서는 워크스페이스의 API 식별자를 표시�
 아무것도 지정하지 않으면 모든 IP 주소에서 요청을 보낼 수 있습니다.
 
 {% alert tip %}
-Braze 간 웹훅을 만들면서 허용 목록을 사용하고 계신가요? [허용 목록에 추가할 IP 목록]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-whitelisting)을 확인하세요.
+Braze 간 웹훅을 만들면서 허용 목록을 사용하고 계신가요? [허용 목록에 추가할 IP 목록]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting)을 확인하세요.
 {% endalert %}
 
 ### API 사용량 알림 {#api-usage-alerts}
@@ -35,7 +35,7 @@ API 사용량 알림을 설정하여 주요 API 활동을 모니터링하고 문
 
 두 가지 유형의 API 활동을 추적할 수 있습니다:
 
-- **REST API 엔드포인트:** 메시지 발송, Campaign 생성, 데이터 내보내기 등의 동작입니다.
+- **REST API 엔드포인트:** 메시지 발송, Campaign(캠페인) 생성, 데이터 내보내기 등의 동작입니다.
 - **SDK API 요청:** 인앱 메시지 트리거 또는 고객 프로필 동기화 등 고객 경험에서 발생하는 이벤트입니다. *이 기능은 월간 활성 사용자(CY 24–25)를 구매한 경우 사용할 수 있습니다.*
 
 추적할 항목을 선택한 후 알림 조건을 정의할 수 있습니다. 예를 들어, 1시간 이내에 오류 응답이 20% 증가하면 알림을 받을 수 있습니다. 설정에 따라 이메일, 웹훅 또는 두 가지 모두로 알림을 받게 됩니다. 시작하려면 [API 사용량 알림]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts)을 참조하세요.

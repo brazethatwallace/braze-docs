@@ -28,7 +28,7 @@ Vous pouvez définir l'état d'abonnement aux e-mails pour une adresse e-mail qu
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `email.status`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `email.status`.
 
 ## Limite de débit {#rate-limit}
 

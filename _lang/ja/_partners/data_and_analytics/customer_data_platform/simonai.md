@@ -58,7 +58,7 @@ Simon AIでBrazeアカウントを認証した後、[フロー][4]と[ジャー�
 - **Trigger a Braze キャンバス**：Simonのセグメントデータを活用するBrazeキャンバスをトリガーします。
 - **Send a Braze campaign**：SimonからBrazeキャンペーン全体を起動します。
 
-![Simon AIで利用可能なBrazeアクションのリストを表示するドロップダウン。][9]{: style="max-width:60%"}
+![Simon AIで利用可能なBrazeアクションのリストを表示するドロップダウン][9]{: style="max-width:60%"}
 
 一部のアクションは、特定のフロータイプまたはジャーニーのみで利用可能です。詳細については、[docs.simondata.com][6]を参照してください。
 
@@ -79,10 +79,10 @@ Simon AIでBrazeアカウントを認証した後、[フロー][4]と[ジャー�
    2. Brazeに到着した際にフィールド名を異なる表示にしたい場合は、**Downstream name**を編集します。
    3. SimonからBrazeへの統合が初めての場合は、**Backfill all contacts**をクリックします。バックフィルは、フローまたはジャーニーでアクションを初めて使用する際にすべてのデータポイントをBrazeに送信し、すべてのデータが完全に同期されていることを確認します。その後の同期では、この画面で選択したトレイトのみがBrazeに送信されます。これにより、必要なデータに対してのみ課金されるようになります。
 
-![Simon AIでの同期トレイトの選択。][10]
+![Simon AIでの同期トレイトの選択][10]
 
 [1]: https://www.simon.ai/
-[2]: {{site.baseurl}}/api/basics/#creating-and-managing-rest-api-keys
+[2]: {{site.baseurl}}/api/basics#creating-rest-api-keys
 [3]: {{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints
 [4]: https://docs.simondata.com/docs/campaigns-flows
 [5]: https://docs.simondata.com/docs/campaigns-journeys-two

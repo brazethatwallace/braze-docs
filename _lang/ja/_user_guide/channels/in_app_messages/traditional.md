@@ -38,7 +38,7 @@ toc_headers: h2
 
 1. キャンバスコンポーザーを使用して[キャンバスを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
 2. キャンバスを設定したら、キャンバスビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
-3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)を選択し、必要に応じて遅延を指定します。アプリ内メッセージを含むステップはアクションベースにできないことに注意してください。
+3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)を選択し、必要に応じて遅延を指定します。アプリ内メッセージを含むステップはアクションベースにできないことに注意してください。
 4. 必要に応じて、このステップのオーディエンスをフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
 5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
@@ -147,14 +147,14 @@ toc_headers: h2
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#custom-html-messages'>カスタムHTMLメッセージ</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html#custom-html-messages'>カスタムHTMLメッセージ</a></td>
     <td>カスタムコード（HTML、CSS、JavaScript）で定義されたとおりに動作するカスタムメッセージです。</td>
     <td>N/A</td>
     <td>アプリ内メッセージを機能させるには、<span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span>初期化オプションを<code>true</code>に設定する必要があります。</td>
     <td>IAMのすべての利点を活かしつつ、追加機能が必要な場合や、外観を「ブランドに合わせた」ものにしたい場合に適しています。メッセージのあらゆる細部（フォント、色、形、サイズ、ボタンなど）を変更できます。<br><br>ユースケースの例としては、アプリのフィードバックの依頼、メールキャプチャフォーム、ページ分割されたメッセージなどがあります。</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#email-capture-form'>メールキャプチャフォーム</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form#email-capture-form'>メールキャプチャフォーム</a></td>
     <td>通常、閲覧者のメールアドレスをキャプチャするために使用されます。</td>
     <td>N/A</td>
     <td>アプリ内メッセージを機能させるには、<span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span>初期化オプションを<code>true</code>に設定する必要があります。</td>
@@ -397,7 +397,7 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 {% endtab %}
 {% tab キャンバス %}
 
-まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの部分の構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの部分の構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas)ステップを参照してください。
 
 キャンバス固有のアプリ内メッセージオプションについては、[キャンバスのアプリ内メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas)を参照してください。
 
