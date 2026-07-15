@@ -5,6 +5,7 @@ on:
   pull_request:
     paths:
       - "_docs/**"
+      - "_includes/**/*.md"
       - "_config.yml"
       - "_plugins/**"
       - "assets/js/broken_redirect_list.js"
