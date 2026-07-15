@@ -162,6 +162,12 @@ def anchor_link_key(link)
   [link.source_file, link.target_path, link.anchor]
 end
 
+# Human-readable article name for a report entry (falls back to the raw path
+# if HEAD's heading map has no entry, e.g. a since-deleted source file).
+def doc_title(heading_map, path)
+  heading_map.dig(path, "title") || path
+end
+
 # Returns [newly_broken, first_heading_warnings].
 #
 # newly_broken: links whose anchor does not resolve on HEAD and were not
@@ -394,14 +400,26 @@ def validate!(options)
     deleted_pages: deleted_warn,
     required_mappings: required_mappings,
     anchor_issues: newly_broken_anchors.map { |row|
+      link = row[:link]
       {
-        "source_file" => row[:link].source_file,
-        "link" => row[:link].raw_url,
+        "source_file" => link.source_file,
+        "source_title" => doc_title(heading_map_head, link.source_file),
+        "target_path" => link.target_path,
+        "target_title" => doc_title(heading_map_head, link.target_path),
+        "anchor" => link.anchor,
+        "link" => link.raw_url,
         "category" => row[:category].to_s
       }
     },
     anchor_warnings: first_heading_warnings.map { |l|
-      { "source_file" => l.source_file, "link" => l.raw_url, "anchor" => l.anchor, "target" => l.target_path }
+      {
+        "source_file" => l.source_file,
+        "source_title" => doc_title(heading_map_head, l.source_file),
+        "target_path" => l.target_path,
+        "target_title" => doc_title(heading_map_head, l.target_path),
+        "anchor" => l.anchor,
+        "link" => l.raw_url
+      }
     }
   }
 

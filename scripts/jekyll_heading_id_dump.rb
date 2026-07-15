@@ -6,6 +6,7 @@
 #   "all_ids" => [...],            every element id on the rendered page
 #   "heading_ids" => [...],        ordered <h1>-<h6> ids only
 #   "local_redirect_keys" => [...] anchors valid via client-side JS redirect
+#   "title" => "..."               human-readable article name, for reporting
 # }
 #
 # Used by validate_doc_redirects.rb. Run from repo root with:
@@ -29,6 +30,21 @@ require "tmpdir"
 require_relative "heading_id_extractor"
 
 module JekyllHeadingIdDump
+  # Human-readable label for a page, used by validate_doc_redirects.rb to build
+  # PR-comment text that names articles instead of file paths. Prefers the
+  # frontmatter fields authors already maintain for navigation/SEO (nav_title
+  # is short and scannable; article_title is the descriptive H1) over the raw
+  # file path, since a path like "_docs/_api/endpoints/apps/..." tells a
+  # reader far less than "Update Push Credential".
+  def self.readable_title(path, nav_title: nil, article_title: nil)
+    [nav_title, article_title].each do |candidate|
+      trimmed = candidate.to_s.strip
+      return trimmed unless trimmed.empty?
+    end
+
+    File.basename(path, ".md").tr("_", " ").split.map(&:capitalize).join(" ")
+  end
+
   def self.build(source_dir)
     Dir.mktmpdir("jekyll-heading-id-map") do |dest|
       site = Jekyll::Site.new(
@@ -53,7 +69,8 @@ module JekyllHeadingIdDump
           map[key] = {
             "all_ids" => HeadingIdExtractor.all_ids(output),
             "heading_ids" => HeadingIdExtractor.heading_ids(output),
-            "local_redirect_keys" => HeadingIdExtractor.local_redirect_keys(doc.data["local_redirect"])
+            "local_redirect_keys" => HeadingIdExtractor.local_redirect_keys(doc.data["local_redirect"]),
+            "title" => readable_title(key, nav_title: doc.data["nav_title"], article_title: doc.data["article_title"])
           }
         end
       end
@@ -95,7 +112,8 @@ module JekyllHeadingIdDump
         map[key] = {
           "all_ids" => HeadingIdExtractor.all_ids(output),
           "heading_ids" => HeadingIdExtractor.heading_ids(output),
-          "local_redirect_keys" => []
+          "local_redirect_keys" => [],
+          "title" => readable_title(key)
         }
       end
 
