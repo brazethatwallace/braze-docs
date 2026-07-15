@@ -30,7 +30,7 @@ There are two subscription states for WhatsApp users: `subscribed` and `unsubscr
 
 - **Rest API:** User profiles can be programmatically set by the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) using the Braze REST API.
 - **Web SDK:** Users can be added to an email, SMS, or WhatsApp subscription group using the `addToSubscriptionGroup` method for [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)), or [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
-- **User import**: Users can be added to email or SMS subscription groups via **Import Users**. When updating the subscription group status, you must have these two columns in your CSV: `subscription_group_id` and `subscription_state`. Refer to [User import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status) for more information.
+- **User import**: Users can be added to email or SMS subscription groups via **Import Users**. When updating the subscription group status, you must have these two columns in your CSV: `subscription_group_id` and `subscription_state`. Refer to [User import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) for more information.
 
 ### Checking a user's WhatsApp subscription group
 
@@ -60,7 +60,7 @@ Opt-in keywords are not currently supported for the WhatsApp channel, so it will
 
 Regardless of the opt-in and opt-out methods you use, you can update the subscription status of user profiles with one of the following update methods:
 
-- Create a [Braze-to-Braze webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#things-to-know) that updates the subscription status via REST API, such as in the following example:
+- Create a [Braze-to-Braze webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#considerations) that updates the subscription status via REST API, such as in the following example:
 
 ![Webhook composer with a message using the POST method.]({% image_buster /assets/img/whatsapp/whatsapp118.png %}){: style="max-width:90%;"}
 

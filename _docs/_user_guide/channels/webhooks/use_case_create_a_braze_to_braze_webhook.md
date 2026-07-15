@@ -28,7 +28,7 @@ Add [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_co
 
 To update user profiles from within a Canvas, including modifying [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), recording [Custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events), or recording [Purchases]({{site.baseurl}}/user_guide/data/activation/events/purchase_events), use [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) instead of a Braze-to-Braze webhook. 
 
-User Update groups multiple changes together and sends them in batches, making it faster than webhooks. It's easier to set up than a webhook and supports complex updates through its [Advanced JSON composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer). For example, to count how many times a user has seen a message, use User Update's [Increment and decrement feature]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) rather than a Braze-to-Braze webhook.
+User Update groups multiple changes together and sends them in batches, making it faster than webhooks. It's easier to set up than a webhook and supports complex updates through its [Advanced JSON composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). For example, to count how many times a user has seen a message, use User Update's [Increment and decrement feature]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#increasing-and-decreasing-values) rather than a Braze-to-Braze webhook.
 
 {% alert tip %}
 Add [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) to your Canvas to update a user's attributes, events, and purchases using a JSON composer.
@@ -36,7 +36,7 @@ Add [User Update]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components
 
 ## When to use a Braze-to-Braze webhook
 
-User Update can handle nearly all the same tasks as a Braze-to-Braze webhook for updating user profiles. For complex updates beyond simple custom attributes, you can use the [Advanced JSON composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-composer).
+User Update can handle nearly all the same tasks as a Braze-to-Braze webhook for updating user profiles. For complex updates beyond simple custom attributes, you can use the [Advanced JSON composer]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor).
 
 Send to Destination provides a simpler way to trigger a second Canvas from within Canvas without needing webhook configuration.
 

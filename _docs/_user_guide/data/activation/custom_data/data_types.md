@@ -78,7 +78,7 @@ Use this table to see which data types you can use for user profile attributes, 
   </tbody>
 </table>
 
-### Important considerations 
+### Important considerations
 
 - **Array:** Custom attributes and event properties have size limits. Datetimes are not supported inside arrays in event properties. Catalogs support only string arrays, with a maximum of 100 elements.
 - **Object:** In Braze, this appears as "nested custom attributes" for custom attributes, "nested objects" for event properties, and "JSON object" for catalogs.
@@ -103,14 +103,14 @@ You can add a description to a custom attribute after it's created if you have t
 
 ### Adding tags
 
-You can add tags to a custom attribute after it's created if you have the "Manage Events, Attributes, Purchases" [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions). You can then use the tags to filter the list of attributes. 
+You can add tags to a custom attribute after it's created if you have the "Manage Events, Attributes, Purchases" [user permission]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions). You can then use the tags to filter the list of attributes.
 
 ### Removing custom attributes
 
 There are two ways you can remove custom attributes from user profiles:
 
-* Select the custom attribute name to be removed in a [User Update step]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
-* Set the `null` value in your API request to the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
+- Select the custom attribute name to be removed in a [User Update step]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes).
+- Set the `null` value in your API request to the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 #### Setting the `null` value
 
@@ -118,7 +118,7 @@ There are two ways you can remove custom attributes from user profiles:
 Setting an attribute to `null` and setting it to `""` (empty string) are not the same.
 {% endalert %}
 
-- `null` removes the attribute from the user profile entirely. It does not appear in the profile or match any **IS NOT BLANK** filter. 
+- `null` removes the attribute from the user profile entirely. It does not appear in the profile or match any **IS NOT BLANK** filter.
 - `""` sets the attribute to an empty string value. The attribute appears on the profile with an empty string value, but does not match **IS NOT BLANK** filters (it is treated as blank).
 
 Additionally, `""` is only valid for string-type attributes. If the attribute's data type is set to a non-string type (such as Boolean, number, or time) in the dashboard, sending `""` does not clear the value—use `null` instead.
@@ -129,7 +129,7 @@ To export the list of custom attributes as a CSV file, select **Export all** at 
 
 ## Viewing usage reports
 
-The usage report lists all the Canvases, campaigns, and segments using a specific custom attribute. This list doesn't include uses of Liquid. 
+The usage report lists all the Canvases, campaigns, and segments using a specific custom attribute. This list doesn't include uses of Liquid.
 
 You can view up to 100 usage reports at a time by selecting the checkboxes next to the respective custom attributes and then selecting **View usage report**.
 
@@ -265,6 +265,7 @@ For **Array** attributes, the following segmentation options are available.
 
 {% alert tip %}
 For more on how to use regular expressions (regex), check out these resources:
+
 - [Perl compatible regular expressions (PCRE)](https://www.regextester.com/pregsyntax.html)
 - [Regex with Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Regex debugger and tester](https://www.regex101.com/)
