@@ -168,7 +168,7 @@ Some API configurations require the retrieval of an access token that can then b
 
 #### Step 1: Retrieve the access token
 
-The following example illustrates retrieving and saving an access token to a local variable, which can then be used to authenticate the subsequent API call. A `:cache_max_age` parameter can be added to match the time that the access token is valid for and reduce the number of outbound Connected Content calls. See [Configurable Caching]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching) for more information.
+The following example illustrates retrieving and saving an access token to a local variable, which can then be used to authenticate the subsequent API call. A `:cache_max_age` parameter can be added to match the time that the access token is valid for and reduce the number of outbound Connected Content calls. See [Configurable Caching]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) for more information.
 
 {% raw %}
 ```
