@@ -42,7 +42,7 @@ Este nuevo filtro puede reemplazar el filtro heredado "Nombre de versión de la 
 **Importante**
 
 * Las aplicaciones Android tienen tanto un [`versionName`](https://developer.android.com/reference/android/content/pm/PackageInfo#versionName) legible para humanos como un [`versionCode`](https://developer.android.com/reference/android/content/pm/PackageInfo.html#getLongVersionCode()) interno. El filtro Número de versión de la aplicación usa `versionCode` porque se garantiza que se incrementa con cada lanzamiento en la tienda de aplicaciones.
-* Esto puede causar confusión cuando el `versionName` y el `versionCode` de tu aplicación se desincronizan, especialmente porque ambos campos se pueden ver desde el dashboard de Braze. Como buena práctica, verifica que el `versionName` y el `versionCode` de tu aplicación se incrementen juntos.
+* Esto puede causar confusión cuando el `versionName` y el `versionCode` de tu aplicación se desincronizan, especialmente porque ambos campos se pueden ver desde el panel de Braze. Como buena práctica, verifica que el `versionName` y el `versionCode` de tu aplicación se incrementen juntos.
 * Si necesitas filtrar por el campo legible `versionName` en su lugar (poco común), usa el filtro Nombre de versión de la aplicación.
 
 #### Requisitos del SDK {#sdk-requirements}
@@ -69,7 +69,7 @@ Una vez que Braze reciba datos de la versión 2.0.0 de tu aplicación, puedes se
 | Mayor que 2.0.0 | 2.5.1 | El usuario y todas las instalaciones futuras estarán en el Segment. |
 | Mayor que 2.0.0 | 1.9.9 | El usuario no está en el Segment. |
 | Menor o igual que 2.0.0 | 3.0.1 | El usuario no está en el Segment. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Caso de uso" }
 
 ### Nombre de versión de la aplicación {#app-version-name}
 
@@ -81,8 +81,8 @@ Para Android, este nombre de versión se basa en el [Package Version Name](https
 
 ### No han usado una característica {#have-not-used-feature}
 
-Cuando lanzas una nueva versión de la aplicación e introduces nuevas características, es posible que los usuarios no noten el nuevo contenido. Ejecutar una campaña de conocimiento de características es una excelente manera de enseñar a los usuarios sobre nuevas características o características que nunca han usado. Para hacerlo, debes crear un [atributo personalizado]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#custom-data) que se asigne a los usuarios que nunca han completado una determinada acción dentro de tu aplicación, o usar un [evento personalizado]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#custom-data) para rastrear una acción particular. Puedes usar este atributo (o evento) para segmentar a los usuarios a los que deseas enviar la Campaign.
+Cuando lanzas una nueva versión de la aplicación e introduces nuevas características, es posible que los usuarios no noten el nuevo contenido. Ejecutar una campaña de conocimiento de características es una excelente manera de enseñar a los usuarios sobre nuevas características o características que nunca han usado. Para hacerlo, debes crear un [atributo personalizado]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data) que se asigne a los usuarios que nunca han completado una determinada acción dentro de tu aplicación, o usar un [evento personalizado]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data) para rastrear una acción particular. Puedes usar este atributo (o evento) para segmentar a los usuarios a los que deseas enviar la Campaign.
 
 {% alert tip %}
-¿Buscas reorientar a una porción específica de tu audiencia? Consulta [Campaigns de reorientación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/) para aprender cómo reorientar Campaigns aprovechando las acciones previas de tus usuarios.
+¿Buscas reorientar a una porción específica de tu audiencia? Consulta [Campaigns de reorientación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns) para aprender cómo reorientar Campaigns aprovechando las acciones previas de tus usuarios.
 {% endalert %}

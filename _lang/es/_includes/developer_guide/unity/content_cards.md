@@ -1,28 +1,28 @@
 {% multi_lang_include developer_guide/prerequisites/unity.md %}
 
-## Mostrar tarjetas de contenido de forma nativa {#unity-content-cards-native-ui}
+## Mostrar Content Cards de forma nativa {#unity-content-cards-native-ui}
 
-Puedes mostrar la IU predeterminada para las tarjetas de contenido utilizando la siguiente llamada:
+Puedes mostrar la interfaz predeterminada para Content Cards utilizando la siguiente llamada:
 
 ```csharp
 Appboy.AppboyBinding.DisplayContentCards();
 ```
 
-## Recepción de datos de la tarjeta de contenido en Unity
+## Recibir datos de Content Cards en Unity {#receiving-content-card-data-in-unity}
 
-Puedes registrar objetos del juego Unity para que se te notifique la llegada de tarjetas de contenido. Recomendamos configurar los oyentes del objeto del juego desde el editor de configuración de Braze.
+Puedes registrar objetos del juego de Unity para que se les notifique la llegada de Content Cards. Recomendamos configurar los oyentes del objeto del juego desde el editor de configuración de Braze.
 
-Si necesitas configurar la escucha de tu objeto del juego en tiempo de ejecución, utiliza `AppboyBinding.ConfigureListener()` y especifica `BrazeUnityMessageType.CONTENT_CARDS_UPDATED`.
+Si necesitas configurar el oyente de tu objeto del juego en tiempo de ejecución, utiliza `AppboyBinding.ConfigureListener()` y especifica `BrazeUnityMessageType.CONTENT_CARDS_UPDATED`.
 
-Nota, además tendrás que hacer una llamada a `AppboyBinding.RequestContentCardsRefresh()` para empezar a recibir datos en tu receptor de objetos del juego en iOS.
+Ten en cuenta que, además, tendrás que hacer una llamada a `AppboyBinding.RequestContentCardsRefresh()` para empezar a recibir datos en el oyente de tu objeto del juego en iOS.
 
-## Análisis sintáctico de tarjetas de contenido
+## Análisis sintáctico de Content Cards {#parsing-content-cards}
 
-Los mensajes entrantes de `string` recibidos en tu devolución de llamada al objeto del juego Tarjetas de contenido pueden analizarse en nuestro [`ContentCard`](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/Models/Cards/ContentCard.cs) para mayor comodidad.
+Los mensajes entrantes de `string` recibidos en la devolución de llamada de tu objeto del juego de Content Cards pueden analizarse en nuestro objeto de modelo [`ContentCard`](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/Models/Cards/ContentCard.cs) presuministrado para mayor comodidad.
 
-El análisis de las tarjetas de contenido requiere el análisis JSON, consulta el siguiente ejemplo para obtener más detalles:
+El análisis de Content Cards requiere análisis JSON; consulta el siguiente ejemplo para obtener más detalles:
 
-##### Ejemplo de devolución de llamada de tarjetas de contenido
+### Ejemplo de devolución de llamada de Content Cards {#example-content-cards-callback}
 
 ```csharp
 void ExampleCallback(string message) {
@@ -41,7 +41,7 @@ void ExampleCallback(string message) {
           ContentCard card = new ContentCard(cardJson);
           Debug.Log(String.Format("Created card object for card: {0}", card));
 
-          // Example of logging Content Card analytics on the ContentCard object 
+          // Example of logging Content Card analytics on the ContentCard object
           card.LogImpression();
           card.LogClick();
         } catch {
@@ -55,9 +55,9 @@ void ExampleCallback(string message) {
 }
 ```
 
-## Actualizar tarjetas de contenido
+## Actualizar Content Cards {#refreshing-content-cards}
 
-Para actualizar las tarjetas de contenido desde Braze, llama a cualquiera de los siguientes métodos:
+Para actualizar Content Cards desde Braze, llama a cualquiera de los siguientes métodos:
 
 ```csharp
 // results in a network request to Braze
@@ -66,9 +66,8 @@ AppboyBinding.RequestContentCardsRefresh()
 AppboyBinding.RequestContentCardsRefreshFromCache()
 ```
 
-## Análisis
+## Análisis {#analytics}
 
-Los clics y las impresiones deben registrarse manualmente para las tarjetas de contenido no mostradas directamente por Braze.
+Los clics y las impresiones deben registrarse manualmente para las Content Cards que no se muestran directamente a través de Braze.
 
 Utiliza `LogClick()` y `LogImpression()` en [ContentCard](https://github.com/braze-inc/braze-unity-sdk/blob/master/Assets/Plugins/Appboy/Models/Cards/ContentCard.cs) para registrar los clics y las impresiones de tarjetas concretas.
-

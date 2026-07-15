@@ -21,16 +21,16 @@ La integración de Braze y Octolis actúa como middleware entre tus fuentes de d
 2. Normaliza y puntúa
 3. Sincronización en tiempo real de campos y eventos computados con Braze
 
-![]({% image_buster /assets/img/Octolis/Braze_scheme.png %})
+![Diagrama de arquitectura que muestra los orígenes de datos de Octolis, el procesamiento y el flujo de sincronización hacia Braze.]({% image_buster /assets/img/Octolis/Braze_scheme.png %})
 
 ## Requisitos previos {#prerequisites}
 
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Octolis | Se necesita una cuenta Octolis para beneficiarse de esta asociación. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permisos [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track/). <br><br> Puede crearse en el dashboard de Braze desde **Settings** > **API Keys**. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia. |
-| Clave de la aplicación Braze | La clave del identificador de tu aplicación. Se encuentra en **Braze Dashboard > Manage Settings > API Key**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permisos [**users.track**]({{site.baseurl}}/api/endpoints/user_data/post_user_track). <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia. |
+| Clave de la aplicación Braze | La clave del identificador de tu aplicación. Se encuentra en **Panel de Braze > Administrar configuración > Clave de API**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -54,31 +54,31 @@ Estas audiencias deben construirse a partir de varios orígenes de datos. Un ori
 
 A continuación, para establecer Braze como nuevo destino, selecciona **+ Add more** en la parte superior de tu destino actual dentro de la pantalla principal y selecciona **Braze** entre las herramientas empresariales disponibles.
 
-![]({% image_buster /assets/img/Octolis/Braze_screen2.png %})
+![Selector de destinos de Octolis con Braze seleccionado entre las herramientas empresariales disponibles.]({% image_buster /assets/img/Octolis/Braze_screen2.png %})
 
 Una vez seleccionado, proporciona lo siguiente:
 
-- Tu clave de API de Braze: puede crearse en el dashboard de Braze desde **Settings** > **API Keys**.
+- Tu clave de API de Braze: puede crearse en el panel de Braze desde **Configuración** > **Claves de API**.
 - Ventana temporal: Octolis aplicará el límite de velocidad en el periodo dado.
 - Volumen de solicitudes: número de solicitudes que puedes hacer dentro de este plazo.
 - Atributos personalizados: especifica aquí los nuevos campos que enviarás a Braze, su formato (cadena, entero, flotante), y marca la casilla **Required for syncs** si quieres que alguno de ellos sea obligatorio para una sincronización.
 
-![]({% image_buster /assets/img/Octolis/Braze_screen3.png %})
+![Campos de configuración del destino Braze en Octolis para clave de API, límites de velocidad y atributos personalizados.]({% image_buster /assets/img/Octolis/Braze_screen3.png %})
 
 Una vez configurado, Braze aparecerá como un nuevo destino en la pantalla de inicio.
 
 ### Paso 3: Crear una nueva sincronización {#step-3-create-a-new-sync}
 
-En el menú, haz clic en **Syncs** y selecciona **Add sync** en la parte superior derecha. Selecciona la audiencia que desees de entre las que has creado previamente.
+En el menú, haz clic en **Syncs** y selecciona **Add sync** en la barra de acciones. Selecciona la audiencia que desees de entre las que has creado previamente.
 A continuación, selecciona **Braze** como destino y la entidad a la que enviarás los datos.
 
-![]({% image_buster /assets/img/Octolis/Braze_screen4.png %})
+![Pantalla de creación de sincronización en Octolis mostrando las selecciones de audiencia y destino Braze.]({% image_buster /assets/img/Octolis/Braze_screen4.png %})
 
 ### Paso 4: Establece la configuración de salida {#step-4-set-output-settings}
 
 Por defecto, Braze crea todos los atributos que enviarías, pero debes documentar la lista de campos que se sincronizarán.
 
-![]({% image_buster /assets/img/Octolis/Braze_screen5.png %}){: style="max-width:75%;"}
+![Pantalla de configuración de salida de Octolis para el mapeado de campos de Braze y la programación de sincronización.]({% image_buster /assets/img/Octolis/Braze_screen5.png %}){: style="max-width:75%;"}
 
 Aquí tienes una definición específica de los campos de configuración.
 

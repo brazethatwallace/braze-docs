@@ -27,7 +27,7 @@ iOS 15では新しい通知機能が導入され、ユーザーが1日を通し�
 
 iOS 15のユーザーは「フォーカスモード」を作成できるようになりました。これは、フォーカスを中断して目立つように表示する通知を指定するためのカスタムプロファイルです。
 
-![]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![iOS 15のユーザーは「フォーカスモード」を作成できるようになりました。これは、フォーカスを中断して目立つように表示する通知を指定するためのカスタムプロファイルです。]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 ### 割り込みレベル {#interruption-levels}
 
@@ -38,17 +38,17 @@ iOS 15では、プッシュ通知は次の4つの割り込みレベルのいず�
 * **時間的制約**（新規）- サウンド、バイブレーション、画面のスリープ解除を許可し、許可されている場合はシステムコントロールを突破できます。
 * **重大** - サウンド、バイブレーション、画面のスリープ解除を許可し、システムコントロールを突破し、サイレントスイッチをバイパスできます。
 
-iOSプッシュでこのオプションを設定する方法の詳細については、[iOS通知オプション]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#interruption-level)を参照してください。
+iOSプッシュでこのオプションを設定する方法の詳細については、[iOS通知オプション]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#interruption-level)を参照してください。
 
-### 通知の概要 {#notification-summary}
+### 通知サマリー {#notification-summary}
 
-![]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![通知サマリーに関するスクリーンショット。]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
-iOS 15では、ユーザーは（オプションで）1日の中で特定の時間を選択して、通知の概要を受け取ることができます。即時の注意を必要としない通知（「パッシブ」として送信されたり、ユーザーがフォーカスモード中に送信されたりするもの）は、1日を通じて絶えず中断されないようにグループ化されます。
+iOS 15では、ユーザーは（オプションで）1日の中で特定の時間を選択して、通知のサマリーを受け取ることができます。即時の注意を必要としない通知（「パッシブ」として送信されたものや、ユーザーがフォーカスモード中のものなど）は、1日を通じて絶えず中断されないようにグループ化されます。
 
-送信する通知ごとに、「関連性スコア」を指定して、どの通知を概要の先頭に表示するかをコントロールできるようになります。
+送信する通知ごとに、「関連性スコア」を指定して、どの通知をサマリーの先頭に表示するかをコントロールできるようになります。
 
-通知の「関連性スコア」の設定方法については、[iOS通知オプション]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#relevance-score)を参照してください。
+通知の「関連性スコア」の設定方法については、[iOS通知オプション]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#relevance-score)を参照してください。
 
 ## 位置情報ボタン {#location-buttons}
 

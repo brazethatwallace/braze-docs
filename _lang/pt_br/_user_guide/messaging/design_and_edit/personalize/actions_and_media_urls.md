@@ -12,7 +12,7 @@ description: "Este artigo de referência descreve como personalizar URLs de aç�
 ## Deep link para conteúdo no app {#deep-link-to-in-app-content}
 
 {% alert tip %}
-**Para desenvolvedores:** Para um guia sobre como escolher entre esquemas personalizados, links universais e outras opções — incluindo quando você precisa de um arquivo AASA, quais métodos de app delegate implementar e como depurar problemas — consulte o [Guia de deep linking para iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/) e [Solução de problemas de deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/).
+**Para desenvolvedores:** Para um guia sobre como escolher entre esquemas personalizados, links universais e outras opções — incluindo quando você precisa de um arquivo AASA, quais métodos de app delegate implementar e como depurar problemas — consulte o [Guia de deep linking para iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide) e [Solução de problemas de deep linking]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting).
 {% endalert %}
 
 ### O que é deep linking? {#what-is-deep-linking}
@@ -30,7 +30,7 @@ Deep links são URIs personalizados que direcionam para uma parte específica do
 Tudo após os dois pontos em um deep link é texto livre. Cabe a você definir sua estrutura e interpretação. No entanto, uma convenção comum é modelá-lo com base em URLs `http:`, incluindo `//` no início e parâmetros de consulta (por exemplo, `?foo=1&bar=2`). No exemplo anterior, `twitter://user?screen_name=[id]` seria usado para abrir um perfil específico no app.
 
 {% alert important %}
-Para apps criados com frameworks wrapper (por exemplo, Flutter ou Cordova), a Braze não oferece suporte a deep linking específico para wrappers. Você deve configurar deep links nas camadas nativas do iOS e Android. Para Cordova, consulte [Deep linking em notificações por push]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=cordova).
+Para apps criados com frameworks wrapper (por exemplo, Flutter ou Cordova), a Braze não oferece suporte a deep linking específico para wrappers. Você deve configurar deep links nas camadas nativas do iOS e Android. Para Cordova, consulte [Deep linking em notificações por push]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova).
 {% endalert %}
 
 ### Tags UTM e atribuição de campanha {#utm-tags-and-campaign-attribution}
@@ -42,7 +42,7 @@ Para apps criados com frameworks wrapper (por exemplo, Flutter ou Cordova), a Br
 - `utm_source`: O identificador da origem do tráfego (por exemplo, `my_app`)
 - `utm_medium`: O meio da campanha (por exemplo, `newsfeed`)
 - `utm_campaign`: O identificador da campanha (por exemplo, `spring_2016_campaign`)
-- `utm_term`: Identificador de um termo de pesquisa paga que trouxe o usuário ao seu app ou site (por exemplo, `pizza`)
+- `utm_term`: Identificador de um termo de pesquisa paga que trouxe o usuário ao seu app ou website (por exemplo, `pizza`)
 - `utm_content`: Um identificador para o link ou conteúdo específico em que o usuário clicou (por exemplo, `toplink` ou `android_iam_button2`)
 
 As tags UTM podem ser incorporadas tanto em links HTTP regulares (web) quanto em deep links e rastreadas usando o Google Analytics.
@@ -70,7 +70,7 @@ Para incluir tags UTM nos seus deep links para notificações por push, defina o
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spring2016giftcards&utm_content=ios_deeplink
 ```
 
-![]({% image_buster /assets/img_archive/push_utm_tags.png %})
+![Captura de tela relacionada à atribuição de aberturas de push e cliques em mensagens no app com tags UTM.]({% image_buster /assets/img_archive/push_utm_tags.png %})
 
 {% endtab %}
 {% tab Cliques em mensagens no app %}
@@ -81,7 +81,7 @@ Para incluir tags UTM nos deep links das suas mensagens no app, use o seguinte:
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spring2021giftcards&utm_content=web_link
 ```
 
-![]({% image_buster /assets/img_archive/iam_utm_tags.png %})
+![Captura de tela relacionada à atribuição de aberturas de push e cliques em mensagens no app com tags UTM.]({% image_buster /assets/img_archive/iam_utm_tags.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -92,7 +92,7 @@ Você pode construir dinamicamente sua URL diretamente no criador da Braze, perm
 
 ### Crie uma URL com tags de personalização Liquid compatíveis {#create-a-url-with-supported-liquid-personalization-tags}
 
-URLs podem ser geradas dinamicamente por meio do uso de quaisquer [tags de personalização Liquid compatíveis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+URLs podem ser geradas dinamicamente por meio do uso de quaisquer [tags de personalização Liquid compatíveis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 {% raw %}
 ```liquid
@@ -100,7 +100,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-Também oferecemos suporte ao encurtamento de variáveis Liquid personalizadas. Vários exemplos são mostrados abaixo:
+Também oferecemos suporte ao encurtamento de variáveis Liquid personalizadas. Vários exemplos são mostrados na seção a seguir:
 
 ### Crie uma URL usando variáveis Liquid {#create-a-url-using-liquid-variables}
 
@@ -119,9 +119,9 @@ Encurtamos URLs que são renderizadas por Liquid, incluindo aquelas presentes em
 
 ### Encurte URLs no endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
 
-O encurtamento de links também está ativado para mensagens somente via API por meio do [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Para uma lista completa de parâmetros de solicitação, consulte [parâmetros de solicitação]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters).
+O encurtamento de links também está ativado para mensagens somente via API por meio do [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Para uma lista completa de parâmetros de solicitação, consulte [parâmetros de solicitação]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `link_shortening_enabled` | Sim | booleano | Defina `link_shortening_enabled` como `true` para ativar o encurtamento de links. Para usar o rastreamento, um `campaign_id` e um `message_variation_id` devem estar presentes. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
+| `link_shortening_enabled` | Sim | Booleano | Defina `link_shortening_enabled` como `true` para ativar o encurtamento de links. Para usar o rastreamento, um `campaign_id` e um `message_variation_id` devem estar presentes. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Encurtar URLs no endpoint /messages/send" }

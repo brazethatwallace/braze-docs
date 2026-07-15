@@ -11,7 +11,7 @@ toc_headers: h2
 
 > 이 페이지에서는 Braze 클라우드 데이터 수집(CDI) SQL 편집기를 사용하여 SQL 쿼리로 동기화를 생성하고 검증하는 방법을 다룹니다.
 
-클라우드 데이터 수집의 SQL 편집기를 사용하면 데이터 웨어하우스에 대해 SQL 쿼리를 직접 작성하여 동기화를 생성할 수 있습니다. 이를 통해 전용 CDI 테이블을 생성하거나 유지 관리할 필요가 없어지며, 이전에는 [데이터 웨어하우스 통합의 1.1단계]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)에서 이 작업이 필요했습니다.
+클라우드 데이터 수집의 SQL 편집기를 사용하면 데이터 웨어하우스에 대해 SQL 쿼리를 직접 작성하여 동기화를 생성할 수 있습니다. 이를 통해 전용 CDI 테이블을 생성하거나 유지 관리할 필요가 없어지며, 이전에는 [데이터 웨어하우스 통합의 1.1단계]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)에서 이 작업이 필요했습니다.
 
 SQL 편집기는 다음과 같은 경우에 사용합니다:
 
@@ -26,18 +26,22 @@ SQL 편집기는 다음과 같은 경우에 사용합니다:
 
 ## 필수 조건 및 제한 사항 {#prerequisites-and-limitations}
 
-베타 기간 동안 SQL 편집기에는 다음과 같은 제한 사항이 있습니다:
+SQL 편집기에는 다음과 같은 제한 사항이 있습니다:
 
-- **사용자 속성** 동기화에만 사용 가능
-- 하나의 데이터 웨어하우스 소스 지원: **Snowflake**
+- 데이터 웨어하우스 소스에만 사용 가능: Snowflake, Redshift, BigQuery, Databricks, Fabric.
+- 단일 문, 읽기 전용 쿼리만 지원됩니다.
 
 {% alert note %}
-Braze는 데이터에 대해 읽기 전용 쿼리만 실행하며 기본 테이블을 수정하지 않습니다. Braze는 쿼리 실행 중에 임시 오브젝트를 생성할 수 있지만 이를 유지하지는 않습니다.
+Braze는 데이터에 대해 읽기 전용 쿼리만 실행하며 기본 테이블을 수정하지 않습니다. 쿼리 실행 중에 임시 오브젝트가 생성될 수 있지만 유지되지는 않습니다.
 {% endalert %}
 
 ## 새 SQL 편집기 동기화 생성 {#create-a-new-sql-editor-sync}
 
-SQL 편집기로 동기화를 생성하려면 다음 단계를 따르세요. CDI용 Snowflake 소스를 이미 설정한 경우 3단계로 건너뛰세요.
+먼저 소스를 생성한 다음 SQL 편집기로 동기화를 생성하려면 다음 단계를 따르세요. CDI용 소스를 이미 설정한 경우 3단계로 건너뛸 수 있습니다.
+
+{% alert note %}
+이 단계에서는 Snowflake 소스를 예시로 사용합니다. 다른 데이터 웨어하우스 소스의 설정 프로세스도 유사하며, [데이터 웨어하우스 통합 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations) 설명서의 [2단계: Braze 대시보드에서 새 소스 생성]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard)에서 확인할 수 있습니다.
+{% endalert %}
 
 ### 1단계: Snowflake 역할, 권한, 데이터 웨어하우스 및 사용자 설정 {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
 
@@ -80,7 +84,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 ```
 
 {% alert note %}
-데이터 웨어하우스에 자동 재개가 활성화되어 있어야 합니다. 활성화되어 있지 않은 경우, 쿼리 실행 시 Braze가 데이터 웨어하우스를 켤 수 있도록 추가 `OPERATE` 권한을 부여하세요.
+데이터 웨어하우스에 자동 재개 플래그가 활성화되어 있어야 합니다. 활성화되어 있지 않은 경우, 쿼리 실행 시 Braze가 데이터 웨어하우스를 켤 수 있도록 추가 `OPERATE` 권한을 부여하세요.
 {% endalert %}
 
 #### 1.4단계: Snowflake 사용자 생성 {#step-14-create-a-snowflake-user}
@@ -128,17 +132,11 @@ Braze로 돌아가서 **Test connection**을 선택하여 소스 액세스를 �
 
 1. **데이터 설정** > **클라우드 데이터 수집** > **동기화**로 이동합니다.
 2. **Create data sync**를 선택합니다.
-3. **데이터 유형**에서 **User Attributes**를 선택합니다.
-4. 2단계에서 생성한 Snowflake 소스를 참조합니다.
+3. **데이터 유형**에서 동기화를 선택합니다.
+4. 2단계에서 생성한 소스를 참조합니다.
 5. **SQL**을 선택하고 데이터 웨어하우스에서 사용자 데이터를 반환하는 SQL 쿼리를 작성합니다. SQL 쿼리는 Braze에 동기화할 데이터를 정의합니다. 쿼리 결과가 동기화의 스키마가 됩니다.
 
-![SQL이 선택되고 SQL 편집기에 샘플 쿼리가 표시된 데이터 동기화 생성 흐름.]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
-
-SQL 쿼리는 다음을 반환해야 합니다:
-
-- 사용자 식별자 (`EXTERNAL_ID`, `BRAZE_ID`, `ALIAS_NAME` 및 `ALIAS_LABEL`, `EMAIL`, 또는 `PHONE`)
-- `UPDATED_AT` 열
-- 최소 하나의 추가 열 (속성)
+소스 탐색기를 사용하여 동기화할 수 있는 테이블과 뷰를 찾아보거나, AI SQL 생성기를 사용하여 SQL 쿼리에 대한 Braze Operator의 도움을 받을 수 있습니다.
 
 {% alert note %}
 `JOIN` 절을 포함한 읽기 전용 쿼리만 지원됩니다. 자세한 내용은 [SQL 제약 조건](#sql-constraints)을 참조하세요.
@@ -154,15 +152,22 @@ SQL 쿼리는 다음을 반환해야 합니다:
 - 최대 100개 행을 표시합니다
 - 최대 250개 열을 표시합니다
 
-계속하기 전에 쿼리를 성공적으로 미리보기하고 검증해야 합니다. 오류 및 수정 사항에 대한 자세한 내용은 [검증 동작](#validation-behavior) 및 [문제 해결](#troubleshooting)을 참조하세요.
+검증을 성공적으로 통과하려면 SQL 쿼리가 다양한 필수 열을 반환해야 합니다:
+
+| 동기화 데이터 유형 | 필수 열 |
+|---|---|
+| 속성 | - 사용자 식별자, `external_id`, `braze_id`, `alias_name` 및 `alias_label`, 이메일 또는 전화번호 중 하나.<br>- `UPDATED_AT`.<br>- 동기화할 최소 하나의 추가 열(속성). |
+| 사용자 삭제 | - 사용자 식별자, `external_id`, `braze_id`, `alias_name` 및 `alias_label`, 이메일 또는 전화번호 중 하나.<br>- `UPDATED_AT`. |
+| Canvas 트리거 | - 사용자 식별자, `external_id`, `braze_id`, `alias_name` 및 `alias_label`, 이메일 또는 전화번호 중 하나.<br>- `UPDATED_AT`. |
+| 커스텀 이벤트 | - 사용자 식별자, `external_id`, `braze_id`, `alias_name` 및 `alias_label`, 이메일 또는 전화번호 중 하나.<br>- `UPDATED_AT`.<br>- 이벤트 이름을 나타내는 `NAME`.<br>- 이벤트 시간을 나타내는 `TIME`. 사용할 수 없는 경우 CDI가 `UPDATED_AT`을 대체로 사용합니다. |
+| 구매 이벤트 | - 사용자 식별자, `external_id`, `braze_id`, `alias_name` 및 `alias_label`, 이메일 또는 전화번호 중 하나.<br>- `UPDATED_AT`.<br>- `PRODUCT_ID`.<br>- `CURRENCY`.<br>- `PRICE`.<br>- 구매 이벤트 시간을 나타내는 `TIME`. 사용할 수 없는 경우 CDI가 `UPDATED_AT`을 대체로 사용합니다. |
+| 카탈로그 | - 카탈로그 항목 식별자를 나타내는 `ID`.<br>- `UPDATED_AT`.<br>- 동기화할 최소 하나의 추가 열(카탈로그 필드). |
+| 계정 | - 계정 식별자를 나타내는 `ID`.<br>- 계정 이름을 나타내는 `NAME`.<br>- `UPDATED_AT`.<br>- 동기화할 최소 하나의 추가 열(계정 필드). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="4단계: 쿼리 미리보기 및 검증" }
+
+필수 열 외의 추가 열은 각각 속성, Canvas 컨텍스트 등록정보, 이벤트 등록정보, 카탈로그 필드, 계정 필드로 동기화됩니다. 미리보기 및 검증 오류에 대한 유용한 팁과 수정 방법은 [검증 동작](#validation-behavior) 및 [문제 해결](#troubleshooting)을 참조하세요.
 
 ### 5단계: 속성 매핑 검토 및 동기화 생성 {#step-5-review-attribute-mapping-and-create-sync}
-
-검증 후:
-
-- 식별자 열이 사용자를 매칭합니다
-- `UPDATED_AT` 열이 증분 동기화를 구동합니다
-- Braze가 다른 모든 열을 속성으로 동기화합니다
 
 검증이 성공하면 **Next: Notifications**로 계속 진행하여 동기화를 생성합니다.
 
@@ -171,41 +176,6 @@ SQL 쿼리는 다음을 반환해야 합니다:
 {% endalert %}
 
 ## SQL 제약 조건 {#sql-constraints}
-
-쿼리는 다음 요구 사항을 충족해야 합니다.
-
-### 사용자 식별자 포함 {#include-a-user-identifier}
-
-쿼리에는 다음 중 하나 이상이 포함되어야 합니다:
-
-- `EXTERNAL_ID`
-- `BRAZE_ID`
-- `EMAIL`
-- `PHONE`
-- `ALIAS_NAME` 및 `ALIAS_LABEL`
-
-유효한 식별자가 감지되지 않으면 검증이 실패합니다.
-
-{% alert note %}
-이러한 식별자는 대소문자를 구분하며 대문자여야 합니다.
-{% endalert %}
-
-### `UPDATED_AT` 포함 {#include-updated_at}
-
-쿼리에는 `UPDATED_AT` 열이 포함되어야 합니다.
-
-`UPDATED_AT`은 대소문자를 구분하며 대문자여야 합니다.
-
-누락된 경우 검증이 실패합니다.
-
-### 최소 하나의 속성 열 포함 {#include-at-least-one-attribute-column}
-
-쿼리에는 다음 외에 최소 하나의 열이 포함되어야 합니다:
-
-- 사용자 식별자 열
-- `UPDATED_AT`
-
-그렇지 않으면 검증이 실패합니다.
 
 ### `SELECT` 쿼리만 사용 {#use-select-queries-only}
 
@@ -219,7 +189,7 @@ SQL 쿼리는 다음을 반환해야 합니다:
 
 사용할 수 없는 항목:
 
-- `INSERT`, `UPDATE`, 또는 `DELETE`
+- `INSERT`, `UPDATE` 또는 `DELETE`
 - `CREATE` 또는 `DROP`
 - `;`로 구분된 여러 문
 
@@ -263,15 +233,15 @@ Braze가 데이터 웨어하우스에 연결할 수 없는 경우:
 - 검증이 실패합니다
 - 시간 초과 오류가 표시됩니다
 
-### 필수 열 누락 {#missing-required-columns}
+### 테이블 스키마 오류 {#table-schema-errors}
 
 쿼리가 컴파일되더라도 다음과 같은 경우 검증이 실패할 수 있습니다:
 
 - 식별자 열이 발견되지 않은 경우
 - `UPDATED_AT`이 누락된 경우
-- 속성 열이 없는 경우
+- 기타 필수 열이 누락된 경우
 
-이 경우 성공적인 검증을 위해 미리보기가 계속 표시됩니다.
+이 경우 성공적인 검증을 위해 미리보기가 계속 표시됩니다. 각 동기화 데이터 유형에 필요한 열에 대한 자세한 내용은 [이전 섹션의 4단계](#step-4-preview-and-validate-your-query)를 참조하세요.
 
 ### 결과가 0행인 경우 {#zero-row-results}
 
@@ -283,7 +253,7 @@ Braze가 데이터 웨어하우스에 연결할 수 없는 경우:
 
 ## `PAYLOAD` 지원 (레거시) {#payload-support-legacy}
 
-SQL 편집기는 `PAYLOAD` 열이 있는 [레거시 CDI 테이블]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views)을 지원합니다.
+SQL 편집기는 `PAYLOAD` 열이 있는 [레거시 CDI 테이블]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views)을 지원합니다.
 
 쿼리에 다음이 포함된 경우:
 
@@ -331,7 +301,7 @@ SQL 편집기는 `PAYLOAD` 열이 있는 [레거시 CDI 테이블]({{site.baseur
 
 증분 동기화를 위한 타임스탬프 열을 추가하세요.
 
-### 동기화할 속성 없음 {#no-attributes-to-sync}
+### 동기화할 속성/카탈로그 필드/계정 필드가 없음 {#add-more-columns-there-are-no-attributescatalog-fieldsaccount-fields-to-sync}
 
 식별자와 `UPDATED_AT` 외에 최소 하나의 추가 열을 추가하세요.
 

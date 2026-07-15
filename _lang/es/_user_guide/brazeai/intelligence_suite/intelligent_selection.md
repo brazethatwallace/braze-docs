@@ -20,7 +20,7 @@ Antes de añadir Intelligent Selection a tu campaña, asegúrate de haberlo conf
 - Tu campaña se envía según un calendario periódico. No se admiten las campañas de envío único.
 - Has añadido al menos dos variantes de mensaje.
 - Has definido un evento de conversión para medir el rendimiento entre las distintas variantes.
-- La ventana de reelegibilidad se ha fijado en 24 horas o más. No se admiten ventanas más cortas, ya que afectarían a la integridad de la variante de control. Para obtener más información, consulta [estas preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+- La ventana de reelegibilidad se ha fijado en 24 horas o más. No se admiten ventanas más cortas, ya que afectarían a la integridad de la variante de control. Para obtener más información, consulta [estas preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
 {% endtab %}
 
 {% tab Canvas %}
@@ -39,10 +39,10 @@ Una variante que parezca rendir más que las demás se enviará a más usuarios,
 Intelligent Selection:
 - Observa repetidamente los datos de rendimiento y desplaza gradualmente el tráfico de la campaña hacia las variantes ganadoras.
 - Comprueba que más usuarios reciben tu variante de mejor rendimiento sin sacrificar la confianza estadística.
-- Descarta las variantes de bajo rendimiento e identifica las de alto rendimiento más rápidamente que con una [prueba A/B tradicional]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+- Descarta las variantes de bajo rendimiento e identifica las de alto rendimiento más rápidamente que con una [prueba A/B tradicional]({{site.baseurl}}/user_guide/messaging/ab_testing).
 - Realiza pruebas con más frecuencia y con mayor seguridad de que tus usuarios verán tu mejor mensaje.
 
-Intelligent Selection funciona mejor en campañas que se envían más de una vez. Necesita datos de rendimiento iniciales para empezar a optimizar, por lo que las campañas de envío único no se beneficiarán de ello. Para esas campañas, recomendamos utilizar una [prueba A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/) tradicional.
+Intelligent Selection funciona mejor en campañas que se envían más de una vez. Necesita datos de rendimiento iniciales para empezar a optimizar, por lo que las campañas de envío único no se beneficiarán de ello. Para esas campañas, recomendamos utilizar una [prueba A/B]({{site.baseurl}}/user_guide/messaging/ab_testing) tradicional.
 
 Puedes añadir Intelligent Selection a tus campañas y Canvas.
 
@@ -51,7 +51,7 @@ Puedes añadir Intelligent Selection a tus campañas y Canvas.
 Intelligent Selection puede añadirse a cualquier campaña multienvío en el paso **Target Audiences** del compositor de campañas de Braze. Las campañas que solo se envían una vez no pueden aprovechar esta característica.
 
 {% alert note %}
-Intelligent Selection no se puede utilizar en campañas con un periodo de reelegibilidad inferior a 24 horas, ya que afectaría a la integridad de la variante de control. Para obtener más información, consulta las [preguntas frecuentes sobre inteligencia]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs/#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
+Intelligent Selection no se puede utilizar en campañas con un periodo de reelegibilidad inferior a 24 horas, ya que afectaría a la integridad de la variante de control. Para obtener más información, consulta las [preguntas frecuentes sobre inteligencia]({{site.baseurl}}/user_guide/brazeai/intelligence/faqs#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection).
 {% endalert %}
 {% endtab %}
 

@@ -11,9 +11,9 @@ search_tag: Partner
 
 > [Hightouch](https://hightouch.io)는 IT 또는 엔지니어링 팀의 도움 없이 웨어하우스나 데이터 레이크에서 원하는 앱으로 고객, 제품 또는 독점 데이터를 동기화할 수 있는 최신 데이터 통합 플랫폼입니다.
 
-Braze와 Hightouch 통합을 사용하면 데이터 웨어하우스의 최신 고객 데이터를 활용하여 Braze에서 더 나은 Campaign을 구축할 수 있습니다. 고객 데이터를 Braze로 자동 동기화하면 데이터 일관성에 대해 걱정할 필요 없이 세계 최고 수준의 고객 경험을 구축하는 데 집중할 수 있습니다.
+Braze와 Hightouch 통합을 사용하면 데이터 웨어하우스의 최신 고객 데이터를 활용하여 Braze에서 더 나은 Campaign(캠페인)을 구축할 수 있습니다. 고객 데이터를 Braze로 자동 동기화하면 데이터 일관성에 대해 걱정할 필요 없이 세계 최고 수준의 고객 경험을 구축하는 데 집중할 수 있습니다.
 
-이 통합을 통해 [사용자 코호트를 Braze로 가져와]({{site.baseurl}}/partners/data_and_analytics/reverse_etl/hightouch/hightouch_cohort_import/) 웨어하우스에만 존재할 수 있는 데이터를 기반으로 타겟 Campaign을 발송할 수도 있습니다.
+이 통합을 통해 [사용자 코호트를 Braze로 가져와]({{site.baseurl}}/partners/data_and_analytics/reverse_etl/hightouch/hightouch_cohort_import) 웨어하우스에만 존재할 수 있는 데이터를 기반으로 타겟 Campaign을 발송할 수도 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -21,7 +21,7 @@ Braze와 Hightouch 통합을 사용하면 데이터 웨어하우스의 최신 �
 |---|---|
 | Hightouch 계정 | 이 파트너십을 활용하려면 Hightouch 계정이 필요합니다.
 | Braze REST API 키 | `users.track` 및 `users.export.ids` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)에 따라 달라집니다.<br><br>Hightouch는 Braze 인스턴스가 위치한 클러스터 이름이 필요합니다. 예를 들어, Braze 엔드포인트가 `https://rest.iad-01.braze.com`인 경우 `iad-01`만 필요합니다.|
+| Braze REST 엔드포인트 | REST 엔드포인트 URL. 엔드포인트는 [인스턴스의 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)에 따라 달라집니다.<br><br>Hightouch는 Braze 인스턴스가 위치한 클러스터 이름이 필요합니다. 예를 들어, Braze 엔드포인트가 `https://rest.iad-01.braze.com`인 경우 `iad-01`만 필요합니다.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
 
 ## 사용 사례 {#use-cases}
@@ -37,7 +37,7 @@ Braze와 Hightouch 통합을 사용하면 데이터 웨어하우스의 최신 �
 
 1. Hightouch 플랫폼의 **Destinations** 섹션에서 **Add destination**을 클릭합니다.
 2. 사용 가능한 대상 목록에서 **Braze**를 선택합니다.
-3. Braze REST 엔드포인트("https://rest." 제외)와 Braze REST API 키를 입력합니다.<br><br>![]({% image_buster /assets/img/hightouch/hightouch_braze_setup.png %})
+3. Braze REST 엔드포인트("https://rest." 제외)와 Braze REST API 키를 입력합니다.<br><br>![엔드포인트 및 API 키 필드가 있는 Hightouch Braze 대상 설정 양식.]({% image_buster /assets/img/hightouch/hightouch_braze_setup.png %})
 
 ### 2단계: 오브젝트 및 이벤트 동기화 {#step-2-object-and-event-syncing}
 
@@ -70,5 +70,5 @@ Hightouch를 사용하면 이벤트 및 구매 데이터를 추적하고 Braze�
 ## 통합 데모 {#integration-demo}
 
 <div class="video-container">
-    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" title="Hightouch integration demo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://drive.google.com/file/d/1KQdCwZzV88hXMx7AMWgh8izqkldtNv5p/preview" title="Hightouch 통합 데모" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>

@@ -1,7 +1,7 @@
 ---
 nav_title: JustAI
 article_title: JustAI
-description: "このリファレンス記事では、BrazeとJustAIのパートナーシップについて説明します。JustAIはAIベースのSaaSビジネスプラットフォームで、既存のCampaignsのパーソナライズバージョンを作成し、件名、クリエイティブコンテンツ、HTMLメールレイアウトを時間の経過とともに最適化します。"
+description: "このリファレンス記事では、BrazeとJustAIのパートナーシップについて説明します。JustAIはAIベースのSaaSビジネスプラットフォームで、既存のキャンペーンのパーソナライズバージョンを作成し、件名、クリエイティブコンテンツ、HTMLメールレイアウトを時間の経過とともに最適化します。"
 alias: ["/partners/just_ai/", "/partners/just_words/"]
 page_type: partner
 ---
@@ -10,7 +10,7 @@ page_type: partner
 
 > [JustAI](https://www.getjust.ai/)は、ライフサイクルマーケティングチャネルにおいてメッセージングを大規模にハイパーパーソナライズし、数百のバリエーションを動的にテストしてパフォーマンスの低いコンテンツを自動更新する機能を提供します。
 
-JustAIをBrazeの[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)と組み合わせて既存のBraze CampaignsやCanvasesをパーソナライズすると、JustAIはBraze Currentsを使用してコンテンツを動的に最適化します。手動での対応は不要です。
+JustAIをBrazeの[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/)と組み合わせて既存のBraze キャンペーンやキャンバスをパーソナライズすると、JustAIはBraze Currentsを使用してコンテンツを動的に最適化します。手動での対応は不要です。
 
 ## メリット {#what-are-the-benefits}
 
@@ -37,7 +37,7 @@ JustAIをBrazeの[コネクテッドコンテンツ]({{site.baseurl}}/user_guide
 
 1. JustAIコンソールに移動し、[新しいテンプレートを作成](https://console.getjust.ai/new)します。
 2. 文字、数字、アンダースコアのみを使用した覚えやすいIDを選択します。
-3. 基本的なCampaignの詳細を入力します。
+3. 基本的なキャンペーンの詳細を入力します。
 4. AIを使用してパーソナライズされたバリエーションを生成します。
 
 ![JustAIテンプレート作成プラットフォーム。]({% image_buster /assets/img/just_words/creation_interface.png %}){: style="max-width:80%;"}
@@ -51,15 +51,15 @@ JustAIをBrazeの[コネクテッドコンテンツ]({{site.baseurl}}/user_guide
 
 ### ステップ 3: BrazeコンテンツでJustAIを使用する {#step-3-use-justai-in-your-braze-content}
 
-JustAIはコネクテッドコンテンツを使用してCanvasesやCampaignsと連携します。Canvasを作成する場合、各メールステップは固有のJustAIテンプレートに対応する必要があります。
+JustAIはコネクテッドコンテンツを使用してキャンバスやキャンペーンと連携します。キャンバスを作成する場合、各メールステップは固有のJustAIテンプレートに対応する必要があります。
 
 #### ステップ 3.1: ABテストを設定する {#step-31-set-up-your-ab-test}
 
 {% tabs %}
-{% tab Canvas %}
+{% tab キャンバス %}
 
-1. Canvasで、**バリアントを追加** > **バリアントを追加**を選択して、希望するバリアント数になるまで追加し、各バリアントにステップ（メールメッセージステップなど）を追加します。
-2. オーディエンストラフィックを希望どおりに分割します。たとえば、2つのバリアントがある場合、それぞれに50%を割り当てることができます。または、2つのバリアントにそれぞれ40%、コントロールグループに20%を割り当てることもできます。CanvasのABテストの詳細については、[Canvasの作成]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/)を参照してください。
+1. キャンバスで、**バリアントを追加** > **バリアントを追加**を選択して、希望するバリアント数になるまで追加し、各バリアントにステップ（メールメッセージステップなど）を追加します。
+2. オーディエンストラフィックを希望どおりに分割します。たとえば、2つのバリアントがある場合、それぞれに50%を割り当てることができます。または、2つのバリアントにそれぞれ40%、コントロールグループに20%を割り当てることもできます。キャンバスのABテストの詳細については、[キャンバスの作成]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/create_a_canvas/)を参照してください。
 3. コネクテッドコンテンツで使用するメッセージステップの作成画面で、JustAIコンソールからコネクテッドコンテンツスニペットを貼り付けます。以下はスニペットの例です。
 
 {% raw %}
@@ -77,13 +77,13 @@ JustAIはコネクテッドコンテンツを使用してCanvasesやCampaignsと
 ```
 {% endraw %}
 
-![Braze ABテストCanvasの設定。]({% image_buster /assets/img/just_words/braze_canvas.png %}){: style="max-width:70%;"}
+![Braze ABテストキャンバスの設定。]({% image_buster /assets/img/just_words/braze_canvas.png %}){: style="max-width:70%;"}
 
 {% endtab %}
-{% tab Campaign %}
+{% tab キャンペーン %}
 
-1. Campaignの**メッセージを作成**ステップで、2つのバリアントを作成します。
-2. **ターゲットオーディエンス**ステップで、**ABテスト**セクションに移動し、各バリアント（およびオプションのコントロールグループ）を受け取るユーザーの割合を変更します。最適化オプションを選択して、テストをさらにカスタマイズすることもできます。CampaignsのABテストの詳細については、[多変量テストとABテストの作成]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign/)を参照してください。
+1. キャンペーンの**メッセージを作成**ステップで、2つのバリアントを作成します。
+2. **ターゲットオーディエンス**ステップで、**ABテスト**セクションに移動し、各バリアント（およびオプションのコントロールグループ）を受け取るユーザーの割合を変更します。最適化オプションを選択して、テストをさらにカスタマイズすることもできます。キャンペーンのABテストの詳細については、[多変量テストとABテストの作成]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/create_multivariate_campaign/)を参照してください。
 3. メッセージ作成画面で、JustAIコンソールからコネクテッドコンテンツスニペットを貼り付けます。以下のLiquidスニペットはその例です。
 
 {% raw %}

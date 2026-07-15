@@ -10,7 +10,7 @@ description: "このリファレンス記事では、Brazeメールオブジェ�
 
 # メールオブジェクト {#email-object}
 
-> `email` オブジェクトを使用すると、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を通じてメールを変更または作成できます。
+> `email` オブジェクトを使用すると、[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を通じてメールを変更または作成できます。
 
 ## メールオブジェクト
 
@@ -18,8 +18,8 @@ description: "このリファレンス記事では、Brazeメールオブジェ�
 {
   "app_id": (required, string), see App Identifier,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
   "bcc": (optional, one of the BCC addresses defined in your workspace's email settings) if provided and the BCC feature is enabled for your account, this address gets added to your outbound message as a BCC address,
   "body": (required unless email_template_id is given, valid HTML),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
@@ -35,9 +35,9 @@ description: "このリファレンス記事では、Brazeメールオブジェ�
 }
 ```
 
-- [アプリ識別子]({{site.baseurl}}/api/identifier_types/)
+- [アプリ識別子]({{site.baseurl}}/api/identifier_types)
   - ワークスペースに設定されたアプリの有効な `app_id` は、ユーザーのプロファイルにそのアプリがあるかどうかに関係なく、ワークスペース内のすべてのユーザーに対して機能します。
-- プリヘッダーの詳細とベストプラクティスについては、[メールのスタイル設定]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/)を参照してください。
+- プリヘッダーの詳細とベストプラクティスについては、[メールのスタイル設定]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling)を参照してください。
 
 {% alert warning %}
 Brazeでは、添付ファイルの `url` にGoogle Driveのリンクを使用しないことを推奨しています。サーバーがファイルを取得する際の呼び出しがブロックされ、メールメッセージが送信されなくなる可能性があるためです。
@@ -79,7 +79,7 @@ Brazeでは、添付ファイルの `url` にGoogle Driveのリンクを使用�
     "email":{
       "app_id": "153e8a29-fd6d-4f77-ade7-1a4ca08d457a",
       "subject": "Basis auth attachment test",
-      "from": "mail <mail@e.company.com>",
+      "from": "mail <mail@example.com>",
       "body": "my attachment test",
       "attachments":[
         { "file_name":"checkout_receipt.pdf",
@@ -98,4 +98,4 @@ Brazeが添付ファイルの `url` からファイルを取得する際の注�
 - **キャッシュ:** Brazeは最近取得したファイルを最大約24時間再利用する場合があります。送信のたびに最新バージョンのファイルを取得する必要がある場合は、バージョンごとに異なるURLを使用してください（例: ファイルが変更されたときにパスやクエリが変わるようにする）。
 - **タイムアウト:** ホストは迅速に応答する必要があります。添付ファイルのURLが遅い場合やハングした場合、メッセージの送信が失敗する可能性があります。約2分以内の応答を目指してください。
 - **セキュリティ:** 添付ファイルのURL（クエリ文字列を含む）に個人を特定できる情報（PII）や機密情報を含めないでください。URLはログや下流のシステムに表示される可能性があります。
-- **ファイアウォール:** URLが特定のネットワークからのみアクセス可能な場合は、[コネクテッドコンテンツのIP許可リスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting)に従ってBrazeからのトラフィックを許可してください。ファイルにログインが必要な場合は、[基本認証の認証情報](#authentication-for-email-file-attachments)を使用してください。
+- **ファイアウォール:** URLが特定のネットワークからのみアクセス可能な場合は、[コネクテッドコンテンツのIP許可リスト]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting)に従ってBrazeからのトラフィックを許可してください。ファイルにログインが必要な場合は、[基本認証の認証情報](#authentication-for-email-file-attachments)を使用してください。

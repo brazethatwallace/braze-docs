@@ -34,7 +34,7 @@ BrazeBinding.SetUserLastName("last name");
 {% endtab %}
 {% tab Email %}
 ```csharp
-BrazeBinding.SetUserEmail("email@email.com");
+BrazeBinding.SetUserEmail("user@example.com");
 ```
 {% endtab %}
 {% tab Gender %}

@@ -19,7 +19,7 @@ As postergações podem deixar seu Canvas mais organizado. Você também pode us
 
 Para criar uma postergação, adicione uma etapa ao seu Canvas. Arraste e solte o componente de postergação da barra lateral, ou selecione o botão de adição <i class="fas fa-plus-circle"></i> na parte inferior de uma etapa e escolha **Postergação**.
 
-#### Postergações estendidas {#extended-delays}
+### Postergações estendidas {#extended-delays}
 
 Você pode estender etapas de postergação por até dois anos (730 dias). Por exemplo, se você está fazendo a integração de novos usuários no seu app, pode adicionar uma postergação estendida de dois meses antes de enviar uma etapa de mensagem para incentivar os usuários que ainda não iniciaram uma sessão.
 
@@ -48,14 +48,14 @@ Como exemplo, digamos que hoje é 11 de dezembro e nossa etapa de postergação 
 
 Selecionar **Data do calendário** permite manter os usuários na etapa até uma data e hora específicas.
 
-#### Considerações {#considerations}
+### Considerações {#considerations}
 
-##### Usuários não receberão etapas ou mensagens com datas passadas {#users-wont-receive-past-dated-steps-or-messages}
+#### Usuários não receberão etapas ou mensagens com datas passadas {#users-wont-receive-past-dated-steps-or-messages}
 
 Se a data e hora selecionadas já tiverem passado quando os usuários chegarem à etapa de postergação, eles sairão do Canvas. Pode haver até 31 dias entre o início do Canvas e as datas escolhidas para etapas de "esperar até um dia exato".
 
 {% alert important %}
-Se você está participando do [acesso antecipado ao Canvas Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/), pode definir postergações de até 2 anos.
+Se você está participando do [acesso antecipado ao Canvas Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context), pode definir postergações de até 2 anos.
 {% endalert %}
 
 Por exemplo, os usuários não receberão etapas ou mensagens nestes cenários:
@@ -63,7 +63,7 @@ Por exemplo, os usuários não receberão etapas ou mensagens nestes cenários:
 - Uma mensagem está programada para ser enviada em 3 de maio às 21h, mas a etapa de postergação expira em 3 de maio às 9h.
 - Uma etapa do Canvas posterga até um horário específico no fuso horário local do usuário, mas os usuários não têm um fuso horário definido no perfil de usuário. A postergação então usa como padrão o fuso horário da empresa para esses usuários, que já passou do horário especificado.
 
-##### Usuários sairão se uma etapa de postergação subsequente estiver dentro do período de uma etapa de postergação anterior {#users-will-exit-if-a-subsequent-delay-step-is-within-a-prior-delay-steps-timeline}
+#### Usuários sairão se uma etapa de postergação subsequente estiver dentro do período de uma etapa de postergação anterior {#users-will-exit-if-a-subsequent-delay-step-is-within-a-prior-delay-steps-timeline}
 
 Se o Canvas tiver duas etapas de postergação, mas a primeira for mais longa que a segunda, os usuários também sairão do Canvas.
 
@@ -101,9 +101,9 @@ Se você adicionar um componente de postergação ao seu Canvas e não houver et
 
 ### Postergações personalizadas {#personalized-delays}
 
-{% multi_lang_include early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
-Selecione o botão **Personalizar postergação** para configurar uma postergação personalizada para seus usuários. Você pode usar isso com uma [etapa de Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) para selecionar a variável de contexto pela qual postergar. Isso substituirá o horário do dia definido no atributo ou propriedade selecionada. Isso é útil ao aplicar um deslocamento em dias ou semanas quando você quer que os usuários avancem em um horário específico. O fuso horário vem do atributo ou propriedade, ou usa o fallback se nenhum estiver disponível.
+Selecione o botão **Personalizar postergação** para configurar uma postergação personalizada para seus usuários. Você pode usar isso com uma [etapa de Context]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) para selecionar a variável de contexto pela qual postergar. Isso substituirá o horário do dia definido no atributo ou propriedade selecionada. Isso é útil ao aplicar um deslocamento em dias ou semanas quando você quer que os usuários avancem em um horário específico. O fuso horário vem do atributo ou propriedade, ou usa o fallback se nenhum estiver disponível.
 
 #### Comportamento do fuso horário para "em um horário específico" {#time-zone-behavior-for-at-specific-time}
 
@@ -147,10 +147,10 @@ As séries temporais dessas análises estão disponíveis na visualização expa
 
 ### Erros de falha na personalização {#personaliztion-failed-errors}
 
-Se os usuários não estiverem acionando uma postergação personalizada, pode ser porque a etapa de Context que você configurou para qualificá-los para a etapa de postergação não está funcionando como esperado. Quando uma [variável de contexto é inválida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#troubleshooting), o usuário continuará pelo Canvas sem ter seu contexto definido pela etapa de Context. Isso pode fazer com que eles não se qualifiquem para etapas posteriores no Canvas, como postergações personalizadas.
+Se os usuários não estiverem acionando uma postergação personalizada, pode ser porque a etapa de Context que você configurou para qualificá-los para a etapa de postergação não está funcionando como esperado. Quando uma [variável de contexto é inválida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), o usuário continuará pelo Canvas sem ter seu contexto definido pela etapa de Context. Isso pode fazer com que eles não se qualifiquem para etapas posteriores no Canvas, como postergações personalizadas.
 
 ### Usuários em uma etapa de postergação quando um Canvas é interrompido
 
-Quando você [interrompe um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases), os usuários que já estão aguardando em uma etapa de postergação não são removidos imediatamente. A Braze ainda agenda a conclusão da postergação, mas **nenhuma mensagem adicional é enviada** enquanto o Canvas estiver interrompido.
+Quando você [interrompe um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases), os usuários que já estão aguardando em uma etapa de postergação não são removidos imediatamente. A Braze ainda agenda a conclusão da postergação, mas **nenhuma mensagem adicional é enviada** enquanto o Canvas estiver interrompido.
 
-Se você reativar o Canvas antes que a postergação de um usuário termine, ele poderá avançar para a próxima etapa conforme programado. Se o período de postergação já tiver passado enquanto o Canvas estava interrompido, esses usuários sairão do Canvas em vez de receber a próxima etapa. Para ver exemplos, consulte [O que acontece quando você interrompe um Canvas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-when-you-stop-a-canvas) e [Interrompendo Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases).
+Se você reativar o Canvas antes que a postergação de um usuário termine, ele poderá avançar para a próxima etapa conforme programado. Se o período de postergação já tiver passado enquanto o Canvas estava interrompido, esses usuários sairão do Canvas em vez de receber a próxima etapa. Para ver exemplos, consulte [O que acontece quando você interrompe um Canvas?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas) e [Interrompendo Canvas]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).

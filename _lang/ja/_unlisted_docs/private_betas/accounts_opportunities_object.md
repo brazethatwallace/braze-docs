@@ -25,7 +25,7 @@ description: "アカウントオブジェクトを使用して、ユーザーが
 
 ## 仕組み {#how-it-works}
 
-アカウントオブジェクトは、ユーザーの会社を表すカスタムデータ構造です。ユーザープロファイルに接続されるため、B2Bスタイルのセグメンテーションを構築し、メッセージをパーソナライズできます。会社名、業種、役割、商談ステータスなどのアカウントフィールドを、Brazeカタログ、セグメンテーションフィルター、Liquidタグと組み合わせて使用します。
+アカウントオブジェクトは、ユーザーの会社を表すカスタムデータ構造です。ユーザープロファイルに接続されるため、B2Bスタイルのセグメントを構築し、メッセージをパーソナライズできます。会社名、業種、役割、商談ステータスなどのアカウントフィールドを、Brazeカタログ、セグメンテーションフィルター、Liquidタグと組み合わせて使用します。
 
 たとえば、ヘルスケア業界で働くユーザーをターゲットにし、医師や病院管理者にパーソナライズされたメッセージを送信して、メッセージの関連性をさらに高めることができます。
 
@@ -45,7 +45,7 @@ description: "アカウントオブジェクトを使用して、ユーザーが
 
 メッセージ内でアカウントオブジェクトを使用するには、ユーザーデータがすでにBrazeに存在している必要があります。そこから、2つのインポートを完了します。まず、ユーザーとアカウントの関連データをインポートして、アカウントの関連付けと役割を確立します（現在はCSVのみ）。次に、セグメンテーションとパーソナライゼーションに使用される会社レベルの詳細を含むアカウントデータをインポートします（CSVまたはBraze REST API経由）。
 
-### ステップ 1: ユーザーとアカウントの関連データをインポートする {#step-1-import-user-account-relationship-data}
+### ステップ1: ユーザーとアカウントの関連データをインポートする {#step-1-import-user-account-relationship-data}
 
 まず、以下のフィールドを含むCSVファイルとして、ユーザーとアカウントの関連データをBrazeにインポートします。これにより、Brazeは既存のユーザーを正しいアカウントと役割に関連付けることができます。
 
@@ -77,7 +77,7 @@ table td {
 
 ![Brazeの「アカウント」ページにある「データをアップロード」ドロップダウン。]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
-### ステップ 2: アカウントデータをインポートする {#step-2-import-account-data}
+### ステップ2: アカウントデータをインポートする {#step-2-import-account-data}
 
 アカウントは、ユーザーが所属する会社です。以下のフィールドを含むCSVファイルとして、アカウントデータをBrazeにインポートします。各アカウントにはIDと名前を割り当てる必要があることに注意してください。
 
@@ -89,7 +89,7 @@ table td {
 
 | フィールド名 | フィールドタイプ | 必須 | 説明 |
 |-----------------------------|------------|----------|------------------------------------------------------------------------------------|
-| `id`                          | 文字列     | はい      | CRM（顧客関係管理）プラットフォームにおけるアカウントのID。 |
+| `id`                          | 文字列     | はい      | CRM（カスタマーリレーションシップマネジメント）プラットフォームにおけるアカウントのID。 |
 | `name`                        | 文字列     | はい      | アカウントの名前。 |
 | `type`                        | 文字列     | いいえ       | アカウントのタイプ（顧客、パートナー、リセラーなど）。 |
 | `annual_revenue`              | 文字列     | いいえ       | アカウントの年間収益。 |
@@ -142,7 +142,7 @@ Braze APIを使用すると、アカウントデータを大規模にプログ�
 HTTPメソッドとREST APIの仕組みの詳細については、以下のリソースを参照してください。
 - MDN Web Docsの[HTTPリクエストメソッド](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods)
 - [REST APIチュートリアル](https://restapitutorial.com/)
-- [Braze APIの概要](https://www.braze.com/docs/api/basics)
+- [Braze APIの概要]({{site.baseurl}}/api/basics)
 
 {% alert note %}
 `/business/accounts`エンドポイントへのリクエストを認証するには、カタログ権限を持つAPIキーを使用してください。
@@ -158,7 +158,7 @@ HTTPメソッドとREST APIの仕組みの詳細については、以下のリ�
 
 `PUT`はべき等であるため、同じリクエストを複数回送信しても、Brazeは重複を作成するのではなく既存のレコードを更新します。これにより、Brazeのアカウントレコードを最新の状態に保つための信頼性の高い方法となります。
 
-以下のコードスニペットは、`/business/accounts`エンドポイントに`PUT`リクエストを送信します。`accounts`配列には複数の会社オブジェクトが含まれ、それぞれが[ステップ 2: アカウントデータをインポートする](#step-2-import-account-data)で定義されたアカウントフィールドにマッピングされています。Brazeは各オブジェクトを処理し、**アカウント**ページで対応するレコードを作成または更新します。この操作は非同期です。Brazeはリクエストをキューに入れ、バックグラウンドで処理するため、即時の確認が不要な一括インポートに適しています。
+以下のコードスニペットは、`/business/accounts`エンドポイントに`PUT`リクエストを送信します。`accounts`配列には複数の会社オブジェクトが含まれ、それぞれが[ステップ2: アカウントデータをインポートする](#step-2-import-account-data)で定義されたアカウントフィールドにマッピングされています。Brazeは各オブジェクトを処理し、**アカウント**ページで対応するレコードを作成または更新します。この操作は非同期です。Brazeはリクエストをキューに入れ、バックグラウンドで処理するため、即時の確認が不要な一括インポートに適しています。
 
 複数のアカウントを作成するには、`/business/accounts`に`PUT`リクエストを送信します。アカウントが存在しない場合、Brazeは**アカウント**ページに新しいアイテムを追加します。各リクエストは最大50アカウントをサポートします。この操作は非同期であることに注意してください。
 
@@ -186,7 +186,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.acme.com",
                   "main_phone": "+1-212-555-1234",
                   "created_date": "2023-01-15T09:30:00Z",
-                  "account_owner_email_address": "owner@acme.com",
+                  "account_owner_email_address": "owner@example.com",
                   "parent_account_id": "",
                   "sic_code": "2011"
               },
@@ -206,7 +206,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.globalsolutions.com",
                   "main_phone": "+1-650-555-5678",
                   "created_date": "2023-02-20T14:45:00Z",
-                  "account_owner_email_address": "partner@globalsolutions.com",
+                  "account_owner_email_address": "partner@example.com",
                   "parent_account_id": "ACC001",
                   "sic_code": "7372"
               },
@@ -226,7 +226,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.oceanicventures.com",
                   "main_phone": "+1-305-555-6789",
                   "created_date": "2023-03-05T08:15:00Z",
-                  "account_owner_email_address": "contact@oceanicventures.com",
+                  "account_owner_email_address": "contact@example.com",
                   "parent_account_id": "",
                   "sic_code": "5941"
               }
@@ -265,7 +265,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts/ACC001 \
                 "website": "http://www.acme.com",
                 "main_phone": "+1-212-555-1234",
                 "created_date": "2023-01-15T09:30:00Z",
-                "account_owner_email_address": "owner@acme.com",
+                "account_owner_email_address": "owner@example.com",
                 "parent_account_id": "",
                 "sic_code": "2011"
             }
@@ -315,11 +315,11 @@ curl -X DELETE https://YOUR_REST_API_URL/business/accounts/ACC001 \
 
 [Brazeにデータをインポート](#importing-data-to-braze)した後、アカウントオブジェクトを使用してセグメントを構築し、Liquidを使用してユーザーにパーソナライズされたメッセージを送信できます。
 
-### ステップ 1: セグメントを構築する {#step-1-build-a-segment}
+### ステップ1: セグメントを構築する {#step-1-build-a-segment}
 
 次に、ユーザーデータとアカウントデータを組み合わせたセグメントを構築します。この例では、ヘルスプロモーション会社の新しいウェビナーへの登録を増やすために、ヘルスケア企業のディレクターをターゲットにします。
 
-1. **オーディエンス** > **Segments**に移動し、**セグメントを作成**を選択します。
+1. **オーディエンス** > **セグメント**に移動し、**セグメントを作成**を選択します。
 2. セグメントに名前を付けます。
 3. **セグメントビルダー**で**ビジネス**フィルターを選択し、以下のセグメンテーションフィルターを設定します。完了したら、**保存**を選択します。
 
@@ -339,11 +339,11 @@ curl -X DELETE https://YOUR_REST_API_URL/business/accounts/ACC001 \
 セグメンテーションは、条件に一致する最初の1,000件のアカウントレコードに対してのみ機能します。セグメントごとに最大1つのビジネスフィルターを使用でき、すべての条件は1つのフィルター内に含める必要があります。
 {% endalert %}
 
-### ステップ 2: Liquidを使用してパーソナライズする {#step-2-use-liquid-to-personalize}
+### ステップ2: Liquidを使用してパーソナライズする {#step-2-use-liquid-to-personalize}
 
-これで、メッセージをパーソナライズして、ユーザーにオポチュニティに関する情報を送信できます。この例では、ディレクター向けのメッセージを作成し、ウェビナーへのリンクを含めます。また、Brazeカタログを使用して、パーソナライゼーション用の業種固有の画像を取得することもできます。
+これで、メッセージをパーソナライズして、ユーザーにオポチュニティに関する情報を送信できます。この例では、ディレクター向けのメッセージを下書きし、ウェビナーへのリンクを含めます。また、Brazeカタログを使用して、パーソナライゼーション用の業種固有の画像を取得することもできます。
 
-#### ステップ 2.1: アカウント情報でパーソナライズする {#step-21-personalize-with-account-information}
+#### ステップ2.1: アカウント情報でパーソナライズする {#step-21-personalize-with-account-information}
 
 パーソナライゼーションタイプとして**ビジネス**を選択し、次に**名前**を選択して、ユーザーの会社名でメッセージをパーソナライズします。
 
@@ -382,7 +382,7 @@ We would love to invite you and your peers at Sunshine Health to join our latest
 ```
 {% endraw %}
 
-#### ステップ 2.2: カタログと接続する {#step-22-connect-with-catalogs}
+#### ステップ2.2: カタログと接続する {#step-22-connect-with-catalogs}
 
 次に、Brazeカタログを使用して、ヘルスケア企業に対応する画像を追加・保存することで、メッセージをさらにパーソナライズします。
 

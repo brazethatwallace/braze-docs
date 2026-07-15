@@ -44,15 +44,15 @@ Utiliza este campo para definir durante cuánto tiempo Braze mantendrá activa t
 
 Puedes restringir a tus usuarios para que inicien sesión usando una contraseña o SSO.
 
-Para [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/), los clientes deben configurar sus ajustes de SAML antes de aplicar la restricción. Si los clientes usan Google SSO, solo necesitan aplicar la configuración en la página de configuración de seguridad sin ningún paso adicional.
+Para [SAML SSO]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on), los clientes deben configurar sus ajustes de SAML antes de aplicar la restricción. Si los clientes usan Google SSO, solo necesitan aplicar la configuración en la página de configuración de seguridad sin ningún paso adicional.
 
-## Lista de IP permitidas del dashboard {#dashboard-ip-allowlisting}
+## Lista de IP permitidas del panel {#dashboard-ip-allowlisting}
 
 Utiliza el campo que se muestra para incluir en la lista de permitidos direcciones IP y subredes específicas desde las cuales los usuarios pueden iniciar sesión en tu cuenta (por ejemplo, desde una red corporativa o VPN). Especifica las direcciones IP y subredes como rangos CIDR en una lista separada por comas. Si no se especifica, los usuarios pueden iniciar sesión desde cualquier dirección IP.
 
 ## Autenticación de dos factores (2FA) {#two-factor-authentication-2fa}
 
-La autenticación de dos factores es obligatoria para todos los usuarios de la empresa. Añade un segundo nivel de verificación de identidad al inicio de sesión de una cuenta, haciéndolo más seguro que solo un nombre de usuario y una contraseña. Si tu dashboard no puede soportar la autenticación de dos factores, ponte en contacto con tu administrador del éxito del cliente.
+La autenticación de dos factores es obligatoria para todos los usuarios de la empresa. Añade un segundo nivel de verificación de identidad al inicio de sesión de una cuenta, haciéndolo más seguro que solo un nombre de usuario y una contraseña. Si tu panel no puede soportar la autenticación de dos factores, ponte en contacto con tu administrador de éxito de cliente.
 
 Cuando la autenticación de dos factores está activada:
 
@@ -71,13 +71,13 @@ Cuando seleccionas **Remember this account for 30 days**, se almacena una cookie
 
 ![Casilla de verificación Recordar esta cuenta durante 30 días]({% image_buster /assets/img/remember_me.png %}){: style="float:right;max-width:50%;margin-left:15px;"}
 
-Los clientes con múltiples cuentas bajo una empresa del dashboard pueden experimentar problemas al usar esta función debido a que la cookie está vinculada a un dispositivo específico. Si los usuarios usan el mismo dispositivo para iniciar sesión en múltiples cuentas, la cookie se reemplazará para las cuentas previamente autorizadas en ese dispositivo. Braze espera que solo un dispositivo esté asociado con una cuenta, no un dispositivo para múltiples cuentas.
+Los clientes con múltiples cuentas bajo una empresa del panel pueden experimentar problemas al usar esta función debido a que la cookie está vinculada a un dispositivo específico. Si los usuarios usan el mismo dispositivo para iniciar sesión en múltiples cuentas, la cookie se reemplazará para las cuentas previamente autorizadas en ese dispositivo. Braze espera que solo un dispositivo esté asociado con una cuenta, no un dispositivo para múltiples cuentas.
 
 ### Restablecer la autenticación de un usuario {#resetting-user-authentication}
 
 Si tienes problemas para iniciar sesión con la autenticación de dos factores, ponte en contacto con los administradores de tu empresa para restablecer tu autenticación de dos factores. Los administradores pueden realizar los siguientes pasos:
 
-1. Ve a **Settings** > **Company Users**.
+1. Ve a **Configuración** > **Usuarios de la empresa**.
 2. Selecciona el usuario de la lista proporcionada.
 3. Selecciona **Reset** en **Two Factor Authentication**.
 
@@ -85,7 +85,7 @@ Un restablecimiento puede resolver problemas comunes de autenticación, como dif
 
 ### Requisitos para 2FA a nivel de empresa {#requirements-for-2fa-at-the-company-level}
 
-Primero, verifica si 2FA está habilitada para tu dashboard yendo a **Company Settings** > **Security Settings** > **Two Factor Authentication**. Si el interruptor está gris, 2FA no se ha activado para tu empresa y no es obligatoria para todos los usuarios de la empresa.
+Primero, verifica si 2FA está habilitada para tu panel yendo a **Configuración de empresa** > **Configuración de seguridad** > **Two Factor Authentication**. Si el interruptor está gris, 2FA no se ha activado para tu empresa y no es obligatoria para todos los usuarios de la empresa.
 
 #### Opciones del usuario cuando 2FA no es obligatoria {#user-options-when-2fa-isnt-mandatory}
 
@@ -93,7 +93,7 @@ Si 2FA no se aplica a nivel de empresa, los usuarios individuales pueden configu
 
 #### Requisitos cuando 2FA es obligatoria {#requirements-when-2fa-is-mandatory}
 
-Si 2FA se aplica a nivel de empresa, los usuarios que no la configuren en sus propias cuentas al iniciar sesión serán bloqueados del dashboard. Los usuarios deben completar la configuración de 2FA para mantener el acceso.
+Si 2FA se aplica a nivel de empresa, los usuarios que no la configuren en sus propias cuentas al iniciar sesión serán bloqueados del panel. Los usuarios deben completar la configuración de 2FA para mantener el acceso.
 
 {% alert important %}
 2FA es obligatoria para todos los usuarios de la empresa solo si el inicio de sesión único (SSO) no está habilitado. Si SSO está en uso, 2FA no necesita aplicarse a nivel de empresa.
@@ -111,11 +111,9 @@ Para activar manualmente la autenticación de dos factores (2FA) en tu cuenta Br
 
 ## Acceso elevado {#elevated-access}
 
-El acceso elevado añade una capa adicional de seguridad para acciones sensibles en tu dashboard de Braze. Cuando está activo, los usuarios necesitan volver a verificar su cuenta antes de exportar un segmento o ver una clave de API. Para usar el acceso elevado, ve a **Settings** > **Admin Settings** > **Security Settings** y actívalo.
+El acceso elevado añade una capa adicional de seguridad para acciones sensibles en tu panel de Braze. Cuando está activo, los usuarios necesitan volver a verificar su cuenta antes de exportar un segmento o ver una clave de API. Para usar el acceso elevado, ve a **Configuración** > **Configuración de administrador** > **Configuración de seguridad** y actívalo.
 
 Si un usuario no puede volver a verificarse, será redirigido a donde estaba y no podrá continuar con la acción sensible. Después de verificarse correctamente, no necesitará hacerlo de nuevo durante la siguiente hora, a menos que cierre sesión primero.
-
-![Interruptor de acceso elevado.]({% image_buster /assets/img/elevated_access.png %})
 
 ## Descargar un informe de eventos de seguridad {#security-event-report}
 
@@ -123,13 +121,29 @@ El informe de eventos de seguridad es un informe CSV de eventos de seguridad com
 
 Para descargar este informe, haz lo siguiente:
 
-1. Ve a **Settings** > **Admin Settings**.
-2. Selecciona la pestaña **Security Settings** y ve a la sección **Security Event Download**.
+1. Ve a **Configuración** > **Configuración de administrador**.
+2. Selecciona la pestaña **Configuración de seguridad** y ve a la sección **Descarga de evento de seguridad**.
 3. Selecciona **Download report**.
 
-Esta descarga manual de informe solo contiene los 10 000 eventos de seguridad más recientes de tu cuenta.
+Esta descarga manual de informe solo contiene los 10 000 eventos de seguridad más recientes de tu cuenta. Si tu CSV exportado contiene exactamente 10 001 filas (incluida la fila de encabezado), alcanzaste el límite de 10 000 eventos del informe y es posible que no se incluyan eventos más antiguos.
 
-Para exportar eventos de seguridad a Amazon S3 sin este límite de filas, consulta [Exportación de eventos de seguridad con Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3/).
+Para exportar eventos de seguridad a Amazon S3 sin este límite de filas, consulta [Exportación de eventos de seguridad con Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
+
+### Definiciones de columnas del CSV {#csv-column-definitions}
+
+El informe CSV de eventos de seguridad contiene las siguientes columnas:
+
+| Columna | Descripción |
+|--------|-------------|
+| CreatedAt | Marca de tiempo en la que se registró el evento, en UTC. |
+| EmailAtTimeOfEvent | Dirección de correo electrónico del usuario del panel que desencadenó el evento, tal como se registró cuando ocurrió el evento. |
+| CurrentEmail | Dirección de correo electrónico actual del usuario del panel que desencadenó el evento. Si el usuario ya no existe, se usa su ID de desarrollador en su lugar. |
+| EventName | Tipo de evento de seguridad. Consulta el desplegable **Eventos de seguridad reportados** después de esta tabla. |
+| OtherAccount | Dirección de correo electrónico de otro usuario del panel afectado por el evento, cuando corresponda (por ejemplo, cuando se añade o elimina una cuenta). |
+| JsonProperties | Propiedades específicas del evento en formato JSON. Los campos incluidos varían según el tipo de evento. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Definiciones de columnas del CSV" }
+
+Las [exportaciones a S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3) incluyen estas columnas más `Version`, la versión del esquema para el formato de exportación (actualmente `1`).
 
 {% details Eventos de seguridad reportados %}
 ### Inicio de sesión y cuenta {#login-and-account}
@@ -161,8 +175,8 @@ Campaign
 - Edited Campaign
 
 Canvas
-- Added Journey
-- Edited Journey
+- Added Canvas
+- Edited Canvas
 
 ### Segment
 - Added Segment
@@ -246,21 +260,21 @@ Canvas
 
 ## Ver información de identificación personal (PII) {#view-pii}
 
-El permiso **View PII** solo es accesible para unos pocos usuarios seleccionados de la empresa. De forma predeterminada, todos los administradores tienen su permiso **View PII** activado en los permisos de usuario. Esto significa que pueden ver todos los atributos estándar y personalizados que tu empresa ha definido como PII en todo el dashboard. Cuando este permiso está desactivado para los usuarios, esos usuarios no podrán ver ninguno de esos atributos.
+El permiso **View PII** solo es accesible para unos pocos usuarios seleccionados de la empresa. De forma predeterminada, todos los administradores tienen su permiso **View PII** activado en los permisos de usuario. Esto significa que pueden ver todos los atributos estándar y personalizados que tu empresa ha definido como PII en todo el panel. Cuando este permiso está desactivado para los usuarios, esos usuarios no podrán ver ninguno de esos atributos.
 
 {% alert note %}
-Necesitas el permiso **View PII** para usar el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries/), ya que permite el acceso directo a algunos datos de clientes.
+Necesitas el permiso **View PII** para usar el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), ya que permite el acceso directo a algunos datos de clientes.
 {% endalert %}
 
-Para las capacidades existentes de permisos de equipo, consulta [Configurar permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#available-limited-and-team-role-permissions).
+Para las capacidades existentes de permisos de equipo, consulta [Configurar permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
 
 ### Definir PII {#defining-pii}
 
 {% alert important %}
-Seleccionar y definir ciertos campos como campos PII solo afecta lo que los usuarios pueden ver en el dashboard de Braze y no afecta cómo se manejan los datos del usuario final en dichos campos PII.<br><br>Consulta con tu equipo legal para alinear la configuración de tu dashboard con cualquier regulación y política de privacidad aplicable a tu empresa, incluidas las relacionadas con la [retención de datos]({{site.baseurl}}/data_retention/).
+Seleccionar y definir ciertos campos como campos PII solo afecta lo que los usuarios pueden ver en el panel de Braze y no afecta cómo se manejan los datos del usuario final en dichos campos PII.<br><br>Consulta con tu equipo legal para alinear la configuración de tu panel con cualquier regulación y política de privacidad aplicable a tu empresa, incluidas las relacionadas con la [retención de datos]({{site.baseurl}}/data_retention).
 {% endalert %}
 
-Puedes seleccionar los campos que tu empresa designa como PII en el dashboard. Para hacerlo, ve a **Company Settings** > **Admin Settings** > **Security Settings**.
+Puedes seleccionar los campos que tu empresa designa como PII en el panel. Para hacerlo, ve a **Configuración de empresa** > **Configuración de administrador** > **Configuración de seguridad**.
 
 Los siguientes atributos pueden designarse como PII y ocultarse de los usuarios de la empresa que no tengan permisos de **View PII**.
 
@@ -268,21 +282,21 @@ Los siguientes atributos pueden designarse como PII y ocultarse de los usuarios 
 
 | Atributos estándar | Atributos personalizados |
 | ------------------- | ----------------- |
-| {::nomarkdown} <ul> <li>Dirección de correo electrónico </li> <li> Número de teléfono </li> <li> Nombre </li> <li> Apellido </li> <li> Género </li> <li> Fecha de nacimiento </li> <li> ID de dispositivo </li> <li> Ubicación más reciente </li> </ul> {:/} | {::nomarkdown} <ul> <li> Todos los atributos personalizados<ul><li>Los atributos personalizados individuales pueden marcarse como PII si no necesitas ocultar todos los atributos.</li></ul></li> </ul> {:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Potential PII attributes" }
+| {::nomarkdown}<ul> <li>Dirección de correo electrónico </li> <li> Número de teléfono </li> <li> Nombre </li> <li> Apellido </li> <li> Género </li> <li> Fecha de nacimiento </li> <li> ID de dispositivo </li> <li> LINE ID </li> <li> Ubicación más reciente </li> </ul> {:/} | {::nomarkdown} <ul> <li> Todos los atributos personalizados<ul><li>Los atributos personalizados individuales pueden marcarse como PII si no necesitas ocultar todos los atributos.</li></ul></li> </ul> {:/} |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Atributos potenciales de PII" }
 
 ### Áreas restringidas {#limited-areas}
 
 Lo siguiente asume que todos los campos están configurados como PII, y los usuarios mencionados son usuarios de la empresa que usan la plataforma Braze. Además, los atributos "anteriores" se refieren a los de la tabla [Atributos potenciales de PII](#potential-pii-attributes). Quitar los permisos de PII de un usuario puede afectar la usabilidad más allá de estas áreas listadas.
 
-| Navegación del dashboard | Resultado | Notas |
+| Navegación del panel | Resultado | Notas |
 | -------------------- | ------ | ----- |
-| Búsqueda de usuarios | El usuario que inicia sesión no puede buscar por dirección de correo electrónico, número de teléfono, nombre o apellido: {::nomarkdown} <ul> <li> No se le mostrarán los atributos estándar y personalizados anteriores al ver un perfil de usuario. </li> <li> No puede editar los atributos estándar anteriores de un perfil de usuario desde el dashboard de Braze. </li> <li> No puede actualizar el estado de suscripción en un perfil de usuario. </li></ul> {:/} | El acceso a esta sección aún requiere acceso para ver un perfil de usuario. |
-| Importación de usuarios | El usuario no puede descargar archivos desde la página **User Import**. | |
+| Búsqueda de usuarios | El usuario que inicia sesión no puede buscar por dirección de correo electrónico, número de teléfono, nombre o apellido: {::nomarkdown} <ul> <li> No se le mostrarán los atributos estándar y personalizados anteriores al ver un perfil de usuario. </li> <li> No puede editar los atributos estándar anteriores de un perfil de usuario desde el panel de Braze. </li> <li> No puede actualizar el estado de suscripción en un perfil de usuario. </li></ul> {:/} | El acceso a esta sección aún requiere acceso para ver un perfil de usuario. |
+| Importación de usuarios | El usuario no puede descargar archivos desde la página **Importación de usuarios**. | |
 | {::nomarkdown} <ul> <li> Segments </li> <li> Campaigns </li> <li> Canvas </li> </ul> {:/} | En el menú desplegable **User Data**: {::nomarkdown} <ul> <li> El usuario no tendrá la opción <b>CSV Export Email Address</b>. </li> <li> El usuario no recibirá los atributos estándar y personalizados anteriores en el archivo CSV al seleccionar <b>CSV Export User Data</b>. </li> </ul> {:/} | |
 | Grupo de prueba interno | El usuario no tendrá acceso a los atributos estándar anteriores de cualquier usuario añadido al grupo de prueba interno. | |
 | Registro de actividad de mensajes | El usuario no tendrá acceso a los atributos estándar anteriores de cualquier usuario identificado en el registro de actividad de mensajes. | |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Limited areas" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Áreas restringidas" }
 
 {% alert note %}
 Al previsualizar un mensaje, el permiso **View PII** no se aplica, por lo que los usuarios pueden ver los [atributos estándar anteriores](#potential-pii-attributes) si fueron referenciados en el mensaje a través de Liquid.
@@ -303,7 +317,7 @@ Eres responsable de determinar las preferencias correctas para tu espacio de tra
 | Evento personalizado | properties |  |
 | Evento de compra | properties |  |
 | Envío de mensaje | message_extras | Varios tipos de eventos contienen un campo `message_extras`. La preferencia se aplica a todos los tipos de eventos de envío de mensajes que admiten `message_extras`, incluidos los tipos de eventos añadidos en el futuro. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Relevant fields" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos relevantes" }
 
 {% alert warning %}
 **¡La eliminación es permanente!** Si optas por eliminar cualquier campo de Snowflake para los usuarios eliminados, la configuración se aplica a todos los datos históricos en tus espacios de trabajo y a cualquier evento de usuarios eliminados en el futuro. Después de que Braze haya ejecutado el proceso para aplicar la configuración a los datos históricos de eventos de usuarios eliminados, **no puedes restaurar** los datos.
@@ -328,7 +342,7 @@ Si te encuentras atrapado en un bucle después de introducir correctamente tu n�
 3. Reinicia tu PC o portátil.
 4. Intenta configurar 2FA de nuevo.
 
-Si el problema persiste después de estos pasos, ponte en contacto con [Soporte]({{site.baseurl}}/braze_support/) para obtener asistencia.
+Si el problema persiste después de estos pasos, ponte en contacto con [Soporte]({{site.baseurl}}/braze_support) para obtener asistencia.
 
 ### No se puede habilitar la autenticación de dos factores (2FA) {#cant-enable-two-factor-authentication-2fa}
 
@@ -352,5 +366,5 @@ Si los problemas persisten, elimina el perfil antiguo en la aplicación Authy y 
 
 Para más información sobre autenticación y acceso, consulta:
 
-- [SAML e inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/) para configurar SSO con tu proveedor de identidad.
-- [Permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) para controlar qué acciones pueden realizar los usuarios en el dashboard.
+- [SAML e inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on) para configurar SSO con tu proveedor de identidad.
+- [Permisos]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para controlar qué acciones pueden realizar los usuarios en el panel.

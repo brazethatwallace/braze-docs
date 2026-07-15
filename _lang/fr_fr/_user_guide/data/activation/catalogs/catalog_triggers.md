@@ -3,6 +3,7 @@ page_order: 2
 nav_title: Déclencheurs de catalogues
 article_title: Déclencheurs de catalogues
 layout: dev_guide
+noindex: true
 guide_top_header: "Déclencheurs de catalogues"
 guide_top_text: "Les déclencheurs de catalogues sont des notifications automatisées basées sur les modifications de vos données de catalogue. Utilisez-les pour informer vos clients lorsque des articles qui les intéressent sont de nouveau disponibles ou baissent de prix, sans avoir à configurer manuellement une campagne."
 

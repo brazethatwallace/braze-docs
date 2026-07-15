@@ -14,11 +14,11 @@ platform:
 
 # Personalizar el comportamiento de las Content Cards {#customize-the-behavior-of-content-cards}
 
-> Esta guía de implementación trata sobre cómo cambiar el comportamiento de las Content Cards, cómo añadir extras como pares clave-valor a tu carga útil, y recetas para personalizaciones comunes. Para obtener la lista completa de tipos de tarjetas de contenido, consulta [Acerca de las Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Esta guía de implementación trata sobre cómo cambiar el comportamiento de las Content Cards, cómo añadir extras como pares clave-valor a tu carga útil, y recetas para personalizaciones comunes. Para obtener la lista completa de tipos de tarjetas de contenido, consulta [Acerca de las Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 ## Pares clave-valor {#key-value-pairs}
 
-Braze te permite enviar cargas útiles de datos adicionales mediante Content Cards a dispositivos de usuario utilizando pares clave-valor. Pueden ayudarte a realizar un seguimiento de las métricas internas, actualizar el contenido de la aplicación y personalizar las propiedades. [Añade pares clave-valor utilizando el dashboard]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create/#step-4-configure-additional-settings-optional).
+Braze te permite enviar cargas útiles de datos adicionales mediante Content Cards a los dispositivos de los usuarios utilizando pares clave-valor. Pueden ayudarte a realizar un seguimiento de las métricas internas, actualizar el contenido de la aplicación y personalizar las propiedades. [Añade pares clave-valor utilizando el panel]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create#step-4-configure-additional-settings-optional).
 
 {% alert note %}
 No recomendamos enviar valores JSON anidados como pares clave-valor. En su lugar, aplana el JSON antes de enviarlo.
@@ -43,20 +43,20 @@ Los pares clave-valor se almacenan en objetos <a href="https://braze-inc.github.
 {% endtabs %}
 
 {% alert tip %}
-Es importante que tus equipos de marketing y desarrolladores se coordinen sobre qué pares clave-valor se utilizarán (por ejemplo, `feed_type = brand_homepage`), ya que cualquier par clave-valor que los especialistas en marketing introduzcan en el dashboard de Braze debe coincidir exactamente con los pares clave-valor que los desarrolladores incorporen a la lógica de la aplicación.
+Es importante que tus equipos de marketing y desarrollo se coordinen sobre qué pares clave-valor se utilizarán (por ejemplo, `feed_type = brand_homepage`), ya que cualquier par clave-valor que los especialistas en marketing introduzcan en el panel de Braze debe coincidir exactamente con los pares clave-valor que los desarrolladores incorporen a la lógica de la aplicación.
 {% endalert %}
 
 ## Content Cards como contenido complementario {#content-cards-as-supplemental-content}
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![Fuente con una lista híbrida que combina datos locales y Content Cards de Braze.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 Puedes integrar fácilmente las Content Cards en una fuente existente, permitiendo que los datos de varias fuentes se carguen simultáneamente. Esto crea una experiencia cohesiva y armoniosa con las Content Cards de Braze y el contenido de la fuente existente.
 
-El ejemplo de la derecha muestra una fuente con una lista híbrida de elementos que se rellenan mediante datos locales y Content Cards impulsadas por Braze. Con esto, las Content Cards pueden ser indistinguibles de los contenidos existentes.
+El ejemplo de la derecha muestra una fuente con una lista híbrida de elementos que se rellenan mediante datos locales y Content Cards impulsadas por Braze. Con esto, las Content Cards pueden ser indistinguibles del contenido existente.
 
 ### Pares clave-valor desencadenados por la API {#api-triggered-key-value-pairs}
 
-Las [Campaigns desencadenadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) son una buena estrategia a emplear cuando los valores de una tarjeta dependen de factores externos para determinar qué contenido mostrar al usuario. Por ejemplo, para mostrar contenido complementario, establece pares clave-valor utilizando Liquid. Ten en cuenta que `class_type` debe conocerse en el momento de la configuración.
+Las [campañas desencadenadas por API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) son una buena estrategia a emplear cuando los valores de una tarjeta dependen de factores externos para determinar qué contenido mostrar al usuario. Por ejemplo, para mostrar contenido complementario, establece pares clave-valor utilizando Liquid. Ten en cuenta que `class_type` debe conocerse en el momento de la configuración.
 
 ![Los pares clave-valor para el caso de uso de las Content Cards complementarias. En este ejemplo, diferentes aspectos de la tarjeta, como "tile_id", "tile_deeplink" y "tile_title", se configuran utilizando Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
@@ -65,11 +65,11 @@ Las [Campaigns desencadenadas por API]({{site.baseurl}}/user_guide/messaging/cam
 
 Las Content Cards pueden aprovecharse para crear experiencias dinámicas e interactivas para tus usuarios. En el ejemplo de la derecha, tenemos una ventana emergente de una Content Card que aparece en el momento de la compra y que ofrece a los usuarios promociones de última hora. Las tarjetas bien colocadas como esta son una forma estupenda de dar a los usuarios un "empujoncito" hacia acciones específicas.
 
-Los pares clave-valor para este caso de uso incluyen un `discount_percentage` configurado como el importe de descuento deseado y `class_type` configurado como `coupon_code`. Estos pares clave-valor te permiten filtrar y mostrar Content Cards de tipos específicos en la pantalla de pago. Para más información sobre el uso de pares clave-valor para gestionar varias fuentes, consulta [Personalizar la fuente predeterminada de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).
+Los pares clave-valor para este caso de uso incluyen un `discount_percentage` configurado como el importe de descuento deseado y `class_type` configurado como `coupon_code`. Estos pares clave-valor te permiten filtrar y mostrar Content Cards de tipos específicos en la pantalla de pago. Para más información sobre el uso de pares clave-valor para gestionar varias fuentes, consulta [Personalizar la fuente predeterminada de Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
 <br>
 <br>
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
+![Content Card interactiva que muestra una promoción en el momento del pago.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
 
 ## Señales de Content Cards {#content-card-badges}
 

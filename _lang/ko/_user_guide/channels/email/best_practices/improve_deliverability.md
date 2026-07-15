@@ -8,13 +8,13 @@ channel: email
 
 ---
 
-# 이메일 전달 가능성 개선
+# 이메일 전달 가능성 개선 {#improve-email-deliverability}
 
 > 메일박스 공급자(MBP)는 메시지를 수락하거나 반송할 때 발송 도메인의 평판을 고려합니다. 메시지가 수락되더라도 받은편지함에 배치되지 않는 경우가 있습니다. 대신 스팸 폴더로 라우팅될 수 있으며, 이 경우 수신자가 메시지를 확인할 가능성이 낮아집니다.
 
 다음은 스팸 폴더 배치와 낮은 참여를 줄이기 위한 일반적인 가이드입니다.
 
-## 발송 패턴
+## 발송 패턴 {#sending-patterns}
 
 발송 패턴은 도메인 평판에 영향을 미칩니다. 다음 모범 사례와 맞지 않으면 MBP가 메일을 반송하거나 필터링할 가능성이 높아집니다.
 
@@ -26,25 +26,25 @@ channel: email
 
 {% multi_lang_include alerts/important_alerts.md alert='Email via SMS' %}
 
-## 메시지 콘텐츠
+## 메시지 콘텐츠 {#message-content}
 
 콘텐츠 필터는 MBP가 피싱, 멀웨어, 원치 않는 메일로부터 사용자를 보호하는 데 도움을 줍니다. 크리에이티브가 무해해 보일 수 있지만, 필터가 감시하는 패턴과 유사할 수 있습니다.
 
 - **메시지의 최근 변경 사항을 검토하세요.** 예를 들어, HTML, 이미지 비율, 이미지 호스트의 변경 및 새 템플릿의 포함은 MBP 콘텐츠 필터를 트리거할 수 있습니다.
 - **참여가 떨어지면 템플릿과 카피를 새롭게 바꾸세요.** 오래되고 반복적인 발송은 가입자에게 열어볼 이유를 거의 주지 못합니다.
 
-## 수신자 신고 및 동작
+## 수신자 신고 및 동작 {#recipient-reports-and-behavior}
 
 가입자의 행동은 평판 시스템과 향후 받은편지함 결정에 모두 영향을 미칩니다. 높은 불만 건수는 이후 메시지를 스팸으로 전환할 수 있으며, 이는 MBP 또는 가입자가 메일의 품질을 신뢰하지 않을 때 격리와 같은 역할을 합니다.
 
 - **관련성 있는 제목란과 명확한 행동 유도 문구가 포함된 본문 콘텐츠를 작성하세요.** 열지 않고 삭제하는 것, 낮은 참여, 약한 제목란은 본문을 읽기 전에 이미 무관심을 나타내는 신호입니다.
 - **옵트인 시점에 가입자에게 발신자 주소를 이메일 연락처 목록에 추가하도록 요청하세요.** 이렇게 하면 발신자 평판이 향상되고 메일이 받은편지함에 도달할 가능성이 높아집니다.
 
-## 관련 리소스
+## 관련 리소스 {#related-resources}
 
-- [일몰 정책]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/)
-- [IP 워밍]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)
-- [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/)
-- [발송 전 알아야 할 사항]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send/#general)
-- [동의 및 주소 수집]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection/#subscriber-states)
-- [이메일 FAQ]({{site.baseurl}}/user_guide/channels/email/faq/#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)
+- [일몰 정책]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)
+- [IP 워밍]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)
+- [전달 가능성 함정 및 스팸 트랩]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps)
+- [발송 전 알아야 할 사항]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/know_before_you_send#general)
+- [동의 및 주소 수집]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#subscriber-states)
+- [이메일 FAQ]({{site.baseurl}}/user_guide/channels/email/faq#what-happens-when-an-email-is-sent-out-and-multiple-profiles-have-the-same-email-address)

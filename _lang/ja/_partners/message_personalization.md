@@ -4,7 +4,7 @@ article_title: メッセージパーソナライゼーションパートナー
 page_order: 1
 
 page_type: landing
-description: "このランディングページでは、BrazeのCampaignsやCanvasesに追加のパーソナライゼーションを加えることができるBrazeパートナー（Alloys）を一覧で紹介しています。"
+description: "このランディングページでは、Brazeのキャンペーンやキャンバスに追加のパーソナライゼーションを加えることができるBrazeパートナー（Alloys）を一覧で紹介しています。"
 layout: partner_page
 search_tag: Partner
 
@@ -49,6 +49,8 @@ valid_partner_list:
   url: /docs/partners/playable/
 - name: SEEN
   url: /docs/partners/seen/
+- name: Stayfilm
+  url: /docs/partners/stayfilm/
 - name: Storyly
   url: /docs/partners/storyly/
 - name: Worthy

@@ -7,7 +7,7 @@ description: "In diesem Referenzartikel erfahren Sie, wie Sie Kataloge verwenden
 
 # Verwendung von Katalogen {#using-catalogs}
 
-> Nachdem Sie einen Katalog erstellt haben, können Sie in Ihren Braze-Campaigns über [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) auf Nicht-Nutzerdaten verweisen. Sie können Kataloge in allen Ihren Messaging-Kanälen verwenden, auch überall dort, wo Liquid im Drag-and-Drop-Editor unterstützt wird.
+> Nachdem Sie einen Katalog erstellt haben, können Sie in Ihren Braze-Campaigns über [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) auf Nicht-Nutzerdaten verweisen. Sie können Kataloge in allen Ihren Messaging-Kanälen verwenden, auch überall dort, wo Liquid im Drag-and-Drop-Editor unterstützt wird.
 
 ## Kataloge in einer Nachricht verwenden {#using-catalogs-in-a-message}
 
@@ -17,7 +17,7 @@ Das folgende Video zeigt Ihnen, wie Sie Kataloge in einer Nachricht verwenden.
 
 ### 1. Schritt: Personalisierungsart hinzufügen {#step-one-personalization}
 
-Wählen Sie im Nachrichten-Editor Ihrer Wahl das <i class="fas fa-plus-circle"></i> **Add Personalization** und wählen Sie **Catalog Items** als **Personalization type** aus. Wählen Sie anschließend den Namen Ihres Katalogs aus. In unserem vorherigen Beispiel wählen wir den Katalog „Games“.
+Wählen Sie im Nachrichten-Editor Ihrer Wahl <i class="fas fa-plus-circle"></i> **Add Personalization** und wählen Sie **Catalog Items** als **Personalization type** aus. Wählen Sie anschließend den Namen Ihres Katalogs aus. In unserem vorherigen Beispiel wählen wir den Katalog „Games“.
 
 ![Modal „Add Personalization“ mit ausgewählten Catalog Items, gewähltem Games-Katalog und einer Liquid-Vorschau, die den catalog_items-Tag zeigt.]({% image_buster /assets/img_archive/use_catalog_personalization.png %})
 
@@ -80,7 +80,7 @@ Das Ergebnis sieht folgendermaßen aus:
 ```Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
 
 {% alert tip %}
-Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to create groups of data for more personalized messaging!
+Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) to create groups of data for more personalized messaging!
 {% endalert %}
 
 ### Using Liquid `if` statements
@@ -174,7 +174,7 @@ Sie können auch Templates verwenden, um Katalogartikel auf der Grundlage angepa
 JSON-Objekte in Katalogen werden nur über die API aufgenommen. Sie können ein JSON-Objekt nicht über eine CSV-Datei hochladen.
 {% endalert %}
 
-Mit Liquid-Templates können Sie die Wunschlisten-IDs dynamisch abrufen und sie dann in Ihrer Nachricht verwenden. Dazu [weisen Sie Ihrem angepassten Attribut eine Variable zu]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) und verwenden dann das Modal **Add Personalization**, um einen bestimmten Artikel aus dem Array abzurufen. Variablen, die als ID eines Katalogartikels referenziert werden, müssen in geschweifte Klammern eingeschlossen werden, um korrekt referenziert zu werden, z. B. `{{result}}`.
+Mit Liquid-Templates können Sie die Wunschlisten-IDs dynamisch abrufen und sie dann in Ihrer Nachricht verwenden. Dazu [weisen Sie Ihrem angepassten Attribut eine Variable zu]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) und verwenden dann das Modal **Add Personalization**, um einen bestimmten Artikel aus dem Array abzurufen. Variablen, die als ID eines Katalogartikels referenziert werden, müssen in geschweifte Klammern eingeschlossen werden, um korrekt referenziert zu werden, z. B. `{{result}}`.
 
 {% alert tip %}
 Denken Sie daran, dass Arrays bei `0` beginnen, nicht bei `1`.
@@ -206,7 +206,7 @@ Sie können Kataloge auch manuell mit Liquid-Logik zusammenstellen. Beachten Sie
 
 #### Templates für Katalogartikel einschließlich Liquid
 
-Ähnlich wie bei [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) müssen Sie das `:rerender`-Flag in einem Liquid-Tag verwenden, um den Liquid-Inhalt eines Katalogartikels zu rendern. Beachten Sie, dass das `:rerender`-Flag nur eine Ebene tief wirkt, d. h. es gilt nicht für verschachtelte Liquid-Tag-Aufrufe.
+Ähnlich wie bei [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) müssen Sie das `:rerender`-Flag in einem Liquid-Tag verwenden, um den Liquid-Inhalt eines Katalogartikels zu rendern. Beachten Sie, dass das `:rerender`-Flag nur eine Ebene tief wirkt, d. h. es gilt nicht für verschachtelte Liquid-Tag-Aufrufe.
 
 Wenn ein Katalogartikel Nutzerprofil-Felder enthält (innerhalb eines Liquid-Personalisierungs-Tags), müssen diese Werte in Liquid zu einem früheren Zeitpunkt in der Nachricht und vor dem Templating definiert werden, damit das Liquid ordnungsgemäß gerendert werden kann. Wenn das `:rerender`-Flag nicht angegeben wird, wird der rohe Liquid-Inhalt ausgegeben.
 
@@ -246,12 +246,12 @@ Wenn Katalog- oder Auswahl-Liquid in einer Nachricht oder einem Canvas-Schritt n
 | Symptom | Was zu prüfen ist |
 | --- | --- |
 | Die Vorschau zeigt Artikel an, aber Live-Sendungen sind leer | Bestätigen Sie, dass die **Artikel-IDs** des Katalogs zum Sendezeitpunkt existieren. Wenn die ID in Ihrem Liquid nicht mit einer Zeile übereinstimmt, gibt Braze ein leeres Artikel-Array zurück – siehe [Liquid verwenden](#using-liquid). Prüfen Sie auf Tippfehler und auf ID-Quellen (wie Event-Eigenschaften), die beim Trigger oder im Nutzerprofil fehlen. |
-| Die Editor-Vorschau funktioniert in einer Campaign, aber nicht in Canvas | Bestätigen Sie, dass Sie den richtigen Liquid-Kontext verwenden – **Canvas-Kontexteigenschaften** im Vergleich zu **Event-Eigenschaften** – und dass diese Felder beim Trigger vorhanden sind. Siehe [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/). |
-| Eine Auswahl gibt keine Artikel zurück | Überprüfen Sie die [Auswahlfilter]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) und Limits; bestätigen Sie, dass die Katalogdaten synchronisiert sind und die Spaltennamen mit Ihren Filtern übereinstimmen. |
-| `:rerender` oder die Template-Zustellung sieht falsch aus | Für verschachteltes Liquid in Katalogfeldern benötigen Sie `:rerender` und die korrekte Reihenfolge der Variablen – siehe [Templates für Katalogartikel einschließlich Liquid](#templating-catalog-items-including-liquid). In-App-Nachrichten mit Templates werden zum Trigger-Zeitpunkt aufgelöst; siehe [Was sind In-App-Nachrichten mit Templates?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#what-are-templated-in-app-messages). Einige Kanäle schränken Katalog-Tags ein (z. B. bestimmte **:rerender**-Verwendungen mit Banner) – siehe [Werden alle Liquid-Tags unterstützt?]({{site.baseurl}}/user_guide/channels/banners/faq/#are-all-liquid-tags-supported) in den Banner-FAQ. |
+| Die Editor-Vorschau funktioniert in einer Campaign, aber nicht in Canvas | Bestätigen Sie, dass Sie den richtigen Liquid-Kontext verwenden – **Canvas-Kontexteigenschaften** im Vergleich zu **Event-Eigenschaften** – und dass diese Felder beim Trigger vorhanden sind. Siehe [Kontext- und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). |
+| Eine Auswahl gibt keine Artikel zurück | Überprüfen Sie die [Auswahlfilter]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) und Limits; bestätigen Sie, dass die Katalogdaten synchronisiert sind und die Spaltennamen mit Ihren Filtern übereinstimmen. |
+| `:rerender` oder die Template-Zustellung sieht falsch aus | Für verschachteltes Liquid in Katalogfeldern benötigen Sie `:rerender` und die korrekte Reihenfolge der Variablen – siehe [Templates für Katalogartikel einschließlich Liquid](#templating-catalog-items-including-liquid). In-App-Nachrichten mit Templates werden zum Trigger-Zeitpunkt aufgelöst; siehe [Was sind In-App-Nachrichten mit Templates?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages). Einige Kanäle schränken Katalog-Tags ein (z. B. bestimmte **:rerender**-Verwendungen mit Banner) – siehe [Werden alle Liquid-Tags unterstützt?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported) in den Banner-FAQ. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung bei der Katalogpersonalisierung" }
 
-Allgemeine Informationen zum Liquid-Verhalten finden Sie unter [Liquid-Anwendungsfälle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) und [Liquid verwenden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/).
+Allgemeine Informationen zum Liquid-Verhalten finden Sie unter [Liquid-Anwendungsfälle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) und [Liquid verwenden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
 
 ## Strukturierung Ihrer Katalogdaten
 
@@ -270,7 +270,7 @@ Bei Standard-Katalogaufrufen gleichen Sie einen Wert mit der `id`-Spalte ab. Ind
 
 ### Wann Sie Katalogauswahlen verwenden sollten
 
-[Katalogauswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) ermöglichen es Ihnen, über jede Spalte in Ihrem Katalog zu filtern und bis zu 50 übereinstimmende Artikel zurückzugeben. Indem Sie angepasste Attribute oder Event-Eigenschaften in die Auswahlfilter einfügen, werden die Ergebnisse für jede Nutzerin und jeden Nutzer personalisiert. Häufige Anwendungsfälle sind:
+[Katalogauswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) ermöglichen es Ihnen, über jede Spalte in Ihrem Katalog zu filtern und bis zu 50 übereinstimmende Artikel zurückzugeben. Indem Sie angepasste Attribute oder Event-Eigenschaften in die Auswahlfilter einfügen, werden die Ergebnisse für jede Nutzerin und jeden Nutzer personalisiert. Häufige Anwendungsfälle sind:
 
 - Artikel, deren Kategorie den Präferenzen einer Nutzerin oder eines Nutzers entspricht
 - Artikel, die zur bevorzugten Marke, Küche oder Größe einer Nutzerin oder eines Nutzers passen

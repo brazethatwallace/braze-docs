@@ -10,13 +10,13 @@ search_tag: Partner
 
 > Hightouch의 [Personalization API](https://hightouch.com/docs/destinations/personalization-api)는 클라우드 데이터 웨어하우스 내의 모든 데이터셋을 기반으로 저지연 데이터 API를 호스팅할 수 있는 관리형 서비스입니다.
 
-![]({% image_buster /assets/img/hightouch/cohort7.png %})
+![데이터 웨어하우스에서 Hightouch를 거쳐 모바일 앱, 웹 경험, 동적 이메일로의 데이터 흐름을 보여주는 Hightouch Personalization API 아키텍처 다이어그램.]({% image_buster /assets/img/hightouch/cohort7.png %})
 
-Braze와 Hightouch 통합을 사용하면 [Braze 연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)와 함께 API를 활용하여 발송 시점에 최신 고객 또는 오브젝트 데이터를 Campaigns 또는 Canvases로 가져올 수 있습니다.
+Braze와 Hightouch 통합을 사용하면 [Braze 연결된 콘텐츠]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)와 함께 API를 활용하여 발송 시점에 최신 고객 또는 오브젝트 데이터를 Campaign 또는 Canvases로 가져올 수 있습니다.
 
 Hightouch의 Personalization API는 Braze 구성 내에서 사용할 수 있는 REST 엔드포인트를 제공합니다. 구체적으로, Braze 연결된 콘텐츠 기능을 사용하여 Personalization API에 GET 요청을 보내 특정 식별자와 관련된 모든 정보를 검색할 수 있습니다. 이 API를 통해 노출되는 데이터는 고객, 제품 또는 기타 오브젝트 데이터를 나타낼 수 있습니다.
 
-![]({% image_buster /assets/img/hightouch/cohort6.png %})
+![Snowflake, BigQuery, Redshift에서 Hightouch Personalization API를 거쳐 Braze 연결된 콘텐츠로의 데이터 흐름을 보여주는 다이어그램.]({% image_buster /assets/img/hightouch/cohort6.png %})
 
 ## 필수 조건 {#prerequisites}
 
@@ -26,12 +26,12 @@ Hightouch의 Personalization API는 Braze 구성 내에서 사용할 수 있는 
 | 정의된 사용 사례 | API를 설정하기 전에 이 통합의 사용 사례를 결정해야 합니다. 일반적인 사용 사례는 아래 목록을 참조하세요. |
 | 클라우드 데이터 웨어하우스 또는 기타 소스에 저장된 데이터 | Hightouch는 [25개 이상의 데이터 소스](https://hightouch.com/integrations)와 통합됩니다. |
 | Hightouch API 키 | **Hightouch > Settings > API keys > Add API key**에서 생성할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 {% tabs %}
-{% tab 활용 사례 %}
+{% tab 사용 사례 %}
 
-### 활용 사례 {#use-cases}
+### 사용 사례 {#use-cases}
 
 시작하기 전에 Personalization API를 어떻게 사용할지 정확히 계획하는 것이 좋습니다.
 
@@ -117,14 +117,14 @@ API는 `https://personalization.{region}.hightouch.com`에서 접근할 수 있�
 ```
 {% endraw %}
 
-Liquid 템플릿을 사용하여 JSON 페이로드에서 반환된 등록정보를 참조하고 메시징에 활용할 수 있습니다.
+Liquid 템플릿을 사용하여 JSON 페이로드에서 반환된 속성을 참조하고 메시징에 활용할 수 있습니다.
 
 아래 예시 페이로드의 경우:
 
 ```json
 {
     "user_id": 12345,
-    "full_name": "Jane Doe",
+    "full_name": "Alex Smith",
     "lifetime_value": 1492.18,
     "churn_risk": 0.04,
     "90_day_summary": {
@@ -155,7 +155,7 @@ Liquid 템플릿을 사용하여 JSON 페이로드에서 반환된 등록정보�
         ],
         "upcoming_album_release": {
             "title": "Universal Language",
-            "artist": "Simon Doty",
+            "artist": "Alex Lee",
             "label": "Anjunadeep",
             "release_date": "2023-04-28"
         }
@@ -170,7 +170,7 @@ Liquid 템플릿을 사용하여 JSON 페이로드에서 반환된 등록정보�
 | {% raw %}`{{artists.recommendations.concerts[0].artist}}`{% endraw %} | Aphex Twin |
 | {% raw %}`{{artists.recommendations.concerts[0].location}}`{% endraw %} | San Francisco, CA |
 | {% raw %}`{{artists.recommendations.upcoming_album_release.title}}`{% endraw %} | Universal Language |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Call personalization API through Braze Connected Content" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze 연결된 콘텐츠를 통해 Personalization API 호출" }
 
 ## 문제 해결 {#troubleshooting}
 

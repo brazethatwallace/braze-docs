@@ -16,18 +16,19 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „E-Mai
 
 > Verwenden Sie diesen Endpunkt, um E-Mail-Templates im Braze-Dashboard zu aktualisieren.
 
-Sie können auf die `email_template_id` eines E-Mail-Templates zugreifen, indem Sie auf der Seite **Templates und Medien** dorthin navigieren. Der Endpunkt [E-Mail-Template erstellen]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template/) gibt ebenfalls eine `email_template_id`-Referenz zurück.
+Sie können auf die `email_template_id` eines E-Mail-Templates zugreifen, indem Sie auf der Seite **Templates und Medien** dorthin navigieren. Der Endpunkt [E-Mail-Template erstellen]({{site.baseurl}}/api/endpoints/templates/email_templates/post_create_email_template) gibt ebenfalls eine `email_template_id`-Referenz zurück.
 
 Alle Felder außer `email_template_id` sind optional, aber Sie müssen mindestens ein Feld zum Aktualisieren angeben.
 
 {% alert tip %}
-Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server/) mit der Funktion [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#templates) aufrufen. So können KI-Tools wie Claude und Cursor E-Mail-Templates über natürlichsprachliche Eingaben aktualisieren.
+Sie können diesen Endpunkt auch über den [Braze MCP-Server]({{site.baseurl}}/user_guide/brazeai/mcp_server) mit der Funktion [`update_email_template`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#templates) aufrufen. So können KI-Tools wie Claude und Cursor E-Mail-Templates über natürlichsprachliche Eingaben aktualisieren.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#afb25494-3350-458d-932d-5bf4220049fa {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `templates.email.update`.
+
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `templates.email.update`.
 
 ## Rate-Limit
 
@@ -57,15 +58,15 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
-| `email_template_id` | Erforderlich | String | Der [API-Bezeichner Ihres E-Mail-Templates]({{site.baseurl}}/api/identifier_types/). |
+| `email_template_id` | Erforderlich | String | Der [API-Bezeichner Ihres E-Mail-Templates]({{site.baseurl}}/api/identifier_types). |
 | `template_name` | Optional | String | Name Ihres E-Mail-Templates. |
 | `subject` | Optional | String | Betreffzeile des E-Mail-Templates. |
 | `body` | Optional | String | Body des E-Mail-Templates, der HTML enthalten kann. |
 | `plaintext_body` | Optional | String | Eine Klartextversion des E-Mail-Template-Bodys. |
 | `preheader` | Optional | String | E-Mail-Preheader, der in einigen Clients zur Erstellung von Vorschauen verwendet wird. |
-| `tags` | Optional | String | [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags/) müssen bereits existieren. |
+| `tags` | Optional | String | [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags) müssen bereits existieren. |
 | `should_inline_css` | Optional | Boolescher Wert | Aktiviert oder deaktiviert das Feature `inline_css` pro Template. Wenn nicht angegeben, verwendet Braze die Standardeinstellung für die AppGroup. Erwartet wird `true` oder `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 ```
@@ -94,6 +95,6 @@ Die folgende Tabelle listet mögliche zurückgegebene Fehler und die zugehörige
 | Alle Tags müssen Strings sein | Stellen Sie sicher, dass Ihre Tags in Anführungszeichen (`""`) eingeschlossen sind. |
 | Einige Tags konnten nicht gefunden werden | Um beim Erstellen eines E-Mail-Templates einen Tag hinzuzufügen, muss dieser bereits in Braze vorhanden sein. |
 | Ungültiger Wert für `should_inline_css`. `true` oder `false` wurde erwartet. | Dieser Parameter akzeptiert nur boolesche Werte (true oder false). Stellen Sie sicher, dass der Wert für `should_inline_css` nicht in Anführungszeichen (`""`) eingeschlossen ist, da der Wert sonst als String gesendet wird. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Fehlerbehebung" }
 
 {% endapi %}

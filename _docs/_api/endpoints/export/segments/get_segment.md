@@ -22,7 +22,7 @@ The segments are returned in groups of 100 sorted by time of creation (oldest to
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `segments.list` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `segments.list` permission.
 
 ## Rate limit
 
@@ -60,7 +60,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/segments/list?page=
 ```
 
 {% alert tip %}
-For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

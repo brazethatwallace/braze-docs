@@ -23,7 +23,7 @@ noindex: true
 * デバイスの通信事業者
 * デバイスのロケール
 * デバイスモデル
-* デバイス OS のバージョン
+* デバイスOSのバージョン
 * IDFV（[iOS SDK v5.7.0以上](https://github.com/braze-inc/braze-swift-sdk)ではオプション）
 * プッシュ有効
 * デバイスのタイムゾーン
@@ -43,4 +43,4 @@ appboyOptions[ABKDeviceAllowlistKey] = @(ABKDeviceOptionTimezone | ABKDeviceOpti
 
 デフォルトでは、すべてのフィールドが有効になっています。いくつかのプロパティがないと一部の機能が正しく機能しないことがあるので注意してください。たとえば、ローカルタイムゾーンの配信はタイムゾーンなしでは機能しません。
 
-自動的に収集されるデバイスプロパティの詳細については、[SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)をご覧ください。
+自動的に収集されるデバイスプロパティの詳細については、[SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)をご覧ください。

@@ -15,11 +15,11 @@ description: "Este artículo describe los detalles del punto de conexión `PUT /
 /media_library/replace_file
 {% endapimethod %}
 
-> Utiliza este punto de conexión para reemplazar el archivo de un activo existente en la [Biblioteca de medios de Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library/) conservando su ID de activo y su URL. Puedes proporcionar el archivo de reemplazo mediante una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`).
+> Utiliza este punto de conexión para reemplazar el archivo de un activo existente en la [Biblioteca de medios de Braze]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library) conservando su ID de activo y su URL. Puedes proporcionar el archivo de reemplazo mediante una URL alojada externamente (`asset_url`) o datos de archivo binario enviados en el cuerpo de la solicitud (`asset_file`).
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `media_library.replace`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `media_library.replace`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -54,7 +54,7 @@ El cuerpo de la solicitud incluye los siguientes parámetros:
 | `asset_id` | Obligatorio | Cadena | El ID del activo que se va a reemplazar. |
 | `asset_url` | Opcional | Cadena | Una URL de acceso público para el archivo de reemplazo. |
 | `asset_file` | Opcional | Binario | Datos de archivo binario para el archivo de reemplazo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request body" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Cuerpo de la solicitud" }
 
 {% alert important %}
 `asset_url` y `asset_file` son mutuamente excluyentes; solo debes incluir uno de ellos en tu solicitud de API.
@@ -107,7 +107,7 @@ Esta tabla enumera los posibles errores de validación.
 | --- | --- | --- |
 | 400 | "asset_id is required." | No se proporcionó un ID de activo en la solicitud. |
 | 400 | "Either file or asset_url is required." | No se proporcionó ni `asset_file` ni `asset_url`; se requiere uno de los dos. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Validation errors" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Errores de validación" }
 
 #### Errores de procesamiento {#processing-errors}
 
@@ -131,8 +131,8 @@ Esta tabla enumera los posibles errores de procesamiento.
 | `UNSUPPORTED_ASSET_TYPE_FOR_REPLACE` | 400 | El reemplazo de archivos no es compatible con este tipo de activo (por ejemplo, video). El objeto `meta` incluye `asset_type`. |
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | El archivo supera el tamaño máximo permitido. El objeto `meta` incluye `size_limit_bytes` y `file_size_bytes`. |
 | `CORRUPT_FILE` | 400 | El archivo de imagen está dañado o no se puede leer. El objeto `meta` incluye `file_name`. |
-| `GENERIC_ERROR` | 500 | Se produjo un error inesperado durante el reemplazo del archivo. El objeto `meta` incluye `original_error` para depuración. Inténtalo de nuevo o [ponte en contacto con Soporte]({{site.baseurl}}/support_contact/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Processing errors" }
+| `GENERIC_ERROR` | 500 | Se produjo un error inesperado durante el reemplazo del archivo. El objeto `meta` incluye `original_error` para depuración. Inténtalo de nuevo o [ponte en contacto con Soporte]({{site.baseurl}}/support_contact). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Errores de procesamiento" }
 
 ## Respuesta {#response}
 

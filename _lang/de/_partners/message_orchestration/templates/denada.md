@@ -25,8 +25,8 @@ Folgendes ist für die Nutzung dieser Integration erforderlich:
 | ----------- | ----------- |
 | Denada-Konto | Ein [Denada-Konto](https://app.heydenada.com) ist für die Nutzung dieser Integration erforderlich. |
 | REST-API-Schlüssel von Braze | Ein REST-API-Schlüssel von Braze mit vollständigen **Templates**-Berechtigungen. <br><br>Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL Ihrer Instanz ab. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -37,9 +37,9 @@ Denada wurde für Marketer und Fachexpert:innen entwickelt, die markengerechte E
 
 ## Integration
 
-### 1. Schritt: Integration konfigurieren {#step-1-configure-your-integration}
+### Schritt 1: Integration konfigurieren {#step-1-configure-your-integration}
 
-Wählen Sie in Denada Ihren Unternehmensnamen in der unteren linken Ecke aus und gehen Sie dann zu **Team settings** > **Add integration**.
+Wählen Sie in Denada Ihren Unternehmensnamen im Profilmenü aus und gehen Sie dann zu **Team settings** > **Add integration**.
 
 Wählen Sie **Braze** als Integration aus, geben Sie dann Ihren Braze-**API-Schlüssel** ein und wählen Sie Ihren **REST-API-Endpunkt** aus der Liste der verfügbaren Regionen aus.
 
@@ -47,7 +47,7 @@ Wählen Sie **Braze** als Integration aus, geben Sie dann Ihren Braze-**API-Schl
 Dies ist eine einmalige Einrichtung. Sobald Ihre Zugangsdaten validiert sind, wird Ihre Konfiguration für alle zukünftigen Exporte gespeichert.
 {% endalert %}
 
-### 2. Schritt: Ein Template nach Braze exportieren {#step-2-export-a-template-to-braze}
+### Schritt 2: Ein Template nach Braze exportieren {#step-2-export-a-template-to-braze}
 
 Öffnen Sie in Denada ein E-Mail-Template im Editor und wählen Sie **Export** > **Braze**.
 

@@ -15,7 +15,7 @@ Data points are based on information logged against user profiles. You can find 
 
 ## Definition
 
-"Data points" shall refer to a billable unit of use of the Braze Services, measured by a session start, session end, custom event, or purchase recorded, as well as any attribute set on an end user profile. For clarity, each one of the above-mentioned data (such as session start, session end, custom event, or purchase recorded, as well as any attribute) set to an end user’s profile at one point in time shall each count as a single data point.
+"Data points" shall refer to a billable unit of use of the Braze Services, measured by a session start, session end, custom event, or purchase recorded, as well as any attribute set on an end user profile. For clarity, each one of the earlier in this section-mentioned data (such as session start, session end, custom event, or purchase recorded, as well as any attribute) set to an end user’s profile at one point in time shall each count as a single data point.
 
 Data and events collected by default by the Braze Services, including, for example, push tokens, device information, and all campaign engagement tracking events, such as email opens and push notification clicks, are *not* counted as data points.
 
@@ -27,9 +27,9 @@ To view your data point usage, go to **Settings** > **Billing** and select the *
 
 ### Data point refresh schedule
 
-Data point usage is cached (not real-time) every 24 hours. Until the cache refreshes, different dashboard users may see the same totals even if they open the tab at different times on the same day. For the same caching behavior on other billing views, see [Total data points dashboard]({{site.baseurl}}/user_guide/administer/global/billing/#total-data-points-dashboard).
+Data point usage is cached (not real-time) every 24 hours around 2 am ET. Until the cache refreshes, different dashboard users may see the same totals even if they open the tab at different times on the same day. For the same caching behavior on other billing views, see [Total data points dashboard]({{site.baseurl}}/user_guide/administer/global/billing#total-data-points-dashboard).
 
-For more information on the data point dashboard components, see [Billing]({{site.baseurl}}/user_guide/administer/global/billing/).
+For more information on the data point dashboard components, see [Billing]({{site.baseurl}}/user_guide/administer/global/billing).
 
 {% alert tip %}
 **Don't waste data points. Only update changing data!**<br><br>
@@ -42,13 +42,13 @@ In sum, data points are accumulated when a user's profile data is updated or whe
 
 You can find a breakdown of how Braze accumulates data points in the following sections. If you ever have any questions about the nuances of Braze data points, your Braze account manager can answer them.
 
-For API ingestion, each billable update through [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) follows the same rules as other profile updates: for example, each **custom event** logged counts as a data point, and **custom attributes** generally count per attribute updated in that request (see the billable tables below and [Special circumstances](#special-circumstances)).
+For API ingestion, each billable update through [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) follows the same rules as other profile updates: for example, each **custom event** logged counts as a data point, and **custom attributes** generally count per attribute updated in that request (see the billable tables in the following section and [Special circumstances](#special-circumstances)).
 
 The following actions do not log data points:
 - Deleting users from Braze
 - Using Connected Content in messaging
 - Subscription state changes globally and around subscription groups
-- Renaming your users' external IDs through [API calls]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/)
+- Renaming your users' external IDs through [API calls]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)
 - Blocking events, attributes, or event properties
 
 ### Special circumstances
@@ -84,7 +84,7 @@ The following tables are intended to be illustrative. For exact naming conventio
 {% tabs %}
 {% tab Non-billable %}
 
-#### Non-billable data points (default)
+### Non-billable data points (default)
 
 <div class="small_table"></div>
 
@@ -120,7 +120,7 @@ The following tables are intended to be illustrative. For exact naming conventio
 {% endtab %}
 {% tab Billable %}
 
-#### Billable data points
+### Billable data points
 
 {% alert important %}
 Adding, removing, or updating the following data types will incur a billable data point.
@@ -173,4 +173,3 @@ table td {
 
 {% endtab %}
 {% endtabs %}
-

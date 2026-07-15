@@ -39,27 +39,32 @@ Essas seleções determinam quais dias são incluídos, quais grupos são compar
 Alterar a configuração de agregação (como média móvel de 7 dias) afeta apenas a exibição do gráfico. Isso não altera os dados armazenados.
 {% endalert %}
 
-Se você não conseguir selecionar uma data recente no seletor de datas, essa data provavelmente está desabilitada para refletir um atraso temporário nos dados. Normalmente, leva alguns dias para que os dados do seu CDP cheguem ao Decisioning Studio de forma confiável.
+Se você não conseguir selecionar uma data recente no seletor de datas, essa data provavelmente está desabilitada devido a atrasos configurados nos dados. Existem dois tipos de atrasos que podem limitar a disponibilidade de datas:
+
+- **Atrasos no pipeline de dados:** O tempo necessário para ingerir e processar dados da sua plataforma de dados do cliente no Decisioning Studio. Isso garante que os relatórios mostrem apenas dados completos e confiáveis.
+- **Atrasos na ativação de recomendações:** O tempo entre o momento em que o mecanismo do Decisioning Studio prevê uma recomendação e o momento em que você a ativa nas suas Campaigns. Os relatórios não incluirão dias em que as recomendações ainda não foram ativadas.
+
+Esses atrasos são configurados para o seu caso de uso. Se você precisar entender o período específico do seu relatório, entre em contato com o seu AI Success Manager.
 
 ## Cartões de KPI {#kpi-cards}
 
-Os cartões de KPI no lado esquerdo do relatório mostram os indicadores-chave de desempenho configurados para o seu caso de uso, como:
+Os cartões de KPI no lado principal do relatório mostram os indicadores-chave de desempenho configurados para o seu caso de uso, como:
 
 - LTV Incremental / Cliente
 - Conversões / Cliente
 - Cancelamentos de inscrição / Cliente
 
-Cada cartão representa o KPI calculado ao longo de todo o intervalo de datas selecionado. Este é um valor do período completo, não uma média diária. Por exemplo, se você vê "LTV Incremental / Cliente = 3,192", isso reflete a performance ao longo de todo o período selecionado.
+Cada cartão representa o KPI calculado ao longo de todo o intervalo de datas selecionado. Este é um valor do período completo, não uma média diária. Por exemplo, se você vê "LTV Incremental / Cliente = 3,192", isso reflete o desempenho ao longo de todo o período selecionado.
 
 ![Relatório de performance mostrando os cartões de resumo de KPI no lado esquerdo, incluindo métricas como LTV Incremental / Cliente, Conversões / Cliente e Cancelamentos de inscrição / Cliente.]({% image_buster /assets/img/decisioning_studio/reporting_performance_kpi_cards.png %})
 
 ## Gráfico de tendência de KPI {#kpi-trend-chart}
 
-Use o gráfico para entender tendências ao longo do tempo, mudanças de performance e efeitos de sazonalidade ou timing. Use o cartão de KPI para entender o impacto geral ao longo de todo o período. O gráfico central mostra o mesmo KPI do cartão superior, mas calculado por dia. Cada ponto representa o valor do KPI daquele dia. Se você tiver a média móvel de 7 dias selecionada, cada ponto reflete uma média móvel, que suaviza a volatilidade diária.
+Use o gráfico para entender tendências ao longo do tempo, mudanças de desempenho e efeitos de sazonalidade ou timing. Use o cartão de KPI para entender o impacto geral ao longo de todo o período. O gráfico central mostra o mesmo KPI do cartão superior, mas calculado por dia. Cada ponto representa o valor do KPI daquele dia. Se você tiver a média móvel de 7 dias selecionada, cada ponto reflete uma média móvel, que suaviza a volatilidade diária.
 
 ![Relatório de performance mostrando o gráfico de tendência central intitulado LTV Incremental / Cliente, com linhas para Decisioning Studio e Business as Usual BAU Group plotadas ao longo do tempo.]({% image_buster /assets/img/decisioning_studio/reporting_performance_trend_chart.png %})
 
-O gráfico e o cartão de KPI são projetados para mostrar coisas diferentes. O gráfico mostra a performance diária ("Como foi a performance a cada dia?"). O cartão de KPI mostra a performance do período completo ("Como foi a performance ao longo de todo o período?"). Para métricas de taxa, eles respondem a perguntas diferentes.
+O gráfico e o cartão de KPI são projetados para mostrar coisas diferentes. O gráfico mostra o desempenho diário ("Como foi o desempenho a cada dia?"). O cartão de KPI mostra o desempenho do período completo ("Como foi o desempenho ao longo de todo o período?"). Para métricas de taxa, eles respondem a perguntas diferentes.
 
 Considere o seguinte exemplo com estas taxas de conversão:
 
@@ -103,13 +108,13 @@ A árvore de drivers decompõe um KPI em seus componentes. Por exemplo, LTV Incr
 
 ![Relatório de performance na visualização de Árvore de Drivers, mostrando um diagrama hierárquico que decompõe KPIs como LTV Incremental / Cliente em componentes como Conversões / Cliente e Cliques / Cliente.]({% image_buster /assets/img/decisioning_studio/reporting_performance_driver_tree.png %})
 
-As árvores de drivers usam as mesmas definições de KPI do restante do dashboard e não introduzem nenhuma matemática nova. Elas ajudam a explicar o que está impulsionando a performance. Se uma definição de KPI mudar, gráficos, cartões, uplift e árvores de drivers são todos atualizados juntos.
+As árvores de drivers usam as mesmas definições de KPI do restante do dashboard e não introduzem nenhuma matemática nova. Elas ajudam a explicar o que está impulsionando o desempenho. Se uma definição de KPI mudar, gráficos, cartões, uplift e árvores de drivers são todos atualizados juntos.
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
 ### Como os Segments funcionam? {#how-do-segments-work}
 
-Os Segments permitem que você analise a performance por grupos definidos, como níveis de engajamento, características do cliente, tipo de dispositivo ou outras features configuradas.
+Os Segments permitem que você analise o desempenho por grupos definidos, como níveis de engajamento, características do cliente, tipo de dispositivo ou outros recursos configurados.
 
 A associação a Segments é configurada de forma personalizada para o seu caso de uso e calculada diariamente. Isso significa que o Segment passado de um cliente reflete quem ele era naquele dia. Se o comportamento dele mudar depois, os dias históricos permanecem inalterados. Isso preserva a precisão histórica e evita que os relatórios mudem retroativamente.
 
@@ -119,9 +124,13 @@ Os KPIs para casos de uso Go são definidos automaticamente e padronizados, já 
 
 ### Por que não consigo selecionar certas datas recentes? {#why-cant-i-select-certain-recent-dates}
 
-O seletor de datas pode não permitir a seleção dos dias mais recentes. Isso é intencional. Os relatórios podem aplicar atrasos de ativação, atrasos de disponibilidade de dados ou datas explicitamente excluídas. Essas proteções evitam que dados incompletos ou instáveis apareçam nos seus resultados.
+O seletor de datas pode não permitir a seleção dos dias mais recentes. Isso é intencional. Os relatórios podem aplicar as seguintes restrições para evitar que dados incompletos ou instáveis apareçam:
 
-Se você precisar de esclarecimentos sobre o período do seu relatório ou regras de disponibilidade de dados, entre em contato com o seu AI Success Manager para obter a configuração específica do seu caso de uso.
+- **Atrasos no pipeline de dados:** Configurados para considerar o tempo necessário para ingerir e processar dados da sua plataforma de dados do cliente. Isso garante que todos os dados de um determinado dia estejam completos antes que ele apareça nos relatórios.
+- **Atrasos na ativação de recomendações:** Configurados para considerar o intervalo entre o momento em que as recomendações são geradas e o momento em que são ativadas nas suas Campaigns. Dias em que as recomendações ainda não foram ativadas não aparecerão nos relatórios.
+- **Datas explicitamente excluídas:** Datas que você excluiu manualmente nas configurações de relatório.
+
+Se você precisar de esclarecimentos sobre o período do seu relatório ou regras de disponibilidade de dados, entre em contato com o seu AI Success Manager.
 
 ### Qual é a diferença entre KPIs de "volume" e de "taxa"? {#whats-the-difference-between-volume-and-rate-kpis}
 
@@ -142,10 +151,10 @@ Se você precisar entender como a unicidade foi definida na sua configuração, 
 
 ### Por que este relatório pode diferir de outro sistema? {#why-might-this-report-differ-from-another-system}
 
-Se o seu relatório de Performance não corresponder a outro dashboard (como um ESP, ferramenta de análise de dados ou relatório interno de BI), isso não significa necessariamente que algo está errado. Sistemas diferentes frequentemente aplicam definições e regras diferentes. Razões comuns incluem:
+Se o seu relatório de performance não corresponder a outro dashboard (como um provedor de serviços de e-mail, ferramenta de análise de dados ou relatório interno de BI), isso não significa necessariamente que algo está errado. Sistemas diferentes frequentemente aplicam definições e regras diferentes. Razões comuns incluem:
 
 - **Regras de atribuição:** Algumas métricas aplicam lógica de atribuição, o que significa que apenas a atividade que atende a critérios definidos é contada. Se outro sistema conta toda a atividade sem lógica de atribuição, os totais podem diferir.
-- **Filtragem de engajamento de máquina e bot:** Engajamento conhecido gerado por máquinas ou bots (como varreduras de segurança automatizadas ou cliques não humanos) é filtrado para garantir que a performance reflita o comportamento humano real. Algumas plataformas incluem essas interações em seus totais.
+- **Filtragem de engajamento de máquina e bot:** Engajamento conhecido gerado por máquinas ou bots (como varreduras de segurança automatizadas ou cliques não humanos) é filtrado para garantir que o desempenho reflita o comportamento humano real. Algumas plataformas incluem essas interações em seus totais.
 - **Definições diferentes de "único":** Neste relatório, a unicidade é normalmente aplicada por dia. Outro sistema pode calcular a unicidade ao longo de todo o período de uma Campaign. Essas são perguntas de negócios diferentes e produzem números diferentes.
 - **Intervalo de datas e regras de disponibilidade de dados:** Os relatórios podem aplicar atrasos de ativação, atrasos de disponibilidade de dados ou datas excluídas. Outro sistema pode incluir dados muito recentes ou incompletos, criando divergências temporárias.
 - **Diferenças de volume versus taxa:** Um sistema pode mostrar o volume total (como total de conversões), enquanto outro mostra uma taxa (como conversões por cliente). Sempre confirme que você está comparando o mesmo tipo de métrica.
@@ -154,17 +163,17 @@ Se o seu relatório de Performance não corresponder a outro dashboard (como um 
 
 O gráfico e o cartão de resumo respondem a perguntas diferentes:
 
-- **Gráfico:** Mostra a performance diária. Cada ponto reflete o KPI calculado para aquele dia individual.
-- **Cartão de resumo:** Mostra a performance do período completo. Ele recalcula o KPI ao longo de todo o intervalo de datas selecionado.
+- **Gráfico:** Mostra o desempenho diário. Cada ponto reflete o KPI calculado para aquele dia individual.
+- **Cartão de resumo:** Mostra o desempenho do período completo. Ele recalcula o KPI ao longo de todo o intervalo de datas selecionado.
 
-Use o gráfico para entender a volatilidade do dia a dia, efeitos de timing e mudanças de performance ao longo do tempo. Use o cartão de resumo para entender o impacto geral ao longo do período.
+Use o gráfico para entender a volatilidade do dia a dia, efeitos de timing e mudanças de desempenho ao longo do tempo. Use o cartão de resumo para entender o impacto geral ao longo do período.
 
 Considere este exemplo com a seguinte taxa de conversão:
 
 - Dia 1: 10 conversões de 100 clientes = 10%
 - Dia 2: 2 conversões de 10 clientes = 20%
 
-O gráfico mostra 10% no Dia 1 e 20% no Dia 2. O cartão de resumo calcula a performance combinando os dois dias: 12 conversões totais de 110 clientes = 10,9%. Ele não faz a média de 10% e 20%.
+O gráfico mostra 10% no Dia 1 e 20% no Dia 2. O cartão de resumo calcula o desempenho combinando os dois dias: 12 conversões totais de 110 clientes = 10,9%. Ele não faz a média de 10% e 20%.
 
 ### Qual é a abordagem recomendada para contagens "únicas"? {#whats-the-recommended-approach-for-unique-counts}
 

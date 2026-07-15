@@ -40,7 +40,7 @@ A tag `message_extras` é compatível com todos os tipos de mensagem que possuem
 
 {: start="2"}
 
-2. Insira o [par de chave-valor]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) para cada tag `message_extras`.
+2. Insira o [par de chave-valor]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) para cada tag `message_extras`.
 
 ![Um exemplo de pares de chave-valor para a tag message extras. O campo de título diz "Your New Favorites." A mensagem mostra pares de chave-valor para a tag message extras e a seguinte frase: "We're excited to bring you a side selection of fresh and exciting products that are sure to become your new go-to favorites"]({% image_buster /assets/img_archive/message_extras2.png %}){: style="max-width:70%;"}
 
@@ -50,7 +50,7 @@ A tag `message_extras` é compatível com todos os tipos de mensagem que possuem
 
 ## Verificando a sintaxe {#checking-syntax}
 
-Qualquer outra entrada que não corresponda ao padrão da tag discutido acima pode não ser transmitida ao Currents ou ao Snowflake. Verifique se sua sintaxe ou formatação não inclui nenhum dos seguintes problemas:
+Qualquer outra entrada que não corresponda ao padrão da tag discutido anteriormente nesta seção pode não ser transmitida ao Currents ou ao Snowflake. Verifique se sua sintaxe ou formatação não inclui nenhum dos seguintes problemas:
 
 - Delimitadores inexistentes, vazios ou digitados incorretamente
 - Chaves duplicadas (a Braze enviará por padrão o par de chave-valor encontrado primeiro)
@@ -60,7 +60,7 @@ Qualquer outra entrada que não corresponda ao padrão da tag discutido acima po
 
 ## Enviando informações de códigos de promoção para o Currents {#sending-promotion-code-information-to-currents}
 
-{% multi_lang_include shopify.md section='Liquid promotion codes with Currents' %}
+{% multi_lang_include partners/shopify.md section='Liquid promotion codes with Currents' %}
 
 ## Considerações {#considerations}
 
@@ -72,9 +72,9 @@ Qualquer outra entrada que não corresponda ao padrão da tag discutido acima po
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-#### Como posso associar o campo message_extras nos eventos de envio aos meus eventos de engajamento, como aberturas e cliques? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
+### Como posso associar o campo message_extras nos eventos de envio aos meus eventos de engajamento, como aberturas e cliques? {#how-can-i-associate-the-message_extras-field-in-the-send-events-to-my-engagement-events-like-opens-and-clicks}
 
-Um `dispatch_id` é gerado e fornecido nos seus eventos de envio, podendo ser usado como identificador único para vincular a eventos específicos de clique, abertura ou entrega. Você pode consultar esse campo no Currents ou no Snowflake. Para saber mais, consulte [Comportamento do dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+Um `dispatch_id` é gerado e fornecido nos seus eventos de envio, podendo ser usado como identificador único para vincular a eventos específicos de clique, abertura ou entrega. Você pode consultar esse campo no Currents ou no Snowflake. Para saber mais, consulte [Comportamento do dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 
 #### Posso usar message_extras com mensagens no app? {#iam-sdk}
 

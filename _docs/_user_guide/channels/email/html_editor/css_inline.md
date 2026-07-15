@@ -28,9 +28,25 @@ You can set a default on or off state globally from **Settings** > **Email Prefe
 
 ## Connected Content and CSS inlining
 
-CSS inlining runs **before** [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) is evaluated. HTML returned from Connected Content is **not** passed through the same inlining step. Put styles you need from Connected Content directly in the response (inline `style` attributes or embedded rules), or disable inlining for the message if that better matches your template.
+CSS inlining runs **before** [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) is evaluated. HTML returned from Connected Content is **not** passed through the same inlining step. Put styles you need from Connected Content directly in the response (inline `style` attributes or embedded rules), or disable inlining for the message if that better matches your template.
 
 ## Content Blocks in custom HTML templates
 
-When you pull in a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) with Liquid inside a **custom HTML** email template or campaign, CSS rules in the parent template can override styles defined inside the Content Block. Check for conflicting selectors or global rules in the template wrapper.
+When you pull in a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) with Liquid inside a **custom HTML** email template or campaign, CSS rules in the parent template can override styles defined inside the Content Block. Check for conflicting selectors or global rules in the template wrapper.
+
+## Gmail CSS limitations
+
+Gmail has specific CSS limitations that may cause emails to display in desktop view instead of mobile view in the Gmail app. This can occur due to the following reasons:
+
+- **Too much CSS:** If your email contains excessive CSS, Gmail may remove the entire style block.
+- **Incompatible CSS:** Any CSS that is incompatible with Gmail (including valid CSS that Gmail doesn't support) can cause the style block to be removed.
+- **Non-Gmail accounts in Gmail app:** CSS in the `<head>` is not supported.
+
+### Media queries in Gmail
+
+CSS media queries generally work in Gmail apps, but there are limitations. If you're experiencing issues with media queries not working correctly in Gmail:
+
+- Review [Gmail's supported CSS reference](https://developers.google.com/gmail/design/reference/supported_css) to ensure your CSS is compatible.
+- Check [Gmail CSS design guidelines](https://developers.google.com/gmail/design/css) for best practices.
+- Consider mobile-first responsive design patterns that don't rely solely on media queries for mobile rendering.
 

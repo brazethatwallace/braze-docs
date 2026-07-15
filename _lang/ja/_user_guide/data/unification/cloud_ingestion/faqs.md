@@ -11,13 +11,13 @@ toc_headers: h2
 
 > このページでは、クラウドデータ取り込みに関してよくある質問への回答を提供します。
 
-## 「Error in CDI Sync」(CDI 同期のエラー) というメールが届いた理由は何ですか? {#why-was-i-emailed-error-in-cdi-sync}
+## 「Error in CDI Sync」（CDI 同期のエラー）というメールが届いた理由は何ですか? {#why-was-i-emailed-error-in-cdi-sync}
 
 この種のメールは通常、CDI の設定に問題があることを意味します。ここでは、よくある問題とその解決方法を紹介します。
 
 ### CDI がお客様の認証情報を使用してデータウェアハウスやテーブルにアクセスできない {#cdi-cant-access-the-data-warehouse-or-table-using-your-credentials}
 
-CDI の認証情報が正しくないか、データウェアハウスの設定が正しくない可能性があります。詳細については、[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)を参照してください。
+CDI の認証情報が正しくないか、データウェアハウスの設定が正しくない可能性があります。詳細については、[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)を参照してください。
 
 ### テーブルが見つからない {#the-table-cannot-be-found}
 
@@ -27,9 +27,9 @@ CDI の認証情報が正しくないか、データウェアハウスの設定�
 
 統合で設定されたカタログは、Brazeカタログには存在しません。カタログは、統合の設定後に削除された可能性があります。この問題を解決するには、別のカタログを使用するように統合を更新するか、統合のカタログ名と一致する新しいカタログを作成してください。
 
-## 「Row errors in your CDI sync」(CDI 同期の行エラー) というメールが届いた理由は何ですか? {#why-was-i-emailed-row-errors-in-your-cdi-sync}
+## 「Row errors in your CDI sync」（CDI 同期の行エラー）というメールが届いた理由は何ですか? {#why-was-i-emailed-row-errors-in-your-cdi-sync}
 
-この種のメールは、同期中にデータの一部が処理できなかったことを意味します。具体的なエラーを調べるには、Brazeの**CDI** > **同期ログ**でログを確認できます。
+この種のメールは、同期中にデータの一部が処理できなかったことを意味します。具体的なエラーを調べるには、Brazeで**CDI** > **同期ログ**に移動してログを確認できます。
 
 ## テスト接続とサポートメールのエラーを修正するには? {#how-do-i-fix-errors-for-test-connection-and-support-emails}
 
@@ -39,13 +39,13 @@ CDI の認証情報が正しくないか、データウェアハウスの設定�
 
 テスト接続はデータウェアハウス上で実行されるため、ウェアハウスの容量を増やすことでスピードが向上する可能性があります。サーバーレス SQL インスタンスを使用すると、ウォームアップ時間が最小限に抑えられ、クエリのスループットが向上しますが、統合コストが若干高くなる場合があります。
 
-### Snowflake インスタンスへの接続エラー：IP を含む着信リクエストが Snowflakeへのアクセスを許可されていない {#error-connecting-to-snowflake-instance-incoming-request-with-ip-is-not-allowed-to-access-snowflake}
+### Snowflakeインスタンスへの接続エラー：IPを含む着信リクエストがSnowflakeへのアクセスを許可されていない {#error-connecting-to-snowflake-instance-incoming-request-with-ip-is-not-allowed-to-access-snowflake}
 
-IP 許可リストに Brazeの公式 IP を追加してみてください。詳細については、[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)を参照するか、該当する IP を許可してください。
+IP 許可リストにBrazeの公式 IP を追加してみてください。詳細については、[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)を参照するか、該当する IP を許可してください。
 
-{% multi_lang_include data_centers.md datacenters='ips' %}
+{% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
-### 顧客設定による SQL 実行エラー: 002003 (42S02): SQL コンパイルエラー：存在しないか、認証されていない {#error-executing-sql-due-to-customer-config-002003-42s02-sql-compilation-error-does-not-exist-or-not-authorized}
+### 顧客設定による SQL 実行エラー：002003 (42S02): SQL コンパイルエラー：存在しないか、認証されていない {#error-executing-sql-due-to-customer-config-002003-42s02-sql-compilation-error-does-not-exist-or-not-authorized}
 
 テーブルが存在しない場合は、テーブルを作成します。テーブルが存在する場合は、ユーザーとロールにテーブルからの読み取り権限があることを確認してください。
 
@@ -63,7 +63,7 @@ IP 許可リストに Brazeの公式 IP を追加してみてください。詳�
 
 ### 現在のキーと古いキーでSnowflakeインスタンスに接続する際のエラー {#error-connecting-to-snowflake-instance-with-current-and-old-key}
 
-このエラーが発生した場合は、ユーザーが Brazeダッシュボードに表示されている現在の公開キーを使用していることを確認してください。
+このエラーが発生した場合は、ユーザーがBrazeダッシュボードに表示されている現在の公開キーを使用していることを確認してください。
 {% endtab %}
 
 {% tab Redshift %}
@@ -71,7 +71,7 @@ IP 許可リストに Brazeの公式 IP を追加してみてください。詳�
 
 テスト接続はデータウェアハウス上で実行されるため、ウェアハウスの容量を増やすことでスピードが向上する可能性があります。サーバーレス SQL インスタンスを使用すると、ウォームアップ時間が最小限に抑えられ、クエリのスループットが向上しますが、統合コストが若干高くなる場合があります。
 
-### リレーションに対する権限が拒否された {table_name} {#permission-denied-for-relation-tablename}
+### リレーションに対する権限が拒否された {table_name} {#permission-denied-for-relation-table_name}
 
 このエラーが発生した場合:
 
@@ -116,13 +116,13 @@ IP 許可リストに Brazeの公式 IP を追加してみてください。詳�
 {% tab Databricks %}
 ### テスト接続が遅い
 
-テスト接続はデータウェアハウス上で実行されるため、ウェアハウスの容量を増やすことでスピードが向上する可能性があります。Databricksの場合、Brazeが Classic および Pro の SQL インスタンスに接続するときにウォームアップ時間が 2〜5 分かかることがあるため、接続の設定中やテスト中、およびスケジュールされた同期の開始時に遅延が発生します。サーバーレス SQL インスタンスを使用すると、ウォームアップ時間が最小限に抑えられ、クエリのスループットが向上しますが、統合コストが若干高くなる場合があります。
+テスト接続はデータウェアハウス上で実行されるため、ウェアハウスの容量を増やすことでスピードが向上する可能性があります。Databricksの場合、BrazeがClassic および Pro の SQL インスタンスに接続するときにウォームアップ時間が 2〜5 分かかることがあるため、接続の設定中やテスト中、およびスケジュールされた同期の開始時に遅延が発生します。サーバーレス SQL インスタンスを使用すると、ウォームアップ時間が最小限に抑えられ、クエリのスループットが向上しますが、統合コストが若干高くなる場合があります。
 
 ### ウェアハウスが停止していたためコマンドが失敗した {#command-failed-because-warehouse-was-stopped}
 
 このエラーが発生した場合は、Databricksウェアハウスが実行されていることを確認してください。
 
-### サービス: Amazon S3; ステータスコード: 403; エラーコード: 403 Forbidden {#service-amazon-s3-status-code-403-error-code-403-forbidden}
+### サービス：Amazon S3、ステータスコード：403、エラーコード：403 Forbidden {#service-amazon-s3-status-code-403-error-code-403-forbidden}
 
 このエラーが発生した場合は、[Databricks: S3 データへのアクセス中の Forbidden エラー](https://kb.databricks.com/security/forbidden-access-to-s3-data)を参照してください。
 {% endtab %}
@@ -132,7 +132,7 @@ IP 許可リストに Brazeの公式 IP を追加してみてください。詳�
 
 各統合には、それぞれ独自の通知設定があります。CDI ページに移動し、更新したい統合名を選択してください。**通知設定**セクションで、選択した統合に関するアラートの受信方法を更新できます。
 
-## 将来の UPDATED_AT が統合と同期されたらどうなりますか? {#what-happens-if-a-future-updatedat-gets-synced-with-an-integration}
+## 将来の UPDATED_AT が統合と同期されたらどうなりますか? {#what-happens-if-a-future-updated_at-gets-synced-with-an-integration}
 
 CDI は `UPDATED_AT` を使用して、新しいデータを特定します。未来の `UPDATED_AT` を同期すると、その日時以前のデータは処理されません。これを修正するには、次の操作を行います。
 
@@ -142,7 +142,7 @@ CDI は `UPDATED_AT` を使用して、新しいデータを特定します。�
 
 ## なぜ「同期された行数」がウェアハウスの数値と一致しないのですか? {#why-doesnt-rows-synced-match-the-number-in-my-warehouse}
 
-CDI は `UPDATED_AT` を使用して、同期中に取得するレコードを決定します。どのように機能するかは、[このイラスト]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/#what-gets-synced)をご覧ください。同期処理の開始時、CDI はデータウェアハウスにクエリを実行し、前回処理した `UPDATED_AT` タイムスタンプ以降の `UPDATED_AT` を持つ全レコードを取得します。境界タイムスタンプと完全に一致するレコードも、新しい行がそのタイムスタンプを共有している場合は再同期される可能性があります。クエリ実行時にピックアップされたレコードはすべてBrazeに同期されます。以下は、レコードが同期されない可能性のある一般的なケースです。
+CDI は `UPDATED_AT` を使用して、同期中に取得するレコードを決定します。どのように機能するかは、[このイラスト]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion#what-gets-synced)をご覧ください。同期処理の開始時、CDI はデータウェアハウスにクエリを実行し、前回処理した `UPDATED_AT` タイムスタンプ以降の `UPDATED_AT` を持つ全レコードを取得します。境界タイムスタンプと完全に一致するレコードも、新しい行がそのタイムスタンプを共有している場合は再同期される可能性があります。クエリ実行時にピックアップされたレコードはすべてBrazeに同期されます。以下は、レコードが同期されない可能性のある一般的なケースです。
 
 - すでに処理済みの `UPDATED_AT` 値を持つレコードをテーブルに追加している。
 - 同期によってレコードを処理した後に、それらのレコードの値を更新しているが、`UPDATED_AT` を変更していない。
@@ -152,21 +152,21 @@ CDI は `UPDATED_AT` を使用して、同期中に取得するレコードを�
 今後、このような動作を回避するために、単調増加する `UPDATED_AT` 値を使用し、スケジュールされた同期実行中にはテーブルを更新しないことをお勧めします。
 {% endalert %}
 
-## 大規模な CDI インポートでは、`UPDATED_AT` 値がほぼ一意である必要がありますか? {#do-i-need-mostly-distinct-updatedat-values-for-large-cdi-imports}
+## 大規模な CDI インポートでは、`UPDATED_AT` 値がほぼ一意である必要がありますか? {#do-i-need-mostly-distinct-updated_at-values-for-large-cdi-imports}
 
 はい。大量の行を処理する場合（例：約 1,000 万行以上）、ソースデータの `UPDATED_AT` 値がほぼ一意であることを確認してください。同じタイムスタンプを共有する行が多すぎると、CDI が後続の実行で境界タイムスタンプの行を再選択する可能性が高くなります。これにより、重複同期やデータポイントの消費が増加する可能性があります。
 
-CDI の境界動作の詳細については、[重複タイムスタンプを持つ行の再同期を回避する]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
+CDI の境界動作の詳細については、[重複タイムスタンプを持つ行の再同期を回避する]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
 
 ### これらの SQL チェックはどこで実行しますか? {#where-do-i-run-these-sql-checks}
 
 CDI 統合で使用しているのと同じテーブルまたはビューに対して、データウェアハウスの SQL エディターで直接チェックを実行してください。
 
-- Snowflake: **Projects** > **Worksheets**（詳細については、[Snowflake Worksheets](https://docs.snowflake.com/en/user-guide/ui-snowsight-worksheets-gs) を参照）
-- Redshift: Query Editor v2（詳細については、[Using Amazon Redshift Query Editor v2](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2.html) を参照）
-- BigQuery: BigQuery Studio SQL workspace（詳細については、[BigQuery Studio introduction](https://cloud.google.com/bigquery/docs/bigquery-studio-introduction) を参照）
-- Databricks: SQL editor (SQL warehouse)（詳細については、[Databricks SQL editor](https://docs.databricks.com/en/sql/user/sql-editor/) を参照）
-- Fabric: SQL query editor
+- Snowflake：**Projects** > **Worksheets**（詳細については、[Snowflake Worksheets](https://docs.snowflake.com/en/user-guide/ui-snowsight-worksheets-gs) を参照）
+- Redshift：Query Editor v2（詳細については、[Using Amazon Redshift Query Editor v2](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2.html) を参照）
+- BigQuery：BigQuery Studio SQL workspace（詳細については、[BigQuery Studio introduction](https://cloud.google.com/bigquery/docs/bigquery-studio-introduction) を参照）
+- Databricks：SQL editor（SQL warehouse）（詳細については、[Databricks SQL editor](https://docs.databricks.com/en/sql/user/sql-editor/) を参照）
+- Fabric：SQL query editor
 
 大規模な同期を有効化またはスケールする前に、以下のプロセスを使用してください。
 
@@ -190,7 +190,7 @@ WHERE UPDATED_AT >= CAST('2026-04-01 00:00:00' AS TIMESTAMP)
   AND UPDATED_AT < CAST('2026-04-02 00:00:00' AS TIMESTAMP);
 ```
 
-`````````sql
+```sql
 SELECT
   UPDATED_AT,
   COUNT(*) AS rows_at_timestamp
@@ -206,7 +206,7 @@ LIMIT 20;
 
 ## 少数の行の CDI 同期でも数分かかるのはなぜですか? {#why-can-a-cdi-sync-with-a-small-number-of-rows-still-take-several-minutes}
 
-CDI 同期には、行の処理が開始される前に固定のスタートアップ期間があります。このスタートアップ時間は同期サイズに関係なくほぼ同じであるため、少数の行の同期でも数分かかることがあり、1 分あたりの行数で見ると遅く見える場合があります。合計同期時間は、ソースクエリの複雑さ、データの形状、およびデータウェアハウスの利用可能な容量に依存します。詳細については、[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/)を参照してください。
+CDI 同期には、行の処理が開始される前に固定のスタートアップ期間があります。このスタートアップ時間は同期サイズに関係なくほぼ同じであるため、少数の行の同期でも数分かかることがあり、1 分あたりの行数で見ると遅く見える場合があります。合計同期時間は、ソースクエリの複雑さ、データの形状、およびデータウェアハウスの利用可能な容量に依存します。詳細については、[データウェアハウスの統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)を参照してください。
 
 ## 同期中、複数のレコードが同じ ID を共有する場合、順序は保持されますか? {#during-a-sync-is-the-order-preserved-if-multiple-records-share-the-same-id}
 
@@ -234,4 +234,4 @@ Brazeでは CDI に関して以下の対策を講じています。
 お客様と社内チームで、以下のセキュリティ対策を講じることをお勧めします。
 
 - 認証情報へのアクセスを、CDI の運用に必要な最小限に制限します。これは、特定のテーブルとビューに対して select（と count）を実行できるようにする必要があるためです。
-- テーブルにアクセスできる IP を、正式に公開された [Braze IP]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) に制限します。
+- テーブルにアクセスできる IP を、正式に公開された [Braze IP]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views) に制限します。

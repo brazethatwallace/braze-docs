@@ -1,8 +1,9 @@
 ---
 nav_title: Grouparoo
 page_order: 1
-description: "이 문서에서는 데이터 웨어하우스의 데이터로 마케팅, 영업, 고객지원 도구를 강화하는 데 사용되는 오픈 소스 리버스 ETL 도구인 Braze와 Grouparoo의 파트너십에 대해 설명합니다."
 page_type: update
+noindex: true
+description: "이 문서에서는 데이터 웨어하우스의 데이터로 마케팅, 영업, 고객지원 도구를 강화하는 데 사용되는 오픈 소스 리버스 ETL 도구인 Braze와 Grouparoo의 파트너십에 대해 설명합니다."
 
 ---
 
@@ -23,7 +24,7 @@ Braze와 Grouparoo 통합은 데이터 웨어하우스 데이터를 Braze에 동
 | Grouparoo 계정 및 프로젝트 | 이 파트너십을 활용하려면 Grouparoo 계정과 프로젝트가 필요합니다.<br><br>이 통합은 Grouparoo에서 제공하는 무료 커뮤니티 에디션 및 엔터프라이즈 솔루션과 함께 사용할 수 있습니다. 설정은 Grouparoo 구성 사용자 인터페이스에서 이루어집니다. |
 | Braze REST API 키 | 사용자 및 추적 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
 | Braze REST 엔드포인트 | [REST 엔드포인트 URL](https://www.grouparoo.com/). 엔드포인트는 인스턴스의 Braze URL에 따라 달라집니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -31,7 +32,7 @@ Braze와 Grouparoo 통합은 데이터 웨어하우스 데이터를 Braze에 동
 
 Grouparoo에서 **Apps**로 이동하여 **Braze**를 선택해 새 Braze 앱을 만듭니다. 표시되는 모달에서 Braze API 키와 REST 엔드포인트를 입력합니다.
 
-![]({% image_buster /assets/img/grouparoo/add-app.png %})
+![Braze API 키와 REST 엔드포인트 필드가 있는 Grouparoo의 Braze 앱 생성 모달.]({% image_buster /assets/img/grouparoo/add-app.png %})
 
 ### 2단계: 모델 및 데이터 소스 설정 {#step-2-set-up-a-model-and-data-source}
 

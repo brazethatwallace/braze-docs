@@ -10,17 +10,14 @@ description: "Este artículo de referencia explica cómo gestionar etiquetas en 
 
 > Puedes gestionar las etiquetas que utilizas en Campaigns, Canvas y Segments desde una ubicación central. Para renombrar, quitar o añadir etiquetas, ve a **Configuración** > **Gestión de etiquetas**.
 
-Para aprender a añadir etiquetas a Campaigns, Canvas, Segments y datos personalizados, consulta [Etiquetas]({{site.baseurl}}/user_guide/messaging/governance/tags/).
+Para aprender a añadir etiquetas a Campaigns, Canvas, Segments y datos personalizados, consulta [Etiquetas]({{site.baseurl}}/user_guide/messaging/governance/tags).
 
 ## Anidar etiquetas {#nesting-tags}
 
 Para organizar aún más tus etiquetas, puedes anidarlas bajo una etiqueta principal. Por ejemplo, puedes mantener todas las etiquetas de festividades anidadas bajo una etiqueta principal `Holidays`, o todas las etiquetas relacionadas con una etapa de tu embudo de marketing bajo una etiqueta principal `Funnel`.
 
-![La página de Gestión de etiquetas mostrando una lista de etiquetas organizadas por grupos anidados.]({% image_buster /assets/img_archive/tags_view.png %})
-
-Para anidar una nueva etiqueta, crea una etiqueta, selecciona **Nest Tag Under** y elige bajo qué etiqueta existente deseas anidar tu nueva etiqueta.
-
-Para anidar una etiqueta existente, ve a la página de **Gestión de etiquetas**, pasa el cursor sobre la fila con tu etiqueta y selecciona **<i class="fas fa-pencil-alt"></i>Edit**. Luego, selecciona **Nest Tag Under** y elige la etiqueta principal.
+- **Anidar una nueva etiqueta:** Crea una etiqueta, selecciona **Nest Tag Under** y elige bajo qué etiqueta existente deseas anidar tu nueva etiqueta.
+- **Anidar una etiqueta existente:** Ve a la página de **Gestión de etiquetas**, pasa el cursor sobre la fila con tu etiqueta y selecciona **<i class="fas fa-pencil-alt"></i>Edit**. Luego, selecciona **Nest Tag Under** y elige la etiqueta principal.
 
 ### La etiqueta principal está en uso pero no aparece en **Nest Tag Under** {#parent-tag-is-in-use-but-missing-from-nest-tag-under}
 
@@ -85,7 +82,7 @@ Limita la frecuencia con la que tus clientes reciben Campaigns de un tipo determ
 
 ### Informes {#reporting}
 
-Configura un informe de interacción para supervisar el volumen de todas las Campaigns con una etiqueta determinada. Por ejemplo, si deseas monitorear todas tus Campaigns de push, podrías añadir una etiqueta como `Push Reporting` a esas Campaigns y luego configurar un [informe de interacción]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports/#automatically-select-campaigns-or-canvases) para que te envíe un informe de esas Campaigns etiquetadas todos los días.
+Configura un informe de interacción para supervisar el volumen de todas las Campaigns con una etiqueta determinada. Por ejemplo, si deseas monitorear todas tus Campaigns de push, podrías añadir una etiqueta como `Push Reporting` a esas Campaigns y luego configurar un [informe de interacción]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases) para que te envíe un informe de esas Campaigns etiquetadas todos los días.
 
 {% endtab %}
 {% endtabs %}

@@ -30,11 +30,11 @@ Para comenzar a crear tu anuncio de producto, selecciona el componente de botón
 
 ![El editor de mensajes dentro de la aplicación con un menú lateral para personalizar el elemento de botón.]({% image_buster /assets/img/drag_and_drop/templates/product_announcement_button.png %})
 
-También puedes añadir mensajes adicionales a tu anuncio de producto en la sección **Pages** y luego vincularlos de forma secuencial. Por ejemplo, puedes armar una secuencia de mensajes que describan brevemente las capacidades del producto y terminen con un botón que lleve a los usuarios a la página del producto. Aprende cómo hacerlo en [Conectar páginas entre sí]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+También puedes añadir mensajes adicionales a tu anuncio de producto en la sección **Pages** y luego vincularlos de forma secuencial. Por ejemplo, puedes armar una secuencia de mensajes que describan brevemente las capacidades del producto y terminen con un botón que lleve a los usuarios a la página del producto. Aprende cómo hacerlo en [Conectar páginas entre sí]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### Paso 4: Dale estilo a tu mensaje {#step-4-style-your-message}
 
-Personaliza la apariencia de tu anuncio de producto usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastrar y soltar.
+Personaliza la apariencia de tu anuncio de producto usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastrar y soltar.
 
 ## Análisis de los resultados {#analyzing-the-results}
 

@@ -15,11 +15,11 @@ description: "Cet article présente les détails de l'endpoint Voir toutes les t
 /campaigns/translations
 {% endapimethod %}
 
-> Utilisez cet endpoint pour voir toutes les traductions de chaque variante de message dans une campagne. Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) pour en savoir plus sur les fonctionnalités de traduction.
+> Utilisez cet endpoint pour voir toutes les traductions de chaque variante de message dans une campagne. Consultez [Locales dans les messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) pour en savoir plus sur les fonctionnalités de traduction.
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `campaigns.translations.get`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `campaigns.translations.get`.
 
 ## Limite de débit {#rate-limit}
 
@@ -33,7 +33,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `message_variation_id` | Requis | Chaîne de caractères | L'ID de votre variante de message. |
 | `locale_id` | Facultatif | Chaîne de caractères | Un UUID de locale pour filtrer les réponses. |
 | `post_launch_draft_version` | Facultatif | Valeur booléenne | Lorsque la valeur est `true`, renvoie la dernière version brouillon au lieu de la dernière version publiée en production. La valeur par défaut est `false`, ce qui renvoie la dernière version en production. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert note %}
 Tous les ID de traduction sont considérés comme des identifiants uniques universels (UUID), disponibles dans la réponse de l'endpoint GET.

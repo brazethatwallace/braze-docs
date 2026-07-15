@@ -50,7 +50,7 @@ document.getElementById("button").onclick = function () {
 !!step
 lines-index.js=2
 
-#### 1. Remove calls to `automaticallyShowInAppMessages()`
+### 1. Remove calls to `automaticallyShowInAppMessages()`
 
 Remove any calls to [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages) , as they’ll override any custom logic you implement later.
 
@@ -98,7 +98,7 @@ To show a message instead of deferring it, call [`showInAppMessage(message)`](ht
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab android %}
-{% multi_lang_include developer_guide/prerequisites/android.md %} You'll also need to [enable in-app messages for Android]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages).
+{% multi_lang_include developer_guide/prerequisites/android.md %} You'll also need to [enable in-app messages for Android]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=android#android_enabling-in-app-messages).
 
 ## Deferring and restoring triggered messages for Android
 
@@ -205,7 +205,7 @@ fun ContentView() {
 !!step
 lines-MainApplication.kt=13-16
 
-#### 1. Create a singleton `Application` instance
+### 1. Create a singleton `Application` instance
 
 Use a companion object to expose your `Application` class as a singleton so it can be accessed later in your code.
 
@@ -254,7 +254,7 @@ To display the previously-deferred message, call `showDeferredMessage(true)` fro
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} You'll also need to [enable in-app messages for Swift]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages).
+{% multi_lang_include developer_guide/prerequisites/swift.md %} You'll also need to [enable in-app messages for Swift]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages).
 
 ## Deferring and restoring triggered messages for Swift
 
@@ -347,7 +347,7 @@ struct ContentView: View {
 !!step
 lines-AppDelegate.swift=5
 
-#### 1. Implement the `BrazeInAppMessageUIDelegate`
+### 1. Implement the `BrazeInAppMessageUIDelegate`
 
 In your `AppDelegate` class, implement the [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate) so you can override its `inAppMessage` method later.
 

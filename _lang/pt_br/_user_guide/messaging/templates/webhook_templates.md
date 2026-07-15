@@ -24,13 +24,13 @@ No dashboard da Braze, acesse **Conteúdo** > **Webhook**.
 
 A partir daqui, você pode optar por criar um novo modelo, usar um dos modelos de webhook pré-projetados ou editar um modelo existente.
 
-Por exemplo, se você estiver usando o [LINE]({{site.baseurl}}/user_guide/channels/line/) como canal de envio de mensagens, pode configurar vários webhooks usando os modelos pré-projetados para **LINE Carousel** ou **LINE Image**.
+Por exemplo, se você estiver usando o [LINE]({{site.baseurl}}/user_guide/channels/line) como canal de envio de mensagens, pode configurar vários webhooks usando os modelos pré-projetados para **LINE Carousel** ou **LINE Image**.
 
 ## Etapa 3: Preencher os detalhes do modelo {#step-3-fill-out-template-details}
 
 1. Dê ao seu modelo de webhook um nome exclusivo.
 2. (Opcional) Adicione uma descrição do modelo para explicar como ele deve ser usado.
-3. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) conforme necessário para ajudar a encontrar e filtrar seu modelo.
+3. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário para ajudar a encontrar e filtrar seu modelo.
 
 ## Etapa 4: Criar seu modelo {#step-4-build-your-template}
 
@@ -55,4 +55,4 @@ As edições feitas em um modelo existente não são refletidas em Campaigns que
 
 ## Gerenciando seus modelos {#managing-your-templates}
 
-Você pode [duplicar e arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates/) modelos de webhook para ajudar a organizar e gerenciar melhor sua lista de modelos.
+Você pode [duplicar e arquivar]({{site.baseurl}}/user_guide/messaging/templates/managing_templates) modelos de webhook para ajudar a organizar e gerenciar melhor sua lista de modelos.

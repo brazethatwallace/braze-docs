@@ -12,11 +12,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Ausrichtung anpassen
+# Ausrichtung anpassen {#customize-orientation}
 
-## Ausrichtung für alle In-App-Nachrichten einstellen
+## Ausrichtung für alle In-App-Nachrichten einstellen {#setting-orientation-for-all-in-app-messages}
 
-Um eine feste Ausrichtung für alle In-App-Nachrichten festzulegen, können Sie die Eigenschaft `supportedOrientationMask` auf `ABKInAppMessageUIController` einstellen. Fügen Sie den folgenden Code nach dem Aufruf Ihrer App an `startWithApiKey:inApplication:withLaunchOptions:` ein:
+Um eine feste Ausrichtung für alle In-App-Nachrichten festzulegen, können Sie die Eigenschaft `supportedOrientationMask` auf `ABKInAppMessageUIController` setzen. Fügen Sie den folgenden Code nach dem Aufruf Ihrer App an `startWithApiKey:inApplication:withLaunchOptions:` hinzu:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -42,11 +42,11 @@ if let controller = Appboy.sharedInstance()?.inAppMessageController.inAppMessage
 {% endtab %}
 {% endtabs %}
 
-Danach werden alle In-App-Nachrichten in der unterstützten Ausrichtung angezeigt, unabhängig von der Ausrichtung des Geräts. Beachten Sie, dass die Geräteausrichtung auch von der Eigenschaft `orientation` der In-App-Nachricht unterstützt werden muss, damit die Nachricht angezeigt werden kann.
+Danach werden alle In-App-Nachrichten in der unterstützten Ausrichtung angezeigt, unabhängig von der Geräteausrichtung. Beachten Sie, dass die Geräteausrichtung auch von der Eigenschaft `orientation` der In-App-Nachricht unterstützt werden muss, damit die Nachricht angezeigt wird.
 
-## Ausrichtung pro In-App-Nachricht einstellen
+## Ausrichtung pro In-App-Nachricht einstellen {#setting-orientation-per-in-app-message}
 
-Alternativ können Sie die Ausrichtung auch für jede Nachricht einzeln festlegen. Legen Sie dazu einen [Delegierten für In-App-Nachrichten]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates/) fest. Dann setzen Sie in der Delegate-Methode `beforeInAppMessageDisplayed:` die Eigenschaft `orientation` auf `ABKInAppMessage`:
+Alternativ können Sie die Ausrichtung auch pro Nachricht einzeln festlegen. Legen Sie dazu einen [Delegaten für In-App-Nachrichten]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates) fest. Setzen Sie dann in Ihrer Delegate-Methode `beforeInAppMessageDisplayed:` die Eigenschaft `orientation` auf `ABKInAppMessage`:
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -62,7 +62,7 @@ inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
 {% endtab %}
 {% tab swift %}
 
-```swift    
+```swift
   // Set inAppMessage orientation to portrait
   inAppMessage.orientation = ABKInAppMessageOrientation.portrait
 
@@ -73,15 +73,14 @@ inAppMessage.orientation = ABKInAppMessageOrientationLandscape;
 {% endtab %}
 {% endtabs %}
 
-In-App-Nachrichten werden nicht angezeigt, wenn die Ausrichtung des Geräts nicht mit der Eigenschaft `orientation` der In-App-Nachricht übereinstimmt.
+In-App-Nachrichten werden nicht angezeigt, wenn die Geräteausrichtung nicht mit der Eigenschaft `orientation` der In-App-Nachricht übereinstimmt.
 
 {% alert note %}
-Bei iPads werden In-App-Nachrichten in der vom Nutzer:innen bevorzugten Ausrichtung angezeigt, unabhängig von der tatsächlichen Bildschirmausrichtung.
+Bei iPads werden In-App-Nachrichten im von Nutzer:innen bevorzugten Ausrichtungsstil angezeigt, unabhängig von der tatsächlichen Bildschirmausrichtung.
 {% endalert %}
 
-## Methoden-Deklarationen
+## Methodendeklarationen {#method-declarations}
 
 Weitere Informationen finden Sie in der folgenden Header-Datei:
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
-

@@ -11,7 +11,7 @@ description: "Esta página de referência descreve os componentes do calendário
 
 > O calendário de conteúdo oferece uma visão geral de alto nível das suas campanhas agendadas.
 
-Você pode analisar dados de envio de mensagens e visualizar e gerenciar suas campanhas agendadas. Para abrir o calendário, selecione **Content** > **Content Calendar**.
+Você pode analisar dados de envio de mensagens e visualizar e gerenciar suas campanhas agendadas. Para abrir o calendário, selecione **Conteúdo** > **Calendário de conteúdo**.
 
 ## Análise de dados de mensagens {#messaging-analytics}
 
@@ -24,7 +24,7 @@ Para visualizar a análise de dados de mensagens de um dia específico em um rel
 
 ![Os gráficos "Upcoming Message Types" e "Messages Sent" na seção Messaging Analytics.]({% image_buster /assets/img/campaign_calendar/content_calendar_messaging_analytics.png %})
 
-Para baixar uma cópia dos seus dados, selecione <i class="fa-solid fa-bars" style="color: #2e7487;" aria-hidden="true"></i> **Chart context menu** e escolha o formato de arquivo desejado.
+Para baixar uma cópia dos seus dados, selecione <i class="fa-solid fa-bars" style="color: #2e7487;" aria-hidden="true"></i> **Menu de contexto do gráfico** e escolha o formato de arquivo desejado.
 
 ## Calendário de envios {#send-calendar}
 
@@ -34,8 +34,8 @@ O calendário de envios exibe todas as suas campanhas agendadas para o mês atua
 As mensagens no app são sempre baseadas em ações, por isso não aparecem no calendário de envios.
 {% endalert %}
 
-Mude o mês selecionando <i class="fa-solid fa-chevron-left" style="color: #2e7487;" aria-hidden="true"></i> **See previous month** ou <i class="fa-solid fa-chevron-right" style="color: #2e7487;" aria-hidden="true"></i> **See next month**. Para voltar ao mês atual, selecione **Today**.
+Mude o mês selecionando <i class="fa-solid fa-chevron-left" style="color: #2e7487;" aria-hidden="true"></i> **Ver mês anterior** ou <i class="fa-solid fa-chevron-right" style="color: #2e7487;" aria-hidden="true"></i> **Ver próximo mês**. Para voltar ao mês atual, selecione **Hoje**.
 
 ![O calendário de envios exibindo todas as campanhas agendadas no mês atual.]({% image_buster /assets/img/campaign_calendar/content_calendar_sends.png %})
 
-Visualize ou modifique suas campanhas selecionando a campanha no calendário. Para saber mais, consulte [Gerenciando campanhas]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/).
+Visualize ou modifique suas campanhas selecionando a campanha no calendário. Para saber mais, consulte [Gerenciando campanhas]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns).

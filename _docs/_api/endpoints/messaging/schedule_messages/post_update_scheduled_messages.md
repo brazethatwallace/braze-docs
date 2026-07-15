@@ -10,7 +10,7 @@ description: "This article outlines details about the Update scheduled messages 
 ---
 {% api %}
 # Update scheduled messages
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/update
 {% endapimethod %}
 
@@ -22,7 +22,7 @@ This endpoint accepts updates to either the `schedule` or `messages` parameter o
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `messages.schedule.update` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `messages.schedule.update` permission.
 
 ## Rate limit
 
@@ -51,8 +51,8 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
 | `schedule_id` | Required | String | The `schedule_id` to update (obtained from the response to create schedule). |
-|`schedule` | Optional | Object | See [schedule object]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-|`messages` | Optional | Object | See [available messaging objects]({{site.baseurl}}/api/objects_filters/#messaging-objects). |
+|`schedule` | Optional | Object | See [schedule object]({{site.baseurl}}/api/objects_filters/schedule_object). |
+|`messages` | Optional | Object | See [available messaging objects]({{site.baseurl}}/api/objects_filters#messaging-objects). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Example request

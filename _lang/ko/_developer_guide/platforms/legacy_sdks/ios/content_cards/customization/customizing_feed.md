@@ -1,9 +1,9 @@
 ---
-nav_title: 피드를 사용자 정의
-article_title: iOS용 콘텐츠 카드 피드 사용자 지정
+nav_title: 피드 커스터마이즈
+article_title: iOS용 Content Cards 피드 커스터마이즈
 platform: iOS
 page_order: 2
-description: "이 문서에서는 iOS 애플리케이션의 콘텐츠 카드 피드 사용자 지정 옵션에 대해 설명합니다."
+description: "이 문서에서는 iOS 애플리케이션의 Content Cards 피드 커스터마이즈 옵션에 대해 설명합니다."
 channel:
   - content cards
 noindex: true
@@ -11,30 +11,30 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# 콘텐츠 카드 피드를 사용자 정의
+# Content Cards 피드 커스터마이즈 {#customize-the-content-cards-feed}
 
-`ABKContentCardsTableViewController`를 확장하여 모든 UI 요소와 콘텐츠 카드 동작을 커스텀하여 나만의 콘텐츠 카드 인터페이스를 만들 수 있습니다. 콘텐츠 카드 셀을 하위 클래스로 분류한 다음 프로그래밍 방식으로 사용하거나 새 클래스를 등록하는 사용자 지정 스토리보드를 도입하여 사용할 수도 있습니다. 전체 예제는 콘텐츠 카드 [샘플 앱](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp)을 확인하세요. 
+`ABKContentCardsTableViewController`를 확장하여 모든 UI 요소와 Content Cards 동작을 커스터마이즈하면 나만의 Content Cards 인터페이스를 만들 수 있습니다. Content Cards 셀을 서브클래스로 만든 다음 프로그래밍 방식으로 사용하거나, 새 클래스를 등록하는 커스텀 스토리보드를 도입하여 사용할 수도 있습니다. 전체 예제는 Content Cards [샘플 앱](https://github.com/Appboy/appboy-ios-sdk/tree/master/Samples/ContentCards/BrazeContentCardsSampleApp)을 확인하세요.
 
-또한 서브클래스 전략을 사용할지 아니면 완전히 커스텀 보기 컨트롤러를 사용하고 [데이터 업데이트에 가입]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration/)할지 고려하는 것도 중요합니다. 예를 들어 `ABKContentCardsTableViewController`를 서브클래스로 설정하는 경우 [`populateContentCards` 메서드](#overriding-populated-content-cards)를 사용하여 카드를 필터링 및 정렬(권장)할 수 있습니다). 그러나 전체 보기 컨트롤러 사용자 지정을 사용하면 캐러셀에 표시하거나 대화형 요소를 추가하는 등 카드 동작을 더 많이 제어할 수 있지만 정렬 및 필터링 로직을 구현하려면 관찰자에 의존해야 합니다. 또한 노출 횟수, 해제 이벤트 및 클릭을 올바르게 기록하려면 각 분석 메서드를 구현해야 합니다.
+또한 서브클래스 전략을 사용할지, 아니면 완전히 커스텀 뷰 컨트롤러를 사용하고 [데이터 업데이트를 구독]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration)할지 고려하는 것도 중요합니다. 예를 들어 `ABKContentCardsTableViewController`를 서브클래스로 설정하면 [`populateContentCards` 메서드](#overriding-populated-content-cards)를 사용하여 카드를 필터링하고 정렬(권장)할 수 있습니다. 반면 전체 뷰 컨트롤러 커스터마이즈를 사용하면 캐러셀에 표시하거나 대화형 요소를 추가하는 등 카드 동작을 더 세밀하게 제어할 수 있지만, 정렬 및 필터링 로직을 구현하려면 옵저버에 의존해야 합니다. 또한 노출 횟수, 해제 이벤트 및 클릭을 올바르게 기록하려면 각 분석 메서드를 구현해야 합니다.
 
-## UI 사용자 지정
+## UI 커스터마이즈 {#customizing-ui}
 
-다음 코드 스니펫은 SDK에서 제공하는 메서드를 사용하여 UI 요구 사항에 맞게 콘텐츠 카드의 스타일을 지정하고 변경하는 방법을 보여줍니다. 이러한 방법을 사용하면 사용자 지정 글꼴, 사용자 지정 색상 구성 요소, 사용자 지정 텍스트 등을 포함하여 콘텐츠 카드 UI의 모든 측면을 사용자 지정할 수 있습니다. 
+다음 코드 스니펫은 SDK에서 제공하는 메서드를 사용하여 UI 요구 사항에 맞게 Content Cards의 스타일을 지정하고 변경하는 방법을 보여줍니다. 이러한 메서드를 사용하면 커스텀 글꼴, 커스텀 색상 구성요소, 커스텀 텍스트 등 Content Cards UI의 모든 측면을 커스터마이즈할 수 있습니다.
 
-콘텐츠 카드 UI를 사용자 지정하는 두 가지 방법이 있습니다. 
+Content Cards UI를 커스터마이즈하는 방법은 두 가지가 있습니다:
 - 동적 방법: 카드별로 카드 UI 업데이트
-- 정적 방법: 모든 카드의 UI 업데이트
+- 정적 방법: 모든 카드의 UI를 일괄 업데이트
 
-### 동적 UI
+### 동적 UI {#dynamic-ui}
 
-콘텐츠 카드 `applyCard` 메서드는 카드 오브젝트를 참조하여 UI를 업데이트하는 데 사용할 키-값 페어를 전달할 수 있습니다.
+Content Cards `applyCard` 메서드는 카드 오브젝트를 참조하고 UI를 업데이트하는 데 사용할 키-값 페어를 전달할 수 있습니다:
 
 {% tabs %}
 {% tab Objective-C %}
 ```objc
 - (void)applyCard:(ABKCaptionedImageContentCard *)captionedImageCard {
-  [super applyCard:captionedImageCard];    
- 
+  [super applyCard:captionedImageCard];
+
   if ([card.extras objectForKey:ContentCardKeyBackgroundColorValue]) {
     NSString *backgroundColor = [card.extras objectForKey:ContentCardKeyBackgroundColor];
     if ([backgroundColor colorValue]) {
@@ -44,15 +44,15 @@ noindex: true
     }
   } else {
     self.rootView.backgroundColor = [UIColor lightGray];
-  }  
+  }
 }
 ```
 {% endtab %}
 {% tab Swift %}
 ```swift
 override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
-  super.apply(captionedImageCard)         
- 
+  super.apply(captionedImageCard)
+
   if let backgroundColor = card.extras?[ContentCardKey.backgroundColor.rawValue] as? String,
      let backgroundColorValue = backgroundColor.colorValue() {
     rootView.backgroundColor = backgroundColorValue
@@ -64,17 +64,17 @@ override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
 {% endtab %}
 {% endtabs %}
 
-### 정적 UI
+### 정적 UI {#static-ui}
 
-`setUpUI` 메서드는 모든 카드의 정적 콘텐츠 카드 구성요소에 값을 할당할 수 있습니다.
+`setUpUI` 메서드는 모든 카드의 정적 Content Cards 구성요소에 값을 할당할 수 있습니다:
 
 {% tabs %}
 {% tab Objective-C %}
 ```objc
-#import "CustomClassicContentCardCell.h"  
- 
+#import "CustomClassicContentCardCell.h"
+
 @implementation CustomClassicContentCardCell
- 
+
 - (void)setUpUI {
   [super setUpUI];
   self.rootView.backgroundColor = [UIColor lightGrayColor];
@@ -88,7 +88,7 @@ override func apply(_ captionedImageCard: ABKCaptionedImageContentCard!) {
 ```swift
 override func setUpUI() {
   super.setUpUI()
-     
+
   rootView.backgroundColor = .lightGray
   rootView.layer.borderColor = UIColor.purple.cgColor
   unviewedLineViewColor = .red
@@ -98,22 +98,22 @@ override func setUpUI() {
 {% endtab %}
 {% endtabs %}
 
-## 사용자 지정 인터페이스 제공
+## 커스텀 인터페이스 제공 {#providing-custom-interfaces}
 
-원하는 카드 유형별로 사용자 지정 클래스를 등록하여 사용자 지정 인터페이스를 제공할 수 있습니다. 
+원하는 카드 유형별로 커스텀 클래스를 등록하여 커스텀 인터페이스를 제공할 수 있습니다.
 
-![배너 콘텐츠 카드. 배너 콘텐츠 카드는 배너 오른쪽에 "Braze Demo를 다운로드해 주셔서 감사합니다!"라는 텍스트와 함께 이미지를 보여줍니다.]({% image_buster /assets/img/interface1.png %}){: style="max-width:35%;margin-left:15px;"}
-![캡션이 있는 이미지 콘텐츠 카드입니다. 자막 콘텐츠 카드는 Braze 이미지를 보여주며 하단에 "Braze Demo를 다운로드해 주셔서 감사합니다!"라는 자막이 겹쳐져 있습니다. ]({% image_buster /assets/img/interface2.png %}){: style="max-width:25%;margin-left:15px;"}
-![클래식 콘텐츠 카드. 클래식 콘텐츠 카드는 카드 중앙에 이미지를 보여주며 그 아래에 "Braze Demo를 다운로드해 주셔서 감사합니다"라는 문구가 있습니다.]({% image_buster /assets/img/interface3.png %}){: style="max-width:18%;margin-left:15px;"}
+![배너 콘텐츠 카드. 배너 콘텐츠 카드는 배너 오른쪽에 "Thanks for downloading Braze Demo!"라는 텍스트와 함께 이미지를 표시합니다.]({% image_buster /assets/img/interface1.png %}){: style="max-width:35%;margin-left:15px;"}
+![자막 이미지 콘텐츠 카드. 자막 콘텐츠 카드는 Braze 이미지를 표시하며 하단에 "Thanks for downloading Braze Demo!"라는 자막이 겹쳐져 있습니다.]({% image_buster /assets/img/interface2.png %}){: style="max-width:25%;margin-left:15px;"}
+![클래식 콘텐츠 카드. 클래식 콘텐츠 카드는 카드 중앙에 이미지를 표시하며 그 아래에 "Thanks for downloading Braze Demo"라는 문구가 있습니다.]({% image_buster /assets/img/interface3.png %}){: style="max-width:18%;margin-left:15px;"}
 
-Braze는 세 가지 콘텐츠 카드 템플릿(배너, 캡션 이미지, 클래식)을 제공합니다. 또는 자체 커스텀 인터페이스를 제공하려면 다음 코드 스니펫을 참조하세요.
+Braze는 세 가지 Content Cards 템플릿(배너, 자막 이미지, 클래식)을 제공합니다. 자체 커스텀 인터페이스를 제공하려면 다음 코드 스니펫을 참조하세요:
 
 {% tabs %}
 {% tab Objective-C %}
 ```objc
 - (void)registerTableViewCellClasses {
   [super registerTableViewCellClasses];
- 
+
   // Replace the default class registrations with custom classes for these two types of cards
   [self.tableView registerClass:[CustomCaptionedImageContentCardCell class] forCellReuseIdentifier:@"ABKCaptionedImageContentCardCell"];
   [self.tableView registerClass:[CustomClassicContentCardCell class] forCellReuseIdentifier:@"ABKClassicCardCell"];
@@ -124,7 +124,7 @@ Braze는 세 가지 콘텐츠 카드 템플릿(배너, 캡션 이미지, 클래�
 ```swift
 override func registerTableViewCellClasses() {
   super.registerTableViewCellClasses()
-     
+
   // Replace the default class registrations with custom classes
   tableView.register(CustomCaptionedImageContentCardCell.self, forCellReuseIdentifier: "ABKCaptionedImageContentCardCell")
   tableView.register(CustomBannerContentCardCell.self, forCellReuseIdentifier: "ABKBannerContentCardCell")
@@ -135,9 +135,9 @@ override func registerTableViewCellClasses() {
 {% endtab %}
 {% endtabs %}
 
-## 채워진 콘텐츠 카드 재정의
+## 채워진 Content Cards 재정의 {#overriding-populated-content-cards}
 
-콘텐츠 카드는 `populateContentCards` 메서드를 사용하여 프로그래밍 방식으로 변경할 수 있습니다.
+Content Cards는 `populateContentCards` 메서드를 사용하여 프로그래밍 방식으로 변경할 수 있습니다:
 
 {% tabs %}
 {% tab Objective-C %}

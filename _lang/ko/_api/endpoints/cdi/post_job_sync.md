@@ -30,7 +30,7 @@ description: "이 문서에서는 트리거 동기화 Braze 엔드포인트에 �
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `integration_id` | 필수 | 문자열 | 통합 ID. Braze 대시보드에서 통합을 볼 때 URL에서 확인할 수 있습니다. URL 형식은 `https://[instance].braze.com/integrations/cloud_data_ingestion/[integration_id]`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
 ## 요청 예시 {#example-request}
 
@@ -61,8 +61,8 @@ curl --location --request POST 'https://rest.iad-03.braze.com/cdi/integrations/0
 | `400 Invalid integration ID` | `integration_id`가 유효한지 확인하세요. |
 | `404 Integration not found` | 지정된 통합 ID에 대한 통합이 존재하지 않습니다. 통합 ID가 유효한지 확인하세요. |
 | `429 Another job is in progress` | 현재 이 통합에 대해 동기화가 진행 중입니다. 동기화가 완료된 후 다시 시도하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
-추가 상태 코드 및 관련 오류 메시지는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors/#fatal-errors)을 참조하세요.
+추가 상태 코드 및 관련 오류 메시지는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors#fatal-errors)을 참조하세요.
 
 {% endapi %}

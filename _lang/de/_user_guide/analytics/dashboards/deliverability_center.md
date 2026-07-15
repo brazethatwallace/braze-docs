@@ -15,7 +15,7 @@ channel:
 
 E-Mail-Zustellbarkeit ist der Kern des Kampagnenerfolgs. Mit dem Deliverability Center im Braze-Dashboard können Sie Ihre Domains nach **IP Reputation** oder **Delivery Errors** anzeigen, um potenzielle Probleme mit der E-Mail-Zustellbarkeit zu erkennen und zu beheben.
 
-Um auf das Deliverability Center zuzugreifen, benötigen Sie die [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) im folgenden Dropdown für Ihren Workspace.
+Um auf das Deliverability Center zuzugreifen, benötigen Sie die [Nutzer:innenberechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) im folgenden Dropdown für Ihren Workspace.
 
 {% details Nutzer:innenberechtigungen für das Deliverability Center %}
 
@@ -68,7 +68,7 @@ Um auf das Deliverability Center zuzugreifen, benötigen Sie die [Nutzer:innenbe
 Bevor Sie sich mit dem Deliverability Center verbinden, müssen Sie ein Google Postmaster Tools-Konto einrichten. Sie können ein geschäftliches oder persönliches Gmail-Konto verwenden, um Google Postmaster einzurichten.
 
 1. Gehen Sie zum [Google Postmaster Tools-Dashboard](https://postmaster.google.com/managedomains?pli=1).
-2. Wählen Sie unten rechts <i class="fas fa-plus-circle"></i> **Add domain**.
+2. Wählen Sie unten auf der Seite <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Geben Sie Ihre Root-(Eltern-)Domain ein, um Ihre E-Mail zu authentifizieren. Stellen Sie sicher, dass der TXT-Eintrag mit dieser Root-(Eltern-)Domain verknüpft ist, **nicht** mit der Subdomain, die Sie über Braze verwenden. Durch die Verifizierung der Root-(Eltern-)Domain können Sie später Subdomains in den Postmaster Tools hinzufügen, ohne zusätzliche TXT-Einträge erstellen zu müssen. Wenn Sie beispielsweise `braze.com` verifizieren, können Sie später `demo.braze.com` als separate Subdomain in den Postmaster Tools hinzufügen, um Metriken auf Subdomain-Ebene einzusehen.
 4. Google generiert einen TXT-Eintrag, der direkt zum DNS Ihrer Domain hinzugefügt werden kann. Dies wird in der Regel von der Person verwaltet, die für Ihr DNS zuständig ist. Informationen und Anleitungen zur Aktualisierung Ihres spezifischen DNS finden Sie unter [Domain verifizieren (hostspezifische Schritte)](https://support.google.com/a/topic/1409901).
 5. Wählen Sie **Next**. <br>![Eine Beispiel-Domain „demo.braze.com“ zur Authentifizierung einer E-Mail.]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -80,6 +80,13 @@ Wenn Ihre Subdomains nicht im Deliverability Center für Google Postmaster angez
 {% endalert %}
 
 ## Google Postmaster integrieren {#integrating-google-postmaster}
+
+{% alert important %}
+**Migration zu Google Postmaster Tools v2**<br>
+Google stellt die alten Postmaster Tools (v1) ein und hat eine Version der nächsten Generation (v2) mit einer modernen Benutzeroberfläche und neuen Dashboards veröffentlicht, darunter ein Compliance-Dashboard zur Überwachung der Einhaltung der Gmail-Absenderrichtlinien. Alle Nutzer:innen müssen bis zum 31. Oktober 2026 auf v2 migrieren.<br><br>
+Um Ihre Google Postmaster Tool-Verbindung erneut zu autorisieren, gehen Sie zu **Partnerintegrationen** > **Technologie-Partner**, öffnen Sie **Google Postmaster** und wählen Sie **Change Account**, um sich mit den neuen v2-Berechtigungen erneut zu authentifizieren. Danach sind Sie auf v2 aktualisiert und erhalten Zugriff auf neue Dashboards und Daten.<br><br>
+Weitere Informationen finden Sie in [Googles Ankündigung zu den neuen Postmaster Tools](https://support.google.com/mail/answer/16594218?hl=en).
+{% endalert %}
 
 Bevor Sie Ihr Deliverability Center einrichten, stellen Sie sicher, dass Ihre Domains [zu den Gmail Postmaster Tools hinzugefügt](https://support.google.com/mail/answer/9981691?hl=en) wurden.
 
@@ -151,17 +158,27 @@ In dieser Tabelle erfahren Sie, welcher Prozentsatz Ihres eingehenden und ausgeh
 | TLS ausgehend | Zeigt den Prozentsatz der ausgehenden E-Mails (von Gmail), die über TLS akzeptiert wurden, im Verhältnis zu allen an diese Domain gesendeten E-Mails. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verschlüsselung" }
 
-Weitere Ideen zur Verbesserung der Zustellbarkeit finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps/#deliverability-pitfalls-and-spam-traps). Lesen Sie auch unsere [Best Practices für E-Mails]({{site.baseurl}}/user_guide/channels/email/best_practices/), um zu erfahren, was Sie vor dem Versand einer E-Mail-Kampagne überprüfen sollten.
+Weitere Ideen zur Verbesserung der Zustellbarkeit finden Sie unter [Zustellbarkeitsfallen und Spam-Traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Lesen Sie auch unsere [Best Practices für E-Mails]({{site.baseurl}}/user_guide/channels/email/best_practices), um zu erfahren, was Sie vor dem Versand einer E-Mail-Campaign überprüfen sollten.
 
 ## Microsoft Smart Network Data Services (SNDS) einrichten {#set-up-microsoft-smart-network-data-services-snds}
 
-Wenn Microsoft Ihr Haupt-Mailbox-Anbieter ist, können Sie diese Integration nutzen, um auf Ihre Microsoft-Reputationsdaten zuzugreifen und diese einzusehen. So können Sie den Zustand Ihrer IPs überwachen und besser einschätzen, wie Ihre E-Mails empfangen werden.
+Wenn Microsoft Ihr Haupt-Mailbox-Anbieter ist, können Sie Microsoft SNDS-Daten im Deliverability Center einsehen. Dies umfasst dedizierte Versand-IPs für Workspaces, die Amazon SES, SendGrid oder SparkPost verwenden. Nutzen Sie diese Daten, um den Zustand Ihrer IPs zu überwachen und zu verstehen, wie Microsoft-Posteingangsanbieter Ihren Versand bewerten.
+
+Microsoft SNDS liefert Daten auf IP-Ebene zu Spam-Beschwerden, Spam-Trap-Treffern und Versandvolumen, wie sie von Microsoft-Posteingangsanbietern wie Outlook, Hotmail und Live gemeldet werden.
 
 {% alert important %}
-Wenn Sie Ihre Daten nicht im Deliverability Center sehen, kontaktieren Sie den [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) mit einer Liste Ihrer IP-Adressen.
+Wenn Sie Ihre Daten nicht im Deliverability Center sehen, kontaktieren Sie den [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) mit einer Liste Ihrer IP-Adressen.
 {% endalert %}
 
-![Ein Beispiel für Ergebnisse von Microsoft SNDS, einschließlich Beispiel-IPs, Empfänger:innen, RCPT-Befehle, DATA-Befehle, Filterergebnis, Beschwerderate, Spam-Trap-Nachrichtenzeitraum (Start und Ende) und Spam-Trap-Treffer.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
+### Amazon SES
+
+Für Workspaces, die E-Mails über Amazon SES versenden, zeigt das Deliverability Center Microsoft SNDS-Metriken für Ihre dedizierten Versand-IPs an. Braze füllt bis zu 90 Tage historischer SNDS-Daten nach, wenn dieses Feature für Ihren Workspace aktiviert wird.
+
+{% alert note %}
+Amazon SES stellt keine Metriken für **Trap-Nachrichtenzeitraum Start** oder **Trap-Nachrichtenzeitraum Ende** bereit. Für SES-Versand-IPs werden diese Spalten in der Microsoft SNDS-Tabelle ausgeblendet. Sie können weiterhin andere SNDS-Metriken für diese IPs einsehen, einschließlich Spam-Trap-Treffer.
+{% endalert %}
+
+![Ein Beispiel für Ergebnisse von Microsoft SNDS, einschließlich Beispiel-IPs, Empfänger:innen, RCPT-Befehle, DATA-Befehle, Filterergebnis, Beschwerderate, Trap-Nachrichtenzeitraum Start und Ende sowie Spam-Trap-Treffer.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
 
 ### Metriken und Definitionen
 
@@ -202,6 +219,10 @@ Um die Beschwerderate zu berechnen, teilen Sie die Anzahl der Beschwerden durch 
 #### Spam-Trap-Treffer {#spam-trap-hits}
 
 Spam-Trap-Treffer sind die Anzahl der Nachrichten, die an „Trap-Konten“ gesendet wurden – Konten, die von Outlook.com betrieben werden und keine E-Mails anfordern. Es ist wahrscheinlich, dass alle an diese Trap-Konten gesendeten Nachrichten als Spam betrachtet werden. Daher ist es wichtig, diese Metrik zu überwachen und sicherzustellen, dass sie niedrig bleibt. Niedrige Spam-Trap-Treffer bedeuten, dass die Nachrichten nicht an diese Konten gesendet werden, sondern an tatsächliche Konten.
+
+#### Trap-Nachrichtenzeitraum Start und Ende {#trap-message-period-start-and-end}
+
+Diese Spalten zeigen an, wann die erste und letzte Nachricht, die an Trap-Konten gesendet wurde, während des Aktivitätszeitraums von der IP empfangen wurde. Amazon SES stellt diese Metriken nicht bereit, daher werden die Spalten ausgeblendet, wenn Sie nur SES-Versand-IPs in der Microsoft SNDS-Tabelle anzeigen.
 
 {% alert tip %}
 Wenn Sie nach Einträgen zu einer Ihrer verifizierten Domains in Braze suchen, beachten Sie, dass das Deliverability Center Ihre Daten von Google Postmaster oder Microsoft SNDS auflistet. Das bedeutet, dass eine der beiden Plattformen möglicherweise keine Daten hat, die sie mit Braze teilen kann. Alternativ können Sie versuchen, einen konsistenten E-Mail-Versand aufrechtzuerhalten, da dies zu einer höheren Reputation führen kann.

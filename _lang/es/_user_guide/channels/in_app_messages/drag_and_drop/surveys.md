@@ -13,6 +13,6 @@ tool:
 
 # Cuestionarios de mensajes dentro de la aplicación {#in-app-message-surveys}
 
-> Los cuestionarios de Braze recopilan comentarios en mensajes dentro de la aplicación que puedes analizar y utilizar en mensajería de seguimiento. Durante la beta, los cuestionarios se crean en el [editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/).
+> Los cuestionarios de Braze recopilan comentarios en mensajes dentro de la aplicación que puedes analizar y utilizar en mensajería de seguimiento. Durante la beta, los cuestionarios se crean en el [editor de arrastrar y soltar]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop).
 
 {% multi_lang_include surveys/content.md channel='in_app_message' %}

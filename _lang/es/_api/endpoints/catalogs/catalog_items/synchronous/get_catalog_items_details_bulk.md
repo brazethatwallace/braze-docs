@@ -21,7 +21,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `catalogs.get_items`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `catalogs.get_items`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -32,7 +32,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `catalog_name` | Obligatorio | Cadena | Nombre del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de ruta" }
 
 ## Parámetros de consulta {#query-parameters}
 
@@ -41,7 +41,7 @@ Ten en cuenta que cada llamada a este punto de conexión devolverá 50 elementos
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|
 | `cursor` | Opcional | Cadena | Determina la paginación de los elementos del catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parámetros de consulta" }
 
 ## Parámetros de la solicitud {#request-parameters}
 
@@ -146,6 +146,6 @@ La siguiente tabla enumera los posibles errores devueltos y sus pasos asociados 
 | --- | --- |
 | `catalog-not-found` | Comprueba que el nombre del catálogo es válido. |
 | `invalid-cursor` | Comprueba que tu `cursor` es válido. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solución de problemas" }
 
 {% endapi %}

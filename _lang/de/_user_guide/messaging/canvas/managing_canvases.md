@@ -13,7 +13,7 @@ tool: Canvas
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
   - name: Canvases nach dem Start bearbeiten
-    link: /docs/post-launch_edits/
+    link: /docs/post-launch_edits
     image: /assets/img/braze_icons/edit-05.svg
   - name: Entwürfe für Canvas speichern
     link: /docs/user_guide/messaging/canvas/managing_canvases/canvas_drafts

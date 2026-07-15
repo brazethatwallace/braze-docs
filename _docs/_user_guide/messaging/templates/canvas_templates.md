@@ -24,7 +24,6 @@ In the Braze dashboard, go to **Messaging** > **Canvas** and select an existing 
 
 In the Canvas editor, select **Edit Canvas** or **Edit draft**, depending on if your Canvas is active or in a draft. Expand the **Save as draft** dropdown in the footer and select **Save as template**.
 
-![]({% image_buster /assets/img/save_canvas_as_template.png %})
 
 ### Step 3: Save your template
 
@@ -44,7 +43,7 @@ Select **Create template** and begin setting up your Canvas details. You can sta
 
 ### Step 3: Customize your template
 
-Next, customize your template by [setting up your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2-build-your-canvas). You can decide when users should enter the Canvas, determine which users can enter this Canvas, adjust your send settings, and build your user journey for the template.
+Next, customize your template by [setting up your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas). You can decide when users should enter the Canvas, determine which users can enter this Canvas, adjust your send settings, and build your user journey for the template.
 
 ### Step 4: Save your template
 
@@ -59,7 +58,7 @@ There are two ways to use your template when composing a Canvas:
 
 ### Available Braze templates
 
-For a list of available Canvas templates, refer to [Braze Canvas templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/). For details on using eCommerce Canvas templates, refer to [How to use eCommerce recommended events]({{site.baseurl}}/ecommerce_use_cases/).
+For a list of available Canvas templates, refer to [Braze Canvas templates]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates). For details on using eCommerce Canvas templates, refer to [How to use eCommerce recommended events]({{site.baseurl}}/ecommerce_use_cases).
 
 ## Managing Canvas templates
 
@@ -69,7 +68,7 @@ At a workspace level, you can update user permissions to allow or limit the acce
 
 ### Permissions for teams and workspaces
 
-To only allow certain users to access and use specific Canvas templates, [add a team]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) to the templates, then assign team-level "Access Campaigns, Canvases, Content Cards, Content Blocks, Feature Flags, Segments, Media Library, and Preference Center" permissions.
+To only allow certain users to access and use specific Canvas templates, [add a team]({{site.baseurl}}/user_guide/administer/global/user_management/teams) to the templates, then assign team-level "Access Campaigns, Canvases, Content Cards, Content Blocks, Feature Flags, Segments, Media Library, and Preference Center" permissions.
 
 If you assign any of the following permissions at a team level, but not a workspace level, you can only do the following assigned to your team:
 

@@ -18,14 +18,14 @@ _Diese Integration wird von Stylitics gepflegt._
 
 Die Integration von Braze und Stylitics erlaubt es Ihnen, Ihre bestehenden E-Mail-Campaigns mit ansprechenden und relevanten gebündelten Inhalten zu erweitern und so ein personalisiertes Kundenerlebnis zu schaffen.
 
-![]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
+![Beispiel für gebündelte Stylitics-Inhalte, eingebettet in ein Braze-E-Mail-Erlebnis.]({% image_buster /assets/img/stylitics.png %}){: style="max-width:60%;"}
 
 ## Voraussetzungen {#prerequisites}
 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Stylitics-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Stylitics-Konto](https://stylitics.com/). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
 
@@ -60,6 +60,7 @@ Zum Beispiel: {% raw %}`&styliticsoverride=001?styliticsCID=email[clientname]`{%
 {% endalert %}
 
 ### 2. Flat-File-Ansatz {#2-flat-file-approach}
+
 Sie oder Ihr ESP können die Bundle-Daten eines Artikels in einer Flat File referenzieren, um Bundle-Daten in Ihre E-Mail einzufügen. Stylitics kann die Bundle-Daten in das CSV-, TXT- oder XML-Format umwandeln und Ihnen täglich zusenden. Stylitics kann auch dabei helfen, das Dateiformat an die Anforderungen Ihres ESP anzupassen. Beachten Sie, dass die Erstellung dieser Datei 2–3 Wochen dauert.
 
 #### Anforderungen: {#requirements}
@@ -68,6 +69,7 @@ Sie oder Ihr ESP können die Bundle-Daten eines Artikels in einer Flat File refe
 - **Datei-Schlüssel**: Sie und Stylitics müssen sich darauf einigen, welcher Artikeldaten-String als Schlüssel für die Datei verwendet wird, damit Ihr ESP die Daten referenzieren kann. SKU, `item_group_id` oder `item_number` werden häufig verwendet.
 
 ### 3. Ansatz zur Website-Datenextraktion {#3-website-data-extraction-approach}
+
 Anbieter können das Frontend Ihrer Website nach Stylitics-Inhalten durchsuchen und Bundle-Daten in E-Mails einfügen. Es ist keine zusätzliche Arbeit von Stylitics erforderlich.
 
 ## Best Practices für E-Mail-Templates {#email-template-best-practices}

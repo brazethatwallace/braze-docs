@@ -34,7 +34,7 @@ This optional and advanced [implementation guide]({{site.baseurl}}/developer_gui
 
 ### Push notifications
 
-This optional and advanced [implementation guide]({{site.baseurl}}/developer_guide/push_notifications/examples/?sdktab=android) covers ways to leverage a custom `FirebaseMessagingService` subclass to get the most out of your push messages. Included is a custom use case built by our team, accompanying code snippets, and guidance on logging analytics.
+This optional and advanced [implementation guide]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) covers ways to leverage a custom `FirebaseMessagingService` subclass to get the most out of your push messages. Included is a custom use case built by our team, accompanying code snippets, and guidance on logging analytics.
 
 ## New Braze partnerships
 

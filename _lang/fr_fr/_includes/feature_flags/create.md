@@ -1,6 +1,6 @@
 # Créer des indicateurs de fonctionnalité {#create-feature-flags}
 
-> Les indicateurs de fonctionnalité vous permettent d'activer ou de désactiver à distance des fonctionnalités pour une sélection d'utilisateurs. Créez un indicateur de fonctionnalité dans le tableau de bord de Braze. Donnez-lui un nom et un `ID`, une audience cible et un pourcentage d'utilisateurs pour lesquels activer cette fonctionnalité. Ensuite, en utilisant ce même `ID` dans le code de votre application ou de votre site web, vous pouvez exécuter certaines parties de votre logique métier de manière conditionnelle. Pour en savoir plus sur les indicateurs de fonctionnalité et leur utilisation dans Braze, consultez la section [À propos des indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags/).
+> Les indicateurs de fonctionnalité vous permettent d'activer ou de désactiver à distance des fonctionnalités pour une sélection d'utilisateurs. Créez un indicateur de fonctionnalité dans le tableau de bord de Braze. Donnez-lui un nom et un `ID`, une audience cible et un pourcentage d'utilisateurs pour lesquels activer cette fonctionnalité. Ensuite, en utilisant ce même `ID` dans le code de votre application ou de votre site web, vous pouvez exécuter certaines parties de votre logique métier de manière conditionnelle. Pour en savoir plus sur les indicateurs de fonctionnalité et leur utilisation dans Braze, consultez la section [À propos des indicateurs de fonctionnalité]({{site.baseurl}}/developer_guide/feature_flags).
 
 ## Conditions préalables {#prerequisites}
 
@@ -12,13 +12,13 @@ Pour utiliser les indicateurs de fonctionnalité, assurez-vous que vos SDK sont 
 
 ### Autorisations Braze {#braze-permissions}
 
-Pour gérer les indicateurs de fonctionnalité dans le tableau de bord, vous devez être administrateur ou disposer des [autorisations]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) suivantes :
+Pour gérer les indicateurs de fonctionnalité dans le tableau de bord, vous devez être administrateur ou disposer des [autorisations]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) suivantes :
 
-| Autorisation                                                                    | Ce que vous pouvez faire                           |
+| Autorisation                                                                  | Ce que vous pouvez faire                           |
 |-------------------------------------------------------------------------------|-------------------------------------------|
 | **Manage Feature Flags**                                                      | Afficher, créer et modifier des indicateurs de fonctionnalité.     |
 | **Access Campaigns, Canvases, Cards, Feature Flags, Segments, Media Library** | Consulter la liste des indicateurs de fonctionnalité disponibles. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze permissions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Autorisations Braze" }
 
 ## Création d'un indicateur de fonctionnalité {#creating-a-feature-flag}
 
@@ -41,7 +41,7 @@ Sous **Feature flag details**, saisissez un nom, un ID et une description pour v
 | ID           | L'ID unique que vous utiliserez dans votre code pour vérifier si cette fonctionnalité est [activée pour un utilisateur](#enabled). Cet ID ne pourra pas être modifié ultérieurement. Consultez donc les [bonnes pratiques en matière de nommage des ID](#naming-conventions) avant de continuer. |
 | Description  | Une description facultative qui donne un peu de contexte à votre indicateur de fonctionnalité.   |
 | Propriétés   | Propriétés facultatives permettant de configurer à distance votre indicateur de fonctionnalité. Elles peuvent être remplacées dans les étapes du Canvas ou les expériences d'indicateur de fonctionnalité. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Fill out the details" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Renseigner les détails" }
 
 ### Étape 2a : Créer des propriétés personnalisées {#step-2a-create-custom-properties}
 
@@ -51,26 +51,26 @@ Sous **Properties**, vous avez la possibilité de créer des propriétés person
 {% tab example %}
 Dans l'exemple suivant, l'indicateur de fonctionnalité affiche une bannière de rupture de stock pour une boutique en ligne à l'aide des propriétés personnalisées répertoriées :
 
-|Nom de la propriété|Type|Valeur|
+| Nom de la propriété | Type | Valeur |
 |--|--|--|
-| `banner_height`|`number`|`75`|
-| `banner_color`|`string`|`blue`|
-| `banner_text`|`string`|`Widgets are out of stock until July 1.`|
-|`dismissible`|`boolean`|`false`|
-| `homepage_icon`|`image`|`http://s3.amazonaws.com/[bucket_name]/`|
-| `account_start`|`timestamp`|`2011-01-01T12:00:00Z`|
-| `footer_settings`|`JSON`|`{ "colors": [ "red", "blue", "green" ], "placement": 123 }`|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2a: Create custom properties" }
+| `banner_height` | `number` | `75` |
+| `banner_color` | `string` | `blue` |
+| `banner_text` | `string` | `Widgets are out of stock until July 1.` |
+| `dismissible` | `boolean` | `false` |
+| `homepage_icon` | `image` | `http://s3.amazonaws.com/[bucket_name]/` |
+| `account_start` | `timestamp` | `2011-01-01T12:00:00Z` |
+| `footer_settings` | `JSON` | `{ "colors": [ "red", "blue", "green" ], "placement": 123 }` |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2a : Créer des propriétés personnalisées" }
 
 {% alert tip %}
-Il n'y a pas de limite au nombre de propriétés que vous pouvez ajouter. Toutefois, les propriétés d'un indicateur de fonctionnalité sont limitées à un total de 10 Ko. Les valeurs des propriétés et les clés sont limitées à 255 caractères.
+Il n'y a pas de limite au nombre de propriétés que vous pouvez ajouter. Toutefois, les propriétés d'un indicateur de fonctionnalité sont limitées à un total de 10 000 caractères.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
 
 ### Étape 4 : Choisir les segments à cibler {#step-4-choose-segments-to-target}
 
-Avant de déployer un indicateur de fonctionnalité, vous devez choisir un [segment]({{site.baseurl}}/user_guide/engagement_tools/segments/) d'utilisateurs à cibler. Sélectionnez **Add Rule** sur votre indicateur nouvellement créé, puis utilisez les menus déroulants de groupe de filtres et de segment pour filtrer les utilisateurs de votre audience cible. Ajoutez plusieurs filtres pour affiner davantage votre audience.
+Avant de déployer un indicateur de fonctionnalité, vous devez choisir un [segment]({{site.baseurl}}/user_guide/engagement_tools/segments) d'utilisateurs à cibler. Sélectionnez **Add Rule** sur votre indicateur nouvellement créé, puis utilisez les menus déroulants de groupe de filtres et de segment pour filtrer les utilisateurs de votre audience cible. Ajoutez plusieurs filtres pour affiner davantage votre audience.
 
 ![Une zone de texte intitulée « Rollout Traffic » avec la possibilité d'ajouter des segments et des filtres.]({% image_buster /assets/img/feature_flags/segmentation_ff.png %}){: style="max-width:75%;"}
 
@@ -109,15 +109,15 @@ La règle « Everyone Else » sert de règle par défaut. Si un utilisateur ne r
 
 Par défaut, les règles sont classées dans l'ordre dans lequel elles ont été créées, mais il est possible de les réorganiser en les glissant-déposant dans le tableau de bord.
 
-![Une image illustrant qu'un utilisateur peut ajouter une règle à un indicateur de fonctionnalité.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
+![Illustration montrant qu'un utilisateur peut ajouter une règle à un indicateur de fonctionnalité.]({% image_buster /assets/img/feature_flags/add_rule.png %}){: style="max-width:80%;"}
 
-![Une image présentant un résumé d'un indicateur de fonctionnalité avec plusieurs règles ajoutées et une règle « Everyone Else ».]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
+![Résumé d'un indicateur de fonctionnalité avec plusieurs règles ajoutées et une règle « Everyone Else ».]({% image_buster /assets/img/feature_flags/mr_rules_overview.png %}){: style="max-width:80%;"}
 
-### Cas d'utilisation des indicateurs de fonctionnalité multi-règles {#multi-rule-feature-flag-use-cases}
+### Cas d'usage des indicateurs de fonctionnalité à règles multiples {#multi-rule-feature-flag-use-cases}
 
 #### Déployer progressivement une page de paiement {#gradually-release-a-checkout-page}
 
-Supposons que vous travailliez pour une marque de commerce électronique et que vous disposiez d'une nouvelle page de paiement que vous souhaitez déployer dans différentes régions afin d'assurer sa stabilité. À l'aide des indicateurs de fonctionnalité multi-règles, vous pouvez définir les éléments suivants :
+Supposons que vous travailliez pour une marque de commerce électronique et que vous disposiez d'une nouvelle page de paiement que vous souhaitez déployer dans différentes régions afin d'assurer sa stabilité. À l'aide des indicateurs de fonctionnalité à règles multiples, vous pouvez définir les éléments suivants :
 
 - **Règle n° 1 :** Votre segment américain est défini sur 100 %.
 - **Règle n° 2 :** Votre segment est défini sur 50 % de vos utilisateurs brésiliens, de sorte que tous ne reçoivent pas le flux en même temps.
@@ -129,7 +129,7 @@ Supposons que vous soyez gestionnaire de produit et que vous souhaitiez vous ass
 
 ## Utilisation du champ « enabled » pour vos indicateurs de fonctionnalité {#enabled}
 
-Une fois votre indicateur de fonctionnalité défini, configurez votre application ou votre site pour vérifier s'il est activé ou non pour un utilisateur donné. Lorsqu'il est activé, vous définirez une action ou référencerez les propriétés variables de l'indicateur de fonctionnalité en fonction de votre cas d'utilisation. Le SDK Braze fournit des méthodes getter pour récupérer l'état de l'indicateur de fonctionnalité et ses propriétés dans votre application.
+Une fois votre indicateur de fonctionnalité défini, configurez votre application ou votre site pour vérifier s'il est activé ou non pour un utilisateur donné. Lorsqu'il est activé, vous définirez une action ou référencerez les propriétés variables de l'indicateur de fonctionnalité en fonction de votre cas d'usage. Le SDK Braze fournit des méthodes getter pour récupérer l'état de l'indicateur de fonctionnalité et ses propriétés dans votre application.
 
 Les indicateurs de fonctionnalité sont actualisés automatiquement au début de la session, afin que vous puissiez afficher la version la plus récente de votre fonctionnalité au moment du lancement. Le SDK met ces valeurs en cache pour qu'elles puissent être utilisées hors ligne.
 
@@ -889,9 +889,9 @@ export const useFeatureFlag = (id: string): FeatureFlag => {
 
 Pour vérifier les indicateurs de fonctionnalité auxquels un utilisateur est éligible dans Braze, rendez-vous dans **Audience** > **Search Users**, puis recherchez et sélectionnez un utilisateur.
 
-Dans l'onglet **Feature Flags Eligibility**, vous pouvez filtrer la liste des indicateurs de fonctionnalité éligibles par plateforme, application ou appareil. Vous pouvez également prévisualiser le payload qui sera renvoyé à l'utilisateur en sélectionnant <i class="fa-solid fa-eye"></i> à côté d'un indicateur de fonctionnalité.
+Dans l'onglet **Feature Flags Eligibility**, vous pouvez filtrer la liste des indicateurs de fonctionnalité éligibles par plateforme, application ou appareil. Vous pouvez également prévisualiser le payload qui sera renvoyé à l'utilisateur en sélectionnant <i class="fa-solid fa-eye" aria-label="Prévisualiser"></i> à côté d'un indicateur de fonctionnalité.
 
-![Une image présentant le tableau des indicateurs de fonctionnalité auxquels un utilisateur est éligible.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
+![Tableau des indicateurs de fonctionnalité auxquels un utilisateur est éligible.]({% image_buster /assets/img/feature_flags/eligibility.png %}){: style="max-width:85%;"}
 
 ## Consulter le journal des modifications {#viewing-the-changelog}
 
@@ -905,7 +905,7 @@ Vous pouvez y consulter la date d'une modification, son auteur, la catégorie à
 
 ## Segmentation avec les indicateurs de fonctionnalité {#segmentation}
 
-Braze garde automatiquement la trace des utilisateurs pour lesquels un indicateur de fonctionnalité est actuellement activé. Vous pouvez créer un segment ou cibler un envoi de messages à l'aide du [filtre **Indicateur de fonctionnalité**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters/#feature-flags). Pour plus d'informations sur le filtrage des segments, consultez [Créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment/).
+Braze garde automatiquement la trace des utilisateurs pour lesquels un indicateur de fonctionnalité est actuellement activé. Vous pouvez créer un segment ou cibler un envoi de messages à l'aide du [filtre **Indicateur de fonctionnalité**]({{site.baseurl}}/user_guide/engagement_tools/segments/segmentation_filters#feature-flags). Pour plus d'informations sur le filtrage des segments, consultez [Créer un segment]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
 ![La section « Filtres » avec « Feature Flag » saisi dans la barre de recherche du filtre.]({% image_buster /assets/img/feature_flags/feature-flags-filter-name.png %}){: style="max-width:75%;"}
 
@@ -934,7 +934,7 @@ Remplacez les éléments suivants :
 | `BEHAVIOR`  | Le comportement de la fonctionnalité. Dans votre code, assurez-vous que le comportement est désactivé par défaut et évitez d'utiliser des expressions telles que `disabled` dans le nom de l'indicateur de fonctionnalité. |
 | `PRODUCT`   | Le produit auquel appartient la fonctionnalité.                                                                                       |
 | `FEATURE`    | Le nom de la fonctionnalité.                                                                                                  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Naming conventions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conventions de nommage" }
 
 Voici un exemple d'indicateur de fonctionnalité où `show` est le comportement, `animation_profile` est le produit et `driver` est la fonctionnalité :
 

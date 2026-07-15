@@ -6,15 +6,15 @@
 
 배너의 가용성은 Braze 패키지에 따라 다릅니다. 시작하려면 계정 매니저 또는 고객 성공 매니저에게 문의하세요.
 
-시작하기 전에 앱이나 웹사이트에 [배너 배치]({{site.baseurl}}/developer_guide/banners/placements/)가 생성되어 있는지 확인하세요.
+시작하기 전에 앱이나 웹사이트에 [배너 배치]({{site.baseurl}}/developer_guide/banners/placements)가 생성되어 있는지 확인하세요.
 
 ![기기에서 렌더링된 배너 예시.]({% image_buster /assets/img/banners/sample_banner.png %})
 
 ## 배너를 사용하는 이유는 무엇인가요? {#why-use-banners}
 
-배너를 사용하면 마케팅 및 제품 팀이 앱 또는 웹사이트 콘텐츠를 동적으로 개인화하여 실시간 사용자 적격성과 동작을 반영할 수 있습니다. 배너는 지속적으로 메시지를 인라인으로 표시하여 비침해적이고 상황별로 관련성 있는 경험을 제공하며, 세션 시작 시 또는 앱이나 웹사이트에서 명시적으로 요청할 때 세션 중간에 새로고침할 수 있습니다.
+배너를 사용하면 마케팅 및 제품 팀이 앱 또는 웹사이트 콘텐츠를 동적으로 개인화하여 실시간 사용자 적격성과 행동을 반영할 수 있습니다. 배너는 지속적으로 메시지를 인라인으로 표시하여 비침해적이고 상황별로 관련성 있는 경험을 제공하며, 세션 시작 시 또는 앱이나 웹사이트에서 명시적으로 요청할 때 세션 중간에 새로고침할 수 있습니다.
 
-배너가 앱 또는 웹사이트에 통합된 후, 마케터는 간단한 드래그 앤 드롭 편집기를 사용하여 배너를 디자인하고 출시할 수 있으므로 지속적인 개발자 지원이 필요 없어 복잡성을 줄이고 효율성을 높일 수 있습니다.
+배너가 앱 또는 웹사이트에 통합된 후, 마케터는 드래그 앤 드롭 편집기 또는 전체 HTML 편집기를 사용하여 배너를 디자인하고 출시할 수 있으므로 지속적인 개발자 지원이 필요 없어 복잡성을 줄이고 효율성을 높일 수 있습니다.
 
 | 사용 사례 | 설명 |
 | --- | --- |
@@ -28,9 +28,9 @@
 
 배너의 기능은 다음과 같습니다:
 
-- **쉬운 콘텐츠 구축:** 이미지, 텍스트, 버튼, 이메일 캡처 양식, 커스텀 코드 등을 지원하는 시각적 드래그 앤 드롭 편집기를 사용하여 배너를 생성하고 미리보기할 수 있습니다.
+- **쉬운 콘텐츠 구축:** 이미지, 텍스트, 버튼, 이메일 캡처 양식, 커스텀 코드 등을 지원하는 시각적 드래그 앤 드롭 편집기를 사용하여 배너를 생성하고 미리보기할 수 있습니다. 자체 마크업을 관리하려는 팀은 배너의 HTML과 스타일을 완전히 제어할 수 있는 HTML 편집기를 대신 사용하거나, [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages)에 설명을 입력하여 HTML을 생성할 수 있습니다.
 - **유연한 배치:** 배너가 나타날 수 있는 애플리케이션 또는 웹사이트 내 여러 위치를 정의하여 특정 컨텍스트나 사용자 경험에 대한 정밀한 타겟팅을 가능하게 합니다.
-- **동적 개인화:** 배너는 새 세션 시작 시 또는 명시적으로 새로고침을 요청한 경우에만 세션 중간에 새로고침할 수 있습니다. 배너는 새 세션에서 자동으로 업데이트되지 않습니다. 새로고침을 요청하지 않으면 배너가 업데이트되지 않습니다.
+- **동적 개인화:** 배너는 새로고침될 때마다 개인화(Liquid 로직)와 세분화를 다시 계산합니다. 사용자가 프로필을 업데이트하거나 커스텀 속성이 변경되면, 다음 배너 새로고침 시 해당 변경 사항이 반영됩니다.
 - **네이티브 우선순위:** 여러 배너가 동일한 배치를 타겟팅할 때 표시 우선순위를 설정하여 올바른 메시지가 적시에 사용자에게 전달되도록 합니다.
 - **커스텀 코드 편집기 블록:** 커스텀 코드 편집기 블록을 사용하여 고급 커스터마이징을 위한 커스텀 HTML을 추가하거나 기존 웹 스타일과 원활하게 통합할 수 있습니다.
 
@@ -38,9 +38,9 @@
 
 ### 배치 ID {#placement-id}
 
-배너 배치는 [Braze SDK로 생성한]({{site.baseurl}}/developer_guide/banners/placements/) 앱 또는 웹사이트의 특정 위치로, 배너가 나타날 수 있는 위치를 지정합니다.
+배너 배치는 [Braze SDK로 생성한]({{site.baseurl}}/developer_guide/banners/placements) 앱 또는 웹사이트의 특정 위치로, 배너가 나타날 수 있는 위치를 지정합니다.
 
-일반적인 위치에는 홈페이지 상단, 제품 상세 페이지 및 체크아웃 흐름이 포함됩니다. 배치가 생성된 후, 배너는 [배너 Campaign에서 할당]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)할 수 있습니다.
+일반적인 위치에는 홈페이지 상단, 제품 상세 페이지 및 체크아웃 흐름이 포함됩니다. 배치가 생성된 후, 배너는 [배너 Campaign에서 할당]({{site.baseurl}}/user_guide/channels/banners/create_a_banner)할 수 있습니다.
 
 워크스페이스당 생성할 수 있는 배치 수에 대한 고정 제한은 없으며, 경험에 따라 필요한 만큼 많은 배치 ID를 생성할 수 있습니다. 각 배치는 워크스페이스 내에서 고유해야 합니다. 단일 배치 ID는 동시에 최대 25개의 활성 메시지에서 참조될 수 있습니다.
 
@@ -50,7 +50,7 @@
 
 ### 배너 우선순위 {#priority}
 
-여러 배너 메시지가 동일한 배치 ID를 참조할 때, 배너는 우선순위에 따라 표시됩니다: 높음, 중간 또는 낮음. 기본적으로 배너는 중간으로 설정되지만, 배너 Campaign을 생성하거나 편집할 때 [우선순위를 수동으로 설정]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#set-banner-priority-optional)할 수 있습니다.
+여러 배너 메시지가 동일한 배치 ID를 참조할 때, 배너는 우선순위에 따라 표시됩니다: 높음, 중간 또는 낮음. 기본적으로 배너는 중간으로 설정되지만, 배너 Campaign을 생성하거나 편집할 때 [우선순위를 수동으로 설정]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#set-banner-priority-optional)할 수 있습니다.
 
 여러 배너가 동일한 우선순위로 설정된 경우, 사용자가 자격이 있는 가장 최신 배너가 먼저 표시됩니다.
 
@@ -76,25 +76,20 @@ iframe은 코드베이스 변경 없이 동적이고 개인화된 콘텐츠 업�
 
 ## 제한 사항 {#limitations}
 
-각 워크스페이스는 최대 200개의 활성 배너 Campaign을 지원할 수 있습니다. 이 한도에 도달하면 새 Campaign을 만들기 전에 기존 Campaign을 [아카이브하거나 비활성화]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status)해야 합니다.
+각 워크스페이스는 최대 200개의 활성 배너 Campaign을 지원할 수 있습니다. 이 한도에 도달하면 새 Campaign을 만들기 전에 기존 Campaign을 [아카이브하거나 비활성화]({{site.baseurl}}/user_guide/messaging/governance/statuses#changing-the-status)해야 합니다.
 
 또한, 배너 메시지는 다음 기능을 지원하지 않습니다:
 
 - API 트리거 및 액션 기반 Campaigns
 - 연결된 콘텐츠
 - 프로모션 코드
-- [`:rerender` 태그]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)를 사용하는 `catalog_items`
-- 사용자 제어 해제(얼리 액세스만 해당)
-
-{% alert important %}
-사용자가 배너를 수동으로 해제할 수 있도록 허용하는 기능은 얼리 액세스 중입니다. 자세한 내용은 [해제 동작 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior)을 참조하세요. 얼리 액세스에 참여하고 싶으시면 고객 성공 매니저에게 문의하세요.
-{% endalert %}
+- [`:rerender` 태그]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs#using-liquid)를 사용하는 `catalog_items`
 
 ## 다음 단계 {#next-steps}
 
-- [앱이나 웹사이트에 배너 배치 만들기]({{site.baseurl}}/developer_guide/banners/placements/)
-- [Braze에서 배너 Campaign 만들기]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
-- [튜토리얼: 배치 ID로 배너 표시하기]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
+- [앱이나 웹사이트에 배너 배치 만들기]({{site.baseurl}}/developer_guide/banners/placements)
+- [Braze에서 배너 Campaign 만들기]({{site.baseurl}}/user_guide/channels/banners/create_a_banner)
+- [튜토리얼: 배치 ID로 배너 표시하기]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
 
 {% alert tip %}
 다음 우선순위를 정하는 데 도움을 주고 싶으신가요? [banners-feedback@braze.com](mailto:banners-feedback@braze.com)으로 문의하세요.

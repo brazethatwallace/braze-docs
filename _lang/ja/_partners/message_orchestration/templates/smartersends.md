@@ -24,7 +24,7 @@ BrazeとSmarterSendsのパートナーシップにより、Brazeの機能と、�
 | SmarterSendsアカウント | このパートナーシップを活用するには、[SmarterSendsアカウント](https://smartersends.com)が必要です。 |
 | Braze REST APIキー | 以下の権限を持つBraze REST APIキー: {::nomarkdown}<ul><li><code>users.track</code></li><li><code>users.export.ids</code></li><li><code>messages.schedule.create</code></li><li><code>messages.schedule.update</code></li> <li><code>messages.schedule.delete</code></li><li><code>sends.id.create</code></li><li><code>segments.list</code></li><li><code>segments.data_series</code></li><li><code>segments.details</code></li><li><code>sends.data_series</code></li></ul>{:/} これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。セキュリティを強化するために、SmarterSendsのIPアドレス（インスタンスで確認可能）を許可リストに追加してください。 |
 | Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、インスタンスのBraze URLに依存します。 |
-| Braze APIキャンペーンID | [Braze APIキャンペーンID]({{site.baseurl}}/api/api_campaigns/)は、SmarterSendsを介して送信されるすべてのCampaignsの一意の識別子です。これはBrazeダッシュボードの**Messaging** > **Campaigns**で作成できます。 |
+| Braze APIキャンペーンID | [Braze APIキャンペーンID]({{site.baseurl}}/api/api_campaigns/)は、SmarterSendsを介して送信されるすべてのキャンペーンの一意の識別子です。これはBrazeダッシュボードの**メッセージング** > **キャンペーン**で作成できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
@@ -70,7 +70,7 @@ APIキャンペーンにより、Braze内のすべてのSmarterSendsメールの
 
 1. Brazeで[APIキャンペーンを作成]({{site.baseurl}}/api/api_campaigns/#create-a-new-campaign)します。
 2. **Select Message Channel**の下にある**Email**をクリックし、指標のトラッキングを開始するメッセージングチャネルを追加します。
-3. 次に、BrazeのキャンペーンIDをコピーしてSmarterSendsの**Campaign ID**フィールドに貼り付けます。
+3. 次に、BrazeのキャンペーンIDをコピーしてSmarterSendsの**キャンペーン ID**フィールドに貼り付けます。
 4. BrazeのメッセージバリアントIDをコピーしてSmarterSendsの**Message Variant ID**フィールドに貼り付けます。SmarterSendsでグループごとにメッセージIDを作成しない場合、これがデフォルトのメッセージIDとして使用されます。
 5. SmarterSendsで作成したグループごとに、BrazeのAPIキャンペーンにメッセージバリアントを追加します。次に、メッセージバリアントIDをSmarterSendsのグループのメッセージバリアントIDにコピーします。
 
@@ -80,4 +80,4 @@ SmarterSendsで作成したグループごとにメッセージバリアントID
 
 ## カスタマイズ {#customization}
 
-SmarterSendsの各インスタンスは、ブランドのロゴカラーやカスタムドメイン名で完全にカスタマイズ可能で、親しみやすい環境を作ることができます。さらに、パーソナライゼーションを進めるために、Brazeワークスペース内のSegmentsに基づいて、Campaignsでユーザーをターゲットにする属性やカスタム属性を定義できます。
+SmarterSendsの各インスタンスは、ブランドのロゴカラーやカスタムドメイン名で完全にカスタマイズ可能で、親しみやすい環境を作ることができます。さらに、パーソナライゼーションを進めるために、Brazeワークスペース内のセグメントに基づいて、キャンペーンでユーザーをターゲットにする属性やカスタム属性を定義できます。

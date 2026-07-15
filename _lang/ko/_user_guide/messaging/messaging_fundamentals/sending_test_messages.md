@@ -14,7 +14,7 @@ description: "이 참조 문서에서는 다양한 Braze 채널에서 테스트 
 > 사용자에게 메시징 캠페인을 보내기 전에, 메시지가 올바르게 표시되고 의도한 대로 작동하는지 확인하기 위해 테스트하는 것을 권장합니다. Braze 대시보드의 도구를 사용하여 선택한 기기 또는 팀원에게 테스트 메시지를 생성하고 보낼 수 있습니다.
 
 {% alert important %}
-테스트 후에는 Campaign 초안을 저장하여 Campaign이 삭제되지 않도록 하세요. 메시지를 초안으로 저장하지 않고도 테스트 메시지를 보낼 수 있습니다.
+테스트 후에는 캠페인 초안을 저장하여 캠페인이 삭제되지 않도록 하세요. 메시지를 초안으로 저장하지 않고도 테스트 메시지를 보낼 수 있습니다.
 {% endalert %}
 
 ## 1단계: 테스트 사용자 식별하기 {#step-1-identify-your-test-users}
@@ -23,7 +23,7 @@ description: "이 참조 문서에서는 다양한 Braze 채널에서 테스트 
 
 ### 선택 사항: 콘텐츠 테스트 그룹 만들기 {#optional-create-a-content-test-group}
 
-테스트 사용자를 구성하는 편리한 방법은 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/)을 만드는 것입니다. 이 그룹에는 Campaign에서 테스트 메시지를 받을 사용자 그룹이 포함됩니다. Campaign의 **테스트 수신자** 아래 **콘텐츠 테스트 그룹 추가** 필드에 이 테스트 그룹을 추가하면 개별 테스트 사용자를 만들거나 추가하지 않고도 테스트를 시작할 수 있습니다.
+테스트 사용자를 구성하는 편리한 방법은 [콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups)을 만드는 것입니다. 이 그룹에는 캠페인에서 테스트 메시지를 받을 사용자 그룹이 포함됩니다. 캠페인의 **테스트 수신자** 아래 **콘텐츠 테스트 그룹 추가** 필드에 이 테스트 그룹을 추가하면 개별 테스트 사용자를 만들거나 추가하지 않고도 테스트를 시작할 수 있습니다.
 
 ## 2단계: 채널별 테스트 메시지 보내기 {#step-2-send-channel-specific-test-messages}
 
@@ -33,7 +33,7 @@ description: "이 참조 문서에서는 다양한 Braze 채널에서 테스트 
 {% tab 배너 %}
 
 {% alert important %}
-Braze에서 배너 메시지를 테스트하려면 먼저 Braze에서 배너 Campaign을 만들어야 합니다. 또한 테스트하려는 배치가 이미 [앱 또는 웹사이트에 배치]({{site.baseurl}}/developer_guide/banners/placements/)되어 있는지 확인하세요.
+Braze에서 배너 메시지를 테스트하려면 먼저 Braze에서 배너 캠페인을 만들어야 합니다. 또한 테스트하려는 배치가 이미 [앱 또는 웹사이트에 배치]({{site.baseurl}}/developer_guide/banners/placements)되어 있는지 확인하세요.
 {% endalert %}
 
 배너 메시지를 만든 후 배너를 미리보거나 테스트 메시지를 보낼 수 있습니다.
@@ -52,7 +52,7 @@ Braze에서 배너 메시지를 테스트하려면 먼저 Braze에서 배너 Cam
 
 ### 테스트 체크리스트 {#test-checklist}
 
-- 배너 Campaign이 배치에 할당되어 있나요?
+- 배너 캠페인이 배치에 할당되어 있나요?
 - 타겟 기기 유형과 화면 크기에서 이미지와 미디어가 예상대로 표시되고 작동하나요?
 - 링크와 버튼이 사용자를 올바른 위치로 안내하나요?
 - Liquid이 예상대로 작동하나요? Liquid이 정보를 반환하지 않는 경우를 대비하여 기본 속성 값을 설정했나요?
@@ -62,7 +62,7 @@ Braze에서 배너 메시지를 테스트하려면 먼저 Braze에서 배너 Cam
 {% tab Content Card %}
 
 {% alert important %}
-[콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) 또는 개별 사용자에게 테스트를 보내려면 테스트 메시지를 보내기 전에 테스트 기기에서 푸시가 활성화되어 있어야 하며 테스트 사용자에 대해 유효한 푸시 토큰이 등록되어 있어야 합니다. iOS 사용자의 경우 테스트 Content Card를 보려면 Braze에서 보낸 푸시 알림을 탭해야 합니다. 이 동작은 테스트 Content Cards에만 적용됩니다.
+[콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) 또는 개별 사용자에게 테스트를 보내려면 테스트 메시지를 보내기 전에 테스트 기기에서 푸시가 활성화되어 있어야 하며 테스트 사용자에 대해 유효한 푸시 토큰이 등록되어 있어야 합니다. iOS 사용자의 경우 테스트 Content Card를 보려면 Braze에서 보낸 푸시 알림을 탭해야 합니다. 이 동작은 테스트 Content Cards에만 적용됩니다.
 {% endalert %}
 
 테스트 Content Cards는 푸시 알림을 통해 전달됩니다. 카드는 푸시 페이로드에 패키징되며, 푸시가 수신되면 SDK가 이를 추출하여 로컬에 캐시합니다.
@@ -91,7 +91,7 @@ Content Card를 만든 후 앱에 테스트 Content Card를 보내 실시간으�
 
 - 테스트 사용자가 유효한 푸시 토큰으로 푸시에 옵트인되어 있나요?
 - 이미지와 미디어가 예상대로 표시되고 작동하나요?
-- Liquid이 예상대로 작동하나요? Liquid이 정보를 반환하지 않는 경우를 대비하여 [기본 속성 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values)을 설정했나요?
+- Liquid이 예상대로 작동하나요? Liquid이 정보를 반환하지 않는 경우를 대비하여 [기본 속성 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values)을 설정했나요?
 - 문구가 명확하고 간결하며 정확한가요?
 - 링크가 사용자를 올바른 위치로 안내하나요?
 - 테스트 사용자가 유효한 푸시 토큰으로 푸시에 옵트인되어 있나요?
@@ -107,9 +107,9 @@ Content Card 이미지가 렌더링되지 않거나 깨져 보이는 경우:
 
 ### 디버그 {#debug}
 
-Content Cards가 전송된 후 개발자 콘솔의 [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/)에서 문제를 분석하거나 디버그할 수 있습니다.
+Content Cards가 전송된 후 개발자 콘솔의 [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log)에서 문제를 분석하거나 디버그할 수 있습니다.
 
-일반적인 사용 사례는 사용자가 특정 Content Card를 볼 수 없는 이유를 디버그하는 것입니다. 이를 위해 **이벤트 사용자 로그**에서 세션 시작 시 SDK에 전달된 Content Cards를 확인하되 노출 이전의 것을 찾아 특정 Campaign으로 추적할 수 있습니다:
+일반적인 사용 사례는 사용자가 특정 Content Card를 볼 수 없는 이유를 디버그하는 것입니다. 이를 위해 **이벤트 사용자 로그**에서 세션 시작 시 SDK에 전달된 Content Cards를 확인하되 노출 이전의 것을 찾아 특정 캠페인으로 추적할 수 있습니다:
 
 1. **설정** > **이벤트 사용자 로그**로 이동합니다.
 2. 테스트 사용자의 SDK 요청을 찾아 확장합니다.
@@ -156,13 +156,13 @@ Content Cards가 전송된 후 개발자 콘솔의 [이벤트 사용자 로그](
 
 ![테스트 이메일]({% image_buster /assets/img_archive/testemail.png %}){: style="max-width:40%;" }
 
-이메일 Campaign에 큰 이미지가 포함되어 있고 Outlook에서 예상대로 표시되지 않는 경우, CSS나 HTML로만 크기를 조정하는 대신 이미지 편집 또는 크기 조정 도구를 사용하여 이미지의 실제 파일 크기를 줄이는 것을 고려하세요.
+이메일 캠페인에 큰 이미지가 포함되어 있고 Outlook에서 예상대로 표시되지 않는 경우, CSS나 HTML로만 크기를 조정하는 대신 이미지 편집 또는 크기 조정 도구를 사용하여 이미지의 실제 파일 크기를 줄이는 것을 고려하세요.
 
 {% endtab %}
 {% tab 인앱 메시지 %}
 
 {% alert warning %}
-[콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#content-test-groups) 또는 개별 사용자에게 테스트를 보내려면 보내기 전에 테스트 기기에서 푸시가 활성화되어 있어야 합니다. 예를 들어, 테스트 메시지가 표시되기 전에 알림을 탭하려면 iOS 기기에서 푸시가 활성화되어 있어야 합니다. {% endalert %}
+[콘텐츠 테스트 그룹]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) 또는 개별 사용자에게 테스트를 보내려면 보내기 전에 테스트 기기에서 푸시가 활성화되어 있어야 합니다. 예를 들어, 테스트 메시지가 표시되기 전에 알림을 탭하려면 iOS 기기에서 푸시가 활성화되어 있어야 합니다. {% endalert %}
 
 앱과 테스트 기기에 푸시 알림이 설정되어 있으면 앱에 테스트 인앱 메시지를 보내 실시간으로 어떻게 보이는지 확인할 수 있습니다.
 
@@ -197,7 +197,7 @@ Braze에는 세 세대의 인앱 메시지가 있습니다. 지원하는 세대�
 ### 테스트 체크리스트
 
 - 이미지와 미디어가 예상대로 표시되고 작동하나요?
-- Liquid이 예상대로 작동하나요? Liquid이 정보를 반환하지 않는 경우를 대비하여 [기본 속성 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#accounting-for-null-attribute-values)을 설정했나요?
+- Liquid이 예상대로 작동하나요? Liquid이 정보를 반환하지 않는 경우를 대비하여 [기본 속성 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values)을 설정했나요?
 - 문구가 명확하고 간결하며 정확한가요?
 - 버튼이 사용자를 올바른 위치로 안내하나요?
 
@@ -243,7 +243,7 @@ Braze에는 세 세대의 인앱 메시지가 있습니다. 지원하는 세대�
 
 ![테스트 푸시]({% image_buster /assets/img_archive/testpush.png %})
 
-선택한 사용자 중 일치하는 푸시 토큰이 없다는 오류가 표시되면 테스트 사용자가 선택한 플랫폼에 대해 유효한 푸시 토큰을 가지고 있지 않은 것입니다. 사용자가 앱에서 세션을 시작하고 해당 기기에서 푸시를 활성화해야 합니다. 자세한 내용은 [푸시 활성화 및 푸시 구독]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/)을 참조하세요.
+선택한 사용자 중 일치하는 푸시 토큰이 없다는 오류가 표시되면 테스트 사용자가 선택한 플랫폼에 대해 유효한 푸시 토큰을 가지고 있지 않은 것입니다. 사용자가 앱에서 세션을 시작하고 해당 기기에서 푸시를 활성화해야 합니다. 자세한 내용은 [푸시 활성화 및 푸시 구독]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)을 참조하세요.
 
 #### 웹 푸시 {#web-push}
 
@@ -256,7 +256,7 @@ Braze에는 세 세대의 인앱 메시지가 있습니다. 지원하는 세대�
 
 Braze 대시보드에서 이미 푸시 메시지를 수락한 경우 화면 모서리에 메시지가 표시됩니다. 그렇지 않으면 프롬프트가 표시될 때 **허용**을 선택하면 메시지가 표시됩니다.
 
-선택한 사용자 중 웹 푸시에 대한 일치하는 푸시 토큰이 없다는 오류가 표시되면 테스트 사용자가 선택한 플랫폼에 대해 유효한 푸시 토큰이 등록되어 있는지 확인하세요. 푸시 토큰을 받으려면 사용자가 기기에서 해당 앱에 대한 푸시 알림을 받도록 설정되어 있어야 합니다. 자세한 내용은 [푸시 활성화 및 푸시 구독]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/)을 참조하세요.
+선택한 사용자 중 웹 푸시에 대한 일치하는 푸시 토큰이 없다는 오류가 표시되면 테스트 사용자가 선택한 플랫폼에 대해 유효한 푸시 토큰이 등록되어 있는지 확인하세요. 푸시 토큰을 받으려면 사용자가 기기에서 해당 앱에 대한 푸시 알림을 받도록 설정되어 있어야 합니다. 자세한 내용은 [푸시 활성화 및 푸시 구독]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states)을 참조하세요.
 
 {% endtab %}
 {% tab SMS/MMS 및 RCS %}
@@ -274,8 +274,6 @@ SMS, MMS 또는 RCS 메시지를 만든 후 휴대폰에 테스트 메시지를 
 
 웹훅을 만든 후 테스트 전송을 수행하여 웹훅 응답을 확인할 수 있습니다. **테스트** 탭을 선택하고 **테스트 보내기**를 선택하여 제공된 웹훅 URL로 테스트 전송을 보냅니다. 특정 사용자로 응답을 미리보기 위해 개별 사용자를 선택할 수도 있습니다.
 
-![테스트 웹훅]({% image_buster /assets/img/webhook_test.png %})
-
 {% endtab %}
 {% tab WhatsApp %}
 
@@ -289,13 +287,13 @@ SMS, MMS 또는 RCS 메시지를 만든 후 휴대폰에 테스트 메시지를 
 {% endtab %}
 {% endtabs %}
 
-## 개인화된 Campaign 테스트하기 {#test-personalized-campaigns}
+## 개인화된 캠페인 테스트하기 {#test-personalized-campaigns}
 
-사용자 데이터를 채우거나 커스텀 이벤트 속성정보를 사용하는 Campaign을 테스트하는 경우 추가 또는 다른 단계를 수행해야 합니다.
+사용자 데이터를 채우거나 커스텀 이벤트 속성정보를 사용하는 캠페인을 테스트하는 경우 추가 또는 다른 단계를 수행해야 합니다.
 
-### 사용자 속성으로 개인화된 Campaign 테스트하기 {#testing-campaigns-personalized-with-user-attributes}
+### 사용자 속성으로 개인화된 캠페인 테스트하기 {#testing-campaigns-personalized-with-user-attributes}
 
-메시지에 [개인화]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview/)를 사용하는 경우 Campaign을 올바르게 미리보고 사용자 데이터가 콘텐츠에 올바르게 채워지는지 확인하기 위해 추가 단계를 수행해야 합니다.
+메시지에 [개인화]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/overview)를 사용하는 경우 캠페인을 올바르게 미리보고 사용자 데이터가 콘텐츠에 올바르게 채워지는지 확인하기 위해 추가 단계를 수행해야 합니다.
 
 테스트 메시지를 보낼 때 **기존 사용자 선택** 옵션을 선택하거나 **커스텀 사용자**로 미리보기를 선택하세요.
 
@@ -319,39 +317,39 @@ SMS, MMS 또는 RCS 메시지를 만든 후 휴대폰에 테스트 메시지를 
 
 ![편집 버튼이 있는 사용자로 미리보기 탭.]({% image_buster /assets/img_archive/edit_user_preview.png %}){: style="max-width:50%;"}
 
-### 커스텀 이벤트 속성정보로 개인화된 Campaign 테스트하기 {#testing-campaigns-personalized-with-custom-event-properties}
+### 커스텀 이벤트 속성정보로 개인화된 캠페인 테스트하기 {#testing-campaigns-personalized-with-custom-event-properties}
 
-[커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)로 개인화된 Campaign을 테스트하는 것은 위에서 설명한 다른 유형의 Campaign 테스트와 약간 다릅니다.
+[커스텀 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)로 개인화된 캠페인을 테스트하는 것은 위에서 설명한 다른 유형의 캠페인 테스트와 약간 다릅니다.
 
 {% tabs local %}
 {% tab 수동 트리거 %}
 
-#### 방법 1: 수동으로 Campaign 트리거하기 {#method-1-triggering-campaign-manually}
+#### 방법 1: 수동으로 캠페인 트리거하기 {#method-1-triggering-campaign-manually}
 
-커스텀 이벤트 속성정보를 사용하여 개인화된 Campaign을 테스트하는 강력한 방법으로 직접 Campaign을 트리거할 수 있습니다:
+커스텀 이벤트 속성정보를 사용하여 개인화된 캠페인을 테스트하는 강력한 방법으로 직접 캠페인을 트리거할 수 있습니다:
 
 1. 이벤트 속성정보를 포함하는 문구를 작성합니다.
 
 ![속성정보가 포함된 테스트 메시지 작성]({% image_buster /assets/img_archive/testeventproperties-compose.png %})
 
 {: start="2"}
-2. [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/)을 사용하여 이벤트가 발생할 때 Campaign을 전달합니다.
+2. [실행 기반 전달]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)을 사용하여 이벤트가 발생할 때 캠페인을 전달합니다.
 
 {% alert note %}
-iOS 푸시 Campaign을 테스트하는 경우 iOS는 현재 열려 있는 앱에 대한 푸시 알림을 전달하지 않으므로 앱을 종료할 시간을 확보하기 위해 지연을 1분으로 설정해야 합니다. 다른 유형의 Campaign은 즉시 전달하도록 설정할 수 있습니다.
+iOS 푸시 캠페인을 테스트하는 경우 iOS는 현재 열려 있는 앱에 대한 푸시 알림을 전달하지 않으므로 앱을 종료할 시간을 확보하기 위해 지연을 1분으로 설정해야 합니다. 다른 유형의 캠페인은 즉시 전달하도록 설정할 수 있습니다.
 {% endalert %}
 
 ![테스트 메시지 전달]({% image_buster /assets/img_archive/testeventproperties-delivery.png %})
 
 {: start="3"}
-3. 테스트 필터를 사용하거나 자신의 이메일 주소를 타겟팅하여 테스트할 때와 같이 사용자를 타겟팅하고 Campaign 생성을 완료합니다.
+3. 테스트 필터를 사용하거나 자신의 이메일 주소를 타겟팅하여 테스트할 때와 같이 사용자를 타겟팅하고 캠페인 생성을 완료합니다.
 
 ![테스트 메시지 타겟팅]({% image_buster /assets/img_archive/testeventproperties-target.png %})
 
 {: start="4"}
 4. 앱에 들어가서 커스텀 이벤트를 완료합니다.
 
-Campaign이 트리거되고 이벤트 속성정보로 커스터마이징된 메시지가 표시됩니다.
+캠페인이 트리거되고 이벤트 속성정보로 커스터마이징된 메시지가 표시됩니다.
 
 ![테스트 메시지 예시]({% image_buster /assets/img_archive/testeventproperties-message2.png %})
 
@@ -360,9 +358,9 @@ Campaign이 트리거되고 이벤트 속성정보로 커스터마이징된 메�
 
 #### 방법 2: 자신에게 테스트 메시지 보내기 {#method-2-sending-yourself-a-test-message}
 
-또는 커스텀 사용자 ID를 저장하는 경우 커스터마이징된 테스트 메시지를 자신에게 보내 Campaign을 테스트할 수도 있습니다.
+또는 커스텀 사용자 ID를 저장하는 경우 커스터마이징된 테스트 메시지를 자신에게 보내 캠페인을 테스트할 수도 있습니다.
 
-1. Campaign의 문구를 작성합니다.
+1. 캠페인의 문구를 작성합니다.
 2. **테스트** 탭을 선택하고 **커스텀 사용자**를 선택합니다.
 3. 페이지 하단에 커스텀 이벤트 속성정보를 추가하고 상단 상자에 사용자 ID 또는 이메일 주소를 추가합니다.
 4. **테스트 보내기**를 선택하여 속성정보로 개인화된 메시지를 받습니다.
@@ -384,21 +382,22 @@ Liquid을 사용하여 값을 수동으로 입력하여 커스텀 이벤트 속�
 
 ## 제한 사항 {#limitations}
 
-테스트 메시지가 실제 사용자에게 전송되는 Campaign 또는 Canvas와 동일하게 작동하지 않는 몇 가지 상황이 있습니다. 이러한 경우 이 동작을 검증하기 위해 제한된 테스트 사용자 세트에 Campaign 또는 Canvas를 시작하는 것을 고려하세요.
+테스트 메시지가 실제 사용자에게 전송되는 캠페인 또는 Canvas와 동일하게 작동하지 않는 몇 가지 상황이 있습니다. 이러한 경우 이 동작을 검증하기 위해 제한된 테스트 사용자 세트에 캠페인 또는 Canvas를 시작하는 것을 고려하세요.
 
 - 테스트 메시지에서 Braze 환경설정 센터를 보면 **환경설정 저장** 버튼이 회색으로 비활성화됩니다.
 - 인앱 메시지 및 Content Cards 테스트의 경우 타겟 사용자는 타겟 기기에 대한 푸시 토큰이 있어야 합니다.
 - 이메일의 구독 취소 링크를 테스트하려면 테스트 사용자의 이메일 주소가 해당 워크스페이스에 있는지 확인하세요.
 - `List-Unsubscribe` 헤더는 테스트 메시지 기능으로 전송된 이메일에 포함되지 않습니다.
+- 시드 그룹 사용자에게 전송된 이메일은 고객 프로필의 캠페인 수신 목록을 업데이트하거나 대시보드 분석에서 전송 수를 증가시키지 않습니다.
 
 ## 문제 해결 {#troubleshooting}
 
 ### 인앱 메시지 {#in-app-messages}
 
-인앱 메시지 Campaign이 푸시 Campaign에 의해 트리거되지 않는 경우, 인앱 Campaign 세분화를 확인하여 사용자가 푸시 메시지를 받기 **전에** 타겟 오디언스를 충족하는지 확인하세요.
+인앱 메시지 캠페인이 푸시 캠페인에 의해 트리거되지 않는 경우, 인앱 캠페인 세분화를 확인하여 사용자가 푸시 메시지를 받기 **전에** 타겟 오디언스를 충족하는지 확인하세요.
 
 Android 및 iOS에서의 테스트 전송의 경우, **푸시 권한 요청** 클릭 시 동작을 사용하는 인앱 메시지가 일부 기기에서 표시되지 않을 수 있습니다. 해결 방법:
 - **Android:** 기기가 Android 13 이상이고 Android SDK 버전 21.0.0이어야 합니다. 또 다른 이유는 인앱 메시지가 표시되는 기기에 이미 시스템 수준 프롬프트가 있을 수 있습니다. **다시 묻지 않기**를 선택했을 수 있으므로 다시 테스트하기 전에 앱을 재설치하여 알림 권한을 재설정해야 할 수 있습니다.
-- **iOS:** 개발자 팀이 앱의 푸시 알림 구현을 검토하고 푸시 권한을 요청하는 코드를 수동으로 제거하는 것을 권장합니다. 자세한 내용은 [푸시 프라이머 인앱 메시지]({{site.baseurl}}/user_guide/channels/push/best_practices/)를 참조하세요.
+- **iOS:** 개발자 팀이 앱의 푸시 알림 구현을 검토하고 푸시 권한을 요청하는 코드를 수동으로 제거하는 것을 권장합니다. 자세한 내용은 [푸시 프라이머 인앱 메시지]({{site.baseurl}}/user_guide/channels/push/best_practices)를 참조하세요.
 
-실행 기반 인앱 메시지 Campaign이 전달되려면 REST API가 아닌 Braze SDK를 통해 커스텀 이벤트를 기록해야 사용자가 기기에서 직접 적격한 인앱 메시지를 받을 수 있습니다. 사용자는 세션 중에 이벤트를 수행하면 인앱 메시지를 받습니다.
+실행 기반 인앱 메시지 캠페인이 전달되려면 REST API가 아닌 Braze SDK를 통해 커스텀 이벤트를 기록해야 사용자가 기기에서 직접 적격한 인앱 메시지를 받을 수 있습니다. 사용자는 세션 중에 이벤트를 수행하면 인앱 메시지를 받습니다.

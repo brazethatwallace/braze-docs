@@ -10,7 +10,7 @@ permalink: /workspace_rate_limits/
 
 ## Voraussetzungen {#prerequisites}
 
-Workspace-Rate-Limits sind nur für Braze-Verträge ohne Datenpunkte verfügbar. Außerdem benötigen Sie [Admin-Berechtigungen](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin), um Rate-Limits zu verwalten.
+Workspace-Rate-Limits sind nur für Braze-Verträge ohne Datenpunkte verfügbar. Außerdem benötigen Sie [Admin-Berechtigungen]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin), um Rate-Limits zu verwalten.
 
 ## Über Workspace-Rate-Limits {#about-workspace-rate-limits}
 
@@ -44,11 +44,11 @@ Wenn Sie mehr als einen Workspace auswählen, wird das Rate-Limit von dieser Gru
 
 ### Ein Limit bearbeiten {#editing-a-limit}
 
-Um ein bestehendes Workspace-Rate-Limit zu bearbeiten, gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Workspace-Rate-Limits** und wählen Sie dann die <i class="fas fa-ellipsis-vertical"></i> vertikale Auslassungspunkte und dann **Bearbeiten**. Ihr neues Rate-Limit kann innerhalb weniger Minuten wirksam werden.
+Um ein bestehendes Workspace-Rate-Limit zu bearbeiten, gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Workspace-Rate-Limits** und wählen Sie dann die <i class="fas fa-ellipsis-vertical" aria-label="Vertikale Auslassungspunkte"></i> vertikale Auslassungspunkte und dann **Bearbeiten**. Ihr neues Rate-Limit kann innerhalb weniger Minuten wirksam werden.
 
 ### Ein Limit zurücksetzen {#resetting-a-limit}
 
-Um ein bestehendes Rate-Limit zurückzusetzen, sodass es auf Ihr Rate-Limit auf Unternehmensebene zurückgesetzt wird, gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Workspace-Rate-Limits** und wählen Sie dann die <i class="fas fa-ellipsis-vertical"></i> vertikale Auslassungspunkte und dann **Zurücksetzen**.
+Um ein bestehendes Rate-Limit zurückzusetzen, sodass es auf Ihr Rate-Limit auf Unternehmensebene zurückgesetzt wird, gehen Sie zu **Einstellungen** > **Admin-Einstellungen** > **Workspace-Rate-Limits** und wählen Sie dann die <i class="fas fa-ellipsis-vertical" aria-label="Vertikale Auslassungspunkte"></i> vertikale Auslassungspunkte und dann **Zurücksetzen**.
 
 ## Nutzung überwachen {#monitoring-usage}
 
@@ -73,6 +73,6 @@ Der `Retry-After`-Wert gibt die Anzahl der Sekunden bis zum Beginn der nächsten
 
 ### API-Nutzungs-Dashboard {#api-usage-dashboard}
 
-Um das Anfragevolumen, Antwortcodes und das Ingestion-Verhalten über Workspaces hinweg zu überwachen, können Sie auch das [API-Nutzungs-Dashboard](https://www.braze.com/docs/user_guide/analytics/dashboard/api_usage_dashboard) verwenden.
+Um das Anfragevolumen, Antwortcodes und das Ingestion-Verhalten über Workspaces hinweg zu überwachen, können Sie auch das [API-Nutzungs-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboard/api_usage_dashboard/) verwenden.
 
 Sie können das Dashboard filtern, um `429 Workspace Rate Limited` oder `429 Company Rate Limited` anzuzeigen, sodass Sie schnell erkennen können, ob eine Anfrage durch das Unternehmens- oder Workspace-Rate-Limit begrenzt wurde.

@@ -21,7 +21,7 @@ Braze와 Tangerine 통합을 사용하면 Snowflake Secure Data Sharing을 통�
 | Store360 계정 | 이 파트너십을 활용하려면 Store360 계정이 필요합니다. |
 | Braze 계정 ID | Braze 앱 그룹 ID입니다. |
 | 일치하는 사용자 ID | Store360과 Braze의 고객 데이터에는 두 플랫폼 간에 일치하는 사용자 ID가 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 활용 사례 {#use-cases}
 
@@ -49,7 +49,7 @@ Braze 캠페인 및 노출 횟수 데이터와 함께 모바일 앱 사용자의
 
 Snowflake Secure Data Sharing을 활용하여 Braze의 원시 캠페인 및 노출 횟수 데이터를 Store360 Insight 분석과 공유하면 온라인에서 오프라인까지 사용자의 전체 라이프사이클과 활동을 파악할 수 있습니다.
 
-참고로, Store360 분석에 통합할 수 있는 모든 [Braze 필드]({{site.baseurl}}/assets/download_file/data-sharing-raw-table-schemas.txt?ffbc5f5ca7092bc9ae26268aa0e711df)는 여기에서 확인할 수 있습니다. 이 단계의 세부 사항은 고객별로 매우 다르며 특별한 구성이 필요합니다. 자세한 내용은 Store360 계정 매니저 또는 support@tangerine.io에 문의하세요.
+참고로, Store360 분석에 통합할 수 있는 모든 [Braze 필드](/docs/assets/download_file/data-sharing-raw-table-schemas.txt)는 여기에서 확인할 수 있습니다. 이 단계의 세부 사항은 고객별로 매우 다르며 특별한 구성이 필요합니다. 자세한 내용은 Store360 계정 매니저 또는 support@tangerine.io에 문의하세요.
 
 ## 중요 정보 및 제한 사항 {#important-information-and-limitations}
 

@@ -16,7 +16,7 @@ noindex: true
 > Cet article de référence explique comment installer le SDK Braze pour tvOS. L'installation du SDK Braze vous fournira des fonctionnalités d'analyse de base.
 
 {% alert note %}
-Notre SDK tvOS prend actuellement en charge la fonctionnalité d'analyse. Pour ajouter une application tvOS dans votre tableau de bord, ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/).
+Notre SDK tvOS prend actuellement en charge la fonctionnalité d'analyse. Pour ajouter une application tvOS dans votre tableau de bord, ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support).
 {% endalert %}
 
 Le SDK Braze pour tvOS doit être installé ou mis à jour à l'aide de [CocoaPods](http://cocoapods.org/), un gestionnaire de dépendances pour les projets Objective-C et Swift. CocoaPods offre une simplicité supplémentaire pour l'intégration et la mise à jour.
@@ -59,9 +59,9 @@ pod install
 
 À ce stade, vous devriez pouvoir ouvrir le nouvel espace de travail du projet Xcode créé par CocoaPods. Assurez-vous d'utiliser cet espace de travail Xcode au lieu de votre projet Xcode.
 
-![]({% image_buster /assets/img_archive/podsworkspace.png %})
+![À ce stade, vous devriez pouvoir ouvrir le nouvel espace de travail du projet Xcode créé par CocoaPods. Assurez-vous d'utiliser cet espace de travail Xcode au lieu de votre projet Xcode.]({% image_buster /assets/img_archive/podsworkspace.png %})
 
-### Étape 4 : Mettre à jour la délégation de votre application {#step-4-updating-your-app-delegate}
+### Étape 4 : Mettre à jour le délégué de votre application {#step-4-updating-your-app-delegate}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -113,7 +113,7 @@ Assurez-vous d'initialiser Braze dans le fil principal de votre application. L'i
 ### Étape 5 : Spécifier votre endpoint ou cluster de données personnalisé {#step-5-specify-your-custom-endpoint-or-data-cluster}
 
 {% alert note %}
-À partir de décembre 2019, les endpoints personnalisés ne sont plus fournis. Si vous disposez d'un endpoint personnalisé préexistant, vous pouvez continuer à l'utiliser. Pour plus de détails, consultez notre <a href="{{site.baseurl}}/api/basics/#endpoints">liste d'endpoints disponibles</a>.
+À partir de décembre 2019, les endpoints personnalisés ne sont plus fournis. Si vous disposez d'un endpoint personnalisé préexistant, vous pouvez continuer à l'utiliser. Pour plus de détails, consultez notre <a href="{{site.baseurl}}/api/basics#endpoints">liste d'endpoints disponibles</a>.
 {% endalert %}
 
 Votre conseiller Braze devrait déjà vous avoir informé de l'[endpoint correct]({{ site.baseurl }}/user_guide/administrative/access_braze/sdk_endpoints/).
@@ -186,11 +186,11 @@ Consultez [Appboy.h](https://github.com/Appboy/appboy-ios-sdk/blob/master/Appboy
 ## Appboy.sharedInstance() et la nullabilité Swift {#appboysharedinstance-and-swift-nullability}
 Contrairement à la pratique courante, le singleton `Appboy.sharedInstance()` est facultatif. Cela est dû au fait que `sharedInstance` est `nil` avant l'appel de `startWithApiKey:`, et qu'il existe des implémentations non standard mais valides dans lesquelles une initialisation retardée peut être utilisée.
 
-Si vous appelez `startWithApiKey:` dans votre délégation `didFinishLaunchingWithOptions:` avant tout accès au `sharedInstance` d'Appboy (l'implémentation standard), vous pouvez utiliser le chaînage optionnel, comme `Appboy.sharedInstance()?.changeUser("testUser")`, pour éviter des vérifications fastidieuses. Le comportement sera identique à celui d'une implémentation Objective-C qui supposait un `sharedInstance` non nul.
+Si vous appelez `startWithApiKey:` dans votre délégué `didFinishLaunchingWithOptions:` avant tout accès au `sharedInstance` d'Appboy (l'implémentation standard), vous pouvez utiliser le chaînage optionnel, comme `Appboy.sharedInstance()?.changeUser("testUser")`, pour éviter des vérifications fastidieuses. Le comportement sera identique à celui d'une implémentation Objective-C qui supposait un `sharedInstance` non nul.
 
 ## Options d'intégration manuelle {#manual-integration-options}
 
 Vous pouvez également intégrer notre SDK tvOS manuellement — il vous suffit de récupérer le Framework depuis notre [dépôt public](https://github.com/appboy/appboy-ios-sdk) et d'initialiser Braze comme indiqué dans les sections précédentes.
 
 ## Identification des utilisateurs et rapports d'analyse {#identifying-users-and-reporting-analytics}
-Consultez notre [documentation iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift) pour obtenir des informations sur la définition des ID utilisateur, la journalisation des événements personnalisés et la définition des attributs utilisateur. Nous vous recommandons également de vous familiariser avec nos [conventions de dénomination des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+Consultez notre [documentation iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift) pour obtenir des informations sur la définition des ID utilisateur, la journalisation des événements personnalisés et la définition des attributs utilisateur. Nous vous recommandons également de vous familiariser avec nos [conventions de dénomination des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).

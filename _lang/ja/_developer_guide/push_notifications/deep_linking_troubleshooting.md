@@ -12,7 +12,7 @@ channel:
 
 # ディープリンクのトラブルシューティング {#deep-linking-troubleshooting}
 
-> このページでは、iOSにおける一般的なディープリンクの問題と、その診断方法について説明します。適切なリンクタイプの選び方については、[iOSディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)を参照してください。実装の詳細については、[ディープリンク]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=swift)を参照してください。
+> このページでは、iOSにおける一般的なディープリンクの問題と、その診断方法について説明します。適切なリンクタイプの選び方については、[iOSディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide)を参照してください。実装の詳細については、[ディープリンク]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=swift)を参照してください。
 
 ## カスタムスキームのディープリンクが正しいビューを開かない {#custom-scheme-deep-link-doesnt-open-the-correct-view}
 
@@ -25,7 +25,7 @@ channel:
    xcrun simctl openurl booted "myapp://products/123"
    ```
    ここでリンクが機能しない場合、問題はアプリのURL処理にあり、Brazeの問題ではありません。
-4. **URLの形式を確認します。** Campaignに設定されたURLが、ハンドラーが期待する形式と一致しているか確認してください。よくある間違いには、パスコンポーネントの欠落や大文字小文字の誤りがあります。
+4. **URLの形式を確認します。** キャンペーンに設定されたURLが、ハンドラーが期待する形式と一致しているか確認してください。よくある間違いには、パスコンポーネントの欠落や大文字小文字の誤りがあります。
 
 ## ユニバーサルリンクがアプリではなくSafariで開く {#universal-link-opens-in-safari-instead-of-the-app}
 
@@ -100,7 +100,7 @@ configuration.forwardUniversalLinks = true
 2. AASAファイルを`https://your-click-tracking-domain/.well-known/apple-app-site-association`にホストします。
 3. クリックトラッキングドメイン上のAASAファイルに、同じ`appID`と有効なパスパターンが含まれていることを確認してください。
 
-ESP固有の設定手順については、[ユニバーサルリンクとアプリリンク]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/)を参照してください。
+ESP固有の設定手順については、[ユニバーサルリンクとアプリリンク]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links)を参照してください。
 
 ### リダイレクトチェーンを確認する {#check-the-redirect-chain}
 
@@ -120,7 +120,7 @@ ESP固有の設定手順については、[ユニバーサルリンクとアプ�
 
 ### 詳細ログを有効にする {#enable-verbose-logging}
 
-[詳細ログを有効にして]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)、問題を再現します。`Opening`ログエントリを探してください：
+[詳細ログを有効にして]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)、問題を再現します。`Opening`ログエントリを探してください：
 
 ```
 Opening '<URL>':
@@ -146,7 +146,7 @@ Opening '<URL>':
 
 ## BranchとBrazeのトラブルシューティング {#branch}
 
-[Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking/)をリンクプロバイダーとして使用している場合：
+[Branch]({{site.baseurl}}/partners/message_orchestration/deeplinking/branch_for_deeplinking)をリンクプロバイダーとして使用している場合：
 
 ### BrazeDelegateがBranchにルーティングしていることを確認する {#verify-the-brazedelegate-routes-to-branch}
 
@@ -178,7 +178,7 @@ func braze(_ braze: Braze, shouldOpenURL context: Braze.URLContext) -> Bool {
 
 リンクがチェーンのどこで途切れているかを診断するには：
 
-1. [Brazeの詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)を有効にします。SDKがリンクを受信したことを確認するために、`Opening '<URL>':`エントリを探してください。
+1. [Brazeの詳細ログ]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)を有効にします。SDKがリンクを受信したことを確認するために、`Opening '<URL>':`エントリを探してください。
 2. [Branchテストモード](https://help.branch.io/developers-hub/docs/ios-basic-integration#test-deep-linking)を有効にします。Branchダッシュボードでリンククリックイベントを確認してください。
 3. Brazeがリンクを記録しているのにBranchがクリックを認識しない場合、`BrazeDelegate`のルーティングロジックに問題がある可能性が高いです。
 
@@ -201,7 +201,7 @@ Branchダッシュボードで以下を確認してください：
 
 ### 詳細ログを使用する {#use-verbose-logging}
 
-[詳細ログを有効にする]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)と、SDKがリンクをどのように処理しているかを正確に確認できます。探すべき主要なエントリ：
+[詳細ログを有効にする]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)と、SDKがリンクをどのように処理しているかを正確に確認できます。探すべき主要なエントリ：
 
 | ログエントリ | 意味 |
 |---|---|
@@ -212,7 +212,7 @@ Branchダッシュボードで以下を確認してください：
 | `isUniversalLink: true` | SDKがURLをユニバーサルリンクとして識別しました |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="詳細ログの使用" }
 
-これらのログの読み方について詳しくは、[詳細ログの読み方]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)を参照してください。
+これらのログの読み方について詳しくは、[詳細ログの読み方]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)を参照してください。
 
 ### リンクを単独でテストする {#test-links-in-isolation}
 

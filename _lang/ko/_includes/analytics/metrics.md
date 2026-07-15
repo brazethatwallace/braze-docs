@@ -19,7 +19,7 @@
 {% endif %}
 
 {% if include.metric == "Help" %}
-<i>도움말</i>은 사용자가 <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">도움말 키워드</a> 를 사용하여 메시지에 답장하고 도움말 자동 응답이 발송된 경우입니다.
+<i>도움말</i>은 사용자가 <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">도움말 키워드</a> 를 사용하여 메시지에 답장하고 도움말 자동 응답이 발송된 경우입니다.
 {% endif %}
 
 {% if include.metric == "Hard Bounce" %}
@@ -27,7 +27,7 @@
 {% endif %}
 
 {% if include.metric == "Soft Bounce" %}
-<i>소프트바운스</i>는 수신자의 이메일 주소가 유효함에도 불구하고 일시적인 전송 오류로 인해 이메일이 수신자에게 전달되지 못하는 경우를 말합니다. 소프트바운스는 수신자의 받은편지함이 꽉 찼거나 서버가 다운되었거나 메시지가 수신자의 받은편지함에 비해 너무 커서 발생할 수 있습니다.
+<i>소프트바운스</i>는 수신자의 이메일 주소가 유효함에도 불구하고 일시적인 전달 오류로 인해 이메일이 수신자에게 전달되지 못하는 경우를 말합니다. 소프트바운스는 수신자의 받은편지함이 꽉 찼거나 서버가 다운되었거나 메시지가 수신자의 받은편지함에 비해 너무 커서 발생할 수 있습니다.
 {% endif %}
 
 {% if include.metric == "Deferral" %}
@@ -51,11 +51,11 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Choices Submitted" %}
-<i>제출된 선택 항목</i>은 사용자가 <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 설문조사 질문 페이지에서 제출 버튼을 클릭할 때 선택한 총 선택 항목 수입니다.
+<i>제출된 선택 항목</i>은 사용자가 <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 설문조사 질문 페이지에서 제출 버튼을 클릭할 때 선택한 총 선택 항목 수입니다.
 {% endif %}
 
 {% if include.metric == "Click-to-Open Rate" %}
-<i>클릭 대비 열람률</i>은 단일 사용자 또는 기계가 최소한 한 번 클릭한 열린 이메일의 비율이며, <a href='https://braze.com/docs/user_guide/data_and_analytics/reporting/report_builder/'>보고서 빌더</a> 에서만 사용할 수 있습니다.
+<i>클릭 대비 열람률</i>은 단일 사용자 또는 기계가 최소한 한 번 클릭한 열린 이메일의 비율이며, <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/data_and_analytics/reporting/report_builder/'>보고서 빌더</a> 에서만 사용할 수 있습니다.
 {% endif %}
 
 {% if include.metric == "Close Message" %}
@@ -71,11 +71,11 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Confirmation Page Button" %}
-<i>확인 페이지 버튼</i>은 <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 확인 페이지에서 클릭 유도 문안 버튼을 클릭한 총 횟수입니다.
+<i>확인 페이지 버튼</i>은 <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 확인 페이지에서 클릭 유도 문안 버튼을 클릭한 총 횟수입니다.
 {% endif %}
 
 {% if include.metric == "Confirmation Page Dismissals" %}
-<i>확인 페이지 닫기</i>는 <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 확인 페이지에서 닫기(x) 버튼을 클릭한 총 횟수입니다.
+<i>확인 페이지 닫기</i>는 <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 확인 페이지에서 닫기(x) 버튼을 클릭한 총 횟수입니다.
 {% endif %}
 
 {% if include.metric == "Conversion Rate" %}
@@ -167,7 +167,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Opt-Out" %}
-<i>옵트아웃</i>은 사용자가 <a href="https://braze.com/docs/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">옵트아웃 키워드</a> 를 사용하여 메시지에 답장을 보낸 후 SMS 또는 RCS 프로그램에서 수신 거부된 경우입니다.
+<i>옵트아웃</i>은 사용자가 <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/sms/keywords/keyword_handling/#default-opt-in-opt-out-keywords">옵트아웃 키워드</a> 를 사용하여 메시지에 답장을 보낸 후 SMS 또는 RCS 프로그램에서 수신 거부된 경우입니다.
 {% endif %}
 
 {% if include.metric == "Pending Retry" %}
@@ -223,11 +223,11 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Survey Page Dismissals" %}
-<i>설문조사 페이지 닫기</i> 횟수는 <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 설문조사 질문 페이지에서 닫기(x) 버튼을 클릭한 총 횟수입니다.
+<i>설문조사 페이지 닫기</i> 횟수는 <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 설문조사 질문 페이지에서 닫기(x) 버튼을 클릭한 총 횟수입니다.
 {% endif %}
 
 {% if include.metric == "Survey Submissions" %}
-<i>설문조사 제출</i>은 <a href='https://braze.com/docs/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 제출 버튼을 클릭한 총 횟수입니다.
+<i>설문조사 제출</i>은 <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/message_building_by_channel/in-app_messages/templates/simple_survey/'>간편 설문조사</a> 의 제출 버튼을 클릭한 총 횟수입니다.
 {% endif %}
 
 {% if include.metric == "Total Clicks" %}
@@ -235,7 +235,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Total Dismissals" %}
-<i>총 닫기</i> 횟수는 Campaign의 Content Cards가 닫힌 횟수입니다.
+<i>총 닫기</i> 횟수는 사용자가 Campaign의 메시지를 닫은 횟수입니다. Content Cards의 경우 각 카드 닫기를 계산합니다. 배너의 경우 닫기 동작이 활성화되어 있을 때 사용자가 배너를 닫은 각 횟수를 계산합니다.
 {% endif %}
 
 {% if include.metric == "Total Impressions" %}
@@ -251,7 +251,7 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Unique Clicks" %}
-<i>고유 클릭 수</i>는 메시지 내의 링크를 최소한 한 번 클릭한 수신자의 고유한 수이며, <a href='https://www.braze.com/docs/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 에 의해 측정됩니다.
+<i>고유 클릭 수</i>는 메시지 내의 링크를 최소한 한 번 클릭한 수신자의 고유한 수이며, <a href='{{ site.homeurl }}{{ site.baseurl }}/user_guide/messaging/messaging_fundamentals/dispatch_id/'>dispatch_id</a> 에 의해 측정됩니다.
 {% endif %}
 
 {% if include.metric == "Unique Dismissals" %}
@@ -262,6 +262,10 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 
 {% if include.metric == "Unique Impressions" %}
 <i>고유 노출 횟수</i>는 특정 Campaign에서 메시지를 본 총 사용자 수입니다. 노출 횟수는 메시지가 사용자 화면에 보일 때만 기록됩니다.
+{% endif %}
+
+{% if include.metric == "Unique Daily Impressions" %}
+<i>일일 고유 노출 횟수</i>는 특정 날짜에 메시지를 본 고유 사용자 수입니다. 이 수치는 매일 자정에 초기화되므로, 같은 메시지를 이틀에 걸쳐 본 사용자는 두 번으로 계산됩니다. 이 측정기준은 동일한 이름의 과금 측정기준과 일치합니다.
 {% endif %}
 
 {% if include.metric == "Unique Recipients" %}
@@ -281,5 +285,5 @@ Push Stories 알림은 알림을 클릭하면 <i>본문 클릭</i>을 기록합�
 {% endif %}
 
 {% if include.metric == "Variation" %}
-<i>배리언트</i>는 크리에이터가 정의한 대로 서로 다른 Campaign 배리언트의 수입니다.
+<i>배리언트</i>는 크리에이터가 정의한 대로 서로 다른 Campaign 변형의 수입니다.
 {% endif %}

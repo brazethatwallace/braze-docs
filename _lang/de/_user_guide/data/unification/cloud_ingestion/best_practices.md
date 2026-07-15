@@ -51,7 +51,7 @@ Wenn Sie CDI verwenden, um Daten aus externen Quellen (wie Databricks oder Snowf
 - **Zahlen als Strings gespeichert:** Konvertieren Sie numerische Spalten in Ihrer Quellabfrage vor der Synchronisierung in Integer- oder Gleitkommazahl-Typen.
 - **Inkonsistente Typen zwischen Synchronisierungen:** Wenn sich ein Spaltentyp zwischen Synchronisierungen ändert, kann Braze die neuen Daten ablehnen. Überprüfen Sie, ob Ihr Quellschema konsistent bleibt.
 
-Informationen zum Erzwingen oder Ändern von Datentypen für angepasste Attribute im Braze-Dashboard finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons).
+Informationen zum Erzwingen oder Ändern von Datentypen für angepasste Attribute im Braze-Dashboard finden Sie unter [Angepasste Daten verwalten]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons).
 
 Sie können Nutzerdaten anhand der externen ID, des Nutzer-Alias, der Braze-ID, der E-Mail-Adresse oder der Telefonnummer aktualisieren. Sie können Nutzer:innen anhand der externen ID, des Nutzer-Alias oder der Braze-ID löschen.
 
@@ -695,7 +695,7 @@ Wir haben ein öffentliches [GitHub-Repository](https://github.com/braze-inc/bra
 
 ### Datenformatierung {#data-formatting}
 
-Die Anforderungen an die Tabelleneinrichtung und die Payload-Formatierung für Cloud Data Ingestion sind unter [Tabelleneinrichtung für Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/) dokumentiert.
+Die Anforderungen an die Tabelleneinrichtung und die Payload-Formatierung für Cloud Data Ingestion sind unter [Tabelleneinrichtung für Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup) dokumentiert.
 
 Verwenden Sie diese Seite, um Folgendes zu unterscheiden:
 

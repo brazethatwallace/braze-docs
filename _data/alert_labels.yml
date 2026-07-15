@@ -1,0 +1,42 @@
+es:
+  note: Nota
+  important: Importante
+  tip: Consejo
+  warning: Advertencia
+  update: Actualización
+  checkpoint: Punto de control
+fr:
+  note: Remarque
+  important: Important
+  tip: Conseil
+  warning: Avertissement
+  update: Mise à jour
+  checkpoint: Point de contrôle
+de:
+  note: Hinweis
+  important: Wichtig
+  tip: Tipp
+  warning: Warnung
+  update: Aktualisierung
+  checkpoint: Kontrollpunkt
+ja:
+  note: 注
+  important: 重要
+  tip: ヒント
+  warning: 警告
+  update: 更新
+  checkpoint: チェックポイント
+ko:
+  note: 참고
+  important: 중요
+  tip: 팁
+  warning: 경고
+  update: 업데이트
+  checkpoint: 체크포인트
+pt-br:
+  note: Nota
+  important: Importante
+  tip: Dica
+  warning: Aviso
+  update: Atualização
+  checkpoint: Ponto de verificação

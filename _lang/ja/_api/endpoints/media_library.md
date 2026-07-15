@@ -14,10 +14,10 @@ guide_top_text: "Brazeメディアライブラリのエンドポイントを使�
 guide_featured_title: "資産管理"
 guide_featured_list:
   - name: "POST: URLで新しいアセットをアップロードする"
-    link: /docs/api/endpoints/media_library/manage_assets/create/
+    link: /docs/api/endpoints/media_library/manage_assets/create
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "PUT: メディアライブラリ内のアセットを置き換える"
-    link: /docs/api/endpoints/media_library/manage_assets/replace_file/
+    link: /docs/api/endpoints/media_library/manage_assets/replace_file
     image: /assets/img/braze_icons/pencil-01.svg
 
 ---

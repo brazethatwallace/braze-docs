@@ -27,7 +27,7 @@ Este paso permite que los usuarios del Canvas 1 sean enviados al Canvas 2. Cuand
 
 El paso Enviar a destino hace que los usuarios entren en el Canvas de destino en cuanto alcanzan este paso. Este paso actúa como un punto de entrada único al Canvas de destino. Los usuarios que cumplen los criterios de entrada y audiencia del Canvas de destino comienzan ese recorrido en Canvas. Los usuarios que no cumplen esos criterios en ese momento no entran en el Canvas de destino y continúan en el Canvas de origen.
 
-Si el Canvas de destino usa un horario de entrada planificado, el paso Enviar a destino omite ese horario de entrada. También omite [**Limitar volumen de entrada**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) en **Controles de entrada** del Canvas de destino cuando está configurado como **Cada vez que se planifica el Canvas**. Los usuarios enviados desde este paso no esperan a la siguiente ventana de evaluación planificada: son evaluados y admitidos cuando alcanzan el paso Enviar a destino, siempre que cumplan los criterios de entrada y audiencia del Canvas de destino.
+Si el Canvas de destino usa un horario de entrada planificado, el paso Enviar a destino omite ese horario de entrada. También omite [**Limitar volumen de entrada**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) en **Controles de entrada** del Canvas de destino cuando está configurado como **Every time Canvas is schedule**. Los usuarios enviados desde este paso no esperan a la siguiente ventana de evaluación planificada: son evaluados y admitidos cuando alcanzan el paso Enviar a destino, siempre que cumplan los criterios de entrada y audiencia del Canvas de destino.
 
 Si el Canvas de destino usa una entrada basada en acciones, el paso Enviar a destino omite el requisito de que los usuarios realicen la acción de entrada configurada para entrar en ese Canvas.
 
@@ -47,7 +47,7 @@ Selecciona el menú desplegable o introduce el nombre del Canvas en el campo **D
 
 Puedes seleccionar **Preview destination** para ver el Canvas al que estás enviando usuarios.
 
-Después de configurar este paso en Canvas, puedes [previsualizar la ruta del usuario]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths/) para ver si un usuario avanza al siguiente paso en el Canvas actual y si también avanza al Canvas de destino.
+Después de configurar este paso en Canvas, puedes [previsualizar la ruta del usuario]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) para ver si un usuario avanza al siguiente paso en el Canvas actual y si también avanza al Canvas de destino.
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 
@@ -57,7 +57,7 @@ Sí. El Canvas de destino puede tener un estado de borrador o inactivo.
 
 ### ¿Se conservan las variables de contexto? {#are-context-variables-preserved}
 
-Sí. El [contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) del Canvas de origen siempre se pasa al Canvas de destino.
+Sí. El [contexto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) del Canvas de origen se pasa al Canvas de destino. Sin embargo, las variables de contexto deben invocarse dentro del Canvas de origen para que se pasen al Canvas de destino.
 
 ### ¿Puedo usar el paso Enviar a destino para conectar Canvas en lugar de usar soluciones alternativas con API o Actualización de usuario? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
 

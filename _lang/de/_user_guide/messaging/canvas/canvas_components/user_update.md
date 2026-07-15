@@ -8,21 +8,21 @@ description: "Dieser Referenzartikel behandelt die Komponente Nutzeraktualisieru
 tool: Canvas
 ---
 
-# Nutzeraktualisierung
+# Nutzeraktualisierung {#user-update}
 
 > Mit der Komponente Nutzeraktualisierung können Sie Attribute, Events und Käufe von Nutzer:innen in einem JSON-Editor aktualisieren, sodass keine sensiblen Informationen wie API-Schlüssel angegeben werden müssen.
 
-## Funktionsweise dieser Komponente
+## Funktionsweise dieser Komponente {#how-this-component-works}
 
-![Ein Nutzeraktualisierungs-Schritt namens „Update loyalty", der ein Attribut „Is Premium Member" auf „true" aktualisiert.]({% image_buster /assets/img_archive/canvas_user_update_step.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
+![Ein Nutzeraktualisierungs-Schritt namens „Update loyalty“, der ein Attribut „Is Premium Member“ auf „true“ aktualisiert.]({% image_buster /assets/img_archive/canvas_user_update_step.png %}){: style="float:right;max-width:30%;margin-left:15px;"}
 
-Wenn Sie diese Komponente in Ihrem Canvas verwenden, werden die Aktualisierungen nicht auf Ihr Rate-Limit für `/users/track`-Anfragen pro Minute angerechnet. Stattdessen werden diese Aktualisierungen gebündelt, damit Braze sie effizienter verarbeiten kann als einen Braze-zu-Braze-Webhook. Beachten Sie, dass diese Komponente keine [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points/) protokolliert, wenn sie zur Aktualisierung nicht abrechnungspflichtiger Datenpunkte verwendet wird (z. B. Abo-Gruppen).
+Wenn Sie diese Komponente in Ihrem Canvas verwenden, werden die Aktualisierungen nicht auf Ihr Rate-Limit für `/users/track`-Anfragen pro Minute angerechnet. Stattdessen werden diese Aktualisierungen gebündelt, damit Braze sie effizienter verarbeiten kann als einen Braze-zu-Braze-Webhook. Beachten Sie, dass diese Komponente keine [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points) protokolliert, wenn sie zur Aktualisierung nicht abrechnungspflichtiger Datenpunkte verwendet wird (z. B. Abo-Gruppen).
 
 Nachdem Nutzer:innen den Nutzeraktualisierungs-Schritt erreicht haben und die Verarbeitung abgeschlossen ist, werden sie zum nächsten Schritt weitergeleitet. Das bedeutet, dass alle nachfolgenden Nachrichten, die auf diesen Nutzeraktualisierungen basieren, auf dem neuesten Stand sind, wenn der nächste Schritt ausgeführt wird.
 
-## Eine Nutzeraktualisierung erstellen
+## Eine Nutzeraktualisierung erstellen {#creating-a-user-update}
 
-Ziehen Sie die Komponente per Drag-and-Drop aus der Seitenleiste, oder wählen Sie den <i class="fas fa-plus-circle"></i> Plus-Button am unteren Rand der Variante oder des Schritts und wählen Sie **Nutzeraktualisierung**.
+Ziehen Sie die Komponente per Drag-and-Drop aus der Seitenleiste, oder wählen Sie den <i class="fas fa-plus-circle"></i> Plus-Button am unteren Rand der Variante oder des Schritts und wählen Sie **User Update**.
 
 Es gibt drei Optionen, mit denen Sie bestehende Nutzerprofil-Informationen aktualisieren, neue Informationen hinzufügen oder Nutzerprofil-Informationen entfernen können. Zusammengenommen können die Nutzeraktualisierungs-Schritte in einem Workspace bis zu 200.000 Nutzerprofile pro Minute aktualisieren.
 
@@ -30,35 +30,35 @@ Es gibt drei Optionen, mit denen Sie bestehende Nutzerprofil-Informationen aktua
 Sie können die mit dieser Komponente vorgenommenen Änderungen auch testen, indem Sie nach einer/einem Nutzer:in suchen und die Änderung auf sie/ihn anwenden. Dadurch wird das Nutzerprofil aktualisiert.
 {% endalert %}
 
-## Angepasste Attribute aktualisieren
+## Angepasste Attribute aktualisieren {#updating-custom-attributes}
 
 Um ein angepasstes Attribut zu aktualisieren oder zu entfernen, wählen Sie einen Attributnamen aus Ihrer Attributliste und geben Sie den Wert ein.
 
-![Nutzeraktualisierungs-Schritt, der die beiden Attribute „Loyalty Member" und „Loyalty Program" auf „true" aktualisiert.]({% image_buster /assets/img_archive/canvas_user_update_update.png %}){: style="max-width:90%;"}
+![Nutzeraktualisierungs-Schritt, der die beiden Attribute „Loyalty Member“ und „Loyalty Program“ auf „true“ aktualisiert.]({% image_buster /assets/img_archive/canvas_user_update_update.png %}){: style="max-width:90%;"}
 
-## Angepasste Attribute entfernen
+## Angepasste Attribute entfernen {#removing-custom-attributes}
 
 Um ein angepasstes Attribut zu entfernen, wählen Sie einen Attributnamen über das Dropdown-Menü aus. Sie können zum [erweiterten JSON-Editor](#advanced-json-editor) wechseln, um weitere Bearbeitungen vorzunehmen.
 
-![Nutzeraktualisierungs-Schritt, der ein Attribut „Loyalty Member" entfernt.]({% image_buster /assets/img_archive/canvas_user_update_remove.png %}){: style="max-width:90%;"}
+![Nutzeraktualisierungs-Schritt, der ein Attribut „Loyalty Member“ entfernt.]({% image_buster /assets/img_archive/canvas_user_update_remove.png %}){: style="max-width:90%;"}
 
-### Werte erhöhen und verringern
+### Werte erhöhen und verringern {#increasing-and-decreasing-values}
 
 Der Nutzeraktualisierungs-Schritt kann einen Attributwert erhöhen oder verringern. Wählen Sie das Attribut aus, wählen Sie **Increment By** oder **Decrement By** und geben Sie eine Zahl ein.
 
-#### Wöchentlichen Fortschritt verfolgen
+#### Wöchentlichen Fortschritt verfolgen {#track-weekly-progress}
 
 Indem Sie ein angepasstes Attribut inkrementieren, das ein Event verfolgt, können Sie die Anzahl der Kurse nachverfolgen, die ein:e Nutzer:in in einer Woche besucht hat. Mit dieser Komponente kann der Kurszähler zu Beginn der Woche zurückgesetzt werden und das Tracking erneut beginnen.
 
-![Nutzeraktualisierungs-Schritt, der das Attribut „class_count" um eins erhöht.]({% image_buster /assets/img_archive/canvas_user_update_increment.png %}){: style="max-width:90%;"}
+![Nutzeraktualisierungs-Schritt, der das Attribut „class_count“ um eins erhöht.]({% image_buster /assets/img_archive/canvas_user_update_increment.png %}){: style="max-width:90%;"}
 
-### Ein Array von Objekten aktualisieren
+### Ein Array von Objekten aktualisieren {#updating-an-array-of-objects}
 
-Ein [Array von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects/) ist ein datenreiches angepasstes Attribut, das im Profil von Nutzer:innen gespeichert wird. Sie können es verwenden, um einen Verlauf der Interaktionen von Nutzer:innen mit Ihrer Marke zu erstellen und Segmente basierend auf einem berechneten Feld zu erstellen, z. B. Kaufhistorie oder gesamter Lifetime-Value.
+Ein [Array von Objekten]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects) ist ein datenreiches angepasstes Attribut, das im Profil von Nutzer:innen gespeichert wird. Sie können es verwenden, um einen Verlauf der Interaktionen von Nutzer:innen mit Ihrer Marke zu erstellen und Segmente basierend auf einem berechneten Feld zu erstellen, z. B. Kaufhistorie oder gesamter Lifetime-Value.
 
 Mit der Option **Advanced JSON Editor** können Sie JSON einfügen, um Elemente zu diesem Array von Objekten hinzuzufügen oder daraus zu entfernen.
 
-#### Anwendungsfall: Wunschliste von Nutzer:innen aktualisieren
+#### Anwendungsfall: Wunschliste von Nutzer:innen aktualisieren {#use-case-updating-a-users-wishlist}
 
 Verfolgen Sie die Wunschliste von Nutzer:innen, um basierend auf ihren gespeicherten Artikeln zu segmentieren oder zu personalisieren.
 
@@ -89,7 +89,7 @@ Das folgende Beispiel zeigt das Hinzufügen eines Elements zur Wunschliste:
 
 Um ein Element zu entfernen, verwenden Sie `"wishlist": { "$remove": [ { "product_id": "SKU-123", ... } ] }` mit derselben Objektstruktur, damit Braze es zuordnen und entfernen kann.
 
-#### Anwendungsfall: Warenkorb-Gesamtbetrag berechnen
+#### Anwendungsfall: Warenkorb-Gesamtbetrag berechnen {#use-case-calculating-the-shopping-cart-total}
 
 Verfolgen Sie, wann Nutzer:innen Artikel in ihrem Warenkorb haben, wann sie neue Artikel hinzufügen oder entfernen und wie hoch der Gesamtwert des Warenkorbs ist.
 
@@ -118,7 +118,7 @@ Verfolgen Sie, wann Nutzer:innen Artikel in ihrem Warenkorb haben, wann sie neue
 {% endraw %}
 
 {:start="2"}
-2. Erstellen Sie ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) namens `add_item_to_cart`, das protokolliert wird, wenn ein:e Nutzer:in einen Artikel in den Warenkorb legt.
+2. Erstellen Sie ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events) namens `add_item_to_cart`, das protokolliert wird, wenn ein:e Nutzer:in einen Artikel in den Warenkorb legt.
 3. Erstellen Sie ein Canvas, das Nutzer:innen anspricht, die dieses angepasste Event ausführen. Wenn nun ein:e Nutzer:in einen Artikel in den Warenkorb legt, wird dieses Canvas getriggert. Sie können dann Nachrichten direkt an diese:n Nutzer:in senden, z. B. Gutscheincodes anbieten, wenn ein bestimmter Betrag erreicht wurde, der Warenkorb für eine bestimmte Zeit verlassen wurde, oder alles andere, was zu Ihrem Anwendungsfall passt.
 
 Das Attribut `shopping_cart` enthält die Summe vieler angepasster Events: die Gesamtkosten aller Artikel, die Gesamtanzahl der Artikel im Warenkorb, ob der Warenkorb ein Geschenk enthält und so weiter. Das kann etwa so aussehen:
@@ -145,37 +145,37 @@ Das Attribut `shopping_cart` enthält die Summe vieler angepasster Events: die G
 ```
 {% endraw %}
 
-## Canvas-Eingangs-Eigenschaft als Attribut festlegen
+## Canvas-Eingangs-Eigenschaft als Attribut festlegen {#setting-canvas-entry-property-as-an-attribute}
 
 Sie können den Nutzeraktualisierungs-Schritt verwenden, um eine `canvas_entry_property` zu speichern. Angenommen, Sie haben ein Event, das ausgelöst wird, wenn ein Artikel in den Warenkorb gelegt wird. Sie können die ID des zuletzt hinzugefügten Artikels speichern und für eine Remarketing-Kampagne verwenden. Nutzen Sie die Personalisierungsfunktion, um eine Canvas-Eingangs-Eigenschaft abzurufen und in einem Attribut zu speichern.
 
-![Nutzeraktualisierungs-Schritt, der das Attribut „most_recent_cart_item" mit einer Artikel-ID aktualisiert.]({% image_buster /assets/img_archive/canvas_user_update_cep.png %}){: style="max-width:90%;"}
+![Nutzeraktualisierungs-Schritt, der das Attribut „most_recent_cart_item“ mit einer Artikel-ID aktualisiert.]({% image_buster /assets/img_archive/canvas_user_update_cep.png %}){: style="max-width:90%;"}
 
-### Personalisierung
+### Personalisierung {#personalization}
 
 Um die Eigenschaft des Trigger-Events für ein Canvas als Attribut zu speichern, verwenden Sie das Personalisierungs-Modal, um die Canvas-Eingangs-Eigenschaft zu extrahieren und zu speichern. Die Nutzeraktualisierung unterstützt außerdem die folgenden Personalisierungsfunktionen:
 
-* [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)
-* [Content-Blöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)
-* [Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/)
-* Liquid-Logik (einschließlich [Abbruch von Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/))
+* [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)
+* [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)
+* [Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)
+* Liquid-Logik (einschließlich [Abbruch von Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages))
 * Mehrere Attribut- oder Event-Aktualisierungen pro Objekt
 
 {% alert warning %}
 Wir empfehlen, Connected-Content-Liquid-Personalisierung in Nutzeraktualisierungs-Schritten mit Bedacht einzusetzen, da dieser Schritttyp ein Rate-Limit von 200.000 Anfragen pro Minute hat. Dieses Rate-Limit überschreibt das Canvas-Rate-Limit.
 {% endalert %}
 
-## Erweiterter JSON-Editor
+## Erweiterter JSON-Editor {#advanced-json-editor}
 
 Fügen Sie ein Attribut-, Event- oder Kauf-JSON-Objekt mit bis zu 65.536 Zeichen zum JSON-Editor hinzu. Der [globale Abo-Status]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-states) und der Status der [Abo-Gruppe]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) von Nutzer:innen können ebenfalls festgelegt werden.
 
-![]({% image_buster /assets/img_archive/canvas_user_update_composer.png %}){: style="max-width:90%;"}
+![Fügen Sie ein Attribut-, Event- oder Kauf-JSON-Objekt mit bis zu 65.536 Zeichen zum JSON-Editor hinzu. Der globale Abo-Status und der Status der Abo-Gruppe von Nutzer:innen können ebenfalls festgelegt werden.]({% image_buster /assets/img_archive/canvas_user_update_composer.png %}){: style="max-width:90%;"}
 
 Mit dem JSON-Editor können Sie auch eine Vorschau anzeigen und testen, ob das Nutzerprofil mit Ihren Änderungen aktualisiert wird – im Tab **Preview and test**. Sie können entweder eine:n zufällige:n Nutzer:in auswählen oder nach einer/einem bestimmten Nutzer:in suchen. Nachdem Sie einen Test an eine:n Nutzer:in gesendet haben, können Sie das Nutzerprofil über den generierten Link anzeigen.
 
-![]({% image_buster /assets/img_archive/canvas_user_update_test_preview.png %}){: style="max-width:90%;"}
+![Mit dem JSON-Editor können Sie auch eine Vorschau anzeigen und testen, ob das Nutzerprofil mit Ihren Änderungen aktualisiert wird – im Tab „Preview and test“. Sie können entweder eine:n zufällige:n Nutzer:in auswählen oder nach einer/einem bestimmten Nutzer:in suchen. Nachdem Sie einen Test an eine:n Nutzer:in gesendet haben, können Sie das Nutzerprofil über den generierten Link anzeigen.]({% image_buster /assets/img_archive/canvas_user_update_test_preview.png %}){: style="max-width:90%;"}
 
-### Hinweise
+### Hinweise {#considerations}
 
 Sie müssen bei der Verwendung des JSON-Editors keine sensiblen Daten wie Ihren API-Schlüssel angeben, da dieser automatisch von der Plattform bereitgestellt wird. Die folgenden Felder sollten nicht im JSON-Editor enthalten sein:
 * Externe Nutzer-ID
@@ -188,7 +188,7 @@ Canvas-Eigenschaften (wie die Liquid-Tags `canvas_id`, `canvas_name` und `canvas
 {% endalert %}
 
 {% raw %}
-### Angepasste Events protokollieren
+### Angepasste Events protokollieren {#log-custom-events}
 
 Mit dem JSON-Editor können Sie auch angepasste Events protokollieren. Beachten Sie, dass hierfür ein Zeitstempel im ISO-Format erforderlich ist, sodass zunächst eine Zeit- und Datumszuweisung mit Liquid erfolgen muss. Betrachten Sie dieses Beispiel, das ein Event mit einer Zeitangabe protokolliert.
 
@@ -233,7 +233,7 @@ Das nächste Beispiel verknüpft ein Event mit einer bestimmten App unter Verwen
 }
 ```
 
-### Abo-Status bearbeiten
+### Abo-Status bearbeiten {#edit-subscription-state}
 
 Im JSON-Editor können Sie auch den Abo-Status von Nutzer:innen bearbeiten. Das folgende Beispiel zeigt, wie der Abo-Status auf `opted_in` aktualisiert wird.
 
@@ -247,7 +247,7 @@ Im JSON-Editor können Sie auch den Abo-Status von Nutzer:innen bearbeiten. Das 
 }
 ```
 
-### Abo-Gruppen aktualisieren
+### Abo-Gruppen aktualisieren {#update-subscription-groups}
 
 Sie können Abo-Gruppen auch mit diesem Canvas-Schritt aktualisieren. Das folgende Beispiel zeigt, wie Sie eine oder mehrere Abo-Gruppen aktualisieren.
 

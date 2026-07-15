@@ -41,9 +41,9 @@ MESSAGE HERE
 
 ## 사용자가 인앱 메시지를 닫은 후 다시 수신할 수 있나요? {#can-users-receive-an-in-app-message-again-after-they-dismiss-it}
 
-### Campaigns
+### Campaigns {#campaigns}
 
-인앱 메시지 Campaign의 경우, **전달 제어**에서 재적격성을 활성화하여(**사용자가 Campaign을 다시 수신할 수 있도록 허용**) 사용자가 Campaign을 다시 수신할 자격을 얻도록 할 수 있습니다. 다시 수신할 수 있는 시기는 설정한 재적격성 기간과 Braze가 이전 발송을 기록한 방식에 따라 달라집니다. Campaign 동작 및 재적격성과 메시지 수신의 관계에 대한 자세한 내용은 [Campaign 및 Canvas 재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/)을 참조하세요.
+인앱 메시지 Campaign의 경우, **전달 제어**에서 재적격성을 활성화하여(**사용자가 Campaign을 다시 수신할 수 있도록 허용**) 사용자가 Campaign을 다시 수신할 자격을 얻도록 할 수 있습니다. 다시 수신할 수 있는 시기는 설정한 재적격성 기간과 Braze가 이전 발송을 기록한 방식에 따라 달라집니다. Campaign 동작 및 재적격성과 메시지 수신의 관계에 대한 자세한 내용은 [Campaign 및 Canvas 재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)을 참조하세요.
 
 재적격성이 꺼져 있으면, 사용자가 Campaign을 수신한 후에는 일반적으로 자격 기준만으로는 동일한 Campaign을 다시 수신하지 않습니다.
 
@@ -61,15 +61,15 @@ Canvas에서 전송된 인앱 메시지의 경우, 사용자가 메시지를 다
 
 이는 인앱 메시지 Campaign이 활성 상태일 때 Segment 기준을 충족한 사용자에게 발생할 수 있습니다.
 
-이를 방지하려면 Campaign 설정 중에 **Re-evaluate campaign eligibility before displaying**을 선택하세요.
+이를 방지하려면 Campaign 설정 중에 **표시 전 Campaign 적격성 재평가**를 선택하세요.
 
 ## 동일한 세션에서 여러 인앱 메시지가 표시될 수 있나요? {#can-multiple-in-app-messages-display-in-the-same-session}
 
-예, 하지만 [트리거 이벤트]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-trigger) 발생당 하나의 인앱 메시지만 표시될 수 있습니다. 여러 인앱 메시지 Campaign이 동일한 트리거(예: 세션 시작)를 공유하는 경우, 해당 트리거가 발생할 때마다 가장 높은 우선순위의 메시지만 표시됩니다. 세션 시작 트리거의 경우, 세션당 하나의 메시지만 표시될 수 있으며, 다른 적격 메시지를 표시할 다음 기회는 다음 세션입니다.
+예, 하지만 [트리거 이벤트]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger) 발생당 하나의 인앱 메시지만 표시될 수 있습니다. 여러 인앱 메시지 Campaign이 동일한 트리거(예: 세션 시작)를 공유하는 경우, 해당 트리거가 발생할 때마다 가장 높은 우선순위의 메시지만 표시됩니다. 세션 시작 트리거의 경우, 세션당 하나의 메시지만 표시될 수 있으며, 다른 적격 메시지를 표시할 다음 기회는 다음 세션입니다.
 
 여러 메시지가 동일한 우선순위 수준을 공유하는 경우, 가장 최근에 생성된 메시지가 먼저 표시됩니다. 세션 시작 트리거의 경우, 다음으로 최근에 생성된 메시지가 후속 세션에서 표시됩니다. 다른 트리거 유형의 경우, 다음으로 최근에 생성된 메시지가 해당 트리거 이벤트가 다음에 발생할 때 표시되며, 이는 동일한 세션 내이거나 이후 세션일 수 있습니다.
 
-우선순위 버킷 내에서 표시 순서를 제어하려면 Campaign의 전달 설정으로 이동하여 **상세 우선순위 지정**을 선택한 다음, Campaign을 원하는 순서로 드래그 앤 드롭하세요. 자세한 내용은 [우선순위 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-priority)을 참조하세요.
+우선순위 버킷 내에서 표시 순서를 제어하려면 Campaign의 전달 설정으로 이동하여 **정확한 우선순위 설정**을 선택한 다음, Campaign을 원하는 순서로 드래그 앤 드롭하세요. 자세한 내용은 [우선순위 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-priority)을 참조하세요.
 
 ## Braze는 "1일 후" 만료로 설정된 인앱 메시지 만료를 어떻게 계산하나요? {#how-does-braze-calculate-an-in-app-message-expiration-set-to-after-1-days}
 
@@ -77,7 +77,7 @@ Braze는 1일의 만료 시간을 사용자가 메시지를 수신할 자격을 
 
 ## 템플릿 인앱 메시지란 무엇인가요? {#what-are-templated-in-app-messages}
 
-인앱 메시지는 **Re-evaluate campaign eligibility before displaying**이 선택되었거나 메시지에 다음 Liquid 태그가 존재하는 경우 템플릿 인앱 메시지로 전달됩니다:
+인앱 메시지는 **표시 전 Campaign 적격성 재평가**가 선택되었거나 메시지에 다음 Liquid 태그가 존재하는 경우 템플릿 인앱 메시지로 전달됩니다:
 
 - `canvas_entry_properties`
 - `connected_content`
@@ -89,7 +89,7 @@ Braze는 1일의 만료 시간을 사용자가 메시지를 수신할 자격을 
 이는 세션 시작 시 기기가 전체 메시지 대신 해당 인앱 메시지의 트리거를 수신한다는 것을 의미합니다. 사용자가 인앱 메시지를 트리거하면, 사용자의 기기가 실제 메시지를 가져오기 위해 네트워크 요청을 합니다.
 
 {% alert note %}
-기기가 인터넷에 접근할 수 없는 경우 메시지가 전달되지 않습니다. Liquid 로직을 해결하는 데 너무 오래 걸리면 메시지가 전달되지 않을 수 있습니다.
+기기가 인터넷에 접근할 수 없는 경우 메시지가 전달되지 않습니다. Liquid 로직을 해석하는 데 너무 오래 걸리면 메시지가 전달되지 않을 수 있습니다.
 {% endalert %}
 
 ## 인앱 메시지의 중단 동작은 어떻게 작동하나요? {#how-does-abort-behavior-work-for-in-app-messages}
@@ -139,6 +139,36 @@ Braze는 Sam의 경우 중단 이벤트를 기록하지 않습니다. 이는 중
 | 템플릿 | Sam이 템플릿 인앱 메시지를 트리거하기 위해 트리거 동작을 수행했지만 Liquid 템플릿에서 중단을 수신했기 때문에 중단 이벤트가 기록되었습니다.<br><br>템플릿 인앱 메시지는 Liquid 평가가 트리거 동작이 수행된 후에 발생하기 때문에 중단을 기록합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="인앱 메시지 중단 동작 비교" }
 
+### 인앱 메시지에서 연결된 콘텐츠는 언제 실행되나요? {#when-does-connected-content-run-for-in-app-messages}
+
+[템플릿 인앱 메시지](#what-are-templated-in-app-messages)의 경우, 연결된 콘텐츠 및 기타 Liquid 태그는 트리거 이벤트가 발생하고 기기가 메시지 페이로드를 요청할 때 해석됩니다. 사용자가 메시지 내부의 버튼을 클릭할 때가 아닙니다. 각 템플릿 가져오기에는 해당 표시를 위한 연결된 콘텐츠 호출이 포함될 수 있습니다.
+
+HTML이 연결된 콘텐츠에서 반환된 REST 데이터를 참조하는 경우, 해당 데이터는 메시지가 템플릿된 세션에서 사용할 수 있습니다. 여러 버튼이 클릭 시 추가 호출을 트리거하지 않고 동일한 연결된 콘텐츠 응답을 참조할 수 있습니다.
+
+### 인앱 메시지가 표시되기 전에 지연이 발생하는 이유는 무엇인가요? {#why-is-there-a-delay-before-my-in-app-message-displays}
+
+표준 인앱 메시지는 트리거 이벤트 후 캐시된 페이로드가 준비되는 즉시 표시됩니다. Android 및 iOS에서는 메시지에 참조된 대용량 이미지 또는 기타 CDN 호스팅 자산이 다운로드를 완료하는 동안 인앱 메시지가 나타나기 전에 짧은 지연이 추가될 수 있습니다.
+
+[템플릿 인앱 메시지](#what-are-templated-in-app-messages) 및 **표시 전 Campaign 적격성 재평가**가 선택된 Campaign은 트리거 후 메시지가 나타나기 전에 추가 네트워크 요청이 필요합니다. 이로 인해 짧은 지연이 추가될 수 있습니다(안정적인 연결에서 일반적으로 100ms 미만). 자세한 내용은 [타겟 사용자 선택]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target)을 참조하세요.
+
+### 인앱 메시지가 대시보드 미리보기와 다르게 보이는 이유는 무엇인가요? {#why-does-my-in-app-message-look-different-from-the-dashboard-preview}
+
+전달된 인앱 메시지는 다음과 같은 경우 대시보드 미리보기와 다를 수 있습니다:
+
+- 통합에서 특정 플랫폼에 커스텀 스타일을 적용하거나 기본 인앱 메시지 UI를 재정의하는 경우
+- 미리보기에서 수신자와 다른 속성을 가진 테스트 사용자 프로필을 사용하는 경우
+- 템플릿 콘텐츠가 미리보기 모드와 발송 시점에서 다르게 해석되는 경우
+
+외관을 검증할 때는 타겟 오디언스와 일치하는 프로필을 가진 테스트 사용자로 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)를 사용하세요.
+
+### 다중 페이지 인앱 메시지가 모든 페이지에서 동일한 배경을 사용하는 이유는 무엇인가요? {#why-does-a-multi-page-in-app-message-use-the-same-background-on-every-page}
+
+다중 페이지 인앱 메시지의 한 페이지에서 **배경 이미지**가 활성화되면, 해당 배경이 메시지의 모든 페이지에 적용됩니다. 페이지별로 다른 배경을 사용하려면 JavaScript를 사용하여 페이지 간에 이미지를 전환하는 커스텀 HTML 블록을 사용하세요.
+
+### 웹 인앱 메시지를 어떻게 테스트하나요? {#how-do-i-test-web-in-app-messages}
+
+웹 인앱 메시지 테스트 발송은 테스트 기기에서 푸시가 활성화되어 있어야 합니다. 테스트 플로우가 앱 또는 사이트를 여는 푸시 알림을 전달하고, 그곳에서 인앱 메시지가 표시되기 때문입니다. 동일한 푸시 기반 테스트 경로는 Braze에서 푸시가 구성되지 않은 모든 플랫폼에 적용되지만, 많은 모바일 통합에서는 이미 푸시가 활성화되어 있으므로 웹에서 푸시 누락이 가장 자주 발생합니다. 대신 내부 테스트 Segment에 대한 라이브 Campaign을 사용하세요. 단계는 [테스트 메시지 보내기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message)를 참조하세요.
+
 ## Android에서 전체화면 HTML 인앱 메시지의 닫기 버튼이 숨겨지는 이유는 무엇인가요? {#why-is-the-close-button-hidden-on-full-screen-html-in-app-messages-on-android}
 
 엣지 투 엣지 디스플레이가 있는 기기(Android 15 이상 포함)에서는 전체화면 HTML 인앱 메시지가 시스템 상태 표시줄 뒤에 그려져 레이아웃 상단의 닫기 컨트롤이 숨겨질 수 있습니다.
@@ -149,7 +179,7 @@ Braze Android SDK 버전 37.0.0 이상에서는 기본적으로 HTML 인앱 메�
 
 ## 드래그 앤 드롭 인앱 메시지를 커스터마이징할 때 알아야 할 사항은 무엇인가요? {#what-should-i-know-when-customizing-drag-and-drop-in-app-messages}
 
-[드래그 앤 드롭 에디터]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)는 모달 및 전체화면 표시 유형을 지원합니다. 이러한 컨테이너 내에서 편집기 블록을 사용하여 콘텐츠를 구축합니다.
+[드래그 앤 드롭 에디터]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)는 Modal 및 전체화면 표시 유형을 지원합니다. 이러한 컨테이너 내에서 편집기 블록을 사용하여 콘텐츠를 구축합니다.
 
 다음 사항을 참고하세요:
 
@@ -159,9 +189,9 @@ Braze Android SDK 버전 37.0.0 이상에서는 기본적으로 HTML 인앱 메�
 - **플랫폼별 배경:** 단일 메시지는 웹과 모바일에서 동일한 배경 이미지와 색상을 사용합니다. 에디터에서 플랫폼별로 다른 배경을 설정할 수 없습니다.
 - **다중 페이지 메시지:** 배경 이미지와 메시지 수준 클릭 시 동작은 다중 페이지 메시지의 모든 페이지에 적용됩니다. 각 페이지에서 다른 전체 이미지를 사용하려면 다음 페이지로 연결되는 버튼을 추가하세요.
 - **메시지 수준 스타일:** 메시지 수준 스타일은 전체 메시지에 적용됩니다.
-- **배경 이미지:** 배경 이미지는 모달에 맞게 늘어납니다.
+- **배경 이미지:** 배경 이미지는 Modal에 맞게 늘어납니다.
 
-에디터에 대한 추가 고려 사항은 [인앱 메시지 준비 가이드]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide/#drag-and-drop-editor-considerations)를 참조하세요.
+에디터에 대한 추가 고려 사항은 [인앱 메시지 준비 가이드]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/prep_guide#drag-and-drop-editor-considerations)를 참조하세요.
 
 ## Android SDK 로그에서 "Event was published, but no subscribers were found"는 무엇을 의미하나요? {#what-does-event-was-published-but-no-subscribers-were-found-mean-in-android-sdk-logs}
 

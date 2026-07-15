@@ -18,16 +18,16 @@ platform: API
 Das Einrichten einer API-getriggerten Kampagne erfordert einige Schritte. Erstellen Sie zunächst eine neue Mehrkanal- oder Einkanal-Kampagne (mit multivariaten Tests).
 
 {% alert note %}
-Eine API-getriggerte Kampagne unterscheidet sich von einer [API-Kampagne]({{site.baseurl}}/developer_guide/rest_api/api_campaigns/#api-campaigns).
+Eine API-getriggerte Kampagne unterscheidet sich von einer [API-Kampagne]({{site.baseurl}}/developer_guide/rest_api/api_campaigns#api-campaigns).
 {% endalert %}
 
-Konfigurieren Sie als Nächstes Ihre Texte und Benachrichtigungen genauso, wie Sie es normalerweise für geplante Benachrichtigungen tun würden, und wählen Sie **API-Triggered Delivery** aus. Weitere Informationen zum Triggern dieser Kampagnen von Ihrem Server aus finden Sie in diesem Artikel zum [Senden API-getriggerter Kampagnen]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/).
+Konfigurieren Sie als Nächstes Ihre Texte und Benachrichtigungen genauso, wie Sie es normalerweise für geplante Benachrichtigungen tun würden, und wählen Sie **API-Triggered Delivery** aus. Weitere Informationen zum Triggern dieser Kampagnen von Ihrem Server aus finden Sie in diesem Artikel zum [Senden API-getriggerter Kampagnen]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns).
 
-![]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
+![Konfigurieren Sie Ihre Texte und Benachrichtigungen wie gewohnt für geplante Benachrichtigungen und wählen Sie „API-Triggered Delivery“ aus.]({% image_buster /assets/img_archive/api_triggered_campaign_delivery.png %})
 
 ## Verwendung von Template-Inhalten aus einer API-Anfrage {#using-the-templated-content-included-with-an-api-request}
 
-Zusätzlich zum Triggern der Nachricht können Sie auch Inhalte mit der API-Anfrage einbinden, die über das `trigger_properties`-Objekt in die Nachricht eingesetzt werden. Auf diese Inhalte kann im Nachrichtentext referenziert werden. Verwenden Sie genau zwei geschweifte Klammern pro Liquid-Tag in `trigger_properties` und im Nachrichtentext. Ein Beispiel: {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} Eine zusätzliche `{` oder `}` ist eine häufige Ursache für [Fehler bei der API-getriggerten Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq/#why-is-my-api-triggered-liquid-failing-in-braze).
+Zusätzlich zum Triggern der Nachricht können Sie auch Inhalte mit der API-Anfrage einbinden, die über das `trigger_properties`-Objekt in die Nachricht eingesetzt werden. Auf diese Inhalte kann im Nachrichtentext referenziert werden. Verwenden Sie genau zwei geschweifte Klammern pro Liquid-Tag in `trigger_properties` und im Nachrichtentext. Ein Beispiel: {% raw %}`{{api_trigger_properties.${your_property}}}`.{% endraw %} Eine zusätzliche `{` oder `}` ist eine häufige Ursache für [Fehler bei der API-getriggerten Personalisierung]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).
 
 Sehen Sie sich das folgende Beispiel einer sozialen Benachrichtigung für zusätzlichen Kontext an.
 
@@ -39,4 +39,4 @@ Die Anzahl, wie oft eine Nutzerin oder ein Nutzer eine API-getriggerte Kampagne 
 
 Nehmen wir zum Beispiel an, Sie verwenden eine API-getriggerte Kampagne, um Nutzer:innen eine Kampagne über einen Artikel zu senden, den sie kürzlich angesehen haben. In diesem Fall können Sie die Kampagne so begrenzen, dass maximal eine Nachricht pro Tag gesendet wird – unabhängig davon, wie viele Artikel angesehen wurden, während der API-Trigger für jeden Artikel ausgelöst wird. Wenn Ihre API-getriggerte Kampagne hingegen transaktional ist, sollten Sie sicherstellen, dass die Nutzerin oder der Nutzer die Kampagne bei jeder Transaktion erhält, indem Sie die Verzögerung auf null Minuten setzen.
 
-![]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})
+![Screenshot zu den Einstellungen für die erneute Berechtigung bei API-getriggerten Kampagnen.]({% image_buster /assets/img_archive/api_triggered_reeligible.png %})

@@ -97,11 +97,11 @@ Le niveau de journalisation ne peut être défini au moment de l'exécution qu'a
 
 Dans les versions antérieures du SDK Swift iOS de Braze, le champ IDFV (identifiant du fournisseur) était automatiquement collecté en tant qu'ID d'appareil de l'utilisateur.
 
-À partir du SDK Swift v5.7.0, le champ IDFV peut être désactivé de manière facultative et Braze générera à la place un UUID aléatoire en tant qu'ID d'appareil. Pour plus d'informations, reportez-vous à la section [Collecte de l'IDFV]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift).
+À partir du SDK Swift v5.7.0, le champ IDFV peut être désactivé de manière facultative et Braze générera à la place un UUID aléatoire en tant qu'ID d'appareil. Pour plus d'informations, reportez-vous à la section [Collecte de l'IDFV]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift).
 
 ## Collecte IDFA facultative {#optional-idfa-collection}
 
-La collecte IDFA est facultative dans le SDK Braze et désactivée par défaut. La collecte IDFA n'est requise dans Braze que si vous avez l'intention d'utiliser nos [intégrations d'attribution d'installation]({{site.baseurl}}/partners/message_orchestration/attribution/adjust/). Si vous choisissez de stocker votre IDFA, nous le stockerons gratuitement, afin que vous puissiez profiter de ces options dès leur disponibilité sans travail de développement supplémentaire.
+La collecte IDFA est facultative dans le SDK Braze et désactivée par défaut. La collecte IDFA n'est requise dans Braze que si vous avez l'intention d'utiliser nos [intégrations d'attribution d'installation]({{site.baseurl}}/partners/message_orchestration/attribution/adjust). Si vous choisissez de stocker votre IDFA, nous le stockerons gratuitement, afin que vous puissiez profiter de ces options dès leur disponibilité sans travail de développement supplémentaire.
 
 Par conséquent, nous vous recommandons de continuer à collecter l'IDFA si vous remplissez l'un des critères suivants :
 
@@ -125,7 +125,7 @@ L'invite d'autorisation de transparence du suivi des applications nécessite une
 
 Suivez ces étapes pour implémenter la collecte IDFA :
 
-##### Étape 1 : Implémenter ABKIDFADelegate {#step-1-implement-abkidfadelegate}
+#### Étape 1 : Implémenter ABKIDFADelegate {#step-1-implement-abkidfadelegate}
 
 Créez une classe conforme au protocole [`ABKIDFADelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKIDFADelegate.h) :
 

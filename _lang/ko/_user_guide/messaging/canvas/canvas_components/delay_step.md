@@ -19,7 +19,7 @@ tool: Canvas
 
 지연을 생성하려면 Canvas에 단계를 추가합니다. 사이드바에서 지연 구성요소를 드래그 앤 드롭하거나, 단계 하단의 <i class="fas fa-plus-circle"></i> 플러스 버튼을 선택한 다음 **지연**을 선택합니다.
 
-#### 확장 지연 {#extended-delays}
+### 확장 지연 {#extended-delays}
 
 지연 단계를 최대 2년(730일)까지 연장할 수 있습니다. 예를 들어, 앱의 신규 사용자를 온보딩하는 경우 세션을 시작하지 않은 사용자에게 메시지 단계를 보내기 전에 2개월의 확장 지연을 추가할 수 있습니다.
 
@@ -48,14 +48,14 @@ Canvas에서 다음 메시지 전 지연 유형을 선택할 수 있습니다. �
 
 **캘린더 날짜**를 선택하면 특정 날짜와 시간까지 사용자를 단계에 보류할 수 있습니다.
 
-#### 고려 사항 {#considerations}
+### 고려 사항 {#considerations}
 
-##### 사용자는 과거 날짜의 단계나 메시지를 받지 않습니다 {#users-wont-receive-past-dated-steps-or-messages}
+#### 사용자는 과거 날짜의 단계나 메시지를 받지 않습니다 {#users-wont-receive-past-dated-steps-or-messages}
 
 선택한 날짜와 시간이 사용자가 지연 단계에 도달하는 시점에 이미 지난 경우, 사용자는 Canvas를 종료합니다. Canvas 시작과 "정확한 날짜까지 대기" 단계에 선택된 날짜 사이에는 최대 31일의 간격이 있을 수 있습니다.
 
 {% alert important %}
-[Canvas Context 얼리 액세스]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)에 참여 중인 경우, 최대 2년까지 지연을 설정할 수 있습니다.
+[Canvas Context 얼리 액세스]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)에 참여 중인 경우, 최대 2년까지 지연을 설정할 수 있습니다.
 {% endalert %}
 
 예를 들어, 다음 시나리오에서 사용자는 단계나 메시지를 받지 않습니다:
@@ -63,7 +63,7 @@ Canvas에서 다음 메시지 전 지연 유형을 선택할 수 있습니다. �
 - 메시지가 5월 3일 오후 9시에 발송되도록 스케줄되어 있지만, 지연 단계가 5월 3일 오전 9시에 만료됩니다.
 - 캔버스 단계가 사용자의 현지 시간대의 특정 시간까지 지연되지만, 사용자의 고객 프로필에 시간대가 설정되어 있지 않습니다. 이 경우 지연은 해당 사용자에 대해 회사 시간대를 기본값으로 사용하며, 이미 지정된 시간이 지났습니다.
 
-##### 후속 지연 단계가 이전 지연 단계의 타임라인 내에 있으면 사용자가 종료됩니다 {#users-will-exit-if-a-subsequent-delay-step-is-within-a-prior-delay-steps-timeline}
+#### 후속 지연 단계가 이전 지연 단계의 타임라인 내에 있으면 사용자가 종료됩니다 {#users-will-exit-if-a-subsequent-delay-step-is-within-a-prior-delay-steps-timeline}
 
 Canvas에 두 개의 지연 단계가 있지만 첫 번째 지연 단계가 두 번째 지연 단계보다 긴 경우, 사용자도 Canvas를 종료합니다.
 
@@ -101,9 +101,9 @@ Canvas에 지연 구성요소를 추가하고 후속 단계가 없는 경우, �
 
 ### 개인화된 지연 {#personalized-delays}
 
-{% multi_lang_include early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
-**지연 개인화** 토글을 선택하여 사용자에 대한 개인화된 지연을 설정합니다. [Context 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/)와 함께 사용하여 지연할 컨텍스트 변수를 선택할 수 있습니다. 이렇게 하면 선택한 속성 또는 등록정보에 설정된 시간이 재정의됩니다. 일 또는 주 단위로 오프셋을 적용하고 사용자가 특정 시간에 진행하기를 원할 때 유용합니다. 시간대는 속성 또는 등록정보에서 가져오며, 사용할 수 없는 경우 대체 시간대를 사용합니다.
+**지연 개인화** 토글을 선택하여 사용자에 대한 개인화된 지연을 설정합니다. [Context 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)와 함께 사용하여 지연할 컨텍스트 변수를 선택할 수 있습니다. 이렇게 하면 선택한 속성 또는 등록정보에 설정된 시간이 재정의됩니다. 일 또는 주 단위로 오프셋을 적용하고 사용자가 특정 시간에 진행하기를 원할 때 유용합니다. 시간대는 속성 또는 등록정보에서 가져오며, 사용할 수 없는 경우 대체 시간대를 사용합니다.
 
 #### "특정 시간에"의 시간대 동작 {#time-zone-behavior-for-at-specific-time}
 
@@ -147,12 +147,12 @@ Canvas에 지연 구성요소를 추가하고 후속 단계가 없는 경우, �
 
 ### 개인화 실패 오류 {#personaliztion-failed-errors}
 
-사용자가 개인화된 지연을 트리거하지 않는 경우, 지연 단계에 대한 자격을 부여하도록 설정한 Context 단계가 예상대로 작동하지 않기 때문일 수 있습니다. [컨텍스트 변수가 유효하지 않은]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#troubleshooting) 경우, 사용자는 Context 단계에서 컨텍스트가 설정되지 않은 채로 Canvas를 계속 진행합니다. 이로 인해 개인화된 지연과 같은 Canvas의 이후 단계에 대한 자격을 갖추지 못할 수 있습니다.
+사용자가 개인화된 지연을 트리거하지 않는 경우, 지연 단계에 대한 자격을 부여하도록 설정한 Context 단계가 예상대로 작동하지 않기 때문일 수 있습니다. [컨텍스트 변수가 유효하지 않은]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting) 경우, 사용자는 Context 단계에서 컨텍스트가 설정되지 않은 채로 Canvas를 계속 진행합니다. 이로 인해 개인화된 지연과 같은 Canvas의 이후 단계에 대한 자격을 갖추지 못할 수 있습니다.
 
 ## 문제 해결
 
 ### Canvas가 중지되었을 때 지연 단계에 있는 사용자 {#users-in-a-delay-step-when-a-canvas-is-stopped}
 
-[Canvas를 중지]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases)하면, 이미 지연 단계에서 대기 중인 사용자는 즉시 종료되지 않습니다. Braze는 여전히 지연 완료를 스케줄하지만, Canvas가 중지된 동안에는 **추가 메시지가 발송되지 않습니다**.
+[Canvas를 중지]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases)하면, 이미 지연 단계에서 대기 중인 사용자는 즉시 종료되지 않습니다. Braze는 여전히 지연 완료를 스케줄하지만, Canvas가 중지된 동안에는 **추가 메시지가 발송되지 않습니다**.
 
-Canvas가 중지된 동안 사용자의 지연이 경과하기 전에 Canvas를 다시 활성화하면, 사용자는 스케줄대로 다음 단계로 진행할 수 있습니다. Canvas가 중지된 동안 지연 기간이 이미 경과한 경우, 해당 사용자는 다음 단계를 받는 대신 Canvas를 종료합니다. 예시는 [Canvas를 중지하면 어떻게 되나요?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-when-you-stop-a-canvas) 및 [Canvas 중지]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases)를 참조하세요.
+Canvas가 중지된 동안 사용자의 지연이 경과하기 전에 Canvas를 다시 활성화하면, 사용자는 스케줄대로 다음 단계로 진행할 수 있습니다. Canvas가 중지된 동안 지연 기간이 이미 경과한 경우, 해당 사용자는 다음 단계를 받는 대신 Canvas를 종료합니다. 예시는 [Canvas를 중지하면 어떻게 되나요?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas) 및 [Canvas 중지]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases)를 참조하세요.

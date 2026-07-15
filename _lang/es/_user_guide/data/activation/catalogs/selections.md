@@ -10,7 +10,7 @@ description: "Este artículo de referencia explica cómo crear y usar seleccione
 
 > Las selecciones son grupos de datos que puedes usar para personalizar un mensaje para cada usuario en tu campaña. Cuando usas una selección, básicamente estás configurando filtros personalizados basados en columnas específicas de tu catálogo. Esto puede incluir filtros por marca, tamaño, ubicación, fecha de adición y más. Te da control sobre lo que muestras a los usuarios al permitirte definir criterios que los artículos deben cumplir primero.<br><br>Esta página explica cómo crear y usar selecciones con tus catálogos.
 
-Después de crear un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/), puedes seguir haciendo referencia a los datos de tu catálogo incorporando selecciones en tus Campaigns o recomendaciones de Braze.
+Después de crear un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs), puedes seguir haciendo referencia a los datos de tu catálogo incorporando selecciones en tus campañas o recomendaciones de Braze.
 
 ![La sección Selecciones en un catálogo de ejemplo.]({% image_buster /assets/img_archive/catalog_selections1.png %})
 
@@ -18,11 +18,11 @@ Después de crear un [catálogo]({{site.baseurl}}/user_guide/data/activation/cat
 
 - Puedes crear hasta 30 selecciones por catálogo.
 - Puedes añadir hasta 10 filtros por selección.
-- Las selecciones son ideales para refinar las recomendaciones a partir de los datos de catálogo de Braze. Si buscas inspiración, consulta [Acerca de las recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/recommendations/) para ver ejemplos de casos de uso.
+- Las selecciones son ideales para refinar las recomendaciones a partir de los datos de catálogo de Braze. Si buscas inspiración, consulta [Acerca de las recomendaciones de artículos]({{site.baseurl}}/user_guide/brazeai/recommendations) para ver ejemplos de casos de uso.
 
 ## Filtros de geolocalización {#geolocation-filters}
 
-Si tu catálogo incluye un [tipo de campo de geolocalización]({{site.baseurl}}/user_guide/data/activation/catalogs/create/#supported-data-types), puedes usar filtros basados en geolocalización en tus selecciones para mostrar artículos del catálogo según su proximidad a un punto geográfico.
+Si tu catálogo incluye un [tipo de campo de geolocalización]({{site.baseurl}}/user_guide/data/activation/catalogs/create#supported-data-types), puedes usar filtros basados en geolocalización en tus selecciones para mostrar artículos del catálogo según su proximidad a un punto geográfico.
 
 Hay dos operadores de geolocalización disponibles:
 
@@ -97,7 +97,7 @@ Usando un catálogo con la información de tu servicio de reparto de comidas par
 
 ![Un ejemplo de selección para un servicio de reparto de comidas con dos filtros: uno que identifica un tipo de producto como comida, y otro que identifica la categoría como la consultada más recientemente. La selección está configurada para aleatorizar el orden en que se devuelven los tres resultados.]({% image_buster /assets/img_archive/catalog_selections2.png %}){: style="max-width:90%;"}
 
-Para usar este catálogo y esta selección en una Campaign, utiliza el modal **Add Personalization** en la sección de composición de mensajes al crear una Campaign. En este ejemplo, hemos seleccionado el catálogo con la información de tu servicio de reparto de comidas, y la selección para recomendaciones de comidas basadas en la categoría consultada más recientemente. Esto nos permite mostrar el nombre de la comida y el precio. Para enriquecer aún más tu mensaje, puedes usar la selección para añadir también una imagen de la primera comida recomendada.
+Para usar este catálogo y esta selección en una campaña, utiliza el modal **Add Personalization** en la sección de composición de mensajes al crear una campaña. En este ejemplo, hemos seleccionado el catálogo con la información de tu servicio de reparto de comidas, y la selección para recomendaciones de comidas basadas en la categoría consultada más recientemente. Esto nos permite mostrar el nombre de la comida y el precio. Para enriquecer aún más tu mensaje, puedes usar la selección para añadir también una imagen de la primera comida recomendada.
 
 ![Una tarjeta de contenido con el encabezado "¡Te ENCANTARÁN estas comidas tan valoradas!" con la selección "recommendations_be_recent_category" en la sección de composición del mensaje.]({% image_buster /assets/img_archive/catalog_selections3.png %}){: style="max-width:90%;"}
 

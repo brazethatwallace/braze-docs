@@ -10,7 +10,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Atualiza
 ---
 {% api %}
 # Atualizar Canvas programados disparados pela API {#update-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/update
 {% endapimethod %}
 
@@ -18,7 +18,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Atualiza
 
 Isso permite que você decida qual ação aciona o envio da mensagem. Você pode passar `trigger_properties` que a Braze insere como template na própria mensagem.
 
-Note que, para enviar mensagens com esse endpoint, você deve ter um ID de Canvas, criado quando você constrói um [Canvas]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier).
+Note que, para enviar mensagens com esse endpoint, você deve ter um ID de Canvas, criado quando você constrói um [Canvas]({{site.baseurl}}/api/identifier_types#canvas-api-identifier).
 
 Qualquer agendamento substituirá completamente o que você forneceu na solicitação de criação de agendamento ou em solicitações anteriores de atualização de agendamento.
   - Por exemplo, se você originalmente fornecer `"schedule" : {"time" : "2015-02-20T13:14:47", "in_local_time" : true}` e então na sua atualização fornecer `"schedule" : {"time" : "2015-02-20T14:14:47"}`, a Braze envia sua mensagem no horário fornecido em UTC, não no horário local do usuário.
@@ -28,7 +28,7 @@ Qualquer agendamento substituirá completamente o que você forneceu na solicita
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `canvas.trigger.schedule.update`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `canvas.trigger.schedule.update`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -53,12 +53,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Obrigatória | String | Consulte [identificador de Canvas]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id` | Obrigatório | String | Consulte [identificador de Canvas]({{site.baseurl}}/api/identifier_types). |
 | `schedule_id` | Opcional | String | O `schedule_id` a ser atualizado (obtido da resposta para criar agendamento). |
-| `schedule` | Obrigatória | Objeto | Consulte [objeto de agendamento]({{site.baseurl}}/api/objects_filters/schedule_object/). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+| `schedule` | Obrigatório | Objeto | Consulte [objeto de agendamento]({{site.baseurl}}/api/objects_filters/schedule_object). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```

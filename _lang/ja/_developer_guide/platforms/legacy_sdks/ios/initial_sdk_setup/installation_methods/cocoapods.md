@@ -42,7 +42,7 @@ end
 
 Pod の更新がマイナーバージョンの更新よりも小さいものを自動的に取得するように、Braze をバージョン管理することをお勧めします。これは `pod 'Appboy-iOS-SDK' ~> Major.Minor.Build` のようになります。大きな変更があっても、Braze SDKの最新バージョンを自動的に統合したい場合は、Podfile で `pod 'Appboy-iOS-SDK'` を使用できます。
 
-#### サブスペック {#subspecs}
+### サブスペック {#subspecs}
 
 インテグレーターは、完全なSDKをインポートすることをお勧めします。ただし、特定の Braze 機能のみを統合することが決まっている場合は、SDK全体ではなく、目的の UI サブスペックのみをインポートできます。
 
@@ -52,7 +52,7 @@ Pod の更新がマイナーバージョンの更新よりも小さいものを�
 | `pod 'Appboy-iOS-SDK/ContentCards'` | `ContentCards` サブスペックには、Braze Content Card UI と Core SDKが含まれています。 |
 | `pod 'Appboy-iOS-SDK/NewsFeed'` | `NewsFeed` サブスペックには Braze Core SDKが含まれています。 |
 | `pod 'Appboy-iOS-SDK/Core'` | `Core` サブスペックは、カスタムイベントや属性などの分析をサポートしています。 |
-{: .ws-td-nw-1 aria-label="Subspecs" }
+{: .ws-td-nw-1 aria-label="サブスペック" }
 
 ## ステップ 3:Braze SDKのインストール {#step-3-installing-the-braze-sdk}
 
@@ -67,7 +67,7 @@ pod install
 
 ## 次のステップ {#next-steps}
 
-指示に従って[統合を完了]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration/)します。
+指示に従って[統合を完了]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration)します。
 
 ## CocoaPods による Braze SDKの更新 {#updating-the-braze-sdk-via-cocoapods}
 

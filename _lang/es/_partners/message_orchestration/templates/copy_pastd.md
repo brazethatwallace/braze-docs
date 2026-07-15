@@ -26,19 +26,19 @@ Los siguientes elementos son necesarios para utilizar esta integración:
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Copy Pastd | Obligatoria para usar Building Blocks. Regístrate en [copypastd.com](https://copypastd.com). Cada cliente obtiene un espacio de trabajo, una biblioteca de hojas de estilo, cinco puestos de creador y una biblioteca de bloques. |
-| Clave de API REST de Braze para plantillas de correo electrónico | Una clave de API con los permisos `templates.email.create`, `templates.email.update` y `templates.email.list`.<br><br>Crea la clave en el dashboard de Braze desde **Settings** > **API Keys**. |
-| Clave de API REST de Braze para Content Blocks | Una clave de API con los permisos `content_blocks.create`, `content_blocks.update`, `content_blocks.info` y `content_blocks.list`.<br><br>Crea la clave en el dashboard de Braze desde **Settings** > **API Keys**. |
-| Clave de API REST de Braze para Catálogos (opcional) | Una clave de API con acceso de lectura a `catalogs.get`, `catalogs.get_item` y `catalogs.get_selections`. Solo es obligatoria si planeas vincular bloques a Catálogos de Braze. |
-| Punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión depende de la URL de Braze de tu instancia. Building Blocks selecciona el punto de conexión automáticamente en función del clúster que elijas. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Clave de API REST de Braze para plantillas de correo electrónico | Una clave de API con los permisos `templates.email.create`, `templates.email.update` y `templates.email.list`.<br><br>Crea la clave en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze para Content Blocks | Una clave de API con los permisos `content_blocks.create`, `content_blocks.update`, `content_blocks.info` y `content_blocks.list`.<br><br>Crea la clave en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze para catálogos (opcional) | Una clave de API con acceso de lectura a `catalogs.get`, `catalogs.get_item` y `catalogs.get_selections`. Solo es obligatoria si planeas vincular bloques a catálogos de Braze. |
+| Endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint depende de la URL de Braze de tu instancia. Building Blocks selecciona el endpoint automáticamente en función del clúster que elijas. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 * **Creación consistente con la marca a escala.** Aplica una hoja de estilo de Building Blocks a cada plantilla, y los colores, fuentes, estilos de botón y escala de relleno se renderizan de forma idéntica en cientos de correos electrónicos. Cuando la marca cambie, actualiza la hoja de estilo una vez y resincroniza para implementar la actualización en todos tus correos electrónicos a la vez.
-* **Plantillas de producto vinculadas a Contenido conectado y Catálogos.** Vincula los campos de los bloques de correo electrónico directamente a tus puntos de conexión de [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) y [Catálogos de Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/) desde dentro del creador. Reutiliza la misma plantilla para lanzamientos de nuevos productos, colecciones de temporada o actualizaciones de contenido sin tocar Liquid.
+* **Plantillas de producto vinculadas a contenido conectado y catálogos.** Vincula los campos de los bloques de correo electrónico directamente a tus endpoints de [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) y [catálogos de Braze]({{site.baseurl}}/user_guide/data/activation/catalogs) desde dentro del creador. Reutiliza la misma plantilla para lanzamientos de nuevos productos, colecciones de temporada o actualizaciones de contenido sin tocar Liquid.
 * **Producción de correo electrónico de autoservicio para especialistas en marketing no técnicos.** Compón un correo electrónico completo a partir de bloques aprobados, incluyendo personalización y lógica de Liquid, y envíalo a Braze para revisión sin necesidad de soporte de desarrolladores para escribir HTML o Liquid ni realizar control de calidad en ninguno de los dos.
 * **Encabezados y pies de página centralizados, actualizados con un clic.** Crea un encabezado o pie de página una vez en el creador de Building Blocks y envíalo a Braze. Cada plantilla que lo referencia se mantiene sincronizada, de modo que un cambio de logotipo, una modificación de texto legal o un nuevo enlace social solo requiere una actualización dentro de Building Blocks para aplicarse en todos los correos electrónicos que ya están en Braze.
-* **Contenido centralizado en todos los correos electrónicos.** Crea un hero, pie de página o tarjeta promocional una vez como bloque inteligente de Building Blocks. Actualízalo, sincroniza, y cada correo electrónico en Braze que lo referencia recoge el cambio en el siguiente envío. Los flujos de bienvenida, los boletines semanales y los recorridos desencadenados se mantienen actualizados sin editar cada Campaign.
+* **Contenido centralizado en todos los correos electrónicos.** Crea un hero, pie de página o tarjeta promocional una vez como bloque inteligente de Building Blocks. Actualízalo, sincroniza, y cada correo electrónico en Braze que lo referencia recoge el cambio en el siguiente envío. Los flujos de bienvenida, los boletines semanales y los recorridos desencadenados se mantienen actualizados sin editar cada campaña.
 * **Plantillas bloqueadas para que los colaboradores se autogestionen.** Crea plantillas, bloquea campos seleccionados y luego invita a otros equipos a crear sus propios correos electrónicos desde una interfaz de colaborador sin otorgarles acceso a herramientas orientadas al usuario.
 
 ## Integración {#integration}
@@ -50,9 +50,9 @@ Conectar Building Blocks a Braze es una configuración única. Una vez que tus c
 {% endalert %}
 
 1. Inicia sesión en Building Blocks en [blocks.copypastd.com](https://blocks.copypastd.com), o selecciona **Login** en [copypastd.com](https://copypastd.com).
-2. Desde el dashboard, selecciona **Set up your Braze connection**. (Esta píldora aparece para los administradores en el primer inicio de sesión y hasta que se complete. También puedes acceder a la página desde **Team Settings** > **Connect** > **Braze API Keys**.)
-3. Selecciona tu clúster de Braze en el menú desplegable. El punto de conexión REST correspondiente se completa automáticamente.
-4. Pega tu clave de API de plantillas, tu clave de API de Content Blocks y (opcionalmente) tu clave de API de Catálogos en los campos correspondientes.
+2. Desde el panel, selecciona **Set up your Braze connection**. (Esta píldora aparece para los administradores en el primer inicio de sesión y hasta que se complete. También puedes acceder a la página desde **Team Settings** > **Connect** > **Braze API Keys**.)
+3. Selecciona tu clúster de Braze en el menú desplegable. El endpoint REST correspondiente se completa automáticamente.
+4. Pega tu clave de API de plantillas, tu clave de API de Content Blocks y (opcionalmente) tu clave de API de catálogos en los campos correspondientes.
 5. Selecciona **Validate and save**. Building Blocks llama a Braze para confirmar que las claves funcionan y que los alcances de permisos son correctos. Si falta algo, un error en línea te muestra qué alcance es incorrecto.
 
 ### Paso 2: Sincronizar tu biblioteca con Braze {#step-2-sync-your-library-to-braze}
@@ -69,15 +69,15 @@ Conectar Building Blocks a Braze es una configuración única. Una vez que tus c
 3. Selecciona **Save**. Building Blocks regenera el Liquid para cada bloque que usa esta hoja de estilo.
 4. Selecciona **Sync now** para enviar los estilos actualizados a tu espacio de trabajo de Braze.
 
-### Paso 2: Habilitar puntos de conexión de Contenido conectado (opcional) {#step-2-enable-connected-content-endpoints-optional}
+### Paso 2: Habilitar endpoints de contenido conectado (opcional) {#step-2-enable-connected-content-endpoints-optional}
 
 1. En Building Blocks, navega a **Settings** > **Connect** > **Connected Content endpoints**.
-2. Agrega la URL del punto de conexión, asígnale un nombre y guárdalo. Building Blocks admite un formato de respuesta de Google Sheets además del formato JSON estándar.
-3. En el creador, vincula cualquier campo de texto, imagen o enlace a una variable de Contenido conectado desde el panel **Personalize**. El Liquid correcto {% raw %}`{% connected_content %}`{% endraw %} se genera en la exportación.
+2. Agrega la URL del endpoint, asígnale un nombre y guárdalo. Building Blocks admite un formato de respuesta de Google Sheets además del formato JSON estándar.
+3. En el creador, vincula cualquier campo de texto, imagen o enlace a una variable de contenido conectado desde el panel **Personalize**. El Liquid correcto {% raw %}`{% connected_content %}`{% endraw %} se genera en la exportación.
 
-### Paso 3: Vincular a Catálogos de Braze (opcional) {#step-3-bind-to-braze-catalogs-optional}
+### Paso 3: Vincular a catálogos de Braze (opcional) {#step-3-bind-to-braze-catalogs-optional}
 
-1. En Building Blocks, navega a **Settings** > **Connect** > **Catalogs**. Building Blocks lee tu lista de catálogos usando la clave de API de Catálogos.
+1. En Building Blocks, navega a **Settings** > **Connect** > **Catalogs**. Building Blocks lee tu lista de catálogos usando la clave de API de catálogos.
 2. Abre un bloque compatible (por ejemplo, una cuadrícula de productos).
 3. Selecciona un catálogo y una selección, luego mapea los campos del bloque a los atributos de los elementos del catálogo.
 4. Envía la plantilla. Building Blocks emite el Liquid correcto {% raw %}`{% catalog_items %}`{% endraw %} y {% raw %}`{% catalog_selection_items %}`{% endraw %} para que Braze lo resuelva en el momento del envío.
@@ -88,7 +88,7 @@ Building Blocks viene con los atributos de usuario predeterminados de Braze (`fi
 
 1. En Building Blocks, navega a **Team Settings** > **Connect** > **Custom Attributes**.
 2. Importa tus atributos personalizados usando uno de los siguientes métodos:
-* **Importación masiva (recomendado).** En Braze, navega a **Data Settings** > **Custom Attributes** y selecciona **Export** (esquina superior derecha). Carga el CSV en Building Blocks.
+* **Importación masiva (recomendado).** En Braze, navega a **Data Settings** > **Custom Attributes** y selecciona **Export**. Carga el CSV en Building Blocks.
 * **Agregar atributos de uno en uno.** Escribe el nombre del atributo (por ejemplo, `loyalty_tier`) y selecciona **Add**. Este método es útil si solo estás agregando algunos atributos o si deseas agregar un nuevo atributo entre exportaciones de Braze.
 
 Después de guardar, tus atributos personalizados aparecen en el menú desplegable **Personalize** del creador junto con los predeterminados. Al insertar uno, se renderiza el Liquid correcto {% raw %}`{{custom_attribute.${name}}}`{% endraw %} en la exportación, de modo que Braze resuelve el valor por destinatario en el momento del envío.
@@ -98,10 +98,10 @@ Después de guardar, tus atributos personalizados aparecen en el menú desplegab
 ### Paso 1: Enviar una plantilla a Braze {#step-1-push-a-template-to-braze}
 
 1. Abre cualquier correo electrónico en el creador de Building Blocks.
-2. Selecciona **Push to Braze** (esquina superior derecha).
+2. Selecciona **Push to Braze** en la barra de acciones.
 3. Selecciona el espacio de trabajo y confirma. Building Blocks crea una plantilla de correo electrónico en Braze con el Liquid renderizado.
 
-La plantilla aparece en Braze en **Templates & Media** > **Email Templates**, con el nombre del correo electrónico y la fecha seleccionada en la configuración del correo electrónico.
+La plantilla aparece en Braze en **Plantillas y medios** > **Plantillas de correo electrónico**, con el nombre del correo electrónico y la fecha seleccionada en la configuración del correo electrónico.
 
 ### Paso 2: Usar la plantilla en una Campaign o Canvas {#step-2-use-the-template-in-a-campaign-or-canvas}
 
@@ -115,7 +115,7 @@ La plantilla lleva cada referencia de Building Blocks (hoja de estilo, Content B
 1. En Building Blocks, edita el bloque o la hoja de estilo correspondiente.
 2. Selecciona **Sync** para enviar el Content Block actualizado de vuelta a Braze.
 
-Cada correo electrónico en Braze que lo referencia (permanentes, desencadenados, flujos de bienvenida) recoge la nueva versión en el siguiente envío. No necesitas editar cada Campaign.
+Cada correo electrónico en Braze que lo referencia (permanentes, desencadenados, flujos de bienvenida) recoge la nueva versión en el siguiente envío. No necesitas editar cada campaña.
 
 ### Paso 4: Crear pools de contenido {#step-4-build-content-pools}
 
@@ -139,7 +139,7 @@ Un bloque inteligente es un bloque en el lienzo del creador que referencia uno o
 
 A partir de ahora, actualizas el pool, no el correo electrónico. Los flujos desencadenados, los boletines permanentes y las campañas de temporada se mantienen actualizados siempre que el pool esté actualizado.
 
-Encuentra tus plantillas de Building Blocks cargadas en Braze en **Templates & Media** > **Email Templates**. Las hojas de estilo y bloques sincronizados aparecen en **Templates & Media** > **Content Blocks**.
+Encuentra tus plantillas de Building Blocks cargadas en Braze en **Plantillas y medios** > **Plantillas de correo electrónico**. Las hojas de estilo y bloques sincronizados aparecen en **Plantillas y medios** > **Content Blocks**.
 
 ## Consideraciones {#considerations}
 
@@ -147,14 +147,14 @@ Encuentra tus plantillas de Building Blocks cargadas en Braze en **Templates & M
 - **Los permisos de las claves de API tienen alcances separados.** Las claves de plantillas y las claves de Content Blocks se mantienen separadas. La validación falla rápidamente si a una clave le falta un alcance requerido, de modo que sabes exactamente qué permiso agregar en Braze.
 - **Los nombres de Content Blocks tienen espacio de nombres.** Building Blocks envía Content Blocks con los prefijos `CP_` (bloques) y `cp_` (hojas de estilo) para evitar colisiones con Content Blocks creados directamente en Braze.
 - **Las ediciones de hojas de estilo actualizan todos los correos electrónicos.** Las hojas de estilo se renderizan como un único Content Block de Braze referenciado por cada plantilla. Un cambio en Building Blocks actualiza cada correo electrónico en Braze que lo usa, incluidos los que ya están planificados. Prueba los cambios de hoja de estilo en una plantilla borrador antes de sincronizar.
-- **La vinculación de catálogos es de solo lectura.** Building Blocks lee los catálogos para poblar la interfaz de vinculación. No escribe en los Catálogos de Braze. Toda la gestión de catálogos sigue ocurriendo en el dashboard de Braze.
-- **Límites de velocidad y reintentos.** Todas las solicitudes salientes respetan los límites de velocidad de Braze, con retirada exponencial, jitter y manejo de Retry-After. Se envía un encabezado `User-Agent: partner-CopyPastd` en cada llamada para la atribución del socio.
+- **La vinculación de catálogos es de solo lectura.** Building Blocks lee los catálogos para poblar la interfaz de vinculación. No escribe en los catálogos de Braze. Toda la gestión de catálogos sigue ocurriendo en el panel de Braze.
+- **Límites de velocidad y reintentos.** Todas las solicitudes salientes respetan los límites de velocidad de Braze, con retirada exponencial, jitter y manejo de Retry-After. Se envía un encabezado `User-Agent: partner-CopyPastd` en cada llamada para la atribución del partner.
 - **No se transmiten datos de usuario.** Building Blocks es una herramienta de creación de contenido. No envía atributos de usuario, eventos, compras ni datos de segmentos a Braze, y no consume puntos de datos de Braze.
 
 ## Solución de problemas {#troubleshooting}
 
 - **La validación de la clave de API falla.** Verifica que cada clave tenga los permisos exactos listados en los requisitos previos. Los alcances de plantillas y Content Blocks se verifican por separado. Si regeneras una clave en Braze, pega el nuevo valor en Building Blocks y vuelve a validar.
-- **Discrepancia en el punto de conexión REST.** Las claves de plantillas y Content Blocks deben provenir del mismo espacio de trabajo de Braze, y el punto de conexión REST debe coincidir con el clúster. El menú desplegable de Building Blocks lo configura por ti, así que verifica la selección del clúster si la validación falla.
+- **Discrepancia en el endpoint REST.** Las claves de plantillas y Content Blocks deben provenir del mismo espacio de trabajo de Braze, y el endpoint REST debe coincidir con el clúster. El menú desplegable de Building Blocks lo configura por ti, así que verifica la selección del clúster si la validación falla.
 - **Push to Braze devuelve un error.** Abre **Settings** > **Build** > **Activity log** para ver el último intento de sincronización y la respuesta que Braze devolvió. La mayoría de los fallos están relacionados con permisos (alcance faltante) o cuotas (límite de velocidad, reintentado automáticamente).
 - **El Content Block no se actualiza en Braze.** Activa una resincronización manual desde **Settings** > **Connect** > **Braze** > **Sync library**. Building Blocks realiza una comparación e intercambio, por lo que los bloques sin cambios se omiten.
 - **La plantilla referencia un Content Block que aún no existe en Braze.** Envía primero las dependencias (hoja de estilo, bloques inteligentes) usando **Sync library**, luego envía la plantilla.

@@ -6,9 +6,11 @@ description: "Référence du README du SDK Web de Braze, miroir depuis GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Guide du dépôt du SDK Web {#web-sdk-repository-guide}
+
 ## À propos du SDK Web de Braze {#about-the-braze-web-sdk}
 
-Le SDK Web de Braze vous permet d'intégrer la plateforme d'engagement client de Braze directement dans vos applications Web. Conçu avec TypeScript et pensé pour le développement Web moderne, ce SDK fournit des outils complets pour la gestion des utilisateurs, l'envoi de messages, l'analytique et les indicateurs de fonctionnalité.
+Le SDK Web de Braze vous permet d'intégrer la plateforme d'engagement client de Braze directement dans vos applications Web. Conçu avec TypeScript et pensé pour le développement Web moderne, ce SDK fournit des outils complets pour la gestion des utilisateurs, l'envoi de messages, l'analytique et les feature flags.
 
 ### Ce que vous pouvez faire {#what-you-can-do}
 
@@ -17,11 +19,11 @@ Le SDK Web de Braze vous permet d'intégrer la plateforme d'engagement client de
 - **Content Cards** : affichez des flux de contenu personnalisés et des cartes promotionnelles qui se mettent à jour en temps réel
 - **Bannières** : affichez des messages sous forme de bannières dans des emplacements spécifiques de votre site
 - **Notifications push** : envoyez des notifications push Web pour engager les utilisateurs même lorsqu'ils ne sont pas sur votre site
-- **Indicateurs de fonctionnalité** : contrôlez le déploiement des fonctionnalités et les tests A/B grâce à la gestion des indicateurs de fonctionnalité côté serveur
+- **Feature flags** : contrôlez le déploiement des fonctionnalités et les tests A/B grâce à la gestion des feature flags côté serveur
 - **Analytique** : suivez les événements personnalisés, les interactions utilisateur et les indicateurs de conversion
 - **Gestion des sessions** : surveillez les sessions utilisateur et les schémas d'engagement
 
-Que vous développiez une application monopage, un site e-commerce ou une plateforme de contenu, le SDK Web de Braze fournit les outils nécessaires pour créer des expériences utilisateur personnalisées et engageantes qui favorisent la croissance et la rétention.
+Que vous développiez une application monopage, un site e-commerce ou une plateforme de contenu, le SDK Web de Braze fournit les outils nécessaires pour créer des expériences utilisateur personnalisées et engageantes qui favorisent la croissance et la fidélisation.
 
 ## Conditions préalables {#prerequisites}
 
@@ -70,7 +72,7 @@ La fonction `initialize` accepte un objet d'options avec les propriétés suivan
 | `enableLogging` | `boolean` | `false` | Définissez sur true pour activer la journalisation par défaut. Notez que cela amènera Braze à écrire dans la console JavaScript, visible par tous les utilisateurs ! Vous devriez probablement supprimer cette option ou fournir un logger alternatif avec setLogger avant de mettre votre page en production. |
 | `allowUserSuppliedJavascript` | `boolean` | `false` | Par défaut, le SDK Web de Braze n'autorise pas les actions de clic JavaScript fournies par l'utilisateur, ni les messages in-app HTML et les bannières, car ils permettent aux utilisateurs du tableau de bord de Braze d'exécuter du JavaScript sur votre site. Pour indiquer que vous faites confiance aux utilisateurs du tableau de bord de Braze pour écrire des actions de clic JavaScript non malveillantes, définissez cette propriété sur true. |
 | `doNotLoadFontAwesome` | `boolean` | `false` | Braze utilise Font Awesome pour les icônes des messages in-app. Par défaut, Braze charge automatiquement FontAwesome 4.7.0 depuis le CDN FontAwesome. Pour désactiver ce comportement (par exemple, parce que votre site utilise une version personnalisée de FontAwesome), définissez cette option sur `true`. Notez que si vous faites cela, vous êtes responsable de vous assurer que FontAwesome est chargé sur votre site — sinon les messages in-app pourraient ne pas s'afficher correctement. |
-| `inAppMessageZIndex` | `number` | `999999` | Par défaut, le SDK Braze affiche les messages in-app avec un z-index de 999999. Fournissez une valeur pour cette option afin de remplacer cette valeur par défaut. |
+| `inAppMessageZIndex` | `number` | `999999` | Par défaut, le SDK Braze affiche les In-App Messages avec un z-index de 999999. Fournissez une valeur pour cette option afin de remplacer cette valeur par défaut. |
 | `sessionTimeoutInSeconds` | `number` | `30` | Par défaut, une session expire après 30 secondes d'inactivité. Fournissez une valeur pour cette option afin de remplacer cette valeur par défaut. |
 | `deviceId` | `string` | Généré automatiquement | Par défaut, Braze attribue un GUID aléatoire comme identifiant d'appareil. Fournissez une valeur pour cette option de configuration afin de remplacer cette valeur par défaut par une valeur de votre choix. |
 | `appVersion` | `string` | `undefined` | Si vous fournissez une valeur pour cette option, les événements utilisateur envoyés à Braze seront associés à la version donnée, qui peut être utilisée pour la segmentation des utilisateurs. |
@@ -449,9 +451,9 @@ unregisterPush(
 );
 ```
 
-### Indicateurs de fonctionnalité {#feature-flags}
+### Feature flags {#feature-flags}
 
-#### Obtenir un indicateur de fonctionnalité {#get-feature-flag}
+#### Obtenir un feature flag {#get-feature-flag}
 
 ``` typescript
 import { getFeatureFlag } from "@braze/web-sdk";
@@ -467,7 +469,7 @@ if (featureFlag) {
 }
 ```
 
-#### S'abonner aux mises à jour des indicateurs de fonctionnalité {#subscribe-to-feature-flag-updates}
+#### S'abonner aux mises à jour des feature flags {#subscribe-to-feature-flag-updates}
 
 ``` typescript
 import { subscribeToFeatureFlagsUpdates } from "@braze/web-sdk";
@@ -479,7 +481,7 @@ subscribeToFeatureFlagsUpdates((featureFlags) => {
 });
 ```
 
-#### Enregistrer les impressions des indicateurs de fonctionnalité {#log-feature-flag-impressions}
+#### Enregistrer les impressions des feature flags {#log-feature-flag-impressions}
 
 ``` typescript
 import { logFeatureFlagImpression } from "@braze/web-sdk";
@@ -490,7 +492,7 @@ if (featureFlag) {
 }
 ```
 
-#### Demander l'actualisation des indicateurs de fonctionnalité {#request-feature-flags-refresh}
+#### Demander l'actualisation des feature flags {#request-feature-flags-refresh}
 
 ``` typescript
 import { refreshFeatureFlags } from "@braze/web-sdk";

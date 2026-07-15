@@ -16,7 +16,7 @@ noindex: true
 
 ## Impresiones {#impressions}
 
-#### Los análisis de impresiones o clics no se están registrando {#impression-or-click-analytics-arent-being-logged}
+### Los análisis de impresiones o clics no se están registrando {#impression-or-click-analytics-arent-being-logged}
 
 Si has configurado un delegado de mensajes dentro de la aplicación para que gestione manualmente la visualización del mensaje o las acciones de clic, tendrás que registrar manualmente los clics y las impresiones en el mensaje dentro de la aplicación.
 
@@ -40,7 +40,7 @@ El SDK solicita mensajes dentro de la aplicación a los servidores de Braze al i
 4. Utiliza los [registros de eventos de usuario]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para comprobar que tu dispositivo solicita mensajes dentro de la aplicación al inicio de la sesión. Busca la solicitud del SDK asociada al evento de inicio de sesión de tu usuario de prueba.
   - Si tu aplicación debía solicitar mensajes dentro de la aplicación desencadenados, deberías ver `trigger` en el campo **Requested Responses**, en **Response Data**.
   - Si tu aplicación debía solicitar mensajes originales dentro de la aplicación, deberías ver `in_app` en el campo **Requested Responses**, en **Response Data**.
-5. Utiliza los [registros de eventos de usuario]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para comprobar si los mensajes correctos dentro de la aplicación se devuelven en los datos de respuesta.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
+5. Utiliza los [registros de eventos de usuario]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab) para comprobar si los mensajes correctos dentro de la aplicación se devuelven en los datos de respuesta.<br>![Entradas del registro de eventos de usuario para solicitudes de mensajes dentro de la aplicación.]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 #### Solución de problemas de mensajes no solicitados {#troubleshoot-messages-not-being-requested}
 
@@ -66,7 +66,7 @@ Si tus mensajes dentro de la aplicación no se devuelven, es probable que estés
 
 Si tu aplicación solicita y recibe correctamente mensajes dentro de la aplicación, pero no se muestran, es posible que alguna lógica del dispositivo esté impidiendo la visualización:
 
-- Los mensajes desencadenados dentro de la aplicación tienen una tasa limitada en función del [intervalo de tiempo mínimo entre desencadenamientos]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery/#minimum-time-interval-between-triggers), predeterminado en 30 segundos.
+- Los mensajes desencadenados dentro de la aplicación tienen una tasa limitada en función del [intervalo de tiempo mínimo entre desencadenamientos]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery#minimum-time-interval-between-triggers), predeterminado en 30 segundos.
 - Si has configurado un delegado para personalizar la gestión de mensajes dentro de la aplicación, comprueba que no afecte a la visualización de mensajes dentro de la aplicación.
 - Las descargas de imágenes fallidas impedirán que se muestren los mensajes dentro de la aplicación con imágenes. Las descargas de imágenes siempre fallarán si el marco `SDWebImage` no está bien integrado. Comprueba los registros de tu dispositivo para asegurarte de que las descargas de imágenes no fallan.
 - Si la orientación del dispositivo no coincide con la orientación especificada por el mensaje dentro de la aplicación, el mensaje dentro de la aplicación no se mostrará. Asegúrate de que tu dispositivo está en la orientación correcta.

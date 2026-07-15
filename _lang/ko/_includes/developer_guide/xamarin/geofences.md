@@ -161,7 +161,7 @@ locationManager.RequestAlwaysAuthorization();
 ```
 
 {% alert important %}
-`Always` 권한이 없으면, iOS는 앱이 사용 중이지 않을 때 위치 서비스의 실행을 제한합니다. 이는 운영체제에 의해 시행되며 Braze SDK로 우회할 수 없습니다.
+`Always` 권한이 없으면, iOS는 앱이 사용 중이지 않을 때 위치 서비스의 실행을 제한합니다. 이는 운영 체제에 의해 시행되며 Braze SDK로 우회할 수 없습니다.
 {% endalert %}
 {% endtab %}
 {% endtabs %}

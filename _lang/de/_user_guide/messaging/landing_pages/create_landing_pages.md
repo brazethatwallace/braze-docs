@@ -11,15 +11,13 @@ page_order: 0
 
 ## Voraussetzungen {#prerequisites}
 
-Um auf den Landing-Page-Builder zugreifen zu können, benötigen Sie [bestimmte Berechtigungen]({{site.baseurl}}/user_guide/messaging/landing_pages/#prerequisites). Falls Sie keinen Zugriff haben, wenden Sie sich an Ihre Braze-Admins.
+Um auf den Landing-Page-Builder zugreifen zu können, benötigen Sie [bestimmte Berechtigungen]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Falls Sie keinen Zugriff haben, wenden Sie sich an Ihre Braze-Admins.
 
 ## Eine Landing-Page erstellen {#creating-a-landing-page}
 
 ### 1. Schritt: Einen neuen Entwurf erstellen {#step-1-create-a-new-draft}
 
 Gehen Sie zu **Messaging** > **Landing Pages** und wählen Sie **Create landing page**. Sie können auch den Namen einer bestehenden Landing-Page auswählen, um diese zu duplizieren oder Änderungen vorzunehmen.
-
-![Der Bereich „Landing Pages“ im Braze-Dashboard.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
 
 ### 2. Schritt: Seitendetails eingeben {#step-2-enter-the-page-details}
 
@@ -40,7 +38,7 @@ Wir empfehlen die folgenden Best Practices:
 | Website-Titel | Der Titel, der im Browser-Tab angezeigt wird. | Verwenden Sie bis zu 60 Zeichen. |
 | Meta-Beschreibung | Ein Textausschnitt, der in Suchergebnissen angezeigt wird. | Verwenden Sie zwischen 140 und 160 Zeichen. |
 | Favicon | Das Symbol, das neben dem Website-Titel im Browser-Tab erscheint. | Verwenden Sie ein Seitenverhältnis von 1:1 und einen unterstützten Dateityp wie PNG, JPEG oder ICO. |
-| Seiten-URL | Dies ist der URL-Pfad zu Ihrer Landing-Page. Dieser Wert wird auch referenziert, wenn Sie [Landing-Page-Liquid-Tags]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) verwenden, die Sie in eine Nachricht einbetten können, um automatisch zu erkennen, wenn Nutzer:innen Ihr Formular absenden. | Dieser Wert muss innerhalb Ihres Workspace eindeutig sein. |
+| Seiten-URL | Dies ist der URL-Pfad zu Ihrer Landing-Page. Dieser Wert wird auch referenziert, wenn Sie [Landing-Page-Liquid-Tags]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) verwenden, die Sie in eine Nachricht einbetten können, um automatisch zu erkennen, wenn Nutzer:innen Ihr Formular absenden. | Dieser Wert muss innerhalb Ihres Workspace eindeutig sein. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Website-Details" }
 
 ### 3. Schritt: Die Seite anpassen {#step-3-customize-the-page}
@@ -49,7 +47,7 @@ Falls noch nicht geschehen, wählen Sie **Als Entwurf speichern**. Um mit der An
 
 ![Eine Beispiel-Landing-Page, die im Drag-and-Drop-Editor erstellt wird.]({% image_buster /assets/img/landing_pages/template.png %})
 
-Der Editor verwendet zwei Arten von Komponenten für die Gestaltung von Landing-Pages: Basisblöcke und Formularblöcke. Alle Blöcke müssen in einer Zeile platziert werden. Eine vollständige Referenz aller Blöcke und Eigenschaften finden Sie unter [Editor-Blöcke (Landing-Pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
+Der Editor verwendet zwei Arten von Komponenten für die Gestaltung von Landing-Pages: Basisblöcke und Formularblöcke. Alle Blöcke müssen in einer Zeile platziert werden. Eine vollständige Referenz aller Blöcke und Eigenschaften finden Sie unter [Editor-Blöcke (Landing-Pages)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 ![Der Abschnitt „Build“ mit „Rows“ und „Form Blocks“.]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -68,11 +66,11 @@ Mit diesen Blöcken können Sie Inhalte hinzufügen und das Layout Ihrer Landing
 | Link | Ein Hyperlink, auf den Nutzer:innen klicken können, um zu einer bestimmten URL zu navigieren. Kann in Text eingebettet oder eigenständig verwendet werden. |
 | Abstandshalter | Ein unsichtbarer Block, der vertikalen Abstand zwischen Elementen hinzufügt, um Layout und Lesbarkeit zu verbessern. |
 | Angepasster Code | Ein Block, mit dem Sie angepasstes HTML, CSS oder JavaScript für erweiterte Anpassungen einfügen und ausführen können. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="3. Schritt: Die Seite anpassen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Die Seite anpassen" }
 
-##### Span-Text {#span-text}
+#### Span-Text {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab Formularblöcke %}
@@ -89,10 +87,10 @@ Mit diesen Blöcken können Sie ein Formular erstellen, das von Nutzer:innen üb
 | Dropdown | Nutzer:innen können einen Eintrag aus einer vordefinierten Liste auswählen. Sie können beliebige angepasste Attribut-Strings zur Liste hinzufügen. |
 | Kontrollkästchen | Wenn Nutzer:innen das Kästchen aktivieren, wird das Attribut des Blocks auf `true` gesetzt. Wenn es nicht aktiviert wird, wird das Attribut auf `false` gesetzt. |
 | Kontrollkästchen-Gruppe | Nutzer:innen können aus mehreren Optionen auswählen. Werte werden entweder gesetzt oder einem definierten Array-Attribut hinzugefügt. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Span-Text" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Formularblöcke" }
 
 {% alert important %}
-Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbedingt den zugehörigen [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) in Ihre Nachricht ein. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und aktualisieren, wenn diese das Formular absenden.
+Nachdem Sie eine Landing-Page mit einem Formular erstellt haben, betten Sie unbedingt den zugehörigen [Landing-Page-Liquid-Tag]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) in Ihre Nachricht ein. Mit diesem Tag kann Braze bestehende Nutzerprofile automatisch identifizieren und aktualisieren, wenn diese das Formular absenden.
 {% endalert %}
 
 {% endtab %}

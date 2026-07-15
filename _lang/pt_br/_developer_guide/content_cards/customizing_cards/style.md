@@ -14,7 +14,7 @@ platform:
 
 # Personalize o estilo dos Content Cards {#customize-the-style-of-content-cards}
 
-> Os Content Cards da Braze vêm com uma aparência padrão. Este artigo cobre opções de estilo para seus Content Cards para ajudar você a manter a identidade da sua marca. Para a lista completa de tipos de cartões de conteúdo, veja [Sobre os Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Os Content Cards da Braze vêm com uma aparência padrão. Este artigo cobre opções de estilo para seus Content Cards para ajudar você a manter a identidade da sua marca. Para a lista completa de tipos de cartões de conteúdo, veja [Sobre os Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 ## Criando um estilo personalizado {#creating-a-custom-style}
 
@@ -23,7 +23,7 @@ A interface padrão dos Content Cards é importada da camada de interface do SDK
 ![Dois cartões de conteúdo, um com a fonte padrão e cantos quadrados, e outro com cantos arredondados e uma fonte cursiva]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
 {% alert note %}
-Propriedades do cartão de conteúdo, como `title`, `cardDescription`, `imageUrl`, etc., são editáveis diretamente por meio do [dashboard]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/), que é o método preferido para alterar esses detalhes.
+Propriedades do cartão de conteúdo, como `title`, `cardDescription`, `imageUrl`, etc., são editáveis diretamente por meio do [dashboard]({{site.baseurl}}/user_guide/channels/content_cards/creative_details), que é o método preferido para alterar esses detalhes.
 {% endalert %}
 
 
@@ -249,7 +249,7 @@ Aqui está um exemplo resumido com uma família de fontes personalizada, `my_cus
   </style>
 ```
 
-Para saber mais sobre a personalização de fontes no SDK do Android, consulte o [guia de famílias de fontes]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization/#font-customization).
+Para saber mais sobre a personalização de fontes no SDK do Android, consulte o [guia de famílias de fontes]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/font_customization#font-customization).
 {% endtab %}
 {% tab Jetpack Compose %}
 Para alterar a fonte padrão programaticamente, você pode definir o [`titleTextStyle`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.contentcards.styling/-content-card-styling/index.html#715371549%2FProperties%2F-1725759721) de `ContentCardStyling`.
@@ -299,7 +299,7 @@ Confira o [app de exemplo Examples](https://github.com/braze-inc/braze-swift-sdk
 
 Ao criar um Content Card, os profissionais de marketing têm a opção de fixar o cartão. Um cartão fixado é exibido no topo do feed do usuário, e o usuário não pode descartá-lo. À medida que você personaliza os estilos dos seus cartões, pode alterar a aparência do ícone fixado.
 
-![Lado a lado da pré-visualização do Content Card na Braze para celular e web com a opção "Fixar este cartão no topo do feed" selecionada.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
+![Comparação lado a lado da prévia do Content Card na Braze para dispositivos móveis e web com a opção "Fixar este cartão no topo do feed" selecionada.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
 {% tabs %}
 {% tab web %}
@@ -494,7 +494,7 @@ A personalização apenas do indicador não visualizado via `Attributes` não é
 
 ### Modo escuro {#dark-mode}
 
-Para exibir imagens ou estilos diferentes com base no modo escuro ou claro do dispositivo, use [pares de chave-valor]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details/#key-value-pairs) na mensagem do seu Content Card. Por exemplo, adicione um par de chave-valor como `dark_mode_image` com a URL do seu ativo de imagem para modo escuro. Em seguida, no seu app, adicione lógica personalizada para verificar o modo de aparência atual do dispositivo e exibir a imagem apropriada.
+Para exibir imagens ou estilos diferentes com base no modo escuro ou claro do dispositivo, use [pares de chave-valor]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/creative_details#key-value-pairs) na mensagem do seu Content Card. Por exemplo, adicione um par de chave-valor como `dark_mode_image` com a URL do seu ativo de imagem para modo escuro. Em seguida, no seu app, adicione lógica personalizada para verificar o modo de aparência atual do dispositivo e exibir a imagem apropriada.
 
 {% tabs %}
 {% tab swift %}
@@ -531,7 +531,7 @@ if (isDarkMode && darkModeImage) {
 {% endtab %}
 {% endtabs %}
 
-Esse padrão funciona para qualquer conteúdo que dependa da aparência, incluindo texto, cores ou layouts. Faça upload dos seus ativos de imagem para modo escuro na [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/) e, em seguida, referencie-os em um par de chave-valor.
+Esse padrão funciona para qualquer conteúdo que dependa da aparência, incluindo texto, cores ou layouts. Faça upload dos seus ativos de imagem para modo escuro na [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications) e, em seguida, referencie-os em um par de chave-valor.
 
 ### Desativando o indicador de não lido {#disabling-unread-indicator}
 

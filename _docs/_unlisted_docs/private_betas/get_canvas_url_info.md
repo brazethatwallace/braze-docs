@@ -28,7 +28,7 @@ description: "This article outlines details about the List link alias for Canvas
 
 | Parameter | Required | Data Type | Description |
 |---|---|---|---|
-| `canvas_step_id` | Required | String | See [Canvas step API identifier](https://www.braze.com/docs/api/identifier_types/#canvas-api-identifier). |
+| `canvas_step_id` | Required | String | See [Canvas step API identifier]({{site.baseurl}}/api/identifier_types#canvas-identifier). |
 | `message_variation_id ` | Required | String | Message variant API identifier (for the email message variant in that step). You can find this by clicking **Analyze Variants** on the **Canvas Details** page. |
 | `includes_link_id` | Optional | String | A specific link identifier (as assigned by Braze) or `null`. This is used to filter the results by a specific `link_id`. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -66,8 +66,8 @@ The following table lists possible returned errors and their associated troubles
 
 | Error | Troubleshooting |
 | --- | --- |
-| `Missing/Invalid Canvas ID` | The Canvas API ID must be an API identifier. You can find this using the [Export Canvas list endpoint](https://www.braze.com/docs/api/endpoints/export/canvas/get_canvases/) or by logging into the dashboard. |
-| `Missing/Invalid Message Variant ID` | The message variant API ID must be an API identifier. You can find this using the [Export Canvas details endpoint](https://www.braze.com/docs/api/endpoints/export/canvas/get_canvas_details/) or by logging into the dashboard. |
+| `Missing/Invalid Canvas ID` | The Canvas API ID must be an API identifier. You can find this using the [Export Canvas list endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) or by logging into the dashboard. |
+| `Missing/Invalid Message Variant ID` | The message variant API ID must be an API identifier. You can find this using the [Export Canvas details endpoint]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) or by logging into the dashboard. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

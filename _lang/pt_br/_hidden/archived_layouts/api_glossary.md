@@ -88,7 +88,7 @@ A resposta desse endpoint inclui um campo para `email_template_id`, que pode ser
 | `modified_before`  |  Não | String em ISO 8601 | Recupera apenas modelos atualizados no momento ou antes do momento determinado. |
 | `limit` | Não | Número positivo | Número máximo de modelos a serem recuperados; o padrão é 100 se não for fornecido; o valor máximo aceitável é 1000. |
 | `offset`  |  Não | Número positivo | Número de modelos a serem ignorados antes de retornar o restante dos modelos que atendem aos critérios de pesquisa. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Detalhes dos parâmetros" }
 
 
 {% endapi %}
@@ -140,7 +140,7 @@ GET https://YOUR_REST_API_URL/templates/email/list
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
 | `email_template_id`  | Sim | String | O identificador de API do seu modelo de e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Detalhes dos parâmetros" }
 
 {% endapi %}
 
@@ -208,7 +208,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
 | `email_template_id`  | Sim | String | O identificador de API do seu modelo de e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Detalhes dos parâmetros" }
 
 {% endapi %}
 
@@ -248,7 +248,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   // See note regarding anonymous push token imports
   "push_token_import" : (optional, boolean).
   // Braze User Profile Fields
-  "first_name" : "Jon",
+  "first_name" : "Alex",
   "email" : "bob@example.com",
   // Custom Attributes
   "my_custom_attribute" : value,
@@ -286,7 +286,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | push_tokens | Vetor de objetos com `app_id` e `token` string. Como opção, você pode fornecer um `device_id` para o dispositivo ao qual esse token está associado, por exemplo, `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Se o `device_id` não for fornecido, um será gerado aleatoriamente. |
 | time_zone | (string) Nome do fuso horário do [banco de dados de fuso horário da IANA][26] (por exemplo, "America/New_York" ou "Eastern Time (US & Canada)"). Somente os valores válidos de fuso horário serão definidos. |
 | twitter | Hash contendo qualquer um dos seguintes itens: `id` (inteiro), `screen_name` (string, identificador do X (antigo Twitter)), `followers_count` (inteiro), `friends_count` (inteiro), `statuses_count` (inteiro). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="PARAMETER DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Detalhes dos parâmetros" }
 
 {% endapi %}
 

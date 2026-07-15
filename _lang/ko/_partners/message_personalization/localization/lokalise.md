@@ -18,7 +18,7 @@ _이 통합은 Lokalise에서 유지 관리합니다._
 
 Lokalise는 Braze를 위한 두 가지 통합 옵션을 제공합니다:
 
-- **다중 언어 통합(권장)**: Braze의 [다중 언어 작성 API]({{site.baseurl}}/api/endpoints/translations/)를 사용하여 Lokalise와 Braze 간의 직접적인 양방향 동기화를 제공합니다. 이 통합은 Campaigns, Canvases, 이메일 템플릿의 현지화된 메시지 배리언트와 함께 작동하며, 푸시, 이메일, In-App Messages에 대한 출시 전 및 출시 후 워크플로를 지원합니다.
+- **다중 언어 통합(권장)**: Braze의 [다중 언어 작성 API]({{site.baseurl}}/api/endpoints/translations)를 사용하여 Lokalise와 Braze 간의 직접적인 양방향 동기화를 제공합니다. 이 통합은 Campaigns, Canvases, 이메일 템플릿의 현지화된 메시지 배리언트와 함께 작동하며, 푸시, 이메일, In-App Messages에 대한 출시 전 및 출시 후 워크플로를 지원합니다.
 - **연결된 콘텐츠 통합(레거시)**: Braze 연결된 콘텐츠를 사용하여 사용자 언어 설정을 기반으로 번역된 콘텐츠를 삽입합니다.
 
 이 문서에서는 두 가지 통합 모두에 대한 설정을 다룹니다.
@@ -33,11 +33,11 @@ Lokalise는 Braze를 위한 두 가지 통합 옵션을 제공합니다:
 | ----------- | ----------- |
 | Lokalise 계정 | 이 파트너십을 활용하려면 Lokalise 계정이 필요합니다. |
 | Lokalise 번역 프로젝트 | **Marketing and support** 유형으로 Lokalise 프로젝트를 생성하고 **Content integration**으로 **Braze**를 선택합니다. |
-| Braze 다중 언어 설정 | Braze 워크스페이스에서 [다중 언어 지원]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/)이 활성화되어 있어야 합니다. |
+| Braze 다중 언어 설정 | Braze 워크스페이스에서 [다중 언어 지원]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings)이 활성화되어 있어야 합니다. |
 | Braze REST API 키 | Campaigns, Canvases, 이메일 템플릿을 읽고 업데이트할 수 있는 권한이 있는 Braze REST API 키입니다. Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-| Braze 서버 리전 | [Braze 서버 리전]({{site.baseurl}}/api/basics/#endpoints)(예: US-01, EU-01)입니다. Braze 대시보드에서 확인할 수 있습니다. |
-| Braze 콘텐츠의 번역 태그 | 메시지에서 번역 가능한 콘텐츠를 식별하려면 [번역 태그]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/)를 사용해야 합니다. 번역 가능한 각 블록을 고유 ID가 있는 {% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %} 태그로 감쌉니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze 서버 리전 | [Braze 서버 리전]({{site.baseurl}}/api/basics#endpoints)(예: US-01, EU-01)입니다. Braze 대시보드에서 확인할 수 있습니다. |
+| Braze 콘텐츠의 번역 태그 | 메시지에서 번역 가능한 콘텐츠를 식별하려면 [번역 태그]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)를 사용해야 합니다. 번역 가능한 각 블록을 고유 ID가 있는 {% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %} 태그로 감쌉니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ### 설정 및 사용법 {#setup-and-usage}
 
@@ -62,7 +62,7 @@ Braze에서 다국어 사용으로 구성되고 번역 태그로 감싸진 콘�
 | ----------- | ----------- |
 | Lokalise 계정 | 이 파트너십을 활용하려면 Lokalise 계정이 필요합니다. |
 | Lokalise 번역 프로젝트 | **Software Localization** 프로젝트 유형으로 Lokalise 프로젝트를 생성합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ### 새 Lokalise 프로젝트 만들기 {#create-a-new-lokalise-project}
 
@@ -74,7 +74,7 @@ Lokalise에서는 Braze에서 정의한 각 연결된 콘텐츠 변수에 대한
 
 #### 1단계: 사용자 언어 구성 {#step-1-configure-user-languages}
 
-아직 수행하지 않았다면 Braze 대시보드를 열고 **Users > User Import**로 이동합니다. 여기에서 사용자를 가져올 수 있습니다. 가져올 CSV 파일을 준비할 때 사용자의 언어가 포함된 언어 열을 반드시 포함해야 합니다. 이 언어 필드는 나중에 번역을 표시할 때 사용됩니다.
+아직 수행하지 않았다면 Braze 대시보드를 열고 **사용자** > **사용자 가져오기**로 이동합니다. 여기에서 사용자를 가져올 수 있습니다. 가져올 CSV 파일을 준비할 때 사용자의 언어가 포함된 언어 열을 반드시 포함해야 합니다. 이 언어 필드는 나중에 번역을 표시할 때 사용됩니다.
 
 {% alert important %}
 사용되는 언어 코드는 Braze와 Lokalise 모두에서 일치해야 합니다.
@@ -90,11 +90,11 @@ Lokalise에서는 Braze에서 정의한 각 연결된 콘텐츠 변수에 대한
 3. **Platforms** 드롭다운에 "Web"을 추가합니다.
 4. 준비가 완료되면 **Save**를 클릭합니다.
 
-![]({% image_buster /assets/img/lokalise/1_add_key.png %}){: style="max-width:60%"}
+![`description` 번역 키를 생성하는 Lokalise 키 추가 모달.]({% image_buster /assets/img/lokalise/1_add_key.png %}){: style="max-width:60%"}
 
 번역 키가 프로젝트 편집기에 표시되어야 합니다:
 
-![]({% image_buster /assets/img/lokalise/2_translation_key_added.png %}){: style="max-width:90%"}
+![새로 추가된 번역 키를 보여주는 Lokalise 프로젝트 편집기.]({% image_buster /assets/img/lokalise/2_translation_key_added.png %}){: style="max-width:90%"}
 
 ##### 알려진 문제 {#known-issues}
 
@@ -105,7 +105,7 @@ Lokalise에서는 Braze에서 정의한 각 연결된 콘텐츠 변수에 대한
 
 Lokalise 프로젝트를 열고 **Apps**를 클릭합니다. 여기에서 Braze 앱을 검색하여 설치합니다. 다음 화면이 표시됩니다:
 
-![프로젝트 ID와 번역 파일 URL을 나열하는 Lokalise의 Braze 구성 화면]({% image_buster /assets/img/lokalise/3_lokalise_braze_app.png %})
+![프로젝트 ID와 번역 파일 URL을 나열하는 Lokalise의 Braze 구성 화면.]({% image_buster /assets/img/lokalise/3_lokalise_braze_app.png %})
 
 **Translation File URL**에서 Lokalise는 프로젝트의 키에 대한 모든 번역이 포함된 JSON 파일을 게시합니다. 프로젝트에 있는 대상 언어 수만큼 번역 파일 URL을 얻을 수 있습니다. 그렇기 때문에 결과 번역 파일 URL은 두 부분으로 나뉩니다:
 
@@ -118,7 +118,7 @@ Lokalise 프로젝트를 열고 **Apps**를 클릭합니다. 여기에서 Braze 
 
 이 URL을 테스트하려면 복사하여 {% raw %}`{{${language}}}`{% endraw %}를 언어 코드(예: `en`)로 바꾸고 브라우저에서 이 URL을 엽니다. 키와 번역이 포함된 JSON 파일이 표시됩니다:
 
-![]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
+![브라우저에서 본 Lokalise 내보내기 번역 JSON 파일.]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
 
 #### 4단계: Braze Campaign에서 번역 사용 {#step-4-use-translations-in-braze-campaign}
 
@@ -147,7 +147,7 @@ Lokalise 프로젝트를 열고 **Apps**를 클릭합니다. 여기에서 Braze 
 예를 들어 `description` 키를 표시하려면 `{{ translations.description }}`을 사용합니다.
 
 {% endraw %}
-![]({% image_buster /assets/img/lokalise/6_integration_usage_sample.png %})
+![Lokalise의 연결된 콘텐츠 번역을 보여주는 Braze 이메일 편집기 예시.]({% image_buster /assets/img/lokalise/6_integration_usage_sample.png %})
 
 마지막으로 이메일 템플릿을 저장하고 미리보기합니다. 번역이 표시되는 것을 확인할 수 있습니다.
 

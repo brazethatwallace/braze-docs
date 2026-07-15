@@ -51,6 +51,6 @@ description: "このハウツー記事では、ロケーションターゲティ
 
 既存のビーコンまたはジオフェンスサポートとBrazeのターゲティングおよびメッセージング機能を組み合わせることで、ユーザーの物理的なアクションに関するより多くの情報を取得し、それに応じてメッセージを送信できます。以下のパートナーと連携して位置情報の追跡を活用できます。
 
-- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/)
-- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion/)
-- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/)
+- [Radar]({{site.baseurl}}/partners/message_personalization/location/radar)
+- [Infillion]({{site.baseurl}}/partners/message_personalization/location/infillion)
+- [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare)

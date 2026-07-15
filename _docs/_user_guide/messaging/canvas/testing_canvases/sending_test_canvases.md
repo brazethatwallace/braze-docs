@@ -9,7 +9,7 @@ tool: Canvas
 
 # Send test Canvases
 
-> After [creating your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/), there are several checks you may want to perform before launching, depending on details such as your audience size or number of segmentation filters.
+> After [creating your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), there are several checks you may want to perform before launching, depending on details such as your audience size or number of segmentation filters.
 
 When possible, Braze recommends testing a Canvas before launching. This test will typically take place in your Braze environment. Testing your Canvas can involve duplicating it, taking test users through the user journey, and checking if the user behavior aligns with what you have outlined in your Canvas.
 
@@ -33,11 +33,11 @@ Next, it's time to test your Canvas! To keep your original Canvas and test Canva
 
 There are two ways you can test your Canvas. 
 
-- **Method 1:** In the duplicated Canvas, edit the **Entry Audience** portion of the Canvas builder so that only test users are eligible for the Canvas. You can also enter your own email address as a test user by adding the **Email Address** testing filter. In the example below, we've limited the Canvas to two test users that have first used the app less than three days ago.
+- **Method 1:** In the duplicated Canvas, edit the **Entry Audience** portion of the Canvas builder so that only test users are eligible for the Canvas. You can also enter your own email address as a test user by adding the **Email Address** testing filter. In the example in the following section, we've limited the Canvas to two test users that have first used the app less than three days ago.
 
 ![A Canvas with an entry audience of "First used these apps less than 3 days ago" and the email addresses of two test users.]({% image_buster /assets/img_archive/canvas_test2.png %}){: style="max-width:90%;"}
 
-- **Method 2:** [Preview your user paths]({{site.baseurl}}/preview_user_paths/) by selecting the **Test Canvas** button in the footer of the Canvas builder.
+- **Method 2:** [Preview your user paths]({{site.baseurl}}/preview_user_paths) by selecting the **Test Canvas** button in the footer of the Canvas builder.
 
 ## Step 4: Launch your test
 
@@ -61,7 +61,7 @@ In some cases, a user can potentially receive multiple messages when going throu
 
 ### Create an Internal Group
 
-Instead of creating individual test users, you can create a [Content Test Group]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/), which is an Internal Group whose purpose is to review the content of your message. This includes a group of users that will receive test messages from campaigns and Canvases. Then, you can add this test group into the **Add Content Test Groups** field under **Test Recipients**.
+Instead of creating individual test users, you can create a [Content Test Group]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups), which is an Internal Group whose purpose is to review the content of your message. This includes a group of users that will receive test messages from campaigns and Canvases. Then, you can add this test group into the **Add Content Test Groups** field under **Test Recipients**.
 
 ### Reduce time delays
 
@@ -69,11 +69,11 @@ To help run tests more efficiently, we suggest reducing time delays to minutes o
 
 ### Leverage Content Blocks
 
-If any content is going to be repeated in your testing framework (for example, complex Liquid to filter users into different Canvas steps), try saving this repeated content as a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/). Now, you'll be able to include the Content Block throughout the individual Canvas steps.
+If any content is going to be repeated in your testing framework (for example, complex Liquid to filter users into different Canvas steps), try saving this repeated content as a [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks). Now, you'll be able to include the Content Block throughout the individual Canvas steps.
 
 ### Use Postman and the Track user endpoint
 
-You can run tests with Postman and the [Braze Postman Collection]({{site.baseurl}}/api/postman_collection/). Use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) to record and track custom events and purchases for your various test users.
+You can run tests with Postman and the [Braze Postman Collection]({{site.baseurl}}/api/postman_collection). Use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to record and track custom events and purchases for your various test users.
 
 Note that sending data to the user track API can only be done with an external ID. So, test users may need to be added as test users within an internal group in the Braze dashboard so specific errors can be further investigated. 
 

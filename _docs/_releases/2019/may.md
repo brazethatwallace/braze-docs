@@ -75,7 +75,7 @@ Also, the campaign grid sidebar is now resizable!
 
 ## Delete users by alias
 
-You can now use the `users/delete` endpoint to [delete users by alias]({{site.baseurl}}/api/endpoints/user_data/#user-delete-request)!
+You can now use the `users/delete` endpoint to [delete users by alias]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)!
 
 ## Unique calculation for email clicks and opens
 

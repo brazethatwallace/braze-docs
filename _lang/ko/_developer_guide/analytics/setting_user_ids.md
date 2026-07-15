@@ -8,7 +8,7 @@ description: "Braze SDK를 통해 사용자 ID를 설정하는 방법을 알아�
 
 # 사용자 ID 설정 {#set-user-ids}
 
-> Braze SDK를 통해 사용자 ID를 설정하는 방법을 알아보세요. 이는 여러 기기와 플랫폼에서 사용자를 추적하고, [사용자 데이터 API]({{site.baseurl}}/developer_guide/rest_api/user_data/#user-data)를 통해 데이터를 가져오고, [메시징 API]({{site.baseurl}}/api/endpoints/messaging/)를 통해 타겟팅된 메시지를 보낼 수 있는 고유 식별자입니다. 사용자에게 고유 ID를 할당하지 않으면 Braze에서 익명 ID를 대신 할당하지만, 할당할 때까지는 이러한 기능을 사용할 수 없습니다.
+> Braze SDK를 통해 사용자 ID를 설정하는 방법을 알아보세요. 이는 여러 기기와 플랫폼에서 사용자를 추적하고, [사용자 데이터 API]({{site.baseurl}}/developer_guide/rest_api/user_data#user-data)를 통해 데이터를 가져오고, [메시징 API]({{site.baseurl}}/api/endpoints/messaging)를 통해 타겟팅된 메시지를 보낼 수 있는 고유 식별자입니다. 사용자에게 고유 ID를 할당하지 않으면 Braze에서 익명 ID를 대신 할당하지만, 할당할 때까지는 이러한 기능을 사용할 수 없습니다.
 
 {% alert note %}
 목록에 없는 래퍼 SDK의 경우 관련 네이티브 Android 또는 Swift 메서드를 대신 사용하세요.
@@ -23,7 +23,7 @@ description: "Braze SDK를 통해 사용자 ID를 설정하는 방법을 알아�
 사용자가 식별되기 전에 데이터를 수집하지 않아야 하는 사용 사례의 경우, 사용자가 로그인하고 `external_id`를 사용할 수 있을 때까지 Braze SDK 초기화를 지연할 수 있습니다. 코드에서 사용자가 로그인하면 `true`로 전환되는 플래그를 설정하고, 해당 플래그가 설정된 경우에만 SDK를 초기화하세요.
 
 {% alert warning %}
-사용자가 앱을 **처음 다운로드할 때**(`external_id`가 설정되기 전)에만 초기화를 지연하세요. 사용자가 로그아웃하거나 새 세션을 시작할 때마다 SDK 초기화를 방지하면 인앱 메시지 및 콘텐츠 카드 자산의 프리페칭에 간섭이 발생하여 해당 Campaign에 전달 가능성 오류가 발생할 수 있습니다.
+사용자가 앱을 **처음 다운로드할 때**(`external_id`가 설정되기 전)에만 초기화를 지연하세요. 사용자가 로그아웃하거나 새 세션을 시작할 때마다 SDK 초기화를 방지하면 인앱 메시지 및 콘텐츠 카드 에셋의 프리페칭에 간섭이 발생하여 해당 Campaign에 전달 가능성 오류가 발생할 수 있습니다.
 {% endalert %}
 
 ## 사용자 ID 설정 {#setting-a-user-id}
@@ -44,7 +44,7 @@ braze.changeUser(YOUR_USER_ID_STRING);
 
 일반적으로 웹사이트에서 전송한 데이터 레이어 변수를 사용하여 채워지는 **External User ID** 필드에 현재 사용자의 고유 ID를 입력해야 합니다.
 
-![Braze 액션 태그 구성 설정을 보여주는 대화상자. 포함된 설정은 "tag type" 및 "external user ID"입니다.]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
+![Braze 액션 태그 구성 설정을 보여주는 대화 상자. 포함된 설정은 "tag type" 및 "external user ID"입니다.]({% image_buster /assets/img/web-gtm/gtm-change-user.png %})
 {% endtab %}
 
 {% tab ANDROID %}
@@ -75,6 +75,32 @@ AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
 ```
 {% endsubtab %}
 {% endsubtabs %}
+
+{% alert note %}
+`changeUser`는 사용자 전환을 대기줄에 넣고 호출 스레드에서 즉시 반환합니다. 이후 `braze.user`에서 호출된 모든 속성 설정자는 `changeUser`에 의해 시작된 작업 뒤에 자동으로 직렬화됩니다. `braze.user.id`를 읽으면 사용자 전환이 완전히 완료될 때까지 호출 스레드가 차단됩니다. 메인 스레드 또는 지연에 민감한 컨텍스트에서는 대신 비차단 대안을 사용하세요.
+
+{% subtabs local %}
+{% subtab Swift %}
+```swift
+// Completion handler — always delivers on the main thread.
+AppDelegate.braze?.user.getId { userId in
+  print("User ID:", userId ?? "anonymous")
+}
+
+// Async/await (iOS 13.0+, tvOS 13.0+, watchOS 6.0+, macOS 10.15+)
+let userId = await AppDelegate.braze?.user.getId()
+```
+{% endsubtab %}
+{% subtab Objective-C %}
+```objc
+// Completion handler — always delivers on the main thread.
+[AppDelegate.braze.user getIdWithCompletion:^(NSString * _Nullable userId) {
+  NSLog(@"User ID: %@", userId ?: @"anonymous");
+}];
+```
+{% endsubtab %}
+{% endsubtabs local %}
+{% endalert %}
 {% endtab %}
 
 {% tab CORDOVA %}
@@ -112,7 +138,7 @@ Braze.changeUser("YOUR_USER_ID_STRING");
 - 익명 사용자가 **기존** 사용자 ID로 `changeUser()`를 호출하면 익명 프로필의 데이터가 식별된 프로필에 병합되지 않습니다.
 
 {% alert note %}
-`changeUser()`를 호출하면 현재 사용자의 세션을 종료하는 과정에서 데이터 플러시가 발생합니다. SDK는 새 사용자로 전환하기 전에 이전 사용자의 보류 중인 데이터를 자동으로 플러시하므로 `changeUser()`를 호출하기 전에 수동으로 데이터 플러시를 요청할 필요가 없습니다.
+`changeUser()`를 호출하면 현재 사용자의 세션을 종료하는 과정에서 데이터 플러시가 트리거됩니다. SDK는 새 사용자로 전환하기 전에 이전 사용자의 보류 중인 데이터를 자동으로 플러시하므로 `changeUser()`를 호출하기 전에 수동으로 데이터 플러시를 요청할 필요가 없습니다.
 {% endalert %}
 
 {% alert warning %}
@@ -186,17 +212,17 @@ Braze.addAlias("ALIAS_NAME", "ALIAS_LABEL");
 
 ## ID 명명 모범 사례 {#naming-best-practices}
 
-무작위로 잘 분산된 128비트 문자열인 [UUID(범용 고유 식별자)](https://en.wikipedia.org/wiki/Universally_unique_identifier) 표준을 사용하여 사용자 ID를 생성하는 것이 좋습니다.
+무작위로 잘 분산된 128비트 문자열인 [UUID(범용 고유 식별자)](https://en.wikipedia.org/wiki/Universally_unique_identifier) 표준을 사용하여 사용자 ID를 생성하는 것을 권장합니다.
 
-또는 기존 고유 식별자(예: 이름 또는 이메일 주소)를 해시하여 사용자 ID를 대신 생성할 수도 있습니다. 이 경우 사용자 가장을 방지할 수 있도록 [SDK 인증]({{site.baseurl}}/developer_guide/sdk_integration/authentication/)을 구현해야 합니다.
+또는 기존 고유 식별자(예: 이름 또는 이메일 주소)를 해시하여 사용자 ID를 대신 생성할 수도 있습니다. 이 경우 사용자 가장을 방지할 수 있도록 [SDK 인증]({{site.baseurl}}/developer_guide/sdk_integration/authentication)을 구현해야 합니다.
 
 {% alert warning %}
 사용자 ID에 추측 가능한 값이나 증가하는 숫자를 사용하지 마세요. 이로 인해 조직이 악의적인 공격이나 데이터 유출에 노출될 수 있습니다.
 
-추가 보안을 위해 [SDK 인증]({{site.baseurl}}/developer_guide/sdk_integration/authentication/)을 사용하세요.
+추가 보안을 위해 [SDK 인증]({{site.baseurl}}/developer_guide/sdk_integration/authentication)을 사용하세요.
 {% endalert %}
 
-처음부터 사용자 ID의 이름을 올바르게 지정하는 것이 중요하지만, 나중에 언제든지 [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/) 엔드포인트를 사용하여 이름을 변경할 수 있습니다.
+처음부터 사용자 ID의 이름을 올바르게 지정하는 것이 중요하지만, 나중에 언제든지 [`/users/external_ids/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration) 엔드포인트를 사용하여 이름을 변경할 수 있습니다.
 
 | 권장되지 않는 ID 유형 | 권장되지 않는 예 |
 | ------------ | ----------- |

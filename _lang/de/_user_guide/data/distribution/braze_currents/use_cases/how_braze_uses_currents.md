@@ -8,38 +8,38 @@ tool: Currents
 
 ---
 
-# Wie Braze Currents verwendet
+# Wie Braze Currents verwendet {#how-braze-uses-currents}
 
-> Braze verwendet Currents intern mit ausgewählten [Partnern]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/).
+> Braze verwendet Currents intern mit ausgewählten [Partnern]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners).
 
 Wir filtern unsere Daten aus E-Mail- und Push-Campaigns in ein Business-Insights-Tool, Looker, aber der Weg dorthin ist etwas anders. Wir verwenden eine umgekehrte Version der Extract, Transform, Load (ETL)-Methode – wir ändern die Reihenfolge in Extract, Load, Transform (ELT).
 
-## 1. Schritt: Event-Daten eingeben und aggregieren
+## 1. Schritt: Ereignisdaten eingeben und aggregieren {#step-1-intake-and-aggregate-event-data}
 
 Nachdem wir Campaigns mit einem unserer Engagement-Tools (wie Campaigns oder Canvas) gestartet haben, verfolgen wir die Ereignisdaten mit unserem eigenen System sowie teilweise mit denen unserer E-Mail-Partner. Einige dieser Daten werden im Dashboard zusammengefasst und angezeigt, aber wir möchten tiefer eintauchen!
 
-## 2. Schritt: Event-Daten an einen Partner für die Datenspeicherung senden
+## 2. Schritt: Ereignisdaten an einen Partner für die Datenspeicherung senden {#step-2-send-event-data-to-a-data-storage-partner}
 
 Wir haben Currents eingerichtet, um Braze-Ereignisdaten zur Speicherung und Extraktion an Amazon S3 zu senden. Wir wissen, dass Sie [Athena](https://aws.amazon.com/athena/) verwenden können, um auf S3 aufzusetzen und Abfragen durchzuführen. Das ist eine großartige kurzfristige Lösung. Aber wir wollten eine langfristige Lösung mit einer relationalen Datenbank und einem Business-Intelligence/Analytics-Tool. (Das empfehlen wir auch für Sie.)
 
 S3 bietet flexible Speicher- und Routing-Optionen zum Verschieben, Pivotieren und Analysieren von Daten. Wir transformieren die Daten nicht in S3, da wir eine bestimmte Struktur dafür beibehalten.
 
-## 3. Schritt: Event-Daten mit einer relationalen Datenbank transformieren
+## 3. Schritt: Ereignisdaten mit einer relationalen Datenbank transformieren {#step-3-transform-event-data-with-a-relational-database}
 
 Von S3 aus wählen wir ein Warehouse ([Snowflake Datenfreigabe](https://www.snowflake.com/try-the-data-warehouse-built-for-the-cloud/?&utm_medium=search&utm_source=adwords&utm_campaign=NA%20-%20Branded&utm_adgroup=NA%20-%20Branded%20Snowflake%20-%20Data&utm_term=%2Bsnowflake%20%2Bdata&utm_region=NA&gclid=EAIaIQobChMI0vLv6uDA3gIVEFqGCh3aiwMzEAAYASAAEgI72fD_BwE) oder Snowflake Reader Accounts, in unserem Fall). Dort transformieren wir die Daten und verschieben sie dann nach Looker, wo wir Blöcke eingerichtet haben, die unsere Daten strukturieren und organisieren.
 
 Snowflake ist nicht die einzige Warehouse-Option. Weitere Optionen sind [Redshift](https://aws.amazon.com/redshift/), [Google BigQuery](https://cloud.google.com/bigquery/?utm_source=google&utm_medium=cpc&utm_campaign=na-US-all-en-dr-bkws-all-all-trial-p-dr-1003905&utm_content=text-ad-none-any-DEV_c-CRE_288551384566-ADGP_Hybrid+%7C+AW+SEM+%7C+BKWS+%7C+US+%7C+en+%7C+PHR+~+Big+Data+~+BigQuery+~+google+bigquery-KWID_43700035823403663-kwd-300487425311&utm_term=KW_google%20bigquery-ST_google+bigquery&gclid=EAIaIQobChMIl9OK8uHA3gIVyVmGCh1lFgB-EAAYASAAEgIfWfD_BwE) und mehr!
 
-### Snowflake Reader Accounts
+### Snowflake Reader Accounts {#snowflake-reader-accounts}
 
-Snowflake Reader Accounts bieten Nutzer:innen Zugriff auf dieselben Daten und Funktionen wie die [Snowflake Datenfreigabe]({{site.baseurl}}/partners/snowflake/), ohne dass ein Snowflake-Konto oder eine Kundenbeziehung mit Snowflake erforderlich ist. Mit Reader Accounts erstellt und teilt Braze Ihre Daten in einem Konto und stellt Ihnen Zugangsdaten zur Verfügung, um sich anzumelden und auf Ihre Daten zuzugreifen. Dadurch werden alle Datenfreigabe- und Nutzungskosten vollständig von Braze übernommen.
+Snowflake Reader Accounts bieten Nutzer:innen Zugriff auf dieselben Daten und Funktionen wie die [Snowflake Datenfreigabe]({{site.baseurl}}/partners/snowflake), ohne dass ein Snowflake-Konto oder eine Kundenbeziehung mit Snowflake erforderlich ist. Mit Reader Accounts erstellt und teilt Braze Ihre Daten in einem Konto und stellt Ihnen Zugangsdaten zur Verfügung, um sich anzumelden und auf Ihre Daten zuzugreifen. Dadurch werden alle Datenfreigabe- und Nutzungskosten vollständig von Braze übernommen.
 
 Um mehr zu erfahren, kontaktieren Sie Ihren Customer-Success-Manager.
 
-#### Zusätzliche Ressourcen
+#### Zusätzliche Ressourcen {#additional-resources}
 Hilfreiche Ressourcen zur Nutzungsüberwachung finden Sie in den Snowflake-Artikeln zu [Resource Monitors](https://docs.snowflake.com/en/user-guide/resource-monitors.html) und [Viewing Warehouse Credit Usage](https://docs.snowflake.com/en/user-guide/credits.html#viewing-warehouse-credit-usage-for-your-account).
 
-## 4. Schritt: Ein Business-Intelligence (BI)-Tool zur Datenbearbeitung verwenden
+## 4. Schritt: Ein Business-Intelligence (BI)-Tool zur Datenbearbeitung verwenden {#step-4-use-a-business-intelligence-bi-tool-to-manipulate-your-data}
 
 Schließlich verwenden wir ein BI-Tool, um unsere Daten zu analysieren, sie in Charts und andere visuelle Werkzeuge umzuwandeln und mehr – mit [Looker und Looker Blocks](https://www.marketplace.looker.com/), sodass wir nicht jedes Mal ETL oder ELT durchführen müssen, wenn Daten aus Currents verschoben werden.
 

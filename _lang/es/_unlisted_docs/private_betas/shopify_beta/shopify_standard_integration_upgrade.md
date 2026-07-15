@@ -10,20 +10,20 @@ hidden: true
 
 # Actualizar tu integración de Shopify (estándar) {#upgrading-your-shopify-integration-standard}
 
-> Aprende a actualizar tu integración de Shopify utilizando la ruta estándar para Braze. Como parte de nuestro compromiso de ofrecerte la mejor experiencia posible, estamos requiriendo que todas las integraciones de Shopify se [actualicen]({{site.baseurl}}/shopify/) a la última versión antes del 28 de agosto de 2025. Esta actualización es esencial porque cambios significativos en la tecnología de Shopify afectarán el funcionamiento de nuestra integración.
+> Aprende a actualizar tu integración de Shopify utilizando la ruta estándar para Braze. Como parte de nuestro compromiso de ofrecerte la mejor experiencia posible, estamos requiriendo que todas las integraciones de Shopify se [actualicen]({{site.baseurl}}/shopify) a la última versión antes del 28 de agosto de 2025. Esta actualización es esencial porque cambios significativos en la tecnología de Shopify afectarán el funcionamiento de nuestra integración.
 
 ## ¿Quién es elegible? {#whos-eligible}
 
 Esta ruta de actualización está destinada a marcas con una tienda en línea de Shopify.
 
-{% multi_lang_include shopify_alerts.md alert='breaking' %}
+{% multi_lang_include partners/shopify_alerts.md alert='breaking' %}
 
 ## Requisitos de actualización {#upgrade-requirements}
 
 Antes de comenzar, revisa lo siguiente:
 
-- **Cambios críticos:** Asegúrate de haber revisado todos los cambios importantes del conector heredado al nuevo conector en [Resumen de la actualización de Shopify]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection).
-- **Requisitos previos de actualización:** Asegúrate de haber completado todos los [requisitos previos de actualización]({{site.baseurl}}/shopify_upgrade_overview/#upgrade-prerequisites) necesarios con tus equipos de ingeniería y marketing.
+- **Cambios críticos:** Asegúrate de haber revisado todos los cambios importantes del conector heredado al nuevo conector en [Resumen de la actualización de Shopify]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
+- **Requisitos previos de actualización:** Asegúrate de haber completado todos los [requisitos previos de actualización]({{site.baseurl}}/shopify_upgrade_overview#upgrade-prerequisites) necesarios con tus equipos de ingeniería y marketing.
 - **Cambios con ruptura:** Revisa y corrige todos los cambios con ruptura señalados en Braze. Para un recorrido completo, continúa a [Corregir cambios con ruptura](#fixing-breaking-changes-fixing-breaking-changes).
 
 ## Corregir cambios con ruptura {#fixing-breaking-changes}
@@ -60,13 +60,13 @@ Para una lista completa de las nuevas plantillas de Canvas de comercio electrón
 Si no tienes en cuenta los mensajes activos que utilizan eventos descontinuados en la integración de Shopify, los mensajes afectados ya no se enviarán a tus clientes.
 {% endalert %}
 
-Para obtener más información, revisa [Eventos de Shopify compatibles]({{site.baseurl}}/shopify_upgrade_overview/#supported-shopify-events).
+Para obtener más información, revisa [Eventos de Shopify compatibles]({{site.baseurl}}/shopify_upgrade_overview#supported-shopify-events).
 {% endtab %}
 
 {% tab Listas de suscriptores %}
 Si estás recopilando suscriptores de correo electrónico o SMS de Shopify a través de la integración, confirma que tus mensajes activos incluyan las listas de suscriptores correspondientes para tu tienda de Shopify.
 
-Cuando la actualización esté completa, se crearán nuevos grupos de suscripción predeterminados para tu integración, los cuales necesitarás aprovechar como parte de tu mensajería activa. Para más información sobre los cambios, consulta [Recopilación de suscriptores]({{site.baseurl}}/shopify_upgrade_overview/#subscriber-collection).
+Cuando la actualización esté completa, se crearán nuevos grupos de suscripción predeterminados para tu integración, los cuales necesitarás aprovechar como parte de tu mensajería activa. Para más información sobre los cambios, consulta [Recopilación de suscriptores]({{site.baseurl}}/shopify_upgrade_overview#subscriber-collection).
 {% endtab %}
 {% endtabs %}
 
@@ -160,7 +160,7 @@ Necesitas crear un punto de conexión público al que Braze pueda llamar para re
 
 ```
 GET
-https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 ##### Respuesta esperada {#expected-response}
@@ -212,4 +212,4 @@ Para verificar que tu nuevo conector de Shopify esté en vivo, prueba lo siguien
 - **Personalizaciones del SDK (opcional):** Si realizaste personalizaciones en tu integración de Braze y Shopify (como registrar eventos personalizados o atributos), verifica que estén funcionando correctamente después de la actualización.
 - **Recopilación de suscriptores de correo electrónico o SMS (opcional):** Si habilitaste previamente la recopilación de suscriptores de correo electrónico o SMS, se crearán nuevos grupos de suscripción predeterminados para reflejar el estado más reciente de tus suscriptores durante la actualización. Los grupos de suscripción predeterminados tendrán el nombre de tu tienda de Shopify. Estos nuevos grupos de suscripción predeterminados estarán disponibles aproximadamente 5 horas después de la actualización, y necesitarás añadirlos a tus mensajes activos.
 
-Si tienes alguna pregunta, [ponte en contacto con Soporte](https://www.braze.com/docs/user_guide/administrative/access_braze/support/).
+Si tienes alguna pregunta, [ponte en contacto con Soporte]({{site.baseurl}}/user_guide/administrative/access_braze/support).

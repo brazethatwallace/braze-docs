@@ -81,10 +81,6 @@ To resolve this, do the following:
 
 1. Complete setting up your WhatsApp message step.
 2. Confirm you checked **Save Flow responses as a custom attribute**.
-
-![Meta Flow section with a checkbox to save Flow responses as a custom attribute.]({% image_buster /assets/img/whatsapp/flows/save_flow_responses_checkbox.png %}){: style="max-width:80%;"}
-
-{: start="3"}
 3. Send yourself a test message and complete the Flow as a user.
 
 Now, Braze has the shape of the Flow response JSON and can generate the custom attribute.
@@ -137,7 +133,7 @@ After the schema generates, the Flow **Custom Attribute** section will display t
 
 ### Step 1: Create an Action Path
 
-Create an [Action Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) Canvas step or an action-based campaign. Select a **Send a WhatsApp inbound message** trigger and **Responded to Flow** condition, and then select the relevant Flow or **Any Flow**.
+Create an [Action Path]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) Canvas step or an action-based campaign. Select a **Send a WhatsApp inbound message** trigger and **Responded to Flow** condition, and then select the relevant Flow or **Any Flow**.
 
 ![A trigger for users who sent an inbound WhatsApp message and responded to any Flow.]({% image_buster /assets/img/whatsapp/flows/trigger_responded_flow.png %})
 
@@ -188,11 +184,11 @@ A new WhatsApp message “clears” the Canvas’s ability to use (and reuse) th
 
 ## Adding a Flow personalization tag
 
-To use the Flow response through Liquid with [supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/), complete the following steps:
+To use the Flow response through Liquid with [supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags), complete the following steps:
 
 1. When composing your WhatsApp message, select <i class="fas fa-plus-circle"></i> **Add Personalization** to open the **Add Personalization** window
 2. Select **WhatsApp Properties** for the personalization type and **inbound_flow_response** for the custom attribute. This can be used to save information to user profiles, include it in messages, or forward it to other services, like webhooks.
 
 ![WhatsApp message composer with an "Add Personalization" component to insert a WhatsApp properties personalization with the custom attribute inbound_flow_response.]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}
 
-For any questions or further assistance, contact [Support]({{site.baseurl}}/braze_support/).
+For any questions or further assistance, contact [Support]({{site.baseurl}}/braze_support).

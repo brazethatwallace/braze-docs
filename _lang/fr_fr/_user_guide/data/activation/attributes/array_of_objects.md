@@ -13,20 +13,20 @@ description: "Cet article de référence couvre l'utilisation d'un tableau d'obj
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 
-## Restrictions {#considerations}
+## Considérations {#considerations}
 
 - Les tableaux d'objets sont destinés aux attributs personnalisés envoyés par l'API. Les téléchargements de fichiers CSV ne sont pas pris en charge, car les virgules dans le fichier CSV sont interprétées comme des séparateurs de colonnes, et les virgules dans les valeurs provoquent des erreurs d'analyse.
 - Les tableaux d'objets n'ont pas de limite quant au nombre d'éléments, mais leur taille maximale est de 100&nbsp;Ko. Si une mise à jour (comme `$add` ou `$update`) fait dépasser cette limite au tableau, Braze rejette la mise à jour et l'attribut reste inchangé. La requête API renvoie tout de même une réponse de succès. Pour maintenir le tableau sous la limite afin de pouvoir ajouter de nouveaux éléments, utilisez `$remove` pour supprimer des éléments du tableau au préalable.
-- Tous les partenaires de Braze ne prennent pas en charge les tableaux d'objets. Consultez la [documentation du partenaire]({{site.baseurl}}/partners/home/) pour savoir si l'intégration prend en charge cette fonctionnalité.
+- Tous les partenaires de Braze ne prennent pas en charge les tableaux d'objets. Consultez la [documentation du partenaire]({{site.baseurl}}/partners/home) pour savoir si l'intégration prend en charge cette fonctionnalité.
 
 La mise à jour ou la suppression d'éléments d'un tableau nécessite l'identification de l'élément par sa clé et sa valeur ; pensez donc à inclure un identifiant unique pour chaque élément du tableau. L'unicité est limitée au tableau et s'avère utile si vous souhaitez mettre à jour ou supprimer des objets spécifiques de votre tableau. Cela n'est pas imposé par Braze.
 
 {% alert important %}
-Lorsqu'un attribut personnalisé imbriqué dans votre requête contient des valeurs invalides (comme des formats de date/heure incorrects ou des valeurs `null`), Braze rejette toutes les mises à jour d'attributs personnalisés imbriqués de la requête. Cela s'applique à toutes les structures imbriquées au sein de cet attribut spécifique. Vérifiez que toutes les valeurs des attributs personnalisés imbriqués sont valides avant l'envoi. Pour en savoir plus, consultez [Créer et mettre à jour des utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#how-does-userstrack-handle-invalid-nested-custom-attributes).
+Lorsqu'un attribut personnalisé imbriqué dans votre requête contient des valeurs invalides (comme des formats de date/heure incorrects ou des valeurs `null`), Braze rejette toutes les mises à jour d'attributs personnalisés imbriqués de la requête. Cela s'applique à toutes les structures imbriquées au sein de cet attribut spécifique. Vérifiez que toutes les valeurs des attributs personnalisés imbriqués sont valides avant l'envoi. Pour en savoir plus, consultez [Créer et mettre à jour des utilisateurs]({{site.baseurl}}/api/endpoints/user_data/post_user_track#how-does-userstrack-handle-invalid-nested-custom-attributes).
 {% endalert %}
 
 {% alert tip %}
-Pour en savoir plus sur l'utilisation des tableaux d'objets pour les objets d'attributs utilisateur, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+Pour en savoir plus sur l'utilisation des tableaux d'objets pour les objets d'attributs utilisateur, consultez [Objet attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
 {% endalert %}
 
 ## Exemple d'API {#api-example}
@@ -50,13 +50,13 @@ Utilisez ce format lorsque vous souhaitez créer l'attribut pour la première fo
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }
@@ -81,19 +81,19 @@ Utilisez `$add` lorsque vous devez ajouter un ou plusieurs nouveaux objets tout 
             "id": 3,
             "type": "dog",
             "breed": "corgi",
-            "name": "Doug"
+            "name": "Biscuit"
           },
           {
             "id": 4,
             "type": "fish",
             "breed": "salmon",
-            "name": "Larry"
+            "name": "Pepper"
           },
            {
             "id": 5,
             "type": "bird",
             "breed": "parakeet",
-            "name": "Mary"
+            "name": "Noodle"
           }
         ]
       }
@@ -104,7 +104,7 @@ Utilisez `$add` lorsque vous devez ajouter un ou plusieurs nouveaux objets tout 
 {% endtab %}
 {% tab Mettre à jour %}
 
-Mettez à jour les valeurs d'objets spécifiques dans un tableau à l'aide du paramètre `_merge_objects` et de l'opérateur `$update`. Comme pour les mises à jour d'objets simples d'[attributs personnalisés imbriqués]({{site.baseurl}}/nested_custom_attribute_support/#api-request-body), cela effectue une fusion en profondeur.
+Mettez à jour les valeurs d'objets spécifiques dans un tableau à l'aide du paramètre `_merge_objects` et de l'opérateur `$update`. Comme pour les mises à jour d'autres objets d'[attributs personnalisés imbriqués]({{site.baseurl}}/nested_custom_attribute_support#api-request-body), cela effectue une fusion en profondeur.
 
 Notez que `$update` ne peut pas être utilisé pour supprimer une propriété imbriquée d'un objet à l'intérieur d'un tableau. Pour cela, vous devez supprimer l'élément entier du tableau, puis ajouter l'objet sans cette clé spécifique (en combinant `$remove` et `$add`).
 
@@ -220,7 +220,7 @@ Lorsque vous incluez des champs comme des horodatages dans un tableau d'objets, 
 ```
 
 {% alert tip %}
-Pour en savoir plus, consultez [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/).
+Pour en savoir plus, consultez [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
 {% endalert %}
 
 ## Exemple SDK {#sdk-example}
@@ -240,7 +240,7 @@ val json = JSONArray()
         .put("id", 2)
         .put("type", "cat")
         .put("breed", "calico")
-        .put("name", "Gerald")
+        .put("name", "Pixel")
     )
 
 braze.getCurrentUser { user ->
@@ -262,12 +262,12 @@ val json = JSONObject()
             .put("id", 4)
             .put("type", "fish")
             .put("breed", "salmon")
-            .put("name", "Larry"))
+            .put("name", "Pepper"))
         .put(JSONObject()
             .put("id", 5)
             .put("type", "bird")
             .put("breed", "parakeet")
-            .put("name", "Mary")
+            .put("name", "Noodle")
         )
     )
 
@@ -338,13 +338,13 @@ let json: [[String: Any?]] = [
     "id": 1,
     "type": "dog",
     "breed": "beagle",
-    "name": "Gus"
+    "name": "Mochi"
   ],
   [
     "id": 2,
     "type": "cat",
     "breed": "calico",
-    "name": "Gerald"
+    "name": "Pixel"
   ]
 ]
 
@@ -360,19 +360,19 @@ let json: [String: Any?] = [
       "id": 3,
       "type": "dog",
       "breed": "corgi",
-      "name": "Doug"
+      "name": "Biscuit"
     ],
     [
       "id": 4,
       "type": "fish",
       "breed": "salmon",
-      "name": "Larry"
+      "name": "Pepper"
     ],
     [
       "id": 5,
       "type": "bird",
       "breed": "parakeet",
-      "name": "Mary"
+      "name": "Noodle"
     ]
   ]
 ]
@@ -444,12 +444,12 @@ const json = [{
   "id": 1,
   "type": "dog",
   "breed": "beagle",
-  "name": "Gus"
+  "name": "Mochi"
 }, {
   "id": 2,
   "type": "cat",
   "breed": "calico",
-  "name": "Gerald"
+  "name": "Pixel"
 }];
 braze.getUser().setCustomUserAttribute("pets", json);
 ```
@@ -468,12 +468,12 @@ const json = {
     "id":  4,
     "type":  "fish",
     "breed":  "salmon",
-    "name":  "Larry",
+    "name":  "Pepper",
   }, {
     "id":  5,
     "type":  "bird",
     "breed":  "parakeet",
-    "name":  "Mary",
+    "name":  "Noodle",
   }]
 };
 braze.getUser().setCustomUserAttribute("pets", json, true);
@@ -533,7 +533,7 @@ braze.getUser().setCustomUserAttribute("pets", json, true);
 
 ## Modèles Liquid {#liquid-templating}
 
-Vous pouvez utiliser ce tableau `pets` pour personnaliser un message. L'exemple de modèle Liquid suivant montre comment référencer les propriétés de l'objet d'attribut personnalisé enregistrées à partir de la requête API précédente et les utiliser dans vos messages.
+Vous pouvez utiliser ce tableau `pets` pour personnaliser un message. L'exemple de modèle Liquid suivant montre comment référencer les propriétés de l'objet d'attribut personnalisé enregistrées à partir de la requête API précédente et les utiliser dans votre envoi de messages.
 
 {% raw %}
 ```liquid
@@ -545,7 +545,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-Dans ce scénario, vous pouvez utiliser Liquid pour parcourir le tableau `pets` et afficher une phrase pour chaque animal. [Assignez une variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#assigning-variables) à l'attribut personnalisé `pets` et utilisez la notation par points pour accéder aux propriétés d'un objet. Spécifiez le nom de l'objet, suivi d'un point `.`, suivi du nom de la propriété.
+Dans ce scénario, vous pouvez utiliser Liquid pour parcourir le tableau `pets` et afficher une phrase pour chaque animal. [Assignez une variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) à l'attribut personnalisé `pets` et utilisez la notation par points pour accéder aux propriétés d'un objet. Spécifiez le nom de l'objet, suivi d'un point `.`, suivi du nom de la propriété.
 
 ## Segmentation {#segmentation}
 
@@ -562,7 +562,7 @@ Par exemple, si vous souhaitez filtrer un tableau d'objets `top_3_movies` en fon
 
 ### Niveaux d'imbrication {#levels-of-nesting}
 
-Vous pouvez créer un segment avec un seul niveau d'imbrication de tableau (un tableau à l'intérieur d'un autre tableau). Par exemple, avec les attributs suivants, vous pouvez créer un segment pour `pets[].name` contient `Gus`, mais vous ne pouvez pas créer un segment pour `pets[].nicknames[]` contient `Gugu`.
+Vous pouvez créer un segment avec un seul niveau d'imbrication de tableau (un tableau à l'intérieur d'un autre tableau). Par exemple, avec les attributs suivants, vous pouvez créer un segment pour `pets[].name` contient `Mochi`, mais vous ne pouvez pas créer un segment pour `pets[].nicknames[]` contient `Gugu`.
 
 {% raw %}
 ```json
@@ -575,20 +575,20 @@ Vous pouvez créer un segment avec un seul niveau d'imbrication de tableau (un t
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus",
+          "name": "Mochi",
           "nicknames": [
-            "Gugu",
-            "Gusto"
+            "MoMo",
+            "Mochi"
           ]
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald",
+          "name": "Pixel",
           "nicknames": [
-            "GeGe",
-            "Gerry"
+            "PiPi",
+            "Pixel"
           ]
         }
       ]
@@ -617,13 +617,13 @@ La création d'un nouveau tableau consomme un point de donnée pour chaque attri
           "id": 1,
           "type": "dog",
           "breed": "beagle",
-          "name": "Gus"
+          "name": "Mochi"
         },
         {
           "id": 2,
           "type": "cat",
           "breed": "calico",
-          "name": "Gerald"
+          "name": "Pixel"
         }
       ]
     }

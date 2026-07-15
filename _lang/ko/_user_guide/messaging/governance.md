@@ -4,12 +4,12 @@ article_title: 거버넌스
 layout: dev_guide
 page_order: 2
 guide_top_header: "거버넌스"
-guide_top_text: "Campaign과 Canvases의 라이프사이클 및 구성을 관리하세요. 아래 문서를 참조하여 승인 워크플로우를 설정하고, 항목을 아카이브하거나 복제하고, 워크스페이스 간에 복사하고, 상태와 태그를 사용하여 워크스페이스를 체계적으로 관리하세요."
+guide_top_text: "Campaigns, Canvases 및 랜딩 페이지의 라이프사이클과 구성을 관리하세요. 아래 문서를 참조하여 승인 워크플로우를 설정하고, 항목을 아카이브하거나 복제하고, 워크스페이스 간에 복사하고, 상태와 태그를 사용하여 워크스페이스를 체계적으로 관리하세요."
 page_type: landing
 tool:
   - Campaigns
   - Canvas
-description: "Campaign과 Canvases를 위한 승인, 아카이브, 복제, 워크스페이스 간 복사, 상태 및 태그."
+description: "Campaigns, Canvases 및 랜딩 페이지를 위한 승인, 아카이브, 복제, 워크스페이스 간 복사, 상태 및 태그."
 
 guide_featured_title: "섹션 문서"
 guide_featured_list:

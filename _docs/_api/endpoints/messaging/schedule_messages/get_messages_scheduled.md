@@ -22,7 +22,7 @@ Daily, recurring messages will only appear once with their next occurrence. Resu
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `messages.schedule_broadcasts` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `messages.schedule_broadcasts` permission.
 
 ## Rate limit
 

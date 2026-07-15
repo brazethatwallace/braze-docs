@@ -29,7 +29,7 @@ WCAG 2.1을 만족하는 최소 SDK 버전은 v3.4.0에 가깝습니다. 그러�
 | **3.1.2** | 부분 | 이미지에 대한 기본 대체 텍스트 |
 | **2.4.1** | **주요** | 시맨틱 HTML(`h1` 또는 `button`), ARIA 속성, 키보드 탐색, 포커스 관리 |
 | **2.0.5** | 부분 | 포커스 관리, 키보드 탐색, 레이블 |
-{: .reset-td-br-1, .reset-td-br-2 aria-label="Notable accessibility fixes" }
+{: .reset-td-br-1, .reset-td-br-2 aria-label="주요 접근성 수정 사항" }
 
 ## 지원되는 접근성 기능 {#supported-accessibility-features}
 
@@ -43,7 +43,7 @@ Content Cards 및 인앱 메시지에 대해 다음 기능을 지원합니다:
 
 ## SDK 통합을 위한 접근성 가이드라인 {#accessibility-guidelines-for-sdk-integrations}
 
-일반 접근성 가이드라인에 대해서는 [Braze에서 접근성 높은 메시지 구축하기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/)를 참조하세요. 이 가이드는 Braze Web SDK를 웹 애플리케이션에 통합할 때 최대 접근성을 위한 팁과 모범 사례를 제공합니다.
+일반 접근성 가이드라인에 대해서는 [Braze에서 접근성 높은 메시지 구축하기]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility)를 참조하세요. 이 가이드는 Braze Web SDK를 웹 애플리케이션에 통합할 때 최대 접근성을 위한 팁과 모범 사례를 제공합니다.
 
 ### Content Cards
 

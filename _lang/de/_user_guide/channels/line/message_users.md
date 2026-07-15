@@ -27,7 +27,7 @@ Legen Sie Ihre Trigger-Wörter fest, wenn Sie eine Campaign mit aktionsbasierter
 
 ### Canvas
 
-Legen Sie Ihre Trigger-Wörter innerhalb von [Aktionspfaden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) in Ihrem Canvas fest.
+Legen Sie Ihre Trigger-Wörter innerhalb von [Aktionspfaden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) in Ihrem Canvas fest.
 
 ![Aktionspfad mit einem Trigger „Diese Campaign an Nutzer:innen senden, die eine eingehende LINE-Nachricht an die Abo-Gruppe gesendet haben, bei der der Nachrichtentext“ und einem leeren Feld.]({% image_buster /assets/img/line/trigger_word_canvas.png %})
 
@@ -43,6 +43,6 @@ Sie sollten eine Trigger-Option für nicht erkannte Antworten in interaktiven Ca
 
 ### Einen Trigger für nicht erkannte Antworten erstellen {#creating-a-trigger-for-unrecognized-responses}
 
-Nachdem Sie Aktionsgruppen für die angepassten Filterphrasen erstellt haben, fügen Sie dem Aktionspfad eine weitere Aktionsgruppe für **Send LINE message** hinzu und aktivieren Sie **nicht** die Option **Where the message body**. Dies fängt alle nicht erkannten Antworten von Nutzer:innen ab, ähnlich wie eine „else“-Klausel.
+Nachdem Sie Aktionsgruppen für die angepassten Filterphrasen erstellt haben, fügen Sie dem Aktionspfad eine weitere Aktionsgruppe für **LINE-Nachricht senden** hinzu und aktivieren Sie **nicht** die Option **Nachrichtentext enthält**. Dies fängt alle nicht erkannten Antworten von Nutzer:innen ab, ähnlich wie eine „else“-Klausel.
 
 Für diese Nachricht sollten Sie eine LINE-Nachricht senden, die die/den Nutzer:in darüber informiert, dass dieser Kanal nicht von einer Person überwacht wird, und sie/ihn bei Bedarf an einen Support-Kanal weiterleiten.

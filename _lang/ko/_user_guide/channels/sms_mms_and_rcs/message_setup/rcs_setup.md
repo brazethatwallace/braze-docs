@@ -50,6 +50,24 @@ RCS 메시지를 보내려면 먼저 RCS 인증 발신자를 등록해야 합니
 
 첫 번째 RCS Campaign을 배포하기 전에 현재 SMS 옵트인 경험, 구독 그룹, 오디언스 세분화를 검토하는 것을 강력히 권장합니다. 필요한 경우, 고객 성공 매니저가 항상 안내를 제공하고 설정 과정을 도와드릴 수 있습니다.
 
+#### SMS 대체가 이벤트 및 세분화와 작동하는 방식 {#how-sms-fallback-works-with-events-and-segmentation}
+
+{% tabs %}
+{% tab 이벤트 동작 %}
+
+RCS에서 SMS 대체를 사용할 때, 이벤트 동작은 메시지가 RCS를 통해 성공적으로 발송되었는지 또는 SMS로 대체되었는지에 따라 달라집니다.
+
+- **RCS 발송이 성공한 경우:** RCS 발송 이벤트와 RCS 전달 이벤트를 수신합니다.
+- **RCS 발송이 SMS로 대체된 경우:** RCS 발송 이벤트, RCS 거부 이벤트, SMS 전달 이벤트를 수신합니다. SMS 전달 이벤트에는 `IS_SMS_FALLBACK=TRUE`가 포함됩니다.
+
+{% endtab %}
+{% tab 세분화 동작 %}
+
+SMS 및 RCS의 경우, 수신 메시지 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)(예: [Campaign에서 메시지 수신]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-campaign) 및 [캔버스 단계에서 메시지 수신]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step))은 메시지가 사용자의 기기에 도달할 때가 아니라 발송될 때 평가됩니다. SMS 대체가 활성화된 경우, RCS 메시지가 거부되어 SMS로 대체되거나 대체 SMS가 사용자의 기기에 전달되지 않더라도 사용자는 여전히 이러한 필터에 매칭될 수 있습니다.
+
+{% endtab %}
+{% endtabs %}
+
 ### 이동통신사 승인 일정 {#timeline-for-carrier-approval}
 
 이동통신사 승인 일정은 국가별로 다르며, 같은 국가 내에서도 달라질 수 있습니다. RCS 시장은 아직 초기 단계이므로 이동통신사 및 어그리게이터 프로세스가 빠르게 변화하고 있다는 점을 유의하세요. 미국의 경우, Braze는 RCS 인증 발신자에 대한 이동통신사 승인 소요 시간이 일반적으로 4~6주 범위이며, 테스트 발신자는 보통 1주 이내에 승인되는 것으로 추정합니다.
@@ -58,7 +76,7 @@ RCS 인증 발신자가 승인되면, 운영팀이 구독 그룹을 필요에 �
 
 ## 3단계: 구독 그룹 설정 {#step-3-set-up-subscription-groups}
 
-통합 방식에 따라 Braze는 기존 SMS 구독 그룹에 RCS 인증 발신자를 추가하거나 새로운 구독 그룹을 설정할 수 있습니다. 자세한 설정 안내는 [SMS 및 RCS 구독 그룹]({{site.baseurl}}/sms_rcs_subscription_groups/)을 참조하세요.
+통합 방식에 따라 Braze는 기존 SMS 구독 그룹에 RCS 인증 발신자를 추가하거나 새로운 구독 그룹을 설정할 수 있습니다. 자세한 설정 안내는 [SMS 및 RCS 구독 그룹]({{site.baseurl}}/sms_rcs_subscription_groups)을 참조하세요.
 
 ## SMS 트래픽을 RCS로 마이그레이션 {#migrating-sms-traffic-to-rcs}
 
@@ -78,7 +96,7 @@ Canvas를 생성하고 쉽게 식별할 수 있는 이름을 지정합니다(예
 |------|------|
 | **Segment 생성** | 구독 그룹의 모든 사용자 또는 세분화 필터를 사용한 하위 집합(예: 무작위 5~10%)을 포함하는 Segment를 구축합니다. Segment는 각 발송 전에 업데이트되어 현재 사용자 기반을 반영합니다. |
 | **Campaign 또는 Canvas 필터 적용** | Campaign 또는 Canvas의 **타겟 오디언스** 단계에서 오디언스를 세분화합니다. 페이지를 벗어나지 않고 타겟팅 옵션을 조정하여 유연성을 높일 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 오디언스 정의" }
 
 ### 3단계: 사용자 업데이트 단계 구성 {#step-3-configure-a-user-update-step}
 
@@ -107,7 +125,7 @@ Canvas에 사용자 업데이트 단계를 추가합니다. 해당 단계에서 
 
 ### 4단계: Canvas 테스트 {#step-4-test-the-canvas}
 
-더 넓은 오디언스에 발송하기 전에 [Canvas를 테스트]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/)하여 예상대로 작동하는지 확인하는 것을 강력히 권장합니다.
+더 넓은 오디언스에 발송하기 전에 [Canvas를 테스트]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases)하여 예상대로 작동하는지 확인하는 것을 강력히 권장합니다.
 
 ### 5단계: Canvas 시작 {#step-5-launch-your-canvas}
 

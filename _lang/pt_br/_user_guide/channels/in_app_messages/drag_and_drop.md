@@ -13,14 +13,14 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 # Criar uma mensagem no app com arrastar e soltar {#create-an-in-app-message-with-drag-and-drop}
 
-> Com o editor de arrastar e soltar, você pode criar mensagens no app totalmente personalizadas em Campaigns ou Canvas usando a experiência de edição de arrastar e soltar. Para saber mais sobre os blocos de construção disponíveis no editor, consulte [Blocos do editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
+> Com o editor de arrastar e soltar, você pode criar mensagens no app totalmente personalizadas em Campaigns ou Canvas usando a experiência de edição de arrastar e soltar. Para saber mais sobre os blocos de construção disponíveis no editor, consulte [Blocos do editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
 
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
 Se você quiser usar seus modelos HTML personalizados existentes ou modelos criados por terceiros, eles precisam ser recriados no editor de arrastar e soltar.
 
-Não tem certeza se sua mensagem no app deve ser enviada usando uma campanha ou um [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/)? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas é melhor para jornadas de usuário com várias etapas. Depois de selecionar onde construir sua mensagem, vamos mergulhar nas etapas para criar uma mensagem no app com arrastar e soltar.
+Não tem certeza se sua mensagem no app deve ser enviada usando uma campanha ou um [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas)? Campaigns são melhores para campanhas de mensagens únicas e direcionadas, enquanto Canvas é melhor para jornadas de usuário com várias etapas. Depois de selecionar onde construir sua mensagem, vamos mergulhar nas etapas para criar uma mensagem no app com arrastar e soltar.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -33,7 +33,7 @@ Não tem certeza se sua mensagem no app deve ser enviada usando uma campanha ou 
 
 {% details Mais informações sobre SDKs mínimos %}
 
-Mensagens criadas usando o editor de arrastar e soltar só podem ser enviadas para usuários nas versões mínimas do SDK (veja a tabela acima). Se um usuário não tiver atualizado seu aplicativo (ou seja, está em uma versão mais antiga do SDK), ele não receberá a mensagem no app.
+Mensagens criadas usando o editor de arrastar e soltar só podem ser enviadas para usuários nas versões mínimas do SDK (veja a tabela na seção anterior). Se um usuário não tiver atualizado seu aplicativo (ou seja, está em uma versão mais antiga do SDK), ele não receberá a mensagem no app.
 
 Para aproveitar todos os recursos disponíveis no editor de arrastar e soltar, atualize seus SDKs para as versões recomendadas. Isso permite que você aproveite os seguintes recursos adicionais:
 
@@ -134,9 +134,9 @@ Os usuários podem selecionar o botão X de fechar para sair da mensagem a qualq
 
 É aqui que sua mensagem ganha vida, vestida com o estilo exclusivo da sua marca. Usando uma combinação de blocos do editor e configurações de estilo, você pode personalizar e projetar sua mensagem no app.
 
-- Para uma lista de blocos do editor disponíveis e suas propriedades, consulte [Blocos do editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
-- Para ajuda na personalização da aparência da sua mensagem, confira [Configurações de estilo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/).
-- Para práticas recomendadas na criação de mensagens da direita para a esquerda, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- Para uma lista de blocos do editor disponíveis e suas propriedades, consulte [Blocos do editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
+- Para ajuda na personalização da aparência da sua mensagem, confira [Configurações de estilo]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings).
+- Para práticas recomendadas na criação de mensagens da direita para a esquerda, consulte [Criando mensagens da direita para a esquerda]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ## Etapa 5: Testar sua mensagem no app {#step-5-test-your-in-app-message}
 
@@ -168,28 +168,28 @@ Considere as seguintes perguntas ao testar sua mensagem no app:
 
 ## Perguntas frequentes {#frequently-asked-questions}
 
-#### Por que os cliques no corpo não aparecem na minha página de análise de dados? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
+### Por que os cliques no corpo não aparecem na minha página de análise de dados? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
 Os cliques no corpo não são coletados automaticamente para mensagens no app criadas com o editor de arrastar e soltar. Para mais detalhes, consulte os changelogs do SDK para [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) e [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
 
-#### Posso segmentar com base em cliques de botão? {#can-i-segment-based-on-button-clicks}
+### Posso segmentar com base em cliques de botão? {#can-i-segment-based-on-button-clicks}
 
 Sim, você pode segmentar com base em cliques de botão para até dois botões na sua mensagem. Para isso, defina o **Identifier for Reporting** dos seus botões como "0" e "1", que corresponderão aos filtros de segmentação "Clicked in-app message button 1" e "Clicked in-app message button 2", respectivamente.
 
 ![O campo "Identifier for Reporting" com o valor "0".]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### Posso personalizar minha mensagem no app usando HTML ou JavaScript personalizados ou transferir mensagens HTML existentes para o editor? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### Posso personalizar minha mensagem no app usando HTML ou JavaScript personalizados ou transferir mensagens HTML existentes para o editor? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
 Você não pode transferir diretamente mensagens HTML existentes para o editor, mas pode inserir HTML, CSS e JavaScript brutos em um bloco de código personalizado. Você pode usar blocos de código personalizado para incorporar vídeos de terceiros e Liquid avançado, como Conteúdo conectado ou instruções condicionais.
 
-#### Como posso criar uma mensagem no app do tipo slideup? {#how-can-i-create-a-slideup-in-app-message}
+### Como posso criar uma mensagem no app do tipo slideup? {#how-can-i-create-a-slideup-in-app-message}
 
 Atualmente, o editor é limitado apenas a mensagens modais e de tela cheia. Você pode alternar entre os tipos de exibição na seção **Message container** do painel **Message styles**.
 
-#### Posso salvar minha mensagem no app como modelo depois de criá-la na minha campanha ou Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### Posso salvar minha mensagem no app como modelo depois de criá-la na minha campanha ou Canvas? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
 Sim. Para qualquer mensagem no app que você queira reutilizar em uma futura campanha ou etapa do Canvas, você pode salvá-la como um modelo personalizado usando o botão **Save as template**, disponível após sair do editor. Antes de salvá-la como modelo, você deve primeiro lançar a campanha OU salvá-la como rascunho.
 
 ![Uma pré-visualização de uma mensagem no app para um tour de produto.]({% image_buster /assets/img_archive/dnd_iam_save_as_template.png %})
 
-Você também pode criar e salvar modelos de mensagens no app acessando **Templates** > **In-App Message Templates**.
+Você também pode criar e salvar modelos de mensagens no app acessando **Content** > **In-App Message**.

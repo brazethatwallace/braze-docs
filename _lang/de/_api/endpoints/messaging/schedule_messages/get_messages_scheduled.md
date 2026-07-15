@@ -22,7 +22,7 @@ Tägliche, wiederkehrende Nachrichten erscheinen nur einmal mit ihrem nächsten 
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `messages.schedule_broadcasts`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `messages.schedule_broadcasts`.
 
 ## Rate-Limits {#rate-limit}
 

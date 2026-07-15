@@ -16,7 +16,7 @@ toc_headers: h2
 With Braze Cloud Data Ingestion (CDI), you set up an integration between your data warehouse instance and Braze workspace to sync data on a recurring basis. This sync runs on a schedule you set, and each integration can have a different schedule. Syncs can run as frequently as every 15 minutes or as infrequently as once per month. If you need syncs to occur more frequently than 15 minutes, contact your customer success manager or consider using REST API calls for real-time data ingestion.
 
 {% alert note %}
-Sync frequency in the dashboard controls how often Braze runs a sync (for example, options such as hourly or more frequent runs within an hour). It does not set a custom interval longer than one hour between runs. To run a sync outside the scheduled cadence—such as on demand after your warehouse load completes—use the [Trigger a sync]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) endpoint with your integration ID.
+Sync frequency in the dashboard controls how often Braze runs a sync (for example, options such as hourly or more frequent runs within an hour). It does not set a custom interval longer than one hour between runs. To run a sync outside the scheduled cadence—such as on demand after your warehouse load completes—use the [Trigger a sync]({{site.baseurl}}/api/endpoints/cdi/post_job_sync) endpoint with your integration ID.
 {% endalert %}
 
 When a sync runs, Braze directly connects to your data warehouse instance, retrieves all new data from the specified table, and updates the corresponding data on your Braze dashboard. Each time the sync runs, any updated data is reflected in Braze.
@@ -78,13 +78,13 @@ When syncing user data through Cloud Data Ingestion, you can identify users usin
 | `PHONE` | The user's phone number. If multiple profiles with the same phone number exist, the most recently updated profile is prioritized for updates. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers for data ingestion" }
 
-For detailed information about setting up table columns and payload formatting requirements, see [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
+For detailed information about setting up table columns and payload formatting requirements, see [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 
-For source-specific setup instructions and SQL examples, see [Data Warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+For source-specific setup instructions and SQL examples, see [Data Warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ## Data point usage
 
-For customers on data points-based billing, data point billing for Cloud Data Ingestion is equivalent to billing for updates through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track). Refer to [Data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points/) for more information. 
+For customers on data points-based billing, data point billing for Cloud Data Ingestion is equivalent to billing for updates through the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track). Refer to [Data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points) for more information. 
 
 {% alert important %}
 Braze Cloud Data Ingestion counts toward the available rate limit, so if you're sending data using another method, the rate limit is combined between the Braze API and Cloud Data Ingestion.

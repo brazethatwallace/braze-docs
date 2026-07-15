@@ -8,17 +8,17 @@ hide_toc: true
 
 # Message Credits - Lambda (confidentiel) {#message-credits-lambda-confidential}
 
-> Message Credits est la structure de packaging multi-produits de Braze pour nos offres natives Console des agents, SMS, MMS, RCS, WhatsApp et LINE. Les Message Credits offrent une expérience flexible et transparente lorsque vous tirez parti des canaux de communication Braze et de certaines fonctionnalités d'intelligence artificielle. Les crédits vous donnent accès à l'ensemble des canaux présentés dans le tableau de cette page.
+> Message Credits est la structure de packaging multiproduit de Braze pour nos offres natives Agent Console, SMS, MMS, RCS, WhatsApp et LINE. Les Message Credits offrent une expérience flexible et transparente lorsque vous tirez parti des canaux de communication Braze et de certaines fonctionnalités d'IA. Les crédits vous donnent accès à l'ensemble des canaux présentés dans le tableau de cette page.
 
 {% alert note %}
 Les différents produits utilisent des unités de mesure différentes dans les rapports.<br><br>
-<b>Console des agents :</b> invocations<br>
-<b>SMS :</b> segments<br>
-<b>MMS :</b> envois<br>
-<b>WhatsApp :</b> messages<br>
-<b>RCS :</b> segments, envois<br>
-<b>LINE :</b> envois<br>
-<b>KakaoTalk :</b> envois<br>
+<b>Agent Console :</b> Invocations<br>
+<b>SMS :</b> Segments<br>
+<b>MMS :</b> Envois<br>
+<b>WhatsApp :</b> Messages distribués<br>
+<b>RCS :</b> Segments distribués, Envois distribués<br>
+<b>LINE :</b> Envois<br>
+<b>KakaoTalk :</b> Envois<br>
 
 Enfin, les frais opérateur liés aux SMS, MMS et RCS sont facturés séparément (à terme échu) et ne sont pas inclus dans cette unité de gestion des stocks Message Credits.
 {% endalert %}
@@ -48,14 +48,14 @@ Les définitions des colonnes sont les suivantes :
         <th class="credits-column"><b>Crédits par envoi</b></th>
     </tr>
     <tr>
-        <td>Console des agents</td>
+        <td>Agent Console</td>
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
     </thead>
     <tbody>
 <tr>
-        <td>Console des agents</td>
+        <td>Agent Console</td>
         <td>BYO LLM API Key</td>
         <td>0.16</td>
     </tr>
@@ -1905,7 +1905,7 @@ Les définitions des colonnes sont les suivantes :
         <td>5.80</td>
     </tr>
     <tr>
-        <td>LINE</td>
+        <td>Line</td>
         <td>All Regions</td>
         <td>0.15</td>
     </tr>
@@ -2051,15 +2051,14 @@ Les définitions des colonnes sont les suivantes :
 
 ------
 
-## Détails de la Console des agents {#agent-console-details}
-
-Braze facture des Message Credits pour les invocations de la Console des agents envoyées depuis la plateforme Braze. Une invocation est enregistrée lorsqu'un agent initie un appel vers un LLM. Par défaut, votre contrat inclut dix mille invocations par période de votre durée d'abonnement.
+## Détails de l'Agent Console {#agent-console-details}
+Braze facture des Message Credits pour les invocations Agent Console envoyées depuis la plateforme Braze. Une invocation est enregistrée lorsqu'un agent initie un appel vers un LLM. Par défaut, votre contrat inclut dix mille invocations par période de votre durée d'abonnement.
 
 ## Détails du canal SMS/MMS {#smsmms-channel-details}
 
 ### Segments SMS {#sms-segments}
 
-Les segments de message SMS correspondent à la manière dont l'industrie du SMS comptabilise les messages. Un segment de message est un regroupement pouvant contenir jusqu'à un nombre défini de caractères (160 pour l'encodage GSM-7 ; 67 pour l'encodage UCS-2) qui sera envoyé en un seul envoi SMS. Si vous envoyez un SMS de 161 caractères en encodage GSM-7, vous constaterez que deux (2) segments de message ont été envoyés. L'envoi de plusieurs segments de message entraîne des frais supplémentaires.
+Les segments de message SMS correspondent à la manière dont l'industrie du SMS comptabilise les messages. Un segment de message est un regroupement d'un nombre défini de caractères (160 pour l'encodage GSM-7 ; 67 pour l'encodage UCS-2) qui sera envoyé en un seul envoi SMS. Si vous envoyez un SMS de 161 caractères en encodage GSM-7, vous constaterez que deux (2) segments de message ont été envoyés. L'envoi de plusieurs segments de message entraîne des frais supplémentaires.
 
 ### Segments MMS {#mms-segments}
 
@@ -2067,13 +2066,13 @@ Pour les MMS, la limite de taille du message est de 5 Mo (cela inclut la ressour
 
 ### Types RCS {#rcs-types}
 
-Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des capacités plus riches que les consommateurs modernes attendent désormais : contenu enrichi (images, vidéos, documents), envoi vérifié et brandé, fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
+Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'un canal direct et à fort engagement comme le SMS, avec des fonctionnalités plus riches auxquelles les consommateurs modernes s'attendent, telles que du contenu enrichi (images, vidéos, documents), un envoi vérifié et brandé, des fonctionnalités interactives comme les réponses et actions suggérées, et bien plus encore.
 
 - La facturation RCS repose sur deux types de messages différents (avec des distinctions pour les États-Unis) :
-    - **RCS Basic :** texte uniquement, jusqu'à 160 caractères
-    - **RCS Single :** messages contenant du contenu enrichi, ou messages texte uniquement de plus de 160 caractères
-    - **RCS Rich (États-Unis uniquement) :** texte uniquement, peut inclure des suggestions/boutons limités (quickReply, dialPhone, openURL sans webview), segmenté par tranches de 160 octets UTF-8
-    - **RCS Rich Media (États-Unis uniquement) :** tout média OU texte avec des suggestions/boutons plus riches (webview, localisation, calendrier, etc.), comptabilisé comme un seul message
+    - **RCS Basic :** Texte uniquement, jusqu'à 160 caractères
+    - **RCS Single :** Messages contenant du contenu enrichi, ou messages texte uniquement de plus de 160 caractères
+    - **RCS Rich (États-Unis uniquement) :** Texte uniquement, peut inclure des suggestions/boutons limités (quickReply, dialPhone, openURL sans webview), segmenté par tranche de 160 octets UTF-8
+    - **RCS Rich Media (États-Unis uniquement) :** Tout média OU texte avec des suggestions/boutons plus riches (webview, localisation, calendrier, etc.), comptabilisé comme un seul message
 
 ## Détails du canal WhatsApp {#whatsapp-channel-details}
 
@@ -2083,7 +2082,7 @@ Le RCS est la prochaine génération du SMS et du MMS. Il offre les avantages d'
 
 ### Webhooks
 
-Les webhooks ont été intégrés aux Message Credits le 9 décembre 2024. Braze facture des Message Credits pour tout webhook envoyé depuis la plateforme Braze. Par défaut, votre contrat inclut cent mille webhooks par période de votre durée d'abonnement. Les webhooks supplémentaires sont facturés conformément à votre bon de commande.
+Les webhooks ont été intégrés aux Message Credits le 9 décembre 2024. Braze facture des Message Credits pour tout webhook envoyé depuis la plateforme Braze. Par défaut, votre contrat inclut cent mille webhooks par période de votre durée d'abonnement. Les webhooks supplémentaires seront facturés conformément à votre bon de commande.
 
 ### Connecteurs SMS BYO (Bring Your Own) {#bring-your-own-byo-sms-connectors}
 
@@ -2101,26 +2100,23 @@ Braze facture des Message Credits pour tout message LINE envoyé depuis la plate
 
 ### Reste de l'Afrique {#rest-of-africa}
 
-Algérie, Angola, Bénin, Botswana, Burkina Faso, Burundi, Cameroun, Tchad, Congo, Érythrée, Éthiopie, Gabon, Gambie, Ghana, Guinée-Bissau, Côte d'Ivoire, Kenya, Lesotho, Liberia, Libye,
-Madagascar, Malawi, Mali, Mauritanie, Maroc, Mozambique, Namibie, Niger, Rwanda, Sénégal, Sierra Leone, Somalie, Soudan du Sud, Soudan, Eswatini, Tanzanie, Togo, Tunisie, Ouganda, Zambie
+Algérie, Angola, Bénin, Botswana, Burkina Faso, Burundi, Cameroun, Tchad, Congo, Érythrée, Éthiopie, Gabon, Gambie, Ghana, Guinée-Bissau, Côte d'Ivoire, Kenya, Lesotho, Liberia, Libye, Madagascar, Malawi, Mali, Mauritanie, Maroc, Mozambique, Namibie, Niger, Rwanda, Sénégal, Sierra Leone, Somalie, Soudan du Sud, Soudan, Eswatini, Tanzanie, Togo, Tunisie, Ouganda, Zambie
 
 ### Reste de l'Asie-Pacifique {#rest-of-asia-pacific}
 
-Afghanistan, Australie, Bangladesh, Cambodge, Chine, Hong Kong, Japon, Laos, Mongolie, Népal, Nouvelle-Zélande, Papouasie-Nouvelle-Guinée, Philippines, Singapour, Sri Lanka, Taïwan, Tadjikistan, Thaïlande,
-Turkménistan, Ouzbékistan, Vietnam
+Afghanistan, Australie, Bangladesh, Cambodge, Chine, Japon, Laos, Mongolie, Népal, Nouvelle-Zélande, Papouasie-Nouvelle-Guinée, Philippines, Sri Lanka, Taïwan, Tadjikistan, Thaïlande, Turkménistan, Ouzbékistan, Vietnam
 
 ### Reste de l'Europe centrale et orientale {#rest-of-central-eastern-europe}
 
-Albanie, Arménie, Azerbaïdjan, Biélorussie, Bulgarie, Croatie, République tchèque, Géorgie, Grèce, Hongrie, Lettonie, Lituanie, Macédoine, Moldavie, Pologne, Roumanie, Serbie, Slovaquie, Slovénie, Ukraine
+Albanie, Arménie, Azerbaïdjan, Biélorussie, Bulgarie, Croatie, République tchèque, Géorgie, Grèce, Lettonie, Lituanie, Macédoine, Moldavie, Serbie, Slovaquie, Slovénie, Ukraine
 
 ### Reste de l'Amérique latine {#rest-of-latin-america}
 
-Bolivie, Costa Rica, République dominicaine, Équateur, El Salvador,
-Guatemala, Haïti, Honduras, Jamaïque, Nicaragua, Panama, Paraguay, Porto Rico, Uruguay, Venezuela
+Bolivie, Costa Rica, République dominicaine, Équateur, El Salvador, Guatemala, Haïti, Honduras, Jamaïque, Nicaragua, Panama, Paraguay, Porto Rico, Uruguay, Venezuela
 
 ### Reste du Moyen-Orient {#rest-of-middle-east}
 
-Bahreïn, Irak, Jordanie, Koweït, Liban, Oman, Qatar, Yémen
+Bahreïn, Irak, Jordanie, Koweït, Liban, Oman, Yémen
 
 ### Reste de l'Europe occidentale {#rest-of-western-europe}
 

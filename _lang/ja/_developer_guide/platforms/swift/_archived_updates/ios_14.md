@@ -13,10 +13,10 @@ noindex: true
 > このガイドでは、iOS 14で導入されたBraze関連の変更と、Braze iOS SDK統合に必要なアップグレード手順について説明します。iOS 14の新しいアップデートの完全なリストについては、Appleの[iOS 14ページ](https://www.apple.com/ios/ios-14/)を参照してください。
 
 {% alert tip %}
-iOS 14.5以降、**IDFA**の収集と[特定のデータ共有](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track)には、新しい[AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency)フレームワークの許可プロンプトが必要になります（[詳細はこちら](#idfa)）。
+iOS 14.5以降、**IDFA**の収集と[特定のデータ共有](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track)には、新しい[AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency)フレームワークの許可プロンプトが必要になります（[IDFAの詳細はこちら](#idfa)）。
 {% endalert %}
 
-#### iOS 14の破壊的変更のまとめ {#summary-of-ios-14-breaking-changes}
+## iOS 14の破壊的変更のまとめ {#summary-of-ios-14-breaking-changes}
 
 - iOS 14 / Xcode 12を対象とするアプリは、[公式iOS 14リリース](https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.27.0)を使用する必要があります。
 - 新しい_おおよその位置情報_パーミッションを選択したユーザーに対して、ジオフェンスは[iOSでサポートされなくなりました](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization)。
@@ -43,7 +43,7 @@ table td {
 | Xcode 12 | **iOS SDK v3.27以降にアップグレードしてください** | Xcode 12を使用しているお客様は、互換性を確保するためにv3.27.0以降を使用する必要があります。iOS 14の互換性に関連する問題や質問がある場合は、新しい[GitHub issue](https://github.com/Appboy/appboy-ios-sdk/issues)を開いてください。|
 | 最新の位置情報 | **iOS SDK v3.26.1以降にアップグレードしてください** | 最新の位置情報ターゲティング機能を使用しており、まだXcode 11を使用している場合は、新しい_おおよその位置情報_機能をサポートするiOS SDK v3.26.1以降にアップグレードする必要があります。古いSDKでは、ユーザーがiOS 14にアップグレード_し_、おおよその位置情報を選択した場合、位置情報を確実に収集できません。<br><br>アプリがiOS 14をターゲットにしていなくても、ユーザーがiOS 14にアップグレードし、新しい位置情報精度オプションを使い始める可能性があります。iOS SDK v3.26.1以降にアップグレードしていないアプリでは、iOS 14デバイスでユーザーが_おおよその位置情報_を提供した場合、位置情報属性を確実に収集できません。|
 | IDFA広告トラッキングID | **Xcode 12とiOS SDK v3.27へのアップグレードが必要な場合があります** | 2021年のある時点で、AppleはIDFAの収集に許可プロンプトを要求し始める予定です。その時点で、IDFAの収集を続行するには、アプリをXcode 12にアップグレードし、新しい`AppTrackingTransparency`フレームワークを使用する必要があります。IDFAをBraze SDKに渡す場合は、その時点でv3.27.0以降にもアップグレードする必要があります。<br><br>新しいiOS 14のAPIを使用していないアプリは、2021年にAppleがこの変更を実施し始めた後、IDFAを収集できなくなり、代わりに空白のID（`00000000-0000-0000-0000-000000000000`）を収集することになります。アプリに適用されるかどうかの詳細については、[IDFAの詳細](#idfa)を参照してください。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Upgrade summary" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アップグレードの概要" }
 
 
 ## iOS 14の動作変更 {#ios-14-behavior-changes}
@@ -95,7 +95,7 @@ iOS 14.5からは、IDFAに対する明示的なユーザーの同意を収集�
 
 3. キャンペーンターゲティングや分析のために「Ad Tracking Enabled」フィールドを使用する場合は、Xcode 12にアップグレードし、新しいAppTrackingTransparencyフレームワークを使用して、ユーザーのオプトインステータスを報告する必要があります。この変更の理由は、iOS 14では古い[`advertisingTrackingEnabled`](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614148-advertisingtrackingenabled)フィールドが常にNoを返すためです。
 
-4. アプリがBrazeのexternal IDとしてIDFAまたはIDFVを使用していた場合、これらの識別子からUUIDに移行することを強く推奨します。external IDの移行に関する詳細については、[external ID移行APIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/)を参照してください。
+4. アプリがBrazeのexternal IDとしてIDFAまたはIDFVを使用していた場合、これらの識別子からUUIDに移行することを強く推奨します。external IDの移行に関する詳細については、[external ID移行APIエンドポイント]({{site.baseurl}}/api/endpoints/user_data/external_id_migration)を参照してください。
 
 Appleの[プライバシーに関する更新](https://developer.apple.com/app-store/user-privacy-and-data-use/)と新しい[アプリトラッキングの透明性フレームワーク](https://developer.apple.com/documentation/apptrackingtransparency)について詳しくはこちらをご覧ください。
 

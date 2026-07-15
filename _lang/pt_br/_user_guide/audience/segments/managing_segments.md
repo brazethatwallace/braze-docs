@@ -30,7 +30,7 @@ Ordene os segmentos na lista ajustando os seguintes filtros:
 - **Estimated Size:** Faixa aproximada de quantos usuários estão nos segmentos
 - **Tags:** Tags associadas aos segmentos
 - **Teams:** Equipes associadas aos segmentos
-- **Advanced Tracking Segments Only:** Visualize apenas os segmentos que têm o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/#segment-analytics-tracking) ativado.
+- **Advanced Tracking Segments Only:** Visualize apenas os segmentos que têm o [rastreamento de análise de dados]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking) ativado.
 
 ### Colunas {#columns}
 
@@ -53,7 +53,7 @@ Selecionar **Show Starred Only** restringe sua visualização aos segmentos que 
 Acesse a seção **Messaging Use** de um segmento para ter uma visão geral de onde o segmento está sendo usado, como em outros segmentos, Campaigns e Canvas.
 
 {% alert note %}
-Para evitar loops de segmentos referenciando uns aos outros, segmentos que usam o filtro **Segment Membership** não podem ser referenciados por outros segmentos. Para mais detalhes, consulte [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+Para evitar loops de segmentos referenciando uns aos outros, segmentos que usam o filtro **Segment Membership** não podem ser referenciados por outros segmentos. Para mais detalhes, consulte [Filtros de segmentação]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 {% endalert %}
 
 ## Gerenciando segmentos específicos {#managing-specific-segments}
@@ -69,14 +69,14 @@ Para gerenciar um segmento específico, passe o cursor sobre ele e selecione o �
 Você também pode realizar ações em massa — especificamente, arquivamento em massa e adição de tags em massa — marcando as caixas ao lado de vários nomes de segmentos.
 
 {% alert tip %}
-Se você precisar de uma exportação legível por máquina dos segmentos existentes no espaço de trabalho (não apenas da visualização atual da tabela), use o [endpoint Exportar lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment/) e pagine pelos resultados. Para auditar segmentos arquivados, revise-os separadamente no dashboard **Segments** usando o filtro de status.
+Se você precisar de uma exportação legível por máquina dos segmentos existentes no espaço de trabalho (não apenas da visualização atual da tabela), use o [endpoint Exportar lista de segmentos]({{site.baseurl}}/api/endpoints/export/segments/get_segment) e pagine pelos resultados. Para auditar segmentos arquivados, revise-os separadamente no dashboard **Segments** usando o filtro de status.
 {% endalert %}
 
 ![Vários segmentos selecionados com "CRM" selecionado no campo dropdown "Tag As".]({% image_buster /assets/img/segment/segments_bulk_action.png %}){: style="max-width:45%;"}
 
 ### Alterações desde a última visualização {#changes-since-last-viewed}
 
-O número de atualizações nos segmentos feitas por outros membros da sua equipe é rastreado pela métrica *Changes Since Last Viewed* na página de visão geral do segmento. Selecione **Changes Since Last Viewed** para ver um changelog de atualizações no nome, descrição e público-alvo do segmento. Para cada atualização, você pode ver quem realizou a atualização e quando. Você pode usar esse changelog para auditar alterações no seu segmento.
+O número de atualizações nos segmentos feitas por outros membros da sua equipe é rastreado pela métrica *Changes Since Last Viewed* na página de visão geral do segmento. Selecione **Changes Since Last Viewed** para ver um changelog de atualizações no nome, na descrição e no público-alvo do segmento. Para cada atualização, você pode ver quem a realizou e quando. Você pode usar esse changelog para auditar alterações no seu segmento.
 
 ## Pesquisando segmentos {#searching-for-segments}
 

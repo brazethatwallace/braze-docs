@@ -20,33 +20,33 @@ guide_top_text: "Die Braze-Nutzerdaten-Endpunkte ermöglichen es Ihnen, Informat
 guide_featured_title: "Nutzerdaten-Endpunkte"
 guide_featured_list:
   - name: "POST: Neuen Nutzer-Alias erstellen"
-    link: /docs/api/endpoints/user_data/post_user_alias/
+    link: /docs/api/endpoints/user_data/post_user_alias
     image: /assets/img/braze_icons/users-01.svg
   - name: "POST: Nutzer-Alias aktualisieren"
-    link: /docs/api/endpoints/user_data/post_users_alias_update/
+    link: /docs/api/endpoints/user_data/post_users_alias_update
     image: /assets/img/braze_icons/user-edit.svg
   - name: "POST: Nutzerdaten löschen"
-    link: /docs/api/endpoints/user_data/post_user_delete/
+    link: /docs/api/endpoints/user_data/post_user_delete
     image: /assets/img/braze_icons/user-minus-01.svg
   - name: "POST: Nutzer:in identifizieren"
-    link: /docs/api/endpoints/user_data/post_user_identify/
+    link: /docs/api/endpoints/user_data/post_user_identify
     image: /assets/img/braze_icons/user-circle.svg
   - name: "POST: Nutzer:innen tracken"
-    link: /docs/api/endpoints/user_data/post_user_track/
+    link: /docs/api/endpoints/user_data/post_user_track
     image: /assets/img/braze_icons/database-01.svg
   - name: "POST: Nutzer:innen tracken (synchron)"
-    link: /docs/api/endpoints/user_data/post_user_track_synchronous/
+    link: /docs/api/endpoints/user_data/post_user_track_synchronous
     image: /assets/img/braze_icons/database-01.svg
   - name: "POST: Nutzer:innen zusammenführen"
-    link: /docs/api/endpoints/user_data/post_users_merge/
+    link: /docs/api/endpoints/user_data/post_users_merge
     image: /assets/img/braze_icons/users-01.svg
 
 guide_menu_title: "Endpunkte für die externe ID-Migration"
 guide_menu_list:
   - name: "POST: Externe IDs umbenennen"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename/
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename
     image: /assets/img/braze_icons/users-01.svg
   - name: "POST: Veraltete externe IDs entfernen"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove/
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove
     image: /assets/img/braze_icons/user-minus-01.svg
 ---

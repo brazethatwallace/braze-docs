@@ -24,7 +24,7 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie über Folgendes verfügen:
 - [LINE-Entwicklerkonto](https://developers.line.biz/en/docs/line-developers-console/login-account/)
 - [LINE Messaging-API-Kanal](https://developers.line.biz/en/docs/line-developers-console/overview/#channel)
 
-Eine vollständige Anleitung finden Sie unter [LINE-Einrichtung]({{site.baseurl}}/user_guide/channels/line/line_setup/).
+Eine vollständige Anleitung finden Sie unter [LINE-Einrichtung]({{site.baseurl}}/user_guide/channels/line/line_setup).
 
 ## Anwendungsfälle {#use-cases}
 
@@ -41,5 +41,5 @@ Eine vollständige Anleitung finden Sie unter [LINE-Einrichtung]({{site.baseurl}
 
 ## Nächste Schritte {#next-steps}
 
-- [LINE-Einrichtung]({{site.baseurl}}/user_guide/channels/line/line_setup/)
-- [LINE-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/line/create_a_line_message/)
+- [LINE-Einrichtung]({{site.baseurl}}/user_guide/channels/line/line_setup)
+- [LINE-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/line/create_a_line_message)

@@ -69,7 +69,7 @@ Sollten Sie Probleme mit den SDK-Rate-Limits haben, überprüfen Sie bitte die f
 - `logCustomEvent()`
 - `logPurchase()`
 
-Wenn Sie den [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) kontaktieren, geben Sie bitte die folgenden Details für jede der von Ihnen verwendeten Netzwerk-SDK-Methoden an:
+Wenn Sie den [Braze Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) kontaktieren, geben Sie bitte die folgenden Details für jede der von Ihnen verwendeten Netzwerk-SDK-Methoden an:
 
 ```plaintext
 Method name:

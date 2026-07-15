@@ -34,14 +34,14 @@ Create your game experience in the Catapult platform. The following steps show a
 
 1. Create the campaign. 
 
-Select **New Campaign** in the upper right. Enter a campaign name, choose a URL slug, and select your game category and game type.
+Select **New Campaign** in the top navigation area. Enter a campaign name, choose a URL slug, and select your game category and game type.
 
 ![CataBoom dashboard New Campaign form with campaign name, URL, game category, and game type fields.]({% image_buster /assets/img/cataboom/new_campaign.png %})
 
 {: start="2"}
 2. Enable Request Unique URL API. 
 
-In the left menu, select **Link Configuration**.
+In the navigation menu, select **Link Configuration**.
 
 On the **Link Configuration** page, enable **Request Unique URL API**. This option creates a system-to-system URL you can use later in Braze, such as in a Content Card.
 
@@ -50,7 +50,7 @@ On the **Link Configuration** page, enable **Request Unique URL API**. This opti
 {: start="3"}
 3. Set play tracking to Account ID. 
 
-In the left menu, select **Play Control**.
+In the navigation menu, select **Play Control**.
 
 On the **Play Control** page, under **Play Tracking**, set **Play Count Tracked By** to **Account ID Parameter**.
 
@@ -58,12 +58,12 @@ You can pass an Account ID for each player for tracking, play limits, webhooks, 
 
 ![CataBoom Play Control page with Play Count Tracked By set to Account ID Parameter.]({% image_buster /assets/img/cataboom/play_control.png %})
 
-You now have enough configured to run a test in Braze. The optional steps below complete a typical full game setup. Catapult also offers many other settings you can use to customize gameplay.
+You now have enough configured to run a test in Braze. The optional steps in this section complete a typical full game setup. Catapult also offers many other settings you can use to customize gameplay.
 
 {: start="4"}
 4. Add your creative (optional). 
 
-In the left menu, select **Creative**.
+In the navigation menu, select **Creative**.
 
 Upload your assets. Catapult supports full branding control for your game experience.
 
@@ -72,7 +72,7 @@ Upload your assets. Catapult supports full branding control for your game experi
 {: start="5"}
 5. Configure prizing for chance-based games (optional).
 
-In the left menu, select **Summary**.
+In the navigation menu, select **Summary**.
 
 On the **Summary** page, expand **Prize Options**.
 

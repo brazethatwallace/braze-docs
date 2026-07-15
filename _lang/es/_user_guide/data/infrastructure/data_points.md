@@ -15,7 +15,7 @@ Los puntos de datos se basan en la información registrada en los perfiles de us
 
 ## Definición {#definition}
 
-"Puntos de datos" hará referencia a una unidad facturable de uso de los servicios de Braze, medida por un inicio de sesión, un fin de sesión, un evento personalizado o una compra registrada, así como cualquier atributo establecido en un perfil de usuario final. Para mayor claridad, cada uno de los datos mencionados (como inicio de sesión, fin de sesión, evento personalizado o compra registrada, así como cualquier atributo) establecido en el perfil de un usuario final en un momento dado contará como un único punto de datos.
+"Puntos de datos" hará referencia a una unidad facturable de uso de los servicios de Braze, medida por un inicio de sesión, un fin de sesión, un evento personalizado o una compra registrada, así como cualquier atributo establecido en un perfil de usuario final. Para mayor claridad, cada uno de los datos mencionados anteriormente en esta sección (como inicio de sesión, fin de sesión, evento personalizado o compra registrada, así como cualquier atributo) establecido en el perfil de un usuario final en un momento dado contará como un único punto de datos.
 
 Los datos y eventos recopilados de forma predeterminada por los servicios de Braze, incluidos, por ejemplo, los tokens de notificaciones push, la información del dispositivo y todos los eventos de seguimiento de interacción en Campaigns, como aperturas de correos electrónicos y clics en notificaciones push, *no* se contabilizan como puntos de datos.
 
@@ -23,13 +23,13 @@ Consulta la sección [Recuento de consumo](#consumption-count) de este artículo
 
 ## Visualización del uso de puntos de datos {#viewing-data-point-usage}
 
-Para ver tu uso de puntos de datos, ve a **Settings** > **Billing** y selecciona la pestaña **Total Data Points Usage**.
+Para ver tu uso de puntos de datos, ve a **Configuración** > **Facturación** y selecciona la pestaña **Total Data Points Usage**.
 
 ### Programación de actualización de puntos de datos {#data-point-refresh-schedule}
 
-El uso de puntos de datos se almacena en caché (no es en tiempo real) cada 24 horas. Hasta que la caché se actualice, diferentes usuarios del dashboard pueden ver los mismos totales incluso si abren la pestaña en diferentes momentos del mismo día. Para el mismo comportamiento de caché en otras vistas de facturación, consulta [Dashboard de puntos de datos totales]({{site.baseurl}}/user_guide/administer/global/billing/#total-data-points-dashboard).
+El uso de puntos de datos se almacena en caché (no es en tiempo real) cada 24 horas, aproximadamente a las 2 am ET. Hasta que la caché se actualice, diferentes usuarios del panel pueden ver los mismos totales incluso si abren la pestaña en diferentes momentos del mismo día. Para el mismo comportamiento de caché en otras vistas de facturación, consulta [Panel de puntos de datos totales]({{site.baseurl}}/user_guide/administer/global/billing#total-data-points-dashboard).
 
-Para más información sobre los componentes del dashboard de puntos de datos, consulta [Facturación]({{site.baseurl}}/user_guide/administer/global/billing/).
+Para más información sobre los componentes del panel de puntos de datos, consulta [Facturación]({{site.baseurl}}/user_guide/administer/global/billing).
 
 {% alert tip %}
 **¡No desperdicies puntos de datos. Actualiza solo los datos que cambian!**<br><br>
@@ -42,13 +42,13 @@ En resumen, los puntos de datos se acumulan cuando se actualizan los datos del p
 
 Puedes encontrar un desglose de cómo Braze acumula puntos de datos en las siguientes secciones. Si alguna vez tienes preguntas sobre los matices de los puntos de datos de Braze, tu director de cuentas de Braze puede respondértelas.
 
-Para la ingesta a través de la API, cada actualización facturable mediante [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) sigue las mismas reglas que otras actualizaciones de perfil: por ejemplo, cada **evento personalizado** registrado cuenta como un punto de datos, y los **atributos personalizados** generalmente cuentan por atributo actualizado en esa solicitud (consulta las tablas facturables a continuación y las [Circunstancias especiales](#special-circumstances)).
+Para la ingesta a través de la API, cada actualización facturable mediante [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) sigue las mismas reglas que otras actualizaciones de perfil: por ejemplo, cada **evento personalizado** registrado cuenta como un punto de datos, y los **atributos personalizados** generalmente cuentan por atributo actualizado en esa solicitud (consulta las tablas facturables en la siguiente sección y las [Circunstancias especiales](#special-circumstances)).
 
 Las siguientes acciones no registran puntos de datos:
 - Eliminar usuarios de Braze
 - Uso de contenido conectado en la mensajería
 - Cambios de estado de suscripción a nivel global y en torno a los grupos de suscripción
-- Renombrar los ID externos de tus usuarios mediante [llamadas a la API]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename/)
+- Renombrar los ID externos de tus usuarios mediante [llamadas a la API]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename)
 - Bloqueo de eventos, atributos o propiedades del evento
 
 ### Circunstancias especiales {#special-circumstances}
@@ -84,7 +84,7 @@ Las tablas siguientes tienen carácter ilustrativo. Para conocer las convencione
 {% tabs %}
 {% tab Non-billable %}
 
-#### Puntos de datos no facturables (predeterminado) {#non-billable-data-points-default}
+### Puntos de datos no facturables (predeterminado) {#non-billable-data-points-default}
 
 <div class="small_table"></div>
 
@@ -120,7 +120,7 @@ Las tablas siguientes tienen carácter ilustrativo. Para conocer las convencione
 {% endtab %}
 {% tab Billable %}
 
-#### Puntos de datos facturables {#billable-data-points}
+### Puntos de datos facturables {#billable-data-points}
 
 {% alert important %}
 Añadir, eliminar o actualizar los siguientes tipos de datos generará un punto de datos facturable.

@@ -40,8 +40,8 @@ La definición de una audiencia de predicción no puede superar los 100 millones
 
 ### La predicción tiene mala calidad {#prediction-has-poor-quality}
 
-![]({% image_buster /assets/img/churn/churn3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
-Si tu modelo tiene una [calidad de predicción]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/) del 40 % o superior, ¡estás en un buen lugar! Pero si la calidad de tu predicción desciende al 39 % o menos, puede que tengas que editar las definiciones de tus audiencias de abandono y predicción para que sean más específicas o tengan ventanas temporales diferentes.
+![Captura de pantalla relacionada con una predicción de mala calidad.]({% image_buster /assets/img/churn/churn3.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+Si tu modelo tiene una [calidad de predicción]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics) del 40 % o superior, ¡estás en un buen lugar! Pero si la calidad de tu predicción desciende al 39 % o menos, puede que tengas que editar las definiciones de tus audiencias de abandono y predicción para que sean más específicas o tengan ventanas temporales diferentes.
 
 Si no puedes cumplir tanto el requisito del tamaño de la audiencia al construir tus definiciones de predicción como lograr una calidad de predicción superior al 40 %, probablemente significa que los datos enviados a Braze no son ideales para este caso de uso, que no hay suficientes usuarios con los que construir un modelo, o que el ciclo de vida de tu producto es más largo de lo que admite nuestra ventana de revisión retrospectiva actual de 60 días.
 

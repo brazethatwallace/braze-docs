@@ -22,7 +22,7 @@ description: "이 문서에서는 캠페인 목록 내보내기 Braze 엔드포�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `campaigns.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `campaigns.list` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -36,9 +36,9 @@ description: "이 문서에서는 캠페인 목록 내보내기 Braze 엔드포�
 | `include_archived` | 선택 사항 | 부울 | 아카이브된 캠페인을 포함할지 여부이며, 기본값은 false입니다. |
 | `sort_direction` | 선택 사항 | 문자열 | - 생성 시간을 최신에서 오래된 순으로 정렬: `desc` 값을 전달합니다.<br> - 생성 시간을 오래된 것부터 최신 순으로 정렬: `asc` 값을 전달합니다. <br><br>`sort_direction`이 포함되지 않은 경우 기본 순서는 오래된 것부터 최신 순입니다. |
 | `last_edit.time[gt]` | 선택 사항 | 시간 | 결과를 필터링하여 지정된 시간 이후에 편집된 캠페인만 반환합니다. 형식은 `yyyy-MM-DDTHH:mm:ss`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 
 ```
 curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/list?page=0&include_archived=false&sort_direction=desc&last_edit.time[gt]=2020-06-28T23:59:59-5:00' \
@@ -64,7 +64,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/list?p
 ```
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움이 필요하면 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}
 
 {% endapi %}

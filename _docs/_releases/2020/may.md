@@ -9,7 +9,7 @@ description: "This article contains release notes for May 2020."
 
 ## Google Tag Manager
 
-Added documentation and examples of how to deploy and manage Braze's Android SDK using [Google Tag Manager]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android).
+Added documentation and examples of how to deploy and manage Braze's Android SDK using [Google Tag Manager]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android).
 
 ## New blacklist email API endpoint
 
@@ -27,11 +27,11 @@ This example uses the `/email/hard_bounces` endpoint.
 
 **Before: API Key in Request Body**
 ```
-curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?api_key={YOUR_REST_API_KEY}&start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1&email=foo@braze.com' \
+curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?api_key={YOUR_REST_API_KEY}&start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1&email=foo@example.com' \
 ```
 **Now: API Key in Header**
 ```
-curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1&email=foo@braze.com' \
+curl --location --request GET 'https://rest.iad-01.braze.com/email/hard_bounces?start_date=2019-01-01&end_date=2019-02-01&limit=100&offset=1&email=foo@example.com' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endtab %}

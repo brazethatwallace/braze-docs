@@ -11,7 +11,7 @@ toc_headers: h2
 
 > This page covers how to use Braze Cloud Data Ingestion (CDI) SQL Editor to create and validate syncs with SQL queries.
 
-Cloud Data Ingestion's SQL Editor lets you create syncs by writing SQL queries directly against your data warehouse. This removes the need to create or maintain a dedicated CDI table, which was previously required in [Step 1.1 of Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+Cloud Data Ingestion's SQL Editor lets you create syncs by writing SQL queries directly against your data warehouse. This removes the need to create or maintain a dedicated CDI table, which was previously required in [Step 1.1 of Data Warehouse Integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 Use the SQL Editor when you want to:
 
@@ -26,18 +26,22 @@ Cloud Data Ingestion SQL Editor is in beta. Contact your customer success manage
 
 ## Prerequisites and limitations
 
-During beta, the SQL Editor has the following limitations:
+The SQL Editor has the following limitations:
 
-- Available for **User Attributes** syncs only
-- Supports one warehouse source: **Snowflake**
+- Available for data warehouse sources only: Snowflake, Redshift, BigQuery, Databricks, and Fabric.
+- Only single statement, read-only queries are supported.
 
 {% alert note %}
-Braze runs read-only queries against your data and does not modify your underlying tables. Braze may create temporary objects during query execution, but it does not persist them.
+Braze runs only read-only queries against your data and does not modify your underlying tables. Temporary objects may be created during query execution but are not persisted.
 {% endalert %}
 
 ## Create a new SQL Editor sync
 
-Follow these steps to create a sync with SQL Editor. If you've already set up a Snowflake source for CDI, skip to Step 3.
+Follow these steps to create source first, then a sync with SQL Editor. If you've already set up a source for CDI, you can skip to Step 3.
+
+{% alert note %}
+Note that these steps use a Snowflake source as an example. The setup process for other data warehouse sources is similar and can be found in [Step 2: Create a new source in Braze dashboard]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) of the [Setting up data warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations) documentation.
+{% endalert %}
 
 ### Step 1: Set up your Snowflake role, permissions, warehouse, and user
 
@@ -80,7 +84,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 ```
 
 {% alert note %}
-The warehouse must have auto-resume enabled. If it doesn't, grant Braze additional `OPERATE` privileges on the warehouse so Braze can turn it on when the query runs.
+The warehouse needs to have the auto-resume flag on. If not, grant Braze additional `OPERATE` privileges on the warehouse so Braze can turn it on when the query runs.
 {% endalert %}
 
 #### Step 1.4: Create a Snowflake user
@@ -128,17 +132,11 @@ Back in Braze, select **Test connection** to verify source access, and then crea
 
 1. Go to **Data Settings** > **Cloud Data Ingestion** > **Syncs**.
 2. Select **Create data sync**.
-3. Choose **User Attributes** under **Data Type**.
-4. Reference the Snowflake source from Step 2.
+3. Choose any sync under **Data Type**.
+4. Reference the source from Step 2.
 5. Select **SQL** and write a SQL query that returns user data from your warehouse. Your SQL query defines the data that syncs to Braze. The query result becomes the schema for your sync.
 
-![The Create data sync flow showing SQL selected with a sample query in the SQL editor.]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
-
-Your SQL query must return:
-
-- A user identifier (`EXTERNAL_ID`, `BRAZE_ID`, `ALIAS_NAME` and `ALIAS_LABEL`, `EMAIL`, or `PHONE`)
-- An `UPDATED_AT` column
-- At least one additional column (attribute)
+You can use the Source Explorer to browse for available tables and views to sync from, or the AI SQL generator to get Braze Operator's help on your SQL query.
 
 {% alert note %}
 Only read-only queries are supported, including `JOIN` clauses. For more details, see [SQL constraints](#sql-constraints).
@@ -154,58 +152,30 @@ The preview:
 - Shows up to 100 rows
 - Shows up to 250 columns
 
-You must successfully preview and validate your query before continuing. For details about errors and fixes, see [Validation behavior](#validation-behavior) and [Troubleshooting](#troubleshooting).
+To successfully validate, your SQL query must return various required columns:
+
+| Sync data type | Required columns |
+|---|---|
+| Attributes | - A user identifier, one of `external_id`, `braze_id`, `alias_name` and `alias_label`, email or phone number.<br>- `UPDATED_AT`.<br>- At least one additional column (attribute) to sync. |
+| Delete Users | - A user identifier, one of `external_id`, `braze_id`, `alias_name` and `alias_label`, email or phone number.<br>- `UPDATED_AT`. |
+| Canvas Triggers | - A user identifier, one of `external_id`, `braze_id`, `alias_name` and `alias_label`, email or phone number.<br>- `UPDATED_AT`. |
+| Custom Events | - A user identifier, one of `external_id`, `braze_id`, `alias_name` and `alias_label`, email or phone number.<br>- `UPDATED_AT`.<br>- `NAME` to represent the event name.<br>- `TIME` to represent the event time. If unavailable, CDI uses `UPDATED_AT` as a substitute. |
+| Purchase Events | - A user identifier, one of `external_id`, `braze_id`, `alias_name` and `alias_label`, email or phone number.<br>- `UPDATED_AT`.<br>- `PRODUCT_ID`.<br>- `CURRENCY`.<br>- `PRICE`.<br>- `TIME` to represent the purchase event time. If unavailable, CDI uses `UPDATED_AT` as a substitute. |
+| Catalog | - `ID` to represent the catalog item identifier.<br>- `UPDATED_AT`.<br>- At least one additional column (catalog field) to sync. |
+| Accounts | - `ID` to represent the account identifier.<br>- `NAME` to represent the account name.<br>- `UPDATED_AT`.<br>- At least one additional column (account field) to sync. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Preview and validate your query" }
+
+Additional columns outside of required columns are synced as attributes, Canvas context properties, event properties, catalog fields, and account fields, respectively. See [Validation behavior](#validation-behavior) and [Troubleshooting](#troubleshooting) for helpful tips about preview and validate errors and how to fix them.
 
 ### Step 5: Review attribute mapping and create sync
 
-After validation:
-
-- The identifier column matches users
-- The `UPDATED_AT` column drives incremental syncing
-- Braze syncs all other columns as attributes
-
-When validation succeeds, continue to **Next: Notifications** and create your sync.
+When the validation succeeds, continue to **Next: Notifications** and create your sync.
 
 {% alert important %}
 Inaccurate SQL configuration can lead to unintended results, including the overconsumption of data points and broader operational risks. You are responsible for ensuring your query logic is correct and should carefully preview all results before activating a sync.
 {% endalert %}
 
 ## SQL constraints {#sql-constraints}
-
-Your query must meet the following requirements.
-
-### Include a user identifier
-
-Your query must include at least one of the following:
-
-- `EXTERNAL_ID`
-- `BRAZE_ID`
-- `EMAIL`
-- `PHONE`
-- `ALIAS_NAME` and `ALIAS_LABEL`
-
-If no valid identifier is detected, validation fails.
-
-{% alert note %}
-Note that these identifiers are case sensitive and have to be upper cased.
-{% endalert %}
-
-### Include `UPDATED_AT`
-
-Your query must include an `UPDATED_AT` column.
-
-`UPDATED_AT` is case sensitive and must be upper cased.
-
-If it's missing, validation fails.
-
-### Include at least one attribute column
-
-Your query must include at least one column in addition to:
-
-- User identifier column(s)
-- `UPDATED_AT`
-
-If not, validation fails.
 
 ### Use `SELECT` queries only
 
@@ -263,15 +233,15 @@ If your query runs too long:
 - Validation fails
 - A timeout error appears
 
-### Missing required columns
+### Table schema errors
 
 If your query compiles, validation may still fail if:
 
 - No identifier column is found
 - `UPDATED_AT` is missing
-- No attribute columns are present
+- Other required columns are missing
 
-In this case, the preview still appears to help you move toward a successful validation.
+In this case, the preview still appears to help you move toward a successful validation. See [Step 4 in the previous section](#step-4-preview-and-validate-your-query) for details on required columns for each sync data type.
 
 ### Zero-row results
 
@@ -283,7 +253,7 @@ If your query returns zero rows:
 
 ## PAYLOAD support (legacy)
 
-SQL Editor supports [legacy CDI tables]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views) where a `PAYLOAD` column is present.
+SQL Editor supports [legacy CDI tables]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views) where a `PAYLOAD` column is present.
 
 If your query includes:
 
@@ -331,7 +301,7 @@ Make sure your query includes a valid identifier, such as `external_id`.
 
 Add a timestamp column for incremental syncing.
 
-### "No attributes to sync"
+### "Add more columns... There are no attributes/catalog fields/account fields to sync"
 
 Add at least one additional column beyond the identifier and `UPDATED_AT`.
 

@@ -49,7 +49,7 @@ Suivez ces étapes pour configurer l'intégration de Braze et Outgrow :
 4. Saisissez votre **clé API Braze** et l'**URL de l'endpoint REST API** :
    - **Clé API** : saisissez la clé API qui a été générée dans Braze.
    - **URL de l'endpoint REST** : saisissez l'endpoint de votre instance Braze (par exemple, `https://rest.iad-01.braze.com`).
-5. Sélectionnez **Save** pour activer l'intégration.
+5. Sélectionnez **Enregistrer** pour activer l'intégration.
 
 ### Étape 3 : Mapper les données Outgrow sur les attributs Braze {#step-3-map-outgrow-data-to-braze-attributes}
 
@@ -75,18 +75,18 @@ Après avoir configuré l'intégration, effectuez un test pour confirmer que les
 
 Grâce à cette intégration, vous pouvez créer des segments Braze basés sur des attributs personnalisés renseignés à partir des réponses Outgrow.
 
-1. Dans Braze, accédez à **Engagement** > **Segments** et sélectionnez **Create New Segment**.
+1. Dans Braze, accédez à **Engagement** > **Segments** et sélectionnez **Créer un nouveau segment**.
 2. Nommez votre segment et définissez des filtres basés sur les données Outgrow. Par exemple :
    - Filtrez par `outgrow_quiz_score` pour cibler les utilisateurs dont le score est supérieur à un certain seuil.
    - Filtrez par `outgrow_custom_segment` pour cibler les utilisateurs qui appartiennent à un segment particulier défini par Outgrow.
-3. Enregistrez votre segment pour l'utiliser dans des Campaigns et des Canvas.
+3. Enregistrez votre segment pour l'utiliser dans des campagnes et des Canvas.
 
-### Lancer des Campaigns avec des segments définis par Outgrow {#launching-campaigns-with-outgrow-defined-segments}
+### Lancer des campagnes avec des segments définis par Outgrow {#launching-campaigns-with-outgrow-defined-segments}
 
-Vous pouvez utiliser les segments personnalisés créés à partir des données d'Outgrow pour personnaliser vos Campaigns Braze et cibler les utilisateurs en fonction de leurs réponses au contenu interactif. Pour ce faire et créer une expérience utilisateur plus personnalisée, suivez les étapes suivantes :
+Vous pouvez utiliser les segments personnalisés créés à partir des données d'Outgrow pour personnaliser vos campagnes Braze et cibler les utilisateurs en fonction de leurs réponses au contenu interactif. Pour ce faire et créer une expérience utilisateur plus personnalisée, suivez les étapes suivantes :
 
 1. Dans Braze, accédez à **Engagement** > **Campaigns**.
-2. Sélectionnez **Create Campaign** et choisissez votre type de campagne (e-mail, push, message in-app ou autres).
+2. Sélectionnez **Créer une campagne** et choisissez votre type de campagne (e-mail, notification push, message in-app ou autres).
 3. Dans l'étape de ciblage de l'audience, sélectionnez le segment créé à partir des attributs Outgrow (tels que les utilisateurs ayant des scores de quiz ou des segments spécifiques).
 4. Personnalisez le contenu et les paramètres de votre campagne, puis lancez-la.
 

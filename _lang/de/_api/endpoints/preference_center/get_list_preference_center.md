@@ -9,7 +9,7 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Liste
 
 ---
 {% api %}
-# Liste der Präferenzzentren
+# Liste der Präferenzzentren {#list-preference-centers}
 {% apimethod get %}
 /preference_center/v1/list
 {% endapimethod %}
@@ -18,26 +18,26 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Liste
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#dd8f6667-5eba-4e19-a29e-ba74644c0b8e {% endapiref %}
 
-## Voraussetzungen
+## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `preference_center.list`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `preference_center.list`.
 
-## Rate-Limits
+## Rate-Limits {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='get preference center' %}
 
-## Pfad- und Anfrageparameter
+## Pfad- und Anfrageparameter {#path-and-request-parameters}
 
 Für diesen Endpunkt gibt es keine Pfad- oder Anfrageparameter.
 
-## Beispielanfrage
+## Beispielanfrage {#example-request}
 
 ```
 curl --location -g --request GET https://rest.iad-01.braze.com/preference_center/v1/list \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Antwort
+## Antwort {#response}
 
 ```json
 {

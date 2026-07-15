@@ -18,8 +18,8 @@ _이 통합은 Tapcart에서 유지 관리합니다._
 | 요구 사항              | 설명                                                                                                                                         |
 |--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Tapcart Enterprise 계정 | 이 통합은 **Tapcart Enterprise 고객**만 사용할 수 있습니다.                                                                              |
-| Braze 앱 API 키         | [Braze 앱 식별자 API 키](https://www.braze.com/docs/api/identifier_types)가 필요합니다. 각 플랫폼(예: iOS 또는 Android)에는 고유한 앱 식별자가 있습니다. Braze 대시보드에서 **설정** > **API 키** > **앱 식별자**로 이동하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze 앱 API 키         | [Braze 앱 식별자 API 키]({{site.baseurl}}/api/identifier_types/)가 필요합니다. 각 플랫폼(예: iOS 또는 Android)에는 고유한 앱 식별자가 있습니다. Braze 대시보드에서 **설정** > **API 키** > **앱 식별자**로 이동하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 소개 {#about-the-integration}
 

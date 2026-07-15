@@ -36,7 +36,7 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 | DOTS.ECO-Konto | Zugang zu einem DOTS.ECO-Konto. |
 | DOTS.ECO-Zugangsdaten | Für die Anfrage in diesem Artikel benötigen Sie ein DOTS.ECO-App-Token, einen API-Schlüssel und eine Zuordnungs-ID. Um diese abzurufen, wenden Sie sich an Ihren DOTS.ECO-Customer-Success-Manager. |
 | Braze-REST-API-Schlüssel | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. Erstellen Sie diesen Schlüssel im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel**. |
-| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## DOTS.ECO integrieren {#integrating-dotseco}
@@ -60,7 +60,7 @@ Verwenden Sie den `capture`-Tag und eine Connected-Content-Anfrage, um den Zerti
 ```
 {% capture post_body %}
 {
-  "remote_user_email": "{{${email_address} | default: 'braze+nadav@dots.eco'}}",
+  "remote_user_email": "{{${email_address} | default: 'braze+user@example.com'}}",
   "app_token": "YOUR_DOTS.ECO_APP_TOKEN",
   "impact_qty": 1,
   "remote_user_id": "{{${user_id} | default: ${braze_id}}}",
@@ -122,7 +122,7 @@ Damit können Sie In-App-Nachrichten, Content Cards oder Push-Benachrichtigungen
 - **Connected-Content gibt leere Ergebnisse zurück**: Stellen Sie sicher, dass `:save result` gesetzt ist und dass Sie auf die erwarteten Antwortfelder verweisen.
 - **Attribute werden im Nachrichtenschritt nicht angezeigt**:
   - Stellen Sie sicher, dass die Namen der angepassten Attribute in Braze genau mit den Attributen übereinstimmen, die Sie im Nutzeraktualisierungsschritt festgelegt haben.
-  - Verwenden Sie im Nutzeraktualisierungsschritt den Tab **Vorschau und Test**, um zu bestätigen, dass die Attribute befüllt werden. Senden Sie dann einen Test an Nutzer:innen und bestätigen Sie, dass die Attribute in deren Nutzerprofil gespeichert sind.
+  - Verwenden Sie im Nutzeraktualisierungsschritt den Tab **Vorschau und Test**, um zu bestätigen, dass die Attribute befüllt werden. Senden Sie dann einen Test an eine:n Nutzer:in und bestätigen Sie, dass die Attribute in deren Nutzerprofil gespeichert sind.
 - **`422`-Fehler (nicht verarbeitbare Entität)**: Stellen Sie sicher, dass Ihr App-Token und die Impact-Menge gültig sind.
 - **`401`-Fehler**: Stellen Sie sicher, dass das Auth-Token vorhanden und korrekt ist.
-- **Keine Bildvorschau im Nachrichtenschritt**: Wählen Sie im Nutzeraktualisierungsschritt **Test an Nutzer:in senden** und zeigen Sie dann eine Vorschau der Nachricht mit denselben Nutzer:innen an.
+- **Keine Bildvorschau im Nachrichtenschritt**: Wählen Sie im Nutzeraktualisierungsschritt **Test an Nutzer:in senden** und zeigen Sie dann eine Vorschau der Nachricht mit derselben/demselben Nutzer:in an.

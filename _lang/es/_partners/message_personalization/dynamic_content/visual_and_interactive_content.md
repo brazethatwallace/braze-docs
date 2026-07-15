@@ -1,8 +1,8 @@
 ---
 nav_title: Contenido visual e interactivo
-article_title: Socios de contenido visual e interactivo
+article_title: Partners de contenido visual e interactivo
 page_type: landing
-description: "Esta página de inicio enumera los socios tecnológicos de Braze que ofrecen contenido visual e interactivo para la personalización de mensajes."
+description: "Esta página de inicio enumera los partners tecnológicos de Braze que ofrecen contenido visual e interactivo para la personalización de mensajes."
 layout: partner_page
 search_tag: Partner
 
@@ -31,6 +31,8 @@ valid_partner_list:
   url: /docs/partners/playable/
 - name: SEEN
   url: /docs/partners/seen/
+- name: Stayfilm
+  url: /docs/partners/stayfilm/
 - name: Storyly
   url: /docs/partners/storyly/
 - name: Stylitics

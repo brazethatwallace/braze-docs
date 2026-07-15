@@ -42,17 +42,17 @@ end
 
 포드 업데이트에서 마이너 버전 업데이트보다 작은 내용을 자동으로 가져올 수 있도록 Braze 버전을 설정하는 것이 좋습니다. `pod 'Appboy-iOS-SDK' ~> Major.Minor.Build`와 같은 형태입니다. 주요 변경 사항이 있더라도 최신 Braze SDK 버전을 자동으로 통합하려면 Podfile에서 `pod 'Appboy-iOS-SDK'`를 사용하면 됩니다.
 
-#### 서브스펙 {#subspecs}
+### 서브스펙 {#subspecs}
 
 전체 SDK를 가져오는 것을 권장합니다. 그러나 특정 Braze 기능만 통합하려는 경우 전체 SDK 대신 원하는 UI 서브스펙만 가져올 수 있습니다.
 
 | 서브스펙 | 세부 정보 |
 | ------- | ------- |
-| `pod 'Appboy-iOS-SDK/InAppMessage'` | `InAppMessage` 서브스펙에는 Braze 인앱 메시지 UI와 Core SDK가 포함되어 있습니다. |
+| `pod 'Appboy-iOS-SDK/InAppMessage'` | `InAppMessage` 서브스펙에는 Braze 인앱 메시지 UI와 Core SDK가 포함되어 있습니다.|
 | `pod 'Appboy-iOS-SDK/ContentCards'` | `ContentCards` 서브스펙에는 Braze 콘텐츠 카드 UI와 Core SDK가 포함되어 있습니다. |
 | `pod 'Appboy-iOS-SDK/NewsFeed'` | `NewsFeed` 서브스펙에는 Braze Core SDK가 포함되어 있습니다. |
 | `pod 'Appboy-iOS-SDK/Core'` | `Core` 서브스펙에는 커스텀 이벤트 및 속성과 같은 분석 지원이 포함되어 있습니다. |
-{: .ws-td-nw-1 aria-label="Subspecs" }
+{: .ws-td-nw-1 aria-label="서브스펙" }
 
 ## 3단계: Braze SDK 설치 {#step-3-installing-the-braze-sdk}
 
@@ -67,7 +67,7 @@ pod install
 
 ## 다음 단계 {#next-steps}
 
-[통합 완료하기]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration/) 안내를 따르세요.
+[통합 완료하기]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/completing_integration) 안내를 따르세요.
 
 ## CocoaPods를 통해 Braze SDK 업데이트하기 {#updating-the-braze-sdk-via-cocoapods}
 

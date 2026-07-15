@@ -6,6 +6,8 @@ description: "Braze React Native SDK README-Referenz, gespiegelt von GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# React Native SDK Repository-Leitfaden {#react-native-sdk-repository-guide}
+
 ## Über das Braze React Native SDK {#about-the-braze-react-native-sdk}
 
 Das Braze React Native SDK verbindet Ihre iOS- und Android-Apps mit Braze: Nutzerprofile, Messaging-Oberflächen, Analytics und Feature-Flags. Es umschließt das native [Braze Swift SDK](https://github.com/braze-inc/braze-swift-sdk) und das [Braze Android SDK](https://github.com/braze-inc/braze-android-sdk) hinter einer JavaScript-API.
@@ -18,7 +20,7 @@ Das Braze React Native SDK verbindet Ihre iOS- und Android-Apps mit Braze: Nutze
 - **In-App-Nachrichten**: Standard-Braze-UI oder benutzerdefinierte Verarbeitung über Abonnements und Logging-APIs
 - **Content Cards**: Standard-Feed-UI oder Karten abrufen und eine eigene UI erstellen
 - **Banner**: Platzierungsbasierte HTML-Banner, einschließlich `BrazeBannerView`
-- **Push-Benachrichtigungen**: Berechtigungsabfragen, Token-Registrierung, Payload-Listener (siehe Plattformhinweise unten)
+- **Push-Benachrichtigungen**: Berechtigungsabfragen, Token-Registrierung, Payload-Listener (siehe [Push-Benachrichtigungen](#push-notifications))
 - **Feature-Flags**: Aktualisieren, Eigenschaften lesen, Impressionen protokollieren
 - **Analytics**: Angepasste Events, Käufe, sofortiger Flush
 - **SDK-Steuerung**: SDK aktivieren/deaktivieren, lokale Daten löschen, SDK-Authentifizierungssignaturen
@@ -33,7 +35,7 @@ Das Braze React Native SDK verbindet Ihre iOS- und Android-Apps mit Braze: Nutze
 
 Informationen zu den Zugangsdaten im Dashboard finden Sie in der [Integrationsübersicht](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native).
 
-## Installation
+## Installation {#installation}
 
 ``` bash
 npm install @braze/react-native-sdk
@@ -45,7 +47,9 @@ npm install @braze/react-native-sdk
 
 ## Schnellstart {#quick-start}
 
-1. Installieren Sie das npm-Paket (siehe oben).
+Dieser Abschnitt zeigt die minimale Einrichtung, die erforderlich ist, um das Braze React Native SDK zu initialisieren.
+
+1. Installieren Sie das npm-Paket unter [Installation](#installation).
 2. Schließen Sie die **native Einrichtung** für Android und iOS ab (Konfiguration, Berechtigungen, Push falls erforderlich).
 3. Initialisieren Sie das SDK aus JavaScript und beginnen Sie mit der Nutzung:
 
@@ -205,7 +209,7 @@ Optionale **SDK-Authentifizierung**: Übergeben Sie eine Signatur als zweites Ar
 
 ### In-App-Nachrichten {#in-app-messages}
 
-- Mit der **Standard-Braze-UI** folgen Sie der [In-App-Nachricht-Dokumentation](https://github.com/braze-inc/braze-react-native-sdk/blob/master/docs/developer_guide/in_app_messages?sdktab=react%20native); Sie müssen in der Regel **nicht** `subscribeToInAppMessage` aufrufen, nur um die Standard-UI anzuzeigen.
+- Mit der **Standard-Braze-UI** folgen Sie der [In-App-Nachricht-Dokumentation](https://www.braze.com/docs/developer_guide/in_app_messages?sdktab=react%20native); Sie müssen in der Regel **nicht** `subscribeToInAppMessage` aufrufen, nur um die Standard-UI anzuzeigen.
 - Für **benutzerdefinierte** Verarbeitung abonnieren Sie mit `useBrazeUI: false` und protokollieren Sie dann Impressionen/Klicks nach Bedarf:
 
 ``` typescript
@@ -219,7 +223,7 @@ Braze.subscribeToInAppMessage(false, (event) => {
 ### Content Cards
 
 ``` typescript
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 Braze.requestContentCardsRefresh();
 Braze.launchContentCards(); // default Braze UI
 
@@ -238,7 +242,7 @@ Braze.requestBannersRefresh(["homepage_banner"]);
 const banner = await Braze.getBanner("homepage_banner");
 
 // Or use the native Banner view:
-// <Braze.BrazeBannerView placementID="homepage_banner" />
+// <Braze.BrazeBannerView placementId="homepage_banner" />
 ```
 
 ### Push-Benachrichtigungen {#push-notifications}
@@ -346,13 +350,15 @@ useEffect(() => {
 - **Expo**: Verwenden Sie das [Braze Expo Plugin](https://github.com/braze-inc/braze-expo-plugin), um manuelle native Verdrahtung nach Möglichkeit zu vermeiden.
 - **New Architecture / Turbo Modules**: Wird in neueren Plugin-Versionen unterstützt; folgen Sie dem Entwicklerleitfaden und den Beispiel-`AppDelegate`-/Gradle-Einstellungen, wenn Sie migrieren.
 - **Datenschutz (iOS)**: Methoden wie `updateTrackingPropertyAllowList` unterstützen die Konfiguration im Zusammenhang mit dem Privacy Manifest; siehe [Swift Privacy Manifest](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/privacy_manifest/).
-## - **Jest**: Mocken Sie `react-native`-native Module oder das Braze Turbo Module (siehe `__tests__/jest.setup.js` in diesem Repository für Muster). {#jest-mock-react-native-native-modules-or-the-braze-turbo-module-see-__tests__jestsetupjs-in-this-repo-for-patterns}
+- **Jest**: Mocken Sie `react-native`-native Module oder das Braze Turbo Module (siehe `__tests__/jest.setup.js` in diesem Repository für Muster).
 
 ## Versionsunterstützung {#version-support}
 
 {% alert note %}
-Dieses SDK wurde mit React Native Version **0.83.0** getestet.
+Dieses SDK wurde mit React Native Version **0.85.3** getestet.
 {% endalert %}
+Die folgende Tabelle listet unterstützte React Native-Versionen nach Braze-Plugin-Release auf.
+
 | Braze Plugin | React Native | New Architecture |
 |--------------|--------------|------------------|
 | 9.0.0+       | ≥ 0.71       | Ja               |
@@ -421,7 +427,7 @@ Für eine tiefergehende Fehlerbehebung (Netzwerk, Sitzung oder Campaign-Verhalte
 
 ## Kontakt {#contact}
 
-Wenn Sie Fragen haben, kontaktieren Sie bitte [support@braze.com](mailto:support@braze.com).
+Wenn Sie Fragen haben, wenden Sie sich bitte an den technischen Support von Braze.
 <!-- END GENERATED README CONTENT -->
 
 Für Repository-Details und Beispielprojekte siehe [https://github.com/braze-inc/braze-react-native-sdk](https://github.com/braze-inc/braze-react-native-sdk).

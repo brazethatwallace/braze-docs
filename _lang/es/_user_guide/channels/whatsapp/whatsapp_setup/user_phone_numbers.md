@@ -17,7 +17,7 @@ Los números de teléfono se muestran en el perfil de usuario en formatos locale
 
 ## Importar números de teléfono {#importing-phone-numbers}
 
-Puedes importar números de teléfono [cargando un CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#csv) o [a través de la API]({{site.baseurl}}/api/endpoints/user_data/#user-track-endpoint) para crear un usuario.
+Puedes importar números de teléfono [cargando un CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) o [a través de la API]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint) para crear un usuario.
 
 ### Formato {#formatting}
 
@@ -29,7 +29,7 @@ Todos los números de EE. UU. deben ser números de teléfono válidos de 10 dí
 
 Todos los números internacionales deben comenzar con un `+`, seguido de su código de país y luego el número de teléfono (por ejemplo, `+442071838750`).
 
-![]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
+![Captura de pantalla relacionada con el formato.]({% image_buster /assets/img/sms/e164.png %}){: style="max-width:50%;border: 0;"}
 
 Sin embargo, para garantizar la precisión en caso de que estés enviando a múltiples regiones con diferentes códigos de país o de área, se recomienda usar el formato `E.164`, incluso para números de teléfono con sede en EE. UU.
 
@@ -44,7 +44,7 @@ Puedes ver las diferencias entre el formato de número local y el formato univer
 
 ### Añadir usuarios a un grupo de suscripción de WhatsApp {#adding-users-to-whatsapp-a-subscription-group}
 
-Para que un cliente reciba un mensaje de WhatsApp, debe tener un número de teléfono válido y estar suscrito a un grupo de suscripción. Para más información, consulta [Grupos de suscripción de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/).
+Para que un cliente reciba un mensaje de WhatsApp, debe tener un número de teléfono válido y estar suscrito a un grupo de suscripción. Para más información, consulta [Grupos de suscripción de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups).
 
 
 ### Múltiples usuarios con el mismo número de teléfono {#multiple-users-with-the-same-phone-number}

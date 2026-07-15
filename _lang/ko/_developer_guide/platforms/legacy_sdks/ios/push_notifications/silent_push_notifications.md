@@ -28,7 +28,7 @@ noindex: true
 제목과 본문에 모두 `content-available=1`을 첨부하는 것은 정의되지 않은 동작을 유발할 수 있으므로 권장되지 않습니다. 알림이 실제로 무음인지 확인하려면 `content-available` 플래그를 `1`로 설정할 때 제목과 본문을 모두 제외하세요. 자세한 내용은 공식 [백그라운드 업데이트에 대한 Apple 설명서](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/pushing_background_updates_to_your_app)를 참조하세요.
 {% endalert %}
 
-`content-available` 플래그는 Braze 대시보드와 [메시징 API]({{site.baseurl}}/api/endpoints/messaging/)의 [Apple 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/apple_object/) 내에서 설정할 수 있습니다.
+`content-available` 플래그는 Braze 대시보드와 [메시징 API]({{site.baseurl}}/api/endpoints/messaging)의 [Apple 푸시 오브젝트]({{site.baseurl}}/api/objects_filters/messaging/apple_object) 내에서 설정할 수 있습니다.
 
 ![푸시 작성기의 '설정' 탭에 있는 'content-available' 확인란을 보여주는 Braze 대시보드.]({% image_buster /assets/img_archive/remote_notification.png %} "content available")
 
@@ -40,7 +40,7 @@ noindex: true
 
 !["capabilities" 아래에 "remote notifications" 모드 확인란을 보여주는 Xcode.]({% image_buster /assets/img_archive/background_mode.png %} "background mode enabled")
 
-[제거 추적]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls/?sdktab=swift)을 위해서는 원격 알림에 백그라운드 모드를 활성화해야 합니다.
+[제거 추적]({{site.baseurl}}/developer_guide/analytics/tracking_uninstalls?sdktab=swift)을 위해서는 원격 알림에 백그라운드 모드를 활성화해야 합니다.
 
 원격 알림 백그라운드 모드가 활성화되어 있어도 사용자가 애플리케이션을 강제 종료한 경우 시스템은 백그라운드로 앱을 실행하지 않습니다. 사용자가 애플리케이션을 명시적으로 실행하거나 기기를 재부팅해야 시스템에서 백그라운드로 앱을 자동으로 실행할 수 있습니다.
 
@@ -56,7 +56,7 @@ Braze에는 iOS 무음 푸시 알림을 사용하는 여러 기능이 있습니�
 |---|---|
 | 제거 추적 | 사용자는 매일 밤 무음 제거 추적 푸시를 수신합니다. |
 | 지오펜스 | 서버에서 기기로 지오펜스를 자동 동기화합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="iOS 무음 알림 제한 사항" }
 
 자세한 내용은 Apple의 [인스턴스 메서드](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1623013-application) 및 [미수신 알림](https://developer.apple.com/library/content/technotes/tn2265/_index.html#//apple_ref/doc/uid/DTS40010376-CH1-TNTAG23) 문서를 참조하세요.
 

@@ -6,7 +6,7 @@
 
 Die Verfügbarkeit von Bannern hängt von Ihrem Braze-Paket ab. Wenden Sie sich an Ihren Account Manager oder Customer-Success-Manager, um loszulegen.
 
-Stellen Sie vor dem Start sicher, dass Sie [Bannerplatzierungen]({{site.baseurl}}/developer_guide/banners/placements/) in Ihrer App oder Website erstellt haben.
+Stellen Sie vor dem Start sicher, dass Sie [Bannerplatzierungen]({{site.baseurl}}/developer_guide/banners/placements) in Ihrer App oder Website erstellt haben.
 
 ![Ein Beispiel für ein Banner, das auf einem Gerät angezeigt wird.]({% image_buster /assets/img/banners/sample_banner.png %})
 
@@ -14,7 +14,7 @@ Stellen Sie vor dem Start sicher, dass Sie [Bannerplatzierungen]({{site.baseurl}
 
 Mit Bannern können Marketing- und Produkt-Teams den Inhalt von Apps oder Websites dynamisch personalisieren und so die Realtime-Eignung und das Verhalten der Nutzer:innen widerspiegeln. Sie zeigen Nachrichten persistent inline an und bieten nicht-intrusive, kontextuell relevante Erlebnisse, die zu Beginn einer Sitzung oder während einer Sitzung aktualisiert werden können, wenn Ihre App oder Website dies explizit anfordert.
 
-Nach der Integration von Bannern in eine App oder Website können Marketer die Banner mit einem einfachen Drag-and-Drop-Editor entwerfen und starten. Damit entfällt die Notwendigkeit einer ständigen Unterstützung durch Entwickler:innen, die Komplexität wird reduziert und die Effizienz gesteigert.
+Nach der Integration von Bannern in eine App oder Website können Marketer die Banner mit einem Drag-and-Drop-Editor oder einem vollständigen HTML-Editor entwerfen und starten. Damit entfällt die Notwendigkeit einer ständigen Unterstützung durch Entwickler:innen, die Komplexität wird reduziert und die Effizienz gesteigert.
 
 | Anwendungsfall | Erklärung |
 | --- | --- |
@@ -28,9 +28,9 @@ Nach der Integration von Bannern in eine App oder Website können Marketer die B
 
 Zu den Features für Banner gehören:
 
-- **Einfache Erstellung von Inhalten:** Erstellen Sie Ihr Banner mit einem visuellen Drag-and-Drop-Editor, der Bilder, Text, Buttons, Formulare zur Erfassung von E-Mails, angepassten Code und vieles mehr unterstützt, und zeigen Sie eine Vorschau an.
+- **Einfache Erstellung von Inhalten:** Erstellen Sie Ihr Banner mit einem visuellen Drag-and-Drop-Editor, der Bilder, Text, Buttons, Formulare zur Erfassung von E-Mails, angepassten Code und vieles mehr unterstützt, und zeigen Sie eine Vorschau an. Teams, die ihr eigenes Markup verwalten möchten, können stattdessen den HTML-Editor für die volle Kontrolle über HTML und Stile des Banners verwenden, oder [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages) bitten, HTML aus einer Beschreibung zu generieren.
 - **Flexible Platzierungen:** Definieren Sie mehrere Standorte innerhalb Ihrer Anwendung oder Website, an denen Banner erscheinen können, und ermöglichen Sie so ein präzises Targeting auf bestimmte Kontexte oder Nutzererlebnisse.
-- **Dynamische Personalisierung:** Banner können nur zu Beginn einer neuen Sitzung oder während einer Sitzung aktualisiert werden, wenn Sie die Aktualisierung explizit anfordern. Banner werden bei einer neuen Sitzung nicht automatisch aktualisiert. Wenn Sie die Aktualisierung nicht anfordern, wird das Banner nicht aktualisiert.
+- **Dynamische Personalisierung:** Banner berechnen die Personalisierung (Liquid-Logik) und Segmentierung bei jeder Aktualisierung des Banners neu. Wenn Nutzer:innen ihr Profil aktualisieren oder sich ein angepasstes Attribut ändert, spiegelt die nächste Banner-Aktualisierung diese Änderungen wider.
 - **Native Priorisierung:** Legen Sie die Anzeigepriorität fest, wenn mehrere Banner auf dieselbe Platzierung abzielen, um sicherzustellen, dass die richtige Nachricht die Nutzer:innen zur richtigen Zeit erreicht.
 - **Editor-Block für angepassten Code:** Verwenden Sie den Editor-Block für angepassten Code, um angepasstes HTML für erweiterte Anpassungen oder eine nahtlose Integration in Ihre bestehenden Webstile hinzuzufügen.
 
@@ -38,9 +38,9 @@ Zu den Features für Banner gehören:
 
 ### Platzierungs-IDs {#placement-id}
 
-Bannerplatzierungen sind bestimmte Standorte in Ihrer App oder Website, [die Sie mit dem Braze SDK erstellen]({{site.baseurl}}/developer_guide/banners/placements/) und die festlegen, wo Banner erscheinen können.
+Bannerplatzierungen sind bestimmte Standorte in Ihrer App oder Website, [die Sie mit dem Braze SDK erstellen]({{site.baseurl}}/developer_guide/banners/placements) und die festlegen, wo Banner erscheinen können.
 
-Zu den üblichen Standorten gehören der obere Teil Ihrer Homepage, Produktdetailseiten und Checkout-Abläufe. Nachdem die Platzierungen erstellt wurden, können Banner [in Ihrer Banner-Kampagne zugewiesen]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/) werden.
+Zu den üblichen Standorten gehören der obere Teil Ihrer Homepage, Produktdetailseiten und Checkout-Abläufe. Nachdem die Platzierungen erstellt wurden, können Banner [in Ihrer Banner-Kampagne zugewiesen]({{site.baseurl}}/user_guide/channels/banners/create_a_banner) werden.
 
 Es gibt keine feste Begrenzung für die Anzahl der Platzierungen, die Sie pro Workspace erstellen können, und Sie können so viele Platzierungs-IDs erstellen, wie es Ihre Anforderungen erfordern. Jede Platzierung muss innerhalb eines Workspaces eindeutig sein. Eine einzelne Platzierungs-ID kann gleichzeitig von bis zu 25 aktiven Nachrichten referenziert werden.
 
@@ -50,7 +50,7 @@ Vermeiden Sie die Änderung von Platzierungs-IDs nach dem Starten einer Banner-K
 
 ### Bannerpriorität {#priority}
 
-Wenn mehrere Banner-Nachrichten auf dieselbe Platzierungs-ID referenzieren, werden die Banner in der Reihenfolge ihrer Priorität angezeigt: hoch, mittel oder niedrig. Standardmäßig sind Banner auf „mittel“ eingestellt, Sie können jedoch [die Priorität manuell festlegen]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#set-banner-priority-optional), wenn Sie Ihre Banner-Kampagne erstellen oder bearbeiten.
+Wenn mehrere Banner-Nachrichten auf dieselbe Platzierungs-ID referenzieren, werden die Banner in der Reihenfolge ihrer Priorität angezeigt: hoch, mittel oder niedrig. Standardmäßig sind Banner auf „mittel“ eingestellt, Sie können jedoch [die Priorität manuell festlegen]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#set-banner-priority-optional), wenn Sie Ihre Banner-Kampagne erstellen oder bearbeiten.
 
 Wenn mehrere Banner auf dieselbe Priorität eingestellt sind, wird das neueste Banner, für das der/die Nutzer:in berechtigt ist, zuerst angezeigt.
 
@@ -76,25 +76,20 @@ Hier erfahren Sie, was Sie über die Abmessungen und die Größe von Bannern wis
 
 ## Beschränkungen {#limitations}
 
-Jeder Workspace kann bis zu 200 aktive Banner-Kampagnen unterstützen. Wenn dieses Limit erreicht ist, müssen Sie eine bestehende Kampagne [archivieren oder deaktivieren]({{site.baseurl}}/user_guide/messaging/governance/statuses/#changing-the-status), bevor Sie eine neue erstellen können.
+Jeder Workspace kann bis zu 200 aktive Banner-Kampagnen unterstützen. Wenn dieses Limit erreicht ist, müssen Sie eine bestehende Kampagne [archivieren oder deaktivieren]({{site.baseurl}}/user_guide/messaging/governance/statuses#changing-the-status), bevor Sie eine neue erstellen können.
 
 Außerdem unterstützen Banner-Nachrichten die folgenden Features nicht:
 
 - API-getriggerte und aktionsbasierte Kampagnen
-- Connected-Content
+- Connected Content
 - Aktionscodes
-- `catalog_items` unter Verwendung des [`:rerender`-Tags]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)
-- Nutzer:innen-gesteuerte Schließung (nur Early Access)
-
-{% alert important %}
-Die Möglichkeit, Nutzer:innen ein Banner manuell schließen zu lassen, befindet sich im Early Access. Weitere Informationen finden Sie unter [Schließverhalten konfigurieren]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior). Wenn Sie am Early Access teilnehmen möchten, wenden Sie sich an Ihren Customer-Success-Manager.
-{% endalert %}
+- `catalog_items` unter Verwendung des [`:rerender`-Tags]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs#using-liquid)
 
 ## Nächste Schritte {#next-steps}
 
-- [Bannerplatzierungen in Ihrer App oder Website erstellen]({{site.baseurl}}/developer_guide/banners/placements/)
-- [Eine Banner-Kampagne in Braze erstellen]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/)
-- [Anleitung: Anzeige eines Banners anhand der Platzierungs-ID]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
+- [Bannerplatzierungen in Ihrer App oder Website erstellen]({{site.baseurl}}/developer_guide/banners/placements)
+- [Eine Banner-Kampagne in Braze erstellen]({{site.baseurl}}/user_guide/channels/banners/create_a_banner)
+- [Anleitung: Anzeige eines Banners anhand der Platzierungs-ID]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
 
 {% alert tip %}
 Möchten Sie bei der Festlegung der nächsten Prioritäten helfen? Kontaktieren Sie [banners-feedback@braze.com](mailto:banners-feedback@braze.com).

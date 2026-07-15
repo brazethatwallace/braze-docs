@@ -17,14 +17,14 @@ También te recomendamos consultar nuestro curso de Braze Learning [Pruebas y so
 
 ## Requisitos previos {#prerequisites}
 
-Para crear y administrar grupos internos, necesitas los siguientes [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/):
+Para crear y administrar grupos internos, necesitas los siguientes [permisos de usuario]({{site.baseurl}}/user_guide/administer/global/user_management/permissions):
 
 - Ver claves de API
 - Editar claves de API
 - Ver grupos internos
 - Editar grupos internos
-- Ver Registro de actividad de mensajes
-- Ver Registro de eventos de usuario
+- Ver registro de actividad de mensajes
+- Ver registro de eventos de usuario
 - Ver identificadores de API
 - Ver dashboard de uso de API
 - Ver límites de API
@@ -63,18 +63,16 @@ Después de crear tu grupo interno, añade usuarios de prueba como miembros de e
 | Método | Descripción |
 |---|---|
 | **Añadir usuario identificado** | Busca al usuario por su ID externo, dirección de correo electrónico, número de teléfono o token de notificaciones push. |
-| **Añadir usuario anónimo** | Busca por dirección IP. Luego, proporciona un nombre para cada usuario de prueba que añadas. Este es el nombre con el que se asocian todos los registros de eventos en la página del [Registro de eventos de usuario]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/). |
-| **Añadir usuarios en bloque** | Copia y pega una lista de direcciones de correo electrónico o ID externos. Solo puedes añadir usuarios que ya sean conocidos en el dashboard. Para más información, consulta [Importación de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/). |
+| **Añadir usuario anónimo** | Busca por dirección IP. Luego, proporciona un nombre para cada usuario de prueba que añadas. Este es el nombre con el que se asocian todos los registros de eventos en la página del [Registro de eventos de usuario]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log). |
+| **Añadir usuarios en bloque** | Copia y pega una lista de direcciones de correo electrónico o ID externos. Solo puedes añadir usuarios que ya sean conocidos en el dashboard. Para más información, consulta [Importación de usuarios]({{site.baseurl}}/user_guide/audience/manage_audience/import_users). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Añadir usuarios de prueba" }
-
-![Configuración de grupos internos al crear un nuevo grupo interno]({% image_buster /assets/img_archive/internal_group_add_user.png %})
 
 ### Grupos de prueba de contenido {#content-test-groups}
 
 De forma similar a enviar una vista previa de prueba de un mensaje, el grupo de prueba de contenido te ahorra tiempo y te permite lanzar pruebas a una lista predefinida de usuarios de Braze simultáneamente. Está disponible para push, mensajes dentro de la aplicación, SMS, correo electrónico y Content Cards en Braze. Solo los grupos etiquetados como grupos de prueba de contenido están disponibles en la sección de vista previa de un mensaje.
 
 {% alert note %}
-Los mensajes de prueba de [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/) solo se pueden enviar a números de teléfono válidos en la base de datos.
+Los mensajes de prueba de [SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) solo se pueden enviar a números de teléfono válidos en la base de datos.
 {% endalert %}
 
 Selecciona usuarios individuales de Braze o cualquier número de grupos internos a los que enviar el mensaje. Si tu mensaje incluye Liquid u otra personalización dinámica, Braze utiliza los atributos disponibles para cada usuario para personalizar el contenido del mensaje. Para los usuarios que no tienen atributos, Braze utiliza el valor predeterminado establecido.
@@ -89,9 +87,9 @@ Si usas un grupo de IP para enviar un correo electrónico, selecciona desde qué
 
 Los grupos semilla solo son compatibles con el canal de correo electrónico. Añade usuarios a un grupo semilla para enviar copias de cada variante de mensaje de correo electrónico a todos los miembros del grupo.
 
-Los grupos semilla no están disponibles para Campaigns de API, pero puedes incluir grupos semilla usando una entrada activada por API en la Campaign. Úsalos para medir métricas de capacidad de entrega y para mantener un registro del contenido de tus correos electrónicos con fines históricos y de archivo.
+Los grupos semilla no están disponibles para campañas de API, pero puedes incluir grupos semilla usando una entrada activada por API en la campaña. Úsalos para medir métricas de capacidad de entrega y para mantener un registro del contenido de tus correos electrónicos con fines históricos y de archivo.
 
-Después de crear un grupo interno y etiquetarlo para usarlo como grupo semilla, selecciónalo en el paso **Target Audiences** del editor de Campaigns, o en el paso **Send Settings** en un Canvas.
+Después de crear un grupo interno y etiquetarlo para usarlo como grupo semilla, selecciónalo en el paso **Público objetivo** del editor de campañas, o en el paso **Ajustes de envío** en un Canvas.
 
 Los correos electrónicos semilla tienen `[SEED]` antepuesto a la línea del asunto. Ten en cuenta que los correos electrónicos semilla **no**:
 
@@ -108,29 +106,29 @@ Los envíos semilla están diseñados para QA y revisión internos, por lo que o
 {% alert tip %}
 Si los miembros del grupo semilla no ven el mensaje, confirma que están en el grupo interno, usa líneas de asunto distintas para que Gmail no agrupe los mensajes y pídeles que revisen la carpeta de correo no deseado.
 
-Si el correo electrónico usa [Liquid `abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/), los miembros del grupo semilla aún deben cumplir la condición de cancelación para recibir el envío.
+Si el correo electrónico usa [Liquid `abort_message()`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages), los miembros del grupo semilla aún deben cumplir la condición de cancelación para recibir el envío.
 {% endalert %}
 
-#### Para Campaigns {#for-campaigns}
+#### Para campañas {#for-campaigns}
 
-Al redactar una Campaign de correo electrónico, edita tus grupos semilla en la sección **Target Audiences** del editor.
+Al redactar una campaña de correo electrónico, edita tus grupos semilla en la sección **Público objetivo** del editor.
 
 {% alert important %}
-Si configuras un grupo semilla para que se adjunte automáticamente a todas las Campaigns, esto solo se aplica a las Campaigns nuevas. No se aplica cuando copias Campaigns existentes. Debes aplicar manualmente los grupos semilla deseados a la Campaign copiada en la sección **Target Audiences**.
+Si configuras un grupo semilla para que se adjunte automáticamente a todas las campañas, esto solo se aplica a las campañas nuevas. No se aplica cuando copias campañas existentes. Debes aplicar manualmente los grupos semilla deseados a la campaña copiada en la sección **Público objetivo**.
 {% endalert %}
 
-Los grupos semilla envían a cada variante de correo electrónico una vez y se entregan la primera vez que tu usuario recibe esa variante en particular. Para mensajes planificados, esto suele ser la primera vez que se lanza la Campaign. Para Campaigns basadas en acciones o activadas por API, es el momento en que se envía un mensaje al primer usuario.
+Los grupos semilla envían a cada variante de correo electrónico una vez y se entregan la primera vez que tu usuario recibe esa variante en particular. Para mensajes planificados, esto suele ser la primera vez que se lanza la campaña. Para campañas basadas en acciones o activadas por API, es el momento en que se envía un mensaje al primer usuario.
 
-Si tu Campaign es multivariante y tu variante tiene un porcentaje de envío del 0 %, no se envía a los grupos semilla. Además, si la variante ya se envió y no se actualizó para reenviar en **Editar grupos semilla** en el paso **Target**, no se envía de nuevo de forma predeterminada.
+Si tu campaña es multivariante y tu variante tiene un porcentaje de envío del 0 %, no se envía a los grupos semilla. Además, si la variante ya se envió y no se actualizó para reenviar en **Editar grupos semilla** en el paso **Objetivo**, no se envía de nuevo de forma predeterminada.
 
 {% alert note %}
-Si tienes una Campaign recurrente y alguna de las variantes se actualiza, puedes elegir enviar de nuevo solo a las variantes actualizadas o a todas las variantes, o desactivar el envío del grupo semilla tras la actualización.
+Si tienes una campaña recurrente y alguna de las variantes se actualiza, puedes elegir enviar de nuevo solo a las variantes actualizadas o a todas las variantes, o desactivar el envío del grupo semilla tras la actualización.
 {% endalert %}
 
-![El grupo semilla "Email seed test" seleccionado para recibir la Campaign de correo electrónico de la variante 1.]({% image_buster /assets/img_archive/seed_group_campaign.png %})
+![El grupo semilla "Email seed test" seleccionado para recibir la campaña de correo electrónico de la variante 1.]({% image_buster /assets/img_archive/seed_group_campaign.png %})
 
 #### Para Canvas {#for-canvas}
 
-Los grupos semilla en Canvas funcionan de manera similar a cualquier Campaign activada. Braze detecta automáticamente todos los pasos que contienen un mensaje de correo electrónico y los envía cuando tu usuario llega por primera vez a ese paso de correo electrónico en particular.
+Los grupos semilla en Canvas funcionan de manera similar a cualquier campaña activada. Braze detecta automáticamente todos los pasos que contienen un mensaje de correo electrónico y los envía cuando tu usuario llega por primera vez a ese paso de correo electrónico en particular.
 
 Si un paso de correo electrónico se actualizó después de que se envió al grupo semilla, Braze presenta la opción de enviar solo a los pasos actualizados, a todos los pasos o desactivar los envíos semilla.

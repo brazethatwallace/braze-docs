@@ -24,7 +24,7 @@ description: "이 문서에서는 여러 카탈로그 항목 편집 Braze 엔드
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.update_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.update_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -35,14 +35,14 @@ description: "이 문서에서는 여러 카탈로그 항목 편집 Braze 엔드
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `catalog_name` | 필수 | 문자열 | 카탈로그의 이름입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
 ## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `items` | 필수 | 배열 | 항목 오브젝트가 포함된 배열입니다. 항목 오브젝트에는 카탈로그에 존재하는 필드가 포함되어야 합니다. 요청당 최대 50개의 항목 오브젝트가 허용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 
@@ -145,6 +145,6 @@ curl --location --request PATCH 'https://rest.iad-03.braze.com/catalogs/restaura
 | `request-includes-too-many-items` | 요청에 항목이 너무 많습니다. 요청당 항목 한도는 50개입니다. |
 | `too-deep-nesting-in-value-object` | 항목 오브젝트는 50단계 이상의 중첩을 가질 수 없습니다. |
 | `unable-to-coerce-value` | 항목 유형은 변환할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

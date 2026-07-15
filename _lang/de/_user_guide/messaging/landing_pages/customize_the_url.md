@@ -13,18 +13,18 @@ page_order: 1
 
 Wenn Sie [Ihre Domain mit Braze verbinden](#connect-your-domain-to-braze), wird sie als Standard-Domain für alle Landing-Pages verwendet. Wenn Sie beispielsweise die Subdomain `forms.example.com` verbinden, lauten Ihre Landing-Page-URLs nun `forms.example.com/holiday-sale`.
 
-Die Anzahl der angepassten Domains, die Sie mit Ihrem Braze-Konto verbinden können, hängt von Ihrer [Planstufe]({{site.baseurl}}/user_guide/messaging/landing_pages/#plan-tiers) ab. Um Ihr Limit zu erhöhen, kontaktieren Sie Ihren Braze Account Manager.
+Die Anzahl der angepassten Domains, die Sie mit Ihrem Braze-Konto verbinden können, hängt von Ihrer [Planstufe]({{site.baseurl}}/user_guide/messaging/landing_pages#plan-tiers) ab. Um Ihr Limit zu erhöhen, kontaktieren Sie Ihren Braze Account Manager.
 
 ## Ihre Domain mit Braze verbinden {#connect-your-domain-to-braze}
 
 Um eine Domain mit Ihrem Braze-Konto zu verbinden, lassen Sie eine:n Administrator:in die folgenden Schritte ausführen.
 
-1. Gehen Sie zu **Settings** > **Landing Page Settings**.
-2. Geben Sie die Domain ein, die Sie verbinden möchten, und wählen Sie **Submit**. Zum Beispiel `forms.example.com`.
+1. Gehen Sie zu **Einstellungen** > **Landing-Page-Einstellungen**.
+2. Geben Sie die Domain ein, die Sie verbinden möchten, und wählen Sie **Senden**. Zum Beispiel `forms.example.com`.
 3. Kopieren Sie die **TXT**- und **CNAME**-Einträge und fügen Sie sie in die DNS-Einstellungen Ihres Domain-Anbieters ein.
 4. Kehren Sie zum Braze-Dashboard zurück, um die Verbindung zu überprüfen.
 
-![Seite „Landing Page Settings“ mit einem TXT- und zwei CNAME-Einträgen, die mit ihren jeweiligen Namen und Werten aufgelistet sind.]({% image_buster /assets/img/landing_pages/connect_subdomain.png %})
+![Seite „Landing-Page-Einstellungen“ mit einem TXT- und zwei CNAME-Einträgen, die mit ihren jeweiligen Namen und Werten aufgelistet sind.]({% image_buster /assets/img/landing_pages/connect_subdomain.png %})
 
 {% alert note %}
 Je nach Domain-Anbieter kann die Verbindung bis zu 48 Stunden dauern. Wenn der Vorgang abgeschlossen ist, verwenden wir Ihre angepasste Domain für Ihre Landing-Pages im Braze-Dashboard.
@@ -38,8 +38,8 @@ Braze verwendet Cloudflare, um automatisch SSL-Zertifikate für Ihre angepasste 
 
 Wenn Sie Braze-Administrator:in sind, können Sie eine zuvor konfigurierte Domain entfernen, indem Sie die folgenden Schritte ausführen:
 
-1. Gehen Sie zu **Settings** > **Landing Page Settings**.
-2. Wählen Sie **Remove Custom Domain**.
+1. Gehen Sie zu **Einstellungen** > **Landing-Page-Einstellungen**.
+2. Wählen Sie **Angepasste Domain entfernen**.
 3. Bestätigen Sie das Entfernen der Domain.
 4. Entfernen Sie die aufgelisteten DNS-Einträge aus Ihren Domain-Einstellungen.
 
@@ -57,7 +57,7 @@ So migrieren Sie eine angepasste Domain in einen anderen Workspace:
 
 ## DNS-Ressourcen {#dns-resources}
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 ## Fehlerbehebung {#troubleshooting}
 
@@ -93,7 +93,7 @@ Um dies zu beheben, bitten Sie Ihr IT-Team, einen CAA-Eintrag zu Ihrer Subdomain
 
 Weitere Informationen finden Sie in der [CAA-Dokumentation von LetsEncrypt](https://letsencrypt.org/docs/caa/).
 
-#### Cloudflare-Zone-Holds
+#### Cloudflare-Zone-Holds {#cloudflare-zone-holds}
 
 Wenn Ihre Organisation Cloudflare verwendet, verhindert möglicherweise ein Zone-Hold-Sicherheitsfeature, dass Braze Ihre angepasste Domain erstellen kann.
 

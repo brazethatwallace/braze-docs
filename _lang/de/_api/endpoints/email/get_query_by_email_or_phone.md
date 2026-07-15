@@ -21,8 +21,8 @@ description: "Dieser Artikel beschreibt die Details zum Braze-Endpunkt „Abo-St
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --- | --- | --- | --- |
-| `email` | Ja | String | Die E-Mail-Adresse der Nutzer:in (muss mindestens eine Adresse und höchstens 50 Adressen enthalten). |
-| `phone` | Ja | String | Die Telefonnummer der Nutzer:in (muss mindestens eine Telefonnummer und höchstens 50 Telefonnummern enthalten). Wir empfehlen, diese im E.164-Format bereitzustellen. |
+| `email` | Ja | String | Die E-Mail-Adresse der Nutzer:innen (muss mindestens eine Adresse und höchstens 50 Adressen enthalten). |
+| `phone` | Ja | String | Die Telefonnummer der Nutzer:innen (muss mindestens eine Telefonnummer und höchstens 50 Telefonnummern enthalten). Wir empfehlen, diese im E.164-Format bereitzustellen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
@@ -39,7 +39,7 @@ Einträge werden in absteigender Reihenfolge aufgeführt.
 {
   "emails": [
     {
-      "email": "example@braze.com",
+      "email": "example@example.com",
       "email_subscribe": {
         "email_subscription_event_date": "2019-11-20T19:58:04.825Z",
         "email_subscription_state": "Subscribed"

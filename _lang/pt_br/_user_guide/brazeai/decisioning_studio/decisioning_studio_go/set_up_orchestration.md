@@ -20,7 +20,7 @@ O Decisioning Studio Go é compatível com as seguintes plataformas de engajamen
 | **Salesforce Marketing Cloud** | Journey Builder com eventos de API | Automação de consultas de SQL, extensões de dados |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CEPs compatíveis" }
 
-Selecione sua CEP abaixo para começar a configuração da integração.
+Selecione sua CEP na lista abaixo para começar a configuração da integração.
 
 {% tabs %}
 {% tab Braze %}
@@ -31,24 +31,24 @@ Para integrar o Decisioning Studio Go com a Braze, você criará uma chave de AP
 
 ### Etapa 1: Criar uma chave da API REST {#step-1-create-a-rest-api-key}
 
-1. No dashboard da Braze, acesse **Settings** > **APIs and Identifiers** > **API Keys**.
-2. Selecione **Create API Key**.
+1. No dashboard da Braze, acesse **Configurações** > **APIs e identificadores** > **Chaves de API**.
+2. Selecione **Criar chave de API**.
 3. Digite um nome para sua chave de API. Um exemplo é "DecisioningStudioGoEmail".
 4. Selecione as permissões com base nas seguintes categorias:
     - **User Data:** selecione `users.track`, `users.delete`, `users.export.ids`, `users.export.segment`
-    - **Messages:** selecione `messages.send`
+    - **Messages:** selecione `messages.send`, `messages.schedule.create`, `messages.schedule.update`, `messages.schedule.delete`
     - **Campaigns:** selecione todas as permissões listadas
     - **Canvas:** selecione todas as permissões listadas
     - **Segments:** selecione todas as permissões listadas
     - **Templates:** selecione todas as permissões listadas
 
 {: start="5"}
-5. Selecione **Create API key**.
+5. Selecione **Criar chave de API**.
 6. Copie a chave de API e cole-a no portal do BrazeAI Decisioning Studio™ Go.
 
 ### Etapa 2: Localizar o nome de exibição do e-mail {#step-2-locate-your-email-display-name}
 
-1. No dashboard da Braze, acesse **Settings** > **Email Preferences**.
+1. No dashboard da Braze, acesse **Configurações** > **Preferências de e-mail**.
 2. Localize o nome de exibição a ser usado com o BrazeAI Decisioning Studio™ Go.
 3. Copie e cole o **From Display Name** no portal do BrazeAI Decisioning Studio™ Go como **Email Display Name**.
 4. Copie e cole o endereço de e-mail associado no portal do BrazeAI Decisioning Studio™ Go como **From email address**, que combina a parte local e o domínio.
@@ -65,14 +65,14 @@ Para integrar o Decisioning Studio Go com a Braze, você criará uma chave de AP
 A Braze oferece IDs de app (chamados de chaves de API no dashboard da Braze) que você pode usar para fins de rastreamento, como associar atividades a um app específico no seu espaço de trabalho. Se você usar IDs de app, o BrazeAI Decisioning Studio™ Go permite associar um ID de app a cada experimentador.<br><br>Se você não usar IDs de app, pode inserir qualquer string de caracteres como espaço reservado.
 {% endalert %}
 
-1. No dashboard da Braze, acesse **Settings** > **App Settings**.
+1. No dashboard da Braze, acesse **Configurações** > **Configurações do app**.
 2. Acesse o app que você deseja rastrear.
 3. Copie e cole a **API Key** no portal do BrazeAI Decisioning Studio™ Go.
 
 ### Etapa 4: Criar uma campanha disparada por API {#step-4-create-an-api-triggered-campaign}
 
-1. No dashboard da Braze, acesse **Messaging** > **Campaigns**.
-2. Selecione **Create Campaign**.
+1. No dashboard da Braze, acesse **Envio de mensagens** > **Campaigns**.
+2. Selecione **Criar campanha**.
 3. Para o tipo da campanha, selecione **API Campaign**.
 4. Dê um nome à campanha. Um exemplo é "Decisioning Studio Go Email".
 
@@ -84,13 +84,13 @@ A Braze oferece IDs de app (chamados de chaves de API no dashboard da Braze) que
 ![Opção para selecionar o canal de envio de mensagens para a campanha da API.]({% image_buster /assets/img/decisioning_studio_go/select_api_campaign.png %})
 
 {: start="6"}
-6. Em **Additional Options**, marque a caixa de seleção **Allow users to become re-eligible to receive campaign**.
+6. Em **Opções adicionais**, marque a caixa de seleção **Allow users to become re-eligible to receive campaign**.
 7. Para o tempo de re-elegibilidade, insira **1** e selecione **Hours** no menu suspenso.
 
 ![Re-elegibilidade para a campanha da API selecionada.]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
 
 {: start="8"}
-8. Selecione **Save Campaign**.
+8. Selecione **Salvar campanha**.
 
 ### Etapa 5: Copiar os IDs da campanha e da mensagem {#step-5-copy-your-campaign-and-message-ids}
 
@@ -105,9 +105,9 @@ A Braze oferece IDs de app (chamados de chaves de API no dashboard da Braze) que
 
 Para testar sua integração, você precisará de um ID de usuário:
 
-Se o seu espaço de trabalho usa [criptografia em nível de campo de identificador]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/), qualquer novo usuário teste criado com o endpoint `/users/track` deve seguir os requisitos de e-mail para espaços de trabalho criptografados. Envie o campo `email` como o hash HMAC-SHA256 codificado em Base64 do valor do e-mail em letras minúsculas, e envie `email_encrypted` como o valor de e-mail criptografado gerado com suas chaves de criptografia de IPI configuradas.
+Se o seu espaço de trabalho usa [criptografia em nível de campo de identificador]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption), qualquer novo usuário teste criado com o endpoint `/users/track` deve seguir os requisitos de e-mail para espaços de trabalho criptografados. Envie o campo `email` como o hash HMAC-SHA256 codificado em Base64 do valor do e-mail em letras minúsculas, e envie `email_encrypted` como o valor de e-mail criptografado gerado com suas chaves de criptografia de IPI configuradas.
 
-1. No dashboard da Braze, acesse **Audience** > **Search Users**.
+1. No dashboard da Braze, acesse **Público** > **Pesquisar usuários**.
 2. Pesquise o usuário pelo ID de usuário externo, alias, e-mail, número de telefone ou token por push.
 3. Copie o ID do usuário para referência na sua configuração.
 
@@ -309,14 +309,14 @@ Agora você pode verificar se a automação está sendo executada com sucesso. E
 **Adicionar uma divisão de decisão:**
 
 1. Arraste e solte uma **Decision Split** após o **API Entry Event**.
-2. Nos detalhes da **Decision Split**, selecione **Edit** para a primeira jornada.
+2. Nos detalhes da **Decision Split**, selecione **Edit** para o primeiro caminho.
 
 ![Detalhes da divisão de decisão com o botão "Edit".]({% image_buster /assets/img/decisioning_studio_go/journey5.png %})
 
 {: start="3"}
 3. Atualize a **Decision Split** para usar o ID do modelo passado pela extensão de dados de recomendações. Localize o campo apropriado em **Journey Data**.
 
-![A seção de dados da jornada na jornada 1 da divisão de decisão.]({% image_buster /assets/img/decisioning_studio_go/journey6.png %})
+![A seção de dados da jornada no caminho 1 da divisão de decisão.]({% image_buster /assets/img/decisioning_studio_go/journey6.png %})
 
 {: start="4"}
 4. Selecione seu evento de entrada e localize o campo de ID do modelo desejado, depois arraste-o para o espaço de trabalho.
@@ -325,16 +325,16 @@ Agora você pode verificar se a automação está sendo executada com sucesso. E
 
 {: start="5"}
 5. Insira o ID do modelo do seu primeiro modelo de e-mail e selecione **Done**.
-6. Selecione **Summary** para salvar esta jornada.
-7. Adicione uma jornada para cada um dos seus modelos de e-mail e repita as etapas 4-6 acima para definir os critérios de filtro de modo que o ID do modelo corresponda ao valor de ID de cada modelo.
+6. Selecione **Summary** para salvar este caminho.
+7. Adicione um caminho para cada um dos seus modelos de e-mail e repita as etapas 4-6 da sequência anterior para definir os critérios de filtro de modo que o ID do modelo corresponda ao valor de ID de cada modelo.
 8. Selecione **Done** para salvar o nó da **Decision Split**.
 
-![Duas jornadas em uma divisão de decisão para cada ID de modelo de e-mail.]({% image_buster /assets/img/decisioning_studio_go/journey10.png %}){: style="max-width:65%;"}
+![Dois caminhos em uma divisão de decisão para cada ID de modelo de e-mail.]({% image_buster /assets/img/decisioning_studio_go/journey10.png %}){: style="max-width:65%;"}
 
 **Adicionar um e-mail para cada divisão de decisão:**
 
-1. Arraste um nó de **Email** para cada jornada da **Decision Split**.
-2. Selecione **Email** e escolha o modelo apropriado para cada jornada (ou seja, o modelo cujo valor de ID corresponda à lógica da sua divisão de decisão).
+1. Arraste um nó de **Email** para cada caminho da **Decision Split**.
+2. Selecione **Email** e escolha o modelo apropriado para cada caminho (ou seja, o modelo cujo valor de ID corresponda à lógica da sua divisão de decisão).
 
 ![Um nó de e-mail adicionado à jornada.]({% image_buster /assets/img/decisioning_studio_go/journey9.png %})
 
@@ -377,4 +377,4 @@ Tudo pronto! Agora você pode começar a disparar envios pelo BrazeAI Decisionin
 
 Agora que você configurou a orquestração, prossiga para projetar seu agente:
 
-- [Projetar seu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [Projetar seu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

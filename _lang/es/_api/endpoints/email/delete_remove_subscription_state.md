@@ -16,15 +16,15 @@ description: "En este artículo se describen los detalles del punto de conexión
 /users/subscription
 {% endapimethod %}
 
-> Utiliza este punto de conexión para eliminar el valor del estado de suscripción basado en una dirección de correo electrónico o un número de teléfono.
+> Utiliza este punto de conexión para eliminar el valor del estado de suscripción a partir de una dirección de correo electrónico o un número de teléfono.
 
 ## Parámetros de la solicitud {#request-parameters}
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --- | --- | --- | --- |
-| `email` | Sí | Cadena | La dirección de correo electrónico del usuario (debe incluir al menos una dirección y un máximo de 50 direcciones). |
-| `phone` | Sí | Cadena | El número de teléfono del usuario (debe incluir al menos un número de teléfono y como máximo 50 números de teléfono). Te recomendamos que lo facilites en formato E.164. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `email` | Sí | Cadena | La dirección de correo electrónico del usuario (debe incluir como mínimo una dirección y como máximo 50 direcciones). |
+| `phone` | Sí | Cadena | El número de teléfono del usuario (debe incluir como mínimo un número de teléfono y como máximo 50 números de teléfono). Te recomendamos proporcionarlo en formato E.164. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -33,7 +33,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 {
   {phone: "+12125551212"},
-  {email: "dont.spam@me.com"},
+  {email: "dont.spam@example.com"},
   {phone: "+17185551212"}
 }
 ```

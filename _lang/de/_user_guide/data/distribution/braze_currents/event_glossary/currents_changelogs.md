@@ -7,9 +7,40 @@ tool: Currents
 
 # Currents-Changelog {#currents-changelog}
 
-## Änderungen in Version 9 (Veröffentlichungsdatum: 03.06.2026) {#changes-in-version-9-release-date-2026-06-03}
+## Änderungen in Version 10 (Veröffentlichungsdatum: 01.07.2026) {#changes-in-version-10-release-date-2026-07-01}
 
 ### Änderungen für Storage: {#changes-for-storage}
+
+* Neuer Event-Typ `users.canvas.costep.Send` hinzugefügt.
+
+* Neuer Event-Typ `users.UserDeleteRequest` hinzugefügt.
+
+* Neuer Event-Typ `users.UserOrphan` hinzugefügt.
+
+* Feldänderungen am Event-Typ `users.messages.rcs.Abort`:
+    * Neues `string`-Feld `canvas_id` hinzugefügt: API-ID des Canvas, zu dem dieses Event gehört
+
+* Feldänderungen am Event-Typ `users.messages.rcs.Click`:
+    * Neues `string`-Feld `canvas_id` hinzugefügt: API-ID des Canvas, zu dem dieses Event gehört
+
+* Feldänderungen am Event-Typ `users.messages.rcs.Delivery`:
+    * Neues `string`-Feld `canvas_id` hinzugefügt: API-ID des Canvas, zu dem dieses Event gehört
+
+* Feldänderungen am Event-Typ `users.messages.rcs.InboundReceive`:
+    * Neues `string`-Feld `canvas_id` hinzugefügt: API-ID des Canvas, zu dem dieses Event gehört
+
+* Feldänderungen am Event-Typ `users.messages.rcs.Read`:
+    * Neues `string`-Feld `canvas_id` hinzugefügt: API-ID des Canvas, zu dem dieses Event gehört
+
+* Feldänderungen am Event-Typ `users.messages.rcs.Rejection`:
+    * Neues `string`-Feld `canvas_id` hinzugefügt: API-ID des Canvas, zu dem dieses Event gehört
+
+* Feldänderungen am Event-Typ `users.messages.rcs.Send`:
+    * Neues `string`-Feld `canvas_id` hinzugefügt: API-ID des Canvas, zu dem dieses Event gehört
+
+## Änderungen in Version 9 (Veröffentlichungsdatum: 03.06.2026) {#changes-in-version-9-release-date-2026-06-03}
+
+### Änderungen für Storage:
 
 * Feldänderungen am Event-Typ `users.messages.email.Send`:
     * Neues `string`-Feld `from_domain` hinzugefügt: Sende-Domain für die E-Mail
@@ -30,7 +61,7 @@ tool: Currents
     * Neues `string`-Feld `bsuid` hinzugefügt: Die WhatsApp Business-Scoped User ID der Empfängerin bzw. des Empfängers, die bzw. der mit diesem Event verknüpft ist.
 
 * Feldänderungen am Event-Typ `users.messages.whatsapp.InboundReceive`:
-    * Neues `string`-Feld `bsuid` hinzugefügt: Die WhatsApp Business-Scoped User ID der Nutzer:in, von der die Nachricht empfangen wurde.
+    * Neues `string`-Feld `bsuid` hinzugefügt: Die WhatsApp Business-Scoped User ID der Nutzer:innen, von denen die Nachricht empfangen wurde.
     * Das Feld `user_phone_number` ist jetzt *optional*.
 
 * Feldänderungen am Event-Typ `users.messages.whatsapp.Read`:
@@ -167,7 +198,7 @@ tool: Currents
     * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass aufgrund einer abgelehnten RCS-Nachricht eine SMS-Fallback-Nachricht gesendet wurde. Die Nachricht kann zugestellt werden, fehlschlagen oder abgelehnt werden. Sie kann über eine Sende-ID und eine Dispatch-ID mit dem RCS-Rejection-Event verknüpft werden.
 
 * Feldänderungen am Event-Typ `users.messages.sms.Rejection`:
-    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass aufgrund einer abgelehnten RCS-Nachricht eine SMS-Fallback-Nachricht gesendet wurde. Die Nachricht kann zugestellt werden, fehlschlagen oder abgelehnt werden. Sie kann über eine Sende-ID und eine Dispatch-ID mit dem RCS-Rejection-Event verknüpft werden. (Event-Eigenschaft)
+    * Neues `boolean`-Feld `is_sms_fallback` hinzugefügt: Gibt an, dass aufgrund einer abgelehnten RCS-Nachricht eine SMS-Fallback-Nachricht gesendet wurde. Die Nachricht kann zugestellt werden, fehlschlagen oder abgelehnt werden. Sie kann über eine Sende-ID und eine Dispatch-ID mit dem RCS-Rejection-Event verknüpft werden.
 
 * Feldänderungen am Event-Typ `users.messages.whatsapp.Delivery`:
     * Neues `string`-Feld `flow_id` hinzugefügt: Die eindeutige ID des Flows im WhatsApp Manager. Vorhanden, wenn die Nachricht einen CTA enthält, um auf einen WhatsApp-Flow zu antworten.

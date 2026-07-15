@@ -18,14 +18,14 @@ table td {
 
 This page is a reference of the Snowflake SQL tables and columns available across the following Braze tools:
 
-- [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)
-- [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/)
-- [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
+- [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder)
+- [SQL Segment Extensions]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)
+- [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)
 
 Most tables are available in all three tools. Tables marked **Snowflake Data Sharing only** are exclusive to Snowflake Data Sharing and are not accessible in Query Builder or SQL Segment Extensions.
 
 {% alert tip %}
-These SQL tables correspond to the events documented in the [Currents event glossary]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/). For example, the SQL table `USERS_MESSAGES_EMAIL_SEND_SHARED` corresponds to the Currents event `users.messages.email.Send`. If you need JSON event schemas or partner-specific formats (Amplitude, Mixpanel, Segment), refer to the Currents glossary.
+These SQL tables correspond to the events documented in the [Currents event glossary]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events). For example, the SQL table `USERS_MESSAGES_EMAIL_SEND_SHARED` corresponds to the Currents event `users.messages.email.Send`. If you need JSON event schemas or partner-specific formats (Amplitude, Mixpanel, Segment), refer to the Currents glossary.
 {% endalert %}
 
 ## Table of contents
@@ -53,7 +53,7 @@ Table | Description
 [USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED](#USERS_BEHAVIORS_APP_NEWSFEEDIMPRESSION_SHARED) | When a user views the News Feed
 [USERS_BEHAVIORS_APP_SESSIONEND_SHARED](#USERS_BEHAVIORS_APP_SESSIONEND_SHARED) | When a user ends a session on an app
 [USERS_BEHAVIORS_APP_SESSIONSTART_SHARED](#USERS_BEHAVIORS_APP_SESSIONSTART_SHARED) | When a user begins a session on an app
-[USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | When a user triggers a geofenced area—for example, by entering or exiting a geofence. This event is batched with other events and received through the standard events endpoint, so it may not appear in real time.<br><br>To log geofence activity in this table, select **Enable Analytics for Enter** and **Enable Analytics for Exit** in the advanced settings for each geofence. See step 3 in [Manually create geofences]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences/#manually-create-geofences) for details.
+[USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) | When a user triggers a geofenced area—for example, by entering or exiting a geofence. This event is batched with other events and received through the standard events endpoint, so it may not appear in real time.<br><br>To log geofence activity in this table, select **Enable Analytics for Enter** and **Enable Analytics for Exit** in the advanced settings for each geofence. See step 3 in [Manually create geofences]({{site.baseurl}}/user_guide/audience/locations_and_geofences/creating_geofences#manually-create-geofences) for details.
 [USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED](#USERS_BEHAVIORS_GEOFENCE_RECORDEVENT_SHARED) | When a user triggers a geofenced area (for example, when they enter or exit a geofence). This event was received through the dedicated geofence endpoint and is therefore received in real-time as soon as a user's device detects that it has triggered a geofence. <br><br>In addition, due to rate limiting on the geofence endpoint, it is possible that some geofence events are not reflected as a RecordEvent. All geofence events, however, are represented by DataEvent (but potentially with some delay due to batching).
 [USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_PUSHTOSTARTTOKENCHANGE_SHARED) | When a Live Activity push-to-start token changes
 [USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED](#USERS_BEHAVIORS_LIVEACTIVITY_UPDATETOKENCHANGE_SHARED) | When a Live Activity update token changes
@@ -263,7 +263,7 @@ Field | Type | Description
 `gender` | `string` | [PII] Gender
 `phone_number` | `string` | [PII] Phone number
 `dob` | `string` | [PII] Date of birth
-`timezone` | `string` | [PII] Time zone
+`TIME_ZONE` | `string` | [PII] Time zone
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
@@ -287,7 +287,7 @@ Field | Type | Description
 `gender` | `string` | [PII] Gender
 `phone_number` | `string` | [PII] Phone number
 `dob` | `string` | [PII] Date of birth
-`timezone` | `string` | [PII] Time zone
+`TIME_ZONE` | `string` | [PII] Time zone
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
@@ -316,7 +316,7 @@ Field | Type | Description
 `home_city` | `string` | [PII] Home city
 `country` | `string` | [PII] Country
 `language` | `string` | [PII] Language
-`timezone` | `string` | [PII] Time zone
+`TIME_ZONE` | `string` | [PII] Time zone
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED #USERLATESTSTATEDEFAULTATTRIBUTESVIEWSHARED" }
 
 ## Catalogs
@@ -1431,6 +1431,10 @@ Field | Type | Description
 `app_group_id` | `null,`&nbsp;`string` | BSON ID of the app group this user belongs to
 `sf_created_at` | `timestamp`,&nbsp;`null` | when this event was picked up by the Snowpipe
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="USERSMESSAGESEMAILBOUNCESHARED #USERSMESSAGESEMAILBOUNCESHARED" }
+
+{% alert note %}
+You may see multiple rows for the same user around a single hard bounce. That can happen when events are processed asynchronously or when related sends have different `dispatch_id` values. When deduplicating or analyzing exports, consider `dispatch_id`, `time`, and `id` together.
+{% endalert %}
 
 ### USERS_MESSAGES_EMAIL_CLICK_SHARED {#USERS_MESSAGES_EMAIL_CLICK_SHARED}
 
@@ -2643,7 +2647,7 @@ Field | Type | Description
 ## SMS message events and deleted user profiles
 
 {% alert note %}
-For `USERS_MESSAGES_SMS_*` shared tables (including [`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED), and [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED)), Braze writes a row only when the Braze user profile still exists in the workspace when the event is processed for Snowflake Data Sharing and Currents. If that user was deleted before processing completes, the event doesn't appear in Snowflake or your Currents export, even when SMS workspace metrics in the dashboard still reflect aggregate counts from Braze's reporting path. For the corresponding Currents behavior, see [SMS Rejection events]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events/#sms-rejection-events) and related SMS event types in the same glossary.
+For `USERS_MESSAGES_SMS_*` shared tables (including [`USERS_MESSAGES_SMS_REJECTION_SHARED`](#USERS_MESSAGES_SMS_REJECTION_SHARED), [`USERS_MESSAGES_SMS_DELIVERY_SHARED`](#USERS_MESSAGES_SMS_DELIVERY_SHARED), and [`USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED`](#USERS_MESSAGES_SMS_DELIVERYFAILURE_SHARED)), Braze writes a row only when the Braze user profile still exists in the workspace when the event is processed for Snowflake Data Sharing and Currents. If that user was deleted before processing completes, the event doesn't appear in Snowflake or your Currents export, even when SMS workspace metrics in the dashboard still reflect aggregate counts from Braze's reporting path. For the corresponding Currents behavior, see [SMS Rejection events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-rejection-events) and related SMS event types in the same glossary.
 {% endalert %}
 
 ### USERS_MESSAGES_SMS_ABORT_SHARED {#USERS_MESSAGES_SMS_ABORT_SHARED}
@@ -3432,4 +3436,4 @@ Field | Type | Description
 
 ## Abort types
 
-{% include abort_types_reference.md combined_content_rendering=true %}
+{% include currents/abort_types_reference.md combined_content_rendering=true %}

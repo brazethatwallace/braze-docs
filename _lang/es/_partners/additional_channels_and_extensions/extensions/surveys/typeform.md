@@ -22,14 +22,14 @@ Al integrar Braze y Typeform, puedes:
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Typeform | Se requiere una cuenta Typeform con acceso a webhooks para aprovechar esta asociación. |
-| Transformación de datos de Braze | Es necesaria una [URL de Transformación de datos]({{site.baseurl}}/data_transformation/) para recibir datos de Typeform. |
+| Transformación de datos de Braze | Es necesaria una [URL de Transformación de datos]({{site.baseurl}}/data_transformation) para recibir datos de Typeform. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
 ### Paso 1: Configura la Transformación de datos de Braze para aceptar los webhooks de Typeform {#step-1}
 
-{% multi_lang_include create_transformation.md location="typeform" %}
+{% multi_lang_include data_activation/create_transformation.md location="typeform" %}
 
 ### Paso 2: Configura los webhooks de Typeform {#step-2-set-up-typeform-webhooks}
 
@@ -37,11 +37,11 @@ Sigue los pasos de la [documentación sobre webhooks de Typeform](https://www.ty
 
 En el paso 4, añade la URL de tu webhook de Transformación de datos como **Destination URL**.
 
-![]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
+![Configuración de webhook de Typeform con el campo Destination URL.]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
 
 Envía un evento de prueba a tu Transformación de datos haciendo clic en **View deliveries** y luego en **Send test request**.
 
-![]({% image_buster /assets/img/typeform/typeform_test_request.png %})
+![Página View deliveries de Typeform con Send test request seleccionado.]({% image_buster /assets/img/typeform/typeform_test_request.png %})
 
 ### Paso 3: Escribe el código de transformación para aceptar los eventos de Typeform que elijas {#step-3-write-transformation-code-to-accept-your-chosen-typeform-events}
 
@@ -52,7 +52,7 @@ En este paso, transformas la carga útil del webhook que se envía desde Typefor
 3. Haz clic en **Validate** para obtener una vista previa de la salida de tu código y comprobar si se trata de una solicitud `/users/track` aceptable.
 4. Guarda y activa tu Transformación de datos.
 
-![]({% image_buster /assets/img/typeform/typeform_test_result.png %})
+![Vista previa de Transformación de datos que muestra una validación exitosa de la carga útil de prueba de Typeform.]({% image_buster /assets/img/typeform/typeform_test_result.png %})
 
 #### Formato del cuerpo de la solicitud {#request-body-format}
 
@@ -333,7 +333,7 @@ En estas plantillas de ejemplo, estamos registrando un evento personalizado en e
 En esta plantilla de ejemplo, utilizamos una dirección de correo electrónico (capturada de una pregunta de dirección de correo electrónico dentro del typeform) como identificador.
 
 {% alert note %}
-Si tienes intención de utilizar una dirección de correo electrónico como identificador, consulta nuestras [preguntas frecuentes]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#frequently-asked-questions) sobre el punto de conexión `/users/track` para obtener más información sobre el comportamiento esperado.
+Si tienes intención de utilizar una dirección de correo electrónico como identificador, consulta nuestras [preguntas frecuentes]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions) sobre el punto de conexión `/users/track` para obtener más información sobre el comportamiento esperado.
 {% endalert %}
 
 {% tabs local %}
@@ -616,8 +616,8 @@ Después de haber escrito tu transformación de datos, haz clic en **Validate** 
 
 Una vez activada, los datos del evento personalizado se registran en el perfil de un usuario cuando completa tu formulario.
 
-![]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
+![Perfil de usuario que muestra un evento personalizado registrado tras el envío de Typeform.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 
 ## Supervisión y solución de problemas {#monitoring-and-troubleshooting}
 
-Consulta la sección [Supervisar tu transformación]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation) para obtener más información sobre la supervisión y solución de problemas de tu transformación.
+Consulta la sección [Supervisar tu transformación]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation) para obtener más información sobre la supervisión y solución de problemas de tu transformación.

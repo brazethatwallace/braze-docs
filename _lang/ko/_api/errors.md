@@ -22,7 +22,11 @@ POST 페이로드가 서버에서 수락된 경우, 성공 메시지는 다음�
 
 성공은 RESTful API 페이로드가 올바르게 구성되어 푸시 알림, 이메일 또는 기타 메시징 서비스에 전달되었다는 것만을 의미합니다. 메시지가 실제로 전달되었다는 것을 의미하지는 않으며, 추가적인 요인이 메시지 전달을 방해할 수 있습니다(예: 기기가 오프라인일 수 있고, 푸시 토큰이 Apple 서버에 의해 거부될 수 있으며, 알 수 없는 사용자 ID를 제공했을 수 있습니다).
 
-메시지를 전송하지 않는 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)와 같은 엔드포인트의 경우, 성공 메시지는 Braze가 처리 요청을 수신했음만을 의미합니다. 처리 후 별칭에 대한 일치 항목이 없으면 요청이 중단됩니다.
+### 메시지가 전달되지 않았는데 요청이 성공을 반환하는 이유는 무엇인가요? {#why-does-my-request-return-success-when-no-message-was-delivered}
+
+`message: success` 또는 `2XX` 응답은 Braze가 관련 엔드포인트에 대한 요청을 수락하고 대기줄에 넣었다는 것을 의미하며, 모든 수신자가 메시지를 받았다는 것을 의미하지는 않습니다. 메시징의 경우, 전달은 여전히 채널 적격성, 토큰, 공급자 오류 및 콘텐츠 유효성 검사에 따라 달라집니다. 전송을 차단하는 HTTP 오류에 대해서는 [심각한 오류]({{site.baseurl}}/api/errors#fatal-errors) 표를 참조하고, 다운스트림 전달 측정기준에 대해서는 Campaign 또는 Canvas 분석을 확인하세요.
+
+메시지를 전송하지 않는 [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)와 같은 엔드포인트의 경우, 성공 메시지는 Braze가 처리 요청을 수신했음만을 의미합니다. 처리 후 별칭에 대한 일치 항목이 없으면 요청이 중단됩니다.
 
 메시지가 성공했지만 심각하지 않은 오류가 있는 경우, 다음과 같은 응답을 받습니다:
 
@@ -81,7 +85,7 @@ Campaign에 대한 분석은 항상 사용할 수 있습니다. 또한 Campaign�
 | `400 Invalid Message Variant` | 유효한 Campaign ID를 제공했지만 메시지 배리언트 ID가 해당 Campaign의 메시지와 일치하지 않습니다.|
 | `400 Mismatched Message Type` | 메시지 중 하나 이상에 잘못된 메시지 유형의 메시지 배리언트를 제공했습니다.|
 | `400 Invalid Extra Push Payload` | `apple_push` 또는 `android_push`에 `extra` 키를 제공했지만 사전이 아닙니다.|
-| `400 Max Input Length Exceeded` | `/users/track`의 경우, 이 오류는 단일 요청에서 허용되는 최대 오브젝트 수를 초과하여 발생합니다. 제한은 사용량 제한 모델에 따라 다릅니다. 대부분의 고객은 각 요청에서 `attributes`, `events`, `purchases`를 합산하여 최대 75개의 오브젝트를 지원합니다. 레거시 사용량 제한을 사용하는 고객의 경우 각 배열이 독립적으로 최대 75개의 오브젝트를 지원합니다. 자세한 내용은 [POST: 사용자 생성 및 업데이트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 참조하세요.|
+| `400 Max Input Length Exceeded` | `/users/track`의 경우, 이 오류는 단일 요청에서 허용되는 최대 오브젝트 수를 초과하여 발생합니다. 제한은 사용량 제한 모델에 따라 다릅니다. 대부분의 고객은 각 요청에서 `attributes`, `events`, `purchases`를 합산하여 최대 75개의 오브젝트를 지원합니다. 레거시 사용량 제한을 사용하는 고객의 경우 각 배열이 독립적으로 최대 75개의 오브젝트를 지원합니다. 자세한 내용은 [POST: 사용자 생성 및 업데이트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 참조하세요.|
 | `400 The max number of external_ids and aliases per request was exceeded` | 50개 이상의 외부 ID를 호출하여 발생했습니다.|
 | `400 The max number of ids per request was exceeded` | 50개 이상의 외부 ID를 호출하여 발생했습니다.|
 | `400 No message to send` | 메시지에 페이로드가 지정되지 않았습니다.|
@@ -90,10 +94,10 @@ Campaign에 대한 분석은 항상 사용할 수 있습니다. 또한 Campaign�
 | `400 Android Push Length Exceeded` | JSON 페이로드가 4,000바이트를 초과합니다.|
 | `400 Bad Request` | `send_at` 날짜/시간을 구문 분석할 수 없습니다.|
 | `400 Bad Request` | 요청에서 `in_local_time`이 true이지만 `time`이 회사 시간대에서 이미 지났습니다.|
-| `401 Unauthorized` | 잘못된 API 키입니다. 일반적인 원인은 다음과 같습니다:<br><br>- **Authorization 헤더가 누락되었거나 형식이 잘못되었습니다.** 헤더 값은 `Bearer` 뒤에 공백과 API 키가 와야 합니다: `Authorization: Bearer YOUR-API-KEY`. 일반적인 실수로는 `Bearer`를 생략하거나, `Bearer` 뒤에 키를 생략하거나, 값을 따옴표로 감싸는 경우가 있습니다.<br>- **잘못된 REST 엔드포인트.** 잘못된 [인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)로 요청을 전송하고 있습니다. 예를 들어, 계정이 EU 인스턴스(`https://dashboard-01.braze.eu`)에 있는 경우 요청을 `https://rest.fra-01.braze.eu`로 보내야 합니다.<br>- **권한이 부족합니다.** 각 API 키는 특정 워크스페이스와 권한 집합에 범위가 지정됩니다. 대시보드의 **설정** > **API 키**에서 키의 권한을 확인하세요.<br>- **잘못된 API 키.** API 키는 워크스페이스별로 고유합니다. 한 워크스페이스의 키는 다른 워크스페이스의 요청을 인증하는 데 사용할 수 없습니다. |
+| `401 Unauthorized` | 잘못된 API 키입니다. 일반적인 원인은 다음과 같습니다:<br><br>- **Authorization 헤더가 누락되었거나 형식이 잘못되었습니다.** 헤더 값은 `Bearer` 뒤에 공백과 API 키가 와야 합니다: `Authorization: Bearer YOUR-API-KEY`. 일반적인 실수로는 `Bearer`를 생략하거나, `Bearer` 뒤에 키를 생략하거나, 값을 따옴표로 감싸는 경우가 있습니다.<br>- **잘못된 REST 엔드포인트.** 잘못된 [인스턴스]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)로 요청을 전송하고 있습니다. 예를 들어, 계정이 EU 인스턴스(`https://dashboard-01.braze.eu`)에 있는 경우 요청을 `https://rest.fra-01.braze.eu`로 보내야 합니다.<br>- **권한이 부족합니다.** 각 API 키는 특정 워크스페이스와 권한 집합에 범위가 지정됩니다. 대시보드의 **설정** > **API 키**에서 키의 권한을 확인하세요.<br>- **잘못된 API 키.** API 키는 워크스페이스별로 고유합니다. 한 워크스페이스의 키는 다른 워크스페이스의 요청을 인증하는 데 사용할 수 없습니다. |
 | `403 Forbidden` | 요금제에서 지원하지 않거나 계정이 비활성화된 경우입니다.|
 | `403 Access Denied` | 사용 중인 REST API 키에 충분한 권한이 없습니다. 일반적인 원인은 다음과 같습니다: {::nomarkdown}<ul><li><strong>API 키가 기능보다 먼저 생성되었습니다.</strong> API 키가 기능(예: 구독 그룹 또는 카탈로그)이 출시되기 전에 생성된 경우, 해당 키는 자동으로 해당 권한을 상속받지 않습니다. <strong>설정</strong> &gt; <strong>API 키</strong>에서 필요한 권한이 포함된 새 API 키를 생성하세요.</li><li><strong>엔드포인트별 권한이 누락되었습니다.</strong> 각 API 엔드포인트에는 특정 권한 범위가 필요합니다(예: <code>users.track</code> 또는 <code>email.status</code>). 키의 권한이 호출하려는 엔드포인트와 일치하는지 확인하세요.</li><li><strong>URL에 후행 슬래시 또는 오타가 있습니다.</strong> 예를 들어, <code>/users/track</code> 대신 <code>/users/track/</code>(후행 슬래시 포함)를 사용하면 예기치 않은 오류가 발생할 수 있습니다.</li></ul>{:/}|
 | `404 Not Found` | 잘못된 URL입니다. |
 | `415 Unsupported Media Type` | `Content-Type` 요청 헤더가 누락되었거나 올바르지 않습니다. **설정** 페이지에서 `Content-Type`을 `application/json` 값으로 추가하세요. |
 | `429 Rate Limited` | 사용량 제한을 초과했습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Fatal errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="심각한 오류" }

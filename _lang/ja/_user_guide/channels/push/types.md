@@ -17,7 +17,7 @@ channel: push
 
 **対応プラットフォーム:** Web、Android、iOS
 
-詳細については、[プッシュメッセージの作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)を参照してください。
+詳細については、[プッシュメッセージの作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)を参照してください。
 
 ## Webプッシュ {#web-push}
 
@@ -25,7 +25,7 @@ channel: push
 
 **対応プラットフォーム:** Web
 
-詳細については、[Webプッシュ通知]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/)を参照してください。
+詳細については、[Webプッシュ通知]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web)を参照してください。
 
 ## プッシュプライマーキャンペーン {#push-primer-campaigns}
 
@@ -33,7 +33,7 @@ channel: push
 
 **対応プラットフォーム:** Web、Android、iOS
 
-詳細については、[プッシュプライマーアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)を参照してください。
+詳細については、[プッシュプライマーアプリ内メッセージ]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)を参照してください。
 
 ## Push Stories
 
@@ -41,7 +41,7 @@ Push Storiesは、カルーセル形式のビジュアルジャーニーを通�
 
 **対応プラットフォーム:** iOS、Android
 
-詳細については、[Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/)を参照してください。
+詳細については、[Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories)を参照してください。
 
 ## アクションボタン付きプッシュ {#push-with-action-buttons}
 
@@ -49,7 +49,7 @@ Push Storiesは、カルーセル形式のビジュアルジャーニーを通�
 
 **対応プラットフォーム:** Web、Android、iOS
 
-詳細については、[プッシュアクションボタン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/)を参照してください。
+詳細については、[プッシュアクションボタン]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons)を参照してください。
 
 ## リッチプッシュ通知 {#rich-push-notifications}
 
@@ -57,7 +57,7 @@ Push Storiesは、カルーセル形式のビジュアルジャーニーを通�
 
 **対応プラットフォーム:** iOS、Android
 
-詳細については、[iOSのリッチ通知の作成]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/)または[Androidのリッチ通知の作成]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications/)を参照してください。
+詳細については、[iOSのリッチ通知の作成]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications)または[Androidのリッチ通知の作成]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications)を参照してください。
 
 ## iOSの仮承認プッシュ通知 {#provisional-push-notifications-for-ios}
 
@@ -65,7 +65,7 @@ AppleがiOS 12で導入した仮承認は、iOSアプリのインストール時
 
 **対応プラットフォーム:** iOS
 
-詳細については、[iOS通知オプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push)を参照してください。
+詳細については、[iOS通知オプション]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push)を参照してください。
 
 ## HTMLプッシュ通知 {#html-push-notifications}
 
@@ -79,7 +79,7 @@ HTMLプッシュ通知は、HTMLでハードコードされたプッシュメッ
 
 **対応プラットフォーム:** iOS、Android
 
-詳細については、[通知チャネル]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/)および[高度なプッシュキャンペーン設定]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/)を参照してください。
+詳細については、[通知チャネル]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels)および[高度なプッシュキャンペーン設定]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings)を参照してください。
 
 ## バックグラウンドまたはサイレントプッシュ通知 {#background-push-notifications}
 
@@ -87,7 +87,7 @@ HTMLプッシュ通知は、HTMLでハードコードされたプッシュメッ
 
 **対応プラットフォーム:** Web、Android、iOS
 
-詳細については、[サイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent/)を参照してください。
+詳細については、[サイレントプッシュ通知]({{site.baseurl}}/developer_guide/push_notifications/silent)を参照してください。
 
 ## ウェアラブルプッシュ通知 {#wearable-push-notifications}
 

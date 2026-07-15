@@ -34,4 +34,4 @@ channel:
 
 ## Saltos de línea en las notificaciones push {#push-linebreaks}
 
-Al redactar notificaciones push con etiquetas de Liquid, los saltos de línea adyacentes a las etiquetas de Liquid se eliminan automáticamente antes de que se envíe el mensaje. En el [compositor de notificaciones push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message/), estos saltos de línea se vuelven a añadir para que tu mensaje siga siendo legible mientras lo editas. Si notas saltos de línea alrededor de las etiquetas de Liquid al guardar tu mensaje, se trata de un comportamiento esperado.
+Al redactar notificaciones push con etiquetas de Liquid, los saltos de línea adyacentes a las etiquetas de Liquid se eliminan automáticamente antes de que se envíe el mensaje. En el [compositor de notificaciones push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message), estos saltos de línea se vuelven a añadir para que tu mensaje siga siendo legible mientras lo editas. Si notas saltos de línea alrededor de las etiquetas de Liquid al guardar tu mensaje, se trata de un comportamiento esperado.

@@ -43,22 +43,22 @@ For example, in the following conditional Liquid, codes from both lists (`vip-de
 {% endtabs %}
 
 {% alert important %}
-Promotion codes can’t be sent in in-app messages in Canvas.
+Promotion codes are available in in-app message campaigns as an early access feature, but can’t be sent in in-app messages in Canvas.
 {% endalert %}
 
 ## Next steps
 
 Looking for next steps? Start here:
 
-- [Creating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/)
-- [Using promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#using-promotion-codes)
-- [Viewing promotion code usage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#viewing-promotion-code-usage)
+- [Creating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create)
+- [Using promotion codes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#using-promotion-codes)
+- [Viewing promotion code usage]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#viewing-promotion-code-usage)
 
 ## Frequently asked questions
 
 ### Which messaging channels can I use with promotion codes?
 
-Promotion codes are currently supported for email, mobile push, web push, Content Cards, webhook, SMS, and WhatsApp. Braze Transactional Email campaigns and in-app messages do not currently support promotion codes.
+Promotion codes are supported for email, mobile push, web push, Content Cards, webhook, SMS, and WhatsApp. In-app message campaigns support promotion codes as an early access feature. Braze Transactional Email campaigns and in-app messages in Canvas do not support promotion codes.
 
 ### Do test and seed sends count towards usage?
 
@@ -66,7 +66,7 @@ By default, test sends and seed group email sends will use promotion codes per u
 
 ### What happens when multiple messaging channels use the same promotion code snippet?
 
-If a particular user is eligible to receive a code through multiple channels, they will receive the same code through each channel. Only one promo code will be used regardless of the channels received.
+If a particular user is eligible to receive a code through multiple channels, they receive the same code through each channel. Only one promotion code is used regardless of the channels received.
 
 ### Can I use multiple Liquid snippets to reference the same promotion code list in one message?
 
@@ -82,8 +82,22 @@ If the message contains Liquid logic that conditionally inserts a promotion code
 
 ### If I uploaded the wrong promotion codes, can I update them?
 
-Yes. You can resolve this by deprecating the entire list or using a placeholder to delete the list. For more information, see [Updating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create/#updating-a-promotion-code-list).
+If you've uploaded incorrect codes, you have two options to resolve this:
+
+- **Deprecate the entire list:** Stop using the current list in any campaigns, Canvases, or templates. Then upload the correct codes to a new list and switch all your messages to use the new list.
+- **Exhaust the incorrect codes:** Create a campaign that sends codes from the incorrect list to a placeholder user until all the wrong codes are used. After that, re-upload the correct codes to the same list, excluding the incorrect ones.
+
+For general guidance on updating a list, see [Updating a promotion code list]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#updating-a-promotion-code-list).
+
+### Does Braze track which users received or redeemed which promotion codes?
+
+When a message uses a promotion code, Braze marks that code as consumed so it can't be sent again and updates the list's remaining count. Braze doesn't maintain a report of sent codes, track which specific users received each code, or track whether codes were redeemed.
+
+If you need to associate codes with users or track redemption yourself, you can:
+
+- Save promotion codes to user profiles through a User Update step. For more information, see [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).
+- Send promotion code values to Currents using the `message_extras` Liquid tag. For more information, see [Sending promotion code information to Currents]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/message_extras#sending-promotion-code-information-to-currents).
 
 ### Can I save a promotion code to a user's profile for future messages?
 
-Yes. You can save promotion codes to a user's profile through a User Update step. For more information, see [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage/#save-to-profile).
+Yes. You can save promotion codes to a user's profile through a User Update step. For more information, see [Saving promotion codes to user profiles]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/manage#save-to-profile).

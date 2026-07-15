@@ -43,4 +43,4 @@ appboyOptions[ABKDeviceAllowlistKey] = @(ABKDeviceOptionTimezone | ABKDeviceOpti
 
 De forma predeterminada, todos los campos están habilitados. Ten en cuenta que, sin algunas propiedades, no todas las características funcionarán correctamente. Por ejemplo, la entrega según la zona horaria local no funcionará sin la zona horaria.
 
-Para saber más sobre las propiedades del dispositivo recopiladas automáticamente, visita nuestra [recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Para saber más sobre las propiedades del dispositivo recopiladas automáticamente, visita nuestra [recopilación de datos del SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).

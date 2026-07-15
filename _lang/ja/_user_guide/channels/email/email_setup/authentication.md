@@ -61,13 +61,35 @@ DMARCレコードは、DMARCレコードに記載されたレポート用メー�
     - **MXToolbox**: DMARCをルートドメインとして設定した場合は、それをMXToolboxに入力します。DMARCをサブドメインで設定した場合は、サブドメインをMXToolboxに入力します。MXToolboxはルックアップ時に「上位や下位を参照」しないことに注意してください。つまり、DMARCをルートドメインに設定してサブドメインを入力した場合、MXToolboxはDMARCがルートドメインに設定されていることを認識できないため、失敗と表示されます。
 - **オプション2:** メールボックスでドメインまたはサブドメインからのメールを開き、元のメッセージを見つけて、このメールでDMARCが認証に通過しているかどうかを確認します。
 
-たとえば、Gmailを使用している場合は、以下の手順に従います。
+手順はメールクライアントによって異なります。
 
-1. メールメッセージの**その他** <i class="fa-solid fa-ellipsis"></i>をクリックします。
+{% tabs %}
+{% tab Gmail %}
+
+1. メールメッセージの**その他** <i class="fa-solid fa-ellipsis"></i>を選択します。
 2. **メッセージのソースを表示**を選択します。
 3. **DMARC**のステータスが「PASS」であることを確認します。
 
 ![DMARCの値が「PASS」であるメールの例。]({% image_buster /assets/img_archive/dmarc_example.png %})
+
+{% endtab %}
+{% tab Outlook %}
+
+1. メールを開きます。
+2. **返信**の横にある矢印を選択します。
+3. **メッセージのソースを表示**を選択します。
+4. **DMARC**のステータスが「PASS」であることを確認します。
+
+{% endtab %}
+{% tab Apple Mail %}
+
+1. メールを開きます。
+2. メニューバーの**表示**を選択します。
+3. **メッセージ** > **ソースを表示**を選択します。
+4. **DMARC**のステータスが「PASS」であることを確認します。
+
+{% endtab %}
+{% endtabs %}
 
 #### DMARC失敗のトラブルシューティング {#troubleshoot-dmarc-failures}
 
@@ -75,7 +97,7 @@ Brazeを通じて送信されたメッセージでDMARCが**FAIL**と表示さ�
 
 1. 最近のメッセージの生ヘッダーまたは認証結果を開き、**SPF**と**DKIM**がそれぞれ通過しているか失敗しているかを確認します。
 2. **アライメント:** DMARCは、SPFまたはDKIMの*いずれか*が**From**ドメインとアライメントしている場合に通過します。アライメントとは、**From**ドメインがSPFを通過したドメイン（多くの場合**Return-Path**/エンベロープドメイン）*または*DKIMの**d=**署名のドメインと一致することを意味します。
-3. SPFは通過しているがDMARCが失敗する場合、Return-Pathドメインが**From**ドメインとアライメントしていない可能性があります。[Whitelabel（独自ドメイン利用）の送信ドメインとトラッキングドメイン]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/)が、SPFとDKIMを公開しているドメインと一致していることを確認してください。
+3. SPFは通過しているがDMARCが失敗する場合、Return-Pathドメインが**From**ドメインとアライメントしていない可能性があります。[ブランド送信ドメインとトラッキングドメイン]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains)が、SPFとDKIMを公開しているドメインと一致していることを確認してください。
 4. DKIMが失敗する場合、Brazeが提供したDKIM DNSレコードが存在し、変更されていないことを確認してください。
 
 サードパーティチェッカー（例：[MXToolbox](https://mxtoolbox.com/dmarc.aspx)）は公開されたレコードの確認に役立ちますが、Brazeからの実際のメッセージでも必ず検証してください。

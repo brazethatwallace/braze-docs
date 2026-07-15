@@ -16,7 +16,7 @@ A sincronização de coleções do Shopify está atualmente em beta. Entre em co
 
 ## Configurando a sincronização de coleções do Shopify {#setting-up-shopify-collections-sync}
 
-Para sincronizar seus produtos da sua loja Shopify com a Braze, marque a caixa de seleção **Sync Shopify collections** na etapa **Sync products** da [integração com o Shopify](https://braze.com/docs/partners/message_orchestration/channel_extensions/ecommerce/shopify/setting_up_shopify#setting-up-shopify-in-braze).<br><br>![Etapa 4 da sincronização de produtos do Shopify com a caixa de seleção "Sync Shopify collections" marcada.][1]
+Para sincronizar seus produtos da sua loja Shopify com a Braze, marque a caixa de seleção **Sync Shopify collections** na etapa **Sync products** da [integração com o Shopify]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/setting_up_shopify/#setting-up-shopify-in-braze).<br><br>![Etapa 4 da sincronização de produtos do Shopify com a caixa de seleção "Sync Shopify collections" marcada.][1]
 
 Depois que seus produtos forem sincronizados, você pode visualizar quais produtos estão associados às suas coleções acessando o catálogo do Shopify. <br><br>![Linha da tabela do catálogo mostrando um produto nas coleções "best-sellers" e "front page".][2]
 
@@ -32,7 +32,7 @@ No catálogo do Shopify, você pode visualizar sua coleção do Shopify na guia 
 
 ## Usando coleções do Shopify {#using-shopify-collections}
 
-Use suas coleções do Shopify para personalizar uma mensagem para cada usuário na sua Campaign, de forma semelhante a como você usaria uma [seleção da Braze](https://braze.com/docs/user_guide/personalization_and_dynamic_content/catalogs/selections/).
+Use suas coleções do Shopify para personalizar uma mensagem para cada usuário na sua Campaign, de forma semelhante a como você usaria uma [seleção da Braze]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/catalogs/selections/).
 
 {% alert warning %}
 Esteja ciente do seguinte comportamento no beta: <br><br>Se você atualizar a descrição da coleção do Shopify ou as configurações de filtro, a sincronização da coleção do Shopify será interrompida. Como resultado, sua coleção do Shopify não funcionará como esperado.

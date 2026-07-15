@@ -15,7 +15,7 @@ tool: Canvas
 > 사용자가 Canvas를 완전히 떠나는 속도는 현재 진행 중인 단계에 따라 달라지며, 특히 지연 단계에서 차이가 있습니다.
 > 자세한 내용은 [사용자가 종료하는 방법](#how-users-exit)을 참조하세요.
 
-### 사용자가 종료하는 방법 {#how-users-exit}
+## 사용자가 종료하는 방법 {#how-users-exit}
 
 사용자가 종료 이벤트를 수행하면 Braze는 즉시 해당 사용자를 Canvas 종료 대상으로 표시합니다. 이후 해당 사용자는 이후 단계로 진행하지 않습니다.
 
@@ -99,11 +99,11 @@ Canvas 빌더의 **타겟 오디언스** 단계에서 종료 기준을 설정하
 1. 예외 이벤트로 **Place an Order**를 선택합니다.
 2. **Add Trigger**를 선택합니다.
 3. **Segments**에서 **Used in last day**를 선택하여 Canvas가 시작될 때 구매한 적이 있는 사용자를 오디언스에서 제외합니다.
-4. **Filters**에서 **Purchase behavior** > **Number of purchases** > **Purchased product**를 선택합니다.
+4. **필터**에서 **Purchase behavior** > **Number of purchases** > **Purchased product**를 선택합니다.
 5. 필터 그룹을 `backpack-example exactly 1`로 설정합니다. 이렇게 하면 배낭 제품을 구매한 사용자가 Canvas를 종료합니다.
 
 ![예외 이벤트로 "Makes Any Purchase"가 설정된 종료 기준 설정으로, 사용자가 구매를 하면 이 Canvas를 종료합니다.]({% image_buster /assets/img_archive/exit_criteria_example.png %}){: style="max-width:80%;"}
 
 {% alert tip %}
-이벤트 등록정보를 Canvas 진입 등록정보와 비교하는 종료 기준을 설정하려면(예: 사용자가 포기한 특정 항목을 구매할 때만 종료), [종료 기준을 진입 이벤트와 일치시키기]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria/)를 참조하세요.
+이벤트 등록정보를 Canvas 진입 등록정보와 비교하는 종료 기준을 설정하려면(예: 사용자가 포기한 특정 항목을 구매할 때만 종료), [종료 기준을 진입 이벤트와 일치시키기]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/matching_entry_and_exit_criteria)를 참조하세요.
 {% endalert %}

@@ -7,19 +7,19 @@ description: "イベントプロパティをキャンバスのエントリプロ
 tool: Canvas
 ---
 
-# エントリイベントに一致する終了条件
+# エントリイベントに一致する終了条件 {#matching-exit-criteria-to-entry-events}
 
 > この記事では、キャンバスのエントリイベントに直接関連する終了条件とアクションパスの設定方法について説明します。これにより、ユーザーがキャンバスに入った理由に関連する特定のアクションを実行した場合にのみ、終了または分岐するようになります。
 
-イベントプロパティを[キャンバスのエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties/)と比較することで、高度にターゲットされたフローを作成できます。例えば、カート放棄キャンバスでは、ユーザーが放棄した商品と同じ商品を購入した場合にのみ終了するように設定し、別の商品を購入した場合はリマインダーメッセージを引き続き受信するようにできます。
+イベントプロパティを[キャンバスのエントリプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties)と比較することで、高度にターゲットされたフローを作成できます。例えば、カート放棄キャンバスでは、ユーザーが放棄した商品と同じ商品を購入した場合にのみ終了するように設定し、別の商品を購入した場合はリマインダーメッセージを引き続き受信するようにできます。
 
-このアプローチでは、[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)を使用してイベント間のプロパティを比較します。このパターンは、e コマース以外にも、保険の更新、予約リマインダー、サブスクリプション管理など、多くのシナリオに適用できます。
+このアプローチでは、[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)を使用してイベント間のプロパティを比較します。このパターンは、eコマース以外にも、保険の更新、予約リマインダー、サブスクリプション管理など、多くのシナリオに適用できます。
 
-## 終了条件: 一致するアクションが発生した場合にキャンバスを終了する
+## 終了条件: 一致するアクションが発生した場合にキャンバスを終了する {#exit-criteria-exiting-the-canvas-when-a-matching-action-occurs}
 
-一致するエントリイベントに対応するアクションを実行した後、ユーザーをキャンバスから完全に退出させたい場合は、[終了条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/)を使用します。
+一致するエントリイベントに対応するアクションを実行した後、ユーザーをキャンバスから完全に退出させたい場合は、[終了条件]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria)を使用します。
 
-### 例: チケット購入の放棄
+### 例: チケット購入の放棄 {#example-abandoned-ticket-purchase}
 
 このシナリオでは、ユーザーがカスタムイベント `Selected Ticket` を実行するとキャンバスに入ります。このイベントには `event_id` というプロパティが含まれています。終了条件は、ユーザーがカスタムイベント `Purchased Ticket`（同様に `event_id` というプロパティを含む）をトリガーした際に、終了イベントのプロパティがエントリイベントのプロパティと比較されるように設定されています。2つが一致すると、ユーザーはキャンバスを終了します。
 
@@ -37,28 +37,28 @@ tool: Canvas
 
 これにより、`Purchased Ticket` イベントの `event_id` が、元のキャンバスエントリイベントから保存された `event_id` と比較されます。これらのフィルターの設定の詳細については、[終了条件の例]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#exit-criteria-examples)を参照してください。
 
-## アクションパス: 一致するアクションに基づいて分岐する
+## アクションパス: 一致するアクションに基づいて分岐する {#action-paths-branching-based-on-a-matching-action}
 
-ユーザーをキャンバスに残しつつ、後続のアクションがエントリイベントと一致するかどうかに応じて異なるパスに進ませたい場合は、[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)を使用します。
+ユーザーをキャンバスに残しつつ、後続のアクションがエントリイベントと一致するかどうかに応じて異なるパスに進ませたい場合は、[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)を使用します。
 
-### 例: 分岐パスを持つカート放棄
+### 例: 分岐パスを持つカート放棄 {#example-abandoned-checkout-with-branching-paths}
 
 このシナリオでは、商品を選択したが購入を完了しなかったユーザーが、まずカート放棄メッセージを受信します。その後、ユーザーはアクションパスステップで1週間保持され、その期間中の行動に基づいて3つのパスに振り分けられます:
 
-- **元の購入を完了:** カスタムイベントのプロパティ ID がエントリプロパティ ID と一致します。これらのユーザーには、お礼メッセージやクロスセルのおすすめが送信される場合があります。
-- **別の購入を実行:** カスタムイベントのプロパティ ID がエントリプロパティ ID と一致しません。これらのユーザーには、元の商品に関するリマインダーが送信される場合があります。
+- **元の購入を完了:** カスタムイベントのプロパティIDがエントリプロパティIDと一致します。これらのユーザーには、お礼メッセージやクロスセルのおすすめが送信される場合があります。
+- **別の購入を実行:** カスタムイベントのプロパティIDがエントリプロパティIDと一致しません。これらのユーザーには、元の商品に関するリマインダーが送信される場合があります。
 - **購入なし:** **その他のユーザー**グループに振り分けられます。これらのユーザーには、より強力なインセンティブや最終リマインダーが送信される場合があります。
 
 設定方法:
 
-1. [アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)ステップを追加し、評価時間枠（1週間など）を設定します。
+1. [アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)ステップを追加し、評価時間枠（1週間など）を設定します。
 2. 最初のアクショングループ（元の購入）では、完了カスタムイベント（`Purchased_Ticket` など）のトリガーを追加します。**プロパティフィルターを追加**を選択し、基本プロパティ `event_id` の比較が `equals` に設定されたフィルターを追加します。**値をパーソナライズ**をオンにし、**パーソナライゼーションタイプ**を `Context Variables` に設定し、**属性**を `event_id` に設定します。
 3. 2番目のアクショングループ（別の購入）では、同じトリガーイベントを追加しますが、比較を `does not equal` に設定し、同じコンテキスト変数の設定を使用します。
 4. 完了イベントをまったく実行しなかったユーザーには、**その他のユーザー**グループを使用します。
 
 これらのフィルターの設定の詳細については、[アクションパスの例]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#action-path-examples)を参照してください。
 
-## その他の活用例
+## その他の活用例 {#other-applications}
 
 この記事では購入放棄の例を使用していますが、完了アクションをエントリアクションと関連付ける必要があるあらゆるシナリオに同じパターンを適用できます。例えば:
 
@@ -67,8 +67,8 @@ tool: Canvas
 - **サブスクリプション管理:** 案内された特定のプランをアップグレードしたかどうかに応じて、ユーザーを異なるルートに振り分けます。
 - **イベント登録:** 興味を示した特定のイベントの登録を完了したユーザーを終了させます。
 
-## 注意事項
+## 注意事項 {#things-to-know}
 
 - この記事の設定は説明のための例です。起動する前に、開発環境ですべてのコンポーネントをテストしてください。
 - エントリイベントのプロパティ名とデータタイプが、終了条件またはアクションパスで使用されているものと一致していることを確認してください。
-- イベント間でのプロパティ比較の仕組みの詳細については、[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)を参照してください。
+- イベント間でのプロパティ比較の仕組みの詳細については、[コンテキスト変数]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)を参照してください。

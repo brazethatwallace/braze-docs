@@ -13,6 +13,4 @@ description: "この記事には2018年6月のリリースノートが含まれ�
 
 ## キャンバスステップのアンインストール追跡 {#uninstall-tracking-for-canvas-steps}
 
-キャンバスステップごとのアンインストールが追跡され、統計として表示できるようになりました。
-
-![キャンバスのアンインストール追跡]({% image_buster /assets/img/uninstall_tracking_canvas_step.png %})
+キャンバスステップごとのアンインストールが追跡され、キャンバスの分析で統計として確認できるようになりました。

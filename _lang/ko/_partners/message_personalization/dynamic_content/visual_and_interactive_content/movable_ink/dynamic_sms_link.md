@@ -17,13 +17,13 @@ search_tag: Partner
 | Movable Ink 계정 | 이 파트너십을 활용하려면 Movable Ink 계정이 필요합니다. |
 | 데이터 소스 | Movable Ink에 데이터 소스를 연결해야 합니다. CSV, 웹사이트 가져오기 또는 API를 통해 연결할 수 있습니다. |
 | MMS 발송 기능 | Braze를 통해 MMS가 설정되어 있는지 확인합니다.
-| [링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) | 링크 단축이 활성화되어 있는지 확인합니다. |
+| [링크 단축]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) | 링크 단축이 활성화되어 있는지 확인합니다. |
 | 연락처 카드 | 링크 미리보기가 iOS에서 작동하려면 사용자의 휴대폰에 브랜드(발신자)가 연락처로 저장되어 있어야 합니다. 연락처 카드 또는 다른 방법을 통해 저장할 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
-아래의 각 단계에 따라 iOS 및 Android 운영체제에서 동적 SMS 링크를 발송합니다.
+이 섹션의 각 단계에 따라 iOS 및 Android 운영 체제에서 동적 SMS 링크를 발송합니다.
 
 ### iOS
 
@@ -31,27 +31,27 @@ search_tag: Partner
 iOS에서 링크 미리보기 이미지를 허용하려면 사용자가 브랜드(발신자)를 연락처로 추가해야 합니다.
 {% endalert %}
 
-#### 1단계: 연락처 카드 캠페인 생성 {#step-1-create-a-contact-card-campaign}
+#### 1단계: 연락처 카드 Campaign 생성 {#step-1-create-a-contact-card-campaign}
 
-사용자가 [연락처 카드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card/) 또는 다른 방법을 통해 브랜드를 연락처로 저장하면 **Tap to Load Preview** 프롬프트와 Movable Ink 링크를 볼 수 있습니다.
+사용자가 [연락처 카드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card) 또는 다른 방법을 통해 브랜드를 연락처로 저장하면 **Tap to Load Preview** 프롬프트와 Movable Ink 링크를 볼 수 있습니다.
 
 ![1]{: style="max-width:30%;"}
 
 #### 2단계: Movable Ink 링크 발송 {#step-2-send-movable-ink-links}
 
-1. Movable Ink에서 SMS 캠페인을 생성하고 클릭 스루 URL을 생성합니다.
-2. Braze 대시보드에서 **Campaigns**로 이동하여 **캠페인 생성** 드롭다운에서 새 SMS/MMS 캠페인을 설정합니다.
-3. SMS 캠페인 작성기에서:
+1. Movable Ink에서 SMS Campaign을 생성하고 클릭률 URL을 생성합니다.
+2. Braze 대시보드에서 **Campaigns**로 이동하여 **캠페인 만들기** 드롭다운에서 새 SMS/MMS Campaign을 설정합니다.
+3. SMS Campaign 작성기에서:
     - 구독 그룹을 설정합니다.
     - 메시지를 입력합니다.
     - 메시지 본문의 다른 모든 텍스트 뒤에 Movable Ink 링크를 **마지막으로** 추가합니다. <br><br>![2]{: style="max-width:50%;"}
 
 {% alert tip %}
-Liquid 개인화에 대한 내용은 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/)를 참조하세요.
+Liquid 개인화에 대한 내용은 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid)를 참조하세요.
 {% endalert %}
 
 {: start="4"}
-4. 동적 SMS 링크 미리보기 캠페인을 테스트하고 시작할 준비가 완료되었습니다.
+4. 동적 SMS 링크 미리보기 Campaign을 테스트하고 시작할 준비가 완료되었습니다.
 
 ![3]{: style="max-width:70%;"}
 

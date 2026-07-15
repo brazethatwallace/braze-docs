@@ -13,9 +13,9 @@ description: "Dieser Referenzartikel beschreibt empfohlene Events – Empfehlung
 
 ## Empfohlene E-Commerce-Events {#ecommerce-recommended-events}
 
-[Empfohlene E-Commerce-Events]({{site.baseurl}}/ecommerce_events/) decken sechs Schritte der Kauf-Journey ab: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled` und `order_refunded`. Wenn Sie diese Events erfolgreich senden, validiert Braze die Daten und stellt sie einer wachsenden Reihe von Plattform-Features zur Verfügung.
+[Empfohlene E-Commerce-Events]({{site.baseurl}}/ecommerce_events) decken sechs Schritte der Kauf-Journey ab: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled` und `order_refunded`. Wenn Sie diese Events erfolgreich senden, validiert Braze die Daten und stellt sie einer wachsenden Reihe von Plattform-Features zur Verfügung.
 
-Zu diesen Features gehören Canvas-Templates für abgebrochenes Browsen, Warenkorb-Abbruch, abgebrochenen Checkout und Bestellbestätigungs-Flows; E-Commerce-Reporting; sowie berechnete Nutzerprofil-Felder für _Gesamtumsatz_, _Gesamtbestellungen_ und _Gesamterstattungen_. Sie können außerdem Segmente mithilfe verschachtelter Produkteigenschafts-Filterung über [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) erstellen, Warenkorb-Abbruch-Nachrichten mit dem {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag personalisieren und BrazeAI<sup>TM</sup>-Funktionen wie [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/) und [Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) sowie weitere Funktionen nutzen.
+Zu diesen Features gehören Canvas-Templates für abgebrochenes Browsen, Warenkorb-Abbruch, abgebrochenen Checkout und Bestellbestätigungs-Flows; E-Commerce-Reporting; sowie berechnete Nutzerprofil-Felder für _Gesamtumsatz_, _Gesamtbestellungen_ und _Gesamterstattungen_. Sie können außerdem Segmente mithilfe verschachtelter Produkteigenschafts-Filterung über [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) erstellen, Warenkorb-Abbruch-Nachrichten mit dem {% raw %}`{% shopping_cart %}`{% endraw %} Liquid-Tag personalisieren und BrazeAI<sup>TM</sup>-Funktionen wie [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) und [Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations) sowie weitere Funktionen nutzen.
 
 Da diese Events einem definierten Schema folgen, kann jedes unterstützte Feature die strukturierten Daten ohne benutzerdefiniertes Property-Mapping oder Feature-spezifische Konfiguration auf Ihrer Seite lesen.
 
@@ -23,7 +23,11 @@ Da diese Events einem definierten Schema folgen, kann jedes unterstützte Featur
 
 ### So funktionieren E-Commerce-Events {#how-ecommerce-events-work}
 
-E-Commerce-Events sind angepasste Events mit vordefinierten Namen und Eigenschafts-Schemata. Sie senden sie über das [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/) oder den [`/users/track` REST-API-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), und Braze validiert jedes Event bei der Aufnahme gegen sein Schema. Wenn die Validierung erfolgreich ist, wendet Braze automatisch eine für diesen Event-Typ spezifische Nachbearbeitung an, wie z. B. die Berechnung von Umsatzfeldern und die Verwaltung des Warenkorb-Status in Nutzerprofilen.
+E-Commerce-Events sind angepasste Events mit vordefinierten Namen und Eigenschafts-Schemata. Sie senden sie über das [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), den [`/users/track` REST-API-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) oder [Cloud Data Ingestion (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), und Braze validiert jedes Event bei der Aufnahme gegen sein Schema. Wenn die Validierung erfolgreich ist, wendet Braze automatisch eine für diesen Event-Typ spezifische Nachbearbeitung an, wie z. B. die Berechnung von Umsatzfeldern und die Verwaltung des Warenkorb-Status in Nutzerprofilen.
+
+{% alert note %}
+CSV-Uploads unterstützen keine E-Commerce-Events. Verwenden Sie das SDK, `/users/track` oder CDI, um diese Events zu senden.
+{% endalert %}
 
 E-Commerce-Events funktionieren überall dort, wo auch andere angepasste Events funktionieren: Trigger und Filter für durchgeführte angepasste Events, Reporting zu angepassten Events und mehr. Ihre Schema-Validierung schaltet jedoch zusätzliche Funktionen frei, darunter:
 
@@ -51,17 +55,17 @@ Die sechs empfohlenen E-Commerce-Events bilden Phasen der Kauf-Journey ab. Löse
 
 {% alert tip %}
 Die folgenden Beispiele zeigen die REST-API-Payload für jedes Event.
-Für die clientseitige Protokollierung verwenden `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started` und `ecommerce.order_placed` die SDK-E-Commerce-Event-APIs, sofern verfügbar, während `ecommerce.order_cancelled` und `ecommerce.order_refunded` `logCustomEvent` verwenden. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Für die clientseitige Protokollierung verwenden `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started` und `ecommerce.order_placed` die SDK-E-Commerce-Event-APIs, sofern verfügbar, während `ecommerce.order_cancelled` und `ecommerce.order_refunded` `logCustomEvent` verwenden. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 {% endalert %}
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
-Lösen Sie dieses Event aus, wenn eine Nutzer:in eine Produktdetailseite aufruft. Dieses Event ist kompatibel mit den Braze-Katalog-Funktionen [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) und [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/).
+Lösen Sie dieses Event aus, wenn eine Nutzer:in eine Produktdetailseite aufruft. Dieses Event ist kompatibel mit den Braze-Katalog-Funktionen [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) und [Preissenkungsbenachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications).
 
 #### Clientseitige Implementierung {#client-side-implementation}
 
-Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 #### Event-Eigenschaften {#event-properties}
 
@@ -76,7 +80,7 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
 | `currency`     | String           | Ja      | Dreistelliger ISO-4217-Code (z. B. `USD` oder `EUR`). |
 | `source`       | String           | Ja      | Quelle, von der das Event stammt (z. B. `web`, `ios` oder `android`). |
 | `type`         | String-Array     | Nein       | Erforderlich, um die Braze-Katalog-Trigger-Features für Wieder-auf-Lager- und Preissenkungsbenachrichtigungen zu nutzen. Akzeptierte Werte: `"price_drop"`, `"back_in_stock"` |
-| `metadata`     | Objekt           | Nein       | Flexible Schlüssel-Wert-Paare. Erkannte Untereigenschaft: `sku` (String) |
+| `metadata`     | Objekt           | Nein       | Flexible Schlüssel-Wert-Paare (z. B. `category` oder `brand`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event-Eigenschaften" }
 
 #### REST-API-Beispiel {#rest-api-example}
@@ -99,7 +103,6 @@ Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifi
         "source": "web",
         "type": ["price_drop", "back_in_stock"],
         "metadata": {
-          "sku": "UB-BLK-11-SKU",
           "category": "Running Shoes",
           "brand": "Shoe Brand"
         }
@@ -116,7 +119,7 @@ Lösen Sie dieses Event jedes Mal aus, wenn sich der Inhalt des Warenkorbs einer
 
 #### Clientseitige Implementierung
 
-Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 Sie können dieses Event auf zwei Arten senden:
 
@@ -704,7 +707,7 @@ Lösen Sie dieses Event aus, wenn die Nutzer:in den Checkout-Prozess startet (z.
 
 #### Clientseitige Implementierung
 
-Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 #### Event-Eigenschaften
 
@@ -799,7 +802,7 @@ Lösen Sie dieses Event aus, wenn eine Bestellung erfolgreich abgeschlossen oder
 
 #### Clientseitige Implementierung
 
-Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Verwenden Sie die SDK-E-Commerce-Event-APIs, sofern verfügbar. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
 Dieses Event ist der primäre Umsatztreiber. Es erhöht `total_revenue` um den Wert in `total_value` und `total_orders` um 1 im Nutzerprofil.
@@ -907,7 +910,7 @@ Lösen Sie dieses Event aus, wenn eine Bestellung storniert wird.
 
 #### Clientseitige Implementierung
 
-Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
 Dieses Event verringert `total_orders` um 1 im Nutzerprofil. Es hat keinen Einfluss auf `total_revenue`; verwenden Sie `order_refunded`, um den Umsatz anzupassen.
@@ -1004,7 +1007,7 @@ Lösen Sie dieses Event aus, wenn eine vollständige oder teilweise Erstattung e
 
 #### Clientseitige Implementierung
 
-Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
+Verwenden Sie `logCustomEvent`. Plattformspezifische Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
 
 {% alert important %}
 Dieses Event verringert `total_revenue` um den Wert in `total_value` und erhöht `total_refunds` im Nutzerprofil. Setzen Sie bei Teilerstattungen `total_value` nur auf den erstatteten Betrag, nicht auf den ursprünglichen Bestellwert.
@@ -1142,59 +1145,15 @@ Die folgende Tabelle fasst zusammen, was Braze automatisch für jedes Event tut,
 Nicht-USD-Währungswerte werden automatisch anhand des Wechselkurses am Tag der Event-Meldung in USD umgerechnet. Wenn Sie bereits in USD berichten, setzen Sie `USD` als Währung fest, um eine unbeabsichtigte Umrechnung zu vermeiden.
 {% endalert %}
 
-## E-Commerce-Events implementieren {#implement-ecommerce-events}
-
-Sie können E-Commerce-Events über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) (serverseitig) oder über die Braze SDKs (clientseitig) senden. SDK-Implementierungsbeispiele finden Sie unter [E-Commerce-Events über das Braze SDK protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/).
-
-### Events serverseitig senden {#send-events-server-side}
-
-Verwenden Sie den `/users/track`-Endpunkt, um E-Commerce-Events von Ihrem Backend zu senden. Jedes Event erfordert den exakten Event-Namen, die `external_id` der Nutzer:in und ein Eigenschafts-Objekt, das dem Event-Schema entspricht.
-
-```json
-POST /users/track
-
-{
-  "events": [
-    {
-      "external_id": "user_abc123",
-      "name": "ecommerce.order_placed",
-      "time": "2026-04-26T14:32:00Z",
-      "properties": {
-        "order_id": "order_7891011",
-        "total_value": 84.99,
-        "currency": "USD",
-        "source": "custom_api",
-        "total_discounts": 10.00,
-        "products": [
-          {
-            "product_id": "sku_2001",
-            "product_name": "Trail Runner Pro",
-            "variant_id": "var_2001_black_10",
-            "quantity": 1,
-            "price": 94.99,
-            "metadata": {
-              "color": "black",
-              "size": "10"
-            }
-          }
-        ],
-        "metadata": {
-          "gift_wrapped": true,
-          "loyalty_points_earned": 170
-        }
-      }
-    }
-  ]
-}
-```
+## Implementierungsdetails {#implementation-details}
 
 ### Datenpunkte und Abrechnung {#data-points-and-billing}
 
-E-Commerce-Events verbrauchen keine [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points/). Sie können sie ohne Auswirkungen auf Ihre Datenpunkt-Nutzung protokollieren.
+E-Commerce-Events verbrauchen keine [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points). Sie können sie ohne Auswirkungen auf Ihre Datenpunkt-Nutzung protokollieren.
 
 ### Event-Größenlimit {#event-size-limit}
 
-Event-Eigenschaften, die an `/users/track` gesendet werden, sind auf 102.400 Bytes (100 KB) pro Event begrenzt. Für getriggerte Campaign- und Canvas-Nachrichten haben die `trigger_properties`, die an [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) und [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) gesendet werden, ein strengeres Standardlimit von 51.200 Bytes (50 KB).
+Event-Eigenschaften, die an `/users/track` gesendet werden, sind auf 102.400 Bytes (100 KB) pro Event begrenzt. Für getriggerte Campaign- und Canvas-Nachrichten haben die `trigger_properties`, die an [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) und [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) gesendet werden, ein strengeres Standardlimit von 51.200 Bytes (50 KB).
 
 Als Best Practice senden Sie nur die Produktinformationen, die Sie zum Triggern, Personalisieren oder Zuordnen des Events benötigen. Speichern Sie umfangreichere Produktdetails – wie Beschreibungen, vollständige Variantenlisten, Lagerbestand oder alternative Bilder – in Braze-Katalogen. Referenzieren Sie diese Details beim Senden von Nachrichten über `product_id` oder `variant_id`. Verwenden Sie das `metadata`-Objekt selektiv für bestell- oder produktspezifischen Kontext, den das Messaging nutzen wird.
 
@@ -1212,7 +1171,7 @@ Die Eigenschaft „source“ ist ein erforderlicher String, der angibt, woher da
 
 ### Metadata-Flexibilität {#metadata-flexibility}
 
-Sowohl die Metadata-Objekte auf Event-Ebene als auch auf Produktebene akzeptieren beliebige Schlüssel-Wert-Paare, sodass Sie benutzerdefinierte Dimensionen anhängen können, ohne das Kernschema zu ändern. Gängige Beispiele sind `order_status_url`, `gift_wrapped`, `loyalty_points_earned` oder `warehouse_id`. Diese Eigenschaften sind in der Liquid-Personalisierung, in Currents-Exporten und in der Segmentierung über [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) verfügbar.
+Sowohl die Metadata-Objekte auf Event-Ebene als auch auf Produktebene akzeptieren beliebige Schlüssel-Wert-Paare, sodass Sie benutzerdefinierte Dimensionen anhängen können, ohne das Kernschema zu ändern. Gängige Beispiele sind `order_status_url`, `gift_wrapped`, `loyalty_points_earned` oder `warehouse_id`. Diese Eigenschaften sind in der Liquid-Personalisierung, in Currents-Exporten und in der Segmentierung über [Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension) verfügbar.
 
 {% alert important %}
 Empfohlene Events verwenden ein striktes Schema. Daher schlägt das Hinzufügen benutzerdefinierter Eigenschaften auf der obersten Ebene von „properties“ die Validierung fehl. Platzieren Sie alle benutzerdefinierten Eigenschaften im `metadata`-Objekt auf Event-Ebene oder im `metadata`-Objekt auf Produktebene innerhalb von `products[]`. Diese bleiben für Liquid, Currents und Segmentierung genauso verfügbar wie Felder auf der obersten Ebene.
@@ -1248,8 +1207,8 @@ Das Event wird als empfohlenes E-Commerce-Event mit der gesamten zugehörigen Na
 
 Nachdem Sie ein Event gesendet haben, können Sie mit einer der folgenden Methoden bestätigen, dass es akzeptiert und korrekt verarbeitet wurde:
 
-- [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/): Öffnen Sie das Profil der Nutzer:in im Dashboard und überprüfen Sie die Aktivität. Empfohlene Events erscheinen mit ihrer vollständigen Eigenschafts-Payload, sodass Sie bestätigen können, dass das Event angekommen ist und die Werte mit dem übereinstimmen, was Sie gesendet haben.
-- [Bericht zu angepassten Events]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report/): Gehen Sie zu **Analytics** > **Custom Events**, um aggregierte Zählungen jedes empfohlenen Events über die Zeit zu sehen. Dies ist nützlich, um zu bestätigen, dass der Produktions-Traffic wie erwartet fließt, wenn Ihre Integration live ist.
+- [Event-Nutzerprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log): Öffnen Sie das Profil der Nutzer:in im Dashboard und überprüfen Sie die Aktivität. Empfohlene Events erscheinen mit ihrer vollständigen Eigenschafts-Payload, sodass Sie bestätigen können, dass das Event angekommen ist und die Werte mit dem übereinstimmen, was Sie gesendet haben.
+- [Bericht zu angepassten Events]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report): Gehen Sie zu **Analytics** > **Custom Events**, um aggregierte Zählungen jedes empfohlenen Events über die Zeit zu sehen. Dies ist nützlich, um zu bestätigen, dass der Produktions-Traffic wie erwartet fließt, wenn Ihre Integration live ist.
 - [Testnutzer:innen]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): Markieren Sie eine Nutzer:in in Ihrem Entwicklungs-Workspace als Testnutzer:in und triggern Sie dann Events aus Ihrer Integration gegen diese Nutzer:in. Testnutzer:innen sind im Dashboard gekennzeichnet, was es einfach macht, das End-to-End-Verhalten zu isolieren und zu überprüfen.
 
 ### Wenn die Validierung fehlschlägt {#when-validation-fails}

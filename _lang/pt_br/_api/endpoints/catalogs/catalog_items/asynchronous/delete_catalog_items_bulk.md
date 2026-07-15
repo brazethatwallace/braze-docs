@@ -23,7 +23,7 @@ Cada solicitação pode suportar até 50 itens. Esse endpoint é assíncrono.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `catalogs.delete_items`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.delete_items`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -34,14 +34,14 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `catalog_name` | Obrigatória | String | Nome do catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de jornada" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `items` | Obrigatória | Vetor | Um vetor que contém objetos de item. Os objetos de item devem conter um `id` referenciando os itens que a Braze deve excluir. São permitidos até 50 objetos de item por solicitação. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -103,6 +103,6 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `items-missing-ids` | Alguns itens não têm IDs de item. Verifique se cada item tem um ID de item. |
 | `invalid-ids` | Os IDs de item só podem conter letras, números, hifens e underscores. |
 | `request-includes-too-many-items` | Sua solicitação tem muitos itens. O limite de itens por solicitação é de 50. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
 {% endapi %}

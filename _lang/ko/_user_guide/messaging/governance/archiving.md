@@ -48,3 +48,9 @@ Canvas를 아카이브하려면:
 Campaign 또는 Canvas의 아카이브를 해제해도 바로 라이브 상태가 되지는 않으며, 상태가 **활성**으로만 변경됩니다. 아카이브 해제 후에는 메시지가 발송되지 않는 상태에서 메시지 설정을 편집하고 검토할 수 있습니다.
 
 Campaign 또는 Canvas를 재개하고 메시지 발송을 시작하려면, 해당 행의 <i class="fas fa-ellipsis-vertical"></i> 메뉴를 선택한 다음 **재개**를 선택합니다.
+
+## 자주 묻는 질문 {#frequently-asked-questions}
+
+### 아카이브하면 Campaigns와 Canvases가 삭제되나요? {#are-campaigns-and-canvases-deleted-when-i-archive-them}
+
+아닙니다. **아카이브**를 선택하면 전달이 중지되고 일상적인 목록에서 메시지가 숨겨지지만, Braze는 보고서 및 워크스페이스 기록을 위해 Campaign 또는 Canvas를 보존합니다. 더 이상 발송하지 않아야 하는 메시지의 수명 주기를 정리할 때 아카이브를 활용하세요.

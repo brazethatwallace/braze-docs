@@ -11,7 +11,7 @@ description: "Découvrez comment utiliser le rapport de performance pour compare
 
 ## Comment le rapport est construit {#how-the-report-is-built}
 
-Votre rapport de performance est construit par couches, entièrement personnalisé selon votre cas d'utilisation. En collaboration avec votre équipe :
+Votre rapport de performance est construit par couches, entièrement personnalisé selon votre cas d'usage. En collaboration avec votre équipe :
 
 1. Braze définit ce qui constitue une action (comme un envoi, un clic, un achat ou une conversion).
 2. Braze définit comment mesurer cette action quotidiennement (volume, chiffre d'affaires, personnes uniques, etc.).
@@ -39,11 +39,16 @@ Ces sélections déterminent quels jours sont inclus, quels groupes sont compar�
 Modifier le paramètre d'agrégation (par exemple, moyenne glissante sur 7 jours) n'affecte que l'affichage du graphique. Cela ne modifie pas les données stockées.
 {% endalert %}
 
-Si vous ne pouvez pas sélectionner une date récente dans le sélecteur de dates, cette date est probablement désactivée en raison d'un délai temporaire de disponibilité des données. Il faut généralement quelques jours pour que les données de votre CDP soient intégrées de manière fiable dans Decisioning Studio.
+Si vous ne pouvez pas sélectionner une date récente dans le sélecteur de dates, cette date est probablement désactivée en raison de délais configurés pour la disponibilité des données. Il existe deux types de délais pouvant limiter la disponibilité des dates :
+
+- **Délais du pipeline de données :** le temps nécessaire pour ingérer et traiter les données de votre CDP dans Decisioning Studio. Cela garantit que les rapports n'affichent que des données complètes et fiables.
+- **Délais d'activation des recommandations :** le temps entre le moment où le moteur de Decisioning Studio prédit une recommandation et celui où vous l'activez dans vos Campaigns. Le reporting n'inclura pas les jours où les recommandations n'ont pas encore été activées.
+
+Ces délais sont configurés pour votre cas d'usage. Si vous avez besoin de comprendre votre fenêtre de reporting spécifique, contactez votre AI Success Manager.
 
 ## Cartes KPI {#kpi-cards}
 
-Les cartes KPI situées à gauche du rapport affichent les indicateurs clés de performance configurés pour votre cas d'utilisation, tels que :
+Les cartes KPI situées sur le côté principal du rapport affichent les indicateurs clés de performance configurés pour votre cas d'usage, tels que :
 
 - LTV incrémentale / Client
 - Conversions / Client
@@ -111,17 +116,21 @@ Les arbres des facteurs utilisent les mêmes définitions de KPI que le reste du
 
 Les Segments vous permettent de ventiler la performance par groupes définis, tels que les niveaux d'engagement, les caractéristiques client, le type d'appareil ou d'autres attributs configurés.
 
-L'appartenance à un Segment est configurée sur mesure pour votre cas d'utilisation et calculée quotidiennement. Cela signifie que le Segment passé d'un client reflète qui il était ce jour-là. Si son comportement change par la suite, les jours historiques restent inchangés. Cela préserve la précision historique et empêche les rapports de se modifier rétroactivement.
+L'appartenance à un Segment est configurée sur mesure pour votre cas d'usage et calculée quotidiennement. Cela signifie que le Segment passé d'un client reflète qui il était ce jour-là. Si son comportement change par la suite, les jours historiques restent inchangés. Cela préserve la précision historique et empêche les rapports de se modifier rétroactivement.
 
 ### Le rapport de performance diffère-t-il entre les agents Go et Pro ? {#does-the-performance-report-for-go-versus-pro-agents-differ}
 
-Les KPI pour les cas d'utilisation Go sont définis automatiquement et standardisés, car tous les cas d'utilisation Go ont le même indicateur cible : les clics uniques.
+Les KPI pour les cas d'usage Go sont définis automatiquement et standardisés, car tous les cas d'usage Go ont le même indicateur cible : les clics uniques.
 
 ### Pourquoi ne puis-je pas sélectionner certaines dates récentes ? {#why-cant-i-select-certain-recent-dates}
 
-Le sélecteur de dates peut ne pas permettre de sélectionner les jours les plus récents. C'est intentionnel. Les rapports peuvent appliquer des délais d'activation, des délais de disponibilité des données ou des dates explicitement exclues. Ces garde-fous empêchent l'affichage de données incomplètes ou instables dans vos résultats.
+Le sélecteur de dates peut ne pas permettre de sélectionner les jours les plus récents. C'est intentionnel. Les rapports peuvent appliquer les contraintes suivantes pour empêcher l'affichage de données incomplètes ou instables :
 
-Si vous avez besoin de précisions sur votre fenêtre de reporting ou vos règles de disponibilité des données, contactez votre AI Success Manager pour connaître la configuration spécifique à votre cas d'utilisation.
+- **Délais du pipeline de données :** configurés pour tenir compte du temps nécessaire à l'ingestion et au traitement des données de votre CDP. Cela garantit que toutes les données d'un jour donné sont complètes avant que ce jour n'apparaisse dans le reporting.
+- **Délais d'activation des recommandations :** configurés pour tenir compte du décalage entre le moment où les recommandations sont générées et celui où elles sont activées dans vos Campaigns. Les jours où les recommandations n'ont pas encore été activées n'apparaîtront pas dans le reporting.
+- **Dates explicitement exclues :** dates que vous avez manuellement exclues dans les paramètres de reporting.
+
+Si vous avez besoin de précisions sur votre fenêtre de reporting ou vos règles de disponibilité des données, contactez votre AI Success Manager.
 
 ### Quelle est la différence entre les KPI de « volume » et de « taux » ? {#whats-the-difference-between-volume-and-rate-kpis}
 
@@ -130,7 +139,7 @@ Les KPI se répartissent généralement en deux catégories :
 - **Indicateurs de volume** (comme le total des conversions, le chiffre d'affaires total ou le total des clics) répondent à la question : « Combien cela représente-t-il ? »
 - **Indicateurs de taux** (comme le taux de conversion, le chiffre d'affaires par utilisateur ou le taux de clics) répondent à la question : « Avec quelle efficacité cela s'est-il produit ? »
 
-Volume et taux racontent des histoires différentes. Une Campaign peut générer un volume plus élevé mais une efficacité moindre, ou inversement. Lorsque vous interprétez les résultats, vérifiez toujours quel type de KPI vous consultez.
+Volume et taux racontent des histoires différentes. Une campagne peut générer un volume plus élevé mais une efficacité moindre, ou inversement. Lorsque vous interprétez les résultats, vérifiez toujours quel type de KPI vous consultez.
 
 ### Que signifie « unique » (ou « distinct ») ? {#what-does-unique-or-distinct-mean}
 

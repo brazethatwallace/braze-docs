@@ -12,7 +12,7 @@ channel:
 
 # SMS- und RCS-Bot-Klick-Filterung {#sms-and-rcs-bot-click-filtering}
 
-> Die SMS- und RCS-Bot-Klick-Filterung verbessert Campaign-Analytics und Workflows, indem vermutete Bot-Klicks ausgeschlossen werden. Ein „Bot-Klick“ bezeichnet automatisierte Klicks auf gekürzte Links in SMS- und RCS-Nachrichten, beispielsweise durch Web-Crawler, Android- und iOS-Linkvorschauen oder CPaaS-Sicherheitssoftware. Dieses Feature ermöglicht präzises Reporting, Segmentierung und Orchestrierung, um echte Nutzer:innen anzusprechen. <br><br> Informationen zur Bot-Klick-Filterung für E-Mail-Campaigns finden Sie unter [Bot-Filterung für E-Mails]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/bot_filtering/).
+> Die SMS- und RCS-Bot-Klick-Filterung verbessert Campaign-Analytics und Workflows, indem vermutete Bot-Klicks ausgeschlossen werden. Ein „Bot-Klick“ bezeichnet automatisierte Klicks auf gekürzte Links in SMS- und RCS-Nachrichten, beispielsweise durch Web-Crawler, Android- und iOS-Linkvorschauen oder CPaaS-Sicherheitssoftware. Dieses Feature ermöglicht präzises Reporting, Segmentierung und Orchestrierung, um echte Nutzer:innen anzusprechen. <br><br> Informationen zur Bot-Klick-Filterung für E-Mail-Campaigns finden Sie unter [Bot-Filterung für E-Mails]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/bot_filtering).
 
 ## Funktionsweise {#how-it-works}
 
@@ -31,9 +31,9 @@ Die folgenden Braze-Metriken und -Workflows werden durch Bot-Klicks beeinflusst:
     - **Intelligente Auswahl:** Schließt Bot-Klicks bei der Optimierung der Variantenauswahl aus.
     - **Intelligenter Kanal:** Schließt Bot-Klicks aus, wenn SMS oder RCS für eine präzise Kanalauswahl ausgewählt wird.
     - **Experiment-Schritte:** Schließt Bot-Klicks für zuverlässige Experimentergebnisse aus.
-    - **Currents-Datenexporte:** Enthält die Felder `is_suspected_bot_click` und `suspected_bot_click_reason`, um die Analyse von menschlichen gegenüber Bot-Klicks zu unterstützen. Diese Felder sind in [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/) und [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) verfügbar.
+    - **Currents-Datenexporte:** Enthält die Felder `is_suspected_bot_click` und `suspected_bot_click_reason`, um die Analyse von menschlichen gegenüber Bot-Klicks zu unterstützen. Diese Felder sind in [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), [Snowflake-Datenfreigabe]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake) und [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) verfügbar.
 
-Abmeldungen durch vermutete Bot-Klicks sind davon nicht betroffen. Braze verarbeitet alle Abmeldeanfragen wie gewohnt. Um diese Abmeldungen zu blockieren, [reichen Sie Produktfeedback ein]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+Abmeldungen durch vermutete Bot-Klicks sind davon nicht betroffen. Braze verarbeitet alle Abmeldeanfragen wie gewohnt. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## Currents-Felder in SMS-Klick-Ereignissen {#currents-fields-in-sms-click-events}
 
@@ -47,7 +47,7 @@ Braze enthält die folgenden Currents-Felder für SMS-Klick-Ereignisse:
 
 ## Abfrage-Builder-Template {#query-builder-template}
 
-Zur Unterstützung bei der Analyse Ihrer Daten können Sie das vorgefertigte Mobile-Template **SMS click events by bots** im [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/) verwenden.
+Zur Unterstützung bei der Analyse Ihrer Daten können Sie das vorgefertigte Mobile-Template **SMS click events by bots** im [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates) verwenden.
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -67,8 +67,8 @@ Ja. Linkvorschauen (z. B. Android- und iOS-Linkvorschauen) werden als Bot-Klicks
 
 Sie müssen Ihr Braze-Konto-Team kontaktieren, um die Bot-Klick-Filterung während des Early Access zu aktivieren. Wenn die Bot-Klick-Filterung allgemein verfügbar ist, wird das Feature standardmäßig für alle SMS- und RCS-Nutzer:innen aktiviert sein.
 
-Stellen Sie außerdem sicher, dass Sie das erweiterte Klick-Tracking für die [Link-Kürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) aktiviert haben. Dadurch erhalten Sie die Bot-Klick-Analytics, da wir diese Daten auf individueller Nutzer:innen-Ebene erfassen.
+Stellen Sie außerdem sicher, dass Sie das erweiterte Klick-Tracking für die [Link-Kürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) aktiviert haben. Dadurch erhalten Sie die Bot-Klick-Analytics, da wir diese Daten auf der Ebene einzelner Nutzer:innen erfassen.
 
 {% alert note %}
-Für weitere Unterstützung [kontaktieren Sie den Support]({{site.baseurl}}/braze_support/).
+Für weitere Unterstützung [kontaktieren Sie den Support]({{site.baseurl}}/braze_support).
 {% endalert %}

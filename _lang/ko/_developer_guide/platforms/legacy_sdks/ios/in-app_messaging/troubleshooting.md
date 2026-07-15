@@ -16,15 +16,15 @@ noindex: true
 
 ## 노출 횟수 {#impressions}
 
-#### 노출 또는 클릭 분석이 기록되지 않습니다 {#impression-or-click-analytics-arent-being-logged}
+### 노출 또는 클릭 분석이 기록되지 않음 {#impression-or-click-analytics-arent-being-logged}
 
 메시지 표시 또는 클릭 동작을 수동으로 처리하도록 인앱 메시지 델리게이트를 설정한 경우, 인앱 메시지에서 클릭 및 노출 횟수를 수동으로 기록해야 합니다.
 
 #### 예상보다 적은 노출 횟수 {#impressions-are-lower-than-expected}
 
-트리거는 세션 시작 시 기기와 동기화하는 데 시간이 걸리므로 사용자가 세션 시작 직후 이벤트 또는 구매를 기록하면 경합 조건이 발생할 수 있습니다. 한 가지 가능한 해결 방법은 세션 시작 시 트리거하도록 캠페인을 변경한 다음, 의도한 이벤트 또는 구매를 기준으로 세분화하는 것입니다. 이렇게 하면 이벤트가 발생한 후 다음 세션이 시작될 때 인앱 메시지가 전달됩니다.
+트리거는 세션 시작 시 기기와 동기화하는 데 시간이 걸리므로 사용자가 세션 시작 직후 이벤트 또는 구매를 기록하면 경합 조건이 발생할 수 있습니다. 한 가지 가능한 해결 방법은 세션 시작 시 트리거하도록 Campaign을 변경한 다음, 의도한 이벤트 또는 구매를 기준으로 세분화하는 것입니다. 이렇게 하면 이벤트가 발생한 후 다음 세션이 시작될 때 인앱 메시지가 전달됩니다.
 
-## 예상 인앱 메시지가 표시되지 않았습니다 {#expected-in-app-message-did-not-display}
+## 예상 인앱 메시지가 표시되지 않음 {#expected-in-app-message-did-not-display}
 
 대부분의 인앱 메시지 문제는 전달과 표시라는 두 가지 주요 카테고리로 분류할 수 있습니다. 예상 인앱 메시지가 기기에 표시되지 않는 문제를 해결하려면 먼저 [인앱 메시지가 기기에 전달되었는지](#troubleshooting-in-app-message-delivery) 확인한 다음 [메시지 표시 문제를](#troubleshooting-in-app-message-display) 해결해야 합니다.
 
@@ -35,12 +35,12 @@ SDK는 세션 시작 시 Braze 서버에 인앱 메시지를 요청합니다. �
 #### 메시지 요청 및 반환 여부 확인 {#check-if-messages-are-requested-and-returned}
 
 1. 대시보드에서 [테스트 사용자]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/internal_groups_tab/#adding-test-users)로 자신을 추가하세요.
-2. 사용자를 대상으로 인앱 메시지 캠페인을 설정합니다.
+2. 사용자를 대상으로 인앱 메시지 Campaign을 설정합니다.
 3. 애플리케이션에서 새 세션이 발생하는지 확인합니다.
 4. [이벤트 사용자 로그]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)를 사용하여 기기가 세션 시작 시 인앱 메시지를 요청하고 있는지 확인하세요. 테스트 사용자의 세션 시작 이벤트와 연결된 SDK 요청을 찾습니다.
   - 앱에서 트리거된 인앱 메시지를 요청하는 경우 **Response Data** 아래 **Requested Responses** 필드에 `trigger`가 표시되어야 합니다.
   - 앱에서 원본 인앱 메시지를 요청하는 경우 **Response Data** 아래 **Requested Responses** 필드에 `in_app`이 표시되어야 합니다.
-5. [이벤트 사용자 로그]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)를 사용하여 응답 데이터에서 올바른 인앱 메시지가 반환되고 있는지 확인하세요.<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
+5. [이벤트 사용자 로그]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)를 사용하여 응답 데이터에서 올바른 인앱 메시지가 반환되고 있는지 확인하세요.<br>![인앱 메시지 요청에 대한 이벤트 사용자 로그 항목.]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 #### 요청되지 않는 메시지 문제 해결 {#troubleshoot-messages-not-being-requested}
 
@@ -50,7 +50,7 @@ SDK는 세션 시작 시 Braze 서버에 인앱 메시지를 요청합니다. �
 
 ### 반환되지 않는 메시지 문제 해결 {#troubleshoot-messages-not-being-returned}
 
-인앱 메시지가 반환되지 않는다면 캠페인 타겟팅에 문제가 있는 것일 수 있습니다:
+인앱 메시지가 반환되지 않는다면 Campaign 타겟팅에 문제가 있는 것일 수 있습니다:
 
 - Segment에 사용자가 포함되어 있지 않습니다.
   - 사용자의 [**참여**]({{ site.baseurl }}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) 탭을 확인하여 **Segments** 아래에 올바른 Segment가 나타나는지 확인하세요.
@@ -66,7 +66,7 @@ SDK는 세션 시작 시 Braze 서버에 인앱 메시지를 요청합니다. �
 
 앱에서 인앱 메시지를 성공적으로 요청 및 수신하고 있지만 표시되지 않는 경우 일부 기기 측 로직으로 인해 표시가 방해되고 있을 수 있습니다:
 
-- 트리거된 인앱 메시지는 [트리거 사이의 최소 시간 간격]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery/#minimum-time-interval-between-triggers)을 기준으로 속도 제한이 적용되며, 기본값은 30초입니다.
+- 트리거된 인앱 메시지는 [트리거 사이의 최소 시간 간격]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery#minimum-time-interval-between-triggers)을 기준으로 속도 제한이 적용되며, 기본값은 30초입니다.
 - 인앱 메시지 처리를 커스텀하기 위해 델리게이트를 설정한 경우, 델리게이트가 인앱 메시지 표시에 영향을 주지 않는지 확인하세요.
 - 이미지 다운로드에 실패하면 이미지가 포함된 인앱 메시지가 표시되지 않습니다. `SDWebImage` 프레임워크가 제대로 통합되지 않은 경우 이미지 다운로드는 항상 실패합니다. 기기 로그를 확인하여 이미지 다운로드가 실패하지 않았는지 확인하세요.
 - 기기 방향이 인앱 메시지에 지정된 방향과 일치하지 않으면 인앱 메시지가 표시되지 않습니다. 기기의 방향이 올바른지 확인하세요.

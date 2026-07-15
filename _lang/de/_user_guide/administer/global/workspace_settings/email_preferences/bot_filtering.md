@@ -10,7 +10,7 @@ description: "Dieser Artikel bietet eine Übersicht über Bot-Filter für E-Mail
 
 # Bot-Filter für E-Mails {#bot-filtering-for-emails}
 
-> Richten Sie in Ihren [E-Mail-Präferenzen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/) einen Bot-Filter ein, um alle mutmaßlichen Maschinen- oder Bot-Klicks auszuschließen. Ein „Bot-Klick“ in E-Mails bezieht sich auf einen Klick auf Hyperlinks innerhalb einer E-Mail, der von einem automatisierten Programm generiert wurde. Indem Sie diese Bot-Klicks filtern, können Sie Nachrichten gezielt triggern und an Empfänger:innen zustellen, die engagiert sind.
+> Richten Sie in Ihren [E-Mail-Präferenzen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) einen Bot-Filter ein, um alle mutmaßlichen Maschinen- oder Bot-Klicks auszuschließen. Ein „Bot-Klick“ in E-Mails bezieht sich auf einen Klick auf Hyperlinks innerhalb einer E-Mail, der von einem automatisierten Programm generiert wurde. Indem Sie diese Bot-Klicks filtern, können Sie Nachrichten gezielt triggern und an Empfänger:innen zustellen, die engagiert sind.
 
 {% alert important %}
 Ab dem 9. Juli 2025 wird für alle neu erstellten Workspaces die Bot-Filter-Einstellung aktiviert sein, um eine genauere Berichterstattung über Klicks in Braze zu ermöglichen.
@@ -35,7 +35,7 @@ Die folgenden Braze-Metriken können von Bot-Klicks betroffen sein:
 - Heatmap
 - Bestimmte Segment-Filter
 
-[Braze-Intelligence-Features]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/), die Klickdaten zusätzlich zu unseren Erkennungssystemen nutzen, können beeinträchtigt werden. Das Aktivieren der Einstellung kann unsere Erkennungssysteme vorübergehend stören, was zu einem Rückgang der Metrik oder des Eingabewerts führen kann, da mutmaßliche Bot-Klicks ausgeschlossen werden:
+[Braze-Intelligence-Features]({{site.baseurl}}/user_guide/brazeai/intelligence_suite), die Klickdaten zusätzlich zu unseren Erkennungssystemen nutzen, können beeinträchtigt werden. Das Aktivieren der Einstellung kann unsere Erkennungssysteme vorübergehend stören, was zu einem Rückgang der Metrik oder des Eingabewerts führen kann, da mutmaßliche Bot-Klicks ausgeschlossen werden:
 
 - Intelligente Auswahl
 - Intelligenter Kanal
@@ -48,19 +48,19 @@ Die folgenden Braze-Metriken können von Bot-Klicks betroffen sein:
     - Personalisierte Variante
 - Geschätzte reale Öffnungsrate
 
-Abmeldungen durch mutmaßliche Bot-Klicks sind nicht betroffen. Braze verarbeitet weiterhin alle Abmeldeanfragen wie gewohnt. Wenn Sie möchten, dass Braze diese Abmeldungen blockiert, reichen Sie [Produktfeedback]({{site.baseurl}}/user_guide/administer/personal/product_portal/) ein.
+Abmeldungen durch mutmaßliche Bot-Klicks sind nicht betroffen. Braze verarbeitet weiterhin alle Abmeldeanfragen wie gewohnt. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## Von Bot-Filtern betroffene Segmentierungsfilter {#segmentation-filters-affected-by-bot-filtering}
 
-Die folgenden [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/) können durch Bot-Filter für E-Mail-Nachrichten betroffen sein:
+Die folgenden [Segmentierungsfilter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) können durch Bot-Filter für E-Mail-Nachrichten betroffen sein:
 
-- [Clicked/Opened Campaign or Canvas With Tag]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-opened-campaign-or-canvas-with-tag)
-- [Clicked/Opened Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-opened-step)
-- [Clicked Alias in Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-alias-in-campaign)
-- [Clicked Alias in Canvas Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-alias-in-canvas-step)
-- [Clicked Alias in Any Campaign or Canvas Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#clicked-alias-in-any-campaign-or-canvas-step)
-- [Last Engaged with Message]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#last-engaged-with-message)
-- [Intelligent Channel]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#intelligent-channel)
+- [Clicked/Opened Campaign or Canvas With Tag]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-campaign-or-canvas-with-tag)
+- [Clicked/Opened Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-opened-step)
+- [Clicked Alias in Campaign]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-campaign)
+- [Clicked Alias in Canvas Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-canvas-step)
+- [Clicked Alias in Any Campaign or Canvas Step]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#clicked-alias-in-any-campaign-or-canvas-step)
+- [Last Engaged with Message]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#last-engaged-with-message)
+- [Intelligent Channel]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#intelligent-channel)
 
 ## Bot-Filter aktivieren {#turning-on-bot-filtering}
 

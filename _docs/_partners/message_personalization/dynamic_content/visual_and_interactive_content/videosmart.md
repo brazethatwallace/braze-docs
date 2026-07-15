@@ -95,7 +95,7 @@ This example uses Braze user attributes for the first name and last name:
 
 {% capture vs_record_data %}
 {
-  "FirstName": "{{ ${first_name} | default: 'John' | json_escape }}",
+  "FirstName": "{{ ${first_name} | default: 'Alex' | json_escape }}",
   "LastName": "{{ ${last_name} | default: 'Doe' | json_escape }}"
 }
 {% endcapture %}
@@ -128,7 +128,7 @@ Common variables include:
 
 VideoSmart's API has a rate limit of 10,000 requests per minute. If you exceed this limit, you may receive errors or experience delays in video generation.
 
-To reduce this risk, configure Braze campaign rate limiting so the message send rate stays below VideoSmart API capacity.
+To reduce this risk, configure Braze campaign rate limiting so the message send rate stays under VideoSmart API capacity.
 
 For Braze guidance on delivery speed and rate limiting, see [Delivery speed and rate limiting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#delivery-speed-rate-limiting).
 

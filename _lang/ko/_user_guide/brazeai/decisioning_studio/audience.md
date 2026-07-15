@@ -18,7 +18,7 @@ description: "BrazeAI Decisioning Studio 에이전트의 오디언스를 정의�
 | **무작위 제어** | 무작위로 선택된 옵션을 받는 고객(기준 비교) |
 | **기존 운영(선택 사항)** | 현재 마케팅 여정을 받는 고객(기존 성과와 비교하기 위함) |
 | **홀드아웃(선택 사항)** | 커뮤니케이션을 받지 않는 고객(전체 캠페인 영향을 측정하기 위함) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Treatment groups" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="처리 그룹" }
 
 ## 오디언스 구성 {#configure-your-audience}
 
@@ -64,4 +64,4 @@ Braze의 경우, 여러 Segments를 수집하고 결합하여 오디언스를 �
 
 오디언스를 정의한 후 오케스트레이션 설정을 진행합니다:
 
-- [오케스트레이션 설정]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [오케스트레이션 설정]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

@@ -51,7 +51,7 @@ Ao usar a CDI para sincronizar dados de fontes externas (como Databricks ou Snow
 - **Números armazenados como strings:** converta colunas numéricas para tipos integer ou float na sua consulta de origem antes da sincronização.
 - **Tipos inconsistentes entre sincronizações:** se o tipo de uma coluna mudar entre sincronizações, a Braze pode rejeitar os novos dados. Verifique se o esquema de origem permanece consistente.
 
-Para forçar ou alterar tipos de dados de atributos personalizados no dashboard da Braze, consulte [Gerenciar dados personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons).
+Para forçar ou alterar tipos de dados de atributos personalizados no dashboard da Braze, consulte [Gerenciar dados personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons).
 
 Você pode atualizar dados de usuários por ID externo, alias de usuário, ID Braze, e-mail ou número de telefone. Você pode excluir usuários por ID externo, alias de usuário ou ID Braze.
 
@@ -695,7 +695,7 @@ Temos um [repositório GitHub](https://github.com/braze-inc/braze-examples/tree/
 
 ### Formatação de dados {#data-formatting}
 
-Os requisitos de configuração de tabela e formatação de carga útil da Ingestão de Dados na Nuvem estão documentados em [Configuração de tabela para Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
+Os requisitos de configuração de tabela e formatação de carga útil da Ingestão de Dados na Nuvem estão documentados em [Configuração de tabela para Ingestão de Dados na Nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 
 Use essa página para distinguir:
 

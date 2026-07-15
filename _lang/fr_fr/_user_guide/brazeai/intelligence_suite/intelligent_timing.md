@@ -2,7 +2,7 @@
 nav_title: Timing intelligent
 article_title: Timing intelligent
 page_order: 1.3
-description: "Cet article propose un aperçu du timing intelligent (appelé auparavant Livraison intelligente) et comment vous pouvez tirer parti de cette fonctionnalité dans vos campagnes et vos Canvas."
+description: "Cet article propose un aperçu du timing intelligent (appelé auparavant Livraison intelligente) et explique comment tirer parti de cette fonctionnalité dans vos campagnes et vos Canvas."
 
 ---
 
@@ -18,8 +18,8 @@ Braze détermine l'heure d'envoi optimale en se basant sur une analyse statistiq
 - Ouvertures directes de notification push
 - Ouvertures influencées de notification push
 - Clics sur des e-mails
-- Ouvertures d'e-mail (à l'exclusion des [ouvertures de machines]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens))
-- Clics SMS (uniquement si [le raccourcissement des liens]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) et le suivi avancé sont activés)
+- Ouvertures d'e-mail (à l'exclusion des [ouvertures de machines]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens))
+- Clics SMS (uniquement si [le raccourcissement des liens]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) et le suivi avancé sont activés)
 
 Par exemple, Sam peut ouvrir régulièrement vos e-mails le matin, mais elle préfère ouvrir votre application et interagir avec les notifications en soirée. Cela signifie que Sam recevrait une campagne e-mail avec le timing intelligent le matin, tandis qu'elle recevrait les campagnes avec notifications push en soirée, quand elle a plus de chances d'interagir.
 
@@ -42,7 +42,7 @@ Cette section décrit comment configurer le timing intelligent pour vos campagne
 1. Créez une campagne et composez votre message.
 2. Sélectionnez **Scheduled Delivery** comme type de réception/distribution.
 3. Sous **Time-Based Scheduling Options**, sélectionnez **Intelligent Timing**.
-4. Réglez la fréquence d'entrée. Pour les envois uniques, sélectionnez **Once** et choisissez une date d'envoi. Pour les envois récurrents, sélectionnez **Daily**, **Weekly** ou **Monthly** et configurez les options de récurrence. Voir les [considérations](#considerations) pour plus d'informations.
+4. Réglez la fréquence d'entrée. Pour les envois uniques, sélectionnez **Once** et choisissez une date d'envoi. Pour les envois récurrents, sélectionnez **Daily**, **Weekly** ou **Monthly** et configurez les options de récurrence. Consultez les [considérations](#considerations) pour plus d'informations.
 5. En option, configurez les [heures calmes](#quiet-hours).
 6. Spécifiez une [heure de secours](#campaign-fallback). Il s'agit de l'heure à laquelle le message est envoyé si le profil d'un utilisateur ne contient aucun événement pertinent permettant de calculer un moment optimal.
 
@@ -65,7 +65,7 @@ Lorsque les heures calmes sont activées, Braze n'envoie pas de messages pendant
 
 Par exemple, si les heures calmes sont définies entre 22 h 00 et 6 h 00, et que l'heure optimale d'un utilisateur est 5 h 30, Braze mettra le message en attente et l'enverra à 6 h 00, soit l'heure la plus proche en dehors de la fenêtre de silence.
 
-Pour plus d'informations, consultez [Heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
+Pour plus d'informations, consultez [Heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
 #### Prévisualiser les horaires de réception/distribution {#preview-delivery-times}
 
@@ -101,7 +101,7 @@ Pour plus d'informations, consultez la [FAQ : Timing intelligent](#when-does-bra
 
 #### Planifier les variantes gagnantes 2 jours après le test A/B {#schedule-winning-variants-2-days-after-ab-test}
 
-Si vous exploitez les [tests A/B avec une optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/), comme l'envoi automatique de la **variante gagnante** ou l'utilisation d'une **variante personnalisée**, le timing intelligent peut affecter la durée et le moment de votre campagne.
+Si vous exploitez les [tests A/B avec une optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations), comme l'envoi automatique de la **variante gagnante** ou l'utilisation d'une **variante personnalisée**, le timing intelligent peut affecter la durée et le moment de votre campagne.
 
 Lorsque vous utilisez le timing intelligent, nous vous recommandons de planifier l'heure d'envoi de la variante gagnante au moins **2 jours après** le début du test A/B. Par exemple, si votre test A/B commence le 16 avril à 16 h 00, planifiez l'envoi de la variante gagnante au plus tôt le 18 avril à 16 h 00. Cela donne à Braze suffisamment de temps pour évaluer le comportement des utilisateurs et envoyer les messages au moment optimal.
 
@@ -147,7 +147,7 @@ Le graphique indique en bleu les utilisateurs pour lesquels des événements per
 
 ### Étape 1 : Ajouter le timing intelligent
 
-Dans votre Canvas, ajoutez une [étape Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/), puis allez dans **Delivery Settings** et sélectionnez **Using Intelligent Timing**.
+Dans votre Canvas, ajoutez une [étape Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), puis allez dans **Delivery Settings** et sélectionnez **Using Intelligent Timing**.
 
 Les messages seront envoyés aux utilisateurs qui ont franchi l'étape ce jour-là à leur heure locale optimale. Toutefois, si l'heure optimale est déjà passée ce jour-là, la réception/distribution sera effectuée à cette heure le jour suivant. Les étapes de message ciblant plusieurs canaux peuvent envoyer ou tenter d'envoyer les messages à différents horaires pour différents canaux. Lorsque le premier message d'une étape de message tente de s'envoyer, tous les utilisateurs progressent automatiquement.
 
@@ -159,7 +159,7 @@ Choisissez une heure de secours pour l'envoi du message aux utilisateurs de votr
 
 Contrairement aux campagnes, vous n'avez pas besoin de lancer votre Canvas 48 heures avant la date d'envoi, car le timing intelligent est défini au niveau de l'étape et non du Canvas.
 
-Ajoutez plutôt une [étape de délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) d'au moins deux jours calendaires entre le moment où l'utilisateur entre dans le Canvas et celui où il reçoit l'étape avec le timing intelligent.
+Ajoutez plutôt une [étape de délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) d'au moins deux jours calendaires entre le moment où l'utilisateur entre dans le Canvas et celui où il reçoit l'étape avec le timing intelligent.
 
 #### Jours calendaires vs. jours de 24 heures {#calendar-vs-24-hour-days}
 
@@ -203,7 +203,7 @@ Si les utilisateurs ne reçoivent pas les messages comme prévu, vérifiez que l
 
 ### Envoi au-delà de la date planifiée {#sending-past-the-scheduled-date}
 
-Il se peut que votre campagne de timing intelligent soit envoyée après la date prévue si vous utilisez des [tests A/B avec une optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/). Les campagnes utilisant les optimisations de tests A/B peuvent envoyer automatiquement la variante gagnante une fois le test initial terminé, ce qui augmente la durée de la campagne. Par défaut, les campagnes avec optimisation enverront la variante gagnante aux utilisateurs restants le lendemain du test initial, mais vous pouvez modifier cette date d'envoi.
+Il se peut que votre campagne de timing intelligent soit envoyée après la date prévue si vous utilisez des [tests A/B avec une optimisation]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations). Les campagnes utilisant les optimisations de tests A/B peuvent envoyer automatiquement la variante gagnante une fois le test initial terminé, ce qui augmente la durée de la campagne. Par défaut, les campagnes avec optimisation enverront la variante gagnante aux utilisateurs restants le lendemain du test initial, mais vous pouvez modifier cette date d'envoi.
 
 Si vous utilisez le timing intelligent, nous vous recommandons de laisser plus de temps pour que le test A/B se termine et de planifier l'envoi de la variante gagnante 2 jours après le test initial au lieu d'un jour.
 
@@ -235,7 +235,7 @@ Pour calculer l'heure optimale, le timing intelligent :
 
 #### Les ouvertures de machines sont-elles prises en compte dans le calcul du moment optimal ? {#are-machine-opens-included-when-calculating-optimal-time}
 
-Non, les [ouvertures de machines]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens) sont exclues des calculs du moment optimal. Cela signifie que les heures d'envoi sont basées uniquement sur l'engagement réel des utilisateurs, offrant un timing plus précis pour vos campagnes.
+Non, les [ouvertures de machines]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) sont exclues des calculs du moment optimal. Cela signifie que les heures d'envoi sont basées uniquement sur l'engagement réel des utilisateurs, offrant un timing plus précis pour vos campagnes.
 
 #### Quelle est la précision du moment optimal ? {#how-precise-is-the-optimal-time}
 
@@ -303,3 +303,7 @@ Oui, les ouvertures de machines sont filtrées par le timing intelligent, de sor
 #### Comment puis-je m'assurer que le timing intelligent fonctionne le mieux possible ? {#how-can-i-make-sure-intelligent-timing-works-as-well-as-possible}
 
 Le timing intelligent utilise l'historique individuel d'engagement de chaque utilisateur avec les messages, quelle que soit l'heure à laquelle il les a reçus. Avant d'utiliser le timing intelligent, assurez-vous d'avoir envoyé aux utilisateurs des messages à différents moments de la journée. De cette manière, vous pouvez « échantillonner » le moment le plus propice pour chaque utilisateur. Un échantillonnage inadéquat des différents moments de la journée peut conduire le timing intelligent à choisir une heure d'envoi non optimale pour un utilisateur.
+
+#### Comment activer le timing intelligent sur une étape Canvas ? {#how-do-i-enable-intelligent-timing-on-a-canvas-step}
+
+Dans Canvas, ajoutez ou ouvrez une [étape Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step), allez dans **Delivery Settings** et sélectionnez **Using Intelligent Timing**. Conformément aux instructions de configuration de Canvas dans cet article, incluez une [étape de délai]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) d'au moins deux jours calendaires entre l'entrée dans le Canvas et cette étape de message, afin que le timing intelligent dispose d'un historique d'engagement suffisant pour son évaluation.

@@ -27,7 +27,7 @@ Este punto de conexión no garantiza la secuencia de actualización de los objet
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key/) con el permiso `users.alias.update`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/api_key) con el permiso `users.alias.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -50,8 +50,8 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | --------- | --------- | ----------- |
-| `alias_updates` | Obligatorio | Matriz de objetos de actualización de alias de usuario | Ver [objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/).<br><br> Para más información sobre `old_alias_name`, `new_alias_name` y `alias_label`, consulta [Alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `alias_updates` | Obligatorio | Matriz de objetos de actualización de alias de usuario | Ver [objeto alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Para más información sobre `old_alias_name`, `new_alias_name` y `alias_label`, consulta [Alias de usuario]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ### Cuerpo de la solicitud del punto de conexión con especificación de objeto de actualización de alias de usuario {#endpoint-request-body-with-update-user-alias-object-specification}
 

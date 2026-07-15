@@ -20,7 +20,7 @@ description: "この記事では、「ハードバウンスメールアドレス
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`email.hard_bounces` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`email.hard_bounces` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -35,7 +35,7 @@ description: "この記事では、「ハードバウンスメールアドレス
 | `limit` | オプション | 整数 | 返される結果の数を制限するオプションフィールドです。デフォルトは 100、最大は 500 です。 |
 | `offset` | オプション | 整数 | リスト内の取得開始位置を指定するオプションです。 |
 | `email` | オプション* | 文字列 | *`start_date` または `email` のいずれかが必須です。指定した場合、そのユーザーがハードバウンスしたかどうかを返します。メール文字列が正しくフォーマットされていることを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 {% alert important %}
 `end_date` と、`email` または `start_date` のいずれかを指定する必要があります。`start_date`、`end_date`、`email` の 3 つすべてを指定した場合、指定されたメールが優先され、日付範囲は無視されます。

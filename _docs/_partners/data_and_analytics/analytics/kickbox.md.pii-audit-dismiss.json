@@ -1,0 +1,5 @@
+{
+  "reason": "Kickbox API sample uses example2@exampl.com intentionally to demonstrate did_you_mean typo correction to example2@example.com.",
+  "dismiss_all": true,
+  "dismiss_ids": []
+}

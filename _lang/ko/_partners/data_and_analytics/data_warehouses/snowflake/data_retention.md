@@ -7,7 +7,7 @@ page_type: partner
 search_tag: Partner
 ---
 
-# Snowflake 데이터 보존
+# Snowflake 데이터 보존 {#snowflake-data-retention}
 
 > Braze는 Snowflake에 저장된 2년 이상 된 대부분의 이벤트 데이터에서 개인 식별 정보(PII)를 익명화(제거)합니다. 이 페이지 뒷부분에 설명된 대로 특정 이벤트는 사용자가 삭제될 때까지 유지됩니다. Snowflake 데이터 공유를 사용하는 경우, 보존 정책이 적용되기 전에 Snowflake 계정에 사본을 저장하여 환경에서 전체 이벤트 데이터를 보존할 수 있습니다.
 
@@ -17,11 +17,11 @@ search_tag: Partner
 - 스테이지로 데이터 언로드
 
 {% alert warning %}
-Braze는 [데이터 보호 기술 지원]({{site.baseurl}}/dp-technical-assistance/)에 설명된 대로 Braze에서 삭제된 사용자의 이벤트 데이터를 자동으로 익명화합니다. 공유 데이터베이스 외부로 복사된 데이터는 Braze가 더 이상 관리하지 않으므로 이 프로세스에 포함되지 않습니다.
+Braze는 [데이터 보호 기술 지원]({{site.baseurl}}/dp-technical-assistance)에 설명된 대로 Braze에서 삭제된 사용자의 이벤트 데이터를 자동으로 익명화합니다. 공유 데이터베이스 외부로 복사된 데이터는 Braze가 더 이상 관리하지 않으므로 이 프로세스에 포함되지 않습니다.
 {% endalert %}
 
-## 2년 보존 정책에서 면제되는 이벤트
-Braze는 사용자가 삭제될 때까지 사용자 라이프사이클, 구독 상태 및 인바운드 메시징과 관련된 이벤트를 보존합니다. 다음 이벤트는 표준 2년 보존 정책에서 제외됩니다:
+## 2년 보존 정책에서 면제되는 이벤트 {#events-exempted-from-the-two-year-retention-policy}
+Braze는 사용자가 삭제될 때까지 사용자 라이프사이클, 가입 상태 및 인바운드 메시징과 관련된 이벤트를 보존합니다. 다음 이벤트는 표준 2년 보존 정책에서 제외됩니다:
 - `users.UserOrphan`
 - `users.UserDeleteRequest`
 - `users.behaviors.subscription.GlobalStateChange`
@@ -29,7 +29,7 @@ Braze는 사용자가 삭제될 때까지 사용자 라이프사이클, 구독 �
 - `users.messages.sms.InboundReceive`
 - `users.messages.whatsapp.InboundReceive`
 
-## 다른 Snowflake 데이터베이스로 모든 데이터 복사
+## 다른 Snowflake 데이터베이스로 모든 데이터 복사 {#copying-all-data-to-another-snowflake-database}
 
 공유된 `BRAZE_RAW_EVENTS` 스키마에서 Snowflake의 다른 데이터베이스 및 스키마로 데이터를 복사하여 익명화되지 않은 데이터를 보존할 수 있습니다. 다음 단계를 따르세요:
 
@@ -57,16 +57,16 @@ from snowflake.snowpark.exceptions import SnowparkSQLException
 
 def run(session: snowpark.Session, SOURCE_DATABASE: str, SOURCE_SCHEMA: str, DESTINATION_DATABASE: str, DESTINATION_SCHEMA: str, MAX_DATE: str, TABLE_NAME_FILTER: str):
     result = []
-    
+
     -- Get the list of filtered table names
     table_query = f"""
-        SELECT table_name 
+        SELECT table_name
         FROM {SOURCE_DATABASE}.INFORMATION_SCHEMA.TABLES
         WHERE TABLE_SCHEMA = '{SOURCE_SCHEMA}' AND table_name LIKE '{TABLE_NAME_FILTER}'
     """
-    
+
     tables = session.sql(table_query).collect()
-    
+
     -- Iterate through each table and copy data
     for row in tables:
         table_name = row['TABLE_NAME']
@@ -86,16 +86,16 @@ def run(session: snowpark.Session, SOURCE_DATABASE: str, SOURCE_SCHEMA: str, DES
         if table_exists:
             -- Find the current, most recent `SF_CREATED_AT` in the existing table
             cur_max_date = None
-            
+
             date_query = f"""
                 SELECT MAX(SF_CREATED_AT) as CUR_MAX_DATE
                 FROM {DESTINATION_DATABASE}.{DESTINATION_SCHEMA}.{table_name}
             """
             date_result = session.sql(date_query).collect()
-            
+
             if date_result:
                 cur_max_date = date_result[0]['CUR_MAX_DATE']
-                
+
             if cur_max_date:
                 -- If the destination table is not empty, only add data that is newer than `cur_max_date` and older than`MAX_DATE`
                 copy_query = f"""
@@ -118,13 +118,13 @@ def run(session: snowpark.Session, SOURCE_DATABASE: str, SOURCE_SCHEMA: str, DES
                 SELECT * FROM {SOURCE_DATABASE}.{SOURCE_SCHEMA}.{table_name}
                 WHERE SF_CREATED_AT <= '{MAX_DATE}'
             """
-        
+
         try:
             session.sql(copy_query).collect()
             result.append([table_name, True, ""])
         except SnowparkSQLException as e:
             result.append([table_name, False, str(e)])
-    
+
     -- Return the results
     return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
 $$;
@@ -141,7 +141,7 @@ $$;
 
 {% raw %}
 ```sql
--- Copy all the rows that are two years or older in all the 'USERS_*' tables 
+-- Copy all the rows that are two years or older in all the 'USERS_*' tables
 -- from 'SOURCE_DB'.'SOURCE_SCHEMA' to 'DEST_DB'.'DEST_SCHEMA'
 
 CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA')
@@ -167,7 +167,7 @@ CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA', DA
 프로시저를 반복 실행하면 테이블에 이미 있는 최대 `SF_CREATED_AT` 값보다 큰 행만 백업하므로, 이미 백업한 행을 다시 복사하지 않습니다.
 {% endalert %}
 
-## 스테이지로 데이터 언로드
+## 스테이지로 데이터 언로드 {#unloading-data-to-stage}
 
 공유된 `BRAZE_RAW_EVENTS` 스키마에서 스테이지로 데이터를 언로드하여 익명화되지 않은 데이터를 보존할 수 있습니다. 다음 단계를 따르세요:
 
@@ -199,25 +199,25 @@ def run(session: snowpark.Session, DATABASE_NAME: str, SCHEMA_NAME: str, STAGE_N
     if MIN_DATE >= MAX_DATE:
         result.append(["MIN_DATE cannot be more recent than MAX_DATE", False, ""])
         return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
-        
+
     -- Get list of tables
     table_query = f"""
-    SELECT TABLE_NAME 
-    FROM {DATABASE_NAME}.INFORMATION_SCHEMA.TABLES 
+    SELECT TABLE_NAME
+    FROM {DATABASE_NAME}.INFORMATION_SCHEMA.TABLES
     WHERE TABLE_SCHEMA = '{SCHEMA_NAME}' AND TABLE_NAME LIKE '{TABLE_NAME_FILTER}'
     """
     tables = session.sql(table_query).collect()
-    
+
     for table in tables:
         table_name = table['TABLE_NAME']
 
 	 -- Skip archive tables
         if table_name.endswith('_ARCHIVED'):
             continue
-        
+
         -- Create CSV file name
         csv_file_name = f"{table_name}_{MIN_DATE}_{MAX_DATE}.csv"
-        
+
         -- Construct `COPY INTO` command with date filter
         copy_cmd = f"""
         COPY INTO @{STAGE_NAME}/{csv_file_name}
@@ -230,14 +230,14 @@ def run(session: snowpark.Session, DATABASE_NAME: str, SCHEMA_NAME: str, STAGE_N
         HEADER = TRUE
         OVERWRITE = FALSE
         """
-        
+
         -- Execute COPY INTO command
         try:
             session.sql(copy_cmd).collect()
             result.append([table_name, True, csv_file_name])
         except SnowparkSQLException as e:
             result.append([table_name, False, str(e)])
-    
+
     return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
 $$;
 ```
@@ -256,7 +256,7 @@ $$;
 -- Create a Snowflake stage to store the file
 create stage MY_EXPORT_STAGE;
 
--- Call the procedure 
+-- Call the procedure
 -- to unload date between '2020-01-01' and '2021-01-01'
 -- from tables with 'USERS_' prefix in 'DATABASE_NAME'.'SCHEMA'
 CALL UNLOAD_BRAZE_SHARE('DATABASE_NAME', 'SCHEMA', 'MY_EXPORT_STAGE', '2020-01-01', 2021-01-01');
@@ -279,7 +279,7 @@ create stage MY_EXPORT_STAGE;
 -- from tables with 'USERS_BEHAVIORS_' prefix in 'DATABASE_NAME'.'SCHEMA'
 CALL EXPORT_BRAZE_SHARE_TO_STAGE('DATABASE_NAME', 'SCHEMA', 'MY_EXPORT_STAGE', '2020-01-01', 2021-01-01', 'USERS_BEHAVIORS_%');
 
--- List the files that are unloaded 
+-- List the files that are unloaded
 LIST @MY_EXPORT_STAGE;
 ```
 {% endraw %}

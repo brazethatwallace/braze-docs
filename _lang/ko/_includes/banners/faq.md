@@ -1,6 +1,6 @@
 # 자주 묻는 질문 {#frequently-asked-questions}
 
-> Braze의 배너에 대해 자주 묻는 질문과 답변입니다. 더 일반적인 정보는 [배너 소개]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners{% endif %}/)를 참조하세요.
+> Braze의 배너에 대해 자주 묻는 질문과 답변입니다. 더 일반적인 정보는 [배너 소개]({% if include.section == "user" %}{{site.baseurl}}/user_guide/message_building_by_channel/banners{% elsif include.section == "developer" %}{{site.baseurl}}/developer_guide/banners{% endif %})를 참조하세요.
 
 ## 배너 업데이트는 사용자에게 언제 나타나나요? {#when-do-banner-updates-appear-for-users}
 
@@ -14,7 +14,7 @@
 
 ## 동시에 활성화할 수 있는 배너 Campaign은 몇 개인가요? {#how-many-banner-campaigns-can-be-active-simultaneously}
 
-각 워크스페이스는 최대 200개의 활성 배너 Campaign을 지원할 수 있습니다. 이 한도에 도달하면 새 Campaign을 만들기 전에 기존 Campaign을 [아카이브하거나 비활성화]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/about_statuses/#changing-the-status)해야 합니다.
+각 워크스페이스는 최대 200개의 활성 배너 Campaign을 지원할 수 있습니다. 이 한도에 도달하면 새 Campaign을 만들기 전에 기존 Campaign을 [아카이브하거나 비활성화]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/about_statuses#changing-the-status)해야 합니다.
 
 ## 배치를 공유하는 Campaign에서 어떤 배너가 먼저 표시되나요? {#for-campaigns-sharing-a-placement-which-banner-is-displayed-first}
 
@@ -22,15 +22,15 @@
 
 ## 기존 Content Cards 피드에서 배너를 사용할 수 있나요? {#can-i-use-banners-in-my-existing-content-card-feed}
 
-배너는 Content Cards와 다르므로, 같은 피드에서 배너와 Content Cards를 함께 사용할 수 없습니다. 기존 Content Cards 피드를 배너로 교체하려면 [앱이나 웹사이트에 배치를 생성]({{site.baseurl}}/developer_guide/banners/placements/)해야 합니다.
+배너는 Content Cards와 다르므로, 같은 피드에서 배너와 Content Cards를 함께 사용할 수 없습니다. 기존 Content Cards 피드를 배너로 교체하려면 [앱이나 웹사이트에 배치를 생성]({{site.baseurl}}/developer_guide/banners/placements)해야 합니다.
 
 ## 배너에 동영상을 포함할 수 있나요? {#can-banners-include-video}
 
-표준 배너 작성기는 이미지, 텍스트, 버튼을 지원합니다. 배너에 동영상을 포함하려면 **Custom Code** 블록을 사용하여 앱이나 웹사이트에서 동영상 또는 임베디드 플레이어를 렌더링할 수 있습니다.
+표준 배너 작성기는 이미지, 텍스트, 버튼을 지원합니다. 배너에 동영상을 포함하려면 작성기에서 **커스텀 코드** 블록을 사용하거나, HTML 편집기로 전체 배너를 작성하여 HTML에 동영상 플레이어를 직접 임베드할 수 있습니다.
 
 ## 사용자 동작에 따라 배너를 트리거할 수 있나요? {#can-i-trigger-a-banner-based-on-user-actions}
 
-배너는 [실행 기반 전달]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)을 지원하지 않지만, 세분화 및 우선순위를 사용하여 과거 동작에 따라 사용자를 타겟팅할 수 있습니다.
+배너는 [실행 기반 전달]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery)을 지원하지 않지만, 세분화 및 우선순위를 사용하여 과거 동작에 따라 사용자를 타겟팅할 수 있습니다.
 
 예를 들어, `purchase` 이벤트를 완료한 사용자에게만 특별한 배너를 표시하려면:
 1. **타겟팅:** Campaign에서 커스텀 이벤트 `purchase`를 최소 한 번 수행한 사용자 Segment를 타겟팅하세요.
@@ -41,21 +41,17 @@
 
 ## 사용자가 배너를 닫을 수 있나요? {#can-users-dismiss-a-banner}
 
-네. 배너 작성기에서 닫기 동작을 활성화하여 사용자가 배너를 수동으로 닫을 수 있도록 허용할 수 있습니다. 닫기 기능 활성화 및 닫기 버튼 커스터마이징에 대한 자세한 내용은 [닫기 동작 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#dismiss-behavior)을 참조하세요.
+네. 사용자가 배너를 수동으로 닫을 수 있도록 허용할 수 있습니다. 작성기와 HTML 편집기에서 닫기 동작을 구성하는 방법에 대한 자세한 내용은 [닫기 동작 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#dismiss-behavior)을 참조하세요.
 
 사용자는 닫기 동작이 활성화된 경우에만 배너를 수동으로 닫을 수 있습니다. 닫기 기능이 활성화되지 않은 경우, 사용자 Segment 자격을 관리하여 배너 표시 여부를 제어할 수 있습니다. 사용자가 배너 Campaign의 타겟팅 기준을 더 이상 충족하지 않으면, 다음 세션에서 해당 배너를 다시 보지 않게 됩니다.
 
-사용자가 배너를 닫으면 기본적으로 해당 Campaign에 대한 자격이 없어집니다. 닫은 사용자가 배너를 다시 볼 수 있도록 하려면 Campaign의 **전달 제어** 단계에서 [재자격 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#re-eligibility)을 설정하세요. Canvas 배너 단계는 재자격을 제어하기 위해 Canvas 재진입 설정을 대신 사용합니다.
-
-{% alert important %}
-[배너 닫기]({{site.baseurl}}/developer_guide/banners/placements/#log-dismissals)는 현재 얼리 액세스 중입니다. 얼리 액세스에 참여하고 싶으시면 고객 성공 매니저에게 문의하세요.
-{% endalert %}
+사용자가 배너를 닫으면 기본적으로 해당 Campaign에 대한 자격이 없어집니다. 닫은 사용자가 배너를 다시 볼 수 있도록 하려면 Campaign의 **전달 제어** 단계에서 [재자격 구성]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#re-eligibility)을 설정하세요. Canvas 배너 단계는 재자격을 제어하기 위해 Canvas 재진입 설정을 대신 사용합니다.
 
 예를 들어, 사용자가 구매할 때까지 프로모션 배너를 표시하는 경우, `purchase_completed`와 같은 이벤트를 기록하면 해당 사용자가 타겟팅된 Segment에서 제거되어 이후 세션에서 배너가 효과적으로 숨겨집니다.
 
 ## Braze API를 사용하여 배너 Campaign 분석을 내보낼 수 있나요? {#can-i-export-banners-campaign-analytics-using-the-braze-api}
 
-네. [`/campaigns/data_series` 엔드포인트]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics/)를 사용하여 배너 Campaign의 조회 수, 클릭 수, 전환 수에 대한 데이터를 가져올 수 있습니다.
+네. [`/campaigns/data_series` 엔드포인트]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics)를 사용하여 배너 Campaign의 조회 수, 클릭 수, 전환 수에 대한 데이터를 가져올 수 있습니다.
 
 ## 사용자는 언제 세그먼트화되나요? {#when-are-users-segmented}
 
@@ -67,14 +63,15 @@
 
 ## 모든 Liquid 태그가 지원되나요? {#are-all-liquid-tags-supported}
 
-아니요. 하지만 대부분의 Liquid 태그는 배너 메시지에서 지원됩니다. 단, [`:rerender` 태그]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/#using-liquid)를 사용하여 다시 렌더링되는 `catalog_items`는 예외입니다.
+아니요. 하지만 대부분의 Liquid 태그는 배너 메시지에서 지원됩니다. 단, [`:rerender` 태그]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs#using-liquid)를 사용하여 다시 렌더링되는 `catalog_items`는 예외입니다.
 
 ## 클릭 이벤트를 캡처할 수 있나요? {#can-i-capture-click-events}
 
 네. 클릭 이벤트가 캡처되는 방식은 배너가 렌더링되는 방법에 따라 다릅니다:
 
-- **표준 편집기 구성요소:** 배너가 표준 편집기 구성요소(이미지, 버튼, 텍스트)를 사용하는 경우, SDK의 삽입 메서드를 사용할 때 클릭이 자동으로 추적됩니다.
-- **커스텀 코드 블록:** 커스텀 코드 편집기 블록 내의 요소에 대한 클릭을 추적하려면, 커스텀 HTML 내에서 `brazeBridge.logClick()`을 호출해야 합니다. 이는 SDK 메서드를 사용하여 배너를 삽입하고 렌더링하는 경우에도 적용됩니다. 전체 참조는 [배너를 위한 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/message_building_by_channel/banners/custom_code/#javascript-bridge)를 참조하세요.
+- **작성기 — 표준 구성요소:** 배너가 표준 편집기 구성요소(이미지, 버튼, 텍스트)를 사용하는 경우, SDK의 삽입 메서드를 사용할 때 클릭이 자동으로 추적됩니다.
+- **작성기 — 커스텀 코드 블록:** 커스텀 코드 편집기 블록 내의 요소에 대한 클릭을 추적하려면, 커스텀 HTML 내에서 `brazeBridge.logClick()`을 호출해야 합니다. 이는 SDK 메서드를 사용하여 배너를 삽입하고 렌더링하는 경우에도 적용됩니다.
+- **HTML 편집기:** 클릭 추적은 자동으로 이루어지지 않습니다. 추적하려는 모든 클릭 가능한 요소에 대해 `brazeBridge.logClick()`을 호출해야 합니다. 전체 참조는 [배너를 위한 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge)를 참조하세요.
 - **커스텀 UI(헤드리스):** 배너 HTML을 렌더링하는 대신 배너의 커스텀 속성을 사용하여 완전히 커스텀 UI를 구축하는 경우, 애플리케이션 코드에서 배너 오브젝트의 `logClick()`을 호출하세요.
 
-자세한 내용은 [클릭 로깅]({{site.baseurl}}/developer_guide/banners/placements/#logging-clicks)을 참조하세요.
+자세한 내용은 [클릭 로깅]({{site.baseurl}}/developer_guide/banners/placements#logging-clicks)을 참조하세요.

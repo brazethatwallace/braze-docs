@@ -22,7 +22,7 @@ BrazeとDynamics 365 Customer Insightsの統合により、顧客セグメント
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Dynamics 365 Customer Insightsアカウント | このパートナーシップを活用するには、[Dynamics 365 Customer Insights](https://dynamics.microsoft.com/en-gb/ai/customer-insights/) アカウントが必要です。必要なプラグインにアクセスするためにDynamics 365 Customer Insightsアカウント内で接続を表示および編集するには、管理者としてのアクセスが必要です。 |
-| Braze REST APIキー | `users.track` と `users.export.segment` の権限を持つBraze REST APIキーが必要です。<br><br> これは、Brazeダッシュボードの**Settings** > **API Keys**で作成できます。 |
+| Braze REST APIキー | `users.track` と `users.export.segment` の権限を持つBraze REST APIキーが必要です。<br><br> これは、Brazeダッシュボードの**設定** > **API キー**で作成できます。 |
 | プロファイル識別子の一致 | エクスポートされたセグメントの統合済み顧客プロファイルには、メールアドレスを表すフィールドとBrazeの `external_id` が含まれます。 |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 

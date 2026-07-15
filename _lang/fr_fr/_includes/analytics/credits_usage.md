@@ -6,7 +6,7 @@ Le tableau de bord **Credits Usage** est divisé en deux sections :
 - [Aperçu de l'utilisation des crédits](#credits-usage-overview)
 - [Onglets par canal](#credits-features)
 
-Accédez au tableau de bord en allant dans **Settings** > **Billing** > **Credits Usage**.
+Accédez au tableau de bord en allant dans **Paramètres** > **Facturation** > **Credits Usage**.
 
 ## Aperçu de l'utilisation des crédits {#credits-usage-overview}
 
@@ -20,11 +20,10 @@ Si vous avez acheté WhatsApp mais que vous n'êtes pas sous un contrat de créd
 
 Les données d'aperçu de l'utilisation des crédits sont limitées à la période contractuelle, qui est affichée dans **Credits contract overview**. Vous ne pouvez pas filtrer sur une plage de dates en dehors de la **Credits period**.
 
-![Onglet d'aperçu de l'utilisation des crédits avec des panneaux pour l'utilisation des crédits et un aperçu du contrat de crédits.]({% image_buster /assets/img/app_settings/credits_usage_overview.png %})
 
 ### Utilisation des crédits sur la durée du contrat {#credits-usage-over-contract}
 
-Le graphique **Message credits usage over contract** affiche votre utilisation sur la période sélectionnée. La granularité de ce graphique dépend de la période choisie. Consultez les options d'exportation en sélectionnant le menu dans le coin supérieur droit du graphique.
+Le graphique **Message credits usage over contract** affiche votre utilisation sur la période sélectionnée. La granularité de ce graphique dépend de la période choisie. Consultez les options d'exportation en sélectionnant le menu dans le menu du graphique.
 
 ![Graphique de l'utilisation des crédits sur la durée du contrat.]({% image_buster /assets/img/app_settings/credit_usage_over_contract1.png %})
 
@@ -207,6 +206,8 @@ Utilisez **Export** pour télécharger les données du tableau.
 
 **Agent Console Credits Usage** affiche l'utilisation des crédits de la console des agents sur tous les comptes. Les tuiles montrent le total des crédits consommés et le total des invocations. Le tableau **Usage by account** inclut **Braze workspace**, **Agent name**, **Model owner**, **Total invocations**, **Credit ratio** et **Credits**. Lorsque des données sont disponibles, **Last updated** indique quand le tableau a été actualisé.
 
+Pour planifier les dépenses quotidiennes avant le lancement, comparez ces ratios avec la **limite quotidienne de crédits d'action** de chaque agent dans la console des agents (limite d'invocations quotidiennes × ratio de crédits). Consultez [Limites d'invocations et de crédits quotidiennes]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
+
 #### Filtres
 
 Vous pouvez filtrer vos données par :
@@ -275,7 +276,7 @@ Le tableau de bord **Credits Usage** exclut la date de fin de la plage sélectio
 
 Lorsque vous comparez les données d'utilisation des crédits Braze avec des fournisseurs tiers (tels qu'Infobip), gardez à l'esprit :
 
-- **Segments de message versus messages** : Braze compte les messages SMS par segments. Un seul message SMS divisé en plusieurs segments (par exemple, en raison de sa longueur) est compté comme plusieurs segments dans Braze. Pour en savoir plus, consultez [Calculateurs de facturation SMS et RCS]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments/).
+- **Segments de message versus messages** : Braze compte les messages SMS par segments. Un seul message SMS divisé en plusieurs segments (par exemple, en raison de sa longueur) est compté comme plusieurs segments dans Braze. Pour en savoir plus, consultez [Calculateurs de facturation SMS et RCS]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments).
 - **Messages basés sur les crédits versus messages hors crédits** : le tableau de bord inclut à la fois les messages basés sur les crédits et ceux qui ne le sont pas. Les fournisseurs tiers peuvent ne compter que les messages basés sur les crédits, ce qui peut entraîner des écarts dans les totaux.
 - **Entrant versus sortant** : assurez-vous de comparer les mêmes types de messages. Certains tableaux de bord tiers incluent à la fois les messages entrants et sortants dans leurs totaux, tandis que Braze vous permet de filtrer par direction.
 - **Alignement des plages de dates** : étant donné que le tableau de bord exclut la date de fin, les comparaisons jour par jour peuvent être plus précises que les comparaisons sur des plages de dates plus longues. Si vous comparez des données pour une période spécifique, étendez votre plage de dates Braze d'un jour pour inclure le dernier jour de votre période de comparaison.

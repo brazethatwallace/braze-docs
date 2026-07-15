@@ -17,13 +17,12 @@ tool:
 - [이전 작업 이어서 하기](#pick-up-where-you-left-off)
 - [성과 개요](#performance-overview)
 
-![Braze의 홈 대시보드.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## 이전 작업 이어서 하기 {#pick-up-where-you-left-off}
 
 Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 접근하여 이전 작업을 이어서 할 수 있습니다. 이 섹션은 Braze 대시보드 **홈** 페이지 상단에 표시됩니다.
 
-최근에 편집하거나 생성한 Campaigns, Canvases, Segments를 다시 확인할 수 있습니다. 각 카드에는 콘텐츠 유형(Campaign, Canvas, Segment)과 상태(활성, 초안, 아카이브됨, 중지됨)를 나타내는 태그가 함께 표시됩니다.
+최근에 편집하거나 생성한 Campaign(캠페인), Canvas, Segment를 다시 확인할 수 있습니다. 각 카드에는 콘텐츠 유형(Campaign, Canvas, Segment)과 상태(활성, 초안, 아카이브됨, 중지됨)를 나타내는 태그가 함께 표시됩니다.
 
 {% alert note %}
 **이전 작업 이어서 하기** 섹션은 Campaign, Canvas 또는 Segment를 편집하거나 생성한 후에 표시됩니다.
@@ -35,19 +34,15 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 
 기본적으로 **성과 개요** 섹션은 모든 앱과 사이트의 최근 30일 데이터를 표시합니다. 모든 측정기준은 선택한 날짜 범위를 기준으로 계산됩니다.
 
-![홈 대시보드의 날짜 범위 및 앱 필드.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 백분율은 현재 날짜 범위를 이전 날짜 범위와 비교하여 계산됩니다. 단, *월간 활성 사용자*(MAU)는 범위 대신 이전 기간의 마지막 날을 사용합니다.
 
 예를 들어, 날짜 범위를 **최근 7일**로 설정하고 *일일 활성 사용자*가 1.8% 증가를 보인다면, 이번 주에 지난 주보다 일일 활성 사용자가 1.8% 더 많았다는 의미입니다.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![일일 활성 사용자 측정기준 타일로, 평균 22.2천 명과 7.1% 증가 배지 및 추세선이 표시된 모습.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### 세부 내역 보기 {#show-breakdown}
 
 성과 개요 통계의 각 행에서 **Show Breakdown**을 선택하면 지정된 날짜 범위에 대한 각 통계의 일별 값을 확인할 수 있습니다.
-
-![세부 내역 확장]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
 ### 시간별 성과 {#performance-over-time}
 
@@ -89,12 +84,12 @@ Braze 대시보드에서 최근에 편집하거나 생성한 파일에 직접 �
 
 *사용자*는 해당 워크스페이스에서 생성된 총 사용자 수입니다. 여기에는 앱이나 웹사이트를 사용한 적이 있는 모든 사용자와 특정 앱이나 웹사이트와 연결되지 않은 사용자가 포함됩니다. 이 숫자는 전체 사용자 중 *월간 활성 사용자*(MAU)가 차지하는 비율로, 장기간에 걸친 사용자 유지율을 파악하는 데 유용합니다.
 
-MAU 대비 사용자 비율이 낮다면 메시징 채널을 다양화하거나 이탈 중인 사용자에게 다가가는 노력을 강화해야 할 수 있습니다. 자세한 내용은 [이탈 사용자 확보]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users)에 대한 빠른 가이드를 참조하세요. 일반적으로 MAU 대비 전체 사용자 비율은 고객이탈로 인해 시간이 지남에 따라 불가피하게 감소하지만, Braze 도구를 활용하면 사용자의 참여를 더 오래 유지하여 이 효과를 최소화할 수 있습니다.
+MAU 대비 사용자 비율이 낮다면 메시징 채널을 다양화하거나 휴면 사용자에게 다가가는 노력을 강화해야 할 수 있습니다. 자세한 내용은 [휴면 사용자 확보]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users)에 대한 빠른 가이드를 참조하세요. 일반적으로 MAU 대비 전체 사용자 비율은 고객이탈로 인해 시간이 지남에 따라 불가피하게 감소하지만, Braze 도구를 활용하면 사용자의 참여를 더 오래 유지하여 이 효과를 최소화할 수 있습니다.
 
 ### 전체 세션 {#lifetime-sessions}
 
 *전체 세션*은 Braze가 통합 이후 기록한 총 세션 수입니다. 세션은 사용자가 앱을 사용하거나 웹사이트를 방문할 때마다 기록됩니다. 플랫폼별 세션 정의에 대한 자세한 내용은 해당
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android), 또는 [웹]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web) 세션 추적 개발자 문서를 참조하세요.
+[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), 또는 [웹]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web) 세션 추적 개발자 문서를 참조하세요.
 
 ### 월간 활성 사용자 {#monthly-active-users}
 
@@ -110,15 +105,13 @@ MAU 계산은 정확하고 일관된 청구를 보장하기 위해 특정 규칙
 
 - **계산 시점**: 매일 UTC 12:05에 30일 스냅샷으로 한 번 계산되며, 수치는 소급하여 변경되지 않습니다.
 - **익명 프로필**: 최소 하나의 세션이 기록된 경우에**만** 집계됩니다.
-- **식별된 프로필**: 존재하는 즉시 자동으로 집계됩니다.
+- **식별된 프로필**: `date_of_last_session`이 30일 롤링 기간 내에 있는 경우에만 집계됩니다.
 - **고아 프로필**: 다른 사용자에게 병합된 중복 프로필은 집계되지 **않습니다**.
-- **CSV 업로드**: CSV로 업로드된 사용자는 `date_of_first_session` 또는 `date_of_last_session`이 제공되거나, 이후에 세션을 기록한 경우에만 집계됩니다.
+- **CSV 업로드 및 REST API 가져오기**: CSV 또는 REST API를 통해 업로드된 사용자는 `date_of_last_session`을 30일 롤링 기간 내로 제공하거나, 이후에 세션을 기록한 경우 MAU에 집계됩니다. `date_of_first_session`만 제공하는 것은 MAU에 영향을 미치지 않습니다.
 - **API 삭제**: API를 통해 사용자를 삭제해도 MAU가 즉시 업데이트되지 않으며, 다음 월간 주기에서 자동으로 보정됩니다.
 
 {% alert note %}
-익명 사용자도 MAU에 포함됩니다. 모바일 기기의 경우 익명 사용자는 기기에 따라 달라집니다. 웹 사용자의 경우 익명 사용자는 브라우저 캐시에 따라 달라집니다.
-
-Braze의 MAU 수치는 각 제품이 활성 사용자에 대해 서로 다른 정의를 사용하는 경우 Amplitude와 같은 도구와 차이가 날 수 있습니다. 데이터 파이프라인 문제로 조사하기 전에 Amplitude의 구성(및 위의 Braze MAU 규칙)을 비교해 보세요.
+익명 사용자도 MAU에 포함됩니다. 모바일 기기의 경우 익명 사용자는 기기에 따라 달라집니다. 웹 사용자의 경우 익명 사용자는 브라우저 캐시에 따라 달라집니다. <br><br> Braze의 MAU 수치는 각 제품이 활성 사용자에 대해 서로 다른 정의를 사용하는 경우 Amplitude와 같은 도구와 차이가 날 수 있습니다. 데이터 파이프라인 문제로 조사하기 전에 Amplitude의 구성(및 [MAU 계산 규칙](#mau-calculation-rules))을 비교해 보세요.
 {% endalert %}
 
 #### MAU 계산 예시 {#mau-calculation-example}
@@ -135,6 +128,10 @@ Braze의 MAU 수치는 각 제품이 활성 사용자에 대해 서로 다른 �
 
 MAU 스냅샷은 하루에 한 번 계산되며 소급하여 변경되지 않습니다. 이 예시에서 3단계 이후 날의 MAU 수는 사용자 2가 나중에 고아 프로필이 되더라도 영구적으로 2로 유지됩니다. 그러나 이후 날짜의 MAU 수는 고아가 아닌 사용자만 반영합니다. 30일 기간 내에서 이 흐름은 고유하고 고아가 아닌 사용자가 한 명만 남으므로 궁극적으로 1 MAU를 소비합니다.
 
+##### MAU 수 고려 사항 {#mau-count-considerations}
+
+Braze의 MAU 수는 확인하는 위치에 따라 달라집니다. 전체 MAU는 앱과 플랫폼에 관계없이 사용자 수준에서 계산되므로, 각 사용자는 한 번만 집계됩니다. 그러나 앱별 MAU 수를 확인할 때는 모든 앱의 MAU 합계가 전체 MAU를 초과할 수 있습니다. 워크스페이스 내에서 여러 앱을 사용하는 사용자는 각 앱의 개별 MAU 측정기준에 집계되기 때문입니다.
+
 ### 일일 활성 사용자 {#daily-active-users}
 
 *일일 활성 사용자*(DAU)는 특정 날에 앱이나 사이트에서 최소 한 번의 세션을 기록한 고유 사용자 수를 표시합니다. DAU는 앱이나 사이트 사용의 일별 변동성을 파악하고 메시징 캠페인을 최대한 효과적으로 조정하는 데 유용한 통계입니다. 예를 들어, 앱 사용량이 주말에 눈에 띄게 증가할 수 있으며, 이는 평일보다 주말에 인앱 메시지로 더 많은 사용자에게 도달할 수 있다는 것을 알려줍니다.
@@ -144,9 +141,7 @@ MAU 스냅샷은 하루에 한 번 계산되며 소급하여 변경되지 않습
 *신규 사용자*는 이전에 세션을 기록한 적이 없는 사용자 중 앱이나 사이트를 사용하기 시작한 사용자 수를 알려줍니다. 이 숫자는 지정된 기간 동안의 신규 사용자 합계입니다. 이 통계는 광고 활동의 효과를 추적하는 데 매우 유용할 수 있습니다.
 
 {% alert note %}
-Braze를 처음 통합하면 Braze가 이전에 세션을 기록한 적이 없으므로 모든 사용자가 신규 사용자로 표시됩니다.
-
-MAU와 달리, *신규 사용자* 수는 Braze가 익명 프로필을 식별된 프로필에 병합하고 익명 프로필을 고아 프로필로 처리할 때 소급하여 감소할 수 있습니다. Braze는 고아 프로필을 앱 사용 합계에서 제거하므로, 이미 확인한 날짜의 *신규 사용자* 수가 줄어들 수 있습니다. 프로필 연결 동작에 대한 자세한 내용은 [고객 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/)를 참조하세요.
+Braze를 처음 통합하면 Braze가 이전에 세션을 기록한 적이 없으므로 모든 사용자가 신규 사용자로 표시됩니다. <br><br> MAU와 달리, *신규 사용자* 수는 Braze가 익명 프로필을 식별된 프로필에 병합하고 익명 프로필을 고아 프로필로 처리할 때 소급하여 감소할 수 있습니다. Braze는 고아 프로필을 앱 사용 합계에서 제거하므로, 이미 확인한 날짜의 *신규 사용자* 수가 줄어들 수 있습니다. 프로필 연결 동작에 대한 자세한 내용은 [사용자 프로필 수명주기]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle)를 참조하세요.
 {% endalert %}
 
 {% alert important %}

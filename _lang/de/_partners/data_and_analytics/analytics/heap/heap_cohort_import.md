@@ -12,7 +12,7 @@ search_tag: Partner
 
 > [Heap](https://heap.io/), eine Plattform für digitale Insights, konzentriert sich auf die Chancen in Ihrem digitalen Erlebnis, die sich am stärksten auf Ihr Geschäft auswirken, indem sie Reibungsverluste beseitigt, Ihre Kund:innen begeistert und Ihren Umsatz beschleunigt.
 
-Die Integration von Braze und Heap ermöglicht Ihnen den [Import von Heap-Daten in Braze](#data-import-integration), die Erstellung von Nutzer:innen-Kohorten sowie den [Export von Braze-Daten in Heap]({{site.baseurl}}/partners/data_and_analytics/analytics/heap/), um Segmente zu erstellen.
+Die Integration von Braze und Heap ermöglicht Ihnen den [Import von Heap-Daten in Braze](#data-import-integration), die Erstellung von Nutzer:innen-Kohorten sowie den [Export von Braze-Daten in Heap]({{site.baseurl}}/partners/data_and_analytics/analytics/heap), um Segmente zu erstellen.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -20,8 +20,8 @@ Die Integration von Braze und Heap ermöglicht Ihnen den [Import von Heap-Daten 
 | ----------- | ----------- |
 | Heap-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein [Heap-Konto](https://heap.io/about). |
 | Braze-Datenimport-Schlüssel | Diesen finden Sie im Braze-Dashboard unter **Partnerintegrationen** > **Technologie-Partner**. Wählen Sie dort **Heap** aus. |
-| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
-| Braze-Currents | Um Daten von Braze nach Heap zu exportieren, müssen [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) in Ihrem Konto aktiviert sein. |
+| Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab. |
+| Braze-Currents | Um Daten von Braze nach Heap zu exportieren, müssen [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) in Ihrem Konto aktiviert sein. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Anwendungsfälle {#use-cases}
@@ -33,23 +33,23 @@ Die Integration von Braze und Heap ermöglicht Ihnen den [Import von Heap-Daten 
 
 Verwenden Sie die Heap-zu-Braze-Integration, um Kohorten, die in Heap definiert sind, automatisch mit Braze zu synchronisieren.
 
-### 1. Schritt: Braze-Datenimport-Schlüssel abrufen {#step-1-get-the-braze-data-import-key}
+### Schritt 1: Braze-Datenimport-Schlüssel abrufen {#step-1-get-the-braze-data-import-key}
 
 Navigieren Sie in Braze zu **Partnerintegrationen** > **Technologie-Partner** und wählen Sie dann **Heap** aus.
 
 Auf dieser Seite finden Sie Ihren Datenimport-Schlüssel und einen REST-Endpunkt. Notieren Sie sich diese beiden Werte und geben Sie sie an Ihren Heap Account Manager weiter, um die Einrichtung der Integration abzuschließen.
 
-![]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
+![Braze-Technologie-Partnerseite für Heap mit Datenimport-Schlüssel und Endpunkt.]({% image_buster /assets/img/heap/heap2.png %}){: style="max-width:90%;"}
 
-### 2. Schritt: Importierte Nutzer:innen in Braze segmentieren {#step-2-segment-imported-users-in-braze}
+### Schritt 2: Importierte Nutzer:innen in Braze segmentieren {#step-2-segment-imported-users-in-braze}
 
-Navigieren Sie in Braze zu **Segments**, benennen Sie Ihr Heap-Kohorten-Segment und wählen Sie **Heap Cohorts** als Filter. Von hier aus können Sie auswählen, welche Heap-Kohorte Sie einbeziehen möchten. Nachdem Ihr Heap-Kohorten-Segment erstellt wurde, können Sie es als Zielgruppen-Filter auswählen, wenn Sie eine Kampagne oder ein Canvas erstellen.
+Navigieren Sie in Braze zu **Segments**, benennen Sie Ihr Heap-Kohorten-Segment und wählen Sie **Heap Cohorts** als Filter. Von hier aus können Sie auswählen, welche Heap-Kohorte Sie einbeziehen möchten. Nachdem Ihr Heap-Kohorten-Segment erstellt wurde, können Sie es als Zielgruppenfilter auswählen, wenn Sie eine Campaign oder ein Canvas erstellen.
 
-![Im Braze-Segment-Builder ist der Nutzer:innen-Attribut-Filter „Heap cohort“ auf „includes“ und „Heap Test Cohort“ gesetzt.]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
+![Im Braze-Segment-Builder ist der Nutzerattribut-Filter „Heap cohort“ auf „includes“ und „Heap Test Cohort“ gesetzt.]({% image_buster /assets/img/heap/heap1.png %}){: style="max-width:90%;"}
 
 ### Verwendung dieser Integration {#using-this-integration}
 
-Um Ihr Heap-Segment zu verwenden, erstellen Sie eine Braze-Kampagne oder ein Canvas und wählen Sie das Segment als Ihre Zielgruppe aus.
+Um Ihr Heap-Segment zu verwenden, erstellen Sie eine Braze-Campaign oder ein Canvas und wählen Sie das Segment als Ihre Zielgruppe aus.
 
 ![Im Braze-Campaign-Builder ist im Targeting-Schritt der Filter „Zielgruppen nach Segment zusammenstellen“ auf „Heap cohort“ gesetzt.]({% image_buster /assets/img/heap/heap3.png %}){: style="max-width:90%;"}
 

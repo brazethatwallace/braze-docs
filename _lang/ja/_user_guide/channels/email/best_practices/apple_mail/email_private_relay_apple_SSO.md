@@ -47,7 +47,7 @@ SparkPostでApple Private Relayを設定するには、以下の手順に従い�
 
 1. ドメインが既にSparkPostで検証されている場合、MXレコードとTXTレコードを作成する**必要があります**。
 
-| インスタンス | MXレコード                   | TXTレコード                                    |
+| インスタンス | MXレコード | TXTレコード |
 |----------|-----------------------------|-----------------------------------------------|
 | US       | `smtp.sparkpostmail.com`    | `"v=spf1 redirect=_spf.sparkpostmail.com"`    |
 | EU       | `smtp.eu.sparkpostmail.com` | `"v=spf1 redirect=_spf.eu.sparkpostmail.com"` |
@@ -80,4 +80,4 @@ Apple Private Relayを設定するには、カスタムMAIL FROMドメインを�
 {% endtab %}
 {% endtabs %}
 
-その他のご質問がある場合は、[サポートチケット]({{site.baseurl}}/braze_support/)を作成してください。
+その他のご質問がある場合は、[サポートチケット]({{site.baseurl}}/braze_support)を作成してください。

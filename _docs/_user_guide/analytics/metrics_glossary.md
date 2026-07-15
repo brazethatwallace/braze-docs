@@ -146,7 +146,7 @@ In-App Message
 Feature Flags
 {% endapitags %}
 
-The performance of the message across various channels. The metrics shown depend on the selected messaging channel, and whether the [Feature Flag experiment]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments/#campaign-analytics) is a multivariate test.
+The performance of the message across various channels. The metrics shown depend on the selected messaging channel, and whether the [Feature Flag experiment]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/experiments#campaign-analytics) is a multivariate test.
 
 {% endapi %}
 
@@ -293,7 +293,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 
 |Channel|Additional information|
 |-------|-----------------------|
-|In-app messages|The metric of total daily <i>Unique Impressions</i> is used to calculate the <i>Conversion Rate</i> for in-app messages.<br><br><i>Unique Impressions</i> for in-app messages can only be counted once per calendar day in your workspace's time zone. The number of times a user completes a desired action (a "conversion") can increase within that same calendar day. While conversions can happen more than once per day, <i>Unique Impressions</i> cannot. Therefore, if a user completes a conversion multiple times within a day, the <i>Conversion Rate</i> can increase accordingly, but <i>Unique Impressions</i> are only counted once for that calendar day. For more details, refer to <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-app message reporting</a>.|
+|In-app messages|The metric of total daily <i>Unique Impressions</i> is used to calculate the <i>Conversion Rate</i> for in-app messages.<br><br><i>Unique Impressions</i> for in-app messages can only be counted once per calendar day in your workspace's time zone. The number of times a user completes a desired action (a "conversion") can increase within that same calendar day. While conversions can happen more than once per day, <i>Unique Impressions</i> cannot. Therefore, if a user completes a conversion multiple times within a day, the <i>Conversion Rate</i> can increase accordingly, but <i>Unique Impressions</i> are only counted once for that calendar day. For more details, refer to <a href="/docs/user_guide/channels/in_app_messages/reporting">In-app message reporting</a>.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conversion Rate" }
 
 {::nomarkdown}
@@ -357,7 +357,7 @@ SMS/MMS
 
 {% multi_lang_include analytics/metrics.md metric='Delivery Failures' %}
 
-Contact <a href="/docs/braze_support/">Braze Support</a> for assistance in understanding the reasons for delivery failures.
+Contact <a href="/docs/braze_support">Braze Support</a> for assistance in understanding the reasons for delivery failures.
 
 <span class="calculation-line">Calculation: (Sends) - (Sends to Carrier)</span>
 
@@ -373,7 +373,7 @@ RCS
 
 {% multi_lang_include analytics/metrics.md metric='Delivery Failures RCS' %}
 
-Contact <a href="/docs/braze_support/">Braze Support</a> for assistance in understanding the reasons for delivery failures.
+Contact <a href="/docs/braze_support">Braze Support</a> for assistance in understanding the reasons for delivery failures.
 
 <span class="calculation-line">Calculation: (Sends) - (Sends to Carrier)</span>
 
@@ -389,7 +389,7 @@ SMS/MMS
 
 {% multi_lang_include analytics/metrics.md metric='Failed Delivery Rate' %}
 
-Contact <a href="/docs/braze_support/">Braze Support</a> for assistance in understanding the reasons for delivery failures.
+Contact <a href="/docs/braze_support">Braze Support</a> for assistance in understanding the reasons for delivery failures.
 
 <span class="calculation-line">Calculation: (Delivery Failures) / (Sends)</span>
 
@@ -483,7 +483,7 @@ Email
 
 {% multi_lang_include analytics/metrics.md metric='Hard Bounce' %} 
 
-When this occurs, Braze marks the email address as invalid but does not update the user's [subscription status]({{site.baseurl}}/user_guide/channels/email/subscriptions/). If an email receives a hard bounce, Braze stops any future requests to this email address.
+When this occurs, Braze marks the email address as invalid but does not update the user's [subscription status]({{site.baseurl}}/user_guide/channels/email/subscriptions). If an email receives a hard bounce, Braze stops any future requests to this email address.
 
 {% endapi %}
 
@@ -768,7 +768,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 {% multi_lang_include analytics/metrics.md metric='Sends' %} This metric is provided by Braze. Note that upon launching a scheduled campaign, this metric will include all messages sent, regardless of whether they have been sent out yet due to rate limiting.
 
 {% alert tip %}
-For Content Cards, this metric is calculated differently depending on what you selected for [Card creation]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/):
+For Content Cards, this metric is calculated differently depending on what you selected for [Card creation]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation):
 
 - **At launch or step entry:** The number of cards created and available to be seen. This doesn't count whether the users viewed the card.
 - **At first impression:** The number of cards displayed to users.
@@ -789,7 +789,7 @@ Content Cards, Email, In-App Message, Web Push, iOS Push, Android Push, Webhook,
 {% multi_lang_include analytics/metrics.md metric='Messages Sent' %}  This metric is provided by Braze. Note that upon launching a scheduled campaign, this metric will include all messages sent, regardless of whether they have been sent out yet due to rate limiting.
 
 {% alert tip %}
-For Content Cards, this metric is calculated differently depending on what you selected for [Card creation]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/):
+For Content Cards, this metric is calculated differently depending on what you selected for [Card creation]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation):
 
 - **At launch or step entry:** The number of cards created and available to be seen. This doesn't count whether the users viewed the card.
 - **At first impression:** The number of cards displayed to users.
@@ -833,7 +833,7 @@ Email
 
 Note that _Soft Bounces_ differ from _Deferrals_. If no email is successfully delivered during this retry period, Braze sends one soft bounce event per attempted campaign send. Before February 25, 2025, these retries were counted as multiple soft bounces for one campaign send.
 
-While soft bounces aren’t tracked in your campaign analytics, you can monitor the soft bounces in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/). You can also exclude these users from your sending or look back at the amount of soft bounces from the last 30 days with the [Soft Bounced segment filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). In the Message Activity Log, you can also see the reason for the soft bounces and understand possible discrepancies between the “sends” and “deliveries” for your email campaigns.
+While soft bounces aren’t tracked in your campaign analytics, you can monitor the soft bounces in the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log). You can also exclude these users from your sending or look back at the amount of soft bounces from the last 30 days with the [Soft Bounced segment filter]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#soft-bounced). In the Message Activity Log, you can also see the reason for the soft bounces and understand possible discrepancies between the “sends” and “deliveries” for your email campaigns.
 
 {% endapi %}
 
@@ -921,10 +921,10 @@ Email, Content Cards, SMS/MMS, LINE
 ## Total Dismissals
 
 {% apitags %}
-Content Cards
+Content Cards, Banners
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} If a user receives two different cards from the same campaign and dismisses both, this count will increase by two. Re-eligibility allows you to increment _Total Dismissals_ once every time a user receives a card; each card is a different message.
+{% multi_lang_include analytics/metrics.md metric='Total Dismissals' %} For Content Cards, if a user receives two different cards from the same campaign and dismisses both, this count increases by two. Re-eligibility allows you to increment _Total Dismissals_ once every time a user receives a card; each card is a different message. For Banners, this counts each dismissal when dismissal behavior is enabled.
 
 {::nomarkdown}
 <span class="calculation-line">
@@ -951,7 +951,7 @@ In-App Message, Content Cards
 |Channel|Additional information|
 |-------|-----------------------|
 |Content Cards|The total count of impressions logged for a given Content Card. This can increment multiple times for the same user.|
-|In-app messages|If there are multiple devices and re-eligibility is off, the user should only see the in-app message once. Even if the user uses multiple devices, they will only see it on the first device that is targeted. This assumes that the profile has consolidated devices and a user has one user ID that they are logged into across devices. If re-eligibility is on, an impression is logged for every time that user sees the in-app message. For more details, refer to <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-app message reporting</a>.|
+|In-app messages|If there are multiple devices and re-eligibility is off, the user should only see the in-app message once. Even if the user uses multiple devices, they will only see it on the first device that is targeted. This assumes that the profile has consolidated devices and a user has one user ID that they are logged into across devices. If re-eligibility is on, an impression is logged for every time that user sees the in-app message. For more details, refer to <a href="/docs/user_guide/channels/in_app_messages/reporting">In-app message reporting</a>.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Total Impressions" }
 
 <span class="calculation-line">Calculation: Count</span>
@@ -1075,7 +1075,7 @@ In-App Message, Content Cards
 
 |Channel|Additional information|
 |-------|-----------------------|
-|In-app messages|Unique impressions can be incremented again on a new calendar day in your workspace's time zone if re-eligibility is on and a user performs the trigger action. If re-eligibility is on, <i>Unique Impressions</i> = <i>Unique Recipients</i>. For more details, refer to <a href="/docs/user_guide/channels/in_app_messages/reporting/">In-app message reporting</a>.|
+|In-app messages|Unique impressions can be incremented again on a new calendar day in your workspace's time zone if re-eligibility is on and a user performs the trigger action. If re-eligibility is on, <i>Unique Impressions</i> = <i>Unique Recipients</i>. For more details, refer to <a href="/docs/user_guide/channels/in_app_messages/reporting">In-app message reporting</a>.|
 |Content Cards|The count should not increment the second time a user views a card.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Unique Impressions" }
 
@@ -1091,7 +1091,7 @@ In-App Message, Content Cards
 Email, LINE
 {% endapitags %}
 
-{% multi_lang_include analytics/metrics.md metric='Unique Opens' %}
+{% multi_lang_include analytics/metrics.md metric='Unique Opens' %} When evaluating a specific time period, <i>Unique Opens</i> may appear higher than <i>Sends</i> for that same period. This can occur because users may still log open events for messages that were sent outside of that time period. For the entire campaign duration, <i>Unique Opens</i> is always lower than the total <i>Sends</i>.
 
 |Channel|Additional information|
 |-------|-----------------------|
@@ -1121,7 +1121,7 @@ Email, In-App Message, Web Push, iOS Push, Android Push, Webhook, SMS/MMS, RCS, 
 
 {% multi_lang_include analytics/metrics.md metric='Unique Recipients' %}
 
-Because a viewer can be a unique recipient every day, you should expect this to be higher than <i>Unique Impressions</i>. This number is received from Braze and is based on the `user_id`. Unique recipients are counted at the campaign or Canvas step level, not the <a href='https://braze.com/docs/api/identifier_types/#send-identifier'>send identifier</a> level.
+Because a viewer can be a unique recipient every day, you should expect this to be higher than <i>Unique Impressions</i>. This number is received from Braze and is based on the `user_id`. Unique recipients are counted at the campaign or Canvas step level, not the <a href='{{ site.homeurl }}{{ site.baseurl }}/api/identifier_types/#send-identifier'>send identifier</a> level.
 
 <span class="calculation-line">Calculation: Count</span>
 

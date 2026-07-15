@@ -4,6 +4,7 @@ article_title: KakaoTalk
 alias: /kakaotalk/
 layout: dev_guide
 page_order: 4
+noindex: true
 guide_top_header: "KakaoTalk"
 guide_top_text: <a href="https://www.kakaocorp.com/page/service/service/KakaoTalk?lang=en">KakaoTalk</a> is a messaging channel that enables broadcast messaging and 1:1 chat with users. Refer to the articles on this page to learn about all things KakaoTalk, including an overview of KakaoTalk message types, setting up the KakaoTalk integration, creating KakaoTalk messages, and understanding KakaoTalk metrics in the Braze dashboard.
 channel:
@@ -13,15 +14,15 @@ description: "This landing page is home to all things KakaoTalk including an ove
 guide_featured_title: "Articles"
 guide_featured_list:
 - name: Set up KakaoTalk
-  link: /docs/kakaotalk_setup/
+  link: /docs/kakaotalk_setup
   image: /assets/img/braze_icons/settings-01.svg
 - name: Create a KakaoTalk message
-  link: /docs/create_kakaotalk_message/
+  link: /docs/create_kakaotalk_message
   image: /assets/img/braze_icons/message-chat-square.svg
 - name: KakaoTalk click tracking
-  link: /docs/kakaotalk_click_tracking/
+  link: /docs/kakaotalk_click_tracking
   image: /assets/img/braze_icons/cursor-click-02.svg
 - name: KakaoTalk reporting
-  link: /docs/kakaotalk_reporting/
+  link: /docs/kakaotalk_reporting
   image: /assets/img/braze_icons/line-chart-up-01.svg
 ---

@@ -13,14 +13,14 @@ page_order: 1
 
 Quando você [conecta seu domínio à Braze](#connect-your-domain-to-braze), ele será usado como o domínio padrão para todas as landing pages. Por exemplo, se você conectar o subdomínio `forms.example.com`, as URLs das suas landing pages passarão a ser `forms.example.com/holiday-sale`.
 
-O número de domínios personalizados que você pode conectar à sua conta da Braze depende do seu [plano contratado]({{site.baseurl}}/user_guide/messaging/landing_pages/#plan-tiers). Para aumentar seu limite, entre em contato com o gerente da sua conta na Braze.
+O número de domínios personalizados que você pode conectar à sua conta da Braze depende do seu [plano contratado]({{site.baseurl}}/user_guide/messaging/landing_pages#plan-tiers). Para aumentar seu limite, entre em contato com o gerente da sua conta na Braze.
 
 ## Conectar seu domínio à Braze {#connect-your-domain-to-braze}
 
 Para conectar um domínio à sua conta da Braze, peça a um administrador que siga as etapas abaixo.
 
-1. Acesse **Settings** > **Landing Page Settings**.
-2. Insira o domínio que deseja conectar e selecione **Submit**. Por exemplo, `forms.example.com`.
+1. Acesse **Configurações** > **Configurações da landing page**.
+2. Insira o domínio que deseja conectar e selecione **Enviar**. Por exemplo, `forms.example.com`.
 3. Copie e cole os registros **TXT** e **CNAME** nas configurações de DNS do seu provedor de domínio.
 4. Volte ao dashboard da Braze para verificar a conexão.
 
@@ -38,8 +38,8 @@ A Braze usa o Cloudflare para provisionar automaticamente certificados SSL para 
 
 Se você é administrador na Braze, pode remover um domínio configurado anteriormente seguindo estas etapas:
 
-1. Acesse **Settings** > **Landing Page Settings**.
-2. Selecione **Remove Custom Domain**.
+1. Acesse **Configurações** > **Configurações da landing page**.
+2. Selecione **Remover domínio personalizado**.
 3. Confirme a remoção do domínio.
 4. Remova os registros DNS listados das configurações do seu domínio.
 
@@ -57,7 +57,7 @@ Para migrar um domínio personalizado para outro espaço de trabalho:
 
 ## Recursos de DNS {#dns-resources}
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 ## Solução de problemas {#troubleshooting}
 

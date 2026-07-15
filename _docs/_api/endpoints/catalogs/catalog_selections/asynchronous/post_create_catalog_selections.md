@@ -19,7 +19,7 @@ description: "This article outlines details about the Create catalog selection B
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `catalogs.create_selection` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `catalogs.create_selection` permission.
 
 ## Rate limit
 
@@ -36,7 +36,7 @@ To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-
 
 | Parameter   | Required | Data Type | Description                                                                                                                                                        |
 | ----------- | -------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `selection` | Required | Object    | An object that contains selection criteria. See [catalog selection object]({{site.baseurl}}/api/objects_filters/catalog_selection_object/) for a full breakdown of the object and its fields. |
+| `selection` | Required | Object    | An object that contains selection criteria. See [catalog selection object]({{site.baseurl}}/api/objects_filters/catalog_selection_object) for a full breakdown of the object and its fields. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 ### Selection object parameters

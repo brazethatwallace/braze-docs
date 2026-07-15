@@ -63,7 +63,7 @@ In the following example, the feature flag shows an out-of-stock banner for an e
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2a: Create custom properties" }
 
 {% alert tip %}
-There is no limit to the number of properties you can add. However, a feature flag's properties are limited to a total of 10 KB. Both property values and keys are limited to 255 characters in length.
+There is no limit to the number of properties you can add. However, a feature flag's properties are limited to a total of 10,000 characters.
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -79,7 +79,7 @@ Before rolling out a feature flag, you need to choose a [segment]({{site.baseurl
 By default, feature flags are always inactive, which allows you to separate your feature release's date from your total user activation. To begin your rollout, use the **Rollout Traffic** section to enter a percentage in the text box. This will choose the percentage of random users in your selected segment to receive this new feature.
 
 {% alert important %}
-Do not set your rollout traffic above 0% until you are ready for your new feature to go live. When you initially define your feature flag in the dashboard, leave this setting at 0%.
+Do not set your rollout traffic greater than 0% until you are ready for your new feature to go live. When you initially define your feature flag in the dashboard, leave this setting at 0%.
 {% endalert %}
 
 {% alert important %}

@@ -18,8 +18,8 @@ Braze berechnet den optimalen Versandzeitpunkt auf Grundlage einer statistischen
 - Push-Direktöffnungen
 - Push-beeinflusste Öffnungen
 - E-Mail-Klicks
-- E-Mail-Öffnungen (ohne [maschinelle Öffnungen]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens))
-- SMS-Klicks (nur wenn [Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) und erweitertes Tracking aktiviert sind)
+- E-Mail-Öffnungen (ohne [maschinelle Öffnungen]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens))
+- SMS-Klicks (nur wenn [Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) und erweitertes Tracking aktiviert sind)
 
 So öffnet Sam vielleicht morgens regelmäßig Ihre E-Mails, aber abends öffnet sie Ihre App und interagiert mit Benachrichtigungen. Das bedeutet, dass Sam eine E-Mail-Kampagne mit intelligentem Timing am Morgen erhält, während sie Kampagnen mit Push-Benachrichtigungen am Abend erhält, wenn die Wahrscheinlichkeit größer ist, dass sie sich engagiert.
 
@@ -59,13 +59,13 @@ Ruhezeiten haben die Einstellung **Only send within specific hours** ersetzt. An
 1. Wählen Sie **Enable Quiet Hours**.
 2. Wählen Sie die Start- und Endzeit, zu der **keine** Nachrichten gesendet werden sollen.
 
-![Die Funktion „Ruhezeiten“ wurde aktiviert, wobei Start- und Endzeit so eingestellt sind, dass die Zustellung von Nachrichten während der Nachtstunden blockiert wird.]({% image_buster /assets/img/intelligent_timing/quiet_hours.png %})
+![Die Funktion „Ruhezeiten“ wurde aktiviert, wobei Start- und Endzeit so eingestellt sind, dass die Zustellung von Nachrichten während der Nachtstunden blockiert wird]({% image_buster /assets/img/intelligent_timing/quiet_hours.png %})
 
 Wenn die Ruhezeiten aktiviert sind, sendet Braze während der Ruhezeit keine Nachrichten – selbst wenn diese Zeit mit der optimalen Sendezeit einer Nutzerin oder eines Nutzers übereinstimmt. Wenn die optimale Zeit in das Ruhezeitfenster fällt, wird die Nachricht stattdessen am nächstgelegenen Rand des Fensters gesendet.
 
 Wenn zum Beispiel die Ruhezeiten von 22:00 Uhr bis 6:00 Uhr eingestellt sind und die optimale Zeit für eine:n Nutzer:in 5:30 Uhr ist, hält Braze die Nachricht zurück und stellt sie um 6:00 Uhr zu – die nächstgelegene Zeit außerhalb des Ruhezeitfensters.
 
-Weitere Informationen finden Sie unter [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
+Weitere Informationen finden Sie unter [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
 #### Vorschau der Zustellungszeiten {#preview-delivery-times}
 
@@ -101,7 +101,7 @@ Weitere Informationen finden Sie unter [FAQ: Intelligentes Timing](#when-does-br
 
 #### Gewinnervariante 2 Tage nach dem A/B-Test planen {#schedule-winning-variants-2-days-after-ab-test}
 
-Wenn Sie [A/B-Tests mit einer Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) nutzen, z. B. die automatische Versendung der **Gewinnervariante** oder die Verwendung einer **personalisierten Variante**, kann intelligentes Timing die Dauer und das Timing Ihrer Kampagne beeinflussen.
+Wenn Sie [A/B-Tests mit einer Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) nutzen, z. B. die automatische Versendung der **Gewinnervariante** oder die Verwendung einer **personalisierten Variante**, kann intelligentes Timing die Dauer und das Timing Ihrer Kampagne beeinflussen.
 
 Wenn Sie intelligentes Timing verwenden, empfehlen wir, den Versand der Gewinnervariante mindestens **2 Tage nach** Beginn des A/B-Tests zu planen. Wenn Ihr A/B-Test beispielsweise am 16. April um 16:00 Uhr beginnt, planen Sie den Versand der Gewinnervariante frühestens für den 18. April um 16:00 Uhr. So hat Braze genügend Zeit, das Verhalten der Nutzer:innen zu bewerten und Nachrichten zum optimalen Zeitpunkt zu versenden.
 
@@ -147,9 +147,9 @@ Das Chart zeigt in Blau die Nutzer:innen, für die relevante Ereignisse zur Bere
 
 ### 1. Schritt: Intelligentes Timing hinzufügen
 
-Fügen Sie in Ihrem Canvas einen [Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/) hinzu, gehen Sie dann zu **Delivery Settings** und wählen Sie **Using Intelligent Timing**.
+Fügen Sie in Ihrem Canvas einen [Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) hinzu, gehen Sie dann zu **Delivery Settings** und wählen Sie **Using Intelligent Timing**.
 
-Nachrichten werden an Nutzer:innen gesendet, die den Schritt an diesem Tag betreten haben, zu ihrer optimalen Ortszeit. Wenn ihre optimale Zeit an diesem Tag jedoch bereits verstrichen ist, wird die Nachricht stattdessen am folgenden Tag zu dieser Zeit zugestellt. Nachrichten-Schritte, die auf mehrere Kanäle abzielen, können Nachrichten zu verschiedenen Zeiten für verschiedene Kanäle senden oder versuchen zu senden. Wenn die erste Nachricht in einem Nachrichten-Schritt versucht zu senden, werden alle Nutzer:innen automatisch vorangebracht.
+Nachrichten werden an Nutzer:innen gesendet, die den Schritt an diesem Tag betreten haben, zu ihrer optimalen Ortszeit. Wenn ihre optimale Zeit an diesem Tag jedoch bereits verstrichen ist, wird die Nachricht stattdessen am folgenden Tag zur optimalen Zeit zugestellt. Nachrichten-Schritte, die auf mehrere Kanäle abzielen, können Nachrichten zu verschiedenen Zeiten für verschiedene Kanäle senden oder versuchen zu senden. Wenn die erste Nachricht in einem Nachrichten-Schritt versucht zu senden, werden alle Nutzer:innen automatisch vorangebracht.
 
 ### 2. Schritt: Fallback-Zeit wählen {#step-2-choose-a-fallback-time}
 
@@ -159,7 +159,7 @@ Wählen Sie eine Fallback-Zeit für die Nachricht, die an Nutzer:innen in Ihrer 
 
 Anders als bei Campaigns müssen Sie Ihr Canvas nicht 48 Stunden vor dem Versanddatum starten, da intelligentes Timing auf der Schritt-Ebene und nicht auf der Canvas-Ebene eingestellt wird.
 
-Fügen Sie stattdessen einen [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/) von mindestens zwei Kalendertagen zwischen dem Eintritt der Nutzerin oder des Nutzers in das Canvas und dem Erhalt des Schritts mit intelligentem Timing ein.
+Fügen Sie stattdessen einen [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) von mindestens zwei Kalendertagen zwischen dem Eintritt der Nutzerin oder des Nutzers in das Canvas und dem Erhalt des Schritts mit intelligentem Timing ein.
 
 #### Kalendertage vs. 24-Stunden-Tage {#calendar-vs-24-hour-days}
 
@@ -203,7 +203,7 @@ Sollten Nutzer:innen Nachrichten nicht wie erwartet erhalten, überprüfen Sie, 
 
 ### Versand nach dem geplanten Datum {#sending-past-the-scheduled-date}
 
-Ihre Kampagne mit intelligentem Timing sendet möglicherweise über das geplante Datum hinaus, wenn Sie [A/B-Tests mit einer Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations/) nutzen. Campaigns, die A/B-Testing-Optimierungen verwenden, können automatisch die Gewinnervariante senden, nachdem der erste Test abgeschlossen ist, wodurch sich die Dauer der Kampagne verlängert. Standardmäßig wird bei Campaigns mit einer Optimierung die Gewinnervariante am Tag nach dem ersten Test an die verbleibenden Nutzer:innen gesendet, aber Sie können dieses Sendedatum ändern.
+Ihre Kampagne mit intelligentem Timing sendet möglicherweise über das geplante Datum hinaus, wenn Sie [A/B-Tests mit einer Optimierung]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) nutzen. Campaigns, die A/B-Testing-Optimierungen verwenden, können automatisch die Gewinnervariante senden, nachdem der erste Test abgeschlossen ist, wodurch sich die Dauer der Kampagne verlängert. Standardmäßig wird bei Campaigns mit einer Optimierung die Gewinnervariante am Tag nach dem ersten Test an die verbleibenden Nutzer:innen gesendet, aber Sie können dieses Sendedatum ändern.
 
 Wenn Sie intelligentes Timing verwenden, empfehlen wir, mehr Zeit für den Abschluss des A/B-Tests einzuplanen und den Versand der Gewinnervariante für 2 Tage nach dem ersten Test zu planen, anstatt für 1 Tag.
 
@@ -213,7 +213,7 @@ Wenn Sie intelligentes Timing verwenden, empfehlen wir, mehr Zeit für den Absch
 
 #### Was sagt intelligentes Timing voraus? {#what-does-intelligent-timing-predict}
 
-Intelligentes Timing konzentriert sich auf die Vorhersage, wann eine:n Nutzer:in Ihre Nachrichten am ehesten öffnet oder anklickt, um sicherzustellen, dass Ihre Nachrichten die Nutzer:innen zu optimalen Engagement-Zeiten erreichen.
+Intelligentes Timing konzentriert sich auf die Vorhersage, wann eine:r Nutzer:in Ihre Nachrichten am ehesten öffnet oder anklickt, um sicherzustellen, dass Ihre Nachrichten die Nutzer:innen zu optimalen Engagement-Zeiten erreichen.
 
 #### Wird intelligentes Timing für jeden Wochentag separat berechnet? {#is-intelligent-timing-calculated-separately-for-each-day-of-the-week}
 
@@ -235,7 +235,7 @@ Um die optimale Zeit zu berechnen, geht intelligentes Timing wie folgt vor:
 
 #### Werden maschinelle Öffnungen bei der Berechnung der optimalen Zeit berücksichtigt? {#are-machine-opens-included-when-calculating-optimal-time}
 
-Nein, [maschinelle Öffnungen]({{site.baseurl}}/user_guide/analytics/metrics_glossary/#machine-opens) sind von den Berechnungen für die optimale Zeit ausgeschlossen. Das bedeutet, dass die Sendezeiten ausschließlich auf echtem Nutzer-Engagement basieren, was eine genauere Zeitplanung für Ihre Campaigns ermöglicht.
+Nein, [maschinelle Öffnungen]({{site.baseurl}}/user_guide/analytics/metrics_glossary#machine-opens) sind von den Berechnungen für die optimale Zeit ausgeschlossen. Das bedeutet, dass die Sendezeiten ausschließlich auf echtem Nutzer-Engagement basieren, was eine genauere Zeitplanung für Ihre Campaigns ermöglicht.
 
 #### Wie genau ist die optimale Zeit? {#how-precise-is-the-optimal-time}
 
@@ -303,3 +303,7 @@ Ja, maschinelle Öffnungen werden von intelligentem Timing herausgefiltert, soda
 #### Wie kann ich sicherstellen, dass intelligentes Timing so gut wie möglich funktioniert? {#how-can-i-make-sure-intelligent-timing-works-as-well-as-possible}
 
 Intelligentes Timing verwendet den individuellen Verlauf des Nachrichtenengagements jeder Nutzerin und jedes Nutzers, unabhängig davon, zu welchen Zeiten die Nachrichten empfangen wurden. Bevor Sie intelligentes Timing verwenden, stellen Sie sicher, dass Sie den Nutzer:innen Nachrichten zu verschiedenen Tageszeiten geschickt haben. Auf diese Weise können Sie „ausprobieren“, wann der beste Zeitpunkt für die einzelnen Nutzer:innen ist. Eine unzureichende Abdeckung verschiedener Tageszeiten kann dazu führen, dass intelligentes Timing eine suboptimale Sendezeit für eine:n Nutzer:in auswählt.
+
+#### Wie aktiviere ich intelligentes Timing in einem Canvas-Schritt? {#how-do-i-enable-intelligent-timing-on-a-canvas-step}
+
+Fügen Sie in Canvas einen [Nachrichten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) hinzu oder öffnen Sie einen vorhandenen, gehen Sie zu **Delivery Settings** und wählen Sie **Using Intelligent Timing**. Gemäß der Canvas-Einrichtungsanleitung in diesem Artikel fügen Sie einen [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step) von mindestens zwei Kalendertagen zwischen dem Canvas-Eintritt und diesem Nachrichten-Schritt ein, damit intelligentes Timing über ausreichend Engagement-Verlauf zur Auswertung verfügt.

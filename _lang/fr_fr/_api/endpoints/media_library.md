@@ -14,10 +14,10 @@ guide_top_text: "Utilisez les endpoints de la bibliothèque multimédia de Braze
 guide_featured_title: "Gérer les ressources"
 guide_featured_list:
   - name: "POST : Télécharger une nouvelle ressource par URL"
-    link: /docs/api/endpoints/media_library/manage_assets/create/
+    link: /docs/api/endpoints/media_library/manage_assets/create
     image: /assets/img/braze_icons/message-plus-square.svg
   - name: "PUT : Remplacer une ressource dans la bibliothèque multimédia"
-    link: /docs/api/endpoints/media_library/manage_assets/replace_file/
+    link: /docs/api/endpoints/media_library/manage_assets/replace_file
     image: /assets/img/braze_icons/pencil-01.svg
 
 ---

@@ -15,11 +15,11 @@ description: "Este artículo de referencia repasa el objeto evento, qué es y c�
 
 Un objeto de evento es un objeto que se pasa a través de la API cuando se produce un evento específico. Los objetos de eventos se alojan en una matriz de eventos. Cada objeto evento de la matriz de eventos representa una única ocurrencia de un evento personalizado por un usuario concreto en el valor de tiempo designado. El objeto evento tiene muchos campos diferentes que te permiten personalizar mediante la configuración y el uso de propiedades del evento en los mensajes, la recopilación de datos y la personalización.
 
-Para obtener información sobre cómo configurar eventos personalizados para una plataforma específica, consulta la guía de integración de plataformas en la [Guía para desarrolladores]({{site.baseurl}}/developer_guide/home/). Consulta el artículo correspondiente según tu plataforma:
+Para obtener información sobre cómo configurar eventos personalizados para una plataforma específica, consulta la guía de integración de plataformas en la [Guía para desarrolladores]({{site.baseurl}}/developer_guide/home). Consulta el artículo correspondiente según tu plataforma:
 
-- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
-- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+- [Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)
 
 ### Cuerpo del objeto {#object-body}
 
@@ -42,12 +42,12 @@ Para obtener información sobre cómo configurar eventos personalizados para una
 }
 ```
 
-- [ID de usuario externo]({{site.baseurl}}/api/basics/#user-ids)
-- [Identificador de la aplicación]({{site.baseurl}}/api/identifier_types/)
+- [ID de usuario externo]({{site.baseurl}}/api/basics#user-ids)
+- [Identificador de la aplicación]({{site.baseurl}}/api/identifier_types)
 - [Código de tiempo ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)
 
 {% alert note %}
-Algunos pares de identificadores no se pueden utilizar juntos en una sola solicitud. Cuando se proporcionan tanto `email` como `phone`, `email` tiene prioridad sobre `phone`. Para obtener más información, consulta [Resolución de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Algunos pares de identificadores no se pueden utilizar juntos en una sola solicitud. Cuando se proporcionan tanto `email` como `phone`, `email` tiene prioridad sobre `phone`. Para obtener más información, consulta [Resolución de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 {% endalert %}
 
 #### Actualizar solo los perfiles existentes {#update-existing-profiles-only}
@@ -89,7 +89,7 @@ El uso de claves reservadas como nombres de propiedades del evento personalizado
 
 ### Persistencia de las propiedades del evento {#event-property-persistence}
 
-Las propiedades del evento están diseñadas para filtrar los mensajes desencadenados por sus eventos principales y para personalizarlos con Liquid. De forma predeterminada, no persisten en el perfil de usuario de Braze. Para utilizar los valores de las propiedades del evento en la segmentación, consulta los [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/), donde se detallan los distintos enfoques para almacenar los valores de las propiedades del evento a largo plazo.
+Las propiedades del evento están diseñadas para filtrar los mensajes desencadenados por sus eventos principales y para personalizarlos con Liquid. De forma predeterminada, no persisten en el perfil de usuario de Braze. Para utilizar los valores de las propiedades del evento en la segmentación, consulta los [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events), donde se detallan los distintos enfoques para almacenar los valores de las propiedades del evento a largo plazo.
 
 #### Solicitud de ejemplo de evento {#event-example-request}
 
@@ -112,7 +112,7 @@ Authorization: Bearer YOUR-REST-API-KEY
       "time" : "2013-07-16T19:20:45+01:00",
       "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
       }
     },
     {
@@ -128,4 +128,4 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ## Objetos de evento {#event-objects}
 
-Utilizando el ejemplo proporcionado, podemos ver que alguien vio recientemente un tráiler y después alquiló una película. Aunque no podemos entrar en una Campaign y segmentar a los usuarios en función de estas propiedades, sí podemos utilizarlas estratégicamente en forma de recibo, para enviar un mensaje personalizado a través de un canal utilizando Liquid. Por ejemplo, "Hola **Beth**, gracias por alquilar **The Sad Egg** de **Dan Alexander**, aquí tienes algunas películas recomendadas basadas en tu alquiler..."
+Utilizando el ejemplo proporcionado, podemos ver que alguien vio recientemente un tráiler y después alquiló una película. Aunque no podemos entrar en una Campaign y segmentar a los usuarios en función de estas propiedades, sí podemos utilizarlas estratégicamente en forma de recibo, para enviar un mensaje personalizado a través de un canal utilizando Liquid. Por ejemplo, "Hola **Alex**, gracias por alquilar **The Sad Egg** de **Alex Smith**, aquí tienes algunas películas recomendadas basadas en tu alquiler..."

@@ -27,7 +27,7 @@ LINEのトリガーワードを使用するなど、LINEを通じてユーザー
 
 ### キャンバス
 
-キャンバス内の[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/)でトリガーワードを設定します。
+キャンバス内の[アクションパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)でトリガーワードを設定します。
 
 ![「サブスクリプショングループへの受信LINEを送信したユーザーにこのキャンペーンを送信（メッセージ本文が次の場合）」というトリガーを持つアクションパスと空白のフィールド。]({% image_buster /assets/img/line/trigger_word_canvas.png %})
 

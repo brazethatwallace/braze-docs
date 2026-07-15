@@ -5,7 +5,7 @@ alias: /conversion_correlation/
 page_order: 3
 
 page_type: reference
-description: "Este artículo de referencia explica el análisis de correlación de conversiones en la página de Análisis de campañas."
+description: "Este artículo de referencia explica el análisis de correlación de conversiones en la página de análisis de Campaign."
 tool:
   - Reports
 
@@ -13,11 +13,11 @@ tool:
 
 # Correlación de conversión {#conversion-correlation}
 
-> El análisis de correlación de conversiones en la página **Análisis de campañas** te ofrece información sobre qué atributos y comportamientos de los usuarios favorecen o perjudican los resultados que has establecido para las campañas.
+> El análisis de correlación de conversiones en la página **Campaign Analytics** te ofrece información sobre qué atributos y comportamientos de los usuarios favorecen o perjudican los resultados que has establecido para las campañas.
 
 ## Resumen {#overview}
 
-Para cada campaña, Braze revisa una lista de atributos y comportamientos de los usuarios y calcula si están estadísticamente asociados de forma significativa con aumentos o disminuciones en cada uno de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) que has elegido para la campaña. También calculamos cuánto más o menos probable es que los usuarios con un atributo o comportamiento determinado conviertan y, si es significativo, lo mostramos en el lado correspondiente de la tabla. Los usuarios con cada atributo o comportamiento de interés se comparan con las tasas de la audiencia total de la campaña en su conjunto. Los comportamientos y atributos que no tienen una correlación significativa con la conversión no se muestran en la tabla.
+Para cada campaña, Braze revisa una lista de atributos y comportamientos de los usuarios y calcula si están estadísticamente asociados de forma significativa con aumentos o disminuciones en cada uno de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) que has elegido para la campaña. También calculamos cuánto más o menos probable es que los usuarios con un atributo o comportamiento determinado conviertan y, si es significativo, lo mostramos en el lado correspondiente de la tabla. Los usuarios con cada atributo o comportamiento de interés se comparan con las tasas de la audiencia total de la campaña en su conjunto. Los comportamientos y atributos que no tienen una correlación significativa con la conversión no se muestran en la tabla.
 
 Para ejecutar un análisis de correlación de conversiones, selecciona el evento de conversión de interés en el menú desplegable.
 

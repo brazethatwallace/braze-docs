@@ -14,7 +14,7 @@ toc_headers: h2
 
 {% multi_lang_include video.html id="LyJaxDoMtMs" align="right" %}
 
-Braze에서 경합 조건은 사용자 데이터나 이벤트를 기반으로 여러 동작이 동시에 트리거될 때 발생할 수 있습니다. 예를 들어, 사용자가 여러 캠페인을 트리거하면(뉴스레터 가입이나 구매 등) 올바른 순서로 메시지를 받지 못할 수 있습니다.
+Braze에서 경합 조건은 사용자 데이터나 이벤트를 기반으로 여러 동작이 동시에 트리거될 때 발생할 수 있습니다. 예를 들어, 사용자가 여러 Campaign(캠페인)을 트리거하면(뉴스레터 가입이나 구매 등) 올바른 순서로 메시지를 받지 못할 수 있습니다.
 
 ## 경합 조건의 유형 {#types-of-race-conditions}
 
@@ -23,6 +23,7 @@ Braze에서 경합 조건은 사용자 데이터나 이벤트를 기반으로 �
 - 신규 사용자 타겟팅
 - 여러 API 엔드포인트 사용
 - 동작 기반 트리거와 오디언스 필터 매칭
+- "단계와 상호작용" 트리거 사용
 
 다음 시나리오를 고려하고 이러한 경합 조건을 방지하기 위한 모범 사례를 구현하세요.
 
@@ -49,7 +50,7 @@ Braze에서 가장 일반적인 경합 조건 중 하나는 새로 생성된 사
 
 예를 들어, 사용자가 앱에 등록한 후 24시간 후에 프로모션 오퍼를 보낼 수 있습니다. 또는 사용자를 생성하거나 커스텀 속성을 기록하는 경우, 이 경합 조건을 방지하기 위해 프로세스를 진행하기 전에 1분의 지연을 추가할 수 있습니다.
 
-새 사용자가 Canvas에 진입하도록 트리거하는 특정 커스텀 이벤트에 대해 [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration/)에서도 이 지연을 추가할 수 있습니다.
+새 사용자가 Canvas에 진입하도록 트리거하는 특정 커스텀 이벤트에 대해 [Braze SDK]({{site.baseurl}}/developer_guide/sdk_integration)에서도 이 지연을 추가할 수 있습니다.
 
 ## 시나리오 2: 여러 API 엔드포인트 사용 {#scenario-2-using-multiple-api-endpoints}
 
@@ -62,13 +63,13 @@ Braze에서 가장 일반적인 경합 조건 중 하나는 새로 생성된 사
 - 별도의 API 엔드포인트를 사용하여 사용자를 생성하고 Canvas 또는 Campaign을 트리거하는 경우
 - `/users/track` 엔드포인트에 여러 개의 별도 호출을 하여 커스텀 속성, 이벤트 또는 구매를 업데이트하는 경우
 
-[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 사용자 정보를 Braze에 전송하면, 처리하는 데 몇 초가 걸릴 수 있습니다. 이는 `/users/track`과 `/campaign/trigger/send`와 같은 메시징 엔드포인트에 동시에 요청이 이루어질 때, 메시지가 전송되기 전에 사용자 정보가 업데이트된다는 보장이 없다는 것을 의미합니다.
+[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 사용자 정보를 Braze에 전송하면, 처리하는 데 몇 초가 걸릴 수 있습니다. 이는 `/users/track`과 `/campaign/trigger/send`와 같은 메시징 엔드포인트에 동시에 요청이 이루어질 때, 메시지가 전송되기 전에 사용자 정보가 업데이트된다는 보장이 없다는 것을 의미합니다.
 
 {% alert note %}
 사용자 속성과 이벤트가 동일한 요청으로 전송되는 경우(`/users/track` 또는 SDK에서), Braze는 이벤트를 처리하거나 메시지를 전송하기 전에 속성을 먼저 처리합니다.
 {% endalert %}
 
-### 모범 사례 {#best-practices}
+### 모범 사례
 
 #### 여러 엔드포인트를 사용할 때 요청을 하나씩 보내기 {#when-using-multiple-endpoints-send-your-requests-one-at-a-time}
 
@@ -78,25 +79,25 @@ Braze에서 가장 일반적인 경합 조건 중 하나는 새로 생성된 사
 
 #### 트리거와 함께 핵심 데이터 포함 {#include-key-data-with-the-trigger}
 
-여러 엔드포인트를 사용하는 대신, [`campaign/trigger/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/)를 사용하여 단일 API 호출에 [사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object/#object-body)과 [트리거 등록정보]({{site.baseurl}}/api/objects_filters/trigger_properties_object/)를 포함할 수 있습니다.
+여러 엔드포인트를 사용하는 대신, [`campaign/trigger/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns)를 사용하여 단일 API 호출에 [사용자 속성]({{site.baseurl}}/api/objects_filters/user_attributes_object#object-body)과 [트리거 등록정보]({{site.baseurl}}/api/objects_filters/trigger_properties_object)를 포함할 수 있습니다.
 
 이러한 오브젝트가 트리거와 함께 포함되면, 메시지가 트리거되기 전에 속성이 먼저 처리되어 잠재적인 경합 조건을 제거합니다. 트리거 등록정보는 고객 프로필을 업데이트하지 않으며, 메시지의 컨텍스트에서만 사용된다는 점에 유의하세요.
 
 #### POST: Track users (sync) 엔드포인트 사용 {#use-the-post-track-users-sync-endpoint}
 
-[`/users/track/sync/` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous/)를 사용하여 커스텀 이벤트와 구매를 기록하고 고객 프로필 속성을 동기적으로 업데이트할 수 있습니다. 이 엔드포인트를 사용하여 고객 프로필을 동시에 단일 호출로 업데이트하면 잠재적인 경합 조건을 방지하는 데 도움이 됩니다.
+[`/users/track/sync/` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track_synchronous)를 사용하여 커스텀 이벤트와 구매를 기록하고 고객 프로필 속성을 동기적으로 업데이트할 수 있습니다. 이 엔드포인트를 사용하여 고객 프로필을 동시에 단일 호출로 업데이트하면 잠재적인 경합 조건을 방지하는 데 도움이 됩니다.
 
-{% multi_lang_include early_access_beta_alert.md feature='This endpoint' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This endpoint' type='beta' %}
 
 ## 시나리오 3: 동작 기반 트리거와 오디언스 필터 매칭 {#scenario-3-matching-action-based-triggers-and-audience-filters}
 
 또 다른 일반적인 경합 조건은 동작 기반 Campaign이나 Canvas를 오디언스 필터와 동일한 트리거로 구성할 때 발생할 수 있습니다(예: 변경된 속성 또는 수행된 커스텀 이벤트). 사용자가 트리거 이벤트를 수행하는 시점에 오디언스에 포함되지 않을 수 있으며, 이 경우 Campaign을 받지 못하거나 Canvas에 진입하지 못합니다.
 
-### 모범 사례 {#best-practices}
+### 모범 사례
 
 #### 지연 후 오디언스 확인 {#check-your-audience-after-a-delay}
 
-트리거 기준을 포함하는 오디언스 필터를 사용하지 않으려면, 전달 전에 오디언스를 확인하는 것을 권장합니다. 예를 들어, Canvas 메시지 단계에서 [전달 유효성 검사를 사용]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#edit-delivery-settings)하여 메시지 전송 시 오디언스가 전달 기준을 충족하는지 추가로 확인할 수 있습니다. 또한 Canvas의 종료 기준을 활용하여 사용자 여정 중 언제든지 기준을 충족하는 사용자를 종료시킬 수 있습니다.
+트리거 기준을 포함하는 오디언스 필터를 사용하지 않으려면, 전달 전에 오디언스를 확인하는 것을 권장합니다. 예를 들어, Canvas 메시지 단계에서 [전달 유효성 검사를 사용]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#edit-delivery-settings)하여 메시지 전송 시 오디언스가 전달 기준을 충족하는지 추가로 확인할 수 있습니다. 또한 Canvas의 종료 기준을 활용하여 사용자 여정 중 언제든지 기준을 충족하는 사용자를 종료시킬 수 있습니다.
 
 Campaign의 경우, 종료 이벤트를 사용하여 트리거 이벤트가 있는 Campaign이 지연 중에 종료 이벤트를 수행하는 사용자에게 메시지를 중단할 수 있습니다.
 
@@ -132,3 +133,21 @@ Canvas 진입 평가 중에 경합 조건이 발생하면, 사용자가 진입�
 사용자가 같은 초 내에 Canvas 진입 이벤트를 여러 번 트리거하는 경우, Braze는 해당 초에 대해 하나의 진입만 허용합니다(재진입이 활성화된 경우에도). 이는 중복 진입을 방지하므로, 총 Canvas 진입 수가 총 트리거 이벤트 수보다 적을 수 있습니다.
 
 사용자 데이터가 어떻게 관리되고 업데이트되는지, 특히 특정 속성이 언제 어떻게 업데이트되는지(SDK, API, 배치 API 및 기타 메서드 등) 확인하는 것을 권장합니다. 이를 통해 사용자가 Campaign이나 Canvas에 진입한 이유와 고객 프로필이 업데이트된 시점을 파악하고 명확히 하는 데 도움이 됩니다.
+
+## 시나리오 4: "단계와 상호작용" 트리거 사용 {#scenario-4-using-the-interact-with-step-trigger}
+
+Canvas에서 메시지 단계 바로 뒤에 "단계와 상호작용" 트리거를 사용하는 행동 경로 단계가 이어지면 경합 조건이 발생할 수 있습니다. 사용자는 메시지가 전달되는 즉시 상호작용할 수 있으므로, 행동 경로 단계에 공식적으로 진입하기 전에 추적된 동작을 완료할 수 있습니다.
+
+이 경우 행동 경로 단계는 해당 상호작용을 등록하지 않습니다. 단계에 진입한 이후에 발생한 이벤트만 평가하기 때문입니다. 따라서 사용자가 의도하지 않은 경로로 라우팅될 수 있습니다.
+
+예를 들어, Canvas가 메시지 단계에서 푸시 알림을 보낸 후, 사용자가 해당 푸시 알림을 열었는지 확인하는 행동 경로 단계가 이어진다고 가정합니다. 사용자가 푸시 알림을 받자마자 즉시 열면(행동 경로 단계에 진입하기 전), 열기 이벤트가 캡처되지 않을 수 있습니다. 그러면 사용자가 실제로 메시지와 상호작용했음에도 불구하고 "열지 않음" 경로로 잘못 라우팅될 수 있습니다.
+
+### 모범 사례
+
+#### 커스텀 이벤트를 사용하여 참여 추적 {#track-engagement-using-a-custom-event}
+
+사용자 상호작용이 빠르게 발생할 것으로 예상되는 경우, 메시지 단계 바로 뒤에 "단계와 상호작용"에 의존하지 마세요. 대신, 커스텀 이벤트를 사용하여 참여를 추적하고(예: 상호작용 후 앱이나 웹사이트에서 트리거됨) 다운스트림 단계에서 해당 이벤트를 평가하세요. 이렇게 하면 사용자가 단계에 진입한 후에 이벤트가 기록됩니다.
+
+#### 상호작용에 의존하는 분기 피하기 {#avoid-branches-that-are-dependent-on-interaction}
+
+즉각적인 상호작용을 놓치더라도 사용자 경험이 깨지지 않도록 Canvas를 설계하세요. 예를 들어, 다음 단계에서 상호작용이 캡처되었는지 여부에만 의존하는 중요한 분기 결정을 피하거나, 사용자의 경로를 수정할 수 있는 후속 로직을 추가하세요.

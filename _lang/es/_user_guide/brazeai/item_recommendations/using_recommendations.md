@@ -15,7 +15,7 @@ Para obtener una guía paso a paso, consulta nuestro curso de Braze Learning: [C
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder utilizar recomendaciones en tu mensajería, deberás [crear y entrenar una herramienta de recomendaciones]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/). El entrenamiento puede durar entre 10 minutos y 36 horas&#8212;recibirás un correo electrónico cuando haya finalizado o si se ha producido un error.
+Antes de poder utilizar recomendaciones en tu mensajería, deberás [crear y entrenar una herramienta de recomendaciones]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations). El entrenamiento puede durar entre 10 minutos y 36 horas&#8212;recibirás un correo electrónico cuando haya finalizado o si se ha producido un error.
 
 ## Uso de recomendaciones en tu mensajería {#using-recommendations-in-your-messaging}
 
@@ -24,7 +24,7 @@ Antes de poder utilizar recomendaciones en tu mensajería, deberás [crear y ent
 Una vez que tu recomendación haya terminado el entrenamiento, puedes personalizar tus mensajes con Liquid para insertar los productos más populares de ese catálogo.
 
 {% tabs local %}
-{% tab pre-formatted code %}
+{% tab código preformateado %}
 ![Modal "Añadir personalización" con la recomendación de artículos como tipo de personalización.]({% image_buster /assets/img/add_personalization.png %}){: style="max-width:30%;float:right;margin-left:15px;"}
 
 Puedes generar Liquid desde la sección **Add personalization** en tu creador de mensajes:
@@ -37,7 +37,7 @@ Puedes generar Liquid desde la sección **Add personalization** en tu creador de
 6. Selecciona el icono **Copy** y pega el Liquid donde sea necesario en tu mensaje.
 {% endtab %}
 
-{% tab custom code %}
+{% tab código personalizado %}
 Puedes escribir código Liquid personalizado haciendo referencia al objeto `product_recommendation` de un catálogo. Contiene todos los datos de recomendación de productos generados de manera dinámica para ese catálogo, estructurados como una matriz de objetos, donde cada objeto representa un artículo recomendado.
 
 | Especificación | Detalles |
@@ -91,7 +91,7 @@ Las recomendaciones de IA devuelven varios productos como una matriz, donde `ite
 Si el catálogo de tu recomendación incluye enlaces a imágenes, puedes hacer referencia a ellos en tu mensaje.
 
 {% tabs %}
-{% tab Arrastrar y soltar%}
+{% tab Arrastrar y soltar %}
 En el editor de arrastrar y soltar de correo electrónico, añade un bloque de imagen a tu correo electrónico y, a continuación, selecciona el bloque de imagen para abrir **Image properties**.
 
 ![Panel de propiedades de imagen en el editor de arrastrar y soltar]({% image_buster /assets/img/image_with_liquid.png %}){: style="max-width:45%"}

@@ -19,11 +19,11 @@ Peça aos usuários que enviem "START", "UNSTOP", "YES" ou uma palavra-chave de 
 
 ## Opção 2: Usuários fazem opt-in por mensagem no app {#option-2-users-opt-in-via-in-app-message}
 
-Para permitir que os usuários façam opt-in para SMS a partir de uma mensagem no app, use o [formulário de captura de número de telefone]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture/) fornecido pela Braze para criar um formulário personalizado que permite coletar números de telefone e expandir sua lista de SMS.
+Para permitir que os usuários façam opt-in para SMS a partir de uma mensagem no app, use o [formulário de captura de número de telefone]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture) fornecido pela Braze para criar um formulário personalizado que permite coletar números de telefone e expandir sua lista de SMS.
 
 ![Criador de mensagens no app com um modelo para captura de número de telefone.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%;"}
 
-A Braze recomenda que você também use o recurso de [double opt-in de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/). Esse recurso funciona automaticamente com o formulário de captura de número de telefone da mensagem no app, solicitando que os usuários confirmem sua intenção após enviar o número de telefone pelo formulário.
+A Braze recomenda que você também use o recurso de [double opt-in de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in). Esse recurso funciona automaticamente com o formulário de captura de número de telefone da mensagem no app, solicitando que os usuários confirmem sua intenção após enviar o número de telefone pelo formulário.
 
 ## Opção 3: Fluxo de cadastro {#option-3-sign-up-flow}
 
@@ -31,8 +31,9 @@ Quando um novo usuário se cadastra ou se registra no site ou app, peça o núme
 
 Após o cadastro do usuário, faça o seguinte:
 
-1. Use o [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/#update-users-subscription-group-status) para criar o usuário e salvar seus atributos.
+1. Use o [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status#update-users-subscription-group-status) para criar o usuário e salvar seus atributos.
 
+{% raw %}
 ```http
 POST 'https://rest.iad-03.braze.com/subscription/status/set' \
 --header 'Content-Type: application/json' \
@@ -46,10 +47,12 @@ POST 'https://rest.iad-03.braze.com/subscription/status/set' \
 }
 '
 ```
+{% endraw %}
 
 {: start="2"}
-2. Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) para inscrever o usuário em SMS.
+2. Use o [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para inscrever o usuário em SMS.
 
+{% raw %}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
@@ -70,12 +73,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   ]
 }'
 ```
+{% endraw %}
 
 {% alert tip %}
-Para inserir os usuários no fluxo de [double opt-in de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) ao inscrevê-los pela REST API, defina o parâmetro `use_double_opt_in_logic` como `true` na sua requisição. Se você omitir esse parâmetro, os usuários serão inscritos sem receber uma confirmação de double opt-in.
+Para inserir os usuários no fluxo de [double opt-in de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) ao inscrevê-los pela REST API, defina o parâmetro `use_double_opt_in_logic` como `true` na sua requisição. Se você omitir esse parâmetro, os usuários serão inscritos sem receber uma confirmação de double opt-in.
 
 Esse parâmetro é compatível com os seguintes endpoints:<br><br>
-- [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)
-- [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2/)
-- [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
+- [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)
+- [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2)
+- [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 {% endalert %}

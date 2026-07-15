@@ -14,9 +14,9 @@ guide_top_text: "外部ID移行APIを使用すると、既存の外部IDの名�
 guide_featured_title: "外部ID移行エンドポイント"
 guide_featured_list:
   - name: "POST:外部IDの名前を変更する"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename/
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename
     image: /assets/img/braze_icons/users-01.svg
-  - name: "POST:外部IDを削除する"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove/
+  - name: "POST:非推奨の外部IDを削除する"
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove
     image: /assets/img/braze_icons/user-minus-01.svg
 ---

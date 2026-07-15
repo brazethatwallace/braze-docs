@@ -13,26 +13,30 @@ description: "이 참조 문서에서는 Braze가 eCommerce 이벤트에 대해 
 
 ## eCommerce 추천 이벤트 {#ecommerce-recommended-events}
 
-[eCommerce 추천 이벤트]({{site.baseurl}}/ecommerce_events/)는 구매 여정의 6단계를 다룹니다: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled`, `order_refunded`. 이러한 이벤트를 성공적으로 전송하면 Braze가 데이터를 유효성 검사하고 점점 늘어나는 플랫폼 기능 세트에서 사용할 수 있도록 합니다.
+[eCommerce 추천 이벤트]({{site.baseurl}}/ecommerce_events)는 구매 여정의 6단계를 다룹니다: `product_viewed`, `cart_updated`, `checkout_started`, `order_placed`, `order_cancelled`, `order_refunded`. 이러한 이벤트를 성공적으로 전송하면 Braze가 데이터를 유효성 검사하고 점점 늘어나는 플랫폼 기능 세트에서 사용할 수 있도록 합니다.
 
-이러한 기능에는 유기한 탐색, 유기한 장바구니, 유기한 결제, 주문 확인 플로우를 위한 Canvas 템플릿, eCommerce 리포팅, 그리고 _총 매출_, _총 주문 수_, _총 환불 금액_에 대한 계산된 사용자 프로필 필드가 포함됩니다. 또한 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 통해 중첩된 제품 등록정보 필터링을 사용하여 Segments를 구축하고, {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그로 유기한 장바구니 메시지를 개인화하며, [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/), [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/), [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations/) 등의 BrazeAI<sup>TM</sup> 기능과 기타 기능을 활용할 수 있습니다.
+이러한 기능에는 유기한 탐색, 유기한 장바구니, 유기한 결제, 주문 확인 플로우를 위한 Canvas 템플릿, eCommerce 리포팅, 그리고 _총 매출_, _총 주문 수_, _총 환불 금액_에 대한 계산된 사용자 프로필 필드가 포함됩니다. 또한 [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 통해 중첩된 제품 속성정보 필터링을 사용하여 세그먼트를 구축하고, {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그로 유기한 장바구니 메시지를 개인화하며, [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events), [예측 이탈]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn), [아이템 추천]({{site.baseurl}}/user_guide/brazeai/item_recommendations) 등의 BrazeAI<sup>TM</sup> 기능과 기타 기능을 활용할 수 있습니다.
 
-이러한 이벤트는 정의된 스키마를 따르기 때문에, 지원되는 각 기능이 커스텀 등록정보 매핑이나 기능별 구성 없이도 구조화된 데이터를 읽을 수 있습니다.
+이러한 이벤트는 정의된 스키마를 따르기 때문에, 지원되는 각 기능이 커스텀 속성정보 매핑이나 기능별 구성 없이도 구조화된 데이터를 읽을 수 있습니다.
 
 {% multi_lang_include alerts/important_alerts.md alert='Purchase event deprecation' %}
 
 ### eCommerce 이벤트 작동 방식 {#how-ecommerce-events-work}
 
-eCommerce 이벤트는 사전 정의된 이름과 등록정보 스키마를 가진 커스텀 이벤트입니다. [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/) 또는 [`/users/track` REST API 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 전송하며, Braze는 수집 시 각 이벤트를 해당 스키마에 대해 유효성 검사합니다. 유효성 검사를 통과하면 Braze는 해당 이벤트 유형에 특화된 후처리를 자동으로 적용합니다(예: 매출 필드 계산 및 사용자 프로필의 장바구니 상태 관리).
+eCommerce 이벤트는 사전 정의된 이름과 속성정보 스키마를 가진 커스텀 이벤트입니다. [Braze SDK]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), [`/users/track` REST API 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track), 또는 [클라우드 데이터 수집(CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)을 사용하여 전송하며, Braze는 수집 시 각 이벤트를 해당 스키마에 대해 유효성 검사합니다. 유효성 검사를 통과하면 Braze는 해당 이벤트 유형에 특화된 후처리를 자동으로 적용합니다(예: 매출 필드 계산 및 사용자 프로필의 장바구니 상태 관리).
+
+{% alert note %}
+CSV 업로드는 eCommerce 이벤트를 지원하지 않습니다. 이러한 이벤트를 전송하려면 SDK, `/users/track`, 또는 CDI를 사용하세요.
+{% endalert %}
 
 eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에서 작동합니다: 수행된 커스텀 이벤트에 대한 트리거 및 필터, 커스텀 이벤트 리포팅 등. 그러나 스키마 유효성 검사를 통해 다음과 같은 추가 기능이 활성화됩니다:
 
 - Campaigns, Canvases, 행동 경로, 인앱 메시지 트리거, 콘텐츠 카드 제거에서의 "주문 완료" 트리거 동작
 - 계산된 eCommerce 사용자 프로필 필드(**총 매출**, **총 주문 수**, **총 환불 금액**)
 - 유기한 장바구니 플로우를 위한 장바구니 상태 관리
-- Predictive Events, Predictive Churn, 아이템 추천과 같은 BrazeAI<sup>TM</sup> 기능을 위한 더 풍부한 데이터
+- Predictive Events, 예측 이탈, 아이템 추천과 같은 BrazeAI<sup>TM</sup> 기능을 위한 더 풍부한 데이터
 
-플랫폼에서 커스텀 이벤트를 지원하는 모든 곳에서 이름으로 eCommerce 이벤트를 참조할 수도 있습니다. 예를 들어, `ecommerce.product_viewed` 이벤트로 액션 기반 Campaign을 트리거하거나, `ecommerce.checkout_started` 이벤트를 필터링하여 Segment를 구축하거나, Currents를 통해 `ecommerce.order_placed` 이벤트를 내보낼 수 있습니다.
+플랫폼에서 커스텀 이벤트를 지원하는 모든 곳에서 이름으로 eCommerce 이벤트를 참조할 수도 있습니다. 예를 들어, `ecommerce.product_viewed` 이벤트로 액션 기반 Campaign을 트리거하거나, `ecommerce.checkout_started` 이벤트를 필터링하여 세그먼트를 구축하거나, Currents를 통해 `ecommerce.order_placed` 이벤트를 내보낼 수 있습니다.
 
 #### 이벤트 이름 지정 {#event-naming}
 
@@ -51,21 +55,21 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 
 {% alert tip %}
 다음 예시는 각 이벤트의 REST API 페이로드를 보여줍니다.
-클라이언트 측 로깅의 경우, `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, `ecommerce.order_placed`는 사용 가능한 SDK eCommerce 이벤트 API를 사용하고, `ecommerce.order_cancelled`와 `ecommerce.order_refunded`는 `logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+클라이언트 측 로깅의 경우, `ecommerce.product_viewed`, `ecommerce.cart_updated`, `ecommerce.checkout_started`, `ecommerce.order_placed`는 사용 가능한 SDK eCommerce 이벤트 API를 사용하고, `ecommerce.order_cancelled`와 `ecommerce.order_refunded`는 `logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 {% endalert %}
 
 {% tabs %}
 {% tab ecommerce.product_viewed %}
 
-사용자가 제품 상세 페이지를 조회할 때 트리거합니다. 이 이벤트는 Braze 카탈로그의 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/) 및 [가격 인하 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/)과 호환됩니다.
+사용자가 제품 상세 페이지를 조회할 때 트리거합니다. 이 이벤트는 Braze 카탈로그의 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) 및 [가격 인하 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)과 호환됩니다.
 
 #### 클라이언트 측 구현 {#client-side-implementation}
 
-사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
-#### 이벤트 등록정보 {#event-properties}
+#### 이벤트 속성정보 {#event-properties}
 
-| 등록정보 이름 | 데이터 유형 | 필수 | 설명 |
+| 속성정보 이름 | 데이터 유형 | 필수 | 설명 |
 | -------------- | ---------------- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `product_id`   | 문자열           | 예      | 고유 제품 식별자(예: SKU 또는 항목 ID).                                                                                                   |
 | `product_name` | 문자열           | 예      | 제품 표시 이름.                                                                                                                               |
@@ -76,8 +80,8 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `currency`     | 문자열           | 예      | 3자리 ISO 4217 코드(예: `USD` 또는 `EUR`).                                                                                               |
 | `source`       | 문자열           | 예      | 이벤트가 발생한 소스(예: `web`, `ios`, `android`).                                                                               |
 | `type`         | 문자열 배열 | 아니요       | 재입고 및 가격 인하 알림을 위한 Braze 카탈로그 트리거 기능을 사용하려면 필수입니다. 허용 값: `"price_drop"`, `"back_in_stock"`     |
-| `metadata`     | 오브젝트           | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `sku` (문자열)                                                                                   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이벤트 등록정보" }
+| `metadata`     | 오브젝트           | 아니요       | 유연한 키-값 페어(예: `category` 또는 `brand`).                                                                                   |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
 #### REST API 예시 {#rest-api-example}
 
@@ -99,7 +103,6 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
         "source": "web",
         "type": ["price_drop", "back_in_stock"],
         "metadata": {
-          "sku": "UB-BLK-11-SKU",
           "category": "Running Shoes",
           "brand": "Shoe Brand"
         }
@@ -116,7 +119,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 
 #### 클라이언트 측 구현
 
-사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
 이 이벤트는 다음 두 가지 방법 중 하나로 전송할 수 있습니다:
 
@@ -133,9 +136,9 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 장바구니는 사용자 프로필에 {% raw %}`{% shopping_cart %}`{% endraw %} Liquid 태그를 구동하는 장바구니 매핑 오브젝트를 생성합니다. 장바구니는 업데이트 없이 30일이 지나면 만료됩니다. 두 사용자 프로필이 병합되면 Braze는 두 장바구니를 모두 보존합니다.
 {% endalert %}
 
-#### 이벤트 등록정보
+#### 이벤트 속성정보
 
-| 등록정보        | 데이터 유형 | 필수 | 설명                                                                                                                   |
+| 속성정보        | 데이터 유형 | 필수 | 설명                                                                                                                   |
 |-----------------|-----------|----------|-------------------------------------------------------------------------------------------------------------------------------|
 | `cart_id`       | 문자열    | 예      | 장바구니의 고유 식별자. 사용자의 장바구니 매핑을 위해 장바구니, 결제, 주문 이벤트 간에 공유됩니다.                   |
 | `action`        | 문자열    | 아니요       | `add`(수량 증가 또는 새 라인 추가), `remove`(수량 감소, `0`에서 라인 제거), `replace`(전체 장바구니 교체, `action` 생략과 동일). |
@@ -144,14 +147,14 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `tax`           | 플로트     | 아니요       | 장바구니에 적용된 총 세금.                                                                                                |
 | `shipping`      | 플로트     | 아니요       | 장바구니의 총 배송비.                                                                                             |
 | `currency`      | 문자열    | 예      | 3자리 ISO 4217 코드.                                                                                                   |
-| `products`      | 배열     | 예      | 이 업데이트의 라인 항목. 전체 교체(`action` 없음 또는 `replace`)의 경우 절대 수량으로 전체 장바구니를 포함합니다. `add` 또는 `remove`의 경우 변경된 라인만 포함합니다. 제품 등록정보를 참조하세요. |
+| `products`      | 배열     | 예      | 이 업데이트의 라인 항목. 전체 교체(`action` 없음 또는 `replace`)의 경우 절대 수량으로 전체 장바구니를 포함합니다. `add` 또는 `remove`의 경우 변경된 라인만 포함합니다. 제품 속성정보를 참조하세요. |
 | `source`        | 문자열    | 예      | 이벤트가 발생한 소스.                                                                                             |
 | `metadata`      | 오브젝트    | 아니요       | 추가 이벤트 수준 데이터를 위한 유연한 키-값 페어.                                                                     |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이벤트 등록정보" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
-#### 제품 등록정보 (`products[]`) {#product-properties-products}
+#### 제품 속성정보 (`products[]`) {#product-properties-products}
 
-| 등록정보        | 데이터 유형 | 필수 | 설명                                     |
+| 속성정보        | 데이터 유형 | 필수 | 설명                                     |
 |-----------------|-----------|----------|-------------------------------------------------|
 | `product_id`    | 문자열    | 예      | 고유 제품 식별자.                      |
 | `product_name`  | 문자열    | 예      | 제품 표시 이름.                           |
@@ -161,7 +164,7 @@ eCommerce 이벤트는 다른 커스텀 이벤트가 작동하는 모든 곳에�
 | `quantity`      | 정수   | 예      | 전체 교체(`action` 없음 또는 `replace`)의 경우 이 라인의 장바구니 내 수량. `add` 또는 `remove`의 경우 추가하거나 제거할 수량. |
 | `price`         | 플로트     | 예      | 배리언트 단가.                             |
 | `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어(예: `color` 또는 `size`).   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="제품 등록정보 (products[])" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 {% comment %}
 
@@ -704,11 +707,11 @@ Objective-C
 
 #### 클라이언트 측 구현
 
-사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
-#### 이벤트 등록정보
+#### 이벤트 속성정보
 
-| 등록정보       | 유형    | 필수 | 설명                                                                                                      |
+| 속성정보       | 유형    | 필수 | 설명                                                                                                      |
 |----------------|---------|----------|------------------------------------------------------------------------------------------------------------------|
 | checkout_id    | 문자열  | 예      | 결제 세션의 고유 식별자.                                                                      |
 | cart_id        | 문자열  | 아니요       | 장바구니 식별자. 사용자의 장바구니 매핑을 위해 장바구니, 결제, 주문 이벤트 간에 공유됩니다.                     |
@@ -717,14 +720,14 @@ Objective-C
 | tax            | 플로트   | 아니요       | 결제에 적용된 총 세금.                                                                               |
 | shipping       | 플로트   | 아니요       | 총 배송비.                                                                                             |
 | currency       | 문자열  | 예      | 3자리 ISO 4217 코드.                                                                                      |
-| products       | 배열   | 예      | 결제 중인 항목. 제품 등록정보 하위 테이블을 참조하세요.                                                       |
+| products       | 배열   | 예      | 결제 중인 항목. 제품 속성정보 하위 테이블을 참조하세요.                                                       |
 | source         | 문자열  | 예      | 이벤트가 발생한 소스.                                                                                |
-| metadata       | 오브젝트  | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `checkout_url` (문자열)                                       |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이벤트 등록정보" }
+| metadata       | 오브젝트  | 아니요       | 유연한 키-값 페어. 인식되는 하위 속성정보: `checkout_url` (문자열)                                       |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
-#### 제품 등록정보 (`products[]`)
+#### 제품 속성정보 (`products[]`)
 
-| 등록정보       | 데이터 유형 | 필수 | 설명                                              |
+| 속성정보       | 데이터 유형 | 필수 | 설명                                              |
 |----------------|-----------|----------|----------------------------------------------------------|
 | `product_id`   | 문자열    | 예      | 고유 제품 식별자.                               |
 | `product_name` | 문자열    | 예      | 제품 표시 이름.                                    |
@@ -734,7 +737,7 @@ Objective-C
 | `quantity`     | 정수   | 예      | 장바구니에 있는 수량.                             |
 | `price`        | 플로트     | 예      | 배리언트 단가.                                      |
 | `metadata`     | 오브젝트    | 아니요       | 유연한 키-값 페어(예: color, size).            |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="제품 등록정보 (products[])" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API 예시
 
@@ -799,15 +802,15 @@ Objective-C
 
 #### 클라이언트 측 구현
 
-사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+사용 가능한 SDK eCommerce 이벤트 API를 사용하세요. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
 {% alert important %}
 이 이벤트는 주요 매출 동인입니다. 사용자 프로필에서 `total_value` 값만큼 `total_revenue`를 증가시키고 `total_orders`를 1 증가시킵니다.
 {% endalert %}
 
-#### 이벤트 등록정보
+#### 이벤트 속성정보
 
-| 등록정보        | 데이터 유형 | 필수 | 설명                                                                                   |
+| 속성정보        | 데이터 유형 | 필수 | 설명                                                                                   |
 |-----------------|-----------|----------|-----------------------------------------------------------------------------------------------|
 | `order_id`      | 문자열    | 예      | 주문의 고유 식별자.                                                              |
 | `cart_id`       | 문자열    | 아니요       | 장바구니 식별자. 사용자의 장바구니 매핑을 위해 장바구니, 결제, 주문 이벤트 간에 공유됩니다.  |
@@ -818,14 +821,14 @@ Objective-C
 | `currency`      | 문자열    | 예      | 3자리 ISO 4217 코드.                                                                   |
 | `total_discounts`| 플로트    | 아니요       | 주문에 적용된 총 할인 금액.                                               |
 | `discounts`     | 배열     | 아니요       | 적용된 할인의 상세 목록.                                                           |
-| `products`      | 배열     | 예      | 주문에 포함된 항목. 제품 등록정보 하위 테이블을 참조하세요.                                         |
+| `products`      | 배열     | 예      | 주문에 포함된 항목. 제품 속성정보 하위 테이블을 참조하세요.                                         |
 | `source`        | 문자열    | 예      | 이벤트가 발생한 소스.                                                             |
-| `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `order_status_url` (문자열)                |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이벤트 등록정보" }
+| `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어. 인식되는 하위 속성정보: `order_status_url` (문자열)                |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
-#### 제품 등록정보 (`products[]`)
+#### 제품 속성정보 (`products[]`)
 
-| 등록정보        | 데이터 유형 | 필수 | 설명                                 |
+| 속성정보        | 데이터 유형 | 필수 | 설명                                 |
 |-----------------|-----------|----------|---------------------------------------------|
 | `product_id`    | 문자열    | 예      | 고유 제품 식별자.                  |
 | `product_name`  | 문자열    | 예      | 제품 표시 이름.                       |
@@ -835,7 +838,7 @@ Objective-C
 | `quantity`      | 정수   | 예      | 장바구니에 있는 수량.                |
 | `price`         | 플로트     | 예      | 배리언트 단가.                         |
 | `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어(예: `color` 또는 `size`).|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="제품 등록정보 (products[])" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API 예시
 
@@ -907,15 +910,15 @@ Objective-C
 
 #### 클라이언트 측 구현
 
-`logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+`logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
 {% alert important %}
 이 이벤트는 사용자 프로필에서 `total_orders`를 1 감소시킵니다. `total_revenue`에는 영향을 미치지 않습니다. 매출을 조정하려면 `order_refunded`를 사용하세요.
 {% endalert %}
 
-#### 이벤트 등록정보
+#### 이벤트 속성정보
 
-| 등록정보         | 유형    | 필수 | 설명                                                                                      |
+| 속성정보         | 유형    | 필수 | 설명                                                                                      |
 |------------------|---------|----------|--------------------------------------------------------------------------------------------------|
 | `order_id`       | 문자열  | 예      | 주문의 고유 식별자.                                                                 |
 | `total_value`    | 플로트   | 예      | 취소되는 주문의 총 금액. 0 이상이어야 합니다. 절대값을 전송하면 Braze가 감소를 처리합니다. |
@@ -926,14 +929,14 @@ Objective-C
 | `total_discounts`| 플로트   | 아니요       | 주문에 적용된 총 할인 금액.                                                  |
 | `discounts`      | 배열   | 아니요       | 적용된 할인의 상세 목록.                                                              |
 | `cancel_reason`  | 문자열  | 예      | 주문이 취소된 이유.                                                                  |
-| `products`       | 배열   | 예      | 취소된 주문의 항목. 제품 등록정보 하위 테이블을 참조하세요.                                  |
+| `products`       | 배열   | 예      | 취소된 주문의 항목. 제품 속성정보 하위 테이블을 참조하세요.                                  |
 | `source`         | 문자열  | 예      | 이벤트가 발생한 소스.                                                                |
-| `metadata`       | 오브젝트  | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `order_status_url` (문자열)                   |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이벤트 등록정보" }
+| `metadata`       | 오브젝트  | 아니요       | 유연한 키-값 페어. 인식되는 하위 속성정보: `order_status_url` (문자열)                   |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
-#### 제품 등록정보 (`products[]`)
+#### 제품 속성정보 (`products[]`)
 
-| 등록정보       | 데이터 유형 | 필수 | 설명                                   |
+| 속성정보       | 데이터 유형 | 필수 | 설명                                   |
 |----------------|-----------|----------|-----------------------------------------------|
 | `product_id`   | 문자열    | 예      | 고유 제품 식별자.                    |
 | `product_name` | 문자열    | 예      | 제품 표시 이름.                         |
@@ -943,7 +946,7 @@ Objective-C
 | `quantity`     | 정수   | 예      | 장바구니에 있는 수량.                  |
 | `price`        | 플로트     | 예      | 배리언트 단가.                           |
 | `metadata`     | 오브젝트    | 아니요       | 유연한 키-값 페어(예: `color` 또는 `size`). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="제품 등록정보 (products[])" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API 예시
 
@@ -1004,29 +1007,29 @@ Objective-C
 
 #### 클라이언트 측 구현
 
-`logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
+`logCustomEvent`를 사용합니다. 플랫폼별 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events)을 참조하세요.
 
 {% alert important %}
 이 이벤트는 사용자 프로필에서 `total_value` 값만큼 `total_revenue`를 감소시키고 `total_refunds`를 증가시킵니다. 부분 환불의 경우, `total_value`를 원래 주문 총액이 아닌 환불 금액만으로 설정하세요.
 {% endalert %}
 
-#### 이벤트 등록정보
+#### 이벤트 속성정보
 
-| 등록정보          | 데이터 유형 | 필수 | 설명                                                                                          |
+| 속성정보          | 데이터 유형 | 필수 | 설명                                                                                          |
 |-------------------|-----------|----------|------------------------------------------------------------------------------------------------------|
 | `order_id`        | 문자열    | 예      | 원래 주문의 고유 식별자.                                                            |
 | `total_value`     | 플로트     | 예      | 환불의 총 금액. 0 이상이어야 합니다. 절대값을 전송하면 Braze가 total_refunds 증가를 처리합니다. |
 | `currency`        | 문자열    | 예      | 3자리 ISO 4217 코드.                                                                          |
 | `total_discounts` | 플로트     | 아니요       | 원래 적용된 총 할인 금액.                                                        |
 | `discounts`       | 배열     | 아니요       | 할인의 상세 목록.                                                                          |
-| `products`        | 배열     | 예      | 환불되는 항목. 제품 등록정보 하위 테이블을 참조하세요.                                              |
+| `products`        | 배열     | 예      | 환불되는 항목. 제품 속성정보 하위 테이블을 참조하세요.                                              |
 | `source`          | 문자열    | 예      | 이벤트가 발생한 소스.                                                                    |
-| `metadata`        | 오브젝트    | 아니요       | 유연한 키-값 페어. 인식되는 하위 등록정보: `order_status_url` (문자열).                      |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="이벤트 등록정보" }
+| `metadata`        | 오브젝트    | 아니요       | 유연한 키-값 페어. 인식되는 하위 속성정보: `order_status_url` (문자열).                      |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Event properties" }
 
-#### 제품 등록정보 (`products[]`)
+#### 제품 속성정보 (`products[]`)
 
-| 등록정보        | 데이터 유형 | 필수 | 설명                                           |
+| 속성정보        | 데이터 유형 | 필수 | 설명                                           |
 |-----------------|-----------|----------|-------------------------------------------------------|
 | `product_id`    | 문자열    | 예      | 고유 제품 식별자.                            |
 | `product_name`  | 문자열    | 예      | 제품 표시 이름.                                 |
@@ -1036,7 +1039,7 @@ Objective-C
 | `quantity`      | 정수   | 예      | 장바구니에 있는 수량.                          |
 | `price`         | 플로트     | 예      | 배리언트 단가.                                   |
 | `metadata`      | 오브젝트    | 아니요       | 유연한 키-값 페어(예: `color` 또는 `size`).         |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="제품 등록정보 (products[])" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Product properties (products[])" }
 
 #### REST API 예시 {#rest-api-examples}
 
@@ -1142,59 +1145,15 @@ eCommerce 이벤트를 전송하면 Braze는 해당 이벤트 이름에 대한 �
 비 USD 통화 값은 이벤트가 보고된 날짜의 환율을 사용하여 자동으로 USD로 변환됩니다. 이미 USD로 보고하고 있다면 의도하지 않은 변환을 방지하기 위해 통화를 `USD`로 하드코딩하세요.
 {% endalert %}
 
-## eCommerce 이벤트 구현 {#implement-ecommerce-events}
-
-[`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)(서버 측) 또는 Braze SDK(클라이언트 측)를 통해 eCommerce 이벤트를 전송할 수 있습니다. SDK 구현 예시는 [Braze SDK를 통한 eCommerce 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events/)을 참조하세요.
-
-### 서버 측에서 이벤트 전송 {#send-events-server-side}
-
-`/users/track` 엔드포인트를 사용하여 백엔드에서 eCommerce 이벤트를 전송합니다. 각 이벤트에는 정확한 이벤트 이름, 사용자의 `external_id`, 이벤트 스키마와 일치하는 등록정보 오브젝트가 필요합니다.
-
-```json
-POST /users/track
-
-{
-  "events": [
-    {
-      "external_id": "user_abc123",
-      "name": "ecommerce.order_placed",
-      "time": "2026-04-26T14:32:00Z",
-      "properties": {
-        "order_id": "order_7891011",
-        "total_value": 84.99,
-        "currency": "USD",
-        "source": "custom_api",
-        "total_discounts": 10.00,
-        "products": [
-          {
-            "product_id": "sku_2001",
-            "product_name": "Trail Runner Pro",
-            "variant_id": "var_2001_black_10",
-            "quantity": 1,
-            "price": 94.99,
-            "metadata": {
-              "color": "black",
-              "size": "10"
-            }
-          }
-        ],
-        "metadata": {
-          "gift_wrapped": true,
-          "loyalty_points_earned": 170
-        }
-      }
-    }
-  ]
-}
-```
+## 구현 세부 사항 {#implementation-details}
 
 ### 데이터 포인트 및 과금 {#data-points-and-billing}
 
-eCommerce 이벤트는 [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points/)를 소비하지 않습니다. 데이터 포인트 사용량에 영향을 주지 않고 기록할 수 있습니다.
+eCommerce 이벤트는 [데이터 포인트]({{site.baseurl}}/user_guide/data/infrastructure/data_points)를 소비하지 않습니다. 데이터 포인트 사용량에 영향을 주지 않고 기록할 수 있습니다.
 
 ### 이벤트 크기 제한 {#event-size-limit}
 
-`/users/track`으로 전송되는 이벤트 등록정보는 이벤트당 102,400바이트(100KB)로 제한됩니다. 트리거된 Campaign 및 Canvas 메시지의 경우, [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) 및 [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/)로 전송되는 `trigger_properties`는 기본 제한이 51,200바이트(50KB)로 더 엄격합니다.
+`/users/track`으로 전송되는 이벤트 속성정보는 이벤트당 102,400바이트(100KB)로 제한됩니다. 트리거된 Campaign 및 Canvas 메시지의 경우, [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) 및 [`/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)로 전송되는 `trigger_properties`는 기본 제한이 51,200바이트(50KB)로 더 엄격합니다.
 
 모범 사례로, 이벤트를 트리거하거나 개인화하거나 귀속시키는 데 필요한 제품 정보만 전송하세요. 설명, 전체 배리언트 목록, 재고, 대체 이미지 등 더 풍부한 제품 세부 정보는 Braze 카탈로그에 저장하세요. 메시지를 전송할 때 `product_id` 또는 `variant_id`로 이러한 세부 정보를 참조하세요. `metadata` 오브젝트는 메시징에서 사용할 주문 또는 제품별 컨텍스트에 선택적으로 사용하세요.
 
@@ -1208,14 +1167,14 @@ USD로만 운영하는 경우, 불필요한 변환을 방지하기 위해 모든
 
 ### 소스 필드 {#source-field}
 
-소스 등록정보는 이벤트가 발생한 위치를 식별하는 필수 문자열입니다. 예를 들어, `shopify`, `in-store POS`, `custom_api` 등이 있습니다. 이를 통해 Currents 내보내기에서 데이터를 분석하거나 유효성 검사 문제를 디버깅할 때 통합 소스를 구분할 수 있습니다.
+소스 속성정보는 이벤트가 발생한 위치를 식별하는 필수 문자열입니다. 예를 들어, `shopify`, `in-store POS`, `custom_api` 등이 있습니다. 이를 통해 Currents 내보내기에서 데이터를 분석하거나 유효성 검사 문제를 디버깅할 때 통합 소스를 구분할 수 있습니다.
 
 ### 메타데이터 유연성 {#metadata-flexibility}
 
-이벤트 수준 및 제품 수준 메타데이터 오브젝트 모두 임의의 키-값 페어를 허용하므로, 핵심 스키마를 수정하지 않고도 커스텀 차원을 첨부할 수 있습니다. 일반적인 예로는 `order_status_url`, `gift_wrapped`, `loyalty_points_earned`, `warehouse_id` 등이 있습니다. 이러한 등록정보는 Liquid 개인화, Currents 내보내기, [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 통한 세분화에서 사용할 수 있습니다.
+이벤트 수준 및 제품 수준 메타데이터 오브젝트 모두 임의의 키-값 페어를 허용하므로, 핵심 스키마를 수정하지 않고도 커스텀 차원을 첨부할 수 있습니다. 일반적인 예로는 `order_status_url`, `gift_wrapped`, `loyalty_points_earned`, `warehouse_id` 등이 있습니다. 이러한 속성정보는 Liquid 개인화, Currents 내보내기, [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 통한 세분화에서 사용할 수 있습니다.
 
 {% alert important %}
-추천 이벤트는 엄격한 스키마를 사용합니다. 따라서 등록정보의 최상위 수준에 커스텀 등록정보를 추가하면 유효성 검사에 실패합니다. 모든 커스텀 등록정보는 이벤트 수준 `metadata` 오브젝트 또는 `products[]` 내부의 제품 수준 `metadata` 오브젝트에 넣으세요. 이러한 등록정보는 최상위 필드와 마찬가지로 Liquid, Currents, 세분화에서 사용할 수 있습니다.
+추천 이벤트는 엄격한 스키마를 사용합니다. 따라서 속성정보의 최상위 수준에 커스텀 속성정보를 추가하면 유효성 검사에 실패합니다. 모든 커스텀 속성정보는 이벤트 수준 `metadata` 오브젝트 또는 `products[]` 내부의 제품 수준 `metadata` 오브젝트에 넣으세요. 이러한 속성정보는 최상위 필드와 마찬가지로 Liquid, Currents, 세분화에서 사용할 수 있습니다.
 {% endalert %}
 
 ## 이벤트 유효성 검사 및 문제 해결 {#event-validation-and-troubleshooting}
@@ -1229,12 +1188,12 @@ USD로만 운영하는 경우, 불필요한 변환을 방지하기 위해 모든
 | 확인 항목                     | 예시                                                                                                                      |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------|
 | 이벤트 이름                | 정확해야 합니다. 예를 들어, `ecommerce.cart_updated`가 올바르며 `ecommerce.Cart_Updated`, `cartupdated`, `cart_updated`는 올바르지 않습니다. |
-| 필수 등록정보 존재 여부 | `order_placed`에는 `order_id`, `total_value`, `currency`, `products`, `source`가 필요합니다.                                   |
+| 필수 속성정보 존재 여부 | `order_placed`에는 `order_id`, `total_value`, `currency`, `products`, `source`가 필요합니다.                                   |
 | 올바른 데이터 유형        | `total_value`는 숫자여야 하고, `currency`는 문자열이어야 하며, `products`는 배열이어야 합니다.                                   |
-| 최상위 수준에 추가 등록정보 없음 | 등록정보 아래의 커스텀 필드는 실패를 유발합니다. 대신 `metadata` 오브젝트를 사용하세요.                                         |
+| 최상위 수준에 추가 속성정보 없음 | 속성정보 아래의 커스텀 필드는 실패를 유발합니다. 대신 `metadata` 오브젝트를 사용하세요.                                         |
 | 값 제약 조건         | 금액 필드는 `0` 이상이어야 합니다. `currency`는 유효한 ISO 4217 문자열이어야 합니다.                                                  |
 | 제품별 필드        | `products[]`의 각 항목에는 `product_id`, `product_name`, `variant_id`, `quantity`, `price`가 포함되어야 합니다.                 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="유효성 검사 항목" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="What we validate" }
 
 ### 유효성 검사를 하는 이유 {#why-we-validate}
 
@@ -1248,8 +1207,8 @@ eCommerce 이벤트는 매출 추적, {% raw %}`{% shopping_cart %}`{% endraw %}
 
 이벤트를 전송한 후 다음 방법 중 하나를 사용하여 이벤트가 수락되고 올바르게 처리되었는지 확인할 수 있습니다:
 
-- [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log/): 대시보드에서 사용자의 프로필을 열고 활동을 검토합니다. 추천 이벤트는 전체 등록정보 페이로드와 함께 표시되므로, 이벤트가 도착했는지와 값이 전송한 것과 일치하는지 확인할 수 있습니다.
-- [사용자 지정 이벤트 보고서]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report/): **Analytics** > **Custom Events**로 이동하여 시간에 따른 각 추천 이벤트의 집계 수를 확인합니다. 이는 통합이 라이브 상태일 때 프로덕션 트래픽이 예상대로 흐르고 있는지 확인하는 데 유용합니다.
+- [이벤트 사용자 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log): 대시보드에서 사용자의 프로필을 열고 활동을 검토합니다. 추천 이벤트는 전체 속성정보 페이로드와 함께 표시되므로, 이벤트가 도착했는지와 값이 전송한 것과 일치하는지 확인할 수 있습니다.
+- [커스텀 이벤트 보고서]({{site.baseurl}}/user_guide/analytics/reports/custom_events_report): **Analytics** > **Custom Events**로 이동하여 시간에 따른 각 추천 이벤트의 집계 수를 확인합니다. 이는 통합이 라이브 상태일 때 프로덕션 트래픽이 예상대로 흐르고 있는지 확인하는 데 유용합니다.
 - [테스트 사용자]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups?utm_source=operator_user&utm_medium=dashboard#adding-test-users): 개발 워크스페이스에서 사용자를 테스트 사용자로 표시한 다음, 해당 사용자에 대해 통합에서 이벤트를 트리거합니다. 테스트 사용자는 대시보드에서 플래그가 지정되어 엔드투엔드 동작을 쉽게 격리하고 검사할 수 있습니다.
 
 ### 유효성 검사 실패 시 {#when-validation-fails}
@@ -1269,7 +1228,7 @@ eCommerce 이벤트는 매출 추적, {% raw %}`{% shopping_cart %}`{% endraw %}
 
 #### API 오류 응답 예시 {#example-api-error-response}
 
-`/users/track` 엔드포인트는 어떤 등록정보가 실패했는지와 이유를 나타내는 필드 수준 오류를 반환합니다. 최상위 `message`는 이벤트가 파이프라인에 수락되었기 때문에 `"success"`를 반환할 수 있습니다. `errors` 배열이 스키마 유효성 검사에 실패한 필드를 알려줍니다. 다음 오류 응답 예시를 참조하세요.
+`/users/track` 엔드포인트는 어떤 속성정보가 실패했는지와 이유를 나타내는 필드 수준 오류를 반환합니다. 최상위 `message`는 이벤트가 파이프라인에 수락되었기 때문에 `"success"`를 반환할 수 있습니다. `errors` 배열이 스키마 유효성 검사에 실패한 필드를 알려줍니다. 다음 오류 응답 예시를 참조하세요.
 
 ```json
 {
@@ -1315,4 +1274,4 @@ Braze는 워크스페이스 관리자에게 추천 이벤트 유효성 검사 �
 3. **프로덕션에 배포하기 전에 개발 워크스페이스에서 수정된 페이로드를 테스트합니다.** 테스트 사용자에 대해 알려진 테스트 이벤트를 전송한 다음, 해당 사용자의 프로필에서 예상되는 추천 이벤트 동작을 확인합니다(예: 장바구니 오브젝트 업데이트, 매출 증가, 유기한 장바구니 트리거 발동).
 4. **다음 실패 이메일을 모니터링하여** 해당 이벤트, 소스, 유형에 대한 실패 수가 0으로 떨어지는지 확인합니다.
 
-이벤트별 전체 등록정보 요구 사항은 [이벤트 스키마](#event-schemas)를 참조하세요.
+이벤트별 전체 속성정보 요구 사항은 [이벤트 스키마](#event-schemas)를 참조하세요.

@@ -10,17 +10,14 @@ description: "This reference article covers how to manage tags in the Braze dash
 
 > You can manage the tags you use across campaigns, Canvases, and segments from a central location. To rename, remove, or add tags, go to **Settings** > **Tag Management**.
 
-To learn how to add tags to campaigns, Canvases, segments, and custom data, see [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags/).
+To learn how to add tags to campaigns, Canvases, segments, and custom data, see [Tags]({{site.baseurl}}/user_guide/messaging/governance/tags).
 
 ## Nesting tags
 
 To further organize your tags, you can nest them under a parent tag. For example, you can keep all holiday tags nested under a parent `Holidays` tag, or all tags related to a stage of your marketing funnel under a parent `Funnel` tag.
 
-![The Tag Management page showing a list of tags organized by nested groups.]({% image_buster /assets/img_archive/tags_view.png %})
-
-To nest a new tag, create a tag, select **Nest Tag Under**, and choose which existing tag to nest your new tag under.
-
-To nest an existing tag, go to the **Tag Management** page, hover over a row with your tag, and select **<i class="fas fa-pencil-alt"></i>Edit**. Then, select **Nest Tag Under** and choose the parent tag.
+- **Nest a new tag:** Create a tag, select **Nest Tag Under**, and choose which existing tag to nest your new tag under.
+- **Nest an existing tag:** Go to the **Tag Management** page, hover over a row with your tag, and select **<i class="fas fa-pencil-alt"></i>Edit**. Then, select **Nest Tag Under** and choose the parent tag.
 
 ### Parent tag is in use but missing from **Nest Tag Under**
 

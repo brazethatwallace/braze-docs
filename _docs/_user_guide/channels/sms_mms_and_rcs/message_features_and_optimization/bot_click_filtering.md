@@ -12,7 +12,7 @@ channel:
 
 # SMS and RCS bot click filtering
 
-> SMS and RCS bot click filtering enhances campaign analytics and workflows by excluding suspected bot clicks. A “bot click” refers to automated clicks on shortened links in SMS and RCS messages, such as those from web crawlers, Android and iOS link previews, or CPaaS security software. This feature facilitates accurate reporting, segmentation, and orchestration to engage real users. <br><br> For email campaign bot click filtering, refer to [Bot filtering for emails]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/bot_filtering/).
+> SMS and RCS bot click filtering enhances campaign analytics and workflows by excluding suspected bot clicks. A “bot click” refers to automated clicks on shortened links in SMS and RCS messages, such as those from web crawlers, Android and iOS link previews, or CPaaS security software. This feature facilitates accurate reporting, segmentation, and orchestration to engage real users. <br><br> For email campaign bot click filtering, refer to [Bot filtering for emails]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/bot_filtering).
 
 ## How it works
 
@@ -31,9 +31,9 @@ The following Braze metrics and workflows are impacted by bot clicks:
     - **Intelligent Selection:** Excludes bot clicks when optimizing variant selection.
     - **Intelligent channel:** Excludes bot clicks when SMS or RCS is selected for accurate channel selection.
     - **Experiment steps:** Excludes bot clicks for reliable experiment outcomes.
-    - **Currents data exports:** Includes `is_suspected_bot_click` and `suspected_bot_click_reason` fields to help analyze human versus bot clicks. These fields are available in [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/), [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/), and [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/).
+    - **Currents data exports:** Includes `is_suspected_bot_click` and `suspected_bot_click_reason` fields to help analyze human versus bot clicks. These fields are available in [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake), and [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder).
 
-Unsubscribes from suspected bot clicks are unaffected. Braze processes all unsubscribe requests as usual. To block these unsubscribes, [submit product feedback]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+Unsubscribes from suspected bot clicks are unaffected. Braze processes all unsubscribe requests as usual. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## Currents fields in SMS click events
 
@@ -47,7 +47,7 @@ Braze includes the following Currents fields for SMS click events:
 
 ## Query Builder template
 
-For help analyzing your data, you can use the pre-built mobile template **SMS click events by bots** in [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/).
+For help analyzing your data, you can use the pre-built mobile template **SMS click events by bots** in [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates).
 
 ## Frequently asked questions
 
@@ -67,8 +67,8 @@ Yes. Link previews (such as Android and iOS link previews) are flagged as bot cl
 
 You must contact your Braze account team to enable bot click filtering during the early access. When bot click filtering has general availability, the feature will be on by default for all SMS and RCS users.
 
-Also make sure you have enabled advanced click tracking for [link shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/). This allows you to receive the bot click analytics, as we track this data at the individual user level. 
+Also make sure you have enabled advanced click tracking for [link shortening]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening). This allows you to receive the bot click analytics, as we track this data at the individual user level. 
 
 {% alert note %}
-For further assistance, [contact Support]({{site.baseurl}}/braze_support/).
+For further assistance, [contact Support]({{site.baseurl}}/braze_support).
 {% endalert %}

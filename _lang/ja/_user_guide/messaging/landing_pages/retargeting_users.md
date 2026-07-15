@@ -11,18 +11,18 @@ page_order: 3
 
 ## 前提条件 {#prerequisites}
 
-始める前に、[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)を作成する必要があります。
+始める前に、[ランディングページ]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)を作成する必要があります。
 
 ## ユーザーのリターゲティング {#retargeting-users}
 
-Brazeは、ユーザーがランディングページのフォームを送信すると自動的に追跡します。フォームの送信総数は[ランディングページの分析]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#viewing-analytics)で確認できます。ただし、ユーザー固有のリターゲティングを行うには、以下のいずれかの方法でランディングページのフォームを通じてユーザーをリターゲティングする必要があります。
+Brazeは、ユーザーがランディングページのフォームを送信すると自動的に追跡します。フォームの送信総数は[ランディングページの分析]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#viewing-analytics)で確認できます。ただし、ユーザー固有のリターゲティングを行うには、以下のいずれかの方法でランディングページのフォームを通じてユーザーをリターゲティングする必要があります。
 
 - **セグメントを使用する:** 新しいセグメントを作成して、ランディングページのフォームを送信したユーザーまたは送信していないユーザーを自動的に識別できます。
 - **メッセージトリガーを使用する:** メッセージトリガーを設定して、フォーム送信後にユーザーに自動的にメッセージを送信したり、キャンバスに登録したりできます。
 
 {% tabs local %}
 {% tab セグメントを使用する %}
-[セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)する際、「Retargeting」グループで**Submitted form on Landing Page**を選択します。
+[セグメントを作成]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)する際、「リターゲティング」グループで**Submitted form on Landing Page**を選択します。
 
 ![フィルターグループが「Submitted Form on Landing Page」に選択されたセグメント作成画面。]({% image_buster /assets/img/landing_pages/segmentation_selected.png %})
 
@@ -30,7 +30,7 @@ Brazeは、ユーザーがランディングページのフォームを送信す
 {% endtab %}
 
 {% tab メッセージトリガーを使用する %}
-[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/)または[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas/)の配信オプションを選択する際、**Action Based Delivery**を選択し、次に**Submitted Landing Page form**を選択します。
+[キャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns)または[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas)の配信オプションを選択する際、**Action Based Delivery**を選択し、次に**Submitted Landing Page form**を選択します。
 
 このランディングページのフォームを通じてフォームを送信したすべてのユーザーは、選択したメッセージングチャネルでメッセージを受信するか、選択したキャンバスに登録されます。
 

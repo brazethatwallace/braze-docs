@@ -25,7 +25,7 @@ Para criar ou editar seu rodapé personalizado, faça o seguinte:
 1. Acesse **Configurações** > **Preferências de e-mail** > **Páginas e rodapés da inscrição**.
 2. Acesse a seção **Rodapé personalizado** e ative os rodapés personalizados.
 3. Selecione **Editar** e edite seu rodapé na seção **Redigir**.
-4. Selecione **Pré-visualização** para ver como o rodapé do e-mail aparecerá na caixa de entrada do cliente. Opcionalmente, você pode selecionar **Copiar link de pré-visualização** para gerar e copiar um link de pré-visualização compartilhável que mostra como o e-mail ficará para um usuário aleatório. O link será válido por sete dias antes de precisar ser regenerado.
+4. Selecione **Prévia** para ver como o rodapé do e-mail aparecerá na caixa de entrada do cliente. Opcionalmente, você pode selecionar **Copiar link de prévia** para gerar e copiar um link de prévia compartilhável que mostra como o e-mail ficará para um usuário aleatório. O link será válido por sete dias antes de precisar ser regenerado.
 5. Envie uma mensagem de teste.
 
 ![Exemplo de um rodapé personalizado.]({% image_buster /assets/img_archive/custom_footer.png %})
@@ -57,7 +57,7 @@ Para adicionar um link personalizado de cancelamento de inscrição, você pode 
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-Em seguida, chame o [endpoint `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/) para atualizar o status de inscrição do usuário. Para mais detalhes, consulte nossa documentação sobre [alteração de inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Em seguida, chame o [endpoint `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) para atualizar o status de inscrição do usuário. Para mais detalhes, consulte nossa documentação sobre [alteração de inscrições de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 Depois, salve esse novo link. A tag padrão de cancelamento de inscrição da Braze {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} deve estar no rodapé. Isso significa que você precisa incluir o link padrão "ocultando-o", colocando a tag em um comentário ou em uma tag `<div>` oculta.
 
@@ -67,21 +67,21 @@ Sugerimos as seguintes práticas recomendadas ao criar e usar rodapés personali
 
 ### Personalizando com atributos {#personalizing-with-attributes}
 
-Ao criar um rodapé personalizado, a Braze sugere usar [atributos para personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/). O conjunto completo de atributos padrão e personalizados está disponível, mas aqui estão alguns que podem ser úteis:
+Ao criar um rodapé personalizado, a Braze sugere usar [atributos para personalização]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags). O conjunto completo de atributos padrão e personalizados está disponível, mas aqui estão alguns que podem ser úteis:
 
 | Atributo | Tag |
 | --------- | --- |
 | Endereço de e-mail do usuário | {% raw %}`{{${email_address}}}`{% endraw %} |
 | URL personalizada de cancelamento de inscrição do usuário | {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %} <br><br>Essa tag substitui a tag anterior {% raw %}`{{${unsubscribe_url}}}`{% endraw %}. Recomendamos que você use a tag mais recente {% raw %}`{{${set_user_to_unsubscribed_url}}}`{% endraw %}. |
-| URL personalizada de opt-in do usuário | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
+| URL personalizada de aceitação do usuário | {% raw %}`{{${set_user_to_opted_in_url}}}`{% endraw %} |
 | URL personalizada de inscrição do usuário | {% raw %}`{{${set_user_to_subscribed_url}}}`{% endraw %}|
 | URL personalizada da Central de Preferências da Braze do usuário | {% raw %}`{{${preference_center_url}}}`{% endraw %} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizando com atributos" }
 
-### Incluindo um link de cancelamento de inscrição e um link de opt-in {#including-an-unsubscribe-link-and-opt-in-link}
+### Incluindo um link de cancelamento de inscrição e um link de aceitação {#including-an-unsubscribe-link-and-opt-in-link}
 
 {% raw  %}
-Como prática recomendada, a Braze sugere incluir tanto um link de cancelamento de inscrição (como ``{{${set_user_to_unsubscribed_url}}}``) quanto um link de opt-in (como ``{{${set_user_to_opted_in_url}}}``) no seu rodapé personalizado. Dessa forma, os usuários poderão cancelar a inscrição ou fazer opt-in, e você poderá coletar passivamente dados de opt-in de uma parte dos seus usuários.
+Como prática recomendada, a Braze sugere incluir tanto um link de cancelamento de inscrição (como ``{{${set_user_to_unsubscribed_url}}}``) quanto um link de aceitação (como ``{{${set_user_to_opted_in_url}}}``) no seu rodapé personalizado. Dessa forma, os usuários poderão cancelar a inscrição ou fazer a aceitação, e você poderá coletar passivamente dados de aceitação de uma parte dos seus usuários.
 {% endraw %}
 
 ### Configurando rodapés personalizados para e-mails em texto simples {#setting-custom-footers-for-plaintext-emails}
@@ -94,4 +94,11 @@ Se você não incluir um rodapé em texto simples, a Braze criará um automatica
 
 ## Considerações {#considerations}
 
-Se você estiver usando o [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/), observe que {% raw %}`{{${email_footer}}}`{% endraw %} não é uma tag Liquid padrão. Ela é pré-processada antes da execução do Liquid, então usar {% raw %}`{{${email_footer}}}`{% endraw %} como valor de variável de contexto e chamar a flag `:rerender` falha silenciosamente. Em vez disso, use um [bloco de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers) para o rodapé de e-mail.
+
+### BrazeAI Decisioning Studio™
+
+Se você estiver usando o [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio), observe que {% raw %}`{{${email_footer}}}`{% endraw %} não é uma tag Liquid padrão. Ela é pré-processada antes da execução do Liquid, então usar {% raw %}`{{${email_footer}}}`{% endraw %} como valor de variável de contexto e chamar a flag `:rerender` falha silenciosamente. Em vez disso, use um [bloco de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) para o rodapé de e-mail.
+
+### Modelos de link e parâmetros UTM {#link-templates-and-utm-parameters}
+
+Os modelos de link não são automaticamente adicionados aos links em rodapés de e-mail personalizados ao usar {% raw %}`{{${email_footer}}}`{% endraw %}. Se você precisar de modelos de link como parâmetros UTM nos links do seu rodapé, use um [bloco de conteúdo]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) ou adicione manualmente os parâmetros UTM aos links específicos no seu rodapé personalizado.

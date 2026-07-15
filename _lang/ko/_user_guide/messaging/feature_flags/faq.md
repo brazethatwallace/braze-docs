@@ -10,11 +10,11 @@ platform:
   - Web
 ---
 
-# 자주 묻는 질문
+# 자주 묻는 질문 {#frequently-asked-questions}
 
 > 이 문서에서는 기능 플래그에 대해 자주 묻는 질문에 대한 답변을 제공합니다.
 
-## 기능 및 지원
+## 기능 및 지원 {#functionality-and-support}
 
 ### Braze 기능 플래그는 어떤 플랫폼에서 지원되나요? {#platforms}
 
@@ -79,9 +79,9 @@ if (braze.getFeatureFlag("new_shopping_cart")?.enabled == true) {
 
 제품 팀은 기능 플래그를 사용하여 새로운 기능의 점진적 출시 또는 소프트 런칭을 수행하고, 모든 사용자에게 제공하기 전에 핵심 성과 지표와 고객 피드백을 모니터링할 수 있습니다.
 
-제품 팀은 [기능 플래그 등록정보]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#properties)를 사용하여 딥링크, 텍스트, 이미지 또는 기타 동적 콘텐츠와 같은 앱 내 콘텐츠를 원격으로 채울 수 있습니다.
+제품 팀은 [기능 플래그 등록정보]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#properties)를 사용하여 딥링크, 텍스트, 이미지 또는 기타 동적 콘텐츠와 같은 앱 내 콘텐츠를 원격으로 채울 수 있습니다.
 
-Canvas 피처 플래그 단계를 사용하면 제품 팀은 A/B 분할 테스트를 실행하여 새로운 기능이 기능이 비활성화된 사용자와 비교하여 전환율에 어떤 영향을 미치는지 측정할 수도 있습니다.
+Canvas 피처 플래그 단계를 사용하면 제품 팀은 A/B 분할 테스트를 실행하여 기능이 비활성화된 사용자와 비교하여 새로운 기능이 전환율에 어떤 영향을 미치는지 측정할 수도 있습니다.
 
 ### 기능 플래그가 엔지니어링 팀에 어떤 도움이 되나요? {#engineering-teams}
 
@@ -89,11 +89,11 @@ Canvas 피처 플래그 단계를 사용하면 제품 팀은 A/B 분할 테스�
 
 기능 플래그 뒤에 숨겨진 새 코드를 릴리스하면, 팀은 새 코드를 푸시하거나 앱 스토어 업데이트 승인을 기다리는 지연 없이 Braze 대시보드에서 원격으로 기능을 켜거나 끌 수 있습니다.
 
-## 기능 출시 및 타겟팅
+## 기능 출시 및 타겟팅 {#feature-rollouts-and-targeting}
 
 ### 기능 플래그를 특정 사용자 그룹에만 출시할 수 있나요? {#target-users}
 
-네, Braze에서 이메일 주소, `user_id` 또는 고객 프로필의 기타 속성을 기준으로 특정 사용자를 타겟팅하는 세그먼트(Segment)를 생성하세요. 그런 다음 해당 세그먼트의 100%에 기능 플래그를 배포하세요.
+네, Braze에서 이메일 주소, `user_id` 또는 고객 프로필의 기타 속성을 기준으로 특정 사용자를 타겟팅하는 Segment를 생성하세요. 그런 다음 해당 Segment의 100%에 기능 플래그를 배포하세요.
 
 ### 출시 비율을 조정하면 이전에 활성화 그룹에 버킷된 사용자에게 어떤 영향을 미치나요? {#random-buckets}
 
@@ -105,7 +105,7 @@ Canvas 피처 플래그 단계를 사용하면 제품 팀은 A/B 분할 테스�
 
 이 전략은 사용자가 앱에서 일관된 경험을 제공받고 세션 간에 왔다 갔다 하지 않도록 보장합니다. 물론 기능을 0%로 비활성화하면 기능 플래그에서 모든 사용자가 제거되며, 이는 버그를 발견하거나 기능을 완전히 비활성화해야 할 때 유용합니다.
 
-## 기술 관련 주제
+## 기술 관련 주제 {#technical-topics}
 
 ### 기능 플래그를 사용하여 Braze SDK가 초기화되는 시점을 제어할 수 있나요? {#initialization}
 
@@ -113,7 +113,7 @@ Canvas 피처 플래그 단계를 사용하면 제품 팀은 A/B 분할 테스�
 
 ### SDK는 기능 플래그를 얼마나 자주 새로고침하나요? {#refresh-frequency}
 
-기능 플래그는 세션 시작 시와 활성 사용자를 변경할 때 새로고침됩니다. 기능 플래그는 SDK의 [새로고침 메서드]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#refreshing)를 사용하여 수동으로 새로고침할 수도 있습니다. 기능 플래그 새로고침은 5분에 한 번으로 사용량 제한이 적용됩니다(변경될 수 있음).
+기능 플래그는 세션 시작 시와 활성 사용자를 변경할 때 새로고침됩니다. 기능 플래그는 SDK의 [새로고침 메서드]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#refreshing)를 사용하여 수동으로 새로고침할 수도 있습니다. 기능 플래그 새로고침은 5분에 한 번으로 사용량 제한이 적용됩니다(변경될 수 있음).
 
 좋은 데이터 관행에 따라 기능 플래그를 너무 빠르게 새로고침하지 않는 것이 좋습니다(너무 자주 하면 사용량 제한이 적용될 수 있음). 따라서 사용자가 새로운 기능과 상호작용하기 전에 새로고침하거나, 필요한 경우 앱에서 주기적으로 새로고침하는 것이 가장 좋습니다.
 
@@ -125,12 +125,12 @@ Canvas 피처 플래그 단계를 사용하면 제품 팀은 A/B 분할 테스�
 
 기능 플래그는 세션 중간에 새로고침될 수 있습니다. 특정 변수나 구성이 변경되어야 할 때 앱을 업데이트하고 싶은 시나리오가 있을 수 있습니다. 반면에 UI 렌더링 방식이 갑작스럽게 변경되는 것을 방지하기 위해 앱을 업데이트하고 싶지 않은 시나리오도 있습니다.
 
-이를 제어하려면 기능 플래그의 [업데이트를 수신]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#updates)하고 어떤 기능 플래그가 변경되었는지에 따라 앱을 다시 렌더링할지 결정하세요.
+이를 제어하려면 기능 플래그의 [업데이트를 수신]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#updates)하고 어떤 기능 플래그가 변경되었는지에 따라 앱을 다시 렌더링할지 결정하세요.
 
-### 글로벌 컨트롤 그룹의 사용자가 기능 플래그 실험을 받지 못하는 이유는 무엇인가요?
+### 글로벌 컨트롤 그룹의 사용자가 기능 플래그 실험을 받지 못하는 이유는 무엇인가요? {#why-arent-users-in-my-global-control-group-receiving-feature-flags-experiments}
 
-[글로벌 컨트롤 그룹]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/)의 사용자에게는 기능 플래그를 활성화할 수 없습니다. 즉, 글로벌 컨트롤 그룹의 사용자는 기능 플래그 실험에 참여할 수 없습니다.
+[글로벌 컨트롤 그룹]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts)의 사용자에게는 기능 플래그를 활성화할 수 없습니다. 즉, 글로벌 컨트롤 그룹의 사용자는 기능 플래그 실험에 참여할 수 없습니다.
 
-## 추가 질문이 있으신가요?
+## 추가 질문이 있으신가요? {#additional-questions}
 
 질문이나 피드백이 있으시면 저희 팀에 이메일을 보내주세요: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).

@@ -47,7 +47,7 @@ description: "このページでは、大量送信を伴うキャンペーンや
 2. **Create rule**を選択します。
 3. このルールに名前を付けます（例：「全ユーザーサブスクリプション」）。
 4. **Message type**で、**キャンペーン**、**キャンバス**、または**Both キャンバス and キャンペーン**を選択して承認ルールを適用します。
-5. **Maximum reachable users**に数値を入力します。詳細については、[オーディエンス統計]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/#audience-statistics)を参照してください。
+5. **Maximum reachable users**に数値を入力します。詳細については、[オーディエンス統計]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users#audience-statistics)を参照してください。
 6. **Save**を選択します。
 
 ![キャンペーンに対する「Rule 1」というメッセージングルールの例。最大ユーザー数は100,000です。キャンバスとキャンペーンの起動を承認できるユーザーが1人います。]({% image_buster /assets/img/target_population_approval_example.png %}){: style="max-width:90%;"}
@@ -58,7 +58,7 @@ description: "このページでは、大量送信を伴うキャンペーンや
 
 承認付きメッセージ起動に関する以下の詳細に注意してください：
 
-- 最大数に達し、承認者が選択されている場合、承認権限を持つBrazeユーザーは**Target Audience**の承認ドロップダウンから**Approved**を選択できます。
+- 最大数に達し、承認者が選択されている場合、承認権限を持つBrazeユーザーは**ターゲットオーディエンス**の承認ドロップダウンから**承認済み**を選択できます。
 - 最大数に達し、承認者が選択されていない場合、キャンバスまたはキャンペーンの起動は阻止されます。
 
 ![キャンバスワークフローの「Summary」ステップ。起動するには承認が必要であることが表示されています。]({% image_buster /assets/img/non_approver_banner.png %}){: style="max-width:90%;"}

@@ -36,7 +36,7 @@ If any of your non-Braze SDKs collect tracking data, you'll need to review those
 
 ### Step 2: Create a privacy manifest
 
-First, check if you already have a privacy manifest by searching for a `PrivacyInfo.xcprivacy` file in your Xcode project. If you already have this file, you can continue to the next step. Otherwise, see [Apple: Create a privacy manifest](sdk-tracking.iad-01.braze.com).
+First, check if you already have a privacy manifest by searching for a `PrivacyInfo.xcprivacy` file in your Xcode project. If you already have this file, you can continue to the next step. Otherwise, see [Apple: Create a privacy manifest](https://developer.apple.com/documentation/bundleresources/privacy_manifest_files).
 
 ### Step 3: Add your endpoint to the privacy manifest
 
@@ -152,6 +152,32 @@ In previous versions of the Braze iOS SDK, the IDFV (Identifier for Vendor) fiel
 The `useUUIDAsDeviceId` feature configures the [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) to set the device ID as a UUID. Traditionally, the iOS SDK would assign the device ID equal to the Apple-generated IDFV value. With this feature enabled by default on your iOS app, all new users created via the SDK would be assigned a device ID equal to a UUID.
 
 If you still want to collect IDFV separately, you can use [`set(identifierforvendor:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforvendor:)).
+
+{% alert note %}
+Reading `braze.deviceId` blocks the calling thread until the SDK has completed its post-initialization operations. For main-thread or latency-sensitive contexts, use the non-blocking alternatives instead.
+
+{% subtabs local %}
+{% subtab Swift %}
+```swift
+// Completion handler — always delivers on the main thread.
+AppDelegate.braze?.getDeviceId { deviceId in
+  print("Device ID:", deviceId)
+}
+
+// Async/await (iOS 13.0+, tvOS 13.0+, watchOS 6.0+, macOS 10.15+)
+let deviceId = await AppDelegate.braze?.getDeviceId()
+```
+{% endsubtab %}
+{% subtab Objective-C %}
+```objc
+// Completion handler — always delivers on the main thread.
+[AppDelegate.braze getDeviceIdWithCompletion:^(NSString *deviceId) {
+  NSLog(@"Device ID: %@", deviceId);
+}];
+```
+{% endsubtab %}
+{% endsubtabs local %}
+{% endalert %}
 
 ### Considerations
 

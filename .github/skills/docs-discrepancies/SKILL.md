@@ -10,13 +10,18 @@ description: >
 
 Verify Braze docs against source code to identify discrepancies and propose docs updates.
 
+## Context
+- Current branch: !`git branch --show-current`
+- Modified files: !`git diff --name-only origin/develop...HEAD 2>/dev/null || git diff --name-only $(git merge-base HEAD $(git rev-parse --verify origin/develop 2>/dev/null || git rev-parse --verify develop 2>/dev/null || echo HEAD~1))..HEAD 2>/dev/null`
+- Open PR: !`gh pr view --json number,title,body 2>/dev/null || echo "none"`
+
 ---
 
 ## Step 1: Doc page verification
 
 For the .md file in `_docs/*`:
 1. **Extract Product Behavior** - Distill the page down to a set of product and platform behaviors that need to be verified.
-2. **Verify Product Behavior** - Cross-reference with source code per the [reference-repos](../reference-repos/SKILL.md) skill (Main Product at `../platform`). Do not rely on other documentation to verify. Always cross-reference with source code. If you can verify the resolution against the source code, add a reference to the source file(s). If you cannot verify the resolution, say that you could not verify the resolution against the source code.
+2. **Verify Product Behavior** — **REQUIRED SUB-SKILL:** Use [reference-repos](../reference-repos/SKILL.md) (`braze-docs:reference-repos`) and cross-reference with source code (main product at `../platform`). Do not rely on other documentation to verify. Always cross-reference with source code. If you can verify the resolution against the source code, add a reference to the source file(s). If you cannot verify the resolution, say that you could not verify the resolution against the source code.
 3. **Identify Target** - Which existing doc page should be updated? (or flag as new page)
 4. **Suggest Changes** - Which changes should be made to the existing doc?
 
@@ -38,6 +43,7 @@ For each docs page:
 
 1. Read the target file to understand existing structure
 2. Draft changes following conventions in the codebase based on the style guides in `docs/contributing/style_guide/*`
+3. When documenting a product limitation or enhancement ask, use `_includes/product_feedback_cta.md` per [Product feedback CTAs](docs/contributing/style_guide/product_feedback_ctas.md). Do not add ad hoc `portal.braze.com` or legacy portal links.
 
 
 ## Step 3: Create a Properly Named Branch
@@ -51,23 +57,50 @@ Stage and commit all changes in `_docs` with a meaningful message derived from t
 
 ---
 
-## Step 5: Generate the PR for each branch
-Create each PR with the naming convention: `[DD] update summary`
-Example: `[DD] Add FAQ entry about machine opens vs other opens`
+## Step 5: Open the pull request
 
-Always add the label `docs discrepancy` to the PR by including `--label "docs discrepancy"` in the `gh pr create` command.
+**REQUIRED SUB-SKILL:** Use [create-pr](../create-pr/SKILL.md) (`braze-docs:create-pr`) for Steps 0–1, 3–4, quality checklist, and anti-patterns. **Override Step 2 only** as follows.
 
-Cursor fills out the PR automatically:
+### Step 2 override (docs-discrepancies)
 
-```text
-# Changes
-* [If this was related to a Docs discrepancy, make sure to note to tag the Eng owner in the description]
-* [Cursor analyzes code changes and lists them]
-* List of changes to help the reviewer understand the scope
+| Field | Value |
+|-------|--------|
+| **Title** | `[DD] <short summary>` (example: `[DD] Add FAQ entry about machine opens vs other opens`) |
+| **Label** | `docs discrepancy` — `gh pr edit --add-label "docs discrepancy"` after create |
+
+**Body** — use the create-pr template and include:
+
+```markdown
+### Why are you making this change? (required)
+
+<What readers will see differently after this correction.>
+
+### Related PRs, issues, or features (optional)
+
+- [BD-1234](https://jira.atl.braze.com/browse/BD-1234) (if applicable)
+
+### Approach
+
+<What was wrong in the doc, how source code was used to verify, and why this target page.>
+
+### Changes
+
+- [List scope for reviewers — no internal repo paths]
+- If this was a docs discrepancy, note to tag the Eng owner in the description.
+- If verified: **Verified against Braze source code.** — do **not** paste `platform/` or SDK paths.
+
+### Verification
+
+<Manual checks on affected pages — see create-pr.>
+
+### Contributor checklist
+
+<Copy from create-pr Step 2.>
 ```
 
-## Step 6: Assign reviewers according to code ownership when possible
-Cursor identifies team members based on the CODEOWNERS file. If no owner is found for that file, assign to @braze-inc/docs-team
+## Step 6: Assign reviewers
+
+Identify owners from [`.github/CODEOWNERS`](.github/CODEOWNERS). If no owner is found for the changed paths, assign `braze-inc/docs-team` via `gh pr edit --add-reviewer`.
 
 
 ## Source Code References
@@ -78,11 +111,14 @@ Cursor identifies team members based on the CODEOWNERS file. If no owner is foun
 | Main product | `../platform` |
 
 
-## Example Prompt
+## Example prompts
+
+Natural-language example requests:
 
 ```
-@docs-discrepancies Identify discrepancies for each .md file in `_docs/*`
+Identify discrepancies for each .md file in `_docs/*`
+```
 
-@docs-discrepancies Identify discrepancies for ai.md
-
+```
+Identify discrepancies for ai.md
 ```

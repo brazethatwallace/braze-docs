@@ -92,7 +92,7 @@ This is not a cake nor a cookie
 `{% endif %}` 태그는 `if` 블록이 끝났음을 나타냅니다. 해당 체인에서 `if`, `elsif`, `unless` 또는 `else`를 사용하는 모든 메시지에 `{% endif %}` 태그를 포함해야 합니다. `{% endif %}` 태그를 포함하지 않으면, Braze가 메시지를 구문 분석할 수 없어 오류가 발생합니다. `{% case %}`를 사용하는 경우에는 `{% endif %}`가 아닌 `{% endcase %}`로 블록을 닫습니다.
 
 {% alert note %}
-`if`, `elsif`, `unless` 태그에서는 연산자를 사용할 수 있지만 필터는 사용할 수 없습니다. `case`와 `when` 태그에서는 `case` 표현식이 `when` 값과 같을 때 각 분기가 일치하며, 해당 표현식에서도 필터는 지원되지 않습니다. 필터링된 값을 평가하려면 먼저 필터 결과를 변수에 할당한 다음 `case` 또는 `when` 절에서 해당 변수를 참조하세요. 자세한 내용은 [연산자와 필터를 사용하는 위치]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)를 참조하세요.
+`if`, `elsif`, `unless` 태그에서는 연산자를 사용할 수 있지만 필터는 사용할 수 없습니다. `case`와 `when` 태그에서는 `case` 표현식이 `when` 값과 같을 때 각 분기가 일치하며, 해당 표현식에서도 필터는 지원되지 않습니다. 필터링된 값을 평가하려면 먼저 필터 결과를 변수에 할당한 다음 `case` 또는 `when` 절에서 해당 변수를 참조하세요. 자세한 내용은 [연산자와 필터를 사용하는 위치]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters)를 참조하세요.
 {% endalert %}
 
 ### 튜토리얼: 위치 기반 콘텐츠 전달 {#tutorial-deliver-location-based-content}
@@ -220,7 +220,7 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 ## 커스텀 속성 참조 {#referencing-custom-attributes}
 
-[커스텀 속성을 생성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes)한 후, Liquid 메시징에서 이러한 커스텀 속성을 참조할 수 있습니다.
+[커스텀 속성을 생성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes)한 후, Liquid 메시징에서 이러한 커스텀 속성을 참조할 수 있습니다.
 
 조건 로직을 사용할 때는 올바른 구문을 사용하기 위해 커스텀 속성의 데이터 유형을 알아야 합니다. 대시보드의 **커스텀 속성** 페이지에서 커스텀 속성과 연결된 데이터 유형을 확인한 다음, 각 데이터 유형에 대해 나열된 다음 예제를 참조하세요.
 
@@ -230,9 +230,9 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 문자열과 배열은 주위에 작은따옴표가 필요하지만, 부울과 정수에는 작은따옴표를 사용하지 않습니다.
 {% endalert %}
 
-#### 부울 {#boolean}
+### 부울 {#boolean}
 
-[부울]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#booleans)은 이진 값으로, `registration_complete: true`와 같이 `true` 또는 `false`로 설정할 수 있습니다. 부울 값에는 작은따옴표를 사용하지 않습니다.
+[부울]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans)은 이진 값으로, `registration_complete: true`와 같이 `true` 또는 `false`로 설정할 수 있습니다. 부울 값에는 작은따옴표를 사용하지 않습니다.
 
 {% raw %}
 
@@ -242,9 +242,9 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 {% endraw %}
 
-#### 숫자 {#number}
+### 숫자 {#number}
 
-[숫자]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#numbers)는 정수 또는 플로트가 될 수 있는 숫자 값입니다. 예를 들어, 사용자는 `shoe_size: 10` 또는 `levels_completed: 287`을 가질 수 있습니다. 숫자 값에는 작은따옴표를 사용하지 않습니다.
+[숫자]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers)는 정수 또는 플로트가 될 수 있는 숫자 값입니다. 예를 들어, 사용자는 `shoe_size: 10` 또는 `levels_completed: 287`을 가질 수 있습니다. 숫자 값에는 작은따옴표를 사용하지 않습니다.
 
 {% raw %}
 
@@ -264,9 +264,9 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 {% endraw %}
 
-#### 문자열 {#string}
+### 문자열 {#string}
 
-[문자열]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#strings)은 영숫자 문자로 구성되며 사용자에 대한 데이터를 저장합니다. 예를 들어, `favorite_color: red` 또는 `phone_number: 3025981329`가 있을 수 있습니다. 문자열 값에는 작은따옴표를 사용해야 합니다.
+[문자열]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings)은 영숫자 문자로 구성되며 사용자에 대한 데이터를 저장합니다. 예를 들어, `favorite_color: red` 또는 `phone_number: 3025981329`가 있을 수 있습니다. 문자열 값에는 작은따옴표를 사용해야 합니다.
 
 {% raw %}
 
@@ -278,9 +278,9 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 문자열의 경우 Liquid에서 "=="와 "contains"를 모두 사용할 수 있습니다.
 
-#### 배열 {#array}
+### 배열 {#array}
 
-[배열]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#arrays)은 사용자에 대한 정보 목록입니다. 예를 들어, 사용자는 `last_viewed_shows: stranger things, planet earth, westworld`를 가질 수 있습니다. 배열 값에는 작은따옴표를 사용해야 합니다.
+[배열]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays)은 사용자에 대한 정보 목록입니다. 예를 들어, 사용자는 `last_viewed_shows: stranger things, planet earth, westworld`를 가질 수 있습니다. 배열 값에는 작은따옴표를 사용해야 합니다.
 
 {% raw %}
 
@@ -290,11 +290,47 @@ blank 값은 고객 프로필의 속성이 설정되지 않았거나, 공백 문
 
 {% endraw %}
 
-배열의 경우 "contains"를 사용해야 하며 "=="는 사용할 수 없습니다.
+배열의 경우 `contains`를 사용해야 하며 `==`는 사용할 수 없습니다.
 
-#### 시간 {#time}
+#### 문자열과 배열에서 `contains`의 동작 방식 {#how-contains-works-with-strings-versus-arrays}
 
-이벤트가 발생한 시점의 타임스탬프입니다. [시간]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#time) 값은 조건 로직에서 사용하려면 [수학 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#math-filters)를 적용해야 합니다.
+`contains` 연산자는 문자열을 평가하는지 배열을 평가하는지에 따라 다르게 동작합니다:
+
+- **문자열:** `contains`는 텍스트 내 어디에서든 부분 문자열을 확인합니다.
+- **배열:** `contains`는 배열 내의 완전한 요소와 정확히 일치하는지 확인합니다.
+
+{% alert important %}
+속성이 배열로 저장된 경우(예: `["med1", "med2", "abc"]`), `contains "ab"`를 검색하면 해당 목록에 정확히 `"ab"`인 요소가 없으므로 `false`로 평가됩니다.
+{% endalert %}
+
+##### 배열에서의 부분 문자열 일치 {#substring-matching-on-arrays}
+
+배열 속성 내에서 부분 일치(부분 문자열)를 찾으려면, 먼저 `join` 필터를 사용하여 배열을 단일 문자열로 변환해야 합니다.
+
+Braze는 조건 {% raw %}`{% if %}`{% endraw %} 블록 내에서 인라인 필터를 직접 지원하지 않으므로, 두 단계 프로세스를 따라야 합니다: 먼저 결합된 값을 변수에 할당한 다음 조건 확인을 실행합니다.
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+`join`은 배열 요소를 하나의 문자열로 결합하므로(기본 구분자: 공백 하나), 부분 문자열 검사가 요소 경계를 넘어 일치할 수 있습니다(예: `["Napa", "boulevard"]`는 `Napa boulevard`가 되어 `contains "a b"`가 `true`가 됩니다). ","와 같은 명시적 구분자를 사용하면 경계가 더 명확해지고 의도하지 않은 교차 요소 일치를 줄일 수 있습니다.
+{% endalert %}
+
+### 시간 {#time}
+
+이벤트가 발생한 시점의 타임스탬프입니다. [시간]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time) 값은 조건 로직에서 사용하려면 [수학 필터]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters)를 적용해야 합니다.
 
 {% raw %}
 

@@ -21,7 +21,7 @@ description: "Este artigo descreve detalhes sobre o endpoint da Braze \"Criar it
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `catalogs.create_item`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.create_item`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -33,14 +33,14 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 |---|---|---|---|
 | `catalog_name` | Obrigatória | String | Nome do catálogo. |
 | `item_id` | Obrigatória | String | O ID do item do catálogo. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de caminho" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `items` | Obrigatória | Vetor | Um vetor que contém objetos de item. Os objetos de item devem conter todos os campos do catálogo, exceto o campo `id`. Somente um objeto de item é permitido por solicitação. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 
@@ -117,7 +117,7 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 
 | Erro | Solução de problemas |
 | --- | --- |
-| `arbitrary-error` | Ocorreu um erro arbitrário. Tente novamente ou entre em contato com o [Suporte]({{site.baseurl}}/support_contact/). |
+| `arbitrary-error` | Ocorreu um erro arbitrário. Tente novamente ou entre em contato com o [Suporte]({{site.baseurl}}/support_contact). |
 | `catalog-not-found` | Verifique se o nome do catálogo é válido. |
 | `filtered-set-field-too-long` | O valor do campo está sendo usado em um conjunto filtrado que excede o limite de caracteres de um item. |
 | `id-in-body` | Remova quaisquer IDs de item no corpo da solicitação. |
@@ -131,6 +131,6 @@ A tabela a seguir lista os possíveis erros retornados e as etapas de solução 
 | `request-includes-too-many-items` | Você só pode criar um item de catálogo por solicitação. |
 | `too-deep-nesting-in-value-object` | Os objetos de item não podem ter mais de 50 níveis de aninhamento. |
 | `unable-to-coerce-value` | Os tipos de itens não podem ser convertidos. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Solução de problemas" }
 
 {% endapi %}

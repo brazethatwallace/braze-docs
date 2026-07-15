@@ -1,16 +1,20 @@
 ---
-nav_title: Benutzerdefinierter HTTP-Konnektor
-article_title: Benutzerdefinierter HTTP-Konnektor
+nav_title: Benutzerdefinierter Currents-Export
+article_title: Benutzerdefinierter Currents-Export
 alias: /currents/custom_http_connector/
 page_order: 3
 page_type: reference
 tool: Currents
-description: "Dieser Referenzartikel beschreibt, wie Sie einen benutzerdefinierten HTTP-Konnektor einrichten, um Braze-Currents-Event-Daten in Echtzeit direkt an Ihren eigenen HTTP-Endpunkt zu streamen."
+description: "Dieser Referenzartikel beschreibt, wie Sie einen benutzerdefinierten Currents-Export einrichten, um Braze-Currents-Event-Daten in Echtzeit direkt an Ihren eigenen HTTP-Endpunkt zu streamen."
 ---
 
-# Benutzerdefinierter HTTP-Konnektor {#custom-http-connector}
+# Benutzerdefinierter Currents-Export {#custom-currents-export}
 
 > Erfahren Sie, wie Sie einen benutzerdefinierten Currents-Konnektor integrieren, um Event-Daten von Braze in Echtzeit zu erhalten und so individuellere Analytics, Berichte und Automatisierung zu ermöglichen.
+
+{% alert note %}
+Dieses Feature wird in der technischen Dokumentation und in API-Referenzen auch als „Custom HTTP Connector“ bezeichnet.
+{% endalert %}
 
 ## Voraussetzungen {#prerequisites}
 
@@ -26,11 +30,11 @@ Sie benötigen eine Endpunkt-URL, um diese Integration zu konfigurieren. Ihr End
 
 ### 2. Schritt: Braze-Currents konfigurieren {#step-2-configure-braze-currents}
 
-Navigieren Sie in Braze zu **Partner Integrations** > **Data Export**, klicken Sie auf **Create New Current** und wählen Sie **Custom Currents Export**.
+Navigieren Sie in Braze zu **Partnerintegrationen** > **Datenexport**, klicken Sie auf **Neuen Current erstellen** und wählen Sie **Custom Currents Export**.
 
 Geben Sie Ihrem Export einen Namen und eine Kontakt-E-Mail-Adresse und fahren Sie dann mit der Seite **Current Details** fort. Geben Sie auf dieser Seite Ihre Endpunkt-URL und das optionale Bearer-Token ein.
 
-Nachdem Sie Ihre Zugangsdaten konfiguriert haben, aktivieren Sie alle Nachrichten-Engagement-, Kundenverhalten- und Nutzer:innen-Events, die Sie exportieren möchten, und klicken Sie auf **Launch Current**.
+Nachdem Sie Ihre Zugangsdaten konfiguriert haben, aktivieren Sie alle Nachrichten-Engagement-, Kundenverhalten- und Nutzer:innen-Events, die Sie exportieren möchten, und klicken Sie auf **Current starten**.
 
 ## Unterstützte Currents-Events {#supported-currents-events}
 
@@ -56,7 +60,7 @@ Gelegentlich nehmen wir nicht-brechende Änderungen an Braze-Currents-Schemas vo
 In der Regel geben wir eine zweiwöchige Vorankündigung für diese Änderungen, aber manchmal ist dies nicht möglich. Es ist unerlässlich, dass Sie Ihre Integration so gestalten, dass sie unbekannte Felder oder Event-Typen verarbeiten kann, da es andernfalls wahrscheinlich zu Datenverlust kommt.
 
 {% alert tip %}
-Die vollständige Liste der Currents-Event-Schemas finden Sie unter [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) und [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Die vollständige Liste der Currents-Event-Schemas finden Sie unter [Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) und [Kundenverhalten-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 {% endalert %}
 
 ## Batching und Serialisierung {#batching-and-serialization}
@@ -119,11 +123,11 @@ Genau wie bei unseren [Data-Warehouse-Speicherschemas]({{site.baseurl}}/user_gui
 
 ## Fehlerbehandlung und Retry-Mechanismus {#error-handling-and-retry-mechanism}
 
-Wenn ein Fehler auftritt, stellt Braze die Anfrage in eine Warteschlange und wiederholt sie basierend auf dem empfangenen HTTP-Rückgabecode. Wenn das Problem länger als 5 Tage bestehen bleibt, wird die Integration automatisch deaktiviert: Neue eingehende Events werden verworfen und gehen dauerhaft verloren, und bereits in der Warteschlange befindliche Events werden nach einer Aufbewahrungsfrist von 7 Tagen dauerhaft gelöscht. Wenn Daten länger als 24 Stunden feststecken, werden unsere Bereitschaftsingenieur:innen automatisch benachrichtigt. Eine vollständige Aufschlüsselung, wie jeder Statuscode behandelt wird, finden Sie in der folgenden Tabelle.
+Wenn ein Fehler auftritt, stellt Braze die Anfrage in eine Warteschlange und wiederholt sie basierend auf dem empfangenen HTTP-Rückgabecode. Wenn das Problem länger als 5 Tage bestehen bleibt, wird die Integration automatisch deaktiviert: Neue eingehende Events werden verworfen und gehen dauerhaft verloren, und bereits in der Warteschlange befindliche Events werden nach einer Aufbewahrungsfrist von 7 Tagen dauerhaft gelöscht. Wenn Daten länger als 24 Stunden feststecken, werden unsere Bereitschaftsingenieur:innen automatisch benachrichtigt. Eine vollständige Aufschlüsselung, wie jeder Statuscode behandelt wird, finden Sie in der Tabelle im folgenden Abschnitt.
 
 Wenn Ihre Currents-Integration Authentifizierungsfehler zurückgibt, sendet Braze Ihnen automatisch eine Benachrichtigungs-E-Mail.
 
-Jeder HTTP-Fehlercode, der unten nicht aufgeführt ist, wird als HTTP-`5XX`-Fehler behandelt.
+Jeder HTTP-Fehlercode, der im folgenden Abschnitt nicht aufgeführt ist, wird als HTTP-`5XX`-Fehler behandelt.
 
 {% alert warning %}
 Wenn das Problem länger als 5 Tage bestehen bleibt, wird die Integration deaktiviert. Neue eingehende Events werden verworfen und gehen dauerhaft verloren, und bereits in der Warteschlange befindliche Events werden nach einer Aufbewahrungsfrist von 7 Tagen dauerhaft gelöscht.

@@ -22,7 +22,7 @@ Se pueden incluir hasta 50 `external_ids` o `user_aliases` en una sola solicitud
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `users.export.ids`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `users.export.ids`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -56,13 +56,13 @@ Para los clientes que se hayan incorporado a Braze a partir del 22 de agosto de 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | ------------------ | -------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `external_ids` | Opcional | Matriz de cadenas | Identificadores externos de los usuarios que deseas exportar. |
-| `user_aliases` | Opcional | Matriz de objetos de alias de usuario | [Alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/) para exportar usuarios. |
+| `user_aliases` | Opcional | Matriz de objetos de alias de usuario | [Alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object) para exportar usuarios. |
 | `device_id` | Opcional | Cadena | Identificador del dispositivo, devuelto por varios métodos del SDK como `getDeviceId`. |
 | `braze_id` | Opcional | Cadena | Identificador Braze de un usuario concreto. |
 | `email_address` | Opcional | Cadena | Dirección de correo electrónico del usuario. |
 | `phone` | Opcional | Cadena en formato [E.164](https://en.wikipedia.org/wiki/E.164) | Número de teléfono del usuario. |
 | `fields_to_export` | Opcional* | Matriz de cadenas | Nombre de los campos de datos de usuario a exportar.<br><br>*Este campo es necesario para utilizar el límite de velocidad más rápido de 40 solicitudes por segundo. Si se omite, se utilizará en su lugar el límite de velocidad predeterminado de 250 solicitudes por minuto. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 *Obligatorio para clientes que se hayan incorporado a Braze a partir del 22 de agosto de 2024.
 
@@ -81,7 +81,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/ids' 
   ],
   "device_id": "1234567",
   "braze_id": "braze_identifier",
-  "email_address": "example@braze.com",
+  "email_address": "example@example.com",
   "phone": "11112223333",
   "fields_to_export": ["first_name", "email", "purchases"]
 }'
@@ -94,10 +94,10 @@ La siguiente es una lista de valores `fields_to_export` válidos. Utilizar `fiel
 | Campo a exportar | Tipo de datos | Descripción |
 | --------------------- | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `apps` | Matriz | Aplicaciones para las que este usuario ha registrado sesiones, que incluyen los campos:<br><br>- `name`: nombre de la aplicación<br>- `platform`: plataforma de la aplicación, como iOS, Android o Web<br>- `version`: número o nombre de la versión de la aplicación <br>- `sessions`: número total de sesiones de esta aplicación<br>- `first_used`: fecha de la primera sesión<br>- `last_used`: fecha de la última sesión<br><br>Todos los campos son cadenas. |
-| `attributed_campaign` | Cadena | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration/), si están configuradas. Identificador de una campaña publicitaria concreta. |
-| `attributed_source` | Cadena | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration/), si están configuradas. Identificador de la plataforma en la que estaba el anuncio. |
-| `attributed_adgroup` | Cadena | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration/), si están configuradas. Identificador de una subagrupación opcional debajo de la campaña. |
-| `attributed_ad` | Cadena | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration/), si están configuradas. Identificador de una subagrupación opcional debajo de la campaña y del grupo de anuncios. |
+| `attributed_campaign` | Cadena | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration), si están configuradas. Identificador de una campaña publicitaria concreta. |
+| `attributed_source` | Cadena | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration), si están configuradas. Identificador de la plataforma en la que estaba el anuncio. |
+| `attributed_adgroup` | Cadena | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration), si están configuradas. Identificador de una subagrupación opcional debajo de la campaña. |
+| `attributed_ad` | Cadena | Datos de [las integraciones de atribución]({{site.baseurl}}/partners/message_orchestration), si están configuradas. Identificador de una subagrupación opcional debajo de la campaña y del grupo de anuncios. |
 | `push_subscribe` | Cadena | Estado de la suscripción push del usuario. |
 | `email_subscribe` | Cadena | Estado de la suscripción por correo electrónico del usuario. |
 | `braze_id` | Cadena | Identificador único de usuario específico del dispositivo establecido por Braze para este usuario. |
@@ -118,14 +118,14 @@ La siguiente es una lista de valores `fields_to_export` válidos. Utilizar `fiel
 | `phone` | Cadena | Número de teléfono del usuario en formato E.164. |
 | `purchases` | Matriz | Compras que este usuario ha realizado en los últimos 90 días. |
 | `push_tokens` | Matriz | Identificador anónimo único que especifica dónde enviar las notificaciones de una aplicación. |
-| `random_bucket` | Entero | [Número de contenedor aleatorio]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events/#random-bucket-number-event) del usuario, utilizado para crear segmentos uniformemente distribuidos de usuarios aleatorios. |
+| `random_bucket` | Entero | [Número de contenedor aleatorio]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/customer_behavior_events#random-bucket-number-event) del usuario, utilizado para crear segmentos uniformemente distribuidos de usuarios aleatorios. |
 | `time_zone` | Cadena | Zona horaria del usuario en el mismo formato que la base de datos de zonas horarias de IANA. |
-| `total_revenue` | Flotante | Total de ingresos atribuidos a este usuario. Los ingresos totales se calculan en función de las compras que el usuario realizó durante las ventanas de conversión de las Campaigns y Canvas que recibió. |
+| `total_revenue` | Flotante | Total de ingresos atribuidos a este usuario. Los ingresos totales se calculan en función de las compras que el usuario realizó durante las ventanas de conversión de las Campaigns y los Canvas que recibió. |
 | `uninstalled_at` | Marca de tiempo | Fecha y hora en que el usuario desinstala la aplicación. Se omite si no se ha desinstalado la aplicación. |
-| `user_aliases` | Objeto | [Objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object/#user-alias-object-specification) que contiene `alias_name` y `alias_label`, si existe. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
+| `user_aliases` | Objeto | [Objeto de alias de usuario]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) que contiene `alias_name` y `alias_label`, si existe. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos a exportar" }
 
-Ten en cuenta que el punto de conexión `/users/export/ids` reunirá todo el perfil de usuario de este usuario, incluyendo datos como todas las Campaigns y Canvas recibidos, todos los eventos personalizados realizados, todas las compras realizadas y todos los atributos personalizados. Como resultado, este punto de conexión es más lento que otros puntos de conexión de la REST API.
+Ten en cuenta que el punto de conexión `/users/export/ids` reunirá todo el perfil de usuario de este usuario, incluyendo datos como todas las Campaigns y los Canvas recibidos, todos los eventos personalizados realizados, todas las compras realizadas y todos los atributos personalizados. Como resultado, este punto de conexión es más lento que otros puntos de conexión de la REST API.
 
 Dependiendo de los datos solicitados, este punto de conexión de la API puede no ser suficiente para satisfacer tus necesidades debido al límite de velocidad de 250 solicitudes por minuto. Si prevés utilizar este punto de conexión regularmente para exportar usuarios, considera en su lugar la exportación de usuarios por segmento, que es asíncrona y está más optimizada para grandes extracciones de datos.
 
@@ -146,7 +146,7 @@ Para ver un ejemplo de los datos accesibles a través de este punto de conexión
 Objeto de exportación del usuario (incluiremos la menor cantidad de datos posible; si falta un campo en el objeto, debe considerarse nulo o vacío):
 
 {% tabs %}
-{% tab All fields %}
+{% tab Todos los campos %}
 
 ```json
 {
@@ -215,7 +215,8 @@ Objeto de exportación del usuario (incluiremos la menor cantidad de datos posib
         "platform" : (string),
         "token" : (string),
         "device_id": (string),
-        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status
+        "notifications_enabled": (boolean) whether foreground push notifications are enabled for this token. `true` means foreground push is enabled for the token, and `false` means foreground push is disabled (for example, background-only). This is device-level and doesn't indicate the user's global push subscription status,
+        "provisionally_opted_in": (boolean) included for iOS and Android tokens only. Indicates whether the token is in a provisional push authorization state. `true` means the token is provisionally opted in (notifications are delivered quietly), `false` means the token isn't provisional (the user has explicitly authorized or denied push), and `null` means provisional status isn't set. Provisional authorization applies to iOS; Android tokens report `null`
       },
       ...
     ],
@@ -288,7 +289,7 @@ Objeto de exportación del usuario (incluiremos la menor cantidad de datos posib
 ```
 
 {% endtab %}
-{% tab Sample output %}
+{% tab Ejemplo de salida %}
 
 ```json
 {
@@ -302,13 +303,13 @@ Objeto de exportación del usuario (incluiremos la menor cantidad de datos posib
     ],
     "braze_id": "5fbd99bac125ca40511f2cb1",
     "random_bucket" : 2365,
-    "first_name" : "Jane",
-    "last_name" : "Doe",
-    "email" : "example@braze.com",
+    "first_name" : "Alex",
+    "last_name" : "Smith",
+    "email" : "example@example.com",
     "dob" : "1980-12-21",
     "home_city" : "Chicago",
     "country" : "US",
-    "phone" : "+442071838750",
+    "phone" : "+15555550123",
     "language" : "en",
     "time_zone" : "Eastern Time (US & Canada)",
     "last_coordinates" : [41.84157636433568, -87.83520818508256],
@@ -361,7 +362,8 @@ Objeto de exportación del usuario (incluiremos la menor cantidad de datos posib
         "platform": "Android",
         "token": "12345abcd",
         "device_id": "312ef2c1-83db-4789-967-554545a1bf7a",
-        "notifications_enabled": true
+        "notifications_enabled": true,
+        "provisionally_opted_in": null
       },
       ...
     ],
@@ -430,7 +432,7 @@ Objeto de exportación del usuario (incluiremos la menor cantidad de datos posib
 {% endtabs %}
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

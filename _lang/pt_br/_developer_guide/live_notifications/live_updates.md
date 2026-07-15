@@ -1,17 +1,15 @@
 ---
 nav_title: Atualizações ao vivo para Android
 article_title: Atualizações ao vivo para o SDK Braze do Android
-page_order: 0.1
-description: "Aprenda como configurar atualizações ao vivo para o SDK Braze do Android."
-platform:
-  - Android
-  - FireOS
-hidden: true
+layout: redirect
+redirect_to: /docs/developer_guide/live_notifications/
+noindex: true
 ---
 
+<!--
 # Atualizações ao vivo para Android {#live-updates-for-android}
 
-> Aprenda como usar atualizações ao vivo do Android no SDK da Braze, também conhecidas como [notificações centradas em progresso](https://developer.android.com/about/versions/16/features/progress-centric-notifications). Essas notificações são semelhantes às [Live Activities para o SDK Braze do Swift]({{site.baseurl}}/developer_guide/live_notifications/live_activities/), permitindo que você exiba notificações interativas na tela de bloqueio. O Android 16 introduz notificações centradas em progresso para ajudar os usuários a acompanhar jornadas iniciadas pelo usuário, do início ao fim.
+> Aprenda como usar atualizações ao vivo do Android no SDK da Braze, também conhecidas como [notificações centradas em progresso](https://developer.android.com/about/versions/16/features/progress-centric-notifications). Essas notificações são semelhantes às [Live Activities para o SDK Braze do Swift]({{site.baseurl}}/developer_guide/live_notifications/live_activities), permitindo que você exiba notificações interativas na tela de bloqueio. O Android 16 introduz notificações centradas em progresso para ajudar os usuários a acompanhar jornadas iniciadas pelo usuário, do início ao fim.
 
 ## Como funciona {#how-it-works}
 
@@ -110,7 +108,7 @@ class MyApplication : Application() {
 
 ### Etapa 4: Enviar a atividade {#step-4-send-the-activity}
 
-Você pode usar o endpoint da REST API [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) para enviar uma notificação por push para o dispositivo Android de um usuário.
+Você pode usar o endpoint da REST API [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) para enviar uma notificação por push para o dispositivo Android de um usuário.
 
 #### Exemplo de comando curl {#example-curl-command}
 
@@ -142,22 +140,23 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-Embora os comandos curl sejam úteis para testes, recomendamos lidar com essa chamada no seu backend, onde você já está lidando com suas [Live Activities do iOS]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift).
+Embora os comandos curl sejam úteis para testes, recomendamos lidar com essa chamada no seu backend, onde você já está lidando com suas [Live Activities do iOS]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift).
 {% endalert %}
 
 #### Parâmetros da solicitação {#request-parameters}
 
 | Chave | Descrição |
 |------------------------------|------------|
-| `REST_API_KEY` | Uma chave da API REST da Braze com permissões `messages.send`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
-| `BRAZE_REST_ENDPOINT` | A URL do seu endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics/#endpoints). |
-| `USER_ID` | O ID do usuário para quem você está enviando a notificação. |
+| `REST_API_KEY`               | Uma chave da API REST da Braze com permissões `messages.send`. <br><br> Ela pode ser criada no dashboard da Braze em **Configurações** > **Chaves de API**. |
+| `BRAZE_REST_ENDPOINT`         | A URL do seu endpoint REST. Seu endpoint dependerá da [URL da Braze para sua instância]({{site.baseurl}}/api/basics#endpoints). |
+| `USER_ID`                    | O ID do usuário para quem você está enviando a notificação. |
 | `messages.android_push.title` | O título da mensagem. Por padrão, não é usado para as notificações ao vivo da fábrica de notificações personalizada, mas pode ser usado como fallback. |
 | `messages.android_push.alert` | O corpo da mensagem. Por padrão, não é usado para as notificações ao vivo da fábrica de notificações personalizada, mas pode ser usado como fallback. |
-| `messages.extra` | Pares de chave-valor que a fábrica de notificações personalizada usa para notificações ao vivo. Você pode atribuir qualquer string a esse valor&#8212;no entanto, no exemplo acima, `live_updates` é usado para determinar se é uma notificação por push padrão ou ao vivo. |
-| `ASSIGNED_NOTIFICATION_ID` | O ID da notificação que você deseja atribuir à notificação ao vivo do usuário escolhido. O ID deve ser exclusivo para este jogo e deve ser usado para [atualizar a notificação existente](#android_step-4-update-data-with-the-braze-rest-api) posteriormente. |
+| `messages.extra`             | Pares de chave-valor que a fábrica de notificações personalizada usa para notificações ao vivo. Você pode atribuir qualquer string a esse valor&#8212;no entanto, no [exemplo de comando curl](#example-curl-command), `live_updates` é usado para determinar se é uma notificação por push padrão ou ao vivo. |
+| `ASSIGNED_NOTIFICATION_ID`   | O ID da notificação que você deseja atribuir à notificação ao vivo do usuário escolhido. O ID deve ser exclusivo para este jogo e deve ser usado para [atualizar a notificação existente](#android_step-4-update-data-with-the-braze-rest-api) posteriormente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Parâmetros da solicitação" }
 
 ### Etapa 5: Atualizar a atividade {#step-5-update-the-activity}
 
 Para atualizar a atualização ao vivo existente com novos dados, modifique os pares de chave-valor relevantes atribuídos a `messages.extra`, depois use o mesmo `notification_id` e chame o endpoint `/messages/send` novamente.
+-->

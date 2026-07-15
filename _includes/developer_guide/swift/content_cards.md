@@ -95,6 +95,10 @@ The Content Cards data model is available in the `BrazeKit` module of the Braze 
 To access the Content Cards data model, call `contentCards.cards` on your `braze` instance. See [Logging analytics]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) for more information on subscribing to card data.
 
 {% alert note %}
+Reading `contentCards.cards`, `contentCards.unviewedCards`, or `contentCards.lastUpdate` blocks the calling thread until the SDK has completed its post-initialization operations. For main-thread or latency-sensitive contexts, use the non-blocking alternatives [`getCachedContentCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getcachedcontentcards(_:)), [`getUnviewedCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getunviewedcards(_:)), or [`getLastUpdate(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getlastupdate(_:)) instead.
+{% endalert %}
+
+{% alert note %}
 Keep in mind, `BrazeKit` offers an alternative [`ContentCardRaw`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcardraw) class for Objective-C compatibility.
 {% endalert %}
 

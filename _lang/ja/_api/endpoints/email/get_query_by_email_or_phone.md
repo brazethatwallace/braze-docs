@@ -39,7 +39,7 @@ curl --location --request GET 'https://rest.iad-01.braze.com/users/subscriptions
 {
   "emails": [
     {
-      "email": "example@braze.com",
+      "email": "example@example.com",
       "email_subscribe": {
         "email_subscription_event_date": "2019-11-20T19:58:04.825Z",
         "email_subscription_state": "Subscribed"

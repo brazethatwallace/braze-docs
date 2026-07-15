@@ -58,7 +58,7 @@ cordova plugin add https://github.com/braze-inc/braze-cordova-sdk#geofence-branc
 
 | 값 | 설명 |
 | --------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `BRAZE_API_KEY` | [Braze REST API 키]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys)입니다. |
+| `BRAZE_API_KEY` | [Braze REST API 키]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys)입니다. |
 | `CUSTOM_API_ENDPOINT` | 커스텀 API 엔드포인트입니다. 이 엔드포인트는 Braze 대시보드의 올바른 앱 그룹으로 Braze 인스턴스 데이터를 라우팅하는 데 사용됩니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 프로젝트 구성" }
 
@@ -149,14 +149,14 @@ Cordova 8.0.0 이상 프레임워크가 환경설정을 처리하는 방식으�
 | 메서드 | 설명 |
 | ------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ios_api_key` | 애플리케이션의 API 키를 설정합니다. |
-| `ios_api_endpoint` | 애플리케이션의 [SDK 엔드포인트]({{site.baseurl}}/api/basics/#endpoints)를 설정합니다. |
+| `ios_api_endpoint` | 애플리케이션의 [SDK 엔드포인트]({{site.baseurl}}/api/basics#endpoints)를 설정합니다. |
 | `ios_disable_automatic_push_registration` | 자동 푸시 등록을 비활성화할지 여부를 설정합니다. |
 | `ios_disable_automatic_push_handling` | 자동 푸시 처리를 비활성화할지 여부를 설정합니다. |
 | `ios_enable_idfa_automatic_collection` | Braze SDK가 IDFA 정보를 자동으로 수집할지 여부를 설정합니다. 자세한 내용은 [Braze IDFA 메서드 설명서](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:)/)를 참조하세요. |
 | `enable_location_collection` | 자동 위치 수집 활성화 여부를 설정합니다(사용자가 허용하는 경우). `geofence-branch` |
 | `geofences_enabled` | 지오펜스 활성화 여부를 설정합니다. |
 | `ios_session_timeout` | 애플리케이션의 Braze 세션 시간 초과를 초 단위로 설정합니다. 기본값은 10초입니다. |
-| `sdk_authentication_enabled` | [SDK 인증]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication) 기능 활성화 여부를 설정합니다. |
+| `sdk_authentication_enabled` | [SDK 인증]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) 기능 활성화 여부를 설정합니다. |
 | `display_foreground_push_notifications` | 애플리케이션이 포그라운드에 있을 때 푸시 알림을 표시할지 여부를 설정합니다. |
 | `ios_disable_un_authorization_option_provisional` | `UNAuthorizationOptionProvisional`을 비활성화할지 여부를 설정합니다. |
 | `trigger_action_minimum_time_interval_seconds` | 트리거 간 최소 시간 간격을 초 단위로 설정합니다. 기본값은 30초입니다. |
@@ -167,7 +167,7 @@ Cordova 8.0.0 이상 프레임워크가 환경설정을 처리하는 방식으�
 | `ios_flush_interval_seconds` | 자동 데이터 플러시 간격을 초 단위로 설정합니다. 기본값은 10초입니다. |
 | `ios_use_automatic_request_policy` | `Braze.Configuration.Api`의 요청 정책을 자동으로 적용할지 수동으로 적용할지를 설정합니다. |
 | `should_opt_in_when_push_authorized` | 푸시 권한이 승인될 때 사용자의 알림 구독 상태를 자동으로 `optedIn`으로 설정할지 여부를 지정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="선택적 구성 #optional" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="선택적 구성" }
 
 {% alert tip %}
 자세한 내용은 [GitHub: Braze iOS Cordova 플러그인](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/ios/BrazePlugin.m)을 참조하세요.
@@ -178,7 +178,7 @@ Cordova 8.0.0 이상 프레임워크가 환경설정을 처리하는 방식으�
 | 메서드 | 설명 |
 | ----------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `android_api_key` | 애플리케이션의 API 키를 설정합니다. |
-| `android_api_endpoint` | 애플리케이션의 [SDK 엔드포인트]({{site.baseurl}}/api/basics/#endpoints)를 설정합니다. |
+| `android_api_endpoint` | 애플리케이션의 [SDK 엔드포인트]({{site.baseurl}}/api/basics#endpoints)를 설정합니다. |
 | `android_small_notification_icon` | 알림 작은 아이콘을 설정합니다. |
 | `android_large_notification_icon` | 알림 큰 아이콘을 설정합니다. |
 | `android_notification_accent_color` | 16진수 표기법을 사용하여 알림 강조 색상을 설정합니다. |
@@ -190,7 +190,7 @@ Cordova 8.0.0 이상 프레임워크가 환경설정을 처리하는 방식으�
 | `enable_location_collection` | 자동 위치 수집 활성화 여부를 설정합니다(사용자가 허용하는 경우). |
 | `geofences_enabled` | 지오펜스 활성화 여부를 설정합니다. |
 | `android_disable_auto_session_tracking` | Android Cordova 플러그인이 세션을 자동으로 추적하지 못하도록 비활성화합니다. 자세한 내용은 [자동 세션 추적 비활성화](#cordova_disable-automatic-session-tracking)를 참조하세요. |
-| `sdk_authentication_enabled` | [SDK 인증]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication/#sdk-authentication) 기능 활성화 여부를 설정합니다. |
+| `sdk_authentication_enabled` | [SDK 인증]({{site.baseurl}}/developer_guide/platform_wide/sdk_authentication#sdk-authentication) 기능 활성화 여부를 설정합니다. |
 | `trigger_action_minimum_time_interval_seconds` | 트리거 간 최소 시간 간격을 초 단위로 설정합니다. 기본값은 30초입니다. |
 | `is_session_start_based_timeout_enabled` | 세션 시간 초과 동작이 세션 시작 이벤트를 기준으로 할지, 세션 종료 이벤트를 기준으로 할지를 설정합니다. |
 | `default_notification_channel_name` | Braze 기본 `NotificationChannel`에 대해 `NotificationChannel.getName`을 통해 표시되는 사용자용 이름을 설정합니다. |
@@ -203,7 +203,7 @@ Cordova 8.0.0 이상 프레임워크가 환경설정을 처리하는 방식으�
 | `is_push_deep_link_back_stack_activity_enabled` | 푸시 딥링크를 자동으로 따라갈 때 Braze가 백 스택에 액티비티를 추가할지 여부를 설정합니다. |
 | `push_deep_link_back_stack_activity_class_name` | 푸시 딥링크를 자동으로 따라갈 때 Braze가 백 스택에 추가할 액티비티를 설정합니다. |
 | `should_opt_in_when_push_authorized` | 푸시 권한이 부여될 때 Braze가 사용자를 자동으로 옵트인하도록 설정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="선택적 구성 #optional" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="선택적 구성" }
 
 {% alert tip %}
 자세한 내용은 [GitHub: Braze Android Cordova 플러그인](https://github.com/braze-inc/braze-cordova-sdk/blob/master/src/android/BrazePlugin.kt)을 참조하세요.

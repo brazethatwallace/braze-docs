@@ -224,7 +224,6 @@ Next, create a new service account, so Braze can make authorized API calls when 
 
 Enter a service account name, ID, and description, then select **Create and continue**.
 
-![The form for "Service account details."]({% image_buster /assets/img/android/push_integration/create_a_service_account/enter-service-account-details.png %})
 
 In the **Role** field, find and select **Firebase Cloud Messaging API Admin** from the list of roles. For more restrictive access, create a [custom role](https://cloud.google.com/iam/docs/creating-custom-roles) with the `cloudmessaging.messages.create` permission, then choose it from the list instead. When you're finished, select **Done**.
 
@@ -354,11 +353,22 @@ Braze.configure(this, brazeConfig)
 {% endsubtab %}
 {% endsubtabs %}
 
-{% alert tip %}
-If you'd like manually register FCM tokens instead, you can call [`Braze.setRegisteredPushToken()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/registered-push-token.html) inside your app's [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()) method.
-{% endalert %}
 {% endtab %}
 {% endtabs %}
+
+{% alert tip %}
+If you'd like to manually register FCM tokens instead, set the [`registeredPushToken`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/registered-push-token.html) property on the Braze instance inside your app's [`onCreate()`](https://developer.android.com/reference/android/app/Application.html#onCreate()) method.
+
+```kotlin
+// Kotlin
+Braze.getInstance(context).registeredPushToken = "FCM_TOKEN"
+```
+
+```java
+// Java
+Braze.getInstance(context).setRegisteredPushToken("FCM_TOKEN");
+```
+{% endalert %}
 
 ### Step 8: Remove automatic requests in your application class
 
@@ -444,7 +454,7 @@ In your `braze.xml`, specify:
 <string name="com_braze_fallback_firebase_cloud_messaging_service_classpath">com.company.OurFirebaseMessagingService</string>
 ```
 
-or set via [runtime configuration:]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)
+or set via [runtime configuration:]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -530,7 +540,7 @@ To enable Braze to automatically open your app and any deep links when a push no
 <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
 ```
 
-This flag can also be set via [runtime configuration]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android):
+This flag can also be set via [runtime configuration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration):
 
 {% tabs %}
 {% tab JAVA %}
@@ -639,7 +649,7 @@ The Braze dashboard supports setting deep links or web URLs in push notification
 
 The Android SDK, by default, will place your host app's main launcher activity in the back stack when following push deep links. Braze allows you to set a custom activity to open in the back stack in place of your main launcher activity or to disable the back stack altogether.
 
-For example, to set an activity called `YourMainActivity` as the back stack activity using [runtime configuration]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android):
+For example, to set an activity called `YourMainActivity` as the back stack activity using [runtime configuration]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration):
 
 {% tabs %}
 {% tab JAVA %}
@@ -736,7 +746,7 @@ This example uses the `US-01` instance. If you are not on this instance, replace
 
 ## Conversation push notifications
 
-![]({% image_buster /assets/img/android/push/conversations_android.png %}){: style="float:right;max-width:35%;margin-left:15px;border: 0;"}
+![Android notification shade showing a Conversations section with three grouped conversation notifications from different contacts.]({% image_buster /assets/img/android/push/conversations_android.png %}){: style="float:right;max-width:35%;margin-left:15px;border: 0;"}
 
 The [people and conversations initiative](https://developer.android.com/guide/topics/ui/conversations) is a multi-year Android initiative that aims to elevate people and conversations in the system surfaces of the phone. This priority is based on the fact that communication and interaction with other people is still the most valued and important functional area for the majority of Android users across all demographics.
 

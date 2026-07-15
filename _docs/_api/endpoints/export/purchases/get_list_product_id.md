@@ -20,7 +20,7 @@ description: "This article outlines details about the Export product IDs Braze e
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `purchases.product_list` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `purchases.product_list` permission.
 
 ## Rate limit
 
@@ -55,5 +55,5 @@ https://rest.iad-01.braze.com/purchases/product_list?page=1
 {% endapi %}
 
 {% alert tip %}
-For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+For help with CSV and API exports, visit [Export troubleshooting]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}

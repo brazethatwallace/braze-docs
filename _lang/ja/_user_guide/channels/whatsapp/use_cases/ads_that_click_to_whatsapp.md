@@ -32,9 +32,9 @@ WhatsAppへ誘導する広告は、Facebook、Instagram、その他のプラッ�
 {% endalert %}
 
 {: start="2"}
-2. Brazeで、アクションベースのオプションが**Send a WhatsApp inbound message**で、メッセージ本文が「YOUR_TRIGGER_WORD」であるアクションベースのキャンバスを設定します。この例では、フードデリバリーアプリが「free delivery」を使用しています。
+2. Brazeで、アクションベースのオプションが**WhatsApp インバウンドメッセージを送信**で、メッセージ本文が「YOUR_TRIGGER_WORD」であるアクションベースのキャンバスを設定します。この例では、フードデリバリーアプリが「free delivery」を使用しています。
 
-![トリガーイベントが「Send a WhatsApp inbound message」で、メッセージ本文が「free delivery」の正規表現に一致するアクションベースのBraze キャンバスのエントリスケジュール。]({% image_buster /assets/img/whatsapp/action_based_free_delivery.png %})
+![トリガーイベントが「WhatsApp インバウンドメッセージを送信」で、メッセージ本文が「free delivery」の正規表現に一致するアクションベースのBraze キャンバスのエントリスケジュール。]({% image_buster /assets/img/whatsapp/action_based_free_delivery.png %})
 
 {: start="3"}
 3. 顧客がキャンバスに入った直後（遅延なしなど）に送信される応答メッセージをキャンバスで設定します。広告をクリックすることは技術的にはオプトインに該当しますが、応答メッセージでは、WhatsAppで今後のマーケティングメッセージを受け取りたいかどうかをユーザーに確認することをお勧めします。
@@ -52,7 +52,7 @@ WhatsAppへ誘導する広告は、Facebook、Instagram、その他のプラッ�
 {: start="4"}
 4. 以下のいずれかの更新方法でユーザープロファイルのサブスクリプションステータスを更新して、ユーザーをオプトインさせます。
     - REST APIを通じてサブスクリプションステータスを更新するBraze間Webhookを作成します。
-    - 高度なJSONエディターを使用して、[ユーザーのWhatsApp キャンバスへのサブスクリプションステータスを更新する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/#whatsapp-opt-in-and-opt-out-process)テンプレートでユーザープロファイルを更新します。
+    - 高度なJSONエディターを使用して、[ユーザーのWhatsApp キャンバスへのサブスクリプションステータスを更新する]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process)テンプレートでユーザープロファイルを更新します。
 
 ![高度なJSONエディターを使用してユーザープロファイルを更新するユーザーの更新キャンバスステップ。]({% image_buster /assets/img/whatsapp/user_update_step_json.png %})
 

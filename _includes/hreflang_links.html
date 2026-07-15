@@ -1,0 +1,24 @@
+{% comment %}
+Emit hreflang alternates for localized doc pages. Skips pages that should not be indexed.
+{% endcomment %}
+{% unless page.noindex or page.hidden or page.layout == 'redirect' or page.layout == 'blank_config' or page.config_only %}
+{% assign page_path = page.url | public_doc_path %}
+{% if site.language == 'en' %}
+  {% assign path_suffix = page_path | remove_first: '/docs' %}
+{% else %}
+  {% assign lang_prefix = '/docs/' | append: site.language %}
+  {% assign path_suffix = page_path | remove_first: lang_prefix %}
+{% endif %}
+{% assign hreflang_langs = 'en,de,es,fr,ja,ko,pt-br' | split: ',' %}
+{% assign hreflang_codes = 'en,de,es,fr,ja,ko,pt-BR' | split: ',' %}
+{% for lang in hreflang_langs %}
+  {% assign idx = forloop.index0 %}
+  {% if lang == 'en' %}
+    {% assign alt_url = site.homeurl | append: '/docs' | append: path_suffix %}
+  {% else %}
+    {% assign alt_url = site.homeurl | append: '/docs/' | append: lang | append: path_suffix %}
+  {% endif %}
+  <link rel="alternate" hreflang="{{ hreflang_codes[idx] }}" href="{{ alt_url }}">
+{% endfor %}
+<link rel="alternate" hreflang="x-default" href="{{ site.homeurl }}/docs{{ path_suffix }}">
+{% endunless %}

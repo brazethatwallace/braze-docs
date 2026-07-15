@@ -6,10 +6,10 @@ hidden: true
 
 # Indicateurs d'attribution au dernier contact {#last-touch-attribution-metrics}
 
-> Ajoutez des indicateurs d'attribution au dernier contact à vos rapports dans le Générateur de rapports.
+> Ajoutez des indicateurs d'attribution au dernier contact à vos rapports dans le générateur de rapports.
 
 {% alert note %}
-Les indicateurs d'attribution au dernier contact sont en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire de la satisfaction client.
+Les indicateurs d'attribution au dernier contact sont en accès anticipé. Si vous souhaitez participer à l'accès anticipé, contactez votre gestionnaire du succès des clients.
 {% endalert %}
 
 L'attribution au dernier contact (LTA) est un modèle d'attribution de conversion qui attribue l'intégralité du crédit d'une conversion au dernier message avec lequel un utilisateur a interagi avant de convertir. Contrairement aux fenêtres de conversion au niveau des campagnes, la LTA utilise des fenêtres d'attribution standard du secteur pour chaque canal :
@@ -19,7 +19,7 @@ L'attribution au dernier contact (LTA) est un modèle d'attribution de conversio
 | E-mail | 30 jours |
 | SMS | 7 jours |
 | WhatsApp | 7 jours |
-| Push | 7 jours |
+| Notification push | 7 jours |
 | Message in-app | 3 jours |
 | Content Cards | 3 jours |
 | Webhook | exclu de ce modèle |
@@ -52,8 +52,8 @@ Les indicateurs de chiffre d'affaires et d'achat ne sont pas disponibles.
 ![Le panneau Personnaliser les indicateurs avec les indicateurs d'attribution au dernier contact.]({% image_buster /assets/unlisted_docs/img/report_builder_2/lta_report_builder.png %})
 
 {: start="7" }
-7. Suivez les étapes 7 à 9 sur la page du [Générateur de rapports](https://www.braze.com/docs/user_guide/analytics/reporting/report_builder).
+7. Suivez les étapes 7 à 9 sur la page du [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reporting/report_builder).
 
 {% alert note %}
-Envoyez des commentaires à votre gestionnaire de la satisfaction client ou fournissez-les après avoir sélectionné le bouton **Envoyer des commentaires**.
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="last-touch attribution metrics in Report Builder" %}
 {% endalert %}

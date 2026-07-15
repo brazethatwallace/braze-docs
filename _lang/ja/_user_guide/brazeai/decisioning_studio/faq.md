@@ -10,7 +10,7 @@ description: "このページでは、Decisioning Studioに関するよくある
 
 > この記事では、Decisioning Studioに関するよくある質問への回答を提供します。
 
-### 意思決定エージェントとは何ですか？ {#what-is-a-decisioning-agent}
+## 意思決定エージェントとは何ですか？ {#what-is-a-decisioning-agent}
 
 意思決定エージェントとは、特定のビジネス目標を達成するためにカスタマイズされた、BrazeAI Decisioning Studio™のカスタム設定です。これは、選択した成功指標、ディメンション、およびオプションによって定義されます。意思決定エージェントは、選択したビジネス指標を最大化するために、顧客ごとに最適なアクションを自動的に発見します。
 
@@ -36,4 +36,4 @@ description: "このページでは、Decisioning Studioに関するよくある
 
 ### Decisioning Studio GoとDecisioning Studio Proの違いは何ですか？ {#what-is-the-difference-between-decisioning-studio-go-and-decisioning-studio-pro}
 
-Decisioning Studio Proには、BrazeのフォワードデプロイドデータサイエンスチームによるAI意思決定サービスのサポートが含まれています。これにより、ビジネス成果を最大化するためのエージェントの設計と設定を支援します。詳細については、[Decisioning Studio GoとDecisioning Studio Proの比較]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro)を参照してください。
+Decisioning Studio Proには、BrazeのフォワードデプロイドデータサイエンスチームによるAI意思決定サービスのサポートが含まれています。これにより、ビジネス成果を最大化するためのエージェントの設計と設定を支援します。詳細については、[Decisioning Studio GoとDecisioning Studio Proの比較]({{site.baseurl}}/user_guide/brazeai/decisioning_studio#decisioning-studio-go-vs-decisioning-studio-pro)を参照してください。

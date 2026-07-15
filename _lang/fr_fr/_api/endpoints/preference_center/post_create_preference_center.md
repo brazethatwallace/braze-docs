@@ -14,13 +14,13 @@ description: "Cet article détaille l'endpoint Braze Créer un centre de préfé
 /preference_center/v1
 {% endapimethod %}
 
-> Utilisez cet endpoint pour créer un centre de préférences permettant aux utilisateurs de gérer leurs préférences de notification pour vos campagnes par e-mail. Consultez la section [Créer un centre de préférences avec l'API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/#creating-a-preference-center-with-api) pour découvrir les étapes de création d'un centre de préférences généré par API.
+> Utilisez cet endpoint pour créer un centre de préférences permettant aux utilisateurs de gérer leurs préférences de notification pour vos campagnes par e-mail. Consultez la section [Créer un centre de préférences avec l'API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) pour découvrir les étapes de création d'un centre de préférences généré par API.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `preference_center.update`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `preference_center.update`.
 
 ## Limite de débit {#rate-limit}
 
@@ -65,7 +65,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `confirmation_page_html` | Requis | Chaîne de caractères | Le code HTML de la page de confirmation. |
 | `state` | Facultatif | Chaîne de caractères | Choisissez `active` ou `draft`. Par défaut `active` si non spécifié. |
 | `options` | Facultatif | Objet | Attributs : <br>`meta-viewport-content` : si présent, une balise méta `viewport` sera ajoutée à la page avec `content= <value of attribute>`.<br><br> `link-tags` : permet de définir un favicon pour la page. Lorsque cette option est définie, une balise `<link>` avec un attribut rel est ajoutée à la page. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de la requête" }
 
 {% alert note %}
 Le nom du centre de préférences ne peut pas être modifié après sa création.
@@ -83,7 +83,7 @@ Voici les étiquettes Liquid que vous pouvez inclure dans votre HTML pour affich
 | --------- | ---------|
 | `{{subscribed_state.${email_global}}}` | Récupère l'état d'abonnement global aux e-mails de l'utilisateur (par exemple « opted_in », « subscribed » ou « unsubscribed »). |
 | `{{subscribed_state.${<subscription_group_id>}}}` | Récupère l'état d'abonnement de l'utilisateur pour le groupe d'abonnement spécifié (par exemple « subscribed » ou « unsubscribed »). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="État d'abonnement de l'utilisateur" }
 
 #### Champs de formulaire et action {#form-inputs-and-action}
 
@@ -92,7 +92,7 @@ Voici les étiquettes Liquid que vous pouvez inclure dans votre HTML pour affich
 | `{% form_field_name :email_global_state %}` | Indique qu'un champ de formulaire donné correspond à l'état d'abonnement global aux e-mails de l'utilisateur. L'état de sélection de l'utilisateur doit être « opted_in », « subscribed » ou « unsubscribed » lors de la soumission du formulaire avec les données de sélection pour l'état d'abonnement global aux e-mails. S'il s'agit d'une case à cocher, l'utilisateur sera soit « opted_in », soit « unsubscribed ». Pour un champ masqué, l'état « subscribed » est également valide. |
 | `{% form_field_name :subscription_group <subscription_group_id> %}` | Indique qu'un champ de formulaire donné correspond à un groupe d'abonnement spécifique. L'état de sélection de l'utilisateur doit être « subscribed » ou « unsubscribed » lors de la soumission du formulaire avec les données de sélection pour un groupe d'abonnement donné. |
 | `{{preference_center_submit_url}}` | Génère l'URL de soumission du formulaire. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Champs de formulaire et action" }
 
 {% endraw %}
 

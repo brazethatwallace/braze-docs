@@ -1,0 +1,1 @@
+Wählen Sie in der [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/) im Panel „Assets hochladen“ die Option **Mit Operator generieren** aus. Beschreiben Sie das gewünschte Bild, und Operator generiert es und speichert es direkt in Ihrer Medienbibliothek.

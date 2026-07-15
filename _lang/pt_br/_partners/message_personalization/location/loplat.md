@@ -24,8 +24,8 @@ A integração da Braze com a loplat permite que você use os serviços de local
 | --- | --- |
 | Conta loplat X | É necessário ter uma conta do loplat X para aproveitar essa integração.<br><br>Envie um e-mail para [support@loplat.com](mailto:support@loplat.com) para solicitar uma conta do loplat X. |
 | SDK da loplat | O SDK da loplat reconhece as visitas dos usuários à loja, processa eventos de localização e distingue se os usuários estão em um local ou se estão em movimento. Você pode usar o SDK da loplat para analisar o tráfego da sua loja, enviar mensagens push quando os usuários entram na loja etc.<br><br>Observe que o SDK está disponível apenas para Android e iOS. |
-| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões:<br>- `users.track`<br>- `campaigns.trigger.send`<br>- `campaigns.list`<br>- `canvas.trigger.send`<br>- `canvas.list`<br><br>Isso pode ser criado no dashboard da Braze em **Settings** > **API Keys**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Chave da API REST da Braze | Uma chave da API REST da Braze com as seguintes permissões:<br>- `users.track`<br>- `campaigns.trigger.send`<br>- `campaigns.list`<br>- `canvas.trigger.send`<br>- `canvas.list`<br><br>Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Casos de uso {#use-cases}
 
@@ -53,7 +53,7 @@ Crie uma nova chave de API no dashboard da Braze. Copie a chave de API e cole-a 
 3. Acesse o loplat X e crie uma campanha seguindo as instruções do [guia do usuário do loplat X](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e#2ed232c885014f19b1870b9fca4230fb).
 4. Cole o ID da campanha da Braze em **Campaign Message Settings** e inicie a campanha.
 
-![]({% image_buster /assets/img/loplat/loplat_api_triggered_delivery.png %})
+![Configurações de campanha do loplat X mostrando o ID da campanha da Braze para entrega disparada por API.]({% image_buster /assets/img/loplat/loplat_api_triggered_delivery.png %})
 
 #### Entrega baseada em ação {#action-based-delivery}
 
@@ -63,4 +63,4 @@ Com a integração, você pode aplicar condições de localização enviando inf
 3. Acesse o dashboard da Braze e crie uma Campaign ou um Canvas que envie com **Action-Based Delivery**.
 4. Selecione o evento personalizado que você criou no loplat X para definir uma ação-gatilho de localização.
 
-![]({% image_buster /assets/img/loplat/loplat_action_based_delivery.png %})
+![Configuração de campanha baseada em ação na Braze usando um evento personalizado da loplat como gatilho.]({% image_buster /assets/img/loplat/loplat_action_based_delivery.png %})

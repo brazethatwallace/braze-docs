@@ -50,7 +50,7 @@ Plus les agents disposent d'informations sur vos clients, meilleures seront leur
 
 BrazeAI Decisioning Studio peut utiliser toutes les données que vous envoyez déjà à la Braze Data Platform.
 
-S'il existe des données clients que vous souhaitez utiliser pour Decisioning Studio et qui ne sont pas actuellement stockées dans le profil utilisateur ou les attributs personnalisés, l'approche recommandée est d'utiliser l'[Ingestion de données cloud Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) pour ingérer des données provenant d'autres sources.
+S'il existe des données clients que vous souhaitez utiliser pour Decisioning Studio et qui ne sont pas actuellement stockées dans le profil utilisateur ou les attributs personnalisés, l'approche recommandée est d'utiliser l'[Ingestion de données cloud Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) pour ingérer des données provenant d'autres sources.
 
 CDI prend en charge les intégrations directes avec :
 
@@ -61,16 +61,16 @@ CDI prend en charge les intégrations directes avec :
 - Microsoft Fabric
 - AWS S3
 
-Pour la liste complète des sources prises en charge, consultez [Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
+Pour la liste complète des sources prises en charge, consultez [Ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 Une fois que vous êtes satisfait des données que vous envoyez à la Braze Data Platform, contactez votre équipe AI Decisioning Services pour discuter des champs du profil utilisateur ou des attributs personnalisés à utiliser pour la décision automatisée par IA.
 
-Pour simplifier ce processus, créez une liste des attributs du profil utilisateur Braze qui représentent le mieux les comportements de vos clients et qui devraient être utilisés dans Decisioning Studio (consultez la [liste des champs disponibles]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#fields-to-export)). Votre équipe Services peut également vous aider à mener des sessions de découverte pour déterminer quels champs sont les plus appropriés pour la décision automatisée par IA.
+Pour simplifier ce processus, créez une liste des attributs du profil utilisateur Braze qui représentent le mieux les comportements de vos clients et qui devraient être utilisés dans Decisioning Studio (consultez la [liste des champs disponibles]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#fields-to-export)). Votre équipe Services peut également vous aider à mener des sessions de découverte pour déterminer quels champs sont les plus appropriés pour la décision automatisée par IA.
 
 Les autres options pour envoyer des données incluent :
 
 - L'envoi d'événements personnalisés Braze via le SDK
-- L'envoi d'événements via l'endpoint REST ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/))
+- L'envoi d'événements via l'endpoint REST ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track))
 
 Ces approches nécessitent davantage d'efforts d'ingénierie, mais sont parfois préférables selon votre configuration Braze actuelle. Contactez l'équipe AI Decisioning Services pour en savoir plus.
 
@@ -139,4 +139,4 @@ Ce guide explique les modèles d'intégration les plus courants. L'équipe Sécu
 
 Après avoir connecté vos sources de données, procédez à la mise en place de l'orchestration :
 
-- [Configurer l'orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [Configurer l'orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

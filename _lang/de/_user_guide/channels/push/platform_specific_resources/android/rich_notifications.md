@@ -37,7 +37,7 @@ Braze stellt zwar Anleitungen zur Einrichtung von Rich-Push-Benachrichtigungen b
 
 ### 1. Schritt: Push-Campaign erstellen {#step-1-create-a-push-campaign}
 
-Folgen Sie den Schritten zum [Erstellen einer Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message), um eine Push-Benachrichtigung für Android zu verfassen. Sie verwenden denselben Composer für die Einrichtung von Push-Benachrichtigungen, die keinen Rich-Inhalt enthalten.
+Folgen Sie den Schritten zum [Erstellen einer Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message), um eine Push-Benachrichtigung für Android zu verfassen. Sie verwenden denselben Composer für die Einrichtung von Push-Benachrichtigungen, die keinen Rich-Inhalt enthalten.
 
 ### 2. Schritt: Beschriftung hinzufügen {#step-2-add-captioning}
 
@@ -49,10 +49,10 @@ Fügen Sie den **Summary Text** hinzu, der vor dem Bild in der Benachrichtigung 
 
 Fügen Sie Ihr Bild im Feld **Android Notification Image** im Composer der Nachricht hinzu. Bilder können direkt über das Dashboard hochgeladen oder durch Angabe einer Content-URL, die an anderer Stelle gehostet wird, hinzugefügt werden.
 
-Einzelheiten zu unterstützten Bildern finden Sie unter [Bildspezifikationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#push).
+Einzelheiten zu unterstützten Bildern finden Sie unter [Bildspezifikationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#push).
 
 ![Der Abschnitt „Android Notification Image“, in dem Sie ein Bild hinzufügen oder eine Bild-URL eingeben können.]({% image_buster /assets/img_archive/android_rich_image.png %})
 
 ### 4. Schritt: Campaign weiter erstellen {#step-4-continue-creating-your-campaign}
 
-Nachdem Ihr Rich-Benachrichtigungsinhalt in das Dashboard hochgeladen wurde, können Sie mit der [Planung Ihrer Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) fortfahren.
+Nachdem Ihr Rich-Benachrichtigungsinhalt in das Dashboard hochgeladen wurde, können Sie mit der [Planung Ihrer Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) fortfahren.

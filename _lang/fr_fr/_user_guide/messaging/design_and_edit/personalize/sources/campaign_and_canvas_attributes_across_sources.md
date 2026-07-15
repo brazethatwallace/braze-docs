@@ -18,11 +18,11 @@ Les attributs de Campaign et Canvas sont disponibles sous forme d'étiquettes Li
 
 ### REST API
 
-Les attributs de Campaign et Canvas sont également disponibles dans l'[endpoint Exporter les détails d'une campagne]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details/) ou l'[endpoint Exporter les détails d'un Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/). Utilisez la REST API de Braze pour créer des mappages, c'est-à-dire une liste de tous les noms de Canvas et de leurs ID correspondants.
+Les attributs de Campaign et Canvas sont également disponibles dans l'[endpoint Exporter les détails d'une campagne]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_details) ou l'[endpoint Exporter les détails d'un Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details). Utilisez la REST API de Braze pour créer des mappages, c'est-à-dire une liste de tous les noms de Canvas et de leurs ID correspondants.
 
 ### Currents
 
-Les attributs de Campaign et Canvas sont liés aux [événements d'engagement liés aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) de Currents. Notez que seules les étapes Message ont accès aux attributs de Campaign, et les autres étapes du Canvas n'ont accès qu'aux attributs de Canvas. Cela est important pour déterminer à quelle Campaign ou à quel composant Canvas un envoi push ou une ouverture d'e-mail est associé.
+Les attributs de Campaign et Canvas sont liés aux [événements d'engagement liés aux messages]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) de Currents. Notez que seules les étapes Message ont accès aux attributs de Campaign, et les autres étapes du Canvas n'ont accès qu'aux attributs de Canvas. Cela est important pour déterminer à quelle Campaign ou à quel composant Canvas un envoi push ou une ouverture d'e-mail est associé.
 
 ## Attributs de Campaign {#campaign-attributes}
 
@@ -32,7 +32,7 @@ Les attributs de Campaign et Canvas sont liés aux [événements d'engagement li
 | ID de la Campaign | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | N/A (utilisé comme entrée pour l'appel API lui-même) | `campaign_id` |
 | Nom de la variante | {% raw %}`{{campaign.${message_name}}}`{% endraw %} | `messages.message_variation_id.name` | N/A (mapper le nom de la variante à l'ID de la variante à l'aide de l'endpoint Exporter les détails d'une campagne) |
 | ID de la variante | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `messages.message_variation_id` | `message_variation_api_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Campaign attributes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Attributs de Campaign" }
 
 ## Attributs de Canvas {#canvas-attributes}
 
@@ -46,4 +46,4 @@ Les attributs de Campaign et Canvas sont liés aux [événements d'engagement li
 | ID de l'étape | {% raw %}`{{campaign.${api_id}}}`{% endraw %} | `steps.id` | `canvas_step_id` |
 | Canal du message | N/A | `steps.messages.message_variation_id.channel` | N/A (inhérent au type d'événement, comme un envoi push ou une ouverture d'e-mail) |
 | ID du message | {% raw %}`{{campaign.${message_api_id}}}`{% endraw %} | `steps.message.message_variation_id` | `canvas_step_message_variation_api_id` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Canvas attributes" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Attributs de Canvas" }

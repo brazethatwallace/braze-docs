@@ -21,8 +21,6 @@ Avant de pouvoir consulter les rapports Decisioning Studio dans Braze, vous deve
 
 Pour afficher les indicateurs d'un agent Decisioning Studio dans Braze, rendez-vous dans **AI Decisioning** > **BrazeAI Decisioning Studio™**, puis sélectionnez un agent.
 
-![Écran d'accueil des rapports BrazeAI Decisioning Studio™ présentant un tableau de bord avec plusieurs fiches de rapport. Chaque fiche montre un type de rapport tel que les performances, les informations, les diagnostics et la chronologie, avec de brèves descriptions et les icônes correspondantes.]({% image_buster /assets/img/decisioning_studio/reporting_home.png %})
-
 Vous pouvez y consulter des rapports tels que les performances, les informations, les diagnostics et les chronologies. Pour plus de détails, voir [Rapports disponibles](#available-reports).
 
 ## Modifier les dates des rapports {#change-report-dates}
@@ -33,13 +31,13 @@ Après avoir [ouvert un rapport](#view), vous pouvez modifier la plage de dates 
 
 Vous pouvez également définir une date de début par défaut ou choisir des dates à exclure systématiquement. Les dates exclues seront filtrées dans tous les rapports de cet agent.
 
-Pour définir ou exclure des dates, sélectionnez <i class="fa-solid fa-gear"></i> **Settings**, puis modifiez votre date par défaut ou excluez des dates selon vos besoins.
+Pour définir ou exclure des dates, sélectionnez <i class="fa-solid fa-gear" aria-label="Paramètres"></i> **Paramètres**, puis modifiez votre date par défaut ou excluez des dates selon vos besoins.
 
-![Panneau Settings ouvert dans BrazeAI Decisioning Studio™ affichant les options permettant de définir une date de début par défaut et d'exclure des dates spécifiques des rapports. Le panneau affiche deux sections intitulées Default start date et Exclude dates. Sous Exclude dates, plusieurs dates s'affichent avec des cases à cocher.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
+![Panneau des paramètres ouvert dans BrazeAI Decisioning Studio™ affichant les options permettant de définir une date de début par défaut et d'exclure des dates spécifiques des rapports. Le panneau affiche deux sections intitulées « Date de début par défaut » et « Dates exclues ». Sous « Dates exclues », plusieurs dates s'affichent avec des cases à cocher.]({% image_buster /assets/img/decisioning_studio/reporting_set_exclude_dates.png %})
 
 ## Rapports disponibles {#available-reports}
 
-- [Performance]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance/) : indicateurs de haut niveau de l'agent comparant les groupes de traitement aux groupes de contrôle, avec les vues **Trending** et **Driver Tree**.
-- [Informations]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights/) : comment les options de recommandation de votre banque d'actions sont générées, y compris les préférences de l'agent et les rapports SHAP.
-- [Diagnostics]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics/) : santé des données sortantes et entrantes, y compris le volume de recommandations et la surveillance des flux de données.
-- [Chronologie]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline/) : un enregistrement visuel des événements clés (exécutions d'agents, modifications de configuration, mises à jour des garde-fous) associé aux indicateurs de performance.
+- [Performance]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/performance) : indicateurs de haut niveau de l'agent comparant les groupes de traitement aux groupes de contrôle, avec les vues **Trending** et **Driver Tree**.
+- [Informations]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/insights) : comment les options de recommandation de votre banque d'actions sont générées, y compris les préférences de l'agent et les rapports SHAP.
+- [Diagnostics]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/diagnostics) : santé des données sortantes et entrantes, y compris le volume de recommandations et la surveillance des flux de données.
+- [Chronologie]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/reporting/timeline) : un enregistrement visuel des événements clés (exécutions d'agents, modifications de configuration, mises à jour des garde-fous) associé aux indicateurs de performance.

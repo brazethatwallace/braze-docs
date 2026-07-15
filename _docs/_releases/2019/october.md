@@ -22,4 +22,4 @@ The API ID for a Content Block will now show on the selected Content Block page 
 
 ## Alias-only user creation and identification via the API
 
-You can now [use an API request]({{site.baseurl}}/api/endpoints/user_data/#user-attributes-object-specification) with any fields in the Attributes Object will create or update an attribute of that name with the given value on the specified user profile.
+You can now [use an API request]({{site.baseurl}}/api/objects_filters/user_attributes_object) with any fields in the Attributes Object will create or update an attribute of that name with the given value on the specified user profile.

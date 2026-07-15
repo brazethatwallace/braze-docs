@@ -20,7 +20,7 @@ SurvicateとBrazeのネイティブ統合を使用して、メール、アプリ
 
 ## ユースケース {#use-cases}
 
-BrazeとSurvicateは、さまざまなフィードバックのユースケースをカバーするために連携し、アクション可能なユーザーインサイトの収集とカスタマーエクスペリエンスの向上を支援します。
+BrazeとSurvicateは、さまざまなフィードバックのユースケースをカバーするために連携し、アクション可能なユーザーインサイトの収集と顧客体験の向上を支援します。
 
 - 受信トレイから回答できる埋め込み型アンケートで、アンケートの回答率を向上させます。
 - Brazeアプリ内メッセージを通じて、カスタマージャーニーの重要な段階でインサイトを収集します。
@@ -35,9 +35,9 @@ BrazeとSurvicateは、さまざまなフィードバックのユースケース
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Survicateアカウント | この統合を有効にするにはSurvicateアカウントが必要です。 |
-| Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze REST APIキー | `users.track`権限を持つBraze REST APIキー。<br><br>これは、Brazeダッシュボードの**設定** > **APIと識別子**から作成できます。 |
+| Braze RESTエンドポイント | [RESTエンドポイントURL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)。エンドポイントは、お使いのインスタンスのBraze URLに依存します。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合の主な特徴 {#key-features-of-the-integration}
 
@@ -45,7 +45,7 @@ SurvicateとBrazeの統合はリアルタイムのデータ同期を提供する
 
 - **アンケートの回答をカスタムユーザー属性としてBrazeに送信する**：アンケートの回答データでBrazeユーザープロファイルを充実させます。
 - **Brazeでカスタムイベントをトリガーする**：アンケートの回答に基づいたイベントを使用して、特定のグループをターゲットにしたり、フォローアップキャンペーンを開始したりします。
-- **詳細なセグメントを構築する**：Survicateアンケートのデータを使用してBraze セグメントを作成し、アウトリーチをさらにパーソナライズします。
+- **詳細なセグメントを構築する**：Survicateアンケートのデータを使用してBrazeセグメントを作成し、アウトリーチをさらにパーソナライズします。
 
 ## 統合 {#integration}
 
@@ -85,7 +85,7 @@ SurvicateとBrazeの統合はリアルタイムのデータ同期を提供する
 ![メールコードを取得する]({% image_buster /assets/img/survicate/survicate_5.gif %})
 
 {: start="2"}
-2. アンケートに使用するBraze キャンペーンに移動し、**Edit email body**をクリックして、テンプレートにHTMLブロックを追加します：
+2. アンケートに使用するBrazeキャンペーンに移動し、**Edit email body**をクリックして、テンプレートにHTMLブロックを追加します：
 
 ![HTMLブロックコードを取得する]({% image_buster /assets/img/survicate/survicate_6.png %})
 
@@ -106,7 +106,7 @@ SurvicateとBrazeの統合はリアルタイムのデータ同期を提供する
 ![+ Create new surveyをクリックし、作成方法を選択する]({% image_buster /assets/img/survicate/survicate_8.gif %})
 
 {: start="2"}
-2. Brazeアカウントに移動し、**Messaging** > **キャンペーン** > **Create キャンペーン** > **In-App Message**の順に選択して、Brazeアプリ内メッセージアンケートを起動します：
+2. Brazeアカウントに移動し、**メッセージング** > **キャンペーン** > **キャンペーンを作成** > **In-App Message**の順に選択して、Brazeアプリ内メッセージアンケートを起動します：
 ![Brazeアプリ内メッセージアンケートを起動する]({% image_buster /assets/img/survicate/survicate_9.gif %})
 
 ### 従来のエディターでBrazeアプリ内メッセージアンケートを起動する {#launch-your-braze-in-app-messenger-survey-via-the-traditional-editor}
@@ -130,7 +130,7 @@ Brazeはデフォルトで、アプリのバックグラウンドがブロック
 {% endalert %}
 
 {: start="3"}
-3. Braze キャンペーンで、ターゲットと割り当てのステップを設定します。完了したら、キャンペーンを起動する準備が整います。確認ステップでは、キャンペーンの見た目を確認できます。アンケートは、上記のようにSurvicateパネルで指定された場所にWebサイト上に表示されます。
+3. Brazeキャンペーンで、ターゲットと割り当てのステップを設定します。完了したら、キャンペーンを起動する準備が整います。確認ステップでは、キャンペーンの見た目を確認できます。アンケートは、ステップ1で説明したとおり、Survicateパネルで指定された場所にWebサイト上に表示されます。
 
 ### Braze統合を有効にする {#enabling-the-braze-integration}
 

@@ -1,10 +1,10 @@
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
 Antes de comenzar este tutorial, comprueba que tu SDK de Braze cumple los requisitos mínimos de versión:
 
 {% sdk_min_versions swift:11.3.0 android:33.1.0 web:5.8.1 reactnative:14.0.0 flutter:13.0.0 %}
 
-## Mostrar banners para el SDK Web
+## Mostrar banners para el SDK Web {#displaying-banners-for-the-web-sdk}
 
 {% multi_lang_include developer_guide/_shared/tutorial_feedback.md tutorial="Displaying Banners Web" %}
 
@@ -46,41 +46,41 @@ braze.requestBannersRefresh(["global_banner", "navigation_square_banner"]);
 <!-- ...the rest of your html -->
 ```
 
-!!paso
-líneas-=5index.js
+!!step
+lines-index.js=5
 
-#### 1\. Habilitar depuración (opcional)
+### 1. Habilitar depuración (opcional) {#1-enable-debugging-optional}
 
-Para facilitar la solución de problemas durante el desarrollo, considera la posibilidad de habilitar la depuración.
+Para facilitar la solución de problemas durante el desarrollo, considera habilitar la depuración.
 
-!!paso
-líneas-=8-23index.js
+!!step
+lines-index.js=8-23
 
-#### 2\. Suscríbete a las actualizaciones de Banner
+### 2. Suscríbete a las actualizaciones de banner {#2-subscribe-to-banner-updates}
 
-Utiliza`subscribeToBannersUpdates()`  para realizar el registro de un controlador que se ejecute cada vez que se actualice un banner. Dentro del controlador, llama a`braze.getBanner("global_banner")`  para obtener la última ubicación.
+Utiliza `subscribeToBannersUpdates()` para registrar un controlador que se ejecute cada vez que se actualice un banner. Dentro del controlador, llama a `braze.getBanner("global_banner")` para obtener la última ubicación.
 
-!!paso
-líneas-=15-22index.js
+!!step
+lines-index.js=15-22
 
-#### 3\. Inserta el banner y gestiona los grupos de control.
+### 3. Inserta el banner y gestiona los grupos de control {#3-insert-the-banner-and-handle-control-groups}
 
-Utiliza`braze.insertBanner(banner, container)`  para insertar un banner cuando se devuelva. Para garantizar que tu diseño se mantenga limpio, oculta o contrae los banners que forman parte de un grupo de control (por ejemplo, cuando`isControl`  es `true`).
+Utiliza `braze.insertBanner(banner, container)` para insertar un banner cuando se devuelva. Para mantener tu diseño limpio, oculta o contrae los banners que forman parte de un grupo de control (por ejemplo, cuando `isControl` es `true`).
 
-!!paso
-líneas-=25index.js
+!!step
+lines-index.js=25
 
-#### 4\. Actualiza tus banners
+### 4. Actualiza tus banners {#4-refresh-your-banners}
 
-Después de inicializar el SDK, llama a`requestBannersRefresh(["global_banner", ...])`  para asegurarte de que los banners se actualicen al inicio de cada sesión.
+Después de inicializar el SDK, llama a `requestBannersRefresh(["global_banner", ...])` para asegurarte de que los banners se actualicen al inicio de cada sesión.
 
 También puedes llamar a esta función en cualquier momento para actualizar posteriormente las ubicaciones de los banners.
 
-!!paso
-main.htmllíneas-=3
+!!step
+lines-main.html=3
 
-#### 5\. Añade un contenedor para tu banner.
+### 5. Añade un contenedor para tu banner {#5-add-a-container-for-your-banner}
 
-En tu HTML, añade un nuevo`<div>`elemento y asígnale un nombre breve relacionado con el banner`id`, como `global-banner-container`. Braze utilizará esto`<div>`para insertar tu banner en la página.
+En tu HTML, añade un nuevo elemento `<div>` y asígnale un `id` breve relacionado con el banner, como `global-banner-container`. Braze utilizará este `<div>` para insertar tu banner en la página.
 
 {% endscrolly %}

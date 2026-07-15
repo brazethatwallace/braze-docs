@@ -19,7 +19,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze para list
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key/) com a permissão `templates.email.list`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/api_key) com a permissão `templates.email.list`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -27,13 +27,13 @@ Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatório | Tipo de dados | Descrição |
+| Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
 | `modified_after` | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera apenas modelos atualizados no momento ou após o momento informado. |
 | `modified_before` | Opcional | String no formato [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) | Recupera apenas modelos atualizados no momento ou antes do momento informado. |
 | `limit` | Opcional | Número positivo | Número máximo de modelos a serem recuperados. O padrão é 100 se não for fornecido, com um valor máximo aceitável de 1000. |
 | `offset` | Opcional | Número positivo | Número de modelos a serem ignorados antes de retornar o restante dos modelos que atendem aos critérios de pesquisa. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
 ```

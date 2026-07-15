@@ -39,11 +39,16 @@ These selections determine which days are included, which groups are compared, h
 Changing the aggregation setting (such as 7-day rolling) only affects the chart display. It does not change stored data.
 {% endalert %}
 
-If you can't select a recent date from the date picker, that date is likely disabled to reflect a temporary data delay. It typically takes a few days to get data from your CDP into Decisioning Studio reliably.
+If you can't select a recent date from the date picker, that date is likely disabled due to configured data delays. There are two types of delays that may limit date availability:
+
+- **Data pipeline delays:** The time it takes to ingest and process data from your CDP into Decisioning Studio. This ensures reports only show complete, reliable data.
+- **Recommendation activation delays:** The time between when the Decisioning Studio engine predicts a recommendation and when you activate it in your campaigns. Reporting won't include days where recommendations haven't been activated yet.
+
+These delays are configured for your use case. If you need to understand your specific reporting window, contact your AI Success Manager.
 
 ## KPI cards
 
-The KPI cards on the left side of the report show the key performance indicators configured for your use case, such as:
+The KPI cards on the primary side side of the report show the key performance indicators configured for your use case, such as:
 
 - Incremental LTV / Customer
 - Conversions / Customer
@@ -90,7 +95,7 @@ This section reinforces the relationship between the different views:
 
 - The KPI card is a window-level calculation.
 - The chart is a daily calculation.
-- The*table shows the underlying totals driving the KPI.
+- The table shows the underlying totals driving the KPI.
 
 ![Performance report showing the aggregate table at the bottom, with columns for Group, Incremental LTV, Customer, and Incremental LTV / Customer for each comparison group.]({% image_buster /assets/img/decisioning_studio/reporting_performance_aggregate_table.png %})
 
@@ -119,9 +124,13 @@ The KPIs for Go use cases are set automatically and standardized, since all Go u
 
 ### Why can't I select certain recent dates?
 
-The date picker may not allow selecting the most recent days. This is intentional. Reports may apply activation delays, data availability delays, or explicitly excluded dates. These guardrails prevent incomplete or unstable data from appearing in your results.
+The date picker may not allow selecting the most recent days. This is intentional. Reports may apply the following constraints to prevent incomplete or unstable data from appearing:
 
-If you need clarity on your reporting window or data availability rules, contact your AI Success Manager for the specific configuration for your use case.
+- **Data pipeline delays:** Configured to account for the time it takes to ingest and process data from your CDP. This ensures all data for a given day is complete before that day appears in reporting.
+- **Recommendation activation delays:** Configured to account for the lag between when recommendations are generated and when they're activated in your campaigns. Days where recommendations haven't been activated yet won't appear in reporting.
+- **Explicitly excluded dates:** Dates you've manually excluded in the reporting settings.
+
+If you need clarity on your specific reporting window or data availability rules, contact your AI Success Manager.
 
 ### What's the difference between "volume" and "rate" KPIs?
 

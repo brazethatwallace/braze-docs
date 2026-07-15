@@ -1,5 +1,5 @@
 ---
-nav_title: Nuvem de vendas do Salesforce
+nav_title: Salesforce Sales Cloud
 article_title: Gerencie leads com o Salesforce Sales Cloud
 page_order: 3
 page_type: reference
@@ -8,7 +8,7 @@ description: "Saiba como usar os webhooks da Braze para criar e atualizar leads 
 
 # Gerencie leads com o Salesforce Sales Cloud {#manage-leads-with-salesforce-sales-cloud}
 
-> A [Salesforce](https://www.salesforce.com/) é uma das principais plataformas de gestão de relacionamento com o cliente (CRM) baseada em nuvem do mundo, projetada para ajudar as empresas a gerenciar todo o processo de vendas, incluindo geração de leads, rastreamento de oportunidades e gerenciamento de contas.<br><br>Esta página demonstra como usar os webhooks da Braze para criar e atualizar leads no Salesforce Sales Cloud por meio de uma integração enviada pela comunidade.
+> A [Salesforce](https://www.salesforce.com/) é uma das principais plataformas de gestão de relacionamento com o cliente (CRM) baseadas em nuvem do mundo, projetada para ajudar as empresas a gerenciar todo o processo de vendas, incluindo geração de leads, rastreamento de oportunidades e gerenciamento de contas.<br><br>Esta página demonstra como usar os webhooks da Braze para criar e atualizar leads no Salesforce Sales Cloud por meio de uma integração enviada pela comunidade.
 
 {% alert important %}
 Essa é uma integração enviada pela comunidade e não é diretamente suportada pela Braze. Somente os modelos oficiais de webhook fornecidos pela Braze são compatíveis com a Braze.
@@ -23,7 +23,7 @@ Atualmente, a Braze oferece duas integrações com o Salesforce Sales Cloud para
 2. [Atualização de um lead no Salesforce Sales Cloud](#updating-lead)
 
 {% alert note %}
-Essa integração serve exclusivamente para atualizar o Salesforce a partir da Braze como parte de seus esforços de aquisição e nutrição de leads. Para sincronizar dados do Salesforce de volta para a Braze, confira o [modelo de dados B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/) ou entre em contato com um de nossos [parceiros de tecnologia]({{site.baseurl}}/partners/home/).
+Essa integração serve exclusivamente para atualizar o Salesforce a partir da Braze como parte de seus esforços de aquisição e nutrição de leads. Para sincronizar dados do Salesforce de volta para a Braze, confira o [modelo de dados B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models) ou entre em contato com um de nossos [parceiros de tecnologia]({{site.baseurl}}/partners/home).
 {% endalert %}
 
 ## Pré-requisitos {#prerequisites}
@@ -94,9 +94,9 @@ Selecione **+ Add New Header** para cada um dos seguintes cabeçalhos de solicit
 
 ## Atualização de um lead no Salesforce Sales Cloud {#updating-lead}
 
-Para configurar um webhook da Braze para o Salesforce Sales Cloud que atualiza leads no Salesforce, você precisa de um identificador comum entre o Salesforce Sales Cloud e a Braze. O exemplo abaixo usa o `lead_id` do Salesforce como o `external_id` da Braze, mas você também pode fazer isso usando um `user_alias`. Para mais detalhes, consulte [Dados B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models/).
+Para configurar um webhook da Braze para o Salesforce Sales Cloud que atualiza leads no Salesforce, você precisa de um identificador comum entre o Salesforce Sales Cloud e a Braze. O exemplo na seção a seguir usa o `lead_id` do Salesforce como o `external_id` da Braze, mas você também pode fazer isso usando um `user_alias`. Para mais detalhes, consulte [Dados B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/b2b_data_models).
 
-Este exemplo demonstra especificamente como atualizar o estágio de um lead para "MQL" (Marketing Qualified Lead) depois que ele ultrapassa um determinado limite de pontuação. Essa é uma parte essencial do nosso caso de uso de [fluxo de trabalho de pontuação de leads B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/).
+Este exemplo demonstra especificamente como atualizar o estágio de um lead para "MQL" (Marketing Qualified Lead) depois que ele ultrapassa um determinado limite de pontuação. Essa é uma parte essencial do nosso caso de uso de [fluxo de trabalho de pontuação de leads B2B]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring).
 
 ### Etapa 1: Colete seu `client_id` e `client_secret`
 
@@ -154,13 +154,13 @@ Você pode adicionar rapidamente seus modelos aos seus fluxos de trabalho operac
 
 ### Campanha de novo lead {#new-lead}
 
-Para criar um lead no Salesforce quando um usuário fornece seu endereço de e-mail, é possível criar uma campanha que use o modelo de webhook "Atualizar lead" e dispare quando um usuário adicionar seu endereço de e-mail (por exemplo, preencher um formulário da web).
+Para criar um lead no Salesforce quando um usuário fornece seu endereço de e-mail, você pode criar uma campanha que use o modelo de webhook "Atualizar lead" e dispare quando um usuário adicionar seu endereço de e-mail (por exemplo, preencher um formulário da web).
 
 ![Etapa 2 da criação de uma campanha baseada em ação com a ação-gatilho "Adicionar um endereço de e-mail".]({% image_buster /assets/img/b2b/salesforce_create_campaign.png %}){: style="max-width:70%;"}
 
 ### Canvas de pontuação de leads para ultrapassar o limite de Marketing Qualified Lead (MQL) {#lead-scoring}
 
-Esse webhook é abordado no caso de uso de [pontuação de leads]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring/#lead-handoff), mas você também pode verificar MQLs e atualizar diretamente o Salesforce dentro do Canvas de pontuação de leads (em vez de criar uma campanha de webhook separada):
+Esse webhook é abordado no caso de uso de [pontuação de leads]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff), mas você também pode verificar MQLs e atualizar diretamente o Salesforce dentro do Canvas de pontuação de leads (em vez de criar uma campanha de webhook separada):
 
 Adicione uma etapa subsequente à sua atualização de usuário para verificar se um usuário ultrapassou o limite de MQL definido. Se tiver ultrapassado, atualize o status do usuário para "MQL" e, em seguida, atualize o Salesforce com o mesmo status "MQL" usando esse modelo de webhook. O Salesforce cuida do resto, encaminhando esse lead para as equipes de vendas apropriadas usando suas regras de roteamento de leads definidas.
 
@@ -187,7 +187,7 @@ Agora seu Canvas Flow atualizará os usuários que ultrapassaram seu limite de M
 
 ## Solução de problemas {#troubleshooting}
 
-Esses fluxos de trabalho têm capacidade limitada de depuração no Salesforce, portanto, recomendamos consultar o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#message-activity-log) da Braze para descobrir por que um webhook falhou e se ocorreu algum erro.
+Esses fluxos de trabalho têm capacidade limitada de depuração no Salesforce, portanto, recomendamos consultar o [Registro de atividades de envio de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#message-activity-log) da Braze para descobrir por que um webhook falhou e se ocorreu algum erro.
 
 Por exemplo, um erro causado por uma URL inválida usada para recuperação de token OAuth seria exibido como `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL`.
 

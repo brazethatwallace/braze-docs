@@ -40,13 +40,13 @@ Fill in the following fields:
 Under **Layout**, select the template type:
 
 - **Default:** A standard WhatsApp message. This is the layout covered in this article.  
-- **Carousel:** A message with horizontally scrollable cards. For more information, see [Carousel templates]({{site.baseurl}}/whatsapp_carousel_templates/).
+- **Carousel:** A message with horizontally scrollable cards. For more information, see [Carousel templates]({{site.baseurl}}/whatsapp_carousel_templates).
 
 ### Step 4: Build your template
 
 #### Header (optional)
 
-Add a header to appear above the message body. You can choose:
+Add a header to appear before the message body. You can choose:
 
 - **Text:** A short text header.  
 - **Media:** An image, video, or document (URL only). Braze stores the media reference and submits a sample to Meta for approval.  
@@ -65,7 +65,7 @@ You can add personalization wherever the **+** plus button appears. Not all fiel
 
 #### Footer (optional)
 
-Add a short footer to appear below the message body.
+Add a short footer to appear after the message body.
 
 #### Buttons (optional)
 
@@ -106,7 +106,7 @@ After Meta approves your template, you can use it in a WhatsApp campaign or Canv
 4. Update any variable content or personalization as needed. Fields locked by Meta (shown in gray) cannot be edited. To change locked content, you must edit and resubmit the template for approval.  
 5. Use the **Test** tab to preview the message, update body variables, and confirm the message looks as expected before launch.
 
-For more information about building WhatsApp campaigns, see [Create a WhatsApp message]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/).
+For more information about building WhatsApp campaigns, see [Create a WhatsApp message]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
 ## Frequently asked questions
 

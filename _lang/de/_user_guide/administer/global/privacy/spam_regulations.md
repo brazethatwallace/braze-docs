@@ -91,7 +91,7 @@ Ein Double-Opt-in-Verfahren besteht darin, nach einer ersten Anmeldung eine Folg
 
 ### Reputation aufbauen {#build-your-reputation}
 
-Stellen Sie sicher, dass Sie Erwartungen setzen, wenn sich Personen für den Empfang Ihrer E-Mails anmelden. Seien Sie klar darüber, was Sie senden und wie oft Sie es senden werden. Ermutigen Sie dann die Nutzer:innen, mit Ihren E-Mail-Campaigns zu interagieren, indem Sie wertvolle Inhalte bereitstellen. Personalisierte und relevante Inhalte verringern die Wahrscheinlichkeit, dass Ihre Empfänger:innen die Nachrichten als Spam markieren.
+Stellen Sie sicher, dass Sie Erwartungen setzen, wenn sich Personen für den Empfang Ihrer E-Mails anmelden. Seien Sie klar darüber, was Sie senden und wie oft Sie es senden werden. Ermutigen Sie dann die Nutzer:innen, mit Ihren E-Mail-Kampagnen zu interagieren, indem Sie wertvolle Inhalte bereitstellen. Personalisierte und relevante Inhalte verringern die Wahrscheinlichkeit, dass Ihre Empfänger:innen die Nachrichten als Spam markieren.
 
 ### Reputation pflegen {#maintain-your-reputation}
 
@@ -113,4 +113,4 @@ Unter iOS werden Ihre Nutzer:innen immer aufgefordert, Push-Benachrichtigungen z
 
 ### Android {#spam-android}
 
-Unter Android können Ihre Nutzer:innen als angemeldet betrachtet werden, basierend auf dem stillschweigenden Opt-in, das in Ihrer Datenschutzrichtlinie oder Endnutzer-Lizenzvereinbarung festgelegt ist. Möglicherweise möchten Sie ein ausdrückliches Opt-in-Verfahren implementieren, beispielsweise auf einem Startbildschirm, wenn die Nutzer:innen die App zum ersten Mal starten. Weitere Details finden Sie im Artikel [Best Practices für Push]({{site.baseurl}}/user_guide/channels/push/best_practices/). Sie können die Nutzer:innen auch darüber informieren, welche Arten von Push-Benachrichtigungen sie erhalten werden, um die Opt-in-Rate zu erhöhen.
+Unter Android können Ihre Nutzer:innen als angemeldet betrachtet werden, basierend auf dem stillschweigenden Opt-in, das in Ihrer Datenschutzrichtlinie oder Endnutzer-Lizenzvereinbarung festgelegt ist. Möglicherweise möchten Sie ein ausdrückliches Opt-in-Verfahren implementieren, beispielsweise auf einem Startbildschirm, wenn die Nutzer:innen die App zum ersten Mal starten. Weitere Details finden Sie im Artikel [Best Practices für Push]({{site.baseurl}}/user_guide/channels/push/best_practices). Sie können die Nutzer:innen auch darüber informieren, welche Arten von Push-Benachrichtigungen sie erhalten werden, um die Opt-in-Rate zu erhöhen.

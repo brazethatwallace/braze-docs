@@ -31,7 +31,7 @@ To set up your own environment, perform the following steps:
 
 1. From the **Workspaces** tab, select **Environments**.
 2. Click the **+** plus button to create a new environment.
-3. Give this environment a name (for example, "Braze API Requests") and add keys for `instance_url` and `api_key` with values corresponding to your [Braze instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints) and [Braze REST API Key]({{site.baseurl}}/api/api_key/).
+3. Give this environment a name (for example, "Braze API Requests") and add keys for `instance_url` and `api_key` with values corresponding to your [Braze instance]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints) and [Braze REST API Key]({{site.baseurl}}/api/api_key).
 4. Click **Save**.
 
 {% alert note %}

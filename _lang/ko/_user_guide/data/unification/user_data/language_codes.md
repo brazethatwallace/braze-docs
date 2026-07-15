@@ -11,4 +11,4 @@ description: "현재 Braze에서 지원하는 사용자 언어 코드입니다."
 
 > 현재 Braze에서 지원하는 언어 코드입니다.
 
-{% multi_lang_include supported_language_codes.md %}
+{% multi_lang_include messaging/localization/supported_language_codes.md %}

@@ -30,31 +30,34 @@ Pour plus de commodité, voici un résumé des étiquettes de personnalisation p
 | Propriétés d'événement <br> (Celles-ci sont propres à votre espace de travail.) | `{{event_properties.${your_custom_event_property}}}` |
 | Variables de contexte Canvas | `{{context.${your_context_variable}}}` |
 | Attributs personnalisés <br> (Ceux-ci sont propres à votre espace de travail.) | `{{custom_attribute.${your_custom_attribute}}}` |
-| <a href='/docs/api/objects_filters/trigger_properties_object/'>Propriétés de déclencheur API</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
+| <a href='/docs/api/objects_filters/trigger_properties_object'>Propriétés de déclencheur API</a> | `{{api_trigger_properties.${your_api_trigger_property}}}` |
 | Propriétés d'entrée Canvas | `{{context.${property_name}}}` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Summary of supported tags" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Résumé des étiquettes prises en charge" }
 
 {% endraw %}
 
+{% alert note %}
+Les propriétés de déclencheur API doivent utiliser deux accolades par étiquette : {% raw %}`{{api_trigger_properties.${your_api_trigger_property}}}`. Les triples accolades (par exemple `{{{...}}}`){% endraw %} ne constituent pas une syntaxe de personnalisation Braze valide. Consultez [Pourquoi mon Liquid déclenché par API échoue-t-il dans Braze ?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/faq#why-is-my-api-triggered-liquid-failing-in-braze).
+{% endalert %}
+
 ### Attributs pris en charge {#supported-attributes}
 
-Les attributs de Campaign, de carte et de Canvas ne sont pris en charge que dans leurs modèles de messages correspondants (par exemple, `dispatch_id` n'est pas disponible dans les Campaigns de messages in-app).
+Les attributs de Campaign, de carte et de Canvas ne sont pris en charge que dans leurs modèles de messages correspondants. Par exemple, `dispatch_id` est pris en charge dans Liquid pour les canaux de communication tels que l'e-mail, les notifications push, les SMS et WhatsApp, mais pas pour les messages in-app ni les bannières.
 
-Pour plus de détails, consultez [Attributs de Campaign et de Canvas selon les sources]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources/).
+Pour plus de détails, consultez [Attributs de Campaign et de Canvas selon les sources]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/campaign_and_canvas_attributes_across_sources).
 
 ### Différences entre les étiquettes Canvas et Campaign {#canvas-and-campaign-tag-differences}
 
 Le comportement des étiquettes suivantes diffère entre Canvas et les Campaigns :
 {% raw %}
-- Le comportement de `dispatch_id` diffère car Braze traite les étapes Canvas comme des événements déclenchés, même lorsqu'elles sont « planifiées » (à l'exception des étapes d'entrée, qui peuvent être planifiées). Pour en savoir plus, consultez [Comportement du dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/).
+- Le comportement de `dispatch_id` diffère car Braze traite les étapes Canvas comme des événements déclenchés, même lorsqu'elles sont « planifiées » (à l'exception des étapes d'entrée, qui peuvent être planifiées). Pour en savoir plus, consultez [Comportement du dispatch ID]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id).
 - L'utilisation de l'étiquette `{{campaign.${name}}}` avec Canvas affiche le nom du composant Canvas. Lorsque vous utilisez cette étiquette avec des Campaigns, elle affiche le nom de la Campaign.
 {% endraw %}
 
 #### Noms de Campaign dans les URL {#campaign-names-in-urls}
-{: #campaign-names-in-urls}
 
 {% raw %}
-Les noms de Campaign et de variante de message peuvent contenir des caractères non compatibles avec les URL, tels que `%`, des espaces ou `&`. Lorsque vous insérez `{{campaign.${name}}}` ou `{{campaign.${message_name}}}` dans un lien ou une chaîne de requête, comme un paramètre `utm_campaign`, appliquez le filtre [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#url-filters) pour que l'URL soit correctement analysée. Par exemple :
+Les noms de Campaign et de variante de message peuvent contenir des caractères non compatibles avec les URL, tels que `%`, des espaces ou `&`. Lorsque vous insérez `{{campaign.${name}}}` ou `{{campaign.${message_name}}}` dans un lien ou une chaîne de requête, comme un paramètre `utm_campaign`, appliquez le filtre [`url_encode`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) pour que l'URL soit correctement analysée. Par exemple :
 
 ```liquid
 https://example.com/?utm_campaign={{ campaign.${name} | url_encode }}
@@ -73,13 +76,13 @@ Vous pouvez utiliser les attributs suivants comme modèles pour l'appareil le pl
 | `{{most_recently_used_device.${id}}}` | L'identifiant d'appareil Braze. Sur iOS, il peut s'agir de l'Apple Identifier for Vendor (IDFV) ou d'un UUID. Pour Android et les autres plateformes, il s'agit d'un UUID généré aléatoirement. |
 | `{{most_recently_used_device.${carrier}}}` | L'opérateur téléphonique de l'appareil le plus récemment utilisé, si disponible. Exemples : « Verizon » et « Orange ». |
 | `{{most_recently_used_device.${ad_tracking_enabled}}}` | Indique si le suivi publicitaire est activé ou non sur l'appareil. Il s'agit d'une valeur booléenne (`true` ou `false`). |
-| `{{most_recently_used_device.${idfa}}}` | Pour les appareils iOS, cette valeur est l'Identifier for Advertising (IDFA) si votre application est configurée avec notre [collecte IDFA facultative]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). Pour les appareils non iOS, cette valeur est null. |
+| `{{most_recently_used_device.${idfa}}}` | Pour les appareils iOS, cette valeur est l'Identifier for Advertising (IDFA) si votre application est configurée avec notre [collecte IDFA facultative]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection). Pour les appareils non iOS, cette valeur est null. |
 | `{{most_recently_used_device.${google_ad_id}}}` | Pour les appareils Android, cette valeur est l'identifiant publicitaire Google Play si votre application est configurée avec notre collecte facultative de l'identifiant publicitaire Google Play. Pour les appareils non Android, cette valeur est null. |
 | `{{most_recently_used_device.${roku_ad_id}}}` | Pour les appareils Roku, cette valeur est l'identifiant publicitaire Roku collecté lorsque votre application est configurée avec Braze. Pour les appareils non Roku, cette valeur est null. |
 | `{{most_recently_used_device.${model}}}` | Le nom du modèle de l'appareil, si disponible. Exemples : « iPhone 6S », « Nexus 6P » et « Firefox ». |
 | `{{most_recently_used_device.${os}}}` | Le système d'exploitation de l'appareil, si disponible. Exemples : « iOS 9.2.1 », « Android (Lollipop) » et « Windows ». |
 | `{{most_recently_used_device.${platform}}}` | La plateforme de l'appareil, si disponible. Si définie, la valeur est l'une des suivantes : `ios`, `android`, `kindle`, `android_china`, `web` ou `tvos`. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Most recently used device information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informations sur l'appareil le plus récemment utilisé" }
 
 Étant donné la grande variété d'opérateurs, de noms de modèles et de systèmes d'exploitation, nous vous conseillons de tester minutieusement tout code Liquid qui dépend conditionnellement de l'une de ces valeurs. Ces valeurs sont `null` si elles ne sont pas disponibles sur un appareil donné.
 
@@ -91,7 +94,7 @@ Pour les messages in-app, vous pouvez utiliser les attributs d'application suiva
 |------------------|---|
 | `{{app.${api_id}}}` | La clé API de l'application qui demande le message. Par exemple, vous pouvez utiliser cette clé en conjonction avec `abort_message()` en Liquid pour éviter d'envoyer des messages in-app à certaines applications, comme les plateformes TV ou les builds de développement qui utilisent une clé API SDK distincte. |
 | `{{app.${name}}}` | Le nom de l'application (tel que défini dans le tableau de bord de Braze) qui demande le message. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted app information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informations sur l'application ciblée" }
 
 Par exemple, ce code Liquid interrompt un message si les applications qui le demandent ne correspondent pas à l'une des deux clés API de la liste :
 
@@ -112,14 +115,14 @@ Pour les notifications push, les messages in-app et les bannières, vous pouvez 
 |------------------|---|
 | `{{targeted_device.${id}}}` | L'identifiant d'appareil Braze. Sur iOS, il peut s'agir de l'Apple Identifier for Vendor (IDFV) ou d'un UUID. Pour Android et les autres plateformes, il s'agit d'un UUID généré aléatoirement. Par exemple, si un utilisateur possède cinq appareils, une tentative d'envoi est effectuée pour les cinq appareils, chacun utilisant l'identifiant d'appareil correspondant. Si un message est configuré pour être envoyé à l'appareil le plus récemment utilisé de l'utilisateur, une seule tentative d'envoi est effectuée vers l'appareil le plus récemment utilisé identifié par Braze. |
 | `{{targeted_device.${carrier}}}` | L'opérateur téléphonique de l'appareil le plus récemment utilisé, si disponible. Exemples : « Verizon » et « Orange ». |
-| `{{targeted_device.${idfa}}}` | Pour les appareils iOS, cette valeur est l'Identifier for Advertising (IDFA) si votre application est configurée avec notre [collecte IDFA facultative]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations/). Pour les appareils non iOS, cette valeur est null. |
+| `{{targeted_device.${idfa}}}` | Pour les appareils iOS, cette valeur est l'Identifier for Advertising (IDFA) si votre application est configurée avec notre [collecte IDFA facultative]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection). Pour les appareils non iOS, cette valeur est null. |
 | `{{targeted_device.${google_ad_id}}}` | Pour les appareils Android, cette valeur est l'identifiant publicitaire Google Play si votre application est configurée avec notre [collecte facultative de l'identifiant publicitaire Google Play]. Pour les appareils non Android, cette valeur est null. |
 | `{{targeted_device.${roku_ad_id}}}` | Pour les appareils Roku, cette valeur est l'identifiant publicitaire Roku collecté lorsque votre application est configurée avec Braze. Pour les appareils non Roku, cette valeur est null. |
 | `{{targeted_device.${model}}}` | Le nom du modèle de l'appareil, si disponible. Exemples : « iPhone 6S », « Nexus 6P » et « Firefox ». |
 | `{{targeted_device.${os}}}` | Le système d'exploitation de l'appareil, si disponible. Exemples : « iOS 9.2.1 », « Android (Lollipop) » et « Windows ». |
 | `{{targeted_device.${platform}}}` | La plateforme de l'appareil, si disponible. Si définie, la valeur est l'une des suivantes : `ios`, `android`, `kindle`, `android_china`, `web` ou `tvos`. Vous pouvez également utiliser l'étiquette de personnalisation `most_recently_used_device`. |
 | `{{targeted_device.${foreground_push_enabled}}}` | Cette valeur est `true` lorsque l'appareil ciblé est activé pour les notifications push au premier plan, `false` dans le cas contraire. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Targeted device information" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informations sur l'appareil ciblé" }
 
 {% endraw %}
 
@@ -131,7 +134,7 @@ De plus, pour les notifications push, il est possible que Braze ne puisse pas d�
 
 ### Utiliser la logique conditionnelle au lieu d'une valeur par défaut {#using-conditional-logic-instead-of-a-default-value}
 
-Dans certaines circonstances, vous pouvez choisir d'utiliser la [logique conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/) au lieu de définir une valeur par défaut. La logique conditionnelle vous permet d'envoyer des messages différents en fonction de la valeur d'un attribut personnalisé. De plus, vous pouvez utiliser la logique conditionnelle pour [interrompre les messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) destinés aux clients dont les valeurs d'attribut sont null ou vides.
+Dans certaines circonstances, vous pouvez choisir d'utiliser la [logique conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic) au lieu de définir une valeur par défaut. La logique conditionnelle vous permet d'envoyer des messages différents en fonction de la valeur d'un attribut personnalisé. De plus, vous pouvez utiliser la logique conditionnelle pour [interrompre les messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) destinés aux clients dont les valeurs d'attribut sont null ou vides.
 
 #### Cas d'utilisation {#use-case}
 
@@ -165,7 +168,7 @@ Dans ce cas, deux options peuvent être plus adaptées que la définition d'une 
    {% endif %}
    ```
 
-Dans ce cas d'utilisation, un utilisateur dont le prénom est vide ou null reçoit le message « Thanks for downloading! ». Vous devriez inclure une [valeur par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values/) pour le prénom afin de vous assurer que votre client ne voit pas de code Liquid en cas d'erreur.
+Dans ce cas d'utilisation, un utilisateur dont le prénom est vide ou null reçoit le message « Thanks for downloading! ». Vous devriez inclure une [valeur par défaut]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) pour le prénom afin de vous assurer que votre client ne voit pas de code Liquid en cas d'erreur.
 
 {% endraw %}
 
@@ -178,7 +181,7 @@ Après avoir créé une variable, vous pouvez la référencer dans votre logique
 {% alert tip %}
 Vous vous retrouvez à assigner les mêmes variables dans chaque message ? Au lieu de réécrire l'étiquette `assign` à chaque fois, vous pouvez enregistrer cette étiquette en tant que bloc de contenu et la placer en haut de votre message.
 
-1. [Créez un bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#create-a-content-block).
+1. [Créez un bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#create-a-content-block).
 2. Donnez un nom à votre bloc de contenu (sans espaces ni caractères spéciaux).
 3. Sélectionnez **Modifier** en bas de la page.
 4. Saisissez vos étiquettes `assign`.
@@ -237,7 +240,7 @@ Avec le [contrôle des espaces](https://shopify.github.io/liquid/basics/whitespa
 
 ## Codes de statut HTTP {#http-personalization}
 
-Vous pouvez utiliser le statut HTTP d'un appel de [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) en l'enregistrant d'abord en tant que variable locale, puis en utilisant la clé `__http_status_code__`. Par exemple :
+Vous pouvez utiliser le statut HTTP d'un appel de [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) en l'enregistrant d'abord en tant que variable locale, puis en utilisant la clé `__http_status_code__`. Par exemple :
 
 ```html
 {% connected_content https://example.com/api/endpoint :save connected %}
@@ -313,7 +316,7 @@ L'étiquette `{% random %}` renvoie un nombre aléatoire. Vous pouvez l'utiliser
 |-------|--------------|
 | `{% random %}` | Un nombre à virgule flottante entre 0 et 1 (0 inclus, 1 exclus). |
 | `{% random 10 %}` (argument entier) | Un entier allant de 0 jusqu'à l'entier spécifié, sans l'inclure. Par exemple, `{% random 10 %}` renvoie un entier de 0 à 9. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Send messages with a random number" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Envoyer des messages avec un nombre aléatoire" }
 
 {% endraw %}
 
@@ -333,7 +336,7 @@ Show variant B
 
 ## Étiquette de panier d'achat eCommerce {#shopping-cart-tag}
 
-L'étiquette `shopping_cart` accède au contenu du panier d'un utilisateur dans les cas d'utilisation eCommerce Canvas de [panier abandonné]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20cart#abandoned-cart) et de [paiement abandonné]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abandoned-checkout). Remplacez `CART_ID` par la valeur réelle de l'ID du panier, comme {% raw %}`{{context.${cart_id}}}`{% endraw %}.
+L'étiquette `shopping_cart` accède au contenu du panier d'un utilisateur dans les cas d'utilisation eCommerce Canvas de [panier abandonné]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20cart#abandoned-cart) et de [paiement abandonné]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout). Remplacez `CART_ID` par la valeur réelle de l'ID du panier, comme {% raw %}`{{context.${cart_id}}}`{% endraw %}.
 
 {% raw %}
 ```liquid
@@ -341,7 +344,7 @@ L'étiquette `shopping_cart` accède au contenu du panier d'un utilisateur dans 
 ```
 {% endraw %}
 
-Le paramètre `abort_if_not_abandoned` dans cet exemple s'applique uniquement au cas d'utilisation de [paiement abandonné]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abandoned-checkout) lorsqu'il est utilisé avec l'événement `ecommerce.checkout_started`. Il ne s'applique pas aux cas d'utilisation de panier abandonné. Pour plus de détails, consultez [`abort_if_not_abandoned`]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/?tab=abandoned%20checkout#abort-if-not-abandoned).
+Le paramètre `abort_if_not_abandoned` dans cet exemple s'applique uniquement au cas d'utilisation de [paiement abandonné]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abandoned-checkout) lorsqu'il est utilisé avec l'événement `ecommerce.checkout_started`. Il ne s'applique pas aux cas d'utilisation de panier abandonné. Pour plus de détails, consultez [`abort_if_not_abandoned`]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases?tab=abandoned%20checkout#abort-if-not-abandoned).
 
 [31]:https://docs.shopify.com/themes/liquid/tags/variable-tags
 [32]:https://docs.shopify.com/themes/liquid/tags/iteration-tags

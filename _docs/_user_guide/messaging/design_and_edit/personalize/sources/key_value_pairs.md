@@ -49,7 +49,7 @@ When you add key-value pairs in the message composer, values are sent as strings
 
 Apple Push Notification service (APNs) supports setting alert preferences and sending custom data using key-value pairs. APNs makes use of the Apple-reserved ```aps``` library, which includes predetermined keys and values that govern alert properties.
 
-##### APS library
+#### APS library
 
 | Key  | Value Type  | Value Description |
 |-------------------|-----------------------------|----------------------------------|
@@ -78,7 +78,7 @@ The Braze message composer automatically handles the creation of the following k
 
 These values can be input in the **Settings** tab when building a push message. Select **Alert Options** and select an alert dictionary key for the key to be automatically populated in a new key-value entry.
 
-![]({% image_buster /assets/img_archive/keyvalue_automatickeys.png %})
+![These values can be input in the Settings tab when building a push message. Select Alert Options and select an alert dictionary key for the key to be automatically populated in a new key-value entry.]({% image_buster /assets/img_archive/keyvalue_automatickeys.png %})
 {% raw %}
 When Braze sends a push notification to APNs, the payload will be formatted as a JSON.
 
@@ -113,9 +113,9 @@ When Braze sends a push notification to APNs, the payload will be formatted as a
 
 In addition to the ```aps``` library payload values, you may send custom key-value pairs to a user's device. The values in these pairs are restricted to primitive types: dictionary (object), array, string, number, and boolean.
 
-![]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
+![Screenshot related to custom key-value pairs.]({% image_buster /assets/img_archive/keyvalue_enterpairs.png %})
 
-Use cases for custom key-value pairs include but are not limited to internal metrics keeping and setting the context for the user interface. Braze allows you to send additional key-value pairs along with a push notification to be used through your application within the [extras key]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings/#extracting-data-from-push-key-value-pairs). If you prefer to use another key, confirm that your app can handle this custom key.
+Use cases for custom key-value pairs include but are not limited to internal metrics keeping and setting the context for the user interface. Braze allows you to send additional key-value pairs along with a push notification to be used through your application within the [extras key]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/customization/advanced_settings#extracting-data-from-push-key-value-pairs). If you prefer to use another key, confirm that your app can handle this custom key.
 
 {% alert warning %}
 You should avoid handling a top-level key or dictionary called ab in your application.
@@ -135,7 +135,7 @@ Braze allows you to send custom-defined string key-value pairs, known as `extras
 
 Braze allows you to send send additional data payloads in push notifications using key-value pairs.
 
-##### Data payload
+#### Data payload
 
 Similar to iOS push, you may send custom key-value pairs to a user's device.
 
@@ -145,21 +145,21 @@ Some use cases for custom key-value pairs include internal metrics keeping and s
 Your app's backend must be able to process custom key-value pairs for the data payload to function properly.
 {% endalert %}
 
-###### API-triggered campaigns
+##### API-triggered campaigns
 
 Braze allows you to send custom-defined string key-value pairs, known as `extras`. To access your extras in API-triggered and scheduled API-triggered campaigns, in the dashboard set a key as "example_key", and a value as {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. This will result in a developer console output of `"extras": { "test": { "foo": 1, "bar": 1 }`.
 
 ##### FCM messaging options
 
-Android push notifications can be further customized with FCM message options. These include [notification priority]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#notification-priority), [sound]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#sounds), delay, lifespan, and collapsibility. These values can be specified in the **Settings** tab when creating a push message. Refer to [Advanced push notification settings]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=android#android_settings) for further instructions on how to set these options in the Braze message composer.
+Android push notifications can be further customized with FCM message options. These include [notification priority]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#notification-priority), [sound]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#sounds), delay, lifespan, and collapsibility. These values can be specified in the **Settings** tab when creating a push message. Refer to [Advanced push notification settings]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_settings) for further instructions on how to set these options in the Braze message composer.
 
-![]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
+![Screenshot related to fcm messaging options.]({% image_buster /assets/img_archive/keyvalue_androidkeys.png %})
 
 ### Silent push notifications
 
-A silent push notification is a push notification containing no alert message or sound, used to update your app's interface or content in the background. These notifications make use of key-value pairs to trigger these background app actions. Silent push notifications also power our [uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/).
+A silent push notification is a push notification containing no alert message or sound, used to update your app's interface or content in the background. These notifications make use of key-value pairs to trigger these background app actions. Silent push notifications also power our [uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking).
 
-Marketers should test that silent push notifications trigger expected behavior before sending them to their app's users. After you compose your [iOS]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift) or [Android]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=android) silent push notification, ensure that you only target a test user by filtering on [external user ID]({{site.baseurl}}/developer_guide/rest_api/messaging/#external-user-id) or [email address]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/).
+Marketers should test that silent push notifications trigger expected behavior before sending them to their app's users. After you compose your [iOS]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift) or [Android]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=android) silent push notification, ensure that you only target a test user by filtering on [external user ID]({{site.baseurl}}/developer_guide/rest_api/messaging#external-user-id) or [email address]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment).
 
 Upon campaign launch, you should check that you have not received any visible push notification on your test device.
 
@@ -168,22 +168,22 @@ iOS silent-notification gating may cause the following symptoms:
 
 - Lower-than-expected uninstall tracking metrics for iOS users
 - Inconsistent or delayed delivery of silent push notifications
-- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/) that don't display
+- [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories) that don't display
 - Push Stories that arrive without their expected images, video, or pages
 
-This is an Apple platform limitation rather than a Braze issue. iOS may delay or drop background notifications for some Braze features, including uninstall tracking and Push Stories. For details on what iOS gates and when, see [iOS limitations]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#ios-limitations).
+This is an Apple platform limitation rather than a Braze issue. iOS may delay or drop background notifications for some Braze features, including uninstall tracking and Push Stories. For details on what iOS gates and when, see [iOS limitations]({{site.baseurl}}/developer_guide/push_notifications/silent?sdktab=swift#ios-limitations).
 {% endalert %}
 
 ## In-app messages
 
-You can add a key-value pair to an in-app message in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) by selecting the **Settings** tab, selecting **Add New Pair**, and then specifying your key-value pairs.
+You can add a key-value pair to an in-app message in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) by selecting the **Settings** tab, selecting **Add New Pair**, and then specifying your key-value pairs.
 
 {% alert note %}
 Key-value pairs cannot be set through the drag-and-drop editor for in-app messages.
 {% endalert %}
-![]({% image_buster /assets/img_archive/keyvalue_iam.png %})
+![Screenshot related to in-app messages.]({% image_buster /assets/img_archive/keyvalue_iam.png %})
 
-#### API-triggered campaigns
+### API-triggered campaigns
 
 Braze allows you to send custom-defined string key-value pairs, known as `extras`. To access your extras in API-triggered and scheduled API-triggered campaigns, in the dashboard set a key as "example_key", and a value as {% raw %}`"$json:{"foo": 1, "bar": 1}"`{% endraw %}. This will result in a developer console output of `"extras": { "test": { "foo": 1, "bar": 1 }`.
 

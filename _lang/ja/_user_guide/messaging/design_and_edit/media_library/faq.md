@@ -12,6 +12,8 @@ description: "この記事では、Brazeのメディアライブラリに関す�
 
 > このページでは、Brazeのメディアライブラリに関するよくある質問への回答を提供します。
 
+## 一般 {#general}
+
 ### メディアライブラリ内の画像にストレージ制限はありますか？ {#are-there-storage-limits-for-images-within-the-media-library}
 
 いいえ、メディアライブラリ内のアセットにストレージ制限はありません。ただし、アセットのサイズ制限（最大5 MB）はあります。
@@ -28,6 +30,10 @@ description: "この記事では、Brazeのメディアライブラリに関す�
 
 いいえ、メディアライブラリはGIF画像のトリミングをサポートしていません。
 
+### メールでSVG画像を使用できますか？ {#can-i-use-svg-images-in-email}
+
+SVG画像は、メールクライアント間でのサポートが限定的なため、メールでの使用は推奨されません。Gmailやその他の主要なメールプロバイダーはSVG画像をレンダリングしないため、受信者にとって画像が壊れたり表示されなかったりする可能性があります。信頼性の高いメールレンダリングのためには、代わりにPNG、JPEG、またはGIF形式を使用してください。
+
 ### 既存の画像をトリミングするにはどうすればよいですか？ {#how-do-i-crop-an-existing-image}
 
 メディアライブラリから画像を選択し、**Crop & Save New Image**をクリックすることで、既存の画像をトリミングできます。
@@ -40,7 +46,7 @@ description: "この記事では、Brazeのメディアライブラリに関す�
 
 ### 画像をアップロードしようとするとタイムアウトし続けます。どうすればよいですか？ {#my-image-keeps-timing-out-when-i-try-to-upload-it-what-can-i-do-about-this}
 
-これはさまざまな理由で発生する可能性がありますが、一般的なソリューションとして、アップロードする前に画像を最適化することが挙げられます。[ImageOptim](https://imageoptim.com/mac)などの画像オプティマイザーを使用して画像を処理してください。
+これはさまざまな理由で発生する可能性がありますが、一般的な解決策として、アップロードする前に画像を最適化することが挙げられます。[ImageOptim](https://imageoptim.com/mac)などの画像オプティマイザーを使用して画像を処理してください。
 
 また、画像がPhotoshop（または同様のソフトウェア）で作成され、多くのレイヤーがある場合は、レイヤーを結合して数を減らすことも効果的です。
 
@@ -57,8 +63,8 @@ description: "この記事では、Brazeのメディアライブラリに関す�
 
 ### AIを使用して画像を生成する {#generate-an-image-using-ai}
 
-**コンテンツ** > **メディアライブラリ**から**AI Image Generator**を選択することで画像を生成できます。**メディアライブラリアセットの編集**権限が必要です。このオプションが表示されない場合は、Brazeカスタマーチームにお問い合わせください。手順とポリシーの詳細については、[BrazeAIで画像を生成する]({{site.baseurl}}/user_guide/brazeai/generative_ai/images/)および[BrazeAIによる画像生成]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#generate-ai)を参照してください。
+**コンテンツ** > **メディアライブラリ**から**AI Image Generator**を選択することで画像を生成できます。**メディアライブラリアセットの編集**権限が必要です。このオプションが表示されない場合は、Brazeカスタマーチームにお問い合わせください。手順とポリシーの詳細については、[BrazeAIで画像を生成する]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-images)および[BrazeAIによる画像生成]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#generate-ai)を参照してください。
 
 ### メディアライブラリの画像アセットにバニティURLを作成できますか？ {#can-i-create-vanity-urls-for-media-library-image-assets}
 
-メディアライブラリアセットのバニティURLはサポートされていません。カスタムURLを使用するとCDN配信が中断されるためです。Campaignが既にそのURLを参照している場合は、既存のURLで画像を置き換えることができます。詳細については、[ファイルを置き換える]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#replace-a-file)を参照してください。
+メディアライブラリアセットのバニティURLはサポートされていません。カスタムURLを使用するとCDN配信が中断されるためです。キャンペーンが既にそのURLを参照している場合は、既存のURLで画像を置き換えることができます。詳細については、[ファイルを置き換える]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#replace-a-file)を参照してください。

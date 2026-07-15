@@ -12,21 +12,21 @@ noidex: true
 
 > Le tableau de bord **Industry Benchmarks** compare les performances d'engagement de votre espace de travail à des benchmarks agrégés et respectueux de la vie privée, issus d'entreprises comparables dans chaque secteur d'activité.
 
-Utilisez le tableau de bord **Industry Benchmarks** pour comparer vos performances e-mail, push, Content Cards et SMS à celles de vos pairs du secteur, et pour identifier les canaux et régions où des opportunités d'optimisation existent.
+Utilisez le tableau de bord **Industry Benchmarks** pour comparer vos performances e-mail, notification push, Content Cards et SMS à celles de vos pairs du secteur, et pour identifier les canaux et régions où des opportunités d'optimisation existent.
 
 Pour afficher le tableau de bord **Industry Benchmarks**, accédez à **Analytics** > **Dashboard Builder**, puis sélectionnez **Industry Benchmarks**. Si le tableau de bord ne contient aucune donnée, sélectionnez **Run Dashboard** pour générer les résultats les plus récents. Utilisez les filtres en haut du tableau de bord pour affiner les résultats par secteur d'activité ou par période.
 
 {% alert note %}
-Le tableau de bord **Industry Benchmarks** est actuellement en accès anticipé. Contactez votre gestionnaire de la satisfaction client si vous souhaitez participer à l'accès anticipé.
+Le tableau de bord **Industry Benchmarks** est actuellement en accès anticipé. Contactez votre gestionnaire du succès des clients si vous souhaitez participer à l'accès anticipé.
 {% endalert %}
 
 ## À propos du tableau de bord {#about-the-dashboard}
 
-Le tableau de bord est organisé en quatre sections par canal : **Email**, **Notification push**, **Content Card** et **SMS** :
+Le tableau de bord est organisé en quatre sections par canal : **E-mail**, **Notification push**, **Content Card** et **SMS** :
 
 | Section | Description |
 |----------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cartes d'indicateurs clés de performance | Affichent le taux de votre espace de travail pour chaque indicateur clé, ainsi que l'écart par rapport au taux du secteur. Une flèche verte vers le haut indique que votre espace de travail est au-dessus du taux du secteur ; une flèche rouge vers le bas indique qu'il est en dessous. |
+| Cartes de KPI | Affichent le taux de votre espace de travail pour chaque indicateur clé, ainsi que l'écart par rapport au taux du secteur. Une flèche verte vers le haut indique que votre espace de travail est au-dessus du taux du secteur ; une flèche rouge vers le bas indique qu'il est en dessous. |
 | Graphique de tendance mensuelle | Trace le taux de votre espace de travail par rapport au taux du secteur au fil du temps, afin d'identifier la saisonnalité et les tendances à plus long terme. |
 | Répartition régionale | Décompose le taux de votre espace de travail par rapport au taux du secteur selon les régions, afin de repérer les écarts de performance régionale par rapport au secteur. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Section" }
@@ -41,7 +41,7 @@ Chaque indicateur par canal est disponible sous deux types :
 |----------|---------------------------------------|------------------------------------------------------|
 | _Total_ | Comptabilise chaque événement d'engagement. | Si un utilisateur clique trois fois, cela est compté comme trois clics. |
 | _Distinct_ | Comptabilise les utilisateurs uniques. | Si un utilisateur clique trois fois, cela est compté comme un seul clic. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Metric type" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Type d'indicateur" }
 
 Les indicateurs sont regroupés selon les combinaisons suivantes de secteur, région, sous-secteur et date :
 
@@ -65,23 +65,23 @@ Sélectionnez un onglet pour afficher les indicateurs de chaque canal.
 <tr><td class="no-split"><i>Taux de clics unique</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Unique Clicks' %}</td><td class="no-split"><i>Clics uniques</i> / <i>Envois uniques</i></td></tr>
 <tr><td class="no-split"><i>Taux de clics par ouverture unique</i></td><td class="no-split">Le pourcentage d'utilisateurs qui ont cliqué sur un e-mail après l'avoir ouvert.</td><td class="no-split"><i>Clics uniques</i> / <i>Ouvertures uniques</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Email metrics" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Indicateurs e-mail" }
 
 ![Indicateurs de benchmarks sectoriels pour l'e-mail affichés sous forme de graphiques linéaires et de graphiques à barres.]({% image_buster /assets/img/dashboards/email_industry.png %})
 
 {% endtab %}
-{% tab Push %}
+{% tab Notification push %}
 
-Les indicateurs push sont disponibles pour iOS, Android, Web et pour l'ensemble des plateformes combinées.
+Les indicateurs de notification push sont disponibles pour iOS, Android, Web et pour l'ensemble des plateformes combinées.
 
 <table aria-label="Indicateurs push"><thead><tr><th>Indicateur</th><th>Description</th><th>Formule</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Taux d'ouverture directe</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Direct Opens' %}</td><td class="no-split"><i>Ouvertures directes</i> / <i>Envois uniques</i></td></tr>
 <tr><td class="no-split"><i>Taux d'ouverture influencée</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Influenced Opens' %}</td><td class="no-split"><i>Ouvertures influencées</i> / <i>Envois uniques</i></td></tr>
 <tr><td class="no-split"><i>Taux d'ouverture total</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Opens' %}</td><td class="no-split">(<i>Ouvertures directes</i> + <i>Ouvertures influencées</i>) / <i>Envois uniques</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Push metrics" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Indicateurs push" }
 
-![Indicateurs de benchmarks sectoriels pour le push affichés sous forme de graphiques linéaires et de graphiques à barres.]({% image_buster /assets/img/dashboards/push_industry.png %})
+![Indicateurs de benchmarks sectoriels pour les notifications push affichés sous forme de graphiques linéaires et de graphiques à barres.]({% image_buster /assets/img/dashboards/push_industry.png %})
 
 {% endtab %}
 {% tab SMS %}
@@ -90,7 +90,7 @@ Les indicateurs push sont disponibles pour iOS, Android, Web et pour l'ensemble 
 <tr><td class="no-split"><i>Taux de distribution</i></td><td class="no-split">{% multi_lang_include analytics/metrics.md metric='Deliveries' %}</td><td class="no-split"><i>Distributions</i> / <i>Envois uniques</i></td></tr>
 <tr><td class="no-split"><i>Taux de clics sur lien court</i></td><td class="no-split">Le pourcentage d'utilisateurs qui ont cliqué sur un lien court après avoir reçu un SMS.</td><td class="no-split"><i>Clics sur lien court</i> / <i>Envois uniques</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="SMS metrics" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Indicateurs SMS" }
 
 ![Indicateurs de benchmarks sectoriels pour le SMS affichés sous forme de graphiques linéaires et de graphiques à barres.]({% image_buster /assets/img/dashboards/sms_industry.png %})
 
@@ -100,7 +100,7 @@ Les indicateurs push sont disponibles pour iOS, Android, Web et pour l'ensemble 
 <table aria-label="Indicateurs Content Cards"><thead><tr><th>Indicateur</th><th>Description</th><th>Formule</th></tr></thead><tbody>
 <tr><td class="no-split"><i>Taux de clics</i></td><td class="no-split">Le pourcentage d'utilisateurs qui ont reçu une Content Card et cliqué sur un lien.</td><td class="no-split"><i>Clics uniques</i> / <i>Impressions uniques</i></td></tr>
 </tbody></table>
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Content Cards metrics" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Indicateurs Content Cards" }
 
 ![Indicateurs de benchmarks sectoriels pour les Content Cards affichés sous forme de graphiques linéaires et de graphiques à barres.]({% image_buster /assets/img/dashboards/content_card_industry.png %})
 

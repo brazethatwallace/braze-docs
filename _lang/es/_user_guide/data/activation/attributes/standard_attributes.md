@@ -10,22 +10,22 @@ description: "Este artículo de referencia enumera los atributos estándar de us
 
 > Los atributos estándar son campos predefinidos que Braze reconoce en cada perfil de usuario. Utiliza esta página como referencia rápida para el nombre del campo, el tipo de datos y el formato esperado de cada atributo estándar.
 
-Los atributos estándar (a veces llamados *atributos predeterminados* o *claves reservadas*) son diferentes de los [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), que son exclusivos de tu empresa. Cuando envías datos a Braze con uno de los nombres de campo que aparecen en esta página, Braze los almacena en el campo de perfil predefinido en lugar de crear un nuevo atributo personalizado.
+Los atributos estándar (a veces llamados *atributos predeterminados* o *claves reservadas*) son diferentes de los [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), que son exclusivos de tu empresa. Cuando envías datos a Braze con uno de los nombres de campo que aparecen en esta página, Braze los almacena en el campo de perfil predefinido en lugar de crear un nuevo atributo personalizado.
 
 Puedes establecer atributos estándar a través de cualquiera de estos métodos:
 
-- El [SDK de Braze]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
-- El [objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/) en el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
-- [Importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/)
-- [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/)
+- El [SDK de Braze]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
+- El [objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object) en el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
+- [Importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import)
+- [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)
 
 {% alert important %}
-Los nombres de los atributos estándar distinguen entre mayúsculas y minúsculas. Utiliza siempre minúsculas (por ejemplo, `first_name`, no `First_Name`). Si la ortografía o las mayúsculas no coinciden exactamente, Braze almacena el valor como un [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/).
+Los nombres de los atributos estándar distinguen entre mayúsculas y minúsculas. Utiliza siempre minúsculas (por ejemplo, `first_name`, no `First_Name`). Si la ortografía o las mayúsculas no coinciden exactamente, Braze almacena el valor como un [atributo personalizado]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes).
 {% endalert %}
 
 ## Identificadores {#identifiers}
 
-Los identificadores indican a Braze qué perfil de usuario actualizar o crear. Cada solicitud de API y cada fila de CSV debe incluir al menos un identificador. Para más detalles sobre cómo elegir el adecuado, consulta [Resolución de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object/#identifier-resolution).
+Los identificadores indican a Braze qué perfil de usuario actualizar o crear. Cada solicitud de API y cada fila de CSV debe incluir al menos un identificador. Para más detalles sobre cómo elegir el adecuado, consulta [Resolución de identificadores]({{site.baseurl}}/api/objects_filters/user_attributes_object#identifier-resolution).
 
 | Campo | Tipo de datos | Formato y notas |
 |---|---|---|
@@ -33,7 +33,7 @@ Los identificadores indican a Braze qué perfil de usuario actualizar o crear. C
 | `braze_id` | Cadena | Un identificador asignado por Braze que se crea cuando el SDK detecta un dispositivo por primera vez. Solo lectura. No se puede editar. |
 | `user_alias` | Objeto | Un objeto con `alias_name` (cadena) y `alias_label` (cadena), utilizado para identificar usuarios sin un `external_id`. Mutuamente excluyente con `external_id` en la misma solicitud. |
 | `email` | Cadena | Se puede utilizar como identificador cuando `external_id` y `user_alias` están ausentes. Tiene prioridad sobre `phone` si se envían ambos. |
-| `phone` | Cadena | Se puede utilizar como identificador cuando `external_id`, `user_alias` y `email` están ausentes. Usa el formato [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#recommended-format) (por ejemplo, `+14155552671`). |
+| `phone` | Cadena | Se puede utilizar como identificador cuando `external_id`, `user_alias` y `email` están ausentes. Usa el formato [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format) (por ejemplo, `+14155552671`). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 ## Campos de perfil {#profile-fields}
@@ -45,12 +45,12 @@ Estos campos capturan datos demográficos, de contacto y de configuración regio
 | `first_name` | Cadena | El nombre del usuario (por ejemplo, `Jane`). |
 | `last_name` | Cadena | El apellido del usuario (por ejemplo, `Doe`). |
 | `email` | Cadena | La dirección de correo electrónico del usuario (por ejemplo, `jane.doe@braze.com`). |
-| `phone` | Cadena | El número de teléfono del usuario. Usa el formato [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/#recommended-format) (por ejemplo, `+14155552671`). |
+| `phone` | Cadena | El número de teléfono del usuario. Usa el formato [E.164]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#recommended-format) (por ejemplo, `+14155552671`). |
 | `dob` | Cadena | Fecha de nacimiento en formato `YYYY-MM-DD` (por ejemplo, `1988-02-14`). Permite la segmentación por cumpleaños. |
 | `gender` | Cadena | Uno de `M`, `F`, `O` (otro), `N` (no aplica), `P` (prefiere no decir) o `null` (desconocido). |
 | `country` | Cadena | Un código de país en formato [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1) (por ejemplo, `US`, `GB`). Establecer `country` a través de importación CSV o API impide que el SDK lo capture automáticamente. |
 | `home_city` | Cadena | La ciudad de residencia del usuario (por ejemplo, `London`). |
-| `language` | Cadena | Un código de idioma en formato [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (por ejemplo, `en`). Consulta la [lista de idiomas aceptados]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes/). Establecer `language` a través de importación CSV o API impide que el SDK lo capture automáticamente. |
+| `language` | Cadena | Un código de idioma en formato [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) (por ejemplo, `en`). Consulta la [lista de idiomas aceptados]({{site.baseurl}}/user_guide/data/unification/user_data/language_codes). Establecer `language` a través de importación CSV o API impide que el SDK lo capture automáticamente. |
 | `time_zone` | Cadena | Un nombre de zona horaria de la [base de datos de zonas horarias de IANA](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) (por ejemplo, `America/New_York` o `Eastern Time (US & Canada)`). |
 | `current_location` | Objeto | Un objeto que contiene `longitude` y `latitude` (por ejemplo, `{"longitude": -73.991443, "latitude": 40.753824}`). |
 | `image_url` | Cadena | Una URL de la imagen de perfil del usuario. Hasta 1024 caracteres. |
@@ -70,7 +70,7 @@ Estos campos gestionan cómo un usuario recibe mensajes a través de los canales
 | `marked_email_as_spam_at` | Cadena | Marca de tiempo en la que el correo electrónico del usuario fue marcado como correo no deseado. Usa el formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-Para más detalles sobre la configuración de grupos de suscripción, consulta [Grupos de suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions/#subscription-groups).
+Para más detalles sobre la configuración de grupos de suscripción, consulta [Grupos de suscripción]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups).
 
 ## Sesiones e interacción {#sessions-and-engagement}
 
@@ -84,7 +84,7 @@ Estos campos capturan cuándo el usuario interactuó por primera o última vez c
 
 ## Tokens de notificaciones push {#push-tokens}
 
-Usa estos campos cuando migres tokens de notificaciones push desde otra plataforma. Después de integrar el SDK de Braze, los tokens de notificaciones push se capturan automáticamente. Para orientación sobre la migración, consulta [Migración de tokens de notificaciones push]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens).
+Usa estos campos cuando migres tokens de notificaciones push desde otra plataforma. Después de integrar el SDK de Braze, los tokens de notificaciones push se capturan automáticamente. Para orientación sobre la migración, consulta [Migración de tokens de notificaciones push]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
 
 | Campo | Tipo de datos | Formato y notas |
 |---|---|---|
@@ -104,7 +104,7 @@ Estos campos almacenan datos de integraciones con redes sociales.
 
 ## Ejemplo de API {#api-example}
 
-La siguiente solicitud establece atributos estándar en dos usuarios a través del [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).
+La siguiente solicitud establece atributos estándar en dos usuarios a través del [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ```http
 POST https://YOUR_REST_API_URL/users/track
@@ -114,7 +114,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   "attributes": [
     {
       "external_id": "user1",
-      "first_name": "Jane",
+      "first_name": "Alex",
       "last_name": "Doe",
       "email": "jane.doe@example.com",
       "country": "US",
@@ -142,7 +142,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 }
 ```
 
-Para el contrato completo de la API, consulta el [objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/).
+Para el contrato completo de la API, consulta el [objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 ## Ejemplo de CSV {#csv-example}
 
@@ -154,7 +154,7 @@ user1,Jane,Doe,jane.doe@example.com,US,en,1988-02-14,opted_in
 user2,Alex,Smith,alex.smith@example.com,GB,en,1992-09-30,subscribed
 ```
 
-No puedes establecer algunos atributos estándar a través de la importación CSV. Debes enviar matrices, tokens de notificaciones push y objetos anidados a través de la API o la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/). Para la lista completa de campos compatibles con CSV y los pasos de importación, consulta [Atributos predeterminados]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/#default-attributes).
+No puedes establecer algunos atributos estándar a través de la importación CSV. Debes enviar matrices, tokens de notificaciones push y objetos anidados a través de la API o la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion). Para la lista completa de campos compatibles con CSV y los pasos de importación, consulta [Atributos predeterminados]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#default-attributes).
 
 ## Consideraciones {#considerations}
 
@@ -168,9 +168,9 @@ Ten en cuenta estos puntos al trabajar con atributos estándar:
 
 ## Páginas relacionadas {#related-pages}
 
-- [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/) — Contrato completo de la API para el objeto de atributos.
-- [Punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) — Punto de conexión REST para crear y actualizar perfiles de usuario.
-- [Establecer atributos de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/) — Métodos del SDK para establecer atributos estándar y personalizados.
-- [Importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/) — Carga atributos estándar a través de un archivo CSV.
-- [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) — Define atributos exclusivos de tu empresa.
-- [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/) — Referencia de los tipos de datos compatibles.
+- [Objeto de atributos de usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object) — Contrato completo de la API para el objeto de atributos.
+- [Punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) — Punto de conexión REST para crear y actualizar perfiles de usuario.
+- [Establecer atributos de usuario]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes) — Métodos del SDK para establecer atributos estándar y personalizados.
+- [Importación CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) — Carga atributos estándar a través de un archivo CSV.
+- [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) — Define atributos exclusivos de tu empresa.
+- [Tipos de datos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) — Referencia de los tipos de datos compatibles.

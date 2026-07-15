@@ -69,7 +69,7 @@ Sobald Braze Daten von Version 2.0.0 Ihrer App erhält, können Sie Nutzer:innen
 | Größer als 2.0.0 | 2.5.1 | Die Nutzerin/der Nutzer und alle zukünftigen Installationen werden im Segment sein. |
 | Größer als 2.0.0 | 1.9.9 | Die Nutzerin/der Nutzer ist nicht im Segment. |
 | Kleiner oder gleich 2.0.0 | 3.0.1 | Die Nutzerin/der Nutzer ist nicht im Segment. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Anwendungsfall" }
 
 ### App-Versionsname {#app-version-name}
 
@@ -81,8 +81,8 @@ Für Android basiert dieser Versionsname auf dem [Package Version Name](https://
 
 ### Feature noch nicht genutzt {#have-not-used-feature}
 
-Wenn Sie eine neue App-Version veröffentlichen und neue Features einführen, bemerken Nutzer:innen möglicherweise neue Inhalte nicht. Eine Feature-Awareness-Campaign durchzuführen ist eine großartige Möglichkeit, Nutzer:innen über neue Features oder Features, die sie noch nie genutzt haben, zu informieren. Dazu müssen Sie ein [angepasstes Attribut]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#custom-data) erstellen, das Nutzer:innen zugewiesen wird, die eine bestimmte Aktion in Ihrer App noch nie ausgeführt haben, oder ein [angepasstes Event]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#custom-data) verwenden, um eine bestimmte Aktion zu verfolgen. Sie können dieses Attribut (oder Event) verwenden, um die Nutzer:innen zu segmentieren, an die Sie die Campaign senden möchten.
+Wenn Sie eine neue App-Version veröffentlichen und neue Features einführen, bemerken Nutzer:innen möglicherweise neue Inhalte nicht. Eine Feature-Awareness-Campaign durchzuführen ist eine großartige Möglichkeit, Nutzer:innen über neue Features oder Features, die sie noch nie genutzt haben, zu informieren. Dazu müssen Sie ein [angepasstes Attribut]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data) erstellen, das Nutzer:innen zugewiesen wird, die eine bestimmte Aktion in Ihrer App noch nie ausgeführt haben, oder ein [angepasstes Event]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data) verwenden, um eine bestimmte Aktion zu verfolgen. Sie können dieses Attribut (oder Event) verwenden, um die Nutzer:innen zu segmentieren, an die Sie die Campaign senden möchten.
 
 {% alert tip %}
-Möchten Sie einen bestimmten Teil Ihrer Zielgruppe erneut ansprechen? Lesen Sie [Retargeting-Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/), um zu erfahren, wie Sie Campaigns durch Nutzung der bisherigen Aktionen Ihrer Nutzer:innen retargeten können.
+Möchten Sie einen bestimmten Teil Ihrer Zielgruppe erneut ansprechen? Lesen Sie [Retargeting-Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns), um zu erfahren, wie Sie Campaigns durch Nutzung der bisherigen Aktionen Ihrer Nutzer:innen retargeten können.
 {% endalert %}

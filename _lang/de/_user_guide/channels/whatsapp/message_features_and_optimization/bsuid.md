@@ -50,7 +50,7 @@ Der wesentliche Unterschied besteht darin, dass Nutzer:innen, die einen Nutzerna
 
 ## Wie Braze BSUIDs verarbeitet {#how-braze-will-handle-bsuids}
 
-Braze speichert BSUIDs als [Nutzer-Alias]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#user-aliases) mit dem Label `whats_app_bsuid` im Nutzerprofil. Das bedeutet, dass Nutzer:innen, die nur über eine BSUID verfügen, vollständige Braze-Nutzerprofile haben und in Canvases eintreten, Nachrichten empfangen, Events erzeugen und über die API aktualisiert werden können.
+Braze speichert BSUIDs als [Nutzer-Alias]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases) mit dem Label `whats_app_bsuid` im Nutzerprofil. Das bedeutet, dass Nutzer:innen, die nur über eine BSUID verfügen, vollständige Braze-Nutzerprofile haben und in Canvases eintreten, Nachrichten empfangen, Events erzeugen und über die API aktualisiert werden können.
 
 ### Nachrichten senden {#send-messages}
 
@@ -74,12 +74,12 @@ Sie können die BSUID einer Person in ihrem Braze-Nutzerprofil im WhatsApp-Absch
 
 Die Abo-Gruppen-Verwaltung funktioniert für BSUID-Nutzer:innen genauso wie für alle Nutzer:innen, die über einen Nutzer-Alias identifiziert werden. Sie können den Abo-Status für BSUID-Nutzer:innen über folgende Wege aktualisieren:
 
-- Den [users/track-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) mit `user_alias`
-- Den [Nutzeraktualisierung]({{site.baseurl}}/user_update/)-Canvas-Schritt (funktioniert automatisch)
+- Den [users/track-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track) mit `user_alias`
+- Den [Nutzeraktualisierung]({{site.baseurl}}/user_update)-Canvas-Schritt (funktioniert automatisch)
 - CSV-Upload
 
 {% alert note %}
-Der [subscription/status/set-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) unterstützt [`user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object/) nicht. Verwenden Sie den [users/track-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), um den Abo-Status für Nutzer:innen zu aktualisieren, die nur über eine BSUID verfügen.
+Der [subscription/status/set-Endpunkt]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) unterstützt [`user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object) nicht. Verwenden Sie den [users/track-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um den Abo-Status für Nutzer:innen zu aktualisieren, die nur über eine BSUID verfügen.
 {% endalert %}
 
 ### Currents und Event-Daten {#currents-and-event-data}
@@ -201,8 +201,8 @@ Wir empfehlen dringend, das Kontaktbuch aktiviert zu lassen. Wenn das Kontaktbuc
 
 ## Zusätzliche Ressourcen {#additional-resources}
 
-* [WhatsApp-Einrichtung]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)
-* [Nutzer-Aliase]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#user-aliases)
-* [WhatsApp-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)
-* [WhatsApp-Currents-Events]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#whatsapp)
+* [WhatsApp-Einrichtung]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)
+* [Nutzer-Aliase]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases)
+* [WhatsApp-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)
+* [WhatsApp-Currents-Events]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#whatsapp)
 * [Meta: Geschäftsbezogene Nutzer-IDs](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids)

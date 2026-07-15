@@ -1,0 +1,3 @@
+{% alert important %}
+Votre message ne sera envoyé qu'aux utilisateurs qui correspondent déjà aux conditions que vous avez définies à l'étape **Audience cible**. Ensuite, ils devront toujours satisfaire le déclencheur que vous définissez à l'étape **Planification de la distribution**. Considérez l'audience cible comme une salle d'attente : seules les personnes qui s'y trouvent déjà peuvent avancer lorsque l'action suivante se produit.
+{% endalert %}

@@ -1,17 +1,15 @@
 ---
 nav_title: Android向けライブ更新
 article_title: Android Braze SDKのライブ更新
-page_order: 0.1
-description: "Android Braze SDKのライブ更新の設定方法について説明します。"
-platform:
-  - Android
-  - FireOS
-hidden: true
+layout: redirect
+redirect_to: /docs/developer_guide/live_notifications/
+noindex: true
 ---
 
+<!--
 # Android向けライブ更新 {#live-updates-for-android}
 
-> Braze SDKでAndroidライブ更新（[Progress Centric Notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications) とも呼ばれます）を使用する方法について説明します。これらの通知は[Swift Braze SDKのライブアクティビティ]({{site.baseurl}}/developer_guide/live_notifications/live_activities/)に似ており、インタラクティブなロック画面通知を表示できます。Android 16では進行状況を中心とした通知が導入され、ユーザーが開始した最初から最後までのジャーニーをシームレスに追跡できるようになります。
+> Braze SDKでAndroidライブ更新（[Progress Centric Notifications](https://developer.android.com/about/versions/16/features/progress-centric-notifications)とも呼ばれます）を使用する方法について説明します。これらの通知は[Swift Braze SDKのライブアクティビティ]({{site.baseurl}}/developer_guide/live_notifications/live_activities)に似ており、インタラクティブなロック画面通知を表示できます。Android 16では進行状況を中心とした通知が導入され、ユーザーが開始した最初から最後までのジャーニーをシームレスに追跡できるようになります。
 
 ## 仕組み {#how-it-works}
 
@@ -25,7 +23,7 @@ hidden: true
 
 #{% multi_lang_include developer_guide/prerequisites/android.md %}
 
-### ステップ 1: カスタム通知ファクトリーを作成する {#step-1-create-a-custom-notification-factory}
+### ステップ1: カスタム通知ファクトリーを作成する {#step-1-create-a-custom-notification-factory}
 
 アプリケーションで、[`BrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze-notification-factory/index.html)を拡張してBrazeライブ更新の表示方法を処理する、`MyCustomNotificationFactory.kt`という名前の新しいファイルを作成します。
 
@@ -51,10 +49,10 @@ class MyCustomNotificationFactory : IBrazeNotificationFactory {
             .setStyledByProgress(false)
             .setProgress(200)
             .setProgressTrackerIcon(IconCompat.createWithResource(context, R.drawable.notification_small_icon))
-            .setProgressセグメント(
+            .setProgressSegments(
                 mutableListOf(
-                    NotificationCompat.ProgressStyle.セグメント(1000).setColor(Color.GRAY),
-                    NotificationCompat.ProgressStyle.セグメント(200).setColor(Color.BLUE),
+                    NotificationCompat.ProgressStyle.Segment(1000).setColor(Color.GRAY),
+                    NotificationCompat.ProgressStyle.Segment(200).setColor(Color.BLUE),
                 )
             )
             .setProgressPoints(
@@ -69,13 +67,13 @@ class MyCustomNotificationFactory : IBrazeNotificationFactory {
 }
 ```
 
-### ステップ 2: カスタムデータをマッピングする {#step-2-map-custom-data}
+### ステップ2: カスタムデータをマッピングする {#step-2-map-custom-data}
 
 `MyCustomNotificationFactory.kt`で、ライブ更新が表示されたときにデータを処理するための新しいメソッドを作成します。
 
 Superb Owlは、各チームの名前とロゴを拡張されたライブ更新にマッピングするために、以下のメソッドを作成しました。
 
-`````````kotlin
+```kotlin
 class CustomNotificationFactory : BrazeNotificationFactory() {
     override fun createNotification(payload: BrazeNotificationPayload): Notification? {
         // Your existing code
@@ -93,11 +91,11 @@ class CustomNotificationFactory : BrazeNotificationFactory() {
 }
 ```
 
-### ステップ 3: カスタム通知ファクトリーを設定する {#step-3-set-the-custom-notification-factory}
+### ステップ3: カスタム通知ファクトリーを設定する {#step-3-set-the-custom-notification-factory}
 
 アプリケーションクラスで[`customBrazeNotificationFactory`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/custom-braze-notification-factory.html?query=var%20customBrazeNotificationFactory:%20IBrazeNotificationFactory?)を使用して、カスタム通知ファクトリーを設定します。
 
-`````````kotlin
+```kotlin
 class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
@@ -108,9 +106,9 @@ class MyApplication : Application() {
 }
 ```
 
-### ステップ 4: アクティビティを送信する {#step-4-send-the-activity}
+### ステップ4: アクティビティを送信する {#step-4-send-the-activity}
 
-[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/) REST APIエンドポイントを使用して、ユーザーのAndroidデバイスにプッシュ通知を送信できます。
+[`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) REST APIエンドポイントを使用して、ユーザーのAndroidデバイスにプッシュ通知を送信できます。
 
 #### curlコマンドの例 {#example-curl-command}
 
@@ -142,7 +140,7 @@ curl -X POST "https://BRAZE_REST_ENDPOINT/messages/send" \
 ```
 
 {% alert tip %}
-curlコマンドはテストに役立ちますが、すでに[iOSライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications/?sdktab=swift)を処理しているバックエンドでこの呼び出しを処理することをおすすめします。
+curlコマンドはテストに役立ちますが、すでに[iOSライブアクティビティ]({{site.baseurl}}/developer_guide/push_notifications/live_notifications?sdktab=swift)を処理しているバックエンドでこの呼び出しを処理することをおすすめします。
 {% endalert %}
 
 #### リクエストパラメーター {#request-parameters}
@@ -150,14 +148,15 @@ curlコマンドはテストに役立ちますが、すでに[iOSライブアク
 | キー | 説明 |
 |------------------------------|------------|
 | `REST_API_KEY` | `messages.send`権限を持つBraze REST APIキー。<br><br>これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
-| `BRAZE_REST_ENDPOINT` | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics/#endpoints)に応じて異なります。 |
+| `BRAZE_REST_ENDPOINT` | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics#endpoints)に応じて異なります。 |
 | `USER_ID` | 通知を送信するユーザーのID。 |
 | `messages.android_push.title` | メッセージのタイトル。デフォルトでは、これはカスタム通知ファクトリーのライブ通知には使用されませんが、フォールバックとして使用できます。 |
 | `messages.android_push.alert` | メッセージの本文。デフォルトでは、これはカスタム通知ファクトリーのライブ通知には使用されませんが、フォールバックとして使用できます。 |
-| `messages.extra` | カスタム通知ファクトリーがライブ通知に使用するキーと値のペア。この値には任意の文字列を割り当てることができます。ただし、上記の例では、`live_updates`を使用して、デフォルトのプッシュ通知かライブプッシュ通知かを判断しています。 |
-| `ASSIGNED_NOTIFICATION_ID` | 選択したユーザーのライブ通知に割り当てる通知ID。IDはこのゲームに対して一意である必要があり、後で[既存の通知を更新する](#android_step-4-update-data-with-the-braze-rest-api)ために使用する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Request parameters" }
+| `messages.extra` | カスタム通知ファクトリーがライブ通知に使用するキーと値のペア。この値には任意の文字列を割り当てることができます&#8212;ただし、[curlコマンドの例](#example-curl-command)では、`live_updates`を使用して、デフォルトのプッシュ通知かライブプッシュ通知かを判断しています。 |
+| `ASSIGNED_NOTIFICATION_ID` | 選択したユーザーのライブ通知に割り当てる通知ID。IDはこのゲームに対してユニークである必要があり、後で[既存の通知を更新する](#android_step-4-update-data-with-the-braze-rest-api)ために使用する必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="リクエストパラメーター" }
 
-### ステップ 5: アクティビティを更新する {#step-5-update-the-activity}
+### ステップ5: アクティビティを更新する {#step-5-update-the-activity}
 
 既存のライブ更新を新しいデータで更新するには、`messages.extra`に割り当てられた関連するキーと値のペアを修正し、同じ`notification_id`を使用して`/messages/send`エンドポイントを再度呼び出します。
+-->

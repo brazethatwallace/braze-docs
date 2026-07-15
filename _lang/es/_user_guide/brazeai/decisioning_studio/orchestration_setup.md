@@ -48,8 +48,8 @@ Antes de configurar la orquestación, reúne los siguientes elementos según la 
 |-----------|-------------|
 | **Clave de API REST** | Una nueva clave de API con permisos para datos de usuario, mensajes, Campaigns, Canvas, Segments y plantillas. |
 | **URL del panel de Braze** | La URL de tu instancia de Braze (por ejemplo, `https://dashboard-01.braze.com`). |
-| **ID de la aplicación** | La clave de API asociada con la aplicación que deseas rastrear (se encuentra en **Settings** > **App Settings**). |
-| **Nombre y dirección del remitente de correo electrónico** | La información del remitente que se usará para tus campañas (se encuentra en **Settings** > **Email Preferences**). |
+| **ID de la aplicación** | La clave de API asociada con la aplicación que deseas rastrear (se encuentra en **Configuración** > **Configuración de la aplicación**). |
+| **Nombre y dirección del remitente de correo electrónico** | La información del remitente que se usará para tus campañas (se encuentra en **Configuración** > **Preferencias de correo electrónico**). |
 | **Plantillas base** | Las plantillas de mensaje que tu agente usará para la orquestación. Crearás Campaigns activadas por API para cada plantilla. |
 | **ID de usuario de prueba** | Un ID de usuario para probar la integración antes del lanzamiento. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
@@ -118,7 +118,7 @@ Para integraciones con Braze, planifica qué dimensiones optimizará tu agente. 
 
 ## Configuración de la integración {#integration-setup}
 
-Selecciona tu CEP a continuación para comenzar con la configuración de la integración.
+Selecciona tu CEP de esta lista para comenzar con la configuración de la integración.
 
 {% tabs %}
 {% tab Braze %}
@@ -129,7 +129,7 @@ Sigue estos pasos para integrar un agente de Decisioning Studio con las capacida
 
 ### Paso 1: Crear una clave de API {#step-1-create-an-api-key}
 
-Ve a **Settings** > **API Keys** y crea una nueva clave con los siguientes permisos:
+Ve a **Configuración** > **Claves de API** y crea una nueva clave con los siguientes permisos:
 
 {% multi_lang_include decisioning_studio/api_key_permissions.md %}
 
@@ -194,7 +194,7 @@ Resultando en el siguiente mensaje:
 
 Decisioning Studio admite integración nativa con Salesforce Marketing Cloud. Decisioning Studio desencadena eventos de API en un journey con los datos necesarios para poblar los elementos dinámicos.
 
-Para conocer los pasos detallados para configurar la integración con SFMC, sigue las [instrucciones de SFMC]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/) en la documentación de Decisioning Studio Go.
+Para conocer los pasos detallados para configurar la integración con SFMC, sigue las [instrucciones de SFMC]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration) en la documentación de Decisioning Studio Go.
 
 {% endtab %}
 {% tab Otras CEP %}
@@ -224,10 +224,10 @@ Ten en cuenta estas mejores prácticas mientras te preparas para la orquestació
 2. **Prueba a fondo.** Antes de lanzar, prueba tu integración con un conjunto pequeño de usuarios para verificar que el contenido dinámico se rellena correctamente.
 3. **Documenta tu configuración.** Lleva un registro de los ID de Campaign, ID de plantilla, claves de API y otros identificadores. Necesitarás consultarlos en el portal de Decisioning Studio.
 4. **Coordina con tu equipo.** La configuración de la orquestación puede involucrar a los equipos de marketing, ingeniería y datos. Asegúrate de que todos entiendan su rol en el proceso.
-5. **Planifica para los datos de retroalimentación.** La orquestación incluye enviar mensajes y recopilar los datos de interacción y conversión que ayudan a tu agente a aprender. Consulta [Prepara tus datos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/) para más detalles.
+5. **Planifica para los datos de retroalimentación.** La orquestación incluye enviar mensajes y recopilar los datos de interacción y conversión que ayudan a tu agente a aprender. Consulta [Prepara tus datos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data) para más detalles.
 
 ## Próximos pasos {#next-steps}
 
 Después de configurar la orquestación, procede a diseñar tu agente:
 
-- [Diseñar agentes de toma de decisiones]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents/)
+- [Diseñar agentes de toma de decisiones]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents)

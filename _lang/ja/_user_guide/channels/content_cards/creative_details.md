@@ -11,7 +11,7 @@ tool: Media
 
 # コンテンツカードのクリエイティブの詳細 {#creative-details-for-content-cards}
 
-> Content Cardsとそれが配置されるフィードのカスタマイズは、キャンペーン作成プロセス中には行えません。エンジニアや開発者と協力して、カードの構築とカスタマイズを行う必要があります。技術的な詳細については、[開発者ドキュメント]({{site.baseurl}}/developer_guide/getting_started/customization_overview/)をご覧ください。
+> Content Cardsとそれが配置されるフィードのカスタマイズは、キャンペーン作成プロセス中には行えません。エンジニアや開発者と協力して、カードの構築とカスタマイズを行う必要があります。技術的な詳細については、[開発者ドキュメント]({{site.baseurl}}/developer_guide/getting_started/customization_overview)をご覧ください。
 
 ## コンテンツカードのタイプ {#content-card-types}
 
@@ -28,7 +28,7 @@ tool: Media
 | メッセージテキスト | 13px; 標準ウェイト <br> 2〜4行のテキストが理想的です。 <br> Liquidを使用してメッセージをパーソナライズできます。 |
 | リンクテキスト | オプション。 <br> 13&nbsp;px <br> Webページへのリンクまたはアプリ内へのディープリンク。 |
 | 画像 | オプション。 <br> 1:1の比率である必要があります。 <br> 60 x 60&nbsp;pxの画像品質を推奨します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Card types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コンテンツカードのタイプ" }
 
 {% endtab %}
 {% tab キャプション付き画像 %}
@@ -43,7 +43,7 @@ tool: Media
 | メッセージテキスト | 13px; 標準ウェイト <br> 2〜4行のテキストが理想的です。 <br> Liquidを使用してメッセージをパーソナライズできます。 |
 | リンクテキスト | オプション。 <br> 13&nbsp;px <br> Webページへのリンクまたはアプリ内へのディープリンク。 |
 | 画像 | 4:3の比率を推奨します。 <br> 最小幅600&nbsp;px。 <br> 高解像度のPNG、JPEG、GIFに対応しています。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Card types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コンテンツカードのタイプ" }
 
 {% endtab %}
 {% tab 画像のみ %}
@@ -56,14 +56,14 @@ tool: Media
 | --- | ---|
 | リンク付きカード | オプション。 <br> 13&nbsp;px <br> クリック時の動作としてWebページへのリンクまたはアプリ内へのディープリンク。 |
 | 画像 | 任意のアスペクト比に対応しています。 <br> 最小幅600&nbsp;px。 <br> 高解像度のPNG、JPEG、GIFに対応しています。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content Card types" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="コンテンツカードのタイプ" }
 
 {% endtab %}
 {% endtabs %}
 
 ## グローバルクリエイティブの詳細 {#general}
 
-Content Cardsは、テキストと画像（GIFを含む）をデフォルトでサポートしています。現時点では、異なるフォントカラーや複数の画像など、カードのカスタムスタイリングはダッシュボードでは行えません。インテグレーション時にContent Cardsとフィードのカスタムスタイリングを行うことができます。詳細については、Braze SDKの[カードのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/)を参照してください。
+Content Cardsは、テキストと画像（GIFを含む）をデフォルトでサポートしています。現時点では、異なるフォントカラーや複数の画像など、カードのカスタムスタイリングはダッシュボードでは行えません。インテグレーション時にContent Cardsとフィードのカスタムスタイリングを行うことができます。詳細については、Braze SDKの[カードのカスタマイズ]({{site.baseurl}}/developer_guide/content_cards/customizing_cards)を参照してください。
 
 ### 非表示の動作 {#dismissal-behavior}
 
@@ -83,5 +83,5 @@ Content Cardsは、テキストと画像（GIFを含む）をデフォルトで�
 
 | Android向けContent Cards | iOS向けContent Cards | Web向けContent Cards |
 | --- | --- |---|
-| Android SDKはデフォルトではアニメーションGIFをサポートしていません。GIFサポートの有効化の詳細については、[GIF]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs/?sdktab=android)を参照してください。 | Swift SDKはデフォルトではアニメーションGIFをサポートしていません。GIFサポートの有効化の詳細については、[GIFサポートチュートリアル](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support)を参照してください。 | GIFサポートはWeb SDKインテグレーションにデフォルトで含まれています。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Using GIFs in Content Cards" }
+| Android SDKはデフォルトではアニメーションGIFをサポートしていません。GIFサポートの有効化の詳細については、[GIF]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs?sdktab=android)を参照してください。 | Swift SDKはデフォルトではアニメーションGIFをサポートしていません。GIFサポートの有効化の詳細については、[GIFサポートチュートリアル](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support)を参照してください。 | GIFサポートはWeb SDKインテグレーションにデフォルトで含まれています。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Content CardsでのGIFの使用" }

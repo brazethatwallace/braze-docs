@@ -3,7 +3,7 @@ nav_title: Ideen und Strategien
 article_title: Ideen und Strategien
 layout: dev_guide
 guide_top_header: "Ideen und Strategien"
-guide_top_text: "Erfahren Sie mehr darüber, wie Sie mit diesen Anwendungsfällen und weiteren Ideen Ihre ideale Campaign aufbauen können."
+guide_top_text: "Hier finden Sie ausgearbeitete Beispiele und Muster für gängige Campaign-Ziele. Dieser Abschnitt behandelt das Retargeting aktiver und passiver Nutzer:innen, die Förderung der Feature-Nutzung und App-Updates, die Erfassung von Install-Attribution, das Hinzufügen von Kalender-Links zu Nachrichten sowie die Automatisierung von Registrierungs-Workflows mit externen Tools wie Zoom. Durchsuchen Sie diese Anwendungsfälle, um Ansätze zu finden, die Sie für Ihre eigenen Zielgruppen anpassen können."
 page_order: 5
 
 tool: Campaigns

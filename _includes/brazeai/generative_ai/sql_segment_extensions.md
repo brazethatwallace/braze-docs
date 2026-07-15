@@ -29,7 +29,7 @@ To create a full refresh SQL Segment Extension:
 
 1. Go to **Audience** > **Segment Extensions**.
 2. Select **Create New Extension**, then select **Full refresh**.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+   ![Create New Extension modal with Full refresh and Incremental refresh options.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Add a name for your Segment Extension and input your SQL. Refer to [Step 2](#step-2-write-your-sql) for requirements and resources.<br><br>
    ![SQL editor showing an example SQL Segment Extension.]({% image_buster /assets/img_archive/sql_segments_editor.png %}){: style="max-width:60%" }<br><br>
 4. Save your Segment Extension.
@@ -41,7 +41,7 @@ To create an incremental refresh SQL Segment Extension:
 
 1. Go to **Audience** > **Segment Extensions**.
 2. Select **Create New Extension** and select **Incremental refresh**.<br><br>
-   ![]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
+   ![Create New Extension modal with Full refresh and Incremental refresh options.]({% image_buster /assets/img/segment/segment_extension_modal.png %}){: style="max-width:50%" }<br><br>
 3. Add a name for your Segment Extension and input your SQL. Refer to the section [Writing SQL](#writing-sql) for requirements and resources.<br><br>
    ![SQL editor showing an example incremental SQL Segment Extension.]({% image_buster /assets/img_archive/sql_segments_editor_incremental.png %}){: style="max-width:60%" }<br><br>
 4. If desired, select **Regenerate Extension Daily**.<br><br>
@@ -124,7 +124,7 @@ Additionally, your standard SQL query must adhere to the following rules:
 All incremental refresh queries consist of two parts: a query, and schema details.
 
 1. In the editor, write a query that selects `user_id`s from your desired table.
-2. Add schema details by selecting an **Operator**, **Number of times**, and **Time period** from the fields above the editor. The query will check if the sum of the aggregate column meets a certain condition specified by the {% raw %}`{{operator}}` and `{{number of times}}`{% endraw %} placeholders. This functions similarly to the workflow for creating classic Segment Extensions.<br><br>
+2. Add schema details by selecting an **Operator**, **Number of times**, and **Time period** from the fields at the top of the editor. The query will check if the sum of the aggregate column meets a certain condition specified by the {% raw %}`{{operator}}` and `{{number of times}}`{% endraw %} placeholders. This functions similarly to the workflow for creating classic Segment Extensions.<br><br>
    - **Operator:** Indicate if the event has happened more than, less than, or equal to a number of occurrences.<br>
    ![Operator field with "More than" selected.]({% image_buster /assets/img_archive/sql_segments_operator.png %})<br><br>
    - **Number of times:** How many times you would like to evaluate the event in relation to the operator.<br>
@@ -203,7 +203,7 @@ Select a SQL Segment Extension to view where the extension is being used, archiv
 
 ### Designating refresh settings
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Snowflake credits {#credits}
 

@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Update a preference center“."
+description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Update eines Präferenzzentrums“."
 
 ---
 {% api %}
@@ -20,9 +20,9 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Updat
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `preference_center.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `preference_center.update`.
 
-## Rate-Limits {#rate-limit}
+## Rate-Limit
 
 {% multi_lang_include rate_limits.md endpoint='post or put preference center' %}
 
@@ -31,7 +31,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
 | `preferenceCenterExternalID` | Erforderlich | String | Die ID für Ihr Präferenzzentrum. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Pfad-Parameter" }
 
 
 ## Anfragetext {#request-body}
@@ -73,7 +73,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `confirmation_page_html` | Erforderlich | String | Der HTML-Code für die Bestätigungsseite. |
 | `state` | Optional | String | Wählen Sie `active` oder `draft`. |
 | `options` | Optional | Objekt | Attribute: <br>`meta-viewport-content`: Wenn vorhanden, wird der Seite ein `viewport`-Meta-Tag mit `content= <value of attribute>` hinzugefügt.<br><br> `link-tags`: Legen Sie ein Favicon für die Seite fest. Wenn diese Option gesetzt ist, wird der Seite ein `<link>`-Tag mit einem rel-Attribut hinzugefügt. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrage-Parameter" }
 
 ## Beispielanfrage {#example-request}
 

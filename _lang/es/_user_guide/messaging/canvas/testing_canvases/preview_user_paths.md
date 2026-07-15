@@ -32,10 +32,24 @@ Se admiten los siguientes pasos:
 - División de decisiones
 - Demora
 - Ruta de acción
-- Ruta de experimentos
+- Recorrido de experimentos
+- Agente
 - Actualización de usuario (solo en el editor de interfaz de usuario, lo que significa que se omiten los pasos que utilizan el editor JSON)
 
-Si la prueba coincide con un tipo de paso que no aparece en la lista anterior, se omite el paso no compatible y el usuario de prueba continúa con el siguiente paso compatible.
+Si la prueba coincide con un tipo de paso que no aparece en esta sección, se omite el paso no compatible y el usuario de prueba continúa con el siguiente paso compatible.
+
+### Pasos de agente {#agent-steps}
+
+Cuando una ejecución de prueba llega a un [paso de agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze se detiene y pregunta **¿Quieres ejecutar el agente "{agentName}"?** Elige cómo continuar:
+
+- **Sí:** Opcionalmente, agrega contexto en el campo de texto (además del perfil del usuario de prueba y cualquier contexto de Canvas que ya esté en el recorrido), luego selecciona **Simulate response** para invocar al agente. Puedes introducir valores de ejemplo en lenguaje natural —por ejemplo, describiendo el contenido del carrito o el texto de un mensaje entrante— para simular el contexto en tiempo de ejecución que el agente recibiría en producción.
+- **No:** Braze no invoca al agente. El paso utiliza la **salida alternativa** configurada del agente en la sección **Output** de la [consola de agentes]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values).
+
+Cuando seleccionas **Sí** y **Simulate response**, el agente se ejecuta para el usuario de vista previa, almacena su salida en la variable de salida del paso de agente y la prueba continúa a lo largo del recorrido. Las invocaciones desde **Simulate response** cuentan para el límite diario de invocaciones del agente y aparecen en **Agent Console** > **Logs**.
+
+Para probar un paso de agente de forma aislada (sin ejecutar el recorrido completo de Canvas), usa la vista previa dentro del paso en el constructor de Canvas. Para más detalles de configuración, consulta [Probar el agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#step-5-test-the-agent) en paso de agente.
+
+Si tu paso de agente depende de datos de un [paso de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) anterior, ejecuta **Test Canvas** para que las variables de contexto se completen a lo largo del recorrido. Los grupos semilla no evalúan los pasos de contexto ni las variables de contexto para los destinatarios semilla.
 
 ### Detalles del paso en Canvas {#canvas-step-details}
 
@@ -43,23 +57,23 @@ Para ver más detalles sobre los criterios de entrada, selecciona **See more**. 
 
 ### Liquid
 
-Braze procesa la lógica de Liquid durante una ejecución de prueba, incluso si no estás enviando un mensaje de prueba real. Esto significa que la [lógica de cancelación de mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages) y otra lógica de Liquid se reflejan y podrían afectar el recorrido del usuario en Canvas.
+Braze procesa la lógica de Liquid durante una ejecución de prueba, incluso si no estás enviando un mensaje de prueba real. Esto significa que la [lógica de cancelación de mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) y otra lógica de Liquid se reflejan y podrían afectar el recorrido del usuario en Canvas.
 
 Si tu vista previa envía el último paso del recorrido de tu usuario en lugar de cancelar, es posible que la vista previa esté usando la hora actual como la hora evaluada para Liquid, no la hora real en la que el usuario estaría en el paso según la hora de entrada al Canvas.
 
 ## Vistas previas de tiempos {#previews-for-timing}
 
-Para Canvas planificados, el usuario de prueba entra en el siguiente horario de entrada planificado. Para Canvas basados en acciones con fechas de inicio, el usuario de prueba entra en la fecha y hora de inicio.
+Para Canvas programados, el usuario de prueba entra en el siguiente horario de entrada programado. Para Canvas basados en acciones con fechas de inicio, el usuario de prueba entra en la fecha y hora de inicio.
 
 Aunque los horarios de inicio predeterminados siguen aplicándose, la hora de entrada es configurable en todos los casos, lo que significa que puedes simular una fecha en el pasado o en el futuro. Sin embargo, no puedes probar antes de la fecha de inicio ni después de la fecha de finalización del Canvas.
 
-Los pasos de mensaje y demora muestran la hora a la que un usuario avanzaría o recibiría el mensaje sin necesidad de reconfigurar las demoras. Ten en cuenta que, aunque los pasos indican si se usa Intelligent Timing, esta vista previa del recorrido del usuario no calcula una estimación para un usuario de prueba.
+Los pasos de mensaje y demora muestran la hora a la que un usuario avanzaría o recibiría el mensaje sin necesidad de reconfigurar las demoras. Ten en cuenta que, aunque los pasos indican si se usa la sincronización inteligente, esta vista previa del recorrido del usuario no calcula una estimación para un usuario de prueba.
 
 Para Canvas con un desencadenador de acción como "cambio en el valor de un atributo personalizado", Braze intenta simular el cambio estableciendo temporalmente el atributo del usuario en el desencadenador como vacío **solo para la ejecución de prueba del Canvas** (esto no afecta al perfil de usuario). Esto está pensado para probar que el atributo cambia desde su valor actual.
 
 ## Cuándo los usuarios entran y salen {#when-users-enter-and-exit}
 
-Los usuarios de prueba entran en la vista previa incluso si no son elegibles en la vida real. Si no son elegibles, puedes ver por qué no han cumplido los criterios. Cuando un usuario de prueba entra en la vista previa, asumimos que ha cumplido los criterios de audiencia objetivo y ha realizado los criterios del desencadenador de acción. Por ejemplo, para un Canvas que usa eventos personalizados en los criterios de entrada, se asume que el usuario de prueba ha realizado el evento personalizado como se esperaba en los criterios de entrada. Sin embargo, si el mismo evento personalizado se usa en otra parte del Canvas (como en los criterios de salida), considera cómo esto podría afectar el recorrido de tu usuario.
+Los usuarios de prueba entran en la vista previa incluso si no son elegibles en la vida real. Si no son elegibles, puedes ver por qué no han cumplido los criterios. Cuando un usuario de prueba entra en la vista previa, asumimos que ha cumplido los criterios de público objetivo y ha realizado los criterios del desencadenador de acción. Por ejemplo, para un Canvas que usa eventos personalizados en los criterios de entrada, se asume que el usuario de prueba ha realizado el evento personalizado como se esperaba en los criterios de entrada. Sin embargo, si el mismo evento personalizado se usa en otra parte del Canvas (como en los criterios de salida), considera cómo esto podría afectar el recorrido de tu usuario.
 
 Los eventos, desencadenadores de API, atributos personalizados y propiedades de entrada de Canvas que se asumen para permitir que un usuario de prueba entre al Canvas no se actualizan en el perfil de usuario real y no persisten más allá de la ejecución de prueba. Por ejemplo, durante las pruebas, cuando un atributo personalizado se usa como desencadenador de Canvas, los criterios del desencadenador se aplican a la vista previa del usuario **como si** hubiera desencadenado el cambio de atributo personalizado.
 
@@ -83,25 +97,25 @@ Para enviar todos los mensajes de prueba en un Canvas a la vez, independientemen
 
 ## Capacidad de respuesta {#responsiveness}
 
-Los pasos en Canvas responden a los tiempos al previsualizar los recorridos de usuario. Las actualizaciones realizadas a través del paso de Actualización de usuario se reflejan en los pasos posteriores del flujo, pero no se aplican al perfil de usuario real. Los efectos de que un usuario entre en una variante se reflejan en los pasos futuros de una vista previa.
+Los pasos en Canvas responden a los tiempos al previsualizar los recorridos de usuario. Las actualizaciones realizadas a través del paso de actualización de usuario se reflejan en los pasos posteriores del flujo, pero no se aplican al perfil de usuario real. Los efectos de que un usuario entre en una variante se reflejan en los pasos futuros de una vista previa.
 
 De manera similar, los filtros reconocen las acciones que ocurrieron como resultado de la interacción del usuario de prueba con otros pasos en el Canvas. Por ejemplo, este modo de vista previa reconoce que un usuario encontró un paso de mensaje que fue "enviado" anteriormente en el Canvas, y reconoce que el usuario de prueba "realizó una acción" para avanzar a través de una ruta de acción.
 
-Consulta [Criterios de salida]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) para más detalles sobre el comportamiento de respuesta.
+Consulta [Criterios de salida]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) para más detalles sobre el comportamiento de respuesta.
 
 ## Contenido conectado {#connected-content}
 
-El contenido conectado se ejecuta si está incluido en el Canvas. Esto significa que si pruebas un Canvas que tiene llamadas de contenido conectado o Content Blocks que contienen contenido conectado, el Canvas puede enviar las llamadas de contenido conectado, lo que modificaría los datos referenciados en otras Campaigns o Canvas.
+El contenido conectado se ejecuta si está incluido en el Canvas. Esto significa que si pruebas un Canvas que tiene llamadas de contenido conectado o Content Blocks que contienen contenido conectado, el Canvas puede enviar las llamadas de contenido conectado, lo que modificaría los datos referenciados en otras campañas u otros Canvas.
 
-Al previsualizar los recorridos de usuario, considera eliminar el contenido conectado que altera los perfiles de usuario o los datos referenciados en otros Canvas o Campaigns.
+Al previsualizar los recorridos de usuario, considera eliminar el contenido conectado que altera los perfiles de usuario o los datos referenciados en otros Canvas o campañas.
 
-## Webhooks
+## Webhooks {#webhooks}
 
-Los webhooks se ejecutan cuando se envían mensajes de prueba, pero no durante la ejecución de prueba. De manera similar al contenido conectado, considera eliminar los webhooks que alteran los perfiles de usuario o los datos referenciados en otros Canvas o Campaigns.
+Los webhooks se ejecutan cuando se envían mensajes de prueba, pero no durante la ejecución de prueba. De manera similar al contenido conectado, considera eliminar los webhooks que alteran los perfiles de usuario o los datos referenciados en otros Canvas o campañas.
 
 ## Variables de contexto y grupos semilla {#context-variables-and-seed-groups}
 
-Para un paso de mensaje con correo electrónico como canal de mensajería, los grupos semilla envían copias semilla de los correos electrónicos cuando un usuario llega a este paso en el Canvas. Estas copias semilla no se envían como parte de los recorridos propios en Canvas de los destinatarios del grupo semilla, por lo que Braze no ejecuta [pasos de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) ni evalúa las variables de contexto para esos destinatarios. Si el contenido de tu correo electrónico hace referencia a variables de contexto, los destinatarios del grupo semilla reciben una copia semilla sin esos datos completados. Para probar mensajes que dependen de datos de variables de contexto, usa la vista previa de **Test Canvas** con envíos de prueba en lugar de grupos semilla.
+Para un paso de mensaje con correo electrónico como canal de mensajería, los grupos semilla envían copias semilla de los correos electrónicos cuando un usuario llega a este paso en el Canvas. Estas copias semilla no se envían como parte de los recorridos propios en Canvas de los destinatarios del grupo semilla, por lo que Braze no ejecuta [pasos de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) ni evalúa las variables de contexto para esos destinatarios. Si el contenido de tu correo electrónico hace referencia a variables de contexto, los destinatarios del grupo semilla reciben una copia semilla sin esos datos completados. Para probar mensajes que dependen de datos de variables de contexto, usa la vista previa de **Test Canvas** con envíos de prueba en lugar de grupos semilla.
 
 ## Caso de uso {#use-case}
 

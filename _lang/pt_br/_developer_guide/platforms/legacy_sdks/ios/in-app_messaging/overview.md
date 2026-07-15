@@ -14,7 +14,7 @@ noindex: true
 
 # Mensagens no app {#in-app-messages}
 
-[As mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/) ajudam a levar o conteúdo ao usuário sem interromper o dia dele com uma notificação por push. Mensagens no app personalizadas e sob medida aprimoram a experiência do usuário e ajudam o público a obter o máximo valor do seu app. Com uma variedade de layouts e ferramentas de personalização para escolher, as mensagens no app engajam seus usuários mais do que nunca.
+[As mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages) ajudam a levar o conteúdo ao usuário sem interromper o dia dele com uma notificação por push. Mensagens no app personalizadas e sob medida aprimoram a experiência do usuário e ajudam o público a obter o máximo valor do seu app. Com uma variedade de layouts e ferramentas de personalização para escolher, as mensagens no app engajam seus usuários mais do que nunca.
 
 Confira nossos [estudos de caso](https://www.braze.com/customers) para ver exemplos de mensagens no app.
 
@@ -68,7 +68,7 @@ As mensagens no app [`Full`](https://appboy.github.io/appboy-ios-sdk/docs/interf
 {% endtab %}
 {% tab Custom HTML %}
 
-As mensagens no app [`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html) são úteis para criar conteúdo totalmente personalizado para o usuário. O conteúdo completo da mensagem no app em HTML definido pelo usuário é exibido em um `WKWebView` e pode, opcionalmente, conter outros conteúdos avançados, como imagens e fontes, permitindo controle total sobre a aparência e a funcionalidade da mensagem. <br><br>As mensagens no app do iOS suportam uma interface JavaScript `brazeBridge` para chamar métodos no Braze Web SDK a partir do seu HTML; consulte nossas [práticas recomendadas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices/) para obter mais detalhes.
+As mensagens no app [`HTML Full`](https://appboy.github.io/appboy-ios-sdk/docs/interface_a_b_k_in_app_message_h_t_m_l_full.html) são úteis para criar conteúdo totalmente personalizado para o usuário. O conteúdo completo da mensagem no app em HTML definido pelo usuário é exibido em um `WKWebView` e pode, opcionalmente, conter outros conteúdos avançados, como imagens e fontes, permitindo controle total sobre a aparência e a funcionalidade da mensagem. <br><br>As mensagens no app do iOS suportam uma interface JavaScript `brazeBridge` para chamar métodos no Braze Web SDK a partir do seu HTML; consulte nossas [práticas recomendadas]({{site.baseurl}}/user_guide/channels/in_app_messages/best_practices) para obter mais detalhes.
 
 O exemplo a seguir mostra uma mensagem no app paginada em HTML Full:
 

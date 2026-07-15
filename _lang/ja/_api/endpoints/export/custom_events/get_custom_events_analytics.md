@@ -20,7 +20,7 @@ description: "この記事では、「カスタムイベント分析のエクス
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`events.data_series` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`events.data_series` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -33,10 +33,10 @@ description: "この記事では、「カスタムイベント分析のエクス
 | `event` | 必須 | 文字列 | 分析を返すカスタムイベントの名前。 |
 | `length` | 必須 | 整数 | 返される系列に含める `ending_at` より前の最大単位数（日または時間）。1以上100以下でなければなりません。 |
 | `unit` | オプション | 文字列 | データポイント間の時間の単位。`day` または `hour` を指定でき、デフォルトは `day` です。 |
-| `ending_at` | オプション | 日時 <br>（[ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列） | データ系列が終了する日付。デフォルトはリクエストの時刻です。 |
-| `app_id` | オプション | 文字列 | 特定のアプリに分析を限定するために、[API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) ページから取得したアプリ API 識別子。 |
-| `segment_id` | オプション | 文字列 | [セグメント API 識別子]({{site.baseurl}}/api/identifier_types/)を参照してください。イベント分析を返す対象となる、分析が有効なSegmentを示すSegment ID。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `ending_at` | オプション | 日時 <br>([ISO-8601](https://en.wikipedia.org/wiki/ISO_8601) 文字列) | データ系列が終了する日付。デフォルトはリクエストの時刻です。 |
+| `app_id` | オプション | 文字列 | 特定のアプリに分析を限定するために、[API キー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) ページから取得したアプリ API 識別子。 |
+| `segment_id` | オプション | 文字列 | [セグメント API 識別子]({{site.baseurl}}/api/identifier_types)を参照してください。イベント分析を返す対象となる、分析が有効なセグメントを示すセグメント ID。 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 
 ## リクエスト例 {#example-request}
@@ -64,10 +64,10 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/events/data_seri
 
 ### 致命的なエラーの応答コード {#fatal-export}
 
-リクエストが致命的なエラーに遭遇した場合に返されるステータスコードと関連するエラーメッセージについては、[致命的なエラーと応答]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
+リクエストが致命的なエラーに遭遇した場合に返されるステータスコードと関連するエラーメッセージについては、[致命的なエラーと応答]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
 
 {% alert tip %}
-CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)を参照してください。
 {% endalert %}
 
 {% endapi %}

@@ -14,8 +14,8 @@ channel:
 
 ## Pré-requisitos {#prerequisites}
 
-- Confirme que você tem a [permissão de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions) "Manage Subscription Groups" em ambos os espaços de trabalho, o original e o novo.
-- A WABA não pode cruzar múltiplos [clusters da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/). É improvável que isso aconteça se você estiver trabalhando dentro de uma mesma empresa.
+- Confirme que você tem a [permissão de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) "Manage Subscription Groups" em ambos os espaços de trabalho, o original e o novo.
+- A WABA não pode cruzar múltiplos [clusters da Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). É improvável que isso aconteça se você estiver trabalhando dentro de uma mesma empresa.
 
 ## Transferindo um número de telefone e grupo de inscrições {#transferring-a-phone-number-and-subscription-group}
 
@@ -24,8 +24,8 @@ channel:
 Para arquivar um grupo de inscrições do WhatsApp, siga estas etapas:
 
 1. Acesse o espaço de trabalho onde o grupo de inscrições existe atualmente.
-2. Acesse **Audience** > **Gerenciamento de grupos de inscrições** e encontre o grupo de inscrições associado ao número de telefone do WhatsApp que você deseja mover.
-3. Passe o cursor sobre o status do grupo de inscrições e selecione <i class="fa-solid fa-box-archive"></i> **Arquivar**, o que marcará o grupo de inscrições como inativo, mas não o excluirá.
+2. Acesse **Público** > **Gerenciamento de grupos de inscrições** e encontre o grupo de inscrições associado ao número de telefone do WhatsApp que você deseja mover.
+3. Passe o cursor sobre o status do grupo de inscrições e selecione <i class="fa-solid fa-box-archive" aria-label="Arquivar"></i> **Arquivar**, o que marcará o grupo de inscrições como inativo, mas não o excluirá.
 
 ![Botão "Arquivar" aparecendo ao passar o cursor sobre o status "Ativo" de um grupo de inscrições.]({% image_buster /assets/img/whatsapp/archive_subscription_group.png %}){: style="max-width:70%;"}
 

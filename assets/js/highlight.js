@@ -41,4 +41,18 @@ $(document).ready(function() {
         $(dvid).delay(300).animate({'opacity': 0},500)
       });
     });
+    var copyBlocks = new ClipboardJS('.copy-block-btn');
+    copyBlocks.on('success', function(e) {
+      var feedback = $(e.trigger).closest('.copy-block').find('.copy-feedback');
+      feedback.html((typeof site_i18n !== 'undefined' && site_i18n['clipboard_copied']) ? site_i18n['clipboard_copied'] : 'Copied').animate({'opacity': 1}, 300, function() {
+        feedback.delay(600).animate({'opacity': 0}, 500);
+      });
+      e.clearSelection();
+    });
+    copyBlocks.on('error', function(e) {
+      var feedback = $(e.trigger).closest('.copy-block').find('.copy-feedback');
+      feedback.html((typeof site_i18n !== 'undefined' && site_i18n['clipboard_error']) ? site_i18n['clipboard_error'] : 'Error').animate({'opacity': 1}, 300, function() {
+        feedback.delay(600).animate({'opacity': 0}, 500);
+      });
+    });
   });

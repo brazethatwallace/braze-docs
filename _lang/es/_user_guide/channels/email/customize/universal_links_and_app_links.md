@@ -12,7 +12,7 @@ channel: email
 > Este artículo describe cómo configurar los enlaces universales de Apple y los Android App Links.
 
 {% alert tip %}
-Para una comparación de tipos de enlaces en todos los canales de mensajería y orientación sobre cuándo necesitas un archivo AASA, consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/).
+Para una comparación de tipos de enlaces en todos los canales de mensajería y orientación sobre cuándo necesitas un archivo AASA, consulta la [guía de vinculación en profundidad de iOS]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide).
 {% endalert %}
 
 Los enlaces universales de Apple y los Android App Links son mecanismos diseñados para proporcionar una transición fluida entre el contenido web y las aplicaciones móviles. Mientras que los enlaces universales son específicos de iOS, los Android App Links cumplen el mismo propósito para las aplicaciones Android.
@@ -23,7 +23,11 @@ Los enlaces universales (iOS) y los App Links (Android) son enlaces web estánda
 
 Cuando se abre un enlace universal o un App Link, el sistema operativo comprueba si alguna aplicación instalada está registrada para ese dominio. Si se encuentra una aplicación, se lanza inmediatamente sin cargar nunca la página web. Si no se encuentra ninguna aplicación, la URL web se carga en el navegador web predeterminado del usuario, que también podría estar configurado para redirigir a la App Store o Google Play Store respectivamente.
 
-En pocas palabras, los enlaces universales permiten que un sitio web asocie sus páginas web con pantallas específicas de la aplicación, de modo que cuando un usuario hace clic en un enlace a una página web que corresponde a una pantalla de la aplicación, esta puede abrirse directamente (si está instalada actualmente).
+En pocas palabras, los enlaces universales permiten que un sitio web asocie sus páginas web con pantallas específicas de la aplicación, de modo que cuando un usuario hace clic en un enlace a una página web que corresponde a una pantalla de la aplicación, esta puede abrirse directamente (si la aplicación está instalada actualmente).
+
+{% alert important %}
+Firebase Dynamic Links está obsoleto. Braze no tiene una integración directa con Firebase, y la vinculación en profundidad se gestiona fuera de la plataforma Braze. Migra a soluciones nativas de la plataforma (enlaces universales de Apple y Android App Links, como se describe en este artículo) o a proveedores de servicios de vinculación en profundidad alternativos. Para obtener orientación sobre la migración, consulta las [preguntas frecuentes de migración de Firebase](https://firebase.google.com/support/dynamic-links-faq).
+{% endalert %}
 
 Esta tabla describe las diferencias clave entre los enlaces universales y los vínculos profundos tradicionales:
 
@@ -93,7 +97,7 @@ Estos pasos están adaptados de la documentación para desarrolladores de Apple.
 2. Selecciona **Associated Domains**.
 3. Haz clic en **Save**.
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![Sección App Services]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### Paso 1c: Activa Associated Domains en tu proyecto Xcode {#step-1c}
 
@@ -113,7 +117,7 @@ Si ves el error "An App ID with Identifier 'your-app-id' is not available. Pleas
 
 En la sección de dominios, añade la etiqueta de dominio apropiada. Debes añadir el prefijo `applinks:`. En este caso, puedes ver que hemos añadido `applinks:yourdomain.com`.
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Sección Associated Domains]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### Paso 1e: Confirma que el archivo de permisos está incluido en la compilación {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -143,7 +147,7 @@ El archivo AASA contiene un objeto JSON con una lista de aplicaciones y las ruta
 }
 ```
 
-- `appID`: Se construye combinando el **Team ID** de tu aplicación (ve a `https://developer.apple.com/account/#/membership/` para obtener el team ID) y el **Bundle Identifier**. En el ejemplo anterior, "JHGFJHHYX" es el team ID y "com.facebook.ios" es el bundle ID.
+- `appID`: Se construye combinando el **Team ID** de tu aplicación (ve a `https://developer.apple.com/account/#/membership/` para obtener el team ID) y el **Bundle Identifier**. En este ejemplo, "JHGFJHHYX" es el team ID y "com.facebook.ios" es el bundle ID.
 - `paths`: Matriz de cadenas que especifica qué rutas se incluyen o excluyen de la asociación. Puedes usar `NOT` antes de la ruta para deshabilitar rutas. En este ejemplo, todos los enlaces en esta ruta irán a la web en lugar de abrir la aplicación. Puedes usar `*` como comodín para habilitar todas las rutas en un directorio y `?` para coincidir con un solo carácter (como /archives/201?/ para coincidir con todos los números de 2010 a 2019).
 
 {% alert note %}
@@ -225,13 +229,13 @@ Finalmente, puedes probar tus vínculos profundos. Envíate un enlace a través 
 Los enlaces de seguimiento de clics normalmente se configuran como parte de tu incorporación para correo electrónico. Si esto no se completó durante la incorporación del cliente, ponte en contacto con tu director de cuentas para obtener ayuda.
 {% endalert %}
 
-Nuestros socios de envío de correo electrónico usan dominios de seguimiento de clics para envolver todos los enlaces e incluir parámetros de URL para el seguimiento de clics en los correos electrónicos de Braze.
+Nuestros partners de envío de correo electrónico usan dominios de seguimiento de clics para envolver todos los enlaces e incluir parámetros de URL para el seguimiento de clics en los correos electrónicos de Braze.
 
 Por ejemplo, un enlace como `https://www.example.com` se convierte en algo como `https://links.email.example.com/uni/wf/click?upn=abcdef123456…`.
 
 Para permitir que los enlaces de correo electrónico con seguimiento de clics funcionen como enlaces universales o App Links, necesitarás realizar alguna configuración adicional. Asegúrate de añadir el dominio de seguimiento de clics (`links.email.example.com`) como un dominio que la aplicación tiene permitido abrir. Además, el dominio de seguimiento de clics debe servir los archivos AASA (iOS) o Digital Asset Links (Android). Esto ayudará a garantizar que los enlaces de correo electrónico con seguimiento de clics funcionen sin problemas.
 
-Si no quieres que cada enlace de seguimiento de clics sea un enlace universal o App Link, puedes especificar qué enlaces deben ser enlaces universales según el socio de envío de correo electrónico. Consulta las siguientes pestañas para más detalles.
+Si no quieres que cada enlace de seguimiento de clics sea un enlace universal o App Link, puedes especificar qué enlaces deben ser enlaces universales según el partner de envío de correo electrónico. Consulta las siguientes pestañas para más detalles.
 
 {% tabs %}
 {% tab SendGrid %}
@@ -439,13 +443,24 @@ Es importante asegurarse de que estos archivos siempre sean accesibles públicam
 
 Asegúrate de que tienes las definiciones correctas para los dominios que tu aplicación tiene permitido abrir.
 
-- **iOS:** Revisa los Associated Domains configurados en Xcode para tu aplicación ([Paso 1c: Activa Associated Domains en tu proyecto Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Comprueba que el dominio de seguimiento de clics está incluido en esa lista.
+- **iOS:** Revisa los Associated Domains configurados en Xcode para tu aplicación ([Paso 1c: Activa Associated Domains en tu proyecto Xcode]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Comprueba que el dominio de seguimiento de clics está incluido en esa lista.
 - **Android:** Abre la página de información de la aplicación (mantén presionado el icono de la aplicación y haz clic en ⓘ). Dentro del menú de información de la aplicación, localiza **Open by default** y tócalo. Esto debería mostrar una pantalla con todos los enlaces verificados que la aplicación tiene permitido abrir. Comprueba que el dominio de seguimiento de clics está incluido en esa lista.
 
 #### El dominio de seguimiento no puede servir archivos .well-known {#tracking-domain-cant-serve-well-known-files}
 
 En algunos casos, tu dominio de seguimiento de clics puede no ser capaz de alojar los archivos `.well-known` requeridos debido a limitaciones del ESP o restricciones de infraestructura. Si no puedes alojar el archivo AASA o Digital Asset Links en tu dominio de seguimiento, considera las siguientes opciones:
 
-- **Ponte en contacto con tu ESP para que aloje los archivos en su dominio de seguimiento:** Tu subdominio de seguimiento de clics normalmente es un CNAME que apunta a tu ESP (SendGrid, SparkPost o Amazon SES). Dado que el ESP termina el tráfico para ese dominio, puede alojar los archivos `.well-known` por ti. Tanto SendGrid como SparkPost admiten esto. Ponte en contacto directamente con tu ESP para solicitarlo.
-- **Desactiva selectivamente el seguimiento de clics en las URL de vínculos profundos:** Si tu ESP no puede alojar los archivos, puedes desactivar el seguimiento de clics para enlaces universales específicos para que vayan directamente a tu dominio principal (donde puedes alojar el archivo AASA o Digital Asset Links). Ten en cuenta que este método puede causar la pérdida de análisis de clics para esos enlaces específicos. Consulta [Desactivar el seguimiento de clics enlace por enlace](#turning-off-click-tracking-on-a-link-to-link-basis) para obtener instrucciones.
+- **Desactiva selectivamente el seguimiento de clics en las URL de vínculos profundos:** Puedes desactivar el seguimiento de clics para enlaces universales específicos para que vayan directamente a tu dominio principal (donde puedes alojar el archivo AASA o Digital Asset Links). Ten en cuenta que este método puede causar la pérdida de análisis de clics para esos enlaces específicos. Consulta [Desactivar el seguimiento de clics enlace por enlace](#turning-off-click-tracking-on-a-link-to-link-basis) para obtener instrucciones.
 - **Coloca un CDN delante del subdominio de seguimiento:** Si necesitas cobertura completa de seguimiento de clics y vinculación en profundidad, puedes colocar un CDN (como Cloudflare o CloudFront) delante de tu subdominio de seguimiento. Configura el CDN para servir los archivos `.well-known` localmente y redirigir todo el demás tráfico a tu ESP. Este enfoque es más complejo, pero te da control total sobre el seguimiento de clics y los enlaces universales.
+
+#### Los enlaces funcionan en un espacio de trabajo pero no en otro {#links-working-in-one-workspace-but-not-another}
+
+Si los enlaces universales o App Links funcionan correctamente en tu espacio de trabajo de producción pero fallan en tu espacio de trabajo de desarrollo o pruebas, verifica que el dominio de la dirección de correo electrónico de envío coincida con el dominio de seguimiento configurado en la configuración de correo electrónico de cada espacio de trabajo. Una configuración inconsistente entre espacios de trabajo puede hacer que los enlaces se comporten de manera diferente incluso cuando se usan las mismas plantillas de correo electrónico y los mismos archivos AASA o Digital Asset Links.
+
+Para comprobar tu configuración de correo electrónico:
+
+1. Ve a **Configuración** > **Preferencias de correo electrónico** en el panel de Braze.
+2. Revisa la **Configuración de correo electrónico saliente** en **Configuración de envío**.
+3. Confirma que tu dominio de envío y tu dominio de seguimiento están correctamente alineados para el espacio de trabajo donde los enlaces no funcionan.
+
+Si tu dominio de envío difiere entre espacios de trabajo, asegúrate de que cada espacio de trabajo tiene los registros de DNS apropiados configurados y que tus archivos AASA (iOS) o Digital Asset Links (Android) son accesibles desde cada dominio de seguimiento.

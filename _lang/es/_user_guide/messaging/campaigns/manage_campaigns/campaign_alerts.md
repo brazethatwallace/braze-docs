@@ -12,7 +12,7 @@ channel:
 
 ---
 
-# Alertas de campaña
+# Alertas de campaña {#campaign-alerts}
 
 > Queremos alertarte cuando algo no parece funcionar como se esperaba y darte la tranquilidad de que todo marcha sin problemas. Las alertas de umbral de campaña te dan tranquilidad: sé la primera persona en saber si una campaña importante envía más o menos mensajes de los que esperas.
 
@@ -22,11 +22,11 @@ Las alertas de campaña están disponibles para las siguientes campañas:
 - Campañas basadas en acciones
 - Campañas desencadenadas por API
 
-## Configurar tu alerta de campaña
+## Configurar tu alerta de campaña {#setting-up-your-campaign-alert}
 
-Ve a la página de análisis de tu campaña para empezar a configurar tu alerta. Cuando selecciones **Set Up Alert**, podrás especificar umbrales de alerta superiores e inferiores, así como los destinatarios y canales de la alerta.
+Ve a la página de análisis de tu campaña para empezar a configurar tu alerta. Cuando selecciones **Configurar alerta**, podrás especificar umbrales de alerta superiores e inferiores, así como los destinatarios y canales de la alerta.
 
-![Cuadro de diálogo de monitorización de campaña con dos botones: Cancel y Save.]({% image_buster /assets/img_archive/campaign_alerts.png %})
+![Cuadro de diálogo de monitorización de campaña con dos botones: Cancelar y Guardar.]({% image_buster /assets/img_archive/campaign_alerts.png %})
 
 Para una campaña recurrente planificada, puedes establecer umbrales superiores e inferiores para los mensajes enviados cada vez que la campaña se envía. Para una campaña desencadenada, puedes establecer umbrales superiores e inferiores para el número de mensajes enviados por hora y por día.
 
@@ -36,7 +36,7 @@ Puedes configurar una alerta por correo electrónico, una alerta por webhook o a
 Al configurar alertas de campaña para campañas futuras, es posible que recibas actualizaciones antes de que la campaña comience y después de que termine. Esto se debe a que las alertas de campaña seguirán enviándose hasta que la campaña se detenga manualmente.
 {% endalert %}
 
-## Carga útil del webhook de alerta de campaña
+## Carga útil del webhook de alerta de campaña {#campaign-alert-webhook-payload}
 
 A continuación se muestra un ejemplo de carga útil para el cuerpo de un webhook de alerta de campaña. Este ejemplo utiliza una alerta configurada para enviarse cuando los mensajes enviados caen por debajo de 500 para un envío de campaña determinado.
 

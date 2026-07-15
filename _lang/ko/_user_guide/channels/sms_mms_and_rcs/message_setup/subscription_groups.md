@@ -14,7 +14,7 @@ channel:
 
 # SMS, MMS, RCS 구독 그룹 {#sms-mms-and-rcs-subscription-groups}
 
-> 구독 그룹은 Braze를 통해 SMS, MMS, RCS 메시지를 발송하기 위한 기반입니다. 구독 그룹은 특정 유형의 메시징 목적에 사용되는 [발송 엔티티]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/)(RCS 인증 발신자, SMS 짧은 코드, SMS 긴 코드, SMS 영숫자 발신자 ID 등)의 모음입니다. 예를 들어, 브랜드가 트랜잭션 SMS 메시징과 프로모션 SMS 메시징을 모두 발송할 계획이라면, Braze 대시보드 내에서 별도의 발송 전화번호 풀을 가진 두 개의 구독 그룹을 설정해야 합니다.
+> 구독 그룹은 Braze를 통해 SMS, MMS, RCS 메시지를 발송하기 위한 기반입니다. 구독 그룹은 특정 유형의 메시징 목적에 사용되는 [발송 엔티티]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup)(RCS 인증 발신자, SMS 짧은 코드, SMS 긴 코드, SMS 영숫자 발신자 ID 등)의 모음입니다. 예를 들어, 브랜드가 트랜잭션 SMS 메시징과 프로모션 SMS 메시징을 모두 발송할 계획이라면, Braze 대시보드 내에서 별도의 발송 전화번호 풀을 가진 두 개의 구독 그룹을 설정해야 합니다.
 
 {% multi_lang_include alerts/note_alerts.md alert='subscription group limit' %}
 
@@ -24,8 +24,8 @@ SMS 및 RCS 사용자에게는 `subscribed`와 `unsubscribed` 두 가지 구독 
 
 | 상태 | 정의 |
 | --------- | ---------- |
-| 가입됨 | 사용자가 특정 구독 그룹에서 SMS 및 RCS를 수신하도록 가입되어 있습니다. 사용자는 Braze 구독 API를 통해 구독 상태를 업데이트하거나 옵트인 키워드 응답을 문자로 보내 가입할 수 있습니다. SMS 또는 RCS, 혹은 둘 다를 수신하려면 사용자가 SMS 또는 RCS 구독 그룹에 가입되어 있어야 합니다. [이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/)이 활성화된 경우, 사용자는 구독 상태가 `Subscribed`로 업데이트되기 전에 옵트인 의사를 확인해야 합니다. |
-| 가입 취소됨 | 사용자가 SMS 및 RCS 구독 그룹과 해당 구독 그룹 내 발송 전화번호로부터의 메시징을 명시적으로 옵트아웃했습니다. 옵트아웃 키워드 응답을 문자로 보내 가입을 취소하거나, [Braze 구독 API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)를 통해 사용자의 가입을 취소할 수 있습니다. SMS 및 RCS 구독 그룹에서 가입 취소된 사용자는 해당 구독 그룹에 속한 발송 전화번호로부터 더 이상 SMS 또는 RCS를 수신하지 않습니다.|
+| 가입됨 | 사용자가 특정 구독 그룹에서 SMS 및 RCS를 수신하도록 가입되어 있습니다. 사용자는 Braze 구독 API를 통해 구독 상태를 업데이트하거나 옵트인 키워드 응답을 문자로 보내 가입할 수 있습니다. SMS 또는 RCS, 혹은 둘 다를 수신하려면 사용자가 SMS 또는 RCS 구독 그룹에 가입되어 있어야 합니다. [이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)이 활성화된 경우, 사용자는 구독 상태가 `Subscribed`로 업데이트되기 전에 옵트인 의사를 확인해야 합니다. |
+| 가입 취소됨 | 사용자가 SMS 및 RCS 구독 그룹과 해당 구독 그룹 내 발송 전화번호로부터의 메시징을 명시적으로 옵트아웃했습니다. 옵트아웃 키워드 응답을 문자로 보내 가입을 취소하거나, [Braze 구독 API]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)를 통해 사용자의 가입을 취소할 수 있습니다. SMS 및 RCS 구독 그룹에서 가입 취소된 사용자는 해당 구독 그룹에 속한 발송 전화번호로부터 더 이상 SMS 또는 RCS를 수신하지 않습니다.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="구독 그룹 상태" }
 
 ### 사용자 상태 설정 {#set-a-users-state}
@@ -39,12 +39,12 @@ SMS 및 RCS 사용자에게는 `subscribed`와 `unsubscribed` 두 가지 구독 
 - **REST API:** [`/subscription/status/set` 엔드포인트]({{ site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)를 사용하여 Braze REST API로 사용자 프로필을 프로그래밍 방식으로 설정할 수 있습니다.
 - **SDK 통합:** [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)), 또는 [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)용 `addToSubscriptionGroup` 메서드를 사용하여 이메일 또는 SMS 및 RCS 구독 그룹에 사용자를 추가할 수 있습니다.
 - **전화번호 수집 인앱 메시지 양식:** 인앱 메시지 드래그 앤 드롭 에디터의 전화번호 수집 템플릿을 통해 사용자 전화번호를 수집할 수 있습니다.
-- **사용자 옵트인/옵트아웃 시 자동 처리:** 사용자가 기본 옵트인 또는 옵트아웃 [키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/)를 문자로 보내면, Braze가 자동으로 사용자의 구독 상태를 설정하고 업데이트합니다.
-- **사용자 가져오기:** **사용자 가져오기**를 통해 이메일 또는 SMS 및 RCS 구독 그룹에 사용자를 추가할 수 있습니다. 구독 그룹 상태를 업데이트할 때 CSV에 `subscription_group_id`와 `subscription_state` 두 열이 있어야 합니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/#updating-subscription-group-status)를 참조하세요.
+- **사용자 옵트인/옵트아웃 시 자동 처리:** 사용자가 기본 옵트인 또는 옵트아웃 [키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout)를 문자로 보내면, Braze가 자동으로 사용자의 구독 상태를 설정하고 업데이트합니다.
+- **사용자 가져오기:** **사용자 가져오기**를 통해 이메일 또는 SMS 및 RCS 구독 그룹에 사용자를 추가할 수 있습니다. 구독 그룹 상태를 업데이트할 때 CSV에 `subscription_group_id`와 `subscription_state` 두 열이 있어야 합니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status)를 참조하세요.
 
 #### Canvas에서 사용자 상태 업데이트 {#update-a-users-state-in-a-canvas}
 
-Canvas 플로우의 일부로 사용자의 구독 그룹 상태를 업데이트할 때는 웹훅 대신 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/) 단계를 사용하세요. 사용자 업데이트 단계는 처리가 완료될 때까지 기다린 후 사용자를 다음 단계로 진행시키므로, 후속 메시징 단계에서 업데이트된 구독 상태를 사용합니다.
+Canvas 플로우의 일부로 사용자의 구독 그룹 상태를 업데이트할 때는 웹훅 대신 [사용자 업데이트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) 단계를 사용하세요. 사용자 업데이트 단계는 처리가 완료될 때까지 기다린 후 사용자를 다음 단계로 진행시키므로, 후속 메시징 단계에서 업데이트된 구독 상태를 사용합니다.
 
 웹훅을 사용하여 구독 그룹을 업데이트하면, 구독 변경 처리가 완료되기 전에 웹훅이 발송되는 즉시 사용자가 진행됩니다. 이로 인해 후속 SMS 단계가 사용자가 가입되기 전에 실행되어 일부 사용자에게 메시지 발송이 실패하는 경합 조건이 발생할 수 있습니다. 웹훅을 사용해야 하는 경우, 다음 메시징 단계 전에 최소 1분의 지연 단계를 추가하세요.
 
@@ -55,14 +55,14 @@ Canvas 플로우의 일부로 사용자의 구독 그룹 상태를 업데이트�
 사용자의 구독 그룹을 확인하려면 다음 방법 중 하나를 사용하세요:
 
 - **사용자 프로필:** Braze 대시보드에서 사이드바의 **사용자 검색**을 선택하여 개별 사용자 프로필에 접근할 수 있습니다. 여기에서 이메일 주소, 전화번호 또는 외부 사용자 ID로 사용자 프로필을 검색할 수 있습니다. 사용자 프로필 내 참여 탭에서 사용자의 SMS 및 RCS 구독 그룹을 확인할 수 있습니다.
-- **REST API:** [사용자의 구독 그룹 나열 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups/) 또는 [사용자의 구독 그룹 상태 나열 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/)를 사용하여 Braze REST API로 개별 사용자 프로필의 구독 그룹을 확인할 수 있습니다.
+- **REST API:** [사용자의 구독 그룹 나열 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups) 또는 [사용자의 구독 그룹 상태 나열 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)를 사용하여 Braze REST API로 개별 사용자 프로필의 구독 그룹을 확인할 수 있습니다.
 
 ## 구독 그룹으로 메시지 발송 {#send-messages-with-a-subscription-group}
 
 Braze를 통해 SMS 또는 RCS Campaign을 시작하려면 **SMS/MMS/RCS Variants** 드롭다운에서 구독 그룹을 선택하세요. 선택하면 오디언스 필터가 Campaign 또는 Canvas에 자동으로 추가되어, 선택한 구독 그룹에 `subscribed`된 사용자만 타겟 오디언스에 포함됩니다.
 
 {% alert important %}
-국제 [통신 규정 준수 및 가이드라인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/)을 준수하여, Braze는 선택한 구독 그룹에 가입하지 않은 사용자에게 SMS 또는 RCS를 발송하지 않습니다.
+국제 [통신 규정 준수 및 가이드라인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)을 준수하여, Braze는 선택한 구독 그룹에 가입하지 않은 사용자에게 SMS 또는 RCS를 발송하지 않습니다.
 {% endalert %}
 
 ![구독 그룹 드롭다운이 열려 있고 사용자가 "Messaging Service A for SMS"를 강조 표시한 SMS 작성기.]({% image_buster /assets/img/sms/sms_subgroup_select.png %})
@@ -104,17 +104,17 @@ RCS 인증 발신자를 추가하는 방법은 두 가지입니다:
 
 ### 설정 {#setup}
 
-1. [에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents/)에서 "SMS 감성 분석 에이전트"를 생성합니다.
+1. [에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents)에서 "SMS 감성 분석 에이전트"를 생성합니다.
 
 {% alert tip %}
-초기 에이전트 구성을 지원하려면 [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference/#canvas-agent-examples)를 사용하세요.
+초기 에이전트 구성을 지원하려면 [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference#canvas-agent-examples)를 사용하세요.
 {% endalert %}
 
 {: start="2"}
 2. **기타** 키워드 카테고리 내에서 **SMS 인바운드 메시지 발송**에 의해 트리거되는 액션 기반 Canvas를 생성합니다.
-3. Canvas에 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)를 추가하여 옵트아웃 의도를 식별합니다.
-4. 요청을 확인하는 후속 SMS [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/)를 추가합니다: "SMS 수신 거부를 원하시는 것 같아 수신 거부 처리를 진행합니다. 실수인 경우 START를 문자로 보내 다시 옵트인하세요."
-5. [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/#user-update)를 추가하여 특정 SMS 구독 그룹에서 사용자의 상태를 "가입 취소됨"으로 변경합니다.
+3. Canvas에 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)를 추가하여 옵트아웃 의도를 식별합니다.
+4. 요청을 확인하는 후속 SMS [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가합니다: "SMS 수신 거부를 원하시는 것 같아 수신 거부 처리를 진행합니다. 실수인 경우 START를 문자로 보내 다시 옵트인하세요."
+5. [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update)를 추가하여 특정 SMS 구독 그룹에서 사용자의 상태를 "가입 취소됨"으로 변경합니다.
 
 {% alert note %}
 에이전트 콘솔을 사용하면 메시지 또는 액션 크레딧이 소모됩니다.
@@ -128,7 +128,7 @@ Braze는 처음에 소규모 사용자에게 RCS 발송을 테스트하고, 시�
 
 ### 1단계: Canvas 생성 및 진입 스케줄 작성 {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 그룹 사용자 이전")을 지정하세요. 그런 다음 편리한 시간에 캠페인을 스케줄하세요.
+Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 그룹 사용자 이전")을 지정하세요. 그런 다음 편리한 시간에 스케줄을 설정하세요.
 
 ### 2단계: 오디언스 정의 {#step-2-define-your-audience}
 {: #step-2-define-your-audience}
@@ -168,7 +168,7 @@ Canvas에 사용자 업데이트 단계를 추가하세요. 단계에서 **Advan
 
 ### 4단계: Canvas 테스트 {#step-4-test-the-canvas}
 
-더 넓은 오디언스에게 발송하기 전에 [Canvas를 테스트]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases/)하여 예상대로 작동하는지 확인하는 것을 강력히 권장합니다.
+더 넓은 오디언스에게 발송하기 전에 [Canvas를 테스트]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/sending_test_canvases)하여 예상대로 작동하는지 확인하는 것을 강력히 권장합니다.
 
 ### 5단계: Canvas 시작 {#step-5-launch-your-canvas}
 
@@ -176,7 +176,7 @@ Canvas를 성공적으로 테스트한 후, 사용자 하위 집합에 대해 �
 
 사용자가 성공적으로 마이그레이션되었는지 확인하려면, 업데이트된 개별 사용자 프로필 몇 개를 확인하는 것을 권장합니다. **Engagement** 탭에서 **Contact Settings**를 찾아 스크롤하여 사용자가 가입한 구독 그룹을 확인하세요. RCS 구독 그룹 토글이 켜져 있어야 합니다.
 
-RCS 발신자 및 구독 그룹 설정에 대해서는 [RCS 설정]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup/)도 참조하세요.
+RCS 발신자 및 구독 그룹 설정에 대해서는 [RCS 설정]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/rcs_setup)도 참조하세요.
 
 ## 모범 사례 {#best-practices}
 
@@ -202,6 +202,6 @@ SMS Campaign을 생성할 때 올바른 그룹이 선택되도록 설명적이�
 
 SMS 규정은 국가마다 다릅니다. SMS 구독 그룹을 국가별로 분리하는 것을 권장합니다. 이렇게 하면 메시지를 발송하는 모든 지역에서 규정 준수 기준을 충족하는 데 도움이 됩니다.
 
-각 구독 그룹에 대해 **Geographic Permissions** 아래에서 국가 허용 목록을 구성하여 SMS, MMS, RCS가 승인된 지역으로만 발송되도록 할 수도 있습니다. 자세한 내용은 [지리적 권한]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions/)을 참조하세요.
+각 구독 그룹에 대해 **Geographic Permissions** 아래에서 국가 허용 목록을 구성하여 SMS, MMS, RCS가 승인된 지역으로만 발송되도록 할 수도 있습니다. 자세한 내용은 [지리적 권한]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions)을 참조하세요.
 
 예를 들어, 브라질에서는 현지 시간 오전 9시에서 오후 9시 이외의 시간에 마케팅 메시지를 발송하는 것이 금지되어 있으며, 이 나라는 세 개의 시간대에 걸쳐 있습니다. 이러한 규정을 준수하기 위해 브라질과 미국에 메시지를 발송하기 위한 별도의 그룹을 설정할 수 있습니다. 이렇게 하면 브라질 사용자가 금지된 시간에 마케팅 메시지를 수신하는 것을 방지할 수 있습니다.

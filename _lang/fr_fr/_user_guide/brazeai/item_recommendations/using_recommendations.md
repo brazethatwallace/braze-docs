@@ -15,7 +15,7 @@ Pour une présentation étape par étape, consultez notre cours d'apprentissage 
 
 ## Conditions préalables {#prerequisites}
 
-Avant de pouvoir utiliser des recommandations dans vos messages, vous devrez [créer et entraîner un moteur de recommandation]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/). L'entraînement peut durer entre 10 minutes et 36 heures&#8212;vous recevrez un e-mail lorsqu'il sera terminé ou si une erreur s'est produite.
+Avant de pouvoir utiliser des recommandations dans vos messages, vous devrez [créer et entraîner un moteur de recommandation]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations). L'entraînement peut durer entre 10 minutes et 36 heures&#8212;vous recevrez un e-mail lorsqu'il sera terminé ou si une erreur s'est produite.
 
 ## Utiliser des recommandations dans vos messages {#using-recommendations-in-your-messaging}
 

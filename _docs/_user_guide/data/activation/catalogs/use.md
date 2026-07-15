@@ -7,7 +7,7 @@ description: "This reference article covers how to use catalogs to reference non
 
 # Using catalogs
 
-> After creating a catalog, you can reference non-user data in your Braze campaigns through [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/). You can use catalogs in all of your messaging channels, including anywhere in the drag-and-drop editor where Liquid is supported.
+> After creating a catalog, you can reference non-user data in your Braze campaigns through [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid). You can use catalogs in all of your messaging channels, including anywhere in the drag-and-drop editor where Liquid is supported.
 
 ## Using catalogs in a message
 
@@ -80,7 +80,7 @@ This returns as the following:
 ```Get the ultimate trio Tales, Teslagrad, and Acaratus today!```
 
 {% alert tip %}
-Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to create groups of data for more personalized messaging!
+Check out [selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) to create groups of data for more personalized messaging!
 {% endalert %}
 
 ### Using Liquid `if` statements
@@ -174,7 +174,7 @@ You can also use templating to dynamically pull catalog items based on custom at
 JSON objects in catalogs are only ingested through the API. You can't upload a JSON object using a CSV file.
 {% endalert %}
 
-Using Liquid templating, you can dynamically pull out the wishlist IDs and then use them in your message. To do so, [assign a variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) to your custom attribute, then use the **Add Personalization** modal to pull a specific item from the array. Variables referenced as the catalog item ID must be wrapped in curly brackets to be referenced properly, such as `{{result}}`.
+Using Liquid templating, you can dynamically pull out the wishlist IDs and then use them in your message. To do so, [assign a variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) to your custom attribute, then use the **Add Personalization** modal to pull a specific item from the array. Variables referenced as the catalog item ID must be wrapped in curly brackets to be referenced properly, such as `{{result}}`.
 
 {% alert tip %}
 Remember, arrays start at `0`, not `1`.
@@ -206,7 +206,7 @@ You can also manually piece together catalogs with Liquid logic. However, note t
 
 #### Templating catalog items including Liquid
 
-Similar to [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), you must use the `:rerender` flag in a Liquid tag to render a catalog item's Liquid content. Note that the `:rerender` flag is only one level deep, meaning it won't apply to any nested Liquid tag calls.
+Similar to [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), you must use the `:rerender` flag in a Liquid tag to render a catalog item's Liquid content. Note that the `:rerender` flag is only one level deep, meaning it won't apply to any nested Liquid tag calls.
 
 If a catalog item contains user profile fields (within a Liquid personalization tag), these values must be defined in Liquid earlier in the message and before the templating in order to render the Liquid properly. If the `:rerender` flag isn't provided, it will render the raw Liquid content.
 
@@ -246,12 +246,12 @@ If catalog or selection Liquid doesn't display as you expect in a message or Can
 | Symptom | What to check |
 | --- | --- |
 | Preview shows items but live sends are empty | Confirm catalog **item IDs** exist at send time. If the ID in your Liquid doesn't match a row, Braze returns an empty items array—see [Using Liquid](#using-liquid). Check for typos and for ID sources (such as event properties) that are missing on the trigger or user profile. |
-| Composer preview works in a campaign but not in Canvas | Confirm you're using the right Liquid context—**Canvas context properties** versus **event properties**—and that those fields exist on the trigger. See [Context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/). |
-| A selection returns no items | Review [selection filters]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) and limits; confirm that the catalog data is synced and that the column names match your filters. |
-| `:rerender` or templated delivery looks wrong | For nested Liquid inside catalog fields, you need `:rerender` and correct ordering of variables—see [Templating catalog items including Liquid](#templating-catalog-items-including-liquid). Templated in-app messages resolve at trigger time; see [What are templated in-app messages?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#what-are-templated-in-app-messages). Some channels restrict catalog tags (for example, certain **:rerender** uses with Banners)—see [Are all Liquid tags supported?]({{site.baseurl}}/user_guide/channels/banners/faq/#are-all-liquid-tags-supported) in the Banners FAQ. |
+| Composer preview works in a campaign but not in Canvas | Confirm you're using the right Liquid context—**Canvas context properties** versus **event properties**—and that those fields exist on the trigger. See [Context and event properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties). |
+| A selection returns no items | Review [selection filters]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) and limits; confirm that the catalog data is synced and that the column names match your filters. |
+| `:rerender` or templated delivery looks wrong | For nested Liquid inside catalog fields, you need `:rerender` and correct ordering of variables—see [Templating catalog items including Liquid](#templating-catalog-items-including-liquid). Templated in-app messages resolve at trigger time; see [What are templated in-app messages?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages). Some channels restrict catalog tags (for example, certain **:rerender** uses with Banners)—see [Are all Liquid tags supported?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported) in the Banners FAQ. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting catalog personalization" }
 
-For general Liquid behavior, see [Liquid use cases]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases/) and [Using Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/).
+For general Liquid behavior, see [Liquid use cases]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) and [Using Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
 
 ## Structuring your catalog data
 
@@ -270,7 +270,7 @@ With standard catalog calls, you match a value against the `id` column. By inser
 
 ### When to use catalog selections
 
-[Catalog selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) let you filter across any column in your catalog and return up to 50 matching items. By inserting custom attributes or event properties into the selection filters, the results are personalized for each user. Common use cases include:
+[Catalog selections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) let you filter across any column in your catalog and return up to 50 matching items. By inserting custom attributes or event properties into the selection filters, the results are personalized for each user. Common use cases include:
 
 - Items where category equals a user's preference
 - Items matching a user's preferred brand, cuisine, or size

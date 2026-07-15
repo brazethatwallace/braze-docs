@@ -10,7 +10,7 @@ description: "This article outlines details about the Delete scheduled API-trigg
 ---
 {% api %}
 # Delete scheduled API-triggered Canvases
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/delete
 {% endapimethod %}
 
@@ -22,7 +22,7 @@ Scheduled messages or triggers that are deleted close to or during the time they
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `canvas.trigger.schedule.delete` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `canvas.trigger.schedule.delete` permission.
 
 ## Rate limit
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id`| Required | String | See [Canvas identifier]({{site.baseurl}}/api/identifier_types/). |
+| `canvas_id`| Required | String | See [Canvas identifier]({{site.baseurl}}/api/identifier_types). |
 | `schedule_id` | Required | String | The `schedule_id` to delete (obtained from the response to create schedule). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 

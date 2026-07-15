@@ -3,7 +3,7 @@ nav_title: ユーザープロファイルのライフサイクル
 article_title: ユーザープロファイルのライフサイクル
 page_order: 2
 page_type: reference
-description: "このリファレンス記事では、Braze のユーザープロファイルのライフサイクルと、ユーザープロファイルを識別して参照するさまざまな方法について説明します。"
+description: "このリファレンス記事では、Brazeのユーザープロファイルのライフサイクルと、ユーザープロファイルを識別して参照するさまざまな方法について説明します。"
 
 ---
 
@@ -23,9 +23,9 @@ description: "このリファレンス記事では、Braze のユーザープロ
 
 ## 匿名ユーザープロファイル {#anonymous-user-profiles}
 
-`external_id`が指定されていないユーザーは[匿名ユーザー]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users/)と呼ばれます。例えば、Webサイトを訪問したがサインアップしなかったユーザーや、モバイルアプリをダウンロードしたがプロファイルを作成しなかったユーザーなどです。
+`external_id`が指定されていないユーザーは[匿名ユーザー]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/anonymous_users)と呼ばれます。例えば、Webサイトを訪問したがサインアップしなかったユーザーや、モバイルアプリをダウンロードしたがプロファイルを作成しなかったユーザーなどです。
 
-最初に、SDKによりユーザーが認識されると、匿名ユーザープロファイルが作成され、Brazeによって自動的に割り当てられた一意の識別子`braze_id`が関連付けられます。この識別子は編集できず、デバイスに固有です。この識別子を使用して、[API]({{site.baseurl}}/api/endpoints/user_data/)を介してそのユーザープロファイルを更新できます。
+最初に、SDKによりユーザーが認識されると、匿名ユーザープロファイルが作成され、Brazeによって自動的に割り当てられた一意の識別子`braze_id`が関連付けられます。この識別子は編集できず、デバイスに固有です。この識別子を使用して、[API]({{site.baseurl}}/api/endpoints/user_data)を介してそのユーザープロファイルを更新できます。
 
 ## 識別されたユーザープロファイル {#identified-user-profiles}
 
@@ -35,8 +35,8 @@ description: "このリファレンス記事では、Braze のユーザープロ
 
 - 複数のデバイスやプラットフォームにわたって一貫したユーザーエクスペリエンスを提供できます（例えば、iPhoneアプリの忠実なユーザーのAndroidタブレットには、離脱ユーザー向けの通知を送信しない）。
 - ユーザーがアプリをアンインストールして再インストールするたびに、または別のデバイスにアプリをインストールするたびに、新しいユーザープロファイルが作成されていないことを確認して、分析の精度を向上できます。
-- [ユーザーデータエンドポイント]({{site.baseurl}}/api/endpoints/user_data/)を使用して、アプリ外のソースからユーザーデータをインポートできるようになり、また[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging/)を使用して、トランザクションメッセージのターゲットユーザーを設定できるようになります。
-- セグメンター内で「テスト」[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)を使用するか、または[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)ページを使用して、個々のユーザーを検索できます。
+- [ユーザーデータエンドポイント]({{site.baseurl}}/api/endpoints/user_data)を使用して、アプリ外のソースからユーザーデータをインポートできるようになり、また[メッセージングエンドポイント]({{site.baseurl}}/api/endpoints/messaging)を使用して、トランザクションメッセージのターゲットユーザーを設定できるようになります。
+- セグメンター内で「テスト」[フィルター]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)を使用するか、または[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)ページを使用して、個々のユーザーを検索できます。
 
 ### external IDに関する考慮事項 {#considerations-for-external-ids}
 
@@ -59,20 +59,24 @@ description: "このリファレンス記事では、Braze のユーザープロ
 
 言い換えれば、このユーザーのユーザープロファイルはすでに存在しています。この場合、Brazeは次の処理を行います。
 1. 匿名ユーザーを孤立させます
-2. 匿名プロファイルから、識別されたユーザープロファイルにまだ存在しない[特定のユーザープロファイルフィールド]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)をマージします
+2. 匿名プロファイルから、識別されたユーザープロファイルにまだ存在しない[特定のユーザープロファイルフィールド]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)をマージします
 3. ユーザー数が水増しされないように、その匿名プロファイルをユーザー群から削除します
 
-匿名ユーザーと既知のユーザーの両方に名がある場合、既知のユーザーの名が維持されます。既知のユーザーがNULL値を持ち、匿名ユーザーが値を持っている場合、その値がこれらの[特定のユーザープロファイルフィールド]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)に該当すれば、匿名ユーザーの値は既知のユーザーのプロファイルにマージされます。
+匿名ユーザーと既知のユーザーの両方に名がある場合、既知のユーザーの名が維持されます。既知のユーザーがNULL値を持ち、匿名ユーザーが値を持っている場合、その値がこれらの[特定のユーザープロファイルフィールド]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)に該当すれば、匿名ユーザーの値は既知のユーザーのプロファイルにマージされます。
 
 {% alert important %}
-匿名プロファイルからすべてのデータがマージされるわけではありません。プッシュトークンとメッセージング履歴は引き継がれ、匿名プロファイルのカスタム属性、カスタムイベント、購入履歴は、識別されたユーザープロファイルにそれらのフィールドがまだ存在しない場合にのみマージされます。データが競合する場合は、識別されたユーザーの値が保持されます。転送されるフィールドと転送されないフィールドの完全なリストについては、[マージ動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge-behavior)を参照してください。
+匿名プロファイルからすべてのデータがマージされるわけではありません。プッシュトークンとメッセージング履歴は引き継がれ、匿名プロファイルのカスタム属性、カスタムイベント、購入履歴は、識別されたユーザープロファイルにそれらのフィールドがまだ存在しない場合にのみマージされます。データが競合する場合は、識別されたユーザーの値が保持されます。転送されるフィールドと転送されないフィールドの完全なリストについては、[マージ動作]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior)を参照してください。
 {% endalert %}
 
-ユーザープロファイルに対して`external_id`を設定する方法については、各プラットフォームのドキュメント（[iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=swift)、[Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=android)、[Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids/?tab=web)）を参照してください。
+ユーザープロファイルに対して`external_id`を設定する方法については、各プラットフォームのドキュメント（[iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=swift)、[Android]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=android)、[Web]({{site.baseurl}}/developer_guide/analytics/setting_user_ids?tab=web)）を参照してください。
 
 {% alert note %}
 孤立したユーザーはメッセージを受信する資格がありません。
 {% endalert %}
+
+### 重複ユーザーのマージ {#merging-duplicate-users}
+
+ワークスペースで重複するユーザープロファイルを特定した場合、REST APIを使用してそれらをマージできます。ユーザーのマージと利用可能な方法の詳細については、[重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)を参照してください。
 
 ## ユーザーエイリアス {#user-aliases}
 
@@ -82,7 +86,7 @@ Brazeの`external_id`以外の識別子でユーザーを参照するには、�
 
 ### ユーザーエイリアスの更新 {#updating-user-aliases}
 
-エイリアスは、設定後に特定のラベルに対して新しい名前で更新できます。更新方法は、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data/#new-user-alias-endpoint)を使用するか、SDKを通じて新しい名前を渡すかのいずれかです。これにより、そのユーザーのデータをエクスポートするときに、ユーザーエイリアスが表示されます。
+エイリアスは、設定後に特定のラベルに対して新しい名前で更新できます。更新方法は、[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data#new-user-alias-endpoint)を使用するか、SDKを通じて新しい名前を渡すかのいずれかです。これにより、そのユーザーのデータをエクスポートするときに、ユーザーエイリアスが表示されます。
 
 ![同じユーザーエイリアスラベルを持つが、異なるエイリアス名を持つ別のユーザーの2つの異なるユーザープロファイル]({% image_buster /assets/img_archive/Braze_User_aliases.png %})
 
@@ -98,23 +102,23 @@ Brazeの`external_id`以外の識別子でユーザーを参照するには、�
 
 ユーザーのエイリアス名とラベルがわかっている場合、**ユーザーを検索**で`alias_label:alias_name`の形式を使用してユーザーを見つけることができます。例えば、名前が`alias_name: bobby_alias`、ラベルが`alias_label: m4pzOndtA-CnO0u`のエイリアスのみのプロファイルがある場合、`m4pzOndtA-CnO0u:bobby_alias`と入力してこのユーザーを見つけることができます。
 
-この情報がわからない場合は、[`Export user profile by identifier`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)を呼び出して、APIレスポンスでユーザーエイリアスを確認できます。
+この情報がわからない場合は、[`Export user profile by identifier`エンドポイント]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)を呼び出して、APIレスポンスでユーザーエイリアスを確認できます。
 
 ### 既知のユーザープロファイルにエイリアスを設定する {#setting-aliases-on-known-user-profiles}
 
 ユーザーエイリアスを既知のユーザープロファイルに設定して、別の外部の既知のIDによって既知のユーザーを参照することもできます。例えば、Braze内で参照したいビジネスインテリジェンスツールID（AmplitudeのIDなど）をユーザーが持っている場合があります。
 
-ユーザーエイリアスの設定方法については、各プラットフォーム（[iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#aliasing-users)、[Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids/#aliasing-users)、[Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids/#aliasing-users)）に関するドキュメントを参照してください。
+ユーザーエイリアスの設定方法については、各プラットフォーム（[iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#aliasing-users)、[Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/analytics/setting_user_ids#aliasing-users)、[Web]({{site.baseurl}}/developer_guide/platform_integration_guides/web/analytics/setting_user_ids#aliasing-users)）に関するドキュメントを参照してください。
 
 ![Brazeにおけるユーザープロファイルのライフサイクルのフローチャート。匿名ユーザーについてchangeUser()が呼び出されると、そのユーザーは識別されたユーザーになり、そのデータは識別されたユーザープロファイルに移行されます。識別されたユーザーはBraze IDとexternal IDを持ちます。この時点で、2人目の匿名ユーザーにchangeUser()を呼び出すと、識別されたユーザーにまだ存在しないユーザーデータのフィールドがマージされます。識別されたユーザーの既存のユーザープロファイルにエイリアスが追加されている場合、データは影響を受けませんが、エイリアスを持つ識別されたユーザーになります。識別されたユーザーと同じエイリアスラベルを持つが、別のエイリアス名を持つ3人目の匿名ユーザーについてchangeUser()を呼び出すと、識別されたユーザーに存在しないフィールドがすべてマージされ、識別されたユーザープロファイルのエイリアスラベルは維持されます。]({% image_buster /assets/img_archive/Braze_User_flowchart.png %})
 
 {% alert tip %}
-顧客のユーザープロファイルライフサイクルで、このプロセスがどのように行われるかを想像しにくい場合は、ユーザーデータ収集の[ベストプラクティス]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices/)を参照してください。
+顧客のユーザープロファイルライフサイクルで、このプロセスがどのように行われるかを想像しにくい場合は、ユーザーデータ収集の[ベストプラクティス]({{site.baseurl}}/user_guide/data/unification/user_data/best_practices)を参照してください。
 {% endalert %}
 
 ## 高度なユースケース {#advanced-use-case}
 
-SDKおよび[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data/#new-user-alias-endpoint)を使用したAPIを通じて、既存の識別されたユーザープロファイルに新しいユーザーエイリアスを設定できます。ただし、既存の未知のユーザープロファイルには、APIを使用してユーザーエイリアスを設定することはできません。
+SDKおよび[ユーザーデータエンドポイント]({{site.baseurl}}/developer_guide/rest_api/user_data#new-user-alias-endpoint)を使用したAPIを通じて、既存の識別されたユーザープロファイルに新しいユーザーエイリアスを設定できます。ただし、既存の未知のユーザープロファイルには、APIを使用してユーザーエイリアスを設定することはできません。
 
 このプロセスではユーザーエイリアスもマージされます。ただし、孤立させるユーザーとターゲットユーザーの両方が同じラベルのエイリアスを持つ場合、ターゲットユーザーのエイリアスのみが維持されます。
 
@@ -122,7 +126,7 @@ SDKおよび[ユーザーデータエンドポイント]({{site.baseurl}}/develo
 
 ### ユーザーIDに関するトラブルシューティング {#troubleshooting-with-user-ids}
 
-テスト目的で、ダッシュボードですべてのユーザーIDを使用して、ユーザーの検索および識別ができます。Brazeダッシュボードでユーザーを検索する方法については、「[テストユーザーの追加]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups/#adding-test-users)」を参照してください。
+テスト目的で、ダッシュボードですべてのユーザーIDを使用して、ユーザーの検索および識別ができます。Brazeダッシュボードでユーザーを検索する方法については、「[テストユーザーの追加]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#adding-test-users)」を参照してください。
 
 {% alert important %}
 Brazeは、5,000,000セッションを超えるユーザー（「ダミーユーザー」）を禁止またはブロックし、これらのユーザーのSDKイベントを取り込まなくなります。これらのユーザーは一般的に誤った統合の結果です。正当なユーザーにこの問題が発生した場合は、Brazeのアカウントマネージャーにお問い合わせください。

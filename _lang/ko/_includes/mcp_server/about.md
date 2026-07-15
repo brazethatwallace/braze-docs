@@ -2,7 +2,15 @@
 
 > Braze MCP 서버에 대해 알아보세요. 이는 Claude 및 Cursor와 같은 AI 도구가 비PII Braze 데이터에 접근하여 질문에 답하고, 트렌드를 분석하며, 인사이트를 제공할 수 있는 안전한 연결입니다.
 
-{% multi_lang_include mcp_server/beta_alert.md %}
+{% alert important %}
+올여름 Braze는 원격 Braze 호스팅 MCP 서버를 얼리 액세스로 출시합니다. 이 서버는 로컬 호스팅 베타 서버([PyPI](https://pypi.org/project/braze-mcp-server/)의 `braze-mcp-server` 및 Claude Desktop 확장 디렉토리)를 대체합니다.<br><br>
+
+**이것이 의미하는 바:**<br><br>
+
+- 로컬 호스팅 서버는 계속 작동하지만 더 이상 지원되지 않습니다. 베타에서 새로운 엔드포인트를 추가하거나 문제를 수정하지 않습니다.
+- 원격 서버가 얼리 액세스로 제공되면 해당 서버로 전환해야 합니다. 원격 서버는 로컬 설치가 필요 없으며, 정적 API 키 대신 OAuth를 사용하고, Claude, Copilot, Gemini CLI, Codex, Cursor와 같은 MCP 클라이언트에서 작동합니다.
+- 얼리 액세스 가용성에 대해서는 이 페이지를 확인하거나, Braze 계정 팀에 관심을 표명하세요.
+{% endalert %}
 
 ## 모델 컨텍스트 프로토콜(MCP)이란? {#what-is-model-context-protocol-mcp}
 
@@ -11,7 +19,7 @@
 - **MCP 클라이언트:** AI 에이전트가 실행되는 애플리케이션으로, Cursor 또는 Claude 등이 있습니다.
 - **MCP 서버:** Braze와 같은 다른 플랫폼에서 제공하는 서비스로, AI가 사용할 수 있는 도구와 접근할 수 있는 데이터를 정의합니다.
 
-## Braze MCP 서버에 대한 정보 {#about-the-braze-mcp-server}
+## Braze MCP 서버 소개 {#about-the-braze-mcp-server}
 
 [Braze MCP 서버를 설정한 후]{% if include.section == "user" %}({{site.baseurl}}/user_guide/brazeai/mcp_server/setup/){% elsif include.section == "developer" %}({{site.baseurl}}/developer_guide/mcp_server/setup/){% endif %}, 에이전트, 어시스턴트, 챗봇과 같은 AI 도구를 Braze에 직접 연결하여 Canvas 및 Campaign 분석, 커스텀 속성, Segments 등과 같은 집계된 데이터를 읽을 수 있습니다. Braze MCP 서버는 다음에 적합합니다:
 
@@ -31,11 +39,13 @@ Claude나 Cursor와 같은 도구를 사용하여 자연어로 Braze와 상호�
 
 {% tabs %}
 {% tab Claude %}
-![Claude에서 '사용 가능한 Braze 기능은 무엇인가요?'라는 질문과 답변.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**예시 프롬프트:** `What are my available Braze functions?`
+**예시 응답:** `list_functions`를 사용하여 사용 가능한 Braze MCP 기능 카테고리를 반환했습니다.
 {% endtab %}
 
 {% tab Cursor %}
-![Cursor에서 '사용 가능한 Braze 기능은 무엇인가요?'라는 질문과 답변.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**예시 프롬프트:** `What are my available Braze functions?`
+**예시 응답:** `list_functions`를 쿼리하고 `get_canvas_list`와 같은 기능을 나열했습니다.
 {% endtab %}
 {% endtabs %}
 
@@ -67,7 +77,7 @@ Braze 데이터에 대해 서드파티 MCP 서버를 사용하는 것은 권장�
 
 ### Braze MCP 서버는 로컬에 호스팅되나요, 아니면 원격에 호스팅되나요? {#is-the-braze-mcp-server-hosted-locally-or-remotely}
 
-Braze MCP 서버는 로컬에 호스팅됩니다.
+현재 사용 가능한 Braze MCP 서버는 로컬에 호스팅됩니다. 원격 Braze 호스팅 MCP 서버가 올여름 얼리 액세스로 제공될 예정이며, 로컬 호스팅 베타 서버를 대체합니다.
 
 ### Cursor가 함수만 나열하는 이유는 무엇인가요? {#why-is-cursor-only-listing-functions}
 

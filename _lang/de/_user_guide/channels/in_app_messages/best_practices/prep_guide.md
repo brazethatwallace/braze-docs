@@ -15,9 +15,9 @@ toc_headers: h2
 
 ## Allgemeine Überlegungen {#general-considerations}
 
-- Wenn Sie eine Campaign erstellen, wie viele Varianten dieser Nachricht möchten Sie anzeigen? Ideen für Variantentests finden Sie unter [Tipps für verschiedene Kanäle]({{site.baseurl}}/user_guide/messaging/ab_testing/#tips-different-channels).
+- Wenn Sie eine Campaign erstellen, wie viele Varianten dieser Nachricht möchten Sie anzeigen? Ideen für Variantentests finden Sie unter [Tipps für verschiedene Kanäle]({{site.baseurl}}/user_guide/messaging/ab_testing#tips-different-channels).
 - Wenn Sie einen Canvas erstellen, wird diese Nachricht in diesem Schritt mit anderen Messaging-Kanälen kombiniert?
-- Wann soll [Ihre Nachricht ablaufen]({{site.baseurl}}/canvas_in-app_messages/)?
+- Wann soll [Ihre Nachricht ablaufen]({{site.baseurl}}/canvas_in-app_messages)?
 
 ## Überlegungen zum Targeting {#targeting-considerations}
 
@@ -25,7 +25,7 @@ toc_headers: h2
 - Wo sollen Ihre Nutzer:innen Ihre Nachricht sehen? In Ihrer Web-App? In Ihrer mobilen App?
 - Welches Ereignis soll diese Nachricht auslösen?
 - Verwenden einige Ihrer Nutzer:innen ältere Versionen Ihrer App? Falls ja, können sie möglicherweise einige Elemente Ihrer Nachricht nicht sehen.
-- Für welchen Gerätetyp oder welche Geräte erstellen Sie diese Nachricht? Denken Sie daran, dass Sie Ihre Nachricht über das Feld **Preview** oder den Tab **Test** in der Vorschau anzeigen können. Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message).
+- Für welchen Gerätetyp oder welche Geräte erstellen Sie diese Nachricht? Denken Sie daran, dass Sie Ihre Nachricht über das Feld **Vorschau** oder den Tab **Test** in der Vorschau anzeigen können. Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message).
 
 ## Zeitplanung, Delays und Sitzungsstarts {#scheduling-delays-and-session-starts}
 
@@ -40,15 +40,16 @@ Beispielsweise könnte ein:e Nutzer:in eine In-App-Nachricht mit einem acht Seku
 - Welche Sprachen werden Sie in dieser Nachricht verwenden?
 - Was ist Ihr Header- und Body-Text? Sind sie auffällig und relevant für Ihre Nutzer:innen?
 - In-App-Nachrichten werden nur für eine festgelegte Zeitspanne angezeigt. Ist Ihr Text prägnant und einprägsam?
-- Werden Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/) verwenden, um benutzerdefinierten Text hinzuzufügen?
-- Befindet sich Ihr Bild oder anderes Medium bei Vollbild-In-App-Nachrichten innerhalb der [sicheren Zone]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen/#image-safe-zone)?
+- Werden Sie [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) verwenden, um benutzerdefinierten Text hinzuzufügen?
+- Müssen Nutzer:innen Nachrichtentext kopieren (z. B. einen Rabatt- oder Gutscheincode)? Auf iOS und Android können Nutzer:innen Text oder Texteingabefelder durch langes Drücken kopieren. Langes Drücken funktioniert nicht bei Bildern – verwenden Sie daher Text oder Texteingabefelder anstelle von Bildern, die Codes oder andere Inhalte enthalten, die Nutzer:innen möglicherweise kopieren müssen.
+- Befindet sich Ihr Bild oder anderes Medium bei Vollbild-In-App-Nachrichten innerhalb der [sicheren Zone]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone)?
 - Möchten Sie bei Umfrage-In-App-Nachrichten Attribute oder Einreichungen protokollieren? Haben Sie Ihre Bestätigungsseite eingerichtet?
 
 ## Überlegungen zu Conversions {#conversion-considerations}
 
 - Was ist Ihr Ziel für diese Nachricht? Wie können Sie das in Ihrer Nachricht darstellen?
-- Bieten Ihre Buttons Optionen, die für Ihre Nutzer:innen sinnvoll sind? Was ist Ihr [primärer Call-to-Action]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#buttons)?
-- Erstellen Sie [Deeplinks zu anderen In-App-Inhalten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content)? Verwenden Sie diese In-App-Nachricht, um eine [Berechtigungs- oder Push-Priming-Anfrage]({{site.baseurl}}/user_guide/channels/push/best_practices/) zu senden und zu akzeptieren?
+- Bieten Ihre Buttons Optionen, die für Ihre Nutzer:innen sinnvoll sind? Was ist Ihr [primärer Call-to-Action]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#buttons)?
+- Erstellen Sie [Deeplinks zu anderen In-App-Inhalten]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content)? Verwenden Sie diese In-App-Nachricht, um eine [Berechtigungs- oder Push-Priming-Anfrage]({{site.baseurl}}/user_guide/channels/push/best_practices) zu senden und zu akzeptieren?
 - Haben Sie eine Option zum Schließen der Nachricht? Falls nicht, können Sie jederzeit dieses Snippet kopieren und einfügen, um einen schnellen Button zu erstellen:
     ```html
     <a href="appboy://close">X</a>

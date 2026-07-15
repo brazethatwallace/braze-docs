@@ -14,12 +14,12 @@ description: "This article provides an overview of the updated HTML editor for e
 
 The updated HTML editor creates a consistent experience across our editors in other messaging channels. You can seamlessly switch between editors (HTML, classic, plaintext, and AMP) with the top editor navigation. These options were previously hidden in a dropdown in the old HTML editor. 
 
-Benefits also include improved Liquid syntax support and [multi-language settings support](https://www.braze.com/docs/user_guide/administrative/app_settings/multi_language_settings).
+Benefits also include improved Liquid syntax support and [multi-language settings support]({{site.baseurl}}/user_guide/administrative/app_settings/multi_language_settings).
 
-Link management is also supported in the updated HTML editor, even if you don't have [link aliasing](https://www.braze.com/docs/user_guide/message_building_by_channel/email/templates/link_aliasing/) turned on.
+Link management is also supported in the updated HTML editor, even if you don't have [link aliasing]({{site.baseurl}}/user_guide/message_building_by_channel/email/templates/link_aliasing/) turned on.
 
 ![The updated HTML editor for email with an example HTML email.]({% image_buster /assets/unlisted_docs/img_archive/email_html_editor_updated.png %})
 
 {% alert tip %}
-Check out our dedicated [HTML editor for email](https://www.braze.com/docs/user_guide/message_building_by_channel/email/html_editor) section for additional resources.
+Check out our dedicated [HTML editor for email]({{site.baseurl}}/user_guide/message_building_by_channel/email/html_editor) section for additional resources.
 {% endalert %}

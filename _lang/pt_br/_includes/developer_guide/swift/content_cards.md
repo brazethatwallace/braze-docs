@@ -1,6 +1,6 @@
 ## Pré-requisitos {#prerequisites}
 
-Antes de poder usar os Content Cards, você precisará integrar o [Braze Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) em seu app. No entanto, não é necessária nenhuma configuração adicional.
+Antes de poder usar os Content Cards, você precisará integrar o [Braze Swift SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift) ao seu app. No entanto, não é necessária nenhuma configuração adicional.
 
 ## Contextos de view controller {#view-controller-contexts}
 
@@ -10,7 +10,7 @@ A interface padrão dos Content Cards pode ser integrada a partir da biblioteca 
 Para saber mais sobre as opções de view controller do iOS, consulte a [documentação da Apple para desenvolvedores](https://developer.apple.com/documentation/uikit/view_controllers/showing_and_hiding_view_controllers).
 {% endalert %}
 
-A biblioteca `BrazeUI` do Swift SDK fornece dois contextos de view controller padrão: [navegação](#swift_navigation) ou [modal](#swift_modal). Isso significa que você pode integrar os Content Cards nesses contextos adicionando algumas linhas de código ao seu app ou site. Ambas as visualizações oferecem opções de personalização e estilo, conforme descrito no [guia de personalização]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_styles/?tab=ios). Você também pode criar um view controller de cartão de conteúdo personalizado em vez de usar o padrão da Braze para ter ainda mais opções de personalização — consulte o [tutorial Content Cards UI](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c2-contentcardsui/) para obter um exemplo.
+A biblioteca `BrazeUI` do Swift SDK fornece dois contextos de view controller padrão: [navegação](#swift_navigation) ou [modal](#swift_modal). Isso significa que você pode integrar os Content Cards nesses contextos adicionando algumas linhas de código ao seu app ou site. Ambas as visualizações oferecem opções de personalização e estilo, conforme descrito no [guia de personalização]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_styles/?tab=ios). Você também pode criar um view controller de Content Card personalizado em vez de usar o padrão da Braze para ter ainda mais opções de personalização — consulte o [tutorial Content Cards UI](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c2-contentcardsui/) para obter um exemplo.
 
 {% alert important %}
 Para lidar com a variante de controle dos Content Cards em sua interface personalizada, passe o objeto [`Braze.ContentCard.Control`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/control(_:)) e, em seguida, chame o método `logImpression` como faria com qualquer outro tipo de Content Card. O objeto registrará implicitamente uma impressão de controle para informar nossa análise de dados sobre quando um usuário teria visto o cartão de controle.
@@ -92,7 +92,11 @@ O modelo de dados dos Content Cards está disponível no módulo `BrazeKit` do B
 - Imagem clássica
 - Controle
 
-Para acessar o modelo de dados dos Content Cards, chame `contentCards.cards` em sua instância `braze`. Consulte [Registro de análise de dados]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/) para saber mais sobre a assinatura de dados de cartões.
+Para acessar o modelo de dados dos Content Cards, chame `contentCards.cards` em sua instância `braze`. Consulte [Registro de análise de dados]({{site.baseurl}}/developer_guide/content_cards/logging_analytics) para saber mais sobre a assinatura de dados de cartões.
+
+{% alert note %}
+A leitura de `contentCards.cards`, `contentCards.unviewedCards` ou `contentCards.lastUpdate` bloqueia a thread de chamada até que o SDK conclua suas operações pós-inicialização. Para contextos na thread principal ou sensíveis à latência, use as alternativas não bloqueantes [`getCachedContentCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getcachedcontentcards(_:)), [`getUnviewedCards(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getunviewedcards(_:)) ou [`getLastUpdate(_:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/getlastupdate(_:)).
+{% endalert %}
 
 {% alert note %}
 Lembre-se de que o `BrazeKit` oferece uma classe alternativa [`ContentCardRaw`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcardraw) para compatibilidade com Objective-C.
@@ -110,6 +114,6 @@ Cada cartão é inicializado com um objeto `Context`, que contém vários métod
 | `card.context?.logDismissed()` | Registra o evento de descarte do cartão de conteúdo. |
 | `card.context?.logError()` | Registra um erro relacionado ao cartão de conteúdo. |
 | `card.context?.loadImage()` | Carrega uma determinada imagem de cartão de conteúdo a partir de um URL. Esse método pode ser nulo quando o cartão de conteúdo não tiver uma imagem. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Card methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métodos do cartão" }
 
 Para saber mais, consulte a [documentação da classe `Context`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcardraw/context-swift.class)

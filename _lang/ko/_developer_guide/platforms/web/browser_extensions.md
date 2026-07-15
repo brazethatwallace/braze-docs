@@ -12,7 +12,7 @@ description: "이 문서에서는 브라우저 확장 프로그램(Google Chrome
 
 > 이 문서에서는 브라우저 확장 프로그램(Google Chrome, Firefox)에서 Braze 웹 SDK를 사용하는 방법을 설명합니다.
 
-브라우저 확장 프로그램에 Braze 웹 SDK를 통합하여 분석을 수집하고 사용자에게 리치 메시징을 표시할 수 있습니다. 여기에는 **Google Chrome 확장 프로그램** 및 **Firefox 추가 기능**이 모두 포함됩니다.
+브라우저 확장 프로그램에 Braze 웹 SDK를 통합하여 분석 데이터를 수집하고 사용자에게 리치 메시징을 표시할 수 있습니다. 여기에는 **Google Chrome 확장 프로그램** 및 **Firefox 추가 기능**이 모두 포함됩니다.
 
 ## 지원되는 항목 {#whats-supported}
 
@@ -25,7 +25,7 @@ description: "이 문서에서는 브라우저 확장 프로그램(Google Chrome
 
 ## 지원되지 않는 항목 {#whats-not-supported}
 
-* 서비스 워커는 Braze 웹 SDK에서 지원되지 않지만, 향후 검토를 위한 로드맵에 포함되어 있습니다.
+* 서비스 워커 내에서 Braze SDK를 사용하는 것은 지원되지 않습니다. 확장 프로그램의 팝업 또는 설정 페이지에서는 Braze SDK를 계속 사용할 수 있습니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK" %}
 
 ## 확장 프로그램 유형 {#extension-types}
 
@@ -36,7 +36,7 @@ Braze는 확장 프로그램의 다음 영역에 포함될 수 있습니다.
 | 팝업 페이지 | [팝업](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Popups) 페이지는 브라우저 툴바에서 확장 프로그램의 아이콘을 클릭하면 사용자에게 표시되는 대화상자입니다. | 분석, 인앱 메시지 및 Content Cards |
 | 백그라운드 스크립트 | [백그라운드 스크립트](https://developer.chrome.com/extensions/background_pages)(매니페스트 v2 전용)를 사용하면 확장 프로그램에서 사용자 탐색을 검사하고 상호 작용하거나 웹 페이지를 수정할 수 있습니다(예: 광고 차단 프로그램이 페이지의 콘텐츠를 감지하고 변경하는 방법). | 분석, 인앱 메시지 및 Content Cards.<br><br>백그라운드 스크립트는 사용자에게 표시되지 않으므로, 메시징의 경우 메시지를 표시할 때 브라우저 탭이나 팝업 페이지와 통신해야 합니다. |
 | 옵션 페이지 | [옵션 페이지](https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/user_interface/Options_pages)를 통해 사용자가 확장 프로그램 내 설정을 토글할 수 있습니다. 새 탭이 열리는 독립형 HTML 페이지입니다. | 분석, 인앱 메시지 및 Content Cards |
-{: .reset-td-br-1 .reset-td-br-2, .reset-td-br-3 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2, .reset-td-br-3 aria-label="확장 프로그램 유형" }
 
 ## 권한 {#permissions}
 
@@ -47,7 +47,7 @@ Braze SDK(`braze.min.js`)를 확장 프로그램과 함께 번들로 제공되�
 ## 시작하기 {#getting-started}
 
 {% alert tip %}
-시작하기 전에 웹 SDK의 [초기 SDK 설정 가이드]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)를 읽고 JavaScript 통합에 대해 전반적으로 자세히 알아보세요.  <br><br>다양한 SDK 메서드 및 구성 옵션에 대한 자세한 내용은 [JavaScript SDK 참조](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)를 북마크에 추가해 두는 것도 좋습니다.
+시작하기 전에 웹 SDK의 [초기 SDK 설정 가이드]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web)를 읽고 JavaScript 통합에 대해 전반적으로 자세히 알아보세요.  <br><br>다양한 SDK 메서드 및 구성 옵션에 대한 자세한 내용은 [JavaScript SDK 참조](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)를 북마크에 추가해 두는 것도 좋습니다.
 {% endalert %}
 
 Braze 웹 SDK를 통합하려면 먼저 최신 JavaScript 라이브러리 사본을 다운로드해야 합니다. NPM을 사용하거나 [Braze CDN](https://js.appboycdn.com/web-sdk/latest/braze.min.js)에서 직접 다운로드할 수 있습니다.

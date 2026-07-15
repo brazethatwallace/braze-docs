@@ -14,9 +14,9 @@ noindex: true
 
 시작하기 전에 플랫폼에 대한 초기 푸시 알림 통합을 완료하세요:
 
-- [Android 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)
-- [Swift 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)
-- [웹 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web)
+- [Android 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android)
+- [Swift 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)
+- [웹 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)
 
 ## 네이티브 푸시 분석 vs. 커스텀 이벤트 로깅 {#native-push-analytics-vs-custom-event-logging}
 
@@ -26,7 +26,7 @@ noindex: true
 | --- | --- | --- |
 | 네이티브 푸시 분석 | Braze 푸시 Campaign에 연결된 열기 및 영향받은 열기와 같은 푸시 측정기준 | 푸시 Campaign 분석, Currents 메시지 참여 이벤트, 보고서 빌더 |
 | 커스텀 이벤트 및 속성 | SDK 메서드 또는 `/users/track` 엔드포인트를 통해 정의하고 기록하는 분석 | 고객 프로필, 세분화, 동작 기반 Campaign 및 Canvases, 커스텀 이벤트 분석 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Native push analytics vs. custom event logging" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="네이티브 푸시 분석 vs. 커스텀 이벤트 로깅" }
 
 {% alert important %}
 커스텀 이벤트(예: `push_notification_opened`)를 기록하는 것은 Braze의 네이티브 푸시 열기 추적과 동일하지 않습니다. 커스텀 이벤트는 네이티브 푸시 Campaign 열기 측정기준이나 푸시 기여도에 반영되지 않습니다.
@@ -34,13 +34,13 @@ noindex: true
 
 ## Braze가 자동으로 기록하는 항목 {#what-braze-logs-automatically}
 
-SDK 통합이 구성되면 Braze는 푸시 열기 및 영향받은 열기를 포함한 핵심 채널 상호작용 데이터를 자동으로 기록합니다. 표준 푸시 분석에는 추가 코드가 필요하지 않습니다. 자동으로 수집되는 데이터의 전체 목록은 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)을 참조하세요.
+SDK 통합이 구성되면 Braze는 푸시 열기 및 영향받은 열기를 포함한 핵심 채널 상호작용 데이터를 자동으로 기록합니다. 표준 푸시 분석에는 추가 코드가 필요하지 않습니다. 자동으로 수집되는 데이터의 전체 목록은 [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)을 참조하세요.
 
 자세한 내용은 다음을 참조하세요:
 
-- [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/) - 자동으로 수집되는 데이터와 선택적 데이터의 전체 목록.
-- [영향받은 열기]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/) - Braze가 영향받은 열기를 계산하는 방법.
-- [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) - Currents의 다운스트림 이벤트 스키마.
+- [SDK 데이터 수집]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection) - 자동으로 수집되는 데이터와 선택적 데이터의 전체 목록.
+- [영향받은 열기]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens) - Braze가 영향받은 열기를 계산하는 방법.
+- [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) - Currents의 다운스트림 이벤트 스키마.
 
 ## 커스텀 푸시 처리 시 네이티브 푸시 분석 유지 {#preserving-native-push-analytics-with-custom-push-handling}
 
@@ -120,7 +120,7 @@ func userNotificationCenter(
 {% endtab %}
 {% tab Web %}
 
-웹 푸시의 경우, [웹 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web)에 설명된 대로 서비스 워커와 SDK 초기화를 구성하세요.
+웹 푸시의 경우, [웹 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)에 설명된 대로 서비스 워커와 SDK 초기화를 구성하세요.
 
 더 많은 코드 샘플은 [Braze Web SDK 리포지토리](https://github.com/braze-inc/braze-web-sdk)를 참조하세요.
 
@@ -131,11 +131,11 @@ func userNotificationCenter(
 
 비즈니스 로직에 연결된 커스텀 이벤트나 속성과 같이 푸시 페이로드 키-값 페어에서 추가 데이터를 기록해야 할 때 이 섹션을 사용하세요.
 
-커스텀 이벤트에 대한 자세한 내용은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 참조하세요. SDK 메서드를 통해 커스텀 이벤트를 기록하려면 [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events/)을 참조하세요.
+커스텀 이벤트에 대한 자세한 내용은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events)를 참조하세요. SDK 메서드를 통해 커스텀 이벤트를 기록하려면 [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events)을 참조하세요.
 
 ### 옵션 A: `/users/track` 엔드포인트로 기록 {#option-a-log-with-the-userstrack-endpoint}
 
-[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) 엔드포인트를 호출하여 실시간으로 분석을 기록할 수 있습니다.
+[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) 엔드포인트를 호출하여 실시간으로 분석을 기록할 수 있습니다.
 
 고객 프로필을 식별하려면 푸시 페이로드 키-값 페어에 `braze_id`를 포함하세요.
 
@@ -165,14 +165,14 @@ Xcode에서 메인 앱 타겟에 `App Groups` 기능을 추가합니다. **App G
 
 스니펫을 구현하기 전에 기록할 분석 카테고리를 선택하세요:
 
-- **커스텀 이벤트:** 사용자가 수행하는 동작(예: 플로우 완료 또는 특정 UI 요소 탭). 동작 기반 트리거, 세분화 및 이벤트 분석에 커스텀 이벤트를 사용합니다. 자세한 내용은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) 및 [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events/)을 참조하세요.
-- **커스텀 속성:** 정의하고 시간이 지남에 따라 업데이트하는 프로필 필드(예: `plan_tier` 또는 `preferred_language`). 자세한 내용은 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/) 및 [사용자 속성 설정]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)을 참조하세요.
+- **커스텀 이벤트:** 사용자가 수행하는 동작(예: 플로우 완료 또는 특정 UI 요소 탭). 동작 기반 트리거, 세분화 및 이벤트 분석에 커스텀 이벤트를 사용합니다. 자세한 내용은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events) 및 [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events)을 참조하세요.
+- **커스텀 속성:** 정의하고 시간이 지남에 따라 업데이트하는 프로필 필드(예: `plan_tier` 또는 `preferred_language`). 자세한 내용은 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types) 및 [사용자 속성 설정]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)을 참조하세요.
 - **사용자 속성:** 표준 프로필 필드(예: 이메일, 이름, 전화번호). 샘플 코드에서는 타입이 지정된 `UserAttribute` 모델로 표현된 후 Braze 사용자 필드에 매핑됩니다.
 
-이 섹션의 헬퍼 파일(`RemoteStorage`, `UserAttribute`, `EventName Dictionary`)은 이 샘플 구현에서 사용하는 로컬 유틸리티 파일입니다. 내장 SDK 클래스가 아닙니다. 페이로드에서 파생된 데이터를 `UserDefaults`에 저장하고, 보류 중인 사용자 업데이트를 위한 타입 모델을 정의하며, 이벤트 페이로드 구성을 표준화합니다. 로컬 데이터 저장 동작에 대한 자세한 내용은 [스토리지]({{site.baseurl}}/developer_guide/storage/?tab=swift)를 참조하세요.
+이 섹션의 헬퍼 파일(`RemoteStorage`, `UserAttribute`, `EventName Dictionary`)은 이 샘플 구현에서 사용하는 로컬 유틸리티 파일입니다. 내장 SDK 클래스가 아닙니다. 페이로드에서 파생된 데이터를 `UserDefaults`에 저장하고, 보류 중인 사용자 업데이트를 위한 타입 모델을 정의하며, 이벤트 페이로드 구성을 표준화합니다. 로컬 데이터 저장 동작에 대한 자세한 내용은 [스토리지]({{site.baseurl}}/developer_guide/storage?tab=swift)를 참조하세요.
 
 {% alert note %}
-이 섹션의 헬퍼 파일 예제는 iOS 전용(Swift 및 Objective-C)입니다. Android 및 웹에서 커스텀 이벤트와 속성을 기록하는 방법은 [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events/)([Android]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)) 및 [사용자 속성 설정]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)([Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?tab=web))을 참조하세요.
+이 섹션의 헬퍼 파일 예제는 iOS 전용(Swift 및 Objective-C)입니다. Android 및 웹에서 커스텀 이벤트와 속성을 기록하는 방법은 [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events)([Android]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web)) 및 [사용자 속성 설정]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)([Android]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?tab=android), [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?tab=web))을 참조하세요.
 {% endalert %}
 
 {% tabs local %}
@@ -801,18 +801,18 @@ extension Dictionary where Key == String, Value == Any {
 
 | 분석 카테고리 | Braze에서 확인하는 위치 |
 | --- | --- |
-| 네이티브 푸시 분석 | Campaign 수준의 푸시 열기 측정기준을 보려면 푸시 Campaign의 **Campaign Analytics** 페이지로 이동합니다. 측정기준 정의는 [영향받은 열기]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens/)를 참조하세요. 커스텀 분석 뷰를 구축하려면 **Analytics** > **Report Builder (New)**로 이동합니다. 탐색 단계는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)를 참조하세요. 웨어하우스 수준의 이벤트 스키마는 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)를 참조하세요. |
-| 커스텀 이벤트 및 속성 | 커스텀 이벤트 트렌드를 보려면 **Analytics** > **Custom Events Report**로 이동합니다. 자세한 내용은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 참조하세요. 사용자 수준의 값을 검사하려면 **Search Users** 페이지로 이동하여 프로필을 엽니다. 단계는 [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/)을 참조하세요. 이러한 값으로 오디언스를 필터링하려면 **Audience** > **Segments**로 이동합니다. 탐색 단계는 [Segment 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) 및 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/)의 필터 옵션을 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Analyzing results" }
+| 네이티브 푸시 분석 | Campaign 수준의 푸시 열기 측정기준을 보려면 푸시 Campaign의 **Campaign Analytics** 페이지로 이동합니다. 측정기준 정의는 [영향받은 열기]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)를 참조하세요. 커스텀 분석 뷰를 구축하려면 **Analytics** > **Report Builder (New)**로 이동합니다. 탐색 단계는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)를 참조하세요. 웨어하우스 수준의 이벤트 스키마는 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)를 참조하세요. |
+| 커스텀 이벤트 및 속성 | 커스텀 이벤트 트렌드를 보려면 **Analytics** > **Custom Events Report**로 이동합니다. 자세한 내용은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events)를 참조하세요. 사용자 수준의 값을 검사하려면 **Search Users** 페이지로 이동하여 프로필을 엽니다. 단계는 [고객 프로필]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)을 참조하세요. 이러한 값으로 오디언스를 필터링하려면 **Audience** > **Segments**로 이동합니다. 탐색 단계는 [Segment 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) 및 [세분화 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters)의 필터 옵션을 참조하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="결과 분석" }
 
-커스텀 보고서 생성에 대해서는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)를 참조하세요.
+커스텀 보고서 생성에 대해서는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)를 참조하세요.
 
 ## 관련 참조 {#related-references}
 
-- [푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/)
-- [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events/)
-- [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
-- [사용자 추적 엔드포인트(`/users/track`)]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
+- [푸시 알림]({{site.baseurl}}/developer_guide/push_notifications)
+- [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events)
+- [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
+- [사용자 추적 엔드포인트(`/users/track`)]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 - [Braze Android SDK 리포지토리](https://github.com/braze-inc/braze-android-sdk)
 - [Braze Swift SDK 리포지토리](https://github.com/braze-inc/braze-swift-sdk)
 - [Braze Web SDK 리포지토리](https://github.com/braze-inc/braze-web-sdk)

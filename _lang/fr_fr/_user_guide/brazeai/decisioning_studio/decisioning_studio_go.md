@@ -20,13 +20,13 @@ Decisioning Studio Go comprend une configuration créative en libre-service avec
 * Braze
 * Salesforce Marketing Cloud
 
-Pour en savoir plus sur les différences entre Decisioning Studio Go et Decisioning Studio Pro, consultez [Decisioning Studio Go par rapport à Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/#decisioning-studio-go-vs-decisioning-studio-pro).
+Pour en savoir plus sur les différences entre Decisioning Studio Go et Decisioning Studio Pro, consultez [Decisioning Studio Go par rapport à Decisioning Studio Pro]({{site.baseurl}}/user_guide/brazeai/decisioning_studio#decisioning-studio-go-vs-decisioning-studio-pro).
 
 ## Étapes suivantes {#next-steps}
 
 Suivez ces étapes pour configurer Decisioning Studio Go :
 
-1. [Connecter les sources de données]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources/)
-2. [Configurer l'orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/)
-3. [Concevoir votre agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
-4. [Lancer votre agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent/)
+1. [Connecter les sources de données]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/connect_data_sources)
+2. [Configurer l'orchestration]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration)
+3. [Concevoir votre agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)
+4. [Lancer votre agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)

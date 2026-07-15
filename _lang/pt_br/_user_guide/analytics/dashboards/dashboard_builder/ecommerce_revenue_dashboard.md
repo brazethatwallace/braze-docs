@@ -8,10 +8,10 @@ description: "Este artigo fornece uma visão geral do dashboard de receita de eC
 
 # Dashboard de receita de eCommerce {#ecommerce-revenue-dashboard}
 
-> O dashboard **eCommerce Revenue - Last Touch Attribution** rastreia a receita atribuída ao último ponto de contato para Campaigns e Canvas usando [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events/). Use esse dashboard para entender quais mensagens geram receita e para monitorar o desempenho geral do eCommerce ao longo do tempo.
+> O dashboard **eCommerce Revenue - Last Touch Attribution** rastreia a receita atribuída ao último ponto de contato para Campaigns e Canvas usando [eventos recomendados de eCommerce]({{site.baseurl}}/ecommerce_events). Use esse dashboard para entender quais mensagens geram receita e para monitorar o desempenho geral do eCommerce ao longo do tempo.
 
 {% alert note %}
-Se você está usando o novo [conector do Shopify]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores/?tab=shopify%20connector), os eventos recomendados de eCommerce estarão disponíveis automaticamente por meio da integração. Caso contrário, esses eventos precisam ser implementados antes que os dados apareçam nesse dashboard.
+Se você está usando o novo [conector do Shopify]({{site.baseurl}}/partners/ecommerce/shopify/multiple_stores?tab=shopify%20connector), os eventos recomendados de eCommerce estarão disponíveis automaticamente por meio da integração. Caso contrário, esses eventos precisam ser implementados antes que os dados apareçam nesse dashboard.
 {% endalert %}
 
 Para visualizar o dashboard de receita de eCommerce, acesse **Analytics** > **Criador de dashboard** e selecione **eCommerce Revenue - Last Touch Attribution**. Esse dashboard reporta a receita atribuída à última Campaign ou Canvas com a qual o usuário interagiu antes de fazer um pedido, dentro da janela de conversão selecionada.
@@ -28,7 +28,7 @@ Para visualizar o dashboard de receita de eCommerce, acesse **Analytics** > **Cr
 | Receita de eCommerce ao longo do tempo | Série temporal da receita atribuída no período selecionado. |
 | Receita de eCommerce por Campaign | Receita atribuída detalhada por Campaign. |
 | Receita de eCommerce por Canvas | Receita atribuída detalhada por Canvas. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas disponíveis" }
 
 ![Gráficos de receita de eCommerce por Campaign e receita de eCommerce por Canvas.]({% image_buster /assets/img/ecommerce/ecommerce_revenue_charts.png %})
 
@@ -70,7 +70,7 @@ A receita e a contagem de pedidos usam cálculos padronizados da Braze.
 | --- | --- |
 | Receita total | Soma dos valores de pedidos realizados − Soma dos valores reembolsados |
 | Total de pedidos | Pedidos distintos realizados − Pedidos distintos cancelados |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Included data" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dados incluídos" }
 
 ### Dados excluídos {#excluded-data}
 

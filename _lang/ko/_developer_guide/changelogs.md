@@ -1,8 +1,8 @@
 ---
 page_order: 98.1
-nav_title: 변경 로그
-description: "이 참조 페이지에는 각 Braze SDK의 변경 로그와 공개 GitHub 리포지토리에 있는 변경 로그 링크가 포함되어 있습니다."
-platform: 
+nav_title: 체인지로그
+description: "이 참조 페이지에는 각 Braze SDK의 체인지로그와 공개 GitHub 리포지토리의 체인지로그 링크가 포함되어 있습니다."
+platform:
   - Android
   - Swift
   - Web
@@ -15,14 +15,14 @@ platform:
   - .NET MAUI
 ---
 
-# Braze SDK 변경 로그
+# Braze SDK 체인지로그 {#braze-sdk-changelogs}
 
-> 이 참조 페이지에는 각 Braze SDK의 변경 로그와 공개 GitHub 리포지토리에 있는 변경 로그 링크가 포함되어 있습니다. 전체 리소스 목록은 [참조, 리포지토리 및 샘플 앱을 참조하세요]({{site.baseurl}}/developer_guide/references/).
+> 이 참조 페이지에는 각 Braze SDK의 체인지로그와 공개 GitHub 리포지토리의 체인지로그 링크가 포함되어 있습니다. 전체 리소스 목록은 [참조, 리포지토리 및 샘플 앱]({{site.baseurl}}/developer_guide/references)을 확인하세요.
 
 {% sdktabs %}
 {% sdktab web %}
 {% alert tip %}
-[웹 Braze SDK 변경 로그](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 찾을 수 있습니다.
+[Web Braze SDK 체인지로그](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 확인할 수 있습니다.
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-web-sdk/master/CHANGELOG.md %}
@@ -30,7 +30,7 @@ platform:
 
 {% sdktab android %}
 {% alert tip %}
-[Android Braze SDK 변경 로그](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 찾을 수 있습니다.
+[Android Braze SDK 체인지로그](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 확인할 수 있습니다.
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-android-sdk/master/CHANGELOG.md %}
@@ -38,7 +38,7 @@ platform:
 
 {% sdktab swift %}
 {% alert tip %}
-[Swift Braze SDK 변경 로그](https://github.com/braze-inc/braze-swift-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 찾을 수 있습니다.
+[Swift Braze SDK 체인지로그](https://github.com/braze-inc/braze-swift-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 확인할 수 있습니다.
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-swift-sdk/main/CHANGELOG.md %}
@@ -46,7 +46,7 @@ platform:
 
 {% sdktab cordova %}
 {% alert tip %}
-[Cordova Braze SDK 변경 로그](https://github.com/braze-inc/braze-cordova-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 확인할 수 있습니다.
+[Cordova Braze SDK 체인지로그](https://github.com/braze-inc/braze-cordova-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 확인할 수 있습니다.
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-cordova-sdk/master/CHANGELOG.md %}
@@ -54,7 +54,7 @@ platform:
 
 {% sdktab flutter %}
 {% alert tip %}
-[Flutter Braze SDK 변경 로그](https://github.com/braze-inc/braze-flutter-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 찾을 수 있습니다.
+[Flutter Braze SDK 체인지로그](https://github.com/braze-inc/braze-flutter-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 확인할 수 있습니다.
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-flutter-sdk/master/CHANGELOG.md %}
@@ -62,7 +62,7 @@ platform:
 
 {% sdktab react native %}
 {% alert tip %}
-[React Native Braze SDK 변경 로그](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 확인할 수 있습니다.
+[React Native Braze SDK 체인지로그](https://github.com/braze-inc/braze-react-native-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 확인할 수 있습니다.
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-react-native-sdk/master/CHANGELOG.md %}
@@ -70,7 +70,7 @@ platform:
 
 {% sdktab roku %}
 {% alert tip %}
-[GitHub에서 Roku Braze SDK 변경 로그](https://github.com/braze-inc/braze-roku-sdk/blob/master/CHANGELOG.md) 사본을 찾을 수도 있습니다.
+[Roku Braze SDK 체인지로그](https://github.com/braze-inc/braze-roku-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 확인할 수 있습니다.
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-roku-sdk/master/CHANGELOG.md %}
@@ -78,7 +78,7 @@ platform:
 
 {% sdktab unity %}
 {% alert tip %}
-[유니티 브레이즈 SDK 변경 로그는 GitHub에서](https://github.com/braze-inc/braze-unity-sdk/blob/master/CHANGELOG.md) 확인할 수도 있습니다.
+[Unity Braze SDK 체인지로그](https://github.com/braze-inc/braze-unity-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 확인할 수 있습니다.
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/Appboy/appboy-unity-sdk/master/CHANGELOG.md %}
@@ -86,7 +86,7 @@ platform:
 
 {% sdktab .NET MAUI (Xamarin) %}
 {% alert tip %}
-GitHub에서 [.NET MAUI Braze SDK 체인지로그](https://github.com/braze-inc/braze-xamarin-sdk/blob/master/CHANGELOG.md)의 복사본을 찾을 수도 있습니다.
+[.NET MAUI Braze SDK 체인지로그](https://github.com/braze-inc/braze-xamarin-sdk/blob/master/CHANGELOG.md) 사본은 GitHub에서도 확인할 수 있습니다.
 {% endalert %}
 
 {% markdown_embed https://raw.githubusercontent.com/braze-inc/braze-xamarin-sdk/master/CHANGELOG.md %}

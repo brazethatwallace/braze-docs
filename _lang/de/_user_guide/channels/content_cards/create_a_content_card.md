@@ -16,7 +16,7 @@ search_rank: 3.9
 
 > Dieser Artikel beschreibt, wie Sie eine Content-Card in Braze erstellen, wenn Sie Kampagnen und Canvases aufbauen. Hier führen wir Sie durch die Auswahl eines Nachrichtentyps, das Verfassen Ihrer Karte und die Planung Ihrer Nachrichtenzustellung.
 
-## 1. Schritt: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
+## Schritt 1: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 
 Verwenden Sie Kampagnen für einfache, einzelne Nachrichten (z. B. um Nutzer:innen mit einer einzelnen Nachricht über ein Produkt zu informieren). Verwenden Sie Canvases für mehrstufige Journeys (z. B. um maßgeschneiderte Produktvorschläge basierend auf dem Nutzerverhalten über einen bestimmten Zeitraum zu senden).
 
@@ -26,9 +26,9 @@ Verwenden Sie Kampagnen für einfache, einzelne Nachrichten (z. B. um Nutzer:inn
 1. Gehen Sie zu **Messaging** > **Campaigns** und wählen Sie **Kampagne erstellen**.
 2. Wählen Sie **Content Cards** oder, für Kampagnen, die auf mehrere Kanäle abzielen, **Multichannel**.
 3. Geben Sie Ihrer Kampagne einen klaren und aussagekräftigen Namen.
-4. Fügen Sie bei Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) hinzu.
-   * Tags erleichtern das Auffinden Ihrer Kampagnen und das Erstellen von Berichten. Wenn Sie beispielsweise den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder/) verwenden, können Sie nach den relevanten Tags filtern.
-5. Fügen Sie so viele Varianten hinzu und benennen Sie sie, wie Sie möchten. Sie können für jede hinzugefügte Variante unterschiedliche Plattformen, Nachrichtentypen und Layouts wählen. Weitere Informationen zu Varianten finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+4. Fügen Sie bei Bedarf [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) und [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) hinzu.
+   * Tags erleichtern das Auffinden Ihrer Kampagnen und das Erstellen von Berichten. Wenn Sie beispielsweise den [Berichts-Builder]({{site.baseurl}}/user_guide/analytics/reports/report_builder) verwenden, können Sie nach den relevanten Tags filtern.
+5. Fügen Sie so viele Varianten hinzu und benennen Sie sie, wie Sie möchten. Sie können für jede hinzugefügte Variante unterschiedliche Plattformen, Nachrichtentypen und Layouts wählen. Weitere Informationen zu Varianten finden Sie unter [Multivariate und A/B-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
 Wenn alle Nachrichten in Ihrer Kampagne ähnlich sein oder denselben Inhalt haben werden, verfassen Sie Ihre Nachricht, bevor Sie zusätzliche Varianten hinzufügen. Anschließend können Sie **Aus Variante kopieren** aus dem Dropdown **Variante hinzufügen** auswählen.
@@ -37,7 +37,7 @@ Wenn alle Nachrichten in Ihrer Kampagne ähnlich sein oder denselben Inhalt habe
 {% endtab %}
 {% tab Canvas %}
 
-1. [Erstellen Sie Ihren Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) mit dem Canvas-Composer.
+1. [Erstellen Sie Ihren Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) mit dem Canvas-Composer.
 2. Nachdem Sie Ihren Canvas eingerichtet haben, fügen Sie im Canvas-Builder einen Nachrichten-Schritt hinzu. Geben Sie Ihrem Schritt einen klaren und aussagekräftigen Namen.
 3. Wählen Sie **Content Cards** als Ihren Messaging-Kanal.
 4. Wählen Sie, wann Braze die Zielgruppeneignung und Personalisierung für die Content-Card berechnet. Dies kann beim Eintritt in den Schritt oder bei der ersten Impression (empfohlen) erfolgen. Schritte mit Content Cards können geplant oder aktionsbasiert sein.
@@ -49,20 +49,20 @@ Wenn alle Nachrichten in Ihrer Kampagne ähnlich sein oder denselben Inhalt habe
 {% endtab %}
 {% endtabs %}
 
-## 2. Schritt: Geben Sie Ihre Nachrichtentypen an {#step-2-specify-your-message-types}
+## Schritt 2: Geben Sie Ihre Nachrichtentypen an {#step-2-specify-your-message-types}
 
 Wählen Sie einen der drei grundlegenden Content-Card-Typen: **Klassisch**, **Hervorgehobenes Bild** und **Nur Bild**.
 
-Um mehr über das erwartete Verhalten und Aussehen jedes Typs zu erfahren, lesen Sie [Kreative Details]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/) oder schauen Sie sich die Links in der folgenden Tabelle an. Diese Content-Card-Typen werden sowohl von mobilen Apps als auch von Webanwendungen unterstützt.
+Um mehr über das erwartete Verhalten und Aussehen jedes Typs zu erfahren, lesen Sie [Kreative Details]({{site.baseurl}}/user_guide/channels/content_cards/creative_details) oder schauen Sie sich die Links in der folgenden Tabelle an. Diese Content-Card-Typen werden sowohl von mobilen Apps als auch von Webanwendungen unterstützt.
 
 | Nachrichtentyp | Beispiel | Beschreibung |
 |---|---|---|
-| [Klassisch]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#classic) | ![Eine klassische Content-Card mit einem kleinen Symbol und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | Die klassische Karte hat ein einfaches Layout mit einem fettgedruckten Titel, Nachrichtentext und einem optionalen Bild links neben Titel und Text. Am besten verwenden Sie ein quadratisches Bild oder Symbol für die klassische Karte. |
-| [Hervorgehobenes Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#captioned-image) | ![Eine hervorgehobene Content-Card mit dem Bild eines Gewichthebers und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | Die hervorgehobene Content-Card präsentiert Ihren Inhalt mit Text und einem aufmerksamkeitsstarken Bild. |
-| [Nur Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details/#banner) | ![Eine Content-Card vom Typ „Nur Bild“ mit ausschließlich Text.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | Die Karte „Nur Bild“ zieht die Aufmerksamkeit auf sich und bietet Platz für Bilder, GIFs und andere kreative, nicht-textliche Inhalte. |
+| [Klassisch]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic) | ![Eine klassische Content-Card mit einem kleinen Symbol und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | Die klassische Karte hat ein einfaches Layout mit einem fettgedruckten Titel, Nachrichtentext und einem optionalen Bild links neben Titel und Text. Am besten verwenden Sie ein quadratisches Bild oder Symbol für die klassische Karte. |
+| [Hervorgehobenes Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image) | ![Eine hervorgehobene Content-Card mit dem Bild eines Gewichthebers und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | Die hervorgehobene Content-Card präsentiert Ihren Inhalt mit Text und einem aufmerksamkeitsstarken Bild. |
+| [Nur Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner) | ![Eine Content-Card vom Typ „Nur Bild“ mit ausschließlich Text.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | Die Karte „Nur Bild“ zieht die Aufmerksamkeit auf sich und bietet Platz für Bilder, GIFs und andere kreative, nicht-textliche Inhalte. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Nachrichtentypen angeben" }
 
-## 3. Schritt: Content-Card verfassen {#step-3-compose-a-content-card}
+## Schritt 3: Content-Card verfassen {#step-3-compose-a-content-card}
 
 Sie können alle Aspekte des Inhalts und Verhaltens Ihrer Nachricht im Tab **Verfassen** des Nachrichteneditors bearbeiten.
 
@@ -70,15 +70,15 @@ Sie können alle Aspekte des Inhalts und Verhaltens Ihrer Nachricht im Tab **Ver
 
 Der Inhalt hier variiert je nach dem im vorherigen Schritt gewählten **Kartentyp**, kann aber eine der folgenden Optionen umfassen:
 
-#### Sprache {#language}
+### Sprache {#language}
 
-Wählen Sie **Sprachen hinzufügen**, um Ihre gewünschten Sprachen aus der bereitgestellten Liste hinzuzufügen. Dadurch wird [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#conditional-logic) in Ihre Nachricht eingefügt. Wir empfehlen, Ihre Sprachen auszuwählen, bevor Sie Ihren Inhalt schreiben, damit Sie Ihren Text an der richtigen Stelle im Liquid einfügen können. Eine vollständige Liste der verfügbaren Sprachen finden Sie unter [Unterstützte Sprachen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization/#languages-supported).
+Wählen Sie **Sprachen hinzufügen**, um Ihre gewünschten Sprachen aus der bereitgestellten Liste hinzuzufügen. Dadurch wird [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#conditional-logic) in Ihre Nachricht eingefügt. Wir empfehlen, Ihre Sprachen auszuwählen, bevor Sie Ihren Inhalt schreiben, damit Sie Ihren Text an der richtigen Stelle im Liquid einfügen können. Eine vollständige Liste der verfügbaren Sprachen finden Sie unter [Unterstützte Sprachen]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
 
 ![Ein Fenster mit Englisch, Spanisch und Französisch als ausgewählte Sprachen sowie Titel, Beschreibung und Linktext als Felder zur Internationalisierung.]({% image_buster /assets/img/add_languages.png %}){: style="max-width:70%;"}
 
-##### Nachrichten von rechts nach links erstellen {#create-right-to-left-messages}
+#### Nachrichten von rechts nach links erstellen {#create-right-to-left-messages}
 
-Das endgültige Erscheinungsbild von Nachrichten, die von rechts nach links geschrieben werden, hängt weitgehend davon ab, wie Dienstanbieter sie darstellen. Best Practices für die Erstellung von Nachrichten, die von rechts nach links so genau wie möglich angezeigt werden, finden Sie unter [Nachrichten von rechts nach links erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+Das endgültige Erscheinungsbild von Nachrichten, die von rechts nach links geschrieben werden, hängt weitgehend davon ab, wie Dienstanbieter sie darstellen. Best Practices für die Erstellung von Nachrichten, die von rechts nach links so genau wie möglich angezeigt werden, finden Sie unter [Nachrichten von rechts nach links erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 #### Titel und Nachricht {#title-and-message}
 
@@ -107,33 +107,33 @@ Die folgenden Aktionen sind für Content-Card-Links verfügbar:
 | Aktion | Beschreibung |
 |---|---|
 | Weiterleitung zu Web-URL | Eine nicht-native Webseite öffnen. |
-| [Deeplink in die App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content) | Deeplink zu einem bestehenden Bildschirm in Ihrer App. |
-| Angepasstes Event protokollieren | Ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) auswählen, das getriggert werden soll. Kann verwendet werden, um eine weitere Content-Card anzuzeigen oder zusätzliches Messaging auszulösen. |
-| Angepasstes Attribut protokollieren | Ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) auswählen, das für die aktuelle Nutzerin oder den aktuellen Nutzer gesetzt werden soll. |
+| [Deeplink in die App]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content) | Deeplink zu einem bestehenden Bildschirm in Ihrer App. |
+| Angepasstes Event protokollieren | Ein [angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events) auswählen, das getriggert werden soll. Kann verwendet werden, um eine weitere Content-Card anzuzeigen oder zusätzliches Messaging auszulösen. |
+| Angepasstes Attribut protokollieren | Ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) auswählen, das für die aktuelle Nutzerin oder den aktuellen Nutzer gesetzt werden soll. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Klickverhalten" }
 
 Die Optionen **Angepasstes Event protokollieren** und **Angepasstes Attribut protokollieren** erfordern die folgende SDK-Versionskompatibilität:
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-## 4. Schritt: Zusätzliche Einstellungen konfigurieren (optional) {#step-4-configure-additional-settings-optional}
+## Schritt 4: Zusätzliche Einstellungen konfigurieren (optional) {#step-4-configure-additional-settings-optional}
 
-Sie können [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs/) verwenden, um Kategorien für Ihre Karten zu erstellen, [mehrere Content-Card-Feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds) einzurichten und die Sortierung der Karten anzupassen.
+Sie können [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) verwenden, um Kategorien für Ihre Karten zu erstellen, [mehrere Content-Card-Feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds) einzurichten und die Sortierung der Karten anzupassen.
 
 Um Schlüssel-Wert-Paare zu Ihrer Nachricht hinzuzufügen, gehen Sie zum Tab **Einstellungen** und wählen Sie **Neues Paar hinzufügen**.
 
-## 5. Schritt: Erstellen Sie den Rest Ihrer Kampagne oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 5: Erstellen Sie den Rest Ihrer Kampagne oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
 
 Erstellen Sie den Rest Ihrer Kampagne. In den folgenden Abschnitten finden Sie weitere Details zur optimalen Nutzung unserer Tools für die Erstellung von Content Cards.
 
-#### Wählen Sie einen Zustellungszeitplan oder Trigger {#choose-a-delivery-schedule-or-trigger}
+### Wählen Sie einen Zustellungszeitplan oder Trigger {#choose-a-delivery-schedule-or-trigger}
 
-Content Cards können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Kampagne planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/).
+Content Cards können basierend auf einem geplanten Zeitpunkt, einer Aktion oder einem API-Trigger zugestellt werden. Weitere Informationen finden Sie unter [Ihre Kampagne planen]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Sie können auch die Dauer der Kampagne und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) festlegen sowie die Ablaufzeit der Content-Card bestimmen. Legen Sie ein bestimmtes Ablaufdatum oder die Anzahl der Tage bis zum Ablauf einer Karte fest – bis zu maximal 30 Tage. Alle Varianten haben identische Ablaufdaten.
+Sie können auch die Dauer der Kampagne und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen sowie die Ablaufzeit der Content-Card bestimmen. Legen Sie ein bestimmtes Ablaufdatum oder die Anzahl der Tage bis zum Ablauf einer Karte fest – bis zu maximal 30 Tage. Alle Varianten haben identische Ablaufdaten.
 
 Wenn Sie festlegen, dass eine Karte nach einer bestimmten Dauer abläuft (z. B. nach zwei Wochen), wird die Ablaufzeit ab dem Sendezeitpunkt der Karte berechnet. Bei geplanten Kampagnen ist dies der geplante Startzeitpunkt. Bei aktionsbasierten Kampagnen ist dies der Zeitpunkt, zu dem die Nutzerin oder der Nutzer die auslösende Aktion ausführt. Wenn beispielsweise eine aktionsbasierte Karte heute um 14 Uhr gesendet wird und eine Ablaufzeit von 1 Tag hat, läuft sie am nächsten Tag um 14 Uhr ab.
 
@@ -141,38 +141,38 @@ Wenn Sie festlegen, dass eine Karte nach einer bestimmten Dauer abläuft (z. B. 
 
 Bei aktionsbasierter Zustellung gibt es eine erwartete kurze Verzögerung, bevor die Content-Card erscheint. Wenn beispielsweise eine Kampagne bei Sitzungsstart getriggert wird, muss dieses Trigger-Event zunächst an die Braze-Server übermittelt werden. Anschließend wird die Berechtigung der Nutzerin oder des Nutzers für die Kampagne erfasst. Wenn das SDK synchronisiert, wird die Karte erstellt und in derselben Sync-Antwort zurückgegeben. Falls die SDK-Synchronisierung vor der Erfassung der Nutzerberechtigung stattfand, erhält die Person die Karte nicht. Für Erstnutzer:innen ist diese Verzögerung unvermeidbar. Für bestehende Nutzer:innen, die sofortige Verfügbarkeit benötigen, sollten Sie stattdessen die geplante Zustellung in Betracht ziehen.
 
-##### Geplante Zustellung {#scheduled-delivery}
+#### Geplante Zustellung {#scheduled-delivery}
 
-Für Content-Card-Kampagnen mit geplanter Zustellung können Sie festlegen, wann Braze die Zielgruppeneignung und Personalisierung für neue Content-Card-Kampagnen auswertet, indem Sie angeben, wann die Karte erstellt wird. Weitere Informationen finden Sie unter [Kartenerstellung]({{site.baseurl}}/card_creation/).
+Für Content-Card-Kampagnen mit geplanter Zustellung können Sie festlegen, wann Braze die Zielgruppeneignung und Personalisierung für neue Content-Card-Kampagnen auswertet, indem Sie angeben, wann die Karte erstellt wird. Weitere Informationen finden Sie unter [Kartenerstellung]({{site.baseurl}}/card_creation).
 
 #### Zielgruppe zusammenstellen {#choose-users-to-target}
 
-Als Nächstes [stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Vorschau der ungefähren Segmentgröße. Beachten Sie, dass die genaue Segmentzugehörigkeit immer unmittelbar vor dem Nachrichtenversand berechnet wird.
+Als Nächstes [stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users), indem Sie Segmente oder Filter auswählen, um Ihre Zielgruppe einzugrenzen. Sie erhalten automatisch eine Vorschau der ungefähren Segmentgröße. Beachten Sie, dass die genaue Segmentzugehörigkeit immer unmittelbar vor dem Nachrichtenversand berechnet wird.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 #### Konversions-Events auswählen {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), nach Erhalt einer Kampagne ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Conversion gezählt wird, wenn die Nutzerin oder der Nutzer die angegebene Aktion ausführt.
+Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Kampagne ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn die Nutzerin oder der Nutzer die angegebene Aktion ausführt.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von [Multivariate-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing/) und [Intelligenter Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/) und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) unserer Canvas-Dokumentation.
+Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von [Multivariate-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing) und [intelligenter Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) unserer Canvas-Dokumentation.
 
 {% endtab %}
 {% endtabs %}
 
-## 6. Schritt: Überprüfen und bereitstellen {#step-6-review-and-deploy}
+## Schritt 6: Überprüfen und bereitstellen {#step-6-review-and-deploy}
 
-Nachdem Sie den letzten Teil Ihrer Kampagne oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details, [testen Sie]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) und senden Sie, wenn Sie bereit sind. Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=content%20card).
+Nachdem Sie den letzten Teil Ihrer Kampagne oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details, [testen Sie]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) und senden Sie, wenn Sie bereit sind. Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card).
 
 {% alert warning %}
-Nachdem eine Content-Card gestartet wurde, kann sie nicht mehr bearbeitet werden. Sie kann nur daran gehindert werden, an neue Nutzer:innen gesendet zu werden, und aus den Feeds der Nutzer:innen entfernt werden. Lesen Sie [Gestartete Karten aktualisieren]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#updating-launched-cards), um zu erfahren, wie Sie mit diesem Szenario umgehen können.
+Nachdem eine Content-Card gestartet wurde, kann sie nicht mehr bearbeitet werden. Sie kann nur daran gehindert werden, an neue Nutzer:innen gesendet zu werden, und aus den Feeds der Nutzer:innen entfernt werden. Lesen Sie [Gestartete Karten aktualisieren]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#updating-launched-cards), um zu erfahren, wie Sie mit diesem Szenario umgehen können.
 {% endalert %}
 
-Schauen Sie sich als Nächstes [Content-Card-Reporting]({{site.baseurl}}/user_guide/channels/content_cards/reporting/) an, um zu erfahren, wie Sie auf die Ergebnisse Ihrer Content-Card-Kampagnen zugreifen können.
+Schauen Sie sich als Nächstes [Content-Card-Reporting]({{site.baseurl}}/user_guide/channels/content_cards/reporting) an, um zu erfahren, wie Sie auf die Ergebnisse Ihrer Content-Card-Kampagnen zugreifen können.
 
 ## Wissenswertes {#things-to-know}
 
@@ -221,14 +221,14 @@ Um Probleme mit dem Kartenlimit zu vermeiden, empfehlen wir die folgenden Best P
 Re-Eligibility bestimmt, ob und wann eine Nutzerin oder ein Nutzer eine Nachricht derselben Kampagne mehr als einmal erhalten kann. Für Content Cards ist das Verständnis dieser Funktionsweise entscheidend für die Verwaltung wiederkehrender Kampagnen und um sicherzustellen, dass Nutzer:innen keine doppelten oder veralteten Nachrichten erhalten.
 
 {% alert tip %}
-Möchten Sie, dass Ihr Inhalt länger als 30 Tage bestehen bleibt? Probieren Sie [Banner]({{site.baseurl}}/user_guide/channels/banners/) aus.
+Möchten Sie, dass Ihr Inhalt länger als 30 Tage bestehen bleibt? Probieren Sie [Banner]({{site.baseurl}}/user_guide/channels/banners) aus.
 {% endalert %}
 
 #### Wie Re-Eligibility berechnet wird {#how-re-eligibility-is-calculated}
 
 Wenn Sie Re-Eligibility aktivieren, beginnt der Countdown, wann eine Nutzerin oder ein Nutzer erneut in eine Kampagne „eintreten“ kann, nachdem die Nachricht gesendet wurde. Der genaue Zeitpunkt, an dem dieser Countdown beginnt, hängt von Ihren Kartenerstellungseinstellungen ab:
 
-- Content Cards, die [bei der ersten Impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation/#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) erstellt werden, verwenden den Impressionszeitpunkt zur Berechnung der Re-Eligibility.
+- Content Cards, die [bei der ersten Impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) erstellt werden, verwenden den Impressionszeitpunkt zur Berechnung der Re-Eligibility.
 - Content Cards, die beim Kampagnenstart, in Multichannel-Kampagnen oder beim Canvas-Schritt-Eintritt erstellt werden, verwenden den jeweils späteren Zeitpunkt von Sendezeitpunkt oder Impressionszeitpunkt.
 
 #### Die 30-Tage-Ablaufzeit und Re-Eligibility {#the-30-day-expiration-and-re-eligibility}
@@ -237,11 +237,11 @@ Eine häufige Quelle der Verwirrung ist die Wechselwirkung zwischen Kampagnen-Re
 
 Alle Content Cards werden 30 Tage nach dem Senden oder Entfernen automatisch aus den Braze-Systemen gelöscht. Wenn Sie eine langfristige, wiederkehrende Kampagne mit **deaktivierter** Re-Eligibility haben, kann eine Nutzerin oder ein Nutzer nach 30 Tagen dennoch dieselbe Karte erneut erhalten. Wenn die ursprüngliche Karte gelöscht wird, sieht das System keinen Datensatz mehr darüber, dass diese Person die Kampagne erhalten hat, und macht sie bei der nächsten Sitzung erneut berechtigt.
 
-Damit Nutzer:innen eine Nachricht einer bestimmten Kampagne nur einmal erhalten, fügen Sie Ihrer Kampagne oder Ihrem Canvas-Schritt einen Zielgruppen-Filter für Nutzer:innen hinzu, die keine Nachricht dieser Kampagne erhalten haben. Dieser Filter ist der zuverlässigste Weg, um doppelte Sendungen bei langfristigen Kampagnen zu verhindern.
+Damit Nutzer:innen eine Nachricht einer bestimmten Kampagne nur einmal erhalten, fügen Sie Ihrer Kampagne oder Ihrem Canvas-Schritt einen Zielgruppenfilter für Nutzer:innen hinzu, die keine Nachricht dieser Kampagne erhalten haben. Dieser Filter ist der zuverlässigste Weg, um doppelte Sendungen bei langfristigen Kampagnen zu verhindern.
 
 ### Live-Content-Cards verwalten {#managing-live-content-cards}
 
-Nachdem Content Cards gesendet wurden, warten sie in einer Art „Posteingang“ darauf, an die Nutzerin oder den Nutzer zugestellt zu werden (ähnlich wie bei E-Mails). Nachdem der Inhalt in die Content-Card geladen wurde (zum Zeitpunkt der Anzeige), kann er während seiner Lebensdauer nicht mehr geändert werden. Dies gilt auch, wenn Sie eine API über Connected-Content aufrufen und sich die Daten vom Endpunkt ändern. Diese Daten werden nicht aktualisiert. Die Karte kann nur daran gehindert werden, an neue Nutzer:innen gesendet zu werden, und aus den Feeds der Nutzer:innen entfernt werden. Wenn Sie eine Kampagne ändern, haben nur zukünftig gesendete Karten die Aktualisierung.
+Nachdem Content Cards gesendet wurden, warten sie in einer Art „Posteingang“ darauf, an die Nutzerin oder den Nutzer zugestellt zu werden (ähnlich wie bei E-Mails). Nachdem der Inhalt in die Content-Card geladen wurde (zum Zeitpunkt der Anzeige), kann er während seiner Lebensdauer nicht mehr geändert werden. Dies gilt auch, wenn Sie eine API über Connected Content aufrufen und sich die Daten vom Endpunkt ändern. Diese Daten werden nicht aktualisiert. Die Karte kann nur daran gehindert werden, an neue Nutzer:innen gesendet zu werden, und aus den Feeds der Nutzer:innen entfernt werden. Wenn Sie eine Kampagne ändern, haben nur zukünftig gesendete Karten die Aktualisierung.
 
 #### Gestartete Karten aktualisieren {#updating-launched-cards}
 
@@ -331,7 +331,7 @@ Wenn Sie möchten, dass eine Karte scheinbar immer verfügbar ist, können Sie e
 
 ### Synchronisierung und Aktualisierung von Content Cards {#content-card-sync-and-refresh}
 
-Content Cards werden nach einem Zeitplan und beim Aktualisieren des Feeds durch Ihre App synchronisiert. Das Synchronisierungsverhalten unterscheidet sich zwischen vollständigen und teilweisen Synchronisierungen, und Ihre SDK-Integration beeinflusst, wann Karten bei Sitzungsstart aktualisiert werden. Implementierungsdetails finden Sie unter [Content-Card-Feed anpassen]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/) und [Content Cards erstellen]({{site.baseurl}}/developer_guide/content_cards/creating_cards/).
+Content Cards werden nach einem Zeitplan und beim Aktualisieren des Feeds durch Ihre App synchronisiert. Das Synchronisierungsverhalten unterscheidet sich zwischen vollständigen und teilweisen Synchronisierungen, und Ihre SDK-Integration beeinflusst, wann Karten bei Sitzungsstart aktualisiert werden. Implementierungsdetails finden Sie unter [Content-Card-Feed anpassen]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed) und [Content Cards erstellen]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
 
 ### Auswirkungen des Stoppens von Content-Card-Kampagnen {#impact-of-stopping-content-cards-campaigns}
 

@@ -79,7 +79,7 @@ Die Ausführung des Berichts kann je nach Datumsbereich und Anzahl der in der Ko
 Ihre Auswahl bei **Zeilen** beeinflusst die Metriken, die Sie auswählen können.
 
 {% alert tip %}
-Wenn Sie über Canvas-Varianten oder -Schritte berichten möchten, wählen Sie **Canvases** für die Zeilen und lassen Sie das Feld entweder leer oder wählen Sie **Datum** als Drilldown. Dadurch wird ein Dropdown **Canvas-Ansicht** erstellt, mit dem Sie Metriken nur für den Canvas anzeigen oder Metriken nach Variante, Schritt oder Nachricht gruppieren können.
+Wenn Sie über Canvas-Varianten oder -Schritte berichten möchten, wählen Sie **Canvases** für die Zeilen und lassen Sie das Feld entweder leer oder wählen Sie **Datum** als Drilldown. Dadurch wird ein Dropdown **Canvas-Ansicht** erstellt, mit dem Sie Metriken nur für den Canvas anzeigen oder Metriken nach Variante, Schritt oder Nachricht gruppieren können.<br><br> Wenn Sie nach Schritt gruppieren, zeigt die Vorschautabelle während der Konfiguration Ihres Berichts maximal 50 Zeilen an. Führen Sie den Bericht aus oder exportieren Sie ihn als CSV, um alle Zeilen anzuzeigen.
 
 ![Das geöffnete Dropdown „Canvas-Ansicht“.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -143,7 +143,7 @@ Sie können einen Dashboard-Link zum Bericht teilen, indem Sie **Teilen** und ei
 1. Wählen Sie das gepunktete Symbol oben in der Berichtstabelle.
 2. Wählen Sie **Zum Dashboard hinzufügen**.
 3. Wählen Sie, ob Sie ein neues Dashboard erstellen oder zu einem bestehenden Dashboard hinzufügen möchten.<br><br>![Fenster mit Optionen zur Auswahl, ob Sie den Bericht zu einem neuen oder bestehenden Dashboard hinzufügen möchten.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. Folgen Sie den Schritten im [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/), um mehr über das Erstellen eines Dashboards zu erfahren.
+4. Folgen Sie den Schritten im [Dashboard Builder]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder), um mehr über das Erstellen eines Dashboards zu erfahren.
 
 ## Fehlerbehebung {#troubleshooting}
 
@@ -152,3 +152,9 @@ Sie können einen Dashboard-Link zum Bericht teilen, indem Sie **Teilen** und ei
 Eine Campaign oder ein Canvas erscheint im Bericht, wenn das Datum **Zuletzt gesendet** in das von Ihnen konfigurierte Fenster **Zuletzt gesendet** fällt. **Versendungen** und andere Metriken werden nur für Aktivitäten innerhalb des Datumsbereichs **Daten anzeigen für** befüllt. Wenn die Nachricht während des Zeitraums **Daten anzeigen für** nicht gesendet wurde, kann die Zeile die Campaign oder den Canvas trotzdem mit null Versendungen auflisten.
 
 Angenommen, **Zuletzt gesendet** ist 1. Januar 2025 – 14. April 2025, sodass eine Campaign eingeschlossen wird, aber **Daten anzeigen für** ist 1. Dezember 2024 – 14. Januar 2025. Wenn diese Campaign im Dezember oder Januar keine Versendungen hatte, erscheint sie trotzdem in der Tabelle ohne Versandmetriken.
+
+### Download-Link ist abgelaufen {#download-link-has-expired}
+
+Download-Links für Berichte laufen nach einer Stunde ab. Wenn Ihr Link abgelaufen ist, erstellen Sie einen neuen Bericht und laden Sie ihn innerhalb einer Stunde herunter. Es gibt keine Möglichkeit, die Ablaufzeit zu verlängern.
+
+Wenn Sie einen [Amazon-S3-Bucket]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) in **Partnerintegrationen** verbunden haben, können Sie möglicherweise Daten aus älteren Berichten abrufen, indem Sie Ihren S3-Bucket direkt durchsuchen.

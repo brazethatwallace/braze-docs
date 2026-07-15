@@ -14,15 +14,15 @@ tool:
 
 > De modo geral, imagens menores e de alta qualidade carregam mais rápido, por isso recomendamos usar o menor ativo possível para alcançar o resultado desejado. Para maximizar o uso de imagens em canais específicos, consulte os detalhes neste artigo.
 
-Você deve sempre [pré-visualizar e testar suas mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) em diversos dispositivos para confirmar que as áreas mais importantes da sua imagem e mensagem apareçam conforme esperado.
+Você deve sempre [pré-visualizar e testar suas mensagens]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) em diversos dispositivos para confirmar que as áreas mais importantes da sua imagem e mensagem apareçam conforme esperado.
 
 ## Comportamento da imagem {#image-behavior}
 
-{% multi_lang_include image_specs.md variable_name='image behavior' %}
+{% multi_lang_include channels/image_specs.md variable_name='image behavior' %}
 
 ## Vídeo {#video}
 
-Vídeos enviados para a Biblioteca de mídia só podem ser usados em mensagens do WhatsApp. Para saber mais, consulte [Criando uma mensagem do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#outbound-messages).
+Vídeos enviados para a Biblioteca de mídia só podem ser usados em mensagens do WhatsApp. Para saber mais, consulte [Criando uma mensagem do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#outbound-messages).
 
 ## GIFs {#gifs}
 
@@ -34,19 +34,19 @@ GIFs são compatíveis com push para iOS, mensagens no app, e-mail, Content Card
 
 ### Content Cards
 
-{% multi_lang_include image_specs.md variable_name='content cards' %}
+{% multi_lang_include channels/image_specs.md variable_name='content cards' %}
 
 ### E-mail {#email}
 
-{% multi_lang_include image_specs.md variable_name='email' %}
+{% multi_lang_include channels/image_specs.md variable_name='email' %}
 
 ### Mensagens no app {#in-app-messages}
 
-{% multi_lang_include image_specs.md variable_name='in-app messages' %}
+{% multi_lang_include channels/image_specs.md variable_name='in-app messages' %}
 
 {% alert tip %} Crie ativos com confiança! Nossos modelos de imagem para mensagens no app e sobreposições de zona segura foram projetados para funcionar bem em dispositivos de todos os tamanhos. [Baixar ZIP de modelos de design]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}). {% endalert %}
 
-Para saber mais, consulte [Detalhes criativos de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/).
+Para saber mais, consulte [Detalhes criativos de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/customize).
 
 #### Font Awesome
 
@@ -54,9 +54,9 @@ A Braze oferece suporte ao uso do [Font Awesome v4.3.0](https://fontawesome.com/
 
 ### Notificações por push {#push-notifications}
 
-{% multi_lang_include image_specs.md variable_name='payload size' %}
+{% multi_lang_include channels/image_specs.md variable_name='payload size' %}
 
-{% multi_lang_include image_specs.md variable_name='push notifications' %}
+{% multi_lang_include channels/image_specs.md variable_name='push notifications' %}
 
 #### Comprimentos de mensagem recomendados {#recommended-message-lengths}
 
@@ -71,7 +71,7 @@ Para melhores resultados, consulte as diretrizes de comprimento de mensagem a se
 | Gaveta de notificações do Android | 597 caracteres | N/A |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Comprimentos de mensagem recomendados" }
 
-Para saber mais sobre contagem de caracteres no iOS, consulte as [diretrizes de contagem de caracteres do iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count).
+Para saber mais sobre contagem de caracteres no iOS, consulte as [diretrizes de contagem de caracteres do iOS]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count).
 
 #### Push para a web {#web-push}
 
@@ -82,7 +82,7 @@ Para saber mais sobre contagem de caracteres no iOS, consulte as [diretrizes de 
 | --- | --- |
 | Chrome | 192 x 192 px ou maior |
 | Firefox | 192 x 192 px ou maior |
-| Safari | 192 x 192 px ou maior (configurável por campanha com Safari 16 no macOS 13+) |
+| Safari | 192 x 192 px ou maior (configurável por Campaign com Safari 16 no macOS 13+) |
 | Opera | 192 x 192 px ou maior |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push para a web" }
 
@@ -140,4 +140,4 @@ Notificações com imagens grandes ficam melhores ao usar uma imagem de pelo men
 {% endtab %}
 {% endtabs %}
 
-Para recursos adicionais, consulte [Especificações de imagem e texto para push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats/).
+Para recursos adicionais, consulte [Especificações de imagem e texto para push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/message_and_image_formats).

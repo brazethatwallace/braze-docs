@@ -11,7 +11,7 @@ tool: Media
 
 # Détails créatifs pour les Content Cards {#creative-details-for-content-cards}
 
-> La personnalisation des Content Cards et du flux dans lequel elles se trouvent ne peut pas être effectuée lors du processus de création de Campaign : vous devez travailler avec vos ingénieurs et développeurs pour créer et personnaliser vos cartes. Pour les détails techniques, consultez notre [documentation développeur]({{site.baseurl}}/developer_guide/getting_started/customization_overview/).
+> La personnalisation des Content Cards et du flux dans lequel elles se trouvent ne peut pas être effectuée lors du processus de création de Campaign : vous devez travailler avec vos ingénieurs et développeurs pour créer et personnaliser vos cartes. Pour les détails techniques, consultez notre [documentation développeur]({{site.baseurl}}/developer_guide/getting_started/customization_overview).
 
 ## Types de Content Cards {#content-card-types}
 
@@ -63,7 +63,7 @@ Si vous souhaitez davantage de liberté créative, la carte image uniquement est
 
 ## Détails créatifs généraux {#general}
 
-Les Content Cards prennent en charge le texte et les images, y compris les GIF, de manière native. Actuellement, le style personnalisé des cartes, comme des couleurs de police différentes ou plusieurs images, ne peut pas être configuré dans le tableau de bord. Vous pouvez appliquer un style personnalisé à vos Content Cards et à votre flux lors de l'intégration. Pour plus de détails, consultez [Personnaliser les cartes]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/) pour le SDK Braze.
+Les Content Cards prennent en charge le texte et les images, y compris les GIF, de manière native. Actuellement, le style personnalisé des cartes, comme des couleurs de police différentes ou plusieurs images, ne peut pas être configuré dans le tableau de bord. Vous pouvez appliquer un style personnalisé à vos Content Cards et à votre flux lors de l'intégration. Pour plus de détails, consultez [Personnaliser les cartes]({{site.baseurl}}/developer_guide/content_cards/customizing_cards) pour le SDK Braze.
 
 ### Comportement de fermeture {#dismissal-behavior}
 
@@ -83,5 +83,5 @@ Gardez vos Content Cards pertinentes en les configurant pour qu'elles se ferment
 
 | Content Cards pour Android | Content Cards pour iOS | Content Cards pour le Web |
 | --- | --- |---|
-| Le SDK Android ne prend pas en charge les GIF animés par défaut. Pour savoir comment activer cette prise en charge, consultez [GIF]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs/?sdktab=android). | Le SDK Swift ne prend pas en charge les GIF animés par défaut. Pour savoir comment activer cette prise en charge, consultez le [tutoriel de prise en charge des GIF](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support). | La prise en charge des GIF est incluse par défaut dans l'intégration du SDK Web. |
+| Le SDK Android ne prend pas en charge les GIF animés par défaut. Pour savoir comment activer cette prise en charge, consultez [GIF]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs?sdktab=android). | Le SDK Swift ne prend pas en charge les GIF animés par défaut. Pour savoir comment activer cette prise en charge, consultez le [tutoriel de prise en charge des GIF](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support). | La prise en charge des GIF est incluse par défaut dans l'intégration du SDK Web. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Utilisation des GIF dans les Content Cards" }

@@ -16,7 +16,7 @@ hidden: true
 
 `brazeActions://` 딥링크 스키마는 인앱 메시지 및 Content Cards 내에서 딥링크 또는 리디렉션 옵션이 있는 모든 곳에서 사용할 수 있습니다.
 
-HTML 인앱 메시지의 경우 딥링크가 HTML 메시지 유형에서 지원되지 않으므로 대신 [`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize/#javascript-bridge)를 사용하세요.
+HTML 인앱 메시지의 경우 딥링크가 HTML 메시지 유형에서 지원되지 않으므로 대신 [`Javascript Bridge`]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/customize#javascript-bridge)를 사용하세요.
 
 ## 스키마 {#schema}
 
@@ -93,7 +93,7 @@ function encode(input) {
 | `removeFromSubscriptionGroup` | `subscriptionGroupId` |
 | `addToCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
 | `removeFromCustomAttributeArray` | 1. `attribute_name`<br>2. `attribute_value` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Actions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="지원되는 동작" }
 
 ## JSON 인코더 {#json-encoder}
 

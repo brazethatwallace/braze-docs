@@ -8,6 +8,9 @@ on:
       - "_config.yml"
       - "_plugins/**"
       - "assets/js/broken_redirect_list.js"
+      - "assets/redirects/bulk-redirects.json"
+      - "scripts/generate_bulk_redirects.py"
+      - "vercel.json"
       - "scripts/validate_doc_redirects.rb"
       - "scripts/jekyll_url_map_dump.rb"
       - "scripts/redirect_target_verify_helpers.rb"
@@ -26,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout PR head"
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
         with:
           fetch-depth: 0
 
@@ -47,7 +50,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout PR head"
-        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd  # v6.0.2
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
 
       - name: "Set up Node"
         uses: actions/setup-node@v6
@@ -56,3 +59,18 @@ jobs:
 
       - name: "Parse-check global redirect list"
         run: node --check assets/js/broken_redirect_list.js
+
+  bulk-redirects-sync:
+    name: "bulk-redirects.json in sync"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout PR head"
+        uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
+
+      - name: "Set up Python"
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: "Verify bulk redirects export"
+        run: python3 scripts/generate_bulk_redirects.py --check

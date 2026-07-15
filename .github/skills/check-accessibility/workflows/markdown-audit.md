@@ -5,7 +5,7 @@
 Runs two accessibility scripts against changed markdown and HTML include files:
 
 1. `scripts/check_table_accessibility.py` — checks table accessible names (WCAG 1.3.1)
-2. `scripts/check_content_accessibility.py` — checks image alt text (1.1.1), non-descriptive link text (2.4.4), heading hierarchy (2.4.6), and inline iframes (4.1.2)
+2. `scripts/check_content_accessibility.py` — checks image alt text (1.1.1), non-descriptive link text (2.4.4), heading hierarchy (2.4.6), inline iframes (4.1.2), and spatial directional language (1.3.3)
 
 Findings from both scripts are merged and processed together with the same confidence-tier system. High-confidence fixes are applied automatically. Medium and low confidence issues pause and ask the author what to do.
 
@@ -87,6 +87,7 @@ Any of these conditions:
 - `violation_type: image_missing_alt` — author must decide whether to add alt text or confirm decorative intent
 - `violation_type: nondescriptive_link` — fix requires knowing the destination
 - `violation_type: iframe_missing_title` — title wording is contextual
+- `violation_type: spatial_directional` — replace layout references with section names or anchor links
 
 ### Low confidence — stop and ask
 
@@ -151,6 +152,10 @@ After applying all high-confidence fixes, collect the remaining violations and p
 - **Accept context suggestion** — Use the surrounding text to suggest a replacement
 - **Skip for now** — Leave this link unchanged
 
+*For `spatial_directional` violations:*
+- **Replace reference** — Tell me the section or anchor to use; I'll apply it
+- **Skip for now** — Leave this line unchanged
+
 *For `heading_skip` violations:*
 - **I'll fix manually** — Acknowledged; I'll adjust heading levels myself
 - **Skip for now** — Leave this unchanged
@@ -183,6 +188,7 @@ After all issues are resolved or skipped, present a summary:
 | 1.3.1 | Table accessible names | N | [auto-fixed / fixed with input / skipped] |
 | 1.1.1 | Image alt text | N | [fixed with input / skipped] |
 | 2.4.4 | Non-descriptive link text | N | [fixed with input / skipped] |
+| 1.3.3 | Spatial directional language | N | [fixed with input / skipped] |
 | 2.4.6 | Heading hierarchy | N | [acknowledged / skipped] |
 | 4.1.2 | Inline iframes | N | [fixed with input / skipped] |
 

@@ -443,7 +443,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### Segments
 
-[분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/)이 활성화된 Segments를 선택하는 데 사용합니다. 이 열이 사용 가능한 테이블의 `user_segment_membership_ids` 열에 저장된 ID에 해당하는 Segment 분석 ID로 설정합니다.
+[분석 추적]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)이 활성화된 Segments를 선택하는 데 사용합니다. 이 열이 사용 가능한 테이블의 `user_segment_membership_ids` 열에 저장된 ID에 해당하는 Segment 분석 ID로 설정합니다.
 
 {% tabs %}
 {% tab 사용법 %}

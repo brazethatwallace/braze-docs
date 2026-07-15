@@ -20,7 +20,7 @@ description: "This article outlines the details about the Query or list hard bou
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `email.hard_bounces` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `email.hard_bounces` permission.
 
 ## Rate limit
 

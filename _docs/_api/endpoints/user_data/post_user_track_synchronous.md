@@ -10,7 +10,7 @@ description: "This article outlines details about the synchronous Track user Bra
 ---
 {% api %}
 # Create and update users (synchronous)
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/sync
 {% endapimethod %}
 
@@ -26,13 +26,13 @@ In an asynchronous call, the API returns the status code `201`, indicating that 
 
 In a synchronous call, the API returns a status code `201`, indicating that your request was successfully received, understood, accepted, and completed. The call response shows select user profile fields as a result of the operation.
 
-This endpoint has a lower rate limit than the `/users/track` endpoint (see [rate limit](#rate-limit) below). Each `/users/track/sync` request can contain only  one event object, one attribute object, **or** one purchase object. This endpoint should be reserved for user profile updates where a synchronous call is needed. For a healthy implementation, we recommend using `/users/track/sync` and `/users/track` together.
+This endpoint has a lower rate limit than the `/users/track` endpoint (see [Rate limit](#rate-limit)). Each `/users/track/sync` request can contain only one event object, one attribute object, **or** one purchase object. This endpoint should be reserved for user profile updates where a synchronous call is needed. For a healthy implementation, we recommend using `/users/track/sync` and `/users/track` together.
 
 For example, if you're sending consecutive requests for the same user over a short period of time, race conditions are possible with the asynchronous `/users/track` endpoint, but with the `/users/track/sync` endpoint you can send those requests in sequence, each after receiving a `2XX` response.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `users.track.sync` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.track.sync` permission.
 
 Customers using the API for server-to-server calls may need to allowlist `rest.iad-01.braze.com` if they're behind a firewall.
 
@@ -65,9 +65,9 @@ For each request component listed in the following table, you must include one o
 
 | Parameter | Required | Data Type | Description |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Optional | One attributes object | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | Optional | One event object | See [events object]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | Optional | One purchase object | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | Optional | One attributes object | See [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
+| `events` | Optional | One event object | See [events object]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | Optional | One purchase object | See [purchases object]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Responses
@@ -162,7 +162,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 --data-raw '{
     "events": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "app_id": "your_app_identifier",
             "name": "rented_movie",
             "time": "2022-12-06T19:20:45+01:00",
@@ -191,7 +191,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/sync' 
 {
     "users": [
         {
-            "email": "test@braze.com",
+            "email": "test@example.com",
             "custom_events": [
                 {
                 "name": "rented_movie",
@@ -285,10 +285,12 @@ Yes, as long as the requests are for different users, or each request updates di
 
 If you're sending multiple requests for a user, for the same attribute, event, or purchase, Braze recommends waiting for a successful response between each request to prevent race conditions from occurring.
 
+If you still see inconsistent profile state when calling `/users/track` for the same user in quick succession, switch those updates to `/users/track/sync` and issue one request at a time, waiting for each `2XX` response before the next. That ordering is the supported way to avoid read-after-write races across tight loops or parallel workers.
+
 ### Why doesn't the response value match the one in my original request?
 
 Although your request is completed, it's possible your custom attribute value didn't update. This can happen when your custom attribute update exceeds the maximum number of characters, exceeds array limits, or if the user does not exist in Braze and you have `_update_existing_only = true`.
 
-In these cases, treat the response as an indication that your request, while completed, your desired update has not been made. Troubleshoot with the reasons why this may happen from above.
+In these cases, treat the response as an indication that your request, while completed, your desired update has not been made. Troubleshoot using the reasons listed in [Why doesn't the response value match the one in my original request?](#why-doesnt-the-response-value-match-the-one-in-my-original-request).
 
 {% endapi %}

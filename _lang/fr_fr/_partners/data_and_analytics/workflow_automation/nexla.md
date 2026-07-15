@@ -10,20 +10,20 @@ search_tag: Partner
 
 # Nexla
 
-> [Nexla](https://www.nexla.com) est un leader des opérations de données unifiées et figure parmi les Gartner Cool Vendors 2021. La plateforme Nexla fournit des outils pour créer des flux de données évolutifs, offrant des opérations de données gouvernées, une collaboration et une agilité pour les équipes métier et data. Les équipes qui travaillent avec des données bénéficient d'une expérience unifiée no-code/low-code pour intégrer, transformer, provisionner et surveiller les données pour tous les cas d'utilisation.
+> [Nexla](https://www.nexla.com) est un leader des opérations de données unifiées et figure parmi les Gartner Cool Vendors 2021. La plateforme Nexla fournit des outils pour créer des flux de données évolutifs, offrant des opérations de données gouvernées, une collaboration et une agilité pour les équipes métier et data. Les équipes qui travaillent avec des données bénéficient d'une expérience unifiée no-code/low-code pour intégrer, transformer, provisionner et surveiller les données pour tous les cas d'usage.
 
-L'intégration de Braze et Nexla permet aux clients qui utilisent [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/) de tirer parti de Nexla pour extraire, transformer et charger les données des lacs de données vers d'autres emplacements dans un format personnalisé, rendant ainsi les données facilement accessibles dans l'ensemble de votre écosystème.
+L'intégration de Braze et Nexla permet aux clients qui utilisent [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents) de tirer parti de Nexla pour extraire, transformer et charger les données des lacs de données vers d'autres emplacements dans un format personnalisé, rendant ainsi les données facilement accessibles dans l'ensemble de votre écosystème.
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
 | Condition | Description |
 |---|---|
 | Compte Nexla | Un [compte Nexla](https://www.nexla.com/get-demo) est nécessaire pour profiter de ce partenariat. |
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. <br><br> Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
-| Endpoint REST Braze  | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
+| Endpoint REST Braze  | L'URL de votre endpoint REST. Votre endpoint dépendra de l'[URL de Braze pour votre instance]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 [Nexsets](https://nexla.zendesk.com/hc/en-us/articles/360052999674-Dataset-Information), le concept de données en tant que produit de Nexla, permet de travailler avec des données de n'importe quel format sans avoir à gérer les métadonnées. Lorsque vous mettez en place des flux de données vers ou depuis Braze avec Nexla, des outils no-code sont disponibles en quelques minutes. Une fois que le flux de données est défini sur une destination, Nexla surveille le flux et s'adapte à n'importe quel volume de données.
 
@@ -36,7 +36,7 @@ Si vous n'avez pas encore de compte Nexla, rendez-vous sur le [site web](https:/
 ### Étape 2 : Ajouter votre source {#step-2-add-your-source}
 
 #### Si Braze est votre source de données {#if-braze-is-your-data-source}
-1. Sur la plateforme Nexla, accédez à **Flows** > **Create a New Flow** dans la barre d'outils de gauche.
+1. Sur la plateforme Nexla, accédez à **Flows > Create a New Flow** dans la barre de navigation.
 2. Cliquez sur **Create New Source**, sélectionnez le connecteur Braze, puis cliquez sur **Next**.
 3. Sélectionnez **Add a New Credential**, nommez l'identifiant, ajoutez votre clé API Braze et votre endpoint REST, puis cliquez sur **Save**.
 4. Enfin, sélectionnez vos données et cliquez sur **Save**.

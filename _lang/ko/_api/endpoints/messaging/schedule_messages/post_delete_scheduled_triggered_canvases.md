@@ -10,7 +10,7 @@ description: "이 문서에서는 예약된 API 트리거 Canvases 삭제 Braze 
 ---
 {% api %}
 # 예약된 API 트리거 Canvases 삭제 {#delete-scheduled-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/delete
 {% endapimethod %}
 
@@ -22,7 +22,7 @@ description: "이 문서에서는 예약된 API 트리거 Canvases 삭제 Braze 
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `canvas.trigger.schedule.delete` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `canvas.trigger.schedule.delete` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -46,7 +46,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | 필수 | 문자열 | [Canvas 식별자]({{site.baseurl}}/api/identifier_types/)를 참조하세요. |
+| `canvas_id` | 필수 | 문자열 | [Canvas 식별자]({{site.baseurl}}/api/identifier_types)를 참조하세요. |
 | `schedule_id` | 필수 | 문자열 | 삭제할 `schedule_id`(스케줄 생성 응답에서 얻은 값)입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 

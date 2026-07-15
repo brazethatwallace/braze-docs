@@ -2,10 +2,10 @@
 
 エディターブロックは、メールメッセージの**コンテンツ**セクションにあります。**ドラッグ＆ドロップエディター**でブロックをカラム内にドラッグすると、カラム幅に自動調整されます。
 
-**ドラッグ＆ドロップエディター**でのメール作成の詳細については、[ドラッグ＆ドロップでメールを作成する]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/)および同記事内の<a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">その他のカスタマイズ</a> を参照してください。
+**ドラッグ＆ドロップエディター**でのメール作成の詳細については、[ドラッグ＆ドロップでメールを作成する]({{site.baseurl}}/user_guide/channels/email/drag_and_drop)および同記事内の<a href="{{site.baseurl}}/user_guide/channels/email/drag_and_drop/#other-customizations">その他のカスタマイズ</a> を参照してください。
 
 {% alert tip %}
-`Image`、`Button`、または `Text` エディターブロック内の任意のURLに[カスタム属性]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes/)を追加することもできます。
+`Image`、`Button`、または`Text`エディターブロック内の任意のURLに[カスタム属性]({{site.baseurl}}/user_guide/data/activation/custom_data/custom_attributes)を追加することもできます。
 {% endalert %}
 
 ### タイトル {#title}
@@ -23,7 +23,7 @@
 | 整列 | タイトルを左寄せ、中央揃え、または右寄せにします。 |
 | 行の高さ | テキストの行間の距離を変更します。 |
 | 文字間隔 | 各文字間の距離を変更します。 |
-| 文字の向き | デフォルトでは左から右へ表示されますが、[右から左へ]({{site.baseurl}}/right_to_left_messages/)表示するように編集できます。 |
+| 文字の向き | デフォルトでは左から右へ表示されますが、[右から左へ]({{site.baseurl}}/right_to_left_messages)表示するように編集できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Title" }
 
 ### 段落 {#paragraph}
@@ -41,7 +41,7 @@
 | 段落の間隔 | 段落間のスペースを変更します。 |
 | 行の高さ | テキストの行間の距離を変更します。 |
 | 文字間隔 | 各文字間の距離を変更します。 |
-| 文字の向き | デフォルトでは左から右へ表示されますが、[右から左へ]({{site.baseurl}}/right_to_left_messages/)表示するように編集できます。 |
+| 文字の向き | デフォルトでは左から右へ表示されますが、[右から左へ]({{site.baseurl}}/right_to_left_messages)表示するように編集できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paragraph" }
 
 ### リスト {#list}
@@ -63,7 +63,7 @@
 | リスト項目のインデント | リスト項目のインデントを変更します。 |
 | 行の高さ | テキストの行間の距離を変更します。 |
 | 文字間隔 | 各文字間の距離を変更します。 |
-| 文字の向き | デフォルトでは左から右へ表示されますが、[右から左へ]({{site.baseurl}}/right_to_left_messages/)表示するように編集できます。 |
+| 文字の向き | デフォルトでは左から右へ表示されますが、[右から左へ]({{site.baseurl}}/right_to_left_messages)表示するように編集できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="List" }
 
 ### ボタン {#button}
@@ -110,15 +110,15 @@
 
 ### 画像 {#image}
 
-[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)から画像を挿入します。ダイナミックな画像（Liquidやコネクテッドコンテンツを含む画像）では、自動幅設定を使用するためにフォールバック画像を設定する必要があります。画像仕様については、[メール画像仕様]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications/#email)を参照してください。
+[メディアライブラリ]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)から画像を挿入します。ダイナミックな画像（LiquidやConnected Contentを含む画像）では、自動幅設定を使用するためにフォールバック画像を設定する必要があります。画像仕様については、[メール画像仕様]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications#email)を参照してください。
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
 | プロパティ | 説明 |
 |---|---|
 | 自動幅 | 画像の幅をピクセル単位で変更します。 |
-| 整列 | 画像をブロックの左、中央、右のいずれかに揃えます。 |
-| Liquidを含む画像 | [Liquid]({{site.baseurl}}/liquid/)ロジックを使って、同じコンテンツブロック内でダイナミックに異なる画像を設定します。 |
+| 整列 | 画像をブロック内の左、中央、右のいずれかに揃えます。 |
+| Liquidを含む画像 | [Liquid]({{site.baseurl}}/liquid)ロジックを使って、同じコンテンツブロック内でダイナミックに異なる画像を設定します。 |
 | URL | 画像がホストされている場所のアドレスを使って画像を設定します。 |
 | 代替テキスト | 画像に表示されている情報と同じ内容をユーザーに提供する、画像の短い説明です。スクリーンリーダーのアクセシビリティや、画像が読み込めない場合に不可欠です。 |
 | 角丸の画像 | 四隅を角丸にして画像をレンダリングします。デフォルトでは、画像は四隅が直角の状態でレンダリングされます。 |
@@ -131,6 +131,19 @@
 - 利用可能なスペースより広い画像は100%の幅に設定され、モバイルではこの比率を維持し、デバイスの表示幅全体を使用します。
 - 利用可能なスペースより小さい画像は、歪みやぼやけを避けるために、画像の自然なサイズを使用します。
 {% endalert %}
+
+#### Gmailのダウンロードボタンの動作 {#gmail-download-button-behavior}
+
+Gmailは、ハイパーリンク（`href`）が関連付けられていない画像に対して、自動的にダウンロードボタンを追加します。ただし、画像のアスペクト比が299 x 524 px以下の場合、Gmailはダウンロードボタンを表示しません。
+
+大きな画像にダウンロードボタンが表示されるのを防ぐには、「#」リンクの回避策を適用できます。
+
+1. **Image**ブロックを選択します。
+2. **Block Options**パネルで、**Link**セクションに移動します。
+3. **Link type**を**Open web page**に設定します。
+4. **URL**入力フィールドにポンド記号（`#`）を入力します。
+
+このリンクを追加すると、ユーザーエクスペリエンスに影響を与えることなく、Gmailがダウンロードボタンを表示するのを防ぐことができます。
 
 ### 動画 {#video}
 
@@ -181,11 +194,11 @@ Vimeoでホストされている動画は、公開に設定されている場合
 
 ### HTML
 
-生のHTMLを挿入します。コネクテッドコンテンツや条件文などの[Liquid]({{site.baseurl}}/liquid/)に推奨されます。
+生のHTMLを挿入します。コネクテッドコンテンツや条件文などの[Liquid]({{site.baseurl}}/liquid)に推奨されます。
 
 | プロパティ | 説明 |
 |---|---|
-| HTML | パーソナライゼーションや条件ロジック用の[Liquid]({{site.baseurl}}/liquid/)を含む、生のHTMLを追加または編集します。 |
+| HTML | パーソナライゼーションや条件ロジック用の[Liquid]({{site.baseurl}}/liquid)を含む、生のHTMLを追加または編集します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTML" }
 
 ### メニュー {#menu}
@@ -210,11 +223,11 @@ Vimeoでホストされている動画は、公開に設定されている場合
 
 ### 製品 {#product}
 
-[製品カタログ]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks/)から製品行をレンダリングします。カタログのセレクションからの静的アイテム（最大12件）、または[キャンバス eコマーストリガー]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/)によるダイナミックな製品（最大24件）として表示できます。
+[製品カタログ]({{site.baseurl}}/user_guide/messaging/design_and_edit/product_blocks)から製品行をレンダリングします。カタログのセレクションからの静的アイテム（最大12件）、または[キャンバスeコマーストリガー]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases)によるダイナミックな製品（最大24件）として表示できます。
 
 | プロパティ | 説明 |
 | --- | --- |
-| コンテンツタイプ | 製品を固定カタログの**セレクション**（**静的**、最大12製品）から取得するか、キャンバス eコマースレコメンデーショントリガー（**ダイナミック**、最大24製品）から取得するかを設定します。**ダイナミック**はキャンバスメッセージステップでのみ利用可能です。 |
+| コンテンツタイプ | 製品を固定カタログの**セレクション**（**静的**、最大12製品）から取得するか、キャンバスeコマースレコメンデーショントリガー（**ダイナミック**、最大24製品）から取得するかを設定します。**ダイナミック**はキャンバスのメッセージステップでのみ利用可能です。 |
 | カタログ | 製品データとフィールドマッピングを提供する製品カタログを選択します。 |
 | セレクション | *（静的のみ）* カタログ上のどのフィルタリングされたセットが表示する製品を定義するかを選択します。 |
 | ソース詳細を表示 | 各製品フィールドにマッピングされている基盤のカタログまたはイベントフィールドを示すヘルプテキストを切り替えます。 |
@@ -232,7 +245,7 @@ Vimeoでホストされている動画は、公開に設定されている場合
 
 ## パーソナライゼーション {#personalization}
 
-Liquidやコネクテッドコンテンツを使用して、メールにパーソナライゼーションを追加できます。
+LiquidやConnected Contentを使用して、メールにパーソナライゼーションを追加できます。
 
 - **Liquid：** **Content** > **Personalization**で属性を選択し、スニペットをコピーして、タイトル、段落、またはリストブロック（基本的なLiquid）またはHTMLブロック（高度なLiquid）に貼り付けます。一般的に、タイトル、段落、リストブロックで基本的なLiquidを使用できますが、レイアウトの問題を避けるために、複雑なロジックにはHTMLブロックの使用をお勧めします。なお、画像ブロックやボタンのURLフィールドではLiquidはサポートされていません。
-- **[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/)：** **HTML**ブロックを追加し、そこに {% raw %}`{% connected_content %}`{% endraw %} コールを配置します。
+- **[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)：** **HTML**ブロックを追加し、そこに {% raw %}`{% connected_content %}`{% endraw %} コールを配置します。

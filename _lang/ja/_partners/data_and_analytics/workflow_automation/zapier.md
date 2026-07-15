@@ -11,19 +11,19 @@ search_tag: Partner
 
 > [Zapier](https://zapier.com/) は、Webアプリ間でデータを共有し、その情報を使用してアクションを自動化できるオートメーションWebツールです。
 
-BrazeとZapierのパートナーシップでは、Braze APIとBrazeの[Webhook]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook/#creating-a-webhook)を活用してサードパーティアプリケーション（Google Workplace、Slack、Salesforce、WordPressなど）に接続し、さまざまなアクションを自動化できます。
+BrazeとZapierのパートナーシップでは、Braze APIとBrazeの[Webhook]({{site.baseurl}}/user_guide/message_building_by_channel/webhooks/creating_a_webhook#creating-a-webhook)を活用してサードパーティアプリケーション（Google Workplace、Slack、Salesforce、WordPressなど）に接続し、さまざまなアクションを自動化できます。
 
 ## 前提条件 {#prerequisites}
 
 | 要件 | 説明 |
 |---|---|
 | Zapierアカウント | このパートナーシップを活用するには、Zapierアカウントが必要です。 |
-| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics/#api-definitions)に応じて異なります。 |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze RESTエンドポイント | RESTエンドポイントのURL。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/api/basics#api-definitions)に応じて異なります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
-以下のZapierの例では、POST Webhookを使ってWordPressからBrazeに情報を送信します。この情報を使用してBraze キャンバスを作成できます。
+以下のZapierの例では、POST Webhookを使ってWordPressからBrazeに情報を送信します。この情報を使用してBrazeキャンバスを作成できます。
 
 ### ステップ1: Zapierトリガーを作成する {#step-1-create-a-zapier-trigger}
 
@@ -41,7 +41,7 @@ WordPressの例を使って、Zapierプラットフォームで、WordPressの�
 
 この例の続きで、BrazeのエンドポイントにJSONとしてPOSTリクエストを送信します。これを行うには、**Apps**の下にある**Webhooks**オプションを選択します。
 
-![]({% image_buster /assets/img_archive/zapier3.png %})
+![Zapier Appsステップで、アクションとしてWebhooksが選択されています。]({% image_buster /assets/img_archive/zapier3.png %})
 
 ### ステップ3: Braze POSTをセットアップする {#step-3-set-up-braze-post}
 
@@ -71,15 +71,15 @@ Webhookを設定するときに、次の設定を使用してWebhook URLにBraze
 }
 ```
 
-![]({% image_buster /assets/img/zapier.png %}){: style="max-width:70%;"}
+![Brazeエンドポイント、ヘッダー、ペイロードフィールドが設定されたZapier Webhookの構成画面。]({% image_buster /assets/img/zapier.png %}){: style="max-width:70%;"}
 
-### ステップ4: Braze キャンペーンを作成する {#step-4-create-a-braze-campaign}
+### ステップ4: Brazeキャンペーンを作成する {#step-4-create-a-braze-campaign}
 
-zapの設定が完了したら、Liquidフォーマットを使用してメッセージに情報を表示することで、WordPressデータを使用してBraze キャンペーンやキャンバスをカスタマイズできます。
+zapの設定が完了したら、Liquidフォーマットを使用してメッセージに情報を表示することで、WordPressデータを使用してBrazeキャンペーンやキャンバスをカスタマイズできます。
 
 ## `/users/track`エンドポイントでZapierを使用する {#using-zapier-with-the-userstrack-endpoint}
 
-Brazeの[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)エンドポイントにデータを送信するには（たとえば、Google Sheetsの**New or Updated Spreadsheet Row**のようなトリガーを使用する場合）、**Webhooks by Zapier**で**Custom Request**を使用してください。標準の**POST**アクションは使用しないでください。標準のPOSTアクションは、`/users/track`エンドポイントと互換性のない形式でリクエストをフォーマットします。
+Brazeの[`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)エンドポイントにデータを送信するには（たとえば、Google Sheetsの**New or Updated Spreadsheet Row**のようなトリガーを使用する場合）、**Webhooks by Zapier**で**Custom Request**を使用してください。標準の**POST**アクションは使用しないでください。標準のPOSTアクションは、`/users/track`エンドポイントと互換性のない形式でリクエストをフォーマットします。
 
 1. Zapierで、トリガーを選択します（たとえば、Google Sheetsの**New or Updated Spreadsheet Row**）。
 2. アクションとして**Webhooks by Zapier**を選択し、**Custom Request**を選択します（POSTではありません）。

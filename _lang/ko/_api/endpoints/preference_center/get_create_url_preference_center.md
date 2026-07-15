@@ -22,7 +22,7 @@ description: "이 문서에서는 환경설정 센터 URL 생성 Braze 엔드포
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `preference_center.user.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `preference_center.user.get` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -34,7 +34,7 @@ description: "이 문서에서는 환경설정 센터 URL 생성 Braze 엔드포
 | --------- | ---------| --------- | ----------- |
 | `preferenceCenterExternalID` | 필수 | 문자열 | 환경설정 센터의 ID입니다. |
 | `userID` | 필수 | 문자열 | 사용자 ID입니다. |
-{: aria-label="Path parameters" }
+{: aria-label="경로 매개변수" }
 
 ## 요청 매개변수 {#request-parameters}
 
@@ -42,9 +42,9 @@ description: "이 문서에서는 환경설정 센터 URL 생성 Braze 엔드포
 | --------- | ---------| --------- | ----------- |
 | `preference_center_api_id` | 필수 | 문자열 | 환경설정 센터의 ID입니다. |
 | `external_id` | 필수 | 문자열 | 사용자의 외부 ID입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="요청 매개변수" }
 
-## 예시 요청 {#example-request}
+## 요청 예시 {#example-request}
 
 ```
 curl --location --request GET 'https://rest.iad-01.braze.com/preference_center/v1/$preference_center_external_id/url/$user_external_id' \

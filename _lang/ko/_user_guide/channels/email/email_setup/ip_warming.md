@@ -25,9 +25,9 @@ IP 워밍은 인터넷 서비스 공급자(ISP)와 긍정적인 평판을 쌓는
 
 IP 워밍을 시작하기 전에:
 
-1. **설정** > **이메일 환경설정**에서 기본 발송 도메인을 설정하고, [사용자 지정 바닥글]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer/)에 유효한 탈퇴 링크를 추가하고, [list-unsubscribe 헤더]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences/#list-unsubscribe)를 활성화하며, 필요한 경우 커스텀 탈퇴/옵트인 페이지를 고려하세요.
-2. 이메일에 대한 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)을 구성하세요.
-3. **콘텐츠** > **이메일**에서 필요한 템플릿을 생성하세요.
+1. **설정** > **이메일 환경설정**에서 기본 발송 도메인을 설정하고, [사용자 지정 바닥글]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer)에 유효한 탈퇴 링크를 추가하고, [list-unsubscribe 헤더]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#list-unsubscribe)를 활성화하며, 필요한 경우 커스텀 탈퇴/옵트인 페이지를 고려하세요.
+2. 이메일에 대한 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)을 구성하세요.
+3. **콘텐츠** > **이메일**로 이동하여 필요한 템플릿을 생성하세요.
 
 ## IP를 워밍할 시간이 없으면 어떻게 하나요? {#what-if-i-dont-have-time-to-warm-ips}
 
@@ -37,7 +37,7 @@ ISP는 스팸 의심이 발생할 때 사용자를 보호하기 위해 이메일
 
 참여가 보통이면, 이메일이 스팸인지 여부를 더 확실하게 판단하기 위해 더 많은 참여 데이터를 수집하면서 이메일을 계속 제한할 수 있습니다. 이메일의 참여 측정기준이 매우 높다면, 이 이메일에 대한 제한을 완전히 해제할 수 있습니다. ISP는 이 데이터를 사용하여 이메일 평판을 생성하며, 이는 결국 이메일이 자동으로 스팸으로 필터링될지 여부를 결정합니다.
 
-도메인 또는 IP가 ISP에 의해 차단된 경우, [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)의 메시지 로그에는 이러한 ISP에 이의를 제기하고 차단 목록에서 제외되기 위해 방문해야 하는 웹사이트에 대한 정보가 포함됩니다.
+도메인 또는 IP가 ISP에 의해 차단된 경우, [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)의 메시지 로그에는 이러한 ISP에 이의를 제기하고 차단 목록에서 제외되기 위해 방문해야 하는 웹사이트에 대한 정보가 포함됩니다.
 
 ## IP 워밍 스케줄 {#ip-warming-schedules}
 
@@ -151,13 +151,13 @@ IP 워밍이 완료되고 원하는 일일 볼륨에 도달한 후에는 매일 
 
 ### IP 주소 {#ip-addresses}
 
-3개월 동안 사용하지 않으면 Braze는 IP 주소를 회수하고 재할당할 수 있습니다. IP 주소의 이전 이력에 관계없이, 대부분의 ISP가 평판 데이터를 30일 동안만 저장하므로 새로 할당된 모든 IP에 대해 전체 IP 워밍을 권장합니다. 대부분의 ISP에서 이는 3개월의 휴지 기간이 사실상 평판을 초기화한다는 것을 의미합니다. 특정 IP 주소의 이력에 대해 추가 질문이 있으면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/)에 문의하세요.
+3개월 동안 사용하지 않으면 Braze는 IP 주소를 회수하고 재할당할 수 있습니다. IP 주소의 이전 이력에 관계없이, 대부분의 ISP가 평판 데이터를 30일 동안만 저장하므로 새로 할당된 모든 IP에 대해 전체 IP 워밍을 권장합니다. 대부분의 ISP에서 이는 3개월의 휴지 기간이 사실상 평판을 초기화한다는 것을 의미합니다. 특정 IP 주소의 이력에 대해 추가 질문이 있으면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.
 
 ## 워밍 중 발송을 제한하는 방법 {#how-to-limit-sends-during-warming}
 
-내장된 사용자 제한 기능은 IP 주소 워밍에 유용한 도구입니다. Campaign 생성 중 원하는 메시징 Segments를 선택한 후, [타겟 사용자]({{site.baseurl}}/user_guide/channels/email/html_editor/#step-4-build-the-remainder-of-your-campaign-or-canvas) 단계에서 **고급 옵션** 드롭다운을 선택하여 사용자를 제한하세요. 워밍 스케줄이 진행됨에 따라 이 제한을 점진적으로 높여 발송하는 이메일 볼륨을 늘릴 수 있습니다.
+내장된 사용자 제한 기능은 IP 주소 워밍에 유용한 도구입니다. Campaign 생성 중 원하는 메시징 Segments를 선택한 후, [타겟 사용자]({{site.baseurl}}/user_guide/channels/email/html_editor#step-4-build-the-remainder-of-your-campaign-or-canvas) 단계에서 **고급 옵션** 드롭다운을 선택하여 사용자를 제한하세요. 워밍 스케줄이 진행됨에 따라 이 제한을 점진적으로 높여 발송하는 이메일 볼륨을 늘릴 수 있습니다.
 
-![]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
+![내장된 사용자 제한 기능은 IP 주소 워밍에 유용한 도구입니다. Campaign 생성 중 원하는 메시징 Segments를 선택한 후, 타겟 사용자 단계에서 고급 옵션 드롭다운을 선택하여 사용자를 제한하세요. 워밍 스케줄이 진행됨에 따라 이 제한을 점진적으로 높여 발송하는 이메일 볼륨을 늘릴 수 있습니다.]({% image_buster /assets/img_archive/email_ip_warming_sends_limit_new.png %})
 
 ## 하위 도메인 세분화 {#subdomain-segmentation}
 
@@ -189,17 +189,17 @@ IP 워밍이 완료되면 발송 주기를 만들고, 이메일을 하루 또는
 
 ### 이메일 목록 정리하기 {#clean-your-email-lists}
 
-이메일 목록이 깨끗하고 오래되거나 확인되지 않은 이메일이 없는지 확인하세요. [CASL 및 CAN-SPAM 규정을 준수]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations/)하는 것이 이상적입니다.
+이메일 목록이 깨끗하고 오래되거나 확인되지 않은 이메일이 없는지 확인하세요. [CASL 및 CAN-SPAM 규정을 준수]({{site.baseurl}}/user_guide/administer/global/privacy/spam_regulations)하는 것이 이상적입니다.
 
 ### 발신자 평판 모니터링하기 {#monitor-your-sender-reputation}
 
 IP 워밍 과정을 수행할 때 발신자 평판을 주의 깊게 모니터링하세요. 다음 측정기준을 주시하는 것이 중요합니다:
-- **반송률:** Campaign의 반송률이 3~5%를 초과하면, [깨끗하게 유지하기: 이메일 목록 위생의 중요성](https://www.braze.com/blog/email-list-hygiene/) 문서의 가이드라인에 따라 목록의 청결도를 평가해야 합니다. 또한 참여하지 않거나 비활성 이메일 주소로의 발송을 중단하기 위해 [일몰 정책]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/)을 구현하는 것을 고려하세요.
+- **반송률:** Campaign의 반송률이 3~5%를 초과하면, [깨끗하게 유지하기: 이메일 목록 위생의 중요성](https://www.braze.com/blog/email-list-hygiene/) 문서의 가이드라인에 따라 목록의 청결도를 평가해야 합니다. 또한 참여하지 않거나 비활성 이메일 주소로의 발송을 중단하기 위해 [일몰 정책]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies)을 구현하는 것을 고려하세요.
 - **스팸 신고:** Campaign의 스팸 신고율이 0.08%를 초과하면, 발송하는 콘텐츠를 재평가하고, 관심 있는 오디언스를 타겟팅하고 있는지 확인하며, 이메일이 관심을 끌 수 있도록 적절하게 작성되었는지 확인하세요.
 - **열람률:** 열람률은 받은편지함 배치의 유용한 대리 지표입니다. 고유 열람률이 25%를 초과하면 높은 받은편지함 배치를 경험하고 있을 가능성이 높으며, 이는 긍정적인 발신자 평판을 나타냅니다.
 
 {% alert tip %}
-Braze는 IP 워밍에 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)을 사용하지 않는 것을 권장합니다. IP 워밍 Campaign은 처음 보내는 Campaign 중 하나이므로, Braze는 최적의 발송 시간을 계산하기에 충분한 사용자 정보를 갖고 있지 않습니다. 이 경우 Intelligent Timing이 적용된 모든 메시지는 대체 시간으로 기본 설정되어 어차피 같은 시간에 발송됩니다.
+Braze는 IP 워밍에 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)을 사용하지 않는 것을 권장합니다. IP 워밍 Campaign은 처음 보내는 Campaign 중 하나이므로, Braze는 최적의 발송 시간을 계산하기에 충분한 사용자 정보를 갖고 있지 않습니다. 이 경우 Intelligent Timing이 적용된 모든 메시지는 대체 시간으로 기본 설정되어 어차피 같은 시간에 발송됩니다.
 {% endalert %}
 
 {% alert tip %}

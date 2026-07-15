@@ -11,7 +11,7 @@ toc_headers: h2
 
 > Cette page explique comment utiliser l'éditeur SQL de l'ingestion de données cloud (CDI) de Braze pour créer et valider des synchronisations avec des requêtes SQL.
 
-L'éditeur SQL de l'ingestion de données cloud vous permet de créer des synchronisations en écrivant des requêtes SQL directement sur votre entrepôt de données. Cela supprime la nécessité de créer ou de maintenir une table CDI dédiée, ce qui était auparavant requis dans l'[étape 1.1 des intégrations d'entrepôt de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
+L'éditeur SQL de l'ingestion de données cloud vous permet de créer des synchronisations en écrivant des requêtes SQL directement sur votre entrepôt de données. Cela supprime la nécessité de créer ou de maintenir une table CDI dédiée, ce qui était auparavant requis dans l'[étape 1.1 des intégrations d'entrepôt de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 Utilisez l'éditeur SQL lorsque vous souhaitez :
 
@@ -26,18 +26,22 @@ L'éditeur SQL de l'ingestion de données cloud est en bêta. Contactez votre ge
 
 ## Conditions préalables et limitations {#prerequisites-and-limitations}
 
-Pendant la bêta, l'éditeur SQL présente les limitations suivantes :
+L'éditeur SQL présente les limitations suivantes :
 
-- Disponible uniquement pour les synchronisations d'**attributs utilisateur**
-- Prend en charge une seule source d'entrepôt : **Snowflake**
+- Disponible uniquement pour les sources d'entrepôt de données : Snowflake, Redshift, BigQuery, Databricks et Fabric.
+- Seules les requêtes en lecture seule à instruction unique sont prises en charge.
 
 {% alert note %}
-Braze exécute des requêtes en lecture seule sur vos données et ne modifie pas vos tables sous-jacentes. Braze peut créer des objets temporaires pendant l'exécution des requêtes, mais ne les conserve pas.
+Braze exécute uniquement des requêtes en lecture seule sur vos données et ne modifie pas vos tables sous-jacentes. Des objets temporaires peuvent être créés pendant l'exécution des requêtes, mais ne sont pas conservés.
 {% endalert %}
 
 ## Créer une nouvelle synchronisation avec l'éditeur SQL {#create-a-new-sql-editor-sync}
 
-Suivez ces étapes pour créer une synchronisation avec l'éditeur SQL. Si vous avez déjà configuré une source Snowflake pour CDI, passez à l'étape 3.
+Suivez ces étapes pour créer d'abord une source, puis une synchronisation avec l'éditeur SQL. Si vous avez déjà configuré une source pour CDI, vous pouvez passer à l'étape 3.
+
+{% alert note %}
+Notez que ces étapes utilisent une source Snowflake comme exemple. Le processus de configuration pour les autres sources d'entrepôt de données est similaire et peut être consulté dans l'[étape 2 : Créer une nouvelle source dans le tableau de bord de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-2-create-a-new-source-in-the-braze-dashboard) de la documentation [Configuration des intégrations d'entrepôt de données]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#setting-up-data-warehouse-integrations).
+{% endalert %}
 
 ### Étape 1 : Configurer votre rôle, vos autorisations, votre entrepôt et votre utilisateur Snowflake {#step-1-set-up-your-snowflake-role-permissions-warehouse-and-user}
 
@@ -80,7 +84,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 ```
 
 {% alert note %}
-L'entrepôt doit avoir la reprise automatique activée. Si ce n'est pas le cas, accordez à Braze des privilèges `OPERATE` supplémentaires sur l'entrepôt afin que Braze puisse l'activer lors de l'exécution de la requête.
+L'entrepôt doit avoir l'indicateur de reprise automatique activé. Si ce n'est pas le cas, accordez à Braze des privilèges `OPERATE` supplémentaires sur l'entrepôt afin que Braze puisse l'activer lors de l'exécution de la requête.
 {% endalert %}
 
 #### Étape 1.4 : Créer un utilisateur Snowflake {#step-14-create-a-snowflake-user}
@@ -100,7 +104,7 @@ Dans cette étape, créez votre source Snowflake dans Braze et validez la connex
 
 #### Étape 2.1 : Ajouter une source Snowflake {#step-21-add-a-snowflake-source}
 
-1. Dans le tableau de bord de Braze, accédez à **Data Settings** > **Cloud Data Ingestion** > **Sources**.
+1. Dans le tableau de bord de Braze, accédez à **Paramètres des données** > **Ingestion de données cloud** > **Sources**.
 2. Sélectionnez **Add data source**.
 3. Sélectionnez **Snowflake**.
 
@@ -126,19 +130,13 @@ De retour dans Braze, sélectionnez **Test connection** pour vérifier l'accès 
 
 ### Étape 3 : Créer une nouvelle synchronisation et écrire votre requête SQL {#step-3-create-a-new-sync-and-write-your-sql-query}
 
-1. Accédez à **Data Settings** > **Cloud Data Ingestion** > **Syncs**.
+1. Accédez à **Paramètres des données** > **Ingestion de données cloud** > **Syncs**.
 2. Sélectionnez **Create data sync**.
-3. Choisissez **User Attributes** sous **Data Type**.
-4. Référencez la source Snowflake de l'étape 2.
+3. Choisissez n'importe quelle synchronisation sous **Data Type**.
+4. Référencez la source de l'étape 2.
 5. Sélectionnez **SQL** et écrivez une requête SQL qui renvoie les données utilisateur de votre entrepôt. Votre requête SQL définit les données qui se synchronisent vers Braze. Le résultat de la requête devient le schéma de votre synchronisation.
 
-![Le flux de création de synchronisation de données montrant SQL sélectionné avec un exemple de requête dans l'éditeur SQL.]({% image_buster /assets/img/cloud_ingestion/sql-editor-image.png %}){: style="max-width:80%;"}
-
-Votre requête SQL doit renvoyer :
-
-- Un identifiant utilisateur (`EXTERNAL_ID`, `BRAZE_ID`, `ALIAS_NAME` et `ALIAS_LABEL`, `EMAIL` ou `PHONE`)
-- Une colonne `UPDATED_AT`
-- Au moins une colonne supplémentaire (attribut)
+Vous pouvez utiliser l'explorateur de sources pour parcourir les tables et vues disponibles à synchroniser, ou le générateur SQL par intelligence artificielle pour obtenir l'aide de Braze Operator sur votre requête SQL.
 
 {% alert note %}
 Seules les requêtes en lecture seule sont prises en charge, y compris les clauses `JOIN`. Pour plus de détails, consultez [Contraintes SQL](#sql-constraints).
@@ -154,15 +152,22 @@ La prévisualisation :
 - Montre jusqu'à 100 lignes
 - Montre jusqu'à 250 colonnes
 
-Vous devez prévisualiser et valider votre requête avec succès avant de continuer. Pour plus de détails sur les erreurs et les corrections, consultez [Comportement de validation](#validation-behavior) et [Résolution des problèmes](#troubleshooting).
+Pour que la validation réussisse, votre requête SQL doit renvoyer différentes colonnes requises :
+
+| Type de données de synchronisation | Colonnes requises |
+|---|---|
+| Attributs | - Un identifiant utilisateur, l'un des suivants : `external_id`, `braze_id`, `alias_name` et `alias_label`, e-mail ou numéro de téléphone.<br>- `UPDATED_AT`.<br>- Au moins une colonne supplémentaire (attribut) à synchroniser. |
+| Supprimer des utilisateurs | - Un identifiant utilisateur, l'un des suivants : `external_id`, `braze_id`, `alias_name` et `alias_label`, e-mail ou numéro de téléphone.<br>- `UPDATED_AT`. |
+| Déclencheurs Canvas | - Un identifiant utilisateur, l'un des suivants : `external_id`, `braze_id`, `alias_name` et `alias_label`, e-mail ou numéro de téléphone.<br>- `UPDATED_AT`. |
+| Événements personnalisés | - Un identifiant utilisateur, l'un des suivants : `external_id`, `braze_id`, `alias_name` et `alias_label`, e-mail ou numéro de téléphone.<br>- `UPDATED_AT`.<br>- `NAME` pour représenter le nom de l'événement.<br>- `TIME` pour représenter l'heure de l'événement. Si indisponible, CDI utilise `UPDATED_AT` comme substitut. |
+| Événements d'achat | - Un identifiant utilisateur, l'un des suivants : `external_id`, `braze_id`, `alias_name` et `alias_label`, e-mail ou numéro de téléphone.<br>- `UPDATED_AT`.<br>- `PRODUCT_ID`.<br>- `CURRENCY`.<br>- `PRICE`.<br>- `TIME` pour représenter l'heure de l'événement d'achat. Si indisponible, CDI utilise `UPDATED_AT` comme substitut. |
+| Catalogue | - `ID` pour représenter l'identifiant de l'élément du catalogue.<br>- `UPDATED_AT`.<br>- Au moins une colonne supplémentaire (champ de catalogue) à synchroniser. |
+| Comptes | - `ID` pour représenter l'identifiant du compte.<br>- `NAME` pour représenter le nom du compte.<br>- `UPDATED_AT`.<br>- Au moins une colonne supplémentaire (champ de compte) à synchroniser. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 4 : Prévisualiser et valider votre requête" }
+
+Les colonnes supplémentaires en dehors des colonnes requises sont synchronisées respectivement en tant qu'attributs, propriétés de contexte Canvas, propriétés d'événement, champs de catalogue et champs de compte. Consultez [Comportement de validation](#validation-behavior) et [Résolution des problèmes](#troubleshooting) pour des conseils utiles sur les erreurs de prévisualisation et de validation et comment les corriger.
 
 ### Étape 5 : Vérifier le mappage des attributs et créer la synchronisation {#step-5-review-attribute-mapping-and-create-sync}
-
-Après la validation :
-
-- La colonne d'identifiant fait correspondre les utilisateurs
-- La colonne `UPDATED_AT` pilote la synchronisation incrémentielle
-- Braze synchronise toutes les autres colonnes en tant qu'attributs
 
 Lorsque la validation réussit, continuez vers **Next: Notifications** et créez votre synchronisation.
 
@@ -171,41 +176,6 @@ Une configuration SQL incorrecte peut entraîner des résultats non souhaités, 
 {% endalert %}
 
 ## Contraintes SQL {#sql-constraints}
-
-Votre requête doit respecter les exigences suivantes.
-
-### Inclure un identifiant utilisateur {#include-a-user-identifier}
-
-Votre requête doit inclure au moins l'un des éléments suivants :
-
-- `EXTERNAL_ID`
-- `BRAZE_ID`
-- `EMAIL`
-- `PHONE`
-- `ALIAS_NAME` et `ALIAS_LABEL`
-
-Si aucun identifiant valide n'est détecté, la validation échoue.
-
-{% alert note %}
-Ces identifiants sont sensibles à la casse et doivent être en majuscules.
-{% endalert %}
-
-### Inclure `UPDATED_AT` {#include-updated_at}
-
-Votre requête doit inclure une colonne `UPDATED_AT`.
-
-`UPDATED_AT` est sensible à la casse et doit être en majuscules.
-
-Si elle est absente, la validation échoue.
-
-### Inclure au moins une colonne d'attribut {#include-at-least-one-attribute-column}
-
-Votre requête doit inclure au moins une colonne en plus de :
-
-- La ou les colonnes d'identifiant utilisateur
-- `UPDATED_AT`
-
-Sinon, la validation échoue.
 
 ### Utiliser uniquement des requêtes `SELECT` {#use-select-queries-only}
 
@@ -263,15 +233,15 @@ Si votre requête s'exécute trop longtemps :
 - La validation échoue
 - Une erreur d'expiration apparaît
 
-### Colonnes requises manquantes {#missing-required-columns}
+### Erreurs de schéma de table {#table-schema-errors}
 
 Si votre requête compile, la validation peut tout de même échouer si :
 
 - Aucune colonne d'identifiant n'est trouvée
 - `UPDATED_AT` est absente
-- Aucune colonne d'attribut n'est présente
+- D'autres colonnes requises sont manquantes
 
-Dans ce cas, la prévisualisation apparaît tout de même pour vous aider à atteindre une validation réussie.
+Dans ce cas, la prévisualisation apparaît tout de même pour vous aider à atteindre une validation réussie. Consultez l'[étape 4 de la section précédente](#step-4-preview-and-validate-your-query) pour plus de détails sur les colonnes requises pour chaque type de données de synchronisation.
 
 ### Résultats à zéro ligne {#zero-row-results}
 
@@ -283,7 +253,7 @@ Si votre requête renvoie zéro ligne :
 
 ## Prise en charge de `PAYLOAD` (hérité) {#payload-support-legacy}
 
-L'éditeur SQL prend en charge les [tables CDI héritées]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/?tab=snowflake#step-1-set-up-tables-or-views) où une colonne `PAYLOAD` est présente.
+L'éditeur SQL prend en charge les [tables CDI héritées]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations?tab=snowflake#step-1-set-up-tables-or-views) où une colonne `PAYLOAD` est présente.
 
 Si votre requête inclut :
 
@@ -331,7 +301,7 @@ Assurez-vous que votre requête inclut un identifiant valide, tel que `external_
 
 Ajoutez une colonne d'horodatage pour la synchronisation incrémentielle.
 
-### Aucun attribut à synchroniser {#no-attributes-to-sync}
+### Ajoutez plus de colonnes… Il n'y a aucun attribut/champ de catalogue/champ de compte à synchroniser {#add-more-columns-there-are-no-attributescatalog-fieldsaccount-fields-to-sync}
 
 Ajoutez au moins une colonne supplémentaire en plus de l'identifiant et de `UPDATED_AT`.
 

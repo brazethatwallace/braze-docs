@@ -88,7 +88,7 @@ La réponse de cet endpoint comprend un champ `email_template_id` qui peut être
 | `modified_before`  |  Non | Chaîne de caractères au format ISO 8601 | Récupérer uniquement les modèles mis à jour à l'heure donnée ou avant. |
 | `limit` | Non | Nombre positif | Nombre maximum de modèles à récupérer. Sauf indication contraire, la limite par défaut est de 100 modèles et la valeur maximum est de 1 000. |
 | `offset`  |  Non | Nombre positif | Nombre de modèles à ignorer avant de renvoyer le reste des modèles qui correspondent aux critères de recherche. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Informations sur les paramètres" }
 
 
 {% endapi %}
@@ -140,7 +140,7 @@ GET https://YOUR_REST_API_URL/templates/email/list
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `email_template_id`  | Oui | Chaîne de caractères | L'identifiant API de votre modèle d'e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Informations sur les paramètres" }
 
 {% endapi %}
 
@@ -208,7 +208,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Paramètre | Requis | Type de données | Description |
 |---|---|---|---|
 | `email_template_id`  | Oui | Chaîne de caractères | L'identifiant API de votre modèle d'e-mail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="PARAMETER DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Informations sur les paramètres" }
 
 {% endapi %}
 
@@ -248,7 +248,7 @@ Authorization: Bearer YOUR-REST-API-KEY
   // See note regarding anonymous push token imports
   "push_token_import" : (optional, boolean).
   // Braze User Profile Fields
-  "first_name" : "Jon",
+  "first_name" : "Alex",
   "email" : "bob@example.com",
   // Custom Attributes
   "my_custom_attribute" : value,
@@ -286,7 +286,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | push_tokens | Tableau d'objets avec `app_id` et la chaîne de caractères `token`. Vous pouvez éventuellement fournir un `device_id` pour l'appareil auquel ce jeton est associé, par exemple `[{"app_id": App Identifier, "token": "abcd", "device_id": "optional_field_value"}]`. Si aucun `device_id` n'est fourni, il sera généré de manière aléatoire. |
 | time_zone | (chaîne de caractères) Nom du fuseau horaire provenant de la [base de données des fuseaux horaires de l'IANA][26] (par exemple « America/New_York » ou « Eastern Time (US & Canada) »). Seules les valeurs de fuseau horaire valides seront définies. |
 | twitter | Hachage contenant l'un des éléments suivants : `id` (nombre entier), `screen_name` (chaîne de caractères, identifiant X (anciennement Twitter)), `followers_count` (nombre entier), `friends_count` (nombre entier), `statuses_count` (nombre entier). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="PARAMETER DETAILS" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Informations sur les paramètres" }
 
 {% endapi %}
 

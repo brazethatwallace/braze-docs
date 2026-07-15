@@ -19,7 +19,7 @@ Apple 푸시 알림 서비스(APNs)는 Apple 플랫폼에서 실행되는 애플
 
 ### 2단계: 기기가 APNs에 등록하고 Braze에 푸시 토큰을 제공합니다 {#step-2-devices-register-for-apns-and-provide-braze-with-push-tokens}
 
-사용자가 앱을 열면 푸시 알림을 수락할지 묻는 프롬프트가 표시됩니다. 이 프롬프트를 수락하면 APNs가 해당 특정 기기에 대한 푸시 토큰을 생성합니다. Swift SDK는 기본 [자동 플러시 정책]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control/#automatic-request-processing)을 사용하는 앱에 대해 푸시 토큰을 즉시 비동기식으로 전송합니다. 푸시 토큰이 사용자와 연결되면 사용자 프로필의 **참여** 탭에 있는 대시보드에 "푸시 등록됨"으로 표시되며, Braze Campaigns에서 푸시 알림을 받을 수 있게 됩니다.
+사용자가 앱을 열면 푸시 알림을 수락할지 묻는 프롬프트가 표시됩니다. 이 프롬프트를 수락하면 APNs가 해당 특정 기기에 대한 푸시 토큰을 생성합니다. Swift SDK는 기본 [자동 플러시 정책]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control#automatic-request-processing)을 사용하는 앱에 대해 푸시 토큰을 즉시 비동기식으로 전송합니다. 푸시 토큰이 사용자와 연결되면 사용자 프로필의 **참여** 탭에 있는 대시보드에 "푸시 등록됨"으로 표시되며, Braze Campaigns에서 푸시 알림을 받을 수 있게 됩니다.
 
 {% alert note %}
 macOS 13부터 특정 기기에서는 Xcode 14에서 실행되는 iOS 16 시뮬레이터에서 푸시 알림을 테스트할 수 있습니다. 자세한 내용은 [Xcode 14 릴리스 노트](https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes)를 참조하세요.
@@ -51,7 +51,7 @@ APNs는 토큰이 등록 해제되더라도 처음에는 성공 상태를 반환
 
 ## 푸시 오류 로그 사용 {#using-the-push-error-logs}
 
-[메시지 활동 로그]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/)에서는 푸시 알림 오류를 포함하여 Campaigns 및 전송과 관련된 모든 메시지(특히 오류 메시지)를 확인할 수 있습니다. 이 오류 로그는 Campaign이 예상대로 작동하지 않는 이유를 파악하는 데 매우 유용한 다양한 경고를 제공합니다. 오류 메시지를 클릭하면 특정 인시던트 문제를 해결하는 데 도움이 되는 관련 설명서로 리디렉션됩니다.
+[메시지 활동 로그]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab)에서는 푸시 알림 오류를 포함하여 Campaigns 및 전송과 관련된 모든 메시지(특히 오류 메시지)를 확인할 수 있습니다. 이 오류 로그는 Campaign이 예상대로 작동하지 않는 이유를 파악하는 데 매우 유용한 다양한 경고를 제공합니다. 오류 메시지를 클릭하면 특정 인시던트 문제를 해결하는 데 도움이 되는 관련 설명서로 리디렉션됩니다.
 
 ![오류 발생 시간, 앱 이름, 채널, 오류 유형 및 오류 메시지를 표시하는 푸시 오류 로그.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
@@ -59,13 +59,13 @@ APNs는 토큰이 등록 해제되더라도 처음에는 성공 상태를 반환
 
 또한 Braze는 **참여** 탭의 사용자 프로필에서 푸시 체인지로그를 제공합니다. 이 체인지로그는 토큰 무효화, 푸시 등록 오류, 새 사용자에게 이동되는 토큰 등의 푸시 등록 동작에 대한 인사이트를 제공합니다.
 
-![]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
+![Braze 사용자 프로필 참여 탭에 표시된 푸시 등록 체인지로그.]({% image_buster /assets/img_archive/push_changelog.gif %}){: style="max-width:50%;" }
 
 ### 메시지 활동 로그 오류 {#message-activity-log-errors}
 
 #### 푸시 토큰에 등록되지 않은 전송 수신됨 {#received-unregistered-sending}
 
-- `AppDelegate.braze?.notifications.register(deviceToken:)` 메서드에서 Braze로 전송되는 푸시 토큰이 유효한지 확인합니다. **메시지 활동 로그**에서 푸시 토큰을 확인할 수 있습니다. `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`과 같이 문자와 숫자 조합이 포함된 긴 문자열이어야 합니다. 푸시 토큰이 다르게 보인다면 Braze에 푸시 토큰을 전송하는 [코드]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-4-register-push-tokens-with-braze)를 확인하세요.
+- `AppDelegate.braze?.notifications.register(deviceToken:)` 메서드에서 Braze로 전송되는 푸시 토큰이 유효한지 확인합니다. **메시지 활동 로그**에서 푸시 토큰을 확인할 수 있습니다. `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`과 같이 문자와 숫자 조합이 포함된 긴 문자열이어야 합니다. 푸시 토큰이 다르게 보인다면 Braze에 푸시 토큰을 전송하는 [코드]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-4-register-push-tokens-with-braze)를 확인하세요.
 - 푸시 프로비저닝 프로필이 테스트 중인 환경과 일치하는지 확인합니다. 유니버설 인증서는 개발 또는 프로덕션 APNs 환경으로 보내도록 Braze 대시보드에서 구성할 수 있습니다. 프로덕션 앱에 개발 인증서를 사용하거나 개발 앱에 프로덕션 인증서를 사용하는 경우 작동하지 않습니다.
  - Braze에 업로드한 푸시 토큰이 푸시 토큰을 보낸 앱을 빌드하는 데 사용한 프로비저닝 프로필과 일치하는지 확인합니다.
 
@@ -81,7 +81,7 @@ APNs는 푸시 토큰이 자격 증명에 구성된 주제(번들 ID)와 일치�
 4. `.p8` 키의 경우, Braze의 **Team ID**와 **Key ID**가 Apple Developer 계정과 일치하는지 확인합니다.
 5. 자격 증명이 교체되었거나 취소된 경우 유효한 `.p8` 키 또는 `.p12` 인증서를 다시 업로드합니다.
 
-가능하면 `.p8` 인증 키를 사용하는 것이 좋습니다. 자격 증명 유형 및 대시보드 상태 표시기에 대한 자세한 내용은 [.p8 인증 키로 마이그레이션]({{site.baseurl}}/user_guide/channels/push/troubleshooting/#migrate-to-a-p8-authentication-key)을 참조하세요.
+가능하면 `.p8` 인증 키를 사용하는 것이 좋습니다. 자격 증명 유형 및 대시보드 상태 표시기에 대한 자세한 내용은 [.p8 인증 키로 마이그레이션]({{site.baseurl}}/user_guide/channels/push/troubleshooting#migrate-to-a-p8-authentication-key)을 참조하세요.
 
 #### 푸시 토큰으로 전송하는 BadDeviceToken {#baddevicetoken-sending-to-push-token}
 
@@ -104,13 +104,13 @@ APNs는 푸시 토큰이 자격 증명에 구성된 주제(번들 ID)와 일치�
 
 앱이 푸시 알림을 허용하도록 올바르게 구성되어 있는지 확인합니다. 확인해야 할 일반적인 실패 지점은 다음과 같습니다:
 
-- 앱에서 푸시 알림을 허용하라는 프롬프트를 표시하는지 확인합니다. 일반적으로 이 프롬프트는 앱을 처음 열 때 표시되지만 다른 경우에 표시하도록 프로그래밍할 수 있습니다. 표시해야 할 위치에 표시되지 않는다면 앱의 푸시 기능 기본 구성에 문제가 있는 것일 수 있습니다.
+- 앱에서 푸시 알림을 허용하라는 프롬프트를 표시하는지 확인합니다. 일반적으로 이 프롬프트는 앱을 처음 열 때 표시되지만 다른 곳에 표시하도록 프로그래밍할 수 있습니다. 표시해야 할 위치에 표시되지 않는다면 앱의 푸시 기능 기본 구성에 문제가 있는 것일 수 있습니다.
   - [푸시 통합]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)을 위한 단계가 성공적으로 완료되었는지 확인합니다.
   - 앱이 빌드된 프로비저닝 프로필에 푸시 권한이 포함되어 있는지 확인합니다. Apple 개발자 계정에서 사용 가능한 모든 프로비저닝 프로필을 가져오고 있는지 확인합니다. 이를 확인하려면 다음 단계를 수행하세요:
     1. Xcode에서 **Preferences > Accounts**로 이동합니다(또는 키보드 단축키 <kbd>Command</kbd>+<kbd>,</kbd>를 사용합니다).
     2. 개발자 계정에 사용하는 Apple ID를 선택하고 **View Details**를 클릭합니다.
     3. 다음 페이지에서 **<i class="fas fa-redo-alt"></i> Refresh**를 클릭하고 사용 가능한 모든 프로비저닝 프로필을 가져오는지 확인합니다.
-- 앱에서 [푸시 기능을 제대로 활성화했는지]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-2-enable-push-capabilities) 확인하세요.
+- 앱에서 [푸시 기능을 제대로 활성화했는지]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-2-enable-push-capabilities) 확인하세요.
 - 푸시 프로비저닝 프로필이 테스트를 수행하는 환경과 일치하는지 확인합니다. 유니버설 인증서는 개발 또는 프로덕션 APNs 환경으로 보내도록 Braze 대시보드에서 구성할 수 있습니다. 프로덕션 앱에 개발 인증서를 사용하거나 개발 앱에 프로덕션 인증서를 사용하는 경우 작동하지 않습니다.
 - 코드에 중단점을 설정하여 `registerPushToken` 메서드를 호출하고 있는지 확인하세요.
 - 기기를 사용하여 테스트하고 있고(시뮬레이터에서는 푸시가 작동하지 않음) 네트워크 연결 상태가 양호한지 확인하세요.
@@ -141,7 +141,7 @@ APNs는 푸시 토큰이 자격 증명에 구성된 주제(번들 ID)와 일치�
 
 #### 잘못 예약된 테스트 알림 {#test-notification-scheduled-incorrectly}
 
-테스트 메시지에 대해 설정한 스케줄을 확인하세요. 현지 시간대 전달 또는 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence/intelligent_timing/)으로 설정되어 있는 경우 메시지를 아직 받지 못했거나 메시지를 받았을 때 앱이 포그라운드에 있었을 수 있습니다.
+테스트 메시지에 대해 설정한 스케줄을 확인하세요. 현지 시간대 전달 또는 [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence/intelligent_timing)으로 설정되어 있는 경우 메시지를 아직 받지 못했거나 메시지를 받았을 때 앱이 포그라운드에 있었을 수 있습니다.
 
 ### 테스트 중인 앱에서 "푸시 등록"되지 않은 사용자 {#user-not-push-registered-for-the-app-being-tested}
 
@@ -153,19 +153,19 @@ APNs는 푸시 토큰이 자격 증명에 구성된 주제(번들 ID)와 일치�
 
 ## 푸시 클릭이 기록되지 않음 {#push-clicks-not-logged}
 
-- [푸시 통합 단계]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-5-enable-push-handling)를 따랐는지 확인하세요.
-- Braze는 포그라운드에서 무음 수신된 푸시 알림을 처리하지 않습니다(`UserNotifications` 프레임워크 이전의 기본 포그라운드 푸시 동작). 즉, 링크가 열리지 않고 푸시 클릭이 기록되지 않습니다. 애플리케이션이 아직 `UserNotifications` 프레임워크를 통합하지 않은 경우, 애플리케이션 상태가 `UIApplicationStateActive`이면 Braze는 푸시 알림을 처리하지 않습니다. 앱에서 [푸시 처리 메서드]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-5-enable-push-handling)에 대한 호출이 지연되지 않도록 하세요. 그렇지 않으면 Swift SDK가 푸시 알림을 무음 포그라운드 푸시 이벤트로 처리하여 처리하지 않을 수 있습니다.
+- [푸시 통합 단계]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling)를 따랐는지 확인하세요.
+- Braze는 포그라운드에서 무음 수신된 푸시 알림을 처리하지 않습니다(`UserNotifications` 프레임워크 이전의 기본 포그라운드 푸시 동작). 즉, 링크가 열리지 않고 푸시 클릭이 기록되지 않습니다. 애플리케이션이 아직 `UserNotifications` 프레임워크를 통합하지 않은 경우, 애플리케이션 상태가 `UIApplicationStateActive`이면 Braze는 푸시 알림을 처리하지 않습니다. 앱에서 [푸시 처리 메서드]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-5-enable-push-handling)에 대한 호출이 지연되지 않도록 하세요. 그렇지 않으면 Swift SDK가 푸시 알림을 무음 포그라운드 푸시 이벤트로 처리하여 처리하지 않을 수 있습니다.
 
 ## 딥링크가 작동하지 않음 {#deep-links-not-working}
 
-유니버설 링크, 커스텀 스킴, 이메일 및 Branch와 같은 서드파티 제공업체를 포함한 모든 채널에 걸친 포괄적인 문제 해결은 [딥링킹 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/)을 참조하세요.
+유니버설 링크, 커스텀 스킴, 이메일 및 Branch와 같은 서드파티 제공업체를 포함한 모든 채널에 걸친 포괄적인 문제 해결은 [딥링킹 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting)을 참조하세요.
 
 ### 푸시 클릭으로 인한 웹 링크가 열리지 않음 {#web-links-from-push-clicks-not-opening}
 
-푸시 알림의 링크를 웹 보기에서 열려면 ATS를 준수해야 합니다. 웹 링크가 HTTPS를 사용하는지 확인합니다. 자세한 내용은 [ATS 준수]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/linking/#app-transport-security-ats)를 참조하세요.
+푸시 알림의 링크를 웹 보기에서 열려면 ATS를 준수해야 합니다. 웹 링크가 HTTPS를 사용하는지 확인합니다. 자세한 내용은 [ATS 준수]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/linking#app-transport-security-ats)를 참조하세요.
 
 ### 푸시 클릭으로 인한 딥링크가 열리지 않음 {#deep-links-from-push-clicks-not-opening}
 
-딥링크를 처리하는 대부분의 코드는 푸시 오픈도 처리합니다. 먼저 푸시 오픈이 기록되고 있는지 확인합니다. 그렇지 않다면, 그 문제를 해결하세요(수정이 종종 링크 처리도 함께 수정합니다).
+딥링크를 처리하는 대부분의 코드는 푸시 열람도 처리합니다. 먼저 푸시 열람이 기록되고 있는지 확인합니다. 그렇지 않다면, 그 문제를 해결하세요(수정이 종종 링크 처리도 함께 수정합니다).
 
 열람이 기록되는 경우 일반적인 딥링크 문제인지 또는 딥링크 푸시 클릭 처리에 문제가 있는지 확인합니다. 이를 위해 인앱 메시지 클릭의 딥링크가 작동하는지 테스트합니다.

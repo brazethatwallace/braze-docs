@@ -21,9 +21,9 @@ Vous pouvez envoyer des jalons de jeu, des échanges de récompenses et des indi
 
 - **Enrichir les profils utilisateur :** Transmettre des indicateurs de jeu, des scores et des statuts de récompenses aux profils utilisateur dans Braze.
 - **Débloquer une segmentation avancée :** Créer des segments d'audience basés sur le comportement en jeu, comme les meilleurs scores, les gagnants récents ou les utilisateurs proches de débloquer une récompense.
-- **Automatiser des campagnes en temps réel :** Déclencher des messages cross-canal personnalisés (push, e-mail, in-app) basés sur les interactions de jeu pour favoriser le jeu répété, la fidélité à la marque et une valeur vie client plus élevée.
+- **Automatiser des campagnes en temps réel :** Déclencher des messages cross-canal personnalisés (notification push, e-mail, in-app) basés sur les interactions de jeu pour favoriser le jeu répété, la fidélité à la marque et une valeur vie client plus élevée.
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 - **Réengager les clients inactifs :** Envoyer un lien vers un jeu avec une chance de gagner une récompense de réduction pour les clients inactifs.
 - **Activité autour des produits et tendances :** Créer des jeux personnalisés qui mettent en avant un nouveau produit ou une saison de fêtes, une tendance ou un événement.
@@ -34,13 +34,12 @@ Vous pouvez envoyer des jalons de jeu, des échanges de récompenses et des indi
 
 ## Conditions préalables {#prerequisites}
 
-
 | Condition | Description |
 | --- | --- |
 | Compte DailyPlay | Un compte DailyPlay est requis pour utiliser cette intégration. |
-| Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. Créez cette clé dans Braze sous **Settings** > **APIs and Identifiers** > **API Keys**. Pour plus d'informations, consultez [Clés API]({{site.baseurl}}/api/api_key/). |
-| Endpoint REST Braze | L'URL de l'endpoint REST pour [votre instance Braze]({{site.baseurl}}/api/basics/#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Clé API REST Braze | Une clé API REST Braze avec les autorisations `users.track`. Créez cette clé dans Braze sous **Paramètres** > **API et identifiants** > **Clés API**. Pour plus d'informations, consultez [Clés API]({{site.baseurl}}/api/api_key). |
+| Endpoint REST Braze | L'URL de l'endpoint REST pour [votre instance Braze]({{site.baseurl}}/api/basics#endpoints). |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Intégration {#integration}
 
@@ -76,7 +75,7 @@ Lorsque les utilisateurs jouent à des jeux dans le stream, DailyPlay déclenche
 
 Les utilisateurs qui effectuent des actions dans les streams DailyPlay reçoivent des attributs personnalisés et des événements personnalisés sur leur profil Braze.
 
-Créez une [campagne]({{site.baseurl}}/user_guide/messaging/campaigns/) ou un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/) avec un déclencheur [basé sur une action]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) qui utilise les événements personnalisés ou attributs personnalisés DailyPlay requis pour votre cas d'utilisation.
+Créez une [campagne]({{site.baseurl}}/user_guide/messaging/campaigns) ou un [Canvas]({{site.baseurl}}/user_guide/messaging/canvas) avec un déclencheur [basé sur une action]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) qui utilise les événements personnalisés ou attributs personnalisés DailyPlay requis pour votre cas d'usage.
 
 ## Utiliser DailyPlay avec Braze {#use-dailyplay-with-braze}
 
@@ -84,13 +83,13 @@ Pour engager un segment de clients spécifique, suivez ces étapes après avoir 
 
 ### Étape 1 : Configurer DailyPlay {#step-1-set-up-your-dailyplay-configuration}
 
-Suivez les étapes d'intégration ci-dessus pour configurer votre connexion Braze et votre stream DailyPlay. Copiez le code d'intégration.
+Suivez les étapes d'intégration de cette section pour configurer votre connexion Braze et votre stream DailyPlay. Copiez le code d'intégration.
 
 ### Étape 2 : Créer une campagne ou un Canvas Braze {#step-2-create-a-braze-campaign-or-canvas}
 
-Créez une campagne ou un Canvas en utilisant un déclencheur basé sur une action. Sélectionnez les événements personnalisés ou attributs personnalisés DailyPlay requis pour votre cas d'utilisation.
+Créez une campagne ou un Canvas en utilisant un déclencheur basé sur une action. Sélectionnez les événements personnalisés ou attributs personnalisés DailyPlay requis pour votre cas d'usage.
 
-Vous pouvez utiliser [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/) pour référencer les propriétés envoyées par DailyPlay dans le contenu de votre message.
+Vous pouvez utiliser [Liquid]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid) pour référencer les propriétés envoyées par DailyPlay dans le contenu de votre message.
 
 **Exemple d'attribut personnalisé :**
 

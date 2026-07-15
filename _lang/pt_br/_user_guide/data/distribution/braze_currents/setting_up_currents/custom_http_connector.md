@@ -1,22 +1,26 @@
 ---
-nav_title: Conector HTTP personalizado
-article_title: Conector HTTP personalizado
+nav_title: Exportação de Currents personalizada
+article_title: Exportação de Currents personalizada
 alias: /currents/custom_http_connector/
 page_order: 3
 page_type: reference
 tool: Currents
-description: "Este artigo de referência descreve como configurar um conector HTTP personalizado para transmitir dados de eventos do Braze Currents diretamente para o seu próprio endpoint HTTP em tempo real."
+description: "Este artigo de referência descreve como configurar uma exportação de Currents personalizada para transmitir dados de eventos do Braze Currents diretamente para o seu próprio endpoint HTTP em tempo real."
 ---
 
-# Conector HTTP personalizado {#custom-http-connector}
+# Exportação de Currents personalizada {#custom-currents-export}
 
 > Saiba como integrar um conector Currents personalizado para receber dados de eventos da Braze em tempo real, possibilitando análises, relatórios e automações mais personalizados.
+
+{% alert note %}
+Esse recurso também é chamado de Custom HTTP Connector na documentação técnica e nas referências de API.
+{% endalert %}
 
 ## Pré-requisitos {#prerequisites}
 
 Para integrar um conector Currents personalizado na Braze, você precisará fornecer uma URL de endpoint e um [token de autenticação opcional](#authentication).
 
-Além disso, se você tiver mais de um grupo de app na Braze, precisará configurar um conector Currents personalizado para cada grupo. No entanto, você pode direcionar todos os grupos de app para o mesmo endpoint, ou para um endpoint com um parâmetro `GET` adicional, como `your_app_group_key="Brand A"`.
+Além disso, se você tiver mais de um grupo de apps na Braze, precisará configurar um conector Currents personalizado para cada grupo. No entanto, você pode direcionar todos os grupos de apps para o mesmo endpoint, ou para um endpoint com um parâmetro `GET` adicional, como `your_app_group_key="Brand A"`.
 
 ## Integração {#integration}
 
@@ -56,7 +60,7 @@ Ocasionalmente, faremos alterações não disruptivas nos esquemas do Braze Curr
 Normalmente, avisamos com duas semanas de antecedência sobre essas mudanças, mas às vezes isso não é possível. É essencial que você projete sua integração para lidar com campos ou tipos de evento não reconhecidos, caso contrário, isso provavelmente levará à perda de dados.
 
 {% alert tip %}
-Para a lista completa dos esquemas de eventos do Currents, consulte [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) e [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/).
+Para a lista completa dos esquemas de eventos do Currents, consulte [Eventos de engajamento com mensagem]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) e [Eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events).
 {% endalert %}
 
 ## Agrupamento em lotes e serialização {#batching-and-serialization}
@@ -119,11 +123,11 @@ Assim como nossos [esquemas de armazenamento em data warehouse]({{site.baseurl}}
 
 ## Tratamento de erros e mecanismo de nova tentativa {#error-handling-and-retry-mechanism}
 
-Se ocorrer um erro, a Braze enfileirará e tentará reenviar a solicitação com base no código de retorno HTTP recebido. Se o problema persistir por mais de 5 dias, a integração será desativada automaticamente: novos eventos recebidos serão descartados e perdidos permanentemente, e eventos já enfileirados serão descartados permanentemente após serem retidos por 7 dias. Se os dados ficarem presos por mais de 24 horas, nossos engenheiros de plantão serão alertados automaticamente. Para uma análise completa de como cada código de status é tratado, consulte a tabela abaixo.
+Se ocorrer um erro, a Braze enfileirará e tentará reenviar a solicitação com base no código de retorno HTTP recebido. Se o problema persistir por mais de 5 dias, a integração será desativada automaticamente: novos eventos recebidos serão descartados e perdidos permanentemente, e eventos já enfileirados serão descartados permanentemente após serem retidos por 7 dias. Se os dados ficarem presos por mais de 24 horas, nossos engenheiros de plantão serão alertados automaticamente. Para uma análise completa de como cada código de status é tratado, consulte a tabela na seção a seguir.
 
 Se a sua integração do Currents estiver retornando erros de autenticação, a Braze enviará automaticamente um e-mail de notificação para você.
 
-Qualquer código de erro HTTP não listado abaixo será tratado como um erro HTTP `5XX`.
+Qualquer código de erro HTTP não listado na seção a seguir será tratado como um erro HTTP `5XX`.
 
 {% alert warning %}
 Se o problema persistir por mais de 5 dias, a integração será desativada. Novos eventos recebidos serão descartados e perdidos permanentemente, e eventos já enfileirados serão descartados permanentemente após serem retidos por 7 dias.
@@ -142,7 +146,7 @@ Os seguintes códigos de status HTTP serão reconhecidos pelo nosso cliente cone
   <tbody>
     <tr>
       <td><code>2XX</code></td>
-      <td>Deu certo</td>
+      <td>Sucesso</td>
       <td>Os dados do evento não serão reenviados.</td>
     </tr>
     <tr>
@@ -178,7 +182,7 @@ Os seguintes códigos de status HTTP serão reconhecidos pelo nosso cliente cone
     <tr>
       <td><code>429</code></td>
       <td>Muitas solicitações</td>
-      <td>Indica limitação de taxa. Os dados do evento serão reenviados em um padrão de backoff exponencial com jitter. Se o problema persistir por mais de 5 dias, a integração será desativada, e os eventos já enfileirados serão retidos por 7 dias.</td>
+      <td>Indica limite de frequência. Os dados do evento serão reenviados em um padrão de backoff exponencial com jitter. Se o problema persistir por mais de 5 dias, a integração será desativada, e os eventos já enfileirados serão retidos por 7 dias.</td>
     </tr>
   </tbody>
 </table>

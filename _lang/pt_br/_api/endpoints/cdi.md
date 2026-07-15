@@ -15,13 +15,13 @@ guide_top_text: "Use os endpoints de Ingestão de Dados na Nuvem da Braze para g
 guide_featured_title: ""
 guide_featured_list:
   - name: "GET: Listar integrações"
-    link: /docs/api/cdi/get_integration_list/
+    link: /docs/api/cdi/get_integration_list
     image: /assets/img/braze_icons/list.svg
   - name: "GET: Listar status de sincronização de jobs"
     link: /docs/api/cdi/get_job_sync
     image: /assets/img/braze_icons/list.svg
   - name: "POST: Disparar sincronização"
-    link: /docs/api/cdi/post_trigger_sync/
+    link: /docs/api/cdi/post_trigger_sync
     image: /assets/img/braze_icons/play.svg
 
 ---

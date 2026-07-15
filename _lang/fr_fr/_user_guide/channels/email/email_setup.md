@@ -49,7 +49,7 @@ Avant de commencer à envoyer des e-mails, vous devez remplir certaines conditio
 | Une IP dédiée (protocole Internet) | Une adresse IP dédiée est une adresse internet unique fournie exclusivement à un seul compte d'hébergement. | Braze vous fournit des adresses IP dédiées afin de garantir le contrôle de la réputation de votre expéditeur d'e-mails. L'onboarding de Braze se chargera de cette configuration pour vous. |
 | Domaines en marque blanche | Ils se composent d'un domaine et d'un sous-domaine. La marque blanche vous permet de passer les vérifications d'authentification des e-mails pour DKIM et SPF. | L'équipe d'onboarding de Braze génèrera ces domaines pour vous, mais vous devez choisir leurs noms. |
 | Sous-domaines | Il s'agit d'une subdivision d'un domaine (par exemple « @news.company.com ») au sein de votre adresse e-mail. Disposer d'un sous-domaine permet d'éviter toute erreur susceptible de nuire à la réputation officielle de l'e-mail de votre entreprise. | L'équipe d'onboarding génèrera ce sous-domaine pour vous, mais vous devez en choisir le nom. Vous ne pouvez pas utiliser de sous-domaines déjà utilisés en dehors de Braze. |
-| Pools d'adresses IP | Il s'agit d'une configuration facultative permettant de séparer la réputation de différents types d'e-mails (par exemple « promotionnels » et « transactionnels ») afin d'éviter que la réputation de l'un n'affecte l'autre et de favoriser une meilleure livrabilité. | L'équipe d'onboarding configure les pools pour vous. Ensuite, lors de la rédaction de votre e-mail, vous pouvez consulter le pool d'adresses IP de votre e-mail à l'étape **Target Audiences**. |
+| Pools d'adresses IP | Il s'agit d'une configuration facultative permettant de séparer la réputation de différents types d'e-mails (par exemple « promotionnels » et « transactionnels ») afin d'éviter que la réputation de l'un n'affecte l'autre et de favoriser une meilleure livrabilité. | L'équipe d'onboarding configure les pools pour vous. Ensuite, lors de la rédaction de votre e-mail, vous pouvez consulter le pool d'adresses IP de votre e-mail à l'étape **Audiences cibles**. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prérequis" }
 
 ## Réchauffement d'adresses IP {#ip-warming}
@@ -58,11 +58,11 @@ Avant de commencer à envoyer des e-mails, vous devez remplir certaines conditio
 Le réchauffement d'adresses IP est l'étape **la plus importante** du processus de configuration des e-mails. Bien que ce ne soit pas votre première étape (c'est en fait la dernière), nous la mentionnons ici pour vous informer que vous devez réchauffer votre adresse IP, sans quoi les e-mails que vous enverrez risquent d'atterrir dans les spams ou de rencontrer d'autres obstacles à l'envoi.
 {% endalert %}
 
-Le [réchauffement d'adresses IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/) consiste à envoyer un nombre relativement faible d'e-mails lors de votre premier envoi, puis à augmenter progressivement le volume au fil des envois suivants jusqu'à atteindre votre volume quotidien habituel. Cette opération est réalisée à la toute fin du processus de configuration des e-mails.
+Le [réchauffement d'adresses IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) consiste à envoyer un nombre relativement faible d'e-mails lors de votre premier envoi, puis à augmenter progressivement le volume au fil des envois suivants jusqu'à atteindre votre volume quotidien habituel. Cette opération est réalisée à la toute fin du processus de configuration des e-mails.
 
 En commençant par de petits volumes d'e-mails, vous établissez un niveau de confiance avec votre fournisseur de messagerie, en lui montrant que vous n'envoyez des e-mails qu'à des utilisateurs pertinents. Envoyer votre premier lot d'e-mails à vos utilisateurs les plus engagés peut vous aider à gagner plus rapidement la confiance de votre fournisseur.
 
-Une fois le réchauffement de votre adresse IP terminé, vous pouvez [commencer à créer et envoyer des e-mails]({{site.baseurl}}/user_guide/channels/email/html_editor/) !
+Une fois le réchauffement de votre adresse IP terminé, vous pouvez [commencer à créer et envoyer des e-mails]({{site.baseurl}}/user_guide/channels/email/html_editor) !
 
 ## E-mails transactionnels légalement requis {#legally-required-transactional-emails}
 

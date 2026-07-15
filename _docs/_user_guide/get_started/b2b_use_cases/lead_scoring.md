@@ -32,7 +32,7 @@ There are two key steps to creating a lead-scoring workflow in Braze:
 1. Proceed to the **Entry Schedule** step and select an **Action-Based** entry schedule. This will enter users into the Canvas when they perform specific actions.
 
 2. In **Action-Based Options**, add these two actions:
-    - **Change Custom Attribute Value** with the name of your lead scoring attribute (such as `lead score`). If you haven’t created a lead scoring attribute yet, follow the steps in [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/). This will enter users into the Canvas whenever their lead score changes.
+    - **Change Custom Attribute Value** with the name of your lead scoring attribute (such as `lead score`). If you haven’t created a lead scoring attribute yet, follow the steps in [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes). This will enter users into the Canvas whenever their lead score changes.
     - **Add an Email Address**
 
 ![Step 2 of creating a Canvas with the entry schedule of “Action-Based” and action-based options of changing a custom attribute “lead score” and adding an email address.]({% image_buster /assets/img/b2b/step_2_simple.png %}){: style="max-width:80%;"}
@@ -41,7 +41,7 @@ There are two key steps to creating a lead-scoring workflow in Braze:
 
 #### Step 3a: Select segments
 
-All users are eligible for lead scoring, so you can add company-specific rules about who to score by selecting which user [segments]({{site.baseurl}}/user_guide/audience/segments/) to target and applying additional [filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/). For example, you can exclude employees, users who are already customers, and similar. 
+All users are eligible for lead scoring, so you can add company-specific rules about who to score by selecting which user [segments]({{site.baseurl}}/user_guide/audience/segments) to target and applying additional [filters]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters). For example, you can exclude employees, users who are already customers, and similar. 
 
 ![Step 3 of creating a Canvas with options for selecting segments and filters to narrow down the entry audience.]({% image_buster /assets/img/b2b/step_3_simple.png %}){: style="max-width:80%;"}
 
@@ -93,7 +93,7 @@ In each Action Group, select **Select trigger** and choose the event that will a
 
 #### Step 4d: Add User Update steps
 
-Add a User Update step to each Canvas path created below your Action Path. 
+Add a User Update step to each Canvas path created in your Action Path. 
 
 ![Canvas displaying the Action Path with branched User Update paths for each Action Group.]({% image_buster /assets/img/b2b/user_update_paths_simple.png %}){: style="max-width:80%;"}
 
@@ -113,15 +113,15 @@ That’s it! Your lead scoring Canvas is ready to launch.
 
 ## External lead scoring
 
-Whether using one of our [technology partners]({{site.baseurl}}/partners/home/), your own internal lead scoring model, machine learning, or another lead scoring tool, we have multiple options for you.
+Whether using one of our [technology partners]({{site.baseurl}}/partners/home), your own internal lead scoring model, machine learning, or another lead scoring tool, we have multiple options for you.
 
 ### External partners
 
-Check out [Technology partners]({{site.baseurl}}/partners/home) to learn about our B2B partners that offer lead-scoring capabilities. Don’t see your tool there? You can integrate by calling our [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users) API endpoint. 
+Check out [Technology partners]({{site.baseurl}}/partners/home) to learn about our B2B partners that offer lead-scoring capabilities. Don’t see your tool there? You can integrate by calling our [`users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) API endpoint. 
 
 ### Internal lead scoring data models
 
-You can integrate Braze with your internal data models, including lead scoring models, in various ways. See below for some common examples of how our customers have integrated with Braze.
+You can integrate Braze with your internal data models, including lead scoring models, in various ways. See the following section for some common examples of how our customers have integrated with Braze.
 
 #### Integrated cloud data warehouse
 
@@ -132,13 +132,13 @@ As your marketing tool, Braze contains extremely relevant data that could supple
 
 For example, messaging engagement data (such as email opens and clicks, landing page engagement, and others) can determine a lead’s engagement level. You can pass this data back to your cloud data warehouse and make it available as input for your lead scoring models by using Braze streaming export data solutions:
 
-- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)
-- [Snowflake Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)
+- [Braze Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- [Snowflake Secure Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)
 
 {% endtab %}
 {% tab Braze as a destination %}
 
-After your internal teams have created and run your lead scoring model, you can pull that data back into Braze so you can better segment and target leads for relevant messaging. You can do this with [Braze Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/). 
+After your internal teams have created and run your lead scoring model, you can pull that data back into Braze so you can better segment and target leads for relevant messaging. You can do this with [Braze Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion). 
 
 With Cloud Data Ingestion, your internal teams will create a new table or view with your user identifiers, the latest lead scores, and the timestamps when the scores were updated. Braze will pick up the table or view and add the lead scores to the user profiles.
 
@@ -163,7 +163,7 @@ To update the lead record in Salesforce with the lead status from Braze, we reco
 
 3. Update the **HTTP Method** to **PATCH**.
 
-4. Configure your payload to only update the lead record in Salesforce if that lead’s lead score crosses your predefined threshold. See the example request body below for a lead score of greater than 100.
+4. Configure your payload to only update the lead record in Salesforce if that lead’s lead score crosses your predefined threshold. See the following example request body for a lead score greater than 100.
 
 {% raw %}
 ```liquid

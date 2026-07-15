@@ -24,23 +24,23 @@ Da diese Funktionen standardmäßig von Braze bereitgestellt werden, können sic
 
 Um ein SDK in Ihre App oder Website einzubinden, muss jemand den Code des SDKs in die allgemeine Codebasis der Anwendung einfügen. Das bedeutet, dass Ihr Entwicklerteam daran beteiligt sein wird, unsere Apps miteinander zu verbinden, damit Informationen und Aktionen zwischen ihnen fließen. Doch obwohl Ihre Entwickler:innen daran beteiligt sind, ist das SDK so konzipiert, dass es schlank und nutzerfreundlich zu integrieren ist.
 
-Um Zeit zu sparen und eine reibungslose Integration zu gewährleisten, empfehlen wir, dass Sie und Ihr Entwicklerteam Ihre angepassten Events, angepassten Attribute und das SDK zur gleichen Zeit einrichten. Erfahren Sie mehr über die Schritte, die Ihre Marketing- und Entwicklerteams gemeinsam durchdenken müssen, indem Sie unseren [Artikel zur Implementierung]({{site.baseurl}}/user_guide/get_started/integrations/) lesen.
+Um Zeit zu sparen und eine reibungslose Integration zu gewährleisten, empfehlen wir, dass Sie und Ihr Entwicklerteam Ihre angepassten Events, angepassten Attribute und das SDK zur gleichen Zeit einrichten. Erfahren Sie mehr über die Schritte, die Ihre Marketing- und Entwicklerteams gemeinsam durchdenken müssen, indem Sie unseren [Artikel zur Implementierung]({{site.baseurl}}/user_guide/get_started/integrations) lesen.
 
 ## Datenaggregation {#data-aggregation}
 
-Das Braze SDK erfasst automatisch Daten auf Nutzerebene und liefert Ihnen wichtige Metriken für Ihre App und Ihre Nutzerbasis. Gruppieren Sie ähnliche Apps in einem einzigen Workspace (z. B. iOS- und Android-Versionen zusammen), um die gesammelten Daten plattformübergreifend anzuzeigen und ein vollständiges Bild der Nutzeraktivitäten zu erhalten. Weitere Informationen finden Sie im Artikel zur [Startseite]({{site.baseurl}}/user_guide/analytics/dashboards/home/).
+Das Braze SDK erfasst automatisch Daten auf Nutzerebene und liefert Ihnen wichtige Metriken für Ihre App und Ihre Nutzerbasis. Gruppieren Sie ähnliche Apps in einem einzigen Workspace (z. B. iOS- und Android-Versionen zusammen), um die gesammelten Daten plattformübergreifend anzuzeigen und ein vollständiges Bild der Nutzeraktivitäten zu erhalten. Weitere Informationen finden Sie im Artikel zur [Startseite]({{site.baseurl}}/user_guide/analytics/dashboards/home).
 
 ## In-App Messages {#in-app-messaging}
 
-Verwenden Sie das SDK, um In-App Messages direkt zu verfassen und zu versenden. Sie können je nach Ihrer Campaign-Strategie zwischen Slideup-, Modal- oder Vollbild-Nachrichten wählen. Einzelheiten zur Erstellung finden Sie unter [In-App-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Verwenden Sie das SDK, um In-App Messages direkt zu verfassen und zu versenden. Sie können je nach Ihrer Campaign-Strategie zwischen Slideup-, Modal- oder Vollbild-Nachrichten wählen. Einzelheiten zur Erstellung finden Sie unter [In-App-Nachricht erstellen]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ![Push-Benachrichtigung in einem Webbrowser]({% image_buster /assets/img_archive/web_push_macbook.png %}){: style="float:right;max-width:45%;margin-left:20px;border:0;"}
 
 ## Push-Benachrichtigungen {#push-notifications}
 
-Push-Benachrichtigungen sind eine weitere großartige Möglichkeit, mit Ihren Nutzer:innen in Kontakt zu treten, und eignen sich besonders für zeitkritische Handlungsaufforderungen. Mobile Push-Benachrichtigungen erscheinen auf den Geräten Ihrer Nutzer:innen, und Web-Push-Benachrichtigungen erscheinen auch dann, wenn Ihre Website nicht geöffnet ist. Weitere Informationen zur Verwendung von Push-Benachrichtigungen finden Sie in unserem [Artikel über Push-Benachrichtigungen]({{site.baseurl}}/user_guide/channels/push/).
+Push-Benachrichtigungen sind eine weitere großartige Möglichkeit, mit Ihren Nutzer:innen in Kontakt zu treten, und eignen sich besonders für zeitkritische Handlungsaufforderungen. Mobile Push-Benachrichtigungen erscheinen auf den Geräten Ihrer Nutzer:innen, und Web-Push-Benachrichtigungen erscheinen auch dann, wenn Ihre Website nicht geöffnet ist. Weitere Informationen zur Verwendung von Push-Benachrichtigungen finden Sie in unserem [Artikel über Push-Benachrichtigungen]({{site.baseurl}}/user_guide/channels/push).
 
-Die Nutzer:innen Ihrer Website oder App müssen sich für den Empfang von Push-Benachrichtigungen per Opt-in entscheiden. Weitere Einzelheiten finden Sie unter [Push-Priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/).
+Die Nutzer:innen Ihrer Website oder App müssen sich für den Empfang von Push-Benachrichtigungen per Opt-in entscheiden. Weitere Einzelheiten finden Sie unter [Push-Priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 ## Segmentierung und Zustellregeln {#segmentation-and-delivery-rules}
 
@@ -54,4 +54,4 @@ Dies ermöglicht es Ihnen, Nutzer:innen auf der Grundlage ihres Verhaltens auf i
 
 ## Unterstützte Plattformen {#supported-platforms}
 
-Braze stellt SDKs für verschiedene Plattformen bereit, darunter Web, Android und Swift. Die vollständige Liste finden Sie im [Braze Developer Guide]({{site.baseurl}}/developer_guide/home/).
+Braze stellt SDKs für verschiedene Plattformen bereit, darunter Web, Android und Swift. Die vollständige Liste finden Sie im [Braze Developer Guide]({{site.baseurl}}/developer_guide/home).

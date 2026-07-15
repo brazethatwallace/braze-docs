@@ -47,18 +47,18 @@ Braze 관리자만 메시징 규칙을 설정할 수 있지만, 모든 Braze 사
 2. **규칙 생성**을 선택합니다.
 3. 이 규칙에 이름을 지정합니다(예: "모든 사용자 구독").
 4. **메시지 유형**에서 **Campaign**, **Canvas**, 또는 **Both Canvas and Campaigns**를 선택하여 승인 규칙을 적용합니다.
-5. **Maximum reachable users**에 숫자를 입력합니다. 자세한 내용은 [오디언스 통계]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users/#audience-statistics)를 참조하세요.
+5. **최대 도달 가능 사용자**에 숫자를 입력합니다. 자세한 내용은 [오디언스 통계]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users#audience-statistics)를 참조하세요.
 6. **저장**을 선택합니다.
 
 ![최대 100,000명 사용자의 Campaigns용 메시징 규칙 예시 "규칙 1". Canvas와 Campaign 시작을 승인할 수 있는 사용자가 한 명 있습니다.]({% image_buster /assets/img/target_population_approval_example.png %}){: style="max-width:90%;"}
 
 ### 2단계: 승인을 통한 시작 결정(선택 사항) {#step-2-determine-launching-with-approval-optional}
 
-**Allow launching with approval**을 선택합니다. 그런 다음 **With Approval From**에서 최대값이 충족될 경우 Canvas 또는 Campaign을 승인할 권한이 있는 승인자를 선택합니다.
+**승인을 통한 시작 허용**을 선택합니다. 그런 다음 **승인자 선택**에서 최대값이 충족될 경우 Canvas 또는 Campaign을 승인할 권한이 있는 승인자를 선택합니다.
 
 승인을 통한 메시지 시작에 대한 다음 세부 사항을 참고하세요:
 
-- 최대값이 충족되고 승인자가 선택된 경우, 승인 권한이 있는 Braze 사용자가 **Target Audience** 승인 드롭다운에서 **Approved**를 선택할 수 있습니다.
+- 최대값이 충족되고 승인자가 선택된 경우, 승인 권한이 있는 Braze 사용자가 **타겟 오디언스** 승인 드롭다운에서 **Approved**를 선택할 수 있습니다.
 - 최대값이 충족되고 승인자가 선택되지 않은 경우, Canvas 또는 Campaign의 시작이 차단됩니다.
 
 ![시작하려면 승인이 필요하다는 것을 보여주는 Canvas 워크플로우의 "요약" 단계.]({% image_buster /assets/img/non_approver_banner.png %}){: style="max-width:90%;"}

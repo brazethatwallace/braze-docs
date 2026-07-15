@@ -26,7 +26,7 @@ description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 편�
 
 ### 3단계: 이메일 가입 구성요소 커스터마이즈 {#step-3-customize-your-email-sign-up-component}
 
-이메일 가입 양식을 작성하려면 편집기에서 이메일 캡처 요소를 선택합니다. 기본적으로 수집된 이메일 주소는 글로벌 구독 그룹 **Subscribed** 상태가 됩니다. 사용자를 특정 구독 그룹에 옵트인시키려면 [이메일 구독 상태 업데이트]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states)를 참조하세요.
+이메일 가입 양식을 작성하려면 편집기에서 이메일 캡처 요소를 선택합니다. 기본적으로 수집된 이메일 주소는 글로벌 구독 그룹 **가입됨** 상태가 됩니다. 사용자를 특정 구독 그룹에 옵트인시키려면 [이메일 구독 상태 업데이트]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states)를 참조하세요.
 
 이메일 캡처 요소의 입력 안내 텍스트와 레이블 텍스트를 커스터마이즈할 수 있습니다.
 
@@ -42,7 +42,7 @@ description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 편�
 
 ### 5단계: 메시지 스타일 지정 {#step-5-style-your-message}
 
-드래그 앤 드롭 [인앱 메시지 구성요소]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components)를 사용하여 가입 양식의 모양과 느낌을 커스터마이즈하세요. **Message container** 메뉴에서 기본 배경 이미지 URL을 교체하여 자체 배경 이미지를 추가하거나, URL을 제거하고 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에서 이미지를 선택하세요.
+드래그 앤 드롭 [인앱 메시지 구성요소]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components)를 사용하여 가입 양식의 모양과 느낌을 커스터마이즈하세요. **Message container** 메뉴에서 기본 배경 이미지 URL을 교체하여 자체 배경 이미지를 추가하거나, URL을 제거하고 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에서 이미지를 선택하세요.
 
 ## 결과 분석 {#analyzing-the-results}
 

@@ -9,7 +9,7 @@ description: "Wenn Sie ein Braze-Partner sind, verwenden Sie diesen Endpunkt, um
 
 {% api %}
 # Nutzer:innen tracken (Bulk) für Braze-Partner {#track-users-bulk-for-braze-partners}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -34,7 +34,7 @@ Wir planen, das Objektlimit von `/users/track` von 225 auf 5 zu reduzieren, um d
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel](https://www.braze.com/docs/api/api_key/) mit der Berechtigung `users.track`. Diese Berechtigung gewährt Zugriff auf sowohl `/users/track` als auch `/users/track/bulk`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `users.track`. Diese Berechtigung gewährt Zugriff auf sowohl `/users/track` als auch `/users/track/bulk`.
 
 Da die meisten unserer gemeinsamen Kund:innen bereits einen API-Schlüssel mit `users.track`-Berechtigungen für ihre Braze-Partnerintegration verwenden, müssen sie keine API-Schlüssel ändern, wenn Sie Ihre Integration auf `/users/track/bulk` migrieren.
 
@@ -46,7 +46,7 @@ Für die meisten Kund:innen wenden wir ein Basis-Geschwindigkeitslimit von 50 An
 
 Kund:innen mit neueren Verträgen erhalten jedoch möglicherweise stattdessen ein Burst- (pro Sekunde) und Steady-Rate-Limit (pro Stunde), das an ihre vertraglich vereinbarten MAU mit Braze gebunden ist.
 
-Um Realtime-Interaktionen mit unserer API zu verbessern, verwenden Sie unsere [empfohlenen Antwort-Header](https://www.braze.com/docs/api/api_limits/#monitoring-your-rate-limits).
+Um Realtime-Interaktionen mit unserer API zu verbessern, verwenden Sie unsere [empfohlenen Antwort-Header]({{site.baseurl}}/api/api_limits/#monitoring-your-rate-limits).
 
 Jede `/users/track/bulk`-Anfrage hat ein Payload-Limit von 2&nbsp;MB und kann bis zu 1.000 Event-, Attribut- oder Kauf-Objekte enthalten.
 
@@ -242,9 +242,9 @@ Wenn Ihre Nachricht einen schwerwiegenden Fehler aufweist, erhalten Sie die folg
 
 #### Antwortcodes bei schwerwiegenden Fehlern {#fatal-error-response-codes}
 
-Informationen zu Statuscodes und zugehörigen Fehlermeldungen, die zurückgegeben werden, wenn Ihre Anfrage einen schwerwiegenden Fehler aufweist, finden Sie unter [Schwerwiegende Fehler und Antworten](https://www.braze.com/docs/api/errors/#fatal-errors).
+Informationen zu Statuscodes und zugehörigen Fehlermeldungen, die zurückgegeben werden, wenn Ihre Anfrage einen schwerwiegenden Fehler aufweist, finden Sie unter [Schwerwiegende Fehler und Antworten]({{site.baseurl}}/api/errors/#fatal-errors).
 
-Wenn Sie den Fehler `provided external\_id is blacklisted and disallowed` erhalten, enthält Ihre Anfrage möglicherweise einen `dummy user.` Weitere Informationen finden Sie unter [Spam-Blockierung](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
+Wenn Sie den Fehler `provided external\_id is blacklisted and disallowed` erhalten, enthält Ihre Anfrage möglicherweise einen `dummy user.` Weitere Informationen finden Sie unter [Spam-Blockierung]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking).
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -261,7 +261,7 @@ Wir planen, das Objektlimit von `/users/track` von 225 auf 5 zu reduzieren, um d
 
 ### Welche Bezeichner kann ich in `/users/track/bulk` verwenden? {#what-identifiers-can-i-use-in-userstrackbulk}
 
-Eines der folgenden Felder ist erforderlich: `external\_id`, `braze\_id`, `user\_alias`, `email` oder `phone`. Weitere Beispiele finden Sie in unserer Dokumentation zum [Nutzerattribut-Objekt](https://www.braze.com/docs/api/objects_filters/user_attributes_object/), [Event-Objekt](https://www.braze.com/docs/api/objects_filters/event_object/) oder [Kauf-Objekt](https://www.braze.com/docs/api/objects_filters/purchase_object/).
+Eines der folgenden Felder ist erforderlich: `external\_id`, `braze\_id`, `user\_alias`, `email` oder `phone`. Weitere Beispiele finden Sie in unserer Dokumentation zum [Nutzerattribut-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object/), [Event-Objekt]({{site.baseurl}}/api/objects_filters/event_object/) oder [Kauf-Objekt]({{site.baseurl}}/api/objects_filters/purchase_object/).
 
 ### Kann ich Attribute, Events und Käufe in einer Anfrage kombinieren? {#can-i-include-attributes-events-and-purchases-in-one-request}
 

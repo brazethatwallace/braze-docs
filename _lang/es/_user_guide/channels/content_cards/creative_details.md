@@ -11,7 +11,7 @@ tool: Media
 
 # Detalles creativos para Content Cards {#creative-details-for-content-cards}
 
-> La personalización de las Content Cards y la fuente en la que se encuentran no se puede realizar durante el proceso de creación de la Campaign; debes trabajar con tus ingenieros y desarrolladores para construir y personalizar tus tarjetas. Para detalles técnicos, visita nuestra [documentación para desarrolladores]({{site.baseurl}}/developer_guide/getting_started/customization_overview/).
+> La personalización de las Content Cards y la fuente en la que se encuentran no se puede realizar durante el proceso de creación de la Campaign; debes trabajar con tus ingenieros y desarrolladores para construir y personalizar tus tarjetas. Para detalles técnicos, visita nuestra [documentación para desarrolladores]({{site.baseurl}}/developer_guide/getting_started/customization_overview).
 
 ## Tipos de Content Cards {#content-card-types}
 
@@ -63,11 +63,11 @@ Si quieres más control creativo, la tarjeta de solo imagen es para ti. Crea tu 
 
 ## Detalles creativos generales {#general}
 
-Las Content Cards admiten texto e imágenes, incluidos GIF, de forma nativa. Actualmente, el estilo personalizado para la tarjeta, como diferentes colores de fuente o múltiples imágenes, no se puede configurar en el dashboard. Puedes aplicar estilo personalizado a tu Content Card y fuente durante la integración. Para más detalles, consulta [Personalizar tarjetas]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/) del SDK de Braze.
+Las Content Cards admiten texto e imágenes, incluidos GIF, de forma nativa. Actualmente, el estilo personalizado para la tarjeta, como diferentes colores de fuente o múltiples imágenes, no se puede configurar en el dashboard. Puedes aplicar estilo personalizado a tu Content Card y fuente durante la integración. Para más detalles, consulta [Personalizar tarjetas]({{site.baseurl}}/developer_guide/content_cards/customizing_cards) del SDK de Braze.
 
 ### Comportamiento de descarte {#dismissal-behavior}
 
-Para que un usuario descarte una tarjeta, puede deslizarla en el móvil o usar la función de `cerrar X`, como se muestra en la siguiente captura de pantalla. La `x` aparecerá al pasar el cursor solo en el SDK Web.
+Para que un usuario descarte una tarjeta, puede deslizarla en el móvil o usar la función de `close X`, como se muestra en la siguiente captura de pantalla. La `x` aparecerá al pasar el cursor solo en el SDK Web.
 
 ![Imagen que muestra los comportamientos de descarte por deslizamiento o cierre de una tarjeta]({% image_buster /assets/img/dismissal-cc.png %})
 
@@ -83,5 +83,5 @@ Mantén las Content Cards relevantes configurándolas para que se descarten cuan
 
 | Content Cards para Android | Content Cards para iOS | Content Cards para Web |
 | --- | --- |---|
-| El SDK de Android no proporciona compatibilidad con GIF animados de forma predeterminada. Para más detalles sobre cómo activar la compatibilidad con GIF, consulta [GIF]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs/?sdktab=android). | El SDK de Swift no proporciona compatibilidad con GIF animados de forma predeterminada. Para más detalles sobre cómo activar la compatibilidad con GIF, consulta el [tutorial de compatibilidad con GIF](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support). | La compatibilidad con GIF está incluida de forma predeterminada en la integración del SDK Web. |
+| El SDK de Android no proporciona compatibilidad con GIF animados de forma predeterminada. Para más detalles sobre cómo activar la compatibilidad con GIF, consulta [GIF]({{site.baseurl}}/developer_guide/content_cards/embedding_gifs?sdktab=android). | El SDK de Swift no proporciona compatibilidad con GIF animados de forma predeterminada. Para más detalles sobre cómo activar la compatibilidad con GIF, consulta el [tutorial de compatibilidad con GIF](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c3-gif-support). | La compatibilidad con GIF está incluida de forma predeterminada en la integración del SDK Web. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Uso de GIF en Content Cards" }

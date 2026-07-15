@@ -51,7 +51,7 @@ When using CDI to sync data from external sources (such as Databricks or Snowfla
 - **Numbers stored as strings:** Cast numeric columns to integer or float types in your source query before syncing.
 - **Inconsistent types across syncs:** If a column type changes between syncs, Braze may reject the new data. Verify your source schema remains consistent.
 
-For forcing or changing data types for custom attributes in the Braze dashboard, see [Manage custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons).
+For forcing or changing data types for custom attributes in the Braze dashboard, see [Manage custom data]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons).
 
 You can update user data by external ID, user alias, Braze ID, email, or phone number. You can delete users by external ID, user alias, or Braze ID. 
 
@@ -695,7 +695,7 @@ We have a public [GitHub repository](https://github.com/braze-inc/braze-examples
 
 ### Data formatting
 
-Cloud Data Ingestion table setup requirements and payload formatting requirements are documented on [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
+Cloud Data Ingestion table setup requirements and payload formatting requirements are documented on [Table setup for Cloud Data Ingestion]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 
 Use that page to distinguish:
 

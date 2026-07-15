@@ -53,7 +53,7 @@ Wenn Sie ein angepasstes Event auswählen, wird das Dropdown-Menü **Konversions
 
 Damit Nutzer:innen im Bericht gezählt werden, müssen sie innerhalb des ausgewählten Datumsbereichs die folgenden Kriterien erfüllen:
 1. In den Canvas oder die Kampagne eintreten.
-2. Eine [Attributionsmethode]({{site.baseurl}}/user_guide/analytics/dashboards/conversions/#attribution-methods) protokollieren.
+2. Eine [Attributionsmethode]({{site.baseurl}}/user_guide/analytics/dashboards/conversions#attribution-methods) protokollieren.
 3. Das Konversions-Event ausführen.
 
 Nehmen wir zum Beispiel an, eine Nutzerin bzw. ein Nutzer tut Folgendes:
@@ -91,7 +91,7 @@ Wenn Sie beim [Einrichten Ihres Berichts](#setting-up-your-report) (Schritt 5) D
 
 ### Konversionstrichter {#conversion-funnel}
 
-Dieses Balkendiagramm zeigt die absoluten Zahlen für jedes [Engagement-Event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) basierend auf dem ausgewählten Kanal. Die Conversion-Anzahl wird gemäß der ausgewählten Attributionsmethode definiert.
+Dieses Balkendiagramm zeigt die absoluten Zahlen für jedes [Engagement-Event]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) basierend auf dem ausgewählten Kanal. Die Conversion-Anzahl wird gemäß der ausgewählten Attributionsmethode definiert.
 
 Standardmäßig werden alle ausgewählten Kampagnen und Canvases angezeigt. Um eine Kampagne oder einen Canvas abzuwählen, klicken Sie auf den Namen der Kampagne oder des Canvas, die/den Sie ausschließen möchten. Für zusätzliche Details zum Engagement-Event können Sie mit der Maus über jeden Balken fahren.
 
@@ -140,10 +140,10 @@ Ihre Conversions sind möglicherweise nicht so hoch, wie Sie es im Vergleich zu 
 
 #### Event-Tracking {#event-tracking}
 
-Wenn eine Kampagne einen Sitzungsstart oder ein angepasstes Event auslöst, sollten Sie sicherstellen, dass dieses Event oder diese Sitzung häufig genug stattfindet, um die Nachricht auszulösen. Überprüfen Sie das [Home-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/home/) für Sitzungsdaten oder Ihren Bericht zu [angepassten Events]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting/).
+Wenn eine Kampagne einen Sitzungsstart oder ein angepasstes Event auslöst, sollten Sie sicherstellen, dass dieses Event oder diese Sitzung häufig genug stattfindet, um die Nachricht auszulösen. Überprüfen Sie das [Home-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/home) für Sitzungsdaten oder Ihren Bericht zu [angepassten Events]({{site.baseurl}}/user_guide/analytics/reports/configure_reporting).
 
 #### Conversion-Fristen {#conversion-deadlines}
 
-Für jedes Konversions-Event, das Sie pro Kampagne auswählen, legen Sie die [Frist]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#creating-a-campaign-with-conversion-tracking) fest. Das bedeutet, dass Sie ein Zeitlimit festlegen, innerhalb dessen eine Conversion stattfinden muss, damit sie für die jeweilige Kampagne gezählt wird.
+Für jedes Konversions-Event, das Sie pro Kampagne auswählen, legen Sie die [Frist]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#creating-a-campaign-with-conversion-tracking) fest. Das bedeutet, dass Sie ein Zeitlimit festlegen, innerhalb dessen eine Conversion stattfinden muss, damit sie für die jeweilige Kampagne gezählt wird.
 
-Stellen Sie sicher, dass Sie die Informationen zu den [Conversion-Tracking-Regeln]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) überprüft haben, um Ihre Kampagnenmetriken zu verstehen. Informationen zu Nutzer:innen-Conversions in Canvas finden Sie in den [Canvas-FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#how-are-user-conversions-tracked-in-a-canvas).
+Stellen Sie sicher, dass Sie die Informationen zu den [Conversion-Tracking-Regeln]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules) überprüft haben, um Ihre Kampagnenmetriken zu verstehen. Informationen zu Nutzer:innen-Conversions in Canvas finden Sie in den [Canvas-FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs#how-are-user-conversions-tracked-in-a-canvas).

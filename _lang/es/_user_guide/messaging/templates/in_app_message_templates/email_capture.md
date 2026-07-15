@@ -26,7 +26,7 @@ Al crear un mensaje dentro de la aplicación de arrastrar y soltar, selecciona *
 
 ### Paso 3: Personaliza tu componente de registro de correo electrónico {#step-3-customize-your-email-sign-up-component}
 
-Para empezar a crear tu formulario de registro de correo electrónico, selecciona el elemento de captura de correo electrónico en el editor. De forma predeterminada, las direcciones de correo electrónico recopiladas tendrán el grupo de suscripción global **Suscrito**. Para dar de alta a usuarios en grupos de suscripción específicos, consulta [Actualizar estados de suscripción de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions/#updating-email-subscription-states).
+Para empezar a crear tu formulario de registro de correo electrónico, selecciona el elemento de captura de correo electrónico en el editor. De forma predeterminada, las direcciones de correo electrónico recopiladas tendrán el grupo de suscripción global **Suscrito**. Para dar de alta a usuarios en grupos de suscripción específicos, consulta [Actualizar estados de suscripción de correo electrónico]({{site.baseurl}}/user_guide/channels/email/subscriptions#updating-email-subscription-states).
 
 Puedes personalizar el texto del marcador de posición y el texto de la etiqueta del elemento de captura de correo electrónico.
 
@@ -34,7 +34,7 @@ Puedes personalizar el texto del marcador de posición y el texto de la etiqueta
 
 #### Validación de correo electrónico {#email-validation}
 
-Si el usuario introduce una dirección de correo electrónico que incluye caracteres especiales no aceptados, verá un indicador de error genérico y no podrá enviar el formulario. Este mensaje de error no es personalizable. Puedes ver el comportamiento del error en la pestaña **Preview & Test** y en tu dispositivo de prueba. Obtén más información sobre cómo Braze formatea las direcciones de correo electrónico en [Validación de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/).
+Si el usuario introduce una dirección de correo electrónico que incluye caracteres especiales no aceptados, verá un indicador de error genérico y no podrá enviar el formulario. Este mensaje de error no es personalizable. Puedes ver el comportamiento del error en la pestaña **Preview & Test** y en tu dispositivo de prueba. Obtén más información sobre cómo Braze formatea las direcciones de correo electrónico en [Validación de correo electrónico]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 ### Paso 4: Añade un texto de exención de responsabilidad (opcional) {#step-4-add-disclaimer-language-optional}
 
@@ -42,7 +42,7 @@ Si el usuario introduce una dirección de correo electrónico que incluye caract
 
 ### Paso 5: Dale estilo a tu mensaje {#step-5-style-your-message}
 
-Personaliza la apariencia de tu formulario de registro usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) de arrastrar y soltar.
+Personaliza la apariencia de tu formulario de registro usando los [componentes de mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) de arrastrar y soltar.
 
 ## Analizar los resultados {#analyzing-the-results}
 

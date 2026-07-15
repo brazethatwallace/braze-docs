@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### Währung für europäische Zahlenkonventionen formatieren {#european-currency-format}
 
-Für Regionen, die ein Komma als Dezimaltrennzeichen und einen Punkt als Tausendertrennzeichen verwenden (z. B. Deutschland oder Italien), verwenden Sie die Filter [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#money-filter) und [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters/#number-formatting-filters) mit `replace`, um die Trennzeichen zu tauschen. Verwenden Sie `#` als temporären Platzhalter, damit Punkte und Kommas nicht im selben Durchgang vertauscht werden.
+Für Regionen, die ein Komma als Dezimaltrennzeichen und einen Punkt als Tausendertrennzeichen verwenden (z. B. Deutschland oder Italien), verwenden Sie die Filter [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) und [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) mit `replace`, um die Trennzeichen zu tauschen. Verwenden Sie `#` als temporären Platzhalter, damit Punkte und Kommas nicht im selben Durchgang vertauscht werden.
 
 {% raw %}
 ```liquid
@@ -952,7 +952,7 @@ Today's offer from {{store}}
 
 Dieser Anwendungsfall ermöglicht es Nutzer:innen, bevorstehende Erinnerungen basierend auf angepassten Events einzurichten. Das Beispielszenario ermöglicht es, eine Erinnerung für ein Verlängerungsdatum einer Police einzurichten, das 26 oder mehr Tage entfernt ist, wobei Erinnerungen 26, 13, 7 oder 2 Tage vor dem Verlängerungsdatum gesendet werden.
 
-Bei diesem Anwendungsfall sollte Folgendes im Body einer [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/) oder eines Canvas-Schritts stehen.
+Bei diesem Anwendungsfall sollte Folgendes im Body einer [Webhook-Campaign]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) oder eines Canvas-Schritts stehen.
 
 {% raw %}
 ```liquid
@@ -1321,7 +1321,7 @@ Content for Android.
 
 Dieser Anwendungsfall prüft, ob der Mobilfunkanbieter des Geräts Verizon ist, und zeigt in diesem Fall eine spezifische Nachricht an.
 
-Für Push-Benachrichtigungen und In-App-Nachrichten-Kanäle können Sie den Mobilfunkanbieter im Nachrichtentext mithilfe von Liquid angeben. Wenn der Mobilfunkanbieter des Empfängers/der Empfängerin nicht übereinstimmt, wird die Nachricht nicht gesendet.
+Für Push-Benachrichtigungen und In-App Messages-Kanäle können Sie den Mobilfunkanbieter im Nachrichtentext mithilfe von Liquid angeben. Wenn der Mobilfunkanbieter des Empfängers/der Empfängerin nicht übereinstimmt, wird die Nachricht nicht gesendet.
 
 {% raw %}
 ```liquid
@@ -1539,7 +1539,7 @@ Check out this new bar after work today. HH specials!
 ```
 {% endraw %}
 
-{% alert note %} Dies ist das Gegenteil von [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/#time-based-options). {% endalert %}
+{% alert note %} Dies ist das Gegenteil von [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#time-based-options). {% endalert %}
 
 ### Nachricht außerhalb eines Stundenbereichs zum Sendezeitpunkt abbrechen {#abort-send-time-hour-range}
 
@@ -1816,4 +1816,4 @@ Dieser Anwendungsfall bricht die Nachricht ab, wenn Liquid an einem bestimmten W
 
 {% endapi %}
 
-Viele Beispiele in dieser Bibliothek verwenden den `abort_message`-Tag, um einen Versand zu überspringen, wenn Bedingungen nicht erfüllt sind. Eine vollständige Referenz zum Abbrechen von Versendungen mit Liquid, einschließlich datums- und zeitbasierter Muster, finden Sie unter [Liquid-Nachrichten abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/).
+Viele Beispiele in dieser Bibliothek verwenden den `abort_message`-Tag, um einen Versand zu überspringen, wenn Bedingungen nicht erfüllt sind. Eine vollständige Referenz zum Abbrechen von Versendungen mit Liquid, einschließlich datums- und zeitbasierter Muster, finden Sie unter [Liquid-Nachrichten abbrechen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).

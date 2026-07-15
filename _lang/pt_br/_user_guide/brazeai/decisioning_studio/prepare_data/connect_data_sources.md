@@ -23,7 +23,7 @@ O Decisioning Studio suporta múltiplos padrões de integração para conectar d
 | **Ingestão de dados na nuvem (CDI) da Braze** | Conectar data warehouses externos | Média |
 | **Armazenamento em nuvem (GCS, AWS, Azure)** | Exportações diretas de dados de outras plataformas | Média |
 | **Integrações com CEP** | Extensões de dados do SFMC e Klaviyo | Média |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported integration patterns" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Padrões de integração suportados" }
 
 ## Tipos de dados de cliente {#customer-data-types}
 
@@ -35,7 +35,7 @@ Os seguintes ativos de dados de cliente ajudam os agentes a personalizar de form
 | **Comportamento do cliente** | Padrões de atividade e engajamento | Logins na conta, tipo de dispositivo, interações com atendimento ao cliente, uso do produto |
 | **Histórico de transações** | Dados de compra e conversão | Produtos comprados, valores de transação, métodos de pagamento, canais de compra |
 | **Engajamento de marketing** | Respostas a comunicações | Aberturas/cliques de e-mail, engajamento por SMS, atividade web e mobile, respostas a pesquisas |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Customer data types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de dados de cliente" }
 
 {% alert tip %}
 Quanto mais informações os agentes tiverem sobre seus clientes, melhor será o desempenho deles. Considere incluir dados sobre quaisquer insights que sejam particularmente importantes para o seu negócio (por exemplo, você quer ver como a IA trata seus clientes de fidelidade de forma diferente? Certifique-se de que o status de fidelidade esteja nos dados de cliente).
@@ -50,7 +50,7 @@ Quanto mais informações os agentes tiverem sobre seus clientes, melhor será o
 
 O BrazeAI Decisioning Studio pode utilizar todos os dados que você já está enviando para a Braze Data Platform.
 
-Se houver dados de cliente que você deseja usar no Decisioning Studio e que não estão armazenados atualmente no perfil de usuário ou em atributos personalizados, a abordagem recomendada é usar a [Ingestão de dados na nuvem da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/) para ingerir dados de outras fontes.
+Se houver dados de cliente que você deseja usar no Decisioning Studio e que não estão armazenados atualmente no perfil de usuário ou em atributos personalizados, a abordagem recomendada é usar a [Ingestão de dados na nuvem da Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion) para ingerir dados de outras fontes.
 
 A CDI suporta integrações diretas com:
 
@@ -61,16 +61,16 @@ A CDI suporta integrações diretas com:
 - Microsoft Fabric
 - AWS S3
 
-Para a lista completa de fontes suportadas, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/).
+Para a lista completa de fontes suportadas, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 Quando estiver satisfeito com os dados que está enviando para a Braze Data Platform, entre em contato com sua equipe de AI Decisioning Services para discutir quais campos do perfil de usuário ou atributos personalizados devem ser usados para a tomada de decisões por IA.
 
-Para agilizar esse processo, crie uma lista de atributos do perfil de usuário da Braze que você acredita que melhor representam os comportamentos dos seus clientes e que devem ser usados no Decisioning Studio (consulte a [lista de campos disponíveis]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/#fields-to-export)). Sua equipe de serviços também pode ajudar a conduzir sessões de descoberta para decidir quais campos são mais apropriados para a tomada de decisões por IA.
+Para agilizar esse processo, crie uma lista de atributos do perfil de usuário da Braze que você acredita que melhor representam os comportamentos dos seus clientes e que devem ser usados no Decisioning Studio (consulte a [lista de campos disponíveis]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment#fields-to-export)). Sua equipe de serviços também pode ajudar a conduzir sessões de descoberta para decidir quais campos são mais apropriados para a tomada de decisões por IA.
 
 Outras opções para enviar dados incluem:
 
 - Enviar eventos personalizados da Braze via SDK
-- Enviar eventos usando o endpoint REST ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/))
+- Enviar eventos usando o endpoint REST ([`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track))
 
 Esses padrões exigem mais esforço de engenharia, mas às vezes são preferíveis dependendo da sua configuração atual da Braze. Entre em contato com a equipe de AI Decisioning Services para saber mais.
 
@@ -139,4 +139,4 @@ Este guia explica os padrões de integração mais comuns. A equipe de Seguranç
 
 Após conectar suas fontes de dados, prossiga para configurar a orquestração:
 
-- [Configurar a orquestração]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup/)
+- [Configurar a orquestração]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/orchestration_setup)

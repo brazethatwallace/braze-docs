@@ -12,7 +12,7 @@ noindex: true
 
 # iOS용 딥링킹 {#deep-linking-for-ios}
 
-딥링크에 대한 소개 정보는 [사용 설명서 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking)를 참조하세요. Braze 앱에서 처음으로 딥링크를 구현하려는 경우, 아래 단계를 따라 시작하세요.
+딥링크에 대한 소개 정보는 [사용 설명서 문서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking)를 참조하세요. Braze 앱에서 처음으로 딥링크를 구현하려는 경우, 아래 단계를 따라 시작하세요.
 
 ## 1단계: 스키마 등록 {#step-1-register-a-scheme}
 
@@ -62,7 +62,7 @@ iOS 9부터 앱에는 앱이 열 수 있는 커스텀 스키마의 허용 목록
 </array>
 ```
 
-자세한 내용은 [Apple 설명서](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW14)에서 `LSApplicationQueriesSchemes` 키를 참조하세요.
+자세한 내용은 `LSApplicationQueriesSchemes` 키에 대한 [Apple 설명서](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/LaunchServicesKeys.html#//apple_ref/doc/uid/TP40009250-SW14)를 참조하세요.
 
 ## 3단계: 핸들러 구현 {#step-3-implement-a-handler}
 
@@ -95,7 +95,7 @@ func application(_ app: UIApplication, open url: URL, options: [UIApplication.Op
 {% endtab %}
 {% endtabs %}
 
-![]({% image_buster /assets/img_archive/deep_link.png %})
+![Braze 대시보드에서의 딥링크 구성 예시.]({% image_buster /assets/img_archive/deep_link.png %})
 
 # 유니버설 링크 {#universal-links}
 
@@ -291,7 +291,7 @@ Braze가 기본 동작으로 URL을 처리하도록 하려면 `NO`를 반환하�
 
 자세한 내용은 [`ABKURLDelegate.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKURLDelegate.h)를 참조하세요.
 
-## 자주 사용하는 활용 사례 {#frequent-use-cases}
+## 자주 사용하는 사용 사례 {#frequent-use-cases}
 
 ### 앱 설정으로 딥링킹 {#deep-linking-to-app-settings}
 

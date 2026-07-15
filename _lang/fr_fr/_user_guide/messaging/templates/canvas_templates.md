@@ -24,7 +24,6 @@ Dans le tableau de bord de Braze, allez dans **Messaging** > **Canvas** et séle
 
 Dans l'éditeur Canvas, sélectionnez **Edit Canvas** ou **Edit draft**, selon que votre Canvas est actif ou en brouillon. Développez le menu déroulant **Save as draft** dans le pied de page et sélectionnez **Save as template**.
 
-![]({% image_buster /assets/img/save_canvas_as_template.png %})
 
 ### Étape 3 : Enregistrer votre modèle {#step-3-save-your-template}
 
@@ -34,7 +33,7 @@ Ensuite, donnez un nom à votre modèle et ajoutez les étiquettes pertinentes. 
 
 ### Étape 1 : Accéder à l'éditeur de modèles Canvas {#step-1-go-to-the-canvas-template-editor}
 
-Dans le tableau de bord de Braze, allez dans **Content** > **Canvas**.
+Dans le tableau de bord de Braze, allez dans **Contenu** > **Canvas**.
 
 ### Étape 2 : Créer un nouveau modèle {#step-2-create-a-new-template}
 
@@ -44,7 +43,7 @@ Sélectionnez **Create template** et commencez à configurer les détails de vot
 
 ### Étape 3 : Personnaliser votre modèle {#step-3-customize-your-template}
 
-Ensuite, personnalisez votre modèle en [configurant votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2-build-your-canvas). Vous pouvez décider quand les utilisateurs doivent entrer dans le Canvas, déterminer quels utilisateurs peuvent y accéder, ajuster vos paramètres d'envoi et construire le parcours utilisateur pour le modèle.
+Ensuite, personnalisez votre modèle en [configurant votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas). Vous pouvez décider quand les utilisateurs doivent entrer dans le Canvas, déterminer quels utilisateurs peuvent y accéder, ajuster vos paramètres d'envoi et construire le parcours utilisateur pour le modèle.
 
 ### Étape 4 : Enregistrer votre modèle {#step-4-save-your-template}
 
@@ -55,21 +54,21 @@ Une fois la personnalisation de votre modèle terminée, sélectionnez le bouton
 Il existe deux façons d'utiliser votre modèle lors de la composition d'un Canvas :
 
 - **Depuis Messaging** : Allez dans **Messaging** > **Canvas**. Sélectionnez le bouton **Create Canvas** puis **Use a Canvas Template**.
-- **Depuis Content** : Allez dans **Content** > **Canvas** et trouvez le modèle souhaité dans **Canvas templates**. Ensuite, sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i> suivi de **Apply template**. Cela vous amènera à un nouveau Canvas avec le modèle appliqué dans le compositeur Canvas.
+- **Depuis Contenu** : Allez dans **Contenu** > **Canvas** et trouvez le modèle souhaité dans **Modèles de Canvas**. Ensuite, sélectionnez le menu <i class="fas fa-ellipsis-vertical"></i> suivi de **Apply template**. Cela vous amènera à un nouveau Canvas avec le modèle appliqué dans le compositeur Canvas.
 
 ### Modèles Braze disponibles {#available-braze-templates}
 
-Pour une liste des modèles de Canvas disponibles, consultez [Utiliser les modèles de Canvas Braze]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/). Pour plus de détails sur l'utilisation des modèles Canvas eCommerce, consultez [Comment utiliser les événements recommandés eCommerce]({{site.baseurl}}/ecommerce_use_cases/).
+Pour une liste des modèles de Canvas disponibles, consultez [Utiliser les modèles de Canvas Braze]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates). Pour plus de détails sur l'utilisation des modèles Canvas eCommerce, consultez [Comment utiliser les événements recommandés eCommerce]({{site.baseurl}}/ecommerce_use_cases).
 
 ## Gérer les modèles de Canvas {#managing-canvas-templates}
 
 Les modèles de Canvas peuvent être dupliqués et archivés, de manière similaire à un Canvas réel. Pour modifier un modèle de Canvas, sélectionnez le modèle puis **<i class="fas fa-pencil-alt"></i>Edit**.
 
-Au niveau de l'espace de travail, vous pouvez mettre à jour les autorisations des utilisateurs pour autoriser ou limiter l'accès à la création, la modification, la consultation ou l'archivage des modèles de Canvas.
+À un niveau d'espace de travail, vous pouvez mettre à jour les autorisations des utilisateurs pour autoriser ou limiter l'accès à la création, la modification, la consultation ou l'archivage des modèles de Canvas.
 
 ### Autorisations pour les équipes et les espaces de travail {#permissions-for-teams-and-workspaces}
 
-Pour permettre uniquement à certains utilisateurs d'accéder à des modèles de Canvas spécifiques et de les utiliser, [ajoutez une équipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) aux modèles, puis attribuez les autorisations au niveau de l'équipe « Access Campaigns, Canvases, Content Cards, Content Blocks, Feature Flags, Segments, Media Library, and Preference Center ».
+Pour permettre uniquement à certains utilisateurs d'accéder à des modèles de Canvas spécifiques et de les utiliser, [ajoutez une équipe]({{site.baseurl}}/user_guide/administer/global/user_management/teams) aux modèles, puis attribuez les autorisations au niveau de l'équipe « Access Campaigns, Canvases, Content Cards, Content Blocks, Feature Flags, Segments, Media Library, and Preference Center ».
 
 Si vous attribuez l'une des autorisations suivantes au niveau de l'équipe, mais pas au niveau de l'espace de travail, vous ne pouvez effectuer les actions suivantes que pour les éléments assignés à votre équipe :
 

@@ -41,7 +41,7 @@ This can be done using the following instructions, which will walk you through c
 
 Create a new role in your Google Cloud Platform Console by navigating to **IAM & admin** > **Roles** > **+ Create Role**.
 
-![]({% image_buster /assets/img/gcs1.png %})
+![Google Cloud IAM roles page with the Create Role action.]({% image_buster /assets/img/gcs1.png %})
 
 Give the role a name, then select **+Add Permissions** and choose the following:
 
@@ -57,7 +57,7 @@ The `storage.objects.delete` permission is optional. It allows Braze to clean up
 
 When you're finished, select **Create**.
 
-![]({% image_buster /assets/img/gcs2.png %})
+![Google Cloud custom role editor with storage permissions selected.]({% image_buster /assets/img/gcs2.png %})
 
 ### Step 2: Create a new service account
 
@@ -65,7 +65,7 @@ When you're finished, select **Create**.
 
 Create a new service account in your Google Cloud Platform Console by navigating to **IAM & admin** > **Service Accounts** and selecting **Create Service Account**.
 
-![]({% image_buster /assets/img/gcs3.png %})
+![Google Cloud service accounts page with Create Service Account selected.]({% image_buster /assets/img/gcs3.png %})
 
 Next, give the service account a name and grant it access to your newly created custom role.
 
@@ -75,7 +75,7 @@ Next, give the service account a name and grant it access to your newly created 
 
 At the bottom of the page, use the **Create Key** button to create a **JSON** private key to use in Braze. After the key is created, it will download onto your machine.
 
-![]({% image_buster /assets/img/gcs5.png %})
+![Google Cloud service account key creation dialog set to JSON key type.]({% image_buster /assets/img/gcs5.png %})
 
 ### Step 3: Set up Currents in Braze
 

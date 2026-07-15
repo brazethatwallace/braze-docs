@@ -6,15 +6,15 @@ description: "Dieser Referenzartikel beschreibt, wie Sie Standard-Fallback-Werte
 
 ---
 
-# Standardwerte festlegen
-
-{% raw %}
+# Standardwerte festlegen {#set-default-values}
 
 > Für alle Personalisierungsattribute, die Sie in Ihren Nachrichten verwenden, können Standard-Fallback-Werte festgelegt werden. Dieser Artikel beschreibt, wie Standardwerte funktionieren, wie Sie sie einrichten und wie Sie sie in Ihren Nachrichten verwenden.
 
-## Funktionsweise
+{% raw %}
 
-Standardwerte können durch Angabe eines [Liquid-Filters](http://docs.shopify.com/themes/liquid-documentation/filters) (verwenden Sie `|`, um den Filter inline zu kennzeichnen, wie gezeigt) mit dem Namen „default" hinzugefügt werden.
+## Funktionsweise {#how-they-work}
+
+Standardwerte können durch Angabe eines [Liquid-Filters](http://docs.shopify.com/themes/liquid-documentation/filters) (verwenden Sie `|`, um den Filter inline zu kennzeichnen, wie gezeigt) mit dem Namen „default“ hinzugefügt werden.
 
 ```
 | default: 'Insert Your Desired Default Here'
@@ -22,7 +22,7 @@ Standardwerte können durch Angabe eines [Liquid-Filters](http://docs.shopify.co
 
 Wenn kein Standardwert angegeben wird und das Feld bei der Nutzer:in fehlt oder nicht gesetzt ist, bleibt das Feld in der Nachricht leer.
 
-Das folgende Beispiel zeigt die korrekte Syntax zum Hinzufügen eines Standardwerts. In diesem Fall ersetzen die Wörter „Valued User" das Attribut `{{ ${first_name} }}`, wenn das Feld `first_name` einer Nutzer:in leer oder nicht verfügbar ist.
+Das folgende Beispiel zeigt die korrekte Syntax zum Hinzufügen eines Standardwerts. In diesem Fall ersetzen die Wörter „Valued User“ das Attribut `{{ ${first_name} }}`, wenn das Feld `first_name` einer Nutzer:in leer oder nicht verfügbar ist.
 
 ```liquid
 Hi {{ ${first_name} | default: 'Valued User' }}, thanks for using the App!
@@ -45,11 +45,11 @@ Hi Valued User, thanks for using the App!
 Der Standardwert wird für leere Werte (empty) angezeigt, aber nicht für Leerzeichenwerte (blank). Ein leerer Wert enthält nichts, während ein Leerzeichenwert Leerzeichen (wie Spaces) und keine anderen Zeichen enthält. Zum Beispiel könnte ein leerer String wie `""` aussehen und ein Leerzeichenstring wie `" "`.
 {% endalert %}
 
-## Standardwerte für verschiedene Datentypen festlegen
+## Standardwerte für verschiedene Datentypen festlegen {#setting-default-values-for-different-data-types}
 
-Das obige Beispiel zeigt, wie Sie einen Standardwert für einen String festlegen. Sie können Standardwerte für jeden Liquid-Datentyp festlegen, der den Wert `empty`, `nil` (undefiniert) oder `false` hat, einschließlich Strings, Boolescher Werte, Arrays, Objekte und Zahlen.
+Das vorherige Beispiel in diesem Abschnitt zeigt, wie Sie einen Standardwert für einen String festlegen. Sie können Standardwerte für jeden Liquid-Datentyp festlegen, der den Wert `empty`, `nil` (undefiniert) oder `false` hat, einschließlich Strings, Boolescher Werte, Arrays, Objekte und Zahlen.
 
-### Anwendungsfall: Boolesche Werte
+### Anwendungsfall: Boolesche Werte {#use-case-booleans}
 
 Angenommen, Sie haben ein angepasstes Attribut vom Typ Boolescher Wert namens `premium_user` und möchten eine personalisierte Nachricht basierend auf dem Premium-Status der Nutzer:in senden. Einige Nutzer:innen haben keinen Premium-Status eingerichtet, daher müssen Sie einen Standardwert festlegen, um diese Nutzer:innen zu erfassen.
 
@@ -91,7 +91,7 @@ Hi {{${first_name} | default: 'valued user'}}, consider upgrading to premium for
 {% endraw %}
 {% enddetails %}
 
-### Anwendungsfall: Zahlen
+### Anwendungsfall: Zahlen {#use-case-numbers}
 
 Angenommen, Sie haben ein numerisches angepasstes Attribut namens `reward_points` und möchten eine Nachricht mit den Prämienpunkten der Nutzer:in senden. Einige Nutzer:innen haben keine Prämienpunkte eingerichtet, daher müssen Sie einen Standardwert festlegen, um diese Nutzer:innen zu berücksichtigen.
 
@@ -112,7 +112,7 @@ Hi {{${first_name} | default: 'valued user'}}, you have {{custom_attribute.${rew
 ```
 {% endraw %}
 
-### Anwendungsfall: Objekte
+### Anwendungsfall: Objekte {#use-case-objects}
 
 Angenommen, Sie haben ein verschachteltes angepasstes Attribut-Objekt namens `location`, das die Eigenschaften `city` und `state` enthält. Wenn eine dieser Eigenschaften nicht gesetzt ist, möchten Sie die Nutzer:in auffordern, diese anzugeben.
 
@@ -158,7 +158,7 @@ State: {{custom_attribute.${address.state} | default: 'Unknown'}}
 {% endraw %}
 {% enddetails %}
 
-### Anwendungsfall: Arrays
+### Anwendungsfall: Arrays {#use-case-arrays}
 
 Angenommen, Sie haben ein angepasstes Array-Attribut namens `upcoming_trips`, das Reisen mit den Eigenschaften `destination` und `departure_date` enthält. Sie möchten Nutzer:innen personalisierte Nachrichten senden, je nachdem, ob sie geplante Reisen haben.
 

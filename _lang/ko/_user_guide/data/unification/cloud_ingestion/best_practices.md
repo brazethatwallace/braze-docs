@@ -51,7 +51,7 @@ CDI를 사용하여 외부 소스(예: Databricks 또는 Snowflake)에서 데이
 - **문자열로 저장된 숫자:** 동기화 전에 소스 쿼리에서 숫자 열을 정수 또는 플로트 유형으로 캐스팅하세요.
 - **동기화 간 일관되지 않은 유형:** 동기화 간에 열 유형이 변경되면 Braze가 새 데이터를 거부할 수 있습니다. 소스 스키마가 일관되게 유지되는지 확인하세요.
 
-Braze 대시보드에서 커스텀 속성의 데이터 유형을 강제하거나 변경하는 방법은 [커스텀 데이터 관리]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons)를 참조하세요.
+Braze 대시보드에서 커스텀 속성의 데이터 유형을 강제하거나 변경하는 방법은 [커스텀 데이터 관리]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons)를 참조하세요.
 
 외부 ID, 사용자 별칭, Braze ID, 이메일 또는 전화번호로 사용자 데이터를 업데이트할 수 있습니다. 외부 ID, 사용자 별칭 또는 Braze ID로 사용자를 삭제할 수 있습니다.
 
@@ -695,7 +695,7 @@ Braze는 `UPDATED_AT` 타임스탬프를 사용하여 어떤 데이터가 성공
 
 ### 데이터 형식 {#data-formatting}
 
-클라우드 데이터 수집 테이블 설정 요구 사항 및 페이로드 형식 요구 사항은 [클라우드 데이터 수집을 위한 테이블 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/)에 문서화되어 있습니다.
+클라우드 데이터 수집 테이블 설정 요구 사항 및 페이로드 형식 요구 사항은 [클라우드 데이터 수집을 위한 테이블 설정]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup)에 문서화되어 있습니다.
 
 해당 페이지를 사용하여 다음을 구분하세요:
 

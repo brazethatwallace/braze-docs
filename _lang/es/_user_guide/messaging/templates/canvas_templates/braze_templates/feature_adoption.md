@@ -15,7 +15,7 @@ En este artículo, te guiaremos a través de un caso de uso para la plantilla **
 
 ## Requisitos previos {#prerequisites}
 
-Para usar esta plantilla con éxito, necesitarás un [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) que haga referencia a cuándo los usuarios han usado la característica.
+Para usar esta plantilla con éxito, necesitarás un [evento personalizado]({{site.baseurl}}/user_guide/data/activation/events/custom_events) que haga referencia a cuándo los usuarios han usado la característica.
 
 ## Adaptar la plantilla a tus necesidades {#tailoring-the-template-to-your-needs}
 
@@ -27,7 +27,7 @@ Para acceder a la plantilla de vuelta en stock, al crear un nuevo Canvas, selecc
 
 Ajustemos los detalles del Canvas para reflejar nuestro objetivo.
 
-1. Selecciona **Edit** junto al nombre de la plantilla.
+1. Selecciona **Editar** junto al nombre de la plantilla.
 
 ![El título y la descripción actuales del Canvas.]({% image_buster /assets/img/canvas_templates/feature_adoption/select_edit_details.png %}){: style="max-width:60%;"}
 
@@ -36,14 +36,14 @@ Ajustemos los detalles del Canvas para reflejar nuestro objetivo.
 3. Actualiza la descripción para especificar que el Canvas es para animar a los usuarios a enviar comentarios y rastrear el sentimiento de los usuarios sobre la nueva característica Cruise Control.
 4. Añade la etiqueta **Feature adoption** para que podamos filtrarla en la página de inicio de Canvas.
 
-![El nuevo nombre y descripción del Canvas. La nueva descripción dice: 'Un Canvas de adopción de características para rastrear la adopción y el sentimiento de los usuarios sobre Cruise Control, una característica para programar entregas de comida recurrentes.']({% image_buster /assets/img/canvas_templates/feature_adoption/enter_new_canvas_name.png %}){: style="max-width:60%;"}
+![El nuevo nombre y descripción del Canvas. La nueva descripción dice: "Un Canvas de adopción de características para rastrear la adopción y el sentimiento de los usuarios sobre Cruise Control, una característica para programar entregas de comida recurrentes."]({% image_buster /assets/img/canvas_templates/feature_adoption/enter_new_canvas_name.png %}){: style="max-width:60%;"}
 
 ### Paso 2: Asignar un evento de conversión {#step-2-assign-a-conversion-event}
 
 A continuación, añadamos un evento de conversión para nuestro Canvas que señale la adopción de la característica. Esto nos permitirá adaptar la ruta de experimentos en nuestro recorrido de usuario más adelante.
 
-1. En **Assign Conversion Events**, selecciona **Add Conversion Event**.
-2. En **Primary Conversion Event - A**, selecciona **Performs Custom Event** como el **Conversion event type**.
+1. En **Asignar eventos de conversión**, selecciona **Añadir evento de conversión**.
+2. En **Evento de conversión primaria - A**, selecciona **Realiza evento personalizado** como el **Tipo de evento de conversión**.
 3. Selecciona nuestro evento personalizado `scheduled_delivery`.
 4. Mantendremos la fecha límite de conversión en tres días.
 
@@ -51,13 +51,13 @@ A continuación, añadamos un evento de conversión para nuestro Canvas que señ
 
 ### Paso 3: Adaptar el horario de entrada {#step-3-tailor-the-entry-schedule}
 
-Nuestro objetivo es animar a nuestros usuarios a adoptar Cruise Control, pero no queremos que nuestros mensajes sean demasiado frecuentes. Así que mantendremos este Canvas como una entrega planificada y haremos los siguientes ajustes en la sección **Time-Based Options**.
+Nuestro objetivo es animar a nuestros usuarios a adoptar Cruise Control, pero no queremos que nuestros mensajes sean demasiado frecuentes. Así que mantendremos este Canvas como una entrega planificada y haremos los siguientes ajustes en la sección **Opciones basadas en el tiempo**.
 
-1. Actualiza la **Entry Frequency** a **Weekly**.
+1. Actualiza la **Frecuencia de entrada** a **Semanal**.
 2. Mantén la recurrencia tal como está.
-3. Selecciona **Mon** para dirigirte a los usuarios al comienzo de la semana.
+3. Selecciona **Lun** para dirigirte a los usuarios al comienzo de la semana.
 4. Selecciona la hora de inicio para nuestro Canvas.
-5. Actualiza los **Ending parameters** para terminar el Canvas el último día del año.
+5. Actualiza los **Parámetros de finalización** para terminar el Canvas el último día del año.
 
 Mantendremos la opción de permitir que los usuarios entren al Canvas en su zona horaria local.
 
@@ -65,7 +65,7 @@ Mantendremos la opción de permitir que los usuarios entren al Canvas en su zona
 
 Ahora, configuremos nuestra audiencia objetivo actualizando los siguientes detalles en la plantilla:
 
-1. Selecciona el segmento **All Users**.
+1. Selecciona el segmento **Todos los usuarios**.
 2. Elimina los filtros adicionales de la plantilla.
 3. Crea este filtro usando nuestro evento personalizado: `Has scheduled_delivery for exactly 0 times`. Esto nos permite excluir a los usuarios que ya han usado la característica de entrar en nuestro Canvas.
 
@@ -93,7 +93,7 @@ A continuación, construyamos el primer paso de ruta de acción, que está desti
 3. Para la ruta de acción posterior llamada **Assess Usage**, reemplaza **Used Feature >3x** con **Viewed Cruise Control settings**.
 4. Selecciona el desplegable **Perform Custom Event**, luego selecciona `scheduled_delivery` para el evento personalizado.
 
-![El nombre del grupo de acción configurado como 'Used Feature >3x' y 'Perform Custom Event' configurado como 'scheduled_delivery'.]({% image_buster /assets/img/canvas_templates/feature_adoption/action_path_assess_usage.png %}){: style="max-width:60%;"}
+![El nombre del grupo de acción configurado como "Used Feature >3x" y "Perform Custom Event" configurado como "scheduled_delivery".]({% image_buster /assets/img/canvas_templates/feature_adoption/action_path_assess_usage.png %}){: style="max-width:60%;"}
 
 #### Configurar el cuestionario de comentarios {#set-up-feedback-survey}
 
@@ -110,5 +110,5 @@ A continuación, iremos al paso de mensaje llamado **Feedback Survey** para incl
 Después de probar y revisar nuestro Canvas para asegurarnos de que funciona como se espera, selecciona **Launch Canvas** para lanzar el Canvas. Ahora, podemos dirigirnos a los usuarios con un recorrido de usuario personalizado para animarlos a adoptar nuestra nueva característica Cruise Control.
 
 {% alert tip %}
-Consulta nuestra [Lista de verificación previa y posterior al lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) para conocer las cosas a considerar antes y después de lanzar un Canvas.
+Consulta nuestra [Lista de verificación previa y posterior al lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para conocer las cosas a considerar antes y después de lanzar un Canvas.
 {% endalert %}

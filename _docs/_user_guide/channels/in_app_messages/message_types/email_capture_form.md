@@ -12,7 +12,7 @@ channel:
 
 > Email capture messages let you prompt users of your site to submit their email address. Braze adds the address to their user profile for use in all your messaging campaigns.
 
-This message type is available in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+This message type is available in the [traditional editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 
 ## How it works
 
@@ -20,7 +20,7 @@ When an end user enters their email address in this form, Braze adds the email a
 
 - For [anonymous users]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles) who don't yet have an account, the email address is stored on the anonymous user profile tied to the user's device.
 - If an email address already exists on the user profile, the newly entered email address overwrites the existing email address.
-- If the known user has an email address that is flagged as having [hard bounced]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#hard-bounce), Braze checks whether the newly entered email address differs from the address on their Braze profile. If the provided email address is different, Braze updates the email address and removes the hard bounce status.
+- If the known user has an email address that is flagged as having [hard bounced]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#hard-bounce), Braze checks whether the newly entered email address differs from the address on their Braze profile. If the provided email address is different, Braze updates the email address and removes the hard bounce status.
 - If a user enters an invalid email address, they see the error message: "Please enter a valid email."
     - Invalid email addresses: 
         - `example`
@@ -30,7 +30,7 @@ When an end user enters their email address in this form, Braze adds the email a
     - Valid email addresses: 
         - `example@gmail.com`
         - `example@gnail.com` (with a typo)
-    - For more information on email validation in Braze, refer to [Email technical guidelines and notes]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/).
+    - For more information on email validation in Braze, refer to [Email technical guidelines and notes]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 {% details More on identified versus anonymous users %}
 
@@ -38,9 +38,9 @@ The email capture form sets the email address on the currently active user profi
 
 If an anonymous user enters their email in the form and submits it, Braze adds the email address to their profile. If `changeUser` is called later on in their web journey and a new `external_id` is assigned (such as when a new user registers with the service), all anonymous user profile data is merged including the email address.
 
-If `changeUser` is called with an existing `external_id`, the anonymous user profile is orphaned and [specific user profile data fields]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge_updates-behavior) that do not already exist on the identified user are merged, but any fields that do already exist are lost, including the email address.
+If `changeUser` is called with an existing `external_id`, the anonymous user profile is orphaned and [specific user profile data fields]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge-behavior) that do not already exist on the identified user are merged, but any fields that do already exist are lost, including the email address.
 
-For more information, refer to the [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+For more information, refer to the [User profile lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
 {% enddetails %}
 

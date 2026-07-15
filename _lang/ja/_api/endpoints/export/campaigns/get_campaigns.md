@@ -22,7 +22,7 @@ description: "この記事では、「キャンペーンリストのエクスポ
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`campaigns.list` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`campaigns.list` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -36,7 +36,7 @@ description: "この記事では、「キャンペーンリストのエクスポ
 | `include_archived` | オプション | ブール値 | アーカイブされたキャンペーンを含めるかどうか。デフォルトはfalseです。 |
 | `sort_direction` | オプション | 文字列 | - 作成時刻を新しいものから古いものへ並べ替える場合: 値`desc`を渡します。<br> - 作成時刻を古いものから新しいものへ並べ替える場合: 値`asc`を渡します。<br><br>`sort_direction`が含まれていない場合、デフォルトの順序は古いものから新しいものになります。 |
 | `last_edit.time[gt]` | オプション | 時刻 | 結果をフィルターし、指定された時刻以降に編集されたキャンペーンのみを返します。形式は`yyyy-MM-DDTHH:mm:ss`です。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 
@@ -64,7 +64,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/campaigns/list?p
 ```
 
 {% alert tip %}
-CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)」を参照してください。
+CSVおよびAPIのエクスポートに関するヘルプについては、「[エクスポートのトラブルシューティング]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)」を参照してください。
 {% endalert %}
 
 {% endapi %}

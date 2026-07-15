@@ -63,8 +63,8 @@ La catégorie « Other » inclut toute chaîne user agent qui ne peut pas être 
 
 Pour mieux comprendre le contenu de cette catégorie « Other », vous pouvez extraire les user agents en utilisant l'une de ces options :
 
-1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) vous enverra la chaîne user agent exacte récupérée depuis les appareils de vos utilisateurs.
-2. Utilisez notre [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) pour écrire du SQL ou notre [Générateur de requêtes par intelligence artificielle]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#generating-sql-with-the-ai-query-builder) pour consulter les user agents.
+1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) vous enverra la chaîne user agent exacte récupérée depuis les appareils de vos utilisateurs.
+2. Utilisez notre [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder) pour écrire du SQL ou notre [Générateur de requêtes par intelligence artificielle]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder) pour consulter les user agents.
 
 ![Rapport Engagement par appareil affichant le nombre de clics pour les appareils mobiles, les ordinateurs de bureau, les tablettes et les autres appareils. Le plus grand nombre de clics provient des appareils mobiles.]({% image_buster /assets/img/engagement_by_device_type.png %}){: style="max-width:70%;"}
 
@@ -90,7 +90,7 @@ Le rapport d'engagement **Time of the day** répartit les ouvertures ou les clic
 
 ![Un exemple de rapport d'engagement par heure de la journée avec les ouvertures ou clics de minuit à 23 h.]({% image_buster /assets/img_archive/time_engagement_day.png %})
 
-Pour plus d'informations sur l'analytique de vos e-mails, consultez [Rapports e-mail]({{site.baseurl}}/user_guide/channels/email/reporting/).
+Pour plus d'informations sur l'analytique de vos e-mails, consultez [Rapports e-mail]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 {% endtab %}
 {% tab Performances SMS %}
@@ -185,18 +185,18 @@ Pour l'indicateur _Ouvertures uniques_, Braze déduplique les ouvertures répét
 
 <!---Temporarily hidden until functionality is added
 
-## Empty values in your data
+## Empty values in your data {#empty-values-in-your-data}
 
-#### If a metric displays "0%" or "0"
+### If a metric displays "0%" or "0" {#if-a-metric-displays-0-or-0}
 
 This means Braze recorded zero for that particular metric during the time frame you've selected.
 
-#### If a metric displays "N/A"
+#### If a metric displays "N/A" {#if-a-metric-displays-na}
 
 This means that while Braze recorded positive counts for a particular metric for the time frame you've selected, the denominator for the rate calculation (either sends or deliveries in most cases) was zero. This can occur when emails are sent out on one day and opens and clicks are recorded the following days if your selected time frame does not include the date the messages were sent.
 
-#### If a metric displays "--"
+#### If a metric displays "--" {#if-a-metric-displays}
 
-This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email/) section.
+This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email) section.
 
 --->

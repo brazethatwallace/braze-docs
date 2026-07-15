@@ -10,11 +10,11 @@ search_tag: Partner
 
 # DinMo
 
-> [DinMo](https://www.dinmo.com/)は、リバースETL（Extract, Transform, Load）を通じてクラウドデータウェアハウスをBrazeに接続するコンポーザブル顧客データプラットフォーム（CDP）です。マーケティングチームは、データウェアハウスのデータからオーディエンスSegmentsを構築し、ユーザー属性やイベントをBrazeに同期し、CSVアップロードやエンジニアリングサポートなしでサブスクリプションステータスを最新の状態に保つことができます。
+> [DinMo](https://www.dinmo.com/)は、リバースETL（Extract, Transform, Load）を通じてクラウドデータウェアハウスをBrazeに接続するコンポーザブル顧客データプラットフォーム（CDP）です。マーケティングチームは、データウェアハウスのデータからオーディエンスセグメントを構築し、ユーザー属性やイベントをBrazeに同期し、CSVアップロードやエンジニアリングサポートなしでサブスクリプションステータスを最新の状態に保つことができます。
 
 *この統合はDinMoによって管理されています。*
 
-BrazeとDinMoの統合は、Braze REST APIを通じてデータウェアハウスからBrazeにSegmentsとデータモデルをプッシュします。DinMoでBrazeの送信先を接続すると、アクティベーションによってモデルまたはSegmentsからBrazeにデータが送信されます。
+BrazeとDinMoの統合は、Braze REST APIを通じてデータウェアハウスからBrazeにセグメントとデータモデルをプッシュします。DinMoでBrazeの送信先を接続すると、アクティベーションによってモデルまたはセグメントからBrazeにデータが送信されます。
 
 ## 前提条件 {#prerequisites}
 
@@ -24,17 +24,17 @@ BrazeとDinMoの統合は、Braze REST APIを通じてデータウェアハウ�
 | Braze REST APIキー | 使用する送信先サービスに必要な[権限](#api-key-permissions)を持つBraze REST APIキー。これはBrazeダッシュボードの**設定** > **APIキー**から作成できます。 |
 | Braze RESTエンドポイント | RESTエンドポイントURL。エンドポイントは[インスタンスのBraze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)に依存します。 |
 | BrazeダッシュボードURL | インスタンスのBrazeダッシュボードURL（例: `https://dashboard.iad-01.braze.com`）。詳細については、[利用可能なSDKエンドポイント]({{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints/)を参照してください。 |
-| データウェアハウスとデータモデル | 統合を開始する前に、DinMoでデータウェアハウスを接続し、Brazeに同期するデータのモデルまたはSegmentを定義してください。詳細については、[DinMo Braze統合ガイド](https://docs.dinmo.io/integrations/destination-platforms/braze)を参照してください。 |
+| データウェアハウスとデータモデル | 統合を開始する前に、DinMoでデータウェアハウスを接続し、Brazeに同期するデータのモデルまたはセグメントを定義してください。詳細については、[DinMo Braze統合ガイド](https://docs.dinmo.io/integrations/destination-platforms/braze)を参照してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## ユースケース {#use-cases}
 
 この統合により、以下のことが可能になります。
 
-* データウェアハウスからBrazeにユーザー属性を同期し、CampaignsやCanvasesをパーソナライズする。
+* データウェアハウスからBrazeにユーザー属性を同期し、キャンペーンやキャンバスをパーソナライズする。
 * データウェアハウスのデータからカスタムイベントや購入イベントをBrazeに送信し、行動ターゲティングに活用する。
-* DinMoで定義されたオーディエンスSegmentsに合わせて、Brazeのサブスクリプショングループメンバーシップを整合させる。
-* DinMoのSegmentsをBrazeユーザー属性としてエクスポートし、それらの属性からBrazeのSegmentsを構築する。
+* DinMoで定義されたオーディエンスセグメントに合わせて、Brazeのサブスクリプショングループメンバーシップを整合させる。
+* DinMoのセグメントをBrazeユーザー属性としてエクスポートし、それらの属性からBrazeのセグメントを構築する。
 
 ## APIキーの権限 {#api-key-permissions}
 
@@ -78,7 +78,7 @@ REST API URLとダッシュボードURLの両方を指定する必要があり�
 
 ## サポートされている送信先サービス {#supported-destination-services}
 
-DinMoの各送信先サービスは同じ一般的なワークフローに従います。Brazeの送信先を作成し、DinMoのモデルまたはSegmentを構築し、Brazeにデータを送信するアクティベーションを作成します。ステップバイステップのアクティベーションガイダンスについては、[DinMo Braze送信先サービス](https://docs.dinmo.io/integrations/destination-platforms/braze)を参照してください。
+DinMoの各送信先サービスは同じ一般的なワークフローに従います。Brazeの送信先を作成し、DinMoのモデルまたはセグメントを構築し、Brazeにデータを送信するアクティベーションを作成します。ステップバイステップのアクティベーションガイダンスについては、[DinMo Braze送信先サービス](https://docs.dinmo.io/integrations/destination-platforms/braze)を参照してください。
 
 以下の送信先サービスが利用可能です。
 
@@ -86,8 +86,8 @@ DinMoの各送信先サービスは同じ一般的なワークフローに従い
 | --- | --- |
 | [ユーザー属性の同期](https://docs.dinmo.io/integrations/destination-platforms/braze/synchronize-users-attributes) | Brazeのユーザープロファイル属性を更新し、オプションで新しいユーザーを挿入します。 |
 | [トラックイベントの送信](https://docs.dinmo.io/integrations/destination-platforms/braze/send-track-events) | カスタムイベントと購入イベントをBrazeに送信します。 |
-| [サブスクリプションステータスの同期](https://docs.dinmo.io/integrations/destination-platforms/braze/synchronize-subscription-statuses) | DinMoのSegmentメンバーシップに基づいて、Brazeのサブスクリプショングループでユーザーを購読または購読解除します。 |
-| [ユーザーリストのエクスポート](https://docs.dinmo.io/integrations/destination-platforms/braze/export-user-lists) | Segmentメンバーシップをbrazeユーザー属性に同期し、Brazeのセグメンテーションで使用します。 |
+| [サブスクリプションステータスの同期](https://docs.dinmo.io/integrations/destination-platforms/braze/synchronize-subscription-statuses) | DinMoのセグメントメンバーシップに基づいて、Brazeのサブスクリプショングループでユーザーを購読または購読解除します。 |
+| [ユーザーリストのエクスポート](https://docs.dinmo.io/integrations/destination-platforms/braze/export-user-lists) | セグメントメンバーシップをbrazeユーザー属性に同期し、Brazeのセグメンテーションで使用します。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="サポートされている送信先サービス" }
 
 ### ユーザー属性の同期 {#synchronize-user-attributes}
@@ -118,7 +118,7 @@ DinMoの各送信先サービスは同じ一般的なワークフローに従い
 
 ### トラックイベントの送信 {#send-track-events}
 
-この送信先サービスを使用して、DinMoのイベントモデルまたはSegmentからBrazeにカスタムイベントまたは購入イベントを送信します。DinMoはカスタムイベントと購入を別々の送信先サービスとして扱います。これは、Brazeが各タイプに異なるAPIを使用するためです。
+この送信先サービスを使用して、DinMoのイベントモデルまたはセグメントからBrazeにカスタムイベントまたは購入イベントを送信します。DinMoはカスタムイベントと購入を別々の送信先サービスとして扱います。これは、Brazeが各タイプに異なるAPIを使用するためです。
 
 モデル内の各レコードは単一のイベントタイプ（例: `Purchase`）を表します。DinMoは各アクティベーション実行時に新しいイベントのみを送信し、以前に送信されたイベントは更新しません。
 
@@ -133,28 +133,28 @@ DinMoの各送信先サービスは同じ一般的なワークフローに従い
 
 ### サブスクリプションステータスの同期 {#synchronize-subscription-statuses}
 
-この送信先サービスを使用して、BrazeのサブスクリプショングループをDinMoのSegmentまたはモデルと整合させます。
+この送信先サービスを使用して、BrazeのサブスクリプショングループをDinMoのセグメントまたはモデルと整合させます。
 
 このサービスをアクティベートする前に:
 
 1. Brazeでターゲットのサブスクリプショングループ（SMSまたはメール）を作成します。
-2. そのサブスクリプショングループに所属すべきユーザーを含むDinMoモデルまたはSegmentを構築します。
+2. そのサブスクリプショングループに所属すべきユーザーを含むDinMoモデルまたはセグメントを構築します。
 
 アクティベーションのセットアップ中に、Brazeの正確なサブスクリプショングループIDを入力します。複数のサブスクリプショングループを同期するには、グループごとに1つのアクティベーションを作成してください。
 
 アクティベーションが実行されると:
 
-* ユーザーがBrazeに既に存在する場合、DinMoのSegmentに参加したユーザーはターゲットのサブスクリプショングループで購読中としてマークされます。
-* DinMoのSegmentから離脱したユーザーは、サブスクリプショングループで購読解除としてマークされます。
+* ユーザーがBrazeに既に存在する場合、DinMoのセグメントに参加したユーザーはターゲットのサブスクリプショングループで購読中としてマークされます。
+* DinMoのセグメントから離脱したユーザーは、サブスクリプショングループで購読解除としてマークされます。
 
-DinMoは、Segmentに一度も含まれなかったユーザーを変更せず、この送信先サービスでは新しいBrazeユーザーを作成しません。
+DinMoは、セグメントに一度も含まれなかったユーザーを変更せず、この送信先サービスでは新しいBrazeユーザーを作成しません。
 
 ### ユーザーリストのエクスポート {#export-user-lists}
 
-この送信先サービスを使用して、DinMoのSegmentをBrazeユーザー属性として表現します。Brazeの制限により、DinMoはBrazeリストを直接作成しません。代わりに、Segment内のユーザーのユーザー属性を`true`に設定し、Segmentから離脱したユーザーの属性を`false`に設定します。
+この送信先サービスを使用して、DinMoのセグメントをBrazeユーザー属性として表現します。Brazeの制限により、DinMoはBrazeリストを直接作成しません。代わりに、セグメント内のユーザーのユーザー属性を`true`に設定し、セグメントから離脱したユーザーの属性を`false`に設定します。
 
 アクティベーションのセットアップ中に、オーディエンス名を指定します。DinMoはこの名前をBraze属性として使用します（スペースはアンダースコアに置き換えられます）。同じ名前の属性がBrazeに既に存在しないことを確認してください。ユーザーのexternal IDに対応するDinMoフィールドをマッピングします。
 
-アクティベーションの実行後、同期された属性が`true`に等しいユーザーをフィルタリングするBrazeのSegmentを作成してください。
+アクティベーションの実行後、同期された属性が`true`に等しいユーザーをフィルタリングするBrazeのセグメントを作成してください。
 
 既存のBrazeユーザーと一致するexternal IDを持つユーザーのみが更新されます。この送信先サービスでは新しいユーザーは作成されません。
