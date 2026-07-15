@@ -31,7 +31,7 @@ Use this workflow for every export incident. Start at step 1.
 
 1. Confirm whether you're exporting to the default Braze S3 bucket or a connected cloud storage partner. Link expiration and retry behavior differ between the two.
 2. For dashboard CSV exports, confirm you're logged in to Braze when opening the download link. Default-bucket links require an active dashboard session.
-3. Check how long ago the export completed. Default-bucket dashboard links expire after four hours. When a storage partner is connected, emailed links typically expire after 24 hours, while the copy in your bucket follows your retention policies and may remain available longer.
+3. Check how long ago the export completed. Emailed dashboard download links expire after four hours, whether you use the default Braze bucket or a connected storage partner. When a storage partner is connected, Braze also delivers a copy to your bucket; that copy follows your retention policies and may remain available after the email link expires.
 4. For large segment exports, confirm the audience is under the 500,000-user dashboard CSV export limit. Segment builder estimates can differ from the export pipeline evaluation.
 5. For API exports, wait for processing to finish before downloading. Use `callback_endpoint` on [`/users/export/segment`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) or poll with exponential backoff instead of requesting the URL immediately.
 6. If you're still blocked, contact [Braze Support]({{site.baseurl}}/braze_support) with the export type (CSV or API), segment or campaign ID, timestamp (with timezone), and the exact error message.
