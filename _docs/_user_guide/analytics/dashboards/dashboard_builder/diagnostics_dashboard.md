@@ -12,7 +12,7 @@ toc_headers: h2
 > The **Messaging Diagnostics** dashboard provides a high-level breakdown of message sending outcomes, allowing you to spot trends and diagnose potential issues in your messaging setup. This dashboard can help you understand why messages from your campaigns or Canvases may not have been sent as expected.
 
 {% alert important %}
-The **Messaging Diagnostics** dashboard is currently in early access. Contact your customer success manager if you're interested in participating in the early access.
+The **Messaging Diagnostics** dashboard is generally available. Contact your customer success manager if you're interested in getting access to the feature.
 {% endalert %}
 
 ## Key concepts
