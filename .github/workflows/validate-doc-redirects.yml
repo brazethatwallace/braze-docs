@@ -31,6 +31,9 @@ jobs:
   doc-redirects:
     name: "Redirect list vs Jekyll URLs"
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
       - name: "Checkout PR head"
         uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0  # v7.0.0
@@ -50,7 +53,177 @@ jobs:
         run: bundle exec rspec spec/scripts/
 
       - name: "Validate redirects"
-        run: bundle exec ruby scripts/validate_doc_redirects.rb --base "origin/${{ github.base_ref }}" --skip-fetch
+        id: validate
+        run: bundle exec ruby scripts/validate_doc_redirects.rb --base "origin/${{ github.base_ref }}" --skip-fetch --json redirect-report.json
+
+      - name: "Sync redirect/anchor PR comment"
+        if: always() && (steps.validate.outcome == 'success' || steps.validate.outcome == 'failure')
+        uses: actions/github-script@v9
+        env:
+          VALIDATE_OUTCOME: ${{ steps.validate.outcome }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const fs = require('fs');
+            const marker = '<!-- braze-docs-redirect-anchor-bot -->';
+            const prNumber = context.payload.pull_request.number;
+            const { owner, repo } = context.repo;
+
+            // Values below (old_url, source_file, link, etc.) come from the PR's own
+            // file paths and link text, so a PR author fully controls their content.
+            // Insert a zero-width space after every backtick so an attacker-supplied
+            // backtick can't fuse with another backtick into a longer delimiter run,
+            // AND pad both ends of the escaped value with a zero-width space so a
+            // backtick at the very start/end can't fuse with the wrapping inline-code
+            // delimiter itself. Together this prevents breaking out of the surrounding
+            // single backtick span to inject live markdown (fake headings, spoofed
+            // links, @mentions) into the comment.
+            const esc = (s) => '\u200b' + String(s).replace(/`/g, '`' + '\u200b') + '\u200b';
+
+            const MAX_ITEMS_PER_SECTION = 30;
+            const listItems = (items, render, moreRender) => {
+              const shown = items.slice(0, MAX_ITEMS_PER_SECTION).map(render);
+              if (items.length > MAX_ITEMS_PER_SECTION) {
+                const remaining = items.length - MAX_ITEMS_PER_SECTION;
+                shown.push(moreRender
+                  ? moreRender(remaining)
+                  : `- …and ${remaining} more (see the full report in the workflow run log)`);
+              }
+              return shown;
+            };
+
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner,
+              repo,
+              issue_number: prNumber,
+              per_page: 100,
+            });
+            const existing = comments.find((c) => c.body && c.body.includes(marker));
+
+            if (process.env.VALIDATE_OUTCOME === 'success') {
+              if (existing) {
+                await github.rest.issues.deleteComment({ owner, repo, comment_id: existing.id });
+                core.info(`Deleted resolved redirect/anchor comment ${existing.id}`);
+              }
+              return;
+            }
+
+            let report = null;
+            try {
+              report = JSON.parse(fs.readFileSync('redirect-report.json', 'utf8'));
+            } catch (e) {
+              core.warning('redirect-report.json missing or unreadable: ' + e.message);
+            }
+
+            if (!report) {
+              // The script failed before it could write a report (e.g. worktree setup
+              // failure) -- point at the Actions log instead of guessing at content.
+              const body = [
+                marker,
+                '',
+                '### Redirect / anchor check failed',
+                '',
+                'The check failed before it could produce a structured report. See the ' +
+                  `[workflow run](${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}) log for details.`,
+              ].join('\n');
+
+              if (existing) {
+                await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+              } else {
+                await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+              }
+              return;
+            }
+
+            const redirectRel = 'assets/js/broken_redirect_list.js';
+            const sections = [];
+
+            if (report.deleted_pages && report.deleted_pages.length) {
+              sections.push([
+                `#### Deleted pages (need a manual redirect target in \`${redirectRel}\`)`,
+                '',
+                ...listItems(report.deleted_pages, (r) => `- \`${esc(r.old_url)}\``),
+              ].join('\n'));
+            }
+
+            if (report.missing && report.missing.length) {
+              sections.push([
+                `#### Missing redirects (add to \`${redirectRel}\`)`,
+                '',
+                '```js',
+                ...listItems(
+                  report.missing,
+                  (r) => `validurls['${esc(r.old_url)}'] = '${esc(r.expected_new)}';`,
+                  (n) => `// …and ${n} more (see the full report in the workflow run log)`
+                ),
+                '```',
+              ].join('\n'));
+            }
+
+            if (report.wrong_target && report.wrong_target.length) {
+              sections.push([
+                '#### Wrong redirect target',
+                '',
+                ...listItems(report.wrong_target, (r) => [
+                  `- \`${esc(r.old_url)}\``,
+                  `  - expected: \`${esc(r.expected_new)}\``,
+                  `  - mapped: \`${esc(r.mapped_new)}\``,
+                ].join('\n')),
+              ].join('\n'));
+            }
+
+            const renamed = (report.anchor_issues || []).filter((a) => a.category === 'heading_renamed');
+            const newWrong = (report.anchor_issues || []).filter((a) => a.category === 'new_link_wrong_anchor');
+
+            if (renamed.length) {
+              sections.push([
+                '#### Broken anchors (heading was renamed or removed -- update the link\'s anchor)',
+                '',
+                ...listItems(renamed, (a) => `- \`${esc(a.source_file)}\`: \`${esc(a.link)}\``),
+              ].join('\n'));
+            }
+
+            if (newWrong.length) {
+              sections.push([
+                '#### Broken anchors (new link points at a nonexistent anchor -- check for a typo or wrong target)',
+                '',
+                ...listItems(newWrong, (a) => `- \`${esc(a.source_file)}\`: \`${esc(a.link)}\``),
+              ].join('\n'));
+            }
+
+            if (report.anchor_warnings && report.anchor_warnings.length) {
+              sections.push([
+                '#### Non-blocking: links pointing at a target\'s first heading',
+                '',
+                'These behave identically to linking the page directly -- please confirm they\'re intentional (this does not block merge):',
+                '',
+                ...listItems(report.anchor_warnings, (w) => `- \`${esc(w.source_file)}\`: \`${esc(w.link)}\``),
+              ].join('\n'));
+            }
+
+            const MAX_BODY_LEN = 60000; // GitHub's issue-comment limit is 65536 chars
+            let body = [
+              marker,
+              '',
+              '### Redirect / anchor check failed',
+              '',
+              'This PR changes a doc URL or a heading anchor without a matching fix. Details below.',
+              '',
+              sections.join('\n\n'),
+            ].join('\n');
+
+            if (body.length > MAX_BODY_LEN) {
+              body = body.slice(0, MAX_BODY_LEN) +
+                `\n\n…(truncated for GitHub comment length -- see the [workflow run](${context.serverUrl}/${owner}/${repo}/actions/runs/${context.runId}) log for the full report)`;
+            }
+
+            if (existing) {
+              await github.rest.issues.updateComment({ owner, repo, comment_id: existing.id, body });
+              core.info(`Updated redirect/anchor comment ${existing.id}`);
+            } else {
+              await github.rest.issues.createComment({ owner, repo, issue_number: prNumber, body });
+              core.info('Created redirect/anchor comment');
+            }
 
   redirect-list-js-syntax:
     name: "broken_redirect_list.js syntax"
