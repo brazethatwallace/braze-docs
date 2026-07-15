@@ -71,11 +71,11 @@ table td {
 
 Faça upload do seu CSV com os relacionamentos usuário-conta para a Braze:
 
-1. Acesse **Configurações de dados** > **Contas**.
-2. Selecione **Atualizar dados**.
-3. Em **Upload de CSV**, selecione **Usuários** e faça upload do seu arquivo para a Braze.
+1. Acesse **Data Settings** > **Accounts**.
+2. Selecione **Update data**.
+3. Em **CSV upload**, selecione **Users** e faça upload do seu arquivo para a Braze.
 
-![O menu suspenso "Fazer upload de dados" na página "Contas" na Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+![O menu suspenso "Upload data" na página "Accounts" na Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
 ### Etapa 2: Importar dados de conta {#step-2-import-account-data}
 
@@ -90,40 +90,40 @@ table td {
 | Nome do campo | Tipo do campo | Obrigatório | Descrição |
 |-----------------------------|------------|----------|------------------------------------------------------------------------------------|
 | `id`                          | String     | Sim      | O ID da conta na sua plataforma de gestão de relacionamento com o cliente (CRM). |
-| `name`                        | String     | Sim      | O nome da conta.                                                                |
-| `type`                        | String     | Não       | O tipo de conta, como cliente, parceiro ou revendedor.                                                                                   |
-| `annual_revenue`              | String     | Não       | Receita anual da conta.                                                      |
-| `industry`                    | String     | Não       | Setor em que a conta opera.                                             |
-| `number_of_employees`         | String     | Não       | Número de colaboradores, com suporte para faixas.                                           |
-| `address`                     | String     | Não       | Endereço da conta.                                                      |
-| `city`                        | String     | Não       | Cidade onde a conta está localizada.                                                  |
-| `state`                       | String     | Não       | Estado onde a conta está localizada.                                                 |
-| `postal_code`                 | String     | Não       | CEP do endereço da conta.                                              |
-| `country`                     | String     | Não       | País onde a conta está localizada.                                               |
-| `notes`                       | String     | Não       | Observações adicionais sobre a conta.                                                 |
-| `website`                     | String     | Não       | URL do site da conta.                                                        |
-| `main_phone`                  | String     | Não       | Telefone principal da conta.                                                  |
-| `created_date`                | Time       | Não       | Data em que a conta foi criada.                                                  |
-| `account_owner_email_address` | String     | Não       | Um proprietário interno da conta (como "Tom da equipe de vendas da Empresa A é responsável pela Empresa B").      |
+| `name`                        | String     | Sim      | O nome da conta. |
+| `type`                        | String     | Não       | O tipo de conta, como cliente, parceiro ou revendedor. |
+| `annual_revenue`              | String     | Não       | Receita anual da conta. |
+| `industry`                    | String     | Não       | Setor em que a conta opera. |
+| `number_of_employees`         | String     | Não       | Número de colaboradores, com suporte para faixas. |
+| `address`                     | String     | Não       | Endereço da conta. |
+| `city`                        | String     | Não       | Cidade onde a conta está localizada. |
+| `state`                       | String     | Não       | Estado onde a conta está localizada. |
+| `postal_code`                 | String     | Não       | CEP do endereço da conta. |
+| `country`                     | String     | Não       | País onde a conta está localizada. |
+| `notes`                       | String     | Não       | Observações adicionais sobre a conta. |
+| `website`                     | String     | Não       | URL do website da conta. |
+| `main_phone`                  | String     | Não       | Telefone principal da conta. |
+| `created_date`                | Time       | Não       | Data em que a conta foi criada. |
+| `account_owner_email_address` | String     | Não       | Um proprietário interno da conta (como "Tom da equipe de vendas da Empresa A é responsável pela Empresa B"). |
 | `parent_account_id`           | String     | Não       | ID da conta principal, se aplicável (como vincular ao ID de uma empresa controladora). |
-| `sic_code`                    | String     | Não       | Código de classificação industrial padrão.                                              |
-| Campos personalizados                 | N/A        | Não       | Campos personalizados definidos e gerenciados por você.                                                             |
+| `sic_code`                    | String     | Não       | Código de classificação industrial padrão. |
+| Campos personalizados                 | N/A        | Não       | Campos personalizados definidos e gerenciados por você. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 {% alert note %}
 Embora alguns campos sejam opcionais, inclua-os sempre que possível, pois são nomes de campos reservados e ajudam a manter seus dados organizados.
 {% endalert %}
 
-Em seguida, importe seus dados de conta para a Braze fazendo upload de um arquivo CSV ou usando a REST API da Braze. Você pode visualizar esses dados em **Configurações de dados**. Não é possível editar esses dados no editor do navegador.
+Em seguida, importe seus dados de conta para a Braze fazendo upload de um arquivo CSV ou usando a REST API da Braze. Você pode visualizar esses dados em **Data Settings**. Não é possível editar esses dados no editor do navegador.
 
 #### Usar um arquivo CSV
 
 Para importar seus dados via CSV:
 
-1. Acesse **Configurações de dados** > **Contas**.
-2. Selecione **Atualizar dados**.
-3. Em **Upload de CSV**, selecione **Dados de conta** e faça upload do seu arquivo para a Braze.
+1. Acesse **Data Settings** > **Accounts**.
+2. Selecione **Update data**.
+3. Em **CSV upload**, selecione **Account Data** e faça upload do seu arquivo para a Braze.
 
-![O menu suspenso "Fazer upload de dados" na página "Contas" na Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
+![O menu suspenso "Upload data" na página "Accounts" na Braze.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/update_account_data_csv.png %})
 
 ## Usar a API da Braze {#using-the-braze-api}
 
@@ -142,7 +142,7 @@ A API da Braze oferece controle programático sobre dados de conta em escala. Vo
 Para saber mais sobre métodos HTTP e como REST APIs funcionam, consulte os seguintes recursos:
 - [Métodos de solicitação HTTP](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods) no MDN Web Docs
 - [Tutorial de REST API](https://restapitutorial.com/)
-- [Visão geral da API da Braze](https://www.braze.com/docs/api/basics)
+- [Visão geral da API da Braze]({{site.baseurl}}/api/basics)
 
 {% alert note %}
 Use uma chave de API com permissões de catálogos para autenticar solicitações ao endpoint `/business/accounts`.
@@ -158,9 +158,9 @@ Esta seção aborda como usar a API da Braze para:
 
 Como `PUT` é idempotente, você pode enviar a mesma solicitação várias vezes e a Braze atualiza os registros existentes em vez de criar duplicatas. Isso o torna uma escolha confiável para manter os registros de conta na Braze atualizados.
 
-O trecho de código a seguir envia uma solicitação `PUT` para o endpoint `/business/accounts`. O array `accounts` contém vários objetos de empresa, cada um mapeado para os campos de conta definidos na [Etapa 2: Importar dados de conta](#step-2-import-account-data). A Braze processa cada objeto e cria ou atualiza o registro correspondente na sua página **Contas**. Essa operação é assíncrona. A Braze enfileira a solicitação e a processa em segundo plano, tornando-a adequada para importações em massa onde a confirmação imediata não é necessária.
+O trecho de código a seguir envia uma solicitação `PUT` para o endpoint `/business/accounts`. O array `accounts` contém vários objetos de empresa, cada um mapeado para os campos de conta definidos na [Etapa 2: Importar dados de conta](#step-2-import-account-data). A Braze processa cada objeto e cria ou atualiza o registro correspondente na sua página **Accounts**. Essa operação é assíncrona. A Braze enfileira a solicitação e a processa em segundo plano, tornando-a adequada para importações em massa onde a confirmação imediata não é necessária.
 
-Para criar várias contas, envie uma solicitação `PUT` para `/business/accounts`. Se uma conta não existir, a Braze adiciona um novo item na página **Contas**. Cada solicitação pode suportar até 50 contas. Essa operação é assíncrona.
+Para criar várias contas, envie uma solicitação `PUT` para `/business/accounts`. Se uma conta não existir, a Braze adiciona um novo item na página **Accounts**. Cada solicitação pode suportar até 50 contas. Essa operação é assíncrona.
 
 Sua solicitação deve ser semelhante à seguinte:
 
@@ -186,7 +186,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.acme.com",
                   "main_phone": "+1-212-555-1234",
                   "created_date": "2023-01-15T09:30:00Z",
-                  "account_owner_email_address": "owner@acme.com",
+                  "account_owner_email_address": "owner@example.com",
                   "parent_account_id": "",
                   "sic_code": "2011"
               },
@@ -206,7 +206,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.globalsolutions.com",
                   "main_phone": "+1-650-555-5678",
                   "created_date": "2023-02-20T14:45:00Z",
-                  "account_owner_email_address": "partner@globalsolutions.com",
+                  "account_owner_email_address": "partner@example.com",
                   "parent_account_id": "ACC001",
                   "sic_code": "7372"
               },
@@ -226,7 +226,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.oceanicventures.com",
                   "main_phone": "+1-305-555-6789",
                   "created_date": "2023-03-05T08:15:00Z",
-                  "account_owner_email_address": "contact@oceanicventures.com",
+                  "account_owner_email_address": "contact@example.com",
                   "parent_account_id": "",
                   "sic_code": "5941"
               }
@@ -265,7 +265,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts/ACC001 \
                 "website": "http://www.acme.com",
                 "main_phone": "+1-212-555-1234",
                 "created_date": "2023-01-15T09:30:00Z",
-                "account_owner_email_address": "owner@acme.com",
+                "account_owner_email_address": "owner@example.com",
                 "parent_account_id": "",
                 "sic_code": "2011"
             }
@@ -317,11 +317,11 @@ Depois de [importar seus dados para a Braze](#importing-data-to-braze), você po
 
 ### Etapa 1: Criar um segmento {#step-1-build-a-segment}
 
-Em seguida, crie um segmento que combine dados de usuários e dados de conta. Neste exemplo, você direciona diretores de empresas de saúde para aumentar as inscrições em um novo webinar da sua empresa de promoção de saúde.
+Crie um segmento que combine dados de usuários e dados de conta. Neste exemplo, você direciona diretores de empresas de saúde para aumentar as inscrições em um novo webinar da sua empresa de promoção de saúde.
 
-1. Acesse **Público** > **Segments** e selecione **Criar segmento**.
+1. Acesse **Audience** > **Segments** e selecione **Create Segment**.
 2. Dê um nome ao seu segmento.
-3. No **criador de segmentos**, selecione o filtro **Negócios** e configure os seguintes filtros de segmentação. Quando terminar, selecione **Salvar**.
+3. No **criador de segmentos**, selecione o filtro **Business** e configure os seguintes filtros de segmentação. Quando terminar, selecione **Save**.
 
 | Filtro | Descrição |
 |---------------------------------|--------------------------------------------------|
@@ -330,7 +330,7 @@ Em seguida, crie um segmento que combine dados de usuários e dados de conta. Ne
 {: .reset-td-br-1 .reset-td-br-2 role="presentation"}
 
 {% alert important %}
-Atualmente, para usar vários filtros de conta, selecione **Adicionar critérios** em vez de usar o menu suspenso **OU/E**.
+Atualmente, para usar vários filtros de conta, selecione **Add Criteria** em vez de usar o menu suspenso **OR/AND**.
 {% endalert %}
 
 ![Filtros de segmentação configurados para criar um segmento de usuários que são diretores em empresas de saúde.]({% image_buster /assets/unlisted_docs/img/account_opportunity_object/build_segment.png %})
@@ -345,7 +345,7 @@ Agora você pode personalizar sua mensagem para enviar aos usuários informaçõ
 
 #### Etapa 2.1: Personalizar com informações de conta {#step-21-personalize-with-account-information}
 
-Selecione **Negócios** como o tipo de personalização e, em seguida, selecione **Nome** para personalizar a mensagem com o nome da empresa do usuário.
+Selecione **Business** como o tipo de personalização e, em seguida, selecione **Name** para personalizar a mensagem com o nome da empresa do usuário.
 
 O seguinte é copiado para a área de transferência.
 
@@ -360,7 +360,7 @@ A Braze gera a tag {% raw %}`{% business %}`{% endraw %}, que define um array ch
 
 Ajuste a saída gerada automaticamente para criar sua mensagem.
 
-No exemplo abaixo, mova a chamada à tag {% raw %}`{% business %}`{% endraw %} para o topo da mensagem e personalize com o nome do usuário. Use o nome da conta para personalizar a mensagem. A saída do Liquid permanece a mesma, mas você a posiciona em diferentes partes da mensagem.
+No exemplo a seguir, mova a chamada à tag {% raw %}`{% business %}`{% endraw %} para o topo da mensagem e personalize com o nome do usuário. Use o nome da conta para personalizar a mensagem. A saída do Liquid permanece a mesma, mas você a posiciona em diferentes partes da mensagem.
 
 {% raw %}
 ```javascript

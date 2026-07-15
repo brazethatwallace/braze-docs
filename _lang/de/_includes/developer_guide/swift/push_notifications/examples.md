@@ -15,11 +15,11 @@ Push-Benachrichtigungen können auf drei verschiedene Arten erweitert werden:
 - Auf dem Push-Banner nach unten streichen
 - Das Banner nach links streichen und „Anzeigen“ auswählen
 
-Diese angepassten Ansichten bieten intelligente Möglichkeiten für das Engagement Ihrer Kund:innen, indem sie verschiedene Arten von Inhalten anzeigen – darunter interaktive Benachrichtigungen, mit Nutzerdaten gefüllte Benachrichtigungen und sogar Push-Nachrichten, die Informationen wie Telefonnummern und E-Mail-Adressen erfassen können. Eines unserer bekannten Features bei Braze, [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories/), ist ein Paradebeispiel dafür, wie eine App-Erweiterung für Push-Benachrichtigungsinhalte aussehen kann!
+Diese angepassten Ansichten bieten intelligente Möglichkeiten für das Engagement Ihrer Kund:innen, indem sie verschiedene Arten von Inhalten anzeigen – darunter interaktive Benachrichtigungen, mit Nutzerdaten gefüllte Benachrichtigungen und sogar Push-Nachrichten, die Informationen wie Telefonnummern und E-Mail-Adressen erfassen können. Eines unserer bekannten Features bei Braze, [Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories), ist ein Paradebeispiel dafür, wie eine App-Erweiterung für Push-Benachrichtigungsinhalte aussehen kann!
 
 ### Voraussetzungen {#requirements}
 
-![]({% image_buster /assets/img/push_implementation_guide/push15.png %}){: style="float:right;max-width:50%;margin-left:10px; border:0;margin-top:10px"}
+![Xcodes Bildschirm „Vorlage für neues Target auswählen“ mit ausgewählter „Notification Content Extension“ unter „Application Extension“.]({% image_buster /assets/img/push_implementation_guide/push15.png %}){: style="float:right;max-width:50%;margin-left:10px; border:0;margin-top:10px"}
 - [Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) erfolgreich in Ihre App integriert
 - Die folgenden Dateien, die von Xcode basierend auf Ihrer Programmiersprache generiert werden:
 
@@ -51,7 +51,7 @@ Um eine interaktive Push-Benachrichtigung zu erstellen, müssen Sie in Ihrem Das
 5. Setzen Sie den Schlüssel `UNNotificationExtensionInteractionEnabled` auf `true`, um Nutzerinteraktionen in einer Push-Benachrichtigung zu aktivieren.
 
 ![Die Optionen für Benachrichtigungsbuttons in den Einstellungen des Nachrichten-Editors.]({% image_buster /assets/img/push_implementation_guide/push16.png %}){: style="max-width:75%;border:0;margin-top:10px"}
-![]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
+![Eine plist mit NSExtension, wobei UNNotificationExtensionCategory auf „your_custom_category“, UNNotificationExtensionDefaultContentHidden auf 1 und UNNotificationExtensionInitialContentSizeRatio auf 1 gesetzt ist.]({% image_buster /assets/img/push_implementation_guide/push17.png %}){: style="max-width:75%;border:0;margin-top:10px"}
 
 ## Personalisierte Push-Benachrichtigungen {#personalized-push-notifications}
 
@@ -59,7 +59,7 @@ Um eine interaktive Push-Benachrichtigung zu erstellen, müssen Sie in Ihrem Das
 
 Push-Benachrichtigungen können nutzerspezifische Informationen innerhalb einer Inhaltserweiterung anzeigen. So können Sie nutzerfokussierte Push-Inhalte erstellen, z. B. die Option, Ihren Fortschritt auf verschiedenen Plattformen zu teilen, freigeschaltete Erfolge anzuzeigen oder Onboarding-Checklisten darzustellen. Dieses Beispiel zeigt eine Push-Benachrichtigung, die einer Person angezeigt wird, nachdem sie eine bestimmte Aufgabe im Braze-Lernkurs abgeschlossen hat. Durch Erweitern der Benachrichtigung können die Nutzer:innen ihren Fortschritt auf ihrem Lernpfad sehen. Die hier bereitgestellten Informationen sind nutzerspezifisch und können über einen API-Trigger ausgelöst werden, wenn eine Sitzung abgeschlossen ist oder eine bestimmte Nutzeraktion durchgeführt wird.
 
-### Dashboard-Konfiguration {#dashboard-configuration-1}
+### Dashboard-Konfiguration
 
 Um eine personalisierte Push-Benachrichtigung zu erstellen, müssen Sie in Ihrem Dashboard eine angepasste Ansicht einrichten.
 
@@ -113,7 +113,7 @@ func didReceive(_ notification: UNNotification) {
 Push-Benachrichtigungen können Nutzerinformationen innerhalb einer Inhaltserweiterung erfassen und so die Grenzen dessen erweitern, was mit einem Push möglich ist. Durch das Anfordern von Nutzereingaben über Push-Benachrichtigungen können Sie nicht nur grundlegende Informationen wie Name oder E-Mail abfragen, sondern Nutzer:innen auch auffordern, Feedback zu geben oder ein unvollständiges Nutzerprofil zu vervollständigen.
 
 {% alert tip %}
-Weitere Informationen finden Sie unter [Protokollierung von Daten für Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/analytics/logging_channel_data/push_notifications/).
+Weitere Informationen finden Sie unter [Protokollierung von Daten für Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/analytics/logging_channel_data/push_notifications).
 {% endalert %}
 
 Im folgenden Ablauf kann die angepasste Ansicht auf Zustandsänderungen reagieren. Diese Zustandsänderungskomponenten werden in jedem Bild dargestellt.
@@ -123,9 +123,8 @@ Im folgenden Ablauf kann die angepasste Ansicht auf Zustandsänderungen reagiere
 3. Die Informationen werden eingegeben, und wenn sie im erwarteten Format vorliegen, wird der Registrierungs-Button angezeigt.
 3. Die Bestätigungsansicht wird angezeigt und der Push wird geschlossen.
 
-![]({% image_buster /assets/img/push_implementation_guide/push8.png %}){: style="border:0;"}
 
-### Dashboard-Konfiguration {#dashboard-configuration-2}
+### Dashboard-Konfiguration
 
 Um eine Push-Benachrichtigung zur Informationserfassung zu erstellen, müssen Sie in Ihrem Dashboard eine angepasste Ansicht einrichten.
 

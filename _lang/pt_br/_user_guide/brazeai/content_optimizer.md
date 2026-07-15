@@ -26,7 +26,7 @@ O Otimizador de Conteúdo é um agente que funciona em uma etapa do Canvas. Ele 
 - Testar rapidamente altos volumes de variantes de conteúdo, aproveitando a IA para ideação.
 - Descontinuar automaticamente conteúdos com baixo desempenho e escalar os vencedores.
 
-Saiba como criar uma [etapa do Otimizador de Conteúdo]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/).
+Saiba como criar uma [etapa do Otimizador de Conteúdo]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).
 
 ## Casos de uso {#use-cases}
 
@@ -66,7 +66,7 @@ O algoritmo de otimização proprietário da Braze é construído especificament
 
 Quando a etapa é lançada pela primeira vez, o Otimizador de Conteúdo envia variantes aleatoriamente para coletar dados de desempenho iniciais. Após esse período inicial de exploração, o algoritmo começa a direcionar o tráfego para combinações de conteúdo de maior desempenho, reduzindo gradualmente a alocação para opções de baixo desempenho. Durante o período de exploração, o tráfego é geralmente distribuído entre as variantes disponíveis para permitir que o algoritmo aprenda com o desempenho relativo delas.
 
-O Otimizador de Conteúdo é semelhante à etapa de Mensagem no Canvas, com recursos como horário de silêncio, [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/) e registro de eventos. Você pode configurar uma etapa do Otimizador de Conteúdo criando uma mensagem base e definindo quais componentes de conteúdo (como linha de assunto, texto do corpo ou chamada para ação) otimizar. As variantes de cada componente podem ser geradas com IA ou inseridas manualmente, e Liquid tags devem ser adicionadas à mensagem base para mapear os componentes no conteúdo da mensagem.
+O Otimizador de Conteúdo é semelhante à etapa de Mensagem no Canvas, com recursos como horário de silêncio, [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) e registro de eventos. Você pode configurar uma etapa do Otimizador de Conteúdo criando uma mensagem base e definindo quais componentes de conteúdo (como linha de assunto, texto do corpo ou chamada para ação) otimizar. As variantes de cada componente podem ser geradas com IA ou inseridas manualmente, e Liquid tags devem ser adicionadas à mensagem base para mapear os componentes no conteúdo da mensagem.
 
 Cada usuário recebe uma mensagem por entrada na etapa do Otimizador de Conteúdo. Reentradas são tratadas como novas, sem memória de variantes anteriores.
 
@@ -74,7 +74,7 @@ Cada usuário recebe uma mensagem por entrada na etapa do Otimizador de Conteúd
 
 Para melhores resultados, use o Otimizador de Conteúdo em Canvas onde os usuários entram na etapa gradualmente e regularmente ao longo do tempo, como em Canvas recorrentes ou sempre ativos com volume diário consistente. Se todos os usuários entrarem na etapa de uma vez, o agente não terá tempo para aprender com os resultados iniciais. Nesse caso, a etapa se comportará mais como um teste A/B estático do que como um motor de otimização ao vivo.
 
-O Otimizador de Conteúdo funciona melhor em Canvas de entrada recorrente diária, bem como em Canvas disparados por eventos e por API com volume diário de usuários relativamente consistente. Se você usar o Otimizador de Conteúdo em Canvas de envio único ou Canvas com entradas "em picos" (como recorrentes mensais), considere usar [Controles de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) para distribuir as entradas dos usuários ao longo de vários dias.
+O Otimizador de Conteúdo funciona melhor em Canvas de entrada recorrente diária, bem como em Canvas disparados por eventos e por API com volume diário de usuários relativamente consistente. Se você usar o Otimizador de Conteúdo em Canvas de envio único ou Canvas com entradas "em picos" (como recorrentes mensais), considere usar [Controles de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) para distribuir as entradas dos usuários ao longo de vários dias.
 
 ### Conceitos-chave {#key-concepts}
 
@@ -107,4 +107,4 @@ O Otimizador de Conteúdo funciona melhor em Canvas de entrada recorrente diári
 ## Próximos passos {#next-steps}
 
 - Entre em contato com seu gerente de sucesso do cliente para participar da versão beta ou para suporte na integração.
-- Saiba como criar uma [etapa do Otimizador de Conteúdo]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step/).
+- Saiba como criar uma [etapa do Otimizador de Conteúdo]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/content_optimizer_step).

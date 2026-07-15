@@ -12,15 +12,15 @@ channel:
 
 > E-Mail-Erfassungsnachrichten ermöglichen es Ihnen, Nutzer:innen Ihrer Website aufzufordern, ihre E-Mail-Adresse einzugeben. Braze fügt die Adresse ihrem Nutzerprofil hinzu, damit sie in all Ihren Messaging-Kampagnen verwendet werden kann.
 
-Dieser Nachrichtentyp ist im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) verfügbar.
+Dieser Nachrichtentyp ist im [traditionellen Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) verfügbar.
 
 ## So funktioniert es {#how-it-works}
 
 Wenn Endnutzer:innen ihre E-Mail-Adresse in dieses Formular eingeben, fügt Braze die E-Mail-Adresse ihrem Nutzerprofil hinzu.
 
-- Bei [anonymen Nutzer:innen]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/#anonymous-user-profiles), die noch kein Konto haben, wird die E-Mail-Adresse im anonymen Nutzerprofil gespeichert, das mit dem Gerät der Nutzer:in verknüpft ist.
+- Bei [anonymen Nutzer:innen]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#anonymous-user-profiles), die noch kein Konto haben, wird die E-Mail-Adresse im anonymen Nutzerprofil gespeichert, das mit dem Gerät der Nutzer:in verknüpft ist.
 - Wenn bereits eine E-Mail-Adresse im Nutzerprofil vorhanden ist, wird die bestehende E-Mail-Adresse durch die neu eingegebene überschrieben.
-- Wenn bekannte Nutzer:innen eine E-Mail-Adresse haben, die als [Hard Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary/#hard-bounce) markiert ist, prüft Braze, ob die neu eingegebene E-Mail-Adresse von der im Braze-Profil gespeicherten abweicht. Wenn die angegebene E-Mail-Adresse anders ist, aktualisiert Braze die E-Mail-Adresse und entfernt den Hard-Bounce-Status.
+- Wenn bekannte Nutzer:innen eine E-Mail-Adresse haben, die als [Hard Bounce]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#hard-bounce) markiert ist, prüft Braze, ob die neu eingegebene E-Mail-Adresse von der im Braze-Profil gespeicherten abweicht. Wenn die angegebene E-Mail-Adresse anders ist, aktualisiert Braze die E-Mail-Adresse und entfernt den Hard-Bounce-Status.
 - Wenn Nutzer:innen eine ungültige E-Mail-Adresse eingeben, wird die Fehlermeldung angezeigt: „Please enter a valid email.“
     - Ungültige E-Mail-Adressen:
         - `example`
@@ -30,7 +30,7 @@ Wenn Endnutzer:innen ihre E-Mail-Adresse in dieses Formular eingeben, fügt Braz
     - Gültige E-Mail-Adressen:
         - `example@gmail.com`
         - `example@gnail.com` (mit Tippfehler)
-    - Weitere Informationen zur E-Mail-Validierung in Braze finden Sie unter [Technische Richtlinien und Hinweise für E-Mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation/).
+    - Weitere Informationen zur E-Mail-Validierung in Braze finden Sie unter [Technische Richtlinien und Hinweise für E-Mails]({{site.baseurl}}/user_guide/channels/email/email_setup/email_validation).
 
 {% details Mehr zu identifizierten und anonymen Nutzer:innen %}
 
@@ -38,9 +38,9 @@ Das E-Mail-Erfassungsformular setzt die E-Mail-Adresse im aktuell aktiven Nutzer
 
 Wenn eine anonyme Nutzer:in ihre E-Mail-Adresse in das Formular eingibt und absendet, fügt Braze die E-Mail-Adresse ihrem Profil hinzu. Wenn `changeUser` später in der Web-Journey aufgerufen wird und eine neue `external_id` zugewiesen wird (z. B. wenn sich eine neue Nutzer:in beim Dienst registriert), werden alle anonymen Nutzerprofildaten einschließlich der E-Mail-Adresse zusammengeführt.
 
-Wenn `changeUser` mit einer bestehenden `external_id` aufgerufen wird, wird das anonyme Nutzerprofil verwaist und [bestimmte Nutzerprofil-Datenfelder]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/#merge_updates-behavior), die noch nicht im identifizierten Profil vorhanden sind, werden zusammengeführt. Felder, die bereits vorhanden sind, gehen jedoch verloren – einschließlich der E-Mail-Adresse.
+Wenn `changeUser` mit einer bestehenden `external_id` aufgerufen wird, wird das anonyme Nutzerprofil verwaist und [bestimmte Nutzerprofil-Datenfelder]({{site.baseurl}}/api/endpoints/user_data/post_users_merge#merge_updates-behavior), die noch nicht im identifizierten Profil vorhanden sind, werden zusammengeführt. Felder, die bereits vorhanden sind, gehen jedoch verloren – einschließlich der E-Mail-Adresse.
 
-Weitere Informationen finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+Weitere Informationen finden Sie unter [Nutzerprofil-Lebenszyklus]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 
 {% enddetails %}
 

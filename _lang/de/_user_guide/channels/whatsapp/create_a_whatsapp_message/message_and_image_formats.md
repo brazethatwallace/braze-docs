@@ -18,7 +18,7 @@ Es gibt zwei Arten von WhatsApp-Nachrichten in Braze: [Template-Nachrichten](#te
 |---|---|---|
 | Template-Nachrichten | Vom Unternehmen initiierte Kontaktaufnahme; kann jederzeit gesendet werden | Erforderlich; Templates müssen bei Meta eingereicht und vor dem Versand genehmigt werden. |
 | Antwortnachrichten | Antworten auf von Nutzer:innen initiierte Nachrichten; nur innerhalb des 24-Stunden-Konversationsfensters | Nicht erforderlich |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="WhatsApp message and image formats" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="WhatsApp-Nachrichten- und Bildformate" }
 
 Template-Nachrichten müssen zur Genehmigung bei Meta eingereicht werden, was bis zu 24 Stunden dauern kann. Nach der Genehmigung können sie jederzeit gesendet werden. Antwortnachrichten (in der Meta-Dokumentation als „Session Messages“ bezeichnet) können nur gesendet werden, solange ein aktives Konversationsfenster geöffnet ist – innerhalb von 24 Stunden nach der letzten eingehenden Nachricht der Nutzer:innen.
 
@@ -36,7 +36,7 @@ Marketing-Templates sind der am häufigsten in Braze verwendete Typ. Sie bestehe
 | Body | Ja | Der Hauptnachrichteninhalt |
 | Footer | Nein | Ergänzender Text, der unterhalb des Body angezeigt wird |
 | Buttons | Nein | Bis zu 10 Buttons (alle Button-Typen werden unterstützt) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Marketing templates" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Marketing-Templates" }
 
 #### Zeichenlänge {#character-length}
 
@@ -47,7 +47,7 @@ Marketing-Templates sind der am häufigsten in Braze verwendete Typ. Sie bestehe
 | Button-Beschriftung (URL, Telefon, Schnellantwort) | 25 Zeichen |
 | Telefonnummer (im Telefon-Button) | 20 Zeichen |
 | Template-Name | 512 Zeichen (nur Kleinbuchstaben, alphanumerisch und Unterstriche) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Character length" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Zeichenlänge" }
 
 #### Button-Typen {#button-types}
 
@@ -57,11 +57,43 @@ Marketing-Templates sind der am häufigsten in Braze verwendete Typ. Sie bestehe
 | URL | Öffnet eine URL im Standardbrowser der Nutzer:innen; unterstützt 1 Variable, die am Ende der URL angehängt wird (max. 2.000 Zeichen) | |
 | Telefonnummer | Initiiert einen Anruf an die angegebene Telefonnummer | |
 | Gutscheincode kopieren | Kopiert einen Gutscheincode in die Zwischenablage der Nutzer:innen | Erfordert immer eine Meta-Genehmigung |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Button types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Button-Typen" }
 
 #### Parameterformatierung {#parameter-formatting}
 
 Template-Variablen können entweder benannte Parameter (wie {% raw %}`{{first_name}}`{% endraw %}) oder positionelle Parameter (wie {% raw %}`{{1}}`{% endraw %}) verwenden. In Braze können Variablen durch Liquid oder Klartext ersetzt werden. Geben Sie immer Standardwerte für Liquid-Variablen an; Nachrichten mit fehlenden Variablenwerten werden nicht gesendet.
+
+### Templates für zeitlich begrenzte Angebote {#limited-time-offer-templates}
+
+Templates für zeitlich begrenzte Angebote zeigen ein zeitkritisches Werbeangebot mit einem optionalen Countdown an, wenn das Angebot sich dem Ablauf nähert. Verwenden Sie dieses Layout für zeitlich begrenzte Aktionen, wie saisonale Verkäufe oder auf ein Nutzer:innen-Attribut personalisierte Angebote.
+
+| Komponente | Erforderlich | Hinweise |
+|---|---|---|
+| Header | Nein | Wählen Sie **Keine** oder fügen Sie Medien hinzu (Bild oder Video). Siehe [Medienspezifikationen](#media-specifications) für Dateityp-, Größen- und Dimensionsanforderungen. |
+| Angebotsdetails | Ja | Angebotstitel, Angebotscode und ein optionales Ablaufdatum. |
+| Body | Ja | Der Hauptnachrichteninhalt. Unterstützt Liquid. |
+| Footer | Nein | Ergänzender Text, der nach dem Body angezeigt wird. |
+| Buttons | Ja | **Angebotscode kopieren** wird automatisch eingefügt. Sie können einen **Website besuchen**-Button hinzufügen; andere Button-Typen werden für diesen Template-Typ nicht unterstützt. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Templates für zeitlich begrenzte Angebote" }
+
+#### Angebotsdetails {#offer-details}
+
+| Feld | Erforderlich | Hinweise |
+|---|---|---|
+| Titel | Ja | Eine kurze Zeile, die das Angebot beschreibt. |
+| Code | Ja | Der Angebotscode, den Empfänger:innen kopieren. Dieser befüllt automatisch den Button **Angebotscode kopieren**. |
+| Ablaufdatum | Nein | Legen Sie ein festes Datum und eine Uhrzeit fest (z. B. ein Enddatum für einen Sommerschlussverkauf) oder personalisieren Sie es basierend auf einem Nutzer:innen-Attribut (z. B. dem Geburtstag jeder Nutzer:in). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Angebotsdetails" }
+
+Wenn Sie ein Ablaufdatum festlegen, sehen Empfänger:innen einen Countdown in der Nachricht, der sich aktualisiert, wenn das Angebot sich dem Ende nähert. Beispielsweise könnte die Nachricht zunächst das Enddatum anzeigen und dann zu etwas wie „Noch 5 Tage“ wechseln, wenn das Enddatum näher rückt. Wenn Sie kein Ablaufdatum festlegen, wird das Angebot ohne Countdown angezeigt. Braze verhindert den Versand von Nachrichten, wenn das Ablaufdatum in der Vergangenheit liegt (z. B. wenn das Ablaufdatum der 1. November 2026 ist, die Sendezeit aber der 15. November 2026).
+
+#### Button-Typen
+
+| Button-Typ | Hinweise |
+|---|---|
+| Angebotscode kopieren | Wird automatisch eingefügt. Der Button-Text lautet „Copy offer code“ und kann nicht bearbeitet werden. |
+| Website besuchen | Der einzige weitere Button, den Sie hinzufügen können. Maximal 1. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button-Typen für zeitlich begrenzte Angebote" }
 
 ### Media-Card-Karussell-Templates {#media-card-carousel-templates}
 
@@ -73,7 +105,7 @@ Karussell-Templates zeigen einen Nachrichtentext gefolgt von 2–10 horizontal s
 |---|---|---|---|
 | Body-Text | Ja | 1.024 Zeichen | Unterstützt Variablen |
 | Karten | Ja | 2–10 Karten | Die Kartenanzahl wird bei der Template-Erstellung festgelegt. Ein genehmigtes Karussell-Template kann nur mit der exakten Anzahl von Karten gesendet werden, die bei der Erstellung definiert wurde. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Top-level message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Nachricht auf oberster Ebene" }
 
 #### Spezifikationen pro Karte {#per-card-specifications}
 
@@ -82,7 +114,7 @@ Karussell-Templates zeigen einen Nachrichtentext gefolgt von 2–10 horizontal s
 | Header (Bild oder Video) | Ja | Alle Karten müssen dasselbe Format verwenden (alle Bilder oder alle Videos). Dies schließt dieselbe Komponentenstruktur ein; Sie können keine Karten mit und ohne Body-Text oder Buttons mischen.<br><br> Header-Assets der Karten werden automatisch auf ein Breitformat zugeschnitten, basierend auf dem Gerät der Nutzer:innen. |
 | Body-Text | Nein | Wenn eine Karte Body-Text enthält, müssen alle Karten Body-Text enthalten |
 | Buttons | Nein | Maximal 2 Buttons pro Karte |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Per-card specifications" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Spezifikationen pro Karte" }
 
 #### Zeichenlängen pro Karte {#per-card-character-lengths}
 
@@ -92,7 +124,7 @@ Karussell-Templates zeigen einen Nachrichtentext gefolgt von 2–10 horizontal s
 | Button-Beschriftung | 25 Zeichen | |
 | Telefonnummer (im Telefon-Button) | 20 Zeichen | |
 | URL (im URL-Button) | 2.000 Zeichen; unterstützt 1 Variable, die am Ende angehängt wird | URL-Buttons öffnen sich im Standardbrowser der Nutzer:innen, außerhalb von WhatsApp. Ab diesem Punkt werden keine Bestell- oder Conversion-Webhooks ausgelöst. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Per-card character lengths" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Zeichenlängen pro Karte" }
 
 ## Antwortnachrichten {#response-messages}
 
@@ -111,7 +143,7 @@ Braze unterstützt sieben Antwortnachrichten-Layouts:
 | Listennachricht | Nachricht mit einer strukturierten, scrollbaren Liste auswählbarer Optionen |
 | Flow-Nachricht | Nachricht, die Nutzer:innen auffordert, ein Formular oder eine interaktive Aufgabe in WhatsApp auszufüllen, wobei die Ausgabe an Braze zurückgegeben wird |
 | Meta-Produktnachricht | Nachricht, die ein einzelnes Produkt, mehrere Produkte oder einen gesamten Katalog aus einem verbundenen Meta-Katalog hervorhebt |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Response messages" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Antwortnachrichten" }
 
 ### Listennachricht-Komponenten {#list-message-components}
 
@@ -124,7 +156,7 @@ Braze unterstützt sieben Antwortnachrichten-Layouts:
 | Abschnittstitel | 24 Zeichen |
 | Zeilentitel | 24 Zeichen |
 | Zeilenbeschreibung | 72 Zeichen |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="List message components" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Listennachricht-Komponenten" }
 
 ### Schnellantwort-Komponenten {#quick-reply-components}
 
@@ -132,7 +164,7 @@ Braze unterstützt sieben Antwortnachrichten-Layouts:
 | --- | --- |
 | Button | Bis zu 3 |
 | Button-Beschriftung | 20 Zeichen pro Button |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Quick reply components" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schnellantwort-Komponenten" }
 
 ## Medienspezifikationen {#media-specifications}
 
@@ -142,11 +174,11 @@ Die folgenden Spezifikationen gelten für alle Medien in WhatsApp-Template-Heade
 
 ### Bilder {#images}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp images' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp images' %}
 
 ### Video {#video}
 
-{% multi_lang_include image_specs.md variable_name='WhatsApp videos' %}
+{% multi_lang_include channels/image_specs.md variable_name='WhatsApp videos' %}
 
 #### Android-Kompatibilität {#android-compatibility}
 
@@ -167,7 +199,7 @@ Eine Sprachnachricht funktioniert wie eine aufgenommene Sprachnotiz mit Wiederga
 | Dateigröße | Maximal 16 MB |
 | Wiedergabe-Symbol | Dieses Symbol wird nur angezeigt, wenn die Datei 512 KB oder kleiner ist; größere Dateien zeigen ein Download-Symbol an |
 | Transkription | Wird automatisch angezeigt, wenn Nutzer:innen WhatsApp-Sprachtranskripte aktiviert haben |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Voice message" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Sprachnachricht" }
 
 #### Einfache Audio-Nachricht {#basic-audio-message}
 
@@ -180,7 +212,7 @@ Die folgenden Spezifikationen gelten für das Teilen von Standard-Audio-Dateien 
 | MP3 | .mp3 | 16 MB | |
 | MP4 Audio | .m4a | 16 MB | |
 | OGG (OPUS-Codec) | .ogg | 16 MB | OGG-Dateien müssen den OPUS-Codec verwenden. Einfaches `audio/ogg` ohne OPUS wird nicht unterstützt.<br><br> OGG/OPUS-Dateien, die als einfache Audio-Nachrichten gesendet werden, zeigen ein Mikrofon-Symbol (wie bei Sprachnachrichten) anstelle eines Musik-Symbols an. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Basic audio message" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Einfache Audio-Nachricht" }
 
 #### Hinweise {#considerations}
 
@@ -200,7 +232,7 @@ Die folgenden Spezifikationen gelten für Template-Header (Dokumentformat), Antw
 | Microsoft Excel | XLS, XLSX | 100 MB |
 | Microsoft PowerPoint | PPT, PPTX | 100 MB |
 | Klartext | TXT | 100 MB |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Documents" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Dokumente" }
 
 #### Hinweise
 
@@ -219,4 +251,4 @@ Die folgenden Spezifikationen gelten für Template-Header (Dokumentformat), Antw
 | Audio (Sprache) | OGG (OPUS) | 16 MB | Nein |
 | Audio (einfach) | AAC, AMR, MP3, M4A, OGG | 16 MB | Nein |
 | Dokument | PDF, DOC, DOCX, XLS, XLSX, PPT, PPTX, TXT | 100 MB | Ja (maximal 1.024 Zeichen) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Quick reference: WhatsApp media specifications" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Kurzreferenz: WhatsApp-Medienspezifikationen" }

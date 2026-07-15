@@ -18,7 +18,7 @@ Si un paso de mensaje se cancela en un Canvas, el usuario **no** saldrá del Can
 
 `abort_message()` detiene el envío para los usuarios que no cumplen tu condición. El mensaje no aparecerá en su perfil y no contará para las entregas ni para la limitación de frecuencia.
 
-Si los envíos de prueba nunca llegan, previsualiza como un usuario que satisface la condición de cancelación, luego en **Test Send** habilita **Override recipients' attributes with current preview user's attributes** (o añade un miembro del grupo de prueba de contenido que cumpla los requisitos).
+Si los envíos de prueba nunca llegan, previsualiza como un usuario que satisface la condición de cancelación, luego en **Envío de prueba** habilita **Sustituir los atributos de los destinatarios con los atributos del usuario de vista previa actual** (o añade un miembro del grupo de prueba de contenido que cumpla los requisitos).
 
 ## Cancelar mensaje si "Number Games Attended" = 0 {#abort-message-if-number-games-attended-0}
 
@@ -69,7 +69,7 @@ También puedes hacer que el mensaje de cancelación registre algo en tu Registr
 
 ## Consultar mensajes de cancelación {#query-for-abort-messages}
 
-Puedes usar el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) o tu propio almacén de datos, si está conectado a Braze, para consultar mensajes de cancelación específicos que se desencadenan cuando la lógica Liquid provoca la cancelación de un mensaje.
+Puedes usar el [Generador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) o tu propio almacén de datos, si está conectado a Braze, para consultar mensajes de cancelación específicos que se desencadenan cuando la lógica Liquid provoca la cancelación de un mensaje.
 
 ## Cuándo se evalúa la lógica de cancelación {#when-abort-logic-is-evaluated}
 
@@ -81,7 +81,7 @@ La lógica de cancelación se evalúa en el momento del envío, cuando Braze pro
 
 ### Mensajes dentro de la aplicación {#in-app-messages}
 
-La lógica de cancelación se evalúa solo para [mensajes dentro de la aplicación con plantilla]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/#templated_iam-templated) en el momento en que se desencadena el mensaje dentro de la aplicación (por ejemplo, cuando el usuario realiza el evento desencadenante o inicia una sesión), no cuando el mensaje se envía inicialmente al dispositivo. Los mensajes dentro de la aplicación se entregan al SDK al inicio de la sesión y se almacenan en caché localmente; el Liquid, incluidas las llamadas a `abort_message()`, se ejecuta cuando se cumple la condición de desencadenamiento.
+La lógica de cancelación se evalúa solo para [mensajes dentro de la aplicación con plantilla]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) en el momento en que se desencadena el mensaje dentro de la aplicación (por ejemplo, cuando el usuario realiza el evento desencadenante o inicia una sesión), no cuando el mensaje se envía inicialmente al dispositivo. Los mensajes dentro de la aplicación se entregan al SDK al inicio de la sesión y se almacenan en caché localmente; el Liquid, incluidas las llamadas a `abort_message()`, se ejecuta cuando se cumple la condición de desencadenamiento.
 
 ## Consideraciones {#considerations}
 

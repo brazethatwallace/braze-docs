@@ -34,7 +34,7 @@ Lors de la configuration, il vous sera demandé de fournir une URL ACS (Assertio
 1. Dans votre centre d'administration Microsoft Entra, accédez à la page d'intégration de votre application Braze et sélectionnez **Single sign-on**.
 2. Sur la page **Select a single sign-on method**, sélectionnez **SAML** comme méthode.
 3. Sur la page **Set up Single Sign-On with SAML**, sélectionnez l'icône de modification pour **Basic SAML Configuration**.
-4. Configurez l'application en mode initié par l'IdP en saisissant une **Reply URL** qui combine votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/#braze-instances) avec le format suivant : `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
+4. Configurez l'application en mode initié par l'IdP en saisissant une **Reply URL** qui combine votre [instance Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints#braze-instances) avec le format suivant : `https://<SUBDOMAIN>.braze.com/auth/saml/callback`.
 5. Configurez le RelayState en saisissant votre clé API Relay State générée dans le champ **Relay State**.
 
 {% alert important %}
@@ -106,5 +106,5 @@ Une fois que votre gestionnaire de compte a activé l'authentification unique SA
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Configurer Microsoft Entra SSO dans Braze" }
 
 {% alert tip %}
-Si vous souhaitez que les utilisateurs de votre compte Braze se connectent uniquement via l'authentification unique SAML, vous pouvez [restreindre l'authentification par authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup/#restriction) depuis la page **Paramètres de l'entreprise**.
+Si vous souhaitez que les utilisateurs de votre compte Braze se connectent uniquement via l'authentification unique SAML, vous pouvez [restreindre l'authentification par authentification unique]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_sso_setup#restriction) depuis la page **Paramètres de l'entreprise**.
 {% endalert %}

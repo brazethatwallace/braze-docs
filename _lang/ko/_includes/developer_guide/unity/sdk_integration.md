@@ -126,7 +126,7 @@ Braze SDK가 작동할 수 있도록 [`AndroidManifest.xml`](https://docs.unity3
 
 패키지 이름을 찾으려면 **File > Build Settings > Player Settings > Android Tab**을 클릭합니다.
 
-![]({% image_buster /assets/img_archive/UnityPackageName.png %})
+![애플리케이션 패키지 이름이 표시된 Unity Player Settings Android 탭.]({% image_buster /assets/img_archive/UnityPackageName.png %})
 
 `AndroidManifest.xml`에서 `REPLACE_WITH_YOUR_PACKAGE_NAME`의 모든 인스턴스를 이전 단계의 `Package Name`으로 바꿔야 합니다.
 
@@ -169,7 +169,7 @@ Braze는 Unity iOS 통합을 자동화하기 위한 네이티브 Unity 솔루션
 2. **Automate Unity iOS Integration** 확인란을 선택합니다.
 3. **Braze API Key** 필드에 **설정 관리**에서 찾은 애플리케이션의 API 키를 입력합니다.
 
-![]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
+![Automate Unity iOS Integration 및 Braze API Key 필드가 표시된 Unity Braze Configuration 창.]({% image_buster /assets/img_archive/unity-ios-appboyconfig.png %})
 
 애플리케이션에서 이미 다른 `UnityAppController` 서브클래스를 사용하고 있는 경우, 서브클래스 구현을 `AppboyAppDelegate.mm`과 병합해야 합니다.
 {% endtab %}

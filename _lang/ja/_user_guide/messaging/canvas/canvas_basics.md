@@ -14,10 +14,10 @@ tool: Canvas
 
 ## キャンバスの構造を理解する {#understanding-canvas-structure}
 
-[キャンバスの設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)の詳細に入る前に、キャンバスを構成する主要な要素を確認しましょう。
+[キャンバスの設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)の詳細に入る前に、キャンバスを構成する主要な要素を確認しましょう。
 
 {% tabs %}
-  {% tab Canvas %}
+  {% tab キャンバス %}
   キャンバスは、マーケターが複数のメッセージを使ったキャンペーンを作成するための統合インターフェイスです。ビジュアルプログラミングツールのようなもので、一連のステップからまとまりのあるユーザージャーニーを構築できます。
 
   ![条件分岐ステップを使用して、プッシュ通知が有効かどうかに応じて2つの異なるユーザージャーニーに分岐するキャンバスの例。]({% image_buster /assets/img/canvas_intro/canvas_intro.gif %})
@@ -31,7 +31,7 @@ tool: Canvas
   {% endtab %}
 
   {% tab キャンバスビルダー %}
-  キャンバスビルダーは、キャンバスを作成する際に必要なステップを示します。キャンバスの命名やチームの追加などの基本情報が含まれます。基本的に、キャンバスビルダーはcanvasの構築を開始する前に必要な重要な設定です。ここでは、[エントリスケジュール]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2b-set-your-canvas-entry-schedule)、[ターゲットオーディエンス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2c-set-your-target-entry-audience)、[送信設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2d-select-your-send-settings)を編集するオプションを使って、ユーザーがカスタマージャーニーを開始し完了する方法をコントロールできます。<br><br> ![「New キャンバス」という名前のキャンバスの基本情報セクションにあるキャンバスビルダー。]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
+  キャンバスビルダーは、キャンバスを作成する際に必要なステップを示します。キャンバスの命名やチームの追加などの基本情報が含まれます。基本的に、キャンバスビルダーはcanvasの構築を開始する前に必要な重要な設定です。ここでは、[エントリスケジュール]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2b-set-your-canvas-entry-schedule)、[ターゲットオーディエンス]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2c-set-your-target-entry-audience)、[送信設定]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2d-select-your-send-settings)を編集するオプションを使って、ユーザーがカスタマージャーニーを開始し完了する方法をコントロールできます。<br><br> ![「New キャンバス」という名前のキャンバスの基本情報セクションにあるキャンバスビルダー。]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
 
   {% endtab %}
 
@@ -41,7 +41,7 @@ tool: Canvas
   {% endtab %}
 
   {% tab ステップ %}
-  キャンバスのステップは、マーケティングの意思決定ポイントです。「もしこうなら、こうする」という考え方です。[キャンバスコンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/#about-canvas-components)を活用して、ユーザージャーニーのステップを構築しましょう。<br><br> ![キャンバスに遅延ステップを追加する例。]({% image_buster /assets/img/canvas_intro/add_canvas_step.gif %}) <br><br> ユーザーがキャンバスに入ると、最初のステップから始まります。各ステップには、ユーザーが次のステップに進めるかどうかを決定する条件があります。ステップ内では、トリガーの設定やスケジュール配信、フィルターの追加や例外イベントの指定によるターゲティングの絞り込み、プッシュ通知やWebhookイベントなどの異なるチャネルの指定が可能です。キャンバスでは、ステップは順番に実行されます。つまり、最初のステップが完了してから2番目のステップが実行されます。例えば、次のステップを持つキャンバスがあるとします：24時間の遅延を持つ遅延ステップA、プッシュメッセージを持つメッセージステップA、アプリ内メッセージを持つメッセージステップB。ユーザーAは24時間の遅延で保持され、24時間後にプッシュメッセージを受信し、その後アプリ内メッセージを受信します。
+  キャンバスのステップは、マーケティングの意思決定ポイントです。「もしこうなら、こうする」という考え方です。[キャンバスコンポーネント]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components#about-canvas-components)を活用して、ユーザージャーニーのステップを構築しましょう。<br><br> ![キャンバスに遅延ステップを追加する例。]({% image_buster /assets/img/canvas_intro/add_canvas_step.gif %}) <br><br> ユーザーがキャンバスに入ると、最初のステップから始まります。各ステップには、ユーザーが次のステップに進めるかどうかを決定する条件があります。ステップ内では、トリガーの設定やスケジュール配信、フィルターの追加や例外イベントの指定によるターゲティングの絞り込み、プッシュ通知やWebhookイベントなどの異なるチャネルの指定が可能です。キャンバスでは、ステップは順番に実行されます。つまり、最初のステップが完了してから2番目のステップが実行されます。例えば、次のステップを持つキャンバスがあるとします：24時間の遅延を持つ遅延ステップA、プッシュメッセージを持つメッセージステップA、アプリ内メッセージを持つメッセージステップB。ユーザーAは24時間の遅延で保持され、24時間後にプッシュメッセージを受信し、その後アプリ内メッセージを受信します。
 
   {% endtab %}
 {% endtabs %}
@@ -64,7 +64,7 @@ tool: Canvas
 
 明確な目標を持つことは常に重要であり、キャンバスはセッションエンゲージメント、購入、カスタムイベントなどのKPIに対するパフォーマンスを把握するのに役立ちます。
 
-少なくとも1つの[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)を選択することで、キャンバス内のパフォーマンスを最適化する方法を理解できるようになります。キャンバスに複数のバリアントやコントロールグループがある場合、Brazeはコンバージョンイベントを使用して、この目標を達成するための最適なバリエーションを判断します。
+少なくとも1つの[コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)を選択することで、キャンバス内のパフォーマンスを最適化する方法を理解できるようになります。キャンバスに複数のバリアントやコントロールグループがある場合、Brazeはコンバージョンイベントを使用して、この目標を達成するための最適なバリエーションを判断します。
 
 * **セッション開始**：ユーザーにアプリに戻ってきてエンゲージしてほしい。
 * **購入する**：ユーザーに購入してほしい。
@@ -78,7 +78,7 @@ tool: Canvas
 この質問への回答が、キャンバスがいつ、どのように顧客に配信されるかの詳細を決定します。ユーザーは、スケジュールまたはアクションベースのトリガーの2つの方法のいずれかでキャンバスに入ることができます。
 
 {% alert tip %}
-キャンバスの[時間ベースの機能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/)で、さらなる戦略やよくある質問への回答をご確認ください。
+キャンバスの[時間ベースの機能]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)で、さらなる戦略やよくある質問への回答をご確認ください。
 {% endalert %}
 
 スケジュール配信では、ターゲットオーディエンスにキャンバスを即座に送信できます。また、定期的に送信したり、将来の特定の時間にスケジュールしたりすることもできます。アクションベースのキャンバスは、特定の顧客行動が発生した際にリアルタイムで反応します。例えば、アクションベースのトリガーには、アプリを開く、購入する、別のキャンペーンとインタラクションする、任意のカスタムイベントをトリガーするなどがあります。アクションが発生した時点で、キャンバスをユーザーに送信できます。
@@ -97,19 +97,19 @@ tool: Canvas
 | マーケティングアクティビティ | 最後のエンゲージメントなどの一般的な行動に基づいて顧客をセグメント化します。 |
 | ユーザー属性 | 顧客の固定的な属性と特性に基づいてセグメント化します。 |
 | インストールアトリビューション | 最初のソース、広告グループ、キャンペーン、または広告に基づいて顧客をセグメント化します。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="The &quot;who&quot;: Select an audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="「誰に」：オーディエンスを選択する" }
 
 ### 「どこで」：オーディエンスを見つける {#the-where-find-my-audience}
 
 *オーディエンスに最も効果的にリーチできるのはどこですか？*
 
 ここでは、ユーザージャーニーに最も適したメッセージングチャネルを決定します。理想的には、ユーザーが最もアクセスしやすい場所でリーチしたいものです。それを念頭に置いて、キャンバスでは以下のチャネルを使用できます：
-* [メール]({{site.baseurl}}/user_guide/channels/email/)
-* [プッシュ]({{site.baseurl}}/user_guide/channels/push/)
-* [アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/)
-* [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)
-* [SMSまたはMMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)
-* [Webhook]({{site.baseurl}}/user_guide/channels/webhooks/)
+* [メール]({{site.baseurl}}/user_guide/channels/email)
+* [プッシュ]({{site.baseurl}}/user_guide/channels/push)
+* [アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages)
+* [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
+* [SMSまたはMMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
+* [Webhook]({{site.baseurl}}/user_guide/channels/webhooks)
 
 ### 「どのように」：完全な体験を構築する {#the-how-build-the-complete-experience}
 

@@ -69,7 +69,7 @@ SDK 사용량 제한 문제를 겪고 있다면 다음 네트워킹 메서드를
 - `logCustomEvent()`
 - `logPurchase()`
 
-[Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support/)에 문의할 때는 사용 중인 각 네트워킹 SDK 메서드에 대해 다음 세부 정보를 포함해 주세요:
+[Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의할 때는 사용 중인 각 네트워킹 SDK 메서드에 대해 다음 세부 정보를 포함해 주세요:
 
 ```plaintext
 Method name:

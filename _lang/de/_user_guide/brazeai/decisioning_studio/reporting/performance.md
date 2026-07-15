@@ -13,7 +13,7 @@ description: "Erfahren Sie, wie Sie den Performance-Bericht verwenden, um Behand
 
 Ihr Performance-Bericht wird in Schichten aufgebaut und ist vollständig auf Ihren Anwendungsfall zugeschnitten. In Zusammenarbeit mit Ihrem Team:
 
-1. Braze definiert, was als Aktion zählt (z. B. ein Versand, Klick, Kauf oder eine Conversion).
+1. Braze definiert, was als Aktion zählt (z. B. ein Versand, Klick, Kauf oder eine Konversion).
 2. Braze definiert, wie diese Aktion täglich gemessen wird (Volumen, Umsatz, eindeutige Personen und Ähnliches).
 3. Braze definiert die Geschäftsmetrik, die Sie sehen möchten (z. B. Konversionsrate oder Umsatz pro Nutzer:in).
 4. Zeitregeln und Segmentierung werden angewendet.
@@ -28,10 +28,10 @@ Oben im Dashboard wählen Sie:
 - **Datumsbereich:** Der Zeitraum für den Bericht.
 - **Vergleichsgruppen:** Die Gruppen, die verglichen werden (z. B. Decisioning Studio versus Business as Usual).
 - **Aggregation:** Die Chart-Aggregationseinstellung (Täglich, 7-Tage-Durchschnitt oder 30-Tage-Durchschnitt).
-- **Segments:** Alle angewendeten Segments. Diese werden individuell mit Ihrem AI Expert Services-Team konfiguriert.
-- **Timeline-Events:** Ob konfigurierte Timeline-Events im Chart eingeblendet werden sollen, um Ihnen zu helfen, Änderungen oder Ereignisse zu verstehen, die die Performance beeinflussen könnten.
+- **Segments:** Alle angewendeten Segmente. Diese werden individuell mit Ihrem AI Expert Services-Team konfiguriert.
+- **Timeline-Ereignisse:** Ob konfigurierte Timeline-Ereignisse im Chart eingeblendet werden sollen, um Ihnen zu helfen, Änderungen oder Ereignisse zu verstehen, die die Performance beeinflussen könnten.
 
-![Performance-Bericht mit den Filtern für Vergleichsgruppen, Aggregation, Segments und Timeline-Events oben sowie der Datumsbereichsauswahl oben rechts.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
+![Performance-Bericht mit den Filtern für Vergleichsgruppen, Aggregation, Segmente und Timeline-Ereignisse oben sowie der Datumsbereichsauswahl oben rechts.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
 
 Diese Auswahl bestimmt, welche Tage einbezogen werden, welche Gruppen verglichen werden, wie die Trendlinie geglättet wird und welche Population Sie betrachten.
 
@@ -39,11 +39,16 @@ Diese Auswahl bestimmt, welche Tage einbezogen werden, welche Gruppen verglichen
 Das Ändern der Aggregationseinstellung (z. B. 7-Tage-Durchschnitt) wirkt sich nur auf die Chart-Anzeige aus. Es ändert keine gespeicherten Daten.
 {% endalert %}
 
-Wenn Sie ein aktuelles Datum in der Datumsauswahl nicht auswählen können, ist dieses Datum wahrscheinlich deaktiviert, um eine vorübergehende Datenverzögerung widerzuspiegeln. Es dauert in der Regel einige Tage, bis Daten zuverlässig von Ihrer CDP in Decisioning Studio übertragen werden.
+Wenn Sie ein aktuelles Datum in der Datumsauswahl nicht auswählen können, ist dieses Datum wahrscheinlich aufgrund konfigurierter Datenverzögerungen deaktiviert. Es gibt zwei Arten von Verzögerungen, die die Datumsverfügbarkeit einschränken können:
+
+- **Datenpipeline-Verzögerungen:** Die Zeit, die benötigt wird, um Daten aus Ihrer CDP in Decisioning Studio aufzunehmen und zu verarbeiten. Dadurch wird sichergestellt, dass Berichte nur vollständige, zuverlässige Daten anzeigen.
+- **Empfehlungsaktivierungsverzögerungen:** Die Zeit zwischen dem Zeitpunkt, an dem die Decisioning-Studio-Engine eine Empfehlung vorhersagt, und dem Zeitpunkt, an dem Sie sie in Ihren Campaigns aktivieren. Berichte enthalten keine Tage, an denen Empfehlungen noch nicht aktiviert wurden.
+
+Diese Verzögerungen werden für Ihren Anwendungsfall konfiguriert. Wenn Sie Ihr spezifisches Berichtsfenster verstehen möchten, wenden Sie sich an Ihre:n AI Success Manager:in.
 
 ## KPI-Karten {#kpi-cards}
 
-Die KPI-Karten auf der linken Seite des Berichts zeigen die für Ihren Anwendungsfall konfigurierten Leistungskennzahlen, wie z. B.:
+Die KPI-Karten auf der primären Seite des Berichts zeigen die für Ihren Anwendungsfall konfigurierten Leistungskennzahlen, wie z. B.:
 
 - Inkrementeller LTV / Kund:in
 - Conversions / Kund:in
@@ -51,13 +56,13 @@ Die KPI-Karten auf der linken Seite des Berichts zeigen die für Ihren Anwendung
 
 Jede Karte stellt die KPI dar, die über den gesamten ausgewählten Datumsbereich berechnet wird. Dies ist ein Gesamtzeitraumwert, kein Tagesdurchschnitt. Wenn Sie beispielsweise „Inkrementeller LTV / Kund:in = 3,192“ sehen, spiegelt das die Performance über das gesamte ausgewählte Fenster wider.
 
-![Performance-Bericht mit den KPI-Zusammenfassungskarten auf der linken Seite, einschließlich Metriken wie „Inkrementeller LTV / Kund:in“, „Conversions / Kund:in“ und „Abmeldungen / Kund:in“.]({% image_buster /assets/img/decisioning_studio/reporting_performance_kpi_cards.png %})
+![Performance-Bericht mit den KPI-Zusammenfassungskarten auf der primären Seite, einschließlich Metriken wie „Inkrementeller LTV / Kund:in“, „Conversions / Kund:in“ und „Abmeldungen / Kund:in“.]({% image_buster /assets/img/decisioning_studio/reporting_performance_kpi_cards.png %})
 
 ## KPI-Trendchart {#kpi-trend-chart}
 
 Verwenden Sie das Chart, um Trends im Zeitverlauf, Performance-Verschiebungen und Saisonalitäts- oder Timing-Effekte zu verstehen. Verwenden Sie die KPI-Karte, um die Gesamtauswirkung über das gesamte Fenster zu verstehen. Das zentrale Chart zeigt dieselbe KPI wie die obere Karte, aber pro Tag berechnet. Jeder Punkt stellt den KPI-Wert dieses Tages dar. Wenn Sie den 7-Tage-Durchschnitt ausgewählt haben, spiegelt jeder Punkt einen gleitenden Durchschnitt wider, der die tägliche Volatilität glättet.
 
-![Performance-Bericht mit dem zentralen Trendchart „Inkrementeller LTV / Kund:in“ mit Linien für Decisioning Studio und die Business as Usual BAU-Gruppe im Zeitverlauf.]({% image_buster /assets/img/decisioning_studio/reporting_performance_trend_chart.png %})
+![Performance-Bericht mit dem zentralen Trendchart „Inkrementeller LTV / Kund:in“ mit Linien für Decisioning Studio und die Business-as-Usual-BAU-Gruppe im Zeitverlauf.]({% image_buster /assets/img/decisioning_studio/reporting_performance_trend_chart.png %})
 
 Das Chart und die KPI-Karte sind darauf ausgelegt, unterschiedliche Dinge zu zeigen. Das Chart zeigt die tägliche Performance („Wie haben Sie an jedem Tag abgeschnitten?“). Die KPI-Karte zeigt die Gesamtzeitraum-Performance („Wie haben Sie über den gesamten Zeitraum abgeschnitten?“). Bei Ratenmetriken beantworten sie unterschiedliche Fragen.
 
@@ -107,9 +112,9 @@ Treiberbäume verwenden dieselben KPI-Definitionen wie der Rest des Dashboards u
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Wie funktionieren Segments? {#how-do-segments-work}
+### Wie funktionieren Segmente? {#how-do-segments-work}
 
-Segments ermöglichen es Ihnen, die Performance nach definierten Gruppen aufzuschlüsseln, z. B. nach Engagement-Level, Kundenmerkmalen, Gerätetyp oder anderen konfigurierten Features.
+Segmente ermöglichen es Ihnen, die Performance nach definierten Gruppen aufzuschlüsseln, z. B. nach Engagement-Level, Kundenmerkmalen, Gerätetyp oder anderen konfigurierten Features.
 
 Die Segmentzugehörigkeit wird individuell für Ihren Anwendungsfall konfiguriert und täglich berechnet. Das bedeutet, dass das vergangene Segment einer Kund:in widerspiegelt, wer sie an diesem Tag war. Wenn sich ihr Verhalten später ändert, bleiben historische Tage unverändert. Dies bewahrt die historische Genauigkeit und verhindert, dass sich Berichte rückwirkend verschieben.
 
@@ -119,9 +124,13 @@ Die KPIs für Go-Anwendungsfälle werden automatisch festgelegt und standardisie
 
 ### Warum kann ich bestimmte aktuelle Daten nicht auswählen? {#why-cant-i-select-certain-recent-dates}
 
-Die Datumsauswahl erlaubt möglicherweise nicht die Auswahl der letzten Tage. Dies ist beabsichtigt. Berichte können Aktivierungsverzögerungen, Datenverfügbarkeitsverzögerungen oder explizit ausgeschlossene Daten anwenden. Diese Schutzmaßnahmen verhindern, dass unvollständige oder instabile Daten in Ihren Ergebnissen erscheinen.
+Die Datumsauswahl erlaubt möglicherweise nicht die Auswahl der letzten Tage. Dies ist beabsichtigt. Berichte können die folgenden Einschränkungen anwenden, um zu verhindern, dass unvollständige oder instabile Daten angezeigt werden:
 
-Wenn Sie Klarheit über Ihr Berichtsfenster oder die Datenverfügbarkeitsregeln benötigen, wenden Sie sich an Ihre:n AI Success Manager:in für die spezifische Konfiguration Ihres Anwendungsfalls.
+- **Datenpipeline-Verzögerungen:** Konfiguriert, um die Zeit zu berücksichtigen, die für die Aufnahme und Verarbeitung von Daten aus Ihrer CDP benötigt wird. Dadurch wird sichergestellt, dass alle Daten für einen bestimmten Tag vollständig sind, bevor dieser Tag in Berichten erscheint.
+- **Empfehlungsaktivierungsverzögerungen:** Konfiguriert, um die Verzögerung zwischen dem Zeitpunkt, an dem Empfehlungen generiert werden, und dem Zeitpunkt, an dem sie in Ihren Campaigns aktiviert werden, zu berücksichtigen. Tage, an denen Empfehlungen noch nicht aktiviert wurden, erscheinen nicht in Berichten.
+- **Explizit ausgeschlossene Daten:** Daten, die Sie in den Berichtseinstellungen manuell ausgeschlossen haben.
+
+Wenn Sie Klarheit über Ihr spezifisches Berichtsfenster oder die Datenverfügbarkeitsregeln benötigen, wenden Sie sich an Ihre:n AI Success Manager:in.
 
 ### Was ist der Unterschied zwischen „Volumen“- und „Raten“-KPIs? {#whats-the-difference-between-volume-and-rate-kpis}
 

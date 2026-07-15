@@ -12,7 +12,7 @@ description: "이 참조 페이지에서는 Liquid가 지원하는 연산자와 
 
 아래 표는 지원되는 연산자를 나열합니다. 괄호는 Liquid에서 유효하지 않은 문자이며 태그가 작동하지 않게 만들 수 있으므로 주의하세요.
 
-|   구문| 연산자 설명|
+| 구문 | 연산자 설명 |
 |---------|-----------|
 | ==  | 같음        |
 | !=  | 같지 않음|
@@ -23,13 +23,13 @@ description: "이 참조 페이지에서는 Liquid가 지원하는 연산자와 
 | or | 조건 A 또는 조건 B|
 | and | 조건 A 그리고 조건 B|
 | contains | 문자열 또는 문자열 배열에 특정 문자열이 포함되어 있는지 확인|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Operators" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="연산자" }
 
 {% alert note %}
-연산자는 조건문(`if`, `elsif`, `unless`)에서 사용할 수 있지만, `assign` 문, `for` 루프 또는 배열 접근 대괄호에서는 사용할 수 없습니다. `case`와 `when` 태그에서는 각 분기가 임의의 연산자 표현식 대신 동등 비교를 사용하여 `case` 표현식을 `when` 값과 비교합니다. 예제는 [조건부 메시징 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags)을 참조하세요. 전체 분석은 [연산자와 필터를 사용할 수 있는 위치]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters)를 참조하세요.
+연산자는 조건문(`if`, `elsif`, `unless`)에서 사용할 수 있지만, `assign` 문, `for` 루프 또는 배열 접근 대괄호에서는 사용할 수 없습니다. `case`와 `when` 태그에서는 각 분기가 임의의 연산자 표현식 대신 동등 비교를 사용하여 `case` 표현식을 `when` 값과 비교합니다. 예제는 [조건부 메시징 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags)을 참조하세요. 전체 분석은 [연산자와 필터를 사용할 수 있는 위치]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters)를 참조하세요.
 {% endalert %}
 
-### 괄호 없이 조건 그룹화하기 {#grouping-conditions-without-parentheses}
+## 괄호 없이 조건 그룹화하기 {#grouping-conditions-without-parentheses}
 
 Liquid는 표현식을 그룹화하기 위한 괄호를 지원하지 않습니다. `(a and b) or c`와 같은 복잡한 부울 로직을 평가하려면 중첩된 `if` 문이나 중간 변수를 사용하세요.
 
@@ -243,13 +243,13 @@ Stream now!
 
 ![튜토리얼의 전체 Liquid 코드가 포함된 푸시 알림 작성기.]({% image_buster /assets/img/abort-if.png %})
 
-연결된 콘텐츠를 기반으로 [메시지를 중단]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content/)할 수도 있습니다.
+연결된 콘텐츠를 기반으로 [메시지를 중단]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content)할 수도 있습니다.
 
 ## 문제 해결 {#troubleshooting}
 
 ### `abort_message` 사용 시 테스트 발송이 도착하지 않음 {#test-send-doesnt-arrive-when-using-abort_message}
 
-[`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)를 사용하고 테스트 발송이 도착하지 않는 경우, 미리보기 사용자에게 Liquid가 기대하는 속성이 누락되어 있을 수 있습니다. 중단 로직은 렌더링 중에 실행되며, 실행되면 Braze는 메시지를 발송하지 않습니다. 필요한 프로필 데이터를 가진 사용자로 미리보기하거나, **사용자로 미리보기**를 사용하여 프로덕션 오디언스와 동일한 값을 제공하는 수신자 필드를 테스트하세요.
+[`abort_message`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)를 사용하고 테스트 발송이 도착하지 않는 경우, 미리보기 사용자에게 Liquid가 기대하는 속성이 누락되어 있을 수 있습니다. 중단 로직은 렌더링 중에 실행되며, 실행되면 Braze는 메시지를 발송하지 않습니다. 필요한 프로필 데이터를 가진 사용자로 미리보기하거나, **사용자로 미리보기**를 사용하여 프로덕션 오디언스와 동일한 값을 제공하는 수신자 필드를 테스트하세요.
 
 ### 미리보기에서 등록정보 유형이 잘못 변환될 수 있음 {#preview-may-incorrectly-coerce-property-types}
 

@@ -33,20 +33,20 @@ Preencha os seguintes campos:
 | **Conta** | A conta do WhatsApp Business (WABA) para a qual você deseja enviar o modelo. Todos os grupos de inscrições e números de telefone dentro de uma WABA compartilham o acesso ao modelo. |
 | **Idioma** | O idioma deste modelo. O WhatsApp exige um modelo separado para cada idioma. |
 | **Nome do modelo** | Um nome exclusivo para o seu modelo. Os nomes de modelo só podem conter letras minúsculas, números e underscores. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure template settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 2: Configurar as definições do modelo" }
 
-### Etapa 3: Escolher uma disposição {#step-3-choose-a-layout}
+### Etapa 3: Escolher um layout {#step-3-choose-a-layout}
 
-Em **Disposição**, selecione o tipo de modelo:
+Em **Layout**, selecione o tipo de modelo:
 
-- **Padrão:** Uma mensagem padrão do WhatsApp. Esta é a disposição abordada neste artigo.
-- **Carrossel:** Uma mensagem com cartões roláveis horizontalmente. Para saber mais, consulte [Modelos de carrossel]({{site.baseurl}}/whatsapp_carousel_templates/).
+- **Padrão:** Uma mensagem padrão do WhatsApp. Este é o layout abordado neste artigo.
+- **Carrossel:** Uma mensagem com cartões roláveis horizontalmente. Para saber mais, consulte [Modelos de carrossel]({{site.baseurl}}/whatsapp_carousel_templates).
 
 ### Etapa 4: Criar seu modelo {#step-4-build-your-template}
 
 #### Cabeçalho (opcional) {#header-optional}
 
-Adicione um cabeçalho para aparecer acima do corpo da mensagem. Você pode escolher:
+Adicione um cabeçalho para aparecer antes do corpo da mensagem. Você pode escolher:
 
 - **Texto:** Um cabeçalho de texto curto.
 - **Mídia:** Uma imagem, vídeo ou documento (somente URL). A Braze armazena a referência de mídia e envia uma amostra para a Meta para aprovação.
@@ -65,7 +65,7 @@ Você pode adicionar personalização onde o botão **+** (mais) aparecer. Nem t
 
 #### Rodapé (opcional) {#footer-optional}
 
-Adicione um rodapé curto para aparecer abaixo do corpo da mensagem.
+Adicione um rodapé curto para aparecer após o corpo da mensagem.
 
 #### Botões (opcional) {#buttons-optional}
 
@@ -77,7 +77,7 @@ Adicione até 10 botões ao seu modelo. Os tipos de botão têm categorias e esp
 | Número de telefone | Botões de chamada para ação | {::nomarkdown}<ul><li><b>Quantidade máxima:</b> 1</li><li><b>Texto do botão:</b> Até 25 caracteres</li><li><b>Número de telefone:</b> Número de telefone válido com código do país, sem + (como "14155552671")</li></ul> {:/}|
 | Visitar site | Botões de chamada para ação | {::nomarkdown}<ul><li><b>Quantidade máxima:</b> 2</li><li><b>Texto do botão:</b> Até 25 caracteres</li><li><b>URL do site:</b> Até 2.000 caracteres</li></ul> {:/}|
 | Copiar código de oferta | Botões de chamada para ação | {::nomarkdown}<ul><li><b>Quantidade máxima:</b> 1</li><li><b>Texto do botão:</b> "Copy offer code" (não pode ser editado)</li><li><b>Código de oferta:</b> Até 15 caracteres</li></ul> {:/}|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Buttons (optional)" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Botões (opcional)" }
 
 ![Criador de modelos de WhatsApp com botões de resposta rápida e chamada para ação.]({% image_buster /assets/img/whatsapp/templates/buttons.png %})
 
@@ -85,7 +85,7 @@ Adicione até 10 botões ao seu modelo. Os tipos de botão têm categorias e esp
 
 Antes de enviar, pré-visualize como sua mensagem aparecerá para os destinatários:
 
-- **Pré-visualizar como um usuário:** Veja uma pré-visualização genérica da mensagem.
+- **Pré-visualizar como um usuário:** Veja uma prévia genérica da mensagem.
 - **Pré-visualizar como um usuário específico:** Selecione um perfil de usuário para pré-visualizar como o modelo será renderizado com os dados desse usuário.
 
 ### Etapa 6: Enviar para revisão {#step-6-submit-for-review}
@@ -106,7 +106,7 @@ Depois que a Meta aprovar seu modelo, você pode usá-lo em uma Campaign ou Canv
 4. Atualize qualquer conteúdo variável ou personalização conforme necessário. Os campos bloqueados pela Meta (exibidos em cinza) não podem ser editados. Para alterar conteúdo bloqueado, você deve editar e reenviar o modelo para aprovação.
 5. Use a guia **Test** para pré-visualizar a mensagem, atualizar as variáveis do corpo e confirmar que a mensagem está como esperado antes do lançamento.
 
-Para saber mais sobre como criar campanhas de WhatsApp, consulte [Criar uma mensagem de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/).
+Para saber mais sobre como criar campanhas de WhatsApp, consulte [Criar uma mensagem de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message).
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

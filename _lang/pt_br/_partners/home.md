@@ -1,12 +1,12 @@
 ---
 page_order: 0
 article_title: Parceiros de tecnologia
-alias: /partners/Partners/
+alias: /partners/partners/
 layout: partner_page
 search_tag: Partner
 
 partner_top_header: "Parceiros de tecnologia"
-partner_top_text: "Bem-vindo à nossa lista de Alloys — nossos parceiros de tecnologia da Braze. Use esta página para implementar parceiros de tecnologia com o SDK da Braze. Na Braze, acesse <b>Integrações de parceiros</b> > <b>Parceiros de tecnologia</b> para se conectar com qualquer um dos parceiros listados nesta página. <br> <br> Se você vir <b>Credenciais inválidas</b> para um parceiro na Braze, mas a integração parecer correta no dashboard desse parceiro, desconecte e reconecte a integração na página de Parceiros de tecnologia e confirme as chaves de API, tokens OAuth e permissões no lado do parceiro. <br> <br> Alguns dashboards externos (por exemplo, ferramentas de entregabilidade ou monitoramento de caixa de entrada) podem mostrar um status de conexão ou verificação diferente da página de Parceiros de tecnologia da Braze. Use o bloco do parceiro na Braze para verificar o estado de conexão que a Braze utiliza para sincronização e envio. <br> <br> Se você está procurando informações sobre como participar da nossa comunidade Firebrands de clientes que usam a Braze para modernizar a experiência do cliente e o marketing, confira nosso <a href='https://brazefirebrands.splashthat.com/'>Programa Customer Champions</a>."
+partner_top_text: "Bem-vindo à nossa lista de Alloys — nossos parceiros de tecnologia da Braze. Use esta página para implementar parceiros de tecnologia com o SDK da Braze. Na Braze, acesse <b>Integrações de parceiros</b> > <b>Parceiros de tecnologia</b> para se conectar com qualquer um dos parceiros listados nesta página. <br> <br> Se você vir <b>Credenciais inválidas</b> para um parceiro na Braze, mas a integração parecer correta no dashboard desse parceiro, desconecte e reconecte a integração na página de parceiros de tecnologia e confirme as chaves de API, tokens OAuth e permissões no lado do parceiro. <br> <br> Alguns dashboards externos (por exemplo, ferramentas de entregabilidade ou monitoramento de caixa de entrada) podem mostrar um status de conexão ou verificação diferente da página de parceiros de tecnologia da Braze. Use o bloco do parceiro na Braze para verificar o estado de conexão que a Braze utiliza para sincronização e envio. <br> <br> Se você está procurando informações sobre como participar da nossa comunidade Firebrands de clientes que usam a Braze para modernizar a experiência do cliente e o marketing, confira nosso <a href='https://brazefirebrands.splashthat.com/'>Programa Customer Champions</a>."
 description: "Essa landing page inclui todos os parceiros da Braze. Use-a para explorar a documentação técnica que ajudará a implementar parceiros de tecnologia no SDK da Braze."
 
 valid_partner_list:
@@ -62,6 +62,8 @@ valid_partner_list:
   url: /docs/partners/jebbit/
 - name: Iterate
   url: /docs/partners/iterate/
+- name: Refiner
+  url: /docs/partners/refiner/
 - name: EduMe
   url: /docs/partners/edume/
 - name: Fivetran
@@ -316,6 +318,8 @@ valid_partner_list:
   url: /docs/partners/mypostcard/
 - name: SEEN
   url: /docs/partners/seen/
+- name: Stayfilm
+  url: /docs/partners/stayfilm/
 - name: Dixa
   url: /docs/partners/dixa/
 - name: Narvar
@@ -422,6 +426,8 @@ valid_partner_list:
   url: /docs/partners/anthropic/
 - name: Databricks Mosaic
   url: /docs/partners/databricks_mosaic/
+- name: Microsoft Foundry
+  url: /docs/partners/microsoft_foundry/
 - name: Algolia
   url: /docs/partners/algolia/
 - name: Canva

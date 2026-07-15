@@ -14,12 +14,12 @@ alias: /line/reporting/
 > Après le lancement de votre campagne ou Canvas, vous pouvez consulter les indicateurs clés sur la page de détails de la campagne ou dans l'analyse du Canvas. Cet article explique où trouver ces indicateurs et ce qu'ils représentent.
 
 {% alert tip %}
-Vous cherchez les définitions des termes et indicateurs de votre rapport ? Consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Vous cherchez les définitions des termes et indicateurs de votre rapport ? Consultez le [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 {% endalert %}
 
 ## Analyse de la campagne {#campaign-analytics}
 
-Dans l'onglet **Campaign Analytics**, vous pouvez consulter vos rapports sous forme de panneaux. Vous pourriez en voir plus ou moins que ceux répertoriés dans les sections ci-dessous, mais chacun a son utilité.
+Dans l'onglet **Campaign Analytics**, vous pouvez consulter vos rapports sous forme de panneaux. Vous pourriez en voir plus ou moins que ceux répertoriés ici, mais chacun a son utilité.
 
 {% alert note %}
 Les statistiques relatives aux ouvertures et aux clics pour LINE ne sont calculées que si plus de 20 utilisateurs effectuent l'événement un jour donné.
@@ -33,7 +33,7 @@ Consultez ce panneau pour voir les indicateurs globaux tels que le nombre de mes
 
 #### Groupes de contrôle {#control-groups}
 
-Pour mesurer l'impact d'un message LINE individuel, vous pouvez ajouter un [groupe de contrôle]({{site.baseurl}}/user_guide/messaging/ab_testing/) à un test A/B. Le panneau de niveau supérieur **Campaign Details** n'inclut pas les indicateurs de la variante du groupe de contrôle.
+Pour mesurer l'impact d'un message LINE individuel, vous pouvez ajouter un [groupe de contrôle]({{site.baseurl}}/user_guide/messaging/ab_testing) à un test A/B. Le panneau de niveau supérieur **Campaign Details** n'inclut pas les indicateurs de la variante du groupe de contrôle.
 
 ### Performances LINE {#line-performance}
 
@@ -45,7 +45,7 @@ Si vous souhaitez simplifier votre vue, sélectionnez **+ Add/Remove Columns** e
 
 #### Indicateurs LINE {#line-metrics}
 
-Voici quelques indicateurs LINE clés que vous pouvez retrouver dans vos analyses. Pour consulter les définitions de tous les indicateurs LINE utilisés dans Braze, reportez-vous au [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Voici quelques indicateurs LINE clés que vous pouvez retrouver dans vos analyses. Pour consulter les définitions de tous les indicateurs LINE utilisés dans Braze, reportez-vous au [Glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 | Terme | Définition |
 | --- | --- |
@@ -64,8 +64,8 @@ Pour obtenir une ventilation jour par jour, sélectionnez le menu hamburger <i c
 
 ### Détails des événements de conversion {#conversion-event-details}
 
-Le panneau **Conversion Event Details** vous montre les performances de vos événements de conversion pour votre campagne. Pour en savoir plus, consultez [Événements de conversion]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation/).
+Le panneau **Conversion Event Details** vous montre les performances de vos événements de conversion pour votre campagne. Pour en savoir plus, consultez [Événements de conversion]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation).
 
 ### Corrélation de conversion {#conversion-correlation}
 
-Le panneau **Conversion Correlation** vous donne un aperçu des attributs et comportements utilisateurs qui favorisent ou nuisent aux résultats que vous avez définis pour vos campagnes. Pour en savoir plus, consultez [Corrélation de conversion]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation/).
+Le panneau **Conversion Correlation** vous donne un aperçu des attributs et comportements utilisateurs qui favorisent ou nuisent aux résultats que vous avez définis pour vos campagnes. Pour en savoir plus, consultez [Corrélation de conversion]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/conversion_correlation).

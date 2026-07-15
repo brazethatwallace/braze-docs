@@ -30,7 +30,7 @@ If you want to see examples or test this endpoint for **WhatsApp Groups**:
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `subscription.groups.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `subscription.groups.get` permission.
 
 ## Rate limit
 
@@ -70,7 +70,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/use
 {% tab Email %}
 {% raw %}
 ```
-curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&email=example@braze.com&limit=100&offset=0' \
+curl --location -g --request GET 'https://rest.iad-01.braze.com/subscription/user/status?external_id={{external_id}}&email=example@example.com&limit=100&offset=0' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 {% endraw %}
@@ -86,8 +86,8 @@ Only subscription groups that have had a subscription status update in a user's 
     "users": [
         {
             "email": "test@example.com",
-            "phone": "50505050",
-            "external_id": "20500",
+            "phone": "+11112223333",
+            "external_id": "external_identifier",
             "subscription_groups": [
                 {
                   "id": "ec2fcc919fca",

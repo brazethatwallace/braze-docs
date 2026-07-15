@@ -14,7 +14,7 @@ tool: Canvas
 Dans cet article, nous allons parcourir un cas d'utilisation du modèle **Abandoned Intent**, conçu pour la phase de considération du cycle de vie de l'utilisateur. À la fin de cet article, vous aurez personnalisé un parcours utilisateur qui encourage les achats des utilisateurs n'ayant pas finalisé leurs commandes après avoir ajouté des articles à leur panier.
 
 {% alert tip %}
-Utilisez [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator/) pour configurer et personnaliser ce modèle. Sélectionnez **BrazeAI Operator<sup>TM</sup>** à côté de votre profil utilisateur lors de la création ou de la modification de votre Canvas. Décrivez ensuite votre objectif, par exemple « Aidez-moi à configurer le modèle Abandoned Intent pour réengager les utilisateurs qui ont abandonné leur panier ».
+Utilisez [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/operator) pour configurer et personnaliser ce modèle. Sélectionnez **BrazeAI Operator<sup>TM</sup>** à côté de votre profil utilisateur lors de la création ou de la modification de votre Canvas. Décrivez ensuite votre objectif, par exemple « Aidez-moi à configurer le modèle Abandoned Intent pour réengager les utilisateurs qui ont abandonné leur panier ».
 {% endalert %}
 
 ## Conditions préalables {#prerequisites}
@@ -22,13 +22,13 @@ Utilisez [BrazeAI Operator<sup>TM</sup>]({{site.baseurl}}/user_guide/brazeai/ope
 Pour utiliser ce modèle avec succès, vous aurez besoin des éléments suivants :
 
 - Un Canvas de parcours utilisateur post-achat séparé, car effectuer un achat dans ce Canvas entraînera la sortie des utilisateurs du Canvas.
-- Une [synchronisation d'audience Braze]({{site.baseurl}}/partners/canvas_audience_sync/) configurée avec les partenaires et audiences que vous utilisez.
+- Une [synchronisation d'audience Braze]({{site.baseurl}}/partners/canvas_audience_sync) configurée avec les partenaires et audiences que vous utilisez.
 
 ## Adapter le modèle à vos besoins {#tailoring-the-template-to-your-needs}
 
 Imaginons que nous travaillons chez Kitchenerie, une marque de vente au détail spécialisée dans les ustensiles de cuisine, et que notre objectif est de réengager les utilisateurs qui ont ajouté le dernier produit « Enormous Paper Plate » à leur panier mais n'ont pas finalisé leur achat.
 
-Avant de créer le Canvas, nous avons configuré l'intégration [Synchronisation d'audience Braze vers Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/) afin de pouvoir ajouter des données utilisateur de Braze aux audiences Facebook pour envoyer des publicités basées sur des déclencheurs comportementaux, la segmentation, et plus encore.
+Avant de créer le Canvas, nous avons configuré l'intégration [Synchronisation d'audience Braze vers Facebook]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) afin de pouvoir ajouter des données utilisateur de Braze aux audiences Facebook pour envoyer des publicités basées sur des déclencheurs comportementaux, la segmentation, et plus encore.
 
 Le modèle **Abandoned Intent** suit ce flux : vérification de l'achat, envoi d'un rappel immédiat, attente, routage vers le canal optimal, relance, nouvelle vérification et reciblage des non-convertis. Il comprend les étapes suivantes :
 
@@ -37,7 +37,7 @@ Le modèle **Abandoned Intent** suit ce flux : vérification de l'achat, envoi d
 | Parcours d'actions | Made purchase? | Première vérification de finalisation ; les utilisateurs ayant déjà acheté sortent du Canvas. |
 | Message | Itemized Reminder | Rappel immédiat du panier envoyé juste après l'entrée. |
 | Délai | Delay | Attente de 30 minutes pour que la relance arrive alors que le produit est encore présent à l'esprit. |
-| Parcours d'audience | Intelligent Channel split | Oriente les utilisateurs vers l'e-mail ou le SMS en fonction du classement [Canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/). |
+| Parcours d'audience | Intelligent Channel split | Oriente les utilisateurs vers l'e-mail ou le SMS en fonction du classement [Canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel). |
 | Message | Abandoned Cart Email, Abandoned Cart SMS et Abandoned Cart In-App Message | Relances spécifiques par canal. Le canal intelligent choisit entre l'e-mail et le SMS ; le message in-app est envoyé sur un parcours distinct dans le modèle. |
 | Parcours d'actions | Made purchase? (2) | Deuxième vérification de finalisation avant le reciblage. |
 | Audience Sync | Ad Retargeting | Synchronise les non-convertis vers des audiences publicitaires (comme Facebook) pour un reciblage hors canal. |
@@ -62,7 +62,7 @@ Le modèle définit l'**événement de conversion principal A** sur **Makes Purc
 1. Sélectionnez **Make a specific purchase (Legacy)**.
 2. Pour **Product name**, saisissez **Enormous Paper Plate**.
 
-![Événement de conversion principal - A avec le type de conversion « Makes Purchase » et le nom de produit « Enormous Paper Plate ». Il y a un délai de conversion de 3 jours.]({% image_buster /assets/img/canvas_templates/abandoned_intent1.png %})
+![Événement de conversion principal A avec le type de conversion « Makes Purchase » et le nom de produit « Enormous Paper Plate ». Il y a un délai de conversion de 3 jours.]({% image_buster /assets/img/canvas_templates/abandoned_intent1.png %})
 
 {% alert note %}
 Si votre espace de travail utilise l'événement de conversion **Places order**, les options liées aux achats peuvent apparaître avec **(Legacy)** dans le libellé. Les étapes de cet article utilisent le flux de conversion d'achat legacy.
@@ -73,8 +73,8 @@ Si votre espace de travail utilise l'événement de conversion **Places order**,
 Le modèle **Abandoned Intent** utilise une planification d'entrée **API-Triggered** afin de faire entrer les utilisateurs dans le Canvas dès qu'ils abandonnent leur panier. Cela correspond à notre cas d'utilisation, car nous souhaitons réagir tant que le produit est encore présent à l'esprit.
 
 1. Conservez **API-Triggered** comme type de planification d'entrée.
-2. Notez l'identifiant du Canvas et utilisez l'[endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/) pour ajouter des utilisateurs lorsque votre application ou site web détecte un panier abandonné.
-3. Vous pouvez éventuellement transmettre des [variables de contexte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) (comme le nom du produit ou les détails du panier) pour personnaliser les messages en aval.
+2. Notez l'identifiant du Canvas et utilisez l'[endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases) pour ajouter des utilisateurs lorsque votre application ou site web détecte un panier abandonné.
+3. Vous pouvez éventuellement transmettre des [variables de contexte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) (comme le nom du produit ou les détails du panier) pour personnaliser les messages en aval.
 
 Si vous préférez une entrée basée sur une action, sélectionnez **Action-Based** et choisissez un déclencheur correspondant à la façon dont votre marque suit les paniers abandonnés, par exemple **Perform Custom Event** pour un événement `abandoned_cart` enregistré.
 
@@ -107,12 +107,12 @@ Personnalisez les étapes du Canvas dans l'ordre dans lequel les utilisateurs le
 2. Conservez l'étape **Delay** telle quelle. Le modèle utilise un délai de 30 minutes avant l'envoi des messages de relance, laissant aux utilisateurs le temps de finaliser leur commande tant que le produit est encore présent à l'esprit.
 
 {% alert tip %}
-Vous pouvez utiliser les [propriétés de contexte Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) pour personnaliser les messages de votre Canvas en fonction du produit auquel vous faites référence.
+Vous pouvez utiliser les [propriétés de contexte Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) pour personnaliser les messages de votre Canvas en fonction du produit auquel vous faites référence.
 {% endalert %}
 
 #### Orienter vers le canal optimal {#route-to-the-optimal-channel}
 
-1. Examinez l'étape Parcours d'audience **Intelligent Channel split**. Elle oriente les utilisateurs vers **Abandoned Cart Email** ou **Abandoned Cart SMS** en fonction du classement [Canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/). Ajustez les parcours si nécessaire.
+1. Examinez l'étape Parcours d'audience **Intelligent Channel split**. Elle oriente les utilisateurs vers **Abandoned Cart Email** ou **Abandoned Cart SMS** en fonction du classement [Canal intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel). Ajustez les parcours si nécessaire.
 2. Personnalisez les étapes **Abandoned Cart Email**, **Abandoned Cart SMS** et **Abandoned Cart In-App Message**. Sélectionnez **Edit message** sur chaque étape pour mettre à jour le contenu et le message pour ce canal. Le message in-app s'exécute sur un parcours distinct de la répartition par canal intelligent et n'est pas sélectionné par le classement du canal intelligent.
 
 #### Recibler les non-convertis {#retarget-non-converters}
@@ -126,5 +126,5 @@ Vous pouvez utiliser les [propriétés de contexte Canvas]({{site.baseurl}}/user
 Après avoir testé et vérifié que notre Canvas fonctionne comme prévu, sélectionnez **Launch Canvas** pour lancer le Canvas. Nous pouvons désormais cibler de manière réfléchie les utilisateurs avec un parcours personnalisé pour les encourager à finaliser l'achat du produit qu'ils ont ajouté à leur panier !
 
 {% alert tip %}
-Consultez notre [liste de vérification pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
+Consultez notre [liste de vérification pré et post-lancement]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) pour les éléments à prendre en compte avant et après le lancement d'un Canvas.
 {% endalert %}

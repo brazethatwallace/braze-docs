@@ -11,15 +11,13 @@ page_order: 0
 
 ## Conditions préalables {#prerequisites}
 
-Pour accéder au générateur de pages d'accueil, vous avez besoin de [certaines autorisations]({{site.baseurl}}/user_guide/messaging/landing_pages/#prerequisites). Si vous n'avez pas accès, demandez de l'aide à votre administrateur Braze.
+Pour accéder au générateur de pages d'accueil, vous avez besoin de [certaines autorisations]({{site.baseurl}}/user_guide/messaging/landing_pages#prerequisites). Si vous n'avez pas accès, demandez de l'aide à votre administrateur Braze.
 
 ## Créer une page d'accueil {#creating-a-landing-page}
 
 ### Étape 1 : Créer un nouveau brouillon {#step-1-create-a-new-draft}
 
 Accédez à **Messaging** > **Landing Pages**, puis sélectionnez **Create landing page**. Vous pouvez également sélectionner le nom d'une page d'accueil existante pour la dupliquer ou y apporter des modifications.
-
-![La section des pages d'accueil dans le tableau de bord de Braze.]({% image_buster /assets/img/landing_pages/landing-pages-homepage.png %})
 
 ### Étape 2 : Saisir les détails de la page {#step-2-enter-the-page-details}
 
@@ -40,8 +38,8 @@ Nous vous recommandons de suivre ces bonnes pratiques :
 | Titre du site | Le titre qui s'affiche dans l'onglet du navigateur. | Utilisez jusqu'à 60 caractères. |
 | Méta-description | Un extrait de texte qui s'affiche dans les résultats de recherche. | Utilisez entre 140 et 160 caractères. |
 | Favicon | L'icône qui apparaît à côté du titre du site dans l'onglet du navigateur. | Utilisez un rapport hauteur/largeur de 1:1 et un type de fichier pris en charge : PNG, JPEG ou ICO. |
-| URL de la page | Il s'agit du chemin URL vers votre page d'accueil. Cette valeur est également référencée lors de l'utilisation des [étiquettes Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) que vous pouvez intégrer dans un message pour identifier automatiquement les utilisateurs lorsqu'ils soumettent votre formulaire. | Cette valeur doit être unique dans votre espace de travail. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Site details" }
+| URL de la page | Il s'agit du chemin URL vers votre page d'accueil. Cette valeur est également référencée lors de l'utilisation des [étiquettes Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) que vous pouvez intégrer dans un message pour identifier automatiquement les utilisateurs lorsqu'ils soumettent votre formulaire. | Cette valeur doit être unique dans votre espace de travail. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Détails du site" }
 
 ### Étape 3 : Personnaliser la page {#step-3-customize-the-page}
 
@@ -49,7 +47,7 @@ Si ce n'est pas déjà fait, sélectionnez **Enregistrer en tant que brouillon**
 
 ![Un exemple de page d'accueil en cours de création dans l'éditeur par glisser-déposer.]({% image_buster /assets/img/landing_pages/template.png %})
 
-L'éditeur utilise deux types de composants pour la composition des pages d'accueil : les blocs de base et les blocs de formulaire. Tous les blocs doivent être placés dans une ligne. Pour une référence dédiée de chaque bloc et de ses propriétés, consultez [Blocs de l'éditeur (pages d'accueil)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=landing%20pages).
+L'éditeur utilise deux types de composants pour la composition des pages d'accueil : les blocs de base et les blocs de formulaire. Tous les blocs doivent être placés dans une ligne. Pour une référence dédiée de chaque bloc et de ses propriétés, consultez [Blocs de l'éditeur (pages d'accueil)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=landing%20pages).
 
 ![La section « Build » contenant « Rows » et « Form Blocks ».]({% image_buster /assets/img/landing_pages/dnd.png %}){: style="max-width:35%;"}
 
@@ -68,11 +66,11 @@ Vous pouvez utiliser ces blocs pour ajouter du contenu et personnaliser la dispo
 | Lien | Un lien hypertexte sur lequel les utilisateurs peuvent cliquer pour accéder à une URL spécifiée. Peut être intégré dans du texte ou autonome. |
 | Espacement | Un bloc invisible qui ajoute un espacement vertical entre les éléments pour améliorer la disposition et la lisibilité. |
 | Code personnalisé | Un bloc qui vous permet d'insérer et d'exécuter du HTML, CSS ou JavaScript personnalisé pour une personnalisation avancée. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 3: Customize the page" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 3 : Personnaliser la page" }
 
-##### Span text {#span-text}
+#### Span text {#span-text}
 
-{% multi_lang_include span_text.md %}
+{% multi_lang_include drag_and_drop/span_text.md %}
 
 {% endtab %}
 {% tab Blocs de formulaire %}
@@ -92,7 +90,7 @@ Vous pouvez utiliser ces blocs pour créer un formulaire qui relie les données 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Span text" }
 
 {% alert important %}
-Après avoir créé une page d'accueil avec un formulaire, assurez-vous d'intégrer son [étiquette Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users/) dans votre message. Grâce à cette étiquette, Braze peut automatiquement identifier et mettre à jour les profils utilisateurs existants lorsqu'ils soumettent le formulaire.
+Après avoir créé une page d'accueil avec un formulaire, assurez-vous d'intégrer son [étiquette Liquid de page d'accueil]({{site.baseurl}}/user_guide/messaging/landing_pages/tracking_users) dans votre message. Grâce à cette étiquette, Braze peut automatiquement identifier et mettre à jour les profils utilisateurs existants lorsqu'ils soumettent le formulaire.
 {% endalert %}
 
 {% endtab %}

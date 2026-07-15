@@ -25,7 +25,7 @@ Im Folgenden finden Sie einige Beispiele für die Arten von Verhaltensmustern, d
 
 ## Formeln erstellen {#creating-formulas}
 
-Auf die Formeln können Sie in den Statistik-Panels auf den Seiten [Home]({{site.baseurl}}/user_guide/analytics/dashboards/home/), [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/) und [Bericht zu angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) im Dashboard zugreifen. Um dieses Panel anzuzeigen, gehen Sie zum Chart **Performance Over Time**, ändern Sie die Dropdown-Liste **Statistics For** in **KPI Formulas** und wählen Sie dann mindestens eine KPI-Formel aus, um das Chart zu füllen.
+Auf die Formeln können Sie in den Statistik-Panels auf den Seiten [Home]({{site.baseurl}}/user_guide/analytics/dashboards/home), [Umsatzbericht]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) und [Bericht zu angepassten Events]({{site.baseurl}}/user_guide/data/activation/events/custom_events) im Dashboard zugreifen. Um dieses Panel anzuzeigen, gehen Sie zum Chart **Performance Over Time**, ändern Sie die Dropdown-Liste **Statistics For** in **KPI Formulas** und wählen Sie dann mindestens eine KPI-Formel aus, um das Chart zu füllen.
 
 ![Statistiken für KPI-Formeln im Braze-Dashboard anzeigen]({% image_buster /assets/img_archive/kpi_forms.png %})
 
@@ -68,7 +68,7 @@ table td {
 | DAU | MAU |
 | Sitzungen | DAU |
 | | Segmentgröße |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview dashboard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Übersicht-Dashboard" }
 
 ### Umsatz-Dashboard {#revenue-dashboard}
 
@@ -76,7 +76,7 @@ table td {
 | --- | --- |
 | Käufe (alle) | DAU |
 | Bestimmte Käufe (z. B. eine Geschenkkarte oder eine Produkt-ID) | MAU |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue dashboard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Umsatz-Dashboard" }
 
 ### Dashboard für angepasste Events {#custom-event-dashboard}
 
@@ -84,5 +84,5 @@ table td {
 | --- | --- |
 | Anzahl angepasster Events | MAU |
 |  | DAU |
-|  | Segmentgröße (nur Segmente, für die [Analytics-Tracking]({{site.baseurl}}/viewing_and_understanding_segment_data/) aktiviert ist, können verwendet werden) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom event dashboard" }
+|  | Segmentgröße (nur Segmente, für die [Analytics-Tracking]({{site.baseurl}}/viewing_and_understanding_segment_data) aktiviert ist, können verwendet werden) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard für angepasste Events" }

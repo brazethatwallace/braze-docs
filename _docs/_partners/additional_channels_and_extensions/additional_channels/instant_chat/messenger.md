@@ -67,7 +67,7 @@ Whenever you send a message, their PSID will be included in the `recipient.id` p
 
 ### Step 2: Send to Braze as a custom attribute
 
-Once you are confident that you are receiving PSIDs, coordinate and share this with your developers to send the PSIDs to Braze as a [custom attribute]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/#custom-attributes). PSIDs are strings that can be accessed by making an [API call](https://developers.facebook.com/docs/messenger-platform/reference/send-api).
+Once you are confident that you are receiving PSIDs, coordinate and share this with your developers to send the PSIDs to Braze as a [custom attribute]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/#custom-attributes). PSIDs are strings that can be accessed by making an [API call](https://developers.facebook.com/documentation/business-messaging/messenger-platform/send-messages).
 
 ### Step 3: Set up your webhook template
 

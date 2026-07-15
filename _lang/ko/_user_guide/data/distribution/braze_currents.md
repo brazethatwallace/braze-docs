@@ -14,7 +14,7 @@ guide_top_text: "참여 전략의 영향을 이해하는 것은 사용자와의 
 
 guide_featured_title: "섹션 문서"
 guide_featured_list:
-  - name: 커런츠 설정하기
+  - name: 커런츠 설정
     link: /docs/user_guide/data/distribution/braze_currents/setting_up_currents
     image: /assets/img/braze_icons/building-01.svg
   - name: 커런츠 이벤트 용어집
@@ -28,17 +28,17 @@ guide_featured_list:
     image: /assets/img/braze_icons/annotation-question.svg
 ---
 
-## 커런츠 기능
+## 커런츠 기능 {#currents-capabilities}
 
 커런츠를 사용하면 다음을 수행할 수 있습니다:
-* Braze 이벤트 데이터를 데이터 웨어하우스 또는 [분석 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) 중 하나로 스트리밍하여 상세한 분석을 수행할 수 있습니다.
+* Braze 이벤트 데이터를 데이터 웨어하우스 또는 [분석 파트너]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) 중 하나로 스트리밍하여 상세한 분석을 수행할 수 있습니다.
 * 비즈니스 인텔리전스 도구, 머신 러닝 알고리즘 등을 지원하기 위해 Braze 이벤트 데이터를 지속적으로 스트리밍할 수 있습니다.
-* [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium/), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/) 또는 [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/)을 사용하여 Braze 이벤트 데이터를 다양한 다른 시스템으로 라우팅할 수 있습니다.
+* [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium), [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment) 또는 [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents)을 사용하여 Braze 이벤트 데이터를 다양한 다른 시스템으로 라우팅할 수 있습니다.
 
-커런츠를 통해 이벤트 데이터로 할 수 있는 일은 훨씬 더 많습니다. [Braze도 커런츠를 사용합니다]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents/)!
+커런츠를 통해 이벤트 데이터로 할 수 있는 일은 훨씬 더 많습니다. [Braze도 커런츠를 사용합니다]({{site.baseurl}}/user_guide/data/distribution/braze_currents/use_cases/how_braze_uses_currents)!
 
-## 커런츠에 액세스하는 방법
+## 커런츠에 액세스하는 방법 {#how-to-access-currents}
 
-많은 프로 및 엔터프라이즈급 패키지에 이미 커런츠 커넥터가 포함되어 있습니다. 커런츠 이용에 관심이 있다면 계정 매니저에게 문의하세요. 계정 매니저와 데이터 전문가가 [커런츠 설정 및 통합]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/)을 도와드릴 수 있습니다.
+많은 프로 및 엔터프라이즈급 패키지에 이미 커런츠 커넥터가 포함되어 있습니다. 커런츠 이용에 관심이 있다면 계정 매니저에게 문의하세요. 계정 매니저와 데이터 전문가가 [커런츠 설정 및 통합]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents)을 도와드릴 수 있습니다.
 
 <br><br>

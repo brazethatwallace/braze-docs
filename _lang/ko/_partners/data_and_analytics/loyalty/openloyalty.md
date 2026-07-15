@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Open Loyalty
 
-> [Open Loyalty](https://www.openloyalty.io/)는 고객 로열티 및 보상 프로그램을 구축하고 관리할 수 있는 클라우드 기반 로열티 프로그램 플랫폼입니다. Braze와 Open Loyalty 통합은 포인트 잔액, 등급 변경, 만료 경고와 같은 로열티 데이터를 실시간으로 Braze에 직접 동기화합니다. 이를 통해 사용자의 로열티 상태가 변경되면 개인화된 메시지(이메일, 푸시, SMS)를 트리거할 수 있습니다.
+> [Open Loyalty](https://www.openloyalty.io/)는 고객 로열티 및 리워드 프로그램을 구축하고 관리할 수 있는 클라우드 기반 로열티 프로그램 플랫폼입니다. Braze와 Open Loyalty 통합은 포인트 잔액, 등급 변경, 만료 경고와 같은 로열티 데이터를 실시간으로 Braze에 직접 동기화합니다. 이를 통해 사용자의 로열티 상태가 변경되면 개인화된 메시지(이메일, 푸시, SMS)를 트리거할 수 있습니다.
 
 _이 통합은 Open Loyalty에서 유지 관리합니다._
 
@@ -19,9 +19,9 @@ _이 통합은 Open Loyalty에서 유지 관리합니다._
 
 * **실시간 업데이트**: 로열티 이벤트(포인트 획득, 등급 업그레이드)를 Braze에 푸시합니다.
 * **개인화**: Braze 템플릿에서 로열티 속성(현재 잔액, 다음 등급 이름)을 사용합니다.
-* **양방향**: Braze 참여 데이터를 기반으로 Open Loyalty 고객 커스텀 속성을 업데이트합니다.
+* **양방향**: Braze 인게이지먼트 데이터를 기반으로 Open Loyalty 고객 커스텀 속성을 업데이트합니다.
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 이 통합에는 다음과 같은 데이터 흐름이 포함됩니다:
 
@@ -38,9 +38,9 @@ _이 통합은 Open Loyalty에서 유지 관리합니다._
 | Open Loyalty REST API 키 | Open Loyalty REST API 키(Braze에서 Open Loyalty로 데이터를 전송하는 통합용). <br><br> **Settings > Admins > API Keys**에서 생성합니다. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 이 키를 생성합니다. |
 | Braze 데이터 변환 | 웹훅 리스너를 구성하려면 Braze의 "데이터 설정" 탭에 대한 접근 권한이 필요합니다. |
-| 일치하는 ID | Braze의 사용자 `external_id`는 Open Loyalty의 `loyaltyCardNumber`(또는 다른 기본값 식별자)와 일치해야 합니다. |
+| 일치하는 ID | Braze의 사용자 `external_id`는 Open Loyalty의 `loyaltyCardNumber`(또는 다른 기본 식별자)와 일치해야 합니다. |
 | 테넌트 ID | Open Loyalty 테넌트 ID(아웃바운드 업데이트에 필요). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -56,7 +56,7 @@ _이 통합은 Open Loyalty에서 유지 관리합니다._
      * **변환 이름**: 설명이 포함된 이름을 입력합니다(예: "Open Loyalty 포인트 업데이트 이벤트").
      * **대상 선택**: **POST: Track users**를 선택합니다.
 4.  **변환 만들기**를 클릭합니다.
-5.  오른쪽에서 **웹훅 URL**을 찾아 **복사**를 클릭합니다.
+5.  세부 정보 패널에서 **웹훅 URL**을 찾아 **복사**를 클릭합니다.
 
 {% alert important %}
 이 URL은 다음 단계에 필요하므로 안전하게 보관하세요.
@@ -78,7 +78,7 @@ Open Loyalty에 방금 생성한 URL로 특정 이벤트를 보내도록 설정�
 
 ### 3단계: 데이터 변환 구성하기 {#step-3-configure-the-data-transformation}
 
-수신되는 Open Loyalty 페이로드를 Braze 등록정보에 매핑하는 JavaScript 로직을 Braze에서 작성합니다.
+수신되는 Open Loyalty 페이로드를 Braze 속성에 매핑하는 JavaScript 로직을 Braze에서 작성합니다.
 
 1.  Braze에서 1단계에서 만든 데이터 변환을 엽니다.
 2.  Open Loyalty에서 이벤트를 트리거하여(예: 회원의 포인트 변경 또는 등급 할당) **웹훅 세부 정보** 창에 샘플 페이로드를 생성합니다.

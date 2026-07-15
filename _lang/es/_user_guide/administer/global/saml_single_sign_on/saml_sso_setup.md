@@ -59,7 +59,7 @@ En la misma página, introduce lo siguiente:
 | Certificado | El certificado `x.509` proporcionado por tu proveedor de identidad.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Configura Braze" }
 
-Asegúrate de que tu certificado `x.509` siga este formato cuando lo añadas al dashboard:
+Asegúrate de que tu certificado `x.509` siga este formato cuando lo añadas al panel:
 
 ```
 -----BEGIN CERTIFICATE-----
@@ -73,14 +73,12 @@ Asegúrate de que tu certificado `x.509` siga este formato cuando lo añadas al 
 
 Guarda tu configuración de seguridad y cierra sesión. Luego, vuelve a iniciar sesión con tu proveedor de identidad.
 
-![Pantalla de inicio de sesión del dashboard con SSO habilitado]({% image_buster /assets/img/sso1.png %}){: style="max-width:60%;"}
-
 ## Configurar tu RelayState {#setting-up-your-relaystate}
 
 1. En Braze, ve a **Configuración** > **API e identificadores**.
 2. En la pestaña **Claves de API**, selecciona el botón **Crear clave de API**.
 3. En el campo **Nombre de la clave de API**, introduce un nombre para tu clave.
-4. Despliega el menú **SSO** en **Permisos** y marca **sso.saml.login**.<br><br>![La sección "Permisos" con sso.saml.login marcado.]({% image_buster /assets/img/relaystate_troubleshoot.png %}){: style="max-width:70%;"}<br><br>
+4. Despliega el menú **SSO** en **Permisos** y marca **sso.saml.login**.
 5. Selecciona **Crear clave de API**.
 6. En la pestaña **Claves de API**, copia el identificador junto a la clave de API que creaste.
 7. Pega la clave de API de RelayState en el RelayState de tu IdP (también puede aparecer como "Relay State" o "Default Relay State" dependiendo de tu IdP).
@@ -96,6 +94,10 @@ Puedes restringir a los miembros de tu organización para que solo inicien sesi�
 ![Ejemplo de configuración de la sección "Reglas de autenticación" con una longitud mínima de contraseña de 8 caracteres y reutilización de contraseña de 3 veces. Las contraseñas caducarán después de 180 días y los usuarios cerrarán sesión después de 1440 minutos de inactividad.]({% image_buster /assets/img/sso3.png %})
 
 Al activar las restricciones, los usuarios de Braze de tu empresa ya no podrán iniciar sesión con una contraseña, incluso si han iniciado sesión con una contraseña anteriormente.
+
+{% alert important %}
+Una vez que se aplica SSO, no hay opción alternativa para iniciar sesión si la autenticación SSO falla. Antes de habilitar la aplicación de SSO, asegúrate de que tu configuración de SSO sea correcta, de que todos los certificados estén vigentes y renovados, y de que tu configuración de seguridad esté correctamente gestionada para evitar problemas de inicio de sesión.
+{% endalert %}
 
 ## Obtener un rastreo SAML {#obtaining-a-saml-trace}
 
@@ -116,13 +118,13 @@ Selecciona el rastreador SAML en la barra de navegación de tu navegador. Asegú
 
 ### Paso 2: Inicia sesión en Braze usando SSO {#step-2-sign-into-braze-using-sso}
 
-Ve a tu dashboard de Braze e intenta iniciar sesión usando SSO. Si encuentras un error, abre el rastreador SAML e inténtalo de nuevo. Un rastreo SAML se ha recopilado correctamente si hay una fila con una URL como `https://dashboard-XX.braze.com/auth/saml/callback` y una etiqueta SAML naranja.
+Ve a tu panel de Braze e intenta iniciar sesión usando SSO. Si encuentras un error, abre el rastreador SAML e inténtalo de nuevo. Un rastreo SAML se ha recopilado correctamente si hay una fila con una URL como `https://dashboard-XX.braze.com/auth/saml/callback` y una etiqueta SAML naranja.
 
 ### Paso 3: Exporta y envía a Braze {#step-3-export-and-send-to-braze}
 
 Selecciona **Export**. En **Select cookie-filter profile**, selecciona **None**. Luego, selecciona **Export**. Esto generará un archivo JSON que puedes enviar a soporte de Braze para una solución de problemas más detallada.
 
-![Menú "Export SAML-trace preferences" con la opción "None" seleccionada.]({% image_buster /assets/img/export_saml_trace_preferences.png %})
+![Menú de preferencias de exportación de rastreo SAML con la opción "None" seleccionada.]({% image_buster /assets/img/export_saml_trace_preferences.png %})
 
 ## Solución de problemas {#troubleshooting}
 
@@ -133,7 +135,7 @@ Si recibes el error `ERROR_CODE_SSO_INVALID_EMAIL`, la dirección de correo elec
 La dirección de correo electrónico distingue entre mayúsculas y minúsculas y debe coincidir exactamente con la que se configuró en Braze, incluida la configurada en tu proveedor de identidad (como Okta, OneLogin, Microsoft Entra ID y otros).
 
 Otros errores que indican que tienes problemas con la dirección de correo electrónico del usuario incluyen:
-- `ERROR_CODE_SSO_EMAIL_DOES_NOT_EXIST`: La dirección de correo electrónico del usuario no está en el dashboard.
+- `ERROR_CODE_SSO_EMAIL_DOES_NOT_EXIST`: La dirección de correo electrónico del usuario no está en el panel.
 - `ERROR_CODE_SSO_SESSION_SIGN_IN_EMAIL_MISSING`: La dirección de correo electrónico del usuario está en blanco o mal configurada.
 - `ERROR_CODE_SSO_SESSION_SIGN_IN_EMAIL_MISMATCH` o `ERROR_CODE_SSO_SIGN_IN_EMAIL_MISMATCH`: La dirección de correo electrónico del usuario no coincide con la utilizada para configurar SSO.
 
@@ -147,7 +149,7 @@ Confirma que el certificado en la sección `ds:X509Certificate` del rastreo SAML
 
 ### ¿Escribiste mal o formateaste incorrectamente tu certificado SAML (certificado x.509)? {#did-you-mistype-or-misformat-your-saml-certificate-x509-certificate}
 
-Confirma que no haya espacios en blanco ni caracteres adicionales en el certificado que enviaste en el dashboard de Braze.
+Confirma que no haya espacios en blanco ni caracteres adicionales en el certificado que enviaste en el panel de Braze.
 
 Cuando introduces tu certificado en Braze, debe estar codificado en Privacy Enhanced Mail (PEM) y formateado correctamente (incluyendo el encabezado `-----BEGIN CERTIFICATE-----` y el pie `-----END CERTIFICATE-----`).
 
@@ -171,11 +173,11 @@ Si recibes el error `ERROR_CODE_SSO_INVALID_RELAY_STATE`, tu RelayState podría 
 
 Esto puede ocurrir cuando RelayState no está configurado correctamente. Confirma que creaste una clave de API (en **Configuración** > **Claves de API**) para el inicio de sesión del IdP y que configuraste esa clave de API como el parámetro `RelayState` en tu IdP. RelayState identifica en qué cuenta de empresa estás iniciando sesión. Para instrucciones paso a paso, consulta [Configurar tu RelayState](#setting-up-your-relaystate).
 
-Si aún no puedes iniciar sesión, [ponte en contacto con soporte de Braze]({{site.baseurl}}/braze_support/) con un rastreo SAML si es posible. Para obtener ayuda capturando un rastreo, consulta [Obtener un rastreo SAML](#obtaining-a-saml-trace).
+Si aún no puedes iniciar sesión, [ponte en contacto con soporte de Braze]({{site.baseurl}}/braze_support) con un rastreo SAML si es posible. Para obtener ayuda capturando un rastreo, consulta [Obtener un rastreo SAML](#obtaining-a-saml-trace).
 
 ### ¿El usuario está atrapado en un bucle de inicio de sesión entre Okta y Braze? {#is-the-user-stuck-in-a-sign-in-loop-between-okta-and-braze}
 
-Si un usuario no puede iniciar sesión porque está atrapado en un ciclo entre el SSO de Okta y el dashboard de Braze, necesitas ir a Okta y configurar la URL de destino de SSO a tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) (por ejemplo, `https://dashboard-07.braze.com`).
+Si un usuario no puede iniciar sesión porque está atrapado en un ciclo entre el SSO de Okta y el panel de Braze, necesitas ir a Okta y configurar la URL de destino de SSO a tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) (por ejemplo, `https://dashboard-07.braze.com`).
 
 Si usas otro IdP, verifica si tu empresa cargó el certificado SAML o x.509 correcto en Braze.
 
@@ -187,13 +189,13 @@ Si tu empresa no descargó la aplicación de Braze desde la tienda de aplicacion
 
 Si tu empresa usa Google SSO en lugar de SAML SSO personalizado, ponte en contacto con tu director de cuentas de Braze para habilitar Google SSO en tu espacio de trabajo. Una vez habilitado, ve a **Configuración de seguridad** y selecciona **Enforce Google SSO only login** para requerir la autenticación de Google para todos los usuarios de la empresa.
 
-Cuando se activa la aplicación de Google SSO, los usuarios deben iniciar sesión con la autenticación de Google y ya no podrán usar una contraseña de Braze. Cada usuario debe iniciar sesión con la cuenta de Google que coincida con su dirección de correo electrónico del dashboard de Braze. Si un usuario selecciona una cuenta de Google diferente durante el inicio de sesión, Braze rechaza el intento de autenticación.
+Cuando se activa la aplicación de Google SSO, los usuarios deben iniciar sesión con la autenticación de Google y ya no podrán usar una contraseña de Braze. Cada usuario debe iniciar sesión con la cuenta de Google que coincida con su dirección de correo electrónico del panel de Braze. Si un usuario selecciona una cuenta de Google diferente durante el inicio de sesión, Braze rechaza el intento de autenticación.
 
 ### Solución de problemas del inicio de sesión con Google SSO {#troubleshooting-google-sso-sign-in}
 
 Si algunos usuarios no pueden iniciar sesión con Google SSO, verifica lo siguiente:
 
-- La dirección de correo electrónico de la cuenta de Google del usuario coincide exactamente con su dirección de correo electrónico del dashboard de Braze.
+- La dirección de correo electrónico de la cuenta de Google del usuario coincide exactamente con su dirección de correo electrónico del panel de Braze.
 - El usuario tiene acceso a una cuenta de Google para su dirección de correo electrónico de la empresa.
 - El usuario no está suspendido en Braze (**Configuración** > **Usuarios de la empresa**).
 
@@ -201,5 +203,5 @@ Si algunos usuarios no pueden iniciar sesión con Google SSO, verifica lo siguie
 
 Después de configurar SAML SSO, puedes:
 
-- [Forzar el inicio de sesión solo con SSO]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/#restriction) en tu configuración de seguridad para restringir a los usuarios de iniciar sesión con una contraseña.
-- [Configurar el aprovisionamiento justo a tiempo de SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning/) para que los nuevos usuarios creen automáticamente cuentas de Braze en su primer inicio de sesión con SSO.
+- [Forzar el inicio de sesión solo con SSO]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) en tu configuración de seguridad para restringir a los usuarios de iniciar sesión con una contraseña.
+- [Configurar el aprovisionamiento justo a tiempo de SAML]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) para que los nuevos usuarios creen automáticamente cuentas de Braze en su primer inicio de sesión con SSO.

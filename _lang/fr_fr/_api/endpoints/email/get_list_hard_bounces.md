@@ -20,7 +20,7 @@ description: "Cet article présente en détail l'endpoint Braze permettant d'int
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key/) avec l'autorisation `email.hard_bounces`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `email.hard_bounces`.
 
 ## Limite de débit {#rate-limit}
 
@@ -35,7 +35,7 @@ Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/
 | `limit` | Facultatif | Entier | Champ facultatif permettant de limiter le nombre de résultats renvoyés. La valeur par défaut est 100, le maximum est 500. |
 | `offset` | Facultatif | Entier | Point de départ facultatif dans la liste à partir duquel récupérer les résultats. |
 | `email` | Facultatif* | Chaîne de caractères | *L'un des paramètres `start_date` ou `email` est requis. Si ce paramètre est fourni, nous indiquerons si l'utilisateur a fait l'objet d'un échec d'envoi définitif. Vérifiez que les chaînes d'e-mails sont correctement formatées. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 {% alert important %}
 Vous devez fournir un `end_date`, ainsi qu'un `email` ou un `start_date`. Si vous fournissez les trois, à savoir `start_date`, `end_date` et `email`, nous donnerons la priorité aux e-mails communiqués et ignorerons la plage de dates.

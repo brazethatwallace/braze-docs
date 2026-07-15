@@ -2,18 +2,18 @@
 nav_title: Mixpanel
 article_title: Mixpanel
 alias: /partners/mixpanel/
-description: "このリファレンス記事では、BrazeとMixpanelのパートナーシップについて説明します。Mixpanelはビジネス分析プラットフォームであり、MixpanelコホートをBrazeにインポートしてBraze セグメントを作成できます。作成したセグメントは、今後のBraze キャンペーンやキャンバスでユーザーをターゲットにするために使用できます。"
+description: "このリファレンス記事では、BrazeとMixpanelのパートナーシップについて説明します。Mixpanelはビジネス分析プラットフォームであり、MixpanelコホートをBrazeにインポートしてBrazeセグメントを作成できます。作成したセグメントは、今後のBrazeキャンペーンやキャンバスでユーザーをターゲットにするために使用できます。"
 page_type: partner
 search_tag: Partner
 tool: Currents
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
+# [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/mixpanel-integration-with-braze/339085/scorm/2u7y2e6qrldh2){: style="float:right;width:120px;border:0;" class="noimgborder"}Mixpanel {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommixpanel-integration-with-braze339085scorm2u7y2e6qrldh2-stylefloatrightwidth120pxborder0-classnoimgbordermixpanel}
 
 > [Mixpanel](https://mixpanel.com/)はビジネス分析プラットフォームであり、Mixpanelから他のプラットフォームにイベントをエクスポートして、より深い分析を実行できます。収集されたデータは、カスタムレポートの作成やユーザーエンゲージメントとリテンションの測定に使用できます。
 
-BrazeとMixpanelの統合により、[MixpanelコホートをBrazeにインポートして]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/)Braze セグメントを作成できます。このセグメントは、今後のBraze キャンペーンやキャンバスでユーザーをターゲットにするために使用できます。コホート同期はBrazeのコホートメンバーシップを更新しますが、Mixpanelのイベントやユーザープロパティをインポートするものではありません。詳細については、[Mixpanelコホートインポート]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import/#data-import-integration)を参照してください。
+BrazeとMixpanelの統合により、[MixpanelコホートをBrazeにインポートして]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import)Brazeセグメントを作成できます。このセグメントは、今後のBrazeキャンペーンやキャンバスでユーザーをターゲットにするために使用できます。コホート同期はBrazeのコホートメンバーシップを更新しますが、Mixpanelのイベントやユーザープロパティをインポートするものではありません。詳細については、[Mixpanelコホートインポート]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel/mixpanel_cohort_import#data-import-integration)を参照してください。
 
 Braze Currentsを利用して[BrazeイベントをMixpanelにエクスポート](#data-export-integration)し、コンバージョン、リテンション、製品使用率に関する詳細な分析を促進することもできます。
 
@@ -22,16 +22,16 @@ Braze Currentsを利用して[BrazeイベントをMixpanelにエクスポート]
 | 必要条件 | 説明 |
 |---|---|
 | Mixpanelアカウント | このパートナーシップを活用するには、[Mixpanelアカウント](https://mixpanel.com/)が必要です。 |
-| Currents | Mixpanelにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Currents | Mixpanelにデータをエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents)を設定する必要があります。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## データエクスポートの統合 {#data-export-integration}
 
-BrazeからMixpanelにエクスポートできるすべてのイベントを以下に示します。Mixpanelに送信されるすべてのイベントには、ユーザーの`external_user_id`がMixpanel Distinct IDとして含まれます。現時点では、Brazeは`external_user_id`を設定していないユーザーのイベントデータを送信しません。
+BrazeからMixpanelにエクスポートできるすべてのイベントのリストは、このセクションに記載されています。Mixpanelに送信されるすべてのイベントには、ユーザーの`external_user_id`がMixpanel Distinct IDとして含まれます。現時点では、Brazeは`external_user_id`を設定していないユーザーのイベントデータを送信しません。
 
 Mixpanelにエクスポートできるイベントは2種類あります。[メッセージエンゲージメントイベント](#supported-currents-events)（メッセージ送信に直接関連するBrazeイベントで構成される）と、[顧客行動イベント](#supported-currents-events)（セッション、カスタムイベント、プラットフォーム経由で追跡された購入などのその他のアプリまたはWebサイトアクティビティを含む）です。すべてのカスタムイベントには、接頭辞として`[Braze Custom Event]`が付いています。カスタムイベントプロパティの接頭辞は`[Custom event property]`、購入イベントプロパティの接頭辞は`[Purchase property]`です。
 
-その他のイベントの種類にアクセスする必要がある場合は、アカウントマネージャーに問い合わせるか、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。
+その他のイベントの種類にアクセスする必要がある場合は、アカウントマネージャーに問い合わせるか、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。
 
 ### ステップ1: Mixpanel認証情報を取得する {#step-1-get-mixpanel-credentials}
 
@@ -54,10 +54,10 @@ Mixpanelダッシュボードで、新規または既存のプロジェクトの
 
 Brazeでは、以下のイベントをMixpanelにエクスポートできます。
 
-- [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)
-- [顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)
+- [メッセージエンゲージメントイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)
+- [顧客行動イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)
 
-各イベントのペイロード構造については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)および[顧客行動イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)の**Mixpanel**タブを選択してください。
+各イベントのペイロード構造については、[メッセージエンゲージメントイベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)および[顧客行動イベント用語集]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)の**Mixpanel**タブを選択してください。
 
 ## トラブルシューティング {#troubleshooting}
 

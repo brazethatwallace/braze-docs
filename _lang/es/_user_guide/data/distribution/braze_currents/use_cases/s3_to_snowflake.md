@@ -3,33 +3,33 @@ nav_title: Transfiere datos de Amazon S3 a Snowflake
 article_title: Transferir datos de Amazon S3 a Snowflake
 page_order: 7
 page_type: tutorial
-description: "Este artículo te guiará en la transferencia de datos desde el almacenamiento en la nube (como Amazon S3) a un almacén (como Snowflake) mediante el proceso Extraer, Transformar, Cargar (ETL)."
+description: "Este artículo te guiará en la transferencia de datos desde el almacenamiento en la nube (como Amazon S3) a un almacén (como Snowflake) mediante el proceso extraer, transformar, cargar (ETL)."
 tool: Currents
 
 ---
 
-# Transfiere datos de Amazon S3 a Snowflake
+# Transfiere datos de Amazon S3 a Snowflake {#transfer-data-from-amazon-s3-to-snowflake}
 
-> Si tus datos se encuentran actualmente en Amazon S3, puedes transferirlos a Snowflake o a otro almacén de datos relacional mediante el proceso Extraer, Cargar, Transformar (ELT). Esta página explica cómo hacerlo.
+> Si tus datos se encuentran actualmente en Amazon S3, puedes transferirlos a Snowflake o a otro almacén de datos relacional mediante el proceso extraer, cargar, transformar (ELT). Esta página explica cómo hacerlo.
 
 {% alert note %}
-Si tienes casos de uso más específicos y quieres que Braze preste servicio a tu instancia de Currents, ponte en contacto con tu director de cuentas de Braze y pregúntale por los Servicios Profesionales de Datos de Braze.
+Si tienes casos de uso más específicos y quieres que Braze preste servicio a tu instancia de Currents, ponte en contacto con tu director de cuentas de Braze y pregúntale por los servicios profesionales de datos de Braze.
 {% endalert %}
 
-## Cómo funciona
+## Cómo funciona {#how-it-works}
 
-El proceso Extraer, Cargar, Transformar (ELT) es un proceso automatizado que traslada los datos a [Snowflake](https://www.snowflake.com/), lo que te permitirá utilizar los [bloques de Looker de Braze](https://marketplace.looker.com/marketplace/directory) para visualizar esos datos en Looker y ayudarte a obtener información y comentarios sobre tus campañas, Canvas y segmentos.
+El proceso extraer, cargar, transformar (ELT) es un proceso automatizado que traslada los datos a [Snowflake](https://www.snowflake.com/), lo que te permitirá utilizar los [bloques de Looker de Braze](https://marketplace.looker.com/marketplace/directory) para visualizar esos datos en Looker y ayudarte a obtener información y comentarios sobre tus Campaigns, Canvas y segmentos.
 
-Una vez que hayas configurado una exportación de Currents a S3 y estés recibiendo datos de eventos en directo, puedes configurar tu canalización de ELT en directo en Snowflake configurando los siguientes componentes:
+Una vez que hayas configurado una exportación de Currents a S3 y estés recibiendo datos de eventos en vivo, puedes configurar tu canalización de ELT en vivo en Snowflake configurando los siguientes componentes:
 
 -   [Colas de AWS SQS](#aws-sqs-queues)
--   [Snowpipes Auto-Ingest](#auto-ingest-snowpipes)
+-   [Snowpipes de auto-ingest](#auto-ingest-snowpipes)
 
-## Configuración de las colas de AWS SQS
+## Configuración de las colas de AWS SQS {#configuring-aws-sqs-queues}
 
-**Los Snowpipes Auto-ingest** dependen de las colas SQS para el envío de notificaciones desde S3 a Snowpipe. Este proceso es gestionado por Snowflake después de configurar SQS.
+**Los Snowpipes de auto-ingest** dependen de las colas SQS para el envío de notificaciones desde S3 a Snowpipe. Este proceso es gestionado por Snowflake después de configurar SQS.
 
-### Paso 1: Configura el stage externo de S3
+### Paso 1: Configura el stage externo de S3 {#step-1-configure-the-external-s3-stage}
 
 {% alert note %}
 Las tablas de tu base de datos se crean en este paso.
@@ -105,28 +105,28 @@ COPY INTO
 {: start="4"}
 4. Por último, usa el comando `show pipes;` para mostrar la información de SQS. El nombre de la cola SQS será visible en una nueva columna llamada `NOTIFICATION_CHANNEL` porque este pipe se creó como un pipe de auto-ingest.
 
-### Paso 2: Crea eventos de contenedor
+### Paso 2: Crea eventos de contenedor {#step-2-create-bucket-events}
 
 1. En AWS, navega al contenedor correspondiente del nuevo stage de Snowflake. Luego, en la pestaña **Properties**, ve a **Events**.
 
 ![Pestaña Properties de AWS]({% image_buster /assets/img/aws-properties.png %}){: height="50%" width="50%"}
 
 {: start="2"}
-2. Crea nuevos eventos para cada conjunto de datos de Currents, según sea necesario ([mensajería]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/), [comportamiento del usuario]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)), o ambos.
+2. Crea nuevos eventos para cada conjunto de datos de Currents, según sea necesario ([mensajería]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [comportamiento del usuario]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)), o ambos.
 
 ![Creación de un nuevo evento en AWS]({% image_buster /assets/img/aws-events.png %}){: height="50%" width="50%"}
 
 {: start="3"}
 3. Marca la casilla correspondiente para las notificaciones de creación de objetos, así como el ARN en la parte inferior del formulario (de la columna del canal de notificación en Snowflake).
 
-## Configuración de Snowpipes Auto-ingest {#auto-ingest-snowpipes}
+## Configuración de Snowpipes de auto-ingest {#auto-ingest-snowpipes}
 
-Para que la configuración de AWS SQS produzca las tablas correctas, debes definir correctamente la estructura de los datos entrantes utilizando los siguientes ejemplos y esquemas determinados en nuestra documentación de Currents para [eventos de interacción con mensajes o eventos de mensajería]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/), [eventos de comportamiento del usuario o del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/), o ambos.
+Para que la configuración de AWS SQS produzca las tablas correctas, debes definir correctamente la estructura de los datos entrantes utilizando los siguientes ejemplos y esquemas determinados en nuestra documentación de Currents para [eventos de interacción con mensajes o eventos de mensajería]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events), [eventos de comportamiento del usuario o del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events), o ambos.
 
 Es fundamental que estructures tus tablas de acuerdo con los esquemas de Braze Currents, ya que Braze Currents cargará datos continuamente en ellas a través de campos específicos con tipos de datos específicos. Por ejemplo, un `user_id` se cargará como una cadena y se llamará `user_id` en los datos de Currents.
 
 {% alert note %}
-  Dependiendo de tu integración de Currents, es posible que tengas diferentes eventos que debas configurar (como [eventos de interacción con mensajes o eventos de mensajería]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/) y [eventos de comportamiento del usuario o del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events/)). También puedes escribir un script para parte o la totalidad de este proceso.
+  Dependiendo de tu integración de Currents, es posible que tengas diferentes eventos que debas configurar (como [eventos de interacción con mensajes o eventos de mensajería]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) y [eventos de comportamiento del usuario o del cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events)). También puedes escribir un script para parte o la totalidad de este proceso.
 {% endalert %}
 
 {% tabs %}

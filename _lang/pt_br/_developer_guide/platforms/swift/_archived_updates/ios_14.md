@@ -13,10 +13,10 @@ noindex: true
 > Este guia descreve as alterações relacionadas à Braze introduzidas no iOS 14 e as etapas de upgrade necessárias para sua integração de SDK da Braze para iOS. Para obter uma lista completa das novas atualizações do iOS 14, consulte a página da Apple sobre [o iOS 14](https://www.apple.com/ios/ios-14/).
 
 {% alert tip %}
-A partir do iOS 14.5, a coleta de **IDFA** e [determinados compartilhamentos de dados](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) exigirão o novo prompt de permissão da estrutura [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency) ([saiba mais](#idfa)).
+A partir do iOS 14.5, a coleta de **IDFA** e [determinados compartilhamentos de dados](https://developer.apple.com/app-store/user-privacy-and-data-use/#permission-to-track) exigirão o novo prompt de permissão da estrutura [AppTrackingTransparency](https://developer.apple.com/documentation/apptrackingtransparency) ([saiba mais sobre o IDFA](#idfa)).
 {% endalert %}
 
-#### Resumo das mudanças significativas no iOS 14 {#summary-of-ios-14-breaking-changes}
+## Resumo das mudanças significativas no iOS 14 {#summary-of-ios-14-breaking-changes}
 
 - Os apps com direcionamento para o iOS 14 / Xcode 12 devem usar nossa [versão oficial do iOS 14](https://github.com/Appboy/appboy-ios-sdk/releases/tag/3.27.0).
 - [O iOS não oferece mais suporte a](https://developer.apple.com/documentation/corelocation/cllocationmanager/3600215-accuracyauthorization) geofences para usuários que escolhem a nova permissão de _local aproximado_.
@@ -43,7 +43,7 @@ table td {
 | Xcode 12 | **Faça upgrade para o iOS SDK v3.27 ou posterior** | Os clientes que usam o Xcode 12 devem usar a versão 3.27.0+ para compatibilidade. Se você tiver algum problema ou dúvida relacionada à nossa compatibilidade com o iOS 14, abra um novo [tópico no GitHub](https://github.com/Appboy/appboy-ios-sdk/issues). |
 | Local mais recente | **Faça upgrade para o iOS SDK v3.26.1 ou posterior** | Se você usa o recurso de direcionamento para o local mais recente e ainda está usando o Xcode 11, deve fazer upgrade para, pelo menos, o iOS SDK v3.26.1, que oferece suporte ao novo recurso de _localização aproximada_. Os SDKs mais antigos não conseguirão coletar o local de forma confiável quando um usuário fizer upgrade para o iOS 14 _e_ escolher a opção "Localização aproximada".<br><br>Mesmo que seu app não seja direcionado ao iOS 14, seus usuários podem fazer upgrade para o iOS 14 e começar a usar a nova opção de precisão de local. Os apps que não fizerem upgrade para o iOS SDK v3.26.1+ não poderão coletar de forma confiável atributos de local quando os usuários fornecerem sua _localização aproximada_ em dispositivos iOS 14. |
 | ID de rastreamento de anúncios IDFA | **Pode ser necessário fazer upgrade para o Xcode 12 e o iOS SDK v3.27** | Em algum momento de 2021, a Apple começará a exigir uma solicitação de permissão para a coleta do IDFA. Nesse momento, os apps deverão fazer upgrade para o Xcode 12 e usar a nova estrutura `AppTrackingTransparency` para continuar coletando o IDFA. Se você passar o IDFA para o SDK da Braze, também deverá fazer upgrade para a versão 3.27.0+ no mesmo momento.<br><br>Os apps que não usarem as novas APIs do iOS 14 não poderão coletar o IDFA e, em vez disso, coletarão um ID em branco (`00000000-0000-0000-0000-000000000000`) depois que a Apple começar a aplicar essa alteração em 2021. Para saber se isso se aplica ou não ao seu app, consulte [os detalhes do IDFA](#idfa). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Upgrade summary" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Resumo do upgrade" }
 
 
 ## Mudanças de comportamento no iOS 14 {#ios-14-behavior-changes}
@@ -95,7 +95,7 @@ Essas atualizações do IDFA entrarão em vigor depois que os usuários finais f
 
 3. Se usar o campo "Rastreamento de anúncios ativado" para direcionamento de Campaigns ou análise de dados, será necessário fazer upgrade para o Xcode 12 e usar a nova estrutura AppTrackingTransparency para informar o status de aceitação dos usuários. O motivo dessa alteração é que, no iOS 14, o antigo campo [`advertisingTrackingEnabled`](https://developer.apple.com/documentation/adsupport/asidentifiermanager/1614148-advertisingtrackingenabled) sempre retornará No.
 
-4. Se o seu app tiver usado IDFA ou IDFV como ID externo da Braze, recomendamos fortemente que você migre desses identificadores em favor de um UUID. Para saber mais sobre a migração de IDs externos, consulte nossos [endpoints da API de migração de IDs externos]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/).
+4. Se o seu app tiver usado IDFA ou IDFV como ID externo da Braze, recomendamos fortemente que você migre desses identificadores em favor de um UUID. Para saber mais sobre a migração de IDs externos, consulte nossos [endpoints da API de migração de IDs externos]({{site.baseurl}}/api/endpoints/user_data/external_id_migration).
 
 Leia mais sobre as [atualizações de privacidade](https://developer.apple.com/app-store/user-privacy-and-data-use/) da Apple e a nova [estrutura de transparência de rastreamento de aplicativos](https://developer.apple.com/documentation/apptrackingtransparency).
 

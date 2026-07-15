@@ -10,11 +10,11 @@ platform:
   - Web
 ---
 
-# Häufig gestellte Fragen
+# Häufig gestellte Fragen {#frequently-asked-questions}
 
 > Dieser Artikel enthält Antworten auf einige häufig gestellte Fragen zu Feature-Flags.
 
-## Funktionalität und Support
+## Funktionalität und Support {#functionality-and-support}
 
 ### Auf welchen Plattformen werden Braze Feature-Flags unterstützt? {#platforms}
 
@@ -79,7 +79,7 @@ Zum Beispiel können Sie mit Braze Feature-Flags ein neues Kundenbindungs-Progra
 
 Produkt-Teams können Feature-Flags nutzen, um schrittweise Rollouts oder Soft Launches neuer Features durchzuführen, um Leistungskennzahlen und Kundenfeedback zu überwachen, bevor das Feature allen Nutzer:innen zur Verfügung gestellt wird.
 
-Produkt-Teams können [Feature-Flag-Eigenschaften]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#properties) verwenden, um Inhalte in einer App remote zu befüllen, wie z. B. Deeplinks, Text, Bilder oder anderen dynamischen Content.
+Produkt-Teams können [Feature-Flag-Eigenschaften]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#properties) verwenden, um Inhalte in einer App remote zu befüllen, wie z. B. Deeplinks, Text, Bilder oder anderen dynamischen Content.
 
 Mithilfe des Canvas Feature-Flag-Schritts können Produkt-Teams auch einen A/B-Split-Test durchführen, um zu messen, wie ein neues Feature die Konversionsraten im Vergleich zu Nutzer:innen beeinflusst, bei denen das Feature deaktiviert ist.
 
@@ -89,7 +89,7 @@ Entwicklerteams können Feature-Flags nutzen, um das Risiko beim Launch neuer Fe
 
 Indem neuer Code hinter einem Feature-Flag veröffentlicht wird, kann Ihr Team das Feature remote über das Braze-Dashboard ein- oder ausschalten – ohne die Verzögerung durch das Ausliefern von neuem Code oder das Warten auf eine App-Store-Update-Genehmigung.
 
-## Feature-Rollouts und Targeting
+## Feature-Rollouts und Targeting {#feature-rollouts-and-targeting}
 
 ### Kann ein Feature-Flag nur für eine ausgewählte Gruppe von Nutzer:innen ausgerollt werden? {#target-users}
 
@@ -105,7 +105,7 @@ Feature-Flag-Rollouts bleiben für Nutzer:innen über Geräte und Sitzungen hinw
 
 Diese Strategie stellt sicher, dass Nutzer:innen ein konsistentes Erlebnis in Ihrer App erhalten und nicht zwischen Sitzungen hin und her wechseln. Natürlich werden durch das Deaktivieren eines Features auf 0 % alle Nutzer:innen aus dem Feature-Flag entfernt, was hilfreich ist, wenn Sie einen Bug entdecken oder das Feature vollständig deaktivieren müssen.
 
-## Technische Themen
+## Technische Themen {#technical-topics}
 
 ### Können Feature-Flags verwendet werden, um zu steuern, wann das Braze SDK initialisiert wird? {#initialization}
 
@@ -113,7 +113,7 @@ Nein, das SDK muss initialisiert werden, um Feature-Flags für die aktuelle Nutz
 
 ### Wie häufig aktualisiert das SDK Feature-Flags? {#refresh-frequency}
 
-Feature-Flags werden beim Sitzungsstart und beim Wechsel aktiver Nutzer:innen aktualisiert. Feature-Flags können auch manuell über die [Aktualisierungsmethode]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#refreshing) des SDK aktualisiert werden. Die Aktualisierung von Feature-Flags unterliegt einem Rate-Limit von einmal alle fünf Minuten (Änderungen vorbehalten).
+Feature-Flags werden beim Sitzungsstart und beim Wechsel aktiver Nutzer:innen aktualisiert. Feature-Flags können auch manuell über die [Aktualisierungsmethode]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#refreshing) des SDK aktualisiert werden. Die Aktualisierung von Feature-Flags unterliegt einem Rate-Limit von einmal alle fünf Minuten (Änderungen vorbehalten).
 
 Beachten Sie, dass gute Datenpraktiken empfehlen, Feature-Flags nicht zu häufig zu aktualisieren (mit potenziellem Rate-Limiting, falls dies geschieht). Am besten aktualisieren Sie nur, bevor Nutzer:innen mit neuen Features interagieren, oder bei Bedarf regelmäßig in der App.
 
@@ -125,12 +125,12 @@ Ja, nachdem Feature-Flags aktualisiert wurden, werden sie lokal auf dem Gerät d
 
 Feature-Flags können mitten in einer Sitzung aktualisiert werden. Es gibt Szenarien, in denen Sie Ihre App aktualisieren möchten, wenn sich bestimmte Variablen oder Ihre Konfiguration ändern sollten. Es gibt andere Szenarien, in denen Sie Ihre App nicht aktualisieren möchten, um eine überraschende Änderung in der Darstellung Ihrer UI zu vermeiden.
 
-Um dies zu steuern, [lauschen Sie auf Updates]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create/#updates) von Feature-Flags und entscheiden Sie, ob Ihre App basierend auf den geänderten Feature-Flags neu gerendert werden soll.
+Um dies zu steuern, [lauschen Sie auf Updates]({{site.baseurl}}/developer_guide/platform_wide/feature_flags/create#updates) von Feature-Flags und entscheiden Sie, ob Ihre App basierend auf den geänderten Feature-Flags neu gerendert werden soll.
 
-### Warum erhalten Nutzer:innen in meiner Globalen Kontrollgruppe keine Feature-Flag-Experimente?
+### Warum erhalten Nutzer:innen in meiner Globalen Kontrollgruppe keine Feature-Flag-Experimente? {#why-arent-users-in-my-global-control-group-receiving-feature-flags-experiments}
 
-Sie können Feature-Flags nicht für Nutzer:innen in Ihrer [Globalen Kontrollgruppe]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/) aktivieren. Das bedeutet, dass Nutzer:innen in Ihrer Globalen Kontrollgruppe auch nicht an Feature-Flag-Experimenten teilnehmen können.
+Sie können Feature-Flags nicht für Nutzer:innen in Ihrer [Globalen Kontrollgruppe]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts) aktivieren. Das bedeutet, dass Nutzer:innen in Ihrer Globalen Kontrollgruppe auch nicht an Feature-Flag-Experimenten teilnehmen können.
 
-## Weitere Fragen?
+## Weitere Fragen? {#additional-questions}
 
 Haben Sie Fragen oder Feedback? Schreiben Sie unserem Team eine E-Mail: [feature-flags-feedback@braze.com](mailto:feature-flags-feedback@braze.com).

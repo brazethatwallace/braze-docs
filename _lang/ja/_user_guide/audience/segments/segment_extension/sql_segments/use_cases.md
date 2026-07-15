@@ -35,7 +35,7 @@ Property
 
 スポーツに賭けを行い、すべての賭け金の合計が特定の金額を超えるユーザーを選択します。
 
-`````````sql
+```sql
 select user_id from "USERS_BEHAVIORS_CUSTOMEVENT_SHARED"
 where name='Bet On Sports'
 group by 1 having sum(get_path(parse_json(properties), 'amount')) > 150
@@ -52,7 +52,7 @@ Event, Time range
 
 これは、さまざまなチャネルにおける反応性の高いユーザーなど、ユーザーのエンゲージメントレベルを判定する場合にも使用できます。
 
-`````````sql
+```sql
 SELECT user_id, COUNT(DISTINCT id) AS num_emails_opened
 FROM USERS_MESSAGES_EMAIL_OPEN_SHARED
 WHERE to_timestamp_ntz(time) >= DATEADD(day, -30, CURRENT_TIMESTAMP()) AND to_timestamp_ntz(time) <= CURRENT_TIMESTAMP()
@@ -67,9 +67,9 @@ HAVING COUNT(DISTINCT id) > 3
 Event, Time range
 {% endapitags %}
 
-過去4四半期のそれぞれで購入を行ったユーザーを選択します。このユーザーセグメントは、[オーディエンス同期]({{site.baseurl}}/partners/canvas_audience_sync/)と組み合わせて、獲得向けの高価値な類似顧客を特定するために使用できます。
+過去4四半期のそれぞれで購入を行ったユーザーを選択します。このユーザーセグメントは、[オーディエンス同期]({{site.baseurl}}/partners/canvas_audience_sync)と組み合わせて、獲得向けの高価値な類似顧客を特定するために使用できます。
 
-`````````sql
+```sql
 ELECT DISTINCT user_id
 FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_timestamp_ntz(time) >= DATEADD(day, -90, CURRENT_TIMESTAMP()) AND to_timestamp_ntz(time) <= CURRENT_TIMESTAMP()
@@ -96,7 +96,7 @@ Purchase, Property
 
 14日以内にプロパティ `"type = shops"` を含む購入を行った顧客を選択します。
 
-`````````sql
+```sql
 SELECT
 user_id
 FROM
@@ -123,9 +123,9 @@ HAVING COUNT(id) > 0;
 Message, Delivery
 {% endapitags %}
 
-SMS キャンペーンまたはキャンバスが送信されたが、メッセージがキャリアに到達しなかったユーザーを選択します。たとえば、キューオーバーフローによってメッセージが停止された場合などです。
+SMSのキャンペーンまたはキャンバスが送信されたが、メッセージがキャリアに到達しなかったユーザーを選択します。たとえば、キューオーバーフローによってメッセージが停止された場合などです。
 
-`````````sql
+```sql
 SELECT
 user_id
 FROM
@@ -146,7 +146,7 @@ Message, Carrier
 
 これは、特定のキャンバスから送信されたが配信されなかった他の種類のメッセージにも転用できます。
 
-`````````sql
+```sql
 SELECT
 user_id
 FROM
@@ -166,7 +166,7 @@ HAVING COUNT(id) > 0;
 Purchase, Property
 {% endapitags %}
 
-`````````sql
+```sql
 SELECT DISTINCT EXTERNAL_USER_ID
 FROM "USERS_BEHAVIORS_PURCHASE_SHARED",
 LATERAL FLATTEN(input=>parse_json(properties):modifiers) as f
@@ -184,7 +184,7 @@ Error, Delivery
 
 このクエリはインクリメンタルエディターを使用し、過去90日間に3回以上の拒否送信があり、配信が0件のユーザーを検索します。
 
-`````````sql
+```sql
 SELECT
   $date(time), user_id, COUNT(id)
 FROM
@@ -210,7 +210,7 @@ Event, Property, Time range
 - モール `Funan` で取引した
 - 過去90日間に3回以上取引した
 
-`````````sql
+```sql
 SELECT
 USER_ID
 FROM
@@ -233,7 +233,7 @@ AND COUNT(*) > 3
 Session, Device
 {% endapitags %}
 
-`````````sql
+```sql
 select user_id, external_user_id, device_id, platform, os_version, device_model, to_timestamp(max(time)) last_session
 from users_behaviors_app_sessionstart
 where app_group_id = ''
@@ -249,7 +249,7 @@ group by user_id, external_user_id, device_id, platform, os_version, device_mode
 Time range
 {% endapitags %}
 
-`````````sql
+```sql
 SELECT DISTINCT USER_ID, to_timestamp_ntz(time)
 FROM USERS_MESSAGES_INAPPMESSAGE_CLICK_SHARED
 WHERE to_timestamp_ntz(time) >= '2023-08-03'::timestamp_ntz
@@ -265,7 +265,7 @@ AND CAMPAIGN_ID = '64c8cd9c4d38d13091957b1c'
 Purchase, Time range
 {% endapitags %}
 
-`````````sql
+```sql
 SELECT DISTINCT user_id
 FROM USERS_BEHAVIORS_PURCHASE_SHARED
 WHERE to_timestamp_ntz(time) >= '2023-09-01'::timestamp_ntz
@@ -293,7 +293,7 @@ Event, Property
 
 プロパティはタイトルIDです。そうでなければ、フィルターに100以上のタイトルIDを含める必要があります。インクリメンタルセグメントエクステンションはコスト最適化が可能で、ヘッダーで日付範囲を指定できます。
 
-`````````sql
+```sql
 SELECT
   $date(time),
   USER_ID,
@@ -315,7 +315,7 @@ GROUP BY
 Message
 {% endapitags %}
 
-`````````sql
+```sql
 WITH user_email_counts AS (
   SELECT
     USER_ID,
@@ -355,7 +355,7 @@ SMSメッセージの場合は、クエリ内の `USERS_MESSAGES_EMAIL_SEND_SHAR
 Message
 {% endapitags %}
 
-`````````sql
+```sql
 WITH user_email_counts AS (
   SELECT
     USER_ID,

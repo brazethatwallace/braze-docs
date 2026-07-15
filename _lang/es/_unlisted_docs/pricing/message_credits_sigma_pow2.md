@@ -6,17 +6,17 @@ noindex: true
 hide_toc: true
 ---
 
-# Créditos de mensaje - Sigma (Confidencial) {#message-credits-sigma-confidential}
+# Créditos de mensaje - Sigma (confidencial) {#message-credits-sigma-confidential}
 
-> Créditos de mensaje es la estructura de empaquetado multiproducto de Braze para nuestras ofertas nativas de Consola de Agente, SMS, MMS, RCS, WhatsApp y LINE. Los créditos de mensaje proporcionan una experiencia flexible y transparente al aprovechar los canales de mensajería de Braze y ciertas características de IA. Los créditos te dan acceso a cualquiera de los canales presentados en la tabla de esta página.
+> Créditos de mensaje es la estructura de empaquetado multiproducto de Braze para nuestras ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp y LINE. Los créditos de mensaje proporcionan una experiencia flexible y transparente al aprovechar los canales de mensajería de Braze y ciertas características de IA. Los créditos te dan acceso a cualquiera de los canales presentados en la tabla de esta página.
 
 {% alert note %}
 Los diferentes productos tendrán distintas unidades de medida en los informes.<br><br>
-<b>Consola de Agente:</b> Invocaciones<br>
+<b>Agent Console:</b> Invocaciones<br>
 <b>SMS:</b> Segmentos<br>
 <b>MMS:</b> Envíos<br>
-<b>WhatsApp:</b> Mensajes<br>
-<b>RCS:</b> Segmentos, Envíos<br>
+<b>WhatsApp:</b> Mensajes entregados<br>
+<b>RCS:</b> Segmentos entregados, Envíos entregados<br>
 <b>LINE:</b> Envíos<br>
 <b>KakaoTalk:</b> Envíos<br>
 
@@ -33,10 +33,10 @@ Las definiciones de las columnas son las siguientes:
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tabla de ratio de créditos para créditos de mensaje - Sigma {#credit-ratio-table-for-message-credits-sigma}
+## Tabla de ratios de créditos para créditos de mensaje - Sigma {#credit-ratio-table-for-message-credits-sigma}
 
 {% details Haz clic para expandir %}
-<table class="credits-table" aria-label="Tabla de ratio de créditos para créditos de mensaje - Sigma">
+<table class="credits-table" aria-label="Tabla de ratios de créditos para créditos de mensaje - Sigma">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -50,12 +50,12 @@ Las definiciones de las columnas son las siguientes:
     </thead>
     <tbody>
     <tr>
-        <td>Consola de Agente</td>
+        <td>Agent Console</td>
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>Consola de Agente</td>
+        <td>Agent Console</td>
         <td>BYO LLM API Key</td>
         <td>0.16</td>
     </tr>
@@ -2130,7 +2130,7 @@ Las definiciones de las columnas son las siguientes:
         <td>4.35</td>
     </tr>
     <tr>
-        <td>LINE</td>
+        <td>Line</td>
         <td>All Regions</td>
         <td>0.15</td>
     </tr>
@@ -2281,15 +2281,14 @@ Las definiciones de las columnas son las siguientes:
 
 ------
 
-## Detalles de la Consola de Agente {#agent-console-details}
-
-Braze cobrará créditos de mensaje por las invocaciones de la Consola de Agente enviadas desde la plataforma Braze. Una invocación se registra cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
+## Detalles de la consola del agente {#agent-console-details}
+Braze cobrará créditos de mensaje por las invocaciones de la consola del agente enviadas desde la plataforma Braze. Una invocación se registra cuando un agente inicia una llamada a un LLM. De forma predeterminada, tu contrato incluye diez mil invocaciones por cada período de tu plazo de suscripción.
 
 ## Detalles del canal SMS/MMS {#smsmms-channel-details}
 
 ### Segmentos de SMS {#sms-segments}
 
-Los segmentos de mensaje SMS son la forma en que la industria de SMS cuenta los mensajes. Un segmento de mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviará en un único despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos de mensaje. Enviar múltiples segmentos de mensaje generará cargos adicionales.
+Los segmentos del mensaje SMS son la forma en que la industria de SMS cuenta los mensajes. Un segmento del mensaje es una agrupación de hasta un número definido de caracteres (160 para codificación GSM-7; 67 para codificación UCS-2) que se enviará en un solo despacho de SMS. Si envías un SMS con 161 caracteres usando codificación GSM-7, verás que se enviaron dos (2) segmentos del mensaje. Enviar múltiples segmentos del mensaje generará cargos adicionales.
 
 ### Segmentos de MMS {#mms-segments}
 
@@ -2297,15 +2296,15 @@ Para MMS, el límite del mensaje es de 5 MB (esto incluye el activo multimedia y
 
 ### Tipos de RCS {#rcs-types}
 
-RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta interacción como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
+RCS es la próxima generación de SMS y MMS. Ofrece los beneficios de un canal directo y de alta participación como SMS, con capacidades más ricas que los consumidores modernos esperan, como contenido enriquecido (imágenes, videos, documentos), envío verificado y con marca, características interactivas como respuestas y acciones sugeridas, y más.
 
-- La facturación de RCS se centra en dos tipos de mensaje diferentes (con distinciones para EE. UU.):
-    - **RCS básico:** solo texto, hasta 160 caracteres
-    - **RCS único:** mensajes que contienen contenido enriquecido, o mensajes de solo texto de más de 160 caracteres
-    - **RCS enriquecido (solo EE. UU.):** solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
-    - **RCS multimedia enriquecido (solo EE. UU.):** cualquier contenido multimedia O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contado como un mensaje
+- La facturación de RCS se centra en dos tipos de mensajes diferentes (con distinciones para EE. UU.):
+    - **RCS básico:** Solo texto, hasta 160 caracteres
+    - **RCS individual:** Mensajes que contienen contenido enriquecido, o mensajes de solo texto > 160 caracteres
+    - **RCS enriquecido (solo EE. UU.):** Solo texto, puede incluir sugerencias/botones limitados (quickReply, dialPhone, openURL sin webview), segmentado por cada 160 bytes UTF-8
+    - **RCS con medios enriquecidos (solo EE. UU.):** Cualquier medio O texto con sugerencias/botones más ricos (webview, ubicación, calendario, etc.), contado como un mensaje
 
-## Detalles del canal WhatsApp {#whatsapp-channel-details}
+## Detalles del canal de WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
@@ -2331,26 +2330,23 @@ Estados Unidos, Canadá
 
 ### Resto de África {#rest-of-africa}
 
-Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia,
-Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
+Argelia, Angola, Benín, Botsuana, Burkina Faso, Burundi, Camerún, Chad, Congo, Eritrea, Etiopía, Gabón, Gambia, Ghana, Guinea-Bisáu, Costa de Marfil, Kenia, Lesoto, Liberia, Libia, Madagascar, Malaui, Malí, Mauritania, Marruecos, Mozambique, Namibia, Níger, Ruanda, Senegal, Sierra Leona, Somalia, Sudán del Sur, Sudán, Suazilandia, Tanzania, Togo, Túnez, Uganda, Zambia
 
-### Resto de Asia Pacífico {#rest-of-asia-pacific}
+### Resto de Asia-Pacífico {#rest-of-asia-pacific}
 
-Afganistán, Australia, Bangladés, Camboya, China, Hong Kong, Japón, Laos, Mongolia, Nepal, Nueva Zelanda, Papúa Nueva Guinea, Filipinas, Singapur, Sri Lanka, Taiwán, Tayikistán, Tailandia,
-Turkmenistán, Uzbekistán, Vietnam
+Afganistán, Australia, Bangladés, Camboya, China, Japón, Laos, Mongolia, Nepal, Nueva Zelanda, Papúa Nueva Guinea, Filipinas, Sri Lanka, Taiwán, Tayikistán, Tailandia, Turkmenistán, Uzbekistán, Vietnam
 
 ### Resto de Europa Central y Oriental {#rest-of-central-eastern-europe}
 
-Albania, Armenia, Azerbaiyán, Bielorrusia, Bulgaria, Croacia, República Checa, Georgia, Grecia, Hungría, Letonia, Lituania, Macedonia, Moldavia, Polonia, Rumanía, Serbia, Eslovaquia, Eslovenia, Ucrania
+Albania, Armenia, Azerbaiyán, Bielorrusia, Bulgaria, Croacia, República Checa, Georgia, Grecia, Letonia, Lituania, Macedonia, Moldavia, Serbia, Eslovaquia, Eslovenia, Ucrania
 
 ### Resto de América Latina {#rest-of-latin-america}
 
-Bolivia, Costa Rica, República Dominicana, Ecuador, El Salvador,
-Guatemala, Haití, Honduras, Jamaica, Nicaragua, Panamá, Paraguay, Puerto Rico, Uruguay, Venezuela
+Bolivia, Costa Rica, República Dominicana, Ecuador, El Salvador, Guatemala, Haití, Honduras, Jamaica, Nicaragua, Panamá, Paraguay, Puerto Rico, Uruguay, Venezuela
 
 ### Resto de Oriente Medio {#rest-of-middle-east}
 
-Baréin, Irak, Jordania, Kuwait, Líbano, Omán, Catar, Yemen
+Baréin, Irak, Jordania, Kuwait, Líbano, Omán, Yemen
 
 ### Resto de Europa Occidental {#rest-of-western-europe}
 

@@ -11,7 +11,7 @@ page_order: 1
 
 ## About AI item recommendations
 
-Use AI item recommendations to calculate the most popular products or create personalized AI recommendations for a specific [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/). After creating your recommendation, you can use personalization to insert those products into your messages.
+Use AI item recommendations to calculate the most popular products or create personalized AI recommendations for a specific [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs). After creating your recommendation, you can use personalization to insert those products into your messages.
 
 {% alert tip %}
 [AI Personalized recommendations](#recommendation-types) work best with at least a few hundred catalog items, at most 100,000 catalog items, and typically at least 30,000 users with purchase or interaction data. This is only a rough guide and can vary. The other recommendation types can work with less data, including when **Most popular** is used as a fallback.
@@ -25,7 +25,7 @@ Use AI item recommendations to calculate the most popular products or create per
 
 Before you start, you must have the following:
 
-- At least one [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) to use any of the recommendation types described below.
+- At least one [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs) to use any of the recommendation types described in the following section.
 - Purchase or event data on Braze (custom events, the order placed event, or the purchase object) that includes a reference to the item and must match the catalog item IDs.
 
 ### Step 1: Create a new recommendation
@@ -51,7 +51,7 @@ Give your recommendation a name and optional description.
 
 ### Step 3: Define your recommendation {#recommendation-type}
 
-Select a recommendation type. Each type uses the last six months of item interaction data, such as a purchase, an order placed, or custom event data. For more detailed information and uses cases for each, see [Types and Uses Cases]({{site.baseurl}}/user_guide/brazeai/item_recommendations/).
+Select a recommendation type. Each type uses the last six months of item interaction data, such as a purchase, an order placed, or custom event data. For more detailed information and uses cases for each, see [Types and Uses Cases]({{site.baseurl}}/user_guide/brazeai/item_recommendations).
 
 {% alert tip %}
 When using **Most Recent** or **AI Personalized**, users with insufficient data to create individualized recommendations will receive **Most Popular** items as a fallback. You can see an approximation of the proportion of users receiving the **Most Popular** fallback displayed on the **Analytics** page. The **Most Popular** fallback only returns items that exist in the linked catalog. 
@@ -69,11 +69,11 @@ For example, when using the pro version of AI item recommendations, if a user pu
 
 #### Step 3.2: Select a catalog
 
-If not already populated, select the [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/) that this recommendation will pull items from.
+If not already populated, select the [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs) that this recommendation will pull items from.
 
 #### Step 3.3: Add a selection (optional)
 
-If you'd like more control over your recommendation, choose a [selection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections/) to apply custom filters. Selections filter recommendations by specific columns in your catalog, such as brand, size, or location. Selections that contain Liquid can't be used in your recommendation.
+If you'd like more control over your recommendation, choose a [selection]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) to apply custom filters. Selections filter recommendations by specific columns in your catalog, such as brand, size, or location. Selections that contain Liquid can't be used in your recommendation.
 
 ![An example of the "in-stock" selection selected for the recommendation.]({% image_buster /assets/img/item_recs_2-2.png %})
 
@@ -85,12 +85,16 @@ If you can't find your selection, make sure it's set up in your catalog first.
 
 Select the event you want this recommendation to optimize for. This event is usually a purchase, but it can also be any interaction with an item.
 
+{% alert tip %}
+When configuring AI item recommendations, your choice of event is important. Your triggering event determines who gets an AI-generated recommendation—AI item recommendations are generated for users who have completed the event you configure, so this choice directly determines who receives recommendations. Select an event that covers the full audience segment you want to reach.<br><br> At the same time, balance coverage against relevance. Top-of-funnel events (like Product Viewed) tend to capture a broader audience but be less connected to business outcomes, whereas bottom-of-funnel events (like Purchased) tend to produce more targeted, business-relevant recommendations. The best event is one that balances coverage with influence on the bottom line.
+{% endalert %}
+
 You can optimize for:
 
-- Purchase events with the [Purchase Object]({{site.baseurl}}/api/objects_filters/purchase_object/)
+- Purchase events with the [Purchase Object]({{site.baseurl}}/api/objects_filters/purchase_object)
 - Custom events that represent a purchase
 - Custom events that represent any other item interaction (such as product views, clicks, or media plays)
-- Orders placed with the [order placed event]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/?tab=ecommerce.order_placed)
+- Orders placed with the [order placed event]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events?tab=ecommerce.order_placed)
 
 If you choose **Custom Event**, select your event from the list.
 
@@ -115,7 +119,7 @@ The **Property Name** field will pre-populate with a list of fields sent through
 There are some requirements for selecting your property:
 
 - Must map to the `id` field of your selected catalog.
-- **If you selected Order Placed Event or are using [eCommerce events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/) to train item recommendations:** Enter `products.product_id` for the product ID.
+- **If you selected Order Placed Event or are using [eCommerce events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events) to train item recommendations:** Enter `products.product_id` for the product ID.
   - The field can be inside an array of products, or end with an array of IDs. In either case, each product ID will be treated as a separate, sequential event with the same timestamp.
 - **If you selected Purchase Object:** Must be the `product_id` or a field of your interaction event's `properties`.
 - **If you selected Custom Event:** Must be a field of your custom event's `properties`.

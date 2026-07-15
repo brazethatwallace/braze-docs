@@ -14,18 +14,18 @@ noindex: true
 
 <br>
 {% alert important %}
-Está procurando o guia básico de integração de Content Cards para desenvolvedores? Encontre [aqui]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration/).
+Está procurando o guia básico de integração de Content Cards para desenvolvedores? Encontre o [guia básico de integração de Content Cards para desenvolvedores]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/content_cards/integration).
 {% endalert %}
 
 # Guia de implementação de Content Cards {#content-card-implementation-guide}
 
-> Este guia de implementação opcional e avançado aborda considerações sobre o código de Content Cards, três casos de uso personalizados criados por nossa equipe, trechos de código que os acompanham e orientações sobre o registro de impressões, cliques e descartes. Visite nosso repositório de demonstrações da Braze [aqui](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Este guia de implementação está centrado em uma implementação Swift, mas são fornecidos trechos em Objective-C para os interessados.
+> Este guia de implementação opcional e avançado aborda considerações sobre o código de Content Cards, três casos de uso personalizados criados por nossa equipe, trechos de código que os acompanham e orientações sobre o registro de impressões, cliques e descartes. Visite nosso repositório de demonstrações da Braze [Repositório de Demonstrações da Braze no GitHub](https://github.com/braze-inc/braze-growth-shares-ios-demo-app)! Este guia de implementação está centrado em uma implementação Swift, mas são fornecidos trechos em Objective-C para os interessados.
 
 ## Considerações sobre o código {#code-considerations}
 
 ### Content Cards como objetos personalizados {#content-cards-as-custom-objects}
 
-Assim como um foguete que adiciona um propulsor, seus próprios objetos personalizados podem ser estendidos para funcionar como Content Cards. Superfícies de API limitadas como essa oferecem flexibilidade para trabalhar com diferentes back-ends de dados de forma intercambiável. Isso pode ser feito em conformidade com o protocolo `ContentCardable` e implementando o inicializador (como visto nos trechos de código a seguir) e, por meio do uso da struct `ContentCardData`, permite acessar os dados `ABKContentCard`. A carga útil `ABKContentCard` será usada para inicializar a struct `ContentCardData` e o próprio objeto personalizado, tudo a partir de um tipo `Dictionary` por meio do inicializador fornecido com o protocolo.
+Assim como um foguete que adiciona um propulsor, seus próprios objetos personalizados podem ser estendidos para funcionar como Content Cards. Superfícies de API limitadas como essa oferecem flexibilidade para trabalhar com diferentes backends de dados de forma intercambiável. Isso pode ser feito em conformidade com o protocolo `ContentCardable` e implementando o inicializador (como visto nos trechos de código a seguir) e, por meio do uso da struct `ContentCardData`, permite acessar os dados `ABKContentCard`. A carga útil `ABKContentCard` será usada para inicializar a struct `ContentCardData` e o próprio objeto personalizado, tudo a partir de um tipo `Dictionary` por meio do inicializador fornecido com o protocolo.
 
 O inicializador também inclui um enum `ContentCardClassType`. Esse enum é usado para decidir qual objeto será inicializado. Por meio do uso de pares chave-valor no dashboard da Braze, você pode definir uma chave `class_type` explícita que será usada para determinar qual objeto inicializar. Esses pares chave-valor para Content Cards são exibidos na variável `extras` do `ABKContentCard`. Outro componente central do inicializador é o parâmetro de dicionário `metaData`. O `metaData` inclui tudo do `ABKContentCard` analisado em uma série de chaves e valores. Depois que os cartões relevantes forem analisados e convertidos em seus objetos personalizados, o app estará pronto para começar a trabalhar com eles como se tivessem sido instanciados a partir de JSON ou de qualquer outra fonte.
 
@@ -427,14 +427,14 @@ O `class_type` é usado para determinar quais dos seus objetos personalizados se
 
 ## Casos de uso {#sample-use-cases}
 
-Fornecemos três casos de uso abaixo. Cada caso de uso oferece uma explicação detalhada, trechos de código relevantes e uma visão de como as variáveis do Content Card podem parecer e ser usadas no dashboard da Braze:
+Fornecemos três casos de uso na seção a seguir. Cada caso de uso oferece uma explicação detalhada, trechos de código relevantes e uma visão de como as variáveis do Content Card podem parecer e ser usadas no dashboard da Braze:
 - [Content Cards como conteúdo suplementar](#content-cards-as-supplemental-content)
 - [Content Cards em um centro de mensagens](#content-cards-in-a-message-center)
 - [Content Cards interativos](#interactive-content-cards)
 
 ### Content Cards como conteúdo suplementar {#content-cards-as-supplemental-content}
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![Feed com uma lista híbrida que combina dados locais e Content Cards da Braze.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 Você pode combinar perfeitamente Content Cards em um feed existente, permitindo que os dados de vários feeds sejam carregados simultaneamente. Isso cria uma experiência coesa e harmoniosa com Content Cards da Braze e o conteúdo de feed existente.
 
@@ -442,7 +442,7 @@ O exemplo à direita mostra uma `UICollectionView` com uma lista híbrida de ite
 
 #### Configuração do dashboard {#dashboard-configuration}
 
-Esse Content Card é entregue por uma Campaign disparada por API com pares chave-valor disparados por API. Isso é ideal para Campaigns em que os valores do cartão dependem de fatores externos para determinar o conteúdo a ser exibido ao usuário. Note que `class_type` deve ser conhecido no momento da configuração.
+Esse Content Card é entregue por uma campanha disparada por API com pares chave-valor disparados por API. Isso é ideal para campanhas em que os valores do cartão dependem de fatores externos para determinar o conteúdo a ser exibido ao usuário. Note que `class_type` deve ser conhecido no momento da configuração.
 
 ![Os pares chave-valor para o caso de uso de Content Cards suplementares. Neste exemplo, diferentes aspectos do cartão, como "tile_id", "tile_deeplink" e "tile_title", são definidos usando Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
@@ -453,9 +453,9 @@ Visite a [seção a seguir](#logging-impressions-clicks-and-dismissals) para ent
 <br>
 Content Cards podem ser usados em um formato de centro de mensagens em que cada mensagem é seu próprio cartão. Cada mensagem no centro de mensagens é preenchida por meio de uma carga útil de Content Card, e cada cartão contém pares chave-valor adicionais que potencializam a UI/UX ao clicar. No exemplo a seguir, uma mensagem direciona você para uma visualização personalizada arbitrária, enquanto outra abre uma webview que exibe HTML personalizado.
 
-![]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
+![Centro de mensagens com Content Cards exibindo cartões de mensagens individuais.]({% image_buster /assets/img/cc_implementation/message_center.png %}){: style="border:0;"}{: style="max-width:80%;border:0"}
 
-#### Configuração do dashboard {#dashboard-configuration}
+#### Configuração do dashboard
 
 Para os seguintes tipos de mensagens, o par chave-valor `class_type` deve ser adicionado à configuração do seu dashboard. Os valores atribuídos aqui são arbitrários, mas devem ser distinguíveis entre os tipos de classe. Esses pares chave-valor são os identificadores-chave que o aplicativo examina ao decidir para onde ir quando o usuário clica em uma mensagem resumida da caixa de entrada.
 
@@ -467,7 +467,7 @@ Os pares chave-valor para esse caso de uso incluem:
 - `message_header` definido como `Full Page`
 - `class_type` definido como `message_full_page`
 
-![]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
+![Exemplo de mensagem de Content Card em página inteira.]({% image_buster /assets/img/cc_implementation/full_page.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% tab Webview message - HTML %}
@@ -480,7 +480,7 @@ Os pares chave-valor para esse caso de uso incluem:
 
 Essa mensagem também procura um par chave-valor HTML, mas se você estiver trabalhando com um domínio web, um par chave-valor de URL também é válido.
 
-![]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
+![Content Card abrindo uma webview HTML a partir de um par chave-valor.]({% image_buster /assets/img/cc_implementation/html_webview.png %}){: style="max-width:60%;"}
 
 {% endtab %}
 {% endtabs %}
@@ -526,7 +526,7 @@ Quando uma mensagem é clicada, o `ContentCardClassType` determina como a próxi
 {% endtab %}
 {% endtabs %}
 
-##### Pronto para registrar a análise de dados? {#ready-to-log-analytics}
+##### Pronto para registrar a análise de dados?
 Visite a [seção a seguir](#logging-impressions-clicks-and-dismissals) para entender melhor como deve ser o fluxo de dados.
 
 ![Um Content Card interativo mostrando uma promoção de 50% aparece no canto inferior esquerdo da tela. Depois de clicado, uma promoção será aplicada ao carrinho.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
@@ -537,26 +537,26 @@ Content Cards podem ser aproveitados para criar experiências dinâmicas e inter
 
 Cartões bem posicionados como esse são uma ótima maneira de dar aos usuários um "empurrãozinho" em direção a ações específicas.
 <br><br><br>
-#### Configuração do dashboard {#dashboard-configuration}
+#### Configuração do dashboard
 
 A configuração do dashboard para Content Cards interativos é simples. Os pares chave-valor para esse caso de uso incluem `discount_percentage` definido como o valor do desconto desejado e `class_type` definido como `coupon_code`. Esses pares chave-valor são como os Content Cards específicos por tipo são filtrados e exibidos na tela de checkout.
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
+![Content Card interativo mostrando uma promoção no checkout.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:70%;"}
 
-##### Pronto para registrar a análise de dados? {#ready-to-log-analytics}
+##### Pronto para registrar a análise de dados?
 Visite a [seção a seguir](#logging-impressions-clicks-and-dismissals) para entender melhor como deve ser o fluxo de dados.
 
 ## Personalização do modo escuro {#dark-mode-customization}
 
 Por padrão, as visualizações de Content Cards responderão automaticamente às alterações do modo escuro no dispositivo com um conjunto de cores temáticas.
 
-Esse comportamento pode ser substituído conforme detalhado em nosso [guia de estilo personalizado]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/content_cards/customization/custom_styling/#disabling-dark-mode).
+Esse comportamento pode ser substituído conforme detalhado em nosso [guia de estilo personalizado]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/content_cards/customization/custom_styling#disabling-dark-mode).
 
 ## Registro de impressões, cliques e descartes {#logging-impressions-clicks-and-dismissals}
 
 Depois de estender seus objetos personalizados para funcionarem como Content Cards, o registro de métricas valiosas como impressões, cliques e descartes é rápido. Isso pode ser feito usando um protocolo `ContentCardable` que faz referência e fornece dados a um arquivo auxiliar para ser registrado pelo SDK da Braze.
 
-#### Componentes de implementação<br><br> {#implementation-components}
+### Componentes de implementação<br><br> {#implementation-components}
 
 {% tabs %}
 {% tab Swift %}

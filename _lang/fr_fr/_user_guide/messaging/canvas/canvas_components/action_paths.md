@@ -36,7 +36,7 @@ Par défaut, le **Classement** est désactivé. Lorsqu'un utilisateur entre dans
 Lorsque l'option **Faire avancer les utilisateurs selon l'ordre de classement** est activée, le **Classement** est actif. Tous les utilisateurs sont alors retenus jusqu'à la fin de la fenêtre d'évaluation. À la fin de la période d'évaluation, les utilisateurs avancent dans le groupe d'actions de plus haute priorité pour lequel ils sont éligibles à la fin de la fenêtre d'évaluation. Les utilisateurs qui n'effectuent aucune des actions pendant la fenêtre d'évaluation avancent dans le groupe par défaut **Tous les autres**.
 
 {% alert tip %}
-Pour orienter les utilisateurs en fonction de leurs attributs actuels ou de leur appartenance à un segment plutôt que des actions qu'ils effectuent, utilisez plutôt les [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/).
+Pour orienter les utilisateurs en fonction de leurs attributs actuels ou de leur appartenance à un segment plutôt que des actions qu'ils effectuent, utilisez plutôt les [Parcours d'audience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths).
 {% endalert %}
 
 Notez que vous pouvez déclencher un parcours d'action lorsqu'un objet d'attribut personnalisé imbriqué change, mais pas pour les tableaux d'attributs personnalisés imbriqués ni pour les modifications de types de données de tableau d'objets.
@@ -59,7 +59,7 @@ Ajoutez un ou plusieurs déclencheurs pour définir vos groupes d'actions. Vous 
 
 - Effectuent un achat
 - Démarrent une session
-- Effectuent un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
+- Effectuent un [événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
 - Effectuent un événement de conversion
 - Ajoutent une adresse e-mail
 - Modifient la valeur d'un attribut personnalisé.
@@ -71,6 +71,10 @@ Ajoutez un ou plusieurs déclencheurs pour définir vos groupes d'actions. Vous 
 - Déclenchent un géorepérage
 - Envoient un message entrant SMS ou WhatsApp
 
+#### Déclencheur d'ajout d'adresse e-mail {#add-an-email-address-trigger}
+
+Le déclencheur du groupe d'actions **Ajouter une adresse e-mail** se déclenche lorsqu'une adresse e-mail est ajoutée ou mise à jour sur un profil utilisateur pendant la **Fenêtre d'évaluation** du parcours d'action. Ce comportement est identique à celui des autres déclencheurs de mise à jour de profil : les utilisateurs avancent dans le groupe d'actions lorsque la modification du profil correspond à votre configuration, y compris les filtres appliqués au déclencheur.
+
 ![Un groupe d'actions nommé « Groupe 1 » pour les utilisateurs qui effectuent un achat quelconque.]({% image_buster /assets/img/actionpath_group.png %})
 
 Dans les paramètres de chaque groupe d'actions, vous avez également la possibilité de cocher la case **Je souhaite que ce groupe quitte le Canvas**, ce qui signifie que les utilisateurs de ce groupe quitteront le Canvas à la fin de la période d'évaluation.
@@ -81,8 +85,12 @@ Si des utilisateurs entrent dans un parcours d'action plusieurs fois et ont plus
 
 | Statut du classement | Comportement du parcours d'action |
 |---|--------------|
-| **Désactivé** | Un utilisateur peut entrer dans un parcours d'action plus d'une fois. Ces entrées sont retenues dans le parcours d'action jusqu'à ce qu'une action ou un événement déclencheur soit enregistré. Si l'événement déclencheur ne satisfait pas les filtres de propriétés d'une entrée (par exemple, une [variable de contexte]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables/) ne correspond pas aux filtres de propriétés du déclencheur), l'entrée reste dans le parcours d'action. <br><br>Si l'événement déclencheur satisfait plus d'une entrée, Braze déduplique uniquement ces entrées et fait immédiatement avancer l'entrée correspondante la plus ancienne dans le groupe d'actions approprié. |
+| **Désactivé** | Un utilisateur peut entrer dans un parcours d'action plus d'une fois. Ces entrées sont retenues dans le parcours d'action jusqu'à ce qu'une action ou un événement déclencheur soit enregistré. Si l'événement déclencheur ne satisfait pas les filtres de propriétés d'une entrée (par exemple, une [variable de contexte]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_variables) ne correspond pas aux filtres de propriétés du déclencheur), l'entrée reste dans le parcours d'action. <br><br>Si l'événement déclencheur satisfait plus d'une entrée, Braze déduplique uniquement ces entrées et fait immédiatement avancer l'entrée correspondante la plus ancienne dans le groupe d'actions approprié. |
 | **Activé** | Toutes les entrées avancent à la fin de la fenêtre d'évaluation correspondante. Aucune déduplication n'est effectuée. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canvas avec rééligibilité" }
 
-Notez que les classements ne sont pas [modifiables après le lancement]({{site.baseurl}}/post-launch_edits/).
+{% alert warning %}
+Ne modifiez pas l'option **Faire avancer les utilisateurs selon l'ordre de classement** après le lancement lorsque des utilisateurs se trouvent déjà dans l'étape. Braze applique le paramètre de classement en vigueur lors du traitement des événements et à la fin de la fenêtre d'évaluation, mais l'état du parcours enregistré plus tôt dans la fenêtre peut refléter un paramètre précédent. Par exemple, si vous désactivez le classement après que des utilisateurs ont effectué une action classée, ils risquent de ne pas avancer dans le parcours attendu à la fermeture de la fenêtre. Créez plutôt un nouveau parcours d'action avec le paramètre de classement souhaité, ou dupliquez le Canvas.
+{% endalert %}
+
+Notez que les classements ne sont pas [modifiables après le lancement]({{site.baseurl}}/post-launch_edits).

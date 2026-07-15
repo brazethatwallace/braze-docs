@@ -9,19 +9,19 @@ local_redirect:
   create-a-feature-flag: '/docs/user_guide/messaging/feature_flags/create_feature_flags'
 ---
 
-# Feature Flag
+# Feature Flag {#feature-flag}
 
-> As Feature Flags permitem que você experimente e confirme suas hipóteses sobre novos recursos. Profissionais de marketing podem usar Feature Flags para segmentar seu público no [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) e acompanhar o impacto do lançamento de recursos nas conversões. Além disso, as [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) permitem otimizar essas conversões testando diferentes mensagens ou jornadas entre si e determinando qual é a mais eficaz. Use a Jornada Vencedora à medida que você lança progressivamente seu recurso para um público mais amplo.
+> As Feature Flags permitem que você experimente e confirme suas hipóteses sobre novos recursos. Profissionais de marketing podem usar Feature Flags para segmentar seu público no [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) e acompanhar o impacto do lançamento de recursos nas conversões. Além disso, as [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) permitem otimizar essas conversões testando diferentes mensagens ou jornadas entre si e determinando qual é a mais eficaz. Use a Jornada Vencedora à medida que você lança progressivamente seu recurso para um público mais amplo.
 
-Quer saber mais sobre Feature Flags e como elas podem ser usadas na Braze? Confira nossos artigos dedicados sobre [Feature Flags]({{site.baseurl}}/developer_guide/feature_flags/).
+Quer saber mais sobre Feature Flags e como elas podem ser usadas na Braze? Confira nossos artigos dedicados sobre [Feature Flags]({{site.baseurl}}/developer_guide/feature_flags).
 
-## Criando uma Feature Flag
+## Criando uma Feature Flag {#creating-a-feature-flag}
 
 ![Um exemplo de etapa Feature Flag para o recurso Botão de Chat ao Vivo.]({% image_buster /assets/img/feature_flags/feature_flag_canvas_step.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 Para criar um componente Feature Flag, primeiro adicione uma etapa ao seu Canvas. Arraste e solte o componente da barra lateral, ou clique no botão de mais <i class="fas fa-plus-circle"></i> na parte inferior de uma etapa e selecione **Feature Flag**. Em seguida, selecione a Feature Flag no menu suspenso, que contém todas as Feature Flags que não estão arquivadas.
 
-## Como essa etapa funciona
+## Como essa etapa funciona {#how-this-step-works}
 
 Quando um Canvas é interrompido, arquivado ou uma etapa Feature Flag é removida, os usuários que passaram por essa etapa deixam de receber a Feature Flag e suas propriedades.
 
@@ -47,7 +47,7 @@ Ao criar uma Feature Flag, você especifica propriedades padrão. Ao configurar 
 
 Acesse **Envio de mensagens** > **Feature Flags** para editar, adicionar ou remover propriedades adicionais.
 
-## Diferenças entre Canvas e rollout
+## Diferenças entre Canvas e rollout {#canvas-and-rollout-differences}
 
 O Canvas e o rollout de uma Feature Flag (arrastar o controle deslizante) podem funcionar de forma independente. Uma ressalva importante é que a entrada em uma etapa do Canvas sobrescreve qualquer configuração padrão de rollout. Isso significa que, se um usuário não se qualificar para uma Feature Flag, uma etapa do Canvas pode ativar o recurso para esse usuário.
 

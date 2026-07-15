@@ -1,7 +1,7 @@
 ---
 page_order: 0
 article_title: 기술 파트너
-alias: /partners/Partners/
+alias: /partners/partners/
 layout: partner_page
 search_tag: Partner
 
@@ -62,6 +62,8 @@ valid_partner_list:
   url: /docs/partners/jebbit/
 - name: Iterate
   url: /docs/partners/iterate/
+- name: Refiner
+  url: /docs/partners/refiner/
 - name: EduMe
   url: /docs/partners/edume/
 - name: Fivetran
@@ -316,6 +318,8 @@ valid_partner_list:
   url: /docs/partners/mypostcard/
 - name: SEEN
   url: /docs/partners/seen/
+- name: Stayfilm
+  url: /docs/partners/stayfilm/
 - name: Dixa
   url: /docs/partners/dixa/
 - name: Narvar
@@ -422,6 +426,8 @@ valid_partner_list:
   url: /docs/partners/anthropic/
 - name: Databricks Mosaic
   url: /docs/partners/databricks_mosaic/
+- name: Microsoft Foundry
+  url: /docs/partners/microsoft_foundry/
 - name: Algolia
   url: /docs/partners/algolia/
 - name: Canva

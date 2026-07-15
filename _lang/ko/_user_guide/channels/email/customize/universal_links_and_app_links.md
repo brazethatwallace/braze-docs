@@ -12,7 +12,7 @@ channel: email
 > 이 문서에서는 Apple 유니버설 링크와 Android 앱 링크를 설정하는 방법을 설명합니다.
 
 {% alert tip %}
-모든 메시징 채널에서의 링크 유형 비교와 AASA 파일이 필요한 시점에 대한 안내는 [iOS 딥링킹 가이드]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)를 참조하세요.
+모든 메시징 채널에서의 링크 유형 비교와 AASA 파일이 필요한 시점에 대한 안내는 [iOS 딥링킹 가이드]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide)를 참조하세요.
 {% endalert %}
 
 Apple 유니버설 링크와 Android 앱 링크는 웹 콘텐츠와 모바일 앱 간의 원활한 전환을 제공하기 위해 고안된 메커니즘입니다. 유니버설 링크는 iOS에 특화되어 있으며, Android 앱 링크는 Android 애플리케이션에서 동일한 목적을 수행합니다.
@@ -21,9 +21,13 @@ Apple 유니버설 링크와 Android 앱 링크는 웹 콘텐츠와 모바일 �
 
 유니버설 링크(iOS)와 앱 링크(Android)는 웹 페이지와 앱 내 콘텐츠 모두를 가리키는 표준 웹 링크(`http://mydomain.com`)입니다.
 
-유니버설 링크 또는 앱 링크가 열리면 운영체제는 해당 도메인에 등록된 설치된 앱이 있는지 확인합니다. 앱이 발견되면 웹 페이지를 로드하지 않고 즉시 앱이 실행됩니다. 앱이 발견되지 않으면 사용자의 기본 웹 브라우저에서 웹 URL이 로드되며, 이 경우 각각 App Store 또는 Google Play Store로 리디렉션되도록 구성할 수도 있습니다.
+유니버설 링크 또는 앱 링크가 열리면 운영 체제는 해당 도메인에 등록된 설치된 앱이 있는지 확인합니다. 앱이 발견되면 웹 페이지를 로드하지 않고 즉시 앱이 실행됩니다. 앱이 발견되지 않으면 사용자의 기본 웹 브라우저에서 웹 URL이 로드되며, 이 경우 각각 App Store 또는 Google Play Store로 리디렉션되도록 구성할 수도 있습니다.
 
 간단히 말해, 유니버설 링크를 사용하면 웹사이트가 자체 웹 페이지를 특정 앱 화면과 연결할 수 있으므로, 사용자가 앱 화면에 해당하는 웹 페이지 링크를 클릭하면 앱이 직접 열릴 수 있습니다(앱이 현재 설치되어 있는 경우).
+
+{% alert important %}
+Firebase Dynamic Links는 지원이 중단되었습니다. Braze는 Firebase와 직접 통합되어 있지 않으며, 딥링킹은 Braze 플랫폼 외부에서 관리됩니다. 플랫폼 네이티브 솔루션(이 문서에서 설명하는 Apple 유니버설 링크 및 Android 앱 링크) 또는 대체 딥링킹 서비스 제공업체로 마이그레이션하세요. 마이그레이션 안내는 [Firebase 마이그레이션 FAQ](https://firebase.google.com/support/dynamic-links-faq)를 참조하세요.
+{% endalert %}
 
 다음 표는 유니버설 링크와 기존 딥링크 간의 주요 차이점을 보여줍니다:
 
@@ -35,11 +39,11 @@ Apple 유니버설 링크와 Android 앱 링크는 웹 콘텐츠와 모바일 �
 | 앱 설치       | 앱이 설치되어 있으면 앱을 열고, 그렇지 않으면 웹 콘텐츠를 열기 | 앱이 설치되어 있어야 함 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="유니버설 링크 및 앱 링크의 작동 방식" }
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 유니버설 링크와 앱 링크는 이메일 Campaign에서 가장 일반적으로 사용됩니다. 이메일은 데스크탑과 모바일 기기 모두에서 열고 클릭할 수 있기 때문입니다.
 
-일부 채널은 이러한 링크와 잘 작동하지 않습니다. 예를 들어, 푸시 알림, 인앱 메시지, Content Cards는 스킴 기반 딥링크(`mydomain://`)를 사용해야 합니다.
+일부 채널은 이러한 링크와 잘 작동하지 않습니다. 예를 들어, 푸시 알림, In-App Messages, Content Cards는 스킴 기반 딥링크(`mydomain://`)를 사용해야 합니다.
 
 {% alert note %}
 Android 앱 링크는 해당 도메인의 링크를 다른 웹 URL과 별도로 처리하는 로직이 포함된 커스텀 `IBrazeDeeplinkHandler`가 필요합니다. 딥링크를 사용하고 이메일 이외의 채널에서 링크 사용 방식을 통일하는 것이 더 쉬울 수 있습니다.
@@ -93,7 +97,7 @@ Android 앱 링크는 해당 도메인의 링크를 다른 웹 URL과 별도로 
 2. **Associated Domains**를 선택합니다.
 3. **Save**를 클릭합니다.
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![App Services 섹션]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### 1c단계: Xcode 프로젝트에서 Associated Domains 활성화 {#step-1c}
 
@@ -113,7 +117,7 @@ Android 앱 링크는 해당 도메인의 링크를 다른 웹 URL과 별도로 
 
 도메인 섹션에서 적절한 도메인 태그를 추가합니다. `applinks:` 접두사를 붙여야 합니다. 이 경우 `applinks:yourdomain.com`을 추가한 것을 확인할 수 있습니다.
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Associated Domains 섹션]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### 1e단계: 자격 파일이 빌드에 포함되어 있는지 확인 {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -252,7 +256,7 @@ AMP 이메일의 경우 이 속성은 data-universal="true"여야 합니다.
 ```
 
 {:start="3"}
-3. 앱이 래핑된 링크를 올바르게 처리하도록 설정되어 있는지 확인합니다. SendGrid의 [SendGrid 클릭 추적 링크 해석](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-sendgrid-click-tracking-links) 문서를 참조하고 운영체제에 맞는 단계를 따르세요. 이 문서에는 [iOS](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-ios) 및 [Android](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-android)용 예시 코드가 포함되어 있습니다.
+3. 앱이 래핑된 링크를 올바르게 처리하도록 설정되어 있는지 확인합니다. SendGrid의 [SendGrid 클릭 추적 링크 해석](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-sendgrid-click-tracking-links) 문서를 참조하고 운영 체제에 맞는 단계를 따르세요. 이 문서에는 [iOS](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-ios) 및 [Android](https://docs.sendgrid.com/ui/sending-email/universal-links#resolving-links-in-android)용 예시 코드가 포함되어 있습니다.
 
 이 구성을 사용하면 URL 경로에 `/uni/`가 포함된 링크는 유니버설 링크로 작동하고, 다른 모든 링크는 웹 링크로 작동합니다.
 
@@ -274,7 +278,7 @@ SparkPost 클릭 추적 링크를 유니버설 링크로 처리하려면 이메�
 {% endtab %}
 {% tab Amazon SES %}
 
-커스텀 경로를 사용하여 이메일 클릭 추적 URL에 경로 세그먼트를 추가합니다. 이렇게 하면 모바일 운영체제가 유니버설 링크 및 앱 링크로 인식할 수 있는 예측 가능한 URL 패턴이 생성됩니다.
+커스텀 경로를 사용하여 이메일 클릭 추적 URL에 경로 세그먼트를 추가합니다. 이렇게 하면 모바일 운영 체제가 유니버설 링크 및 앱 링크로 인식할 수 있는 예측 가능한 URL 패턴이 생성됩니다.
 
 사용자가 모바일 기기에서 이메일 링크를 탭할 때, 커스텀 경로를 사용하면 링크가 기본 모바일 앱, 전문 앱 또는 모바일 브라우저(예: 제품 페이지, 로열티 프로그램, 구독 취소 링크 또는 법적 페이지)에서 열리는지 제어할 수 있습니다.
 
@@ -396,7 +400,7 @@ HTML 편집기의 이메일 메시지에 HTML 코드를 추가하거나 드래�
 - **Name:** `data-msys-clicktrack`
 - **Value:** `0`
 
-![텍스트 링크의 커스텀 속성.]({% image_buster /assets/img/text_click_tracking_off.png %}){: style="max-width:60%;"}
+![텍스트 링크의 커스텀 속성]({% image_buster /assets/img/text_click_tracking_off.png %}){: style="max-width:60%;"}
 
 ##### 버튼 또는 이미지의 커스텀 속성 {#custom-attribute-for-a-button-or-image}
 
@@ -416,7 +420,7 @@ HTML 편집기의 이메일 메시지에 HTML 코드를 추가하거나 드래�
 - **Value:** `0`
 - **Type:** Link
 
-![버튼의 커스텀 속성.]({% image_buster /assets/img/button_click_tracking_off.png %}){: style="max-width:60%;"}
+![버튼의 커스텀 속성]({% image_buster /assets/img/button_click_tracking_off.png %}){: style="max-width:60%;"}
 
 ### 클릭 추적이 포함된 유니버설 링크 문제 해결 {#troubleshooting-universal-links-with-click-tracking}
 
@@ -439,13 +443,24 @@ AASA 파일(iOS) 또는 Digital Asset Links 파일(Android)이 올바른 위치�
 
 앱이 열 수 있는 도메인에 대한 올바른 정의가 있는지 확인합니다.
 
-- **iOS:** Xcode에서 앱에 설정된 Associated Domains를 검토합니다([1c단계: Xcode 프로젝트에서 Associated Domains 활성화]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
+- **iOS:** Xcode에서 앱에 설정된 Associated Domains를 검토합니다([1c단계: Xcode 프로젝트에서 Associated Domains 활성화]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
 - **Android:** 앱 정보 페이지를 엽니다(앱 아이콘을 길게 누르고 ⓘ를 클릭). 앱 정보 메뉴에서 **기본으로 열기**를 찾아 탭합니다. 앱이 열 수 있는 모든 확인된 링크가 표시되는 화면이 나타납니다. 클릭 추적 도메인이 해당 목록에 포함되어 있는지 확인합니다.
 
 #### 추적 도메인에서 .well-known 파일을 제공할 수 없는 경우 {#tracking-domain-cant-serve-well-known-files}
 
-경우에 따라 이메일 서비스 공급자의 제한이나 인프라 제약으로 인해 클릭 추적 도메인에서 필요한 `.well-known` 파일을 호스팅할 수 없을 수 있습니다. 추적 도메인에서 AASA 또는 Digital Asset Links 파일을 호스팅할 수 없는 경우 다음 옵션을 고려하세요:
+경우에 따라 ESP 제한이나 인프라 제약으로 인해 클릭 추적 도메인에서 필요한 `.well-known` 파일을 호스팅할 수 없을 수 있습니다. 추적 도메인에서 AASA 또는 Digital Asset Links 파일을 호스팅할 수 없는 경우 다음 옵션을 고려하세요:
 
-- **이메일 서비스 공급자에 추적 도메인에서 파일을 호스팅하도록 요청:** 클릭 추적 하위 도메인은 일반적으로 이메일 서비스 공급자(SendGrid, SparkPost 또는 Amazon SES)를 가리키는 CNAME입니다. 이메일 서비스 공급자가 해당 도메인의 트래픽을 종료하므로 `.well-known` 파일을 대신 호스팅할 수 있습니다. SendGrid와 SparkPost 모두 이를 지원합니다. 이메일 서비스 공급자에 직접 문의하여 요청하세요.
-- **딥링크 URL에서 클릭 추적을 선택적으로 비활성화:** 이메일 서비스 공급자가 파일을 호스팅할 수 없는 경우 특정 유니버설 링크에 대해 클릭 추적을 비활성화하여 기본 도메인(AASA 또는 Digital Asset Links 파일을 호스팅할 수 있는 곳)으로 직접 이동하도록 할 수 있습니다. 이 방법은 해당 특정 링크에 대한 클릭 분석 데이터가 손실될 수 있습니다. 자세한 내용은 [링크별 클릭 추적 비활성화](#turning-off-click-tracking-on-a-link-to-link-basis)를 참조하세요.
-- **추적 하위 도메인 앞에 CDN 배치:** 전체 클릭 추적 범위와 딥링킹이 모두 필요한 경우 추적 하위 도메인 앞에 CDN(예: Cloudflare 또는 CloudFront)을 배치할 수 있습니다. CDN이 `.well-known` 파일을 로컬에서 제공하고 다른 모든 트래픽을 이메일 서비스 공급자로 프록시하도록 구성합니다. 이 접근 방식은 더 복잡하지만 클릭 추적과 유니버설 링크 모두를 완전히 제어할 수 있습니다.
+- **딥링크 URL에서 클릭 추적을 선택적으로 비활성화:** 특정 유니버설 링크에 대해 클릭 추적을 비활성화하여 기본 도메인(AASA 또는 Digital Asset Links 파일을 호스팅할 수 있는 곳)으로 직접 이동하도록 할 수 있습니다. 이 방법은 해당 특정 링크에 대한 클릭 분석 데이터가 손실될 수 있습니다. 자세한 내용은 [링크별 클릭 추적 비활성화](#turning-off-click-tracking-on-a-link-to-link-basis)를 참조하세요.
+- **추적 하위 도메인 앞에 CDN 배치:** 전체 클릭 추적 범위와 딥링킹이 모두 필요한 경우 추적 하위 도메인 앞에 CDN(예: Cloudflare 또는 CloudFront)을 배치할 수 있습니다. CDN이 `.well-known` 파일을 로컬에서 제공하고 다른 모든 트래픽을 ESP로 프록시하도록 구성합니다. 이 접근 방식은 더 복잡하지만 클릭 추적과 유니버설 링크 모두를 완전히 제어할 수 있습니다.
+
+#### 한 워크스페이스에서는 링크가 작동하지만 다른 워크스페이스에서는 작동하지 않는 경우 {#links-working-in-one-workspace-but-not-another}
+
+유니버설 링크 또는 앱 링크가 프로덕션 워크스페이스에서는 올바르게 작동하지만 개발 또는 테스트 워크스페이스에서는 실패하는 경우, 발신 이메일 주소 도메인이 각 워크스페이스의 이메일 설정에 구성된 추적 도메인과 일치하는지 확인하세요. 워크스페이스 간 구성이 일관되지 않으면 동일한 이메일 템플릿과 AASA 또는 Digital Asset Links 파일을 사용하더라도 링크가 다르게 동작할 수 있습니다.
+
+이메일 구성을 확인하려면:
+
+1. Braze 대시보드에서 **설정** > **이메일 환경설정**으로 이동합니다.
+2. **발신 구성** 아래의 **발신 이메일 설정**을 검토합니다.
+3. 링크가 작동하지 않는 워크스페이스에서 발신 도메인과 추적 도메인이 올바르게 정렬되어 있는지 확인합니다.
+
+발신 도메인이 워크스페이스 간에 다른 경우, 각 워크스페이스에 적절한 DNS 레코드가 구성되어 있고 각 추적 도메인에서 AASA(iOS) 또는 Digital Asset Links(Android) 파일에 접근할 수 있는지 확인하세요.

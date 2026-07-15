@@ -52,13 +52,13 @@ Braze에서 템플릿을 만들 때 다음 중 하나를 사용할 수 있습니
 | 템플릿 언어 | 템플릿의 언어를 선택합니다. Meta는 템플릿을 단일 언어로 제한하므로 오디언스에게 표시될 언어를 선택하세요. |
 | 템플릿 이름 | 나중에 이 템플릿을 식별하는 데 도움이 되는 설명적인 이름을 입력합니다. 템플릿 이름에는 공백을 포함할 수 없으며, 밑줄을 사용하거나 공백을 완전히 제거하세요(예: `carousel_example` 또는 `carouselexample`). |
 | 카테고리 | 자동으로 **Marketing**으로 설정됩니다. 모든 캐러셀 메시지는 마케팅 메시지로 분류됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Configure template settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="2단계: 템플릿 설정 구성하기" }
 
 ![WhatsApp 비즈니스 계정이 선택되고, 영어가 템플릿 언어로 설정되며, 템플릿 이름이 'welcome_message'인 WhatsApp 템플릿 세부 정보 패널.]({% image_buster /assets/img/whatsapp/templates/whatsapp_template_details.png %}){: style="max-width:70%"}
 
 ### 3단계: 본문 콘텐츠 추가하기 {#step-3-add-body-content}
 
-모든 캐러셀 메시지는 캐러셀 카드 위에 표시되는 텍스트인 본문 콘텐츠로 시작해야 합니다.
+모든 캐러셀 메시지는 캐러셀 카드 앞에 표시되는 텍스트인 본문 콘텐츠로 시작해야 합니다.
 
 {% raw %}`{{first_name}}`{% endraw %}과 같은 Liquid 변수를 포함하여 개인화할 수 있으며, 이는 동적 콘텐츠로 채워지거나 나중에 Campaign에서 템플릿을 사용할 때 수정할 수 있는 빈 변수 슬롯을 생성합니다. 변수는 본문 콘텐츠의 맨 처음이나 맨 끝에 배치할 수 없습니다.
 
@@ -189,4 +189,4 @@ Meta가 템플릿을 승인하기 전까지는 테스트 발송을 사용할 수
 | 테스트에서 변수가 채워지지 않음 | Liquid 구문이 올바른지, 그리고 고객 프로필에 해당 속성이 존재하는지 확인하세요. 변수 이름의 오타를 확인하고 적절한 곳에 기본값이 설정되어 있는지 확인하세요. |
 | 템플릿 이름에 공백이 있음 | 템플릿 이름에는 공백을 포함할 수 없습니다. 대신 밑줄을 사용하거나(`template_name`) 공백을 완전히 제거하세요(`templatename`). |
 | 카드 수를 변경할 수 없음 | 카드 수는 템플릿을 만들 때 고정되며 제출 후에는 변경할 수 없습니다. 다른 수의 카드가 필요한 경우 새 템플릿을 만들어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }

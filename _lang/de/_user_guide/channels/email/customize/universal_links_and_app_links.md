@@ -12,7 +12,7 @@ channel: email
 > Dieser Artikel beschreibt, wie Sie Apple Universal Links und Android App Links einrichten.
 
 {% alert tip %}
-Einen Vergleich der Link-Typen über alle Messaging-Kanäle hinweg und eine Anleitung, wann Sie eine AASA-Datei benötigen, finden Sie im [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/).
+Einen Vergleich der Link-Typen über alle Messaging-Kanäle hinweg und eine Anleitung, wann Sie eine AASA-Datei benötigen, finden Sie im [iOS-Deeplinking-Leitfaden]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide).
 {% endalert %}
 
 Apple Universal Links und Android App Links sind Mechanismen, die einen nahtlosen Übergang zwischen Web-Inhalten und mobilen Apps ermöglichen. Während Universal Links spezifisch für iOS sind, erfüllen Android App Links denselben Zweck für Android-Anwendungen.
@@ -24,6 +24,10 @@ Universal Links (iOS) und App Links (Android) sind Standard-Weblinks (`http://my
 Wenn ein Universal Link oder App Link geöffnet wird, prüft das Betriebssystem, ob eine installierte App für diese Domain registriert ist. Wenn eine App gefunden wird, wird sie sofort gestartet, ohne die Webseite zu laden. Wenn keine App gefunden wird, wird die Web-URL im Standard-Webbrowser der Nutzer:innen geladen, der auch so konfiguriert sein kann, dass er zum App Store bzw. Google Play Store weiterleitet.
 
 Einfach ausgedrückt ermöglichen Universal Links einer Website, ihre Webseiten mit bestimmten App-Bildschirmen zu verknüpfen. Wenn also jemand auf einen Link zu einer Webseite klickt, die einem App-Bildschirm entspricht, kann die App direkt geöffnet werden (sofern die App aktuell installiert ist).
+
+{% alert important %}
+Firebase Dynamic Links ist veraltet. Braze hat keine direkte Integration mit Firebase, und Deeplinking wird außerhalb der Braze-Plattform verwaltet. Migrieren Sie zu plattformnativen Lösungen (Apple Universal Links und Android App Links, wie in diesem Artikel beschrieben) oder zu alternativen Deeplinking-Dienstanbietern. Hinweise zur Migration finden Sie in den [Firebase-Migrations-FAQ](https://firebase.google.com/support/dynamic-links-faq).
+{% endalert %}
 
 Diese Tabelle zeigt die wichtigsten Unterschiede zwischen Universal Links und herkömmlichen Deeplinks:
 
@@ -93,7 +97,7 @@ Diese Schritte sind aus der Apple-Entwicklerdokumentation übernommen. Weitere I
 2. Wählen Sie **Associated Domains** aus.
 3. Klicken Sie auf **Save**.
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![Abschnitt „App Services“]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### Schritt 1c: Associated Domains in Ihrem Xcode-Projekt aktivieren {#step-1c}
 
@@ -113,7 +117,7 @@ Wenn Sie den Fehler „An App ID with Identifier 'your-app-id' is not available.
 
 Fügen Sie im Abschnitt „Domains“ den entsprechenden Domain-Tag hinzu. Sie müssen ihm `applinks:` voranstellen. In diesem Fall sehen Sie, dass wir `applinks:yourdomain.com` hinzugefügt haben.
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Abschnitt „Associated Domains“]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### Schritt 1e: Bestätigen, dass die Berechtigungsdatei im Build enthalten ist {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -439,13 +443,24 @@ Es ist wichtig sicherzustellen, dass diese Dateien immer öffentlich zugänglich
 
 Stellen Sie sicher, dass Sie die korrekten Definitionen für Domains haben, die Ihre App öffnen darf.
 
-- **iOS:** Überprüfen Sie die in Xcode für Ihre App eingerichteten Associated Domains ([Schritt 1c: Associated Domains in Ihrem Xcode-Projekt aktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)). Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
+- **iOS:** Überprüfen Sie die in Xcode für Ihre App eingerichteten Associated Domains ([Schritt 1c: Associated Domains in Ihrem Xcode-Projekt aktivieren]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)). Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
 - **Android:** Öffnen Sie die App-Infoseite (langes Drücken auf das App-Symbol und Klick auf ⓘ). Suchen Sie im App-Info-Menü nach **Standardmäßig öffnen** und tippen Sie darauf. Es sollte ein Bildschirm mit allen verifizierten Links angezeigt werden, die die App öffnen darf. Prüfen Sie, ob die Klick-Tracking-Domain in dieser Liste enthalten ist.
 
 #### Tracking-Domain kann keine .well-known-Dateien bereitstellen {#tracking-domain-cant-serve-well-known-files}
 
 In einigen Fällen kann Ihre Klick-Tracking-Domain die erforderlichen `.well-known`-Dateien aufgrund von ESP-Einschränkungen oder Infrastrukturbeschränkungen möglicherweise nicht hosten. Wenn Sie die AASA- oder Digital Asset Links-Datei nicht auf Ihrer Tracking-Domain hosten können, ziehen Sie die folgenden Optionen in Betracht:
 
-- **Kontaktieren Sie Ihren ESP, um die Dateien auf seiner Tracking-Domain zu hosten:** Ihre Klick-Tracking-Subdomain ist in der Regel ein CNAME, der auf Ihren ESP (SendGrid, SparkPost oder Amazon SES) verweist. Da der ESP den Datenverkehr für diese Domain terminiert, kann er die `.well-known`-Dateien für Sie hosten. Sowohl SendGrid als auch SparkPost unterstützen dies. Wenden Sie sich direkt an Ihren ESP, um dies anzufordern.
-- **Klick-Tracking für Deeplink-URLs selektiv deaktivieren:** Wenn Ihr ESP die Dateien nicht hosten kann, können Sie das Klick-Tracking für bestimmte Universal Links deaktivieren, sodass diese direkt auf Ihre Hauptdomain verweisen (auf der Sie die AASA- oder Digital Asset Links-Datei hosten können). Beachten Sie, dass diese Methode zum Verlust von Klick-Analytics für diese bestimmten Links führen kann. Anweisungen finden Sie unter [Klick-Tracking auf Link-Ebene deaktivieren](#turning-off-click-tracking-on-a-link-to-link-basis).
+- **Klick-Tracking für Deeplink-URLs selektiv deaktivieren:** Sie können das Klick-Tracking für bestimmte Universal Links deaktivieren, sodass diese direkt auf Ihre Hauptdomain verweisen (auf der Sie die AASA- oder Digital Asset Links-Datei hosten können). Beachten Sie, dass diese Methode zum Verlust von Klick-Analytics für diese bestimmten Links führen kann. Anweisungen finden Sie unter [Klick-Tracking auf Link-Ebene deaktivieren](#turning-off-click-tracking-on-a-link-to-link-basis).
 - **CDN vor die Tracking-Subdomain schalten:** Wenn Sie vollständige Klick-Tracking-Abdeckung und Deeplinking benötigen, können Sie ein CDN (wie Cloudflare oder CloudFront) vor Ihre Tracking-Subdomain schalten. Konfigurieren Sie das CDN so, dass es die `.well-known`-Dateien lokal bereitstellt und den gesamten übrigen Datenverkehr an Ihren ESP weiterleitet. Dieser Ansatz ist aufwendiger, gibt Ihnen aber die volle Kontrolle über Klick-Tracking und Universal Links.
+
+#### Links funktionieren in einem Workspace, aber nicht in einem anderen {#links-working-in-one-workspace-but-not-another}
+
+Wenn Universal Links oder App Links in Ihrem Produktions-Workspace korrekt funktionieren, aber in Ihrem Entwicklungs- oder Test-Workspace fehlschlagen, überprüfen Sie, ob die sendende E-Mail-Adressdomain mit der Tracking-Domain übereinstimmt, die in den E-Mail-Einstellungen des jeweiligen Workspace konfiguriert ist. Inkonsistente Konfigurationen zwischen Workspaces können dazu führen, dass sich Links unterschiedlich verhalten, selbst wenn dieselben E-Mail-Templates und AASA- oder Digital Asset Links-Dateien verwendet werden.
+
+So überprüfen Sie Ihre E-Mail-Konfiguration:
+
+1. Gehen Sie im Braze-Dashboard zu **Einstellungen** > **E-Mail-Einstellungen**.
+2. Überprüfen Sie die **Einstellungen für ausgehende E-Mails** unter **Versandkonfiguration**.
+3. Bestätigen Sie, dass Ihre Versanddomain und Tracking-Domain für den Workspace, in dem die Links nicht funktionieren, korrekt aufeinander abgestimmt sind.
+
+Wenn sich Ihre Versanddomain zwischen Workspaces unterscheidet, stellen Sie sicher, dass für jeden Workspace die entsprechenden DNS-Einträge konfiguriert sind und dass Ihre AASA- (iOS) oder Digital Asset Links- (Android) Dateien von jeder Tracking-Domain aus erreichbar sind.

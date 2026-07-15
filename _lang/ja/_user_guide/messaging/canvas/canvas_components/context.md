@@ -23,7 +23,7 @@ tool: Canvas
 コンテキスト変数は、その特定のキャンバスジャーニーにのみ存在します。ユーザーのプロファイルを永続的に変更することはなく、他のキャンバスにも表示されません。そのため、特定のキャンペーンやワークフローにのみ関連する一時的な情報に最適です。
 
 {% alert tip %}
-コンテキスト変数の完全なリファレンス（データタイプ、使用方法、ベストプラクティスを含む）については、[コンテキスト変数リファレンス]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)を参照してください。
+コンテキスト変数の完全なリファレンス（データタイプ、使用方法、ベストプラクティスを含む）については、[コンテキスト変数リファレンス]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)を参照してください。
 {% endalert %}
 
 コンテキストステップ内では、最大10個のコンテキスト変数を定義または更新できます。これらの変数は、遅延のパーソナライズ、ユーザーのダイナミックなセグメント化、キャンバス全体でのメッセージングの充実に使用できます。たとえば、ユーザーの予定フライト時刻のコンテキスト変数を作成し、それを使用してパーソナライズされた遅延を設定してリマインダーを送信できます。
@@ -33,7 +33,7 @@ tool: Canvas
 - **キャンバスエントリ時：** カスタムイベントまたはAPIトリガーからのプロパティが、コンテキスト変数として自動的に入力されます。
 - **コンテキストステップ内：** コンテキストステップを追加して、コンテキスト変数を手動で定義または更新します。
 
-各コンテキスト変数には、名前、データタイプ、および値（Liquidまたはパーソナライゼーションの追加ツールを使用して設定）が必要です。定義すると、{% raw %}`{{context.${flight_time}}}`{% endraw %}のようにLiquidを使用してキャンバス全体でコンテキスト変数を参照できます。**コンテキスト変数名**フィールドでは、コンテキスト変数名を入力するか、ステップエディターのドロップダウンから選択することもできます。詳細については、[コンテキスト変数リファレンス]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)を参照してください。
+各コンテキスト変数には、名前、データタイプ、および値（Liquidまたはパーソナライゼーションの追加ツールを使用して設定）が必要です。定義すると、{% raw %}`{{context.${flight_time}}}`{% endraw %}のようにLiquidを使用してキャンバス全体でコンテキスト変数を参照できます。**コンテキスト変数名**フィールドでは、コンテキスト変数名を入力するか、ステップエディターのドロップダウンから選択することもできます。詳細については、[コンテキスト変数リファレンス]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)を参照してください。
 
 キャンバスへのエントリごとに、最新のエントリデータとキャンバス設定に基づいてコンテキスト変数が再定義されるため、ユーザーはそれぞれ独自のコンテキストを持つ複数のアクティブなジャーニーを持つことができます。たとえば、顧客に2つの今後のフライトがある場合、2つの別々のジャーニー状態が同時に実行されます&#8212;それぞれが出発時刻や目的地などの独自のフライト固有のコンテキスト変数を持ちます。これにより、ニューヨーク行きの午後2時のフライトに関するパーソナライズされたリマインダーを送信しながら、明日のロサンゼルス行きの午前8時のフライトに関する別の更新を送信でき、各メッセージが特定の予約に関連したものになります。
 
@@ -58,7 +58,7 @@ tool: Canvas
 - ステップ内のすべての変数の合計サイズは50 KBを超えることはできません。
 - APIトリガーで渡された変数は、コンテキストステップで作成された変数と同じ名前空間を共有します。コンテキストステップで変数を再定義すると、API値が上書きされます。
 
-詳細と高度な使用方法については、[コンテキスト変数リファレンス]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)を参照してください。
+詳細と高度な使用方法については、[コンテキスト変数リファレンス]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)を参照してください。
 
 ## コンテキストステップの作成 {#creating-a-context-step}
 
@@ -77,13 +77,13 @@ tool: Canvas
 コンテキスト変数を定義するには：
 
 1. コンテキスト変数に**名前**を付けます。
-2. [データタイプ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#data-types)を選択します。
+2. [データタイプ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#data-types)を選択します。
 3. Liquid式を手動で記述するか、**Add Personalization**を使用して既存の属性からLiquidスニペットを作成します。
 4. **Preview**を選択して、コンテキスト変数の値を確認します。
 5. （オプション）追加の変数を追加するには、**Add Context variable**を選択してステップ1〜4を繰り返します。
 6. 完了したら、**Done**を選択します。
 
-これで、メッセージステップやユーザーの更新ステップなど、Liquidを使用するあらゆる場所で**Add Personalization**を選択してコンテキスト変数を使用できます。**コンテキスト変数名**フィールドでは、コンテキスト変数名を入力するか、ステップエディターのドロップダウンから選択することもできます。完全なウォークスルーについては、[コンテキスト変数リファレンス]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/)を参照してください。
+これで、メッセージステップやユーザーの更新ステップなど、Liquidを使用するあらゆる場所で**Add Personalization**を選択してコンテキスト変数を使用できます。**コンテキスト変数名**フィールドでは、コンテキスト変数名を入力するか、ステップエディターのドロップダウンから選択することもできます。完全なウォークスルーについては、[コンテキスト変数リファレンス]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables)を参照してください。
 
 {% alert important %}
 コンテキスト変数を参照する際は、常に{% raw %}`{{context.${variable_name}}}`{% endraw %}の形式を使用してください。
@@ -91,19 +91,19 @@ tool: Canvas
 
 ### コンテキスト変数フィルター {#context-variable-filters}
 
-[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)および[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split/)ステップで、コンテキスト変数を使用してフィルターを作成できます。
+[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)および[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)ステップで、コンテキスト変数を使用してフィルターを作成できます。
 
-[Agentステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step/)の応答に基づいてユーザーをルーティングするには、オーディエンスパスまたは条件分岐ステップの前にAgentステップを追加します。Agentステップはその出力をキャンバスコンテキストに保存するため、それらの分岐ステップでコンテキスト変数フィルターを使用して評価できます。
+[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)の応答に基づいてユーザーをルーティングするには、オーディエンスパスまたは条件分岐ステップの前にエージェントステップを追加します。エージェントステップはその出力をキャンバスコンテキストに保存するため、それらの分岐ステップでコンテキスト変数フィルターを使用して評価できます。
 
-Agentがオブジェクトを返し、ネストされたプロパティでフィルタリングしたい場合は、トップレベルの変数名だけでなく、**コンテキスト変数名**フィールドにドット表記でパスを入力します（たとえば、`persona`が`intent_agent`の下にネストされている場合は`intent_agent.persona`）。
+エージェントがオブジェクトを返し、ネストされたプロパティでフィルタリングしたい場合は、トップレベルの変数名だけでなく、**コンテキスト変数名**フィールドにドット表記でパスを入力します（たとえば、`persona`が`intent_agent`の下にネストされている場合は`intent_agent.persona`）。
 
-フィルターの設定、比較ロジック、高度な例については、[コンテキスト変数リファレンス]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#context-variable-filters)を参照してください。
+フィルターの設定、比較ロジック、高度な例については、[コンテキスト変数リファレンス]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#context-variable-filters)を参照してください。
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
 
 ## ユーザーパスのプレビュー {#previewing-user-paths}
 
-メッセージが適切なオーディエンスに送信され、コンテキスト変数が期待どおりの結果に評価されることを確認するために、テストと[ユーザーパスのプレビュー]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths/)をお勧めします。
+メッセージが適切なオーディエンスに送信され、コンテキスト変数が期待どおりの結果に評価されることを確認するために、テストと[ユーザーパスのプレビュー]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths)をお勧めします。
 
 {% alert note %}
 エディターの**Preview & Test Send**セクションでキャンバスをプレビューしている場合、テストメッセージプレビューのタイムスタンプはUTCに標準化**されません**。これは、このパネルがプレビューを文字列として生成するためです。つまり、キャンバスが`time`オブジェクトを受け入れるように設定されている場合、メッセージプレビューはキャンバスがライブのときに発生する内容を正確にプレビューしません。キャンバスを最も正確にテストするには、代わりにユーザーパスのプレビューをお勧めします。
@@ -115,7 +115,7 @@ Agentがオブジェクトを返し、ネストされたプロパティでフィ
 
 ## コネクテッドコンテンツの文字列をJSONに変換する {#converting-connected-content-strings-to-json}
 
-コンテキストステップで[コネクテッドコンテンツコール]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)を行う場合、コールから返されたJSONは一貫性とエラー防止のために文字列データタイプとして評価されます。この文字列をJSONに変換したい場合は、`as_json_string`を使用して変換します。例：
+コンテキストステップで[コネクテッドコンテンツコール]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)を行う場合、コールから返されたJSONは一貫性とエラー防止のために文字列データタイプとして評価されます。この文字列をJSONに変換したい場合は、`as_json_string`を使用して変換します。例：
 
 {%raw%}
 ```liquid
@@ -141,7 +141,7 @@ Agentがオブジェクトを返し、ネストされたプロパティでフィ
 
 トラブルシューティングの際は、「_未更新_」指標を監視して、コンテキスト変数が正しく更新されているか確認してください。コンテキスト変数が無効な場合、ユーザーはコンテキストステップを通過してキャンバスを続行できますが、後続のステップの条件を満たさない可能性があります。
 
-各データタイプの設定例については、[データタイプ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/#data-types)を参照してください。
+各データタイプの設定例については、[データタイプ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables#data-types)を参照してください。
 
 ### コネクテッドコンテンツによる送信の遅延 {#delays-in-sending-with-connected-content}
 
@@ -171,7 +171,7 @@ Agentがオブジェクトを返し、ネストされたプロパティでフィ
 キャンバスコンテキストの一般提供に伴い、アクションベースのキャンバスにおけるすべてのデフォルトのタイムスタンプイベントプロパティはUTCになります。この変更は、キャンバスステップやメッセージの編集時に、より予測可能で一貫性のある体験を確保するための広範な取り組みの一環です。この変更は、特定のキャンバスがコンテキストステップを使用しているかどうかに関係なく、すべてのアクションベースのキャンバスに影響します。
 
 {% alert important %}
-すべての状況において、タイムスタンプを希望するタイムゾーンで表示するために、[Liquid time_zoneフィルター]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/#things-to-know)を使用することを強くお勧めします。例については、この[よくある質問](#faq-example)を参照してください。
+すべての状況において、タイムスタンプを希望するタイムゾーンで表示するために、[Liquid time_zoneフィルター]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties#things-to-know)を使用することを強くお勧めします。例については、この[よくある質問](#faq-example)を参照してください。
 {% endalert %}
 
 ## よくある質問 {#frequently-asked-questions}
@@ -180,7 +180,7 @@ Agentがオブジェクトを返し、ネストされたプロパティでフィ
 
 キャンバスコンテキストが一般提供されたことにより、以下の詳細が適用されます：
 
-- アクションベースのキャンバスにおける[トリガーイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)の[datetimeタイプ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties/)を持つすべてのタイムスタンプは[UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)になります。
+- アクションベースのキャンバスにおける[トリガーイベントプロパティ]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)の[datetimeタイプ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)を持つすべてのタイムスタンプは[UTC](https://en.wikipedia.org/wiki/Coordinated_Universal_Time)になります。
 - この変更は、特定のキャンバスがコンテキストステップを使用しているかどうかに関係なく、すべてのアクションベースのキャンバスに影響します。
 
 #### この変更の理由は何ですか？ {#what-is-the-reason-for-this-change}
@@ -259,7 +259,7 @@ LiquidでAmerica/Los Angelesタイムゾーンが指定されているため、�
 |---|---|---|
 | `favorite_cuisine` | {% raw %}`{{custom_attribute.${Favorite Cuisine}}}`{% endraw %} | ユーザーのお気に入りの料理ジャンル。 |
 | `promo_code` | {% raw %}`EATFRESH`{% endraw %} | ユーザーが利用可能な割引コード。 |
-| `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | 前の変数を組み合わせたパーソナライズされたメッセージです。メッセージステップでは、Liquidスニペット{% raw %}`{{context.${personalized_message}}}`{% endraw %}を使用してコンテキスト変数を参照し、各ユーザーにパーソナライズされたメッセージを配信できます。また、コンテキストステップを使用して[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list)の値を保存し、キャンバス全体の他のステップでテンプレート化することもできます。 |
+| `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | 前の変数を組み合わせたパーソナライズされたメッセージです。メッセージステップでは、Liquidスニペット{% raw %}`{{context.${personalized_message}}}`{% endraw %}を使用してコンテキスト変数を参照し、各ユーザーにパーソナライズされたメッセージを配信できます。また、コンテキストステップを使用して[プロモーションコード]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes#creating-a-promotion-code-list)の値を保存し、キャンバス全体の他のステップでテンプレート化することもできます。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="1つのコンテキストステップ内で変数同士を参照できますか？" }
 
 これは複数のコンテキストステップにまたがっても適用されます。たとえば、次のシーケンスを想像してください：

@@ -31,14 +31,14 @@ Hier sind Richtlinien zur Auswahl der Variablen:
 | `Catalog field` | Das Feld in Ihrem Katalog, das dieselben Werte wie Ihre `Custom event property` enthält. Dies ist oft eine Art von ID. Im E-Commerce-Anwendungsfall wäre dies `shopify_id`. |
 | `Custom event` | Der Name Ihres angepassten Events, das dasselbe Event ist, das eine Eigenschaft mit Werten enthält, die mit Ihrem `Catalog field` übereinstimmen. Im E-Commerce-Anwendungsfall wäre dies `Made Order`. |
 | `Custom event property` | Der Name Ihrer angepassten Event-Eigenschaft, die Werte mit Ihrem `Catalog field` abgleicht. Im E-Commerce-Beispiel wäre dies `Shopify_ID.`|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Creating a catalog segment" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Ein Katalogsegment erstellen" }
 
 {: start="4"}
 4. Füllen Sie bei Bedarf zusätzliche optionale Felder für Ihren Anwendungsfall aus, um nach einem bestimmten Feldwert innerhalb Ihres Katalogs zu segmentieren:
 - `Catalog field`: Ein bestimmtes Feld (Spaltenname) innerhalb dieses Katalogs
 - `Value`: Ein bestimmter Wert innerhalb dieses Felds oder dieser Spalte <br><br> Am Beispiel einer Gesundheits-App: Nehmen wir an, dass es innerhalb des Katalogs für jeden Arzt, den Sie buchen können, ein Feld namens `specialty` gibt, das einen Wert wie `vision` oder `dental` enthält. Um Nutzer:innen zu segmentieren, die einen Arzt mit dem Wert `dental` besucht haben, wählen Sie `specialty` als `Catalog field` und `dental` als `Value` aus.
 
-5. Nach dem Erstellen einer SQL-Segmenterweiterung empfehlen wir, auf **Vorschau ausführen** zu klicken, um zu sehen, ob Ihre Abfrage Nutzer:innen zurückgibt oder ob Fehler vorliegen. Weitere Informationen zur [Vorschau von Abfrageergebnissen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#previewing-results), zur Verwaltung von [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#managing-sql-segment-extensions) und mehr finden Sie unter [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/).
+5. Nach dem Erstellen einer SQL-Segmenterweiterung empfehlen wir, auf **Vorschau ausführen** zu klicken, um zu sehen, ob Ihre Abfrage Nutzer:innen zurückgibt oder ob Fehler vorliegen. Weitere Informationen zur [Vorschau von Abfrageergebnissen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#previewing-results), zur Verwaltung von [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-sql-segment-extensions) und mehr finden Sie unter [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
 
 {% alert note %}
 Wenn Sie ein SQL-Segment erstellen, das die Tabelle `CATALOGS_ITEMS_SHARED` verwendet, müssen Sie eine Katalog-ID angeben. Zum Beispiel:
@@ -67,12 +67,12 @@ Sofern Sie nicht gezielt Nutzer:innen mit null Events ansprechen möchten, müss
 Um die Segmentzugehörigkeit eines Katalogsegments zu aktualisieren, öffnen Sie das Katalogsegment und wählen Sie **Aktionen** > **Aktualisieren** > **Ja, aktualisieren**.
 
 {% alert tip %}
-Wenn Sie ein Segment erstellt haben, bei dem Sie erwarten, dass Nutzer:innen regelmäßig ein- und austreten, aktualisieren Sie das verwendete Katalogsegment manuell, bevor Sie dieses Segment in einer Kampagne oder einem Canvas ansprechen.
+Wenn Sie ein Segment erstellt haben, bei dem Sie erwarten, dass Nutzer:innen regelmäßig ein- und austreten, aktualisieren Sie das verwendete Katalogsegment manuell, bevor Sie dieses Segment in einer Campaign oder einem Canvas ansprechen.
 {% endalert %}
 
 ### Aktualisierungseinstellungen festlegen {#designating-refresh-settings}
 
-{% multi_lang_include segments.md section='Refresh settings' %}
+{% multi_lang_include audience/segments.md section='Refresh settings' %}
 
 ## Anwendungsfälle {#use-cases}
 
@@ -97,7 +97,7 @@ Sie würden ein Katalogsegment mit den folgenden Variablen einrichten:
 | `Custom event property` | doctor ID |
 | `(Under Filter SQL Results) Catalog field` | Specialty |
 | `(Under Filter SQL Results) Value` | Dental |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Health app" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gesundheits-App" }
 
 {% endtab %}
 {% tab SaaS %}
@@ -120,7 +120,7 @@ Sie würden ein Katalogsegment mit den folgenden Variablen einrichten:
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
 | `(Under Filter SQL Results) Value` | Enterprise |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS platform" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="SaaS-Plattform" }
 
 {% endtab %}
 {% endtabs %}
@@ -129,7 +129,7 @@ Sie würden ein Katalogsegment mit den folgenden Variablen einrichten:
 
 ### Verbraucht das Ausführen eines Katalogsegments SQL-Segmenterweiterungs-Credits? {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
 
-Ja, Katalogsegmente werden von SQL betrieben und verbrauchen SQL-Segmenterweiterungs-Credits. Weitere Informationen finden Sie unter [Nutzung von SQL-Segmenten]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/#monitoring-your-sql-segments-usage).
+Ja, Katalogsegmente werden von SQL betrieben und verbrauchen SQL-Segmenterweiterungs-Credits. Weitere Informationen finden Sie unter [Nutzung von SQL-Segmenten]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage).
 
 ### Verbraucht das Erstellen eines Katalogsegments SQL-Segmenterweiterungs-Kontingente? {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
 
@@ -137,4 +137,4 @@ Ja. Genauso wie SQL-Segmenterweiterungen auf Ihr Segmenterweiterungs-Kontingent 
 
 ### Ich habe einen Anwendungsfall für Katalogsegmente, den das aktuelle Template nicht abdeckt. Wie sollte ich das einrichten? {#i-have-a-catalog-segment-use-case-that-the-current-template-doesnt-serve-how-should-i-set-that-up}
 
-Kontaktieren Sie Ihre:n Customer-Support-Manager:in oder den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) für weitere Unterstützung.
+Kontaktieren Sie Ihre:n Customer-Support-Manager:in oder den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) für weitere Unterstützung.

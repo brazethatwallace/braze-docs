@@ -19,7 +19,7 @@ Verzögerungen können Ihren Canvas übersichtlicher gestalten. Sie können dies
 
 Um eine Verzögerung zu erstellen, fügen Sie einen Schritt zu Ihrem Canvas hinzu. Ziehen Sie die Verzögerungskomponente per Drag-and-Drop aus der Seitenleiste, oder wählen Sie den <i class="fas fa-plus-circle"></i> Plus-Button am unteren Rand eines Schritts und dann **Delay**.
 
-#### Erweiterte Verzögerungen
+### Erweiterte Verzögerungen
 
 Sie können Verzögerungsschritte auf bis zu zwei Jahre (730 Tage) verlängern. Wenn Sie beispielsweise neue Nutzer:innen für Ihre App onboarden, können Sie eine erweiterte Verzögerung von zwei Monaten hinzufügen, bevor Sie einen Nachrichtenschritt senden, um die Nutzer:innen anzustoßen, die noch keine Sitzung gestartet haben.
 
@@ -48,14 +48,14 @@ Nehmen wir als Beispiel an, heute ist der 11. Dezember, und unser Verzögerungss
 
 Die Auswahl von **Calendar date** ermöglicht es Ihnen, Nutzer:innen im Schritt bis zu einem bestimmten Datum und einer bestimmten Uhrzeit zu halten.
 
-#### Hinweise
+### Hinweise
 
-##### Nutzer:innen erhalten keine Schritte oder Nachrichten mit vergangenem Datum
+#### Nutzer:innen erhalten keine Schritte oder Nachrichten mit vergangenem Datum
 
 Wenn das ausgewählte Datum und die Uhrzeit bereits vergangen sind, wenn Nutzer:innen zum Verzögerungsschritt gelangen, verlassen die Nutzer:innen den Canvas. Zwischen dem Start des Canvas und den für „Warten bis zu einem genauen Tag“-Schritte gewählten Daten können bis zu 31 Tage liegen.
 
 {% alert important %}
-Wenn Sie am [Canvas Context Early Access]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) teilnehmen, können Sie Verzögerungen von bis zu 2 Jahren festlegen.
+Wenn Sie am [Canvas Context Early Access]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) teilnehmen, können Sie Verzögerungen von bis zu 2 Jahren festlegen.
 {% endalert %}
 
 Beispielsweise erhalten Nutzer:innen in diesen Szenarien keine Schritte oder Nachrichten:
@@ -63,7 +63,7 @@ Beispielsweise erhalten Nutzer:innen in diesen Szenarien keine Schritte oder Nac
 - Eine Nachricht ist für den 3. Mai um 21 Uhr geplant, aber der Verzögerungsschritt läuft am 3. Mai um 9 Uhr ab.
 - Ein Canvas-Schritt verzögert bis zu einer bestimmten Uhrzeit in der Ortszeit der Nutzer:innen, aber die Nutzer:innen haben keine Zeitzone in ihrem Nutzerprofil hinterlegt. Die Verzögerung fällt dann für diese Nutzer:innen auf die Unternehmens-Zeitzone zurück, die die angegebene Uhrzeit bereits überschritten hat.
 
-##### Nutzer:innen verlassen den Canvas, wenn ein nachfolgender Verzögerungsschritt innerhalb des Zeitrahmens eines vorherigen Verzögerungsschritts liegt
+#### Nutzer:innen verlassen den Canvas, wenn ein nachfolgender Verzögerungsschritt innerhalb des Zeitrahmens eines vorherigen Verzögerungsschritts liegt
 
 Wenn der Canvas zwei Verzögerungsschritte hat, aber der erste Verzögerungsschritt länger als der zweite Verzögerungsschritt ist, verlassen die Nutzer:innen ebenfalls den Canvas.
 
@@ -77,7 +77,7 @@ Nehmen wir beispielsweise an, ein Canvas hat diese Schritte:
 Die Nutzer:innen, die Schritt 4 betreten, verlassen den Canvas, bevor sie Schritt 5 erhalten, da die Verzögerung von Schritt 4 Teil des Zeitrahmens von Schritt 2 ist.
 
 {% endtab %}
-{% tab Wochentag %}
+{% tab Day of the week %}
 
 Die Auswahl von **Day of the week** ermöglicht es Ihnen, Nutzer:innen im Schritt bis zu einem bestimmten Wochentag zu einer bestimmten Uhrzeit zu halten. Beispielsweise können Sie Nutzer:innen bis zum nächsten Donnerstag um 16 Uhr in der Zeitzone des Unternehmens verzögern.
 
@@ -101,9 +101,9 @@ Wenn Sie eine Verzögerungskomponente zu Ihrem Canvas hinzufügen und es keine n
 
 ### Personalisierte Verzögerungen
 
-{% multi_lang_include early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The personalized delays and extended delays feature' %}
 
-Wählen Sie den Schalter **Personalize delay**, um eine personalisierte Verzögerung für Ihre Nutzer:innen einzurichten. Sie können dies mit einem [Context-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) verwenden, um die Kontextvariable auszuwählen, nach der verzögert werden soll. Dies überschreibt die im ausgewählten Attribut oder der Eigenschaft festgelegte Tageszeit. Dies ist nützlich, wenn Sie einen Versatz in Tagen oder Wochen anwenden und möchten, dass Nutzer:innen zu einer bestimmten Uhrzeit weitergehen. Die Zeitzone stammt aus dem Attribut oder der Eigenschaft oder verwendet den Fallback, wenn keine verfügbar ist.
+Wählen Sie den Schalter **Personalize delay**, um eine personalisierte Verzögerung für Ihre Nutzer:innen einzurichten. Sie können dies mit einem [Context-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) verwenden, um die Kontextvariable auszuwählen, nach der verzögert werden soll. Dies überschreibt die im ausgewählten Attribut oder der Eigenschaft festgelegte Tageszeit. Dies ist nützlich, wenn Sie einen Versatz in Tagen oder Wochen anwenden und möchten, dass Nutzer:innen zu einer bestimmten Uhrzeit weitergehen. Die Zeitzone stammt aus dem Attribut oder der Eigenschaft oder verwendet den Fallback, wenn keine verfügbar ist.
 
 #### Zeitzonenverhalten für „zu einer bestimmten Uhrzeit“
 
@@ -147,10 +147,10 @@ Zeitreihen für diese Analytics sind in der erweiterten Komponentenansicht verf�
 
 ### Fehler bei fehlgeschlagener Personalisierung {#personaliztion-failed-errors}
 
-Wenn Nutzer:innen keine personalisierte Verzögerung triggern, könnte es daran liegen, dass der Context-Schritt, den Sie eingerichtet haben, um sie für den Verzögerungsschritt zu qualifizieren, nicht wie erwartet funktioniert. Wenn eine [Kontextvariable ungültig ist]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/#troubleshooting), durchlaufen Nutzer:innen Ihren Canvas weiter, ohne dass ihr Kontext durch den Context-Schritt gesetzt wird. Dies kann dazu führen, dass sie sich nicht für spätere Schritte in Ihrem Canvas qualifizieren, wie z. B. personalisierte Verzögerungen.
+Wenn Nutzer:innen keine personalisierte Verzögerung triggern, könnte es daran liegen, dass der Context-Schritt, den Sie eingerichtet haben, um sie für den Verzögerungsschritt zu qualifizieren, nicht wie erwartet funktioniert. Wenn eine [Kontextvariable ungültig ist]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#troubleshooting), durchlaufen Nutzer:innen Ihren Canvas weiter, ohne dass ihr Kontext durch den Context-Schritt gesetzt wird. Dies kann dazu führen, dass sie sich nicht für spätere Schritte in Ihrem Canvas qualifizieren, wie z. B. personalisierte Verzögerungen.
 
 ### Nutzer:innen in einem Verzögerungsschritt, wenn ein Canvas gestoppt wird
 
-Wenn Sie [einen Canvas stoppen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases), werden Nutzer:innen, die bereits in einem Verzögerungsschritt warten, nicht sofort entfernt. Braze plant weiterhin den Abschluss der Verzögerung, aber **es werden keine weiteren Nachrichten gesendet**, solange der Canvas gestoppt ist.
+Wenn Sie [einen Canvas stoppen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases), werden Nutzer:innen, die bereits in einem Verzögerungsschritt warten, nicht sofort entfernt. Braze plant weiterhin den Abschluss der Verzögerung, aber **es werden keine weiteren Nachrichten gesendet**, solange der Canvas gestoppt ist.
 
-Wenn Sie den Canvas erneut aktivieren, bevor die Verzögerung abgelaufen ist, können die Nutzer:innen wie geplant zum nächsten Schritt weitergehen. Wenn das Verzögerungsfenster bereits abgelaufen ist, während der Canvas gestoppt war, verlassen diese Nutzer:innen den Canvas, anstatt den nächsten Schritt zu erhalten. Beispiele finden Sie unter [Was passiert, wenn Sie einen Canvas stoppen?]({{site.baseurl}}/user_guide/messaging/canvas/faqs/#what-happens-when-you-stop-a-canvas) und [Canvases stoppen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch/#stopping-canvases).
+Wenn Sie den Canvas erneut aktivieren, bevor die Verzögerung abgelaufen ist, können die Nutzer:innen wie geplant zum nächsten Schritt weitergehen. Wenn das Verzögerungsfenster bereits abgelaufen ist, während der Canvas gestoppt war, verlassen diese Nutzer:innen den Canvas, anstatt den nächsten Schritt zu erhalten. Beispiele finden Sie unter [Was passiert, wenn Sie einen Canvas stoppen?]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-happens-when-you-stop-a-canvas) und [Canvases stoppen]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#stopping-canvases).

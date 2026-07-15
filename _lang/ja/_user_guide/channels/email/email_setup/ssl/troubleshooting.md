@@ -24,11 +24,11 @@ channel: email
 
 トラッキングされたリダイレクトリンクが**403 Forbidden**を返す場合、障害はコンテンツデリバリーネットワーク（CDN）またはWebアプリケーションファイアウォール（WAF）で発生していることが多いです。たとえば、AWS WAFやAmazon CloudFrontのルールが特定のユーザーエージェント、クエリ文字列、またはリダイレクトパターンをブロックしている場合があります。CDNまたはクラウドプロバイダーでブロックされたリクエストのログと指標を確認してください。AWSについては、[CloudFrontの問題のトラブルシューティング](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/troubleshooting.html)を参照してください。
 
-問題がクリックトラッキングに固有のものかどうかを確認するには、1つのテストリンクでクリックトラッキングをオフにしてください（[リンクごとにクリックトラッキングをオフにする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/#turning-off-click-tracking-on-a-link-to-link-basis)を参照）。クリックトラッキングがオフの場合に送信先URLが読み込まれ、トラッキングがオンの場合に403が返される場合は、クリックトラッキングドメイン、CDN、およびWAFの設定に焦点を当ててください。
+問題がクリックトラッキングに固有のものかどうかを確認するには、1つのテストリンクでクリックトラッキングをオフにしてください（[リンクごとにクリックトラッキングをオフにする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis)を参照）。クリックトラッキングがオフの場合に送信先URLが読み込まれ、トラッキングがオンの場合に403が返される場合は、クリックトラッキングドメイン、CDN、およびWAFの設定に焦点を当ててください。
 
 ## ドメインレジストリの問題 {#domain-registry-issues}
 
-digコマンドを実行して、リンクトラッキングがCDNを指していることを確認してください。ターミナルで`dig CNAME link_tracking_subdomain`を実行します。`ANSWER SECTION`に、CNAMEの指す先が表示されます。CDNではなくメールサービスプロバイダー（SendGrid、SparkPost、またはAmazon SES）を指している場合は、ドメインレジストリをCDNを指すように再設定してください。
+digコマンドを実行して、リンクトラッキングがCDNを指していることを確認してください。ターミナルで`dig CNAME link_tracking_subdomain`を実行します。`ANSWER SECTION`に、CNAMEの指す先が表示されます。CDNではなくメールサービスプロバイダー（ESP）（SendGrid、SparkPost、またはAmazon SES）を指している場合は、ドメインレジストリをCDNを指すように再設定してください。
 
 ## CDNの問題 {#cdn-issues}
 
@@ -42,7 +42,7 @@ SSLのセットアップを完了してもリンクがHTTPのまま表示され�
 
 ### Amazon SES {#amazon-ses}
 
-メールサービスプロバイダーとしてAmazon SESを使用している場合、以下の設定の問題がBrazeのSSL有効化を妨げたり、セットアップ中にエラーを引き起こしたりする可能性があります。
+メールサービスプロバイダー（ESP）としてAmazon SESを使用している場合、以下の設定の問題がBrazeのSSL有効化を妨げたり、セットアップ中にエラーを引き起こしたりする可能性があります。
 
 - **リージョンの不一致：** CDNのオリジンがBrazeクラスターのAWSトラッキングドメインを指していることを確認してください。USクラスターは`r.us-east-1.awstrack.me`を使用します。EUクラスターは`r.eu-central-1.awstrack.me`を使用します。間違ったリージョンを使用すると、SSLの有効化がブロックされる可能性があります。
 - **ホストヘッダー：** Amazon SESでは、CDNが正しいホストヘッダーを転送する必要があります。クリックトラッキングドメインで`X-Forwarded-Host`ヘッダーを有効にしてください。詳細については、[Amazon SES](#amazon-ses)セクションを参照してください。
@@ -56,7 +56,7 @@ SSLのセットアップを完了してもリンクがHTTPのまま表示され�
 
 以下のテンプレートを使用して、トラッキングドメインのCDN設定をテストしてください。これは、メール内のリンクの分析をサポートするメカニズムです。
 
-1. 以下のテンプレートをコピーして、BrazeのHTMLメールCampaignに貼り付けてください。
+1. 以下のテンプレートをコピーして、BrazeのHTMLメールキャンペーンに貼り付けてください。
 
 {% details クリックトラッキングのトラブルシューティングテンプレート %}
 {% raw %}
@@ -235,7 +235,7 @@ SSLのセットアップを完了してもリンクがHTTPのまま表示され�
                             <li><strong>Tracked URL Fails / Untracked Works:</strong> This indicates a CDN or SSL certificate issue. Verify that your SSL certificate is valid and correctly bound to your tracking domain.</li>
                             <li><strong>Privacy Error (HTTPS):</strong> Ensure your CDN is configured to handle port 443 traffic and that the certificate matches your tracking CNAME.</li>
                             <li><strong>Both URLs Fail:</strong> Check the destination URL or your internal network firewall settings.</li>
-                            <li>For more information, visit: <a href="https://www.braze.com/docs/user_guide/channels/email/email_setup/ssl">SSL at Braze</a></li>
+                            <li>For more information, visit: <a href="{{ site.homeurl }}{{ site.baseurl }}/user_guide/channels/email/email_setup/ssl">SSL at Braze</a></li>
                         </ul>
                     </div>
                 </td>
@@ -256,7 +256,7 @@ SSLのセットアップを完了してもリンクがHTTPのまま表示され�
 3. 自分宛にテストメールを送信し、両方のボタンを選択してください。
 4. 期待される動作と成功基準がテンプレートに記載されている通りであることを確認してください。
 
-非トラッキングURLは機能するがトラッキングURLが失敗する場合、設定にギャップがある可能性があります。トラブルシューティングするには、お使いのESPとCDNプロバイダーのドキュメントを参照してください。証明書のプロビジョニングに関する詳細な要件については、[BrazeのSSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/)も確認できます。
+非トラッキングURLは機能するがトラッキングURLが失敗する場合、設定にギャップがある可能性があります。トラブルシューティングするには、お使いのESPとCDNプロバイダーのドキュメントを参照してください。証明書のプロビジョニングに関する詳細な要件については、[BrazeのSSL]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl)も確認できます。
 
 以下の表を使用して、クリックトラッキングのテスト時に発生する一般的なエラーを診断してください。
 

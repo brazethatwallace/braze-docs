@@ -4,7 +4,7 @@
   - channel (required): "in_app_message" or "landing_page"
 {% endcomment %}
 
-{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Braze surveys' %}
 
 ## Prerequisites
 
@@ -60,10 +60,10 @@ For shared styling and composition controls, see:
 {% if include.channel == 'in_app_message' %}
 - [In-app message drag-and-drop editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [Landing page form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Landing page form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% else %}
 - [In-app message drag-and-drop editor blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [Landing page form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [Landing page form blocks]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% endif %}
 
 You can add the following form blocks to surveys:
@@ -76,6 +76,12 @@ You can add the following form blocks to surveys:
 - Dropdown
 - Single checkbox
 - Checkbox group
+
+### Randomize answer choices
+
+Radio button group, checkbox group, and dropdown blocks support randomized answer choices. Turn on **Randomize choice order** to shuffle the choices each time the survey loads. Use this setting to reduce order bias when the same first option could skew responses.
+
+Randomization changes only the display order for each survey respondent. Reporting labels and values remain mapped to the choices you configured, so analytics, CSV exports, and segmentation use the same response data.
 
 ### Long text capture
 
@@ -116,8 +122,6 @@ After launch, review results in:
 - The **Responses** tab for in-app message surveys
 - The landing page analytics view for landing page surveys
 {% endif %}
-
-![Landing page analytics tab.]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
 
 Top-level analytics include:
 

@@ -12,15 +12,15 @@ tool: Currents
 
 > Esta página descreve e define como o Currents gerencia os dados de eventos de arquivo simples que enviamos aos parceiros do Data Warehouse Storage.
 
-O Currents for Data Storage é um fluxo contínuo de dados da nossa plataforma para um bucket de armazenamento em uma das [conexões de nossos parceiros de data warehouse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/). O Currents grava arquivos Avro no seu bucket de armazenamento em intervalos regulares, permitindo que você processe e analise os dados do evento usando seu próprio conjunto de ferramentas de business intelligence (BI).
+O Currents for Data Storage é um fluxo contínuo de dados da nossa plataforma para um bucket de armazenamento em uma das [conexões de nossos parceiros de data warehouse]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners). O Currents grava arquivos Avro no seu bucket de armazenamento em intervalos regulares, permitindo que você processe e analise os dados do evento usando seu próprio conjunto de ferramentas de business intelligence (BI).
 
 {% alert important %}
-Este conteúdo **se aplica apenas aos dados de eventos de arquivo simples que enviamos aos parceiros do Data Warehouse Storage (Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage)**. <br><br>Para obter o conteúdo que se aplica a outros parceiros, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners/) e verifique suas respectivas páginas.
+Este conteúdo **se aplica apenas aos dados de eventos de arquivo simples que enviamos aos parceiros do Data Warehouse Storage (Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage)**. <br><br>Para obter o conteúdo que se aplica a outros parceiros, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e verifique suas respectivas páginas.
 {% endalert %}
 
 ## Eventos de teste {#test-events}
 
-Quando você configura uma integração do Currents, clique em **Send Test Events** para verificar a conexão com seu bucket de armazenamento. Esses eventos de teste validam se sua integração pode receber e processar dados corretamente.
+Quando você configura uma integração do Currents, clique em **Enviar eventos de teste** para verificar a conexão com seu bucket de armazenamento. Esses eventos de teste validam se sua integração pode receber e processar dados corretamente.
 
 {% alert important %}
 **Formato dos dados de eventos de teste:** os eventos de teste contêm valores de espaço reservado que correspondem aos tipos de dados corretos para cada campo, mas não contêm dados realistas ou precisos. Por exemplo, um campo `timezone` pode conter uma string semelhante a UUID em vez de um identificador de fuso horário válido (como "America/Chicago"), e outros campos como `campaign_name` e `ip_pool` também podem conter valores de espaço reservado em vez de dados reais.<br>
@@ -57,7 +57,7 @@ O Currents criará um arquivo para cada tipo de evento usando o seguinte formato
 ```
 
 {% alert tip %}
-Não consegue ver o código por causa da barra de rolagem? Saiba como corrigir isso [aqui]({{site.baseurl}}/user_guide/).
+Não consegue ver o código por causa da barra de rolagem? Saiba como corrigir isso [na página inicial do Guia do Usuário da Braze]({{site.baseurl}}/user_guide).
 {% endalert %}
 
 Por exemplo, o caminho de um evento de envio de push pode ser assim:
@@ -80,7 +80,7 @@ O segmento de caminho `version` é um valor inteiro simples da versão do Curren
 | `<environment>` | Para uso interno da Braze. |
 | `<partition>` | Para uso interno da Braze. Inteiro. |
 | `<offset>` | Para uso interno da Braze. Inteiro. Note que arquivos diferentes enviados dentro da mesma hora terão um parâmetro `<offset>` diferente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Apache Avro format" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Formato Apache Avro" }
 
 {% alert tip %}
 As convenções de nomenclatura de arquivos podem mudar. A Braze recomenda pesquisar todas as chaves no seu bucket que tenham o prefixo &lt;your-bucket-prefix&gt;.
@@ -116,4 +116,4 @@ Quando um campo é removido ou alterado no esquema Avro, consideramos isso uma a
 
 Todas as alterações com quebra serão comunicadas com antecedência antes do release.
 
-Para um histórico completo de alterações por versão, consulte o [changelog do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs/).
+Para um histórico completo de alterações por versão, consulte o [changelog do Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs).

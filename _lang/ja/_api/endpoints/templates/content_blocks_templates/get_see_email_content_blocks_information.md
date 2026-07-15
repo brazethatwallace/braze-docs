@@ -14,12 +14,12 @@ description: "この記事では、Content Blocksの情報を見るBrazeエン�
 /content_blocks/info
 {% endapimethod %}
 
-> このエンドポイントを使用して、既存の[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)の情報を呼び出します。
+> このエンドポイントを使用して、既存の[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)の情報を呼び出します。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#589adda3-0def-4369-9ddc-eae71923c0ee {% endapiref %}
 
 ## 前提条件 {#prerequisites}
-このエンドポイントを使用するには、`content_blocks.info` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`content_blocks.info` 権限を持つ[APIキー]({{site.baseurl}}/api/api_key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -29,9 +29,9 @@ description: "この記事では、Content Blocksの情報を見るBrazeエン�
 
 | パラメーター | 必須 | データタイプ | 説明 |
 |---|---|---|---|
-| `content_block_id`  | 必須 | 文字列 | コンテンツブロックの識別子。<br><br>これは、APIコールでコンテンツブロックの情報をリストアップするか、[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/)ページに移動し、一番下までスクロールしてコンテンツブロックのAPI識別子を検索することで見つけることができます。|
+| `content_block_id`  | 必須 | 文字列 | コンテンツブロックの識別子。<br><br>これは、APIコールでコンテンツブロックの情報をリストアップするか、[APIキー]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers)ページに移動し、一番下までスクロールしてコンテンツブロックのAPI識別子を検索することで見つけることができます。|
 | `include_inclusion_data`  | オプション | ブール値 | `true` に設定された場合、APIはこのコンテンツブロックが含まれるキャンペーンおよびキャンバスのメッセージバリエーションAPI識別子を返し、以降の呼び出しで使用できるようにします。結果には、アーカイブまたは削除されたキャンペーンやキャンバスは含まれません。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 ## リクエスト例 {#example-request}
 {% raw %}
@@ -69,7 +69,7 @@ curl --location -g --request GET 'https://rest.iad-01.braze.com/content_blocks/i
 | `Content Block ID is invalid for this workspace` | このコンテンツブロックは存在しないか、別の会社アカウントまたはワークスペースにあります。 |
 | `Content Block has been deleted—content not available` | このコンテンツブロックは、以前は存在していた可能性がありますが、削除されています。 |
 | `Include Inclusion Data—error` | このパラメーターはブール値（true または false）のみを受け付けます。`include_inclusion_data` の値が引用符（`""`）で囲まれていないことを確認してください。囲まれている場合、値は文字列として送信されます。詳細については、[リクエストパラメーター](#request-parameters)を参照してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="トラブルシューティング" }
 
 
 {% endapi %}

@@ -11,7 +11,7 @@ description: "This reference article covers how to connect and configure multipl
 > Connect multiple Shopify store domains to a single workspace to have a holistic view of your customers across all markets. Build and launch automation programs and journeys in a single workspace without duplicating efforts across regional stores.  
 
 {% alert important %}
-This feature doesn't support Shopify Markets or Markets Pro. If you would like to request support for these, submit a [product request]({{site.baseurl}}/user_guide/administer/personal/product_portal/).
+This feature doesn't support Shopify Markets or Markets Pro. {% multi_lang_include product_feedback_cta.md context="gap" feature="Shopify Markets or Markets Pro support" %}
 {% endalert %}
 
 ## Requirements
@@ -37,7 +37,7 @@ Like your first Shopify store integration, you can choose either between a stand
 
 Choose the option that best fits your needs:
 
-{% multi_lang_include shopify.md section='Integration Tabs' %}
+{% multi_lang_include partners/shopify.md section='Integration Tabs' %}
 
 To view each store integration and configure advanced settings, select a store in the dropdown menu.
 

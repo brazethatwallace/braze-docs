@@ -7,7 +7,7 @@ page_order: 1
 
 # Configurações de estilo de mensagens no app {#in-app-message-style-settings}
 
-> A experiência de edição de arrastar e soltar é dividida em duas seções: **Build** e **Preview & Test**. Este artigo aborda o que você precisa saber para trabalhar na guia **Build** do editor e pressupõe que você já [criou uma mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/).
+> A experiência de edição de arrastar e soltar é dividida em duas seções: **Build** e **Preview & Test**. Este artigo aborda o que você precisa saber para trabalhar na guia **Build** do editor e pressupõe que você já [criou uma mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop).
 
 ![Guia "Message styles".]({% image_buster /assets/img_archive/dnd_iam_message_styles.png %}){: style="float:right;max-width:25%;margin-left:15px;max-width:30%"}
 
@@ -15,7 +15,7 @@ page_order: 1
 
 Você pode definir determinados estilos para serem aplicados em todos os blocos relevantes da sua mensagem no app a partir da guia **Message Styles**. Por exemplo, você pode querer personalizar a fonte de todo o texto ou a cor de todos os links na sua mensagem.
 
-Os estilos nesta seção são usados em toda a sua mensagem, exceto quando você os substitui para um bloco específico. Se a sua mensagem tiver [várias páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/#multi-page), você também pode substituir os estilos no nível da mensagem para páginas individuais, exceto o tipo de exibição e a largura máxima.
+Os estilos nesta seção são usados em toda a sua mensagem, exceto quando você os substitui para um bloco específico. Se a sua mensagem tiver [várias páginas]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop#multi-page), você também pode substituir os estilos no nível da mensagem para páginas individuais, exceto o tipo de exibição e a largura máxima.
 
 Para uma experiência de design mais fácil, recomendamos configurar os estilos no nível da mensagem antes de personalizar os estilos no nível do bloco.
 
@@ -26,7 +26,7 @@ Para retornar à guia **Message Styles** a qualquer momento:
 
 ### Fontes personalizadas {#custom-fonts}
 
-Aceitamos os seguintes tipos de arquivo para fontes: `.ttf`, `.woff`, `.otf` e `.woff2`. Para saber mais, consulte [Arquivos de ativos]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html/#asset-files).
+Aceitamos os seguintes tipos de arquivo para fontes: `.ttf`, `.woff`, `.otf` e `.woff2`. Para saber mais, consulte [Arquivos de ativos]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/custom_html#asset-files).
 
 Você pode adicionar múltiplas variações de uma família de fontes, pois algumas opções de estilo podem não estar disponíveis para fontes personalizadas. Atualmente, não oferecemos suporte para adicionar fontes via URL.
 
@@ -48,7 +48,7 @@ O editor de arrastar e soltar usa dois componentes principais para compor mensag
 
 ### Botão X de fechar {#close-x-button}
 
-Para mensagens no app do tipo modal e tela cheia, você pode personalizar o botão de fechar exibido como <i class="fa-solid fa-xmark"></i> no canto superior direito da sua mensagem. As opções de personalização incluem posição do botão, tamanho, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.
+Para mensagens no app do tipo modal e tela cheia, você pode personalizar o botão de fechar exibido como <i class="fa-solid fa-xmark"></i> na parte superior da sua mensagem. As opções de personalização incluem posição do botão, tamanho, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.
 
 ![Opções para personalizar o botão X de fechar em mensagens no app, incluindo tamanho do botão, cor de preenchimento, cor de fundo, estilo da borda e raio da borda.]({% image_buster /assets/img_archive/close_x_button.png %}){: style="max-width:40%"}
 
@@ -76,7 +76,7 @@ Como prática recomendada, formate as propriedades de linha e coluna antes de fo
 
 #### Imagem de fundo {#background-image}
 
-Você pode adicionar uma imagem de fundo a uma linha no painel **Row properties**. Ative a opção **Background image** e forneça uma URL de imagem ou selecione uma imagem da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/). Por fim, configure o texto alternativo, o tamanho, a posição e se a imagem se repete para criar padrões ao longo da linha.
+Você pode adicionar uma imagem de fundo a uma linha no painel **Row properties**. Ative a opção **Background image** e forneça uma URL de imagem ou selecione uma imagem da [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library). Por fim, configure o texto alternativo, o tamanho, a posição e se a imagem se repete para criar padrões ao longo da linha.
 
 ![Uma imagem de fundo de linha com uma pizza que tem um padrão de repetição horizontal.]({% image_buster /assets/img_archive/background_row.png %})
 
@@ -90,7 +90,7 @@ Antes de adicionar blocos, configure os [estilos no nível da mensagem](#set-mes
 
 ![Caixas de arrastar e soltar para selecionar.]({% image_buster /assets/img_archive/dnd_iam_editor_blocks.png %}){: style="max-width:40%"}
 
-Cada bloco tem suas próprias configurações, como controle granular de preenchimento (padding). O painel do lado direito alterna automaticamente para um painel de estilização do elemento de conteúdo selecionado. Para saber mais, consulte [Propriedades dos blocos do editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages#inappmessages_properties).
+Cada bloco tem suas próprias configurações, como controle granular de preenchimento (padding). O painel do lado direito alterna automaticamente para um painel de estilização do elemento de conteúdo selecionado. Para saber mais, consulte [Propriedades dos blocos do editor]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages#inappmessages_properties).
 
 Ao criar sua mensagem no app, você pode selecionar uma visualização para celular, tablet ou desktop na barra de ferramentas para pré-visualizar como sua mensagem no app ficará para seus grupos de usuários. Isso garante que seu conteúdo seja responsivo, e você pode fazer os ajustes necessários ao longo do caminho.
 
@@ -118,13 +118,13 @@ Se você estiver com dificuldade para selecionar um determinado bloco, pode usar
 
 ![Ícone para adicionar personalização Liquid.]({% image_buster /assets/img_archive/dnd_iam_liquid.png %}){: style="float:right;max-width:25%;margin-left:15px"}
 
-Para adicionar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) à sua mensagem no app, selecione <i class="fa-solid fa-circle-plus"></i> **Add Personalization** na barra de ferramentas do editor. Aqui, você pode adicionar vários tipos de personalização, como atributos padrão, atributos de dispositivo, atributos personalizados e muito mais.
+Para adicionar [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) à sua mensagem no app, selecione <i class="fa-solid fa-circle-plus"></i> **Add Personalization** na barra de ferramentas do editor. Aqui, você pode adicionar vários tipos de personalização, como atributos padrão, atributos de dispositivo, atributos personalizados e muito mais.
 
 Em seguida, pegue o snippet Liquid gerado e insira-o na sua mensagem. Após projetar e criar sua mensagem no app, acesse **Preview & Test** para pré-visualizar sua mensagem.
 
 ### Usando o Assistente de Copywriting com IA {#using-the-ai-copywriter}
 
-Quando um bloco de texto é selecionado na sua mensagem no app, selecione <i class="fa-solid fa-wand-magic-sparkles" title="Assistente de Copywriting com IA"></i> **Assistente de Copywriting com IA** na barra de ferramentas do bloco para abrir o [Assistente de Copywriting com IA]({{site.baseurl}}/user_guide/brazeai/generative_ai/copywriting/). O Assistente de Copywriting com IA envia um breve nome ou descrição do produto para a ferramenta de geração de texto GPT3 da OpenAI para gerar textos de marketing semelhantes aos escritos por humanos para suas mensagens.
+Quando um bloco de texto é selecionado na sua mensagem no app, selecione <i class="fa-solid fa-wand-magic-sparkles" title="Assistente de Copywriting com IA"></i> **Assistente de Copywriting com IA** na barra de ferramentas do bloco para abrir o [assistente de copywriting com IA]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-copy). O Assistente de Copywriting com IA envia um breve nome ou descrição do produto para a ferramenta de geração de texto GPT3 da OpenAI para gerar textos de marketing semelhantes aos escritos por humanos para suas mensagens.
 
 {% alert tip %}
 Você pode economizar alguns cliques destacando o texto dentro do bloco antes de clicar no ícone. O texto destacado será adicionado à ferramenta, e o texto será gerado imediatamente.

@@ -13,10 +13,10 @@ toc_headers: h2
 
 ## Funktionsweise {#how-it-works}
 
-Mit Braze Cloud Data Ingestion (CDI) richten Sie eine Integration zwischen Ihrer Data-Warehouse-Instanz und dem Braze Workspace ein, um Daten auf wiederkehrender Basis zu synchronisieren. Diese Synchronisierung läuft nach einem von Ihnen festgelegten Zeitplan, und jede Integration kann einen anderen Zeitplan haben. Die Synchronisierung kann so häufig wie alle 15 Minuten oder so selten wie einmal im Monat erfolgen. Wenn Sie Synchronisierungen häufiger als alle 15 Minuten benötigen, wenden Sie sich an Ihren Customer-Success-Manager oder ziehen Sie die Verwendung von REST-API-Aufrufen für die Echtzeitdatenaufnahme in Betracht.
+Mit Braze Cloud Data Ingestion (CDI) richten Sie eine Integration zwischen Ihrer Data-Warehouse-Instanz und dem Braze-Workspace ein, um Daten auf wiederkehrender Basis zu synchronisieren. Diese Synchronisierung läuft nach einem von Ihnen festgelegten Zeitplan, und jede Integration kann einen anderen Zeitplan haben. Die Synchronisierung kann so häufig wie alle 15 Minuten oder so selten wie einmal im Monat erfolgen. Wenn Sie Synchronisierungen häufiger als alle 15 Minuten benötigen, wenden Sie sich an Ihren Customer-Success-Manager oder ziehen Sie die Verwendung von REST-API-Aufrufen für die Echtzeitdatenaufnahme in Betracht.
 
 {% alert note %}
-Die Synchronisierungshäufigkeit im Dashboard steuert, wie oft Braze eine Synchronisierung ausführt (z. B. stündlich oder häufiger innerhalb einer Stunde). Sie legt kein benutzerdefiniertes Intervall fest, das länger als eine Stunde zwischen den Ausführungen ist. Um eine Synchronisierung außerhalb des geplanten Rhythmus auszuführen – etwa on demand nach Abschluss Ihres Warehouse-Ladevorgangs – verwenden Sie den Endpunkt [Synchronisierung triggern]({{site.baseurl}}/api/endpoints/cdi/post_job_sync/) mit Ihrer Integrations-ID.
+Die Synchronisierungshäufigkeit im Dashboard steuert, wie oft Braze eine Synchronisierung ausführt (z. B. stündlich oder häufiger innerhalb einer Stunde). Sie legt kein benutzerdefiniertes Intervall fest, das länger als eine Stunde zwischen den Ausführungen ist. Um eine Synchronisierung außerhalb des geplanten Rhythmus auszuführen – etwa on demand nach Abschluss Ihres Warehouse-Ladevorgangs – verwenden Sie den Endpunkt [Synchronisierung triggern]({{site.baseurl}}/api/endpoints/cdi/post_job_sync) mit Ihrer Integrations-ID.
 {% endalert %}
 
 Bei einer Synchronisierung stellt Braze eine direkte Verbindung zu Ihrer Data-Warehouse-Instanz her, ruft alle neuen Daten aus der angegebenen Tabelle ab und aktualisiert die entsprechenden Daten in Ihrem Braze-Dashboard. Bei jeder Synchronisierung werden alle aktualisierten Daten in Braze übernommen.
@@ -33,7 +33,7 @@ Mit den Funktionen der Braze Cloud-Datenaufnahme können Sie:
 - Nutzerdaten, einschließlich Attributen, Events und Käufen, sicher von Ihrem Data Warehouse mit Braze synchronisieren.
 - Die Datenschleife mit Braze schließen, indem Sie die Cloud-Datenaufnahme mit Currents oder Snowflake Data Sharing kombinieren.
 
-Darüber hinaus stellen [Verbundene Quellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources/) eine Zero-Copy-Alternative dar. Sie können Braze direkt Ihre Data-Warehouse- oder Dateispeicher-Lösung abfragen lassen, um CDI-Segmente zu erstellen – ohne die zugrunde liegenden Daten nach Braze zu kopieren.
+Darüber hinaus stellen [Verbundene Quellen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/connected_sources) eine Zero-Copy-Alternative dar. Sie können Braze direkt Ihre Data-Warehouse- oder Dateispeicher-Lösung abfragen lassen, um CDI-Segmente zu erstellen – ohne die zugrunde liegenden Daten nach Braze zu kopieren.
 
 ## Unterstützte Datenquellen {#supported-data-sources}
 
@@ -76,15 +76,15 @@ Bei der Synchronisierung von Nutzerdaten über die Cloud-Datenaufnahme können S
 | `BRAZE_ID` | Der vom Braze SDK generierte Braze-Bezeichner für Nutzer:innen. Neue Nutzer:innen können nicht mithilfe einer Braze-ID über die Cloud-Datenaufnahme erstellt werden. Um neue Nutzer:innen anzulegen, geben Sie eine externe Nutzer-ID oder einen Nutzer-Alias an. |
 | `EMAIL` | Die E-Mail-Adresse der Nutzer:in. Sollten mehrere Profile mit derselben E-Mail-Adresse vorhanden sein, wird das zuletzt aktualisierte Profil für Updates priorisiert. Wenn Sie sowohl E-Mail-Adresse als auch Telefonnummer angeben, wird die E-Mail-Adresse als primärer Bezeichner verwendet. |
 | `PHONE` | Die Telefonnummer der Nutzer:in. Sollten mehrere Profile mit derselben Telefonnummer vorhanden sein, wird das zuletzt aktualisierte Profil für Updates priorisiert. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers for data ingestion" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer-Bezeichner für die Datenaufnahme" }
 
-Ausführliche Informationen zum Einrichten von Tabellenspalten und den Anforderungen an die Payload-Formatierung finden Sie unter [Tabellen-Setup für die Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
+Ausführliche Informationen zum Einrichten von Tabellenspalten und den Anforderungen an die Payload-Formatierung finden Sie unter [Tabellen-Setup für die Cloud-Datenaufnahme]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 
-Quellspezifische Einrichtungsanleitungen und SQL-Beispiele finden Sie unter [Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).
+Quellspezifische Einrichtungsanleitungen und SQL-Beispiele finden Sie unter [Data-Warehouse-Integrationen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 ## Datenpunkt-Nutzung {#data-point-usage}
 
-Für Kund:innen mit datenpunktbasierter Abrechnung entspricht die Datenpunkt-Abrechnung für die Cloud-Datenaufnahme der Abrechnung von Updates über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track). Weitere Informationen finden Sie unter [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
+Für Kund:innen mit datenpunktbasierter Abrechnung entspricht die Datenpunkt-Abrechnung für die Cloud-Datenaufnahme der Abrechnung von Updates über den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track). Weitere Informationen finden Sie unter [Datenpunkte]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
 
 {% alert important %}
 Braze Cloud-Datenaufnahme wird auf das verfügbare Rate-Limit angerechnet. Wenn Sie also Daten mit einer anderen Methode senden, wird das Rate-Limit zwischen der Braze API und der Cloud-Datenaufnahme kombiniert.
@@ -101,4 +101,4 @@ Braze Cloud-Datenaufnahme wird auf das verfügbare Rate-Limit angerechnet. Wenn 
 | Datentyp | Sie können Nutzerattribute, Events und Käufe über die Cloud-Datenaufnahme synchronisieren. |
 | Braze-Region | Dieses Produkt ist in allen Braze-Regionen verfügbar. Jede Braze-Region kann sich mit jeder Quelldatenregion verbinden. |
 | Quellregion | Braze stellt eine Verbindung zu Ihrem Data Warehouse oder Ihrer Cloud-Umgebung in jeder Region und bei jedem Cloud-Anbieter her. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Product limitations" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Produktbeschränkungen" }

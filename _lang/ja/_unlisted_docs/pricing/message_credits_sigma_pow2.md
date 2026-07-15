@@ -8,15 +8,15 @@ hide_toc: true
 
 # メッセージクレジット - Sigma（機密） {#message-credits-sigma-confidential}
 
-> メッセージクレジットは、Brazeのネイティブエージェントコンソール、SMS、MMS、RCS、WhatsApp、LINE向けのクロスプロダクトパッケージング構造です。メッセージクレジットは、Brazeのメッセージングチャネルや特定のAI機能を活用する際に、柔軟で透明性の高いエクスペリエンスを提供します。クレジットにより、このページの表に記載されているすべてのチャネルにアクセスできます。
+> メッセージクレジットは、Brazeのネイティブエージェントコンソール、SMS、MMS、RCS、WhatsApp、LINEの各サービスを横断するBrazeの製品パッケージ構造です。メッセージクレジットは、Brazeのメッセージングチャネルや特定のAI機能を活用する際に、柔軟で透明性の高い体験を提供します。クレジットにより、このページの表に記載されているすべてのチャネルにアクセスできます。
 
 {% alert note %}
 製品ごとにレポートでの計測単位が異なります。<br><br>
 <b>エージェントコンソール:</b> 呼び出し回数<br>
 <b>SMS:</b> セグメント数<br>
 <b>MMS:</b> 送信数<br>
-<b>WhatsApp:</b> メッセージ数<br>
-<b>RCS:</b> セグメント数、送信数<br>
+<b>WhatsApp:</b> 配信メッセージ数<br>
+<b>RCS:</b> 配信セグメント数、配信送信数<br>
 <b>LINE:</b> 送信数<br>
 <b>KakaoTalk:</b> 送信数<br>
 
@@ -992,7 +992,7 @@ hide_toc: true
     <tr>
         <td>SMS / MMS - Global</td>
         <td>Saint Kitts and Nevis</td>
-        <td>6.90</td>
+        <td>25.73</td>
     </tr>
     <tr>
         <td>SMS / MMS - Global</td>
@@ -2130,7 +2130,7 @@ hide_toc: true
         <td>4.35</td>
     </tr>
     <tr>
-        <td>LINE</td>
+        <td>Line</td>
         <td>All Regions</td>
         <td>0.15</td>
     </tr>
@@ -2282,14 +2282,13 @@ hide_toc: true
 ------
 
 ## エージェントコンソールの詳細 {#agent-console-details}
-
-Brazeは、Brazeプラットフォームから送信されたエージェントコンソールの呼び出しに対してメッセージクレジットを課金します。呼び出しは、エージェントがLLMへのコールを開始した時点で記録されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに1万回の呼び出しが含まれています。
+Brazeは、Brazeプラットフォームから送信されたエージェントコンソールの呼び出しに対してメッセージクレジットを課金します。呼び出しは、エージェントがLLMへのコールを開始した際に記録されます。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに1万回の呼び出しが含まれています。
 
 ## SMS/MMSチャネルの詳細 {#smsmms-channel-details}
 
 ### SMSセグメント {#sms-segments}
 
-SMSメッセージセグメントは、SMS業界でメッセージを計測する方法です。メッセージセグメントとは、定義された文字数（GSM-7エンコーディングの場合は160文字、UCS-2エンコーディングの場合は67文字）までのグループであり、1回のSMS送信で配信されます。GSM-7エンコーディングで161文字のSMSを送信した場合、2つのメッセージセグメントが送信されたことになります。複数のメッセージセグメントを送信すると、追加料金が発生します。
+SMSメッセージセグメントは、SMS業界がメッセージをカウントする方法です。メッセージセグメントとは、定義された文字数（GSM-7エンコーディングの場合は160文字、UCS-2エンコーディングの場合は67文字）までのグループであり、1回のSMS配信で送信されます。GSM-7エンコーディングを使用して161文字のSMSを配信した場合、2つのメッセージセグメントが送信されたことになります。複数のメッセージセグメントを送信すると、追加料金が発生します。
 
 ### MMSセグメント {#mms-segments}
 
@@ -2297,13 +2296,13 @@ MMSの場合、メッセージの上限は5 MB（マルチメディアアセッ�
 
 ### RCSタイプ {#rcs-types}
 
-RCSはSMSとMMSの次世代版です。SMSのような直接的で高エンゲージメントなチャネルのメリットを備えつつ、リッチコンテンツ（画像、動画、文書）、認証済みおよびブランド付き送信、提案された返信やアクションなどのインタラクティブ機能など、現代の消費者が期待するよりリッチな機能を提供します。
+RCSは、SMSとMMSの次世代版です。SMSのような直接的で高エンゲージメントなチャネルの利点を備えつつ、リッチコンテンツ（画像、動画、ドキュメント）、認証済みおよびブランド付き送信、提案された返信やアクションなどのインタラクティブ機能など、現代の消費者が期待するよりリッチな機能を提供します。
 
-- RCSの課金は、2つの異なるメッセージタイプ（米国向けの区分あり）に基づいています。
-    - **Basic RCS:** テキストのみ、最大160文字
-    - **Single RCS:** リッチコンテンツを含むメッセージ、または160文字を超えるテキストのみのメッセージ
-    - **Rich RCS（米国のみ）:** テキストのみ、限定的なサジェスチョン/ボタン（quickReply、dialPhone、webviewなしのopenURL）を含む場合があり、160 UTF-8バイトごとにセグメント化
-    - **Rich Media RCS（米国のみ）:** メディアを含むメッセージ、またはよりリッチなサジェスチョン/ボタン（webview、ロケーション、カレンダーなど）を含むテキスト。1メッセージとしてカウント
+- RCSの課金は、2つの異なるメッセージタイプを中心としています（米国向けの区別あり）：
+    - **Basic RCS：** テキストのみ、最大160文字
+    - **Single RCS：** リッチコンテンツを含むメッセージ、または160文字を超えるテキストのみのメッセージ
+    - **Rich RCS（米国のみ）：** テキストのみ、限定的なサジェスチョン/ボタン（quickReply、dialPhone、webviewなしのopenURL）を含む場合あり、160 UTF-8バイトごとにセグメント化
+    - **Rich Media RCS（米国のみ）：** メディアを含むもの、またはよりリッチなサジェスチョン/ボタン（webview、位置情報、カレンダーなど）を含むテキスト、1メッセージとしてカウント
 
 ## WhatsAppチャネルの詳細 {#whatsapp-channel-details}
 
@@ -2315,9 +2314,9 @@ RCSはSMSとMMSの次世代版です。SMSのような直接的で高エンゲ�
 
 Webhookは2024年12月9日にメッセージクレジットの対象となりました。Brazeは、Brazeプラットフォームから送信されたすべてのwebhookに対してメッセージクレジットを課金します。デフォルトでは、契約にはサブスクリプション期間の各期間ごとに10万件のwebhookが含まれています。追加のwebhookは、注文書に従って課金されます。
 
-### BYO（自社利用）SMSコネクター {#bring-your-own-byo-sms-connectors}
+### 自社SMS（BYO SMS）コネクター {#bring-your-own-byo-sms-connectors}
 
-Brazeでは、「BYO SMSコネクター」モデルを通じて、サードパーティプロバイダーと連携してSMSメッセージを送信できます。Brazeは、BYO SMSコネクターを通じてBrazeプラットフォームから送信された各メッセージに対してメッセージクレジットを課金します。
+Brazeでは、「BYO SMSコネクター」モデルを通じて、サードパーティプロバイダーと統合してSMSメッセージを送信できます。Brazeは、BYO SMSコネクターを通じてBrazeプラットフォームから送信された各メッセージに対してメッセージクレジットを課金します。
 
 ### LINE
 
@@ -2327,28 +2326,28 @@ Brazeは、Brazeプラットフォームから送信されたすべてのLINEメ
 
 ### 北米 {#north-america}
 
-United States、Canada
+米国、カナダ
 
 ### その他のアフリカ {#rest-of-africa}
 
-Algeria、Angola、Benin、Botswana、Burkina Faso、Burundi、Cameroon、Chad、Congo、Eritrea、Ethiopia、Gabon、Gambia、Ghana、Guinea-Bissau、Ivory Coast、Kenya、Lesotho、Liberia、Libya、Madagascar、Malawi、Mali、Mauritania、Morocco、Mozambique、Namibia、Niger、Rwanda、Senegal、Sierra Leone、Somalia、South Sudan、Sudan、Swaziland、Tanzania、Togo、Tunisia、Uganda、Zambia
+アルジェリア、アンゴラ、ベナン、ボツワナ、ブルキナファソ、ブルンジ、カメルーン、チャド、コンゴ、エリトリア、エチオピア、ガボン、ガンビア、ガーナ、ギニアビサウ、コートジボワール、ケニア、レソト、リベリア、リビア、マダガスカル、マラウイ、マリ、モーリタニア、モロッコ、モザンビーク、ナミビア、ニジェール、ルワンダ、セネガル、シエラレオネ、ソマリア、南スーダン、スーダン、エスワティニ、タンザニア、トーゴ、チュニジア、ウガンダ、ザンビア
 
 ### その他のアジア太平洋 {#rest-of-asia-pacific}
 
-Afghanistan、Australia、Bangladesh、Cambodia、China、Hong Kong、Japan、Laos、Mongolia、Nepal、New Zealand、Papua New Guinea、Philippines、Singapore、Sri Lanka、Taiwan、Tajikistan、Thailand、Turkmenistan、Uzbekistan、Vietnam
+アフガニスタン、オーストラリア、バングラデシュ、カンボジア、中国、日本、ラオス、モンゴル、ネパール、ニュージーランド、パプアニューギニア、フィリピン、スリランカ、台湾、タジキスタン、タイ、トルクメニスタン、ウズベキスタン、ベトナム
 
 ### その他の中央・東ヨーロッパ {#rest-of-central-eastern-europe}
 
-Albania、Armenia、Azerbaijan、Belarus、Bulgaria、Croatia、Czech Republic、Georgia、Greece、Hungary、Latvia、Lithuania、Macedonia、Moldova、Poland、Romania、Serbia、Slovakia、Slovenia、Ukraine
+アルバニア、アルメニア、アゼルバイジャン、ベラルーシ、ブルガリア、クロアチア、チェコ共和国、ジョージア、ギリシャ、ラトビア、リトアニア、マケドニア、モルドバ、セルビア、スロバキア、スロベニア、ウクライナ
 
 ### その他のラテンアメリカ {#rest-of-latin-america}
 
-Bolivia、Costa Rica、Dominican Republic、Ecuador、El Salvador、Guatemala、Haiti、Honduras、Jamaica、Nicaragua、Panama、Paraguay、Puerto Rico、Uruguay、Venezuela
+ボリビア、コスタリカ、ドミニカ共和国、エクアドル、エルサルバドル、グアテマラ、ハイチ、ホンジュラス、ジャマイカ、ニカラグア、パナマ、パラグアイ、プエルトリコ、ウルグアイ、ベネズエラ
 
 ### その他の中東 {#rest-of-middle-east}
 
-Bahrain、Iraq、Jordan、Kuwait、Lebanon、Oman、Qatar、Yemen
+バーレーン、イラク、ヨルダン、クウェート、レバノン、オマーン、イエメン
 
 ### その他の西ヨーロッパ {#rest-of-western-europe}
 
-Austria、Belgium、Denmark、Finland、Ireland、Norway、Portugal、Sweden、Switzerland
+オーストリア、ベルギー、デンマーク、フィンランド、アイルランド、ノルウェー、ポルトガル、スウェーデン、スイス

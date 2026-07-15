@@ -1,10 +1,10 @@
 {% comment %}
-  Braze アンケート共通ドキュメント。
+  Brazeアンケート共通ドキュメント。
   パラメーター:
   - channel (必須): "in_app_message" または "landing_page"
 {% endcomment %}
 
-{% multi_lang_include early_access_beta_alert.md feature='Braze surveys' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Braze surveys' %}
 
 ## 前提条件 {#prerequisites}
 
@@ -12,13 +12,13 @@
 
 {% if include.channel == 'in_app_message' %}
 - Brazeワークスペースでアプリ内メッセージにアクセスできること
-- [ドラッグ＆ドロップエディターでのアプリ内メッセージ作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)に精通していること
+- [ドラッグ＆ドロップエディターでのアプリ内メッセージ作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)に精通していること
 {% elsif include.channel == 'landing_page' %}
 - Brazeワークスペースでランディングページにアクセスできること
-- [ランディングページの作成]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)に精通していること
+- [ランディングページの作成]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)に精通していること
 {% else %}
 - Brazeワークスペースでランディングページ、アプリ内メッセージ、またはその両方にアクセスできること
-- [ランディングページの作成]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/)および[ドラッグ＆ドロップエディターでのアプリ内メッセージ作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)に精通していること
+- [ランディングページの作成]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)および[ドラッグ＆ドロップエディターでのアプリ内メッセージ作成]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)に精通していること
 {% endif %}
 
 ## アンケートを作成する {#create-a-survey}
@@ -26,14 +26,14 @@
 早期アクセス期間中、アンケートは既存のメッセージ作成フロー内で構築します。
 
 {% if include.channel == 'in_app_message' %}
-1. CampaignまたはCanvasで[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)を作成します。
+1. キャンペーンまたはキャンバスで[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)を作成します。
 2. メッセージタイプとして**Survey**を選択します。
 {% elsif include.channel == 'landing_page' %}
 1. **メッセージング** > **ランディングページ**に移動します。
 2. 新しいランディングページを作成します。
 3. メッセージタイプとして**Survey**を選択します。
 {% else %}
-1. **メッセージング** > **ランディングページ**に移動するか、CampaignまたはCanvasで[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/)を作成します。
+1. **メッセージング** > **ランディングページ**に移動するか、キャンペーンまたはキャンバスで[アプリ内メッセージ]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop)を作成します。
 2. 新しいメッセージを作成します。
 3. メッセージタイプとして**Survey**を選択します。
 {% endif %}
@@ -47,7 +47,7 @@
 - **ページ1**: ユーザーが質問に回答するページ
 - **確認ページ**: アンケートが送信されるページ
 
-デフォルトでは、ボタンは**次のページ**にリンクされています。この動作を変更するには、**アクション**パネルで各ボタンを更新してください。
+デフォルトでは、ボタンは**Next page**にリンクされています。この動作を変更するには、**アクション**パネルで各ボタンを更新してください。
 
 ![アプリ内メッセージアンケートのページフローとアクション設定。]({% image_buster /assets/img/surveys/iam-survey-nav.png %}){: style="max-width:40%;"}
 
@@ -60,10 +60,10 @@
 {% if include.channel == 'in_app_message' %}
 - [アプリ内メッセージのドラッグ＆ドロップエディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [ランディングページのフォームブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [ランディングページのフォームブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% else %}
 - [アプリ内メッセージのドラッグ＆ドロップエディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [ランディングページのフォームブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages/#form-blocks)
+- [ランディングページのフォームブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
 {% endif %}
 
 アンケートには以下のフォームブロックを追加できます。
@@ -76,6 +76,12 @@
 - ドロップダウン
 - 単一チェックボックス
 - チェックボックスグループ
+
+### 回答選択肢をランダム化する {#randomize-answer-choices}
+
+ラジオボタングループ、チェックボックスグループ、ドロップダウンブロックでは、回答選択肢のランダム化がサポートされています。**Randomize choice order**をオンにすると、アンケートが読み込まれるたびに選択肢がシャッフルされます。同じ最初のオプションが回答を偏らせる可能性がある場合に、順序バイアスを軽減するためにこの設定を使用してください。
+
+ランダム化は、各アンケート回答者に対する表示順序のみを変更します。レポートのラベルと値は設定した選択肢にマッピングされたままなので、分析、CSVエクスポート、セグメンテーションでは同じ回答データが使用されます。
 
 ### 長文テキストキャプチャ {#long-text-capture}
 
@@ -94,7 +100,7 @@
 
 ## 必須フィールドと属性を設定する {#configure-required-fields-and-attributes}
 
-各フォームブロックについて、右側の設定パネルで**レポート用識別子**を入力します。この識別子はアンケートレポートとCSVエクスポートに表示されます。
+各フォームブロックについて、右側の設定パネルで**Identifier for Reporting**を入力します。この識別子はアンケートレポートとCSVエクスポートに表示されます。
 
 早期アクセス期間中:
 
@@ -109,22 +115,20 @@
 起動後、以下で結果を確認できます。
 
 {% if include.channel == 'in_app_message' %}
-- アプリ内メッセージアンケートの**回答**タブ
+- アプリ内メッセージアンケートの**Responses**タブ
 {% elsif include.channel == 'landing_page' %}
 - ランディングページアンケートのランディングページ分析ビュー
 {% else %}
-- アプリ内メッセージアンケートの**回答**タブ
+- アプリ内メッセージアンケートの**Responses**タブ
 - ランディングページアンケートのランディングページ分析ビュー
 {% endif %}
 
-![ランディングページの分析タブ。]({% image_buster /assets/img/surveys/survey-analytics-1.png %})
-
 トップレベルの分析には以下が含まれます。
 
-- **全回答:** 完了および未完了の回答の合計
-- **完了:** すべての必須質問に回答したユーザー
-- **部分的に完了:** 一部のデータを送信したが、すべての必須質問に回答しなかったユーザー
-- **ユニークインプレッション:** 合計ページビュー数
+- **All responses:** 完了および未完了の回答の合計
+- **Completed:** すべての必須質問に回答したユーザー
+- **Partially complete:** 一部のデータを送信したが、すべての必須質問に回答しなかったユーザー
+- **Unique impressions:** 合計ページビュー数
 
 {% if include.channel == 'landing_page' %}
 {% alert note %}
@@ -160,25 +164,25 @@
 
 ![アンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- ユーザーがアプリ内メッセージCampaignでアンケートを完了した際に、CampaignやCanvasをトリガーできます。
+- ユーザーがアプリ内メッセージキャンペーンでアンケートを完了した際に、キャンペーンやキャンバスをトリガーできます。
 
-![アプリ内メッセージCampaignアンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
+![アプリ内メッセージキャンペーンアンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 
 {% elsif include.channel == 'landing_page' %}
 
 ![ランディングページアンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
-- ユーザーがランディングページでアンケートを完了した際に、CampaignやCanvasをトリガーできます。
+- ユーザーがランディングページでアンケートを完了した際に、キャンペーンやキャンバスをトリガーできます。
 
 {% else %}
 
 ![アンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/submit-survey-segment.png %})
 
-- ユーザーがランディングページまたはアプリ内メッセージCampaignでアンケートを完了した際に、CampaignやCanvasをトリガーできます。
+- ユーザーがランディングページまたはアプリ内メッセージキャンペーンでアンケートを完了した際に、キャンペーンやキャンバスをトリガーできます。
 
 ![ランディングページアンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/trigger_landing_page_survey.png %})
 
-![アプリ内メッセージCampaignアンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
+![アプリ内メッセージキャンペーンアンケートフォローアップのトリガー設定とセグメンテーションフィルター。]({% image_buster /assets/img/surveys/interact-campaign-step.png %})
 
 {% endif %}
 

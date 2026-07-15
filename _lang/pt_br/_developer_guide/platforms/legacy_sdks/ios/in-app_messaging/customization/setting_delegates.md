@@ -3,7 +3,7 @@ nav_title: Definir delegados
 article_title: Definir delegados de mensagem no app para iOS
 platform: iOS
 page_order: 2
-description: "Este artigo de referência cobre a configuração de envios de mensagens no app para seu app iOS."
+description: "Este artigo de referência cobre a configuração de delegados de mensagens no app para seu aplicativo iOS."
 channel:
   - in-app messages
 
@@ -12,13 +12,13 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Definir delegados
+# Definir delegados {#set-delegates}
 
-A exibição e a entrega de mensagem no app podem ser personalizadas no código configurando nossos delegados opcionais.
+A exibição e a entrega de mensagens no app podem ser personalizadas no código configurando nossos delegados opcionais.
 
-## Delegado de mensagens no app
+## Delegado de mensagem no app {#in-app-message-delegate}
 
-O [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) delegado pode ser usado para receber cargas úteis de mensagens no app acionadas para processamento adicional, receber eventos do ciclo de vida de exibição e controlar o tempo de exibição. 
+O delegado [`ABKInAppMessageUIDelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyUI/ABKInAppMessage/ABKInAppMessageUIDelegate.h) pode ser usado para receber cargas úteis de mensagens no app disparadas para processamento adicional, receber eventos do ciclo de vida de exibição e controlar o tempo de exibição.
 
 Defina seu objeto delegado `ABKInAppMessageUIDelegate` na instância da Braze chamando:
 
@@ -39,11 +39,11 @@ Appboy.sharedInstance()?.inAppMessageController.inAppMessageUIController?.setInA
 {% endtab %}
 {% endtabs %}
 
-Confira um exemplo na nossa mensagem no [app de exemplo](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/ViewController.m). Nota que se você não estiver incluindo a biblioteca de interface do usuário Braze em seu projeto (incomum), este delegado não estará disponível.
+Confira nosso [app de exemplo](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/ViewController.m) de mensagem no app para ver um exemplo de implementação. Note que, se você não estiver incluindo a biblioteca de interface do usuário da Braze em seu projeto (incomum), este delegado não estará disponível.
 
-## Delegado principal de mensagem no app
+## Delegado principal de mensagem no app {#core-in-app-message-delegate}
 
-Se você não estiver incluindo a biblioteca de interface do usuário do Braze em seu projeto e quiser receber cargas úteis de mensagens no app acionadas para processamento adicional ou exibição personalizada no seu app, implemente o [`ABKInAppMessageControllerDelegate`]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates/) protocolo.
+Se você não estiver incluindo a biblioteca de interface do usuário da Braze em seu projeto e quiser receber cargas úteis de mensagens no app disparadas para processamento adicional ou exibição personalizada no seu app, implemente o protocolo [`ABKInAppMessageControllerDelegate`]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/customization/setting_delegates).
 
 Defina seu objeto delegado `ABKInAppMessageControllerDelegate` na instância da Braze chamando:
 
@@ -87,15 +87,13 @@ Appboy.start(withApiKey: "YOUR-API-KEY",
 {% endtab %}
 {% endtabs %}
 
-## Declarações de métodos
+## Declarações de métodos {#method-declarations}
 
-Para saber mais, consulte os seguintes arquivos de cabeçalho:
+Para mais informações, consulte os seguintes arquivos de cabeçalho:
 
 - [`ABKInAppMessage.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessage.h)
 - [`ABKInAppMessageControllerDelegate.h`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKInAppMessageControllerDelegate.h)
 
-## Amostras de implementação
+## Exemplos de implementação {#implementation-samples}
 
-Veja um [`ViewController.m`](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/ViewController.m) na mensagem no app de amostra.
-
-
+Veja [`ViewController.m`](https://github.com/Appboy/appboy-ios-sdk/blob/master/Samples/InAppMessage/BrazeInAppMessageSample/BrazeInAppMessageSample/ViewController.m) no app de exemplo de mensagem no app.

@@ -16,7 +16,7 @@ noindex: true
 
 ## インプレッション {#impressions}
 
-#### インプレッション分析やクリック分析が記録されていない {#impression-or-click-analytics-arent-being-logged}
+### インプレッション分析やクリック分析が記録されていない {#impression-or-click-analytics-arent-being-logged}
 
 メッセージ表示またはクリックアクションを手動で処理するようにアプリ内メッセージデリゲートを設定している場合は、アプリ内メッセージのクリック数とインプレッション数を手動で記録する必要があります。
 
@@ -40,7 +40,7 @@ SDKはセッション開始時にBrazeサーバーからアプリ内メッセー
 4. [イベントユーザーログ]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)を使用して、セッション開始時にデバイスがアプリ内メッセージをリクエストしていることを確認します。テストユーザーのセッション開始イベントに関連付けられたSDKリクエストを見つけます。
   - トリガーされたアプリ内メッセージをリクエストするためのアプリであれば、**Response Data**の**Requested Responses**フィールドに `trigger` が表示されます。
   - アプリが元のアプリ内メッセージをリクエストするためのものだった場合、**Response Data**の**Requested Responses**フィールドに `in_app` が表示されます。
-5. [イベントユーザーログ]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)を使って、レスポンスデータに正しいアプリ内メッセージが返されているか確認します。<br>![]({% image_buster /assets/img_archive/event_user_log_iams.png %})
+5. [イベントユーザーログ]({{ site.baseurl }}/user_guide/administrative/app_settings/developer_console/event_user_log_tab/#event-user-log-tab)を使って、レスポンスデータに正しいアプリ内メッセージが返されているか確認します。<br>![アプリ内メッセージリクエストのイベントユーザーログエントリ]({% image_buster /assets/img_archive/event_user_log_iams.png %})
 
 #### リクエストされていないメッセージのトラブルシューティング {#troubleshoot-messages-not-being-requested}
 
@@ -66,7 +66,7 @@ SDKはセッション開始時にBrazeサーバーからアプリ内メッセー
 
 アプリがアプリ内メッセージのリクエストと受信に成功しているのに表示されない場合は、デバイス側のロジックによって表示が妨げられている可能性があります。
 
-- トリガーされたアプリ内メッセージは、[トリガー間の最小時間間隔]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery/#minimum-time-interval-between-triggers)（デフォルトは30秒）に基づいてレート制限されます。
+- トリガーされたアプリ内メッセージは、[トリガー間の最小時間間隔]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/in-app_messaging/in-app_message_delivery#minimum-time-interval-between-triggers)（デフォルトは30秒）に基づいてレート制限されます。
 - アプリ内メッセージ処理をカスタマイズするようにデリゲートを設定している場合は、デリゲートがアプリ内メッセージ表示に影響していないことを確認してください。
 - 画像のダウンロードに失敗すると、画像付きのアプリ内メッセージが表示されなくなります。`SDWebImage` フレームワークが正しく統合されていない場合、画像のダウンロードは常に失敗します。画像のダウンロードに失敗していないか、デバイスのログを確認してください。
 - デバイスの向きがアプリ内メッセージで指定された向きと一致しなかった場合、アプリ内メッセージは表示されません。デバイスの向きが正しいことを確認してください。

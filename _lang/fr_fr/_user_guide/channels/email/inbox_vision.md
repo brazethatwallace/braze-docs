@@ -29,7 +29,7 @@ Votre entreprise dispose d'une limite sur le nombre d'e-mails que vous pouvez pr
 Incluez une ligne d'objet et un domaine d'envoi valide pour afficher les prévisualisations. Soyez attentif aux différences de rendu entre ordinateur de bureau et appareil mobile. Utilisez les prévisualisations pour confirmer que l'e-mail s'affiche comme prévu.
 
 {% alert note %}
-Si la prévisualisation d'une Campaign affiche une erreur de permission, videz votre cache et vos cookies, ou essayez une fenêtre de navigation privée. Les extensions de navigateur bloquent parfois la prévisualisation.
+Si la prévisualisation d'une campagne affiche une erreur de permission, videz votre cache et vos cookies, ou essayez une fenêtre de navigation privée. Les extensions de navigateur bloquent parfois la prévisualisation.
 {% endalert %}
 
 Pour tester votre e-mail dans Inbox Vision :
@@ -46,7 +46,7 @@ Pour tester votre e-mail dans Inbox Vision :
 5. Sélectionnez **Run Inbox Vision**. Cette opération peut prendre entre deux et dix minutes.
 
 {% alert note %}
-Inbox Vision ne prend pas en charge les e-mails qui incluent une [logique d'abandon]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/) car ces e-mails sont rendus sous forme de contenu statique.
+Inbox Vision ne prend pas en charge les e-mails qui incluent une [logique d'abandon]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) car ces e-mails sont rendus sous forme de contenu statique.
 {% endalert %}
 
 ### Prévisualiser en tant qu'utilisateur {#previewing-as-a-user}
@@ -69,7 +69,7 @@ L'analyse du code peut apparaître plus rapidement que la prévisualisation pour
 
 ## Tests de courrier indésirable {#spam-testing}
 
-Les tests de courrier indésirable estiment si un e-mail risque d'être filtré comme spam. Les tests sont exécutés à travers des filtres tels qu'IronPort, SpamAssassin et Barracuda, ainsi que des filtres ISP tels que Gmail et Outlook, en utilisant des boîtes de réception initiatrices statiques qui n'ouvrent ni ne cliquent par défaut.
+Les tests de courrier indésirable estiment si un e-mail risque d'être filtré comme spam. Les tests sont exécutés à travers des filtres tels qu'IronPort, SpamAssassin et Barracuda, ainsi que des filtres de fournisseurs de services Internet tels que Gmail et Outlook, en utilisant des boîtes de réception initiatrices statiques qui n'ouvrent ni ne cliquent par défaut.
 
 {% alert important %}
 Le placement en boîte de réception dépend principalement de l'engagement des destinataires en temps réel. Les résultats des tests de courrier indésirable peuvent ne pas correspondre à ce que vous observez avec de vraies campagnes.
@@ -128,7 +128,7 @@ Inbox Vision classe les problèmes d'accessibilité par gravité pour vous aider
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Niveaux de gravité" }
 
 {% alert important %}
-L'éditeur par glisser-déposer ne prend pas en charge la définition d'un élément `<title>` de document, ce qui fait que le scanner d'accessibilité échoue systématiquement à cette vérification.<br><br>Cette limitation est suivie pour de futures améliorations. Si cela affecte vos flux de travail ou vos utilisateurs, [partagez vos commentaires]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/#sharing-feedback) afin que nous puissions prioriser les corrections les plus impactantes.
+L'éditeur par glisser-déposer ne prend pas en charge la définition d'un élément `<title>` de document, ce qui fait que le scanner d'accessibilité échoue systématiquement à cette vérification.<br><br>Cette limitation est suivie pour de futures améliorations. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
 {% endalert %}
 
 ### Comprendre les tests d'accessibilité automatisés {#understanding-automated-accessibility-testing}
@@ -139,7 +139,7 @@ L'éditeur par glisser-déposer ne prend pas en charge la définition d'un élé
 
 ### Examiner votre liste d'utilisateurs abonnés aux e-mails {#review-your-email-subscriber-list}
 
-Consultez le [tableau de bord d'informations sur les e-mails]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard) pour déterminer le type d'appareil et les fournisseurs les plus populaires auprès de vos utilisateurs abonnés. Si vous avez besoin de plus de granularité (navigateur, modèle d'appareil, etc.), vous pouvez exploiter vos données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/) ou le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) pour obtenir ce niveau de détail sur l'engagement e-mail récent de vos utilisateurs.
+Consultez le [tableau de bord d'informations sur les e-mails]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard) pour déterminer le type d'appareil et les fournisseurs les plus populaires auprès de vos utilisateurs abonnés. Si vous avez besoin de plus de granularité (navigateur, modèle d'appareil, etc.), vous pouvez exploiter vos données [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents) ou le [générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder) pour obtenir ce niveau de détail sur l'engagement e-mail récent de vos utilisateurs.
 
 Par défaut, Braze propose les 20 prévisualisations les plus courantes basées sur les données générales du secteur et d'experts, ce qui couvre la majorité des environnements où vos utilisateurs abonnés consultent vos e-mails. Si votre analyse de données indique d'autres prévisualisations plus populaires, vous pouvez définir un ensemble de prévisualisations par défaut à chaque exécution d'Inbox Vision.
 
@@ -155,7 +155,7 @@ Nous vous recommandons d'exécuter Inbox Vision lorsque l'e-mail est prêt pour 
 
 Exécuter Inbox Vision à chaque modification peut rapidement consommer vos prévisualisations. Nous vous recommandons d'apporter d'abord toutes les modifications nécessaires à l'e-mail, puis d'exécuter Inbox Vision pour prévisualiser l'impact de l'ensemble de vos changements sur le rendu de votre e-mail dans les différents environnements.
 
-Braze exécute les tests via de véritables clients de messagerie et s'efforce de garantir l'exactitude des rendus. Si vous constatez un problème récurrent avec un client, ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support/).
+Braze exécute les tests via de véritables clients de messagerie et s'efforce de garantir l'exactitude des rendus. Si vous constatez un problème récurrent avec un client, ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support).
 
 ### Précision des tests par rapport aux boîtes de réception réelles {#test-accuracy-versus-live-inboxes}
 

@@ -34,7 +34,7 @@ Les BSUID ont trois caractéristiques clés :
 | Unique | Deux utilisateurs ne partagent jamais le même BSUID au sein de votre portefeuille commercial. |
 | À portée commerciale | Le même utilisateur aura un BSUID différent avec chaque entreprise à laquelle il envoie des messages. Les BSUID ne peuvent pas être partagés ou comparés entre différents portefeuilles commerciaux. |
 | Disponible dans les webhooks | Les BSUID sont inclus dans tous les mêmes payloads de webhook qui contiennent actuellement le numéro de téléphone de l'utilisateur. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Business-scoped user ID (BSUID)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Identifiant utilisateur à portée commerciale (BSUID)" }
 
 ## Changements des types d'utilisateurs WhatsApp {#changes-to-whatsapp-user-types}
 
@@ -44,13 +44,13 @@ Après le lancement des noms d'utilisateur WhatsApp, il y aura deux types d'util
 | ----- | ----- | ----- |
 | Utilisateurs sans nom d'utilisateur | Numéro de téléphone (aucun changement) | Numéro de téléphone (aucun changement) |
 | Utilisateurs avec un nom d'utilisateur | Nom d'utilisateur (affiché), BSUID (backend) | BSUID, numéro de téléphone pour les utilisateurs ayant une conversation existante avec votre entreprise |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Changes to WhatsApp user types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Changements des types d'utilisateurs WhatsApp" }
 
 La différence clé est qu'un utilisateur qui adopte un nom d'utilisateur ne partage son numéro de téléphone avec votre entreprise que si vous aviez une conversation préalable avec lui ou s'il apparaît dans votre carnet de contacts WhatsApp.
 
 ## Comment Braze gérera les BSUID {#how-braze-will-handle-bsuids}
 
-Braze stockera les BSUID en tant qu'[alias d'utilisateur]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#user-aliases) avec le libellé `whats_app_bsuid` sur le profil utilisateur. Cela signifie que les utilisateurs identifiés uniquement par BSUID auront des profils utilisateur Braze complets et pourront entrer dans des Canvas, recevoir des messages, générer des événements et être mis à jour via l'API.
+Braze stockera les BSUID en tant qu'[alias d'utilisateur]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases) avec le libellé `whats_app_bsuid` sur le profil utilisateur. Cela signifie que les utilisateurs identifiés uniquement par BSUID auront des profils utilisateur Braze complets et pourront entrer dans des Canvas, recevoir des messages, générer des événements et être mis à jour via l'API.
 
 ### Envoi de messages {#send-messages}
 
@@ -74,12 +74,12 @@ Vous pourrez voir le BSUID d'un utilisateur sur son profil utilisateur Braze dan
 
 La gestion des groupes d'abonnement fonctionnera de la même manière pour les utilisateurs BSUID que pour tout utilisateur identifié par un alias d'utilisateur. Vous pouvez mettre à jour le statut d'abonnement des utilisateurs BSUID via :
 
-- L'[endpoint users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) en utilisant `user_alias`
-- L'étape Canvas [Mise à jour utilisateur]({{site.baseurl}}/user_update/) (fonctionne automatiquement)
+- L'[endpoint users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track) en utilisant `user_alias`
+- L'étape Canvas [Mise à jour utilisateur]({{site.baseurl}}/user_update) (fonctionne automatiquement)
 - L'import CSV
 
 {% alert note %}
-L'[endpoint subscription/status/set]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/) ne prendra pas en charge [`user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object/). Utilisez l'[endpoint users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) pour mettre à jour le statut d'abonnement des utilisateurs identifiés uniquement par BSUID.
+L'[endpoint subscription/status/set]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) ne prendra pas en charge [`user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object). Utilisez l'[endpoint users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour mettre à jour le statut d'abonnement des utilisateurs identifiés uniquement par BSUID.
 {% endalert %}
 
 ### Currents et données d'événements {#currents-and-event-data}
@@ -144,7 +144,7 @@ Meta gère le processus de liaison des portefeuilles commerciaux. Pour commencer
 | Portefeuille commercial unique | BSUID standard |
 | Plusieurs portefeuilles liés | BSUID parent (préféré). Si aucun BSUID parent n'existe, utilise le BSUID standard |
 | Plusieurs portefeuilles non liés | BSUID standard (peut entraîner des profils utilisateur en double par portefeuille) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="How Braze uses parent BSUIDs" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Comment Braze utilise les BSUID parents" }
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 
@@ -201,8 +201,8 @@ Nous recommandons fortement de garder le carnet de contacts activé. Si le carne
 
 ## Ressources supplémentaires {#additional-resources}
 
-* [Configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)
-* [Alias d'utilisateur]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#user-aliases)
-* [Groupes d'abonnement WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)
-* [Événements Currents WhatsApp]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#whatsapp)
+* [Configuration de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)
+* [Alias d'utilisateur]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases)
+* [Groupes d'abonnement WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)
+* [Événements Currents WhatsApp]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#whatsapp)
 * [Meta : identifiants utilisateur à portée commerciale](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids)

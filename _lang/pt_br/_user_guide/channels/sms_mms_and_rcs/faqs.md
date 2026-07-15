@@ -58,7 +58,7 @@ Algumas desvantagens dessa abordagem incluem:
 
 ### Como serei cobrado pelo SMS? {#how-will-i-be-billed-for-sms}
 
-Além das cobranças por short codes e long codes, a Braze fornece uma cota de mensagens SMS para diferentes países. Ou seja, trabalhamos com você para definir um determinado número de segmentos de mensagem para diferentes países, que você usará para enviar Campaigns de SMS. A cobrança é feita pelo número de segmentos de mensagem enviados por país. Para saber mais sobre como os segmentos de mensagem são calculados, consulte nosso guia de [Segmentos de mensagem e limites de texto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/). Seu gerente de conta entrará em contato para informá-lo caso esteja próximo de atingir seu limite máximo, fornecendo relatórios relevantes para mantê-lo informado. Para mais perguntas sobre excedentes, entre em contato com seu representante da Braze.
+Além das cobranças por short codes e long codes, a Braze fornece uma cota de mensagens SMS para diferentes países. Ou seja, trabalhamos com você para definir um determinado número de segmentos de mensagem para diferentes países, que você usará para enviar Campaigns de SMS. A cobrança é feita pelo número de segmentos de mensagem enviados por país. Para saber mais sobre como os segmentos de mensagem são calculados, consulte nosso guia de [Segmentos de mensagem e limites de texto]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Seu gerente de conta entrará em contato para informá-lo caso esteja próximo de atingir seu limite máximo, fornecendo relatórios relevantes para mantê-lo informado. Para mais perguntas sobre excedentes, entre em contato com seu representante da Braze.
 
 ### Os preços de MMS e SMS são diferentes? {#does-mms-and-sms-pricing-differ}
 
@@ -68,7 +68,7 @@ MMS e SMS têm custos diferentes e são cobrados separadamente com base no volum
 
 Embora não possamos prometer que você nunca terá um excedente, você pode seguir estas precauções para diminuir as chances de ultrapassar seus limites:
 
-- Preste atenção ao número de caracteres no seu SMS. Enviar involuntariamente mais de um segmento pode causar excedentes. Para mais detalhes, consulte nosso [detalhamento de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/).
+- Preste atenção ao número de caracteres no seu SMS. Enviar involuntariamente mais de um segmento pode causar excedentes. Para mais detalhes, consulte nosso [detalhamento de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Calcule cuidadosamente os caracteres do seu SMS para considerar Liquid ou Conteúdo conectado. O criador de SMS da Braze no seu dashboard não estima nem considera o uso de nenhum desses recursos.
 - Considere o tipo de codificação que sua mensagem usa — se sua mensagem usa codificação GSM-7, você geralmente pode estimar que consegue enviar uma mensagem com 128 caracteres por segmento de mensagem. Se sua mensagem usa codificação [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), você geralmente pode estimar que consegue enviar uma mensagem com 67 caracteres por segmento de mensagem.
 - Teste, teste e teste! Sempre teste suas mensagens SMS antes do lançamento, especialmente ao usar Liquid e Conteúdo conectado.
@@ -94,9 +94,9 @@ Você pode incluir qualquer link em qualquer Campaign de SMS que desejar. No ent
 
 - Links podem ocupar grande parte do limite de 160 caracteres do SMS. Se você incluir um link e texto, isso pode resultar em duas mensagens SMS em vez de apenas uma.
 - Empresas frequentemente usam encurtadores de links para reduzir o impacto de caracteres de um link. No entanto, se enviar um link encurtado por um long code, as operadoras podem bloquear ou rejeitar a mensagem, pois podem suspeitar do redirecionamento do link.
-- Usar um [short code]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/) seria o tipo de número mais confiável para incluir links.
+- Usar um [short code]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup) seria o tipo de número mais confiável para incluir links.
 
-A Braze também possui seu próprio recurso de encurtamento de links que encurta links e fornece análise de dados de cliques automaticamente. Consulte [Encurtamento de links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) para mais informações.
+A Braze também possui seu próprio recurso de encurtamento de links que encurta links e fornece análise de dados de cliques automaticamente. Consulte [Encurtamento de links]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) para mais informações.
 
 ### É necessário limitar a taxa de envio de mensagens SMS? {#do-you-need-to-rate-limit-how-fast-you-send-sms-messages}
 
@@ -112,11 +112,11 @@ Antes de enviar mensagens SMS contendo URLs para usuários em determinados país
 2. Garanta que você (a marca) tenha um relacionamento com o cliente.
 3. Certifique-se de que o conteúdo seja relevante para o relacionamento e para o que o usuário optou por receber.
 
-Para mais diretrizes sobre como evitar detecção de spam, visite as [diretrizes de leis e regulamentações de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
+Para mais diretrizes sobre como evitar detecção de spam, visite as [diretrizes de leis e regulamentações de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ### Quantos caracteres um emoji usa? {#how-many-characters-does-an-emoji-use}
 
-Emojis podem ser complicados, pois não há uma contagem de caracteres padrão para todos os emojis. Existe o risco de o emoji exceder o limite de caracteres e dividir o SMS em várias mensagens, apesar de aparecer como uma única mensagem no criador da Braze. Ao testar suas mensagens, você pode verificar melhor se uma mensagem será dividida usando nossa [calculadora de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator).
+Emojis podem ser complicados, pois não há uma contagem de caracteres padrão para todos os emojis. Existe o risco de o emoji exceder o limite de caracteres e dividir o SMS em várias mensagens, apesar de aparecer como uma única mensagem no criador da Braze. Ao testar suas mensagens, você pode verificar melhor se uma mensagem será dividida usando nossa [calculadora de segmentos]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator).
 
 ## Grupos de inscrições e opt-in/descadastramento {#subscription-groups-and-opt-inopt-out}
 
@@ -130,7 +130,7 @@ Como isso aparece no perfil do usuário? O grupo de inscrições reverterá para
 
 ### Se um usuário tiver o descadastramento ativo e enviar uma palavra-chave para nosso short code e long code, ele receberá a resposta que configuramos para essa palavra-chave na Braze? {#if-a-user-is-opted-out-and-sends-a-keyword-to-our-short-and-long-code-do-they-receive-the-response-we-configured-for-that-keyword-in-braze}
 
-Se um usuário tiver o descadastramento ativo e enviar uma palavra-chave de uma das [categorias de palavras-chave padrão]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/), ele receberá a resposta para essa palavra-chave. Se um usuário tiver o descadastramento ativo e enviar uma [palavra-chave personalizada]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/), ele não receberá a resposta para essa palavra-chave.
+Se um usuário tiver o descadastramento ativo e enviar uma palavra-chave de uma das [categorias de palavras-chave padrão]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout), ele receberá a resposta para essa palavra-chave. Se um usuário tiver o descadastramento ativo e enviar uma [palavra-chave personalizada]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling), ele não receberá a resposta para essa palavra-chave.
 
 ### As propriedades de evento de SMS capturam palavras-chave em uma frase? {#will-sms-event-properties-capture-keywords-in-a-sentence}
 
@@ -148,7 +148,7 @@ Sim. Os usuários devem ter um número de telefone válido, fazer parte do grupo
 
 ### Existe uma maneira de verificar se um alias existe em um perfil de usuário? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
-Os aliases não são visíveis no perfil do usuário. Você precisaria usar os endpoints de [Exportar dados de usuários]({{site.baseurl}}/api/endpoints/export/) para confirmar que os aliases foram definidos.
+Os aliases não são visíveis no perfil do usuário. Você precisaria usar os endpoints de [Exportar dados de usuários]({{site.baseurl}}/api/endpoints/export) para confirmar que os aliases foram definidos.
 
 ## MMS
 
@@ -198,6 +198,6 @@ Sim, você pode usar mensagens de mídia para enviar arquivos de áudio.
 
 ### Por que os opt-ins de SMS via REST API não correspondem ao **Total de opt-ins** no desempenho de SMS/MMS/RCS? {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
 
-**Total de opt-ins** e **Total de descadastramentos** no dashboard de [desempenho de SMS/MMS/RCS]({{site.baseurl}}/user_guide/analytics/dashboards/) contam alterações de inscrição geradas pelo processamento de palavras-chave de SMS recebidos (por exemplo, um usuário enviando uma palavra-chave de opt-in para o seu short code). Eles não incluem todas as atualizações de inscrição feitas pela REST API, pelo dashboard ou por outras fontes.
+**Total de opt-ins** e **Total de descadastramentos** no dashboard de [desempenho de SMS/MMS/RCS]({{site.baseurl}}/user_guide/analytics/dashboards) contam alterações de inscrição geradas pelo processamento de palavras-chave de SMS recebidos (por exemplo, um usuário enviando uma palavra-chave de opt-in para o seu short code). Eles não incluem todas as atualizações de inscrição feitas pela REST API, pelo dashboard ou por outras fontes.
 
-Para analisar opt-ins e descadastramentos por origem, use o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) em `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` e filtre por `STATE_CHANGE_SOURCE` (por exemplo, **Rest API** versus **Inbound Message**).
+Para analisar opt-ins e descadastramentos por origem, use o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder) em `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` e filtre por `STATE_CHANGE_SOURCE` (por exemplo, **Rest API** versus **Inbound Message**).

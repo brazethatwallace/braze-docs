@@ -47,7 +47,7 @@ Antes de poder utilizar esta característica, tendrás que completar lo siguient
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Acceso a Braze | Para acceder a esta característica en Braze, tendrás que ponerte en contacto con tu administrador de cuenta o administrador del éxito del cliente de Braze. |
-| Cuenta de Snowflake | Una cuenta de Snowflake con permisos `admin`. |
+| Cuenta de Snowflake | Una cuenta de Snowflake con permisos `admin`. Para clientes que no son HIPAA, se admite Snowflake Standard o Enterprise Edition. Para el uso compartido de datos conforme a HIPAA, se requiere Business Critical Edition. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Configuración de la compartición segura de datos {#setting-up-secure-data-sharing}
@@ -89,7 +89,7 @@ De forma similar a Currents, puedes utilizar tu compartición segura de datos de
 
 Para obtener una lista completa de las tablas y columnas disponibles, consulta la [referencia de tablas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/). El uso compartido de datos de Snowflake incluye todas las tablas de esa referencia, además de tablas exclusivas de Snowflake para instantáneas, registros de cambios de Campaign y Canvas, eventos de la Consola de Agente y eventos de reintentos de mensajes.
 
-También puedes [descargar los esquemas de las tablas sin procesar]({% image_buster /assets/download_file/data-sharing-raw-table-schemas.txt %}) como archivo de texto.
+También puedes [descargar los esquemas de las tablas sin procesar](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) como archivo de texto.
 
 ### Esquema de ID de usuario {#user-id-schema}
 
@@ -156,6 +156,6 @@ Los datos de eventos en las vistas de uso compartido de datos (por ejemplo, `USE
 
 La velocidad, el rendimiento y el coste de cualquier consulta realizada sobre los datos vienen determinados por el tamaño del almacén que utilices para consultar los datos. En algunos casos, dependiendo de la cantidad de datos a los que accedas para el análisis, puede que necesites utilizar un almacén de mayor tamaño para que la consulta tenga éxito. Snowflake dispone de excelentes recursos sobre la mejor forma de determinar qué tamaño utilizar, entre los que se incluyen [Resumen de los almacenes](https://docs.snowflake.net/manuals/user-guide/warehouses-overview.html) y [Consideraciones sobre los almacenes](https://docs.snowflake.net/manuals/user-guide/warehouses-considerations.html).
 
-> Si quieres consultar un conjunto de consultas de ejemplo como referencia para configurar Snowflake, echa un vistazo a nuestros ejemplos de [consultas de ejemplo]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/) y de [configuración del canal de eventos ETL]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/).
+> Para consultar un conjunto de consultas de ejemplo como referencia para configurar Snowflake, echa un vistazo a nuestros ejemplos de [consultas de ejemplo]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/sample_queries/) y de [configuración del canal de eventos ETL]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/etl_pipline_setup/).
 
 Para instrucciones de configuración, consulta [Ingesta de datos de Cloud: integraciones de almacén de datos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/).

@@ -142,7 +142,7 @@ The Braze API gives you programmatic control over account data at scale. You can
 For more information on HTTP methods and how REST APIs work, refer to the following resources:
 - [HTTP request methods](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Methods) on MDN Web Docs
 - [REST API Tutorial](https://restapitutorial.com/)
-- [Braze API overview](https://www.braze.com/docs/api/basics)
+- [Braze API overview]({{site.baseurl}}/api/basics)
 
 {% alert note %}
 Use an API key with catalogs permissions to authenticate requests to the `/business/accounts` endpoint.
@@ -186,7 +186,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.acme.com",
                   "main_phone": "+1-212-555-1234",
                   "created_date": "2023-01-15T09:30:00Z",
-                  "account_owner_email_address": "owner@acme.com",
+                  "account_owner_email_address": "owner@example.com",
                   "parent_account_id": "",
                   "sic_code": "2011"
               },
@@ -206,7 +206,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.globalsolutions.com",
                   "main_phone": "+1-650-555-5678",
                   "created_date": "2023-02-20T14:45:00Z",
-                  "account_owner_email_address": "partner@globalsolutions.com",
+                  "account_owner_email_address": "partner@example.com",
                   "parent_account_id": "ACC001",
                   "sic_code": "7372"
               },
@@ -226,7 +226,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts \
                   "website": "http://www.oceanicventures.com",
                   "main_phone": "+1-305-555-6789",
                   "created_date": "2023-03-05T08:15:00Z",
-                  "account_owner_email_address": "contact@oceanicventures.com",
+                  "account_owner_email_address": "contact@example.com",
                   "parent_account_id": "",
                   "sic_code": "5941"
               }
@@ -265,7 +265,7 @@ curl -X PUT https://YOUR_REST_API_URL/business/accounts/ACC001 \
                 "website": "http://www.acme.com",
                 "main_phone": "+1-212-555-1234",
                 "created_date": "2023-01-15T09:30:00Z",
-                "account_owner_email_address": "owner@acme.com",
+                "account_owner_email_address": "owner@example.com",
                 "parent_account_id": "",
                 "sic_code": "2011"
             }
@@ -360,7 +360,7 @@ Braze generates the {% raw %}`{% business %}`{% endraw %} tag, which sets an arr
 
 Adjust the auto-generated output to create your message.
 
-In the example below, move the call to the {% raw %}`{% business %}`{% endraw %} tag to the top of the message and personalize with the user's first name. Use the account name to personalize the message. The Liquid output stays the same, but you place it in different parts of the message.
+In the following example, move the call to the {% raw %}`{% business %}`{% endraw %} tag to the top of the message and personalize with the user's first name. Use the account name to personalize the message. The Liquid output stays the same, but you place it in different parts of the message.
 
 {% raw %}
 ```javascript

@@ -10,7 +10,7 @@ search_rank: 2
 
 > Cet article vous montre comment utiliser différents attributs utilisateur pour insérer dynamiquement des informations personnelles dans vos messages.
 
-Liquid est un langage de modèles open source développé par Shopify et écrit en Ruby. Vous pouvez l'utiliser dans Braze pour extraire les données du profil utilisateur dans vos messages et personnaliser ces données. Par exemple, vous pouvez utiliser des étiquettes Liquid pour créer des messages conditionnels, comme envoyer différentes offres en fonction de la date anniversaire d'abonnement d'un utilisateur. De plus, les filtres peuvent manipuler les données, par exemple en convertissant la date d'inscription d'un utilisateur d'un horodatage vers un format plus lisible, tel que « 15 janvier 2022 ». Pour plus de détails sur la syntaxe Liquid et ses fonctionnalités, consultez [Étiquettes de personnalisation prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Liquid est un langage de modèles open source développé par Shopify et écrit en Ruby. Vous pouvez l'utiliser dans Braze pour extraire les données du profil utilisateur dans vos messages et personnaliser ces données. Par exemple, vous pouvez utiliser des étiquettes Liquid pour créer des messages conditionnels, comme envoyer différentes offres en fonction de la date anniversaire d'abonnement d'un utilisateur. De plus, les filtres peuvent manipuler les données, par exemple en convertissant la date d'inscription d'un utilisateur d'un horodatage vers un format plus lisible, tel que « 15 janvier 2022 ». Pour plus de détails sur la syntaxe Liquid et ses fonctionnalités, consultez [Étiquettes de personnalisation prises en charge]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 ## Comment ça fonctionne {#how-it-works}
 
@@ -44,14 +44,14 @@ Les commentaires HTML (`<!-- -->`) sont supprimés avant toute lecture du Liquid
 
 Les valeurs suivantes peuvent être substituées dans un message, en fonction de leur disponibilité :
 
-- [Informations utilisateur de base]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) (par exemple, `first_name`, `last_name`, `email_address`)
-- [Attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)
-    - [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#liquid-templating)
-- [Propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
-- [Informations sur l'appareil le plus récemment utilisé]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#most-recently-used-device-information)
-- [Informations sur l'appareil ciblé]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information)
+- [Informations utilisateur de base]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) (par exemple, `first_name`, `last_name`, `email_address`)
+- [Attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)
+    - [Attributs personnalisés imbriqués]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#liquid-templating)
+- [Propriétés d'événement personnalisé]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
+- [Informations sur l'appareil le plus récemment utilisé]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#most-recently-used-device-information)
+- [Informations sur l'appareil ciblé]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)
 
-Vous pouvez également extraire du contenu directement depuis un serveur web grâce au [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) de Braze.
+Vous pouvez également extraire du contenu directement depuis un serveur web grâce au [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) de Braze.
 
 {% alert important %}
 Braze prend actuellement en charge Liquid jusqu'à la version Liquid 5 de Shopify incluse.
@@ -59,7 +59,7 @@ Braze prend actuellement en charge Liquid jusqu'à la version Liquid 5 de Shopif
 
 ## Utiliser Liquid {#using-liquid}
 
-En utilisant les [étiquettes Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/), vous pouvez améliorer la qualité de vos messages en les enrichissant d'une touche personnelle.
+En utilisant les [étiquettes Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags), vous pouvez améliorer la qualité de vos messages en les enrichissant d'une touche personnelle.
 
 ### Syntaxe Liquid {#liquid-syntax}
 
@@ -84,7 +84,7 @@ Les opérateurs (tels que `==`, `!=`, `>`, `and`, `or`) et les filtres (tels que
 | Accès aux tableaux (`[ ]`) | Non pris en charge | Non pris en charge |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Où utiliser les opérateurs et les filtres" }
 
-[^case_when_ops]: Dans les étiquettes `case` et `when`, Liquid compare l'expression `case` à chaque valeur `when` en utilisant l'égalité (similaire à l'enchaînement de `if` et `elsif` avec `==`). Vous ne pouvez pas utiliser d'opérateurs de comparaison ou logiques arbitraires à l'intérieur d'une clause `when` comme vous le feriez avec `if` et `elsif`. Pour des exemples, consultez [Logique de messagerie conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags).
+[^case_when_ops]: Dans les étiquettes `case` et `when`, Liquid compare l'expression `case` à chaque valeur `when` en utilisant l'égalité (similaire à l'enchaînement de `if` et `elsif` avec `==`). Vous ne pouvez pas utiliser d'opérateurs de comparaison ou logiques arbitraires à l'intérieur d'une clause `when` comme vous le feriez avec `if` et `elsif`. Pour des exemples, consultez [Logique de messagerie conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags).
 
 Lorsque vous avez besoin d'une valeur filtrée dans un contexte qui ne prend pas en charge les filtres, assignez d'abord le résultat à une variable.
 

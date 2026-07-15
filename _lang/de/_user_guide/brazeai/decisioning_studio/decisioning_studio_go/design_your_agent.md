@@ -9,7 +9,7 @@ description: "Erfahren Sie, wie Sie einen BrazeAI Decisioning Studio Go-Agenten 
 
 > Dieser Artikel behandelt die Konzeption Ihres Decisioning Studio Go-Agenten, einschließlich der Definition Ihrer Zielgruppe, der Auswahl von Dimensionen und des Verständnisses der Go-spezifischen Funktionen und Einschränkungen.
 
-Grundlegende Konzepte zu Entscheidungsagenten – einschließlich Erfolgsmetriken, Dimensionen, Aktionsbanken und Einschränkungen – finden Sie unter [Entscheidungsagenten konzipieren]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents/).
+Grundlegende Konzepte zu Entscheidungsagenten – einschließlich Erfolgsmetriken, Dimensionen, Aktionsbanken und Einschränkungen – finden Sie unter [Entscheidungsagenten konzipieren]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents).
 
 ## Funktionen von Go im Vergleich zu Pro {#go-versus-pro-capabilities}
 
@@ -62,7 +62,7 @@ Erwägen Sie, ein eigenes Segment für Ihren Decisioning Studio Go-Experimentato
 Dimensionen sind die „Hebel“, die der Agent betätigen kann, um das Kundenerlebnis zu personalisieren. Dazu gehören kreative Dimensionen wie Betreffzeile und Hero-Bild sowie Versandtyp-Dimensionen wie die Häufigkeit von E-Mails oder die Tageszeit.
 
 {% alert note %}
-Die verfügbaren spezifischen Dimensionen hängen von Ihrem CEP und der Konfiguration Ihrer Campaigns ab. Arbeiten Sie mit den Templates und Inhalten, die Sie in Ihrem CEP eingerichtet haben.
+Die verfügbaren spezifischen Dimensionen hängen von Ihrem CEP und der Konfiguration Ihrer Kampagnen ab. Arbeiten Sie mit den Templates und Inhalten, die Sie in Ihrem CEP eingerichtet haben.
 {% endalert %}
 
 ### 3. Schritt: Konfigurieren Sie Ihre Aktionsbank {#step-3-configure-your-action-bank}
@@ -107,4 +107,4 @@ Beachten Sie bei der Konzeption Ihres Go-Agenten die folgenden Einschränkungen:
 
 Nachdem Sie Ihren Agenten konzipiert und im Decisioning Studio Go-Portal konfiguriert haben, können Sie ihn starten:
 
-- [Ihren Agenten starten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent/)
+- [Ihren Agenten starten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)

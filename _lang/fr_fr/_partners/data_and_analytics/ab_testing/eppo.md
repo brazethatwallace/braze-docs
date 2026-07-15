@@ -31,7 +31,7 @@ Eppo analyse les expériences directement dans votre entrepôt de données. Pour
 
 ### Étape 2 : Configurer votre expérience dans une campagne ou un Canvas Braze {#step-2-set-up-your-experiment-in-a-braze-campaign-or-canvas}
 
-Vous pouvez utiliser les fonctionnalités natives de test A/B dans vos campagnes et Canvas. Pour en savoir plus, consultez la rubrique [Test multivarié et test A/B](https://www.braze.com/docs/user_guide/engagement_tools/testing/multivariant_testing#what-are-multivariate-and-ab-testing).
+Vous pouvez utiliser les fonctionnalités natives de test A/B dans vos campagnes et Canvas. Pour en savoir plus, consultez la rubrique [Test multivarié et test A/B]({{site.baseurl}}/user_guide/engagement_tools/testing/multivariant_testing/#what-are-multivariate-and-ab-testing).
 
 ### Étape 3 : Configurer Eppo pour mesurer les expériences Braze {#step-3-set-up-eppo-to-measure-braze-experiments}
 

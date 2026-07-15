@@ -39,13 +39,13 @@ Décrivez ce que vous souhaitez accomplir en langage naturel. Vos requêtes peuv
 - **Simple :** Pourquoi mon Liquid ne s'affiche-t-il pas correctement ?
 - **Complexe :** Comment puis-je faire en sorte que la balise `abort_message` de mon message inclue l'attribut utilisateur qui a provoqué l'interruption ?
 
-Operator peut fournir des instructions étape par étape, des liens vers la documentation Braze et des explications en langage clair. Des questions claires et précises permettent d'obtenir des réponses plus utiles. Operator utilise [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), qui offre un raisonnement solide et convient aux tâches complexes en plusieurs étapes.
+Operator peut fournir des instructions étape par étape, des liens vers la documentation Braze et des explications en langage clair. Des questions claires et précises permettent d'obtenir des réponses plus utiles. Operator utilise [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2), qui offre un raisonnement solide et convient aux tâches complexes en plusieurs étapes. Pour des exemples prêts à l'emploi, consultez la [bibliothèque de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Bonnes pratiques {#best-practices}
 
 Considérez Operator comme une conversation, et non comme un moteur de recherche. Les requêtes courtes et naturelles sont les plus efficaces.
 
-- **Soyez précis :** Au lieu de « Parlez-moi de Canvas », essayez plutôt « Comment utiliser les Parcours d'actions dans Canvas ? ».
+- **Soyez précis :** Au lieu de « Parlez-moi de Canvas », essayez plutôt « Comment utiliser les parcours d'action dans Canvas ? ».
 - **Posez des questions complémentaires :** Si la première réponse ne correspond pas à votre besoin, demandez des précisions ou des informations supplémentaires.
 - **Exploitez le contexte de page :** Operator identifie la page sur laquelle vous vous trouvez dans Braze. Ouvrez Operator en consultant la page concernée pour obtenir les résultats les plus pertinents.
 
@@ -53,9 +53,9 @@ Considérez Operator comme une conversation, et non comme un moteur de recherche
 
 ### Appliquer les directives de marque {#apply-brand-guidelines}
 
-Ajoutez les directives de marque comme contexte à vos requêtes Operator afin que les réponses correspondent au ton, au style et à la personnalité de votre marque. Operator utilise les directives de marque configurées dans votre espace de travail, ce qui contribue à garantir la cohérence de l'envoi de messages lorsqu'il suggère des textes ou explique des fonctionnalités.
+Ajoutez les directives de marque comme contexte à vos requêtes Operator afin que les réponses correspondent au ton, au style et à la personnalité de votre marque. Operator utilise les directives de marque configurées dans votre espace de travail, ce qui contribue à garantir la cohérence de la communication lorsqu'il suggère des textes ou explique des fonctionnalités.
 
-Pour configurer les directives de marque, rendez-vous dans **Paramètres** > **Directives de marque**. Pour en savoir plus, consultez [Directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/).
+Pour configurer les directives de marque, rendez-vous dans **Paramètres** > **Directives de marque**. Pour en savoir plus, consultez [Directives de marque]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines).
 
 ![Sélection des directives de marque dans le panneau de discussion d'Operator.]({% image_buster /assets/img/operator/operator_brand_guidelines.png %})
 
@@ -63,7 +63,7 @@ Pour configurer les directives de marque, rendez-vous dans **Paramètres** > **D
 
 Operator identifie automatiquement votre emplacement dans Braze et adapte ses réponses en fonction de ce contexte. Par exemple, lorsque vous ouvrez Operator pendant la création d'un Canvas, il peut vous suggérer des étapes pertinentes ou vous fournir des conseils sur les fonctionnalités de Canvas sans que vous ayez à expliquer où vous en êtes dans votre flux de travail.
 
-Cette prise en compte du contexte vous permet de poser des questions plus courtes et plus naturelles, comme « Comment ajouter un délai ? » au lieu de « Comment ajouter une étape de délai dans un flux de travail Canvas ? ».
+Cette prise en compte du contexte vous permet de poser des questions plus courtes et plus naturelles, comme « Comment ajouter un délai ? » au lieu de « Comment ajouter une étape de délai dans un flux de travail Canvas ? ». Pour des prompts prêts à l'emploi organisés par page du tableau de bord, consultez la [bibliothèque de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Exploiter les réponses d'Operator {#work-with-operator-responses}
 
@@ -79,7 +79,7 @@ Operator affiche ses étapes de raisonnement dans des sections repliables intitu
 
 ### Passer à l'action avec Operator {#take-action-with-operator}
 
-Operator peut proposer et exécuter des modifications directement dans le tableau de bord de Braze, comme remplir des champs de formulaire, mettre à jour des paramètres ou générer du contenu. Chaque modification proposée est présentée sous forme de carte d'action que vous pouvez examiner et approuver avant qu'elle ne prenne effet. Pour en savoir plus, consultez [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/).
+Operator peut proposer et exécuter des modifications directement dans le tableau de bord de Braze, comme remplir des champs de formulaire, mettre à jour des paramètres ou générer du contenu. Chaque modification proposée est présentée sous forme de carte d'action que vous pouvez examiner et approuver avant qu'elle ne prenne effet. Pour en savoir plus, consultez [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions).
 
 ### Copier les réponses vers d'autres outils {#copy-responses-to-other-tools}
 
@@ -132,16 +132,12 @@ Au bas de chaque réponse, utilisez les boutons « pouce vers le haut » ou « p
 
 ## Confidentialité et sécurité des données {#data-privacy-and-security}
 
-### Fournisseurs de modèles en tant que sous-traitants ou fournisseurs tiers {#model-providers-as-sub-processors-or-third-party-providers}
-
-Lorsque vous utilisez une intégration avec un fournisseur LLM fourni par Braze via les services Braze (« LLM fourni par Braze »), les fournisseurs dudit LLM fourni par Braze agissent en tant que sous-traitants de Braze, sous réserve des conditions de l'Addendum relatif au traitement des données (DPA) conclu entre vous et Braze. BrazeAI Operator<sup>TM</sup> s'intègre avec OpenAI.
-
-### Utilisation des données avec OpenAI {#how-data-is-used-with-openai}
-
-Afin de générer des résultats d'intelligence artificielle grâce aux fonctionnalités BrazeAI qui exploitent OpenAI (« Résultats »), Braze transmettra certaines informations (« Données d'entrée ») à OpenAI. Les données d'entrée comprennent vos requêtes, le contenu affiché dans le tableau de bord et les données de l'espace de travail pertinentes pour vos demandes. Conformément aux [engagements de la plateforme API d'OpenAI](https://openai.com/enterprise-privacy/), les données transmises à l'API d'OpenAI via Braze ne sont pas utilisées pour entraîner ou améliorer les modèles d'OpenAI. Entre vous et Braze, les Résultats constituent votre propriété intellectuelle. Braze ne fera valoir aucun droit d'auteur sur ces Résultats. Braze n'offre aucune garantie de quelque nature que ce soit concernant tout contenu généré par l'intelligence artificielle, y compris les Résultats.
+BrazeAI Operator<sup>TM</sup> s'intègre à OpenAI, qui agit en tant que sous-traitant de Braze, sous réserve des conditions de l'Addendum relatif au traitement des données (DPA) conclu entre vous et Braze. Les données transmises à OpenAI via Braze ne sont pas utilisées pour entraîner ou améliorer les modèles d'OpenAI. Pour en savoir plus sur la conformité HIPAA, la conservation des données, le traitement des données d'identification et la gouvernance, consultez [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Étapes suivantes {#next-steps}
 
-- [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/) : Découvrez comment examiner et approuver les modifications proposées par Operator.
-- [Créer des tickets d'assistance]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets/) : Créez des tickets d'assistance directement depuis Operator.
-- [Résolution des problèmes]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting/) : Consultez les problèmes courants et leurs solutions.
+- [Bibliothèque de prompts]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library) : Parcourez des exemples de prompts organisés par page du tableau de bord
+- [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) : Découvrez comment examiner et approuver les modifications proposées par Operator
+- [Créer des tickets d'assistance]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets) : Créez des tickets d'assistance directement depuis Operator
+- [Résolution des problèmes]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting) : Consultez les problèmes courants et leurs solutions
+- [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security) : Consultez les informations sur la conformité HIPAA, la conservation des données et les recommandations de minimisation des données d'identification

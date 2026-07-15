@@ -10,7 +10,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Atualiz
 
 {% api %}
 # Atualizar o status do grupo de inscrições do usuário {#update-users-subscription-group-status}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /subscription/status/set
 {% endapimethod %}
 
@@ -28,10 +28,10 @@ Se você quiser ver exemplos ou testar esse endpoint para **grupos de inscriçõ
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `subscription.status.set`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `subscription.status.set`.
 
 {% alert note %}
-Se você estiver interessado em usar esse endpoint com [grupos de inscrição LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups/), entre em contato com seu gerente de sucesso do cliente.
+Se você estiver interessado em usar esse endpoint com [grupos de inscrição LINE]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups), entre em contato com seu gerente de sucesso do cliente.
 {% endalert %}
 
 {% multi_lang_include api/orphaned_subscription_states.md %}
@@ -82,25 +82,25 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% endtab %}
 {% endtabs %}
 
-Essa propriedade não deve ser usada para atualizar as informações de perfil de um usuário. Em vez disso, use a propriedade [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/).
+Essa propriedade não deve ser usada para atualizar as informações de perfil de um usuário. Em vez disso, use a propriedade [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 {% alert tip %}
-**Adicionando usuários existentes a um grupo de inscrições:** esse endpoint é a forma recomendada de preencher retroativamente ou atualizar em massa a associação a grupos de inscrições para usuários existentes. Você pode enviar até 50 `external_id`s, endereços de e-mail ou números de telefone por solicitação. Os usuários também podem atualizar seu próprio status de inscrição por meio de um link da [Central de Preferências de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/).
+**Adicionando usuários existentes a um grupo de inscrições:** esse endpoint é a forma recomendada de preencher retroativamente ou atualizar em massa a associação a grupos de inscrições para usuários existentes. Você pode enviar até 50 `external_id`s, endereços de e-mail ou números de telefone por solicitação. Os usuários também podem atualizar seu próprio status de inscrição por meio de um link da [Central de Preferências de e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions).
 
-**Criando novos usuários com um grupo de inscrições:** ao criar novos usuários usando o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), é possível definir grupos de inscrições no objeto de atributos do usuário, o que permite criar um usuário e definir o estado do grupo de inscrições em uma única chamada de API.
+**Criando novos usuários com um grupo de inscrições:** ao criar novos usuários usando o endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), é possível definir grupos de inscrições no objeto de atributos do usuário, o que permite criar um usuário e definir o estado do grupo de inscrições em uma única chamada de API.
 {% endalert %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 |---|---|---|---|
-| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types/?tab=subscription%20group%20ids) | Obrigatória | String | O `id` do seu grupo de inscrições. |
+| [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Obrigatória | String | O `id` do seu grupo de inscrições. |
 | `subscription_state` | Obrigatória | String | Os valores disponíveis são `unsubscribed` (não está no grupo de inscrições) ou `subscribed` (está no grupo de inscrições). |
 | `external_id` | Obrigatória* | Matriz de strings | O `external_id` do usuário ou dos usuários, pode incluir até 50 `id`s. |
 | `email` | Obrigatória* | String ou array de strings | O endereço de e-mail do usuário, pode ser passado como um array de strings. Deve incluir pelo menos um endereço de e-mail (com um máximo de 50). <br><br>Se vários usuários (`external_id`) no mesmo espaço de trabalho compartilharem o mesmo endereço de e-mail, a Braze atualizará todos os usuários que compartilham o endereço de e-mail com as alterações do grupo de inscrições. |
 | `phone` | Obrigatória* | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | O número de telefone do usuário, pode ser passado como um array de strings. Deve incluir pelo menos um número de telefone (até 50). <br><br>Se vários usuários (`external_id`) no mesmo espaço de trabalho compartilharem o mesmo número de telefone, a Braze atualizará todos os usuários que compartilham o número de telefone com as mesmas alterações do grupo de inscrições. |
-| `use_double_opt_in_logic` | Opcional | booleano | Aplica-se apenas a grupos de inscrição SMS; é ignorado para e-mail e outros tipos de grupo de inscrições. O padrão é `false` se omitido. Para grupos de inscrição SMS, defina como `true` para inserir o usuário no fluxo de trabalho de [double opt-in de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) quando o status de inscrição for definido como `subscribed`. Os usuários inseridos no fluxo de trabalho de double opt-in dessa forma recebem no máximo uma mensagem de resposta de pedido de aceitação por dia, independentemente do número de vezes que são inseridos no fluxo de trabalho. Se esse parâmetro for omitido ou definido como `false`, os usuários serão inscritos sem entrar no fluxo de trabalho de double opt-in. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
+| `use_double_opt_in_logic` | Opcional | booleano | Aplica-se apenas a grupos de inscrição SMS; é ignorado para e-mail e outros tipos de grupo de inscrições. O padrão é `false` se omitido. Para grupos de inscrição SMS, defina como `true` para inserir o usuário no fluxo de trabalho de [double opt-in de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) quando o status de inscrição for definido como `subscribed`. Os usuários inseridos no fluxo de trabalho de double opt-in dessa forma recebem no máximo uma mensagem de resposta de pedido de aceitação por dia, independentemente do número de vezes que são inseridos no fluxo de trabalho. Se esse parâmetro for omitido ou definido como `false`, os usuários serão inscritos sem entrar no fluxo de trabalho de double opt-in. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## Exemplos de solicitações {#example-requests}
 
@@ -114,7 +114,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/subscription/statu
   "subscription_group_id": "subscription_group_identifier",
   "subscription_state": "unsubscribed",
   "external_id": "external_identifier",
-  "email": ["example1@email.com", "example2@email.com"]
+  "email": ["example1@example.com", "example2@example.com"]
 }
 '
 ```
@@ -146,7 +146,7 @@ O código de status `201` poderia retornar o seguinte corpo de resposta.
 
 ## Solução de problemas com falhas intermitentes de atualização {#troubleshooting-intermittent-update-failures}
 
-Se as atualizações do grupo de inscrições falharem de forma intermitente ou parecerem fora de sincronia, aguarde alguns minutos entre as solicitações de atualização ou chame [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status/) para confirmar o estado do usuário antes de enviar outra atualização.
+Se as atualizações do grupo de inscrições falharem de forma intermitente ou parecerem fora de sincronia, aguarde alguns minutos entre as solicitações de atualização ou chame [`/subscription/user/status`]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status) para confirmar o estado do usuário antes de enviar outra atualização.
 
 {% alert important %}
 O endpoint aceita apenas o valor `email` ou `phone`, não ambos. Se você fornecer ambos, receberá esta resposta: `{"message":"Either an email address or a phone number should be provided, but not both."}`

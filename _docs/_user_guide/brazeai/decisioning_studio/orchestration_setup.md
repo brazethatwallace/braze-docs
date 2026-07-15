@@ -118,7 +118,7 @@ For Braze integrations, plan which dimensions your agent will optimize. These be
 
 ## Integration setup
 
-Select your CEP below to get started with the integration setup.
+Select your CEP from this list to get started with the integration setup.
 
 {% tabs %}
 {% tab Braze %}
@@ -194,7 +194,7 @@ Resulting in the following message:
 
 Decisioning Studio supports native integration with Salesforce Marketing Cloud. Decisioning Studio triggers API events into a journey with data required to populate dynamic elements.
 
-For detailed steps to configure the SFMC integration, follow the [SFMC instructions]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/) in the Decisioning Studio Go documentation.
+For detailed steps to configure the SFMC integration, follow the [SFMC instructions]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration) in the Decisioning Studio Go documentation.
 
 {% endtab %}
 {% tab Other CEPs %}
@@ -224,10 +224,10 @@ Keep these best practices in mind as you prepare for orchestration:
 2. **Test thoroughly.** Before launching, test your integration with a small set of users to verify that dynamic content populates correctly.
 3. **Document your setup.** Keep track of campaign IDs, template IDs, API keys, and other identifiers. You'll need to reference these in the Decisioning Studio portal.
 4. **Coordinate with your team.** Orchestration setup may involve marketing, engineering, and data teams. Ensure everyone understands their role in the process.
-5. **Plan for feedback data.** Orchestration includes sending messages and collecting the engagement and conversion data that helps your agent learn. See [Prepare your data]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/) for more details.
+5. **Plan for feedback data.** Orchestration includes sending messages and collecting the engagement and conversion data that helps your agent learn. See [Prepare your data]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data) for more details.
 
 ## Next steps
 
 After setting up orchestration, proceed to design your agent:
 
-- [Design decisioning agents]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents/)
+- [Design decisioning agents]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents)

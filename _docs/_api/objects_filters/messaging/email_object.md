@@ -18,8 +18,8 @@ description: "This reference article explains the different components of the Br
 {
   "app_id": (required, string), see App Identifier,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
   "bcc": (optional, one of the BCC addresses defined in your workspace's email settings) if provided and the BCC feature is enabled for your account, this address gets added to your outbound message as a BCC address,
   "body": (required unless email_template_id is given, valid HTML),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
@@ -35,9 +35,9 @@ description: "This reference article explains the different components of the Br
 }
 ```
 
-- [App identifier]({{site.baseurl}}/api/identifier_types/)
+- [App identifier]({{site.baseurl}}/api/identifier_types)
   - Any valid `app_id` from an app configured in your workspace works for all users in your workspace, regardless of whether the user has the specific app on their profile or not.
-- For more information and best practices on preheaders, see [Email styling]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/).
+- For more information and best practices on preheaders, see [Email styling]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling).
 
 {% alert warning %}
 Braze recommends that you avoid using Google Drive links for your attachment's `url`, as this can block our servers' calls to get the file and result in the email message not sending.
@@ -79,7 +79,7 @@ An `email_template_id` can be retrieved from the bottom of any email template cr
     "email":{
       "app_id": "153e8a29-fd6d-4f77-ade7-1a4ca08d457a",
       "subject": "Basis auth attachment test",
-      "from": "mail <mail@e.company.com>",
+      "from": "mail <mail@example.com>",
       "body": "my attachment test",
       "attachments":[
         { "file_name":"checkout_receipt.pdf",
@@ -98,5 +98,5 @@ When Braze fetches a file from an attachment `url`:
 - **Caching:** Braze may reuse a recently retrieved file for up to approximately 24 hours. If you need every send to pick up a new version of the file immediately, use a distinct URL per version (for example, a path or query that changes when the file changes).
 - **Timeouts:** Hosts should respond quickly. If the attachment URL is slow or hangs, the message send can fail—aim for responses within about two minutes.
 - **Security:** Do not put personally identifiable information (PII) or secrets in attachment URLs (including query strings), because URLs can appear in logs or downstream systems.
-- **Firewalls:** If the URL is only reachable from specific networks, allow traffic from Braze in line with [Connected Content IP allowlisting]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting). Use [basic authentication credentials](#authentication-for-email-file-attachments) when the file requires login.
+- **Firewalls:** If the URL is only reachable from specific networks, allow traffic from Braze in line with [Connected Content IP allowlisting]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Use [basic authentication credentials](#authentication-for-email-file-attachments) when the file requires login.
 

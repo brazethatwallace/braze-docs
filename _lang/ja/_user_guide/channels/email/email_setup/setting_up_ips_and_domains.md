@@ -17,7 +17,7 @@ description: "この記事では、Braze経由でメールを送信するため�
 <br>
 
 {% alert important %}
-メールサービスプロバイダー (ESP) パートナーとして、SendGrid、SparkPost、またはAmazon Simple Email Service (SES) を使用できます。2026年以降、Brazeは新しいメール設定のデフォルトESPとしてAmazon SESを使用します。詳細については、[Amazon SESのセットアップ]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses/)を参照してください。
+メールサービスプロバイダー (ESP) パートナーとして、SendGrid、SparkPost、またはAmazon Simple Email Service (SES) を使用できます。2026年以降、Brazeは新しいメール設定のデフォルトESPとしてAmazon SESを使用します。詳細については、[Amazon SESのセットアップ]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses)を参照してください。
 {% endalert %}
 
 ## 方法1：Brazeとの調整（推奨） {#method-1-coordinate-with-braze-recommended}
@@ -38,7 +38,7 @@ description: "この記事では、Braze経由でメールを送信するため�
 
 IP、ドメイン、サブドメイン、およびIPプールの設定が完了したら、DNSレコードのリストをお送りします。エンジニアや開発者に、必要な場所にこれらのDNSレコードを追加するよう依頼し、追加が完了したらBrazeオンボーディングチームにお知らせください。
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 BrazeからDNSレコードが提供されたら、DNSチームまたはITチームが対応可能になり次第、すぐに追加してください。ドメイン検証には期限があり、レコードの追加が遅れると、DNSレコードが後で正しく解決されても検証が失敗する場合があります。DNSレコードが正しいにもかかわらず検証が失敗した場合は、Brazeオンボーディングチームまたはサポートチームに連絡して、検証の再開を依頼してください。
 
@@ -50,7 +50,7 @@ BrazeからDNSレコードが提供されたら、DNSチームまたはITチー�
 
 この方法では、会社の送信ドメイン、トラッキングドメイン、IPをそれぞれ1つずつ設定します。さらに設定する場合は、Brazeオンボーディングチームに相談してください（方法1）。
 
-{% multi_lang_include early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
 <br>セルフサービスのメール設定機能を使用している場合は、Brazeオンボーディングチームにも必ずご相談ください。
 
 ### 前提条件 {#prerequisites}
@@ -72,7 +72,7 @@ BrazeからDNSレコードが提供されたら、DNSチームまたはITチー�
 
 次に、ページ下部のTXTレコードとCNAMEレコードをDNSプロバイダーに追加します。その後、Brazeダッシュボードに戻り、**検証**をクリックします。
 
-![]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
+![送信ドメインを検証するためのTXTおよびCNAME DNSレコードが表示されたメール設定ページ。]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
 
 検証が失敗し、DNSレコードが正しいと思われる場合は、Brazeサポートに連絡してサポートを受けてください。
 
@@ -96,8 +96,8 @@ Brazeは、逆引きDNS（rDNS）と呼ばれる設定で、IPアドレスを送
 
 ### 複数の専用IPを持つIPプール {#ip-pools-with-more-than-one-dedicated-ip}
 
-IPプールに複数の専用IPアドレスが含まれている場合、Brazeとメールサービスプロバイダーは、キャパシティと配信性のために大量送信をそれらのIP間で分散します。分散は概算であり、Campaign内のすべてのメッセージがすべてのIPを使用するわけではなく、少量の送信ではアドレス間で偏りが見られる場合があります。SendGridはメールをチャンク単位（おおよそ1チャンクあたり約1,500メッセージ）で処理することが多いため、ボリュームが常にIP間で厳密に1対1の比率で分割されるとは限りません。日常的に非常に大量の送信を行う場合は、Brazeオンボーディングまたはカスタマーサクセスの担当者とプールのサイジングについてご相談ください。
+IPプールに複数の専用IPアドレスが含まれている場合、Brazeとメールサービスプロバイダーは、キャパシティと配信性のために大量送信をそれらのIP間で分散します。分散は概算であり、キャンペーン内のすべてのメッセージがすべてのIPを使用するわけではなく、少量の送信ではアドレス間で偏りが見られる場合があります。SendGridはメールをチャンク単位（おおよそ1チャンクあたり約1,500メッセージ）で処理することが多いため、ボリュームが常にIP間で厳密に1対1の比率で分割されるとは限りません。日常的に非常に大量の送信を行う場合は、Brazeオンボーディングまたはカスタマーサクセスの担当者とプールのサイジングについてご相談ください。
 
 ### 次のステップ
 
-送信者の検証が完了したら、メッセージが一貫して高い割合で送信先の受信トレイに届くように、IPウォーミングを行うことをお勧めします。この設定が完了したら、ドメインと[IPアドレス]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)が正常に機能しているかどうかを確認するために、Brazeオンボーディングチームにも必ずご相談ください。
+送信者の検証が完了したら、メッセージが一貫して高い割合で送信先の受信トレイに届くように、IPウォーミングを行うことをお勧めします。この設定が完了したら、ドメインと[IPアドレス]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)が正常に機能しているかどうかを確認するために、Brazeオンボーディングチームにも必ずご相談ください。

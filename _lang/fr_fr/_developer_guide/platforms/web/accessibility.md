@@ -12,7 +12,7 @@ description: "Cet article décrit comment Braze prend en charge l'accessibilité
 
 > Cet article présente un aperçu de la manière dont Braze prend en charge l'accessibilité au sein de votre intégration.
 
-Le SDK Web Braze est conforme aux normes définies par les [directives d'accessibilité du contenu Web (WCAG 2.1)](https://www.w3.org/TR/WCAG21/). Nous maintenons un [score Lighthouse de 100/100](https://developer.chrome.com/docs/lighthouse/accessibility/scoring) pour les Content Cards et les messages in-app sur toutes nos nouvelles versions afin de respecter notre norme d'accessibilité.
+Le SDK Web de Braze est conforme aux normes définies par les [directives d'accessibilité du contenu Web (WCAG 2.1)](https://www.w3.org/TR/WCAG21/). Nous maintenons un [score Lighthouse de 100/100](https://developer.chrome.com/docs/lighthouse/accessibility/scoring) pour les Content Cards et les messages in-app sur toutes nos nouvelles versions afin de respecter notre norme d'accessibilité.
 
 ## Conditions préalables {#prerequisites}
 
@@ -29,7 +29,7 @@ La version minimale du SDK conforme à la norme WCAG 2.1 est proche de la versio
 | **3.1.2** | Mineur | Texte alternatif par défaut pour les images |
 | **2.4.1** | **Majeur** | HTML sémantique (`h1` ou `button`), attributs ARIA, navigation au clavier, gestion du focus |
 | **2.0.5** | Mineur | Gestion du focus, navigation au clavier, étiquettes |
-{: .reset-td-br-1, .reset-td-br-2 aria-label="Notable accessibility fixes" }
+{: .reset-td-br-1, .reset-td-br-2 aria-label="Corrections notables en matière d'accessibilité" }
 
 ## Fonctionnalités d'accessibilité prises en charge {#supported-accessibility-features}
 
@@ -43,7 +43,7 @@ Nous prenons en charge les fonctionnalités suivantes pour les Content Cards et 
 
 ## Directives d'accessibilité pour les intégrations SDK {#accessibility-guidelines-for-sdk-integrations}
 
-Consultez [Créer des messages accessibles dans Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/) pour obtenir des directives générales en matière d'accessibilité. Ce guide fournit des conseils et des bonnes pratiques pour optimiser l'accessibilité lors de l'intégration du SDK Web Braze dans votre application web.
+Consultez [Créer des messages accessibles dans Braze]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) pour obtenir des directives générales en matière d'accessibilité. Ce guide fournit des conseils et des bonnes pratiques pour optimiser l'accessibilité lors de l'intégration du SDK Web de Braze dans votre application web.
 
 ### Content Cards
 

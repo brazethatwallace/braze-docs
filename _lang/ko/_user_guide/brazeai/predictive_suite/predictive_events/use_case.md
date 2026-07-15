@@ -5,7 +5,7 @@ description: "이 예시는 가상의 브랜드가 Braze Predictive Events를 �
 page_type: tutorial
 ---
 
-# Use case: 더 스마트한 타겟팅으로 구독 업그레이드 예측 {#use-case-predict-subscription-upgrades-with-smarter-targeting}
+# 사용 사례: 더 스마트한 타겟팅으로 구독 업그레이드 예측 {#use-case-predict-subscription-upgrades-with-smarter-targeting}
 
 > 이 예시는 가상의 브랜드가 Braze Predictive Events를 활용하여 프로 멤버십으로의 업그레이드와 같이 비즈니스에 중요한 성과를 정의하고, 결과를 개선하는 타겟팅 전략을 구축하는 방법을 보여줍니다.
 
@@ -22,8 +22,8 @@ page_type: tutorial
 
 조던은 자신의 업그레이드 전략에서 가장 중요한 결과, 즉 사용자가 무료 등급에서 프로로 이동하는 것을 정의하는 것으로 시작합니다. "가입 후 경과 시간"과 같은 일반적인 트리거에 의존하기보다는, 실제로 전환할 가능성이 높은 사용자를 예측하고자 합니다. 이렇게 하면 그의 팀은 단순한 추측이 아닌 실제 신호에 따라 행동할 수 있습니다.
 
-1. Braze 대시보드에서 조던은 **분석** > **Predictive Events**로 이동합니다.
-2. 그는 [새로운 이벤트 예측을 생성하고]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction/) "7일 안에 프로로 업그레이드"라고 이름을 지정합니다.
+1. Braze 대시보드에서 조던은 **Analytics** > **Predictive Events**로 이동합니다.
+2. 그는 [새로운 이벤트 예측을 생성하고]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/creating_an_event_prediction) "7일 안에 프로로 업그레이드"라고 이름을 지정합니다.
 3. 타겟 이벤트로 그는 자신의 커스텀 이벤트 `upgraded_to_pro`를 선택합니다.
 4. 조던은 예측 기간을 7일로 설정하고, 업데이트 일정을 설정한 후 예측을 생성합니다.
 
@@ -31,10 +31,10 @@ page_type: tutorial
 
 ## 2단계: 업그레이드 가능성에 따라 사용자 세분화 {#step-2-segment-users-based-on-upgrade-probability}
 
-훈련이 완료되면 Braze는 각 적격 사용자에게 [이벤트 발생 가능성 점수]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics/#purchase_score)(0-100)를 할당합니다. 조던은 이 점수를 활용해 실행 가능한 Segments를 생성합니다—하나는 할인이 필요하지 않을 수 있는 구매 의도가 높은 사용자를 위한 것이고, 다른 하나는 지원 없이는 전환하지 않을 가능성이 높은 사용자를 위한 것입니다.
+훈련이 완료되면 Braze는 각 적격 사용자에게 [이벤트 발생 가능성 점수]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics#purchase_score)(0-100)를 할당합니다. 조던은 이 점수를 활용해 실행 가능한 Segments를 생성합니다—하나는 할인이 필요하지 않을 수 있는 구매 의도가 높은 사용자를 위한 것이고, 다른 하나는 지원 없이는 전환하지 않을 가능성이 높은 사용자를 위한 것입니다.
 
 1. 조던은 Braze에서 Segments로 이동합니다.
-2. 그는 [이벤트 발생 가능성 점수 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#event-likelihood-score)를 사용하여 두 개의 [Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)를 생성하고 자신이 만든 예측을 선택합니다. 두 Segments는 다음과 같습니다:
+2. 그는 [이벤트 발생 가능성 점수 필터]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#event-likelihood-score)를 사용하여 두 개의 [Segments]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)를 생성하고 자신이 만든 예측을 선택합니다. 두 Segments는 다음과 같습니다:
   - **업그레이드 가능성이 높음:** 70점 초과
   - **업그레이드를 위해 약간의 자극이 필요함:** 40점 초과 70점 미만
 
@@ -50,7 +50,7 @@ page_type: tutorial
 
 그는 이 Campaign의 주요 채널로 이메일을 선택합니다. 왜일까요? 조던은 고의도 사용자에게 프로의 가치를 설명하고, 망설이는 사용자에게 설득력 있는 주장을 펼치고자 합니다—두 경우 모두 공간, 시각 자료, 강력한 CTA가 필요합니다. 이메일은 사용자에게 부담을 주지 않으면서도 이를 효과적으로 수행할 수 있는 유연성을 제공하며, 클릭 동작을 통해 성과를 추적할 수 있게 해줍니다.
 
-조던은 방금 구축한 Segments에 따라 경험을 분할하는 [Canvas를 생성합니다]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/). 그는 타겟팅을 위해 오디언스 경로 단계를 추가합니다:
+조던은 방금 구축한 Segments에 따라 경험을 분할하는 [Canvas를 생성합니다]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas). 그는 타겟팅을 위해 오디언스 경로 단계를 추가합니다:
 
 - 고의도, 피트니스 중심 사용자
 - 고의도, 기타 사용자
@@ -106,7 +106,7 @@ page_type: tutorial
 
 ## 4단계: 결과를 측정하고 전략 최적화 {#step-4-measure-results-and-optimize-your-strategy}
 
-Campaign 실행 후, 조던은 [Canvas 분석]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics/)에서 성과를 검토하여 개인화된 경로가 얼마나 효과적이었는지, 그리고 예측 의도와 행동 신호를 결합함으로써 업그레이드율이 향상되었는지 파악합니다.
+Campaign 실행 후, 조던은 [Canvas 분석]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)에서 성과를 검토하여 개인화된 경로가 얼마나 효과적이었는지, 그리고 예측 의도와 행동 신호를 결합함으로써 업그레이드율이 향상되었는지 파악합니다.
 
 경로별 이메일 성과:
 
@@ -133,7 +133,7 @@ Campaign 실행 후, 조던은 [Canvas 분석]({{site.baseurl}}/user_guide/messa
 
 팀의 기존 일률적 Campaign(7일 후 무차별 할인으로 전환율 5%에 그치고 과도한 메시징을 초래한)과 비교해, 타겟팅 접근법은 모든 그룹에서 의미 있는 상승 효과를 보이며 효율성이 개선되고 불필요한 할인이 줄었습니다.
 
-[퍼널 보고서]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)에서도 주요 단계별 이탈률이 뚜렷이 감소했음을 보여주며, 특히 개인화된 메시지를 받은 저의도 사용자들의 경우 더욱 두드러지게 나타났습니다. 더 많은 사용자가 열람하고, 클릭하고, 업그레이드하고 있습니다—의도 기반 타겟팅의 가치를 입증하고 있습니다.
+[퍼널 보고서]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports)에서도 주요 단계별 이탈률이 뚜렷이 감소했음을 보여주며, 특히 개인화된 메시지를 받은 저의도 사용자들의 경우 더욱 두드러지게 나타났습니다. 더 많은 사용자가 열람하고, 클릭하고, 업그레이드하고 있습니다—의도 기반 타겟팅의 가치를 입증하고 있습니다.
 
 조던은 이러한 인사이트를 활용하여 다음을 수행합니다:
 

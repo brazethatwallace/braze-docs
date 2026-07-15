@@ -20,33 +20,33 @@ guide_top_text: "Braze 사용자 데이터 엔드포인트를 사용하면 모�
 guide_featured_title: "사용자 데이터 엔드포인트"
 guide_featured_list:
   - name: "POST: 새 사용자 별칭 생성"
-    link: /docs/api/endpoints/user_data/post_user_alias/
+    link: /docs/api/endpoints/user_data/post_user_alias
     image: /assets/img/braze_icons/users-01.svg
   - name: "POST: 사용자 별칭 업데이트"
-    link: /docs/api/endpoints/user_data/post_users_alias_update/
+    link: /docs/api/endpoints/user_data/post_users_alias_update
     image: /assets/img/braze_icons/user-edit.svg
   - name: "POST: 사용자 데이터 삭제"
-    link: /docs/api/endpoints/user_data/post_user_delete/
+    link: /docs/api/endpoints/user_data/post_user_delete
     image: /assets/img/braze_icons/user-minus-01.svg
   - name: "POST: 사용자 식별"
-    link: /docs/api/endpoints/user_data/post_user_identify/
+    link: /docs/api/endpoints/user_data/post_user_identify
     image: /assets/img/braze_icons/user-circle.svg
   - name: "POST: 사용자 추적"
-    link: /docs/api/endpoints/user_data/post_user_track/
+    link: /docs/api/endpoints/user_data/post_user_track
     image: /assets/img/braze_icons/database-01.svg
   - name: "POST: 사용자 추적(동기식)"
-    link: /docs/api/endpoints/user_data/post_user_track_synchronous/
+    link: /docs/api/endpoints/user_data/post_user_track_synchronous
     image: /assets/img/braze_icons/database-01.svg
   - name: "POST: 사용자 병합"
-    link: /docs/api/endpoints/user_data/post_users_merge/
+    link: /docs/api/endpoints/user_data/post_users_merge
     image: /assets/img/braze_icons/users-01.svg
 
 guide_menu_title: "외부 ID 마이그레이션 엔드포인트"
 guide_menu_list:
   - name: "POST: 외부 ID 이름 바꾸기"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename/
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename
     image: /assets/img/braze_icons/users-01.svg
   - name: "POST: 더 이상 사용되지 않는 외부 ID 제거"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove/
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove
     image: /assets/img/braze_icons/user-minus-01.svg
 ---

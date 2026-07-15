@@ -10,14 +10,14 @@ noindex: true
 
 # Guía de actualización del SDK de iOS 15 {#ios-15-sdk-upgrade-guide}
 
-> Esta guía describe los cambios introducidos en iOS 15 (WWDC21) y los pasos de actualización necesarios para tu integración de SDK de Braze iOS. Para obtener una lista completa de las nuevas actualizaciones de iOS 15, consulta [las notas de la versión iOS 15](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes) de Apple.
+> Esta guía describe los cambios introducidos en iOS 15 (WWDC21) y los pasos de actualización necesarios para tu integración del SDK de Braze para iOS. Para obtener una lista completa de las nuevas actualizaciones de iOS 15, consulta [las notas de la versión de iOS 15](https://developer.apple.com/documentation/ios-ipados-release-notes/ios-ipados-15-release-notes) de Apple.
 
 
 ## Cambios de transparencia en las navegaciones de la IU {#transparency-changes-to-ui-navigations}
 
 Como parte de nuestras pruebas anuales de las betas de iOS, hemos identificado un cambio realizado por Apple que hace que determinadas barras de navegación de la interfaz de usuario aparezcan transparentes en lugar de opacas. Esto será visible en iOS 15 cuando utilices la interfaz de usuario predeterminada de Braze para Content Cards, o cuando los vínculos profundos web se abran dentro de tu aplicación en lugar de en una aplicación de navegador independiente.
 
-Para evitar este cambio visual en iOS 15, te recomendamos encarecidamente que actualices al [SDK para iOS de Braze v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2) lo antes posible, antes de que los usuarios empiecen a actualizar su teléfono al nuevo sistema operativo iOS 15.
+Para evitar este cambio visual en iOS 15, te recomendamos encarecidamente que actualices al [SDK de Braze para iOS v4.3.2](https://github.com/Appboy/appboy-ios-sdk/releases/tag/4.3.2) lo antes posible, antes de que los usuarios empiecen a actualizar su teléfono al nuevo sistema operativo iOS 15.
 
 ## Nueva configuración de notificaciones {#notification-settings}
 
@@ -27,7 +27,7 @@ iOS 15 introdujo nuevas características de notificación para ayudar a los usua
 
 Ahora, los usuarios de iOS 15 pueden crear "modos de enfoque", es decir, perfiles personalizados que se utilizan para determinar qué notificaciones quieren que atraviesen su enfoque y se muestren de forma destacada.
 
-![]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![Los usuarios de iOS 15 ahora pueden crear "modos de enfoque", perfiles personalizados que se utilizan para determinar qué notificaciones quieren que atraviesen su enfoque y se muestren de forma destacada.]({% image_buster /assets/img/ios/ios15-notification-settings.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 ### Niveles de interrupción {#interruption-levels}
 
@@ -38,17 +38,17 @@ En iOS 15, las notificaciones push pueden enviarse con uno de los cuatro niveles
 * **Sensible al tiempo** (nuevo): permite sonido, vibración, activación de la pantalla, puede atravesar los controles del sistema si se permite.
 * **Crítico**: permite sonido, vibración, activación de la pantalla, puede atravesar los controles del sistema y anular el interruptor del timbre.
 
-Consulta [Opciones de notificación de iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#interruption-level) para saber más sobre cómo configurar esta opción en iOS Push.
+Consulta [Opciones de notificación de iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#interruption-level) para saber más sobre cómo configurar esta opción en las notificaciones push de iOS.
 
 ### Resumen de notificaciones {#notification-summary}
 
-![]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
+![Captura de pantalla relacionada con el resumen de notificaciones.]({% image_buster /assets/img/ios/ios15-notification-summary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0"}
 
 En iOS 15, los usuarios pueden (opcionalmente) elegir determinadas horas a lo largo del día para recibir un resumen de las notificaciones. Las notificaciones que no requieran atención inmediata (como las enviadas como "pasivas" o mientras el usuario está en modo de enfoque) se agruparán para evitar interrupciones constantes a lo largo del día.
 
 Para cada notificación que envíes, pronto podrás especificar una "puntuación de relevancia" para controlar qué notificación debe aparecer en la parte superior del resumen.
 
-Consulta [Opciones de notificación de iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/#relevance-score) para saber más sobre cómo establecer la "puntuación de relevancia" de una notificación.
+Consulta [Opciones de notificación de iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options#relevance-score) para saber más sobre cómo establecer la "puntuación de relevancia" de una notificación.
 
 ## Botones de ubicación {#location-buttons}
 

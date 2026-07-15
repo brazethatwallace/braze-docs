@@ -9,7 +9,7 @@ description: "Braze 파트너인 경우 이 엔드포인트를 사용하여 커�
 
 {% api %}
 # 사용자 추적 (대량) - Braze 파트너용 {#track-users-bulk-for-braze-partners}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -34,7 +34,7 @@ description: "Braze 파트너인 경우 이 엔드포인트를 사용하여 커�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.track` 권한이 있는 [API 키](https://www.braze.com/docs/api/api_key/)가 필요합니다. 이 권한은 `/users/track`과 `/users/track/bulk` 모두에 대한 액세스를 제공합니다.
+이 엔드포인트를 사용하려면 `users.track` 권한이 있는 [API 키]({{site.baseurl}}/api/api_key/)가 필요합니다. 이 권한은 `/users/track`과 `/users/track/bulk` 모두에 대한 액세스를 제공합니다.
 
 대부분의 공유 고객은 이미 Braze 파트너 통합에 `users.track` 권한이 있는 API 키를 사용하고 있으므로, 통합을 `/users/track/bulk`로 마이그레이션할 때 API 키를 변경할 필요가 없습니다.
 
@@ -46,7 +46,7 @@ description: "Braze 파트너인 경우 이 엔드포인트를 사용하여 커�
 
 그러나 최신 계약을 체결한 고객에게는 Braze와 계약한 MAU에 연동된 버스트(초당) 및 정상(시간당) 사용량 제한이 대신 적용될 수 있습니다.
 
-API와의 실시간 상호작용을 개선하려면 [권장 응답 헤더](https://www.braze.com/docs/api/api_limits/#monitoring-your-rate-limits)를 사용하세요.
+API와의 실시간 상호작용을 개선하려면 [권장 응답 헤더]({{site.baseurl}}/api/api_limits/#monitoring-your-rate-limits)를 사용하세요.
 
 각 `/users/track/bulk` 요청의 페이로드 제한은 2&nbsp;MB이며, 최대 1,000개의 이벤트, 속성 또는 구매 오브젝트를 포함할 수 있습니다.
 
@@ -242,9 +242,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
 
 #### 심각한 오류 응답 코드 {#fatal-error-response-codes}
 
-요청에 심각한 오류가 발생한 경우 반환되는 상태 코드 및 관련 오류 메시지는 [심각한 오류 및 응답](https://www.braze.com/docs/api/errors/#fatal-errors)을 참조하세요.
+요청에 심각한 오류가 발생한 경우 반환되는 상태 코드 및 관련 오류 메시지는 [심각한 오류 및 응답]({{site.baseurl}}/api/errors/#fatal-errors)을 참조하세요.
 
-`provided external\_id is blacklisted and disallowed` 오류가 발생하면 요청에 `dummy user`가 포함되었을 수 있습니다. 자세한 내용은 [스팸 차단](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking)을 참조하세요.
+`provided external\_id is blacklisted and disallowed` 오류가 발생하면 요청에 `dummy user`가 포함되었을 수 있습니다. 자세한 내용은 [스팸 차단]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking)을 참조하세요.
 
 ## 자주 묻는 질문 {#frequently-asked-questions}
 
@@ -261,7 +261,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
 
 ### `/users/track/bulk`에서 어떤 식별자를 사용할 수 있나요? {#what-identifiers-can-i-use-in-userstrackbulk}
 
-`external\_id`, `braze\_id`, `user\_alias`, `email` 또는 `phone` 중 하나가 필수입니다. 자세한 예시는 [사용자 속성 오브젝트](https://www.braze.com/docs/api/objects_filters/user_attributes_object/), [이벤트 오브젝트](https://www.braze.com/docs/api/objects_filters/event_object/) 또는 [구매 오브젝트](https://www.braze.com/docs/api/objects_filters/purchase_object/) 설명서를 참조하세요.
+`external\_id`, `braze\_id`, `user\_alias`, `email` 또는 `phone` 중 하나가 필수입니다. 자세한 예시는 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object/), [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object/) 또는 [구매 오브젝트]({{site.baseurl}}/api/objects_filters/purchase_object/) 설명서를 참조하세요.
 
 ### 하나의 요청에 속성, 이벤트, 구매를 모두 포함할 수 있나요? {#can-i-include-attributes-events-and-purchases-in-one-request}
 

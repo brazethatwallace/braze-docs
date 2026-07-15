@@ -18,7 +18,7 @@ description: "This article outlines details about the Create SDK Authentication 
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `sdk_authentication.create` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `sdk_authentication.create` permission.
 
 ## Rate limit
 

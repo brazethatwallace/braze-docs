@@ -4,7 +4,7 @@ article_title: Canais
 page_order: 5
 layout: dev_guide
 guide_top_header: "Canais"
-guide_top_text: "Alcance seus usuários pelo canal certo, no momento certo. Escolha entre canais dentro do produto, como mensagens no app, Cartões de conteúdo e Banners, ou canais fora do produto, como push, e-mail, SMS e WhatsApp."
+guide_top_text: "Alcance seus usuários pelo canal certo, no momento certo. Escolha entre canais dentro do produto, como mensagens no app, Content Cards e Banners, ou canais fora do produto, como push, e-mail, SMS e WhatsApp."
 
 page_type: landing
 description: "Alcance seus usuários por meio de canais de envio de mensagens dentro e fora do produto na Braze."
@@ -14,7 +14,7 @@ guide_featured_list:
   - name: Mensagens no app
     link: /docs/user_guide/channels/in_app_messages
     image: /assets/img/braze_icons/phone-02.svg
-  - name: Cartões de conteúdo
+  - name: Content Cards
     link: /docs/user_guide/channels/content_cards
     image: /assets/img/braze_icons/sticker-square.svg
   - name: Banners
@@ -36,7 +36,7 @@ guide_menu_list:
     link: /docs/user_guide/channels/line
     image: /assets/img/braze_icons/message-chat-circle.svg
   - name: Notificações ao vivo
-    link: /docs/developer_guide/live_notifications/
+    link: /docs/developer_guide/live_notifications
     image: /assets/img/braze_icons/phone-02.svg
   - name: Push
     link: /docs/user_guide/channels/push
@@ -70,6 +70,6 @@ Embora a matriz destaque os canais principais, ela é adaptável: SMS e WhatsApp
 Você pode usar a Braze para criar campanhas de mensagens acessíveis em cada canal. Trabalhe com seus engenheiros para garantir que os padrões de acessibilidade sejam atendidos na sua implementação. Se quiser orientações adicionais, recomendamos:
 
 - [Fundamentos de mensagens acessíveis](https://learning.braze.com/accessible-messaging-foundations): Aprenda os princípios fundamentais de acessibilidade aplicáveis às comunicações de marca neste curso do Braze Learning.
-- [Criando mensagens acessíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/): Aprenda a adicionar texto alternativo e estruturar seu conteúdo para tecnologias assistivas diretamente na Braze.
+- [Criando mensagens acessíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility): Aprenda a adicionar texto alternativo e estruturar seu conteúdo para tecnologias assistivas diretamente na Braze.
 
 Se você tiver feedback sobre a acessibilidade da Braze ou de mensagens enviadas pela Braze, adoraríamos ouvir você. Abra o menu **Suporte** no cabeçalho global e selecione **Compartilhar feedback** para nos enviar suas opiniões.

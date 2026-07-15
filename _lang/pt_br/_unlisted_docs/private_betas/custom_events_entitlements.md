@@ -6,7 +6,7 @@ hidden: true
 
 # [![Curso do Braze Learning]({% image_buster /assets/unlisted_docs/img/logos/bl_icon3.png %})](https://learning.braze.com/custom-events-and-attributes){: style="float:right;width:120px;border:0;" class="noimgborder"}Eventos personalizados {#braze-learning-course-image_buster-assetsunlisted_docsimglogosbl_icon3png-httpslearningbrazecomcustom-events-and-attributes-stylefloatrightwidth120pxborder0-classnoimgbordercustom-events}
 
-> Este artigo descreve eventos personalizados e propriedades, filtros de segmentação relacionados, propriedades de entrada do Canvas, análises de dados relevantes e muito mais. Para saber mais sobre eventos da Braze em geral, consulte [Eventos](https://www.braze.com/docs/user_guide/data/custom_data/events/).
+> Este artigo descreve eventos personalizados e propriedades, filtros de segmentação relacionados, propriedades de entrada do Canvas, análises de dados relevantes e muito mais. Para saber mais sobre eventos da Braze em geral, consulte [Eventos]({{site.baseurl}}/user_guide/data/custom_data/events).
 
 Eventos personalizados são ações realizadas por, ou atualizações sobre, seus usuários. Quando eventos personalizados são registrados, eles podem disparar qualquer número e tipo de campanhas de acompanhamento. Você pode então usar [filtros de segmentação](#segmentation-filters) para segmentar usuários com base em quão recentemente e com que frequência esses eventos personalizados ocorreram. Isso torna os eventos personalizados ideais para rastrear interações de alto valor dos usuários dentro do seu aplicativo.
 
@@ -14,13 +14,13 @@ Eventos personalizados são ações realizadas por, ou atualizações sobre, seu
 
 Alguns casos de uso comuns de eventos personalizados incluem:
 
-- Disparar uma Campaign ou Canvas com base em um evento personalizado usando [entrega baseada em ação](https://www.braze.com/docs/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/)
+- Disparar uma Campaign ou Canvas com base em um evento personalizado usando [entrega baseada em ação]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery)
 - Segmentar usuários pela quantidade de vezes que realizaram um evento personalizado, quando foi a última vez que o evento ocorreu, e similares
-- Usar a [análise de dados de eventos personalizados](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_events#custom-event-analytics) do dashboard para visualizar um agregado de quantas vezes cada evento ocorreu
-- Encontrar análises de dados adicionais usando relatórios de [funil](https://www.braze.com/docs/user_guide/data_and_analytics/reporting/funnel_reports/#step-2-select-events-for-funnel-steps) e [retenção](https://www.braze.com/docs/user_guide/analytics/reporting/retention_reports/)
-- Aproveitar [propriedades de entrada persistentes](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/canvas_persistent_entry_properties/) para usar metadados do seu evento de cliente para personalização nas etapas do Canvas
-- Gerar análises de dados mais sofisticadas com o [Currents](https://www.braze.com/docs/user_guide/data/braze_currents/)
-- Configurar [critérios de saída](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria) para definir quando os usuários devem sair do seu Canvas
+- Usar a [análise de dados de eventos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_events#custom-event-analytics) do dashboard para visualizar um agregado de quantas vezes cada evento ocorreu
+- Encontrar análises de dados adicionais usando relatórios de [funil]({{site.baseurl}}/user_guide/data_and_analytics/reporting/funnel_reports#step-2-select-events-for-funnel-steps) e [retenção]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports)
+- Aproveitar [propriedades de entrada persistentes]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/canvas_persistent_entry_properties) para usar metadados do seu evento de cliente para personalização nas etapas do Canvas
+- Gerar análises de dados mais sofisticadas com o [Currents]({{site.baseurl}}/user_guide/data/braze_currents)
+- Configurar [critérios de saída]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/exit_criteria) para definir quando os usuários devem sair do seu Canvas
 
 ## Direitos de uso {#entitlements}
 
@@ -50,15 +50,15 @@ Além disso, se um evento personalizado bloqueado estiver sendo referenciado por
 
 ### Adicionando descrições {#adding-descriptions}
 
-Você pode adicionar uma descrição a um evento personalizado após ele ser criado, se tiver a [permissão de usuário](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases`. Selecione **Editar descrição** para o evento personalizado e insira o que desejar, como uma nota para sua equipe.
+Você pode adicionar uma descrição a um evento personalizado após ele ser criado, se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) `Manage Events, Attributes, Purchases`. Selecione **Editar descrição** para o evento personalizado e insira o que desejar, como uma nota para sua equipe.
 
 ## Adicionando tags {#adding-tags}
 
-Você pode adicionar tags a um evento personalizado após ele ser criado, se tiver a [permissão de usuário](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) "Manage Events, Attributes, Purchases". As tags podem então ser usadas para filtrar a lista de eventos.
+Você pode adicionar tags a um evento personalizado após ele ser criado, se tiver a [permissão de usuário]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions) "Manage Events, Attributes, Purchases". As tags podem então ser usadas para filtrar a lista de eventos.
 
 ### Visualizando relatórios de uso {#viewing-usage-reports}
 
-O relatório de uso lista todos os Canvas, Campaigns e segmentos que usam um evento personalizado específico. A lista não inclui usos de Liquid.
+O relatório de uso lista todos os Canvas, Campaigns e Segments que usam um evento personalizado específico. A lista não inclui usos de Liquid.
 
 Você pode visualizar até 100 relatórios de uso por vez selecionando as caixas de seleção de múltiplos eventos personalizados e então selecionando **Visualizar relatório de uso**.
 
@@ -68,23 +68,23 @@ Para exportar a lista de eventos personalizados como um arquivo CSV, selecione o
 
 ## Registrando eventos personalizados {#logging-custom-events}
 
-Eventos personalizados requerem configuração adicional. Consulte a lista abaixo para a documentação sobre cada plataforma, onde você encontrará informações sobre os métodos usados para registrar eventos personalizados e como adicionar propriedades e quantidades aos seus eventos personalizados.
+Eventos personalizados requerem configuração adicional. Consulte os links de documentação da plataforma para encontrar os métodos usados para registrar eventos personalizados e adicionar propriedades e quantidades.
 
 {% details Expandir para documentação por plataforma %}
 
-- [Android e FireOS](https://www.braze.com/docs/developer_guide/analytics/logging_events/?tab=android)
-- [iOS](https://www.braze.com/docs/developer_guide/analytics/logging_events/?tab=swift)
-- [Web](https://www.braze.com/docs/developer_guide/analytics/logging_events/?tab=web)
-- [React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-events)
-- [Unity](https://www.braze.com/docs/developer_guide/platform_integration_guides/unity/Analytics/logging_custom_events/)
-- [Xamarin](https://www.braze.com/docs/developer_guide/platform_integration_guides/xamarin/analytics/#tracking-custom-events)
-- [Roku](https://www.braze.com/docs/developer_guide/analytics/logging_events/?tab=roku)
+- [Android e FireOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-events)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/logging_events/?sdktab=unity)
+- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#tracking-custom-events)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=roku)
 
 {% enddetails %}
 
 ## Armazenamento de eventos personalizados {#custom-event-storage}
 
-Todos os dados armazenados no **Perfil de usuário**, incluindo metadados de eventos personalizados (primeira ou última ocorrência, contagem total e X em Y nos últimos 30 dias), são retidos indefinidamente enquanto cada perfil estiver [ativo](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users).
+Todos os dados armazenados no **Perfil de usuário**, incluindo metadados de eventos personalizados (primeira ou última ocorrência, contagem total e X em Y nos últimos 30 dias), são retidos indefinidamente enquanto cada perfil estiver [ativo]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival#active-users).
 
 ## Filtros de segmentação {#segmentation-filters}
 
@@ -115,7 +115,7 @@ Na página **Relatório de eventos personalizados** no dashboard, você pode vis
 Você também pode usar **Filtros** para detalhar seus eventos personalizados por hora, média mensal de usuários ativos (MAU), segmentos ou fórmulas de KPI.
 
 {% alert tip %}
-[Incremente atributos personalizados](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/#integers) para manter um contador de uma ação do usuário semelhante a um evento personalizado. No entanto, você não pode visualizar dados de atributos personalizados em uma série temporal. Ações de usuários que não precisam ser analisadas em uma série temporal devem ser registradas usando este método.
+[Incremente atributos personalizados]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes#integers) para manter um contador de uma ação do usuário semelhante a um evento personalizado. No entanto, você não pode visualizar dados de atributos personalizados em uma série temporal. Ações de usuários que não precisam ser analisadas em uma série temporal devem ser registradas usando este método.
 {% endalert %}
 
 ### Por que a análise de dados de eventos personalizados não está aparecendo {#why-custom-events-analytics-arent-showing}
@@ -151,7 +151,7 @@ Os valores das propriedades podem ser qualquer um dos seguintes tipos de dados:
 
 Objetos de propriedades de eventos que contêm valores de array ou objeto podem ter uma carga útil de propriedade de evento de até 100&nbsp;KB.
 
-Você pode alterar o tipo de dados da sua propriedade de evento personalizado, mas esteja ciente dos impactos de [alterar tipos de dados](https://www.braze.com/docs/help/help_articles/data/change_custom_data_type/) após os dados terem sido coletados.
+Você pode alterar o tipo de dados da sua propriedade de evento personalizado, mas esteja ciente dos impactos de [alterar tipos de dados]({{site.baseurl}}/help/help_articles/data/change_custom_data_type) após os dados terem sido coletados.
 
 ### Usando propriedades de eventos personalizados {#using-custom-event-properties}
 
@@ -169,7 +169,7 @@ Propriedades de eventos personalizados aninhadas também são suportadas na [ent
 
 #### Personalizar mensagens {#personalize-messages}
 
-Você também pode usar propriedades de eventos personalizados para personalização dentro do modelo de mensagem. Qualquer Campaign que use [entrega baseada em ação][19] com um evento de gatilho pode usar propriedades de eventos personalizados desse evento para personalização de mensagens.
+Você também pode usar propriedades de eventos personalizados para personalização dentro do modelo de mensagem. Qualquer Campaign que use [entrega baseada em ação][19] com um evento-gatilho pode usar propriedades de eventos personalizados desse evento para personalização de mensagens.
 
 Por exemplo, se você tem um app de jogos e deseja enviar uma mensagem a usuários que completaram um nível, pode personalizar ainda mais sua mensagem com uma propriedade para o tempo que os usuários levaram para completar aquele nível. Neste exemplo, a mensagem é personalizada para três segmentos diferentes usando [lógica condicional][18]. A propriedade de evento personalizado chamada `time_spent` pode ser incluída na mensagem chamando ``{% raw %} {{event_properties.${time_spent}}} {% endraw %}``.
 
@@ -189,7 +189,7 @@ Well done, hero! Talk to villagers for tips on how to beat levels faster and unl
 Se o usuário não tiver conexão com a internet, mensagens no app disparadas com propriedades de eventos personalizados modeladas (por exemplo, {% raw %}``{{event_properties.${time_spent}}}``{% endraw %}) falharão e não serão exibidas.
 {% endalert %}
 
-Para uma lista completa de Liquid tags que farão com que mensagens no app sejam entregues como mensagens no app modeladas, consulte [Perguntas frequentes](https://www.braze.com/docs/user_guide/message_building_by_channel/in-app_messages/faq/#what-are-templated-in-app-messages/).
+Para uma lista completa de Liquid tags que farão com que mensagens no app sejam entregues como mensagens no app modeladas, consulte [Perguntas frequentes]({{site.baseurl}}/user_guide/message_building_by_channel/in-app_messages/faq/#what-are-templated-in-app-messages/).
 
 ##### Considerações com filtros {#considerations-with-filters}
 
@@ -204,7 +204,7 @@ As propriedades de eventos para eventos personalizados são atualizadas em tempo
 
 ##### Adicionando propriedades de eventos para segmentação {#adding-event-properties-for-segmentation}
 
-Você precisará das [permissões de usuário](https://www.braze.com/docs/user_guide/data/data_points/#viewing-data-point-usage) "Manage Custom Event Property Segmentation" para criar segmentos com base na recência e frequência de propriedades de eventos.
+Você precisará das [permissões de usuário]({{site.baseurl}}/user_guide/data/data_points#viewing-data-point-usage) "Manage Custom Event Property Segmentation" para criar segmentos com base na recência e frequência de propriedades de eventos.
 
 Por padrão, você pode ter 20 propriedades de eventos segmentáveis por espaço de trabalho. Entre em contato com o gerente de conta da Braze para aumentar esse limite.
 
@@ -232,12 +232,12 @@ Em relação ao uso de inscrição, as propriedades de eventos personalizados at
 
 ### Propriedades de entrada do Canvas e propriedades de eventos {#canvas-entry-properties-and-event-properties}
 
-Você pode usar `canvas_entry_properties` e `event_properties` nas jornadas de usuário do Canvas. Consulte [Propriedades de entrada do Canvas e propriedades de eventos](https://www.braze.com/docs/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties/) para mais informações e exemplos.
+Você pode usar `canvas_entry_properties` e `event_properties` nas jornadas de usuário do Canvas. Consulte [Propriedades de entrada do Canvas e propriedades de eventos]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/canvas_entry_properties_event_properties) para mais informações e exemplos.
 
 {% tabs local %}
 {% tab Propriedades de entrada do Canvas %}
 
-[Propriedades de entrada do Canvas](https://www.braze.com/docs/api/objects_filters/canvas_entry_properties_object/) são as propriedades que você mapeia para Canvas que são baseados em ação ou disparados por API. Note que o objeto `canvas_entry_properties` tem um limite máximo de tamanho de 50 KB.
+[Propriedades de entrada do Canvas]({{site.baseurl}}/api/objects_filters/canvas_entry_properties_object) são as propriedades que você mapeia para Canvas que são baseados em ação ou disparados por API. Note que o objeto `canvas_entry_properties` tem um limite máximo de tamanho de 50 KB.
 
 {% alert note %}
 Especificamente para canais de mensagens no app, `canvas_entry_properties` só pode ser referenciado no Canvas Flow e no editor original do Canvas se você tiver propriedades de entrada persistentes ativadas no editor original como parte do acesso antecipado anterior.
@@ -276,14 +276,14 @@ Para os Canvas criados com o editor original, `canvas_entry_properties` pode ser
 {% tab Propriedades de eventos %}
 
 {% alert important %}
-Você não pode usar `event_properties` na etapa de Mensagem principal. Em vez disso, você deve usar `canvas_entry_properties` ou adicionar uma etapa de Jornadas de ação com o evento correspondente **antes** da etapa de Mensagem que inclui `event_properties`.
+Você não pode usar `event_properties` na etapa de Mensagem principal. Em vez disso, você deve usar `canvas_entry_properties` ou adicionar uma etapa de jornadas de ação com o evento correspondente **antes** da etapa de Mensagem que inclui `event_properties`.
 {% endalert %}
 
 Propriedades de eventos referem-se às propriedades que você define para eventos personalizados e compras. Essas `event_properties` podem ser usadas em Campaigns com entrega baseada em ação e Canvas.
 
-No Canvas Flow, propriedades de eventos personalizados e de compra podem ser usadas em Liquid em qualquer etapa de Mensagem que segue uma etapa de Jornadas de ação. Certifique-se de usar {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} ao referenciar essas `event_properties`. Esses eventos devem ser eventos personalizados ou eventos de compra para serem usados dessa forma no componente de Mensagem.
+No Canvas Flow, propriedades de eventos personalizados e de compra podem ser usadas em Liquid em qualquer etapa de Mensagem que segue uma etapa de jornadas de ação. Certifique-se de usar {% raw %} ``{{event_properties.${property_name}}}``{% endraw %} ao referenciar essas `event_properties`. Esses eventos devem ser eventos personalizados ou eventos de compra para serem usados dessa forma no componente de Mensagem.
 
-Na primeira etapa de Mensagem após uma Jornada de ação, você pode usar `event_properties` relacionadas ao evento referenciado naquela Jornada de ação. Essas `event_properties` só podem ser usadas se o usuário realmente realizou a ação (e não foi para o grupo Restante do público). Você pode ter outras etapas (que não sejam outra etapa de Jornadas de ação ou Mensagem) entre essa Jornada de ação e a etapa de Mensagem.
+Na primeira etapa de Mensagem após uma jornada de ação, você pode usar `event_properties` relacionadas ao evento referenciado naquela jornada de ação. Essas `event_properties` só podem ser usadas se o usuário realmente realizou a ação (e não foi para o grupo Restante do público). Você pode ter outras etapas (que não sejam outra etapa de jornadas de ação ou Mensagem) entre essa jornada de ação e a etapa de Mensagem.
 
 {% details Expandir para o editor original do Canvas %}
 
@@ -300,7 +300,7 @@ Para o editor original do Canvas, `event_properties` não pode ser usado em etap
 
 Você pode usar objetos aninhados (objetos dentro de outro objeto) para enviar dados JSON aninhados como propriedades de eventos personalizados e compras. Esses dados aninhados podem ser usados para modelar informações personalizadas em mensagens, disparar envios de mensagens e segmentar usuários.
 
-Para saber mais, consulte nossa página dedicada sobre [Objetos aninhados](https://www.braze.com/docs/user_guide/data/custom_data/custom_events/nested_objects/).
+Para saber mais, consulte nossa página dedicada sobre [Objetos aninhados]({{site.baseurl}}/user_guide/data/custom_data/custom_events/nested_objects).
 
 ## Armazenamento de propriedades de eventos personalizados {#custom-event-property-storage}
 
@@ -308,8 +308,8 @@ As propriedades de eventos personalizados são projetadas para ajudá-lo a aumen
 
 Você pode segmentar com base nos valores das propriedades de eventos de duas formas:
 
-1. **Dentro de 30 dias:** A equipe de suporte da Braze pode ativar a segmentação por propriedade de evento com base na frequência e recência de valores específicos de propriedades de eventos dentro dos segmentos da Braze. Se você deseja aproveitar as propriedades de eventos dentro de segmentos, entre em contato com o executivo de conta ou gerente de sucesso do cliente da Braze. Esta opção impactará o uso de dados.<br><br>
-2. **Dentro e além de 30 dias:** Para cobrir tanto a segmentação de propriedades de eventos de curto quanto de longo prazo, você pode usar [Extensões de segmento](https://www.braze.com/docs/user_guide/engagement_tools/segments/segment_extension/). Este recurso segmenta usuários com base em eventos personalizados e propriedades de eventos rastreados nos últimos dois anos. Esta opção não impactará o uso de dados.
+1. **Dentro de 30 dias:** A equipe de suporte da Braze pode ativar a segmentação por propriedade de evento com base na frequência e recência de valores específicos de propriedades de eventos dentro dos Segments da Braze. Se você deseja aproveitar as propriedades de eventos dentro de segmentos, entre em contato com o executivo de conta ou gerente de sucesso do cliente da Braze. Esta opção impactará o uso de dados.<br><br>
+2. **Dentro e além de 30 dias:** Para cobrir tanto a segmentação de propriedades de eventos de curto quanto de longo prazo, você pode usar [extensões de segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension). Este recurso segmenta usuários com base em eventos personalizados e propriedades de eventos rastreados nos últimos dois anos. Esta opção não impactará o uso de dados.
 
 Entre em contato com o gerente de sucesso do cliente da Braze para recomendações sobre a melhor abordagem dependendo das suas necessidades específicas.
 
@@ -321,6 +321,6 @@ Entre em contato com o gerente de sucesso do cliente da Braze para recomendaçõ
 [6]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/schema_generation_example.png %}
 [8]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/custom_event_analytics_example.png %} "custom_event_analytics_example.png"
 [16]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/customEventProperties.png %} "customEventProperties.png"
-[18]: https://www.braze.com/docs/user_guide/personalization_and_dynamic_content/liquid/conditional_logic/
-[19]: https://www.braze.com/docs/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/
+[18]: {{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid/conditional_logic/
+[19]: {{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery/
 [20]: {% image_buster /assets/unlisted_docs/img/custom_events_entitlements/customEventPropertiesNested.png %} "customEventPropertiesNested.png"

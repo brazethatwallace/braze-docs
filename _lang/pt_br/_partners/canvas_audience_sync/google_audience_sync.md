@@ -98,7 +98,7 @@ Em qualquer Canvas em que esteja direcionando usuários finais do EEE, do Reino 
 ### Etapa 1: conecte a conta do Google {#step-1-connect-google-account}
 
 {% alert important %}
-Você deve ter a [permissão "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para conectar o Google Ads à sua conta Braze.
+Você deve ter a [permissão "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) para conectar o Google Ads à sua conta Braze.
 {% endalert %}
 
 Para começar, acesse **Integrações de Parceiros** > **Parceiros de Tecnologia** > **Google Ads** e selecione **Connect Google Ads**. Será exibido um modal para selecionar o e-mail associado à sua conta do Google Ads e, em seguida, conceder à Braze acesso à sua conta do Google Ads.
@@ -183,11 +183,11 @@ Complete o restante da sua jornada de usuário dentro do Canvas e depois lance! 
 
 Os usuários então avançarão para o próximo componente do Canvas, se houver um, ou sairão do Canvas se for a última etapa da jornada do usuário.
 
-## Considerações sobre sincronização de usuários e limite de taxa {#user-syncing-and-rate-limit-considerations}
+## Considerações sobre sincronização de usuários e limite de frequência {#user-syncing-and-rate-limit-considerations}
 
-À medida que os usuários alcançam o componente Audience Sync, a Braze os sincronizará quase em tempo real, respeitando os limites de taxa da API do Google Ads. Na prática, isso significa que a Braze tentará agrupar e processar o maior número possível de usuários a cada 5 segundos antes de enviá-los para o Google.
+À medida que os usuários alcançam o componente Audience Sync, a Braze os sincronizará quase em tempo real, respeitando os limites de frequência da API do Google Ads. Na prática, isso significa que a Braze tentará agrupar e processar o maior número possível de usuários a cada 5 segundos antes de enviá-los para o Google.
 
-Quando um cliente estiver perto de atingir o limite de taxa da API do Google Ads, o Google fornecerá feedback à Braze sobre as recomendações de novas tentativas. Se um cliente da Braze atingir seu limite de taxa, o Canvas tentará sincronizar novamente por até &#126;13 horas. Se a sincronização não for possível, esses usuários são listados na métrica de Usuários com Erro.
+Quando um cliente estiver perto de atingir o limite de frequência da API do Google Ads, o Google fornecerá feedback à Braze sobre as recomendações de novas tentativas. Se um cliente da Braze atingir seu limite de frequência, o Canvas tentará sincronizar novamente por até &#126;13 horas. Se a sincronização não for possível, esses usuários são listados na métrica de Usuários com Erro.
 
 ## Detalhes da análise de dados {#understanding-analytics}
 
@@ -217,6 +217,19 @@ Pode levar de 6 a 12 horas para um público ser sincronizado no Google.
 ### Sincronizei um público, então por que o tamanho do público no Google é zero? {#ive-synced-an-audience-so-why-is-the-audience-size-in-google-zero}
 
 Para fins de privacidade, o tamanho da lista de usuários mostrará zero até que a lista tenha pelo menos 1.000 membros. Depois disso, o tamanho será arredondado para os dois dígitos mais significativos.
+
+### Por que o tamanho do público correspondido no Google é menor do que o número de usuários sincronizados pela Braze? {#why-is-my-matched-audience-size-in-google-lower-than-the-number-of-users-synced-from-braze}
+
+Embora a Braze possa sincronizar um determinado número de usuários para o Google, o tamanho real do público correspondido que você vê no Google Ads pode ser significativamente menor. Isso ocorre porque o Google precisa corresponder os dados de usuário que você fornece (como endereços de e-mail ou números de telefone) com contas reais do Google em sua plataforma.
+
+Mesmo que seus perfis de usuário na Braze contenham campos de correspondência válidos, os usuários só aparecerão no seu público personalizado do Google se tiverem uma conta do Google com informações correspondentes.
+
+Para melhorar sua taxa de correspondência:
+- Confirme que você está [formatando seus dados corretamente](https://support.google.com/google-ads/answer/7659867).
+- Forneça vários identificadores quando possível (por exemplo, tanto e-mail quanto número de telefone).
+- Observe que pode levar de 48 a 72 horas para o Google processar e corresponder os usuários, embora em alguns casos possa levar vários dias.
+
+O tamanho final do público correspondido depende inteiramente do processo de correspondência do Google. A Braze não tem visibilidade sobre a correspondência do Google depois que os dados são enviados para a plataforma deles.
 
 ### Sincronizei um público no Google, mas meus anúncios não estão sendo exibidos. {#ive-synced-an-audience-into-google-but-my-ads-are-not-serving}
 

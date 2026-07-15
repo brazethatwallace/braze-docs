@@ -49,10 +49,10 @@ During your company's onboarding period, Braze will host technical overview sess
 ### Campaign planning
 
 Your CRM team will plan out the messaging use cases that you'll launch in the near future. This includes the:
-* [Channel]({{site.baseurl}}/user_guide/channels/) (for example, push notifications or in-app messages)
-* [Delivery method]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) (for example, scheduled delivery or action-based delivery)
-* [Target audience]({{site.baseurl}}/user_guide/audience/segments/)
-* [Success metrics]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)
+* [Channel]({{site.baseurl}}/user_guide/channels) (for example, push notifications or in-app messages)
+* [Delivery method]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) (for example, scheduled delivery or action-based delivery)
+* [Target audience]({{site.baseurl}}/user_guide/audience/segments)
+* [Success metrics]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)
 
 For example, a new customer campaign might be: an email sent daily at 10 am to a segment of customers who logged their first session yesterday. The conversion event (the success metric) is logging a session.
 
@@ -73,7 +73,7 @@ As a developer, you'll work with your team to define what additional, custom dat
 Keep data nomenclature consistent across tools. For example, your data warehouse may record "purchase limited time offer" in a particular way. You will need to decide if a custom event in Braze is needed to match this format.
 {% endalert %}
 
-Learn more about [automatically collected data and custom data]({{site.baseurl}}/developer_guide/analytics/).
+Learn more about [automatically collected data and custom data]({{site.baseurl}}/developer_guide/analytics).
 
 ### Customizations planning
 
@@ -87,9 +87,9 @@ Your team administrator should add you (and all other team members who need acce
 
 ### Workspaces and API keys
 
-Your team administrator will also create different [workspaces]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/). Workspaces group your data—users, segments, API keys—into one location. As a best practice, we suggest only putting different versions of the same or very similar apps together under one workspace. 
+Your team administrator will also create different [workspaces]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces). Workspaces group your data—users, segments, API keys—into one location. As a best practice, we suggest only putting different versions of the same or very similar apps together under one workspace. 
 
-Importantly, workspaces provide API keys for multiple platforms (such as iOS and Android). You'll use the correlated API keys to associate SDK data with a particular workspace. Navigate to your workspaces to access the API key for each of your apps. Make sure each API key has the correct permissions to perform the work you've scoped. See the [API provisioning article]({{site.baseurl}}/api/basics/#rest-api-key) for details.
+Importantly, workspaces provide API keys for multiple platforms (such as iOS and Android). You'll use the correlated API keys to associate SDK data with a particular workspace. Navigate to your workspaces to access the API key for each of your apps. Make sure each API key has the correct permissions to perform the work you've scoped. See the [API provisioning article]({{site.baseurl}}/api/basics#rest-api-key-permissions) for details.
 
 {% alert important %}
 It's important that you set up different environments for development and production. Setting up a test environment will prevent you from spending actual money during onboarding and QA. To create a testing environment, set up a testing workspace and be sure to use its API key so that you aren't populating your production workspace with test data.
@@ -111,14 +111,14 @@ You'll need developers who are familiar with:
 
 ### CDP integration partners
 
-Many customers use Braze onboarding as an opportunity to also integrate with a customer data platform (CDP) as an integration partner. Braze provides data tracking and analytics, while a CDP can provide additional data routing and orchestration. Braze offers seamless integration with many CDPs, such as [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle/) and [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment/). 
+Many customers use Braze onboarding as an opportunity to also integrate with a customer data platform (CDP) as an integration partner. Braze provides data tracking and analytics, while a CDP can provide additional data routing and orchestration. Braze offers seamless integration with many CDPs, such as [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle) and [Segment]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/segment/segment). 
 
 If you are performing side-by-side integration with a CDP, you will map the calls from your CDP's SDK to the Braze SDK. Essentially, you will:
 * Map identifying calls to `changeUser` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/change-user.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/changeuser(userid:sdkauthsignature:fileid:line:)/), [web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#changeuser)) and set attributes.
 * Map data flush calls to `requestImmediateDataFlush` ([Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/request-immediate-data-flush.html?query=abstract%20fun%20requestImmediateDataFlush()), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/requestimmediatedataflush()), [web](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestimmediatedataflush)).
 * Log custom events or purchases.
 
-Example integrations between the Braze SDK and your CDP of choice might be available, depending on which platform you've chosen. See our [list of CDP technology partners]({{site.baseurl}}/partners/data_and_analytics/) for more information. 
+Example integrations between the Braze SDK and your CDP of choice might be available, depending on which platform you've chosen. See our [list of CDP technology partners]({{site.baseurl}}/partners/data_and_analytics) for more information. 
 
 ### Braze SDK integration
 
@@ -129,7 +129,7 @@ When fully integrated with your app or site, the Braze SDK offers a completely-r
 {% endalert %}
 
 {% alert note %}
-To add an additional layer of security, you can enable [SDK Authentication]({{site.baseurl}}/developer_guide/sdk_integration/authentication/) to prevent unauthorized SDK requests. This feature is available across all major platforms including Web, iOS, Android, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin), and Expo.
+To add an additional layer of security, you can enable [SDK Authentication]({{site.baseurl}}/developer_guide/sdk_integration/authentication) to prevent unauthorized SDK requests. This feature is available across all major platforms including Web, iOS, Android, React Native, Flutter, Unity, Cordova, .NET MAUI (Xamarin), and Expo.
 {% endalert %}
 
 During SDK implementation, you will:
@@ -155,29 +155,29 @@ While using the API, ensure you batch your requests and only send delta values. 
 
 Braze is all about data. Data in Braze is stored on the user profile. 
 
-Data points are a structure by which you ensure you're capturing the right data for your marketers, not just "any" data you can possibly vacuum up. Familiarize yourself with [data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points/).
+Data points are a structure by which you ensure you're capturing the right data for your marketers, not just "any" data you can possibly vacuum up. Familiarize yourself with [data points]({{site.baseurl}}/user_guide/data/infrastructure/data_points).
 
 ### Migrating legacy user data
 
-You can use the Braze [`/users/track endpoint`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) to migrate historical data that was recorded outside of Braze. Examples of commonly imported data include push tokens and past purchases. This endpoint can be used for one-off imports or regular batch updates. 
+You can use the Braze [`/users/track endpoint`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to migrate historical data that was recorded outside of Braze. Examples of commonly imported data include push tokens and past purchases. This endpoint can be used for one-off imports or regular batch updates. 
 
 You can also import users and update customer attribute values through a one-time [CSV upload]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_import#importing-a-csv) to the dashboard. Uploading CSVs can be helpful for marketers, while our REST API allows for greater flexibility.
 
 ### Setting up session tracking
 
-The Braze SDK generates "open session" and "close session" data points. The Braze SDK also flushes data at regular intervals. Refer to these links for session tracking default values, all of which can be customized ([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web)).
+The Braze SDK generates "open session" and "close session" data points. The Braze SDK also flushes data at regular intervals. Refer to these links for session tracking default values, all of which can be customized ([Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android), [iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)).
 
 ### Tracking custom events, attributes, and purchase events
 
-Coordinate with your team to set up your planned data schema, including custom events, user attributes, and purchase events. Your [custom data scheme]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) will be entered using the dashboard and must match exactly what you implement during SDK integration.
+Coordinate with your team to set up your planned data schema, including custom events, user attributes, and purchase events. Your [custom data scheme]({{site.baseurl}}/user_guide/data/activation/events/custom_events) will be entered using the dashboard and must match exactly what you implement during SDK integration.
 
 {% alert tip %}
-User IDs, called `external_id`s in Braze, should be set for all known users. These should be unchanging and accessible when a user opens the app, allowing you to track your users across devices and platforms. See the [User lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/) article for best practices.
+User IDs, called `external_id`s in Braze, should be set for all known users. These should be unchanging and accessible when a user opens the app, allowing you to track your users across devices and platforms. See the [User lifecycle]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle) article for best practices.
 {% endalert %}
 
 ### Other tools
 
-Based on your use case, there may be other tools you need to set up. For example, you might need to configure a tool like [geofences]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences/) to realize your user stories. We have found that customers who have the ability to set up these additional tools after completing the essential integration steps are most successful.
+Based on your use case, there may be other tools you need to set up. For example, you might need to configure a tool like [geofences]({{site.baseurl}}/user_guide/engagement_tools/locations_and_geofences#about-locations-and-geofences) to realize your user stories. We have found that customers who have the ability to set up these additional tools after completing the essential integration steps are most successful.
 
 ## Quality assurance {#qa}
 As you execute your integration, you'll provide quality assurance to make sure everything you're setting up is working as expected. This QA falls into two general categories: data ingestion and message channels.
@@ -210,7 +210,7 @@ While performing QA on your SDK integration, use the [SDK Debugger]({{site.baseu
 Once you have integrated your platform or site, you will want to involve your Marketing team to pass ownership of the platform to them. This process looks different at every company, but might include the following:
 
 * Composing complex [Liquid logic]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/liquid#about-liquid)
-* Help facilitating [email IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)
+* Help facilitating [email IP warming]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)
 * Making sure other stakeholders understand the kind of data being tracked
 
 ### Develop for the future

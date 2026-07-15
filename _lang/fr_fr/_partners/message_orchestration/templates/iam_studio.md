@@ -16,16 +16,16 @@ _Cette intégration est maintenue par IAM Studio._
 
 ## À propos de l'intégration {#about-the-integration}
 
-L'intégration de Braze et d'IAM Studio vous permet d'insérer facilement des modèles de messages in-app personnalisables dans vos messages in-app Braze, offrant le remplacement d'images, la modification de texte, la définition de paramètres de lien profond, d'attributs personnalisés et de paramètres d'événement. En utilisant IAM Studio, vous pouvez réduire le temps de production de messages et consacrer plus de temps à la planification du contenu.
+L'intégration de Braze et d'IAM Studio vous permet d'insérer facilement des modèles de messages in-app personnalisables dans vos messages in-app Braze, offrant le remplacement d'images, la modification de texte, la définition de paramètres de deep link, d'attributs personnalisés et de paramètres d'événement. En utilisant IAM Studio, vous pouvez réduire le temps de production de messages et consacrer plus de temps à la planification du contenu.
 
 ## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
 | Compte IAM Studio | Un [compte IAM Studio](https://www.inappmessage.com/register) est requis pour profiter de ce partenariat. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 - Encourager l'achat de biens
 - Collecte d'informations utilisateur
@@ -52,7 +52,7 @@ Tout d'abord, personnalisez l'image, le texte et le bouton de votre contenu. Ass
 ![L'interface utilisateur d'IAM Studio montrant les options pour personnaliser le titre et le sous-titre de votre message. Ces options incluent le texte, la mise en forme et la police.]({% image_buster /assets/img/iam_studio/iam_customize_text.png %})
 {% endtab %}
 {% tab Bouton %}
-![L'interface utilisateur d'IAM Studio montrant les options pour personnaliser le bouton principal, gauche et droit. Ces options incluent la couleur, le lien profond, le texte et la mise en forme.]({% image_buster /assets/img/iam_studio/iam_customize_button.png %})
+![L'interface utilisateur d'IAM Studio montrant les options pour personnaliser le bouton principal, gauche et droit. Ces options incluent la couleur, le deep link, le texte et la mise en forme.]({% image_buster /assets/img/iam_studio/iam_customize_button.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -74,10 +74,10 @@ Ensuite, créez votre message in-app personnalisé en ajoutant des polices perso
 
 Une fois toutes les modifications terminées, exportez le modèle en cliquant sur **Export**. Après l'exportation, le code HTML du message in-app sera généré. Copiez ce code en cliquant sur le bouton **Copy code**.
 
-![]({% image_buster /assets/img/iam_studio/export_iam_code.png %}){: style="max-width:45%;"}
+![Boîte de dialogue d'exportation IAM Studio avec le code HTML du message in-app généré et l'action de copie du code.]({% image_buster /assets/img/iam_studio/export_iam_code.png %}){: style="max-width:45%;"}
 
 ### Étape 4 : Utiliser le code dans Braze {#step-4-use-code-in-braze}
 
 Accédez à Braze, et dans votre message in-app, collez le code personnalisé dans la zone **HTML Input**. Assurez-vous de tester votre message pour vérifier qu'il s'affiche correctement.
 
-![]({% image_buster /assets/img/iam_studio/braze_campaign_editor.png %}){: style="max-width:85%;"}
+![Éditeur de Campaign de message in-app Braze avec le code HTML d'IAM Studio collé dans la zone HTML Input.]({% image_buster /assets/img/iam_studio/braze_campaign_editor.png %}){: style="max-width:85%;"}

@@ -132,4 +132,4 @@ Você pode criar um agente de fidelidade e engajamento para maximizar compras de
 
 ## Próximas etapas {#next-steps}
 
-Pronto para criar seu próprio agente de decisão? Consulte [Primeiros passos com o Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started/) para um guia que orienta você na conexão de fontes de dados, configuração da orquestração, design do seu agente e lançamento em produção.
+Pronto para criar seu próprio agente de decisão? Consulte [Primeiros passos com o Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/get_started) para um guia que orienta você na conexão de fontes de dados, configuração da orquestração, design do seu agente e lançamento em produção.

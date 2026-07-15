@@ -19,7 +19,7 @@ guide_featured_list:
     link: /docs/user_guide/channels/email/reporting
     image: /assets/img/braze_icons/mail-01.svg
   - name: 기능 플래그
-    link: /docs/developer_guide/feature_flags/experiments/
+    link: /docs/developer_guide/feature_flags/experiments
     image: /assets/img/braze_icons/flag-06.svg
   - name: 인앱 메시지
     link: /docs/user_guide/channels/in_app_messages/reporting
@@ -28,7 +28,7 @@ guide_featured_list:
     link: /docs/user_guide/channels/push/reporting
     image: /assets/img/braze_icons/phone-01.svg
   - name: SMS
-    link: /docs/sms_mms_rcs_reporting/
+    link: /docs/sms_mms_rcs_reporting
     image: /assets/img/braze_icons/phone-02.svg
   - name: 웹훅
     link: /docs/user_guide/channels/webhooks/reporting

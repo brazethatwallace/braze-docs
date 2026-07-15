@@ -21,7 +21,7 @@ RFM 분석은 각 카테고리(최근성, 빈도, 금액)에 대해 0~3 점수�
 | 최근성(Recency) | 고객이 얼마나 최근에 구매했는지를 나타냅니다. 점수가 높을수록 최근 구매를 의미합니다. |
 | 빈도(Frequency) | 고객이 얼마나 자주 구매했는지를 나타냅니다. 점수가 높을수록 높은 빈도를 의미합니다. |
 | 금액(Monetary) | 고객이 지출한 총 금액입니다. 점수가 높을수록 높은 지출을 의미합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="RFM categories" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="RFM 카테고리" }
 
 {% alert note %}
 RFM SQL 세그먼트를 사용하려면 구매 이벤트가 활성화되어 있어야 합니다. 사용자의 금액 값은 Braze 구매 이벤트를 통해 발생한 매출로 결정되기 때문입니다.
@@ -32,7 +32,7 @@ RFM SQL 세그먼트를 사용하려면 구매 이벤트가 활성화되어 있�
 1. **오디언스** > **세그먼트 확장**으로 이동합니다.
 2. **새 확장**을 선택한 다음 **최근성, 빈도, 금액(RFM) 세그먼트**를 선택합니다.
 
-![카탈로그 세그먼트, 이벤트, 구매 또는 RFM 세그먼트를 생성할 수 있는 옵션이 있는 모달.]({% image_buster /assets/img/segment/select_rfm_segment.png %}){: style="max-width:80%" }
+![카탈로그 세그먼트, 이벤트, 구매 또는 RFM 세그먼트를 생성할 수 있는 옵션이 있는 Modal.]({% image_buster /assets/img/segment/select_rfm_segment.png %}){: style="max-width:80%" }
 
 {: start="3"}
 3. **변수** 패널에서 **기간**을 선택하여 분석할 구매 데이터의 기간을 지정합니다. 최대 지난 60일까지 지정할 수 있습니다. 선택한 기간은 사용자 행동 데이터를 가져오는 기간이며, Campaign 목표에 따라 달라집니다.
@@ -43,12 +43,12 @@ RFM SQL 세그먼트를 사용하려면 구매 이벤트가 활성화되어 있�
 | 시작 날짜 | 분석의 고정 시작 지점을 지정합니다 | Campaign 시작 이후 등 특정 날짜부터 사용자 활동을 분석합니다. |
 | 종료 날짜 | 분석의 고정 종료 지점을 지정합니다 | 제품 업데이트 이전 등 특정 날짜까지의 사용자 활동을 분석합니다. |
 | 날짜 범위 | 커스텀 기간의 시작 날짜와 종료 날짜를 모두 지정합니다 | 프로모션 이벤트 등 정의된 기간 동안의 사용자 행동을 분석합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Creating an RFM segment" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="RFM 세그먼트 생성" }
 
 {: start="4"}
 4. 세그먼트에 포함할 생성된 [RFM 그룹](#rfm-groups)을 선택합니다. 여러 그룹을 선택하면 선택한 그룹 중 하나에 속하는 사용자가 세그먼트에 포함됩니다.
 
-![「Champions」와 「Loyal Users」 RFM 그룹이 선택된 변수 패널.]({% image_buster /assets/img/segment/rfm_groups.png %})
+![Champions와 Loyal Users RFM 그룹이 선택된 변수 패널.]({% image_buster /assets/img/segment/rfm_groups.png %})
 
 {: start="5"}
 5. 미리보기를 실행한 다음 세그먼트를 저장합니다.
@@ -59,7 +59,7 @@ RFM 세그먼트를 생성하기 위해 템플릿의 SQL 코드를 편집할 필
 
 ### RFM 그룹 {#rfm-groups}
 
-RFM 세그먼트는 특정 순서로 평가됩니다. 사용자는 우선순위 목록의 위에서부터 기준을 충족하는 첫 번째 세그먼트에 할당됩니다. 예를 들어, 「Champions」와 「Loyal Users」 모두에 해당하는 사용자는 우선순위가 더 높은 「Champions」 세그먼트에 할당됩니다.
+RFM 세그먼트는 특정 순서로 평가됩니다. 사용자는 우선순위 목록의 위에서부터 기준을 충족하는 첫 번째 세그먼트에 할당됩니다. 예를 들어, Champions와 Loyal Users 모두에 해당하는 사용자는 우선순위가 더 높은 Champions 세그먼트에 할당됩니다.
 
 | RFM 그룹 | 세그먼트 설명 | 최근성(R) 순위 | 빈도(F) 순위 | 금액(M) 순위 |
 |--------------------|-------------------------------------------------------------------------------------|------------------|--------------------|-------------------|
@@ -73,4 +73,4 @@ RFM 세그먼트는 특정 순서로 평가됩니다. 사용자는 우선순위 
 | At Risk | 과거에 중간 수준의 빈도와 금액 점수를 가졌지만 오랫동안 구매하지 않은 사용자입니다. | 0-1 | 1-3 | 1-3 |
 | About to Sleep | 모든 측정기준에서 낮은 점수를 가진 사용자입니다. | 1 | 0-3 | 0-3 |
 | Hibernating | 중간 수준의 빈도를 가지고 있지만 장기간 비활성 상태인 사용자입니다. | 0 | 0-2 | 0-3 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="RFM groups" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="RFM 그룹" }

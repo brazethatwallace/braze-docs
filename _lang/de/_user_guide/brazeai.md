@@ -57,11 +57,11 @@ guide_featured_list:
 
 | Ihr Ziel | Empfohlenes Feature |
 | --- | --- |
-| Nachrichtentexte pro Nutzer:in anhand ihres Kontexts personalisieren | Braze Agents (Canvas oder Katalog); für einmalige Textentwürfe: Generative KI |
-| Optimieren, welcher Nachrichteninhalt (z. B. Betreff, CTA) im Zeitverlauf am besten performt | Content Optimizer (E-Mail, Push-Benachrichtigungen oder SMS/MMS/RCS) oder Gewinnervariante |
-| Eine Geschäftsmetrik (Umsatz, Conversions) mit 1:1-Entscheidungen über Angebote, Kanäle und Timing maximieren | Decisioning Studio |
-| Nutzer:innen finden, die wahrscheinlich churnen oder ein Ereignis ausführen werden | Predictive Churn oder Predictive Events |
-| Bestimmte Produkte aus einem Katalog in Nachrichten empfehlen | Artikelempfehlungen |
-| Zum besten Zeitpunkt oder über den besten Kanal pro Nutzer:in senden | Intelligentes Timing, intelligenter Kanal |
-| Texte und Kreativinhalte direkt im Dashboard erstellen oder verfeinern | Generative KI (Texterstellung, Bilder, QA), Operator für Unterstützung |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Nachrichtentexte pro Nutzer:in anhand ihres Kontexts personalisieren | [Braze Agents]({{site.baseurl}}/user_guide/brazeai/agents) ([Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) oder [Katalog]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents)); für einmalige Textentwürfe: [Generative KI]({{site.baseurl}}/user_guide/brazeai/generative_ai) |
+| Optimieren, welcher Nachrichteninhalt (z. B. Betreff, CTA) im Zeitverlauf am besten performt | [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) (E-Mail, Push-Benachrichtigungen oder SMS/MMS/RCS) oder [Gewinnervariante]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations) |
+| Eine Geschäftsmetrik (Umsatz, Conversions) mit 1:1-Entscheidungen über Angebote, Kanäle und Timing maximieren | [Decisioning Studio]({{site.baseurl}}/user_guide/brazeai/decisioning_studio) |
+| Nutzer:innen finden, die wahrscheinlich churnen oder ein Ereignis ausführen werden | [Predictive Churn]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn) oder [Predictive Events]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events) |
+| Bestimmte Produkte aus einem Katalog in Nachrichten empfehlen | [Artikelempfehlungen]({{site.baseurl}}/user_guide/brazeai/item_recommendations) |
+| Zum besten Zeitpunkt oder über den besten Kanal pro Nutzer:in senden | [Intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), [Intelligenter Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) |
+| Texte und Kreativinhalte direkt im Dashboard erstellen oder verfeinern | [Operator]({{site.baseurl}}/user_guide/brazeai/operator) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Feature-Übersicht" }

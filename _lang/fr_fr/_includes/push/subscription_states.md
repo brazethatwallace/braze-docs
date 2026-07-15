@@ -23,7 +23,7 @@ Braze ne change pas automatiquement le statut d'abonnement aux notifications pus
 
 ### Enregistrement push et utilisateurs pouvant être atteints {#push-registration-and-reachable-users}
 
-L'état d'abonnement push reflète la préférence d'un utilisateur, mais le fait qu'il soit compté comme **pouvant être atteint** pour les notifications push dans le tableau de bord dépend également de l'[enregistrement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle/), c'est-à-dire de la présence d'un jeton de notification push en avant-plan valide sur son profil. Pour savoir comment Braze calcule les comptages au niveau des canaux, consultez [Mesurer la taille d'un Segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size/).
+L'état d'abonnement push reflète la préférence d'un utilisateur, mais le fait qu'il soit compté comme **pouvant être atteint** pour les notifications push dans le tableau de bord dépend également de l'[enregistrement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle), c'est-à-dire de la présence d'un jeton de notification push en avant-plan valide sur son profil. Pour savoir comment Braze calcule les comptages au niveau des canaux, consultez [Mesurer la taille d'un Segment]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size).
 
 - **Campaigns push et Canvas :** Les utilisateurs qui ne sont pas enregistrés pour les notifications push ne sont pas inclus dans les **Utilisateurs pouvant être atteints** pour les notifications push Android ou iOS dans les statistiques d'audience, même si leur état d'abonnement push est `Subscribed` ou `Opted-In`.
 - **Autres canaux :** Ces mêmes utilisateurs peuvent toujours être comptés comme pouvant être atteints pour d'autres canaux auxquels ils sont éligibles (par exemple, les e-mails ou les messages in-app).
@@ -31,7 +31,7 @@ L'état d'abonnement push reflète la préférence d'un utilisateur, mais le fai
 
 Un profil utilisateur peut afficher un état d'abonnement push `Subscribed` alors qu'aucun jeton de notification push n'est attribué. Ces utilisateurs ne sont toujours pas comptabilisés dans les **Utilisateurs pouvant être atteints** pour les notifications push Android ou iOS tant que Braze n'a pas enregistré un jeton valide.
 
-Pour les définitions des filtres, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/).
+Pour les définitions des filtres, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 
 ### Mise à jour des états d'abonnement aux notifications push {#update-push-subscription-state}
 
@@ -70,7 +70,7 @@ Vous pouvez mettre à jour l'état d'abonnement d'un utilisateur avec le SDK de 
 
 #### REST API
 
-Vous pouvez mettre à jour l'état d'abonnement d'un utilisateur avec la REST API de Braze en utilisant l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) pour mettre à jour l'attribut [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object/).
+Vous pouvez mettre à jour l'état d'abonnement d'un utilisateur avec la REST API de Braze en utilisant l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour mettre à jour l'attribut [`push_subscribe`]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 ### Différences entre l'activation push et l'état d'abonnement push {#differences-between-push-enablement-and-push-subscription-status}
 
@@ -78,11 +78,11 @@ L'activation push indique si un utilisateur a accordé l'autorisation au niveau 
 
 Lorsque l'abonnement automatique est activé (comportement par défaut), Braze met à jour l'état d'abonnement push d'un utilisateur à `Opted-In` lorsqu'il autorise les notifications push pour votre application ou réactive les autorisations dans les paramètres de son système (par exemple, sur iOS, Android 13+ et les navigateurs web pris en charge). Dans le cas contraire, l'état d'abonnement push de l'utilisateur reste `Subscribed` jusqu'à ce que vous le modifiiez explicitement à l'aide d'une méthode SDK ou d'un appel à la REST API.
 
-Braze ne change pas automatiquement l'état d'abonnement push d'un utilisateur à `Unsubscribed` lorsqu'il désactive les notifications au niveau du système d'exploitation, du navigateur ou de l'application. Pour mettre à jour l'état d'abonnement push d'un utilisateur, vous devez le modifier dans Braze. Par exemple, si un utilisateur désactive les notifications push depuis un centre de préférences in-app, mettez à jour l'état d'abonnement push à `Unsubscribed` dans Braze. Braze ne met pas à jour les profils utilisateurs en fonction de votre centre de préférences. Pour aligner les états d'abonnement avec les préférences in-app d'un utilisateur, appelez les méthodes appropriées à l'aide du [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration) (iOS ou Android) ou de la [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api).
+Braze ne change pas automatiquement l'état d'abonnement push d'un utilisateur à `Unsubscribed` lorsqu'il désactive les notifications au niveau du système d'exploitation, du navigateur ou de l'application. Pour mettre à jour l'état d'abonnement push d'un utilisateur, vous devez le modifier dans Braze. Par exemple, si un utilisateur désactive les notifications push depuis un centre de préférences in-app, mettez à jour l'état d'abonnement push à `Unsubscribed` dans Braze. Braze ne met pas à jour les profils utilisateurs en fonction de votre centre de préférences. Pour aligner les états d'abonnement avec les préférences in-app d'un utilisateur, appelez les méthodes appropriées à l'aide du [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#sdk-integration) (iOS ou Android) ou de la [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#rest-api).
 
 ### Jetons de notification push importés (iOS) {#imported-push-tokens-ios}
 
-Lorsque vous [importez des jetons de notification push iOS]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#push-token-import) avec `push_token_import`, l'état d'abonnement push de l'utilisateur est généralement **`Subscribed`** jusqu'à ce qu'il enregistre une session dans votre application intégrée à Braze. Après la première session, Braze peut mettre à jour l'état à **`Opted-In`** si l'[abonnement automatique](#automatic-opt-in-default) s'applique (par exemple, lorsque l'utilisateur autorise les notifications push sur iOS et que `optInWhenPushAuthorized` est activé).
+Lorsque vous [importez des jetons de notification push iOS]({{site.baseurl}}/api/endpoints/user_data/post_user_track#push-token-import) avec `push_token_import`, l'état d'abonnement push de l'utilisateur est généralement **`Subscribed`** jusqu'à ce qu'il enregistre une session dans votre application intégrée à Braze. Après la première session, Braze peut mettre à jour l'état à **`Opted-In`** si l'[abonnement automatique](#automatic-opt-in-default) s'applique (par exemple, lorsque l'utilisateur autorise les notifications push sur iOS et que `optInWhenPushAuthorized` est activé).
 
 Vérifiez les **paramètres de contact** sur le profil de l'utilisateur après l'importation, puis à nouveau après la première session in-app de l'utilisateur, pour confirmer l'état attendu.
 
@@ -92,5 +92,5 @@ Vérifiez les **paramètres de contact** sur le profil de l'utilisateur après l
 
 Vous pouvez vérifier l'état d'abonnement push d'un utilisateur avec Braze de l'une des manières suivantes :
 
-* **Profil utilisateur :** Vous pouvez accéder aux profils utilisateurs individuels via le tableau de bord de Braze sur la page **[Recherche d'utilisateurs]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles/)**. Après avoir trouvé le profil d'un utilisateur (via l'adresse e-mail, le numéro de téléphone ou l'ID utilisateur externe), vous pouvez sélectionner l'onglet **Engagement** pour afficher et ajuster manuellement l'état d'abonnement d'un utilisateur.
-* **Exportation via la REST API :** Vous pouvez exporter des profils utilisateurs individuels au format JSON à l'aide des endpoints d'exportation [Utilisateurs par Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/) ou [Utilisateurs par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/). Braze renvoie un objet de jetons de notification push contenant les informations d'activation push par appareil.
+* **Profil utilisateur :** Vous pouvez accéder aux profils utilisateurs individuels via le tableau de bord de Braze sur la page **[Recherche d'utilisateurs]({{site.baseurl}}/user_guide/engagement_tools/segments/user_profiles)**. Après avoir trouvé le profil d'un utilisateur (via l'adresse e-mail, le numéro de téléphone ou l'ID utilisateur externe), vous pouvez sélectionner l'onglet **Engagement** pour afficher et ajuster manuellement l'état d'abonnement d'un utilisateur.
+* **Exportation via la REST API :** Vous pouvez exporter des profils utilisateurs individuels au format JSON à l'aide des endpoints d'exportation [Utilisateurs par Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment) ou [Utilisateurs par identifiant]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier). Braze renvoie un objet de jetons de notification push contenant les informations d'activation push par appareil.

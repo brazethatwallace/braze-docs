@@ -1,10 +1,10 @@
 ---
-nav_title: A/B テスト
-article_title: "AB テスト"
+nav_title: AB テスト
+article_title: AB テスト
 page_order: 6
 layout: dev_guide
 guide_top_header: "AB テスト"
-guide_top_text: "実験を行ってメッセージングを最適化しましょう。ABテストでは、同じキャンペーンの複数のバージョンに対するユーザーの応答を比較します。多変量テストでは、これを2つ以上の変数に拡張します。Brazeでは、セットアッププロセスが同じであるため、これらの用語は同じ意味で使用されます。ABテストと<a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>インテリジェントセレクション</a>を組み合わせて、結果を自動的に最適化しましょう。"
+guide_top_text: "実験を行ってメッセージングを最適化しましょう。ABテストでは、同じCampaignの複数のバージョンに対するユーザーの応答を比較します。多変量テストでは、これを2つ以上の変数に拡張します。Brazeでは、セットアッププロセスが同じであるため、これらの用語は同じ意味で使用されます。ABテストと<a href='/docs/user_guide/brazeai/intelligence_suite/intelligent_selection'>インテリジェントセレクション</a> を組み合わせて、結果を自動的に最適化しましょう。"
 
 page_type: landing
 description: "BrazeでABテストと多変量実験をセットアップし、分析します。"
@@ -42,4 +42,4 @@ guide_featured_list:
 - **何をテストしているかを把握しましょう。** 単一の変更を分離することで、どの要素が最も大きな影響を与えたかを特定できます。複数の違いをテストすることで、より広範なアプローチを比較できます。
 - **テスト期間を事前に設定し**、初期の結果が有望に見えても、テストを早期に終了しないでください。
 - **起動前にテストを追加しましょう。** 実行中のキャンペーンにテストを追加すると、不正確な結果が生じます。キャンペーンを複製し、元のキャンペーンを停止してから、複製にテストを追加してください。
-- **[コントロールグループ]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests/#including-a-control-group)を含めて**、メッセージを送信しない場合と比較した影響を測定しましょう。
+- **[コントロールグループ]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#including-a-control-group)を含めて**、メッセージを送信しない場合と比較した影響を測定しましょう。

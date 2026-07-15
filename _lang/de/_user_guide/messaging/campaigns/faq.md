@@ -12,17 +12,17 @@ tool: Campaigns
 
 > Dieser Artikel enthält Antworten auf einige häufig gestellte Fragen zu Campaigns.
 
-### Wie erstelle ich eine Multichannel-Kampagne? {#how-do-i-create-a-multichannel-campaign}
+## Wie erstelle ich eine Multichannel-Kampagne? {#how-do-i-create-a-multichannel-campaign}
 
-Informationen zu den Einrichtungsschritten und unterstützten Kanälen finden Sie unter [Multichannel-Kampagnen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns) in **Campaign erstellen**.
+Informationen zu den Einrichtungsschritten und unterstützten Kanälen finden Sie unter [Multichannel-Kampagnen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) in **Campaign erstellen**.
 
 ### Kann ich meiner Multichannel-Kampagne eine Kontrollgruppe hinzufügen? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-Informationen dazu finden Sie unter [Kontrollgruppen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups) in **Campaign erstellen**. Für kanalübergreifende Tests verwenden Sie [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/).
+Informationen dazu finden Sie unter [Kontrollgruppen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-control-groups) in **Campaign erstellen**. Für kanalübergreifende Tests verwenden Sie [Canvas]({{site.baseurl}}/user_guide/messaging/canvas).
 
 ### Welche Möglichkeiten gibt es, Campaigns zu testen und zu optimieren? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
-Multivariate Campaigns und Canvases mit mehreren Varianten sind ein guter Ausgangspunkt! Sie können beispielsweise eine [multivariate Campaign]({{site.baseurl}}/user_guide/messaging/ab_testing/) durchführen, um eine Nachricht mit verschiedenen Texten oder Betreffzeilen zu testen. Canvases mit mehreren Varianten können helfen, ganze Workflows zu testen.
+Multivariate Campaigns und Canvases mit mehreren Varianten sind ein guter Ausgangspunkt! Sie können beispielsweise eine [multivariate Campaign]({{site.baseurl}}/user_guide/messaging/ab_testing) durchführen, um eine Nachricht mit verschiedenen Texten oder Betreffzeilen zu testen. Canvases mit mehreren Varianten können helfen, ganze Workflows zu testen.
 
 ### Warum ist die Öffnungsrate meiner Campaign gesunken? {#why-did-the-open-rate-for-my-campaign-decrease}
 
@@ -48,11 +48,11 @@ Dasselbe Muster gilt für wiederkehrende Campaigns und die erneute Berechtigung:
 
 ### Warum kann die Anzahl der Conversions die Anzahl der eindeutigen Nutzer:innen bei Multichannel-Campaigns übersteigen? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-Informationen dazu finden Sie unter [Conversions und Berichterstattung]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions) in **Campaign erstellen** und [Conversion-Tracking-Regeln]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules) in **Konversions-Events**.
+Informationen dazu finden Sie unter [Conversions und Berichterstattung]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-conversions) in **Campaign erstellen** und [Conversion-Tracking-Regeln]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules) in **Konversions-Events**.
 
 ### Warum hat meine Campaign eine kleinere erreichbare Nutzerbasis als das Segment, das ich für die Campaign verwende? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
-Wenn Sie eine [Globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group/) eingerichtet haben, verhindert diese, dass ein Prozentsatz Ihrer erreichbaren Zielgruppe Campaigns erhält. Das bedeutet, dass die Anzahl der erreichbaren Nutzer:innen für Ihr Segment manchmal größer sein kann als die Anzahl der erreichbaren Nutzer:innen für Ihre Campaign, selbst wenn die Campaign dasselbe Segment verwendet.
+Wenn Sie eine [globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) eingerichtet haben, verhindert diese, dass ein Prozentsatz Ihrer erreichbaren Zielgruppe Campaigns erhält. Das bedeutet, dass die Anzahl der erreichbaren Nutzer:innen für Ihr Segment manchmal größer sein kann als die Anzahl der erreichbaren Nutzer:innen für Ihre Campaign, selbst wenn die Campaign dasselbe Segment verwendet.
 
 ### Was bietet die Zustellung nach Ortszeit? {#what-does-local-time-zone-delivery-offer}
 
@@ -64,7 +64,7 @@ Beispielsweise würde ein in London ansässiges Unternehmen, das eine Campaign u
 
 Braze ermittelt die Zeitzone automatisch anhand des Geräts. Dies gewährleistet Zeitzonen-Genauigkeit und vollständige Abdeckung Ihrer Nutzer:innen. Nutzer:innen, die über die User API oder anderweitig ohne Zeitzone erstellt wurden, haben die Zeitzone Ihres Unternehmens als Standard-Zeitzone, bis sie in Ihrer App durch das SDK erkannt werden.
 
-Sie können die Zeitzone Ihres Unternehmens in Ihren [Unternehmenseinstellungen]({{site.baseurl}}/user_guide/administer/global/admin_settings/) im Dashboard überprüfen.
+Sie können die Zeitzone Ihres Unternehmens in Ihren [Unternehmenseinstellungen]({{site.baseurl}}/user_guide/administer/global/admin_settings) im Dashboard überprüfen.
 
 ### Wann wertet Braze Nutzer:innen für die Zustellung nach Ortszeit aus? {#when-does-braze-evaluate-users-for-local-time-zone-delivery}
 
@@ -162,11 +162,15 @@ Um dies zu vermeiden, stellen Sie sicher, dass Ihre Updates angepasster Attribut
 
 ### Warum stimmt die Anzahl der Nutzer:innen, die in eine Campaign eintreten, nicht mit der erwarteten Anzahl überein? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-Die Anzahl der Nutzer:innen, die in eine Campaign eintreten, kann von Ihrer erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (es sei denn, es wird ein [Änderung eines Attributs]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value)-Trigger verwendet). Dies führt dazu, dass Nutzer:innen aus der Campaign herausfallen, wenn sie nicht zunächst Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
+Die Anzahl der Nutzer:innen, die in eine Campaign eintreten, kann von Ihrer erwarteten Anzahl abweichen, da Zielgruppen und Trigger unterschiedlich ausgewertet werden. In Braze wird eine Zielgruppe vor dem Trigger ausgewertet (es sei denn, es wird ein Trigger vom Typ [Änderung eines Attributs]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value) verwendet). Dies führt dazu, dass Nutzer:innen aus der Campaign herausfallen, wenn sie nicht zunächst Teil Ihrer ausgewählten Zielgruppe sind, bevor Trigger-Aktionen ausgewertet werden.
 
 {% alert tip %}
 Für weitere Unterstützung bei der Fehlerbehebung von Campaigns wenden Sie sich bitte innerhalb von 30 Tagen nach Auftreten Ihres Problems an den Braze-Support, da uns nur die Diagnoseprotokolle der letzten 30 Tage zur Verfügung stehen.
 {% endalert %}
+
+### Warum haben Nutzer:innen meine Campaign zweimal erhalten, nachdem ich sie bearbeitet habe? {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
+
+Wenn Sie eine laufende Campaign bearbeiten, ohne sie vorher zu stoppen, können Nutzer:innen die Nachricht zweimal erhalten. Das passiert, weil das Bearbeiten einer laufenden Campaign Nutzer:innen für die aktualisierte Version erneut einreiht, während die ursprüngliche Warteschlange noch verarbeitet wird. Nutzer:innen, die die ursprüngliche Nachricht noch nicht erhalten haben, können in beiden Warteschlangen landen. Um dies zu verhindern, [stoppen Sie die Campaign]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch#stopping-your-campaign) immer, bevor Sie Änderungen vornehmen.
 
 ### Was ist der Unterschied zwischen den Optionen „Nutzerdaten als CSV exportieren“ und „E-Mail-Adressen als CSV exportieren“ auf meiner Campaign-Analytics-Seite? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
@@ -174,7 +178,7 @@ Die Auswahl der Option **E-Mail-Adressen als CSV exportieren** lädt nur Daten f
 
 ### Kann ich nach einer Campaign anhand ihres API-Bezeichners suchen? {#can-i-search-for-a-campaign-by-its-api-identifier}
 
-Ja, verwenden Sie den Filter `api_id:YOUR_API_ID` auf der Seite **Campaigns**, um nach einer Campaign anhand ihres API-Bezeichners zu suchen. Weitere Informationen finden Sie unter [Campaigns suchen]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns/).
+Ja, verwenden Sie den Filter `api_id:YOUR_API_ID` auf der Seite **Campaigns**, um nach einer Campaign anhand ihres API-Bezeichners zu suchen. Weitere Informationen finden Sie unter [Campaigns suchen]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns).
 
 ### Warum werden Leerzeichen in Eingabefeldern anders angezeigt als im dargestellten Text? {#why-does-whitespace-appear-differently-in-input-fields-versus-displayed-text}
 
@@ -192,11 +196,11 @@ API-Campaigns werden verwendet, um über die API gesendete Nachrichten zu tracke
 
 ### Wie kann ich bestätigen, ob meine Nutzer:innen eine API-getriggerte Campaign erhalten haben? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
 
-Sie können [ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) mit dem Filter **Received Campaign** und dann die spezifische API-getriggerte Campaign auswählen, die Sie überprüfen möchten. Nachdem Sie das Segment gespeichert haben, verwenden Sie den [`/users/export/segment`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/), um die Nutzer:innen in diesem Segment zu exportieren.
+Sie können [ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) mit dem Filter **Received Campaign** und dann die spezifische API-getriggerte Campaign auswählen, die Sie überprüfen möchten. Nachdem Sie das Segment gespeichert haben, verwenden Sie den [`/users/export/segment`-Endpunkt]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment), um die Nutzer:innen in diesem Segment zu exportieren.
 
 ### Kann ich eine Campaign löschen? {#can-i-delete-a-campaign}
 
-Nein, aber Sie können [eine Campaign archivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving/).
+Nein, aber Sie können [eine Campaign archivieren]({{site.baseurl}}/user_guide/messaging/governance/archiving).
 
 ### Was ist der Unterschied zwischen aktionsbasierten und API-getriggerten Campaigns? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
@@ -229,7 +233,7 @@ API-getriggerte und servergetriggerte Campaigns sind ideal für die Handhabung k
 
 ### Was sollte ich angeben, wenn ich ein Support-Ticket für einen „Request Timed Out“-Fehler einreiche? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
-Wenn Sie beim Erstellen oder Bearbeiten einer Campaign oder eines Canvas auf einen „Request Timed Out“-Fehler stoßen und den [Braze-Support]({{site.baseurl}}/braze_support/) kontaktieren müssen, geben Sie die folgenden Informationen an, um die Lösung zu beschleunigen:
+Wenn Sie beim Erstellen oder Bearbeiten einer Campaign oder eines Canvas auf einen „Request Timed Out“-Fehler stoßen und den [Braze-Support]({{site.baseurl}}/braze_support) kontaktieren müssen, geben Sie die folgenden Informationen an, um die Lösung zu beschleunigen:
 
 - **Bildschirmaufnahme:** Eine Aufnahme der Schritte, die Sie vor dem Auftreten des Fehlers durchgeführt haben, einschließlich aller Seitenwechsel.
 - **Zeitstempel und Zeitzone:** Der genaue Zeitpunkt, zu dem der Fehler aufgetreten ist, und Ihre Zeitzone.
@@ -253,15 +257,15 @@ Mehrere Faktoren können dazu führen, dass die Anzahl der Sendungen niedriger i
 
 - **Aktionsbasierte Zustellung:** Nutzer:innen generieren Sendungen erst, nachdem sie den Trigger ausgeführt haben, sodass sich Sendungen über die Zeit ansammeln und hinter der anfänglichen Schätzung zurückbleiben können, die beim Erstellen der Campaign angezeigt wurde.
 - **Zielgruppenänderungen nach dem Start:** Das Ändern von Eintritts- oder Zielfiltern nach dem Start kann dazu führen, dass der Snapshot der **geschätzten Zielgruppe** nicht mehr mit den Nutzer:innen übereinstimmt, die bei späteren Sendungen noch qualifiziert sind (z. B. wenn Nutzer:innen nicht erneut eintreten können).
-- **Zielgruppenpfade-Schritt:** Bei Canvas sendet ein [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/)-Schritt Nachrichten nur an Nutzer:innen, die dem Branch mit der höchsten Priorität entsprechen, für den sie qualifiziert sind, was die Sendungen im Vergleich zu einer flachen Segment-Zählung reduzieren kann.
-- **Kontrollgruppen:** Wenn eine [Globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group/) oder eine Kontrollgruppe auf Campaign-Ebene verwendet wird, wird ein Teil der Zielgruppe von der Zustellung ausgeschlossen.
+- **Zielgruppenpfade-Schritt:** Bei Canvas sendet ein [Zielgruppenpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)-Schritt Nachrichten nur an Nutzer:innen, die dem Branch mit der höchsten Priorität entsprechen, für den sie qualifiziert sind, was die Sendungen im Vergleich zu einer flachen Segment-Zählung reduzieren kann.
+- **Kontrollgruppen:** Wenn eine [globale Kontrollgruppe]({{site.baseurl}}/user_guide/audience/global_control_group) oder eine Kontrollgruppe auf Campaign-Ebene verwendet wird, wird ein Teil der Zielgruppe von der Zustellung ausgeschlossen.
 - **Zustellzeitpunkt und -fenster:** Bei Ortszeit- oder geplanten Campaigns müssen Nutzer:innen sowohl zum Eintritts- als auch zum Sendezeitpunkt qualifiziert sein; Nutzer:innen in bestimmten Zeitzonen können außerhalb des Zustellfensters liegen.
 - **E-Mail-Deduplizierung:** Ihre Campaign oder Ihr Canvas spricht mehrere Nutzer:innen mit übereinstimmenden E-Mail-Adressen an, sodass zum Sendezeitpunkt eine zufällige Nutzerin oder ein zufälliger Nutzer mit dieser E-Mail-Adresse ausgewählt wird. Die Nachricht wird nur einmal gesendet und dedupliziert, sodass sie nicht mehrfach an dieselbe E-Mail-Adresse zugestellt wird, aber Ihre geschätzte Zielgruppengröße alle Nutzer:innen umfasst.
 - **E-Mail-Zustellbarkeitsfilter:** Bei E-Mail-Campaigns schließt Braze Nutzer:innen aus, die einen Hard-Bounce hatten, sich von E-Mails abgemeldet haben, als Spam markiert wurden, keine E-Mail-Adresse in ihrem Profil haben oder nicht bei einer erforderlichen Abo-Gruppe angemeldet sind. Diese Prüfungen werden zum Sendezeitpunkt durchgeführt, sodass eine Nutzerin oder ein Nutzer, die oder der in Ihrem Segment vorhanden ist, trotzdem von der tatsächlichen Sendezählung ausgeschlossen werden kann.
 - **Globales Frequency-Capping:** Workspace-weite Obergrenzen können verhindern, dass berechtigte Nutzer:innen eine weitere Nachricht im selben Zeitfenster erhalten, was die tatsächlichen Sendungen verringert.
 - **Neu importierte Nutzer:innen:** Profile, die gerade erst berechtigt wurden, erhalten die Nachricht möglicherweise erst bei der nächsten Auswertung oder dem nächsten Sendevorgang, sodass die Zahlen bei einem späteren Durchlauf aufholen.
 - **Push-Erreichbarkeit:** Bei Push-Campaigns stellen Sie sicher, dass die Zielgruppe für die richtige App Push-aktiviert ist. Wenn Sie nicht nach Push-aktivierten Nutzer:innen filtern, kann die geschätzte Zielgruppe Profile enthalten, die keinen Push empfangen können. Prüfen Sie **Erreichbare Nutzer:innen** im Schritt **Zielgruppe** für eine genauere operative Schätzung.
-- **Rate-Limiting:** Wenn Rate-Limiting angewendet wird, werden Nachrichten über die Zeit verteilt und einige Sendungen können verzögert werden oder noch nicht in der Zählung berücksichtigt sein.
+- **Rate-Limiting:** Ein [Rate-Limit für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) begrenzt, wie viele Nachrichten Braze pro Minute während eines einzelnen Sendevorgangs versendet. Braze verteilt die Zustellung über ein längeres Zeitfenster, sodass einige Sendungen verzögert werden, noch nicht in der Zählung berücksichtigt sind oder nicht abgeschlossen werden, wenn das Limit im Verhältnis zur berechtigten Zielgruppe niedrig ist.
 - **Fenster für erneute Berechtigung:** Nutzer:innen, die noch nicht erneut berechtigt sind, erhalten die Nachricht während der Abklingzeit nicht erneut, sodass die Sendungen für diesen Zeitraum unter der geschätzten Zielgruppengröße liegen.
 - **Berichtszeitraum:** Der Analytics-Zeitraum umfasst möglicherweise nicht jeden Versand.
 - **Segment-Neubewertung:** Bei aktionsbasierten oder geplanten Campaigns, die zum Sendezeitpunkt neu ausgewertet werden, sind Nutzer:innen, die beim Einreihen der Campaign im Segment waren, möglicherweise nicht mehr qualifiziert, wenn die Nachricht tatsächlich gesendet wird.
@@ -270,7 +274,16 @@ Mehrere Faktoren können dazu führen, dass die Anzahl der Sendungen niedriger i
 
 ### Wo finde ich häufig gestellte Fragen zum globalen Frequency-Capping? {#where-are-frequently-asked-questions-about-global-frequency-capping}
 
-Für Fragen zu Kalendertagen, stillen Push-Benachrichtigungen, Webhooks, Canvas-Verhalten und verwandten Themen lesen Sie die [Häufig gestellten Fragen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/) zu [Rate-Limiting und Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/).
+Für Fragen zu Kalendertagen, stillen Push-Benachrichtigungen, Webhooks, Canvas-Verhalten und verwandten Themen lesen Sie die [Häufig gestellten Fragen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq) zu [Rate-Limiting und Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
+
+### Warum verzeichnet meine Campaign niedrigere Senderaten? {#why-is-my-campaign-experiencing-lower-send-rates}
+
+Wenn Sie feststellen, dass Ihre täglich geplanten Campaigns im Laufe der Zeit an weniger Nutzer:innen senden, prüfen Sie Folgendes:
+
+- **Prüfen Sie, ob die erneute Berechtigung aktiviert ist:** Ohne erneute Berechtigung sendet Braze jeder Nutzerin und jedem Nutzer die Nachricht nur einmal. Bei täglich geplanten Campaigns sind nur Nutzer:innen berechtigt, die der Zielgruppe entsprechen und die Nachricht noch nicht erhalten haben. Da immer mehr Nutzer:innen die Nachricht erhalten, hat jeder spätere Versand weniger berechtigte Nutzer:innen, sodass das Sendevolumen sinkt.
+- **Prüfen Sie, ob die Zielgruppe eine feste Mitgliedschaft hat:** Zielgruppen, die auf einer festen Nutzerliste basieren (z. B. ein [CSV-Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import), der als Segment-Filter verwendet wird), gewinnen nicht automatisch neue Mitglieder. Ohne neue Eintritte kann sich das Sendevolumen nicht erholen, wenn Nutzer:innen bereits angeschrieben wurden.
+
+Informationen zu [Rate-Limits für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) und anderen Faktoren, die die Sendungen für einen einzelnen Vorgang verringern, finden Sie unter [Warum sind die Sendungen niedriger als die geschätzte Zielgruppengröße?](#why-are-sends-lower-than-the-estimated-audience-size).
 
 ### Warum können eindeutige Empfänger:innen die Sendungen bei E-Mail und SMS übersteigen? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
 
@@ -282,6 +295,6 @@ Bei einer Campaign mit einem einzelnen geplanten Versand entspricht **Zuletzt ge
 
 ### Warum zeigt eine gestoppte historische Campaign keine Metriken mehr auf der **Analytics**-Seite an? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
 
-Der Tab **Analytics** zeigt standardmäßig die letzten 90 Tage an. Wenn die Campaign zuletzt außerhalb dieses Zeitfensters gesendet wurde, können Metriken als null erscheinen, bis Sie den Datumsbereich auf der **Analytics**-Seite anpassen, um den Zeitraum einzuschließen, in dem die Campaign gesendet wurde. Weitere Informationen finden Sie unter [Campaign-Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/).
+Der Tab **Analytics** zeigt standardmäßig die letzten 90 Tage an. Wenn die Campaign zuletzt außerhalb dieses Zeitfensters gesendet wurde, können Metriken als null erscheinen, bis Sie den Datumsbereich auf der **Analytics**-Seite anpassen, um den Zeitraum einzuschließen, in dem die Campaign gesendet wurde. Weitere Informationen finden Sie unter [Campaign-Analytics]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics).
 
-**Interaktionsdaten wiederherstellen** stellt keine Campaign-Analytics wieder her. Dies gilt nur für Retargeting-Filter und den Verlauf der Nutzerinteraktionen. Weitere Informationen finden Sie unter [Messaging-Interaktionsdaten]({{site.baseurl}}/messaging_interaction_data/).
+**Interaktionsdaten wiederherstellen** stellt keine Campaign-Analytics wieder her. Dies gilt nur für Retargeting-Filter und den Verlauf der Nutzerinteraktionen. Weitere Informationen finden Sie unter [Messaging-Interaktionsdaten]({{site.baseurl}}/messaging_interaction_data).

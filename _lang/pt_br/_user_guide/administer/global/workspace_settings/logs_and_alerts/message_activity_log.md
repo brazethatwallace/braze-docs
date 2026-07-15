@@ -31,13 +31,13 @@ Você pode filtrar pelo seguinte conteúdo registrado no **Registro de atividade
 - Erros de Conteúdo conectado
 - Erros de público conectado da REST API
 - Erros de aliasing de usuário
-- Erros de Testes A/B
+- Erros de testes A/B
 - Erros de SMS/MMS
 - Erros de WhatsApp
 - Erros de Live Activity
 - Erros de gatilho de usuário inválido
-- Erros de [limite diário de invocações]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents/#monitor-your-agent) do Braze Agents
-- Erros de [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference/#models) indisponível do Braze Agents
+- Erros de [limite diário de invocações]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#monitor-your-agent) do Braze Agents
+- Erros de [modelo]({{site.baseurl}}/user_guide/brazeai/agents/reference#models) indisponível do Braze Agents
 
 Essas mensagens podem vir do nosso próprio sistema, dos seus apps ou plataformas, ou dos nossos parceiros terceiros. Isso pode resultar em um número infinito de mensagens que podem aparecer neste registro.
 
@@ -45,7 +45,14 @@ Essas mensagens podem vir do nosso próprio sistema, dos seus apps ou plataforma
 
 Para determinar o que suas mensagens significam, preste atenção ao texto de cada mensagem e às colunas correspondentes, pois isso pode ajudar na solução de problemas usando pistas de contexto.
 
-Por exemplo, se você tem uma entrada no registro cuja mensagem diz "empty-cart_app" e não tem certeza do que isso significa, olhe para a coluna **Tipo** à esquerda. Se você vir "Erro de mensagem abortada", pode assumir com segurança que a mensagem foi o que foi escrito como [mensagem de aborto]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages) usando Liquid, e que a mensagem foi abortada porque o destinatário pretendido tinha um carrinho vazio no seu app.
+Por exemplo, entradas de **Erro de mensagem abortada** podem ocorrer por diversos motivos, não apenas por [mensagens de interrupção do Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages). Leia a coluna **Mensagem** para ver o motivo específico:
+
+- Se o envio foi abortado por uma tag `abort_message` do Liquid, a coluna **Mensagem** mostra o snippet exato do Liquid que foi chamado, por exemplo {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %}.
+- Para outros motivos de interrupção, a coluna **Mensagem** explica por que o envio foi abortado.
+
+### Cargas úteis de campanhas da API {#api-campaign-payloads}
+
+O Registro de atividades de envio de mensagem registra informações diferentes dependendo do tipo de campanha da API. O [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) registra o corpo da mensagem (mensagens) nos registros de mensagens da API, enquanto o [endpoint `/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) não registra a carga útil da requisição nem as `api_trigger_properties` no Registro de atividades de envio de mensagem.
 
 ### Mensagens comuns {#common-messages}
 
@@ -57,8 +64,8 @@ As mensagens listadas a seguir são apenas para fins de exemplo e podem não cor
 |---|---|---|
 | Soft Bounce | O endereço de e-mail same@example.com teve um soft bounce. | O endereço de e-mail era válido e a mensagem de e-mail chegou ao servidor de e-mail do destinatário, mas foi rejeitada por um problema "temporário". <br><br>Motivos comuns de soft bounce incluem: {::nomarkdown} <ul> <li> A caixa de entrada estava cheia (o usuário excedeu sua cota) </li> <li> O servidor estava fora do ar </li> <li> A mensagem era grande demais para a caixa de entrada do destinatário </li>  </ul> {:/} Se um e-mail recebeu um soft bounce, geralmente tentamos novamente dentro de um período de 72 horas, mas o número de tentativas varia de destinatário para destinatário. |
 | Hard Bounce | A conta de e-mail que você tentou alcançar não existe. Tente verificar novamente o endereço de e-mail do destinatário em busca de erros de digitação ou espaços desnecessários. | Sua mensagem nunca chegou à caixa de entrada dessa pessoa porque não havia caixa de entrada para alcançar. Se quiser investigar mais, mensagens como essa às vezes podem ter links na coluna **Ver informações** que permitem visualizar o perfil do destinatário pretendido.|
-| Bloqueio | A mensagem de spam foi rejeitada por causa da política anti-spam. | Sua mensagem foi categorizada como spam. Esse erro de e-mail é registrado para um usuário se recebermos um evento do ESP indicando que o e-mail foi descartado. Pode ser apenas para aquele destinatário específico, mas se você está vendo essa mensagem com frequência, talvez queira reavaliar seus hábitos de envio ou o conteúdo da sua mensagem. Além disso, pense: você [aqueceu seu IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)? Se não, fale com a Braze para obter orientações sobre como fazer isso.|
-| Erro de mensagem abortada | empty-cart_web | Se você tem um app com carrinho ou cria um envio com uma mensagem de aborto no Liquid, pode personalizar qual mensagem é retornada se o envio for abortado. Neste caso, a mensagem retornada é empty-cart_web.|
+| Bloqueio | A mensagem de SPAM foi rejeitada por causa da política anti-spam. | Sua mensagem foi categorizada como SPAM. Esse erro de e-mail é registrado para um usuário se recebermos um evento do provedor de serviços de e-mail indicando que o e-mail foi descartado. Pode ser apenas para aquele destinatário específico, mas se você está vendo essa mensagem com frequência, talvez queira reavaliar seus hábitos de envio ou o conteúdo da sua mensagem. Além disso, pense: você [aqueceu seu IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)? Se não, fale com a Braze para obter orientações sobre como fazer isso.|
+| Erro de mensagem abortada | {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %} | Quando um envio é abortado por uma tag `abort_message` do Liquid, a coluna **Mensagem** mostra o snippet exato do Liquid que foi chamado. Outras entradas de **Erro de mensagem abortada** podem ter mensagens diferentes que descrevem o motivo da interrupção. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Mensagens comuns" }
 
 ### Por que minha mensagem não está listada aqui? {#why-isnt-my-message-listed-here}
@@ -67,9 +74,9 @@ As mensagens no Registro de atividades de envio de mensagem podem vir de diversa
 
 Por exemplo, algumas possíveis mensagens de "Bloqueio", além da listada na tabela anterior, podem ser:
 
-- Infelizmente, as mensagens de [_IP_ADDRESS_] não foram enviadas. Entre em contato com seu provedor de acesso à internet, pois parte da rede dele está na nossa lista de bloqueio.
+- Infelizmente, as mensagens de [_IP_ADDRESS_] não foram enviadas. Entre em contato com seu provedor de serviços de internet, pois parte da rede dele está na nossa lista de bloqueio.
 - Mensagem rejeitada devido à política local.
-- A mensagem foi bloqueada pelo destinatário como spam.
+- A mensagem foi bloqueada pelo destinatário como SPAM.
 - Serviço indisponível, host do cliente [_IP_ADDRESS_] bloqueado usando Spamhaus.
 
 ## Período de retenção de armazenamento {#storage-retention-period}
@@ -78,7 +85,7 @@ Erros das últimas 60 horas estão disponíveis no Registro de atividades de env
 
 ### Número de registros de erro armazenados {#number-of-error-logs-stored}
 
-O número de registros salvos é influenciado por diversas condições. Por exemplo, se uma campanha agendada é enviada para milhares de usuários, potencialmente veríamos uma amostra dos erros no Registro de atividades de envio de mensagem em vez de todos os erros. A seguir, uma visão geral das condições que afetam quantos registros são salvos:
+O número de registros salvos é influenciado por diversas condições. Por exemplo, se uma Campaign agendada é enviada para milhares de usuários, potencialmente veríamos uma amostra dos erros no Registro de atividades de envio de mensagem em vez de todos os erros. A seguir, uma visão geral das condições que afetam quantos registros são salvos:
 - Até 20 registros de erro do mesmo tipo são salvos para a mesma Campaign ou etapa do Canvas dentro de uma hora fixa de relógio para os seguintes tipos de erro:
     - Erros de Conteúdo conectado
     - Erros de mensagem abortada
@@ -86,7 +93,7 @@ O número de registros salvos é influenciado por diversas condições. Por exem
     - Erros de rejeição de SMS
     - Erros de falha de entrega de SMS
     - Erros de falha de WhatsApp
-    - Erros de Testes A/B
+    - Erros de testes A/B
 - Até 20 registros de erro de notificação por push do mesmo tipo são salvos para a mesma Campaign ou etapa do Canvas e combinação de app para os seguintes tipos de erro:
     - Credencial de push inválida
     - Token por push inválido

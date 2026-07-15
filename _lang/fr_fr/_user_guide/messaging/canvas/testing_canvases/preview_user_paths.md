@@ -1,5 +1,5 @@
 ---
-nav_title: Prévisualisation des chemins d'utilisateurs
+nav_title: Prévisualisation des chemins utilisateur
 article_title: Prévisualisation des chemins utilisateur
 page_order: 0.3
 alias: /preview_user_paths/
@@ -33,9 +33,23 @@ Les étapes suivantes sont prises en charge :
 - Délai
 - Parcours d'action
 - Chemin d'expérience
+- Agent
 - Mise à jour utilisateur (uniquement dans l'éditeur d'interface, ce qui signifie que les étapes utilisant l'éditeur JSON sont ignorées)
 
 Si le test rencontre un type d'étape qui n'est pas listé ci-dessus, l'étape non prise en charge est ignorée et l'utilisateur test continue vers l'étape prise en charge suivante.
+
+### Étapes Agent {#agent-steps}
+
+Lorsqu'un test atteint une [étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze met en pause et demande **Voulez-vous exécuter l'agent « {agentName} » ?** Choisissez comment continuer :
+
+- **Oui :** Ajoutez éventuellement du contexte dans le champ de texte (en plus du profil de l'utilisateur test et de tout contexte Canvas déjà présent dans le parcours), puis sélectionnez **Simulate response** pour invoquer l'agent. Vous pouvez saisir des valeurs d'exemple en langage naturel — par exemple, en décrivant le contenu d'un panier ou le texte d'un message entrant — pour reproduire le contexte d'exécution que l'agent recevrait en production.
+- **Non :** Braze n'invoque pas l'agent. L'étape utilise la **sortie de secours** configurée pour l'agent dans la section **Output** de la [console Agent]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values).
+
+Lorsque vous sélectionnez **Oui** puis **Simulate response**, l'agent s'exécute pour l'utilisateur de prévisualisation, stocke sa sortie dans la variable de sortie de l'étape Agent, et le test continue le long du parcours. Les invocations issues de **Simulate response** sont comptabilisées dans la limite d'invocations quotidiennes de l'agent et apparaissent dans **Agent Console** > **Logs**.
+
+Pour tester une étape Agent de manière isolée (sans exécuter l'intégralité du parcours Canvas), utilisez la prévisualisation intégrée à l'étape dans le générateur de Canvas. Pour les détails de configuration, consultez [Tester l'agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#step-5-test-the-agent) dans Étape Agent.
+
+Si votre étape Agent dépend de données provenant d'une [étape de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) en amont, exécutez **Test Canvas** afin que les variables de contexte soient renseignées le long du parcours. Les groupes initiateurs n'évaluent pas les étapes de contexte ni les variables de contexte pour les destinataires initiateurs.
 
 ### Détails des étapes du Canvas {#canvas-step-details}
 
@@ -43,7 +57,7 @@ Pour afficher plus de détails sur les critères d'entrée, sélectionnez **See 
 
 ### Liquid
 
-Braze traite la logique Liquid pendant un test, même si vous n'envoyez pas de message test réel. Cela signifie que la [logique d'abandon de message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/#abort-messages) et les autres logiques Liquid sont prises en compte et peuvent impacter le parcours utilisateur dans le Canvas.
+Braze traite la logique Liquid pendant un test, même si vous n'envoyez pas de message test réel. Cela signifie que la [logique d'abandon de message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) et les autres logiques Liquid sont prises en compte et peuvent impacter le parcours utilisateur dans le Canvas.
 
 Si votre prévisualisation envoie la dernière étape de votre parcours utilisateur au lieu d'abandonner, la prévisualisation utilise peut-être l'heure actuelle comme heure testée pour l'évaluation Liquid, et non l'heure réelle à laquelle l'utilisateur se trouverait dans l'étape en fonction de l'heure d'entrée dans le Canvas.
 
@@ -87,7 +101,7 @@ Les étapes du Canvas réagissent au timing lors de la prévisualisation des par
 
 De même, les filtres reconnaissent les actions qui se sont produites à la suite de l'interaction de l'utilisateur test avec d'autres étapes du Canvas. Par exemple, ce mode de prévisualisation reconnaît qu'un utilisateur a rencontré une étape de message qui a été « envoyée » plus tôt dans le Canvas, et il reconnaît que l'utilisateur test a « effectué une action » pour progresser dans un parcours d'action.
 
-Consultez [Critères de sortie]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria/) pour plus de détails sur le comportement réactif.
+Consultez [Critères de sortie]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) pour plus de détails sur le comportement réactif.
 
 ## Contenu connecté {#connected-content}
 
@@ -95,15 +109,15 @@ Le contenu connecté est exécuté s'il est inclus dans le Canvas. Cela signifie
 
 Lors de la prévisualisation des parcours utilisateur, envisagez de supprimer le contenu connecté qui modifie les profils utilisateur ou les données référencées dans d'autres Canvas ou Campaigns.
 
-## Webhooks
+## Webhooks {#webhooks}
 
 Les webhooks s'exécutent lorsque des messages test sont envoyés, mais pas pendant le test. Comme pour le contenu connecté, envisagez de supprimer les webhooks qui modifient les profils utilisateur ou les données référencées dans d'autres Canvas ou Campaigns.
 
 ## Variables de contexte et groupes initiateurs {#context-variables-and-seed-groups}
 
-Pour une étape de message avec l'e-mail comme canal de communication, les groupes initiateurs envoient des copies initiatrices des e-mails lorsqu'un utilisateur atteint cette étape dans le Canvas. Ces copies initiatrices ne sont pas envoyées dans le cadre des propres parcours Canvas des destinataires du groupe initiateur, donc Braze n'exécute pas les [étapes de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/) et n'évalue pas les variables de contexte pour ces destinataires. Si le contenu de votre e-mail fait référence à des variables de contexte, les destinataires du groupe initiateur reçoivent une copie initiatrice sans ces données renseignées. Pour tester des messages qui reposent sur des données de variables de contexte, utilisez la prévisualisation **Test Canvas** avec des envois de test au lieu des groupes initiateurs.
+Pour une étape de message avec l'e-mail comme canal de communication, les groupes initiateurs envoient des copies initiatrices des e-mails lorsqu'un utilisateur atteint cette étape dans le Canvas. Ces copies initiatrices ne sont pas envoyées dans le cadre des propres parcours Canvas des destinataires du groupe initiateur, donc Braze n'exécute pas les [étapes de contexte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) et n'évalue pas les variables de contexte pour ces destinataires. Si le contenu de votre e-mail fait référence à des variables de contexte, les destinataires du groupe initiateur reçoivent une copie initiatrice sans ces données renseignées. Pour tester des messages qui reposent sur des données de variables de contexte, utilisez la prévisualisation **Test Canvas** avec des envois de test au lieu des groupes initiateurs.
 
-## Cas d'utilisation {#use-case}
+## Cas d'usage {#use-case}
 
 Dans ce scénario, le Canvas est configuré pour cibler les utilisateurs qui n'ont pas eu de session dans une application. Ce parcours comprend une étape de message avec un e-mail de bienvenue, une étape de délai définie sur un jour et une étape de parcours d'audience qui se divise en deux chemins : les utilisateurs ayant au moins une session et tous les autres. Selon le parcours d'audience dans lequel un utilisateur se trouve, l'étape de message suivante est envoyée.
 

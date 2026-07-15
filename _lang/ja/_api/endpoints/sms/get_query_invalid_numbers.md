@@ -13,13 +13,13 @@ description: "この記事では、「無効な電話番号を照会する」Bra
 /sms/invalid_phone_numbers
 {% endapimethod %}
 
-> このエンドポイントを使用して、一定期間内に「無効」とマークされた電話番号のリストを取得します。詳細については、[無効な電話番号の処理]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers/#handling-invalid-phone-numbers)のドキュメントを参照してください。
+> このエンドポイントを使用して、一定期間内に「無効」とマークされた電話番号のリストを取得します。詳細については、[無効な電話番号の処理]({{site.baseurl}}/user_guide/message_building_by_channel/sms/phone_numbers/user_phone_numbers#handling-invalid-phone-numbers)のドキュメントを参照してください。
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#81ceae19-15d1-4ac1-ad22-a6b86a92456d {% endapiref %}
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`sms.invalid_phone_numbers` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`sms.invalid_phone_numbers` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -35,7 +35,7 @@ description: "この記事では、「無効な電話番号を照会する」Bra
 | `offset` | オプション | 整数 | リスト内の取得開始位置を指定するオプションフィールド。 |
 | `phone_numbers` | オプション <br>(注を参照) | e.164 形式の文字列の配列 | 指定された場合、無効であることが判明した電話番号を返します。 |
 | `reason` | オプション <br>(注を参照) | 文字列 | 使用可能な値は "provider_error"（プロバイダーエラーにより電話がSMSを受信できないことを示す）または "deactivated"（電話番号が無効化されている）です。省略した場合、すべての理由が返されます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="リクエストパラメーター" }
 
 {% alert note %}
 `start_date` と `end_date`、または `phone_numbers` のいずれかを指定する必要があります。`start_date`、`end_date`、`phone_numbers` の3つすべてを指定した場合、指定された電話番号が優先され、日付範囲は無視されます。

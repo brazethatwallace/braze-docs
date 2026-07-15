@@ -2,7 +2,9 @@
 nav_title: Notify
 article_title: Notify
 description: "This reference article outlines the partnership between Braze and Notify, a real-time, omnichannel personalization solution that offers personalization across the customer lifecycle."
-alias: /partners/notify/
+alias:
+  - /partners/notify/
+  - /partners/message_personalization/dynamic_content/notify/
 page_type: partner
 search_tag: Partner
 ---

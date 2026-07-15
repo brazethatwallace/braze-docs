@@ -1,12 +1,12 @@
 {% multi_lang_include developer_guide/prerequisites/flutter.md %}
 
-## メッセージデータの記録
+## メッセージデータを記録する {#logging-message-data}
 
 `BrazeInAppMessage` を使用して分析をログに記録するには、インスタンスを目的の分析関数に渡します。
 
 - `logInAppMessageClicked`
 - `logInAppMessageImpression`
-- `logInAppMessageButtonClicked` (ボタンインデックスと共に)
+- `logInAppMessageButtonClicked`（ボタンインデックスと共に）
 
 以下に例を示します。
 
@@ -19,17 +19,17 @@ braze.logInAppMessageImpression(inAppMessage);
 braze.logInAppMessageButtonClicked(inAppMessage, 0);
 ```
 
-## メッセージデータへのアクセス
+## メッセージデータへのアクセス {#accessing-message-data}
 
-Flutter アプリでアプリ内メッセージデータにアクセスするために、`BrazePlugin` は [Dart Streams](https://dart.dev/tutorials/language/streams) を使用したアプリ内メッセージデータの送信をサポートしています。
+Flutterアプリでアプリ内メッセージデータにアクセスするために、`BrazePlugin`は[Dart Streams](https://dart.dev/tutorials/language/streams)を使用したアプリ内メッセージデータの送信をサポートしています。
 
-`BrazeInAppMessage` オブジェクトは、`uri`、`message`、`header`、`buttons`、`extras` などを含む、ネイティブモデルオブジェクトで使用可能なフィールドのサブセットをサポートします。
+`BrazeInAppMessage`オブジェクトは、`uri`、`message`、`header`、`buttons`、`extras`などを含む、ネイティブモデルオブジェクトで使用可能なフィールドのサブセットをサポートします。
 
-### Dart レイヤーでアプリ内メッセージデータをリッスンする
+### Dartレイヤーでアプリ内メッセージデータをリッスンする {#listen-for-in-app-message-data-in-the-dart-layer}
 
-Dart レイヤーでアプリ内メッセージデータを受信するには、以下のコードを使用して `StreamSubscription` を作成し、`braze.subscribeToInAppMessages()` を呼び出します。不要になったストリームサブスクリプションは忘れずに `cancel()` してください。
+Dartレイヤーでアプリ内メッセージデータを受信するには、以下のコードを使用して`StreamSubscription`を作成し、`braze.subscribeToInAppMessages()`を呼び出します。不要になったストリームサブスクリプションは忘れずに`cancel()`してください。
 
-`````````dart
+```dart
 // Create stream subscription
 StreamSubscription inAppMessageStreamSubscription;
 
@@ -41,32 +41,32 @@ inAppMessageStreamSubscription = braze.subscribeToInAppMessages((BrazeInAppMessa
 inAppMessageStreamSubscription.cancel();
 ```
 
-例については、Braze Flutter SDK サンプルアプリケーションの [main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart) を参照してください。
+例については、Braze Flutter SDKサンプルアプリケーションの[main.dart](https://github.com/braze-inc/braze-flutter-sdk/blob/master/example/lib/main.dart)を参照してください。
 
-### ネイティブレイヤーからアプリ内メッセージデータを転送する
+### ネイティブレイヤーからアプリ内メッセージデータを転送する {#forward-in-app-message-data-from-the-native-layer}
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
 
-アプリ内メッセージデータは Android と iOS の両方のネイティブレイヤーから自動的に転送されます。追加のセットアップは必要ありません。
+アプリ内メッセージデータはAndroidとiOSの両方のネイティブレイヤーから自動的に転送されます。追加の設定は必要ありません。
 
 {% endtab %}
 {% tab Flutter SDK 17.1.0 and earlier %}
 
-Flutter SDK 17.1.0 以前を使用している場合、iOS ネイティブレイヤーからのアプリ内メッセージデータの転送には手動セットアップが必要です。アプリケーションには以下のいずれかが含まれている可能性があります。Flutter SDK 18.0.0 に移行するには、`BrazePlugin.processInAppMessage(_:)` の呼び出しを削除してください。データの転送は自動的に処理されるようになりました。
+Flutter SDK 17.1.0以前を使用している場合、iOSネイティブレイヤーからのアプリ内メッセージデータの転送には手動設定が必要です。アプリケーションには以下のいずれかが含まれている可能性があります。Flutter SDK 18.0.0に移行するには、`BrazePlugin.processInAppMessage(_:)`の呼び出しを削除してください。データの転送は自動的に処理されるようになりました。
 
 {% subtabs %}
 {% subtab UI Delegate %}
 
-[`willPresent` デリゲート実装](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:willpresent:view:)-4pzvv)から `BrazePlugin.processInAppMessage(_:)` の呼び出しを削除してください。
+[`willPresent`デリゲート実装](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate/inappmessage(_:willpresent:view:)-4pzvv)から`BrazePlugin.processInAppMessage(_:)`の呼び出しを削除してください。
 
 {% endsubtab %}
 
 {% subtab Custom presenter %}
 
-カスタムプレゼンターの [`present(message:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/present(message:)-f2ra) 実装から `BrazePlugin.processInAppMessage(message)` の呼び出しを削除してください。
+カスタムプレゼンターの[`present(message:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/present(message:)-f2ra)実装から`BrazePlugin.processInAppMessage(message)`の呼び出しを削除してください。
 
-`````````swift
+```swift
 class CustomInAppMessagePresenter: BrazeInAppMessageUI {
   override func present(message: Braze.InAppMessage) {
     // Pass in-app message data to the Dart layer.
@@ -84,9 +84,9 @@ class CustomInAppMessagePresenter: BrazeInAppMessageUI {
 {% endtab %}
 {% endtabs %}
 
-### アプリ内メッセージのコールバックを再実行する（オプション）
+### アプリ内メッセージのコールバックを再実行する（オプション） {#replaying-the-callback-for-in-app-messages-optional}
 
-コールバックが利用可能になる前にトリガーされたアプリ内メッセージを保存し、設定後に再生するには、`BrazePlugin` の初期化時に次のエントリを `customConfigs` マップに追加します。
-`````````dart
+コールバックが利用可能になる前にトリガーされたアプリ内メッセージを保存し、設定後に再生するには、`BrazePlugin`の初期化時に次のエントリを`customConfigs`マップに追加します。
+```dart
 BrazePlugin braze = new BrazePlugin(customConfigs: {replayCallbacksConfigKey: true});
 ```

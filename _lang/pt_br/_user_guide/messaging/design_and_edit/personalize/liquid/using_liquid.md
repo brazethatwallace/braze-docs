@@ -10,7 +10,7 @@ search_rank: 2
 
 > Este artigo mostra como você pode usar diversos atributos de usuário para inserir dinamicamente informações pessoais nas suas mensagens.
 
-Liquid é uma linguagem de modelo de código aberto desenvolvida pela Shopify e escrita em Ruby. Você pode usá-la na Braze para extrair dados do perfil de usuário nas suas mensagens e personalizar esses dados. Por exemplo, você pode usar Liquid tags para criar mensagens condicionais, como enviar ofertas diferentes com base na data de aniversário de inscrição de um usuário. Além disso, filtros podem manipular dados, como formatar a data de registro de um usuário de um timestamp para um formato mais legível, como "15 de janeiro de 2022". Para mais detalhes sobre a sintaxe do Liquid e suas capacidades, consulte [Tags de personalização compatíveis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Liquid é uma linguagem de modelo de código aberto desenvolvida pela Shopify e escrita em Ruby. Você pode usá-la na Braze para extrair dados do perfil de usuário nas suas mensagens e personalizar esses dados. Por exemplo, você pode usar Liquid tags para criar mensagens condicionais, como enviar ofertas diferentes com base na data de aniversário de inscrição de um usuário. Além disso, filtros podem manipular dados, como formatar a data de registro de um usuário de um timestamp para um formato mais legível, como "15 de janeiro de 2022". Para mais detalhes sobre a sintaxe do Liquid e suas capacidades, consulte [Tags de personalização compatíveis]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 ## Como funciona {#how-it-works}
 
@@ -44,14 +44,14 @@ Comentários HTML (`<!-- -->`) são removidos antes de qualquer Liquid ser lido,
 
 Os seguintes valores podem ser substituídos em uma mensagem, dependendo da sua disponibilidade:
 
-- [Informações básicas do usuário]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) (por exemplo, `first_name`, `last_name`, `email_address`)
-- [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)
-    - [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#liquid-templating)
-- [Propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
-- [Informações do dispositivo usado mais recentemente]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#most-recently-used-device-information)
-- [Informações do dispositivo alvo]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information)
+- [Informações básicas do usuário]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) (por exemplo, `first_name`, `last_name`, `email_address`)
+- [Atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)
+    - [Atributos personalizados aninhados]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#liquid-templating)
+- [Propriedades de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
+- [Informações do dispositivo usado mais recentemente]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#most-recently-used-device-information)
+- [Informações do dispositivo alvo]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)
 
-Você também pode extrair conteúdo diretamente de um servidor web por meio do [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) da Braze.
+Você também pode extrair conteúdo diretamente de um servidor web por meio do [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) da Braze.
 
 {% alert important %}
 Atualmente, a Braze oferece suporte ao Liquid até a versão 5 da Shopify, inclusive.
@@ -59,7 +59,7 @@ Atualmente, a Braze oferece suporte ao Liquid até a versão 5 da Shopify, inclu
 
 ## Usando Liquid {#using-liquid}
 
-Usando [Liquid tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/), você pode elevar a qualidade das suas mensagens, enriquecendo-as com um toque pessoal.
+Usando [Liquid tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags), você pode elevar a qualidade das suas mensagens, enriquecendo-as com um toque pessoal.
 
 ### Sintaxe do Liquid {#liquid-syntax}
 
@@ -84,7 +84,7 @@ Operadores (como `==`, `!=`, `>`, `and`, `or`) e filtros (como `| size`, `| plus
 | Acesso a array (`[ ]`) | Não suportado | Não suportado |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Onde usar operadores e filtros" }
 
-[^case_when_ops]: Nas tags `case` e `when`, o Liquid compara a expressão `case` com cada valor `when` usando igualdade (semelhante a encadear `if` e `elsif` com `==`). Você não pode usar operadores de comparação ou lógicos arbitrários dentro de uma cláusula `when` da mesma forma que faz com `if` e `elsif`. Para exemplos, consulte [Lógica de mensagens condicionais]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags).
+[^case_when_ops]: Nas tags `case` e `when`, o Liquid compara a expressão `case` com cada valor `when` usando igualdade (semelhante a encadear `if` e `elsif` com `==`). Você não pode usar operadores de comparação ou lógicos arbitrários dentro de uma cláusula `when` da mesma forma que faz com `if` e `elsif`. Para exemplos, consulte [Lógica de mensagens condicionais]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags).
 
 Quando você precisar de um valor filtrado em um contexto que não suporta filtros, atribua o resultado a uma variável primeiro.
 
@@ -214,10 +214,10 @@ Quando você alterna entre os editores HTML e clássico, snippets Liquid e Conte
 
 ### Inserindo variáveis pré-formatadas {#inserting-pre-formatted-variables}
 
-Você pode inserir variáveis pré-formatadas com valores padrão por meio do modal **Add Personalization**, localizado próximo a qualquer campo de texto com modelo.
+Você pode inserir variáveis pré-formatadas com valores padrão por meio do modal **Adicionar personalização**, localizado próximo a qualquer campo de texto com modelo.
 
-![O modal Add Personalization que aparece após selecionar inserir personalização. O modal tem campos para tipo de personalização, atributo, valor padrão opcional e exibe uma pré-visualização da sintaxe Liquid.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
+![O modal Adicionar personalização que aparece após selecionar inserir personalização. O modal tem campos para tipo de personalização, atributo, valor padrão opcional e exibe uma pré-visualização da sintaxe Liquid.]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
 
 O modal inserirá o Liquid com o valor padrão especificado no ponto onde o cursor estava. O ponto de inserção também é indicado pela caixa de pré-visualização, que mostra o texto antes e depois. Se um bloco de texto estiver destacado, o texto destacado será substituído.
 
-![Um GIF do modal Add Personalization mostrando o usuário inserindo "fellow traveler" como valor padrão, e o modal substituindo o texto destacado "name" no criador pelo snippet Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})
+![Um GIF do modal Adicionar personalização mostrando o usuário inserindo "fellow traveler" como valor padrão, e o modal substituindo o texto destacado "name" no criador pelo snippet Liquid.]({% image_buster /assets/img_archive/insert_var_shot.gif %})

@@ -14,13 +14,16 @@ noindex: true
 
 # Prueba {#push-testing}
 
-Si quieres probar las notificaciones dentro de la aplicación y las notificaciones push a través de la línea de comandos, puedes enviar una única notificación a través del terminal mediante CURL y la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging/). Tendrás que sustituir los siguientes campos por los valores correctos para tu caso de prueba:
+Si quieres probar las notificaciones dentro de la aplicación y las notificaciones push a través de la línea de comandos, puedes enviar una única notificación a través del terminal mediante CURL y la [API de mensajería]({{site.baseurl}}/api/endpoints/messaging). Tendrás que sustituir los siguientes campos por los valores correctos para tu caso de prueba:
 
 Campos obligatorios:
 
-- `YOUR-API-KEY-HERE` - disponible en **Configuración** > **Claves de API**. Asegúrate de que la clave está autorizada para enviar mensajes a través del punto final de la API REST `/messages/send`. 
+- `YOUR-API-KEY-HERE` - disponible en **Configuración** > **Claves de API**. Asegúrate de que la clave está autorizada para enviar mensajes a través del punto de conexión de la REST API `/messages/send`.
 - `EXTERNAL_USER_ID` - disponible en la página **Buscar usuarios**.
-- `REST_API_ENDPOINT_URL` - que aparecen en las [Instancias] de Braze({{site.baseurl}}/api/basics/#endpoints. Asegúrate de que el punto final corresponde a la instancia de Braze en la que se encuentra tu espacio de trabajo.
+- `REST_API_ENDPOINT_URL` - listado en las [Instancias]({{site.baseurl}}/api/basics#endpoints. Ensure using the endpoint corresponds to the Braze instance your workspace is on.
+
+Optional fields:
+- `YOUR_KEY1` (optional) de Braze. Asegúrate de que el punto de conexión corresponde a la instancia de Braze en la que se encuentra tu espacio de trabajo.
 
 Campos opcionales:
 - `YOUR_KEY1` (opcional)
@@ -37,5 +40,5 @@ curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer YOUR-
       }
     }
   }
-}' https://{REST_API_ENDPOINT_URL}/messages/send 
+}' https://{REST_API_ENDPOINT_URL}/messages/send
 ```

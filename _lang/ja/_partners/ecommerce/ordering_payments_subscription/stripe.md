@@ -9,7 +9,7 @@ search_tag: Partner
 
 # Stripe
 
-> [Stripe](https://www.stripe.com/) は、企業が一連の統合されたAPIやサービスを通じて、決済を受け入れ、収益オペレーションを管理し、グローバルな商取引を容易にすることを可能にする総合的な金融インフラプラットフォームです。
+> [Stripe](https://www.stripe.com/)は、企業が一連の統合されたAPIやサービスを通じて、決済を受け入れ、収益オペレーションを管理し、グローバルな商取引を容易にすることを可能にする総合的な金融インフラプラットフォームです。
 
 BrazeとStripeを統合することで、以下のことが可能になります。
 
@@ -22,14 +22,14 @@ BrazeとStripeを統合することで、以下のことが可能になります
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Stripeアカウント | このパートナーシップを利用するには、webhookにアクセスできるStripeアカウントが必要です。 |
-| Brazeデータ変換 | Stripeからデータを受信するには、[データ変換URL]({{site.baseurl}}/data_transformation/)が必要です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Brazeデータ変換 | Stripeからデータを受信するには、[データ変換URL]({{site.baseurl}}/data_transformation)が必要です。 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
 
-### ステップ 1: StripeのWebhookを受け入れるようにBrazeデータ変換を設定する {#step-1}
+### ステップ 1: Stripeのwebhookを受け入れるようにBrazeデータ変換を設定する {#step-1}
 
-{% multi_lang_include create_transformation.md %}
+{% multi_lang_include data_activation/create_transformation.md %}
 
 ### ステップ 2: Stripe webhookを設定する {#step-2-set-up-stripe-webhooks}
 
@@ -43,7 +43,7 @@ BrazeとStripeを統合することで、以下のことが可能になります
 
 ### ステップ 3: 選択したStripeイベントを受け入れる変換コードを記述する {#step-3-write-transformation-code-to-accept-your-chosen-stripe-events}
 
-次に、Stripeから送信されるWebhookペイロードをJavaScriptオブジェクトの戻り値に変換します。
+次に、Stripeから送信されるwebhookペイロードをJavaScriptオブジェクトの戻り値に変換します。
 
 1. データ変換を更新し、**Webhook details**セクションにStripeテストペイロードが表示されることを確認します。
 2. 選択したStripeイベントをサポートするようにデータ変換コードを更新します。
@@ -57,7 +57,7 @@ BrazeとStripeを統合することで、以下のことが可能になります
 この戻り値は、`/users/track`エンドポイントのリクエストボディ形式に従う必要があります。
 
 - 変換コードはJavaScriptプログラミング言語で記述します。if/elseロジックなど、標準的なJavaScript制御フローがすべてサポートされています。
-- 変換コードは、payload変数を使用してWebhookリクエストボディにアクセスします。この変数は、リクエスト本文のJSONを解析して読み込まれたオブジェクトです。
+- 変換コードは、payload変数を使用してwebhookリクエストボディにアクセスします。この変数は、リクエスト本文のJSONを解析して読み込まれたオブジェクトです。
 - `/users/track`エンドポイントでサポートされるすべての機能がサポートされています。以下が含まれます。
     - ユーザー属性オブジェクト、イベントオブジェクト、および購入オブジェクト
     - ネストされた属性とネストされたカスタムイベントプロパティ
@@ -70,7 +70,7 @@ BrazeとStripeを統合することで、以下のことが可能になります
 
 ![Brazeユーザープロファイルに表示されたStripeカスタムイベント「Charge Succeeded」。]({% image_buster /assets/img/stripe/stripe_braze_profile_event.png %}){: style="max-width:80%;"}
 
-## Stripe Webhookペイロードのサンプル {#example}
+## Stripe webhookペイロードのサンプル {#example}
 
 ```json
 {
@@ -235,7 +235,7 @@ BrazeとStripeを統合することで、以下のことが可能になります
 
 ## データ変換のユースケース {#data-transformation-use-cases}
 
-以下に、[Stripe Webhookペイロードのサンプル](#example)を使用して作成したテンプレートの例を示します。これらのテンプレートは出発点として使用できます。ゼロから作成するか、必要に応じて特定のコンポーネントを削除することができます。
+以下に、[Stripe webhookペイロードのサンプル](#example)を使用して作成したテンプレートの例を示します。これらのテンプレートは出発点として使用できます。ゼロから作成するか、必要に応じて特定のコンポーネントを削除することができます。
 
 このテンプレート例では、Brazeプロファイルにカスタムイベントを記録しています。イベントタイプはカスタムイベント名として送信され、データオブジェクトはイベントプロパティとして渡されます。
 
@@ -246,7 +246,7 @@ BrazeとStripeを統合することで、以下のことが可能になります
 {% tabs local %}
 {% tab Input %}
 
-`````````javascript
+```javascript
 
 /* This template is based on the source platform's documentation here: https://stripe.com/docs/webhooks
 
@@ -307,4 +307,4 @@ return brazecall;
 
 ## モニタリングとトラブルシューティング {#monitoring-and-troubleshooting}
 
-変換のモニタリングとトラブルシューティングの詳細については、[変換のモニタリング]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation)を参照してください。
+変換のモニタリングとトラブルシューティングの詳細については、[変換のモニタリング]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation)を参照してください。

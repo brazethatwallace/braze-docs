@@ -28,17 +28,17 @@ Brazeは、柔軟にデータ収集ができるように設計されています
 | 国 | IPアドレスのジオロケーションによって識別される国。IPアドレスの地理位置情報が使用できない場合は、[デバイスロケール](#optional-data-collected-by-default)で識別されます。値は代わりに、SDKが`setCountry`で直接設定する値でも構いませんが、SDKやAPIを介して属性値を渡すと、データポイントがログに記録されることに注意してください。**国が手動で設定された場合（SDKメソッド、REST API、またはCSVアップロードを通じて）、SDKはこの値を自動的に更新しなくなります。** | この属性は、ロケーションに基づいてメッセージをターゲティングするために使用されます。 |
 | デバイスID | デバイス識別子、ランダムに生成される文字列 | この属性は、ユーザーのデバイスを区別し、正しいデバイスにメッセージを送信するために使用されます。 |
 | OSとOSバージョン | 現在レポートされているデバイスまたはブラウザと、デバイスまたはブラウザのバージョン | この属性は、互換性のあるデバイスにのみメッセージを送信するために使用されます。また、アプリのバージョンをアップグレードするユーザーをターゲットとするセグメンテーションにも使用できます。 |
-| セッション開始とセッション終了 | ユーザーが連携されたアプリやサイトを使い始めるとき | Braze SDKでは、ユーザーエンゲージメントやユーザーの理解に不可欠なその他の分析を計算するため、Brazeダッシュボードで使用されるセッションデータがレポートされます。アプリやサイトからセッション開始とセッション終了が呼び出される正確なタイミングは、開発者が設定できます（[Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android)、[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift)、[Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web)）。 |
-| SDKメッセージインタラクションデータ | プッシュ直接開封数、アプリ内メッセージインタラクション数、コンテンツカードインタラクション数 | この属性は、メッセージが受信され、送信が重複していないことの確認など、品質管理の目的で使用されます。 |
+| セッション開始とセッション終了 | ユーザーが連携されたアプリやサイトを使い始めるとき | Braze SDKでは、ユーザーエンゲージメントやユーザーの理解に不可欠なその他の分析を計算するため、Brazeダッシュボードで使用されるセッションデータがレポートされます。アプリやサイトからセッション開始とセッション終了が呼び出される正確なタイミングは、開発者が設定できます（[Android]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android)、[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift)、[Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web)）。 |
+| SDKメッセージインタラクションデータ | プッシュ直接開封、アプリ内メッセージインタラクション、Content Cardsインタラクション | この属性は、メッセージが受信され、送信が重複していないことの確認など、品質管理の目的で使用されます。 |
 | SDKバージョン | 現在のSDKバージョン | この属性は、互換性のあるデバイスにのみメッセージを送信し、サービスの中断を避けるために使用されます。 |
 | セッションIDとセッションタイムスタンプ | セッション識別子、ランダムに生成された文字列とセッションのタイムスタンプ | ユーザーが新しいセッションを開始しているか、既存のセッションを継続しているかを判断し、このユーザー宛てのメッセージの再適格性を判断するために使用されます。<br><br>アプリ内メッセージやContent Cardsなどの特定のメッセージングチャネルは、セッションの開始時にデバイスに同期されます。そして、バックエンドは、最後にBrazeサーバーにコンタクトした時刻に関連するデータ（デバイスが保存して送り返す）を使って、ユーザーが新しいメッセージを受け取る資格があるかどうかを判断します。|
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Minimum integration" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="最小限の連携" }
 
 ### 計算された指標 {#calculated-metrics}
 
 Brazeは、SDKデータ、非SDKメッセージに関連するメッセージインタラクションデータ、および派生情報を計算して指標を生成します。わかりやすく言うと、この計算されたデータはSDKが追跡するものではなく、Brazeサービスによって生成されるデータであり、ユーザープロファイルには追跡されたデータと生成されたデータの両方が表示されます。
 
-計算された指標には、チャネルベースの指標（[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary/)に記載）と以下の属性が含まれます。
+計算された指標には、チャネルベースの指標（[レポート指標用語集]({{site.baseurl}}/user_guide/analytics/metrics_glossary)に記載）と以下の属性が含まれます。
 
 | 属性 | 説明 |
 |------------------------------------------------|----------------------------------------------------------------------|
@@ -51,21 +51,21 @@ Brazeは、SDKデータ、非SDKメッセージに関連するメッセージイ
 | 最後に受信したプッシュキャンペーン | 時刻 |
 | フィードバック項目の数 | 数値 |
 | 直近Y日間のセッション数 | 数値と時刻 |
-| Campaignからメッセージを受信 | ブール値。このフィルターは、過去のCampaignを受信したかどうかに基づいてユーザーをターゲットにします。 |
-| タグの付いたCampaignからメッセージを受信 | ブール値。このフィルターは、現在タグが付いているCampaignを受信したかどうかに基づいてユーザーをターゲットにします。 |
-| リターゲットCampaign | ブール値。このフィルターは、過去に特定のメール、プッシュ、アプリ内メッセージを開封またはクリックしたかどうかに基づいてユーザーをターゲットにします。 |
+| キャンペーンからメッセージを受信 | ブール値。このフィルターは、過去のキャンペーンを受信したかどうかに基づいてユーザーをターゲットにします。 |
+| タグの付いたキャンペーンからメッセージを受信 | ブール値。このフィルターは、現在タグが付いているキャンペーンを受信したかどうかに基づいてユーザーをターゲットにします。 |
+| リターゲットキャンペーン | ブール値。このフィルターは、過去に特定のメール、プッシュ、アプリ内メッセージを開封またはクリックしたかどうかに基づいてユーザーをターゲットにします。 |
 | アンインストール | ブール値と時刻 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Calculated metrics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="計算された指標" }
 
 {% alert important %}
-最小限の連携のみに関心があり、mParticle、Segment、Tealium、またはGTMと連携する場合は、次の点に注意してください。
-- **モバイルプラットフォーム:** これらを構成するコードを手動で更新する必要があります。mParticleとSegmentは、そのプラットフォームを通じてこれを行う方法を提供していません。
+最小限の連携のみに関心があり、mParticle、セグメント、Tealium、またはGTMと連携する場合は、次の点に注意してください。
+- **モバイルプラットフォーム:** これらを構成するコードを手動で更新する必要があります。mParticleとセグメントは、そのプラットフォームを通じてこれを行う方法を提供していません。
 - **Web:** 最小限の連携構成を可能にするために、Brazeの連携をネイティブに行う必要があります。タグマネージャーはプラットフォームを通じてこれを行う方法を提供していません。
 {% endalert %}
 
 ## デフォルトで収集されるオプションのデータ {#optional-data-collected-by-default}
 
-SDK連携を初期化すると、Brazeによって、最小限の連携データに加えて次の属性が自動的に取得されます。これらの属性の収集を[オプトアウト]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer/#blocking-data-collection)して、最小限の連携を実現できます。
+SDK連携を初期化すると、Brazeによって、最小限の連携データに加えて次の属性が自動的に取得されます。これらの属性の収集を[オプトアウト]({{site.baseurl}}/developer_guide/platform_integration_guides/sdk_primer#blocking-data-collection)して、最小限の連携を実現できます。
 
 | 属性 | プラットフォーム | 説明 | 収集される理由 |
 |-------------------------|-------------------|------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -80,9 +80,9 @@ SDK連携を初期化すると、Brazeによって、最小限の連携データ
 | 解像度 | Android、iOS、Web | デバイスまたはブラウザの解像度 | オプションで、デバイスベースのメッセージターゲティングに使用されます。この値のフォーマットは「`<width>`x`<height>`」です。 |
 | タイムゾーン | Android、iOS、Web | デバイスまたはブラウザのタイムゾーン | この属性は、各ユーザーのローカルタイムゾーンに従って、適切な時間にメッセージを送信するために使用されます。 |
 | ユーザーエージェント | Web | [ユーザーエージェント](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) | この属性は、互換性のあるデバイスにのみメッセージを送信するために使用されます。また、セグメンテーション内でも使用できます。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Optional data collected by default" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="デフォルトで収集されるオプションのデータ" }
 
-デバイスの通信キャリア、タイムゾーン、解像度など、デバイスレベルのプロパティのトラッキングの詳細については、対応するプラットフォームのドキュメントを参照してください。[Android]({{site.baseurl}}/developer_guide/storage/?tab=android)、[iOS]({{site.baseurl}}/developer_guide/storage/?tab=swift)、[Web]({{site.baseurl}}/developer_guide/storage/#cookies)の各プラットフォームの記事を参照してください。
+デバイスの通信キャリア、タイムゾーン、解像度など、デバイスレベルのプロパティのトラッキングの詳細については、対応するプラットフォームのドキュメントを参照してください。[Android]({{site.baseurl}}/developer_guide/storage?tab=android)、[iOS]({{site.baseurl}}/developer_guide/storage?tab=swift)、[Web]({{site.baseurl}}/developer_guide/storage#cookies)。
 
 ## デフォルトでは収集されないデータ {#data-not-collected-by-default}
 
@@ -92,9 +92,9 @@ SDK連携を初期化すると、Brazeによって、最小限の連携データ
 |----------------------------|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | デバイス広告トラッキングの有効化 | Android、iOS | iOSの場合：<br>[`set(adTrackingEnabled:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(adtrackingenabled:))<br><br>Androidの場合：<br>[`Braze.setGoogleAdvertisingId()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-i-braze/set-google-advertising-id.html) | このプロパティには、追加のアプリレベルの権限が必要です。この権限は、インテグレータによって付与される必要があります。 |
 | デバイスIDFA | iOS | 広告主向けデバイス識別子 | これにはAd Tracking Transparencyフレームワークが必要で、App Storeによる追加のプライバシー審査が行われます。詳細については、[`set(identifierForAdvertiser:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforadvertiser:))を参照してください。 |
-| Google広告ID | Android | Google Playアプリ内の広告用識別子 | これには、アプリがGAIDを取得してBrazeに渡す必要があります。詳細については、[Google広告IDのオプション]({{site.baseurl}}/developer_guide/platform_integration_guides/android/sdk_integration/#google-advertising-id)を参照してください。 |
+| Google広告ID | Android | Google Playアプリ内の広告用識別子 | これには、アプリがGAIDを取得してBrazeに渡す必要があります。詳細については、[Google広告IDのオプション]({{site.baseurl}}/developer_guide/platform_integration_guides/android/sdk_integration#google-advertising-id)を参照してください。 |
 | 最新のロケーション | Android、iOS | ユーザーのデバイスの最後に確認されたGPS位置です。これはセッションの開始時に更新され、ユーザーのプロファイルに保存されます。 | このためには、ユーザーがアプリにロケーション権限を付与する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Data not collected by default" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="デフォルトでは収集されないデータ" }
 
 {% alert note %}
 Braze SDKは、ローカルにIPアドレスを保存しません。
@@ -102,10 +102,10 @@ Braze SDKは、ローカルにIPアドレスを保存しません。
 
 ## パーソナライズされた連携 {#personalized-integration}
 
-Brazeを最大限に活用するために、SDKインテグレータは多くの場合Braze SDKを実装し、自動的に収集されたデータに加えて、ビジネスに関連する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#setting-custom-attributes)、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/#logging-custom-events)、[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events/#logging-purchase-events)を記録します。
+Brazeを最大限に活用するために、SDKインテグレータは多くの場合Braze SDKを実装し、自動的に収集されたデータに加えて、ビジネスに関連する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes)、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events)、[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#logging-purchase-events)を記録します。
 
 パーソナライズされた連携により、ユーザーエクスペリエンスに関連したカスタマイズされたコミュニケーションが可能になります。
 
 {% alert important %}
-Brazeは、5,000,000セッションを超えるユーザー（「ダミーユーザー」）を禁止またはブロックし、SDKイベントを取り込まなくなります。詳細については、[スパムのブロック]({{site.baseurl}}/user_archival/#spam-blocking)を参照してください。
+Brazeは、5,000,000セッションを超えるユーザー（「ダミーユーザー」）を禁止またはブロックし、SDKイベントを取り込まなくなります。詳細については、<a href="/docs/user_archival#spam-blocking">スパムのブロック</a> を参照してください。
 {% endalert %}

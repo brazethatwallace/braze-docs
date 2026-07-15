@@ -22,7 +22,11 @@ POSTペイロードがサーバーで受理された場合、成功メッセー�
 
 成功とは、RESTful APIのペイロードが正しく形成され、プッシュ通知やメール、その他のメッセージングサービスに渡されたことのみを意味します。メッセージが実際に配信されたことを意味するわけではありません。追加の要因によって配信が妨げられる可能性があるためです（例えば、デバイスがオフライン状態である場合、プッシュトークンがAppleのサーバーによって拒否される場合、あるいは不明なユーザーIDが提供された場合など）。
 
-[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify/)のようなメッセージを送信しないエンドポイントの場合、成功メッセージは単にBrazeが処理リクエストを受信したことを意味します。処理後にエイリアスに一致するものが存在しない場合、リクエストは停止されます。
+### リクエストが成功を返すのにメッセージが配信されないのはなぜですか？ {#why-does-my-request-return-success-when-no-message-was-delivered}
+
+`message: success`または`2XX`の応答は、Brazeが関連するエンドポイントのリクエストを受け付けてキューに入れたことを意味します。すべての受信者にメッセージが届いたことを意味するわけではありません。メッセージングの場合、配信はチャネルの適格性、トークン、プロバイダーのエラー、コンテンツの検証に依存します。送信をブロックするHTTPエラーについては[致命的なエラー]({{site.baseurl}}/api/errors#fatal-errors)の表を参照し、下流の配信指標についてはキャンペーンまたはキャンバスの分析を確認してください。
+
+[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)のようなメッセージを送信しないエンドポイントの場合、成功メッセージは単にBrazeが処理リクエストを受信したことを意味します。処理後にエイリアスに一致するものが存在しない場合、リクエストは停止されます。
 
 メッセージの送信が成功したが、致命的ではないエラーが発生した場合、以下の応答が返されます：
 
@@ -75,13 +79,13 @@ POSTペイロードがサーバーで受理された場合、成功メッセー�
 |---|---|
 | `5XX Internal Server Error` | エクスポネンシャルバックオフでリクエストを再試行してください。|
 | `400 Bad Request` | 構文が正しくありません。|
-| `400 No Recipients` | リクエストにexternal IDやセグメント ID、プッシュトークンがありません。|
-| `400 Invalid キャンペーン ID` | 入力されたキャンペーン IDに該当するメッセージングAPI キャンペーンが見つかりませんでした。|
-| `400 Message Variant Unspecified` | キャンペーン IDは提供されていますが、メッセージバリエーションIDが提供されていません。|
-| `400 Invalid Message Variant` | 有効なキャンペーン IDを入力しましたが、メッセージバリエーションIDがそのキャンペーンのどのメッセージとも一致しません。|
+| `400 No Recipients` | リクエストにexternal IDやセグメントID、プッシュトークンがありません。|
+| `400 Invalid キャンペーン ID` | 入力されたキャンペーンIDに該当するメッセージングAPIキャンペーンが見つかりませんでした。|
+| `400 Message Variant Unspecified` | キャンペーンIDは提供されていますが、メッセージバリエーションIDが提供されていません。|
+| `400 Invalid Message Variant` | 有効なキャンペーンIDを入力しましたが、メッセージバリエーションIDがそのキャンペーンのどのメッセージとも一致しません。|
 | `400 Mismatched Message Type` | 少なくとも1つのメッセージに、誤ったメッセージタイプのメッセージバリエーションを指定しました。|
 | `400 Invalid Extra Push Payload` | `apple_push`または`android_push`のいずれかに`extra`キーを指定しましたが、それはディクショナリではありません。|
-| `400 Max Input Length Exceeded` | `/users/track`の場合、このエラーは単一のリクエストで許可されるオブジェクトの最大数を超えたことが原因です。制限はレート制限モデルによって異なります。ほとんどのお客様の場合、各リクエストは`attributes`、`events`、`purchases`を合わせて最大75個のオブジェクトをサポートします。レガシーレート制限を使用しているお客様の場合、各配列は最大75個のオブジェクトを独立してサポートします。詳細については、[POST: ユーザーの作成と更新]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を参照してください。|
+| `400 Max Input Length Exceeded` | `/users/track`の場合、このエラーは単一のリクエストで許可されるオブジェクトの最大数を超えたことが原因です。制限はレート制限モデルによって異なります。ほとんどのお客様の場合、各リクエストは`attributes`、`events`、`purchases`を合わせて最大75個のオブジェクトをサポートします。レガシーレート制限を使用しているお客様の場合、各配列は最大75個のオブジェクトを独立してサポートします。詳細については、[POST: ユーザーの作成と更新]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を参照してください。|
 | `400 The max number of external_ids and aliases per request was exceeded` | 50を超えるexternal IDを呼び出したことが原因です。|
 | `400 The max number of ids per request was exceeded` | 50を超えるexternal IDを呼び出したことが原因です。|
 | `400 No message to send` | メッセージにペイロードが指定されていません。|
@@ -90,10 +94,10 @@ POSTペイロードがサーバーで受理された場合、成功メッセー�
 | `400 Android Push Length Exceeded` | JSONペイロードが4,000バイトを超えています。|
 | `400 Bad Request` | `send_at`の日時を解析できません。|
 | `400 Bad Request` | リクエストで`in_local_time`がtrueですが、会社のタイムゾーンで`time`が既に経過しています。|
-| `401 Unauthorized` | 無効なAPIキーです。一般的な原因は以下の通りです：<br><br>- **Authorizationヘッダーが欠落しているか、形式が正しくありません。** ヘッダーの値は`Bearer`の後にスペースとAPIキーを続ける必要があります：`Authorization: Bearer YOUR-API-KEY`。よくある間違いとして、`Bearer`の省略、`Bearer`の後のキーの省略、値を引用符で囲むことなどがあります。<br>- **RESTエンドポイントが間違っています。** リクエストを間違った[インスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/)に送信しています。たとえば、アカウントがEUインスタンス（`https://dashboard-01.braze.eu`）にある場合、リクエストは`https://rest.fra-01.braze.eu`に送信する必要があります。<br>- **権限が不十分です。** 各APIキーは特定のワークスペースと権限のセットにスコープされています。ダッシュボードの**設定** > **APIキー**でキーの権限を確認してください。<br>- **APIキーが間違っています。** APIキーはワークスペース固有です。あるワークスペースのキーを別のワークスペースのリクエスト認証に使用することはできません。 |
+| `401 Unauthorized` | 無効なAPIキーです。一般的な原因は以下の通りです：<br><br>- **Authorizationヘッダーが欠落しているか、形式が正しくありません。** ヘッダーの値は`Bearer`の後にスペースとAPIキーを続ける必要があります：`Authorization: Bearer YOUR-API-KEY`。よくある間違いとして、`Bearer`の省略、`Bearer`の後のキーの省略、値を引用符で囲むことなどがあります。<br>- **RESTエンドポイントが間違っています。** リクエストを間違った[インスタンス]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints)に送信しています。たとえば、アカウントがEUインスタンス（`https://dashboard-01.braze.eu`）にある場合、リクエストは`https://rest.fra-01.braze.eu`に送信する必要があります。<br>- **権限が不十分です。** 各APIキーは特定のワークスペースと権限のセットにスコープされています。ダッシュボードの**設定** > **APIキー**でキーの権限を確認してください。<br>- **APIキーが間違っています。** APIキーはワークスペース固有です。あるワークスペースのキーを別のワークスペースのリクエスト認証に使用することはできません。 |
 | `403 Forbidden` | 料金プランが対応していない、またはアカウントが無効になっています。|
 | `403 Access Denied` | 使用しているREST APIキーに十分な権限がありません。一般的な原因は以下の通りです：{::nomarkdown}<ul><li><strong>APIキーが機能より前に作成されています。</strong>APIキーが機能のリリース前に作成された場合（サブスクリプショングループやカタログなど）、そのキーはそれらの権限を自動的に継承しません。<strong>設定</strong> &gt; <strong>APIキー</strong>で必要な権限を持つ新しいAPIキーを作成してください。</li><li><strong>エンドポイント固有の権限がありません。</strong>各APIエンドポイントには特定の権限スコープが必要です（例：<code>users.track</code>や<code>email.status</code>）。キーの権限が呼び出しているエンドポイントと一致していることを確認してください。</li><li><strong>URLに末尾のスラッシュまたはタイプミスがあります。</strong>たとえば、<code>/users/track</code>の代わりに<code>/users/track/</code>（末尾にスラッシュあり）を使用すると、予期しないエラーが発生する可能性があります。</li></ul>{:/}|
 | `404 Not Found` | 無効なURLです。 |
 | `415 Unsupported Media Type` | `Content-Type`リクエストヘッダーが欠落しているか、正しくありません。**設定**ページで、`Content-Type`に`application/json`の値を追加してください。 |
 | `429 Rate Limited` | レート制限を超えています。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Fatal errors" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="致命的なエラー" }

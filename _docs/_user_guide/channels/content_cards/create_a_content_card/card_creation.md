@@ -27,7 +27,7 @@ After upgrading the SDK, your mobile users must upgrade their app. You can filte
 {% tabs %}
 {% tab Campaign %}
 
-You can choose when Braze creates a card on the **Delivery** step when creating a new [Content Card campaign]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/) with scheduled delivery.
+You can choose when Braze creates a card on the **Delivery** step when creating a new [Content Card campaign]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card) with scheduled delivery.
 
 ![Content Card Controls section when editing the delivery of a scheduled Content Card.]({% image_buster /assets/img_archive/card_creation.png %})
 
@@ -41,7 +41,7 @@ Regardless of your selected option, the Content Card expiration date countdown b
 {% endtab %}
 {% tab Canvas %}
 
-You can choose when Braze creates a card on the **Messaging Channels** tab of a Content Card [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/).
+You can choose when Braze creates a card on the **Messaging Channels** tab of a Content Card [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step).
 
 ![Content Card Controls section when editing the delivery of a scheduled Content Card.]({% image_buster /assets/img_archive/card_creation_canvas.png %})
 
@@ -69,7 +69,7 @@ In the **Expiration (Time in Feed)** settings, you can select **Personalize dura
 ![Expiration settings showing Personalize duration configured with a context variable for Content Card expiration.]({% image_buster /assets/img/content_card_personalize_duration.png %})
 
 {% alert important %}
-Content Cards have a maximum expiration of 30 days, even when using personalized duration with context variables. Any value set beyond 30 days is capped at 30 days. For more details, refer to [Card expiration]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/#card-expiration).
+Content Cards have a maximum expiration of 30 days, even when using personalized duration with context variables. Any value set beyond 30 days is capped at 30 days. For more details, refer to [Card expiration]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#card-expiration).
 {% endalert %}
 
 {% endtab %}
@@ -137,7 +137,7 @@ Multichannel campaigns do not support at-first impression cards, so all Content 
 
 ### Use Canvas context properties {#using-canvas-context-properties}
 
-When personalizing Content Cards with [Canvas context properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/), use the `${...}` syntax (for example, {%raw%}`{{context.${property_name}}}`{%endraw%}). Dot notation without the syntax (for example, {%raw%}`{{context.property_name}}`{%endraw%}) may not resolve correctly in Content Cards, even if it works in other channels like push and email.
+When personalizing Content Cards with [Canvas context properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), use the `${...}` syntax (for example, {%raw%}`{{context.${property_name}}}`{%endraw%}). Dot notation without the syntax (for example, {%raw%}`{{context.property_name}}`{%endraw%}) may not resolve correctly in Content Cards, even if it works in other channels like push and email.
 
 ### Change card creation after launch {#changing-card-creation-after-launch}
 

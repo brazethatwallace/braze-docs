@@ -14,7 +14,7 @@ page_order: 4
 
 ## 追跡対象のShopifyイベント {#tracked-shopify-events}
 
-Shopifyインテグレーションでは、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/)を使用して、主要な買い物行動をキャプチャします。これらのイベントを使用した実装例やマーケティング戦略については、[eコマースユースケース]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/)を参照してください。
+Shopifyインテグレーションでは、[eコマース推奨イベント]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)を使用して、主要な買い物行動をキャプチャします。これらのイベントを使用した実装例やマーケティング戦略については、[eコマースユースケース]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases)を参照してください。
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -432,7 +432,7 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 | `source`           | `{{event_properties.${source}}}`                    |
 | `sku`              | `{{event_properties.${metadata}[0].sku}}`          |
 | `type`             | `event_properties.${type}`          |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% endsubtab %}
@@ -443,7 +443,7 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 **データソース**: Braze SDK<br>
 **ユースケース**: カート放棄
 
-放棄カートCanvasでは、まず最初のショッピングカートのLiquidタグを追加して、メッセージ内のショッピングカートのコンテキストを取得する必要があります。
+放棄カートキャンバスでは、まず最初のショッピングカートのLiquidタグを追加して、メッセージ内のショッピングカートのコンテキストを取得する必要があります。
 
 {% raw %}
 ```liquid
@@ -469,11 +469,11 @@ Shopifyインテグレーションでは、[eコマース推奨イベント]({{s
 | `sku`              | `{{ shopping_cart.products[0].metadata[0].sku }}`  |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `metadata (value)` | `{{ shopping_cart.metadata[0].<add_value_here> }}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% alert tip %}
-Liquidの`for`ループを構築してすべての製品をメールにダイナミックに追加する方法の詳細については、[メール用の放棄カート商品パーソナライゼーション]({{site.baseurl}}/ecommerce_use_cases/#abandoned-cart)を参照してください。
+Liquidの`for`ループを構築してすべての製品をメールにダイナミックに追加する方法の詳細については、[メール用の放棄カート商品パーソナライゼーション]({{site.baseurl}}/ecommerce_use_cases#abandoned-cart)を参照してください。
 {% endalert %}
 
 {% endsubtab %}
@@ -488,7 +488,7 @@ Liquidの`for`ループを構築してすべての製品をメールにダイナ
 顧客がShop Payを高速チェックアウトオプションとして使用した場合、Shopifyは特定の標準チェックアウトイベント（Shopifyチェックアウト開始Webhookなど）をスキップすることがあります。これにより、Brazeがチェックアウトトークンエイリアスの追加に必要なデータを受信できず、チェックアウト放棄のトラッキングやユーザープロファイルの照合に影響を与える可能性があります。
 {% endalert %}
 
-放棄チェックアウトCanvasでは、まず次のLiquidタグを使用する必要があります。
+放棄チェックアウトキャンバスでは、まず次のLiquidタグを使用する必要があります。
 
 {% raw %}
 ```liquid
@@ -515,7 +515,7 @@ Liquidの`for`ループを構築してすべての製品をメールにダイナ
 | `sku`              | `{{ shopping_cart.products[0].metadata.sku }}`     |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `checkout_url`     | `{{ shopping_cart.metadata[0].checkout_url }}`     |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% endsubtab %}
@@ -544,17 +544,17 @@ Liquidの`for`ループを構築してすべての製品をメールにダイナ
 | tags                    | `{{event_properties.${metadata}.tags}}`             |
 | referring_site          | `{{event_properties.${metadata}.referring_site}}`   |
 | payment_gateway_names    | `{{event_properties.${metadata}.payment_gateway_names}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% alert tip %}
-Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含まれていません。そのため、[メール用の注文確認とフィードバック調査]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey)で説明されているように、カタログLiquidパーソナライゼーションを使用する必要があります。
+Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含まれていません。そのため、[メール用の注文確認とフィードバック調査]({{site.baseurl}}/ecommerce_use_cases#order-confirmation-and-feedback-survey)で説明されているように、カタログLiquidパーソナライゼーションを使用する必要があります。
 {% endalert %}
 
 {% endsubtab %}
 {% subtab Fulfilled order %}
 **イベント**: `shopify_fulfilled_order`<br>
-**タイプ**: [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**タイプ**: [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **トリガー**: ユーザーの注文がフルフィルメントされ、発送の準備ができたとき<br>
 **データソース**: Braze REST API<br>
 **ユースケース**: （トランザクション）フルフィルメントの更新
@@ -599,13 +599,13 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Partially fulfilled order %}
 **イベント**: `shopify_partially_fulfilled_order`<br>
-**タイプ**: [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**タイプ**: [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **トリガー**: ユーザーの注文の一部がフルフィルメントされ、発送の準備ができたとき<br>
 **データソース**: Braze REST API<br>
 **ユースケース**: （トランザクション）フルフィルメントの更新
@@ -650,13 +650,13 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Paid order %}
 **イベント**: `shopify_paid_order`<br>
-**タイプ**: [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**タイプ**: [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **トリガー**: ユーザーの注文がShopify内で支払い済みとマークされたとき<br>
 **データソース**: Braze REST API<br>
 **ユースケース**: （トランザクション）支払い確認
@@ -684,13 +684,13 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Order cancelled %}
-**イベント**: `shopify_cancelled_order`<br>
-**タイプ**: [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**イベント**: `ecommerce.order_cancelled`<br>
+**タイプ**: 推奨イベント<br>
 **トリガー**: ユーザーの注文がキャンセルされたとき<br>
 **データソース**: Braze REST API<br>
 **ユースケース**: （トランザクション）注文キャンセル確認
@@ -721,12 +721,12 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
-**イベント**: `shopify_order_refunded`<br>
-**タイプ**: [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**イベント**: `ecommerce.order_refunded`<br>
+**タイプ**: 推奨イベント<br>
 **トリガー**: ユーザーの注文が返金されたとき<br>
 **データソース**: Braze REST API<br>
 **ユースケース**: （トランザクション）返金確認
@@ -746,14 +746,14 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | Item Price | `{{event_properties.${line_items}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Account login %}
 
 **イベント**: `shopify_account_login`<br>
-**タイプ**: [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**タイプ**: [カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **トリガー**: ユーザーがアカウントにログインしたとき<br>
 **データソース**: Braze REST API<br>
 **ユースケース**: ウェルカムシリーズ
@@ -762,11 +762,11 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | 変数 | Liquidテンプレート |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="追跡対象のShopifyイベント" }
 {% endraw %}
 
 {% alert note %}
-現在、Shopifyインテグレーションでは、Brazeの[購入イベント]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-events)への入力はサポートされていません。そのため、購入フィルター、Liquidタグ、アクションベースのトリガー、および分析には`ecommerce.order_placed`イベントを使用してください。
+現在、Shopifyインテグレーションでは、Brazeの[購入イベント]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-events)への入力はサポートされていません。そのため、購入フィルター、Liquidタグ、アクションベースのトリガー、および分析には`ecommerce.order_placed`イベントを使用してください。
 {% endalert %}
 
 {% endsubtab %}
@@ -809,7 +809,7 @@ Shopifyのチェックアウト完了Webhookには、商品URLや画像URLが含
 | `shopify_last_order_name` | 顧客の最後の注文の名前です。これは、注文リソースの`name`フィールドに直接関係しています。 |
 | `shopify_zipcode` | 顧客のデフォルト住所の郵便番号です。 |
 | `shopify_province` | 顧客のデフォルト住所の都道府県です。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Shopify custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="サポートされているShopifyカスタム属性" }
 
 {% alert important %}
 現行のShopify APIバージョンに既知の問題があり、`shopify_last_order_name`ユーザー属性が正しく入力されません。ユーザーへの影響は以下のとおりです。<br><br>
@@ -849,21 +849,21 @@ BrazeがサポートされているShopifyカスタム属性とBraze標準属性
 
 ## SDKによるデータ収集 {#sdk-data-collection}
 
-Braze SDKが収集するデータの詳細については、[SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/)を参照してください。
+Braze SDKが収集するデータの詳細については、[SDKデータ収集]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection)を参照してください。
 
 ## 履歴バックフィル {#historical-backfill}
 
 > 履歴Shopifyデータは、Brazeを接続する前にインポートされます。過去90日間の注文イベントと過去1年間の顧客データが対象です。どちらの期間も、インテグレーションを完了した日から遡って計算されます。
 
-[Shopify標準インテグレーション設定]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/)または[Shopifyカスタムインテグレーション設定]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/)を通じて、履歴バックフィルをオンにし、過去の顧客をターゲットにできます。これにより、過去90日間のShopify注文（注文関連イベント）と過去1年間のユーザープロファイルがインポートされます。どちらの期間も、インテグレーションを完了した日から遡って計算されます。
+[Shopify標準インテグレーション設定]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration)または[Shopifyカスタムインテグレーション設定]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration)を通じて、履歴バックフィルをオンにし、過去の顧客をターゲットにできます。これにより、過去90日間のShopify注文（注文関連イベント）と過去1年間のユーザープロファイルがインポートされます。どちらの期間も、インテグレーションを完了した日から遡って計算されます。
 
 BrazeがShopifyの顧客をインポートする際、設定で選択した`external_id`タイプを割り当てます。
 
 {% alert note %}
-アクティブなCampaignsやCanvasesを持つ既存のBrazeユーザーの場合、履歴バックフィルを有効にする前に、インポートされた顧客と注文イベントがSegmentsやジャーニーにどのように影響するかを確認してください。
+アクティブなキャンペーンやキャンバスを持つ既存のBrazeユーザーの場合、履歴バックフィルを有効にする前に、インポートされた顧客と注文イベントがセグメントやジャーニーにどのように影響するかを確認してください。
 {% endalert %}
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 ### Shopify履歴バックフィルの設定 {#setting-up-shopify-historical-backfill}
 
@@ -886,4 +886,4 @@ BrazeがShopifyの顧客をインポートする際、設定で選択した`exte
 | Braze推奨イベント | Shopifyカスタムイベント | Braze標準属性 | Brazeサブスクリプションステータス |
 | --- | --- | --- | --- |
 | {::nomarkdown}<ul><li>注文確定</li><li>注文キャンセル</li><li>注文返金</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} | {::nomarkdown}<ul><li>メール</li><li>名</li><li>姓</li><li>電話</li><li>市区町村</li><li>国</li><li>合計収益</li><li>合計返金</li><li>合計注文数</li></ul>{:/} | {::nomarkdown}<ul><li>このShopifyストアに関連するメールマーケティングサブスクリプション</li><li>このShopifyストアに関連するSMSマーケティングサブスクリプション</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Synced data" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="同期データ" }

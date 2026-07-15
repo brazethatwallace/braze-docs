@@ -25,7 +25,7 @@ guide_featured_list:
 guide_menu_title2: "Autres articles"
 guide_menu_list2:
 - name: Profils de couleurs et modèles CSS
-  link: /docs/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/#reusable-color-profiles
+  link: /docs/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#reusable-color-profiles
   image: /assets/img/braze_icons/palette.svg
 
 local_redirect:

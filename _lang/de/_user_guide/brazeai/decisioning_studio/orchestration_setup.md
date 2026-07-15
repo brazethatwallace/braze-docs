@@ -29,7 +29,7 @@ Der erste Schritt besteht darin, zu wählen, welche CEP Sie mit Decisioning Stud
 | CEP | Integrationstyp | Komplexität der Einrichtung |
 |-----|-----------------|------------------|
 | **Braze** | Native API-Integration (empfohlen) | Niedrig |
-| **Salesforce Marketing Cloud** | API-Events + Journey Builder | Mittel |
+| **Salesforce Marketing Cloud** | API-Ereignisse + Journey Builder | Mittel |
 | **Andere CEPs** | Angepasst (Empfehlungsdatei) | Hoch |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Unterstützte CEPs" }
 
@@ -49,9 +49,9 @@ Bevor Sie die Orchestrierung einrichten, sammeln Sie die folgenden Elemente basi
 | **REST-API-Schlüssel** | Ein neuer API-Schlüssel mit Berechtigungen für Nutzerdaten, Nachrichten, Campaigns, Canvas, Segmente und Templates. |
 | **Braze-Dashboard-URL** | Die URL Ihrer Braze-Instanz (zum Beispiel `https://dashboard-01.braze.com`). |
 | **App-ID** | Der API-Schlüssel, der mit der App verknüpft ist, die Sie tracken möchten (zu finden unter **Einstellungen** > **App-Einstellungen**). |
-| **E-Mail-Anzeigename und -Adresse** | Die Absenderinformationen, die für Ihre Campaigns verwendet werden sollen (zu finden unter **Einstellungen** > **E-Mail-Präferenzen**). |
+| **E-Mail-Anzeigename und -Adresse** | Die Absenderinformationen, die für Ihre Campaigns verwendet werden sollen (zu finden unter **Einstellungen** > **E-Mail-Einstellungen**). |
 | **Basis-Templates** | Die Nachrichten-Templates, die Ihr Agent für die Orchestrierung verwenden wird. Sie erstellen API-getriggerte Campaigns für jedes Template. |
-| **Testnutzer:in-ID** | Eine Nutzer-ID zum Testen der Integration vor dem Start. |
+| **Testnutzer:in-ID** | Eine Nutzer:in-ID zum Testen der Integration vor dem Start. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% endtab %}
@@ -60,10 +60,10 @@ Bevor Sie die Orchestrierung einrichten, sammeln Sie die folgenden Elemente basi
 | Anforderung | Beschreibung |
 |------|-------------|
 | **App-Paket-Zugangsdaten** | Client-ID, Client Secret, Authentication Base URI, REST Base URI und SOAP Base URI aus einem installierten Paket mit Server-zu-Server-API-Integration. |
-| **API-Berechtigungen** | Scopes für Kanäle, Assets, Automatisierungen, Journeys, Kontakte, Data Extensions und Tracking-Events. |
+| **API-Berechtigungen** | Scopes für Kanäle, Assets, Automatisierungen, Journeys, Kontakte, Data Extensions und Tracking-Ereignisse. |
 | **Data Extensions** | Sie benötigen Data Extensions für Abonnent:innen-Daten, Engagement-Daten und Empfehlungen. |
 | **E-Mail-Templates** | Die Templates, die Decisioning Studio verwenden soll, mit Template-IDs für jedes einzelne. |
-| **Journey Builder-Zugang** | Zugang zum Erstellen und Aktivieren von mehrstufigen Journeys mit API-Event-Einstiegsquellen. |
+| **Journey-Builder-Zugang** | Zugang zum Erstellen und Aktivieren von mehrstufigen Journeys mit API-Ereignis-Einstiegsquellen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% endtab %}
@@ -118,7 +118,7 @@ Für Braze-Integrationen planen Sie, welche Dimensionen Ihr Agent optimieren wir
 
 ## Einrichtung der Integration {#integration-setup}
 
-Wählen Sie unten Ihre CEP aus, um mit der Einrichtung der Integration zu beginnen.
+Wählen Sie Ihre CEP aus dieser Liste aus, um mit der Einrichtung der Integration zu beginnen.
 
 {% tabs %}
 {% tab Braze %}
@@ -127,19 +127,19 @@ Wählen Sie unten Ihre CEP aus, um mit der Einrichtung der Integration zu beginn
 
 Befolgen Sie diese Schritte, um einen Decisioning Studio Agent mit den Orchestrierungsfunktionen von Braze zu integrieren (das Braze-Serviceteam steht Ihnen zur Unterstützung zur Verfügung):
 
-### 1. Schritt: API-Schlüssel erstellen {#step-1-create-an-api-key}
+### Schritt 1: API-Schlüssel erstellen {#step-1-create-an-api-key}
 
 Gehen Sie zu **Einstellungen** > **API-Schlüssel** und erstellen Sie einen neuen Schlüssel mit den folgenden Berechtigungen:
 
 {% multi_lang_include decisioning_studio/api_key_permissions.md %}
 
-### 2. Schritt: API-getriggerte Campaigns einrichten {#step-2-set-up-api-triggered-campaigns}
+### Schritt 2: API-getriggerte Campaigns einrichten {#step-2-set-up-api-triggered-campaigns}
 
 Richten Sie eine API-getriggerte Campaign für jedes Basis-Template mit API-Trigger-Eigenschaften für alle optimierten Dimensionen ein.
 
-Ein Basis-Template ist jedes Template, das der Decisioning Agent für die Orchestrierung von Nachrichten verwenden könnte. Ein Decisioning Agent kann 1 Basis-Template oder mehrere haben. Im letzteren Fall wird die Auswahl des richtigen Basis-Templates für jede:n Kund:in eine der Entscheidungen sein, die der Agent personalisiert.
+Ein Basis-Template ist jedes Template, das der Decisioning Agent für die Orchestrierung von Nachrichten verwenden könnte. Ein Decisioning Agent kann ein Basis-Template oder mehrere haben. Im letzteren Fall wird die Auswahl des richtigen Basis-Templates für jede:n Kund:in eine der Entscheidungen sein, die der Agent personalisiert.
 
-### 3. Schritt: Erneute Berechtigung konfigurieren {#step-3-configure-re-eligibility}
+### Schritt 3: Erneute Berechtigung konfigurieren {#step-3-configure-re-eligibility}
 
 Stellen Sie sicher, dass alle API-getriggerten Campaigns es Nutzer:innen ermöglichen, innerhalb von 15 Minuten erneut berechtigt zu werden.
 
@@ -149,7 +149,7 @@ Stellen Sie sicher, dass alle API-getriggerten Campaigns es Nutzer:innen ermögl
 Obwohl der Decisioning Studio Agent dieselbe Campaign nie mehr als einmal pro Tag sendet, möchten Sie die Möglichkeit haben, dieselben Campaigns zu Testzwecken mehrmals am Tag zu senden.
 {% endalert %}
 
-### 4. Schritt: Dynamische Platzhalter hinzufügen {#step-4-add-dynamic-placeholders}
+### Schritt 4: Dynamische Platzhalter hinzufügen {#step-4-add-dynamic-placeholders}
 
 Diese dienen als dynamische Platzhalter für Entscheidungen, die der Decisioning Studio Agent optimiert.
 
@@ -192,9 +192,9 @@ Das Ergebnis ist die folgende Nachricht:
 
 ## SFMC-Integration einrichten {#set-up-sfmc-integration}
 
-Decisioning Studio unterstützt eine native Integration mit Salesforce Marketing Cloud. Decisioning Studio triggert API-Events in eine Journey mit den Daten, die zum Befüllen dynamischer Elemente erforderlich sind.
+Decisioning Studio unterstützt eine native Integration mit Salesforce Marketing Cloud. Decisioning Studio triggert API-Ereignisse in eine Journey mit den Daten, die zum Befüllen dynamischer Elemente erforderlich sind.
 
-Für detaillierte Schritte zur Konfiguration der SFMC-Integration folgen Sie den [SFMC-Anweisungen]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration/) in der Decisioning Studio Go-Dokumentation.
+Für detaillierte Schritte zur Konfiguration der SFMC-Integration folgen Sie den [SFMC-Anweisungen]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration) in der Decisioning Studio Go-Dokumentation.
 
 {% endtab %}
 {% tab Andere CEPs %}
@@ -224,10 +224,10 @@ Behalten Sie diese Best Practices im Hinterkopf, während Sie sich auf die Orche
 2. **Testen Sie gründlich.** Bevor Sie starten, testen Sie Ihre Integration mit einer kleinen Gruppe von Nutzer:innen, um zu überprüfen, dass dynamischer Content korrekt befüllt wird.
 3. **Dokumentieren Sie Ihre Einrichtung.** Behalten Sie den Überblick über Campaign-IDs, Template-IDs, API-Schlüssel und andere Bezeichner. Sie müssen diese im Decisioning Studio-Portal referenzieren.
 4. **Koordinieren Sie mit Ihrem Team.** Die Einrichtung der Orchestrierung kann Marketing-, Engineering- und Datenteams einbeziehen. Stellen Sie sicher, dass alle ihre Rolle im Prozess verstehen.
-5. **Planen Sie für Feedback-Daten.** Orchestrierung umfasst das Senden von Nachrichten und das Sammeln von Engagement- und Conversion-Daten, die Ihrem Agent beim Lernen helfen. Weitere Details finden Sie unter [Bereiten Sie Ihre Daten vor]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/).
+5. **Planen Sie für Feedback-Daten.** Orchestrierung umfasst das Senden von Nachrichten und das Sammeln von Engagement- und Conversion-Daten, die Ihrem Agent beim Lernen helfen. Weitere Details finden Sie unter [Bereiten Sie Ihre Daten vor]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data).
 
 ## Nächste Schritte {#next-steps}
 
 Nachdem Sie die Orchestrierung eingerichtet haben, fahren Sie mit dem Entwerfen Ihres Agents fort:
 
-- [Decisioning Agents entwerfen]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents/)
+- [Decisioning Agents entwerfen]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/design_agents)

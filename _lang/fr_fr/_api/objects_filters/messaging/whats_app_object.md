@@ -1,16 +1,16 @@
 ---
 nav_title: "Objet WhatsApp"
-article_title: Objet Envoi de messages WhatsApp
+article_title: Objet d'envoi de messages WhatsApp
 page_order: 15
 page_type: reference
 channel: WhatsApp
-description: "Cet article de référence explique les différents composants de l’objet Braze WhatsApp."
+description: "Cet article de référence explique les différents composants de l'objet WhatsApp de Braze."
 
 ---
 
-# Objet WhatsApp
+# Objet WhatsApp {#whatsapp-object}
 
-> L'objet `whats_app` vous permet de modifier ou de créer des messages WhatsApp via nos [points d'extrémité de messagerie.]({{site.baseurl}}/api/endpoints/messaging)
+> L'objet `whats_app` vous permet de modifier ou de créer des messages WhatsApp via nos [endpoints d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging).
 
 ## Objet WhatsApp
 
@@ -24,9 +24,9 @@ description: "Cet article de référence explique les différents composants de 
 }
 ```
 
-- [Identifiant d’application]({{site.baseurl}}/api/identifier_types/)
+- [Identifiant d'application]({{site.baseurl}}/api/identifier_types)
 
-### Types de messages
+### Types de messages {#message-types}
 
 #### template_message
 
@@ -42,17 +42,17 @@ description: "Cet article de référence explique les différents composants de 
 ```
 
 {% alert important %}
-**Restrictions relatives à l'envoi de médias :** Les envois multimédias (documents, vidéos et autres types de médias) ne sont pas pris en charge par `messages/send`l'API. Seuls les types d'en-tête TEXTE et IMAGE sont pris en charge pour les messages modèles envoyés via l'API. Si votre modèle WhatsApp utilise un en-tête de type DOCUMENT, VIDÉO ou autre type de média, il n'est pas possible de l'envoyer via `messages/send`l'API. Veuillez utiliser l'[API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) [Campaigns Triggered]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) ou le tableau de bord de Braze pour envoyer des modèles avec des en-têtes multimédias.
+**Restrictions relatives à l'envoi de médias :** Les envois multimédias (documents, vidéos et autres types de médias) ne sont pas pris en charge par l'API `messages/send`. Seuls les types d'en-tête TEXT et IMAGE sont pris en charge pour les messages de modèle envoyés via l'API. Si votre modèle WhatsApp utilise un en-tête de type DOCUMENT, VIDEO ou autre type de média, vous ne pouvez pas l'envoyer via l'API `messages/send`. Utilisez l'[API Campaigns Triggered]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) ou le tableau de bord de Braze pour envoyer des modèles avec des en-têtes multimédias.
 {% endalert %}
 
-##### Objet Variables d'en-tête
+##### Objet variables d'en-tête {#header-variables-object}
 
-L’objet `header_variables` vous permet de spécifier des valeurs pour les variables d’en-tête dans le modèle WhatsApp. Chaque clé est l’index de variable du modèle WhatsApp (indexé à zéro) à remplacer par la valeur spécifiée.
+L'objet `header_variables` vous permet de spécifier des valeurs pour les variables d'en-tête dans le modèle WhatsApp. Chaque clé correspond à l'index de variable du modèle WhatsApp (indexé à zéro) à remplacer par la valeur spécifiée.
 
 {% alert note %}
-Vous pouvez utiliser`header_variables`uniquement avec les modèles qui ont des en-têtes de type TEXTE. Pour les en-têtes IMAGE, veuillez utiliser`header_media_uri`à la place. Les types d'en-tête DOCUMENT, VIDEO et autres types multimédias ne sont pas pris en charge par l'API`messages/send`.<br><br>
+Vous pouvez utiliser `header_variables` uniquement avec les modèles qui ont des en-têtes de type TEXT. Pour les en-têtes IMAGE, utilisez `header_media_uri` à la place. Les types d'en-tête DOCUMENT, VIDEO et autres types multimédias ne sont pas pris en charge par l'API `messages/send`.<br><br>
 
-`header_image_uri` est utilisé uniquement pour les types de messages de réponse (tels que `quick_reply_response_message`), et non pour les messages modèles.
+`header_image_uri` est utilisé uniquement pour les types de messages de réponse (tels que `quick_reply_response_message`), et non pour les messages de modèle.
 {% endalert %}
 
 ```json
@@ -60,10 +60,10 @@ Vous pouvez utiliser`header_variables`uniquement avec les modèles qui ont des e
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0"
 }
 ```
-Actuellement, seuls zéro ou une variable d'en-tête peuvent être spécifiés.
+Actuellement, seules zéro ou une variable d'en-tête peuvent être spécifiées.
 
 
-###### Exemple
+###### Exemple {#example}
 
 ```json
 {
@@ -71,9 +71,9 @@ Actuellement, seuls zéro ou une variable d'en-tête peuvent être spécifiés.
 }
 ```
 
-##### Objet Variables du corps
+##### Objet variables du corps {#body-variables-object}
 
-L’objet `body_variables` vous permet de spécifier des valeurs pour les variables du corps dans le modèle WhatsApp. Chaque clé est l’index de variable du modèle WhatsApp (indexé à zéro) à remplacer par la valeur spécifiée.
+L'objet `body_variables` vous permet de spécifier des valeurs pour les variables du corps dans le modèle WhatsApp. Chaque clé correspond à l'index de variable du modèle WhatsApp (indexé à zéro) à remplacer par la valeur spécifiée.
 ```json
 {
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0",
@@ -90,9 +90,9 @@ L’objet `body_variables` vous permet de spécifier des valeurs pour les variab
 }
 ```
 
-##### Objet Variables de bouton
+##### Objet variables de bouton {#button-variables-object}
 
-L’objet `button_variables` vous permet de spécifier des valeurs pour les variables du bouton dans le modèle WhatsApp. Chaque clé est l’index de variable du modèle WhatsApp (indexé à zéro) à remplacer par la valeur spécifiée.
+L'objet `button_variables` vous permet de spécifier des valeurs pour les variables de bouton dans le modèle WhatsApp. Chaque clé correspond à l'index de variable du modèle WhatsApp (indexé à zéro) à remplacer par la valeur spécifiée.
 
 ```json
 {
@@ -100,7 +100,7 @@ L’objet `button_variables` vous permet de spécifier des valeurs pour les vari
 }
 ```
 
-Actuellement, une seule variable de bouton peut être spécifiée, à savoir le composant de chemin d’une URL d’appel à l’action. L’index de variable doit correspondre à l’index du bouton d’URL CTA dans le modèle. Par exemple, si votre bouton CTA est le deuxième bouton de votre modèle, utilisez l’index de variable « 1 ».
+Actuellement, une seule variable de bouton peut être spécifiée, à savoir le composant de chemin d'une URL d'appel à l'action. L'index de variable doit correspondre à l'index du bouton d'URL CTA dans le modèle. Par exemple, si votre bouton CTA est le deuxième bouton de votre modèle, utilisez l'index de variable « 1 ».
 
 ###### Exemple
 
@@ -110,7 +110,7 @@ Actuellement, une seule variable de bouton peut être spécifiée, à savoir le 
 }
 ```
 
-### Messages d'envoi de messages
+### Messages de réponse {#response-messages}
 
 #### text_response_message
 
@@ -121,7 +121,7 @@ Actuellement, une seule variable de bouton peut être spécifiée, à savoir le 
 }
 ```
 
-###### Exemple
+##### Exemple
 
 ```json
 {
@@ -139,7 +139,7 @@ Actuellement, une seule variable de bouton peut être spécifiée, à savoir le 
 }
 ```
 
-###### Exemple
+##### Exemple
 
 ```json
 {
@@ -160,7 +160,7 @@ Actuellement, une seule variable de bouton peut être spécifiée, à savoir le 
 }
 ```
 
-##### Objet bouton
+##### Objet bouton {#button-object}
 
 ```json
 {
@@ -186,7 +186,7 @@ Actuellement, une seule variable de bouton peut être spécifiée, à savoir le 
 
 #### list_response_message
 
-Le type `list_response_message` vous permet d'envoyer un message basé sur une liste dans WhatsApp. Ce type de message comprend une liste d'éléments avec lesquels le destinataire peut interagir.
+Le type `list_response_message` vous permet d'envoyer un message basé sur une liste dans WhatsApp. Ce type de message inclut une liste d'éléments avec lesquels le destinataire peut interagir.
 
 ```json
 {
@@ -199,7 +199,7 @@ Le type `list_response_message` vous permet d'envoyer un message basé sur une l
 }
 ```
 
-#### Objet de section de liste
+#### Objet section de liste {#list-section-object}
 
 ```json
 {
@@ -208,7 +208,7 @@ Le type `list_response_message` vous permet d'envoyer un message basé sur une l
 }
 ```
 
-#### Objet ligne de liste
+#### Objet ligne de liste {#list-row-object}
 
 ```json
 {
@@ -217,11 +217,11 @@ Le type `list_response_message` vous permet d'envoyer un message basé sur une l
 }
 ```
 
-##### Contraintes
+##### Contraintes {#constraints}
 
-- **list_sections**: Il doit comporter au moins une section.
-- **list_rows**: Un maximum de 10 lignes peut être inclus dans toutes les sections.
-- **row_description**: Facultatif pour chaque ligne.
+- **list_sections** : doit comporter au moins une section.
+- **list_rows** : un maximum de 10 lignes peut être inclus dans l'ensemble des sections.
+- **row_description** : facultatif pour chaque ligne.
 
 ##### Exemple
 
@@ -264,7 +264,7 @@ Le type `list_response_message` vous permet d'envoyer un message basé sur une l
 
 #### flow_response_message
 
-Ce`flow_response_message`type vous permet d'envoyer un message basé sur un flux dans WhatsApp. Ce type de message comprend un flux interactif que le destinataire peut compléter.
+Le type `flow_response_message` vous permet d'envoyer un message basé sur un flux dans WhatsApp. Ce type de message inclut un flux interactif que le destinataire peut compléter.
 
 ```json
 {
@@ -278,7 +278,7 @@ Ce`flow_response_message`type vous permet d'envoyer un message basé sur un flux
 }
 ```
 
-##### Objet Bouton de flux
+##### Objet bouton de flux {#flow-button-object}
 
 ```json
 {
@@ -289,9 +289,9 @@ Ce`flow_response_message`type vous permet d'envoyer un message basé sur un flux
 
 ##### Contraintes
 
-- **flow_button**: Il est nécessaire d'inclure à la fois la légende et `flow_id`le .
-- **légende** : Veuillez limiter votre réponse à 20 caractères.
-- **flow_id**: Il est nécessaire d'utiliser un ID de flux valide et publié.
+- **flow_button** : doit inclure à la fois `caption` et `flow_id`.
+- **caption** : 20 caractères maximum.
+- **flow_id** : doit être un ID de flux valide et publié.
 
 ##### Exemple
 

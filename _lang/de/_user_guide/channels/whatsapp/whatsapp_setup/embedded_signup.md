@@ -12,10 +12,10 @@ channel:
 
 > Dieser Referenzartikel bietet eine schrittweise Anleitung für den Workflow der eingebetteten WhatsApp-Anmeldung in Braze.
 
-Der Workflow für die eingebettete WhatsApp-Anmeldung wird aufgerufen, wenn Sie WhatsApp zum ersten Mal in Ihren Braze-Workspace [integrieren]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/) und wenn Sie ein [WhatsApp Business-Konto]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/) zu einer bestehenden WhatsApp-Integration hinzufügen.
+Der Workflow für die eingebettete WhatsApp-Anmeldung wird aufgerufen, wenn Sie WhatsApp zum ersten Mal in Ihren Braze-Workspace [integrieren]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup) und wenn Sie ein [WhatsApp Business-Konto]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) zu einer bestehenden WhatsApp-Integration hinzufügen.
 
 {% alert note %}
-Sie können [mehrere WhatsApp Business-Konten]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/) zu einem Braze-Workspace hinzufügen. Jedes einzelne WhatsApp Business-Konto kann jedoch nur einem einzigen Braze-Workspace hinzugefügt werden.
+Sie können [mehrere WhatsApp Business-Konten]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) zu einem Braze-Workspace hinzufügen. Jedes einzelne WhatsApp Business-Konto kann jedoch nur einem einzigen Braze-Workspace hinzugefügt werden.
 {% endalert %}
 
 ## Zugriff auf den Workflow {#accessing-the-workflow}

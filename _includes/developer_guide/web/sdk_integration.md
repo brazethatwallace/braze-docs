@@ -94,7 +94,7 @@ braze.openSession();
 ```
 
 {% alert important %}
-**In-App Message Display**: To display in-app messages automatically when they're triggered, you must call `braze.automaticallyShowInAppMessages()`. Without this call, in-app messages don't display automatically. If you want to manage message display manually, remove this call and use `braze.subscribeToInAppMessage()` instead. For more information, see [In-app message delivery]({{site.baseurl}}/developer_guide/in_app_messages/delivery/).
+**In-App Message Display**: To display in-app messages automatically when they're triggered, you must call `braze.automaticallyShowInAppMessages()`. Without this call, in-app messages don't display automatically. If you want to manage message display manually, remove this call and use `braze.subscribeToInAppMessage()` instead. For more information, see [Disabling automatic triggers]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#disabling-automatic-triggers).
 {% endalert %}
 
 #### Troubleshooting missing sessions for anonymous users
@@ -132,7 +132,7 @@ The Web SDK includes basic user-agent-based bot detection that filters out known
 ### Implementing bot filtering
 
 {% alert important %}
-The solutions outlined below are general suggestions. Tailor bot filtering logic to your unique environment and traffic patterns.
+The following solutions are general suggestions. Tailor bot filtering logic to your unique environment and traffic patterns.
 {% endalert %}
 
 The most robust solution is to implement your own bot filtering logic before initializing the Braze SDK. Common approaches include:
@@ -240,7 +240,7 @@ braze.openSession();
 
 {% multi_lang_include archive/web-v4-rename.md %}
 
-When you reference the Braze Web SDK from our content delivery network, for example, `https://js.appboycdn.com/web-sdk/a.a/braze.min.js` (as recommended by our default integration instructions), your users receive minor updates (bug fixes and backward compatible features, versions `a.a.a` through `a.a.z` in the above examples) automatically when they refresh your site.
+When you reference the Braze Web SDK from our content delivery network, for example, `https://js.appboycdn.com/web-sdk/a.a/braze.min.js` (as recommended by our default integration instructions), your users receive minor updates (bug fixes and backward compatible features, versions `a.a.a` through `a.a.z` in this example) automatically when they refresh your site.
 
 However, when we release major changes, we require you to upgrade the Braze Web SDK manually to ensure that breaking changes do not impact your integration. Additionally, if you download our SDK and host it yourself, you don't receive any version updates automatically and should upgrade manually to receive the latest features and bug fixes.
 

@@ -14,9 +14,9 @@ noindex: true
 
 # Paramètres avancés {#advanced-settings}
 
-Lors de la création d'une campagne push, à l'étape de composition, sélectionnez **Settings** pour afficher les paramètres avancés disponibles.
+Lors de la création d'une campagne push, à l'étape de composition, sélectionnez **Paramètres** pour afficher les paramètres avancés disponibles.
 
-![]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Paramètres avancés d'une campagne push iOS dans le tableau de bord de Braze.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ## Extraire des données à partir des paires clé-valeur de notifications push {#extracting-data-from-push-key-value-pairs}
 
@@ -28,19 +28,19 @@ Cochez la case **Alert Options** pour voir une liste déroulante de valeurs clé
 
 ## Ajouter un indicateur de contenu disponible {#adding-content-available-flag}
 
-Cochez la case **Add Content-Available Flag** pour indiquer aux appareils de télécharger le nouveau contenu en arrière-plan. Le plus souvent, vous pouvez cocher cette case si vous souhaitez envoyer des [notifications silencieuses]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications/).
+Cochez la case **Add Content-Available Flag** pour indiquer aux appareils de télécharger le nouveau contenu en arrière-plan. Le plus souvent, vous pouvez cocher cette case si vous souhaitez envoyer des [notifications silencieuses]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications).
 
 ## Ajouter un indicateur de contenu mutable {#adding-mutable-content-flag}
 
-Cochez la case **Add Mutable-Content Flag** pour activer les personnalisations avancées du récepteur sur les appareils équipés d'iOS 10+. Cet indicateur sera automatiquement envoyé lors de la composition d'une [notification enrichie]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications/), quelle que soit la valeur de cette case à cocher.
+Cochez la case **Add Mutable-Content Flag** pour activer les personnalisations avancées du récepteur sur les appareils équipés d'iOS 10+. Cet indicateur sera automatiquement envoyé lors de la composition d'une [notification enrichie]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications), quelle que soit la valeur de cette case à cocher.
 
 ## Mettre à jour le nombre de badges de l'application {#update-app-badge-count}
 
-Saisissez le nombre souhaité pour mettre à jour votre compteur de badges, ou utilisez la syntaxe Liquid pour définir vos conditions personnalisées. Vous pouvez également mettre à jour manuellement votre compteur de badges par l'intermédiaire de la propriété `applicationIconBadgeNumber` de votre application ou du payload de notification push. Pour en savoir plus, consultez notre article dédié au [nombre de badges]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/badges/).
+Saisissez le nombre souhaité pour mettre à jour votre compteur de badges, ou utilisez la syntaxe Liquid pour définir vos conditions personnalisées. Vous pouvez également mettre à jour manuellement votre compteur de badges par l'intermédiaire de la propriété `applicationIconBadgeNumber` de votre application ou du payload de notification push. Pour en savoir plus, consultez notre article dédié au [nombre de badges]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/badges).
 
 ## Sons {#sounds}
 
-Vous pouvez entrer ici un chemin d'accès à un fichier audio dans votre bundle d'application afin de spécifier un son à lire lorsque la notification push est reçue. Si le fichier audio spécifié n'existe pas ou si le mot-clé « default » est saisi, Braze utilisera le son d'alerte par défaut de l'appareil. Pour plus d'informations sur la personnalisation, consultez notre article dédié aux [sons personnalisés]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/custom_sounds/).
+Vous pouvez entrer ici un chemin d'accès à un fichier audio dans votre bundle d'application afin de spécifier un son à lire lorsque la notification push est reçue. Si le fichier audio spécifié n'existe pas ou si le mot-clé « default » est saisi, Braze utilisera le son d'alerte par défaut de l'appareil. Pour plus d'informations sur la personnalisation, consultez notre article dédié aux [sons personnalisés]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/custom_sounds).
 
 ## ID de réduction {#collapse-id}
 

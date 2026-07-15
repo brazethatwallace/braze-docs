@@ -15,9 +15,9 @@ description: "このページでは、クラウドデータ取り込みを使用
 
 ## 統合の設定 {#configure-the-integration}
 
-標準のプロセスに従って、接続するデータウェアハウスのBrazeダッシュボードで[新しい統合を作成]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)します。削除テーブルにアクセスできるロールが含まれていることを確認してください。**Create import sync**ページで、**データタイプ**を**Delete Users**に設定し、統合実行中にユーザーを削除するための適切なアクションが実行されるようにします。
+標準のプロセスに従って、接続するデータウェアハウスのBrazeダッシュボードで[新しい統合を作成]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)します。削除テーブルにアクセスできるロールが含まれていることを確認してください。**Create import sync**ページで、**データタイプ**を**Delete Users**に設定し、統合実行中にユーザーを削除するための適切なアクションが実行されるようにします。
 
-![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
+![接続するデータウェアハウスのBrazeダッシュボードで新しい統合を作成する標準プロセスに従います。削除テーブルにアクセスできるロールが含まれていることを確認してください。「Create import sync」ページで、データタイプを「Delete Users」に設定し、統合実行中にユーザーを削除するための適切なアクションが実行されるようにします。]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
 ## ソースデータの設定 {#configure-source-data}
 
@@ -78,7 +78,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ユーザー識別子列" }
 {% endtab %}
 
 {% tab Databricks %}
@@ -91,7 +91,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_DELETES (
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ユーザー識別子列" }
 {% endtab %}
 {% tab Microsoft Fabric %}
 ```sql
@@ -120,7 +120,7 @@ Brazeのクラウドデータ取り込みでは、データウェアハウスイ
 同期が実行されると、Brazeはデータウェアハウスインスタンスに直接接続し、指定されたテーブルからすべての新しいデータを取得して、Brazeダッシュボード上の対応するユーザープロファイルを削除します。
 
 {% alert warning %}
-ユーザープロファイルの削除は元に戻せません。ユーザーが完全に削除されるため、データの不整合が発生する可能性があります。詳細については、[ユーザープロファイル削除の影響]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles)を参照してください。
+ユーザープロファイルの削除は元に戻せません。ユーザーが完全に削除されるため、データの不整合が発生する可能性があります。詳細については、[ユーザープロファイル削除の影響]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#effects-of-deleting-user-profiles)を参照してください。
 {% endalert %}
 
 <br><br>

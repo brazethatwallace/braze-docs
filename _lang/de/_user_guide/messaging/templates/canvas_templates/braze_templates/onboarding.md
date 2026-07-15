@@ -7,7 +7,7 @@ description: "Dieser Artikel beschreibt, wie Sie ein Braze-Canvas-Template verwe
 tool: Canvas
 ---
 
-# Onboarding
+# Onboarding {#onboarding}
 
 > Starten Sie die Journey Ihrer Nutzer:innen mit diesem Onboarding-Template. Dieses Template wurde entwickelt, um eine starke anfängliche Akzeptanz zu fördern und dauerhafte Beziehungen zu Ihren Nutzer:innen aufzubauen. Durch den Einsatz personalisierter Kommunikation und einer strukturierten Abfolge von Nachrichten können Sie Ihre Nutzer:innen nahtlos mit Ihrer Marke vertraut machen und den Grundstein für eine langfristige Beziehung legen.
 
@@ -15,7 +15,7 @@ In diesem Artikel führen wir Sie durch einen Anwendungsfall für das **Onboardi
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie dieses Template verwenden, müssen Sie die folgenden [E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template/) erstellen, um sie im Canvas zu referenzieren:
+Bevor Sie dieses Template verwenden, müssen Sie die folgenden [E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) erstellen, um sie im Canvas zu referenzieren:
 
 - Eine Willkommens-E-Mail für alle Nutzer:innen Ihrer App
 - Eine E-Mail mit Tipps zur Nutzung Ihrer App
@@ -98,5 +98,5 @@ Aus der Gruppe der Nutzer:innen, die nicht mit unserer App interagiert haben, k�
 Nachdem Sie das Canvas getestet und überprüft haben, um sicherzustellen, dass es wie erwartet funktioniert, wählen Sie **Launch Canvas**, um das Canvas zu starten. Jetzt können wir unseren neuen Nutzer:innen ein personalisiertes Onboarding-Erlebnis bieten, um eine dauerhafte Beziehung zu fördern!
 
 {% alert tip %}
-Sehen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) an, um zu erfahren, was Sie vor und nach dem Start eines Canvas beachten sollten.
+Sehen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) an, um zu erfahren, was Sie vor und nach dem Start eines Canvas beachten sollten.
 {% endalert %}

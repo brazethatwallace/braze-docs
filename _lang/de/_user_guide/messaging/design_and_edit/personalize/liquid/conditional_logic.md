@@ -92,7 +92,7 @@ Sie können dasselbe Muster mit Braze-Personalisierungs-Tags oder anderen Liquid
 Der `{% endif %}`-Tag signalisiert, dass Sie einen `if`-Block abgeschlossen haben. Sie müssen den `{% endif %}`-Tag in jede Nachricht einfügen, die `if`, `elsif`, `unless` oder `else` in dieser Kette verwendet. Wenn Sie keinen `{% endif %}`-Tag einfügen, erhalten Sie einen Fehler, da Braze Ihre Nachricht nicht parsen kann. Wenn Sie stattdessen `{% case %}` verwenden, schließen Sie den Block mit `{% endcase %}`, nicht mit `{% endif %}`.
 
 {% alert note %}
-In `if`-, `elsif`- und `unless`-Tags können Sie Operatoren verwenden, aber keine Filter. In `case`- und `when`-Tags stimmt jeder Zweig überein, wenn der `case`-Ausdruck einem `when`-Wert entspricht; Filter werden in diesen Ausdrücken ebenfalls nicht unterstützt. Um einen gefilterten Wert auszuwerten, weisen Sie das Filterergebnis zuerst einer Variablen zu und referenzieren Sie dann diese Variable in Ihrer `case`- oder `when`-Klausel. Weitere Details finden Sie unter [Wo Operatoren und Filter verwendet werden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+In `if`-, `elsif`- und `unless`-Tags können Sie Operatoren verwenden, aber keine Filter. In `case`- und `when`-Tags stimmt jeder Zweig überein, wenn der `case`-Ausdruck einem `when`-Wert entspricht; Filter werden in diesen Ausdrücken ebenfalls nicht unterstützt. Um einen gefilterten Wert auszuwerten, weisen Sie das Filterergebnis zuerst einer Variablen zu und referenzieren Sie dann diese Variable in Ihrer `case`- oder `when`-Klausel. Weitere Details finden Sie unter [Wo Operatoren und Filter verwendet werden]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
 ### Tutorial: Standortbasierte Inhalte bereitstellen {#tutorial-deliver-location-based-content}
@@ -220,7 +220,7 @@ Der folgende Tag ermöglicht es Ihnen, eine Nachricht für Nutzer:innen festzule
 
 ## Angepasste Attribute referenzieren {#referencing-custom-attributes}
 
-Nachdem Sie [angepasste Attribute erstellt]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes) haben, können Sie diese angepassten Attribute in Ihrem Liquid-Messaging referenzieren.
+Nachdem Sie [angepasste Attribute erstellt]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes) haben, können Sie diese angepassten Attribute in Ihrem Liquid-Messaging referenzieren.
 
 Bei der Verwendung bedingter Logik müssen Sie den Datentyp des angepassten Attributs kennen, um sicherzustellen, dass Sie die richtige Syntax verwenden. Suchen Sie auf der Seite **Angepasste Attribute** im Dashboard nach dem Datentyp, der Ihrem angepassten Attribut zugeordnet ist, und orientieren Sie sich dann an den folgenden Beispielen für jeden Datentyp.
 
@@ -230,9 +230,9 @@ Bei der Verwendung bedingter Logik müssen Sie den Datentyp des angepassten Attr
 Strings und Arrays erfordern einfache Anführungszeichen, während boolesche Werte und Ganzzahlen niemals Anführungszeichen haben.
 {% endalert %}
 
-#### Boolescher Wert {#boolean}
+### Boolescher Wert {#boolean}
 
-[Boolesche Werte]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#booleans) sind binäre Werte und können entweder auf `true` oder `false` gesetzt werden, wie z. B. `registration_complete: true`. Boolesche Werte haben keine Anführungszeichen.
+[Boolesche Werte]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans) sind binäre Werte und können entweder auf `true` oder `false` gesetzt werden, wie z. B. `registration_complete: true`. Boolesche Werte haben keine Anführungszeichen.
 
 {% raw %}
 
@@ -242,9 +242,9 @@ Strings und Arrays erfordern einfache Anführungszeichen, während boolesche Wer
 
 {% endraw %}
 
-#### Zahl {#number}
+### Zahl {#number}
 
-[Zahlen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#numbers) sind numerische Werte, die Ganzzahlen oder Gleitkommazahlen sein können. Zum Beispiel könnte eine Nutzerin oder ein Nutzer `shoe_size: 10` oder `levels_completed: 287` haben. Zahlenwerte haben keine Anführungszeichen.
+[Zahlen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers) sind numerische Werte, die Ganzzahlen oder Gleitkommazahlen sein können. Zum Beispiel könnte eine Nutzerin oder ein Nutzer `shoe_size: 10` oder `levels_completed: 287` haben. Zahlenwerte haben keine Anführungszeichen.
 
 {% raw %}
 
@@ -264,9 +264,9 @@ Sie können auch andere [grundlegende Operatoren](https://shopify.dev/docs/theme
 
 {% endraw %}
 
-#### String {#string}
+### String {#string}
 
-Ein [String]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#strings) besteht aus alphanumerischen Zeichen und speichert Daten über Ihre Nutzerin oder Ihren Nutzer. Zum Beispiel könnten Sie `favorite_color: red` oder `phone_number: 3025981329` haben. String-Werte müssen Anführungszeichen haben.
+Ein [String]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings) besteht aus alphanumerischen Zeichen und speichert Daten über Ihre Nutzerin oder Ihren Nutzer. Zum Beispiel könnten Sie `favorite_color: red` oder `phone_number: 3025981329` haben. String-Werte müssen Anführungszeichen haben.
 
 {% raw %}
 
@@ -278,9 +278,9 @@ Ein [String]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attri
 
 Für Strings können Sie sowohl „==“ als auch „contains“ in Ihrem Liquid verwenden.
 
-#### Array {#array}
+### Array {#array}
 
-Ein [Array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#arrays) ist eine Liste von Informationen über Ihre Nutzerin oder Ihren Nutzer. Zum Beispiel könnte eine Nutzerin oder ein Nutzer `last_viewed_shows: stranger things, planet earth, westworld` haben. Array-Werte müssen Anführungszeichen haben.
+Ein [Array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays) ist eine Liste von Informationen über Ihre Nutzerin oder Ihren Nutzer. Zum Beispiel könnte eine Nutzerin oder ein Nutzer `last_viewed_shows: stranger things, planet earth, westworld` haben. Array-Werte müssen Anführungszeichen haben.
 
 {% raw %}
 
@@ -290,11 +290,47 @@ Ein [Array]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attrib
 
 {% endraw %}
 
-Für Arrays müssen Sie „contains“ verwenden und können nicht „==“ verwenden.
+Für Arrays müssen Sie `contains` verwenden und können nicht `==` verwenden.
 
-#### Zeit {#time}
+#### Wie `contains` bei Strings und Arrays funktioniert {#how-contains-works-with-strings-versus-arrays}
 
-Ein Zeitstempel, der angibt, wann ein Ereignis stattgefunden hat. [Zeit]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#time)-Werte müssen einen [mathematischen Filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#math-filters) haben, um in bedingter Logik verwendet werden zu können.
+Der `contains`-Operator verhält sich unterschiedlich, je nachdem, ob er einen String oder ein Array auswertet:
+
+- **Strings:** `contains` prüft auf einen Teilstring an beliebiger Stelle im Text.
+- **Arrays:** `contains` prüft auf eine exakte Übereinstimmung mit einem vollständigen Element im Array.
+
+{% alert important %}
+Wenn ein Attribut als Array gespeichert ist (zum Beispiel `["med1", "med2", "abc"]`), ergibt die Suche nach `contains "ab"` den Wert `false`, da kein einzelnes Element in dieser Liste exakt `"ab"` ist.
+{% endalert %}
+
+##### Teilstring-Suche in Arrays {#substring-matching-on-arrays}
+
+Wenn Sie nach einer teilweisen Übereinstimmung (Teilstring) innerhalb eines Array-Attributs suchen müssen, müssen Sie das Array zunächst mit dem `join`-Filter in einen einzelnen String umwandeln.
+
+Da Braze keine Inline-Filter direkt in bedingten {% raw %}`{% if %}`{% endraw %}-Blöcken unterstützt, müssen Sie einen zweistufigen Prozess befolgen: Weisen Sie zuerst den zusammengefügten Wert einer Variablen zu und führen Sie dann Ihre bedingte Prüfung durch.
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+Da `join` Array-Elemente zu einem String zusammenfügt (Standard-Trennzeichen: ein einzelnes Leerzeichen), können Teilstring-Prüfungen über Elementgrenzen hinweg übereinstimmen (zum Beispiel wird `["Napa", "boulevard"]` zu `Napa boulevard`, wobei `contains "a b"` den Wert `true` ergibt). Verwenden Sie ein explizites Trennzeichen wie „,“, um Grenzen deutlicher zu machen und versehentliche elementübergreifende Übereinstimmungen zu reduzieren.
+{% endalert %}
+
+### Zeit {#time}
+
+Ein Zeitstempel, der angibt, wann ein Ereignis stattgefunden hat. [Zeit]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time)-Werte müssen einen [mathematischen Filter]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) haben, um in bedingter Logik verwendet werden zu können.
 
 {% raw %}
 

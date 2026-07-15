@@ -31,7 +31,7 @@ Com a reprodução de mídia sincronizada, se uma pessoa pausar o vídeo do Shar
 
 ## Integração {#integration}
 
-A mensagem no app usada nesta integração é um controlador modal de subclasse de visualização de mensagens no app. Consulte instruções de configuração no [guia de implementação]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/), na seção sobre o caso de uso avançado de mensagens no app do iOS. Antes de fazer a integração, adicione a permissão `GroupActivities` ao seu projeto do Xcode.
+A mensagem no app usada nesta integração é um controlador modal de subclasse de visualização de mensagens no app. Consulte instruções de configuração no [guia de implementação]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide), na seção sobre o caso de uso avançado de mensagens no app do iOS. Antes de fazer a integração, adicione a permissão `GroupActivities` ao seu projeto do Xcode.
 
 {% alert important %}
 Recomendamos abrir a [documentação do Apple SharePlay](https://developer.apple.com/documentation/avfoundation/media_playback_and_selection/supporting_coordinated_media_playback) lado a lado com este guia para concluir a integração.

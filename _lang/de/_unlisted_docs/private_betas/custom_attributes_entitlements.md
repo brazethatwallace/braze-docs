@@ -42,18 +42,18 @@ Administrator:innen können auch angepasste Attribute erstellen und sie auf dies
 
 ### Beschreibungen hinzufügen {#adding-descriptions}
 
-Sie können einem angepassten Attribut nach der Erstellung eine Beschreibung hinzufügen, wenn Sie die [Nutzerberechtigung](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases` haben. Bearbeiten Sie das angepasste Attribut und geben Sie ein, was Sie möchten, z. B. eine Notiz für Ihr Team.
+Sie können einem angepassten Attribut nach der Erstellung eine Beschreibung hinzufügen, wenn Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) `Manage Events, Attributes, Purchases` haben. Bearbeiten Sie das angepasste Attribut und geben Sie ein, was Sie möchten, z. B. eine Notiz für Ihr Team.
 
 ### Tags hinzufügen {#adding-tags}
 
-Sie können einem angepassten Attribut nach der Erstellung Tags hinzufügen, wenn Sie die [Nutzerberechtigung](https://www.braze.com/docs/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) „Manage Events, Attributes, Purchases“ haben. Die Tags können dann verwendet werden, um die Liste der Attribute zu filtern.
+Sie können einem angepassten Attribut nach der Erstellung Tags hinzufügen, wenn Sie die [Nutzerberechtigung]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/) „Manage Events, Attributes, Purchases“ haben. Die Tags können dann verwendet werden, um die Liste der Attribute zu filtern.
 
 ### Angepasste Attribute entfernen {#removing-custom-attributes}
 
 Es gibt zwei Möglichkeiten, angepasste Attribute aus Nutzerprofilen zu entfernen:
 
-* Wählen Sie den Namen des zu entfernenden angepassten Attributs in einem [Nutzeraktualisierung-Schritt](https://www.braze.com/docs/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes) aus.
-* Setzen Sie den Wert `null` in Ihrer API-Anfrage an den [`/users/track`-Endpunkt](https://www.braze.com/docs/api/endpoints/user_data/post_user_track#user-track).
+* Wählen Sie den Namen des zu entfernenden angepassten Attributs in einem [Nutzeraktualisierung-Schritt]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update/#removing-custom-attributes) aus.
+* Setzen Sie den Wert `null` in Ihrer API-Anfrage an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track).
 
 ### Nutzungsberichte anzeigen {#viewing-usage-reports}
 
@@ -71,19 +71,19 @@ Im Folgenden finden Sie Methoden für verschiedene Plattformen, die zum Festlege
 
 {% details Für Dokumentation nach Plattform aufklappen %}
 
-- [Android und FireOS](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=android)
-- [iOS](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
-- [Web](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/?sdktab=web)
-- [React Native](https://www.braze.com/docs/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
-- [Unity](https://www.braze.com/docs/developer_guide/platform_integration_guides/unity/Analytics/setting_custom_attributes/)
-- [Xamarin](https://www.braze.com/docs/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
-- [Roku](https://www.braze.com/docs/developer_guide/analytics/setting_user_attributes/)
+- [Android und FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=android)
+- [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=swift)
+- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=web)
+- [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics/#logging-custom-attributes)
+- [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/?sdktab=unity)
+- [Xamarin]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics/#setting-custom-attributes)
+- [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/)
 
 {% enddetails %}
 
 ## Speicherung angepasster Attribute {#custom-attribute-storage}
 
-Alle auf dem **Nutzerprofil** gespeicherten Daten, einschließlich der Daten angepasster Attribute, werden auf unbestimmte Zeit aufbewahrt, solange jedes Profil [aktiv](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users) ist.
+Alle auf dem **Nutzerprofil** gespeicherten Daten, einschließlich der Daten angepasster Attribute, werden auf unbestimmte Zeit aufbewahrt, solange jedes Profil [aktiv]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#active-users) ist.
 
 ## Datentypen angepasster Attribute {#custom-attribute-data-types}
 
@@ -96,8 +96,8 @@ Die folgenden Datentypen können als angepasste Attribute gespeichert werden:
 - [Strings](#strings)
 - [Arrays](#arrays)
 - [Zeit](#time)
-- [Objekte](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
-- [Arrays von Objekten](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/array_of_objects/)
+- [Objekte]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/)
+- [Arrays von Objekten]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/)
 
 ### Boolesche Werte (wahr/falsch) {#booleans}
 
@@ -158,7 +158,7 @@ Beachten Sie, dass Braze bei der Eingabe von Werten mit Leerzeichen zwischen, vo
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert note %}
-Ein Datumsstring wie „12-1-2021“ oder „12/1/2021“ wird in ein Datetime-Objekt konvertiert und als [Zeitattribut](https://www.braze.com/docs/user_guide/data_and_analytics/custom_data/custom_attributes/#time) behandelt.
+Ein Datumsstring wie „12-1-2021“ oder „12/1/2021“ wird in ein Datetime-Objekt konvertiert und als [Zeitattribut]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/custom_attributes/#time) behandelt.
 {% endalert %}
 
 {% alert important %}
@@ -197,7 +197,7 @@ Die Option zur Erhöhung der maximalen Länge ist nicht verfügbar, wenn das Att
 {% alert tip %}
 Weitere Informationen zur Verwendung regulärer Ausdrücke (Regex) finden Sie in diesen Ressourcen:
 - [Perl-kompatible reguläre Ausdrücke (PCRE)](https://www.regextester.com/pregsyntax.html)
-- [Regex mit Braze](https://www.braze.com/docs/user_guide/engagement_tools/segments/regex/)
+- [Regex mit Braze]({{site.baseurl}}/user_guide/engagement_tools/segments/regex/)
 - [Regex-Debugger und -Tester](https://www.regex101.com/)
 - [Regex-Tutorial](https://www.medium.com/factory-mind/regex-tutorial-a-simple-cheatsheet-by-examples-649dc1c3f285)
 {% endalert %}
@@ -236,11 +236,11 @@ Das letzte Datum, an dem ein angepasstes Event oder Kauf-Event aufgetreten ist, 
 
 ### Objekte {#objects}
 
-Sie können verschachtelte angepasste Attribute verwenden, um Objekte als Datentyp für angepasste Attribute zu senden. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
+Sie können verschachtelte angepasste Attribute verwenden, um Objekte als Datentyp für angepasste Attribute zu senden. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support/).
 
 ### Arrays von Objekten {#arrays-of-objects}
 
-Verwenden Sie ein Array von Objekten, um zusammengehörige Attribute zu gruppieren. Weitere Details finden Sie in unserem Artikel zu [Arrays von Objekten](https://www.braze.com/docs/user_guide/data/custom_data/custom_attributes/array_of_objects/).
+Verwenden Sie ein Array von Objekten, um zusammengehörige Attribute zu gruppieren. Weitere Details finden Sie in unserem Artikel zu [Arrays von Objekten]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects/).
 
 ### Konsolidierte Operatoren {#consolidated-operators}
 
@@ -266,14 +266,14 @@ Die Verwendung unserer Kaufmethoden zur Erfassung von In-App-Käufen legt den Li
 | Prüfen, ob der letzte Kauf **nach dem Datum X** stattfand | **AFTER** | **TIME** | Wenn dieser Filter `2024/31/1` angibt und der letzte Kauf eines/einer Nutzer:in nach `2024/31/1` war, wird der/die Nutzer:in diesen Filter erfüllen.|
 | Prüfen, ob der letzte Kauf **vor dem Datum X** stattfand | **BEFORE** | **TIME** | Wenn dieser Filter `2024/31/1` angibt und der letzte Kauf eines/einer Nutzer:in vor `2024/31/1` war, wird der/die Nutzer:in diesen Filter erfüllen.|
 | Prüfen, ob der letzte Kauf **mehr als X Tage her** ist | **MORE THAN** | **TIME** | Wenn dieser Filter `7` angibt und der letzte Kauf eines/einer Nutzer:in mehr als sieben Tage ab heute zurückliegt, wird der/die Nutzer:in diesen Filter erfüllen.|
-| Prüfen, ob der letzte Kauf **weniger als X Tage her** ist | **LESS THAN** | **TIME** | Wenn dieser Filter `7` angibt und der letzte Kauf eines/einer Nutzer:in weniger als sieben Tage ab heute zurückliegt, wird der/die Nutzer:in diesen Filter erfüllen.|
-| Prüfen, ob der Kauf **mehr als X (Max = 50) Mal** stattfand | **MORE THAN** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** | Wenn dieser Filter `7` Mal und `21` Tage angibt und ein:e Nutzer:in in den letzten 21 Tagen mehr als sieben Käufe getätigt hat, wird der/die Nutzer:in diesen Filter erfüllen.|
+| Prüfen, ob der letzte Kauf **weniger als X Tage her** ist | **LESS THAN** | **TIME** |  Wenn dieser Filter `7` angibt und der letzte Kauf eines/einer Nutzer:in weniger als sieben Tage ab heute zurückliegt, wird der/die Nutzer:in diesen Filter erfüllen.|
+| Prüfen, ob der Kauf **mehr als X (Max = 50) Mal** stattfand | **MORE THAN** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** |  Wenn dieser Filter `7` Mal und `21` Tage angibt und ein:e Nutzer:in in den letzten 21 Tagen mehr als sieben Käufe getätigt hat, wird der/die Nutzer:in diesen Filter erfüllen.|
 | Prüfen, ob der Kauf **weniger als X (Max = 50) Mal** stattfand | **LESS THAN** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** | Wenn dieser Filter `7` Mal und `21` Tage angibt und ein:e Nutzer:in in den letzten 21 Tagen weniger als sieben Käufe getätigt hat, wird der/die Nutzer:in diesen Filter erfüllen.|
 | Prüfen, ob der Kauf **genau X (Max = 50) Mal** stattfand | **EXACTLY** | in den letzten **Y Tagen (Y = 1,3,7,14,21,30)** | Wenn dieser Filter `7` Mal und `21` Tage angibt und ein:e Nutzer:in in den letzten 21 Tagen sieben Käufe getätigt hat, wird der/die Nutzer:in diesen Filter erfüllen.|
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation" }
 
 {% alert tip %}
-Wenn Sie nach der Anzahl der Male segmentieren möchten, die ein bestimmter Kauf stattgefunden hat, sollten Sie diesen Kauf auch einzeln als [inkrementierendes angepasstes Attribut](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes) erfassen.
+Wenn Sie nach der Anzahl der Male segmentieren möchten, die ein bestimmter Kauf stattgefunden hat, sollten Sie diesen Kauf auch einzeln als [inkrementierendes angepasstes Attribut]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_custom_attributes/#incrementingdecrementing-custom-attributes) erfassen.
 {% endalert %}
 
-Sie können den Datentyp Ihres angepassten Attributs ändern, sollten sich jedoch der Auswirkungen einer [Änderung des Datentyps](https://www.braze.com/docs/help/help_articles/data/change_custom_data_type/) bewusst sein.
+Sie können den Datentyp Ihres angepassten Attributs ändern, sollten sich jedoch der Auswirkungen einer [Änderung des Datentyps]({{site.baseurl}}/help/help_articles/data/change_custom_data_type/) bewusst sein.

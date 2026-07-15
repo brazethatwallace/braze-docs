@@ -28,7 +28,7 @@ Une fois lancé, votre agent va :
 
 Une fois lancé, votre agent a besoin de données de retour pour apprendre et s'améliorer. Cela inclut les données de conversions, les données d'engagement et les données d'activations qui indiquent à l'agent ce qui s'est passé après l'envoi des décisions d'engagement client.
 
-Pour connaître les exigences détaillées concernant la préparation de ces ressources de données de retour essentielles, consultez [Préparer vos sources de données]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/).
+Pour connaître les exigences détaillées concernant la préparation de ces ressources de données de retour essentielles, consultez [Préparer vos sources de données]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data).
 
 {% alert note %}
 Si l'agent est nativement intégré à la plateforme d'engagement client (comme Braze ou Salesforce Marketing Cloud), il se peut qu'aucune étape de configuration supplémentaire ne soit nécessaire pour les données de retour, car celles-ci peuvent être envoyées automatiquement avec les données client.
@@ -38,9 +38,9 @@ Si l'agent est nativement intégré à la plateforme d'engagement client (comme 
 
 Après le lancement, travaillez avec votre équipe AI Decisioning Services pour surveiller les performances :
 
-- **Indicateurs de performance :** Suivez votre indicateur de réussite à travers les groupes d'expérience
-- **Progression de l'apprentissage :** Observez comment les recommandations de l'agent évoluent au fil du temps
-- **Informations :** Comprenez quelles dimensions et options génèrent des résultats pour différents segments de clients
+- **Indicateurs de performance :** suivez votre indicateur de réussite à travers les groupes d'expérience
+- **Progression de l'apprentissage :** observez comment les recommandations de l'agent évoluent au fil du temps
+- **Informations :** identifiez quelles dimensions et options génèrent des résultats pour différents segments de clients
 
 ## Optimisation continue {#ongoing-optimization}
 

@@ -11,7 +11,7 @@ description: "Erfahren Sie mehr über den Push-Token-Lebenszyklus und Abo-Status
 
 guide_featured_title: "Artikel in diesem Abschnitt"
 guide_featured_list:
-  - name: Push-Token-Lebenszyklus
+  - name: Lebenszyklus von Push-Token
     link: /docs/user_guide/channels/push/push_setup/push_token_lifecycle
     image: /assets/img/braze_icons/refresh-ccw-02.svg
   - name: Push-Abo-Status
@@ -23,10 +23,10 @@ guide_featured_list:
 
 Bevor Sie Push-Nachrichten mit Braze erstellen und versenden können, müssen Sie mit Ihren Entwickler:innen zusammenarbeiten, um Push in Ihre Website oder App zu integrieren. Detaillierte Schritte finden Sie in unseren Integrationsleitfäden für die jeweilige Plattform:
 
-- [iOS]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift)
-- [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android)
-- [Internet]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=web)
+- [iOS]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift)
+- [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications?tab=android)
+- [Web]({{site.baseurl}}/developer_guide/push_notifications?sdktab=web)
 
 ## Push-Priming {#push-priming}
 
-Beachten Sie, dass Nutzer:innen dem Empfang von Push-Benachrichtigungen zustimmen müssen (Opt-in), um Ihre Nachrichten zu erhalten. Daher ist es sinnvoll, In-App-Nachrichten zu verwenden, um Ihren Kund:innen zu erklären, warum Sie ihnen Push-Benachrichtigungen senden möchten und welche Vorteile die Aktivierung von Push für sie hat. Dieser Prozess wird als [Push-Priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/) bezeichnet.
+Beachten Sie, dass Nutzer:innen dem Empfang von Push-Benachrichtigungen zustimmen müssen (Opt-in), um Ihre Nachrichten zu erhalten. Daher ist es sinnvoll, In-App-Nachrichten zu verwenden, um Ihren Kund:innen zu erklären, warum Sie ihnen Push-Benachrichtigungen senden möchten und welche Vorteile die Aktivierung von Push für sie hat. Dieser Prozess wird als [Push-Priming]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages) bezeichnet.

@@ -35,10 +35,10 @@ tool: Reports
 ファネルレポートは、ダッシュボードの以下の場所から利用できます。
 
 - 特定のキャンペーンの**キャンペーン Analytics**ページ
-- 特定のキャンバスの**キャンバス Details**ページ（**Analyze Variants**ボタンを選択）
+- 特定のキャンバスの**キャンバスの詳細**ページ（**Analyze Variants**ボタンを選択）
 
 {% alert important %}
-ファネルレポートは[API キャンペーン]({{site.baseurl}}/api/api_campaigns/)では利用できません。
+ファネルレポートは[APIキャンペーン]({{site.baseurl}}/api/api_campaigns)では利用できません。
 {% endalert %}
 
 ### ステップ 1: 日付範囲を選択する {#step-1-select-a-date-range}
@@ -59,7 +59,7 @@ tool: Reports
 
 | キャンペーン | セッション開始、購入、カスタムイベントの実行、メッセージエンゲージメントイベント |
 | キャンバス | セッション開始、購入、カスタムイベントの実行、キャンバスステップの受信、ステップとのインタラクション |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available funnel report events" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="利用可能なファネルレポートイベント" }
 
 {% alert note %}
 **ステップとのインタラクション**レポートイベントは、メールまたはプッシュメッセージングチャネルを使用するキャンバスステップでのみ使用できます。

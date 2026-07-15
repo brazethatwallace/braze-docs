@@ -32,7 +32,7 @@ You can also log the output of any AI step as a custom attribute by using the us
 
 ### Using Context steps
 
-You can leverage [Canvas Context steps](https://www.braze.com/docs/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) to easily reference outputs later in your Canvas. 
+You can leverage [Canvas Context steps]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context/#how-it-works) to easily reference outputs later in your Canvas. 
 
 The following is an example Context step you could set up after your AI step. In this example, a prior AI step contains the AI step outputs for sentiment score and message, and this Context step creates variables `sentiment_score` and `message`, which can be used in subsequent steps.
 

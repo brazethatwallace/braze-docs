@@ -10,7 +10,7 @@ search_rank: 2
 
 > Dieser Artikel zeigt Ihnen, wie Sie verschiedene Nutzerattribute verwenden können, um persönliche Informationen dynamisch in Ihr Messaging einzufügen.
 
-Liquid ist eine Open-Source-Template-Sprache, die von Shopify entwickelt und in Ruby geschrieben wurde. Sie können sie in Braze nutzen, um Nutzerprofildaten in Ihre Nachrichten einzubinden und diese Daten anzupassen. Beispielsweise können Sie Liquid-Tags verwenden, um bedingte Nachrichten zu erstellen, etwa um verschiedene Angebote basierend auf dem Abo-Jubiläumsdatum einer Nutzerin oder eines Nutzers zu versenden. Darüber hinaus können Filter Daten manipulieren, z. B. das Registrierungsdatum einer Nutzerin oder eines Nutzers von einem Zeitstempel in ein besser lesbares Format umwandeln, wie „15. Januar 2022“. Weitere Details zur Liquid-Syntax und ihren Möglichkeiten finden Sie unter [Unterstützte Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Liquid ist eine Open-Source-Template-Sprache, die von Shopify entwickelt und in Ruby geschrieben wurde. Sie können sie in Braze nutzen, um Nutzerprofildaten in Ihre Nachrichten einzubinden und diese Daten anzupassen. Beispielsweise können Sie Liquid-Tags verwenden, um bedingte Nachrichten zu erstellen, etwa um verschiedene Angebote basierend auf dem Abo-Jubiläumsdatum einer Nutzerin oder eines Nutzers zu versenden. Darüber hinaus können Filter Daten manipulieren, z. B. das Registrierungsdatum einer Nutzerin oder eines Nutzers von einem Zeitstempel in ein besser lesbares Format umwandeln, wie „15. Januar 2022“. Weitere Details zur Liquid-Syntax und ihren Möglichkeiten finden Sie unter [Unterstützte Personalisierungs-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 ## So funktioniert es {#how-it-works}
 
@@ -44,14 +44,14 @@ HTML-Kommentare (`<!-- -->`) werden entfernt, bevor Liquid gelesen wird. Daher w
 
 Die folgenden Werte können je nach Verfügbarkeit in eine Nachricht eingesetzt werden:
 
-- [Grundlegende Nutzerinformationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) (z. B. `first_name`, `last_name`, `email_address`)
-- [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)
-    - [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support/#liquid-templating)
-- [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
-- [Zuletzt verwendete Geräteinformationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#most-recently-used-device-information)
-- [Zielgeräteinformationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/#targeted-device-information)
+- [Grundlegende Nutzerinformationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) (z. B. `first_name`, `last_name`, `email_address`)
+- [Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)
+    - [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#liquid-templating)
+- [Angepasste Event-Eigenschaften]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
+- [Zuletzt verwendete Geräteinformationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#most-recently-used-device-information)
+- [Zielgeräteinformationen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)
 
-Sie können Inhalte auch direkt von einem Webserver über Braze [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) abrufen.
+Sie können Inhalte auch direkt von einem Webserver über Braze [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) abrufen.
 
 {% alert important %}
 Braze unterstützt derzeit Liquid bis einschließlich Liquid 5 von Shopify.
@@ -59,7 +59,7 @@ Braze unterstützt derzeit Liquid bis einschließlich Liquid 5 von Shopify.
 
 ## Liquid verwenden {#using-liquid}
 
-Mit [Liquid-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) können Sie die Qualität Ihrer Nachrichten steigern, indem Sie ihnen eine persönliche Note verleihen.
+Mit [Liquid-Tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) können Sie die Qualität Ihrer Nachrichten steigern, indem Sie ihnen eine persönliche Note verleihen.
 
 ### Liquid-Syntax {#liquid-syntax}
 
@@ -84,7 +84,7 @@ Operatoren (wie `==`, `!=`, `>`, `and`, `or`) und Filter (wie `| size`, `| plus`
 | Array-Zugriff (`[ ]`) | Nicht unterstützt | Nicht unterstützt |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wo Operatoren und Filter verwendet werden können" }
 
-[^case_when_ops]: In `case`- und `when`-Tags vergleicht Liquid den `case`-Ausdruck mit jedem `when`-Wert mittels Gleichheit (ähnlich wie die Verkettung von `if` und `elsif` mit `==`). Sie können innerhalb einer `when`-Klausel keine beliebigen Vergleichs- oder logischen Operatoren verwenden, wie es bei `if` und `elsif` möglich ist. Beispiele finden Sie unter [Bedingte Messaging-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags).
+[^case_when_ops]: In `case`- und `when`-Tags vergleicht Liquid den `case`-Ausdruck mit jedem `when`-Wert mittels Gleichheit (ähnlich wie die Verkettung von `if` und `elsif` mit `==`). Sie können innerhalb einer `when`-Klausel keine beliebigen Vergleichs- oder logischen Operatoren verwenden, wie es bei `if` und `elsif` möglich ist. Beispiele finden Sie unter [Bedingte Messaging-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags).
 
 Wenn Sie einen gefilterten Wert in einem Kontext benötigen, der keine Filter unterstützt, weisen Sie das Ergebnis zuerst einer Variablen zu.
 

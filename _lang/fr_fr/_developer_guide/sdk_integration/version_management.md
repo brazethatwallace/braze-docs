@@ -29,13 +29,13 @@ Il arrive que de nouvelles mises à jour des systèmes d'exploitation Android ou
 Pour recevoir des notifications automatiques lorsqu'une nouvelle version du SDK est publiée, vous pouvez surveiller le dépôt GitHub de n'importe quel SDK de Braze :
 
 1. Accédez au dépôt GitHub du SDK (par exemple, [braze-android-sdk](https://github.com/braze-inc/braze-android-sdk), [braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk) ou [braze-web-sdk](https://github.com/braze-inc/braze-web-sdk)).
-2. Cliquez sur **Watch** dans le coin supérieur droit.
+2. Cliquez sur **Watch** en haut de la page.
 3. Cliquez sur **Custom**, puis sélectionnez **Releases** et cliquez sur **Apply**.
 
-Vous recevrez une notification GitHub (ainsi qu'un e-mail, selon vos [paramètres de notification](https://github.com/settings/notifications)) chaque fois qu'une nouvelle version est publiée. Pour la liste complète des dépôts SDK, consultez [Références, dépôts et exemples d'applications]({{site.baseurl}}/developer_guide/references/).
+Vous recevrez une notification GitHub (ainsi qu'un e-mail, selon vos [paramètres de notification](https://github.com/settings/notifications)) chaque fois qu'une nouvelle version est publiée. Pour la liste complète des dépôts SDK, consultez [Références, dépôts et exemples d'applications]({{site.baseurl}}/developer_guide/references).
 
 ## À propos des problèmes connus {#about-known-issues}
 
-Afin de garantir que nos changements ne cassent pas vos pipelines de build, **nous ne modifions ni ne supprimons jamais une version après sa publication sur un système de distribution**&#8212;même si cette version présente des problèmes connus.
+Afin de garantir que nos modifications ne cassent pas vos pipelines de build, **nous ne modifions ni ne supprimons jamais une version après sa publication sur un système de distribution**&#8212;même si cette version présente des problèmes connus.
 
-Dans ce cas, nous documentons le problème dans le [journal des modifications du SDK de Braze]({{site.baseurl}}/developer_guide/changelogs/), puis nous publions un nouveau correctif pour les versions majeures ou mineures concernées dès que possible.
+Dans ce cas, nous documentons le problème dans le [journal des modifications du SDK de Braze]({{site.baseurl}}/developer_guide/changelogs), puis nous publions un nouveau correctif pour les versions majeures ou mineures concernées dès que possible.

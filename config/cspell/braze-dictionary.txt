@@ -217,7 +217,9 @@ DELIVERYFAILURE
 Demandbase
 Denada
 Deprioritization
+deprioritize
 deprioritized
+deprioritizes
 detangle
 Deutsch
 developerid
@@ -603,6 +605,7 @@ PhDs
 Phiture's
 phrasee
 pickencoding
+Plazma
 Podfile
 postbacks
 prebuild
@@ -663,6 +666,7 @@ ridesharing
 Rish
 Rishing
 Rica
+Rican
 Rokt
 Rokt Calendar
 roleplay
@@ -772,6 +776,7 @@ Squarespace
 SSSZ
 stackadapt
 STATECHANGE
+Stayfilm
 Stensul
 Steppington
 Stpo
@@ -838,6 +843,7 @@ Toolkits
 Toovio
 Toovio's
 torchie
+TOTP
 Touchpoint
 Touchpoints
 trackpad
@@ -926,6 +932,7 @@ Wistia
 wordmap
 WordPress
 wordprocessor
+Wormholy
 WWDC
 Wyng
 Xamarin

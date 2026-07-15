@@ -14,7 +14,7 @@ noindex: true
 
 Vous pouvez enregistrer des événements personnalisés dans Braze pour en savoir plus sur les modèles d'utilisation de votre application et segmenter vos utilisateurs en fonction de leurs actions sur le tableau de bord.
 
-Avant la mise en œuvre, n'oubliez pas de consulter les exemples d'options de segmentation offertes par les événements personnalisés, les attributs personnalisés et les événements d'achat dans nos [bonnes pratiques]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview/#user-data-collection), ainsi que nos notes sur les [conventions d'appellation des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions/).
+Avant la mise en œuvre, n'oubliez pas de consulter les exemples d'options de segmentation offertes par les événements personnalisés, les attributs personnalisés et les événements d'achat dans nos [bonnes pratiques]({{site.baseurl}}/developer_guide/platform_wide/analytics_overview#user-data-collection), ainsi que nos notes sur les [conventions d'appellation des événements]({{site.baseurl}}/user_guide/data/activation/events/event_naming_conventions).
 
 ## Ajouter un événement personnalisé {#adding-a-custom-event}
 

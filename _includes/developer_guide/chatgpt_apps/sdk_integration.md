@@ -36,7 +36,7 @@ For displaying Braze messaging and tracking user interactions within your custom
 
 #### Configure widget metadata
 
-Add the following metadata to your MCP server file to allow Braze domains, ensuring to update the CDN domain based on [your region](https://www.braze.com/docs/developer_guide/platforms/web/content_security_policy):
+Add the following metadata to your MCP server file to allow Braze domains, ensuring to update the CDN domain based on [your region]({{site.baseurl}}/developer_guide/platforms/web/content_security_policy):
 
 ```javascript
 "openai/widgetCSP": {

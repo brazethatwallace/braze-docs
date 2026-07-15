@@ -26,7 +26,7 @@ Les campagnes constituent une étape de message unique pour communiquer avec vos
 
 *Qu'essayez-vous d'aider l'utilisateur à faire ou à comprendre ?*
 
-Ne sous-estimez jamais le pouvoir d'un nom. Braze est conçu pour la collaboration, c'est donc le moment idéal pour clarifier la manière dont vous communiquerez vos objectifs à votre équipe. Pour en savoir plus sur les parcours clients, consultez notre cours d'apprentissage Braze Learning [Cartographier les cycles de vie des utilisateurs](https://learning.braze.com/mapping-customer-lifecycles) !
+Ne sous-estimez jamais le pouvoir d'un nom. Braze est conçu pour la collaboration, c'est donc le moment idéal pour clarifier la manière dont vous communiquerez vos objectifs à votre équipe. Pour en savoir plus sur les parcours clients, consultez notre cours Braze Learning [Cartographier les cycles de vie des utilisateurs](https://learning.braze.com/mapping-customer-lifecycles) !
 
 ### Le « quand » : créez les conditions de démarrage {#the-when-create-starting-conditions}
 
@@ -40,7 +40,7 @@ La distribution planifiée consiste à configurer vos campagnes pour qu'elles so
 
 *Qui essayez-vous d'atteindre ?*
 
-Vous pouvez utiliser des [segments]({{site.baseurl}}/user_guide/audience/segments/) prédéfinis pour cibler les utilisateurs en fonction de leurs caractéristiques et actions démographiques, comportementales ou techniques. Ajoutez des filtres supplémentaires lors de la création de votre campagne pour affiner davantage votre segment. Seuls les utilisateurs qui correspondent à ces critères d'audience cible peuvent entrer dans le parcours. Consultez ce tableau pour un résumé rapide des types de filtres disponibles.
+Vous pouvez utiliser des [segments]({{site.baseurl}}/user_guide/audience/segments) prédéfinis pour cibler les utilisateurs en fonction de leurs caractéristiques et actions démographiques, comportementales ou techniques. Ajoutez des filtres supplémentaires lors de la création de votre campagne pour affiner davantage votre segment. Seuls les utilisateurs qui correspondent à ces critères d'audience cible peuvent entrer dans le parcours. Consultez ce tableau pour un résumé rapide des types de filtres disponibles.
 
 | Filtre | Description |
 |---|---|
@@ -56,7 +56,7 @@ Vous pouvez utiliser des [segments]({{site.baseurl}}/user_guide/audience/segment
 
 *Pourquoi créez-vous cette campagne ?*
 
-Il est toujours important d'avoir un objectif clair en tête, et les campagnes vous aident à comprendre vos performances par rapport à des indicateurs clés de performance tels que l'engagement de session, les achats et les événements personnalisés. Sélectionner au moins un [événement de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) vous permettra de comprendre les performances de votre campagne.
+Il est toujours important d'avoir un objectif clair en tête, et les campagnes vous aident à comprendre vos performances par rapport à des indicateurs clés de performance tels que l'engagement de session, les achats et les événements personnalisés. Sélectionner au moins un [événement de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) vous permettra de comprendre les performances de votre campagne.
 
 ### Le « où » : trouvez mon audience {#the-where-find-my-audience}
 

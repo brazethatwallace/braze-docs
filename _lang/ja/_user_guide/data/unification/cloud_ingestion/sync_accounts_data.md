@@ -25,7 +25,7 @@ CDIを使ってアカウントデータを同期する前に、[アカウント�
 
 ## 同期の仕組み {#how-syncing-works}
 
-- 各同期では、最終同期タイムスタンプより`UPDATED_AT`が後の行がインポートされます。境界タイムスタンプと完全に一致する行は、同じタイムスタンプを持つ新しい行がある場合に再同期されることがあります。詳しくは、[重複タイムスタンプを持つ行の再同期を避ける]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
+- 各同期では、最終同期タイムスタンプより`UPDATED_AT`が後の行がインポートされます。境界タイムスタンプと完全に一致する行は、同じタイムスタンプを持つ新しい行がある場合に再同期されることがあります。詳しくは、[重複タイムスタンプを持つ行の再同期を避ける]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps)を参照してください。
 - 統合からのデータは、提供された`id`に基づいてアカウントを作成または更新します。
 - `DELETED`が`true`の場合、アカウントは削除されます。
 - 同期処理ではデータポイントは記録されませんが、同期されたすべてのデータはアカウントの総使用量（保存データ総量で測定）に算入されます。変更データのみに制限する必要はありません。
@@ -73,7 +73,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
     CREATE USER BRAZE_INGESTION_USER;
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
-3. ネットワークポリシーを使用している場合は、CDIサービスが接続できるようにBrazeのIPを許可リストに追加してください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
+3. ネットワークポリシーを使用している場合は、CDIサービスが接続できるようにBrazeのIPを許可リストに追加してください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
 4. Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み**に移動し、新しい同期を作成します。
 5. 接続の詳細を入力（または既存のものを再利用）し、ソーステーブルを追加します。
 6. **Accounts**同期タイプを選択し、統合名とスケジュールを入力します。
@@ -109,7 +109,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
     GRANT SELECT ON TABLE ACCOUNTS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. ファイアウォールやネットワークポリシーがある場合は、BrazeがRedshiftインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
+3. ファイアウォールやネットワークポリシーがある場合は、BrazeがRedshiftインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
 
 {% endsubtab %}
 {% subtab BigQuery %}
@@ -140,7 +140,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
     | `ID` | 文字列 | はい |
     | `NAME` | 文字列 | はい |
     | `DELETED` | ブール値 | オプション |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アカウントデータを同期する" }
 
 {:start="3"}
 3. ユーザーを作成し、権限を付与します。別の同期の認証情報がすでにある場合は、アカウントテーブルへのアクセス権がある限り再利用できます。
@@ -151,12 +151,12 @@ CDIを使って、データウェアハウスやファイルストレージを�
     | BigQuery User | Brazeがクエリの実行、メタデータの読み取り、テーブルの一覧表示を行えるようにします。 |
     | BigQuery Data Viewer | Brazeがデータセットとコンテンツを表示できるようにします。 |
     | BigQuery Job User | Brazeがジョブを実行できるようにします。 |
-    {: .reset-td-br-1 .reset-td-br-2 aria-label="Sync your account data" }
+    {: .reset-td-br-1 .reset-td-br-2 aria-label="アカウントデータを同期する" }
 
     権限を付与した後、JSONキーを生成します。手順については、[Keys create and delete](https://cloud.google.com/iam/docs/keys-create-delete)を参照してください。後でBrazeダッシュボードにアップロードします。
 
 {:start="4"}
-4. ネットワークポリシーを使用している場合は、BrazeのIPがBigQueryインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
+4. ネットワークポリシーを使用している場合は、BrazeのIPがBigQueryインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
 
 {% endsubtab %}
 {% subtab Databricks %}
@@ -187,7 +187,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
     | `ID` | 文字列 | はい |
     | `NAME` | 文字列 | はい |
     | `DELETED` | ブール値 | オプション |
-    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
+    {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アカウントデータを同期する" }
 
 {:start="3"}
 3. Databricksでパーソナルアクセストークンを作成します：
@@ -198,7 +198,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
     5. トークンをコピーし、Brazeダッシュボードで使用するために安全に保存します。
 
 {:start="4"}
-4. ネットワークポリシーを使用している場合は、BrazeのIPがDatabricksインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
+4. ネットワークポリシーを使用している場合は、BrazeのIPがDatabricksインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
 
 {% endsubtab %}
 {% subtab Microsoft Fabric %}
@@ -220,7 +220,7 @@ CDIを使って、データウェアハウスやファイルストレージを�
 2. サービスプリンシパルを作成し、権限を付与します。別の同期の認証情報がすでにある場合は再利用できますが、アカウントテーブルへのアクセス権があることを確認してください。
 
 {:start="3"}
-3. ネットワークポリシーを使用している場合は、BrazeのIPがMicrosoft Fabricインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views)を参照してください。
+3. ネットワークポリシーを使用している場合は、BrazeのIPがMicrosoft Fabricインスタンスにアクセスできるようにしてください。IPの一覧については、[クラウドデータ取り込み]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)を参照してください。
 
 {% endsubtab %}
 {% endsubtabs %}
@@ -235,11 +235,11 @@ CDIを使って、データウェアハウスやファイルストレージを�
 | `NAME` | はい | アカウントの名前 |
 | `PAYLOAD` | はい | Brazeのアカウントに同期するフィールドのJSON文字列 |
 | `DELETED` | オプション | Brazeからアカウントを削除することを示すブール値 |
-| `UPDATED_AT` | *非対応* | ファイルストレージでは`UPDATED_AT`列はサポートされていません |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Sync your account data" }
+| `UPDATED_AT` | _*非対応_ | ファイルストレージでは`UPDATED_AT`列はサポートされていません |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="アカウントデータを同期する" }
 
 {% alert note %}
-ファイル名はAWSのルールに従い、一意である必要があります。一意性を確保するためにタイムスタンプを付加してください。Amazon S3同期の詳細については、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/)を参照してください。
+ファイル名はAWSのルールに従い、一意である必要があります。一意性を確保するためにタイムスタンプを付加してください。Amazon S3同期の詳細については、[ファイルストレージ統合]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations)を参照してください。
 {% endalert %}
 
 以下の例は、ファイルストレージからアカウントデータを同期するための有効なJSONおよびCSV形式を示しています。
@@ -258,14 +258,14 @@ CDIを使って、データウェアハウスやファイルストレージを�
 {% endalert %}
 {% endsubtab %}
 {% subtab CSV Accounts with Delete %}
-`````````plaintext
+```plaintext
 ID,NAME,PAYLOAD,DELETED
 85,"ACCOUNT_1","{""region"": ""APAC"", ""employees"": 850}",TRUE
 1,"ACCOUNT_2","{""region"": ""EMEA"", ""employees"": 10000}",FALSE
 ```
 {% endsubtab %}
 {% subtab CSV Accounts without Delete %}
-`````````plaintext
+```plaintext
 ID,NAME,PAYLOAD
 85,"ACCOUNT_1","{""region"": ""APAC"", ""employees"": 850}"
 1,"ACCOUNT_2","{""region"": ""EMEA"", ""employees"": 10000}"
@@ -283,7 +283,7 @@ ID,NAME,PAYLOAD
 
 {% tabs %}
 {% tab Snowflake %}
-`````````sql
+```sql
 CREATE VIEW BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
@@ -301,7 +301,7 @@ SELECT
 ```
 {% endtab %}
 {% tab Redshift %}
-`````````sql
+```sql
 CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS
 SELECT
     CURRENT_TIMESTAMP as UPDATED_AT,
@@ -319,7 +319,7 @@ SELECT
 ```
 {% endtab %}
 {% tab BigQuery %}
-`````````sql
+```sql
 CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SELECT
     last_updated as UPDATED_AT,
     account_id as ID,
@@ -335,7 +335,7 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SEL
 ```
 {% endtab %}
 {% tab Databricks %}
-`````````sql
+```sql
 CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SELECT
     last_updated as UPDATED_AT,
     account_id as ID,
@@ -351,7 +351,7 @@ CREATE view IF NOT EXISTS BRAZE_CLOUD_PRODUCTION.INGESTION.ACCOUNTS_SYNC AS (SEL
 ```
 {% endtab %}
 {% tab Microsoft Fabric %}
-`````````sql
+```sql
 CREATE VIEW [BRAZE_CLOUD_PRODUCTION].[INGESTION].[ACCOUNTS_SYNC]
 AS SELECT
     account_id as ID,

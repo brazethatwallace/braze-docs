@@ -129,23 +129,16 @@
     }
 
 		ul {
-			list-style: square;
 			margin-left: 20px;
+			list-style: disc;
 
 			> li {
 				p {
-					display: inline-block;
+					display: inline;
 				}
 
-				&::before {
-					content: none;
+				&::marker {
 					color: $black-shark;
-					margin-right: 10px;
-					margin-top: auto;
-					margin-bottom: auto;
-					font-size: 15px;
-					display: inline-block;
-					font-family: $braze-bold;
 				}
 
 				div {
@@ -157,25 +150,17 @@
 		}
 
 		ol {
-			list-style: none;
-			counter-reset: li;
+			list-style: decimal;
 			margin-left: 20px;
 
 			> li {
-				counter-increment: li;
-
 				p {
 					display: inline;
 				}
 
-				&::before {
-					content: counter(li) "."; // Add a period right after the counter value
+				&::marker {
 					font-family: $braze-bold;
 					color: $black-shark;
-					display: inline-block;
-					margin-right: 10px;
-					margin-top: auto;
-					margin-bottom: auto;
 				}
 
 				div {
@@ -183,11 +168,6 @@
 						margin-top: 15px;
 					}
 				}
-			}
-		}
-		@for $oli from 1 through 12 {
-			ol[start="#{$oli}"] {
-				counter-reset: li #{$oli - 1};
 			}
 		}
 
@@ -1279,4 +1259,56 @@ svg[id^="mermaid"] {
 
 .toc_container .heading-copy-btn {
 	display: none;
+}
+
+.prompt-library-tabs .sdk-tab-content {
+  padding-top: 16px !important;
+}
+
+.copy-block {
+  position: relative;
+  padding: 16px 52px 6px 16px;
+  margin-bottom: 12px;
+  background-color: #f8f8fa;
+  border: 1px solid $grey-ghost;
+  border-radius: 10px;
+
+  .copy-block-text {
+    margin-bottom: 0;
+    font-family: monospace;
+    font-size: 0.875rem;
+  }
+
+  .copy-block-available {
+    margin-top: 6px;
+    margin-bottom: 0 !important;
+    font-size: 0.75rem;
+    color: $grey-dust;
+  }
+
+  .copy-block-btn {
+    opacity: 0.45;
+    padding: 2px 6px;
+    position: absolute;
+    top: 10px;
+    right: 8px;
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    transition: opacity 0.3s ease-in-out;
+    font-size: 1rem;
+    color: inherit;
+  }
+
+  &:hover .copy-block-btn {
+    opacity: 1;
+  }
+
+  .copy-feedback {
+    position: absolute;
+    top: -20px;
+    right: 8px;
+    opacity: 0;
+    font-size: 12px;
+  }
 }

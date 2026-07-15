@@ -9,16 +9,16 @@ search_tag: Partner
 
 # Tapcart
 
-> [Tapcart](https://www.tapcart.com/) est une plateforme de commerce mobile de premier plan pour les marques propulsées par Shopify, permettant aux marchands de créer des applications mobiles personnalisées qui offrent des expériences d'achat engageantes que leurs clients adorent.
+> [Tapcart](https://www.tapcart.com/) est une plateforme de commerce mobile de premier plan pour les marques propulsées par Shopify, permettant aux marchands de créer des applications mobiles personnalisées qui offrent des expériences d'achat engageantes et sur mesure que leurs clients adorent.
 
 _Cette intégration est maintenue par Tapcart._
 
 ## Conditions préalables {#prerequisites}
 
 | Condition | Description |
-|---|---|
+|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | Compte Tapcart Enterprise | L'intégration est disponible uniquement pour les **clients Tapcart Enterprise**. |
-| Clé API de l'application Braze | La [clé API de l'identifiant de l'application Braze](https://www.braze.com/docs/api/identifier_types) est requise. Chaque plateforme (comme iOS ou Android) possède son propre identifiant d'application. Dans le tableau de bord de Braze, accédez à **Paramètres** > **Clés API** > **Identifiants d'application**. |
+| Clé API de l'application Braze | La [clé API d'identifiant de l'application Braze]({{site.baseurl}}/api/identifier_types/) est requise. Chaque plateforme (comme iOS ou Android) possède son propre identifiant d'application. Dans le tableau de bord de Braze, accédez à **Paramètres** > **Clés API** > **Identifiants d'application**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## À propos de l'intégration {#about-the-integration}

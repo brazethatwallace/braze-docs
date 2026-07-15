@@ -67,7 +67,7 @@ When you define your alert criteria you can adjust the following thresholds:
 
 ## Setting up alert notifications
 
-You can set up an email alert, a webhook alert or both. Webhook alerts can be very useful for use cases such as sending an alert to external platforms, such as a Slack channel. For an example, see our [documentation](https://www.braze.com/docs/user_guide/administer/global/admin_settings/notification_preferences#slack-incoming-webhook-integration) on integrating alerts with Slack for our notification preferences.
+You can set up an email alert, a webhook alert or both. Webhook alerts can be very useful for use cases such as sending an alert to external platforms, such as a Slack channel. For an example, see our [documentation]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) on integrating alerts with Slack for our notification preferences.
 
 ![An email will be sent to the selected email when the criteria for the alert is reached.]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts2.png %})
 

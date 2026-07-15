@@ -1,6 +1,6 @@
 ---
-nav_title: API 내보내기
-article_title: API 내보내기
+nav_title: 내보내기 API
+article_title: 내보내기 API
 page_order: 5
 page_type: reference
 description: "이 참조 문서에서는 대시보드에서 CSV를 다운로드하는 대신 내보내기 API를 사용해야 하는 경우를 판단하는 데 도움을 줍니다."
@@ -8,11 +8,11 @@ platform: API
 
 ---
 
-# API 내보내기 {#export-apis}
+# 내보내기 API {#export-apis}
 
 > 이 페이지에서는 대시보드에서 CSV를 다운로드하는 대신 내보내기 API를 사용해야 하는 경우를 판단하는 데 도움을 줍니다.
 
-Braze 내보내기 API를 사용하면 Braze 데이터를 JSON 형식으로 프로그래밍 방식으로 내보낼 수 있습니다. 내보낼 수 있는 항목, 필수 조건, 전달 방식에 대한 자세한 내용은 [내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/)를 참조하세요.
+Braze 내보내기 API를 사용하면 Braze 데이터를 JSON 형식으로 프로그래밍 방식으로 내보낼 수 있습니다. 내보낼 수 있는 항목, 필수 조건, 전달 방식에 대한 자세한 내용은 [내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export)를 참조하세요.
 
 ## CSV 다운로드 대신 내보내기 API를 사용해야 하는 경우 {#when-to-use-export-apis-instead-of-csv-downloads}
 
@@ -28,5 +28,5 @@ Braze 내보내기 API를 사용하면 Braze 데이터를 JSON 형식으로 프�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CSV 다운로드 대신 내보내기 API를 사용해야 하는 경우" }
 
 {% alert tip %}
-CSV 및 API 내보내기에 대한 도움말은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/)을 참조하세요.
+CSV 및 API 내보내기에 대한 도움말은 [내보내기 문제 해결]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting)을 참조하세요.
 {% endalert %}

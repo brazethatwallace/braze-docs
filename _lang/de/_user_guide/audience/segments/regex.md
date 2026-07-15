@@ -2,7 +2,6 @@
 nav_title: "Reguläre Ausdrücke"
 article_title: "Reguläre Ausdrücke"
 page_order: 8
-
 description: "Dieser Referenzartikel behandelt reguläre Ausdrücke (Regex), wie Sie diese verwenden können, und bietet eine Debugger-Funktionalität zum Validieren und Testen regulärer Ausdrücke."
 page_type: reference
 tool:
@@ -10,7 +9,7 @@ tool:
 
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/regular-expression-basics-for-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Reguläre Ausdrücke {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecomregular-expression-basics-for-braze-stylefloatrightwidth120pxborder0-classnoimgborder-regular-expressions}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/regular-expression-basics-for-braze){: style="float:right;width:120px;border:0;" class="noimgborder"} Reguläre Ausdrücke {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomregular-expression-basics-for-braze-stylefloatrightwidth120pxborder0-classnoimgborder-regular-expressions}
 
 > Ein regulärer Ausdruck, allgemein als Regex bekannt, ist eine Zeichenfolge, die ein Suchmuster definiert. Reguläre Ausdrücke ermöglichen es Ihnen, Textgruppierungen zu validieren und Such- und Ersetzungsaktionen durchzuführen. Bei Braze nutzen wir reguläre Ausdrücke, um Ihnen eine flexiblere Lösung für den Zeichenkettenabgleich bei Ihrer Segmentierung und Campaign-Filterung für Ihre Zielgruppe zu bieten.<br><br>Diese Seite behandelt reguläre Ausdrücke (Regex), wie Sie diese verwenden können, häufig gestellte Fragen und bietet einen Regex-Debugger zum Testen regulärer Ausdrücke.
 
@@ -21,7 +20,7 @@ Im verlinkten Braze-Lernkurs zeigen wir Ihnen, wie reguläre Ausdrücke auf [Reg
 ## Ressourcen {#resources}
 
 - [Grundlagen regulärer Ausdrücke](https://learning.braze.com/regular-expression-basics-for-braze) Braze-Lernkurs
-- [Regex-Spickzettel]({{site.baseurl}}/regex_cheat_sheet/)
+- [Regex-Spickzettel]({{site.baseurl}}/regex_cheat_sheet)
 - [Beispieldaten RTF]({% image_buster /assets/download_file/regex-dummy-data.rtf %})
 
 ## Regex-Debugger {#regex-debugger}
@@ -139,11 +138,19 @@ $( document ).ready(function() {
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-#### Schließt der Filter `does not match regex` leere Werte ein? {#does-the-does-not-match-regex-filter-include-blank-values}
+### Schließt der Filter `does not match regex` leere Werte ein? {#does-the-does-not-match-regex-filter-include-blank-values}
 
 Nein. Wenn der Wert leer ist, werden die Nutzer:innen nicht in den Filter `does not match regex` einbezogen.
 
-#### Wie filtere ich beim Segmentieren nach Posteingangs-spezifischen E-Mail-Adressen? {#how-do-i-filter-for-inbox-specific-email-addresses-when-segmenting}
+### Wie gleiche ich einen von mehreren exakten Werten (ODER-Logik) für ein angepasstes String-Attribut ab? {#how-do-i-match-any-of-several-exact-values-or-logic-for-a-string-custom-attribute}
+
+Verwenden Sie Alternation mit Start- und Endankern, damit jeder Wert exakt übereinstimmt und Sie keine Teilübereinstimmungen erhalten. Um beispielsweise exakt `gold`, `silver` oder `bronze` abzugleichen:
+
+```
+(^gold$)|(^silver$)|(^bronze$)
+```
+
+### Wie filtere ich beim Segmentieren nach Posteingangs-spezifischen E-Mail-Adressen? {#how-do-i-filter-for-inbox-specific-email-addresses-when-segmenting}
 
 {% raw %}
 Verwenden Sie den E-Mail-Adressfilter und setzen Sie ihn auf `matches regex`. Referenzieren Sie dann den Regex für E-Mail-Adressen:
@@ -160,13 +167,13 @@ Wir können diesen Regex in die folgenden drei Teile aufgliedern:
 
 {% endraw %}
 
-#### Wie filtere ich nach E-Mail-Adressen, die mit einer bestimmten Domain verknüpft sind? {#how-do-i-filter-for-email-addresses-associated-to-a-specific-domain}
+### Wie filtere ich nach E-Mail-Adressen, die mit einer bestimmten Domain verknüpft sind? {#how-do-i-filter-for-email-addresses-associated-to-a-specific-domain}
 
 Angenommen, Sie möchten nach E-Mails filtern, die auf „@braze.com“ enden. Sie würden den E-Mail-Adressfilter verwenden, ihn auf `matches regex` setzen und „@braze.com“ in das Regex-Feld eingeben. Dasselbe gilt für jede andere E-Mail-Domain.
 
 ![Filter für eine E-Mail-Adresse, die dem Regex „@braze.com“ entspricht.]({% image_buster /assets/img/regex/regeximg1.png %})
 
-#### Wie kann ich Zahlen-Strings für Werte ≥ x oder ≤ x filtern? {#how-can-i-use-filter-number-strings-for-values-x-or-x}
+### Wie kann ich Zahlen-Strings für Werte ≥ x oder ≤ x filtern? {#how-can-i-use-filter-number-strings-for-values-x-or-x}
 
 Wenn Sie nach Werten suchen, die größer oder gleich (≥) x sind, verwenden Sie den folgenden Regex:
 
@@ -184,7 +191,7 @@ Wenn Sie nach Werten suchen, die kleiner oder gleich (≤) x sind, verwenden Sie
 
 Dabei ist `x-y` der Bereich der Zahlen (0–9) der ersten Ziffer und `a-b` ist der untere Grenzbereich von x. Zum Beispiel wäre der Regex für Werte kleiner oder gleich 50: `^([5-9][0-9]|[0-4][0-9])$`.
 
-#### Wie filtere ich angepasste Attribute, die mit einem bestimmten String beginnen? {#how-do-i-filter-custom-attributes-that-start-with-a-specific-string}
+### Wie filtere ich angepasste Attribute, die mit einem bestimmten String beginnen? {#how-do-i-filter-custom-attributes-that-start-with-a-specific-string}
 
 Verwenden Sie das Caret-Symbol (`^`), um anzugeben, womit der String beginnt, und geben Sie dann den Namen des angepassten Attributs ein, das Sie angeben möchten.
 
@@ -192,13 +199,19 @@ Wenn Sie beispielsweise Nutzer:innen ansprechen möchten, die in Städten leben,
 
 ![Filter für einen Ort, der dem Regex „^San \w“ entspricht.]({% image_buster /assets/img/regex/regeximg2.png %})
 
-#### Wie filtere ich nach bestimmten Telefonnummern? {#how-do-i-filter-for-specific-phone-numbers}
+### Wie filtere ich nach bestimmten Telefonnummern? {#how-do-i-filter-for-specific-phone-numbers}
 
-Bevor Sie Regex zum Filtern von Telefonnummern verwenden, denken Sie daran, dass die für Nutzerprofile protokollierten Nummern im [E.164](https://en.wikipedia.org/wiki/E.164)-Format vorliegen müssen, wie in [Nutzer-Telefonnummern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers/) angegeben.
+Bevor Sie Regex zum Filtern von Telefonnummern verwenden, denken Sie daran, dass die für Nutzerprofile protokollierten Nummern im [E.164](https://en.wikipedia.org/wiki/E.164)-Format vorliegen müssen, wie in [Nutzer-Telefonnummern]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers) angegeben.
 
 Angenommen, Sie suchen nach US-Telefonnummern, verwenden Sie das Regex-Format `1?\d\d\d\d\d\d\d\d\d\d`, wobei jede Wiederholung von `\d` eine Ziffer ist, die Sie angeben möchten. Die ersten drei Ziffern sind die Vorwahl.
 
 Ebenso ist das Format für britische Telefonnummern `^\+4\d\d\d\d\d\d\d\d\d\d\d`. Für jedes andere Land wäre es die jeweilige Landesvorwahl, gefolgt von der erforderlichen Anzahl von `\d`-Wiederholungen für jede verbleibende Ziffer. Im Fall von Litauen mit der Landesvorwahl „3“ wäre der Regex also `^\+3\d\d\d\d\d\d\d\d\d\d`.
+
+Wenn Ihre britischen Mobilnummern ohne führendes `+` im gängigen Format mit `447` gespeichert sind (zum Beispiel `447123456789`), können Sie diese mit folgendem Ausdruck abgleichen:
+
+```
+^447\d{9}$
+```
 
 Angenommen, Sie möchten Nutzer:innen nach Telefonnummer für eine bestimmte Vorwahl, „718“, filtern. Verwenden Sie den Telefonnummernfilter, setzen Sie ihn auf `matches regex` und geben Sie den folgenden Regex ein:
 

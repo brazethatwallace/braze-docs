@@ -20,7 +20,7 @@ A distribuição entre variantes nem sempre é uniforme. Toda vez que uma mensag
 Da mesma forma, se você quiser dividir múltiplas variantes igualmente usando porcentagens com números inteiros, certifique-se de que o número de variantes divida 100 de forma exata. Caso contrário, algumas variantes terão uma porcentagem maior de usuários distribuídos em comparação com outras. Por exemplo, se sua campanha tem sete variantes, não é possível ter uma distribuição uniforme, já que sete não divide 100 igualmente como número inteiro. Nesse caso, você teria duas variantes de 15% e cinco variantes de 14%.
 
 {% alert tip %}
-Para distribuir usuários em um Canvas, você pode adicionar uma [etapa de Divisão de decisão]({{site.baseurl}}/decision_split/) e separar os usuários com base nos seus [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers/).
+Para distribuir usuários em um Canvas, você pode adicionar uma [etapa de Divisão de decisão]({{site.baseurl}}/decision_split) e separar os usuários com base nos seus [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers).
 {% endalert %}
 
 ## Distribuição de mensagens no app {#in-app-message-distribution}

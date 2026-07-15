@@ -23,7 +23,7 @@ Pour créer un arbre décisionnel dans votre workflow, ajoutez une étape à vot
 
 ### Définir votre répartition {#define-your-split}
 
-Comment souhaitez-vous répartir vos utilisateurs ? Vous pouvez utiliser des [segments]({{site.baseurl}}/user_guide/audience/segments/) et des filtres pour tracer la ligne. Concrètement, vous créez une requête `true` ou `false` qui évalue vos utilisateurs, puis les oriente vers une étape ou une autre. Vous devez utiliser au moins un segment ou un filtre. Il n'est pas nécessaire d'utiliser à la fois un segment et un filtre.
+Comment souhaitez-vous répartir vos utilisateurs ? Vous pouvez utiliser des [segments]({{site.baseurl}}/user_guide/audience/segments) et des filtres pour tracer la ligne. Concrètement, vous créez une requête `true` ou `false` qui évalue vos utilisateurs, puis les oriente vers une étape ou une autre. Vous devez utiliser au moins un segment ou un filtre. Il n'est pas nécessaire d'utiliser à la fois un segment et un filtre.
 
 ![Une étape d'arbre décisionnel avec le filtre « Foreground Push Enabled is true » sélectionné.]({% image_buster /assets/img/define-split-2.png %})
 
@@ -50,4 +50,4 @@ Consultez le tableau suivant pour les descriptions des indicateurs analytiques d
 | _Entrées_ | Le nombre total de fois où l'étape a été atteinte. Si votre Canvas autorise la rééligibilité et qu'un utilisateur entre deux fois dans une étape de l'arbre décisionnel, deux entrées seront enregistrées. |
 | _Oui_ | Le nombre d'entrées qui ont rempli les critères spécifiés et ont emprunté le parcours « oui ». |
 | _Non_ | Le nombre d'entrées qui n'ont pas rempli les critères spécifiés et ont emprunté le parcours « non ». |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Analytique" }

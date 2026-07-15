@@ -27,7 +27,7 @@ Cette étape permet aux utilisateurs de Canvas 1 d'être envoyés vers Canvas 2.
 
 L'étape Envoyer vers une destination fait entrer les utilisateurs dans le Canvas de destination dès qu'ils atteignent cette étape. Elle agit comme un point d'entrée unique dans le Canvas de destination. Les utilisateurs qui remplissent les critères d'entrée et d'audience du Canvas de destination commencent ce parcours Canvas. Les utilisateurs qui ne remplissent pas ces critères à ce moment-là n'entrent pas dans le Canvas de destination et poursuivent leur parcours dans le Canvas source.
 
-Si le Canvas de destination utilise une planification d'entrée planifiée, l'étape Envoyer vers une destination contourne cette planification d'entrée. Elle contourne également l'option [**Limiter le volume d'entrée**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#selecting-entry-controls) sous **Contrôles d'entrée** du Canvas de destination lorsqu'elle est définie sur **À chaque planification du Canvas**. Les utilisateurs envoyés depuis cette étape n'attendent pas la prochaine fenêtre d'évaluation planifiée : ils sont évalués et entrent dans le Canvas lorsqu'ils atteignent l'étape Envoyer vers une destination, à condition de remplir les critères d'entrée et d'audience du Canvas de destination.
+Si le Canvas de destination utilise une planification d'entrée planifiée, l'étape Envoyer vers une destination contourne cette planification d'entrée. Elle contourne également l'option [**Limiter le volume d'entrée**]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) sous **Contrôles d'entrée** du Canvas de destination lorsqu'elle est définie sur **À chaque planification du Canvas**. Les utilisateurs envoyés depuis cette étape n'attendent pas la prochaine fenêtre d'évaluation planifiée : ils sont évalués et entrent dans le Canvas lorsqu'ils atteignent l'étape Envoyer vers une destination, à condition de remplir les critères d'entrée et d'audience du Canvas de destination.
 
 Si le Canvas de destination utilise une entrée basée sur une action, l'étape Envoyer vers une destination contourne l'obligation pour les utilisateurs d'effectuer l'action d'entrée configurée pour accéder à ce Canvas.
 
@@ -47,7 +47,7 @@ Sélectionnez le menu déroulant ou saisissez le nom du Canvas dans le champ **D
 
 Vous pouvez sélectionner **Preview destination** pour visualiser le Canvas vers lequel vous dirigez les utilisateurs.
 
-Après avoir configuré cette étape du Canvas, vous pouvez [prévisualiser le parcours utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths/) pour vérifier si un utilisateur passe à l'étape suivante dans le Canvas actuel et s'il progresse également dans le Canvas de destination.
+Après avoir configuré cette étape du Canvas, vous pouvez [prévisualiser le parcours utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths) pour vérifier si un utilisateur passe à l'étape suivante dans le Canvas actuel et s'il progresse également dans le Canvas de destination.
 
 ## Questions fréquentes {#frequently-asked-questions}
 
@@ -57,7 +57,7 @@ Oui. Le Canvas de destination peut avoir un statut de brouillon ou inactif.
 
 ### Les variables de contexte sont-elles conservées ? {#are-context-variables-preserved}
 
-Oui. Le [contexte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables/) du Canvas source est toujours transmis au Canvas de destination.
+Oui. Le [contexte]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) du Canvas source est transmis au Canvas de destination. Cependant, les variables de contexte doivent être invoquées dans le Canvas source pour être transmises au Canvas de destination.
 
 ### Puis-je utiliser l'étape Envoyer vers une destination pour connecter des Canvas au lieu d'utiliser des solutions de contournement via l'API ou la mise à jour utilisateur ? {#can-i-use-the-send-to-destination-step-to-connect-canvases-instead-of-using-api-or-user-update-workarounds}
 

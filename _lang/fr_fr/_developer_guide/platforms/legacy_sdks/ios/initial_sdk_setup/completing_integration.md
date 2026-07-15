@@ -12,20 +12,20 @@ noindex: true
 
 # Terminer l'intégration {#complete-the-integration}
 
-Avant de suivre ces étapes, assurez-vous d'avoir intégré le SDK en utilisant [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration/), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods/), le [gestionnaire de paquets swift]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager/) ou une intégration [manuelle]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/).
+Avant de suivre ces étapes, assurez-vous d'avoir intégré le SDK en utilisant [Carthage]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/carthage_integration), [CocoaPods]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/cocoapods), le [gestionnaire de paquets Swift]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/swift_package_manager) ou une intégration [manuelle]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options).
 
 ## Étape 1 : Mettre à jour le délégué de votre application {#step-1-update-your-app-delegate}
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
 
-Si vous intégrez le SDK Braze avec CocoaPods, Carthage ou avec une [intégration manuelle dynamique]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/), ajoutez la ligne de code suivante à votre fichier `AppDelegate.m` :
+Si vous intégrez le SDK Braze avec CocoaPods, Carthage ou avec une [intégration manuelle dynamique]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), ajoutez la ligne de code suivante à votre fichier `AppDelegate.m` :
 
 ```objc
 #import "Appboy-iOS-SDK/AppboyKit.h"
 ```
 
-Si vous procédez à une intégration avec le gestionnaire de paquets swift ou à une [intégration manuelle statique]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/), utilisez cette ligne à la place :
+Si vous procédez à une intégration avec le gestionnaire de paquets Swift ou à une [intégration manuelle statique]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), utilisez cette ligne à la place :
 
 ```objc
 #import "AppboyKit.h"
@@ -39,18 +39,18 @@ Ensuite, dans votre fichier `AppDelegate.m`, ajoutez l'extrait de code suivant d
       withLaunchOptions:launchOptions];
 ```
 
-Mettez à jour `YOUR-APP-IDENTIFIER-API-KEY` avec la valeur correcte depuis votre page **Gérer les paramètres**. Consultez notre [documentation sur l'API]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key) pour savoir où trouver la clé API de votre identifiant d'application.
+Mettez à jour `YOUR-APP-IDENTIFIER-API-KEY` avec la valeur correcte depuis votre page **Gérer les paramètres**. Consultez notre [documentation sur l'API]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) pour savoir où trouver la clé API de votre identifiant d'application.
 
 {% endtab %}
 {% tab swift %}
 
-Si vous intégrez le SDK Braze avec CocoaPods, Carthage ou avec une [intégration manuelle dynamique]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/), ajoutez la ligne de code suivante à votre fichier `AppDelegate.swift` :
+Si vous intégrez le SDK Braze avec CocoaPods, Carthage ou avec une [intégration manuelle dynamique]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), ajoutez la ligne de code suivante à votre fichier `AppDelegate.swift` :
 
 ```swift
 import Appboy_iOS_SDK
 ```
 
-Si vous procédez à une intégration avec le gestionnaire de paquets swift ou à une [intégration manuelle statique]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options/), utilisez cette ligne à la place :
+Si vous procédez à une intégration avec le gestionnaire de paquets Swift ou à une [intégration manuelle statique]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/initial_sdk_setup/installation_methods/manual_integration_options), utilisez cette ligne à la place :
 
 ```swift
 import AppboyKit
@@ -63,7 +63,7 @@ Ensuite, dans `AppDelegate.swift`, ajoutez l'extrait de code suivant à votre m�
 Appboy.start(withApiKey: "YOUR-APP-IDENTIFIER-API-KEY", in:application, withLaunchOptions:launchOptions)
 ```
 
-Mettez à jour `YOUR-APP-IDENTIFIER-API-KEY` avec la valeur correcte depuis votre page **Gérer les paramètres**. Consultez notre [documentation sur l'API]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key) pour savoir où trouver la clé API de votre identifiant d'application.
+Mettez à jour `YOUR-APP-IDENTIFIER-API-KEY` avec la valeur correcte depuis votre page **Gérer les paramètres**. Consultez notre [documentation sur l'API]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) pour savoir où trouver la clé API de votre identifiant d'application.
 
 {% endtab %}
 {% endtabs %}
@@ -80,7 +80,7 @@ Assurez-vous d'initialiser Braze dans le fil principal de votre application. L'i
 ## Étape 2 : Spécifier votre cluster de données {#step-2-specify-your-data-cluster}
 
 {% alert note %}
-Notez que depuis décembre 2019, les endpoints personnalisés ne sont plus fournis. Si vous disposez d'un endpoint personnalisé préexistant, vous pouvez continuer à l'utiliser. Pour plus de détails, consultez notre <a href="{{site.baseurl}}/api/basics/#endpoints">liste d'endpoints disponibles</a>.
+Notez que depuis décembre 2019, les endpoints personnalisés ne sont plus fournis. Si vous disposez d'un endpoint personnalisé préexistant, vous pouvez continuer à l'utiliser. Pour plus de détails, consultez notre <a href="{{site.baseurl}}/api/basics#endpoints">liste d'endpoints disponibles</a>.
 {% endalert %}
 
 ### Configuration de l'endpoint à la compilation (recommandée) {#compile-time-endpoint-configuration-recommended}
@@ -88,7 +88,7 @@ Notez que depuis décembre 2019, les endpoints personnalisés ne sont plus fourn
 Si vous disposez d'un endpoint personnalisé préexistant :
 - À partir du SDK Braze pour iOS v3.0.2, vous pouvez définir un endpoint personnalisé à l'aide du fichier `Info.plist`. Ajoutez le dictionnaire `Braze` à votre fichier `Info.plist`. À l'intérieur du dictionnaire `Braze`, ajoutez la sous-entrée de chaîne de caractères `Endpoint` et définissez la valeur sur l'autorité de l'URL de votre endpoint personnalisé (par exemple, `sdk.iad-01.braze.com`, et non `https://sdk.iad-01.braze.com`). Notez qu'avant le SDK Braze pour iOS v4.0.2, la clé de dictionnaire `Appboy` doit être utilisée à la place de `Braze`.
 
-Votre conseiller Braze devrait déjà vous avoir indiqué l'[endpoint correct]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/).
+Votre conseiller Braze devrait déjà vous avoir indiqué l'[endpoint correct]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints).
 
 ### Configuration de l'endpoint à l'exécution {#runtime-endpoint-configuration}
 
@@ -97,7 +97,7 @@ Si vous disposez d'un endpoint personnalisé préexistant :
 
 ## Intégration SDK terminée {#sdk-integration-complete}
 
-Braze devrait maintenant collecter des données depuis votre application et votre intégration de base devrait être terminée. Consultez les articles suivants pour activer le [suivi des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=swift), l'[envoi de messages push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration/) et la suite complète des fonctionnalités de Braze.
+Braze devrait maintenant collecter des données depuis votre application et votre intégration de base devrait être terminée. Consultez les articles suivants pour activer le [suivi des événements personnalisés]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=swift), l'[envoi de messages push]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/integration) et la suite complète des fonctionnalités de Braze.
 
 ## Personnaliser Braze au démarrage {#customizing-braze-on-startup}
 
@@ -135,7 +135,7 @@ Notez que cette méthode remplace la méthode d'initialisation `startWithApiKey:
 
 Cette méthode est appelée avec les paramètres suivants :
 
-- `YOUR-APP-IDENTIFIER-API-KEY` – Votre clé API d'[identifiant d'application]({{site.baseurl}}/api/api_key/#the-app-identifier-api-key) depuis le tableau de bord de Braze.
+- `YOUR-APP-IDENTIFIER-API-KEY` – Votre clé API d'[identifiant d'application]({{site.baseurl}}/api/api_key#the-app-identifier-api-key) depuis le tableau de bord de Braze.
 - `application` – L'application actuelle.
 - `launchOptions` – Les options `NSDictionary` que vous obtenez de `application:didFinishLaunchingWithOptions:`.
 - `appboyOptions` – Un `NSDictionary` facultatif avec les valeurs de configuration de démarrage de Braze.

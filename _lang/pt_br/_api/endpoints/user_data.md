@@ -20,33 +20,33 @@ guide_top_text: "Os endpoints de dados de usuários da Braze permitem rastrear i
 guide_featured_title: "Endpoints de dados de usuários"
 guide_featured_list:
   - name: "POST: Criar um novo alias de usuário"
-    link: /docs/api/endpoints/user_data/post_user_alias/
+    link: /docs/api/endpoints/user_data/post_user_alias
     image: /assets/img/braze_icons/users-01.svg
   - name: "POST: Atualizar um alias de usuário"
-    link: /docs/api/endpoints/user_data/post_users_alias_update/
+    link: /docs/api/endpoints/user_data/post_users_alias_update
     image: /assets/img/braze_icons/user-edit.svg
   - name: "POST: Excluir dados de usuários"
-    link: /docs/api/endpoints/user_data/post_user_delete/
+    link: /docs/api/endpoints/user_data/post_user_delete
     image: /assets/img/braze_icons/user-minus-01.svg
   - name: "POST: Identificar um usuário"
-    link: /docs/api/endpoints/user_data/post_user_identify/
+    link: /docs/api/endpoints/user_data/post_user_identify
     image: /assets/img/braze_icons/user-circle.svg
   - name: "POST: Rastrear usuários"
-    link: /docs/api/endpoints/user_data/post_user_track/
+    link: /docs/api/endpoints/user_data/post_user_track
     image: /assets/img/braze_icons/database-01.svg
   - name: "POST: Rastrear usuários (síncrono)"
-    link: /docs/api/endpoints/user_data/post_user_track_synchronous/
+    link: /docs/api/endpoints/user_data/post_user_track_synchronous
     image: /assets/img/braze_icons/database-01.svg
   - name: "POST: Mesclar usuários"
-    link: /docs/api/endpoints/user_data/post_users_merge/
+    link: /docs/api/endpoints/user_data/post_users_merge
     image: /assets/img/braze_icons/users-01.svg
 
 guide_menu_title: "Endpoints de migração de ID externo"
 guide_menu_list:
   - name: "POST: Renomear IDs externos"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename/
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_rename
     image: /assets/img/braze_icons/users-01.svg
   - name: "POST: Remover IDs externos obsoletos"
-    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove/
+    link: /docs/api/endpoints/user_data/external_id_migration/post_external_ids_remove
     image: /assets/img/braze_icons/user-minus-01.svg
 ---

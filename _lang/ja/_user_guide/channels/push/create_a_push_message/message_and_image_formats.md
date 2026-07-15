@@ -24,7 +24,7 @@ channel: push
 (iOS) 2:1 *推奨* | 500&nbsp;KB | 5&nbsp;MB | PNG、JPEG、GIF
 (Android) プッシュアイコン | 500&nbsp;KB | 5&nbsp;MB | PNG、JPEG
 (Android) 拡張通知 | 500&nbsp;KB | 5&nbsp;MB | PNG、JPEG
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOS and Android push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="iOSとAndroidのプッシュ通知" }
 
 {% multi_lang_include alerts/note_alerts.md alert='GIF platform support' %}
 
@@ -38,9 +38,9 @@ channel: push
 (iOS) バナーアラート | 80文字 | 65文字
 (Android) ロック画面 | 49文字 | N/A
 (Android) 通知ドロワー | 597文字 | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOS and Android push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="iOSとAndroidのプッシュ通知" }
 
-iOSプッシュ通知で切り捨てられずに使用できる文字数を知りたいですか？[iOS文字数ガイドライン]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/#character-count)をご確認ください。
+iOSプッシュ通知で切り捨てられずに使用できる文字数を知りたいですか？[iOS文字数ガイドライン]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications#character-count)をご確認ください。
 
 {% endtab %}
 {% tab ペイロードサイズ %}
@@ -50,7 +50,7 @@ iOSプッシュ通知で切り捨てられずに使用できる文字数を知�
 iOS 8以前 | 0.256 KB
 iOS 8以降 | 2 KB
 Android (FCM) | 4 KB
-{: .reset-td-br-1 .reset-td-br-2 aria-label="iOS and Android push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="iOSとAndroidのプッシュ通知" }
 
 {% endtab %}
 {% tab 画像の例 %}
@@ -93,16 +93,16 @@ Android (FCM) | 4 KB
 
 | **ブラウザー** | **推奨アイコンサイズ**
 | --- | ---
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webプッシュ" }
 Chrome | 192 x 192以上
 Firefox | 192 x 192以上
-Safari | 192 x 192以上（アイコンはmacOS 13以降のSafari 16以降でCampaignごとに設定可能）
+Safari | 192 x 192以上（アイコンはmacOS 13以降のSafari 16以降でキャンペーンごとに設定可能）
 Opera | 192x192以上
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Web push" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webプッシュ" }
 
 | **ブラウザー** | **プラットフォーム** | **大きな画像サイズ**
 | --- | --- | ---
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Webプッシュ" }
 Chrome | Android | 2:1のアスペクト比
 Firefox | Android | N/A
 Chrome | Windows | 2:1のアスペクト比
@@ -113,14 +113,14 @@ Safari | macOS | N/A
 Chrome | macOS | N/A
 Firefox | macOS | N/A
 Opera | macOS | N/A
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Web push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Webプッシュ" }
 
 {% endtab %}
 {% tab テキスト %}
 
 | **ブラウザー** | **プラットフォーム** | **最大タイトル長** | **最大メッセージ本文長**
 | --- | --- | --- | ---
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Web push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Webプッシュ" }
 Chrome | Android | 35 | 50
 Firefox | Android | 35 | 50
 Chrome | Windows | 50 | 120
@@ -131,7 +131,7 @@ Chrome | macOS | 35 | 50
 Safari | macOS | 38 | 84
 Firefox | macOS | 38 | 42
 Opera | macOS | 38 | 42
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Web push" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Webプッシュ" }
 
 {% endtab %}
 {% endtabs %}

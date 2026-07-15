@@ -38,16 +38,16 @@ Camila comienza modelando el resultado que quiere evitar: que los usuarios se vu
 6. Establece el calendario de actualización de las predicciones a semanal para que las puntuaciones se mantengan actualizadas.
 7. Selecciona **Create prediction**.
 
-A continuación, el modelo comienza el entrenamiento, analizando comportamientos como las sesiones recientes, la frecuencia de visualización y las interacciones con el contenido para detectar patrones que predicen el abandono. Una hora más tarde, Camila recibe un correo electrónico en el que se le informa de que su predicción ha terminado de entrenarse, por lo que la abre en Braze y comprueba la puntuación de [calidad de la predicción]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics/#prediction_quality). Está etiquetada como «Bueno», lo que significa que las predicciones del modelo probablemente sean precisas y fiables. Confiada en el rendimiento del modelo, sigue adelante.
+A continuación, el modelo comienza el entrenamiento, analizando comportamientos como las sesiones recientes, la frecuencia de visualización y las interacciones con el contenido para detectar patrones que predicen el abandono. Una hora más tarde, Camila recibe un correo electrónico en el que se le informa de que su predicción ha terminado de entrenarse, por lo que la abre en Braze y comprueba la puntuación de [calidad de la predicción]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_events/analytics#prediction_quality). Está etiquetada como «Buena», lo que significa que las predicciones del modelo probablemente sean precisas y fiables. Confiada en el rendimiento del modelo, sigue adelante.
 
 ## Paso 2: Segmentar a los usuarios según el riesgo de abandono {#step-2-segment-users-by-churn-risk}
 
-Una vez que el modelo ha finalizado el entrenamiento, Braze asigna a cada usuario elegible una [puntuación de riesgo de abandono]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/#churn_score) entre 0 y 100.
+Una vez que el modelo ha finalizado el entrenamiento, Braze asigna a cada usuario elegible una [puntuación de riesgo de abandono]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics#churn_score) entre 0 y 100.
 
 Para determinar un umbral inicial para la segmentación, Camila utiliza el control deslizante de la audiencia de predicción para obtener una vista previa del número de usuarios que se encuentran en cada rango de puntuación y la precisión de la predicción en ese nivel. Equilibra la cobertura y la precisión basándose en los verdaderos positivos esperados. Basándose en esto, decide centrarse en las puntuaciones de riesgo superiores a 70.
 
 1. Camila navega hasta Segments en Braze.
-2. Crea un [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/) utilizando el [filtro de puntuación de riesgo de abandono]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#churn-risk-score) y selecciona la predicción de abandono que ha creado:
+2. Crea un [segmento]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) utilizando el [filtro de puntuación de riesgo de abandono]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#churn-risk-score) y selecciona la predicción de abandono que ha creado:
    - **Probabilidad de abandono:** puntuación superior a 70
 
 ![Filtrado de segmento para usuarios con una puntuación de riesgo de abandono superior a 70.]({% image_buster /assets/img/ai_use_cases/churn_risk_score.png %})
@@ -56,11 +56,11 @@ Para determinar un umbral inicial para la segmentación, Camila utiliza el contr
 
 Con su predicción y su segmento listos, Camila configura una Campaign recurrente que llega automáticamente a los usuarios que se encuentran en situación de riesgo cada semana.
 
-1. Camila crea una Campaign recurrente y habilita [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/), de modo que cada mensaje se entrega cuando cada usuario individual tiene más probabilidades de interactuar, en lugar de basarse en un día y una hora fijos.
+1. Camila crea una Campaign recurrente y habilita [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing), de modo que cada mensaje se entrega cuando cada usuario individual tiene más probabilidades de interactuar, en lugar de basarse en un día y una hora fijos.
 2. Se enfoca en el segmento «Probabilidad de abandono» que acaba de crear.
 3. Establece el evento de conversión de la Campaign como el evento personalizado `stream_started`, para realizar el seguimiento del número de usuarios que realmente regresan para ver el contenido.
 4. Camila elige el correo electrónico como su canal principal, ya que le permite destacar múltiples selecciones de contenido personalizado en un formato visualmente rico sin demasiada presión. El correo electrónico incluye:
-   - Una lista de visualización personalizada basada en [recomendaciones de elementos de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations/), seleccionadas de forma dinámica del catálogo de MovieCanon
+   - Una lista de visualización personalizada basada en [Recomendaciones de elementos de IA]({{site.baseurl}}/user_guide/brazeai/item_recommendations), seleccionadas de forma dinámica del catálogo de MovieCanon
    - Una llamada a la acción que los lleva directamente a la aplicación.
 
 Esto garantiza que, cada semana, MovieCanon solo llegue a los usuarios que necesitan un empujoncito, sin exceso de mensajería ni conjeturas.
@@ -74,7 +74,7 @@ Esto garantiza que, cada semana, MovieCanon solo llegue a los usuarios que neces
 
 ## Paso 4: Medir el rendimiento {#step-4-measure-performance}
 
-Después de unas semanas, Camila revisa el [análisis de su Campaign]({{site.baseurl}}/user_guide/channels/email/reporting/) para evaluar el rendimiento de la estrategia.
+Después de unas semanas, Camila revisa el [análisis de su Campaign]({{site.baseurl}}/user_guide/channels/email/reporting) para evaluar el rendimiento de la estrategia.
 
 Observa lo siguiente:
 
@@ -82,9 +82,9 @@ Observa lo siguiente:
 - *Tasa de clics:* 15 %
 - *Tasa de conversión* (transmisión iniciada en un plazo de 48 horas): 11 %
 
-En comparación con la antigua Campaign «Te echamos de menos» (en la que las tasas de conversión rondaban el 3 %), este nuevo flujo reduce la tasa de abandono en el grupo objetivo en un 28 %. Analiza el [informe de embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) para detectar dónde abandonan los usuarios. Aunque las tasas de apertura y clics son buenas, nota una ligera fricción entre los clics y las conversiones, lo que la lleva a plantearse probar diferentes textos para las llamadas a la acción o experimentar con el diseño.
+En comparación con la antigua Campaign «Te echamos de menos» (en la que las tasas de conversión rondaban el 3 %), este nuevo flujo reduce la tasa de abandono en el grupo objetivo en un 28 %. Analiza el [informe de embudo]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) para detectar dónde abandonan los usuarios. Aunque las tasas de apertura y clics son buenas, nota una ligera fricción entre los clics y las conversiones, lo que la lleva a plantearse probar diferentes textos para las llamadas a la acción o experimentar con el diseño.
 
-Para comprender el impacto a largo plazo, Camila también realiza el seguimiento del volumen de usuarios que entran en el segmento «Probabilidad de abandono» semana tras semana. Esto le ayuda a evaluar el estado general del ciclo de vida y a definir la estrategia de retención a un nivel más amplio. Por último, vuelve a visitar la página de [análisis de predicciones]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics/) de su predicción de abandono para comparar los usuarios que abandonan previstos con los reales, una comprobación útil para asegurarse de que el modelo funciona según lo esperado.
+Para comprender el impacto a largo plazo, Camila también realiza el seguimiento del volumen de usuarios que entran en el segmento «Probabilidad de abandono» semana tras semana. Esto le ayuda a evaluar el estado general del ciclo de vida y a definir la estrategia de retención a un nivel más amplio. Por último, vuelve a visitar la página de [análisis de predicciones]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/analytics) de su predicción de abandono para comparar los usuarios que abandonan previstos con los reales, una comprobación útil para asegurarse de que el modelo funciona según lo esperado.
 
 Basándose en esta información, Camila tiene previsto realizar pruebas A/B con las líneas del asunto, probar diferentes intervalos de tiempo y experimentar con formatos de contenido, como recomendaciones en forma de carrusel en un mensaje dentro de la aplicación.
 

@@ -10,11 +10,11 @@ search_tag: Partner
 
 # Oracle Crowdtwist
 
-> [Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/) es una solución líder de fidelización de clientes nativa en la nube que permite a las marcas ofrecer experiencias del cliente personalizadas. Su solución ofrece más de 100 vías de interacción listas para usar, lo que permite a los especialistas en marketing desarrollar rápidamente una visión más completa del cliente.
+> [Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/) es una solución líder de fidelización de clientes nativa en la nube que permite a las marcas ofrecer experiencias del cliente personalizadas. Su solución ofrece más de 100 vías de participación listas para usar, lo que permite a los especialistas en marketing desarrollar rápidamente una visión más completa del cliente.
 
 La característica Data Push de Oracle Crowdtwist permite pasar metadatos de usuarios o eventos cada vez que se produce una actualización en la plataforma de Crowdtwist.
 
-Esta guía describe cómo integrar las fuentes Live Push de perfil de usuario, actividad de usuario y canje de usuario de Oracle Crowdtwist en tu entorno Braze. Existen dos tipos adicionales de Data Push que no se tratan explícitamente en esta documentación, pero su configuración sigue los mismos principios que se describen a continuación.
+Esta guía describe cómo integrar las fuentes Live Push de perfil de usuario, actividad de usuario y canje de usuario de Oracle Crowdtwist en tu entorno Braze. Existen dos tipos adicionales de Data Push que no se tratan explícitamente en esta documentación, pero su configuración sigue los mismos principios que se describen en esta guía.
 
 * [Live Push de perfil de usuario](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/PushUserProfile-withTiersv2.html): Incluye la creación de nuevos perfiles y la actualización de los existentes.
 
@@ -32,7 +32,7 @@ Por ejemplo, utiliza un Data Push para pasar eventos personalizados y atributos 
 | Requisito | Descripción |
 | --- | --- |
 | Cuenta de Oracle Crowdtwist | Se necesita una [cuenta de Oracle Crowdtwist](https://www.oracle.com/uk/cx/marketing/customer-loyalty/) para aprovechar esta asociación. |
-| Punto de conexión de Transformación de datos de Braze | Esta integración se basa en la [herramienta de Transformación de datos]({{site.baseurl}}/user_guide/data/unification/data_transformation/) de Braze. Cuando creas una Transformación de datos, Braze genera un punto de conexión único que puedes añadir como destino para el Data Push de Crowdtwist.|
+| Endpoint de Transformación de datos de Braze | Esta integración se basa en la [herramienta de Transformación de datos]({{site.baseurl}}/user_guide/data/unification/data_transformation) de Braze. Cuando creas una Transformación de datos, Braze genera un endpoint único que puedes añadir como destino para el Data Push de Crowdtwist. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
@@ -49,9 +49,9 @@ Como se muestra en [la documentación de Oracle Crowdtwist sobre Data Push](http
 
 ## Paso 2: Actualizar y probar la plantilla {#step-2-update-and-test-template}
 
-A continuación, verás las plantillas anotadas. El cuerpo de estas plantillas está diseñado para aplicarse al destino `/users/track`. Las anotaciones están marcadas con el inicio de línea `//` y texto verde, y puedes eliminarlas sin que ello afecte al funcionamiento del código de transformación.
+En esta sección, verás las plantillas anotadas. El cuerpo de estas plantillas está diseñado para aplicarse al destino `/users/track`. Las anotaciones están marcadas con el inicio de línea `//` y texto verde, y puedes eliminarlas sin que ello afecte al funcionamiento del código de transformación.
 
-La transformación utiliza JavaScript, que construye un objeto llamado "brazecall". En este objeto se crea el cuerpo de la solicitud que se envía a un punto de conexión de la REST API de Braze. Para orientarte sobre las estructuras requeridas de las solicitudes a estos destinos, consulta los enlaces de la sección "destinos".
+La transformación utiliza JavaScript, que construye un objeto llamado "brazecall". En este objeto se crea el cuerpo de la solicitud que se envía a un endpoint de la REST API de Braze. Para orientarte sobre las estructuras requeridas de las solicitudes a estos destinos, consulta los enlaces de la sección "destinos".
 
 {% alert note %}
 Observa que los "valores" de cada "clave" empiezan por `payload.`. La carga útil representa el objeto de datos recibido de Oracle Crowdtwist. Utiliza la notación de puntos de JavaScript para elegir qué datos quieres que rellenen los elementos de tu objeto Braze. Por ejemplo, cuando veas `external_id: payload.thirdPartyId`, significa que el ID externo de Braze está establecido por el valor `third_party_id` almacenado en Oracle Crowdtwist. Para más información sobre el esquema o la composición de los objetos procedentes de Oracle Crowdtwist, consulta [la documentación de Oracle](https://docs.oracle.com/en/cloud/saas/marketing/crowdtwist-develop/Developers/LivePushUserActivity.html).
@@ -75,7 +75,7 @@ let brazecall = {
      "_update_existing_only": false,
      "crowdtwist_loyalty_points": payload.redeemablePoints,
  //In this example, the "tierInfo" object from Crowdtwist is transformed into a Braze Nested Custom Attribute. Use the "_merge_objects" value to avoid duplications in a data point efficient manner.
- //The "tierinfo_current_level" attribute is a flat Braze custom attribute, while "tierInfo" below is a nested object mirroring the Crowdtwist payload; the difference in capitalization is intentional.
+ //The "tierinfo_current_level" attribute is a flat Braze custom attribute, while the following "tierInfo" value is a nested object mirroring the Crowdtwist payload; the difference in capitalization is intentional.
      "tierinfo_current_level": payload.tierInfo.currentLevel,
      "_merge_objects" : true,
      "tierInfo" : {
@@ -237,20 +237,18 @@ return brazecall;
 
 ### Destinos {#destinations}
 
-Las plantillas de esta guía se han creado para entregar al destino "Track Users", pero puedes diseñar tu plantilla para enviar a cualquiera de los puntos finales enumerados en [la guía de Transformación de datos de Braze]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation/#step-2-create-a-transformation), con el apoyo de la [documentación de la REST API]({{site.baseurl}}/api/home/) asociada.
+Las plantillas de esta guía se han creado para entregar al destino "Track Users", pero puedes diseñar tu plantilla para enviar a cualquiera de los endpoints enumerados en [la guía de Transformación de datos de Braze]({{site.baseurl}}/user_guide/data/data_transformation/creating_a_transformation#step-2-create-a-transformation), con el apoyo de la [documentación de la REST API]({{site.baseurl}}/api/home) asociada.
 
 ### Pruebas {#testing}
 
-Después de modificar la plantilla a tu gusto, debes validar que funciona correctamente. Haz clic en **Validate** para obtener una vista previa de la salida de tu código y comprobar si es una solicitud aceptable para el destino elegido.
+Después de modificar la plantilla a tu gusto, debes validar que funciona correctamente. En el editor de transformación, selecciona **Validar** para generar una vista previa en la sección **Salida** y confirmar que Braze acepta la solicitud asignada para el destino elegido.
 
-![Captura de pantalla de la interfaz de Transformación de datos de Braze]({% image_buster /assets/img/crowdtwist_tools/screenshot.png %}){: style="max-width:70%;margin-bottom:15px;border:none;"}
+Cuando estés satisfecho con el objeto que ves en el campo **Salida**, selecciona **Activar** para que el endpoint de Transformación de datos esté listo para aceptar datos.
 
-Cuando estés satisfecho con el objeto que ves en el campo "output", haz clic en **Activate** para que el punto de conexión de Transformación de datos esté listo para aceptar datos.
-
-Encontrarás la URL del webhook de tu Transformación de datos en el panel lateral izquierdo. Cópiala y utilízala para la configuración dentro del Integration Hub de Oracle Crowdtwist.
+Encontrarás la URL del webhook de tu Transformación de datos en el panel de detalles de la transformación. Cópiala y utilízala para la configuración dentro del Integration Hub de Oracle Crowdtwist.
 
 {% alert important %}
-Los puntos de conexión de Transformación de datos de Braze tienen un límite de velocidad de 1000 solicitudes por minuto. Considera la velocidad a la que quieres que estos datos estén disponibles en Braze y habla con tu director de cuentas de Braze si necesitas un límite de velocidad de Transformación de datos más alto.
+Los endpoints de Transformación de datos de Braze tienen un límite de velocidad de 1000 solicitudes por minuto. Considera la velocidad a la que quieres que estos datos estén disponibles en Braze y habla con tu director de cuentas de Braze si necesitas un límite de velocidad de Transformación de datos más alto.
 {% endalert %}
 
-Las Transformaciones de datos son una herramienta muy dinámica y puedes diseñarlas para fines que vayan más allá de lo expuesto en este documento con conocimientos de JavaScript y con la orientación de nuestra documentación de la REST API. Para obtener ayuda o solución de problemas sobre cambios complejos en tus plantillas de Transformación de datos, habla con tu administrador del éxito del cliente para conocer la orientación que tienes a tu disposición.
+Las Transformaciones de datos son una herramienta muy dinámica y puedes diseñarlas para fines que vayan más allá de lo expuesto en este documento con conocimientos de JavaScript y con la orientación de nuestra documentación de la REST API. Para obtener ayuda o solución de problemas sobre cambios complejos en tus plantillas de Transformación de datos, habla con tu administrador de éxito de cliente para conocer la orientación que tienes a tu disposición.

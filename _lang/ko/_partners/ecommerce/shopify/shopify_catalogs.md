@@ -8,15 +8,15 @@ description: "이 참조 문서에서는 Shopify에서 Braze 카탈로그로 제
 
 # Shopify 제품 동기화 {#shopify-product-sync}
 
-> Shopify 스토어의 모든 제품을 Braze [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)에 동기화하여 더 깊은 메시징 개인화를 구현할 수 있습니다.
+> Shopify 스토어의 모든 제품을 Braze [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs)에 동기화하여 더 깊은 메시징 개인화를 구현할 수 있습니다.
 
 Shopify 카탈로그는 Shopify 스토어에서 제품을 편집하고 변경할 때 거의 실시간으로 업데이트됩니다. 유기한 장바구니, 주문 확인 등에 최신 제품 세부 정보와 정보를 활용할 수 있습니다.
 
-[핵심 Shopify 제품 데이터](#supported-shopify-catalog-data) 지원 외에도 Shopify 컬렉션, 제품 태그, 제품 메타필드를 Braze 카탈로그에 동기화할 수 있습니다. 이러한 추가 필드를 통해 더 풍부한 개인화, 더 정밀한 카탈로그 선택, [세그먼트 확장]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension/)을 통한 더 강력한 세분화가 가능합니다.
+[핵심 Shopify 제품 데이터](#supported-shopify-catalog-data) 지원 외에도 Shopify 컬렉션, 제품 태그, 제품 메타필드를 Braze 카탈로그에 동기화할 수 있습니다. 이러한 추가 필드를 통해 더 풍부한 개인화, 더 정밀한 카탈로그 선택, [세그먼트 확장]({{site.baseurl}}/user_guide/engagement_tools/segments/segment_extension)을 통한 더 강력한 세분화가 가능합니다.
 
 ## Shopify 제품 동기화 설정하기 {#set-up}
 
-이미 Shopify 스토어를 설치한 경우에도 아래 지침에 따라 제품을 동기화할 수 있습니다.
+이미 Shopify 스토어를 설치한 경우에도 이 섹션의 지침에 따라 제품을 동기화할 수 있습니다.
 
 ### 1단계: 동기화 켜기 {#step-1-turn-on-the-sync}
 
@@ -95,7 +95,7 @@ Braze는 다음 메타필드 오브젝트와 해당 유형 일부를 지원합�
 | `url`, `list.url` | 문자열(URL), 문자열 배열(URL) |
 | `metaobject_reference`, `list.metaobject_reference` | 문자열, 문자열 배열 |
 | `mixed_reference`, `list.mixed_reference` | 문자열, 문자열 배열 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="3단계: 추가 제품 데이터 구성(선택 사항) #step-3" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="지원되는 메타필드 유형" }
 
 {% endsubtab %}
 {% subtab 지원되지 않는 메타필드 %}
@@ -133,14 +133,14 @@ Braze는 Shopify 컬렉션 ID를 사용하여 동기화된 컬렉션을 식별�
 {% endtabs %}
 
 {% alert tip %}
-각 제품 데이터 유형의 사용 예시는 [Shopify 카탈로그 활용 사례]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/?tab=shopify%20product%20metafields#shopify-catalog-use-cases)를 참조하세요.
+각 제품 데이터 유형의 사용 예시는 [Shopify 카탈로그 사용 사례]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/?tab=shopify%20product%20metafields#shopify-catalog-use-cases)를 참조하세요.
 {% endalert %}
 
 ### 4단계: 동기화 진행 상황 추적 {#step-4-track-your-sync-progress}
 
-구성을 저장하면 Braze가 제품 동기화를 시작하고 Shopify 파트너 페이지에서 상태가 **In Progress**로 업데이트됩니다. 동기화 시간은 스토어의 제품 및 배리언트 수에 따라 달라집니다.
+구성을 저장하면 Braze가 제품 동기화를 시작하고 Shopify 파트너 페이지에서 상태가 **진행 중**으로 업데이트됩니다. 동기화 시간은 스토어의 제품 및 배리언트 수에 따라 달라집니다.
 
-동기화가 진행 중이면 페이지를 떠나도 됩니다. 동기화가 완료되면 Braze가 대시보드 알림을 보냅니다. 완료 후 상태가 **Active**로 업데이트되며, Shopify 파트너 페이지에서 카탈로그 이름을 선택하여 제품을 확인할 수 있습니다.
+동기화가 진행 중이면 페이지를 떠나도 됩니다. 동기화가 완료되면 Braze가 대시보드 알림을 보냅니다. 완료 후 상태가 **활성**으로 업데이트되며, Shopify 파트너 페이지에서 카탈로그 이름을 선택하여 제품을 확인할 수 있습니다.
 
 ![제품 동기화 상태가 표시된 통합 설정 페이지.]({% image_buster /assets/img/shopify/track_sync_progress.png %})
 
@@ -197,9 +197,9 @@ Shopify 파트너 페이지에서 언제든지 제품 태그, 컬렉션, 제품 
 Shopify 카탈로그는 Shopify에서 관리됩니다. 카탈로그를 업데이트하려면 Shopify 스토어에서 직접 변경하면 자동으로 Braze에 동기화됩니다. Shopify 카탈로그를 삭제하려면 Braze의 Shopify 파트너 페이지로 이동하여 [동기화를 비활성화](#deactivate)하세요.
 {% endalert %}
 
-## Shopify 카탈로그 활용 사례 {#shopify-catalog-use-cases}
+## Shopify 카탈로그 사용 사례 {#shopify-catalog-use-cases}
 
-이 활용 사례에서는 동기화된 Shopify 카탈로그 데이터를 사용하여 메시지를 개인화하는 방법을 보여줍니다.
+이 사용 사례에서는 동기화된 Shopify 카탈로그 데이터를 사용하여 메시지를 개인화하는 방법을 보여줍니다.
 
 {% alert warning %}
 Braze는 각 Shopify 제품의 배리언트를 최대 250개까지 카탈로그에 동기화합니다. 이 한도를 초과하는 배리언트는 동기화되지 않습니다. 제품당 250개 이상의 배리언트가 필요한 경우 Braze 고객 성공 매니저에게 문의하세요.
@@ -208,7 +208,7 @@ Braze는 각 Shopify 제품의 배리언트를 최대 250개까지 카탈로그�
 {% tabs %}
 {% tab 제품 태그 %}
 
-제품 태그를 사용하여 Shopify에서 제품이 분류된 방식에 따라 메시지를 개인화할 수 있습니다. 예를 들어, [카탈로그 선택]({{site.baseurl}}/catalog_selections/)을 통해 "Summer Sale" 태그가 지정된 모든 제품을 포함하는 프로모션을 보내거나, "Premium" 태그가 지정된 제품을 구매한 사용자 Segment를 구축할 수 있습니다.
+제품 태그를 사용하여 Shopify에서 제품이 분류된 방식에 따라 메시지를 개인화할 수 있습니다. 예를 들어, [카탈로그 선택]({{site.baseurl}}/catalog_selections)을 통해 "Summer Sale" 태그가 지정된 모든 제품을 포함하는 프로모션을 보내거나, "Premium" 태그가 지정된 제품을 구매한 사용자 Segment를 구축할 수 있습니다.
 
 제품 태그는 각 카탈로그 항목의 배열 필드로 저장됩니다. 제품 태그 동기화를 구성하려면 [Shopify 제품 태그](#shopify-product-tags)를 참조하세요.
 
@@ -224,6 +224,10 @@ Braze는 각 Shopify 제품의 배리언트를 최대 250개까지 카탈로그�
 !["Women's"를 포함한 15개의 의류 관련 태그가 선택된 Shopify 제품 태그 선택 모달.]({% image_buster /assets/img/shopify/select_product_tags_womens.png %}){: style="max-width:80%;"}
 
 ### 개인화 {#personalization}
+
+{% alert note %}
+카탈로그 선택에서 제품 태그나 컬렉션을 참조할 때는 카탈로그 데이터에 표시되는 배열 괄호 `[]`나 따옴표 `""` 없이 값 자체만 사용하세요. 예를 들어, 카탈로그에서 제품 태그가 `["Women's"]`로 표시되는 경우 선택 필터에 `Women's`라고 입력하세요.
+{% endalert %}
 
 1. 해당 제품 태그(예: "Women's")가 있는 제품을 필터링하는 카탈로그 선택을 생성합니다. 단일 카탈로그 선택 내에서 하나의 고유 배열 필드만 사용할 수 있으며, 카탈로그 선택에 최대 50개의 제품을 포함할 수 있습니다.
 
@@ -293,7 +297,7 @@ Checkout the latest women's clothing:
 
 ### 카탈로그 세분화(SQL) {#catalog-segmentation-sql}
 
-[세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 사용하여 제품 태그와 상호작용한 사용자를 기반으로 Segment를 구축할 수 있습니다. 예를 들어, 특정 제품 태그가 포함된 카탈로그 항목과 상호작용한 사용자를 찾으려면 다음 쿼리를 사용하세요:
+[세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 사용하여 제품 태그와 상호작용한 사용자를 기반으로 Segment를 구축할 수 있습니다. 예를 들어, 특정 제품 태그가 포함된 카탈로그 항목과 상호작용한 사용자를 찾으려면 다음 쿼리를 사용하세요:
 
 {% raw %}
 ```liquid
@@ -343,7 +347,7 @@ WHERE
 
 ### 개인화
 
-1. 해당 값이 포함된 메타필드를 필터링하는 [카탈로그 선택]({{site.baseurl}}/catalog_selections/)을 생성합니다.
+1. 해당 값이 포함된 메타필드를 필터링하는 [카탈로그 선택]({{site.baseurl}}/catalog_selections)을 생성합니다.
 
 ![summer 속성이 있는 메타필드를 필터링하는 카탈로그 선택.]({% image_buster /assets/img/shopify/metafields_selection.png %})
 
@@ -411,7 +415,7 @@ Check out the latest summer products:
 
 ### 카탈로그 세분화(SQL)
 
-[세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 사용하여 제품 메타필드와 상호작용한 사용자를 기반으로 Segment를 구축할 수 있습니다. 예를 들어, 메타필드 배열에 특정 값이 포함된 제품으로 이커머스 이벤트를 트리거한 사용자를 찾으려면 다음 쿼리를 사용하세요:
+[세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 사용하여 제품 메타필드와 상호작용한 사용자를 기반으로 Segment를 구축할 수 있습니다. 예를 들어, 메타필드 배열에 특정 값이 포함된 제품으로 이커머스 이벤트를 트리거한 사용자를 찾으려면 다음 쿼리를 사용하세요:
 
 {% raw %}
 ```sql
@@ -581,7 +585,7 @@ WHERE
 {% endtab %}
 {% tab 컬렉션 %}
 
-Shopify 컬렉션을 사용하여 Shopify 사이트 및 앱 경험에서도 사용되는 큐레이션된 제품 그룹을 메시지에 가져올 수 있습니다. 예를 들어, 프로모션 이메일에 "New Arrivals"를 소개하거나, 유기한 장바구니 Canvas에서 "Best Sellers"를 교차 판매하거나, 시즌 컬렉션을 탐색한 사용자를 타겟팅할 수 있습니다.
+Shopify 컬렉션을 사용하여 Shopify 사이트 및 앱 경험에서도 사용되는 큐레이트된 제품 그룹을 메시지에 가져올 수 있습니다. 예를 들어, 프로모션 이메일에 "New Arrivals"를 소개하거나, 유기한 장바구니 Canvas에서 "Best Sellers"를 교차 판매하거나, 시즌 컬렉션을 탐색한 사용자를 타겟팅할 수 있습니다.
 
 ### 카탈로그 선택
 
@@ -599,6 +603,10 @@ Shopify 컬렉션의 경우 **컬렉션 ID**를 사용해야 하며, 이는 컬�
 {% endalert %}
 
 ### 개인화
+
+{% alert note %}
+카탈로그 선택에서 컬렉션 ID를 참조할 때는 카탈로그 데이터에 표시되는 배열 괄호 `[]` 없이 숫자 ID 값만 사용하세요. 예를 들어, 카탈로그에서 컬렉션 ID가 `[123456789012, 987654321098]`로 표시되는 경우 선택 필터에 숫자 ID(예: `470645342446`)만 입력하세요.
+{% endalert %}
 
 1. 해당 컬렉션의 ID가 있는 제품으로 필터링된 "New Women's Products - In Stock"이라는 카탈로그 선택을 생성합니다. 단일 카탈로그 선택 내에서 하나의 고유 배열 필드만 사용할 수 있으며, 컬렉션에 최대 50개의 제품을 포함할 수 있습니다.
  - **Collections** 필드로 필터링하여 자체 커스텀 선택을 생성할 수도 있습니다.
@@ -669,7 +677,7 @@ Checkout the latest women's clothing:
 
 ### 카탈로그 세분화(SQL)
 
-컬렉션과 상호작용한 사용자 Segment를 생성합니다. [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/)을 사용하여 컬렉션 멤버십을 기반으로 Segment를 구축할 수 있습니다. 예를 들어, 지난 1년간 특정 컬렉션의 제품을 구매한 사용자를 찾으려면 다음 쿼리를 사용하세요:
+컬렉션과 상호작용한 사용자 Segment를 생성합니다. [세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension)을 사용하여 컬렉션 멤버십을 기반으로 Segment를 구축할 수 있습니다. 예를 들어, 지난 1년간 특정 컬렉션의 제품을 구매한 사용자를 찾으려면 다음 쿼리를 사용하세요:
 
 {% raw %}
 ```json
@@ -703,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-[가격 인하 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications/) 및 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications/)도 설정할 수 있습니다!<br><br> 각 사용 사례에 대해 카탈로그에서 사용자의 구독 상태를 캡처하는 커스텀 이벤트를 생성해야 합니다. 커스텀 이벤트에는 Shopify 제품 동기화의 일부로 선택한 [SKU 또는 Shopify Variant ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs/#step-2-select-your-product-identifier)에 매핑되는 이벤트 속성정보가 필요합니다.
+[가격 인하 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications) 및 [재입고 알림]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)도 설정할 수 있습니다!<br><br> 각 사용 사례에 대해 카탈로그에서 사용자의 가입 상태를 캡처하는 커스텀 이벤트를 생성해야 합니다. 커스텀 이벤트에는 Shopify 제품 동기화의 일부로 선택한 [SKU 또는 Shopify Variant ID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier)에 매핑되는 이벤트 속성정보가 필요합니다.
 {% endalert %}
 
 ## 제품 동기화 비활성화 {#deactivate}

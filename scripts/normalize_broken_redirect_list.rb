@@ -5,7 +5,7 @@
 #
 # Passes (run in this order when using --all, the default):
 #   1. Semicolons  – append trailing ';' to validurls assignments that omit it.
-#   2. Slash fix   – ensure /docs/ paths end with '/' before ?query or #fragment.
+#   2. Slash fix   – remove trailing '/' from /docs/ paths before ?query or #fragment.
 #   3. Full norm   – lowercase internal paths & fragments, deduplicate by LHS,
 #                    restore Jekyll canonical casing on RHS, trim trailing slashes.
 #
@@ -15,7 +15,7 @@
 # Modes (pick one, default --all):
 #   --all              Full normalization (semicolons + slash fix + full norm)
 #   --semicolons-only  Only fix missing trailing semicolons
-#   --slash-fix-only   Only fix missing slash before ?query / #fragment
+#   --slash-fix-only   Only remove trailing slash before ?query / #fragment
 #
 # Default: --dry-run (no write). Use --apply to write via atomic replace.
 
@@ -67,16 +67,16 @@ def join_path_query_frag(path, query, frag)
   "#{path}#{query}#{frag}"
 end
 
-def ensure_slash_before_query_or_fragment(url)
+def remove_trailing_slash_before_query_or_fragment(url)
   return url if url.match?(%r{\Ahttps?://}i)
 
   path, query, frag = split_hash_query(url)
   return url if path.empty? || !(query || frag)
   return url unless path.start_with?("/docs/")
   return url if RedirectTargetVerify.path_looks_like_file?(path)
+  return url unless path.end_with?("/")
 
-  path += "/" unless path.end_with?("/")
-  join_path_query_frag(path, query, frag)
+  join_path_query_frag(path.chomp("/"), query, frag)
 end
 
 def restore_jekyll_canonical_segments(rhs)
@@ -88,15 +88,11 @@ end
 
 def normalize_touched_url(url)
   path, query, frag = split_hash_query(url)
-  has_suffix = !!(query || frag)
 
   if path.match?(%r{\Ahttps?://}i)
     path = path.sub(%r{/\z}, "")
   elsif path.start_with?("/")
     path = path.gsub(%r{/+\z}, "").downcase
-    if has_suffix && path.start_with?("/docs/") && !RedirectTargetVerify.path_looks_like_file?(path)
-      path += "/" unless path.end_with?("/")
-    end
   end
 
   if frag && frag.length > 1
@@ -104,7 +100,7 @@ def normalize_touched_url(url)
   end
 
   out = join_path_query_frag(path, query, frag)
-  ensure_slash_before_query_or_fragment(out)
+  remove_trailing_slash_before_query_or_fragment(out)
 end
 
 # ---------- Slash-fix-only pass ----------------------------------------------
@@ -117,8 +113,8 @@ def slash_fix_only(content)
       line
     else
       indent, lhs, rhs = m[1], m[2], m[3]
-      nl = ensure_slash_before_query_or_fragment(lhs)
-      nr = ensure_slash_before_query_or_fragment(rhs)
+      nl = remove_trailing_slash_before_query_or_fragment(lhs)
+      nr = remove_trailing_slash_before_query_or_fragment(rhs)
       new_line = "#{indent}validurls['#{RedirectTargetVerify.escape_js_single_quoted(nl)}'] = '#{RedirectTargetVerify.escape_js_single_quoted(nr)}';\n"
       changed += 1 if new_line != line
       new_line

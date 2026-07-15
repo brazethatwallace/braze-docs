@@ -23,8 +23,8 @@ La integración de Braze Audience Sync con Google es compatible con Google Ads, 
 
 Google Ads ya no genera audiencias similares, también conocidas como "audiencias parecidas", para la segmentación y los informes. Consulta la [documentación de Google Ads](https://support.google.com/google-ads/answer/12463119?) para obtener más información.
 
-**Los casos de uso comunes para sincronizar audiencias personalizadas incluyen:**
-- Dirigirse a usuarios de alto valor a través de múltiples canales para impulsar las compras o la interacción.
+**Los ejemplos comunes para sincronizar audiencias personalizadas incluyen:**
+- Dirigirse a usuarios de alto valor a través de múltiples canales para impulsar las compras o la participación.
 - Reorientar a los usuarios menos receptivos a otros canales de marketing.
 - Crear audiencias de supresión para evitar que los usuarios reciban anuncios cuando ya son consumidores fieles de tu marca.
 
@@ -40,8 +40,8 @@ Asegúrate de que los siguientes elementos están creados y completados antes de
 | ----------- | ------ | ----------- |
 | Cuenta de Google Ads | [Google](https://support.google.com/google-ads/answer/6366720?hl=en) | Una cuenta de Google Ads activa para tu marca.<br><br>Si quieres compartir una audiencia en varias cuentas gestionadas, puedes cargar tus audiencias en tu [cuenta de administrador](https://support.google.com/google-ads/answer/6139186). |
 | Condiciones y políticas de Google Ads | [Google](https://support.google.com/adspolicy/answer/54818?hl=en) | Debes aceptar y garantizar el cumplimiento de [las condiciones de publicidad de Google](https://payments.google.com/u/0/paymentsinfofinder?hostOrigin=aHR0cHM6Ly9wYXltZW50cy5nb29nbGUuY29tOjQ0Mw..&sri=-40) y de [las políticas de publicidad de Google](https://support.google.com/adspolicy/answer/6008942?sjid=15557182366992806023-NC), que incluyen la [Política de consentimiento del usuario de la UE](https://www.google.com/about/company/user-consent-policy/), según te sean aplicables, en el uso que hagas de Braze Audience Sync.<br><br>Consulta con tu equipo jurídico la nueva Política de consentimiento del usuario de la UE de Google para asegurarte de que obtienes el consentimiento adecuado para utilizar los servicios de Google Ads para tus usuarios finales del EEE, Reino Unido y Suiza. |
-| Google Customer Match | [Google](https://support.google.com/google-ads/answer/6299717) | Customer Match no está disponible para todos los anunciantes.<br><br>**Para utilizar Customer Match, tu cuenta debe tener:**<br>• Un buen historial de cumplimiento de la política<br>• Un buen historial de pagos<br>• Al menos 90 días de historial en Google Ads<br>• Más de 50 000 USD de gasto total durante toda la vida. Para los anunciantes cuyas cuentas se gestionen en divisas distintas del dólar estadounidense, el importe de sus gastos se convertirá a dólares estadounidenses utilizando el tipo de cambio medio mensual de esa divisa.<br><br>Si tu cuenta no cumple estos criterios, actualmente no es elegible para utilizar Customer Match.<br><br>Ponte en contacto con tu representante de Google Ads para obtener más información sobre la disponibilidad de Customer Match para tu cuenta. |
-| Señales de consentimiento de Google | [Google](https://support.google.com/google-ads/answer/14310715) | Si deseas publicar anuncios para usuarios finales del EEE mediante el servicio Customer Match de Google, deberás pasar a Braze los siguientes atributos personalizados (booleanos) como parte de la Política de consentimiento del usuario de la UE de Google. Puedes encontrar más información en [Recopilación del consentimiento de los usuarios finales del EEE, Reino Unido y Suiza](#collecting-consent-for-eea-uk-and-switzerland-end-users): <br> - `$google_ad_user_data` <br> - `$google_ad_personalization` |
+| Google Customer Match | [Google](https://support.google.com/google-ads/answer/6299717) |  Customer Match no está disponible para todos los anunciantes.<br><br>**Para utilizar Customer Match, tu cuenta debe tener:**<br>• Un buen historial de cumplimiento de la política<br>• Un buen historial de pagos<br>• Al menos 90 días de historial en Google Ads<br>• Más de 50 000 USD de gasto total durante toda la vida. Para los anunciantes cuyas cuentas se gestionen en divisas distintas del dólar estadounidense, el importe de sus gastos se convertirá a dólares estadounidenses utilizando el tipo de cambio medio mensual de esa divisa.<br><br>Si tu cuenta no cumple estos criterios, actualmente no es elegible para utilizar Customer Match.<br><br>Ponte en contacto con tu representante de Google Ads para obtener más información sobre la disponibilidad de Customer Match para tu cuenta. |
+| Señales de consentimiento de Google | [Google](https://support.google.com/google-ads/answer/14310715) |  Si deseas publicar anuncios para usuarios finales del EEE mediante el servicio Customer Match de Google, deberás pasar a Braze los siguientes atributos personalizados (booleanos) como parte de la Política de consentimiento del usuario de la UE de Google. Puedes encontrar más información en [Recopilación del consentimiento de los usuarios finales del EEE, Reino Unido y Suiza](#collecting-consent-for-eea-uk-and-switzerland-end-users): <br> - `$google_ad_user_data` <br> - `$google_ad_personalization` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Requisitos previos" }
 
 ### Versiones de SDK necesarias {#required-sdk-versions}
@@ -50,7 +50,7 @@ Cuando utilices los SDK de Braze para recoger señales de consentimiento, asegú
 
 {% sdk_min_versions swift:7.6.0 android:1.3.2 web:3.0.0 %}
 
-### Recoger el consentimiento de los usuarios finales del EEE, Reino Unido y Suiza {#collecting-consent-for-eea-uk-and-switzerland-end-users}
+### Recopilación del consentimiento de los usuarios finales del EEE, Reino Unido y Suiza {#collecting-consent-for-eea-uk-and-switzerland-end-users}
 
 La Política de consentimiento del usuario de la UE de Google exige a los anunciantes que revelen lo siguiente a sus usuarios finales del EEE, Reino Unido y Suiza, así como que obtengan su consentimiento para ello:
 
@@ -98,12 +98,12 @@ En cualquier Canvas en el que te dirijas a usuarios finales del EEE, Reino Unido
 ### Paso 1: Conectar la cuenta de Google {#step-1-connect-google-account}
 
 {% alert important %}
-Debes tener el [permiso "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin) para conectar Google Ads a tu cuenta de Braze.
+Debes tener el [permiso "Admin"]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin) para conectar Google Ads a tu cuenta de Braze.
 {% endalert %}
 
 Para empezar, ve a **Integraciones de socios** > **Socios tecnológicos** > **Google Ads** y selecciona **Connect Google Ads**. Se te pedirá mediante un modal que selecciones el correo electrónico asociado a tu cuenta de Google Ads y, a continuación, que concedas a Braze acceso a tu cuenta de Google Ads.
 
-Tras conectar correctamente tu cuenta de Google Ads, volverás a la página del socio de Google Ads. A continuación, se te pedirá que selecciones a qué cuentas de anuncios quieres acceder en el espacio de trabajo de Braze.
+Tras conectar correctamente tu cuenta de Google Ads, volverás a la página del partner de Google Ads. A continuación, se te pedirá que selecciones a qué cuentas de anuncios quieres acceder en el espacio de trabajo de Braze.
 
 ![Un GIF que muestra el flujo de trabajo de una conexión exitosa de una cuenta de Google Ads a Braze.]({% image_buster /assets/img/google_sync/googlesync.gif %}){: style="max-width:85%;"}
 
@@ -126,9 +126,9 @@ Añade un componente en tu Canvas y, a continuación, selecciona **Audience Sync
 ### Paso 3: Configuración de la sincronización {#step-3-sync-setup}
 
 1. Selecciona **Custom Audience** para abrir el editor de componentes.
-2. Selecciona **Google** como socio de Audience Sync.
+2. Selecciona **Google** como partner de Audience Sync.
 
-![La configuración del paso Audience Sync con la opción de seleccionar un socio para iniciar la sincronización.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
+![La configuración del paso Audience Sync con la opción de seleccionar un partner para iniciar la sincronización.]({% image_buster /assets/img/audience_sync/audience_sync4.png %}){: style="max-width:80%;"}
 
 {: start="3"}
 3. Selecciona la cuenta de anuncios de Google deseada.
@@ -218,16 +218,29 @@ Una audiencia puede tardar entre 6 y 12 horas en sincronizarse con Google.
 
 Por motivos de privacidad, el tamaño de la lista de usuarios mostrará cero hasta que la lista tenga al menos 1000 miembros. Después, el tamaño se redondeará a los dos dígitos más significativos.
 
+### ¿Por qué el tamaño de mi audiencia coincidente en Google es menor que el número de usuarios sincronizados desde Braze? {#why-is-my-matched-audience-size-in-google-lower-than-the-number-of-users-synced-from-braze}
+
+Aunque Braze puede sincronizar un número determinado de usuarios con Google, el tamaño real de la audiencia coincidente que ves en Google Ads puede ser significativamente menor. Esto se debe a que Google necesita hacer coincidir los datos de usuario que proporcionas (como direcciones de correo electrónico o números de teléfono) con cuentas de Google reales en su plataforma.
+
+Aunque tus perfiles de usuario de Braze contengan campos de coincidencia válidos, los usuarios solo aparecen en tu audiencia personalizada de Google si tienen una cuenta de Google con información coincidente.
+
+Para mejorar tu tasa de coincidencia:
+- Confirma que estás [formateando tus datos correctamente](https://support.google.com/google-ads/answer/7659867).
+- Proporciona múltiples identificadores cuando sea posible (por ejemplo, tanto correo electrónico como número de teléfono).
+- Ten en cuenta que Google puede tardar entre 48 y 72 horas en procesar y hacer coincidir a los usuarios, aunque en algunos casos puede tardar varios días.
+
+El tamaño final de la audiencia coincidente depende completamente del proceso de coincidencia de Google. Braze no tiene visibilidad sobre la coincidencia de Google una vez que los datos se han pasado a su plataforma.
+
 ### He sincronizado una audiencia en Google, pero mis anuncios no se publican. {#ive-synced-an-audience-into-google-but-my-ads-are-not-serving}
 
 Comprueba que tus audiencias contienen al menos 5000 usuarios para que los anuncios puedan empezar a servirse.
 
 ### ¿Cómo resuelvo el error "Mobile App IDs Deleted"? {#how-do-i-resolve-the-mobile-app-ids-deleted-error}
 
-Si estás sincronizando audiencias con Google, este error se desencadenará si has seleccionado sincronizar identificadores móviles como parte de tus sincronizaciones, pero has eliminado los ID de tus aplicaciones móviles de la página del socio de Google. Para resolver este problema, asegúrate de que has añadido los ID de aplicación móvil adecuados para iOS y Android a la página del socio de Google.
+Si estás sincronizando audiencias con Google, este error se desencadenará si has seleccionado sincronizar identificadores móviles como parte de tus sincronizaciones, pero has eliminado los ID de tus aplicaciones móviles de la página del partner de Google. Para resolver este problema, asegúrate de que has añadido los ID de aplicación móvil adecuados para iOS y Android a la página del partner de Google.
 
-### ¿Por qué recibí un correo electrónico de credenciales no válidas de Google Ads cuando el dashboard todavía muestra que está conectado? {#why-did-i-get-a-google-ads-invalid-credentials-email-when-the-dashboard-still-shows-connected}
+### ¿Por qué recibí un correo electrónico de credenciales no válidas de Google Ads cuando el panel todavía muestra que está conectado? {#why-did-i-get-a-google-ads-invalid-credentials-email-when-the-dashboard-still-shows-connected}
 
-Braze envía este correo electrónico automáticamente cuando la API de Google devuelve un error de autorización. Esto puede ocurrir incluso cuando **Google Ads** todavía aparece conectado en el dashboard y las audiencias parecen estar sincronizándose; por ejemplo, cuando la cuenta de Google conectada no tiene permiso para una acción específica que Google solicitó, o cuando los términos de servicio de Google Ads aún necesitan ser aceptados para la cuenta.
+Braze envía este correo electrónico automáticamente cuando la API de Google devuelve un error de autorización. Esto puede ocurrir incluso cuando **Google Ads** todavía aparece conectado en el panel y las audiencias parecen estar sincronizándose; por ejemplo, cuando la cuenta de Google conectada no tiene permiso para una acción específica que Google solicitó, o cuando los términos de servicio de Google Ads aún necesitan ser aceptados para la cuenta.
 
 Algunos errores de autorización se resuelven por sí solos. Comprueba los análisis de **Audience Sync** de tu Canvas (por ejemplo, *Users Synced* y *Users Errored*) para confirmar si los usuarios siguen sincronizándose. Si los problemas continúan, ve a **Integraciones de socios** > **Socios tecnológicos** > **Google Ads**, busca **Google Audience Sync** y usa **Change Account** para reconectar con una cuenta de Google Ads que tenga el acceso necesario y la configuración completada.

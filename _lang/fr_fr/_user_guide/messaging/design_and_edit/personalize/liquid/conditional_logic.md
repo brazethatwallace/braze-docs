@@ -8,7 +8,7 @@ description: "Cet article de référence explique comment les balises peuvent et
 
 # Logique conditionnelle dans les messages {#conditional-messaging-logic}
 
-> Les [balises](https://docs.shopify.com/themes/liquid-documentation/tags) vous permettent d'inclure une logique de programmation dans vos campagnes de communication. Les balises peuvent être utilisées pour exécuter des instructions conditionnelles ainsi que pour des cas d'utilisation avancés, comme l'affectation de variables ou l'itération à travers un bloc de code. <br><br>Cette page explique comment les balises peuvent et doivent être utilisées, notamment comment gérer les valeurs d'attributs null, nil et vides, et comment référencer des attributs personnalisés.
+> Les [balises](https://docs.shopify.com/themes/liquid-documentation/tags) vous permettent d'inclure une logique de programmation dans vos campagnes de communication. Les balises peuvent être utilisées pour exécuter des instructions conditionnelles ainsi que pour des cas d'usage avancés, comme l'affectation de variables ou l'itération à travers un bloc de code. <br><br>Cette page explique comment les balises peuvent et doivent être utilisées, notamment comment gérer les valeurs d'attributs null, nil et vides, et comment référencer des attributs personnalisés.
 
 ## Mise en forme des balises {#formatting-tags}
 
@@ -28,7 +28,7 @@ Par exemple, ajoutez d'abord ce qui suit dans le champ de message :
 {% endif %}
 ```
 
-Assurez-vous que le texte s'affiche en vert, puis remplacez le `X` par le Liquid ou le Contenu connecté de votre choix en utilisant le `+` bleu dans le coin du champ de message, et le `0` par la valeur souhaitée.
+Assurez-vous que le texte s'affiche en vert, puis remplacez le `X` par le Liquid ou le contenu connecté de votre choix en utilisant le `+` bleu dans le coin du champ de message, et le `0` par la valeur souhaitée.
 <br><br>
 Ensuite, ajoutez vos variantes de message selon vos besoins entre les conditionnels `else` :
 ```liquid
@@ -92,7 +92,7 @@ Vous pouvez utiliser le même schéma avec des balises de personnalisation Braze
 La balise `{% endif %}` signale que vous avez terminé un bloc `if`. Vous devez inclure la balise `{% endif %}` dans tout message utilisant `if`, `elsif`, `unless` ou `else` dans cette chaîne. Si vous n'incluez pas de balise `{% endif %}`, vous obtiendrez une erreur car Braze ne pourra pas analyser votre message. Si vous utilisez `{% case %}` à la place, fermez le bloc avec `{% endcase %}`, et non `{% endif %}`.
 
 {% alert note %}
-Dans les balises `if`, `elsif` et `unless`, vous pouvez utiliser des opérateurs mais pas des filtres. Dans les balises `case` et `when`, chaque branche correspond lorsque l'expression `case` est égale à une valeur `when` ; les filtres ne sont pas non plus pris en charge dans ces expressions. Pour évaluer une valeur filtrée, affectez d'abord le résultat du filtre à une variable, puis référencez cette variable dans votre clause `case` ou `when`. Pour plus de détails, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/#where-to-use-operators-and-filters).
+Dans les balises `if`, `elsif` et `unless`, vous pouvez utiliser des opérateurs mais pas des filtres. Dans les balises `case` et `when`, chaque branche correspond lorsque l'expression `case` est égale à une valeur `when` ; les filtres ne sont pas non plus pris en charge dans ces expressions. Pour évaluer une valeur filtrée, affectez d'abord le résultat du filtre à une variable, puis référencez cette variable dans votre clause `case` ou `when`. Pour plus de détails, consultez [Où utiliser les opérateurs et les filtres]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#where-to-use-operators-and-filters).
 {% endalert %}
 
 ### Tutoriel : diffuser du contenu basé sur la localisation {#tutorial-deliver-location-based-content}
@@ -220,7 +220,7 @@ La balise suivante vous permet de spécifier un message pour les utilisateurs do
 
 ## Référencer des attributs personnalisés {#referencing-custom-attributes}
 
-Après avoir [créé des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes), vous pouvez référencer ces attributs personnalisés dans vos messages Liquid.
+Après avoir [créé des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes), vous pouvez référencer ces attributs personnalisés dans vos messages Liquid.
 
 Lorsque vous utilisez la logique conditionnelle, vous devez connaître le type de données de l'attribut personnalisé pour vous assurer d'utiliser la syntaxe correcte. Depuis la page **Attributs personnalisés** du tableau de bord, recherchez le type de données associé à votre attribut personnalisé, puis consultez les exemples suivants répertoriés pour chaque type de données.
 
@@ -230,9 +230,9 @@ Lorsque vous utilisez la logique conditionnelle, vous devez connaître le type d
 Les chaînes de caractères et les tableaux nécessitent des apostrophes droites autour d'eux, tandis que les valeurs booléennes et les entiers n'en ont jamais.
 {% endalert %}
 
-#### Valeur booléenne {#boolean}
+### Valeur booléenne {#boolean}
 
-Les [valeurs booléennes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#booleans) sont des valeurs binaires et peuvent être définies sur `true` ou `false`, comme `registration_complete: true`. Les valeurs booléennes n'ont pas d'apostrophes autour d'elles.
+Les [valeurs booléennes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#booleans) sont des valeurs binaires et peuvent être définies sur `true` ou `false`, comme `registration_complete: true`. Les valeurs booléennes n'ont pas d'apostrophes autour d'elles.
 
 {% raw %}
 
@@ -242,9 +242,9 @@ Les [valeurs booléennes]({{site.baseurl}}/user_guide/data/activation/attributes
 
 {% endraw %}
 
-#### Nombre {#number}
+### Nombre {#number}
 
-Les [nombres]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#numbers) sont des valeurs numériques, qui peuvent être des entiers ou des floats. Par exemple, un utilisateur peut avoir `shoe_size: 10` ou `levels_completed: 287`. Les valeurs numériques n'ont pas d'apostrophes autour d'elles.
+Les [nombres]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#numbers) sont des valeurs numériques, qui peuvent être des entiers ou des floats. Par exemple, un utilisateur peut avoir `shoe_size: 10` ou `levels_completed: 287`. Les valeurs numériques n'ont pas d'apostrophes autour d'elles.
 
 {% raw %}
 
@@ -264,9 +264,9 @@ Vous pouvez également utiliser d'autres [opérateurs de base](https://shopify.d
 
 {% endraw %}
 
-#### Chaîne de caractères {#string}
+### Chaîne de caractères {#string}
 
-Une [chaîne de caractères]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#strings) est composée de caractères alphanumériques et stocke une donnée concernant votre utilisateur. Par exemple, vous pouvez avoir `favorite_color: red` ou `phone_number: 3025981329`. Les valeurs de chaîne de caractères doivent avoir des apostrophes autour d'elles.
+Une [chaîne de caractères]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#strings) est composée de caractères alphanumériques et stocke une donnée concernant votre utilisateur. Par exemple, vous pouvez avoir `favorite_color: red` ou `phone_number: 3025981329`. Les valeurs de chaîne de caractères doivent avoir des apostrophes autour d'elles.
 
 {% raw %}
 
@@ -278,9 +278,9 @@ Une [chaîne de caractères]({{site.baseurl}}/user_guide/data/activation/attribu
 
 Pour les chaînes de caractères, vous pouvez utiliser à la fois « == » ou « contains » dans votre Liquid.
 
-#### Tableau {#array}
+### Tableau {#array}
 
-Un [tableau]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#arrays) est une liste d'informations concernant votre utilisateur. Par exemple, un utilisateur peut avoir `last_viewed_shows: stranger things, planet earth, westworld`. Les valeurs de tableau doivent avoir des apostrophes autour d'elles.
+Un [tableau]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#arrays) est une liste d'informations concernant votre utilisateur. Par exemple, un utilisateur peut avoir `last_viewed_shows: stranger things, planet earth, westworld`. Les valeurs de tableau doivent avoir des apostrophes autour d'elles.
 
 {% raw %}
 
@@ -290,11 +290,47 @@ Un [tableau]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attri
 
 {% endraw %}
 
-Pour les tableaux, vous devez utiliser « contains » et ne pouvez pas utiliser « == ».
+Pour les tableaux, vous devez utiliser `contains` et ne pouvez pas utiliser `==`.
 
-#### Horodatage {#time}
+#### Fonctionnement de `contains` avec les chaînes de caractères et les tableaux {#how-contains-works-with-strings-versus-arrays}
 
-Un horodatage indiquant quand un événement a eu lieu. Les valeurs de type [horodatage]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#time) doivent avoir un [filtre mathématique]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters/#math-filters) appliqué pour être utilisées dans la logique conditionnelle.
+L'opérateur `contains` se comporte différemment selon qu'il évalue une chaîne de caractères ou un tableau :
+
+- **Chaînes de caractères :** `contains` vérifie la présence d'une sous-chaîne n'importe où dans le texte.
+- **Tableaux :** `contains` vérifie une correspondance exacte avec un élément complet du tableau.
+
+{% alert important %}
+Si un attribut est stocké sous forme de tableau (par exemple, `["med1", "med2", "abc"]`), la recherche de `contains "ab"` sera évaluée à `false` car aucun élément individuel de cette liste n'est exactement `"ab"`.
+{% endalert %}
+
+##### Recherche de sous-chaîne dans les tableaux {#substring-matching-on-arrays}
+
+Si vous devez rechercher une correspondance partielle (sous-chaîne) au sein d'un attribut de type tableau, vous devez d'abord convertir le tableau en une seule chaîne de caractères à l'aide du filtre `join`.
+
+Comme Braze ne prend pas en charge les filtres en ligne directement dans les blocs conditionnels {% raw %}`{% if %}`{% endraw %}, vous devez suivre un processus en deux étapes : d'abord, affecter la valeur jointe à une variable, puis exécuter votre vérification conditionnelle.
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+Comme `join` combine les éléments du tableau en une seule chaîne de caractères (séparateur par défaut : un espace unique), les vérifications de sous-chaîne peuvent correspondre au-delà des limites d'éléments (par exemple, `["Napa", "boulevard"]` devient `Napa boulevard`, où `contains "a b"` est `true`). Utilisez un séparateur explicite tel que « , » pour rendre les limites plus claires et réduire les correspondances accidentelles entre éléments.
+{% endalert %}
+
+### Horodatage {#time}
+
+Un horodatage indiquant quand un événement a eu lieu. Les valeurs de type [horodatage]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#time) doivent avoir un [filtre mathématique]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#math-filters) appliqué pour être utilisées dans la logique conditionnelle.
 
 {% raw %}
 

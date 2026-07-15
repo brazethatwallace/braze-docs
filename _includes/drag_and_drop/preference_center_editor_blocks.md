@@ -2,7 +2,7 @@
 
 Drag blocks from the **Build** section into a row in the drag-and-drop preference center editor. Each block has its own settings; the right-side panel switches to properties or styling for the selected element.
 
-Before you edit blocks, add subscription groups and configure the subscription **smart block** (see below). For the full setup flow, see [Create an email preference center with drag-and-drop]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center/).
+Before you edit blocks, add subscription groups and configure the subscription **smart block** (see the following section). For the full setup flow, see [Create an email preference center with drag-and-drop]({{site.baseurl}}/user_guide/audience/subscription_preferences/preference_center/dnd_preference_center/).
 
 ### Title and paragraph
 

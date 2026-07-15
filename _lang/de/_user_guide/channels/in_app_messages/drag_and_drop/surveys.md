@@ -13,6 +13,6 @@ tool:
 
 # In-App-Nachricht-Umfragen {#in-app-message-surveys}
 
-> Braze-Umfragen sammeln Feedback in In-App-Nachrichten, das Sie analysieren und für Folge-Nachrichten nutzen können. Während der Beta werden Umfragen im [Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/) erstellt.
+> Braze-Umfragen erfassen Feedback in In-App-Nachrichten, das Sie analysieren und in Folgenachrichten verwenden können. Während der Beta werden Umfragen im [Drag-and-Drop-Editor]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop) erstellt.
 
 {% multi_lang_include surveys/content.md channel='in_app_message' %}

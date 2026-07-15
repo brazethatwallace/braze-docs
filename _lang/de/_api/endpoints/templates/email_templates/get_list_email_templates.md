@@ -1,6 +1,6 @@
 ---
 nav_title: "GET: Liste der verfügbaren E-Mail-Templates"
-article_title: "GET: Liste verfügbarer E-Mail-Templates"
+article_title: "GET: Liste der verfügbaren E-Mail-Templates"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
@@ -19,7 +19,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt „Liste der verfügb
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#eec24bf4-a3f4-47cb-b4d8-bb8f03964cca {% endapiref %}
 
 ## Voraussetzungen {#prerequisites}
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key/) mit der Berechtigung `templates.email.list`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/api_key) mit der Berechtigung `templates.email.list`.
 
 ## Rate-Limit
 
@@ -33,7 +33,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | `modified_before` | Optional | String im [ISO-8601](https://en.wikipedia.org/wiki/ISO_8601)-Format | Ruft nur Templates ab, die zum oder vor dem angegebenen Zeitpunkt aktualisiert wurden. |
 | `limit` | Optional | Positive Zahl | Maximale Anzahl der abzurufenden Templates. Standardmäßig 100, wenn nicht angegeben, mit einem maximal zulässigen Wert von 1000. |
 | `offset` | Optional | Positive Zahl | Anzahl der Templates, die übersprungen werden sollen, bevor der Rest der Templates zurückgegeben wird, die den Suchkriterien entsprechen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 ```

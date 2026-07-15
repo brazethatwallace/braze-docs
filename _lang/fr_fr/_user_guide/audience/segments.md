@@ -43,7 +43,7 @@ guide_menu_list:
   - name: Mesurer la taille d'un segment
     link: /docs/user_guide/audience/segments/measuring_segment_size
     image: /assets/img/braze_icons/pie-chart-02.svg
-  - name: "Cas d'utilisation : segmenter avec des attributs personnalisés imbriqués"
+  - name: "Cas d'usage : segmenter avec des attributs personnalisés imbriqués"
     link: /docs/user_guide/audience/segments/segment_with_nested_custom_attributes
     image: /assets/img/braze_icons/dataflow-02.svg
   - name: Résolution des problèmes
@@ -58,9 +58,9 @@ Dans Braze, les segments sont des groupes dynamiques d'utilisateurs qui correspo
 
 Vous pouvez créer autant de segments que vous le souhaitez pour cibler vos utilisateurs. Explorez différentes combinaisons de fonctionnalités de segments et de filtres de segmentation pour découvrir des façons créatives d'exploiter vos données utilisateur, et débloquez de nouvelles manières d'envoyer des messages pertinents à vos utilisateurs et d'augmenter l'engagement.
 
-Consultez les cas d'utilisation ci-dessous pour un aperçu de la façon dont les segments Braze peuvent vous aider à cibler vos utilisateurs.
+Consultez les cas d'usage ci-dessous pour un aperçu de la façon dont les segments Braze peuvent vous aider à cibler vos utilisateurs.
 
-### Cas d'utilisation {#use-cases}
+### Cas d'usage {#use-cases}
 
 - **Messages de bienvenue :** Segmentez les nouveaux utilisateurs afin de leur envoyer des e-mails d'onboarding ou des messages in-app qui leur présentent votre application.
 - **Récompenses de fidélité :** Segmentez les utilisateurs en fonction de leur fréquence d'achat, de l'anniversaire de leur adhésion ou d'autres jalons, et envoyez des offres exclusives ou des récompenses à vos utilisateurs les plus fidèles.
@@ -68,12 +68,12 @@ Consultez les cas d'utilisation ci-dessous pour un aperçu de la façon dont les
 - **Recommandations de produits :** Segmentez les utilisateurs ayant acheté des produits spécifiques et envoyez-leur des recommandations pour des produits complémentaires ou de gamme supérieure.
 - **Test A/B :** Segmentez les utilisateurs pour effectuer des tests A/B avec différents messages, lignes d'objet ou contenus afin de déterminer ce qui résonne le mieux auprès des utilisateurs selon leur âge, leur genre et d'autres attributs.
 
-#### Cas d'utilisation des extensions de segments {#segment-extension-use-cases}
+#### Cas d'usage des extensions de segments {#segment-extension-use-cases}
 
-Vous pouvez affiner davantage vos segments en utilisant les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension/) pour cibler les utilisateurs en fonction d'événements personnalisés ou de comportements d'achat stockés pendant toute la durée de vie de leur profil utilisateur.
+Vous pouvez affiner davantage vos segments en utilisant les [extensions de segments]({{site.baseurl}}/user_guide/audience/segments/segment_extension) pour cibler les utilisateurs en fonction d'événements personnalisés ou de comportements d'achat stockés pendant toute la durée de vie de leur profil utilisateur.
 
 - **Achats historiques :** Segmentez les utilisateurs selon qu'ils ont acheté une couleur spécifique d'un produit spécifique au moins deux fois au cours des deux dernières années.
 - **Événements et interactions avec les messages :** Segmentez les utilisateurs selon qu'ils ont effectué un achat au cours des trente derniers jours et ont également interagi avec un message in-app spécifique.
 - **Interrogation des données :**
-  - **Interroger Snowflake :** Segmentez les utilisateurs avec des données combinées provenant de Braze et de sources externes, telles qu'un CRM ou un entrepôt de données, en utilisant les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) pour interroger Snowflake.
-  - **Synchroniser depuis un entrepôt de données :** Segmentez les utilisateurs avec des données directement synchronisées depuis votre entrepôt de données ou votre système de stockage de fichiers vers Braze en utilisant les [extensions de segments CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments/).
+  - **Interroger Snowflake :** Segmentez les utilisateurs avec des données combinées provenant de Braze et de sources externes, telles qu'un CRM ou un entrepôt de données, en utilisant les [extensions de segments SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) pour interroger Snowflake.
+  - **Synchroniser depuis un entrepôt de données :** Segmentez les utilisateurs avec des données directement synchronisées depuis votre entrepôt de données ou votre système de stockage de fichiers vers Braze en utilisant les [extensions de segments CDI]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments).

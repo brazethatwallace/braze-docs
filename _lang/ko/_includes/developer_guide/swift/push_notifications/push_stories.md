@@ -10,7 +10,7 @@ Push Stories를 수신하려면 다음 최소 SDK 버전이 필요합니다:
 
 앱 프로젝트에서 메뉴 **File > New > Target**으로 이동하여 새 `Notification Content Extension` 타겟을 추가하고 활성화합니다.
 
-![]({% image_buster /assets/img/swift/push_story/add_content_extension.png %})
+![Push Stories용 알림 콘텐츠 확장을 생성하는 Xcode 타겟 선택기.]({% image_buster /assets/img/swift/push_story/add_content_extension.png %})
 
 Xcode가 새 타겟을 자동으로 생성하고 다음 파일을 자동으로 만들어 줍니다:
 
@@ -42,7 +42,7 @@ Xcode에서 메인 앱 타겟의 **Signing & Capabilities** 패널을 사용하�
 
 ![Xcode에서 프레임워크 및 라이브러리 아래에 있는 "+" 아이콘을 선택하여 프레임워크를 추가합니다.]({% image_buster /assets/img/swift/push_story/spm1.png %})
 
-![]({% image_buster /assets/img/swift/push_story/spm2.png %})
+![알림 콘텐츠 확장 타겟에 BrazePushStory를 추가하는 Xcode 패키지 제품 선택 화면.]({% image_buster /assets/img/swift/push_story/spm2.png %})
 
 {% endtab %}
 {% tab CocoaPods %}
@@ -77,7 +77,7 @@ Podfile을 업데이트한 후 터미널에서 Xcode 앱 프로젝트의 디렉�
 
 [GitHub 릴리스 페이지](https://github.com/braze-inc/braze-swift-sdk/releases)에서 최신 `BrazePushStory.zip`을 다운로드하여 압축을 푼 후 프로젝트의 `Notification Content Extension`에 `BrazePushStory.xcframework`를 추가합니다.
 
-![]({% image_buster /assets/img/swift/push_story/manual1.png %})
+![Do Not Embed가 선택된 상태로 BrazePushStory.xcframework가 추가된 Xcode 프레임워크 설정.]({% image_buster /assets/img/swift/push_story/manual1.png %})
 
 {% alert important %}
 **Embed** 열의 **BrazePushStory.xcframework** 아래에서 **Do Not Embed**가 선택되어 있는지 확인합니다.
@@ -102,7 +102,7 @@ class NotificationViewController: BrazePushStory.NotificationViewController {}
 
 #### 푸시 스토리 이벤트 커스텀 처리 {#custom-handling-push-story-events}
 
-푸시 스토리 알림 이벤트를 처리하기 위해 자체 커스텀 로직을 구현하려면 위와 같이 `BrazePushStory.NotificationViewController`를 상속하고 아래와 같이 [`didReceive`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazepushstory/notificationviewcontroller/didreceive(_:)) 메서드를 재정의합니다.
+푸시 스토리 알림 이벤트를 처리하기 위해 자체 커스텀 로직을 구현하려면 위의 예시와 같이 `BrazePushStory.NotificationViewController`를 상속하고 아래 예시의 [`didReceive`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazepushstory/notificationviewcontroller/didreceive(_:)) 메서드를 재정의합니다.
 
 ```swift
 import BrazePushStory
@@ -134,22 +134,22 @@ class NotificationViewController: BrazePushStory.NotificationViewController {
 | `UNNotificationExtensionDefaultContentHidden`    | 부울    | `YES`                  |
 | `UNNotificationExtensionInitialContentSizeRatio` | 숫자    | `0.6`                  |
 | `UNNotificationExtensionUserInteractionEnabled`  | 부울    | `YES`                  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Setting the Notification Content Extension plist #notification-content-extension" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="5단계: 알림 콘텐츠 확장 plist 설정" }
 
 또한 동일한 `Info.plist` 파일에 다음 최상위 `Braze` 사전을 추가하고, `REPLACE_WITH_APPGROUP`을 [2단계](#enable-capabilities)에서 생성한 앱 그룹으로 대체합니다:
 
 | 키               | 유형   | 값                       |
 |------------------|--------|--------------------------|
 | `Braze.AppGroup` | 문자열 | `REPLACE_WITH_APPGROUP`  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Setting the Notification Content Extension plist #notification-content-extension" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="5단계: 알림 콘텐츠 확장 plist 설정" }
 
 `Info.plist` 파일은 다음 이미지와 일치해야 합니다:
 
-![]({% image_buster /assets/img/swift/push_story/notificationcontentextension_plist.png %})
+![Braze Push Story 키와 앱 그룹 설정이 포함된 알림 콘텐츠 확장 Info.plist.]({% image_buster /assets/img/swift/push_story/notificationcontentextension_plist.png %})
 
 ### 6단계: 메인 앱에서 Braze 통합 업데이트 {#update-braze}
 
-Braze를 초기화하기 전에 앱 그룹의 이름을 Braze 구성의 [`push.appGroup`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/appgroup) 속성에 할당합니다.
+Braze를 초기화하기 전에 앱 그룹의 이름을 Braze 구성의 [`push.appGroup`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/push-swift.class/appgroup) 속성정보에 할당합니다.
 
 ```swift
 let configuration = Braze.Configuration(apiKey: "<YOUR-BRAZE-API-KEY>",

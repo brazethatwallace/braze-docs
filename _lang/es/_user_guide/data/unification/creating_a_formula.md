@@ -25,7 +25,7 @@ Los siguientes son algunos ejemplos de los tipos de patrones de comportamiento q
 
 ## Creación de fórmulas {#creating-formulas}
 
-Se puede acceder a las fórmulas en los paneles de estadísticas de las páginas [Inicio]({{site.baseurl}}/user_guide/analytics/dashboards/home/), [Informe de ingresos]({{site.baseurl}}/user_guide/analytics/reports/revenue_report/) e [Informe de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events/) del dashboard. Para ver este panel, ve al gráfico **Performance Over Time**, cambia el desplegable **Statistics For** a **KPI Formulas** y, a continuación, selecciona al menos una fórmula de KPI para rellenar el gráfico.
+Se puede acceder a las fórmulas en los paneles de estadísticas de las páginas [Inicio]({{site.baseurl}}/user_guide/analytics/dashboards/home), [Informe de ingresos]({{site.baseurl}}/user_guide/analytics/reports/revenue_report) e [Informe de eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events) del dashboard. Para ver este panel, ve al gráfico **Performance Over Time**, cambia el desplegable **Statistics For** a **KPI Formulas** y, a continuación, selecciona al menos una fórmula de KPI para rellenar el gráfico.
 
 ![Ver las estadísticas de las fórmulas de KPI en el dashboard de Braze]({% image_buster /assets/img_archive/kpi_forms.png %})
 
@@ -68,7 +68,7 @@ table td {
 | DAU | MAU |
 | Sesiones | DAU |
 | | Tamaño del segmento |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Overview dashboard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de resumen" }
 
 ### Dashboard de ingresos {#revenue-dashboard}
 
@@ -76,7 +76,7 @@ table td {
 | --- | --- |
 | Compras (todas) | DAU |
 | Compras específicas (como una tarjeta regalo o un ID de producto) | MAU |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Revenue dashboard" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de ingresos" }
 
 ### Dashboard de eventos personalizados {#custom-event-dashboard}
 
@@ -84,5 +84,5 @@ table td {
 | --- | --- |
 | Recuento de eventos personalizados | MAU |
 |  | DAU |
-|  | Tamaño del segmento (solo se pueden utilizar los segmentos que tengan habilitado el [seguimiento de análisis]({{site.baseurl}}/viewing_and_understanding_segment_data/)) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom event dashboard" }
+|  | Tamaño del segmento (solo se pueden utilizar los segmentos que tengan habilitado el [seguimiento de análisis]({{site.baseurl}}/viewing_and_understanding_segment_data)) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dashboard de eventos personalizados" }

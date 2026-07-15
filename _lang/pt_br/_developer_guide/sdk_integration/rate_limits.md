@@ -69,7 +69,7 @@ Se você está enfrentando problemas de limite de taxa do SDK, revise os seguint
 - `logCustomEvent()`
 - `logPurchase()`
 
-Ao entrar em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support/), inclua os seguintes detalhes para cada um dos métodos de rede do SDK que você usa:
+Ao entrar em contato com o [suporte da Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support), inclua os seguintes detalhes para cada um dos métodos de rede do SDK que você usa:
 
 ```plaintext
 Method name:

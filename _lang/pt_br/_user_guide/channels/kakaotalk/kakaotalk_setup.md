@@ -10,7 +10,7 @@ channel:
 
 # Configurar o KakaoTalk {#set-up-kakaotalk}
 
-> Este artigo aborda como configurar o [canal de envio de mensagens KakaoTalk]({{site.baseurl}}/kakaotalk/) na Braze, incluindo como configurar usuários, reconciliar IDs de usuário e criar usuários teste do KakaoTalk.
+> Este artigo aborda como configurar o [canal de envio de mensagens KakaoTalk]({{site.baseurl}}/kakaotalk) na Braze, incluindo como configurar usuários, reconciliar IDs de usuário e criar usuários teste do KakaoTalk.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -29,7 +29,7 @@ Registre os endereços IP da Braze para o seu cluster no dashboard Comm.One.
 
 1. No dashboard Comm.One, acesse **Account Management (계정 관리)**, selecione o ícone de menu e depois selecione **View Details (자세히보기)**.
 2. Selecione **Center & Upload IP Allowlist (센터&업로드 IP 화이트리스트)**.
-3. Adicione os endereços IP do seu cluster da Braze. Para a lista completa de IPs por cluster, consulte [Lista de permissões de IP]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#ip-allowlisting).
+3. Adicione os endereços IP do seu cluster da Braze. Para a lista completa de IPs por cluster, consulte [Lista de permissões de IP]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 
 ![Dashboard Comm.One mostrando onde você pode adicionar endereços IP.]({% image_buster /assets/img/kakaotalk/register_braze_ip.png %})
 
@@ -66,8 +66,8 @@ Após reunir sua documentação, siga estas etapas:
 
 ### Etapa 1: Conectar o canal KakaoTalk à Braze {#step-1-connect-the-kakaotalk-channel-to-braze}
 
-1. Acesse **Integrações de parceiros** > **Parceiros de tecnologia** e selecione seu provedor KakaoTalk.
-2. Reúna as credenciais necessárias para seu provedor (veja abaixo), insira-as na página **Parceiros de tecnologia** e salve.
+1. Acesse **Partner Integrations** > **Technology Partners** e selecione seu provedor KakaoTalk.
+2. Reúna as credenciais necessárias para seu provedor (veja a seção a seguir), insira-as na página **Technology Partners** e salve.
 3. Use as credenciais recém-salvas para envio.
 
 #### CJ OliveNetworks
@@ -79,7 +79,7 @@ Acesse seu [dashboard Comm.One](https://ums.cjmplace.com/) e reúna as seguintes
 | **Comm.One Login ID (로그인 아이디)** | Selecione seu perfil. |
 | **Sender Key (발신프로필 키)** | Acesse **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
 | **Channel name (카카오톡 채널 프로필명)** | No seu dashboard Comm.One, acesse **Template Management (템플릿 관리)** > **Sender Profile Management (발신프로필 관리)**. |
-| **Sender number (연락처)** | {::nomarkdown}<ol><li>Acesse <b>Account Management (계정 관리)</b>, selecione o ícone de menu e depois selecione <b>View Details (자세히보기)</b>.</li><li>Acesse <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ul>{:/} |
+| **Sender number (연락처)** | {::nomarkdown}<ol><li>Acesse <b>Account Management (계정 관리)</b>, selecione o ícone de menu e depois selecione <b>View Details (자세히보기)</b>.</li><li>Acesse <b>Business Detailed Information (업체 상세 정보)</b> > <b>Company Information (기업정보)</b></li></ol>{:/} |
 | **Credential (ID) e Password (비밀번호)** | Acesse o mesmo local do **Sender number (사업자 등록번호)** e depois acesse **API** > **Brand Message (브랜드 메시지)**. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CJ OliveNetworks" }
 
@@ -94,7 +94,7 @@ Acesse seu [dashboard Comm.One](https://ums.cjmplace.com/) e reúna as seguintes
 ![Dashboard Comm.One mostrando um Sender Key censurado.]({% image_buster /assets/img/kakaotalk/sender_key.png %})
 
 {% alert important %}
-Você pode integrar um Sender Key do KakaoTalk em apenas um espaço de trabalho por vez. Para usar o mesmo Sender Key em um espaço de trabalho diferente, primeiro você deve arquivar o grupo de inscrições do KakaoTalk no espaço de trabalho original e depois entrar em contato com o [suporte da Braze]({{site.baseurl}}/braze_support/) para remover a integração. Após a Braze remover a integração, você pode configurar a integração no novo espaço de trabalho.
+Você pode integrar um Sender Key do KakaoTalk em apenas um espaço de trabalho por vez. Para usar o mesmo Sender Key em um espaço de trabalho diferente, primeiro você deve arquivar o grupo de inscrições do KakaoTalk no espaço de trabalho original e depois entrar em contato com o [suporte da Braze]({{site.baseurl}}/braze_support) para remover a integração. Após a Braze remover a integração, você pode configurar a integração no novo espaço de trabalho.
 {% endalert %}
 
 ![Credenciais para um canal KakaoTalk da Braze.]({% image_buster /assets/img/kakaotalk/cj_credentials.png %})
@@ -116,7 +116,7 @@ Você pode integrar um Sender Key do KakaoTalk em apenas um espaço de trabalho 
 Somente os canais mapeados para um único ID comum podem ser registrados.
 {% endalert %}
 
-![Campos na página Parceiros de tecnologia para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
+![Campos na página Technology Partners para CJ OliveNetworks.]({% image_buster /assets/img/kakaotalk/cj_olivenetworks.png %}){: style="max-width:30%;"}
 
 #### Infobip
 
@@ -135,8 +135,6 @@ Acesse seu dashboard Infobip e reúna as seguintes informações.
 
 Os perfis de usuário devem ter números de telefone no formato E.164 para receber mensagens pelo KakaoTalk. Os números de telefone são exibidos no perfil de usuário. O KakaoTalk exige que os números de telefone estejam no formato E.164 (por exemplo, `+821025749774`). Isso difere de alguns outros canais de envio de mensagens que podem aceitar números de telefone em múltiplos formatos.
 
-![Perfil de usuário para um usuário teste com um número de telefone no formato E.164.]({% image_buster /assets/img/kakaotalk/standard_phone_number.png %}){: style="max-width:50%;"}
-
 ### Importar números de telefone {#import-phone-numbers}
 
-Importe números de telefone [fazendo upload de um CSV ou usando a API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users/) para criar um usuário. Certifique-se de que os números de telefone estejam no formato E.164 antes de importar.
+Importe números de telefone [fazendo upload de um CSV ou usando a API]({{site.baseurl}}/user_guide/data/unification/user_data/import_users) para criar um usuário. Certifique-se de que os números de telefone estejam no formato E.164 antes de importar.

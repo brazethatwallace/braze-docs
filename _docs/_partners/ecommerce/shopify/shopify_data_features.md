@@ -689,8 +689,8 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 
 {% endsubtab %}
 {% subtab Order cancelled %}
-**Event**: `shopify_cancelled_order`<br>
-**Type**: [Custom Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Event**: `ecommerce.order_cancelled`<br>
+**Type**: Recommended event<br>
 **Triggered**: When a user’s order is cancelled<br> 
 **Data source**: Braze REST API<br>
 **Use Case**: (Transactional) Order cancellation confirmation
@@ -725,8 +725,8 @@ Shopify’s checkout completed webhook doesn't contain product URLs or image URL
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
-**Event**: `shopify_order_refunded`<br>
-**Type**: [Custom Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Event**: `ecommerce.order_refunded`<br>
+**Type**: Recommended event<br>
 **Triggered**: When a user’s order is refunded<br>
 **Data source**: Braze REST API<br>
 **Use Case**: (Transactional) Refund confirmation
@@ -863,7 +863,7 @@ When Braze imports your Shopify customers, we assign the `external_id` type that
 If you're an existing Braze customer with active campaigns or Canvases, review how imported customers and order events affect your segments and journeys before you enable historical backfill.
 {% endalert %}
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 ### Setting up Shopify historical backfill
 

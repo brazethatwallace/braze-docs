@@ -1,45 +1,19 @@
 ---
-nav_title: 콘텐츠 QA
-article_title: AI를 통한 콘텐츠 QA
-page_order: 4
-description: "이 참조 문서는 메시지 작성기에서 AI를 사용하여 메시지 콘텐츠에 대한 품질 보증을 수행하는 방법을 다룹니다."
+nav_title: 콘텐츠 검토
+article_title: Operator를 통한 콘텐츠 검토
+page_order: 2
+page_type: reference
+description: "이 참조 문서는 메시지 콘텐츠에 대한 품질 보증을 수행하여 맞춤법 오류, 문법 문제, 부적절한 어조, 공격적인 언어를 발송 전에 잡아내는 방법을 다룹니다."
 ---
 
-# BrazeAI를 통한 콘텐츠 QA {#content-qa-with-brazeai}
+# Operator를 통한 콘텐츠 검토 {#content-review-with-operator}
 
-> BrazeAI<sup>TM</sup>를 사용하여 콘텐츠를 QA하는 방법을 알아보세요. 맞춤법 오류, 문법 문제, 부적절한 어조 또는 공격적인 언어를&#8212;발송 전에 잡아낼 수 있습니다.
+> 메시지 콘텐츠에서 맞춤법 오류, 문법 문제, 부적절한 어조 또는 공격적인 언어를 발송 전에 잡아낼 수 있습니다.
 
-## 지원되는 기능 {#supported-features}
+{% multi_lang_include brazeai/generative_ai/unification_note.md %}
 
-콘텐츠 품질 향상을 위해 다음 기능이 지원됩니다:
+## 접근 방법 {#how-to-access}
 
-| 기능 | 설명 |
-|----------------------------|-------------|
-| 맞춤법 및 문법 검사 | 메시지에서 맞춤법 및 문법 오류를 자동으로 검사합니다. 수정 사항을 제안하고 콘텐츠의 전반적인 정확성을 향상시키기 위한 권장 사항을 제공합니다. |
-| 어조 분석 | 메시지의 어조를 평가하여 잠재적인 문제를 식별합니다. 의도된 어조가 원하는 커뮤니케이션 스타일과 일치하도록 도와주며, 오해나 의도치 않은 불쾌감을 방지하는 데 도움이 됩니다. |
-| 공격적인 언어 감지 | 잠재적으로 공격적이거나 부적절한 언어가 있는지 메시지를 스캔하여 콘텐츠를 수정하고 존중하는 커뮤니케이션을 유지할 수 있도록 합니다. |
-| 우발적 콘텐츠 검사 | 의도치 않게 추가되었을 수 있는 코드, 마크업 언어 또는 테스트 메시지를 감지합니다. 여기에는 테스트 사용자에게 렌더링되지 않은 Liquid 코드도 포함됩니다. |
-| 다중 언어 지원 | OpenAI에서 공식적으로 지원하지는 않지만, GPT는 [다양한 언어](https://openai.com/research/gpt-4#:~:text=GPT%2D4%203%2Dshot%20accuracy%20on%20MMLU%20across%20languages)를 이해할 수 있습니다. Braze는 OpenAI로 전송할 때 사용자 카피의 언어 또는 로케일에 대한 정보를 전달하지 않으므로, 작성하는 언어에 따라 결과가 달라질 수 있습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported features" }
+{% multi_lang_include brazeai/generative_ai/access_content_qa.md %}
 
-## 콘텐츠 QA를 위해 BrazeAI<sup>TM</sup> 사용하기 {#using-brazeaitm-to-qa-content}
-
-{% alert note %}
-이 기능은 현재 SMS, Android 푸시, iOS 푸시 및 전통적인 인앱 메시지에서만 사용할 수 있습니다.
-{% endalert %}
-
-1. 모바일 푸시, SMS 또는 전통적인 인앱 메시지를 작성한 후, **Test** 탭으로 이동합니다.
-2. **Content QA with AI** 섹션을 찾습니다.
-3. **Test Content**를 클릭합니다.
-
-![Test 탭의 Content QA with AI 섹션.]({% image_buster /assets/img/content_qa_ai.png %})
-
-## 모범 사례 {#best-practices}
-
-AI를 통한 콘텐츠 QA를 최대한 활용하기 위해 다음 사항을 고려하세요:
-
-- **메시지 교정:** 콘텐츠 검사기가 오류를 식별하는 데 도움을 줄 수 있지만, 여전히 콘텐츠를 수동으로 교정하는 것이 중요합니다. AI가 생성한 제안을 유용한 가이드로 활용하되, 정확성을 보장하기 위해 직접 판단하세요.
-- **어조 분석 이해하기:** 어조 분석 결과는 주관적이며 AI 모델의 이해를 기반으로 합니다. 유용한 인사이트를 제공할 수 있지만, 의도한 어조와 대화의 맥락을 고려하여 적절하게 조정하세요.
-- **플래그된 공격적인 언어 재확인:** 공격적인 언어 감지는 견고하게 설계되었지만, 때때로 오탐(false positive)이 발생할 수 있습니다. 플래그된 섹션을 주의 깊게 검토하고 필요에 따라 적절히 수정하세요.
-
-{% multi_lang_include brazeai/generative_ai/policy.md %}
+지원되는 기능, 모범 사례, 예시 프롬프트 등 자세한 내용은 [Operator 기능에서 콘텐츠 품질 검토하기]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#review-content-quality)를 참조하세요.

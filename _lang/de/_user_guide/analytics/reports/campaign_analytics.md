@@ -4,7 +4,7 @@ article_title: Kampagnen-Analytics
 page_order: 1
 layout: dev_guide
 guide_top_header: "Kampagnen-Analytics"
-guide_top_text: "Kampagnen-Analytics liefert Ihnen Realtime-Updates zu den übergeordneten Ergebnissen jeder Campaign und jeder Variante innerhalb dieser Campaign sowie Details auf Nachrichtenebene. Wählen Sie Ihren Messaging-Kanal aus der folgenden Liste, um mehr über die kanalspezifische Kampagnen-Analytics zu erfahren. Sie können sich auch den <a href='https://learning.braze.com/campaign-setup-delivery-targeting-conversions'>Campaign Setup</a> Braze-Lernkurs ansehen, um eine Übersicht über diese Analytics zu erhalten."
+guide_top_text: "Kampagnen-Analytics liefert Ihnen Realtime-Updates zu den übergeordneten Ergebnissen jeder Kampagne und jeder Variante innerhalb dieser Kampagne sowie Details auf Nachrichtenebene. Wählen Sie Ihren Messaging-Kanal aus der folgenden Liste, um mehr über die kanalspezifische Kampagnen-Analytics zu erfahren. Sie können sich auch den <a href='https://learning.braze.com/campaign-setup-delivery-targeting-conversions'>Campaign Setup</a> Braze-Lernkurs ansehen, um eine Übersicht über diese Analytics zu erhalten."
 
 page_type: landing
 description: "Diese Landing-Page behandelt Kampagnen-Berichte für jeden Messaging-Kanal sowie Bindungs- und Funnel-Berichte."
@@ -19,7 +19,7 @@ guide_featured_list:
     link: /docs/user_guide/channels/email/reporting
     image: /assets/img/braze_icons/mail-01.svg
   - name: Feature-Flags
-    link: /docs/developer_guide/feature_flags/experiments/
+    link: /docs/developer_guide/feature_flags/experiments
     image: /assets/img/braze_icons/flag-06.svg
   - name: In-App-Nachrichten
     link: /docs/user_guide/channels/in_app_messages/reporting
@@ -28,7 +28,7 @@ guide_featured_list:
     link: /docs/user_guide/channels/push/reporting
     image: /assets/img/braze_icons/phone-01.svg
   - name: SMS
-    link: /docs/sms_mms_rcs_reporting/
+    link: /docs/sms_mms_rcs_reporting
     image: /assets/img/braze_icons/phone-02.svg
   - name: Webhooks
     link: /docs/user_guide/channels/webhooks/reporting

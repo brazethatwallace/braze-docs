@@ -10,7 +10,7 @@ description: "Este artigo traz informações sobre o endpoint da Braze \"Agendar
 ---
 {% api %}
 # Agendar Canvas disparados por API {#schedule-api-triggered-canvases}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /canvas/trigger/schedule/create
 {% endapimethod %}
 
@@ -20,13 +20,13 @@ Você pode passar `context`, que será aplicado como modelo nas mensagens enviad
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-Para enviar mensagens com este endpoint, você precisa ter um [ID do Canvas]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier), criado quando você constrói um Canvas.
+Para enviar mensagens com este endpoint, você precisa ter um [ID do Canvas]({{site.baseurl}}/api/identifier_types#canvas-api-identifier), criado quando você constrói um Canvas.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key/) com a permissão `canvas.trigger.schedule.create`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `canvas.trigger.schedule.create`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -64,12 +64,12 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 | Parâmetro | Obrigatória | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `canvas_id` | Obrigatória | String | Consulte [identificador do Canvas]({{site.baseurl}}/api/identifier_types/). |
-| `recipients` | Opcional | Vetor de objetos de destinatários | Consulte [objeto de destinatários]({{site.baseurl}}/api/objects_filters/recipient_object/). |
-| `audience` | Opcional | Objeto de público conectado | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience/). |
+| `canvas_id` | Obrigatória | String | Consulte [identificador do Canvas]({{site.baseurl}}/api/identifier_types). |
+| `recipients` | Opcional | Vetor de objetos de destinatários | Consulte [objeto de destinatários]({{site.baseurl}}/api/objects_filters/recipient_object). |
+| `audience` | Opcional | Objeto de público conectado | Consulte [público conectado]({{site.baseurl}}/api/objects_filters/connected_audience). |
 | `broadcast` | Opcional | Booleano | Você deve definir `broadcast` como true ao enviar uma mensagem para um segmento inteiro segmentado por uma Campaign ou Canvas. O padrão desse parâmetro é false (a partir de 31 de agosto de 2017). <br><br> Se `broadcast` estiver definido como true, uma lista `recipients` não poderá ser incluída. No entanto, tenha cuidado ao definir `broadcast: true`, pois definir esse flag de forma não intencional pode fazer com que você envie sua mensagem para um público maior do que o esperado. |
-| `context` | Opcional | Objeto | Pares de chave-valor de personalização para todos os usuários neste envio. Consulte [objeto de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context/). |
-| `schedule` | Obrigatória | Objeto de agendamento | Consulte [objeto de agendamento]({{site.baseurl}}/api/objects_filters/schedule_object/). |
+| `context` | Opcional | Objeto | Pares de chave-valor de personalização para todos os usuários neste envio. Consulte [objeto de contexto do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context). |
+| `schedule` | Obrigatória | Objeto de agendamento | Consulte [objeto de agendamento]({{site.baseurl}}/api/objects_filters/schedule_object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}

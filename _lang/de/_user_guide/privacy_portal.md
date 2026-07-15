@@ -16,49 +16,49 @@ description: ""
 guide_featured_title: "Braze verwenden"
 guide_featured_list:
 - name: Technische Unterstützung beim Datenschutz für Anfragen betroffener Personen
-  link: /docs/dp-technical-assistance/
+  link: /docs/dp-technical-assistance
   image: /assets/img/braze_icons/settings-01.svg
 - name: E-Mail-Open-Pixel und Klick-Tracking
-  link: /docs/user_guide/channels/email/email_setup/open_pixel_and_click_tracking/
+  link: /docs/user_guide/channels/email/email_setup/open_pixel_and_click_tracking
   image: /assets/img/braze_icons/mail-01.svg
 - name: E-Mail-Abos
-  link: /docs/user_guide/channels/email/subscriptions/
+  link: /docs/user_guide/channels/email/subscriptions
   image: /assets/img/braze_icons/mail-01.svg
 - name: E-Mail-Abos verwalten
-  link: /docs/user_guide/channels/email/subscriptions/#unsubscribed-email-addresses
+  link: /docs/user_guide/channels/email/subscriptions#unsubscribed-email-addresses
   image: /assets/img/braze_icons/users-01.svg
 - name: E-Mail-Präferenzzentrum
-  link: /docs/user_guide/audience/subscription_preferences/preference_center/
+  link: /docs/user_guide/audience/subscription_preferences/preference_center
   image: /assets/img/braze_icons/list.svg
 - name: SMS-Abo-Gruppen
-  link: /docs/sms_rcs_subscription_groups/
+  link: /docs/sms_rcs_subscription_groups
   image: /assets/img/braze_icons/users-01.svg
 - name: SMS-Gesetze und -Vorschriften
-  link: /docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/
+  link: /docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations
   image: /assets/img/braze_icons/briefcase-02.svg
 - name: WhatsApp-Abo-Gruppen
-  link: /docs/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/
+  link: /docs/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups
   image: /assets/img/braze_icons/whatsapp.svg
 - name: Push-Abos
-  link: /docs/user_guide/channels/push/push_setup/push_subscription_states/
+  link: /docs/user_guide/channels/push/push_setup/push_subscription_states
   image: /assets/img/braze_icons/users-01.svg
 - name: Nachrichtenarchivierung
-  link: /docs/user_guide/data/distribution/export_braze_data/message_archiving/
+  link: /docs/user_guide/data/distribution/export_braze_data/message_archiving
   image: /assets/img/braze_icons/clock-rewind.svg
 - name: Standard- und minimale SDK-Datenerfassung
-  link: /docs/user_guide/data/unification/user_data/sdk_data_collection/
+  link: /docs/user_guide/data/unification/user_data/sdk_data_collection
   image: /assets/img/braze_icons/settings-01.svg
 - name: "Canvas Audience Sync – Überlegungen zum Datenschutz"
-  link: /docs/partners/canvas_audience_sync/overview/#data-privacy-considerations
+  link: /docs/partners/canvas_audience_sync/overview#data-privacy-considerations
   image: /assets/img/braze_icons/fingerprint-03.svg
 - name: Braze-Datenaufbewahrung
-  link: /docs/api/data_retention/
+  link: /docs/api/data_retention
   image: /assets/img/braze_icons/database-01.svg
 - name: Nutzerarchivierung
-  link: /docs/user_archival/
+  link: /docs/user_archival
   image: /assets/img/braze_icons/users-01.svg
 - name: PII-Zugriff für Nutzer:innen
-  link: https://www.braze.com/docs/user_guide/administer/global/admin_settings/security_settings#view-pii
+  link: /docs/user_guide/administer/global/admin_settings/security_settings#view-pii
   image: /assets/img/braze_icons/eye.svg
 - name: Zusätzliche Datenschutz-Ressourcen
   link: https://www.braze.com/resources/search?section%5B%5D=articles&q=privacy
@@ -88,7 +88,7 @@ guide_menu_list:
   link: https://www.braze.com/company/legal/aup
   image: /assets/img/braze_icons/thumbs-up.svg
 - name: Innovationserklärung
-  link: /docs/developer_guide/disclosures/innovation_statement/
+  link: /docs/developer_guide/disclosures/innovation_statement
   image: /assets/img/braze_icons/lightbulb-05.svg
 - name: Hinweis zum Datenschutzrahmen
   link: https://www.braze.com/company/legal/data-privacy-framework-notice
@@ -100,7 +100,7 @@ guide_menu_list2:
   link: https://www.braze.com/company/legal/security-schedule
   image: /assets/img/braze_icons/lock-01.svg
 - name: Braze-Sicherheitszertifizierungen
-  link: /docs/developer_guide/disclosures/security_qualifications/
+  link: /docs/developer_guide/disclosures/security_qualifications
   image: /assets/img/braze_icons/lock-01.svg
 
 ---

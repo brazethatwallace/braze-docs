@@ -37,7 +37,7 @@ Remplacez les éléments suivants :
 |------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | `variable_type`   | Le type de variable prédéfini que vous souhaitez utiliser, comme `campaign` ou `catalog_fields`. Pour la liste complète, consultez [Types de variables pris en charge](#variable-types). |
 | `custom_label` | Le libellé utilisé pour identifier la variable dans l'onglet **Variables** de votre Générateur de requêtes. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Add a variable" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1 : Ajouter une variable" }
 
 Dans l'exemple suivant, le nombre total d'utilisateurs entre le premier et le dernier jour d'un mois est interrogé pour une Campaign. Chaque variable se verra attribuer une valeur à l'étape suivante.
 
@@ -183,7 +183,7 @@ Vous pouvez définir la plage de dates sur l'une des options suivantes. Si `star
 | Date de début | Spécifie une date de début | Nécessite `start_date` |
 | Date de fin | Spécifie une date de fin | Nécessite `end_date` |
 | Plage de dates | Spécifie à la fois une date de début et une date de fin | Nécessite à la fois `start_date` et `end_date` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Date range" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plage de dates" }
 
 Votre Liquid sera utilisé pour afficher un calendrier dans la plage de dates donnée :
 
@@ -443,7 +443,7 @@ field_name = '{{catalog_fields.${custom_label}}}'
 
 ### Segments
 
-Pour sélectionner des Segments dont le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking/) est activé. Défini sur l'identifiant analytique du Segment, qui correspond aux identifiants stockés dans la colonne `user_segment_membership_ids` dans les tables où cette colonne est disponible.
+Pour sélectionner des Segments dont le [suivi analytique]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking) est activé. Défini sur l'identifiant analytique du Segment, qui correspond aux identifiants stockés dans la colonne `user_segment_membership_ids` dans les tables où cette colonne est disponible.
 
 {% tabs %}
 {% tab utilisation %}

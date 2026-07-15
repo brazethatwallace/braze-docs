@@ -8,7 +8,7 @@ Para personalizar la presentación de los mensajes dentro de la aplicación y re
 
 ### Paso 1: Implementar el protocolo `BrazeInAppMessageUIDelegate` {#step-1-implement-the-brazeinappmessageuidelegate-protocol}
 
-Primero, implementa el protocolo `BrazeInAppMessageUIDelegate` y los métodos correspondientes que desees. En nuestro ejemplo siguiente, estamos implementando este protocolo en la clase `AppDelegate` de nuestra aplicación.
+Primero, implementa el protocolo `BrazeInAppMessageUIDelegate` y los métodos correspondientes que desees. En el siguiente ejemplo, este protocolo se implementa en la clase `AppDelegate` de la aplicación.
 
 {% tabs %}
 {% tab swift %}
@@ -211,7 +211,7 @@ De forma predeterminada, los mensajes de deslizamiento hacia arriba dentro de la
 Este comportamiento de deslizamiento está integrado en la [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview) predeterminada de `BrazeInAppMessageUI` y solo se aplica a los mensajes de deslizamiento hacia arriba dentro de la aplicación. Los mensajes modales y de pantalla completa dentro de la aplicación no admiten la función de deslizar para descartar. Para personalizar aún más la vista de deslizamiento hacia arriba, incluido el comportamiento al deslizar, puedes modificar [`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct) o proporcionar una vista personalizada mediante subclases.
 
 {% alert note %}
-Al pulsar fuera de un mensaje de deslizamiento hacia arriba, este no desaparece. Para los mensajes modales o de pantalla completa dentro de la aplicación, puedes habilitar el cierre mediante pulsación externa utilizando el atributo `dismissOnBackgroundTap` que se describe a continuación.
+Al pulsar fuera de un mensaje de deslizamiento hacia arriba, este no desaparece. Para los mensajes modales o de pantalla completa dentro de la aplicación, puedes habilitar el cierre mediante pulsación externa utilizando el atributo `dismissOnBackgroundTap` que se describe en la siguiente sección.
 {% endalert %}
 
 ## Personalización de cierres modales {#customizing-modal-dismissals}
@@ -354,10 +354,10 @@ Configura `BrazeInAppMessageUI.DisplayChoice` para que devuelva uno de los sigui
 
 | Opción de visualización | Comportamiento |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| `.now` | El mensaje se mostrará inmediatamente. Este es el valor predeterminado. |
-| `.reenqueue` | El mensaje no se mostrará y volverá a colocarse en la parte superior de la pila. |
-| `.later` | El mensaje no se mostrará y volverá a colocarse en la parte superior de la pila. (Obsoleto, utiliza `.reenqueue`) |
-| `.discard` | El mensaje se descartará y no se mostrará. |
+| `.now`                              | El mensaje se mostrará inmediatamente. Este es el valor predeterminado. |
+| `.reenqueue`                        | El mensaje no se mostrará y volverá a colocarse en la parte superior de la pila. |
+| `.later`                            | El mensaje no se mostrará y volverá a colocarse en la parte superior de la pila. (Obsoleto, utiliza `.reenqueue`) |
+| `.discard`                          | El mensaje se descartará y no se mostrará. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Personalizar el tiempo de visualización" }
 
 {% alert tip %}
@@ -370,9 +370,9 @@ Para los mensajes dentro de la aplicación `Full`, `FullImage` y `HTML`, el SDK 
 
 | Comportamiento de ocultación de la barra de estado | Descripción |
 | ----------------------------------- | ------------------------------------------------------------------------------------- |
-| `.auto` | La vista de mensajes decide el estado oculto de la barra de estado. |
-| `.hidden` | Oculta siempre la barra de estado. |
-| `.visible` | Muestra siempre la barra de estado. |
+| `.auto`                             | La vista de mensajes decide el estado oculto de la barra de estado. |
+| `.hidden`                           | Oculta siempre la barra de estado. |
+| `.visible`                          | Muestra siempre la barra de estado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Ocultar la barra de estado" }
 
 ## Desactivar el modo oscuro {#disabling-dark-mode}
@@ -487,12 +487,12 @@ func inAppMessage(
 Puedes utilizar mensajes dentro de la aplicación en una Campaign para pedir a los usuarios que dejen una reseña en la App Store.
 
 {% alert note %}
-Dado que este aviso de ejemplo anula el comportamiento predeterminado de Braze, no podemos realizar un seguimiento automático de las impresiones si se implementa. Debes [registrar tus propios análisis]({{site.baseurl}}/developer_guide/analytics/).
+Dado que este aviso de ejemplo anula el comportamiento predeterminado de Braze, no podemos realizar un seguimiento automático de las impresiones si se implementa. Debes [registrar tus propios análisis]({{site.baseurl}}/developer_guide/analytics).
 {% endalert %}
 
 ### Paso 1: Configura el delegado de mensajes dentro de la aplicación {#step-1-set-the-in-app-message-delegate}
 
-Primero, configura [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization/#swift_setting-up-the-ui-delegate-required) en tu aplicación.
+Primero, configura [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization#swift_setting-up-the-ui-delegate-required) en tu aplicación.
 
 ### Paso 2: Desactiva el mensaje predeterminado de revisión de la App Store {#step-2-disable-the-default-app-store-review-message}
 
@@ -578,5 +578,5 @@ A continuación, crea una campaña de mensajería dentro de la aplicación con l
 {% endraw %}
 
 {% alert tip %}
-Apple limita las solicitudes de revisión de la App Store a un máximo de tres veces al año por cada usuario, por lo que tu Campaign debe tener una [tasa limitada]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) a tres veces al año por usuario.<br><br>Los usuarios pueden desactivar los avisos de revisión de la App Store. En consecuencia, tu solicitud de revisión personalizada no debe prometer que aparecerá una solicitud de revisión nativa de la App Store ni pedir directamente una revisión.
+Apple limita las solicitudes de revisión de la App Store a un máximo de tres veces al año por cada usuario, por lo que tu Campaign debe tener una [tasa limitada]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting) a tres veces al año por usuario.<br><br>Los usuarios pueden desactivar los avisos de revisión de la App Store. En consecuencia, tu solicitud de revisión personalizada no debe prometer que aparecerá una solicitud de revisión nativa de la App Store ni pedir directamente una revisión.
 {% endalert %}

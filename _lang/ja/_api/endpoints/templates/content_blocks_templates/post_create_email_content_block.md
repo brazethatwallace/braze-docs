@@ -14,16 +14,16 @@ description: "この記事では、Content Blocksの作成Brazeエンドポイ�
 /content_blocks/create
 {% endapimethod %}
 
-> このエンドポイントを使用して、[Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/)を作成します。
+> このエンドポイントを使用して、[Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)を作成します。
 
 {% alert tip %}
-このエンドポイントは、[`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks) 関数を使用して [Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server/)経由で呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてコンテンツブロックを作成できます。
+このエンドポイントは、[`create_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks) 関数を使用して [Braze MCPサーバー]({{site.baseurl}}/user_guide/brazeai/mcp_server)経由で呼び出すこともできます。これにより、ClaudeやCursorなどのAIツールが自然言語プロンプトを通じてコンテンツブロックを作成できます。
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f1cefa8b-7a28-4e64-b579-198a4610d0a5 {% endapiref %}
 
 ## 前提条件 {#prerequisites}
-このエンドポイントを使用するには、`content_blocks.create` 権限を持つ [APIキー]({{site.baseurl}}/api/api_key/)が必要です。
+このエンドポイントを使用するには、`content_blocks.create` 権限を持つ [APIキー]({{site.baseurl}}/api/api_key)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -54,11 +54,11 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `description` | オプション | 文字列 | コンテンツブロックの説明。250文字未満である必要があります。 |
 | `content` | 必須 | 文字列 | コンテンツブロック内のHTMLまたはテキストコンテンツ。 |
 | `state` | オプション | 文字列 | `active` または `draft` を選択します。指定しない場合、デフォルトは `active` です。 |
-| `tags` | オプション | 文字列の配列 | [タグ]({{site.baseurl}}/user_guide/messaging/governance/tags/)はすでに存在している必要があります。 |
+| `tags` | オプション | 文字列の配列 | [タグ]({{site.baseurl}}/user_guide/messaging/governance/tags)はすでに存在している必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
 ## リクエスト例 {#example-request}
-`````````bash
+```bash
 curl --location --request POST 'https://rest.iad-01.braze.com/content_blocks/create' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR_REST_API_KEY' \

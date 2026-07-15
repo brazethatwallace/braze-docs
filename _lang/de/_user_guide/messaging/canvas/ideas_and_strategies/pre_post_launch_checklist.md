@@ -29,7 +29,7 @@ Sie erhalten eine Warnung, wenn Sie nicht genügend Puffer eingeplant haben. Ein
 
 Nachdem Sie die grundlegenden Details festgelegt haben, wann Ihre Nutzer:innen in einen Canvas eintreten sollen, empfiehlt es sich, Ihre Segmente oder Filter im Schritt **Zielgruppe** beim Erstellen eines Canvas zu überprüfen. In diesem Schritt können Sie auch die Zusammenfassung der **Zielpopulation** einsehen, um zu sehen, wie Ihre Zielgruppe konfiguriert wurde.
 
-Erwägen Sie hier die Verwendung eines regulären Ausdrucks für Segmente oder Filter in Zielgruppenpfad-Schritten sowie für Zustellungsvalidierungseinstellungen in Nachrichten- und Decision-Split-Schritten. Ein [regulärer Ausdruck]({{site.baseurl}}/user_guide/audience/segments/regex/) (auch als Regex bezeichnet) ist ein String, was bedeutet, dass er Muster erkennt und Zeichen berücksichtigt, anstatt beispielsweise Groß- und Kleinschreibung. Das bedeutet, wenn Sie „Equals / Does Not Equal“ verwenden, könnten Sie Ihre Zielgruppengröße aufgrund einfacher Syntaxfehler einschränken.
+Erwägen Sie hier die Verwendung eines regulären Ausdrucks für Segmente oder Filter in Zielgruppenpfad-Schritten sowie für Zustellungsvalidierungseinstellungen in Nachrichten- und Decision-Split-Schritten. Ein [regulärer Ausdruck]({{site.baseurl}}/user_guide/audience/segments/regex) (auch als Regex bezeichnet) ist ein String, was bedeutet, dass er Muster erkennt und Zeichen berücksichtigt, anstatt beispielsweise Groß- und Kleinschreibung. Das bedeutet, wenn Sie „Equals / Does Not Equal“ verwenden, könnten Sie Ihre Zielgruppengröße aufgrund einfacher Syntaxfehler einschränken.
 
 Wenn Sie feststellen, dass Ihre Zielgruppe kleiner als erwartet ist, versuchen Sie „Matches Regex“ oder „Does Not Match Regex“ anstelle von „Equals“ oder „Does Not Equal“ zu verwenden. Dies kann die fehlenden Nutzer:innen berücksichtigen und eine größere Zielgruppe ansprechen.
 
@@ -40,12 +40,12 @@ Eine Race-Condition kann auftreten, wenn Sie dieselben Eintrittskriterien sowohl
 Wenn Sie aktionsbasierten Eintritt verwenden, überprüfen Sie, ob Sie hier nicht dieselbe Trigger-Aktion wie in Ihrer Zielgruppe verwendet haben. Eine Race-Condition kann auftreten, bei der sich die Nutzer:innen zum Zeitpunkt des Trigger-Events nicht in der Zielgruppe befinden, was bedeutet, dass sie nicht in den Canvas eintreten.
 
 {% alert tip %}
-Sehen Sie sich die [Best Practices]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/#scenario-3-matching-action-based-triggers-and-audience-filters) an, um diese Race-Condition beim Einrichten eines aktionsbasierten Canvas mit demselben Trigger wie dem Zielgruppen-Filter zu vermeiden.
+Sehen Sie sich die [Best Practices]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-3-matching-action-based-triggers-and-audience-filters) an, um diese Race-Condition beim Einrichten eines aktionsbasierten Canvas mit demselben Trigger wie dem Zielgruppen-Filter zu vermeiden.
 {% endalert %}
 
 ### Eingangs-Eigenschaften und Event-Eigenschaften überprüfen {#check-canvas-entry-properties-and-event-properties}
 
-Obwohl sie ähnlich benannt sind, funktionieren [Eingangs-Eigenschaften und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) innerhalb Ihrer Canvas-Workflows unterschiedlich. Eingangs-Eigenschaften sind an Ihre Entry-Einstellungen gebunden und können in jeder Nachrichtenkomponente in Ihrem gesamten Canvas referenziert werden. Eingangs-Eigenschaften sind Eigenschaften des Events oder API-Aufrufs, der den Eintritt von Nutzer:innen in einen Canvas triggert, unter Verwendung aktionsbasierter oder API-getriggerter Entry-Einstellungen.
+Obwohl sie ähnlich benannt sind, funktionieren [Eingangs-Eigenschaften und Event-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) innerhalb Ihrer Canvas-Workflows unterschiedlich. Eingangs-Eigenschaften sind an Ihre Entry-Einstellungen gebunden und können in jeder Nachrichtenkomponente in Ihrem gesamten Canvas referenziert werden. Eingangs-Eigenschaften sind Eigenschaften des Events oder API-Aufrufs, der den Eintritt von Nutzer:innen in einen Canvas triggert, unter Verwendung aktionsbasierter oder API-getriggerter Entry-Einstellungen.
 
 Event-Eigenschaften hingegen können nur im ersten Nachrichten-Schritt nach einem Aktionspfade-Schritt referenziert werden. Event-Eigenschaften sind Eigenschaften eines angepassten Events oder Kauf-Events, das die Nutzer:innen während des Auswertungsfensters eines Aktionspfade-Schritts ausgeführt haben und das ihren Fortschritt entlang eines der definierten Aktions-Pfade triggert.
 
@@ -95,11 +95,11 @@ Wenn Sie aktionsbasierten Eintritt in Ihrem Entry-Zeitplan verwenden, überprüf
 Eine weitere offensichtliche Möglichkeit, Anpassungsbereiche für Ihren Canvas zu identifizieren, ergibt sich, wenn es einen großen Abfall von einem Canvas-Schritt zum nächsten gibt. Überprüfen Sie in diesem Fall, ob Ihre Zielgruppen-Filter und Ausnahme-Events keine Tippfehler oder Fehler bei der Groß- und Kleinschreibung aufweisen. Und wie immer: Stellen Sie sicher, dass Ihre Zielgruppen-Filter nicht so streng sind, dass sie die Mehrheit Ihrer Nutzer:innen vom Eintritt in den Canvas ausschließen.
 
 Als Nächstes ist es wichtig, diese Einstellungen zu identifizieren, die beeinflussen können, wann und ob Nachrichten an Ihre Nutzer:innen gesendet werden:
-- [Intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
-- [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)
+- [Intelligentes Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)
+- [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)
 - Zustellungsvalidierungen
 
-Wählen Sie im Allgemeinen entweder intelligentes Timing oder [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) für Ihren Canvas, nicht beides. Die gleiche Empfehlung gilt für die Verwendung von entweder intelligentem Timing oder [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/), nicht beides. Weitere Informationen zur optimalen Nutzung der Intelligence Suite finden Sie in unseren [Intelligence Suite-Anwendungsfällen]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases).
+Wählen Sie im Allgemeinen entweder intelligentes Timing oder [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) für Ihren Canvas, nicht beides. Die gleiche Empfehlung gilt für die Verwendung von entweder intelligentem Timing oder [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping), nicht beides. Weitere Informationen zur optimalen Nutzung der Intelligence Suite finden Sie in unseren [Intelligence Suite-Anwendungsfällen]({{site.baseurl}}/user_guide/brazeai/intelligence_suite#use-cases).
 
 ### Verdächtige Sendevolumen zwischen Pfaden {#suspicious-send-volumes-between-paths}
 

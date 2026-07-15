@@ -10,7 +10,7 @@ description: "이 참조 문서에서는 Braze에서 사용되는 다양한 Andr
 ---
 # Android 오브젝트 {#android-object}
 
-> `android_push` 오브젝트를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 통해 Android 푸시 및 Android 푸시 알림 콘텐츠와 관련된 정보를 정의하거나 요청할 수 있습니다.
+> `android_push` 오브젝트를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 통해 Android 푸시 및 Android 푸시 알림 콘텐츠와 관련된 정보를 정의하거나 요청할 수 있습니다.
 
 ## Android 푸시 오브젝트 {#android-push-object}
 
@@ -48,13 +48,13 @@ description: "이 참조 문서에서는 Braze에서 사용되는 다양한 Andr
 
 | 매개변수 | 세부 정보 |
 | --------- | ------- |
-| `priority` | 이 매개변수는 `-2`에서 `2`까지의 값을 허용하며, `-2`는 "MIN" 우선순위를, `2`는 "MAX"를 나타냅니다. `0`은 "DEFAULT" 값입니다. <br> <br> 이 범위를 벗어나는 값은 기본값 0으로 설정됩니다. 사용할 우선순위 수준에 대한 자세한 내용은 [Android 알림 우선순위]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings/#notification-priority)를 참조하세요. |
-| `android_priority` | 이 매개변수는 `normal` 또는 `high` 값을 사용하여 FCM 발신자 우선순위를 지정할 수 있습니다. 기본적으로 메시지는 [푸시 설정]({{site.baseurl}}/user_guide/administrative/app_settings/push_settings/#default-fcm-priority-for-android-campaigns) 페이지에서 구성된 기본 FCM 우선순위로 전송됩니다.<br><br> 다양한 값이 전달에 미치는 영향에 대한 자세한 내용은 [Android 메시지 우선순위](https://firebase.google.com/docs/cloud-messaging/android/message-priority)를 참조하세요. |
+| `priority` | 이 매개변수는 `-2`에서 `2`까지의 값을 허용하며, `-2`는 "MIN" 우선순위를, `2`는 "MAX"를 나타냅니다. `0`은 "DEFAULT" 값입니다. <br> <br> 이 범위를 벗어나는 값은 기본값 0으로 설정됩니다. 사용할 우선순위 수준에 대한 자세한 내용은 [Android 알림 우선순위]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/customization/advanced_settings#notification-priority)를 참조하세요. |
+| `android_priority` | 이 매개변수는 `normal` 또는 `high` 값을 사용하여 FCM 발신자 우선순위를 지정할 수 있습니다. 기본적으로 메시지는 [푸시 설정]({{site.baseurl}}/user_guide/administrative/app_settings/push_settings#default-fcm-priority-for-android-campaigns) 페이지에서 구성된 기본 FCM 우선순위로 전송됩니다.<br><br> 다양한 값이 전달에 미치는 영향에 대한 자세한 내용은 [Android 메시지 우선순위](https://firebase.google.com/docs/cloud-messaging/android/message-priority)를 참조하세요. |
 | `collapse_key` | FCM은 기기당 최대 4개의 축소 키만 동시에 저장할 수 있습니다. 축소 키를 4개 이상 사용하는 경우 FCM은 어떤 키가 유지되는지에 대해 어떠한 보장도 하지 않습니다. Braze는 Campaign에 기본값으로 이 중 하나를 사용하므로 Android 메시지에는 최대 3개까지만 추가 축소 키를 지정해야 합니다. |
 | `push_icon_image_url` | 큰 아이콘 매개변수의 값은 이미지가 호스팅되는 위치로 연결되는 URL이어야 합니다. <br> <br> 이미지는 1:1 종횡비로 잘라야 하며 최소 40x40이어야 합니다. |
-| `notification_channel` | 이를 지정하지 않으면 Braze는 [대시보드 대체]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels/#dashboard-fallback-channel) 채널 ID로 알림 페이로드를 전송하려고 시도합니다. 자세한 내용은 [알림 채널]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/)을 참조하고 통합 중 [알림 채널 정의]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration/#step-5-define-notification-channels) 단계를 참조하세요. |
-| `send_to_sync` | `send_to_sync` 메시지에 대한 자세한 내용은 [무음 Android 알림]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/silent_push_notifications/#silent-push-notifications)을 참조하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Additional parameter details" }
+| `notification_channel` | 이를 지정하지 않으면 Braze는 [대시보드 대체]({{site.baseurl}}/user_guide/message_building_by_channel/push/android/notification_channels#dashboard-fallback-channel) 채널 ID로 알림 페이로드를 전송하려고 시도합니다. 자세한 내용은 [알림 채널]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels)을 참조하고 통합 중 [알림 채널 정의]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/integration/standard_integration#step-5-define-notification-channels) 단계를 참조하세요. |
+| `send_to_sync` | `send_to_sync` 메시지에 대한 자세한 내용은 [무음 Android 알림]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/android/silent_push_notifications#silent-push-notifications)을 참조하세요. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="추가 매개변수 세부 정보" }
 
 ## Android 푸시 실행 버튼 오브젝트 {#android-push-action-button-object}
 

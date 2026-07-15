@@ -10,9 +10,9 @@ description: "이 참조 문서에서는 Liquid를 통해 Braze Campaign에서 �
 
 > 카탈로그를 만들려면 비사용자 데이터의 CSV 파일을 Braze로 가져와야 합니다. 그러면 해당 정보에 액세스하여 메시지를 더욱 풍부하게 만들 수 있습니다. 모든 유형의 데이터를 카탈로그로 가져올 수 있습니다. 이 데이터는 일반적으로 이커머스 비즈니스의 제품 정보나 교육 제공업체의 강좌 정보와 같은 회사의 메타데이터입니다.
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
-카탈로그의 일반적인 활용 사례는 다음과 같습니다:
+카탈로그의 일반적인 사용 사례는 다음과 같습니다:
 
 - 제품
 - 서비스
@@ -21,7 +21,7 @@ description: "이 참조 문서에서는 Liquid를 통해 Braze Campaign에서 �
 - 음악
 - 패키지
 
-이 정보를 가져온 후에는 Liquid를 통해 커스텀 속성이나 커스텀 이벤트 등록정보에 액세스하는 것과 유사한 방식으로 메시지에서 해당 정보에 액세스할 수 있습니다.
+이 정보를 가져온 후에는 Liquid를 통해 커스텀 속성이나 커스텀 이벤트 속성정보에 액세스하는 것과 유사한 방식으로 메시지에서 해당 정보에 액세스할 수 있습니다.
 
 ## 지원되는 데이터 유형 {#supported-data-types}
 
@@ -52,7 +52,7 @@ CSV 파일을 업로드하기 전에 CSV 파일이 다음 요구 사항을 충�
 |-----------------|---------|
 | 헤더 | CSV 파일의 첫 번째 열은 `id`로 명명해야 하며, 각 행은 고유한 `id` 값을 가져야 합니다. |
 | 열 | CSV 파일은 최대 1,000개의 필드(열)를 가질 수 있으며, 각 열 이름은 최대 250자까지 가능합니다. |
-| 파일 크기 | 무료 요금제의 경우, 회사 전체의 모든 CSV 파일의 총 크기는 100MB로 제한됩니다. 프로 요금제의 경우, 단일 CSV 파일의 최대 파일 크기는 2GB입니다. |
+| 파일 크기 | 무료 요금제의 경우, 회사 전체의 모든 CSV 파일의 총 크기는 500MB로 제한됩니다. 프로 요금제의 경우, 단일 CSV 파일의 최대 파일 크기는 2GB입니다. |
 | 필드 값 | 각 셀(필드 값)은 최대 5,000자를 포함할 수 있습니다. |
 | 유효한 문자 | `id` 열과 모든 헤더 값은 문자, 숫자, 하이픈 및 밑줄만 포함할 수 있습니다. |
 | 데이터 유형 | CSV 업로드에서 지원되는 데이터 유형에는 문자열, 숫자, 부울, 시간 및 지리 위치가 포함됩니다. API 및 CDI를 통해서만 사용할 수 있는 데이터 유형을 포함한 전체 목록은 [지원되는 데이터 유형](#supported-data-types)을 참조하세요. |
@@ -68,7 +68,7 @@ CSV 파일을 저장할 공간이 더 필요하신가요? 카탈로그 업그레
 
 파일을 업로드 영역으로 드래그 앤 드롭하거나 **CSV 업로드**를 선택하고 파일을 선택합니다.
 
-![]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
+![파일을 업로드 영역으로 드래그 앤 드롭하거나 CSV 업로드를 선택하고 파일을 선택합니다.]({% image_buster /assets/img_archive/catalog_CSV_upload.png %}){: style="max-width:80%;"}
 
 각 열에 대한 데이터 유형을 선택합니다.
 
@@ -76,7 +76,7 @@ CSV 파일을 저장할 공간이 더 필요하신가요? 카탈로그 업그레
 이 데이터 유형은 카탈로그를 설정한 후에는 편집할 수 없습니다. 또한, CSV 업로드에서는 `NULL` 값이 지원되지 않으며 문자열로 처리됩니다.
 {% endalert %}
 
-![]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![카탈로그를 설정한 후에는 이 데이터 유형을 편집할 수 없습니다. 또한 CSV 업로드에서는 NULL 값이 지원되지 않으며 문자열로 처리됩니다.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 카탈로그의 이름과 선택 사항인 설명을 입력합니다. 카탈로그 이름을 지정할 때 다음 요구 사항을 염두에 두세요:
 
@@ -105,7 +105,7 @@ CSV 파일을 저장할 공간이 더 필요하신가요? 카탈로그 업그레
 .tg th{word-break:normal;font-size: 14px; font-weight: bold; background-color: #f4f4f7; text-transform: lowercase; color: #212123; font-family: "Sailec W00 Bold",Arial,Helvetica,sans-serif;}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top;word-break:normal}
 </style>
-<table class="tg" aria-label="Tutorial: Creating a catalog from a CSV file">
+<table class="tg" aria-label="튜토리얼: CSV 파일에서 카탈로그 만들기">
 <thead>
   <tr>
     <th class="tg-0pky">id</th>
@@ -144,18 +144,18 @@ CSV 파일을 업로드하여 카탈로그를 생성합니다. `id`, `title`, `p
 
 카탈로그가 생성된 후에는 이 이름을 편집할 수 없다는 점에 유의하세요. 카탈로그를 삭제하고 동일한 카탈로그 이름을 사용하여 업데이트된 버전을 다시 업로드할 수 있습니다.
 
-카탈로그를 생성한 후에는 [Campaign에서 카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs/)를 참조할 수 있습니다.
+카탈로그를 생성한 후에는 [Campaign에서 카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/using_catalogs)를 참조할 수 있습니다.
 {% endtab %}
 
 {% tab 브라우저에서 생성 %}
 ### 필수 조건 {#prerequisites}
 
-브라우저에서 카탈로그를 편집하거나 생성하기 전에 워크스페이스에 대한 다음 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 필요합니다:
+브라우저에서 카탈로그를 편집하거나 생성하기 전에 워크스페이스에 대한 다음 [사용자 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 필요합니다:
 
-- View Catalogs
-- Edit Catalogs
-- Export Catalogs
-- Delete Catalogs
+- 카탈로그 보기
+- 카탈로그 편집
+- 카탈로그 내보내기
+- 카탈로그 삭제
 
 ### 1단계: 카탈로그 세부 정보 입력 {#step-1-enter-catalog-details}
 
@@ -223,35 +223,35 @@ CSV를 업로드하거나 브라우저에서 카탈로그를 생성한 후 카�
 
 ### REST API 사용 {#using-the-rest-api}
 
-더 많은 카탈로그를 구축하면서 [카탈로그 목록 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs/)를 사용하여 워크스페이스에 있는 카탈로그 목록을 반환할 수도 있습니다.
+더 많은 카탈로그를 구축하면서 [카탈로그 목록 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs)를 사용하여 워크스페이스에 있는 카탈로그 목록을 반환할 수도 있습니다.
 
 REST API는 JSON 오브젝트 및 문자열 배열을 포함한 모든 [카탈로그 데이터 유형](#supported-data-types)을 지원합니다. JSON 오브젝트 및 문자열 배열은 REST API를 통해서만 생성하거나 업데이트할 수 있습니다.
 
 ### 클라우드 데이터 수집 사용 {#using-cloud-data-ingestion}
 
-데이터 웨어하우스(예: Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric 또는 S3)에서 카탈로그 데이터를 직접 동기화하여 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/)을 통해 정기적으로 카탈로그를 유지 관리할 수 있습니다.
+데이터 웨어하우스(예: Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric 또는 S3)에서 카탈로그 데이터를 직접 동기화하여 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data)을 통해 정기적으로 카탈로그를 유지 관리할 수 있습니다.
 
 ## 카탈로그 항목 관리 {#managing-catalog-items}
 
 카탈로그를 관리하는 것 외에도 비동기 및 동기 엔드포인트를 사용하여 카탈로그 항목을 관리할 수도 있습니다. 여기에는 카탈로그 항목을 편집 및 삭제하고 카탈로그 항목 세부 정보를 나열하는 기능이 포함됩니다.
 
-예를 들어 개별 카탈로그 항목을 편집하려면 [`/catalogs/catalog_name/items/item_id` 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item/)를 사용할 수 있습니다.
+예를 들어 개별 카탈로그 항목을 편집하려면 [`/catalogs/catalog_name/items/item_id` 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item)를 사용할 수 있습니다.
 
 ## 카탈로그 저장소 {#tiers}
 
-무료 버전의 카탈로그는 회사 전체의 모든 CSV 파일을 합산하여 최대 100MB의 CSV 파일 크기를 지원하며, 카탈로그 프로 버전은 단일 CSV 파일에 대해 최대 2GB의 CSV 파일 크기를 지원합니다.
+무료 버전의 카탈로그는 회사 전체의 모든 CSV 파일을 합산하여 최대 500MB의 CSV 파일 크기를 지원하며, 카탈로그 프로 버전은 단일 CSV 파일에 대해 최대 2GB의 CSV 파일 크기를 지원합니다.
 
 {% alert important %}
 Braze 대시보드에 표시되는 패키지 자격은 시각적 편의를 위해 가장 가까운 단위로 반올림되었지만, 구매하신 전체 자격은 그대로 유지됩니다. 카탈로그 저장소 업그레이드를 요청하려면 Braze 계정 매니저에게 문의하세요.
 {% endalert %}
 
-#### 무료 버전 {#free-version}
+### 무료 버전 {#free-version}
 
-무료 버전의 카탈로그 저장 용량은 최대 100&nbsp;MB입니다. 100&nbsp;MB 미만이면 항목 수에 제한이 없습니다.
+무료 버전의 카탈로그 저장 용량은 최대 500&nbsp;MB입니다. 500&nbsp;MB 미만이면 항목 수에 제한이 없습니다.
 
 #### 카탈로그 프로 {#catalogs-pro}
 
-회사 수준에서 카탈로그 프로의 최대 저장 용량은 카탈로그 데이터의 크기에 따라 결정됩니다. 저장 용량 옵션은 5&nbsp;GB, 10&nbsp;GB 또는 15&nbsp;GB입니다. 무료 버전의 저장 용량(100&nbsp;MB)은 각 요금제에 포함되어 있습니다.
+회사 수준에서 카탈로그 프로의 최대 저장 용량은 카탈로그 데이터의 크기에 따라 결정됩니다. 저장 용량 옵션은 5&nbsp;GB, 10&nbsp;GB 또는 15&nbsp;GB입니다. 무료 버전의 저장 용량(500&nbsp;MB)은 각 요금제에 포함되어 있습니다.
 
 ## 사양 {#specifications}
 

@@ -10,7 +10,7 @@ description: "この記事では、スケジュールされたメッセージを
 ---
 {% api %}
 # スケジュールされたメッセージを削除する {#delete-scheduled-messages}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /messages/schedule/delete
 {% endapimethod %}
 
@@ -20,7 +20,7 @@ description: "この記事では、スケジュールされたメッセージを
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`messages.schedule.delete` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`messages.schedule.delete` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 

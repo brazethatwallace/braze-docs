@@ -15,7 +15,7 @@ Eine Schritt-für-Schritt-Anleitung finden Sie in unserem Braze-Lernkurs: [Perso
 
 ## Voraussetzungen {#prerequisites}
 
-Bevor Sie Empfehlungen in Ihrem Messaging verwenden können, müssen Sie [ein Empfehlungssystem erstellen und trainieren]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations/). Das Training kann zwischen 10 Minuten und 36 Stunden dauern&#8212;Sie erhalten eine E-Mail, wenn es abgeschlossen ist oder wenn ein Fehler aufgetreten ist.
+Bevor Sie Empfehlungen in Ihrem Messaging verwenden können, müssen Sie [ein Empfehlungssystem erstellen und trainieren]({{site.baseurl}}/user_guide/brazeai/item_recommendations/creating_recommendations). Das Training kann zwischen 10 Minuten und 36 Stunden dauern&#8212;Sie erhalten eine E-Mail, wenn es abgeschlossen ist oder wenn ein Fehler aufgetreten ist.
 
 ## Verwendung von Empfehlungen in Ihrem Messaging {#using-recommendations-in-your-messaging}
 

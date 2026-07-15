@@ -22,14 +22,14 @@ Das Verständnis, wie Inaktivität definiert und gemessen wird, ist entscheidend
 
 ### Wie Inaktivität gemessen wird {#how-inactivity-is-measured}
 
-Das Web SDK trackt Inaktivität auf der Grundlage von [SDK-getrackten Events]({{site.baseurl}}/user_guide/data/activation/custom_data/events/#events). Das SDK verfügt über einen internen Timer, der bei jedem Senden eines getrackten Events zurückgesetzt wird. Wenn innerhalb des konfigurierten Timeout-Zeitraums keine vom SDK getrackten Events auftreten, wird die Sitzung als inaktiv betrachtet und beendet.
+Das Web SDK trackt Inaktivität auf der Grundlage von [SDK-getrackten Events]({{site.baseurl}}/user_guide/data/activation/custom_data/events#events). Das SDK verfügt über einen internen Timer, der bei jedem Senden eines getrackten Events zurückgesetzt wird. Wenn innerhalb des konfigurierten Timeout-Zeitraums keine vom SDK getrackten Events auftreten, wird die Sitzung als inaktiv betrachtet und beendet.
 
 Weitere Informationen zur Implementierung des Sitzungslebenszyklus im Web SDK finden Sie im Quellcode für die Sitzungsverwaltung im [GitHub-Repository des Braze Web SDK](https://github.com/braze-inc/braze-web-sdk/blob/master/src/session.ts).
 
 **Was standardmäßig als Aktivität zählt:**
 - Öffnen oder Aktualisieren der Web-App
-- Interaktion mit Braze-gesteuerten UI-Elementen (wie [In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/) oder [Content Cards]({{site.baseurl}}/developer_guide/content_cards/))
-- Aufruf von SDK-Methoden, die getrackte Events senden (z. B. [angepasste Events]({{site.baseurl}}/developer_guide/analytics/logging_events/) oder [Updates von Nutzerattributen]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/))
+- Interaktion mit Braze-gesteuerten UI-Elementen (wie [In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages) oder [Content Cards]({{site.baseurl}}/developer_guide/content_cards))
+- Aufruf von SDK-Methoden, die getrackte Events senden (z. B. [angepasste Events]({{site.baseurl}}/developer_guide/analytics/logging_events) oder [Updates von Nutzerattributen]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes))
 
 **Was standardmäßig nicht als Aktivität zählt:**
 - Wechseln zu einem anderen Browser-Tab
@@ -38,7 +38,7 @@ Weitere Informationen zur Implementierung des Sitzungslebenszyklus im Web SDK fi
 - Scrollen oder Mausbewegungen auf der Seite
 
 {% alert note %}
-Das Web SDK trackt nicht automatisch Änderungen der Browser-Sichtbarkeit, Tab-Wechsel oder den Nutzerfokus. Sie können diese Interaktionen auf Browser-Ebene jedoch tracken, indem Sie angepasste Event-Listener mithilfe der [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) des Browsers implementieren und [angepasste Events]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web) an Braze senden. Ein Beispiel für die Implementierung finden Sie unter [Tracking angepasster Inaktivität](#tracking-custom-inactivity).
+Das Web SDK trackt nicht automatisch Änderungen der Browser-Sichtbarkeit, Tab-Wechsel oder den Nutzerfokus. Sie können diese Interaktionen auf Browser-Ebene jedoch tracken, indem Sie angepasste Event-Listener mithilfe der [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) des Browsers implementieren und [angepasste Events]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web) an Braze senden. Ein Beispiel für die Implementierung finden Sie unter [Tracking angepasster Inaktivität](#tracking-custom-inactivity).
 {% endalert %}
 
 ### Konfiguration des Sitzungs-Timeouts {#session-timeout-configuration}
@@ -57,7 +57,7 @@ Betrachten Sie das folgende Szenario:
 
 ### Tracking angepasster Inaktivität {#tracking-custom-inactivity}
 
-Sollten Sie Inaktivität basierend auf der Sichtbarkeit des Browsers oder dem Tab-Wechsel tracken müssen, implementieren Sie angepasste Event-Listener in Ihrem JavaScript-Code. Verwenden Sie Browser-Events wie `visibilitychange`, um zu erkennen, wann Nutzer:innen Ihre Seite verlassen, und senden Sie manuell [angepasste Events]({{site.baseurl}}/developer_guide/analytics/logging_events/) an Braze oder rufen Sie [`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession) auf, wenn dies angemessen ist.
+Sollten Sie Inaktivität basierend auf der Sichtbarkeit des Browsers oder dem Tab-Wechsel tracken müssen, implementieren Sie angepasste Event-Listener in Ihrem JavaScript-Code. Verwenden Sie Browser-Events wie `visibilitychange`, um zu erkennen, wann Nutzer:innen Ihre Seite verlassen, und senden Sie manuell [angepasste Events]({{site.baseurl}}/developer_guide/analytics/logging_events) an Braze oder rufen Sie [`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession) auf, wenn dies angemessen ist.
 
 ```javascript
 // Example: Track when user switches away from tab
@@ -73,7 +73,7 @@ document.addEventListener('visibilitychange', function() {
 });
 ```
 
-Weitere Informationen zum Protokollieren angepasster Events finden Sie unter [Angepasste Events protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_events/). Weitere Informationen zum Sitzungslebenszyklus und zur Timeout-Konfiguration finden Sie unter [Ändern des Standard-Sitzungs-Timeouts](#change-session-timeout).
+Weitere Informationen zum Protokollieren angepasster Events finden Sie unter [Angepasste Events protokollieren]({{site.baseurl}}/developer_guide/analytics/logging_events). Weitere Informationen zum Sitzungslebenszyklus und zur Timeout-Konfiguration finden Sie unter [Ändern des Standard-Sitzungs-Timeouts](#change-session-timeout).
 
 ## Sitzungs-Updates abonnieren {#subscribing-to-session-updates}
 
@@ -259,12 +259,12 @@ Wenn Sie ein Sitzungs-Timeout festlegen, werden alle Sitzungssemantiken automati
 
 Ein Nutzerprofil kann 0 Sitzungen aufweisen, wenn der/die Nutzer:in außerhalb des SDK erstellt wurde:
 
-- **Über REST API erstellt:** Wenn ein:e Nutzer:in über den Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) mit einer `app_id` in der Anfrage erstellt wird, erscheint das Profil zwar mit dieser App verknüpft, hat aber keine Sitzungsdaten, da das SDK für diese:n Nutzer:in nie initialisiert wurde.
-- **Über CSV-Import erstellt:** Wenn ein:e Nutzer:in per [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/) ohne Werte für die Felder der ersten oder letzten Sitzung importiert wird, existiert das Profil mit 0 Sitzungen.
+- **Über REST API erstellt:** Wenn ein:e Nutzer:in über den Endpunkt [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) mit einer `app_id` in der Anfrage erstellt wird, erscheint das Profil zwar mit dieser App verknüpft, hat aber keine Sitzungsdaten, da das SDK für diese:n Nutzer:in nie initialisiert wurde.
+- **Über CSV-Import erstellt:** Wenn ein:e Nutzer:in per [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) ohne Werte für die Felder der ersten oder letzten Sitzung importiert wird, existiert das Profil mit 0 Sitzungen.
 
 ### Einige Nutzer:innen protokollieren keine Sitzungen {#some-users-are-not-logging-sessions}
 
-Da Sitzungen erst nach der Initialisierung des SDK getrackt werden, protokollieren Nutzer:innen, die die SDK-Initialisierung nicht auslösen, keine Sitzungen. Dies geschieht typischerweise, wenn Ihre App bedingte Logik vor der Initialisierung des SDK verwendet, z. B. eine verzögerte Initialisierung hinter einem Anmeldevorgang, einer Einwilligungsabfrage oder einem Feature-Flag. Hinweise zur Implementierung finden Sie unter [Verzögerte Initialisierung]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift). In diesen Fällen startet kein:e Nutzer:in, der/die die Bedingung nicht erfüllt, jemals eine Sitzung.
+Da Sitzungen erst nach der Initialisierung des SDK getrackt werden, protokollieren Nutzer:innen, die die SDK-Initialisierung nicht auslösen, keine Sitzungen. Dies geschieht typischerweise, wenn Ihre App bedingte Logik vor der Initialisierung des SDK verwendet, z. B. eine verzögerte Initialisierung hinter einem Anmeldevorgang, einer Einwilligungsabfrage oder einem Feature-Flag. Hinweise zur Implementierung finden Sie unter [Verzögerte Initialisierung]({{site.baseurl}}/developer_guide/sdk_initalization?sdktab=swift). In diesen Fällen startet kein:e Nutzer:in, der/die die Bedingung nicht erfüllt, jemals eine Sitzung.
 
 Wenn einige Nutzer:innen Sitzungen protokollieren und andere nicht, überprüfen Sie Folgendes:
 
@@ -276,6 +276,6 @@ Wenn das Problem nach der Überprüfung Ihrer Implementierung weiterhin besteht,
 
 - Schritte zur Reproduktion des Problems
 - Die betroffene App-Version
-- [Ausführliche SDK-Logs]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), die während des Auftretens des Problems erfasst wurden (oder nach Plattform: [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_logging))
+- [Ausführliche SDK-Logs]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), die während des Auftretens des Problems erfasst wurden (oder nach Plattform: [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#web_logging))
 - Das Code-Snippet für die SDK-Initialisierung
 - Eine Zusammenfassung jeder bedingten Logik, die vor der Initialisierung angewendet wird

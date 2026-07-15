@@ -40,7 +40,7 @@ Os eventos de compra devem estar ativados para usar segmentos SQL RFM, pois o va
 | Campo de intervalo de tempo | Descrição | Caso de uso |
 | --- | --- | --- |
 | Relativo | Especifica a atividade nos últimos X dias | Analisar o comportamento mais recente do usuário com uma janela móvel. |
-| Data de início | Especifica um ponto de partida fixo para sua análise | Analisar a atividade do usuário a partir de uma data específica, como após o lançamento de uma Campaign. |
+| Data de início | Especifica um ponto de partida fixo para sua análise | Analisar a atividade do usuário a partir de uma data específica, como após o lançamento de uma campanha. |
 | Data de término | Especifica um ponto final fixo para sua análise | Analisar a atividade do usuário até uma data específica, como antes de uma atualização de produto. |
 | Intervalo de datas | Especifica uma data de início e término para um período personalizado | Analisar o comportamento do usuário durante um período definido, como um evento promocional. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Criando um segmento RFM" }
@@ -51,7 +51,7 @@ Os eventos de compra devem estar ativados para usar segmentos SQL RFM, pois o va
 ![Painel de variáveis com os grupos RFM "Champions" e "Loyal Users" selecionados.]({% image_buster /assets/img/segment/rfm_groups.png %})
 
 {: start="5"}
-5. Execute uma pré-visualização e salve seu segmento.
+5. Execute uma prévia e salve seu segmento.
 
 {% alert note %}
 Você não precisa editar o código SQL no modelo para criar um segmento RFM. Você pode usar exclusivamente o painel **Variables** para personalizar seu segmento.

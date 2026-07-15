@@ -14,16 +14,16 @@ description: "Cet article présente en détail l'endpoint Braze Mettre à jour l
 /content_blocks/update
 {% endapimethod %}
 
-> Utilisez cet endpoint pour mettre à jour un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/).
+> Utilisez cet endpoint pour mettre à jour un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks).
 
 {% alert tip %}
-Vous pouvez également appeler cet endpoint via le [serveur MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server/) en utilisant la fonction [`update_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions/#content-blocks). Cela permet à des outils d'intelligence artificielle comme Claude et Cursor de mettre à jour des blocs de contenu par le biais de requêtes en langage naturel.
+Vous pouvez également appeler cet endpoint via le [serveur MCP de Braze]({{site.baseurl}}/user_guide/brazeai/mcp_server) en utilisant la fonction [`update_content_block`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#content-blocks). Cela permet à des outils d'intelligence artificielle comme Claude et Cursor de mettre à jour des blocs de contenu par le biais de requêtes en langage naturel.
 {% endalert %}
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4782239a-cb60-4217-9de0-51411434d57d {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key/) avec l'autorisation `content_blocks.update`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/api_key) avec l'autorisation `content_blocks.update`.
 
 ## Limite de débit {#rate-limit}
 
@@ -56,7 +56,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 | `description` | Facultatif | Chaîne de caractères | Description du bloc de contenu. Doit contenir moins de 250 caractères. |
 | `content` | Facultatif | Chaîne de caractères | Contenu HTML ou texte dans les Content Blocks. |
 | `state` | Facultatif | Chaîne de caractères | Choisissez `active` ou `draft`. Défini par défaut sur `active` si non spécifié. |
-| `tags` | Facultatif | Tableau de chaînes de caractères | Les [étiquettes]({{site.baseurl}}/user_guide/messaging/governance/tags/) doivent déjà exister. |
+| `tags` | Facultatif | Tableau de chaînes de caractères | Les [étiquettes]({{site.baseurl}}/user_guide/messaging/governance/tags) doivent déjà exister. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de demande" }
 
 ## Exemple de demande {#example-request}

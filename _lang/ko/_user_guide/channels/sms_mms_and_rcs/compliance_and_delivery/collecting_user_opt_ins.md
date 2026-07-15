@@ -19,11 +19,11 @@ channel:
 
 ## 옵션 2: 인앱 메시지를 통한 사용자 옵트인 {#option-2-users-opt-in-via-in-app-message}
 
-사용자가 인앱 메시지에서 SMS에 옵트인할 수 있도록 하려면, Braze에서 제공하는 [전화번호 캡처 양식]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture/)을 사용하여 전화번호를 수집하고 SMS 목록을 확장할 수 있는 브랜드 양식을 만드세요.
+사용자가 인앱 메시지에서 SMS에 옵트인할 수 있도록 하려면, Braze에서 제공하는 [전화번호 캡처 양식]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/phone_number_capture)을 사용하여 전화번호를 수집하고 SMS 목록을 확장할 수 있는 브랜드 양식을 만드세요.
 
 ![전화번호 캡처 템플릿이 포함된 인앱 메시지 작성기.]({% image_buster /assets/img_archive/dnd_iam_phone_capture_select.png %}){: style="max-width:80%;"}
 
-Braze에서는 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) 기능도 함께 사용하는 것을 권장합니다. 이 기능은 인앱 메시지 전화번호 캡처 양식과 자동으로 연동되어, 사용자가 양식을 통해 전화번호를 제출한 후 의도를 확인하도록 안내합니다.
+Braze에서는 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) 기능도 함께 사용하는 것을 권장합니다. 이 기능은 인앱 메시지 전화번호 캡처 양식과 자동으로 연동되어, 사용자가 양식을 통해 전화번호를 제출한 후 의도를 확인하도록 안내합니다.
 
 ## 옵션 3: 가입 흐름 {#option-3-sign-up-flow}
 
@@ -31,8 +31,9 @@ Braze에서는 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_m
 
 사용자가 가입한 후 다음을 수행하세요:
 
-1. [`/subscription/status/set` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/#update-users-subscription-group-status)를 사용하여 사용자를 생성하고 속성을 저장합니다.
+1. [`/subscription/status/set` 엔드포인트]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status#update-users-subscription-group-status)를 사용하여 사용자를 생성하고 속성을 저장합니다.
 
+{% raw %}
 ```http
 POST 'https://rest.iad-03.braze.com/subscription/status/set' \
 --header 'Content-Type: application/json' \
@@ -46,10 +47,12 @@ POST 'https://rest.iad-03.braze.com/subscription/status/set' \
 }
 '
 ```
+{% endraw %}
 
 {: start="2"}
-2. [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)를 사용하여 사용자를 SMS에 구독시킵니다.
+2. [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)를 사용하여 사용자를 SMS에 구독시킵니다.
 
+{% raw %}
 ```
 curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 --header 'Content-Type: application/json' \
@@ -70,12 +73,13 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
   ]
 }'
 ```
+{% endraw %}
 
 {% alert tip %}
-REST API를 통해 사용자를 구독시킬 때 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in/) 워크플로에 진입시키려면, 요청에서 `use_double_opt_in_logic` 파라미터를 `true`로 설정하세요. 이 파라미터를 생략하면 사용자는 이중 옵트인 확인 없이 구독됩니다.
+REST API를 통해 사용자를 구독시킬 때 [SMS 이중 옵트인]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in) 워크플로에 진입시키려면, 요청에서 `use_double_opt_in_logic` 파라미터를 `true`로 설정하세요. 이 파라미터를 생략하면 사용자는 이중 옵트인 확인 없이 구독됩니다.
 
 이 파라미터는 다음 엔드포인트에서 지원됩니다:<br><br>
-- [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)
-- [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2/)
-- [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
+- [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)
+- [`/v2/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status_v2)
+- [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 {% endalert %}

@@ -11,7 +11,7 @@ page_type: reference
 
 > Cifra direcciones de correo electrónico para minimizar la información de identificación personal (PII) compartida en Braze.
 
-{% multi_lang_include field_level_encryption_pii_description.md %}
+{% multi_lang_include data_activation/field_level_encryption_pii_description.md %}
 
 {% alert important %}
 El cifrado a nivel de campo del identificador está disponible como característica adicional. Para empezar a utilizar el cifrado a nivel de campo del identificador, ponte en contacto con tu director de cuentas de Braze.
@@ -34,15 +34,16 @@ Sigue estos pasos para configurar tu método de autenticación con clave secreta
     - **Clústeres de Braze EU:** `eu-central-1`
     - **Clúster de Braze AU:** `ap-southeast-2`
     - **Clúster de Braze ID:** `ap-southeast-3`
+    - **Clúster de Braze JP:** `ap-northeast-1`
 4. En AWS Key Management Service, crea dos claves y asegúrate de que el usuario IAM esté añadido en los permisos de uso de claves:
     - **[Cifrar/descifrar](https://docs.aws.amazon.com/kms/latest/developerguide/create-keys.html#create-symmetric-cmk):** Selecciona el tipo de clave **Symmetric** y el uso de clave **Encrypt and Decrypt**.
     - **[Hash](https://docs.aws.amazon.com/kms/latest/developerguide/hmac-create-key.html):** Selecciona el tipo de clave **Symmetric** y el uso de clave **Generate and Verify MAC**. La especificación de clave debe ser **HMAC_256**. Después de crear la clave, anota en algún sitio el ID de la clave HMAC, ya que tendrás que introducirlo en Braze.
 
-![]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
+![Configuración de clave con las opciones symmetric, generate and verify MAC y HMAC_256 seleccionadas.]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
 
 ## Paso 1: Conecta tus claves de AWS KMS {#step-1-connect-your-aws-kms-keys}
 
-En el panel de Braze, ve a **Data Settings** > **Field-Level Encryption**. Para tu configuración de AWS KMS, introduce lo siguiente:
+En el panel de Braze, ve a **Configuración de datos** > **Field-Level Encryption**. Para tu configuración de AWS KMS, introduce lo siguiente:
 
 - ID de la clave de acceso
 - Clave de acceso secreta
@@ -54,7 +55,7 @@ A continuación, selecciona **Email address** para cifrar el campo.
 
 Cuando se activa el cifrado de un campo, no se puede revertir a un campo descifrado. Esto significa que el cifrado es una configuración permanente. Cuando configures el cifrado para la dirección de correo electrónico, confirma que ningún usuario tenga direcciones de correo electrónico en el espacio de trabajo. Esto garantiza que no se almacenen direcciones de correo electrónico en texto plano en Braze al activar la característica para el espacio de trabajo.
 
-![]({% image_buster /assets/img/field_level_encryption.png %})
+![Configuración de cifrado a nivel de campo.]({% image_buster /assets/img/field_level_encryption.png %})
 
 ## Paso 3: Importar y actualizar usuarios {#step-3-import-and-update-users}
 
@@ -86,7 +87,7 @@ Estas características no son compatibles con el cifrado a nivel de campo del id
 
 ### Objeto de atributos del usuario {#user-attributes-object}
 
-Cuando utilices el cifrado a nivel de campo del identificador con el punto de conexión `/users/track`, toma nota de estos detalles de campo para el [objeto de atributos del usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens):
+Cuando utilices el cifrado a nivel de campo del identificador con el punto de conexión `/users/track`, toma nota de estos detalles de campo para el [objeto de atributos del usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens):
 
 - El campo `email` debe ser el valor con hash del correo electrónico.
 - El campo `email_encrypted` debe ser el valor cifrado del correo electrónico.
@@ -105,7 +106,7 @@ Las direcciones de correo electrónico en texto plano son compatibles con los en
 2. En **Test Send**, selecciona **Override recipients attributes with current preview user's attributes**.
 
 {%raw%}
-### ¿Qué ocurre si añado esta dirección de correo electrónico Liquid `{{${email_address}}}` en Braze? {#what-happens-if-i-add-this-email-address-liquid-emailaddress-in-braze}
+### ¿Qué ocurre si añado esta dirección de correo electrónico Liquid `{{${email_address}}}` en Braze? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
 
 Braze mostrará la dirección de correo electrónico en texto plano al enviar el correo electrónico. En las vistas previas, se mostrará la versión cifrada del correo electrónico. Te recomendamos que utilices el ID externo del usuario si haces referencia a un usuario en una URL personalizada de un clic.
 

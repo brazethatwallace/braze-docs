@@ -38,4 +38,4 @@ Cambia el mes seleccionando <i class="fa-solid fa-chevron-left" style="color: #2
 
 ![El calendario de envíos mostrando todas las campañas planificadas en el mes actual.]({% image_buster /assets/img/campaign_calendar/content_calendar_sends.png %})
 
-Para ver o modificar tus campañas, selecciona la campaña en el calendario. Para más información, consulta [Administrar campañas]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/).
+Para ver o modificar tus campañas, selecciona la campaña en el calendario. Para más información, consulta [Administrar campañas]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns).

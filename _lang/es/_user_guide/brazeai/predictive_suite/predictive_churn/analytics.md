@@ -12,7 +12,7 @@ page_order: 1.5
 
 ## Acerca del análisis predictivo del abandono de clientes {#about-predictive-churn-analytics}
 
-En cuanto la predicción haya terminado de entrenarse y esta página esté llena, puedes pasar a utilizar simplemente [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users/#filters) en segmentos o campañas para empezar a utilizar los resultados del modelo. Pero, si quieres ayuda para decidir a quién dirigirte y por qué, esta página puede ayudarte basándose en la precisión histórica del modelo y en tus propios objetivos de negocio.
+En cuanto la predicción haya terminado de entrenarse y esta página esté llena, puedes pasar a utilizar simplemente [filtros]({{site.baseurl}}/user_guide/brazeai/predictive_suite/predictive_churn/messaging_users#filters) en segmentos o campañas para empezar a utilizar los resultados del modelo. Pero, si quieres ayuda para decidir a quién dirigirte y por qué, esta página puede ayudarte basándose en la precisión histórica del modelo y en tus propios objetivos de negocio.
 
 Estos son los componentes que conforman el análisis predictivo del abandono de clientes:
 
@@ -21,11 +21,11 @@ Estos son los componentes que conforman el análisis predictivo del abandono de 
 - [Precisión estimada](#estimated_results)
 - [Tabla de correlación de abandono](#correlation_table)
 
-La distribución de las puntuaciones de toda la audiencia de predicción se muestra en la parte superior de la página en un gráfico que puedes ver, por categoría o por puntuación. Los usuarios de los contenedores situados más a la derecha tienen puntuaciones más altas y es más probable que abandonen. Los usuarios de los contenedores situados más a la izquierda tienen menos probabilidades de abandonar. El control deslizante situado bajo el gráfico te permitirá seleccionar una franja de usuarios y estimar cuáles serían los resultados de dirigirte a usuarios en el rango seleccionado de _puntuación de riesgo de abandono_ o categoría.
+La distribución de las puntuaciones de toda la audiencia de predicción se muestra en la parte superior de la página en un gráfico que puedes ver, por categoría o por puntuación. Los usuarios de los contenedores situados más a la derecha tienen puntuaciones más altas y es más probable que abandonen. Los usuarios de los contenedores situados en el rango de puntuación más baja tienen menos probabilidades de abandonar. El control deslizante situado bajo el gráfico te permitirá seleccionar una franja de usuarios y estimar cuáles serían los resultados de dirigirte a usuarios en el rango seleccionado de _puntuación de riesgo de abandono_ o categoría.
 
 A medida que muevas el control deslizante, la barra de la mitad izquierda del panel inferior te informará de a cuántos usuarios de toda la audiencia de predicción se dirigiría la predicción.
 
-![]({% image_buster /assets/img/churn/churnTargeting.gif %})
+![Gráfico de análisis de Predictive Churn con un control deslizante para seleccionar un rango de puntuación objetivo.]({% image_buster /assets/img/churn/churnTargeting.gif %})
 
 ## Puntuación de abandono y categoría {#churn_score}
 
@@ -43,7 +43,7 @@ Las puntuaciones y las categorías correspondientes se actualizarán según el c
 
 En la mitad derecha del panel, debajo del gráfico, mostramos estimaciones de la precisión esperada al dirigirnos a esta franja de la audiencia de predicción. Basándose en los datos sobre los usuarios de la audiencia de predicción en el pasado, y en la aparente precisión del modelo para discriminar entre los usuarios que abandonan y los que no abandonan en esos datos pasados, estas barras de progreso hacen una estimación para un futuro mensaje potencial utilizando la audiencia resaltada con el control deslizante:
 
-![]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
+![Panel de precisión estimada que muestra los usuarios que se espera que abandonen y los que no para el rango de audiencia seleccionado.]({% image_buster /assets/img/churn/churnEstimatedResults.png %}){: style="float:right;max-width:40%;margin-left:15px;"}
 
 - Cuántos usuarios seleccionados se prevé que abandonen
 - Cuántos usuarios seleccionados se espera que **no** abandonen
@@ -52,7 +52,7 @@ Con esta información, te animamos a que decidas cuántos de los usuarios que ab
 
 ### Usuarios que se espera que abandonen {#users-expected-to-churn}
 
-Esta es una estimación del número de usuarios que realmente abandonarán y que serán correctamente identificados. Por supuesto, no conocemos el futuro a la perfección, así que no sabemos con precisión qué usuarios de la audiencia de predicción abandonarán en el futuro. Pero la predicción es una inferencia fiable. Basándose en el rendimiento anterior, esta barra de progreso indica cuántos de los usuarios que abandonan "reales" o "verdaderos" que se esperan en la audiencia de predicción (basándose en las tasas de abandono anteriores) serán el objetivo de la selección de segmentación actual. Es de esperar que este número de usuarios abandone si no les envías mensajes adicionales o inusuales.
+Esta es una estimación del número de usuarios que realmente abandonarán y que serán correctamente identificados. Por supuesto, no conocemos el futuro a la perfección, así que no sabemos con precisión qué usuarios de la audiencia de predicción abandonarán en el futuro. Pero la predicción es una inferencia fiable. Basándose en el rendimiento anterior, esta barra de progreso indica cuántos de los usuarios que abandonan "reales" o "verdaderos" que se esperan en la audiencia de predicción (basándose en las tasas de cancelaciones anteriores) serán el objetivo de la selección de segmentación actual. Es de esperar que este número de usuarios abandone si no les envías mensajes adicionales o inusuales.
 
 ### Usuarios que se espera que no abandonen {#users-expected-not-to-churn}
 
@@ -60,7 +60,7 @@ Esta es una estimación del número de usuarios que no habrían abandonado y que
 
 ## Tabla de correlación de abandono {#correlation_table}
 
-Este análisis muestra cualquier atributo o comportamiento del usuario que esté correlacionado con el abandono de usuarios en la audiencia de predicción histórica. Las tablas se dividen en izquierda y derecha para los más y los menos propensos al abandono, respectivamente. Para cada fila, en la columna de la derecha se muestra la proporción en la que los usuarios con el comportamiento o atributo de la columna de la izquierda son más o menos propensos al abandono. Este número es el cociente de la probabilidad de abandono de los usuarios con este comportamiento o atributo dividido por la probabilidad de abandono de toda la audiencia de predicción.
+Este análisis muestra cualquier atributo o comportamiento del usuario que esté correlacionado con el abandono de usuarios en la audiencia de predicción histórica. Las tablas se dividen en izquierda y derecha para los más y los menos propensos al abandono, respectivamente. Para cada fila, en la segunda columna se muestra la proporción en la que los usuarios con el comportamiento o atributo de la primera columna son más o menos propensos al abandono. Este número es el cociente de la probabilidad de abandono de los usuarios con este comportamiento o atributo dividido por la probabilidad de abandono de toda la audiencia de predicción.
 
 Esta tabla solo se actualiza cuando se reentrena la predicción y no cuando se actualizan las _puntuaciones de riesgo de abandono_ de los usuarios.
 

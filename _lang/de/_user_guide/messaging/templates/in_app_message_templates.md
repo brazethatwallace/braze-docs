@@ -44,4 +44,4 @@ guide_menu_list:
     image: /assets/img/braze_icons/calendar-check-02.svg
 ---
 
-Informationen zum Speichern von Templates aus dem Composer, zum Erstellen von Farbprofilen oder CSS-Templates und zum Verwalten Ihrer Bibliothek finden Sie unter [Ein In-App-Template erstellen]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template/).
+Informationen zum Speichern von Templates aus dem Composer, zum Erstellen von Farbprofilen oder CSS-Templates und zum Verwalten Ihrer Bibliothek finden Sie unter [Ein In-App-Template erstellen]({{site.baseurl}}/user_guide/messaging/templates/in_app_message_templates/in_app_message_template).

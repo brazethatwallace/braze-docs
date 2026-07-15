@@ -10,7 +10,7 @@ Se requiere la siguiente versión mínima del SDK para recibir historias push:
 
 En el proyecto de tu aplicación, ve al menú **File > New > Target** y añade un nuevo objetivo `Notification Content Extension` y actívalo.
 
-![]({% image_buster /assets/img/swift/push_story/add_content_extension.png %})
+![Selector de objetivo de Xcode creando una extensión de contenido de notificación para historias push.]({% image_buster /assets/img/swift/push_story/add_content_extension.png %})
 
 Xcode debería generar un nuevo objetivo y crear archivos automáticamente para ti, entre ellos:
 
@@ -21,7 +21,7 @@ Xcode debería generar un nuevo objetivo y crear archivos automáticamente para 
 
 En Xcode, añade la capacidad Modos de fondo utilizando el panel **Signing & Capabilities** al objetivo principal de la aplicación. Selecciona las casillas de verificación **Background fetch** y **Remote notifications**.
 
-![]({% image_buster /assets/img/swift/push_story/enable_background_mode.png %})
+![Panel de capacidades de Xcode con los modos de fondo habilitados.]({% image_buster /assets/img/swift/push_story/enable_background_mode.png %})
 
 #### Añadir un grupo de aplicaciones {#adding-an-app-group}
 
@@ -42,7 +42,7 @@ Después de seguir la [guía de integración de Swift Package Manager]({{site.ba
 
 ![En Xcode, en frameworks y bibliotecas, selecciona el icono «+» para añadir un framework.]({% image_buster /assets/img/swift/push_story/spm1.png %})
 
-![]({% image_buster /assets/img/swift/push_story/spm2.png %})
+![Selección de producto del paquete de Xcode añadiendo BrazePushStory al objetivo de extensión de contenido de notificación.]({% image_buster /assets/img/swift/push_story/spm2.png %})
 
 {% endtab %}
 {% tab CocoaPods %}
@@ -77,7 +77,7 @@ Tras actualizar el archivo de bibliotecas, ve al directorio de tu proyecto de ap
 
 Descarga el último `BrazePushStory.zip` de la [página de versiones de GitHub](https://github.com/braze-inc/braze-swift-sdk/releases), extráelo y añade el `BrazePushStory.xcframework` al `Notification Content Extension` de tu proyecto.
 
-![]({% image_buster /assets/img/swift/push_story/manual1.png %})
+![Configuración de frameworks de Xcode mostrando BrazePushStory.xcframework añadido con la opción Do Not Embed seleccionada.]({% image_buster /assets/img/swift/push_story/manual1.png %})
 
 {% alert important %}
 Asegúrate de que la opción **Do Not Embed** está seleccionada para **BrazePushStory.xcframework** en la columna **Embed**.
@@ -102,7 +102,7 @@ class NotificationViewController: BrazePushStory.NotificationViewController {}
 
 #### Manejo personalizado de eventos de historias push {#custom-handling-push-story-events}
 
-Si quieres implementar tu propia lógica personalizada para gestionar eventos de notificación de historias push, hereda `BrazePushStory.NotificationViewController` como se indica arriba y anula los métodos [`didReceive`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazepushstory/notificationviewcontroller/didreceive(_:)) como se indica a continuación.
+Si quieres implementar tu propia lógica personalizada para gestionar eventos de notificación de historias push, hereda `BrazePushStory.NotificationViewController` como se muestra en el ejemplo anterior y anula los métodos [`didReceive`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazepushstory/notificationviewcontroller/didreceive(_:)) del siguiente ejemplo.
 
 ```swift
 import BrazePushStory
@@ -134,18 +134,18 @@ Abre el archivo `Info.plist` del `Notification Content Extension`, luego añade 
 | `UNNotificationExtensionDefaultContentHidden`    | Booleano | `YES`                  |
 | `UNNotificationExtensionInitialContentSizeRatio` | Número   | `0.6`                  |
 | `UNNotificationExtensionUserInteractionEnabled`  | Booleano | `YES`                  |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Setting the Notification Content Extension plist #notification-content-extension" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 5: Configuración del plist de la extensión de contenido de notificación" }
 
 Además, añade el siguiente diccionario `Braze` de nivel superior al mismo archivo `Info.plist`, sustituyendo `REPLACE_WITH_APPGROUP` por el grupo de aplicaciones que creaste en el [paso 2](#enable-capabilities):
 
 | Clave            | Tipo   | Valor                   |
 |------------------|--------|-------------------------|
 | `Braze.AppGroup` | Cadena | `REPLACE_WITH_APPGROUP` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 5: Setting the Notification Content Extension plist #notification-content-extension" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 5: Configuración del plist de la extensión de contenido de notificación" }
 
 Tu archivo `Info.plist` debe coincidir con la siguiente imagen:
 
-![]({% image_buster /assets/img/swift/push_story/notificationcontentextension_plist.png %})
+![Info.plist de la extensión de contenido de notificación con las claves de historias push de Braze y la configuración del grupo de aplicaciones.]({% image_buster /assets/img/swift/push_story/notificationcontentextension_plist.png %})
 
 ### Paso 6: Actualizar la integración de Braze en tu aplicación principal {#update-braze}
 

@@ -1,43 +1,43 @@
 ---
-nav_title: "GET: Listar centros de preferencia"
-article_title: "GET: Listar centros de preferencia"
+nav_title: "GET: Listar centros de preferencias"
+article_title: "GET: Listar centros de preferencias"
 search_tag: Endpoint
 page_order: 2
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Listar centros de preferencia de Braze."
+description: "En este artículo se describen los detalles del punto de conexión Listar centros de preferencias de Braze."
 
 ---
 {% api %}
-# Listar centros de preferencia
+# Listar centros de preferencias {#list-preference-centers}
 {% apimethod get %}
 /preference_center/v1/list
 {% endapimethod %}
 
-> Utiliza este punto de conexión para listar tus centros de preferencia disponibles.
+> Utiliza este punto de conexión para listar tus centros de preferencias disponibles.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#dd8f6667-5eba-4e19-a29e-ba74644c0b8e {% endapiref %}
 
-## Requisitos previos
+## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `preference_center.list`.
+Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `preference_center.list`.
 
-## Límite de velocidad
+## Límite de velocidad {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='get preference center' %}
 
-## Ruta y parámetros de la solicitud
+## Parámetros de ruta y solicitud {#path-and-request-parameters}
 
 No hay parámetros de ruta o solicitud para este punto de conexión.
 
-## Ejemplo de solicitud
+## Ejemplo de solicitud {#example-request}
 
 ```
 curl --location -g --request GET https://rest.iad-01.braze.com/preference_center/v1/list \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## Respuesta
+## Respuesta {#response}
 
 ```json
 {

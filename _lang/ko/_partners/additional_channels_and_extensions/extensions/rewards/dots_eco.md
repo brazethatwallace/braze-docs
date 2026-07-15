@@ -21,7 +21,7 @@ Braze와 DOTS.ECO는 고객 참여 여정을 실제 임팩트 보상으로 연�
 
 - 사용자가 주요 이벤트(구매, 레벨 완료, 구독, 추천)를 완료하면 임팩트 인증서를 트리거합니다.
 - 연결된 콘텐츠 단계가 성공한 후 인앱 메시지에 개인화된 인증서 이미지를 표시합니다.
-- 나중에 액세스할 수 있도록 인증서 URL이 포함된 "인증서 보기" 콘텐츠 카드를 추가합니다.
+- 나중에 액세스할 수 있도록 인증서 URL이 포함된 "인증서 보기" Content Cards를 추가합니다.
 - 인증서 메타데이터(예: `certificate_url`, `certificate_image_url`, `certificate_header`, `greeting`)를 커스텀 속성으로 저장하여 향후 메시징에서 재사용할 수 있도록 합니다.
 - 원격 사용자 ID를 사용하여 인증서를 할당하면 사용자가 나중에 자신의 영향력을 확인하고 조회할 수 있습니다.
 - 동일한 DOTS.ECO 사용자 업데이트 흐름을 유지하면서 임팩트 메시징(다른 카피/이미지)에 대해 A/B 테스트를 실행합니다.
@@ -36,7 +36,7 @@ Braze와 DOTS.ECO는 고객 참여 여정을 실제 임팩트 보상으로 연�
 | DOTS.ECO 계정 | DOTS.ECO 계정 액세스. |
 | DOTS.ECO 자격 증명 | 이 문서의 요청에는 DOTS.ECO 앱 토큰, API 키 및 할당 ID가 필요합니다. 이를 확인하려면 DOTS.ECO 고객 성공 매니저에게 문의하세요. |
 | Braze REST API 키 | `users.track` 권한이 있는 Braze REST API 키. 이 키는 Braze 대시보드의 **설정** > **API 키**에서 생성하세요. |
-| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). |
+| Braze REST 엔드포인트 | [REST 엔드포인트 URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## DOTS.ECO 통합하기 {#integrating-dotseco}
@@ -60,7 +60,7 @@ Braze 대시보드에서 사용자가 주요 이벤트(예: 구매, 구독 또�
 ```
 {% capture post_body %}
 {
-  "remote_user_email": "{{${email_address} | default: 'braze+nadav@dots.eco'}}",
+  "remote_user_email": "{{${email_address} | default: 'braze+user@example.com'}}",
   "app_token": "YOUR_DOTS.ECO_APP_TOKEN",
   "impact_qty": 1,
   "remote_user_id": "{{${user_id} | default: ${braze_id}}}",

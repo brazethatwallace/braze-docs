@@ -38,7 +38,7 @@ A tabela a seguir descreve termos comuns de geofence:
 | Latitude e longitude | O centro geográfico da geofence. |
 | Raio | O raio da geofence em metros, medido a partir do centro geográfico. Defina um raio mínimo de 100 metros a 150 metros para todas as geofences. |
 | Cooldown | Os usuários recebem notificações disparadas por geofence após realizar transições de entrada ou saída em geofences individuais. Após uma transição ocorrer, há um período pré-definido durante o qual esse usuário não pode realizar a mesma transição nessa geofence individual novamente. Esse "cooldown" é pré-definido pela Braze e seu principal objetivo é evitar solicitações de rede desnecessárias. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="How it works" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Como funciona" }
 
 ## Pré-requisitos {#prerequisites}
 
@@ -53,7 +53,7 @@ Campaigns disparadas por geofence estão disponíveis no iOS e Android. Para sup
 A coleta de localização da Braze está desativada por padrão. Para verificar se está ativada no Android, confirme que `com_braze_enable_location_collection` está definido como `true` no seu `braze.xml`.
 {% endalert %}
 
-Para instruções de configuração específicas por plataforma, consulte [Geofences]({{site.baseurl}}/developer_guide/geofences/) no guia do desenvolvedor.
+Para instruções de configuração específicas por plataforma, consulte [Geofences]({{site.baseurl}}/developer_guide/geofences) no guia do desenvolvedor.
 
 ### Permissões de localização {#location-permissions}
 
@@ -74,7 +74,7 @@ Tanto o iOS quanto o Android oferecem múltiplos níveis de acesso à localizaç
 | **Permitir ao usar o app** | Concede acesso à localização sempre que o app está em primeiro plano. Após essa concessão, o iOS pode apresentar um prompt de acompanhamento pedindo ao usuário para fazer upgrade para "Permitir sempre". | Sim. O iOS ativa o monitoramento de localização em segundo plano, incluindo transições de geofence, para apps com essa permissão. |
 | **Permitir sempre** | Concede acesso contínuo à localização, inclusive em segundo plano e quando o app está fechado. | Sim. Isso fornece o monitoramento de geofence mais confiável. |
 | **Não permitir** | Nega todo acesso à localização. | Não. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Níveis de permissão" }
 
 {% endtab %}
 {% tab Android %}
@@ -84,7 +84,7 @@ Tanto o iOS quanto o Android oferecem múltiplos níveis de acesso à localizaç
 | **Ao usar o app** | Concede acesso à localização enquanto o app está em primeiro plano. | Não. No Android, o acesso à localização em segundo plano é necessário para o monitoramento de geofence. |
 | **Permitir sempre** | Concede acesso contínuo à localização, inclusive em segundo plano. No Android 10 e posterior, isso requer um prompt separado após a permissão inicial "Ao usar o app" ser concedida. | Sim. Isso é necessário para geofencing no Android. |
 | **Não permitir** | Nega todo acesso à localização. No Android 13 e posterior, se um usuário negar o prompt de localização duas vezes, o sistema operacional bloqueia prompts adicionais no app. | Não. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Permission levels" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Níveis de permissão" }
 
 {% endtab %}
 {% endtabs %}
@@ -97,7 +97,7 @@ No iOS 14+ e Android 12+, os usuários podem escolher entre localização precis
 |---|---|---|
 | **Localização precisa (ativada)** | Precisão na faixa de 5 metros a 50 metros, usando GPS, Wi-Fi e triangulação celular. | As geofences funcionam conforme esperado. Recomendado para todos os casos de uso baseados em geofence. |
 | **Localização aproximada (desativada)** | Precisão de cerca de 3 quilômetros quadrados (aproximadamente 1 milha quadrada). O dispositivo retorna uma área geral em vez de coordenadas exatas. | As geofences não disparam de forma confiável. O dispositivo não consegue determinar com precisão se um usuário está dentro ou fora de um limite de geofence. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Precise versus approximate location" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Localização precisa versus aproximada" }
 
 {% alert important %}
 Para que o geofencing funcione de forma confiável, os usuários devem ativar a localização precisa. Inclua essa orientação nas mensagens do seu primer de permissão de localização para que os usuários entendam por que a localização precisa é importante.
@@ -105,7 +105,7 @@ Para que o geofencing funcione de forma confiável, os usuários devem ativar a 
 
 ## Configurando um primer de permissão de localização {#setting-up-a-location-permission-primer}
 
-Um primer de permissão de localização é uma mensagem no app que explica o valor de compartilhar dados de localização antes que o usuário veja o prompt nativo de permissão do sistema operacional. Como o prompt nativo de localização só pode ser exibido uma vez (no iOS) ou um número limitado de vezes (no Android), preparar os usuários com antecedência aumenta as taxas de opt-in.
+Um primer de permissão de localização é uma mensagem no app que explica o valor de compartilhar dados de localização antes que o usuário veja o prompt nativo de permissão do sistema operacional. Como o prompt nativo de localização só pode ser exibido uma vez (no iOS) ou um número limitado de vezes (no Android), preparar os usuários com antecedência aumenta as taxas de aceitação.
 
 ### Etapa 1: Trabalhe com sua equipe de desenvolvimento {#step-1-work-with-your-development-team}
 
@@ -114,13 +114,13 @@ Como as mensagens no app da Braze não incluem uma ação de botão integrada pa
 - Um deep link que dispara o prompt nativo de permissão de localização de dentro do seu app.
 - Um deep link que abre a página de configurações de localização do app nas configurações do sistema operacional do dispositivo, o que é útil para solicitar novamente a usuários que anteriormente negaram ou limitaram suas permissões.
 
-Para saber mais sobre deep links, consulte [Deep linking para conteúdo no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/). Para orientações específicas por plataforma sobre integração de localização e geofence, consulte [Geofences]({{site.baseurl}}/developer_guide/geofences/) no guia do desenvolvedor.
+Para saber mais sobre deep links, consulte [Deep linking para conteúdo no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls). Para orientações específicas por plataforma sobre integração de localização e geofence, consulte [Geofences]({{site.baseurl}}/developer_guide/geofences) no guia do desenvolvedor.
 
 ### Etapa 2: Crie a mensagem no app do primer de localização {#step-2-build-the-location-primer-in-app-message}
 
-Crie uma campanha de mensagem no app que explique o valor do acesso à localização. Todos os tipos de mensagem no app suportam esse opt-in, incluindo arrastar e soltar.
+Crie uma campanha de mensagem no app que explique o valor do acesso à localização. Todos os tipos de mensagem no app suportam essa aceitação, incluindo arrastar e soltar.
 
-1. Acesse **Messaging** > **Campaigns** e selecione **Create Campaign** > **In-App Message**.
+1. Acessar **Messaging** > **Campaigns** e selecione **Create Campaign** > **In-App Message**.
 2. Escolha um tipo de mensagem e layout. Um layout **Modal** ou **Full** oferece mais espaço para articular os benefícios.
 3. Escreva uma mensagem que explique claramente por que o acesso à localização beneficia o usuário. Por exemplo:
     - "Ative a localização para ser notificado sobre ofertas perto de você."
@@ -133,7 +133,7 @@ Crie uma campanha de mensagem no app que explique o valor do acesso à localiza�
 Para melhores resultados, exiba o primer de localização quando os usuários estiverem engajados e propensos a ver valor em compartilhar sua localização.
 
 - **Direcione para usuários que ainda não concederam acesso à localização.** Trabalhe com sua equipe de desenvolvimento para determinar a melhor forma de rastrear e segmentar usuários com base no status de permissão de localização.
-- **Programe o primer após uma ação de alto valor,** como concluir uma compra, salvar uma loja como favorita ou navegar por eventos próximos. Os usuários são mais propensos a fazer opt-in quando entendem o benefício.
+- **Programe o primer após uma ação de alto valor,** como concluir uma compra, salvar uma loja como favorita ou navegar por eventos próximos. Os usuários são mais propensos a fazer aceitação quando entendem o benefício.
 - **Evite exibir o primer na primeira abertura.** Espere até que os usuários tenham experimentado valor suficiente do app para querer uma experiência mais personalizada.
 
 ### Etapa 4: Incentive o nível de permissão recomendado {#step-4-encourage-the-recommended-permission-level}
@@ -149,15 +149,15 @@ Em ambos os casos, lembre os usuários de manter a **Localização precisa** ati
 
 Se um usuário anteriormente negou o acesso à localização ou selecionou uma permissão limitada, você não pode disparar o prompt nativo novamente de dentro do app na maioria das versões do sistema operacional. Em vez disso, direcione-os para atualizar suas permissões nas configurações do dispositivo.
 
-Use um deep link dentro de uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/) personalizada para navegar o usuário até a página de configurações de localização do app no sistema operacional. Sua equipe de desenvolvimento pode configurar um deep link para isso como parte do tratamento de permissão de localização do seu app (consulte a [Etapa 1](#step-1-work-with-your-development-team)).
+Use um deep link dentro de uma [mensagem no app]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional) personalizada para navegar o usuário até a página de configurações de localização do app no sistema operacional. Sua equipe de desenvolvimento pode configurar um deep link para isso como parte do tratamento de permissão de localização do seu app (consulte a [Etapa 1](#step-1-work-with-your-development-team)).
 
 Ao criar essa mensagem no app, considere o seguinte:
 
 - **Quando exibir:** Direcione para usuários que têm permissão "Ao usar o app" quando você precisa de "Permitir sempre", ou usuários que anteriormente negaram o acesso à localização.
-- **Exemplo de mensagem:** "Para aproveitar ao máximo os recursos baseados em localização, atualize suas configurações de localização para 'Permitir sempre'. Toque abaixo para ir para Configurações."
+- **Exemplo de mensagem:** "Para aproveitar ao máximo os recursos baseados em localização, atualize suas configurações de localização para 'Permitir sempre'. Toque para ir para Configurações."
 
 {% alert tip %}
-Você pode disparar essa mensagem no app em qualquer ponto da jornada do usuário — após uma compra, ao navegar por conteúdo próximo ou como parte de um fluxo Canvas. Seja seletivo ao solicitar novamente: limite essas campanhas a usuários fiéis ou altamente engajados para evitar fadiga de opt-in.
+Você pode disparar essa mensagem no app em qualquer ponto da jornada do usuário — após uma compra, ao navegar por conteúdo próximo ou como parte de um fluxo Canvas. Seja seletivo ao solicitar novamente: limite essas campanhas a usuários fiéis ou altamente engajados para evitar fadiga de aceitação.
 {% endalert %}
 
 ## Exemplos de estratégias de primer de localização {#example-location-priming-strategies}
@@ -190,7 +190,7 @@ Esse acompanhamento dá ao usuário contexto sobre por que fazer upgrade para "P
 
 Para criar uma geofence, primeiro crie um conjunto de geofences.
 
-1. Acesse **Audience** > **Locations** no dashboard da Braze.
+1. Acessar **Audience** > **Locations** no dashboard da Braze.
 2. Selecione **Create Geofence Set**.
 3. Em **Set name**, insira um nome para o seu conjunto de geofences.
 4. (Opcional) Adicione tags para filtrar seu conjunto.
@@ -202,7 +202,7 @@ Em seguida, adicione geofences ao seu conjunto de geofences.
 1. Selecione **Draw Geofence** para clicar e arrastar o círculo no mapa. Repita para adicionar mais geofences ao seu conjunto conforme necessário.
 2. (Opcional) Selecione **Edit** e substitua a descrição da geofence por um nome.
 3. (Opcional) Selecione **Show Advanced Settings** e use essas configurações para controlar como as análises de geofence são registradas:
-  - Selecione **Enable Analytics for Enter** e **Enable Analytics for Exit** para registrar atividade de entrada e saída na [tabela SQL `USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) para relatórios e análise.
+  - Selecione **Enable Analytics for Enter** e **Enable Analytics for Exit** para registrar atividade de entrada e saída na [tabela SQL `USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_BEHAVIORS_GEOFENCE_DATAEVENT_SHARED) para relatórios e análise.
   - Configure um período de cooldown para definir quantos segundos devem passar antes que o mesmo usuário possa disparar outro evento de entrada ou saída para essa geofence. Se você não definir um cooldown, o padrão é seis horas.
   - Use **Android Notification Responsiveness** para definir o atraso máximo, em segundos, que dispositivos Android usam ao entregar eventos de entrada ou saída para o seu app.
 
@@ -268,7 +268,7 @@ Após configurar suas geofences, você pode usá-las para aprimorar e enriquecer
 
 Para usar dados de geofence como parte de gatilhos de Campaign e Canvas, escolha **Entrega baseada em ação** como método de entrega. Em seguida, adicione uma ação-gatilho de `Trigger a Geofence`. Por fim, escolha o conjunto de geofences e os tipos de evento de transição de geofence para sua mensagem. Você também pode avançar usuários por um Canvas usando eventos de geofence.
 
-![Uma campanha baseada em ação com uma geofence que será disparada quando um usuário entrar em aeroportos alemães.]({% image_buster /assets/img_archive/action_based_geofence_trigger.png %})
+![Uma Campaign baseada em ação com uma geofence que será disparada quando um usuário entrar em aeroportos alemães.]({% image_buster /assets/img_archive/action_based_geofence_trigger.png %})
 
 ### Personalizando mensagens {#personalizing-messages}
 
@@ -302,10 +302,10 @@ Se as geofences não forem carregadas no dispositivo localmente, o usuário não
 - Os usuários do seu app devem conceder permissões de localização. Consulte a seção [Permissões de localização](#location-permissions) para saber mais.
 
 {% alert note %}
-A integração básica do SDK ativa apenas o rastreamento de localização. O geofencing requer etapas de configuração adicionais tanto para iOS quanto para Android. Para mais detalhes, consulte [Geofences]({{site.baseurl}}/developer_guide/geofences/) no guia do desenvolvedor.
+A integração básica do SDK ativa apenas o rastreamento de localização. O geofencing requer etapas de configuração adicionais tanto para iOS quanto para Android. Para mais detalhes, consulte [Geofences]({{site.baseurl}}/developer_guide/geofences) no guia do desenvolvedor.
 {% endalert %}
 
-Você também pode usar geofences com Parceiros de tecnologia da Braze, como [Radar]({{site.baseurl}}/partners/message_personalization/location/radar/) e [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare/).
+Você também pode usar geofences com parceiros de tecnologia da Braze, como [Radar]({{site.baseurl}}/partners/message_personalization/location/radar) e [Foursquare]({{site.baseurl}}/partners/message_personalization/location/foursquare).
 
 ## Diferenças entre geofences e rastreamento de localização {#differences-between-geofences-and-location-tracking}
 
@@ -341,4 +341,4 @@ Como melhor prática, evite configurar geofences que se sobreponham umas às out
 
 ### E se um usuário negar o acesso à localização? {#what-if-a-user-denies-location-access}
 
-Sua equipe de desenvolvimento pode configurar um deep link que abre a página de configurações de localização do app no sistema operacional, onde os usuários podem atualizar suas permissões. Você pode usar esse deep link dentro de uma mensagem no app personalizada em qualquer ponto da jornada do usuário. Seja seletivo sobre quando exibir essa mensagem — direcione para usuários que estão engajados ou que realizaram uma ação de alto valor para aumentar a chance de opt-in. Para saber mais, consulte [Redirecionando usuários para as configurações do sistema operacional](#redirecting-users-to-os-settings).
+Sua equipe de desenvolvimento pode configurar um deep link que abre a página de configurações de localização do app no sistema operacional, onde os usuários podem atualizar suas permissões. Você pode usar esse deep link dentro de uma mensagem no app personalizada em qualquer ponto da jornada do usuário. Seja seletivo sobre quando exibir essa mensagem — direcione para usuários que estão engajados ou que realizaram uma ação de alto valor para aumentar a chance de aceitação. Para saber mais, consulte [Redirecionando usuários para as configurações do sistema operacional](#redirecting-users-to-os-settings).

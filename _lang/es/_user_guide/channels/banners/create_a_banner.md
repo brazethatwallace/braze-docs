@@ -11,11 +11,11 @@ channel:
 
 # Crear un banner {#create-a-banner}
 
-> Aprende a crear banners cuando construyes Campaigns y Canvas en Braze. Para información más general, consulta [Acerca de los banners]({{site.baseurl}}/user_guide/channels/banners/).
+> Aprende a crear banners cuando construyes Campaigns y Canvas en Braze. Para información más general, consulta [Acerca de los banners]({{site.baseurl}}/user_guide/channels/banners).
 
 ## Requisitos previos {#prerequisites}
 
-Antes de poder lanzar tu banner, tu equipo de desarrollo debe [configurar las ubicaciones en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements/). Mientras tanto, puedes redactar el borrador de tu campaña de banner, pero no podrás lanzar la campaña hasta que las ubicaciones estén configuradas.
+Antes de poder lanzar tu banner, tu equipo de desarrollo debe [configurar las ubicaciones en tu aplicación o sitio web]({{site.baseurl}}/developer_guide/banners/placements). Mientras tanto, puedes redactar el borrador de tu campaña de banner, pero no podrás lanzar la campaña hasta que las ubicaciones estén configuradas.
 
 ## Crear un mensaje de banner {#create-a-banner-message}
 
@@ -31,9 +31,9 @@ Antes de poder lanzar tu banner, tu equipo de desarrollo debe [configurar las ub
 1. Ve a **Mensajería** > **Campaigns** y selecciona **Crear campaña**.
 2. Selecciona **Banner**.
 3. Dale a tu campaña un nombre claro y significativo.
-4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams/) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags/) según sea necesario. Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el Generador de informes, puedes filtrar por las etiquetas relevantes.
+4. Añade [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) según sea necesario. Las etiquetas facilitan encontrar tus campañas y generar informes a partir de ellas. Por ejemplo, al usar el generador de informes, puedes filtrar por las etiquetas relevantes.
 5. Selecciona la ubicación que creaste previamente para asociarla con tu campaña.
-6. Añade variantes según sea necesario. Puedes elegir un tipo de mensaje y diseño diferente para cada una. Para más información sobre variantes, consulta [Pruebas multivariantes y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/).
+6. Añade variantes según sea necesario. Puedes elegir un tipo de mensaje y diseño diferente para cada una. Para más información sobre variantes, consulta [Pruebas multivariante y A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 7. Elige una fecha y hora de inicio para tu campaña de banner. De forma predeterminada, los banners duran indefinidamente. Puedes cambiar esto seleccionando **End Time** y especificando una fecha y hora de fin.
 
 {% alert tip %}
@@ -43,27 +43,30 @@ Si todos los mensajes de tu campaña van a ser similares o tener el mismo conten
 {% endtab %}
 {% tab Canvas %}
 
-1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) usando el compositor de Canvas.
+1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando el creador de Canvas.
 2. Después de configurar tu Canvas, añade un paso de mensaje en el constructor de Canvas. Dale a tu paso un nombre claro y significativo.
 3. Selecciona **Banner** como tu canal de mensajería.
 4. Selecciona una ubicación para el banner.
-5. Establece la prioridad del banner. La [prioridad del banner]({{site.baseurl}}/user_guide/channels/banners/#priority) determina el orden en que se muestran los banners si comparten la misma ubicación.
-6. Establece una expiración para el banner. Puede ser después de un período de tiempo tras la disponibilidad del paso o en una fecha y hora específicas.
+5. Establece la prioridad. La [prioridad del banner]({{site.baseurl}}/user_guide/channels/banners#priority) determina el orden en que se muestran los banners si comparten la misma ubicación.
+6. Establece una expiración para el banner. Puede ser después de un período de tiempo tras la disponibilidad del paso o en una fecha y hora específicas. La duración máxima de expiración es de 31 días después de que el paso esté disponible para el usuario.
 
 {% endtab %}
 {% endtabs %}
 
 ### Paso 3: Redactar un banner {#compose-a-banner}
 
-Para redactar tu banner, puedes elegir:
+A continuación, elige cómo quieres empezar a construir:
 
-- Empezar con una plantilla en blanco
-- Usar una plantilla de banner de Braze
-- Seleccionar una plantilla de banner guardada
+- **Editor de arrastrar y soltar:** Empieza con un banner en blanco y construye visualmente con bloques y filas.
+- **Editor HTML:** Empieza con un banner en blanco y trabaja directamente en HTML.
+- **Plantillas:** Abre la biblioteca de plantillas y selecciona un diseño de **Plantillas de Braze** o **Tus plantillas**. Las plantillas se abren en el editor de arrastrar y soltar para su personalización.
 
-![Opción para elegir un banner en blanco o una plantilla.]({% image_buster /assets/img/banners/choose_banner_composer.png %})
+![Opciones para elegir el editor de arrastrar y soltar, el editor HTML o plantillas para tu banner.]({% image_buster /assets/img/banners/choose_banner_editing_experience.png %})
 
 #### Paso 3.1: Dar estilo al banner {#step-31-style-the-banner}
+
+{% tabs %}
+{% tab Editor de arrastrar y soltar %}
 
 Puedes arrastrar y soltar bloques y filas en el área del lienzo para empezar a construir tu mensaje. Para una referencia de los bloques del editor de banners y enlaces a detalles de propiedades compartidas, consulta [Bloques del editor (banners)]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners).
 
@@ -71,11 +74,32 @@ Puedes arrastrar y soltar bloques y filas en el área del lienzo para empezar a 
 
 Para personalizar las propiedades de fondo, la configuración de bordes y más de tu mensaje, selecciona **Styles**. Si solo quieres personalizar el estilo de un bloque o fila específicos, selecciónalo para hacer cambios.
 
-![Panel de estilos del compositor de banners.]({% image_buster /assets/img/banners/banner_card_styles.png %})
+![Panel de estilos del creador de banners.]({% image_buster /assets/img/banners/banner_card_styles.png %})
+
+{% endtab %}
+{% tab Editor HTML %}
+
+El editor HTML es ideal para equipos que ya mantienen sus propias plantillas HTML o desean control total sobre el marcado y los estilos. Puedes escribir o pegar HTML personalizado directamente en el editor. Las etiquetas de personalización de Liquid son totalmente compatibles, por lo que puedes hacer referencia a atributos de usuario, atributos personalizados, elementos de catálogo y más.
+
+{% alert tip %}
+¿Necesitas ayuda para construir el HTML de tu banner? Selecciona **Ask Operator** en el editor HTML y describe el banner que deseas. [BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator) genera HTML que puedes revisar e insertar en el editor. Para más información, consulta [Generar mensajes]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages).
+{% endalert %}
+
+Para el seguimiento de clics y descartes en tu HTML personalizado, debes llamar explícitamente a los métodos del puente JavaScript. Para la referencia completa, consulta [Código personalizado y puente JavaScript para banners]({{site.baseurl}}/user_guide/channels/banners/custom_code).
+
+{% endtab %}
+{% endtabs %}
+
+{% alert note %}
+Para dirigirte a usuarios en diferentes idiomas dentro de una sola campaña de banner, consulta [Mensajes en varios idiomas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages).
+{% endalert %}
 
 #### Paso 3.2: Definir el comportamiento al hacer clic (opcional) {#step-32-define-on-click-behavior-optional}
 
-Cuando un usuario hace clic en un enlace del banner, puedes elegir navegar más profundamente dentro de tu aplicación o redirigirlo a otra página web. Además, puedes elegir [registrar un atributo personalizado o evento]({{site.baseurl}}/developer_guide/analytics/), lo que actualiza el perfil del usuario con datos personalizados cuando hace clic en el banner. Para un seguimiento de clics más detallado, asigna un identificador personalizado a cada elemento interactivo usando el campo **Identifier for Reporting** en su panel de propiedades.
+{% tabs %}
+{% tab Editor de arrastrar y soltar %}
+
+Cuando un usuario hace clic en un enlace del banner, puedes elegir navegar más profundamente dentro de tu aplicación o redirigirlo a otra página web. Además, puedes elegir [registrar un atributo personalizado o evento]({{site.baseurl}}/developer_guide/analytics), lo que actualiza el perfil del usuario con datos personalizados cuando hace clic en el banner. Para un seguimiento de clics más detallado, asigna un identificador personalizado a cada elemento interactivo usando el campo **Identifier for Reporting** en su panel de propiedades.
 
 {% alert important %}
 {::nomarkdown}
@@ -83,11 +107,28 @@ El comportamiento al hacer clic puede ser anulado si un elemento específico (co
 {:/}
 {% endalert %}
 
+{% endtab %}
+{% tab Editor HTML %}
+
+En el editor HTML, el seguimiento de clics no es automático. Debes llamar a `brazeBridge.logClick()` desde tu HTML para cada elemento clicable que desees rastrear. Por ejemplo:
+
+```html
+<a href="https://example.com" onclick="brazeBridge.logClick()">Shop now</a>
+```
+
+Para la referencia completa del puente JavaScript, consulta [Código personalizado y puente JavaScript para banners]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge).
+
+{% endtab %}
+{% endtabs %}
+
 #### Paso 3.3: Configurar el comportamiento de descarte (opcional) {#dismiss-behavior}
 
-Selecciona la casilla **Banner can be dismissed** en la sección **Dismiss Behavior** para permitir que los usuarios descarten el banner. Esta opción es útil en escenarios donde quieres promocionar una venta por tiempo limitado para todos los usuarios de la aplicación, pero permitirles descartar el mensaje si no están interesados.
+{% tabs %}
+{% tab Editor de arrastrar y soltar %}
 
-Cuando el descarte está habilitado, puedes personalizar el botón de descarte en la sección **Dismiss Behavior**:
+Selecciona la casilla **Banner can be dismissed** en la sección **Dismiss behavior** para permitir que los usuarios descarten el banner. Esto es útil cuando quieres promocionar una oferta por tiempo limitado a una audiencia amplia, pero permitir que los usuarios no interesados oculten el mensaje.
+
+Cuando el descarte está habilitado, puedes personalizar el botón de descarte en la sección **Dismiss behavior**:
 
 | Configuración | Descripción |
 |---------|-------------|
@@ -98,15 +139,31 @@ Cuando el descarte está habilitado, puedes personalizar el botón de descarte e
 
 Cuando un usuario descarta un banner, este no vuelve a aparecer para ese usuario, incluso si aún cumple con los criterios de segmentación de la campaña.
 
+{% endtab %}
+{% tab Editor HTML %}
+
+En el editor HTML, el descarte se gestiona en tu HTML usando `brazeBridge.closeMessage()`. Combínalo con `brazeBridge.logClick()` para también rastrear la acción de descarte como un evento de clic. Por ejemplo:
+
+```html
+<a href="#" onclick="brazeBridge.logClick(); brazeBridge.closeMessage();">&#x2715; Close</a>
+```
+
+Cuando un usuario descarta un banner de esta manera, este no vuelve a aparecer para ese usuario, incluso si aún cumple con los criterios de segmentación de la campaña.
+
+Para la referencia completa del puente JavaScript, consulta [Código personalizado y puente JavaScript para banners]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge).
+
+{% endtab %}
+{% endtabs %}
+
 #### Paso 3.4: Añadir propiedades personalizadas (opcional) {#custom-properties}
 
-Puedes añadir propiedades personalizadas a un banner para adjuntar metadatos estructurados, como cadenas u objetos JSON. Estas propiedades no afectan cómo se muestra el banner, pero pueden [accederse a través del SDK de Braze]({{site.baseurl}}/developer_guide/banners/placements/) para modificar el comportamiento o la apariencia de tu aplicación. Por ejemplo, podrías:
+Puedes añadir propiedades personalizadas a un banner para adjuntar metadatos estructurados, como cadenas u objetos JSON. Estas propiedades no afectan cómo se muestra el banner, pero pueden [accederse a través del SDK de Braze]({{site.baseurl}}/developer_guide/banners/placements) para modificar el comportamiento o la apariencia de tu aplicación. Por ejemplo, podrías:
 
 - Enviar metadatos para tus análisis de terceros o integraciones.
 - Usar metadatos como un `timestamp` u objeto JSON para desencadenar lógica condicional.
 - Controlar el comportamiento de un banner basándote en metadatos incluidos como `ratio` o `format`.
 
-Para añadir una propiedad personalizada, selecciona **Settings** > **Properties** > **Add property**.
+Las propiedades personalizadas funcionan de la misma manera tanto en el editor de arrastrar y soltar como en el editor HTML. Para añadir una propiedad personalizada, selecciona **Settings** > **Properties** > **Add property**.
 
 ![La página de propiedades mostrando la opción de añadir la primera propiedad personalizada a una campaña de banner.]({% image_buster /assets/img/banners/add_property.png %})
 
@@ -117,7 +174,7 @@ Para cada propiedad que quieras añadir, completa lo siguiente:
 | Tipo de propiedad | El tipo de datos de la propiedad. Los tipos compatibles incluyen cadena, booleano, número, marca de tiempo, URL de imagen y objeto JSON. | Cadena |
 | Clave de propiedad | El identificador único de la propiedad. Esta clave se usa en el SDK para acceder a la propiedad. | `color` |
 | Valor | El valor asignado a la propiedad. Debe coincidir con el tipo de propiedad seleccionado. | `#FF0000` |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 3.4: Añadir propiedades personalizadas (opcional) #custom-properties" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Añadir propiedades personalizadas" }
 
 Cuando hayas terminado, selecciona **Done**.
 
@@ -130,9 +187,9 @@ Cuando hayas terminado, selecciona **Done**.
 
 #### Establecer la prioridad del banner (opcional) {#set-banner-priority-optional}
 
-La [prioridad del banner]({{site.baseurl}}/user_guide/channels/banners/#priority) determina el orden en que se muestran los banners si comparten la misma ubicación. Para establecer la prioridad manualmente:
+La [prioridad del banner]({{site.baseurl}}/user_guide/channels/banners#priority) determina el orden en que se muestran los banners si comparten la misma ubicación. Para establecer la prioridad manualmente:
 
-1. Selecciona **Establece la prioridad exacta**.
+1. Selecciona **Set exact priority**.
 2. Arrastra y suelta las campañas para ordenarlas con la prioridad correcta.
 3. Selecciona **Apply Sort**.
 
@@ -150,22 +207,22 @@ La cuenta regresiva comienza cuando el usuario descarta el banner. Después de q
 
 1. En **Público objetivo**, elige segmentos o filtros para delimitar tu audiencia. Recibirás automáticamente una vista previa de la población aproximada del segmento. La pertenencia exacta al segmento se calcula antes de que se envíe el mensaje.
 
-{% multi_lang_include target_audiences.md %}
+{% multi_lang_include audience/target_audiences.md %}
 
 {:start="2"}
 2. En **Asignar conversiones**, realiza un seguimiento de la frecuencia con la que los usuarios realizan acciones específicas después de recibir una campaña definiendo eventos de conversión con una ventana de hasta 30 días para contar la acción como una conversión.
 
 #### Elige eventos de conversión {#choose-conversion-events}
 
-Braze te permite realizar un seguimiento de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/), la frecuencia con la que los usuarios realizan acciones específicas, después de recibir una campaña. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se cuenta una conversión si el usuario realiza la acción especificada.
+Braze te permite realizar un seguimiento de los [eventos de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), la frecuencia con la que los usuarios realizan acciones específicas, después de recibir una campaña. Tienes la opción de permitir una ventana de hasta 30 días durante la cual se cuenta una conversión si el usuario realiza la acción especificada.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar [pruebas multivariantes]({{site.baseurl}}/user_guide/messaging/ab_testing/) e [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection/), y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar [pruebas multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing) y [selección inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de nuestra documentación de Canvas.
 
-Para controlar la reelegibilidad en los pasos de banner de Canvas, usa la configuración de reentrada de Canvas. Para más información, consulta [Reelegibilidad para Campaigns y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility/).
+Para controlar la reelegibilidad en los pasos de banner de Canvas, usa la configuración de reentrada de Canvas. Para más información, consulta [Reelegibilidad para Campaigns y Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 
 {% endtab %}
 {% endtabs %}
@@ -176,4 +233,4 @@ Para controlar la reelegibilidad en los pasos de banner de Canvas, usa la config
 
 ### Paso 6: Revisar y desplegar {#step-6-review-and-deploy}
 
-Después de terminar de construir tu campaña o Canvas, revisa sus detalles, [pruébala]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/) y luego envíala cuando estés listo.
+Después de terminar de construir tu campaña o Canvas, revisa sus detalles, [pruébala]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) y luego envíala cuando estés listo.

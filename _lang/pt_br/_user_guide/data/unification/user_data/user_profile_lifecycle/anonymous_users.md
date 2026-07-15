@@ -3,13 +3,13 @@ nav_title: Usuários anônimos
 article_title: Usuários anônimos
 page_order: 0
 page_type: reference
-description: "Este artigo fornece uma visão geral dos usuários anônimos e aliases de usuário, descrevendo seu significado e como eles podem ser aproveitados em suas mensagens."
+description: "Este artigo fornece uma visão geral dos usuários anônimos e aliases de usuário, descrevendo sua importância e como eles podem ser aproveitados em suas mensagens."
 
 ---
 
 # Usuários anônimos {#anonymous-users}
 
-> Os usuários que visitam seu site ou aplicativo sem fazer login, como um visitante convidado, são reconhecidos como usuários anônimos. Esses usuários não têm `external_ids`, que são usados para atualizar perfis de usuário com a API da Braze, mas eles ainda têm [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points/) atribuídos a eles e podem ser direcionados em seus segmentos.
+> Os usuários que visitam seu site ou aplicativo sem fazer login, como um visitante convidado, são reconhecidos como usuários anônimos. Esses usuários não têm `external_ids`, que são usados para atualizar perfis de usuário com a API da Braze, mas eles ainda têm [pontos de dados]({{site.baseurl}}/user_guide/data/infrastructure/data_points) atribuídos a eles e podem ser direcionados em seus segmentos.
 
 Quando um usuário anônimo visita seu site ou aplicativo, o SDK da Braze cria e atribui a ele um perfil de usuário "anônimo". Enquanto o usuário navega, o SDK captura automaticamente dados para o perfil anônimo do usuário, como informações de uso, informações do dispositivo e muito mais, se você tiver configurado atributos personalizados e eventos personalizados.
 
@@ -31,7 +31,7 @@ Você pode fazer o seguinte com usuários anônimos capturados:
 
 ## Mesclando usuários anônimos {#merging-anonymous-users}
 
-Às vezes, os perfis de usuários anônimos são duplicatas que têm o mesmo número de telefone ou endereço de e-mail que outros perfis de usuários. Uma das duplicatas pode até ser um perfil de usuário identificado. Essas duplicatas podem ser mescladas em um único perfil de usuário usando o [POST: Endpoint de mesclagem de usuários]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/) ou uma das ferramentas de mesclagem da plataforma Braze, como a [mesclagem baseada em regras]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users/#rules-based-merging).
+Às vezes, os perfis de usuários anônimos são duplicatas que têm o mesmo número de telefone ou endereço de e-mail que outros perfis de usuários. Uma das duplicatas pode até ser um perfil de usuário identificado. Essas duplicatas podem ser mescladas em um único perfil de usuário usando o [POST: Endpoint de mesclagem de usuários]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) ou uma das ferramentas de mesclagem da plataforma Braze, como a [mesclagem baseada em regras]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users#rules-based-merging).
 
 ## Pesquisando um usuário anônimo {#looking-up-an-anonymous-user}
 
@@ -45,7 +45,7 @@ console.log(braze.getDeviceId());
 ```
 
 {:start="3"}
-3. No dashboard da Braze, use a [Pesquisa de usuários]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search/) para pesquisar o ID de dispositivo retornado.
+3. No dashboard da Braze, use a [Pesquisa de usuários]({{site.baseurl}}/user_guide/engagement_tools/segments/using_user_search) para pesquisar o ID de dispositivo retornado.
 
 ## Casos de uso {#use-cases}
 

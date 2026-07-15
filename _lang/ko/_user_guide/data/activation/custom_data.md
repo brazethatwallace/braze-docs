@@ -24,7 +24,7 @@ description: "커스텀 데이터는 Braze에서 참여 전략을 강화합니�
 - **개인화:** 속성은 개인화에 완벽합니다. 사용자의 `favorite_category`를 이메일 제목란에 넣어 관심을 끌 수 있습니다.
 - **저장:** 이 데이터는 프로필이 활성 상태인 한 고객 프로필에 무기한 유지됩니다.
 
-자세한 내용은 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)을 참조하세요.
+자세한 내용은 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)을 참조하세요.
 
 ### 커스텀 이벤트: 사용자가 무엇을 하는지 {#custom-events-what-your-users-do}
 
@@ -35,7 +35,7 @@ description: "커스텀 데이터는 Braze에서 참여 전략을 강화합니�
 - **메타데이터:** 이벤트 등록정보를 사용하여 이벤트에 추가 세부 정보를 첨부할 수 있습니다. 예를 들어 장바구니에 추가된 항목의 이름 등이 있습니다.
 - **분석:** 이벤트는 세분화, 보고서, 분석을 지원하여 참여를 측정하고 메시징을 최적화할 수 있습니다.
 
-자세한 내용은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)를 참조하세요.
+자세한 내용은 [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events)를 참조하세요.
 
 ## 카탈로그 {#catalogs}
 
@@ -43,13 +43,13 @@ description: "커스텀 데이터는 Braze에서 참여 전략을 강화합니�
 
 CSV 또는 API를 통해 이 메타데이터를 가져오면 고객 프로필에 저장되지 않은 정보로 메시지를 풍부하게 만들 수 있습니다. 예를 들어, 카탈로그를 사용하여 고객이 이전에 조회한 항목이 재입고되었거나 가격이 인하되었을 때 자동으로 알림을 보낼 수 있습니다.
 
-자세한 내용은 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs/)를 참조하세요.
+자세한 내용은 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs)를 참조하세요.
 
 ## 데이터 유형 {#data-types}
 
 Braze는 커스텀 데이터에 대해 부울, 숫자, 문자열, 배열, 시간, 오브젝트 유형 등 여러 데이터 유형을 지원하며, 각각 고유한 동작과 세분화 옵션이 있습니다. 선택하는 데이터 유형에 따라 Campaign과 Segment에서 필터링하고 개인화하는 방법이 달라집니다.
 
-커스텀 속성, 이벤트 등록정보, 카탈로그에 대해 지원되는 데이터 유형의 전체 참조는 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/)을 확인하세요.
+커스텀 속성, 이벤트 등록정보, 카탈로그에 대해 지원되는 데이터 유형의 전체 참조는 [데이터 유형]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types)을 확인하세요.
 
 ## 데이터 무결성 관리 {#managing-your-data-integrity}
 
@@ -66,4 +66,4 @@ Braze는 속성에 대해 처음 수신한 값의 데이터 유형(숫자 또는
 - **차단 목록:** 해당 오브젝트에 대한 새 데이터 수집을 중지합니다. 필터나 그래프에 데이터가 표시되지 않지만 프로필의 기존 데이터는 유지됩니다.
 - **삭제:** 모든 고객 프로필에서 데이터를 영구적으로 제거합니다. 삭제하려면 먼저 데이터 오브젝트를 7일 동안 차단 목록에 등록해야 합니다.
 
-자세한 내용은 [커스텀 데이터 관리]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/) 및 [커스텀 데이터 차단 목록]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)을 참조하세요.
+자세한 내용은 [커스텀 데이터 관리]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data) 및 [커스텀 데이터 차단 목록]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data)을 참조하세요.

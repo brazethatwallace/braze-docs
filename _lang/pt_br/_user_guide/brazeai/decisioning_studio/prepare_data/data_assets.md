@@ -18,7 +18,7 @@ Os três ativos de eventos obrigatórios (ativações, engajamentos e conversõe
 - **Engajamentos** informam ao modelo como os clientes responderam à mensagem
 - **Conversões** informam ao modelo se o resultado de negócio desejado foi alcançado
 
-Cada um desses ativos deve ser estruturado como um fluxo de eventos incremental (não um snapshot). Consulte [Snapshots versus fluxos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) para mais detalhes.
+Cada um desses ativos deve ser estruturado como um fluxo de eventos incremental (não um snapshot). Consulte [Snapshots versus fluxos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) para mais detalhes.
 
 {% alert note %}
 Se o Decisioning Studio estiver integrado nativamente à sua plataforma de engajamento com clientes (como a Braze ou o Salesforce Marketing Cloud), os dados de ativação e engajamento podem ser coletados automaticamente sem configuração adicional. Consulte a documentação de configuração para confirmar.
@@ -57,7 +57,7 @@ Os dados de conversão descrevem o que aconteceu com o cliente após uma recomen
 | Cada registro tem um timestamp de quando o evento de conversão ocorreu | A precisão do timing é essencial para a atribuição. O modelo precisa saber a qual recomendação uma conversão pode ser atribuída. |
 | Se estiver usando uma métrica de sucesso não binária (por exemplo, receita em vez de convertido ou não convertido), o valor da métrica deve ser incluído em cada registro de conversão | O Decisioning Studio usa o valor da métrica para gerar experiências de treinamento. Sem o valor, o modelo só consegue aprender que uma conversão aconteceu, não o quão valiosa ela foi. |
 | Se as conversões podem ser atribuídas diretamente a uma comunicação específica (por exemplo, resgate de cupom), inclua os campos necessários para associar a conversão ao registro de ativação | A atribuição direta fornece ao modelo o sinal de aprendizado mais claro. Se a atribuição direta não for possível, o Decisioning Studio usa atribuição baseada em proximidade como fallback. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Dados de conversões" }
 
 ## Ativos opcionais {#optional-assets}
 

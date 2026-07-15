@@ -17,7 +17,7 @@ channel: push
 
 **지원 플랫폼:** 웹, Android, iOS
 
-자세한 내용은 [푸시 메시지 만들기]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/)를 참조하세요.
+자세한 내용은 [푸시 메시지 만들기]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)를 참조하세요.
 
 ## 웹 푸시 {#web-push}
 
@@ -25,7 +25,7 @@ channel: push
 
 **지원 플랫폼:** 웹
 
-자세한 내용은 [웹 푸시 알림]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web/)을 참조하세요.
+자세한 내용은 [웹 푸시 알림]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web)을 참조하세요.
 
 ## 푸시 프라이머 Campaign {#push-primer-campaigns}
 
@@ -33,7 +33,7 @@ channel: push
 
 **지원 플랫폼:** 웹, Android, iOS
 
-자세한 내용은 [푸시 프라이머 인앱 메시지]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)를 참조하세요.
+자세한 내용은 [푸시 프라이머 인앱 메시지]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)를 참조하세요.
 
 ## Push Stories
 
@@ -41,7 +41,7 @@ Push Stories는 캐러셀 형태의 시각적 여정을 통해 사용자를 안�
 
 **지원 플랫폼:** iOS, Android
 
-자세한 내용은 [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories/)를 참조하세요.
+자세한 내용은 [Push Stories]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_stories)를 참조하세요.
 
 ## 푸시 실행 버튼 {#push-with-action-buttons}
 
@@ -49,7 +49,7 @@ Push Stories는 캐러셀 형태의 시각적 여정을 통해 사용자를 안�
 
 **지원 플랫폼:** 웹, Android, iOS
 
-자세한 내용은 [푸시 실행 버튼]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons/)을 참조하세요.
+자세한 내용은 [푸시 실행 버튼]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/push_action_buttons)을 참조하세요.
 
 ## 리치 푸시 알림 {#rich-push-notifications}
 
@@ -57,7 +57,7 @@ Push Stories는 캐러셀 형태의 시각적 여정을 통해 사용자를 안�
 
 **지원 플랫폼:** iOS, Android
 
-자세한 내용은 [iOS용 리치 알림 만들기]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications/) 또는 [Android용 리치 알림 만들기]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications/)를 참조하세요.
+자세한 내용은 [iOS용 리치 알림 만들기]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/rich_notifications) 또는 [Android용 리치 알림 만들기]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/rich_notifications)를 참조하세요.
 
 ## iOS 임시 푸시 알림 {#provisional-push-notifications-for-ios}
 
@@ -65,7 +65,7 @@ Apple이 iOS 12에서 도입한 임시 승인은 iOS 앱 설치 시 자동으로
 
 **지원 플랫폼:** iOS
 
-자세한 내용은 [iOS 알림 옵션]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/#provisional-push)을 참조하세요.
+자세한 내용은 [iOS 알림 옵션]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options#provisional-push)을 참조하세요.
 
 ## HTML 푸시 알림 {#html-push-notifications}
 
@@ -79,7 +79,7 @@ HTML 푸시 알림은 Braze에서 제공하는 사전 설정된 푸시 템플릿
 
 **지원 플랫폼:** iOS, Android
 
-자세한 내용은 [알림 채널]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels/) 및 [고급 푸시 Campaign 설정]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings/)을 참조하세요.
+자세한 내용은 [알림 채널]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/notification_channels) 및 [고급 푸시 Campaign 설정]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/android/advanced_campaign_settings)을 참조하세요.
 
 ## 백그라운드 또는 무음 푸시 알림 {#background-push-notifications}
 
@@ -87,7 +87,7 @@ HTML 푸시 알림은 Braze에서 제공하는 사전 설정된 푸시 템플릿
 
 **지원 플랫폼:** 웹, Android, iOS
 
-자세한 내용은 [무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent/)을 참조하세요.
+자세한 내용은 [무음 푸시 알림]({{site.baseurl}}/developer_guide/push_notifications/silent)을 참조하세요.
 
 ## 웨어러블 푸시 알림 {#wearable-push-notifications}
 

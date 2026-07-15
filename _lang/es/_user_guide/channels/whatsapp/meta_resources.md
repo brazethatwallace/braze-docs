@@ -91,7 +91,7 @@ Para obtener más información, consulta la documentación de Meta sobre [archiv
 - Anteriormente abierto a todos los clientes a través de WhatsApp Manager
 - Ahora restringido a: gobierno/grandes anunciantes de Meta, anunciantes directos o a través de un BSP como Braze (hasta 5 por semana)
 - Nuevos requisitos previos: verificación de empresa, verificación en dos pasos, nombre para mostrar aprobado, notoriedad
-- Ponte en contacto con tu administrador del éxito del cliente para obtener asistencia
+- Ponte en contacto con tu administrador de éxito de cliente para obtener asistencia
 
 ### Octubre de 2025: Reducciones de tarifas de precios regionales {#october-2025-regional-pricing-rate-cuts}
 *Última actualización en marzo de 2026*
@@ -135,12 +135,12 @@ Meta limitará la cantidad de mensajes de plantilla de marketing que un usuario 
 
 Una excepción es que, si una persona responde a un mensaje de marketing, se iniciará una ventana de servicio al cliente de 24 horas. Los mensajes de marketing enviados dentro de esta ventana no contarán para el límite de esa persona.
 
-El límite específico varía según el usuario, dependiendo de su nivel de interacción. Obtén más información sobre los límites de mensajes de plantilla de marketing por usuario de WhatsApp [aquí](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
+El límite específico varía según el usuario, dependiendo de su nivel de interacción. Obtén más información sobre los límites de mensajes de plantilla de marketing por usuario de WhatsApp en la [documentación de límites de mensajes de plantilla de marketing por usuario de WhatsApp](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates#per-user-marketing-template-message-limits).
 
 ### Enero de 2025: WhatsApp pausará el envío de mensajes de marketing a usuarios de EE. UU. a partir del 1 de abril {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *Última actualización en enero de 2025*
 
-WhatsApp pausará el envío de mensajes de marketing a usuarios de EE. UU. (personas con números de teléfono de EE. UU.) a partir del 1 de abril de 2025. Los mensajes de [utilidad, servicio, autenticación](https://developers.facebook.com/docs/whatsapp/pricing/) y los [mensajes de respuesta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#response-messages) seguirán estando permitidos en EE. UU.
+WhatsApp pausará el envío de mensajes de marketing a usuarios de EE. UU. (personas con números de teléfono de EE. UU.) a partir del 1 de abril de 2025. Los mensajes de [utilidad, servicio, autenticación](https://developers.facebook.com/docs/whatsapp/pricing/) y los [mensajes de respuesta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) seguirán estando permitidos en EE. UU.
 
 El envío de mensajes de marketing (además de todos los demás tipos de mensajes) a todos los demás países o regiones sigue estando permitido y no se verá afectado.
 
@@ -236,7 +236,7 @@ El año pasado, WhatsApp introdujo el ritmo de plantillas para mensajes de marke
 
 WhatsApp está probando nuevos enfoques, comenzando con los consumidores en India, para crear experiencias más valiosas y maximizar la interacción con las conversaciones de marketing de las empresas. Esto puede incluir limitar la cantidad de conversaciones de marketing que una persona recibe de cualquier empresa en un período determinado, comenzando con un pequeño número de conversaciones que tienen menos probabilidades de ser leídas. Braze recibirá un código de error si un mensaje no se entrega.
 
-WhatsApp comenzará a considerar las tasas de lectura como parte de la calificación de calidad para las plantillas de marketing, junto con las métricas tradicionales como bloqueos e informes. WhatsApp puede pausar temporalmente las Campaigns de mensajes de marketing con tasas de lectura bajas, dando a las empresas tiempo para iterar en las plantillas con menor interacción antes de escalar el volumen a partir del 1 de abril de 2024.
+WhatsApp comenzará a considerar las tasas de lectura como parte de la calificación de calidad para las plantillas de marketing, junto con las métricas tradicionales como bloqueos e informes. WhatsApp puede pausar temporalmente las campañas de mensajes de marketing con tasas de lectura bajas, dando a las empresas tiempo para iterar en las plantillas con menor interacción antes de escalar el volumen a partir del 1 de abril de 2024.
 
 ### Febrero de 2024: Experimentación con conversaciones de marketing {#february-2024-marketing-conversations-experimentation}
 *Última actualización en febrero de 2024*
@@ -246,7 +246,7 @@ A partir del 6 de febrero de 2024, WhatsApp está probando nuevos enfoques, come
 ### Octubre de 2023: Ritmo de plantillas {#october-2023-template-pacing}
 *Última actualización en octubre de 2023*
 
-A partir del 12 de octubre de 2023, WhatsApp está introduciendo un concepto llamado "ritmo de plantillas" para mensajes de marketing. En lugar de enviar tu mensaje a toda la audiencia de tu Campaign simultáneamente, el "ritmo de plantillas" entrega inicialmente el mensaje a un subconjunto más pequeño de usuarios para recopilar comentarios en tiempo real de los destinatarios de la Campaign antes de enviar los mensajes restantes.
+A partir del 12 de octubre de 2023, WhatsApp está introduciendo un concepto llamado "ritmo de plantillas" para mensajes de marketing. En lugar de enviar tu mensaje a toda la audiencia de tu campaña simultáneamente, el "ritmo de plantillas" entrega inicialmente el mensaje a un subconjunto más pequeño de usuarios para recopilar comentarios en tiempo real de los destinatarios de la campaña antes de enviar los mensajes restantes.
 
 El "límite de ritmo" (el subconjunto inicial de mensajes enviados) es variable dependiendo de la plantilla. Después del envío inicial, WhatsApp retendrá los mensajes restantes durante un máximo de 30 minutos. Durante este período de retención, evalúan la calidad de la plantilla en función de los comentarios de los clientes. Si los comentarios son positivos, lo que indica una plantilla de alta calidad, entregan los mensajes restantes. Si los comentarios son negativos, descartan los mensajes restantes no entregados, evitando más comentarios negativos de una porción mayor de tus clientes y ayudándote a evitar posibles problemas de cumplimiento de calidad (como impactos en la calificación de calidad del número de teléfono).
 
@@ -254,7 +254,7 @@ Ten en cuenta que WhatsApp utiliza el mismo sistema para evaluar la calidad de l
 
 En última instancia, esta actualización te proporciona un ciclo de retroalimentación más rápido (30 minutos en comparación con horas o días con la pausa de plantillas), para que puedas ajustar tus plantillas y proporcionar una mejor experiencia del cliente.
 
-**Si tienes más preguntas sobre esta actualización, ponte en contacto con tu representante socio de Meta.**
+**Si tienes más preguntas sobre esta actualización, ponte en contacto con tu representante partner de Meta.**
 
 ### Junio de 2023: Experimentación de mensajería {#june-2023-messaging-experimentation}
 *Última actualización en junio de 2023*

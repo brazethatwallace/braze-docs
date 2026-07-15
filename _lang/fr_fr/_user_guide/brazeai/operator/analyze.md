@@ -12,7 +12,7 @@ hidden: true
 > Operator Analyze répond à des questions de performance en langage naturel dans BrazeAI Operator<sup>TM</sup>. Les réponses incluent des graphiques, des comparaisons et de courtes informations exploitables. Vous n'avez pas besoin de créer un tableau de bord ni de générer un rapport complet au préalable.
 
 {% alert important %}
-Operator Analyze est actuellement en version bêta. Les fonctionnalités et les analyses prises en charge évoluent. Pour demander l'accès pour votre compte, contactez votre gestionnaire de la satisfaction client.
+Operator Analyze est actuellement en version bêta. Les fonctionnalités et les analyses prises en charge évoluent. Pour demander l'accès pour votre compte, contactez votre gestionnaire du succès des clients.
 {% endalert %}
 
 ## Pourquoi utiliser Operator Analyze ? {#why-use-operator-analyze}
@@ -29,7 +29,7 @@ Operator Analyze s'exécute dans le panneau de conversation Operator.
 2. Posez une question sur l'engagement d'un canal ou les comparaisons de benchmarks (voir [Exemples de questions](#example-questions)).
 3. Operator renvoie la réponse et, le cas échéant, un graphique ou un tableau ainsi qu'une courte liste d'informations exploitables.
 
-Pour en savoir plus sur le panneau de conversation Operator, consultez [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+Pour en savoir plus sur le panneau de conversation Operator, consultez [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ## Exemples de questions {#example-questions}
 
@@ -102,7 +102,7 @@ Le *chiffre d'affaires attribué* et les *conversions* utilisent la même agrég
 | Content Cards | *Envois*, *Impressions*, *Clics* | Oui |
 | WhatsApp | *Envois*, *Livraisons*, *Lectures*, *Clics* | Pas encore |
 | RCS | *Envois*, *Livraisons*, *Lectures*, *Clics* (y compris les sous-types URL texte, bouton, action, action de réponse et bouton de réponse) | Pas encore |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Supported channels, metrics, and benchmark availability" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Canaux pris en charge, indicateurs et disponibilité des benchmarks" }
 
 {% alert tip %}
 Operator utilise des comptages uniques pour les taux (par exemple, *ouvertures uniques* divisées par les *livraisons* pour le *taux d'ouverture e-mail*). Si un chiffre diffère d'un tableau de bord, comparez la fenêtre d'attribution, la période et la définition. Operator indique ces trois éléments dans chaque réponse.
@@ -110,7 +110,7 @@ Operator utilise des comptages uniques pour les taux (par exemple, *ouvertures u
 
 ## Périodes et fenêtres d'attribution {#time-periods-and-attribution-windows}
 
-### Exercice fiscal vs. année civile {#fiscal-year-vs-calendar-year}
+### Exercice fiscal et année civile {#fiscal-year-vs-calendar-year}
 
 Operator Analyze utilise par défaut l'**exercice fiscal Braze**, qui s'étend du 1er février au 31 janvier.
 
@@ -120,7 +120,7 @@ Operator Analyze utilise par défaut l'**exercice fiscal Braze**, qui s'étend d
 | FQ2 | Mai – Juil |
 | FQ3 | Août – Oct |
 | FQ4 | Nov – Jan |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Braze fiscal quarters and calendar months" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Trimestres fiscaux Braze et mois correspondants" }
 
 Pour les questions relatives à l'année civile, incluez « CY », « année civile » ou « année standard ». Les formulations ambiguës comme « l'année dernière » amènent Operator à vous demander de préciser le calendrier concerné.
 
@@ -140,14 +140,14 @@ Si les résultats diffèrent de plus de 50 % d'une fenêtre à l'autre, Operator
 
 ## Fraîcheur des données {#data-freshness}
 
-Les données sont actualisées quotidiennement. L'activité du jour en cours apparaît après la prochaine actualisation. Chaque réponse indique la date la plus récente du jeu de données. Si cette date semble obsolète, contactez votre gestionnaire de la satisfaction client.
+Les données sont actualisées quotidiennement. L'activité du jour en cours apparaît après la prochaine actualisation. Chaque réponse indique la date la plus récente du jeu de données. Si cette date semble obsolète, contactez votre gestionnaire du succès des clients.
 
 ## Ce qui est hors périmètre {#whats-out-of-scope}
 
-* **Analyses de performance au niveau produit.** Le *chiffre d'affaires attribué* et l'engagement sont agrégés au niveau de la campagne, du Canvas, du canal ou du programme. Ils ne sont pas ventilés par produit ou par unité de gestion des stocks. Les questions au niveau produit ou unité de gestion des stocks ne sont pas prises en charge. Contactez votre gestionnaire de la satisfaction client pour ces analyses.
+* **Analyses de performance au niveau produit.** Le *chiffre d'affaires attribué* et l'engagement sont agrégés au niveau de la campagne, du Canvas, du canal ou du programme. Ils ne sont pas ventilés par produit ou par unité de gestion des stocks. Les questions au niveau produit ou unité de gestion des stocks ne sont pas prises en charge. Contactez votre gestionnaire du succès des clients pour ces analyses.
 * **Benchmarks du secteur pour WhatsApp et RCS.** Les indicateurs d'engagement pour ces deux canaux sont pris en charge. Les benchmarks ne sont pas encore disponibles.
 
-Les questions hors périmètre reçoivent une réponse directe, une alternative suggérée lorsque c'est possible, ou une orientation vers votre gestionnaire de la satisfaction client.
+Les questions hors périmètre reçoivent une réponse directe, une alternative suggérée lorsque c'est possible, ou une orientation vers votre gestionnaire du succès des clients.
 
 ## Conseils pour de meilleurs résultats {#tips-for-better-results}
 
@@ -159,9 +159,9 @@ Les questions hors périmètre reçoivent une réponse directe, une alternative 
 
 ## Confidentialité et sécurité des données {#data-privacy-and-security}
 
-Operator Analyze suit le même modèle de confidentialité et de sécurité que BrazeAI Operator<sup>TM</sup>. Pour en savoir plus, consultez [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/#data-privacy-and-security).
+Operator Analyze suit le même modèle de confidentialité et de sécurité que BrazeAI Operator<sup>TM</sup>. Pour en savoir plus, consultez [Confidentialité et sécurité des données]({{site.baseurl}}/user_guide/brazeai/operator/data_privacy_security).
 
 ## Étapes suivantes {#next-steps}
 
-* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/)
-* [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions/)
+* [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)
+* [Vérifier les actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)

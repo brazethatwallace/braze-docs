@@ -10,7 +10,7 @@ page_order: 1
 
 # Shopify 표준 통합 설정 {#shopify-standard-integration-setup}
 
-> 이 페이지에서는 Shopify 온라인 스토어를 사용하는 사용자를 위한 표준 통합을 사용하여 Braze와 Shopify를 통합하는 방법을 안내합니다. Shopify 헤드리스 사이트를 사용하거나 더 맞춤화된 솔루션을 구현하려는 경우 [Shopify 커스텀 통합 설정]({{site.baseurl}}/shopify_custom_integration/)을 참조하세요.
+> 이 페이지에서는 Shopify 온라인 스토어를 사용하는 사용자를 위한 표준 통합을 사용하여 Braze와 Shopify를 통합하는 방법을 안내합니다. Shopify 헤드리스 사이트를 사용하거나 더 맞춤화된 솔루션을 구현하려는 경우 [Shopify 커스텀 통합 설정]({{site.baseurl}}/shopify_custom_integration)을 참조하세요.
 
 ## 1단계: Shopify 스토어 연결 {#step-1-connect-your-shopify-store}
 
@@ -19,7 +19,7 @@ page_order: 1
 3. Shopify 앱 스토어에서 Braze 애플리케이션을 설치합니다.<br><br>![애플리케이션 설치 버튼이 있는 Braze 앱 스토어 페이지.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
-Shopify 계정이 둘 이상의 스토어와 연결되어 있는 경우 페이지 오른쪽 상단의 스토어 아이콘을 선택하고 **Switch stores**를 선택하여 로그인한 스토어를 변경할 수 있습니다.
+Shopify 계정이 둘 이상의 스토어와 연결되어 있는 경우 헤더의 스토어 아이콘을 선택하고 **Switch stores**를 선택하여 로그인한 스토어를 변경할 수 있습니다.
 {% endalert %}
 
 {: start="4"}
@@ -56,9 +56,9 @@ Shopify 온라인 스토어의 경우 표준 설정을 선택하여 Braze Web SD
 | Braze 권장 이벤트 | Shopify 커스텀 이벤트 | Shopify 커스텀 속성 |
 | --- | --- | --- |
 | {::nomarkdown}<ul><li>Product viewed</li><li>Cart updated</li><li>Checkout started</li><li>Order placed</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Standard data setup" }
+{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="표준 데이터 설정" }
 
-통합을 통해 추적되는 데이터에 대한 자세한 내용은 [Shopify 데이터 기능]({{site.baseurl}}/shopify_data_features/)을 참조하세요.
+통합을 통해 추적되는 데이터에 대한 자세한 내용은 [Shopify 데이터 기능]({{site.baseurl}}/shopify_data_features)을 참조하세요.
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -66,7 +66,7 @@ Shopify 온라인 스토어의 경우 표준 설정을 선택하여 Braze Web SD
 
 **Track Shopify data** 단계에서 통합의 일부로 초기 과거 데이터 로드를 포함하려면 체크박스를 선택합니다.
 
-가져오는 항목, 매출 보고 동작, 설정 스크린샷, 그리고 활성 Campaigns 또는 Canvases와 함께 이미 Braze를 사용하고 있는 경우의 안내는 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features/#historical-backfill)을 참조하세요.
+가져오는 항목, 매출 보고 동작, 설정 스크린샷, 그리고 활성 Campaigns 또는 Canvases와 함께 이미 Braze를 사용하고 있는 경우의 안내는 [과거 데이터 백필]({{site.baseurl}}/partners/ecommerce/shopify/shopify_data_features#historical-backfill)을 참조하세요.
 
 ### (고급) 커스텀 데이터 추적 설정 {#advanced-custom-data-tracking-setup}
 
@@ -116,7 +116,7 @@ braze.logCustomEvent(
   “subscribed_to_newsletter”,
   {
     newsletterName: ‘News and Offers’,
-    customerEmail: ‘customer_1@gmail.com’,
+    customerEmail: ‘customer_1@example.com’,
     sendOffers: true
   }
 );
@@ -184,12 +184,12 @@ Braze는 다음 매개변수를 엔드포인트로 전송합니다:
 | shopify_customer_id  | 예      | 문자열    | Shopify 고객 ID입니다.                                         |
 | shopify_storefront   | 예      | 문자열    | 요청에 대한 스토어프론트 이름입니다. 예: `<storefront_name>.myshopify.com` |
 | email_address        | 아니요       | 문자열    | 로그인한 사용자의 이메일 주소입니다. <br><br>특정 웹훅 시나리오에서는 이 필드가 누락될 수 있습니다. 엔드포인트 로직에서 null 값을 처리할 수 있어야 합니다(예: 내부 로직에 필요한 경우 shopify_customer_id를 사용하여 이메일을 가져옵니다). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Endpoint specifications" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="엔드포인트 사양" }
 
 #### 엔드포인트 예시 {#example-endpoint}
 
 ```http
-GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@braze.com&shopify_storefront=dev-store.myshopify.com
+GET https://mystore.com/custom_id?shopify_customer_id=1234&email_address=bob@example.com&shopify_storefront=dev-store.myshopify.com
 ```
 
 #### 예상 응답 {#expected-response}
@@ -229,14 +229,14 @@ Shopify에서 이메일 또는 SMS 마케팅 옵트인을 수집하는 옵션이
 ![이메일 또는 SMS 마케팅 옵트인을 수집하는 옵션이 있는 "Collect subscribers" 섹션.]({% image_buster /assets/img/shopify/collect_email_subscribers.png %})
 
 {% alert note %}
-[Shopify 개요]({{site.baseurl}}/shopify_overview/)에서 언급한 바와 같이, 서드파티 캡처 양식을 사용하려면 개발자가 Braze SDK 코드를 통합해야 합니다. 이를 통해 양식 제출에서 이메일 주소와 글로벌 이메일 구독 상태를 캡처할 수 있습니다. 구체적으로 `theme.liquid` 파일에 다음 메서드를 구현하고 테스트해야 합니다:<br><br>
+[Shopify 개요]({{site.baseurl}}/shopify_overview)에서 언급한 바와 같이, 서드파티 캡처 양식을 사용하려면 개발자가 Braze SDK 코드를 통합해야 합니다. 이를 통해 양식 제출에서 이메일 주소와 글로벌 이메일 구독 상태를 캡처할 수 있습니다. 구체적으로 `theme.liquid` 파일에 다음 메서드를 구현하고 테스트해야 합니다:<br><br>
 - [setEmail](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemail): 고객 프로필에 이메일 주소를 설정합니다
 - [setEmailNotificationSubscriptionType](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#setemailnotificationsubscriptiontype): 글로벌 이메일 구독 상태를 업데이트합니다
 {% endalert %}
 
 ## 5단계: 제품 동기화(선택 사항) {#step-5-sync-products-optional}
 
-Shopify 스토어의 모든 제품을 Braze 카탈로그에 동기화하여 더 깊은 메시징 개인화를 구현할 수 있습니다. 자동 업데이트가 거의 실시간으로 이루어지므로 카탈로그에 최신 제품 세부 정보가 반영됩니다. 자세한 내용은 [Shopify 제품 동기화]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs/)를 확인하세요.
+Shopify 스토어의 모든 제품을 Braze 카탈로그에 동기화하여 더 깊은 메시징 개인화를 구현할 수 있습니다. 자동 업데이트가 거의 실시간으로 이루어지므로 카탈로그에 최신 제품 세부 정보가 반영됩니다. 자세한 내용은 [Shopify 제품 동기화]({{site.baseurl}}/partners/ecommerce/shopify/shopify_catalogs)를 확인하세요.
 
 ![카탈로그 제품 식별자로 "Shopify Variant ID"가 설정된 설정 프로세스의 4단계.]({% image_buster /assets/img/shopify/sync_products_step1.png %}){: style="max-width:80%;"}
 
@@ -256,11 +256,11 @@ Braze SDK는 Content Cards를 포함한 다양한 메시징 채널을 지원합�
 
 #### Content Cards 및 피처 플래그 {#content-cards-and-feature-flags}
 
-Content Cards 또는 피처 플래그를 추가하려면 개발자와 협력하여 필요한 SDK 코드를 `theme.liquid` 파일에 직접 삽입해야 합니다. 자세한 지침은 [Braze SDK 통합]({{site.baseurl}}/developer_guide/sdk_integration/)을 참조하세요.
+Content Cards 또는 피처 플래그를 추가하려면 개발자와 협력하여 필요한 SDK 코드를 `theme.liquid` 파일에 직접 삽입해야 합니다. 자세한 지침은 [Braze SDK 통합]({{site.baseurl}}/developer_guide/sdk_integration)을 참조하세요.
 
 #### 웹 푸시 알림 {#web-push-notifications}
 
-현재 웹 푸시는 Shopify 통합에서 지원되지 않습니다. 지원을 요청하려면 [Braze 제품 포털]({{site.baseurl}}/user_guide/administer/personal/product_portal/)을 통해 제품 요청을 제출하세요.
+현재 웹 푸시는 Shopify 통합에서 지원되지 않습니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="web push for the Shopify integration" %}
 
 ## 7단계: 설정 완료 {#step-7-finish-setup}
 

@@ -30,11 +30,11 @@ Um mit der Erstellung Ihrer Produktankündigung zu beginnen, wählen Sie die But
 
 ![Der In-App-Nachrichten-Editor mit einem Seitenmenü zum Anpassen des Button-Elements.]({% image_buster /assets/img/drag_and_drop/templates/product_announcement_button.png %})
 
-Sie können auch zusätzliche Nachrichten zu Ihrer Produktankündigung im Abschnitt **Seiten** hinzufügen und diese dann sequenziell miteinander verknüpfen. Zum Beispiel können Sie eine Abfolge von Nachrichten zusammenstellen, die kurz die Funktionen des Produkts beschreiben und mit einem Button enden, der Nutzer:innen zur Produktseite führt. Erfahren Sie, wie das funktioniert, unter [Seiten miteinander verbinden]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together).
+Sie können auch zusätzliche Nachrichten zu Ihrer Produktankündigung im Abschnitt **Seiten** hinzufügen und diese dann sequenziell miteinander verknüpfen. Zum Beispiel können Sie eine Abfolge von Nachrichten zusammenstellen, die kurz die Funktionen des Produkts beschreiben und mit einem Button enden, der Nutzer:innen zur Produktseite führt. Erfahren Sie, wie das funktioniert, unter [Seiten miteinander verbinden]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together).
 
 ### 4. Schritt: Nachricht gestalten {#step-4-style-your-message}
 
-Passen Sie das Erscheinungsbild Ihrer Produktankündigung mithilfe der Drag-and-Drop-[Komponenten für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components) an.
+Passen Sie das Erscheinungsbild Ihrer Produktankündigung mithilfe der Drag-and-Drop-[Komponenten für In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components) an.
 
 ## Ergebnisse analysieren {#analyzing-the-results}
 

@@ -6,6 +6,8 @@ description: "Braze Android SDK README reference mirrored from GitHub."
 ---
 
 <!-- BEGIN GENERATED README CONTENT -->
+# Android SDK repository guide
+
 ## About the Braze Android SDK
 
 The Braze Android SDK helps you integrate Braze messaging, analytics, and user engagement capabilities into your application.
@@ -52,7 +54,7 @@ For more information about advanced integration options, see the [Braze Develope
 ## Version support
 
 {% alert important %}
-The Braze Android SDK declares a `minSdkVersion` of API 21+, which allows the SDK to compile into apps supporting as early as API 21. While the SDK compiles for those versions, Braze doesn't provide formal support for API versions below 25, and the SDK may not work as intended on devices running those versions.
+The Braze Android SDK declares a `minSdkVersion` of API 21+, which allows the SDK to compile into apps supporting as early as API 21. While the SDK compiles for those versions, Braze doesn't provide formal support for API versions lower than 25, and the SDK may not work as intended on devices running those versions.
 
 If your app supports those versions, do the following:
 

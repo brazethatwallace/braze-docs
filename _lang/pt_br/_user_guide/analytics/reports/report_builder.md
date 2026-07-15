@@ -38,7 +38,7 @@ O vídeo a seguir apresenta uma visão geral de como criar e personalizar relat�
 
     Observe que sua seleção de **Rows** afetará [as métricas que você pode visualizar](#metrics-availability). Por exemplo, você pode visualizar métricas multivariantes somente se gerar o relatório sobre **Canvas** ou **Campaigns** com um detalhamento por **Variant**. Não é possível visualizar essas métricas ao gerar relatórios sobre **Campaigns and Canvases**, mesmo que essas Campaigns e Canvas tenham testes multivariantes.
 
-![A seção "Rows and columns" com campos para selecionar as linhas e agrupamentos do seu relatório.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
+![A seção "Linhas e colunas" com campos para selecionar as linhas e agrupamentos do seu relatório.]({% image_buster /assets/img/report_builder_2/rows_and_columns.png %}){: style="width:90%;"}
 
 {: start="4"}
 4. (Opcional) Selecione **Add drilldown** para dividir seus dados em visualizações mais detalhadas:
@@ -58,7 +58,7 @@ Experimente diferentes configurações de opções de detalhamento para explorar
 {: start="5"}
 5. Na seção **Columns**, selecione **Customize Metrics**.
 
-![A seção "Customize Metrics" com opções para selecionar múltiplas métricas.]({% image_buster /assets/img/report_builder_2/customize_metrics.png %}){: style="width:90%;"}
+![A seção "Personalizar métricas" com opções para selecionar múltiplas métricas.]({% image_buster /assets/img/report_builder_2/customize_metrics.png %}){: style="width:90%;"}
 
 {: start="6"}
 6. Navegue pelas métricas por categoria e marque a caixa de seleção correspondente para adicionar uma métrica ao seu relatório.
@@ -79,7 +79,7 @@ O relatório pode levar alguns minutos para ser executado, dependendo do interva
 Sua seleção de **Rows** afeta as métricas que você pode selecionar.
 
 {% alert tip %}
-Se você deseja gerar relatórios sobre variantes ou etapas de Canvas, selecione **Canvases** para as linhas e deixe o campo vazio ou selecione **Date** como detalhamento. Isso cria um menu suspenso **Canvas View** para ver métricas apenas do Canvas, ou agrupar métricas por variante, etapa ou mensagem.
+Se você deseja gerar relatórios sobre variantes ou etapas de Canvas, selecione **Canvases** para as linhas e deixe o campo vazio ou selecione **Date** como detalhamento. Isso cria um menu suspenso **Canvas View** para visualizar métricas apenas do Canvas, ou agrupar métricas por variante, etapa ou mensagem.<br><br> Quando você agrupa por etapa, a tabela de prévia durante a configuração do relatório exibe no máximo 50 linhas. Execute o relatório ou exporte-o como CSV para visualizar todas as linhas.
 
 ![O menu suspenso "Canvas View" aberto.]({% image_buster /assets/img/report_builder_2/canvas_view_dropdown.png %}){: style="width:40%;"}
 {% endalert %}
@@ -143,7 +143,7 @@ Você pode compartilhar um link do dashboard para o relatório selecionando **Sh
 1. Selecione o ícone pontilhado no topo da tabela do relatório.
 2. Selecione **Add to dashboard**.
 3. Selecione se deseja criar um novo dashboard ou adicionar a um dashboard existente.<br><br>![Janela com opções para selecionar se você deseja adicionar o relatório a um dashboard novo ou existente.]({% image_buster /assets/img/report_builder_2/add_to_dashboard.png %}){: style="width:90%;"}<br><br>
-4. Siga as etapas em [Criador de dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/) para saber mais sobre como construir um dashboard.
+4. Siga as etapas em [Criador de dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder) para saber mais sobre como construir um dashboard.
 
 ## Solução de problemas {#troubleshooting}
 
@@ -152,3 +152,9 @@ Você pode compartilhar um link do dashboard para o relatório selecionando **Sh
 Uma Campaign ou Canvas aparece no relatório quando sua data de **Last sent** está dentro do período de **Last sent** que você configurou. **Sends** e outras métricas são preenchidos apenas para atividades dentro do intervalo de datas de **Show data for**. Se a mensagem não foi enviada durante o período de **Show data for**, a linha ainda pode listar a Campaign ou Canvas com zero envios.
 
 Por exemplo, suponha que **Last sent** seja de 1º de janeiro de 2025 a 14 de abril de 2025, então uma Campaign é incluída, mas **Show data for** é de 1º de dezembro de 2024 a 14 de janeiro de 2025. Se essa Campaign não teve envios em dezembro ou janeiro, ela ainda aparece na tabela sem métricas de envio.
+
+### O link de download expirou {#download-link-has-expired}
+
+Os links de download de relatórios expiram após uma hora. Se o seu link expirou, gere um novo relatório e baixe-o dentro de uma hora. Não é possível estender o tempo de vencimento.
+
+Se você tem um [bucket Amazon S3]({{site.baseurl}}/partners/data_and_infrastructure_agility/cloud_storage/amazon_s3) conectado em **Integrações de parceiros**, pode ser possível recuperar dados de relatórios mais antigos navegando diretamente pelo seu bucket S3.

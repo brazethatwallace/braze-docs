@@ -39,7 +39,7 @@ Zunächst eine Übersicht der Begriffe, die bei dieser Aufgabe verwendet werden.
 | Amazon Resource Name (ARN) | Der ARN ist ein eindeutiger Bezeichner für AWS-Ressourcen. |
 | Identity and Access Management (IAM) | IAM ist ein Webdienst, mit dem Sie den Zugriff auf AWS-Ressourcen sicher kontrollieren können. In dieser Anleitung erstellen Sie eine IAM-Richtlinie und weisen sie einer IAM-Rolle zu, um Ihren S3-Bucket mit Braze Cloud Data Ingestion zu integrieren. |
 | Amazon Simple Queue Service (SQS) | SQS ist eine gehostete Warteschlange, mit der Sie verteilte Softwaresysteme und Komponenten integrieren können. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="AWS definitions" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="AWS-Definitionen" }
 
 ## Cloud-Datenaufnahme in AWS einrichten {#setting-up-cloud-data-ingestion-in-aws}
 
@@ -163,7 +163,7 @@ Um die Einrichtung in AWS abzuschließen, erstellen Sie eine IAM-Rolle und häng
 
 {: start="2"}
 2. Wählen Sie in AWS **Another AWS Account** als Typ für vertrauenswürdige Entitäten aus. Geben Sie Ihre Braze-Konto-ID an. Aktivieren Sie das Kontrollkästchen **Require external ID**.
-3. Gehen Sie in Braze zu **Data Settings** > **Cloud Data Ingestion** > **Sources**, wählen Sie **Add data source** und dann **Amazon S3** im Abschnitt Dateiquellen.
+3. Gehen Sie in Braze zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Sources**, wählen Sie **Add data source** und dann **Amazon S3** im Abschnitt Dateiquellen.
 4. Kopieren Sie die automatisch generierte **Braze Account ID**.
 
 ![Die Seite „Add New Source“ mit den Abschnitten „Source Name“ und „S3 Connection Details“.]({% image_buster /assets/img/braze_account_id.png %})
@@ -174,7 +174,7 @@ Um die Einrichtung in AWS abzuschließen, erstellen Sie eine IAM-Rolle und häng
 ![Die S3-Seite „Create Role“. Diese Seite enthält Felder für den Rollennamen, die Rollenbeschreibung, vertrauenswürdige Entitäten, Richtlinien und die Berechtigungsgrenze.]({% image_buster /assets/img/create_role_2_another.png %})<br><br>
 
 {: start="7"}
-6. Hängen Sie die in Schritt 4 erstellte Richtlinie an die Rolle an. Suchen Sie die Richtlinie in der Suchleiste und setzen Sie ein Häkchen neben der Richtlinie, um sie anzuhängen. Wählen Sie anschließend **Next**.
+6. Hängen Sie die in Schritt 5 erstellte Richtlinie an die Rolle an. Suchen Sie die Richtlinie in der Suchleiste und setzen Sie ein Häkchen neben der Richtlinie, um sie anzuhängen. Wählen Sie anschließend **Next**.
 
 ![Rollen-ARN mit der ausgewählten Richtlinie „new-policy-name“.]({% image_buster /assets/img/create_role_3_attach.png %})
 
@@ -187,7 +187,7 @@ Geben Sie der Rolle einen Namen und eine Beschreibung und wählen Sie **Create R
 
 ## Cloud-Datenaufnahme in Braze einrichten {#setting-up-cloud-data-ingestion-in-braze}
 
-1. Erstellen Sie zunächst eine neue Quelle im Braze-Dashboard. Gehen Sie zu **Data Settings** > **Cloud Data Ingestion** > **Sources**, wählen Sie **Add data source** und dann **Amazon S3**.
+1. Erstellen Sie zunächst eine neue Quelle im Braze-Dashboard. Gehen Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Sources**, wählen Sie **Add data source** und dann **Amazon S3**.
 2. Wählen Sie einen Namen für Ihre Quelle und geben Sie die Informationen aus dem AWS-Einrichtungsprozess ein, um eine neue Quelle zu erstellen. Geben Sie Folgendes an:
 
   - Rollen-ARN
@@ -201,9 +201,7 @@ Geben Sie der Rolle einen Namen und eine Beschreibung und wählen Sie **Create R
 3. Wählen Sie **Test connection**, um zu bestätigen, dass Braze auf Ihren Bucket zugreifen kann. Nach einem erfolgreichen Test wählen Sie **Connect to Source**. Falls die Verbindung fehlschlägt, wird eine Fehlermeldung angezeigt, die bei der Fehlerbehebung hilft.
 
 {: start="4"}
-4. Erstellen Sie als Nächstes eine neue Synchronisierung. Gehen Sie zu **Data Settings** > **Cloud Data Ingestion** > **Syncs** und wählen Sie **Create data sync**.
-
-![Die Seite „Create New Sync“ mit der Konfiguration für Synchronisierungsname und Datenquelle.]({% image_buster /assets/img/cloud_ingestion/s3_ingestion_3.png %})
+4. Erstellen Sie als Nächstes eine neue Synchronisierung. Gehen Sie zu **Dateneinstellungen** > **Cloud-Datenaufnahme** > **Syncs** und wählen Sie **Create data sync**.
 
 {: start="5"}
 5. Wählen Sie einen Namen für Ihre Synchronisierung. Wählen Sie dann eine aktive S3-Quelle aus und geben Sie Ihre Quelltabelle für die Synchronisierung ein. Wählen Sie einen Datentyp und wählen Sie **Test Connection**.
@@ -226,7 +224,7 @@ Cloud Data Ingestion unterstützt JSON-, CSV- und Parquet-Dateien. Die erforderl
 - Nutzerdaten (Attribute, angepasste Events, Kauf-Events) verwenden Nutzer:innen-Bezeichner und eine Nutzlast
 - Katalogdaten verwenden Katalog-Bezeichner
 
-Wenn Sie S3 für Katalogdaten verwenden, nutzen Sie diese Seite zusammen mit [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) für katalogspezifische Anforderungen und Verhaltensweisen.
+Wenn Sie S3 für Katalogdaten verwenden, nutzen Sie diese Seite zusammen mit [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) für katalogspezifische Anforderungen und Verhaltensweisen.
 
 Braze erzwingt keine zusätzlichen Anforderungen an Dateinamen über die von AWS vorgegebenen hinaus. Dateinamen sollten eindeutig sein. Das Anhängen eines Zeitstempels hilft, die Eindeutigkeit sicherzustellen.
 
@@ -243,7 +241,7 @@ Für Nutzerdaten-Synchronisierungen (Attribute, angepasste Events, Kauf-Events) 
 | `BRAZE_ID` | Der Braze-Nutzer:innen-Bezeichner. Dieser wird vom Braze SDK generiert, und neue Nutzer:innen können nicht mit einer Braze-ID über Cloud Data Ingestion erstellt werden. Um neue Nutzer:innen anzulegen, geben Sie eine externe Nutzer-ID oder einen Nutzer-Alias an. |
 | `EMAIL` | Die E-Mail-Adresse der Nutzer:in. Wenn mehrere Profile mit derselben E-Mail-Adresse vorhanden sind, wird das zuletzt aktualisierte Profil bei Updates bevorzugt. Wenn Sie sowohl E-Mail als auch Telefonnummer angeben, verwendet Braze die E-Mail als primären Bezeichner. |
 | `PHONE` | Die Telefonnummer der Nutzer:in. Wenn mehrere Profile mit derselben Telefonnummer vorhanden sind, wird das zuletzt aktualisierte Profil bei Updates bevorzugt. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User identifiers #user-identifiers" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer:innen-Bezeichner" }
 
 Zusätzlich zu einem Bezeichner muss jede Zeile eine `PAYLOAD`-Spalte enthalten, die einen JSON-String mit den Feldern enthält, die Sie mit der Nutzer:in in Braze synchronisieren möchten.
 
@@ -260,7 +258,7 @@ Für Katalog-Synchronisierungen muss Ihre Quelldatei die folgenden Spalten entha
 | `ID` | Ja | Der eindeutige Bezeichner für den Katalogartikel. Wird verwendet, um den Artikel in Braze zu erstellen, zu aktualisieren oder zu löschen. |
 | `PAYLOAD` | Ja | Ein JSON-String mit den Katalogfeldern und -werten, die synchronisiert werden sollen. Muss dem Schema Ihres Katalogs in Braze entsprechen. |
 | `DELETED` | Nein | Wenn `true`, wird der Katalogartikel mit der entsprechenden `ID` aus dem Katalog in Braze entfernt. Lassen Sie diese Spalte weg oder setzen Sie sie auf `false` für Erstell- oder Aktualisierungsvorgänge. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Catalog identifiers #catalog-identifiers" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Katalog-Bezeichner" }
 
 ### Beispiele {#examples}
 
@@ -312,7 +310,7 @@ ID,PAYLOAD,DELETED
 85,"{""product_name"": ""Product 85"", ""price"": 85.85}",false
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
-Fügen Sie eine optionale `DELETED`-Spalte hinzu. Wenn `DELETED` den Wert `true` hat, wird dieser Katalogartikel aus dem Katalog in Braze entfernt. Die vollständige Liste der erforderlichen Spalten finden Sie unter [Katalog-Bezeichner](#catalog-identifiers). Informationen zum Löschverhalten finden Sie unter [Katalogartikel löschen](#deleting-catalog-items). Einen End-to-End-Ablauf für die Katalogeinrichtung (einschließlich Erstellung des Zielkatalogs und Synchronisierungsverhalten) finden Sie unter [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/).
+Fügen Sie eine optionale `DELETED`-Spalte hinzu. Wenn `DELETED` den Wert `true` hat, wird dieser Katalogartikel aus dem Katalog in Braze entfernt. Die vollständige Liste der erforderlichen Spalten finden Sie unter [Katalog-Bezeichner](#catalog-identifiers). Informationen zum Löschverhalten finden Sie unter [Katalogartikel löschen](#deleting-catalog-items). Einen End-to-End-Ablauf für die Katalogeinrichtung (einschließlich Erstellung des Zielkatalogs und Synchronisierungsverhalten) finden Sie unter [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
 {% endtab %}
 
 {% endtabs %}
@@ -339,10 +337,10 @@ Jede Zeile in der Datei muss genau eine Nutzer:in identifizieren, und zwar mit e
 | `EXTERNAL_ID` | Entspricht dem in Braze verwendeten `external_id`. |
 | `ALIAS_NAME` und `ALIAS_LABEL` | Beide Spalten zusammen identifizieren die Nutzer:in anhand des Nutzer-Alias. |
 | `BRAZE_ID` | Von Braze generierte Nutzer-ID (nur für bestehende Nutzer:innen). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Deleting users" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzer:innen löschen" }
 
 {% alert important %}
-Das Löschen von Nutzer:innen ist endgültig und kann nicht rückgängig gemacht werden. Schließen Sie nur Nutzer:innen ein, die Sie tatsächlich entfernen möchten. Weitere Informationen finden Sie unter [Nutzer:innen mit Cloud-Datenaufnahme löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users/).
+Das Löschen von Nutzer:innen ist endgültig und kann nicht rückgängig gemacht werden. Schließen Sie nur Nutzer:innen ein, die Sie tatsächlich entfernen möchten. Weitere Informationen finden Sie unter [Nutzer:innen mit Cloud-Datenaufnahme löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/delete_users).
 {% endalert %}
 
 **Beispiel – JSON (Nutzer:innen löschen):**
@@ -365,7 +363,7 @@ Wenn die Synchronisierung ausgeführt wird, verarbeitet Braze neue Dateien im Bu
 
 So entfernen Sie Artikel aus einem Katalog mithilfe von Dateispeicher:
 
-1. Verwenden Sie dieselbe S3-Synchronisierung, die Sie zur [Synchronisierung von Katalogdaten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/) (Datentyp **Catalogs**) verwenden.
+1. Verwenden Sie dieselbe S3-Synchronisierung, die Sie zur [Synchronisierung von Katalogdaten]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) (Datentyp **Catalogs**) verwenden.
 2. Fügen Sie in Ihren CSV- oder JSON-Dateien eine optionale Spalte **`deleted`** (oder **`DELETED`**) hinzu.
 3. Setzen Sie `deleted` auf `true` für jeden Katalogartikel, den Sie aus dem Katalog in Braze entfernen möchten.
 
@@ -384,7 +382,7 @@ ID,PAYLOAD,DELETED
 1,"{""product_name"": ""Product 1"", ""price"": 1.01}",true
 ```
 
-Wenn die Synchronisierung ausgeführt wird, führen Zeilen mit `deleted: true` dazu, dass der entsprechende Katalogartikel in Braze gelöscht wird. Informationen zum vollständigen Synchronisierungs- und Löschverhalten von Katalogdaten finden Sie unter [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data/).
+Wenn die Synchronisierung ausgeführt wird, führen Zeilen mit `deleted: true` dazu, dass der entsprechende Katalogartikel in Braze gelöscht wird. Informationen zum vollständigen Synchronisierungs- und Löschverhalten von Katalogdaten finden Sie unter [Katalogdaten synchronisieren und löschen]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data).
 
 ## Wissenswertes {#things-to-know}
 

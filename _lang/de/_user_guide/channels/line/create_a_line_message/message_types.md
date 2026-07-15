@@ -32,7 +32,7 @@ Anwendungsfälle umfassen:
 
 ## Bild {#image}
 
-Eine LINE-Bildnachricht kann über die [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/), eine URL oder Liquid hinzugefügt werden. Diese Bilder sind eigenständig und enthalten keine klickbaren Links.
+Eine LINE-Bildnachricht kann über die [Medienbibliothek]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library), eine URL oder Liquid hinzugefügt werden. Diese Bilder sind eigenständig und enthalten keine klickbaren Links.
 
 Anwendungsfälle umfassen:
 - Präsentation eines Urlaubsziels, um Nutzer:innen zum Kauf von Flugtickets zu inspirieren
@@ -45,15 +45,15 @@ Anwendungsfälle umfassen:
 
 Verwenden Sie URL-Bilder für Anwendungsfälle, die Folgendes beinhalten:
 - Dynamische Liquid-Bilder, indem Sie Liquid in Ihr Bildquellattribut einfügen. Zum Beispiel können Sie {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} als Bild-URL einfügen, um den Vornamen einer Nutzerin oder eines Nutzers in das Bild einzubinden
-- [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/), indem Bilder direkt von Ihrem Webserver oder öffentlich zugänglichen APIs abgerufen werden
-- [Braze-Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs/), indem auf Bilder aus importierten CSV-Dateien und API-Endpunkten zugegriffen wird
+- [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), indem Bilder direkt von Ihrem Webserver oder öffentlich zugänglichen APIs abgerufen werden
+- [Braze-Kataloge]({{site.baseurl}}/user_guide/data/activation/catalogs), indem auf Bilder aus importierten CSV-Dateien und API-Endpunkten zugegriffen wird
 
 | **Spezifikationen** | **Empfohlene Eigenschaften** |
 |--------------------------|----------------------------|
 | Länge der Bilddatei-URL | Maximal 2.000 Zeichen  |
 | Bildformat          | PNG, JPEG             |
 | Dateigröße     |  Maximal 10&nbsp;MB |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="URL image" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URL-Bild" }
 
 ## Rich-Nachrichten (Image Map) {#rich-messages-image-map}
 
@@ -74,7 +74,7 @@ Anwendungsfälle umfassen:
 | Bildformat          | PNG (kann transparent sein), JPEG             |
 | Seitenverhältnis          | 1:1 (Breite:Höhe)
 | Dateigröße     |  Maximal 10&nbsp;MB |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image map" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Image Map" }
 
 ### URI-Link {#uri-link}
 
@@ -82,7 +82,7 @@ Anwendungsfälle umfassen:
 |--------------------------|----------------------------|
 | Zeichenanzahl      | Maximal 1.000 |
 | Schemata              | HTTP, HTTPS, LINE, tel |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="URI link" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="URI-Link" }
 
 ### Text
 
@@ -106,7 +106,7 @@ Anwendungsfälle umfassen:
 | Spalten                  | Maximal 10 |
 | Seitenverhältnis             | Rechteck: 1,51:1 <br> Quadrat: 1:1  |
 | Titel                    | Maximal 40 Zeichen
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Message" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nachricht" }
 
 
 ### Bild
@@ -117,7 +117,7 @@ Anwendungsfälle umfassen:
 | Bildformat              | JPEG oder PNG |
 | Breite                     | 1.024 Pixel  |
 | Dateigröße                 | 1 MB |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Bild" }
 
 
 ### Text

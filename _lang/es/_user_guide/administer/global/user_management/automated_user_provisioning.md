@@ -10,31 +10,35 @@ alias: /scim/automated_user_provisioning/
 
 # Aprovisionamiento automático de usuarios {#automated-user-provisioning}
 
-> El aprovisionamiento automático de usuarios te permite crear y administrar usuarios de Braze a través de una API en lugar de hacerlo manualmente en el dashboard. Braze lo admite mediante el Sistema para la gestión de identidades entre dominios (SCIM). Este artículo te explica qué información debes proporcionar, cómo generar tu token SCIM y dónde encontrar tu punto de conexión de la API SCIM.
+> El aprovisionamiento automático de usuarios te permite crear y administrar usuarios de Braze a través de una API en lugar de hacerlo manualmente en el panel. Braze lo admite mediante el Sistema para la gestión de identidades entre dominios (SCIM). Este artículo te explica qué información debes proporcionar, cómo generar tu token SCIM y dónde encontrar tu endpoint de la API SCIM.
 
 ## Acceso a la configuración de aprovisionamiento SCIM {#accessing-scim-provisioning-settings}
 
-1. En el panel de Braze, ve a **Settings** > **Admin Settings** > **SCIM Provisioning** y, a continuación, selecciona **Configure SCIM integration**.
-2. En el paso **Braze configuration**, selecciona un método de aprovisionamiento y proporciona la configuración de acceso.
+{% alert important %}
+La disponibilidad del aprovisionamiento SCIM depende de tu edición de la plataforma. Si esta característica no está en tu espacio de trabajo, contacta a tu administrador de éxito de cliente para obtener más información.
+{% endalert %}
+
+1. En el panel de Braze, ve a **Configuración** > **Configuración de administrador** > **Aprovisionamiento de SCIM** y, a continuación, selecciona **Configurar integración SCIM**.
+2. En el paso **Configuración de Braze**, selecciona un método de aprovisionamiento y proporciona la configuración de acceso.
 
 ![Una página para configurar la integración SCIM con secciones para seleccionar un método de aprovisionamiento y proporcionar la configuración de acceso.]({% image_buster /assets/img_archive/scim_braze_config.png %}){: style="max-width:70%;"}
 
 {: start="3"}
-3. En el paso **IdP configuration**, sigue los pasos indicados en la plataforma para el método de aprovisionamiento seleccionado.
+3. En el paso **Configuración del IdP**, sigue los pasos indicados en la plataforma para el método de aprovisionamiento seleccionado.
 
 {% tabs %}
 {% tab Okta - Braze app %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Okta integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Utiliza la opción **Okta - Braze app** si has configurado la aplicación Braze para SAML SSO en Okta. Si configuraste una aplicación personalizada para SSO, sigue las instrucciones en la pestaña [Okta - Integración de aplicación personalizada]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
+Utiliza la opción **Okta - Braze app** si has configurado la aplicación Braze para SAML SSO en Okta. Si configuraste una aplicación personalizada para SSO, sigue las instrucciones en la pestaña [Okta - Integración de aplicación personalizada]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20custom%20app%20integration#step-1-set-up-scim-provisioning).
 
 ## Paso 1: Configurar el aprovisionamiento SCIM {#step-1-set-up-scim-provisioning}
 
 ### Paso 1.1: Habilitar SCIM {#step-11-enable-scim}
 
 1. En Okta, ve a **Applications** > **Applications** y selecciona **Create App Integration**. Selecciona **SAML 2.0** como método de inicio de sesión.
-2. Completa los siguientes datos (que se encuentran en el paso [**IdP configuration**](#accessing-scim-provisioning-settings) de Braze) para crear una aplicación personalizada:
+2. Completa los siguientes datos (que se encuentran en el paso [**Configuración del IdP**](#accessing-scim-provisioning-settings) de Braze) para crear una aplicación personalizada:
 - Logotipo de la aplicación
 - URL de inicio de sesión único
 - URL de audiencia (ID de entidad del SP)
@@ -76,9 +80,9 @@ Selecciona **Test API Credentials**. Si la integración es correcta, aparecerá 
 {% endtab %}
 {% tab Okta - Custom app integration %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Okta integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Okta integration' %}
 
-Utiliza la opción **Okta - Custom app integration** si configuraste una aplicación personalizada para SSO. Si configuraste la aplicación Braze para SAML SSO en Okta, sigue las instrucciones en la pestaña [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning/?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
+Utiliza la opción **Okta - Custom app integration** si configuraste una aplicación personalizada para SSO. Si configuraste la aplicación Braze para SAML SSO en Okta, sigue las instrucciones en la pestaña [Okta - Braze app]({{site.baseurl}}/user_guide/administer/global/user_management/automated_user_provisioning?tab=okta%20-%20braze%20app#step-1-set-up-scim-provisioning).
 
 ## Paso 1: Configurar el aprovisionamiento SCIM
 
@@ -116,7 +120,7 @@ Utiliza la opción **Okta - Custom app integration** si configuraste una aplicac
 {% endtab %}
 {% tab Entra ID %}
 
-{% multi_lang_include early_access_beta_alert.md feature='The Entra ID integration' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='The Entra ID integration' %}
 
 ## Paso 1: Configurar la aplicación de aprovisionamiento SCIM {#step-1-set-up-scim-provisioning-app}
 
@@ -157,17 +161,15 @@ Inicia sesión en tu centro de administración de Microsoft Entra.
 
 ## Paso 1: Configurar los ajustes de SCIM {#step-1-configure-your-scim-settings}
 
-- **Espacio de trabajo predeterminado:** selecciona el espacio de trabajo donde se deben añadir los nuevos usuarios de forma predeterminada. Si no especificas un espacio de trabajo en tu [solicitud a la API SCIM]({{site.baseurl}}/post_create_user_account/), Braze asigna los usuarios a este espacio de trabajo.
+- **Espacio de trabajo predeterminado:** selecciona el espacio de trabajo donde se deben añadir los nuevos usuarios de forma predeterminada. Si no especificas un espacio de trabajo en tu [solicitud a la API SCIM]({{site.baseurl}}/post_create_user_account), Braze asigna los usuarios a este espacio de trabajo.
 - **Origin del servicio:** introduce el dominio de origen de tus solicitudes SCIM. Braze lo utiliza en el encabezado `X-Request-Origin` para verificar de dónde provienen las solicitudes.
 - **Lista de IP permitidas (opcional):** puedes restringir las solicitudes SCIM a direcciones IP específicas. Introduce una lista separada por comas o un rango de direcciones IP permitidas. El encabezado `X-Request-Origin` de cada solicitud se utiliza para comprobar la dirección IP de la solicitud con la lista de permitidas.
 
-![Formulario de configuración de aprovisionamiento SCIM con tres campos: espacio de trabajo predeterminado, origin del servicio y lista de IP permitidas opcional. El botón "Generate SCIM Token" está deshabilitado.]({% image_buster /assets/img/scim_unfilled.png %})
-
 ## Paso 2: Generar un token SCIM {#step-2-generate-a-scim-token}
 
-Después de completar los campos obligatorios, pulsa **Generate SCIM token** para generar un token SCIM y ver tu punto de conexión de la API SCIM. Asegúrate de copiar el token SCIM antes de salir de la página. **Este token solo aparece una vez.**
+Después de completar los campos obligatorios, pulsa **Generate SCIM token** para generar un token SCIM y ver tu endpoint de la API SCIM. Asegúrate de copiar el token SCIM antes de salir de la página. **Este token solo aparece una vez.**
 
-![Campos del punto de conexión de la API SCIM y del token SCIM mostrados con valores enmascarados y botones de copiar. Debajo del campo del token hay un botón "Reset Token".]({% image_buster /assets/img/scim.png %})
+![Campos del endpoint de la API SCIM y del token SCIM mostrados con valores enmascarados y botones de copiar. Debajo del campo del token hay un botón "Reset Token".]({% image_buster /assets/img/scim.png %})
 
 Braze espera que todas las solicitudes SCIM contengan el token bearer de la API SCIM adjunto mediante un encabezado HTTP `Authorization`.
 

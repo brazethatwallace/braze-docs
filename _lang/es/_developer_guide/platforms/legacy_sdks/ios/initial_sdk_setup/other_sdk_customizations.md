@@ -23,15 +23,15 @@ Consulta la siguiente lista de niveles de registro disponibles:
 | Nivel    | Descripción |
 |----------|-------------|
 | 0        | Verboso. Toda la información de registro se registrará en la consola de iOS.  |
-| 1        | Depurar. La información de depuración y de registro superior se registrará en la consola de iOS.  |
+| 1        | Depuración. La información de depuración y de registro superior se registrará en la consola de iOS.  |
 | 2        | Advertencia. La información de advertencia y de registro superior se registrará en la consola de iOS.  |
 | 4        | Error. Los errores y la información de registro superior se registrarán en la consola de iOS.  |
 | 8        | Mínimo. Se registrará información mínima en la consola de iOS. La configuración predeterminada del SDK. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Log levels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Niveles de registro" }
 
 ### Registro detallado {#verbose-logging}
 
-Puedes configurar el nivel de registro a cualquier valor disponible. Sin embargo, establecer el nivel de registro en verbose, o `0`, puede ser muy útil para depurar problemas con tu integración. Este nivel solo está pensado para entornos de desarrollo y no debe establecerse en una aplicación publicada. El registro verboso no enviará ninguna información adicional o nueva del usuario a Braze.
+Puedes configurar el nivel de registro a cualquier valor disponible. Sin embargo, establecer el nivel de registro en verboso, o `0`, puede ser muy útil para depurar problemas con tu integración. Este nivel solo está pensado para entornos de desarrollo y no debe establecerse en una aplicación publicada. El registro verboso no enviará ninguna información adicional o nueva del usuario a Braze.
 
 ### Configuración del nivel de registro {#setting-log-level}
 
@@ -97,11 +97,11 @@ El nivel de registro solo se puede configurar en tiempo de ejecución con la ver
 
 En versiones anteriores del SDK de Braze para iOS Swift, el campo IDFV (identificador del proveedor) se recopilaba automáticamente como ID del dispositivo del usuario.
 
-A partir de la versión 5.7.0 del SDK Swift, el campo IDFV puede desactivarse opcionalmente y, en su lugar, Braze establecerá un UUID aleatorio como ID del dispositivo. Para más información, consulta [Recopilación de IDFV]({{site.baseurl}}/developer_guide/analytics/managing_data_collection/?sdktab=swift).
+A partir de la versión 5.7.0 del SDK Swift, el campo IDFV puede desactivarse opcionalmente y, en su lugar, Braze establecerá un UUID aleatorio como ID del dispositivo. Para más información, consulta [Recopilación de IDFV]({{site.baseurl}}/developer_guide/analytics/managing_data_collection?sdktab=swift).
 
 ## Recopilación opcional de IDFA {#optional-idfa-collection}
 
-La recopilación de IDFA es opcional dentro del SDK de Braze y está deshabilitada de forma predeterminada. La recopilación de IDFA solo es necesaria en Braze si pretendes utilizar nuestras [integraciones de atribución de instalación]({{site.baseurl}}/partners/message_orchestration/attribution/adjust/). Si optas por almacenar tu IDFA, lo haremos de forma gratuita, para que puedas aprovechar estas opciones inmediatamente después de la publicación, sin trabajo de desarrollo adicional.
+La recopilación de IDFA es opcional dentro del SDK de Braze y está deshabilitada de forma predeterminada. La recopilación de IDFA solo es necesaria en Braze si pretendes utilizar nuestras [integraciones de atribución de instalación]({{site.baseurl}}/partners/message_orchestration/attribution/adjust). Si optas por almacenar tu IDFA, lo haremos de forma gratuita, para que puedas aprovechar estas opciones inmediatamente después de la publicación, sin trabajo de desarrollo adicional.
 
 Por ello, te recomendamos que sigas recopilando el IDFA si cumples alguno de los siguientes criterios:
 
@@ -125,7 +125,7 @@ La solicitud de autorización de transparencia de seguimiento de la aplicación 
 
 Sigue estos pasos para implementar la recopilación de IDFA:
 
-##### Paso 1: Implementar ABKIDFADelegate {#step-1-implement-abkidfadelegate}
+#### Paso 1: Implementar ABKIDFADelegate {#step-1-implement-abkidfadelegate}
 
 Crea una clase que se ajuste al protocolo [`ABKIDFADelegate`](https://github.com/Appboy/appboy-ios-sdk/blob/master/AppboyKit/include/ABKIDFADelegate.h):
 
@@ -185,7 +185,7 @@ En el diccionario `appboyOptions` pasado a `startWithApiKey:inApplication:withAp
 
 El tamaño de archivo aproximado del framework del SDK de iOS es de 30&nbsp;MB, y el tamaño aproximado del .ipa (adición al archivo de la aplicación) está entre 1&nbsp;MB y 2&nbsp;MB.
 
-Braze mide el tamaño de nuestro SDK para iOS observando el efecto del SDK en el tamaño de `.ipa`, según las [recomendaciones de Apple sobre el tamaño de las aplicaciones](https://developer.apple.com/library/content/qa/qa1795/_index.html). Si estás calculando la adición de tamaño del SDK de iOS a tu aplicación, te recomendamos seguir [Obtener un informe del tamaño de la aplicación](https://developer.apple.com/library/content/qa/qa1795/_index.html) para comparar la diferencia de tamaño en tu `.ipa` antes y después de integrar el SDK de Braze para iOS. Cuando compares los tamaños del informe sobre el tamaño de las aplicaciones, te recomendamos que mires también los tamaños de las aplicaciones para los archivos `.ipa` reducidos, ya que los archivos universales `.ipa` serán mayores que los binarios descargados de la App Store e instalados en los dispositivos de los usuarios.
+Braze mide el tamaño de nuestro SDK para iOS observando el efecto del SDK en el tamaño del `.ipa`, según las [recomendaciones de Apple sobre el tamaño de las aplicaciones](https://developer.apple.com/library/content/qa/qa1795/_index.html). Si estás calculando la adición de tamaño del SDK de iOS a tu aplicación, te recomendamos seguir [Obtener un informe del tamaño de la aplicación](https://developer.apple.com/library/content/qa/qa1795/_index.html) para comparar la diferencia de tamaño en tu `.ipa` antes y después de integrar el SDK de Braze para iOS. Cuando compares los tamaños del informe sobre el tamaño de las aplicaciones, te recomendamos que mires también los tamaños de las aplicaciones para los archivos `.ipa` reducidos, ya que los archivos universales `.ipa` serán mayores que los binarios descargados de la App Store e instalados en los dispositivos de los usuarios.
 
 {% alert note %}
 Si estás integrando a través de CocoaPods con `use_frameworks!`, establece `Enable Bitcode = NO` en la configuración de compilación del objetivo para obtener un tamaño preciso.

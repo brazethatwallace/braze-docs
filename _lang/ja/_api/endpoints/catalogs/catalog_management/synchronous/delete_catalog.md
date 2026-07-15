@@ -21,7 +21,7 @@ description: "この記事では、「カタログの削除」Brazeエンドポ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.delete` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key/)が必要です。
+このエンドポイントを使用するには、`catalogs.delete` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
 
 ## レート制限 {#rate-limit}
 

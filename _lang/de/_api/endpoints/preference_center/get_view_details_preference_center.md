@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt „Details für Präf
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key/) mit der Berechtigung `preference_center.get`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `preference_center.get`.
 
 ## Rate-Limits {#rate-limit}
 
@@ -31,7 +31,7 @@ Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.ba
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --------- | ---------| --------- | ----------- |
 | `preferenceCenterExternalID` | Erforderlich | String | Die ID für Ihr Präferenzzentrum. |
-{: aria-label="Path parameters" }
+{: aria-label="Pfad-Parameter" }
 
 ## Anfrage-Parameter {#request-parameters}
 

@@ -64,7 +64,11 @@ Verwenden Sie weiterhin Content Cards, wenn Sie Folgendes benötigen:
 
 Stellen Sie vor der Migration sicher, dass das Braze SDK die Mindestversionsanforderungen erfüllt:
 
-{% multi_lang_include sdk_versions.md feature='banners' %}
+{% multi_lang_include developer_guide/sdk_versions.md feature='banners' %}
+
+Für das Schließen und die erneute Berechtigung sind die folgenden Mindestversionen des SDK erforderlich:
+
+{% sdk_min_versions swift:14.1.0 android:42.1.0 web:6.7.1 %}
 
 ### Updates abonnieren {#subscribe-to-updates}
 
@@ -259,7 +263,7 @@ for card in cards {
 Braze.launchContentCards();
 
 // Or manually render cards
-const cards = await Braze.getContentCards();
+const cards = await Braze.getCachedContentCards();
 cards.forEach(card => {
   if (card.type === 'CLASSIC') {
     // Render classic card
@@ -349,7 +353,7 @@ braze.banners.requestBannersRefresh(placementIds: ["sample_placement_id"])
 ```javascript
 // Using BrazeBannerView component
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 
 // Or get banner data
@@ -738,7 +742,7 @@ let bannerView = BrazeBannerUI.BannerUIView(
 // BrazeBannerView automatically handles control groups
 // No additional code needed
 <Braze.BrazeBannerView
-  placementID='sample_placement_id'
+  placementId='sample_placement_id'
 />
 ```
 {% endtab %}
@@ -773,18 +777,19 @@ Banner unterstützen ausschließlich geplante Zustellungs-Campaigns. Um eine Nac
 | Mehrere Platzierungen | N/A | ✅ Mehrere Platzierungen werden unterstützt |
 | Kartentypen (klassisch, mit Bildunterschrift, nur Bild) | ✅ Mehrere vordefinierte Typen | ✅ Einzelnes HTML-basiertes Banner (flexibler) |
 | **Inhaltsverwaltung** |
-| Drag-and-Drop-Editor | ❌ Erfordert Entwickler:innen für die Anpassung | ✅ Marketer können ohne technische Unterstützung Inhalte erstellen und Updates durchführen |
+| Drag-and-Drop-Editor | ❌ Erfordert Entwickler:innen für die Anpassung | ✅ Marketer können ohne technische Unterstützung Inhalte erstellen und aktualisieren |
 | Angepasstes HTML/CSS | ❌ Beschränkt auf die Kartenstruktur | ✅ Vollständige HTML/CSS-Unterstützung |
 | Schlüssel-Wert-Paare für die Anpassung | ✅ Für erweiterte Anpassungen erforderlich | ✅ Stark typisierte Schlüssel-Wert-Paare, die als „Eigenschaften“ bezeichnet werden, ermöglichen eine erweiterte Anpassung |
 | **Persistenz und Ablauf** |
-| Ablauf der Karte | ✅ Unterstützt (30-Tage-Limit) | ✅ Unterstützt (ohne Ablaufdatum) |
+| Ablauf der Karte | ✅ Unterstützt (30-Tage-Limit) | ✅ Unterstützt (ohne Ablauflimit) |
 | Wahre Persistenz | ❌ Maximal 30 Tage | ✅ Unbegrenzte Persistenz |
 | **Anzeige und Targeting** |
 | Feed-UI | ✅ Standard-Feed verfügbar | ❌ Nur platzierungsbasiert |
 | Kontextspezifische Platzierung | ❌ Feed-basiert | ✅ Native Platzierungsunterstützung |
-| Native Priorisierung | ❌ Erfordert angepasste Logik | ✅ Integrierte Priorisierung |
+| Priorisierung | ❌ Erfordert angepasste Logik | ✅ Native Priorisierung |
 | **Nutzer:innen-Interaktion** |
-| Manuelles Schließen | ✅ Unterstützt | ❌ Nicht unterstützt |
+| Manuelles Schließen | ✅ Unterstützt | ✅ Unterstützt |
+| Erneute Berechtigung nach dem Schließen | ❌ Erfordert angepasste Filter oder Campaign-Logik | ✅ Standard-Wartezeit |
 | Gepinnte Karten | ✅ Unterstützt | N/A |
 | **Analytics** |
 | Automatische Analytics (Standard-UI) | ✅ Unterstützt | ✅ Unterstützt |
@@ -806,7 +811,7 @@ Banner unterstützen ausschließlich geplante Zustellungs-Campaigns. Um eine Nac
 
 ## Verwandte Artikel {#related-articles}
 
-- [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements/)
-- [Anleitung: Anzeige eines Banners anhand der Platzierungs-ID]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners/)
-- [Banner-Analytics]({{site.baseurl}}/developer_guide/banners/analytics/)
-- [Häufig gestellte Fragen zu Bannern]({{site.baseurl}}/developer_guide/banners/faq/)
+- [Banner-Platzierungen]({{site.baseurl}}/developer_guide/banners/placements)
+- [Anleitung: Anzeige eines Banners anhand der Platzierungs-ID]({{site.baseurl}}/developer_guide/banners/tutorial_displaying_banners)
+- [Banner-Analytics]({{site.baseurl}}/developer_guide/banners/analytics)
+- [Häufig gestellte Fragen zu Bannern]({{site.baseurl}}/developer_guide/banners/faq)

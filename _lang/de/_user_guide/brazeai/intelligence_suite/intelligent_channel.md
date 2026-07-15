@@ -2,11 +2,11 @@
 nav_title: Kanalfilter
 article_title: Intelligenter Kanalfilter
 page_order: 1.5
-description: "Dieser Artikel behandelt den Intelligenten Kanalfilter, einen Filter, der den Teil Ihrer Zielgruppe auswählt, für den der ausgewählte Messaging-Kanal der beste Kanal ist. In diesem Fall bedeutet „am besten“ die höchste Wahrscheinlichkeit für ein Engagement angesichts des Verlaufs der Nutzer:innen."
+description: "Dieser Artikel behandelt den intelligenten Kanalfilter, einen Filter, der den Teil Ihrer Zielgruppe auswählt, für den der ausgewählte Messaging-Kanal der beste Kanal ist. In diesem Fall bedeutet „am besten“ die höchste Wahrscheinlichkeit für ein Engagement angesichts des Verlaufs der Nutzer:innen."
 search_rank: 11
 ---
 
-# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/most-engaged-channel){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligenter Kanalfilter {#braze-learning-course-imagebuster-assetsimgblicon3png-httpslearningbrazecommost-engaged-channel-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-channel-filter}
+# [![Braze-Lernkurs]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/most-engaged-channel){: style="float:right;width:120px;border:0;" class="noimgborder"}Intelligenter Kanalfilter {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecommost-engaged-channel-stylefloatrightwidth120pxborder0-classnoimgborderintelligent-channel-filter}
 
 > Der Filter `Intelligent Channel` (zuvor `Most Engaged`) wählt den Teil Ihrer Zielgruppe aus, für den der ausgewählte Messaging-Kanal der „beste“ Kanal ist.
 
@@ -23,7 +23,7 @@ Jedes Mal, wenn eine Nachricht an eine:n Nutzer:in gesendet wird oder ein:e Nutz
 Um den intelligenten Kanalfilter zu aktivieren, wählen Sie den Filter **Intelligent Channel** auf der Seite **Target Audiences** aus, wenn Sie eine E-Mail-, Web-Push- oder Mobile-Push-Campaign erstellen.
 
 {% alert important %}
-Um die Engagement-Rate des SMS-Kanals zu berechnen, schalten Sie die [SMS-Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview/) mit erweitertem Tracking und Klick-Tracking ein. Ohne dieses Tracking kann SMS als intelligenter Kanal mit einer Engagement-Rate von 0 % ausgewählt werden, da unser [Tie-Break-Verhalten]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/#tie-breaking) greift.
+Um die Engagement-Rate des SMS-Kanals zu berechnen, schalten Sie die [SMS-Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview) mit erweitertem Tracking und Klick-Tracking ein. Ohne dieses Tracking kann SMS als intelligenter Kanal mit einer Engagement-Rate von 0 % ausgewählt werden, da unser [Tie-Break-Verhalten]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking) greift.
 {% endalert %}
 
 ## Die Option „Nicht genügend Daten“ {#the-not-enough-data-option}
@@ -37,7 +37,7 @@ Nehmen wir an, Sie möchten, dass Nutzer:innen, die Push-Nachrichten bevorzugen,
 ![Intelligente Kanalfilter für Mobile-Push oder nicht genügend Daten.]({% image_buster /assets/img/intelligent_example.png %}){:style="border:none"}
 
 {% alert note %}
-Campaigns und Canvas-Schritte, die das [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-rules) ignorieren, werden vom intelligenten Kanal nicht berücksichtigt und können nicht zu den Datenanforderungen beitragen.
+Campaigns und Canvas-Schritte, die das [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-rules) ignorieren, werden vom intelligenten Kanal nicht berücksichtigt und können nicht zu den Datenanforderungen beitragen.
 {% endalert %}
 
 ## Die Option „Mobile-Push“ {#the-mobile-push-option}
@@ -48,7 +48,7 @@ Wenn ein:e Nutzer:in zum Beispiel mehrere mobile Geräte besitzt, wird die mobil
 
 ## Filter für die Wahrscheinlichkeit der Nachrichtenöffnung für einzelne Kanäle {#individual-channels}
 
-Anstatt Braze den besten Kanal für eine:n Nutzer:in auswählen zu lassen, können Sie den [Segmentierungsfilter „Wahrscheinlichkeit der Nachrichtenöffnung“]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters/#message-open-likelihood) verwenden, um Nutzer:innen danach zu filtern, ob sie eine Nachricht auf einem von Ihnen ausgewählten Kanal wahrscheinlich öffnen werden oder nicht. Dieser Filter wird berechnet, indem der Prozentsatz der Interaktionen durch die Gesamtzahl der empfangenen Nachrichten der letzten 100 pro Kanal gesendeten Nachrichten dividiert wird.
+Anstatt Braze den besten Kanal für eine:n Nutzer:in auswählen zu lassen, können Sie den [Segmentierungsfilter „Wahrscheinlichkeit der Nachrichtenöffnung“]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#message-open-likelihood) verwenden, um Nutzer:innen danach zu filtern, ob sie eine Nachricht auf einem von Ihnen ausgewählten Kanal wahrscheinlich öffnen werden oder nicht. Dieser Filter wird berechnet, indem der Prozentsatz der Interaktionen durch die Gesamtzahl der empfangenen Nachrichten der letzten 100 pro Kanal gesendeten Nachrichten dividiert wird.
 
 Bitte beachten Sie, dass ein:e Nutzer:in mindestens drei Nachrichten auf einem bestimmten Kanal erhalten haben muss, bevor eine Wahrscheinlichkeitsbewertung für diesen Kanal vergeben werden kann. Nutzer:innen ohne ausreichende Daten, um eine Wahrscheinlichkeit für einen Kanal zu messen, können mit „ist leer“ ausgewählt werden.
 

@@ -14,7 +14,7 @@ search_tag: Partner
 Durch die Integration von Braze und Typeform können Sie:
 
 - Nutzerprofile in Braze mit Daten aus deren Typeform-Antworten aktualisieren
-- Messaging in Braze basierend auf dem Engagement einer Nutzerin oder eines Nutzers mit einem Typeform-Formular triggern
+- Messaging in Braze basierend auf dem Engagement von Nutzer:innen mit einem Typeform-Formular triggern
 - Braze Messaging basierend auf den Typeform-Antworten von Nutzer:innen personalisieren
 
 ## Voraussetzungen {#prerequisites}
@@ -22,14 +22,14 @@ Durch die Integration von Braze und Typeform können Sie:
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Typeform-Konto | Sie benötigen ein Typeform-Konto mit Zugriff auf Webhooks, um die Vorteile dieser Partnerschaft zu nutzen. |
-| Braze Datentransformation | Eine [Datentransformations-URL]({{site.baseurl}}/data_transformation/) ist erforderlich, um Daten von Typeform zu empfangen. |
+| Braze Datentransformation | Eine [Datentransformations-URL]({{site.baseurl}}/data_transformation) ist erforderlich, um Daten von Typeform zu empfangen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
 ### 1. Schritt: Braze Datentransformation einrichten, um Typeform-Webhooks zu akzeptieren {#step-1}
 
-{% multi_lang_include create_transformation.md location="typeform" %}
+{% multi_lang_include data_activation/create_transformation.md location="typeform" %}
 
 ### 2. Schritt: Typeform-Webhooks einrichten {#step-2-set-up-typeform-webhooks}
 
@@ -37,11 +37,11 @@ Folgen Sie den Schritten in der [Typeform-Webhook-Dokumentation](https://www.typ
 
 Fügen Sie in Schritt 4 die Webhook-URL Ihrer Datentransformation als **Destination URL** hinzu.
 
-![]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
+![Typeform-Webhook-Einrichtung mit dem Feld „Destination URL“.]({% image_buster /assets/img/typeform/typeform_add_webhook.png %}){: style="max-width:50%" }
 
 Senden Sie ein Test-Event an Ihre Datentransformation, indem Sie auf **View deliveries** und dann auf **Send test request** klicken.
 
-![]({% image_buster /assets/img/typeform/typeform_test_request.png %})
+![Typeform-Seite „View deliveries“ mit ausgewähltem „Send test request“.]({% image_buster /assets/img/typeform/typeform_test_request.png %})
 
 ### 3. Schritt: Transformationscode schreiben, um die gewählten Typeform-Events zu akzeptieren {#step-3-write-transformation-code-to-accept-your-chosen-typeform-events}
 
@@ -52,7 +52,7 @@ In diesem Schritt transformieren Sie die Webhook-Nutzlast, die von Typeform gese
 3. Klicken Sie auf **Validate**, um eine Vorschau der Ausgabe Ihres Codes zu erhalten und zu prüfen, ob es sich um eine akzeptable `/users/track`-Anfrage handelt.
 4. Speichern und aktivieren Sie Ihre Datentransformation.
 
-![]({% image_buster /assets/img/typeform/typeform_test_result.png %})
+![Vorschau der Datentransformation mit einer erfolgreichen Validierung der Typeform-Testnutzlast.]({% image_buster /assets/img/typeform/typeform_test_result.png %})
 
 #### Format des Anfragekörpers {#request-body-format}
 
@@ -333,7 +333,7 @@ In diesen Beispiel-Templates protokollieren wir ein angepasstes Event im Braze-P
 In diesem Beispiel-Template verwenden wir eine E-Mail-Adresse (die aus einer E-Mail-Adressfrage innerhalb des Typeforms erfasst wird) als Bezeichner.
 
 {% alert note %}
-Wenn Sie eine E-Mail-Adresse als Bezeichner verwenden möchten, lesen Sie unsere [häufig gestellten Fragen]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#frequently-asked-questions) für den `/users/track`-Endpunkt, um weitere Informationen zum erwarteten Verhalten zu erhalten.
+Wenn Sie eine E-Mail-Adresse als Bezeichner verwenden möchten, lesen Sie unsere [häufig gestellten Fragen]({{site.baseurl}}/api/endpoints/user_data/post_user_track#frequently-asked-questions) für den `/users/track`-Endpunkt, um weitere Informationen zum erwarteten Verhalten zu erhalten.
 {% endalert %}
 
 {% tabs local %}
@@ -616,8 +616,8 @@ Nachdem Sie Ihre Datentransformation geschrieben haben, klicken Sie auf **Valida
 
 Wenn die Datentransformation aktiviert ist, werden angepasste Event-Daten im Profil von Nutzer:innen protokolliert, sobald diese Ihr Formular ausfüllen.
 
-![]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
+![Nutzerprofil mit einem protokollierten angepassten Event nach einer Typeform-Übermittlung.]({% image_buster /assets/img/typeform/typeform_custom_event.png %})
 
 ## Überwachung und Fehlerbehebung {#monitoring-and-troubleshooting}
 
-Im Abschnitt [Überwachung Ihrer Transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation) finden Sie weitere Informationen zur Überwachung und Fehlerbehebung Ihrer Transformation.
+Im Abschnitt [Überwachung Ihrer Transformation]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation) finden Sie weitere Informationen zur Überwachung und Fehlerbehebung Ihrer Transformation.

@@ -10,7 +10,7 @@ search_rank: 2
 
 > This article shows how you can use a variety of user attributes to dynamically insert personal information into your messaging.
 
-Liquid is an open-source template language developed by Shopify and written in Ruby. You can use it in Braze to pull user profile data into your messages and customize that data. For example, you can use Liquid tags to create conditional messages, such as sending different offers based on a user's subscription anniversary date. Additionally, filters can manipulate data, like formatting a user's registration date from a timestamp into a more readable format, such as "January 15, 2022." For further details on Liquid syntax and its capabilities, refer to [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/).
+Liquid is an open-source template language developed by Shopify and written in Ruby. You can use it in Braze to pull user profile data into your messages and customize that data. For example, you can use Liquid tags to create conditional messages, such as sending different offers based on a user's subscription anniversary date. Additionally, filters can manipulate data, like formatting a user's registration date from a timestamp into a more readable format, such as "January 15, 2022." For further details on Liquid syntax and its capabilities, refer to [Supported personalization tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags).
 
 ## How it works
 
@@ -44,14 +44,14 @@ HTML comments (`<!-- -->`) are removed before any Liquid is read, so Liquid tags
 
 The following values can be substituted into a message, depending on their availability:
 
-- [Basic user information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/) (for example, `first_name`, `last_name`, `email_address`)
-- [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)
+- [Basic user information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) (for example, `first_name`, `last_name`, `email_address`)
+- [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)
     - [Nested custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#liquid-templating)
-- [Custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)
+- [Custom event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events)
 - [Most recently used device information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#most-recently-used-device-information)
 - [Target device information]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)
 
-You can also pull content directly from a web server through Braze [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/).
+You can also pull content directly from a web server through Braze [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content).
 
 {% alert important %}
 Braze currently supports Liquid up to and including Liquid 5 from Shopify.
@@ -59,7 +59,7 @@ Braze currently supports Liquid up to and including Liquid 5 from Shopify.
 
 ## Using Liquid
 
-Using [Liquid tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/), you can elevate the quality of your messages by enriching them with a personal touch. 
+Using [Liquid tags]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags), you can elevate the quality of your messages by enriching them with a personal touch. 
 
 ### Liquid syntax
 
@@ -84,7 +84,7 @@ Operators (such as `==`, `!=`, `>`, `and`, `or`) and filters (such as `| size`, 
 | Array access (`[ ]`) | Not supported | Not supported |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Where to use operators and filters" }
 
-[^case_when_ops]: In `case` and `when` tags, Liquid compares the `case` expression to each `when` value using equality (similar to chaining `if` and `elsif` with `==`). You can't use arbitrary comparison or logical operators inside a `when` clause the way you do with `if` and `elsif`. For examples, see [Conditional messaging logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic/#case-and-when-tags).
+[^case_when_ops]: In `case` and `when` tags, Liquid compares the `case` expression to each `when` value using equality (similar to chaining `if` and `elsif` with `==`). You can't use arbitrary comparison or logical operators inside a `when` clause the way you do with `if` and `elsif`. For examples, see [Conditional messaging logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when).
 
 When you need a filtered value in a context that doesn't support filters, assign the result to a variable first.
 

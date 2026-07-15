@@ -15,13 +15,13 @@ guide_top_text: "Verwenden Sie die Braze Cloud-Datenaufnahme-Endpunkte, um Ihre 
 guide_featured_title: ""
 guide_featured_list:
   - name: "GET: Integrationen auflisten"
-    link: /docs/api/cdi/get_integration_list/
+    link: /docs/api/cdi/get_integration_list
     image: /assets/img/braze_icons/list.svg
   - name: "GET: Job-Synchronisierungsstatus auflisten"
     link: /docs/api/cdi/get_job_sync
     image: /assets/img/braze_icons/list.svg
   - name: "POST: Synchronisierung triggern"
-    link: /docs/api/cdi/post_trigger_sync/
+    link: /docs/api/cdi/post_trigger_sync
     image: /assets/img/braze_icons/play.svg
 
 ---

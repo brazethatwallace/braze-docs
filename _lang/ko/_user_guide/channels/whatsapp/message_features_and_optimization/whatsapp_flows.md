@@ -81,10 +81,6 @@ Braze 내에서 이전에 사용된 적 없는 Flow를 사용하는 경우, **�
 
 1. WhatsApp 메시지 단계 설정을 완료합니다.
 2. **Flow 응답을 커스텀 속성으로 저장**이 체크되어 있는지 확인합니다.
-
-![Flow 응답을 커스텀 속성으로 저장하는 체크박스가 있는 Meta Flow 섹션.]({% image_buster /assets/img/whatsapp/flows/save_flow_responses_checkbox.png %}){: style="max-width:80%;"}
-
-{: start="3"}
 3. 자신에게 테스트 메시지를 보내고 사용자로서 Flow를 완료합니다.
 
 이제 Braze가 Flow 응답 JSON의 형태를 파악하여 커스텀 속성을 생성할 수 있습니다.
@@ -137,7 +133,7 @@ Flow가 완료되면 Braze는 Flow ID를 기반으로 이름이 지정된 Flow �
 
 ### 1단계: 행동 경로 생성하기 {#step-1-create-an-action-path}
 
-[행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) 캔버스 단계 또는 행동 기반 Campaign을 생성합니다. **Send a WhatsApp inbound message** 트리거와 **Responded to Flow** 조건을 선택한 다음, 관련 Flow 또는 **Any Flow**를 선택합니다.
+[행동 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) 캔버스 단계 또는 행동 기반 Campaign을 생성합니다. **Send a WhatsApp inbound message** 트리거와 **Responded to Flow** 조건을 선택한 다음, 관련 Flow 또는 **Any Flow**를 선택합니다.
 
 ![인바운드 WhatsApp 메시지를 보내고 모든 Flow에 응답한 사용자에 대한 트리거.]({% image_buster /assets/img/whatsapp/flows/trigger_responded_flow.png %})
 
@@ -188,11 +184,11 @@ UI 편집기에서 다음을 선택합니다:
 
 ## Flow 개인화 태그 추가하기 {#adding-a-flow-personalization-tag}
 
-[지원되는 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)와 함께 Liquid를 통해 Flow 응답을 사용하려면 다음 단계를 완료합니다:
+[지원되는 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)와 함께 Liquid를 통해 Flow 응답을 사용하려면 다음 단계를 완료합니다:
 
-1. WhatsApp 메시지를 작성할 때 <i class="fas fa-plus-circle" aria-label="개인화 추가"></i> **개인화 추가**를 선택하여 **개인화 추가** 창을 엽니다.
+1. WhatsApp 메시지를 작성할 때 <i class="fas fa-plus-circle"></i> **개인화 추가**를 선택하여 **개인화 추가** 창을 엽니다.
 2. 개인화 유형으로 **WhatsApp Properties**를 선택하고 커스텀 속성으로 **inbound_flow_response**를 선택합니다. 이를 사용하여 고객 프로필에 정보를 저장하거나, 메시지에 포함하거나, 웹훅과 같은 다른 서비스로 전달할 수 있습니다.
 
 ![커스텀 속성 inbound_flow_response로 WhatsApp 등록정보 개인화를 삽입하는 **개인화 추가** 구성요소가 있는 WhatsApp 메시지 작성기.]({% image_buster /assets/img/whatsapp/flows/inbound_flow_response.png %}){: style="max-width:80%;"}
 
-질문이 있거나 추가 지원이 필요한 경우 [고객지원]({{site.baseurl}}/braze_support/)에 문의하세요.
+질문이 있거나 추가 지원이 필요한 경우 [고객지원]({{site.baseurl}}/braze_support)에 문의하세요.

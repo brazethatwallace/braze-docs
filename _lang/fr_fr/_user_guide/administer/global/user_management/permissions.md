@@ -17,7 +17,7 @@ tool: Dashboard
 
 ## Créer un ensemble d'autorisations {#create-a-permission-set}
 
-Utilisez les ensembles d'autorisations pour regrouper les autorisations liées à des domaines ou des actions spécifiques. Vous pouvez appliquer des ensembles d'autorisations aux utilisateurs du tableau de bord qui ont besoin du même accès dans différents espaces de travail. Pour créer un ensemble d'autorisations, accédez à **Paramètres** > **Paramètres des autorisations**, puis sélectionnez **Créer un ensemble d'autorisations**. Pour une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Utilisez les ensembles d'autorisations pour regrouper les autorisations liées à des domaines ou des actions spécifiques. Vous pouvez appliquer des ensembles d'autorisations aux utilisateurs du tableau de bord qui ont besoin du même accès dans différents espaces de travail. Pour créer un ensemble d'autorisations, accédez à **Paramètres** > **Gestion des utilisateurs** > **Ensembles d'autorisations**, puis sélectionnez **Créer un ensemble d'autorisations**. Pour une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% tabs local %}
 {% tab Exemples d'ensembles d'autorisations %}
@@ -32,7 +32,7 @@ Utilisez les ensembles d'autorisations pour regrouper les autorisations liées �
 
 ## Créer un rôle {#creating-a-role}
 
-Les rôles permettent de structurer davantage en regroupant vos autorisations personnalisées individuelles avec des contrôles d'accès aux espaces de travail. C'est particulièrement utile si vous avez plusieurs marques ou espaces de travail régionaux dans un même tableau de bord. Avec les rôles, vous pouvez ajouter des utilisateurs du tableau de bord aux bons espaces de travail et leur accorder directement les autorisations associées. Pour une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions).
+Les rôles permettent de structurer davantage en regroupant vos autorisations personnalisées individuelles avec des contrôles d'accès aux espaces de travail. C'est particulièrement utile si vous avez plusieurs marques ou espaces de travail régionaux dans un même tableau de bord. Avec les rôles, vous pouvez ajouter des utilisateurs du tableau de bord aux bons espaces de travail et leur accorder directement les autorisations associées. Pour créer un rôle, accédez à **Paramètres** > **Gestion des utilisateurs** > **Rôles**, puis sélectionnez **Créer un rôle**. Pour une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 {% tabs local %}
 {% tab Exemples de rôles %}
@@ -47,7 +47,7 @@ Les rôles permettent de structurer davantage en regroupant vos autorisations pe
 
 ## Quelle est la différence entre les ensembles d'autorisations, les rôles et les équipes ? {#how-do-permission-sets-and-roles-differ-from-teams}
 
-{% multi_lang_include permissions.md content="Differences" %}
+{% multi_lang_include permissions/differences.md content="Differences" %}
 
 ### Considérations pour l'ajout d'autorisations utilisateur aux équipes {#considerations-for-adding-user-permissions-to-teams}
 
@@ -90,13 +90,14 @@ Gardez les comportements suivants à l'esprit lorsque vous attribuez l'accès au
 - **Administrateur d'espace de travail et administrateur d'entreprise :** les administrateurs d'espace de travail gèrent les autorisations au sein des espaces de travail qui leur sont attribués. Les administrateurs d'entreprise disposent d'une autorité à l'échelle de l'entreprise, y compris la suppression d'autres utilisateurs du tableau de bord.
 - **Utilisateurs limités :** les utilisateurs limités disposant de l'autorisation « Edit Dashboard Users » peuvent gérer d'autres utilisateurs limités, mais ne peuvent pas créer ni gérer des comptes d'administrateur d'entreprise.
 - **Portée de la gestion des utilisateurs du tableau de bord :** sur la page de détails de l'utilisateur, les autorisations n'apparaissent que pour les espaces de travail auxquels l'éditeur peut accéder. Un utilisateur limité qui peut modifier les utilisateurs dans un espace de travail peut ne pas voir les cases à cocher des autorisations d'un autre espace de travail.
+- **Bouton Attribuer des autorisations :** lorsque vous modifiez un utilisateur et qu'il dispose déjà d'autorisations au niveau de l'espace de travail ou d'ensembles d'autorisations pour chaque espace de travail que vous pouvez gérer, le bouton **Attribuer des autorisations** disparaît. Cela se produit car il n'y a plus d'espaces de travail supplémentaires à attribuer au niveau de l'espace de travail.
 - **Exporter les données utilisateur :** l'exportation des données utilisateur nécessite un accès au niveau de l'espace de travail en plus de l'autorisation d'exportation.
-- **Autorisations composites :** certaines zones nécessitent plusieurs autorisations. Par exemple, la configuration des [partenaires technologiques]({{site.baseurl}}/partners/) nécessite généralement à la fois l'accès au partenaire et une autorisation de lecture de base pour les fonctionnalités de l'espace de travail concerné.
+- **Autorisations composites :** certaines zones nécessitent plusieurs autorisations. Par exemple, la configuration des [partenaires technologiques]({{site.baseurl}}/partners) nécessite généralement à la fois l'accès au partenaire et une autorisation de lecture de base pour les fonctionnalités de l'espace de travail concerné.
 - **Importer et mettre à jour les données utilisateur :** cette autorisation inclut la possibilité de modifier les profils utilisateur de l'application via les flux d'importation, et pas seulement les enregistrements des utilisateurs du tableau de bord.
 
 ## Modifier les autorisations d'un utilisateur {#edit-a-users-permissions}
 
-Pour modifier les autorisations actuelles d'un utilisateur (administrateur, entreprise ou espace de travail), accédez à **Paramètres** > **Utilisateurs de l'entreprise**, puis sélectionnez son nom.
+Pour modifier les autorisations actuelles d'un utilisateur (administrateur, entreprise ou espace de travail), accédez à **Paramètres** > **Gestion des utilisateurs** > **Utilisateurs de l'entreprise**, puis sélectionnez son nom.
 
 ![La page « Utilisateurs de l'entreprise » dans Braze affichant un tableau des utilisateurs du tableau de bord.]({% image_buster /assets/img/braze_permissions/selecting_a_user.png %})
 
@@ -107,16 +108,14 @@ Pour modifier les autorisations actuelles d'un utilisateur (administrateur, entr
 
 Les administrateurs ont accès à toutes les fonctionnalités et la possibilité de modifier tous les paramètres de l'entreprise. Ils peuvent :
 
-- Modifier les [paramètres d'approbation]({{site.baseurl}}/user_guide/messaging/governance/approvals/#turning-on-the-approval-workflow)
-- Ajouter, modifier, supprimer, suspendre ou réactiver d'autres [utilisateurs Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/#adding-company-users)
+- Modifier les [paramètres d'approbation]({{site.baseurl}}/user_guide/messaging/governance/approvals#turning-on-the-approval-workflow)
+- Ajouter, modifier, supprimer, suspendre ou réactiver d'autres [utilisateurs Braze]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users#adding-company-users)
 - Exporter les utilisateurs Braze au format CSV
 
 Pour accorder ou retirer les privilèges d'administrateur, sélectionnez **This user is an admin**, puis sélectionnez **Update user**.
 
-![Les détails de l'utilisateur sélectionné avec la case à cocher administrateur en surbrillance.]({% image_buster /assets/img/braze_permissions/admin_level_permissions.png %}){: style="max-width:70%;"}
-
 {% alert warning %}
-Si vous retirez les privilèges d'administrateur d'un utilisateur, il ne pourra plus accéder à Braze tant que vous ne lui aurez pas attribué au moins une [autorisation au niveau de l'entreprise ou de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
+Si vous retirez les privilèges d'administrateur d'un utilisateur, il ne pourra plus accéder à Braze tant que vous ne lui aurez pas attribué au moins une [autorisation au niveau de l'entreprise ou de l'espace de travail]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?tab=company&sdktab=granular%20permissions#granularpermissions_editing-a-users-permissions).
 {% endalert %}
 
 {% endtab %}
@@ -137,7 +136,7 @@ Pour gérer les autorisations suivantes au niveau de l'entreprise pour un utilis
 
 ### Espace de travail {#workspace}
 
-Vous pouvez attribuer à un utilisateur des autorisations différentes pour chaque espace de travail auquel il appartient dans Braze. Pour gérer ses autorisations au niveau de l'espace de travail, sélectionnez **Select workspaces and permissions**, puis choisissez ses autorisations manuellement ou attribuez un [ensemble d'autorisations ou un rôle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que vous avez créé précédemment. Si vous devez attribuer à un utilisateur des autorisations différentes pour différents espaces de travail, répétez ce processus autant de fois que nécessaire. Pour une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
+Vous pouvez attribuer à un utilisateur des autorisations différentes pour chaque espace de travail auquel il appartient dans Braze. Pour gérer ses autorisations au niveau de l'espace de travail, sélectionnez **Select workspaces and permissions**, puis choisissez ses autorisations manuellement ou attribuez un [ensemble d'autorisations ou un rôle]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_creating-a-permission-set) que vous avez créé précédemment. Si vous devez attribuer à un utilisateur des autorisations différentes pour différents espaces de travail, répétez ce processus autant de fois que nécessaire. Pour une description de chaque autorisation, consultez la [Liste des autorisations]({{site.baseurl}}/user_guide/administer/global/user_management/permissions?sdktab=granular%20permissions#granularpermissions_list-of-permissions).
 
 {% subtabs %}
 {% subtab Sélection manuelle %}
@@ -173,9 +172,7 @@ Lorsque vous avez terminé, sélectionnez **Update user**.
 
 ## Exporter les autorisations utilisateur {#exporting-user-permissions}
 
-Pour télécharger une liste de vos utilisateurs et de leurs autorisations, accédez à **Paramètres** > **Utilisateurs de l'entreprise**, puis sélectionnez **Export Users**. Un fichier CSV sera envoyé à votre adresse e-mail sous peu.
-
-![La page « Utilisateurs de l'entreprise » dans Braze avec l'option « Export Users » en surbrillance.]({% image_buster /assets/img/braze_permissions/exporting_user_permissions.png %})
+Pour télécharger une liste de vos utilisateurs et de leurs autorisations, accédez à **Paramètres** > **Gestion des utilisateurs** > **Utilisateurs de l'entreprise**, puis sélectionnez **Export Users**. Un fichier CSV sera envoyé à votre adresse e-mail sous peu.
 
 ## Liste des autorisations {#list-of-permissions}
 
@@ -187,20 +184,20 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Campaigns | Launch Campaigns | Démarrer, arrêter, mettre en pause ou reprendre des Campaigns existantes |
 | Campaigns | Archive Campaigns | Déplacer des Campaigns vers les archives |
 | Campaigns | Edit Campaigns | Créer et mettre à jour des Campaigns |
-| Campaigns | Approve and Deny Campaigns | Approuver ou refuser des Campaigns. Le [flux de travail d'approbation pour les Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) doit être activé pour que cette autorisation s'applique. Ce paramètre est actuellement en accès anticipé. Contactez votre gestionnaire de compte si vous souhaitez participer à l'accès anticipé. |
+| Campaigns | Approve and Deny Campaigns | Approuver ou refuser des Campaigns. Le [flux de travail d'approbation pour les Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) doit être activé pour que cette autorisation s'applique. Ce paramètre est actuellement en accès anticipé. Contactez votre gestionnaire de compte si vous souhaitez participer à l'accès anticipé. |
 | Canvas | View Canvases | Consulter les Canvas |
 | Canvas | Archive Canvases | Déplacer des Canvas vers les archives |
 | Canvas | Edit Canvases | Créer et mettre à jour des Canvas |
 | Canvas | Launch Canvases | Démarrer, arrêter, mettre en pause ou reprendre des Canvas existants |
-| Canvas | Approve and Deny Canvases | Approuver ou refuser des Canvas. Le [flux de travail d'approbation pour les Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals/) doit être activé pour que cette autorisation s'applique. Ce paramètre est actuellement en accès anticipé. Contactez votre gestionnaire de compte si vous souhaitez participer à l'accès anticipé. |
+| Canvas | Approve and Deny Canvases | Approuver ou refuser des Canvas. Le [flux de travail d'approbation pour les Canvas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) doit être activé pour que cette autorisation s'applique. Ce paramètre est actuellement en accès anticipé. Contactez votre gestionnaire de compte si vous souhaitez participer à l'accès anticipé. |
 | Indicateurs de fonctionnalité | View Feature Flags | Consulter les indicateurs de fonctionnalité |
 | Indicateurs de fonctionnalité | Archive Feature Flags | Déplacer des indicateurs de fonctionnalité vers les archives |
 | Indicateurs de fonctionnalité | Edit Feature Flags | Créer et mettre à jour des indicateurs de fonctionnalité |
 | Limites de fréquence | View Frequency Capping Rules | Consulter les règles de limite de fréquence |
 | Limites de fréquence | Edit Frequency Capping Rules | Créer et mettre à jour les règles de limite de fréquence |
-| Pages d'accueil | View Landing Pages | Consulter les pages d'accueil |
-| Pages d'accueil | Publish Landing Pages | Rendre active une page d'accueil en brouillon |
-| Pages d'accueil | Edit Landing Page Drafts | Créer et enregistrer des brouillons de pages d'accueil |
+| Pages de destination | View Landing Pages | Consulter les pages de destination |
+| Pages de destination | Publish Landing Pages | Rendre active une page de destination en brouillon |
+| Pages de destination | Edit Landing Page Drafts | Créer et enregistrer des brouillons de pages de destination |
 | Paramètres d'archivage des messages | View Message Archiving Settings | Consulter les paramètres d'archivage des messages sans apporter de modifications |
 | Paramètres d'archivage des messages | Edit Message Archiving Settings | Créer et mettre à jour les paramètres d'archivage des messages |
 | Priorisation des messages | View Message Prioritization | Consulter les paramètres de priorisation des messages sans apporter de modifications |
@@ -225,7 +222,8 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Données utilisateur | Edit User Data | Créer et mettre à jour les données utilisateur |
 | Données utilisateur | Export User Data | Télécharger des utilisateurs depuis le tableau de bord |
 | Utilisateurs en double | View User Merge Records | Consulter une liste des enregistrements de fusion d'utilisateurs |
-| Utilisateurs | View User Profiles (PII Redacted) | Consulter les profils utilisateur de manière conforme aux données personnelles |
+| Utilisateurs | View User Profiles (PII Redacted) | Consulter les profils utilisateur de manière conforme aux données personnelles. Les utilisateurs disposant de cette autorisation ne peuvent pas enregistrer ni lancer de Campaigns faisant référence à des attributs personnalisés marqués comme données personnelles, sauf s'ils disposent également de l'autorisation « View Custom Attributes Marked as PII ». |
+| Utilisateurs | View User Event Properties | Consulter les propriétés d'événement dans l'onglet **Historique des événements** des profils utilisateur |
 | Utilisateurs en double | Merge Duplicate Users | Combiner des utilisateurs en double en un seul utilisateur. Les doublons sont supprimés après la fusion |
 | Suppression d'utilisateurs | View User Deletion Records | Consulter une liste des enregistrements de suppression d'utilisateurs |
 | Suppression d'utilisateurs | Delete Users | Supprimer définitivement des utilisateurs du tableau de bord individuellement ou en masse |
@@ -253,13 +251,13 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Modèles de messages in-app | View IAM Templates | Consulter les modèles de messages in-app sans apporter de modifications |
 | Modèles de messages in-app | Archive IAM Templates | Déplacer des modèles de messages in-app vers les archives |
 | Modèles de messages in-app | Edit IAM Templates | Créer et mettre à jour des modèles de messages in-app |
-| Modèles de page d'accueil | View Landing Page Templates | Consulter les modèles de page d'accueil |
-| Modèles de page d'accueil | Archive Landing Page Template | Déplacer des modèles de page d'accueil vers les archives |
-| Modèles de page d'accueil | Edit Landing Page Templates | Créer et mettre à jour des modèles de page d'accueil |
+| Modèles de page de destination | View Landing Page Templates | Consulter les modèles de page de destination |
+| Modèles de page de destination | Archive Landing Page Template | Déplacer des modèles de page de destination vers les archives |
+| Modèles de page de destination | Edit Landing Page Templates | Créer et mettre à jour des modèles de page de destination |
 | Modèles de webhook | View Webhook Templates | Consulter les modèles de webhook sans apporter de modifications |
 | Modèles de webhook | Archive Webhook Templates | Déplacer des modèles de webhook vers les archives |
 | Modèles de webhook | Edit Webhook Templates | Créer et mettre à jour des modèles de webhook |
-| Modèles de messages WhatsApp | View WhatsApp Message Templates | Permet aux utilisateurs de consulter les [modèles de messages WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#step-2-compose-your-whatsapp-message) |
+| Modèles de messages WhatsApp | View WhatsApp Message Templates | Permet aux utilisateurs de consulter les [modèles de messages WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#step-2-compose-your-whatsapp-message) |
 | Modèles de messages WhatsApp | Edit WhatsApp Message Templates | Permet aux utilisateurs de créer des modèles de messages WhatsApp dans le générateur de modèles. Cette fonctionnalité est actuellement en accès anticipé. |
 | Modèles de messages WhatsApp depuis Meta | View WhatsApp Message Templates From Meta | Consulter tous les modèles WhatsApp |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Autorisations de modèles" }
@@ -365,7 +363,7 @@ Pour télécharger une liste de vos utilisateurs et de leurs autorisations, acc�
 | Paramètres de domaine | Edit Domain Settings | Ajouter des domaines délégués et des domaines personnalisés sous les domaines vérifiés |
 | Chiffrement au niveau des champs | Edit Identifier Field-Level Encryption | Activer et mettre à jour les paramètres de chiffrement au niveau des champs |
 | Ressources de la bibliothèque multimédia | View Media Library Assets | Consulter les ressources de la bibliothèque multimédia |
-| Ressources de la bibliothèque multimédia | Delete Media Library Assets | Supprimer définitivement des ressources de la bibliothèque multimédia |
+| Ressources de la bibliothèque multimédia | Delete Media Library Assets | Supprimer des ressources de la bibliothèque multimédia depuis l'interface. Les ressources supprimées restent hébergées par Braze pour éviter de casser les messages qui y font référence. Pour supprimer définitivement une ressource, contactez l'assistance Braze. |
 | Ressources de la bibliothèque multimédia | Edit Media Library Assets | Créer et mettre à jour des ressources de la bibliothèque multimédia |
 | Ressources de la bibliothèque multimédia | Replace Media Library Assets | Remplacer le fichier d'une ressource existante de la bibliothèque multimédia tout en conservant son URL et son ID de ressource |
 | Limites de débit des messages | View Messaging Rate Limits | Consulter les limites de débit des messages au niveau de l'espace de travail |

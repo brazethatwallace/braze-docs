@@ -37,7 +37,7 @@ Brazeではリッチプッシュの設定手順を提供していますが、リ
 
 ### ステップ 1: プッシュキャンペーンを作成する {#step-1-create-a-push-campaign}
 
-[キャンペーンの作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message/#creating-a-push-message)の手順に従って、Android向けのプッシュ通知を作成します。リッチコンテンツを含まないプッシュ通知の設定と同じコンポーザーを使用します。
+[キャンペーンの作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message)の手順に従って、Android向けのプッシュ通知を作成します。リッチコンテンツを含まないプッシュ通知の設定と同じコンポーザーを使用します。
 
 ### ステップ 2: キャプションを追加する {#step-2-add-captioning}
 
@@ -49,10 +49,10 @@ Brazeではリッチプッシュの設定手順を提供していますが、リ
 
 メッセージのコンポーザーにある**Android通知画像**フィールドに画像を追加します。画像はダッシュボードから直接アップロードするか、外部でホストされているコンテンツURLを指定してアップロードできます。
 
-サポートされている画像の詳細については、[画像の仕様]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/#push)を確認してください。
+サポートされている画像の詳細については、[画像の仕様]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#push)を確認してください。
 
 ![画像を追加するか画像URLを入力できるAndroid通知画像セクション。]({% image_buster /assets/img_archive/android_rich_image.png %})
 
 ### ステップ 4: キャンペーンの作成を続ける {#step-4-continue-creating-your-campaign}
 
-リッチ通知のコンテンツがダッシュボードにアップロードされたら、引き続き[キャンペーンのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/)を行うことができます。
+リッチ通知のコンテンツがダッシュボードにアップロードされたら、引き続き[キャンペーンのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)を行うことができます。

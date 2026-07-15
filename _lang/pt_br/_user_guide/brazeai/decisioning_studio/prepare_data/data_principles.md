@@ -19,7 +19,7 @@ Cada ativo de dados (perfis de clientes, ativações, engajamentos, conversões)
 | Um identificador de cliente único deve estar presente em cada ativo | Se ativos diferentes usam sistemas de ID diferentes (por exemplo, um ID de warehouse para features, mas um ID de plataforma para ativações), o mecanismo do Decisioning Studio não consegue uni-los de forma confiável. Isso quebra o ciclo de feedback e prejudica tanto o treinamento do modelo quanto a precisão dos relatórios. Se o mapeamento entre os dois sistemas de ID for muitos-para-muitos em vez de um-para-muitos, as falhas de integridade de dados resultantes podem ser graves. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Um identificador de cliente consistente em todos os ativos" }
 
-Consulte [Usar o ID externo da Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id/) para orientações sobre qual identificador usar.
+Consulte [Usar o ID externo da Braze]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/braze_external_id) para orientações sobre qual identificador usar.
 
 ## Dados de eventos devem ser enviados como um fluxo incremental, não como um snapshot {#event-data-must-be-passed-as-an-incremental-stream-not-as-a-snapshot}
 
@@ -30,7 +30,7 @@ Eventos, como conversões, engajamentos e ativações, representam coisas discre
 | Dados de eventos devem ser estruturados como registros individuais com timestamp e entregues de forma incremental | Quando dados de eventos são agregados em um snapshot (por exemplo, armazenando um atributo de "hora do último envio" em vez de registros individuais de envio), você perde a precisão do momento de cada evento. Isso torna impossível atribuir resultados com precisão a decisões específicas, quebrando o ciclo de feedback que o modelo precisa para aprender. Sem timestamps precisos de eventos, não é possível saber exatamente quando uma conversão aconteceu ou qual recomendação a desencadeou. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Dados de eventos devem ser enviados como um fluxo incremental, não como um snapshot" }
 
-Consulte [Snapshots versus fluxos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) para uma explicação completa da distinção e exemplos de padrões corretos e incorretos.
+Consulte [Snapshots versus fluxos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) para uma explicação completa da distinção e exemplos de padrões corretos e incorretos.
 
 ## Dados de snapshot devem ser atualizados em uma programação regular baseada em tempo {#snapshot-data-must-be-updated-on-a-regular-time-driven-schedule}
 
@@ -54,7 +54,7 @@ Para dados de fluxo de eventos especificamente, cada registro deve incluir no m�
 
 **Campos obrigatórios:**
 - Identificador do cliente
-- Timestamp de quando o evento ocorreu (não de quando o registro foi criado no seu sistema; são coisas diferentes; consulte [Snapshots versus fluxos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams/) para entender por que isso importa)
+- Timestamp de quando o evento ocorreu (não de quando o registro foi criado no seu sistema; são coisas diferentes; consulte [Snapshots versus fluxos de eventos]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/prepare_data/data_streams) para entender por que isso importa)
 - Timestamp de quando o registro foi criado no seu sistema (usado para fatiar exportações incrementais de forma confiável)
 - Tipo de evento
 - Campos suficientes para filtrar até os eventos específicos que você deseja

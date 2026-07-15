@@ -30,7 +30,7 @@ Vous pouvez choisir parmi les options suivantes lors de l'utilisation de la dist
 
 - Envoyer dès le lancement de la campagne
 - Envoyer à une heure désignée
-- [Timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
+- [Timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)
 {% endtab %}
 
 {% tab canvas %}
@@ -66,10 +66,10 @@ La fenêtre d'entrée de votre Canvas détermine quels utilisateurs peuvent entr
 
 {% tabs %}
 {% tab campaign %}
-Lorsque vous sélectionnez le déclenchement par API comme option de distribution, vous recevrez un ID de campagne pour identifier quelle campagne envoyer avec l'[endpoint `/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/#prerequisites).
+Lorsque vous sélectionnez le déclenchement par API comme option de distribution, vous recevrez un ID de campagne pour identifier quelle campagne envoyer avec l'[endpoint `/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns#prerequisites).
 {% endtab %}
 
 {% tab canvas %}
-Lorsque vous sélectionnez le déclenchement par API comme type d'entrée, vous recevrez un ID de Canvas pour identifier quel Canvas envoyer avec l'[endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/).
+Lorsque vous sélectionnez le déclenchement par API comme type d'entrée, vous recevrez un ID de Canvas pour identifier quel Canvas envoyer avec l'[endpoint `/canvas/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 {% endtab %}
 {% endtabs %}

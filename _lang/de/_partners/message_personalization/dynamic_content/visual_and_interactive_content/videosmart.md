@@ -44,26 +44,26 @@ Bevor Sie beginnen, stellen Sie sicher, dass Sie über Folgendes verfügen:
 | Braze Connected-Content-Zugangsdaten | Connected-Content-Basic-Authentication-Zugangsdaten mit dem Namen **basic_credentials**, konfiguriert mit von VideoSmart bereitgestellten Werten |
 | **VideoSmart Content-Block**-Template | Das **VideoSmart Content-Block**-Template, das Ihrem Braze-Dashboard hinzugefügt wurde (bereitgestellt von VideoSmart) |
 | Eine Braze-E-Mail-Nachricht | Eine Braze-Campaign-E-Mail oder ein Canvas-E-Mail-Schritt, in den Sie den **VideoSmart Content-Block** einfügen |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
 Befolgen Sie diese Schritte, um den **VideoSmart Content-Block** zu aktivieren und in einer E-Mail zu verwenden.
 
-### 1. Schritt: VideoSmart Content-Block-Template in Braze einrichten {#step-1-set-up-the-videosmart-content-block-template-in-braze}
+### Schritt 1: VideoSmart Content-Block-Template in Braze einrichten {#step-1-set-up-the-videosmart-content-block-template-in-braze}
 
 Fordern Sie das **VideoSmart Content-Block**-Template von Ihrer VideoSmart-Vertretung an und fügen Sie es Ihrem Braze-Dashboard hinzu.
 
 VideoSmart stellt Zugangsdaten für die Connected-Content-Authentifizierung bereit, die vom Content-Block verwendet wird.
 
-### 2. Schritt: Connected-Content-Authentifizierung einrichten {#step-2-set-up-connected-content-authentication}
+### Schritt 2: Connected-Content-Authentifizierung einrichten {#step-2-set-up-connected-content-authentication}
 
 Erstellen Sie in Braze Connected-Content-Basic-Authentication-Zugangsdaten mit dem Namen „basic_credentials“.
 
-- Befolgen Sie die Anweisungen unter [Basic-Authentifizierung verwenden]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/#using-basic-authentication).
+- Befolgen Sie die Anweisungen unter [Basic-Authentifizierung verwenden]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call#using-basic-authentication).
 - Verwenden Sie den Benutzernamen und das Passwort, die von VideoSmart bereitgestellt wurden.
 
-### 3. Schritt: Content-Block zu Ihrer E-Mail hinzufügen {#step-3-add-the-content-block-to-your-email}
+### Schritt 3: Content-Block zu Ihrer E-Mail hinzufügen {#step-3-add-the-content-block-to-your-email}
 
 Fügen Sie den **VideoSmart Content-Block** an der Stelle in Ihre E-Mail ein, an der der Videoinhalt erscheinen soll.
 
@@ -75,7 +75,7 @@ In den meisten Braze-Konfigurationen werden Content Blocks mit dem folgenden Mus
 Der Name des Content-Blocks unterscheidet zwischen Groß- und Kleinschreibung und muss genau mit dem übereinstimmen, was Sie in Braze konfiguriert haben.
 {% endalert %}
 
-### 4. Schritt: Campaign und Datensatzdaten überschreiben (optional) {#step-4-override-campaign-and-record-data-optional}
+### Schritt 4: Campaign und Datensatzdaten überschreiben (optional) {#step-4-override-campaign-and-record-data-optional}
 
 Wenn Ihr Content-Block Standardwerte unterstützt, können Sie ihn verwenden, ohne Variablen zu setzen.
 
@@ -94,7 +94,7 @@ Dieses Beispiel verwendet Braze-Nutzerattribute für den Vornamen und den Nachna
 
 {% capture vs_record_data %}
 {
-  "FirstName": "{{ ${first_name} | default: 'John' | json_escape }}",
+  "FirstName": "{{ ${first_name} | default: 'Alex' | json_escape }}",
   "LastName": "{{ ${last_name} | default: 'Doe' | json_escape }}"
 }
 {% endcapture %}
@@ -107,7 +107,7 @@ Dieses Beispiel verwendet Braze-Nutzerattribute für den Vornamen und den Nachna
 - `vs_record_data` muss gültiges JSON sein, kodiert als einzelner String (das Beispiel verwendet `strip_newlines`).
 {% endalert %}
 
-### 5. Schritt: Die vom VideoSmart Content-Block-Template generierten Variablen verwenden {#step-5-use-the-variables-generated-by-videosmarts-content-block-template}
+### Schritt 5: Die vom VideoSmart Content-Block-Template generierten Variablen verwenden {#step-5-use-the-variables-generated-by-videosmarts-content-block-template}
 
 Nachdem der Content-Block ausgeführt wurde, generiert er Variablen, die Sie an anderer Stelle in Ihrer E-Mail referenzieren können.
 
@@ -119,9 +119,9 @@ Häufige Variablen umfassen:
 | `{{ video_url }}` | URL des personalisierten Videos |
 | `{{ poster_url }}` | URL des Posterbilds für das Video |
 | `{{ output_data.VARIABLE_NAME }}` | Zusätzliche Ausgabefelder, die vom Content-Block bereitgestellt werden |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 5: Die vom VideoSmart Content-Block-Template generierten Variablen verwenden" }
 {% endraw %}
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 5: Die vom VideoSmart Content-Block-Template generierten Variablen verwenden" }
 
 ## Rate-Limits
 
@@ -129,7 +129,7 @@ Die VideoSmart-API hat ein Rate-Limit von 10.000 Anfragen pro Minute. Wenn Sie d
 
 Um dieses Risiko zu reduzieren, konfigurieren Sie das Braze-Campaign-Rate-Limiting so, dass die Nachrichtenversandrate unter der VideoSmart-API-Kapazität bleibt.
 
-Informationen zur Zustellgeschwindigkeit und zum Rate-Limiting in Braze finden Sie unter [Zustellgeschwindigkeit und Rate-Limiting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#delivery-speed-rate-limiting).
+Informationen zur Zustellgeschwindigkeit und zum Rate-Limiting in Braze finden Sie unter [Zustellgeschwindigkeit und Rate-Limiting]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#delivery-speed-rate-limiting).
 
 ## Hinweise {#considerations}
 

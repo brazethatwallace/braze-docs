@@ -3,7 +3,7 @@ nav_title: Benutzerdefinierte Klänge
 article_title: Benutzerdefinierte Push-Benachrichtigungstöne für iOS
 platform: iOS
 page_order: 3
-description: "Dieser referenzierte Artikel behandelt die Implementierung angepasster Sounds in Ihren iOS Push-Benachrichtigungen."
+description: "Dieser Referenzartikel behandelt die Implementierung angepasster Sounds in Ihren iOS Push-Benachrichtigungen."
 channel:
   - push
 
@@ -12,11 +12,11 @@ noindex: true
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Benutzerdefinierte Klänge
+# Benutzerdefinierte Klänge {#custom-sounds}
 
-## Schritt 1: Hosting des Sounds in der App
+## 1. Schritt: Hosting des Sounds in der App {#step-1-hosting-the-sound-in-the-app}
 
-Angepasste Push-Benachrichtigungstöne müssen lokal innerhalb des Hauptbündels der Client-Anwendung gehostet werden. Die folgenden Audiodatenformate werden akzeptiert:
+Angepasste Push-Benachrichtigungstöne müssen lokal innerhalb des Hauptbundles der Client-Anwendung gehostet werden. Die folgenden Audiodatenformate werden akzeptiert:
 
 - Lineare PCM
 - MA4
@@ -35,11 +35,10 @@ Sie können einen Sound untersuchen, um sein Datenformat zu bestimmen, indem Sie
 
 Benutzerdefinierte Sounds müssen beim Abspielen unter 30 Sekunden bleiben. Wenn ein angepasster Sound dieses Limit überschreitet, wird stattdessen der standardmäßige Systemton abgespielt.
 
-## Schritt 2: Das Dashboard mit einer Protokoll-URL für den Ton versorgen
+## 2. Schritt: Das Dashboard mit einer Protokoll-URL für den Sound versorgen {#step-2-providing-the-dashboard-with-a-protocol-url-for-the-sound}
 
-Ihr Sound muss lokal in der App gehostet werden. Sie müssen im Feld **Sound** des Push Composers eine Protokoll-URL angeben, die auf den Standort der Sounddatei in der App verweist. Wenn Sie in diesem Feld "default" angeben, wird der standardmäßige Benachrichtigungston auf dem Gerät abgespielt. Dies kann über unsere [Messaging API]({{site.baseurl}}/api/endpoints/messaging/) oder unser Dashboard unter **Einstellungen** im Push-Composer festgelegt werden, wie im folgenden Screenshot zu sehen ist:
+Ihr Sound muss lokal in der App gehostet werden. Sie müssen im Feld **Sound** des Push-Composers eine Protokoll-URL angeben, die auf den Speicherort der Sounddatei in der App verweist. Wenn Sie in diesem Feld „default“ angeben, wird der standardmäßige Benachrichtigungston auf dem Gerät abgespielt. Dies kann über unsere [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) oder unser Dashboard unter **Einstellungen** im Push-Composer festgelegt werden, wie im folgenden Screenshot zu sehen ist:
 
-![]({% image_buster /assets/img_archive/sound_push_ios.png %})
+![Ihr Sound muss lokal in der App gehostet werden. Sie müssen im Feld „Sound“ des Push-Composers eine Protokoll-URL angeben, die auf den Speicherort der Sounddatei in der App verweist. Wenn Sie in diesem Feld „default“ angeben, wird der standardmäßige Benachrichtigungston auf dem Gerät abgespielt. Dies kann über unsere Messaging-API oder unser Dashboard unter „Einstellungen“ im Push-Composer festgelegt werden, wie im folgenden Screenshot zu sehen ist.]({% image_buster /assets/img_archive/sound_push_ios.png %})
 
-Wenn die angegebene Sounddatei nicht existiert oder das Schlüsselwort "default" eingegeben wird, verwendet Braze den standardmäßigen Alarmton des Geräts. Abgesehen von unserem Dashboard kann der Ton auch über unsere [Messaging API]({{site.baseurl}}/api/endpoints/messaging/) konfiguriert werden. Weitere Informationen finden Sie in der Apple-Entwicklerdokumentation zur [Vorbereitung von benutzerdefinierten Warntönen](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html).
-
+Wenn die angegebene Sounddatei nicht existiert oder das Schlüsselwort „default“ eingegeben wird, verwendet Braze den standardmäßigen Alarmton des Geräts. Abgesehen von unserem Dashboard kann der Sound auch über unsere [Messaging-API]({{site.baseurl}}/api/endpoints/messaging) konfiguriert werden. Weitere Informationen finden Sie in der Apple-Entwicklerdokumentation zur [Vorbereitung von benutzerdefinierten Warntönen](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/SupportingNotificationsinYourApp.html).

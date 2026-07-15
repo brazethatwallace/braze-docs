@@ -10,7 +10,7 @@ description: "앱에서 상세 로깅을 수동으로 활성화하지 않고도 
 > 앱에서 상세 로깅을 활성화하지 않고도 SDK 기반 채널의 문제를 해결할 수 있도록 Braze SDK에 내장된 디버거를 사용하는 방법을 알아보세요.
 
 {% alert tip %}
-더 심층적인 조사가 필요한 경우, [상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/)하여 자세한 SDK 출력을 캡처하고, 특정 채널에 대한 [상세 로그를 읽는 방법]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs/)도 확인할 수 있습니다.
+더 심층적인 조사가 필요한 경우, [상세 로깅을 활성화]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging)하여 자세한 SDK 출력을 캡처하고, 특정 채널에 대한 [상세 로그를 읽는 방법]({{site.baseurl}}/developer_guide/sdk_integration/reading_verbose_logs)도 확인할 수 있습니다.
 {% endalert %}
 
 ## 필수 조건 {#prerequisites}
@@ -19,10 +19,12 @@ Braze SDK 디버거를 사용하려면 "PII 보기" 및 "고객 프로필 보기
 
 {% sdk_min_versions swift:10.2.0 android:32.1.0 %}
 
+`Braze.configuration.logger.level`이 `.disabled`일 때 디버거 로그를 수집하려면 Swift SDK 11.9.0 이상을 사용하세요. 자세한 내용은 [Swift 체인지로그]({{site.baseurl}}/developer_guide/changelogs#swift_fixed-12)를 참조하세요.
+
 ## Braze SDK 디버깅하기
 
 {% alert tip %}
-Braze 웹 SDK의 디버깅을 활성화하려면 [URL 매개변수를 사용]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#logging)하면 됩니다.
+Braze 웹 SDK의 디버깅을 활성화하려면 [URL 매개변수를 사용]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#logging)하면 됩니다.
 {% endalert %}
 
 ### 1단계: 앱 닫기 {#step-1-close-your-app}
@@ -35,7 +37,7 @@ Braze에서 **설정**으로 이동한 다음 **설정 및 테스트**에서 **S
 
 !["SDK 디버거"가 강조 표시된 "설정 및 테스트" 섹션.]({% image_buster /assets/img/sdk_debugger/select_sdk_debugger.png %})
 
-**Create debugging session**을 선택합니다.
+**디버깅 세션 생성**을 선택합니다.
 
 !["SDK 디버거" 페이지.]({% image_buster /assets/img/sdk_debugger/select_create_debugging_session.png %})
 

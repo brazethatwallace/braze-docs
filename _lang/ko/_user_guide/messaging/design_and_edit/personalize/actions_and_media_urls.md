@@ -12,7 +12,7 @@ description: "이 참조 문서에서는 Liquid를 사용하여 동작 및 미�
 ## 인앱 콘텐츠로 딥링킹하기 {#deep-link-to-in-app-content}
 
 {% alert tip %}
-**개발자용:** 커스텀 스킴, 유니버설 링크 및 기타 옵션 중 선택하는 방법(AASA 파일이 필요한 경우, 구현해야 하는 앱 델리게이트 메서드, 문제 디버깅 방법 포함)에 대한 가이드는 [iOS 딥링킹 가이드]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/) 및 [딥링킹 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting/)을 참조하세요.
+**개발자용:** 커스텀 스킴, 유니버설 링크 및 기타 옵션 중 선택하는 방법(AASA 파일이 필요한 경우, 구현해야 하는 앱 델리게이트 메서드, 문제 디버깅 방법 포함)에 대한 가이드는 [iOS 딥링킹 가이드]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide) 및 [딥링킹 문제 해결]({{site.baseurl}}/developer_guide/push_notifications/deep_linking_troubleshooting)을 참조하세요.
 {% endalert %}
 
 ### 딥링킹이란? {#what-is-deep-linking}
@@ -30,14 +30,14 @@ description: "이 참조 문서에서는 Liquid를 사용하여 동작 및 미�
 딥링크에서 콜론 이후의 모든 내용은 자유 형식 텍스트입니다. 구조와 해석을 정의하는 것은 여러분에게 달려 있지만, 일반적인 관례는 선행 `//`와 쿼리 매개변수(예: `?foo=1&bar=2`)를 포함하여 `http:` URL을 모델로 하는 것입니다. 앞의 예시에서 `twitter://user?screen_name=[id]`는 앱에서 특정 프로필을 실행하는 데 사용됩니다.
 
 {% alert important %}
-래퍼 프레임워크(예: Flutter 또는 Cordova)로 구축된 앱의 경우, Braze는 래퍼별 딥링킹 지원을 제공하지 않습니다. 네이티브 iOS 및 Android 레이어에서 딥링크를 구성해야 합니다. Cordova의 경우 [푸시 알림의 딥링킹]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/?sdktab=cordova)을 참조하세요.
+래퍼 프레임워크(예: Flutter 또는 Cordova)로 구축된 앱의 경우, Braze는 래퍼별 딥링킹 지원을 제공하지 않습니다. 네이티브 iOS 및 Android 레이어에서 딥링크를 구성해야 합니다. Cordova의 경우 [푸시 알림의 딥링킹]({{site.baseurl}}/developer_guide/push_notifications/deep_linking?sdktab=cordova)을 참조하세요.
 {% endalert %}
 
 ### UTM 태그 및 Campaign 기여도 {#utm-tags-and-campaign-attribution}
 
 #### UTM 태그란? {#what-is-a-utm-tag}
 
-[UTM(Urchin Traffic Manager) 태그](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article)를 사용하면 링크에 캠페인 기여도 세부 정보를 직접 포함할 수 있습니다. UTM 태그는 Google Analytics에서 캠페인 기여도 데이터를 수집하는 데 사용되며, 다음 등록정보를 추적하는 데 사용할 수 있습니다:
+[UTM(Urchin Traffic Manager) 태그](https://support.google.com/analytics/answer/10917952?sjid=14344007686729081565-NC#zippy=%2Cin-this-article)를 사용하면 링크에 캠페인 기여도 세부 정보를 직접 포함할 수 있습니다. UTM 태그는 Google Analytics에서 캠페인 기여도 데이터를 수집하는 데 사용되며, 다음 속성을 추적하는 데 사용할 수 있습니다:
 
 - `utm_source`: 트래픽 소스의 식별자(예: `my_app`)
 - `utm_medium`: 캠페인 매체(예: `newsfeed`)
@@ -59,10 +59,10 @@ Braze는 Campaign 또는 캔버스 단계의 모든 링크에 대해 _총 클릭
 
 Analytics SDK가 통합되고 구성된 후, Braze 캠페인의 딥링크에 UTM 태그를 사용할 수 있습니다. 캠페인에 UTM 태그를 설정하려면 대상 URL 또는 딥링크에 필요한 UTM 태그를 포함하세요. 다음 예시는 푸시 알림과 인앱 메시지에서 UTM 태그를 사용하는 방법을 보여줍니다.
 
-##### UTM 태그로 푸시 열기 및 인앱 메시지 클릭 기여도 추적 {#attribute-push-opens-and-in-app-message-clicks-with-utm-tags}
+##### UTM 태그로 푸시 열람 및 인앱 메시지 클릭 기여도 추적 {#attribute-push-opens-and-in-app-message-clicks-with-utm-tags}
 
 {% tabs %}
-{% tab 푸시 열기 %}
+{% tab 푸시 열람 %}
 
 푸시 알림의 딥링크에 UTM 태그를 포함하려면, 푸시 메시지의 클릭 시 동작을 딥링크로 설정한 다음 딥링크 주소를 작성하고 다음과 같은 방식으로 원하는 UTM 태그를 포함하세요:
 
@@ -70,7 +70,7 @@ Analytics SDK가 통합되고 구성된 후, Braze 캠페인의 딥링크에 UTM
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spring2016giftcards&utm_content=ios_deeplink
 ```
 
-![]({% image_buster /assets/img_archive/push_utm_tags.png %})
+![UTM 태그를 사용한 푸시 열람 및 인앱 메시지 클릭 기여도 추적 관련 스크린샷.]({% image_buster /assets/img_archive/push_utm_tags.png %})
 
 {% endtab %}
 {% tab 인앱 메시지 클릭 %}
@@ -81,7 +81,7 @@ myapp://products/20-gift-card?utm_source=my_app&utm_medium=push&utm_campaign=spr
 myapp://products/20-gift-card?utm_source=my_app&utm_medium=iam&utm_campaign=spring2021giftcards&utm_content=web_link
 ```
 
-![]({% image_buster /assets/img_archive/iam_utm_tags.png %})
+![UTM 태그를 사용한 푸시 열람 및 인앱 메시지 클릭 기여도 추적 관련 스크린샷.]({% image_buster /assets/img_archive/iam_utm_tags.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -92,7 +92,7 @@ Braze 작성기에서 직접 URL을 동적으로 구성할 수 있으므로, URL
 
 ### 지원되는 Liquid 개인화 태그로 URL 생성하기 {#create-a-url-with-supported-liquid-personalization-tags}
 
-[지원되는 Liquid 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/)를 사용하여 URL을 동적으로 생성할 수 있습니다.
+[지원되는 Liquid 개인화 태그]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)를 사용하여 URL을 동적으로 생성할 수 있습니다.
 
 {% raw %}
 ```liquid
@@ -100,7 +100,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-커스텀 정의된 Liquid 변수의 단축도 지원합니다. 아래에 몇 가지 예시가 나와 있습니다:
+커스텀 정의된 Liquid 변수의 단축도 지원합니다. 다음 섹션에 몇 가지 예시가 나와 있습니다:
 
 ### Liquid 변수를 사용하여 URL 생성하기 {#create-a-url-using-liquid-variables}
 
@@ -115,13 +115,13 @@ https://example.com/{{url_var}}
 
 **지원 채널:** KakaoTalk, LINE, SMS, RCS, WhatsApp
 
-API 트리거 등록정보에 포함된 URL을 포함하여 Liquid로 렌더링된 URL을 단축합니다. 예를 들어, {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %}가 유효한 URL을 나타내는 경우, 메시지를 보내기 전에 해당 URL을 단축하고 추적합니다.
+API 트리거 속성에 포함된 URL을 포함하여 Liquid로 렌더링된 URL을 단축합니다. 예를 들어, {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %}가 유효한 URL을 나타내는 경우, 메시지를 보내기 전에 해당 URL을 단축하고 추적합니다.
 
 ### `/messages/send` 엔드포인트에서 URL 단축하기 {#shorten-urls-in-messagessend-endpoint}
 
-[`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/)를 통한 API 전용 메시지에도 링크 단축이 활성화됩니다. 전체 요청 매개변수 목록은 [요청 매개변수]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#request-parameters)를 참조하세요.
+[`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)를 통한 API 전용 메시지에도 링크 단축이 활성화됩니다. 전체 요청 매개변수 목록은 [요청 매개변수]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters)를 참조하세요.
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | 예 | 부울 | 링크 단축을 활성화하려면 `link_shortening_enabled`를 `true`로 설정하세요. 추적을 사용하려면 `campaign_id`와 `message_variation_id`가 있어야 합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Shorten URLs in /messages/send endpoint" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="/messages/send 엔드포인트에서 URL 단축하기" }

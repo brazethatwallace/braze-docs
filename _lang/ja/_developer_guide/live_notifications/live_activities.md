@@ -81,7 +81,7 @@ sequenceDiagram
 
 {% sdk_min_versions swift:5.11.0 %}
 
-### ステップ 1: アクティビティを作成する {#create-an-activity}
+### ステップ1: アクティビティを作成する {#create-an-activity}
 
 まず、Appleのドキュメントの[ライブアクティビティでライブデータを表示する](https://developer.apple.com/documentation/activitykit/displaying-live-data-with-live-activities)手順に従い、iOSアプリケーションにライブアクティビティをセットアップします。このタスクの一部として、`Info.plist`に`NSSupportsLiveActivities`を`YES`に設定して含めてください。
 
@@ -118,11 +118,11 @@ struct SportsActivityAttributes: ActivityAttributes {
 }
 ```
 
-### ステップ 2: アクティビティを開始する {#start-the-activity}
+### ステップ2: アクティビティを開始する {#start-the-activity}
 
 まず、アクティビティの登録方法を選択します。
 
-- **リモート:** [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>)メソッドをユーザーライフサイクルの早い段階で、push-to-startトークンが必要になる前に呼び出し、[`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/)エンドポイントを使用してアクティビティを開始します。
+- **リモート:** [`registerPushToStart`](<http://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/registerpushtostart(fortype:name:)>)メソッドをユーザーライフサイクルの早い段階で、push-to-startトークンが必要になる前に呼び出し、[`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start)エンドポイントを使用してアクティビティを開始します。
 - **ローカル:** ライブアクティビティのインスタンスを作成し、[`launchActivity`](<https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/liveactivities-swift.class/launchactivity(pushtokentag:activity:fileid:line:)>)メソッドを使用して、Brazeが管理するプッシュトークンを作成します。
 
 {% tabs local %}
@@ -131,13 +131,13 @@ struct SportsActivityAttributes: ActivityAttributes {
 ライブアクティビティをリモートで登録するには、iOS 17.2以降が必要です。
 {% endalert %}
 
-#### ステップ 2.1: BrazeKitをウィジェット拡張に追加する {#step-21-add-brazekit-to-your-widget-extension}
+#### ステップ2.1: BrazeKitをウィジェット拡張に追加する {#step-21-add-brazekit-to-your-widget-extension}
 
 Xcodeプロジェクトで、アプリの名前を選択し、**General**を選択します。**Frameworks and Libraries**の下に`BrazeKit`がリストされていることを確認します。
 
 ![サンプルXcodeプロジェクト内の「Frameworks and Libraries」にあるBrazeKitフレームワーク]({% image_buster /assets/img/swift/live_activities/xcode_frameworks_and_libraries.png %})
 
-#### ステップ 2.2: BrazeLiveActivityAttributesプロトコルを追加する {#brazeActivityAttributes}
+#### ステップ2.2: BrazeLiveActivityAttributesプロトコルを追加する {#brazeActivityAttributes}
 
 `ActivityAttributes`の実装に`BrazeLiveActivityAttributes`プロトコルへの準拠を追加し、属性モデルに`brazeActivityId`プロパティを追加します。
 
@@ -168,7 +168,7 @@ struct SportsActivityAttributes: ActivityAttributes, BrazeLiveActivityAttributes
 }
 ```
 
-#### ステップ 2.3: push-to-startの登録 {#step-23-register-for-push-to-start}
+#### ステップ2.3: push-to-startの登録 {#step-23-register-for-push-to-start}
 
 次にライブアクティビティのタイプを登録し、そのタイプに関連付けられたすべてのpush-to-startトークンとライブアクティビティインスタンスをBrazeが追跡できるようにします。
 
@@ -176,7 +176,7 @@ struct SportsActivityAttributes: ActivityAttributes, BrazeLiveActivityAttributes
 iOSオペレーティングシステムは、デバイスが再起動した後の最初のアプリインストール時にのみpush-to-startトークンを生成します。トークンが確実に登録されるようにするには、`didFinishLaunchingWithOptions`メソッドで`registerPushToStart`を呼び出してください。
 {% endalert %}
 
-###### 例
+##### 例
 
 次の例では、`LiveActivityManager`クラスがライブアクティビティオブジェクトを処理します。次に、`registerPushToStart`メソッドが`SportsActivityAttributes`を登録します。
 
@@ -202,9 +202,9 @@ class LiveActivityManager {
 }
 ```
 
-#### ステップ 2.4: push-to-start通知を送信する {#step-24-send-a-push-to-start-notification}
+#### ステップ2.4: push-to-start通知を送信する {#step-24-send-a-push-to-start-notification}
 
-[`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/)エンドポイントを使用してリモートのpush-to-start通知を送信します。
+[`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start)エンドポイントを使用してリモートのpush-to-start通知を送信します。
 {% endtab %}
 
 {% tab local %}
@@ -256,7 +256,7 @@ class LiveActivityManager {
 {% endtab %}
 {% endtabs %}
 
-### ステップ 3: アクティビティトラッキングを再開する {#resume-activity-tracking}
+### ステップ3: アクティビティトラッキングを再開する {#resume-activity-tracking}
 
 Brazeがアプリ起動時にライブアクティビティを追跡できるようにするには、次の手順を実行します。
 
@@ -266,7 +266,7 @@ Brazeがアプリ起動時にライブアクティビティを追跡できるよ
 
 これにより、Brazeはすべてのアクティブなライブアクティビティのプッシュトークン更新を追跡するタスクを再開できます。ユーザーがデバイス上のライブアクティビティを明示的に削除した場合、そのアクティビティは削除されたと見なされ、Brazeはそれを追跡しなくなります。
 
-###### 例
+#### 例
 
 ```swift
 import UIKit
@@ -297,24 +297,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 ```
 
-### ステップ 4: アクティビティを更新する {#update-the-activity}
+### ステップ4: アクティビティを更新する {#update-the-activity}
 
 ![2チームのスコアが表示されたiPhoneロック画面のライブアクティビティ。Wild Bird Fundは2ポイント、Owl Rehabは4ポイント。]({% image_buster /assets/img/swift/live_activities/example_1_2.png %}){: style="max-width:40%;float:right;margin-left:15px;"}
 
-[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/)エンドポイントを使用すると、Braze REST APIを介して渡されたプッシュ通知を通じてライブアクティビティを更新できます。このエンドポイントを使用して、ライブアクティビティの`ContentState`を更新します。
+[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update)エンドポイントを使用すると、Braze REST APIを介して渡されたプッシュ通知を通じてライブアクティビティを更新できます。このエンドポイントを使用して、ライブアクティビティの`ContentState`を更新します。
 
 `ContentState`を更新すると、ライブアクティビティウィジェットに新しい情報が表示されます。前半終了時のSuperb Owlショーの表示例を以下に示します。
 
-詳細については、[`/messages/live_activity/update`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/)の記事を参照してください。
+詳細については、[`/messages/live_activity/update`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/live_activity/update)の記事を参照してください。
 
-### ステップ 5: アクティビティを終了する {#end-the-activity}
+### ステップ5: アクティビティを終了する {#end-the-activity}
 
-ライブアクティビティがアクティブな場合、ユーザーのロック画面とダイナミックアイランドの両方に表示されます。Brazeを通じて終了するには、[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/)エンドポイントで`end_activity`を`true`に設定します。
+ライブアクティビティがアクティブな場合、ユーザーのロック画面とダイナミックアイランドの両方に表示されます。Brazeを通じて終了するには、[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update)エンドポイントで`end_activity`を`true`に設定します。
 
 ライブアクティビティの終了の信頼性を向上させるには、以下のオプションの手順を実行します。
 
 1. 同じ`update`リクエストにオプションで`dismissal_date`を含め、iOSがライブアクティビティUIを削除するタイミングを指定します。
-2. [メッセージアクティビティログ]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/)で配信結果を確認します。
+2. [メッセージアクティビティログ]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab)で配信結果を確認します。
 
 #### 自動削除の設定 {#arranging-automatic-dismissal}
 
@@ -323,7 +323,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 1. 追跡可能な`activity_id`を含む`/messages/live_activity/start`リクエストを送信します。
 2. その`activity_id`とターゲット終了時刻をバックエンドスケジューラーに保存します。
 3. ターゲット終了時刻に、`end_activity`を`true`に設定した`/messages/live_activity/update`リクエストを送信します。
-4. 同じ更新リクエストで削除日を設定します。詳細については、[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/)エンドポイントを参照してください。
+4. 同じ更新リクエストで削除日を設定します。詳細については、[`/messages/live_activity/update`]({{site.baseurl}}/api/endpoints/messaging/live_activity/update)エンドポイントを参照してください。
 
 削除のタイミングはiOSによって制御されることに注意してください。有効な終了リクエストを送信した後でも、ロック画面やダイナミックアイランドからの削除は、OSレベルの条件に基づいて遅延したり、異なる動作をしたりする場合があります。
 
@@ -332,16 +332,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 * **ユーザーによる削除**: ユーザーは手動でライブアクティビティを削除できます。
 * **タイムアウト**: デフォルトの8時間が経過すると、iOSはユーザーのダイナミックアイランドからライブアクティビティを削除します。デフォルトの12時間が経過すると、iOSはユーザーのロック画面からライブアクティビティを削除します。
 
-詳細については、[`/messages/live_activity/update`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/live_activity/update/)の記事を参照してください。
+詳細については、[`/messages/live_activity/update`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/live_activity/update)の記事を参照してください。
 
 ## ライブアクティビティのトラッキング {#tracking-live-activities}
 
 ライブアクティビティのイベントは、Currents、Snowflakeデータ共有、およびクエリビルダーで利用できます。以下のイベントは、ライブアクティビティのライフサイクルの理解と監視、トークンの利用可能性の追跡、問題の独立した診断や配信ステータスの確認に役立ちます。
 
-- [ライブアクティビティのPush To Startトークン変更]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/#live-activity-push-to-start-token-change-events): push-to-start（PTS）トークンがBrazeで追加または更新されたタイミングをキャプチャし、ユーザーごとのトークン登録状況と利用可能性を追跡できます。
-- [ライブアクティビティ更新トークンの変更]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events/#live-activity-update-token-change-events): ライブアクティビティ更新（LAU）トークンの追加、更新、または削除を追跡します。
-- [ライブアクティビティ送信]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#live-activity-send-events): Brazeによってライブアクティビティが開始、更新、または終了されるたびにログを記録します。
-- [ライブアクティビティの結果]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#live-activity-outcome-events): Brazeから送信された各ライブアクティビティについて、Appleプッシュ通知サービス（APNs）への最終的な配信ステータスを示します。
+- [ライブアクティビティのPush To Startトークン変更]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-push-to-start-token-change-events): push-to-start（PTS）トークンがBrazeで追加または更新されたタイミングをキャプチャし、ユーザーごとのトークン登録状況と利用可能性を追跡できます。
+- [ライブアクティビティ更新トークンの変更]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/customer_behavior_events#live-activity-update-token-change-events): ライブアクティビティ更新（LAU）トークンの追加、更新、または削除を追跡します。
+- [ライブアクティビティ送信]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-send-events): Brazeによってライブアクティビティが開始、更新、または終了されるたびにログを記録します。
+- [ライブアクティビティの結果]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#live-activity-outcome-events): Brazeから送信された各ライブアクティビティについて、Appleプッシュ通知サービス（APNs）への最終的な配信ステータスを示します。
+
+## ライブアクティビティ送信の確認 {#verify-live-activity-sends}
+
+ワークスペースがiOSライブアクティビティを送信しているかどうかを確認する必要がある場合は、以下の方法を使用できます。
+
+### メッセージアクティビティログ {#message-activity-log}
+
+**設定** > **メッセージアクティビティログ**に移動し、ライブアクティビティのエラーでフィルタリングして、予想される期間中のライブアクティビティ関連の配信結果を確認します。詳細については、[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)を参照してください。
+
+### クエリビルダー、Currents、またはSnowflakeデータ共有 {#query-builder-currents-or-snowflake-data-sharing}
+
+以下のライブアクティビティイベントを確認して、ライブアクティビティのライフサイクルと配信を検証します。
+
+- **ライブアクティビティ送信:** Brazeによってライブアクティビティが開始、更新、または終了されるたびにログを記録します
+- **ライブアクティビティの結果:** 送信された各ライブアクティビティについて、APNsへの最終的な配信ステータスを示します
+
+オプションで、トークンの利用可能性シグナルも確認できます。
+- **ライブアクティビティのPush To Startトークン変更**
+- **ライブアクティビティ更新トークンの変更**
+
+### API使用状況ダッシュボード {#api-usage-dashboard}
+
+**設定** > **APIと識別子** > **ダッシュボード**に移動し、**フィルター**を選択して**エンドポイント**でフィルタリングし、APIレスポンスを確認します。たとえば、`/messages/live_activity/update`（または`/messages/live_activity/start`）を選択して、過去30日間のリクエスト量を表示します。APIレスポンスは、APIが呼び出されており、このワークスペースでiOSライブアクティビティ通知が使用されていることを示します。詳細については、[API使用状況ダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/api_usage)を参照してください。
 
 ## ライブアクティビティイベントの監視（オプション） {#observe-live-activity-events}
 
@@ -438,7 +461,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 | `.pushTokenUpdated(activityId:activityType:)` | ActivityKitがアクティビティのプッシュトークンをローテーションしました。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="インスタンススコープのイベント" }
 
-###### 例
+##### 例
 
 ```swift
 func handleStateUpdate(_ event: Braze.LiveActivities.UpdateEvent) {
@@ -501,7 +524,7 @@ func handleStateUpdate(_ event: Braze.LiveActivities.UpdateEvent) {
 | `.invalidPushTokenTag(activityId:activityType:tag:)` | `launchActivity(pushTokenTag:activity:)`が無効なタグで呼び出されました。タグは空でなく、256バイト未満である必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="インスタンススコープのエラー" }
 
-###### 例
+##### 例
 
 ```swift
 func handleLiveActivityError(_ error: Braze.LiveActivities.ErrorEvent) {
@@ -622,7 +645,7 @@ func findActivityInstance<Attributes: ActivityAttributes>(
 
 ![macOSのメニューバーにライブアクティビティがアラートとして表示されているスクリーンショット]({% image_buster /assets/img/live-activity-macos.png %}){: style="max-width:60%;"}
 
-ライブアクティビティの記事では、Braze Swift SDKを使用してライブアクティビティを管理するための[前提条件]({{site.baseurl}}/developer_guide/platforms/swift/live_activities/#prerequisites)について説明しています。
+ライブアクティビティの記事では、Braze Swift SDKを使用してライブアクティビティを管理するための[前提条件]({{site.baseurl}}/developer_guide/platforms/swift/live_activities#prerequisites)について説明しています。
 
 #### React Nativeアプリはライブアクティビティをサポートしていますか？ {#do-react-native-apps-support-live-activities}
 
@@ -630,7 +653,7 @@ func findActivityInstance<Attributes: ActivityAttributes>(
 
 Appleが提供するライブアクティビティ機能は、JavaScriptでは変換できない言語機能（Swift Concurrency、generics、SwiftUIなど）を使用しているため、ライブアクティビティ用のReact Native固有のJavaScriptコンビニエンスAPIは存在しません。
 
-#### BrazeはCampaignやCanvasステップとしてのライブアクティビティをサポートしていますか？ {#does-braze-support-live-activities-as-a-campaign-or-canvas-step}
+#### Brazeはキャンペーンやキャンバスステップとしてのライブアクティビティをサポートしていますか？ {#does-braze-support-live-activities-as-a-campaign-or-canvas-step}
 
 いいえ、現在サポートされていません。
 
@@ -650,23 +673,23 @@ Appleが提供するライブアクティビティ機能は、JavaScriptでは�
 
 #### ライブアクティビティにはプッシュプライマーが必要ですか？ {#do-live-activities-require-push-primers}
 
-[プッシュプライマー]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages/)は、ユーザーにアプリからのプッシュ通知をオプトインするよう促すベストプラクティスです。しかし、ライブアクティビティにオプトインするためのシステムプロンプトはありません。デフォルトでは、ユーザーがiOS 16.1以降でアプリをインストールすると、そのアプリのライブアクティビティにオプトインされます。この権限は、アプリごとにデバイス設定で無効化または再有効化できます。
+[プッシュプライマー]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)は、ユーザーにアプリからのプッシュ通知をオプトインするよう促すベストプラクティスです。しかし、ライブアクティビティにオプトインするためのシステムプロンプトはありません。デフォルトでは、ユーザーがiOS 16.1以降でアプリをインストールすると、そのアプリのライブアクティビティにオプトインされます。この権限は、アプリごとにデバイス設定で無効化または再有効化できます。
 
 ### 技術的なトピックとトラブルシューティング {#technical-topics-and-troubleshooting}
 
 #### ライブアクティビティにエラーがあるかどうかを確認するには？ {#how-do-i-know-if-live-activities-has-errors}
 
-ライブアクティビティのエラーは、Brazeダッシュボードの[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)に記録されます。ここで「LiveActivity Errors」でフィルターできます。
+ライブアクティビティのエラーは、Brazeダッシュボードの[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)に記録されます。ここで「LiveActivity Errors」でフィルタリングできます。
 
 #### push-to-start通知を送信した後、ライブアクティビティを受信できないのはなぜですか？ {#after-sending-a-push-to-start-notification-why-havent-i-received-my-live-activity}
 
-まず、[`messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start/)エンドポイントで説明されているすべての必須フィールドがペイロードに含まれていることを確認します。`activity_attributes`および`content_state`フィールドは、プロジェクトのコードで定義されているプロパティと一致する必要があります。ペイロードが正しいことが確かな場合は、APNsによってレート制限されている可能性があります。この制限はBrazeではなくAppleによって課されています。
+まず、[`messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start)エンドポイントで説明されているすべての必須フィールドがペイロードに含まれていることを確認します。`activity_attributes`および`content_state`フィールドは、プロジェクトのコードで定義されているプロパティと一致する必要があります。ペイロードが正しいことが確かな場合は、APNsによってレート制限されている可能性があります。この制限はBrazeではなくAppleによって課されています。
 
 push-to-start通知がデバイスに正常に届いたがレート制限のために表示されなかったことを確認するには、Macのコンソールアプリを使用してプロジェクトをデバッグします。目的のデバイスの記録プロセスをアタッチし、検索バーで`process:liveactivitiesd`を使用してログをフィルタリングします。
 
 #### push-to-startでライブアクティビティを開始した後、新しい更新を受信しないのはなぜですか？ {#after-starting-my-live-activity-with-push-to-start-why-isnt-it-receiving-new-updates}
 
-[上記](#swift_brazeActivityAttributes)の手順が正しく実装されていることを確認してください。`ActivityAttributes`には、`BrazeLiveActivityAttributes`プロトコルへの準拠と`brazeActivityId`プロパティの両方が含まれている必要があります。
+[Swift BrazeLiveActivityAttributesの設定](#swift_brazeActivityAttributes)で説明されている手順が正しく実装されていることを確認してください。`ActivityAttributes`には、`BrazeLiveActivityAttributes`プロトコルへの準拠と`brazeActivityId`プロパティの両方が含まれている必要があります。
 
 ライブアクティビティのpush-to-start通知を受信したら、Braze URLの`/push_token_tag`エンドポイントへの送信ネットワークリクエストが表示され、`"tag"`フィールドの下に正しいアクティビティIDが含まれていることを再確認してください。
 
@@ -674,8 +697,8 @@ push-to-start通知がデバイスに正常に届いたがレート制限のた�
 
 #### `live_activity/update`エンドポイントを使用しようとすると、アクセス拒否の応答が返されます。なぜですか？ {#i-am-receiving-an-access-denied-response-when-i-try-to-use-the-live_activityupdate-endpoint-why}
 
-使用するAPIキーには、さまざまなBraze APIエンドポイントにアクセスするための適切な権限を付与する必要があります。以前に作成したAPIキーを使用している場合、権限の更新を忘れている可能性があります。[APIキーセキュリティの概要]({{site.baseurl}}/api/basics/#rest-api-key-security)を確認してください。
+使用するAPIキーには、さまざまなBraze APIエンドポイントにアクセスするための適切な権限を付与する必要があります。以前に作成したAPIキーを使用している場合、権限の更新を忘れている可能性があります。[APIキーセキュリティの概要]({{site.baseurl}}/api/basics#rest-api-key-security)を確認してください。
 
 #### `messages/send`エンドポイントは`messages/live_activity/update`エンドポイントとレート制限を共有していますか？ {#does-the-messagessend-endpoint-share-rate-limits-with-the-messageslive_activityupdate-endpoint}
 
-デフォルトでは、`messages/live_activity/update`エンドポイントのレート制限は、ワークスペースごとに、複数のエンドポイントにわたって、1時間あたり250,000リクエストです。詳細については、[APIレート制限]({{site.baseurl}}/api/api_limits/)を参照してください。
+デフォルトでは、`messages/live_activity/update`エンドポイントのレート制限は、ワークスペースごとに、複数のエンドポイントにわたって、1時間あたり250,000リクエストです。詳細については、[APIレート制限]({{site.baseurl}}/api/api_limits)を参照してください。

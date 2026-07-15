@@ -62,7 +62,7 @@ You can find details about the different attributes under the [Data To Send](#da
 
 After applying filters or adding a condition for your users in Symphony, you can activate them in Braze under **Send to Destinations**. A new window opens, where you can set up your destination. You can use an existing destination from the list of **Available Destinations** or create a new one.
 
-#### Add new destination
+### Add new destination
 Perform the following steps to add a new destination:
 1. Select **Add New Destination**.
 2. Search for **Braze**.
@@ -70,14 +70,14 @@ Perform the following steps to add a new destination:
 
 The destination is created and made available under **Available Destinations**.
 
-#### Add workflow-level inputs
-After creating a destination, next, you have to add workflow-level inputs, as mentioned below.
+### Add workflow-level inputs
+After creating a destination, you next have to add workflow-level inputs, as described in this section.
 1. Choose the destination from the list of available destinations using the search feature.
 2. The **Client Name**, **API Key**, and **Instance** fields are automatically populated based on the value you entered while creating the destination.
 3. Enter the **Audience Name** you want to create for this workflow node. This is sent as a **Custom Attribute** to Braze.
-4. Complete the Catalog to Destination mapping under the **Data To Send** tab. You can find details on how to perform the mapping below.
+4. Complete the Catalog to Destination mapping under the **Data To Send** tab. You can find details on how to perform the mapping in this section.
 
-#### Data to send tab
+### Data to send tab
 The **Data To Send** tab allows the you to map the Zeotap Catalogue fields to the Braze fields that can be sent to Braze. The mapping can be done in one of the following ways:
 - **Static Mapping** - There are certain fields that Zeotap automatically maps to the relevant Braze fields like email, phone, first name, last name, and so on.<br>
 - **Dropdown Selection** - Map the relevant fields ingested in Zeotap to the Braze fields provided in the dropdown menu.<br>![Various user traits set in Zeotap, such as language, city, birthday, and more.]({% image_buster /assets/img/zeotap/zeotap7.png %}){: style="max-width:70%;"}<br>
@@ -94,8 +94,8 @@ You can find details of all the Braze fields in this section.
 | First Name | Static Mapping | This is mapped to `First Name` in the Zeotap Catalogue. |
 | Last Name | Static Mapping | This is mapped to `Last Name` in the Zeotap Catalogue. |
 | Gender | Static Mapping | This is mapped to `Gender` in the Zeotap Catalogue. |
-| Custom Event Name | Static Mapping | This is mapped to `Event Name` in the Zeotap Catalogue.<br><br>Both Custom Event Name and Custom Event Timestamp must be mapped to capture custom events in Braze. The custom event cannot be processed if either one is not mapped. For more information, refer to [event object]({{site.baseurl}}/api/objects_filters/event_object#what-is-the-event-object). |
-| Custom Event Timestamp | Static Mapping | This is mapped to the `Event Timestamp` in the Zeotap Catalogue.<br><br>Both Custom Event Name and Custom Event Timestamp must be mapped to capture custom events in Braze. The custom event cannot be processed if either one is not mapped. For more information, refer to [event object]({{site.baseurl}}/api/objects_filters/event_object#what-is-the-event-object). |
+| Custom Event Name | Static Mapping | This is mapped to `Event Name` in the Zeotap Catalogue.<br><br>Both Custom Event Name and Custom Event Timestamp must be mapped to capture custom events in Braze. The custom event cannot be processed if either one is not mapped. For more information, refer to [event object]({{site.baseurl}}/api/objects_filters/event_object#what-is-an-event-object). |
+| Custom Event Timestamp | Static Mapping | This is mapped to the `Event Timestamp` in the Zeotap Catalogue.<br><br>Both Custom Event Name and Custom Event Timestamp must be mapped to capture custom events in Braze. The custom event cannot be processed if either one is not mapped. For more information, refer to [event object]({{site.baseurl}}/api/objects_filters/event_object#what-is-an-event-object). |
 | Email Subscribe | Dropdown Selection | Onboard an `Email Marketing Preference` field and map to it.<br><br>Zeotap sends the following three values:<br>• `opted_in` - Indicates that the user has explicitly registered for email marketing preference<br>• `unsubscribed` - Indicates that the user has explicitly opted out of email messages<br>• `subscribed` - Indicates that the user has neither opted-in nor opted-out. |
 | Push Subscribe | Dropdown Selection | Onboard a `Push Marketing Preference` field and map to it.<br><br>Zeotap sends the following three values:<br>• `opted_in` - Indicates that the user has explicitly registered for push marketing preference<br>• `unsubscribed` - Indicates that the user has explicitly opted out of push messages.<br>• `subscribed` - Indicates that the user has neither opted-in nor opted out |
 | Email Open Tracking Enable | Dropdown Selection | Map the relevant `Marketing Preference` field.<br><br>When set to true, it enables an open tracking pixel to be added to all future emails sent to this user. |
@@ -115,7 +115,7 @@ You can find details of all the Braze fields in this section.
 
 After you have mapped the relevant attributes to be sent and published in the workflow, the events start flowing to Braze based on the criteria defined. You can search by email ID or external ID on the Braze console.
 
-![]({% image_buster /assets/img/zeotap/zeotap6.jpg %})
+![Braze user profile view showing incoming Zeotap attributes and events.]({% image_buster /assets/img/zeotap/zeotap6.jpg %})
 
 Various attributes come under different sections of the user dashboard within Braze.
 - The **Profile** tab contains the user attributes.

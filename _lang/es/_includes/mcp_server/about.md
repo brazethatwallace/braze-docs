@@ -2,7 +2,15 @@
 
 > Descubre el servidor MCP de Braze, una conexión segura que permite a herramientas de IA como Claude y Cursor acceder a datos de Braze que no son PII para responder preguntas, analizar tendencias y proporcionar información.
 
-{% multi_lang_include mcp_server/beta_alert.md %}
+{% alert important %}
+Este verano, Braze lanzará un servidor MCP remoto, alojado por Braze, en acceso anticipado. Sustituye al servidor beta alojado localmente (`braze-mcp-server` en [PyPI](https://pypi.org/project/braze-mcp-server/) y el directorio de extensiones de Claude Desktop).<br><br>
+
+**Qué significa esto para ti:**<br><br>
+
+- El servidor alojado localmente seguirá funcionando, pero ya no cuenta con soporte. No añadiremos nuevos puntos finales ni corregiremos problemas en la versión beta.
+- Cuando el servidor remoto esté disponible en acceso anticipado, tendrás que migrar a él. El servidor remoto no requiere instalación local, utiliza OAuth en lugar de claves de API estáticas y funciona con clientes MCP como Claude, Copilot, Gemini CLI, Codex y Cursor.
+- Consulta esta página para conocer la disponibilidad del acceso anticipado, o ponte en contacto con tu equipo de cuentas de Braze para expresar tu interés.
+{% endalert %}
 
 ## ¿Qué es el protocolo de contexto de modelo (MCP)? {#what-is-model-context-protocol-mcp}
 
@@ -31,11 +39,13 @@ Puedes interactuar con Braze mediante lenguaje natural utilizando herramientas c
 
 {% tabs %}
 {% tab Claude %}
-![«¿Cuáles son las funciones de Braze que tengo disponibles?», pregunta y respuesta en Claude.]({% image_buster /assets/img/mcp_server/claude/what_are_my_available_braze_functions.png %}){: style="max-width:85%;"}
+**Ejemplo de prompt:** `What are my available Braze functions?`
+**Ejemplo de respuesta:** Utilizó `list_functions` y devolvió las categorías de funciones MCP de Braze disponibles.
 {% endtab %}
 
 {% tab Cursor %}
-![«¿Cuáles son las funciones disponibles de Braze?», pregunta y respuesta en Cursor.]({% image_buster /assets/img/mcp_server/cursor/what_are_my_available_braze_functions.png %})
+**Ejemplo de prompt:** `What are my available Braze functions?`
+**Ejemplo de respuesta:** Consultó `list_functions` y listó funciones como `get_canvas_list`.
 {% endtab %}
 {% endtabs %}
 
@@ -67,7 +77,7 @@ No. Tendrás que crear una nueva clave de API para tu cliente MCP. Recuerda dar 
 
 ### ¿El servidor MCP de Braze está alojado localmente o de forma remota? {#is-the-braze-mcp-server-hosted-locally-or-remotely}
 
-El servidor MCP de Braze está alojado localmente.
+El servidor MCP de Braze actualmente disponible está alojado localmente. Este verano llegará en acceso anticipado un servidor MCP remoto, alojado por Braze, que sustituirá al servidor beta alojado localmente.
 
 ### ¿Por qué Cursor solo muestra funciones? {#why-is-cursor-only-listing-functions}
 
@@ -75,7 +85,7 @@ Comprueba si estás en modo de consulta o en modo de agente. Para utilizar el se
 
 ### ¿Qué hago cuando el agente devuelve una respuesta que parece incorrecta? {#what-do-i-do-when-the-agent-returns-an-answer-that-looks-incorrect}
 
-Cuando trabajes con herramientas como Cursor, es posible que quieras probar a cambiar el modelo utilizado. Por ejemplo, si lo tienes configurado en automático, prueba a cambiarlo a un modelo específico y experimenta para descubrir cuál es el modelo con mejor rendimiento para tu caso de uso. También puedes intentar iniciar un nuevo chat y volver a intentar el mensaje.
+Cuando trabajes con herramientas como Cursor, es posible que quieras probar a cambiar el modelo utilizado. Por ejemplo, si lo tienes configurado en automático, prueba a cambiarlo a un modelo específico y experimenta para descubrir cuál ofrece mejor rendimiento para tu caso de uso. También puedes intentar iniciar un nuevo chat y volver a intentar el prompt.
 
 Si los problemas persisten, puedes enviarnos un correo electrónico a [mcp-product@braze.com](mailto:mcp-product@braze.com) para informarnos. Si es posible, incluye un video y amplía las funciones de llamada para que podamos ver qué llamadas intentó realizar el agente.
 

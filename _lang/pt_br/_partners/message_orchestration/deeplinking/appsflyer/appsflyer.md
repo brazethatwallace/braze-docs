@@ -16,7 +16,7 @@ search_tag: Partner
 
 A integração entre a Braze e a AppsFlyer permite que você entenda melhor como otimizar e criar campanhas mais holísticas, aproveitando os dados de atribuição de instalação mobile da AppsFlyer.
 
-Também é possível passar seus públicos da AppsFlyer (coortes) diretamente para a Braze com a integração [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohort_import/appsflyer_audiences/), o que permite criar campanhas poderosas de engajamento de clientes direcionadas aos usuários certos no momento certo.
+Também é possível passar seus públicos da AppsFlyer (coortes) diretamente para a Braze com a integração [AppsFlyer Audiences]({{site.baseurl}}/partners/data_and_analytics/cohort_import/appsflyer_audiences), o que permite criar campanhas poderosas de engajamento de clientes direcionadas aos usuários certos no momento certo.
 
 ## Pré-requisitos {#prerequisites}
 
@@ -25,9 +25,9 @@ Também é possível passar seus públicos da AppsFlyer (coortes) diretamente pa
 | Conta da AppsFlyer | É necessário ter uma conta da AppsFlyer para aproveitar essa parceria. |
 | App para iOS ou Android | Essa integração é compatível com apps para iOS e Android. Dependendo da sua plataforma, trechos de código podem ser necessários no seu aplicativo. Consulte os detalhes sobre esses requisitos na etapa 1 do processo de integração. |
 | SDK da AppsFlyer | Além do SDK da Braze obrigatório, você deve instalar o [SDK da AppsFlyer](https://dev.appsflyer.com/hc/docs/getting-started).
-| Configuração completa do domínio de e-mail | Você deve ter concluído a [etapa de configuração de IP e domínio]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/) para configurar seu e-mail durante a integração com a Braze. |
-| Certificado SSL | Seu [certificado SSL]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate) deve estar configurado. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Configuração completa do domínio de e-mail | Você deve ter concluído a [etapa de configuração de IP e domínio]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains) para configurar seu e-mail durante a integração com a Braze. |
+| Certificado SSL | Seu [certificado SSL]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl#acquiring-an-ssl-certificate) deve estar configurado. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -103,7 +103,7 @@ Aqui, você encontra o endpoint REST e gera sua chave de importação de dados d
 
 ### Etapa 3: configure a Braze no dashboard da AppsFlyer {#step-3-configure-braze-in-appsflyers-dashboard}
 
-1. Na AppsFlyer, navegue até a página **Integrated Partners** na barra esquerda. Em seguida, procure **Braze** e selecione o logotipo da Braze para abrir uma janela de configuração.
+1. Na AppsFlyer, navegue até a página **Integrated Partners** no menu de navegação. Em seguida, procure **Braze** e selecione o logotipo da Braze para abrir uma janela de configuração.
 2. Na guia **Integration**, ative **Activate Partner**.
 3. Forneça a chave de importação de dados e o endpoint REST que você encontrou no dashboard da Braze.
 4. Desative a opção **Advanced Privacy** e salve sua configuração.
@@ -132,7 +132,7 @@ Se sua integração foi bem-sucedida, a Braze mapeia todos os dados de instalaç
 | `campaign` | Campaign atribuída |
 | `af_adset` | Grupo de anúncios atribuído |
 | `af_ad` | Anúncio atribuído |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Available data fields" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campos de dados disponíveis" }
 
 Você pode segmentar sua base de usuários por dados de atribuição no dashboard da Braze usando os filtros de atribuição de instalação.
 
@@ -154,9 +154,9 @@ A AppsFlyer presta um [serviço](https://support.appsflyer.com/hc/en-us/articles
 
 ## Etapa 1 - Crie um domínio de rastreamento de cliques {#step-1-create-a-click-tracking-domain}
 
-Seguindo os elementos iniciais da [orientação de configuração de e-mail da Braze]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate), crie um domínio de envio de e-mail e um domínio de rastreamento de cliques. Para obter suporte, você pode criar um ticket pelo dashboard da Braze para iniciar a configuração do novo CTD com a equipe de e-mail da Braze.
+Seguindo os elementos iniciais da [orientação de configuração de e-mail da Braze]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl#acquiring-an-ssl-certificate), crie um domínio de envio de e-mail e um domínio de rastreamento de cliques. Para obter suporte, você pode criar um ticket pelo dashboard da Braze para iniciar a configuração do novo CTD com a equipe de e-mail da Braze.
 
-![Interface da Braze mostrando o botão "Get Help", localizado abaixo do botão "Support" no canto superior direito]({% image_buster /assets/img/attribution/appsflyer/1.png %})
+![Interface da Braze mostrando o botão "Get Help" abaixo do botão "Support" na barra de navegação superior.]({% image_buster /assets/img/attribution/appsflyer/1.png %})
 
 É obrigatório criar um novo CTD, mesmo que você já esteja usando um existente. Isso garante que não haja impacto no tráfego das campanhas ativas de e-mail atuais.
 
@@ -175,7 +175,7 @@ Agora é hora de definir sua integração com a Braze na AppsFlyer. Essa etapa e
 Para definir sua integração com a Braze na AppsFlyer:
 
 ### 1. Na AppsFlyer, no menu lateral, selecione Engage > ESP integration. {#1-in-appsflyer-from-the-side-menu-select-engage-esp-integration}
-![Interface da AppsFlyer mostrando o botão "ESP Integration", encontrado no menu do lado esquerdo]({% image_buster /assets/img/attribution/appsflyer/2.png %})
+![Interface da AppsFlyer mostrando o botão "ESP Integration" no menu de navegação.]({% image_buster /assets/img/attribution/appsflyer/2.png %})
 
 
 ### 2. Selecione Braze. {#2-select-braze}
@@ -219,7 +219,7 @@ A AppsFlyer [oferece orientação](https://support.appsflyer.com/hc/en-us/articl
 
 ## Etapa 5: confirme se o rastreamento de cliques SSL está ativado com a Braze {#step-5-confirm-ssl-click-tracking-is-enabled-with-braze}
 
-Nessa etapa, depois de compartilhar e validar os detalhes do CTD na AppsFlyer, recomendamos realizar um envio de teste para confirmar se o domínio de envio do OneLink tem um certificado SSL. Isso está de acordo com nosso guia de [configuração de e-mail](https://www.braze.com/docs/user_guide/message_building_by_channel/email/email_setup/ssl/#acquiring-an-ssl-certificate).
+Nessa etapa, depois de compartilhar e validar os detalhes do CTD na AppsFlyer, recomendamos realizar um envio de teste para confirmar se o domínio de envio do OneLink tem um certificado SSL. Isso está de acordo com nosso guia de [configuração de e-mail]({{site.baseurl}}/user_guide/message_building_by_channel/email/email_setup/ssl#acquiring-an-ssl-certificate).
 
 Você pode realizar a garantia de qualidade e a solução de problemas enviando um deep link usando o OneLink. Consulte a [documentação da AppsFlyer](https://support.appsflyer.com/hc/en-us/articles/360001437497-Integrating-AppsFlyer-and-Braze#step-3-sending-your-first-email::2ffdb79a) para obter detalhes sobre o uso do OneLink.
 
@@ -233,13 +233,13 @@ Could you please enable SSL click tracking for CTD XXX? It is currently set to H
 
 ### URLs de rastreamento de cliques da AppsFlyer na Braze (opcional) {#appsflyer-click-tracking-urls-in-braze-optional}
 
-Você pode usar os [links de atribuição do OneLink](https://support.AppsFlyer.com/hc/en-us/articles/360001294118) da AppsFlyer em Campaigns da Braze por push, e-mail e muito mais. Isso permite que você envie dados de atribuição de instalação ou reengajamento das suas Campaigns da Braze para a AppsFlyer. Como resultado, você pode medir seus esforços de marketing de forma mais eficaz e tomar decisões baseadas em dados.
+Você pode usar os [links de atribuição do OneLink](https://support.AppsFlyer.com/hc/en-us/articles/360001294118) da AppsFlyer em Campaigns da Braze por push, e-mail e muito mais. Isso permite que você envie dados de atribuição de instalação ou reengajamento das suas Campaigns da Braze para a AppsFlyer. Como resultado, você pode medir seus esforços de marketing de forma mais eficaz e tomar decisões orientadas por dados.
 
 Você pode simplesmente criar sua URL de rastreamento do OneLink na AppsFlyer e inseri-la diretamente nas suas Campaigns na Braze. Em seguida, a AppsFlyer usa suas [metodologias de atribuição probabilística](https://support.AppsFlyer.com/hc/en-us/articles/207447053-Attribution-model-explained#probabilistic-modeling) para atribuir o usuário que clicou no link. Recomendamos anexar seus links de rastreamento da AppsFlyer com um identificador de dispositivo para melhorar a precisão das atribuições das suas Campaigns da Braze. Isso atribui de forma determinística o usuário que clicou no link.
 
 {% tabs local %}
 {% tab Android %}
-Para Android, a Braze permite que os clientes aceitem a [coleta de ID de publicidade do Google (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection/#optional-google-advertising-id). A integração do SDK da AppsFlyer também coleta o GAID. É possível incluir o GAID nos seus links de rastreamento de cliques da AppsFlyer usando a seguinte lógica Liquid:
+Para Android, a Braze permite que os clientes aceitem a [coleta de ID de publicidade do Google (GAID)]({{site.baseurl}}/developer_guide/platform_integration_guides/android/initial_sdk_setup/optional_gaid_collection#optional-google-advertising-id). A integração do SDK da AppsFlyer também coleta o GAID. É possível incluir o GAID nos seus links de rastreamento de cliques da AppsFlyer usando a seguinte lógica Liquid:
 {% raw %}
 ```
 {% if most_recently_used_device.${platform} == 'android' %}

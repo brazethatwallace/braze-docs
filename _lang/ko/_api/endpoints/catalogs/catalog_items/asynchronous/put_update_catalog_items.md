@@ -23,7 +23,7 @@ description: "이 문서에서는 여러 카탈로그 항목 교체 Braze 엔드
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.replace_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.replace_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -34,14 +34,14 @@ description: "이 문서에서는 여러 카탈로그 항목 교체 Braze 엔드
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `catalog_name` | 필수 | 문자열 | 카탈로그의 이름입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
 ## 요청 매개변수 {#request-parameters}
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `items` | 필수 | 배열 | 항목 오브젝트가 포함된 배열입니다. 각 오브젝트에는 ID가 있어야 합니다. 항목 오브젝트에는 카탈로그에 존재하는 필드가 포함되어야 합니다. 요청당 최대 50개의 항목 오브젝트가 허용됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="요청 매개변수" }
 
 ## 요청 예시 {#example-request}
 
@@ -88,7 +88,7 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 이 엔드포인트에 대한 상태 코드 응답은 `202`, `400`, `404`의 세 가지가 있습니다.
 
 {% alert note %}
-회사가 카탈로그 스토리지 한도에 도달한 경우에도 시스템이 `400` 응답을 반환할 수 있습니다. 카탈로그 무료 버전은 100&nbsp;MB로 제한됩니다. 스토리지 티어 및 업그레이드 방법에 대한 자세한 내용은 [데이터 스토리지 제한]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations)을 참조하세요.
+회사가 카탈로그 스토리지 한도에 도달한 경우에도 시스템이 `400` 응답을 반환할 수 있습니다. 카탈로그 무료 버전은 100&nbsp;MB로 제한됩니다. 스토리지 티어 및 업그레이드 방법에 대한 자세한 내용은 [데이터 스토리지 제한]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)을 참조하세요.
 {% endalert %}
 
 ### 성공 응답 예시 {#example-success-response}
@@ -130,8 +130,8 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 | 오류 | 문제 해결 |
 | --- | --- |
 | `catalog-not-found` | 카탈로그 이름이 유효한지 확인합니다. |
-| `company-size-limit-already-reached` | 카탈로그 스토리지 크기 한도에 도달했습니다. 스토리지 티어에 대한 자세한 내용은 [데이터 스토리지 제한]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations)을 참조하세요. |
-| `company-size-limit-surge` | 요청이 회사의 남은 카탈로그 스토리지를 초과합니다. 더 작은 업데이트로 다시 시도하세요. 스토리지 티어에 대한 자세한 내용은 [데이터 스토리지 제한]({{site.baseurl}}/user_guide/data/activation/catalogs/#data-storage-limitations)을 참조하세요. |
+| `company-size-limit-already-reached` | 카탈로그 스토리지 크기 한도에 도달했습니다. 스토리지 티어에 대한 자세한 내용은 [데이터 스토리지 제한]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)을 참조하세요. |
+| `company-size-limit-surge` | 요청이 회사의 남은 카탈로그 스토리지를 초과합니다. 더 작은 업데이트로 다시 시도하세요. 스토리지 티어에 대한 자세한 내용은 [데이터 스토리지 제한]({{site.baseurl}}/user_guide/data/activation/catalogs#data-storage-limitations)을 참조하세요. |
 | `ids-not-string` | 각 항목 ID가 문자열인지 확인합니다. |
 | `ids-not-unique` | 각 항목 ID가 고유한지 확인합니다. |
 | `ids-too-large` | 각 항목 ID의 글자 수 제한은 250자입니다. |
@@ -144,6 +144,6 @@ curl --location --request PUT 'https://rest.iad-03.braze.com/catalogs/restaurant
 | `too-deep-nesting-in-value-object` | 항목 오브젝트는 50개 이상의 중첩 레벨을 가질 수 없습니다. |
 | `request-includes-too-many-items` | 요청에 항목이 너무 많습니다. 요청당 항목 한도는 50개입니다. |
 | `unable-to-coerce-value` | 항목 유형은 변환할 수 없습니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

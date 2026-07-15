@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /preference_center/v1
 {% endapimethod %}
 
-> Utiliza este punto de conexión para crear un centro de preferencias que permita a los usuarios gestionar sus preferencias de notificación para tus campañas de correo electrónico. Consulta [Crear un centro de preferencias con API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview/#creating-a-preference-center-with-api) para conocer los pasos sobre cómo crear un centro de preferencias generado por API.
+> Usa este punto de conexión para crear un centro de preferencias que permita a los usuarios gestionar sus preferencias de notificación para tus campañas de correo electrónico. Consulta [Crear un centro de preferencias con API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) para conocer los pasos sobre cómo crear un centro de preferencias generado por API.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `preference_center.update`.
+Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `preference_center.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -65,7 +65,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | `confirmation_page_html` | Obligatorio | Cadena | El HTML de la página de confirmación. |
 | `state` | Opcional | Cadena | Elige `active` o `draft`. El valor predeterminado es `active` si no se especifica. |
 | `options` | Opcional | Objeto | Atributos: <br>`meta-viewport-content`: Cuando esté presente, se añadirá una metaetiqueta `viewport` a la página con `content= <value of attribute>`.<br><br> `link-tags`: Establece un favicon para la página. Cuando se establece, se añade a la página una etiqueta `<link>` con un atributo rel. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 {% alert note %}
 El nombre del centro de preferencias no se puede editar una vez creado.
@@ -83,7 +83,7 @@ Consulta las siguientes etiquetas de Liquid que puedes incluir en tu HTML para g
 | --------- | ---------|
 | `{{subscribed_state.${email_global}}}` | Obtiene el estado global de suscripción al correo electrónico del usuario (como "opted_in", "subscribed" o "unsubscribed"). |
 | `{{subscribed_state.${<subscription_group_id>}}}` | Obtiene el estado de suscripción del grupo de suscripción especificado para el usuario (como "subscribed" o "unsubscribed"). |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Estado de suscripción del usuario" }
 
 #### Entradas y acción del formulario {#form-inputs-and-action}
 
@@ -92,7 +92,7 @@ Consulta las siguientes etiquetas de Liquid que puedes incluir en tu HTML para g
 | `{% form_field_name :email_global_state %}` | Indica que un elemento de entrada de formulario específico corresponde al estado de suscripción global al correo electrónico del usuario. El estado de selección del usuario debe ser "opted_in", "subscribed" o "unsubscribed" cuando se envía el formulario con datos de selección para el estado global de suscripción al correo electrónico. Si es una casilla de verificación, el usuario estará "opted_in" o "unsubscribed". Para una entrada oculta, el estado "subscribed" también será válido. |
 | `{% form_field_name :subscription_group <subscription_group_id> %}` | Indica que un elemento de entrada de formulario específico corresponde a un grupo de suscripción determinado. El estado de selección del usuario debe ser "subscribed" o "unsubscribed" cuando el formulario se envía con datos de selección de un grupo de suscripción específico. |
 | `{{preference_center_submit_url}}` | Genera la URL para el envío del formulario. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Entradas y acción del formulario" }
 
 {% endraw %}
 

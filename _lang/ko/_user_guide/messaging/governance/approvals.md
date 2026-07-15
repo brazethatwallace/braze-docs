@@ -48,16 +48,16 @@ Canvas를 시작하려면 다음 주요 구성요소를 승인해야 합니다:
 - **[워크스페이스]의 모든 Canvases에 승인 워크플로우 사용**
 
 {% alert important %}
-Campaign 승인은 [API 캠페인]({{site.baseurl}}/api/api_campaigns/) 및 [트랜잭션 이메일 캠페인]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email/)에는 지원되지 않습니다.
+Campaign 승인은 [API 캠페인]({{site.baseurl}}/api/api_campaigns) 및 [트랜잭션 이메일 캠페인]({{site.baseurl}}/user_guide/channels/transactional_email/create_a_transactional_email)에는 지원되지 않습니다.
 {% endalert %}
 
 ## 사용자 권한 설정 {#setting-user-permissions}
 
-승인 워크플로우를 켠 후, 회사 사용자가 Campaigns와 Canvases를 승인하거나 거부할 수 있도록 사용자 권한을 설정해야 합니다. 두 권한 모두 워크스페이스 또는 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)에 적용하거나 [권한 세트]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#permission-sets)에 추가할 수 있습니다.
+승인 워크플로우를 켠 후, 회사 사용자가 Campaigns와 Canvases를 승인하거나 거부할 수 있도록 사용자 권한을 설정해야 합니다. 두 권한 모두 워크스페이스 또는 [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)에 적용하거나 [권한 세트]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#permission-sets)에 추가할 수 있습니다.
 
 {% tabs %}
 {% tab campaign %}
-["Approve and Deny Campaigns" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#managing-limited-and-team-role-permissions)이 있어야 합니다. 이 권한은 Campaign의 승인 상태를 업데이트할 수 있는 사용자를 제어합니다. 이 권한이 있으면 다음을 수행할 수 있습니다:
+["Approve and Deny Campaigns" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions)이 있어야 합니다. 이 권한은 Campaign의 승인 상태를 업데이트할 수 있는 사용자를 제어합니다. 이 권한이 있으면 다음을 수행할 수 있습니다:
 
 - Campaign을 직접 승인
 - Campaign을 승인하고 시작
@@ -69,7 +69,7 @@ Campaign 승인은 [API 캠페인]({{site.baseurl}}/api/api_campaigns/) 및 [트
 {% endtab %}
 
 {% tab canvas %}
-["Approve and Deny Canvases" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#managing-limited-and-team-role-permissions)이 있어야 합니다. 이 권한은 Canvas의 승인 상태를 업데이트할 수 있는 사용자를 제어합니다. 이 권한이 있으면 다음을 수행할 수 있습니다:
+["Approve and Deny Canvases" 권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions)이 있어야 합니다. 이 권한은 Canvas의 승인 상태를 업데이트할 수 있는 사용자를 제어합니다. 이 권한이 있으면 다음을 수행할 수 있습니다:
 
 - Canvas를 직접 승인
 - Canvas를 승인하고 시작

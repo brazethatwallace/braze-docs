@@ -44,10 +44,10 @@ Each row should include one identifier type at a time, even if your table contai
 - Braze syncs rows where `UPDATED_AT` is later than the last synced value.
 - Rows at the exact boundary timestamp may be re-synced if new rows share that timestamp.
 
-For guidance on duplicate timestamps and incremental updates, see [Cloud Data Ingestion best practices]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/#avoid-resyncing-rows-with-duplicate-timestamps).
+For guidance on duplicate timestamps and incremental updates, see [Cloud Data Ingestion best practices]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 
 {% alert note %}
-File storage sources use different setup requirements and do not support `UPDATED_AT`. For details, see [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/#required-file-formats).
+File storage sources use different setup requirements and do not support `UPDATED_AT`. For details, see [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#required-file-formats).
 {% endalert %}
 
 ## Set up the `PAYLOAD` column
@@ -56,9 +56,9 @@ The `PAYLOAD` value follows the same object formats used by the Braze `/users/tr
 
 | Data type | Formatting reference |
 | --- | --- |
-| `attributes` | [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens) |
-| `events` | [Events object]({{site.baseurl}}/api/objects_filters/event_object/) |
-| `purchases` | [Purchases object]({{site.baseurl}}/api/objects_filters/purchase_object/) |
+| `attributes` | [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
+| `events` | [Events object]({{site.baseurl}}/api/objects_filters/event_object) |
+| `purchases` | [Purchases object]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Set up the PAYLOAD column" }
 
 For nested attributes, include dates using the format in [Capturing dates as object properties]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#capturing-dates-as-object-properties).
@@ -97,7 +97,7 @@ You can sync one event per row.
     "time" : "2013-07-16T19:20:45+01:00",
     "properties": {
         "movie": "The Sad Egg",
-        "director": "Dan Alexander"
+        "director": "Alex Smith"
     }
 }
 ```
@@ -149,6 +149,6 @@ To sync subscription group statuses, include one or more `subscription_group_id`
 
 ## Related CDI setup docs
 
-- For source-specific DDL examples, see [Data warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views).
-- For file-based setup, see [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations/).
-- For sync behavior and optimization guidance, see [Cloud Data Ingestion best practices]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices/).
+- For source-specific DDL examples, see [Data warehouse integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+- For file-based setup, see [File storage integrations]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations).
+- For sync behavior and optimization guidance, see [Cloud Data Ingestion best practices]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices).

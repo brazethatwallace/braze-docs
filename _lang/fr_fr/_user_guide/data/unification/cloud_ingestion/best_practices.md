@@ -51,7 +51,7 @@ Lorsque vous utilisez CDI pour synchroniser des données provenant de sources ex
 - **Nombres stockés sous forme de chaînes de caractères :** Convertissez les colonnes numériques en types integer ou float dans votre requête source avant la synchronisation.
 - **Types incohérents entre les synchronisations :** Si le type d'une colonne change entre deux synchronisations, Braze peut rejeter les nouvelles données. Vérifiez que le schéma de votre source reste cohérent.
 
-Pour forcer ou modifier les types de données des attributs personnalisés dans le tableau de bord de Braze, consultez [Gérer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/#forcing-data-type-comparisons).
+Pour forcer ou modifier les types de données des attributs personnalisés dans le tableau de bord de Braze, consultez [Gérer les données personnalisées]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data#forcing-data-type-comparisons).
 
 Vous pouvez mettre à jour les données utilisateur à l'aide de l'ID externe, de l'alias d'utilisateur, de l'identifiant Braze, de l'e-mail ou du numéro de téléphone. Vous pouvez supprimer des utilisateurs par ID externe, alias d'utilisateur ou identifiant Braze.
 
@@ -695,7 +695,7 @@ Nous disposons d'un [dépôt GitHub](https://github.com/braze-inc/braze-examples
 
 ### Formatage des données {#data-formatting}
 
-Les exigences de configuration des tables d'ingestion de données cloud et les exigences de formatage des payloads sont documentées dans [Configuration des tables pour l'ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup/).
+Les exigences de configuration des tables d'ingestion de données cloud et les exigences de formatage des payloads sont documentées dans [Configuration des tables pour l'ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup).
 
 Utilisez cette page pour distinguer :
 

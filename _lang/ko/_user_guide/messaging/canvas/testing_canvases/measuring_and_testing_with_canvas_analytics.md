@@ -24,11 +24,18 @@ tool:
 
 ### 도달 가능 사용자 및 정확한 통계 {#reachable-users-and-exact-statistics}
 
-캔버스에 연결된 오디언스에 대해 **[정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/#single-user-segments)**이 실행 중일 때, Braze는 **도달 가능 사용자** 영역에 반올림된 추정치를 잠시 표시할 수 있습니다. 계산이 완료되면 정확한 합계가 추정치를 대체합니다. 채널별 전체 분석을 보려면 **Show Additional Stats**를 선택하세요. Canvas 빌더에서도 **대상 집단** 아래에 동일한 흐름이 문서화되어 있습니다. [대상 집단 계산]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#calculating-target-population)을 참조하세요.
+캔버스에 연결된 오디언스에 대해 **[정확한 통계 계산]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#single-user-segments)**이 실행 중일 때, Braze는 **도달 가능 사용자** 영역에 반올림된 추정치를 잠시 표시할 수 있습니다. 계산이 완료되면 정확한 합계가 추정치를 대체합니다. 채널별 전체 분석을 보려면 **Show Additional Stats**를 선택하세요. Canvas 빌더에서도 **대상 집단** 아래에 동일한 흐름이 문서화되어 있습니다. [대상 집단 계산]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#calculating-target-population)을 참조하세요.
 
 ![발송된 메시지, 전환율, 총 진입, 총 매출, 총 이탈, 예상 오디언스 등 주요 통계와 채널 및 통계 필터가 표시된 Canvas Details 페이지.]({% image_buster /assets/img_archive/Journey_5.png %})
 
-### Changes Since Last Viewed {#changes-since-last-viewed}
+{% alert tip %}
+캔버스 활동에서 구축한 Segment가 캔버스 분석 기준으로 예상보다 적은 도달 가능 사용자를 표시하는 경우, 두 가지 일반적인 이유가 있습니다:
+
+- **추정 샘플링:** Segment 통계는 정확한 수치가 아닌 ±1%의 95% 신뢰 구간을 가진 무작위 샘플 기반 추정치를 표시할 수 있습니다.
+- **사용자가 더 이상 기준에 부합하지 않음:** 캔버스 분석에서 집계된 일부 사용자가 더 이상 해당 Segment에 해당하지 않을 수 있습니다. 예를 들어, 캔버스가 실행된 이후 구독을 취소했거나 프로필 데이터가 변경되었을 수 있습니다. 대량의 구독 취소가 있는지 캔버스의 **Historical Performance**를 확인하세요.
+{% endalert %}
+
+### 마지막 조회 이후 변경 사항 {#changes-since-last-viewed}
 
 팀의 다른 구성원이 캔버스에 적용한 업데이트 수는 캔버스 개요 페이지의 *Changes Since Last Viewed* 측정기준으로 추적됩니다. **Changes Since Last Viewed**를 선택하면 캔버스 이름, 스케줄, 태그, 메시지, 오디언스, 승인 상태 또는 팀 액세스 구성에 대한 업데이트 체인지로그를 확인할 수 있습니다. 각 업데이트에 대해 누가 언제 업데이트를 수행했는지 확인할 수 있습니다. 이 체인지로그를 사용하여 캔버스의 변경 사항을 감사할 수 있습니다.
 
@@ -73,7 +80,7 @@ Canvas Flow의 경우, 사용자는 사용자 여정의 마지막 단계에서 �
 예를 들어, 사용자가 두 단계를 완료한 후 구매를 하면 해당 매출은 두 번째 구성요소와 진입한 배리언트에 귀속됩니다. 사용자가 캔버스에 진입했지만 첫 번째 캔버스 구성요소를 수신하기 전에 구매를 하면 해당 매출은 진입한 배리언트에 귀속되지만 어떤 구성요소에도 귀속되지 않습니다.
 {% endalert %}
 
-그 외에도 다음을 포함한 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/)의 더 상세한 분석을 확인할 수 있습니다:
+그 외에도 다음을 포함한 [전환 이벤트]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)의 더 상세한 분석을 확인할 수 있습니다:
 
 - 각 전환 이벤트의 전환 합계 및 전환율
 - 대조 배리언트 대비 상승률
@@ -101,8 +108,8 @@ Canvas Flow의 경우, 사용자는 사용자 여정의 마지막 단계에서 �
 
 ### 퍼널 보고서 {#funnel-report}
 
-퍼널 보고서는 고객이 Canvas를 수신한 후 거치는 여정을 분석할 수 있는 시각적 보고서를 제공합니다. 캔버스에 대조군이나 여러 배리언트가 사용되는 경우, 다양한 배리언트가 전환 퍼널에 어떤 영향을 미쳤는지 더 세분화된 수준에서 이해하고 이 데이터를 기반으로 최적화할 수 있습니다. 퍼널 보고서에 대한 자세한 내용은 [퍼널 보고서]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/)를 참조하세요.
+퍼널 보고서는 고객이 Canvas를 수신한 후 거치는 여정을 분석할 수 있는 시각적 보고서를 제공합니다. 캔버스에 대조군이나 여러 배리언트가 사용되는 경우, 다양한 배리언트가 전환 퍼널에 어떤 영향을 미쳤는지 더 세분화된 수준에서 이해하고 이 데이터를 기반으로 최적화할 수 있습니다. 퍼널 보고서에 대한 자세한 내용은 [퍼널 보고서]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports)를 참조하세요.
 
 ### 리텐션 보고서 {#retention-report}
 
-사용자 리텐션은 모든 마케터에게 가장 중요한 측정기준 중 하나입니다. 참여하는 사용자가 계속 돌아오도록 유지하는 것은 비즈니스가 건강하다는 것을 나타냅니다. Braze에서는 **Canvas Analytics** 페이지에서 바로 사용자 리텐션을 측정할 수 있습니다. 리텐션 보고서를 읽고 해석하는 방법에 대한 자세한 내용은 [리텐션 보고서]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/)를 확인하세요.
+사용자 리텐션은 모든 마케터에게 가장 중요한 측정기준 중 하나입니다. 참여하는 사용자가 계속 돌아오도록 유지하는 것은 비즈니스가 건강하다는 것을 나타냅니다. Braze에서는 **Canvas Analytics** 페이지에서 바로 사용자 리텐션을 측정할 수 있습니다. 리텐션 보고서를 읽고 해석하는 방법에 대한 자세한 내용은 [리텐션 보고서]({{site.baseurl}}/user_guide/analytics/reports/retention_reports)를 확인하세요.

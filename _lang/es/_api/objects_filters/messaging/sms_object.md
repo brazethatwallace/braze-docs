@@ -4,10 +4,10 @@ article_title: Objeto de mensajería SMS
 page_order: 10
 page_type: reference
 channel: SMS
-description: "Este artículo de referencia explica los distintos componentes del objeto SMS Braze."
+description: "Este artículo de referencia explica los distintos componentes del objeto SMS de Braze."
 
 ---
-# Objeto SMS
+# Objeto SMS {#sms-object}
 
 > El objeto `sms` te permite modificar o crear mensajes SMS a través de nuestros [puntos finales de mensajería]({{site.baseurl}}/api/endpoints/messaging).
 
@@ -23,5 +23,5 @@ description: "Este artículo de referencia explica los distintos componentes del
 }
 ```
 
-- [Identificador de la aplicación]({{site.baseurl}}/api/identifier_types/)
+- [Identificador de la aplicación]({{site.baseurl}}/api/identifier_types)
   - Cualquier `app_id` válido de una aplicación configurada en tu espacio de trabajo funciona para todos los usuarios de tu espacio de trabajo, independientemente de si el usuario tiene la aplicación específica en su perfil o no.

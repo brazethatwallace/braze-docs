@@ -26,12 +26,12 @@ Sprechen Sie Nutzer:innen in Echtzeit an, um sie zum Abschluss ihrer Käufe zu e
 
 Beachten Sie Folgendes bei der Verwendung dieses Templates:
 
-- Der Entry-Zeitplan ist API-getriggert. Verwenden Sie den [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/), um Nutzer:innen einzutragen, wenn sie einen Warenkorb abbrechen, oder wechseln Sie zu einem aktionsbasierten Zeitplan mit einem Trigger wie **Angepasstes Event ausführen** oder **Warenkorb-Update-Event ausführen**, wenn dies besser zu Ihrem Setup passt.
+- Der Entry-Zeitplan ist API-getriggert. Verwenden Sie den [`/canvas/trigger/send`-Endpunkt]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases), um Nutzer:innen einzutragen, wenn sie einen Warenkorb abbrechen, oder wechseln Sie zu einem aktionsbasierten Zeitplan mit einem Trigger wie **Angepasstes Event ausführen** oder **Warenkorb-Update-Event ausführen**, wenn dies besser zu Ihrem Setup passt.
 - Die Standard-Conversion trackt **Beliebigen Kauf tätigen (Legacy)**. Passen Sie Konversions-Events und die **Kauf getätigt?**-Aktionspfade-Schritte bei Bedarf auf bestimmte Produkte an.
 - Nutzer:innen verlassen das Canvas, wenn sie in den **Kauf getätigt?**-Aktionspfade-Schritten einen Kauf tätigen. Dieses Template setzt voraus, dass Sie eine separate Post-Purchase-Journey haben.
 - Das Canvas enthält eine E-Mail für **Artikelbasierte Erinnerung**, einen Delay-Schritt, einen intelligenten Kanal-Split für E-Mail und SMS, Kanalnachrichten mit Content Cards (E-Mail, SMS und In-App-Nachricht) sowie einen Audience-Sync-Schritt. Konfigurieren Sie **Ad Retargeting** mit Ihren Partnern und Zielgruppen.
 
-Eine Schritt-für-Schritt-Anleitung finden Sie unter [Warenkorb-Abbruch]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/abandoned_cart/).
+Eine Schritt-für-Schritt-Anleitung finden Sie unter [Warenkorb-Abbruch]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates/abandoned_cart).
 
 {% endtab %}
 {% tab Back In Stock %}

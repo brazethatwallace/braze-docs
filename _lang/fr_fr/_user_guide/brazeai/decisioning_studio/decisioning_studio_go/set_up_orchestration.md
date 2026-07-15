@@ -20,7 +20,7 @@ Decisioning Studio Go prend en charge les plateformes d'engagement client suivan
 | **Salesforce Marketing Cloud** | Journey Builder avec événements API | Automatisation des requêtes SQL, extensions de données |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CEP pris en charge" }
 
-Sélectionnez votre CEP ci-dessous pour commencer la configuration de l'intégration.
+Sélectionnez votre CEP dans cette liste pour commencer la configuration de l'intégration.
 
 {% tabs %}
 {% tab Braze %}
@@ -36,7 +36,7 @@ Pour intégrer Decisioning Studio Go avec Braze, vous allez créer une clé API,
 3. Saisissez un nom pour votre clé API. Par exemple : « DecisioningStudioGoEmail ».
 4. Sélectionnez les autorisations en fonction des catégories suivantes :
     - **Données utilisateur :** sélectionnez `users.track`, `users.delete`, `users.export.ids`, `users.export.segment`
-    - **Messages :** sélectionnez `messages.send`
+    - **Messages :** sélectionnez `messages.send`, `messages.schedule.create`, `messages.schedule.update`, `messages.schedule.delete`
     - **Campaigns :** sélectionnez toutes les autorisations répertoriées
     - **Canvas :** sélectionnez toutes les autorisations répertoriées
     - **Segments :** sélectionnez toutes les autorisations répertoriées
@@ -72,8 +72,8 @@ Braze fournit des ID d'application (appelés clés API dans le tableau de bord d
 ### Étape 4 : Créer une campagne déclenchée par API {#step-4-create-an-api-triggered-campaign}
 
 1. Dans le tableau de bord de Braze, accédez à **Messaging** > **Campaigns**.
-2. Sélectionnez **Create campaign**.
-3. Pour le type de campagne, sélectionnez **API campaign**.
+2. Sélectionnez **Create Campaign**.
+3. Pour le type de campagne, sélectionnez **API Campaign**.
 4. Saisissez un nom pour votre campagne. Par exemple : « Decisioning Studio Go Email ».
 
 ![Une campagne API intitulée « Decisioning Studio Go Email ».]({% image_buster /assets/img/decisioning_studio_go/api_campaign_name.png %})
@@ -105,7 +105,7 @@ Braze fournit des ID d'application (appelés clés API dans le tableau de bord d
 
 Pour tester votre intégration, vous aurez besoin d'un ID utilisateur :
 
-Si votre espace de travail utilise le [chiffrement au niveau des champs d'identification]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption/), tout nouvel utilisateur test créé avec l'endpoint `/users/track` doit respecter les exigences relatives aux e-mails pour les espaces de travail chiffrés. Envoyez le champ `email` sous forme de hachage HMAC-SHA256 encodé en Base64 de la valeur de l'e-mail en minuscules, et envoyez `email_encrypted` comme valeur d'e-mail chiffrée générée avec vos clés de chiffrement PII configurées.
+Si votre espace de travail utilise le [chiffrement au niveau des champs d'identification]({{site.baseurl}}/user_guide/data/infrastructure/field_level_encryption), tout nouvel utilisateur test créé avec l'endpoint `/users/track` doit respecter les exigences relatives aux e-mails pour les espaces de travail chiffrés. Envoyez le champ `email` sous forme de hachage HMAC-SHA256 encodé en Base64 de la valeur de l'e-mail en minuscules, et envoyez `email_encrypted` comme valeur d'e-mail chiffrée générée avec vos clés de chiffrement PII configurées.
 
 1. Dans le tableau de bord de Braze, accédez à **Audience** > **Rechercher des utilisateurs**.
 2. Recherchez l'utilisateur par son ID externe, son alias d'utilisateur, son e-mail, son numéro de téléphone ou son jeton de notification push.
@@ -377,4 +377,4 @@ C'est terminé ! Vous pouvez maintenant commencer à déclencher des envois via 
 
 Maintenant que vous avez configuré l'orchestration, passez à la conception de votre agent :
 
-- [Concevoir votre agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent/)
+- [Concevoir votre agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/design_your_agent)

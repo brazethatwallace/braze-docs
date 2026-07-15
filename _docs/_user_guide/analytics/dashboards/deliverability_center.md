@@ -15,7 +15,7 @@ channel:
 
 Email deliverability is the core of campaign success. Using the Deliverability Center in the Braze dashboard, you can view your domains by **IP Reputation** or **Delivery Errors** to discover and troubleshoot any potential issues with email deliverability. 
 
-To access the Deliverability Center, you need the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/) in the following dropdown for your workspace.
+To access the Deliverability Center, you need the [user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) in the following dropdown for your workspace.
 
 {% details User permissions for the Deliverability Center %}
 
@@ -68,7 +68,7 @@ To access the Deliverability Center, you need the [user permissions]({{site.base
 Before connecting to the Deliverability Center, you'll need to set up a Google Postmaster Tools account. You can use a work or personal Gmail account to set up your Google Postmaster. 
 
 1. Go to the [Google Postmaster Tools dashboard](https://postmaster.google.com/managedomains?pli=1).
-2. In the bottom right, select <i class="fas fa-plus-circle"></i> **Add domain**.
+2. At the bottom of the page, select <i class="fas fa-plus-circle"></i> **Add domain**.
 3. Enter your root (parent) domain to authenticate your email. Be sure the TXT record is tied to this root (parent) domain, **not** the subdomain you're using through Braze. Verifying the root (parent) domain lets you later add subdomains in Postmaster Tools without creating additional TXT records. For example, by verifying `braze.com`, you can later add `demo.braze.com` as a separate subdomain in Postmaster Tools to see subdomain-level metrics.
 4. Google generates a TXT record that can be added directly to your domain's DNS. This is generally owned by whoever manages your DNS. For information and guidance on how to update your specific DNS, check out [Verify your domain (host-specific steps)](https://support.google.com/a/topic/1409901).
 5. Select **Next**. <br>![An example domain "demo.braze.com" to authenticate an email.]({% image_buster /assets/img_archive/domain_authentication.png %})
@@ -80,6 +80,13 @@ If your subdomains aren't included in the Deliverability Center for Google Postm
 {% endalert %}
 
 ## Integrate Google Postmaster {#integrating-google-postmaster}
+
+{% alert important %}
+**Google Postmaster Tools v2 migration**<br>
+Google is deprecating the old Postmaster Tools (v1) and has released a next-generation version (v2) with a modern user interface and new dashboards, including a Compliance dashboard to help monitor adherence to Gmail's sender guidelines. All users must migrate to v2 by October 31, 2026.<br><br>
+To re-authorize your Google Postmaster Tool connection, go to **Partner Integrations** > **Technology Partners**, open **Google Postmaster**, and select **Change Account** to re-authenticate with the new v2 permissions. When finished, you are upgraded to v2 and gain access to new dashboards and data.<br><br>
+For more information, refer to [Google's announcement about the new Postmaster Tools](https://support.google.com/mail/answer/16594218?hl=en).
+{% endalert %}
 
 Before setting up your Deliverability Center, check that your domains have been [added to the Gmail Postmaster Tools](https://support.google.com/mail/answer/9981691?hl=en).
 
@@ -151,14 +158,24 @@ Refer to this table to understand what percentage of your inbound and outbound t
 | TLS Outbound | Shows the percentage of outgoing mail (from Gmail) accepted over TLS versus all mail sent to that domain. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Encryption" }
 
-For more ideas on improving deliverability, read [Deliverability pitfalls and spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps#deliverability-pitfalls-and-spam-traps). Be sure to reference our [Email best practices]({{site.baseurl}}/user_guide/channels/email/best_practices/) for things you should check for before sending an email campaign.
+For more ideas on improving deliverability, read [Deliverability pitfalls and spam traps]({{site.baseurl}}/user_guide/channels/email/email_setup/deliverability_pitfalls_and_spam_traps). Be sure to reference our [Email best practices]({{site.baseurl}}/user_guide/channels/email/best_practices) for things you should check for before sending an email campaign.
 
 ## Set up Microsoft Smart Network Data Services (SNDS)
 
-If Microsoft is your main mailbox provider, you can use this integration to access and view your Microsoft reputation data. This way, you can monitor the health of your IPs to help determine how your emails are being received.
+If Microsoft is your main mailbox provider, you can view Microsoft SNDS data in the Deliverability Center. This includes dedicated sending IPs for workspaces that use Amazon SES, SendGrid, or SparkPost. Use this data to monitor IP health and understand how Microsoft inbox providers are rating your sending.
+
+Microsoft SNDS provides IP-level data on spam complaints, spam trap hits, and sending volume as reported by Microsoft inbox providers such as Outlook, Hotmail, and Live.
 
 {% alert important %}
-If you don't see your data in the Deliverability Center, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/) with a list of your IP addresses.
+If you don't see your data in the Deliverability Center, contact [Support]({{site.baseurl}}/user_guide/administer/personal/braze_support) with a list of your IP addresses.
+{% endalert %}
+
+### Amazon SES
+
+For workspaces that send email through Amazon SES, the Deliverability Center displays Microsoft SNDS metrics for your dedicated sending IPs. Braze backfills up to 90 days of historical SNDS data when this feature is turned on for your workspace.
+
+{% alert note %}
+Amazon SES doesn't provide **Trap message period start** or **Trap message period end** metrics. For SES sending IPs, those columns are hidden in the Microsoft SNDS table. You can still view other SNDS metrics for those IPs, including spam trap hits.
 {% endalert %}
 
 ![An example of results from Microsoft SNDS, including sample IPs, recipients, RCPT commands, data commands, filter result, complaint rate, trap message period start and end, and spam trap hits.]({% image_buster /assets/img_archive/deliverability_center_msnds.png %})
@@ -202,6 +219,10 @@ To calculate the complaint rate, divide the number of complaints by the number o
 #### Spam trap hits
 
 Spam trap hits are the number of messages sent to "trap accounts," which are accounts maintained by Outlook.com that don't solicit any mail. It's likely that any messages sent to these trap accounts are considered spam, so it's important to monitor this metric to make sure that it's low. Low spam trap hits means the messages aren't sent to these accounts and are being sent to actual accounts instead.
+
+#### Trap message period start and end
+
+These columns show when the first and last messages sent to trap accounts were received from the IP during the activity period. Amazon SES does not provide these metrics, so the columns are hidden when you view only SES sending IPs in the Microsoft SNDS table.
 
 {% alert tip %}
 If you're looking for records related to one of your verified domains in Braze, note that the Deliverability Center lists your data from Google Postmaster or Microsoft SNDS, meaning it's likely that either platform doesn't have any data to share with Braze. Alternatively, try maintaining consistent email delivery, as this can lead to a higher reputation. 

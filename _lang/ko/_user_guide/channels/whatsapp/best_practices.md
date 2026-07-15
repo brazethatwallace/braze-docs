@@ -44,6 +44,6 @@ WhatsApp에서 사용자와 커뮤니케이션을 시작하기 전에 모든 사
 
 옵트아웃은 전화 품질 등급에 영향을 미치지 않으므로, 사용자가 차단하거나 신고하는 것보다 WhatsApp 커뮤니케이션 수신을 옵트아웃하는 것이 더 좋습니다.
 
-권장 모범 사례는 사용자에게 보내는 첫 번째 메시지의 푸터에 옵트아웃 방법에 대한 안내를 제공하는 것입니다. 예를 들어, 옵트아웃 트리거 단어로 응답하면 WhatsApp 채널 구독을 취소할 수 있다고 안내할 수 있습니다. 또한 향후 Campaigns에 옵트아웃 푸터를 정기적으로 포함할 수도 있습니다. 설정 방법에 대해 알아보려면 [옵트인 및 옵트아웃]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs/)을 참조하세요.
+권장 모범 사례는 사용자에게 보내는 첫 번째 메시지의 푸터에 옵트아웃 방법에 대한 안내를 제공하는 것입니다. 예를 들어, 옵트아웃 트리거 단어로 응답하면 WhatsApp 채널 구독을 취소할 수 있다고 안내할 수 있습니다. 또한 향후 Campaign에 옵트아웃 푸터를 정기적으로 포함할 수도 있습니다. 설정 방법에 대해 알아보려면 [옵트인 및 옵트아웃]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs)을 참조하세요.
 
 ![채널 구독을 취소하려면 STOP으로 응답하라는 푸터가 있는 WhatsApp 메시지]({% image_buster /assets/img/whatsapp/whatsapp_unsubscribe.png %}){: style="max-width:35%;"}

@@ -147,9 +147,9 @@ Braze Fire OS SDK를 사용하여 Amazon Fire TV 기기와 통합하세요.
 - 인앱 메시지
   - TV와 같은 비터치 환경에서 HTML 메시지를 표시하려면 `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages`를 `false`로 설정하세요([Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310)부터 사용 가능)
 - 배너
-  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements/)를 사용하여 Fire TV 앱에 메시지를 직접 삽입하세요.
+  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements)를 사용하여 Fire TV 앱에 메시지를 직접 삽입하세요.
 
-자세한 내용은 [Fire OS 통합 가이드]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)를 참조하세요.
+자세한 내용은 [Fire OS 통합 가이드]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android)를 참조하세요.
 
 ### Kindle Fire {#kindle-fire}
 
@@ -163,9 +163,9 @@ Braze Fire OS SDK를 사용하여 Amazon Kindle Fire 기기와 통합하세요.
 - 기능 플래그
 - 인앱 메시지
 - 배너
-  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements/)를 사용하여 Kindle Fire에 메시지를 직접 삽입하세요.
+  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements)를 사용하여 Kindle Fire에 메시지를 직접 삽입하세요.
 
-자세한 내용은 [Fire OS 통합 가이드]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)를 참조하세요.
+자세한 내용은 [Fire OS 통합 가이드]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android)를 참조하세요.
 
 ### Android TV {#android-tv}
 
@@ -179,11 +179,11 @@ Braze Android SDK를 사용하여 Android TV 기기와 통합하세요.
 - 인앱 메시지
   - TV와 같은 비터치 환경에서 HTML 메시지를 표시하려면 `com.braze.configuration.BrazeConfig.Builder.setIsTouchModeRequiredForHtmlInAppMessages`를 `false`로 설정하세요([Android SDK v23.1.0](https://github.com/braze-inc/braze-android-sdk/blob/master/CHANGELOG.md#2310)부터 사용 가능)
 - &#42; 푸시 알림(수동 통합 필요)
-  - Android TV에서는 푸시 알림이 기본적으로 지원되지 않습니다. 그 이유를 알아보려면 Google의 [디자인 가이드라인](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html)을 참조하세요. 그러나 **푸시 알림 UI를 수동으로 통합하여 이를 구현**할 수 있습니다. 설정 방법은 [설명서]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android%20tv)를 참조하세요.
+  - Android TV에서는 푸시 알림이 기본적으로 지원되지 않습니다. 그 이유를 알아보려면 Google의 [디자인 가이드라인](https://designguidelines.withgoogle.com/android-tv/patterns/notifications.html)을 참조하세요. 그러나 **푸시 알림 UI를 수동으로 통합하여 이를 구현**할 수 있습니다. 설정 방법은 [설명서]({{site.baseurl}}/developer_guide/push_notifications?sdktab=android%20tv)를 참조하세요.
 - 배너
-  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements/)를 사용하여 Android TV 앱에 메시지를 직접 삽입하세요.
+  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements)를 사용하여 Android TV 앱에 메시지를 직접 삽입하세요.
 
-자세한 내용은 [Android SDK 통합 가이드]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)를 참조하세요.
+자세한 내용은 [Android SDK 통합 가이드]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android)를 참조하세요.
 
 {% alert note %}
 Android OTT 통합을 위해 대시보드에서 새 Android 앱을 생성해야 합니다.
@@ -200,9 +200,9 @@ Braze 웹 SDK를 사용하여 [LG webOS TV](https://webostv.developer.lge.com/di
 - 기능 플래그
 - 인앱 메시지([헤드리스 UI](#custom-ui) 사용)
 - 배너
-  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements/)를 사용하여 webOS 앱에 메시지를 직접 삽입하세요.
+  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements)를 사용하여 webOS 앱에 메시지를 직접 삽입하세요.
 
-자세한 내용은 [웹 스마트 TV 통합 가이드]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/)를 참조하세요.
+자세한 내용은 [웹 스마트 TV 통합 가이드]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs)를 참조하세요.
 
 ### Samsung Tizen {#tizen}
 
@@ -215,9 +215,9 @@ Braze 웹 SDK를 사용하여 [Samsung Tizen TV](https://developer.samsung.com/s
 - 기능 플래그
 - 인앱 메시지([헤드리스 UI](#custom-ui) 사용)
 - 배너
-  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements/)를 사용하여 Tizen 앱에 메시지를 직접 삽입하세요.
+  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements)를 사용하여 Tizen 앱에 메시지를 직접 삽입하세요.
 
-자세한 내용은 [웹 스마트 TV 통합 가이드]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs/)를 참조하세요.
+자세한 내용은 [웹 스마트 TV 통합 가이드]({{site.baseurl}}/developer_guide/platforms/web/smart_tvs)를 참조하세요.
 
 ### Roku {#roku}
 
@@ -230,7 +230,7 @@ Braze Roku SDK를 사용하여 [Roku TV](https://developer.roku.com/docs/develop
   - Roku 플랫폼에서는 웹뷰가 지원되지 않으므로 HTML 인앱 메시지도 지원되지 않습니다.
 - 기능 플래그
 
-자세한 내용은 [Roku 통합 가이드]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=roku)를 참조하세요.
+자세한 내용은 [Roku 통합 가이드]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=roku)를 참조하세요.
 
 ### Apple TV OS {#tvos}
 
@@ -246,7 +246,7 @@ Braze Swift SDK를 사용하여 tvOS와 통합하세요. Swift SDK에는 tvOS용
   - tvOS에서 커스텀 메시징을 위해 헤드리스 UI를 사용하는 방법에 대해 자세히 알아보려면 [샘플 앱](https://github.com/braze-inc/braze-swift-sdk/tree/main/Examples#inappmessages-custom-ui)을 참조하세요.
 - 무음 푸시 알림 및 배지 업데이트
 - 배너
-  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements/)를 사용하여 tvOS 앱에 메시지를 직접 삽입하세요.
+  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements)를 사용하여 tvOS 앱에 메시지를 직접 삽입하세요.
 
 자세한 내용은 [iOS Swift SDK 통합 가이드](https://github.com/braze-inc/braze-swift-sdk)를 참조하세요.
 
@@ -265,19 +265,19 @@ Braze Swift SDK를 사용하여 visionOS와 통합하세요. iOS에서 사용할
 - 기능 플래그
 - 위치 분석
 - 배너
-  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements/)를 사용하여 visionOS 앱에 메시지를 직접 삽입하세요.
+  - [배너 배치]({{site.baseurl}}/developer_guide/banners/placements)를 사용하여 visionOS 앱에 메시지를 직접 삽입하세요.
 
 자세한 내용은 [iOS Swift SDK 통합 가이드](https://github.com/braze-inc/braze-swift-sdk)를 참조하세요.
 
 {% alert important %}
-일부 iOS 기능은 부분적으로 지원되거나 지원되지 않습니다. 전체 목록은 [visionOS 지원](https://www.braze.com/docs/developer_guide/platform_integration_guides/swift/visionos)을 참조하세요.
+일부 iOS 기능은 부분적으로 지원되거나 지원되지 않습니다. 전체 목록은 [visionOS 지원]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/visionos)을 참조하세요.
 {% endalert %}
 
 ## 앱 타겟팅 {#app-targeting}
 
 메시징을 위해 OTT 앱을 타겟팅하려면 OTT 앱 전용 세그먼트를 생성하는 것이 좋습니다.
 
-![Android OTT 앱을 사용하여 생성한 세그먼트]({% image_buster /assets/img/android_ott.png %})
+![Android OTT 앱을 사용하여 생성한 세그먼트.]({% image_buster /assets/img/android_ott.png %})
 
 ## 헤드리스 UI {#custom-ui}
 
@@ -288,8 +288,8 @@ Braze Swift SDK를 사용하여 visionOS와 통합하세요. iOS에서 사용할
 헤드리스 UI를 사용하면 Braze는 앱이 제어하는 UI 내에서 앱이 읽고 사용할 수 있는 JSON과 같은 데이터 모델을 전달합니다. 이 데이터에는 대시보드에서 구성한 필드(제목, 본문, 버튼 텍스트, 색상 등)가 포함되며, 앱이 이를 읽고 적절히 표시할 수 있습니다. 커스텀 메시지 처리에 대한 자세한 내용은 다음을 참조하세요.
 
 **Android SDK**
-- [인앱 메시지 커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners)
-- [Content Cards 커스터마이징]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/)
+- [인앱 메시지 커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/customization?sdktab=android#android_setting-custom-manager-listeners)
+- [Content Cards 커스터마이징]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style)
 
 **Swift SDK**
 - [인앱 메시지 커스터마이징](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter/)
@@ -297,5 +297,5 @@ Braze Swift SDK를 사용하여 visionOS와 통합하세요. iOS에서 사용할
 - [Content Cards 커스터마이징](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcards-swift.class/)
 
 **웹 SDK**
-- [인앱 메시지 커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/?tab=web)
-- [Content Cards 커스터마이징]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/)
+- [인앱 메시지 커스터마이징]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages?tab=web)
+- [Content Cards 커스터마이징]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style)

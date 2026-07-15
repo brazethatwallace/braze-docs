@@ -17,7 +17,6 @@ A página **Início** tem duas seções principais:
 - [Continue de onde parou](#pick-up-where-you-left-off)
 - [Visão geral de desempenho](#performance-overview)
 
-![Dashboard Início na Braze.]({% image_buster /assets/img_archive/home_dashboard.png %})
 
 ## Continue de onde parou {#pick-up-where-you-left-off}
 
@@ -35,19 +34,15 @@ A seção **Continue de onde parou** aparece depois que você edita ou cria uma 
 
 Por padrão, a seção **Visão geral de desempenho** mostra os dados dos últimos 30 dias para todos os apps e sites. Suas métricas são calculadas com base no intervalo de datas selecionado.
 
-![Campos de intervalo de datas e app no dashboard Início.]({% image_buster /assets/img_archive/home_dashboard_select_date.png %}){: style="max-width:60%;"}
-
 Os percentuais são calculados com base no intervalo de datas atual em comparação com o intervalo anterior, com exceção dos *Usuários ativos mensais* (MAU), que usam o último dia do período anterior em vez de um intervalo.
 
 Por exemplo, se você definir o intervalo de datas como **Últimos 7 dias** e seus *Usuários ativos diários* mostrarem um aumento percentual de 1,8%, isso significa que você teve 1,8% mais usuários ativos diários nesta semana em comparação com a semana passada.
 
-![]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
+![Um bloco de métrica de Usuários ativos diários mostrando uma média de 22,2 mil com um indicador de aumento de 7,1% e uma linha de tendência.]({% image_buster /assets/img_archive/home_dashboard_metric_tile.png %}){: style="max-width:60%;"}
 
 ### Mostrar detalhamento {#show-breakdown}
 
 Selecione **Show Breakdown** para cada linha das estatísticas da visão geral de desempenho para visualizar o valor de cada estatística por dia no intervalo de datas especificado.
-
-![Expandir detalhamento das estatísticas do dashboard Início.]({% image_buster /assets/img_archive/home_dashboard_breakdown.png %})
 
 ### Desempenho ao longo do tempo {#performance-over-time}
 
@@ -89,12 +84,12 @@ A seguir estão as definições das estatísticas disponíveis, como são calcul
 
 *Usuários* é o número total de usuários criados nesse espaço de trabalho. Isso inclui todos os usuários que usaram seu app ou site em qualquer momento, além daqueles que podem não estar associados a um app ou site específico. Esse número é o percentual de quantos dos seus usuários totais são representados como *Usuários ativos mensais* (MAU), o que é útil para avaliar a retenção de usuários ao longo de um período prolongado.
 
-Uma proporção baixa de MAU em relação ao total de usuários pode indicar que você precisa diversificar seus canais de envio de mensagens ou aumentar seus esforços para alcançar usuários inativos. Consulte nossa dica rápida sobre [captura de usuários inativos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users) para mais informações. De modo geral, a proporção de MAU em relação ao total de usuários tende a diminuir ao longo do tempo devido ao churn, mas as ferramentas da Braze podem ajudar a minimizar esse efeito mantendo os usuários engajados por mais tempo.
+Uma proporção baixa de MAU em relação ao total de usuários pode indicar que você precisa diversificar seus canais de envio de mensagens ou aumentar seus esforços para alcançar usuários inativos. Consulte nossa dica rápida sobre [captura de usuários inativos]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users) para mais informações. De modo geral, a proporção de MAU em relação ao total de usuários tende a diminuir ao longo do tempo devido ao churn, mas as ferramentas da Braze podem ajudar a minimizar esse efeito mantendo os usuários engajados por mais tempo.
 
 ### Sessões totais {#lifetime-sessions}
 
 *Sessões totais* é a contagem total de sessões que a Braze registrou desde a integração. Uma sessão é cada vez que um usuário usa o app ou visita seu site. Para uma definição mais precisa de como as sessões são definidas por plataforma, consulte os artigos de rastreamento de sessões para desenvolvedores correspondentes:
-[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=swift), [Android e FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=android) ou [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions/?tab=web).
+[iOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=swift), [Android e FireOS]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=android) ou [Web]({{site.baseurl}}/developer_guide/analytics/tracking_sessions?tab=web).
 
 ### Usuários ativos mensais {#monthly-active-users}
 
@@ -110,15 +105,13 @@ Os cálculos de MAU seguem regras específicas para garantir uma cobrança preci
 
 - **Momento do cálculo**: Calculado uma vez por dia às 12:05 UTC como um snapshot de 30 dias; as contagens nunca mudam retroativamente.
 - **Perfis anônimos**: Contam **apenas** quando pelo menos uma sessão é registrada.
-- **Perfis identificados**: Contam automaticamente assim que existem.
+- **Perfis identificados**: Contam apenas quando `date_of_last_session` está dentro da janela móvel de 30 dias.
 - **Perfis órfãos**: Duplicatas mescladas em outro usuário **não** são contadas.
-- **Uploads por CSV**: Usuários enviados por CSV contam apenas quando `date_of_first_session` ou `date_of_last_session` é fornecido, ou quando eles registram uma sessão posteriormente.
+- **Uploads por CSV e importações via REST API**: Usuários enviados por CSV ou pela REST API contam para o MAU quando você fornece `date_of_last_session` dentro da janela móvel de 30 dias, ou quando eles registram uma sessão posteriormente. Fornecer apenas `date_of_first_session` não afeta o MAU.
 - **Exclusões via API**: Excluir um usuário via API não atualiza o MAU imediatamente; a contagem se corrige automaticamente no próximo ciclo mensal.
 
 {% alert note %}
-Usuários anônimos também contam para o seu MAU. Em dispositivos móveis, os usuários anônimos dependem do dispositivo. Para usuários web, os usuários anônimos dependem do cache do navegador.
-
-As contagens de MAU na Braze podem diferir de ferramentas como a Amplitude quando cada produto usa uma definição diferente de usuário ativo. Compare a configuração na Amplitude (e suas regras de MAU da Braze acima) antes de investigar uma discrepância como um problema no pipeline de dados.
+Usuários anônimos também contam para o seu MAU. Em dispositivos móveis, os usuários anônimos dependem do dispositivo. Para usuários web, os usuários anônimos dependem do cache do navegador. <br><br> As contagens de MAU na Braze podem diferir de ferramentas como a Amplitude quando cada produto usa uma definição diferente de usuário ativo. Compare a configuração na Amplitude (e suas [regras de cálculo do MAU](#mau-calculation-rules)) antes de investigar uma discrepância como um problema no pipeline de dados.
 {% endalert %}
 
 #### Exemplo de cálculo do MAU {#mau-calculation-example}
@@ -135,6 +128,10 @@ O exemplo a seguir demonstra como os cálculos de MAU funcionam com diferentes a
 
 Os snapshots de MAU são calculados uma vez por dia e nunca mudam retroativamente. Neste exemplo, a contagem de MAU do dia após a etapa 3 permanece permanentemente em 2, mesmo que o Usuário 2 se torne órfão posteriormente. No entanto, a contagem de MAU dos dias seguintes reflete apenas o usuário não órfão. Dentro de qualquer janela de 30 dias, esse fluxo consome 1 MAU, já que apenas um usuário distinto e não órfão permanece.
 
+##### Considerações sobre a contagem de MAU {#mau-count-considerations}
+
+As contagens de MAU na Braze dependem de onde você as visualiza. O MAU total é calculado no nível do usuário, independentemente de apps e plataformas, de modo que cada usuário é contado apenas uma vez. No entanto, quando você visualiza as contagens de MAU por app, a soma do MAU de todos os apps pode exceder o MAU total; um usuário que usa vários apps no seu espaço de trabalho é contado na métrica de MAU individual de cada app.
+
 ### Usuários ativos diários {#daily-active-users}
 
 *Usuários ativos diários* (DAU) exibe o número de usuários únicos que registram pelo menos uma sessão no seu app ou site em um determinado dia. O DAU pode ser uma estatística útil para examinar a variabilidade diária do uso do seu app ou site e ajustar suas campanhas de mensagens para serem o mais eficazes possível. Por exemplo, o uso do seu app pode ter um pico considerável nos fins de semana — isso indicaria que você poderia alcançar mais usuários com mensagens no app nesses dias, em vez de dias úteis.
@@ -144,9 +141,7 @@ Os snapshots de MAU são calculados uma vez por dia e nunca mudam retroativament
 *Novos usuários* informa quantos usuários que nunca haviam registrado uma sessão começaram a usar seu app ou site. Esse número é o total de novos usuários no período selecionado. Essa estatística pode ser muito valiosa para acompanhar a eficácia dos seus esforços de publicidade.
 
 {% alert note %}
-Quando você integra a Braze pela primeira vez, todos os usuários aparecerão como novos, pois a Braze nunca registrou uma sessão para eles antes.
-
-Diferentemente do MAU, a contagem de *Novos usuários* pode diminuir retroativamente quando a Braze mescla um perfil anônimo em um perfil identificado e torna o perfil anônimo órfão. A Braze remove o perfil órfão dos totais de uso do app, o que pode reduzir a contagem de *Novos usuários* para datas que você já visualizou. Para saber mais sobre o comportamento de vinculação de perfis, consulte [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle/).
+Quando você integra a Braze pela primeira vez, todos os usuários aparecerão como novos, pois a Braze nunca registrou uma sessão para eles antes. <br><br> Diferentemente do MAU, a contagem de *Novos usuários* pode diminuir retroativamente quando a Braze mescla um perfil anônimo em um perfil identificado e torna o perfil anônimo órfão. A Braze remove o perfil órfão dos totais de uso do app, o que pode reduzir a contagem de *Novos usuários* para datas que você já visualizou. Para saber mais sobre o comportamento de vinculação de perfis, consulte [Ciclo de vida do perfil de usuário]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle).
 {% endalert %}
 
 {% alert important %}

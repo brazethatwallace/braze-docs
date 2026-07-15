@@ -2,16 +2,40 @@
 nav_title: 웹훅 및 연결된 콘텐츠 문제 해결
 article_title: 웹훅 및 연결된 콘텐츠 요청 문제 해결
 page_order: 4
-description: "이 문서에서는 웹훅 및 연결된 콘텐츠 오류 코드를 문제 해결하는 방법을 다루며, 오류의 의미와 해결 단계를 설명합니다."
+description: "증상 색인, HTTP 오류 표, 비정상 호스트 감지 안내를 활용하여 웹훅 및 연결된 콘텐츠 오류를 진단합니다."
 ---
 
 # 웹훅 및 연결된 콘텐츠 요청 문제 해결 {#troubleshoot-webhook-and-connected-content-requests}
 
-> 이 문서에서는 웹훅 및 연결된 콘텐츠의 일반적인 오류 코드를 문제 해결하는 방법을 다루고, 이러한 오류가 요청에서 어떻게 발생할 수 있는지에 대한 추가 설명을 제공합니다.
+> 이 페이지에서는 웹훅 및 연결된 콘텐츠의 일반적인 오류 코드를 문제 해결하는 방법을 안내합니다. 설정 방법은 [웹훅 만들기]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) 및 [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 참조하세요.
+
+## 시작하기: 증상 매칭 {#start-here-match-your-symptom}
+
+아래 표에서 증상을 찾아 관련 섹션으로 이동하세요.
+
+| 증상 | 이동 |
+| --- | --- |
+| 메시지 활동 로그에서 `4XX` 클라이언트 오류 | [4XX 오류](#4xx-errors) |
+| `5XX` 서버 오류 또는 시간 초과 | [5XX 오류](#5xx-errors) |
+| `598 Host Unhealthy` 또는 요청이 일시적으로 중단됨 | [비정상 호스트 감지]({{site.baseurl}}/support_contact) |
+| 연결된 콘텐츠가 미리보기 또는 발송에서 빈 값으로 렌더링됨 | [연결된 콘텐츠가 응답 본문을 반환하지 않는 경우](#connected-content-returns-no-response-body) |
+| Braze에서 자동 오류 이메일 수신 | [자동 이메일 및 메시지 활동 로그 항목](#automated-emails-and-message-activity-log-entries) |
+| Currents에서 웹훅 실패 이벤트가 필요함 | [Braze Currents의 추가 실패 인사이트](#additional-failure-insights-in-braze-currents) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="웹훅 및 연결된 콘텐츠 증상" }
+
+## 표준 조사 경로 {#standard-investigation-path}
+
+웹훅 또는 연결된 콘텐츠 요청이 실패하거나 올바르게 렌더링되지 않을 때 이 워크플로를 사용하세요. 1단계부터 시작합니다.
+
+1. [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 열고 오류 코드, 타임스탬프, 엔드포인트 URL을 확인합니다.
+2. `4XX` 오류의 경우, 엔드포인트 설명서를 기준으로 요청 구문, 인증 헤더, URL 경로, HTTP 메서드를 확인합니다.
+3. `5XX` 오류의 경우, 엔드포인트 상태, 사용량 제한, Braze가 호스트를 비정상으로 표시했는지 여부를 확인합니다.
+4. 연결된 콘텐츠의 경우, 테스트 사용자에 대해 메시지를 미리보기하고 Liquid가 빈 값이나 JSON을 깨뜨리는 값으로 확인되지 않는지 점검합니다.
+5. 비정상 호스트 감지가 관련될 수 있는 경우, [Braze 고객지원](#unhealthy-host-detection)에 문의하기 전에 [비정상 호스트 감지](#unhealthy-host-detection)를 검토하세요.
 
 ## 4XX 오류 {#4xx-errors}
 
-`4XX` 오류는 엔드포인트로 전송된 요청에 문제가 있음을 나타냅니다. 이러한 오류는 일반적으로 잘못된 형식의 매개변수, 누락된 인증 헤더 또는 잘못된 URL을 포함한 잘못된 요청으로 인해 발생합니다. 이러한 오류는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder/)에도 적용됩니다.
+`4XX` 오류는 엔드포인트로 전송된 요청에 문제가 있음을 나타냅니다. 이러한 오류는 일반적으로 잘못된 형식의 매개변수, 누락된 인증 헤더 또는 잘못된 URL을 포함한 잘못된 요청으로 인해 발생합니다. 이러한 오류는 [보고서 빌더]({{site.baseurl}}/user_guide/analytics/reports/report_builder)에도 적용됩니다.
 
 오류 코드 세부 정보 및 해결 단계는 다음 표를 참조하세요:
 
@@ -22,7 +46,6 @@ table td {
 </style>
 
 <table aria-label="4XX 오류">
-  <caption>4XX 오류</caption>
   <thead>
     <tr>
       <th>오류 코드</th>
@@ -139,28 +162,30 @@ table td {
 
 ## 비정상 호스트 감지 {#unhealthy-host-detection}
 
-Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저하 또는 과부하로 인해 시간 초과, 너무 많은 요청 또는 Braze가 대상 엔드포인트와 성공적으로 통신하지 못하게 하는 기타 결과를 초래하는 높은 비율의 문제를 경험할 때 이를 감지하는 비정상 호스트 감지 메커니즘을 사용합니다. 이는 대상 호스트에 어려움을 줄 수 있는 불필요한 부하를 줄이기 위한 안전장치 역할을 합니다. 또한 Braze 인프라를 안정화하고 빠른 메시징 속도를 유지하는 데 도움이 됩니다.
+Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저하 또는 과부하로 인해 시간 초과, 과다 요청 또는 Braze가 대상 엔드포인트와 성공적으로 통신하지 못하게 하는 기타 결과가 높은 비율로 발생할 때 이를 감지하는 비정상 호스트 감지 메커니즘을 사용합니다. 이는 대상 호스트에 어려움을 줄 수 있는 불필요한 부하를 줄이기 위한 안전장치 역할을 합니다. 또한 Braze 인프라를 안정화하고 빠른 메시징 속도를 유지하는 데 도움이 됩니다.
 
 감지 임계값은 웹훅과 연결된 콘텐츠 간에 다릅니다:
-- **웹훅의 경우**: **1분 이동 시간 창에서 실패 횟수가 3,000건을 초과**하면(호스트 이름과 앱 그룹의 고유 조합 기준&#8212;엔드포인트 경로 기준이 **아님**), Braze가 대상 호스트에 대한 요청을 1분 동안 일시적으로 중단합니다.
-- **연결된 콘텐츠의 경우**: **1분 이동 시간 창에서 실패 횟수가 3,000건을 초과하고 오류율이 90%를 초과**하면(호스트 이름과 앱 그룹의 고유 조합 기준&#8212;엔드포인트 경로 기준이 **아님**), Braze가 대상 호스트에 대한 요청을 1분 동안 일시적으로 중단합니다.
+- **웹훅의 경우**: 1분 이동 시간 창에서 실패 횟수가 3,000건을 초과하면(호스트 이름과 앱 그룹의 고유 조합 기준&#8212;엔드포인트 경로 기준이 아님), Braze가 대상 호스트에 대한 요청을 1분 동안 일시적으로 중단합니다.
+- **연결된 콘텐츠의 경우**: 1분 이동 시간 창에서 실패 횟수가 3,000건을 초과하고 오류율이 90%를 초과하면(호스트 이름과 앱 그룹의 고유 조합 기준&#8212;엔드포인트 경로 기준이 아님), Braze가 대상 호스트에 대한 요청을 1분 동안 일시적으로 중단합니다.
 
 요청이 중단되면 Braze는 비정상 상태를 나타내기 위해 `598` 오류 코드로 응답을 시뮬레이션합니다. 1분 후 호스트가 정상으로 확인되면 Braze는 전체 속도로 요청을 재개합니다. 호스트가 여전히 비정상이면 Braze는 다시 시도하기 전에 1분 더 기다립니다.
 
 다음 오류 코드가 비정상 호스트 감지기 실패 횟수에 기여합니다: `408`, `429`, `502`, `503`, `504`, `529`.
 
-웹훅의 경우 Braze는 비정상 호스트 감지기에 의해 중단된 HTTP 요청을 자동으로 재시도합니다. 이 자동 재시도는 지수 백오프를 사용하며 실패하기 전에 몇 번만 재시도합니다. 웹훅 오류에 대한 자세한 내용은 [오류, 재시도 로직 및 시간 초과]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook/#errors-retry-logic-and-timeouts)를 참조하세요.
+웹훅의 경우 Braze는 비정상 호스트 감지기에 의해 중단된 HTTP 요청을 자동으로 재시도합니다. 이 자동 재시도는 지수 백오프를 사용하며 실패하기 전에 몇 번만 재시도합니다. 웹훅 오류에 대한 자세한 내용은 [오류, 재시도 로직 및 시간 초과]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#errors-retry-logic-and-timeouts)를 참조하세요.
 
-연결된 콘텐츠의 경우, 대상 호스트에 대한 요청이 비정상 호스트 감지기에 의해 중단되면 Braze는 오류 응답 코드를 받은 것처럼 메시지를 계속 렌더링하고 Liquid 로직을 따릅니다. 이러한 연결된 콘텐츠 요청이 비정상 호스트 감지기에 의해 중단될 때 재시도되도록 하려면 `:retry` 옵션을 사용하세요. `:retry` 옵션에 대한 자세한 내용은 [연결된 콘텐츠 재시도]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries/)를 참조하세요.
+연결된 콘텐츠의 경우, 대상 호스트에 대한 요청이 비정상 호스트 감지기에 의해 중단되면 Braze는 오류 응답 코드를 받은 것처럼 메시지를 계속 렌더링하고 Liquid 로직을 따릅니다. 이러한 연결된 콘텐츠 요청이 비정상 호스트 감지기에 의해 중단될 때 재시도되도록 하려면 `:retry` 옵션을 사용하세요. `:retry` 옵션에 대한 자세한 내용은 [연결된 콘텐츠 재시도]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/connected_content_retries)를 참조하세요.
 
-비정상 호스트 감지가 문제를 일으키고 있다고 생각되면 [Braze 고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
+비정상 호스트 감지가 문제를 일으키고 있다고 생각되면 [Braze 고객지원]({{site.baseurl}}/support_contact)에 문의하세요.
 
 ### 연결된 콘텐츠가 응답 본문을 반환하지 않는 경우 {#connected-content-returns-no-response-body}
+
+**증상:** 연결된 콘텐츠 호출이 메시지 미리보기 또는 발송에서 빈 값으로 렌더링됩니다.
 
 연결된 콘텐츠 호출이 메시지 미리보기 또는 발송에서 빈 값으로 렌더링되는 경우 다음을 확인하세요:
 
 - **URL의 줄 바꿈 없는 공백:** Braze는 요청을 보내기 전에 연결된 콘텐츠 URL에서 줄 바꿈 없는 공백(`&nbsp;` 또는 유니코드 `U+00A0`)을 제거합니다. 문서나 대시보드 필드에서 복사한 URL에 문자 사이에 줄 바꿈 없는 공백이 삽입된 경우, 요청이 실패하거나 사용 가능한 본문을 반환하지 않을 수 있습니다. URL을 일반 텍스트로 다시 입력하거나 숨겨진 공백을 제거한 후 다시 미리보기하세요.
-- **HTTP 오류 및 빈 본문:** 300 이상의 상태 코드 또는 차단된 호스트의 경우, 연결된 콘텐츠는 빈 문자열을 렌더링할 수 있습니다. [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/)를 참조하고 **메시지 활동 로그**에서 실패를 확인하세요.
+- **HTTP 오류 및 빈 본문:** 300 이상의 상태 코드 또는 차단된 호스트의 경우, 연결된 콘텐츠는 빈 문자열을 렌더링할 수 있습니다. [API 호출하기]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call)를 참조하고 **메시지 활동 로그**에서 실패를 확인하세요.
 
 ## 자동 이메일 및 메시지 활동 로그 항목 {#automated-emails-and-message-activity-log-entries}
 
@@ -176,7 +201,7 @@ Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저
 - 메시지 활동 로그 및 관련 설명서 링크
 
 {% alert note %}
-워크스페이스별로 오류 임계값을 구성할 수 있습니다. 이 임계값을 조정하려면 [Braze 고객지원]({{site.baseurl}}/support_contact/)에 문의하세요.
+워크스페이스별로 오류 임계값을 구성할 수 있습니다. 이 임계값을 조정하려면 [Braze 고객지원]({{site.baseurl}}/support_contact)에 문의하세요.
 {% endalert %}
 
 엔드포인트 오류는 다음과 같습니다:
@@ -189,13 +214,13 @@ Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저
 이 이메일을 수신하도록 등록하려면 다음을 수행하세요:
 
 1. **설정** > **관리자 설정** > **알림 환경설정**으로 이동합니다.
-2. **Canvas & Campaigns** 섹션에서 **Connected Content Errors** 및 **Webhook Errors**를 선택합니다.
+2. **Canvas 및 Campaigns** 섹션에서 **Connected Content Errors** 및 **Webhook Errors**를 선택합니다.
 
 ### 메시지 활동 로그 항목 {#message-activity-log-entries}
 
-실패가 발생하면 이와 관련된 항목이 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/)에 하나 이상 있습니다. 요청이 재시도되어 최종적으로 성공하면 해당 세부 정보는 Currents 및 Snowflake 데이터 공유에서 확인할 수 있습니다. 재시도 후 요청이 최종적으로 성공하더라도 오류는 여전히 자동 이메일을 트리거할 수 있습니다.
+실패가 발생하면 이와 관련된 항목이 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에 하나 이상 있습니다. 요청이 재시도되어 최종적으로 성공하면 해당 세부 정보는 Currents 및 Snowflake 데이터 공유에서 확인할 수 있습니다. 재시도 후 요청이 최종적으로 성공하더라도 오류는 여전히 자동 이메일을 트리거할 수 있습니다.
 
-### Braze 커런츠의 추가 실패 인사이트 {#additional-failure-insights-in-braze-currents}
+### Braze Currents의 추가 실패 인사이트 {#additional-failure-insights-in-braze-currents}
 
 웹훅 관련 문제에 대한 투명성을 높이기 위해 Braze는 상세한 웹훅 실패 이벤트를 Currents 및 Snowflake 데이터 공유로 스트리밍합니다. 이러한 이벤트에는 실패한 웹훅 요청(HTTP `4xx` 또는 `5xx` 응답 등)이 포함되어 웹훅 문제가 메시지 전달에 어떤 영향을 미칠 수 있는지에 대한 더 많은 가시성을 제공합니다. 실패 이벤트에는 최종 오류뿐만 아니라 재시도 중인 오류도 포함됩니다.
 
@@ -203,4 +228,4 @@ Braze 웹훅 및 연결된 콘텐츠는 대상 호스트가 상당한 속도 저
 연결된 콘텐츠 요청은 이러한 웹훅 실패 이벤트에 포함되지 않습니다.
 {% endalert %}
 
-자세한 내용은 [메시지 참여 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/)을 참조하세요.
+자세한 내용은 [메시지 인게이지먼트 이벤트 용어집]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events)을 참조하세요.

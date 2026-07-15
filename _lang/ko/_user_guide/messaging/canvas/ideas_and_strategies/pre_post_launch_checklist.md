@@ -29,7 +29,7 @@ Canvas를 시작하기 전에 메시징과 발송 시간이 오디언스의 선�
 
 사용자가 Canvas에 진입해야 하는 시점에 대한 기본 세부 사항을 설정한 후, Canvas 구축의 **타겟 오디언스** 단계에서 Segment 또는 필터를 확인하는 것이 좋습니다. 이 단계에서 **대상 집단** 요약을 검토하여 타겟 오디언스가 어떻게 설정되었는지 확인할 수도 있습니다.
 
-여기서 오디언스 경로 단계의 Segment 또는 필터, 메시지 및 결정 분할 단계의 전달 유효성 검사 설정에 정규표현식을 사용하는 것을 고려하세요. [정규표현식]({{site.baseurl}}/user_guide/audience/segments/regex/)(정규식이라고도 함)은 문자열로, 패턴을 인식하고 대소문자 구분 같은 것 대신 문자를 고려합니다. 즉, "같음 / 같지 않음"을 사용하는 경우 단순한 구문 오류로 인해 오디언스 규모가 제한될 수 있습니다.
+여기서 오디언스 경로 단계의 Segment 또는 필터, 메시지 및 결정 분할 단계의 전달 유효성 검사 설정에 정규표현식을 사용하는 것을 고려하세요. [정규표현식]({{site.baseurl}}/user_guide/audience/segments/regex)(정규식이라고도 함)은 문자열로, 패턴을 인식하고 대소문자 구분 같은 것 대신 문자를 고려합니다. 즉, "같음 / 같지 않음"을 사용하는 경우 단순한 구문 오류로 인해 오디언스 규모가 제한될 수 있습니다.
 
 타겟 오디언스가 예상보다 작다면 "같음" 또는 "같지 않음" 대신 "정규식 일치" 또는 "정규식 불일치"를 사용해 보세요. 이렇게 하면 누락된 사용자를 포함하고 더 큰 오디언스를 타겟팅할 수 있습니다.
 
@@ -40,12 +40,12 @@ Canvas를 시작하기 전에 메시징과 발송 시간이 오디언스의 선�
 행동 기반 진입을 사용하는 경우, 타겟 오디언스에서 사용한 것과 동일한 트리거 동작을 여기서 사용하지 않았는지 확인하세요. 사용자가 트리거 이벤트를 수행하는 시점에 오디언스에 포함되지 않아 Canvas에 진입하지 못하는 경합 조건이 발생할 수 있습니다.
 
 {% alert tip %}
-오디언스 필터와 동일한 트리거를 사용하는 행동 기반 Canvas를 설정할 때 이 경합 조건을 피하기 위한 [모범 사례]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions/#scenario-3-matching-action-based-triggers-and-audience-filters)를 확인하세요.
+오디언스 필터와 동일한 트리거를 사용하는 행동 기반 Canvas를 설정할 때 이 경합 조건을 피하기 위한 [모범 사례]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions#scenario-3-matching-action-based-triggers-and-audience-filters)를 확인하세요.
 {% endalert %}
 
 ### Canvas 진입 속성 및 이벤트 속성 확인 {#check-canvas-entry-properties-and-event-properties}
 
-이름은 비슷하지만, [Canvas 진입 속성과 이벤트 속성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)은 Canvas 워크플로 내에서 다르게 작동합니다. Canvas 진입 속성은 진입 설정에 연결되어 있으며, Canvas 전체의 모든 메시지 구성요소에서 참조할 수 있습니다. Canvas 진입 속성은 행동 기반 또는 API 트리거 진입 설정을 사용하여 사용자의 Canvas 진입을 트리거하는 이벤트 또는 API 호출의 등록정보입니다.
+이름은 비슷하지만, [Canvas 진입 속성과 이벤트 속성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)은 Canvas 워크플로 내에서 다르게 작동합니다. Canvas 진입 속성은 진입 설정에 연결되어 있으며, Canvas 전체의 모든 메시지 구성요소에서 참조할 수 있습니다. Canvas 진입 속성은 행동 기반 또는 API 트리거 진입 설정을 사용하여 사용자의 Canvas 진입을 트리거하는 이벤트 또는 API 호출의 등록정보입니다.
 
 반면에 이벤트 속성은 행동 경로 단계 다음의 첫 번째 메시지 단계에서만 참조할 수 있습니다. 이벤트 속성은 행동 경로 단계의 평가 기간 동안 사용자가 수행한 커스텀 이벤트 또는 구매 이벤트의 등록정보로, 정의된 행동 경로 중 하나를 따라 진행하도록 트리거합니다.
 
@@ -95,11 +95,11 @@ Canvas에 대한 진입 데이터가 보이지 않는 경우, 사용자가 Canva
 Canvas를 조정할 영역을 식별하는 또 다른 명확한 방법은 한 캔버스 단계에서 다음 단계로의 큰 이탈이 발생하는 경우입니다. 이 경우 오디언스 필터와 예외 이벤트에 오타나 대소문자 오류가 없는지 확인하세요. 그리고 항상 그렇듯이, 오디언스 필터가 너무 엄격하여 대다수의 사용자가 Canvas에 진입하지 못하게 하는 것은 아닌지 확인하세요.
 
 다음으로, 메시지가 사용자에게 발송되는 시기와 여부에 영향을 줄 수 있는 다음 설정을 식별하는 것이 중요합니다:
-- [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing/)
-- [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/)
+- [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing)
+- [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)
 - 전달 유효성 검사
 
-일반적으로 Canvas에는 Intelligent Timing 또는 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/) 중 하나를 선택하세요. 둘 다 사용하지 마세요. Intelligent Timing 또는 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/) 중 하나를 사용하는 것도 마찬가지입니다. Intelligence Suite를 가장 잘 활용하는 방법에 대한 자세한 내용은 [Intelligence Suite 활용 사례]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/#use-cases)를 참조하세요.
+일반적으로 Canvas에는 Intelligent Timing 또는 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) 중 하나를 선택하세요. 둘 다 사용하지 마세요. Intelligent Timing 또는 [사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) 중 하나를 사용하는 것도 마찬가지입니다. Intelligence Suite를 가장 잘 활용하는 방법에 대한 자세한 내용은 [Intelligence Suite 활용 사례]({{site.baseurl}}/user_guide/brazeai/intelligence_suite#use-cases)를 참조하세요.
 
 ### 경로 간 의심스러운 발송량 {#suspicious-send-volumes-between-paths}
 

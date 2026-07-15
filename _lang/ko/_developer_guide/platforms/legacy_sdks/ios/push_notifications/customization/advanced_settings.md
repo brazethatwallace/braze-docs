@@ -14,9 +14,9 @@ noindex: true
 
 # 고급 설정 {#advanced-settings}
 
-푸시 캠페인을 생성할 때 작성 단계에서 **Settings**을 선택하여 사용 가능한 고급 설정을 확인합니다.
+푸시 캠페인을 생성할 때 작성 단계에서 **설정**을 선택하여 사용 가능한 고급 설정을 확인합니다.
 
-![]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Braze 대시보드의 iOS 푸시 캠페인 고급 설정.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ## 푸시 키-값 페어에서 데이터 추출하기 {#extracting-data-from-push-key-value-pairs}
 
@@ -28,19 +28,19 @@ Braze에서는 커스텀 정의 문자열 키-값 페어(`extras`)를 푸시 알
 
 ## 콘텐츠 가용 플래그 추가 {#adding-content-available-flag}
 
-**Add Content-Available Flag** 확인란을 선택하여 기기가 백그라운드에서 새 콘텐츠를 다운로드하도록 지시합니다. 가장 일반적으로 [무음 알림]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications/)을 보내고 싶은 경우 이 옵션을 선택할 수 있습니다.
+**Add Content-Available Flag** 확인란을 선택하여 기기가 백그라운드에서 새 콘텐츠를 다운로드하도록 지시합니다. 가장 일반적으로 [무음 알림]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/silent_push_notifications)을 보내고 싶은 경우 이 옵션을 선택할 수 있습니다.
 
 ## 변경 가능한 콘텐츠 플래그 추가 {#adding-mutable-content-flag}
 
-iOS 10 이상 기기에서 고급 수신기 커스터마이징을 활성화하려면 **Add Mutable-Content Flag** 확인란을 선택합니다. 이 플래그는 이 확인란의 값에 관계없이 [리치 알림]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications/)을 작성할 때 자동으로 전송됩니다.
+iOS 10 이상 기기에서 고급 수신기 커스터마이징을 활성화하려면 **Add Mutable-Content Flag** 확인란을 선택합니다. 이 플래그는 이 확인란의 값에 관계없이 [리치 알림]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/rich_notifications)을 작성할 때 자동으로 전송됩니다.
 
 ## 앱 배지 수 업데이트 {#update-app-badge-count}
 
-배지 수를 업데이트하려는 숫자를 입력하거나 Liquid 구문을 활용하여 커스텀 조건을 설정하세요. 애플리케이션의 `applicationIconBadgeNumber` 속성정보 또는 푸시 알림 페이로드를 통해 배지 수를 수동으로 업데이트할 수도 있습니다. 자세한 내용은 [배지 수]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/badges/) 관련 문서를 참조하세요.
+배지 수를 업데이트하려는 숫자를 입력하거나 Liquid 구문을 활용하여 커스텀 조건을 설정하세요. 애플리케이션의 `applicationIconBadgeNumber` 속성정보 또는 푸시 알림 페이로드를 통해 배지 수를 수동으로 업데이트할 수도 있습니다. 자세한 내용은 [배지 수]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/badges) 관련 문서를 참조하세요.
 
 ## 소리 {#sounds}
 
-여기에서 앱 번들에 있는 사운드 파일의 경로를 입력하여 푸시 메시지를 수신할 때 재생할 사운드를 지정할 수 있습니다. 지정한 사운드 파일이 존재하지 않거나 "default" 키워드가 입력된 경우 Braze는 기기의 기본 알림 사운드를 사용합니다. 커스터마이징에 대한 자세한 내용은 [커스텀 사운드]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/custom_sounds/) 전용 문서를 참조하세요.
+여기에서 앱 번들에 있는 사운드 파일의 경로를 입력하여 푸시 메시지를 수신할 때 재생할 사운드를 지정할 수 있습니다. 지정한 사운드 파일이 존재하지 않거나 "default" 키워드가 입력된 경우 Braze는 기기의 기본 알림 사운드를 사용합니다. 커스터마이징에 대한 자세한 내용은 [커스텀 사운드]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/push_notifications/customization/custom_sounds) 전용 문서를 참조하세요.
 
 ## 축소 ID {#collapse-id}
 

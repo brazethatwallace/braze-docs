@@ -14,7 +14,7 @@ platform:
 
 # Vinculación en profundidad en Content Cards {#deep-linking-in-content-cards}
 
-> Aprende a crear vínculos profundos dentro de una Content Card utilizando el SDK de Braze. Para obtener más información sobre los vínculos profundos, consulta [¿Qué es la vinculación en profundidad?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+> Aprende a crear vínculos profundos dentro de una Content Card utilizando el SDK de Braze. Para obtener más información sobre los vínculos profundos, consulta [¿Qué es la vinculación en profundidad?]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 {% sdktabs %}
 {% sdktab web %}

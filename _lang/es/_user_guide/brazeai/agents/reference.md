@@ -7,7 +7,7 @@ page_order: 3
 
 # Referencia para agentes {#reference-for-agents}
 
-> A medida que crees agentes personalizados, consulta este artículo para obtener más información sobre configuraciones clave, como instrucciones y esquemas de salida. Para una configuración paso a paso, consulta [Crear agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/). Para una introducción, consulta [Agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents/) y [Preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/agents/faq/).
+> A medida que crees agentes personalizados, consulta este artículo para obtener más información sobre configuraciones clave, como instrucciones y esquemas de salida. Para una configuración paso a paso, consulta [Crear agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents). Para una introducción, consulta [Agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents) y [Preguntas frecuentes]({{site.baseurl}}/user_guide/brazeai/agents/faq).
 
 ## Modelos {#models}
 
@@ -22,14 +22,14 @@ El modelo **Auto** con tecnología de Braze está optimizado para modelos cuyas 
 Esta es la opción más sencilla, sin necesidad de configuración adicional. Braze proporciona acceso directo a modelos de lenguaje grandes (LLM). Para utilizar esta opción, selecciona **Auto**, que utiliza modelos Gemini.
 
 {% alert important %}
-Si no ves **Braze Auto** como opción en el menú desplegable **Model** al crear un agente, ponte en contacto con tu administrador del éxito del cliente para saber cómo puedes ser elegible para utilizar el modelo Braze Auto.
+Si no ves **Braze Auto** como opción en el menú desplegable **Model** al crear un agente, ponte en contacto con tu administrador de éxito de cliente para saber cómo puedes ser elegible para utilizar el modelo Braze Auto.
 {% endalert %}
 
 ### Opción 2: Trae tu propia clave de API {#option-2-bring-your-own-api-key}
 
 Con esta opción, puedes conectar tu cuenta de Braze con proveedores como OpenAI, Anthropic o Google Gemini. Si traes tu propia clave de API de un proveedor de LLM, los costes de los tokens se facturan directamente a través de tu proveedor, no a través de Braze.
 
-Recomendamos probar periódicamente los modelos más recientes, ya que los modelos antiguos pueden descontinuarse o quedar obsoletos en unos meses. Asegúrate de tener créditos suficientes con tu proveedor para ejecutar tus agentes a escala. También puedes registrarte para recibir notificaciones de la Consola de Agente en [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/) para que te avisen cuando Braze detecte que un modelo ya no está disponible o encuentre problemas de facturación con tu proveedor de LLM.
+Recomendamos probar periódicamente los modelos más recientes, ya que los modelos antiguos pueden descontinuarse o quedar obsoletos en unos meses. Asegúrate de tener créditos suficientes con tu proveedor para ejecutar tus agentes a escala. También puedes suscribirte a las notificaciones de la Consola de Agente en [Preferencias de notificación]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) para que te avisen cuando Braze detecte que un modelo ya no está disponible o encuentre problemas de facturación con tu proveedor de LLM.
 
 Para configurarlo:
 
@@ -55,7 +55,7 @@ Algunos proveedores de LLM pueden permitirte ajustar el nivel de razonamiento de
 
 Recomendamos empezar con **Mínimo** y probar las respuestas de tu agente. Luego, puedes ajustar el nivel de razonamiento a **Bajo** o **Medio** si encuentras que el agente tiene dificultades para proporcionar respuestas precisas. En casos excepcionales, puede ser necesario un nivel de razonamiento **Alto**, aunque usar este nivel puede resultar en altos costes de tokens y tiempos de respuesta más largos o mayor riesgo de errores de tiempo de espera. Si tu agente tiene dificultades para equilibrar el razonamiento de varios pasos con tiempos de respuesta razonables, considera dividir tu caso de uso en más de un agente que puedan trabajar juntos en un Canvas o catálogo.
 
-Braze utiliza los mismos rangos de IP para las llamadas LLM salientes que para el Contenido conectado. Los rangos se enumeran en la [lista de IP permitidas de Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting). Si tu proveedor admite la lista de IP permitidas, puedes restringir la clave a esos rangos para que solo Braze pueda utilizarla.
+Braze utiliza los mismos rangos de IP para las llamadas LLM salientes que para el contenido conectado. Los rangos se enumeran en la [lista de IP permitidas de contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting). Si tu proveedor admite la lista de IP permitidas, puedes restringir la clave a esos rangos para que solo Braze pueda utilizarla.
 
 {% alert important %}
 Cuando utilices un LLM proporcionado por Braze, los proveedores de dicho modelo actuarán como subencargados del tratamiento de Braze, con sujeción a los términos del Anexo de tratamiento de datos (DPA) entre tú y Braze. Si decides traer tu propia clave de API, el proveedor de tu suscripción a LLM se considerará un proveedor externo en virtud del contrato entre tú y Braze.
@@ -75,16 +75,30 @@ Cada proveedor de LLM tiene una combinación ligeramente diferente de capacidade
 
 Los siguientes controles de flujo de invocación se aplican por espacio de trabajo:
 
-- **Modelo con tecnología de Braze:** 1000 invocaciones por minuto
-- **Trae tu propia clave de API:** 2500 invocaciones por minuto
+- **Modelo con tecnología de Braze:** 5000 invocaciones por minuto
+- **Trae tu propia clave de API:** 5000 invocaciones por minuto
 
 Cuando muchos usuarios entran en un paso de agente a la vez, Braze pone en cola las invocaciones de acuerdo con estos límites, por lo que el procesamiento puede tardar más durante envíos de alto volumen.
 
+### Límites diarios de invocación y créditos {#daily-invocation-and-credit-limits}
+
+Cada agente tiene un límite diario de invocaciones (predeterminado 250 000; máximo 1 000 000 a menos que tu contrato permita un valor superior). Cada invocación, incluidas las vistas previas de la Consola de Agente y las ejecuciones de Canvas de prueba que utilizan **Simulate response**, cuenta para este límite.
+
+En la Consola de Agente, el **Límite diario de coste de créditos de acción** estima los créditos máximos que un agente puede consumir por día. Braze multiplica la **proporción de créditos** por invocación de tu espacio de trabajo para el modelo seleccionado por el límite diario de invocaciones.
+
+### Supervisar el uso de créditos {#monitor-credit-usage}
+
+Ve a **Configuración** > **Facturación** > **Uso de créditos** > **Consola de Agente** para ver el consumo de créditos, los recuentos de invocaciones y las proporciones de créditos por agente.
+
+Las proporciones de créditos provienen de tu contrato y aparecen en el panel de [Uso de créditos]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage) (pestaña **Credit Ratios** y pestaña **Agent Console**). La estimación se actualiza cuando cambias el modelo o el límite de invocaciones.
+
+Para gestionar el gasto, reduce el límite diario de invocaciones. Para modelos [trae tu propia clave (BYO)](#option-2-bring-your-own-api-key), también puedes elegir un modelo de menor coste o reducir el [nivel de razonamiento](#thinking-levels) para disminuir los costes de tokens del proveedor. **Braze Auto** no admite el ajuste del nivel de razonamiento.
+
 ### Errores de límite de velocidad {#rate-limit-errors}
 
-Si el proveedor de LLM devuelve un error de límite de velocidad, Braze reintenta la solicitud utilizando retirada exponencial. Este comportamiento de reintento se aplica a los pasos de agente de Canvas. Los agentes de catálogo no reintentan las invocaciones fallidas, incluidos los errores de límite de velocidad del proveedor de LLM.
+Si el proveedor de LLM devuelve un error de límite de velocidad durante un paso de agente de Canvas o una invocación de agente de catálogo, Braze reintenta continuamente la solicitud utilizando retirada exponencial hasta que la llamada se complete correctamente o Braze determine que no se puede completar.
 
-Si todos los reintentos fallan, el panel de detalles de **Logs** muestra **Error** y el mensaje del proveedor (como `Rate limit exceeded`) en **Output**. Cada reintento es visible en los registros, incluida la primera invocación independientemente de su éxito o fallo final. Para un usuario determinado, si se necesitan cuatro reintentos para obtener finalmente un éxito, puedes buscar el ID de usuario y ver los cinco (el original más cuatro reintentos) en **Logs**, y el original más los tres primeros reintentos mostrarán **Error** con `Rate limit exceeded`.
+Cuando se agotan los reintentos de Canvas o catálogo, el panel de detalles de **Logs** muestra **Error** y el mensaje del proveedor (como `Rate limit exceeded`) en **Output**. Los reintentos son visibles en los registros, incluida la primera invocación independientemente de su éxito o fallo final. Para un usuario determinado, si se necesitan cuatro reintentos para obtener finalmente un éxito, puedes buscar el ID de usuario y ver los cinco (el original más cuatro reintentos) en **Logs**, y el original más los tres primeros reintentos mostrarán **Error** con `Rate limit exceeded`.
 
 ![Detalles del registro de la Consola de Agente mostrando un error de límite de velocidad excedido en el campo Output.]({% image_buster /assets/img/ai_agent/rate_limit_error_log.png %}){: style="max-width:75%;"}
 
@@ -92,7 +106,7 @@ Si todos los reintentos fallan, el panel de detalles de **Logs** muestra **Error
 
 Las instrucciones son las reglas o directrices que le das al agente (prompt del sistema). Definen cómo debe comportarse el agente cada vez que se ejecuta. Las instrucciones del sistema pueden tener un tamaño máximo de 25 KB.
 
-Si creaste tu agente con [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) usando una [plantilla inicial]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), revisa las instrucciones precargadas y edítalas según sea necesario.
+Si creaste tu agente con [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) usando una [plantilla inicial]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator), revisa las instrucciones precargadas y edítalas según sea necesario.
 
 A continuación se incluyen algunas prácticas recomendadas generales para empezar con los prompts:
 
@@ -109,11 +123,27 @@ A continuación se incluyen algunas prácticas recomendadas generales para empez
 
 ### Ejemplos {#examples}
 
-Para configuraciones iniciales en la Consola de Agente, consulta [Plantillas de agentes creadas con Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator). Para ejemplos completos de instrucciones que puedes copiar o adaptar, consulta la [biblioteca de casos de uso para agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents/use_cases/).
+Para configuraciones iniciales en la Consola de Agente, consulta [Plantillas de agentes creadas con Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
+
+Para ejemplos completos de instrucciones que puedes copiar o adaptar, consulta la [biblioteca de casos de uso para agentes de Braze]({{site.baseurl}}/user_guide/brazeai/agents/examples).
+
+| Ejemplo | Categoría | Tipo de agente | Qué hace |
+| --- | --- | --- | --- |
+| [Redactar mensajes personalizados basados en el contexto de un usuario]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-personalized-messaging-based-on-a-users-context) | Generación de contenido | Agente de paso en Canvas | Genera asunto/preencabezado de correo electrónico y título/cuerpo de push coordinados para usuarios que buscaron pero no reservaron. |
+| [Analizar comentarios de usuarios para determinar los próximos pasos]({{site.baseurl}}/user_guide/brazeai/agents/examples#analyze-user-feedback-to-determine-next-steps) | Estandarización de datos | Agente de paso en Canvas | Clasifica la opinión y el tema de un cuestionario posterior al viaje, y luego recomienda un siguiente paso de CRM. |
+| [Categorizar usuarios en contenedores de interés a partir de atributos existentes]({{site.baseurl}}/user_guide/brazeai/agents/examples#categorize-users-into-interest-buckets-from-existing-attributes) | Agente de afinidad | Agente de paso en Canvas | Clasifica a los usuarios en contenedores de interés a partir de atributos y señales de alta intención, y luego recomienda la mejor experiencia o artículo siguiente. |
+| [Dirigir usuarios a la ruta de Canvas más relevante a partir de su comportamiento reciente]({{site.baseurl}}/user_guide/brazeai/agents/examples#route-users-to-the-most-relevant-canvas-path-from-recent-behavior) | Agente de afinidad | Agente de paso en Canvas | Infiere la motivación a partir del comportamiento reciente y devuelve la mejor clave de ruta para el siguiente paso en Canvas del usuario. |
+| [Asignar usuarios a categorías de interés a partir de acciones de alta intención en tiempo real]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | Agente de afinidad | Agente de paso en Canvas | Asigna categorías de interés a partir de acciones de alta intención y recomienda la mejor experiencia o artículo siguiente. |
+| [Clasificar mensajes entrantes por intención de exclusión]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | Clasificación y enrutamiento | Agente de paso en Canvas | Devuelve un booleano estricto que indica si un mensaje es una solicitud de exclusión. |
+| [Estandarizar mensajes entrantes en datos estructurados para automatización]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | Estandarización de datos | Agente de paso en Canvas | Normaliza SMS o chat entrantes en intención estructurada, entidades e indicadores de cumplimiento para automatización posterior. |
+| [Redactar descripciones de alta conversión alineadas con las directrices de marca]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | Generación de contenido | Agente de catálogo | Genera descripciones breves y alineadas con la marca para cada fila del catálogo. |
+| [Proporcionar traducciones basadas en el idioma utilizado por región]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | Enriquecimiento de catálogo | Agente de catálogo | Localiza cadenas de interfaz de usuario y marketing por configuración regional y límite de caracteres. |
+| [Enriquecer elementos del catálogo con descripciones, categorías y etiquetas]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | Enriquecimiento de catálogo | Agente de catálogo | Genera descripciones mejoradas, categorías y etiquetas a partir de los datos existentes de los elementos del catálogo. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Resumen de ejemplos" }
 
 ### Utilizar Liquid {#using-liquid}
 
-Incluir [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) en las instrucciones de tu agente puede añadir un nivel adicional de personalización a su respuesta. Puedes especificar la variable Liquid exacta que obtiene el agente e incluirla en el contexto de tu prompt. Por ejemplo, en lugar de escribir explícitamente «nombre», puedes utilizar el fragmento de código Liquid {% raw %}`{{${first_name}}}`{% endraw %}:
+Incluir [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en las instrucciones de tu agente puede añadir un nivel adicional de personalización a su respuesta. Puedes especificar la variable Liquid exacta que obtiene el agente e incluirla en el contexto de tu prompt. Por ejemplo, en lugar de escribir explícitamente «nombre», puedes utilizar el fragmento de código Liquid {% raw %}`{{${first_name}}}`{% endraw %}:
 
 {% raw %}
 ```
@@ -122,6 +152,19 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 {% endraw %}
 
 En la sección **Logs** de la **Consola de Agente**, puedes revisar los detalles de la entrada y salida del agente para comprender qué valor se obtiene de Liquid.
+
+### Qué datos reciben los agentes {#what-data-agents-receive}
+
+El contexto del agente no es una memoria conversacional abierta. A diferencia de un asistente de chat, un agente solo ve los datos que le pasas explícitamente en el momento de la invocación; no navega por perfiles de usuario, no infiere campos faltantes ni te avisa cuando falta información obligatoria.
+
+Diseña cada agente como un pipeline deliberado de entrada a salida. Conecta cada dato que el agente necesita utilizando uno o más de los siguientes métodos:
+
+1. **Liquid en las instrucciones:** Incluye atributos de usuario ({% raw %}`{{${first_name}}}`{% endraw %}) y [variables de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables) ({% raw %}`{{context.${variable_name}}}`{% endraw %}) directamente en el prompt del agente.
+2. **+ Contexto del agente:** Selecciona catálogos, pertenencia a Segments, directrices de marca, **All Canvas Context** o datos de interacción del usuario en la Consola de Agente.
+3. [Pasos de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context): Establece o actualiza variables `context.*` en pasos anteriores del Canvas antes de que se ejecute un paso de agente.
+4. **Contexto adicional en el paso de agente:** Pasa cualquier valor adicional con plantilla Liquid que no se haya especificado con los otros métodos al agente en el momento del envío desde la configuración del paso.
+
+Asegúrate de incluir estas variables de contexto como plantilla Liquid en las instrucciones del agente o de seleccionar **Add All Canvas Context**. Si un valor no se pasa a través de uno de estos canales, el agente no lo recibe. Enumera las entradas obligatorias en tus instrucciones o en los [requisitos previos del caso de uso]({{site.baseurl}}/user_guide/brazeai/agents/use_cases), y verifica las entradas en **Consola de Agente** > **Logs** después de las pruebas.
 
 ![Los detalles de un agente que tiene Liquid en sus instrucciones.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
@@ -135,7 +178,7 @@ Para obtener más información sobre las prácticas recomendadas para los prompt
 
 ## Salidas {#outputs}
 
-Si creaste tu agente con [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/) usando una [plantilla inicial]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents/#agent-templates-built-with-operator), revisa el esquema de salida precargado y edítalo según sea necesario.
+Si creaste tu agente con [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator) usando una [plantilla inicial]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator), revisa el esquema de salida precargado y edítalo según sea necesario.
 
 ### Esquemas básicos {#basic-schemas}
 
@@ -157,6 +200,14 @@ Las opciones de esquema avanzado incluyen la estructuración manual de campos o 
 - **JSON:** Un enfoque con código para crear un formato de salida preciso, donde puedes anidar variables y objetos dentro del esquema JSON. Solo disponible para agentes de Canvas, no para agentes de catálogo.
 
 Recomendamos utilizar esquemas avanzados cuando quieras que el agente devuelva una estructura de datos con múltiples valores definidos de manera estructurada, en lugar de una salida de un solo valor. Esto permite que la salida tenga un mejor formato como variable de contexto consistente.
+
+### Salida alternativa {#fallback-output}
+
+Los valores alternativos están disponibles solo para **agentes de paso en Canvas**. En la sección **Output** de la Consola de Agente para un agente de Canvas, puedes definir valores que Braze utiliza cuando una invocación falla.
+
+Para esquemas **JSON**, Braze lee el esquema y genera un campo de entrada para cada propiedad, de modo que puedas establecer un valor alternativo por clave. Para esquemas **Fields**, introduces un valor alternativo para cada campo. Para esquemas básicos, introduces un único valor alternativo. Los agentes de Canvas admiten Liquid en los valores alternativos.
+
+Para los pasos de configuración, consulta [Configurar valores alternativos]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values). Para el comportamiento en tiempo de ejecución en Canvas, consulta [Gestión de errores y comportamiento alternativo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
 Por ejemplo, puedes utilizar un formato de salida dentro de un agente destinado a crear un itinerario de viaje de muestra para un usuario basado en un formulario que envió. El formato de salida te permite definir que cada respuesta del agente debe incluir valores para `tripStartDate`, `tripEndDate` y `destination`. Cada uno de estos valores se puede extraer de las variables de contexto y colocar en un paso de mensaje para personalización usando Liquid.
 
@@ -202,9 +253,15 @@ Si deseas recopilar comentarios de los usuarios sobre su experiencia gastronómi
 
 ## Catálogos y campos {#catalogs-and-fields}
 
-Elige catálogos específicos para que un agente los consulte y proporciónale el contexto necesario para que comprenda tus productos y otros datos que no sean de usuario cuando sea pertinente. Los agentes utilizan herramientas para encontrar solo los elementos relevantes y los envían al LLM para minimizar el uso de tokens.
+Elige catálogos específicos para que un agente los consulte y proporciónale el contexto necesario para que comprenda tus productos y otros datos que no sean de usuario cuando sea pertinente. Los agentes utilizan herramientas para encontrar solo los elementos relevantes y los envían al LLM para minimizar el uso de tokens. Para una mejor recuperación del catálogo, crea una [fuente de conocimiento]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources) y agrégala como contexto del agente en lugar de adjuntar el catálogo directamente.
 
 ![El catálogo «restaurants» y la columna «Loyalty_Program» seleccionados para que el agente realice la búsqueda.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
+
+Cuando despliegas un agente de catálogo en un campo de catálogo, habilita el control de entrada obligatoria y elige qué columnas seleccionadas son **obligatorias para ejecutarse** antes de que el agente se invoque. El agente omite una fila solo cuando una de esas columnas obligatorias está vacía o falta; por ejemplo, un campo `gender` que aún no se ha completado. Las columnas seleccionadas comienzan como obligatorias de forma predeterminada, pero puedes quitar columnas que puedan estar vacías sin bloquear la ejecución. Esto evita el desperdicio de tokens en datos incompletos.
+
+Los agentes de catálogo también respetan el orden de las columnas cuando los campos de entrada dependen unos de otros. Si la columna D debe generarse a partir de las columnas B y C, el agente no se ejecuta en la columna D hasta que B y C contengan valores para esa fila.
+
+Para escenarios de despliegue y ejemplos, consulta [Usar agentes de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#use-catalog-agents) y [Prácticas recomendadas para agentes de catálogo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#catalog-agent-best-practices).
 
 ## Contexto de pertenencia a Segments {#segment-membership-context}
 
@@ -214,15 +271,31 @@ Puedes seleccionar hasta cinco Segments para que el agente compare la pertenenci
 
 ## Directrices de marca {#brand-guidelines}
 
-Puedes seleccionar [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines/) que tu agente debe seguir en sus respuestas. Por ejemplo, si deseas que tu agente genere un texto SMS para animar a los usuarios a inscribirse en una membresía de gimnasio, puedes utilizar este campo para hacer referencia a tu directriz motivacional predefinida en negrita.
+Puedes seleccionar [directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) que tu agente debe seguir en sus respuestas. Por ejemplo, si deseas que tu agente genere un texto SMS para animar a los usuarios a suscribirse a una membresía de gimnasio, puedes utilizar este campo para hacer referencia a tu directriz motivacional predefinida en negrita.
 
 ## Historial de interacción específico del usuario {#user-history}
 
 Los datos de interacción de un usuario incluyen sus aperturas, clics y datos de conversión recientes de Campaign y Canvas. Por ejemplo, puedes incluir este contexto para que un agente lo consulte cuando se evalúa en Canvas. El historial de interacción específico del usuario también puede ayudar a influir en un agente cuando su tarea es redactar textos de mensajes personalizados.
 
+## Historial de versiones {#version-history}
+
+La Consola de Agente registra una nueva versión cada vez que guardas cambios en el agente. La pestaña **Historial de versiones** enumera cada versión guardada y las ediciones entre guardados.
+
+1. Abre el agente en la Consola de Agente.
+2. Selecciona la pestaña **Historial de versiones**.
+3. Selecciona una versión para revisar su configuración.
+
+Para inspeccionar qué cambió en una versión, selecciona **Ver**. Braze muestra una diferencia en línea de estilo código que resalta las adiciones y eliminaciones. El contenido eliminado aparece con estilo de tachado en rojo.
+
+Si necesitas restaurar instrucciones de una versión anterior, abre **Ver** para esa versión, copia el texto de las instrucciones y pégalo en tu campo **Instructions** actual.
+
+{% alert tip %}
+En la vista de diferencias en línea, presiona <kbd>⌘</kbd> + <kbd>A</kbd> (macOS) o <kbd>Ctrl</kbd> + <kbd>A</kbd> (Windows) para seleccionar todas las instrucciones sin el marcado de eliminación en rojo, de modo que puedas copiar y restaurar el texto limpio.
+{% endalert %}
+
 ## Duplicar agentes {#duplicate-agents}
 
-Para probar mejoras o iteraciones de un agente, puedes duplicar un agente y luego aplicar los cambios para compararlos con el original. También puedes tratar los agentes duplicados como control de versiones para realizar el seguimiento de las variaciones en los detalles del agente y cualquier impacto en tu mensajería. Para duplicar un agente:
+Duplica un agente para probar mejoras o iteraciones en paralelo con el original. Utiliza el [historial de versiones](#version-history) para revisar o restaurar configuraciones anteriores. Para duplicar un agente:
 
 1. Coloca el cursor sobre la fila del agente y selecciona el menú <i class="fas fa-ellipsis-vertical"></i>.
 2. Selecciona **Duplicar**.
@@ -233,5 +306,3 @@ A medida que crees más agentes personalizados, puedes organizar la página **Ge
 
 1. Coloca el cursor sobre la fila del agente y selecciona el menú <i class="fas fa-ellipsis-vertical"></i>.
 2. Selecciona **Archivar**.
-
-![Página de gestión de agentes con agentes archivados.]({% image_buster /assets/img/ai_agent/archived_agents.png %})

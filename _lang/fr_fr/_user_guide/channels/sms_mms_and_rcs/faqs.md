@@ -58,7 +58,7 @@ Voici quelques inconvénients de cette approche :
 
 ### Comment serai-je facturé pour les SMS ? {#how-will-i-be-billed-for-sms}
 
-En plus des frais pour les codes courts et longs, Braze fournit une allocation de messages SMS pour différents pays. Autrement dit, nous travaillons avec vous pour définir un certain nombre de segments de message pour différents pays, que vous utiliserez pour envoyer des campagnes SMS. La facturation est basée sur le nombre de segments de message envoyés par pays. Pour en savoir plus sur le calcul des segments de message, consultez notre guide [Segments de message et limites de texte]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/). Votre gestionnaire de compte vous contactera pour vous informer si vous approchez de votre maximum, en fournissant des rapports pertinents pour vous tenir informé. Pour toute question supplémentaire concernant les dépassements, contactez votre conseiller Braze.
+En plus des frais pour les codes courts et longs, Braze fournit une allocation de messages SMS pour différents pays. Autrement dit, nous travaillons avec vous pour définir un certain nombre de segments de message pour différents pays, que vous utiliserez pour envoyer des campagnes SMS. La facturation est basée sur le nombre de segments de message envoyés par pays. Pour en savoir plus sur le calcul des segments de message, consultez notre guide [Segments de message et limites de texte]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator). Votre gestionnaire de compte vous contactera pour vous informer si vous approchez de votre maximum, en fournissant des rapports pertinents pour vous tenir informé. Pour toute question supplémentaire concernant les dépassements, contactez votre conseiller Braze.
 
 ### La tarification MMS et SMS est-elle différente ? {#does-mms-and-sms-pricing-differ}
 
@@ -68,7 +68,7 @@ Les MMS et les SMS ont des coûts différents et sont facturés séparément en 
 
 Bien que nous ne puissions pas garantir que vous n'aurez jamais de dépassement, vous pouvez suivre ces précautions pour réduire les risques de dépasser vos limites allouées :
 
-- Faites attention au nombre de caractères dans vos SMS. L'envoi involontaire de plus d'un segment peut entraîner des dépassements. Pour plus de détails, consultez notre [détail des segments]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/).
+- Faites attention au nombre de caractères dans vos SMS. L'envoi involontaire de plus d'un segment peut entraîner des dépassements. Pour plus de détails, consultez notre [détail des segments]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator).
 - Calculez soigneusement vos caractères SMS pour tenir compte de Liquid ou du Contenu connecté. Le compositeur SMS de Braze dans votre tableau de bord n'estime pas et ne prend pas en compte l'utilisation de ces fonctionnalités.
 - Considérez le type d'encodage utilisé par votre message : si votre message utilise l'encodage GSM-7, vous pouvez généralement estimer que vous pouvez envoyer un message de 128 caractères par segment de message. Si votre message utilise l'encodage [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set), vous pouvez généralement estimer que vous pouvez envoyer un message de 67 caractères par segment de message.
 - Testez, testez et testez encore ! Testez toujours vos messages SMS avant le lancement, surtout lorsque vous utilisez Liquid et le Contenu connecté.
@@ -94,9 +94,9 @@ Vous pouvez inclure n'importe quel lien dans n'importe quelle campagne SMS. Cepe
 
 - Les liens peuvent occuper une grande partie de la limite de 160 caractères pour les SMS. Si vous incluez un lien et du texte, cela peut entraîner deux messages SMS au lieu d'un seul.
 - Les entreprises utilisent souvent des raccourcisseurs de liens pour limiter l'impact sur le nombre de caractères. Cependant, si vous envoyez un lien raccourci via un code long, les opérateurs peuvent bloquer ou refuser le message, car ils peuvent être suspicieux quant à la redirection du lien.
-- L'utilisation d'un [code court]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/) serait le type de numéro le plus fiable pour inclure des liens.
+- L'utilisation d'un [code court]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup) serait le type de numéro le plus fiable pour inclure des liens.
 
-Braze dispose également de sa propre fonctionnalité de raccourcissement de liens qui raccourcira les liens et fournira automatiquement des analyses de clics. Consultez [Raccourcissement de liens]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening/) pour plus d'informations.
+Braze dispose également de sa propre fonctionnalité de raccourcissement de liens qui raccourcira les liens et fournira automatiquement des analyses de clics. Consultez [Raccourcissement de liens]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) pour plus d'informations.
 
 ### Faut-il limiter le débit d'envoi des messages SMS ? {#do-you-need-to-rate-limit-how-fast-you-send-sms-messages}
 
@@ -112,11 +112,11 @@ Avant d'envoyer des messages SMS contenant des URL à des utilisateurs dans cert
 2. Assurez-vous que vous (la marque) avez une relation avec le client.
 3. Assurez-vous que le contenu est pertinent par rapport à la relation et à ce que l'utilisateur a accepté de recevoir.
 
-Pour plus de directives sur la prévention de la détection de spam, consultez les [directives sur les lois et réglementations SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations/).
+Pour plus de directives sur la prévention de la détection de spam, consultez les [directives sur les lois et réglementations SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations).
 
 ### Combien de caractères un emoji utilise-t-il ? {#how-many-characters-does-an-emoji-use}
 
-Les emojis peuvent être délicats, car il n'existe pas de nombre de caractères standard pour tous les emojis. Il y a un risque que l'emoji dépasse la limite de caractères et divise le SMS en plusieurs messages, même s'il apparaît comme un seul message dans le compositeur Braze. Lorsque vous testez vos messages, vous pouvez mieux vérifier si un message sera divisé en utilisant notre [calculateur de segments]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator/#segment-calculator).
+Les emojis peuvent être délicats, car il n'existe pas de nombre de caractères standard pour tous les emojis. Il y a un risque que l'emoji dépasse la limite de caractères et divise le SMS en plusieurs messages, même s'il apparaît comme un seul message dans le compositeur Braze. Lorsque vous testez vos messages, vous pouvez mieux vérifier si un message sera divisé en utilisant notre [calculateur de segments]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator#segment-calculator).
 
 ## Groupes d'abonnement et abonnement/désabonnement {#subscription-groups-and-opt-inopt-out}
 
@@ -130,7 +130,7 @@ Les mots-clés personnalisés seraient écrits comme des événements personnali
 
 ### Si un utilisateur est désabonné et envoie un mot-clé à notre code court et long, reçoit-il la réponse que nous avons configurée pour ce mot-clé dans Braze ? {#if-a-user-is-opted-out-and-sends-a-keyword-to-our-short-and-long-code-do-they-receive-the-response-we-configured-for-that-keyword-in-braze}
 
-Si un utilisateur est désabonné et envoie un mot-clé de l'une des [catégories de mots-clés par défaut]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout/), il recevra la réponse pour ce mot-clé. Si un utilisateur est désabonné et envoie un [mot-clé personnalisé]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling/), il ne recevra pas la réponse pour ce mot-clé.
+Si un utilisateur est désabonné et envoie un mot-clé de l'une des [catégories de mots-clés par défaut]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout), il recevra la réponse pour ce mot-clé. Si un utilisateur est désabonné et envoie un [mot-clé personnalisé]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/keyword_handling), il ne recevra pas la réponse pour ce mot-clé.
 
 ### Les propriétés d'événement SMS captureront-elles les mots-clés dans une phrase ? {#will-sms-event-properties-capture-keywords-in-a-sentence}
 
@@ -148,7 +148,7 @@ Oui. Les utilisateurs doivent avoir un numéro de téléphone valide, faire part
 
 ### Existe-t-il un moyen de voir si un alias existe sur un profil utilisateur ? {#is-there-a-way-to-see-if-an-alias-exists-on-a-user-profile}
 
-Les alias ne sont pas visibles sur le profil utilisateur. Vous devrez utiliser les endpoints [Exporter les données utilisateur]({{site.baseurl}}/api/endpoints/export/) pour confirmer que les alias sont définis.
+Les alias ne sont pas visibles sur le profil utilisateur. Vous devrez utiliser les endpoints [Exporter les données utilisateur]({{site.baseurl}}/api/endpoints/export) pour confirmer que les alias sont définis.
 
 ## MMS
 
@@ -198,6 +198,6 @@ Oui, vous pouvez utiliser les messages multimédias pour prendre en charge les f
 
 ### Pourquoi les abonnements SMS via la REST API ne correspondent-ils pas au **Total des abonnements** sur la page SMS/MMS/RCS Performance ? {#why-do-rest-api-sms-opt-ins-not-match-total-opt-ins-on-smsmmsrcs-performance}
 
-Le **Total des abonnements** et le **Total des désabonnements** sur le tableau de bord [SMS/MMS/RCS Performance]({{site.baseurl}}/user_guide/analytics/dashboards/) comptabilisent les changements d'abonnement déclenchés par le traitement des mots-clés SMS entrants (par exemple, un utilisateur envoyant un mot-clé d'abonnement à votre code court). Ils n'incluent pas toutes les mises à jour d'abonnement effectuées via la REST API, le tableau de bord ou d'autres sources.
+Le **Total des abonnements** et le **Total des désabonnements** sur le tableau de bord [SMS/MMS/RCS Performance]({{site.baseurl}}/user_guide/analytics/dashboards) comptabilisent les changements d'abonnement déclenchés par le traitement des mots-clés SMS entrants (par exemple, un utilisateur envoyant un mot-clé d'abonnement à votre code court). Ils n'incluent pas toutes les mises à jour d'abonnement effectuées via la REST API, le tableau de bord ou d'autres sources.
 
-Pour analyser les abonnements et les désabonnements par source, utilisez le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) sur `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` et filtrez sur `STATE_CHANGE_SOURCE` (par exemple, **Rest API** versus **Inbound Message**).
+Pour analyser les abonnements et les désabonnements par source, utilisez le [Générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder) sur `USERS_BEHAVIORS_SUBSCRIPTIONGROUP_STATECHANGE_SHARED` et filtrez sur `STATE_CHANGE_SOURCE` (par exemple, **Rest API** versus **Inbound Message**).

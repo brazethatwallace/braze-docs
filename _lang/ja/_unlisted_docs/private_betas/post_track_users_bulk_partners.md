@@ -9,7 +9,7 @@ description: "Brazeパートナーの場合、このエンドポイントを使�
 
 {% api %}
 # ユーザーの追跡（一括）Brazeパートナー向け {#track-users-bulk-for-braze-partners}
-{% apimethod post core_endpoint|https://www.braze.com/docs/core_endpoints %}
+{% apimethod post core_endpoint|/docs/core_endpoints %}
 /users/track/bulk
 {% endapimethod %}
 
@@ -34,7 +34,7 @@ description: "Brazeパートナーの場合、このエンドポイントを使�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`users.track`権限を持つ[APIキー](https://www.braze.com/docs/api/api_key/)が必要です。この権限により、`/users/track`と`/users/track/bulk`の両方にアクセスできます。
+このエンドポイントを使用するには、`users.track`権限を持つ[APIキー]({{site.baseurl}}/api/api_key/)が必要です。この権限により、`/users/track`と`/users/track/bulk`の両方にアクセスできます。
 
 共有顧客のほとんどは、Brazeパートナー連携に`users.track`権限を持つAPIキーをすでに使用しているため、連携を`/users/track/bulk`に移行する際にAPIキーを変更する必要はありません。
 
@@ -46,9 +46,9 @@ description: "Brazeパートナーの場合、このエンドポイントを使�
 
 ただし、新しい契約の顧客には、Brazeとの契約MAUに紐づいたバースト（秒単位）およびステディ（時間単位）のレート制限が代わりに適用される場合があります。
 
-APIとのリアルタイムインタラクションを改善するために、[推奨レスポンスヘッダー](https://www.braze.com/docs/api/api_limits/#monitoring-your-rate-limits)を必ず使用してください。
+APIとのリアルタイムインタラクションを改善するために、[推奨レスポンスヘッダー]({{site.baseurl}}/api/api_limits/#monitoring-your-rate-limits)を必ず使用してください。
 
-各`/users/track/bulk`リクエストのペイロード制限は2&nbsp;MBで、最大1,000のイベント、属性、または購入オブジェクトを含めることができます。
+各`/users/sync/bulk`リクエストのペイロード制限は2&nbsp;MBで、最大1,000のイベント、属性、または購入オブジェクトを含めることができます。
 
 各オブジェクト（イベント、属性、購入の配列）はそれぞれ1ユーザーを更新できるため、1回のリクエストで最大1,000の異なるユーザーを更新できます。1つのユーザープロファイルは、1回のリクエストで最大100オブジェクトを更新できます。
 
@@ -242,9 +242,9 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
 
 #### 致命的なエラーのレスポンスコード {#fatal-error-response-codes}
 
-リクエストで致命的なエラーが発生した場合に返されるステータスコードと関連するエラーメッセージについては、[致命的なエラーとレスポンス](https://www.braze.com/docs/api/errors/#fatal-errors)を参照してください。
+リクエストで致命的なエラーが発生した場合に返されるステータスコードと関連するエラーメッセージについては、[致命的なエラーとレスポンス]({{site.baseurl}}/api/errors/#fatal-errors)を参照してください。
 
-`provided external\_id is blacklisted and disallowed`というエラーが表示された場合、リクエストに`dummy user`が含まれている可能性があります。詳細については、[スパムブロック](https://www.braze.com/docs/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking)を参照してください。
+`provided external\_id is blacklisted and disallowed`というエラーが表示された場合、リクエストに`dummy user`が含まれている可能性があります。詳細については、[スパムブロック]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_archival/#spam-blocking)を参照してください。
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -261,7 +261,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track/bulk' 
 
 ### `/users/track/bulk`で使用できる識別子は何ですか？ {#what-identifiers-can-i-use-in-userstrackbulk}
 
-`external\_id`、`braze\_id`、`user\_alias`、`email`、または`phone`のいずれかが必須です。詳細な例については、[ユーザー属性オブジェクト](https://www.braze.com/docs/api/objects_filters/user_attributes_object/)、[イベントオブジェクト](https://www.braze.com/docs/api/objects_filters/event_object/)、または[購入オブジェクト](https://www.braze.com/docs/api/objects_filters/purchase_object/)のドキュメントを参照してください。
+`external\_id`、`braze\_id`、`user\_alias`、`email`、または`phone`のいずれかが必須です。詳細な例については、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object/)、[イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object/)、または[購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object/)のドキュメントを参照してください。
 
 ### 1回のリクエストに属性、イベント、購入を含めることはできますか？ {#can-i-include-attributes-events-and-purchases-in-one-request}
 

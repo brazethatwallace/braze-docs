@@ -14,7 +14,7 @@ tool: Canvas
 
 ## Die Struktur von Canvas verstehen {#understanding-canvas-structure}
 
-Bevor wir uns mit den Details der [Canvas-Einrichtung]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/) befassen, lassen Sie uns die wichtigsten Bestandteile eines Canvas identifizieren.
+Bevor wir uns mit den Details der [Canvas-Einrichtung]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) befassen, lassen Sie uns die wichtigsten Bestandteile eines Canvas identifizieren.
 
 {% tabs %}
   {% tab Canvas %}
@@ -31,7 +31,7 @@ Bevor wir uns mit den Details der [Canvas-Einrichtung]({{site.baseurl}}/user_gui
   {% endtab %}
 
   {% tab Canvas Builder %}
-  Der Canvas Builder bildet die Schritte ab, die beim Erstellen Ihres Canvas zu durchlaufen sind. Dazu gehören grundlegende Dinge wie die Benennung Ihres Canvas und das Hinzufügen von Teams. Im Wesentlichen ist der Canvas Builder die entscheidende Einrichtung, die vor dem eigentlichen Aufbau Ihres Canvas erforderlich ist. Hier steuern Sie, wie Ihre Nutzer:innen ihre Customer Journey beginnen und durchlaufen – mit Optionen zur Bearbeitung des [Entry-Zeitplans]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2b-set-your-canvas-entry-schedule), der [Zielgruppe]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2c-set-your-target-entry-audience) und der [Sendeeinstellungen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2d-select-your-send-settings).<br><br> ![Der Canvas Builder im Abschnitt „Grundlagen“ für ein Canvas mit dem Namen „New Canvas“.]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
+  Der Canvas Builder bildet die Schritte ab, die beim Erstellen Ihres Canvas zu durchlaufen sind. Dazu gehören grundlegende Dinge wie die Benennung Ihres Canvas und das Hinzufügen von Teams. Im Wesentlichen ist der Canvas Builder die entscheidende Einrichtung, die vor dem eigentlichen Aufbau Ihres Canvas erforderlich ist. Hier steuern Sie, wie Ihre Nutzer:innen ihre Customer Journey beginnen und durchlaufen – mit Optionen zur Bearbeitung des [Entry-Zeitplans]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2b-set-your-canvas-entry-schedule), der [Zielgruppe]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2c-set-your-target-entry-audience) und der [Sendeeinstellungen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2d-select-your-send-settings).<br><br> ![Der Canvas Builder im Abschnitt „Grundlagen“ für ein Canvas mit dem Namen „New Canvas“.]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
 
   {% endtab %}
 
@@ -41,7 +41,7 @@ Bevor wir uns mit den Details der [Canvas-Einrichtung]({{site.baseurl}}/user_gui
   {% endtab %}
 
   {% tab Schritte %}
-  Ein Schritt in Canvas ist ein Marketing-Entscheidungspunkt: „Wenn dies, dann das.“ Nutzen Sie [Canvas-Komponenten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/#about-canvas-components), um die Schritte einer User Journey aufzubauen.<br><br> ![Beispiel für das Hinzufügen eines Verzögerungsschritts zu einem Canvas.]({% image_buster /assets/img/canvas_intro/add_canvas_step.gif %}) <br><br> Wenn eine:r Nutzer:in ein Canvas betritt, beginnt sie/er beim ersten Schritt. Jeder Schritt hat Bedingungen, die bestimmen, ob eine:r Nutzer:in zum nächsten Schritt übergehen kann. Innerhalb eines Schritts können Sie Trigger festlegen oder die Zustellung planen, das Targeting durch Hinzufügen von Filtern oder Markieren von Ausnahme-Events verfeinern und verschiedene Kanäle wie Push-Benachrichtigungen oder Webhook-Events angeben. In Canvas erfolgen Schritte in einer Reihenfolge, d. h. der erste Schritt wird ausgeführt, bevor der zweite Schritt stattfinden kann. Nehmen wir an, wir haben ein Canvas mit den folgenden Schritten: Verzögerungsschritt A mit einer 24-Stunden-Verzögerung, Nachrichtenschritt A mit einer Push-Nachricht und Nachrichtenschritt B mit einer In-App-Nachricht. Nutzer:in A wird 24 Stunden lang in der Verzögerung gehalten, dann erhält sie/er nach 24 Stunden eine Push-Nachricht und anschließend eine In-App-Nachricht.
+  Ein Schritt in Canvas ist ein Marketing-Entscheidungspunkt: „Wenn dies, dann das.“ Nutzen Sie [Canvas-Komponenten]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components#about-canvas-components), um die Schritte einer User Journey aufzubauen.<br><br> ![Beispiel für das Hinzufügen eines Verzögerungsschritts zu einem Canvas.]({% image_buster /assets/img/canvas_intro/add_canvas_step.gif %}) <br><br> Wenn eine:r Nutzer:in ein Canvas betritt, beginnt sie/er beim ersten Schritt. Jeder Schritt hat Bedingungen, die bestimmen, ob eine:r Nutzer:in zum nächsten Schritt übergehen kann. Innerhalb eines Schritts können Sie Trigger festlegen oder die Zustellung planen, das Targeting durch Hinzufügen von Filtern oder Markieren von Ausnahme-Events verfeinern und verschiedene Kanäle wie Push-Benachrichtigungen oder Webhook-Events angeben. In Canvas erfolgen Schritte in einer Reihenfolge, d. h. der erste Schritt wird ausgeführt, bevor der zweite Schritt stattfinden kann. Nehmen wir an, wir haben ein Canvas mit den folgenden Schritten: Verzögerungsschritt A mit einer 24-Stunden-Verzögerung, Nachrichtenschritt A mit einer Push-Nachricht und Nachrichtenschritt B mit einer In-App-Nachricht. Nutzer:in A wird 24 Stunden lang in der Verzögerung gehalten, dann erhält sie/er nach 24 Stunden eine Push-Nachricht und anschließend eine In-App-Nachricht.
 
   {% endtab %}
 {% endtabs %}
@@ -64,7 +64,7 @@ Sie können Tags hinzufügen und die Schritte sowie Varianten in einem Canvas be
 
 Es ist immer wichtig, ein klar definiertes Ziel vor Augen zu haben, und Canvas hilft Ihnen zu verstehen, wie Sie bei KPIs wie Session-Engagement, Käufen und angepassten Events abschneiden.
 
-Die Auswahl mindestens eines [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) gibt Ihnen die Möglichkeit zu verstehen, wie Sie die Performance innerhalb des Canvas optimieren können. Und wenn Ihr Canvas mehrere Varianten oder eine Kontrollgruppe hat, verwendet Braze das Konversions-Event, um die beste Variante zur Erreichung dieses Ziels zu bestimmen.
+Die Auswahl mindestens eines [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) gibt Ihnen die Möglichkeit zu verstehen, wie Sie die Performance innerhalb des Canvas optimieren können. Und wenn Ihr Canvas mehrere Varianten oder eine Kontrollgruppe hat, verwendet Braze das Konversions-Event, um die beste Variante zur Erreichung dieses Ziels zu bestimmen.
 
 * **Session starten**: Ich möchte, dass meine Nutzer:innen zurückkommen und sich mit der App beschäftigen.
 * **Kauf tätigen**: Ich möchte, dass meine Nutzer:innen etwas kaufen.
@@ -78,7 +78,7 @@ Die Auswahl mindestens eines [Konversions-Events]({{site.baseurl}}/user_guide/me
 Ihre Antwort bestimmt die Details, wann und wie Ihr Canvas an Ihre Kund:innen zugestellt wird. Nutzer:innen können Ihr Canvas auf zwei Arten betreten: durch geplante oder aktionsbasierte Trigger.
 
 {% alert tip %}
-Weitere Strategien und Antworten auf häufige Fragen finden Sie unter [Zeitbasierte Funktionen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/) für Canvas.
+Weitere Strategien und Antworten auf häufige Fragen finden Sie unter [Zeitbasierte Funktionen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) für Canvas.
 {% endalert %}
 
 Die geplante Zustellung ermöglicht es Ihnen, ein Canvas sofort an Ihre Zielgruppe zu senden. Sie können es auch regelmäßig senden lassen oder für einen bestimmten Zeitpunkt in der Zukunft planen. Aktionsbasierte Canvases reagieren auf bestimmtes Kundenverhalten in Echtzeit. Beispielsweise kann ein aktionsbasierter Trigger das Öffnen einer App, einen Kauf, die Interaktion mit einer anderen Campaign oder das Auslösen eines beliebigen angepassten Events umfassen. Zum Zeitpunkt der Aktion können Sie das Canvas an Ihre Nutzer:innen senden lassen.
@@ -97,19 +97,19 @@ Um Ihr „Wer“ zu definieren, können Sie vordefinierte Segmente verwenden, di
 | Marketing-Aktivität | Segmentieren Sie Kund:innen basierend auf universellen Verhaltensweisen wie dem letzten Engagement. |
 | Nutzerattribute | Segmentieren Sie Kund:innen nach ihren konstanten Attributen und Eigenschaften. |
 | Install-Attribution | Segmentieren Sie Kund:innen nach ihrer ersten Quelle, Anzeigengruppe, Campaign oder Anzeige. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="The &quot;who&quot;: Select an audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Das „Wer“: Eine Zielgruppe auswählen" }
 
 ### Das „Wo“: Meine Zielgruppe finden {#the-where-find-my-audience}
 
 *Wo kann ich meine Zielgruppe am besten erreichen?*
 
 Hier bestimmen wir, welche Messaging-Kanäle für Ihre User Journey am sinnvollsten sind. Idealerweise möchten Sie Ihre Nutzer:innen dort erreichen, wo sie am besten erreichbar sind. Vor diesem Hintergrund können Sie jeden der folgenden Kanäle mit Canvas verwenden:
-* [E-Mail]({{site.baseurl}}/user_guide/channels/email/)
-* [Push]({{site.baseurl}}/user_guide/channels/push/)
-* [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages/)
-* [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)
-* [SMS oder MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)
-* [Webhook]({{site.baseurl}}/user_guide/channels/webhooks/)
+* [E-Mail]({{site.baseurl}}/user_guide/channels/email)
+* [Push]({{site.baseurl}}/user_guide/channels/push)
+* [In-App-Nachrichten]({{site.baseurl}}/user_guide/channels/in_app_messages)
+* [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
+* [SMS oder MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
+* [Webhook]({{site.baseurl}}/user_guide/channels/webhooks)
 
 ### Das „Wie“: Die vollständige Erfahrung aufbauen {#the-how-build-the-complete-experience}
 

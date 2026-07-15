@@ -21,7 +21,7 @@ Die Integration von Braze und Amperity bietet eine einheitliche Sicht auf Ihre K
 - **Zielgruppen erstellen und versenden**: Erstellen Sie Segmente, die Listen aktiver Kund:innen und die dazugehörigen angepassten Attribute zurückgeben, und senden Sie diese an Braze.
 - **Daten-Updates verwalten**: Steuern Sie die Häufigkeit, mit der Updates für angepasste Attribute an Braze gesendet werden.
 - **Daten vereinheitlichen**: Vereinheitlichen Sie Daten über verschiedene von Amperity unterstützte Plattformen und Braze.
-- **Braze-Daten mit Amazon S3 synchronisieren**: Verwenden Sie Braze-Currents zur Integration von Engagement-Daten aus Braze-Kampagnen, um Daten im Apache Avro-Format mit Amazon S3 zu synchronisieren.
+- **Braze-Daten mit Amazon S3 synchronisieren**: Verwenden Sie Braze-Currents zur Integration von Engagement-Daten aus Braze-Campaigns, um Daten im Apache Avro-Format mit Amazon S3 zu synchronisieren.
 
 ## Voraussetzungen {#prerequisites}
 
@@ -29,7 +29,7 @@ Die Integration von Braze und Amperity bietet eine einheitliche Sicht auf Ihre K
 | ----------- | ----------- |
 | Amperity-Konto | Sie benötigen ein [Amperity-Konto](https://amperity.com/request-a-demo), um die Vorteile dieser Partnerschaft zu nutzen. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit `users.track`-Berechtigungen. <br> Dieser kann im Braze-Dashboard erstellt werden, indem Sie zu **Entwicklungskonsole** > **REST-API-Schlüssel** > **Neuen API-Schlüssel erstellen** navigieren. |
-| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics/#endpoints). |
+| Braze-Instanz | Ihre Braze-Instanz erhalten Sie von Ihrem Braze-Onboarding-Manager oder auf der [API-Übersichtsseite]({{site.baseurl}}/api/basics#endpoints). |
 | Braze-REST-Endpunkt | Ihre Braze-Endpunkt-URL. Ihr Endpunkt hängt von Ihrer Braze-Instanz ab. |
 | Currents-Konnektor (optional) | Der S3-Currents-Konnektor. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
@@ -38,11 +38,11 @@ Die Integration von Braze und Amperity bietet eine einheitliche Sicht auf Ihre K
 
 Sowohl Standard- als auch angepasste Attribute können von Amperity an Braze gesendet werden, sodass Sie Kundenprofile in Braze mit Daten aus verschiedenen Quellen über Amperity anreichern können. Die spezifischen Attribute, die Sie senden können, hängen von den Daten in Ihrem Amperity-System und den Attributen ab, die Sie in Braze eingerichtet haben.
 
-Lesen Sie weiter, um mehr über diese Attribute zu erfahren.
+Lesen Sie diesen Abschnitt, um mehr über diese Attribute zu erfahren.
 
-### Standard-Attribute {#standard-attributes}
+### Standardattribute {#standard-attributes}
 
-[Profilattribute]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields) beschreiben, wer Ihre Kund:innen sind. Sie sind oft mit der Identität der Kund:innen verbunden, wie z. B.:
+[Profilattribute]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) beschreiben, wer Ihre Kund:innen sind. Sie sind oft mit der Identität der Kund:innen verbunden, wie z. B.:
 - Namen
 - Geburtsdaten
 - E-Mail-Adressen
@@ -50,7 +50,7 @@ Lesen Sie weiter, um mehr über diese Attribute zu erfahren.
 
 ### Angepasste Attribute {#custom-attributes}
 
-[Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/) in Braze sind Felder, die von Ihrer Marke bestimmt werden. Wenn Sie möchten, dass Amperity angepasste Attribute verwaltet, die bereits in Braze vorhanden sind, passen Sie die von Amperity gesendete Ausgabe an die Namen an, die sich bereits in Ihrem Braze-Workspace befinden. Dies kann Folgendes beinhalten:
+[Angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) in Braze sind Felder, die von Ihrer Marke bestimmt werden. Wenn Sie möchten, dass Amperity angepasste Attribute verwaltet, die bereits in Braze vorhanden sind, passen Sie die von Amperity gesendete Ausgabe an die Namen an, die sich bereits in Ihrem Braze-Workspace befinden. Dies kann Folgendes beinhalten:
 - Kaufverläufe
 - Loyalitätsstatus
 - Wertstufen
@@ -92,13 +92,13 @@ Amperity verfolgt, was sich zwischen den Synchronisierungen mit Braze ändert un
 
 ## Integration
 
-### 1. Schritt: Konfigurationsdetails für Braze erfassen {#step-1-capture-configuration-details-for-braze}
+### Schritt 1: Konfigurationsdetails für Braze erfassen {#step-1-capture-configuration-details-for-braze}
 
 1. Erstellen Sie einen Braze REST-API-Schlüssel für Ihren Braze-Workspace mit den `users.track`-Berechtigungen unter **User Data**. Der Endpunkt `users.track` synchronisiert die Amperity-Zielgruppe mit Braze als angepasstes Attribut.
-2. Ermitteln Sie den [REST-API-Endpunkt]({{site.baseurl}}/api/basics/#endpoints) für Ihre Braze-Instanz. Wenn Ihre Braze-URL beispielsweise `https://dashboard-03.braze.com` lautet, ist Ihr REST-API-Endpunkt `https://rest.iad-03.braze.com` und Ihre Instanz ist „US-03“.
-3. Bestimmen Sie eine Liste von [Nutzerprofilfeldern]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields) und [angepassten Attributen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), die von Amperity an Braze gesendet werden können.
+2. Ermitteln Sie den [REST-API-Endpunkt]({{site.baseurl}}/api/basics#endpoints) für Ihre Braze-Instanz. Wenn Ihre Braze-URL beispielsweise `https://dashboard-03.braze.com` lautet, ist Ihr REST-API-Endpunkt `https://rest.iad-03.braze.com` und Ihre Instanz ist „US-03“.
+3. Bestimmen Sie eine Liste von [Nutzerprofilfeldern]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) und [angepassten Attributen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), die von Amperity an Braze gesendet werden können.
 
-### 2. Schritt: Braze als Ziel einrichten – DataGrid Operator {#step-2-set-up-braze-as-a-destinationdatagrid-operator}
+### Schritt 2: Braze als Ziel einrichten – DataGrid Operator {#step-2-set-up-braze-as-a-destinationdatagrid-operator}
 
 #### Schritt 2a: Kundenprofile-Tabelle erstellen {#step-2a-build-the-customer-profiles-table}
 
@@ -134,7 +134,7 @@ Wenn die erforderlichen Einstellungen nicht als Teil des Ziels konfiguriert wurd
 
 Nachdem Sie die erforderlichen Angaben gemacht haben, speichern Sie die Konfiguration. Da Braze nun als Ziel konfiguriert ist, können Nutzer:innen von Amp360 und AmpIQ Daten mit Braze synchronisieren.
 
-### 3. Schritt: Daten mit Braze synchronisieren {#step-3-sync-data-to-braze}
+### Schritt 3: Daten mit Braze synchronisieren {#step-3-sync-data-to-braze}
 
 Stellen Sie sicher, dass Braze für Ihren Amperity-Mandanten aktiviert ist. Wenn dies nicht der Fall ist, wenden Sie sich an Ihren DataGrid Operator oder die Vertretung von Amperity.
 
@@ -144,11 +144,11 @@ Befolgen Sie dann die Synchronisierungsanweisungen für Amp360 oder AmpIQ, je na
 
 Nutzer:innen von Amp360 können mit SQL Abfragen in freier Form schreiben und dann einen Zeitplan konfigurieren, der die Ergebnisse an Braze sendet.
 
-##### 1. Schritt: Abfrage in Amperity erstellen {#step-1-create-a-query-in-amperity}
+##### Schritt 1: Abfrage in Amperity erstellen {#step-1-create-a-query-in-amperity}
 
 Navigieren Sie zur Abfragefunktion in Amperity und erstellen Sie eine SQL-Abfrage, die den gewünschten Satz an Kundendaten liefert. Die Ergebnisse sollten die spezifischen Attribute enthalten, die Sie an Braze senden möchten. Sehen Sie sich dieses Beispiel einer Amperity-Abfrage an, mit der Sie eine Liste von Nutzer:innen mit ihren Kaufverläufen erhalten.
 
-##### 2. Schritt: Neue Orchestrierung in Amperity hinzufügen {#step-2-add-a-new-orchestration-in-amperity}
+##### Schritt 2: Neue Orchestrierung in Amperity hinzufügen {#step-2-add-a-new-orchestration-in-amperity}
 
 1. Gehen Sie zum Bereich **Orchestration** und klicken Sie auf die Option zum Hinzufügen einer neuen Orchestrierung.
 2. Geben Sie an, was die Orchestrierung tun soll. Dazu gehört in der Regel die Angabe der SQL-Abfrage, die ausgeführt werden soll, und wohin die Ergebnisse gesendet werden sollen. Wählen Sie in diesem Fall die SQL-Abfrage aus, die Sie erstellt haben, um die Liste der aktiven Kund:innen zu generieren, und geben Sie Braze als Ziel für die Ergebnisse an.
@@ -156,7 +156,7 @@ Navigieren Sie zur Abfragefunktion in Amperity und erstellen Sie eine SQL-Abfrag
 4. Speichern Sie die Orchestrierung, nachdem Sie sie nach Ihren Wünschen konfiguriert haben. Sie wird zu Ihrer Liste der Orchestrierungen in Amperity hinzugefügt.
 5. Testen Sie die Orchestrierung, um sicherzustellen, dass sie wie erwartet funktioniert. Sie können dies tun, indem Sie die Orchestrierung manuell triggern und die Ergebnisse in Braze überprüfen.
 
-##### 3. Schritt: Orchestrierung ausführen {#step-3-run-the-orchestration}
+##### Schritt 3: Orchestrierung ausführen {#step-3-run-the-orchestration}
 
 Führen Sie die Orchestrierung aus, um die Abfrage auszuführen und die Ergebnisse an Braze zu senden. Dies kann manuell geschehen oder nach dem Zeitplan, den Sie in den Orchestrierungseinstellungen festgelegt haben.
 
@@ -164,7 +164,7 @@ Führen Sie die Orchestrierung aus, um die Abfrage auszuführen und die Ergebnis
 
 Nutzer:innen von AmpIQ können Segmente in Amperity über eine Nicht-SQL-Schnittstelle erstellen und diese mit nachgelagerten Zielen wie Braze synchronisieren. Nutzer:innen können Ziele auswählen und dann eine Liste von Attributen konfigurieren, die an jedes Ziel gesendet werden sollen.
 
-##### 1. Schritt: Segment in Amperity erstellen {#step-1-create-a-segment-in-amperity}
+##### Schritt 1: Segment in Amperity erstellen {#step-1-create-a-segment-in-amperity}
 
 Erstellen Sie ein Segment in Amperity, das eine Liste von Kund:innen liefert. Dieses Segment sollte mit den angepassten Attributen verknüpft sein, die Sie in Braze aktualisieren möchten.
 
@@ -172,7 +172,7 @@ Erstellen Sie ein Segment in Amperity, das eine Liste von Kund:innen liefert. Di
 In der Dokumentation von Amperity finden Sie Beispiele für verschiedene Segmenttypen, die Sie möglicherweise an Braze senden möchten.
 {% endalert %}
 
-##### 2. Schritt: Kampagne in Amperity erstellen {#step-2-build-a-campaign-in-amperity}
+##### Schritt 2: Kampagne in Amperity erstellen {#step-2-build-a-campaign-in-amperity}
 
 1. Gehen Sie in den Bereich **Campaign** und klicken Sie auf die Option zum Erstellen einer neuen Kampagne.
 2. Geben Sie Ihrer Kampagne einen beschreibenden und eindeutigen Namen, mit dem Sie sie später leichter identifizieren können, insbesondere wenn Sie mehrere Kampagnen haben.
@@ -182,13 +182,13 @@ In der Dokumentation von Amperity finden Sie Beispiele für verschiedene Segment
 6. Wählen Sie, wann und wie oft die Kampagne laufen soll. Dies kann ein einmaliges Ereignis oder ein wiederkehrender Zeitplan sein.
 7. Speichern Sie Ihre Kampagne und führen Sie einen Test durch, um sicherzustellen, dass sie wie erwartet funktioniert.
 
-##### 3. Schritt: Kampagne ausführen {#step-3-run-the-campaign}
+##### Schritt 3: Kampagne ausführen {#step-3-run-the-campaign}
 
 Führen Sie die Kampagne aus, um das Segment an Braze zu senden. Dies kann manuell geschehen oder auf der Grundlage des Zeitplans, den Sie in den Kampagneneinstellungen eingerichtet haben.
 
 
 ### Verwendung von Amperity mit Braze-Currents {#using-amperity-with-braze-currents}
 So senden Sie Braze-Currents-Daten an Amperity:
-1. [Richten Sie einen Braze Current ein]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/), um Daten an einen Amazon S3-Bucket zu senden.
+1. [Richten Sie einen Braze Current ein]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents), um Daten an einen Amazon S3-Bucket zu senden.
 2. Konfigurieren Sie Amperity so, dass es [Apache Avro-Dateien aus diesem Amazon S3-Bucket liest](https://docs.amperity.com/datagrid/source_amazon_s3.html).
 3. Konfigurieren Sie Feeds und automatisieren Sie das Laden von Daten mithilfe von Standard-Workflows.

@@ -1,9 +1,9 @@
 ---
-nav_title: "Premières notifications push"
-article_title: Premières notifications push pour iOS
+nav_title: "Push primer"
+article_title: Push primer pour iOS
 page_order: 6
 page_type: reference
-description: "Cet article de référence traite de l’intégration des premières notifications push iOS."
+description: "Cet article de référence explique comment intégrer les push primers sur iOS."
 platform: iOS
 channel:
   - push
@@ -13,13 +13,13 @@ alias: /push_primer/
 
 {% multi_lang_include deprecations/objective-c.md %}
 
-# Intégration de premières notifications push
+# Intégration du push primer {#push-primer-integration}
 
-Les campagnes de premières notifications push encouragent vos utilisateurs à activer les notifications push sur leur appareil pour votre application. Obtenir la permission des utilisateurs d’envoyer des messages directement sur leurs appareils peut être complexe, mais nos guides peuvent vous aider ! Ce guide montre les étapes que les développeurs doivent suivre pour intégrer les planifications de notifications push.
+Les campagnes de push primer encouragent vos utilisateurs à activer les notifications push sur leur appareil pour votre application. Obtenir la permission des utilisateurs d'envoyer des messages directement sur leurs appareils peut être complexe, mais nos guides peuvent vous aider ! Ce guide présente les étapes que les développeurs doivent suivre pour intégrer le push priming.
 
-## Étape 1 : Ajouter un extrait de code dans le fichier AppDelegate.m
+## Étape 1 : Ajouter un extrait de code dans le fichier AppDelegate.m {#step-1-add-snippet-in-appdelegatem-file}
 
-Ajoutez la ligne de code suivante à votre fichier `AppDelegate.m` à la place de l’intégration standard :
+Ajoutez la ligne de code suivante à votre fichier `AppDelegate.m` à la place de l'intégration standard :
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -79,9 +79,9 @@ if #available(iOS 10, *) {
 {% endtab %}
 {% endtabs %}
 
-## Étape 2 : Ajouter un vérificateur d'événements personnalisé au fichier AppDelegate.m
+## Étape 2 : Ajouter un vérificateur d'événements personnalisés au fichier AppDelegate.m {#step-2-append-custom-event-checker-to-appdelegatem-file}
 
-L’extrait de code suivant vérifie si un événement personnalisé doit être déclenché. Ajoutez la ligne de code suivante à votre `AppDelegate.m` :
+L'extrait de code suivant vérifie si un événement personnalisé doit être déclenché. Ajoutez la ligne de code suivante à votre fichier `AppDelegate.m`.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}
@@ -128,11 +128,11 @@ let notificationSettiings = UIApplication.shared.currentUserNotificationSettings
 {% endtab %}
 {% endtabs %}
 
-## Étape 3 : Configurer un gestionnaire de liens profonds
+## Étape 3 : Configurer un gestionnaire de liens profonds {#step-3-set-up-a-deep-link-handler}
 
-Placez l’extrait de code suivant à l’intérieur du code de gestion de votre lien ciblé. Vous devez uniquement exécuter ce code de lien profond pour amorcer les notifications push dans le message in-app.
+Placez l'extrait de code suivant dans votre code de gestion des liens profonds. Vous devez uniquement exécuter ce code de création de liens profonds pour votre message in-app de push primer.
 
-Consultez [Personnalisation de la gestion des liens]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking/#linking-handling-customization) pour plus d’informations sur les liens profonds.
+Consultez la [personnalisation de la gestion des liens]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/advanced_use_cases/linking#linking-handling-customization) pour plus d'informations sur la création de liens profonds.
 
 {% tabs %}
 {% tab OBJECTIVE-C %}

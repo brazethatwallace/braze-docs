@@ -15,11 +15,11 @@ description: "This article outlines details about the Content Block translation 
 /content_blocks/translations/source
 {% endapimethod %}
 
-> Use this endpoint to view all the default translation sources for a Content Block's translation tags. These are the values within the {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) for more information about translation features.
+> Use this endpoint to view all the default translation sources for a Content Block's translation tags. These are the values within the {% raw %}`{% translation id %} source {% endtranslation %}`{% endraw %}. See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) for more information about translation features.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `content_blocks.translations.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `content_blocks.translations.get` permission.
 
 ## Rate limit
 

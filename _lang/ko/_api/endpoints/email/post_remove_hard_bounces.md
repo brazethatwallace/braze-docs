@@ -20,7 +20,7 @@ description: "이 문서에서는 하드바운스 이메일 주소 제거 Braze 
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `email.bounce.remove` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `email.bounce.remove` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -35,7 +35,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 ```json
 {
-  "email": "example@braze.com"
+  "email": "example@example.com"
 }
 ```
 
@@ -52,7 +52,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/email/bounce/remov
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY' \
 --data-raw '{
-  "email": "example@braze.com"
+  "email": "example@example.com"
 }'
 ```
 

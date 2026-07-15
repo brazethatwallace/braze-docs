@@ -47,7 +47,7 @@ braze.subscribeToInAppMessage(function (message) {
 !!step
 lines-index.js=2
 
-#### 1. Remove calls to `automaticallyShowInAppMessages()`
+### 1. Remove calls to `automaticallyShowInAppMessages()`
 
 Remove any calls to [`automaticallyShowInAppMessages()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#automaticallyshowinappmessages) , as they’ll override any custom logic you implement later.
 
@@ -82,7 +82,7 @@ To display the message, call [`showInAppMessage(message)`](https://js.appboycdn.
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab android %}
-{% multi_lang_include developer_guide/prerequisites/android.md %} You'll also need to [enable in-app messages for Android]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=android#android_enabling-in-app-messages).
+{% multi_lang_include developer_guide/prerequisites/android.md %} You'll also need to [enable in-app messages for Android]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=android#android_enabling-in-app-messages).
 
 ## Customizing message styling using key-value pairs for Android
 
@@ -180,7 +180,7 @@ class CustomInAppMessageViewFactory : IInAppMessageViewFactory {
 !!step
 lines-MainApplication.kt=19
 
-#### 1. Enable debugging (optional)
+### 1. Enable debugging (optional)
 
 To make troubleshooting easier while developing, consider enabling debugging.
 
@@ -222,7 +222,7 @@ Implement [`IInAppMessageViewFactory`](https://braze-inc.github.io/braze-android
 {% endscrolly %}
 {% endsdktab %}
 {% sdktab swift %}
-{% multi_lang_include developer_guide/prerequisites/swift.md %} You'll also need to [enable in-app messages for Swift]({{site.baseurl}}/developer_guide/in_app_messages/?sdktab=swift#swift_enabling-in-app-messages).
+{% multi_lang_include developer_guide/prerequisites/swift.md %} You'll also need to [enable in-app messages for Swift]({{site.baseurl}}/developer_guide/in_app_messages?sdktab=swift#swift_enabling-in-app-messages).
 
 ## Customizing message styling using key-value pairs for Swift
 
@@ -302,7 +302,7 @@ struct SampleApp: App {
 !!step
 lines-AppDelegate.swift=5
 
-#### 1. Implement `BrazeInAppMessageUIDelegate`
+### 1. Implement `BrazeInAppMessageUIDelegate`
 
 In your `AppDelegate` class, implement [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/delegate) so you can override its `inAppMessage` method later.
 

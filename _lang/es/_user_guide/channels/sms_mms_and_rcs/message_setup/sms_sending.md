@@ -18,11 +18,11 @@ channel:
 
 ### Selecciona tu grupo de suscripción {#select-your-subscription-group}
 
-Los mensajes SMS deben enviarse desde un [grupo de suscripción]({{site.baseurl}}/sms_rcs_subscription_groups/). Un grupo de suscripción es un conjunto de números de teléfono de envío (como códigos abreviados, códigos largos y/o ID de remitente alfanuméricos) que se utilizan para un tipo específico de propósito de mensajería. Debes designar un grupo de suscripción para asegurarte de que solo se dirijan a los usuarios suscritos. Algunos clientes pueden encontrar que tienen múltiples grupos de suscripción para diferentes casos de uso, como mensajería SMS transaccional y mensajería SMS promocional.<br><br>
+Los mensajes SMS deben enviarse desde un [grupo de suscripción]({{site.baseurl}}/sms_rcs_subscription_groups). Un grupo de suscripción es un conjunto de números de teléfono de envío (como códigos abreviados, códigos largos y/o ID de remitente alfanuméricos) que se utilizan para un tipo específico de propósito de mensajería. Debes designar un grupo de suscripción para asegurarte de que solo se dirijan a los usuarios suscritos. Algunos clientes pueden encontrar que tienen múltiples grupos de suscripción para diferentes casos de uso, como mensajería SMS transaccional y mensajería SMS promocional.<br><br>
 
 ### Introduce el cuerpo del mensaje {#input-message-body}
 
-El cuerpo de un mensaje SMS acepta hasta 1600 caracteres, incluyendo emojis, Liquid y contenido conectado. Un solo envío de campaign puede resultar en muchos envíos de segmentos del mensaje. Los cuerpos de los mensajes SMS de Braze pueden componerse con los estándares de codificación [GSM-7](https://en.wikipedia.org/wiki/GSM_03.38) o [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set). En caso de que se utilice un carácter UCS-2 (por ejemplo, un emoji), el cuerpo del mensaje se formateará automáticamente para ese estándar de codificación.<br><br>
+El cuerpo de un mensaje SMS acepta hasta 1600 caracteres, incluyendo emojis, Liquid y contenido conectado. Un solo envío de Campaign puede resultar en muchos envíos de segmentos del mensaje. Los cuerpos de los mensajes SMS de Braze pueden componerse con los estándares de codificación [GSM-7](https://en.wikipedia.org/wiki/GSM_03.38) o [UCS-2](https://en.wikipedia.org/wiki/Universal_Coded_Character_Set). En caso de que se utilice un carácter UCS-2 (por ejemplo, un emoji), el cuerpo del mensaje se formateará automáticamente para ese estándar de codificación.<br><br>
 
 ### Comprende los segmentos del mensaje y los límites de caracteres {#understand-message-segments-and-character-limits}
 
@@ -30,10 +30,10 @@ Los segmentos del mensaje SMS son la forma en que la industria de SMS cuenta los
 
 ### Personalización de palabras clave (opcional) {#keyword-customization-optional}
 
-Las regulaciones requieren que haya respuestas a todas las respuestas de palabras clave SMS de adhesión voluntaria, cancelación de suscripción y ayuda/información. Con Braze, puedes definir tus propias palabras clave para desencadenar respuestas de adhesión voluntaria, cancelación de suscripción y ayuda, administrar tus propias respuestas que se envían a los usuarios y definir conjuntos de palabras clave para diferentes idiomas. Para más información, consulta nuestra colección sobre [Procesamiento de palabras clave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/).
+Las regulaciones requieren que haya respuestas a todas las respuestas de palabras clave SMS de adhesión voluntaria, cancelación de suscripción y ayuda/información. Con Braze, puedes definir tus propias palabras clave para desencadenar respuestas de adhesión voluntaria, cancelación de suscripción y ayuda, administrar tus propias respuestas que se envían a los usuarios y definir conjuntos de palabras clave para diferentes idiomas. Para más información, consulta nuestra colección sobre [Procesamiento de palabras clave]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing).
 
 {% alert tip %}
-¿Quieres aprender a crear una campaign de SMS? Consulta nuestra guía paso a paso sobre [Crear un mensaje SMS, MMS o RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/).
+¿Quieres aprender a crear una Campaign de SMS? Consulta nuestra guía paso a paso sobre [Crear un mensaje SMS, MMS o RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
 {% endalert %}
 
-Para conocer las mejores prácticas de envío, incluyendo orientación sobre envíos multinacionales y de alto volumen, consulta [Mejores prácticas para SMS, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/best_practices/).
+Para conocer las mejores prácticas de envío, incluyendo orientación sobre envíos multinacionales y de alto volumen, consulta [Mejores prácticas para SMS, MMS y RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/best_practices).

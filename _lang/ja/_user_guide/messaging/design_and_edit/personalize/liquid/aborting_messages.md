@@ -43,7 +43,7 @@ Love the games? Get 10% off your next one with code SAVE10.
 顧客の言語が英語の場合に一致する「if」文と、英語を話さない、またはプロファイルに言語が設定されていない人に対してメッセージを中止する「else」文を作成することで、英語を話す顧客にのみメッセージを送信できます。
 
 {% raw %}
-`````````liquid
+```liquid
 
 {% if ${language} == 'en' %}
 Send this message in English!
@@ -54,13 +54,13 @@ Send this message in English!
 
 デフォルトでは、Brazeはメッセージアクティビティログに汎用的なエラーメッセージを記録します。
 
-`````````text
+```text
 {% abort_message %} called
 ```
 
 また、かっこ内に文字列を含めることで、中止メッセージにメッセージアクティビティログへの記録内容を指定することもできます。
 
-`````````liquid
+```liquid
 {% abort_message('language was nil') %}
 ```
 {% endraw %}
@@ -69,7 +69,7 @@ Send this message in English!
 
 ## 中止メッセージのクエリ {#query-for-abort-messages}
 
-[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)、またはBrazeに接続されている独自のデータウェアハウスを使用して、Liquidロジックによってメッセージが中止されたときにトリガーされる特定の中止メッセージをクエリできます。
+[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)、またはBrazeに接続されている独自のデータウェアハウスを使用して、Liquidロジックによってメッセージが中止されたときにトリガーされる特定の中止メッセージをクエリできます。
 
 ## 中止ロジックが評価されるタイミング {#when-abort-logic-is-evaluated}
 
@@ -81,7 +81,7 @@ Send this message in English!
 
 ### アプリ内メッセージ {#in-app-messages}
 
-中止ロジックは、[テンプレート化されたアプリ内メッセージ]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/#templated_iam-templated)に対してのみ、メッセージが最初にデバイスに送信されたときではなく、アプリ内メッセージがトリガーされたとき（たとえば、ユーザーがトリガーイベントを実行したときやセッションを開始したとき）に評価されます。アプリ内メッセージはセッション開始時にSDKに配信され、ローカルにキャッシュされます。`abort_message()` 呼び出しを含むLiquidは、トリガー条件が満たされたときに実行されます。
+中止ロジックは、[テンプレート化されたアプリ内メッセージ]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated)に対してのみ、メッセージが最初にデバイスに送信されたときではなく、アプリ内メッセージがトリガーされたとき（たとえば、ユーザーがトリガーイベントを実行したときやセッションを開始したとき）に評価されます。アプリ内メッセージはセッション開始時にSDKに配信され、ローカルにキャッシュされます。`abort_message()` 呼び出しを含むLiquidは、トリガー条件が満たされたときに実行されます。
 
 ## 考慮事項 {#considerations}
 

@@ -50,14 +50,14 @@ L'intégration est prise en charge à la fois pour la synchronisation des donné
 
 #### Étape 1 : Configurer le connecteur Braze {#step-1-set-up-braze-connector}
 
-1. Dans Mozart Data, allez dans **Connectors** et cliquez sur **Add Connector**.
+1. Dans Mozart Data, allez dans **Connectors** et sélectionnez **Add Connector**.
 2. Recherchez « Braze » et sélectionnez la carte du connecteur.
 3. Saisissez un nom de schéma de destination où seront stockées toutes les données synchronisées depuis Braze. Nous vous recommandons d'utiliser le nom de schéma par défaut `braze`.
-4. Cliquez sur **Add Connector**.
+4. Sélectionnez **Add Connector**.
 
 #### Étape 2 : Remplir le formulaire du connecteur Fivetran {#step-2-fill-out-the-fivetran-connector-form}
 
-Vous serez redirigé vers la page du connecteur Fivetran. Sur cette page, remplissez les champs indiqués. Ensuite, cliquez sur **Continue** > **Save & Test** pour terminer la configuration du connecteur Fivetran.
+La page du connecteur Fivetran s'ouvre une fois l'étape 1 terminée. Remplissez les champs indiqués, puis sélectionnez **Continue** > **Save & Test** pour terminer la configuration du connecteur Fivetran.
 
 Fivetran commencera à synchroniser les données de votre compte Braze vers votre entrepôt de données Snowflake. Vous pourrez accéder aux données de requête depuis Mozart Data une fois que le connecteur aura terminé la synchronisation.
 
@@ -69,20 +69,18 @@ Suivez les instructions relatives à l'[Ingestion de données cloud]({{site.base
 
 #### Étape 2 : Configurer votre intégration Snowflake dans Braze {#step-2-set-up-your-snowflake-integration-in-braze}
 
-Après avoir configuré votre entrepôt Snowflake, dans Mozart Data, allez sur la page **Integration** et sélectionnez **Braze**. Vous y trouverez les informations d'identification dont vous aurez besoin pour les fournir à Braze.
+Après avoir configuré votre entrepôt Snowflake, dans Mozart Data, allez sur la page **Integration** et sélectionnez **Braze**. La vue d'intégration **Braze** affiche les identifiants à copier dans Braze.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
+![Page d'intégration Mozart Data avec Braze sélectionné et les identifiants de connexion Snowflake à utiliser dans Braze.]({% image_buster /assets/img/mozartdata/mozartdata-braze-integrationpage.png %}){: style="max-width:80%;"}
 
-Ensuite, tout en étant connecté à Braze, allez dans **Integrations > Technology Partners > Snowflake** pour commencer le processus d'intégration. Copiez les informations d'identification depuis Mozart Data et ajoutez-les à la page d'importation de données Snowflake. Cliquez sur **Set up sync details** et saisissez les informations relatives à votre compte Snowflake et à votre table source.
+Ensuite, tout en étant connecté à Braze, allez dans **Integrations > Technology Partners > Snowflake** pour commencer le processus d'intégration. Copiez les identifiants depuis Mozart Data et ajoutez-les à la page d'importation de données Snowflake. Sélectionnez **Set up sync details** et saisissez les informations relatives à votre compte Snowflake et à votre table source.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
+![Formulaire d'intégration partenaire Snowflake dans Braze avec les champs compte, entrepôt, base de données et schéma renseignés à partir des identifiants Mozart Data.]({% image_buster /assets/img/mozartdata/mozartdata-braze-snowflakecredentials.png %}){: style="max-width:80%;"}
 
-Ensuite, choisissez un nom pour votre synchronisation, fournissez les e-mails de contact et sélectionnez un type de données et une fréquence de synchronisation.
-
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-importsync.png %}){: style="max-width:80%;"}
+Ensuite, sur l'écran de configuration d'importation Snowflake dans Braze, choisissez un nom pour votre synchronisation, fournissez les e-mails de contact et sélectionnez un type de données et une fréquence de synchronisation.
 
 #### Étape 3 : Ajouter une clé publique à l'utilisateur Braze {#step-3-add-a-public-key-to-the-braze-user}
-À ce stade, vous devrez retourner dans Snowflake pour terminer la configuration. Ajoutez la clé publique affichée sur le tableau de bord de Braze à l'utilisateur que vous avez créé pour que Braze se connecte à Snowflake.
+À ce stade, retournez dans Snowflake pour terminer la configuration. Ajoutez la clé publique affichée sur le tableau de bord de Braze à l'utilisateur que vous avez créé pour que Braze se connecte à Snowflake.
 
 Pour plus d'informations sur la manière de procéder, consultez la [documentation de Snowflake](https://docs.snowflake.com/en/user-guide/key-pair-auth.html). Si vous souhaitez effectuer une rotation des clés, Mozart Data peut générer une nouvelle paire de clés et vous fournir la nouvelle clé publique.
 
@@ -92,9 +90,9 @@ ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='Braze12345...';
 
 #### Étape 4 : Tester la connexion {#step-4-test-connection}
 
-Une fois l'utilisateur mis à jour avec la clé publique, retournez dans le tableau de bord de Braze et cliquez sur **Test connection**. Si l'opération réussit, un aperçu des données s'affiche. Si, pour une raison quelconque, la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
+Une fois l'utilisateur mis à jour avec la clé publique, retournez dans le tableau de bord de Braze et sélectionnez **Test connection**. Si l'opération réussit, un aperçu des données s'affiche. Si, pour une raison quelconque, la connexion échoue, un message d'erreur s'affiche pour vous aider à résoudre le problème.
 
-![]({% image_buster /assets/img/mozartdata/mozartdata-braze-testsyncpublickey.png %}){: style="max-width:80%;"}
+![Résultat du test de connexion de l'intégration Snowflake dans Braze montrant un aperçu réussi après l'application de la clé publique.]({% image_buster /assets/img/mozartdata/mozartdata-braze-testsyncpublickey.png %}){: style="max-width:80%;"}
 
 {% alert note %}
 Vous devez avoir testé une intégration avec succès avant qu'elle ne puisse passer de l'état Brouillon à l'état Actif. Si vous devez fermer la page de création, votre intégration sera sauvegardée et vous pourrez revenir à la page de détails pour effectuer des modifications et relancer les tests.

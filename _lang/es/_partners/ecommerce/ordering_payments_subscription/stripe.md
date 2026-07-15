@@ -22,14 +22,14 @@ Al integrar Braze y Stripe, puedes:
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta de Stripe | Se requiere una cuenta de Stripe con acceso a webhooks para aprovechar esta asociación. |
-| Transformación de datos de Braze | Se necesita una [URL de Transformación de datos]({{site.baseurl}}/data_transformation/) para recibir datos de Stripe. |
+| Transformación de datos de Braze | Se necesita una [URL de Transformación de datos]({{site.baseurl}}/data_transformation) para recibir datos de Stripe. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 ## Integración {#integration}
 
 ### Paso 1: Configura la Transformación de datos de Braze para aceptar los webhooks de Stripe {#step-1}
 
-{% multi_lang_include create_transformation.md %}
+{% multi_lang_include data_activation/create_transformation.md %}
 
 ### Paso 2: Configura los webhooks de Stripe {#step-2-set-up-stripe-webhooks}
 
@@ -57,7 +57,7 @@ A continuación, transformarás la carga útil del webhook que se enviará desde
 Este valor de retorno debe ajustarse al formato del cuerpo de la solicitud del punto de conexión `/users/track`:
 
 - El código de transformación se acepta en el lenguaje de programación JavaScript. Se admite cualquier flujo de control estándar de JavaScript, como la lógica if/else.
-- El código de transformación accede al cuerpo de la solicitud del webhook utilizando la variable de carga útil. Esta variable es un objeto poblado por el análisis del cuerpo de la solicitud JSON.
+- El código de transformación accede al cuerpo de la solicitud del webhook utilizando la variable de carga útil. Esta variable es un objeto que se rellena al analizar el JSON del cuerpo de la solicitud.
 - Se admite cualquier característica de nuestro punto de conexión `/users/track`, incluidos:
     - Objetos de atributo de usuario, objetos de evento y objetos de compra
     - Atributos anidados y propiedades anidadas de eventos personalizados
@@ -307,4 +307,4 @@ return brazecall;
 
 ## Supervisión y solución de problemas {#monitoring-and-troubleshooting}
 
-Consulta [Supervisar tu transformación]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation/#step-5-monitor-your-transformation) para obtener más información sobre la supervisión y solución de problemas de tu transformación.
+Consulta [Supervisar tu transformación]({{site.baseurl}}/user_guide/data_and_analytics/data_transformation/creating_a_transformation#step-5-monitor-your-transformation) para obtener más información sobre la supervisión y solución de problemas de tu transformación.

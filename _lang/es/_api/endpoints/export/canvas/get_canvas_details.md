@@ -20,7 +20,7 @@ description: "En este artículo se describen los detalles del punto de conexión
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key/) con el permiso `canvas.details`.
+Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.details`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -30,10 +30,10 @@ Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseur
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | -------- | --------- | ----------- |
-| `canvas_id` | Obligatorio | Cadena | Consulta [Identificador de API de Canvas]({{site.baseurl}}/api/identifier_types/) |
+| `canvas_id` | Obligatorio | Cadena | Consulta [Identificador de API de Canvas]({{site.baseurl}}/api/identifier_types) |
 | `post_launch_draft_version` | Opcional | Booleano | Para los Canvas que tienen un borrador posterior al lanzamiento, establecer esto en `true` muestra los cambios de borrador disponibles. Predeterminado: `false`. |
 | `include_has_translatable_content` | Opcional | Booleano | Cuando se establece en `true`, la respuesta de la API incluye un campo `has_translatable_content` para cada mensaje. Predeterminado: `false`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parámetros de la solicitud" }
 
 ## Ejemplo de solicitud {#example-request}
 
@@ -220,7 +220,7 @@ A continuación se muestra un ejemplo de respuesta que incluye mensajes de Canva
 ```
 
 {% alert tip %}
-Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting/).
+Para obtener ayuda con las exportaciones CSV y API, visita [Solución de problemas de exportación]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_troubleshooting).
 {% endalert %}
 
 {% endapi %}

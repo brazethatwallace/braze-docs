@@ -31,7 +31,7 @@ search_rank: 2
 | Meta Business Managerアカウント | このメッセージングチャネルを利用するには、Meta Businessアカウントが必要です。 |
 | WhatsApp Businessアカウント | このメッセージングチャネルを利用するには、WhatsApp Businessアカウントが必要です。 |
 | WhatsApp電話番号 | メッセージングチャネルを使用するには、WhatsAppの[Cloud API](https://developers.facebook.com/docs/whatsapp/cloud-api/phone-numbers)または[On-Premises API](https://developers.facebook.com/docs/whatsapp/on-premises/phone-numbers)の要件を満たす電話番号を取得する必要があります。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 連携 {#integration}
 
@@ -49,7 +49,7 @@ WhatsAppパートナーページで、**Begin Integration**を選択します。
 
 ### ステップ 2:WhatsAppセットアップ {#step-2-whatsapp-setup}
 
-次に、Brazeセットアップワークフローが表示されます。ステップバイステップのウォークスルーについては、[WhatsApp埋め込みサインアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup/)を参照してください。
+次に、Brazeセットアップワークフローが表示されます。ステップバイステップのウォークスルーについては、[WhatsApp埋め込みサインアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/embedded_signup)を参照してください。
 
 このフローでは、以下を行います。
 1. MetaおよびWhatsApp Businessアカウントを作成または選択します。[WhatsApp表示名ガイドライン](https://www.facebook.com/business/help/757569725593362)を確認してください。<br><br>お客様の会社には、既に少なくとも1つのMeta Businessアカウントが存在している可能性があります。その場合は、WhatsApp Businessアカウントを配置したいアカウントを選択してください。WhatsAppのユーザー権限とビジネス認証は、Meta Businessアカウントで一元管理されます。<br><br>
@@ -60,7 +60,7 @@ WhatsAppパートナーページで、**Begin Integration**を選択します。
 
 ### ステップ 3:WhatsAppテンプレートを作成する {#step-3-create-whatsapp-templates}
 
-承認済みのWhatsAppメッセージテンプレートのみが、顧客との会話を開始するために使用できます。WhatsAppテンプレートは[Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343)で作成できます。BrazeがサポートするWhatsAppメッセージング機能の一覧については、[サポートされているWhatsApp機能]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/#supported-whatsapp-features)をご確認ください。
+承認済みのWhatsAppメッセージテンプレートのみが、顧客との会話を開始するために使用できます。WhatsAppテンプレートは[Meta Business Manager](https://www.facebook.com/business/help/2055875911147364?id=2129163877102343)で作成できます。BrazeがサポートするWhatsAppメッセージング機能の一覧については、[サポートされているWhatsApp機能]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#supported-whatsapp-features)をご確認ください。
 
 1. **[テンプレートマネージャー](https://business.facebook.com/wa/manage/message-templates)に移動する**<br>
 Meta Business Managerで、**Account Tools**の下にある**Message Templates**を選択します。
@@ -87,10 +87,10 @@ Meta Business Managerで、**Account Tools**の下にある**Message Templates**
 
 ### ステップ 4:WhatsApp キャンペーンを作成する {#step-4-create-a-whatsapp-campaign}
 
-WhatsAppテンプレートが承認されたら、ダッシュボードに移動して[WhatsApp キャンバスまたはキャンペーン]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message/)を作成できます。
+WhatsAppテンプレートが承認されたら、ダッシュボードに移動して[WhatsApp キャンバスまたはキャンペーン]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message)を作成できます。
 
 {% alert note %}
-WhatsApp Businessアカウントが作成されると、Metaが初期メッセージング制限を決定します。詳細については、[スループット]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc/#throughput)をご確認ください。
+WhatsApp Businessアカウントが作成されると、Metaが初期メッセージング制限を決定します。詳細については、[スループット]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/sender_setup/10dlc#throughput)をご確認ください。
 {% endalert %}
 
 ## 次のステップ {#next-steps}
@@ -100,7 +100,7 @@ WhatsApp Businessアカウントが作成されると、Metaが初期メッセ�
 	- 既存のMeta Business Managerを使用している場合、ビジネス認証が既に完了している可能性があります。
 - [公式ビジネスアカウント](https://www.facebook.com/business/help/604726921052590?ref=search_new_0)
 
-また、[ユーザーの電話番号]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers/)についてお読みいただき、[組織でテンプレート](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143)を作成するためにアクセスが必要なユーザーを追加することもお勧めします。
+また、[ユーザーの電話番号]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/user_phone_numbers)についてお読みいただき、[組織でテンプレート](https://www.facebook.com/business/help/2169003770027706?id=2190812977867143)を作成するためにアクセスが必要なユーザーを追加することもお勧めします。
 
 ### WhatsApp Cloud APIローカルストレージ {#whatsapp-cloud-api-local-storage}
 

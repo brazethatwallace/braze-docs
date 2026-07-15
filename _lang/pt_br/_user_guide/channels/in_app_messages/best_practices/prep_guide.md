@@ -15,9 +15,9 @@ toc_headers: h2
 
 ## Considerações gerais {#general-considerations}
 
-- Se você está criando uma Campaign, quantas variantes dessa mensagem gostaria de exibir? Para ideias de testes de variantes, confira [Dicas para diferentes canais]({{site.baseurl}}/user_guide/messaging/ab_testing/#tips-different-channels).
+- Se você está criando uma Campaign, quantas variantes dessa mensagem gostaria de exibir? Para ideias de testes de variantes, confira [Dicas para diferentes canais]({{site.baseurl}}/user_guide/messaging/ab_testing#tips-different-channels).
 - Se você está criando um Canvas, essa mensagem será combinada com outros canais de envio de mensagens nessa etapa?
-- Quando você gostaria que [sua mensagem expirasse]({{site.baseurl}}/canvas_in-app_messages/)?
+- Quando você gostaria que [sua mensagem expirasse]({{site.baseurl}}/canvas_in-app_messages)?
 
 ## Considerações de direcionamento {#targeting-considerations}
 
@@ -25,7 +25,7 @@ toc_headers: h2
 - Onde você quer que seus usuários vejam sua mensagem? No seu app web? No seu app mobile?
 - Qual evento deve acionar essa mensagem?
 - Algum dos seus usuários está usando versões mais antigas do seu app? Se sim, eles podem não conseguir ver alguns elementos da sua mensagem.
-- Para qual tipo de dispositivo ou dispositivos você está criando essa mensagem? Lembre-se de que você pode pré-visualizar sua mensagem usando a caixa **Preview** ou a guia **Test**. Consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages/?tab=in-app%20message) para mais informações.
+- Para qual tipo de dispositivo ou dispositivos você está criando essa mensagem? Lembre-se de que você pode pré-visualizar sua mensagem usando a caixa **Preview** ou a guia **Test**. Consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message) para mais informações.
 
 ## Agendamento, postergações e início de sessão {#scheduling-delays-and-session-starts}
 
@@ -40,15 +40,16 @@ Por exemplo, um usuário pode receber uma mensagem no app com uma postergação 
 - Quais idiomas você usará nessa mensagem?
 - Qual é o texto do cabeçalho e do corpo? Eles são chamativos e relevantes para o seu usuário?
 - Mensagens no app aparecem apenas por um período definido. Seu texto é conciso e memorável?
-- Você usará [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid/) para adicionar texto personalizado?
-- Para mensagens no app em tela cheia, sua imagem ou outra mídia está dentro da [zona segura]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen/#image-safe-zone)?
+- Você usará [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) para adicionar texto personalizado?
+- Os usuários precisam copiar o texto da mensagem (como um código de desconto ou voucher)? No iOS e Android, os usuários podem pressionar e segurar o texto ou campos de entrada de texto para copiar o conteúdo. Pressionar e segurar não funciona em imagens, então use texto ou campos de entrada de texto em vez de imagens que contenham códigos ou outro conteúdo que os usuários possam precisar copiar.
+- Para mensagens no app em tela cheia, sua imagem ou outra mídia está dentro da [zona segura]({{site.baseurl}}/user_guide/channels/in_app_messages/message_types/fullscreen#image-safe-zone)?
 - Para mensagens no app de pesquisa, você deseja registrar atributos ou envios? Você configurou sua página de confirmação?
 
 ## Considerações de conversão {#conversion-considerations}
 
 - Qual é o seu objetivo com essa mensagem? Como você pode representar isso na sua mensagem?
-- Seus botões oferecem opções que fazem sentido para o seu usuário? Qual é a sua [chamada para ação principal]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/#buttons)?
-- Você está usando [deep linking para outro conteúdo no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#deep-link-to-in-app-content)? Você está usando essa mensagem no app para enviar e aceitar uma [solicitação de permissão ou push priming]({{site.baseurl}}/user_guide/channels/push/best_practices/)?
+- Seus botões oferecem opções que fazem sentido para o seu usuário? Qual é a sua [chamada para ação principal]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#buttons)?
+- Você está usando [deep linking para outro conteúdo no app]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#deep-link-to-in-app-content)? Você está usando essa mensagem no app para enviar e aceitar uma [solicitação de permissão ou push priming]({{site.baseurl}}/user_guide/channels/push/best_practices)?
 - Você tem uma opção de saída da mensagem? Se não, você sempre pode copiar e colar este trecho para criar um botão rápido:
     ```html
     <a href="appboy://close">X</a>

@@ -14,7 +14,7 @@ page_order: 4
 
 ## Getrackte Shopify-Events {#tracked-shopify-events}
 
-Die Shopify-Integration nutzt die [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events/), um wichtiges Einkaufsverhalten zu erfassen. Beispiele für die Umsetzung und Marketing-Strategien mit diesen Events finden Sie in den [E-Commerce-Anwendungsfällen]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases/).
+Die Shopify-Integration nutzt die [empfohlenen E-Commerce-Events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events), um wichtiges Einkaufsverhalten zu erfassen. Beispiele für die Umsetzung und Marketing-Strategien mit diesen Events finden Sie in den [E-Commerce-Anwendungsfällen]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases).
 
 {% multi_lang_include alerts/important_alerts.md alert='Shopify customer create' %}
 
@@ -432,7 +432,7 @@ Die Shopify-Integration nutzt die [empfohlenen E-Commerce-Events]({{site.baseurl
 | `source`           | `{{event_properties.${source}}}`                    |
 | `sku`              | `{{event_properties.${metadata}[0].sku}}`          |
 | `type`             | `event_properties.${type}`          |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -469,11 +469,11 @@ Anschließend können Sie die folgenden Warenkorb-Liquid-Tags in Ihre Nachricht 
 | `sku`              | `{{ shopping_cart.products[0].metadata[0].sku }}`  |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `metadata (value)` | `{{ shopping_cart.metadata[0].<add_value_here> }}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% alert tip %}
-Weitere Informationen darüber, wie Sie eine Liquid-`for`-Schleife einrichten, um alle Produkte dynamisch in Ihre E-Mail einzufügen, finden Sie unter [Personalisierung von Produkten bei Warenkorb-Abbruch für E-Mails]({{site.baseurl}}/ecommerce_use_cases/#abandoned-cart).
+Weitere Informationen darüber, wie Sie eine Liquid-`for`-Schleife einrichten, um alle Produkte dynamisch in Ihre E-Mail einzufügen, finden Sie unter [Personalisierung von Produkten bei Warenkorb-Abbruch für E-Mails]({{site.baseurl}}/ecommerce_use_cases#abandoned-cart).
 {% endalert %}
 
 {% endsubtab %}
@@ -515,7 +515,7 @@ Anschließend können Sie die folgenden Liquid-Tags in Ihre Nachricht einfügen,
 | `sku`              | `{{ shopping_cart.products[0].metadata.sku }}`     |
 | `source`           | `{{ shopping_cart.source }}`                        |
 | `checkout_url`     | `{{ shopping_cart.metadata[0].checkout_url }}`     |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% endsubtab %}
@@ -544,17 +544,17 @@ Anschließend können Sie die folgenden Liquid-Tags in Ihre Nachricht einfügen,
 | tags                    | `{{event_properties.${metadata}.tags}}`             |
 | referring_site          | `{{event_properties.${metadata}.referring_site}}`   |
 | payment_gateway_names    | `{{event_properties.${metadata}.payment_gateway_names}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% alert tip %}
-Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs oder Bild-URLs. Daher müssen Sie die Kataloge-Liquid-Personalisierung verwenden, wie unter [Personalisierung von Produkten bei Warenkorb-Abbruch für E-Mails]({{site.baseurl}}/ecommerce_use_cases/#order-confirmation-and-feedback-survey) beschrieben.
+Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs oder Bild-URLs. Daher müssen Sie die Kataloge-Liquid-Personalisierung verwenden, wie unter [Personalisierung von Produkten bei Warenkorb-Abbruch für E-Mails]({{site.baseurl}}/ecommerce_use_cases#order-confirmation-and-feedback-survey) beschrieben.
 {% endalert %}
 
 {% endsubtab %}
 {% subtab Fulfilled order %}
 **Event**: `shopify_fulfilled_order`<br>
-**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Getriggert**: Wenn die Bestellung einer Nutzer:in erfüllt und versandfertig ist<br>
 **Datenquelle**: Braze REST API<br>
 **Anwendungsfall**: (Transaktional) Fulfillment-Update
@@ -599,13 +599,13 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Partially fulfilled order %}
 **Event**: `shopify_partially_fulfilled_order`<br>
-**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Getriggert**: Wenn ein Teil der Bestellung einer Nutzer:in erfüllt und versandfertig ist<br>
 **Datenquelle**: Braze REST API<br>
 **Anwendungsfall**: (Transaktional) Fulfillment-Update
@@ -650,13 +650,13 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 | Fulfillment Vendor | `{{event_properties.${fulfillments}[0].line_items[0].vendor}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Paid order %}
 **Event**: `shopify_paid_order`<br>
-**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Getriggert**: Wenn die Bestellung einer Nutzer:in in Shopify als bezahlt markiert wird<br>
 **Datenquelle**: Braze REST API<br>
 **Anwendungsfall**: (Transaktional) Zahlungsbestätigung
@@ -684,13 +684,13 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Order cancelled %}
-**Event**: `shopify_cancelled_order`<br>
-**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Event**: `ecommerce.order_cancelled`<br>
+**Typ**: Empfohlenes Event<br>
 **Getriggert**: Wenn die Bestellung einer Nutzer:in storniert wird<br>
 **Datenquelle**: Braze REST API<br>
 **Anwendungsfall**: (Transaktional) Bestätigung der Auftragsstornierung
@@ -721,12 +721,12 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 | Shipping Price | `{{event_properties.${shipping}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 {% endsubtab %}
 {% subtab Order refunded %}
-**Event**: `shopify_order_refunded`<br>
-**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Event**: `ecommerce.order_refunded`<br>
+**Typ**: Empfohlenes Event<br>
 **Getriggert**: Wenn die Bestellung einer Nutzer:in erstattet wird<br>
 **Datenquelle**: Braze REST API<br>
 **Anwendungsfall**: (Transaktional) Erstattungsbestätigung
@@ -746,14 +746,14 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 | Item Price | `{{event_properties.${line_items}[0].price}}` |
 | Variant ID | `{{event_properties.${line_items}[0].variant_id}}` |
 | Variant Title | `{{event_properties.${line_items}[0].variant_title}}` |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% endsubtab %}
 {% subtab Account login %}
 
 **Event**: `shopify_account_login`<br>
-**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)<br>
+**Typ**: [Angepasstes Event]({{site.baseurl}}/user_guide/data/activation/events/custom_events)<br>
 **Getriggert**: Wenn sich eine Nutzer:in bei ihrem Konto anmeldet<br>
 **Datenquelle**: Braze REST API<br>
 **Anwendungsfall**: Willkommensserie
@@ -762,11 +762,11 @@ Der Shopify-Webhook „Checkout abgeschlossen“ enthält keine Produkt-URLs ode
 | Variable | Liquid-Templating |
 | --- | --- |
 | `source` | {{event_properties.${source}}} |
-{: .reset-br-td-1 .reset-br-td-2 aria-label="Tracked Shopify events" }
+{: .reset-br-td-1 .reset-br-td-2 aria-label="Getrackte Shopify-Events" }
 {% endraw %}
 
 {% alert note %}
-Die Shopify-Integration unterstützt derzeit nicht das Befüllen des Braze-[Kauf-Events]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events/#purchase-events). Daher sollten Kauf-Filter, Liquid-Tags, aktionsbasierte Trigger und Analytics das Event `ecommerce.order_placed` verwenden.
+Die Shopify-Integration unterstützt derzeit nicht das Befüllen des Braze-[Kauf-Events]({{site.baseurl}}/user_guide/data_and_analytics/custom_data/purchase_events#purchase-events). Daher sollten Kauf-Filter, Liquid-Tags, aktionsbasierte Trigger und Analytics das Event `ecommerce.order_placed` verwenden.
 {% endalert %}
 
 {% endsubtab %}
@@ -809,7 +809,7 @@ Die Shopify-Integration unterstützt derzeit nicht das Befüllen des Braze-[Kauf
 | `shopify_last_order_name` | Der Name der letzten Bestellung der Kund:in. Dieser steht in direktem Zusammenhang mit dem Feld `name` in der Auftragsressource. |
 | `shopify_zipcode` | Die Postleitzahl der Kund:in aus der Standardadresse. |
 | `shopify_province` | Die Provinz der Kund:in aus der Standardadresse. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Supported Shopify custom attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Unterstützte angepasste Shopify-Attribute" }
 
 {% alert important %}
 Ein bekanntes Problem mit der aktuellen Shopify-API-Version verhindert, dass das Nutzerattribut `shopify_last_order_name` korrekt befüllt wird. Die Auswirkungen auf Nutzer:innen sind wie folgt:<br><br>
@@ -849,13 +849,13 @@ Braze aktualisiert die unterstützten angepassten Shopify-Attribute und Braze-St
 
 ## SDK-Datenerfassung {#sdk-data-collection}
 
-Weitere Informationen darüber, welche Daten von den Braze SDKs erfasst werden, finden Sie unter [SDK-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Weitere Informationen darüber, welche Daten von den Braze SDKs erfasst werden, finden Sie unter [SDK-Datenerfassung]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).
 
 ## Historischer Backfill {#historical-backfill}
 
 > Historische Shopify-Daten werden importiert, bevor Sie Braze verbinden – Bestell-Events aus den letzten 90 Tagen und Kundendaten aus dem letzten Jahr. Beide Zeiträume werden ab dem Datum zurückgerechnet, an dem Sie Ihre Integration abschließen.
 
-Über die [Shopify-Standardintegration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration/) oder die [angepasste Shopify-Integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration/) können Sie den historischen Backfill aktivieren, um vergangene Kund:innen anzusprechen. Dabei werden Ihre Shopify-Bestellungen (bestellbezogene Events) aus den letzten 90 Tagen und Nutzerprofile aus dem letzten Jahr importiert. Beide Zeiträume werden ab dem Datum zurückgerechnet, an dem Sie Ihre Integration abschließen.
+Über die [Shopify-Standardintegration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_standard_integration) oder die [angepasste Shopify-Integration]({{site.baseurl}}/partners/ecommerce/shopify/shopify_custom_integration) können Sie den historischen Backfill aktivieren, um vergangene Kund:innen anzusprechen. Dabei werden Ihre Shopify-Bestellungen (bestellbezogene Events) aus den letzten 90 Tagen und Nutzerprofile aus dem letzten Jahr importiert. Beide Zeiträume werden ab dem Datum zurückgerechnet, an dem Sie Ihre Integration abschließen.
 
 Wenn Braze Ihre Shopify-Kund:innen importiert, wird der `external_id`-Typ zugewiesen, den Sie in Ihren Konfigurationseinstellungen gewählt haben.
 
@@ -863,7 +863,7 @@ Wenn Braze Ihre Shopify-Kund:innen importiert, wird der `external_id`-Typ zugewi
 Wenn Sie bereits Braze nutzen und aktive Campaigns oder Canvases haben, prüfen Sie, wie sich importierte Kund:innen und Bestell-Events auf Ihre Segmente und Journeys auswirken, bevor Sie den historischen Backfill aktivieren.
 {% endalert %}
 
-{% multi_lang_include shopify.md section='Custom external ID historical backfill' %}
+{% multi_lang_include partners/shopify.md section='Custom external ID historical backfill' %}
 
 ### Einrichten des historischen Shopify-Backfills {#setting-up-shopify-historical-backfill}
 

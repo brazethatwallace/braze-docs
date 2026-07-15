@@ -22,14 +22,14 @@ Understanding how inactivity is defined and measured is key to managing session 
 
 ### How inactivity is measured
 
-The Web SDK tracks inactivity based on [SDK-tracked events]({{site.baseurl}}/user_guide/data/activation/custom_data/events/#events). The SDK maintains an internal timer that resets each time a tracked event is sent. If no SDK-tracked events occur within the configured timeout period, the session is considered inactive and ends.
+The Web SDK tracks inactivity based on [SDK-tracked events]({{site.baseurl}}/user_guide/data/activation/custom_data/events#events). The SDK maintains an internal timer that resets each time a tracked event is sent. If no SDK-tracked events occur within the configured timeout period, the session is considered inactive and ends.
 
 For more information on how session lifecycle is implemented in the Web SDK, see the session management source code in the [Braze Web SDK GitHub repository](https://github.com/braze-inc/braze-web-sdk/blob/master/src/session.ts).
 
 **What counts as activity by default:**
 - Opening or refreshing the web app
-- Interacting with Braze-driven UI elements (such as [In-app messages]({{site.baseurl}}/developer_guide/in_app_messages/) or [Content Cards]({{site.baseurl}}/developer_guide/content_cards/))
-- Calling SDK methods that send tracked events (such as [custom events]({{site.baseurl}}/developer_guide/analytics/logging_events/) or [user attribute updates]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes/))
+- Interacting with Braze-driven UI elements (such as [In-app messages]({{site.baseurl}}/developer_guide/in_app_messages) or [Content Cards]({{site.baseurl}}/developer_guide/content_cards))
+- Calling SDK methods that send tracked events (such as [custom events]({{site.baseurl}}/developer_guide/analytics/logging_events) or [user attribute updates]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes))
 
 **What does not count as activity by default:**
 - Switching to a different browser tab
@@ -38,7 +38,7 @@ For more information on how session lifecycle is implemented in the Web SDK, see
 - Scrolling or mouse movements on the page
 
 {% alert note %}
-The Web SDK does not automatically track browser visibility changes, tab switching, or user focus. However, you can track these browser-level interactions by implementing custom event listeners using the browser's [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) and sending [custom events]({{site.baseurl}}/developer_guide/analytics/logging_events/?tab=web) to Braze. For an example implementation, refer to [Tracking custom inactivity](#tracking-custom-inactivity).
+The Web SDK does not automatically track browser visibility changes, tab switching, or user focus. However, you can track these browser-level interactions by implementing custom event listeners using the browser's [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) and sending [custom events]({{site.baseurl}}/developer_guide/analytics/logging_events?tab=web) to Braze. For an example implementation, refer to [Tracking custom inactivity](#tracking-custom-inactivity).
 {% endalert %}
 
 ### Session timeout configuration
@@ -57,7 +57,7 @@ Consider the following scenario:
 
 ### Tracking custom inactivity
 
-If you need to track inactivity based on browser visibility or tab switching, implement custom event listeners in your JavaScript code. Use browser events such as `visibilitychange` to detect when users leave your page, and manually send [custom events]({{site.baseurl}}/developer_guide/analytics/logging_events/) to Braze or call [`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession) when appropriate.
+If you need to track inactivity based on browser visibility or tab switching, implement custom event listeners in your JavaScript code. Use browser events such as `visibilitychange` to detect when users leave your page, and manually send [custom events]({{site.baseurl}}/developer_guide/analytics/logging_events) to Braze or call [`braze.openSession()`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#opensession) when appropriate.
 
 ```javascript
 // Example: Track when user switches away from tab
@@ -73,7 +73,7 @@ document.addEventListener('visibilitychange', function() {
 });
 ```
 
-For more information on logging custom events, refer to [Log custom events]({{site.baseurl}}/developer_guide/analytics/logging_events/). For details on session lifecycle and timeout configuration, refer to [Changing the default session timeout](#change-session-timeout).
+For more information on logging custom events, refer to [Log custom events]({{site.baseurl}}/developer_guide/analytics/logging_events). For details on session lifecycle and timeout configuration, refer to [Changing the default session timeout](#change-session-timeout).
 
 ## Subscribing to session updates
 
@@ -259,11 +259,11 @@ If you set a session timeout, all session semantics will automatically extend to
 
 A user profile can have 0 sessions if the user was created outside the SDK:
 
-- **Created by REST API:** If a user is created through the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) endpoint with an `app_id` in the request, the profile appears associated with that app but has no session data because the SDK was never initialized for that user.
-- **Created by CSV import:** If a user is imported through [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import/) without values for first or last session fields, the profile exists with 0 sessions.
+- **Created by REST API:** If a user is created through the [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) endpoint with an `app_id` in the request, the profile appears associated with that app but has no session data because the SDK was never initialized for that user.
+- **Created by CSV import:** If a user is imported through [CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import) without values for first or last session fields, the profile exists with 0 sessions.
 ### Some users are not logging sessions
 
-Because sessions are tracked only after the SDK is initialized, users who don't trigger SDK initialization don't log any sessions. This typically happens when your app uses conditional logic before initializing the SDK, such as delaying initialization behind a login flow, consent prompt, or feature flag. For implementation guidance, see [Delayed initialization]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift). In these cases, any user who doesn't satisfy the condition never starts a session.
+Because sessions are tracked only after the SDK is initialized, users who don't trigger SDK initialization don't log any sessions. This typically happens when your app uses conditional logic before initializing the SDK, such as delaying initialization behind a login flow, consent prompt, or feature flag. For implementation guidance, see [Delayed initialization]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#step-2-set-up-delayed-initialization-optional). In these cases, any user who doesn't satisfy the condition never starts a session.
 
 If some users are logging sessions and others aren't, verify the following:
 
@@ -275,6 +275,6 @@ If the issue persists after verifying your implementation, reproduce the problem
 
 - Steps to reproduce the problem
 - The affected app version
-- [Verbose SDK logs]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), captured while the issue occurs (or by platform: [Android]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web#web_logging))
+- [Verbose SDK logs]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), captured while the issue occurs (or by platform: [Android]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=android#android_enabling-logs), [Swift]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=swift#swift_setting-the-log-level), [Web]({{site.baseurl}}/developer_guide/sdk_integration?sdktab=web#web_logging))
 - The code snippet for SDK initialization
 - A summary of any conditional logic applied before initialization

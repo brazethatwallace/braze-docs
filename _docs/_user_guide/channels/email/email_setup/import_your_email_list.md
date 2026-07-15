@@ -24,7 +24,7 @@ Email list cleaning services can do this for you by determining if the email add
 
 ### Check if an email address is already associated with a user
 
-Before creating a user through the API or SDK, call the [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/) endpoint and specify the user's `email_address`. If it returns a user profile, that Braze user is already associated with that email address.
+Before creating a user through the API or SDK, call the [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) endpoint and specify the user's `email_address`. If it returns a user profile, that Braze user is already associated with that email address.
 
 We strongly recommend that you look for unique email addresses when new users are created, and avoid passing or importing users with the same email address. Otherwise, you may have unintended consequences that impact message sending, targeting, reporting, and other features.
 
@@ -34,7 +34,7 @@ For example, let's say you have duplicate profiles, but certain custom attribute
 
 In order to identify your most engaged users, first remove deeply lapsed users. It's a best practice to not email users who have not engaged with an email in over six months as this can damage your email sender reputation. When importing your email list, make sure to only include users who have opened an email from you within the last six months.
 
-In the long term, you should also consider implementing a [sunset policy]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies/).
+In the long term, you should also consider implementing a [sunset policy]({{site.baseurl}}/user_guide/channels/email/best_practices/sunset_policies).
 
 ### Avoid suppression lists
 
@@ -42,5 +42,5 @@ If you are transitioning off an existing email provider, make certain that you d
 
 ## Methods for importing
 
-Once you have your email list prepared, there are several ways to import users into Braze, such as via the Braze REST API or CSV files. Read more at our dedicated [User Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/) article.
+Once you have your email list prepared, there are several ways to import users into Braze, such as via the Braze REST API or CSV files. Read more at our dedicated [User Import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users) article.
 

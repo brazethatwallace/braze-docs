@@ -41,7 +41,7 @@ You can easily share specific comparisons with your teammates using the page's u
 
 Segment Insights have also been built right into the **Segment Details** view. When looking at a particular segment you've previously set up, you can find the same six statistics outlined within the dynamic, gray Segment Statistics box. From here, you can quickly launch the Segment Insights tool to compare this particular segment with any others you've previously set up, but note that this will overwrite any segments you've previously selected within the Segment Insights tool.
 
-![]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
+![Segment Insights have also been built right into the Segment Details view. When looking at a particular segment you've previously set up, you can find the same six statistics outlined within the dynamic, gray Segment Statistics box. From here, you can quickly launch the Segment Insights tool to compare this particular segment with any others you've previously set up, but note that this will overwrite any segments you've previously selected within the Segment Insights tool.]({% image_buster /assets/img_archive/Segment_Segment_Insights.png %})
 
 ## Use cases {#insights-use-cases}
 
@@ -60,7 +60,7 @@ Segment Insights can help uncover differences between user demographics. The fol
 
 In this example, German speakers signed up longer ago on average, which might explain why they're no longer as active. This could be due to a multitude of factor. For example if the app first launched in Europe but is now more popular in the US, where most people speak English or Spanish. For more robust findings, when analyzing KPIs across demographics, it's sensible to test the findings from a general study of demographics (for example, if language impacts LTV in all users) by looking at a smaller, more similar population and seeing if the findings persist.
 
-To improve conversions among speakers of languages other than English, a good first step would be to [localize campaigns]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/) to the user's device language and making sure that the copy of those messages is engaging users by using a [multivariate campaign]({{site.baseurl}}/user_guide/messaging/ab_testing#creating-tests) to test different versions of the foreign language copy.
+To improve conversions among speakers of languages other than English, a good first step would be to [localize campaigns]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) to the user's device language and making sure that the copy of those messages is engaging users by using a [multivariate campaign]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests) to test different versions of the foreign language copy.
 
 ### Understanding indicators of higher revenue
 
@@ -68,5 +68,5 @@ Getting users to convert to purchasers can be difficult, and trying to push new,
 
 ![Segment Insights breakdown for users who shared on social media, signed up for promotions, and signed up for newsletter.]({% image_buster /assets/img_archive/Segment_Insights_Events1.png %})
 
-In this case, relatively few users are currently signed up for promotional messages and aren't as active, but these users generate a higher lifetime revenue. To increase revenue, it may be a good idea to include an invitation to sign up for promotional messages in onboarding campaigns. To re-engage lapsed users, a good plan would be to send out a typical [lapsed user campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users/#capture-lapsing-users) and target [users who converted]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#converted-from-campaign-filter) with a subsequent campaign to sign up for promotional messages.
+In this case, relatively few users are currently signed up for promotional messages and aren't as active, but these users generate a higher lifetime revenue. To increase revenue, it may be a good idea to include an invitation to sign up for promotional messages in onboarding campaigns. To re-engage lapsed users, a good plan would be to send out a typical [lapsed user campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users) and target [users who converted]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#converted-from-campaign) with a subsequent campaign to sign up for promotional messages.
 

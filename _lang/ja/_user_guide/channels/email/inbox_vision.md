@@ -35,10 +35,10 @@ channel:
 受信トレイビジョンでメールメッセージをテストするには：
 
 1. ドラッグ＆ドロップエディターまたはHTMLメールエディターに移動します。
-2. エディターで**Preview & Test**を選択します。
+2. エディターで**プレビューとテスト**を選択します。
 3. **Inbox Vision**を選択します。
 4. **Run Inbox Vision**を選択します。これには最大10分かかります。
-5. 次に、タイルを選択してプレビューの詳細を表示します。これらのプレビューは、**Web Clients**、**Application Clients**、**Mobile Clients**のセクションにグループ化されています。
+5. 次に、タイルを選択してプレビューの詳細を表示します。これらのプレビューは、**Webクライアント**、**アプリケーションクライアント**、**モバイルクライアント**のセクションにグループ化されています。
 
 ![プレビューするメールクライアントを選択するオプション。]({% image_buster /assets/img/select_email_preview_inbox_vision.png %}){: style="max-width:85%;"}
 
@@ -46,7 +46,7 @@ channel:
 5. **Run Inbox Vision**を選択します。完了までに2〜10分かかる場合があります。
 
 {% alert note %}
-受信トレイビジョンは、[中止ロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)を含むメールメッセージをサポートしていません。これらのメールは静的コンテンツとしてレンダリングされるためです。
+受信トレイビジョンは、[中止ロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)を含むメールメッセージをサポートしていません。これらのメールは静的コンテンツとしてレンダリングされるためです。
 {% endalert %}
 
 ### ユーザーとしてプレビューする {#previewing-as-a-user}
@@ -59,7 +59,7 @@ channel:
 
 ### コード分析情報の表示 {#viewing-code-analysis-information}
 
-この情報は、**Inbox Vision**タブで<i class="fas fa-list"></i> **List view**を選択すると確認できます。リストビューはHTMLメールテンプレートでのみ使用できます。ドラッグ＆ドロップテンプレートの場合は、代わりにプレビューを使用して問題を解決してください。
+この情報は、**Inbox Vision**タブで<i class="fas fa-list"></i> **リストビュー**を選択すると確認できます。リストビューはHTMLメールテンプレートでのみ使用できます。ドラッグ＆ドロップテンプレートの場合は、代わりにプレビューを使用して問題を解決してください。
 
 ![受信トレイビジョンプレビューでのコード分析の例。]({% image_buster /assets/img_archive/inboxvision2.png %})
 
@@ -111,7 +111,7 @@ Brazeはスクリーンショットを撮る前にメールの到着を待つた
 | 操作可能 | ユーザーインターフェイスコンポーネントとナビゲーションは操作可能でなければなりません。<br><br>ユーザーはインターフェイスを操作できなければなりません（ユーザーが実行できない操作をインターフェイスが要求してはなりません）。 |
 | 理解可能 | 情報とユーザーインターフェイスの操作は理解可能でなければなりません。<br><br>ユーザーは情報とユーザーインターフェイスの操作を理解できなければなりません（コンテンツや操作がユーザーの理解を超えてはなりません）。 |
 | 堅牢 | コンテンツは、支援技術を含む幅広いユーザーエージェントによって確実に解釈できるほど堅牢でなければなりません。<br><br>技術が進歩してもユーザーがコンテンツにアクセスできなければなりません（技術やユーザーエージェントが進化しても、コンテンツはアクセシブルであり続ける必要があります）。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="POUR categories" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="POURカテゴリ" }
 
 #### 重大度レベル {#severity-levels}
 
@@ -125,10 +125,10 @@ Brazeはスクリーンショットを撮る前にメールの到着を待つた
 | 軽微 | アクセシビリティへの影響が比較的低く、軽微な不便のみを引き起こす可能性のある問題です。 |
 | 要確認 | 問題があるかどうかを検出できません。テキストが背景画像の上に配置されている場合にコントラスト比を判定できないときなどに発生します。自動的に判定できないため、手動で確認する必要があります。 |
 | 合格 | WCAG A、AA、またはアクセシビリティのベストプラクティスに合格しました。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Severity levels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="重大度レベル" }
 
 {% alert important %}
-ドラッグ＆ドロップエディターはドキュメントの`<title>`要素の設定をサポートしていないため、アクセシビリティスキャナーはこのチェックで常に不合格になります。<br><br>この制限は将来の改善として追跡されています。これがワークフローやユーザーに影響する場合は、影響の大きい修正を優先できるよう[フィードバックを共有]({{site.baseurl}}/user_guide/administer/personal/the_braze_dashboard/#sharing-feedback)してください。
+ドラッグ＆ドロップエディターはドキュメントの`<title>`要素の設定をサポートしていないため、アクセシビリティスキャナーはこのチェックで常に不合格になります。<br><br>この制限は将来の改善として追跡されています。{% multi_lang_include product_feedback_cta.md context="pain_point" channel="ux" feature="the drag-and-drop editor document title limitation in Inbox Vision" %}
 {% endalert %}
 
 ### 自動アクセシビリティテストについて {#understanding-automated-accessibility-testing}
@@ -139,7 +139,7 @@ Brazeはスクリーンショットを撮る前にメールの到着を待つた
 
 ### メールサブスクライバーリストを確認する {#review-your-email-subscriber-list}
 
-[メールインサイトダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance/#email-insights-dashboard)を参照して、サブスクライバーがエンゲージしている最も人気のあるデバイスタイプとプロバイダーを確認してください。ブラウザ、デバイスモデルなど、より詳細な情報が必要な場合は、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)データまたは[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)を活用して、ユーザーの最近のメールエンゲージメントに関するこのレベルの詳細を取得できます。
+[メールインサイトダッシュボード]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#email-insights-dashboard)を参照して、サブスクライバーがエンゲージしている最も人気のあるデバイスタイプとプロバイダーを確認してください。ブラウザ、デバイスモデルなど、より詳細な情報が必要な場合は、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)データまたは[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)を活用して、ユーザーの最近のメールエンゲージメントに関するこのレベルの詳細を取得できます。
 
 それ以外の場合、Brazeは一般的な業界データと専門家データに基づいた上位20件のプレビューをデフォルトで表示します。これは、サブスクライバーがメールとエンゲージしている場所の大部分をカバーしています。データ分析で他のより人気のあるプレビューが示された場合は、受信トレイビジョンを実行するたびにデフォルトのプレビューセットを定義できます。
 
@@ -155,7 +155,7 @@ Brazeはスクリーンショットを撮る前にメールの到着を待つた
 
 1回の編集や変更のたびに受信トレイビジョンを実行すると、プレビューがすぐに消費されてしまいます。まずメールに必要なすべての変更を行い、その後受信トレイビジョンを実行して、すべての変更が各環境でのメールのレンダリングにどのように影響するかをプレビューすることをお勧めします。
 
-Brazeは実際のメールクライアントを通じてテストを実行し、レンダリングが正確であることを確認します。特定のクライアントで一貫して問題が発生する場合は、[サポートチケット]({{site.baseurl}}/braze_support/)を開いてください。
+Brazeは実際のメールクライアントを通じてテストを実行し、レンダリングが正確であることを確認します。特定のクライアントで一貫して問題が発生する場合は、[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。
 
 ### テストの精度とライブ受信トレイの比較 {#test-accuracy-versus-live-inboxes}
 

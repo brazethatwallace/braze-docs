@@ -65,7 +65,7 @@ Wenn Sie die aufgeführten CDNs nicht für SSL-Klick- und Öffnungs-Tracking ver
 ### Zusätzliche Ressourcen {#additional-resources}
 
 {% alert important %}
-Kontaktieren Sie bei der Fehlerbehebung Ihrer CDN-Konfiguration Ihren CDN-Anbieter oder lesen Sie die [Fehlerbehebung]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/) für allgemeine Hinweise.
+Kontaktieren Sie bei der Fehlerbehebung Ihrer CDN-Konfiguration Ihren CDN-Anbieter oder lesen Sie die [Fehlerbehebung]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting) für allgemeine Hinweise.
 {% endalert %}
 
 Sehen Sie sich die folgenden Ressourcen der ESP-Partner an, um bestimmte CDNs zu konfigurieren. Auch wenn Ihr spezifisches CDN möglicherweise nicht aufgeführt ist, müssen Sie sicherstellen, dass Ihr CDN die Möglichkeit hat, SSL-Zertifikate anzuwenden.
@@ -103,4 +103,4 @@ Wenn Sie die Klick-Tracking-Domain Ihres CDN konfigurieren, aktivieren Sie den `
 
 ## Fehlerbehebung {#troubleshooting}
 
-Obwohl Sie die CDN-Konfiguration, Zertifikate und Proxy-Probleme mit Ihrem CDN-Anbieter klären sollten, können Ihnen diese Tipps helfen, häufige SSL-Klick-Tracking-Probleme zu identifizieren. Hinweise zur Fehlerbehebung finden Sie unter [Fehlerbehebung]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting/).
+Obwohl Sie die CDN-Konfiguration, Zertifikate und Proxy-Probleme mit Ihrem CDN-Anbieter klären sollten, können Ihnen diese Tipps helfen, häufige SSL-Klick-Tracking-Probleme zu identifizieren. Hinweise zur Fehlerbehebung finden Sie unter [Fehlerbehebung]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting).

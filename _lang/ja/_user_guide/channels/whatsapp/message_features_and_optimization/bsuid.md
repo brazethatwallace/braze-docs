@@ -34,7 +34,7 @@ BSUIDには3つの主要な特性があります。
 | ユニーク | ビジネスポートフォリオ内で同じBSUIDを共有するユーザーはいません。 |
 | ビジネススコープ | 同じユーザーでも、メッセージを送信するビジネスごとに異なるBSUIDを持ちます。BSUIDは異なるビジネスポートフォリオ間で共有または比較することはできません。 |
 | webhookで利用可能 | BSUIDは、現在ユーザーの電話番号を含むすべてのwebhookペイロードに含まれます。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Business-scoped user ID (BSUID)" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="ビジネススコープユーザーID（BSUID）" }
 
 ## WhatsAppユーザータイプの変更 {#changes-to-whatsapp-user-types}
 
@@ -44,13 +44,13 @@ WhatsAppユーザー名のリリース後、WhatsAppユーザーには2つのタ
 | ----- | ----- | ----- |
 | ユーザー名なしのユーザー | 電話番号（変更なし） | 電話番号（変更なし） |
 | ユーザー名ありのユーザー | ユーザー名（表示）、BSUID（バックエンド） | BSUID、ビジネスとの既存の会話があるユーザーの電話番号 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Changes to WhatsApp user types" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="WhatsAppユーザータイプの変更" }
 
 主な違いは、ユーザー名を採用したユーザーは、以前に会話したことがある場合、またはWhatsApp連絡先帳に表示されている場合にのみ、ビジネスに電話番号を共有するという点です。
 
 ## BrazeによるBSUIDの処理方法 {#how-braze-will-handle-bsuids}
 
-Brazeは、BSUIDをユーザープロファイル上の`whats_app_bsuid`というラベルの[ユーザーエイリアス]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#user-aliases)として保存します。これにより、BSUIDのみのユーザーも完全なBrazeユーザープロファイルを持ち、キャンバスに入場し、メッセージを受信し、イベントを生成し、APIを通じて更新できます。
+Brazeは、BSUIDをユーザープロファイル上の`whats_app_bsuid`というラベルの[ユーザーエイリアス]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases)として保存します。これにより、BSUIDのみのユーザーも完全なBrazeユーザープロファイルを持ち、キャンバスに入場し、メッセージを受信し、イベントを生成し、APIを通じて更新できます。
 
 ### メッセージの送信 {#send-messages}
 
@@ -74,12 +74,12 @@ BrazeがWhatsAppメッセージを送信する際、電話番号が利用可能�
 
 サブスクリプショングループの管理は、ユーザーエイリアスで識別されるユーザーと同様に、BSUIDユーザーに対しても同じように機能します。BSUIDユーザーのサブスクリプションステータスは、以下の方法で更新できます。
 
-- `user_alias`を使用した[users/trackエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)
-- [ユーザーの更新]({{site.baseurl}}/user_update/)キャンバスステップ（自動的に機能します）
+- `user_alias`を使用した[users/trackエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
+- [ユーザーの更新]({{site.baseurl}}/user_update)キャンバスステップ（自動的に機能します）
 - CSVアップロード
 
 {% alert note %}
-[subscription/status/setエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status/)は[`user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object/)をサポートしません。BSUIDのみのユーザーのサブスクリプション状態を更新するには、[users/trackエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track/)を使用してください。
+[subscription/status/setエンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)は[`user_alias`]({{site.baseurl}}/api/objects_filters/user_alias_object)をサポートしません。BSUIDのみのユーザーのサブスクリプション状態を更新するには、[users/trackエンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用してください。
 {% endalert %}
 
 ### Currentsとイベントデータ {#currents-and-event-data}
@@ -144,7 +144,7 @@ webhookに通常のBSUIDと親BSUIDの両方が含まれている場合、Braze�
 | 単一のビジネスポートフォリオ | 通常のBSUID |
 | 複数のリンクされたポートフォリオ | 親BSUID（優先）。親BSUIDが存在しない場合は、通常のBSUIDを使用 |
 | 複数のリンクされていないポートフォリオ | 通常のBSUID（ポートフォリオごとにユーザープロファイルが重複する可能性あり） |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="How Braze uses parent BSUIDs" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Brazeによる親BSUIDの使用方法" }
 
 ## よくある質問 {#frequently-asked-questions}
 
@@ -201,8 +201,8 @@ WhatsAppのCurrentsイベントには、既存の電話番号フィールドと�
 
 ## その他のリソース {#additional-resources}
 
-* [WhatsAppセットアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/)
-* [ユーザーエイリアス]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle/#user-aliases)
-* [WhatsAppサブスクリプショングループ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups/)
-* [WhatsApp Currentsイベント]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events/#whatsapp)
+* [WhatsAppセットアップ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup)
+* [ユーザーエイリアス]({{site.baseurl}}/user_guide/data/user_data_collection/user_profile_lifecycle#user-aliases)
+* [WhatsAppサブスクリプショングループ]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)
+* [WhatsApp Currentsイベント]({{site.baseurl}}/user_guide/data/braze_currents/event_glossary/message_engagement_events#whatsapp)
 * [Meta: ビジネススコープユーザーID](https://developers.facebook.com/documentation/business-messaging/whatsapp/business-scoped-user-ids)

@@ -4,7 +4,7 @@ article_title: Armazenamento para iOS
 platform: iOS
 page_order: 8.9
 page_type: reference
-description: "Este artigo de referência descreve as propriedades no nível de dispositivo capturadas pelo Braze iOS SDK."
+description: "Este artigo de referência descreve as propriedades no nível de dispositivo capturadas pelo SDK da Braze para iOS."
 
 noindex: true
 ---
@@ -13,7 +13,7 @@ noindex: true
 
 # Armazenamento {#storage}
 
-Este artigo descreve as diferentes propriedades no nível de dispositivo capturadas ao usar o Braze iOS SDK.
+Este artigo descreve as diferentes propriedades no nível de dispositivo capturadas ao usar o SDK da Braze para iOS.
 
 ## Propriedades do dispositivo {#device-properties}
 
@@ -43,4 +43,4 @@ appboyOptions[ABKDeviceAllowlistKey] = @(ABKDeviceOptionTimezone | ABKDeviceOpti
 
 Por padrão, todos os campos estão ativados. Observe que, sem algumas propriedades, nem todos os recursos funcionarão corretamente. Por exemplo, a entrega no horário local não funcionará sem o fuso horário.
 
-Para saber mais sobre as propriedades do dispositivo coletadas automaticamente, visite nossa [coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Para saber mais sobre as propriedades do dispositivo coletadas automaticamente, visite nossa [coleta de dados do SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).

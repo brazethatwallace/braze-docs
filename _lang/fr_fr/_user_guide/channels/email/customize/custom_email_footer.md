@@ -12,7 +12,7 @@ channel:
 
 > Vous pouvez définir un pied de page d'e-mail personnalisé pour l'ensemble de l'espace de travail, que vous pouvez intégrer dans chaque e-mail à l'aide de l'attribut Liquid {% raw %}`{{${email_footer}}}`{% endraw %}.
 
-En utilisant des pieds de page d'e-mail personnalisés, vous n'avez plus besoin de créer un nouveau pied de page pour chaque modèle d'e-mail ou chaque Campaign que vous utilisez. Toutes les Campaigns existantes et nouvelles reflètent les modifications apportées à votre pied de page personnalisé. N'oubliez pas que le respect de la [loi CAN-SPAM de 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) vous oblige à inclure une adresse physique pour votre entreprise et un lien de désabonnement dans vos e-mails.
+En utilisant des pieds de page d'e-mail personnalisés, vous n'avez plus besoin de créer un nouveau pied de page pour chaque modèle d'e-mail ou chaque campagne que vous utilisez. Toutes les campagnes existantes et nouvelles reflètent les modifications apportées à votre pied de page personnalisé. N'oubliez pas que le respect de la [loi CAN-SPAM de 2003](https://www.ftc.gov/tips-advice/business-center/guidance/can-spam-act-compliance-guide-business) vous oblige à inclure une adresse physique pour votre entreprise et un lien de désabonnement dans vos e-mails.
 
 {% alert warning %}
 Il est de votre responsabilité de vous assurer que votre pied de page personnalisé répond aux exigences susmentionnées.
@@ -46,9 +46,9 @@ Voici un avertissement dans le compositeur d'e-mails :
 
 ![Exemple d'e-mail composé sans pied de page.]({% image_buster /assets/img_archive/no_unsub_link_warning.png %})
 
-Voici un avertissement dans le compositeur de Campaign :
+Voici un avertissement dans le compositeur de campagne :
 
-![Composition de Campaign sans pied de page.]({% image_buster /assets/img_archive/no_footer_test.png %})
+![Composition de campagne sans pied de page.]({% image_buster /assets/img_archive/no_footer_test.png %})
 
 ### Ajouter un lien de désabonnement personnalisé {#adding-a-custom-unsubscribe-link}
 
@@ -57,7 +57,7 @@ Pour ajouter un lien de désabonnement personnalisé, vous pouvez remplacer le l
 > https://www.braze.com/unsubscribe?user_id={{${user_id}}}
 {% endraw %}
 
-Ensuite, appelez l'[endpoint `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status/) pour mettre à jour le statut d'abonnement de l'utilisateur. Pour plus de détails, consultez notre documentation sur la [modification des abonnements e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions/#changing-email-subscriptions).
+Ensuite, appelez l'[endpoint `/email/status`]({{site.baseurl}}/api/endpoints/email/post_email_subscription_status) pour mettre à jour le statut d'abonnement de l'utilisateur. Pour plus de détails, consultez notre documentation sur la [modification des abonnements e-mail]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions).
 
 Puis enregistrez ce nouveau lien. La balise de désabonnement par défaut de Braze {%raw%}(``${set_user_to_unsubscribed_url}``){%endraw%} doit figurer dans le pied de page. Cela signifie que vous devez inclure le lien par défaut en le « masquant », soit en plaçant la balise dans un commentaire, soit dans une balise `<div>` masquée.
 
@@ -67,7 +67,7 @@ Voici quelques bonnes pratiques à suivre lors de la création et de l'utilisati
 
 ### Personnaliser avec des attributs {#personalizing-with-attributes}
 
-Lors de la création d'un pied de page personnalisé, Braze vous recommande d'utiliser des [attributs pour la personnalisation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags/). L'ensemble complet des attributs par défaut et personnalisés est disponible, mais voici quelques-uns qui pourraient vous être utiles :
+Lors de la création d'un pied de page personnalisé, Braze vous recommande d'utiliser des [attributs pour la personnalisation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags). L'ensemble complet des attributs par défaut et personnalisés est disponible, mais voici quelques-uns qui pourraient vous être utiles :
 
 | Attribut | Balise |
 | --------- | --- |
@@ -94,4 +94,11 @@ Si vous n'incluez pas de pied de page en texte brut, Braze en créera automatiqu
 
 ## Considérations {#considerations}
 
-Si vous utilisez [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/), notez que {% raw %}`{{${email_footer}}}`{% endraw %} n'est pas une balise Liquid standard. Elle est pré-traitée avant l'exécution de Liquid, donc utiliser {% raw %}`{{${email_footer}}}`{% endraw %} comme valeur de variable de contexte et appeler le drapeau `:rerender` échouera silencieusement. Utilisez plutôt un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/#email-footers) pour un pied de page d'e-mail.
+
+### BrazeAI Decisioning Studio™
+
+Si vous utilisez [BrazeAI Decisioning Studio™]({{site.baseurl}}/user_guide/brazeai/decisioning_studio), notez que {% raw %}`{{${email_footer}}}`{% endraw %} n'est pas une balise Liquid standard. Elle est pré-traitée avant l'exécution de Liquid, donc utiliser {% raw %}`{{${email_footer}}}`{% endraw %} comme valeur de variable de contexte et appeler le drapeau `:rerender` échouera silencieusement. Utilisez plutôt un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers) pour un pied de page d'e-mail.
+
+### Modèles de liens et paramètres UTM {#link-templates-and-utm-parameters}
+
+Les modèles de liens ne sont pas automatiquement ajoutés aux liens dans les pieds de page d'e-mail personnalisés lorsque vous utilisez {% raw %}`{{${email_footer}}}`{% endraw %}. Si vous avez besoin de modèles de liens tels que des paramètres UTM dans les liens de votre pied de page, utilisez plutôt un [bloc de contenu]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks#email-footers), ou ajoutez manuellement les paramètres UTM aux liens spécifiques de votre pied de page personnalisé.

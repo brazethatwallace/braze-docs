@@ -27,15 +27,13 @@ La page principale du **Sync Log** fournit un aperçu de haut niveau de toutes v
 Les journaux de synchronisation fournissent également les détails suivants pour chaque synchronisation :
 
 * **Nom de la synchronisation :** le nom de la configuration de synchronisation.
-* **ID d'exécution :** un identifiant unique pour une exécution spécifique de la synchronisation. Sélectionnez cet ID pour afficher plus de détails. Il peut également être utilisé dans les [endpoints de l'API CDI]({{site.baseurl}}/api/endpoints/cdi/) ou pour référencer une exécution de synchronisation auprès de l'assistance Braze.
+* **ID d'exécution :** un identifiant unique pour une exécution spécifique de la synchronisation. Sélectionnez cet ID pour afficher plus de détails. Il peut également être utilisé dans les [endpoints de l'API CDI]({{site.baseurl}}/api/endpoints/cdi) ou pour référencer une exécution de synchronisation auprès de l'assistance Braze.
 * **État :** le statut de l'exécution (réussi, succès partiel, erreur, en cours).
 * **Nouvelles lignes lues depuis la source :** le nombre de nouvelles lignes extraites de votre entrepôt de données pour cette exécution.
 * **Résultats :** une ventilation du nombre de lignes ayant réussi ou échoué au cours de l'exécution.
 * **Dernier `UPDATED_AT` :** l'horodatage de l'enregistrement le plus récent traité lors de cette exécution de synchronisation.
 * **Heure de début de l'exécution :** le moment où la tâche de synchronisation a démarré.
 * **Durée de l'exécution :** la durée totale nécessaire à l'achèvement de la tâche de synchronisation.
-
-![Détails d'un journal de synchronisation.]({% image_buster /assets/img/cloud_ingestion/sync_logs3.png %}){: style="max-width:80%"}
 
 ### Conservation des données {#data-retention}
 
@@ -73,8 +71,6 @@ Ce tableau offre une visibilité au niveau des lignes sur les données traitées
 
 Pour afficher les données exactes envoyées à Braze pour une ligne spécifique, sélectionnez **View payload** dans la colonne **Source** payload. Cela affiche le payload JSON brut qui a été traité pour cet utilisateur.
 
-![Exemple de payload pour une ligne spécifique dans un journal de synchronisation.]({% image_buster /assets/img/cloud_ingestion/sync_logs2.png %}){: style="max-width:80%"}
-
 #### Exportation des journaux de synchronisation {#exporting-sync-logs}
 
 Sélectionnez **Export rows** pour exporter les journaux au niveau des lignes pour une exécution de synchronisation. Choisissez ensuite d'exporter par :
@@ -82,7 +78,7 @@ Sélectionnez **Export rows** pour exporter les journaux au niveau des lignes po
 * **Lignes contenant des erreurs :** télécharge un fichier contenant uniquement les lignes ayant un statut **Error**.
 * **Toutes les lignes :** télécharge un fichier contenant toutes les lignes traitées lors de l'exécution.
 
-{% multi_lang_include early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='Exporting sync logs for all rows' %}
 
 Les journaux ne peuvent pas être exportés directement depuis le tableau de bord. Une fois l'exportation générée, vous recevrez un e-mail contenant un lien pour télécharger le fichier d'exportation du journal.
 

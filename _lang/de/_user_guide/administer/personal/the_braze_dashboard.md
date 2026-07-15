@@ -21,11 +21,11 @@ Wenn Sie sich anmelden, bietet das Dashboard eine zentrale Ansicht Ihrer Engagem
 - **Linke Navigation:** Organisiert Tools nach Funktion (Messaging, Zielgruppe, Analytics, Einstellungen)
 - **Globaler Header:** Bietet schnellen Zugriff auf Suche, Support, Spracheinstellungen, Benachrichtigungen und Ihr Konto
 
-Ihr Dashboard-Erlebnis ist nach [Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces/) organisiert, die Ihnen helfen, Inhalte für verschiedene Marken, Regionen oder Teams zu verwalten. Sie können jederzeit über die Seitennavigation [zwischen Workspaces wechseln](#workspace-switcher).
+Ihr Dashboard-Erlebnis ist nach [Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces) organisiert, die Ihnen helfen, Inhalte für verschiedene Marken, Regionen oder Teams zu verwalten. Sie können jederzeit über die Seitennavigation [zwischen Workspaces wechseln](#workspace-switcher).
 
 ## Auf Ihr Dashboard zugreifen {#access-your-dashboard}
 
-Um loszulegen, [melden Sie sich bei Ihrem Braze-Konto an]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account/). Ihr Zugriff auf Seiten innerhalb des Dashboards und die Berechtigung, bestimmte Aktionen auszuführen, basieren auf Ihren zugewiesenen [Nutzer:innen-Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/#list-of-permissions). Wenn Sie Hilfe bei Ihren Berechtigungen benötigen, wenden Sie sich an Ihre Braze-Administrator:innen.
+Um loszulegen, [melden Sie sich bei Ihrem Braze-Konto an]({{site.baseurl}}/user_guide/administer/personal/accessing_your_account). Ihr Zugriff auf Seiten innerhalb des Dashboards und die Berechtigung, bestimmte Aktionen auszuführen, basieren auf Ihren zugewiesenen [Nutzer:innen-Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions). Wenn Sie Hilfe bei Ihren Berechtigungen benötigen, wenden Sie sich an Ihre Braze-Administrator:innen.
 
 ## In Braze navigieren {#navigate-braze}
 
@@ -35,10 +35,10 @@ Der globale Header ist fast immer oben auf dem Bildschirm sichtbar. Er bietet sc
 
 - [Suche](#search-your-dashboard)
 - Support- und Community-Links
-- [Dashboard-Sprache]({{site.baseurl}}/user_guide/administer/personal/language_settings/)
+- [Dashboard-Sprache]({{site.baseurl}}/user_guide/administer/personal/language_settings)
 - Benachrichtigungen
 - Kontoeinstellungen
-- [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator/)
+- [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)
 
 ### Die Seitennavigation verwenden {#use-the-side-navigation}
 
@@ -50,13 +50,13 @@ Das vertikale Menü auf der linken Seite organisiert Braze-Tools nach Funktion u
 
 Der Workspace-Umschalter befindet sich oben in der Seitennavigation und ermöglicht es Ihnen, zwischen verschiedenen Workspaces in Ihrer Braze-Instanz zu wechseln. Der aktive Workspace ist hervorgehoben.
 
-[Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces/) helfen dabei, Inhalte nach Marke, Region, Produktlinie oder Team zu organisieren. Jeder Workspace umfasst eigene Daten, Campaigns und Einstellungen. Ihr Zugriff kann zwischen Workspaces variieren. Beispielsweise könnten Sie in einem Workspace Bearbeitungszugriff und in einem anderen nur Lesezugriff haben.
+[Workspaces]({{site.baseurl}}/user_guide/get_started/workspaces) helfen dabei, Inhalte nach Marke, Region, Produktlinie oder Team zu organisieren. Jeder Workspace umfasst eigene Daten, Campaigns und Einstellungen. Ihr Zugriff kann zwischen Workspaces variieren. Beispielsweise könnten Sie in einem Workspace Bearbeitungszugriff und in einem anderen nur schreibgeschützten Zugriff haben.
 
 Um den Workspace zu wechseln, wählen Sie das Workspace-Dropdown oben in der Seitennavigation und wählen Sie den gewünschten Workspace aus. Sie können auch [bevorzugte Workspaces hinzufügen](#favorite-workspaces), um schneller auf die am häufigsten genutzten zuzugreifen.
 
 #### Seitennavigation minimieren {#minimize-the-side-navigation}
 
-Um visuelle Unordnung zu reduzieren, insbesondere bei Aufgaben wie dem Entwerfen eines Canvas, können Sie das Seitennavigations-Panel minimieren. Klicken Sie auf **Minimize menu**, um es einzuklappen. Auch im minimierten Zustand können Sie über jedes Symbol hovern, um Tooltips mit den Menüpunktnamen anzuzeigen. So können Sie schnell zwischen Tools wechseln und gleichzeitig Ihren Workspace übersichtlich halten.
+Um visuelle Unordnung zu reduzieren, insbesondere bei Aufgaben wie dem Entwerfen eines Canvas, können Sie das Seitennavigations-Panel minimieren. Klicken Sie auf **Menü minimieren**, um es einzuklappen. Auch im minimierten Zustand können Sie über jedes Symbol hovern, um Tooltips mit den Menüpunktnamen anzuzeigen. So können Sie schnell zwischen Tools wechseln und gleichzeitig Ihren Workspace übersichtlich halten.
 
 ![Symbole zum Minimieren und Maximieren des Menüs]({% image_buster /assets/img/minimize_expand_menu.png %}){: style="max-width:60%;border:none"}
 
@@ -93,7 +93,7 @@ Um nach exaktem Text zu suchen, setzen Sie Ihren Suchbegriff in Anführungszeich
 
 Jedes Ergebnis ist mit einem Tag versehen, das den Inhaltstyp angibt – wie Campaign, Canvas oder Segment – sowie den Status (aktiv, archiviert, gestoppt).
 
-### Nach aktiven und Entwurfsinhalten filtern {#filter-for-active-and-draft-content}
+### Nach aktiven Inhalten und Entwürfen filtern {#filter-for-active-and-draft-content}
 
 Standardmäßig umfasst die Suche aktive, Entwurfs- und archivierte Elemente. Verwenden Sie den Schalter **Show active and draft only**, um Ihre Ergebnisse einzugrenzen.
 
@@ -126,7 +126,7 @@ table td {
 | Zwischen Suchergebnissen bewegen | <kbd>⬆</kbd> / <kbd>⬇</kbd>  |
 | Ein Suchergebnis auswählen       | <kbd>Enter</kbd>    |
 | Suchmenü schließen               | <kbd>Esc</kbd>  |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Keyboard shortcuts" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tastaturkürzel" }
 
 ## Produktivitäts-Features {#productivity-features}
 
@@ -134,7 +134,7 @@ Das Braze-Dashboard enthält mehrere Features, die Ihnen helfen, effizienter zu 
 
 ### BrazeAI Operator
 
-BrazeAI Operator™ ist ein KI-gestützter Assistent, der in das Dashboard integriert ist. Nutzen Sie ihn, um Antworten zu erhalten, Einrichtungsschritte durchzugehen, Probleme zu beheben und Ideen zu entwickeln. Öffnen Sie ihn über **BrazeAI Operator™** im globalen Header neben Ihrem Profil. Weitere Informationen finden Sie unter [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator/).
+BrazeAI Operator™ ist ein KI-gestützter Assistent, der in das Dashboard integriert ist. Nutzen Sie ihn, um Antworten zu erhalten, Einrichtungsschritte durchzugehen, Probleme zu beheben und Ideen zu entwickeln. Öffnen Sie ihn über **BrazeAI Operator™** im globalen Header neben Ihrem Profil. Weitere Informationen finden Sie unter [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator).
 
 ### Dort weitermachen, wo Sie aufgehört haben {#pick-up-where-you-left-off}
 
@@ -142,7 +142,7 @@ Auf der **Startseite** zeigt das Dashboard Ihre zuletzt bearbeiteten oder erstel
 
 ![Ein Canvas-Entwurf, ein aktives Segment und ein Campaign-Entwurf im Abschnitt „Dort weitermachen, wo Sie aufgehört haben“.]({% image_buster /assets/img/pick_up_where_you_left_off.png %})
 
-Weitere Informationen finden Sie unter [Start-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/home/#pick-up-where-you-left-off).
+Weitere Informationen finden Sie unter [Start-Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/home#pick-up-where-you-left-off).
 
 ### Bevorzugte Workspaces {#favorite-workspaces}
 
@@ -156,7 +156,7 @@ So fügen Sie bevorzugte Workspaces hinzu:
 
 ### Auf Ihre Profileinstellungen zugreifen {#access-your-profile-settings}
 
-So verwalten Sie Ihre Kontoeinstellungen, Präferenzen für Benachrichtigungen und persönliche Informationen:
+So verwalten Sie Ihre Kontoeinstellungen, Benachrichtigungspräferenzen und persönlichen Informationen:
 
 1. Wählen Sie Ihr Profilsymbol im globalen Header aus.
 2. Wählen Sie **Konto verwalten**, um auf Ihre Profilseite zuzugreifen.
@@ -175,15 +175,15 @@ Möchten Sie uns Ihre Meinung mitteilen? Sie können Feedback zu Navigation, Bar
 
 ### Administrative Aufgaben {#administrative-tasks}
 
-- [Workspaces erstellen und verwalten]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces/)
-- [Braze-Nutzer:innen verwalten]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users/)
-- [Nutzer:innen-Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)
-- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams/)
+- [Workspaces erstellen und verwalten]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces)
+- [Braze-Nutzer:innen verwalten]({{site.baseurl}}/user_guide/administer/global/user_management/manage_company_users)
+- [Nutzer:innen-Berechtigungen]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)
+- [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams)
 
 ### Wichtige Aufgaben und nächste Schritte {#key-tasks-and-next-steps}
 
-- **Campaigns erstellen**: [Eine Campaign erstellen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/)
-- **Journeys erstellen**: [Einen Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/)
-- **Zielgruppen definieren**: [Ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)
-- **Performance überprüfen**: [Analytics-Übersicht]({{site.baseurl}}/user_guide/analytics/dashboards/home/)
-- **Einstellungen konfigurieren**: [App-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/)
+- **Campaigns erstellen**: [Eine Campaign erstellen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign)
+- **Journeys erstellen**: [Einen Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)
+- **Zielgruppen definieren**: [Ein Segment erstellen]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)
+- **Performance überprüfen**: [Analytics-Übersicht]({{site.baseurl}}/user_guide/analytics/dashboards/home)
+- **Einstellungen konfigurieren**: [App-Einstellungen]({{site.baseurl}}/user_guide/administer/global/workspace_settings)

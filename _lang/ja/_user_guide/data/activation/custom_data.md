@@ -24,7 +24,7 @@ description: "カスタムデータは、Brazeでのエンゲージメント戦�
 - **パーソナライゼーション:** 属性はパーソナライゼーションに最適です。ユーザーの `favorite_category` をメールの件名に挿入して、注目を集めることができます。
 - **保存:** このデータは、プロファイルがアクティブである限り、ユーザープロファイルに無期限で保持されます。
 
-詳細については、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)を参照してください。
+詳細については、[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)を参照してください。
 
 ### カスタムイベント: ユーザーが何をするか {#custom-events-what-your-users-do}
 
@@ -35,7 +35,7 @@ description: "カスタムデータは、Brazeでのエンゲージメント戦�
 - **メタデータ:** イベントプロパティを使用して、カートに追加されたアイテムの名前など、イベントに追加の詳細を付与できます。
 - **分析:** イベントはセグメンテーション、レポート、分析を支え、エンゲージメントの測定やメッセージングの最適化を可能にします。
 
-詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)を参照してください。
+詳細については、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events)を参照してください。
 
 ## カタログ {#catalogs}
 
@@ -43,13 +43,13 @@ description: "カスタムデータは、Brazeでのエンゲージメント戦�
 
 CSVやAPIを通じてこのメタデータをインポートすることで、ユーザープロファイルに保存されていない情報でメッセージを充実させることができます。たとえば、カタログを使用して、ユーザーが以前閲覧したアイテムが再入荷したり値下げされたりしたときに、自動的に顧客に通知できます。
 
-詳細については、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/)を参照してください。
+詳細については、[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)を参照してください。
 
 ## データタイプ {#data-types}
 
 Brazeは、カスタムデータに対してブール値、数値、文字列、配列、時間、オブジェクトタイプなど、複数のデータタイプをサポートしており、それぞれに固有の動作とセグメンテーションオプションがあります。選択するデータタイプによって、キャンペーンやセグメントでのフィルタリングやパーソナライゼーションの方法が決まります。
 
-カスタム属性、イベントプロパティ、カタログでサポートされるデータタイプの完全なリファレンスについては、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types/)を参照してください。
+カスタム属性、イベントプロパティ、カタログでサポートされるデータタイプの完全なリファレンスについては、[データタイプ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types)を参照してください。
 
 ## データの整合性を管理する {#managing-your-data-integrity}
 
@@ -66,4 +66,4 @@ Brazeは、属性に対して最初に受信した値のデータタイプ（数
 - **ブロックリスト:** そのオブジェクトに対する新しいデータの収集をBrazeが停止します。フィルターやグラフにデータが表示されなくなりますが、プロファイル上の既存データは保持されます。
 - **削除:** すべてのユーザープロファイルからデータを完全に削除します。削除の対象となるには、データオブジェクトを7日間ブロックリストに登録する必要があります。
 
-詳細については、[カスタムデータを管理する]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data/)および[カスタムデータのブロックリスト]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data/)を参照してください。
+詳細については、[カスタムデータを管理する]({{site.baseurl}}/user_guide/data/activation/custom_data/managing_custom_data)および[カスタムデータのブロックリスト]({{site.baseurl}}/user_guide/data/activation/custom_data/blocklist_custom_data)を参照してください。

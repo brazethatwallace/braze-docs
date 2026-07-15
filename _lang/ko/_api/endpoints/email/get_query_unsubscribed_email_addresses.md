@@ -14,7 +14,7 @@ description: "이 문서에서는 이메일 수신 거부 목록 검색 또는 �
 /email/unsubscribes
 {% endapimethod %}
 
-> 이 엔드포인트를 사용하여 `start_date`에서 `end_date`까지의 기간 동안 수신 거부한 최신 이메일을 반환합니다. 전체 구독 상태 기록을 보려면 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)를 사용하여 이 데이터를 추적하세요.
+> 이 엔드포인트를 사용하여 `start_date`에서 `end_date`까지의 기간 동안 수신 거부한 최신 이메일을 반환합니다. 전체 구독 상태 기록을 보려면 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)를 사용하여 이 데이터를 추적하세요.
 
 이 엔드포인트를 사용하여 Braze와 다른 이메일 시스템 또는 자체 데이터베이스 간의 양방향 동기화를 설정할 수 있습니다.
 
@@ -22,7 +22,7 @@ description: "이 문서에서는 이메일 수신 거부 목록 검색 또는 �
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `email.unsubscribe` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `email.unsubscribe` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -48,7 +48,7 @@ description: "이 문서에서는 이메일 수신 거부 목록 검색 또는 �
 
 ## 요청 예시 {#example-request}
 ```
-curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@braze.com' \
+curl --location --request GET 'https://rest.iad-01.braze.com/email/unsubscribes?start_date=2020-01-01&end_date=2020-02-01&limit=1&offset=1&sort_direction=desc&email=example@example.com' \
 --header 'Authorization: Bearer YOUR-API-KEY-HERE'
 ```
 

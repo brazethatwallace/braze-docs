@@ -9,13 +9,13 @@ alias: /query_builder/
 
 # 쿼리 빌더 {#query-builder}
 
-> 쿼리 빌더는 Snowflake의 Braze 데이터를 사용하여 보고서를 생성합니다. 쿼리 빌더에는 시작하는 데 도움이 되는 사전 구축된 SQL [쿼리 템플릿]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/)이 제공되며, 직접 커스텀 SQL 쿼리를 작성하여 더 많은 인사이트를 얻을 수도 있습니다.
+> 쿼리 빌더는 Snowflake의 Braze 데이터를 사용하여 보고서를 생성합니다. 쿼리 빌더에는 시작하는 데 도움이 되는 사전 구축된 SQL [쿼리 템플릿]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)이 제공되며, 직접 커스텀 SQL 쿼리를 작성하여 더 많은 인사이트를 얻을 수도 있습니다.
 
-쿼리 빌더는 일부 고객 데이터에 대한 직접 액세스를 허용하므로, "PII 보기" [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions/)이 있는 경우에만 쿼리 빌더에 액세스할 수 있습니다.
+쿼리 빌더는 일부 고객 데이터에 대한 직접 액세스를 허용하므로, "PII 보기" [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 있는 경우에만 쿼리 빌더에 액세스할 수 있습니다.
 
 ## 사용 가능한 데이터 테이블 {#available-data-tables}
 
-쿼리 빌더는 [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/) 및 [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)와 동일한 Snowflake SQL 테이블을 사용합니다. 사용 가능한 테이블과 해당 열의 전체 목록은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)를 참조하세요.
+쿼리 빌더는 [SQL 세그먼트 확장]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) 및 [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)와 동일한 Snowflake SQL 테이블을 사용합니다. 사용 가능한 테이블과 해당 열의 전체 목록은 [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요.
 
 ## 쿼리 빌더에서 보고서 실행하기 {#running-reports-in-the-query-builder}
 
@@ -37,11 +37,11 @@ alias: /query_builder/
 
 보고서를 처음 생성할 때 **SQL 쿼리 생성** > **쿼리 템플릿**을 선택하여 쿼리 템플릿에 액세스합니다.
 
-사용 가능한 템플릿 목록은 [쿼리 템플릿]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates/)을 참조하세요.
+사용 가능한 템플릿 목록은 [쿼리 템플릿]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates)을 참조하세요.
 
 ### 데이터 기간 {#data-timeframe}
 
-쿼리는 최근 60일간의 데이터를 반환합니다. Currents 또는 [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake/)를 사용하는 경우 최대 2년간의 데이터를 쿼리할 수 있으며, 이는 Snowflake에서 데이터가 보존되는 기간입니다. 확장된 데이터 보존에 대한 자세한 내용은 고객 성공 매니저에게 문의하세요.
+쿼리는 최근 60일간의 데이터를 반환합니다. Currents 또는 [Snowflake 데이터 공유]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)를 사용하는 경우 최대 2년간의 데이터를 쿼리할 수 있으며, 이는 Snowflake에서 데이터가 보존되는 기간입니다. 확장된 데이터 보존에 대한 자세한 내용은 고객 성공 매니저에게 문의하세요.
 
 ### 쿼리 빌더 시간대 {#query-builder-time-zone}
 
@@ -90,15 +90,15 @@ AI 쿼리 빌더로 SQL을 생성하려면:
 
 ### 팁 {#tips}
 
-- [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)에서 사용 가능한 테이블과 열을 숙지하세요. 이러한 테이블에 존재하지 않는 데이터를 요청하면 ChatGPT가 가짜 테이블을 만들어낼 수 있습니다.
-- 이 기능의 [SQL 작성 규칙]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#custom-sql)을 숙지하세요. 이러한 규칙을 따르지 않으면 오류가 발생합니다.
+- [SQL 테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)에서 사용 가능한 테이블과 열을 숙지하세요. 이러한 테이블에 존재하지 않는 데이터를 요청하면 ChatGPT가 가짜 테이블을 만들어낼 수 있습니다.
+- 이 기능의 [SQL 작성 규칙]({{site.baseurl}}/user_guide/analytics/reports/query_builder#custom-sql)을 숙지하세요. 이러한 규칙을 따르지 않으면 오류가 발생합니다.
 - AI 쿼리 빌더로 분당 최대 20개의 프롬프트를 보낼 수 있습니다.
 
 #{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## 커스텀 SQL 쿼리 작성하기 {#custom-sql}
 
-[Snowflake 구문](https://docs.snowflake.com/en/sql-reference)을 사용하여 SQL 쿼리를 작성합니다. 쿼리할 수 있는 테이블과 열의 전체 목록은 [테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/)를 참조하세요.
+[Snowflake 구문](https://docs.snowflake.com/en/sql-reference)을 사용하여 SQL 쿼리를 작성합니다. 쿼리할 수 있는 테이블과 열의 전체 목록은 [테이블 참조]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables)를 참조하세요.
 
 쿼리 빌더 내에서 테이블 세부 정보를 보려면:
 

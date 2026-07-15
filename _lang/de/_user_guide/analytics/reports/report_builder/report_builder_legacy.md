@@ -12,7 +12,7 @@ tool:
 
 # Berichts-Builder (Legacy) {#report-builder-legacy}
 
-> Mit dem Berichts-Builder können Sie die Ergebnisse mehrerer Campaigns oder Canvases in einer einzigen Ansicht vergleichen, sodass Sie leicht feststellen können, welche Engagement-Strategien Ihre wichtigsten Metriken am stärksten beeinflusst haben. Sowohl für Campaigns als auch für Canvases können Sie Ihre Daten exportieren und Ihren Bericht speichern, um ihn in Zukunft erneut aufzurufen.<br><br>Eine beschreibende Liste der Metriken, die Sie in Ihren Berichten finden, finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+> Mit dem Berichts-Builder können Sie die Ergebnisse mehrerer Campaigns oder Canvases in einer einzigen Ansicht vergleichen, sodass Sie leicht feststellen können, welche Engagement-Strategien Ihre wichtigsten Metriken am stärksten beeinflusst haben. Sowohl für Campaigns als auch für Canvases können Sie Ihre Daten exportieren und Ihren Bericht speichern, um ihn in Zukunft erneut aufzurufen.<br><br>Eine beschreibende Liste der Metriken, die Sie in Ihren Berichten finden, finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 ![Beispiel für einen Campaign-Vergleich]({% image_buster /assets/img/campaign_comparison/campaign_main.png %}){: style="max-width:80%;"}
 
@@ -60,11 +60,11 @@ Canvas-Berichte funktionieren ähnlich wie ein manueller Campaign-Bericht, da Ca
 
 ### 2. Schritt: Metriken auswählen {#step-2-choose-your-metrics}
 
-Nachdem Sie Ihren Bericht erstellt haben, finden Sie eine leere Tabelle mit Campaigns in jeder Zeile. Die Tabelle wird befüllt, nachdem Sie **Edit Columns** auswählen und die Metriken auswählen, die Sie hinzufügen möchten.
+Nachdem Sie Ihren Bericht erstellt haben, finden Sie eine leere Tabelle mit Campaigns in jeder Zeile. Die Tabelle wird befüllt, nachdem Sie **Spalten bearbeiten** auswählen und die Metriken auswählen, die Sie hinzufügen möchten.
 
 ![Campaign-Optionen]({% image_buster /assets/img/campaign_comparison/campaign_comparison_columns.png %}){: style="max-width:80%;"}
 
-Ihre Tabelle wird mit den von Ihnen gewählten Metriken befüllt. Definitionen dieser Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary/). Einige Metriken sind nur für Campaign-Vergleichsberichte verfügbar.
+Ihre Tabelle wird mit den von Ihnen gewählten Metriken befüllt. Definitionen dieser Metriken finden Sie im [Glossar der Berichtsmetriken]({{site.baseurl}}/user_guide/analytics/metrics_glossary). Einige Metriken sind nur für Campaign-Vergleichsberichte verfügbar.
 
 Sie können auch Berechnungen für den **Durchschnitt** jeder Rate oder numerischen Metrik und die **Summe** für jede numerische Metrik umschalten.
 
@@ -80,7 +80,7 @@ Benennen Sie Ihren Bericht, bevor Sie ihn speichern. Wenn ein Bericht ohne Namen
 
 ![Campaign-Hinweis]({% image_buster /assets/img/campaign_comparison/comparison_name.png %}){: style="max-width:60%;"}
 
-Wenn Sie bereit sind, wählen Sie **Save**. Gespeicherte Berichte können zu einem späteren Zeitpunkt auf der Seite **Berichts-Builder** aufgerufen werden.
+Wenn Sie bereit sind, wählen Sie **Speichern**. Gespeicherte Berichte können zu einem späteren Zeitpunkt auf der Seite **Berichts-Builder** aufgerufen werden.
 
 ## Campaign-Vergleichsbericht mit multivarianten Campaigns {#campaign-comparison-report-with-multivariate-campaigns}
 
@@ -112,7 +112,7 @@ Wenn Sie **Aufschlüsselung nach Schritten** auswählen, können Sie Metriken au
 
 ### Nachricht {#message}
 
-Ähnlich wie bei einer Aufschlüsselung auf Schrittebene zeigt die Auswahl von **Aufschlüsselung nach Nachricht** die Namen der Schritte in jeder Zeile an. Innerhalb von **Edit Columns** haben Sie jedoch Zugriff auf Metriken auf Nachrichtenebene, wie z. B. kanalspezifische Statistiken wie E-Mail-Klicks und Push-Öffnungen.
+Ähnlich wie bei einer Aufschlüsselung auf Schrittebene zeigt die Auswahl von **Aufschlüsselung nach Nachricht** die Namen der Schritte in jeder Zeile an. Innerhalb von **Spalten bearbeiten** haben Sie jedoch Zugriff auf Metriken auf Nachrichtenebene, wie z. B. kanalspezifische Statistiken wie E-Mail-Klicks und Push-Öffnungen.
 
 ![Bericht]({% image_buster /assets/img/campaign_comparison/campaign_comparison3.png %}){: style="max-width:90%;"}
 
@@ -126,26 +126,26 @@ Wenn Sie auf einen gespeicherten **automatisierten Bericht** zugreifen, wird der
 
 ## Berichte bearbeiten {#editing-reports}
 
-In einem **manuellen Bericht** können Sie einen Bericht bearbeiten, indem Sie **Edit** auswählen. Von dort aus können Sie Campaigns auswählen oder abwählen, die in Ihrem Bericht enthalten sein sollen.
+In einem **manuellen Bericht** können Sie einen Bericht bearbeiten, indem Sie **Bearbeiten** auswählen. Von dort aus können Sie Campaigns auswählen oder abwählen, die in Ihrem Bericht enthalten sein sollen.
 
 In einem **automatisierten Bericht** schalten Sie Ihre Filter um, um die Ergebnisse in Ihrem Bericht einzugrenzen.
 
 ## Berichte exportieren {#exporting-reports}
 
-Sie können auch **Export** auswählen, um Ihren Bericht als CSV-Datei herunterzuladen.
+Sie können auch **Exportieren** auswählen, um Ihren Bericht als CSV-Datei herunterzuladen.
 
 Wenn Ihr Bericht multivariante Campaigns enthält, umfasst Ihr Export zwei CSV-Dateien:
 
 - Eine Datei, die nur die übergeordneten Metriken für jede Campaign enthält
 - Eine Datei, die Metriken auf Variantenebene enthält
 
-Die Datei mit den Varianten-Metriken hat `variant_` am Anfang ihres Namens. Beim ersten Export eines automatisierten Berichts erhalten Sie ein Pop-up, in dem Sie um Erlaubnis zum Herunterladen mehrerer Dateien gebeten werden – klicken Sie auf **Allow**.
+Die Datei mit den Varianten-Metriken hat `variant_` am Anfang ihres Namens. Beim ersten Export eines automatisierten Berichts erhalten Sie ein Pop-up, in dem Sie um Erlaubnis zum Herunterladen mehrerer Dateien gebeten werden – klicken Sie auf **Erlauben**.
 
 ![Campaign-Download]({% image_buster /assets/img/campaign_comparison/download.png %}){: style="max-width:60%;"}
 
 ### Canvas-Vergleichsberichte exportieren {#exporting-canvas-comparison-reports}
 
-Ihr CSV-Export spiegelt die Aufschlüsselungsansicht wider, in der Sie sich befanden, als Sie **Export** ausgewählt haben. Wenn Sie sich beispielsweise in der Aufschlüsselungsansicht auf Schrittebene befanden, enthält Ihr Export Daten zu Ihren Schrittmetriken. Um Daten aus einer anderen Aufschlüsselung zu exportieren, müssen Sie zuerst zu dieser Aufschlüsselung navigieren und dort **Export** auswählen.
+Ihr CSV-Export spiegelt die Aufschlüsselungsansicht wider, in der Sie sich befanden, als Sie **Exportieren** ausgewählt haben. Wenn Sie sich beispielsweise in der Aufschlüsselungsansicht auf Schrittebene befanden, enthält Ihr Export Daten zu Ihren Schrittmetriken. Um Daten aus einer anderen Aufschlüsselung zu exportieren, müssen Sie zuerst zu dieser Aufschlüsselung navigieren und dort **Exportieren** auswählen.
 
 Wenn Sie einen Canvas-Bericht mit Varianten-Aufschlüsselung herunterladen, erhalten Sie zwei CSV-Dateien:
 
@@ -156,7 +156,7 @@ Wenn Sie einen Canvas-Bericht mit Varianten-Aufschlüsselung herunterladen, erha
 
 Verwenden Sie Charts, um eine ausgewählte Metrik in Ihrem Bericht zu visualisieren. Charts sind für Berichte verfügbar, die Campaigns enthalten und mindestens eine Metrik in ihren Spalten haben.
 
-![Campaign-Performance-Chart mit ausgewählter Metrik „Message Sent“]({% image_buster /assets/img/campaign_comparison/report_builder_charts.png %})
+![Campaign-Performance-Chart mit ausgewählter Metrik „Nachricht gesendet“]({% image_buster /assets/img/campaign_comparison/report_builder_charts.png %})
 
 Standardmäßig zeigt das Chart in jedem Bericht die Metrik in der ersten Spalte des Berichts an. Um eine andere Metrik für die Darstellung auszuwählen, wählen Sie Ihre Metrik aus dem Dropdown-Menü. Jede Metrik in Ihrer Berichtstabelle kann im Chart angezeigt werden.
 

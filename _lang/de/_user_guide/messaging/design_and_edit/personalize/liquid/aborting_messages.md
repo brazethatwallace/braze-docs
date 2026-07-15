@@ -69,7 +69,7 @@ Sie können die Abbruchnachricht auch dazu veranlassen, etwas in Ihrem Nachricht
 
 ## Abbruchnachrichten abfragen {#query-for-abort-messages}
 
-Sie können den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/) oder Ihr eigenes Data Warehouse verwenden, sofern es mit Braze verbunden ist, um bestimmte Abbruchnachrichten abzufragen, die ausgelöst werden, wenn Liquid-Logik den Abbruch einer Nachricht verursacht.
+Sie können den [Abfrage-Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) oder Ihr eigenes Data Warehouse verwenden, sofern es mit Braze verbunden ist, um bestimmte Abbruchnachrichten abzufragen, die ausgelöst werden, wenn Liquid-Logik den Abbruch einer Nachricht verursacht.
 
 ## Wann die Abbruchlogik ausgewertet wird {#when-abort-logic-is-evaluated}
 
@@ -81,7 +81,7 @@ Die Abbruchlogik wird zum Sendezeitpunkt ausgewertet, wenn Braze die Nachricht f
 
 ### In-App-Nachrichten {#in-app-messages}
 
-Die Abbruchlogik wird nur bei [vorlagenbasierten In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages/#templated_iam-templated) zu dem Zeitpunkt ausgewertet, an dem die In-App-Nachricht getriggert wird (zum Beispiel wenn die/der Nutzer:in das Trigger-Ereignis ausführt oder eine Sitzung startet), nicht wenn die Nachricht ursprünglich an das Gerät gesendet wird. In-App-Nachrichten werden beim Sitzungsstart an das SDK übermittelt und lokal zwischengespeichert; das Liquid – einschließlich aller `abort_message()`-Aufrufe – wird ausgeführt, wenn die Trigger-Bedingung erfüllt ist.
+Die Abbruchlogik wird nur bei [vorlagenbasierten In-App-Nachrichten]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#templated_iam-templated) zu dem Zeitpunkt ausgewertet, an dem die In-App-Nachricht getriggert wird (zum Beispiel wenn die/der Nutzer:in das Trigger-Ereignis ausführt oder eine Sitzung startet), nicht wenn die Nachricht ursprünglich an das Gerät gesendet wird. In-App-Nachrichten werden beim Sitzungsstart an das SDK übermittelt und lokal zwischengespeichert; das Liquid – einschließlich aller `abort_message()`-Aufrufe – wird ausgeführt, wenn die Trigger-Bedingung erfüllt ist.
 
 ## Hinweise {#considerations}
 

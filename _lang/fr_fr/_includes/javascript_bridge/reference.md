@@ -56,10 +56,6 @@ Les méthodes JavaScript suivantes sont prises en charge dans le code HTML perso
 
 Utilisez la méthode `brazeBridge.logClick(button_id)` pour suivre les clics dans votre code HTML personnalisé.
 
-{% alert note %}
-**Bannières :** Seul `brazeBridge.logClick()` (sans arguments) est pris en charge. Les ID de boutons et le suivi personnalisé des boutons sont uniquement pris en charge pour les messages in-app.
-{% endalert %}
-
 Pour les messages in-app, vous pouvez suivre par programmation « Button 1 », « Button 2 » et les « Body Clicks » en utilisant respectivement `brazeBridge.logClick('0')`, `brazeBridge.logClick('1')` ou `brazeBridge.logClick()`.
 
 | Clics | Méthode | Pris en charge |
@@ -67,7 +63,7 @@ Pour les messages in-app, vous pouvez suivre par programmation « Button 1 », �
 | Clic dans le corps | `brazeBridge.logClick()` | Messages in-app et bannières |
 | Button 1 | `brazeBridge.logClick('0')` | Messages in-app uniquement |
 | Button 2 | `brazeBridge.logClick('1')` | Messages in-app uniquement |
-| Suivi personnalisé des boutons | `brazeBridge.logClick('your custom name here')` | Messages in-app uniquement |
+| Suivi personnalisé des boutons | `brazeBridge.logClick('your custom name here')` | Messages in-app et bannières |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Suivi des clics de bouton" }
 
 Pour les messages in-app, vous pouvez suivre plusieurs événements de clic sur un bouton par impression. Par exemple, pour fermer un message et enregistrer un clic sur Button 2 :

@@ -15,11 +15,11 @@ description: "This article outlines details about the View specific translation 
 /templates/translations/email
 {% endapimethod %}
 
-> Use this endpoint to view a specific translation and locale for an [email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates/). See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) for more information about translation features.
+> Use this endpoint to view a specific translation and locale for an [email template]({{site.baseurl}}/user_guide/messaging/templates/email_templates). See [Locales in messages]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) for more information about translation features.
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key/) with the `templates.translations.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `templates.translations.get` permission.
 
 ## Rate limit
 

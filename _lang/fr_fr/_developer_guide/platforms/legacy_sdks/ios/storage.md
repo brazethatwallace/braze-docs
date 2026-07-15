@@ -17,7 +17,7 @@ Cet article décrit les différentes propriétés au niveau de l'appareil captur
 
 ## Propriétés de l'appareil {#device-properties}
 
-Par défaut, Braze collecte les propriétés suivantes [au niveau de l'appareil](https://github.com/Appboy/appboy-ios-sdk/blob/16e893f2677af7de905b927505d4101c6fb2091d/AppboyKit/headers/AppboyKitLibrary/Appboy.h#L181) pour permettre la personnalisation des messages en fonction de l'appareil, de la langue et du fuseau horaire :
+Par défaut, Braze collecte les [propriétés suivantes au niveau de l'appareil](https://github.com/Appboy/appboy-ios-sdk/blob/16e893f2677af7de905b927505d4101c6fb2091d/AppboyKit/headers/AppboyKitLibrary/Appboy.h#L181) pour permettre la personnalisation des messages en fonction de l'appareil, de la langue et du fuseau horaire :
 
 * Résolution de l'appareil
 * Opérateur mobile
@@ -43,4 +43,4 @@ appboyOptions[ABKDeviceAllowlistKey] = @(ABKDeviceOptionTimezone | ABKDeviceOpti
 
 Par défaut, tous les champs sont activés. Notez que sans certaines propriétés, toutes les fonctionnalités ne fonctionneront pas correctement. Par exemple, la distribution selon le fuseau horaire local ne fonctionnera pas sans le fuseau horaire.
 
-Pour en savoir plus sur les propriétés de l'appareil collectées automatiquement, consultez notre article sur la [collecte de données du SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/).
+Pour en savoir plus sur les propriétés de l'appareil collectées automatiquement, consultez notre article sur la [collecte de données du SDK]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection).

@@ -248,7 +248,7 @@ import 'package:braze_plugin/braze_plugin.dart';
 final BrazePlugin braze = BrazePlugin();
 ```
 
-Then call `initialize()` with your app identifier API key and SDK endpoint to create the Braze instance. See the options below for where to call this method in your app.
+Then call `initialize()` with your app identifier API key and SDK endpoint to create the Braze instance. See the following options for where to call this method in your app flow.
 
 #### Standard initialization
 

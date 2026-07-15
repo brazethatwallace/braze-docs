@@ -10,7 +10,7 @@ description: "이 참조 문서에서는 Braze 이메일 오브젝트의 다양�
 
 # 이메일 오브젝트 {#email-object}
 
-> `email` 오브젝트를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/)를 통해 이메일을 수정하거나 생성할 수 있습니다.
+> `email` 오브젝트를 사용하면 [메시징 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)를 통해 이메일을 수정하거나 생성할 수 있습니다.
 
 ## 이메일 오브젝트
 
@@ -18,8 +18,8 @@ description: "이 참조 문서에서는 Braze 이메일 오브젝트의 다양�
 {
   "app_id": (required, string), see App Identifier,
   "subject": (optional, string),
-  "from": (required, valid email address in the format "Display Name <email@address.com>"),
-  "reply_to": (optional, valid email address in the format "email@address.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
+  "from": (required, valid email address in the format "Display Name <user@example.com>"),
+  "reply_to": (optional, valid email address in the format "user@example.com" - defaults to your workspace's default reply to if not set) - use "NO_REPLY_TO" to set reply-to address to null,
   "bcc": (optional, one of the BCC addresses defined in your workspace's email settings) if provided and the BCC feature is enabled for your account, this address gets added to your outbound message as a BCC address,
   "body": (required unless email_template_id is given, valid HTML),
   "plaintext_body": (optional, valid plaintext, defaults to autogenerating plaintext from "body" when this is not set),
@@ -35,9 +35,9 @@ description: "이 참조 문서에서는 Braze 이메일 오브젝트의 다양�
 }
 ```
 
-- [앱 식별자]({{site.baseurl}}/api/identifier_types/)
+- [앱 식별자]({{site.baseurl}}/api/identifier_types)
   - 워크스페이스에 구성된 앱의 유효한 `app_id`는 사용자의 프로필에 해당 앱이 있는지 여부와 관계없이 워크스페이스의 모든 사용자에게 적용됩니다.
-- 프리헤더에 대한 자세한 정보와 모범 사례는 [이메일 스타일링]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling/)을 참조하세요.
+- 프리헤더에 대한 자세한 정보와 모범 사례는 [이메일 스타일링]({{site.baseurl}}/user_guide/channels/email/best_practices/email_styling)을 참조하세요.
 
 {% alert warning %}
 첨부파일의 `url`에 Google 드라이브 링크를 사용하면 파일을 가져오기 위한 서버 호출이 차단되어 이메일 메시지가 전송되지 않을 수 있으므로 사용하지 않는 것이 좋습니다.
@@ -79,7 +79,7 @@ description: "이 참조 문서에서는 Braze 이메일 오브젝트의 다양�
     "email":{
       "app_id": "153e8a29-fd6d-4f77-ade7-1a4ca08d457a",
       "subject": "Basis auth attachment test",
-      "from": "mail <mail@e.company.com>",
+      "from": "mail <mail@example.com>",
       "body": "my attachment test",
       "attachments":[
         { "file_name":"checkout_receipt.pdf",
@@ -98,4 +98,4 @@ Braze가 첨부 파일 `url`에서 파일을 가져올 때:
 - **캐싱:** Braze는 최근에 가져온 파일을 약 24시간 동안 재사용할 수 있습니다. 매 발송 시 새 버전의 파일을 즉시 가져와야 하는 경우, 버전별로 고유한 URL을 사용하세요(예: 파일이 변경될 때 경로 또는 쿼리가 변경되도록 설정).
 - **타임아웃:** 호스트는 빠르게 응답해야 합니다. 첨부 파일 URL이 느리거나 응답하지 않으면 메시지 발송이 실패할 수 있습니다. 약 2분 이내에 응답하는 것을 목표로 하세요.
 - **보안:** 첨부 파일 URL(쿼리 문자열 포함)에 개인 식별 정보(PII)나 비밀 정보를 포함하지 마세요. URL이 로그나 다운스트림 시스템에 노출될 수 있습니다.
-- **방화벽:** URL이 특정 네트워크에서만 접근 가능한 경우, [연결된 콘텐츠 IP 허용 목록]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/#connected-content-ip-allowlisting)에 따라 Braze의 트래픽을 허용하세요. 파일에 로그인이 필요한 경우 [기본 인증 자격 증명](#authentication-for-email-file-attachments)을 사용하세요.
+- **방화벽:** URL이 특정 네트워크에서만 접근 가능한 경우, [연결된 콘텐츠 IP 허용 목록]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call#connected-content-ip-allowlisting)에 따라 Braze의 트래픽을 허용하세요. 파일에 로그인이 필요한 경우 [기본 인증 자격 증명](#authentication-for-email-file-attachments)을 사용하세요.

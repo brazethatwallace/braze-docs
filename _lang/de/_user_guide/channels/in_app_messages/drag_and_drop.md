@@ -13,27 +13,27 @@ local_redirect: #set-message-level-styles, #add-a-custom-font, #drag-and-drop-in
 
 # Eine In-App-Nachricht mit Drag-and-Drop erstellen {#create-an-in-app-message-with-drag-and-drop}
 
-> Mit dem Drag-and-Drop-Editor können Sie vollständig angepasste und personalisierte In-App-Nachrichten in Campaigns oder Canvases erstellen – ganz mit der Drag-and-Drop-Bearbeitungserfahrung. Weitere Informationen zu den verfügbaren Bausteinen im Editor finden Sie unter [Editor-Blöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
+> Mit dem Drag-and-Drop-Editor können Sie vollständig angepasste und personalisierte In-App-Nachrichten in Campaigns oder Canvases erstellen – ganz mit der Drag-and-Drop-Bearbeitungserfahrung. Weitere Informationen zu den verfügbaren Bausteinen im Editor finden Sie unter [Editor-Blöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
 
 
 {% multi_lang_include video.html id="j94omgo73o" align="right" source="wistia" %}
 
 Wenn Sie Ihre vorhandenen benutzerdefinierten HTML-Templates oder von Drittanbietern erstellte Templates verwenden möchten, müssen diese im Drag-and-Drop-Editor neu erstellt werden.
 
-Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder einen [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas/) gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind. Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, gehen wir die Schritte zum Erstellen einer Drag-and-Drop-In-App-Nachricht durch.
+Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder einen [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas) gesendet werden soll? Campaigns eignen sich besser für einzelne, gezielte Messaging-Kampagnen, während Canvases besser für mehrstufige User-Journeys geeignet sind. Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, gehen wir die Schritte zum Erstellen einer Drag-and-Drop-In-App-Nachricht durch.
 
 ## Voraussetzungen {#prerequisites}
 
 ### SDK-Anforderungen {#sdk-requirements}
 
-| Mindest-SDK-Version                                                          | Empfohlene SDK-Version                                                       |
+| Mindest-SDK-Version                                                          | Empfohlene SDK-Version                                                        |
 | ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:5.0.0 android:8.0.0 web:2.5.0 %}{:/} | {::nomarkdown}{% sdk_min_versions swift:6.5.0 android:26.0.0 web:4.8.1 %}{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SDK-Anforderungen" }
 
 {% details Weitere Informationen zu Mindest-SDKs %}
 
-Nachrichten, die mit dem Drag-and-Drop-Editor erstellt wurden, können nur an Nutzer:innen gesendet werden, die die Mindest-SDK-Versionen verwenden (siehe Tabelle oben). Wenn Nutzer:innen ihre Anwendung nicht aktualisiert haben (d. h. sie verwenden eine ältere SDK-Version), erhalten sie die In-App-Nachricht nicht.
+Nachrichten, die mit dem Drag-and-Drop-Editor erstellt wurden, können nur an Nutzer:innen gesendet werden, die die Mindest-SDK-Versionen verwenden (siehe Tabelle im vorherigen Abschnitt). Wenn Nutzer:innen ihre Anwendung nicht aktualisiert haben (d. h. sie verwenden eine ältere SDK-Version), erhalten sie die In-App-Nachricht nicht.
 
 Um alle im Drag-and-Drop-Editor verfügbaren Features nutzen zu können, aktualisieren Sie Ihre SDKs auf die empfohlenen SDK-Versionen. Dadurch können Sie die folgenden zusätzlichen Features nutzen:
 
@@ -42,7 +42,7 @@ Um alle im Drag-and-Drop-Editor verfügbaren Features nutzen zu können, aktuali
 
 Im Folgenden finden Sie die einzelnen Mindest-SDK-Anforderungen für diese Features:
 
-| Textlinks*                                                         | Push-Primer anfordern                                                           |
+| Textlinks*                                                          | Push-Primer anfordern                                                         |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
 | {::nomarkdown}{% sdk_min_versions swift:6.2.0 android:26.0.0 %}{:/} | {::nomarkdown}{% sdk_min_versions web:4.8.1 swift:6.5.0 android:26.0.0 %}{:/} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SDK-Anforderungen" }
@@ -95,7 +95,7 @@ Sie können bis zu 10 Seiten pro In-App-Nachricht hinzufügen.
 
 So duplizieren Sie eine vorhandene Seite:
 
-1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical"></i> **More options**.
+1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical" aria-label="Weitere Optionen"></i> **More options**.
 2. Wählen Sie **Duplicate**.
 3. Geben Sie der Seite einen aussagekräftigen Namen. Dies hilft Ihnen beim Verbinden der Seiten.
 
@@ -104,7 +104,7 @@ So duplizieren Sie eine vorhandene Seite:
 
 So löschen oder benennen Sie eine Seite um:
 
-1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical"></i> **More options**.
+1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical" aria-label="Weitere Optionen"></i> **More options**.
 2. Wählen Sie **Rename** oder **Delete**.
 
 {% endtab %}
@@ -134,9 +134,9 @@ Nutzer:innen können jederzeit den Schließen-X-Button auswählen, um die Nachri
 
 Hier kann Ihre Nachricht im Stil Ihrer Marke glänzen. Mit einer Kombination aus Editor-Blöcken und Stileinstellungen können Sie Ihre In-App-Nachricht anpassen und gestalten.
 
-- Eine Liste der verfügbaren Editor-Blöcke und ihrer Eigenschaften finden Sie unter [Editor-Blöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages).
-- Hilfe beim Anpassen des Erscheinungsbilds Ihrer Nachricht finden Sie unter [Stileinstellungen]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/).
-- Best Practices zum Erstellen von Nachrichten mit Rechts-nach-Links-Schrift finden Sie unter [Rechts-nach-Links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages/).
+- Eine Liste der verfügbaren Editor-Blöcke und ihrer Eigenschaften finden Sie unter [Editor-Blöcke]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=in-app%20messages).
+- Hilfe beim Anpassen des Erscheinungsbilds Ihrer Nachricht finden Sie unter [Stileinstellungen]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings).
+- Best Practices zum Erstellen von Nachrichten mit Rechts-nach-Links-Schrift finden Sie unter [Rechts-nach-Links-Nachrichten erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
 ## 5. Schritt: Ihre In-App-Nachricht testen {#step-5-test-your-in-app-message}
 
@@ -168,25 +168,25 @@ Berücksichtigen Sie die folgenden Fragen beim Testen Ihrer In-App-Nachricht:
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-#### Warum werden Body-Klicks nicht auf meiner Analytics-Seite angezeigt? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
+### Warum werden Body-Klicks nicht auf meiner Analytics-Seite angezeigt? {#why-are-body-clicks-not-appearing-on-my-analytics-page}
 
 Body-Klicks werden für In-App-Nachrichten, die mit dem Drag-and-Drop-Editor erstellt wurden, nicht automatisch erfasst. Weitere Details finden Sie in den SDK-Changelogs für [iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/changelog/objc_changelog#3310) und [Android]({{site.baseurl}}/developer_guide/platform_integration_guides/android/changelog#1100).
 
-#### Kann ich basierend auf Button-Klicks segmentieren? {#can-i-segment-based-on-button-clicks}
+### Kann ich basierend auf Button-Klicks segmentieren? {#can-i-segment-based-on-button-clicks}
 
 Ja, Sie können basierend auf Button-Klicks für bis zu zwei Buttons in Ihrer Nachricht segmentieren. Setzen Sie dazu den **Identifier for Reporting** für Ihre Buttons auf „0“ und „1“, was den Segmentierungsfiltern „Clicked in-app message button 1“ bzw. „Clicked in-app message button 2“ entspricht.
 
 ![Das Feld „Identifier for Reporting“ mit dem Wert „0“.]({% image_buster /assets/img/identifier_for_reporting.png %}){: style="max-width:50%;"}
 
-#### Kann ich meine In-App-Nachricht mit benutzerdefiniertem HTML oder JavaScript anpassen oder vorhandene HTML-Nachrichten in den Editor übertragen? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
+### Kann ich meine In-App-Nachricht mit benutzerdefiniertem HTML oder JavaScript anpassen oder vorhandene HTML-Nachrichten in den Editor übertragen? {#can-i-customize-my-in-app-message-using-custom-html-or-javascript-or-transfer-existing-html-messages-into-the-editor}
 
 Sie können vorhandene HTML-Nachrichten nicht direkt in den Editor übertragen, aber Sie können rohes HTML, CSS und JavaScript in einen Custom-Code-Block einfügen. Sie können Custom-Code-Blöcke verwenden, um Videos von Drittanbietern und erweitertes Liquid einzubetten, z. B. Connected-Content oder bedingte Anweisungen.
 
-#### Wie kann ich eine Slideup-In-App-Nachricht erstellen? {#how-can-i-create-a-slideup-in-app-message}
+### Wie kann ich eine Slideup-In-App-Nachricht erstellen? {#how-can-i-create-a-slideup-in-app-message}
 
 Derzeit ist der Editor auf Modal- und Vollbildnachrichten beschränkt. Sie können im Abschnitt **Message container** des Panels **Message styles** zwischen den Anzeigetypen wechseln.
 
-#### Kann ich meine In-App-Nachricht als Template speichern, nachdem ich sie in meiner Campaign oder meinem Canvas erstellt habe? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
+### Kann ich meine In-App-Nachricht als Template speichern, nachdem ich sie in meiner Campaign oder meinem Canvas erstellt habe? {#can-i-save-my-in-app-message-as-a-template-after-i-build-it-within-my-campaign-or-canvas}
 
 Ja. Für jede In-App-Nachricht, die Sie in einer zukünftigen Campaign oder einem Canvas-Schritt wiederverwenden möchten, können Sie sie als benutzerdefiniertes Template über den Button **Als Template speichern** speichern, der nach dem Verlassen des Editors verfügbar ist. Bevor Sie sie als Template speichern können, müssen Sie die Campaign zuerst starten ODER als Entwurf speichern.
 

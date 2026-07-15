@@ -17,14 +17,14 @@ Dieser Artikel führt Sie durch einen Anwendungsfall für das Template **Post-Pu
 
 Um dieses Template erfolgreich zu verwenden, benötigen Sie Folgendes:
 
-- Ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes), das als Referenz für die Ergebnisse der Feedback-Umfrage dient.
-- Eine konfigurierte [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync/) mit den Partnern und Zielgruppen, die Sie verwenden.
+- Ein [angepasstes Attribut]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes), das als Referenz für die Ergebnisse der Feedback-Umfrage dient.
+- Eine konfigurierte [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync) mit den Partnern und Zielgruppen, die Sie verwenden.
 
 ## Das Template an Ihre Bedürfnisse anpassen {#tailoring-the-template-to-your-needs}
 
 Nehmen wir an, wir arbeiten für Decorumsoft, einen Entwickler mobiler Videospiele. Wir verwenden das Template für Feedback nach dem Kauf, um Rückmeldungen zu unserem neuesten Videospiel-Launch, Proxy War 3: War of Thirst, zu erfassen. Anhand dieses Feedbacks werden wir unsere Entwicklungspläne für das Erweiterungspaket Liquid Mirage gestalten.
 
-Bevor wir das Canvas erstellen, richten wir die Integration [Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) ein, damit wir Nutzerdaten aus Braze zu Google Audiences hinzufügen können, um Werbeanzeigen basierend auf Verhaltens-Triggern, Segmentierung und mehr zu senden.
+Bevor wir das Canvas erstellen, richten wir die Integration [Braze Audience Sync to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) ein, damit wir Nutzerdaten aus Braze zu Google Audiences hinzufügen können, um Werbeanzeigen basierend auf Verhaltens-Triggern, Segmentierung und mehr zu senden.
 
 Um auf das Template für Feedback nach dem Kauf zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Use a Canvas template** > **Braze templates**. Wählen Sie dann neben **Post-Purchase Feedback** die Option **Apply Template**. Jetzt können wir das Template durchgehen und an unsere Bedürfnisse anpassen.
 
@@ -74,7 +74,7 @@ Wir behalten die Standard-Abo-Einstellungen bei, sodass wir nur an Nutzer:innen 
 
 Da wir beim Versand achtsam sein möchten, wählen wir **Enable Quiet Hours**, um zwischen 23 Uhr und 10 Uhr in der Zeitzone unserer Nutzer:innen kein Feedback anzufordern und nur zum nächsten verfügbaren Zeitpunkt zu senden.
 
-![Der Schritt „Send Settings“ richtet sich an Nutzer:innen, die abonniert oder angemeldet sind. Ruhezeiten sind aktiviert.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/send_settings_with_quiet_hours.png %}){: style="max-width:90%;"}
+![Der Schritt „Sendeeinstellungen“ richtet sich an Nutzer:innen, die abonniert oder angemeldet sind. Ruhezeiten sind aktiviert.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/send_settings_with_quiet_hours.png %}){: style="max-width:90%;"}
 
 Für unser Beispiel überspringen wir die anderen Einstellungen (Frequency-Capping und Seed-Gruppen).
 
@@ -90,7 +90,7 @@ Wir beginnen unsere Anpassung, indem wir jede Messaging-Komponente durchgehen un
 4. Wählen Sie **Edit message**, um die E-Mail-Nachricht des Templates durch unsere Feedback-Umfrage-Nachricht zu ersetzen. Dazu gehört das Ersetzen der Links für jeden Call-to-Action, um zu erfassen, welche Option ausgewählt wurde. Dies wird im Aktions-Pfad-Schritt unserer User Journey referenziert.
 
 {% alert tip %}
-Sie können [Canvas-Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/) verwenden, um die Nachrichten in Ihrem Canvas basierend auf dem Produkt, auf das Sie sich beziehen, anzupassen.
+Sie können [Canvas-Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) verwenden, um die Nachrichten in Ihrem Canvas basierend auf dem Produkt, auf das Sie sich beziehen, anzupassen.
 {% endalert %}
 
 #### Feedback-Umfrage einrichten {#set-up-feedback-survey}
@@ -128,5 +128,5 @@ Für den Nachrichtenschritt namens **Support Case Creation** aktualisieren wir d
 Nachdem wir unser Canvas getestet und überprüft haben, um sicherzustellen, dass es wie erwartet funktioniert, wählen Sie **Launch Canvas**, um das Canvas zu starten. Jetzt können wir Nutzer:innen gezielt mit einer personalisierten User Journey ansprechen, um sie basierend auf ihrem kürzlichen Kauf von Proxy War 3 zur Teilnahme an unserer Feedback-Umfrage zu ermutigen!
 
 {% alert tip %}
-Schauen Sie sich unsere [Checkliste vor und nach dem Launch]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch) an, um zu erfahren, was Sie vor und nach dem Start eines Canvas beachten sollten.
+Schauen Sie sich unsere [Checkliste vor und nach dem Launch]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) an, um zu erfahren, was Sie vor und nach dem Start eines Canvas beachten sollten.
 {% endalert %}

@@ -22,9 +22,9 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Abo-S
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 | --- | --- | --- | --- |
-| `email` | Ja | String | Die E-Mail-Adresse der Nutzer:in (muss mindestens eine Adresse und höchstens 50 Adressen enthalten). |
-| `phone` | Ja | String | Die Telefonnummer der Nutzer:in (muss mindestens eine Telefonnummer und höchstens 50 Telefonnummern enthalten). Wir empfehlen, diese im E.164-Format bereitzustellen. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+| `email` | Ja | String | Die E-Mail-Adresse des/der Nutzer:in (muss mindestens eine Adresse und höchstens 50 Adressen enthalten). |
+| `phone` | Ja | String | Die Telefonnummer des/der Nutzer:in (muss mindestens eine Telefonnummer und höchstens 50 Telefonnummern enthalten). Wir empfehlen, diese im E.164-Format bereitzustellen. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }
 
 ## Beispielanfrage {#example-request}
 
@@ -33,7 +33,7 @@ Content-Type: application/json
 Authorization: Bearer YOUR_REST_API_KEY
 {
   {phone: "+12125551212"},
-  {email: "dont.spam@me.com"},
+  {email: "dont.spam@example.com"},
   {phone: "+17185551212"}
 }
 ```

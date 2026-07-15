@@ -27,7 +27,7 @@ Définissez vos mots déclencheurs lors de la planification d'une Campaign avec 
 
 ### Canvas
 
-Définissez vos mots déclencheurs dans les [parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths/) de votre Canvas.
+Définissez vos mots déclencheurs dans les [parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths) de votre Canvas.
 
 ![Parcours d'action avec un déclencheur indiquant « Envoyer cette campagne aux utilisateurs qui ont envoyé un LINE entrant au groupe d'abonnement où le corps du message est » suivi d'un champ vide.]({% image_buster /assets/img/line/trigger_word_canvas.png %})
 

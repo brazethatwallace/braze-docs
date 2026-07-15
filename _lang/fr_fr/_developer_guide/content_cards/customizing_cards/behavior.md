@@ -14,11 +14,11 @@ platform:
 
 # Personnaliser le comportement des Content Cards {#customize-the-behavior-of-content-cards}
 
-> Ce guide de mise en œuvre aborde la modification du comportement des Content Cards, l'ajout d'éléments supplémentaires tels que des paires clé-valeur à votre payload, ainsi que des recettes pour des personnalisations courantes. Pour obtenir la liste complète des types de cartes de contenu, consultez [À propos des Content Cards]({{site.baseurl}}/developer_guide/content_cards/).
+> Ce guide de mise en œuvre aborde la modification du comportement des Content Cards, l'ajout d'éléments supplémentaires tels que des paires clé-valeur à votre payload, ainsi que des recettes pour des personnalisations courantes. Pour obtenir la liste complète des types de Content Cards, consultez [À propos des Content Cards]({{site.baseurl}}/developer_guide/content_cards).
 
 ## Paires clé-valeur {#key-value-pairs}
 
-Braze vous permet d'envoyer des payloads de données supplémentaires via les Content Cards aux appareils des utilisateurs à l'aide de paires clé-valeur. Celles-ci peuvent vous aider à suivre les indicateurs internes, à mettre à jour le contenu de l'application et à personnaliser les propriétés. [Ajoutez des paires clé-valeur à l'aide du tableau de bord]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create/#step-4-configure-additional-settings-optional).
+Braze vous permet d'envoyer des payloads de données supplémentaires via les Content Cards aux appareils des utilisateurs à l'aide de paires clé-valeur. Celles-ci peuvent vous aider à suivre les indicateurs internes, à mettre à jour le contenu de l'application et à personnaliser les propriétés. [Ajoutez des paires clé-valeur à l'aide du tableau de bord]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create#step-4-configure-additional-settings-optional).
 
 {% alert note %}
 Nous vous déconseillons d'envoyer des valeurs JSON imbriquées sous forme de paires clé-valeur. Aplanissez plutôt le JSON avant de l'envoyer.
@@ -48,28 +48,28 @@ Il est important que vos équipes marketing et de développement se coordonnent 
 
 ## Content Cards en tant que contenu supplémentaire {#content-cards-as-supplemental-content}
 
-![]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
+![Flux avec une liste hybride combinant des données locales et des Content Cards de Braze.]({% image_buster /assets/img/cc_implementation/supplementary.png %}){: style="float:right;max-width:25%;margin-left:15px;border:0;"}
 
 Vous pouvez intégrer de façon fluide les Content Cards dans un flux existant, ce qui permet de charger simultanément les données de plusieurs flux. Cela crée une expérience cohésive et harmonieuse avec les Content Cards de Braze et le contenu du flux existant.
 
-L'exemple à droite montre un flux avec une liste hybride d'éléments alimentés par des données locales et des Content Cards propulsées par Braze. Avec cette approche, les Content Cards peuvent être indifférenciables du contenu existant.
+L'exemple ci-contre montre un flux avec une liste hybride d'éléments alimentés par des données locales et des Content Cards propulsées par Braze. Avec cette approche, les Content Cards peuvent être indifférenciables du contenu existant.
 
 ### Paires clé-valeur déclenchées par l'API {#api-triggered-key-value-pairs}
 
-Les [campagnes déclenchées par l'API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery/) sont une bonne stratégie à employer lorsque les valeurs d'une carte dépendent de facteurs externes pour déterminer le contenu à afficher à l'utilisateur. Par exemple, pour afficher du contenu supplémentaire, définissez des paires clé-valeur à l'aide de Liquid. Notez que `class_type` doit être connu au moment de la configuration.
+Les [campagnes déclenchées par l'API]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) sont une bonne stratégie à employer lorsque les valeurs d'une carte dépendent de facteurs externes pour déterminer le contenu à afficher à l'utilisateur. Par exemple, pour afficher du contenu supplémentaire, définissez des paires clé-valeur à l'aide de Liquid. Notez que `class_type` doit être connu au moment de la configuration.
 
 ![Les paires clé-valeur pour le cas d'usage des Content Cards supplémentaires. Dans cet exemple, différents aspects de la carte, tels que « tile_id », « tile_deeplink » et « tile_title », sont définis à l'aide de Liquid.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
 ## Content Cards en tant que contenu interactif {#content-cards-as-interactive-content}
 ![Une Content Card interactive affichant une promotion de 50 % apparaît dans le coin inférieur gauche de l'écran. Après un clic, la promotion est appliquée au panier.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
 
-Les Content Cards peuvent être exploitées pour créer des expériences dynamiques et interactives pour vos utilisateurs. Dans l'exemple à droite, une fenêtre contextuelle de Content Card apparaît au moment du paiement, proposant aux utilisateurs des promotions de dernière minute. Des cartes bien placées comme celle-ci constituent un excellent moyen d'inciter les utilisateurs à effectuer des actions spécifiques.
+Les Content Cards peuvent être exploitées pour créer des expériences dynamiques et interactives pour vos utilisateurs. Dans l'exemple ci-contre, une fenêtre contextuelle de Content Card apparaît au moment du paiement, proposant aux utilisateurs des promotions de dernière minute. Des cartes bien placées comme celle-ci constituent un excellent moyen d'inciter les utilisateurs à effectuer des actions spécifiques.
 
-Les paires clé-valeur pour ce cas d'usage comprennent `discount_percentage` défini comme le montant de remise souhaité et `class_type` défini comme `coupon_code`. Ces paires clé-valeur vous permettent de filtrer et d'afficher des Content Cards spécifiques à un type sur l'écran de paiement. Pour plus d'informations sur l'utilisation de paires clé-valeur pour gérer plusieurs flux, consultez [Personnaliser le flux par défaut des Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed/#multiple-feeds).
+Les paires clé-valeur pour ce cas d'usage comprennent `discount_percentage` défini comme le montant de remise souhaité et `class_type` défini comme `coupon_code`. Ces paires clé-valeur vous permettent de filtrer et d'afficher des Content Cards spécifiques à un type sur l'écran de paiement. Pour plus d'informations sur l'utilisation de paires clé-valeur pour gérer plusieurs flux, consultez [Personnaliser le flux par défaut des Content Cards]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds).
 <br>
 <br>
 
-![]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
+![Content Card interactive affichant une promotion au moment du paiement.]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
 
 ## Badges de Content Cards {#content-card-badges}
 

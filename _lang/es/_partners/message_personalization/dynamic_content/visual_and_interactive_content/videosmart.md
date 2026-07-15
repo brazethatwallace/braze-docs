@@ -11,7 +11,7 @@ search_tag: Partner
 
 > [VideoSmart](https://www.videosmart.com/) ofrece tecnología de video personalizado e interactivo que te permite entregar contenido basado en datos y no lineal a escala. Cada video se genera dinámicamente utilizando datos a nivel de cliente, lo que permite mensajería personalizada y recorridos de usuario dentro de una única experiencia de video.
 >
-> La integración de VideoSmart te permite incrustar contenido de video personalizado en campañas de correo electrónico utilizando Contenido conectado de Braze y plantillas Liquid para solicitar activos de video de VideoSmart. Esta integración se implementa normalmente a través de una plantilla reutilizable de Content Blocks de Braze, lo que permite un despliegue consistente entre campañas y al mismo tiempo ofrece flexibilidad en la selección de campañas y la lógica de personalización.
+> La integración de VideoSmart te permite incrustar contenido de video personalizado en campañas de correo electrónico utilizando contenido conectado de Braze y plantillas Liquid para solicitar activos de video de VideoSmart. Esta integración se implementa normalmente a través de una plantilla reutilizable de bloque de contenido de Braze, lo que permite un despliegue consistente entre campañas y al mismo tiempo ofrece flexibilidad en la selección de campañas y la lógica de personalización.
 
 _Esta integración es desarrollada y mantenida por VideoSmart._
 
@@ -19,20 +19,19 @@ _Esta integración es desarrollada y mantenida por VideoSmart._
 
 VideoSmart se integra con Braze para generar dinámicamente activos de video personalizados en el momento del envío, que luego se incrustan directamente en el contenido de correo electrónico de tus Campaigns y Canvas de Braze.
 
-En Braze, seleccionas la campaña de VideoSmart correspondiente y pasas atributos de cliente (a través de plantillas Liquid) a VideoSmart cuando realizas el envío. Estos atributos se utilizan para renderizar una experiencia de video única y personalizada para cada destinatario. Luego puedes usar Contenido conectado de Braze para solicitar URLs de video o activos de la API de VideoSmart en tiempo real, lo que permite personalización a escala.
+En Braze, seleccionas la campaña de VideoSmart correspondiente y pasas atributos de cliente (a través de plantillas Liquid) a VideoSmart cuando realizas el envío. Estos atributos se utilizan para renderizar una experiencia de video única y personalizada para cada destinatario. Luego puedes usar contenido conectado de Braze para solicitar URLs de video o activos de la API de VideoSmart en tiempo real, lo que permite personalización a escala.
 
-Esta integración está diseñada para mensajes de correo electrónico de Braze que admiten plantillas Liquid y Contenido conectado, y se puede configurar para funcionar con atributos estándar del perfil de usuario de Braze o campos de datos personalizados.
+Esta integración está diseñada para mensajes de correo electrónico de Braze que admiten plantillas Liquid y contenido conectado, y se puede configurar para funcionar con atributos estándar del perfil de usuario de Braze o campos de datos personalizados.
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
-
-Los casos de uso más comunes incluyen los siguientes:
+Los ejemplos más comunes incluyen los siguientes:
 
 - Incorporación de clientes y recorridos de bienvenida
 - Educación financiera (como pensiones y pólizas de seguros)
 - Estados de cuenta anuales y comunicaciones regulatorias
 - Campañas de conocimiento de producto y venta cruzada
-- Campañas de retención de clientes y reactivación de la interacción
+- Campañas de retención de clientes y reactivación
 - Recordatorios de carrito abandonado: cuando un cliente agrega productos a su carrito pero no compra, envías un correo electrónico con un video personalizado que destaca los artículos que dejó atrás
 - Seguimientos post-compra: después de una compra, envía un video de agradecimiento personalizado y recomienda productos relacionados
 
@@ -42,8 +41,8 @@ Antes de comenzar, confirma que tienes lo siguiente:
 
 | Requisito | Descripción |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
-| Credenciales de Contenido conectado de Braze | Una credencial de autenticación básica de Contenido conectado llamada **basic_credentials**, configurada con los valores proporcionados por VideoSmart |
-| Plantilla de **VideoSmart Content Block** | La plantilla de **VideoSmart Content Block** agregada a tu dashboard de Braze (proporcionada por VideoSmart) |
+| Credenciales de contenido conectado de Braze | Una credencial de autenticación básica de contenido conectado llamada **basic_credentials**, configurada con los valores proporcionados por VideoSmart |
+| Plantilla de **VideoSmart Content Block** | La plantilla de **VideoSmart Content Block** agregada a tu panel de Braze (proporcionada por VideoSmart) |
 | Un mensaje de correo electrónico de Braze | Un correo electrónico de Campaign de Braze o un paso de correo electrónico de Canvas donde insertarás el **VideoSmart Content Block** |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -53,15 +52,15 @@ Sigue estos pasos para habilitar el **VideoSmart Content Block** y usarlo en un 
 
 ### Paso 1: Configura la plantilla del VideoSmart Content Block en Braze {#step-1-set-up-the-videosmart-content-block-template-in-braze}
 
-Solicita la plantilla del **VideoSmart Content Block** a tu representante de VideoSmart y agrégala a tu dashboard de Braze.
+Solicita la plantilla del **VideoSmart Content Block** a tu representante de VideoSmart y agrégala a tu panel de Braze.
 
-VideoSmart proporcionará las credenciales para la autenticación de Contenido conectado utilizada por el Content Block.
+VideoSmart proporcionará las credenciales para la autenticación de contenido conectado utilizada por el bloque de contenido.
 
-### Paso 2: Configura la autenticación de Contenido conectado {#step-2-set-up-connected-content-authentication}
+### Paso 2: Configura la autenticación de contenido conectado {#step-2-set-up-connected-content-authentication}
 
-Crea una credencial de autenticación básica de Contenido conectado en Braze llamada "basic_credentials".
+Crea una credencial de autenticación básica de contenido conectado en Braze llamada "basic_credentials".
 
-- Sigue las instrucciones en [Uso de autenticación básica]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call/#using-basic-authentication).
+- Sigue las instrucciones en [Uso de autenticación básica]({{site.baseurl}}/user_guide/personalization_and_dynamic_content/connected_content/making_an_api_call#using-basic-authentication).
 - Usa el nombre de usuario y la contraseña proporcionados por VideoSmart.
 
 ### Paso 3: Agrega el Content Block a tu correo electrónico {#step-3-add-the-content-block-to-your-email}
@@ -95,7 +94,7 @@ Este ejemplo usa atributos de usuario de Braze para el nombre y el apellido:
 
 {% capture vs_record_data %}
 {
-  "FirstName": "{{ ${first_name} | default: 'John' | json_escape }}",
+  "FirstName": "{{ ${first_name} | default: 'Alex' | json_escape }}",
   "LastName": "{{ ${last_name} | default: 'Doe' | json_escape }}"
 }
 {% endcapture %}
@@ -128,13 +127,13 @@ Las variables comunes incluyen:
 
 La API de VideoSmart tiene un límite de velocidad de 10,000 solicitudes por minuto. Si superas este límite, puedes recibir errores o experimentar retrasos en la generación de videos.
 
-Para reducir este riesgo, configura el límite de velocidad de Campaign en Braze para que la tasa de envío de mensajes se mantenga por debajo de la capacidad de la API de VideoSmart.
+Para reducir este riesgo, configura el límite de velocidad de la campaña en Braze para que la tasa de envío de mensajes se mantenga por debajo de la capacidad de la API de VideoSmart.
 
-Para obtener orientación de Braze sobre velocidad de entrega y límites de velocidad, consulta [Velocidad de entrega y límites de velocidad]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/#delivery-speed-rate-limiting).
+Para obtener orientación de Braze sobre velocidad de entrega y límites de velocidad, consulta [Velocidad de entrega y límites de velocidad]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting#delivery-speed-rate-limiting).
 
 ## Consideraciones {#considerations}
 
-- El Contenido conectado se ejecuta cuando el mensaje se renderiza, por lo que los valores pueden diferir entre la vista previa y el envío si tus valores predeterminados o atributos difieren.
+- El contenido conectado se ejecuta cuando el mensaje se renderiza, por lo que los valores pueden diferir entre la vista previa y el envío si tus valores predeterminados o atributos difieren.
 - Confirma que tu correo electrónico incluye el Content Block antes de referenciar variables como `video_url`.
 - Si usas campos personalizados en `vs_record_data`, confirma los nombres de campo esperados con VideoSmart.
 
@@ -144,7 +143,7 @@ Para obtener orientación de Braze sobre velocidad de entrega y límites de velo
 
 Si la vista previa de Braze falla (por ejemplo, reintentos repetidos o errores de autenticación), verifica que:
 
-- La credencial de Contenido conectado "basic_credentials" existe y está configurada correctamente.
+- La credencial de contenido conectado "basic_credentials" existe y está configurada correctamente.
 - La plantilla del **VideoSmart Content Block** está presente en tu cuenta de Braze.
 - Cualquier variable requerida (por ejemplo, `vs_campaign_id` o campos obligatorios en `vs_record_data`) tiene valores predeterminados establecidos para la vista previa.
 
@@ -153,7 +152,7 @@ Si la vista previa de Braze falla (por ejemplo, reintentos repetidos o errores d
 Si las variables generadas por la plantilla del VideoSmart Content Block no generan la salida esperada, verifica lo siguiente:
 
 - La plantilla del **VideoSmart Content Block** está configurada correctamente en Braze.
-- La autenticación de Contenido conectado está configurada correctamente con las credenciales apropiadas.
+- La autenticación de contenido conectado está configurada correctamente con las credenciales apropiadas.
 - Imprime las variables en tu correo electrónico para confirmar que se están estableciendo. Por ejemplo: `{% raw %}{{ video_url }}{% endraw %}`
 
 Si estás usando una campaña personalizada, también verifica:

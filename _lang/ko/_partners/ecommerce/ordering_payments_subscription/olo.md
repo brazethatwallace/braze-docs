@@ -21,8 +21,8 @@ Olo와 Braze를 통합하면 다음을 수행할 수 있습니다.
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | Olo 계정 | 이 파트너십을 활용하려면 웹훅에 접근할 수 있는 Olo 계정이 필요합니다. Olo 대시보드 내 [셀프 서비스 웹훅 도구](https://olosupport.zendesk.com/hc/en-us/articles/360061153692-Self-Service-Webhooks)를 통해 웹훅 구독을 설정하세요. |
-| Braze 데이터 변환 | Olo에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/data_transformation/)이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+| Braze 데이터 변환 | Olo에서 데이터를 수신하려면 [데이터 변환 URL]({{site.baseurl}}/data_transformation)이 필요합니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 웹훅은 Olo가 사용자와 사용자의 행동에 대한 이벤트 기반 정보를 Braze로 전송하는 방법으로, Order Placed, Guest Opt In, Order Picked Up 등의 이벤트를 포함합니다. Olo 웹훅은 일반적으로 동작이 수행된 후 몇 초 이내에 이벤트를 Braze로 전달합니다.
 
@@ -36,7 +36,7 @@ Olo에서는 승인된 브랜드당 환경별로 하나의 웹훅만 사용할 �
 
 ### 1단계: Olo의 테스트 이벤트를 수신하도록 Braze 데이터 변환 설정 {#step-1}
 
-{% multi_lang_include create_transformation.md location="default" %}
+{% multi_lang_include data_activation/create_transformation.md location="default" %}
 
 ### 2단계: Olo 웹훅 설정 {#step-2-set-up-olo-webhooks}
 
@@ -72,7 +72,7 @@ Olo 웹훅 구성 프로세스를 완료하려면 테스트 이벤트 웹훅에�
 - 변환 코드는 payload 변수를 통해 웹훅 요청 본문에 접근합니다. 이 변수는 요청 본문 JSON을 파싱하여 채워진 오브젝트입니다.
 - `/users/track` 엔드포인트에서 지원되는 모든 기능이 지원되며, 다음을 포함합니다.
     - 사용자 속성 오브젝트, 이벤트 오브젝트, 구매 오브젝트
-    - 중첩 속성 및 중첩 커스텀 이벤트 등록정보
+    - 중첩 속성 및 중첩 커스텀 이벤트 속성정보
     - 구독 그룹 업데이트
     - 식별자로서의 이메일 주소
 
@@ -254,4 +254,4 @@ Olo는 HTTP 응답 상태 코드가 `429 - Too Many Requests`이거나 `5xx` 범
 
 웹훅 호출의 HTTP 응답 상태 코드가 `429 - Too Many Requests`이거나 `5xx` 범위(예: 게이트웨이 타임아웃 또는 서버 오류)인 경우, Olo는 24시간 동안 최대 50회까지 메시지를 재시도한 후 포기합니다.
 
-따라서 구독자가 웹훅을 여러 번 수신할 수 있습니다. `X-Olo-Message-Id` 헤더를 확인하여 중복을 무시하는 것은 구독자의 책임입니다.
+따라서 가입자가 웹훅을 여러 번 수신할 수 있습니다. `X-Olo-Message-Id` 헤더를 확인하여 중복을 무시하는 것은 가입자의 책임입니다.

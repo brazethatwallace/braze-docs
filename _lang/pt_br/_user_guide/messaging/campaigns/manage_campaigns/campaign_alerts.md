@@ -12,7 +12,7 @@ channel:
 
 ---
 
-# Alertas de campanha
+# Alertas de campanha {#campaign-alerts}
 
 > Queremos alertar você quando algo não parecer como esperado e garantir a tranquilidade de que tudo está funcionando bem. Os alertas de limite de campanha oferecem essa tranquilidade — seja a primeira pessoa a saber se uma campanha importante envia mais ou menos mensagens do que o esperado.
 
@@ -22,7 +22,7 @@ Os alertas de campanha estão disponíveis para as seguintes campanhas:
 - Campanhas baseadas em ação
 - Campanhas disparadas por API
 
-## Configurando seu alerta de campanha
+## Configurando seu alerta de campanha {#setting-up-your-campaign-alert}
 
 Acesse a página de análise de dados da sua campanha para começar a configurar seu alerta. Ao selecionar **Set Up Alert**, você poderá especificar os limites superior e inferior do alerta, bem como os destinatários e canais de alerta.
 
@@ -36,7 +36,7 @@ Você pode configurar um alerta por e-mail, um alerta por webhook ou ambos. Os a
 Ao configurar alertas de campanha para campanhas futuras, você pode receber atualizações antes do início da campanha e após o término. Isso acontece porque os alertas de campanha continuam sendo enviados até que a campanha seja interrompida manualmente.
 {% endalert %}
 
-## Carga útil do webhook de alerta de campanha
+## Carga útil do webhook de alerta de campanha {#campaign-alert-webhook-payload}
 
 A seguir, um exemplo de carga útil para o corpo de um webhook de alerta de campanha. Este exemplo usa um alerta configurado para ser enviado quando o número de mensagens enviadas fica abaixo de 500 em uma determinada execução de campanha.
 

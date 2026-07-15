@@ -36,7 +36,7 @@ This feature allows you to target users who complete the following interactions 
 - Dismiss content card
 
 {% alert important %}
-Campaign Connector triggers cannot be used to trigger in-app message campaigns. In-app messages can only be triggered by SDK events, such as custom events or session start. For more information, see [Create an in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/).
+Campaign Connector triggers cannot be used to trigger in-app message campaigns. In-app messages can only be triggered by SDK events, such as custom events or session start. For more information, see [Create an in-app message]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional).
 {% endalert %}
 
 ### Delivery rules
@@ -57,17 +57,17 @@ Compose the messages that you wish to send to your users. You can select a singl
 
 ### Step 2: Select interaction and target campaign
 
-1. Select [Action-Based Delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/) and add the "Interact with Campaign" trigger to target users who interact with an active campaign. 
+1. Select [Action-Based Delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) and add the "Interact with Campaign" trigger to target users who interact with an active campaign. 
 2. Choose the trigger interaction. 
 3. Next, you'll select the active campaign that you'd like to target.
 
-![]({% image_buster /assets/img_archive/Campaign_Connector1.png %})
+![3. Next, you'll select the active campaign that you'd like to target.]({% image_buster /assets/img_archive/Campaign_Connector1.png %})
 
 ### Step 3: Set schedule delay and add exceptions (optional)
 
 If you choose to set a schedule delay, you can add an exception to the trigger action. For example, you might want to resend an email campaign to users who did not open the original email.  In this scenario, you can choose "Received email" as the trigger and set a schedule delay of one week. Then, you can add "Open email" as an exception. Now, you'll resend the email to users who did not open the original email within a week of receiving it.
 
-![]({% image_buster /assets/img_archive/Campaign_Connector3.png %})
+![If you choose to set a schedule delay, you can add an exception to the trigger action. For example, you might want to resend an email campaign to users who did not open the original email. In this scenario, you can choose "Received email" as the trigger and set a schedule delay of one week. Then, you can add "Open email" as an exception. Now, you'll resend the email to users who did not open the original email within a week of receiving it.]({% image_buster /assets/img_archive/Campaign_Connector3.png %})
 
 Exception events will only trigger while a user is waiting to receive the message it's associated with. If a user performs the action before waiting for the message, the exception event will not trigger.
 

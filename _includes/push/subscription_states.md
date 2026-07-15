@@ -13,7 +13,7 @@ By default, for your user to receive your messages through push, their push subs
 |Opt-in State|Description|
 |---|---|
 |`Subscribed`| Default push subscription state when a user profile is created in Braze. |
-|`Opted-In`| A user has explicitly expressed a preference to receive push notifications. Braze automatically moves a user's opt-in state to `Opted-In` if the user accepts an OS-level push prompt.<br><br>This does not apply to Android 12 or below users.|
+|`Opted-In`| A user has explicitly expressed a preference to receive push notifications. Braze automatically moves a user's opt-in state to `Opted-In` if the user accepts an OS-level push prompt.<br><br>This does not apply to Android 12 or earlier users.|
 |`Unsubscribed`| A user explicitly unsubscribed from push through your application or other methods your brand provides. By default, Braze push campaigns target only users that are `Subscribed` or `Opted-in` for push.|
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Push subscription states #push-sub-states" }
 
@@ -78,11 +78,11 @@ Push enablement refers to whether a user has granted OS- or browser-level permis
 
 When automatic opt-in is enabled (the default), Braze updates a user's push subscription state to `Opted-In` when they authorize push notifications for your app or re-enable permissions in their system settings (for example, on iOS, Android 13+, and supported web browsers). Otherwise, the user's push subscription state remains `Subscribed` until you explicitly change it using an SDK method or REST API call.
 
-Braze does not automatically change a user's push subscription state to `Unsubscribed` when they opt out of notifications at the OS, browser, or app level. To update a user's push subscription state, you must update it in Braze. For example, if a user disables push from an in-app preference center, update the push subscription state to `Unsubscribed` in Braze. Braze does not update user profiles based on your preference center. To align subscription states with a user's in-app preferences, call the appropriate methods using the [SDK]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#sdk-integration) (iOS or Android) or [REST API]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states/#rest-api).
+Braze does not automatically change a user's push subscription state to `Unsubscribed` when they opt out of notifications at the OS, browser, or app level. To update a user's push subscription state, you must update it in Braze. For example, if a user disables push from an in-app preference center, update the push subscription state to `Unsubscribed` in Braze. Braze does not update user profiles based on your preference center. To align subscription states with a user's in-app preferences, call the appropriate methods using the SDK (iOS or Android) or REST API. For more, refer to [Updating push subscription states]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state).
 
 ### Imported push tokens (iOS)
 
-When you [import iOS push tokens]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#push-token-import) with `push_token_import`, the user's push subscription state is typically **`Subscribed`** until they log a session in your Braze-integrated app. After the first session, Braze may update the state to **`Opted-In`** if [automatic opt-in](#automatic-opt-in-default) applies (for example, when the user authorizes push on iOS and `optInWhenPushAuthorized` is enabled).
+When you [import iOS push tokens]({{site.baseurl}}/api/objects_filters/user_attributes_object#push-token-import) with `push_token_import`, the user's push subscription state is typically **`Subscribed`** until they log a session in your Braze-integrated app. After the first session, Braze may update the state to **`Opted-In`** if [automatic opt-in](#automatic-opt-in-default) applies (for example, when the user authorizes push on iOS and `optInWhenPushAuthorized` is enabled).
 
 Review **Contact Settings** on the user's profile after import and again after the user's first in-app session to confirm the expected state.
 

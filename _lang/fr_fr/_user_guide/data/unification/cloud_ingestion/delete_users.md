@@ -15,9 +15,9 @@ Les synchronisations de suppression d'utilisateurs sont prises en charge pour to
 
 ## Configurer l'intégration {#configure-the-integration}
 
-Suivez le processus standard pour [créer une nouvelle intégration dans le tableau de bord de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations/#step-1-set-up-tables-or-views) pour l'entrepôt de données auquel vous souhaitez vous connecter. Assurez-vous d'inclure un rôle qui peut accéder à la table de suppression. Sur la page **Create import sync**, définissez le **Data Type** sur **Delete Users** afin que les actions appropriées soient exécutées pendant l'intégration pour supprimer les utilisateurs.
+Suivez le processus standard pour [créer une nouvelle intégration dans le tableau de bord de Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views) pour l'entrepôt de données auquel vous souhaitez vous connecter. Assurez-vous d'inclure un rôle qui peut accéder à la table de suppression. Sur la page **Create import sync**, définissez le **Data Type** sur **Delete Users** afin que les actions appropriées soient exécutées pendant l'intégration pour supprimer les utilisateurs.
 
-![]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
+![Suivez le processus standard pour créer une nouvelle intégration dans le tableau de bord de Braze pour l'entrepôt de données auquel vous souhaitez vous connecter. Assurez-vous d'inclure un rôle qui peut accéder à la table de suppression. Sur la page Create import sync, définissez le Data Type sur Delete Users afin que les actions appropriées soient exécutées pendant l'intégration pour supprimer les utilisateurs.]({% image_buster /assets/img/cloud_ingestion/deletion_1.png %})
 
 ## Configurer les données sources {#configure-source-data}
 
@@ -78,7 +78,7 @@ Créez une table avec les champs suivants :
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Colonnes d'identification de l'utilisateur" }
 {% endtab %}
 
 {% tab Databricks %}
@@ -91,7 +91,7 @@ Créez une table avec les champs suivants :
 | `ALIAS_NAME`| STRING | NULLABLE |
 | `ALIAS_LABEL`| STRING | NULLABLE |
 | `BRAZE_ID`| STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="User identifier columns" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Colonnes d'identification de l'utilisateur" }
 {% endtab %}
 {% tab Microsoft Fabric %}
 ```sql
@@ -120,7 +120,7 @@ Avec l'Ingestion de données cloud de Braze, vous configurez une intégration en
 Lorsqu'une synchronisation s'exécute, Braze se connecte directement à votre instance d'entrepôt de données, récupère toutes les nouvelles données de la table spécifiée et supprime les profils utilisateur correspondants dans votre tableau de bord de Braze.
 
 {% alert warning %}
-La suppression de profils utilisateur est irréversible. Cette action supprime définitivement les utilisateurs, ce qui peut entraîner des écarts dans vos données. Pour en savoir plus, consultez la section [Effets de la suppression de profils utilisateur]({{site.baseurl}}/api/endpoints/user_data/post_user_delete/#effects-of-deleting-user-profiles).
+La suppression de profils utilisateur est irréversible. Cette action supprime définitivement les utilisateurs, ce qui peut entraîner des écarts dans vos données. Pour en savoir plus, consultez la section [Effets de la suppression de profils utilisateur]({{site.baseurl}}/api/endpoints/user_data/post_user_delete#effects-of-deleting-user-profiles).
 {% endalert %}
 
 <br><br>

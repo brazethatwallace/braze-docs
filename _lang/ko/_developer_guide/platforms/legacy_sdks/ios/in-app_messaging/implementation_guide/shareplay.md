@@ -31,7 +31,7 @@ Apple이 iOS 15 업데이트의 일환으로 출시한 새로운 `GroupActivitie
 
 ## 통합 {#integration}
 
-이 통합에 사용되는 인앱 메시지는 서브클래스된 모달 인앱 메시지 뷰 컨트롤러입니다. 설정 가이드는 iOS 인앱 메시지 고급 사용 사례 [구현 가이드]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide/)에서 확인할 수 있습니다. 통합하기 전에 Xcode 프로젝트에 `GroupActivities` 엔타이틀먼트를 추가하세요.
+이 통합에 사용되는 인앱 메시지는 서브클래스된 모달 인앱 메시지 뷰 컨트롤러입니다. 설정 가이드는 iOS 인앱 메시지 고급 사용 사례 [구현 가이드]({{site.baseurl}}/developer_guide/platforms/legacy_sdks/ios/in-app_messaging/implementation_guide)에서 확인할 수 있습니다. 통합하기 전에 Xcode 프로젝트에 `GroupActivities` 엔타이틀먼트를 추가하세요.
 
 {% alert important %}
 통합을 완료하려면 이 가이드와 함께 [Apple SharePlay 설명서](https://developer.apple.com/documentation/avfoundation/media_playback_and_selection/supporting_coordinated_media_playback)를 나란히 열어보는 것이 좋습니다.

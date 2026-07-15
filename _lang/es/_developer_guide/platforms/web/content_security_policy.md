@@ -36,12 +36,12 @@ braze.initialize(apiKey, {
 ### `connect-src` {#connect-src}
 
 {% alert warning %}
-Tu URL debe coincidir con el [punto final de SDK de la API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) de la opción de inicialización `baseUrl` que hayas elegido.
+Tu URL debe coincidir con el [punto final de SDK de la API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) de la opción de inicialización `baseUrl` que hayas elegido.
 {% endalert %}
 
 | URL | Información |
 | --- | ----------- |
-| `connect-src https://sdk.iad-01.braze.com` | Permite al SDK comunicarse con las API de Braze. Cambia esta URL para que coincida con el [punto final de SDK de la API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints/) de la opción de inicialización `baseUrl` que hayas elegido. |
+| `connect-src https://sdk.iad-01.braze.com` | Permite al SDK comunicarse con las API de Braze. Cambia esta URL para que coincida con el [punto final de SDK de la API]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints) de la opción de inicialización `baseUrl` que hayas elegido. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="connect-src #connect-src" }
 
 ### `script-src` {#script-src}
@@ -49,7 +49,7 @@ Tu URL debe coincidir con el [punto final de SDK de la API]({{site.baseurl}}/use
 | URL | Información |
 | --- | ----------- |
 | `script-src https://js.appboycdn.com` | Obligatoria cuando se utiliza la integración alojada en CDN. |
-| `script-src 'unsafe-eval'` | Obligatoria cuando se utiliza el fragmento de código de integración que contiene la referencia a `appboyQueue`. Para evitar el uso de esta directiva, [integra el SDK utilizando NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/?tab=package%20manager). |
+| `script-src 'unsafe-eval'` | Obligatoria cuando se utiliza el fragmento de código de integración que contiene la referencia a `appboyQueue`. Para evitar el uso de esta directiva, [integra el SDK utilizando NPM]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup?tab=package%20manager). |
 | `script-src 'nonce-...'`<br>o<br>`script-src 'unsafe-inline'` | Obligatoria para determinados mensajes dentro de la aplicación, como HTML personalizado. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="script-src #script-src" }
 

@@ -28,7 +28,7 @@ Your Global Control Group applies to all channels, campaigns, and Canvases, exce
 
 ### Assign users randomly to the Global Control Group
 
-Braze randomly selects multiple ranges of [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#step-1-segment-your-users-by-the-random-bucket-attribute) and includes users from those selected buckets. If you are currently using random bucket numbers for any other purposes, check out [Things to watch out for](#things-to-watch-for). 
+Braze randomly selects multiple ranges of [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#create-segments-using-random-bucket-numbers) and includes users from those selected buckets. If you are currently using random bucket numbers for any other purposes, check out [Things to watch out for](#things-to-watch-for). 
 
 When your Global Control Group is generated, all users with random bucket numbers are part of the group. Additionally, new users who join after this point (those acquired after the Global Control Group was generated) that have these random bucket numbers are also added to the Global Control Group. Similarly, if many users are deleted, you can expect the size of your Global Control Group to shrink because a percentage of those deleted users has fallen into this group. This maintains the size of your group as a constant percentage relative to your entire user base.
 
@@ -40,7 +40,7 @@ Your treatment group is similar in size to your Global Control Group, but it is 
 
 ### Exclude users from feature flags
 
-You can't enable [feature flags]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags/) for users in your Global Control Group. This means users in your Global Control Group also can't be part of feature flag experiments.
+You can't enable [feature flags]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/feature_flags) for users in your Global Control Group. This means users in your Global Control Group also can't be part of feature flag experiments.
 
 ### Exclude users from the Global Control Group
 
@@ -92,7 +92,7 @@ After disabling your Control Group, you can save a new one. When you enter a per
 
 If you'd like to see which users are in your Global Control Group, you can export your Group's members by CSV or API. 
 
-To run a CSV export, navigate to the **Global Control Group Settings** tab and click <i class="fas fa-download"></i>&nbsp;**Export**. To export by API, use the [`/users/export/global_control_group` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/).
+To run a CSV export, navigate to the **Global Control Group Settings** tab and click <i class="fas fa-download"></i>&nbsp;**Export**. To export by API, use the [`/users/export/global_control_group` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group).
 
 {% alert important %}
 Historical control groups are not preserved, so you can only export the members of your current group. Make sure to export any necessary information before disabling a control group.
@@ -114,7 +114,7 @@ To view a report for your Global Control Group from the dashboard, go to **Analy
 
 Next, select the parameter you want to run your report with (sessions or a particular custom event) and select **Run Report**.
 
-![]({% image_buster /assets/img/control_group/control_group6.png %})
+![Next, select the parameter you want to run your report with (sessions or a particular custom event) and select Run Report.]({% image_buster /assets/img/control_group/control_group6.png %})
 
 ### Configuring your report
 
@@ -136,7 +136,7 @@ Each workspace has a maximum of one Global Control Group and one treatment sampl
 
 | Metric | Definition | Calculation |
 | -- | -- | -- |
-| Change from Control | This calculates the uplift between the conversion rate for your treatment and control groups. | ((Treatment conversion rate – control conversion rate) ÷ control conversion rate) * 100 |
+| Change from Control | This calculates the uplift between the conversion rate for your treatment and control groups. | ((Treatment conversion rate – control conversion rate) ÷ control conversion rate) \* 100 |
 | Incremental Uplift | The difference in total events between your treatment and control groups. This metric seeks to answer the question of "How many more conversion events did the treatment group achieve?". | Total events for treatment – total events for control |
 | Incremental Uplift Percent | The percentage of your treatment's total events that can be attributed to your treatment (versus natural user behavior). This is calculated by dividing incremental uplift (number) by the total number of events for your treatment group. | Incremental uplift (number) ÷ Total events for treatment group |
 | Conversion Rate | The estimated percentage of users in your control or treatment group that complete your selected event during the time period selected. This is calculated by adding the number of events from the time period and dividing it by the sum of users within the group each day. This can only be approximated because group size fluctuates regularly as new users enter your Global Control Group, and events are total—and not unique—events. If the number of conversions is very small and your control or treatment groups are very large, then the conversion rate may round to 0%. If the number of events is very high—for example, in cases where one user may do more than one event per day—then the conversion rate can be over 100%. | Sum of the number of events for those users over that time period ÷ sum of users in the group each day |
@@ -180,9 +180,9 @@ In short, users in the Global Control Group are filtered out of the campaign or 
 
 #### Global Control Group segments on the Developer Console
 
-You may see multiple **Global Control** segments in the **Additional API Identifiers** section of the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers/) page. This is because each time the Global Control Group is enabled or disabled, a new Global Control Group is formed. This leads to multiple segments labeled "Global Control Group".
+You may see multiple **Global Control** segments in the **Additional API Identifiers** section of the [API Keys]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers) page. This is because each time the Global Control Group is enabled or disabled, a new Global Control Group is formed. This leads to multiple segments labeled "Global Control Group".
 
-Only one of these segments is active and can be queried using the [`/users/export/global_control_group` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group/), or exported from the dashboard. The export from the dashboard specifically states which subsegments make up this Global Control Group.
+Only one of these segments is active and can be queried using the [`/users/export/global_control_group` endpoint]({{site.baseurl}}/api/endpoints/export/user_data/post_users_global_control_group), or exported from the dashboard. The export from the dashboard specifically states which subsegments make up this Global Control Group.
 
 ## Testing best practices
 

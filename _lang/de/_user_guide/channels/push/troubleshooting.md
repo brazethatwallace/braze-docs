@@ -3,7 +3,7 @@ nav_title: Fehlerbehebung
 article_title: Fehlerbehebung für Push
 page_order: 5
 page_type: reference
-description: "Diese Seite enthält Schritte zur Fehlerbehebung für verschiedene Probleme im Zusammenhang mit dem Push-Messaging-Kanal."
+description: "Schritte zur Fehlerbehebung bei Problemen mit dem Push-Messaging-Kanal."
 channel: push
 ---
 
@@ -13,7 +13,7 @@ channel: push
 
 ## Fehlende Push-Benachrichtigungen {#missing-push-notifications}
 
-Haben Sie Probleme mit der Zustellung von Push-Benachrichtigungen? Es gibt eine Reihe von Schritten, die Sie zur Fehlerbehebung unternehmen können, indem Sie Folgendes überprüfen:
+Wenn Push-Benachrichtigungen nicht wie erwartet ankommen, arbeiten Sie die folgenden Prüfungen durch:
 
 - [Push-Abo-Status](#push-subscription-status)
 - [Segment](#segment)
@@ -24,59 +24,64 @@ Haben Sie Probleme mit der Zustellung von Push-Benachrichtigungen? Es gibt eine 
 - [Art der Push-Benachrichtigung](#push-notification-type)
 - [Aktuelle App](#current-app)
 
-#### Push-Abo-Status {#push-subscription-status}
+### Push-Abo-Status {#push-subscription-status}
 
-Push-Benachrichtigungen können nur an abonnierte oder angemeldete Nutzer:innen gesendet werden. Überprüfen Sie Ihr Nutzerprofil im Tab [Engagement]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/#engagement-tab) im Abschnitt **Nutzerprofil**, um zu bestätigen, dass Sie aktiv für Push im Workspace registriert sind, den Sie testen. Wenn Sie für mehrere Apps registriert sind, finden Sie diese im Feld **Push Registered For**:
+Push-Benachrichtigungen können nur an abonnierte oder angemeldete Nutzer:innen gesendet werden. Öffnen Sie im **Nutzerprofil** den Tab [Engagement]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) und bestätigen Sie, dass Sie aktiv für Push im Workspace registriert sind, den Sie testen. Wenn Sie für mehrere Apps registriert sind, werden diese unter **Push Registered For** aufgelistet:
 
 ![Für Push registriert]({% image_buster /assets/img_archive/trouble1.png %})
 
-Sie können die Nutzerprofile auch über die Braze-Export-Endpunkte exportieren:
-- [Nutzer:innen nach Bezeichner]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier/)
-- [Nutzer:innen nach Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)
+Sie können Nutzerprofile auch über die Braze-Export-Endpunkte exportieren:
+
+- [Nutzer:innen nach Bezeichner]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)
+- [Nutzer:innen nach Segment]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)
 
 Beide Endpunkte geben ein Push-Token-Objekt zurück, das Informationen zur Push-Aktivierung pro Gerät enthält.
 
-#### Segment {#segment}
+### Segment {#segment}
 
-Stellen Sie sicher, dass Sie in das Segment fallen, das Sie ansprechen (wenn es sich um eine Live-Campaign und nicht um einen Test handelt). Im **Nutzerprofil** sehen Sie eine Liste der Segmente, in denen sich die Nutzer:innen aktuell befinden. Beachten Sie, dass dies eine sich ständig ändernde Variable ist, da die Segmentierung in Echtzeit aktualisiert wird.
+Bestätigen Sie, dass Sie in dem Segment sind, das Sie ansprechen (wenn es sich um eine Live-Campaign und nicht um einen Test handelt). Im **Nutzerprofil** können Sie sehen, welchen Segmenten die Nutzer:innen aktuell zugeordnet sind. Die Segmentzugehörigkeit wird in Echtzeit aktualisiert.
 
 ![Liste der Segmente]({% image_buster /assets/img_archive/trouble2.png %})
 
-Sie können auch bestätigen, dass die Nutzer:innen Teil des Segments sind, indem Sie beim Erstellen eines Segments die **Nutzersuche** verwenden. Die **Nutzersuche** akzeptiert nur `external_id` oder `braze_id` – keine E-Mail-Adressen oder Telefonnummern. Um nach E-Mail, Telefon, Push-Token oder Nutzer-Alias zu suchen, verwenden Sie [**Nutzer:innen suchen**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles/).
+Sie können auch bestätigen, dass die Nutzer:innen Teil des Segments sind, indem Sie beim Erstellen eines Segments die **Nutzersuche** verwenden. Die **Nutzersuche** akzeptiert nur `external_id` oder `braze_id` – keine E-Mail-Adressen oder Telefonnummern. Um nach E-Mail, Telefon, Push-Token oder Nutzer-Alias zu suchen, verwenden Sie [**Nutzer:innen suchen**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles).
 
 ![Abschnitt „Nutzersuche“ mit einem Suchfeld.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
-#### Obergrenzen für Push-Benachrichtigungen {#push-notification-caps}
+### Obergrenzen für Push-Benachrichtigungen {#push-notification-caps}
 
-Überprüfen Sie die globalen Frequency-Capping-Regeln. Es ist möglich, dass Sie die Push-Benachrichtigung nicht erhalten haben, weil in Ihrem Workspace globales Frequency-Capping aktiv ist und Sie Ihre Push-Benachrichtigungs-Obergrenze für den angegebenen Zeitraum bereits erreicht haben.
-
-Sie können dies überprüfen, indem Sie das [globale Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#freq-cap-feat-over) im Dashboard prüfen. Wenn die Campaign so eingestellt ist, dass sie die Frequency-Capping-Regeln einhält, wird eine Anzahl von Nutzer:innen angezeigt, die von diesen Einstellungen betroffen sind.
+Wenn in Ihrem Workspace globales Frequency-Capping aktiv ist, haben Sie möglicherweise Ihre Obergrenze für den Zeitraum bereits erreicht und erhalten die Push-Benachrichtigung nicht. Prüfen Sie im Dashboard das [globale Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over) und Ihre Limits. Wenn die Campaign die Frequency-Capping-Regeln einhält, zeigen die Campaign-Details an, wie viele Nutzer:innen betroffen waren.
 
 ![Campaign-Details]({% image_buster /assets/img_archive/trouble3.png %})
 
-#### Rate-Limits {#rate-limits}
+### Rate-Limits {#rate-limits}
 
-Wenn Sie ein Rate-Limit für Ihre Campaign oder Ihren Canvas festgelegt haben, kann es sein, dass Sie aufgrund der Überschreitung dieses Limits keine Nachrichten erhalten. Weitere Informationen finden Sie unter [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#rate-limiting).
+Wenn Sie ein Rate-Limit für Ihre Campaign oder Ihren Canvas festgelegt haben, kann es sein, dass Sie nach Überschreitung dieses Limits keine Nachrichten mehr erhalten. Weitere Informationen finden Sie unter [Rate-Limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting).
 
-#### Kontrollgruppen-Status {#control-group-status}
+### Kontrollgruppen-Status {#control-group-status}
 
-Wenn es sich um eine Einkanal-Campaign oder einen Canvas mit einer Kontrollgruppe handelt, ist es möglich, dass Sie in die Kontrollgruppe fallen.
+Wenn es sich um eine Einkanal-Campaign oder einen Canvas mit einer Kontrollgruppe handelt, befinden Sie sich möglicherweise in der Kontrollgruppe.
 
-  1. Überprüfen Sie die [Variantenverteilung]({{site.baseurl}}/user_guide/messaging/ab_testing/#step-5-distribute-users-among-your-variants), um festzustellen, ob es eine Kontrollgruppe gibt.
-  2. Falls ja, erstellen Sie ein Segment, das nach [In Campaign-Kontrollgruppe]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns/#in-campaign-control-group-filter) filtert, und [exportieren Sie das Segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv/#exporting-to-csv), um zu prüfen, ob Ihre Nutzer-ID auf dieser Liste steht.
+  1. Überprüfen Sie die [Variantenverteilung]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants), um festzustellen, ob es eine Kontrollgruppe gibt.
+  2. Falls ja, erstellen Sie ein Segment, das nach [In Campaign-Kontrollgruppe]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter) filtert, und [exportieren Sie das Segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv), um zu prüfen, ob Ihre Nutzer-ID auf der Liste steht.
 
-#### Gültiges Push-Token {#valid-push-token}
-Ein Push-Token ist ein Bezeichner, den Absender verwenden, um bestimmte Geräte mit einer Push-Benachrichtigung anzusprechen. Wenn das Gerät kein gültiges Push-Token hat, gibt es keine Möglichkeit, eine Push-Benachrichtigung an dieses Gerät zu senden.
+### Gültiges Push-Token {#valid-push-token}
 
-#### Art der Push-Benachrichtigung {#push-notification-type}
+Ein Push-Token ist ein Bezeichner, den Absender verwenden, um ein bestimmtes Gerät mit einer Push-Benachrichtigung anzusprechen. Ohne ein gültiges Push-Token kann Braze keine Push-Benachrichtigung an dieses Gerät senden.
 
-Überprüfen Sie, ob Sie die richtige Art von Push-Benachrichtigung verwenden. Wenn Sie beispielsweise ein FireTV ansprechen möchten, würden Sie eine Kindle-Push-Benachrichtigung verwenden, nicht eine Android-Push-Campaign. Ebenso sollten Sie für Android eine Android-Push-Benachrichtigung verwenden und nicht eine iOS-Push-Campaign. Lesen Sie die folgenden Artikel für weitere Informationen zum Verständnis des Braze-Workflows für:
-- [Apple Push Notification]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)
-- [Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)
+Braze speichert bis zu 20 Geräte pro Nutzerprofil. Wenn ein 21. Gerät registriert wird, wird das älteste Gerät entfernt (First-in-first-out, FIFO). Der Aufruf von [`changeUser()`]({{site.baseurl}}/developer_guide/analytics/setting_user_ids) im SDK registriert das aktuelle Gerät erneut im Profil.
 
-#### Aktuelle App {#current-app}
+### Art der Push-Benachrichtigung {#push-notification-type}
 
-Stellen Sie beim Testen von Push-Sendungen mit internen Nutzer:innen sicher, dass die Person, die die Push-Benachrichtigung erhalten soll, aktuell in der entsprechenden App angemeldet ist. Dies kann dazu führen, dass Nutzer:innen entweder keine Push-Benachrichtigung erhalten oder eine Push-Benachrichtigung erhalten, für die sie Ihrer Meinung nach nicht segmentiert sind.
+Verwenden Sie die Push-Art, die zum Gerät oder zur Plattform passt, die Sie ansprechen. Verwenden Sie beispielsweise eine Kindle-Push-Benachrichtigung für Fire TV, nicht eine Android-Push-Campaign. Für Android-Geräte verwenden Sie eine Android-Push-Benachrichtigung anstelle einer iOS-Push-Campaign.
+
+Plattformspezifische Workflows zur Fehlerbehebung finden Sie unter:
+
+- [Fehlerbehebung für Apple-Push-Benachrichtigungen]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=swift)
+- [Fehlerbehebung für Firebase Cloud Messaging]({{site.baseurl}}/developer_guide/push_notifications/troubleshooting/?sdktab=android)
+
+### Aktuelle App {#current-app}
+
+Wenn Sie Push mit internen Nutzer:innen testen, bestätigen Sie, dass die vorgesehenen Empfänger:innen in der richtigen App angemeldet sind. Andernfalls erhalten sie möglicherweise die Push-Benachrichtigung nicht oder eine unerwartete Benachrichtigung basierend auf der Segmentierung.
 
 {% alert note %}
 Wenn Sie Push-Nachrichten mit Bildern auf Android senden, kann FCM das Bild manchmal verwerfen und nur den Text in der Push-Nachricht anzeigen. Dieses Problem wird in der Regel durch Probleme mit der Serververbindung verursacht.
@@ -132,13 +137,13 @@ Wenn das Tippen auf eine Push-Benachrichtigung Ihre App nicht öffnet, überprü
 2. **Deeplink-Behandlung prüfen:** Überprüfen Sie in Ihrer `braze.xml`-Datei, ob `com_braze_handle_push_deep_links_automatically` auf `true` oder `false` gesetzt ist.
    - Wenn auf `true` gesetzt, behandelt das Braze SDK Deeplinks direkt und die App sollte wie erwartet geöffnet werden.
    - Wenn auf `false` gesetzt, benötigt Ihre App einen Broadcast-Receiver, der Push-Empfangs- und Öffnungs-Intents abhört und verarbeitet. Überprüfen Sie, ob dieser Receiver korrekt implementiert ist.
-3. **Ausführliche Logs erfassen:** [Aktivieren Sie ausführliches Logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduzieren Sie das Problem und stellen Sie die Logs zusammen mit Ihrer `braze.xml` und `AndroidManifest.xml` dem Braze-Support zur Verfügung.
+3. **Ausführliche Logs erfassen:** [Aktivieren Sie ausführliches Logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduzieren Sie das Problem und stellen Sie die Logs zusammen mit Ihrer `braze.xml` und `AndroidManifest.xml` dem Braze-Support zur Verfügung.
 
 ### iOS
 
 1. **Klickverhalten überprüfen:** Bestätigen Sie, dass die Campaign so konfiguriert ist, dass die App beim Klicken geöffnet wird.
-2. **Push-Integration prüfen:** Deeplinking von einer Push-Benachrichtigung in die App wird automatisch durch die Braze [Standard-Push-Integration]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift) behandelt. Bestätigen Sie, dass die Integration korrekt implementiert ist, einschließlich aller angepassten Delegate-Behandlungen.
-3. **Ausführliche Logs erfassen:** [Aktivieren Sie ausführliches Logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging/), reproduzieren Sie das Problem und stellen Sie die Logs dem Braze-Support zur Verfügung.
+2. **Push-Integration prüfen:** Deeplinking von einer Push-Benachrichtigung in die App wird automatisch durch die Braze [Standard-Push-Integration]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift) behandelt. Bestätigen Sie, dass die Integration korrekt implementiert ist, einschließlich aller angepassten Delegate-Behandlungen.
+3. **Ausführliche Logs erfassen:** [Aktivieren Sie ausführliches Logging]({{site.baseurl}}/developer_guide/sdk_integration/verbose_logging), reproduzieren Sie das Problem und stellen Sie die Logs dem Braze-Support zur Verfügung.
 
 ## Push-Klicks öffnen unerwartet in der App {#push-clicks-unexpectedly-open-in-app}
 
@@ -158,9 +163,9 @@ Wenn dies nicht das Problem ist, liegt möglicherweise ein Problem mit Ihrer Pus
 
 Wenn Links in Ihren Push-Benachrichtigungen unerwartet in der App geöffnet werden, kann dies an Problemen mit Ihrer Push-Benachrichtigungs-Integration oder Anpassungseinstellungen liegen. Folgen Sie diesen Schritten zur Fehlerbehebung:
 
-1. **Push-Delegate-Implementierung überprüfen:** Stellen Sie sicher, dass der Braze-Push-Delegate korrekt implementiert ist. Detaillierte Anweisungen finden Sie im Integrationsleitfaden für Push-Benachrichtigungen für Ihre [Plattform]({{site.baseurl}}/developer_guide/home/).
+1. **Push-Delegate-Implementierung überprüfen:** Stellen Sie sicher, dass der Braze-Push-Delegate korrekt implementiert ist. Detaillierte Anweisungen finden Sie im Integrationsleitfaden für Push-Benachrichtigungen für Ihre [Plattform]({{site.baseurl}}/developer_guide/home).
 2. **Angepasste Link-Behandlung prüfen:** Überprüfen Sie, ob die App eine angepasste Behandlung für alle `https://`-Links enthält. Angepasste Konfigurationen können Standardverhalten überschreiben. Arbeiten Sie mit Ihrem Entwicklungsteam zusammen, um diese Einstellungen bei Bedarf zu überprüfen und anzupassen.
-3. **iOS-Push-Registrierung überprüfen:** Für iOS lesen Sie Schritt 1 des Push-Integrationsleitfadens zur [Registrierung von Push-Benachrichtigungen bei APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-1-register-for-push-notifications-with-apns) erneut. Stellen Sie sicher, dass Ihr Delegate-Objekt synchron zugewiesen wird, bevor die App den Start abschließt. Dieser Schritt sollte in der Methode `application:didFinishLaunchingWithOptions:` abgeschlossen werden.
+3. **iOS-Push-Registrierung überprüfen:** Für iOS lesen Sie Schritt 1 des Push-Integrationsleitfadens zur [Registrierung von Push-Benachrichtigungen bei APNs]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#step-1-register-for-push-notifications-with-apns) erneut. Stellen Sie sicher, dass Ihr Delegate-Objekt synchron zugewiesen wird, bevor die App den Start abschließt. Dieser Schritt sollte in der Methode `application:didFinishLaunchingWithOptions:` abgeschlossen werden.
 4. **Integration testen:** Testen Sie nach den Anpassungen das Push-Benachrichtigungsverhalten sowohl auf iOS- als auch auf Android-Geräten, um zu bestätigen, dass das Problem behoben ist.
 
 ### Deeplinks bei im Hintergrund laufender App (iOS) {#deep-links-with-app-still-running-in-the-background-ios}
@@ -171,9 +176,11 @@ Wenn Deeplinks funktionieren, wenn die App nicht läuft oder wenn der Link direk
 
 Apple `.p8`-Authentifizierungsschlüssel sind der erforderliche Ansatz für APNs-Push in Braze. Im Gegensatz zu älteren Zertifikatsdateitypen laufen `.p8`-Schlüssel nicht ab und unterstützen alle Ihre Apps unter einem einzigen Schlüssel, wodurch jährliche Zertifikatserneuerungen entfallen und das Risiko von Push-Zustellungsfehlern reduziert wird.
 
-Wenn Sie derzeit ein `.p12`- oder `.pem`-Zertifikat verwenden, migrieren Sie so bald wie möglich zu einem `.p8`-Schlüssel. Anweisungen zum Erstellen und Hochladen eines `.p8`-Schlüssels finden Sie unter [APNs-Push-Zertifikat hochladen]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift). Apples Anleitung zum Generieren eines `.p8`-Schlüssels aus Ihrem Entwicklerkonto finden Sie unter [Mit APNs über Authentifizierungstoken kommunizieren](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
+Wenn Sie derzeit ein `.p12`- oder `.pem`-Zertifikat verwenden, migrieren Sie so bald wie möglich zu einem `.p8`-Schlüssel. Anweisungen zum Erstellen und Hochladen eines `.p8`-Schlüssels finden Sie unter [APNs-Push-Zertifikat hochladen]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift). Apples Anleitung zum Generieren eines `.p8`-Schlüssels aus Ihrem Entwicklerkonto finden Sie unter [Mit APNs über Authentifizierungstoken kommunizieren](https://developer.apple.com/help/account/capabilities/communicate-with-apns-using-authentication-tokens/).
 
 ### .p8-Schlüssel im Vergleich zu .p12-Zertifikaten {#p8-keys-versus-p12-certificates}
+
+Verwenden Sie die folgende Tabelle, um Zugangsdatentypen, Ablauf und Dashboard-Anzeige zu vergleichen.
 
 | Zugangsdaten | Ablauf | Dashboard-Statusanzeige |
 | --- | --- | --- |
@@ -185,7 +192,7 @@ Wenn Sie ein `.p12`-Zertifikat durch einen `.p8`-Schlüssel ersetzen (oder neue 
 
 Bestätigen Sie unter **Settings** > **App Settings** > **Push Notification Settings**, dass **App Bundle ID**, **Team ID** und **Key ID** (für `.p8`-Schlüssel) mit den Werten in Ihrem Apple-Entwicklerkonto übereinstimmen. Mehrere Braze-Workspaces können dieselben Apple-Push-Zugangsdaten verwenden, wenn die iOS-App-**Bundle-ID** identisch ist; die Zugangsdaten-Umgebung (Entwicklung versus Produktion) muss mit der Art übereinstimmen, wie die App erstellt wurde.
 
-Apps mit [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) oder höher können [Dynamic APNs gateway management]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=swift#dynamic-apns-gateway-management) verwenden, das Token automatisch an die richtige APNs-Umgebung weiterleitet.
+Apps mit [Braze Swift SDK 10.0.0](https://github.com/braze-inc/braze-swift-sdk/releases/tag/10.0.0) oder höher können [Dynamic APNs gateway management]({{site.baseurl}}/developer_guide/push_notifications?sdktab=swift#dynamic-apns-gateway-management) verwenden, das Token automatisch an die richtige APNs-Umgebung weiterleitet.
 
 ## Web-Push-Benachrichtigungen verhalten sich nicht wie erwartet {#web-push-notifications-arent-behaving-as-expected}
 
@@ -252,7 +259,7 @@ Ihre Push-Berechtigungen sind jetzt zurückgesetzt. Öffnen Sie einen neuen Tab 
 
 ### Firefox auf Android zurücksetzen {#reset-firefox-on-android}
 
-Um Push-Berechtigungen auf Android zurückzusetzen, lesen Sie diesen [Mozilla-Support-Artikel](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser).
+Um Push-Berechtigungen auf Android zurückzusetzen, lesen Sie [Ihren Browserverlauf und andere persönliche Daten löschen](https://support.mozilla.org/en-US/kb/clear-your-browsing-history-and-other-personal-data#w_clear-specific-items-from-your-browser) im Mozilla-Support.
 
 {% endtab %}
 {% tab Safari %}
@@ -277,8 +284,16 @@ Ihre Push-Berechtigungen sind jetzt zurückgesetzt. Öffnen Sie einen neuen Tab 
 {% endtab %}
 {% endtabs %}
 
+## Push-Open-Metriken {#push-open-metrics}
+
+Braze protokolliert einen Direct Open, wenn Nutzer:innen auf die Benachrichtigung tippen und Ihre App eine Sitzung startet. Das Erweitern einer Rich-Push-Benachrichtigung ohne Öffnen der App protokolliert keinen Direct Open.
+
+Wenn Nutzer:innen Ihre App nach dem Empfang einer Push-Benachrichtigung öffnen, ohne auf die Benachrichtigung zu tippen, kann Braze stattdessen einen Influenced Open protokollieren. Definitionen und Berichte finden Sie unter [Influenced Opens]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
+
 ## Push-Fehlermeldungen {#push-error-messages}
 
-Detaillierte Informationen zu häufigen Push-Fehlermeldungen (wie `DEVICE_UNREGISTERED`, `Unregistered`, `NotRegistered` und andere) finden Sie unter [Häufige Push-Fehlermeldungen]({{site.baseurl}}/user_guide/channels/push/push_error_codes/).
+Definitionen häufiger Push-Fehlercodes (einschließlich `DEVICE_UNREGISTERED`, `NotRegistered` und `Unregistered`) finden Sie unter [Häufige Push-Fehlermeldungen]({{site.baseurl}}/user_guide/channels/push/push_error_codes).
 
-Benötigen Sie weitere Hilfe? Eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support/).
+Wenn FCM Fehler wie `DEVICE_UNREGISTERED` oder `NotRegistered` zurückgibt, entfernt Braze in der Regel das betroffene Push-Token aus dem Nutzerprofil. Diese Entfernung weist häufig darauf hin, dass die App deinstalliert wurde oder das Token nicht mehr gültig ist. Uninstall-Tracking-Campaigns verwenden dieselbe Token-Entfernungslogik im großen Maßstab.
+
+Benötigen Sie weitere Hilfe? Eröffnen Sie ein [Support-Ticket]({{site.baseurl}}/braze_support).

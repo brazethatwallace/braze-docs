@@ -17,7 +17,7 @@ description: "이 도움말 문서에서는 Braze를 통해 이메일을 보내�
 <br>
 
 {% alert important %}
-이메일 서비스 공급자(ESP) 파트너로 SendGrid, SparkPost 또는 Amazon Simple Email Service(SES)를 사용할 수 있습니다. 2026년부터 Braze는 새로운 이메일 설정에 대해 Amazon SES를 기본 ESP로 사용합니다. 자세한 내용은 [Amazon SES 설정]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses/)을 참조하세요.
+이메일 서비스 공급자(ESP) 파트너로 SendGrid, SparkPost 또는 Amazon Simple Email Service(SES)를 사용할 수 있습니다. 2026년부터 Braze는 새로운 이메일 설정에 대해 Amazon SES를 기본 ESP로 사용합니다. 자세한 내용은 [Amazon SES 설정]({{site.baseurl}}/user_guide/channels/email/email_setup/setting_up_ips_and_domains/amazon_ses)을 참조하세요.
 {% endalert %}
 
 ## 방법 1: Braze와 조정(권장) {#method-1-coordinate-with-braze-recommended}
@@ -38,7 +38,7 @@ description: "이 도움말 문서에서는 Braze를 통해 이메일을 보내�
 
 IP, 도메인, 하위 도메인 및 IP 풀이 구성되면 DNS 레코드 목록을 보내드립니다. 엔지니어와 개발자에게 필요한 곳에 이러한 DNS 레코드를 추가하도록 요청하고, 추가가 완료되면 Braze 온보딩 팀에 알려주세요.
 
-{% multi_lang_include dns_records.md %}
+{% multi_lang_include channels/email/dns_records.md %}
 
 Braze에서 DNS 레코드를 제공한 후, 귀사의 DNS 또는 IT 팀이 가능한 한 빨리 추가하세요. 도메인 검증은 시간 제한이 있으며, 레코드를 너무 늦게 추가하면 DNS 레코드가 나중에 올바르게 해석되더라도 검증이 실패할 수 있습니다. DNS 레코드가 올바르게 표시되지만 검증이 실패하는 경우, Braze 온보딩 또는 고객지원 팀에 문의하여 검증 절차를 다시 시작하세요.
 
@@ -50,7 +50,7 @@ Braze에서 DNS 레코드를 제공한 후, 귀사의 DNS 또는 IT 팀이 가�
 
 이 방법은 회사에 대해 하나의 발송 도메인, 하나의 추적 도메인 및 총 하나의 IP를 설정합니다. 더 많은 설정을 계획하고 있다면 Braze 온보딩 팀에 문의하세요(방법 1).
 
-{% multi_lang_include early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
+{% multi_lang_include alerts/early_access_beta_alert.md feature='This self-service email setup feature' type='beta' %}
 <br>셀프 서비스 이메일 설정 기능을 사용하는 경우 Braze 온보딩 팀과도 반드시 상담하세요.
 
 ### 필수 조건 {#prerequisites}
@@ -72,7 +72,7 @@ Braze에서 DNS 레코드를 제공한 후, 귀사의 DNS 또는 IT 팀이 가�
 
 다음으로, 페이지 하단의 TXT 및 CNAME 레코드를 DNS 공급자에 추가합니다. 그런 다음 Braze 대시보드로 돌아가서 **확인**을 클릭합니다.
 
-![]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
+![발송 도메인을 확인하기 위한 TXT 및 CNAME DNS 레코드가 표시된 이메일 설정 페이지.]({% image_buster /assets/img_archive/email_setup_rdns_records.png %})
 
 검증이 실패하고 DNS 레코드가 올바르다고 판단되는 경우, Braze 고객지원에 도움을 요청하세요.
 
@@ -100,4 +100,4 @@ IP 풀에 전용 IP 주소가 여러 개 포함된 경우, Braze와 이메일 �
 
 ### 다음 단계
 
-발송자 확인이 완료되면, 메시지가 지속적으로 높은 비율로 대상 받은편지함에 도달할 수 있도록 IP 워밍을 권장합니다. 이 설정을 완료한 후, Braze 온보딩 팀과 상담하여 도메인과 [IP 주소]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming/)가 정상적으로 작동하는지 확인하세요.
+발송자 확인이 완료되면, 메시지가 지속적으로 높은 비율로 대상 받은편지함에 도달할 수 있도록 IP 워밍을 권장합니다. 이 설정을 완료한 후, Braze 온보딩 팀과 상담하여 도메인과 [IP 주소]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)가 정상적으로 작동하는지 확인하세요.

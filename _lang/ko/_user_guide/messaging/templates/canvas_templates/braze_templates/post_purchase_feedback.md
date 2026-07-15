@@ -17,14 +17,14 @@ tool: Canvas
 
 이 템플릿을 성공적으로 사용하려면 다음이 필요합니다:
 
-- 피드백 설문조사 결과를 참조할 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#managing-custom-attributes).
-- 사용하는 파트너 및 오디언스와 함께 구성된 [Braze 오디언스 동기화]({{site.baseurl}}/partners/canvas_audience_sync/).
+- 피드백 설문조사 결과를 참조할 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#managing-custom-attributes).
+- 사용하는 파트너 및 오디언스와 함께 구성된 [Braze 오디언스 동기화]({{site.baseurl}}/partners/canvas_audience_sync).
 
 ## 필요에 맞게 템플릿 조정하기 {#tailoring-the-template-to-your-needs}
 
 모바일 비디오 게임 개발사인 Decorumsoft에서 일하고 있다고 가정해 보겠습니다. 구매 후 피드백 템플릿을 사용하여 최신 비디오 게임 출시작인 Proxy War 3: War of Thirst에 대한 피드백을 수집할 것입니다. 이 피드백을 활용하여 확장팩 Liquid Mirage의 개발 계획을 수립할 것입니다.
 
-Canvas를 생성하기 전에, 행동 트리거, 세분화 등을 기반으로 광고를 전송할 수 있도록 Braze의 사용자 데이터를 Google Audiences에 추가할 수 있는 [Braze 오디언스 동기화 to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) 통합을 설정합니다.
+Canvas를 생성하기 전에, 행동 트리거, 세분화 등을 기반으로 광고를 전송할 수 있도록 Braze의 사용자 데이터를 Google Audiences에 추가할 수 있는 [Braze 오디언스 동기화 to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) 통합을 설정합니다.
 
 구매 후 피드백 템플릿에 접근하려면, 새 Canvas를 생성할 때 **Use a Canvas template** > **Braze templates**를 선택합니다. 그런 다음 **Post-Purchase Feedback** 옆에 있는 **Apply Template**을 선택합니다. 이제 템플릿을 필요에 맞게 조정할 수 있습니다.
 
@@ -90,7 +90,7 @@ Canvas 세부 정보를 목표에 맞게 조정해 보겠습니다.
 4. **Edit message**를 선택하여 템플릿의 이메일 메시지를 피드백 설문조사 메시지로 교체합니다. 여기에는 각 행동 유도 링크를 교체하여 어떤 옵션이 선택되었는지 캡처하는 것이 포함되며, 이는 사용자 여정의 행동 경로 단계에서 참조됩니다.
 
 {% alert tip %}
-[Canvas 진입 속성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/)을 사용하여 참조하는 제품에 따라 Canvas의 메시지를 커스터마이즈할 수 있습니다.
+[Canvas 진입 속성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)을 사용하여 참조하는 제품에 따라 Canvas의 메시지를 커스터마이즈할 수 있습니다.
 {% endalert %}
 
 #### 피드백 설문조사 설정 {#set-up-feedback-survey}
@@ -123,10 +123,10 @@ Canvas 세부 정보를 목표에 맞게 조정해 보겠습니다.
 
 ![Proxy War 3 구매에 대해 부정적인 감정을 가지고 환불을 원하는 고객을 위한 지원 케이스를 생성하는 웹훅.]({% image_buster /assets/img/canvas_templates/post_purchase_feedback/webhook_example.png %}){: style="max-width:90%;"}
 
-### 6단계: Canvas 테스트 및 시작 {#step-6-test-and-launch-the-canvas}
+### 7단계: Canvas 테스트 및 시작 {#step-6-test-and-launch-the-canvas}
 
 Canvas를 테스트하고 검토하여 예상대로 작동하는지 확인한 후, **Launch Canvas**를 선택하여 Canvas를 시작합니다. 이제 Proxy War 3의 최근 구매를 기반으로 피드백 설문조사에 응답하도록 유도하는 개인화된 사용자 여정으로 사용자를 세심하게 타겟팅할 수 있습니다!
 
 {% alert tip %}
-Canvas를 시작하기 전후에 고려해야 할 사항은 [시작 전후 체크리스트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist/#things-to-consider-before-launch)를 확인하세요.
+Canvas를 시작하기 전후에 고려해야 할 사항은 [시작 전후 체크리스트]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch)를 확인하세요.
 {% endalert %}

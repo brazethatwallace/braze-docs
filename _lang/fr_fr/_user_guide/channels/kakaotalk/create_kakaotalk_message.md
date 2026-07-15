@@ -10,7 +10,7 @@ channel:
 
 # Créer un message KakaoTalk {#create-a-kakaotalk-message}
 
-> Utilisez le [canal de communication KakaoTalk]({{site.baseurl}}/kakaotalk/) pour atteindre directement les utilisateurs via la plateforme KakaoTalk. Créez une expérience utilisateur personnalisée en utilisant Liquid et d'autres contenus dynamiques pour construire un environnement qui favorise et enrichit une expérience utilisateur de qualité avec votre marque.<br><br>Pour configurer votre canal de communication KakaoTalk, consultez [Configurer KakaoTalk]({{site.baseurl}}/kakaotalk_setup/).
+> Utilisez le [canal de communication KakaoTalk]({{site.baseurl}}/kakaotalk) pour atteindre directement les utilisateurs via la plateforme KakaoTalk. Créez une expérience utilisateur personnalisée en utilisant Liquid et d'autres contenus dynamiques pour construire un environnement qui favorise et enrichit une expérience utilisateur de qualité avec votre marque.<br><br>Pour configurer votre canal de communication KakaoTalk, consultez [Configurer KakaoTalk]({{site.baseurl}}/kakaotalk_setup).
 
 ## Étape 1 : Choisir où créer votre message {#step-1-choose-where-to-build-your-message}
 
@@ -24,12 +24,12 @@ KakaoTalk est pris en charge dans les Campaigns et les Canvas. Les Campaigns son
 
 ![Panneau avec les options de sélection du canal de communication.]({% image_buster /assets/img/kakaotalk/kakaotalk_campaign.png %}){: style="max-width:30%" }
 
-3. Vous pouvez ajouter des variantes supplémentaires à votre campagne, ce qui vous permet de choisir différents types de messages et dispositions. Pour en savoir plus, consultez [Tests multivariés et A/B](https://www.braze.com/docs/user_guide/messaging/ab_testing/).
+3. Vous pouvez ajouter des variantes supplémentaires à votre campagne, ce qui vous permet de choisir différents types de messages et dispositions. Pour en savoir plus, consultez [Tests multivariés et A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% endtab %}
 {% tab Canvas %}
 
-1. [Créez votre Canvas](https://www.braze.com/docs/user_guide/messaging/canvas/create_a_canvas/).
+1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 2. Ajoutez une étape Message dans le générateur Canvas et sélectionnez **KakaoTalk**.
 
 ![Sélections de canaux de communication dans Canvas.]({% image_buster /assets/img/kakaotalk/kakaotalk_canvas.png %})
@@ -167,7 +167,7 @@ Le suivi des clics est pris en charge pour les messages texte, image et liste d'
 
 Pour activer le suivi des clics, cochez **Click Tracking** dans la section **Link options** du compositeur. Les URL seront raccourcies en utilisant le domaine Braze par défaut (`https://brz.ai`) ou le domaine personnalisé spécifié pour le groupe d'abonnement, et personnalisées pour l'utilisateur.
 
-Pour tous les détails sur le suivi des clics, les domaines personnalisés, la personnalisation Liquid dans les URL, le reporting et le reciblage, consultez [Suivi des clics KakaoTalk]({{site.baseurl}}/kakaotalk_click_tracking/).
+Pour tous les détails sur le suivi des clics, les domaines personnalisés, la personnalisation Liquid dans les URL, le reporting et le reciblage, consultez [Suivi des clics KakaoTalk]({{site.baseurl}}/kakaotalk_click_tracking).
 
 ### Recibler les utilisateurs {#retargeting-users}
 
@@ -194,7 +194,7 @@ Après avoir sélectionné vos utilisateurs test, sélectionnez **Send Test**. U
 Pour prévisualiser et envoyer un message test à un utilisateur existant, vous devez disposer des autorisations « View PII ». Vous pouvez prévisualiser et envoyer un message test à un utilisateur personnalisé sans ces autorisations.
 {% endalert %}
 
-Pour consulter les résultats d'un envoi ou résoudre des problèmes, accédez à **Settings** > **Message Activity Log**. Pour en savoir plus, consultez [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/).
+Pour consulter les résultats d'un envoi ou résoudre des problèmes, accédez à **Paramètres** > **Journal d'activité des messages**. Pour en savoir plus, consultez [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
 
 ## Étape 5 : Construire le reste de votre campagne ou Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
@@ -202,9 +202,9 @@ Consultez les sections suivantes pour savoir comment utiliser au mieux nos outil
 
 ### Choisir une planification d'envoi ou un déclencheur {#choose-delivery-schedule-or-trigger}
 
-Les messages KakaoTalk peuvent être envoyés selon une planification horaire, une action ou un déclencheur API. Pour en savoir plus sur les options de planification et de déclenchement, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/) ou [Types de planification d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#entry-schedule-types) (pour votre Canvas).
+Les messages KakaoTalk peuvent être envoyés selon une planification horaire, une action ou un déclencheur API. Pour en savoir plus sur les options de planification et de déclenchement, consultez [Planifier votre campagne]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign) ou [Types de planification d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#entry-schedule-types) (pour votre Canvas).
 
-Vous pouvez spécifier des contrôles d'envoi, comme permettre aux utilisateurs de redevenir éligibles pour recevoir la campagne, ou activer des règles de limite de fréquence. Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours/).
+Vous pouvez spécifier des contrôles d'envoi, comme permettre aux utilisateurs de redevenir éligibles pour recevoir la campagne, ou activer des règles de limite de fréquence. Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
 ### Choisir les utilisateurs à cibler {#choose-users-to-target}
 

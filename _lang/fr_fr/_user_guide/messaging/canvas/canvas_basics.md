@@ -14,11 +14,11 @@ tool: Canvas
 
 ## Comprendre la structure d'un Canvas {#understanding-canvas-structure}
 
-Avant d'entrer dans les détails de la [configuration d'un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/), identifions les éléments clés qui composent un Canvas.
+Avant d'entrer dans les détails de la [configuration d'un Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas), identifions les éléments clés qui composent un Canvas.
 
 {% tabs %}
   {% tab Canvas %}
-  Canvas est une interface unifiée dans laquelle les marketeurs conçoivent des Campaigns comportant plusieurs messages. C'est un peu comme un outil de programmation visuelle qui vous permet de construire un parcours utilisateur cohérent à partir d'une série d'étapes.
+  Canvas est une interface unifiée dans laquelle les marketeurs conçoivent des campagnes comportant plusieurs messages. C'est un peu comme un outil de programmation visuelle qui vous permet de construire un parcours utilisateur cohérent à partir d'une série d'étapes.
 
   ![Exemple de Canvas avec une étape d'arbre décisionnel menant à deux parcours utilisateur différents selon que l'utilisateur a activé les notifications push ou non.]({% image_buster /assets/img/canvas_intro/canvas_intro.gif %})
 
@@ -31,7 +31,7 @@ Avant d'entrer dans les détails de la [configuration d'un Canvas]({{site.baseur
   {% endtab %}
 
   {% tab Générateur de Canvas %}
-  Le générateur de Canvas décrit les étapes à suivre lors de la création de votre Canvas. Cela inclut les éléments de base comme nommer votre Canvas et ajouter des équipes. Le générateur de Canvas est essentiellement la configuration indispensable avant de commencer à construire votre Canvas. Vous pouvez y contrôler la manière dont vos utilisateurs commencent et accomplissent leur parcours client, avec des options pour modifier la [planification d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2b-set-your-canvas-entry-schedule), l'[audience cible]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2c-set-your-target-entry-audience) et les [paramètres d'envoi]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/#step-2d-select-your-send-settings).<br><br> ![Le générateur de Canvas dans la section Principes de base pour un Canvas nommé « New Canvas ».]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
+  Le générateur de Canvas décrit les étapes à suivre lors de la création de votre Canvas. Cela inclut les éléments de base comme nommer votre Canvas et ajouter des équipes. Le générateur de Canvas est essentiellement la configuration indispensable avant de commencer à construire votre Canvas. Vous pouvez y contrôler la manière dont vos utilisateurs commencent et accomplissent leur parcours client, avec des options pour modifier la [planification d'entrée]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2b-set-your-canvas-entry-schedule), l'[audience cible]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2c-set-your-target-entry-audience) et les [paramètres d'envoi]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2d-select-your-send-settings).<br><br> ![Le générateur de Canvas dans la section Principes de base pour un Canvas nommé « New Canvas ».]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
 
   {% endtab %}
 
@@ -41,7 +41,7 @@ Avant d'entrer dans les détails de la [configuration d'un Canvas]({{site.baseur
   {% endtab %}
 
   {% tab Étapes %}
-  Une étape dans Canvas est un point de décision marketing : « si ceci, alors cela ». Utilisez les [composants Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/#about-canvas-components) pour construire les étapes d'un parcours utilisateur.<br><br> ![Exemple d'ajout d'une étape de délai à un Canvas.]({% image_buster /assets/img/canvas_intro/add_canvas_step.gif %}) <br><br> Lorsqu'un utilisateur entre dans un Canvas, il commence à la première étape. Chaque étape comporte des conditions qui déterminent si un utilisateur peut passer à l'étape suivante. Au sein d'une étape, vous pouvez définir des déclencheurs ou planifier la distribution, affiner le ciblage en ajoutant des filtres ou en marquant des événements d'exception, et spécifier différents canaux comme les notifications push ou les événements webhook. Dans Canvas, les étapes se déroulent de manière séquentielle, ce qui signifie que la première étape doit avoir lieu avant que la deuxième puisse se produire. Prenons l'exemple d'un Canvas avec les étapes suivantes : une étape de délai A avec un délai de 24 heures, une étape de message A avec une notification push et une étape de message B avec un message in-app. L'utilisateur A est maintenu dans un délai de 24 heures, puis, après ces 24 heures, il recevra une notification push, suivie d'un message in-app.
+  Une étape dans Canvas est un point de décision marketing : « si ceci, alors cela ». Utilisez les [composants Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components#about-canvas-components) pour construire les étapes d'un parcours utilisateur.<br><br> ![Exemple d'ajout d'une étape de délai à un Canvas.]({% image_buster /assets/img/canvas_intro/add_canvas_step.gif %}) <br><br> Lorsqu'un utilisateur entre dans un Canvas, il commence à la première étape. Chaque étape comporte des conditions qui déterminent si un utilisateur peut passer à l'étape suivante. Au sein d'une étape, vous pouvez définir des déclencheurs ou planifier la distribution, affiner le ciblage en ajoutant des filtres ou en marquant des événements d'exception, et spécifier différents canaux comme les notifications push ou les événements webhook. Dans Canvas, les étapes se déroulent de manière séquentielle, ce qui signifie que la première étape doit avoir lieu avant que la deuxième puisse se produire. Prenons l'exemple d'un Canvas avec les étapes suivantes : une étape de délai A avec un délai de 24 heures, une étape de message A avec une notification push et une étape de message B avec un message in-app. L'utilisateur A est maintenu dans un délai de 24 heures, puis, après ces 24 heures, il recevra une notification push, suivie d'un message in-app.
 
   {% endtab %}
 {% endtabs %}
@@ -64,7 +64,7 @@ Vous pouvez ajouter des étiquettes et nommer les étapes et les variantes d'un 
 
 Il est toujours important d'avoir un objectif défini en tête, et Canvas vous aide à comprendre vos performances par rapport à des indicateurs clés de performance comme l'engagement de session, les achats et les événements personnalisés.
 
-Sélectionner au moins un [événement de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/) vous permettra de comprendre comment optimiser les performances au sein du Canvas. Et si votre Canvas comporte plusieurs variantes ou un groupe de contrôle, Braze utilisera l'événement de conversion pour déterminer la meilleure variation pour atteindre cet objectif.
+Sélectionner au moins un [événement de conversion]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) vous permettra de comprendre comment optimiser les performances au sein du Canvas. Et si votre Canvas comporte plusieurs variantes ou un groupe de contrôle, Braze utilisera l'événement de conversion pour déterminer la meilleure variante pour atteindre cet objectif.
 
 * **Démarrer une session** : je veux que mes utilisateurs reviennent et interagissent avec l'application.
 * **Effectuer un achat** : je veux que mes utilisateurs achètent.
@@ -78,7 +78,7 @@ Sélectionner au moins un [événement de conversion]({{site.baseurl}}/user_guid
 Votre réponse déterminera les détails du moment et de la manière dont votre Canvas sera distribué à vos clients. Les utilisateurs peuvent entrer dans votre Canvas de deux façons : par planification ou par déclencheurs basés sur des actions.
 
 {% alert tip %}
-Consultez les [fonctionnalités basées sur le temps]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types/) pour Canvas afin de découvrir davantage de stratégies et de réponses aux questions courantes.
+Consultez les [fonctionnalités basées sur le temps]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) pour Canvas afin de découvrir davantage de stratégies et de réponses aux questions courantes.
 {% endalert %}
 
 La distribution planifiée vous permet d'envoyer un Canvas immédiatement à votre audience cible. Vous pouvez également le configurer pour un envoi régulier ou le planifier pour un moment précis dans le futur. Les Canvas basés sur des actions réagissent à des comportements spécifiques des clients en temps réel. Par exemple, un déclencheur basé sur une action peut inclure l'ouverture d'une application, un achat, une interaction avec une autre Campaign ou le déclenchement d'un événement personnalisé. Au moment où l'action se produit, le Canvas peut être envoyé à vos utilisateurs.
@@ -97,19 +97,19 @@ Pour définir votre « qui », vous pouvez utiliser les segments prédéfinis di
 | Activité marketing | Segmentez les clients en fonction de comportements universels comme le dernier engagement. |
 | Attributs de l'utilisateur | Segmentez les clients selon leurs attributs et caractéristiques permanents. |
 | Attribution d'installation | Segmentez les clients selon leur première source, groupe publicitaire, Campaign ou annonce. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="The &quot;who&quot;: Select an audience" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Le « qui » : sélectionnez une audience" }
 
 ### Le « où » : trouvez mon audience {#the-where-find-my-audience}
 
 *Où puis-je le mieux atteindre mon audience ?*
 
 C'est ici que nous déterminons quels canaux de communication sont les plus pertinents pour votre parcours utilisateur. Idéalement, vous souhaitez atteindre vos utilisateurs là où ils sont le plus accessibles. Dans cette optique, vous pouvez utiliser n'importe lequel des canaux suivants avec Canvas :
-* [E-mail]({{site.baseurl}}/user_guide/channels/email/)
-* [Push]({{site.baseurl}}/user_guide/channels/push/)
-* [Messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages/)
-* [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/)
-* [SMS ou MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/)
-* [Webhook]({{site.baseurl}}/user_guide/channels/webhooks/)
+* [E-mail]({{site.baseurl}}/user_guide/channels/email)
+* [Push]({{site.baseurl}}/user_guide/channels/push)
+* [Messages in-app]({{site.baseurl}}/user_guide/channels/in_app_messages)
+* [Content Cards]({{site.baseurl}}/user_guide/channels/content_cards)
+* [SMS ou MMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs)
+* [Webhook]({{site.baseurl}}/user_guide/channels/webhooks)
 
 ### Le « comment » : construisez l'expérience complète {#the-how-build-the-complete-experience}
 

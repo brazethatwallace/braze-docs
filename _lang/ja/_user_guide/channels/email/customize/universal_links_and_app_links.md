@@ -3,19 +3,19 @@ nav_title: "ユニバーサルリンクとApp Links"
 article_title: "ユニバーサルリンクとApp Links"
 page_order: 6.4
 page_type: reference
-description: "この記事では、Apple ユニバーサルリンクと Android App Linksの設定方法について説明します。"
+description: "この記事では、Appleユニバーサルリンクと Android App Linksの設定方法について説明します。"
 channel: email
 ---
 
 # ユニバーサルリンクとApp Links {#universal-links-and-app-links}
 
-> この記事では、Apple ユニバーサルリンクと Android App Linksの設定方法について説明します。
+> この記事では、Appleユニバーサルリンクと Android App Linksの設定方法について説明します。
 
 {% alert tip %}
-すべてのメッセージングチャネルにおけるリンクタイプの比較と、AASAファイルが必要なタイミングに関するガイダンスについては、[iOSディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide/)を参照してください。
+すべてのメッセージングチャネルにおけるリンクタイプの比較と、AASAファイルが必要なタイミングに関するガイダンスについては、[iOSディープリンクガイド]({{site.baseurl}}/developer_guide/push_notifications/ios_deep_linking_guide)を参照してください。
 {% endalert %}
 
-Apple ユニバーサルリンクと Android App Linksは、Webコンテンツとモバイルアプリ間のシームレスな遷移を提供するために考案されたメカニズムです。ユニバーサルリンクはiOS固有のものですが、Android App LinksはAndroidアプリケーションで同じ目的を果たします。
+Appleユニバーサルリンクと Android App Linksは、Webコンテンツとモバイルアプリ間のシームレスな遷移を提供するために考案されたメカニズムです。ユニバーサルリンクはiOS固有のものですが、Android App LinksはAndroidアプリケーションで同じ目的を果たします。
 
 ## ユニバーサルリンクとApp Linksの仕組み {#how-universal-links-and-app-links-work}
 
@@ -23,7 +23,11 @@ Apple ユニバーサルリンクと Android App Linksは、Webコンテンツ�
 
 ユニバーサルリンクまたはApp Linkが開かれると、オペレーティングシステムはそのドメインに登録されたインストール済みアプリがあるかどうかを確認します。アプリが見つかった場合、Webページを読み込むことなく即座にアプリが起動されます。アプリが見つからない場合、Web URLがユーザーのデフォルトWebブラウザーで読み込まれ、それぞれApp StoreまたはGoogle Play Storeにリダイレクトするように設定することもできます。
 
-簡単に言えば、ユニバーサルリンクにより、WebサイトはそのWebページを特定のアプリ画面に関連付けることができます。そのため、ユーザーがアプリ画面に対応するWebページへのリンクをクリックすると、アプリを直接開くことができます（アプリが現在インストールされている場合）。
+簡単に言えば、ユニバーサルリンクにより、Webサイトはそのwebページを特定のアプリ画面に関連付けることができます。そのため、ユーザーがアプリ画面に対応するWebページへのリンクをクリックすると、アプリを直接開くことができます（アプリが現在インストールされている場合）。
+
+{% alert important %}
+Firebase Dynamic Linksは非推奨になりました。BrazeはFirebaseとの直接的な統合を持っておらず、ディープリンクはBrazeプラットフォームの外部で管理されます。プラットフォームネイティブのソリューション（この記事で説明するAppleユニバーサルリンクとAndroid App Links）または代替のディープリンクサービスプロバイダーに移行してください。移行のガイダンスについては、[Firebaseの移行FAQ](https://firebase.google.com/support/dynamic-links-faq)を参照してください。
+{% endalert %}
 
 次の表は、ユニバーサルリンクと従来のディープリンクの主な違いをまとめたものです。
 
@@ -37,7 +41,7 @@ Apple ユニバーサルリンクと Android App Linksは、Webコンテンツ�
 
 ## ユースケース {#use-cases}
 
-ユニバーサルリンクとApp Linksは、メールCampaignで最も一般的に使用されます。メールはデスクトップとモバイルデバイスの両方から開いてクリックできるためです。
+ユニバーサルリンクとApp Linksは、メールキャンペーンで最も一般的に使用されます。メールはデスクトップとモバイルデバイスの両方から開いてクリックできるためです。
 
 一部のチャネルはこれらのリンクとうまく連携しません。たとえば、プッシュ通知、アプリ内メッセージ、Content Cardsでは、スキームベースのディープリンク（`mydomain://`）を使用する必要があります。
 
@@ -93,7 +97,7 @@ Android App Linksには、そのドメインからのリンクを他のWeb URL�
 2. **Associated Domains**を選択します。
 3. **Save**をクリックします。
 
-![]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
+![App Servicesセクション]({% image_buster /assets/img_archive/universal_links_1b.png %}){: style="max-width:75%;"}
 
 #### ステップ1c:XcodeプロジェクトでAssociated Domainsを有効にする {#step-1c}
 
@@ -113,7 +117,7 @@ Android App Linksには、そのドメインからのリンクを他のWeb URL�
 
 ドメインセクションで、適切なドメインタグを追加します。`applinks:`をプレフィックスとして付ける必要があります。この例では、`applinks:yourdomain.com`を追加しています。
 
-![]({% image_buster /assets/img_archive/universal_links_1d.png %})
+![Associated Domainsセクション]({% image_buster /assets/img_archive/universal_links_1d.png %})
 
 #### ステップ1e:エンタイトルメントファイルがビルドに含まれていることを確認する {#step-1e-confirm-that-the-entitlements-file-is-included-at-build}
 
@@ -170,7 +174,7 @@ AASAファイルをホストする際は、ファイルが以下のガイドラ�
 
 ユーザーがiOSデバイスでユニバーサルリンクをタップすると、デバイスはアプリを起動し、[NSUserActivity](https://developer.apple.com/documentation/foundation/nsuseractivity)オブジェクトを送信します。アプリはNSUserActivityオブジェクトをクエリして、どのように起動されたかを判断できます。
 
-アプリでユニバーサルリンクをサポートするには、以下の手順を実行します。
+アプリでユニバーサルリンクをサポートするには、以下のステップを実行します。
 
 1. アプリがサポートするドメインを指定するエンタイトルメントを追加します。
 2. NSUserActivityオブジェクトを受信したときに適切に応答するようにアプリデリゲートを更新します。
@@ -276,7 +280,7 @@ SparkPostのクリックトラッキングリンクをユニバーサルリン�
 
 カスタムパスを使用して、メールのクリックトラッキングURLにパスセグメントを追加します。これにより、モバイルオペレーティングシステムがユニバーサルリンクやApp Linksとして認識できる予測可能なURLパターンが作成されます。
 
-ユーザーがモバイルデバイスでメールリンクをタップした際、カスタムパスを使用することで、リンクをメインのモバイルアプリ、専用アプリ、またはモバイルブラウザー（たとえば商品ページ、ロイヤルティプログラム、配信停止リンク、法的ページなど）のいずれで開くかを制御できます。
+ユーザーがモバイルデバイスでメールリンクをタップした際、カスタムパスを使用することで、リンクをメインのモバイルアプリ、専用アプリ、またはモバイルブラウザー（たとえば商品ページ、ロイヤルティプログラム、購読解除リンク、法的ページなど）のいずれで開くかを制御できます。
 
 Amazon SESのクリックトラッキングリンクをユニバーサルリンクまたはApp Linkとして扱うには、以下を行います。
 
@@ -396,7 +400,7 @@ Amazon SESのクリックトラッキングリンクをユニバーサルリン�
 - **Name:** `data-msys-clicktrack`
 - **Value:** `0`
 
-![テキストリンクのカスタム属性。]({% image_buster /assets/img/text_click_tracking_off.png %}){: style="max-width:60%;"}
+![テキストリンクのカスタム属性]({% image_buster /assets/img/text_click_tracking_off.png %}){: style="max-width:60%;"}
 
 ##### ボタンまたは画像のカスタム属性 {#custom-attribute-for-a-button-or-image}
 
@@ -416,7 +420,7 @@ Amazon SESのクリックトラッキングリンクをユニバーサルリン�
 - **Value:** `0`
 - **Type:** Link
 
-![ボタンのカスタム属性。]({% image_buster /assets/img/button_click_tracking_off.png %}){: style="max-width:60%;"}
+![ボタンのカスタム属性]({% image_buster /assets/img/button_click_tracking_off.png %}){: style="max-width:60%;"}
 
 ### クリックトラッキング付きユニバーサルリンクのトラブルシューティング {#troubleshooting-universal-links-with-click-tracking}
 
@@ -439,13 +443,24 @@ AASAファイル（iOS）またはDigital Asset Linksファイル（Android）�
 
 アプリが開くことを許可されるドメインの定義が正しいことを確認します。
 
-- **iOS:** XcodeでアプリのAssociated Domainsを確認します（[ステップ1c:XcodeプロジェクトでAssociated Domainsを有効にする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links/?tab=ios#step-1c)）。クリックトラッキングドメインがそのリストに含まれていることを確認します。
+- **iOS:** XcodeでアプリのAssociated Domainsを確認します（[ステップ1c:XcodeプロジェクトでAssociated Domainsを有効にする]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links?tab=ios#step-1c)）。クリックトラッキングドメインがそのリストに含まれていることを確認します。
 - **Android:** アプリ情報ページを開きます（アプリアイコンを長押しして ⓘ をクリック）。アプリ情報メニュー内で**Open by default**を見つけてタップします。アプリが開くことを許可されているすべての検証済みリンクが表示される画面が表示されます。クリックトラッキングドメインがそのリストに含まれていることを確認します。
 
 #### トラッキングドメインが.well-knownファイルを提供できない場合 {#tracking-domain-cant-serve-well-known-files}
 
 場合によっては、ESPの制限やインフラの制約により、クリックトラッキングドメインが必要な`.well-known`ファイルをホストできないことがあります。トラッキングドメインにAASAまたはDigital Asset Linksファイルをホストできない場合は、以下のオプションを検討してください。
 
-- **ESPにトラッキングドメインでファイルをホストするよう依頼する:** クリックトラッキングサブドメインは通常、ESP（SendGrid、SparkPost、またはAmazon SES）を指すCNAMEです。ESPがそのドメインのトラフィックを終端するため、`.well-known`ファイルをホストできます。SendGridとSparkPostはどちらもこれをサポートしています。ESPに直接連絡してリクエストしてください。
-- **ディープリンクURLのクリックトラッキングを選択的に無効にする:** ESPがファイルをホストできない場合、特定のユニバーサルリンクのクリックトラッキングを無効にして、メインドメイン（AASAまたはDigital Asset Linksファイルをホストできる場所）に直接移動するようにできます。この方法では、それらの特定のリンクのクリック分析が失われる可能性があることに注意してください。手順については、[リンクごとのクリックトラッキングの無効化](#turning-off-click-tracking-on-a-link-to-link-basis)を参照してください。
+- **ディープリンクURLのクリックトラッキングを選択的に無効にする:** 特定のユニバーサルリンクのクリックトラッキングを無効にして、メインドメイン（AASAまたはDigital Asset Linksファイルをホストできる場所）に直接移動するようにできます。この方法では、それらの特定のリンクのクリック分析が失われる可能性があることに注意してください。手順については、[リンクごとのクリックトラッキングの無効化](#turning-off-click-tracking-on-a-link-to-link-basis)を参照してください。
 - **トラッキングサブドメインの前にCDNを配置する:** 完全なクリックトラッキングカバレッジとディープリンクの両方が必要な場合は、トラッキングサブドメインの前にCDN（CloudflareやCloudFrontなど）を配置できます。CDNを設定して`.well-known`ファイルをローカルで提供し、その他のすべてのトラフィックをESPにプロキシします。このアプローチはより複雑ですが、クリックトラッキングとユニバーサルリンクの両方を完全に制御できます。
+
+#### リンクが1つのワークスペースでは機能するが別のワークスペースでは機能しない {#links-working-in-one-workspace-but-not-another}
+
+ユニバーサルリンクまたはApp Linksが本番ワークスペースでは正しく機能するが、開発またはテストワークスペースでは失敗する場合は、送信メールアドレスのドメインが各ワークスペースのメール設定で構成されたトラッキングドメインと一致していることを確認してください。ワークスペース間の設定が一貫していないと、同じメールテンプレートとAASAまたはDigital Asset Linksファイルを使用していても、リンクの動作が異なる場合があります。
+
+メール設定を確認するには、以下を行います。
+
+1. Brazeダッシュボードで**設定** > **メール設定**に移動します。
+2. **送信設定**の**送信メール設定**を確認します。
+3. リンクが機能していないワークスペースで、送信ドメインとトラッキングドメインが適切に整合していることを確認します。
+
+送信ドメインがワークスペース間で異なる場合は、各ワークスペースに適切なDNSレコードが設定されていること、およびAASA（iOS）またはDigital Asset Links（Android）ファイルが各トラッキングドメインからアクセス可能であることを確認してください。

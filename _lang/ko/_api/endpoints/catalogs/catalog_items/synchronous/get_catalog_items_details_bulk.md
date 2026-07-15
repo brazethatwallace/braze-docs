@@ -21,7 +21,7 @@ description: "이 문서에서는 여러 카탈로그 항목 세부 정보 나�
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `catalogs.get_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key/)가 필요합니다.
+이 엔드포인트를 사용하려면 `catalogs.get_items` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -32,16 +32,16 @@ description: "이 문서에서는 여러 카탈로그 항목 세부 정보 나�
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `catalog_name` | 필수 | 문자열 | 카탈로그의 이름입니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Path parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="경로 매개변수" }
 
 ## 쿼리 매개변수 {#query-parameters}
 
-이 엔드포인트를 호출할 때마다 50개의 항목이 반환된다는 점에 유의하세요. 50개 이상의 항목이 있는 카탈로그의 경우 다음 예제 응답과 같이 `Link` 헤더를 사용하여 다음 페이지에서 데이터를 검색합니다.
+이 엔드포인트를 호출할 때마다 50개의 항목이 반환됩니다. 50개 이상의 항목이 있는 카탈로그의 경우 다음 예제 응답과 같이 `Link` 헤더를 사용하여 다음 페이지에서 데이터를 검색합니다.
 
 | 매개변수 | 필수 | 데이터 유형 | 설명 |
 |---|---|---|---|
 | `cursor` | 선택 사항 | 문자열 | 카탈로그 항목의 페이지 매김을 결정합니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Query parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="쿼리 매개변수" }
 
 ## 요청 매개변수 {#request-parameters}
 
@@ -146,6 +146,6 @@ Link: </catalogs/all_restaurants/items?cursor=c2tpcDow>; rel="prev",</catalogs/a
 | --- | --- |
 | `catalog-not-found` | 카탈로그 이름이 유효한지 확인합니다. |
 | `invalid-cursor` | `cursor`가 유효한지 확인합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Troubleshooting" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="문제 해결" }
 
 {% endapi %}

@@ -26,7 +26,7 @@ To duplicate an individual template, select <i class="fas fa-ellipsis-v"></i> **
 <br><br>
 
 {% alert note %}
-For [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks/) templates, a draft copy is created. For all other templates a new duplicate copy is automatically created.
+For [Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) templates, a draft copy is created. For all other templates a new duplicate copy is automatically created.
 {% endalert %}
 
 {% endtab %}
@@ -60,6 +60,6 @@ To archive multiple templates, select the checkbox next to each template that yo
 ![Saved Drop & Drop Email Templates section that shows two selected templates and toolbar with the option to archive.]({% image_buster /assets/img/archive_multiple_template.png %}){: style="max-width:60%;"}
 
 {% alert important %}
-Archiving is not currently available for [link templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing/#link-templates).
+Archiving is not currently available for [link templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing).
 {% endalert %}
 

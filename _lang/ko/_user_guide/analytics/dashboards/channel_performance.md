@@ -42,7 +42,7 @@ toc_headers: h2
 | 기타 열람률 | 비율 | (날짜 범위 내 각 일자의 총 기타 열람 수) / (날짜 범위의 총 전달 수)<br><br>기타 열람에는 사용자가 이메일을 열 때와 같이 기계 열람으로 식별되지 않은 이메일이 포함됩니다. 이 측정기준은 고유하지 않으며 총 열람의 하위 측정기준입니다.  |
 | 고유 클릭률 | 비율 | (날짜 범위 내 각 일자의 총 고유 클릭 수) / (날짜 범위의 총 전달 수) |
 | 고유 클릭 대비 열람률 | 비율 | (날짜 범위 내 각 일자의 총 고유 클릭 수) / (날짜 범위 내 각 일자의 총 고유 열람 수) |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="측정기준 계산 방식" }
 
 {% endtab %}
 {% tab 이메일 인사이트 %}
@@ -63,8 +63,8 @@ CDN으로 CloudFront를 사용하는 경우, 사용자의 사용자 에이전트
 
 이 "기타" 카테고리에 무엇이 포함되어 있는지 더 잘 이해하려면 다음 옵션 중 하나를 사용하여 사용자 에이전트를 추출할 수 있습니다:
 
-1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents/)를 사용하면 사용자 기기에서 검색된 정확한 사용자 에이전트 문자열을 받을 수 있습니다.
-2. [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/)를 활용하여 SQL 또는 [AI 쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder/#generating-sql-with-the-ai-query-builder)를 사용하여 사용자 에이전트를 확인할 수 있습니다.
+1. [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)를 사용하면 사용자 기기에서 검색된 정확한 사용자 에이전트 문자열을 받을 수 있습니다.
+2. [쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder)를 활용하여 SQL 또는 [AI 쿼리 빌더]({{site.baseurl}}/user_guide/analytics/reports/query_builder#generating-sql-with-the-ai-query-builder)를 사용하여 사용자 에이전트를 확인할 수 있습니다.
 
 ![모바일, 데스크탑, 태블릿 및 기타 기기의 클릭 수를 보여주는 기기별 참여 보고서. 가장 많은 클릭 수는 모바일 기기에서 발생합니다.]({% image_buster /assets/img/engagement_by_device_type.png %}){: style="max-width:70%;"}
 
@@ -90,7 +90,7 @@ CDN으로 CloudFront를 사용하는 경우, 사용자의 사용자 에이전트
 
 ![오전 12시부터 오후 11시까지의 열람 또는 클릭을 보여주는 시간대별 참여 보고서 예시.]({% image_buster /assets/img_archive/time_engagement_day.png %})
 
-이메일 분석에 대한 자세한 내용은 [이메일 보고]({{site.baseurl}}/user_guide/channels/email/reporting/)를 확인하세요.
+이메일 분석에 대한 자세한 내용은 [이메일 보고]({{site.baseurl}}/user_guide/channels/email/reporting)를 확인하세요.
 
 {% endtab %}
 {% tab SMS 성과 %}
@@ -114,7 +114,7 @@ SMS 성과 대시보드를 사용하려면 **Analytics** > **SMS Performance**�
 | 클릭률 | 비율 | (날짜 범위 내 각 일자의 총 클릭 수) / (날짜 범위 내 각 일자의 총 전달 수) |
 | 총 옵트인 | 비율 | 날짜 범위 내 각 일자의 총 인바운드 메시지 옵트인 수 |
 | 총 옵트아웃 | 비율 | 날짜 범위 내 각 일자의 총 인바운드 메시지 옵트아웃 수 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="측정기준 계산 방식" }
 
 {% endtab %}
 {% tab 푸시 성과 %}
@@ -139,7 +139,7 @@ SMS 성과 대시보드를 사용하려면 **Analytics** > **SMS Performance**�
 | 직접 열람률 | 비율 | (날짜 범위 내 각 일자의 총 직접 열람 수) / (날짜 범위 내 각 일자의 총 전달 수) |
 | 영향받은 열람률 | 비율 | (날짜 범위 내 각 일자의 총 영향받은 열람 수) / (날짜 범위 내 각 일자의 총 전달 수) |
 | 총 열람률 | 비율 | (날짜 범위 내 각 일자의 총 열람 수) / (날짜 범위 내 각 일자의 총 전달 수)<br><br>총 열람에는 직접 열람과 영향받은 열람이 모두 포함됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="How metrics are calculated" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="측정기준 계산 방식" }
 
 {% endtab %}
 {% endtabs %}
@@ -185,18 +185,18 @@ SMS 성과 대시보드를 사용하려면 **Analytics** > **SMS Performance**�
 
 <!---Temporarily hidden until functionality is added
 
-## Empty values in your data
+## Empty values in your data {#empty-values-in-your-data}
 
-#### If a metric displays "0%" or "0"
+### If a metric displays "0%" or "0" {#if-a-metric-displays-0-or-0}
 
 This means Braze recorded zero for that particular metric during the time frame you've selected.
 
-#### If a metric displays "N/A"
+#### If a metric displays "N/A" {#if-a-metric-displays-na}
 
 This means that while Braze recorded positive counts for a particular metric for the time frame you've selected, the denominator for the rate calculation (either sends or deliveries in most cases) was zero. This can occur when emails are sent out on one day and opens and clicks are recorded the following days if your selected time frame does not include the date the messages were sent.
 
-#### If a metric displays "--"
+#### If a metric displays "--" {#if-a-metric-displays}
 
-This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email/) section.
+This means Braze hasn't recorded any data for that metric during the time you selected. If you haven't set up or sent any emails yet, learn more about how to do so in our dedicated [Email]({{site.baseurl}}/user_guide/channels/email) section.
 
 --->

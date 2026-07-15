@@ -1,6 +1,6 @@
 ---
 nav_title: FAQ
-article_title: Campaign FAQ
+article_title: Campaigns FAQ
 page_order: 10
 page_type: FAQ
 description: "이 페이지에서는 Campaign에 대해 자주 묻는 질문에 대한 답변을 제공합니다."
@@ -12,17 +12,17 @@ tool: Campaigns
 
 > 이 문서에서는 Campaign에 대해 자주 묻는 질문에 대한 답변을 제공합니다.
 
-### 멀티채널 캠페인은 어떻게 만드나요? {#how-do-i-create-a-multichannel-campaign}
+## 멀티채널 캠페인은 어떻게 만드나요? {#how-do-i-create-a-multichannel-campaign}
 
-설정 단계와 지원되는 채널에 대해서는 **캠페인 생성**의 [멀티채널 캠페인]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-campaigns)을 참조하세요.
+설정 단계와 지원되는 채널에 대해서는 **캠페인 생성**의 [멀티채널 캠페인]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns)을 참조하세요.
 
 ### 멀티채널 캠페인에 대조군을 추가할 수 있나요? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-**캠페인 생성**의 [대조군]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-control-groups)을 참조하세요. 크로스채널 테스트의 경우 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)를 사용하세요.
+**캠페인 생성**의 [대조군]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-control-groups)을 참조하세요. 크로스채널 테스트의 경우 [Canvas]({{site.baseurl}}/user_guide/messaging/canvas)를 사용하세요.
 
 ### 캠페인 테스트 및 최적화를 시작하는 방법에는 어떤 것이 있나요? {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
-다변량 캠페인과 여러 배리언트가 있는 Canvases를 실행하는 것이 좋은 시작 방법입니다! 예를 들어, [다변량 캠페인]({{site.baseurl}}/user_guide/messaging/ab_testing/)을 실행하여 다른 문구나 제목란을 가진 하나의 메시지를 테스트할 수 있습니다. 여러 배리언트가 있는 Canvases는 전체 워크플로를 테스트하는 데 도움이 됩니다.
+다변량 캠페인과 여러 배리언트가 있는 Canvases를 실행하는 것이 좋은 시작 방법입니다! 예를 들어, [다변량 캠페인]({{site.baseurl}}/user_guide/messaging/ab_testing)을 실행하여 다른 문구나 제목란을 가진 하나의 메시지를 테스트할 수 있습니다. 여러 배리언트가 있는 Canvases는 전체 워크플로를 테스트하는 데 도움이 됩니다.
 
 ### 캠페인의 열람률이 왜 감소했나요? {#why-did-the-open-rate-for-my-campaign-decrease}
 
@@ -48,11 +48,11 @@ tool: Campaigns
 
 ### 멀티채널 캠페인에서 전환 수가 고유 사용자 수를 초과할 수 있는 이유는 무엇인가요? {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-**캠페인 생성**의 [전환 및 보고]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign/#multichannel-conversions)와 **전환 이벤트**의 [전환 추적 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events/#conversion-tracking-rules)을 참조하세요.
+**캠페인 생성**의 [전환 및 보고]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-conversions)와 **전환 이벤트**의 [전환 추적 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)을 참조하세요.
 
 ### 캠페인에 사용하는 Segment보다 도달 가능 사용자 기반이 더 작은 이유는 무엇인가요? {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 
-[전역 제어 그룹]({{site.baseurl}}/user_guide/audience/global_control_group/)이 설정되어 있으면 도달 가능 오디언스의 일정 비율이 캠페인을 받지 못하게 됩니다. 이는 Segment의 도달 가능 사용자 수가 캠페인의 도달 가능 사용자 수보다 클 수 있음을 의미하며, 캠페인이 동일한 Segment를 사용하고 있더라도 마찬가지입니다.
+[글로벌 컨트롤 그룹]({{site.baseurl}}/user_guide/audience/global_control_group)이 설정되어 있으면 도달 가능 오디언스의 일정 비율이 캠페인을 받지 못하게 됩니다. 이는 Segment의 도달 가능 사용자 수가 캠페인의 도달 가능 사용자 수보다 클 수 있음을 의미하며, 캠페인이 동일한 Segment를 사용하고 있더라도 마찬가지입니다.
 
 ### 현지 시간대 전달은 무엇을 제공하나요? {#what-does-local-time-zone-delivery-offer}
 
@@ -64,7 +64,7 @@ tool: Campaigns
 
 Braze는 사용자의 기기에서 자동으로 시간대를 결정합니다. 이를 통해 시간대 정확성과 사용자의 완전한 커버리지를 보장합니다. User API를 통해 생성되었거나 시간대가 없는 사용자는 SDK에 의해 앱에서 인식될 때까지 회사의 시간대가 기본 시간대로 설정됩니다.
 
-대시보드의 [회사 설정]({{site.baseurl}}/user_guide/administer/global/admin_settings/)에서 회사의 시간대를 확인할 수 있습니다.
+대시보드의 [회사 설정]({{site.baseurl}}/user_guide/administer/global/admin_settings)에서 회사의 시간대를 확인할 수 있습니다.
 
 ### Braze는 현지 시간대 전달을 위해 사용자를 언제 평가하나요? {#when-does-braze-evaluate-users-for-local-time-zone-delivery}
 
@@ -162,11 +162,15 @@ Canvas 구성요소의 경우, 현지 시간대 전달을 위해 사용자 여�
 
 ### 캠페인에 진입하는 사용자 수가 예상 수와 다른 이유는 무엇인가요? {#why-does-the-number-of-users-entering-a-campaign-not-match-the-expected-number}
 
-캠페인에 진입하는 사용자 수는 오디언스와 트리거가 평가되는 방식 때문에 예상 수와 다를 수 있습니다. Braze에서는 트리거 전에 오디언스가 평가됩니다([속성 변경]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers/#change-custom-attribute-value) 트리거를 사용하는 경우 제외). 이로 인해 트리거 동작이 평가되기 전에 선택한 오디언스에 처음부터 포함되지 않은 사용자는 캠페인에서 이탈하게 됩니다.
+캠페인에 진입하는 사용자 수는 오디언스와 트리거가 평가되는 방식 때문에 예상 수와 다를 수 있습니다. Braze에서는 트리거 전에 오디언스가 평가됩니다([속성 변경]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers#change-custom-attribute-value) 트리거를 사용하는 경우 제외). 이로 인해 트리거 동작이 평가되기 전에 선택한 오디언스에 처음부터 포함되지 않은 사용자는 캠페인에서 이탈하게 됩니다.
 
 {% alert tip %}
 캠페인 문제 해결에 대한 추가 지원이 필요하면 문제 발생 후 30일 이내에 Braze 고객지원에 문의하세요. 최근 30일간의 진단 로그만 보유하고 있습니다.
 {% endalert %}
+
+### 캠페인을 편집한 후 사용자가 메시지를 두 번 받은 이유는 무엇인가요? {#why-did-users-receive-my-campaign-twice-after-i-edited-it}
+
+라이브 캠페인을 먼저 중지하지 않고 편집하면 사용자가 메시지를 두 번 받을 수 있습니다. 이는 라이브 캠페인을 편집하면 원래 대기줄이 아직 처리되는 동안 업데이트된 버전에 대해 사용자가 다시 대기줄에 들어가기 때문입니다. 아직 원래 메시지를 받지 못한 사용자가 두 대기줄 모두에 포함될 수 있습니다. 이를 방지하려면 변경하기 전에 항상 [캠페인을 중지]({{site.baseurl}}/user_guide/engagement_tools/campaigns/managing_campaigns/change_your_campaign_after_launch#stopping-your-campaign)하세요.
 
 ### 캠페인 분석 페이지에서 CSV 내보내기 사용자 데이터와 CSV 내보내기 이메일 주소 옵션의 차이점은 무엇인가요? {#what-is-the-difference-between-the-csv-export-user-data-and-csv-export-email-address-options-on-my-campaign-analytics-page}
 
@@ -174,7 +178,7 @@ Canvas 구성요소의 경우, 현지 시간대 전달을 위해 사용자 여�
 
 ### API 식별자로 캠페인을 검색할 수 있나요? {#can-i-search-for-a-campaign-by-its-api-identifier}
 
-네, **Campaigns** 페이지에서 `api_id:YOUR_API_ID` 필터를 사용하여 API 식별자로 캠페인을 검색할 수 있습니다. 자세한 내용은 [캠페인 검색]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns/)을 참조하세요.
+네, **Campaigns** 페이지에서 `api_id:YOUR_API_ID` 필터를 사용하여 API 식별자로 캠페인을 검색할 수 있습니다. 자세한 내용은 [캠페인 검색]({{site.baseurl}}/user_guide/messaging/campaigns/manage_campaigns/search_campaigns)을 참조하세요.
 
 ### 입력 필드와 표시된 텍스트에서 공백이 다르게 나타나는 이유는 무엇인가요? {#why-does-whitespace-appear-differently-in-input-fields-versus-displayed-text}
 
@@ -192,11 +196,11 @@ API 캠페인은 API를 사용하여 보낸 메시지를 추적하는 데 사용
 
 ### API 트리거 캠페인을 사용자가 수신했는지 어떻게 확인할 수 있나요? {#how-can-i-confirm-if-my-users-received-an-api-triggered-campaign}
 
-**Campaign 수신** 필터를 사용하여 [Segment를 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment/)한 다음 확인하려는 특정 API 트리거 캠페인을 선택할 수 있습니다. Segment를 저장한 후 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment/)를 사용하여 해당 Segment의 사용자를 내보낼 수 있습니다.
+**Campaign 수신** 필터를 사용하여 [Segment를 생성]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)한 다음 확인하려는 특정 API 트리거 캠페인을 선택할 수 있습니다. Segment를 저장한 후 [`/users/export/segment` 엔드포인트]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)를 사용하여 해당 Segment의 사용자를 내보낼 수 있습니다.
 
 ### 캠페인을 삭제할 수 있나요? {#can-i-delete-a-campaign}
 
-아니요, 하지만 [캠페인을 아카이브]({{site.baseurl}}/user_guide/messaging/governance/archiving/)할 수 있습니다.
+아니요, 하지만 [캠페인을 아카이브]({{site.baseurl}}/user_guide/messaging/governance/archiving)할 수 있습니다.
 
 ### 실행 기반 캠페인과 API 트리거 캠페인의 차이점은 무엇인가요? {#what-is-the-difference-between-action-based-and-api-triggered-campaigns}
 
@@ -215,7 +219,7 @@ table th:nth-child(3) {
 
 | 장점 | 단점 |
 | ---- | ---- |
-| • **메시지 활동 로그**를 통해 플랫폼으로 들어오는 JSON 페이로드의 가시성(테스트 사용자가 이벤트를 트리거한 경우)<br><br>• 개인화 요소가 커스텀 이벤트 등록정보에 포함됨<br><br>• 커스텀 이벤트를 사용하여 메시지를 받을 자격이 있는 사용자의 Segment를 생성할 수 있음 | • 데이터 포인트를 소비함 |
+| • **메시지 활동 로그**를 통해 플랫폼으로 들어오는 JSON 페이로드의 가시성(테스트 사용자가 이벤트를 트리거한 경우)<br><br>• 개인화 요소가 커스텀 이벤트 속성정보에 포함됨<br><br>• 커스텀 이벤트를 사용하여 메시지를 받을 자격이 있는 사용자의 Segment를 생성할 수 있음 | • 데이터 포인트를 소비함 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="실행 기반" }
 
 #### API 트리거 {#api-triggered}
@@ -224,12 +228,12 @@ API 트리거 및 서버 트리거 캠페인은 더 고급 트랜잭션을 처�
 
 | 장점 | 고려 사항 |
 | ---- | ---- |
-| • 데이터 포인트를 기록하지 않음<br><br>• 개인화 요소가 JSON 페이로드 등록정보에 포함됨 | • JSON 페이로드 등록정보에서 메시지를 받을 자격이 있는 사용자의 Segment를 생성할 수 없음<br><br>• **메시지 활동 로그**로 들어오는 JSON 페이로드를 볼 수 없음 |
+| • 데이터 포인트를 기록하지 않음<br><br>• 개인화 요소가 JSON 페이로드 속성정보에 포함됨 | • JSON 페이로드 속성정보에서 메시지를 받을 자격이 있는 사용자의 Segment를 생성할 수 없음<br><br>• **메시지 활동 로그**로 들어오는 JSON 페이로드를 볼 수 없음 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="API 트리거" }
 
 ### "요청 시간 초과" 오류에 대한 고객지원 티켓을 제출할 때 무엇을 포함해야 하나요? {#what-should-i-include-when-submitting-a-support-ticket-for-a-request-timed-out-error}
 
-캠페인이나 Canvas를 생성하거나 편집하는 중에 "요청 시간 초과" 오류가 발생하여 [Braze 고객지원]({{site.baseurl}}/braze_support/)에 문의해야 하는 경우, 해결 속도를 높이기 위해 다음 정보를 포함하세요:
+캠페인이나 Canvas를 생성하거나 편집하는 중에 "요청 시간 초과" 오류가 발생하여 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의해야 하는 경우, 해결 속도를 높이기 위해 다음 정보를 포함하세요:
 
 - **화면 녹화:** 페이지 전환을 포함하여 오류가 나타나기 전에 수행한 단계의 녹화.
 - **타임스탬프 및 시간대:** 오류가 발생한 정확한 시간과 시간대.
@@ -253,15 +257,15 @@ API 트리거 및 서버 트리거 캠페인은 더 고급 트랜잭션을 처�
 
 - **실행 기반 전달:** 사용자가 트리거를 수행한 후에만 발송이 생성되므로, 발송은 시간이 지남에 따라 누적되며 캠페인을 처음 구축할 때 표시된 사전 추정치보다 뒤처질 수 있습니다.
 - **시작 후 오디언스 편집:** 시작 후 진입 또는 타겟 필터를 변경하면 **예상 오디언스** 스냅샷이 이후 발송에서 실제로 자격을 갖춘 사용자와 동기화되지 않을 수 있습니다(예: 사용자가 재진입할 자격이 없는 경우).
-- **오디언스 경로 단계:** Canvas의 경우, [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths/) 단계는 사용자가 자격을 갖춘 가장 높은 우선순위 분기에 해당하는 사용자에게만 메시지를 보내므로, 단순 Segment 수에 비해 발송이 줄어들 수 있습니다.
-- **대조군:** [전역 제어 그룹]({{site.baseurl}}/user_guide/audience/global_control_group/) 또는 캠페인 수준의 대조군이 사용 중인 경우, 오디언스의 일부가 전달에서 제외됩니다.
+- **오디언스 경로 단계:** Canvas의 경우, [오디언스 경로]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) 단계는 사용자가 자격을 갖춘 가장 높은 우선순위 분기에 해당하는 사용자에게만 메시지를 보내므로, 단순 Segment 수에 비해 발송이 줄어들 수 있습니다.
+- **대조군:** [글로벌 컨트롤 그룹]({{site.baseurl}}/user_guide/audience/global_control_group) 또는 캠페인 수준의 대조군이 사용 중인 경우, 오디언스의 일부가 전달에서 제외됩니다.
 - **전달 타이밍 및 기간:** 현지 시간대 또는 스케줄 캠페인의 경우, 사용자는 진입 시점과 발송 시점 모두에서 자격을 갖추어야 합니다. 특정 시간대의 사용자는 전달 기간 밖에 있을 수 있습니다.
 - **이메일 중복 제거:** 캠페인이나 Canvas가 동일한 이메일을 가진 여러 사용자를 타겟팅하므로, 발송 시점에 해당 이메일 주소를 가진 임의의 사용자가 선택됩니다. 메시지는 한 번만 발송되고 중복이 제거되어 동일한 이메일 주소로 여러 번 발송되지 않지만, 예상 오디언스 규모에는 모든 사용자가 포함됩니다.
 - **이메일 전달 가능성 필터:** 이메일 캠페인의 경우, Braze는 하드 반송된 사용자, 이메일 구독을 취소한 사용자, 스팸으로 표시된 사용자, 프로필에 이메일 주소가 없는 사용자 또는 필수 구독 그룹에 가입되지 않은 사용자를 제외합니다. 이러한 확인은 발송 시점에 실행되므로, Segment에 있는 사용자도 실제 발송 수에서 제외될 수 있습니다.
 - **글로벌 최대 게재빈도 설정:** 워크스페이스 수준의 제한으로 인해 적격 사용자가 동일한 기간 내에 다른 메시지를 받지 못할 수 있으며, 이로 인해 실제 발송 수가 줄어듭니다.
 - **새로 가져온 사용자:** 방금 적격해진 프로필은 다음 평가 또는 발송 패스까지 수신하지 못할 수 있으므로, 이후 실행에서 수가 따라잡게 됩니다.
 - **푸시 도달 가능성:** 푸시 캠페인의 경우, 오디언스가 올바른 앱에 대해 푸시가 활성화되어 있는지 확인하세요. 푸시 활성화 사용자를 필터링하지 않으면 예상 오디언스에 푸시를 받을 수 없는 프로필이 포함될 수 있습니다. 보다 정확한 운영 추정치를 위해 **타겟 사용자** 단계에서 **도달 가능 사용자**를 확인하세요.
-- **사용량 제한:** 사용량 제한이 적용된 경우, 메시지가 시간에 걸쳐 분배되며 일부 발송이 지연되거나 아직 수에 반영되지 않을 수 있습니다.
+- **사용량 제한:** [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)은 단일 발송 시 Braze가 분당 보내는 메시지 수를 제한합니다. Braze는 전달을 더 긴 기간에 걸쳐 분산시키므로, 일부 발송이 지연되거나 아직 수에 반영되지 않거나 적격 오디언스 대비 제한이 낮은 경우 완료되지 않을 수 있습니다.
 - **재적격성 기간:** 아직 재적격하지 않은 사용자는 쿨다운 기간 동안 다시 수신하지 않으므로, 해당 기간의 발송 수가 예상 오디언스 규모보다 적어집니다.
 - **보고 기간:** 분석 시간 범위에 모든 발송이 포함되지 않을 수 있습니다.
 - **Segment 재평가:** 발송 시점에 재평가하는 실행 기반 또는 스케줄 캠페인의 경우, 캠페인이 대기줄에 들어갔을 때 Segment에 있던 사용자가 메시지가 실제로 발송될 때는 더 이상 자격을 갖추지 못할 수 있습니다.
@@ -270,7 +274,16 @@ API 트리거 및 서버 트리거 캠페인은 더 고급 트랜잭션을 처�
 
 ### 글로벌 최대 게재빈도 설정에 대한 자주 묻는 질문은 어디에 있나요? {#where-are-frequently-asked-questions-about-global-frequency-capping}
 
-캘린더 일, 사일런트 푸시, 웹훅, Canvas 동작 및 관련 주제에 대한 질문은 [사용량 제한 및 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/)의 [자주 묻는 질문]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq/)을 참조하세요.
+캘린더 일, 사일런트 푸시, 웹훅, Canvas 동작 및 관련 주제에 대한 질문은 [사용량 제한 및 최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping)의 [자주 묻는 질문]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/faq)을 참조하세요.
+
+### 캠페인의 발송률이 낮아지는 이유는 무엇인가요? {#why-is-my-campaign-experiencing-lower-send-rates}
+
+일일 스케줄 캠페인이 시간이 지남에 따라 더 적은 사용자에게 발송되는 경우, 다음 사항을 확인하세요:
+
+- **재적격성이 켜져 있는지 확인:** 재적격성이 없으면 Braze는 각 사용자에게 한 번만 메시지를 보냅니다. 일일 스케줄 캠페인의 경우, 오디언스에 일치하고 아직 메시지를 받지 않은 사용자만 각 발송에 적격합니다. 더 많은 사용자가 메시지를 받을수록 이후 발송에서 적격 사용자가 줄어들어 발송량이 감소합니다.
+- **오디언스가 고정 멤버십인지 확인:** 고정 사용자 목록(예: Segment 필터로 사용된 [CSV 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import))으로 구축된 오디언스는 자동으로 새 멤버를 추가하지 않습니다. 새로운 진입자가 없으면 사용자가 메시지를 받은 후 발송량이 회복될 수 없습니다.
+
+[전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) 및 단일 발생에 대한 발송을 줄이는 기타 요인에 대해서는 [발송 수가 예상 오디언스 규모보다 적은 이유는 무엇인가요?](#why-are-sends-lower-than-the-estimated-audience-size)를 참조하세요.
 
 ### 이메일 및 SMS에서 고유 수신자가 발송 수를 초과할 수 있는 이유는 무엇인가요? {#why-can-unique-recipients-exceed-sends-for-email-and-sms}
 
@@ -282,6 +295,6 @@ API 트리거 및 서버 트리거 캠페인은 더 고급 트랜잭션을 처�
 
 ### 중지된 과거 캠페인이 **Analytics** 페이지에서 더 이상 측정기준을 표시하지 않는 이유는 무엇인가요? {#why-does-a-stopped-historical-campaign-no-longer-show-metrics-on-the-analytics-page}
 
-**Analytics** 탭은 기본적으로 최근 90일을 표시합니다. 캠페인이 해당 기간 밖에서 마지막으로 발송된 경우, **Analytics** 페이지에서 캠페인이 발송된 시점을 포함하도록 날짜 범위를 조정할 때까지 측정기준이 0으로 나타날 수 있습니다. 자세한 내용은 [캠페인 분석]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics/)을 참조하세요.
+**Analytics** 탭은 기본적으로 최근 90일을 표시합니다. 캠페인이 해당 기간 밖에서 마지막으로 발송된 경우, **Analytics** 페이지에서 캠페인이 발송된 시점을 포함하도록 날짜 범위를 조정할 때까지 측정기준이 0으로 나타날 수 있습니다. 자세한 내용은 [캠페인 분석]({{site.baseurl}}/user_guide/analytics/reports/campaign_analytics)을 참조하세요.
 
-**상호작용 데이터 복원**은 캠페인 분석을 복원하지 않습니다. 이는 리타겟팅 필터와 사용자 상호작용 기록에만 적용됩니다. 자세한 내용은 [메시징 상호작용 데이터]({{site.baseurl}}/messaging_interaction_data/)를 참조하세요.
+**상호작용 데이터 복원**은 캠페인 분석을 복원하지 않습니다. 이는 리타겟팅 필터와 사용자 상호작용 기록에만 적용됩니다. 자세한 내용은 [메시징 상호작용 데이터]({{site.baseurl}}/messaging_interaction_data)를 참조하세요.

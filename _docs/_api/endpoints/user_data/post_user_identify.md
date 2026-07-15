@@ -32,7 +32,7 @@ Identifying a user requires an `external_id` to be included in the following obj
 If there isn't a user with that `external_id`, the `external_id` is added to the aliased user's record, and the user is considered identified. Users can have only one alias for a specific label. If a user already exists with the `external_id` and has an existing alias with the same label as the alias-only profile, then the user profiles are not combined.
 
 {% alert tip %}
-To prevent unexpected loss of data when identifying users, we highly recommend that you first refer to [data collection best practices]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices/#capturing-user-data-when-alias-only-user-info-is-already-present) to learn about capturing user data when alias-only user information is already present.
+To prevent unexpected loss of data when identifying users, we highly recommend that you first refer to [data collection best practices]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/best_practices#capturing-user-data-when-alias-only-user-info-is-already-present) to learn about capturing user data when alias-only user information is already present.
 {% endalert %}
 
 ### Merging behavior
@@ -77,7 +77,7 @@ By default, this endpoint merges the following list of fields found **exclusivel
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key/) with the `users.identify` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/api_key) with the `users.identify` permission.
 
 ## Rate limit
 
@@ -108,7 +108,7 @@ One of the following is required: `aliases_to_identify`, `emails_to_identify`, o
 
 | Parameter                   | Required | Data Type                           | Description                                                                                                                                                                 |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `aliases_to_identify`       | Required | Array of aliases to identify object | See [alias to identify object]({{site.baseurl}}/api/objects_filters/aliases_to_identify/) and [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object/). |
+| `aliases_to_identify`       | Required | Array of aliases to identify object | See [alias to identify object]({{site.baseurl}}/api/objects_filters/aliases_to_identify) and [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object). |
 | `emails_to_identify`        | Required | Array of aliases to identify object | Required if `email` is specified as the identifier. Email addresses to identify users. See [Identifying users by email](#identifying-users-by-email).                                                                                                              |
 | `phone_numbers_to_identify` | Required | Array of aliases to identify object | Phone numbers to identify users.                                                                                                                                            |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
@@ -154,7 +154,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
   "emails_to_identify": [
     {
       "external_id": "external_identifier_2",
-      "email": "john.smith@braze.com",
+      "email": "john.smith@example.com",
       "prioritization": ["unidentified", "most_recently_updated"]
     }
   ]
@@ -166,8 +166,12 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/identify' \
 The `alias_name` field is case-sensitive. A request that returns a `201` status code only confirms the request syntax was valid—it does not confirm the alias was matched. If the capitalization of `alias_name` in your request doesn't exactly match the alias stored on the user profile, the operation will silently fail and the `external_id` won't be assigned. For example, if the stored alias is `JimJones@example.com`, a request with `jimjones@example.com` will return success but produce no result.
 
 {% alert tip %}
-For more information on `alias_name` and `alias_label`, check out our [user aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle/#user-aliases) documentation.
+For more information on `alias_name` and `alias_label`, check out our [user aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases) documentation.
 {% endalert %}
+
+### Why does my identify request return success but the profile did not merge?
+
+`201 Created` with `message: success` means we accepted the request. It does not guarantee that every alias or email in the payload matched an existing profile—case mismatches on `alias_name`, duplicate profiles, or our prioritization rules can result in no visible merge even though the call succeeded. Verify that `alias_name` casing exactly matches our stored values, check for duplicate profiles with [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/), and review [`prioritization`](#identifying-users-by-email) when using `emails_to_identify`.
 
 ## Response
 

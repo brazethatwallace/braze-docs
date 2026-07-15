@@ -37,7 +37,7 @@ JWT.IOライブラリーは、JSONウェブトークンをデコード、検証�
 
 次の`ClaimType`名を使用して、ゲストとクーポンの一意性を確保できます。
 
-- `campaign_id`：システム生成のPunchh Campaign IDを表します。
+- `campaign_id`：システム生成のPunchh キャンペーン IDを表します。
 - `email`：ユーザーのメールアドレスを表します。
 - `first_name`：ユーザーの名を取得します。
 - `last_name`：ユーザーの姓を取得します。

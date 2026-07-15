@@ -35,7 +35,7 @@ Wenn Braze eine Nachricht „sendet“, kann die endgültige Zustellung von exte
 | SMS/MMS/RCS | Braze übergibt die Nachricht an ein SMS-Gateway (wie Twilio). Dieses Gateway ist für die endgültige Zustellung an den Mobilfunkanbieter verantwortlich. |
 | Webhooks | Die Webhook-Anfrage wurde erfolgreich durchgeführt und hat eine `2xx`-Antwort zurückgegeben. |
 | WhatsApp | Die Nachricht wurde erfolgreich an einen Versandpartner übergeben. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Sent and delivered" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Gesendet und zugestellt" }
 
 ### Datenaktualität {#data-freshness}
 
@@ -51,7 +51,7 @@ Um das Dashboard auszuführen und Ihre Daten anzuzeigen:
 2. Wählen Sie eine oder mehrere Campaigns oder Canvases aus.
 3. Wählen Sie **Run Dashboard**, um die Daten für Ihre ausgewählten Filter zu laden.
 
-![Beispiel für Campaign- und Canvas-Diagnose vom 25. Mai bis 31. Mai 2025 für eine Willkommensserie-Campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_early_access.png %}){: style="max-width:45%;"} ![Beispiel für Campaign- und Canvas-Diagnose mit Chart bei Hover vom 25. Mai bis 31. Mai 2025 für eine Willkommensserie-Campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_graph_on_hover.png %}){: style="max-width:45%;"}
+![Beispiel für Campaign- und Canvas-Diagnose vom 25. Mai bis 31. Mai 2025 für eine Willkommensserie-Campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_details_log.png %}){: style="max-width:45%;"} ![Beispiel für Campaign- und Canvas-Diagnose mit Chart bei Hover vom 25. Mai bis 31. Mai 2025 für eine Willkommensserie-Campaign.]({% image_buster /assets/img/messaging_diagnostics_dashboard_drawer_expanded.png %}){: style="max-width:45%;"}
 
 ## Daten interpretieren {#interpreting-the-data}
 
@@ -63,35 +63,43 @@ Das Dashboard zeigt nur Daten der letzten sieben Tage an. Alle Zeitstempel werde
 
 Am oberen Rand der Seite befinden sich wichtige Zusammenfassungskacheln für Ihren ausgewählten Zeitraum, die Folgendes anzeigen:
 
-- **Total Aborts:** Die Gesamtanzahl der abgebrochenen Nachrichten. Dies umfasst Canvas-Zielgruppenmitglieder, die den Canvas nicht betreten haben oder den Canvas verlassen haben, weil bei einem Schritt ein Fehler aufgetreten ist oder sie die Ausstiegskriterien erfüllt haben, während sie ein Ausstiegs-Event ausgeführt haben.
-- **Message Sends:** Die Gesamtanzahl der Nachrichten, die Braze erfolgreich verarbeitet und gesendet hat.
+- **Sent:** Die Gesamtanzahl der Nachrichten, die Braze erfolgreich verarbeitet und gesendet hat.
   - **E-Mail, SMS/MMS/RCS, WhatsApp, LINE und Push:** Die Nachricht wurde erfolgreich an einen Versandpartner übergeben.
   - **Webhooks:** Die Webhook-Anfrage wurde erfolgreich durchgeführt und hat eine `2xx`-Antwort zurückgegeben.
   - **Content Cards:** Die Card wurde gesendet und ist zur Anzeige berechtigt.
   - **In-App-Nachrichten:** Die Nachricht wurde den Nutzer:innen angezeigt.
+- **Not Sent:** Die Gesamtanzahl der abgebrochenen Nachrichten. Dies umfasst Canvas-Zielgruppenmitglieder, die den Canvas nicht betreten haben oder den Canvas verlassen haben, weil bei einem Schritt ein Fehler aufgetreten ist oder sie die Ausstiegskriterien erfüllt haben, während sie ein Ausstiegs-Event ausgeführt haben.
 
 ### Nachrichtenergebnisse im Zeitverlauf {#message-outcomes-over-time}
 
-Dieses Zeitreihen-Chart zeigt eine tägliche Aufschlüsselung der verschiedenen Gründe, warum eine Nachricht abgebrochen oder Nutzer:innen aus einem Canvas entfernt wurden. Dieses Chart zeigt nicht die Anzahl der Sends an.
-
-{% alert note %}
-Um das Chart übersichtlich zu halten, werden Abbruch- oder Drop-Gründe mit null Vorkommen in Ihrem ausgewählten Zeitraum nicht im Chart angezeigt.
-{% endalert %}
+Dieses Zeitreihen-Chart zeigt eine stündliche Aufschlüsselung, warum eine Nachricht abgebrochen oder warum Nutzer:innen aus einem Canvas entfernt wurden. Die Ergebnisbezeichnungen in diesem Chart sind normalisierte Dashboard-Bezeichnungen, keine Rohwerte aus dem Event-Payload. Dieses Chart zeigt nicht die Anzahl der Sends an.
 
 ### Detailliertes Protokoll der Nachrichtenergebnisse {#message-outcomes-granular-log}
 
-Unterhalb des Zeitreihen-Charts zeigt das Dashboard eine detaillierte Tabelle einzelner Nachrichtenergebnisse für Ihre ausgewählten Filter und den Zeitraum. Verwenden Sie diese Tabelle, um bestimmte Datensätze zu überprüfen, einschließlich Zeitstempel, Nutzer-ID, Canvas-Schritt, Ergebnis und Kanal.
+Das Dashboard zeigt eine detaillierte Tabelle einzelner Nachrichtenergebnisse für Ihre ausgewählten Filter und den Zeitraum. Verwenden Sie diese Tabelle, um bestimmte Datensätze zu überprüfen, einschließlich Zeitstempel, Nutzer-ID, Canvas-Schritt, Ergebnis, Details und Kanal.
 
 Sie können die Tabelle filtern, um sich auf bestimmte Datensätze zu konzentrieren:
 
-- **Nach Ergebnis filtern:** Wählen Sie ein Ergebnis aus dem Ergebnisfilter, um nur Zeilen mit diesem Ergebnis anzuzeigen (z. B. `Frequency capped` oder `User not eligible`).
+- **Nach Ergebnis filtern:** Wählen Sie ein Ergebnis aus dem Ergebnisfilter, um nur Zeilen mit diesem Ergebnis anzuzeigen (z. B. `Frequency capped` oder `User not eligible for channel`).
 - **Nach Nutzer-ID suchen:** Geben Sie eine Nutzer-ID in das Suchfeld ein, um Zeilen für diese bestimmten Nutzer:innen anzuzeigen.
 
 Wenn Sie beide Filter anwenden, gibt die Tabelle Zeilen zurück, die sowohl dem ausgewählten Ergebnis als auch der eingegebenen Nutzer-ID entsprechen.
 
+Wählen Sie eine Zeile in der Tabelle aus, um das Detailpanel zu öffnen. Das Detailpanel bietet zusätzlichen Kontext zu diesem Ergebnis, und Ask Operator liefert Hinweise zur Fehlerbehebung, um Ihnen bei der Diagnose des zugrunde liegenden Problems zu helfen.
+
+![Detailliertes Protokoll der Messaging-Diagnose-Ergebnisse mit einer ausgewählten Zeile und Zugang zum Detailpanel.]({% image_buster /assets/img/messaging_diagnostics_dashboard_details_log.png %}){: style="max-width:45%;"} ![Erweitertes Detailpanel der Messaging-Diagnose mit Ergebniskontext und Hinweisen zur Fehlerbehebung.]({% image_buster /assets/img/messaging_diagnostics_dashboard_drawer_expanded.png %}){: style="max-width:45%;"}
+
+{% alert note %}
+Kanalfilter gelten für Ergebnisse, die an einen bestimmten Messaging-Kanal gebunden sind. Einige Ergebnisse sind kanalunabhängig und können daher auch in aggregierten Ansichten erscheinen, wenn Sie einen Kanalfilter anwenden.
+{% endalert %}
+
 ### Abbruchergebnisse {#abort-outcomes}
 
 Die folgenden Definitionen erklären die im Dashboard angezeigten Abbruchergebnisse. Die Ergebnisse sind nach Kategorien gruppiert, um das Auffinden des gesuchten Ergebnisses zu erleichtern.
+
+{% alert note %}
+Abbruchergebnisse in der Messaging-Diagnose sind lesbare Dashboard-Bezeichnungen. In [Currents-Nachrichten-Engagement-Events]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) werden Abbruchinformationen mit Feldern wie `abort_type` und `abort_log` dargestellt. Da diese Datensätze unterschiedliche Darstellungen und Verarbeitungspfade haben, können Zählungen oder Bezeichnungen zwischen Currents und der Messaging-Diagnose abweichen.
+{% endalert %}
 
 #### Inhalt und Rendering {#content-and-rendering}
 
@@ -101,62 +109,56 @@ Die folgenden Definitionen erklären die im Dashboard angezeigten Abbruchergebni
 | Content-Card ungültig | Die Content-Card enthielt Fehler und wurde nicht an die Nutzer:innen gesendet. Einige häufige Gründe dafür sind: {::nomarkdown}<ul><li> Maximale Größe überschritten (2 KB) </li><li> Ablaufdatum ist ungültig </li><li> Nachricht enthält ungültige Zeichen </li></ul>{:/} |
 | Connected-Content fehlgeschlagen | Braze hat versucht, die Nachricht zu senden, aber Connected-Content ist nach der maximalen Anzahl von Wiederholungsversuchen (Standard ist fünf) fehlgeschlagen. **Hinweis:** Diese Zahl stellt die Anzahl der Nachrichten dar, die aufgrund des Erreichens der maximalen Anzahl von Wiederholungsversuchen abgebrochen wurden, nicht die Gesamtanzahl der fehlgeschlagenen Connected-Content-Anfragen. |
 | In-App-Nachrichten-Rendering-Timeout | Nach mehreren Wiederholungsversuchen konnte das Liquid nicht gerendert werden und es kam zu einem Timeout. |
-| Liquid-Abbruch | Der [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages/)-Liquid-Tag wurde aufgerufen, sodass der Versand abgebrochen wurde. |
+| Liquid-Abbruch | Der [abort_message]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)-Liquid-Tag wurde aufgerufen, sodass der Versand abgebrochen wurde. |
 | Liquid-Rendering-Timeout | Das Rendern des Liquid-Templates hat zu lange gedauert. Tritt am häufigsten bei Bannern, In-App-Nachrichten und E-Mails auf. |
 | Liquid-Syntaxfehler | Das Liquid-Template hatte einen Parsing-Fehler, sodass die Nachricht abgebrochen wurde. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Content and rendering" }
+| Medien-URL fehlgeschlagen | Braze konnte die Medien-URL in der Nachricht nicht verarbeiten. Dies kann passieren, wenn die URL blockiert oder ungültig ist, ein Timeout auftritt, ein ungültiger HTTP-Status zurückgegeben wird oder die SSL-Validierung fehlschlägt. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Inhalt und Rendering" }
 
 #### Campaign- und Canvas-Status {#campaign-and-canvas-state}
 
 | Abbruchergebnis | Erklärung |
 | ---- | ---- |
-| Verzögerungsschritt fehlgeschlagen | Der [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step/#personalized-delays) ist fehlgeschlagen, wodurch die Nutzer:innen den Canvas verlassen haben. Dieser Fehler kann auftreten, wenn: {::nomarkdown}<ul><li> Die Variable, die dem personalisierten Verzögerungsschritt bereitgestellt wurde, leer oder ein ungültiger Typ war </li><li> Die Verzögerung die maximal zulässige Dauer innerhalb des Canvas überschreitet</li></ul>{:/} |
+| Verzögerungsschritt fehlgeschlagen | Der [Verzögerungsschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step#personalized-delays) ist fehlgeschlagen, wodurch die Nutzer:innen den Canvas verlassen haben. Dieser Fehler kann auftreten, wenn: {::nomarkdown}<ul><li> Die Variable, die dem personalisierten Verzögerungsschritt bereitgestellt wurde, leer oder ein ungültiger Typ war </li><li> Die Verzögerung die maximal zulässige Dauer innerhalb des Canvas überschreitet</li></ul>{:/} |
 | Ausnahme- oder Ausstiegs-Event | Die Nutzer:innen waren zuvor berechtigt, die Nachricht zu erhalten, haben aber entweder {::nomarkdown}<ul><li> ein <a href="/docs/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#step-3-select-exception-events">Ausnahme-Event</a> für eine aktionsbasierte Campaign ausgeführt, sodass die Nachricht abgebrochen wurde, oder </li><li> die Canvas-<a href="/docs/user_guide/messaging/canvas/create_a_canvas#setting-exit-criteria">Ausstiegskriterien</a> erfüllt, sodass sie mitten in der Journey entfernt wurden.</li></ul>{:/} |
-| Inactive campaign | Die Campaign wurde gestoppt, während die Nachricht unterwegs war, sodass sie abgebrochen wurde. |
-| Inactive Canvas | Der Canvas wurde gestoppt, bevor die Nutzer:innen die Journey betreten haben. |
-| Inactive Canvas step | Dies kann im Canvas auftreten, wenn: {::nomarkdown}<ul><li> Der Canvas-Schritt gelöscht wurde </li> <li>Der Canvas gestoppt wurde, wodurch alle Schritte inaktiv werden </li></ul>{:/} |
+| Inaktive Campaign | Die Campaign wurde gestoppt, während die Nachricht unterwegs war, sodass sie abgebrochen wurde. |
+| Inaktiver Canvas | Der Canvas wurde gestoppt, bevor die Nutzer:innen die Journey betreten haben. |
+| Inaktiver Canvas-Schritt | Dies kann im Canvas auftreten, wenn: {::nomarkdown}<ul><li> Der Canvas-Schritt gelöscht wurde </li> <li>Der Canvas gestoppt wurde, wodurch alle Schritte inaktiv werden </li></ul>{:/} |
 | Volumenlimit erreicht | Die Campaign hat das festgelegte Volumenlimit erreicht, sodass der Versand abgebrochen wurde. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign and Canvas state" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Campaign- und Canvas-Status" }
 
 #### Rate-Limiting und Timing {#rate-limiting-and-timing}
 
 | Abbruchergebnis | Erklärung |
 | ---- | ---- |
-| Frequency-Capping erreicht | Die Nutzer:innen haben bereits die maximale Anzahl an Nachrichten erhalten, die gemäß den [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#about-frequency-capping)-Regeln Ihres Workspace zulässig sind, sodass der Versand abgebrochen wurde. |
+| Frequency-Capping erreicht | Die Nutzer:innen haben bereits die maximale Anzahl an Nachrichten erhalten, die gemäß den [Frequency-Capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)-Regeln Ihres Workspace zulässig sind, sodass der Versand abgebrochen wurde. |
 | Ruhezeiten-Abbruch | Ruhezeiten waren für die Campaign oder den Canvas-Schritt aktiviert, wobei der Fallback auf **Nachricht abbrechen** eingestellt war. Die Nutzer:innen haben die Campaign getriggert oder den Canvas-Nachrichtenschritt während der Ruhezeiten betreten, sodass die Nachricht abgebrochen wurde. Dies führt jedoch nicht dazu, dass die Nutzer:innen den Canvas verlassen. |
-| Rate-Limiting über 72 Stunden | Die Nachricht wurde aufgrund von [Rate-Limits für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping/#delivery-speed-rate-limiting) länger als 72 Stunden gedrosselt, sodass der Versand abgebrochen wurde. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate limiting and timing" }
+| Rate-Limiting über 72 Stunden | Die Nachricht wurde aufgrund von [Rate-Limits für die Zustellgeschwindigkeit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) länger als 72 Stunden gedrosselt, sodass der Versand abgebrochen wurde. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Rate-Limiting und Timing" }
 
 #### Nutzerberechtigung und Profil {#user-eligibility-and-profile}
 
 | Abbruchergebnis | Erklärung |
 | ---- | ---- |
 | Doppelter Nutzerbezeichner | Mehrere Nutzer:innen mit einem übereinstimmenden Bezeichner (wie externe ID, E-Mail-Adresse, Telefonnummer) waren berechtigt, diese Nachricht zu erhalten. Um doppelte Sends an dieselben Nutzer:innen zu verhindern, wurde diese Nachricht abgebrochen. |
-| Nutzer:innen haben Vorprüfung für Nachrichtenschritt nicht bestanden | Diese Vorprüfung wird vor den Zustellungsvalidierungen durchgeführt. In diesem Fall haben die Nutzer:innen die grundlegende Vorprüfung für diesen Nachrichtenschritt nicht bestanden (Nutzer:innen nicht gefunden oder nicht für den Kanal des Nachrichtenschritts berechtigt). **Hinweis:** Bei einem Mehrkanal-Nachrichtenschritt bedeutet dies, dass die Nutzer:innen nicht gefunden wurden; die Kanalberechtigung wird hier nur für Einkanal-Nachrichtenschritte geprüft. |
-| Nutzer:innen haben Vorprüfung für getriggerte Nachricht nicht bestanden | Für eine getriggerte Nachricht führt Braze einen ersten Durchlauf grundlegender Vorprüfungen für Zielgruppenberechtigung, Wiederberechtigung und Kanalberechtigung durch, bevor eine Nachricht aus diesem Trigger erstellt wird. |
+| Nutzer:innen haben Vorprüfung für Nachrichtenschritt nicht bestanden | Braze führt einen ersten Durchlauf grundlegender Vorprüfungen für Zielgruppenberechtigung, Wiederberechtigung und Kanalberechtigung durch, bevor die vollständigen Zustellungsvalidierungen für einen Canvas-Nachrichtenschritt ausgeführt werden. Dieses Ergebnis bedeutet, dass die Nutzer:innen oder die Nachricht eine dieser Prüfungen nicht bestanden haben, sodass die Nachricht für diesen Schritt abgebrochen wurde. |
+| Nutzer:innen haben Vorprüfung für getriggerte Nachricht nicht bestanden | Braze führt einen ersten Durchlauf grundlegender Vorprüfungen für Zielgruppenberechtigung, Wiederberechtigung und Kanalberechtigung durch, bevor eine Nachricht aus diesem Trigger erstellt wird. Dieses Ergebnis bedeutet, dass die Nutzer:innen oder die Nachricht eine dieser Prüfungen nicht bestanden haben, sodass die Nachricht abgebrochen wurde. |
 | Nutzer:innen nicht mehr berechtigt | Die Nutzer:innen waren ursprünglich in der Zielgruppe, entsprachen aber nicht mehr den Zielgruppenkriterien, bevor Braze die Nachricht gesendet oder sie in den Canvas aufgenommen hat. Die Zeit zwischen dem ursprünglichen Erfüllen der Zielgruppenkriterien und dem Herausfallen aus der Zielgruppe kann auf Verzögerungen zurückzuführen sein durch: {::nomarkdown}<ul><li>Intelligentes Timing</li><li>Ruhezeiten</li><li>Ortszeit</li><li>Rate-Limits für die Zustellgeschwindigkeit (nicht anwendbar für Canvas-Eintritt)</li><li>Verzögerungen in der Messaging-Pipeline</li></ul>{:/} |
-| Nutzer:innen nicht für Schritt berechtigt | Die Nutzer:innen haben die festgelegten [Zustellungsvalidierungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step/#delivery-validations) für den Nachrichtenschritt nicht erfüllt oder waren Teil einer [Unterdrückungsliste]({{site.baseurl}}/user_guide/audience/suppression_lists/). Abhängig von den Einstellungen der **Zustellungsvalidierungen** haben die Nutzer:innen den Canvas verlassen oder sind zum nächsten Schritt weitergegangen. |
+| Nutzer:innen nicht für Schritt berechtigt | Die Nutzer:innen haben die festgelegten [Zustellungsvalidierungen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#delivery-validations) für den Nachrichtenschritt nicht erfüllt oder waren Teil einer [Unterdrückungsliste]({{site.baseurl}}/user_guide/audience/suppression_lists). Abhängig von den Einstellungen der **Zustellungsvalidierungen** haben die Nutzer:innen den Canvas verlassen oder sind zum nächsten Schritt weitergegangen. |
 | Nutzer:innen nicht wiederberechtigt | Die Nutzer:innen waren berechtigt, die Nachricht zu erhalten oder den Canvas zu betreten, aber der Versand wurde aufgrund von Wiederberechtigungs- oder Wiedereintrittseinstellungen abgebrochen. Dies kann passieren, wenn die Nutzer:innen die Campaign bereits erhalten haben oder den Canvas zu kürzlich betreten haben, wenn ein anderer Versand für dieselbe Campaign bereits für diese Nutzer:innen läuft, oder wenn die Wiederberechtigung oder der Wiedereintritt deaktiviert ist. |
 | Nutzerprofil nicht gefunden | Die Nutzer:innen haben entweder nie existiert oder existieren nicht mehr in Braze. Einige häufige Fälle sind: {::nomarkdown}<ul><li> Die Nutzer:innen wurden über API-Messaging angesprochen, existierten aber nie in Braze. </li><li>Die Nutzer:innen wurden gelöscht, bevor die Nachricht gesendet oder der Canvas-Schritt ausgeführt wurde. </li><li>Die Nutzer:innen wurden mit einem anderen Profil zusammengeführt, bevor die Nachricht gesendet wurde.</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="User eligibility and profile" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Nutzerberechtigung und Profil" }
 
 #### Kanal und Zustellung {#channel-and-delivery}
 
 | Abbruchergebnis | Erklärung |
 | ---- | ---- |
-| Partner-Zustellungs-Timeout | Braze hat 24 Stunden lang versucht, diese Nachricht an Ihren Zustellungspartner zu senden, aber der Partner hat während des gesamten Zeitfensters temporäre Fehler zurückgegeben. |
-| Push-Zugangsdaten ungültig | Die [Push-Zugangsdaten]({{site.baseurl}}/user_guide/channels/push/faqs/#valid-push-token) für diese App fehlen oder sind ungültig, sodass der Versand abgebrochen wurde. Aktualisieren Sie Ihre Zugangsdaten in den **App Settings**. |
-| Nutzer:innen nicht für Android-Push, App oder Gerät aktiviert | Push kann nicht an diese Nutzer:innen gesendet werden. Einige häufige Gründe: {::nomarkdown}<ul><li> Die Nutzer:innen haben die App nicht installiert.</li> <li> Die Nutzer:innen haben kein gültiges Push-Token. </li> <li>Die Nutzer:innen haben nicht das erforderliche Gerät für diese Push-Benachrichtigung. </li> <li> Die Nutzer:innen haben Benachrichtigungen für diese App in den Geräteeinstellungen deaktiviert. </li> <li> Die Nutzer:innen haben Push-Benachrichtigungen nicht abonniert oder dem Empfang nicht zugestimmt.</li></ul>{:/} |
-| Nutzer:innen nicht für iOS-Push, App oder Gerät aktiviert | Gleich wie das Abbruchergebnis „Nutzer:innen nicht für Android-Push, App oder Gerät aktiviert“. |
-| Nutzer:innen nicht für Kindle-Push, App oder Gerät aktiviert | Gleich wie das Abbruchergebnis „Nutzer:innen nicht für Android-Push, App oder Gerät aktiviert“. |
-| Nutzer:innen nicht für Web-Push, App oder Gerät aktiviert | Gleich wie das Abbruchergebnis „Nutzer:innen nicht für Android-Push, App oder Gerät aktiviert“. |
-| Nutzer:innen nicht für Content Cards aktiviert | Die Nutzer:innen haben keine Apps verwendet, die diese Content-Card enthalten. |
-| Nutzer:innen nicht für E-Mail aktiviert | E-Mails können nicht an diese Nutzer:innen gesendet werden. Einige häufige Gründe: {::nomarkdown}<ul><li> Die Nutzer:innen haben keine E-Mail-Adresse in ihrem Nutzerprofil. </li><li> Der Abo-Status der Nutzer:innen schließt sie vom Empfang dieser E-Mail aus. </li><li> Die E-Mail-Adresse der Nutzer:innen wurde zuvor als ungültig markiert (Hard Bounce). </li><li> An diese E-Mail-Adresse gesendete Nachrichten werden regelmäßig als Spam markiert, sodass der Versand abgebrochen wurde.</li></ul>{:/} |
-| Nutzer:innen nicht für LINE aktiviert | LINE-Nachrichten können nicht an diese Nutzer:innen gesendet werden. Einige häufige Gründe: {::nomarkdown}<ul><li> Die Nutzer:innen haben keine Telefonnummer in ihrem Nutzerprofil. </li><li> Die Telefonnummer der Nutzer:innen wurde aufgrund von Zustellungsfehlern als ungültig markiert. </li><li> Der Abo-Status der Nutzer:innen schließt sie vom Empfang dieser Nachricht aus. </li><li> Die Nutzer:innen haben keine LINE-ID.</li></ul>{:/} |
-| Nutzer:innen nicht für SMS/MMS/RCS aktiviert | SMS-Nachrichten können nicht an diese Nutzer:innen gesendet werden. Einige häufige Gründe: {::nomarkdown}<ul><li> Die Nutzer:innen haben keine Telefonnummer in ihrem Nutzerprofil. </li><li> Die Telefonnummer der Nutzer:innen wurde aufgrund von Zustellungsfehlern als ungültig markiert. </li><li> Die Telefonnummer der Nutzer:innen liegt nicht im gültigen E.164-Format vor, und Versuche, die Nummer automatisch zu formatieren, sind fehlgeschlagen. </li><li> Der Abo-Status der Nutzer:innen schließt sie vom Empfang der SMS-Nachricht aus.</li><li>Die Telefonnummer der Nutzer:innen befindet sich in einem gesperrten Land.</li></ul>{:/} |
-| Nutzer:innen nicht für WhatsApp aktiviert | WhatsApp-Nachrichten können nicht an diese Nutzer:innen gesendet werden. Einige häufige Gründe: {::nomarkdown}<ul><li> Die Nutzer:innen haben keine Telefonnummer in ihrem Nutzerprofil. </li><li> Die Telefonnummer der Nutzer:innen wurde aufgrund von Zustellungsfehlern als ungültig markiert. </li><li> Der Abo-Status der Nutzer:innen schließt sie vom Empfang dieser Nachricht aus. </li><li> Die Nutzer:innen haben kein WhatsApp-Konto.</li></ul>{:/} |
-| Webhook fehlgeschlagen | Der Webhook hat einen nicht erfolgreichen Antwortcode (nicht `2xx`) erhalten. Weitere Details finden Sie im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log/#dev-console-troubleshooting). Protokolle, die älter als 60 Stunden sind, werden bereinigt und sind nicht mehr zugänglich; Webhook-Fehler werden mit bis zu 20 Protokollen pro Stunde erfasst. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Channel and delivery" }
+| Partner-Zustellungsfehler | Braze hat 24 Stunden lang versucht, diese Nachricht an Ihren Zustellungspartner zu senden, aber der Partner hat während des gesamten Zeitfensters temporäre Fehler zurückgegeben. |
+| Push-Zugangsdaten ungültig | Die [Push-Zugangsdaten]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token) für diese App fehlen oder sind ungültig, sodass der Versand abgebrochen wurde. Aktualisieren Sie Ihre Zugangsdaten in den **App-Einstellungen**. |
+| Abo-Gruppen-Fehler | Die Nachricht konnte aufgrund von Problemen mit der Abo-Gruppen- oder Messaging-Dienst-Konfiguration nicht gesendet werden. Häufige Gründe sind fehlende Sendenummern für SMS oder WhatsApp oder nicht unterstütztes MMS im konfigurierten Messaging-Dienst. |
+| Nutzer:innen nicht für Kanal berechtigt | Die Nutzer:innen sind nicht berechtigt, diese Nachricht auf dem ausgewählten Kanal zu empfangen. Häufige Gründe sind fehlende oder ungültige Kanalbezeichner, keine berechtigten Push-Token, Einschränkungen des Abo-Status, nicht unterstützte Kanalfunktionen oder gesperrte Länder für telefonbasierte Kanäle. |
+| Webhook fehlgeschlagen | Der Webhook hat einen nicht erfolgreichen Antwortcode (nicht `2xx`) erhalten. Weitere Details finden Sie im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting). Protokolle, die älter als 60 Stunden sind, werden bereinigt und sind nicht mehr zugänglich; Webhook-Fehler werden mit bis zu 20 Protokollen pro Stunde erfasst. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Kanal und Zustellung" }
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
@@ -168,22 +170,22 @@ Wenn Nutzer:innen diese einzelne gebündelte Prüfung nicht bestehen, werden sie
 
 ### Was bedeutet ein „Sonstiges“-Abbruchergebnis? {#what-does-an-other-abort-outcome-mean}
 
-Dies sind Abbrüche, die in keine der bestehenden Braze-Kategorien fallen. Wenn Sie einen großen Anteil an Abbrüchen mit diesem Ergebnis feststellen, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/braze_support/) für weitere Unterstützung.
+Dies sind Abbrüche, die in keine der bestehenden Dashboard-Kategorien fallen. Wenn Sie einen großen Anteil an Abbrüchen mit „Sonstiges“ feststellen, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/braze_support) für weitere Unterstützung.
 
-### Warum ist die Summe von _Total Aborts_ und _Message Sends_ niedriger als meine erwartete Zielgruppengröße? {#why-is-the-sum-of-_total-aborts_-and-_message-sends_-lower-than-my-expected-audience-size}
+### Warum ist die Summe von _Not Sent_ und _Sent_ niedriger als meine erwartete Zielgruppengröße? {#why-is-the-sum-of-_not-sent_-and-_sent_-lower-than-my-expected-audience-size}
 
 Dies kann mehrere Gründe haben:
 
 - **Zielgruppenkriterien:** Weniger Nutzer:innen als erwartet haben möglicherweise die Zielgruppenkriterien erfüllt (z. B. waren sie nicht im Segment oder hatten nicht die erforderlichen Attribute), als die Campaign oder der Canvas gestartet wurde.
 - **Verarbeitung läuft:** Nachrichten werden möglicherweise noch aktiv verarbeitet. Nutzer:innen befinden sich möglicherweise noch in früheren Schritten des Canvas und haben noch keine Nachrichtenschritte erreicht.
 - **Datenaktualität:** Die Dashboard-Daten werden ungefähr alle 15 Minuten aktualisiert, dies ist jedoch nicht garantiert. Die neuesten Daten für diese Campaign oder diesen Canvas haben das Dashboard möglicherweise noch nicht erreicht.
-- **Sonderfälle:** Es besteht eine geringe Wahrscheinlichkeit, dass Sie auf einen Sonderfall stoßen, der derzeit nicht in diesem Dashboard erfasst wird. Wenn Sie dies vermuten, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support/).
+- **Sonderfälle:** Es besteht eine geringe Wahrscheinlichkeit, dass Sie auf einen Sonderfall stoßen, der derzeit nicht in diesem Dashboard erfasst wird. Wenn Sie dies vermuten, kontaktieren Sie den [Braze-Support]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
-### Warum ist die Summe von _Total Aborts_ und _Message Sends_ größer als die Zielgruppe einer Campaign oder eines Canvas? {#why-is-the-sum-of-_total-aborts_-and-_message-sends_-greater-than-the-audience-for-a-campaign-and-canvas}
+### Warum ist die Summe von _Not Sent_ und _Sent_ größer als die Zielgruppe einer Campaign oder eines Canvas? {#why-is-the-sum-of-_not-sent_-and-_sent_-greater-than-the-audience-for-a-campaign-and-canvas}
 
 Dies kann aus folgenden Gründen auftreten:
 
-- **Mehrkanal-Nachrichten:** Die Campaign oder der Canvas-Schritt war so konfiguriert, dass über mehrere Kanäle gesendet wird (z. B. SMS und E-Mail). Einzelne Nutzer:innen können ein „Gesendet“-Ergebnis für einen Kanal (z. B. E-Mail) und ein „Abbruch“-Ergebnis für einen anderen erhalten (z. B. „Nutzer:innen nicht für SMS/MMS/RCS aktiviert“). In diesem Fall würden diese Nutzer:innen im Chart zweimal gezählt: einmal als „Gesendet“ und einmal als „Abbruch“.
-  - **Beispiel:** Sie senden eine Push-Campaign an 100 Nutzer:innen, die sowohl iOS als auch Android anspricht. Wenn Nutzer:innen nur ein iOS-Gerät haben, erhalten sie den iOS-Push („Gesendet“), lösen aber auch einen Abbruch für den Android-Push aus („Nutzer:innen nicht für Android-Push, App oder Gerät aktiviert“).
+- **Mehrkanal-Nachrichten:** Die Campaign oder der Canvas-Schritt war so konfiguriert, dass über mehrere Kanäle gesendet wird (z. B. SMS und E-Mail). Einzelne Nutzer:innen können ein „Gesendet“-Ergebnis für einen Kanal (z. B. E-Mail) und ein „Abbruch“-Ergebnis für einen anderen erhalten (z. B. „Nutzer:innen nicht für Kanal berechtigt“). In diesem Fall würden diese Nutzer:innen im Chart zweimal gezählt: einmal als „Gesendet“ und einmal als „Abbruch“.
+  - **Beispiel:** Sie senden eine Push-Campaign an 100 Nutzer:innen, die sowohl iOS als auch Android anspricht. Wenn Nutzer:innen nur ein iOS-Gerät haben, erhalten sie den iOS-Push („Gesendet“), lösen aber auch einen Abbruch für den Android-Push aus („Nutzer:innen nicht für Kanal berechtigt“).
 - **Mehrere Nachrichtenschritte (nur Canvas):** Ihr Canvas kann mehr als einen Nachrichtenschritt in einem bestimmten Pfad haben. Dieses Dashboard aggregiert alle Ergebnisse, sodass einzelne Nutzer:innen mehrfach gezählt werden können, wenn sie innerhalb des ausgewählten Zeitraums mehrere Nachrichtenschritte durchlaufen.
 - **Testnachrichten:** Testversand (der im Dashboard gezählt wird) lässt die Gesamtzahlen höher erscheinen als die Zielgruppengröße.

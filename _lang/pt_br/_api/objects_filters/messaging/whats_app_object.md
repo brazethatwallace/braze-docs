@@ -4,13 +4,13 @@ article_title: Objeto de envio de mensagens do WhatsApp
 page_order: 15
 page_type: reference
 channel: WhatsApp
-description: "Este artigo de referência explica os diferentes componentes do objeto Braze WhatsApp."
+description: "Este artigo de referência explica os diferentes componentes do objeto WhatsApp da Braze."
 
 ---
 
-# Objeto do WhatsApp
+# Objeto do WhatsApp {#whatsapp-object}
 
-> O objeto `whats_app` permite que você modifique ou crie mensagens do WhatsApp por meio dos nossos endpoints de [envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).
+> O objeto `whats_app` permite que você modifique ou crie mensagens do WhatsApp por meio dos nossos [endpoints de envio de mensagens]({{site.baseurl}}/api/endpoints/messaging).
 
 ## Objeto do WhatsApp
 
@@ -24,9 +24,9 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 }
 ```
 
-- [Identificador do app]({{site.baseurl}}/api/identifier_types/)
+- [Identificador do app]({{site.baseurl}}/api/identifier_types)
 
-### Tipos de mensagens
+### Tipos de mensagens {#message-types}
 
 #### template_message
 
@@ -42,15 +42,15 @@ description: "Este artigo de referência explica os diferentes componentes do ob
 ```
 
 {% alert important %}
-**Limitações de envio de mídia:** Envios de mídia (documentos, vídeos e outros tipos de mídia) não são suportados pela API `messages/send`. Apenas tipos de cabeçalho TEXT e IMAGE são suportados para mensagens de modelo enviadas através da API. Se seu modelo do WhatsApp usar um cabeçalho de DOCUMENTO, VÍDEO ou outro tipo de mídia, você não pode enviá-lo usando a API `messages/send`. Use a API [Campanhas Disparadas API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns/) ou o dashboard do Braze para enviar modelos com cabeçalhos de mídia.
+**Limitações de envio de mídia:** envios de mídia (documentos, vídeos e outros tipos de mídia) não são suportados pela API `messages/send`. Apenas os tipos de cabeçalho TEXT e IMAGE são suportados para mensagens de modelo enviadas pela API. Se o seu modelo do WhatsApp usar um cabeçalho do tipo DOCUMENT, VIDEO ou outro tipo de mídia, não será possível enviá-lo usando a API `messages/send`. Use a [API de Campaigns disparadas]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) ou o dashboard da Braze para enviar modelos com cabeçalhos de mídia.
 {% endalert %}
 
-##### Objeto de variáveis de cabeçalho
+##### Objeto de variáveis de cabeçalho {#header-variables-object}
 
-O objeto `header_variables` permite especificar valores para variáveis de cabeçalho no modelo do WhatsApp. Cada chave é o índice da variável de modelo do WhatsApp (indexado a partir de zero) a ser substituído pelo valor especificado.
+O objeto `header_variables` permite especificar valores para variáveis de cabeçalho no modelo do WhatsApp. Cada chave é o índice da variável do modelo do WhatsApp (indexado a partir de zero) a ser substituído pelo valor especificado.
 
 {% alert note %}
-Você pode usar `header_variables` apenas com modelos que têm cabeçalhos do tipo TEXT. Para cabeçalhos IMAGE, use `header_media_uri` em vez disso. Tipos de cabeçalho DOCUMENTO, VÍDEO e outros tipos de mídia não são suportados pela API `messages/send`.<br><br>
+Você pode usar `header_variables` apenas com modelos que possuem cabeçalhos do tipo TEXT. Para cabeçalhos IMAGE, use `header_media_uri`. Tipos de cabeçalho DOCUMENT, VIDEO e outros tipos de mídia não são suportados pela API `messages/send`.<br><br>
 
 `header_image_uri` é usado apenas para tipos de mensagens de resposta (como `quick_reply_response_message`), não para mensagens de modelo.
 {% endalert %}
@@ -63,7 +63,7 @@ Você pode usar `header_variables` apenas com modelos que têm cabeçalhos do ti
 Atualmente, apenas zero ou uma variável de cabeçalho pode ser especificada.
 
 
-###### Exemplo
+###### Exemplo {#example}
 
 ```json
 {
@@ -71,9 +71,9 @@ Atualmente, apenas zero ou uma variável de cabeçalho pode ser especificada.
 }
 ```
 
-##### Objeto de variáveis do corpo
+##### Objeto de variáveis do corpo {#body-variables-object}
 
-O objeto `body_variables` permite especificar valores para variáveis de corpo no modelo do WhatsApp. Cada chave é o índice da variável de modelo do WhatsApp (indexado a partir de zero) a ser substituído pelo valor especificado.
+O objeto `body_variables` permite especificar valores para variáveis do corpo no modelo do WhatsApp. Cada chave é o índice da variável do modelo do WhatsApp (indexado a partir de zero) a ser substituído pelo valor especificado.
 ```json
 {
   "$TEMPLATE_VARIABLE_INDEX_0": "$TEMPLATE_VARIABLE_VALUE_0",
@@ -90,9 +90,9 @@ O objeto `body_variables` permite especificar valores para variáveis de corpo n
 }
 ```
 
-##### Objeto de variáveis de botão
+##### Objeto de variáveis de botão {#button-variables-object}
 
-O objeto `button_variables` permite especificar valores para variáveis de botão no modelo do WhatsApp. Cada chave é o índice da variável de modelo do WhatsApp (indexado a partir de zero) a ser substituído pelo valor especificado.
+O objeto `button_variables` permite especificar valores para variáveis de botão no modelo do WhatsApp. Cada chave é o índice da variável do modelo do WhatsApp (indexado a partir de zero) a ser substituído pelo valor especificado.
 
 ```json
 {
@@ -100,7 +100,7 @@ O objeto `button_variables` permite especificar valores para variáveis de botã
 }
 ```
 
-Atualmente, apenas uma variável de botão pode ser especificada, que é o componente de jornada de um URL de chamada para ação. O índice da variável deve corresponder ao índice do botão de URL do CTA no modelo. Por exemplo, se o seu botão de CTA for o segundo botão no seu modelo, use o índice da variável "1".
+Atualmente, apenas uma variável de botão pode ser especificada, que é o componente de caminho de uma URL de chamada para ação. O índice da variável deve corresponder ao índice do botão de URL do CTA no modelo. Por exemplo, se o seu botão de CTA for o segundo botão no modelo, use o índice de variável "1".
 
 ###### Exemplo
 
@@ -110,7 +110,7 @@ Atualmente, apenas uma variável de botão pode ser especificada, que é o compo
 }
 ```
 
-### Mensagens de Resposta
+### Mensagens de resposta {#response-messages}
 
 #### text_response_message
 
@@ -121,7 +121,7 @@ Atualmente, apenas uma variável de botão pode ser especificada, que é o compo
 }
 ```
 
-###### Exemplo
+##### Exemplo
 
 ```json
 {
@@ -139,7 +139,7 @@ Atualmente, apenas uma variável de botão pode ser especificada, que é o compo
 }
 ```
 
-###### Exemplo
+##### Exemplo
 
 ```json
 {
@@ -160,7 +160,7 @@ Atualmente, apenas uma variável de botão pode ser especificada, que é o compo
 }
 ```
 
-##### Objeto botão
+##### Objeto de botão {#button-object}
 
 ```json
 {
@@ -199,7 +199,7 @@ O tipo `list_response_message` permite que você envie uma mensagem baseada em l
 }
 ```
 
-#### Objeto de Seção da Lista
+#### Objeto de seção da lista {#list-section-object}
 
 ```json
 {
@@ -208,7 +208,7 @@ O tipo `list_response_message` permite que você envie uma mensagem baseada em l
 }
 ```
 
-#### Objeto de Linha da Lista
+#### Objeto de linha da lista {#list-row-object}
 
 ```json
 {
@@ -217,11 +217,11 @@ O tipo `list_response_message` permite que você envie uma mensagem baseada em l
 }
 ```
 
-##### Restrições
+##### Restrições {#constraints}
 
-- **list_sections**: Deve ter pelo menos uma seção.
-- **list_rows**: Um máximo de 10 linhas pode ser incluído em todas as seções.
-- **row_description**: Opcional para cada linha.
+- **list_sections**: deve ter pelo menos uma seção.
+- **list_rows**: um máximo de 10 linhas pode ser incluído em todas as seções.
+- **row_description**: opcional para cada linha.
 
 ##### Exemplo
 
@@ -278,7 +278,7 @@ O tipo `flow_response_message` permite que você envie uma mensagem baseada em f
 }
 ```
 
-##### Objeto de Botão de Fluxo
+##### Objeto de botão de fluxo {#flow-button-object}
 
 ```json
 {
@@ -289,9 +289,9 @@ O tipo `flow_response_message` permite que você envie uma mensagem baseada em f
 
 ##### Restrições
 
-- **flow_button**: Deve incluir tanto a legenda quanto `flow_id`.
-- **legenda**: Máximo de 20 caracteres.
-- **flow_id**: Deve ser um ID de Flow publicado válido.
+- **flow_button**: deve incluir tanto a legenda quanto o `flow_id`.
+- **caption**: máximo de 20 caracteres.
+- **flow_id**: deve ser um ID de Flow publicado válido.
 
 ##### Exemplo
 

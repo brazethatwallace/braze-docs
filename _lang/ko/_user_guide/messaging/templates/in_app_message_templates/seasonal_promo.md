@@ -30,11 +30,11 @@ description: "이 페이지에서는 인앱 메시지 드래그 앤 드롭 편�
 
 ![버튼 요소를 커스터마이즈하기 위한 사이드 메뉴가 있는 인앱 메시지 편집기.]({% image_buster /assets/img/drag_and_drop/templates/seasonal_promo_button.png %})
 
-**Pages** 섹션에서 시즌 프로모션에 추가 메시지를 넣고, 이를 연결하여 순차적인 흐름을 만들 수도 있습니다. 예를 들어, 제품의 기능을 간략히 설명하는 일련의 메시지를 구성하고, 마지막에 사용자를 제품 페이지로 이동시키는 버튼으로 마무리할 수 있습니다. 자세한 방법은 [페이지 연결하기]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop/?tab=adding%20pages#step-3a-connect-pages-together)를 참조하세요.
+**Pages** 섹션에서 시즌 프로모션에 추가 메시지를 넣고, 이를 연결하여 순차적인 흐름을 만들 수도 있습니다. 예를 들어, 제품의 기능을 간략히 설명하는 일련의 메시지를 구성하고, 마지막에 사용자를 제품 페이지로 이동시키는 버튼으로 마무리할 수 있습니다. 자세한 방법은 [페이지 연결하기]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop?tab=adding%20pages#step-3a-connect-pages-together)를 참조하세요.
 
 ### 4단계: 메시지 스타일링 {#step-4-style-your-message}
 
-드래그 앤 드롭 [인앱 메시지 구성요소]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings/#message-components)를 사용하여 시즌 프로모션의 디자인과 느낌을 커스터마이즈하세요. **Message container** 메뉴에서 기본 배경 이미지 URL을 교체하여 자체 배경 이미지를 추가하거나, URL을 제거하고 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/)에서 이미지를 선택하세요.
+드래그 앤 드롭 [인앱 메시지 구성요소]({{site.baseurl}}/user_guide/channels/in_app_messages/customize/style_settings#message-components)를 사용하여 시즌 프로모션의 디자인과 느낌을 커스터마이즈하세요. **Message container** 메뉴에서 기본 배경 이미지 URL을 교체하여 자체 배경 이미지를 추가하거나, URL을 제거하고 [미디어 라이브러리]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library)에서 이미지를 선택하세요.
 
 ![배경 이미지를 선택하기 위한 사이드 메뉴가 있는 인앱 메시지 편집기.]({% image_buster /assets/img/drag_and_drop/templates/seasonal_promo_image.png %})
 

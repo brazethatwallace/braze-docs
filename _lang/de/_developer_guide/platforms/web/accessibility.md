@@ -43,7 +43,7 @@ Wir unterstützen die folgenden Features für Content Cards und In-App-Nachricht
 
 ## Richtlinien zur Barrierefreiheit für SDK-Integrationen {#accessibility-guidelines-for-sdk-integrations}
 
-Allgemeine Richtlinien zur Barrierefreiheit finden Sie unter [Barrierefreie Nachrichten in Braze erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility/). Dieser Leitfaden enthält Tipps und bewährte Verfahren für maximale Barrierefreiheit bei der Integration des Braze Web SDK in Ihre Webanwendung.
+Allgemeine Richtlinien zur Barrierefreiheit finden Sie unter [Barrierefreie Nachrichten in Braze erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility). Dieser Leitfaden enthält Tipps und bewährte Verfahren für maximale Barrierefreiheit bei der Integration des Braze Web SDK in Ihre Webanwendung.
 
 ### Content Cards
 
