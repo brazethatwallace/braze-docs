@@ -23,7 +23,7 @@ You can also call this endpoint through the [Braze MCP server]({{site.baseurl}}/
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `media_library.create` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `media_library.create` permission.
 
 ## Rate limit
 
