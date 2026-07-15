@@ -16,7 +16,7 @@ channel: email
 
 The subject line is one of the first things that recipients see upon receiving your message. Keeping it to 6 to 10 words yields the highest open rates. 
 
-There are also different approaches to creating a good subject line, ranging from asking a question to pique the reader's interest or being more direct, to personalizing it as to engage your clientele. Don't just stick with one subject line, leverage [A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing#what-are-multivariate-and-ab-testing) to try new ones out and gauge their effectiveness. Subject lines should be no more than 35 characters to display appropriately on mobile.
+There are also different approaches to creating a good subject line, ranging from asking a question to pique the reader's interest or being more direct, to personalizing it as to engage your clientele. Don't just stick with one subject line, leverage [A/B testing]({{site.baseurl}}/user_guide/messaging/ab_testing) to try new ones out and gauge their effectiveness. Subject lines should be no more than 35 characters to display appropriately on mobile.
 
 The "From" field should clearly show who the sender is. Try not to use a person's name or an uncommon abbreviation. Instead, use a recognizable name like your brand name. If using a person's name suits your brand's methods of personalizing email, stay consistent to develop a relationship with the recipient. The "From" name should be no more than 25 characters to display appropriately on mobile.
 

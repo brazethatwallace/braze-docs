@@ -42,7 +42,7 @@ If all of the messages in your campaign are going to be similar or have the same
 {% tab Canvas %}
 1. [Create your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) using the Canvas composer.
 2. After you've set up your Canvas, add a step in the Canvas builder. Name your step something clear and meaningful.
-3. Choose a [step schedule]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) and specify a delay as needed.
+3. Choose a [step schedule]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) and specify a delay as needed.
 4. Filter your Audience for this step as necessary. You can further refine the recipients of this step by specifying segments and adding additional filters. Audience options will be checked after the delay at the time messages are sent.
 5. Choose your [advancement behavior]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Choose any other messaging channels which you would like to pair with your message.
@@ -186,7 +186,7 @@ Push messages can be delivered based on a scheduled time, an action, or based on
 
 For action-based delivery, you can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) rules.
+This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) rules.
 
 ### Choose users to target
 
@@ -230,7 +230,7 @@ Braze allows you to track how often users perform specific actions, [conversion 
 
 {% tab Canvas %}
 
-If you haven't done so already, complete the remaining sections of your Canvas component. For details on how to build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas component. For details on how to build out the rest of your Canvas, implement multivariate testing and Intelligent Selection, and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) step of our Canvas documentation.
 
 {% endtab %}
 {% endtabs %}

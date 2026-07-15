@@ -125,7 +125,7 @@ The following details can also impact text truncation:
 
 ### Step 1: Create a push campaign
 
-Follow the [campaign steps]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message) to compose a push notification for iOS. You will be using the same composer that you use for setting up push notifications that do not contain rich content.
+Follow the [campaign steps]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message) to compose a push notification for iOS. You will be using the same composer that you use for setting up push notifications that do not contain rich content.
 
 ### Step 2: Add media
 
@@ -139,7 +139,7 @@ You can also limit this message to only send to users who have a device that run
 
 ### Step 3: Continue creating your campaign
 
-Once your rich notification content is uploaded to the dashboard, you can continue [scheduling your campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#schedule-push-campaign).
+Once your rich notification content is uploaded to the dashboard, you can continue [scheduling your campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#choose-delivery-schedule-or-trigger).
 
 When a user receives the push notification, they can hard press on the push message to expand the image.
 
