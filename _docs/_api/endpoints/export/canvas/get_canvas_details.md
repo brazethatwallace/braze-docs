@@ -20,7 +20,7 @@ description: "This article outlines details about the Export Canvas details Braz
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `canvas.details` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `canvas.details` permission.
 
 ## Rate limit
 

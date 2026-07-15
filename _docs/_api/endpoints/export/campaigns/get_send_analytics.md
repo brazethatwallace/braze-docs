@@ -24,7 +24,7 @@ Braze stores send analytics for 14 days after the send. Campaign conversions wil
 
 ## Prerequisites
 
-This endpoint is for API campaigns only. To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `sends.data_series` permission.
+This endpoint is for API campaigns only. To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `sends.data_series` permission.
 
 ## Rate limit
 

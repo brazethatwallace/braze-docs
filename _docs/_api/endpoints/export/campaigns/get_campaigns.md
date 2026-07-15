@@ -22,7 +22,7 @@ The campaigns are returned in groups of 100 sorted by time of creation (oldest t
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `campaigns.list` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `campaigns.list` permission.
 
 ## Rate limit
 
