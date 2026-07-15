@@ -77,7 +77,19 @@ module JekyllHeadingIdDump
       Dir.glob(File.join(source_dir, "_includes", "**", "*.md")).each do |path|
         key = path.delete_prefix("#{source_dir}/")
         raw = File.read(path)
-        body = raw.sub(/\A---\n.*?\n---\n/m, "") # strip frontmatter, if any
+        # Strip a leading YAML frontmatter block, if present (uncommon for
+        # includes, but some exist -- e.g. currents_changelogs_template.md).
+        # Reuses Jekyll's own canonical front-matter regex
+        # (Jekyll::Document::YAML_FRONT_MATTER_REGEXP) rather than a custom
+        # one, so this behaves identically to how Jekyll itself would parse
+        # the same file if it were ever promoted to a real document --
+        # including tolerating CRLF line endings and correctly leaving a
+        # file with no closing "---"/"..." delimiter untouched. The one
+        # inherent ambiguity (two unrelated "---" lines with ordinary prose
+        # between them, misread as frontmatter) is shared with Jekyll's own
+        # parsing everywhere else in the site, not a risk unique to this
+        # script.
+        body = raw.sub(Jekyll::Document::YAML_FRONT_MATTER_REGEXP, "")
         output = converter.convert(body)
 
         map[key] = {
