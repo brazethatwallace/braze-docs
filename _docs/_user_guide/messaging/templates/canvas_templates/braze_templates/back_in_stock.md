@@ -18,7 +18,7 @@ This article will walk you through a use case for the **Back In Stock** template
 To successfully use this template, you'll need the following:
 
 - A [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create) containing information about your item
-- [Back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#how-back-in-stock-notifications-work) must be set up for the item you want to message users about
+- [Back-in-stock notifications]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#back-in-stock-notifications) must be set up for the item you want to message users about
 
 ## Tailoring the template to your needs
 
