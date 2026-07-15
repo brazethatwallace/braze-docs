@@ -178,7 +178,7 @@ Webhooks can be delivered based on a scheduled time, an action, or based on an A
 
 For action-based delivery, you can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) rules.
+This step is also where you can specify delivery controls, such as allowing users to become [re-eligible]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) to receive the campaign, or enabling [frequency capping]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) rules.
 
 ### Choose users to target
 
