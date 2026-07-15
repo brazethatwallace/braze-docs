@@ -21,7 +21,7 @@ Se vários usuários com endereços de e-mail correspondentes estiverem em um se
 
 Se vários perfis compartilham um endereço de e-mail e um perfil cancela a inscrição, a Braze atualiza outros perfis (até 100) com esse endereço para o mesmo estado de inscrição. Isso se aplica a cancelamentos de inscrição e outras alterações, como estado de inscrição global e status de grupos de inscrições individuais.
 
-**Grupos de teste:** Para Campaigns com [Grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups), a Braze seleciona um perfil para entrega principal quando vários perfis compartilham um endereço. Esse destinatário principal pode não estar no seu grupo de teste, mesmo quando outro perfil com o mesmo endereço está.
+**Grupos de teste:** Para Campaigns com [grupos de teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#seed-groups), a Braze seleciona um perfil para entrega principal quando vários perfis compartilham um endereço. Esse destinatário principal pode não estar no seu grupo de teste, mesmo quando outro perfil com o mesmo endereço está.
 
 Os cenários a seguir podem fazer parecer que um usuário recebeu um e-mail duas vezes:
 
@@ -54,7 +54,7 @@ Evite [testes multivariantes e A/B]({{site.baseurl}}/user_guide/engagement_tools
 
 #### Canvas e endereços de e-mail duplicados {#canvas-and-duplicate-email-addresses}
 
-Para jornadas do Canvas, se endereços de e-mail duplicados recebem um envio ou mais de um pode depender do lote de entrada, do timing das etapas e de outros fatores. Trate o comportamento como indefinido até que você o valide para a sua jornada. Sempre que possível, mescle ou consolide perfis duplicados. Se você precisar de uma alteração no produto, envie feedback por meio da sua equipe da Braze.
+Para jornadas do Canvas, se endereços de e-mail duplicados recebem um envio ou mais de um pode depender do lote de entrada, do timing das etapas e de outros fatores. Trate o comportamento como indefinido até que você o valide para a sua jornada. Sempre que possível, mescle ou consolide perfis duplicados. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
 
 ### O que acontece com o estado de inscrição quando o endereço de e-mail de um usuário é alterado para um compartilhado por outro usuário? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -109,6 +109,35 @@ Embora a Braze não envie mais solicitações depois que a Campaign ou o Canvas 
 Você pode não ver aberturas ou cliques de e-mail se houver uma configuração incorreta no seu domínio de rastreamento. Isso pode ser devido a qualquer um dos seguintes motivos:
 - Há um problema de SSL onde as URLs de rastreamento são `http` em vez de `https`.
 - Há um problema com seu CDN onde a string de user agent nos eventos de abertura, eventos de clique ou ambos não está sendo preenchida.
+
+### Por que estou vendo comportamento incomum de abertura ou clique de e-mail? {#why-am-i-seeing-unusual-email-open-or-click-behavior}
+
+Se você notar padrões inesperados nas suas métricas de abertura ou clique de e-mail — como um único usuário aparentando clicar em todos os links imediatamente, ou aberturas não sendo registradas como esperado — analise as seguintes causas comuns:
+
+#### O corte de e-mail remove o pixel de rastreamento {#email-clipping-removes-the-tracking-pixel}
+
+Quando um e-mail é cortado pelo provedor de e-mail do destinatário (como o Gmail cortando mensagens com mais de aproximadamente 102 KB), o conteúdo na parte inferior do e-mail pode ser truncado. Como o pixel de rastreamento de abertura normalmente é inserido na parte inferior do e-mail, o corte pode impedir que o rastreamento de abertura funcione.
+
+**Como identificar:** Verifique se o e-mail exibe um link "Ver mensagem completa" ou similar na parte inferior. Você pode usar o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para pré-visualizar o e-mail completo com rolagem e verificar se a mensagem está sendo cortada.
+
+**Como resolver:** Você pode configurar a Braze para posicionar o pixel de rastreamento no topo do e-mail em vez da parte inferior. Mover o pixel de rastreamento pode afetar como alguns clientes de e-mail renderizam seu HTML, então teste seus e-mails no Inbox Vision após fazer essa alteração. Observe que, se o destinatário tiver imagens desativadas, as aberturas não podem ser rastreadas independentemente do posicionamento do pixel.
+
+#### Estatísticas atrasadas ou cliques sem aberturas {#delayed-stats-or-clicks-without-opens}
+
+O rastreamento de abertura depende de o destinatário carregar o e-mail com imagens habilitadas. Em alguns casos, as estatísticas podem parecer atrasadas ou cliques podem ser registrados sem aberturas correspondentes devido a:
+
+- O destinatário visualizar o e-mail em um painel de pré-visualização sem abri-lo completamente, e então clicar em links diretamente da pré-visualização.
+- O cliente de e-mail não carregar imagens (e, portanto, o pixel de rastreamento) até depois de o destinatário ter interagido com os links.
+
+#### Software de segurança simula cliques em links {#security-software-simulates-link-clicks}
+
+Algumas ferramentas corporativas de segurança de e-mail (como Barracuda, Proofpoint e serviços similares) escaneiam e-mails recebidos clicando automaticamente em todos os links da mensagem para verificar se são seguros. Isso pode resultar em eventos de clique aparecendo segundos após o envio, frequentemente com todos os links do e-mail clicados em rápida sucessão.
+
+Esse comportamento é mais comum com domínios de e-mail institucionais (como escolas, universidades e ambientes corporativos) e é mais provável quando seu domínio de envio difere significativamente do seu domínio de rastreamento. Configurar um [domínio de rastreamento personalizado com marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#custom-email-tracking-domain) pode reduzir a frequência desses cliques automatizados.
+
+**Como identificar:** Pesquise o endereço IP do evento de clique (disponível nos dados do Currents) em um mecanismo de busca. Se o IP estiver associado a um provedor de segurança conhecido (como Barracuda Networks), os cliques provavelmente são automatizados. Você também pode ver um cabeçalho User-Agent consistente em vários cliques automatizados.
+
+Para mais contexto sobre como o escaneamento de segurança afeta as métricas de e-mail, consulte [Lidando com aumentos nas taxas de clique]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
 
 ### Quais são os riscos potenciais de disparar cliques de servidor? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
@@ -281,6 +310,14 @@ Primeiro, confirme que você tem as [permissões de usuário]({{site.baseurl}}/u
 ### Preciso registrar domínios para e-mails de relay ou mascarados? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 O [Relay de E-mail Privado da Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO) exige que você registre seus domínios de envio no Portal de Desenvolvedores da Apple para evitar bounces. O Google Shielded Email não exige um processo manual de registro ou lista de permissões de domínio.
+
+### Posso adicionar hiperlinks em linhas de assunto ou pré-cabeçalhos de e-mail? {#can-i-add-hyperlinks-in-email-subject-lines-or-preheaders}
+
+Não. Adicionar hiperlinks em linhas de assunto de e-mail não é suportado pelos provedores de caixa de e-mail. Embora alguns provedores escaneiem automaticamente as linhas de assunto e convertam endereços físicos, datas ou horários em links clicáveis, isso acontece automaticamente no dispositivo do destinatário e está fora do controle da Braze (ou de qualquer ESP).
+
+Da mesma forma, adicionar hiperlinks no pré-cabeçalho não é suportado na indústria de e-mail.
+
+Se você precisa de funcionalidade semelhante a conteúdo clicável na linha de assunto ou na área do pré-cabeçalho, considere usar as [Promoções do Gmail]({{site.baseurl}}/user_guide/channels/email/html_editor/gmail_promotions_tab) para adicionar anotações interativas aos seus e-mails para usuários do Gmail.
 
 ### O que significa o motivo de bounce `unable to get mx info` ou `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
 

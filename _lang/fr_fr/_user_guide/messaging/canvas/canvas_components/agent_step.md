@@ -75,7 +75,16 @@ L'agent reçoit déjà automatiquement le contexte configuré dans la section **
 
 ### Étape 5 : Tester l'agent {#step-5-test-the-agent}
 
-Après avoir configuré votre étape Agent, vous pouvez tester et prévisualiser la sortie de cette étape.
+Vous pouvez tester une étape Agent de deux manières :
+
+**Prévisualisation dans l'étape (générateur Canvas) :** Après avoir configuré l'étape, utilisez la prévisualisation pour voir la sortie de l'agent pour un utilisateur aléatoire, un utilisateur existant ou un utilisateur personnalisé. Cela teste l'étape de manière isolée sans parcourir l'intégralité du chemin Canvas.
+
+**Test Canvas (parcours complet) :** Sélectionnez **Test Canvas** dans le pied de page du Canvas pour prévisualiser le parcours utilisateur de bout en bout. Lorsque le test atteint votre étape Agent, Braze demande **Voulez-vous exécuter l'agent « {agentName} » ?**
+
+- Sélectionnez **Oui** pour ajouter éventuellement du contexte, puis sélectionnez **Simuler la réponse** pour invoquer l'agent pour l'utilisateur de prévisualisation. Vous pouvez décrire des entrées d'exemple en langage naturel (par exemple, le contenu du panier ou le texte du message) pour compléter le profil de l'utilisateur test et tout contexte Canvas déjà défini en amont.
+- Sélectionnez **Non** pour ignorer l'invocation en direct et utiliser à la place la **sortie de repli** configurée pour l'agent dans la Console des agents.
+
+Les invocations issues de **Simuler la réponse** sont comptabilisées dans la limite d'invocations quotidiennes de l'agent et apparaissent dans **Console des agents** > **Journaux**. Pour le comportement complet du test Canvas, consultez [Prévisualiser les parcours utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps).
 
 ![Prévisualiser la sortie de l'agent en tant qu'utilisateur aléatoire.]({% image_buster /assets/img/ai_agent/agent_step_preview.png %}){: style="max-width:80%;"}
 

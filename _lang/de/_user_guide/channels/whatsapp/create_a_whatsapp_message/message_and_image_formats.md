@@ -63,6 +63,38 @@ Marketing-Templates sind der am häufigsten in Braze verwendete Typ. Sie bestehe
 
 Template-Variablen können entweder benannte Parameter (wie {% raw %}`{{first_name}}`{% endraw %}) oder positionelle Parameter (wie {% raw %}`{{1}}`{% endraw %}) verwenden. In Braze können Variablen durch Liquid oder Klartext ersetzt werden. Geben Sie immer Standardwerte für Liquid-Variablen an; Nachrichten mit fehlenden Variablenwerten werden nicht gesendet.
 
+### Templates für zeitlich begrenzte Angebote {#limited-time-offer-templates}
+
+Templates für zeitlich begrenzte Angebote zeigen ein zeitkritisches Werbeangebot mit einem optionalen Countdown an, wenn das Angebot sich dem Ablauf nähert. Verwenden Sie dieses Layout für zeitlich begrenzte Aktionen, wie saisonale Verkäufe oder auf ein Nutzer:innen-Attribut personalisierte Angebote.
+
+| Komponente | Erforderlich | Hinweise |
+|---|---|---|
+| Header | Nein | Wählen Sie **Keine** oder fügen Sie Medien hinzu (Bild oder Video). Siehe [Medienspezifikationen](#media-specifications) für Dateityp-, Größen- und Dimensionsanforderungen. |
+| Angebotsdetails | Ja | Angebotstitel, Angebotscode und ein optionales Ablaufdatum. |
+| Body | Ja | Der Hauptnachrichteninhalt. Unterstützt Liquid. |
+| Footer | Nein | Ergänzender Text, der nach dem Body angezeigt wird. |
+| Buttons | Ja | **Angebotscode kopieren** wird automatisch eingefügt. Sie können einen **Website besuchen**-Button hinzufügen; andere Button-Typen werden für diesen Template-Typ nicht unterstützt. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Templates für zeitlich begrenzte Angebote" }
+
+#### Angebotsdetails {#offer-details}
+
+| Feld | Erforderlich | Hinweise |
+|---|---|---|
+| Titel | Ja | Eine kurze Zeile, die das Angebot beschreibt. |
+| Code | Ja | Der Angebotscode, den Empfänger:innen kopieren. Dieser befüllt automatisch den Button **Angebotscode kopieren**. |
+| Ablaufdatum | Nein | Legen Sie ein festes Datum und eine Uhrzeit fest (z. B. ein Enddatum für einen Sommerschlussverkauf) oder personalisieren Sie es basierend auf einem Nutzer:innen-Attribut (z. B. dem Geburtstag jeder Nutzer:in). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Angebotsdetails" }
+
+Wenn Sie ein Ablaufdatum festlegen, sehen Empfänger:innen einen Countdown in der Nachricht, der sich aktualisiert, wenn das Angebot sich dem Ende nähert. Beispielsweise könnte die Nachricht zunächst das Enddatum anzeigen und dann zu etwas wie „Noch 5 Tage“ wechseln, wenn das Enddatum näher rückt. Wenn Sie kein Ablaufdatum festlegen, wird das Angebot ohne Countdown angezeigt. Braze verhindert den Versand von Nachrichten, wenn das Ablaufdatum in der Vergangenheit liegt (z. B. wenn das Ablaufdatum der 1. November 2026 ist, die Sendezeit aber der 15. November 2026).
+
+#### Button-Typen
+
+| Button-Typ | Hinweise |
+|---|---|
+| Angebotscode kopieren | Wird automatisch eingefügt. Der Button-Text lautet „Copy offer code“ und kann nicht bearbeitet werden. |
+| Website besuchen | Der einzige weitere Button, den Sie hinzufügen können. Maximal 1. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Button-Typen für zeitlich begrenzte Angebote" }
+
 ### Media-Card-Karussell-Templates {#media-card-carousel-templates}
 
 Karussell-Templates zeigen einen Nachrichtentext gefolgt von 2–10 horizontal scrollbaren Produktkarten an, die jeweils ein eigenes Medien-Asset und Buttons haben. Sie sind nur für Marketing-Template-Nachrichten verfügbar.

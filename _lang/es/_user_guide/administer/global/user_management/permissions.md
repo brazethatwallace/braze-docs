@@ -90,6 +90,7 @@ Ten en cuenta los siguientes comportamientos al asignar acceso al panel:
 - **Administrador de espacio de trabajo frente a administrador de empresa:** los administradores de espacio de trabajo gestionan permisos dentro de los espacios de trabajo asignados. Los administradores de empresa tienen autoridad a nivel de toda la empresa, incluida la eliminación de otros usuarios del panel.
 - **Usuarios limitados:** los usuarios limitados con el permiso "Edit Dashboard Users" pueden gestionar a otros usuarios limitados, pero no pueden crear ni gestionar cuentas de administrador de empresa.
 - **Alcance de gestión de usuarios del panel:** en la página de detalles del usuario, los permisos solo aparecen para los espacios de trabajo a los que el editor puede acceder. Un usuario limitado que puede editar usuarios en un espacio de trabajo puede no ver las casillas de permisos de otro espacio de trabajo.
+- **Botón Asignar permisos:** cuando editas un usuario y este ya tiene permisos a nivel de espacio de trabajo o conjuntos de permisos para cada espacio de trabajo que puedes gestionar, el botón **Asignar permisos** desaparece. Esto ocurre porque no quedan espacios de trabajo adicionales para asignar a nivel de espacio de trabajo.
 - **Exportar datos de usuario:** exportar datos de usuario requiere acceso a nivel de espacio de trabajo además del permiso de exportación.
 - **Permisos compuestos:** algunas áreas requieren múltiples permisos. Por ejemplo, configurar [partners tecnológicos]({{site.baseurl}}/partners) normalmente requiere tanto acceso al partner como un permiso de lectura básico para las características relacionadas del espacio de trabajo.
 - **Importar y actualizar datos de usuario:** este permiso incluye la capacidad de editar perfiles de usuario de la aplicación a través de flujos de importación, no solo registros de usuarios del panel.
@@ -179,11 +180,11 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 
 | Área de producto | Permiso | Definición |
 | --- | --- | --- |
-| Campaigns | View Campaigns | Ver Campaigns |
-| Campaigns | Launch Campaigns | Iniciar, detener, pausar o reanudar Campaigns existentes |
-| Campaigns | Archive Campaigns | Mover Campaigns al archivo |
-| Campaigns | Edit Campaigns | Crear y actualizar Campaigns |
-| Campaigns | Approve and Deny Campaigns | Aprobar o rechazar Campaigns. El [flujo de trabajo de aprobación para Campaigns]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) debe estar activado para que este permiso se aplique. Esta configuración se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas si te interesa participar en el acceso anticipado. |
+| Campaigns | View Campaigns | Ver campañas |
+| Campaigns | Launch Campaigns | Iniciar, detener, pausar o reanudar campañas existentes |
+| Campaigns | Archive Campaigns | Mover campañas al archivo |
+| Campaigns | Edit Campaigns | Crear y actualizar campañas |
+| Campaigns | Approve and Deny Campaigns | Aprobar o rechazar campañas. El [flujo de trabajo de aprobación para campañas]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/approvals) debe estar activado para que este permiso se aplique. Esta configuración se encuentra actualmente en acceso anticipado. Ponte en contacto con tu director de cuentas si te interesa participar en el acceso anticipado. |
 | Canvas | View Canvases | Ver Canvas |
 | Canvas | Archive Canvases | Mover Canvas al archivo |
 | Canvas | Edit Canvases | Crear y actualizar Canvas |
@@ -213,9 +214,9 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Ubicaciones | Archive Locations | Mover ubicaciones al archivo |
 | Ubicaciones | View Locations | Ver ubicaciones |
 | Ubicaciones | Edit Locations | Crear y editar ubicaciones |
-| Segments | View Segments | Ver Segments. Los usuarios deben tener el permiso "View Segments" para tener el permiso "Edit Segments" o "Archive Segments" |
-| Segments | Archive Segments | Archivar y desarchivar Segments. Los usuarios con el permiso "Archive Segments" también deben tener el permiso "View Segments" |
-| Segments | Edit Segments | Crear y actualizar Segments. Los usuarios con el permiso "Edit Segments" también deben tener el permiso "View Segments" |
+| Segments | View Segments | Ver segmentos. Los usuarios deben tener el permiso "View Segments" para tener el permiso "Edit Segments" o "Archive Segments" |
+| Segments | Archive Segments | Archivar y desarchivar segmentos. Los usuarios con el permiso "Archive Segments" también deben tener el permiso "View Segments" |
+| Segments | Edit Segments | Crear y actualizar segmentos. Los usuarios con el permiso "Edit Segments" también deben tener el permiso "View Segments" |
 | Datos de usuario | View Import Users | Ver importaciones de usuarios en CSV sin realizar cambios |
 | Datos de usuario | Import Users | Cargar usuarios al panel |
 | Datos de usuario | Edit User Data | Crear y actualizar datos de usuario |

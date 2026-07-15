@@ -444,7 +444,7 @@ Android Viewsを使用している場合は、次のXMLを使用します。
     app:placementId="global_banner" />
 ```
 
-Jetpack Composeを使用するには、アプリモジュールに`com.braze:android-sdk-jetpack-compose`アーティファクトを追加します。他のBraze Android SDK依存関係と同じバージョンを使用してください。このモジュールは`android-sdk-ui`とは別で、`com.braze.jetpackcompose.banners`配下の[`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)コンポーザブルを提供します。
+Jetpack Composeを使用するには、アプリモジュールに`com.braze:android-sdk-jetpack-compose`アーティファクトを追加します。他のBraze Android SDKの依存関係と同じバージョンを使用してください。このモジュールは`android-sdk-ui`とは別で、`com.braze.jetpackcompose.banners`配下の[`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)コンポーザブルを提供します。
 
 {% alert note %}
 一部のCompose UIライブラリは独自の`Banner`コンポーザブルを定義しています。BrazeのAPIを呼び出すには、`com.braze.jetpackcompose.banners.Banner`を明示的にインポートしてください。
@@ -510,7 +510,7 @@ val banner = Braze.getInstance(context).getBanner("global_banner")
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 

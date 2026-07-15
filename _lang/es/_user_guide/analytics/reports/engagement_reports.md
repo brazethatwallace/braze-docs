@@ -144,7 +144,7 @@ Si los totales aún difieren para las mismas Campaigns y el mismo periodo, verif
 | Filas diarias frente a totales del informe | Si **Data Display** divide la exportación en filas diarias, suma esas filas para compararlas con los totales del panel para el mismo rango. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verificaciones cuando las métricas de correo electrónico del informe de participación difieren del panel de rendimiento de correo electrónico" }
 
-Las diferencias son más comunes cuando las cifras del informe de participación se comparan con los análisis de **Campaign** o **Canvas** en lugar del panel de rendimiento de correo electrónico. Las páginas de Campaign y Canvas pueden mostrar métricas de fecha de envío (por ejemplo, envíos o conversiones atribuidas a la fecha de envío) junto con aperturas y clics de fecha de evento. Consulta [El informe de participación no coincide con las métricas del Canvas o la Campaign](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign) a continuación.
+Las diferencias son más comunes cuando las cifras del informe de participación se comparan con los análisis de **Campaign** o **Canvas** en lugar del panel de rendimiento de correo electrónico. Las páginas de Campaign y Canvas pueden mostrar métricas de fecha de envío (por ejemplo, envíos o conversiones atribuidas a la fecha de envío) junto con aperturas y clics de fecha de evento. Consulta [El informe de participación no coincide con las métricas del Canvas o la Campaign](#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign).
 
 ### El informe de participación no coincide con las métricas del Canvas o la Campaign {#engagement-report-doesnt-match-metrics-from-the-canvas-or-campaign}
 

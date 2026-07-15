@@ -14,7 +14,7 @@ description: "This reference article provides steps to create a transformation u
 
 | Requirement | Description |
 | --- | --- |
-| Two-factor authentication or SSO | You must have [two-factor authentication]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication) (2FA) or [single sign-on]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) enabled for your account. |
+| Two-factor authentication or SSO | You must have [two-factor authentication]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication-2fa) (2FA) or [single sign-on]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) enabled for your account. |
 | Correct permissions | You must be either an account admin or a workspace admin, or have "Manage Transformations" user permissions. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
 

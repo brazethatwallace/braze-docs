@@ -24,7 +24,7 @@ Data returned includes how many messages were sent, opened, clicked, or converte
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `campaigns.data_series` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `campaigns.data_series` permission.
 
 ## Rate limit
 

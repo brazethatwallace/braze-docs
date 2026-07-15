@@ -58,7 +58,7 @@ Keep the default settings for the entry audience, which targets users who haven'
 Keep most of the default subscription settings:
 
 - Only send to users who have subscribed or opted into receiving messages or notifications.
-- Apply your [frequency capping rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) so that you don't overwhelm your audience with the number of messages they receive. In this case, set your frequency capping to limit the number of campaigns or Canvas steps tagged with "Lapsing/Retention" that a user can receive to two every week.
+- Apply your [frequency capping rules]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) so that you don't overwhelm your audience with the number of messages they receive. In this case, set your frequency capping to limit the number of campaigns or Canvas steps tagged with "Lapsing/Retention" that a user can receive to two every week.
 - Don't send messages during quiet hours in the user's local time (12 am to 8 am).
 
 The only setting to change is what happens when a message triggers during quiet hours. Instead of cancelling the message, select **Send at next available time** so that your users don't miss out on any promotions.

@@ -33,9 +33,23 @@ Die folgenden Schritte werden unterstützt:
 - Delay
 - Aktionspfad
 - Experimentpfad
+- Agent
 - Nutzeraktualisierung (nur im UI-Editor, d. h. Schritte mit dem JSON-Editor werden übersprungen)
 
-Wenn der Test auf einen Schritttyp trifft, der oben nicht aufgeführt ist, wird der nicht unterstützte Schritt übersprungen, und die/der Testnutzer:in fährt mit dem nächsten unterstützten Schritt fort.
+Wenn der Test auf einen Schritttyp trifft, der in diesem Abschnitt nicht aufgeführt ist, wird der nicht unterstützte Schritt übersprungen, und die/der Testnutzer:in fährt mit dem nächsten unterstützten Schritt fort.
+
+### Agent-Schritte {#agent-steps}
+
+Wenn ein Testlauf einen [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) erreicht, pausiert Braze und fragt: **Do you want to run the agent "{agentName}"?** Wählen Sie, wie Sie fortfahren möchten:
+
+- **Yes:** Fügen Sie optional Kontext in das Textfeld ein (zusätzlich zum Profil der/des Testnutzers:in und dem bereits in der Journey vorhandenen Canvas-Kontext) und wählen Sie dann **Simulate response**, um den Agent aufzurufen. Sie können Beispielwerte in natürlicher Sprache eingeben – zum Beispiel eine Beschreibung des Warenkorb-Inhalts oder des eingehenden Nachrichtentexts –, um den Laufzeitkontext nachzuahmen, den der Agent in der Produktion erhalten würde.
+- **No:** Braze ruft den Agent nicht auf. Der Schritt verwendet die konfigurierte **Fallback-Ausgabe** des Agents aus dem Abschnitt **Output** in der [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values).
+
+Wenn Sie **Yes** und **Simulate response** auswählen, wird der Agent für die/den Vorschau-Nutzer:in ausgeführt, speichert seine Ausgabe in der Ausgabevariable des Agent-Schritts, und der Test wird entlang der Journey fortgesetzt. Aufrufe über **Simulate response** werden auf das tägliche Aufruf-Limit des Agents angerechnet und erscheinen unter **Agent Console** > **Logs**.
+
+Um einen Agent-Schritt isoliert zu testen (ohne den vollständigen Canvas-Pfad auszuführen), verwenden Sie die schrittinterne Vorschau im Canvas Builder. Einzelheiten zur Einrichtung finden Sie unter [Agent testen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#step-5-test-the-agent) im Abschnitt Agent-Schritt.
+
+Wenn Ihr Agent-Schritt von Daten aus einem vorgelagerten [Kontextschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context) abhängt, führen Sie **Test Canvas** aus, damit die Kontextvariablen entlang des Pfads befüllt werden. Seed-Gruppen werten Kontextschritte oder Kontextvariablen für Seed-Empfänger:innen nicht aus.
 
 ### Canvas-Schritt-Details {#canvas-step-details}
 

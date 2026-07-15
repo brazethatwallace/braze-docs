@@ -23,7 +23,7 @@ alias: /creating-agents/
 
 ## 작동 방식 {#how-it-works}
 
-에이전트를 생성할 때 목적을 정의하고 동작 방식에 대한 가이드라인을 설정합니다. 실시간 상태가 되면 에이전트를 Braze에 배포하여 개인화된 카피를 생성하고, 실시간 결정을 내리거나, 카탈로그 필드를 업데이트할 수 있습니다. 에이전트를 구축하는 동안 초안으로 저장할 수 있으며, 대시보드에서 언제든지 에이전트를 일시 중지하거나 업데이트할 수 있습니다.
+에이전트를 생성할 때 목적을 정의하고 동작 방식에 대한 가이드라인을 설정합니다. 실시간 상태가 되면 에이전트를 Braze에 배포하여 개인화된 카피를 생성하고, 실시간 결정을 내리거나, 카탈로그 필드를 업데이트할 수 있습니다. 에이전트를 구축하는 동안 초안으로 저장할 수 있으며, 대시보드에서 언제든지 에이전트를 일시 중지하거나 업데이트할 수 있습니다. 저장할 때마다 새 버전이 생성되며, [버전 기록]({{site.baseurl}}/user_guide/brazeai/agents/reference#version-history) 탭에서 검토할 수 있습니다.
 
 다음 사용 사례는 커스텀 에이전트를 활용하는 몇 가지 방법을 보여줍니다.
 
@@ -62,6 +62,10 @@ Operator를 사용하는 경우, 다음 단계로 진행하기 전에 채팅에�
 4. **Braze Auto** 모델을 사용하지 않는 경우, 모델의 [사고 수준]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels)을 선택합니다. 최소, 낮음, 중간 또는 높음 중에서 선택할 수 있습니다. **최소**로 시작하여 에이전트의 응답을 테스트한 후 필요에 따라 조정하는 것을 권장합니다.
 5. 일일 호출 한도를 설정합니다. 기본값은 250,000으로 설정되어 있지만 1,000,000까지 높일 수 있습니다. 1,000,000 이상으로 한도를 늘리려면 고객 성공 매니저에게 문의하여 자세히 알아보세요.
 
+**일일 액션 크레딧 비용 한도** 필드는 이 에이전트가 하루에 소비할 수 있는 최대 크레딧 수를 지정합니다. Braze는 선택한 모델에 대한 워크스페이스의 호출당 크레딧 비율(계약에 따라 [크레딧 비율]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage) 페이지에 표시됨)에 일일 호출 한도를 곱하여 계산합니다. 모델이나 호출 한도를 변경하면 추정치가 업데이트됩니다.
+
+비용을 관리하려면 일일 호출 한도를 낮추세요. [자체 키 사용(BYO)]({{site.baseurl}}/user_guide/brazeai/agents/reference#option-2-bring-your-own-api-key) 모델의 경우, 더 저렴한 모델로 전환하거나 [사고 수준]({{site.baseurl}}/user_guide/brazeai/agents/reference#thinking-levels)을 낮출 수도 있습니다. **Braze Auto**는 사고 수준 조정을 지원하지 않습니다. **설정** > **결제** > **크레딧 사용량** > **에이전트 콘솔**에서 실제 사용량을 추적하세요.
+
 ![Braze에서 커스텀 에이전트를 생성하기 위한 에이전트 콘솔 인터페이스. 화면에는 에이전트 이름과 설명을 입력하고, 모델을 선택하고, 일일 호출 한도를 설정하는 필드가 표시됩니다.]({% image_buster /assets/img/ai_agent/create_custom_agent.png %}){: style="max-width:75%;"}
 
 ### 4단계: 지침 작성 {#agent-instructions}
@@ -72,19 +76,24 @@ Operator를 사용하는 경우, 다음 단계로 진행하기 전에 채팅에�
 
 모범 사례는 [지침 작성]({{site.baseurl}}/user_guide/brazeai/agents/reference#writing-instructions)을 참조하고, 에이전트 프롬프트에 대한 영감은 [예시]({{site.baseurl}}/user_guide/brazeai/agents/reference#examples)를 참조하세요.
 
-{% alert tip %}
-Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스텀 속성)을 참조하기 위해 지침에서 Liquid를 사용할 수 있습니다. 에이전트 지침의 모든 Liquid 변수는 사용자가 해당 단계에 진입할 때 자동으로 에이전트 단계로 전달됩니다.
-{% endalert %}
-
 #### 컨텍스트 추가 {#add-resources}
+
+{% alert important %}
+에이전트는 명시적으로 전달한 데이터만 수신하며, 사용자 프로필을 검색하거나 필수 데이터가 누락되었을 때 경고하지 않습니다. 지침에서 Liquid를 사용하거나, **+ 에이전트 컨텍스트**를 선택하거나, Canvas에서 업스트림 [컨텍스트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)를 추가하거나, 에이전트 단계에서 추가 컨텍스트를 전달하세요. 데이터 소스 및 설계 지침의 전체 목록은 [에이전트가 수신하는 데이터]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive)를 참조하세요.
+{% endalert %}
 
 에이전트가 참조할 수 있는 항목을 선택하려면 **+ 에이전트 컨텍스트**를 선택합니다. 여기에는 다음이 포함됩니다:
 
 - [카탈로그 필드]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields): 보다 정확한 응답을 위해 에이전트에게 카탈로그 데이터에 대한 액세스를 제공합니다.
-- [Segment 멤버십]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): 에이전트가 사용자가 속한 Segments에 따라 응답을 개인화할 수 있도록 합니다. 최대 5개의 Segments를 선택할 수 있습니다.
+- [지식 소스]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources): 카탈로그를 직접 첨부하는 것보다 더 정확한 검색을 위해 지식 소스를 통해 에이전트에게 카탈로그 데이터에 대한 액세스를 제공합니다.
+- [Segment 멤버십]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): 에이전트가 사용자가 속한 Segment에 따라 응답을 개인화할 수 있도록 합니다. 최대 5개의 Segment를 선택할 수 있습니다.
 - [브랜드 가이드라인]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): 에이전트가 따를 브랜드 보이스와 스타일 가이드라인을 참조합니다. 예를 들어, 에이전트가 사용자에게 체육관 회원 가입을 유도하는 SMS 카피를 생성하도록 하려면, 이 필드를 사용하여 미리 정의된 대담하고 동기 부여가 되는 가이드라인을 참조할 수 있습니다.
 - [모든 Canvas 컨텍스트]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): 이 에이전트가 호출될 때 **지침** 섹션에서 참조되지 않은 변수를 포함하여 사용자의 모든 Canvas 컨텍스트 데이터를 분석합니다.
 - [사용자 상호작용 데이터]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): 각 사용자의 최근 Campaign 및 Canvas 열람, 클릭, 전환 데이터를 에이전트에 제공합니다.
+
+{% alert tip %}
+Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스텀 속성)을 참조하기 위해 지침에서 Liquid를 사용할 수 있습니다. 에이전트 지침의 모든 Liquid 변수는 사용자가 해당 단계에 진입할 때 자동으로 에이전트 단계로 전달됩니다. Canvas 컨텍스트와 프로필 데이터를 의도적으로 전달하는 방법은 [에이전트가 수신하는 데이터]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive)를 참조하세요.
+{% endalert %}
 
 ### 5단계: 출력 선택 {#select-output}
 

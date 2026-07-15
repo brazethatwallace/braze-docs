@@ -153,7 +153,7 @@ Os resultados de interrupção no Messaging Diagnostics são rótulos legíveis 
 
 | Resultado de interrupção | Explicação |
 | ---- | ---- |
-| Partner delivery timeout | A Braze tentou enviar esta mensagem ao seu parceiro de entrega por 24 horas, mas o parceiro retornou erros temporários durante todo o período. |
+| Partner delivery error | A Braze tentou enviar esta mensagem ao seu parceiro de entrega por 24 horas, mas o parceiro retornou erros temporários durante todo o período. |
 | Push credentials invalid | As [credenciais de push]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token) para este app estão ausentes ou inválidas, então o envio foi cancelado. Atualize suas credenciais em **Configurações do app**. |
 | Subscription group failure | A mensagem não pôde ser enviada devido a problemas de configuração do grupo de inscrições ou do serviço de envio de mensagens. Motivos comuns incluem números de envio ausentes para SMS ou WhatsApp, ou MMS não suportado no serviço de envio de mensagens configurado. |
 | User not eligible for channel | O usuário não é elegível para receber esta mensagem no canal selecionado. Motivos comuns incluem identificadores de canal ausentes ou inválidos, nenhum token por push elegível, restrições de estado de inscrição, capacidade de canal não suportada ou países bloqueados para canais baseados em telefone. |

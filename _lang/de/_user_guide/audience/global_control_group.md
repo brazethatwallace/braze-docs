@@ -48,11 +48,11 @@ Sie können bestimmte Nutzer:innen nicht aus der globalen Kontrollgruppe entfern
 
 ## Eine globale Kontrollgruppe erstellen {#create-a-global-control-group}
 
-### 1. Schritt: Zu den Einstellungen der globalen Kontrollgruppe navigieren {#step-1-navigate-to-the-global-control-group-settings}
+### Schritt 1: Zu den Einstellungen der globalen Kontrollgruppe navigieren {#step-1-navigate-to-the-global-control-group-settings}
 
 Gehen Sie im Dashboard zu **Audience** > **Global Control Group**.
 
-### 2. Schritt: Einen Prozentsatz aller Nutzer:innen dieser Kontrollgruppe zuweisen {#step-2-assign-a-percentage-of-all-users-to-this-control-group}
+### Schritt 2: Einen Prozentsatz aller Nutzer:innen dieser Kontrollgruppe zuweisen {#step-2-assign-a-percentage-of-all-users-to-this-control-group}
 
 Geben Sie einen Prozentsatz für Ihre Kontrollgruppe ein und wählen Sie **Save**. Nach der Eingabe zeigt Ihnen Braze eine Schätzung, wie viele Nutzer:innen in Ihre globale Kontrollgruppe, Treatment-Gruppe und Treatment-Stichprobe fallen. Beachten Sie, dass diese Schätzung umso genauer ist, je mehr Nutzer:innen Sie in Ihrem Workspace haben.
 
@@ -62,7 +62,7 @@ Richtlinien zum Prozentsatz finden Sie unter [Best Practices für Tests](#percen
 
 ![Die Einstellungen der globalen Kontrollgruppe mit der Zielgruppeneinstellung „Fünf Prozent aller Nutzer:innen der globalen Kontrollgruppe zuweisen“.]({% image_buster /assets/img/control_group/control_group4.png %})
 
-### 3. Schritt: Ausschlusseinstellungen zuweisen {#step-3-assign-exclusion-settings}
+### Schritt 3: Ausschlusseinstellungen zuweisen {#step-3-assign-exclusion-settings}
 
 Verwenden Sie Tags, um Ausschlusseinstellungen zu Ihrer globalen Kontrollgruppe hinzuzufügen. Alle Campaigns oder Canvases, die die in den Ausschlusseinstellungen enthaltenen Tags verwenden, nutzen Ihre globale Kontrollgruppe nicht. Diese Campaigns und Canvases werden weiterhin an alle Nutzer:innen in der Zielgruppe gesendet, einschließlich derjenigen in Ihrer globalen Kontrollgruppe.
 
@@ -72,7 +72,7 @@ Sie möchten möglicherweise Ausschlusseinstellungen hinzufügen, wenn Sie trans
 
 ![Der Abschnitt zum Hinzufügen oder Bearbeiten von Ausschlusseinstellungen für Ihre globale Kontrollgruppe.]({% image_buster /assets/img/control_group/control_group5.png %})
 
-### 4. Schritt: Ihre Kontrollgruppe speichern {#step-4-save-your-control-group}
+### Schritt 4: Ihre Kontrollgruppe speichern {#step-4-save-your-control-group}
 
 An diesem Punkt generiert Braze eine zufällig ausgewählte Gruppe von Nutzer:innen, die den ausgewählten Prozentsatz Ihrer gesamten Nutzerbasis umfasst. Nach dem Speichern senden alle derzeit aktiven und zukünftigen Campaigns und Canvases nicht mehr an Nutzer:innen in dieser Gruppe, mit Ausnahme von Campaigns oder Canvases, die eines der Tags in Ihren Ausschlusseinstellungen enthalten.
 
@@ -136,7 +136,7 @@ Jeder Workspace hat maximal eine globale Kontrollgruppe und eine Treatment-Stich
 
 | Metrik | Definition | Berechnung |
 | -- | -- | -- |
-| Veränderung gegenüber der Kontrollgruppe | Berechnet den Uplift zwischen der Konversionsrate Ihrer Treatment- und Kontrollgruppe. | ((Konversionsrate Treatment – Konversionsrate Kontrollgruppe) ÷ Konversionsrate Kontrollgruppe) * 100 |
+| Veränderung gegenüber der Kontrollgruppe | Berechnet den Uplift zwischen der Konversionsrate Ihrer Treatment- und Kontrollgruppe. | ((Konversionsrate Treatment – Konversionsrate Kontrollgruppe) ÷ Konversionsrate Kontrollgruppe) \* 100 |
 | Inkrementeller Uplift | Die Differenz der Gesamtereignisse zwischen Ihrer Treatment- und Kontrollgruppe. Diese Metrik versucht die Frage zu beantworten: „Wie viele zusätzliche Konversions-Events hat die Treatment-Gruppe erzielt?“ | Gesamtereignisse Treatment – Gesamtereignisse Kontrollgruppe |
 | Inkrementeller Uplift in Prozent | Der Prozentsatz der Gesamtereignisse Ihrer Treatment-Gruppe, der Ihrem Treatment zugeschrieben werden kann (im Gegensatz zu natürlichem Nutzerverhalten). Wird berechnet, indem der inkrementelle Uplift (Zahl) durch die Gesamtzahl der Ereignisse Ihrer Treatment-Gruppe geteilt wird. | Inkrementeller Uplift (Zahl) ÷ Gesamtereignisse der Treatment-Gruppe |
 | Konversionsrate | Der geschätzte Prozentsatz der Nutzer:innen in Ihrer Kontroll- oder Treatment-Gruppe, die das ausgewählte Event im gewählten Zeitraum abschließen. Wird berechnet, indem die Anzahl der Ereignisse aus dem Zeitraum addiert und durch die Summe der Nutzer:innen in der Gruppe pro Tag geteilt wird. Dies kann nur angenähert werden, da die Gruppengröße regelmäßig schwankt, wenn neue Nutzer:innen Ihrer globalen Kontrollgruppe beitreten, und die Ereignisse Gesamtereignisse – nicht eindeutige Ereignisse – sind. Wenn die Anzahl der Conversions sehr gering und Ihre Kontroll- oder Treatment-Gruppe sehr groß ist, kann die Konversionsrate auf 0 % gerundet werden. Wenn die Anzahl der Ereignisse sehr hoch ist – zum Beispiel wenn eine Nutzer:in mehr als ein Event pro Tag auslöst – kann die Konversionsrate über 100 % liegen. | Summe der Anzahl der Ereignisse für diese Nutzer:innen über diesen Zeitraum ÷ Summe der Nutzer:innen in der Gruppe pro Tag |

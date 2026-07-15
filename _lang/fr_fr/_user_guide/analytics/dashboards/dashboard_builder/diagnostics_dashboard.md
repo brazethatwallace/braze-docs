@@ -72,7 +72,7 @@ En haut de la page, des tuiles récapitulatives clés pour la période sélectio
 
 ### Résultats des messages au fil du temps {#message-outcomes-over-time}
 
-Ce graphique en série temporelle montre une ventilation heure par heure des différentes raisons pour lesquelles un message a été abandonné ou un utilisateur a été retiré d'un Canvas. Les libellés de résultats dans ce graphique sont des libellés normalisés du tableau de bord, et non des valeurs brutes de payload d'événement. Ce graphique n'affiche pas le nombre d'envois.
+Ce graphique en série temporelle montre une ventilation heure par heure des raisons pour lesquelles un message a été abandonné ou un utilisateur a été retiré d'un Canvas. Les libellés de résultats dans ce graphique sont des libellés normalisés du tableau de bord, et non des valeurs brutes de payload d'événement. Ce graphique n'affiche pas le nombre d'envois.
 
 ### Journal détaillé des résultats des messages {#message-outcomes-granular-log}
 
@@ -153,7 +153,7 @@ Les résultats d'abandon dans Messaging Diagnostics sont des libellés lisibles 
 
 | Résultat d'abandon | Explication |
 | ---- | ---- |
-| Délai d'expiration de la distribution par le partenaire | Braze a tenté d'envoyer ce message à votre partenaire de distribution pendant 24 heures, mais le partenaire a renvoyé des erreurs temporaires pendant toute la durée de cette fenêtre. |
+| Erreur de distribution du partenaire | Braze a tenté d'envoyer ce message à votre partenaire de distribution pendant 24 heures, mais le partenaire a renvoyé des erreurs temporaires pendant toute la durée de cette fenêtre. |
 | Identifiants push invalides | Les [identifiants push]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token) pour cette application sont manquants ou invalides, l'envoi a donc été annulé. Mettez à jour vos identifiants dans **Paramètres des applications**. |
 | Échec du groupe d'abonnement | Le message n'a pas pu être envoyé en raison de problèmes de configuration du groupe d'abonnement ou du service d'envoi de messages. Les raisons courantes incluent l'absence de numéros d'envoi pour SMS ou WhatsApp, ou l'incompatibilité MMS sur le service d'envoi de messages configuré. |
 | L'utilisateur n'est pas éligible pour le canal | L'utilisateur n'est pas éligible pour recevoir ce message sur le canal sélectionné. Les raisons courantes incluent des identifiants de canal manquants ou invalides, l'absence de jetons push éligibles, des restrictions liées à l'état d'abonnement, une fonctionnalité de canal non prise en charge ou des pays bloqués pour les canaux téléphoniques. |

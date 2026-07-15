@@ -41,7 +41,7 @@ Ce tableau présente les principales différences entre les liens universels et 
 
 ## Cas d'usage {#use-cases}
 
-Les liens universels et les App Links sont le plus souvent utilisés pour les Campaigns par e-mail, car les e-mails peuvent être ouverts et cliqués depuis des appareils de bureau et mobiles.
+Les liens universels et les App Links sont le plus souvent utilisés pour les campagnes par e-mail, car les e-mails peuvent être ouverts et cliqués depuis des appareils de bureau et mobiles.
 
 Certains canaux ne fonctionnent pas bien avec ces liens. Par exemple, les notifications push, les In-App Messages et les Content Cards doivent utiliser des liens profonds basés sur un schéma (`mydomain://`).
 
@@ -452,3 +452,15 @@ Dans certains cas, votre domaine de suivi des clics peut ne pas être en mesure 
 
 - **Désactivez sélectivement le suivi des clics sur les URL de liens profonds :** vous pouvez désactiver le suivi des clics pour des liens universels spécifiques afin qu'ils pointent directement vers votre domaine principal (où vous pouvez héberger le fichier AASA ou Digital Asset Links). Notez que cette méthode peut entraîner une perte d'analyse des clics pour ces liens spécifiques. Consultez [Désactiver le suivi des clics lien par lien](#turning-off-click-tracking-on-a-link-to-link-basis) pour les instructions.
 - **Placez un CDN devant le sous-domaine de suivi :** si vous avez besoin d'une couverture complète du suivi des clics et de la création de liens profonds, vous pouvez placer un CDN (tel que Cloudflare ou CloudFront) devant votre sous-domaine de suivi. Configurez le CDN pour servir les fichiers `.well-known` localement et transmettre tout le reste du trafic à votre fournisseur de services d'e-mailing. Cette approche est plus complexe mais vous donne un contrôle total sur le suivi des clics et les liens universels.
+
+#### Les liens fonctionnent dans un espace de travail mais pas dans un autre {#links-working-in-one-workspace-but-not-another}
+
+Si les liens universels ou les App Links fonctionnent correctement dans votre espace de travail de production mais échouent dans votre espace de travail de développement ou de test, vérifiez que le domaine de l'adresse e-mail d'envoi correspond au domaine de suivi configuré dans les paramètres e-mail de chaque espace de travail. Une configuration incohérente entre les espaces de travail peut entraîner un comportement différent des liens, même lorsque vous utilisez les mêmes modèles d'e-mail et les mêmes fichiers AASA ou Digital Asset Links.
+
+Pour vérifier votre configuration e-mail :
+
+1. Accédez à **Paramètres** > **Préférences e-mail** dans le tableau de bord de Braze.
+2. Vérifiez les **Paramètres d'envoi d'e-mails sortants** sous **Configuration d'envoi**.
+3. Confirmez que votre domaine d'envoi et votre domaine de suivi sont correctement alignés pour l'espace de travail où les liens ne fonctionnent pas.
+
+Si votre domaine d'envoi diffère entre les espaces de travail, assurez-vous que chaque espace de travail dispose des enregistrements DNS appropriés configurés et que vos fichiers AASA (iOS) ou Digital Asset Links (Android) sont accessibles depuis chaque domaine de suivi.

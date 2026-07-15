@@ -110,6 +110,35 @@ Puedes no ver aperturas ni clics en correos electrónicos si hay una configuraci
 - Hay un problema de SSL donde las URL de seguimiento son `http` en lugar de `https`.
 - Hay un problema con tu CDN donde la cadena de agente de usuario en los eventos de apertura, los eventos de clic o ambos no se están completando.
 
+### ¿Por qué veo un comportamiento inusual de aperturas o clics en correos electrónicos? {#why-am-i-seeing-unusual-email-open-or-click-behavior}
+
+Si notas patrones inesperados en tus métricas de apertura o clics de correo electrónico, como un solo usuario que parece hacer clic en todos los enlaces inmediatamente, o aperturas que no se registran como se esperaba, revisa las siguientes causas comunes:
+
+#### El recorte del correo electrónico elimina el píxel de seguimiento {#email-clipping-removes-the-tracking-pixel}
+
+Cuando un correo electrónico es recortado por el proveedor de correo electrónico del destinatario (como Gmail, que recorta los mensajes de más de aproximadamente 102 KB), el contenido en la parte inferior del correo electrónico puede truncarse. Dado que el píxel de seguimiento de apertura normalmente se inserta en la parte inferior del correo electrónico, el recorte puede impedir que funcione el seguimiento de aperturas.
+
+**Cómo identificarlo:** Verifica si el correo electrónico muestra un enlace de "Ver mensaje completo" o similar en la parte inferior. Puedes usar [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para previsualizar el correo electrónico completo con desplazamiento y verificar si el mensaje está siendo recortado.
+
+**Cómo resolverlo:** Puedes configurar Braze para colocar el píxel de seguimiento en la parte superior del correo electrónico en lugar de la inferior. Mover el píxel de seguimiento puede afectar la forma en que algunos clientes de correo electrónico renderizan tu HTML, así que prueba tus correos electrónicos en Inbox Vision después de realizar este cambio. Ten en cuenta que si el destinatario tiene las imágenes deshabilitadas, las aperturas no se pueden rastrear independientemente de la ubicación del píxel.
+
+#### Estadísticas retrasadas o clics sin aperturas {#delayed-stats-or-clicks-without-opens}
+
+El seguimiento de aperturas depende de que el destinatario cargue el correo electrónico con las imágenes habilitadas. En algunos casos, las estadísticas pueden aparecer retrasadas o los clics pueden registrarse sin aperturas correspondientes debido a:
+
+- El destinatario visualiza el correo electrónico en un panel de vista previa sin abrirlo completamente, y luego hace clic en los enlaces directamente desde la vista previa.
+- El cliente de correo electrónico no carga las imágenes (y por lo tanto el píxel de seguimiento) hasta después de que el destinatario haya interactuado con los enlaces.
+
+#### El software de seguridad simula clics en enlaces {#security-software-simulates-link-clicks}
+
+Algunas herramientas de seguridad de correo electrónico corporativo (como Barracuda, Proofpoint y servicios similares) escanean los correos electrónicos entrantes haciendo clic automáticamente en todos los enlaces del mensaje para verificar que son seguros. Esto puede resultar en eventos de clic que aparecen segundos después del envío, a menudo con todos los enlaces del correo electrónico clicados en rápida sucesión.
+
+Este comportamiento es más común con dominios de correo electrónico institucionales (como escuelas secundarias, universidades y entornos corporativos) y es más probable cuando tu dominio de envío difiere significativamente de tu dominio de seguimiento. Configurar un [dominio de seguimiento de marca personalizado]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#custom-email-tracking-domain) puede reducir la frecuencia de estos clics automatizados.
+
+**Cómo identificarlo:** Busca la dirección IP del evento de clic (disponible en los datos de Currents) en un motor de búsqueda. Si la IP está asociada con un proveedor de seguridad conocido (como Barracuda Networks), es probable que los clics sean automatizados. También puedes ver un encabezado `User-Agent` consistente en múltiples clics automatizados.
+
+Para más contexto sobre cómo el escaneo de seguridad afecta las métricas de correo electrónico, consulta [Gestión de aumentos en las tasas de clics]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+
 ### ¿Cuáles son los riesgos potenciales de desencadenar clics del servidor? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
 Ciertos elementos de un mensaje de correo electrónico, como mensajes excesivamente largos o demasiados signos de exclamación, pueden desencadenar respuestas de seguridad del correo electrónico. Estas respuestas pueden afectar los informes y la reputación de la IP y llevar a los usuarios a cancelar su suscripción.
@@ -132,7 +161,7 @@ Si un usuario hace clic en el enlace de cancelación de suscripción dos veces (
 
 No. Braze no ofrece esta funcionalidad. Esto se debe a que la gran mayoría de los correos electrónicos se abren en dispositivos móviles y en clientes de correo electrónico modernos, que renderizan imágenes y contenido sin problemas.
 
-**Solución alternativa:** Para lograr este mismo resultado, puedes alojar el contenido de tu correo electrónico en una página de inicio externa (como tu sitio web), que luego se puede enlazar desde la Campaign de correo electrónico que estás creando usando la herramienta **Link** al editar el cuerpo del correo electrónico.
+**Solución alternativa:** Para lograr este mismo resultado, puedes alojar el contenido de tu correo electrónico en una página de destino externa (como tu sitio web), que luego se puede enlazar desde la Campaign de correo electrónico que estás creando usando la herramienta **Link** al editar el cuerpo del correo electrónico.
 
 ### ¿Braze convierte automáticamente las URL en texto plano o el texto "www." en enlaces? {#does-braze-automatically-turn-plain-text-urls-or-www-text-into-links}
 
@@ -281,6 +310,15 @@ Primero, confirma que tienes los [permisos de usuario]({{site.baseurl}}/user_gui
 ### ¿Necesito registrar dominios para correos electrónicos de retransmisión o enmascarados? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 El [servicio de retransmisión de correo electrónico privado de Apple]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO) requiere que registres tus dominios de envío en el Portal de Desarrolladores de Apple para evitar rebotes. Google Shielded Email no requiere un proceso manual de registro de dominio ni de lista de permitidos.
+
+
+### ¿Puedo añadir hipervínculos en las líneas del asunto o preencabezados del correo electrónico? {#can-i-add-hyperlinks-in-email-subject-lines-or-preheaders}
+
+No. Los proveedores de buzón de entrada no admiten la adición de hipervínculos en las líneas del asunto del correo electrónico. Aunque algunos proveedores de buzón de entrada escanean automáticamente las líneas del asunto y convierten direcciones físicas, fechas u horas en enlaces clicables, esto ocurre automáticamente en el dispositivo del destinatario y está fuera del control de Braze (o de cualquier ESP).
+
+De manera similar, la adición de hipervínculos dentro del preencabezado no es compatible en la industria del correo electrónico.
+
+Si necesitas una funcionalidad similar al contenido clicable en la línea del asunto o el área del preencabezado, considera usar [Gmail Promotions]({{site.baseurl}}/user_guide/channels/email/html_editor/gmail_promotions_tab) para añadir anotaciones interactivas a tus correos electrónicos para los usuarios de Gmail.
 
 ### ¿Qué significa el motivo de rebote `unable to get mx info` o `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
 

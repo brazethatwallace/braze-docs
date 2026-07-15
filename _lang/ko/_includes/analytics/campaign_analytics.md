@@ -935,7 +935,7 @@ Braze 분석 외에도 템플릿 수준의 분석은 WhatsApp 비즈니스 매�
 
 ### SMS Currents 이벤트 {#sms-currents-events}
 
-이메일과 마찬가지로, Braze는 SMS 메시지가 사용자에게 전달되는 과정에서 사용자 수준의 이벤트를 수신합니다. 모든 인바운드 SMS 이벤트는 [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) 이벤트를 통해 Currents 이벤트로도 전송됩니다. 이를 통해 Braze 플랫폼 외부에서 사용자가 보내는 메시지에 대해 추가 작업이나 보고를 수행할 수 있습니다.
+이메일과 마찬가지로, Braze는 SMS 메시지가 사용자에게 전달되는 과정에서 사용자 수준의 이벤트를 수신합니다. 모든 인바운드 SMS 이벤트는 [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) 이벤트를 통해 Currents 이벤트로도 전송됩니다. 이를 통해 Braze 플랫폼 외부에서 사용자가 보내는 메시지에 대해 추가 작업이나 보고를 수행할 수 있습니다.
 
 {% alert note %}
 인바운드 메시지는 1,600자를 초과하면 잘립니다.

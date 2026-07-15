@@ -510,7 +510,7 @@ Para una integración más sencilla, añade el siguiente fragmento de código Ja
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 

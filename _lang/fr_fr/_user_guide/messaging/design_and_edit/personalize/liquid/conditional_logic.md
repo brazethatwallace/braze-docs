@@ -290,7 +290,43 @@ Un [tableau]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attri
 
 {% endraw %}
 
-Pour les tableaux, vous devez utiliser « contains » et ne pouvez pas utiliser « == ».
+Pour les tableaux, vous devez utiliser `contains` et ne pouvez pas utiliser `==`.
+
+#### Fonctionnement de `contains` avec les chaînes de caractères et les tableaux {#how-contains-works-with-strings-versus-arrays}
+
+L'opérateur `contains` se comporte différemment selon qu'il évalue une chaîne de caractères ou un tableau :
+
+- **Chaînes de caractères :** `contains` vérifie la présence d'une sous-chaîne n'importe où dans le texte.
+- **Tableaux :** `contains` vérifie une correspondance exacte avec un élément complet du tableau.
+
+{% alert important %}
+Si un attribut est stocké sous forme de tableau (par exemple, `["med1", "med2", "abc"]`), la recherche de `contains "ab"` sera évaluée à `false` car aucun élément individuel de cette liste n'est exactement `"ab"`.
+{% endalert %}
+
+##### Recherche de sous-chaîne dans les tableaux {#substring-matching-on-arrays}
+
+Si vous devez rechercher une correspondance partielle (sous-chaîne) au sein d'un attribut de type tableau, vous devez d'abord convertir le tableau en une seule chaîne de caractères à l'aide du filtre `join`.
+
+Comme Braze ne prend pas en charge les filtres en ligne directement dans les blocs conditionnels {% raw %}`{% if %}`{% endraw %}, vous devez suivre un processus en deux étapes : d'abord, affecter la valeur jointe à une variable, puis exécuter votre vérification conditionnelle.
+
+{% raw %}
+```liquid
+{% comment %} 1. Convert the array to a string using a comma separator {% endcomment %}
+{% assign products_string = {{custom_attribute.${product_array}}} | join: "," %}
+
+{% comment %} 2. Perform the substring check on the new variable {% endcomment %}
+{% if products_string contains "ab" %}
+  Match found!
+{% else %}
+  No match.
+{% endif %}
+```
+{% endraw %}
+
+
+{% alert tip %}
+Comme `join` combine les éléments du tableau en une seule chaîne de caractères (séparateur par défaut : un espace unique), les vérifications de sous-chaîne peuvent correspondre au-delà des limites d'éléments (par exemple, `["Napa", "boulevard"]` devient `Napa boulevard`, où `contains "a b"` est `true`). Utilisez un séparateur explicite tel que « , » pour rendre les limites plus claires et réduire les correspondances accidentelles entre éléments.
+{% endalert %}
 
 ### Horodatage {#time}
 

@@ -18,7 +18,7 @@ description: "This article outlines details about the Export custom attributes B
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `custom_attributes.get` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `custom_attributes.get` permission.
 
 ## Rate limit
 

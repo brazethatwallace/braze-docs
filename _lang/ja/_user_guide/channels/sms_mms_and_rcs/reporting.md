@@ -26,9 +26,9 @@ SMSのオプトインとオプトアウトは、以下の方法で追跡でき�
 
 | 方法 | 説明 |
 |--------|-------------|
-| セグメンター | セグメンターは、特定の[サブスクリプショングループ]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#subscription-group)のユーザー数を表示します。電話番号による重複排除は行われません。複数のユーザーが同じ電話番号を共有している場合、各インスタンスが個別にカウントされます。 |
-| サブスクリプショングループの時系列 | メールと電話番号のサブスクリプションの日次スナップショットを提供します。時系列では、サブスクリプション、配信停止、再サブスクリプションがカウントされます。たとえば、あるユーザーがサブスクリプション登録し、配信停止し、再度サブスクリプション登録した場合、そのユーザーは1人の購読中ユーザーとしてカウントされます。 |
-| Currents | Currentsを使用して、独自のレポート用に[サブスクリプションおよびエンゲージメントイベント]({{site.baseurl}}/message_events_glossary)をエクスポートします。 |
+| セグメンター | セグメンターは、特定の[購読グループ]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#subscription-group)のユーザー数を表示します。電話番号による重複排除は行われません。複数のユーザーが同じ電話番号を共有している場合、各インスタンスが個別にカウントされます。 |
+| 購読グループの時系列 | メールと電話番号の購読の日次スナップショットを提供します。時系列では、購読、購読解除、再購読がカウントされます。たとえば、あるユーザーが購読し、購読解除し、再度購読した場合、そのユーザーは1人の購読中ユーザーとしてカウントされます。 |
+| Currents | Currentsを使用して、独自のレポート用に[購読およびエンゲージメントイベント]({{site.baseurl}}/message_events_glossary)をエクスポートします。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="SMSのオプトインとオプトアウトを追跡する" }
 
 {% alert note %}
@@ -37,9 +37,9 @@ SMSのオプトインとオプトアウトは、以下の方法で追跡でき�
 
 ### SMSキャンペーンのオプトアウトを追跡する {#track-sms-campaign-opt-outs}
 
-キャンペーンレベルでのSMSオプトアウトを追跡するには、サブスクリプショングループの状態変更テーブルではなく、受信テーブルを使用します。たとえば、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/query_builder)やデータウェアハウスで、`USERS_MESSAGES_SMS_INBOUNDRECEIVE` または [`USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED) テーブルを参照するクエリを実行できます。
+キャンペーンレベルでのSMSオプトアウトを追跡するには、購読グループの状態変更テーブルではなく、受信テーブルを使用します。たとえば、[クエリビルダー]({{site.baseurl}}/user_guide/analytics/query_builder)やデータウェアハウスで、`USERS_MESSAGES_SMS_INBOUNDRECEIVE`または[`USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED`]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#USERS_MESSAGES_SMS_INBOUNDRECEIVE_SHARED)テーブルを参照するクエリを実行できます。
 
-以下のクエリ例は `USERS_MESSAGES_SMS_INBOUNDRECEIVE` テーブルを参照しています。
+以下のクエリ例は`USERS_MESSAGES_SMS_INBOUNDRECEIVE`テーブルを参照しています。
 
 ```sql
 SELECT *
@@ -50,17 +50,17 @@ AND action = 'Unsubscribed'
 AND (campaign_id IS NOT NULL OR canvas_id IS NOT NULL);
 ```
 
-これにより、指定されたワークスペースとサブスクリプショングループのSMS通信をオプトアウトしたユーザーが返されます。キャンペーンまたはキャンバスに関連付けられたユーザーにフィルタリングされています。
+これにより、指定されたワークスペースと購読グループのSMS通信をオプトアウトしたユーザーが返されます。キャンペーンまたはキャンバスに関連付けられたユーザーにフィルタリングされています。
 
 ### オプトアウトのタイミング {#opt-out-timing}
 
-Currentsまたはデータウェアハウスにおけるキーワードおよび受信メッセージイベント（[`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events)のタイムスタンプやサブスクリプショングループの状態変更イベントなど）は、Brazeがオプトアウトを記録した時刻の正式なソースです。
+Currentsまたはデータウェアハウスにおけるキーワードおよび受信メッセージイベント（[`users.messages.sms.InboundReceive`]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events)のタイムスタンプや購読グループの状態変更イベントなど）は、Brazeがオプトアウトを記録した時刻の正式なソースです。
 
 {% alert note %}
 イベントのタイムスタンプは、Brazeが受信メッセージを受信または処理した時刻を反映しており、ユーザーがSMSを送信した時刻や、キャリアまたはSMSプロバイダーがそれを受信した時刻とは必ずしも一致しません。分析でオプトアウトをBrazeが受信オプトアウトパスを処理した時点として扱う場合、これらのタイムスタンプはその定義に一致します。
 {% endalert %}
 
-ユーザープロファイルには現在のサブスクリプション状態が表示されますが、オプトアウトの処理時に[カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes)などを設定しない限り、単一の「SMS配信停止日時」フィールドは表示されない場合があります。
+ユーザープロファイルには現在の購読状態が表示されますが、オプトアウトの処理時に[カスタム属性]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes)などを設定しない限り、単一の「SMS購読解除日時」フィールドは表示されない場合があります。
 
 ## SMS送信結果に適用される料金 {#charges-applied-to-sms-sending-outcomes}
 
@@ -77,4 +77,4 @@ Currentsまたはデータウェアハウスにおけるキーワードおよび
 
 ## *拒否*をSnowflakeまたはCurrentsと照合する {#reconcile-rejections-with-snowflake-or-currents}
 
-ダッシュボードの*拒否*指標は、ワークスペース全体の集計カウントです。行レベルのエクスポートではないため、各拒否をSnowflakeの単一の行や、Currentsの単一の `users.messages.sms.Rejection` イベントと常に一致させることはできません。たとえば、Brazeがデータウェアハウスエクスポート用の拒否処理を完了する前にユーザープロファイルが削除された場合、その拒否は `USERS_MESSAGES_SMS_REJECTION_SHARED` テーブルやCurrentsペイロードには表示されませんが、集計SMSレポートには結果が反映される場合があります。詳しくは、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#sms-message-events-and-deleted-user-profiles)およびCurrentsイベント用語集の[SMS拒否イベント]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-rejection-events)を参照してください。
+ダッシュボードの*拒否*指標は、ワークスペース全体の集計カウントです。行レベルのエクスポートではないため、各拒否をSnowflakeの単一の行や、Currentsの単一の`users.messages.sms.Rejection`イベントと常に一致させることはできません。たとえば、Brazeがデータウェアハウスエクスポート用の拒否処理を完了する前にユーザープロファイルが削除された場合、その拒否は`USERS_MESSAGES_SMS_REJECTION_SHARED`テーブルやCurrentsペイロードには表示されませんが、集計SMSレポートには結果が反映される場合があります。詳しくは、[SQLテーブルリファレンス]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#sms-message-events-and-deleted-user-profiles)およびCurrentsイベント用語集の[SMS拒否イベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-rejection-events)を参照してください。

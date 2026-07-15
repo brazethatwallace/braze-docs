@@ -32,7 +32,6 @@ Mit diesen zusätzlichen Methoden können Sie einen angepassten Content-Card-Fee
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `launchContentCards()`                   | Startet das Content-Card-UI-Element.                                                                   |
 | `requestContentCardsRefresh()`           | Fordert die neuesten Content Cards vom Braze-SDK-Server an. Die resultierende Kartenliste wird an jeden der zuvor registrierten [Content-Card-Event-Listener](#reactnative_cards-methods) weitergegeben. |
-| `getContentCards()`                      | Ruft Content Cards aus dem Braze SDK ab. Gibt ein Promise zurück, das mit der neuesten Kartenliste vom Server aufgelöst wird. |
 | `getCachedContentCards()`                | Gibt das aktuellste Content-Card-Array aus dem Cache zurück.                                           |
 | `logContentCardClicked(cardId)`          | Protokolliert einen Klick für die angegebene Content-Card-ID. Diese Methode wird nur zu Analytics-Zwecken verwendet. Rufen Sie zum Ausführen der Klick-Aktion zusätzlich `processContentCardClickAction(cardId)` auf. |
 | `logContentCardImpression(cardId)`       | Protokolliert eine Impression für die angegebene Content-Card-ID.                                      |

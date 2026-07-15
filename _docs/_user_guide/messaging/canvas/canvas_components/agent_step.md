@@ -45,7 +45,7 @@ In the agent list, each agent is labeled with its [daily invocation limit]({{sit
 
 ### Step 3: Set your agent's output {#define-the-output-variable}
 
-Agent outputs are called "output variables" and are stored in a [context variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types) for easy access. To define the output variable, give the variable a name.
+Agent outputs are called "output variables" and are stored in a [context variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-filters) for easy access. To define the output variable, give the variable a name.
 
 Note that the output variable's data type is set from the [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents). Agent outputs can be saved as strings, numbers, booleans, or objects. This makes them flexible for both text personalization and conditional logic in your Canvas. Here are some common uses for each type:
 

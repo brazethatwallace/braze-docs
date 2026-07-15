@@ -3,6 +3,7 @@
 # Skips draft PRs; runs when a draft is marked ready for review (ready_for_review).
 #
 # Posts inline review comments with ```suggestion blocks where possible (Commit suggestion).
+# PR-level notes and non-diff findings go in one summary issue comment per run.
 # Each run replaces prior automated inline comments and the summary issue comment.
 # Requires: ANTHROPIC_API_KEY repository secret.
 #

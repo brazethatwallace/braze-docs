@@ -46,7 +46,7 @@ For example, if you start a rate-limited email campaign, pause it for a few hour
 
 ## In-app message campaigns
 
-Unlike push or email, in-app messages are delivered to devices at session start and cached locally until the trigger fires. When you edit a live in-app message campaign—such as stopping it, setting an [end date]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-a-trigger), turning on **Re-evaluate campaign eligibility before displaying**, updating content, changing the message trigger, or updating the target audience—the updated configuration propagates when devices fetch triggers at their next session start.
+Unlike push or email, in-app messages are delivered to devices at session start and cached locally until the trigger fires. When you edit a live in-app message campaign—such as stopping it, setting an [end date]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger), turning on **Re-evaluate campaign eligibility before displaying**, updating content, changing the message trigger, or updating the target audience—the updated configuration propagates when devices fetch triggers at their next session start.
 
 Expect the following:
 
@@ -63,7 +63,7 @@ If you launched the wrong in-app message campaign, select **Stop Campaign** on t
 
 Select **Re-evaluate campaign eligibility before displaying** in your campaign's delivery settings so Braze confirms audience membership and campaign status right before each display. This helps prevent impressions after a campaign is stopped, archived, or past its end date. You can turn this setting on or off after launch, but it follows the same propagation rules as other changes: devices don't receive the updated configuration until their next trigger sync.
 
-For more information, refer to [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create/#choose-users-to-target) and [Why is my archived in-app message campaign still delivering in-app message impressions?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
+For more information, refer to [Choose users to target]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target) and [Why is my archived in-app message campaign still delivering in-app message impressions?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq/#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
 
 ## Triggered campaigns
 

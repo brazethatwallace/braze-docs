@@ -57,9 +57,9 @@ To learn more about the expected behavior and look of each type, refer to [Creat
 
 | Message Type | Example | Description |
 |---|---|---|
-|[Classic]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic)| ![A Classic Content Card with a small icon and text to encourage booking a workout class.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) |The Classic Card has a straightforward layout with a bolded title, message text, and an optional image that sits to the start of the title and text. It's best to use a square image or icon with the Classic Card. |
-|[Captioned Image]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image)| ![A Captioned Content Card with a image of a weightlifter and text to encourage booking a workout class.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | The Captioned Image Card showcases your content with copy and an attention-grabbing image. |
-|[Image Only]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner)| ![An Image Only Content Card with text only.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | The Image Only Card commands attention with space for images, GIFs, and other creative non-text content. |
+|[Classic]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types)| ![A Classic Content Card with a small icon and text to encourage booking a workout class.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) |The Classic Card has a straightforward layout with a bolded title, message text, and an optional image that sits to the start of the title and text. It's best to use a square image or icon with the Classic Card. |
+|[Captioned Image]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types)| ![A Captioned Content Card with a image of a weightlifter and text to encourage booking a workout class.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | The Captioned Image Card showcases your content with copy and an attention-grabbing image. |
+|[Image Only]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types)| ![An Image Only Content Card with text only.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | The Image Only Card commands attention with space for images, GIFs, and other creative non-text content. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Step 2: Specify your message types" }
 
 ## Step 3: Compose a Content Card
@@ -135,7 +135,12 @@ Content Cards can be delivered based on a scheduled time, an action, or an API t
 
 You can also set the campaign's duration and [Quiet hours]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) and determine the Content Card's expiration. Set a specific expiration date or the days until a Card expires, up to 30 days. All variants have identical expiration dates.
 
-If you choose to expire a card after a set duration (for example, after two weeks), the expiration is calculated from the card's send time. For scheduled campaigns, this is the scheduled launch time. For action-based campaigns, this is the time the user performs the triggering action. For example, if an action-based card is sent at 2 pm today with a 1-day expiration, it expires at 2 pm the following day.
+The expiration countdown starts from the card's send time:
+
+- **Scheduled campaigns:** The countdown begins at the scheduled launch time.
+- **Action-based campaigns:** The countdown begins when the user performs the triggering action.
+
+For example, if an action-based Content Card is sent at 2 pm today with a 1-day expiration, it expires at 2 pm the following day.
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
@@ -159,7 +164,7 @@ Braze allows you to track how often users perform specific actions, [conversion 
 
 {% tab Canvas %}
 
-If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement [multivariate testing]({{site.baseurl}}/user_guide/messaging/ab_testing) and [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) step of our Canvas documentation.
+If you haven't done so already, complete the remaining sections of your Canvas component. For further details on how build out the rest of your Canvas, implement [multivariate testing]({{site.baseurl}}/user_guide/messaging/ab_testing) and [Intelligent Selection]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), and more, refer to the [Build your Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) step of our Canvas documentation.
 
 {% endtab %}
 {% endtabs %}
@@ -193,7 +198,7 @@ The entire data payload for a single Content Card cannot exceed 2 KB **after** a
 
 Using Liquid to pull in long strings of text (such as from custom attributes) can cause you to exceed the limit. 
 
-The campaign composer displays a warning if your static content exceeds the limit. (We do not predict the size for dynamic content using Liquid.) **If the message size exceeds 2 KB, it is aborted at send time.** You can see these aborts in the Message Activity Log with the reason `Content card maximum size exceeded`.
+The campaign composer displays a warning if your static content exceeds the limit. We do not predict the size for dynamic content using Liquid. If the message size exceeds 2 KB, it is aborted at send time. You can see these aborts in the Message Activity Log with the reason `Content card maximum size exceeded`.
 
 {% alert important %}
 During test sends, Content Cards that exceed 2 KB can still be delivered and displayed properly.
@@ -228,7 +233,7 @@ Do you want your content to last longer than 30 days? Try [Banners]({{site.baseu
 
 If you turn on re-eligibility, the countdown for when a user can "re-enter" a campaign begins after they are sent the message. The specific moment this countdown starts depends on your card creation settings:
 
-- Content Cards using [at first impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) use impression time to calculate re-eligibility.
+- Content Cards using [at first impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) use impression time to calculate re-eligibility.
 - Content Cards created at campaign launch, in multichannel campaigns, or at Canvas step entry use whichever send time or impression time is latest.
 
 #### The 30-day expiration and re-eligibility
@@ -264,8 +269,8 @@ When you duplicate the campaign, you need to define the audience for the new ver
 
 ###### Impact
 
-* **Existing recipients:** New and existing recipients would see the updated card at the next feed refresh if they are eligible.
-* **Reporting:** Each version of the card would have separate analytics.
+- **Existing recipients:** New and existing recipients would see the updated card at the next feed refresh if they are eligible.
+- **Reporting:** Each version of the card would have separate analytics.
 
 Let's say you've set a campaign to be triggered by a session start, and it has re-eligibility set to 30 days. A user received the campaign two days ago, and you want to change the copy. First, you'd archive the campaign and remove the cards from the feed. Second, you'd duplicate the campaign and re-launch with the new copy. If the user has another session, they'll immediately receive the new card.
 

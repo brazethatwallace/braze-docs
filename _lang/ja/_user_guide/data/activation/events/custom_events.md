@@ -85,7 +85,7 @@ search_rank: 2
 
 ## カスタムイベントの保存 {#custom-event-storage}
 
-**ユーザープロファイル**に保存されるすべてのデータ（カスタムイベントのメタデータ（初回または最終発生日時、合計回数、30日間のX in Y）を含む）は、各プロファイルが[アクティブ]({{site.baseurl}}/user_archival#active-users)である限り無期限に保持されます。
+**ユーザープロファイル**に保存されるすべてのデータ（カスタムイベントのメタデータ（初回または最終発生日時、合計回数、30日間のX in Y）を含む）は、各プロファイルが<a href="/docs/user_archival#active-users">アクティブ</a> である限り無期限に保持されます。
 
 ## ユーザーのイベント履歴の表示 {#view-a-users-event-history}
 

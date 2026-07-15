@@ -1643,7 +1643,7 @@ Os pares de add e remove se enquadram em duas categorias:
 - O endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) ou a limpeza de usuários duplicados move os tokens do usuário órfão para o usuário sobrevivente.
 
 {% alert note %}
-A identificação no mesmo perfil por meio do endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou do SDK `changeUser` atribuindo um ID externo ao perfil anônimo não altera o `user_id` e não emite pares de eventos add e remove. Em vez disso, a Braze emite um evento "update" para cada token por push existente e define `external_user_id` como o ID externo do usuário identificado. Quando `changeUser` move tokens de um perfil de usuário para outro, a Braze ainda emite os pares de eventos add e remove descritos acima.
+A identificação no mesmo perfil por meio do endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou do SDK `changeUser` atribuindo um ID externo ao perfil anônimo não altera o `user_id` e não emite pares de eventos add e remove. Em vez disso, a Braze emite um evento "update" para cada token por push existente e define `external_user_id` como o ID externo do usuário identificado. Quando `changeUser` move tokens de um perfil de usuário para outro, a Braze ainda emite os pares de eventos add e remove descritos na lista anterior.
 {% endalert %}
 
 #### Consultando o estado mais recente do token ativo {#querying-for-the-latest-active-token-state}

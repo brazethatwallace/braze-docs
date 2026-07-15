@@ -32,7 +32,7 @@ Algunos casos de uso comunes de atributos personalizados incluyen:
 
 ## Gestión de atributos personalizados {#managing-custom-attributes}
 
-Para crear y gestionar atributos personalizados en el dashboard, ve a **Configuración de datos** > **Atributos personalizados**.
+Para crear y gestionar atributos personalizados en el panel, ve a **Configuración de datos** > **Atributos personalizados**.
 
 ![Cuatro atributos personalizados que son booleanos.]({% image_buster /assets/img/export_custom_attributes.png %})
 
@@ -60,7 +60,7 @@ Para más detalles sobre el bloqueo y la eliminación de datos personalizados, c
 
 ### Marcar como información de identificación personal (PII) {#mark-as-personally-identifiable-information-pii}
 
-Los administradores también pueden crear atributos personalizados y marcarlos como PII desde esta página. Estos atributos solo son visibles para administradores y usuarios del dashboard con el permiso "View Custom Attributes Marked as PII".
+Los administradores también pueden crear atributos personalizados y marcarlos como PII desde esta página. Estos atributos solo son visibles para administradores y usuarios del panel con el permiso "View Custom Attributes Marked as PII".
 
 ### Añadir descripciones {#add-descriptions}
 
@@ -75,7 +75,7 @@ Puedes añadir etiquetas a un atributo personalizado después de crearlo si tien
 Hay dos formas de eliminar atributos personalizados de los perfiles de usuario:
 
 * Selecciona el nombre del atributo personalizado a eliminar en un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#removing-custom-attributes).
-* Establece el valor `null` en tu solicitud de API al [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
+* Establece el valor `null` en tu solicitud de API al [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
 
 ### Exportar datos {#export-data}
 
@@ -85,25 +85,25 @@ Para exportar la lista de atributos personalizados como un archivo CSV, seleccio
 
 ### Requisitos previos {#prerequisites}
 
-El atributo personalizado no debe estar actualmente en uso en ninguna Campaign, Canvas ni Segment activo. Si intentas cambiar el tipo de datos mientras el atributo aún está referenciado, el dashboard mostrará un error y bloqueará el cambio.
+El atributo personalizado no debe estar actualmente en uso en ninguna campaña, Canvas ni segmento activo. Si intentas cambiar el tipo de datos mientras el atributo aún está referenciado, el panel mostrará un error y bloqueará el cambio.
 
 ### Cambiar el tipo de datos {#changing-the-data-type}
 
-1. Detén cualquier Campaign o Canvas activo que use el atributo en segmentos o filtros.
-2. Elimina el atributo de todos los filtros de Segments, Campaigns y Canvas.
+1. Detén cualquier campaña o Canvas activo que use el atributo en segmentos o filtros.
+2. Elimina el atributo de todos los filtros de segmentos, campañas y Canvas.
 3. Ve a **Configuración de datos** > **Atributos personalizados** (o **Eventos personalizados**), busca el atributo y actualízalo al tipo de datos deseado.
-4. Actualiza los valores del atributo en los perfiles de usuario existentes para que coincidan con el nuevo tipo de datos (por ejemplo, usando el [punto de conexión `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)).
-5. Vuelve a aplicar el atributo a los Segments, Campaigns y Canvas relevantes, y luego reactiva cualquier Campaign o Canvas detenido.
+4. Actualiza los valores del atributo en los perfiles de usuario existentes para que coincidan con el nuevo tipo de datos (por ejemplo, usando el [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track)).
+5. Vuelve a aplicar el atributo a los segmentos, campañas y Canvas relevantes, y luego reactiva cualquier campaña o Canvas detenido.
 
 ### Cosas a tener en cuenta {#things-to-know}
 
 - **Los datos de usuario no se actualizan retroactivamente.** Si un perfil de usuario tenía el atributo con el tipo de datos anterior, ese valor permanece sin cambios. El filtro de segmentación busca el nuevo tipo de datos, por lo que los usuarios con el valor anterior quedan excluidos de los segmentos coincidentes hasta que se actualice su perfil.
 - **Los nuevos datos deben coincidir con el nuevo tipo de datos.** Después del cambio, las llamadas a la API o los eventos del SDK que envíen el tipo de datos anterior para este atributo no serán aceptados. Solo se ingieren valores que coincidan con el nuevo tipo de datos.
-- **Los filtros no se actualizan automáticamente.** Los Segments y los filtros de Campaigns que hacen referencia al atributo modificado no se actualizan retroactivamente. Debes eliminarlos y volver a añadirlos después del cambio.
+- **Los filtros no se actualizan automáticamente.** Los segmentos y los filtros de campañas que hacen referencia al atributo modificado no se actualizan retroactivamente. Debes eliminarlos y volver a añadirlos después del cambio.
 
 ## Ver informes de uso {#view-usage-reports}
 
-El informe de uso muestra todos los Canvas, Campaigns y Segments que utilizan un atributo personalizado específico. Esta lista no incluye usos de Liquid.
+El informe de uso muestra todos los Canvas, campañas y segmentos que utilizan un atributo personalizado específico. Esta lista no incluye usos de Liquid.
 
 Puedes ver hasta 100 informes de uso a la vez seleccionando las casillas de verificación junto a los atributos personalizados correspondientes y luego seleccionando **Ver informe de uso**.
 
@@ -131,7 +131,7 @@ A continuación se listan los métodos en varias plataformas que se usan para es
 
 ## Almacenamiento de atributos personalizados {#custom-attribute-storage}
 
-Todos los datos almacenados en el **perfil de usuario**, incluidos los datos de atributos personalizados, se conservan indefinidamente mientras cada perfil esté [activo]({{site.baseurl}}/user_archival#active-users).
+Todos los datos almacenados en el **perfil de usuario**, incluidos los datos de atributos personalizados, se conservan indefinidamente mientras cada perfil esté <a href="/docs/user_archival#active-users">activo</a>.
 
 Para una referencia completa de todos los tipos de datos que puedes almacenar como atributos personalizados, incluyendo booleanos, números, cadenas, arrays, tiempo, objetos y arrays de objetos, consulta [Tipos de datos de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types).
 
@@ -148,7 +148,7 @@ Al borrar o desestablecer un atributo personalizado, el comportamiento difiere s
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Cadenas vacías frente a valores nulos" }
 
 {% alert important %}
-Para tipos de datos que no son cadenas y cuyo tipo de datos se establece manualmente en el dashboard de Braze (no se detecta automáticamente), debes usar `null` para desestablecer el valor. Pasar `""` solo es válido para atributos de tipo cadena; por ejemplo, establecer un atributo booleano como `""` se trata como una cadena vacía, que es un valor no válido para ese tipo. Para desestablecer un booleano, pasa `null`.
+Para tipos de datos que no son cadenas y cuyo tipo de datos se establece manualmente en el panel de Braze (no se detecta automáticamente), debes usar `null` para desestablecer el valor. Pasar `""` solo es válido para atributos de tipo cadena; por ejemplo, establecer un atributo booleano como `""` se trata como una cadena vacía, que es un valor no válido para ese tipo. Para desestablecer un booleano, pasa `null`.
 
 Ten en cuenta que la importación CSV no admite `null`; los valores booleanos en las importaciones CSV deben ser `TRUE` o `FALSE`.
 {% endalert %}

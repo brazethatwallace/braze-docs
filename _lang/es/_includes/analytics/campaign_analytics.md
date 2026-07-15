@@ -935,7 +935,7 @@ Además de los análisis de Braze, se puede acceder a los análisis a nivel de p
 
 ### Eventos SMS de Currents {#sms-currents-events}
 
-Al igual que el correo electrónico, Braze recibe eventos a nivel de usuario relacionados con un mensaje SMS a medida que hace su recorrido hasta un usuario. Cualquier evento SMS entrante también se enviará como evento de Currents a través del evento [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Esto te permite realizar acciones adicionales o informes sobre los mensajes que envían tus usuarios fuera de la plataforma Braze.
+Al igual que el correo electrónico, Braze recibe eventos a nivel de usuario relacionados con un mensaje SMS a medida que hace su recorrido hasta un usuario. Cualquier evento SMS entrante también se enviará como evento de Currents a través del evento [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Esto te permite realizar acciones adicionales o informes sobre los mensajes que envían tus usuarios fuera de la plataforma Braze.
 
 {% alert note %}
 Los mensajes entrantes se truncan a partir de 1600 caracteres.

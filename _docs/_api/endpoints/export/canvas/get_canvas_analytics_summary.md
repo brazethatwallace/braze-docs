@@ -20,7 +20,7 @@ description: "This article describes the Export Canvas data summary analytics Br
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `canvas.data_summary` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `canvas.data_summary` permission.
 
 ## Rate limit
 

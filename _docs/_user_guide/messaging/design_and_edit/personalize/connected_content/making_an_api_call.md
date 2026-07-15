@@ -168,7 +168,7 @@ Some API configurations require the retrieval of an access token that can then b
 
 #### Step 1: Retrieve the access token
 
-The following example illustrates retrieving and saving an access token to a local variable, which can then be used to authenticate the subsequent API call. A `:cache_max_age` parameter can be added to match the time that the access token is valid for and reduce the number of outbound Connected Content calls. See [Configurable Caching]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching) for more information.
+The following example illustrates retrieving and saving an access token to a local variable, which can then be used to authenticate the subsequent API call. A `:cache_max_age` parameter can be added to match the time that the access token is valid for and reduce the number of outbound Connected Content calls. See [Configurable Caching]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) for more information.
 
 {% raw %}
 ```
@@ -184,6 +184,10 @@ The following example illustrates retrieving and saving an access token to a loc
 %}
 ```
 {% endraw %}
+
+{% alert note %}
+When the token endpoint expects `application/x-www-form-urlencoded` and you pass credentials in `:body`, URL-encode any special characters in parameter values. For example, forward slashes (`/`) become `%2F` and plus signs (`+`) become `%2B`. Unencoded special characters may cause OAuth token requests to fail.
+{% endalert %}
 
 #### Step 2: Authorize the API using the retrieved access token
 

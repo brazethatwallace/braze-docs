@@ -54,7 +54,7 @@ Vermeiden Sie [multivariate und A/B-Tests]({{site.baseurl}}/user_guide/engagemen
 
 #### Canvas und doppelte E-Mail-Adressen {#canvas-and-duplicate-email-addresses}
 
-Bei Canvas-Journeys kann es von der Eintritts-Batchverarbeitung, dem Schritt-Timing und anderen Faktoren abhängen, ob doppelte E-Mail-Adressen einen oder mehrere Versände erhalten. Betrachten Sie das Verhalten als undefiniert, bis Sie es für Ihre Journey validiert haben. Führen Sie nach Möglichkeit doppelte Profile zusammen oder konsolidieren Sie sie. Wenn Sie eine Produktänderung benötigen, reichen Sie Feedback über Ihr Braze-Team ein.
+Bei Canvas-Journeys kann es von der Eintritts-Batchverarbeitung, dem Schritt-Timing und anderen Faktoren abhängen, ob doppelte E-Mail-Adressen einen oder mehrere Versände erhalten. Betrachten Sie das Verhalten als undefiniert, bis Sie es für Ihre Journey validiert haben. Führen Sie nach Möglichkeit doppelte Profile zusammen oder konsolidieren Sie sie. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="deterministic deduplication for duplicate email addresses in Canvas" %}
 
 ### Was passiert mit dem Abo-Status, wenn die E-Mail-Adresse einer/eines Nutzers:in auf eine geändert wird, die von einer/einem anderen Nutzer:in geteilt wird? {#what-happens-to-the-subscription-state-when-a-users-email-address-changes-to-one-shared-by-another-user}
 
@@ -109,6 +109,35 @@ Obwohl Braze keine weiteren Anfragen sendet, sobald die Campaign oder das Canvas
 Sie sehen möglicherweise keine E-Mail-Öffnungen oder -Klicks, wenn es eine Fehlkonfiguration in Ihrer Tracking-Domain gibt. Dies kann folgende Gründe haben:
 - Es gibt ein SSL-Problem, bei dem Tracking-URLs `http` statt `https` verwenden.
 - Es gibt ein Problem mit Ihrem CDN, bei dem der User-Agent-String bei den Öffnungsereignissen, Klickereignissen oder beiden nicht befüllt wird.
+
+### Warum sehe ich ungewöhnliches E-Mail-Öffnungs- oder Klickverhalten? {#why-am-i-seeing-unusual-email-open-or-click-behavior}
+
+Wenn Sie unerwartete Muster in Ihren E-Mail-Öffnungs- oder Klickmetriken bemerken – wie z. B. ein:e einzelne:r Nutzer:in, die/der scheinbar sofort jeden Link anklickt, oder Öffnungen, die nicht wie erwartet registriert werden – überprüfen Sie die folgenden häufigen Ursachen:
+
+#### E-Mail-Clipping entfernt das Tracking-Pixel {#email-clipping-removes-the-tracking-pixel}
+
+Wenn eine E-Mail vom E-Mail-Anbieter der/des Empfängers:in gekürzt wird (z. B. Gmail bei Nachrichten über ca. 102 KB), können Inhalte am Ende der E-Mail abgeschnitten werden. Da das Open-Tracking-Pixel typischerweise am Ende der E-Mail eingefügt wird, kann das Clipping verhindern, dass das Öffnungs-Tracking funktioniert.
+
+**So erkennen Sie es:** Prüfen Sie, ob die E-Mail am Ende einen Link „Gesamte Nachricht anzeigen“ oder ähnlich anzeigt. Sie können [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) verwenden, um die vollständige scrollbare E-Mail in der Vorschau anzuzeigen und zu überprüfen, ob die Nachricht gekürzt wird.
+
+**So beheben Sie es:** Sie können Braze so konfigurieren, dass das Tracking-Pixel oben in der E-Mail statt unten platziert wird. Das Verschieben des Tracking-Pixels kann beeinflussen, wie einige E-Mail-Clients Ihr HTML rendern. Testen Sie Ihre E-Mails daher nach dieser Änderung in Inbox Vision. Beachten Sie, dass Öffnungen nicht getrackt werden können, wenn die/der Empfänger:in Bilder deaktiviert hat, unabhängig von der Pixel-Platzierung.
+
+#### Verzögerte Statistiken oder Klicks ohne Öffnungen {#delayed-stats-or-clicks-without-opens}
+
+Das Öffnungs-Tracking setzt voraus, dass die/der Empfänger:in die E-Mail mit aktivierten Bildern lädt. In einigen Fällen können Statistiken verzögert erscheinen oder Klicks ohne entsprechende Öffnungen protokolliert werden, weil:
+
+- Die/der Empfänger:in die E-Mail in einem Vorschaubereich anzeigt, ohne sie vollständig zu öffnen, und dann Links direkt aus der Vorschau anklickt.
+- Der E-Mail-Client Bilder (und damit das Tracking-Pixel) erst lädt, nachdem die/der Empfänger:in bereits mit Links interagiert hat.
+
+#### Sicherheitssoftware simuliert Link-Klicks {#security-software-simulates-link-clicks}
+
+Einige Unternehmens-E-Mail-Sicherheitstools (wie Barracuda, Proofpoint und ähnliche Dienste) scannen eingehende E-Mails, indem sie automatisch alle Links in der Nachricht anklicken, um zu überprüfen, ob sie sicher sind. Dies kann dazu führen, dass Klickereignisse innerhalb von Sekunden nach dem Versand erscheinen, oft mit jedem Link in der E-Mail in schneller Folge angeklickt.
+
+Dieses Verhalten tritt häufiger bei institutionellen E-Mail-Domains auf (wie Schulen, Universitäten und Unternehmensumgebungen) und ist wahrscheinlicher, wenn sich Ihre Absenderdomain erheblich von Ihrer Tracking-Domain unterscheidet. Das Einrichten einer [benutzerdefinierten gebrandeten Tracking-Domain]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#custom-email-tracking-domain) kann die Häufigkeit dieser automatisierten Klicks reduzieren.
+
+**So erkennen Sie es:** Suchen Sie die IP-Adresse des Klickereignisses (verfügbar in Currents-Daten) in einer Suchmaschine. Wenn die IP mit einem bekannten Sicherheitsanbieter (wie Barracuda Networks) verknüpft ist, sind die Klicks wahrscheinlich automatisiert. Möglicherweise sehen Sie auch einen konsistenten User-Agent-Header über mehrere automatisierte Klicks hinweg.
+
+Weitere Informationen dazu, wie Sicherheitsscans E-Mail-Metriken beeinflussen, finden Sie unter [Umgang mit Anstiegen der Klickraten]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
 
 ### Welche potenziellen Risiken bestehen beim Auslösen von Server-Klicks? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
@@ -281,6 +310,14 @@ Bestätigen Sie zunächst, dass Sie die [Nutzerberechtigungen]({{site.baseurl}}/
 ### Muss ich Domains für Relay- oder maskierte E-Mails registrieren? {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 [Apples Private E-Mail-Relay]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO) erfordert, dass Sie Ihre Absenderdomains im Apple Developer Portal registrieren, um Bounces zu vermeiden. Google Shielded Email erfordert keinen manuellen Domain-Registrierungs- oder Allowlisting-Prozess.
+
+### Kann ich Hyperlinks in E-Mail-Betreffzeilen oder Preheadern hinzufügen? {#can-i-add-hyperlinks-in-email-subject-lines-or-preheaders}
+
+Nein. Das Hinzufügen von Hyperlinks in E-Mail-Betreffzeilen wird von Postfachanbietern nicht unterstützt. Einige Postfachanbieter scannen Betreffzeilen automatisch und konvertieren physische Adressen, Daten oder Uhrzeiten in anklickbare Links, aber dies geschieht automatisch auf dem Gerät der/des Empfängers:in und liegt außerhalb der Kontrolle von Braze (oder eines anderen ESP).
+
+Ebenso wird das Hinzufügen von Hyperlinks im Preheader branchenweit nicht unterstützt.
+
+Wenn Sie eine Funktionalität benötigen, die anklickbaren Inhalten in der Betreffzeile oder im Preheader-Bereich ähnelt, ziehen Sie die Verwendung von [Gmail Promotions]({{site.baseurl}}/user_guide/channels/email/html_editor/gmail_promotions_tab) in Betracht, um interaktive Annotationen zu Ihren E-Mails für Gmail-Nutzer:innen hinzuzufügen.
 
 ### Was bedeutet der Bounce-Grund `unable to get mx info` oder `failed to get IPs from PTR record`? {#what-does-the-bounce-reason-unable-to-get-mx-info-or-failed-to-get-ips-from-ptr-record-mean}
 

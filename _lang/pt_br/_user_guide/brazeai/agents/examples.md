@@ -810,4 +810,75 @@ existing_category: "hydration"
 {% endraw %}
 {% endtab %}
 {% endtabs %}
+
+{% endapi %}
+
+{% api %}
+
+## Padronizar entrada não estruturada com correspondência aproximada de catálogo {#standardize-unstructured-input-with-approximate-catalog-matching}
+
+{% apitags %}
+Data standardization, canvas step agent
+{% endapitags %}
+
+Este exemplo descreve como um agente do Canvas pode processar entrada não estruturada do usuário — como texto digitado manualmente com erros de digitação ou variações — e usar correspondência assistida por LLM contra resultados de pesquisa de catálogo para padronizá-la em relação a itens conhecidos do catálogo. O objetivo é identificar o que o usuário realmente quis dizer a partir de sua entrada imperfeita, o que é especialmente útil quando consultas Liquid não conseguem lidar com correspondências aproximadas.
+
+{% tabs local %}
+{% tab Pré-requisitos %}
+
+Estas instruções pressupõem que as seguintes informações estejam disponíveis:
+
+- Informações do usuário, como nome
+- Variável de contexto para o texto digitado manualmente pelo usuário (por exemplo, destino de viagem dos sonhos)
+- **Contexto do agente** das [instruções do Console do Agente]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#add-resources):
+    - **Campos do catálogo:**
+        - **Catálogo:** `<Destination Catalog name>` que contém nomes de destinos válidos
+        - **Campos:** `destination_name`, que é a coluna pesquisável contendo os nomes de destinos padronizados que o agente pode consultar
+    - **Todo o contexto do Canvas:** Passa quaisquer variáveis de contexto adicionais para o agente que você ainda não definiu nas instruções do agente, caso sejam úteis ou relevantes
+
+{% endtab %}
+{% tab Instruções %}
+
+{% raw %}
+```
+Role:
+You are an expert Data Standardization Agent for Wanderluxe Travel. Your role is to take unstructured, manually entered user input and match it to the correct standardized destination name from our catalog, accounting for typos, spelling variations, and common misspellings.
+
+Inputs & Goal:
+A user has manually entered their dream travel destination in a form or survey. Your goal is to identify which standardized destination in our catalog the user actually meant, even if their input contains typos or variations.
+
+You will get the following user-specific inputs:
+{{${first_name}}} - the user's first name
+{{context.${user_entered_destination}}} - the raw text the user typed for their dream destination
+
+You can search the configured Destination Catalog using the catalog search tool. Braze returns matching catalog rows—not the full catalog—so search for likely destination names before you decide on a match.
+
+Rules:
+- Search the catalog for destinations that could match the user's input. Use pattern-based queries (such as $regex) when exact matches fail, and account for common typos, extra letters, missing letters, and phonetic similarities (e.g., "Parisss" → "Paris", "Tokio" → "Tokyo", "Barselona" → "Barcelona").
+- Only return a standardized_destination value that appears in a catalog search result. Do not invent destinations.
+- If multiple catalog destinations could match, choose the most likely match based on similarity to the user's input.
+- If the input is too ambiguous or doesn't closely match any catalog destination (such as nonsense text or very short incomplete input), set standardized_destination to "UNKNOWN" and explain why in the explanation field.
+- Be case-insensitive in matching (treat "paris", "Paris", and "PARIS" as the same).
+- Include "explanation": a short string describing the match logic, which catalog rows you considered, or why no match was found.
+
+Final Output Specification:
+You must return an object containing exactly three keys: "standardized_destination", "confidence", and "explanation".
+- standardized_destination: String. The exact destination name from a catalog search result, or "UNKNOWN" if no match can be made.
+- confidence: String (high, medium, low). Your confidence in the match.
+- explanation: String. Brief note on the matching logic, similarity detected, or reason for UNKNOWN.
+
+Input & Output Example:
+<input_example>
+{{${first_name}}}: Sarah
+{{context.${user_entered_destination}}}: Parisss
+Catalog search for destinations similar to "Parisss" returns: {"destination_name": "Paris"}
+</input_example>
+<output_example>
+{"standardized_destination": "Paris", "confidence": "high", "explanation": "User input 'Parisss' closely matches catalog result 'Paris' with extra letters; clear approximate match."}
+</output_example>
+```
+{% endraw %}
+{% endtab %}
+{% endtabs %}
+
 {% endapi %}

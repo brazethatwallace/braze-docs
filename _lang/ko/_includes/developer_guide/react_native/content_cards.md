@@ -32,7 +32,6 @@ Braze.requestContentCardsRefresh();
 | ---------------------------------------- | ------------------------------------------------------------------------------------------------------ |
 | `launchContentCards()`                   | Content Cards UI 요소를 실행합니다.                                                                 |
 | `requestContentCardsRefresh()`           | Braze SDK 서버에서 최신 Content Cards를 요청합니다. 결과 카드 목록은 이전에 등록된 각 [콘텐츠 카드 이벤트 리스너](#reactnative_cards-methods)로 전달됩니다. |
-| `getContentCards()`                      | Braze SDK에서 Content Cards를 검색합니다. 서버에서 최신 카드 목록으로 해결되는 프로미스를 반환합니다. |
 | `getCachedContentCards()`                | 캐시에서 가장 최근의 Content Cards 배열을 반환합니다.                                            |
 | `logContentCardClicked(cardId)`          | 지정된 Content Card ID에 대한 클릭을 기록합니다. 이 메서드는 분석에만 사용됩니다. 클릭 동작을 실행하려면 `processContentCardClickAction(cardId)`도 추가로 호출하세요.                                                        |
 | `logContentCardImpression(cardId)`       | 지정된 Content Card ID에 대한 노출을 기록합니다.                                                      |

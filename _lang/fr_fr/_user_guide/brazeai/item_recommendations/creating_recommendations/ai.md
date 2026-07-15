@@ -85,6 +85,10 @@ Si vous ne trouvez pas votre sélection, vérifiez qu'elle est bien configurée 
 
 Sélectionnez l'événement pour lequel vous souhaitez optimiser cette recommandation. Il s'agit généralement d'un achat, mais cela peut aussi être n'importe quelle interaction avec un article.
 
+{% alert tip %}
+Lors de la configuration des recommandations d'articles par intelligence artificielle, le choix de l'événement est important. Votre événement déclencheur détermine qui reçoit une recommandation générée par l'IA : les recommandations d'articles par intelligence artificielle sont générées pour les utilisateurs ayant effectué l'événement que vous configurez, ce choix détermine donc directement qui reçoit des recommandations. Sélectionnez un événement qui couvre l'ensemble du segment d'audience que vous souhaitez atteindre.<br><br> En même temps, trouvez un équilibre entre couverture et pertinence. Les événements en haut de l'entonnoir (comme « Produit consulté ») tendent à capter une audience plus large mais sont moins liés aux résultats commerciaux, tandis que les événements en bas de l'entonnoir (comme « Acheté ») tendent à produire des recommandations plus ciblées et pertinentes pour l'activité. Le meilleur événement est celui qui équilibre la couverture avec l'impact sur les résultats.
+{% endalert %}
+
 Vous pouvez optimiser pour :
 
 - Les événements d'achat avec l'[objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object)

@@ -37,7 +37,7 @@ While Braze provides instructions on how to set up rich push, the actual renderi
 
 ### Step 1: Create a push campaign
 
-Follow the steps to [create a campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message) to compose a push notification for Android. You will be using the same composer for setting up push notifications that don't contain rich content.
+Follow the steps to [create a campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message) to compose a push notification for Android. You will be using the same composer for setting up push notifications that don't contain rich content.
 
 ### Step 2: Add captioning
 
@@ -49,7 +49,7 @@ Add the **Summary Text** that you'd like to display before the image in the noti
 
 Add your image in the **Android Notification Image** field in the composer of the message. Images can be uploaded directly through the dashboard or by specifying a content URL that is hosted elsewhere.
 
-For details about supported images, check out [Image specifications]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#push).
+For details about supported images, check out [Image specifications]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#image-specifications).
 
 ![The Android notification image section where you can add an image or enter an image URL.]({% image_buster /assets/img_archive/android_rich_image.png %})
 

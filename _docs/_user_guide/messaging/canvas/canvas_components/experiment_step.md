@@ -24,7 +24,7 @@ To use Experiment Paths, your Canvas must include conversion events. While you c
 
 Experiment Paths are best suited for testing delivery, cadence, message copy, and channel combinations.
 
-- **Delivery:** Compare the results between messages sent with different time [delays]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), based on user actions ([Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)), and using [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#canvas).<br><br>
+- **Delivery:** Compare the results between messages sent with different time [delays]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), based on user actions ([Action Paths]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)), and using [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#step-1-add-intelligent-timing-1).<br><br>
 - **Cadence:** Test multiple messaging flows over a specific period. For example, you could test two different onboarding cadences:
     - Cadence 1: Send 2 messages in the user's first 2 weeks
     - Cadence 2: Send 3 messages in the user's first 2 weeks
@@ -69,7 +69,7 @@ To prevent experiment contamination, if your Canvas has an active or in-progress
 
 ## Tracking performance
 
-From the **Canvas Analytics** page, select the Experiment Path to open a [detailed table]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#performance-breakdown-by-variant) identical to the **Analyze Variants** tab to compare detailed performance and conversion statistics across paths. You can also export the table via CSV and compare percent changes for metrics of interest relative to the path or control you select.
+From the **Canvas Analytics** page, select the Experiment Path to open a [detailed table]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch) identical to the **Analyze Variants** tab to compare detailed performance and conversion statistics across paths. You can also export the table via CSV and compare percent changes for metrics of interest relative to the path or control you select.
 
 Each step in each path displays statistics in the [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) view, just like any Canvas step. However, keep in mind that individual step analytics and Experiment Path analytics measure conversions differently:
 

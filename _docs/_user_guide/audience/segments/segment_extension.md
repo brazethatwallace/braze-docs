@@ -20,7 +20,7 @@ Braze segments give you powerful targeting tools to create dynamic groups of use
 For example, Braze default segmentation will find users that fit specific criteria you define, such as identifying a user who recently purchased one of your products. Segment Extensions let you go deeper—like identifying users who bought a particular color of a specific product at least twice between 18 to 24 months ago. Segment Extensions are an enhancement, not a requirement. If you need more advanced filters or a longer lookback window, they're a great tool to help while keeping your data usage optimized.
 
 {% alert note %}
-There is a default allotment of 25 active Segment Extensions per workspace at a particular time. If you need to increase this limit, contact your Braze customer success manager to discuss your use case.
+There is a default allotment of 50 active Segment Extensions per workspace at a particular time. If you need to increase this limit, contact your Braze customer success manager to discuss your use case.
 {% endalert %}
 
 ## Creating a Segment Extension
@@ -88,7 +88,7 @@ If you are using eCommerce recommended events and add an event property, the pro
 
 ![Segment Extension details with a dropdown of available properties.]({% image_buster /assets/img/segment/ecommerce_recommended_event_properties.png %})
 
-We also support segmentation based on [nested event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects). In the comparison dropdown, select the comparison that matches your nested property’s data type. You can use the same nested event property syntax to add nested properties for any eCommerce recommended events that contain nested properties. For info on the different nested properties available, see [Types of eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events). To generate the necessary schema for your Segment Extension’s property name, follow the steps in [Nested objects in custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
+We also support segmentation based on [nested event properties]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects). In the comparison dropdown, select the comparison that matches your nested property’s data type. You can use the same nested event property syntax to add nested properties for any eCommerce recommended events that contain nested properties. For info on the different nested properties available, see [Types of eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events). To generate the necessary schema for your Segment Extension’s property name, follow the steps in [Nested objects in custom events]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects).
 
 ![Segmenting based on nested event properties.]({% image_buster /assets/img/segment/nested_segment_extensions.png %})
 

@@ -51,7 +51,7 @@ Before starting your CSV import, it's important to understand from your engineer
 
 When you provide an `external_id` in your import, Braze will update any existing user with the same `external_id` or create a newly identified user with that `external_id` set if one is not found.
 
-For more information and to download CSV import templates, refer to [user import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv).
+For more information and to download CSV import templates, refer to [user import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
 
 #### API
 
@@ -129,7 +129,7 @@ The **Import CSV** panel contains importing directions and a button to begin you
 
 Select **Import Users in this CSV and also make it possible to retarget this specific batch of users as a group**, and then select **Automatically generate a segment from the users who are imported from this CSV**. After you click **Start Import**, Braze will upload your file, check the column headers and the data types of each column, and create a segment.
 
-To download a CSV template, refer to [user import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv).
+To download a CSV template, refer to [user import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
 
 {% endapi %}
 {% api %}
@@ -218,7 +218,7 @@ Finally, after you've created an extension, you can use it as a filter when crea
 Campaigns
 {% endapitags %}
 
-See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) in **Create a campaign** for setup steps, supported channels, and how to switch composers.
+See [Multichannel campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) in **Create a campaign** for setup steps, supported channels, and how to switch composers.
 
 {% endapi %}
 {% api %}
@@ -572,12 +572,12 @@ To schedule a recurring engagement report, do the following:
 1. In your dashboard account, navigate to **Engagement Reports**, under **Data**.
 2. Click **+ Create New Report**.
 3. Add the [campaigns and Canvas messages]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#manually-select-campaigns-or-canvases) (individually or [by tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases)) that you would like to compile in your report.
-4. [Add statistics]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-report) to your report.
+4. [Add statistics]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-reports) to your report.
 5. Select the compression and deliminator for your report.
 6. Enter the email addresses of company users who should receive this report.
-7. Select the [time frame]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#time-frame) from which you would like your report to run data.
-8. Select the [intervals (daily, weekly, etc.)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#data-display) at which would like to see the breakdown of your data.
-9. Schedule your report to [send immediately]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-immediately) or at a [future, specified time]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-at-designated-time).
+7. Select the [time frame]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#select-time-frame) from which you would like your report to run data.
+8. Select the [intervals (daily, weekly, etc.)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#select-data-display) at which would like to see the breakdown of your data.
+9. Schedule your report to [send immediately]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#schedule-your-report) or at a [future, specified time]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#schedule-your-report).
 10. Run the report, then open it in your email when it arrives!
 
 {% endapi %}

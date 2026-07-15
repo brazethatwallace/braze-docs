@@ -153,7 +153,7 @@ Los resultados de cancelación en el diagnóstico de mensajería son etiquetas l
 
 | Resultado de cancelación | Explicación |
 | ---- | ---- |
-| Tiempo de espera de entrega del partner | Braze intentó enviar este mensaje a tu partner de entrega durante 24 horas, pero el partner devolvió errores temporales durante toda la ventana. |
+| Error de entrega del partner | Braze intentó enviar este mensaje a tu partner de entrega durante 24 horas, pero el partner devolvió errores temporales durante toda la ventana. |
 | Credenciales push no válidas | Las [credenciales push]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token) para esta aplicación faltan o no son válidas, por lo que el envío fue cancelado. Actualiza tus credenciales en **Configuración de la aplicación**. |
 | Fallo del grupo de suscripción | El mensaje no pudo ser enviado debido a problemas de configuración del grupo de suscripción o del servicio de mensajería. Las razones comunes incluyen números de envío faltantes para SMS o WhatsApp, o MMS no compatible en el servicio de mensajería configurado. |
 | El usuario no es elegible para el canal | El usuario no es elegible para recibir este mensaje en el canal seleccionado. Las razones comunes incluyen identificadores de canal faltantes o no válidos, ausencia de tokens de notificaciones push elegibles, restricciones de estado de suscripción, capacidad de canal no compatible o países bloqueados para canales basados en teléfono. |
@@ -181,7 +181,7 @@ Esto puede ocurrir por varias razones:
 - **Actualización de datos:** Los datos del dashboard se actualizan aproximadamente cada 15 minutos, pero esto no está garantizado. Los datos más recientes para esta campaña o Canvas pueden no haber llegado al dashboard todavía.
 - **Casos límite:** Existe una pequeña posibilidad de que estés encontrando un caso límite que no está capturado en este dashboard en este momento. Si sospechas que este es el caso, ponte en contacto con [soporte de Braze]({{site.baseurl}}/user_guide/administer/personal/braze_support).
 
-### ¿Por qué la suma de *Not Sent* y *Sent* es mayor que la audiencia de una Campaign o un Canvas? {#why-is-the-sum-of-_not-sent_-and-_sent_-greater-than-the-audience-for-a-campaign-and-canvas}
+### ¿Por qué la suma de *Not Sent* y *Sent* es mayor que la audiencia de una campaña o un Canvas? {#why-is-the-sum-of-_not-sent_-and-_sent_-greater-than-the-audience-for-a-campaign-and-canvas}
 
 Esto puede ocurrir por las siguientes razones:
 

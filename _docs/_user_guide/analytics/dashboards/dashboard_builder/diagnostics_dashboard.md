@@ -154,7 +154,7 @@ Abort outcomes in Messaging Diagnostics are human-readable dashboard labels. In 
 | Abort outcome | Explanation |
 | ---- | ---- |
 | Partner delivery error | Braze attempted to send this message to your delivery partner for 24 hours, but the partner returned temporary errors for the entire window. |
-| Push credentials invalid | The [push credentials]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token) for this app are missing or invalid, so the send was canceled. Update your credentials in **App Settings**. |
+| Push credentials invalid | The [push credentials]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) for this app are missing or invalid, so the send was canceled. Update your credentials in **App Settings**. |
 | Subscription group failure | The message could not be sent because of subscription-group or messaging-service configuration issues. Common reasons include missing sending numbers for SMS or WhatsApp, or unsupported MMS on the configured messaging service. |
 | User not eligible for channel | The user is not eligible to receive this message on the selected channel. Common reasons include missing or invalid channel identifiers, no eligible push tokens, subscription state restrictions, unsupported channel capability, or blocked countries for phone-based channels. |
 | Webhook failed | The webhook received an unsuccessful response code (non-`2xx`). See the [Message Activity Log]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting) for more details. Logs that are more than 60 hours old are cleaned and no longer accessible; webhook errors are sampled up to 20 logs per hour. |

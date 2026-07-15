@@ -935,7 +935,7 @@ Zusätzlich zu den Braze-Analytics können Sie im WhatsApp Business Manager auf 
 
 ### SMS-Currents-Events
 
-Wie bei E-Mails empfängt Braze Events auf Nutzerebene im Zusammenhang mit einer SMS-Nachricht auf ihrem Weg zur Nutzer:in. Alle eingehenden SMS-Events werden auch als Currents-Event über das Event [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) gesendet. So können Sie zusätzliche Aktionen durchführen oder Berichte zu den Nachrichten erstellen, die Ihre Nutzer:innen außerhalb der Braze-Plattform senden.
+Wie bei E-Mails empfängt Braze Events auf Nutzerebene im Zusammenhang mit einer SMS-Nachricht auf ihrem Weg zur Nutzer:in. Alle eingehenden SMS-Events werden auch als Currents-Event über das Event [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) gesendet. So können Sie zusätzliche Aktionen durchführen oder Berichte zu den Nachrichten erstellen, die Ihre Nutzer:innen außerhalb der Braze-Plattform senden.
 
 {% alert note %}
 Eingehende Nachrichten werden nach 1.600 Zeichen abgeschnitten.

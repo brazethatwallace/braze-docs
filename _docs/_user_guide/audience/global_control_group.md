@@ -28,7 +28,7 @@ Your Global Control Group applies to all channels, campaigns, and Canvases, exce
 
 ### Assign users randomly to the Global Control Group
 
-Braze randomly selects multiple ranges of [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#step-1-segment-your-users-by-the-random-bucket-attribute) and includes users from those selected buckets. If you are currently using random bucket numbers for any other purposes, check out [Things to watch out for](#things-to-watch-for). 
+Braze randomly selects multiple ranges of [random bucket numbers]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#create-segments-using-random-bucket-numbers) and includes users from those selected buckets. If you are currently using random bucket numbers for any other purposes, check out [Things to watch out for](#things-to-watch-for). 
 
 When your Global Control Group is generated, all users with random bucket numbers are part of the group. Additionally, new users who join after this point (those acquired after the Global Control Group was generated) that have these random bucket numbers are also added to the Global Control Group. Similarly, if many users are deleted, you can expect the size of your Global Control Group to shrink because a percentage of those deleted users has fallen into this group. This maintains the size of your group as a constant percentage relative to your entire user base.
 
