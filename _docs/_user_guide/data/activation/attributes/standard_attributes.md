@@ -84,7 +84,7 @@ These fields capture when the user first or last engaged with your app. The SDK 
 
 ## Push tokens
 
-Use these fields when migrating push tokens from another platform. After you integrate the Braze SDK, push tokens are captured automatically. For migration guidance, see [Migrating push tokens]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Use these fields when migrating push tokens from another platform. After you integrate the Braze SDK, push tokens are captured automatically. For migration guidance, see [Migrating push tokens]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 | Field | Data type | Format and notes |
 |---|---|---|

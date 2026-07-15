@@ -66,7 +66,7 @@ You can bring in any type of data into a catalog. Typically, the data is metadat
 
 Catalogs are a data storage feature. They contain large sets of data that can be referenced in your messages for personalization. To actually reference the data, you'll use [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) as the templating language. In other words, catalogs is storage where the data is held, and Liquid is the language that pulls the relevant data from the storage.
 
-For examples of how you can use Liquid to pull catalog information, see the additional use cases in [Creating a catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases).
+For examples of how you can use Liquid to pull catalog information, see the additional use cases in [Creating a catalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create#use-cases).
 
 ## Data storage limitations
 
