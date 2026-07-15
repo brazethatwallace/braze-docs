@@ -82,7 +82,7 @@ After Contact Traits is activated by your account manager:
 ![Selecting sync traits in Simon AI.][10]
 
 [1]: https://www.simon.ai/
-[2]: {{site.baseurl}}/api/basics/#creating-and-managing-rest-api-keys
+[2]: {{site.baseurl}}/api/basics#creating-rest-api-keys
 [3]: {{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints
 [4]: https://docs.simondata.com/docs/campaigns-flows
 [5]: https://docs.simondata.com/docs/campaigns-journeys-two
