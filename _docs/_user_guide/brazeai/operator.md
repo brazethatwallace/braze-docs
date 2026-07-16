@@ -9,7 +9,7 @@ description: "Learn how to access and use BrazeAI Operator<sup>TM</sup>, an AI-p
 
 # BrazeAI Operator
 
-> BrazeAI Operator<sup>TM</sup> is an AI-powered assistant built into the dashboard. Operator helps get things done—answering questions, walking through setup, troubleshooting issues, and brainstorming ideas.
+> BrazeAI Operator<sup>TM</sup> is an AI-powered assistant built into the dashboard. Operator helps you build—drafting campaigns, segments, and content—and helps you get unstuck, from answering questions and troubleshooting issues to brainstorming ideas.
 
 ## Access Operator
 
@@ -34,12 +34,12 @@ Watch this video to see one example of what Operator can do.
 
 ## Use Operator
 
-Describe what you're trying to accomplish using natural language. Prompts can range from simple questions to complex requests:
+Describe what you're trying to accomplish using natural language. Prompts can range from a single question to a full build request:
 
-- **Simple:** Why isn't my Liquid rendering?
-- **Complex:** How can I make the `abort_message` tag of my message include the user attribute that caused the abort?
+- **Ask a question:** Why isn't my Liquid rendering?
+- **Build something:** Draft a segment of users who abandoned their cart in the last 7 days.
 
-Operator can provide step-by-step instructions, links to Braze documentation, and plain-language explanations. Clear and specific questions lead to more helpful responses. Operator uses [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), which is suited for complex, multi-step tasks. For ready-to-use examples, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
+Operator can provide step-by-step instructions, links to Braze documentation, plain-language explanations, and drafts of campaigns, segments, and content that you can review and insert directly into your work—see [Take action with Operator](#take-action-with-operator) for how Operator proposes and applies changes. Clear and specific prompts lead to more helpful responses. Operator uses [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra), which is suited for complex, multi-step tasks. For the full range of what Operator can help you build, see [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities). For ready-to-use examples, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library).
 
 ## Best practices
 
@@ -136,6 +136,7 @@ BrazeAI Operator<sup>TM</sup> integrates with OpenAI, which acts as a Braze sub-
 
 ## Next steps
 
+- [What you can do with Operator]({{site.baseurl}}/user_guide/brazeai/operator/capabilities): Browse Operator's capabilities across the dashboard
 - [Prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Browse example prompts organized by dashboard page
 - [Review actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Learn how to review and approve Operator's proposed changes
 - [File support tickets]({{site.baseurl}}/user_guide/brazeai/operator/support_tickets): File support tickets directly from Operator
