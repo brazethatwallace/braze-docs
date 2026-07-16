@@ -67,7 +67,8 @@ page_order: 3
 8. 그런 다음, 3단계에서의 선택에 따라 Campaign, Canvas 또는 둘 다를 수동 또는 자동으로 보고서에 추가합니다.
     - **수동 추가:** **마지막 발송** 날짜 및 태그 또는 채널 필터를 사용하거나 Campaign 또는 Canvas 이름을 검색하여 보고서에 포함할 각 Campaign 또는 Canvas를 선택합니다.<br><br>![선택할 수 있는 Campaign 목록이 있는 "수동으로 Campaign 및 Canvas 추가" 섹션.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **자동 추가:** 보고서에 포함할 Campaign 또는 Canvas에 대한 규칙을 설정합니다. 이 페이지에서 하나의 필드만 선택하면 됩니다.
-        - 추가 Campaign 또는 Canvases가 이 화면에서 설정한 조건을 충족하면 향후 보고서 실행 시 자동으로 추가됩니다.<br><br>![보고서에 추가할 Campaign 및 Canvases에 대한 규칙을 설정하는 필드가 있는 "자동으로 Campaign 및 Canvas 추가" 섹션.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - 추가 Campaign 또는 Canvases가 이 화면에서 설정한 조건을 충족하면 향후 보고서 실행 시 자동으로 추가됩니다.
+        - 배너는 **채널** 드롭다운에 옵션으로 제공되지 않으므로, 채널 규칙을 사용하여 배너 Campaign 또는 Canvases를 자동으로 추가할 수 없습니다. 그래도 보고서 측정기준에 배너 핵심 성과 지표(KPI)를 포함할 수 있습니다.<br><br>![보고서에 추가할 Campaign 및 Canvases에 대한 규칙을 설정하는 필드가 있는 "자동으로 Campaign 및 Canvas 추가" 섹션.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. **저장 및 실행**을 선택하여 보고서를 실행합니다.
 
 {% alert note %}

@@ -12,7 +12,7 @@ toc_headers: h2
 > Das **Messaging-Diagnose**-Dashboard bietet eine allgemeine Aufschlüsselung der Ergebnisse beim Nachrichtenversand, mit der Sie Trends erkennen und potenzielle Probleme in Ihrem Messaging-Setup diagnostizieren können. Dieses Dashboard kann Ihnen helfen zu verstehen, warum Nachrichten aus Ihren Campaigns oder Canvases möglicherweise nicht wie erwartet gesendet wurden.
 
 {% alert important %}
-Das **Messaging-Diagnose**-Dashboard befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie an der Teilnahme am Early Access interessiert sind.
+Das **Messaging-Diagnose**-Dashboard ist allgemein verfügbar. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie Zugang zu diesem Feature erhalten möchten.
 {% endalert %}
 
 ## Wichtige Konzepte {#key-concepts}
@@ -157,7 +157,7 @@ Abbruchergebnisse in der Messaging-Diagnose sind lesbare Dashboard-Bezeichnungen
 | Push-Zugangsdaten ungültig | Die [Push-Zugangsdaten]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) für diese App fehlen oder sind ungültig, sodass der Versand abgebrochen wurde. Aktualisieren Sie Ihre Zugangsdaten in den **App-Einstellungen**. |
 | Abo-Gruppen-Fehler | Die Nachricht konnte aufgrund von Problemen mit der Abo-Gruppen- oder Messaging-Dienst-Konfiguration nicht gesendet werden. Häufige Gründe sind fehlende Sendenummern für SMS oder WhatsApp oder nicht unterstütztes MMS im konfigurierten Messaging-Dienst. |
 | Nutzer:innen nicht für Kanal berechtigt | Die Nutzer:innen sind nicht berechtigt, diese Nachricht auf dem ausgewählten Kanal zu empfangen. Häufige Gründe sind fehlende oder ungültige Kanalbezeichner, keine berechtigten Push-Token, Einschränkungen des Abo-Status, nicht unterstützte Kanalfunktionen oder gesperrte Länder für telefonbasierte Kanäle. |
-| Webhook fehlgeschlagen | Der Webhook hat einen nicht erfolgreichen Antwortcode (nicht `2xx`) erhalten. Weitere Details finden Sie im [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting). Protokolle, die älter als 60 Stunden sind, werden bereinigt und sind nicht mehr zugänglich; Webhook-Fehler werden mit bis zu 20 Protokollen pro Stunde erfasst. |
+| Webhook fehlgeschlagen | Der Webhook hat einen nicht erfolgreichen Antwortcode (nicht `2xx`) erhalten. Häufige Fehlercodes sind `4XX`-Client-Fehler, `5XX`-Server-Fehler oder Timeouts sowie `598 Host Unhealthy` oder kurzzeitig angehaltene Anfragen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Kanal und Zustellung" }
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}

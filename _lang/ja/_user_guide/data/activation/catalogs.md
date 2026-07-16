@@ -66,7 +66,7 @@ guide_menu_list:
 
 カタログはデータ保存機能です。パーソナライゼーションのためにメッセージ内で参照できる大規模なデータセットが含まれています。実際にデータを参照するには、テンプレート言語として[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用します。つまり、カタログはデータが保管されているストレージであり、Liquidはストレージから関連データを取得するための言語です。
 
-Liquidを使用してカタログ情報を取得する方法の例については、[カタログを作成する]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases)の追加のユースケースを参照してください。
+Liquidを使用してカタログ情報を取得する方法の例については、[カタログを作成する]({{site.baseurl}}/user_guide/data/activation/catalogs/create#use-cases)の追加のユースケースを参照してください。
 
 ## データ保存の制限 {#data-storage-limitations}
 

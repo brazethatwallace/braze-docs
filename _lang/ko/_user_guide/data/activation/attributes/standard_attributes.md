@@ -65,14 +65,14 @@ description: "이 참조 문서에서는 Braze의 표준 사용자 속성(예약
 | `email_subscribe` | 문자열 | `opted_in`(이메일 수신을 명시적으로 등록), `unsubscribed`(이메일 수신을 명시적으로 거부), 또는 `subscribed`(수신 동의도 거부도 하지 않음) 중 하나. |
 | `push_subscribe` | 문자열 | `opted_in`, `unsubscribed`, 또는 `subscribed` 중 하나. `email_subscribe`와 동일한 정의입니다. |
 | `subscription_groups` | 오브젝트 배열 | 각 오브젝트에 `subscription_group_id`(문자열)와 `subscription_state`(`subscribed` 또는 `unsubscribed`)가 포함된 배열. 예: `[{"subscription_group_id": "abc-123", "subscription_state": "subscribed"}]`. |
-| `email_open_tracking_disabled` | 부울 | `true` 또는 `false`. 이 사용자에 대해 이메일 오픈 추적 픽셀을 비활성화하려면 `true`로 설정합니다. SparkPost 및 SendGrid에서만 사용 가능합니다. |
+| `email_open_tracking_disabled` | 부울 | `true` 또는 `false`. 이 사용자에 대해 이메일 열람 추적 픽셀을 비활성화하려면 `true`로 설정합니다. SparkPost 및 SendGrid에서만 사용 가능합니다. |
 | `email_click_tracking_disabled` | 부울 | `true` 또는 `false`. 이 사용자에 대해 이메일 클릭 추적을 비활성화하려면 `true`로 설정합니다. SparkPost 및 SendGrid에서만 사용 가능합니다. |
 | `marked_email_as_spam_at` | 문자열 | 사용자의 이메일이 스팸으로 표시된 타임스탬프. [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식을 사용합니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
 구독 그룹 설정에 대한 자세한 내용은 [구독 그룹]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups)을 참조하세요.
 
-## 세션 및 참여 {#sessions-and-engagement}
+## 세션 및 인게이지먼트 {#sessions-and-engagement}
 
 이 필드는 사용자가 앱을 처음 또는 마지막으로 사용한 시점을 캡처합니다. SDK가 자동으로 기록하며, 일반적으로 다른 플랫폼에서 마이그레이션할 때만 API 또는 CSV를 통해 설정합니다.
 
@@ -84,7 +84,7 @@ description: "이 참조 문서에서는 Braze의 표준 사용자 속성(예약
 
 ## 푸시 토큰 {#push-tokens}
 
-다른 플랫폼에서 푸시 토큰을 마이그레이션할 때 이 필드를 사용합니다. Braze SDK를 통합한 후에는 푸시 토큰이 자동으로 캡처됩니다. 마이그레이션 안내는 [푸시 토큰 마이그레이션]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)을 참조하세요.
+다른 플랫폼에서 푸시 토큰을 마이그레이션할 때 이 필드를 사용합니다. Braze SDK를 통합한 후에는 푸시 토큰이 자동으로 캡처됩니다. 마이그레이션 안내는 [푸시 토큰 마이그레이션]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)을 참조하세요.
 
 | 필드 | 데이터 유형 | 형식 및 참고 사항 |
 |---|---|---|

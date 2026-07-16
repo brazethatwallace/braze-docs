@@ -226,7 +226,7 @@ BrazeAI<sup>TM</sup>バリアントセレクションは、複数のプッシュ
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-カタログが、新しいジオロケーションフィールドタイプとカタログセレクション演算子による距離ベースのフィルタリングをサポートするようになりました。これにより、各ユーザーに最寄りのレストランを表示したり、不動産キャンペーンで50km以内の物件をフィルタリングしたり、特定のイベント近くの店舗をターゲットにしたりするなど、よりロケーションに関連したエクスペリエンスを作成できます。都市やリージョンコードで地理的ターゲティングを近似する代わりに、ユーザーの最新のロケーションなどのLiquidユーザー属性を含む中心点への近接度でカタログアイテムをフィルタリングできます。詳細については、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#how-it-works)を参照してください。
+カタログが、新しいジオロケーションフィールドタイプとカタログセレクション演算子による距離ベースのフィルタリングをサポートするようになりました。これにより、各ユーザーに最寄りのレストランを表示したり、不動産キャンペーンで50km以内の物件をフィルタリングしたり、特定のイベント近くの店舗をターゲットにしたりするなど、よりロケーションに関連したエクスペリエンスを作成できます。都市やリージョンコードで地理的ターゲティングを近似する代わりに、ユーザーの最新のロケーションなどのLiquidユーザー属性を含む中心点への近接度でカタログアイテムをフィルタリングできます。詳細については、[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)を参照してください。
 
 #### レポートビルダーのバナーとRCS {#banner-and-rcs-for-report-builder}
 
@@ -603,7 +603,7 @@ Brazeは新しい[データセンター]({{site.baseurl}}/user_guide/data/infras
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Snowflakeデータシェア]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-for-data-sharing-3)に、66の既存テーブルにわたるキャンペーンおよびキャンバス情報を反映する追加フィールドが含まれるようになりました。
+[Snowflakeデータシェア]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs)に、66の既存テーブルにわたるキャンペーンおよびキャンバス情報を反映する追加フィールドが含まれるようになりました。
 
 - `campaign_name`
 - `canvas_name`
@@ -769,7 +769,7 @@ Radius Networksの[Flybuy]({{site.baseurl}}/partners/message_personalization/loc
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-eコマース推奨イベントと既存の購入イベントを照合するために、[「Places Order」コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-report)を追加しました。これは「Makes Purchase」に似ています。
+eコマース推奨イベントと既存の購入イベントを照合するために、[「Places Order」コンバージョンイベント]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-dashboard)を追加しました。これは「Makes Purchase」に似ています。
 
 ### チャネルとタッチポイント
 
@@ -777,11 +777,11 @@ eコマース推奨イベントと既存の購入イベントを照合するた�
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-ワークスペースにロケールを追加した後、1つのバナー内で[異なる言語のユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#translating-locales)にできます。
+ワークスペースにロケールを追加した後、1つのバナー内で[異なる言語のユーザーをターゲット]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#use-locales)にできます。
 
 #### ドラッグ＆ドロップContent Blocksの幅設定 {#configure-width-for-drag-and-drop-content-blocks}
 
-ナビゲーションメニューのボタンを選択して、[Content Blockの幅を調整]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks#using-the-editor-to-add-a-content-block)できます。メールのグローバルスタイル設定で指定されていない場合、デフォルトの幅は100%です。指定されている場合は、グローバル設定が適用されます。
+ナビゲーションメニューのボタンを選択して、[Content Blockの幅を調整]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email)できます。メールのグローバルスタイル設定で指定されていない場合、デフォルトの幅は100%です。指定されている場合は、グローバル設定が適用されます。
 
 ![幅を編集するオプションを持つ両面矢印。]({% image_buster /assets/img_archive/content_block_width_updated.png %}){: style="max-width:30%;" }
 

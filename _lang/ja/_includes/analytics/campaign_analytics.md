@@ -186,6 +186,13 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ![バリアント1の指標テーブルを含むWhatsAppパフォーマンスパネル。]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### クレジットと送信数 {#credits-versus-send-counts}
+
+キャンペーン分析のWhatsApp送信数は配信試行を反映しています。Metaがメッセージカテゴリ（マーケティング、ユーティリティ、認証、サービス）ごとに課金する場合、消費されるクレジットは異なることがあります。
+
+- Brazeで作成された応答メッセージは、BrazeのWhatsAppクレジットを消費しません。
+- 方向性のある送信ボリュームについては、**Analytics** > **Daily Stats**を使用してください。キャンペーンまたはキャンバスごとのクレジット内訳は利用できません。
+
 {% endif %}
 
 表示を簡素化する場合は、<i class="fas fa-plus"></i>**列を追加/削除**をクリックし、必要に応じて指標をクリアします。デフォルトでは、すべての指標が表示されます。
@@ -872,6 +879,8 @@ Firebase Cloud Messaging（FCM）のバウンスは3つのケースで発生す�
         </tr>
     </tbody>
 </table>
+
+失敗が多い場合は、[WhatsApp送信失敗の調査]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures)を参照してください。
 
 #### エンドユーザーのブロックとレポートの指標 {#end-user-blocking-and-reporting-metrics}
 

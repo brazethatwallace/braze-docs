@@ -74,6 +74,10 @@ A Braze tenta distribuir uniformemente os despachos de mensagens ao longo do min
 
 Observe que você ainda pode definir limites de taxa individuais nas suas Campaigns e Canvas. Eles são aplicados independentemente dos limites de taxa de envio de mensagens do espaço de trabalho.
 
+### Capacidade de envio de webhooks {#webhook-sending-capacity}
+
+Para Campaigns de webhook sem um limite de taxa de velocidade de entrega, a Braze não aplica um limite de taxa padrão do canal, então os envios podem prosseguir com alto throughput. O volume real depende de vários fatores, incluindo latência do servidor, uso de Connected Content e a velocidade de envio do sistema externo que recebe os webhooks. Se a sua Campaign de webhook não tem um limite de taxa, prepare seus servidores para tráfego de alto volume. Caso contrário, aplique um limite de taxa para controlar o fluxo de mensagens.
+
 ### Mensagens não incluídas nos limites de taxa de envio de mensagens do espaço de trabalho {#messages-not-included-in-the-workspace-messaging-rate-limits}
 
 - Mensagens enviadas usando [Campaigns de e-mail de transação]({{site.baseurl}}/user_guide/channels/transactional_email) não são incluídas nos limites de taxa de envio de mensagens do espaço de trabalho. Isso significa que elas têm limite de taxa próprio e não são contabilizadas nos limites de taxa de envio de mensagens do espaço de trabalho definidos.

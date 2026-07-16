@@ -39,7 +39,7 @@ Brazeダッシュボードの任意のページからオペレーターを開き
 - **シンプル：** Liquidが正しくレンダリングされないのはなぜですか？
 - **複雑：** メッセージの`abort_message`タグに、中止の原因となったユーザー属性を含めるにはどうすればよいですか？
 
-オペレーターは、ステップバイステップの手順、Brazeドキュメントへのリンク、わかりやすい説明を提供できます。明確で具体的な質問をすることで、より有益な回答が得られます。オペレーターは[GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2)を使用しており、強力な推論能力を備え、複雑なマルチステップのタスクに適しています。すぐに使えるプロンプト例については、[プロンプトライブラリー]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library)を参照してください。
+オペレーターは、ステップバイステップの手順、Brazeドキュメントへのリンク、わかりやすい説明を提供できます。明確で具体的な質問をすることで、より有益な回答が得られます。オペレーターは[GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra)を使用しており、複雑なマルチステップのタスクに適しています。すぐに使えるプロンプト例については、[プロンプトライブラリー]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library)を参照してください。
 
 ## ベストプラクティス {#best-practices}
 

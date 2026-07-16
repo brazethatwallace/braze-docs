@@ -113,7 +113,7 @@ Thank you for your purchase of ${purchase_product_name}! As a token of our appre
 
 セグメンテーション用の購入指標のトラッキングに加えて、Brazeは各製品の購入数と経時的な収益も記録します。これは、最も人気のある製品を特定したり、プロモーションキャンペーンが売上に与える影響を測定したりするのに役立ちます。
 
-このデータは[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data)ページで確認できます。
+このデータは[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data)ページで確認できます。
 
 ### 収益の計算 {#revenue-calculations}
 
@@ -167,7 +167,7 @@ $$\text{Average purchase value} = \frac{\text{Total spend in dollars}}{\text{Tot
 
 BrazeでユーザーのLTVを把握するための主な場所は2つあります。
 
-- 各アプリおよびサイトの*Lifetime Revenue*や*Lifetime Value Per User*などの全体的な指標については、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#revenue-data)を参照してください。
+- 各アプリおよびサイトの*Lifetime Revenue*や*Lifetime Value Per User*などの全体的な指標については、[収益レポート]({{site.baseurl}}/user_guide/analytics/reports/revenue_report#exporting-revenue-data)を参照してください。
 - 特定のユーザーの生涯収益を把握するには、そのユーザーの[ユーザープロファイル]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#overview-tab)を参照してください。
 
 ##### 返金が生涯収益に与える影響 {#impact-of-refunds-on-lifetime-revenue}
@@ -221,7 +221,7 @@ Samのプロファイルには2つの購入イベントがありますが、実�
 
 ### 注文レベルでの購入のログ記録 {#log-purchases-at-the-order-level}
 
-製品レベルではなく注文レベルで購入をログに記録するには、注文名または注文カテゴリを `product_id` として使用します。詳細については、[購入オブジェクトの仕様]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions)を参照してください。
+製品レベルではなく注文レベルで購入をログに記録するには、注文名または注文カテゴリを `product_id` として使用します。詳細については、[購入オブジェクトの仕様]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions)を参照してください。
 
 ### 製品IDの命名規則 {#product-id-naming-conventions}
 

@@ -20,13 +20,13 @@ Vous pouvez transmettre un `context` qui sera intégré dans les messages envoy�
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-Notez que pour envoyer des messages avec cet endpoint, vous devez disposer d'un [ID Canvas]({{site.baseurl}}/api/identifier_types#canvas-api-identifier), créé lorsque vous créez un Canvas.
+Notez que pour envoyer des messages avec cet endpoint, vous devez disposer d'un [ID Canvas]({{site.baseurl}}/api/identifier_types#canvas-identifier), créé lorsque vous créez un Canvas.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#4bc75890-b807-405d-b226-5aca284e6b7d {% endapiref %}
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `canvas.trigger.schedule.create`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `canvas.trigger.schedule.create`.
 
 ## Limite de débit {#rate-limit}
 

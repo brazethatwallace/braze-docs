@@ -140,7 +140,7 @@ Das spezifische Limit variiert je nach Nutzer:in, abhängig von deren Engagement
 ### Januar 2025: WhatsApp pausiert den Versand von Marketing-Nachrichten an US-Nutzer:innen ab dem 1. April {#january-2025-whatsapp-pausing-marketing-message-sending-to-us-users-starting-april-1}
 *Zuletzt aktualisiert: Januar 2025*
 
-WhatsApp wird den Versand von Marketing-Nachrichten an US-Nutzer:innen (Personen mit US-Telefonnummern) ab dem 1. April 2025 pausieren. [Utility-, Service- und Authentifizierungsnachrichten](https://developers.facebook.com/docs/whatsapp/pricing/) sowie [Antwortnachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) sind in den USA weiterhin erlaubt.
+WhatsApp wird den Versand von Marketing-Nachrichten an US-Nutzer:innen (Personen mit US-Telefonnummern) ab dem 1. April 2025 pausieren. [Utility-, Service- und Authentifizierungsnachrichten](https://developers.facebook.com/docs/whatsapp/pricing/) sowie [Antwortnachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message) sind in den USA weiterhin erlaubt.
 
 Der Versand von Marketing-Nachrichten (sowie allen anderen Nachrichtentypen) in alle anderen Länder oder Regionen ist weiterhin erlaubt und wird nicht beeinträchtigt.
 
@@ -236,7 +236,7 @@ Letztes Jahr hat WhatsApp Template-Pacing für Marketing-Nachrichten als neue Me
 
 WhatsApp testet neue Ansätze, beginnend mit Verbraucher:innen in Indien, um wertvollere Erlebnisse zu schaffen und das Engagement mit den Marketing-Konversationen von Unternehmen zu maximieren. Dies kann die Begrenzung der Anzahl von Marketing-Konversationen umfassen, die eine Person von einem beliebigen Unternehmen in einem bestimmten Zeitraum erhält, beginnend mit einer kleinen Anzahl von Konversationen, die weniger wahrscheinlich gelesen werden. Braze erhält einen Fehlercode, wenn eine Nachricht nicht zugestellt wird.
 
-WhatsApp wird beginnen, Leseraten als Teil der Qualitätsbewertung für Marketing-Templates zu berücksichtigen, neben traditionellen Metriken wie Blockierungen und Meldungen. WhatsApp kann Campaigns mit Marketing-Nachrichten und niedrigen Leseraten vorübergehend pausieren, um Unternehmen Zeit zu geben, die Templates mit dem geringsten Engagement zu überarbeiten, bevor das Volumen ab dem 1. April 2024 skaliert wird.
+WhatsApp wird beginnen, Leseraten als Teil der Qualitätsbewertung für Marketing-Templates zu berücksichtigen, neben traditionellen Metriken wie Blockierungen und Meldungen. WhatsApp kann Marketing-Kampagnen mit niedrigen Leseraten vorübergehend pausieren, um Unternehmen Zeit zu geben, die Templates mit dem geringsten Engagement zu überarbeiten, bevor das Volumen ab dem 1. April 2024 skaliert wird.
 
 ### Februar 2024: Experiment mit Marketing-Konversationen {#february-2024-marketing-conversations-experimentation}
 *Zuletzt aktualisiert: Februar 2024*

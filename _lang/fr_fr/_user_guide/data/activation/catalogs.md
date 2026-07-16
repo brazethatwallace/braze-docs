@@ -66,7 +66,7 @@ N'importe quel type de données peut être intégré à un catalogue. Il s'agit 
 
 Les catalogues sont une fonctionnalité de stockage de données. Ils contiennent de vastes ensembles de données pouvant être référencés dans vos messages à des fins de personnalisation. Pour accéder à ces données, vous utiliserez [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) comme langage de modélisation. Autrement dit, les catalogues constituent l'espace de stockage des données, et Liquid est le langage qui extrait les données pertinentes de cet espace.
 
-Pour des exemples d'utilisation de Liquid pour extraire des informations de catalogue, consultez les cas d'usage supplémentaires dans [Créer un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases).
+Pour des exemples d'utilisation de Liquid pour extraire des informations de catalogue, consultez les cas d'usage supplémentaires dans [Créer un catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create#use-cases).
 
 ## Limites de stockage des données {#data-storage-limitations}
 

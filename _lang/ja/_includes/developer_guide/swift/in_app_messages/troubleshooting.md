@@ -6,7 +6,7 @@ Brazeをサードパーティのネットワークロギングライブラリと
 
 #### ドメイン {#domains}
 
-CDNドメインの全リストは以下の通りです。
+CDNドメインの全リストは以下のとおりです。
 
 * `"appboy-images.com"`
 * `"braze-images.com"`
@@ -62,6 +62,21 @@ XNLogger.shared.addFilters([brazeAssetsHostFilter])
 ```objc
 XNHostFilter *brazeAssetsHostFilter = [[XNHostFilter alloc] initWithHost: @"https://cdn.braze.com"];
 [XNLogger.shared addFilters:@[brazeAssetsHostFilter]];
+```
+{% endtab %}
+{% endtabs %}
+
+##### Wormholy
+
+{% tabs %}
+{% tab Swift %}
+```swift
+Wormholy.ignoredHosts = ["cdn.braze.com"]
+```
+{% endtab %}
+{% tab Objective-C %}
+```objc
+Wormholy.ignoredHosts = @[@"cdn.braze.com"];
 ```
 {% endtab %}
 {% endtabs %}

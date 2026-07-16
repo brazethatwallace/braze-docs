@@ -16,8 +16,8 @@
 Android TV용 푸시 알림을 설정하려면 다음과 같이 하세요:
 
 1. 앱에서 커스텀 뷰를 만들어 알림을 표시하세요.
-2. [커스텀 알림 팩토리]({{site.baseurl}}/developer_guide/push_notifications/customization#customization-display)를 만듭니다. 이렇게 하면 기본 SDK 동작이 재정의되고 알림을 수동으로 표시할 수 있습니다. `null`을 반환하면 SDK가 처리하지 않으며, 알림을 표시하려면 커스텀 코드가 필요합니다. 이 단계가 완료되면 Android TV로 푸시 전송을 시작할 수 있습니다!<br><br>
-3. (선택 사항) 클릭 분석을 효과적으로 추적하려면 클릭 분석 추적을 설정하세요. Braze 푸시 열람 및 수신 인텐트를 수신 대기하도록 [푸시 콜백]({{site.baseurl}}/developer_guide/push_notifications/customization#push-callback)을 생성하면 됩니다.
+2. [커스텀 알림 팩토리]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_customization-display)를 만듭니다. 이렇게 하면 기본 SDK 동작이 재정의되고 알림을 수동으로 표시할 수 있습니다. `null`을 반환하면 SDK가 처리하지 않으며, 알림을 표시하려면 커스텀 코드가 필요합니다. 이 단계가 완료되면 Android TV로 푸시 전송을 시작할 수 있습니다!<br><br>
+3. (선택 사항) 클릭 분석을 효과적으로 추적하려면 클릭 분석 추적을 설정하세요. Braze 푸시 열람 및 수신 인텐트를 수신 대기하도록 [푸시 콜백]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_push-callback)을 생성하면 됩니다.
 
 {% alert note %}
 이러한 알림은 **지속되지 않으며** 기기가 해당 알림을 표시할 때만 사용자에게 표시됩니다. 이는 Android TV의 알림 센터가 과거 알림 기록을 지원하지 않기 때문입니다.

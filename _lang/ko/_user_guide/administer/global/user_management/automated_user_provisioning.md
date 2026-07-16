@@ -149,6 +149,10 @@ Microsoft Entra 관리 센터에 로그인합니다.
 3. **Setup SCIM provisioning** 페이지의 테이블에 표시되는 속성과 일치하도록 **Attribute Mapping** 섹션을 검토하고 구성합니다.
 4. **Attribute Mapping** 페이지를 닫습니다.
 
+{% alert important %}
+`userName` 속성은 SCIM이 사용자를 올바르게 식별하고 관리할 수 있도록 Braze에서 사용자의 이메일 주소와 정확히 일치해야 합니다. SCIM이 활성화되기 전에 Braze에서 수동으로 프로비저닝된 사용자는 SCIM 애플리케이션에 추가되더라도 자동으로 IdP 관리 사용자로 전환되지 않습니다. 해당 사용자의 프로비저닝 방법은 수동으로 유지됩니다.
+{% endalert %}
+
 ## 2단계: 앱에 사용자 할당하기
 
 1. **Manage** > **Users and Groups**로 이동합니다.

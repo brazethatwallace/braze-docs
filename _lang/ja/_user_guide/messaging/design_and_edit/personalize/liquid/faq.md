@@ -149,6 +149,41 @@ Brazeでは、配列カスタム属性のアイテムのチェック、または
 
 いいえ。{% raw %}`{% abort_message %}`{% endraw %}タグは引用符で囲まれた静的な文字列のみを受け付け、Liquidパーソナライゼーションは使用できません。条件付きの中止動作が必要な場合は、タグの前に他のLiquidロジックを使用してください。
 
+### 電話番号をLiquidでマスクするにはどうすればよいですか？ {#how-do-i-mask-phone-numbers-with-liquid}
+
+`slice`フィルターを使用して特定の桁を抽出し、`append`フィルターを使用してマスク文字と組み合わせることで、電話番号をマスクできます。
+
+#### 下4桁以外をすべてマスクする {#mask-all-but-the-last-four-digits}
+
+10桁の電話番号を`******7890`と表示するには：
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### 最初の3桁と最後の4桁を表示する {#show-the-first-three-and-last-four-digits}
+
+10桁の電話番号を`123***7890`と表示するには：
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
+
 ## キャンバス、カタログ、トリガープロパティ {#canvas-catalogs-and-trigger-properties}
 
 ### APIトリガーのLiquidがBrazeで失敗するのはなぜですか？ {#why-is-my-api-triggered-liquid-failing-in-braze}

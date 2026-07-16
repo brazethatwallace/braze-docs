@@ -95,7 +95,7 @@ Após a conclusão do processo de integração, a Braze extrairá automaticament
 
 | Tipo de informação | Localização |
 | --- | --- |
-| Provider ID | Selecione seu provedor e acesse **Settings** > **Basic information** |
+| Provider ID | Selecione seu provedor e acesse ***Settings** > **Basic information** |
 | Channel ID | Selecione seu provedor e acesse **Channels** > seu canal > **Basic settings** |
 | Channel secret | Selecione seu provedor e acesse **Channels** > seu canal > **Basic settings**. |
 | Channel access token | Selecione seu provedor e acesse **Channels** > seu canal > **Messaging API**. Se não houver um channel access token, selecione **Issue**. |
@@ -233,6 +233,17 @@ Para ajudar a gerenciar isso, a Braze oferece ferramentas e lógica que suportam
 {: start="2"}
 2. **Atualizações de eventos:** São usadas para atualizar o status de inscrição de um usuário. Quando a Braze recebe atualizações de eventos de usuários para o canal LINE integrado e o evento é um seguir, o perfil de usuário terá um status de grupo de inscrições de `subscribed`. Se o evento for um deixar de seguir, o perfil de usuário terá um status de grupo de inscrições de `unsubscribed`.<br><br>- Todos os perfis de usuários da Braze com um `native_line_id` correspondente serão atualizados automaticamente. <br>- Se nenhum perfil de usuário correspondente existir para um evento, a Braze [criará um usuário anônimo]({{site.baseurl}}/line/user_management).
 
+## Reintegrar um canal LINE em outro espaço de trabalho {#re-integrate-a-line-channel-in-another-workspace}
+
+Para usar um canal LINE em um espaço de trabalho diferente da Braze:
+
+1. No espaço de trabalho original, arquive o grupo de inscrições desse canal.
+2. No espaço de trabalho de destino, integre o canal usando a [Etapa 2: Integrar o canal LINE](#step-2-integrate-line-channel).
+
+Confirme que você tem a permissão [Gerenciar grupos de inscrições]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions) em ambos os espaços de trabalho. Sem permissões em ambos os espaços de trabalho, a integração falhará com um erro indicando que o canal já está conectado.
+
+Para saber como o arquivamento afeta os grupos de inscrições, consulte [Grupos de inscrições LINE]({{site.baseurl}}/line/subscription_groups#archive-behavior).
+
 ## Casos de uso {#use-cases}
 
 Estes são casos de uso de como os usuários podem ser atualizados após você seguir as etapas de configuração.
@@ -243,13 +254,13 @@ Estes são casos de uso de como os usuários podem ser atualizados após você s
 2. A ferramenta de sincronização de inscrições é executada, encontra que o usuário está seguindo o canal LINE e então atualiza o perfil de usuário com o status de inscrição `subscribed`.
 3. Se ocorrerem alterações no status de inscrição (como o usuário bloquear, remover da lista de amigos ou voltar a seguir o canal), a Braze recebe a atualização do LINE e atualiza o perfil de usuário com o `native_line_id` adequadamente.
 
-#### Perfil de usuário existente bloqueou, removeu da lista de amigos ou deixou de seguir o canal LINE {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
+### Perfil de usuário existente bloqueou, removeu da lista de amigos ou deixou de seguir o canal LINE {#existing-user-profile-has-blocked-unfriended-or-unfollowed-line-channel}
 
 1. O perfil de usuário da Braze é atualizado com um atributo `native_line_id`. Seu status de inscrição padrão é `unsubscribed`.
 2. A ferramenta de sincronização de inscrições não encontra que o usuário está seguindo o canal LINE e o status de inscrição do usuário permanece como `unsubscribed`.
 3. Se o usuário posteriormente seguir o canal, a Braze recebe a atualização do LINE e atualiza o perfil de usuário com o status de inscrição `subscribed`.
 
-##### A criação do perfil de usuário ocorre após seguir o LINE {#user-profile-creation-occurs-after-line-follow}
+### A criação do perfil de usuário ocorre após seguir o LINE {#user-profile-creation-occurs-after-line-follow}
 
 1. O canal recebe um novo seguidor LINE.
 2. A Braze cria um perfil de usuário anônimo com o atributo `native_line_id` definido como o ID LINE do seguidor e um alias de usuário `line_id` definido como o ID LINE do seguidor. O perfil tem um status de inscrição de `subscribed`.
@@ -274,7 +285,7 @@ Estes são casos de uso de como os usuários podem ser atualizados após você s
 
   - Um novo perfil de usuário pode ser criado (por meio do endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), [importação CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) definindo o `native_line_id`. Este novo perfil herdará o estado de status de inscrição do perfil de usuário anônimo existente. Observe que isso resultará em vários perfis compartilhando o mesmo `native_line_id`. Eles podem ser mesclados a qualquer momento usando o endpoint `/users/merge` no processo descrito na [Etapa 5](#step-5-merge-profiles-optional).
 
-##### A criação do perfil de usuário ocorre antes de seguir o LINE {#user-profile-creation-occurs-before-line-follow}
+### A criação do perfil de usuário ocorre antes de seguir o LINE {#user-profile-creation-occurs-before-line-follow}
 
 1. Você adquire um novo usuário e envia as informações para a Braze. Um novo perfil de usuário é criado (perfil 1).
 2. O usuário segue sua conta LINE.

@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Actualizar mensajes programados de Braze."
+description: "En este artículo se describen los detalles del endpoint Actualizar mensajes programados de Braze."
 
 ---
 {% api %}
@@ -14,15 +14,15 @@ description: "En este artículo se describen los detalles del punto de conexión
 /messages/schedule/update
 {% endapimethod %}
 
-> Utiliza este punto de conexión para actualizar los mensajes programados.
+> Utiliza este endpoint para actualizar los mensajes programados.
 
-Este punto de conexión acepta actualizaciones de los parámetros `schedule`, `messages` o ambos. Tu solicitud debe contener al menos una de esas dos claves.
+Este endpoint acepta actualizaciones de los parámetros `schedule`, `messages` o ambos. Tu solicitud debe contener al menos una de esas dos claves.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#f61edf74-4467-4551-b9c4-a4b8d188cd7a {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `messages.schedule.update`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `messages.schedule.update`.
 
 ## Límite de velocidad {#rate-limit}
 

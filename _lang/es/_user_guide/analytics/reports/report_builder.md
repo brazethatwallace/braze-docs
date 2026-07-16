@@ -67,7 +67,8 @@ Prueba diferentes configuraciones de opciones de desglose para explorar las [muc
 8. Luego, dependiendo de tus selecciones en el paso 3, elige añadir campañas, Canvas o ambos a tu informe de forma manual o automática.
     - **Añadir manualmente:** Elige cada campaña o Canvas que deseas incluir en el informe usando los filtros de fechas de **Last Sent** y etiquetas o canales, o buscando el nombre de la campaña o Canvas.<br><br>![La sección "Añadir manualmente campañas y Canvas" con una lista de campañas para seleccionar.]({% image_buster /assets/img/report_builder_2/manually_add.png %}){: style="width:90%;"}<br><br>
     - **Añadir automáticamente:** Establece reglas para determinar qué campañas o Canvas incluir en el informe. Solo necesitas seleccionar un campo en esta página.
-        - Ten en cuenta que a medida que campañas o Canvas adicionales cumplan las condiciones que estableciste en esta pantalla, se añadirán automáticamente a futuras ejecuciones de tu informe.<br><br>![La sección "Añadir automáticamente campañas y Canvas" con campos para establecer reglas sobre qué campañas y Canvas deben añadirse al informe.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
+        - Ten en cuenta que a medida que campañas o Canvas adicionales cumplan las condiciones que estableciste en esta pantalla, se añadirán automáticamente a futuras ejecuciones de tu informe.
+        - Banners no es una opción en el desplegable **Channel**, por lo que no puedes usar reglas de canal para añadir automáticamente campañas o Canvas de Banner. Aun así, puedes incluir KPI de Banner en las métricas de tu informe.<br><br>![La sección "Añadir automáticamente campañas y Canvas" con campos para establecer reglas sobre qué campañas y Canvas deben añadirse al informe.]({% image_buster /assets/img/report_builder_2/automatically_add.png %}){: style="width:90%;"}<br><br>
 9. Ejecuta el informe seleccionando **Save & Run**.
 
 {% alert note %}
@@ -99,7 +100,7 @@ Si deseas generar un informe sobre variantes o pasos de Canvas, selecciona **Can
 
 ### Variantes de mensaje eliminadas {#deleted-message-variants}
 
-Las estadísticas de variantes de mensaje eliminadas no se muestran cuando desglosas tu informe por campañas o Canvas. Sin embargo, los totales a nivel de canal incluyen todas las estadísticas independientemente de si la variante fue eliminada. Por ejemplo, _Envíos_ para correo electrónico incluye todos los envíos de correo electrónico, pero si desglosas esas estadísticas por campaña, los números pueden ser menores porque los envíos de variantes de mensaje eliminadas se filtran.
+Las estadísticas de variantes de mensaje eliminadas no se muestran cuando desglosas tu informe por campañas o Canvas. Sin embargo, los totales a nivel de canal incluyen todas las estadísticas independientemente de si la variante fue eliminada. Por ejemplo, _Envíos_ para correo electrónico incluyen todos los envíos de correo electrónico, pero si desglosas esas estadísticas por campaña, los números pueden ser menores porque los envíos de variantes de mensaje eliminadas se filtran.
 
 En el mismo informe, _Destinatarios únicos_ puede ser mayor que _Impresiones únicas_ cuando una variante de mensaje fue eliminada después del envío. Los _Destinatarios únicos_ a nivel de campaña aún pueden incluir usuarios que recibieron la variante eliminada, mientras que las _Impresiones únicas_ omiten las estadísticas de variantes eliminadas en las agregaciones a nivel de mensaje.
 

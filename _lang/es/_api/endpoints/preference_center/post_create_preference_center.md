@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Crear un centro de preferencias de Braze."
+description: "En este artículo se describen los detalles del endpoint Crear un centro de preferencias de Braze."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /preference_center/v1
 {% endapimethod %}
 
-> Usa este punto de conexión para crear un centro de preferencias que permita a los usuarios gestionar sus preferencias de notificación para tus campañas de correo electrónico. Consulta [Crear un centro de preferencias con API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) para conocer los pasos sobre cómo crear un centro de preferencias generado por API.
+> Usa este endpoint para crear un centro de preferencias que permita a los usuarios gestionar sus preferencias de notificación para tus campañas de correo electrónico. Consulta [Crear un centro de preferencias con API]({{site.baseurl}}/user_guide/message_building_by_channel/email/preference_center/overview#creating-a-preference-center-with-api) para conocer los pasos sobre cómo crear un centro de preferencias generado por API.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#e15d7065-2cbc-4eb3-ae16-32efe43357a6 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `preference_center.update`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `preference_center.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -96,7 +96,7 @@ Consulta las siguientes etiquetas de Liquid que puedes incluir en tu HTML para g
 
 {% endraw %}
 
-## Ejemplos de respuestas {#example-responses}
+## Ejemplos de respuesta {#example-responses}
 
 ### Crear un centro de preferencias
 

@@ -48,6 +48,7 @@ Brazeダッシュボードの埋め込みサインアップフローを通じて
 OBA（公式ビジネスアカウント）は、表示名の横に緑色のチェックマークが付き、任意で取得できます。ビジネス認証の完了後に公式ビジネスアカウントを申請できます。ビジネス認証と公式ビジネスアカウントは異なるWhatsAppの概念であることに注意してください。
 
 ### WhatsAppビジネスアカウントの電話番号 {#whatsapp-business-account-phone-numbers}
+
 #### WhatsAppビジネスアカウントに電話番号は必要ですか？ {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
 はい、アクセスできる番号が必要です。埋め込みサインアップフローを進める際に、2要素認証で電話番号を確認するよう求められます。この電話番号は、他のWhatsAppアカウント（ビジネスまたは個人）で使用することはできません。
 
@@ -83,7 +84,7 @@ OBA（公式ビジネスアカウント）は、表示名の横に緑色のチ�
 WhatsAppチャネルの購読管理は、他のBrazeチャネルと同様に機能します。詳細については、[ユーザー購読の管理]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)を参照してください。
 
 #### WhatsAppでマーケティングメッセージの受信にオプトインしたユーザーのリストがすでにある場合、Brazeで購読ステータスを更新するにはどうすればよいですか？ {#if-i-already-have-a-list-of-users-who-have-opted-in-to-receive-marketing-messages-on-whatsapp-how-do-i-update-their-subscription-status-in-braze}
-[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#importing-custom-data)を通じて購読ステータスを更新できます。
+[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional)を通じて購読ステータスを更新できます。
 
 #### オプトインを収集するためにどのような方法を使用すべきですか？ {#what-methods-should-i-use-to-collect-opt-ins}
 コンプライアンスを維持するために、[Metaのオプトイン方法に関するガイドライン](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/)を参照することをBrazeは推奨しています。Brazeの[チャネルとオプトインのアイデアと提案](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit)も参照してください。

@@ -12,7 +12,7 @@ toc_headers: h2
 > Le tableau de bord **Messaging Diagnostics** fournit une vue d'ensemble des résultats d'envoi de messages, vous permettant de repérer les tendances et de diagnostiquer les problèmes potentiels dans votre configuration d'envoi de messages. Ce tableau de bord peut vous aider à comprendre pourquoi les messages de vos campagnes ou Canvas n'ont peut-être pas été envoyés comme prévu.
 
 {% alert important %}
-Le tableau de bord **Messaging Diagnostics** est actuellement en accès anticipé. Contactez votre gestionnaire du succès des clients si vous souhaitez participer à l'accès anticipé.
+Le tableau de bord **Messaging Diagnostics** est disponible de manière générale. Contactez votre gestionnaire du succès des clients si vous souhaitez obtenir l'accès à cette fonctionnalité.
 {% endalert %}
 
 ## Concepts clés {#key-concepts}
@@ -51,7 +51,7 @@ Pour exécuter le tableau de bord et afficher vos données :
 2. Sélectionnez une ou plusieurs campagnes ou Canvas.
 3. Sélectionnez **Run Dashboard** pour charger les données correspondant aux filtres sélectionnés.
 
-![Exemple de diagnostic de campagnes et Canvas du 25 au 31 mai 2025 pour une campagne de série de bienvenue.]({% image_buster /assets/img/messaging_diagnostics_dashboard_details_log.png %}){: style="max-width:45%;"} ![Exemple de diagnostic de campagnes et Canvas avec graphique au survol du 25 au 31 mai 2025 pour une campagne de série de bienvenue.]({% image_buster /assets/img/messaging_diagnostics_dashboard_drawer_expanded.png %}){: style="max-width:45%;"}
+![Exemple de diagnostic de Campaigns et Canvas du 25 au 31 mai 2025 pour une campagne de série de bienvenue.]({% image_buster /assets/img/messaging_diagnostics_dashboard_details_log.png %}){: style="max-width:45%;"} ![Exemple de diagnostic de Campaigns et Canvas avec graphique au survol du 25 au 31 mai 2025 pour une campagne de série de bienvenue.]({% image_buster /assets/img/messaging_diagnostics_dashboard_drawer_expanded.png %}){: style="max-width:45%;"}
 
 ## Interprétation des données {#interpreting-the-data}
 
@@ -157,7 +157,7 @@ Les résultats d'abandon dans Messaging Diagnostics sont des libellés lisibles 
 | Identifiants push invalides | Les [identifiants push]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) pour cette application sont manquants ou invalides, l'envoi a donc été annulé. Mettez à jour vos identifiants dans **Paramètres des applications**. |
 | Échec du groupe d'abonnement | Le message n'a pas pu être envoyé en raison de problèmes de configuration du groupe d'abonnement ou du service d'envoi de messages. Les raisons courantes incluent l'absence de numéros d'envoi pour SMS ou WhatsApp, ou l'incompatibilité MMS sur le service d'envoi de messages configuré. |
 | L'utilisateur n'est pas éligible pour le canal | L'utilisateur n'est pas éligible pour recevoir ce message sur le canal sélectionné. Les raisons courantes incluent des identifiants de canal manquants ou invalides, l'absence de jetons push éligibles, des restrictions liées à l'état d'abonnement, une fonctionnalité de canal non prise en charge ou des pays bloqués pour les canaux téléphoniques. |
-| Échec du webhook | Le webhook a reçu un code de réponse non réussi (non-`2xx`). Consultez le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting) pour plus de détails. Les journaux de plus de 60 heures sont nettoyés et ne sont plus accessibles ; les erreurs de webhook sont échantillonnées jusqu'à 20 journaux par heure. |
+| Échec du webhook | Le webhook a reçu un code de réponse non réussi (non-`2xx`). Les codes d'erreur courants peuvent être des erreurs client `4XX`, des erreurs serveur ou des délais d'expiration `5XX`, ou `598 Host Unhealthy` ou des requêtes brièvement interrompues. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canal et distribution" }
 
 ## Questions fréquentes {#frequently-asked-questions}

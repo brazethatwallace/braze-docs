@@ -187,6 +187,13 @@ The **Message Performance** panel outlines how well your message has performed a
 
 ![배리언트 1에 대한 측정기준 표가 포함된 WhatsApp Performance 패널.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### 크레딧과 발송 수 {#credits-versus-send-counts}
+
+캠페인 분석의 WhatsApp 발송 수는 전달 시도를 반영합니다. Meta가 메시지 카테고리(마케팅, 유틸리티, 인증, 서비스)별로 과금하는 경우 소비되는 크레딧이 다를 수 있습니다.
+
+- Braze에서 작성된 응답 메시지는 Braze WhatsApp 크레딧을 소비하지 않습니다.
+- 방향성 발송 볼륨을 확인하려면 **Analytics** > **Daily Stats**를 사용하세요. 캠페인 또는 Canvas별 크레딧 세부 내역은 제공되지 않습니다.
+
 {% endif %}
 
 보기를 간소화하려면 <i class="fas fa-plus"></i> **Add/Remove Columns**를 클릭하고 원하는 측정기준을 선택 해제하세요. 기본적으로 모든 측정기준이 표시됩니다.
@@ -872,6 +879,8 @@ Firebase Cloud Messaging(FCM) 반송은 세 가지 경우에 발생할 수 있�
         </tr>
     </tbody>
 </table>
+
+실패가 증가한 경우 [WhatsApp 발송 실패 조사]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures)를 참조하세요.
 
 #### 최종 사용자 차단 및 보고 측정기준 {#end-user-blocking-and-reporting-metrics}
 

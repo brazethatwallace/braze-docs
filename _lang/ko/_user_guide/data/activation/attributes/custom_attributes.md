@@ -24,9 +24,9 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구�
 - 로열티 등급, 구독 상태, 선호 언어, 요금제 유형 등의 특성을 기반으로 사용자를 세분화하여 오디언스를 타겟팅하거나 제외
 - 사용자의 이름, 리워드 포인트, 선호 카테고리 등의 속성을 참조하여 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)로 메시지 개인화
 - 온보딩 단계, 계정 상태, 체험판 종료일 등 라이프사이클 단계 및 사용자 상태 추적
-- 사용자가 기능을 볼 때마다 `feature_views_count` 속성을 증가시키는 것처럼 [숫자 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#numbers)으로 가치가 낮은 동작 횟수 기록
-- `last_support_ticket_at` 또는 `last_password_reset_at`처럼 [시간 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#time)을 사용하여 가치가 낮은 동작이 마지막으로 발생한 시점 기록
-- 선호 장르나 최근 조회한 콘텐츠 등을 [배열]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays)로 저장하여 관심사 기반 타겟팅에 활용
+- 사용자가 기능을 볼 때마다 `feature_views_count` 속성을 증가시키는 것처럼 [숫자 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)으로 가치가 낮은 동작 횟수 기록
+- `last_support_ticket_at` 또는 `last_password_reset_at`처럼 [시간 속성]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)을 사용하여 가치가 낮은 동작이 마지막으로 발생한 시점 기록
+- 선호 장르나 최근 조회한 콘텐츠 등을 [배열]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)로 저장하여 관심사 기반 타겟팅에 활용
 - 구조화된 선호도나 여러 저장된 주소 등 더 풍부한 프로필 데이터를 [오브젝트]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) 또는 [오브젝트 배열]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)로 저장
 - 사용자의 `rewards_tier`가 변경될 때 등급 상승 알림을 보내는 것처럼 [속성 트리거]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers)를 사용하여 속성 값이 변경될 때 액션 기반 메시지 트리거
 
@@ -75,7 +75,7 @@ Braze에 저장된 커스텀 속성을 사용하여 오디언스 Segment를 구�
 고객 프로필에서 커스텀 속성을 제거하는 방법은 두 가지가 있습니다:
 
 * [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#removing-custom-attributes)에서 제거할 커스텀 속성 이름을 선택합니다.
-* [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track)에 대한 API 요청에서 `null` 값을 설정합니다.
+* [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)에 대한 API 요청에서 `null` 값을 설정합니다.
 
 ### 데이터 내보내기 {#export-data}
 

@@ -41,15 +41,15 @@ Führen Sie diese Schritte aus, um Ihre AWS-Secret-Key-Authentifizierungsmethode
 
 ![Schlüsseleinstellungen konfigurieren mit den ausgewählten Optionen „Symmetric“, „Generate and Verify MAC“ und „HMAC_256“.]({% image_buster /assets/img/field_level_encryption_aws_prereq.png %})
 
-## 1. Schritt: Verbinden Sie Ihre AWS-KMS-Schlüssel {#step-1-connect-your-aws-kms-keys}
+## Schritt 1: Verbinden Sie Ihre AWS-KMS-Schlüssel {#step-1-connect-your-aws-kms-keys}
 
-Gehen Sie im Braze-Dashboard zu **Dateneinstellungen** > **Verschlüsselung auf Feldebene**. Geben Sie für Ihre AWS-KMS-Einstellungen Folgendes ein:
+Gehen Sie im Braze-Dashboard zu **Data Settings** > **Field-Level Encryption**. Geben Sie für Ihre AWS-KMS-Einstellungen Folgendes ein:
 
 - Zugriffsschlüssel-ID
 - Geheimer Zugangsschlüssel
 - HMAC-Schlüssel-ID (kann nach dem Speichern nicht mehr aktualisiert werden)
 
-## 2. Schritt: Wählen Sie Ihre verschlüsselten Felder aus {#step-2-select-your-encrypted-fields}
+## Schritt 2: Wählen Sie Ihre verschlüsselten Felder aus {#step-2-select-your-encrypted-fields}
 
 Wählen Sie anschließend **Email address**, um das Feld zu verschlüsseln.
 
@@ -57,7 +57,7 @@ Wenn die Verschlüsselung für ein Feld aktiviert ist, kann es nicht wieder in e
 
 ![Einstellungen für die Verschlüsselung auf Feldebene.]({% image_buster /assets/img/field_level_encryption.png %})
 
-## 3. Schritt: Nutzer:innen importieren und aktualisieren {#step-3-import-and-update-users}
+## Schritt 3: Nutzer:innen importieren und aktualisieren {#step-3-import-and-update-users}
 
 Wenn die Verschlüsselung auf Bezeichner-Feldebene aktiviert ist, müssen Sie die E-Mail-Adresse vor dem Hinzufügen zu Braze hashen und verschlüsseln. Vergewissern Sie sich, dass Sie die E-Mail-Adresse vor dem Hashing in Kleinbuchstaben umwandeln. Weitere Einzelheiten finden Sie unter [Nutzer:innen-Attribute-Objekt](#user-attributes-object).
 
@@ -87,7 +87,7 @@ Diese Features werden bei der Verschlüsselung auf Bezeichner-Feldebene nicht un
 
 ### Nutzer:innen-Attribute-Objekt {#user-attributes-object}
 
-Wenn Sie die Verschlüsselung auf Bezeichner-Feldebene mit dem Endpunkt `/users/track` verwenden, beachten Sie diese Felddetails für das [Nutzer:innen-Attribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens):
+Wenn Sie die Verschlüsselung auf Bezeichner-Feldebene mit dem Endpunkt `/users/track` verwenden, beachten Sie diese Felddetails für das [Nutzer:innen-Attribute-Objekt]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens):
 
 - Das Feld `email` muss der Hash-Wert der E-Mail sein.
 - Das Feld `email_encrypted` muss der verschlüsselte Wert für die E-Mail sein.

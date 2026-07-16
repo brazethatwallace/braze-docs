@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 5
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Actualizar un centro de preferencias de Braze."
+description: "En este artículo se describen los detalles del endpoint Actualizar un centro de preferencias de Braze."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /preference_center/v1/{preferenceCenterExternalID}
 {% endapimethod %}
 
-> Utiliza este punto de conexión para actualizar un centro de preferencias.
+> Utiliza este endpoint para actualizar un centro de preferencias.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#bf1b43db-3f1b-461f-ad9a-2fbe35b804d7 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `preference_center.update`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `preference_center.update`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -69,7 +69,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `preference_center_page_html` | Obligatorio | Cadena | El HTML de la página del centro de preferencias. |
-| `preference_center_title` | Opcional | Cadena | El título del centro de preferencias y las páginas de confirmación. Si no se especifica un título, el de las páginas será por defecto "Preference Center". |
+| `preference_center_title` | Opcional | Cadena | El título del centro de preferencias y las páginas de confirmación. Si no se especifica un título, el título de las páginas será por defecto "Preference Center". |
 | `confirmation_page_html` | Obligatorio | Cadena | El HTML de la página de confirmación. |
 | `state` | Opcional | Cadena | Elige `active` o `draft`. |
 | `options` | Opcional | Objeto | Atributos: <br>`meta-viewport-content`: cuando esté presente, se añadirá una metaetiqueta `viewport` a la página con `content= <value of attribute>`.<br><br> `link-tags`: establece un favicon para la página. Cuando se establece, se añade a la página una etiqueta `<link>` con un atributo rel. |

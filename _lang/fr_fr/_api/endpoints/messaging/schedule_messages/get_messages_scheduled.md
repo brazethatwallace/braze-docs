@@ -22,7 +22,7 @@ Les messages quotidiens et récurrents n'apparaîtront qu'une seule fois avec le
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `messages.schedule_broadcasts`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `messages.schedule_broadcasts`.
 
 ## Limite de débit {#rate-limit}
 

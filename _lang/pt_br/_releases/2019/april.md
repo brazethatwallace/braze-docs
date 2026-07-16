@@ -10,11 +10,11 @@ description: "Este artigo contém notas de versão de abril de 2019."
 
 ## Novos eventos e campos do Currents {#new-currents-events-fields}
 
-Além de algumas correções na seção, um novo [Evento de inscrição]({{ site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events/#subscription-events) foi adicionado à página de eventos de engajamento com mensagem.
+Além de algumas correções na seção, um novo [Evento de inscrição]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) foi adicionado à página de eventos de engajamento com mensagem.
 
 Agora você pode exportar os dados de alteração de estado do grupo de inscrições da Braze para o [Segment]({{site.baseurl}}/partners/data_and_infrastructure_agility/customer_data_platform/segment_for_currents#integration-details) e o [mParticle]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents), bem como esses dados e os eventos de atribuição de instalação no [Mixpanel]({{site.baseurl}}/partners/data_and_analytics/analytics/mixpanel).
 
-Além disso, a propriedade `canvas_step_id` foi adicionada aos [eventos de conversão]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#conversion-events) disponíveis.
+Além disso, a propriedade `canvas_step_id` foi adicionada aos [eventos de conversão]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) disponíveis.
 
 {% alert important %}
 Para aproveitar essas atualizações, será necessário editar as configurações do conector do Currents e ativar os eventos que deseja usar. Entre em contato com o gerente da sua conta se tiver alguma dúvida.

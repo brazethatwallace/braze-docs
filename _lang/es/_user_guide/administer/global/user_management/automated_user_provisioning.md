@@ -149,6 +149,10 @@ Inicia sesión en tu centro de administración de Microsoft Entra.
 3. Revisa y configura la sección **Attribute Mapping** para que coincida con los atributos que aparecen en la tabla de la página **Setup SCIM provisioning**.
 4. Cierra la página **Attribute Mapping**.
 
+{% alert important %}
+El atributo `userName` debe coincidir exactamente con la dirección de correo electrónico del usuario en Braze para que SCIM pueda identificar y administrar correctamente a los usuarios. Los usuarios que fueron aprovisionados manualmente en Braze antes de habilitar SCIM no se convertirán automáticamente en usuarios administrados por el IdP, incluso si se añaden a la aplicación SCIM. Su método de aprovisionamiento permanece manual.
+{% endalert %}
+
 ## Paso 2: Asignar usuarios a la aplicación
 
 1. Ve a **Manage** > **Users and Groups**.

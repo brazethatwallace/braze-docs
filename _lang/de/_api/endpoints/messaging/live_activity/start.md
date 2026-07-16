@@ -72,7 +72,7 @@ Um diesen Endpunkt zu verwenden, müssen Sie Folgendes tun:
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |-----------|----------|----------|--------------|
-| `app_id` | Erforderlich | String | [API-Bezeichner]({{site.baseurl}}/api/identifier_types#the-app-identifier) der App, abgerufen von der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). |
+| `app_id` | Erforderlich | String | [API-Bezeichner]({{site.baseurl}}/api/identifier_types#app-identifier) der App, abgerufen von der Seite [API-Schlüssel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/apis_and_identifiers). |
 | `activity_id` | Erforderlich | String | Definieren Sie einen angepassten String als Ihre `activity_id`. Sie verwenden diese ID, wenn Sie Update- oder End-Ereignisse an Ihre Live-Aktivität senden möchten. |
 | `activity_attributes_type` | Erforderlich | String | Der Aktivitätsattribut-Typ, den Sie unter `liveActivities.registerPushToStart` in Ihrer App definieren. |
 | `activity_attributes` | Erforderlich | Objekt | Die statischen Attributwerte für den Aktivitätstyp (z. B. die Namen der Sportteams, die sich nicht ändern). |
@@ -84,7 +84,7 @@ Um diesen Endpunkt zu verwenden, müssen Sie Folgendes tun:
 | `custom_audience` | Optional, wenn `external_user_ids` oder `segment_id` bereitgestellt wird | Verbundenes Zielgruppen-Objekt | Siehe [verbundene Zielgruppe]({{site.baseurl}}/api/objects_filters/connected_audience). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Anfrageparameter" }
 
-Bei diesem Endpunkt übergeben Sie verbundene Zielgruppen-Filter in `custom_audience`.
+Bei diesem Endpunkt übergeben Sie verbundene Zielgruppenfilter in `custom_audience`.
 
 ## Beispielanfrage {#example-request}
 

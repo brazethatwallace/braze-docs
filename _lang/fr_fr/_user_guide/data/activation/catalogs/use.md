@@ -56,7 +56,7 @@ Vous pouvez exporter des catalogues depuis le tableau de bord de deux manières 
 
 Vous recevrez un e-mail pour télécharger le fichier CSV après avoir lancé l'exportation. Vous disposerez de quatre heures pour récupérer ce fichier.
 
-## Cas d'utilisation supplémentaires {#additional-use-cases}
+## Cas d'usage supplémentaires {#additional-use-cases}
 
 ### Plusieurs éléments {#multiple-items}
 
@@ -145,11 +145,11 @@ Par exemple, pour ajouter le `image_link` de notre catalogue Games à notre mess
 ```
 {% endraw %}
 
-![Éditeur de carte de contenu avec une balise Liquid de catalogue utilisée dans le champ d'image.]({% image_buster /assets/img_archive/catalog_image_link1.png %})
+![Éditeur de content card avec une balise Liquid de catalogue utilisée dans le champ d'image.]({% image_buster /assets/img_archive/catalog_image_link1.png %})
 
 Voici à quoi cela ressemble une fois le Liquid rendu :
 
-![Exemple de carte de contenu avec rendu des balises Liquid du catalogue.]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
+![Exemple de content card avec rendu des balises Liquid du catalogue.]({% image_buster /assets/img_archive/catalog_image_link2.png %}){: style="max-width:50%" }
 
 {% alert important %}
 Dans les canaux **HTML** tels que l'e-mail, évitez les espaces ou sauts de ligne supplémentaires entre la balise de fermeture `{% raw %}{% catalog_items ... %}{% endraw %}` et le Liquid qui affiche l'URL de l'image (par exemple, `{% raw %}{{ items[0].image_link }}{% endraw %}`). Les espaces supplémentaires dans le modèle peuvent empêcher la résolution correcte de l'URL de l'image dans le message rendu. Gardez l'expression d'URL immédiatement adjacente à la balise du catalogue, comme ceci : `{% raw %}<img src="{% catalog_items Games 1234 %}{{ items[0].image_link }}">{% endraw %}`.
@@ -174,7 +174,7 @@ Vous pouvez également utiliser les modèles pour extraire dynamiquement des él
 Les objets JSON dans les catalogues ne sont ingérés que via l'API. Vous ne pouvez pas importer un objet JSON à l'aide d'un fichier CSV.
 {% endalert %}
 
-Grâce au modèle Liquid, vous pouvez extraire dynamiquement les ID de la liste de souhaits, puis les utiliser dans votre message. Pour ce faire, [affectez une variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) à votre attribut personnalisé, puis utilisez la fenêtre modale **Add Personalization** pour extraire un élément spécifique du tableau. Les variables référencées comme ID d'élément du catalogue doivent être placées entre accolades pour être correctement référencées, comme `{{result}}`.
+Grâce au modèle Liquid, vous pouvez extraire dynamiquement les ID de la liste de souhaits, puis les utiliser dans votre message. Pour ce faire, [affectez une variable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) à votre attribut personnalisé, puis utilisez la fenêtre modale **Add Personalization** pour extraire un élément spécifique du tableau. Les variables référencées comme ID d'élément du catalogue doivent être placées entre accolades pour être correctement référencées, comme `{{result}}`.
 
 {% alert tip %}
 N'oubliez pas que les tableaux commencent à `0` et non à `1`.
@@ -206,7 +206,7 @@ Vous pouvez également composer manuellement des catalogues avec la logique Liqu
 
 #### Modélisation d'éléments de catalogue incluant du Liquid
 
-Tout comme pour le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), vous devez utiliser le drapeau `:rerender` dans une balise Liquid pour afficher le contenu Liquid d'un élément du catalogue. Notez que le drapeau `:rerender` ne s'applique qu'à un seul niveau de profondeur : il ne s'appliquera pas aux appels de balises Liquid imbriquées.
+Tout comme pour le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), vous devez utiliser le drapeau `:rerender` dans une balise Liquid pour afficher le contenu Liquid d'un élément du catalogue. Notez que le drapeau `:rerender` ne s'applique qu'à un seul niveau de profondeur : il ne s'appliquera pas aux appels de balises Liquid imbriquées.
 
 Si un élément du catalogue contient des champs de profil utilisateur (dans une balise de personnalisation Liquid), ces valeurs doivent être définies en Liquid plus tôt dans le message, avant la modélisation, afin de garantir le bon rendu du Liquid. Si le drapeau `:rerender` n'est pas fourni, le contenu Liquid brut sera restitué.
 
@@ -251,15 +251,15 @@ Si le Liquid d'un catalogue ou d'une sélection ne s'affiche pas comme prévu da
 | `:rerender` ou la distribution modélisée semble incorrecte | Pour le Liquid imbriqué dans les champs du catalogue, vous avez besoin de `:rerender` et d'un ordonnancement correct des variables — voir [Modélisation d'éléments de catalogue incluant du Liquid](#templating-catalog-items-including-liquid). Les messages in-app modélisés sont résolus au moment du déclenchement ; voir [Que sont les messages in-app modélisés ?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#what-are-templated-in-app-messages). Certains canaux restreignent les balises de catalogue (par exemple, certaines utilisations de **:rerender** avec les bannières) — voir [Toutes les balises Liquid sont-elles prises en charge ?]({{site.baseurl}}/user_guide/channels/banners/faq#are-all-liquid-tags-supported) dans la FAQ des bannières. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Résolution des problèmes de personnalisation des catalogues" }
 
-Pour le comportement général de Liquid, voir [Cas d'utilisation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) et [Utiliser Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
+Pour le comportement général de Liquid, voir [Cas d'usage Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) et [Utiliser Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid).
 
 ## Structurer les données de votre catalogue
 
-Lorsque vous planifiez la structure des données de votre catalogue, partez de votre cas d'utilisation et concevez le catalogue en conséquence. Chaque ligne du catalogue représente un élément (avec un `id` unique). Les colonnes doivent contenir les attributs de cet élément, tels que les URL, le texte descriptif, les URL d'images, le prix, la note, la taille ou la couleur.
+Lorsque vous planifiez la structure des données de votre catalogue, partez de votre cas d'usage et concevez le catalogue en conséquence. Chaque ligne du catalogue représente un élément (avec un `id` unique). Les colonnes doivent contenir les attributs de cet élément, tels que les URL, le texte descriptif, les URL d'images, le prix, la note, la taille ou la couleur.
 
 ### Quand utiliser les appels de catalogue standard
 
-Avec les appels de catalogue standard, vous faites correspondre une valeur à la colonne `id`. En insérant un attribut personnalisé ou une propriété d'événement (sous forme de chaîne de caractères d'ID) dans la balise Liquid du catalogue, vous pouvez récupérer plusieurs attributs d'un même élément dans votre message. Les cas d'utilisation courants incluent :
+Avec les appels de catalogue standard, vous faites correspondre une valeur à la colonne `id`. En insérant un attribut personnalisé ou une propriété d'événement (sous forme de chaîne de caractères d'ID) dans la balise Liquid du catalogue, vous pouvez récupérer plusieurs attributs d'un même élément dans votre message. Les cas d'usage courants incluent :
 
 - Produit ou service récemment consulté
 - Éléments de la liste de souhaits
@@ -270,7 +270,7 @@ Avec les appels de catalogue standard, vous faites correspondre une valeur à la
 
 ### Quand utiliser les sélections de catalogue
 
-Les [sélections de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) vous permettent de filtrer sur n'importe quelle colonne de votre catalogue et de renvoyer jusqu'à 50 éléments correspondants. En insérant des attributs personnalisés ou des propriétés d'événement dans les filtres de sélection, les résultats sont personnalisés pour chaque utilisateur. Les cas d'utilisation courants incluent :
+Les [sélections de catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) vous permettent de filtrer sur n'importe quelle colonne de votre catalogue et de renvoyer jusqu'à 50 éléments correspondants. En insérant des attributs personnalisés ou des propriétés d'événement dans les filtres de sélection, les résultats sont personnalisés pour chaque utilisateur. Les cas d'usage courants incluent :
 
 - Éléments dont la catégorie correspond aux préférences de l'utilisateur
 - Éléments correspondant à la marque, la cuisine ou la taille préférée de l'utilisateur

@@ -109,8 +109,8 @@ toc_headers: h2
 
 고객 프로필에서 커스텀 속성을 제거하는 방법은 두 가지입니다:
 
-* [사용자 업데이트 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes)에서 제거할 커스텀 속성 이름을 선택합니다.
-* [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track)에 대한 API 요청에서 `null` 값을 설정합니다.
+- [사용자 업데이트 단계]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes)에서 제거할 커스텀 속성 이름을 선택합니다.
+- [`/users/track` 엔드포인트]({{site.baseurl}}/api/endpoints/user_data/post_user_track)에 대한 API 요청에서 `null` 값을 설정합니다.
 
 #### `null` 값 설정 {#setting-the-null-value}
 
@@ -147,10 +147,10 @@ toc_headers: h2
 
 - [Android 및 FireOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=android)
 - [iOS]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=swift)
-- [Web]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
+- [웹]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=web)
 - [React Native]({{site.baseurl}}/developer_guide/platform_integration_guides/react_native/analytics#logging-custom-attributes)
 - [Unity]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes?sdktab=unity)
-- [.NET MAUI (이전 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
+- [.NET MAUI(이전 Xamarin)]({{site.baseurl}}/developer_guide/platform_integration_guides/xamarin/analytics#setting-custom-attributes)
 - [Roku]({{site.baseurl}}/developer_guide/analytics/setting_user_attributes)
 
 {% enddetails %}
@@ -173,7 +173,7 @@ toc_headers: h2
 - [오브젝트]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
 - [오브젝트 배열]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
-### 부울 (참/거짓) {#booleans}
+### 부울(참/거짓) {#booleans}
 
 부울 속성은 구독 상태와 같은 사용자에 대한 간단한 이진 데이터를 저장하는 데 유용합니다. 변수가 명시적으로 참 또는 거짓 값으로 설정된 사용자뿐만 아니라, 해당 속성이 아직 기록되지 않은 사용자도 찾을 수 있습니다.
 
@@ -265,6 +265,7 @@ toc_headers: h2
 
 {% alert tip %}
 정규표현식(regex) 사용 방법에 대한 자세한 내용은 다음 리소스를 참조하세요:
+
 - [Perl 호환 정규표현식(PCRE)](https://www.regextester.com/pregsyntax.html)
 - [Braze에서의 정규식]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [정규식 디버거 및 테스터](https://www.regex101.com/)
@@ -343,7 +344,7 @@ toc_headers: h2
 
 이벤트 속성정보 관련 규칙:
 
-- **시간 (Datetime):** [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 또는 `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 형식을 사용합니다. 배열 내에서는 지원되지 않습니다.
+- **시간(Datetime):** [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 또는 `yyyy-MM-dd'T'HH:mm:ss:SSSZ` 형식을 사용합니다. 배열 내에서는 지원되지 않습니다.
 - **배열:** 배열 내에서는 날짜/시간이 지원되지 않습니다.
 - **중첩 오브젝트:** [중첩 오브젝트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)를 참조하세요.
 - **페이로드:** 배열 또는 오브젝트 값을 포함하는 이벤트 속성정보 오브젝트는 최대 102,400바이트(100&nbsp;KiB)까지 가능합니다.
@@ -399,8 +400,8 @@ toc_headers: h2
 | 숫자 | 정수 또는 플로트 숫자 값(예: 가격, 수량, 평점). | ✅ 예 | ✅ 예 |
 | 부울 | `true` 또는 `false` 값. | ✅ 예 | ✅ 예 |
 | 시간 | [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) 형식 또는 초 단위 Unix 타임스탬프의 날짜 및 시간. | ✅ 예 | ✅ 예 |
-| JSON 오브젝트 (오브젝트) | 키-값 페어가 있는 중첩 오브젝트. 플랫폼에 표시되지만 API 또는 CDI를 통해서만 생성하거나 업데이트할 수 있습니다. | ❌ 아니요 | ✅ 예 |
-| 문자열 배열 (배열) | 문자열 목록. 플랫폼에 표시되지만 API 또는 CDI를 통해서만 생성하거나 업데이트할 수 있습니다. 최대 100개 요소. | ❌ 아니요 | ✅ 예 |
+| JSON 오브젝트(오브젝트) | 키-값 페어가 있는 중첩 오브젝트. 플랫폼에 표시되지만 API 또는 CDI를 통해서만 생성하거나 업데이트할 수 있습니다. | ❌ 아니요 | ✅ 예 |
+| 문자열 배열(배열) | 문자열 목록. 플랫폼에 표시되지만 API 또는 CDI를 통해서만 생성하거나 업데이트할 수 있습니다. 최대 100개 요소. | ❌ 아니요 | ✅ 예 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Catalog data types #catalog-data-types" }
 
 ### 형식 및 예시 {#format-and-examples}

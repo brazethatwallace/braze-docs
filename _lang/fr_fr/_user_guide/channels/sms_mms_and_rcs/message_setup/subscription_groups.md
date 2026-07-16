@@ -40,7 +40,7 @@ Pour définir l'état du groupe d'abonnement d'un utilisateur, utilisez l'une de
 - **Intégration SDK :** Les utilisateurs peuvent être ajoutés à un groupe d'abonnement e-mail ou SMS et RCS en utilisant la méthode `addToSubscriptionGroup` pour [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)) ou [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup).
 - **Formulaire IAM de capture de numéro de téléphone :** Les numéros de téléphone des utilisateurs peuvent être collectés via le modèle de capture de numéro de téléphone dans l'éditeur glisser-déposer de messages in-app.
 - **Gestion automatique lors de l'abonnement ou du désabonnement de l'utilisateur :** Lorsque les utilisateurs envoient par SMS un [mot-clé]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout) d'abonnement ou de désabonnement par défaut, Braze définit et met à jour automatiquement l'état d'abonnement des utilisateurs.
-- **Importation d'utilisateurs :** Les utilisateurs peuvent être ajoutés à des groupes d'abonnement e-mail ou SMS et RCS via **Importer des utilisateurs**. Lors de la mise à jour du statut du groupe d'abonnement, vous devez avoir ces deux colonnes dans votre CSV : `subscription_group_id` et `subscription_state`. Consultez [Importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status) pour plus d'informations.
+- **Importation d'utilisateurs :** Les utilisateurs peuvent être ajoutés à des groupes d'abonnement e-mail ou SMS et RCS via **Importer des utilisateurs**. Lors de la mise à jour du statut du groupe d'abonnement, vous devez avoir ces deux colonnes dans votre CSV : `subscription_group_id` et `subscription_state`. Consultez [Importation d'utilisateurs]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) pour plus d'informations.
 
 #### Mettre à jour l'état d'un utilisateur dans un Canvas {#update-a-users-state-in-a-canvas}
 
@@ -92,9 +92,9 @@ Un expéditeur vérifié RCS doit être présent dans votre groupe d'abonnement 
 Il existe deux façons d'ajouter un expéditeur vérifié RCS :
 - L'ajouter à un groupe d'abonnement existant
 - Créer un nouveau groupe d'abonnement RCS
-Le choix dépend en grande partie des cas d'utilisation RCS qui vous intéressent.
+Le choix dépend en grande partie des cas d'usage RCS qui vous intéressent.
 
-Selon votre intégration, Braze peut ajouter des expéditeurs vérifiés RCS à vos groupes d'abonnement SMS existants ou configurer de nouveaux groupes d'abonnement pour vous. Dans les deux cas, votre gestionnaire de la satisfaction client vous guidera à travers une mise à niveau fluide et efficace du trafic SMS.
+Selon votre intégration, Braze peut ajouter des expéditeurs vérifiés RCS à vos groupes d'abonnement SMS existants ou configurer de nouveaux groupes d'abonnement pour vous. Dans les deux cas, votre gestionnaire du succès des clients vous guidera à travers une mise à niveau fluide et efficace du trafic SMS.
 {% endtab %}
 {% endtabs %}
 
@@ -107,7 +107,7 @@ Pour une gestion complète des abonnements, vous pouvez capturer les intentions 
 1. Dans la [console des agents]({{site.baseurl}}/user_guide/brazeai/agents), créez un « Agent d'analyse de sentiment SMS ».
 
 {% alert tip %}
-Utilisez [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference#canvas-agent-examples) pour vous aider dans la configuration initiale de l'agent.
+Utilisez [Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator) pour vous aider dans la configuration initiale de l'agent.
 {% endalert %}
 
 {: start="2"}
@@ -202,6 +202,6 @@ Choisissez des noms de groupes d'abonnement descriptifs et clairs afin que le bo
 
 Les réglementations SMS varient selon les pays. Nous suggérons de séparer les groupes d'abonnement SMS par pays. Cela vous aide à respecter les normes de conformité dans toutes les régions où vous envoyez des messages.
 
-Pour chaque groupe d'abonnement, vous pouvez également configurer une liste de pays autorisés sous **Geographic Permissions** afin que les SMS, MMS et RCS ne soient envoyés qu'aux régions approuvées. Pour en savoir plus, consultez [Autorisations géographiques]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions).
+Pour chaque groupe d'abonnement, vous pouvez également configurer une liste de pays autorisés sous **Autorisations géographiques** afin que les SMS, MMS et RCS ne soient envoyés qu'aux régions approuvées. Pour en savoir plus, consultez [Autorisations géographiques]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_setup/subscription_groups/geographic_permissions).
 
 Par exemple, au Brésil, l'envoi de messages marketing en dehors des heures de 9 h à 21 h heure locale est interdit, et le pays couvre trois fuseaux horaires. Pour respecter ces réglementations, vous pourriez configurer des groupes distincts pour l'envoi de messages au Brésil et aux États-Unis. Cela empêche les utilisateurs au Brésil de recevoir des messages marketing pendant les heures interdites.

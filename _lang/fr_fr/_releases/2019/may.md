@@ -25,7 +25,7 @@ Vous devrez mettre à jour vers une version prise en charge du SDK Braze :
 - Android : 2.6.0 ou ultérieure
 - Web : 2.2.0 ou ultérieure
 
-[Pour en savoir plus sur les Content Cards, cliquez ici !]({{site.baseurl}}/user_guide/channels/content_cards/)
+[Pour en savoir plus sur les Content Cards, cliquez ici !]({{site.baseurl}}/user_guide/channels/content_cards)
 
 {% alert update %}
 Les Content Cards pour Currents et notre documentation API pour les Content Cards seront lancées plus tard cette semaine. Restez à l'écoute !
@@ -37,26 +37,26 @@ Braze a ajouté un nouveau canal à ses capacités ! En proposant de nouveaux ca
 
 Vous pouvez désormais [récupérer les données des appareils Roku]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=roku) à des fins d'enrichissement des données et de suivi des événements personnalisés.
 
-## Préférences de notification pour les mises à jour de Canvas ou de campagne {#notification-preferences-for-canvas-or-campaign-updates}
+## Préférences de notification pour les mises à jour de Canvas ou de Campaign {#notification-preferences-for-canvas-or-campaign-updates}
 
-Cette [nouvelle notification]({{site.baseurl}}/user_guide/administrative/company_settings/notification_preferences/#notification-preferences) vous alertera par e-mail lorsqu'une campagne ou un Canvas est activé, mis à jour, réactivé ou désactivé. Activez cette fonction dans les **Préférences de notification** de votre compte Braze.
+Cette [nouvelle notification]({{site.baseurl}}/user_guide/administrative/company_settings/notification_preferences#notification-preferences) vous alertera par e-mail lorsqu'une Campaign ou un Canvas est activé, mis à jour, réactivé ou désactivé. Activez cette fonction dans les **Préférences de notification** de votre compte Braze.
 
 ## Documentation du partenaire technologique Jampp {#jampp-technology-partner-documentation}
 
 Jampp est une plateforme de performance marketing utilisée pour acquérir et recibler les clients mobiles. Jampp combine des données comportementales avec une technologie prédictive et programmatique pour générer du chiffre d'affaires pour les annonceurs en montrant des publicités personnelles et pertinentes qui inspirent les consommateurs à acheter pour la première fois, ou plus souvent.
 
-Les clients de Braze peuvent [s'intégrer à Jampp]({{site.baseurl}}/partners/jampp/) en configurant le canal webhook de Braze pour diffuser les événements dans Jampp. Les clients ont ainsi la possibilité d'ajouter des ensembles de données plus riches à leurs initiatives de reciblage avec Jampp au sein de l'écosystème de publicité mobile.
+Les clients de Braze peuvent [s'intégrer à Jampp]({{site.baseurl}}/partners/jampp) en configurant le canal webhook de Braze pour diffuser les événements dans Jampp. Les clients ont ainsi la possibilité d'ajouter des ensembles de données plus riches à leurs initiatives de reciblage avec Jampp au sein de l'écosystème de publicité mobile.
 
 ## Sélecteur de plateforme pour les messages in-app {#platform-picker-for-in-app-messages}
 
-Notre sélecteur de plateforme facilite la sélection de la destination de vos messages in-app et des plateformes pour lesquelles ils sont conçus, en mettant l'accent sur cette étape dans le processus de création de campagne.
+Notre sélecteur de plateforme facilite la sélection de la destination de vos messages in-app et des plateformes pour lesquelles ils sont conçus, en mettant l'accent sur cette étape dans le processus de création de Campaign.
 
 ![Sélecteur de plateforme]({% image_buster /assets/img/iam_platforms.gif %})
 
 ## Champ Dispatch ID de Currents pour l'e-mail {#dispatch-id-currents-field-for-email}
 
 {% alert update %}
-Le comportement de `dispatch_id` diffère entre Canvas et les campagnes, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». En savoir plus sur le [comportement de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) dans Canvas et les campagnes.
+Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». En savoir plus sur le [comportement de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) dans Canvas et les Campaigns.
 
 _Mise à jour notée en août 2019._
 {% endalert %}
@@ -65,17 +65,17 @@ Pour continuer à améliorer les capacités de Currents, nous ajoutons `dispatch
 
 Le `dispatch_id` est l'ID unique généré pour chaque transmission (« dispatch ») envoyée depuis la plateforme Braze.
 
-Alors que tous les clients qui reçoivent un message planifié obtiennent le même `dispatch_id`, les clients qui reçoivent des messages basés sur des actions ou déclenchés par API auront un `dispatch_id` unique par message. Le champ `dispatch_id` vous permet d'identifier l'instance d'une campagne récurrente qui est responsable de la conversion, ce qui vous fournit davantage d'informations sur les types de campagnes qui contribuent à atteindre vos objectifs métier.
+Alors que tous les clients qui reçoivent un message planifié obtiennent le même `dispatch_id`, les clients qui reçoivent des messages basés sur des actions ou déclenchés par API auront un `dispatch_id` unique par message. Le champ `dispatch_id` vous permet d'identifier l'instance d'une Campaign récurrente qui est responsable de la conversion, ce qui vous fournit davantage d'informations sur les types de Campaigns qui contribuent à atteindre vos objectifs métier.
 
-## Fonction de tri « Only Show Mine » pour les campagnes {#only-show-mine-campaign-sorting-feature}
+## Fonction de tri « Only Show Mine » pour les Campaigns {#only-show-mine-campaign-sorting-feature}
 
-Quand un utilisateur coche la case `Only Show Mine` sur la grille des campagnes, les résultats affichés montreront uniquement les campagnes créées par l'utilisateur actuellement connecté. De plus, l'utilisateur peut utiliser la barre de recherche en saisissant `created_by_me:true`.
+Quand un utilisateur coche la case `Only Show Mine` sur la grille des Campaigns, les résultats affichés montreront uniquement les Campaigns créées par l'utilisateur actuellement connecté. De plus, l'utilisateur peut utiliser la barre de recherche en saisissant `created_by_me:true`.
 
-Et la barre latérale de la grille des campagnes est maintenant redimensionnable !
+Et la barre latérale de la grille des Campaigns est maintenant redimensionnable !
 
 ## Supprimer les utilisateurs par alias {#delete-users-by-alias}
 
-Vous pouvez désormais utiliser l'endpoint `users/delete` pour [supprimer des utilisateurs par alias]({{site.baseurl}}/api/endpoints/user_data/#user-delete-request) !
+Vous pouvez désormais utiliser l'endpoint `users/delete` pour [supprimer des utilisateurs par alias]({{site.baseurl}}/api/endpoints/user_data/post_user_delete) !
 
 ## Calcul unique pour les clics et les ouvertures d'e-mails {#unique-calculation-for-email-clicks-and-opens}
 
@@ -83,12 +83,12 @@ Les clics uniques et les ouvertures uniques pour l'e-mail sont désormais captur
 
 L'utilisation de `dispatch_id` permet aux messages récurrents de refléter le nombre réel d'ouvertures uniques ou de clics uniques de chaque message. Il sera facile pour les clients de faire correspondre ces données, maintenant que le `dispatch_id` est disponible dans Currents.
 
-Tous les utilisateurs sur Mailjet verront un pic dans ces chiffres, étant donné que la période d'unicité précédente était de plus de 30 jours. Vous auriez dû être averti de cette modification il y a trois (3) semaines. Les clients de SendGrid ne devraient pas voir de différence.
+Tous les utilisateurs sur Mailjet verront un pic dans ces chiffres, étant donné que la période d'unicité précédente était de plus de 30 jours. Vous auriez dû être averti de cette modification il y a trois (3) semaines. Les clients de Sendgrid ne devraient pas voir de différence.
 
-Vous pouvez rechercher ces termes actualisés dans notre [glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary/).
+Vous pouvez rechercher ces termes actualisés dans notre [glossaire des indicateurs de rapport]({{site.baseurl}}/user_guide/analytics/metrics_glossary).
 
 {% alert update %}
-Le comportement de `dispatch_id` diffère entre Canvas et les campagnes, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». [En savoir plus sur le comportement de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id/) dans Canvas et les campagnes.
+Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns, car Braze traite les étapes du Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». [En savoir plus sur le comportement de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) dans Canvas et les Campaigns.
 
 _Mise à jour notée en août 2019._
 {% endalert %}
@@ -96,7 +96,7 @@ _Mise à jour notée en août 2019._
 ## Canal le plus engagé {#most-engaged-channel}
 
 {% alert update %}
-À partir de la [version du produit de novembre 2019]({{site.baseurl}}/help/release_notes/2019/november/#intelligence-suite), le « canal le plus engagé » a été renommé [« canal intelligent »]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel/).
+À partir de la [version du produit de novembre 2019]({{site.baseurl}}/help/release_notes/2019/november#intelligence-suite), le « canal le plus engagé » a été renommé [« canal intelligent »]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel).
 {% endalert %}
 
 Le filtre du canal le plus engagé sélectionne la partie de votre audience pour qui le canal de communication sélectionné est le « meilleur » canal. Dans ce cas, « le meilleur » signifie celui qui a la plus forte probabilité d'engagement, compte tenu de l'historique de l'utilisateur. Vous pouvez sélectionner l'e-mail, les notifications push Web ou les notifications push sur mobile (qui inclut tout système d'exploitation ou appareil mobile disponible) comme canal.

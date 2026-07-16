@@ -60,7 +60,7 @@ Você pode gerenciar suas próprias respostas que são enviadas aos usuários de
 
 1. No dashboard da Braze, acesse **Audience** > **Subscription Group Management** e selecione um grupo de inscrições **SMS/MMS/RCS**. <br><br>
 2. Em **Global Keywords**, selecione uma categoria de palavra-chave para editar uma resposta selecionando o ícone de lápis. ![Palavras-chave de opt-in com o ícone de lápis exibido.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. Na guia que se abre, edite sua resposta. Tenha em mente nossas [seis regras para garantir a conformidade]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-six-rules-to-get-compliance-right) ao criar sua resposta, e leia as regras a seguir que se aplicam a palavras-chave e respostas de palavras-chave.<br><br>
+3. Na guia que se abre, edite sua resposta. Tenha em mente nossas [seis regras para garantir a conformidade]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-seven-rules-to-get-compliance-right) ao criar sua resposta, e leia as regras a seguir que se aplicam a palavras-chave e respostas de palavras-chave.<br><br>
 4. Para encurtar automaticamente URLs estáticas em sua resposta, selecione o botão **Link Shortening**. O contador de caracteres será atualizado para mostrar o comprimento esperado da URL encurtada. ![Um GIF mostrando o contador de caracteres sendo atualizado quando o botão "Link Shortening" está ativado.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
 #### Considerações {#considerations}
@@ -135,7 +135,7 @@ Recomendamos fortemente configurar uma resposta automática quando usuários ins
 Para enviar uma resposta padrão — por exemplo, "Desculpe! Não reconhecemos essa palavra-chave." — faça o seguinte:
 
 1. Crie uma [Campaign de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create).
-2. Para **público-alvo**, escolha **Todos os usuários** (o gatilho ainda limita quem recebe a mensagem).
+2. Para **público-alvo**, escolha **All users** (o gatilho ainda limita quem recebe a mensagem).
 3. Para **agendar**, escolha **entrega baseada em ação**.
 4. Defina o gatilho como **Send inbound SMS** para o grupo de inscrições apropriado **within keyword category OTHER**.
 5. Na etapa **Messaging**, insira o corpo da resposta que deseja que os usuários recebam.

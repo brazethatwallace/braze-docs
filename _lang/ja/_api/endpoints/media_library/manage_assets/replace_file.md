@@ -19,7 +19,7 @@ description: "この記事では、`PUT /media_library/replace_file` エンド�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`media_library.replace` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`media_library.replace` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -134,7 +134,7 @@ curl -X PUT --location 'https://rest.iad-01.braze.com/media_library/replace_file
 | `GENERIC_ERROR` | 500 | ファイルの置換中に予期しないエラーが発生しました。`meta` オブジェクトにはデバッグ用の `original_error` が含まれます。再試行するか、[サポート]({{site.baseurl}}/support_contact)にお問い合わせください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="処理エラー" }
 
-## 応答 {#response}
+## レスポンス {#response}
 
 このエンドポイントには、`200`、`400`、`404`、`429`、`500` の5つのステータスコードレスポンスがあります。
 

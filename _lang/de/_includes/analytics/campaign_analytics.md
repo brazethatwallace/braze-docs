@@ -186,6 +186,13 @@ Das Panel **WhatsApp Performance** zeigt Ihnen, wie gut Ihre Nachricht in versch
 
 ![WhatsApp-Performance-Panel mit einer Tabelle mit Metriken für Variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Credits versus Sendezähler {#credits-versus-send-counts}
+
+Die WhatsApp-Sendezähler in den Kampagnen-Analytics spiegeln Zustellversuche wider. Die verbrauchten Credits können abweichen, wenn Meta nach Nachrichtenkategorie (Marketing, Utility, Authentifizierung, Service) abrechnet.
+
+- Antwortnachrichten, die in Braze erstellt werden, verbrauchen keine Braze-WhatsApp-Credits.
+- Verwenden Sie **Analytics** > **Daily Stats** für eine Orientierung zum Sendevolumen. Credit-Aufschlüsselungen pro Kampagne oder Canvas sind nicht verfügbar.
+
 {% endif %}
 
 Wenn Sie Ihre Ansicht vereinfachen möchten, klicken Sie auf <i class="fas fa-plus"></i> **Add/Remove Columns** und deaktivieren Sie die gewünschten Metriken. Standardmäßig werden alle Metriken angezeigt.
@@ -872,6 +879,8 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
         </tr>
     </tbody>
 </table>
+
+Wenn die Fehlerrate erhöht ist, lesen Sie [WhatsApp-Sendefehler untersuchen]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
 
 #### Metriken zu Sperrung und Meldung durch Endnutzer:innen {#end-user-blocking-and-reporting-metrics}
 

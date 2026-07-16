@@ -26,7 +26,7 @@ description: "このリファレンス記事では、オブジェクト配列を
 {% endalert %}
 
 {% alert tip %}
-ユーザー属性オブジェクトでのオブジェクト配列の使用について詳しくは、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)を参照してください。
+ユーザー属性オブジェクトでのオブジェクト配列の使用について詳しくは、[ユーザー属性オブジェクト]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)を参照してください。
 {% endalert %}
 
 ## APIの例 {#api-example}
@@ -545,7 +545,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-このシナリオでは、Liquidを使用して`pets`配列をループし、各ペットについてのステートメントを出力できます。`pets`カスタム属性に[変数を割り当て]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables)、ドット記法を使用してオブジェクトのプロパティにアクセスします。オブジェクト名の後にピリオド`.`を付け、その後にプロパティ名を指定します。
+このシナリオでは、Liquidを使用して`pets`配列をループし、各ペットについてのステートメントを出力できます。`pets`カスタム属性に[変数を割り当て]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables)、ドット記法を使用してオブジェクトのプロパティにアクセスします。オブジェクト名の後にピリオド`.`を付け、その後にプロパティ名を指定します。
 
 ## セグメンテーション {#segmentation}
 

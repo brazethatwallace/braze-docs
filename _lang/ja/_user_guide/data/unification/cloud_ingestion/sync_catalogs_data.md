@@ -14,14 +14,14 @@ description: "このページでは、カタログデータの同期方法の概
 ## ステップ1:新規カタログの作成 {#step-1-create-a-new-catalog}
 
 [カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs)用の新しいクラウドデータ取り込み（CDI）連携を作成する前に、新規カタログを作成するか、連携に使用する既存のカタログを特定する必要があります。新規カタログを作成する方法はいくつかあり、いずれもCDI連携に使用できます。
-- [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv)をアップロードする
-- [Brazeダッシュボード]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser)またはCDIセットアップ中にカタログを作成する
+- [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog)をアップロードする
+- [Brazeダッシュボード]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog)またはCDIセットアップ中にカタログを作成する
 - [カタログ作成エンドポイント]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog)を使用してカタログを作成する
 
 カタログスキーマへの変更（例えば、新しいフィールドの追加やフィールドタイプの変更）は、更新されたデータがCDIを通じて同期される前に、カタログダッシュボードで行う必要があります。データウェアハウスのデータとBrazeのスキーマとの競合を避けるために、同期が一時停止されているとき、または実行がスケジュールされていないときにこれらの更新を行うことをお勧めします。
 
 ## ステップ2:クラウドデータ取り込みとカタログデータの連携 {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
-カタログ同期の設定は、[ユーザーデータCDI連携]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup)のプロセスとほぼ同じです。
+カタログ同期の設定は、[ユーザーデータCDI連携]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations)のプロセスとほぼ同じです。
 
 {% tabs %}
 {% tab Snowflake %}
@@ -121,7 +121,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 {:start="2"}
 
 2. ユーザーを設定し、適切な権限を付与します。既存の同期の認証情報をすでに持っている場合はそれらを再利用できますが、必ずカタログソーステーブルへのアクセスを拡張してください。
-サービスアカウントには次の権限が必要です。
+サービスアカウントには次のセクションの権限が必要です。
 - BigQuery Connection User: Brazeに接続を許可します。
 - BigQuery User: クエリの実行、データセットメタデータの読み取り、およびテーブルの一覧表示を行うためのアクセスをBrazeに提供します。
 - BigQuery Data Viewer: データセットとその内容を表示するためのアクセスをBrazeに提供します。

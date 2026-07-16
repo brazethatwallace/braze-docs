@@ -24,9 +24,9 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 - ロイヤルティティア、購読ステータス、希望言語、プランタイプなどの特性に基づいてユーザーをセグメント化し、オーディエンスのターゲティングや抑制を行う
 - ユーザーの名、報酬ポイント、お気に入りカテゴリなどの属性を参照して、[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)でメッセージをパーソナライズする
 - オンボーディングステージ、アカウントステータス、トライアル終了日など、ライフサイクルステージやユーザーの状態をトラッキングする
-- [数値属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#numbers)で価値の低いアクションをカウントする（例：ユーザーが機能を閲覧するたびに`feature_views_count`属性をインクリメントする）
-- [時間属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#time)を使用して、価値の低いアクションが最後に発生した日時を記録する（例：`last_support_ticket_at`や`last_password_reset_at`）
-- お気に入りのジャンルや最近閲覧したコンテンツなど、ユーザーの興味や履歴を[配列]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays)として保存し、興味ベースのターゲティングに活用する
+- [数値属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)で価値の低いアクションをカウントする（例：ユーザーが機能を閲覧するたびに`feature_views_count`属性をインクリメントする）
+- [時間属性]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)を使用して、価値の低いアクションが最後に発生した日時を記録する（例：`last_support_ticket_at`や`last_password_reset_at`）
+- お気に入りのジャンルや最近閲覧したコンテンツなど、ユーザーの興味や履歴を[配列]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)として保存し、興味ベースのターゲティングに活用する
 - 構造化された設定や複数の保存済み住所など、より豊富なプロファイルデータを[オブジェクト]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)や[オブジェクトの配列]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects)として保存する
 - [属性トリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers)を使用して、属性値が変更されたときにアクションベースのメッセージをトリガーする（例：ユーザーの`rewards_tier`が変更されたときにティアアップ通知を送信する）
 
@@ -75,7 +75,7 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 ユーザープロファイルからカスタム属性を削除するには、2つの方法があります。
 
 * [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#removing-custom-attributes)で、削除するカスタム属性名を選択します。
-* APIリクエストで[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track)に`null`値を設定します。
+* APIリクエストで[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)に`null`値を設定します。
 
 ### データをエクスポートする {#export-data}
 
@@ -90,7 +90,7 @@ Brazeに保存すると、カスタム属性を使用してオーディエンス
 ### データタイプの変更 {#changing-the-data-type}
 
 1. セグメントやフィルターでその属性を使用しているアクティブなキャンペーンまたはキャンバスを停止します。
-2. すべてのセグメント、キャンペーン、キャンバスフィルターからその属性を削除します。
+2. すべてのセグメント、キャンペーン、キャンバスのフィルターからその属性を削除します。
 3. **データ設定** > **カスタム属性**（または**カスタムイベント**）に移動し、属性を見つけて、目的のデータタイプに更新します。
 4. 既存のユーザープロファイルの属性値を新しいデータタイプに合わせて更新します（例：[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用）。
 5. 関連するセグメント、キャンペーン、キャンバスに属性を再適用し、停止したキャンペーンやキャンバスを再開します。

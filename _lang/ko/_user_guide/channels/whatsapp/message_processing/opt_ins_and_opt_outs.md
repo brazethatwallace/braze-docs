@@ -43,7 +43,7 @@ Braze는 구독 상태 업데이트를 허용하는 `/users/track` 엔드포인�
 
 #### 외부에서 구축한 옵트인 목록 {#externally-built-opt-in-list}
 
-이전에 WhatsApp을 사용한 적이 있다면 WhatsApp 요구 사항에 따라 옵트인이 포함된 사용자 목록을 이미 구축했을 수 있습니다. 이 경우 CSV를 업로드하거나 [다음 정보]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)와 함께 API를 사용하여 Braze에 가져오세요.
+이전에 WhatsApp을 사용한 적이 있다면 WhatsApp 요구 사항에 따라 옵트인이 포함된 사용자 목록을 이미 구축했을 수 있습니다. 이 경우 CSV를 업로드하거나 [다음 정보]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)와 함께 API를 사용하여 Braze에 가져오세요.
 
 #### 고객 지원 WhatsApp 채널의 아웃바운드 메시지 {#outbound-message-in-customer-support-whatsapp-channel}
 
@@ -63,7 +63,7 @@ Braze는 구독 상태 업데이트를 허용하는 `/users/track` 엔드포인�
 이는 사용자가 새 채널에서 확인 메시지를 받기를 원하는지 여부에 따라 Canvas 또는 Campaign으로 설정할 수 있습니다.
 
 1. 인바운드 메시지의 실행 기반 전달 트리거가 있는 Campaign을 생성합니다.
-2. 웹훅 Campaign을 생성합니다. 웹훅 예시는 [구독 그룹]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#update-subscription-status)을 참조하세요.
+2. 웹훅 Campaign을 생성합니다. 웹훅 예시는 [구독 그룹]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#step-2-update-the-users-profile)을 참조하세요.
 
 {% alert tip %}
 [WhatsApp 매니저](https://business.facebook.com/wa/manage/phone-numbers/)의 **Phone Number** > **Message Links**에서 WhatsApp 채널에 참여할 수 있는 URL 또는 QR 코드를 만들 수 있습니다.<br>![WhatsApp QR 코드 작성기.]({% image_buster /assets/img/whatsapp/whatsapp115.png %}){: style="max-width:55%;"}
@@ -98,7 +98,7 @@ WhatsApp은 앱 설정에서 사용자가 마케팅 메시지를 옵트아웃할
 - **Braze 구독 그룹**은 Braze 통합(API, 환경설정 센터 또는 SDK)을 통해 관리되며, 메시징 대상으로 지정할 사용자를 제어합니다.
 - **WhatsApp의 네이티브 토글**은 Meta에 의해 제어되며 Braze 외부의 플랫폼 수준에서 적용됩니다.
 
-이 두 레이어는 설계상 자동으로 동기화되지 않습니다. 사용자가 WhatsApp에서 "혜택 및 공지" 토글을 끄면, 사용자의 Braze 구독 상태가 "가입됨"으로 표시되더라도 Meta가 플랫폼 수준에서 마케팅 메시지 전달을 차단합니다. 사용자의 환경설정은 전달 시점에서 존중됩니다.
+이 두 레이어는 설계상 자동으로 동기화되지 않습니다. 사용자가 WhatsApp에서 "혜택 및 공지" 토글을 끄면, 사용자의 Braze 구독 상태가 "Subscribed"로 표시되더라도 Meta가 플랫폼 수준에서 마케팅 메시지 전달을 차단합니다. 사용자의 환경설정은 전달 시점에서 존중됩니다.
 
 {% alert note %}
 Braze는 발송 시도가 이루어지고 Meta가 오류를 반환할 때까지 옵트아웃 신호를 수신하지 않으므로, Braze의 구독 수는 메시지가 시도될 때까지 WhatsApp 토글을 통해 옵트아웃한 사용자를 반영하지 않을 수 있습니다. 이는 해당 피드백 루프가 발생할 때까지 도달 범위 추정치가 약간 과대 평가될 수 있음을 의미합니다.
