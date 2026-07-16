@@ -121,6 +121,6 @@ Include the following snippet at the top of your SMS message body. This example 
 
 #### Considerations
 
-- {% raw %}`time_zone: ${time_zone}`{% endraw %} allows the window to be evaluated against each user’s local time, not a fixed global time, as explained in [the local time zone delivery FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer).
+- {% raw %}`time_zone: ${time_zone}`{% endraw %} allows the window to be evaluated against each user’s local time, not a fixed global time, as explained in the [Campaigns FAQ]({{site.baseurl}}/user_guide/messaging/campaigns/faq#what-does-local-time-zone-delivery-offer).
 - Messages suppressed by {% raw %}`abort_message()`{% endraw %} are not rescheduled for the next day; they are cancelled.
 - {% raw %} By default, aborted messages are not visible in standard campaign reporting. However, when Liquid aborts a send with `{% abort_message %}`, Braze logs it to the Message Activity Log as a message error (by default it shows `{% abort_message %}` called). If you pass a string, that reason is what shows in the log, such as `{% abort_message('language was nil') %}`{% endraw %}. For visibility into these suppressions in the dashboard, contact your customer success manager for access to the [Messaging Diagnostics Dashboard]({{site.baseurl}}/user_guide/analytics/dashboards/dashboard_builder/diagnostics_dashboard).
