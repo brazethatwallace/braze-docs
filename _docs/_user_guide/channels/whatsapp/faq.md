@@ -186,6 +186,28 @@ If an end-user reports a message, you can still send subsequent messages to this
 #### If an end-user blocks or reports my business, will their subscription status be updated in Braze? 
 No. Their Braze subscription status will not be updated. 
 
+#### Are WhatsApp response messages free? {#are-whatsapp-response-messages-free}
+
+Response messages composed in the Braze campaign or Canvas editor (not approved WhatsApp templates) are treated as service messages by Meta. Service messages sent through Braze's native WhatsApp integration don't consume Action Credits when they are sent as [response messages]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) within an open customer service window.
+
+| Message type | Action Credits | Notes |
+|---|---|---|
+| Response message (inbound reply) | Not consumed | Composed in Braze; not a Meta-approved template. |
+| Template message | Consumed | Marketing, utility, authentication, and limited time offer templates are billed per send. |
+| Utility template in service window | Not consumed by Meta | Meta doesn't charge for utility templates sent within 24 hours of a user-initiated message. Action Credit consumption follows your contract. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Response message Action Credits" }
+
+For Canvas flows where users tap quick replies after the original 24-hour window, see [Quick replies and inbound messages outside the 24-hour window]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### What happens if a user replies or taps a quick reply after the 24-hour window closes?
+A new 24-hour customer service window opens. See [Quick replies and inbound messages outside the 24-hour window]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Do I need to set my Canvas Action Path to 31 days for WhatsApp quick replies?
+No. The default Action Path duration is sufficient. See [Quick replies and inbound messages outside the 24-hour window]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Can I see how many WhatsApp credits a specific campaign or Canvas consumed?
+Not in the Braze dashboard today. Campaign and Canvas analytics show sends, deliveries, and failures, but not credit consumption per message. Send counts do not align one-to-one with credit usage because template category and message type affect billing differently. For billing details, see [Are WhatsApp response messages free?](#are-whatsapp-response-messages-free).
+
 ### Integrations, data, and reporting
 
 #### Does Braze support customer support use cases like chatbots and human-assisted chat for WhatsApp? 
