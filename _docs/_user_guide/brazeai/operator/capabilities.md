@@ -3,7 +3,7 @@ nav_title: Capabilities
 article_title: What you can do with Operator
 page_order: 1
 page_type: reference
-toc_headers: h2, h3
+toc_headers: h2
 description: "This reference article covers what BrazeAI Operator™ can do across the dashboard, including building campaigns, segments, and agents; generating copy, messages, Liquid, and images; transforming data; reviewing content quality; and looking up information."
 ---
 
@@ -11,11 +11,11 @@ description: "This reference article covers what BrazeAI Operator™ can do acro
 
 > The AI capabilities previously available as standalone assistants are now accessible through [BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator). Because Operator is built into the dashboard and understands your workspace (your brand guidelines, attributes, Connected Content, and the page you're working on), the output is more context-aware than what the previous assistants could produce.
 
-Instead of opening a different tool for each task, describe what you want in natural language and Operator handles it in context. You can also keep the conversation going—asking for a different tone, a shorter version, or a translation—without starting over. Operator can also propose and execute changes directly through [action cards]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) that you review before they take effect.
+Instead of opening a different tool for each task, describe what you want in natural language and Operator handles it in context. Ask follow-ups to keep the conversation going. Operator remembers earlier messages until you clear your chat history. Operator can also propose and execute changes directly through [action cards]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) that you review before they take effect.
 
 ## Prerequisites
 
-Operator has the same permissions you do, so certain actions require the relevant permission for that surface—for example, generating an image requires *Edit Media Library Assets*. If you don't see an entry point, check your permissions with your admin. For more information, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
+Operator has the same permissions you do, so certain actions require the relevant permission for that surface. For example, generating an image requires *Edit Media Library Assets*. If you don't see an entry point, check your permissions with your admin. For more information, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
 ## Build campaigns and audiences {#build-campaigns-and-audiences}
 
@@ -24,8 +24,6 @@ Operator can help you go from an idea to a drafted campaign or audience, and ref
 ### Go from brief to campaign {#go-from-brief-to-campaign}
 
 Describe a full campaign brief, and Operator helps you build a draft that includes copy, images, personalization, targeting, and send-time recommendations. Review the draft in the campaign composer and refine it with follow-up prompts before you launch it.
-
-#### Example prompt {#go-from-brief-to-campaign-example-prompt}
 
 {% include copy_block.html content="Build an HTML email campaign for our loyalty program. Generate a hero image, and write a personalized headline and CTA for each loyalty tier using the Loyalty Tier custom attribute. Only send to users who have a loyalty tier set, and recommend a send time and frequency cap." %}
 
@@ -118,13 +116,9 @@ As with copywriting, you can ask Operator to generate Liquid from anywhere, and 
 
 #### Liquid capabilities {#generate-liquid-attributes}
 
-Operator is highly capable with Liquid. It can generate complex Liquid logic grounded in the data in your workspace—including looking up [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs) data to find example values—and it can review and explain the existing Liquid in your campaigns.
+Operator is highly capable with Liquid. It can generate complex Liquid logic grounded in the data in your workspace, including looking up [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs) data to find example values. It can also review and explain the existing Liquid in your campaigns.
 
 #### Best practices {#generate-liquid-best-practices}
-
-##### Use natural language {#generate-liquid-use-natural-language}
-
-Operator is trained to understand natural language. Chat with it as you would with a coworker when asking for help. This helps Operator comprehend your needs and provide accurate assistance.
 
 ##### Give context {#generate-liquid-give-context}
 
@@ -152,42 +146,7 @@ Try different prompts to see how Operator can enhance your messaging. Experiment
 
 #### Example prompts {#generate-liquid-example-prompts}
 
-{% tabs local %}
-{% tab About Liquid %}
-
-{% include copy_block.html content="What is Liquid, and how can it help me enhance the personalization of my marketing campaigns within Braze?" %}
-
-{% include copy_block.html content="What types of data can I use in Liquid to personalize my marketing messages, such as demographic information or past purchases?" %}
-
-{% include copy_block.html content="Can you give me some examples of how Liquid is used in marketing campaigns to increase engagement and conversion rates?" %}
-
-{% include copy_block.html content="What are some common use cases for Liquid in text messages for summer sales, such as abandoned cart reminders or personalized promotions?" %}
-
-{% endtab %}
-{% tab Personalization %}
-
-{% include copy_block.html content="Add a countdown to this message that shows the time until the user's flight." %}
-
-{% include copy_block.html content="Personalize this message with the user's first name, with a fallback if it's missing." %}
-
-{% include copy_block.html content="Improve this Liquid so it's easier to read." %}
-
-{% include copy_block.html content="Create a message that shows different content based on my customer's loyalty status. If we don't know about their loyalty status, send a fallback message." %}
-
-{% include copy_block.html content="Write a dynamic message that includes a user's favorite product and their last purchase date. If there's no last purchase, abort the message." %}
-
-{% include copy_block.html content="Write me Liquid to encourage someone to click my message that includes a countdown with how much time is left. If the offer has expired, abort the message." %}
-
-{% include copy_block.html content="Help me write a message to encourage users to come back and check out if they have items remaining in their cart." %}
-
-{% include copy_block.html content="Write Liquid to personalize a message based on a customer's country. I want to fill in the message with the country's name. If we don't have either of them, suggest they click on a link to update their profile." %}
-
-{% include copy_block.html content="How can I personalize a welcome message with a user's first name and write different copy based on the user's gender?" %}
-
-{% include copy_block.html content="Write Liquid to display different messages based on a custom attribute, \"CUSTOM_ATTRIBUTE_NAME\" and its value. There are six different options I could send. If there's no value for the custom attribute, I want to send a placeholder message." %}
-
-{% endtab %}
-{% endtabs %}
+For ready-to-use Liquid and personalization prompts, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library), under **Personalization and Liquid**.
 
 ### Generate images {#generate-images}
 
@@ -299,25 +258,25 @@ Operator doesn't support drag-and-drop editors, such as Beefree, GrapesJS, or Cr
 
 Operator uses page-aware context to understand what you're looking at, including content inside supported previews and editors. When part of a page falls outside what Operator can read, it tells you instead of guessing, so you know to describe that content yourself.
 
-## Quick answers {#quick-answers}
+## Frequently asked questions {#faq}
 
-### Does Operator work in the drag-and-drop email editor? {#quick-answers-drag-and-drop-editor}
+### Does Operator work in the drag-and-drop email editor? {#faq-drag-and-drop-editor}
 
 No. Switch to the HTML editor to use Operator, or ask Operator to generate content you can paste in manually. See [Editors and surfaces](#editors-and-surfaces).
 
-### Can Operator see everything on my screen? {#quick-answers-screen-visibility}
+### Can Operator see everything on my screen? {#faq-screen-visibility}
 
 No. Operator tells you when part of a page falls outside what it can read instead of guessing. See [What Operator can see on screen](#what-operator-can-see-on-screen).
 
-### Does Operator work the same way in every message composer? {#quick-answers-composer-parity}
+### Does Operator work the same way in every message composer? {#faq-composer-parity}
 
 Message generation requires an HTML mode. See [Channel support](#channel-support).
 
-### Can Operator save changes without my approval? {#quick-answers-approval}
+### Can Operator save changes without my approval? {#faq-approval}
 
 No. Operator proposes changes as [action cards]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) that you review and approve first.
 
-### Is there a limit to how much I can use Operator? {#quick-answers-usage-limits}
+### Is there a limit to how much I can use Operator? {#faq-usage-limits}
 
 Yes, a company-wide daily usage limit applies; image generation counts toward it. See [Limitations]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting#limitations).
 
