@@ -17,51 +17,46 @@ Instead of opening a different tool for each task, describe what you want in nat
 
 Operator has the same permissions you do, so certain actions require the relevant permission for that surface. For example, generating an image requires *Edit Media Library Assets*. If you don't see an entry point, check your permissions with your admin. For more information, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
+## What Operator can create {#what-operator-can-create}
+
+Beyond generating copy and Liquid, Operator can help you build several other objects across the dashboard, including but not limited to:
+
+- Campaigns
+- Content Blocks
+- Custom agents
+- Images
+- Messages and message templates (see [Generate messages](#generate-messages) for details)
+- Segments
+- Segment Extensions
+
+{% alert note %}
+Operator's capabilities across the dashboard expand regularly. **Ask Operator directly** for the most current answer of what it can do.
+{% endalert %}
+
 ## Campaigns and audiences {#campaigns-and-audiences}
 
 Operator can help you go from an idea to a drafted campaign or audience, and refine either one once it exists.
 
-### Go from brief to campaign {#go-from-brief-to-campaign}
-
-Describe a full campaign brief, and Operator helps you build a draft that includes copy, images, personalization, targeting, and send-time recommendations. Review the draft in the campaign composer and refine it with follow-up prompts before you launch it.
-
-{% include copy_block.html content="Build an HTML email campaign for our loyalty program. Generate a hero image, and write a personalized headline and CTA for each loyalty tier using the Loyalty Tier custom attribute. Only send to users who have a loyalty tier set, and recommend a send time and frequency cap." %}
-
-### Create and edit segments {#create-and-edit-segments}
-
-When you start a segment, describe the audience you want and Operator helps you build the filter logic—attribute conditions, event history, and catalog lookups included. Operator can also help you edit an existing segment's filters when your targeting needs change.
-
-{% include copy_block.html content="Build a segment of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." %}
-
-### Create and edit campaigns {#create-and-edit-campaigns}
-
-When you start a campaign, Operator can help you draft it end-to-end from a single natural-language brief. This includes audience, content, and delivery settings. You can also ask Operator to help you edit an existing campaign, such as adjusting targeting or refreshing the message content.
-
-### Create Segment Extensions {#create-segment-extensions}
-
-Operator can help you build a [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension) by writing the SQL query that defines it. Describe the audience logic you want, and Operator drafts the query for you to review before you save it. For more on Operator and SQL, see [Write SQL queries](#write-sql-queries).
+- **Create and edit campaigns:** When you start a campaign, Operator can help you draft it end-to-end from a single natural-language brief. This includes audience, content, and delivery settings. You can also ask Operator to help you edit an existing campaign, such as adjusting targeting or refreshing the message content.
+- **Go from brief to campaign:** Describe a full campaign brief, and Operator helps you build a draft that includes copy, images, personalization, targeting, and send-time recommendations. Review the draft in the campaign composer and refine it with follow-up prompts before you launch it.
+- **Create and edit segments:** When you start a segment, describe the audience you want and Operator helps you build the filter logic—attribute conditions, event history, and catalog lookups included. Operator can also help you edit an existing segment's filters when your targeting needs change.
+- **Create Segment Extensions:** Operator can help you build a [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension) by writing the SQL query that defines it. Describe the audience logic you want, and Operator drafts the query for you to review before you save it. For more on Operator and SQL, see [Write SQL queries](#write-sql-queries).
 
 ## Agents {#agents}
 
 Operator can help you build and refine agents in [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents).
 
-### Create an agent from scratch {#create-an-agent-from-scratch}
+- **Create an agent from scratch:** Operator has access to every field in Agent Console, so you can describe the agent you want and Operator helps you configure it—instructions, output settings, and other agent fields included.
+- **Start from template:** Agent Console offers a **Create agent with Operator** option that loads a pre-written prompt for a common use case, such as copywriting, sentiment analysis, journey routing, or catalog enrichment. Select a category, and Operator helps you draft an agent you can refine. For the full list of templates, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
+- **Refine an existing agent:** When you're editing an agent, select **Generate with Operator** or **Refine with Operator** near the agent's instructions field to get Operator's help writing or revising the agent's prompt and output settings.
 
-Operator has access to every field in Agent Console, so you can describe the agent you want and Operator helps you configure it—instructions, output settings, and other agent fields included.
+## Content and creative {#content-and-creative}
 
-### Start from a template {#start-from-a-template}
-
-Agent Console also offers a **Create agent with Operator** option that loads a pre-written prompt for a common use case, such as copywriting, sentiment analysis, journey routing, or catalog enrichment. Select a category, and Operator helps you draft an agent you can refine. For the full list of templates, see [Agent templates built with Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator).
-
-### Refine an existing agent {#refine-an-existing-agent}
-
-When you're editing an agent, select **Generate with Operator** or **Refine with Operator** near the agent's instructions field to get Operator's help writing or revising the agent's prompt and output settings.
-
-## Content {#content}
+Operator can generate and review the content in your messages, including copy, message HTML, Liquid, and images, and applies your brand guidelines automatically wherever they're configured.
 
 ### Apply brand guidelines {#apply-brand-guidelines}
 
-Operator uses the brand guidelines configured in your workspace so generated copy, templates, and images match your brand's voice, tone, and style. To set up brand guidelines, go to **Content** > **Brand Guidelines**. For more information, see [Brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines). For details on applying brand guidelines for use with Operator, see [Apply brand guidelines]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines).
+Operator uses the brand guidelines configured in your workspace so generated copy, templates, and images match your brand's voice, tone, and style. To set up brand guidelines, go to **Content** > **Brand Guidelines**. For more information, see [Brand guidelines]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines) and [Apply brand guidelines]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines) in the Operator usage guide.
 
 ### Generate copy {#generate-copy}
 
@@ -76,51 +71,33 @@ Operator improves on the standalone copywriter in a few ways:
 
 #### Tones {#generate-copy-tones}
 
-The tone of generated copy is driven by your prompt. Describe the style you want—for example, formal, casual, urgent, or eye-catching—and Operator adjusts its output to match. You can also refine the tone in follow-up prompts, such as asking for a more relaxed or more polished version. When [brand guidelines](#apply-brand-guidelines) are configured, Operator applies them automatically so copy stays consistent with your brand's voice.
-
-#### Example prompts {#generate-copy-example-prompts}
-
-{% include copy_block.html content="Write a short, eye-catching push notification announcing our summer sale." %}
-
-{% include copy_block.html content="Rewrite this subject line in a more casual tone." %}
-
-{% include copy_block.html content="Translate this copy into Spanish." %}
+The tone of generated copy is driven by your prompt. Describe the style you want and Operator adjusts its output to match. For example, ask for formal, casual, urgent, or eye-catching. You can also refine the tone in follow-up prompts, such as asking for a more relaxed or more polished version. When brand guidelines are configured, Operator applies them automatically so copy stays consistent with your brand's voice.
 
 ### Generate messages {#generate-messages}
 
-Operator can generate message HTML in supported composers. Describe the message you want in natural language, review the output, and insert it into your composer.
+Operator can generate a full message design for any channel or editor with an HTML mode, including but not limited to:
 
-You get the best results when you use Operator in the composer you're building, where it has [page-aware context]({{site.baseurl}}/user_guide/brazeai/operator/#leverage-page-aware-context) for the channel and message type. When [brand guidelines](#apply-brand-guidelines) are configured, Operator applies them automatically.
+- Email
+- SMS/MMS/RCS
+- In-app message
+- Content Card
+- Banner
+- Push
+- Webhook
 
-#### HTML Banners {#generate-messages-html-banners}
+Drag-and-drop editors don't support direct design generation, though Operator can still help with copy or other content you add manually. Describe the message you want in natural language, review the output, and insert it into your composer. Keep the conversation going to refine the result. For example, you can ask for a different layout, shorter copy, or updated button styling before you insert the HTML into the editor. 
 
-In the [Banner HTML editor]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#compose-a-banner), select **Ask Operator** to generate HTML for your Banner. Describe the layout, content, and styling you want. Operator can include [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) personalization in the generated markup.
-
-Keep the conversation going to refine the result. For example, you can ask for a different layout, shorter copy, or updated button styling before you insert the HTML into the editor.
-
-##### Example prompts {#generate-messages-html-banners-example-prompts}
-
-{% include copy_block.html content="Build a Banner that promotes our summer sale with a headline, short description, and Shop now button." %}
-
-{% include copy_block.html content="Use a two-column layout with a product image in the first column and the headline, description, and Shop now button stacked in the second column." %}
-
-{% include copy_block.html content="Make the dismiss button smaller and position it as a corner dismiss control." %}
+You get the best results when you use Operator in the composer you're building, where it has [page-aware context]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context) for the channel and message type. When brand guidelines are configured, Operator applies them automatically.
 
 ### Generate Liquid {#generate-liquid}
 
-In any message composer, open Operator to generate and refine Liquid for personalization. Operator understands [Liquid syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid), your standard and [custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), and [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), and it can explain what the code does.
-
-#### Where you can generate Liquid {#generate-liquid-supported-channels}
+Operator is highly capable with [Liquid syntax]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid). It can generate complex Liquid logic grounded in the data in your workspace, including looking up attribute, event, and [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs) data to find example values. It can also review and explain the existing Liquid in your campaigns.
 
 As with copywriting, you can ask Operator to generate Liquid from anywhere, and it works across all channels and message composers. You get the best results from within a message composer, where Operator has the full context of the message you're building.
 
-#### Liquid capabilities {#generate-liquid-attributes}
-
-Operator is highly capable with Liquid. It can generate complex Liquid logic grounded in the data in your workspace, including looking up [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs) data to find example values. It can also review and explain the existing Liquid in your campaigns.
-
 {% details Liquid prompting best practices %}
 
-##### Give context {#generate-liquid-give-context}
+#### Give context {#generate-liquid-give-context}
 
 Providing context helps Operator understand the bigger picture surrounding your project. It's helpful to include context such as:
 
@@ -131,7 +108,7 @@ Providing context helps Operator understand the bigger picture surrounding your 
 
 Including context in your prompt helps Operator tailor its responses to better suit your needs. You can also include details from your campaign, message brief, or brainstorming document to bring Operator up to speed.
 
-##### Be specific {#generate-liquid-be-specific}
+#### Be specific {#generate-liquid-be-specific}
 
 Operator can ask follow-up questions, but providing details upfront can lead to more precise results sooner. Consider including details such as:
 
@@ -140,15 +117,11 @@ Operator can ask follow-up questions, but providing details upfront can lead to 
 - Exact or similar values for the custom attributes you want to use, which help Operator generate and test more accurate logic
 - When asking for Liquid that uses Connected Content, documentation for the API endpoint, a sample API response, or both
 
-##### Get creative {#generate-liquid-get-creative}
+#### Get creative {#generate-liquid-get-creative}
 
 Try different prompts to see how Operator can enhance your messaging. Experiment with different prompts and ideas, as creativity can lead to more engaging results.
 
 {% enddetails %}
-
-#### Example prompts {#generate-liquid-example-prompts}
-
-For ready-to-use Liquid and personalization prompts, see the [prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library), under **Personalization and Liquid**.
 
 ### Generate images {#generate-images}
 
@@ -158,49 +131,21 @@ In the [media library]({{site.baseurl}}/user_guide/messaging/design_and_edit/med
 
 #### Prompt tips {#generate-images-prompt-tips}
 
-- Describe the subject, style, mood, and colors specifically. The more detail you include, the better the result.
-- Text input only; uploading a reference image is not supported.
+- Describe the subject, style, mood, and colors specifically. The more detail you include, the better the result. Uploading a reference image is not supported.
 - When you apply [brand guidelines](#apply-brand-guidelines) as context in your Operator prompt, Operator applies them directly to the generated image, so the result reflects your brand's visual style.
-- Image generations count toward your daily Operator usage limit. For more information, see [Limitations]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting#limitations).
-
-#### Example prompts {#generate-images-example-prompts}
-
-{% include copy_block.html content="Generate a bright, summery banner image of a beach scene for an email header." %}
-
-{% include copy_block.html content="Create a minimalist product background in our brand colors." %}
-
-### What Operator can create {#what-operator-can-create}
-
-Beyond copy, messages, and Liquid, Operator can help you build several other objects across the dashboard, including but not limited to:
-
-- Content Blocks
-- Message templates
-- Banners
-- [Images](#generate-images)
-- [Segments](#create-and-edit-segments) and [campaigns](#create-and-edit-campaigns)
-
-This list isn't exhaustive—ask Operator directly if you're not sure whether it can help with a specific object.
-
-### Channel support {#channel-support}
-
-Operator can generate message HTML for any channel or editor with an HTML mode, including Email, SMS/RCS, In-App Messages, Content Cards, Push, and webhooks. Drag-and-drop editors aren't supported. For channel-specific guidance, see [Generate messages](#generate-messages).
+- Image generations count toward your daily Operator usage limit. For more information, see [Limitations](#limitations).
 
 ### Review content quality {#review-content-quality}
 
 On the **Test** tab for SMS, Android push, iOS push, and traditional in-app messages, select **Review with Operator** to review your content before sending. By default, Operator reviews your campaign for spelling and grammar errors, off-brand or inappropriate tone, offensive language, and any stray code, test content, or unrendered Liquid, and it recommends how to fix what it finds. You can also ask Operator to tailor how it reviews your content directly in your prompt.
 
-#### What you can ask Operator to check {#review-content-quality-supported-features}
-
 Beyond its default review, you can direct Operator to focus on specific checks. Consider prompting it to look at any of the following:
 
-| Check | What to ask for |
-| --- | --- |
-| Spelling and grammar | Ask Operator to proofread for spelling and grammar mistakes and suggest corrections that improve the accuracy of your content. |
-| Tone | Ask Operator to evaluate whether the tone matches your intended communication style and flag anything that could be misunderstood. |
-| Offensive language | Ask Operator to scan for potentially offensive or inappropriate language so you can revise it and keep your messaging respectful. |
-| Accidental content | Ask Operator to catch stray code, markup, or test messages that you added unintentionally, including Liquid that didn't render for a test user. |
-| Other languages | Ask Operator to review content written in another language. Support for non-English content can vary, so review the results carefully. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="What you can ask Operator to check" }
+- **Spelling and grammar:** Proofread for spelling and grammar mistakes and suggest corrections that improve the accuracy of your content.
+- **Tone:** Evaluate whether the tone matches your intended communication style and flag anything that could be misunderstood.
+- **Offensive language:** Scan for potentially offensive or inappropriate language so you can revise it and keep your messaging respectful.
+- **Accidental content:** Catch stray code, markup, or test messages that were added unintentionally, including Liquid that didn't render for a test user.
+- **Other languages:** Review content written in another language. Support for non-English content can vary, so review the results carefully.
 
 #### Best practices {#review-content-quality-best-practices}
 
@@ -210,81 +155,43 @@ Consider the following to make the most of content review:
 - **Understand the tone analysis:** The tone analysis results are subjective and based on the AI model's understanding. While they can provide useful insights, consider your intended tone and the conversation context to make appropriate adjustments.
 - **Double-check flagged offensive language:** Offensive language detection is designed to be robust, but it may occasionally flag false positives. Review flagged sections carefully and make appropriate changes as necessary.
 
-#### Example prompts {#review-content-quality-example-prompts}
+## Data automation and lookup {#data-automation-and-lookup}
 
-{% include copy_block.html content="Review this push notification for spelling, grammar, and tone, and flag any unrendered Liquid or leftover test content before I send it." %}
-
-## Data automation {#data-automation}
-
-### Generate data transformation code {#generate-data-transformation-code}
-
-In the [Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) editor, select **Insert Code** to generate transformation code that turns an incoming webhook payload into valid Braze API requests.
-
-For step-by-step instructions on creating a transformation, see [Create a transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
-
-#### Example prompts {#generate-data-transformation-example-prompts}
-
-{% include copy_block.html content="Write transformation code that maps this survey webhook to a custom event on the user's profile." %}
-
-{% include copy_block.html content="Update this transformation to identify users by email address instead of external ID." %}
-
-## Lookup {#lookup}
+Operator can act as a reference for your workspace data and Braze documentation, write SQL when you need to query that data directly, and generate the code that transforms incoming data, such as a webhook payload, into a format Braze can use.
 
 ### What Operator can look up {#what-operator-can-look-up}
 
-Operator can reference the following to answer questions or ground the content it generates:
+Operator can reference the following to answer questions or ground the content it generates, including but not limited to:
 
+- Braze documentation
 - [Custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes) and events
 - [Catalog]({{site.baseurl}}/user_guide/data/activation/catalogs) data
 - [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) responses
 - Existing campaign and Canvas configuration, such as targeting and delivery settings
-- Braze documentation
 
 Ask Operator directly if you're not sure whether it can look up a specific piece of information.
 
 ### Write SQL queries {#write-sql-queries}
 
-Operator can help you write SQL for [Segment Extensions](#create-segment-extensions) and for [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates). Describe the query you want in natural language, and Operator generates SQL for you to review before you run it.
+Operator can help you write SQL for [Segment Extensions](#campaigns-and-audiences) and for Query Builder [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates). Describe the query you want in natural language, and Operator generates SQL for you to review before you run it.
+
+### Generate data transformation code {#generate-data-transformation-code}
+
+In the [Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) editor, select **Insert Code** to generate transformation code that turns an incoming webhook payload into valid Braze API requests. For step-by-step instructions on creating a transformation, see [Create a transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
 
 ## Limitations {#limitations}
 
-Operator's dashboard support is broad, but it has boundaries. Operator's coverage changes frequently—if you're not sure whether it supports a specific screen or workflow, ask it directly.
+Operator's dashboard support is broad, but it has boundaries. Operator's coverage changes frequently—if you're not sure whether it supports a specific screen or workflow, ask Operator directly.
 
-### Editors and surfaces {#editors-and-surfaces}
-
-Operator doesn't support drag-and-drop editors, such as Beefree, GrapesJS, or Craft.js. If you're working in one of these editors, switch to the corresponding HTML editor to use Operator, or ask Operator to generate content you can paste in manually.
-
-### What Operator can see on screen {#what-operator-can-see-on-screen}
-
-Operator uses page-aware context to understand what you're looking at, including content inside supported previews and editors. When part of a page falls outside what Operator can read, it tells you instead of guessing, so you know to describe that content yourself.
-
-## Frequently asked questions {#faq}
-
-### Does Operator work in the drag-and-drop email editor? {#faq-drag-and-drop-editor}
-
-No. Switch to the HTML editor to use Operator, or ask Operator to generate content you can paste in manually. See [Editors and surfaces](#editors-and-surfaces).
-
-### Can Operator see everything on my screen? {#faq-screen-visibility}
-
-No. Operator tells you when part of a page falls outside what it can read instead of guessing. See [What Operator can see on screen](#what-operator-can-see-on-screen).
-
-### Does Operator work the same way in every message composer? {#faq-composer-parity}
-
-Message generation requires an HTML mode. See [Channel support](#channel-support).
-
-### Can Operator save changes without my approval? {#faq-approval}
-
-No. Operator proposes changes as [action cards]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions) that you review and approve first.
-
-### Is there a limit to how much I can use Operator? {#faq-usage-limits}
-
-Yes, a company-wide daily usage limit applies; image generation counts toward it. See [Limitations]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting#limitations).
-
-{% multi_lang_include brazeai/generative_ai/policy.md %}
+- **Drag-and-drop editors:** Operator can't generate or insert a message design directly in a drag-and-drop editor, such as the ones for [email]({{site.baseurl}}/user_guide/channels/email/drag_and_drop), [Banners]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner), and [in-app messages]({{site.baseurl}}/user_guide/channels/in_app_messages/drag_and_drop). Switch to the corresponding HTML editor to use Operator, or ask Operator to generate content, such as copy, that you can paste in manually. See [Generate messages](#generate-messages) for supported channels and editors.
+- **Screen visibility:** Operator uses page-aware context to understand what you're looking at, including content inside supported previews and editors. When part of a page falls outside what Operator can read, it tells you instead of guessing, so you know to describe that content yourself.
+- **Usage limits:** Operator has a company-wide daily usage limit that resets every 24 hours. Image generations count toward this limit. If the limit is reached, a "Daily usage limit exceeded" message appears and no further requests can be made until it resets. For troubleshooting steps, see [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting).
 
 ## Legacy assistants {#legacy-assistants}
 
-Before Operator, several AI features stood alone as separate assistants: the AI Copywriter, AI Liquid Assistant, AI Image Generator, the Data Transformations AI Copilot, and content review. All of their entry points remain in place and route to Operator, so your existing workflows are unaffected. For what these do today, see [Content](#content) and [Data automation](#data-automation).
+Before Operator, several AI features stood alone as separate assistants: the AI Copywriter, AI Liquid Assistant, AI Image Generator, AI SQL Generator, the Data Transformations AI Copilot, and content review. All of their entry points remain in place and route to Operator, so your existing workflows are unaffected. For what these do today, see [Content and creative](#content-and-creative) and [Data automation and lookup](#data-automation-and-lookup).
+
+{% multi_lang_include brazeai/generative_ai/policy.md %}
 
 ## Data privacy and security {#data-privacy-and-security}
 
@@ -293,5 +200,6 @@ Operator integrates with OpenAI to generate output. For more information about w
 ## Next steps {#next-steps}
 
 - [Get started with Operator]({{site.baseurl}}/user_guide/brazeai/operator): Access and use Operator
+- [Prompt library]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library): Browse ready-to-use example prompts
 - [Review actions]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions): Review and approve Operator's proposed changes
 - [Troubleshooting]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting): Reference common issues and solutions

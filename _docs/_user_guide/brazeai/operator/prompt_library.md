@@ -97,7 +97,37 @@ description: "Browse example prompts for BrazeAI Operator, organized by what you
 {% include copy_block.html content="Write Liquid to display different messages based on a custom attribute, \"CUSTOM_ATTRIBUTE_NAME\" and its value. There are six different options I could send. If there's no value for the custom attribute, I want to send a placeholder message." available="Message composer" %}
 
 {% endsdktab %}
+{% sdktab Content creation %}
+
+{% include copy_block.html content="Write a short, eye-catching push notification announcing our summer sale." available="Message composer" %}
+
+{% include copy_block.html content="Rewrite this subject line in a more casual tone." available="Message composer" %}
+
+{% include copy_block.html content="Translate this copy into Spanish." available="Message composer" %}
+
+{% include copy_block.html content="Build a Banner that promotes our summer sale with a headline, short description, and Shop now button." available="Banner HTML editor" %}
+
+{% include copy_block.html content="Use a two-column layout with a product image in the first column and the headline, description, and Shop now button stacked in the second column." available="Banner HTML editor" %}
+
+{% include copy_block.html content="Make the dismiss button smaller and position it as a corner dismiss control." available="Banner HTML editor" %}
+
+{% include copy_block.html content="Generate a bright, summery banner image of a beach scene for an email header." available="Media library" %}
+
+{% include copy_block.html content="Create a minimalist product background in our brand colors." available="Media library" %}
+
+{% include copy_block.html content="Review this push notification for spelling, grammar, and tone, and flag any unrendered Liquid or leftover test content before I send it." available="Message composer" %}
+
+{% endsdktab %}
+{% sdktab Data transformation %}
+
+{% include copy_block.html content="Write transformation code that maps this survey webhook to a custom event on the user's profile." available="Data Transformation" %}
+
+{% include copy_block.html content="Update this transformation to identify users by email address instead of external ID." available="Data Transformation" %}
+
+{% endsdktab %}
 {% sdktab Audience management %}
+
+{% include copy_block.html content="Build a segment of users who made a purchase in the last 30 days but haven't opened the app in the last 7 days." available="Segments" %}
 
 {% include copy_block.html content="Which of our active segments were edited most recently, and which ones look like duplicates we should consolidate?" available="Segments" %}
 
