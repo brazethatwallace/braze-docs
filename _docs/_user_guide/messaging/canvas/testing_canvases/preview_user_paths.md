@@ -57,7 +57,7 @@ To view more details for the entrance criteria, select **See more**. Steps with 
 
 ### Liquid
 
-Braze processes Liquid logic during a test run, even if you're not sending an actual test message. This means the [abort message logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) and other Liquid logic are reflected and could impact the Canvas user journey.
+Braze processes Liquid logic during a test run, even if you're not sending an actual test message. This means the [abort message logic]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) and other Liquid logic are reflected and could impact the Canvas user journey.
 
 If your preview sends the last step of your user journey instead of aborting, the preview may be using the current time as the time being tested for Liquid evaluation, not the actual time the user would be in the step based on the Canvas entry time.
 

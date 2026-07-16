@@ -94,7 +94,7 @@ Many common types of user attributes, such as name, email, date of birth, countr
 Learn more about [automatically collected data and custom data]({{site.baseurl}}/developer_guide/analytics).
 
 ## Orchestration {#orchestration}
-The orchestration layer allows your marketing team to design user journeys based on your user data and prior engagement. This work is mostly done through our dashboard interface, but you also have the option to launch [campaigns through the API]({{site.baseurl}}/api/api_campaigns#api-campaigns). For example, you can have your backend tell Braze when to send the messages and campaigns your marketers designed in the dashboard, and trigger them according to your backend logic. An example of an API-triggered message might be password resets or shipping confirmations. 
+The orchestration layer allows your marketing team to design user journeys based on your user data and prior engagement. This work is mostly done through our dashboard interface, but you also have the option to launch [campaigns through the API]({{site.baseurl}}/api/api_campaigns). For example, you can have your backend tell Braze when to send the messages and campaigns your marketers designed in the dashboard, and trigger them according to your backend logic. An example of an API-triggered message might be password resets or shipping confirmations. 
 
 {% alert note %}
 API-triggered campaigns are ideal for more advanced transactional use-cases. They allow marketers to manage campaign copy, multivariate testing, and re-eligibility rules within the Braze dashboard while triggering the delivery of that content from your servers and systems. The API request to trigger the message can also include additional data to be templated into the message in real-time. 
