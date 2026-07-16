@@ -29,7 +29,7 @@ When Braze "sends" a message, the final delivery may depend on external services
 | --- | --- |
 | Content Cards | The card was sent and is eligible for viewing. |
 | Email | Braze hands the message to an email service provider (ESP). The ESP is then responsible for the final delivery. That ESP, for example, may report a "bounce" if the email address is invalid or the inbox is full. |
-| In-app messages | The message was surfaced to the user. |
+| In-app messages | The message was viewed by the user and an impression was logged. |
 | LINE | The message was successfully handed off to a sending partner. |
 | Push | Braze hands the message to the appropriate push notification service (such as Apple Push Notification service for iOS or Firebase Cloud Messaging for Android). That service is responsible for the final delivery of the notification to the device. |
 | SMS/MMS/RCS | Braze hands the message to an SMS gateway (like Twilio). That gateway is responsible for the final delivery to the mobile carrier. |
