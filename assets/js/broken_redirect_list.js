@@ -1117,8 +1117,8 @@ validurls['/docs/user_guide/data_and_analytics/custom_data/custom_events#nested-
 validurls['/docs/user_guide/data_and_analytics/custom_data/custom_events#custom-event-properties'] = '/docs/user_guide/data/activation/events/custom_events/custom_event_properties';
 validurls['/docs/user_guide/data_and_analytics/custom_data/custom_events#custom-event-property-storage'] = '/docs/user_guide/data/activation/events/custom_events/custom_event_properties#custom-event-property-storage';
 validurls['/docs/user_guide/data_and_analytics/custom_data/custom_events#expected-format'] = '/docs/user_guide/data/activation/events/custom_events/custom_event_properties#expected-format';
-validurls['/docs/services_handbook_21'] = 'https://www.braze.com/unlisted_docs/handbooks';
-validurls['/docs/services_handbook_22'] = 'https://www.braze.com/unlisted_docs/handbooks';
+validurls['/docs/services_handbook_21'] = '/docs/handbooks/';
+validurls['/docs/services_handbook_22'] = '/docs/handbooks/';
 validurls['/docs/hidden/private_betas/view_pii'] = '/docs/user_guide/administer/global/admin_settings/security_settings#view-pii';
 validurls['/docs/hidden/private_betas/partners/adobe'] = '/docs/partners/data_and_analytics/customer_data_platform/adobe';
 validurls['/docs/hidden/private_betas/link_aliasing'] = '/docs/user_guide/messaging/templates/email_templates/link_aliasing';
@@ -1137,7 +1137,7 @@ validurls['/docs/user_guide/message_building_by_channel/in-app_messages/preview#
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/preview#upload-assets'] = '/docs/user_guide/channels/in_app_messages/message_types/custom_html#asset-files';
 validurls['/docs/user_guide/message_building_by_channel/in-app_messages/traditional/customize/modal_with_css'] = '/docs/user_guide/messaging/templates/in_app_message_templates/in_app_message_template#web-modal-css';
 
-validurls['/docs/services_handbook'] = 'https://www.braze.com/unlisted_docs/handbooks';
+validurls['/docs/services_handbook'] = '/docs/handbooks/';
 
 validurls['/docs/help/webinars'] = '/docs/user_guide/home';
 validurls['/docs/help/webinars/ab_and_multivariate_testing'] = '/docs/user_guide/home';
@@ -3575,12 +3575,11 @@ validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/sms/about_mm
 validurls['/docs/user_guide/message_building_by_channel/sms_mms_rcs/mms/about_rcs'] = '/docs/user_guide/channels/sms_mms_and_rcs';
 validurls['/docs/user_guide/message_building_by_channel/webhooks/understanding_webhooks'] = '/docs/user_guide/channels/webhooks';
 
-validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_21.pdf'] = 'https://www.braze.com/unlisted_docs/handbooks';
-validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_22.pdf'] = 'https://www.braze.com/unlisted_docs/handbooks';
-validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_23v17.pdf'] = 'https://www.braze.com/unlisted_docs/handbooks';
-validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_24_2.pdf'] = 'https://www.braze.com/unlisted_docs/handbooks';
-validurls['/docs/assets/download_file/braze_entitlements_handbook_25.pdf'] = 'https://www.braze.com/unlisted_docs/handbooks';
-validurls['/docs/handbooks'] = 'https://braze.com/unlisted_docs/handbooks';
+validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_21.pdf'] = '/docs/handbooks/';
+validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_22.pdf'] = '/docs/handbooks/';
+validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_23v17.pdf'] = '/docs/handbooks/';
+validurls['/docs/assets/download_file/braze_success_and_support_services_handbook_24_2.pdf'] = '/docs/handbooks/';
+validurls['/docs/assets/download_file/braze_entitlements_handbook_25.pdf'] = '/docs/handbooks/';
 
 validurls['/docs/user_guide/data/unification/user_data_collection'] = '/docs/user_guide/data/unification/user_data';
 validurls['/docs/user_guide/data/unification/user_data_collection/best_practices'] = '/docs/user_guide/data/unification/user_data/best_practices';

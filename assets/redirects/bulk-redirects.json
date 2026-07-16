@@ -296,27 +296,27 @@
   },
   {
     "source": "/docs/assets/download_file/braze_entitlements_handbook_25.pdf",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/assets/download_file/braze_success_and_support_services_handbook_21.pdf",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/assets/download_file/braze_success_and_support_services_handbook_22.pdf",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/assets/download_file/braze_success_and_support_services_handbook_23v17.pdf",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/assets/download_file/braze_success_and_support_services_handbook_24_2.pdf",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
@@ -7600,11 +7600,6 @@
     "permanent": true
   },
   {
-    "source": "/docs/handbooks",
-    "destination": "https://braze.com/unlisted_docs/handbooks",
-    "permanent": true
-  },
-  {
     "source": "/docs/help/accessibility",
     "destination": "/docs/user_guide/messaging/messaging_fundamentals/accessibility",
     "permanent": true
@@ -13931,17 +13926,17 @@
   },
   {
     "source": "/docs/services_handbook",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/services_handbook_21",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
     "source": "/docs/services_handbook_22",
-    "destination": "https://www.braze.com/unlisted_docs/handbooks",
+    "destination": "/docs/handbooks",
     "permanent": true
   },
   {
