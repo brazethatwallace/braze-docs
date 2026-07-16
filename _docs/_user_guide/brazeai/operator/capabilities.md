@@ -269,7 +269,7 @@ Consider the following to make the most of content review:
 
 {% include copy_block.html content="Review this push notification for spelling, grammar, and tone, and flag any unrendered Liquid or leftover test content before I send it." %}
 
-## Look things up and analyze {#look-things-up-and-analyze}
+## Look things up {#look-things-up}
 
 ### What Operator can look up {#what-operator-can-look-up}
 
@@ -319,7 +319,7 @@ No. Operator proposes changes as [action cards]({{site.baseurl}}/user_guide/braz
 
 ### Is there a limit to how much I can use Operator? {#quick-answers-usage-limits}
 
-Yes, for image generation. See [Limitations]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting#limitations).
+Yes, a company-wide daily usage limit applies; image generation counts toward it. See [Limitations]({{site.baseurl}}/user_guide/brazeai/operator/troubleshooting#limitations).
 
 {% multi_lang_include brazeai/generative_ai/policy.md %}
 
