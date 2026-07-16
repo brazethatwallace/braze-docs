@@ -2,7 +2,10 @@
 # frozen_string_literal: true
 
 # Dumps a JSON object: "_docs-relative-path" => public URL (baseurl + document url).
-# Used by validate_doc_redirects.rb. Run from repo root with: bundle exec ruby scripts/jekyll_url_map_dump.rb OUT.json
+# Used for lighter one-map checks (e.g. verify_redirect_targets_in_jekyll.rb).
+# validate_doc_redirects.rb prefers jekyll_doc_maps_dump.rb, which produces the
+# URL map and heading-id map in a single Jekyll boot.
+# Run from repo root with: bundle exec ruby scripts/jekyll_url_map_dump.rb OUT.json
 
 require "jekyll"
 require "json"

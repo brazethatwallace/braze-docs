@@ -8,7 +8,8 @@
 #   "title" => "..."               human-readable article name, for reporting
 # }
 #
-# Used by validate_doc_redirects.rb. Run from repo root with:
+# Used by validate_doc_redirects.rb via jekyll_doc_maps_dump.rb (combined URL +
+# heading dump in one Jekyll boot). Can also be run standalone:
 #   bundle exec ruby scripts/jekyll_heading_id_dump.rb OUT.json [SOURCE_DIR]
 #
 # Unlike jekyll_url_map_dump.rb (which only calls site.read + site.generate),
@@ -44,8 +45,14 @@ module JekyllHeadingIdDump
     File.basename(path, ".md").tr("_", " ").split.map(&:capitalize).join(" ")
   end
 
-  def self.build(source_dir)
-    Dir.mktmpdir("jekyll-heading-id-map") do |dest|
+  # Single Jekyll boot that produces both maps validate_doc_redirects.rb needs:
+  #   "urls"     -- path => public URL (same shape as jekyll_url_map_dump.rb)
+  #   "headings" -- path => { all_ids, heading_ids, local_redirect_keys, title }
+  # Collecting URLs after generate (before render) matches the standalone URL
+  # dump; headings still require site.render for glossary/sdktabs ids. One boot
+  # per ref avoids the previous double-boot cost (url dump + heading dump).
+  def self.build_maps(source_dir)
+    Dir.mktmpdir("jekyll-doc-maps") do |dest|
       site = Jekyll::Site.new(
         Jekyll.configuration(
           "source" => source_dir,
@@ -57,15 +64,25 @@ module JekyllHeadingIdDump
 
       site.read
       site.generate
+
+      base = site.config["baseurl"].to_s.chomp("/")
+      urls = {}
+      site.collections.each_value do |coll|
+        coll.docs.each do |doc|
+          key = doc.path.delete_prefix("#{site.source}/")
+          urls[key] = base + doc.url
+        end
+      end
+
       site.render
 
-      map = {}
+      headings = {}
       site.collections.each_value do |coll|
         coll.docs.each do |doc|
           key = doc.path.delete_prefix("#{site.source}/")
           output = doc.output.to_s
 
-          map[key] = {
+          headings[key] = {
             "all_ids" => HeadingIdExtractor.all_ids(output),
             "heading_ids" => HeadingIdExtractor.heading_ids(output),
             "local_redirect_keys" => HeadingIdExtractor.local_redirect_keys(doc.data["local_redirect"]),
@@ -108,7 +125,7 @@ module JekyllHeadingIdDump
         body = raw.sub(Jekyll::Document::YAML_FRONT_MATTER_REGEXP, "")
         output = converter.convert(body)
 
-        map[key] = {
+        headings[key] = {
           "all_ids" => HeadingIdExtractor.all_ids(output),
           "heading_ids" => HeadingIdExtractor.heading_ids(output),
           "local_redirect_keys" => [],
@@ -116,8 +133,12 @@ module JekyllHeadingIdDump
         }
       end
 
-      map
+      { "urls" => urls, "headings" => headings }
     end
+  end
+
+  def self.build(source_dir)
+    build_maps(source_dir)["headings"]
   end
 end
 

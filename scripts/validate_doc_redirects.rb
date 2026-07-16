@@ -30,8 +30,7 @@ REPO_ROOT = begin
 
   out.strip
 end
-DUMP_SCRIPT = File.expand_path("jekyll_url_map_dump.rb", __dir__)
-HEADING_DUMP_SCRIPT = File.expand_path("jekyll_heading_id_dump.rb", __dir__)
+DOC_MAPS_SCRIPT = File.expand_path("jekyll_doc_maps_dump.rb", __dir__)
 REDIRECT_REL = "assets/js/broken_redirect_list.js"
 RX_VALIDURL = /validurls\['([^']+)'\]\s*=\s*'([^']*)'(?:;)?/
 
@@ -106,24 +105,16 @@ def parse_redirect_file(path)
   map
 end
 
-def jekyll_url_map(site_root)
-  tmp = Tempfile.new(["jekyll-url-map", ".json"])
+# One Jekyll boot per site root: URL map + heading-id map together.
+# Returns [url_map, heading_map].
+def jekyll_doc_maps(site_root)
+  tmp = Tempfile.new(["jekyll-doc-maps", ".json"])
   tmp.close
   Dir.chdir(site_root) do
-    sh!("bundle", "exec", "ruby", DUMP_SCRIPT, tmp.path)
+    sh!("bundle", "exec", "ruby", DOC_MAPS_SCRIPT, tmp.path)
   end
-  JSON.parse(File.read(tmp.path))
-ensure
-  tmp&.unlink
-end
-
-def jekyll_heading_id_map(site_root)
-  tmp = Tempfile.new(["jekyll-heading-id-map", ".json"])
-  tmp.close
-  Dir.chdir(site_root) do
-    sh!("bundle", "exec", "ruby", HEADING_DUMP_SCRIPT, tmp.path)
-  end
-  JSON.parse(File.read(tmp.path))
+  data = JSON.parse(File.read(tmp.path))
+  [data.fetch("urls"), data.fetch("headings")]
 ensure
   tmp&.unlink
 end
@@ -337,15 +328,10 @@ def validate!(options)
   begin
     sh!("git", "-C", REPO_ROOT, "worktree", "add", "--detach", worktree, resolve_ref)
 
-    puts "Building URL map for #{base_ref} (#{resolve_ref[0..12]})…"
-    map_base = jekyll_url_map(worktree)
-    puts "Building URL map for HEAD…"
-    map_head = jekyll_url_map(REPO_ROOT)
-
-    puts "Building heading-id map for #{base_ref} (#{resolve_ref[0..12]})…"
-    heading_map_base = jekyll_heading_id_map(worktree)
-    puts "Building heading-id map for HEAD…"
-    heading_map_head = jekyll_heading_id_map(REPO_ROOT)
+    puts "Building URL + heading-id maps for #{base_ref} (#{resolve_ref[0..12]})…"
+    map_base, heading_map_base = jekyll_doc_maps(worktree)
+    puts "Building URL + heading-id maps for HEAD…"
+    map_head, heading_map_head = jekyll_doc_maps(REPO_ROOT)
 
     links_base = build_anchor_link_index(worktree)
     links_head = build_anchor_link_index(REPO_ROOT)
