@@ -53,7 +53,7 @@ Brazeは、SDKデータ、非SDKメッセージに関連するメッセージイ
 | 直近Y日間のセッション数 | 数値と時刻 |
 | キャンペーンからメッセージを受信 | ブール値。このフィルターは、過去のキャンペーンを受信したかどうかに基づいてユーザーをターゲットにします。 |
 | タグの付いたキャンペーンからメッセージを受信 | ブール値。このフィルターは、現在タグが付いているキャンペーンを受信したかどうかに基づいてユーザーをターゲットにします。 |
-| リターゲットキャンペーン | ブール値。このフィルターは、過去に特定のメール、プッシュ、アプリ内メッセージを開封またはクリックしたかどうかに基づいてユーザーをターゲットにします。 |
+| リターゲットキャンペーン | ブール値。このフィルターは、過去に特定のメール、プッシュ、またはアプリ内メッセージを開封またはクリックしたかどうかに基づいてユーザーをターゲットにします。 |
 | アンインストール | ブール値と時刻 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="計算された指標" }
 
@@ -102,7 +102,7 @@ Braze SDKは、ローカルにIPアドレスを保存しません。
 
 ## パーソナライズされた連携 {#personalized-integration}
 
-Brazeを最大限に活用するために、SDKインテグレータは多くの場合Braze SDKを実装し、自動的に収集されたデータに加えて、ビジネスに関連する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes)、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events)、[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#logging-purchase-events)を記録します。
+Brazeを最大限に活用するために、SDKインテグレータは多くの場合Braze SDKを実装し、自動的に収集されたデータに加えて、ビジネスに関連する[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes)、[カスタムイベント]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events)、[購入イベント]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#log-purchase-events)を記録します。
 
 パーソナライズされた連携により、ユーザーエクスペリエンスに関連したカスタマイズされたコミュニケーションが可能になります。
 

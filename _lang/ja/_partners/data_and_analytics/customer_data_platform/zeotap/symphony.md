@@ -94,8 +94,8 @@ Symphonyでユーザーにフィルターを適用した後、またはユーザ
 | 名 | 静的マッピング | これは、Zeotap Catalogueの`First Name`にマッピングされます。 |
 | 姓 | 静的マッピング | これは、Zeotap Catalogueの`Last Name`にマッピングされます。 |
 | 性別 | 静的マッピング | これは、Zeotap Catalogueの`Gender`にマッピングされます。 |
-| カスタムイベント名 | 静的マッピング | これは、Zeotap Catalogueの`Event Name`にマッピングされます。<br><br>Brazeでカスタムイベントをキャプチャするには、カスタムイベント名とカスタムイベントタイムスタンプの両方をマッピングする必要があります。どちらかがマッピングされていないと、カスタムイベントは処理できません。詳細については、「[イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object#what-is-the-event-object)」を参照してください。 |
-| カスタムイベントタイムスタンプ | 静的マッピング | これは、Zeotap Catalogueの`Event Timestamp`にマッピングされます。<br><br>Brazeでカスタムイベントをキャプチャするには、カスタムイベント名とカスタムイベントタイムスタンプの両方をマッピングする必要があります。どちらかがマッピングされていないと、カスタムイベントは処理できません。詳細については、「[イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object#what-is-the-event-object)」を参照してください。 |
+| カスタムイベント名 | 静的マッピング | これは、Zeotap Catalogueの`Event Name`にマッピングされます。<br><br>Brazeでカスタムイベントをキャプチャするには、カスタムイベント名とカスタムイベントタイムスタンプの両方をマッピングする必要があります。どちらかがマッピングされていないと、カスタムイベントは処理できません。詳細については、「[イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object#what-is-an-event-object)」を参照してください。 |
+| カスタムイベントタイムスタンプ | 静的マッピング | これは、Zeotap Catalogueの`Event Timestamp`にマッピングされます。<br><br>Brazeでカスタムイベントをキャプチャするには、カスタムイベント名とカスタムイベントタイムスタンプの両方をマッピングする必要があります。どちらかがマッピングされていないと、カスタムイベントは処理できません。詳細については、「[イベントオブジェクト]({{site.baseurl}}/api/objects_filters/event_object#what-is-an-event-object)」を参照してください。 |
 | メール購読 | ドロップダウン選択 | `Email Marketing Preference`フィールドを登録してそれにマッピングします。<br><br>Zeotapは次の3つの値を送信します。<br>• `opted_in` - ユーザーがメールマーケティング設定を明示的に登録していることを示します。<br>• `unsubscribed` - ユーザーがメールメッセージを明示的にオプトアウトしたことを示します。<br>• `subscribed` - ユーザーがオプトインもオプトアウトもしていないことを示します。 |
 | プッシュ購読 | ドロップダウン選択 | `Push Marketing Preference`フィールドを登録してそれにマッピングします。<br><br>Zeotapは次の3つの値を送信します。<br>• `opted_in` - ユーザーがプッシュマーケティング設定を明示的に登録していることを示します。<br>• `unsubscribed` - ユーザーがプッシュメッセージを明示的にオプトアウトしたことを示します。<br>• `subscribed` - ユーザーがオプトインもオプトアウトもしていないことを示します。 |
 | メール開封トラッキングの有効化 | ドロップダウン選択 | 該当する`Marketing Preference`フィールドをマッピングします。<br><br>trueに設定すると、今後このユーザーに送信されるすべてのメールに開封トラッキングピクセルが追加されるようになります。 |

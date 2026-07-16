@@ -113,7 +113,7 @@ Message body
 
 ### Evitar enviar mensajes en festivos importantes {#holiday-avoid}
 
-Este caso de uso muestra cómo enviar mensajes durante el período festivo evitando los días de festivos importantes, cuando la interacción probablemente sea baja.
+Este caso de uso muestra cómo enviar mensajes durante el período festivo evitando los días de festivos importantes, cuando la participación probablemente sea baja.
 
 {% raw %}
 ```liquid
@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### Formatear moneda para convenciones numéricas europeas {#european-currency-format}
 
-Para las configuraciones regionales que usan una coma como separador decimal y un punto como separador de miles (por ejemplo, Alemania o Italia), usa los filtros [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) y [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) con `replace` para intercambiar los separadores. Usa `#` como marcador de posición temporal para que los puntos y las comas no se intercambien en la misma pasada.
+Para las configuraciones regionales que usan una coma como separador decimal y un punto como separador de miles (por ejemplo, Alemania o Italia), usa los filtros [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filters) y [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) con `replace` para intercambiar los separadores. Usa `#` como marcador de posición temporal para que los puntos y las comas no se intercambien en la misma pasada.
 
 {% raw %}
 ```liquid
@@ -661,7 +661,7 @@ Did you forget something in your shopping cart?
 ```
 {% endraw %}
 
-{% alert important %} Debes tener una propiedad de evento del conteo de eventos personalizados o usar un webhook a tu punto de conexión de Braze. Esto es para incrementar un atributo personalizado (`example_event_count`) cada vez que el usuario realiza el evento. Este ejemplo usa una cadencia de tres (1, 4, 7, 10, etc.). Para iniciar la cadencia desde cero (0, 3, 6, 9, etc.), elimina `minus: 1`.
+{% alert important %} Debes tener una propiedad de evento del conteo de eventos personalizados o usar un webhook a tu endpoint de Braze. Esto es para incrementar un atributo personalizado (`example_event_count`) cada vez que el usuario realiza el evento. Este ejemplo usa una cadencia de tres (1, 4, 7, 10, etc.). Para iniciar la cadencia desde cero (0, 3, 6, 9, etc.), elimina `minus: 1`.
 {% endalert %}
 
 ### Enviar un mensaje a usuarios que solo han comprado de una categoría {#event-purchased-one-category}

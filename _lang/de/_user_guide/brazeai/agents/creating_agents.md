@@ -107,15 +107,15 @@ Wenn Sie ein [erweitertes Ausgabeschema]({{site.baseurl}}/user_guide/brazeai/age
 
 #### Fallback-Werte konfigurieren {#configure-fallback-values}
 
-Fallback-Werte sind nur für **Canvas-Schritt-Agenten** verfügbar. Im Abschnitt **Output** eines Canvas-Agenten können Sie Werte definieren, die Braze verwendet, wenn ein Agentenaufruf fehlschlägt – beispielsweise wenn das LLM eine Zeitüberschreitung verursacht oder einen ungültigen API-Schlüssel-Fehler zurückgibt. Fallback-Werte funktionieren wie Personalisierungsstandards. Sie könnten eine statische Betreffzeile oder eine kurze Nachricht festlegen, die den Nutzer:innen dennoch eine nützliche Ausgabe liefert, wenn der Agent nicht ausgeführt werden kann.
+Fallback-Werte sind nur für Canvas-Schritt-Agenten verfügbar. Im Abschnitt **Output** eines Canvas-Schritt-Agenten können Sie Werte definieren, die Braze verwendet, wenn ein Agentenaufruf fehlschlägt – beispielsweise wenn das LLM eine Zeitüberschreitung verursacht oder einen ungültigen API-Schlüssel-Fehler zurückgibt. Fallback-Werte funktionieren wie Personalisierungsstandards. Sie könnten eine statische Betreffzeile oder eine kurze Nachricht festlegen, die den Nutzer:innen dennoch eine nützliche Ausgabe liefert, wenn der Agent nicht ausgeführt werden kann.
 
-**Katalog-Agenten** unterstützen die Konfiguration von Fallback-Werten in der Agent Console nicht.
+Katalog-Agenten unterstützen die Konfiguration von Fallback-Werten in der Agent Console nicht.
 
 ![Ausgabekonfiguration der Agent Console mit dem Fallback-Ausgabefeld für ein Zahlenschema.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
 Für Canvas-Agenten unterstützen Fallback-Werte [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)-Templating, sodass Sie Nutzerattribute oder Kontextvariablen im Fallback-Text referenzieren können.
 
-Die Fallback-Felder passen sich dem Ausgabeformat Ihres Canvas-Agenten an:
+Die Fallback-Felder passen sich dem Ausgabeformat Ihres Canvas-Schritt-Agenten an:
 
 | Ausgabeformat | Fallback-Konfiguration |
 | --- | --- |
@@ -124,7 +124,7 @@ Die Fallback-Felder passen sich dem Ausgabeformat Ihres Canvas-Agenten an:
 | JSON-Schema (erweitertes Schema) | Braze liest Ihr JSON-Schema und generiert ein Eingabefeld für jede Eigenschaft, sodass Sie einen Fallback-Wert pro Schlüssel definieren können. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Fallback-Werte konfigurieren" }
 
-Wenn ein Canvas-Agent mit Fallback-Werten in einem [Agenten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) ausgeführt wird, rendert Braze den Fallback pro Nutzer:in und speichert ihn in der Ausgabevariable anstelle von `null`. Wenn Sie keine Fallback-Werte konfigurieren, bleibt die Canvas-Ausgabe bei fehlgeschlagenen Aufrufen ungesetzt (`null`).
+Wenn ein Canvas-Schritt-Agent mit Fallback-Werten in einem [Agenten-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) ausgeführt wird, rendert Braze den Fallback pro Nutzer:in und speichert ihn in der Ausgabevariable anstelle von `null`. Wenn Sie keine Fallback-Werte konfigurieren, bleibt die Canvas-Ausgabe bei fehlgeschlagenen Aufrufen ungesetzt (`null`).
 
 Informationen zum Laufzeitverhalten finden Sie unter [Fehlerbehandlung und Fallback-Verhalten]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 

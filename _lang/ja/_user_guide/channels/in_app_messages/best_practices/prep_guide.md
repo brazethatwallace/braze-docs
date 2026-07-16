@@ -15,7 +15,7 @@ toc_headers: h2
 
 ## 一般的な考慮事項 {#general-considerations}
 
-- キャンペーンを作成する場合、このメッセージのバリアントをいくつ表示しますか？バリアントテストのアイデアについては、[チャネル別のヒント]({{site.baseurl}}/user_guide/messaging/ab_testing#tips-different-channels)をご覧ください。
+- キャンペーンを作成する場合、このメッセージのバリアントをいくつ表示しますか？バリアントテストのアイデアについては、[チャネル別のヒント]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#tips-different-channels)をご覧ください。
 - キャンバスを作成する場合、このメッセージはそのステップ内の他のメッセージングチャネルと組み合わせますか？
 - [メッセージの有効期限]({{site.baseurl}}/canvas_in-app_messages)はいつに設定しますか？
 

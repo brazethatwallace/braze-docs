@@ -123,11 +123,11 @@ Die folgenden Details können ebenfalls die Textkürzung beeinflussen:
 
 ## Einrichten Ihrer iOS-Rich-Benachrichtigung {#setting-up-your-ios-rich-notification}
 
-### 1. Schritt: Push-Campaign erstellen {#step-1-create-a-push-campaign}
+### Schritt 1: Push-Campaign erstellen {#step-1-create-a-push-campaign}
 
-Folgen Sie den [Campaign-Schritten]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message), um eine Push-Benachrichtigung für iOS zu verfassen. Sie verwenden denselben Composer, den Sie auch zum Einrichten von Push-Benachrichtigungen ohne Rich-Inhalte nutzen.
+Folgen Sie den [Campaign-Schritten]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message), um eine Push-Benachrichtigung für iOS zu verfassen. Sie verwenden denselben Composer, den Sie auch zum Einrichten von Push-Benachrichtigungen ohne Rich-Inhalte nutzen.
 
-### 2. Schritt: Medien hinzufügen {#step-2-add-media}
+### Schritt 2: Medien hinzufügen {#step-2-add-media}
 
 Fügen Sie Ihre Bild-, GIF-, Audio- oder Videodatei im Feld **iOS Notification Image** im Composer der Nachricht hinzu. Informationen zum Hinzufügen Ihrer Inhaltsdateien finden Sie in den [Voraussetzungen](#requirements).
 
@@ -137,9 +137,9 @@ Sie können diese Nachricht auch so einschränken, dass sie nur an Nutzer:innen 
 
 ![Der Abschnitt „Erweitertes Benachrichtigungsbild“, in dem Sie ein Bild hinzufügen oder eine Bild-URL eingeben können.]({% image_buster /assets/img_archive/rich_notification_ios10_select.png %}){: style="max-width:70%;" }
 
-### 3. Schritt: Campaign-Erstellung fortsetzen {#step-3-continue-creating-your-campaign}
+### Schritt 3: Campaign-Erstellung fortsetzen {#step-3-continue-creating-your-campaign}
 
-Sobald Ihre Rich-Benachrichtigungsinhalte in das Dashboard hochgeladen wurden, können Sie mit der [Planung Ihrer Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#schedule-push-campaign) fortfahren.
+Sobald Ihre Rich-Benachrichtigungsinhalte in das Dashboard hochgeladen wurden, können Sie mit der [Planung Ihrer Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#choose-delivery-schedule-or-trigger) fortfahren.
 
 Wenn Nutzer:innen die Push-Benachrichtigung erhalten, können sie fest auf die Push-Nachricht drücken, um das Bild zu vergrößern.
 

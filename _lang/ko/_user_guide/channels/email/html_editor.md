@@ -44,7 +44,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 1. Canvas 작성기를 사용하여 [Canvas를 만듭니다]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 2. Canvas를 설정한 후, Canvas 빌더에서 단계를 추가합니다. 단계에 명확하고 의미 있는 이름을 지정합니다.
-3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)을 선택하고 필요에 따라 지연을 지정합니다.
+3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)을 선택하고 필요에 따라 지연을 지정합니다.
 4. 필요에 따라 이 단계의 오디언스를 필터링합니다. Segments를 지정하고 추가 필터를 추가하여 이 단계의 수신자를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 지연 후 메시지가 발송되는 시점에 확인됩니다.
 5. [진행 동작]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)을 선택합니다.
 6. 메시지와 함께 사용할 다른 메시징 채널을 선택합니다.
@@ -63,7 +63,7 @@ Braze는 이메일 Campaign을 만들 때 두 가지 편집 환경을 제공합�
 
 ![이메일 편집 환경으로 드래그 앤 드롭 편집기, HTML 편집기 또는 템플릿 중에서 선택하기.]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-그런 다음 기존 [이메일 템플릿]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template)을 선택하거나, 파일에서 [템플릿을 업로드]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)하거나(HTML 편집기만 해당), 빈 템플릿을 사용할 수 있습니다.
+그런 다음 기존 [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)을 선택하거나, 파일에서 [템플릿을 업로드]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)하거나(HTML 편집기만 해당), 빈 템플릿을 사용할 수 있습니다.
 
 HTML 편집기를 사용하고 기기가 다크 모드일 때 Gmail 모바일 앱에서 배경색이 일관되게 유지되어야 하는 경우, [Gmail 모바일 앱과 다크 모드 배경색](#gmail-dark-mode)을 참조하세요.
 
@@ -77,7 +77,7 @@ HTML 편집기를 사용하고 기기가 다크 모드일 때 Gmail 모바일 �
 
 !["HTML에서 재생성" 버튼.]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
-Braze는 일반 텍스트 버전에 대한 편집이 감지될 때까지 HTML 버전에서 자동으로 일반 텍스트 버전을 업데이트합니다. Braze가 편집을 감지하면 의도적인 변경이 이루어졌다고 판단하여 자동 업데이트를 중단합니다. 자동 동기화를 복원하려면 **Plaintext**로 이동하여 **Regenerate from HTML**을 선택합니다(일반 텍스트가 동기화되지 않을 때만 표시됨).
+Braze는 일반 텍스트 버전에 대한 편집이 감지될 때까지 HTML 버전에서 자동으로 일반 텍스트 버전을 업데이트합니다. Braze가 편집을 감지하면 의도적인 변경이 이루어졌다고 판단하여 자동 업데이트를 중단합니다. 자동 동기화를 복원하려면 **일반 텍스트**로 이동하여 **HTML에서 재생성**을 선택합니다(일반 텍스트가 동기화되지 않을 때만 표시됨).
 
 {% alert tip %}
 정확한 미리보기와 함께 이메일에 모션을 추가하려면 JavaScript 대신 GIF를 사용하세요. 대부분의 받은편지함에서 JavaScript를 지원하지 않습니다.
@@ -275,7 +275,7 @@ Apple Mail 앱에서 HTML 이메일의 이미지 링크가 클릭 가능하려�
 API 트리거 Campaign의 경우, 트리거 동작이 **Campaign과 상호작용**으로 설정되어 있을 때 상호작용으로 **수신** 옵션을 선택하면, 해당 메시지가 반송되거나 전달에 실패하더라도 Braze가 선택한 Campaign을 발송 완료로 표시하는 즉시 새 Campaign이 트리거됩니다.
 {% endalert %}
 
-Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) 규칙을 설정할 수도 있습니다.
+Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 규칙을 설정할 수도 있습니다.
 
 ### 타겟 사용자 선택하기 {#choose-users-to-target}
 
@@ -318,7 +318,7 @@ Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 동작인 [�
 {% endtab %}
 
 {% tab Canvas %}
-아직 완료하지 않았다면, Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, 다변량 테스트와 지능형 선택을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축하기]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) 단계를 참조하세요.
+아직 완료하지 않았다면, Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, 다변량 테스트와 지능형 선택을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축하기]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) 단계를 참조하세요.
 {% endtab %}
 {% endtabs %}
 

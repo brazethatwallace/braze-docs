@@ -24,9 +24,9 @@ Em muitos casos, você pode incorporar snippets de Liquid navegando até suas Ca
 
 Para saber mais sobre Liquid, confira nosso caminho de aprendizado guiado [Personalização dinâmica com Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid) no Braze Learning. Você também pode consultar a [biblioteca de casos de uso de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) para inspiração e uma variedade de exemplos de personalização usando Liquid.
 
-### Qual é a diferença entre usar Liquid e Conteúdo conectado para personalização? {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
+### Qual é a diferença entre usar Liquid e Connected Content para personalização? {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
 
-O Conteúdo conectado da Braze é um exemplo de Liquid tag. Ele também é usado para personalização, mas os dados vêm de um endpoint externo em vez de dados armazenados na Braze. Confira nossa seção dedicada de [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para saber mais sobre como expandir a personalização das suas mensagens.
+O Connected Content da Braze é um exemplo de Liquid tag. Ele também é usado para personalização, mas os dados vêm de um endpoint externo em vez de dados armazenados na Braze. Confira nossa seção dedicada de [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para saber mais sobre como expandir a personalização das suas mensagens.
 
 ### O que é templating de Liquid? {#what-is-liquid-templating}
 
@@ -64,7 +64,7 @@ Para uso em URLs e query strings (por exemplo, quando um nome contém `%` ou esp
 
 A Braze tem um recurso integrado que gera código Liquid para Segments que podem ser usados em uma mensagem. Especificamente, você pode criar um Segment que corresponda a múltiplos critérios em um objeto.
 
-Para saber mais, confira [Segmentação com múltiplos critérios]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation).
+Para saber mais, confira [Segmentação com múltiplos critérios]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects).
 
 ### Como uso atributos de evento para personalizar uma mensagem que um evento está disparando? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
@@ -89,7 +89,7 @@ Tanto `assign` quanto `capture` criam variáveis de Liquid, mas servem a propós
 - `assign` é para variáveis simples que armazenam um único valor, como um booleano, número ou string simples. Você também pode aplicar um único filtro na mesma linha.
 - `capture` é para armazenar um bloco de texto que pode incluir múltiplas variáveis, strings ou expressões complexas.
 
-Use `capture` quando o valor for complexo demais para uma única instrução `assign`, como URLs que utilizam outras variáveis de Liquid ou atributos personalizados como parâmetros. `capture` também é preferido ao implementar variáveis de Liquid no corpo de chamadas de Conteúdo conectado.
+Use `capture` quando o valor for complexo demais para uma única instrução `assign`, como URLs que utilizam outras variáveis de Liquid ou atributos personalizados como parâmetros. `capture` também é preferido ao implementar variáveis de Liquid no corpo de chamadas de Connected Content.
 
 #### Exemplos {#examples}
 
@@ -120,13 +120,13 @@ Join our VIP program to unlock free shipping.
 
 ### As variáveis de Liquid são compartilhadas entre a linha de assunto e o corpo? {#do-liquid-variables-carry-between-subject-line-and-body}
 
-Não. A Braze renderiza cada componente da mensagem separadamente (como linha de assunto, corpo HTML, pré-cabeçalho e título de push). Atribuições ou capturas feitas em um campo não ficam disponíveis em outro. Repita a chamada de Liquid ou Conteúdo conectado em cada campo que precisar do valor.
+Não. A Braze renderiza cada componente da mensagem separadamente (como linha de assunto, corpo HTML, pré-cabeçalho e título de push). Atribuições ou capturas feitas em um campo não ficam disponíveis em outro. Repita a chamada de Liquid ou Connected Content em cada campo que precisar do valor.
 
 ### O que é lógica de loop for e como posso usá-la? {#what-is-for-loop-logic-and-how-can-i-use-it}
 
 Loops for também são conhecidos como [tags de iteração](https://shopify.github.io/liquid/tags/iteration/). Usar lógica de loop for nos seus snippets de Liquid permite que você percorra blocos de Liquid até que uma condição seja atendida.
 
-Na Braze, isso pode ser usado para verificar itens em um atributo personalizado de array, ou uma lista de valores e objetos retornados por uma chamada de [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs), [seleção]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) ou resposta de [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Especificamente, você pode usar lógica de loop for como parte do seu envio de mensagens para verificar se um produto está em estoque ou se um produto tem uma avaliação mínima.
+Na Braze, isso pode ser usado para verificar itens em um atributo personalizado de array, ou uma lista de valores e objetos retornados por uma chamada de [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs), [seleção]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) ou resposta de [Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Especificamente, você pode usar lógica de loop for como parte do seu envio de mensagens para verificar se um produto está em estoque ou se um produto tem uma avaliação mínima.
 
 Por exemplo, digamos que você tenha um catálogo chamado "Games" que tem uma seleção chamada "cheap_games". Para puxar os títulos dos jogos em "cheap_games", você pode usar este snippet de Liquid:
 
@@ -141,13 +141,13 @@ Por exemplo, digamos que você tenha um catálogo chamado "Games" que tem uma se
 
 Quando as condições definidas forem atendidas, sua mensagem pode prosseguir. Usar essa lógica é uma forma útil de economizar tempo, em vez de repetir blocos de Liquid para diferentes condições.
 
-### O que é lógica de cancelamento e como posso usá-la? {#what-is-abort-logic-and-how-can-i-use-it}
+### O que é lógica de interrupção e como posso usá-la? {#what-is-abort-logic-and-how-can-i-use-it}
 
-A lógica de cancelamento permite que você interrompa o envio de uma mensagem se as condições forem atendidas. Isso é especialmente útil para evitar que mensagens incompletas sejam enviadas aos seus usuários. Para exemplos de lógica de cancelamento nas suas Campaigns de marketing, leia mais em [Cancelamento de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
+A lógica de interrupção permite que você interrompa o envio de uma mensagem se as condições forem atendidas. Isso é especialmente útil para evitar que mensagens incompletas sejam enviadas aos seus usuários. Para exemplos de lógica de interrupção nas suas Campaigns de marketing, leia mais em [Interrupção de mensagens]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ### Posso usar Liquid dentro da tag `abort_message`? {#can-i-use-liquid-inside-the-abort_message-tag}
 
-Não. A tag {% raw %}`{% abort_message %}`{% endraw %} aceita uma string estática entre aspas, não personalização com Liquid. Use outra lógica de Liquid antes da tag se precisar de um comportamento condicional de cancelamento.
+Não. A tag {% raw %}`{% abort_message %}`{% endraw %} aceita uma string estática entre aspas, não personalização com Liquid. Use outra lógica de Liquid antes da tag se precisar de um comportamento condicional de interrupção.
 
 ## Canvas, catálogos e propriedades de gatilho {#canvas-catalogs-and-trigger-properties}
 
@@ -171,9 +171,9 @@ Alguns tipos de [propriedade de contexto do Canvas]({{site.baseurl}}/user_guide/
 ```
 {% endraw %}
 
-### Por que meu snippet de Liquid de catálogo retorna uma mensagem de cancelamento? {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
+### Por que meu snippet de Liquid de catálogo retorna uma mensagem de interrupção? {#why-does-my-catalog-liquid-snippet-return-an-abort-message}
 
-Se um snippet de Liquid de catálogo for cancelado durante o envio, recrie o snippet a partir do menu de personalização selecionando itens individuais do catálogo em vez de usar uma seleção em massa ou totalmente dinâmica. Consulte [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) e [Seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
+Se um snippet de Liquid de catálogo for interrompido durante o envio, recrie o snippet a partir do menu de personalização selecionando itens individuais do catálogo em vez de usar uma seleção em massa ou totalmente dinâmica. Consulte [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) e [Seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 ## Content Blocks e o criador de mensagens {#content-blocks-and-the-message-composer}
 
@@ -193,21 +193,21 @@ Se você notar espaçamento extra em mensagens enviadas que usam Content Blocks 
 
 Alguns Content Blocks não aparecem em **Row** na busca do editor de arrastar e soltar. Adicione um bloco HTML a partir da guia **Content** (**Advanced**) e insira a Liquid tag do Content Block nesse bloco HTML para renderizar o conteúdo do bloco.
 
-### Por que a pré-visualização do meu Content Block no editor de arrastar e soltar difere da visualização de composição? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
+### Por que a prévia do meu Content Block no editor de arrastar e soltar difere da visualização de composição? {#why-does-my-drag-and-drop-content-block-preview-differ-from-the-compose-view}
 
-Quando você usa um Content Block com Liquid como modelo, as media queries para dispositivos móveis no bloco podem não ser aplicadas na pré-visualização da mesma forma que quando você arrasta o bloco diretamente para uma mensagem. Arrastar o bloco preserva o layout, mas o desacopla do bloco de origem, então edições futuras no bloco não atualizam mais a mensagem automaticamente.
+Quando você usa um Content Block com Liquid como modelo, as media queries para dispositivos móveis no bloco podem não ser aplicadas na prévia da mesma forma que quando você arrasta o bloco diretamente para uma mensagem. Arrastar o bloco preserva o layout, mas o desacopla do bloco de origem, então edições futuras no bloco não atualizam mais a mensagem automaticamente.
 
 ### Como pré-visualizo valores de propriedades de evento no criador de mensagens? {#how-do-i-preview-event-property-values-in-message-composer}
 
-Use **Pré-visualizar como usuário personalizado** e insira valores de amostra de propriedades de evento personalizado para o usuário que você está pré-visualizando. Isso também é útil para mensagens com lógica de cancelamento quando você precisa de valores de pré-visualização que não disparem um cancelamento.
+Use **Pré-visualizar como usuário personalizado** e insira valores de amostra de propriedades de evento personalizado para o usuário que você está pré-visualizando. Isso também é útil para mensagens com lógica de interrupção quando você precisa de valores de prévia que não disparem uma interrupção.
 
 ## Liquid em mensagens de e-mail {#liquid-in-email-messages}
 
-### Por que minha mensagem é cancelada com "Invalid from email address for recipient:"? {#why-does-my-message-abort-with-invalid-from-email-address-for-recipient}
+### Por que minha mensagem é interrompida com "Invalid from email address for recipient:"? {#why-does-my-message-abort-with-invalid-from-email-address-for-recipient}
 
-Esse cancelamento ocorre quando o Liquid no campo **De** produz uma sintaxe inválida, como uma variável ausente, espaços extras ou caracteres não permitidos. Faça a pré-visualização com um usuário teste e verifique se o endereço **De** renderizado corresponde ao seu domínio de envio configurado.
+Essa interrupção ocorre quando o Liquid no campo **De** produz uma sintaxe inválida, como uma variável ausente, espaços extras ou caracteres não permitidos. Faça a prévia com um usuário teste e verifique se o endereço **De** renderizado corresponde ao seu domínio de envio configurado.
 
-### Como crio um endereço de resposta (Reply-To) dinâmico? {#how-do-i-create-a-dynamic-reply-to-address}
+### Como crio um endereço de resposta dinâmico? {#how-do-i-create-a-dynamic-reply-to-address}
 
 Use Liquid no campo **Reply-To** quando seu espaço de trabalho suportar configuração dinâmica de Reply-To. Combine com as configurações de nome de exibição do campo **De** conforme necessário. Consulte [Configurações de e-mail]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) para opções específicas do espaço de trabalho.
 
@@ -217,8 +217,8 @@ Use Liquid no campo **Reply-To** quando seu espaço de trabalho suportar configu
 
 Esse erro geralmente indica chaves extras ou ausentes. Não aninhe {% raw %}`{{ }}`{% endraw %} dentro de outra expressão de tag Liquid. Por exemplo, use {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} em vez de envolver a referência do atributo em um par adicional de chaves.
 
-### Por que a tentativa de repetição do Conteúdo conectado não está disponível para minha mensagem no app? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+### Por que a tentativa de repetição do Connected Content não está disponível para minha mensagem no app? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
 
 {% raw %}
-A tag `{% connected_content %}` com tentativa de repetição não é suportada para todos os tipos de mensagem, incluindo alguns formatos de mensagem no app. Remova os parâmetros de tentativa de repetição ou use um canal suportado para chamadas de Conteúdo conectado com repetição.
+A tag `{% connected_content %}` com tentativa de repetição não é suportada para todos os tipos de mensagem, incluindo alguns formatos de mensagem no app. Remova os parâmetros de tentativa de repetição ou use um canal suportado para chamadas de Connected Content com repetição.
 {% endraw %}

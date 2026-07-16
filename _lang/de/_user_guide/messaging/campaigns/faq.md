@@ -14,7 +14,7 @@ tool: Campaigns
 
 ## Wie erstelle ich eine Multichannel-Kampagne? {#how-do-i-create-a-multichannel-campaign}
 
-Informationen zu den Einrichtungsschritten und unterstützten Kanälen finden Sie unter [Multichannel-Kampagnen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) in **Campaign erstellen**.
+Informationen zu den Einrichtungsschritten und unterstützten Kanälen finden Sie unter [Multichannel-Kampagnen]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) in **Campaign erstellen**.
 
 ### Kann ich meiner Multichannel-Kampagne eine Kontrollgruppe hinzufügen? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 

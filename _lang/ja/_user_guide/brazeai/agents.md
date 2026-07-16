@@ -78,9 +78,11 @@ Brazeエージェントの機能には以下が含まれます。
 
 ## エラーハンドリング {#error-handling}
 
-**キャンバスエージェントステップ**または**カタログエージェント**の実行中に、接続されたモデルがLLMプロバイダーから[レート制限エラー]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)を返した場合、Brazeはエクスポネンシャルバックオフを使用してリクエストを継続的に再試行します。その他の障害（タイムアウトや無効なAPIキーなど）の場合、エージェントコンソールで[フォールバック値が設定]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)されていない限り、キャンバスエージェントの出力は`null`に設定されます（キャンバスステップエージェントのみ）。カタログエージェントはレート制限以外の障害を再試行しません。エージェントが日次実行制限に達した場合、Brazeは設定されたフォールバック値が存在すればそれを適用し、存在しない場合は出力を`null`に設定します。
+キャンバスステップエージェントまたはカタログエージェントの実行中に、接続されたモデルがLLMプロバイダーから[レート制限エラー]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors)を返した場合、Brazeはエクスポネンシャルバックオフを使用してリクエストを継続的に再試行します。
 
-多くのユーザーが同時にエージェントステップに入ると、[実行フロー制御]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls)により処理に時間がかかる場合があります。実行が失敗した場合でもユーザーが出力を受け取れるよう、エージェントコンソールでキャンバスエージェントのフォールバック値を設定するか、下流のメッセージステップで[Liquidのデフォルト値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)を使用してください。
+その他の障害（タイムアウトや無効なAPIキーなど）の場合、エージェントコンソールで[フォールバック値が設定]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)されていない限り、キャンバスステップエージェントの出力は`null`に設定されます（キャンバスステップエージェントのみ）。カタログエージェントはレート制限以外の障害を再試行しません。エージェントが日次実行制限に達した場合、Brazeは設定されたフォールバック値が存在すればそれを適用し、存在しない場合は出力を`null`に設定します。
+
+多くのユーザーが同時にエージェントステップに入ると、[実行フロー制御]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls)により処理に時間がかかる場合があります。実行が失敗した場合でもユーザーが出力を受け取れるよう、エージェントコンソールでキャンバスステップエージェントのフォールバック値を設定するか、下流のメッセージステップで[Liquidのデフォルト値]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values)を使用してください。
 
 ## データはどのように利用され、Braze提供のLLMに送信されますか？ {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 

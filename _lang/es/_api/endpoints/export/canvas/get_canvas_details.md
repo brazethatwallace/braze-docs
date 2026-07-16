@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar detalles de Canvas de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar detalles de Canvas de Braze."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /canvas/details
 {% endapimethod %}
 
-> Usa este punto de conexión para exportar metadatos sobre un Canvas, como el nombre, la hora de creación, el estado actual y más.
+> Usa este endpoint para exportar metadatos sobre un Canvas, como el nombre, la hora de creación, el estado actual y más.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5188873c-13a3-4aaf-a54b-9fa1daeac5f8 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para usar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.details`.
+Para usar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `canvas.details`.
 
 ## Límite de velocidad {#rate-limit}
 

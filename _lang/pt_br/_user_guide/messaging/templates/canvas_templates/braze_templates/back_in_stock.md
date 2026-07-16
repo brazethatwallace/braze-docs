@@ -18,7 +18,7 @@ Este artigo vai guiar você por um caso de uso do modelo **De volta ao estoque**
 Para usar este modelo com sucesso, você precisará do seguinte:
 
 - Um [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create) contendo informações sobre seu item
-- [Notificações de volta ao estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#how-back-in-stock-notifications-work) devem estar configuradas para o item sobre o qual você deseja enviar mensagens aos usuários
+- [Notificações de volta ao estoque]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#back-in-stock-notifications) devem estar configuradas para o item sobre o qual você deseja enviar mensagens aos usuários
 
 ## Adaptando o modelo às suas necessidades {#tailoring-the-template-to-your-needs}
 
@@ -68,7 +68,7 @@ Faremos dois ajustes nesta etapa:
 
 Vamos definir nosso público-alvo como usuários que acreditamos ter maior probabilidade de comprar o jeans Classic Straight Leg.
 
-1. Selecione nosso segmento alvo, "Favorited - Classic Straight Leg Jeans", que consiste em usuários que favoritaram nosso jeans Classic Straight Leg no app ou site.
+1. Selecione nosso segmento alvo, "Favorited - Classic Straight Leg Jeans", que consiste em usuários que favoritaram nosso jeans Classic Straight Leg no app ou website.
 2. Selecione um filtro para incluir usuários que compraram "Jeans" mais de "0" vezes.
 
 ![Etapa "Público-alvo" com o segmento "Favorited - Classic Straight Leg Jeans".]({% image_buster /assets/img/canvas_templates/back_in_stock_5.png %})
@@ -91,7 +91,7 @@ Vamos manter as configurações de inscrição padrão, para enviar apenas a usu
 
 ### Etapa 6: Personalizar seu Canvas {#step-6-customize-your-canvas}
 
-Agora, vamos construir nosso Canvas personalizando os canais e o conteúdo que serão enviados aos usuários. Como estamos usando todos os quatro canais do modelo (push para celular e web, SMS e e-mail) e usando o filtro [Canal Inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel), não precisamos adicionar ou remover nenhum.
+Agora, vamos construir nosso Canvas personalizando os canais e o conteúdo que serão enviados aos usuários. Como estamos usando todos os quatro canais do modelo (push para celular e web, SMS e e-mail) e usando o filtro [canal inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel), não precisamos adicionar ou remover nenhum.
 
 {% alert tip %}
 Você pode usar [propriedades de entrada do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) para personalizar as mensagens no seu Canvas com base no produto ao qual você está se referindo.
@@ -102,7 +102,7 @@ Vamos começar nossa personalização percorrendo cada etapa de mensagem para at
 1. Substitua `!!YOURCATALOGHERE!!` pelo nome do nosso catálogo ("Straight_Leg_Pants").
 2. Substitua `[0]` pelo número de índice do jeans Classic Straight Leg, que é "9" porque o jeans é o décimo item no array `items` do nosso catálogo. (Os arrays são indexados a partir de zero em Liquid, então o primeiro item é `0` e não `1`.)
 3. Repita as etapas 1 e 2 para todas as etapas de mensagem restantes, incluindo:
-    - A mensagem "In-Product Msg & Email" que é enviada após uma postergação de um dia
+    - A mensagem "In-Product Msg & Email" que é enviada após um delay de um dia
     - As mensagens "Push+Email Alert" que são enviadas para usuários que não realizaram uma compra
 4. Atualize a etapa de jornadas de ação selecionando o grupo de ação **Purchase**. Em seguida, selecione **Make a specific purchase** e escolha o jeans Classic Straight Leg como produto.
 

@@ -31,7 +31,7 @@ Antes de entrar en los detalles más específicos de la [configuración de Canva
   {% endtab %}
 
   {% tab Constructor de Canvas %}
-  El constructor de Canvas traza los pasos a seguir al crear tu Canvas. Esto incluye aspectos básicos como nombrar tu Canvas y añadir equipos. Esencialmente, el constructor de Canvas es la configuración crucial requerida antes de comenzar a construir tu Canvas. Aquí puedes controlar la forma en que tus usuarios comienzan y completan su recorrido del cliente con opciones para editar el [horario de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2b-set-your-canvas-entry-schedule), la [audiencia objetivo]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2c-set-your-target-entry-audience) y los [ajustes de envío]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2d-select-your-send-settings).<br><br> ![El constructor de Canvas en la sección Básicos para un Canvas llamado "New Canvas".]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
+  El constructor de Canvas traza los pasos a seguir al crear tu Canvas. Esto incluye aspectos básicos como nombrar tu Canvas y añadir equipos. Esencialmente, el constructor de Canvas es la configuración crucial requerida antes de comenzar a construir tu Canvas. Aquí puedes controlar la forma en que tus usuarios comienzan y completan su recorrido del cliente con opciones para editar el [horario de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-12-determine-your-canvas-entry-schedule), la [audiencia objetivo]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-13-set-your-target-entry-audience) y los [ajustes de envío]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-14-select-your-send-settings).<br><br> ![El constructor de Canvas en la sección Básicos para un Canvas llamado "New Canvas".]({% image_buster /assets/img_archive/canvas_flow_entry_wizard.png %}){: style="max-width:90%;"}
 
   {% endtab %}
 
@@ -62,7 +62,7 @@ Puedes añadir etiquetas y nombrar los pasos y variantes en un Canvas. Para más
 
 *Partiendo del "qué", ¿por qué estás construyendo este Canvas?*
 
-Siempre es importante tener un objetivo definido en mente, y Canvas te ayuda a entender cómo estás rindiendo en relación con KPI como la interacción en sesiones, compras y eventos personalizados.
+Siempre es importante tener un objetivo definido en mente, y Canvas te ayuda a entender cómo estás rindiendo en relación con KPI como la participación en sesiones, compras y eventos personalizados.
 
 Seleccionar al menos un [evento de conversión]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) te dará la capacidad de entender cómo optimizar el rendimiento dentro del Canvas. Y si tu Canvas tiene múltiples variantes o un grupo de control, Braze usará el evento de conversión para determinar la mejor variación para alcanzar este objetivo.
 
@@ -94,7 +94,7 @@ Para definir tu "quién", puedes usar segmentos predefinidos disponibles en Canv
 | Datos personalizados | Segmenta usuarios basándote en eventos y atributos que tú defines. Puede usar características específicas de tu producto. |
 | Actividad del usuario | Segmenta clientes basándote en sus acciones y compras. |
 | Reorientación | Segmenta clientes que han recibido, se les ha enviado o han interactuado con Canvas anteriores. |
-| Actividad de marketing | Segmenta clientes basándote en comportamientos universales como la última interacción. |
+| Actividad de marketing | Segmenta clientes basándote en comportamientos universales como la última participación. |
 | Atributos del usuario | Segmenta clientes por sus atributos y características constantes. |
 | Atribución de instalación | Segmenta clientes por su primera fuente, grupo de anuncios, Campaign o anuncio. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="El \"quién\": Selecciona una audiencia" }

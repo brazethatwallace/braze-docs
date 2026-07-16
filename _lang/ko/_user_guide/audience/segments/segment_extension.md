@@ -20,7 +20,7 @@ Braze Segments는 동적 사용자 그룹을 생성할 수 있는 강력한 타�
 예를 들어, Braze 기본 세분화는 최근 제품 중 하나를 구매한 사용자를 식별하는 것과 같이 정의한 특정 기준에 맞는 사용자를 찾습니다. 세그먼트 확장을 사용하면 더 깊이 들어갈 수 있습니다. 예를 들어 18~24개월 전에 특정 제품의 특정 색상을 최소 2회 이상 구매한 사용자를 식별할 수 있습니다. 세그먼트 확장은 향상 기능이지 필수 요건이 아닙니다. 더 고급 필터나 더 긴 조회 기간이 필요한 경우, 데이터 사용량을 최적화하면서 도움이 되는 훌륭한 도구입니다.
 
 {% alert note %}
-워크스페이스당 특정 시점에 기본 25개의 활성 세그먼트 확장이 할당됩니다. 이 한도를 늘려야 하는 경우, Braze 고객 성공 매니저에게 연락하여 사용 사례를 논의하세요.
+워크스페이스당 특정 시점에 기본 50개의 활성 세그먼트 확장이 할당됩니다. 이 한도를 늘려야 하는 경우, Braze 고객 성공 매니저에게 연락하여 사용 사례를 논의하세요.
 {% endalert %}
 
 ## 세그먼트 확장 생성하기 {#creating-a-segment-extension}
@@ -87,7 +87,7 @@ SQL을 사용하는 경험을 선택한 경우, 자세한 내용은 [SQL 세그�
 
 ![사용 가능한 속성정보 드롭다운이 있는 세그먼트 확장 세부 정보.]({% image_buster /assets/img/segment/ecommerce_recommended_event_properties.png %})
 
-[중첩된 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)를 기반으로 한 세분화도 지원합니다. 비교 드롭다운에서 중첩된 속성정보의 데이터 유형과 일치하는 비교를 선택합니다. 중첩된 속성정보를 포함하는 모든 이커머스 추천 이벤트에 대해 동일한 중첩된 이벤트 속성정보 구문을 사용하여 중첩된 속성정보를 추가할 수 있습니다. 사용 가능한 다양한 중첩된 속성정보에 대한 정보는 [이커머스 추천 이벤트 유형]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events)을 참조하세요. 세그먼트 확장의 속성정보 이름에 필요한 스키마를 생성하려면 [커스텀 이벤트의 중첩된 오브젝트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)의 단계를 따르세요.
+[중첩된 이벤트 속성정보]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)를 기반으로 한 세분화도 지원합니다. 비교 드롭다운에서 중첩된 속성정보의 데이터 유형과 일치하는 비교를 선택합니다. 중첩된 속성정보를 포함하는 모든 이커머스 추천 이벤트에 대해 동일한 중첩된 이벤트 속성정보 구문을 사용하여 중첩된 속성정보를 추가할 수 있습니다. 사용 가능한 다양한 중첩된 속성정보에 대한 정보는 [이커머스 추천 이벤트 유형]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events)을 참조하세요. 세그먼트 확장의 속성정보 이름에 필요한 스키마를 생성하려면 [커스텀 이벤트의 중첩된 오브젝트]({{site.baseurl}}/user_guide/data/activation/events/custom_events/nested_objects)의 단계를 따르세요.
 
 ![중첩된 이벤트 속성정보를 기반으로 한 세분화.]({% image_buster /assets/img/segment/nested_segment_extensions.png %})
 

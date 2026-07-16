@@ -19,7 +19,7 @@ description: "Dieser Artikel beschreibt den Endpunkt zum Anzeigen der Quellüber
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `templates.email.info`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `templates.email.info`.
 
 ## Rate-Limit
 

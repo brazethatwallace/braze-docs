@@ -128,7 +128,7 @@ webhookを設定した後、**Continue and test**を選択します。テスト�
 
 ## ユーザーID管理 {#user-identity-management}
 
-この統合により、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number)を通じてメールでFacebookリードを紐づけることができます。
+この統合により、[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number)を通じてメールでFacebookリードを紐づけることができます。
 
 * メールが既存のユーザープロファイルと一致する場合、BrazeはFacebookリードデータでそのプロファイルを更新します。
 * 同じメールを持つユーザープロファイルが複数ある場合、Brazeは更新時にexternal IDを持つ最新の更新済みプロファイルを優先します。
@@ -162,7 +162,7 @@ Zapierを使用しておらず、使用する予定がない場合は、Facebook
 
 Facebookからリードを取得するには、<a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/retrieving#webhooks" target="_blank">webhook</a> を使用します。Facebookでwebhookの使用を開始するには、<a href="https://developers.facebook.com/docs/graph-api/webhooks/getting-started" target="_blank">webhookのドキュメント</a> を参照してください。
 
-FacebookでWebhook URLを確立したら、チームと協力して[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)にデータを転送するための最適なパスを決定してください。Zapierアプローチと同様に、`users/track`エンドポイントから[メールによるリクエスト]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number)を実行することをお勧めします。
+FacebookでWebhook URLを確立したら、チームと協力して[`/users/track`エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)にデータを転送するための最適なパスを決定してください。Zapierアプローチと同様に、`users/track`エンドポイントから[メールによるリクエスト]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number)を実行することをお勧めします。
 {% enddetails %}
 
 {% alert tip %}

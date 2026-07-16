@@ -18,7 +18,7 @@ Dieser Artikel führt Sie durch einen Anwendungsfall für das Template **Wieder 
 Um dieses Template erfolgreich zu verwenden, benötigen Sie Folgendes:
 
 - Einen [Katalog]({{site.baseurl}}/user_guide/data/activation/catalogs/create) mit Informationen über Ihren Artikel
-- [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#how-back-in-stock-notifications-work) müssen für den Artikel eingerichtet sein, über den Sie Nutzer:innen benachrichtigen möchten
+- [Wieder-auf-Lager-Benachrichtigungen]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#back-in-stock-notifications) müssen für den Artikel eingerichtet sein, über den Sie Nutzer:innen benachrichtigen möchten
 
 ## Das Template an Ihre Bedürfnisse anpassen {#tailoring-the-template-to-your-needs}
 
@@ -26,13 +26,13 @@ Nehmen wir an, wir arbeiten für PantsLabyrinth, einen Direktvertriebshändler f
 
 Bevor wir das Canvas erstellen, [richten wir einen Katalog ein]({{site.baseurl}}/user_guide/data/activation/catalogs/create), der Informationen über unser Straight-Leg-Hosen-Sortiment enthält, und [richten Wieder-auf-Lager-Benachrichtigungen ein]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#setting-up-back-in-stock-notifications) für die Classic Straight Leg Jeans. Wir haben es so eingerichtet, dass Nutzer:innen Benachrichtigungen abonnieren, nachdem sie das angepasste Event ausgeführt haben, die Classic Straight Leg Jeans in der App als Favorit zu markieren.
 
-Um auf das Template „Wieder auf Lager“ zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Use a Canvas template** > **Braze templates**. Wählen Sie dann neben **Back in Stock** die Option **Apply Template**. Jetzt können wir das Template durchgehen und an unsere Bedürfnisse anpassen.
+Um auf das Template „Wieder auf Lager“ zuzugreifen, wählen Sie beim Erstellen eines neuen Canvas **Canvas-Template verwenden** > **Braze-Templates**. Wählen Sie dann neben **Back in Stock** die Option **Template anwenden**. Jetzt können wir das Template durchgehen und an unsere Bedürfnisse anpassen.
 
 ### 1. Schritt: Details einrichten {#step-1-set-up-the-details}
 
 Passen wir die Canvas-Details an, um unser Ziel widerzuspiegeln.
 
-1. Wählen Sie **Edit** neben dem Template-Namen.
+1. Wählen Sie **Bearbeiten** neben dem Template-Namen.
 
 ![Der aktuelle Titel und die Beschreibung des Canvas.]({% image_buster /assets/img/canvas_templates/back_in_stock_old_name_description.png %}){: style="max-width:45%;"}
 
@@ -45,13 +45,13 @@ Passen wir die Canvas-Details an, um unser Ziel widerzuspiegeln.
 
 ### 2. Schritt: Konversions-Events zuweisen {#step-2-assign-conversion-events}
 
-Ändern Sie das **Primary Conversion Event - A** zu **Make a specific purchase** und wählen Sie **Classic Straight Leg** als Produktnamen.
+Ändern Sie das **Primäres Konversions-Event – A** zu **Einen bestimmten Kauf tätigen** und wählen Sie **Classic Straight Leg** als Produktnamen.
 
 ![Der Abschnitt „Konversions-Events zuweisen“ für den Konversions-Event-Typ „Kauf des Produkts Classic Straight Leg“ mit einer Conversion-Frist von 7 Tagen.]({% image_buster /assets/img/canvas_templates/back_in_stock_2.png %})
 
 ### 3. Schritt: Entry-Zeitplan anpassen {#step-3-tailor-the-entry-schedule}
 
-Behalten wir den Entry-Zeitplan als **Action-Based** bei, damit Nutzer:innen unser Canvas betreten, wenn sie eine Aktion ausführen, die das Template bereits auf **Perform a Back in Stock Event** eingestellt hat.
+Behalten wir den Entry-Zeitplan als **Aktionsbasiert** bei, damit Nutzer:innen unser Canvas betreten, wenn sie eine Aktion ausführen, die das Template bereits auf **Wieder-auf-Lager-Event ausführen** eingestellt hat.
 
 Wir nehmen zwei Anpassungen an diesem Schritt vor:
 
@@ -60,7 +60,7 @@ Wir nehmen zwei Anpassungen an diesem Schritt vor:
 ![Der Schritt „Entry-Zeitplan“ für ein aktionsbasiertes Canvas.]({% image_buster /assets/img/canvas_templates/back_in_stock_3.png %})
 
 {: start="2"}
-2. Legen Sie die **Start Time (Required)** auf das gewünschte Startdatum und die gewünschte Uhrzeit fest.
+2. Legen Sie die **Startzeit (erforderlich)** auf das gewünschte Startdatum und die gewünschte Uhrzeit fest.
 
 ![Der Abschnitt „Eintrittsfenster“ mit einer Startzeit am 2. Januar 2025 um 0:00 Uhr.]({% image_buster /assets/img/canvas_templates/back_in_stock_4.png %})
 
@@ -94,7 +94,7 @@ Wir behalten die Standard-Abo-Einstellungen bei, sodass wir nur an Nutzer:innen 
 Jetzt erstellen wir unser Canvas, indem wir die Kanäle und Inhalte anpassen, die an Nutzer:innen gesendet werden. Da wir alle vier Template-Kanäle (Mobilgerät- und Web-Push, SMS und E-Mail) verwenden und den Filter [Intelligenter Kanal]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel) nutzen, müssen wir keine hinzufügen oder entfernen.
 
 {% alert tip %}
-Sie können [Canvas-Eingangs-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) verwenden, um die Nachrichten in Ihrem Canvas basierend auf dem Produkt, auf das Sie sich beziehen, anzupassen.
+Sie können [Canvas-Entry-Eigenschaften]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) verwenden, um die Nachrichten in Ihrem Canvas basierend auf dem Produkt, auf das Sie sich beziehen, anzupassen.
 {% endalert %}
 
 Wir beginnen unsere Anpassung, indem wir jeden Nachrichten-Schritt durchgehen und den Inhalt aktualisieren.
@@ -104,13 +104,13 @@ Wir beginnen unsere Anpassung, indem wir jeden Nachrichten-Schritt durchgehen un
 3. Wiederholen Sie die Schritte 1 und 2 für alle verbleibenden Nachrichten-Schritte, einschließlich:
     - Die Nachricht „In-Product Msg & Email“, die nach der eintägigen Verzögerung gesendet wird
     - Die „Push+Email Alert“-Nachrichten, die an Nutzer:innen gesendet werden, die keinen Kauf getätigt haben
-4. Aktualisieren Sie den Aktionspfade-Schritt, indem Sie die Aktionsgruppe **Purchase** auswählen. Wählen Sie dann **Make a specific purchase** und wählen Sie die Classic Straight Leg Jeans als Produkt.
+4. Aktualisieren Sie den Aktionspfade-Schritt, indem Sie die Aktionsgruppe **Kauf** auswählen. Wählen Sie dann **Einen bestimmten Kauf tätigen** und wählen Sie die Classic Straight Leg Jeans als Produkt.
 
 ![Mobilgerät-Push-Canvas-Schritt mit einer Nachricht, die Nutzer:innen darüber informiert, dass ein Produkt wieder auf Lager ist.]({% image_buster /assets/img/canvas_templates/back_in_stock_9.png %})
 
 ### 7. Schritt: Canvas testen und starten {#step-7-test-and-launch-your-canvas}
 
-Nachdem wir unser Canvas getestet und überprüft haben, um sicherzustellen, dass es wie erwartet funktioniert, starten wir es, indem wir **Launch Canvas** auswählen. Jetzt erhalten unsere Nutzer:innen, die unsere Classic Straight Leg Jeans als Favorit markiert und unsere Messaging-Kanäle abonniert haben, Benachrichtigungen, wenn die Jeans wieder auf Lager sind!
+Nachdem wir unser Canvas getestet und überprüft haben, um sicherzustellen, dass es wie erwartet funktioniert, starten wir es, indem wir **Canvas starten** auswählen. Jetzt erhalten unsere Nutzer:innen, die unsere Classic Straight Leg Jeans als Favorit markiert und unsere Messaging-Kanäle abonniert haben, Benachrichtigungen, wenn die Jeans wieder auf Lager sind!
 
 {% alert tip %}
 Sehen Sie sich unsere [Checkliste vor und nach dem Start]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) an, um Dinge zu berücksichtigen, bevor und nachdem Sie ein Canvas starten.

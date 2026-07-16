@@ -26,13 +26,13 @@ Sie wählen den Agententyp in der **Agentenkonsole** aus, wenn Sie den Agenten e
 
 Konzentrieren Sie sich auf hochwertige Anwendungsfälle, bei denen Agenten die größte Kapitalrendite (ROI) erzielen können, und wählen Sie Zielgruppen aus, die wahrscheinlich reagieren. Eine kleinere Zielgruppe mit hohem Potenzial übertrifft oft eine große Zielgruppe mit geringem Potenzial.
 
-Beginnen Sie bei Canvas-Agenten mit Nutzer:innen, die starke Signale aufweisen – wie aktuelle Suchanfragen, hohes Engagement oder umfangreiche Profildaten – bevor Sie auf breitere Segmente ausweiten. Priorisieren Sie bei Katalog-Agenten Zeilen, in denen die benötigten Eingabespalten bereits befüllt sind, damit jeder Aufruf genügend Kontext hat, um nützliche Ausgaben zu erzeugen.
+Beginnen Sie bei Canvas-Schritt-Agenten mit Nutzer:innen, die starke Signale aufweisen – wie aktuelle Suchanfragen, hohes Engagement oder umfangreiche Profildaten – bevor Sie auf breitere Segmente ausweiten. Priorisieren Sie bei Katalog-Agenten Zeilen, in denen die benötigten Eingabespalten bereits befüllt sind, damit jeder Aufruf genügend Kontext hat, um nützliche Ausgaben zu erzeugen.
 
 Um die Kapitalrendite in kleinem Maßstab zu testen, bevor Sie einen Agenten breit ausrollen, verwenden Sie einen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step)-Schritt, sodass nur ein Teil Ihrer Zielgruppe den Branch betritt, der Ihren Agent-Schritt enthält.
 
 ## Canvas-Schritt-Agenten verwenden {#use-canvas-step-agents}
 
-Nachdem Sie einen Canvas-Agenten erstellt haben, fügen Sie ihn als Agent-Schritt zu einem Canvas hinzu, um Nachrichten zu personalisieren oder Entscheidungen in Echtzeit zu steuern.
+Nachdem Sie einen Canvas-Schritt-Agenten erstellt haben, fügen Sie ihn als Agent-Schritt zu einem Canvas hinzu, um Nachrichten zu personalisieren oder Entscheidungen in Echtzeit zu steuern.
 
 ### Funktionsweise {#how-it-works}
 
@@ -76,7 +76,7 @@ Beispiele finden Sie unter [Funktionsweise]({{site.baseurl}}/user_guide/messagin
 
 ### Fehlerbehandlung und Fallback-Verhalten {#fallback-behavior}
 
-Das Folgende gilt für **Canvas-Schritt-Agenten** in einem [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
+Das Folgende gilt für Canvas-Schritt-Agenten in einem [Agent-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 - Wenn das verbundene Modell einen [Rate-Limit-Fehler]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) vom LLM-Anbieter zurückgibt, wiederholt Braze die Anfrage kontinuierlich mit exponentiellem Backoff, bis der Aufruf erfolgreich ist oder Braze feststellt, dass er nicht abgeschlossen werden kann; die Nutzer:innen fahren dann mit dem nächsten Canvas-Schritt fort.
 - Bei anderen Fehlern (wie einem Timeout oder einem ungültigen API-Schlüssel) wird die Ausgabevariable auf `null` gesetzt, es sei denn, der Agent hat [konfigurierte Fallback-Werte]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in der Agentenkonsole.

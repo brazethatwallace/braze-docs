@@ -518,7 +518,7 @@ Hi, the offer is only valid today.
 {% endraw %}
 
 {% alert important %}
-Você precisará atribuir um valor de `date` e incluir lógica de cancelamento caso a data fornecida esteja fora do intervalo de datas. Para cálculos exatos de dia, a data final atribuída deve incluir 23:59:59.
+Você precisará atribuir um valor de `date` e incluir lógica de interrupção caso a data fornecida esteja fora do intervalo de datas. Para cálculos exatos de dia, a data final atribuída deve incluir 23:59:59.
 {% endalert %}
 
 ### Inserir a data de 30 dias a partir de agora, formatada como mês e dia {#countdown-template-date}
@@ -569,7 +569,7 @@ There is a shovel here.
 
 ### Formatar moeda para convenções numéricas europeias {#european-currency-format}
 
-Para localidades que usam vírgula como separador decimal e ponto como separador de milhares (por exemplo, Alemanha ou Itália), use os filtros [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filter) e [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) com `replace` para trocar os separadores. Use `#` como um espaço reservado temporário para que pontos e vírgulas não sejam trocados na mesma passagem.
+Para localidades que usam vírgula como separador decimal e ponto como separador de milhares (por exemplo, Alemanha ou Itália), use os filtros [`money`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#money-filters) e [`number_with_delimiter`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#number-formatting-filters) com `replace` para trocar os separadores. Use `#` como um espaço reservado temporário para que pontos e vírgulas não sejam trocados na mesma passagem.
 
 {% raw %}
 ```liquid
@@ -788,7 +788,7 @@ Este caso de uso exibe a data atual, mês e ano, com o mês em um idioma diferen
 
 ### Exibir uma imagem com base no idioma do usuário {#language-image-display}
 
-Este caso de uso exibe uma imagem com base no idioma do usuário. Observe que este caso de uso foi testado apenas com imagens enviadas para a Biblioteca de mídia da Braze.
+Este caso de uso exibe uma imagem com base no idioma do usuário. Observe que este caso de uso foi testado apenas com imagens enviadas para a biblioteca de mídia da Braze.
 
 {% raw %}
 ```liquid

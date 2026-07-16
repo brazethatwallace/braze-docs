@@ -16,7 +16,7 @@ search_tag: OtherLevels
 
 ## Resumen {#overview}
 
-La integración de Braze y OtherLevels te permite crear videos GenAI personalizados a través de llamadas API a OtherLevels Experience Platform, y luego enviar estos videos a tus usuarios como videos push de iOS a través de [Contenido conectado de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/).
+La integración de Braze y OtherLevels te permite crear videos GenAI personalizados a través de llamadas API a OtherLevels Experience Platform, y luego enviar estos videos a tus usuarios como videos push de iOS a través de [contenido conectado de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
 
 Ofrece a tus usuarios una mejor experiencia con las experiencias potenciadas por IA de OtherLevels. Transforma el contenido existente y de terceros en video y rich media altamente escalables para audiencias que ya consumen contenido de forma diferente y responden con fuerza a las experiencias personalizadas contextualmente.
 
@@ -27,13 +27,13 @@ Antes de empezar, necesitarás lo siguiente:
 | Requisito          | Descripción                                                                                                                                |
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Una cuenta de OtherLevels   | Se requiere una cuenta de OtherLevels para aprovechar esta asociación.                                                                     |
-| Una clave de API REST de Braze  | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Settings** > **API Keys**. |
-| Un punto de conexión REST de Braze | [La URL de tu punto de conexión REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Tu punto de conexión dependerá de la URL de Braze de tu instancia.                                                 |
+| Una clave de API REST de Braze  | Una clave de API REST de Braze con permisos `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
+| Un endpoint REST de Braze | [La URL de tu endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Tu endpoint dependerá de la URL de Braze de tu instancia.                                                 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
 Esta integración requiere llamar a la API de OtherLevels Experience Platform como parte del proceso de generación de video antes de que los mensajes puedan enviarse a tus usuarios desde Braze. Se proporcionan ejemplos cURL como parte de esta documentación; sin embargo, recomendamos usar clientes API como Postman para automatizar las llamadas API.
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 Utiliza los videos GenAI creados con OtherLevels Experience Platform para:
 - Crear mejores experiencias para propietarios y ligas deportivas, interacción con los aficionados, apuestas deportivas, iGaming y loterías.
@@ -174,18 +174,18 @@ Sustituye lo siguiente:
 
 | Marcador de posición             | Descripción                                                                                                                                                                                     |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT`    | La URL del punto de conexión REST de Braze de tu instancia de Braze actual. Para más información, consulta [Claves de API REST]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys). |
+| `BRAZE_API_ENDPOINT`    | La URL del endpoint REST de Braze de tu instancia de Braze actual. Para más información, consulta [Claves de API REST]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys). |
 | `BRAZE_API_KEY`         | Tu clave de API REST de Braze con el permiso `users.track`.                                                                                                                                      |
-| `USER_ID`              | El ID de usuario que recibirá este video en particular. Para más ejemplos de los identificadores que pueden utilizarse, consulta [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users).                                                                                                                                                  |
+| `USER_ID`              | El ID de usuario que recibirá este video en particular. Para más ejemplos de los identificadores que pueden utilizarse, consulta [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track).                                                                                                                                                  |
 | `RECIPE_ID`       | El `recipe_id` recibido de la respuesta de la API de OtherLevels en el [paso 1](#step-1).                                                                                                                                                                            |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 2: Configurar el recipe_id como atributo personalizado" }
 
-### Paso 3: Envío a través de Contenido conectado de Braze {#step-3-sending-through-braze-connected-content}
+### Paso 3: Envío a través de contenido conectado de Braze {#step-3-sending-through-braze-connected-content}
 
 Para enviar los videos GenAI como mensajes push de iOS a tus usuarios, sigue estos pasos:
 
 1. Crea una campaña de notificaciones push de iOS en Braze.
-2. Mientras redactas tu campaña, ve a la sección **Assets** y pega la siguiente sintaxis de Contenido conectado en el campo **Add from URL**.
+2. Mientras redactas tu campaña, ve a la sección **Activos** y pega la siguiente sintaxis de contenido conectado en el campo **Añadir desde URL**.
 
 {% raw %}
 ```
@@ -196,10 +196,10 @@ Para enviar los videos GenAI como mensajes push de iOS a tus usuarios, sigue est
 A continuación, sustituye `OTHERLEVELS_PROJECT_KEY` por la clave del proyecto proporcionada por OtherLevels.
 
 {: start="3"}
-3. En el desplegable de **URL file format**, selecciona **MP4**.
-4. Configura el resto de la campaña (como el contenido del mensaje, el calendario de envío y la audiencia objetivo) según tus preferencias.
+3. En el desplegable de **Formato de archivo de URL**, selecciona **MP4**.
+4. Configura el resto de la campaña (como el contenido del mensaje, el calendario de envío y el público objetivo) según tus preferencias.
 
-![Ejemplo de campos de activos para Contenido conectado.]({% image_buster /assets/img/otherlevels/1.png %})
+![Ejemplo de campos de activos para contenido conectado.]({% image_buster /assets/img/otherlevels/1.png %})
 
 ## Personalizar el video GenAI {#customizing-the-genai-video}
 

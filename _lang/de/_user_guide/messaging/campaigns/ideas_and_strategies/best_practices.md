@@ -28,7 +28,7 @@ Wenn Sie Ihre Campaigns im Laufe der Zeit ausbauen, können Lücken in Ihrer Zie
 
 ### Identifizieren Sie Ihre Zielgruppe {#identify-your-audience}
 
-Nutzen Sie Segmente und Filter zu Ihrem Vorteil, indem Sie Ihre Zielgruppe definieren. Überlegen Sie, wen Ihre Campaign und Nachrichten ansprechen sollen. Mit diesen wichtigen Informationen können Sie [Multichannel-Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) erstellen, die Ihnen die Flexibilität bieten, Ihre Nachrichten in verschiedenen Kanälen zu gestalten, um den Präferenzen für Benachrichtigungen Ihrer Zielgruppe zu entsprechen.
+Nutzen Sie Segmente und Filter zu Ihrem Vorteil, indem Sie Ihre Zielgruppe definieren. Überlegen Sie, wen Ihre Campaign und Nachrichten ansprechen sollen. Mit diesen wichtigen Informationen können Sie [Multichannel-Campaigns]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) erstellen, die Ihnen die Flexibilität bieten, Ihre Nachrichten in verschiedenen Kanälen zu gestalten, um den Benachrichtigungspräferenzen Ihrer Zielgruppe zu entsprechen.
 
 Es ist außerdem wichtig, Ihre [aktiven Nutzer:innen]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/active_user_campaigns) zu verstehen, um Ihren treuen Nutzer:innen Ihre Wertschätzung zu zeigen.
 

@@ -15,7 +15,7 @@ channel:
 
 ## À propos de l'aliasing de lien {#about-link-aliasing}
 
-L'aliasing de lien vous permet de créer des noms générés par l'utilisateur pour identifier et suivre les liens envoyés dans les e-mails. Vous pouvez ainsi utiliser efficacement ces alias de lien reconnaissables dans vos e-mails pour suivre l'engagement et analyser les performances des campagnes, sans avoir besoin de référencer le lien complet.
+L'aliasing de lien vous permet de créer des noms générés par l'utilisateur pour identifier et suivre les liens envoyés dans les e-mails. Vous pouvez ainsi utiliser efficacement ces alias de lien reconnaissables dans vos e-mails pour suivre l'engagement et analyser les performances des Campaigns, sans avoir besoin de référencer le lien complet.
 
 Avec l'aliasing de lien, vous pouvez :
 
@@ -25,17 +25,17 @@ Avec l'aliasing de lien, vous pouvez :
 
 ### Comment ça fonctionne {#how-it-works}
 
-Braze identifie de manière unique les liens dans les e-mails en ajoutant un paramètre supplémentaire appelé `lid` (également connu sous le nom d'identifiant de lien) à chaque URL de lien. Cette valeur `lid` permet à Braze de suivre, surveiller et agréger les interactions des utilisateurs avec le lien, même si les autres paramètres de l'URL peuvent différer. Cela permet de fournir des informations sur la façon dont les utilisateurs interagissent avec le contenu de vos campagnes par e-mail.
+Braze identifie de manière unique les liens dans les e-mails en ajoutant un paramètre supplémentaire appelé `lid` (également connu sous le nom d'identifiant de lien) à chaque URL de lien. Cette valeur `lid` permet à Braze de suivre, surveiller et agréger les interactions des utilisateurs avec le lien, même si les autres paramètres de l'URL peuvent différer. Cela permet de fournir des informations sur la façon dont les utilisateurs interagissent avec le contenu de vos Campaigns par e-mail.
 
-Les identifiants de lien seront également mis à jour si une campagne par e-mail, un Canvas avec un message e-mail ou un Content Block est dupliqué.
+Les identifiants de lien seront également mis à jour si une Campaign par e-mail, un Canvas avec un message e-mail ou un Content Block est dupliqué.
 
 ## Créer un alias de lien {#creating-a-link-alias}
 
 {% alert important %}
-**Link Management** apparaît dans le compositeur d'e-mail de la campagne ou du Canvas lorsque Braze active la gestion des liens pour votre compte. Pour créer et modifier des **alias de lien**, l'aliasing de lien doit être activé. Si **Link Management** est absent, contactez votre gestionnaire de compte pour activer l'aliasing de lien.
+**Link Management** apparaît dans le compositeur d'e-mail de la Campaign ou du Canvas lorsque Braze active la gestion des liens pour votre compte. Pour créer et modifier des **alias de lien**, l'aliasing de lien doit être activé. Si **Link Management** est absent, contactez votre gestionnaire de compte pour activer l'aliasing de lien.
 {% endalert %}
 
-Pour créer un alias de lien, ouvrez le corps de votre e-mail dans la campagne ou le composant Canvas, puis ouvrez **Link Management** depuis la zone **Content**. Les compositeurs glisser-déposer et HTML utilisent la même disposition de barre latérale :
+Pour créer un alias de lien, ouvrez le corps de votre e-mail dans la Campaign ou le composant Canvas, puis ouvrez **Link Management** depuis la zone **Content**. Les compositeurs glisser-déposer et HTML utilisent la même disposition de barre latérale :
 
 ### Éditeur glisser-déposer {#drag-and-drop-editor}
 
@@ -52,7 +52,7 @@ Pour créer un alias de lien, ouvrez le corps de votre e-mail dans la campagne o
 Dans **Link Management** :
 
 1. Braze génère automatiquement des alias de lien par défaut uniques pour chacun de vos liens.
-2. Donnez un nom à l'alias. Les alias doivent être nommés de manière unique par variante de campagne par e-mail ou composant Canvas.
+2. Donnez un nom à l'alias. Les alias doivent être nommés de manière unique par variante de Campaign par e-mail ou composant Canvas.
 
 Vous pouvez également définir un alias qui sera utilisé pour référencer un lien spécifique lors du traitement des rapports ou de la segmentation.
 
@@ -75,10 +75,10 @@ Pour afficher tous vos alias de lien suivis, procédez comme suit :
 
 Ici, vous pouvez trier, rechercher et désactiver le suivi des alias de lien.
 
-![Page Tracked Link Aliases affichant les alias de lien actifs et inactifs associés à diverses campagnes.]({% image_buster /assets/img/tracked_aliases.png %})
+![Page Tracked Link Aliases affichant les alias de lien actifs et inactifs associés à diverses Campaigns.]({% image_buster /assets/img/tracked_aliases.png %})
 
 {% alert tip %}
-Utilisez les endpoints [Lister les alias de lien pour une campagne]({{site.baseurl}}/get_campaign_link_alias) et [Lister les alias de lien pour un Canvas]({{site.baseurl}}/get_canvas_link_alias) pour extraire l'`alias` défini dans chaque variante de message d'une campagne ou d'un composant Canvas spécifique aux e-mails.
+Utilisez les endpoints [Lister les alias de lien pour une Campaign]({{site.baseurl}}/get_campaign_link_alias) et [Lister les alias de lien pour un Canvas]({{site.baseurl}}/get_canvas_link_alias) pour extraire l'`alias` défini dans chaque variante de message d'une Campaign ou d'un composant Canvas spécifique aux e-mails.
 {% endalert %}
 
 Braze recommande d'évaluer les liens dans l'e-mail, d'ajouter des modèles de lien et de fournir une convention de nommage adaptée à la segmentation et aux rapports. Cela vous aide à garder une trace de tous les liens.
@@ -142,7 +142,7 @@ Dans la barre latérale du compositeur, sélectionnez **Content** > **Link Manag
 Pour suivre les indicateurs d'engagement des liens, assurez-vous que votre lien commence par HTTP ou HTTPS. Pour désactiver le suivi des clics pour des liens spécifiques, consultez [Liens universels et App Links]({{site.baseurl}}/user_guide/channels/email/customize/universal_links_and_app_links#turning-off-click-tracking-on-a-link-to-link-basis).
 {% endalert %}
 
-Braze vous permet de sélectionner un nombre illimité de liens à suivre, mais vous ne pouvez recibler les utilisateurs que sur les liens les plus récents sur lesquels ils ont cliqué. Les profils utilisateur incluent les 100 liens les plus récemment cliqués. Par exemple, si vous suivez 500 liens et qu'un utilisateur clique sur les 500, vous pouvez recibler ou créer des segments basés sur les 100 liens les plus récemment cliqués.
+Braze vous permet de sélectionner un nombre illimité de liens à suivre, mais vous ne pouvez recibler les utilisateurs que sur les liens les plus récents sur lesquels ils ont cliqué. Les profils utilisateur incluent les 100 liens les plus récemment cliqués. Par exemple, si vous suivez 500 liens et qu'un utilisateur clique sur les 500, vous pouvez recibler ou créer des Segments basés sur les 100 liens les plus récemment cliqués.
 
 ![L'onglet Link Management avec deux liens sélectionnés.]({% image_buster /assets/img/link_management_dnd.png %})
 
@@ -152,12 +152,12 @@ Braze ne suit que les 100 derniers alias de lien cliqués au niveau du profil.
 
 ### Filtres basés sur les actions {#action-based-filters}
 
-Lorsque l'aliasing de lien est activé pour votre espace de travail, vous pouvez créer des messages basés sur les actions ciblant n'importe quel lien (suivi ou non suivi) ou recibler les utilisateurs selon qu'ils ont cliqué sur un alias dans n'importe quelle campagne par e-mail ou composant Canvas.
+Lorsque l'aliasing de lien est activé pour votre espace de travail, vous pouvez créer des messages basés sur les actions ciblant n'importe quel lien (suivi ou non suivi) ou recibler les utilisateurs selon qu'ils ont cliqué sur un alias dans n'importe quelle Campaign par e-mail ou composant Canvas.
 
-![Options basées sur les actions pour cibler les utilisateurs qui ont cliqué sur un alias dans un composant Canvas ou interagi avec une campagne.]({% image_buster /assets/img/link_aliasing_action_based_filters.png %})
+![Options basées sur les actions pour cibler les utilisateurs qui ont cliqué sur un alias dans un composant Canvas ou interagi avec une Campaign.]({% image_buster /assets/img/link_aliasing_action_based_filters.png %})
 
-- Si une campagne est archivée, le suivi des liens est désactivé et cet alias de lien ne peut pas être utilisé dans un autre filtre.
-- Si un lien a le suivi activé et a été cliqué dans une campagne, vous pouvez trouver la campagne comme option disponible dans le filtre de segment, même si le suivi des liens a depuis été désactivé, tant qu'au moins un lien de ce message est encore suivi.
+- Si une Campaign est archivée, le suivi des liens est désactivé et cet alias de lien ne peut pas être utilisé dans un autre filtre.
+- Si un lien a le suivi activé et a été cliqué dans une Campaign, vous pouvez trouver la Campaign comme option disponible dans le filtre de Segment, même si le suivi des liens a depuis été désactivé, tant qu'au moins un lien de ce message est encore suivi.
 - Vous ne pouvez sélectionner un lien suivi comme filtre que s'il se trouve dans un Canvas actif (lancé), en utilisant le menu déroulant du filtre **Clicked Alias in Canvas Step**. Si le lien est suivi dans un brouillon de Canvas, vous ne pouvez pas sélectionner le lien suivi comme filtre.
 
 Pour définir des liens comme non suivis, accédez à **Settings** > **Email Preferences** > **Link Aliasing Settings**.
@@ -166,25 +166,25 @@ Pour définir des liens comme non suivis, accédez à **Settings** > **Email Pre
 
 Dans Braze, si vous avez un alias de lien dans votre e-mail et qu'un utilisateur clique dessus, l'événement est enregistré dans le profil de l'utilisateur avec l'alias.
 
-Si vous utilisez le filtre de segmentation « A cliqué sur un alias dans n'importe quelle campagne ou étape Canvas » et que vous décidez ensuite de renommer cet alias de lien, les données de clics précédentes dans le profil utilisateur ne sont **pas** mises à jour, ce qui signifie qu'elles affichent toujours l'ancien alias de lien. Ainsi, si vous ciblez des utilisateurs en fonction du nouvel alias de lien, cela n'inclura pas les données de l'ancien alias de lien.
+Si vous utilisez le filtre de segmentation « A cliqué sur un alias dans n'importe quelle Campaign ou étape Canvas » et que vous décidez ensuite de renommer cet alias de lien, les données de clics précédentes dans le profil utilisateur ne sont **pas** mises à jour, ce qui signifie qu'elles affichent toujours l'ancien alias de lien. Ainsi, si vous ciblez des utilisateurs en fonction du nouvel alias de lien, cela n'inclura pas les données de l'ancien alias de lien.
 
-Si vous utilisez le filtre de segmentation « A cliqué sur un alias dans une campagne » ou « A cliqué sur un alias dans un Canvas », ce filtre sélectionne vos utilisateurs selon qu'ils ont cliqué sur un alias spécifique dans une campagne ou un Canvas spécifique. Si plusieurs utilisateurs partagent la même adresse e-mail et que l'alias de lien est cliqué, tous les autres utilisateurs partageant cette adresse e-mail voient leur profil utilisateur mis à jour. Ces profils sont également mis à jour par les événements de réception et d'ouverture, pas seulement par les événements de clic.
+Si vous utilisez le filtre de segmentation « A cliqué sur un alias dans une Campaign » ou « A cliqué sur un alias dans un Canvas », ce filtre sélectionne vos utilisateurs selon qu'ils ont cliqué sur un alias spécifique dans une Campaign ou un Canvas spécifique. Si plusieurs utilisateurs partagent la même adresse e-mail et que l'alias de lien est cliqué, tous les autres utilisateurs partageant cette adresse e-mail voient leur profil utilisateur mis à jour. Ces profils sont également mis à jour par les événements de réception et d'ouverture, pas seulement par les événements de clic.
 
 Les filtres de segmentation suivants s'appliquent aux événements de clic qui sont suivis au moment où l'événement est traité. Cela signifie que le fait de ne plus suivre des liens ne supprimera pas les données existantes et que le suivi d'un lien ne remplira pas rétroactivement les données. Pour plus de détails, consultez [Filtres de segmentation]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters).
 
 #### Arrêt du suivi des liens {#untracking-links}
 
-L'arrêt du suivi d'un lien ne réaffectera pas les segments existants avec le filtre vers l'alias non suivi. Les anciennes données resteront dans les profils utilisateur jusqu'à ce qu'elles soient remplacées par des données plus récentes.
+L'arrêt du suivi d'un lien ne réaffectera pas les Segments existants avec le filtre vers l'alias non suivi. Les anciennes données resteront dans les profils utilisateur jusqu'à ce qu'elles soient remplacées par des données plus récentes.
 
 Les liens dans les messages archivés ne sont plus suivis automatiquement. Cependant, si des messages archivés sont désarchivés, les liens devront être suivis à nouveau. Lorsque les alias de lien sont suivis, les rapports de lien sont indexés par l'alias au lieu des domaines de premier niveau ou des URL complètes.
 
-Pour afficher tous les liens de votre campagne par e-mail et leurs clics totaux respectifs, accédez à **Message Analytics** > **Email Performance** > **Preview & Heatmap**, et activez le bouton bascule **Show Heatmap**.
+Pour afficher tous les liens de votre Campaign par e-mail et leurs clics totaux respectifs, accédez à **Message Analytics** > **Email Performance** > **Preview & Heatmap**, et activez le bouton bascule **Show Heatmap**.
 
 ![Panneau Link Table by Total Clicks avec les alias de lien et leurs clics totaux.]({% image_buster /assets/img/link_alias_total_clicks.png %}){: style="max-width:60%;"}
 
 ### Événement de clic sur un e-mail {#email-clicks-event}
 
-Si vous exportez vos données d'engagement avec Currents, un événement de clic sur un e-mail sera légèrement différent si l'aliasing de lien est activé. Il comportera deux champs supplémentaires pour l'[événement de clic sur un e-mail]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events) lorsque l'aliasing de lien est activé : `link_id` et `link_alias`.
+Si vous exportez vos données d'engagement avec Currents, un événement de clic sur un e-mail sera légèrement différent si l'aliasing de lien est activé. Il comportera deux champs supplémentaires pour l'[événement de clic sur un e-mail]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-click-events) lorsque l'aliasing de lien est activé : `link_id` et `link_alias`.
 
 ```json
 // Email Click: users.messages.email.Click
@@ -216,7 +216,7 @@ Si vous exportez vos données d'engagement avec Currents, un événement de clic
 ```
 
 {% alert update %}
-Le comportement de `dispatch_id` diffère entre Canvas et les campagnes car Braze traite les étapes Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». En savoir plus sur le [comportement de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) dans Canvas et les campagnes.
+Le comportement de `dispatch_id` diffère entre Canvas et les Campaigns car Braze traite les étapes Canvas (à l'exception des étapes d'entrée, qui peuvent être planifiées) comme des événements déclenchés, même lorsqu'elles sont « planifiées ». En savoir plus sur le [comportement de `dispatch_id`]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/dispatch_id) dans Canvas et les Campaigns.
 
 _Mise à jour notée en août 2019._
 {% endalert %}
@@ -280,8 +280,8 @@ Chaque `href` distinct dans le message correspond à **un** identifiant de lien 
 
 Utilisez d'abord les approches suivantes dans Braze :
 
-- **Analyse des e-mails de campagne et Canvas :** consultez les clics agrégés par lien depuis **Message Analytics** > **Email Performance** > **Preview & Heatmap** avec **Show Heatmap** activé, comme décrit dans [Arrêt du suivi des liens](#untracking-links).
-- **Clics par destinataire dans le générateur de requêtes :** exécutez le [modèle du générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates#email-templates) **Email URLs clicked** pour une campagne ou un Canvas. Le modèle affiche des liens dépersonnalisés pour les comptages résumés ; l'export CSV inclut les ID utilisateur des cliqueurs, le lien sur lequel ils ont cliqué et un horodatage. (Les URL dépersonnalisées suppriment les balises Liquid pour la vue résumée ; consultez la description du modèle pour plus de détails.)
+- **Analyse des e-mails de Campaign et Canvas :** consultez les clics agrégés par lien depuis **Message Analytics** > **Email Performance** > **Preview & Heatmap** avec **Show Heatmap** activé, comme décrit dans [Arrêt du suivi des liens](#untracking-links).
+- **Clics par destinataire dans le générateur de requêtes :** exécutez le [modèle du générateur de requêtes]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates#email-templates) **Email URLs clicked** pour une Campaign ou un Canvas. Le modèle affiche des liens dépersonnalisés pour les comptages résumés ; l'export CSV inclut les ID utilisateur des cliqueurs, le lien sur lequel ils ont cliqué et un horodatage. (Les URL dépersonnalisées suppriment les balises Liquid pour la vue résumée ; consultez la description du modèle pour plus de détails.)
 - **Ventilations par alias dans le compositeur :** si vous avez besoin que chaque destination (par exemple, chaque `offer_id`) apparaisse comme sa propre ligne dans **Link Management** et dans les rapports basés sur les alias, utilisez des valeurs `href` distinctes (et donc des alias distincts) — par exemple, des liens distincts par branche — au lieu d'un seul lien dont le chemin change par utilisateur.
 
 Si vous utilisez également des exports d'engagement en streaming, les événements de clic sur un e-mail incluent un champ **`url`** ; consultez [Événement de clic sur un e-mail](#email-clicks-event) sur cette page pour savoir comment ce payload est lié à l'aliasing de lien.
@@ -362,6 +362,6 @@ Si vous ne pouvez pas modifier vos systèmes de destination, contactez l'[assist
 
 - Les nouveaux messages e-mail et Content Blocks ne recevront généralement pas de nouveau balisage d'alias de lien (comme le paramètre de requête `lid`).
 - Les messages existants créés lorsque l'aliasing de lien était activé peuvent encore contenir du balisage d'alias de lien dans le HTML. Vous devrez peut-être supprimer manuellement les paramètres `lid` restants là où vous ne les souhaitez plus.
-- Si vous modifiez une campagne existante, une étape e-mail Canvas ou un Content Block, vous devrez peut-être ajouter à nouveau les modèles de lien pour que les liens modélisés s'affichent correctement.
+- Si vous modifiez une Campaign existante, une étape e-mail Canvas ou un Content Block, vous devrez peut-être ajouter à nouveau les modèles de lien pour que les liens modélisés s'affichent correctement.
 - Les rapports de clics pour les envois effectués lorsque l'aliasing de lien était activé peuvent ne pas correspondre proprement aux rapports après la désactivation de la fonctionnalité.
-- Les segments qui utilisent des filtres basés sur les alias de lien (par exemple, les filtres **A cliqué sur un alias**) peuvent cesser de renvoyer les audiences attendues.
+- Les Segments qui utilisent des filtres basés sur les alias de lien (par exemple, les filtres **A cliqué sur un alias**) peuvent cesser de renvoyer les audiences attendues.

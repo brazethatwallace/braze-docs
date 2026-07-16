@@ -184,7 +184,7 @@ Um alle Links in Ihrer E-Mail-Campaign und deren jeweilige Gesamtklicks anzuzeig
 
 ### E-Mail-Klick-Ereignis {#email-clicks-event}
 
-Wenn Sie Ihre Engagement-Daten mit Currents exportieren, sieht ein E-Mail-Klick-Ereignis etwas anders aus, wenn Link Aliasing aktiviert ist. Es enthält zwei zusätzliche Felder für das [E-Mail-Klick-Ereignis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events), wenn Link Aliasing aktiviert ist: `link_id` und `link_alias`.
+Wenn Sie Ihre Engagement-Daten mit Currents exportieren, sieht ein E-Mail-Klick-Ereignis etwas anders aus, wenn Link Aliasing aktiviert ist. Es enthält zwei zusätzliche Felder für das [E-Mail-Klick-Ereignis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-click-events), wenn Link Aliasing aktiviert ist: `link_id` und `link_alias`.
 
 ```json
 // Email Click: users.messages.email.Click

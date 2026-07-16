@@ -102,7 +102,7 @@ O SDK da Braze não armazena endereços IP localmente.
 
 ## Integração personalizada {#personalized-integration}
 
-Para aproveitar ao máximo a Braze, nossos integradores de SDK geralmente implementam os SDKs da Braze e registram [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events) e [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#logging-purchase-events) que são pertinentes aos seus negócios, além dos dados coletados automaticamente.
+Para aproveitar ao máximo a Braze, nossos integradores de SDK geralmente implementam os SDKs da Braze e registram [atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes), [eventos personalizados]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events) e [eventos de compra]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#log-purchase-events) que são pertinentes aos seus negócios, além dos dados coletados automaticamente.
 
 Uma integração personalizada permite uma comunicação personalizada que é relevante para a experiência dos seus usuários.
 

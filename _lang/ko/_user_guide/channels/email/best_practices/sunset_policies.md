@@ -24,7 +24,7 @@ channel: email
 
 예를 들어, [Apple의 MPP]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp)에 옵트인한 사용자가 있는 경우, 이것이 이메일 Campaign과 전달 가능성 측정기준에 어떤 영향을 미칠 수 있는지 고려하고 일몰 정책을 가장 잘 구성하는 방법을 결정하세요.
 
-Campaign에 일몰 정책을 적용하려면, 이메일을 스팸으로 표시했거나 일정 기간 동안 메시지와 상호작용하지 않은 사용자를 자동으로 제외하는 [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#creating-a-segment)를 만드세요.
+Campaign에 일몰 정책을 적용하려면, 이메일을 스팸으로 표시했거나 일정 기간 동안 메시지와 상호작용하지 않은 사용자를 자동으로 제외하는 [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)를 만드세요.
 
 이러한 Segment를 설정하려면, 필터 드롭다운의 **리타겟팅** 섹션에 있는 `Has Marked You As Spam` 및 `Last Engaged With Message` 필터를 선택하세요.
 
@@ -34,4 +34,4 @@ Campaign에 일몰 정책을 적용하려면, 이메일을 스팸으로 표시�
 
 Braze는 스팸으로 표시한 사용자에게 자동으로 이메일 발송을 중단하지만, `Has Marked You As Spam` 필터를 사용하면 이러한 사용자에게 타겟팅된 푸시 메시지와 인앱 알림을 보낼 수도 있습니다. 이 필터는 [리타겟팅 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#retarget-campaigns)에 유용합니다. 예를 들어, 참여하지 않는 사용자에게 이메일을 열지 않을 때 놓치고 있는 기능과 혜택을 상기시키는 메시지를 보낼 수 있습니다.
 
-일몰 정책은 이탈 중인 사용자를 타겟팅하는 이메일 Campaign에서 특히 유용할 수 있습니다. 이러한 Campaign은 일정 기간 동안 앱과 상호작용하지 않은 Segment에 초점을 맞추지만, 참여하지 않는 수신자를 반복적으로 포함하면 이메일 전달 가능성이 위험에 처할 수 있습니다. 일몰 정책을 사용하면 스팸 폴더에 들어가지 않으면서 이탈 중인 사용자를 타겟팅할 수 있습니다.
+일몰 정책은 휴면 사용자를 타겟팅하는 이메일 Campaign에서 특히 유용할 수 있습니다. 이러한 Campaign은 일정 기간 동안 앱과 상호작용하지 않은 Segment에 초점을 맞추지만, 참여하지 않는 수신자를 반복적으로 포함하면 이메일 전달 가능성이 위험에 처할 수 있습니다. 일몰 정책을 사용하면 스팸 폴더에 들어가지 않으면서 휴면 사용자를 타겟팅할 수 있습니다.

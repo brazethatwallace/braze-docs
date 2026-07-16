@@ -28,7 +28,7 @@ Wenn Sie Beispiele sehen oder diesen Endpunkt für **SMS- und RCS-Abo-Gruppen** 
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `subscription.status.set`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `subscription.status.set`.
 
 {% alert note %}
 Wenn Sie diesen Endpunkt mit [LINE-Abo-Gruppen]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups) verwenden möchten, wenden Sie sich an Ihren Customer-Success-Manager.
@@ -82,7 +82,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 {% endtab %}
 {% endtabs %}
 
-Diese Eigenschaft sollte nicht zum Update der Profilinformationen von Nutzer:innen verwendet werden. Verwenden Sie stattdessen die Eigenschaft [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
+Diese Eigenschaft sollte nicht zum Aktualisieren der Profilinformationen von Nutzer:innen verwendet werden. Verwenden Sie stattdessen die Eigenschaft [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 {% alert tip %}
 **Bestehende Nutzer:innen zu einer Abo-Gruppe hinzufügen:** Dieser Endpunkt ist die empfohlene Methode, um die Mitgliedschaft in Abo-Gruppen für bestehende Nutzer:innen nachträglich zu befüllen oder in großen Mengen zu aktualisieren. Sie können bis zu 50 `external_id`s, E-Mail-Adressen oder Telefonnummern pro Anfrage übergeben. Nutzer:innen können ihren eigenen Abo-Status auch über einen Link zum [E-Mail-Präferenzzentrum]({{site.baseurl}}/user_guide/channels/email/subscriptions) aktualisieren.
@@ -97,7 +97,7 @@ Diese Eigenschaft sollte nicht zum Update der Profilinformationen von Nutzer:inn
 | [`subscription_group_id`]({{site.baseurl}}/api/identifier_types?tab=subscription%20group%20ids) | Erforderlich | String | Die `id` Ihrer Abo-Gruppe. |
 | `subscription_state` | Erforderlich | String | Verfügbare Werte sind `unsubscribed` (nicht in Abo-Gruppe) oder `subscribed` (in Abo-Gruppe). |
 | `external_id` | Erforderlich* | String-Array | Die `external_id` der Nutzer:innen, kann bis zu 50 `id`s umfassen. |
-| `email` | Erforderlich* | String oder String-Array | Die E-Mail-Adresse der Nutzer:innen, kann als String-Array übergeben werden. Sie müssen mindestens eine E-Mail-Adresse angeben (maximal 50). <br><br>Wenn mehrere Nutzer:innen (`external_id`) im selben Workspace dieselbe E-Mail-Adresse haben, aktualisiert Braze alle Nutzer:innen mit dieser E-Mail-Adresse mit den Änderungen der Abo-Gruppe. |
+| `email` | Erforderlich* | String oder String-Array | Die E-Mail-Adresse der Nutzer:innen, kann als String-Array übergeben werden. Muss mindestens eine E-Mail-Adresse enthalten (maximal 50). <br><br>Wenn mehrere Nutzer:innen (`external_id`) im selben Workspace dieselbe E-Mail-Adresse haben, aktualisiert Braze alle Nutzer:innen mit dieser E-Mail-Adresse mit den Änderungen der Abo-Gruppe. |
 | `phone` | Erforderlich* | String im [E.164](https://en.wikipedia.org/wiki/E.164)-Format | Die Telefonnummer der Nutzer:innen, kann als String-Array übergeben werden. Muss mindestens eine Telefonnummer enthalten (bis zu 50). <br><br>Wenn mehrere Nutzer:innen (`external_id`) im selben Workspace dieselbe Telefonnummer haben, aktualisiert Braze alle Nutzer:innen mit dieser Telefonnummer mit denselben Änderungen der Abo-Gruppe. |
 | `use_double_opt_in_logic` | Optional | Boolescher Wert | Gilt nur für SMS-Abo-Gruppen; wird bei E-Mail- und anderen Abo-Gruppentypen ignoriert. Standardmäßig `false`, wenn nicht angegeben. Setzen Sie den Wert bei SMS-Abo-Gruppen auf `true`, um die:den Nutzer:in in den [SMS-Double-Opt-in]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)-Workflow aufzunehmen, wenn der Abo-Status auf `subscribed` gesetzt wird. Nutzer:innen, die auf diese Weise in den Double-Opt-in-Workflow aufgenommen werden, erhalten höchstens eine Opt-in-Anfrage-Antwortnachricht pro Tag, unabhängig davon, wie oft sie in den Workflow aufgenommen werden. Wenn dieser Parameter nicht angegeben oder auf `false` gesetzt wird, werden Nutzer:innen ohne den Double-Opt-in-Workflow abonniert. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Anfrageparameter" }

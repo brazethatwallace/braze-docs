@@ -23,7 +23,7 @@ Sie können API-Nutzungswarnungen verwenden, um das Volumen der Anfragen für di
 
 Um eine API-Nutzungswarnung zu erstellen:
 
-1. Gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **API Usage Alerts** und erstellen Sie eine neue Warnung.
+1. Gehen Sie zu **Einstellungen** > **APIs und Bezeichner** > **API-Nutzungswarnungen** und erstellen Sie eine neue Warnung.
 2. Geben Sie einen Namen für Ihre Warnung ein und wählen Sie die REST API-Endpunkte und API-Schlüssel aus, für die Sie benachrichtigt werden möchten.
 3. Definieren Sie Ihre Warnungskriterien, indem Sie einen oder mehrere Antwortcodes auswählen und die [Schwellenwerte für Warnungen](#api-usage-alert-thresholds) festlegen.
 4. Wenn Sie fertig sind, schalten Sie **Alert enabled** um.
@@ -67,7 +67,7 @@ Wenn Sie Ihre Warnungskriterien definieren, können Sie die folgenden Schwellenw
 
 ## Einrichten von Warnungsbenachrichtigungen {#setting-up-alert-notifications}
 
-Sie können eine E-Mail-Warnung, eine Webhook-Warnung oder beides einrichten. Webhook-Warnungen können für Anwendungsfälle wie das Senden einer Warnung an externe Plattformen, z. B. einen Slack-Kanal, sehr nützlich sein. Ein Beispiel finden Sie in unserer [Dokumentation]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/#slack-incoming-webhook-integration) zur Integration von Warnungen mit Slack für unsere Benachrichtigungspräferenzen.
+Sie können eine E-Mail-Warnung, eine Webhook-Warnung oder beides einrichten. Webhook-Warnungen können für Anwendungsfälle wie das Senden einer Warnung an externe Plattformen, z. B. einen Slack-Kanal, sehr nützlich sein. Ein Beispiel finden Sie in unserer [Dokumentation]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) zur Integration von Warnungen mit Slack für unsere Benachrichtigungspräferenzen.
 
 ![Eine E-Mail wird an die ausgewählte E-Mail-Adresse gesendet, wenn die Kriterien für die Warnung erreicht werden.]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts2.png %})
 

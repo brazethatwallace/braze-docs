@@ -51,7 +51,7 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 | **Low** | もう少し推論が必要だが、深い分析は不要なタスク。 |
 | **Medium** | 複数ステップまたはニュアンスのあるタスク（複数の入力を分析してアクションを推奨するなど）。 |
 | **High** | 複雑な推論、エッジケース、またはモデルにステップを踏んで回答させたい場合。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Thinking levels" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="思考レベル" }
 
 まず**Minimal**から始めて、エージェントのレスポンスをテストすることをお勧めします。エージェントが正確な回答を提供するのに苦労している場合は、思考レベルを**Low**または**Medium**に調整できます。まれに**High**の思考レベルが必要になることがありますが、このレベルを使用するとトークンコストが高くなり、レスポンス時間が長くなったり、タイムアウトエラーのリスクが高くなったりする可能性があります。エージェントが複数ステップの推論と妥当なレスポンス時間のバランスに苦労している場合は、ユースケースを複数のエージェントに分割し、キャンバスやカタログで連携させることを検討してください。
 
@@ -96,7 +96,7 @@ Braze提供のLLMを使用する場合、そのモデルのプロバイダーは
 
 ### レート制限エラー {#rate-limit-errors}
 
-LLMプロバイダーがキャンバスエージェントステップまたはカタログエージェントの呼び出し中にレート制限エラーを返した場合、Brazeはエクスポネンシャルバックオフを使用して、コールが成功するかBrazeが完了不可能と判断するまで継続的にリクエストを再試行します。
+LLMプロバイダーがキャンバスステップエージェントまたはカタログエージェントの呼び出し中にレート制限エラーを返した場合、Brazeはエクスポネンシャルバックオフを使用して、コールが成功するかBrazeが完了不可能と判断するまで継続的にリクエストを再試行します。
 
 キャンバスまたはカタログの再試行が尽きると、**Logs**の詳細パネルに**Error**が表示され、**Output**にプロバイダーメッセージ（`Rate limit exceeded`など）が表示されます。最初の呼び出しの最終的な成功・失敗にかかわらず、再試行はログに表示されます。特定のユーザーについて、成功するまでに4回の再試行が必要だった場合、ユーザーIDで検索すると**Logs**に5件すべて（オリジナルと4回の再試行）が表示され、オリジナルと最初の3回の再試行には`Rate limit exceeded`の**Error**が表示されます。
 
@@ -136,10 +136,10 @@ LLMプロバイダーがキャンバスエージェントステップまたは�
 | [リアルタイムの高インテントアクションからユーザーを興味カテゴリに割り当てる]({{site.baseurl}}/user_guide/brazeai/agents/examples#assign-users-to-interest-categories-from-real-time-high-intent-actions) | アフィニティエージェント | キャンバスステップエージェント | 高インテントアクションから興味カテゴリを割り当て、最適な次のエクスペリエンスまたはアイテムを推奨します。 |
 | [インバウンドメッセージをオプトアウトインテントで分類する]({{site.baseurl}}/user_guide/brazeai/agents/examples#classify-inbound-messages-for-opt-out-intent) | 分類とルーティング | キャンバスステップエージェント | メッセージがオプトアウトリクエストかどうかを示す厳密なブール値を返します。 |
 | [インバウンドメッセージをオートメーション用の構造化データに標準化する]({{site.baseurl}}/user_guide/brazeai/agents/examples#standardize-inbound-messages-into-structured-data-for-automation) | データ標準化 | キャンバスステップエージェント | インバウンドSMSまたはチャットを、ダウンストリームオートメーション用の構造化されたインテント、エンティティ、コンプライアンスフラグに正規化します。 |
-| [ブランドガイドラインに沿った高コンバージョンの説明文を作成する]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | コンテンツ生成 | カタログエージェント | 各カタログ行に対して、短くブランドに沿った説明文を生成します。 |
+| [ブランド・ガイドラインに沿った高コンバージョンの説明文を作成する]({{site.baseurl}}/user_guide/brazeai/agents/examples#write-high-converting-descriptions-that-align-with-brand-guidelines) | コンテンツ生成 | カタログエージェント | 各カタログ行に対して、短くブランドに沿った説明文を生成します。 |
 | [地域で使用される言語に基づいて翻訳を提供する]({{site.baseurl}}/user_guide/brazeai/agents/examples#provide-translations-based-on-language-used-by-region) | カタログエンリッチメント | カタログエージェント | ロケールと文字数制限に応じてUIおよびマーケティング文字列をローカライズします。 |
 | [カタログアイテムを説明文、カテゴリ、タグでエンリッチする]({{site.baseurl}}/user_guide/brazeai/agents/examples#enrich-catalog-items-with-descriptions-categories-and-tags) | カタログエンリッチメント | カタログエージェント | 既存のカタログアイテムデータから、強化された説明文、カテゴリ、タグを生成します。 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Summary of examples" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="例のまとめ" }
 
 ### Liquidの使用 {#using-liquid}
 
@@ -187,7 +187,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 たとえば、製品を受け取った後の顧客満足度を判定するために、シンプルなフィードバック調査からユーザーのセンチメントスコアを収集したい場合、出力フォーマットを構造化するために基本スキーマとして**Number**を選択できます。
 
 {% alert important %}
-配列はキャンバスエージェントでのみ使用可能で、カタログエージェントでは使用できません。
+配列はキャンバスステップエージェントでのみ使用可能で、カタログエージェントでは使用できません。
 {% endalert %}
 
 ![基本スキーマとしてNumberが選択されたエージェントコンソール。]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
@@ -197,15 +197,15 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 高度なスキーマオプションには、フィールドの手動構造化またはJSONの使用が含まれます。
 
 - **Fields：** 一貫して使用できるエージェント出力を強制するノーコードの方法です。
-- **JSON：** 正確な出力フォーマットを作成するコードアプローチで、JSONスキーマ内に変数やオブジェクトをネストできます。キャンバスエージェントでのみ使用可能で、カタログエージェントでは使用できません。
+- **JSON：** 正確な出力フォーマットを作成するコードアプローチで、JSONスキーマ内に変数やオブジェクトをネストできます。キャンバスステップエージェントでのみ使用可能で、カタログエージェントでは使用できません。
 
 エージェントに単一値の出力ではなく、構造化された方法で定義された複数の値を持つデータ構造を返させたい場合は、高度なスキーマの使用をお勧めします。これにより、出力が一貫したコンテキスト変数としてより適切にフォーマットされます。
 
 ### フォールバック出力 {#fallback-output}
 
-フォールバック値は**キャンバスステップエージェント**でのみ使用可能です。キャンバスエージェントのエージェントコンソールの**Output**セクションで、呼び出しが失敗した場合にBrazeが使用する値を定義できます。
+フォールバック値はキャンバスステップエージェントでのみ使用可能です。キャンバスステップエージェントのエージェントコンソールの**Output**セクションで、呼び出しが失敗した場合にBrazeが使用する値を定義できます。
 
-**JSON**スキーマの場合、Brazeはスキーマを読み取り、各プロパティの入力フィールドを生成するため、キーごとにフォールバック値を設定できます。**Fields**スキーマの場合、各フィールドにフォールバック値を入力します。基本スキーマの場合、単一のフォールバック値を入力します。キャンバスエージェントはフォールバック値でLiquidをサポートしています。
+**JSON**スキーマの場合、Brazeはスキーマを読み取り、各プロパティの入力フィールドを生成するため、キーごとにフォールバック値を設定できます。**Fields**スキーマの場合、各フィールドにフォールバック値を入力します。基本スキーマの場合、単一のフォールバック値を入力します。キャンバスステップエージェントはフォールバック値でLiquidをサポートしています。
 
 セットアップ手順については、[フォールバック値の設定]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)を参照してください。キャンバスでのランタイム動作については、[エラー処理とフォールバック動作]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior)を参照してください。
 
@@ -221,7 +221,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 | **likelihood_score** | Number |
 | **explanation** | String |
 | **confidence_score** | Number |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Advanced schemas" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="高度なスキーマ" }
 
 ![likelihood score、explanation、confidence scoreの3つの出力フィールドを表示するエージェントコンソール。]({% image_buster /assets/img/ai_agent/output_format_fields.png %}){: style="max-width:85%;"}
 
@@ -257,7 +257,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 ![エージェントが検索するために選択された「restaurants」カタログと「Loyalty_Program」列。]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-カタログエージェントをカタログフィールドにデプロイする場合、必須入力コントロールを有効にし、エージェントが呼び出される前に**実行に必要な**選択済み列を選択します。エージェントは、必須列のいずれかが空白または欠落している場合にのみ行をスキップします。たとえば、まだ入力されていない`gender`フィールドなどです。選択済み列はデフォルトで必須として開始されますが、実行をブロックせずに空でもよい列を削除できます。これにより、不完全なデータでのトークンの無駄遣いを防ぎます。
+カタログエージェントをカタログフィールドにデプロイする場合、必須入力コントロールを有効にし、エージェントが呼び出される前に実行に必要な選択済み列を選択します。エージェントは、必須列のいずれかが空白または欠落している場合にのみ行をスキップします。たとえば、まだ入力されていない`gender`フィールドなどです。選択済み列はデフォルトで必須として開始されますが、実行をブロックせずに空でもよい列を削除できます。これにより、不完全なデータでのトークンの無駄遣いを防ぎます。
 
 カタログエージェントは、入力フィールドが互いに依存している場合に列の順序も尊重します。列Dが列BとCから生成される場合、エージェントはBとCにその行の値が含まれるまで列Dを実行しません。
 
@@ -285,9 +285,9 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 2. **バージョン履歴**タブを選択します。
 3. バージョンを選択して設定を確認します。
 
-バージョンの変更内容を確認するには、**View**を選択します。Brazeは、追加と削除をハイライトするコードスタイルのインライン差分を表示します。削除されたコンテンツは赤い取り消し線スタイルで表示されます。
+バージョンの変更内容を確認するには、**表示**を選択します。Brazeは、追加と削除をハイライトするコードスタイルのインライン差分を表示します。削除されたコンテンツは赤い取り消し線スタイルで表示されます。
 
-以前のバージョンからインストラクションを復元する必要がある場合は、そのバージョンの**View**を開き、インストラクションテキストをコピーして、現在の**Instructions**フィールドに貼り付けてください。
+以前のバージョンからインストラクションを復元する必要がある場合は、そのバージョンの**表示**を開き、インストラクションテキストをコピーして、現在の**Instructions**フィールドに貼り付けてください。
 
 {% alert tip %}
 インライン差分ビューで、<kbd>⌘</kbd> + <kbd>A</kbd>（macOS）または<kbd>Ctrl</kbd> + <kbd>A</kbd>（Windows）を押すと、赤い削除マークアップなしですべてのインストラクションを選択でき、クリーンなテキストをコピーして復元できます。
@@ -297,12 +297,12 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 
 エージェントを複製して、改善や反復をオリジナルと並べてテストできます。以前の設定を確認または復元するには、[バージョン履歴](#version-history)を使用してください。エージェントを複製するには：
 
-1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i>メニューを選択します。
-2. **Duplicate**を選択します。
+1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical" aria-label="その他のオプション"></i>メニューを選択します。
+2. **複製**を選択します。
 
 ## エージェントのアーカイブ {#archive-agents}
 
 カスタムエージェントをさらに作成すると、アクティブに使用されていないエージェントをアーカイブすることで**エージェント管理**ページを整理できます。エージェントをアーカイブするには：
 
-1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical"></i>メニューを選択します。
-2. **Archive**を選択します。
+1. エージェントの行にカーソルを合わせ、<i class="fas fa-ellipsis-vertical" aria-label="その他のオプション"></i>メニューを選択します。
+2. **アーカイブ**を選択します。

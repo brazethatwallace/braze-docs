@@ -54,7 +54,7 @@ Achten Sie auf unterschiedliche Namenskonventionen! Angepasste Namen können zu 
 
 | Block | Beschreibung |
 |---|---|
-| Analytics-Block für das Engagement von Nachrichten | Dieser Block enthält Daten zu Push-, E-Mail-, In-App-Nachrichten-, Webhook-, Conversion-, Canvas-Entry- und Campaign-Kontrollgruppen-Events. <br><br>Erfahren Sie mehr über diesen [Looker Block](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct), oder sehen Sie sich den [GitHub-Code](https://github.com/llooker/braze_message_engagement_block) an. |
+| Analytics-Block für das Engagement von Nachrichten | Dieser Block enthält Daten zu Push-, E-Mail-, In-App-Nachrichten-, Webhook-, Konversions-, Canvas-Entry- und Campaign-Kontrollgruppen-Events. <br><br>Erfahren Sie mehr über diesen [Looker Block](https://looker.com/platform/blocks/source/message-engagement-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct), oder sehen Sie sich den [GitHub-Code](https://github.com/llooker/braze_message_engagement_block) an. |
 | Block für Verhaltensanalysen von Nutzer:innen | Dieser Block enthält Daten zu angepassten Events, Käufen, Sitzungen, Standort-Events und Deinstallationen.<br><br>Erfahren Sie mehr über diesen [Looker Block](https://looker.com/platform/blocks/source/user-behavior-analytics-by-braze?latest&utm_campaign=7012R000000fxfC&utm_source=other&utm_medium=email&utm_content=brazedirectreferral&utm_term=braze_direct), oder sehen Sie sich den [GitHub-Code](https://github.com/llooker/braze_retention_block) an. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Verfügbare Blöcke" }
 
@@ -96,7 +96,7 @@ Beachten Sie die folgenden Einschränkungen:
 - Attribute werden nur gesendet, wenn sie **als Feld im Look enthalten** sind.
 - Unterstützte Typen sind `Strings`, `Boolean`, `Numbers` und `Dates`.
 - Bei den Namen der Attribute wird zwischen Groß- und Kleinschreibung unterschieden.
-- Standardattribute können ebenfalls festgelegt werden, solange sie genau mit den Namen der [Standard-Nutzerprofile]({{site.baseurl}}/api/endpoints/user_data#braze-user-profile-fields) übereinstimmen.
+- Standardattribute können ebenfalls festgelegt werden, solange sie genau mit den Namen der [Standard-Nutzerprofile]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) übereinstimmen.
 - Der vollständige Tag sollte in Anführungszeichen formatiert werden. Zum Beispiel: `tags: ["braze[first_name]"]`. Andere Tags können ebenfalls zugewiesen werden, werden dann aber ignoriert.
 - Weitere Informationen finden Sie auf [GitHub](https://github.com/looker/actions/tree/master/src/actions/braze).
 

@@ -53,7 +53,7 @@ Les étapes d'automatisation effectuées par le SDK sont compatibles avec les in
 
 {% alert warning %}
 Le SDK doit être initialisé sur le thread principal pour permettre l'automatisation des notifications push. L'initialisation du SDK doit avoir lieu avant la fin du lancement de l'application ou dans l'implémentation [`application(_:didFinishLaunchingWithOptions:)`](https://developer.apple.com/documentation/uikit/uiapplicationdelegate/1622921-application) de votre AppDelegate.
-Si votre application nécessite une configuration supplémentaire avant l'initialisation du SDK, consultez la page de documentation [Initialisation différée]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=swift).
+Si votre application nécessite une configuration supplémentaire avant l'initialisation du SDK, consultez la page de documentation [Initialisation différée]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=swift#step-2-set-up-delayed-initialization-optional).
 {% endalert %}
 
 #### Étape 3.2 : Remplacer les configurations individuelles (facultatif) {#step-32-override-individual-configurations-optional}
@@ -98,7 +98,7 @@ Braze fournit également des catégories push par défaut pour la prise en charg
 Ajoutez le code suivant à la méthode `application:didFinishLaunchingWithOptions:` de votre délégué d'application.
 
 {% alert note %}
-L'exemple de code suivant inclut l'intégration pour l'authentification provisoire des notifications push (lignes 5 et 6). Si vous ne prévoyez pas d'utiliser l'autorisation provisoire dans votre application, vous pouvez supprimer les lignes de code qui ajoutent `UNAuthorizationOptionProvisional` aux options `requestAuthorization`.<br>Consultez les [options de notification iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options/) pour en savoir plus sur l'authentification provisoire push.
+L'exemple de code suivant inclut l'intégration pour l'authentification provisoire des notifications push (lignes 5 et 6). Si vous ne prévoyez pas d'utiliser l'autorisation provisoire dans votre application, vous pouvez supprimer les lignes de code qui ajoutent `UNAuthorizationOptionProvisional` aux options `requestAuthorization`.<br>Consultez les [options de notification iOS]({{site.baseurl}}/user_guide/message_building_by_channel/push/ios/notification_options) pour en savoir plus sur l'authentification provisoire push.
 {% endalert %}
 
 {% subtabs %}
@@ -289,14 +289,14 @@ Pour activer les notifications push au premier plan et permettre à Braze de les
 
 ## Tester les notifications {#push-testing}
 
-Si vous souhaitez tester les notifications in-app et push via la ligne de commande, vous pouvez envoyer une notification unique depuis le terminal via cURL et l'[API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/). Vous devrez remplacer les champs suivants par les valeurs appropriées pour votre cas de test :
+Si vous souhaitez tester les notifications in-app et push via la ligne de commande, vous pouvez envoyer une notification unique depuis le terminal via cURL et l'[API d'envoi de messages]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Vous devrez remplacer les champs suivants par les valeurs appropriées pour votre cas de test :
 
 - `YOUR_API_KEY` — disponible dans **Paramètres** > **Clés API**.
-- `YOUR_EXTERNAL_USER_ID` — disponible sur la page **Rechercher des utilisateurs**. Consultez [Attribution d'un ID utilisateur]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids/#assigning-a-user-id) pour plus d'informations.
+- `YOUR_EXTERNAL_USER_ID` — disponible sur la page **Rechercher des utilisateurs**. Consultez [Attribution d'un ID utilisateur]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/analytics/setting_user_ids#assigning-a-user-id) pour plus d'informations.
 - `YOUR_KEY1` (facultatif)
 - `YOUR_VALUE1` (facultatif)
 
-Dans l'exemple suivant, l'instance `US-01` est utilisée. Si vous n'êtes pas sur cette instance, consultez notre [documentation API]({{site.baseurl}}/api/basics/) pour savoir vers quel endpoint envoyer vos requêtes.
+Dans l'exemple suivant, l'instance `US-01` est utilisée. Si vous n'êtes pas sur cette instance, consultez notre [documentation API]({{site.baseurl}}/api/basics) pour savoir vers quel endpoint envoyer vos requêtes.
 
 ```bash
 curl -X POST -H "Content-Type: application/json" -H "Authorization: Bearer {YOUR_API_KEY}" -d '{
@@ -367,7 +367,7 @@ Par défaut, lorsqu'une notification push arrive alors que votre application est
 
 ### Fonctionnement {#how-it-works}
 
-Lorsque vous appelez `handleForegroundNotification(notification:)`, Braze traite le payload de la notification pour enregistrer les données analytiques et gérer les liens profonds ou les actions des boutons. Le comportement d'affichage réel est contrôlé par les `UNNotificationPresentationOptions` que vous transmettez au completion handler.
+Lorsque vous appelez `handleForegroundNotification(notification:)`, Braze traite le payload de la notification pour enregistrer les données analytiques et gérer les deep links ou les actions des boutons. Le comportement d'affichage réel est contrôlé par les `UNNotificationPresentationOptions` que vous transmettez au completion handler.
 
 ```swift
 import BrazeKit
@@ -398,7 +398,7 @@ Pour un exemple complet, consultez l'[exemple d'intégration manuelle des notifi
 
 ## Amorces push {#push-primers}
 
-Les campagnes d'amorce push encouragent vos utilisateurs à activer les notifications push sur leur appareil pour votre application. Cela peut se faire sans personnalisation du SDK grâce à notre [amorce push sans code]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages/).
+Les campagnes d'amorce push encouragent vos utilisateurs à activer les notifications push sur leur appareil pour votre application. Cela peut se faire sans personnalisation du SDK grâce à notre [amorce push sans code]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages).
 
 ## Gestion dynamique de la passerelle APNs {#dynamic-apns-gateway-management}
 
@@ -416,7 +416,7 @@ Braze prend en charge la gestion dynamique de la passerelle APNs pour les notifi
 
 {% sdk_min_versions swift:10.0.0 %}
 
-### Fonctionnement {#how-it-works-1}
+### Fonctionnement
 
 Lorsqu'une application iOS s'intègre au SDK Braze Swift, elle envoie les données relatives à l'appareil, y compris [`aps-environment`](https://developer.apple.com/documentation/bundleresources/entitlements/aps-environment), à l'API du SDK Braze, si disponible. La valeur `apns_gateway` indique si l'application utilise l'environnement APNs de développement (`dev`) ou de production (`prod`).
 
@@ -439,4 +439,4 @@ Cette fonctionnalité améliore les taux de distribution en acheminant systémat
 
 #### Puis-je désactiver cette fonctionnalité ? {#can-i-disable-this-feature}
 
-La gestion dynamique de la passerelle APNs est activée par défaut et apporte des améliorations de fiabilité. Si vous avez des cas d'utilisation spécifiques nécessitant une sélection manuelle de la passerelle, contactez l'[assistance Braze]({{site.baseurl}}/user_guide/administrative/access_braze/support/).
+La gestion dynamique de la passerelle APNs est activée par défaut et apporte des améliorations de fiabilité. Si vous avez des cas d'usage spécifiques nécessitant une sélection manuelle de la passerelle, contactez l'[assistance Braze]({{site.baseurl}}/user_guide/administrative/access_braze/support).

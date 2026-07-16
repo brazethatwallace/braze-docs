@@ -24,7 +24,7 @@ Para usar as Jornadas do experimento, seu Canvas deve incluir eventos de convers
 
 As Jornadas do experimento são mais adequadas para testar entrega, cadência, texto da mensagem e combinações de canais.
 
-- **Entrega:** Compare os resultados entre mensagens enviadas com diferentes [postergações]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), com base em ações do usuário ([Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)) e usando [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#canvas).<br><br>
+- **Entrega:** Compare os resultados entre mensagens enviadas com diferentes [postergações]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/delay_step), com base em ações do usuário ([jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths)) e usando [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing#step-1-add-intelligent-timing-1).<br><br>
 - **Cadência:** Teste múltiplos fluxos de envio de mensagens durante um período específico. Por exemplo, você pode testar duas cadências de integração diferentes:
     - Cadência 1: Enviar 2 mensagens nas primeiras 2 semanas do usuário
     - Cadência 2: Enviar 3 mensagens nas primeiras 2 semanas do usuário
@@ -69,7 +69,7 @@ Para evitar contaminação do experimento, se o seu Canvas tiver um experimento 
 
 ## Acompanhando o desempenho {#tracking-performance}
 
-Na página **Canvas Analytics**, selecione a Jornada do experimento para abrir uma [tabela detalhada]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch#performance-breakdown-by-variant) idêntica à guia **Analyze Variants** para comparar estatísticas detalhadas de desempenho e conversão entre as jornadas. Você também pode exportar a tabela via CSV e comparar as variações percentuais para métricas de interesse em relação à jornada ou ao controle que você selecionar.
+Na página **Canvas Analytics**, selecione a Jornada do experimento para abrir uma [tabela detalhada]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/change_your_canvas_after_launch) idêntica à guia **Analyze Variants** para comparar estatísticas detalhadas de desempenho e conversão entre as jornadas. Você também pode exportar a tabela via CSV e comparar as variações percentuais para métricas de interesse em relação à jornada ou ao controle que você selecionar.
 
 Cada etapa em cada jornada exibe estatísticas na visualização de [Canvas Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics), assim como qualquer etapa do Canvas. No entanto, tenha em mente que a análise de dados de etapas individuais e a análise de dados da Jornada do experimento medem conversões de forma diferente:
 
@@ -89,7 +89,7 @@ A métrica vencedora e a análise de dados exibida nas Jornadas do experimento p
 
 - O evento de conversão que você configura para a **Jornada vencedora** ou as **Jornadas personalizadas** determina como a Braze compara as jornadas e seleciona uma vencedora durante a janela do experimento.
 - A análise de dados da Jornada do experimento ainda segue o mesmo framework de [eventos de conversão]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events) do Canvas como o restante do Canvas, incluindo seu [evento de conversão primária]({{site.baseurl}}/user_guide/engagement_tools/messaging_fundamentals/conversion_events#primary-conversion-event). Como resultado, as métricas destacadas no dashboard podem não corresponder à métrica vencedora.
-- Para push, *aberturas diretas* e *total de aberturas* diferem. Para saber mais, consulte [Aberturas por influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
+- Para push, *Aberturas Diretas* e *total de aberturas* diferem. Para saber mais, consulte [Aberturas por Influência]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens).
 
 ### Configurações adicionais {#additional-settings}
 

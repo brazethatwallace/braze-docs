@@ -28,7 +28,7 @@ Seu grupo de controle global se aplica a todos os canais, Campaigns e Canvas, ex
 
 ### Atribuir usuários aleatoriamente ao grupo de controle global {#assign-users-randomly-to-the-global-control-group}
 
-A Braze seleciona aleatoriamente múltiplos intervalos de [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#step-1-segment-your-users-by-the-random-bucket-attribute) e inclui os usuários desses buckets selecionados. Se você está usando números de bucket aleatórios para qualquer outro propósito, confira [Pontos de atenção](#things-to-watch-for).
+A Braze seleciona aleatoriamente múltiplos intervalos de [números de bucket aleatórios]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#create-segments-using-random-bucket-numbers) e inclui os usuários desses buckets selecionados. Se você está usando números de bucket aleatórios para qualquer outro propósito, confira [Pontos de atenção](#things-to-watch-for).
 
 Quando seu grupo de controle global é gerado, todos os usuários com números de bucket aleatórios fazem parte do grupo. Além disso, novos usuários que ingressarem após esse ponto (aqueles adquiridos depois que o grupo de controle global foi gerado) que possuem esses números de bucket aleatórios também são adicionados ao grupo de controle global. Da mesma forma, se muitos usuários forem excluídos, você pode esperar que o tamanho do seu grupo de controle global diminua, pois uma porcentagem desses usuários excluídos pertencia a esse grupo. Isso mantém o tamanho do seu grupo como uma porcentagem constante em relação à sua base total de usuários.
 

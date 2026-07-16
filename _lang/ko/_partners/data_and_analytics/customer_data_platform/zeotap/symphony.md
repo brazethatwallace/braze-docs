@@ -75,7 +75,7 @@ Symphony에서 사용자에 대한 필터를 적용하거나 조건을 추가한
 1. 검색 기능을 사용하여 사용 가능한 대상 목록에서 대상을 선택합니다.
 2. **Client Name**, **API Key** 및 **Instance** 필드는 대상 생성 시 입력한 값을 기반으로 자동으로 채워집니다.
 3. 이 워크플로 노드에 대해 생성할 **Audience Name**을 입력합니다. 이는 **커스텀 속성**으로 Braze에 전송됩니다.
-4. **Data To Send** 탭에서 카탈로그-대상 매핑을 완료합니다. 매핑 수행 방법에 대한 자세한 내용은 아래에서 확인할 수 있습니다.
+4. **Data To Send** 탭에서 카탈로그-대상 매핑을 완료합니다. 매핑 수행 방법에 대한 자세한 내용은 이 섹션에서 확인할 수 있습니다.
 
 ### Data to send 탭 {#data-to-send-tab}
 **Data To Send** 탭에서는 Zeotap Catalogue 필드를 Braze로 전송할 수 있는 Braze 필드에 매핑할 수 있습니다. 매핑은 다음 방법 중 하나로 수행할 수 있습니다.
@@ -94,8 +94,8 @@ Symphony에서 사용자에 대한 필터를 적용하거나 조건을 추가한
 | First Name | 정적 매핑 | Zeotap Catalogue의 `First Name`에 매핑됩니다. |
 | Last Name | 정적 매핑 | Zeotap Catalogue의 `Last Name`에 매핑됩니다. |
 | Gender | 정적 매핑 | Zeotap Catalogue의 `Gender`에 매핑됩니다. |
-| Custom Event Name | 정적 매핑 | Zeotap Catalogue의 `Event Name`에 매핑됩니다.<br><br>Braze에서 커스텀 이벤트를 캡처하려면 Custom Event Name과 Custom Event Timestamp를 모두 매핑해야 합니다. 둘 중 하나라도 매핑되지 않으면 커스텀 이벤트를 처리할 수 없습니다. 자세한 내용은 [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object#what-is-the-event-object)를 참조하세요. |
-| Custom Event Timestamp | 정적 매핑 | Zeotap Catalogue의 `Event Timestamp`에 매핑됩니다.<br><br>Braze에서 커스텀 이벤트를 캡처하려면 Custom Event Name과 Custom Event Timestamp를 모두 매핑해야 합니다. 둘 중 하나라도 매핑되지 않으면 커스텀 이벤트를 처리할 수 없습니다. 자세한 내용은 [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object#what-is-the-event-object)를 참조하세요. |
+| Custom Event Name | 정적 매핑 | Zeotap Catalogue의 `Event Name`에 매핑됩니다.<br><br>Braze에서 커스텀 이벤트를 캡처하려면 Custom Event Name과 Custom Event Timestamp를 모두 매핑해야 합니다. 둘 중 하나라도 매핑되지 않으면 커스텀 이벤트를 처리할 수 없습니다. 자세한 내용은 [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object#what-is-an-event-object)를 참조하세요. |
+| Custom Event Timestamp | 정적 매핑 | Zeotap Catalogue의 `Event Timestamp`에 매핑됩니다.<br><br>Braze에서 커스텀 이벤트를 캡처하려면 Custom Event Name과 Custom Event Timestamp를 모두 매핑해야 합니다. 둘 중 하나라도 매핑되지 않으면 커스텀 이벤트를 처리할 수 없습니다. 자세한 내용은 [이벤트 오브젝트]({{site.baseurl}}/api/objects_filters/event_object#what-is-an-event-object)를 참조하세요. |
 | Email Subscribe | 드롭다운 선택 | `Email Marketing Preference` 필드를 온보딩하고 매핑합니다.<br><br>Zeotap은 다음 세 가지 값을 전송합니다.<br>• `opted_in` - 사용자가 이메일 마케팅 수신에 명시적으로 등록했음을 나타냅니다.<br>• `unsubscribed` - 사용자가 이메일 메시지 수신을 명시적으로 거부했음을 나타냅니다.<br>• `subscribed` - 사용자가 수신 동의도 거부도 하지 않았음을 나타냅니다. |
 | Push Subscribe | 드롭다운 선택 | `Push Marketing Preference` 필드를 온보딩하고 매핑합니다.<br><br>Zeotap은 다음 세 가지 값을 전송합니다.<br>• `opted_in` - 사용자가 푸시 마케팅 수신에 명시적으로 등록했음을 나타냅니다.<br>• `unsubscribed` - 사용자가 푸시 메시지 수신을 명시적으로 거부했음을 나타냅니다.<br>• `subscribed` - 사용자가 수신 동의도 거부도 하지 않았음을 나타냅니다. |
 | Email Open Tracking Enable | 드롭다운 선택 | 관련 `Marketing Preference` 필드를 매핑합니다.<br><br>true로 설정하면 이 사용자에게 향후 전송되는 모든 이메일에 열람 추적 픽셀이 추가됩니다. |

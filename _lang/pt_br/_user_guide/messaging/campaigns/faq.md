@@ -14,7 +14,7 @@ tool: Campaigns
 
 ## Como crio uma Campaign multicanal? {#how-do-i-create-a-multichannel-campaign}
 
-Consulte [Campaigns multicanais]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) em **Criar uma Campaign** para etapas de configuração e canais suportados.
+Consulte [Campaigns multicanais]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) em **Criar uma Campaign** para etapas de configuração e canais suportados.
 
 ### Posso adicionar um grupo de controle à minha Campaign multicanal? {#can-i-add-a-control-group-to-my-multichannel-campaign}
 

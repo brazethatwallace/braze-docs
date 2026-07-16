@@ -24,7 +24,7 @@ Cuando se lanza una campaña, todos los usuarios elegibles se ponen en cola para
 - La versión original de la campaña aún se entrega a los usuarios en la primera cola.
 - Recuentos de audiencia inesperados en los análisis de la campaña.
 
-Esto es más probable que ocurra con campañas que se dirigen a una audiencia grande y están programadas para enviarse de inmediato, ya que hay una gran cola de usuarios procesándose a la vez. Para campañas basadas en acciones con desencadenantes graduales (como eventos de registro), el riesgo es menor porque solo un pequeño número de usuarios suele estar en cola en un momento dado.
+Esto es más probable que ocurra con campañas que se dirigen a una audiencia grande y están programadas para enviarse de inmediato, ya que hay una gran cola de usuarios procesándose a la vez. Para campañas de entrega basada en acciones con desencadenantes graduales (como eventos de registro), el riesgo es menor porque solo un pequeño número de usuarios suele estar en cola en un momento dado.
 
 Para realizar cambios de forma segura, detén la campaña primero y luego edita la campaña detenida o [duplícala](#making-immediate-changes) con tus cambios.
 
@@ -46,7 +46,7 @@ Por ejemplo, si inicias una campaña de correo electrónico con límite de veloc
 
 ## Campañas de mensajes dentro de la aplicación {#in-app-message-campaigns}
 
-A diferencia de push o correo electrónico, los mensajes dentro de la aplicación se entregan a los dispositivos al inicio de la sesión y se almacenan en caché localmente hasta que se activa el desencadenante. Cuando editas una campaña de mensajes dentro de la aplicación en vivo —como detenerla, establecer una [fecha de finalización]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger), activar **Reevaluar la elegibilidad de la campaña antes de mostrar**, actualizar el contenido, cambiar el desencadenante del mensaje o actualizar el público objetivo— la configuración actualizada se propaga cuando los dispositivos obtienen los desencadenantes en su siguiente inicio de sesión.
+A diferencia de push o correo electrónico, los mensajes dentro de la aplicación se entregan a los dispositivos al inicio de la sesión y se almacenan en caché localmente hasta que se activa el desencadenante. Cuando editas una campaña de mensajes dentro de la aplicación en vivo —como detenerla, establecer una [fecha de finalización]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger), activar **Reevaluar la elegibilidad de la campaña antes de mostrar**, actualizar el contenido, cambiar el desencadenante del mensaje o actualizar el público objetivo— la configuración actualizada se propaga cuando los dispositivos obtienen los desencadenantes en su siguiente inicio de sesión.
 
 Ten en cuenta lo siguiente:
 
@@ -63,7 +63,7 @@ Si lanzaste la campaña de mensajes dentro de la aplicación incorrecta, selecci
 
 Selecciona **Reevaluar la elegibilidad de la campaña antes de mostrar** en la configuración de entrega de tu campaña para que Braze confirme la pertenencia a la audiencia y el estado de la campaña justo antes de cada visualización. Esto ayuda a prevenir impresiones después de que una campaña se haya detenido, archivado o superado su fecha de finalización. Puedes activar o desactivar esta configuración después del lanzamiento, pero sigue las mismas reglas de propagación que otros cambios: los dispositivos no reciben la configuración actualizada hasta su siguiente sincronización de desencadenantes.
 
-Para más información, consulta [Elegir usuarios a los que dirigirse]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target) y [¿Por qué mi campaña de mensajes dentro de la aplicación archivada sigue entregando impresiones de mensajes dentro de la aplicación?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
+Para más información, consulta [Elegir usuarios a los que dirigirse]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target) y [¿Por qué mi campaña de mensajes dentro de la aplicación archivada sigue entregando impresiones de mensajes dentro de la aplicación?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
 
 ## Campañas desencadenadas {#triggered-campaigns}
 

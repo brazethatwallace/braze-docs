@@ -107,15 +107,15 @@ Lorsque vous utilisez un [schéma de sortie avancé]({{site.baseurl}}/user_guide
 
 #### Configurer les valeurs de repli {#configure-fallback-values}
 
-Les valeurs de repli sont disponibles uniquement pour les **agents d'étape Canvas**. Dans la section **Sortie** d'un agent Canvas, vous pouvez définir les valeurs que Braze utilise lorsqu'une invocation de l'agent échoue, par exemple lorsque le LLM expire ou renvoie une erreur de clé API non valide. Les valeurs de repli fonctionnent comme des valeurs par défaut de personnalisation. Vous pouvez définir une ligne d'objet statique ou un court message qui fournit tout de même un résultat utile aux utilisateurs lorsque l'agent ne peut pas s'exécuter.
+Les valeurs de repli sont disponibles uniquement pour les agents d'étape Canvas. Dans la section **Sortie** d'un agent d'étape Canvas, vous pouvez définir les valeurs que Braze utilise lorsqu'une invocation de l'agent échoue, par exemple lorsque le LLM expire ou renvoie une erreur de clé API non valide. Les valeurs de repli fonctionnent comme des valeurs par défaut de personnalisation. Vous pouvez définir une ligne d'objet statique ou un court message qui fournit tout de même un résultat utile aux utilisateurs lorsque l'agent ne peut pas s'exécuter.
 
-Les **agents de catalogue** ne prennent pas en charge la configuration de valeurs de repli dans la Console des agents.
+Les agents de catalogue ne prennent pas en charge la configuration de valeurs de repli dans la Console des agents.
 
 ![Configuration de la sortie dans la Console des agents, affichant le champ de sortie de repli pour un schéma de type nombre.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
 Pour les agents Canvas, les valeurs de repli prennent en charge le templating [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) afin que vous puissiez faire référence aux attributs utilisateur ou aux variables de contexte dans le texte de repli.
 
-Les champs de repli s'adaptent au format de sortie de votre agent Canvas :
+Les champs de repli s'adaptent au format de sortie de votre agent d'étape Canvas :
 
 | Format de sortie | Configuration du repli |
 | --- | --- |
@@ -124,7 +124,7 @@ Les champs de repli s'adaptent au format de sortie de votre agent Canvas :
 | Schéma JSON (schéma avancé) | Braze lit votre schéma JSON et génère un champ de saisie pour chaque propriété afin que vous puissiez définir une valeur de repli par clé. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configurer les valeurs de repli" }
 
-Lorsqu'un agent Canvas avec des valeurs de repli s'exécute dans une [étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze effectue le rendu du repli par utilisateur et le stocke dans la variable de sortie au lieu de `null`. Si vous ne configurez pas de valeurs de repli, les invocations échouées laissent la sortie Canvas non définie (`null`).
+Lorsqu'un agent d'étape Canvas avec des valeurs de repli s'exécute dans une [étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze effectue le rendu du repli par utilisateur et le stocke dans la variable de sortie au lieu de `null`. Si vous ne configurez pas de valeurs de repli, les invocations échouées laissent la sortie Canvas non définie (`null`).
 
 Pour le comportement à l'exécution, consultez [Gestion des erreurs et comportement de repli]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
@@ -182,6 +182,6 @@ Operator peut préconfigurer les instructions, les champs de sortie et le contex
 
 ## Ressources connexes {#related-resources}
 
-- [Article de référence pour les agents]({{site.baseurl}}/user_guide/brazeai/agents/reference)
+- [Référence pour les agents]({{site.baseurl}}/user_guide/brazeai/agents/reference)
 - [Questions fréquentes]({{site.baseurl}}/user_guide/brazeai/agents/faq)
 - [Webinaire Braze sur l'IA en action : 3 nouveaux cas d'usage pour la personnalisation 1:1](https://www.braze.com/resources/webinars-and-events/ai-in-action-use-cases)

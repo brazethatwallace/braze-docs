@@ -23,7 +23,7 @@ Die Integration von Braze und WSC Sports ermöglicht es Ihnen, reichhaltige und 
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | WSC-Konto | Um diese Partnerschaft zu nutzen, ist ein WSC-Konto erforderlich. |
-| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit Berechtigungen für **Nachrichten**, **Segmente**, **Kampagnen** und **Canvas**. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
+| Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit Berechtigungen für **Messages**, **Segments**, **Campaigns** und **Canvas**. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -40,7 +40,7 @@ Bevor Sie mit der Integration beginnen, stellen Sie sicher, dass Sie die gewüns
 
 Nach dem Versand stellt WSC Sports die Push-Benachrichtigung an die ausgewählten Nutzersegmente über die folgenden Braze-Endpunkte zu, basierend auf den ausgewählten Optionen:
 - [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages#create-scheduled-messages)
-- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#sending-messages-immediately-via-api-only)
+- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only)
 
 Der resultierende Nachrichtentext sieht wie folgt aus:
 ```

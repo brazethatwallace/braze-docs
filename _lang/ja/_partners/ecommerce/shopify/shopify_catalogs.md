@@ -711,7 +711,7 @@ WHERE
 {% endtabs %}
 
 {% alert tip %}
-[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)や[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)も設定できます！<br><br>各ユースケースでは、ユーザーの購読ステータスをカタログにキャプチャするカスタムイベントを作成する必要があります。カスタムイベントには、Shopify商品同期の一部として選択した[SKUまたはShopifyバリアントID]({{site.baseurl}}/partners/message_orchestration/channel_extensions/ecommerce/shopify/shopify_features/shopify_catalogs#step-2-select-your-product-identifier)のいずれかにマップされるイベントプロパティが必要です。
+[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)や[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)も設定できます！<br><br>各ユースケースでは、ユーザーの購読ステータスをカタログにキャプチャするカスタムイベントを作成する必要があります。カスタムイベントには、Shopify商品同期の一部として選択した<a href="/docs/partners/ecommerce/shopify/shopify_catalogs#step-2-select-your-product-identifier">SKUまたはShopifyバリアントID</a> のいずれかにマップされるイベントプロパティが必要です。
 {% endalert %}
 
 ## 商品同期を非アクティブにする {#deactivate}

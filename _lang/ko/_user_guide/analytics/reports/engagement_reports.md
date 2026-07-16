@@ -133,7 +133,7 @@ tool:
 
 ### 참여 보고서 측정기준이 이메일 성능 대시보드와 다른 경우 {#engagement-report-metrics-differ-from-the-email-performance-dashboard}
 
-참여 보고서와 [이메일 성능 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance)는 동일한 이메일 측정기준 정의를 사용합니다. 둘 다 열람과 클릭을 각 이벤트가 **발생한** 날짜에 귀속시키며, *고유 열람*과 *고유 클릭*을 일별 7일 고유 수로 계산하여 선택한 날짜 범위에 걸쳐 합산합니다. 정의에 대해서는 [이메일 측정기준]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary#email-metrics) 및 채널 성능 대시보드 페이지의 [측정기준 계산 방법]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#how-metrics-are-calculated)을 참조하세요.
+참여 보고서와 [이메일 성능 대시보드]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance)는 동일한 이메일 측정기준 정의를 사용합니다. 둘 다 열람과 클릭을 각 이벤트가 **발생한** 날짜에 귀속시키며, *고유 열람*과 *고유 클릭*을 일별 7일 고유 수로 계산하여 선택한 날짜 범위에 걸쳐 합산합니다. 정의에 대해서는 [이메일 측정기준]({{site.baseurl}}/user_guide/channels/email/reporting/analytics_glossary) 및 채널 성능 대시보드 페이지의 [측정기준 계산 방법]({{site.baseurl}}/user_guide/analytics/dashboards/channel_performance#how-metrics-are-calculated)을 참조하세요.
 
 동일한 Campaigns 및 기간에 대해 합계가 여전히 다른 경우 다음을 확인하세요:
 

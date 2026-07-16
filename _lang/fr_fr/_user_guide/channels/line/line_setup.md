@@ -28,7 +28,7 @@ Vous aurez besoin des éléments suivants pour intégrer LINE à Braze :
 L'envoi de messages LINE depuis Braze consomme les crédits de messages ou d'actions de votre compte.
 
 {% alert note %}
-**Définir `native_line_id`** : Vous pouvez définir `native_line_id` en envoyant des mises à jour utilisateur à Braze (par exemple, avec l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). Si votre SDK côté client ne dispose pas d'un champ dédié pour `native_line_id`, envoyez-le dans les mises à jour utilisateur côté serveur en utilisant l'une de ces méthodes.
+**Définir `native_line_id`** : Vous pouvez définir `native_line_id` en envoyant des mises à jour utilisateur à Braze (par exemple, avec l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)). Si votre SDK côté client ne dispose pas d'un champ dédié pour `native_line_id`, envoyez-le dans les mises à jour utilisateur côté serveur en utilisant l'une de ces méthodes.
 {% endalert %}
 
 ## Types de comptes LINE {#types-of-line-accounts}
@@ -73,7 +73,7 @@ Vous ne pouvez avoir qu'un seul compte LINE dans un même espace de travail. Si 
 
 Cette étape est nécessaire si vous avez un utilisateur LINE existant et identifié, car Braze récupérera automatiquement son état d'abonnement et mettra à jour le profil utilisateur correspondant. Si vous n'avez pas encore réconcilié les utilisateurs avec leur ID LINE, passez cette étape.
 
-Vous pouvez importer ou mettre à jour les utilisateurs en utilisant l'une des méthodes prises en charge par Braze, y compris l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
+Vous pouvez importer ou mettre à jour les utilisateurs en utilisant l'une des méthodes prises en charge par Braze, y compris l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 Quelle que soit la méthode utilisée, mettez à jour le `native_line_id` pour fournir l'ID LINE de l'utilisateur. Pour en savoir plus sur le `native_line_id`, consultez [Configuration des utilisateurs](#user-setup).
 
@@ -254,7 +254,7 @@ Voici des cas d'usage montrant comment les utilisateurs peuvent être mis à jou
 1. Le canal obtient un nouvel abonné LINE.
 2. Braze crée un profil utilisateur anonyme avec l'attribut `native_line_id` défini sur l'ID LINE de l'abonné, et un alias d'utilisateur `line_id` défini sur l'ID LINE de l'abonné. Le profil a un statut d'abonnement `subscribed`.
 3. L'utilisateur est identifié comme possédant l'ID LINE via la [réconciliation utilisateur](#user-id-reconciliation).
-  - Le profil utilisateur anonyme peut être identifié en utilisant l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify). Les mises à jour ultérieures (via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) de ce profil utilisateur peuvent cibler l'utilisateur par cet `external_id` connu.
+  - Le profil utilisateur anonyme peut être identifié en utilisant l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify). Les mises à jour ultérieures (via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) de ce profil utilisateur peuvent cibler l'utilisateur par cet `external_id` connu.
 
 {% raw %}
 ```json
@@ -272,7 +272,7 @@ Voici des cas d'usage montrant comment les utilisateurs peuvent être mis à jou
 ```
 {% endraw %}
 
-  - Un nouveau profil utilisateur peut être créé (via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) en définissant le `native_line_id`. Ce nouveau profil héritera de l'état d'abonnement du profil utilisateur anonyme existant. Notez que cela entraînera l'existence de plusieurs profils partageant le même `native_line_id`. Ceux-ci peuvent être fusionnés à tout moment en utilisant l'endpoint `/users/merge` dans le processus décrit à l'[étape 5](#step-5-merge-profiles-optional).
+  - Un nouveau profil utilisateur peut être créé (via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion)) en définissant le `native_line_id`. Ce nouveau profil héritera de l'état d'abonnement du profil utilisateur anonyme existant. Notez que cela entraînera l'existence de plusieurs profils partageant le même `native_line_id`. Ceux-ci peuvent être fusionnés à tout moment en utilisant l'endpoint `/users/merge` dans le processus décrit à l'[étape 5](#step-5-merge-profiles-optional).
 
 ##### La création du profil utilisateur intervient avant le suivi LINE {#user-profile-creation-occurs-before-line-follow}
 
@@ -311,7 +311,7 @@ Pour obtenir l'ID LINE correct pour chaque utilisateur, configurez LINE Login so
 
 4. Enregistrez l'ID LINE de l'utilisateur (`native_line_id`) dans le profil de l'utilisateur avec une adresse e-mail correspondante dans votre base de données, ou créez un nouveau profil utilisateur avec l'adresse e-mail et l'ID LINE de l'utilisateur.
 
-5. Envoyez les informations utilisateur nouvelles ou mises à jour à Braze en utilisant l'[endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#track-users), l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv-import) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
+5. Envoyez les informations utilisateur nouvelles ou mises à jour à Braze en utilisant l'[endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), l'[import CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou l'[ingestion de données cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion).
 
 #### Flux de travail {#workflows}
 

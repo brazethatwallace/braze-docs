@@ -40,7 +40,7 @@ WSC Sportsアプリケーションは、動画の選択からエンドユーザ�
 
 送信されると、WSC Sportsは選択されたオプションに基づいて、以下のBrazeエンドポイントを使用して、選択されたユーザーセグメントにプッシュ通知を配信します:
 - [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages#create-scheduled-messages)
-- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#sending-messages-immediately-via-api-only)
+- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only)
 
 メッセージの本文は次のとおりです:
 ```

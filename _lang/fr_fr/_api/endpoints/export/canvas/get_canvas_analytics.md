@@ -22,7 +22,7 @@ description: "Cet article présente en détail l'endpoint Braze Exporter l'analy
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `canvas.data_series`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `canvas.data_series`.
 
 ## Limite de débit {#rate-limit}
 

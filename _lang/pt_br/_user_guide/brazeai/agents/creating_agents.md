@@ -107,15 +107,15 @@ Quando você usar um [esquema de saída avançado]({{site.baseurl}}/user_guide/b
 
 #### Configurar valores de fallback {#configure-fallback-values}
 
-Os valores de fallback estão disponíveis apenas para **agentes de etapa do Canvas**. Na seção **Output** de um agente Canvas, você pode definir valores que a Braze usa quando uma invocação do agente falha — por exemplo, quando o LLM expira ou retorna um erro de chave de API inválida. Os valores de fallback funcionam como padrões de personalização. Você pode definir uma linha de assunto estática ou uma mensagem curta que ainda forneça uma saída útil aos usuários quando o agente não puder ser executado.
+Os valores de fallback estão disponíveis apenas para agentes de etapa do Canvas. Na seção **Output** de um agente de etapa do Canvas, você pode definir valores que a Braze usa quando uma invocação do agente falha — por exemplo, quando o LLM expira ou retorna um erro de chave de API inválida. Os valores de fallback funcionam como padrões de personalização. Você pode definir uma linha de assunto estática ou uma mensagem curta que ainda forneça uma saída útil aos usuários quando o agente não puder ser executado.
 
-**Agentes de catálogo** não suportam a configuração de valores de fallback no Agent Console.
+Agentes de catálogo não suportam a configuração de valores de fallback no Agent Console.
 
 ![Configuração de saída do Agent Console mostrando o campo de saída de fallback para um esquema de número.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
 Para agentes Canvas, os valores de fallback suportam modelos [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para que você possa referenciar atributos do usuário ou variáveis de contexto no texto de fallback.
 
-Os campos de fallback se adaptam ao formato de saída do seu agente Canvas:
+Os campos de fallback se adaptam ao formato de saída do seu agente de etapa do Canvas:
 
 | Formato de saída | Configuração de fallback |
 | --- | --- |
@@ -124,7 +124,7 @@ Os campos de fallback se adaptam ao formato de saída do seu agente Canvas:
 | Esquema JSON (esquema avançado) | A Braze lê seu esquema JSON e gera um campo de entrada para cada propriedade, para que você possa definir um valor de fallback por chave. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configurar valores de fallback" }
 
-Quando um agente Canvas com valores de fallback é executado em uma [etapa do agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), a Braze renderiza o fallback por usuário e o armazena na variável de saída em vez de `null`. Se você não configurar valores de fallback, invocações com falha deixam a saída do Canvas indefinida (`null`).
+Quando um agente de etapa do Canvas com valores de fallback é executado em uma [etapa do agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), a Braze renderiza o fallback por usuário e o armazena na variável de saída em vez de `null`. Se você não configurar valores de fallback, invocações com falha deixam a saída do Canvas indefinida (`null`).
 
 Para o comportamento em tempo de execução, veja [Tratamento de erros e comportamento de fallback]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
@@ -166,7 +166,7 @@ O Operator pode pré-configurar instruções, campos de saída e contexto para o
 
 | Modelo | Descrição | Exemplo de saída |
 | --- | --- | --- |
-| Redator personalizado | Gera textos de mensagem específicos para o canal a partir de atributos do usuário, contexto do Canvas e diretrizes da marca | Assunto e pré-cabeçalho de e-mail; título e corpo de push |
+| Redator personalizado | Gera textos de mensagem específicos para o canal a partir de atributos do usuário, contexto do Canvas e diretrizes da marca | Linha de assunto e pré-cabeçalho de e-mail; título e corpo de push |
 | Analista de feedback | Analisa feedback aberto de pesquisas ou suporte em campos estruturados para ramificação no Canvas | Sentimento, tópico, próxima ação recomendada |
 | Roteador de jornada | Direciona cada usuário para a jornada do Canvas mais relevante com base no perfil e no contexto da jornada | Nome da jornada ou booleano para etapas de divisão de decisão |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Modelos de agente de etapa do Canvas" }

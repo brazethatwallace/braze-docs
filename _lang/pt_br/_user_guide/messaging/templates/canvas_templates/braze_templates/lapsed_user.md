@@ -58,8 +58,8 @@ Mantenha as configurações padrão para o público de entrada, que direciona us
 Mantenha a maioria das configurações padrão de inscrição:
 
 - Enviar apenas para usuários que se inscreveram ou optaram por receber mensagens ou notificações.
-- Aplicar suas [regras de limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) para não sobrecarregar seu público com a quantidade de mensagens que recebem. Neste caso, defina seu limite de frequência para limitar o número de Campaigns ou etapas do Canvas com a tag "Lapsing/Retention" que um usuário pode receber a duas por semana.
-- Não enviar mensagens durante o horário de silêncio no horário local do usuário (0h às 8h).
+- Aplicar suas [regras de limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) para não sobrecarregar seu público com a quantidade de mensagens que recebem. Neste caso, defina seu limite de frequência para limitar o número de campanhas ou etapas do Canvas com a tag "Lapsing/Retention" que um usuário pode receber a duas por semana.
+- Não enviar mensagens durante o horário de silêncio no fuso local do usuário (0h às 8h).
 
 A única configuração a alterar é o que acontece quando uma mensagem é disparada durante o horário de silêncio. Em vez de cancelar a mensagem, selecione **Send at next available time** para que seus usuários não percam nenhuma promoção.
 

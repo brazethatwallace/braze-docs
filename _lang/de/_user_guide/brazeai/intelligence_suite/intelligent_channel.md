@@ -23,7 +23,7 @@ Jedes Mal, wenn eine Nachricht an eine:n Nutzer:in gesendet wird oder ein:e Nutz
 Um den intelligenten Kanalfilter zu aktivieren, wählen Sie den Filter **Intelligent Channel** auf der Seite **Target Audiences** aus, wenn Sie eine E-Mail-, Web-Push- oder Mobile-Push-Campaign erstellen.
 
 {% alert important %}
-Um die Engagement-Rate des SMS-Kanals zu berechnen, schalten Sie die [SMS-Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview) mit erweitertem Tracking und Klick-Tracking ein. Ohne dieses Tracking kann SMS als intelligenter Kanal mit einer Engagement-Rate von 0 % ausgewählt werden, da unser [Tie-Break-Verhalten]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking) greift.
+Um die Engagement-Rate des SMS-Kanals zu berechnen, schalten Sie die [SMS-Linkverkürzung]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) mit erweitertem Tracking und Klick-Tracking ein. Ohne dieses Tracking kann SMS als intelligenter Kanal mit einer Engagement-Rate von 0 % ausgewählt werden, da unser [Tie-Break-Verhalten]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking) greift.
 {% endalert %}
 
 ## Die Option „Nicht genügend Daten“ {#the-not-enough-data-option}

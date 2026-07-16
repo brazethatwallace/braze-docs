@@ -28,7 +28,7 @@ toc_headers: h2
 
 ### 글로벌 컨트롤 그룹에 사용자를 무작위로 할당 {#assign-users-randomly-to-the-global-control-group}
 
-Braze는 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#step-1-segment-your-users-by-the-random-bucket-attribute)의 여러 범위를 무작위로 선택하고, 선택된 버킷에 속하는 사용자를 포함합니다. 현재 다른 목적으로 무작위 버킷 번호를 사용하고 있다면, [주의 사항](#things-to-watch-for)을 확인하세요.
+Braze는 [무작위 버킷 번호]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#create-segments-using-random-bucket-numbers)의 여러 범위를 무작위로 선택하고, 선택된 버킷에 속하는 사용자를 포함합니다. 현재 다른 목적으로 무작위 버킷 번호를 사용하고 있다면, [주의 사항](#things-to-watch-for)을 확인하세요.
 
 글로벌 컨트롤 그룹이 생성되면, 해당 무작위 버킷 번호를 가진 모든 사용자가 그룹에 포함됩니다. 또한 이 시점 이후에 가입한 신규 사용자(글로벌 컨트롤 그룹이 생성된 후 획득한 사용자) 중 해당 무작위 버킷 번호를 가진 사용자도 글로벌 컨트롤 그룹에 추가됩니다. 마찬가지로, 많은 사용자가 삭제되면 삭제된 사용자 중 일정 비율이 이 그룹에 속해 있었으므로 글로벌 컨트롤 그룹의 크기가 줄어들 수 있습니다. 이를 통해 전체 사용자 기반 대비 그룹 크기가 일정한 비율로 유지됩니다.
 

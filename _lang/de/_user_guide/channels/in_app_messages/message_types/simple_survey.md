@@ -18,7 +18,7 @@ Dieser Nachrichtentyp ist im [traditionellen Editor]({{site.baseurl}}/user_guide
 
 Häufige Anwendungsfälle für Umfragen sind z. B. die Frage, wie Nutzer:innen Ihre App nutzen möchten, mehr über ihre persönlichen Präferenzen zu erfahren oder ihre Zufriedenheit mit einem bestimmten Feature abzufragen.
 
-![Drei einfache Umfragenachrichten: Präferenzen für Benachrichtigungen, Ernährungspräferenzen und eine Kundenzufriedenheitsumfrage. Die ausgewählten Optionen in den Umfragen entsprechen angepassten Attributen, die für die jeweiligen Nutzer:innen protokolliert werden.]({% image_buster /assets/img/iam/iam-survey.png %})
+![Drei einfache Umfragenachrichten: Benachrichtigungspräferenzen, Ernährungspräferenzen und eine Kundenzufriedenheitsumfrage. Die ausgewählten Optionen in den Umfragen entsprechen angepassten Attributen, die für die jeweiligen Nutzer:innen protokolliert werden.]({% image_buster /assets/img/iam/iam-survey.png %})
 
 ## SDK-Anforderungen {#supported-sdk-versions}
 
@@ -36,7 +36,7 @@ Wenn Sie eine [In-App-Nachricht]({{site.baseurl}}/user_guide/channels/in_app_mes
 
 Dieses Umfrage-Template wird sowohl für mobile Apps als auch für Webbrowser unterstützt. Stellen Sie sicher, dass Ihre SDKs die für dieses Feature erforderlichen [Mindest-SDK-Versionen](#supported-sdk-versions) erfüllen.
 
-### 1. Schritt: Umfragefrage hinzufügen {#step-1-add-your-survey-question}
+### Schritt 1: Umfragefrage hinzufügen {#step-1-add-your-survey-question}
 
 Um mit der Erstellung Ihrer Umfrage zu beginnen, fügen Sie Ihre Frage in das Feld **Header** der Umfrage ein. Bei Bedarf können Sie eine optionale **Body**-Nachricht hinzufügen, die unter Ihrer Umfragefrage angezeigt wird.
 
@@ -46,7 +46,7 @@ Um mit der Erstellung Ihrer Umfrage zu beginnen, fügen Sie Ihre Frage in das Fe
 Diese Felder können sowohl Liquid als auch Emojis enthalten – lassen Sie Ihrer Kreativität freien Lauf!
 {% endalert %}
 
-### 2. Schritt: Auswahlmöglichkeiten konfigurieren {#single-multiple-choice}
+### Schritt 2: Auswahlmöglichkeiten konfigurieren {#single-multiple-choice}
 
 Sie können bis zu 12 Auswahlmöglichkeiten in einer Umfrage hinzufügen.
 
@@ -83,7 +83,7 @@ Alternativ können Sie **Log responses only (no attributes)** wählen. Wenn dies
 
 Diese Klick-Metriken stehen nicht für Retargeting zur Verfügung.
 
-### 4. Schritt: Absendeverhalten festlegen {#step-4-choose-submission-behavior}
+### Schritt 4: Absendeverhalten festlegen {#step-4-choose-submission-behavior}
 
 Sobald eine Nutzer:in ihre Antwort absendet, können Sie optional eine Bestätigungsseite anzeigen oder die Nachricht einfach schließen.
 
@@ -99,7 +99,7 @@ Wenn Sie eine Bestätigungsseite hinzufügen möchten, wechseln Sie zum Tab **Co
 
 Wenn Sie Nutzer:innen zu einer anderen Seite Ihrer App oder Website leiten möchten, ändern Sie das **Klickverhalten** des Buttons.
 
-### 5. Schritt: Nachricht gestalten (optional) {#styling}
+### Schritt 5: Nachricht gestalten (optional) {#styling}
 
 Sie können die Schriftfarbe und die Akzentfarbe der Nachricht mit dem **Color Theme**-Picker anpassen.
 
@@ -125,7 +125,7 @@ Sehen Sie sich den [In-App-Nachrichten-Bericht]({{site.baseurl}}/user_guide/chan
 
 ### Currents {#currents}
 
-Ausgewählte Optionen fließen automatisch in Currents ein, unter dem Feld `button_id` der [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#api_fzzdoylmrtwe). Jede Auswahl wird mit ihrem universell eindeutigen Bezeichner (UUID) gesendet.
+Ausgewählte Optionen fließen automatisch in Currents ein, unter dem Feld `button_id` der [**In-App Message Click Events**]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#in-app-message-click-events). Jede Auswahl wird mit ihrem universell eindeutigen Bezeichner (UUID) gesendet.
 
 ## Anwendungsfälle {#use-cases}
 
@@ -147,7 +147,7 @@ Um dies einzurichten, verwenden Sie eine Einfachauswahl-Umfrage mit fünf Option
 | 😍 Sehr zufrieden | `customer_satisfaction` | 5 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Kundenzufriedenheit" }
 
-Wenn eine Nutzer:in die Umfrage absendet, wird der ausgewählte Wert als angepasstes Attribut protokolliert. Sie können dann Follow-up-Campaigns mithilfe von Zielgruppen-Filtern erstellen. Senden Sie beispielsweise Rückgewinnungsnachrichten an Nutzer:innen, deren Attribut `customer_satisfaction` den Wert „1“ oder „2“ hat.
+Wenn eine Nutzer:in die Umfrage absendet, wird der ausgewählte Wert als angepasstes Attribut protokolliert. Sie können dann Follow-up-Campaigns mithilfe von Zielgruppenfiltern erstellen. Senden Sie beispielsweise Rückgewinnungsnachrichten an Nutzer:innen, deren Attribut `customer_satisfaction` den Wert „1“ oder „2“ hat.
 
 {% endtab %}
 {% tab Benachrichtigungspräferenzen %}

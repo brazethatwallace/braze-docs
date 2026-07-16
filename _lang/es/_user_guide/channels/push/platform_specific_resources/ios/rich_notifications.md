@@ -22,7 +22,7 @@ tool:
 Antes de crear una notificación push enriquecida para iOS, ten en cuenta los siguientes detalles:
 
 - Para asegurarte de que tu aplicación pueda enviar notificaciones enriquecidas, sigue las instrucciones de [integración push de iOS]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration#ios-10-rich-notifications), ya que tu desarrollador necesitará añadir una extensión de servicio a tu aplicación.
-- Los tipos de archivo que actualmente admitimos para carga directa en nuestro dashboard incluyen JPEG, PNG o GIF. Estos archivos también se pueden introducir en el campo de URL con plantilla junto con estos tipos de archivo adicionales: AIF, M4A, MP3, MP4 o WAV.
+- Los tipos de archivo que actualmente admitimos para carga directa en nuestro panel incluyen JPEG, PNG o GIF. Estos archivos también se pueden introducir en el campo de URL con plantilla junto con estos tipos de archivo adicionales: AIF, M4A, MP3, MP4 o WAV.
 - Consulta la [documentación de Apple](https://developer.apple.com/reference/usernotifications/unnotificationattachment) para conocer las limitaciones y especificaciones de medios.
 - iOS escalará las imágenes para que se ajusten a la pantalla y escalará las imágenes enriquecidas para la vista activa o de bloqueo.
 
@@ -125,11 +125,11 @@ Los siguientes detalles también pueden afectar el truncamiento de texto:
 
 ### Paso 1: Crear una Campaign push {#step-1-create-a-push-campaign}
 
-Sigue los [pasos de la Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#creating-a-push-message) para redactar una notificación push para iOS. Usarás el mismo compositor que utilizas para configurar notificaciones push que no contienen contenido enriquecido.
+Sigue los [pasos de la Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message) para redactar una notificación push para iOS. Usarás el mismo creador que utilizas para configurar notificaciones push que no contienen contenido enriquecido.
 
 ### Paso 2: Añadir medios {#step-2-add-media}
 
-Añade tu archivo de imagen, GIF, audio o video en el campo **iOS Notification Image** en el compositor del mensaje. Consulta los [requisitos](#requirements) sobre cómo añadir tus archivos de contenido.
+Añade tu archivo de imagen, GIF, audio o video en el campo **iOS Notification Image** en el creador del mensaje. Consulta los [requisitos](#requirements) sobre cómo añadir tus archivos de contenido.
 
 ![Un ejemplo de texto de resumen para una notificación push.]({% image_buster /assets/img_archive/rich_notification_add_image.png %}){: style="max-width:70%;" }
 
@@ -139,7 +139,7 @@ También puedes limitar este mensaje para que solo se envíe a usuarios que teng
 
 ### Paso 3: Continuar creando tu Campaign {#step-3-continue-creating-your-campaign}
 
-Una vez que el contenido de tu notificación enriquecida se haya cargado en el dashboard, puedes continuar [planificando tu Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#schedule-push-campaign).
+Una vez que el contenido de tu notificación enriquecida se haya cargado en el panel, puedes continuar [planificando tu Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#choose-delivery-schedule-or-trigger).
 
 Cuando un usuario reciba la notificación push, puede presionar con fuerza el mensaje push para expandir la imagen.
 

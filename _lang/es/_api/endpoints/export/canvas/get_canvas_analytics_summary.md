@@ -20,7 +20,7 @@ description: "Este artículo describe el endpoint de Braze para exportar el resu
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `canvas.data_summary`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `canvas.data_summary`.
 
 ## Límite de velocidad {#rate-limit}
 

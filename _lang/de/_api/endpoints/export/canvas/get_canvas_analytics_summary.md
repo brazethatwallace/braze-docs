@@ -20,7 +20,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Exportieren der C
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `canvas.data_summary`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `canvas.data_summary`.
 
 ## Rate-Limit
 
@@ -69,7 +69,7 @@ Die Antwort enthält ein Paar von Konversionsfeldern für jedes im Canvas konfig
 Fünfte und spätere Events folgen demselben Muster (zum Beispiel `conversions4` und `conversions4_by_entry_time`). Diese Felder erscheinen in `total_stats` und, wenn Sie Aufschlüsselungen anfordern, in `variant_stats` und `step_stats` unter denselben Namen.
 
 {% alert note %}
-In `total_stats`, `variant_stats` und `step_stats` gibt `conversions` die Anzahl für das [primäre Konversions-Event]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) des Canvas an. Wenn Sie zusätzliche Konversions-Events konfigurieren, kann die Payload auch `conversions1`, `conversions2` und höher indizierte Felder für das zweite, dritte und weitere Events enthalten. Dies ähnelt der [multivariaten Antwort]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response) für den Endpunkt `/campaigns/data_series`. Sofern vorhanden, ordnen Felder, die auf `_by_entry_time` enden, diese Conversions der Canvas-Eintrittszeit zu.
+In `total_stats`, `variant_stats` und `step_stats` gibt `conversions` die Anzahl für das [primäre Konversions-Event]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events) des Canvas an. Wenn Sie zusätzliche Konversions-Events konfigurieren, kann die Payload auch `conversions1`, `conversions2` und höher indizierte Felder für das zweite, dritte und weitere Events enthalten. Dies ähnelt der [Multivariate-Antwort]({{site.baseurl}}/api/endpoints/export/campaigns/get_campaign_analytics#multivariate-response) für den Endpunkt `/campaigns/data_series`. Sofern vorhanden, ordnen Felder, die auf `_by_entry_time` enden, diese Conversions der Canvas-Eintrittszeit zu.
 {% endalert %}
 
 ```json

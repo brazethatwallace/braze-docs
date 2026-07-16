@@ -365,6 +365,12 @@ Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma cam
 
 _Unique Daily Impressions_ refere-se aos Banners que foram realmente vistos.
 
+#### Discrepâncias entre grupos de controle e variantes {#discrepancies-between-control-groups-and-variants}
+
+Quando uma campanha de Banner usa um grupo de controle, as impressões do grupo de controle podem ser maiores do que as impressões da variante, mesmo quando a divisão de público entre os grupos é equilibrada. Essa discrepância é causada por uma diferença na forma como as impressões são registradas para Banners de controle e de variante.
+
+Tanto as impressões de controle quanto as de variante exigem que o posicionamento do Banner entre na viewport. As impressões de variante são registradas apenas quando o Banner completo está visível na tela. As impressões de controle podem ser registradas assim que o posicionamento entra na viewport, antes que o Banner completo esteja visível para uma variante.
+
 {% elsif include.channel == "email" %}
 
 #### Métricas de e-mail {#email-metrics}
@@ -593,7 +599,7 @@ Os relatórios para _Button 1 Clicks_ e _Button 2 Clicks_ funcionam apenas quand
     </tbody>
 </table>
 
-#### Discrepâncias entre grupos de controle e variantes {#discrepancies-between-control-groups-and-variants}
+#### Discrepâncias entre grupos de controle e variantes
 
 Quando uma campanha de mensagem no app tem uma divisão de variantes 50-50, às vezes o grupo de controle terá uma porcentagem ligeiramente maior do que a variante (como 51% para o grupo de controle e 49% para a variante). Essa discrepância é causada por uma diferença no tempo de renderização — por exemplo, quando mensagens de variante usam imagens grandes ou Connected Content com templates e os usuários saem antes que a renderização seja concluída, enquanto o grupo de controle registra impressões sem exibir uma mensagem.
 
@@ -919,7 +925,7 @@ O painel **Conversion Correlation** oferece insight sobre quais atributos e comp
 
 ## Criador de relatórios {#report-builder}
 
-Você também pode usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) para criar relatórios personalizados para suas campanhas KakaoTalk. Ao criar um relatório, você pode filtrar para incluir apenas campanhas KakaoTalk selecionando **KakaoTalk** em **Canais**, ou filtrando por quaisquer tags que você tenha aplicado às suas campanhas KakaoTalk.
+Você também pode usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) para criar relatórios personalizados para suas campanhas KakaoTalk. Ao criar um relatório, você pode filtrar para incluir apenas campanhas KakaoTalk selecionando **KakaoTalk** em **Channels**, ou filtrando por quaisquer tags que você tenha aplicado às suas campanhas KakaoTalk.
 
 {% endif %}
 

@@ -88,7 +88,7 @@ In der Agentenkonsole schätzt das **Tägliche Aktions-Credit-Kostenlimit** die 
 
 ### Credit-Verbrauch überwachen {#monitor-credit-usage}
 
-Gehen Sie zu **Einstellungen** > **Abrechnung** > **Credit-Verbrauch** > **Agentenkonsole**, um den Credit-Verbrauch, die Aufrufzahlen und die Credit-Verhältnisse pro Agent einzusehen.
+Gehen Sie zu **Einstellungen** > **Abrechnung** > **Credit-Verbrauch** > **Agent Console**, um den Credit-Verbrauch, die Aufrufzahlen und die Credit-Verhältnisse pro Agent einzusehen.
 
 Credit-Verhältnisse ergeben sich aus Ihrem Vertrag und werden im Dashboard [Credit-Verbrauch]({{site.baseurl}}/user_guide/administer/global/billing/credits_usage) angezeigt (Tab **Credit Ratios** und Tab **Agent Console**). Die Schätzung wird aktualisiert, wenn Sie das Modell oder das Aufruflimit ändern.
 
@@ -96,7 +96,7 @@ Um die Ausgaben zu steuern, senken Sie das tägliche Aufruflimit. Bei [Bring-you
 
 ### Rate-Limit-Fehler {#rate-limit-errors}
 
-Wenn der LLM-Anbieter während eines Canvas-Agenten-Schritts oder eines Katalog-Agenten-Aufrufs einen Rate-Limit-Fehler zurückgibt, wiederholt Braze die Anfrage kontinuierlich mit exponentiellem Backoff, bis der Aufruf erfolgreich ist oder Braze feststellt, dass er nicht abgeschlossen werden kann.
+Wenn der LLM-Anbieter während eines Canvas-Schritt-Agenten- oder Katalog-Agenten-Aufrufs einen Rate-Limit-Fehler zurückgibt, wiederholt Braze die Anfrage kontinuierlich mit exponentiellem Backoff, bis der Aufruf erfolgreich ist oder Braze feststellt, dass er nicht abgeschlossen werden kann.
 
 Wenn alle Canvas- oder Katalog-Wiederholungsversuche erschöpft sind, zeigt das Detailpanel **Logs** den Status **Error** und die Anbieternachricht (z. B. `Rate limit exceeded`) unter **Output** an. Wiederholungsversuche sind in den Logs sichtbar, einschließlich des allerersten Aufrufs unabhängig von seinem endgültigen Erfolg oder Misserfolg. Wenn es bei einer bestimmten Nutzerin bzw. einem bestimmten Nutzer vier Wiederholungsversuche braucht, um schließlich einen Erfolg zu erzielen, können Sie die Nutzer-ID suchen und alle fünf Einträge (Original plus vier Wiederholungen) in den **Logs** sehen. Das Original und die ersten drei Wiederholungen zeigen dabei **Error** mit `Rate limit exceeded` an.
 
@@ -151,7 +151,7 @@ Tell a one-paragraph short story about this user, integrating their {{${first_na
 ```
 {% endraw %}
 
-Im Abschnitt **Logs** der **Agentenkonsole** können Sie die Details zu den Ein- und Ausgabedaten des Agenten überprüfen, um zu verstehen, welcher Wert aus Liquid gerendert wird.
+Im Abschnitt **Logs** der **Agent Console** können Sie die Details zu den Ein- und Ausgabedaten des Agenten überprüfen, um zu verstehen, welcher Wert aus Liquid gerendert wird.
 
 ### Welche Daten Agenten erhalten {#what-data-agents-receive}
 
@@ -164,7 +164,7 @@ Gestalten Sie jeden Agenten als eine bewusste Eingabe-zu-Ausgabe-Pipeline. Verbi
 3. [Kontextschritte]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context): Setzen oder aktualisieren Sie `context.*`-Variablen im Canvas vor der Ausführung eines Agenten-Schritts.
 4. **Zusätzlicher Kontext im Agenten-Schritt:** Übergeben Sie alle zusätzlichen Liquid-Template-Werte, die nicht bereits über die anderen Methoden angegeben wurden, zum Sendezeitpunkt über die Schrittkonfiguration an den Agenten.
 
-Stellen Sie sicher, dass Sie diese Kontextvariablen entweder als Liquid-Template in den Agentenanweisungen verwenden oder **Gesamten Canvas-Kontext hinzufügen** auswählen. Wenn ein Wert nicht über einen dieser Kanäle übergeben wird, erhält der Agent ihn nicht. Listen Sie die erforderlichen Eingaben in Ihren Anweisungen oder in den [Voraussetzungen für Anwendungsfälle]({{site.baseurl}}/user_guide/brazeai/agents/use_cases) auf und überprüfen Sie die Eingaben unter **Agentenkonsole** > **Logs** nach dem Testen.
+Stellen Sie sicher, dass Sie diese Kontextvariablen entweder als Liquid-Template in den Agentenanweisungen verwenden oder **Gesamten Canvas-Kontext hinzufügen** auswählen. Wenn ein Wert nicht über einen dieser Kanäle übergeben wird, erhält der Agent ihn nicht. Listen Sie die erforderlichen Eingaben in Ihren Anweisungen oder in den [Voraussetzungen für Anwendungsfälle]({{site.baseurl}}/user_guide/brazeai/agents/use_cases) auf und überprüfen Sie die Eingaben unter **Agent Console** > **Logs** nach dem Testen.
 
 ![Die Details für einen Agenten, der Liquid in seinen Anweisungen verwendet.]({% image_buster /assets/img/ai_agent/using_liquid_example.png %}){: style="max-width:50%;"}
 
@@ -187,7 +187,7 @@ Einfache Schemata sind eine einfache Ausgabe, die ein Agent zurückgibt. Dies ka
 Wenn Sie beispielsweise Stimmungswerte von Nutzer:innen aus einer einfachen Feedback-Umfrage erfassen möchten, um die Zufriedenheit Ihrer Kund:innen nach Erhalt eines Produkts zu ermitteln, können Sie **Number** als einfaches Schema auswählen, um das Ausgabeformat zu strukturieren.
 
 {% alert important %}
-Arrays sind nur für Canvas-Agenten verfügbar, nicht für Katalog-Agenten.
+Arrays sind nur für Canvas-Schritt-Agenten verfügbar, nicht für Katalog-Agenten.
 {% endalert %}
 
 ![Agentenkonsole mit „Number“ als einfachem Schema ausgewählt.]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
@@ -197,15 +197,15 @@ Arrays sind nur für Canvas-Agenten verfügbar, nicht für Katalog-Agenten.
 Erweiterte Schema-Optionen umfassen die manuelle Strukturierung von Feldern oder die Verwendung von JSON.
 
 - **Felder:** Eine No-Code-Methode, um eine konsistente Agentenausgabe zu erzwingen.
-- **JSON:** Ein Code-Ansatz zur Erstellung eines präzisen Ausgabeformats, bei dem Sie Variablen und Objekte innerhalb des JSON-Schemas verschachteln können. Nur für Canvas-Agenten verfügbar, nicht für Katalog-Agenten.
+- **JSON:** Ein Code-Ansatz zur Erstellung eines präzisen Ausgabeformats, bei dem Sie Variablen und Objekte innerhalb des JSON-Schemas verschachteln können. Nur für Canvas-Schritt-Agenten verfügbar, nicht für Katalog-Agenten.
 
 Wir empfehlen die Verwendung erweiterter Schemata, wenn der Agent eine Datenstruktur mit mehreren strukturiert definierten Werten zurückgeben soll, anstatt einer einzelnen Ausgabe. Dadurch kann die Ausgabe besser als konsistente Kontextvariable formatiert werden.
 
 ### Fallback-Ausgabe {#fallback-output}
 
-Fallback-Werte sind nur für **Canvas-Schritt-Agenten** verfügbar. Im Abschnitt **Ausgabe** der Agentenkonsole für einen Canvas-Agenten können Sie Werte definieren, die Braze verwendet, wenn ein Aufruf fehlschlägt.
+Fallback-Werte sind nur für Canvas-Schritt-Agenten verfügbar. Im Abschnitt **Ausgabe** der Agentenkonsole für einen Canvas-Schritt-Agenten können Sie Werte definieren, die Braze verwendet, wenn ein Aufruf fehlschlägt.
 
-Für **JSON**-Schemata liest Braze das Schema und generiert ein Eingabefeld für jede Eigenschaft, sodass Sie einen Fallback-Wert pro Schlüssel festlegen können. Für **Felder**-Schemata geben Sie einen Fallback-Wert für jedes Feld ein. Für einfache Schemata geben Sie einen einzelnen Fallback-Wert ein. Canvas-Agenten unterstützen Liquid in Fallback-Werten.
+Für **JSON**-Schemata liest Braze das Schema und generiert ein Eingabefeld für jede Eigenschaft, sodass Sie einen Fallback-Wert pro Schlüssel festlegen können. Für **Felder**-Schemata geben Sie einen Fallback-Wert für jedes Feld ein. Für einfache Schemata geben Sie einen einzelnen Fallback-Wert ein. Canvas-Schritt-Agenten unterstützen Liquid in Fallback-Werten.
 
 Informationen zu den Einrichtungsschritten finden Sie unter [Fallback-Werte konfigurieren]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values). Informationen zum Laufzeitverhalten in Canvas finden Sie unter [Fehlerbehandlung und Fallback-Verhalten]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
@@ -257,7 +257,7 @@ Wählen Sie bestimmte Kataloge aus, die ein Agent referenzieren soll, und geben 
 
 ![Der Katalog „restaurants“ und die Spalte „Loyalty_Program“, die für die Suche durch den Agenten ausgewählt wurden.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-Wenn Sie einen Katalog-Agenten in einem Katalogfeld bereitstellen, aktivieren Sie die Pflichtfeld-Steuerung und wählen Sie aus, welche ausgewählten Spalten **für die Ausführung erforderlich** sind, bevor der Agent aufgerufen wird. Der Agent überspringt eine Zeile nur dann, wenn eine dieser Pflichtspalten leer ist oder fehlt – beispielsweise ein `gender`-Feld, das noch nicht ausgefüllt wurde. Ausgewählte Spalten sind standardmäßig als Pflichtfelder markiert, aber Sie können Spalten entfernen, die leer sein dürfen, ohne die Ausführung zu blockieren. Dies verhindert verschwendete Token bei unvollständigen Daten.
+Wenn Sie einen Katalog-Agenten in einem Katalogfeld bereitstellen, aktivieren Sie die Pflichtfeld-Steuerung und wählen Sie aus, welche ausgewählten Spalten für die Ausführung erforderlich sind, bevor der Agent aufgerufen wird. Der Agent überspringt eine Zeile nur dann, wenn eine dieser Pflichtspalten leer ist oder fehlt – beispielsweise ein `gender`-Feld, das noch nicht ausgefüllt wurde. Ausgewählte Spalten sind standardmäßig als Pflichtfelder markiert, aber Sie können Spalten entfernen, die leer sein dürfen, ohne die Ausführung zu blockieren. Dies verhindert verschwendete Token bei unvollständigen Daten.
 
 Katalog-Agenten berücksichtigen auch die Spaltenreihenfolge, wenn Eingabefelder voneinander abhängen. Wenn Spalte D aus den Spalten B und C generiert werden soll, führt der Agent Spalte D erst aus, wenn B und C Werte für diese Zeile enthalten.
 

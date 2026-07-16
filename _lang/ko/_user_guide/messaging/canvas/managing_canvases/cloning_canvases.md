@@ -9,7 +9,7 @@ tool: Canvas
 
 # 캔버스를 Canvas Flow로 복제 {#clone-canvases-to-canvas-flow}
 
-> 기존 편집기에서 만든 캔버스가 있는 경우, 이 캔버스를 복제하여 Canvas Flow에서 사본을 생성할 수 있습니다. 현재 캔버스 워크플로로 전환하면 경량 [캔버스 구성요소]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components), [영구 진입 속성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#canvas-entry-properties), [시작 후 편집]({{site.baseurl}}/post-launch_edits) 기능을 사용할 수 있습니다. 기존 캔버스는 변경되거나 삭제되지 않습니다.
+> 기존 편집기에서 만든 캔버스가 있는 경우, 이 캔버스를 복제하여 Canvas Flow에서 사본을 생성할 수 있습니다. 현재 캔버스 워크플로로 전환하면 경량 [캔버스 구성요소]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components), [영구 진입 속성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties), [시작 후 편집]({{site.baseurl}}/post-launch_edits) 기능을 사용할 수 있습니다. 기존 캔버스는 변경되거나 삭제되지 않습니다.
 
 {% alert important %}
 더 이상 기존 캔버스 경험을 사용하여 캔버스를 생성하거나 복제할 수 없습니다. Braze는 기존 캔버스 경험을 사용하는 고객이 현재 캔버스 경험인 Canvas Flow로 전환할 것을 권장합니다.
@@ -26,7 +26,7 @@ tool: Canvas
 {: start="4"}
 4. 새 캔버스의 이름을 입력하고 **Canvas Flow로 복제**를 클릭합니다.
 
-![콘텐츠 카드 모달 배치 예시.]({% image_buster /assets/img_archive/clone_to_v2_modal.png %}){: style="max-width:70%;"}
+![콘텐츠 카드 Modal 배치 예시.]({% image_buster /assets/img_archive/clone_to_v2_modal.png %}){: style="max-width:70%;"}
 
 이제 캔버스의 두 가지 버전이 있습니다: 기존 캔버스와 Canvas Flow 버전입니다. 기존 캔버스는 원래 상태를 유지하며, 복제된 캔버스는 **초안** 상태입니다. 기존 캔버스에 계속 접근할 수 있지만, Braze는 Canvas Flow 워크플로를 사용하여 캔버스를 계속 구축할 것을 권장합니다.
 
@@ -50,4 +50,4 @@ Canvas Flow 워크플로로 캔버스 복제가 완료되었습니다. 이제 �
 
 API 트리거 Canvases의 경우, 새 Canvases가 시작될 준비가 되면 해당 Canvases가 새 Canvas ID를 사용하도록 엔지니어링 팀과 조율하세요.
 
-기존 캔버스 편집기와 Canvas Flow 경험의 차이점에 대한 자세한 내용은 [캔버스 FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-are-the-main-differences-between-canvas-flow-and-the-original-canvas-editor)를 확인하세요.
+기존 캔버스 편집기와 Canvas Flow 경험의 차이점에 대한 자세한 내용은 [캔버스 FAQ]({{site.baseurl}}/user_guide/messaging/canvas/faqs#what-are-the-main-differences-between-the-current-and-original-canvas-editors)를 확인하세요.

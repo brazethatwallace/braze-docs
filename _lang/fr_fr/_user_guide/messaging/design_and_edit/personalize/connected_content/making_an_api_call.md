@@ -168,7 +168,7 @@ Certaines configurations d'API nécessitent la récupération d'un jeton d'accè
 
 #### Étape 1 : Récupérer le jeton d'accès {#step-1-retrieve-the-access-token}
 
-L'exemple suivant illustre la récupération et l'enregistrement d'un jeton d'accès dans une variable locale, qui peut ensuite être utilisée pour authentifier l'appel API suivant. Un paramètre `:cache_max_age` peut être ajouté pour correspondre à la durée de validité du jeton d'accès et réduire le nombre d'appels sortants de contenu connecté. Consultez [Mise en cache configurable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching) pour plus d'informations.
+L'exemple suivant illustre la récupération et l'enregistrement d'un jeton d'accès dans une variable locale, qui peut ensuite être utilisée pour authentifier l'appel API suivant. Un paramètre `:cache_max_age` peut être ajouté pour correspondre à la durée de validité du jeton d'accès et réduire le nombre d'appels sortants de contenu connecté. Consultez [Mise en cache configurable]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) pour plus d'informations.
 
 {% raw %}
 ```
@@ -184,6 +184,10 @@ L'exemple suivant illustre la récupération et l'enregistrement d'un jeton d'ac
 %}
 ```
 {% endraw %}
+
+{% alert note %}
+Lorsque l'endpoint de jeton attend `application/x-www-form-urlencoded` et que vous transmettez des identifiants dans `:body`, encodez en URL les caractères spéciaux dans les valeurs des paramètres. Par exemple, les barres obliques (`/`) deviennent `%2F` et les signes plus (`+`) deviennent `%2B`. Les caractères spéciaux non encodés peuvent entraîner l'échec des requêtes de jeton OAuth.
+{% endalert %}
 
 #### Étape 2 : Autoriser l'API en utilisant le jeton d'accès récupéré {#step-2-authorize-the-api-using-the-retrieved-access-token}
 

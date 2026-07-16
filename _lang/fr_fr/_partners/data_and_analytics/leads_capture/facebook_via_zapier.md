@@ -128,12 +128,12 @@ Pour tester cela de bout en bout, utilisez l'outil de test des Lead Ads de Faceb
 
 ## Gestion de l'identité des utilisateurs {#user-identity-management}
 
-Cette intégration vous permet d'attribuer vos prospects Facebook par e-mail via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number).
+Cette intégration vous permet d'attribuer vos prospects Facebook par e-mail via l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number).
 
 * Si l'e-mail correspond à un profil utilisateur existant, Braze met à jour le profil avec les données des prospects Facebook.
 * S'il existe plusieurs profils utilisateurs avec le même e-mail, Braze donne la priorité au profil le plus récemment mis à jour avec un ID externe pour les mises à jour.
 * Si l'ID externe n'existe pas, Braze donne la priorité au profil le plus récemment mis à jour avec l'e-mail correspondant.
-* Si aucun profil n'existe avec l'e-mail fourni, Braze crée un nouveau profil et un nouveau profil d'alias utilisateur. Pour identifier les profils d'alias utilisateur nouvellement créés, utilisez l'[endpoint `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
+* Si aucun profil n'existe avec l'e-mail fourni, Braze crée un nouveau profil et un nouveau profil d'alias utilisateur sera créé. Pour identifier les profils d'alias utilisateur nouvellement créés, utilisez l'[endpoint `/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify).
 
 {% alert note %}
 Vous pouvez également utiliser un numéro de téléphone ou un ID externe dans le cadre de la requête adressée à Braze si ces champs sont disponibles et s'il s'agit de l'identifiant principal que vous souhaitez utiliser pour l'intégration. Pour ce faire, modifiez le payload de votre requête comme indiqué dans l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
@@ -146,7 +146,7 @@ Pour utiliser cette intégration, vous devez disposer d'un <a href="https://zapi
 {% enddetails %}
 
 {% details Pourquoi mes prospects Facebook ne se synchronisent-ils pas avec Braze ? %}
-1. Vérifiez que vous disposez d'un accès administrateur à votre page Facebook, à votre compte publicitaire et d'un accès aux prospects. Ensuite, reconnectez votre compte dans Zapier.
+1. Vérifiez que vous disposez d'un accès administrateur à votre page Facebook, à votre compte publicitaire et à l'accès aux prospects. Ensuite, reconnectez votre compte dans Zapier.
 2. Vérifiez que le formulaire instantané que vous avez créé dans Facebook correspond au formulaire sélectionné dans votre étape de déclencheur.
 3. Vérifiez que vous avez affecté Zapier à l'accès aux prospects en vous rendant dans **Facebook Business Manager** > **Integrations** > **Leads Access**.
 {% enddetails %}
@@ -162,7 +162,7 @@ Si vous n'utilisez pas Zapier et ne prévoyez pas de le faire, vous pouvez crée
 
 Pour récupérer des prospects depuis Facebook, utilisez les <a href="https://developers.facebook.com/docs/marketing-api/guides/lead-ads/retrieving#webhooks" target="_blank">webhooks</a>. Consultez la <a href="https://developers.facebook.com/docs/graph-api/webhooks/getting-started" target="_blank">documentation sur les webhooks</a> pour commencer à utiliser les webhooks dans Facebook.
 
-Après avoir établi l'URL des webhooks dans Facebook, travaillez avec votre équipe pour déterminer le meilleur chemin pour transmettre les données à l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). De manière similaire à l'approche Zapier, nous vous recommandons d'effectuer une [requête par e-mail]({{site.baseurl}}/api/endpoints/user_data/post_user_track#example-request-for-updating-a-user-profile-by-phone-number) via l'endpoint `users/track`.
+Après avoir établi l'URL des webhooks dans Facebook, travaillez avec votre équipe pour déterminer le meilleur chemin pour transmettre les données à l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track). De manière similaire à l'approche Zapier, nous vous recommandons d'effectuer une [requête par e-mail]({{site.baseurl}}/api/endpoints/user_data/post_user_track#update-a-user-profile-by-phone-number) via l'endpoint `users/track`.
 {% enddetails %}
 
 {% alert tip %}

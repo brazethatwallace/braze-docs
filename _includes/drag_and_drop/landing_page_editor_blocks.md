@@ -60,7 +60,7 @@ Adds vertical spacing between elements.
 
 ### Custom code
 
-Inserts custom HTML, CSS, or JavaScript for advanced customization, such as [Google Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages/#google-tag-manager).
+Inserts custom HTML, CSS, or JavaScript for advanced customization, such as [Google Tag Manager]({{site.baseurl}}/user_guide/messaging/landing_pages#adding-google-tag-manager-to-a-landing-page).
 
 | Property | Description |
 | --- | --- |
@@ -101,13 +101,13 @@ A predefined list of items; users pick one. You can map values to custom attribu
 
 ### Checkbox
 
-When checked, sets the block's [boolean custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types) to `true`; when unchecked, to `false`.
+When checked, sets the block's [boolean custom attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) to `true`; when unchecked, to `false`.
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_properties.md %}
 
 ### Checkbox group
 
-Users pick multiple options; values set or append to a defined [array custom attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/#custom-attribute-data-types).
+Users pick multiple options; values set or append to a defined [array custom attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types).
 
 {% multi_lang_include drag_and_drop/editor_block_properties/checkbox_group_properties.md %}
 

@@ -83,7 +83,7 @@ You need to have the end-users phone number on the Braze profile to message them
 Subscription management of the WhatsApp Channel functions similarly to how it functions in other Braze channels. Refer to [Managing user subscriptions]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) for more information.  
 
 #### If I already have a list of users who have opted-in to receive marketing messages on WhatsApp, how do I update their subscription status in Braze? 
-You can update their subscription status via [user import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#importing-custom-data). 
+You can update their subscription status via [user import]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional). 
 
 #### What methods should I use to collect opt-ins? 
 Braze recommends referring to [Meta's guidelines for opt-in methods](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) to maintain compliance. Refer to the following resource for Braze [channel and opt-in ideas and suggestions](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit).

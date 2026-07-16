@@ -26,13 +26,13 @@ Vous sélectionnez le type d'agent dans la **Console des agents** lorsque vous c
 
 Ciblez les cas d'usage à forte valeur ajoutée où les agents peuvent générer le meilleur retour sur investissement (ROI), et choisissez des audiences susceptibles de répondre. Une audience plus restreinte mais à fort potentiel surpasse souvent une audience large avec peu d'opportunités.
 
-Pour les agents Canvas, commencez par les utilisateurs qui présentent des signaux forts — comme des recherches récentes, un engagement élevé ou des données de profil riches — avant d'élargir à des segments plus larges. Pour les agents de catalogue, privilégiez les lignes où les colonnes d'entrée dont vous avez besoin sont déjà renseignées, afin que chaque invocation dispose de suffisamment de contexte pour produire un résultat utile.
+Pour les agents d'étape Canvas, commencez par les utilisateurs qui présentent des signaux forts — comme des recherches récentes, un engagement élevé ou des données de profil riches — avant d'élargir à des segments plus larges. Pour les agents de catalogue, privilégiez les lignes où les colonnes d'entrée dont vous avez besoin sont déjà renseignées, afin que chaque invocation dispose de suffisamment de contexte pour produire un résultat utile.
 
 Pour tester le ROI à petite échelle avant de déployer un agent à grande échelle, utilisez une étape [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) afin que seule une partie de votre audience entre dans la branche contenant votre étape Agent.
 
 ## Utiliser les agents d'étape Canvas {#use-canvas-step-agents}
 
-Après avoir créé un agent Canvas, ajoutez-le à un Canvas en tant qu'étape Agent pour personnaliser les messages ou guider la prise de décision en temps réel.
+Après avoir créé un agent d'étape Canvas, ajoutez-le à un Canvas en tant qu'étape Agent pour personnaliser les messages ou guider la prise de décision en temps réel.
 
 ### Fonctionnement {#how-it-works}
 
@@ -76,7 +76,7 @@ Pour des exemples, consultez [Fonctionnement]({{site.baseurl}}/user_guide/messag
 
 ### Gestion des erreurs et comportement de repli {#fallback-behavior}
 
-Ce qui suit s'applique aux **agents d'étape Canvas** dans une [Étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
+Ce qui suit s'applique aux agents d'étape Canvas dans une [Étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 - Si le modèle connecté renvoie une [erreur de limite de débit]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) du fournisseur LLM, Braze relance continuellement la requête en utilisant des délais exponentiels jusqu'à ce que l'appel aboutisse ou que Braze détermine qu'il ne peut pas être complété ; les utilisateurs passent ensuite à l'étape Canvas suivante.
 - Pour les autres échecs (comme un délai d'attente dépassé ou une clé API invalide), la variable de sortie est définie sur `null` sauf si l'agent dispose de [valeurs de repli configurées]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) dans la Console des agents.
@@ -177,11 +177,11 @@ Vous pouvez également remplacer manuellement la cellule générée par l'agent 
 
 La surveillance fonctionne de la même manière, que votre agent s'exécute dans Canvas ou dans les catalogues.
 
-Dans la section **Usage** de votre agent, vous pouvez consulter et accéder aux endroits où l'agent est activement utilisé dans les catalogues et les Canvas.
+Dans la section **Utilisation** de votre agent, vous pouvez consulter et accéder aux endroits où l'agent est activement utilisé dans les catalogues et les Canvas.
 
-![Section Usage de l'agent affichant deux agents actifs et un agent inactif pour les Canvas.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
+![Section Utilisation de l'agent affichant deux agents actifs et un agent inactif pour les Canvas.]({% image_buster /assets/img/ai_agent/agent_usage.png %})
 
-Dans la section **Logs** de votre agent, vous pouvez surveiller les appels réels de l'agent dans vos Canvas et catalogues. Vous pouvez filtrer par informations telles que la période, le résultat (réussite ou échec) ou l'emplacement de l'appel. Vous pouvez également sélectionner **Export CSV** pour exporter uniquement les journaux affichés sur la page actuelle.
+Dans la section **Journaux** de votre agent, vous pouvez surveiller les appels réels de l'agent dans vos Canvas et catalogues. Vous pouvez filtrer par informations telles que la période, le résultat (réussite ou échec) ou l'emplacement de l'appel. Vous pouvez également sélectionner **Exporter en CSV** pour exporter uniquement les journaux affichés sur la page actuelle.
 
 {% alert tip %}
 Vous pouvez également surveiller les erreurs de limite d'invocations quotidiennes dans le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log).
@@ -189,7 +189,7 @@ Vous pouvez également surveiller les erreurs de limite d'invocations quotidienn
 
 ![Journaux pour un agent AI Sentiment Score.]({% image_buster /assets/img/ai_agent/agent_logs.png %})
 
-Sélectionnez **View** pour un appel d'agent spécifique afin de consulter l'entrée, la sortie et l'ID utilisateur.
+Sélectionnez **Afficher** pour un appel d'agent spécifique afin de consulter l'entrée, la sortie et l'ID utilisateur.
 
 ![Le panneau de détails d'un agent Random Sports Assignment affichant l'invite d'entrée, la réponse de sortie et l'ID utilisateur associé.]({% image_buster /assets/img/ai_agent/agent_logs_view.png %})
 

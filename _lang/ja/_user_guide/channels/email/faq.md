@@ -86,7 +86,7 @@ APIコールを通じてAPIキャンペーン（APIトリガーキャンペー�
 
 ### 開封トラッキングピクセルとは何ですか？ {#what-are-open-tracking-pixels}
 
-[開封トラッキングピクセル]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel)は、送信者のメールクリックトラッキングドメインを利用してメールの開封イベントを追跡します。ピクセルはメールのHTMLに追加される画像タグです。通常、bodyタグ内の最後のHTML要素です。ユーザーがメールを読み込むと、ブランドトラッキングドメインから画像を取得するリクエストが行われ、開封イベントが記録されます。
+[開封トラッキングピクセル]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement)は、送信者のメールクリックトラッキングドメインを利用してメールの開封イベントを追跡します。ピクセルはメールのHTMLに追加される画像タグです。通常、bodyタグ内の最後のHTML要素です。ユーザーがメールを読み込むと、ブランドトラッキングドメインから画像を取得するリクエストが行われ、開封イベントが記録されます。
 
 ### メールキャンペーンまたはキャンバスが停止された場合はどうなりますか？ {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
 
@@ -133,11 +133,11 @@ APIコールを通じてAPIキャンペーン（APIトリガーキャンペー�
 
 一部の企業向けメールセキュリティツール（Barracuda、Proofpointなどのサービス）は、メッセージ内のすべてのリンクを自動的にクリックして安全性を確認することで、受信メールをスキャンします。これにより、送信後数秒以内にクリックイベントが表示され、メール内のすべてのリンクが急速に連続してクリックされることがあります。
 
-この動作は、機関のメールドメイン（高校、大学、企業環境など）でより一般的であり、送信ドメインがトラッキングドメインと大きく異なる場合に発生しやすくなります。[カスタムブランドトラッキングドメイン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#custom-email-tracking-domain)を設定すると、これらの自動クリックの頻度を減らすことができます。
+この動作は、機関のメールドメイン（高校、大学、企業環境など）でより一般的であり、送信ドメインがトラッキングドメインと大きく異なる場合に発生しやすくなります。[カスタムブランドトラッキングドメイン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences)を設定すると、これらの自動クリックの頻度を減らすことができます。
 
 **確認方法：** クリックイベントのIPアドレス（Currentsデータで利用可能）を検索エンジンで調べてください。IPが既知のセキュリティプロバイダー（Barracuda Networksなど）に関連付けられている場合、クリックは自動化されている可能性が高いです。複数の自動クリックにわたって一貫したUser-Agentヘッダーが表示される場合もあります。
 
-セキュリティスキャンがメール指標に与える影響の詳細については、[クリック率の増加への対処]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates)を参照してください。
+セキュリティスキャンがメール指標に与える影響の詳細については、[クリック率の増加への対処]({{site.baseurl}}/user_guide/channels/email/reporting)を参照してください。
 
 ### サーバークリックをトリガーする潜在的なリスクは何ですか？ {#what-are-the-potential-risks-of-triggering-server-clicks}
 
@@ -181,7 +181,7 @@ Brazeは、メール内で以下のLiquidが使用されている場合に購読
 - **ユーザー設定センターを使用する：** 直接の購読解除リンクの代わりに、購読解除アクションを確認するためにユーザーの操作を必要とする[ユーザー設定センター]({{site.baseurl}}/user_guide/channels/email/subscriptions)を使用します。セキュリティスキャナーは通常、複数ステップのフォームを完了しません。
 - **購読解除ログを確認する：** Currentsの購読解除イベントデータの`User-Agent`ヘッダーとIPアドレスを確認して、自動スキャンと一致するパターン（複数の購読解除にわたって一貫した`User-Agent`ヘッダーなど）を特定します。
 
-サーバーサイドスキャンがメール指標に与える影響の詳細については、[クリック率の増加への対処]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates)を参照してください。
+サーバーサイドスキャンがメール指標に与える影響の詳細については、[クリック率の増加への対処]({{site.baseurl}}/user_guide/channels/email/reporting)を参照してください。
 
 ### マシン開封率が予期せず変化したのはなぜですか？ {#why-has-my-machine-open-rate-changed-unexpectedly}
 
@@ -310,7 +310,6 @@ SVG画像は、メールクライアント間でのサポートが限定的で�
 ### リレーメールやマスクメールのためにドメインを登録する必要がありますか？ {#do-i-need-to-register-domains-for-relay-or-masked-emails}
 
 [Appleのプライベートメールリレー]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/email_private_relay_apple_SSO)では、バウンスを防ぐためにApple Developer Portalで送信ドメインを登録する必要があります。Googleのシールドメールでは、手動でのドメイン登録や許可リスト登録プロセスは必要ありません。
-
 
 ### メールの件名やプリヘッダーにハイパーリンクを追加できますか？ {#can-i-add-hyperlinks-in-email-subject-lines-or-preheaders}
 

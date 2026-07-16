@@ -6,11 +6,11 @@ description: "このリファレンス記事では、一般的なLiquidのユー
 search_rank: 2
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Liquidの使用 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
+# [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/path/dynamic-personalization-with-liquid){: style="float:right;width:120px;border:0;" class="noimgborder"}Liquidの使用 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecompathdynamic-personalization-with-liquid-stylefloatrightwidth120pxborder0-classnoimgborderuse-liquid}
 
 > この記事では、さまざまなユーザー属性を使用して、メッセージングにパーソナル情報をダイナミックに挿入する方法を説明します。
 
-Liquidは、Shopifyが開発し、Rubyで記述されたオープンソースのテンプレート言語です。Brazeでは、Liquidを使用してユーザープロファイルデータをメッセージに取り込み、そのデータをカスタマイズできます。たとえば、Liquidタグを使用して条件付きメッセージを作成し、ユーザーのサブスクリプション記念日に基づいて異なるオファーを送信できます。さらに、フィルターを使用してデータを操作できます。たとえば、ユーザーの登録日をタイムスタンプから「2022年1月15日」のようなより読みやすい形式にフォーマットできます。Liquidの構文と機能の詳細については、[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を参照してください。
+Liquidは、Shopifyが開発し、Rubyで記述されたオープンソースのテンプレート言語です。Brazeでは、Liquidを使用してユーザープロファイルデータをメッセージに取り込み、そのデータをカスタマイズできます。たとえば、Liquidタグを使用して条件付きメッセージを作成し、ユーザーの購読記念日に基づいて異なるオファーを送信できます。さらに、フィルターを使用してデータを操作できます。たとえば、ユーザーの登録日をタイムスタンプから「2022年1月15日」のようなより読みやすい形式にフォーマットできます。Liquidの構文と機能の詳細については、[サポートされているパーソナライゼーションタグ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags)を参照してください。
 
 ## 仕組み {#how-it-works}
 
@@ -84,7 +84,7 @@ Liquidには、ダイナミックなパーソナライゼーションを作成�
 | 配列アクセス（`[ ]`） | サポートなし | サポートなし |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="演算子とフィルターの使用場所" }
 
-[^case_when_ops]: `case`タグと`when`タグでは、Liquidは`case`式を各`when`値と等価比較します（`if`と`elsif`を`==`でチェーンするのと同様です）。`when`句内では、`if`や`elsif`のように任意の比較演算子や論理演算子を使用することはできません。例については、[条件付きメッセージングロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags)を参照してください。
+[^case_when_ops]: `case`タグと`when`タグでは、Liquidは`case`式を各`when`値と等価比較します（`if`と`elsif`を`==`でチェーンするのと同様です）。`when`句内では、`if`や`elsif`のように任意の比較演算子や論理演算子を使用することはできません。例については、[条件付きメッセージングロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when)を参照してください。
 
 フィルターをサポートしないコンテキストでフィルター処理された値が必要な場合は、まず結果を変数に割り当ててください。
 
@@ -214,10 +214,10 @@ HTMLエディターとクラシックエディターを切り替えると、Liqu
 
 ### 事前フォーマット済み変数の挿入 {#inserting-pre-formatted-variables}
 
-テンプレート化されたテキストフィールドの近くにある**Add Personalization**モーダルを使用して、デフォルト値付きの事前フォーマット済み変数を挿入できます。
+テンプレート化されたテキストフィールドの近くにある**パーソナライゼーションを追加**モーダルを使用して、デフォルト値付きの事前フォーマット済み変数を挿入できます。
 
-![パーソナライゼーションの挿入を選択した後に表示されるAdd Personalizationモーダル。モーダルには、パーソナライゼーションタイプ、属性、オプションのデフォルト値のフィールドがあり、Liquid構文のプレビューが表示されます。]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
+![パーソナライゼーションの挿入を選択した後に表示されるパーソナライゼーションを追加モーダル。モーダルには、パーソナライゼーションタイプ、属性、オプションのデフォルト値のフィールドがあり、Liquid構文のプレビューが表示されます。]({% image_buster /assets/img_archive/insert_liquid_var_arrow.png %}){: style="max-width:90%;"}
 
 モーダルは、カーソルがあった位置に、指定したデフォルト値を含むLiquidを挿入します。挿入位置はプレビューボックスでも指定され、前後のテキストが表示されます。テキストブロックがハイライトされている場合、ハイライトされたテキストが置き換えられます。
 
-![Add Personalizationモーダルのデモ。ユーザーがデフォルト値として「fellow traveler」を挿入し、モーダルがコンポーザー内のハイライトされたテキスト「name」をLiquidスニペットに置き換えている様子を示しています。]({% image_buster /assets/img_archive/insert_var_shot.gif %})
+![パーソナライゼーションを追加モーダルのデモ。ユーザーがデフォルト値として「fellow traveler」を挿入し、モーダルがコンポーザー内のハイライトされたテキスト「name」をLiquidスニペットに置き換えている様子を示しています。]({% image_buster /assets/img_archive/insert_var_shot.gif %})

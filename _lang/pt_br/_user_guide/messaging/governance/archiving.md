@@ -19,7 +19,7 @@ Não é possível excluir Campaigns e Canvas do dashboard, mas você pode arquiv
 
 ## Arquivamento {#archiving}
 
-Quando você arquiva uma Campaign ou um Canvas, nenhuma mensagem adicional será enviada e suas mensagens no app não serão exibidas. Você ainda pode visualizar os resultados após o arquivamento, mas não poderá editar a Campaign ou o Canvas. Para isso, será necessário [desarquivar](#unarchiving-campaigns-and-canvases) primeiro.
+Quando você arquiva uma Campaign ou um Canvas, nenhuma mensagem adicional será enviada e suas mensagens no app não serão exibidas. Você ainda pode visualizar os resultados após o arquivamento, mas não poderá editar a Campaign ou o Canvas. Para isso, será necessário [desarquivar](#unarchiving) primeiro.
 
 {% alert note %}
 **Arquivar** não exclui sua Campaign ou Canvas. A Braze interrompe a entrega, oculta a mensagem das listas do dia a dia e a mantém para relatórios e histórico do espaço de trabalho.

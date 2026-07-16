@@ -38,7 +38,7 @@ Hier sind Richtlinien zur Auswahl der Variablen:
 - `Catalog field`: Ein bestimmtes Feld (Spaltenname) innerhalb dieses Katalogs
 - `Value`: Ein bestimmter Wert innerhalb dieses Felds oder dieser Spalte <br><br> Am Beispiel einer Gesundheits-App: Nehmen wir an, dass es innerhalb des Katalogs für jeden Arzt, den Sie buchen können, ein Feld namens `specialty` gibt, das einen Wert wie `vision` oder `dental` enthält. Um Nutzer:innen zu segmentieren, die einen Arzt mit dem Wert `dental` besucht haben, wählen Sie `specialty` als `Catalog field` und `dental` als `Value` aus.
 
-5. Nach dem Erstellen einer SQL-Segmenterweiterung empfehlen wir, auf **Vorschau ausführen** zu klicken, um zu sehen, ob Ihre Abfrage Nutzer:innen zurückgibt oder ob Fehler vorliegen. Weitere Informationen zur [Vorschau von Abfrageergebnissen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#previewing-results), zur Verwaltung von [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-sql-segment-extensions) und mehr finden Sie unter [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
+5. Nach dem Erstellen einer SQL-Segmenterweiterung empfehlen wir, auf **Vorschau ausführen** zu klicken, um zu sehen, ob Ihre Abfrage Nutzer:innen zurückgibt oder ob Fehler vorliegen. Weitere Informationen zur [Vorschau von Abfrageergebnissen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-3-preview-the-query), zur Verwaltung von [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-your-segment-extensions) und mehr finden Sie unter [SQL-Segmenterweiterungen]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments).
 
 {% alert note %}
 Wenn Sie ein SQL-Segment erstellen, das die Tabelle `CATALOGS_ITEMS_SHARED` verwendet, müssen Sie eine Katalog-ID angeben. Zum Beispiel:
@@ -83,7 +83,7 @@ Wenn Sie ein Segment erstellt haben, bei dem Sie erwarten, dass Nutzer:innen reg
 
 Nehmen wir an, Sie haben eine Gesundheits-App und möchten Nutzer:innen segmentieren, die einen Zahnarztbesuch gebucht haben. Sie haben außerdem Folgendes:
 
-- Einen Katalog `Doctors`, der die verschiedenen Ärzte enthält, die ein Patient buchen kann, jeweils mit einer `doctor ID` versehen
+- Einen Katalog `Doctors`, der die verschiedenen Ärzte enthält, die ein:e Patient:in buchen kann, jeweils mit einer `doctor ID` versehen
 - Ein angepasstes Event `Booked Visit` mit einer `doctor ID`-Eigenschaft, die dieselben Werte wie das Feld `doctor ID` in Ihrem Katalog teilt
 - Ein Feld `speciality` innerhalb Ihres Katalogs, das den Wert `dental` enthält
 
@@ -107,7 +107,7 @@ Sie würden ein Katalogsegment mit den folgenden Variablen einrichten:
 Nehmen wir an, Sie haben eine B2B-SaaS-Plattform und möchten Nutzer:innen segmentieren, die Mitarbeitende eines bestehenden Kunden sind. Sie haben außerdem Folgendes:
 
 - Einen Katalog `Accounts`, der die verschiedenen Konten enthält, die derzeit Ihre SaaS-Plattform nutzen, jeweils mit einer `account ID` versehen
-- Ein angepasstes Event `Event Attendance` mit einer „account ID“-Eigenschaft, die dieselben Werte wie das Feld „account ID“ in Ihrem Katalog teilt
+- Ein angepasstes Event `Event Attendance` mit einer `account ID`-Eigenschaft, die dieselben Werte wie das Feld `account ID` in Ihrem Katalog teilt
 - Ein Feld `Classification` innerhalb Ihres Katalogs, das den Wert `enterprise` enthält
 
 Sie würden ein Katalogsegment mit den folgenden Variablen einrichten:
@@ -115,7 +115,7 @@ Sie würden ein Katalogsegment mit den folgenden Variablen einrichten:
 | Variable | Eigenschaft |
 | --- | --- |
 | `Catalog` | Accounts |
-| `Catalog field ` | account ID |
+| `Catalog field` | account ID |
 | `Custom event` | Event Attendance |
 | `Custom event property` | account ID |
 | `(Under Filter SQL Results) Catalog field` | Classification |
@@ -129,7 +129,7 @@ Sie würden ein Katalogsegment mit den folgenden Variablen einrichten:
 
 ### Verbraucht das Ausführen eines Katalogsegments SQL-Segmenterweiterungs-Credits? {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
 
-Ja, Katalogsegmente werden von SQL betrieben und verbrauchen SQL-Segmenterweiterungs-Credits. Weitere Informationen finden Sie unter [Nutzung von SQL-Segmenten]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage).
+Ja, Katalogsegmente werden von SQL betrieben und verbrauchen SQL-Segmenterweiterungs-Credits. Weitere Informationen finden Sie unter [Nutzung von SQL-Segmenten]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#credits).
 
 ### Verbraucht das Erstellen eines Katalogsegments SQL-Segmenterweiterungs-Kontingente? {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
 

@@ -52,7 +52,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 1. Canvas 작성기를 사용하여 [Canvas를 만듭니다]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 2. Canvas를 설정한 후 Canvas 빌더에서 단계를 추가합니다. 단계에 명확하고 의미 있는 이름을 지정합니다.
-3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)을 선택하고 필요에 따라 delay를 지정합니다.
+3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)을 선택하고 필요에 따라 지연을 지정합니다.
 4. 필요에 따라 이 단계의 오디언스를 필터링합니다. Segments를 지정하고 추가 필터를 추가하여 이 단계의 수신자를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 메시지가 발송되는 시점에 지연 후 확인됩니다.
 5. [진행 동작]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)을 선택합니다.
 6. 메시지와 함께 사용할 다른 메시징 채널을 선택합니다.
@@ -97,7 +97,7 @@ Campaign의 나머지 부분을 구축합니다. LINE 메시지를 작성하기 
 
 LINE 메시지는 스케줄된 시간, 동작 또는 API 트리거를 기반으로 전달할 수 있습니다. 스케줄 및 트리거 옵션에 대한 자세한 내용은 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)을 참조하세요.
 
-사용자가 Campaign을 다시 받을 수 있도록 [재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns)을 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) 규칙을 활성화하는 등 전달 제어를 지정할 수 있습니다. 실행 기반 전달의 경우 Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)도 설정할 수 있습니다.
+사용자가 Campaign을 다시 받을 수 있도록 [재적격성]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility)을 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 규칙을 활성화하는 등 전달 제어를 지정할 수 있습니다. 실행 기반 전달의 경우 Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)도 설정할 수 있습니다.
 
 ### 타겟 사용자 선택 {#choose-users-to-target}
 

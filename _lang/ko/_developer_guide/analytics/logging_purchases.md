@@ -8,7 +8,7 @@ description: "Braze SDK를 통해 구매를 기록하는 방법을 알아보세�
 
 # 구매 기록 {#log-purchases}
 
-> Braze SDK를 통해 인앱 구매를 기록하는 방법을 알아보세요. 이를 통해 시간 경과에 따른 매출과 소스별 매출을 확인할 수 있습니다. 커스텀 이벤트, 커스텀 속성 및 구매 이벤트를 사용하여 [생애주기 가치에 따라]({{site.baseurl}}/developer_guide/analytics#purchase-events--revenue-tracking) 사용자를 세분화할 수 있습니다.
+> Braze SDK를 통해 인앱 구매를 기록하는 방법을 알아보세요. 이를 통해 시간 경과에 따른 매출과 소스별 매출을 확인할 수 있습니다. 커스텀 이벤트, 커스텀 속성 및 구매 이벤트를 사용하여 [생애주기 가치에 따라]({{site.baseurl}}/developer_guide/analytics#purchase-events-revenue-tracking) 사용자를 세분화할 수 있습니다.
 
 {% alert note %}
 목록에 없는 래퍼 SDK의 경우 관련 네이티브 Android 또는 Swift 메서드를 대신 사용하세요.
@@ -21,19 +21,19 @@ USD가 아닌 통화로 보고된 구매는 보고된 날짜의 환율을 기준
 구매 및 매출을 기록하려면 앱에서 구매에 성공한 후 `logPurchase()`를 호출하세요. 제품 식별자가 비어 있으면 구매가 Braze에 기록되지 않습니다.
 
 {% tabs %}
-{% tab web %}
+{% tab 웹 %}
 표준 웹 SDK 구현의 경우 다음 메서드를 사용할 수 있습니다:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity);
 ```
 
-대신 Google Tag Manager를 사용하려면 **구매** 태그 유형을 사용하여 [`logPurchase` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)를 호출할 수 있습니다. 이 태그를 사용하여 구매 속성정보를 선택적으로 포함하여 Braze에 구매를 추적합니다. 이를 위해:
+대신 Google Tag Manager를 사용하려면 **Purchase** 태그 유형을 사용하여 [`logPurchase` 메서드](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logpurchase)를 호출할 수 있습니다. 이 태그를 사용하여 구매 속성정보를 선택적으로 포함하여 Braze에 구매를 추적합니다. 이를 위해:
 
-1. **제품 ID** 및 **가격** 필드는 필수입니다.
-2. **행 추가** 버튼을 사용하여 구매 속성정보를 추가합니다.
+1. **Product ID** 및 **Price** 필드는 필수입니다.
+2. **Add Row** 버튼을 사용하여 구매 속성정보를 추가합니다.
 
-![Braze 동작 태그 구성 설정을 보여주는 대화상자. 포함된 설정은 "태그 유형", "외부 ID", "가격", "통화 코드", "수량" 및 "구매 속성정보"입니다.]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
+![Braze 동작 태그 구성 설정을 보여주는 대화상자. 포함된 설정은 "tag type", "external ID", "price", "currency code", "quantity" 및 "purchase properties"입니다.]({% image_buster /assets/img/web-gtm/gtm-purchase.png %})
 {% endtab %}
 
 {% tab android %}
@@ -138,14 +138,14 @@ AppboyBinding.LogPurchase("product_id", "currencyCode", price(decimal));
 `Int`, `Double`, `String`, `Bool` 또는 `Date` 값으로 채워진 사전을 전달하여 구매에 대한 메타데이터를 추가할 수 있습니다.
 
 {% tabs %}
-{% tab web %}
+{% tab 웹 %}
 표준 웹 SDK 구현의 경우 다음 메서드를 사용할 수 있습니다:
 
 ```javascript
 braze.logPurchase(product_id, price, "USD", quantity, {key: "value"});
 ```
 
-사이트가 표준 [이커머스 이벤트](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) 데이터 레이어 항목을 사용하여 Google Tag Manager에 구매를 기록하는 경우, **이커머스 구매** 태그 유형을 사용할 수 있습니다. 이 동작 유형은 `items` 목록에 전송된 각 항목에 대해 별도의 "구매"를 Braze에 기록합니다.
+사이트가 표준 [이커머스 이벤트](https://developers.google.com/analytics/devguides/collection/ga4/ecommerce?client_type=gtm) 데이터 레이어 항목을 사용하여 Google Tag Manager에 구매를 기록하는 경우, **E-commerce Purchase** 태그 유형을 사용할 수 있습니다. 이 동작 유형은 `items` 목록에 전송된 각 항목에 대해 별도의 "구매"를 Braze에 기록합니다.
 
 구매 속성정보 목록에서 키를 지정하여 구매 속성정보로 포함할 추가 속성정보 이름을 지정할 수도 있습니다. Braze는 목록에 추가한 구매 속성정보에 대해 기록 중인 개별 `item` 내에서 확인합니다.
 
@@ -268,7 +268,7 @@ REST API를 사용하여 구매를 기록할 수도 있습니다. 자세한 내�
 
 ## 주문 기록 {#logging-orders}
 
-제품 수준 대신 주문 수준에서 구매를 기록하려면 주문 이름 또는 주문 카테고리를 `product_id`로 사용하면 됩니다. 자세한 내용은 [구매 오브젝트 사양]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions)을 참조하세요.
+제품 수준 대신 주문 수준에서 구매를 기록하려면 주문 이름 또는 주문 카테고리를 `product_id`로 사용하면 됩니다. 자세한 내용은 [구매 오브젝트 사양]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions)을 참조하세요.
 
 ## 예약 키 {#reserved-keys}
 

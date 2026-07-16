@@ -38,9 +38,9 @@ Bei diesem Ansatz wird die Lokalisierung mithilfe von [Liquid]({{site.baseurl}}/
 
 ### Ein Template pro Land {#one-template-per-country}
 
-Bei diesem Ansatz werden Templates in verschiedene Versand-Locales aufgeteilt. Nach dem Versand zeigt das Dashboard die Versandanalysen für jedes Land separat an, und alle nachgelagerten [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents)-Ereignisse auf Nutzer:innenebene werden ebenfalls einer bestimmten Campaign zugeordnet.
+Bei diesem Ansatz werden Templates in verschiedene Versand-Locales aufgeteilt. Nach dem Versand zeigt das Dashboard die Versandanalysen für jedes Land separat an, und alle nachgelagerten [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents)-Events auf Nutzer:innenebene werden ebenfalls einer bestimmten Campaign zugeordnet.
 
-- Templates profitieren von der Implementierung von [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags) für Wartungs- und Tracking-Zwecke.
+- Templates profitieren von der Implementierung von [Tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags) für Wartungs- und Tracking-Zwecke.
 - Campaigns können die Konfigurationen desselben [Braze-Templates]({{site.baseurl}}/user_guide/messaging/templates) und derselben [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) übernehmen (z. B. [E-Mail-Templates]({{site.baseurl}}/user_guide/messaging/templates/email_templates), die Liquid enthalten).
 - Bereits vorhandene Campaigns und Templates können [dupliziert]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating) werden, um eine schnellere Wertschöpfung zu ermöglichen.
 
@@ -55,7 +55,7 @@ Bei diesem Ansatz werden Templates in verschiedene Versand-Locales aufgeteilt. N
 
 Bei diesem Ansatz wird die Lokalisierung innerhalb der [Canvas-Grundlagen]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics#building-the-customer-journey) und mit Liquid gehandhabt, um das Messaging für alle Nutzer:innen zu definieren.
 
-Nach dem Versand eines Canvas zeigt das Dashboard aggregierte [Canvas-Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) an, während das Engagement auf Nutzer:innenebene über angepasste [Segment-Funnel]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size) gemessen werden kann, z. B. durch die Kombination der Filter [**Land**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country) und [**Canvas-Schritt erhalten**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-canvas-step).
+Nach dem Versand eines Canvas zeigt das Dashboard aggregierte [Canvas-Analytics]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics) an, während das Engagement auf Nutzer:innenebene über angepasste [Segment-Funnel]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size) gemessen werden kann, z. B. durch die Kombination der Filter [**Land**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country) und [**Canvas-Schritt erhalten**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step).
 
 | Vorteile | Überlegungen |
 | --- | --- |
@@ -68,10 +68,10 @@ Bei diesem Ansatz bietet der [Canvas]({{site.baseurl}}/user_guide/messaging/canv
 
 Die Lokalisierung kann mit den folgenden Methoden erreicht werden:
 
-- Separate Canvases pro Land – so werden die komplexen Nutzer:innen-Journeys am Anfang des Funnels mithilfe von Zielgruppen-Filtern definiert
+- Separate Canvases pro Land – so werden die komplexen Nutzer:innen-Journeys am Anfang des Funnels mithilfe von Zielgruppenfiltern definiert
 - Maßgeschneiderte Nutzer:innen-Journeys pro Land – die Implementierung von [Zielgruppenpfaden]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) ermöglicht eine intuitive Segmentierung von Nutzer:innen in großem Maßstab für jede Journey, indem separate Nachrichtenstränge für jedes Land in einem einzigen Canvas erstellt werden
 
-Nach dem Versand zeigt das Dashboard dynamische Analytics pro Land an, und innerhalb der [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents)-Ereignisse auf Nutzer:innenebene basierend auf dem aktuellen Standort der Kund:innen.
+Nach dem Versand zeigt das Dashboard dynamische Analytics pro Land an, und innerhalb der [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents)-Events auf Nutzer:innenebene basierend auf dem aktuellen Standort der Kund:innen.
 
 | Vorteile | Überlegungen |
 | --- | --- |
@@ -230,7 +230,7 @@ Erstellen Sie eine CSV-Datei im folgenden Format:
 {% endsubtab %}
 {% endsubtabs %}
 
-Diese Katalogartikel können dann über [Personalisierung]({{site.baseurl}}/user_guide/data/activation/catalogs/create#using-catalogs-in-a-message) (wie unten gezeigt) oder [Auswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) referenziert werden, mit denen Sie Datengruppen erstellen können.
+Diese Katalogeinträge können dann über [Personalisierung]({{site.baseurl}}/user_guide/data/activation/catalogs/create) (wie im folgenden Beispiel gezeigt) oder [Auswahlen]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) referenziert werden, mit denen Sie Datengruppen erstellen können.
 
 {% raw %}
 ```liquid
@@ -242,7 +242,7 @@ Diese Katalogartikel können dann über [Personalisierung]({{site.baseurl}}/user
 {% endtab %}
 
 {% tab Braze-Partner %}
-Viele Braze-Partner bieten Lokalisierungslösungen an, darunter [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-transifex) und [Crowdin](https://crowdin.com/). In der Regel nutzen Anwender:innen die Plattform zusammen mit einem internen Team und einer Übersetzungsagentur. Diese Übersetzungen werden dort hochgeladen und sind dann über die REST API zugänglich. Diese Dienste nutzen häufig auch [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), sodass Nutzer:innen die Übersetzungen per API abrufen können.
+Viele Braze-Partner bieten Lokalisierungslösungen an, darunter [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration) und [Crowdin](https://crowdin.com/). In der Regel nutzen Anwender:innen die Plattform zusammen mit einem internen Team und einer Übersetzungsagentur. Diese Übersetzungen werden dort hochgeladen und sind dann über die REST API zugänglich. Diese Dienste nutzen häufig auch [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), sodass Nutzer:innen die Übersetzungen per API abrufen können.
 
 Zum Beispiel rufen die folgenden Connected-Content-Aufrufe Transifex und Crowdin auf, um eine Übersetzung abzurufen, wobei {% raw %}`{{${language}}}`{% endraw %} verwendet wird, um die korrekte Übersetzung für bestimmte Nutzer:innen zu identifizieren. Diese Übersetzung wird dann im JSON-Block „strings“ gespeichert und referenziert.
 
@@ -294,7 +294,7 @@ Erstellen Sie zunächst die Google-Tabelle so, dass die Sprachen verschiedene Ob
 | es | Hola | 2 | Hola2 | 6 |
 | pt | Oi | 3 | Oi2 | 7 |
 | de | Hallo | 4 | Hallo2 | 8 |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="1. Schritt: Google-Tabelle formatieren" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="Schritt 1: Google-Tabelle formatieren" }
 
 #### 2. Schritt: Sprach-Liquid-Tag in einem Connected-Content-Aufruf verwenden {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
 

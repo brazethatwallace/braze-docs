@@ -18,7 +18,7 @@ platform:
 
 인앱 메시지는 SDK가 다음 커스텀 이벤트 유형 중 하나를 기록할 때 트리거됩니다: `Session Start`, `Push Click`, `Any Purchase`, `Specific Purchase`, `Custom Event`(마지막 두 개는 강력한 속성 필터를 포함합니다).
 
-사용자 세션이 시작되면 Braze는 모든 적격 인앱 메시지를 기기에 전달하는 동시에 자산을 프리페칭하여 표시 지연 시간을 최소화합니다. 트리거 이벤트에 적격 인앱 메시지가 두 개 이상 있는 경우 우선순위가 가장 높은 메시지만 전달됩니다. 자세한 내용은 [세션 수명 주기]({{site.baseurl}}/developer_guide/analytics/tracking_sessions#about-the-session-lifecycle)를 참조하세요.
+사용자 세션이 시작되면 Braze는 모든 적격 인앱 메시지를 기기에 전달하는 동시에 자산을 프리페칭하여 표시 지연 시간을 최소화합니다. 트리거 이벤트에 적격 인앱 메시지가 두 개 이상 있는 경우 우선순위가 가장 높은 메시지만 전달됩니다. 자세한 내용은 [세션 수명 주기]({{site.baseurl}}/developer_guide/analytics/tracking_sessions)를 참조하세요.
 
 {% alert note %}
 인앱 메시지는 API 또는 API 이벤트를 통해 트리거할 수 없으며&#8212;SDK에서 기록한 커스텀 이벤트만 트리거할 수 있습니다. 로깅에 대해 자세히 알아보려면 [커스텀 이벤트 로깅]({{site.baseurl}}/developer_guide/analytics/logging_events)을 참조하세요.
@@ -43,7 +43,7 @@ Braze는 세션 시작 시 다음 유형의 인앱 메시지를 사용자 기기
 Braze에서 Campaign을 생성할 때 키-값 페어를 `extras`로 설정할 수 있으며, 인앱 메시징 오브젝트가 이를 활용하여 앱으로 데이터를 전송할 수 있습니다.
 
 {% tabs %}
-{% tab web %}
+{% tab 웹 %}
 ```javascript
 import * as braze from "@braze/web-sdk";
 
@@ -121,7 +121,7 @@ if ([message.extras[@"custom-display"] isKindOfClass:[NSString class]]) {
 
 {% tabs %}
 
-{% tab web %}
+{% tab 웹 %}
 로딩 스니펫 내에서 `braze.automaticallyShowInAppMessages()` 호출을 제거한 다음, 인앱 메시지 표시 여부를 처리하는 커스텀 로직을 생성합니다.
 
 ```javascript
@@ -203,7 +203,7 @@ iOS의 경우, Braze 구성 에디터에서 게임 오브젝트 리스너를 설
 테스트를 위해 이 간격을 `0`으로 설정할 수 있습니다. 그러나 `0`초 간격이 여러 인앱 메시지를 동시에 표시하도록 강제하지는 않습니다. 하나의 인앱 메시지가 이미 표시 중인 경우, 현재 메시지가 닫힐 때까지 다른 트리거된 메시지는 표시되지 않습니다.
 
 {% tabs %}
-{% tab web %}
+{% tab 웹 %}
 ```javascript
 // Sets the minimum time interval between triggered in-app messages to 5 seconds instead of the default 30
 braze.initialize('YOUR-API-KEY', { minimumIntervalBetweenTriggerActionsInSeconds: 5 })
@@ -252,7 +252,7 @@ AppDelegate.braze = braze;
 ### 서버 측 이벤트 사용 {#using-a-server-side-event}
 
 {% tabs %}
-{% tab web %}
+{% tab 웹 %}
 현재 웹 Braze SDK는 서버 측 이벤트를 사용하여 메시지를 수동으로 트리거하는 기능을 지원하지 않습니다.
 {% endtab %}
 
@@ -398,7 +398,7 @@ Braze 대시보드에서 사용자에게 표시되는 인앱 메시지 Campaign�
 미리 정의된 인앱 메시지를 수동으로 표시하려면 다음 메서드를 사용하세요:
 
 {% tabs %}
-{% tab web %}
+{% tab 웹 %}
 웹 SDK의 경우, `braze.showInAppMessage(inAppMessage)`를 사용하여 인앱 메시지를 표시합니다. 자세한 내용과 예시는 [실시간 메시지 표시](#displaying-a-message-in-real-time)를 참조하세요.
 {% endtab %}
 
@@ -435,7 +435,7 @@ if let inAppMessage = AppDelegate.braze?.inAppMessagePresenter?.nextAvailableMes
 대시보드에서 사용할 수 있는 동일한 커스터마이징 옵션을 사용하여 로컬 인앱 메시지를 실시간으로 생성하고 표시할 수도 있습니다. 이를 위해:
 
 {% tabs %}
-{% tab web %}
+{% tab 웹 %}
 ```javascript
   // Displays a slideup type in-app message.
   var message = new braze.SlideUpMessage("Welcome to Braze! This is an in-app message.");

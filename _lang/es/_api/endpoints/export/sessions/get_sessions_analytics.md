@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión de Braze Exportar análisis de sesiones de aplicación por tiempo."
+description: "En este artículo se describen los detalles del endpoint de Braze Exportar análisis de sesiones de aplicación por tiempo."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "En este artículo se describen los detalles del punto de conexión
 /sessions/data_series
 {% endapimethod %}
 
-> Utiliza este punto de conexión para recuperar una serie del número de sesiones de tu aplicación durante un periodo de tiempo determinado.
+> Utiliza este endpoint para recuperar una serie del número de sesiones de tu aplicación durante un periodo de tiempo determinado.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#79efb6a9-62ec-4b8a-bf4a-e96313aa4be1 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `sessions.data_series`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `sessions.data_series`.
 
 ## Límite de velocidad {#rate-limit}
 

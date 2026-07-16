@@ -49,7 +49,7 @@ As tags UTM podem ser incorporadas tanto em links HTTP regulares (web) quanto em
 
 ##### Cálculos de tags UTM {#utm-tag-calculations}
 
-A Braze reporta o _Total de Cliques_ para todos os links em uma Campaign ou etapa do Canvas, o que pode incluir links que não possuem tags UTM. Isso significa que você pode ver um resultado diferente (geralmente menor) nos links de rastreamento de campanha do Google Analytics em comparação com o _Total de Cliques_ exibido no desempenho da sua campanha ou no Criador de relatórios.
+A Braze reporta o _Total de cliques_ para todos os links em uma Campaign ou etapa do Canvas, o que pode incluir links que não possuem tags UTM. Isso significa que você pode ver um resultado diferente (geralmente menor) nos links de rastreamento de campanha do Google Analytics em comparação com o _Total de cliques_ exibido no desempenho da sua campanha ou no Criador de relatórios.
 
 #### Usando tags UTM com a Braze {#using-utm-tags-with-braze}
 
@@ -100,7 +100,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-Também oferecemos suporte ao encurtamento de variáveis Liquid personalizadas. Vários exemplos são mostrados na seção a seguir:
+Também oferecemos suporte ao encurtamento de variáveis Liquid personalizadas, como nos exemplos a seguir:
 
 ### Crie uma URL usando variáveis Liquid {#create-a-url-using-liquid-variables}
 

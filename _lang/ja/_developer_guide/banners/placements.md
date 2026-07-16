@@ -597,7 +597,7 @@ Brazeは、SDKメソッドを使ってバナーを挿入する際に、表示さ
 </button>
 ```
 
-完全なリファレンスについては、[バナー用のカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code)を参照してください。`brazeBridge`は、バナーの内部HTMLと親Braze SDKの間の通信レイヤーを提供します。
+完全なリファレンスについては、[バナー用のカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code)を参照してください。`brazeBridge`は、バナーの内部HTMLと親Braze SDKの間の通信レイヤーを提供します。
 
 ### カスタムUI実装（ヘッドレス） {#custom-ui-implementations-headless}
 

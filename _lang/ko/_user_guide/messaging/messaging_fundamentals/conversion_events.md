@@ -11,7 +11,7 @@ tool:
 
 # 전환 이벤트 {#conversion-events}
 
-> 전환 이벤트는 메시지 수신자가 참여를 받은 후 정해진 시간 내에 높은 가치의 행동을 수행하는지 추적하는 성공 측정기준의 한 유형입니다. 이러한 이벤트를 사용하여 관련성 있고 유용한 정보를 수집하고, 나중에 Campaign(캠페인)이나 Canvas에 대한 인사이트를 얻는 데 활용할 수 있습니다.
+> 전환 이벤트는 메시지 수신자가 인게이지먼트를 받은 후 정해진 시간 내에 높은 가치의 행동을 수행하는지 추적하는 성공 측정기준의 한 유형입니다. 이러한 이벤트를 사용하여 관련성 있고 유용한 정보를 수집하고, 나중에 Campaign(캠페인)이나 Canvas에 대한 인사이트를 얻는 데 활용할 수 있습니다.
 
 ## 작동 방식 {#how-it-works}
 
@@ -40,7 +40,7 @@ tool:
 
 ### 전환 추적 규칙 {#conversion-tracking-rules}
 
-전환 이벤트는 사용자 행동을 참여 시점에 귀속시킵니다. 일반적으로 전환 기간이 열려 있는 동안, 사용자는 해당 Campaign 또는 Canvas의 전환 이벤트당 최대 한 번 전환됩니다. 기한 전에 동일한 전환 행동을 두 번 이상 수행하더라도(예: 두 번의 구매) Braze는 해당 이벤트에 대해 하나의 전환만 집계합니다. 멀티채널 Campaign은 각 메시징 채널에 대해 별도의 전환 기회를 기록할 수 있으며, 전환 수를 고유 수신자와 비교할 때 전환율이 100%를 초과할 수 있습니다(아래 항목 참조).
+전환 이벤트는 사용자 행동을 인게이지먼트 시점에 귀속시킵니다. 일반적으로 전환 기간이 열려 있는 동안, 사용자는 해당 Campaign 또는 Canvas의 전환 이벤트당 최대 한 번 전환됩니다. 기한 전에 동일한 전환 행동을 두 번 이상 수행하더라도(예: 두 번의 구매) Braze는 해당 이벤트에 대해 하나의 전환만 집계합니다. 멀티채널 Campaign은 각 메시징 채널에 대해 별도의 전환 기회를 기록할 수 있으며, 전환 수를 고유 수신자와 비교할 때 전환율이 100%를 초과할 수 있습니다(아래 항목 참조).
 
 Braze가 여러 전환을 처리하는 방식에 대해 다음 사항을 참고하세요:
 
@@ -53,9 +53,9 @@ Braze가 여러 전환을 처리하는 방식에 대해 다음 사항을 참고�
 
 ### 주요 전환 이벤트 {#primary-conversion-event}
 
-주요 전환 이벤트는 Campaign 또는 Canvas 생성 중에 추가하는 첫 번째 이벤트입니다. 이 이벤트는 참여도와 보고에 가장 큰 영향을 미칩니다. Braze는 주요 전환 이벤트를 다음과 같이 사용합니다:
+주요 전환 이벤트는 Campaign 또는 Canvas 생성 중에 추가하는 첫 번째 이벤트입니다. 이 이벤트는 인게이지먼트와 보고에 가장 큰 영향을 미칩니다. Braze는 주요 전환 이벤트를 다음과 같이 사용합니다:
 
-- [다변량]({{site.baseurl}}/user_guide/messaging/ab_testing#multivariate-and-ab-testing) Campaign 또는 Canvases에서 우승 메시지 배리언트를 계산합니다.
+- [다변량]({{site.baseurl}}/user_guide/messaging/ab_testing/optimizations#winning-variant) Campaign 또는 Canvases에서 우승 메시지 배리언트를 계산합니다.
 - Campaign 또는 Canvas의 매출이 계산되는 기간을 결정합니다.
 - [지능형 선택]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)을 사용하는 Campaign 및 Canvases의 메시지 배포를 조정합니다.
 

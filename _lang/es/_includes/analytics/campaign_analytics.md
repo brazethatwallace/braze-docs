@@ -365,6 +365,12 @@ Como otro ejemplo, supongamos que ves cinco _Unique Impressions_ en una campaña
 
 _Unique Daily Impressions_ se refiere a los banners que realmente se vieron.
 
+#### Discrepancias entre grupos de control y variantes {#discrepancies-between-control-groups-and-variants}
+
+Cuando una campaña de banners utiliza un grupo de control, las impresiones del grupo de control pueden ser superiores a las impresiones de la variante, incluso cuando la división de audiencia entre los grupos es uniforme. Esta discrepancia se debe a una diferencia en cómo se registran las impresiones para los banners de control y de variante.
+
+Tanto las impresiones de control como las de variante requieren que la ubicación del banner entre en la ventana de visualización. Las impresiones de variante se registran solo cuando el banner completo es visible en la pantalla. Las impresiones de control pueden registrarse tan pronto como la ubicación entra en la ventana de visualización, antes de que el banner completo sea visible para una variante.
+
 {% elsif include.channel == "email" %}
 
 #### Métricas de correo electrónico {#email-metrics}
@@ -593,7 +599,7 @@ Los informes sobre _Button 1 Clicks_ y _Button 2 Clicks_ solo funcionan cuando e
     </tbody>
 </table>
 
-#### Discrepancias entre grupos de control y variantes {#discrepancies-between-control-groups-and-variants}
+#### Discrepancias entre grupos de control y variantes
 
 Cuando una campaña de mensajes dentro de la aplicación tiene una división de variantes 50-50, a veces el grupo de control tendrá un porcentaje ligeramente superior al de la variante (como 51 % para el grupo de control y 49 % para la variante). Esta discrepancia se debe a una diferencia en el tiempo de renderizado; por ejemplo, cuando los mensajes de variante utilizan imágenes grandes o contenido conectado con plantillas y los usuarios se van antes de que se complete el renderizado, mientras que el grupo de control registra impresiones sin mostrar un mensaje.
 

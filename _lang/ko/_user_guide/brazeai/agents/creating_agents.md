@@ -107,15 +107,15 @@ Canvas 에이전트의 경우, 사용자 속성(예: 이름, 성 또는 커스�
 
 #### 대체 값 구성 {#configure-fallback-values}
 
-대체 값은 **캔버스 단계 에이전트**에서만 사용할 수 있습니다. Canvas 에이전트의 **출력** 섹션에서 에이전트 호출이 실패할 때(예: LLM이 시간 초과되거나 잘못된 API 키 오류를 반환하는 경우) Braze가 사용하는 값을 정의할 수 있습니다. 대체 값은 개인화 기본값처럼 작동합니다. 에이전트가 실행할 수 없을 때에도 사용자에게 유용한 출력을 제공하는 정적 제목란이나 짧은 메시지를 설정할 수 있습니다.
+대체 값은 캔버스 단계 에이전트에서만 사용할 수 있습니다. 캔버스 단계 에이전트의 **출력** 섹션에서 에이전트 호출이 실패할 때(예: LLM이 시간 초과되거나 잘못된 API 키 오류를 반환하는 경우) Braze가 사용하는 값을 정의할 수 있습니다. 대체 값은 개인화 기본값처럼 작동합니다. 에이전트가 실행할 수 없을 때에도 사용자에게 유용한 출력을 제공하는 정적 제목란이나 짧은 메시지를 설정할 수 있습니다.
 
-**카탈로그 에이전트**는 에이전트 콘솔에서 대체 값 구성을 지원하지 않습니다.
+카탈로그 에이전트는 에이전트 콘솔에서 대체 값 구성을 지원하지 않습니다.
 
 ![숫자 스키마에 대한 대체 출력 필드를 보여주는 에이전트 콘솔 출력 구성.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
 Canvas 에이전트의 경우, 대체 값은 [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) 템플릿을 지원하므로 대체 텍스트에서 사용자 속성이나 컨텍스트 변수를 참조할 수 있습니다.
 
-대체 필드는 Canvas 에이전트의 출력 형식에 맞게 조정됩니다:
+대체 필드는 캔버스 단계 에이전트의 출력 형식에 맞게 조정됩니다:
 
 | 출력 형식 | 대체 구성 |
 | --- | --- |
@@ -124,7 +124,7 @@ Canvas 에이전트의 경우, 대체 값은 [Liquid]({{site.baseurl}}/user_guid
 | JSON 스키마(고급 스키마) | Braze가 JSON 스키마를 읽고 각 속성에 대한 입력 필드를 생성하여 키별로 대체 값을 정의할 수 있습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="대체 값 구성" }
 
-대체 값이 있는 Canvas 에이전트가 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)에서 실행되면, Braze는 사용자별로 대체를 렌더링하고 `null` 대신 출력 변수에 저장합니다. 대체 값을 구성하지 않으면 실패한 호출은 Canvas 출력을 미설정(`null`) 상태로 남깁니다.
+대체 값이 있는 캔버스 단계 에이전트가 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)에서 실행되면, Braze는 사용자별로 대체를 렌더링하고 `null` 대신 출력 변수에 저장합니다. 대체 값을 구성하지 않으면 실패한 호출은 Canvas 출력을 미설정(`null`) 상태로 남깁니다.
 
 런타임 동작에 대해서는 [오류 처리 및 대체 동작]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior)을 참조하세요.
 

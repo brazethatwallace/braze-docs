@@ -15,7 +15,7 @@ Vous pouvez utiliser les alertes d'utilisation de l'API pour surveiller les volu
 
 | Catégorie d'API | Détails |
 |--------------|---------|
-| Endpoints de l'API REST | Suivi de l'utilisation de tous les appels API REST effectués vers le backend de Braze, tels que l'envoi de messages, la création de Campaigns ou l'exportation d'utilisateurs. |
+| Endpoints de l'API REST | Suivi de l'utilisation de tous les appels API REST effectués vers le backend de Braze, tels que l'envoi de messages, la création de campagnes ou l'exportation d'utilisateurs. |
 | Requêtes d'API SDK | Suivi des requêtes API effectuées à partir des SDK Braze dans les applications clientes, telles que le déclenchement de messages in-app ou la synchronisation des données utilisateur.<br><br>_*Uniquement disponible pour les clients ayant acheté des utilisateurs actifs par mois – CY 24-25._ |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="À propos des alertes d'utilisation de l'API" }
 
@@ -23,7 +23,7 @@ Vous pouvez utiliser les alertes d'utilisation de l'API pour surveiller les volu
 
 Pour créer une alerte d'utilisation de l'API :
 
-1. Rendez-vous dans **Paramètres** > **Clés API** > **Alertes d'utilisation de l'API**, puis créez une nouvelle alerte.
+1. Rendez-vous dans **Paramètres** > **API et identifiants** > **Alertes d'utilisation de l'API**, puis créez une nouvelle alerte.
 2. Saisissez un nom pour votre alerte et choisissez les endpoints de l'API REST et les clés API pour lesquels vous souhaitez être alerté.
 3. Définissez vos critères d'alerte en choisissant un ou plusieurs codes de réponse et en spécifiant les [seuils d'alerte](#api-usage-alert-thresholds).
 4. Lorsque vous avez terminé, basculez **Alerte activée**.
@@ -67,7 +67,7 @@ Lorsque vous définissez vos critères d'alerte, vous pouvez ajuster les seuils 
 
 ## Configuration des notifications d'alerte {#setting-up-alert-notifications}
 
-Vous pouvez configurer une alerte par e-mail, une alerte par webhook, ou les deux. Les alertes par webhook sont particulièrement utiles pour des cas d'utilisation tels que l'envoi d'une alerte vers des plateformes externes, comme un canal Slack. Pour un exemple, consultez notre [documentation]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences/#slack-incoming-webhook-integration) sur l'intégration des alertes avec Slack pour nos préférences de notification.
+Vous pouvez configurer une alerte par e-mail, une alerte par webhook, ou les deux. Les alertes par webhook sont particulièrement utiles pour des cas d'usage tels que l'envoi d'une alerte vers des plateformes externes, comme un canal Slack. Pour un exemple, consultez notre [documentation]({{site.baseurl}}/user_guide/administer/global/admin_settings/notification_preferences) sur l'intégration des alertes avec Slack pour nos préférences de notification.
 
 ![Un e-mail sera envoyé à l'adresse sélectionnée lorsque les critères de l'alerte sont atteints.]({% image_buster /assets/img/api_usage_alerts/api_usage_alerts2.png %})
 
@@ -141,5 +141,5 @@ Utilisez la configuration d'alerte suivante pour être alerté lorsqu'une intég
 
 ## Considérations {#considerations}
 
-- Chaque alerte active n'enverra qu'une seule notification par e-mail ou webhook toutes les 8 heures, afin d'éviter un trop grand nombre de notifications provenant d'une même alerte. Si votre alerte se déclenche prématurément, envisagez de modifier les critères d'alerte pour mieux correspondre à votre cas d'utilisation.
+- Chaque alerte active n'enverra qu'une seule notification par e-mail ou webhook toutes les 8 heures, afin d'éviter un trop grand nombre de notifications provenant d'une même alerte. Si votre alerte se déclenche prématurément, envisagez de modifier les critères d'alerte pour mieux correspondre à votre cas d'usage.
 - Vous pouvez avoir jusqu'à 10 alertes par espace de travail.

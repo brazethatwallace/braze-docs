@@ -16,7 +16,7 @@ search_tag: OtherLevels
 
 ## Übersicht {#overview}
 
-Die Integration von Braze und OtherLevels ermöglicht es Ihnen, angepasste GenAI-Videos über API-Aufrufe an die OtherLevels Experience Platform zu erstellen und diese Videos dann als iOS-Push-Videos über [Braze Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call/) an Ihre Nutzer:innen zu senden.
+Die Integration von Braze und OtherLevels ermöglicht es Ihnen, angepasste GenAI-Videos über API-Aufrufe an die OtherLevels Experience Platform zu erstellen und diese Videos dann als iOS-Push-Videos über [Braze Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) an Ihre Nutzer:innen zu senden.
 
 Bieten Sie Ihren Nutzer:innen ein besseres Erlebnis mit den KI-gestützten Erfahrungen von OtherLevels. Transformieren Sie vorhandene und Drittanbieter-Inhalte in hochskalierbare Videos und Rich Media für Zielgruppen, die Inhalte bereits anders konsumieren und stark auf kontextuell personalisierte Erlebnisse reagieren.
 
@@ -28,8 +28,8 @@ Bevor Sie beginnen, benötigen Sie Folgendes:
 |-----------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Ein OtherLevels-Konto   | Um die Vorteile dieser Partnerschaft zu nutzen, ist ein OtherLevels-Konto erforderlich.                                                                     |
 | Ein Braze-REST-API-Schlüssel  | Ein Braze-REST-API-Schlüssel mit `users.track`-Berechtigungen. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-| Ein Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Ein Braze-REST-Endpunkt | [Ihre REST-Endpunkt-URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Ihr Endpunkt hängt von der Braze-URL für Ihre Instanz ab.                                                 |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 Diese Integration erfordert den Aufruf der OtherLevels Experience Platform API als Teil des Video-Generierungsprozesses, bevor Nachrichten von Braze an Ihre Nutzer:innen gesendet werden können. cURL-Beispiele werden als Teil dieser Dokumentation bereitgestellt, wir empfehlen jedoch die Verwendung von API-Clients wie Postman, um die API-Aufrufe zu automatisieren.
 
@@ -132,7 +132,7 @@ Ersetzen Sie Folgendes:
 | `TALENT_TEMPLATE` | Eine Talent-Template-ID. OtherLevels wird bei der Kontoeinrichtung mit Ihnen zusammenarbeiten, um ein Talent (Avatar) zu erstellen. Sie erhalten eine oder mehrere Talent-IDs, die Sie verwenden können.                                                 |
 | `TALENT_MODEL` | Eine Talent-Model-ID. OtherLevels wird bei der Kontoeinrichtung mit Ihnen zusammenarbeiten, um ein Talent (Avatar) zu erstellen. Sie erhalten ein oder mehrere Talent-Modelle, die Sie verwenden können.                                                 |
 | `INSERT_SCRIPT` | Das genaue Skript, das das Talent während des Videos sprechen soll.                                                 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 1: Call the OtherLevels Experience Platform API to generate a video #step-1" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 1: OtherLevels Experience Platform API aufrufen, um ein Video zu generieren" }
 
 Als Teil der API-Antwort gibt OtherLevels eine JSON-Nutzlast zurück, die einen erfolgreichen API-Aufruf anzeigt. Die JSON-Datei enthält eine eindeutige `recipe_id` zur Identifizierung des generierten Videos. Die `recipe_id` wird im nächsten Schritt benötigt.
 
@@ -174,13 +174,13 @@ Ersetzen Sie Folgendes:
 
 | Platzhalter             | Beschreibung                                                                                                                                                                                     |
 |-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `BRAZE_API_ENDPOINT`    | Die URL des Braze-REST-Endpunkts Ihrer aktuellen Braze-Instanz. Weitere Informationen finden Sie unter [REST-API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab/#rest-api-keys). |
+| `BRAZE_API_ENDPOINT`    | Die URL des Braze-REST-Endpunkts Ihrer aktuellen Braze-Instanz. Weitere Informationen finden Sie unter [REST-API-Schlüssel]({{site.baseurl}}/user_guide/administrative/app_settings/api_settings_tab#rest-api-keys). |
 | `BRAZE_API_KEY`         | Ihr Braze-REST-API-Schlüssel mit der Berechtigung `users.track`.                                                                                                                                      |
-| `USER_ID`              | Die Nutzer-ID der Person, die dieses Video erhalten soll. Weitere Beispiele für verwendbare Bezeichner finden Sie unter [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#track-users).                                                                                                                                                  |
+| `USER_ID`              | Die Nutzer-ID der Person, die dieses Video erhalten soll. Weitere Beispiele für verwendbare Bezeichner finden Sie unter [/users/track]({{site.baseurl}}/api/endpoints/user_data/post_user_track).                                                                                                                                                  |
 | `RECIPE_ID`       | Die `recipe_id`, die Sie aus der OtherLevels-API-Antwort in [Schritt 1](#step-1) erhalten haben.                                                                                                                                                                            |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2: Setting the recipeid as a custom attribute" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2: Festlegen der recipe_id als angepasstes Attribut" }
 
-### 3. Schritt: Versand über Braze Connected-Content {#step-3-sending-through-braze-connected-content}
+### 3. Schritt: Versand über Braze Connected Content {#step-3-sending-through-braze-connected-content}
 
 Um die GenAI-Videos als iOS-Push-Nachrichten an Ihre Nutzer:innen zu senden, gehen Sie folgendermaßen vor:
 
@@ -199,7 +199,7 @@ Ersetzen Sie anschließend `OTHERLEVELS_PROJECT_KEY` durch den von OtherLevels b
 3. Wählen Sie im Dropdown-Menü für **URL file format** die Option **MP4** aus.
 4. Konfigurieren Sie den Rest der Campaign (z. B. Nachrichteninhalt, Versandzeitplan und Zielgruppe) nach Ihren Wünschen.
 
-![Beispiel für Asset-Felder bei Connected-Content.]({% image_buster /assets/img/otherlevels/1.png %})
+![Beispiel für Asset-Felder bei Connected Content.]({% image_buster /assets/img/otherlevels/1.png %})
 
 ## Anpassen des GenAI-Videos {#customizing-the-genai-video}
 
@@ -210,7 +210,7 @@ Der Video-Hintergrund kann über den Schlüssel `bg_image` festgelegt werden.
 | Parameter             | Beschreibung                  |
 |-------------------------|----------------------------|
 | `url`    | HTTPS-URL für das Hintergrundbild. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Videogröße und Attribute" }
 
 Die Größe des Video-Hintergrunds kann über den Schlüssel `resize_image` festgelegt werden. Wir empfehlen, dass das Hintergrundbild dieselbe Größe hat wie die hier konfigurierte.
 
@@ -218,7 +218,7 @@ Die Größe des Video-Hintergrunds kann über den Schlüssel `resize_image` fest
 |-------------------------|----------------------------|
 | `width`    | Breite des Hintergrundbildes, mit Optionen für Hoch- und Querformat. |
 | `height`     | Höhe des Hintergrundbildes, mit Optionen für Hoch- und Querformat.                              |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Videogröße und Attribute" }
 
 Video-Overlay-Optionen können über den Schlüssel `image_video_overlay` festgelegt werden.
 
@@ -229,7 +229,7 @@ Video-Overlay-Optionen können über den Schlüssel `image_video_overlay` festge
 | `color`              | Farbe des Overlays, angegeben in RGB zusammen mit dem Transparenzwert.                                                                   |
 | `y_pos`       | Y-Achsen-Versatz vom Zentrum.                                                              |
 | `x_pos`    | X-Achsen-Versatz vom Zentrum. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Video size and attributes" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Videogröße und Attribute" }
 
 ### Talent und Skript {#talent-and-script}
 
@@ -242,7 +242,7 @@ Das Sprachmodell, das zur Verarbeitung von Eingabeskripten verwendet wird, funkt
 | Parameter             | Beschreibung                  |
 |-------------------------|----------------------------|
 | `speed`    | Legen Sie die Geschwindigkeit fest, mit der das Talent das Skript lesen soll. Zum Beispiel: `1.5`.|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Talent and script" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Talent und Skript" }
 
 ## Zusätzliche Hinweise {#additional-considerations}
 

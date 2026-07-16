@@ -22,7 +22,7 @@ page_order: 5
 
 - [キャンバスエントリプロパティオブジェクト]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
 - [イベントプロパティオブジェクト]({{site.baseurl}}/api/objects_filters/event_object)
-- [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product_id)
+- [購入オブジェクト]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product-id)
 
 これらのオブジェクトから渡されたプロパティは、`canvas_entry_properties` Liquidタグを使用して参照できます。例えば、`"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` というリクエストでは、Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}を追加することで、メッセージに「shoes」という単語を追加できます。
 
@@ -85,7 +85,7 @@ curl -X POST \
 
 ユーザーがeコマースサイトでアイテムを閲覧したがカートに追加しなかった場合にトリガーされるキャンバスがある場合、キャンバスの最初のステップは、そのアイテムの購入に興味があるかどうかを尋ねるプッシュ通知にすることができます。{% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}を使用して製品名を参照できます。
 
-![ユーザーがeコマースサイトでアイテムを閲覧したがカートに追加しなかった場合にトリガーされるキャンバスの例。最初のステップは、そのアイテムの購入に興味があるかどうかを尋ねるプッシュ通知です。]({% image_buster /assets/img/persistent_entry_properties/PEP1.png %}){: style="border:0;margin-left:15px;"}
+![ユーザーがeコマースサイトでアイテムを閲覧したがカートに追加しなかった場合にトリガーされるキャンバスの例。最初のステップは、そのアイテムの購入に興味があるかどうかを尋ねるプッシュ通知です。{% raw %}{{canvas_entry_properties.${product_name}}}{% endraw %}を使用して製品名を参照できます。]({% image_buster /assets/img/persistent_entry_properties/PEP1.png %}){: style="border:0;margin-left:15px;"}
 
 2番目のステップでは、ユーザーがアイテムをカートに追加したがまだ購入していない場合に、チェックアウトを促す別のプッシュ通知を送信できます。{% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}を使用して、引き続き`product_name`エントリプロパティを参照できます。
 

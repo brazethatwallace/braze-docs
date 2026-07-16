@@ -47,11 +47,11 @@ Vous pouvez accéder au tableau de bord de diagnostic en allant dans **Analytics
 
 Pour exécuter le tableau de bord et afficher vos données :
 
-1. Choisissez **Campaigns** ou **Canvases** comme source pour les rapports de votre tableau de bord.
+1. Choisissez **Campaigns** ou **Canvas** comme source pour les rapports de votre tableau de bord.
 2. Sélectionnez une ou plusieurs campagnes ou Canvas.
 3. Sélectionnez **Run Dashboard** pour charger les données correspondant aux filtres sélectionnés.
 
-![Exemple de diagnostic de Campaign et Canvas du 25 au 31 mai 2025 pour une campagne de série de bienvenue.]({% image_buster /assets/img/messaging_diagnostics_dashboard_details_log.png %}){: style="max-width:45%;"} ![Exemple de diagnostic de Campaign et Canvas avec graphique au survol du 25 au 31 mai 2025 pour une campagne de série de bienvenue.]({% image_buster /assets/img/messaging_diagnostics_dashboard_drawer_expanded.png %}){: style="max-width:45%;"}
+![Exemple de diagnostic de campagnes et Canvas du 25 au 31 mai 2025 pour une campagne de série de bienvenue.]({% image_buster /assets/img/messaging_diagnostics_dashboard_details_log.png %}){: style="max-width:45%;"} ![Exemple de diagnostic de campagnes et Canvas avec graphique au survol du 25 au 31 mai 2025 pour une campagne de série de bienvenue.]({% image_buster /assets/img/messaging_diagnostics_dashboard_drawer_expanded.png %}){: style="max-width:45%;"}
 
 ## Interprétation des données {#interpreting-the-data}
 
@@ -154,7 +154,7 @@ Les résultats d'abandon dans Messaging Diagnostics sont des libellés lisibles 
 | Résultat d'abandon | Explication |
 | ---- | ---- |
 | Erreur de distribution du partenaire | Braze a tenté d'envoyer ce message à votre partenaire de distribution pendant 24 heures, mais le partenaire a renvoyé des erreurs temporaires pendant toute la durée de cette fenêtre. |
-| Identifiants push invalides | Les [identifiants push]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token) pour cette application sont manquants ou invalides, l'envoi a donc été annulé. Mettez à jour vos identifiants dans **Paramètres des applications**. |
+| Identifiants push invalides | Les [identifiants push]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) pour cette application sont manquants ou invalides, l'envoi a donc été annulé. Mettez à jour vos identifiants dans **Paramètres des applications**. |
 | Échec du groupe d'abonnement | Le message n'a pas pu être envoyé en raison de problèmes de configuration du groupe d'abonnement ou du service d'envoi de messages. Les raisons courantes incluent l'absence de numéros d'envoi pour SMS ou WhatsApp, ou l'incompatibilité MMS sur le service d'envoi de messages configuré. |
 | L'utilisateur n'est pas éligible pour le canal | L'utilisateur n'est pas éligible pour recevoir ce message sur le canal sélectionné. Les raisons courantes incluent des identifiants de canal manquants ou invalides, l'absence de jetons push éligibles, des restrictions liées à l'état d'abonnement, une fonctionnalité de canal non prise en charge ou des pays bloqués pour les canaux téléphoniques. |
 | Échec du webhook | Le webhook a reçu un code de réponse non réussi (non-`2xx`). Consultez le [Journal d'activité des messages]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting) pour plus de détails. Les journaux de plus de 60 heures sont nettoyés et ne sont plus accessibles ; les erreurs de webhook sont échantillonnées jusqu'à 20 journaux par heure. |

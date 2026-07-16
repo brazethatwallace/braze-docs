@@ -23,8 +23,8 @@ Braze와 WSC Sports 통합을 통해 Braze 푸시 알림에 풍부하고 강력�
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | WSC 계정 | 이 파트너십을 활용하려면 WSC 계정이 필요합니다. |
-| Braze REST API 키 | **메시지**, **Segments**, **Campaigns** 및 **Canvas** 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
-{: .reset-td-br_1 .reset-td-br_2 aria-label="필수 조건" }
+| Braze REST API 키 | **메시지**, **세그먼트**, **Campaigns** 및 **Canvas** 권한이 있는 Braze REST API 키. <br><br> Braze 대시보드의 **설정** > **API 키**에서 생성할 수 있습니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
@@ -40,7 +40,7 @@ WSC Sports 애플리케이션은 비디오 선택부터 최종사용자의 기�
 
 발송되면 WSC Sports는 선택한 옵션에 따라 다음 Braze 엔드포인트를 사용하여 선택한 사용자 Segments에 푸시 알림을 전달합니다:
 - [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages#create-scheduled-messages)
-- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#sending-messages-immediately-via-api-only)
+- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only)
 
 결과 메시지 본문은 다음과 같습니다:
 ```

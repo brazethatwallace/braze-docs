@@ -38,7 +38,7 @@ toc_headers: h2
 
 1. Canvas 작성기를 사용하여 [Canvas를 만듭니다]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 2. Canvas를 설정한 후 Canvas 빌더에서 단계를 추가합니다. 단계에 명확하고 의미 있는 이름을 지정합니다.
-3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)을 선택하고 필요에 따라 지연을 지정합니다. 인앱 메시지를 포함하는 단계는 액션 기반으로 설정할 수 없습니다.
+3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)을 선택하고 필요에 따라 지연을 지정합니다. 인앱 메시지를 포함하는 단계는 액션 기반으로 설정할 수 없습니다.
 4. 필요에 따라 이 단계의 오디언스를 필터링합니다. Segments를 지정하고 추가 필터를 추가하여 이 단계의 수신자를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 지연 후 메시지가 전송되는 시점에 확인됩니다.
 5. [진행 동작]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)을 선택합니다.
 6. 메시지와 함께 사용할 다른 메시징 채널을 선택합니다.
@@ -147,14 +147,14 @@ Canvas 관련 추가 정보는 [Canvas의 인앱 메시지]({{site.baseurl}}/use
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#custom-html-messages'>커스텀 HTML 메시지</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html#custom-html-messages'>커스텀 HTML 메시지</a></td>
     <td>커스텀 코드(HTML, CSS 및/또는 JavaScript)에서 정의한 대로 작동하는 커스텀 메시지입니다.</td>
     <td>해당 없음</td>
     <td>인앱 메시지가 작동하려면 <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> 초기화 옵션을 <code>true</code>로 설정해야 합니다.</td>
     <td>인앱 메시지의 모든 장점을 원하면서도 추가 기능이 필요하거나 브랜드에 맞는 외관을 유지하고 싶을 때 좋은 옵션입니다. 메시지의 모든 세부 사항(글꼴, 색상, 모양, 크기, 버튼 등)을 변경할 수 있습니다. <br><br>사용 사례 예시로는 사용자에게 앱 피드백 요청, 이메일 수집 양식 또는 페이지 형식 메시지가 있습니다.</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/customize#email-capture-form'>이메일 수집 양식</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form#email-capture-form'>이메일 수집 양식</a></td>
     <td>일반적으로 뷰어의 이메일을 수집하는 데 사용됩니다.</td>
     <td>해당 없음</td>
     <td>인앱 메시지가 작동하려면 <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> 초기화 옵션을 <code>true</code>로 설정해야 합니다.</td>
@@ -397,7 +397,7 @@ Braze를 사용하면 캠페인을 수신한 후 사용자가 특정 동작인 [
 {% endtab %}
 {% tab Canvas %}
 
-아직 완료하지 않았다면 Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, 다변량 테스트 및 지능형 선택을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) 단계를 참조하세요.
+아직 완료하지 않았다면 Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, 다변량 테스트 및 지능형 선택을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) 단계를 참조하세요.
 
 Canvas 관련 인앱 메시징 옵션에 대한 정보는 [Canvas의 인앱 메시지]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#messages-in-canvas)를 참조하세요.
 

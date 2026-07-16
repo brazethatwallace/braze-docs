@@ -12,9 +12,9 @@ toc_headers: h2
 
 ## Geral {#general}
 
-### Qual é a diferença entre agentes de Canvas e agentes de catálogo? {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
+### Qual é a diferença entre agentes de etapa do Canvas e agentes de catálogo? {#what-is-the-difference-between-canvas-step-agents-and-catalog-agents}
 
-Ao criar um agente, você especifica se deseja criar um agente de Canvas ou de catálogo. Isso determina os tipos de instruções e opções que o agente pode suportar. Os agentes de Canvas processam usuários em tempo real dentro de jornadas, enquanto os agentes de catálogo enriquecem dados do catálogo adicionando ou atualizando colunas com informações processadas.
+Ao criar um agente, você especifica se deseja criar um agente de etapa do Canvas ou um agente de catálogo. Isso determina os tipos de instruções e opções que o agente pode suportar. Os agentes de etapa do Canvas processam usuários em tempo real dentro de jornadas, enquanto os agentes de catálogo enriquecem dados do catálogo adicionando ou atualizando colunas com informações processadas.
 
 ### Quais são os benefícios de usar o modelo Auto em vez do modelo próprio (BYO)? {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 
@@ -25,7 +25,7 @@ Os benefícios de usar o modelo Auto da Braze incluem:
 
 ### Onde posso encontrar meu uso atual de agentes? {#where-can-i-find-my-current-agent-usage}
 
-Acessar **Configurações** > **Faturamento** > **Uso de créditos** > **Console do agente** para ver o consumo de créditos, contagens de invocações e proporções de créditos por agente. Consulte [Limites diários de invocação e créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits) para mais detalhes.
+Acesse **Configurações** > **Faturamento** > **Uso de créditos** > **Console do agente** para ver o consumo de créditos, contagens de invocações e proporções de créditos por agente. Consulte [Limites diários de invocação e créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits) para mais detalhes.
 
 ### Posso usar instruções condicionais de Liquid nas instruções do agente? {#can-i-use-conditional-liquid-statements-in-agent-instructions}
 
@@ -68,7 +68,7 @@ Um agente personalizado pode expirar por tempo limite se:
 - As instruções do agente pedirem que ele produza um formato de saída diferente do especificado na guia **Output** (por exemplo, se as instruções pedem uma string, mas na guia **Output** a saída está definida como um número)
 - A tarefa do agente for complexa demais e se beneficiaria de uma [abordagem com subagentes](#subagent-approach)
 
-Para agentes de Canvas, configure [valores de fallback]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) no Console do agente para que os usuários ainda recebam uma saída quando uma invocação falhar.
+Para agentes de etapa do Canvas, configure [valores de fallback]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) no Console do agente para que os usuários ainda recebam uma saída quando uma invocação falhar.
 
 ### Por que meu agente funcionou bem nos testes, mas não está recebendo dados específicos do usuário quando eu o lanço em um Canvas? {#why-did-my-agent-do-fine-in-testing-but-isnt-getting-any-user-specific-data-when-i-launch-it-in-a-canvas}
 

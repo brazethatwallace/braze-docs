@@ -8,7 +8,7 @@
 |-------|-----------|
 | Push Stories | AndroidのPush Storiesは、Braze Android SDKにデフォルトで組み込まれています。詳しくは[Push Stories]({{site.baseurl}}/user_guide/message_building_by_channel/push/advanced_push_options/push_stories)を参照してください。|
 | プッシュプライマー | プッシュプライマーキャンペーンでは、アプリのデバイスでプッシュ通知を有効にするようユーザーに促します。これは、[ノーコードプッシュプライマー]({{site.baseurl}}/user_guide/message_building_by_channel/push/best_practices/push_primer_messages)を使用して、SDKのカスタマイズなしで行うことができます。|
-{: .reset-td-br-1 .reset-td-br-2 aria-label="内蔵機能" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Built-in features" }
 
 ## プッシュ通知のライフサイクルについて {#push-notification-lifecycle}
 
@@ -454,7 +454,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 <string name="com_braze_fallback_firebase_cloud_messaging_service_classpath">com.company.OurFirebaseMessagingService</string>
 ```
 
-または、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)で設定します。
+または、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)で設定します。
 
 {% subtabs %}
 {% subtab JAVA %}
@@ -540,7 +540,7 @@ Brazeでは、`braze.xml`内でdrawableリソースを指定することで、�
 <bool name="com_braze_handle_push_deep_links_automatically">true</bool>
 ```
 
-このフラグは、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)で設定することもできます。
+このフラグは、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)で設定することもできます。
 
 {% tabs %}
 {% tab JAVA %}
@@ -649,7 +649,7 @@ Brazeダッシュボードではプッシュ通知のキャンペーンやキャ
 
 Android SDKのデフォルトでは、プッシュのディープリンクを辿ると、ホストアプリのメインのランチャーアクティビティがバックスタックに配置されます。Brazeでは、メインのランチャーアクティビティの代わりにバックスタックで開くカスタムアクティビティを設定したり、バックスタックを完全に無効にしたりすることができます。
 
-たとえば、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_initalization/?sdktab=android)を使用して、`YourMainActivity`というアクティビティをバックスタックアクティビティとして設定するには、次のようにします。
+たとえば、[ランタイム設定]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android#runtime-configuration)を使用して、`YourMainActivity`というアクティビティをバックスタックアクティビティとして設定するには、次のようにします。
 
 {% tabs %}
 {% tab JAVA %}
@@ -706,7 +706,7 @@ Braze Android SDKは[Android通知チャネル](https://developer.android.com/pr
 
 #### 表示のテスト {#testing-display}
 
-この時点で、Brazeから送信された通知を表示できるはずです。これをテストするには、Brazeダッシュボードの**キャンペーン**ページにアクセスし、**プッシュ通知**キャンペーンを作成します。**Android Push**を選択し、メッセージをデザインします。次に、作成画面で目のアイコンをクリックしてテスト送信者を取得します。現在のユーザーのユーザーIDまたはメールアドレスを入力し、**Send Test**をクリックします。デバイスにプッシュが表示されます。
+この時点で、Brazeから送信された通知を表示できるはずです。これをテストするには、Brazeダッシュボードの**キャンペーン**ページにアクセスし、**プッシュ通知**キャンペーンを作成します。**Android Push**を選択し、メッセージをデザインします。次に、作成画面で目のアイコンをクリックしてテスト送信者を取得します。現在のユーザーのユーザーIDまたはメールアドレスを入力し、**テストを送信**をクリックします。デバイスにプッシュが表示されます。
 
 ![Brazeダッシュボード内のプッシュ通知キャンペーンの「テスト」タブ。]({% image_buster /assets/img_archive/android_push_test.png %} "Android Push Test")
 
@@ -723,7 +723,7 @@ Braze Android SDKは[Android通知チャネル](https://developer.android.com/pr
 コマンドラインインターフェイスを介してアプリ内通知とプッシュ通知をテストする場合は、cURLと[メッセージングAPI]({{site.baseurl}}/api/endpoints/messaging)を介してターミナルから単一の通知を送信できます。次のフィールドをテストケースの正しい値に置き換える必要があります。
 
 - `YOUR_API_KEY`（**設定** > **APIキー**に移動）
-- `YOUR_EXTERNAL_USER_ID`（**ユーザーを検索**ページでプロファイルを検索）
+- `YOUR_EXTERNAL_USER_ID`（**ユーザー検索**ページでプロファイルを検索）
 - `YOUR_KEY1`（省略可能）
 - `YOUR_VALUE1`（省略可能）
 

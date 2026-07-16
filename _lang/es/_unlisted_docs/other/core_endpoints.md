@@ -1,17 +1,17 @@
 ---
-nav_title: Puntos de conexión principales
+nav_title: Endpoints principales
 permalink: "/core_endpoints/"
 hidden: true
 layout: dev_guide
 ---
 
-# Puntos de conexión principales de la API de Braze {#braze-core-api-endpoints}
+# Endpoints principales de la API de Braze {#braze-core-api-endpoints}
 
 <!-- This article is linked in our standard credits SLA exhibit, and was created to clarify what endpoints that are covered for SLA purposes. -->
 
-Los puntos de conexión principales de la API de Braze son puntos de conexión específicos de la REST API de Braze que tienen un tiempo de inactividad permitido de acuerdo con el acuerdo de nivel de servicio (SLA) de una cuenta de Braze. Para más información, consulta tu documentación del SLA o ponte en contacto con tu director de cuentas.
+Los endpoints principales de la API de Braze son endpoints específicos de la REST API de Braze que tienen un tiempo de inactividad permitido de acuerdo con el acuerdo de nivel de servicio (SLA) de una cuenta de Braze. Para más información, consulta tu documentación del SLA o ponte en contacto con tu director de cuentas.
 
-Los puntos de conexión principales incluyen:
+Los endpoints principales incluyen:
 - [`/users/track`][1]
 - [`/users/delete`][2]
 - [`/email/status`][3]
@@ -30,11 +30,11 @@ Los puntos de conexión principales incluyen:
 - [`/canvas/trigger/schedule/delete`][16]
 - [`/subscription/status/set`][17]
 
-[1]: {{site.baseurl}}/api/endpoints/user_data/post_user_track/#user-track
+[1]: {{site.baseurl}}/api/endpoints/user_data/post_user_track
 [2]: {{site.baseurl}}/api/endpoints/user_data/post_user_delete
-[3]: {{site.baseurl}}/api/endpoints/email/post_email_subscription_status/#change-users-email-subscription-status
+[3]: {{site.baseurl}}/api/endpoints/email/post_email_subscription_status#change-email-subscription-status
 [4]: {{site.baseurl}}/api/endpoints/email/post_blocklist/
-[5]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#sending-messages-immediately-via-api-only
+[5]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only
 [6]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/#create-scheduled-messages
 [7]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_messages/
 [8]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_messages/
@@ -42,7 +42,7 @@ Los puntos de conexión principales incluyen:
 [10]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_campaigns/
 [11]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_campaigns/
 [12]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages/
-[13]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases/#sending-canvas-messages-via-api-triggered-delivery
+[13]: {{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#send-canvas-messages-using-api-triggered-delivery
 [14]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases/#schedule-api-triggered-canvases
 [15]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_update_scheduled_triggered_canvases/
 [16]: {{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_delete_scheduled_triggered_messages/

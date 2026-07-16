@@ -266,7 +266,7 @@ Removed Push Credential
 [クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries)を使用するには**PIIを表示**権限が必要です。クエリビルダーでは一部の顧客データに直接アクセスできるためです。
 {% endalert %}
 
-既存のチーム権限機能については、[ユーザー権限の設定]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions)を参照してください。
+既存のチーム権限機能については、[ユーザー権限の設定]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)を参照してください。
 
 ### PIIの定義 {#defining-pii}
 

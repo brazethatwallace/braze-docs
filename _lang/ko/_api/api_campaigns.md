@@ -42,5 +42,5 @@ API 캠페인은 일반적으로 트랜잭션이므로 글로벌 컨트롤 그�
 ## API 호출 {#api-calls}
 
 API 캠페인을 저장한 후 API 요청에 다음을 포함합니다.
-- [메시지 전송 엔드포인트]({{site.baseurl}}/api/endpoints/messaging#send-endpoints)에 명시된 곳에 생성된 `campaign_id` 필드를 API 요청과 함께 포함합니다.
+- [메시지 전송 엔드포인트]({{site.baseurl}}/api/endpoints/messaging)에 명시된 곳에 생성된 `campaign_id` 필드를 API 요청과 함께 포함합니다.
 - 캠페인에 포함된 각 플랫폼에 대한 [메시지 오브젝트]({{site.baseurl}}/api/objects_filters#messaging-objects)를 포함합니다. 메시지 오브젝트에서 메시지 배리언트 ID를 입력합니다. 이렇게 하면 해당 배리언트에서 통계를 수집하고 표시하도록 지정됩니다. 지원되는 메시지 오브젝트는 다음과 같습니다: Android, Content Cards, 이메일, iOS, Kindle, SMS/MMS, 웹 푸시 및 웹훅.

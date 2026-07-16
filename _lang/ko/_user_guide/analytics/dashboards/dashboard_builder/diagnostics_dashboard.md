@@ -132,7 +132,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 | 중단 결과 | 설명 |
 | ---- | ---- |
 | 최대 게재빈도 설정 적용됨 | 워크스페이스의 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 규칙에 따라 사용자가 이미 허용된 최대 메시지 수를 수신하여 발송이 취소되었습니다. |
-| 방해금지 시간 중단 | Campaign 또는 캔버스 단계에 대해 방해금지 시간이 활성화되어 있으며 대체 옵션이 **Abort message**로 설정되어 있습니다. 사용자가 방해금지 시간 중에 Campaign을 트리거하거나 Canvas 메시지 단계에 진입하여 메시지가 중단되었습니다. 그러나 이로 인해 사용자가 Canvas에서 종료되지는 않습니다. |
+| 방해금지 시간 중단 | Campaign 또는 캔버스 단계에 대해 방해금지 시간이 활성화되어 있으며 대체 옵션이 **메시지 중단**으로 설정되어 있습니다. 사용자가 방해금지 시간 중에 Campaign을 트리거하거나 Canvas 메시지 단계에 진입하여 메시지가 중단되었습니다. 그러나 이로 인해 사용자가 Canvas에서 종료되지는 않습니다. |
 | 72시간 초과 사용량 제한 | [전달 속도 사용량 제한]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting)으로 인해 메시지가 72시간 이상 조절되어 발송이 중단되었습니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="사용량 제한 및 타이밍" }
 
@@ -154,7 +154,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 | 중단 결과 | 설명 |
 | ---- | ---- |
 | 파트너 전달 오류 | Braze가 24시간 동안 전달 파트너에게 이 메시지를 발송하려 했지만, 파트너가 전체 기간 동안 일시적 오류를 반환했습니다. |
-| 푸시 자격 증명 유효하지 않음 | 이 앱의 [푸시 자격 증명]({{site.baseurl}}/user_guide/channels/push/faqs#valid-push-token)이 누락되었거나 유효하지 않아 발송이 취소되었습니다. **앱 설정**에서 자격 증명을 업데이트하세요. |
+| 푸시 자격 증명 유효하지 않음 | 이 앱의 [푸시 자격 증명]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token)이 누락되었거나 유효하지 않아 발송이 취소되었습니다. **앱 설정**에서 자격 증명을 업데이트하세요. |
 | 구독 그룹 실패 | 구독 그룹 또는 메시징 서비스 구성 문제로 인해 메시지를 발송할 수 없었습니다. 일반적인 이유로는 SMS 또는 WhatsApp의 발송 번호 누락, 또는 구성된 메시징 서비스에서 MMS가 지원되지 않는 경우가 있습니다. |
 | 채널에 대한 사용자 자격 없음 | 사용자가 선택한 채널에서 이 메시지를 받을 자격이 없습니다. 일반적인 이유로는 채널 식별자 누락 또는 유효하지 않음, 유효한 푸시 토큰 없음, 구독 상태 제한, 지원되지 않는 채널 기능, 또는 전화 기반 채널의 차단된 국가 등이 있습니다. |
 | 웹훅 실패 | 웹훅이 실패한 응답 코드(비`2xx`)를 수신했습니다. 자세한 내용은 [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting)를 참조하세요. 60시간이 지난 로그는 정리되어 더 이상 접근할 수 없으며, 웹훅 오류는 시간당 최대 20개의 로그까지 샘플링됩니다. |
@@ -172,7 +172,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 
 이는 기존 대시보드 카테고리에 해당하지 않는 중단입니다. "기타"로 표시된 중단 비율이 높은 경우, 추가 지원을 위해 [Braze 고객지원]({{site.baseurl}}/braze_support)에 문의하세요.
 
-### _미발송_과 _발송됨_의 합이 예상 오디언스 크기보다 낮은 이유는 무엇인가요? {#why-is-the-sum-of-_not-sent_-and-_sent_-lower-than-my-expected-audience-size}
+### *미발송*과 *발송됨*의 합이 예상 오디언스 크기보다 낮은 이유는 무엇인가요? {#why-is-the-sum-of-_not-sent_-and-_sent_-lower-than-my-expected-audience-size}
 
 이는 여러 가지 이유로 발생할 수 있습니다:
 
@@ -181,7 +181,7 @@ Braze가 메시지를 "발송"하면, 최종 전달은 외부 서비스에 따�
 - **데이터 최신성:** 대시보드 데이터는 약 15분마다 업데이트되지만, 이는 보장되지 않습니다. 이 Campaign이나 Canvas의 최신 데이터가 아직 대시보드에 반영되지 않았을 수 있습니다.
 - **엣지 케이스:** 현재 이 대시보드에서 포착되지 않는 엣지 케이스가 발생했을 가능성이 적지만 있습니다. 이 경우가 의심되면 [Braze 고객지원]({{site.baseurl}}/user_guide/administer/personal/braze_support)에 문의하세요.
 
-### _미발송_과 _발송됨_의 합이 Campaign 및 Canvas의 오디언스보다 큰 이유는 무엇인가요? {#why-is-the-sum-of-_not-sent_-and-_sent_-greater-than-the-audience-for-a-campaign-and-canvas}
+### *미발송*과 *발송됨*의 합이 Campaign 및 Canvas의 오디언스보다 큰 이유는 무엇인가요? {#why-is-the-sum-of-_not-sent_-and-_sent_-greater-than-the-audience-for-a-campaign-and-canvas}
 
 이는 다음과 같은 이유로 발생할 수 있습니다:
 

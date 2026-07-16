@@ -24,9 +24,9 @@ En muchos casos, puedes incorporar fragmentos de código de Liquid navegando a t
 
 Para más información sobre Liquid, consulta nuestra ruta guiada de Braze Learning [Personalización dinámica con Liquid](https://learning.braze.com/path/dynamic-personalization-with-liquid). También puedes consultar la [biblioteca de casos de uso de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/liquid_use_cases) para inspirarte y ver una variedad de ejemplos de personalización con Liquid.
 
-### ¿Cuál es la diferencia entre usar Liquid y Contenido conectado para la personalización? {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
+### ¿Cuál es la diferencia entre usar Liquid y contenido conectado para la personalización? {#whats-the-difference-between-using-liquid-and-connected-content-for-personalization}
 
-El Contenido conectado de Braze es un ejemplo de etiqueta de Liquid. También se usa para la personalización, pero estos datos provienen de un punto de conexión externo en lugar de datos almacenados dentro de Braze. Consulta nuestra sección dedicada de [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para aprender más sobre cómo ampliar la personalización de tus mensajes.
+El contenido conectado de Braze es un ejemplo de etiqueta de Liquid. También se usa para la personalización, pero estos datos provienen de un endpoint externo en lugar de datos almacenados dentro de Braze. Consulta nuestra sección dedicada de [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) para aprender más sobre cómo ampliar la personalización de tus mensajes.
 
 ### ¿Qué es la plantilla de Liquid? {#what-is-liquid-templating}
 
@@ -64,7 +64,7 @@ Para el uso en URL y cadenas de consulta (por ejemplo, cuando un nombre contiene
 
 Braze tiene una característica integrada que genera código Liquid para segmentos que pueden usarse en un mensaje. Específicamente, puedes crear un segmento que coincida con múltiples criterios en un objeto.
 
-Para más información, consulta [Segmentación multicriterio]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation).
+Para más información, consulta [Segmentación multicriterio]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects).
 
 ### ¿Cómo uso propiedades de eventos para personalizar un mensaje que un evento está desencadenando? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
@@ -89,7 +89,7 @@ Tanto `assign` como `capture` crean variables de Liquid, pero tienen propósitos
 - `assign` es para variables simples que almacenan un solo valor, como un booleano, un número o una cadena simple. También puedes aplicar un solo filtro en la misma línea.
 - `capture` es para almacenar un bloque de texto que puede incluir múltiples variables, cadenas o expresiones complejas.
 
-Usa `capture` cuando el valor sea demasiado complejo para una sola sentencia `assign`, como URL que utilizan otras variables de Liquid o atributos personalizados como parámetros. `capture` también es preferible cuando implementas variables de Liquid en el cuerpo de llamadas de Contenido conectado.
+Usa `capture` cuando el valor sea demasiado complejo para una sola sentencia `assign`, como URL que utilizan otras variables de Liquid o atributos personalizados como parámetros. `capture` también es preferible cuando implementas variables de Liquid en el cuerpo de llamadas de contenido conectado.
 
 #### Ejemplos {#examples}
 
@@ -120,13 +120,13 @@ Join our VIP program to unlock free shipping.
 
 ### ¿Las variables de Liquid se comparten entre la línea del asunto y el cuerpo? {#do-liquid-variables-carry-between-subject-line-and-body}
 
-No. Braze renderiza cada componente del mensaje por separado (como la línea del asunto, el cuerpo HTML, el preencabezado y el título push). Las asignaciones o capturas que hagas en un campo no están disponibles en otro. Repite la llamada de Liquid o Contenido conectado en cada campo que necesite el valor.
+No. Braze renderiza cada componente del mensaje por separado (como la línea del asunto, el cuerpo HTML, el preencabezado y el título push). Las asignaciones o capturas que hagas en un campo no están disponibles en otro. Repite la llamada de Liquid o contenido conectado en cada campo que necesite el valor.
 
 ### ¿Qué es la lógica de bucle for y cómo puedo usarla? {#what-is-for-loop-logic-and-how-can-i-use-it}
 
 Los bucles for también se conocen como [etiquetas de iteración](https://shopify.github.io/liquid/tags/iteration/). Usar la lógica de bucle for en tus fragmentos de código de Liquid te permite recorrer bloques de Liquid hasta que se cumpla una condición.
 
-En Braze, esto podría usarse para verificar elementos en un atributo personalizado de tipo array, o una lista de valores y objetos devueltos por una llamada de [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs), [selección]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) o respuesta de [Contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Específicamente, puedes usar la lógica de bucle for como parte de tu mensajería para verificar si un producto está en stock o si un producto tiene una calificación mínima.
+En Braze, esto podría usarse para verificar elementos en un atributo personalizado de tipo array, o una lista de valores y objetos devueltos por una llamada de [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs), [selección]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) o respuesta de [contenido conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Específicamente, puedes usar la lógica de bucle for como parte de tu mensajería para verificar si un producto está en stock o si un producto tiene una calificación mínima.
 
 Por ejemplo, supongamos que tienes un catálogo llamado "Games" que tiene una selección llamada "cheap_games". Para extraer los títulos de los juegos en "cheap_games", podrías usar este fragmento de código de Liquid:
 
@@ -161,7 +161,7 @@ Una causa común es un par extra de llaves. Por ejemplo, `{{{api_trigger_propert
 
 Braze no impone un límite estricto en las [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties), pero mantén las cargas útiles por debajo de aproximadamente 1 KB (~1000 caracteres). Los objetos más grandes pueden aumentar el uso de memoria y retrasar el renderizado de mensajes durante envíos de alto volumen.
 
-### ¿Por qué obtengo un error de Liquid al previsualizar ciertos tipos de datos en el dashboard? {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
+### ¿Por qué obtengo un error de Liquid al previsualizar ciertos tipos de datos en el panel? {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
 
 Algunos tipos de [propiedades de contexto de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) requieren conversión en Liquid antes de usarlos en comparaciones u operaciones matemáticas. Por ejemplo, cuando necesitas un comportamiento numérico:
 
@@ -217,8 +217,8 @@ Usa Liquid en el campo **Responder a** cuando tu espacio de trabajo admita la co
 
 Este error generalmente indica llaves adicionales o faltantes. No anides {% raw %}`{{ }}`{% endraw %} dentro de otra expresión de etiqueta de Liquid. Por ejemplo, usa {% raw %}`{{custom_attribute.${date_of_birth} | date: '%s'}}`{% endraw %} en lugar de envolver la referencia del atributo en un par adicional de llaves.
 
-### ¿Por qué el reintento de Contenido conectado no está disponible para mi mensaje dentro de la aplicación? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
+### ¿Por qué el reintento de contenido conectado no está disponible para mi mensaje dentro de la aplicación? {#why-is-connected-content-retry-unavailable-for-my-in-app-message}
 
 {% raw %}
-La etiqueta `{% connected_content %}` con reintento no es compatible con todos los tipos de mensajes, incluidos algunos formatos de mensajes dentro de la aplicación. Elimina los parámetros de reintento o usa un canal compatible para las llamadas de Contenido conectado con reintento.
+La etiqueta `{% connected_content %}` con reintento no es compatible con todos los tipos de mensajes, incluidos algunos formatos de mensajes dentro de la aplicación. Elimina los parámetros de reintento o usa un canal compatible para las llamadas de contenido conectado con reintento.
 {% endraw %}

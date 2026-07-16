@@ -20,7 +20,7 @@ guide_featured_list:
 - name: 再入荷通知
   link: /docs/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications
   image: /assets/img/braze_icons/shopping-cart-03.svg
-- name: 価格低下通知
+- name: 値下げ通知
   link: /docs/price_drop_notifications
   image: /assets/img/braze_icons/shopping-cart-03.svg
 - name: セレクション
@@ -47,7 +47,7 @@ guide_menu_list:
 - **季節のプロモーション:** 季節の商品コレクションをインポートし、現在のトレンドを反映したメッセージをパーソナライズします。
 - **ローカライズされたメッセージ:** 実店舗の住所、営業時間、サービスをインポートし、ユーザーの所在地に基づいて通知をパーソナライズします。
 - **再入荷通知:** 在庫数量を含む製品情報をインポートし、[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)とBrazeのカスタムイベントを使用して、製品が再入荷したことをユーザーに通知するキャンペーンまたはキャンバスをトリガーします。
-- **価格低下通知:** 商品価格を含む製品情報をインポートし、[価格低下通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)とBrazeのカスタムイベントを使用して、商品の価格が下がったことをユーザーに通知するキャンバスをトリガーします。
+- **値下げ通知:** 商品価格を含む製品情報をインポートし、[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)とBrazeのカスタムイベントを使用して、商品の価格が下がったことをユーザーに通知するキャンバスをトリガーします。
 
 ### エンターテイメント {#entertainment}
 
@@ -72,8 +72,8 @@ Liquidを使用してカタログ情報を取得する方法の例について�
 
 カタログのデータストレージは、カタログアイテムのサイズに基づいて制限されます。これは、アップロードしたCSVファイルのサイズとは異なる場合があります。
 
-カタログの無料バージョンの場合、許可されるストレージ容量は最大100&nbsp;MBです。ストレージが100&nbsp;MBを超えない限り、アイテム数は無制限です。
+カタログの無料バージョンの場合、許可されるストレージ容量は最大500&nbsp;MBです。ストレージが500&nbsp;MBを超えない限り、アイテム数は無制限です。
 
-Catalogs Proの場合、ストレージサイズのオプションは5&nbsp;GB、10&nbsp;GB、15&nbsp;GB、または50&nbsp;GBです。なお、無料版のストレージ（100&nbsp;MB）はこれらの各プランに含まれています。
+Catalogs Proの場合、ストレージサイズのオプションは5&nbsp;GB、10&nbsp;GB、15&nbsp;GB、または50&nbsp;GBです。なお、無料版のストレージ（500&nbsp;MB）はこれらの各プランに含まれています。
 
 カタログストレージのアップグレードが必要な場合は、Brazeアカウントマネージャーにお問い合わせください。プランの詳細と利用資格については、[カタログストレージ]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers)を参照してください。

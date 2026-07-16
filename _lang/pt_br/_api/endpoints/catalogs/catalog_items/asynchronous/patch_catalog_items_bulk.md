@@ -24,24 +24,24 @@ Cada solicitação pode suportar até 50 itens. Este endpoint é assíncrono.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `catalogs.update_items`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `catalogs.update_items`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='asynchronous catalog item' %}
 
 ## Parâmetros de jornada {#path-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `catalog_name` | Obrigatória | String | Nome do catálogo. |
+| `catalog_name` | Obrigatório | String | Nome do catálogo. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de jornada" }
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 |---|---|---|---|
-| `items` | Obrigatória | Vetor | Um vetor que contém objetos de item. Os objetos de item devem conter campos que existem no catálogo. São permitidos até 50 objetos de item por solicitação. |
+| `items` | Obrigatório | Vetor | Um vetor que contém objetos de item. Os objetos de item devem conter campos que existem no catálogo. São permitidos até 50 objetos de item por solicitação. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}

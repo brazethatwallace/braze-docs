@@ -186,6 +186,13 @@ The **WhatsApp Performance** panel outlines how well your message has performed 
 
 ![WhatsApp performance panel that includes a table of metrics for Variant 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Credits versus send counts
+
+WhatsApp send counts in campaign analytics reflect delivery attempts. Credits consumed may differ when Meta bills by message category (marketing, utility, authentication, service).
+
+- Response messages composed in Braze don't consume Braze WhatsApp credits.
+- Use **Analytics** > **Daily Stats** for directional send volume. Credit breakdowns per campaign or Canvas aren't available.
+
 {% endif %}
 
 If you want to simplify your view, click <i class="fas fa-plus"></i> **Add/Remove Columns** and clear any metrics as desired. By default, all metrics are displayed.
@@ -872,6 +879,8 @@ Here are some key WhatsApp metrics you may see in your analytics. To see the ful
         </tr>
     </tbody>
 </table>
+
+If failures are elevated, see [Investigate WhatsApp send failures]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
 
 #### End-user blocking and reporting metrics
 

@@ -57,9 +57,9 @@ Para obtener más información sobre el comportamiento esperado y la apariencia 
 
 | Tipo de mensaje | Ejemplo | Descripción |
 |---|---|---|
-| [Clásica]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic) | ![Una Content Card clásica con un icono pequeño y texto para animar a reservar una clase de entrenamiento.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | La tarjeta clásica tiene un diseño sencillo con un título en negrita, texto del mensaje y una imagen opcional que se sitúa al inicio del título y el texto. Es mejor usar una imagen cuadrada o un icono con la tarjeta clásica. |
-| [Imagen con subtítulo]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image) | ![Una Content Card con subtítulo con la imagen de un levantador de pesas y texto para animar a reservar una clase de entrenamiento.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | La tarjeta de imagen con subtítulo muestra tu contenido con texto y una imagen llamativa. |
-| [Solo imagen]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner) | ![Una Content Card de solo imagen con solo texto.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | La tarjeta de solo imagen capta la atención con espacio para imágenes, GIF y otro contenido creativo no textual. |
+| [Clásica]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Una Content Card clásica con un icono pequeño y texto para animar a reservar una clase de entrenamiento.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | La tarjeta clásica tiene un diseño sencillo con un título en negrita, texto del mensaje y una imagen opcional que se sitúa al inicio del título y el texto. Es mejor usar una imagen cuadrada o un icono con la tarjeta clásica. |
+| [Imagen con subtítulo]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Una Content Card con subtítulo con la imagen de un levantador de pesas y texto para animar a reservar una clase de entrenamiento.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | La tarjeta de imagen con subtítulo muestra tu contenido con texto y una imagen llamativa. |
+| [Solo imagen]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Una Content Card de solo imagen con solo texto.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | La tarjeta de solo imagen capta la atención con espacio para imágenes, GIF y otro contenido creativo no textual. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 2: Especifica tus tipos de mensaje" }
 
 ## Paso 3: Redacta una Content Card {#step-3-compose-a-content-card}
@@ -135,7 +135,12 @@ Las Content Cards pueden entregarse según un horario planificado, una acción o
 
 También puedes establecer la duración de la Campaign y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours), y determinar la expiración de la Content Card. Establece una fecha de expiración específica o los días hasta que una tarjeta expire, hasta 30 días. Todas las variantes tienen fechas de expiración idénticas.
 
-Si eliges que una tarjeta expire después de un período establecido (por ejemplo, después de dos semanas), la expiración se calcula desde el momento de envío de la tarjeta. Para Campaigns planificadas, este es el horario de lanzamiento planificado. Para Campaigns basadas en acciones, este es el momento en que el usuario realiza la acción desencadenante. Por ejemplo, si una tarjeta basada en acciones se envía a las 2 pm de hoy con una expiración de 1 día, expira a las 2 pm del día siguiente.
+La cuenta regresiva de expiración comienza desde el momento de envío de la tarjeta:
+
+- **Campaigns planificadas:** La cuenta regresiva comienza en el horario de lanzamiento planificado.
+- **Campaigns basadas en acciones:** La cuenta regresiva comienza cuando el usuario realiza la acción desencadenante.
+
+Por ejemplo, si una Content Card basada en acciones se envía a las 2 pm de hoy con una expiración de 1 día, expira a las 2 pm del día siguiente.
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
@@ -159,7 +164,7 @@ Braze te permite rastrear con qué frecuencia los usuarios realizan acciones esp
 
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar [pruebas multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing) y [selección inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu componente de Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar [pruebas multivariante]({{site.baseurl}}/user_guide/messaging/ab_testing) y [selección inteligente]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection), y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de nuestra documentación de Canvas.
 
 {% endtab %}
 {% endtabs %}
@@ -193,7 +198,7 @@ La carga útil total de datos para una sola Content Card no puede exceder 2 KB *
 
 Usar Liquid para extraer cadenas largas de texto (como de atributos personalizados) puede hacer que excedas el límite.
 
-El creador de Campaigns muestra una advertencia si tu contenido estático excede el límite. (No predecimos el tamaño del contenido dinámico que usa Liquid.) **Si el tamaño del mensaje excede 2 KB, se cancela en el momento del envío.** Puedes ver estas cancelaciones en el Registro de actividad de mensajes con la razón `Content card maximum size exceeded`.
+El creador de Campaigns muestra una advertencia si tu contenido estático excede el límite. No predecimos el tamaño del contenido dinámico que usa Liquid. Si el tamaño del mensaje excede 2 KB, se cancela en el momento del envío. Puedes ver estas cancelaciones en el Registro de actividad de mensajes con la razón `Content card maximum size exceeded`.
 
 {% alert important %}
 Durante los envíos de prueba, las Content Cards que excedan 2 KB aún pueden entregarse y mostrarse correctamente.
@@ -228,7 +233,7 @@ La reelegibilidad determina si un usuario puede recibir un mensaje de la misma C
 
 Si activas la reelegibilidad, la cuenta regresiva para que un usuario pueda «reingresar» a una Campaign comienza después de que se le envía el mensaje. El momento específico en que comienza esta cuenta regresiva depende de la configuración de creación de tu tarjeta:
 
-- Las Content Cards que usan [primera impresión]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) usan el momento de la impresión para calcular la reelegibilidad.
+- Las Content Cards que usan [primera impresión]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) usan el momento de la impresión para calcular la reelegibilidad.
 - Las Content Cards creadas al lanzamiento de la Campaign, en Campaigns multicanal, o al entrar en el paso en Canvas usan el momento de envío o el momento de impresión, el que sea más reciente.
 
 #### La expiración de 30 días y la reelegibilidad {#the-30-day-expiration-and-re-eligibility}
@@ -264,8 +269,8 @@ Cuando duplicas la Campaign, necesitas definir la audiencia para la nueva versi�
 
 ###### Impacto {#impact}
 
-* **Destinatarios existentes:** Los destinatarios nuevos y existentes verían la tarjeta actualizada en la próxima actualización del feed si son elegibles.
-* **Informes:** Cada versión de la tarjeta tendría análisis separados.
+- **Destinatarios existentes:** Los destinatarios nuevos y existentes verían la tarjeta actualizada en la próxima actualización del feed si son elegibles.
+- **Informes:** Cada versión de la tarjeta tendría análisis separados.
 
 Digamos que has configurado una Campaign para que se desencadene al inicio de sesión, y tiene la reelegibilidad establecida en 30 días. Un usuario recibió la Campaign hace dos días y quieres cambiar el texto. Primero, archivarías la Campaign y eliminarías las tarjetas del feed. Segundo, duplicarías la Campaign y la relanzarías con el nuevo texto. Si el usuario tiene otra sesión, recibirá inmediatamente la nueva tarjeta.
 

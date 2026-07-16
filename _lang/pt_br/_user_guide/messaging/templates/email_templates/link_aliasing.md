@@ -184,7 +184,7 @@ Para visualizar todos os links na sua Campaign de e-mail e seus respectivos cliq
 
 ### Evento de cliques de e-mail {#email-clicks-event}
 
-Se você exportar seus dados de engajamento com Currents, um evento de clique de e-mail será ligeiramente diferente se você tiver o alias de link ativado. Ele terá dois campos adicionais para o [evento de cliques de e-mail]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events) quando o alias de link estiver ativado: `link_id` e `link_alias`.
+Se você exportar seus dados de engajamento com Currents, um evento de clique de e-mail será ligeiramente diferente se você tiver o alias de link ativado. Ele terá dois campos adicionais para o [evento de cliques de e-mail]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-click-events) quando o alias de link estiver ativado: `link_id` e `link_alias`.
 
 ```json
 // Email Click: users.messages.email.Click

@@ -58,7 +58,7 @@ tool: Canvas
 
 アクションベースのキャンバスをトリガーするイベントからの[日時型]({{site.baseurl}}/user_guide/data/activation/events/custom_events/custom_event_properties)のタイムスタンプを使用し、[コンテキスト]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)を使用して参照する場合、タイムスタンプはUTCに正規化されます。
 
-この動作を考慮して、メッセージが[希望するタイムゾーン]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters#time-zone-filter)で送信されることを保証するために、以下の例のようなLiquidタイムゾーンフィルターを使用することを強くお勧めします。
+この動作を考慮して、メッセージが[希望するタイムゾーン]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/filters)で送信されることを保証するために、以下の例のようなLiquidタイムゾーンフィルターを使用することを強くお勧めします。
 
 {% raw %}
 ```liquid

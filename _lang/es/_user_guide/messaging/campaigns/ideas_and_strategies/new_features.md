@@ -65,10 +65,10 @@ Una vez que Braze reciba datos de la versión 2.0.0 de tu aplicación, puedes se
 
 | Filtro  | Versión de la aplicación del usuario  | Resultado |
 | :------------- | :----------- | :--------- |
-| Menor que 2.0.0 | 1.0.0 | El usuario está en el Segment, aunque su SDK de Braze no admitía el filtro "Número de versión de la aplicación". |
-| Mayor que 2.0.0 | 2.5.1 | El usuario y todas las instalaciones futuras estarán en el Segment. |
-| Mayor que 2.0.0 | 1.9.9 | El usuario no está en el Segment. |
-| Menor o igual que 2.0.0 | 3.0.1 | El usuario no está en el Segment. |
+| Menor que 2.0.0 | 1.0.0 | El usuario está en el segmento, aunque su SDK de Braze no admitía el filtro "Número de versión de la aplicación". |
+| Mayor que 2.0.0 | 2.5.1 | El usuario y todas las instalaciones futuras estarán en el segmento. |
+| Mayor que 2.0.0 | 1.9.9 | El usuario no está en el segmento. |
+| Menor o igual que 2.0.0 | 3.0.1 | El usuario no está en el segmento. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Caso de uso" }
 
 ### Nombre de versión de la aplicación {#app-version-name}
@@ -81,7 +81,7 @@ Para Android, este nombre de versión se basa en el [Package Version Name](https
 
 ### No han usado una característica {#have-not-used-feature}
 
-Cuando lanzas una nueva versión de la aplicación e introduces nuevas características, es posible que los usuarios no noten el nuevo contenido. Ejecutar una campaña de conocimiento de características es una excelente manera de enseñar a los usuarios sobre nuevas características o características que nunca han usado. Para hacerlo, debes crear un [atributo personalizado]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data) que se asigne a los usuarios que nunca han completado una determinada acción dentro de tu aplicación, o usar un [evento personalizado]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#custom-data) para rastrear una acción particular. Puedes usar este atributo (o evento) para segmentar a los usuarios a los que deseas enviar la Campaign.
+Cuando lanzas una nueva versión de la aplicación e introduces nuevas características, es posible que los usuarios no noten el nuevo contenido. Ejecutar una campaña de conocimiento de características es una excelente manera de enseñar a los usuarios sobre nuevas características o características que nunca han usado. Para hacerlo, debes crear un [atributo personalizado]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) que se asigne a los usuarios que nunca han completado una determinada acción dentro de tu aplicación, o usar un [evento personalizado]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters) para rastrear una acción particular. Puedes usar este atributo (o evento) para segmentar a los usuarios a los que deseas enviar la Campaign.
 
 {% alert tip %}
 ¿Buscas reorientar a una porción específica de tu audiencia? Consulta [Campaigns de reorientación]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns) para aprender cómo reorientar Campaigns aprovechando las acciones previas de tus usuarios.

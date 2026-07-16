@@ -597,7 +597,7 @@ Braze는 SDK 메서드를 사용하여 배너를 삽입할 때 보이는 배너�
 </button>
 ```
 
-전체 참조는 [배너를 위한 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code)를 참조하세요. `brazeBridge`는 배너의 내부 HTML과 상위 Braze SDK 간의 통신 계층을 제공합니다.
+전체 참조는 [배너를 위한 커스텀 코드 및 JavaScript 브리지]({{site.baseurl}}/user_guide/channels/banners/custom_code)를 참조하세요. `brazeBridge`는 배너의 내부 HTML과 상위 Braze SDK 간의 통신 계층을 제공합니다.
 
 ### 커스텀 UI 구현(헤드리스) {#custom-ui-implementations-headless}
 

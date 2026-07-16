@@ -4,7 +4,7 @@ nav_title: Filtros de segmentação
 article_title: Filtros de segmentação
 layout: glossary_page
 glossary_top_header: "Filtros de segmentação"
-glossary_top_text: "O SDK da Braze oferece um poderoso arsenal de filtros para segmentar e direcionar seus usuários com base em recursos e atributos específicos. Você pode pesquisar ou refinar esses filtros por categoria.<br><br>Para saber mais sobre os diferentes tipos de dados de atributos personalizados que você pode usar para segmentar usuários, consulte <a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">Tipos de dados de atributos personalizados</a>. Observe que os filtros de intervalo são limitados a 100 anos."
+glossary_top_text: "O SDK da Braze oferece um poderoso arsenal de filtros para segmentar e direcionar seus usuários com base em recursos e atributos específicos. Você pode pesquisar ou refinar esses filtros por categoria.<br><br>Para saber mais sobre os diferentes tipos de dados de atributos personalizados que você pode usar para segmentar usuários, consulte <a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">Tipos de dados de atributos personalizados</a>. Observe que os filtros de intervalo são limitados a 100 anos."
 
 page_type: glossary
 tool: Segments
@@ -313,7 +313,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
-    description: Segmenta seus usuários pelo <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states#push-subscription-state">status de inscrição</a> para push.
+    description: Segmenta seus usuários pelo <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states">status de inscrição</a> para push.
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
@@ -613,7 +613,7 @@ glossaries:
     tags:
       - Social activity
   - name: Phone Number
-    description: Segmenta seus usuários pelo campo de número de telefone no formato E.164.<br><br> Quando um número de telefone é enviado para a Braze, a Braze tenta convertê-lo para o <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">formato E.164</a> que é usado para enviar por canais SMS, RCS e WhatsApp. O processo de conversão pode falhar se o número não estiver formatado corretamente, o que resulta no perfil do usuário tendo um número de telefone não formatado, mas não um número de telefone de envio. Este filtro de segmento retorna usuários pelo número de telefone no formato E.164 (quando disponível).<br><br>Casos de uso:<br> - Use esse filtro para entender o tamanho mais preciso do público-alvo ao enviar mensagens SMS, RCS ou WhatsApp.<br>- Use expressões regulares (regex) com esse filtro para segmentar por números de telefone com um código de país específico. <br>- Use esse filtro para segmentar usuários por números de telefone que falharam no processo de conversão para E.164.
+    description: Segmenta seus usuários pelo campo de número de telefone no formato E.164.<br><br> Quando um número de telefone é enviado para a Braze, a Braze tenta convertê-lo para o <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers">formato E.164</a> que é usado para enviar por canais SMS, RCS e WhatsApp. O processo de conversão pode falhar se o número não estiver formatado corretamente, o que resulta no perfil do usuário tendo um número de telefone não formatado, mas não um número de telefone de envio. Este filtro de segmento retorna usuários pelo número de telefone no formato E.164 (quando disponível).<br><br>Casos de uso:<br> - Use esse filtro para entender o tamanho mais preciso do público-alvo ao enviar mensagens SMS, RCS ou WhatsApp.<br>- Use expressões regulares (regex) com esse filtro para segmentar por números de telefone com um código de país específico. <br>- Use esse filtro para segmentar usuários por números de telefone que falharam no processo de conversão para E.164.
     tags:
       - Other Filters
 ---

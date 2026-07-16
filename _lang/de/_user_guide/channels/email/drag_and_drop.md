@@ -90,7 +90,7 @@ Sie können eine Drag-and-Drop-E-Mail aus einer Campaign oder einem Canvas nicht
 
 Nachdem Sie ausgewählt haben, wo Sie Ihre Nachricht erstellen möchten, gehen wir die Schritte zum Erstellen einer Drag-and-Drop-E-Mail durch.
 
-### 1. Schritt: Template auswählen {#step-1-select-your-template}
+### Schritt 1: Template auswählen {#step-1-select-your-template}
 
 Nachdem Sie den Drag-and-Drop-Editor als Bearbeitungserfahrung ausgewählt haben, können Sie:
 
@@ -110,7 +110,7 @@ Wählen Sie dann **Edit Email Body**, um mit dem Entwerfen der E-Mail-Struktur i
 
 ![Der Abschnitt „Email Variants“ mit einem Beispiel-E-Mail-Body.]({% image_buster /assets/img/dnd/dnd_emailvariant.png %})
 
-### 2. Schritt: E-Mail erstellen {#step-2-build-your-email}
+### Schritt 2: E-Mail erstellen {#step-2-build-your-email}
 
 Die Drag-and-Drop-Bearbeitungserfahrung ist in drei Abschnitte unterteilt: **Sending Settings**, **Content** und **Preview & Test**. Die eigentliche Gestaltung Ihres E-Mail-Bodys findet im Abschnitt **Content** statt. Bevor Sie Ihre E-Mail erstellen, ist es wichtig, die Schlüsselkomponenten zu verstehen, die Ihre E-Mail-Erstellung leiten. Falls Sie eine Auffrischung benötigen, lesen Sie [Über den Editor](#about-the-editor).
 
@@ -133,7 +133,7 @@ Brauchen Sie Hilfe beim Verfassen überzeugender Texte? Probieren Sie den [KI-Te
 ![Button „Textassistent“ im Content-Panel neben den Stileinstellungen im Drag-and-Drop-Editor.]({% image_buster /assets/img/ai_copywriter/ai_copywriter_dnd.png %})
 {% endalert %}
 
-### 3. Schritt: Sendeinformationen hinzufügen {#step-3-add-your-sending-information}
+### Schritt 3: Sendeinformationen hinzufügen {#step-3-add-your-sending-information}
 
 Sobald Sie das Design und den Aufbau Ihrer E-Mail-Nachricht abgeschlossen haben, ist es an der Zeit, Ihre Sendeinformationen im Abschnitt **Sending Settings** hinzuzufügen.
 
@@ -164,7 +164,7 @@ Unter **Sending Settings** können Sie Personalisierung für E-Mail-Header und E
 Erweiterte Funktionen werden im Campaign- oder Canvas-Composer angezeigt. In den erweiterten Funktionen können Sie Ihre Inline-CSS-Einstellung ändern und Header- oder zusätzliche Schlüssel-Wert-Paare eingeben (falls konfiguriert).
 {% endalert %}
 
-### 4. Schritt: E-Mail testen {#step-4-test-your-email}
+### Schritt 4: E-Mail testen {#step-4-test-your-email}
 
 Nachdem Sie Ihre Sendeinformationen hinzugefügt haben, ist es an der Zeit, Ihre E-Mail zu testen.
 
@@ -272,7 +272,7 @@ Liquid-Personalisierung wird für Bildblöcke und Button-Link-Typ-Felder nicht u
 
 #### Dynamische Bilder {#dynamic-images}
 
-Sie können dynamische Bilder in Ihre E-Mail-Nachrichten einbinden, indem Sie [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content) oder [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in Ihrem Bildquellattribut verwenden. Anstelle eines statischen Bildes können Sie beispielsweise {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} als Bild-URL einfügen, um den Vornamen einer Person im Bild einzubinden. Dies hilft, Ihre E-Mails für jede:n Nutzer:in zu personalisieren.
+Sie können dynamische Bilder in Ihre E-Mail-Nachrichten einbinden, indem Sie [Connected-Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) oder [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) in Ihrem Bildquellattribut verwenden. Anstelle eines statischen Bildes können Sie beispielsweise {% raw %} `https://example.com/images/?imageBanner={{first_name}}` {% endraw %} als Bild-URL einfügen, um den Vornamen einer Person im Bild einzubinden. Dies hilft, Ihre E-Mails für jede:n Nutzer:in zu personalisieren.
 
 {% alert important %}
 Ihre Bild-URL muss mit `https://` beginnen. Die Verwendung von `http://` führt zum Absturz Ihrer App.

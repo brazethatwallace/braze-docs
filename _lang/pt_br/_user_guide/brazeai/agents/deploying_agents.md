@@ -26,13 +26,13 @@ Você seleciona o tipo de agente no **Agent Console** ao criar o agente. Para as
 
 Priorize casos de uso de alto valor em que os agentes possam gerar o maior retorno sobre o investimento (ROI) e escolha públicos com maior probabilidade de resposta. Um público menor e com alta oportunidade frequentemente supera um público grande com baixa oportunidade.
 
-Para agentes de Canvas, comece com usuários que apresentam sinais fortes — como buscas recentes, alto engajamento ou dados de perfil ricos — antes de expandir para segmentos mais amplos. Para agentes de catálogo, priorize linhas em que as colunas de entrada necessárias já estejam preenchidas, para que cada invocação tenha contexto suficiente para produzir uma saída útil.
+Para agentes de etapa do Canvas, comece com usuários que apresentam sinais fortes — como buscas recentes, alto engajamento ou dados de perfil ricos — antes de expandir para segmentos mais amplos. Para agentes de catálogo, priorize linhas em que as colunas de entrada necessárias já estejam preenchidas, para que cada invocação tenha contexto suficiente para produzir uma saída útil.
 
 Para testar o ROI em pequena escala antes de expandir um agente amplamente, use uma etapa de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que apenas parte do seu público entre na ramificação que contém a etapa de agente.
 
 ## Usar agentes de etapa do Canvas {#use-canvas-step-agents}
 
-Depois de criar um agente de Canvas, adicione-o a um Canvas como uma etapa de agente para personalizar mensagens ou guiar decisões em tempo real.
+Depois de criar um agente de etapa do Canvas, adicione-o a um Canvas como uma etapa de agente para personalizar mensagens ou guiar decisões em tempo real.
 
 ### Como funciona {#how-it-works}
 
@@ -76,7 +76,7 @@ Para exemplos, consulte [Como funciona]({{site.baseurl}}/user_guide/messaging/ca
 
 ### Tratamento de erros e comportamento de fallback {#fallback-behavior}
 
-O seguinte se aplica a **agentes de etapa do Canvas** em uma [Etapa de agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
+O seguinte se aplica a agentes de etapa do Canvas em uma [Etapa de agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step).
 
 - Se o modelo conectado retornar um [erro de limite de frequência]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) do provedor de LLM, a Braze tenta novamente a solicitação continuamente usando backoff exponencial até que a chamada seja bem-sucedida ou a Braze determine que não pode ser concluída; os usuários então prosseguem para a próxima etapa do Canvas.
 - Para outras falhas (como timeout ou chave de API inválida), a variável de saída é definida como `null`, a menos que o agente tenha [valores de fallback configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) no Agent Console.

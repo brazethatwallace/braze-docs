@@ -67,7 +67,7 @@ Puede haber situaciones de segmentación de usuarios en las que se debe evitar e
 
 ![Grupo de filtros para usuarios en el segmento "foodies" y que no están en los segmentos "non-foodies" o "candy-lovers".]({% image_buster /assets/img_archive/or_operator_segment.png %})
 
-Sin embargo, si tu objetivo es segmentar usuarios que pertenecen al segmento "Foodies" y no están en ninguno de los segmentos "Non-foodies" y "Candy-lovers", entonces usa el operador `AND`. De esta manera, los usuarios que reciban la Campaign o Canvas están en el segmento previsto ("foodies") y no en los otros segmentos ("Non-foodies" y "Candy-lovers") al mismo tiempo.
+Sin embargo, si tu objetivo es segmentar usuarios que pertenecen al segmento "Foodies" y no están en ninguno de los segmentos "Non-foodies" y "Candy-lovers", entonces usa el operador `AND`. De esta manera, los usuarios que reciban la campaña o Canvas están en el segmento previsto ("foodies") y no en los otros segmentos ("Non-foodies" y "Candy-lovers") al mismo tiempo.
 
 Los siguientes criterios de segmentación negativa no deben usarse con el operador `OR` cuando dos o más filtros hacen referencia al mismo atributo:
 
@@ -82,7 +82,7 @@ Si `not included`, `is not`, `does not equal` o `does not match regex` se usan c
 
 ### Operadores de filtro {#filter-operators}
 
-Dependiendo del filtro específico que selecciones, tendrás diferentes operadores para identificar los valores del filtro. Para profundizar en los operadores disponibles para diferentes tipos de atributos personalizados, consulta [Almacenamiento de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes). Ten en cuenta que al usar el operador "is any of", el número máximo de elementos que puedes incluir en ese campo es 256.
+Dependiendo del filtro específico que selecciones, tendrás diferentes operadores para identificar los valores del filtro. Para profundizar en los operadores disponibles para diferentes tipos de atributos personalizados, consulta [Almacenamiento de atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes). Ten en cuenta que al usar el operador "is any of", el número máximo de elementos que puedes incluir en ese campo es 256.
 
 {% alert note %}
 Braze no genera perfiles para los usuarios hasta que hayan usado la aplicación por primera vez, por lo que no puedes dirigirte a usuarios que aún no han abierto tu aplicación.
@@ -131,7 +131,7 @@ Después de añadir aplicaciones y filtros a tu segmento, puedes probar si tu se
 La búsqueda de usuario está disponible cuando:
 - Creas un segmento
 - Configuras una audiencia de Campaign o Canvas
-- Configuras un paso de Rutas de audiencia
+- Configuras un paso de ruta de audiencia
 
 Cuando un usuario coincide con los criterios del segmento, filtro y aplicación, una alerta lo indicará.
 
@@ -162,9 +162,9 @@ Para aprender sobre cómo monitorizar la pertenencia y el tamaño de tu segmento
 Si ya no necesitas o deseas retirar un segmento específico, puedes archivarlo yendo a la página **Segments** y seleccionando **Archivar** en el menú de la fila de ese segmento.
 
 {% alert warning %}
-Cuando archivas un segmento, cualquier Campaign o Canvas que lo use (incluso si el segmento solo se usa en un único componente de Canvas) también se archivará. Esto también incluye segmentos anidados donde tanto los segmentos como cualquier Campaign o Canvas que los use también se archivarán.
+Cuando archivas un segmento, cualquier campaña o Canvas que lo use (incluso si el segmento solo se usa en un único componente de Canvas) también se archivará. Esto también incluye segmentos anidados donde tanto los segmentos como cualquier campaña o Canvas que los use también se archivarán.
 <br><br>
-Recibirás una advertencia que enumera qué Campaigns y Canvas están a punto de ser archivados al archivar el segmento asociado.
+Recibirás una advertencia que enumera qué campañas y Canvas están a punto de ser archivados al archivar el segmento asociado.
 {% endalert %}
 
 Puedes desarchivar el segmento navegando hasta él dentro de la página **Segments** y seleccionando **Desarchivar**.
@@ -186,4 +186,4 @@ Puedes especificar que solo se envíe una notificación push a cada usuario. Al 
 - **Los mensajes enviados pueden superar el tamaño de la audiencia.** Cuando algunos usuarios tienen más de un dispositivo, cada dispositivo puede recibir un mensaje. Esto causa un número mayor de envíos de mensajes que de usuarios en tu segmento.
 - **La pertenencia de un usuario al segmento puede no verse como esperarías.**
     - Un usuario puede ser segmentado en su dispositivo actual basándose en atributos asociados con un dispositivo diferente. Si no esperabas que un usuario recibiera un mensaje, verifica su perfil de usuario para múltiples dispositivos.
-    - Un usuario puede haber estado en tu segmento objetivo en el momento del envío, pero debido a comportamientos asociados con cualquiera de sus dispositivos, puede que ya no forme parte de ese segmento después. Esto puede resultar en que un usuario reciba una Campaign o Canvas aunque actualmente no cumpla los criterios del filtro. <br><br>Por ejemplo, un usuario podría recibir un mensaje dirigido a usuarios con la versión de aplicación más reciente de OS 10.0 aunque actualmente tenga OS 13.0. En este caso, el usuario tenía OS 10.0 cuando se envió el mensaje y luego actualizó a OS 13.0 después.<br><br> De manera similar, si un usuario usa posteriormente un dispositivo con una versión de aplicación diferente, su perfil de usuario se actualizará con una nueva versión de aplicación más reciente. Esto podría hacer parecer que el usuario no debería haber calificado para el mensaje, aunque calificó cuando se envió.
+    - Un usuario puede haber estado en tu segmento objetivo en el momento del envío, pero debido a comportamientos asociados con cualquiera de sus dispositivos, puede que ya no forme parte de ese segmento después. Esto puede resultar en que un usuario reciba una campaña o Canvas aunque actualmente no cumpla los criterios del filtro. <br><br>Por ejemplo, un usuario podría recibir un mensaje dirigido a usuarios con la versión de aplicación más reciente de OS 10.0 aunque actualmente tenga OS 13.0. En este caso, el usuario tenía OS 10.0 cuando se envió el mensaje y luego actualizó a OS 13.0 después.<br><br> De manera similar, si un usuario usa posteriormente un dispositivo con una versión de aplicación diferente, su perfil de usuario se actualizará con una nueva versión de aplicación más reciente. Esto podría hacer parecer que el usuario no debería haber calificado para el mensaje, aunque calificó cuando se envió.

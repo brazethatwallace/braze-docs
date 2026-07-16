@@ -72,8 +72,8 @@ Beispiele dafür, wie Sie Liquid zum Abrufen von Kataloginformationen verwenden 
 
 Der Datenspeicher für Kataloge ist durch die Größe der Katalogartikel begrenzt, die sich von der Größe der hochgeladenen CSV-Dateien unterscheiden kann.
 
-Bei der kostenlosen Version der Kataloge sind bis zu 100&nbsp;MB Speicherplatz zulässig. Sie können unbegrenzt viele Artikel anlegen, solange der Speicherplatz 100&nbsp;MB nicht überschreitet.
+Bei der kostenlosen Version der Kataloge sind bis zu 500&nbsp;MB Speicherplatz zulässig. Sie können unbegrenzt viele Artikel anlegen, solange der Speicherplatz 500&nbsp;MB nicht überschreitet.
 
-Für Catalogs Pro stehen folgende Speichergrößen zur Verfügung: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB oder 50&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (100&nbsp;MB) in jedem dieser Tarife enthalten ist.
+Für Catalogs Pro stehen folgende Speichergrößen zur Verfügung: 5&nbsp;GB, 10&nbsp;GB, 15&nbsp;GB oder 50&nbsp;GB. Beachten Sie, dass der Speicherplatz der kostenlosen Version (500&nbsp;MB) in jedem dieser Tarife enthalten ist.
 
 Wenn Sie Ihren Katalogspeicher upgraden möchten, kontaktieren Sie Ihren Braze Account Manager. Einzelheiten zu den Tarifen und Berechtigungshinweise finden Sie unter [Katalogspeicher]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers).

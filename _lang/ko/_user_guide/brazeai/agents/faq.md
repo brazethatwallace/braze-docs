@@ -12,9 +12,9 @@ toc_headers: h2
 
 ## 일반 {#general}
 
-### Canvas 에이전트와 카탈로그 에이전트의 차이점은 무엇인가요? {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
+### 캔버스 단계 에이전트와 카탈로그 에이전트의 차이점은 무엇인가요? {#what-is-the-difference-between-canvas-step-agents-and-catalog-agents}
 
-에이전트를 생성할 때 Canvas 에이전트를 만들지 카탈로그 에이전트를 만들지 지정합니다. 이에 따라 에이전트가 지원할 수 있는 지침과 옵션의 유형이 결정됩니다. Canvas 에이전트는 여정 내에서 사용자를 실시간으로 처리하고, 카탈로그 에이전트는 처리된 정보로 열을 추가하거나 업데이트하여 카탈로그 데이터를 보강합니다.
+에이전트를 생성할 때 캔버스 단계 에이전트를 만들지 카탈로그 에이전트를 만들지 지정합니다. 이에 따라 에이전트가 지원할 수 있는 지침과 옵션의 유형이 결정됩니다. 캔버스 단계 에이전트는 여정 내에서 사용자를 실시간으로 처리하고, 카탈로그 에이전트는 처리된 정보로 열을 추가하거나 업데이트하여 카탈로그 데이터를 보강합니다.
 
 ### Auto 모델과 BYO(Bring-Your-Own) 모델을 사용하는 것의 이점은 무엇인가요? {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 
@@ -68,7 +68,7 @@ Braze Auto 모델을 사용하면 다음과 같은 이점이 있습니다:
 - 에이전트 지침이 **출력** 탭에 지정된 것과 다른 출력 형식을 요청하는 경우(예: 에이전트 지침에서는 문자열을 요청하지만 **출력** 탭에서는 출력이 숫자로 정의된 경우)
 - 에이전트의 작업이 너무 복잡하여 [하위 에이전트 접근 방식](#subagent-approach)이 더 적합한 경우
 
-Canvas 에이전트의 경우, 호출이 실패했을 때 사용자가 여전히 출력을 받을 수 있도록 에이전트 콘솔에서 [대체 값]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)을 구성하세요.
+캔버스 단계 에이전트의 경우, 호출이 실패했을 때 사용자가 여전히 출력을 받을 수 있도록 에이전트 콘솔에서 [대체 값]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values)을 구성하세요.
 
 ### 에이전트가 테스트에서는 잘 작동했는데 Canvas에서 실행하면 사용자별 데이터를 받지 못하는 이유는 무엇인가요? {#why-did-my-agent-do-fine-in-testing-but-isnt-getting-any-user-specific-data-when-i-launch-it-in-a-canvas}
 

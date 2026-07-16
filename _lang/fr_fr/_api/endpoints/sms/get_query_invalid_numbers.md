@@ -19,7 +19,7 @@ description: "Cet article présente en détail l'endpoint Braze Extraire les num
 
 ## Conditions préalables {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `sms.invalid_phone_numbers`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `sms.invalid_phone_numbers`.
 
 ## Limite de débit {#rate-limit}
 

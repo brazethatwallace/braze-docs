@@ -77,7 +77,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 |`trigger_properties`| Optional | Object | See [trigger properties]({{site.baseurl}}/api/objects_filters/trigger_properties_object). Personalization key-value pairs apply to all users in this request. |
 |`broadcast`| Optional | Boolean | You must set `broadcast` to true when sending a message to the entire segment configured as the campaign's target audience in the Braze dashboard. This parameter defaults to false (as of August 31, 2017). <br><br> If `broadcast` is set to true, a `recipients` list cannot be included. However, use caution when setting `broadcast: true`, as unintentionally setting this flag may cause you to send your message to a larger-than-expected audience. |
 |`audience`| Optional | Connected audience object| See [connected audience]({{site.baseurl}}/api/objects_filters/connected_audience). When you include `audience`, the message is sent only to users who match the defined filters, such as custom attributes and subscription statuses. |
-|`recipients`| Optional | Array | See [recipients object]({{site.baseurl}}/api/objects_filters/recipient_object).<br><br>If `send_to_existing_only` is `false`, an `attributes` object must be included.<br><br>You can update a user's subscription group status by including `subscription_groups` in the nested `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>If `recipients` is not provided and `broadcast` is set to true, the message is sent to the entire segment configured as the campaign's target audience in the Braze dashboard.<br><br>If `email` is the identifier, you must include [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email) in the recipients object. |
+|`recipients`| Optional | Array | See [recipients object]({{site.baseurl}}/api/objects_filters/recipient_object).<br><br>If `send_to_existing_only` is `false`, an `attributes` object must be included.<br><br>You can update a user's subscription group status by including `subscription_groups` in the nested `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object).<br><br>If `recipients` is not provided and `broadcast` is set to true, the message is sent to the entire segment configured as the campaign's target audience in the Braze dashboard.<br><br>If `email` is the identifier, you must include [`prioritization`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers) in the recipients object. |
 |`attachments`| Optional | Array | If `broadcast` is set to true, then the `attachments` list cannot be included. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
@@ -85,7 +85,7 @@ Authorization: Bearer YOUR-REST-API-KEY
 
 This section discusses how Braze picks a user profile for sending and what happens when one profile is not selected.
 
-A user's subscription group status can be updated using the inclusion of a `subscription_groups` parameter within the `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+A user's subscription group status can be updated using the inclusion of a `subscription_groups` parameter within the `attributes` object. For more details, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 #### Recipient limits and profile creation
 
@@ -212,7 +212,7 @@ If your request encounters a fatal error, refer to [Errors and responses]({{site
 Braze has a messaging object called `attributes` that lets you add, create, or update attributes and values for a user before you send them an API-triggered campaign. Using the `campaign/trigger/send` endpoint as this API call processes the user attributes object before it processes and sends the campaign. This helps minimize the risk of there being issues caused by [race conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
 
 {% alert tip %}
-Looking for the Canvas version of this endpoint? Check out [Sending Canvas messages using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#create-send-endpoint).
+Looking for the Canvas version of this endpoint? Check out [Sending Canvas messages using API-triggered delivery]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#send-canvas-messages-using-api-triggered-delivery).
 {% endalert %}
 
 ### Why doesn't Liquid render when I put it directly in my JSON body?

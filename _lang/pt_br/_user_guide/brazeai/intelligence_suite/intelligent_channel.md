@@ -14,16 +14,16 @@ search_rank: 11
 
 ![O filtro Intelligent Channel com um menu suspenso para os diferentes canais que podem ser selecionados.]({% image_buster /assets/img/intelligent_channel_filter.png %}){: style="float:right;max-width:40%;margin-left:10px;margin-top:10px;border:0"}
 
-Neste caso, "melhor" significa que o canal tem a maior probabilidade de engajamento, dado o histórico do usuário. Você pode selecionar e-mail, SMS, WhatsApp, push para a web ou mobile push (incluindo qualquer sistema operacional ou dispositivo móvel disponível) como canal.
+Neste caso, "melhor" significa que o canal tem a maior probabilidade de engajamento, dado o histórico do usuário. Você pode selecionar e-mail, SMS, WhatsApp, web push ou mobile push (incluindo qualquer sistema operacional ou dispositivo móvel disponível) como canal.
 
 O Canal Inteligente calcula a taxa de engajamento para cada usuário em cada um dos canais disponíveis, levando em conta a razão entre interações com mensagens (aberturas ou cliques) e o número de mensagens recebidas nos últimos seis meses de atividade. Os canais disponíveis são classificados de acordo com suas respectivas taxas de engajamento, e o canal com a maior taxa é o "Mais engajado" para esse usuário.
 
 Toda vez que uma mensagem é enviada a um usuário, ou que um usuário interage com uma mensagem, a taxa de engajamento é recalculada em segundos. Um usuário só pode ser contado como tendo interagido com uma mensagem uma vez (por exemplo, uma abertura e um clique no mesmo e-mail farão com que essa mensagem seja marcada como tendo sido engajada apenas uma vez, não duas).
 
-Para ativar o filtro Canal Inteligente, selecione o filtro **Intelligent Channel** na página **Público-alvo** ao criar uma Campaign de e-mail, push para a web ou mobile push.
+Para ativar o filtro Canal Inteligente, selecione o filtro **Intelligent Channel** na página **Público-alvo** ao criar uma Campaign de e-mail, web push ou mobile push.
 
 {% alert important %}
-Para calcular a taxa de engajamento do canal de SMS, ative o [encurtamento de links de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening#overview) com rastreamento avançado e rastreamento de cliques. Sem esse rastreamento, o SMS pode ser selecionado como o Canal Inteligente com uma taxa de engajamento de 0% devido ao nosso [comportamento de desempate]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
+Para calcular a taxa de engajamento do canal de SMS, ative o [encurtamento de links de SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening) com rastreamento avançado e rastreamento de cliques. Sem esse rastreamento, o SMS pode ser selecionado como o Canal Inteligente com uma taxa de engajamento de 0% devido ao nosso [comportamento de desempate]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_channel#tie-breaking).
 {% endalert %}
 
 ## A opção "Dados insuficientes" {#the-not-enough-data-option}
@@ -42,9 +42,9 @@ Campaigns e etapas do Canvas que ignoram o [limite de frequência]({{site.baseur
 
 ## A opção "Mobile push" {#the-mobile-push-option}
 
-O mobile push incorpora Android, iOS, Kindle e outros canais de dispositivos móveis disponíveis na Braze. Ao calcular o Canal Inteligente, a Braze analisa cada tipo de dispositivo móvel separadamente e, em seguida, escolhe a taxa de engajamento mais alta entre eles para representar a categoria "Mobile Push" na comparação com e-mail e push para a web.
+O mobile push incorpora Android, iOS, Kindle e outros canais de dispositivos móveis disponíveis na Braze. Ao calcular o Canal Inteligente, a Braze analisa cada tipo de dispositivo móvel separadamente e, em seguida, escolhe a taxa de engajamento mais alta entre eles para representar a categoria "Mobile Push" na comparação com e-mail e web push.
 
-Por exemplo, se um usuário tiver vários dispositivos móveis, sua taxa de engajamento móvel será representada pela taxa mais alta exibida entre os dispositivos. Isso, no entanto, não forçaria o usuário a receber notificações por push exclusivamente nesse dispositivo. Essa taxa é usada somente na comparação de taxas com e-mail e push para a web.
+Por exemplo, se um usuário tiver vários dispositivos móveis, sua taxa de engajamento móvel será representada pela taxa mais alta exibida entre os dispositivos. Isso, no entanto, não forçaria o usuário a receber notificações por push exclusivamente nesse dispositivo. Essa taxa é usada somente na comparação de taxas com e-mail e web push.
 
 ## Filtro de probabilidade de abertura de mensagem para canais individuais {#individual-channels}
 

@@ -91,7 +91,7 @@ Content Card를 만든 후 앱에 테스트 Content Card를 보내 실시간으�
 
 - 테스트 사용자가 유효한 푸시 토큰으로 푸시에 옵트인되어 있나요?
 - 이미지와 미디어가 예상대로 표시되고 작동하나요?
-- Liquid이 예상대로 작동하나요? Liquid이 정보를 반환하지 않는 경우를 대비하여 [기본 속성 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values)을 설정했나요?
+- Liquid이 예상대로 작동하나요? Liquid이 정보를 반환하지 않는 경우를 대비하여 [기본 속성 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values)을 설정했나요?
 - 문구가 명확하고 간결하며 정확한가요?
 - 링크가 사용자를 올바른 위치로 안내하나요?
 - 테스트 사용자가 유효한 푸시 토큰으로 푸시에 옵트인되어 있나요?
@@ -197,7 +197,7 @@ Braze에는 세 세대의 인앱 메시지가 있습니다. 지원하는 세대�
 ### 테스트 체크리스트
 
 - 이미지와 미디어가 예상대로 표시되고 작동하나요?
-- Liquid이 예상대로 작동하나요? Liquid이 정보를 반환하지 않는 경우를 대비하여 [기본 속성 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values)을 설정했나요?
+- Liquid이 예상대로 작동하나요? Liquid이 정보를 반환하지 않는 경우를 대비하여 [기본 속성 값]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values)을 설정했나요?
 - 문구가 명확하고 간결하며 정확한가요?
 - 버튼이 사용자를 올바른 위치로 안내하나요?
 
@@ -382,7 +382,7 @@ Liquid을 사용하여 값을 수동으로 입력하여 커스텀 이벤트 속�
 
 ## 제한 사항 {#limitations}
 
-테스트 메시지가 실제 사용자에게 전송되는 캠페인 또는 Canvas와 동일하게 작동하지 않는 몇 가지 상황이 있습니다. 이러한 경우 이 동작을 검증하기 위해 제한된 테스트 사용자 세트에 캠페인 또는 Canvas를 시작하는 것을 고려하세요.
+테스트 메시지가 실제 사용자에게 전송되는 캠페인 또는 Canvases와 동일하게 작동하지 않는 몇 가지 상황이 있습니다. 이러한 경우 이 동작을 검증하기 위해 제한된 테스트 사용자 세트에 캠페인 또는 Canvas를 시작하는 것을 고려하세요.
 
 - 테스트 메시지에서 Braze 환경설정 센터를 보면 **환경설정 저장** 버튼이 회색으로 비활성화됩니다.
 - 인앱 메시지 및 Content Cards 테스트의 경우 타겟 사용자는 타겟 기기에 대한 푸시 토큰이 있어야 합니다.

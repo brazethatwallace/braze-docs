@@ -20,7 +20,7 @@ description: "Este artigo descreve o endpoint da Braze para exportar análise de
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `canvas.data_summary`.
+Para usar este endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `canvas.data_summary`.
 
 ## Limite de frequência {#rate-limit}
 

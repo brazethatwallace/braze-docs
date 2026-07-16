@@ -86,7 +86,7 @@ Un bucle de retroalimentación de correo electrónico (FBL) permite a los remite
 
 ### ¿Qué son los píxeles de seguimiento de apertura? {#what-are-open-tracking-pixels}
 
-Los [píxeles de seguimiento de apertura]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel) utilizan el dominio de seguimiento de clics del remitente para rastrear los eventos de apertura de correo electrónico. El píxel es una etiqueta de imagen que se añade al HTML del correo electrónico. Generalmente es el último elemento HTML dentro de la etiqueta body. Cuando un usuario carga su correo electrónico, se realiza una solicitud para cargar la imagen desde el dominio de seguimiento de marca, lo que registra un evento de apertura.
+Los [píxeles de seguimiento de apertura]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) utilizan el dominio de seguimiento de clics del remitente para rastrear los eventos de apertura de correo electrónico. El píxel es una etiqueta de imagen que se añade al HTML del correo electrónico. Generalmente es el último elemento HTML dentro de la etiqueta body. Cuando un usuario carga su correo electrónico, se realiza una solicitud para cargar la imagen desde el dominio de seguimiento de marca, lo que registra un evento de apertura.
 
 ### ¿Qué ocurre cuando se detiene una Campaign de correo electrónico o un Canvas? {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
 
@@ -133,11 +133,11 @@ El seguimiento de aperturas depende de que el destinatario cargue el correo elec
 
 Algunas herramientas de seguridad de correo electrónico corporativo (como Barracuda, Proofpoint y servicios similares) escanean los correos electrónicos entrantes haciendo clic automáticamente en todos los enlaces del mensaje para verificar que son seguros. Esto puede resultar en eventos de clic que aparecen segundos después del envío, a menudo con todos los enlaces del correo electrónico clicados en rápida sucesión.
 
-Este comportamiento es más común con dominios de correo electrónico institucionales (como escuelas secundarias, universidades y entornos corporativos) y es más probable cuando tu dominio de envío difiere significativamente de tu dominio de seguimiento. Configurar un [dominio de seguimiento de marca personalizado]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#custom-email-tracking-domain) puede reducir la frecuencia de estos clics automatizados.
+Este comportamiento es más común con dominios de correo electrónico institucionales (como escuelas secundarias, universidades y entornos corporativos) y es más probable cuando tu dominio de envío difiere significativamente de tu dominio de seguimiento. Configurar un [dominio de seguimiento de marca personalizado]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) puede reducir la frecuencia de estos clics automatizados.
 
 **Cómo identificarlo:** Busca la dirección IP del evento de clic (disponible en los datos de Currents) en un motor de búsqueda. Si la IP está asociada con un proveedor de seguridad conocido (como Barracuda Networks), es probable que los clics sean automatizados. También puedes ver un encabezado `User-Agent` consistente en múltiples clics automatizados.
 
-Para más contexto sobre cómo el escaneo de seguridad afecta las métricas de correo electrónico, consulta [Gestión de aumentos en las tasas de clics]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+Para más contexto sobre cómo el escaneo de seguridad afecta las métricas de correo electrónico, consulta [Gestión de aumentos en las tasas de clics]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### ¿Cuáles son los riesgos potenciales de desencadenar clics del servidor? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
@@ -181,7 +181,7 @@ Para mitigar esto:
 - **Usa un centro de preferencias:** En lugar de un enlace directo de cancelación de suscripción, usa un [centro de preferencias]({{site.baseurl}}/user_guide/channels/email/subscriptions) que requiera la interacción del usuario para confirmar la acción de cancelación de suscripción. Los escáneres de seguridad normalmente no completan formularios de varios pasos.
 - **Revisa los registros de cancelación de suscripción:** Verifica el encabezado `User-Agent` y la dirección IP en los datos de eventos de cancelación de suscripción de Currents para identificar patrones consistentes con el escaneo automatizado (como encabezados `User-Agent` consistentes en múltiples cancelaciones de suscripción).
 
-Para más detalles sobre cómo el escaneo del lado del servidor puede afectar las métricas de correo electrónico, consulta [Gestión de aumentos en las tasas de clics]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+Para más detalles sobre cómo el escaneo del lado del servidor puede afectar las métricas de correo electrónico, consulta [Gestión de aumentos en las tasas de clics]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### ¿Por qué mi tasa de aperturas por máquina ha cambiado inesperadamente? {#why-has-my-machine-open-rate-changed-unexpectedly}
 

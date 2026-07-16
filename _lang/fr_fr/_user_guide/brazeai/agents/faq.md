@@ -12,9 +12,9 @@ toc_headers: h2
 
 ## Général {#general}
 
-### Quelle est la différence entre les agents Canvas et les agents de catalogue ? {#what-is-the-difference-between-canvas-agents-and-catalog-agents}
+### Quelle est la différence entre les agents d'étape Canvas et les agents de catalogue ? {#what-is-the-difference-between-canvas-step-agents-and-catalog-agents}
 
-Lorsque vous créez un agent, vous indiquez si vous souhaitez créer un agent Canvas ou un agent de catalogue. Ce choix détermine les types d'instructions et d'options que l'agent peut prendre en charge. Les agents Canvas traitent les utilisateurs en temps réel au sein des parcours, tandis que les agents de catalogue enrichissent les données du catalogue en ajoutant ou en mettant à jour des colonnes avec des informations traitées.
+Lorsque vous créez un agent, vous indiquez si vous souhaitez créer un agent d'étape Canvas ou un agent de catalogue. Ce choix détermine les types d'instructions et d'options que l'agent peut prendre en charge. Les agents d'étape Canvas traitent les utilisateurs en temps réel au sein des parcours, tandis que les agents de catalogue enrichissent les données du catalogue en ajoutant ou en mettant à jour des colonnes avec des informations traitées.
 
 ### Quels sont les avantages du modèle Auto par rapport au modèle BYO (bring-your-own) ? {#what-are-the-benefits-of-using-auto-model-versus-bring-your-own-byo-model}
 
@@ -68,7 +68,7 @@ Un agent personnalisé peut expirer si :
 - Les instructions de l'agent demandent un format de sortie différent de celui spécifié dans l'onglet **Sortie** (par exemple, si les instructions demandent une chaîne de caractères, mais que dans l'onglet **Sortie**, la sortie est définie comme un nombre)
 - La tâche de l'agent est trop complexe et gagnerait à adopter une [approche par sous-agents](#subagent-approach)
 
-Pour les agents Canvas, configurez des [valeurs de repli]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) dans la Console des agents afin que les utilisateurs reçoivent tout de même une sortie lorsqu'une invocation échoue.
+Pour les agents d'étape Canvas, configurez des [valeurs de repli]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) dans la Console des agents afin que les utilisateurs reçoivent tout de même une sortie lorsqu'une invocation échoue.
 
 ### Pourquoi mon agent fonctionnait-il bien en test mais ne reçoit-il aucune donnée utilisateur spécifique lorsque je le lance dans un Canvas ? {#why-did-my-agent-do-fine-in-testing-but-isnt-getting-any-user-specific-data-when-i-launch-it-in-a-canvas}
 

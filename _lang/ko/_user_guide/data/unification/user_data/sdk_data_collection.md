@@ -102,7 +102,7 @@ Braze SDK는 IP 주소를 로컬에 저장하지 않습니다.
 
 ## 개인화된 통합 {#personalized-integration}
 
-Braze를 최대한 활용하기 위해 SDK 통합자는 종종 Braze SDK를 구현하고 자동으로 수집된 데이터 외에 비즈니스와 관련된 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#setting-custom-attributes), [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events) 및 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#logging-purchase-events)를 기록합니다.
+Braze를 최대한 활용하기 위해 SDK 통합자는 종종 Braze SDK를 구현하고 자동으로 수집된 데이터 외에 비즈니스와 관련된 [커스텀 속성]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#set-custom-attributes), [커스텀 이벤트]({{site.baseurl}}/user_guide/data/activation/events/custom_events#logging-custom-events) 및 [구매 이벤트]({{site.baseurl}}/user_guide/data/activation/events/purchase_events#log-purchase-events)를 기록합니다.
 
 개인화된 통합은 사용자 경험과 관련된 맞춤형 커뮤니케이션을 가능하게 합니다.
 

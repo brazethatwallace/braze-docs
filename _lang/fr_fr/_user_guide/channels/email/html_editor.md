@@ -44,7 +44,7 @@ Si tous les messages de votre campagne sont similaires ou ont le même contenu, 
 
 1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur de Canvas.
 2. Après avoir configuré votre Canvas, ajoutez une étape dans le générateur de Canvas. Donnez à votre étape un nom clair et significatif.
-3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) et spécifiez un délai si nécessaire.
+3. Choisissez une [planification d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) et spécifiez un délai si nécessaire.
 4. Filtrez votre audience pour cette étape, si nécessaire. Vous pouvez affiner davantage les destinataires de cette étape en spécifiant des segments et en ajoutant des filtres supplémentaires. Les options d'audience seront vérifiées après le délai, au moment de l'envoi des messages.
 5. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Choisissez tout autre canal de communication que vous souhaitez associer à votre message.
@@ -63,7 +63,7 @@ Braze propose deux expériences d'édition lors de la création d'une campagne e
 
 ![Choix entre l'éditeur par glisser-déposer, l'éditeur HTML ou les modèles pour votre expérience d'édition d'e-mail.]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-Ensuite, vous pouvez soit sélectionner un [modèle d'e-mail]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template) existant, [importer un modèle]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) depuis un fichier (éditeur HTML uniquement), soit utiliser un modèle vierge.
+Ensuite, vous pouvez soit sélectionner un [modèle d'e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template) existant, [importer un modèle]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template) depuis un fichier (éditeur HTML uniquement), soit utiliser un modèle vierge.
 
 Si vous utilisez l'éditeur HTML et que vous souhaitez que les couleurs d'arrière-plan restent cohérentes dans l'application mobile Gmail lorsque l'appareil est en mode sombre, consultez [Application mobile Gmail et couleurs d'arrière-plan en mode sombre](#gmail-dark-mode).
 
@@ -111,7 +111,7 @@ Par exemple, pour conserver un arrière-plan blanc sur une cellule, utilisez cec
 Remplacez `#ffffff` par la couleur souhaitée.
 
 {% alert note %}
-Cette approche ne s'applique pas de manière fiable aux éléments `<table>` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
+Cette approche ne s'applique pas de manière fiable aux éléments `<table aria-label="Gmail mobile app and dark mode #gmail-dark-mode">` seuls, définissez donc le dégradé sur la cellule plutôt que sur le tableau uniquement.
   <caption>Application mobile Gmail et mode sombre</caption>
 {% endalert %}
 
@@ -275,7 +275,7 @@ Distribuez les e-mails en fonction d'un horaire planifié, d'une action ou d'un 
 Pour les campagnes déclenchées par API, lorsque l'action de déclenchement est définie sur **Interact With Campaign**, la sélection d'une option **Receive** comme interaction entraînera le déclenchement de votre nouvelle campagne dès que Braze marquera la campagne sélectionnée comme envoyée, même si ce message rebondit ou n'est pas distribué.
 {% endalert %}
 
-Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
+Vous pouvez également définir la durée de la campagne, spécifier les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) et définir des règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 ### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
@@ -318,7 +318,7 @@ Vous pouvez autoriser une fenêtre allant jusqu'à 30 jours pendant laquelle Bra
 {% endtab %}
 
 {% tab Canvas %}
-Si ce n'est pas déjà fait, complétez les sections restantes de vos composants Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, de mettre en œuvre les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de vos composants Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, de mettre en œuvre les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
 {% endtab %}
 {% endtabs %}
 

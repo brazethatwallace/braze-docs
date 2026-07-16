@@ -2,13 +2,13 @@
 page_order: 22
 nav_title: Bonnes pratiques
 article_title: Bonnes pratiques pour les notifications push
-description: "Cette page présente les bonnes pratiques et les cas d'utilisation des notifications push pour que vos messages suscitent l'engagement plutôt que l'agacement."
+description: "Cette page présente les bonnes pratiques et les cas d'usage des notifications push pour que vos messages suscitent l'engagement plutôt que l'agacement."
 channel: push
 ---
 
 # Bonnes pratiques pour les notifications push {#push-best-practices}
 
-> Cette page présente les bonnes pratiques et les cas d'utilisation des notifications push pour que vos messages suscitent l'engagement plutôt que l'agacement.
+> Cette page présente les bonnes pratiques et les cas d'usage des notifications push pour que vos messages suscitent l'engagement plutôt que l'agacement.
 
 Les notifications push sont des outils puissants pour interagir avec les utilisateurs de votre application, mais elles doivent être utilisées avec précaution afin de garantir la diffusion de messages pertinents et opportuns. Avant d'envoyer votre notification push, consultez les bonnes pratiques suivantes pour connaître les points importants à vérifier.
 
@@ -93,11 +93,11 @@ Vous n'avez qu'une seule chance de demander à un utilisateur l'autorisation d'e
 
 ### Ajouter des contrôles d'abonnement push {#add-push-subscription-controls}
 
-Pour éviter que les utilisateurs ne désactivent les notifications au niveau de l'appareil, ce qui supprime complètement leur jeton de notification push de premier plan, permettez-leur de contrôler leur abonnement push directement dans votre application. Consultez [Mise à jour des états d'abonnement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#update-push-subscription-state) pour plus de détails.
+Pour éviter que les utilisateurs ne désactivent les notifications au niveau de l'appareil, ce qui supprime complètement leur jeton de notification push de premier plan, permettez-leur de contrôler leur abonnement push directement dans votre application. Consultez [Mise à jour des états d'abonnement push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states) pour plus de détails.
 
 ### Utiliser la planification avancée ou ajouter des délais {#use-advanced-scheduling-or-add-delays}
 
-En fonction de la taille de votre audience et du délai de planification de votre notification push, des retards de livraison peuvent survenir. Le temps nécessaire à l'envoi des notifications push dépend de la puissance de traitement allouée. Par exemple, si votre notification push utilise plusieurs appels de Contenu connecté, cela peut augmenter la complexité du templating de la notification push et entraîner des vitesses limitées par la rapidité de réponse des API tierces.
+En fonction de la taille de votre audience et du délai de planification de votre notification push, des retards de livraison peuvent survenir. Le temps nécessaire à l'envoi des notifications push dépend de la puissance de traitement allouée. Par exemple, si votre notification push utilise plusieurs appels de contenu connecté, cela peut augmenter la complexité du templating de la notification push et entraîner des vitesses limitées par la rapidité de réponse des API tierces.
 
 Un payload push plus petit et une priorité de notification plus élevée peuvent contribuer à réduire les délais et à faire évoluer vos messages. Vous pouvez ajouter `Push Enabled = true` dans votre filtre d'audience pour réduire la taille de l'audience afin que seuls les utilisateurs ayant les notifications push activées soient traités pour l'envoi de la Campaign.
 

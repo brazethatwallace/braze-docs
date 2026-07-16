@@ -89,7 +89,7 @@ Você pode fazer o seguinte no [Console do agente]({{site.baseurl}}/user_guide/b
 - Duplicar agentes existentes a partir da lista de agentes.
 - Salvar agentes como rascunhos durante a criação e concluir as configurações posteriormente.
 - Definir valores de saída de fallback para agentes de Canvas para evitar que variáveis de saída sejam definidas como nulas se o agente apresentar erro.
-- Definir campos de entrada obrigatórios para um campo agêntico de Catálogo, para que o agente não seja executado se um valor de campo de entrada obrigatório estiver vazio ou ausente.
+- Definir campos de entrada obrigatórios para um campo agêntico de catálogo, para que o agente não seja executado se um valor de campo de entrada obrigatório estiver vazio ou ausente.
 - Reexecutar um agente para todas as células vazias de uma coluna agêntica para preencher quaisquer valores ausentes sem reexecutar a coluna inteira.
 
 #### Editar uma etapa do Otimizador de Conteúdo já lançada {#edit-a-launched-content-optimizer-step}
@@ -811,7 +811,7 @@ O [Open Loyalty]({{site.baseurl}}/partners/openloyalty) é uma plataforma de pro
 
 #### DOTS.ECO - Extensões {#dotseco-extensions}
 
-O [DOTS.ECO]({{site.baseurl}}/partners/docs.eco) permite recompensar os usuários com impacto ambiental real por meio de certificados digitais rastreáveis. Cada certificado pode incluir metadados como um URL de certificado compartilhável e URL de imagem, para que os usuários possam visualizar (e revisitar) sua prova de impacto.
+O [DOTS.ECO]({{site.baseurl}}/partners/dots.eco) permite recompensar os usuários com impacto ambiental real por meio de certificados digitais rastreáveis. Cada certificado pode incluir metadados como um URL de certificado compartilhável e URL de imagem, para que os usuários possam visualizar (e revisitar) sua prova de impacto.
 
 #### Mailizio - Orquestração de mensagens {#mailizio-message-orchestration}
 

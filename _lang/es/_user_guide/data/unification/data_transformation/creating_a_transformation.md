@@ -14,7 +14,7 @@ description: "Este artículo de referencia proporciona los pasos para crear una 
 
 | Requisito | Descripción |
 | --- | --- |
-| Autenticación de dos factores o SSO | Debes tener habilitada la [autenticación de dos factores]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication) (2FA) o el [inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) para tu cuenta. |
+| Autenticación de dos factores o SSO | Debes tener habilitada la [autenticación de dos factores]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication-2fa) (2FA) o el [inicio de sesión único]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) para tu cuenta. |
 | Permisos correctos | Debes ser administrador de la cuenta o del espacio de trabajo, o tener permisos de usuario para "Gestionar transformaciones". |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -51,9 +51,9 @@ Es posible que Transformación de datos de Braze aún no admita plataformas exte
 
 ## Paso 4: Escribir código de transformación {#step-4-write-transformation-code}
 
-Si tienes poca o ninguna experiencia con código JavaScript o prefieres instrucciones más detalladas, sigue la pestaña **Beginner - POST: Track users** o **Beginner - PUT: Update multiple catalog items** para escribir tu código de transformación.
+Si tienes poca o ninguna experiencia con código JavaScript o prefieres instrucciones más detalladas, sigue la pestaña **Principiante - POST: Track users** o **Principiante - PUT: Update multiple catalog items** para escribir tu código de transformación.
 
-Si eres desarrollador o tienes mucha experiencia con código JavaScript, sigue la pestaña **Advanced - POST: Track users** para obtener instrucciones de alto nivel sobre cómo escribir tu código de transformación.
+Si eres desarrollador o tienes mucha experiencia con código JavaScript, sigue la pestaña **Avanzado - POST: Track users** para obtener instrucciones de alto nivel sobre cómo escribir tu código de transformación.
 
 {% alert tip %}
 Para generar código de transformación con IA, elige **Code with Operator** en el editor de código de transformación. Para usarlo, se debe enviar un webhook a tu transformación. Para empezar con una plantilla prediseñada, elige **Insert Template**. Para ver ejemplos de prompts, consulta [Generar código de transformación de datos]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).

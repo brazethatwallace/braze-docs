@@ -46,7 +46,7 @@ Par exemple, si vous lancez une campagne e-mail avec limite de débit, que vous 
 
 ## Campagnes de messages in-app {#in-app-message-campaigns}
 
-Contrairement aux notifications push ou aux e-mails, les messages in-app sont distribués aux appareils au début de la session et mis en cache localement jusqu'à ce que le déclencheur se déclenche. Lorsque vous modifiez une campagne de messages in-app en cours — par exemple en l'arrêtant, en définissant une [date de fin]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-a-trigger), en activant **Réévaluer l'éligibilité de la campagne avant l'affichage**, en mettant à jour le contenu, en changeant le déclencheur du message ou en modifiant l'audience cible — la configuration mise à jour se propage lorsque les appareils récupèrent les déclencheurs au début de leur prochaine session.
+Contrairement aux notifications push ou aux e-mails, les messages in-app sont distribués aux appareils au début de la session et mis en cache localement jusqu'à ce que le déclencheur se déclenche. Lorsque vous modifiez une campagne de messages in-app en cours — par exemple en l'arrêtant, en définissant une [date de fin]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-a-trigger), en activant **Réévaluer l'éligibilité de la campagne avant l'affichage**, en mettant à jour le contenu, en changeant le déclencheur du message ou en modifiant l'audience cible — la configuration mise à jour se propage lorsque les appareils récupèrent les déclencheurs au début de leur prochaine session.
 
 Voici ce à quoi vous pouvez vous attendre :
 
@@ -63,7 +63,7 @@ Si vous avez lancé la mauvaise campagne de messages in-app, sélectionnez **Arr
 
 Sélectionnez **Réévaluer l'éligibilité de la campagne avant l'affichage** dans les paramètres de distribution de votre campagne afin que Braze confirme l'appartenance à l'audience et le statut de la campagne juste avant chaque affichage. Cela permet d'éviter les impressions après l'arrêt, l'archivage ou le dépassement de la date de fin d'une campagne. Vous pouvez activer ou désactiver ce paramètre après le lancement, mais il suit les mêmes règles de propagation que les autres modifications : les appareils ne reçoivent la configuration mise à jour qu'à leur prochaine synchronisation des déclencheurs.
 
-Pour en savoir plus, consultez [Choisir les utilisateurs à cibler]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional/create#choose-users-to-target) et [Pourquoi ma campagne de messages in-app archivée continue-t-elle à générer des impressions de messages in-app ?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
+Pour en savoir plus, consultez [Choisir les utilisateurs à cibler]({{site.baseurl}}/user_guide/channels/in_app_messages/traditional#choose-users-to-target) et [Pourquoi ma campagne de messages in-app archivée continue-t-elle à générer des impressions de messages in-app ?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#why-is-my-archived-in-app-message-campaign-still-delivering-in-app-message-impressions).
 
 ## Campagnes déclenchées {#triggered-campaigns}
 

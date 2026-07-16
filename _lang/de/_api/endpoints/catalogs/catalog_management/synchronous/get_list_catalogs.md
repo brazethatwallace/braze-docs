@@ -21,7 +21,7 @@ description: "Dieser Artikel beschreibt Details zum Braze-Endpunkt „Kataloge a
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `catalogs.get`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `catalogs.get`.
 
 ## Rate-Limit
 
@@ -43,7 +43,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
 
 ### Beispiel für eine erfolgreiche Antwort {#example-success-response}
 
-Der Statuscode `200` könnte den folgenden Antwortkörper zurückgeben.
+Der Statuscode `200` könnte den folgenden Antworttext zurückgeben.
 
 ```json
 {

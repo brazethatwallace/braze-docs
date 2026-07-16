@@ -34,7 +34,7 @@ Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canv
 
 **Etapas:**
 
-1. Acesse **Messaging** > **Campaigns** e selecione **Create Campaign**.
+1. Acesse **Envio de mensagens** > **Campaigns** e selecione **Criar Campaign**.
 2. Selecione **LINE** ou, para Campaigns direcionadas a múltiplos canais, selecione **Multichannel Campaign**.
 3. Dê à sua Campaign um nome claro e significativo.
 4. Adicione [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) e [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) conforme necessário.
@@ -42,7 +42,7 @@ Não tem certeza se sua mensagem deve ser enviada usando uma Campaign ou um Canv
 5. Adicione e nomeie quantas variantes forem necessárias para sua Campaign. Você pode escolher diferentes plataformas, tipos de mensagem e disposições para cada uma das variantes adicionadas. Para saber mais sobre este tópico, consulte [Testes multivariantes e A/B]({{site.baseurl}}/user_guide/messaging/ab_testing).
 
 {% alert tip %}
-Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes adicionais. Em seguida, escolha **Copy from Variant** no menu suspenso **Add Variant**.
+Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conteúdo, redija sua mensagem antes de adicionar variantes adicionais. Em seguida, escolha **Copiar da variante** no menu suspenso **Adicionar variante**.
 {% endalert %}
 
 {% endtab %}
@@ -52,7 +52,7 @@ Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conte
 
 1. [Crie seu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando o criador de Canvas.
 2. Depois de configurar seu Canvas, adicione uma etapa no construtor de Canvas. Dê à sua etapa um nome claro e significativo.
-3. Escolha um [cronograma de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) e especifique uma postergação conforme necessário.
+3. Escolha um [cronograma de etapa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) e especifique uma postergação conforme necessário.
 4. Filtre seu público para esta etapa conforme necessário. Você pode refinar ainda mais os destinatários desta etapa especificando segmentos e adicionando filtros adicionais. As opções de público serão verificadas após a postergação, no momento em que as mensagens forem enviadas.
 5. Escolha seu [comportamento de avanço]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Escolha quaisquer outros canais de envio de mensagens que você deseja combinar com sua mensagem.
@@ -64,7 +64,7 @@ Se todas as mensagens da sua Campaign forem semelhantes ou tiverem o mesmo conte
 
 Escreva sua mensagem usando personalização (como Liquid ou Conteúdo conectado) conforme necessário. O LINE permite até cinco balões de mensagem em cada mensagem, que podem ser qualquer uma das disposições de mensagem disponíveis: texto, imagem, rich ou baseada em cartão.
 
-![Criador LINE com uma mensagem exibida na pré-visualização.]({% image_buster /assets/img/line/line_composer.png %})
+![Criador LINE com uma mensagem exibida na prévia.]({% image_buster /assets/img/line/line_composer.png %})
 
 ### Dicas {#tips}
 
@@ -80,9 +80,9 @@ A aparência final das mensagens da direita para a esquerda depende em grande pa
 
 ## Etapa 3: Pré-visualize e teste sua mensagem {#step-3-preview-and-test-your-message}
 
-Alterne para a guia **Test** para enviar uma mensagem LINE de teste para grupos de teste de conteúdo ou usuários individuais, ou pré-visualize a mensagem como um usuário diretamente na Braze.
+Alterne para a guia **Teste** para enviar uma mensagem LINE de teste para grupos de teste de conteúdo ou usuários individuais, ou pré-visualize a mensagem como um usuário diretamente na Braze.
 
-![A guia "Tests" exibindo uma pré-visualização de uma mensagem de teste.]({% image_buster /assets/img/line/test_preview.png %})
+![A guia "Teste" exibindo uma prévia de uma mensagem de teste.]({% image_buster /assets/img/line/test_preview.png %})
 
 Para saber mais, consulte [Enviar mensagens de teste]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=line).
 
@@ -97,7 +97,7 @@ Construa o restante da sua Campaign. Consulte as seções a seguir para mais det
 
 As mensagens LINE podem ser entregues com base em um horário agendado, uma ação ou um gatilho de API. Para saber mais sobre opções de agendamento e gatilho, consulte [Agendando sua Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign).
 
-Você pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) para receber a Campaign, ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping). Para entrega baseada em ação, você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
+Você pode especificar controles de entrega, como permitir que os usuários se tornem [reelegíveis]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para receber a Campaign, ou ativar regras de [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping). Para entrega baseada em ação, você também pode definir a duração da Campaign e o [horário de silêncio]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
 ### Escolha os usuários a serem direcionados {#choose-users-to-target}
 
@@ -111,7 +111,7 @@ A Braze permite que você acompanhe com que frequência os usuários realizam a�
 
 Os eventos de conversão ajudam a medir o sucesso da sua Campaign. Por exemplo:
 
-- Se você está usando geotargeting para acionar uma mensagem LINE com o objetivo final de o usuário realizar uma compra, defina o evento de conversão como `Purchase`.
+- Se você está usando geotargeting para disparar uma mensagem LINE com o objetivo final de o usuário realizar uma compra, defina o evento de conversão como `Purchase`.
 - Se você está tentando direcionar o usuário para o seu app, defina o evento de conversão como `Starts Session`.
 
 Você também pode definir eventos de conversão personalizados com base no seu caso de uso específico. Seja criativo e pense em como você deseja medir o sucesso desta Campaign.
@@ -119,7 +119,7 @@ Você também pode definir eventos de conversão personalizados com base no seu 
 {% endtab %}
 {% tab Canvas %}
 
-Se ainda não o fez, conclua as seções restantes do seu Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, usar testes multivariantes e Seleção inteligente, e mais, consulte [Criar um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
+Se ainda não o fez, conclua as seções restantes do seu Canvas. Para mais detalhes sobre como construir o restante do seu Canvas, usar testes multivariantes e seleção inteligente, e mais, consulte [Criar um Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 
 {% endtab %}
 {% endtabs %}

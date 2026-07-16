@@ -4,7 +4,7 @@ article_title: Groupe de contrôle global
 alias: /global_control_group/
 page_order: 6
 page_type: reference
-description: "Découvrez comment configurer et utiliser le groupe de contrôle global pour mesurer l'impact global de vos efforts d'envoi de messages au fil du temps."
+description: "Découvrez comment configurer et utiliser le groupe de contrôle global pour mesurer l'impact global de vos efforts de communication au fil du temps."
 tool:
   - Reports
 search_rank: 1
@@ -14,9 +14,9 @@ toc_headers: h2
 
 # Groupe de contrôle global {#global-control-group}
 
-> Utilisez le groupe de contrôle global pour spécifier un pourcentage de tous les utilisateurs qui ne doivent recevoir aucune campagne ni aucun Canvas, ce qui vous permet d'analyser l'impact global de vos efforts d'envoi de messages au fil du temps.
+> Utilisez le groupe de contrôle global pour spécifier un pourcentage de tous les utilisateurs qui ne doivent recevoir aucune campagne ni aucun Canvas, ce qui vous permet d'analyser l'impact global de vos efforts de communication au fil du temps.
 
-En comparant le comportement des utilisateurs qui reçoivent des messages avec ceux qui n'en reçoivent pas, vous pouvez mieux comprendre comment vos campagnes et Canvas contribuent à une augmentation des sessions et des événements personnalisés.
+En comparant le comportement des utilisateurs qui reçoivent des messages avec ceux qui n'en reçoivent pas, vous pouvez mieux comprendre comment vos campagnes marketing et Canvas contribuent à une augmentation des sessions et des événements personnalisés.
 
 ## Fonctionnement du groupe de contrôle global {#how-the-global-control-group-works}
 
@@ -28,7 +28,7 @@ Votre groupe de contrôle global s'applique à tous les canaux, campagnes et Can
 
 ### Affecter aléatoirement des utilisateurs au groupe de contrôle global {#assign-users-randomly-to-the-global-control-group}
 
-Braze sélectionne aléatoirement plusieurs plages de [numéros de compartiment aléatoires]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#step-1-segment-your-users-by-the-random-bucket-attribute) et inclut les utilisateurs de ces compartiments sélectionnés. Si vous utilisez actuellement des numéros de compartiment aléatoires à d'autres fins, consultez [Points d'attention](#things-to-watch-for).
+Braze sélectionne aléatoirement plusieurs plages de [numéros de compartiment aléatoires]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers#create-segments-using-random-bucket-numbers) et inclut les utilisateurs de ces compartiments sélectionnés. Si vous utilisez actuellement des numéros de compartiment aléatoires à d'autres fins, consultez [Points d'attention](#things-to-watch-for).
 
 Lorsque votre groupe de contrôle global est généré, tous les utilisateurs ayant des numéros de compartiment aléatoires font partie du groupe. De plus, les nouveaux utilisateurs qui rejoignent après ce point (ceux acquis après la génération du groupe de contrôle global) et qui possèdent ces numéros de compartiment aléatoires sont également ajoutés au groupe de contrôle global. De même, si de nombreux utilisateurs sont supprimés, vous pouvez vous attendre à ce que la taille de votre groupe de contrôle global diminue, car un pourcentage de ces utilisateurs supprimés faisait partie de ce groupe. Cela maintient la taille de votre groupe comme un pourcentage constant par rapport à l'ensemble de votre base d'utilisateurs.
 

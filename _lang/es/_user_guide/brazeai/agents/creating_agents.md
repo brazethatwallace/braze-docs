@@ -84,12 +84,12 @@ Los agentes solo reciben los datos que les pasas explícitamente; no buscan en l
 
 Selecciona **+ Agent context** para elegir lo que tu agente puede consultar. Esto incluye:
 
-- [Campos del catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields): Permite que el agente acceda a los datos de tu catálogo para obtener respuestas más precisas.
-- [Fuentes de conocimiento]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources): Permite que el agente acceda a los datos del catálogo a través de una fuente de conocimiento para una recuperación más precisa que adjuntar un catálogo directamente.
-- [Pertenencia a segmentos]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): Permite que el agente personalice las respuestas en función de los segmentos a los que pertenezca el usuario. Puedes seleccionar hasta cinco segmentos.
-- [Directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): Consulta las directrices sobre el tono y el estilo de la marca que debe seguir el agente. Por ejemplo, si deseas que tu agente genere un texto SMS para animar a los usuarios a suscribirse a un gimnasio, puedes utilizar este campo para hacer referencia a tu directriz motivacional predefinida en negrita.
-- [Todo el contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): Analiza todos los datos de contexto de Canvas de un usuario cuando se invoque este agente, incluidas las variables que no se mencionan en la sección **Instructions**.
-- [Datos de interacción del usuario]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): Proporciona al agente los datos recientes de aperturas, clics y conversiones de Campaigns y Canvas de cada usuario.
+- [Campos del catálogo]({{site.baseurl}}/user_guide/brazeai/agents/reference#catalogs-and-fields): permite que el agente acceda a los datos de tu catálogo para obtener respuestas más precisas.
+- [Fuentes de conocimiento]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources): permite que el agente acceda a los datos del catálogo a través de una fuente de conocimiento para una recuperación más precisa que adjuntar un catálogo directamente.
+- [Pertenencia a segmentos]({{site.baseurl}}/user_guide/brazeai/agents/reference#segment-membership-context): permite que el agente personalice las respuestas en función de los segmentos a los que pertenezca el usuario. Puedes seleccionar hasta cinco segmentos.
+- [Directrices de marca]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines): consulta las directrices sobre el tono y el estilo de la marca que debe seguir el agente. Por ejemplo, si deseas que tu agente genere un texto SMS para animar a los usuarios a suscribirse a un gimnasio, puedes utilizar este campo para hacer referencia a tu directriz motivacional predefinida en negrita.
+- [Todo el contexto de Canvas]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables): analiza todos los datos de contexto de Canvas de un usuario cuando se invoque este agente, incluidas las variables que no se mencionan en la sección **Instructions**.
+- [Datos de interacción del usuario]({{site.baseurl}}/user_guide/brazeai/agents/reference#user-history): proporciona al agente los datos recientes de aperturas, clics y conversiones de Campaigns y Canvas de cada usuario.
 
 {% alert tip %}
 Para los agentes de Canvas, puedes utilizar Liquid en tus instrucciones para hacer referencia a atributos de los usuarios, como su nombre y apellidos, o atributos personalizados. Cualquier variable Liquid en las instrucciones del agente se pasa automáticamente al paso del agente cuando un usuario entra en el paso. Consulta [Qué datos reciben los agentes]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive) para saber cómo pasar contexto de Canvas y datos de perfil de forma deliberada.
@@ -107,15 +107,15 @@ Cuando utilices un [esquema de salida avanzado]({{site.baseurl}}/user_guide/braz
 
 #### Configurar valores alternativos {#configure-fallback-values}
 
-Los valores alternativos solo están disponibles para los **agentes de paso en Canvas**. En la sección **Output** de un agente de Canvas, puedes definir valores que Braze utiliza cuando falla una invocación del agente, por ejemplo, cuando el LLM agota el tiempo de espera o devuelve un error de clave de API no válida. Los valores alternativos funcionan como valores predeterminados de personalización. Puedes establecer una línea del asunto estática o un mensaje breve que siga proporcionando una salida útil a los usuarios cuando el agente no pueda ejecutarse.
+Los valores alternativos solo están disponibles para los agentes de paso en Canvas. En la sección **Output** de un agente de paso en Canvas, puedes definir valores que Braze utiliza cuando falla una invocación del agente, por ejemplo, cuando el LLM agota el tiempo de espera o devuelve un error de clave de API no válida. Los valores alternativos funcionan como valores predeterminados de personalización. Puedes establecer una línea del asunto estática o un mensaje breve que siga proporcionando una salida útil a los usuarios cuando el agente no pueda ejecutarse.
 
-Los **agentes de catálogo** no admiten la configuración de valores alternativos en la Agent Console.
+Los agentes de catálogo no admiten la configuración de valores alternativos en la Agent Console.
 
 ![Configuración de salida de la Agent Console que muestra el campo de salida alternativa para un esquema de tipo número.]({% image_buster /assets/img/ai_agent/fallback_output.png %}){: style="max-width:75%;"}
 
 Para los agentes de Canvas, los valores alternativos admiten plantillas de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) para que puedas hacer referencia a atributos de usuario o variables de contexto en el texto alternativo.
 
-Los campos alternativos se adaptan al formato de salida de tu agente de Canvas:
+Los campos alternativos se adaptan al formato de salida de tu agente de paso en Canvas:
 
 | Formato de salida | Configuración alternativa |
 | --- | --- |
@@ -124,7 +124,7 @@ Los campos alternativos se adaptan al formato de salida de tu agente de Canvas:
 | Esquema JSON (esquema avanzado) | Braze lee tu esquema JSON y genera un campo de entrada para cada propiedad, de modo que puedas definir un valor alternativo por clave. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configurar valores alternativos" }
 
-Cuando un agente de Canvas con valores alternativos se ejecuta en un [paso del agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze renderiza el valor alternativo por usuario y lo almacena en la variable de salida en lugar de `null`. Si no configuras valores alternativos, las invocaciones fallidas dejan la salida de Canvas sin establecer (`null`).
+Cuando un agente de paso en Canvas con valores alternativos se ejecuta en un [paso del agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step), Braze renderiza el valor alternativo por usuario y lo almacena en la variable de salida en lugar de `null`. Si no configuras valores alternativos, las invocaciones fallidas dejan la salida de Canvas sin establecer (`null`).
 
 Para conocer el comportamiento en tiempo de ejecución, consulta [Gestión de errores y comportamiento alternativo]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
@@ -140,7 +140,7 @@ El panel de **Preview** es una instancia del agente que aparece como un panel la
 Las ejecuciones de prueba cuentan para tu límite de invocaciones diario.
 {% endalert %}
 
-![Agent Console que muestra el panel de Preview para probar un agente personalizado. La interfaz muestra un campo de entradas de muestra con datos de clientes de ejemplo, un botón Ejecutar prueba y un área de respuesta donde aparece la salida del agente.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
+![Agent Console que muestra el panel de vista previa para probar un agente personalizado. La interfaz muestra un campo de entradas de muestra con datos de clientes de ejemplo, un botón para ejecutar la prueba y un área de respuesta donde aparece la salida del agente.]({% image_buster /assets/img/ai_agent/custom_agent_test.png %})
 
 Revisa el resultado con ojo crítico. Considera las siguientes preguntas:
 

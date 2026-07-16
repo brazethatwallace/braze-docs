@@ -168,7 +168,7 @@ BrazeのConnected Contentを使用する際、一部のAPIではユーザー名�
 
 #### ステップ1:アクセストークンを取得する {#step-1-retrieve-the-access-token}
 
-以下の例は、アクセストークンを取得してローカル変数に保存し、その後のAPI呼び出しの認証に使用する方法を示しています。`:cache_max_age` パラメーターを追加して、アクセストークンの有効期間に合わせ、送信Connected Contentの呼び出し数を削減できます。詳細については、[設定可能なキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching)を参照してください。
+以下の例は、アクセストークンを取得してローカル変数に保存し、その後のAPI呼び出しの認証に使用する方法を示しています。`:cache_max_age` パラメーターを追加して、アクセストークンの有効期間に合わせ、送信Connected Contentの呼び出し数を削減できます。詳細については、[設定可能なキャッシュ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses)を参照してください。
 
 {% raw %}
 ```
@@ -184,6 +184,10 @@ BrazeのConnected Contentを使用する際、一部のAPIではユーザー名�
 %}
 ```
 {% endraw %}
+
+{% alert note %}
+トークンエンドポイントが `application/x-www-form-urlencoded` を期待し、`:body` で認証情報を渡す場合は、パラメーター値の特殊文字をURLエンコードしてください。たとえば、スラッシュ（`/`）は `%2F` に、プラス記号（`+`）は `%2B` になります。エンコードされていない特殊文字があると、OAuthトークンリクエストが失敗する可能性があります。
+{% endalert %}
 
 #### ステップ2:取得したアクセストークンを使用してAPIを認可する {#step-2-authorize-the-api-using-the-retrieved-access-token}
 

@@ -365,6 +365,12 @@ Nehmen wir als weiteres Beispiel an, Sie sehen fünf _Unique Impressions_ in ein
 
 _Unique Daily Impressions_ bezieht sich auf die Banner, die tatsächlich angesehen wurden.
 
+#### Abweichungen zwischen Kontrollgruppen und Varianten {#discrepancies-between-control-groups-and-variants}
+
+Wenn eine Banner-Kampagne eine Kontrollgruppe verwendet, können die Impressionen der Kontrollgruppe höher sein als die der Variante, selbst wenn die Zielgruppenaufteilung zwischen den Gruppen gleichmäßig ist. Diese Abweichung wird durch einen Unterschied in der Art und Weise verursacht, wie Impressionen für Kontroll- und Varianten-Banner protokolliert werden.
+
+Sowohl Kontroll- als auch Varianten-Impressionen erfordern, dass die Banner-Platzierung in den sichtbaren Bereich gelangt. Varianten-Impressionen werden erst protokolliert, wenn das vollständige Banner auf dem Bildschirm sichtbar ist. Kontroll-Impressionen können bereits protokolliert werden, sobald die Platzierung in den sichtbaren Bereich gelangt – bevor das vollständige Banner für eine Variante sichtbar wäre.
+
 {% elsif include.channel == "email" %}
 
 #### E-Mail-Metriken {#email-metrics}
@@ -593,7 +599,7 @@ Die Berichterstattung für _Button 1 Clicks_ und _Button 2 Clicks_ funktioniert 
     </tbody>
 </table>
 
-#### Abweichungen zwischen Kontrollgruppen und Varianten {#discrepancies-between-control-groups-and-variants}
+#### Abweichungen zwischen Kontrollgruppen und Varianten
 
 Wenn eine In-App-Nachrichten-Kampagne eine 50/50-Variantenaufteilung hat, kann die Kontrollgruppe manchmal einen etwas höheren Prozentsatz aufweisen als die Variante (z. B. 51 % für die Kontrollgruppe und 49 % für die Variante). Diese Abweichung wird durch einen Unterschied in der Rendering-Zeit verursacht – zum Beispiel wenn Varianten-Nachrichten große Bilder oder templated Connected-Content verwenden und Nutzer:innen die Seite verlassen, bevor das Rendering abgeschlossen ist, während die Kontrollgruppe Impressionen protokolliert, ohne eine Nachricht anzuzeigen.
 

@@ -187,7 +187,7 @@ Les schémas de base constituent une sortie simple renvoyée par un agent. Il pe
 Par exemple, si vous souhaitez collecter des scores de sentiment utilisateur à partir d'une enquête de satisfaction simple pour déterminer le niveau de satisfaction de vos clients après réception d'un produit, vous pouvez sélectionner **Number** comme schéma de base pour structurer le format de sortie.
 
 {% alert important %}
-Les tableaux ne sont disponibles que pour les agents Canvas, pas pour les agents de catalogue.
+Les tableaux ne sont disponibles que pour les agents d'étape Canvas, pas pour les agents de catalogue.
 {% endalert %}
 
 ![Console des agents avec le nombre sélectionné comme schéma de base.]({% image_buster /assets/img/ai_agent/basic_schema.png %}){: style="max-width:85%;"}
@@ -197,15 +197,15 @@ Les tableaux ne sont disponibles que pour les agents Canvas, pas pour les agents
 Les options de schéma avancé incluent la structuration manuelle de champs ou l'utilisation de JSON.
 
 - **Champs :** une méthode sans code pour imposer un format de sortie d'agent que vous pouvez utiliser de manière cohérente.
-- **JSON :** une approche par code pour créer un format de sortie précis, où vous pouvez imbriquer des variables et des objets dans le schéma JSON. Disponible uniquement pour les agents Canvas, pas pour les agents de catalogue.
+- **JSON :** une approche par code pour créer un format de sortie précis, où vous pouvez imbriquer des variables et des objets dans le schéma JSON. Disponible uniquement pour les agents d'étape Canvas, pas pour les agents de catalogue.
 
 Nous recommandons d'utiliser les schémas avancés lorsque vous souhaitez que l'agent renvoie une structure de données comportant plusieurs valeurs définies de manière structurée, plutôt qu'une sortie à valeur unique. Cela permet de mieux formater la sortie en tant que variable de contexte cohérente.
 
 ### Sortie de secours {#fallback-output}
 
-Les valeurs de secours ne sont disponibles que pour les **agents d'étape Canvas**. Dans la section **Sortie** de la Console des agents pour un agent Canvas, vous pouvez définir les valeurs que Braze utilise lorsqu'une invocation échoue.
+Les valeurs de secours ne sont disponibles que pour les agents d'étape Canvas. Dans la section **Sortie** de la Console des agents pour un agent d'étape Canvas, vous pouvez définir les valeurs que Braze utilise lorsqu'une invocation échoue.
 
-Pour les schémas **JSON**, Braze lit le schéma et génère un champ de saisie pour chaque propriété afin que vous puissiez définir une valeur de secours par clé. Pour les schémas **Champs**, vous saisissez une valeur de secours pour chaque champ. Pour les schémas de base, vous saisissez une seule valeur de secours. Les agents Canvas prennent en charge Liquid dans les valeurs de secours.
+Pour les schémas **JSON**, Braze lit le schéma et génère un champ de saisie pour chaque propriété afin que vous puissiez définir une valeur de secours par clé. Pour les schémas **Champs**, vous saisissez une valeur de secours pour chaque champ. Pour les schémas de base, vous saisissez une seule valeur de secours. Les agents d'étape Canvas prennent en charge Liquid dans les valeurs de secours.
 
 Pour les étapes de configuration, consultez [Configurer les valeurs de secours]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values). Pour le comportement à l'exécution dans Canvas, consultez [Gestion des erreurs et comportement de secours]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior).
 
@@ -257,7 +257,7 @@ Choisissez des catalogues spécifiques auxquels un agent peut se référer pour 
 
 ![Le catalogue « restaurants » et la colonne « Loyalty_Program » sélectionnés pour la recherche de l'agent.]({% image_buster /assets/img/ai_agent/search_catalog.png %}){: style="max-width:75%;"}
 
-Lorsque vous déployez un agent de catalogue sur un champ de catalogue, activez le contrôle d'entrée requise et choisissez quelles colonnes sélectionnées sont **requises pour l'exécution** avant que l'agent ne s'invoque. L'agent ignore une ligne uniquement lorsqu'une de ces colonnes requises est vide ou manquante, par exemple un champ `gender` qui n'a pas encore été renseigné. Les colonnes sélectionnées sont requises par défaut, mais vous pouvez retirer des colonnes susceptibles d'être vides sans bloquer l'exécution. Cela évite de gaspiller des jetons sur des données incomplètes.
+Lorsque vous déployez un agent de catalogue sur un champ de catalogue, activez le contrôle d'entrée requise et choisissez quelles colonnes sélectionnées sont requises pour l'exécution avant que l'agent ne s'invoque. L'agent ignore une ligne uniquement lorsqu'une de ces colonnes requises est vide ou manquante, par exemple un champ `gender` qui n'a pas encore été renseigné. Les colonnes sélectionnées sont requises par défaut, mais vous pouvez retirer des colonnes susceptibles d'être vides sans bloquer l'exécution. Cela évite de gaspiller des jetons sur des données incomplètes.
 
 Les agents de catalogue respectent également l'ordre des colonnes lorsque les champs d'entrée dépendent les uns des autres. Si la colonne D doit être générée à partir des colonnes B et C, l'agent ne s'exécute pas sur la colonne D tant que B et C ne contiennent pas de valeurs pour cette ligne.
 

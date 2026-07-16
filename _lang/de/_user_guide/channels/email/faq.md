@@ -86,7 +86,7 @@ Eine E-Mail-Feedback-Schleife (FBL) ermöglicht es Absendern, ihre Reputation zu
 
 ### Was sind Open-Tracking-Pixel? {#what-are-open-tracking-pixels}
 
-[Open-Tracking-Pixel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#changing-location-of-tracking-pixel) nutzen die E-Mail-Klick-Tracking-Domain eines Absenders, um E-Mail-Öffnungsereignisse zu verfolgen. Das Pixel ist ein Bild-Tag, das an das HTML der E-Mail angehängt wird. Es ist üblicherweise das letzte HTML-Element innerhalb des Body-Tags. Wenn ein:e Nutzer:in die E-Mail lädt, wird eine Anfrage gestellt, um das Bild von der gebrandeten Tracking-Domain zu laden, was ein Öffnungsereignis protokolliert.
+[Open-Tracking-Pixel]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#update-the-placement) nutzen die E-Mail-Klick-Tracking-Domain eines Absenders, um E-Mail-Öffnungsereignisse zu verfolgen. Das Pixel ist ein Bild-Tag, das an das HTML der E-Mail angehängt wird. Es ist üblicherweise das letzte HTML-Element innerhalb des Body-Tags. Wenn ein:e Nutzer:in die E-Mail lädt, wird eine Anfrage gestellt, um das Bild von der gebrandeten Tracking-Domain zu laden, was ein Öffnungsereignis protokolliert.
 
 ### Was passiert, wenn eine E-Mail-Campaign oder ein Canvas gestoppt wird? {#what-happens-when-an-email-campaign-or-canvas-is-stopped}
 
@@ -133,11 +133,11 @@ Das Öffnungs-Tracking setzt voraus, dass die/der Empfänger:in die E-Mail mit a
 
 Einige Unternehmens-E-Mail-Sicherheitstools (wie Barracuda, Proofpoint und ähnliche Dienste) scannen eingehende E-Mails, indem sie automatisch alle Links in der Nachricht anklicken, um zu überprüfen, ob sie sicher sind. Dies kann dazu führen, dass Klickereignisse innerhalb von Sekunden nach dem Versand erscheinen, oft mit jedem Link in der E-Mail in schneller Folge angeklickt.
 
-Dieses Verhalten tritt häufiger bei institutionellen E-Mail-Domains auf (wie Schulen, Universitäten und Unternehmensumgebungen) und ist wahrscheinlicher, wenn sich Ihre Absenderdomain erheblich von Ihrer Tracking-Domain unterscheidet. Das Einrichten einer [benutzerdefinierten gebrandeten Tracking-Domain]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences#custom-email-tracking-domain) kann die Häufigkeit dieser automatisierten Klicks reduzieren.
+Dieses Verhalten tritt häufiger bei institutionellen E-Mail-Domains auf (wie Schulen, Universitäten und Unternehmensumgebungen) und ist wahrscheinlicher, wenn sich Ihre Absenderdomain erheblich von Ihrer Tracking-Domain unterscheidet. Das Einrichten einer [benutzerdefinierten gebrandeten Tracking-Domain]({{site.baseurl}}/user_guide/administer/global/workspace_settings/email_preferences) kann die Häufigkeit dieser automatisierten Klicks reduzieren.
 
 **So erkennen Sie es:** Suchen Sie die IP-Adresse des Klickereignisses (verfügbar in Currents-Daten) in einer Suchmaschine. Wenn die IP mit einem bekannten Sicherheitsanbieter (wie Barracuda Networks) verknüpft ist, sind die Klicks wahrscheinlich automatisiert. Möglicherweise sehen Sie auch einen konsistenten User-Agent-Header über mehrere automatisierte Klicks hinweg.
 
-Weitere Informationen dazu, wie Sicherheitsscans E-Mail-Metriken beeinflussen, finden Sie unter [Umgang mit Anstiegen der Klickraten]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+Weitere Informationen dazu, wie Sicherheitsscans E-Mail-Metriken beeinflussen, finden Sie unter [Umgang mit Anstiegen der Klickraten]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### Welche potenziellen Risiken bestehen beim Auslösen von Server-Klicks? {#what-are-the-potential-risks-of-triggering-server-clicks}
 
@@ -181,7 +181,7 @@ Um dies zu vermeiden:
 - **Verwenden Sie ein Präferenzzentrum:** Verwenden Sie anstelle eines direkten Abmeldelinks ein [Präferenzzentrum]({{site.baseurl}}/user_guide/channels/email/subscriptions), das eine Nutzerinteraktion zur Bestätigung der Abmeldeaktion erfordert. Sicherheitsscanner schließen in der Regel keine mehrstufigen Formulare ab.
 - **Überprüfen Sie die Abmeldeprotokolle:** Prüfen Sie den `User-Agent`-Header und die IP-Adresse in Ihren Currents-Abmeldeereignisdaten, um Muster zu identifizieren, die auf automatisiertes Scannen hindeuten (wie konsistente `User-Agent`-Header über mehrere Abmeldungen hinweg).
 
-Weitere Details dazu, wie serverseitiges Scannen E-Mail-Metriken beeinflussen kann, finden Sie unter [Umgang mit Anstiegen der Klickraten]({{site.baseurl}}/user_guide/channels/email/reporting#handling-increases-in-click-rates).
+Weitere Details dazu, wie serverseitiges Scannen E-Mail-Metriken beeinflussen kann, finden Sie unter [Umgang mit Anstiegen der Klickraten]({{site.baseurl}}/user_guide/channels/email/reporting).
 
 ### Warum hat sich meine Machine-Open-Rate unerwartet geändert? {#why-has-my-machine-open-rate-changed-unexpectedly}
 

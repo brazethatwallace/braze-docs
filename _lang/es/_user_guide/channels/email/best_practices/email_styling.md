@@ -16,7 +16,7 @@ channel: email
 
 La línea del asunto es una de las primeras cosas que verán los destinatarios al recibir tu mensaje. Si la limitas a entre 6 y 10 palabras, obtendrás las tasas de apertura más altas.
 
-También hay distintos enfoques para crear una buena línea del asunto, desde formular una pregunta para despertar el interés del lector o ser más directo, hasta personalizarla para captar la atención de tu clientela. No te quedes con una sola línea del asunto, aprovecha las [pruebas A/B]({{site.baseurl}}/user_guide/messaging/ab_testing#what-are-multivariate-and-ab-testing) para probar otras nuevas y medir su eficacia. Las líneas del asunto no deben tener más de 35 caracteres para que se muestren correctamente en dispositivos móviles.
+También hay distintos enfoques para crear una buena línea del asunto, desde formular una pregunta para despertar el interés del lector o ser más directo, hasta personalizarla para captar la atención de tu clientela. No te quedes con una sola línea del asunto, aprovecha las [pruebas A/B]({{site.baseurl}}/user_guide/messaging/ab_testing/faq#what-is-the-difference-between-ab-testing-and-multivariate-testing) para probar otras nuevas y medir su eficacia. Las líneas del asunto no deben tener más de 35 caracteres para que se muestren correctamente en dispositivos móviles.
 
 El campo "De" debe mostrar claramente quién es el remitente. Procura no utilizar el nombre de una persona o una abreviatura poco común. En su lugar, utiliza un nombre reconocible como el de tu marca. Si utilizar el nombre de una persona se ajusta a los métodos de personalización del correo electrónico de tu marca, mantén la coherencia para desarrollar una relación con el destinatario. El nombre "De" no debe tener más de 25 caracteres para que se muestre correctamente en el móvil.
 
@@ -88,7 +88,7 @@ Aquí tienes algunas mejores prácticas a tener en cuenta al escribir tus preenc
 El tamaño del correo electrónico se refiere al tamaño del HTML de tu mensaje en Braze (el cuerpo que construyes y lo que Braze añade cuando se envía el mensaje).
 
 - Asegúrate de limitar el tamaño de tu correo electrónico. Los cuerpos de correo electrónico mayores de 102&nbsp;KB no solo son extremadamente exigentes para los servidores de Braze, sino que también son recortados por Gmail y otros clientes de correo electrónico.
-- Las imágenes alojadas que referencias por URL no se incrustan en el HTML de la misma manera que al pegar grandes activos en línea. Recomendamos usar la [Biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) y vincular mediante `href`, lo que ayuda a mantener el mensaje más pequeño.
+- Las imágenes alojadas que referencias por URL no se incrustan en el HTML de la misma manera que al pegar grandes activos en línea. Recomendamos usar la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) y vincular mediante `href`, lo que ayuda a mantener el mensaje más pequeño.
 
 |   Solo texto   | Texto con imágenes |     Ancho del correo    |
 |:-------------:|:----------------:|:------------------:|
@@ -112,7 +112,7 @@ Estas características aumentan el tamaño del mensaje renderizado en pequeñas 
 - Píxel de seguimiento de apertura: añade una etiqueta de imagen de 1 x 1&nbsp;px al cuerpo del mensaje
 - Preencabezado: añade un `<div>` oculto en la parte superior del cuerpo
 - Aliasing de enlaces: añade un parámetro de consulta de 16 caracteres (`lid=`) a cada URL rastreada
-- Plantillas de enlaces: añade cualquier parámetro de consulta configurado en el dashboard a las URL coincidentes
+- Plantillas de enlaces: añade cualquier parámetro de consulta configurado en el panel a las URL coincidentes
 - CSS en línea (opcional): aplica las reglas de la hoja de estilos incrustada en línea a los elementos HTML, lo que puede añadir CSS redundante dependiendo de la complejidad de la hoja de estilos
 
 El preencabezado y el píxel de seguimiento añaden aproximadamente 600 caracteres (menos de 1&nbsp;KB). Braze normalmente añade entre 0&nbsp;KB y 5&nbsp;KB dependiendo del número de enlaces, la complejidad de la plantilla de enlaces y si el CSS en línea está habilitado. Si el tamaño de tu correo electrónico está cerca del límite, recomendamos probar los correos electrónicos antes de enviarlos, ya que el tamaño final renderizado depende de estos factores.

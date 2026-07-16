@@ -52,7 +52,7 @@ Push Storiesを使用するには、以下の手順を実行します。
 ![Push Storiesコンポーザー]({% image_buster /assets/img_archive/pushstories_composer.png %}){: style="max-width:60%"}
 
 {% alert important %}
-[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content#about-connected-content)で画像を取得する場合は、画像URLが`https://`で始まることを確認してください。`http://`を使用するとアプリがクラッシュします。
+[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)で画像を取得する場合は、画像URLが`https://`で始まることを確認してください。`http://`を使用するとアプリがクラッシュします。
 {% endalert %}
 
 ### 画像とテキストの仕様 {#image-and-text-specifications}

@@ -18,7 +18,7 @@ Wissensquellen für die Agentenkonsole befinden sich derzeit im Early Access. Ko
 
 Wissensquellen sind eine Art von Agentenkontext. Ein KI-Agent kann eine Wissensquelle referenzieren, um Daten aus dem Katalog genauer abzurufen, als wenn der Katalog direkt in den Anweisungen des Agenten referenziert wird.
 
-Nehmen wir an, Sie erstellen einen Agenten, der Restaurants in New York City basierend auf der Lieblingsküche eines Nutzers bzw. einer Nutzerin empfiehlt – einem angepassten Attribut. Dieser Agent referenziert die Wissensquelle für den Katalog „nyc_restaurants“. Wenn Sie diese Wissensquelle erstellen, nehmen Sie nur die Felder auf, die der Agent benötigt – wie Restaurantname, Standort und Küche – und schließen andere Katalogspalten aus, die keine Empfehlungen unterstützen.
+Nehmen wir an, Sie erstellen einen Agenten, der Restaurants in New York City basierend auf der Lieblingsküche einer Nutzerin oder eines Nutzers empfiehlt – einem angepassten Attribut. Dieser Agent referenziert die Wissensquelle für den Katalog „nyc_restaurants“. Wenn Sie diese Wissensquelle erstellen, nehmen Sie nur die Felder auf, die der Agent benötigt – wie Restaurantname, Standort und Küche – und schließen andere Katalogspalten aus, die keine Empfehlungen unterstützen.
 
 Die Anweisungen des Agenten beschreiben seine Rolle und Einschränkungen klar:
 
@@ -28,7 +28,7 @@ You are a restaurant recommendation agent. Use your knowledge to help find resta
 ```
 {% endraw %}
 
-Wenn die Lieblingsküche eines Nutzers bzw. einer Nutzerin Pizza ist, kann der Agent basierend auf der Wissensquelle die folgende Antwort zurückgeben:
+Wenn die Lieblingsküche einer Nutzerin oder eines Nutzers Pizza ist, kann der Agent basierend auf der Wissensquelle die folgende Antwort zurückgeben:
 
 ```
 Here are some pizza recommendations for you:
@@ -73,7 +73,7 @@ Die Umwandlung eines Katalogs in eine Wissensquelle hilft Braze Agents, die tats
 
 ### Wann sollte ich eine Wissensquelle erstellen? {#when-should-i-create-a-knowledge-source}
 
-Erstellen Sie eine Wissensquelle, wenn Sie einen angepassten Agenten (Canvas-Agent oder Katalog-Agent) einrichten, der Katalogdaten als Kontext benötigt. Wissensquellen helfen Agenten, Katalogdaten genauer abzurufen, als wenn der Katalog direkt in den Anweisungen des Agenten referenziert wird.
+Erstellen Sie eine Wissensquelle, wenn Sie einen angepassten Agenten (Canvas-Schritt-Agent oder Katalog-Agent) einrichten, der Katalogdaten als Kontext benötigt. Wissensquellen helfen Agenten, Katalogdaten genauer abzurufen, als wenn der Katalog direkt in den Anweisungen des Agenten referenziert wird.
 
 ### Muss ich auch den ursprünglichen Katalog als Kontext zuweisen, wenn einem Agenten eine Wissensquelle als Kontext zugewiesen wurde? {#if-an-agent-has-been-given-a-knowledge-source-as-context-do-i-also-need-to-assign-the-original-catalog-as-context}
 
