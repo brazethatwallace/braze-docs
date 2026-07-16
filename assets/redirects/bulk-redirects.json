@@ -10750,11 +10750,6 @@
     "permanent": true
   },
   {
-    "source": "/docs/messaging_interaction_data",
-    "destination": "https://braze.com/unlisted_docs/messaging_interaction_data",
-    "permanent": true
-  },
-  {
     "source": "/docs/mms_faq",
     "destination": "/docs/user_guide/channels/sms_mms_and_rcs/faqs",
     "permanent": true
@@ -13945,11 +13940,6 @@
     "permanent": true
   },
   {
-    "source": "/docs/shopify_collections_sync",
-    "destination": "/docs/docs_pages/redirects/shopify_collections_sync",
-    "permanent": true
-  },
-  {
     "source": "/docs/shopify_data_legacy",
     "destination": "/docs/partners/ecommerce/shopify/shopify_data_features",
     "permanent": true
@@ -13957,11 +13947,6 @@
   {
     "source": "/docs/shopify_historical_backfill_legacy",
     "destination": "/docs/partners/ecommerce/shopify/shopify_data_features#historical-backfill",
-    "permanent": true
-  },
-  {
-    "source": "/docs/shopify_multiple_store",
-    "destination": "/docs/docs_pages/redirects/multiple_stores",
     "permanent": true
   },
   {
@@ -13977,11 +13962,6 @@
   {
     "source": "/docs/shopify_user_identity",
     "destination": "/docs/partners/ecommerce/shopify/shopify_overview",
-    "permanent": true
-  },
-  {
-    "source": "/docs/shopify_user_reconciliation",
-    "destination": "/docs/docs_pages/redirects/shopify_user_reconciliation",
     "permanent": true
   },
   {
@@ -14007,11 +13987,6 @@
   {
     "source": "/docs/sql_segments_tables",
     "destination": "/docs/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables",
-    "permanent": true
-  },
-  {
-    "source": "/docs/target_approvals",
-    "destination": "/docs/docs_pages/redirects/target_approvals",
     "permanent": true
   },
   {

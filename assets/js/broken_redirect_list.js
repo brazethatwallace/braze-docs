@@ -5085,16 +5085,11 @@ validurls['/docs/cloud_ingestion'] = '/docs/user_guide/data/unification/cloud_in
 validurls['/docs/cloud_ingestion#product-setup'] = '/docs/user_guide/data/unification/cloud_ingestion#product-setup';
 validurls['/docs/data_transformation'] = '/docs/user_guide/data/unification/data_transformation';
 validurls['/docs/line'] = '/docs/user_guide/channels/line';
-validurls['/docs/messaging_interaction_data'] = 'https://braze.com/unlisted_docs/messaging_interaction_data';
 validurls['/docs/multi_language_support'] = '/docs/user_guide/administer/global/workspace_settings/multi_language_settings';
 validurls['/docs/persistent_entry'] = '/docs/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties';
 validurls['/docs/post_user_track_synchronous'] = '/docs/api/endpoints/user_data/post_user_track_synchronous';
 validurls['/docs/scim_api_appendix'] = '/docs/api/objects_filters/scim_api_appendix';
 validurls['/docs/scim_api_appendix#permissions-object'] = '/docs/api/objects_filters/scim_api_appendix#permissions-object';
-validurls['/docs/target_approvals'] = '/docs/docs_pages/redirects/target_approvals';
-validurls['/docs/shopify_multiple_store'] = '/docs/docs_pages/redirects/multiple_stores';
-validurls['/docs/shopify_collections_sync'] = '/docs/docs_pages/redirects/shopify_collections_sync';
-validurls['/docs/shopify_user_reconciliation'] = '/docs/docs_pages/redirects/shopify_user_reconciliation';
 validurls['/docs/sms_traffic_pumping_fraud'] = '/docs/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/sms_traffic_pumping_fraud';
 
 // API paths
