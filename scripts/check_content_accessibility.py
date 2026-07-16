@@ -34,6 +34,7 @@ Decorative image heuristic
 Skips
   - Content inside fenced code blocks (``` / ~~~)
   - Content inside {% raw %} … {% endraw %} Liquid blocks
+  - Content inside <style> … </style> blocks (CSS is not reader-facing prose)
 
 Usage
 -----
@@ -70,6 +71,9 @@ HEADING_RE = re.compile(r'^(#{1,6})\s+')
 
 IFRAME_RE = re.compile(r'<iframe(?:\s[^>]*|)>', re.IGNORECASE)
 IFRAME_TITLE_RE = re.compile(r'\btitle\s*=\s*(?:"[^"]*"|\'[^\']*\')', re.IGNORECASE)
+
+STYLE_OPEN_RE = re.compile(r'<style\b', re.IGNORECASE)
+STYLE_CLOSE_RE = re.compile(r'</style\s*>', re.IGNORECASE)
 
 # Filename segments that indicate a decorative image
 DECORATIVE_RE = re.compile(
@@ -196,6 +200,15 @@ _SPATIAL_ALLOWLIST_RES: tuple = (
         r'sub-?group(?:ing)?\s+(?:above|below)\s+\w+',
         re.IGNORECASE,
     ),
+    # Numeric version/threshold comparisons where the number sits right after
+    # "above"/"below" (e.g. "API versions below 25", "score above 90").
+    # Distinct from the version/sdk/ios/android keyword-window pattern above,
+    # which requires the keyword within 40 chars; this covers cases where the
+    # keyword (or its plural, e.g. "versions") sits further away in the sentence.
+    re.compile(
+        r'\b(?:above|below)\s+\d+(?:\.\d+)*\b',
+        re.IGNORECASE,
+    ),
     # Programming/string operations (not layout instructions).
     re.compile(
         r'(?:left|right)\s+side\s+of\s+(?:a|the)?\s*string\b',
@@ -249,14 +262,29 @@ def make_violation(
 # ---------------------------------------------------------------------------
 
 def build_skip_mask(lines: list) -> list:
-    """Return a bool list; True = skip this line (code fence or Liquid raw block)."""
+    """Return a bool list; True = skip this line (code fence, Liquid raw block, or <style> block)."""
     skip = [False] * len(lines)
     in_fence = False
     fence_marker = ''
     in_raw = False
+    in_style = False
 
     for i, line in enumerate(lines):
         stripped = line.strip()
+
+        # <style> blocks — CSS positioning keywords and comments are not
+        # reader-facing prose and should never trip the content checks.
+        if not in_style and STYLE_OPEN_RE.search(line):
+            in_style = True
+            skip[i] = True
+            if STYLE_CLOSE_RE.search(line):
+                in_style = False
+            continue
+        elif in_style:
+            skip[i] = True
+            if STYLE_CLOSE_RE.search(line):
+                in_style = False
+            continue
 
         # Liquid {% raw %} blocks
         if not in_raw and '{% raw %}' in line:
