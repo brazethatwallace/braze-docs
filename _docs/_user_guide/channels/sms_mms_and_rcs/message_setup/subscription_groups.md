@@ -114,7 +114,7 @@ Use [Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-
 2. Create an action-based Canvas triggered by **Send an SMS inbound message**, within the **Other** keyword category.
 3. Add the [Agent step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) to the Canvas to identify opt-out intent.
 4. Add a subsequent SMS [Message step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) to confirm the request: "It looks like you're trying to unsubscribe from SMS, so we are going to unsubscribe you. If this is a mistake, text START to opt back in."
-5. Add a [User Update step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update) to change the user's status in the specific SMS subscription group to "Unsubscribed."
+5. Add a [User Update step]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) to change the user's status in the specific SMS subscription group to "Unsubscribed."
 
 {% alert note %}
 Using the Agent Console consumes Message or Action Credits.

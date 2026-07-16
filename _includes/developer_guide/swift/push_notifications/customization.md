@@ -241,7 +241,7 @@ You can inspect a sound to determine its data format by opening it in QuickTime 
 
 You must specify a protocol URL that directs to the location of the sound file in your app. There are two methods for doing this:
 
-* Use the `sound` parameter of the [Apple push object]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-object) to pass the URL to Braze.
+* Use the `sound` parameter of the [Apple push object]({{site.baseurl}}/api/objects_filters/messaging/apple_object) to pass the URL to Braze.
 * Specify the URL in the dashboard. In the [push composer]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message/#step-3-select-notification-type-ios-and-android), select **Settings** and enter the protocol URL in the **Sound** field. 
 
 ![The push composer in the Braze dashboard]({% image_buster /assets/img_archive/sound_push_ios.png %})

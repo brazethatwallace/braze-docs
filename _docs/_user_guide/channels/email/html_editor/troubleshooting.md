@@ -29,7 +29,7 @@ Use this workflow when HTML email rendering or editor behavior doesn't match wha
 
 1. Validate your HTML markup in the editor or an external validator.
 2. Send a [test email]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) and note which email clients or browsers show the issue.
-3. Preview with [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision) to compare rendering across clients.
+3. Preview with [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) to compare rendering across clients.
 4. Rule out [browser extension conflicts](#extension-conflicts) if the editor itself misbehaves.
 5. If the issue persists, open a [support ticket]({{site.baseurl}}/braze_support) with screenshots from Inbox Vision and the affected clients.
 
@@ -52,7 +52,7 @@ The plain text view removes your `WYSIWYG` (what you see is what you get) editor
 
 Emails render differently depending on browsers and email clients, so take note of which browsers and email clients you're experiencing issues with.
 
-- Preview your emails using [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision) to see what your emails look like in different browsers and email clients.
+- Preview your emails using [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) to see what your emails look like in different browsers and email clients.
 - After you've identified which browsers or email clients are causing issues, let your developer team know that they'll need to modify their HTML and make edits to accommodate those browsers or email clients.
 
 ### CSS inlining {#css-inlining}
