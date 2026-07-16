@@ -17,7 +17,7 @@ Instead of opening a different tool for each task, describe what you want in nat
 
 Operator has the same permissions you do, so certain actions require the relevant permission for that surface. For example, generating an image requires *Edit Media Library Assets*. If you don't see an entry point, check your permissions with your admin. For more information, see [List of permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#list-of-permissions).
 
-## Build campaigns and audiences {#build-campaigns-and-audiences}
+## Campaigns and audiences {#campaigns-and-audiences}
 
 Operator can help you go from an idea to a drafted campaign or audience, and refine either one once it exists.
 
@@ -35,13 +35,13 @@ When you start a segment, describe the audience you want and Operator helps you 
 
 ### Create and edit campaigns {#create-and-edit-campaigns}
 
-When you start a campaign, Operator can help you draft it end-to-end—audience, content, and delivery settings—from a single natural-language brief. You can also ask Operator to help you edit an existing campaign, such as adjusting targeting or refreshing the message content.
+When you start a campaign, Operator can help you draft it end-to-end from a single natural-language brief. This includes audience, content, and delivery settings. You can also ask Operator to help you edit an existing campaign, such as adjusting targeting or refreshing the message content.
 
 ### Create Segment Extensions {#create-segment-extensions}
 
 Operator can help you build a [Segment Extension]({{site.baseurl}}/user_guide/audience/segments/segment_extension) by writing the SQL query that defines it. Describe the audience logic you want, and Operator drafts the query for you to review before you save it. For more on Operator and SQL, see [Write SQL queries](#write-sql-queries).
 
-## Build and configure agents {#build-and-configure-agents}
+## Agents {#agents}
 
 Operator can help you build and refine agents in [Agent Console]({{site.baseurl}}/user_guide/brazeai/agents).
 
@@ -57,7 +57,7 @@ Agent Console also offers a **Create agent with Operator** option that loads a p
 
 When you're editing an agent, select **Generate with Operator** or **Refine with Operator** near the agent's instructions field to get Operator's help writing or revising the agent's prompt and output settings.
 
-## Generate content {#generate-content}
+## Content {#content}
 
 ### Apply brand guidelines {#apply-brand-guidelines}
 
@@ -185,22 +185,6 @@ This list isn't exhaustive—ask Operator directly if you're not sure whether it
 
 Operator can generate message HTML for any channel or editor with an HTML mode, including Email, SMS/RCS, In-App Messages, Content Cards, Push, and webhooks. Drag-and-drop editors aren't supported. For channel-specific guidance, see [Generate messages](#generate-messages).
 
-## Automate and transform data {#automate-and-transform-data}
-
-### Generate data transformation code {#generate-data-transformation-code}
-
-In the [Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) editor, select **Insert Code** to generate transformation code that turns an incoming webhook payload into valid Braze API requests.
-
-For step-by-step instructions on creating a transformation, see [Create a transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
-
-#### Example prompts {#generate-data-transformation-example-prompts}
-
-{% include copy_block.html content="Write transformation code that maps this survey webhook to a custom event on the user's profile." %}
-
-{% include copy_block.html content="Update this transformation to identify users by email address instead of external ID." %}
-
-## Review and quality-check content {#review-and-quality-check-content}
-
 ### Review content quality {#review-content-quality}
 
 On the **Test** tab for SMS, Android push, iOS push, and traditional in-app messages, select **Review with Operator** to review your content before sending. By default, Operator reviews your campaign for spelling and grammar errors, off-brand or inappropriate tone, offensive language, and any stray code, test content, or unrendered Liquid, and it recommends how to fix what it finds. You can also ask Operator to tailor how it reviews your content directly in your prompt.
@@ -230,7 +214,21 @@ Consider the following to make the most of content review:
 
 {% include copy_block.html content="Review this push notification for spelling, grammar, and tone, and flag any unrendered Liquid or leftover test content before I send it." %}
 
-## Look things up {#look-things-up}
+## Data automation {#data-automation}
+
+### Generate data transformation code {#generate-data-transformation-code}
+
+In the [Data Transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation) editor, select **Insert Code** to generate transformation code that turns an incoming webhook payload into valid Braze API requests.
+
+For step-by-step instructions on creating a transformation, see [Create a transformation]({{site.baseurl}}/user_guide/data/unification/data_transformation/creating_a_transformation).
+
+#### Example prompts {#generate-data-transformation-example-prompts}
+
+{% include copy_block.html content="Write transformation code that maps this survey webhook to a custom event on the user's profile." %}
+
+{% include copy_block.html content="Update this transformation to identify users by email address instead of external ID." %}
+
+## Lookup {#lookup}
 
 ### What Operator can look up {#what-operator-can-look-up}
 
@@ -248,7 +246,7 @@ Ask Operator directly if you're not sure whether it can look up a specific piece
 
 Operator can help you write SQL for [Segment Extensions](#create-segment-extensions) and for [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder) [query templates]({{site.baseurl}}/user_guide/analytics/reports/query_builder/query_templates). Describe the query you want in natural language, and Operator generates SQL for you to review before you run it.
 
-## Where Operator has limits {#where-operator-has-limits}
+## Limitations {#limitations}
 
 Operator's dashboard support is broad, but it has boundaries. Operator's coverage changes frequently—if you're not sure whether it supports a specific screen or workflow, ask it directly.
 
@@ -286,7 +284,7 @@ Yes, a company-wide daily usage limit applies; image generation counts toward it
 
 ## Legacy assistants {#legacy-assistants}
 
-Before Operator, several AI features stood alone as separate assistants: the AI Copywriter, AI Liquid Assistant, AI Image Generator, the Data Transformations AI Copilot, and content review. All of their entry points remain in place and route to Operator, so your existing workflows are unaffected. For what these do today, see [Generate content](#generate-content), [Automate and transform data](#automate-and-transform-data), and [Review and quality-check content](#review-and-quality-check-content).
+Before Operator, several AI features stood alone as separate assistants: the AI Copywriter, AI Liquid Assistant, AI Image Generator, the Data Transformations AI Copilot, and content review. All of their entry points remain in place and route to Operator, so your existing workflows are unaffected. For what these do today, see [Content](#content) and [Data automation](#data-automation).
 
 ## Data privacy and security {#data-privacy-and-security}
 
