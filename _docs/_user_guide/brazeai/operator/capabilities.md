@@ -96,7 +96,7 @@ You get the best results when you use Operator in the composer you're building, 
 
 In the [Banner HTML editor]({{site.baseurl}}/user_guide/channels/banners/create_a_banner/#compose-a-banner), select **Ask Operator** to generate HTML for your Banner. Describe the layout, content, and styling you want. Operator can include [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/) personalization in the generated markup.
 
-Keep the conversation going to refine the result—for example, ask for a different layout, shorter copy, or updated button styling—before you insert the HTML into the editor.
+Keep the conversation going to refine the result. For example, you can ask for a different layout, shorter copy, or updated button styling before you insert the HTML into the editor.
 
 ##### Example prompts {#generate-messages-html-banners-example-prompts}
 
@@ -118,7 +118,7 @@ As with copywriting, you can ask Operator to generate Liquid from anywhere, and 
 
 Operator is highly capable with Liquid. It can generate complex Liquid logic grounded in the data in your workspace, including looking up [catalog]({{site.baseurl}}/user_guide/data/activation/catalogs) data to find example values. It can also review and explain the existing Liquid in your campaigns.
 
-#### Best practices {#generate-liquid-best-practices}
+{% details Liquid prompting best practices %}
 
 ##### Give context {#generate-liquid-give-context}
 
@@ -143,6 +143,8 @@ Operator can ask follow-up questions, but providing details upfront can lead to 
 ##### Get creative {#generate-liquid-get-creative}
 
 Try different prompts to see how Operator can enhance your messaging. Experiment with different prompts and ideas, as creativity can lead to more engaging results.
+
+{% enddetails %}
 
 #### Example prompts {#generate-liquid-example-prompts}
 
