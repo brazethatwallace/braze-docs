@@ -29,7 +29,7 @@ Quando a Braze "envia" uma mensagem, a entrega final pode depender de serviços 
 | --- | --- |
 | Content Cards | O cartão foi enviado e está elegível para visualização. |
 | E-mail | A Braze encaminha a mensagem a um provedor de serviços de e-mail (ESP). O ESP é então responsável pela entrega final. Esse ESP, por exemplo, pode reportar um "bounce" se o endereço de e-mail for inválido ou a caixa de entrada estiver cheia. |
-| Mensagens no app | A mensagem foi exibida ao usuário. |
+| Mensagens no app | A mensagem foi visualizada pelo usuário e uma impressão foi registrada. |
 | LINE | A mensagem foi encaminhada com sucesso a um parceiro de envio. |
 | Push | A Braze encaminha a mensagem ao serviço de notificação por push apropriado (como o serviço de Notificações por Push da Apple para iOS ou o Firebase Cloud Messaging para Android). Esse serviço é responsável pela entrega final da notificação ao dispositivo. |
 | SMS/MMS/RCS | A Braze encaminha a mensagem a um gateway de SMS (como o Twilio). Esse gateway é responsável pela entrega final à operadora de celular. |

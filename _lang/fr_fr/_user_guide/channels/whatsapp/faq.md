@@ -48,6 +48,7 @@ La vérification d'entreprise est un concept WhatsApp utilisé pour s'assurer qu
 L'OBA (Official Business Account) vous donne la coche verte à côté de votre nom d'affichage et est optionnel. Vous pouvez demander un compte professionnel officiel après avoir complété la vérification d'entreprise. Notez que la vérification d'entreprise et le compte professionnel officiel sont des concepts WhatsApp différents.
 
 ### Numéros de téléphone du compte WhatsApp Business {#whatsapp-business-account-phone-numbers}
+
 #### Ai-je besoin d'un numéro de téléphone pour mon compte WhatsApp Business ? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
 Oui, vous avez besoin d'un numéro auquel vous avez accès. Il vous sera demandé de vérifier votre numéro de téléphone avec l'authentification à deux facteurs lors du flux d'inscription intégré. Le numéro de téléphone ne peut pas être utilisé pour d'autres comptes WhatsApp (professionnels ou personnels).
 
@@ -116,7 +117,7 @@ Si toutes les conditions précédentes sont remplies, vous pouvez augmenter votr
 Vous pouvez vérifier vos limites d'envoi actuelles dans l'onglet **WhatsApp Manager > Overview Dashboard > Insights**.
 
 #### Que se passe-t-il si je tente d'envoyer des messages alors que j'ai déjà atteint ma limite d'envoi ? {#what-happens-if-i-attempt-to-send-messages-when-i-have-already-reached-my-messaging-limit}
-Si vous essayez d'envoyer une campagne ou un Canvas à plus d'utilisateurs uniques que votre limite actuelle ne le permet, les messages ne seront pas envoyés. Braze continuera de tenter de renvoyer les messages si/quand votre limite d'envoi augmente, pendant une durée maximale d'un jour.
+Si vous essayez d'envoyer une Campaign ou un Canvas à plus d'utilisateurs uniques que votre limite actuelle ne le permet, les messages ne seront pas envoyés. Braze continuera de tenter de renvoyer les messages si/quand votre limite d'envoi augmente, pendant une durée maximale d'un jour.
 
 #### Ma limite d'envoi de messages peut-elle diminuer ? {#can-my-messaging-limit-decrease}
 Oui, si l'évaluation de la qualité de votre numéro de téléphone baisse trop, vous risquez que WhatsApp diminue votre limite d'envoi. Braze vous recommande de vous abonner aux notifications de mises à jour liées à la qualité de WhatsApp, y compris les mises à jour du statut de votre numéro de téléphone et du niveau de limite d'envoi. Vous pouvez vous abonner aux notifications directement dans le tableau de bord du WhatsApp Manager.
@@ -185,6 +186,28 @@ Si un utilisateur final signale un message, vous pouvez toujours envoyer des mes
 
 #### Si un utilisateur final bloque ou signale mon entreprise, son statut d'abonnement sera-t-il mis à jour dans Braze ? {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 Non. Son statut d'abonnement Braze ne sera pas mis à jour.
+
+#### Les messages de réponse WhatsApp sont-ils gratuits ? {#are-whatsapp-response-messages-free}
+
+Les messages de réponse composés dans l'éditeur de Campaign ou de Canvas de Braze (et non des modèles WhatsApp approuvés) sont traités comme des messages de service par Meta. Les messages de service envoyés via l'intégration native WhatsApp de Braze ne consomment pas d'Action Credits lorsqu'ils sont envoyés en tant que [messages de réponse]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) dans une fenêtre de service client ouverte.
+
+| Type de message | Action Credits | Notes |
+|---|---|---|
+| Message de réponse (réponse entrante) | Non consommés | Composé dans Braze ; pas un modèle approuvé par Meta. |
+| Message modèle | Consommés | Les modèles marketing, utilitaires, d'authentification et d'offre à durée limitée sont facturés par envoi. |
+| Modèle utilitaire dans la fenêtre de service | Non consommés par Meta | Meta ne facture pas les modèles utilitaires envoyés dans les 24 heures suivant un message initié par l'utilisateur. La consommation d'Action Credits dépend de votre contrat. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Action Credits des messages de réponse" }
+
+Pour les flux Canvas où les utilisateurs appuient sur des réponses rapides après la fenêtre initiale de 24 heures, consultez [Réponses rapides et messages entrants en dehors de la fenêtre de 24 heures]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Que se passe-t-il si un utilisateur répond ou appuie sur une réponse rapide après la fermeture de la fenêtre de 24 heures ? {#what-happens-if-a-user-replies-or-taps-a-quick-reply-after-the-24-hour-window-closes}
+Une nouvelle fenêtre de service client de 24 heures s'ouvre. Consultez [Réponses rapides et messages entrants en dehors de la fenêtre de 24 heures]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Dois-je configurer la durée de mon parcours d'action Canvas sur 31 jours pour les réponses rapides WhatsApp ? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
+Non. La durée par défaut du parcours d'action est suffisante. Consultez [Réponses rapides et messages entrants en dehors de la fenêtre de 24 heures]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Puis-je voir combien de crédits WhatsApp une Campaign ou un Canvas spécifique a consommés ? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
+Pas dans le tableau de bord de Braze actuellement. Les analyses de Campaign et de Canvas affichent les envois, les livraisons et les échecs, mais pas la consommation de crédits par message. Le nombre d'envois ne correspond pas exactement à l'utilisation des crédits, car la catégorie du modèle et le type de message affectent la facturation différemment. Pour plus de détails sur la facturation, consultez [Les messages de réponse WhatsApp sont-ils gratuits ?](#are-whatsapp-response-messages-free).
 
 ### Intégrations, données et reporting {#integrations-data-and-reporting}
 

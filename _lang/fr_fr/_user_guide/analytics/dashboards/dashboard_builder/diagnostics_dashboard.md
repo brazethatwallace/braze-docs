@@ -29,7 +29,7 @@ Lorsque Braze « envoie » un message, la distribution finale peut dépendre de 
 | --- | --- |
 | Content Cards | La carte a été envoyée et peut être consultée. |
 | E-mail | Braze transmet le message à un fournisseur de services d'e-mailing (ESP). L'ESP est ensuite responsable de la distribution finale. Cet ESP peut, par exemple, signaler un « rebond » si l'adresse e-mail est invalide ou si la boîte de réception est pleine. |
-| Messages in-app | Le message a été affiché à l'utilisateur. |
+| Messages in-app | Le message a été affiché à l'utilisateur et une impression a été enregistrée. |
 | LINE | Le message a été transmis avec succès à un partenaire d'envoi. |
 | Push | Braze transmet le message au service de notification push approprié (comme Apple Push Notification service pour iOS ou Firebase Cloud Messaging pour Android). Ce service est responsable de la distribution finale de la notification sur l'appareil. |
 | SMS/MMS/RCS | Braze transmet le message à une passerelle SMS (comme Twilio). Cette passerelle est responsable de la distribution finale à l'opérateur mobile. |
@@ -72,7 +72,7 @@ En haut de la page, des tuiles récapitulatives clés pour la période sélectio
 
 ### Résultats des messages au fil du temps {#message-outcomes-over-time}
 
-Ce graphique en série temporelle montre une ventilation heure par heure des raisons pour lesquelles un message a été abandonné ou un utilisateur a été retiré d'un Canvas. Les libellés de résultats dans ce graphique sont des libellés normalisés du tableau de bord, et non des valeurs brutes de payload d'événement. Ce graphique n'affiche pas le nombre d'envois.
+Ce graphique en série temporelle montre une ventilation heure par heure des raisons pour lesquelles un message a été abandonné ou un utilisateur a été retiré d'un Canvas. Les libellés de résultats dans ce graphique sont des libellés normalisés du tableau de bord, et non des valeurs brutes de payloads d'événement. Ce graphique n'affiche pas le nombre d'envois.
 
 ### Journal détaillé des résultats des messages {#message-outcomes-granular-log}
 

@@ -54,7 +54,7 @@ Les modèles marketing sont le type le plus couramment utilisé dans Braze. Ils 
 | Type de bouton | Comportement | Notes |
 |---|---|---|
 | Réponse rapide | Envoie le texte du libellé du bouton comme réponse dans la conversation | |
-| URL | Ouvre une URL dans le navigateur par défaut de l'utilisateur ; prend en charge 1 variable ajoutée à la fin de l'URL (2 000 caractères maximum) | |
+| URL | Ouvre une URL dans le navigateur par défaut de l'utilisateur ; prend en charge 1 variable ajoutée à la fin de l'URL (2 000 caractères maximum) | Les URL contenant des caractères spéciaux (tels que `&`, `%`, `<`, `>`) peuvent provoquer des échecs d'envoi de messages. Utilisez le filtre Liquid [`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) ou [`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) pour encoder correctement les URL contenant des caractères spéciaux. |
 | Numéro de téléphone | Lance un appel vers le numéro de téléphone spécifié | |
 | Copier le code promo | Copie un code promo dans le presse-papiers de l'utilisateur | Nécessite toujours l'approbation de Meta |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Types de boutons" }

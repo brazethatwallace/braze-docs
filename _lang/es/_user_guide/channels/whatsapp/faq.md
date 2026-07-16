@@ -48,6 +48,7 @@ La verificación de empresa es un concepto de WhatsApp utilizado para asegurar q
 OBA te da la marca de verificación verde junto a tu nombre de visualización y es opcional. Puedes solicitar una cuenta de empresa oficial después de completar la verificación de empresa. Ten en cuenta que la verificación de empresa y una cuenta de empresa oficial son conceptos diferentes de WhatsApp.
 
 ### Números de teléfono de la cuenta de WhatsApp Business {#whatsapp-business-account-phone-numbers}
+
 #### ¿Necesito un número de teléfono para mi cuenta de WhatsApp Business? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
 Sí, necesitas un número al que tengas acceso. Se te pedirá que verifiques tu número de teléfono con autenticación de 2 factores cuando pases por el flujo de registro integrado. El número de teléfono no puede usarse para otras cuentas de WhatsApp (de negocio o personales).
 
@@ -185,6 +186,28 @@ Si un usuario final reporta un mensaje, aún puedes enviar mensajes posteriores 
 
 #### Si un usuario final bloquea o reporta mi empresa, ¿se actualizará su estado de suscripción en Braze? {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 No. Su estado de suscripción en Braze no se actualizará.
+
+#### ¿Los mensajes de respuesta de WhatsApp son gratuitos? {#are-whatsapp-response-messages-free}
+
+Los mensajes de respuesta redactados en el editor de Campaign o Canvas de Braze (no plantillas aprobadas de WhatsApp) son tratados como mensajes de servicio por Meta. Los mensajes de servicio enviados a través de la integración nativa de WhatsApp de Braze no consumen Action Credits cuando se envían como [mensajes de respuesta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) dentro de una ventana de servicio al cliente abierta.
+
+| Tipo de mensaje | Action Credits | Notas |
+|---|---|---|
+| Mensaje de respuesta (respuesta entrante) | No se consumen | Redactado en Braze; no es una plantilla aprobada por Meta. |
+| Mensaje de plantilla | Se consumen | Las plantillas de marketing, utilidad, autenticación y oferta por tiempo limitado se facturan por envío. |
+| Plantilla de utilidad en ventana de servicio | No se consumen por Meta | Meta no cobra por las plantillas de utilidad enviadas dentro de las 24 horas de un mensaje iniciado por el usuario. El consumo de Action Credits sigue tu contrato. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Action Credits de mensajes de respuesta" }
+
+Para flujos de Canvas en los que los usuarios tocan respuestas rápidas después de la ventana original de 24 horas, consulta [Respuestas rápidas y mensajes entrantes fuera de la ventana de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### ¿Qué sucede si un usuario responde o toca una respuesta rápida después de que se cierra la ventana de 24 horas? {#what-happens-if-a-user-replies-or-taps-a-quick-reply-after-the-24-hour-window-closes}
+Se abre una nueva ventana de servicio al cliente de 24 horas. Consulta [Respuestas rápidas y mensajes entrantes fuera de la ventana de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### ¿Necesito configurar la duración de mi Action Path de Canvas en 31 días para las respuestas rápidas de WhatsApp? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
+No. La duración predeterminada del Action Path es suficiente. Consulta [Respuestas rápidas y mensajes entrantes fuera de la ventana de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### ¿Puedo ver cuántos créditos de WhatsApp consumió una Campaign o un Canvas específico? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
+No en el panel de Braze actualmente. Los análisis de Campaign y Canvas muestran envíos, entregas y fallos, pero no el consumo de créditos por mensaje. Los recuentos de envíos no se corresponden uno a uno con el uso de créditos porque la categoría de la plantilla y el tipo de mensaje afectan la facturación de manera diferente. Para más detalles sobre facturación, consulta [¿Los mensajes de respuesta de WhatsApp son gratuitos?](#are-whatsapp-response-messages-free).
 
 ### Integraciones, datos e informes {#integrations-data-and-reporting}
 

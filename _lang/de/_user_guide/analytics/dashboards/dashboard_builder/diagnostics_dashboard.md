@@ -29,7 +29,7 @@ Wenn Braze eine Nachricht „sendet“, kann die endgültige Zustellung von exte
 | --- | --- |
 | Content Cards | Die Card wurde gesendet und ist zur Anzeige berechtigt. |
 | E-Mail | Braze übergibt die Nachricht an einen E-Mail-Anbieter (ESP). Der ESP ist dann für die endgültige Zustellung verantwortlich. Dieser ESP kann beispielsweise einen „Bounce“ melden, wenn die E-Mail-Adresse ungültig ist oder das Postfach voll ist. |
-| In-App-Nachrichten | Die Nachricht wurde den Nutzer:innen angezeigt. |
+| In-App-Nachrichten | Die Nachricht wurde den Nutzer:innen angezeigt und eine Impression wurde protokolliert. |
 | LINE | Die Nachricht wurde erfolgreich an einen Versandpartner übergeben. |
 | Push | Braze übergibt die Nachricht an den entsprechenden Push-Benachrichtigungsdienst (wie Apple Push Notification Service für iOS oder Firebase Cloud Messaging für Android). Dieser Dienst ist für die endgültige Zustellung der Benachrichtigung an das Gerät verantwortlich. |
 | SMS/MMS/RCS | Braze übergibt die Nachricht an ein SMS-Gateway (wie Twilio). Dieses Gateway ist für die endgültige Zustellung an den Mobilfunkanbieter verantwortlich. |
@@ -157,7 +157,7 @@ Abbruchergebnisse in der Messaging-Diagnose sind lesbare Dashboard-Bezeichnungen
 | Push-Zugangsdaten ungültig | Die [Push-Zugangsdaten]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) für diese App fehlen oder sind ungültig, sodass der Versand abgebrochen wurde. Aktualisieren Sie Ihre Zugangsdaten in den **App-Einstellungen**. |
 | Abo-Gruppen-Fehler | Die Nachricht konnte aufgrund von Problemen mit der Abo-Gruppen- oder Messaging-Dienst-Konfiguration nicht gesendet werden. Häufige Gründe sind fehlende Sendenummern für SMS oder WhatsApp oder nicht unterstütztes MMS im konfigurierten Messaging-Dienst. |
 | Nutzer:innen nicht für Kanal berechtigt | Die Nutzer:innen sind nicht berechtigt, diese Nachricht auf dem ausgewählten Kanal zu empfangen. Häufige Gründe sind fehlende oder ungültige Kanalbezeichner, keine berechtigten Push-Token, Einschränkungen des Abo-Status, nicht unterstützte Kanalfunktionen oder gesperrte Länder für telefonbasierte Kanäle. |
-| Webhook fehlgeschlagen | Der Webhook hat einen nicht erfolgreichen Antwortcode (nicht `2xx`) erhalten. Häufige Fehlercodes sind `4XX`-Client-Fehler, `5XX`-Server-Fehler oder Timeouts sowie `598 Host Unhealthy` oder kurzzeitig angehaltene Anfragen. |
+| Webhook fehlgeschlagen | Der Webhook hat einen nicht erfolgreichen Antwortcode (nicht `2xx`) erhalten. Häufige Fehlercodes sind `4XX`-Client-Fehler, `5XX`-Server-Fehler oder Timeout sowie `598 Host Unhealthy` oder kurzzeitig angehaltene Anfragen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Kanal und Zustellung" }
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}

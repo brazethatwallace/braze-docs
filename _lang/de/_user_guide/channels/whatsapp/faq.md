@@ -187,6 +187,28 @@ Wenn ein:e Endnutzer:in eine Nachricht meldet, können Sie weiterhin nachfolgend
 #### Wenn ein:e Endnutzer:in mein Unternehmen blockiert oder meldet, wird deren Abo-Status in Braze aktualisiert? {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 Nein. Deren Braze-Abo-Status wird nicht aktualisiert.
 
+#### Sind WhatsApp-Antwortnachrichten kostenlos? {#are-whatsapp-response-messages-free}
+
+Antwortnachrichten, die im Braze-Campaign- oder Canvas-Editor verfasst werden (keine genehmigten WhatsApp-Templates), werden von Meta als Servicenachrichten behandelt. Servicenachrichten, die über die native WhatsApp-Integration von Braze gesendet werden, verbrauchen keine Action Credits, wenn sie als [Antwortnachrichten]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) innerhalb eines offenen Kundenservice-Fensters gesendet werden.
+
+| Nachrichtentyp | Action Credits | Hinweise |
+|---|---|---|
+| Antwortnachricht (eingehende Antwort) | Werden nicht verbraucht | In Braze verfasst; kein von Meta genehmigtes Template. |
+| Template-Nachricht | Werden verbraucht | Marketing-, Utility-, Authentifizierungs- und zeitlich begrenzte Angebots-Templates werden pro Versand abgerechnet. |
+| Utility-Template im Servicefenster | Werden von Meta nicht berechnet | Meta berechnet keine Kosten für Utility-Templates, die innerhalb von 24 Stunden nach einer nutzerinitierten Nachricht gesendet werden. Der Action-Credit-Verbrauch richtet sich nach Ihrem Vertrag. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Action Credits für Antwortnachrichten" }
+
+Für Canvas-Flows, in denen Nutzer:innen nach dem ursprünglichen 24-Stunden-Fenster auf Schnellantworten tippen, siehe [Schnellantworten und eingehende Nachrichten außerhalb des 24-Stunden-Fensters]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Was passiert, wenn ein:e Nutzer:in nach Ablauf des 24-Stunden-Fensters antwortet oder auf eine Schnellantwort tippt? {#what-happens-if-a-user-replies-or-taps-a-quick-reply-after-the-24-hour-window-closes}
+Es öffnet sich ein neues 24-Stunden-Kundenservice-Fenster. Siehe [Schnellantworten und eingehende Nachrichten außerhalb des 24-Stunden-Fensters]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Muss ich meinen Canvas-Aktionspfad für WhatsApp-Schnellantworten auf 31 Tage einstellen? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
+Nein. Die Standard-Aktionspfad-Dauer ist ausreichend. Siehe [Schnellantworten und eingehende Nachrichten außerhalb des 24-Stunden-Fensters]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Kann ich sehen, wie viele WhatsApp-Credits eine bestimmte Campaign oder ein Canvas verbraucht hat? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
+Derzeit nicht im Braze-Dashboard. Campaign- und Canvas-Analytics zeigen Sendungen, Zustellungen und Fehler an, aber nicht den Credit-Verbrauch pro Nachricht. Die Sendezahlen stimmen nicht eins zu eins mit dem Credit-Verbrauch überein, da Template-Kategorie und Nachrichtentyp die Abrechnung unterschiedlich beeinflussen. Weitere Informationen zur Abrechnung finden Sie unter [Sind WhatsApp-Antwortnachrichten kostenlos?](#are-whatsapp-response-messages-free).
+
 ### Integrationen, Daten und Reporting {#integrations-data-and-reporting}
 
 #### Unterstützt Braze Kundensupport-Anwendungsfälle wie Chatbots und menschlich unterstützten Chat für WhatsApp? {#does-braze-support-customer-support-use-cases-like-chatbots-and-human-assisted-chat-for-whatsapp}
