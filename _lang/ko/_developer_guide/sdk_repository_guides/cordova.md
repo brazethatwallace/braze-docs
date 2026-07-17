@@ -31,7 +31,7 @@ Braze Cordova SDK는 Braze 메시징, 분석 및 사용자 참여 기능을 애�
 
 ## SDK 설치 {#installing-the-sdk}
 {% alert warning %}
-**SDK 설치**에 안내된 `cordova plugin add` 명령어로만 Braze Cordova SDK를 추가하세요. 다른 방법으로 설치를 시도하면 보안 위반이 발생할 수 있습니다.
+아래 안내된 방법으로만 Braze Cordova SDK를 추가하세요. 다른 방법으로 설치를 시도하면 보안 위반이 발생할 수 있습니다.
 {% endalert %}
 ``` text
 # To use the base SDK functionality, install using the `master` branch.

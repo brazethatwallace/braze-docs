@@ -19,7 +19,7 @@ page_type: reference
 
 ## 작동 원리 {#how-it-works}
 
-이메일 주소는 반드시 해시 및 암호화를 거쳐야 Braze에 추가할 수 있습니다. 메시지가 전송되면 복호화된 이메일 주소를 가져오기 위해 AWS KMS로 호출이 이루어집니다. 다음으로, 해시된 이메일 주소가 전달 및 참여 이벤트의 메타데이터에 삽입되어 원래 사용자와 연결됩니다. 이것이 바로 Braze가 이메일 분석을 추적하는 방법입니다. Braze는 포함된 모든 일반 텍스트 이메일 주소를 삭제하고 사용자의 일반 텍스트 이메일 주소를 저장하지 않습니다.
+이메일 주소는 반드시 해시 및 암호화를 거쳐야 Braze에 추가할 수 있습니다. 메시지가 전송되면 복호화된 이메일 주소를 가져오기 위해 AWS KMS로 호출이 이루어집니다. 다음으로, 해시된 이메일 주소가 전달 및 인게이지먼트 이벤트의 메타데이터에 삽입되어 원래 사용자와 연결됩니다. 이것이 바로 Braze가 이메일 분석을 추적하는 방법입니다. Braze는 포함된 모든 일반 텍스트 이메일 주소를 삭제하고 사용자의 일반 텍스트 이메일 주소를 저장하지 않습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -87,7 +87,7 @@ Braze에서 이메일 주소를 업데이트할 때 `email`이 포함되는 모�
 
 ### 사용자 속성 오브젝트 {#user-attributes-object}
 
-`/users/track` 엔드포인트에서 식별자 필드 수준 암호화를 사용하는 경우 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)에 대한 다음 필드 세부 정보에 유의하세요:
+`/users/track` 엔드포인트에서 식별자 필드 수준 암호화를 사용하는 경우 [사용자 속성 오브젝트]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)에 대한 다음 필드 세부 정보에 유의하세요:
 
 - `email` 필드는 이메일의 해시값이어야 합니다.
 - `email_encrypted` 필드는 이메일의 암호화된 값이어야 합니다.
@@ -106,18 +106,18 @@ Braze에서 이메일 주소를 업데이트할 때 `email`이 포함되는 모�
 2. **Test Send**에서 **Override recipients attributes with current preview user's attributes**를 선택합니다.
 
 {%raw%}
-### 이 이메일 주소 Liquid `{{${email_address}}}`를 Braze에 추가하면 어떻게 되나요? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
+### Braze에서 이 이메일 주소 Liquid `{{${email_address}}}`를 추가하면 어떻게 되나요? {#what-happens-if-i-add-this-email-address-liquid-email_address-in-braze}
 
 Braze는 이메일을 보낼 때 일반 텍스트 이메일 주소를 렌더링합니다. 미리보기에서는 이메일의 암호화된 버전이 표시됩니다. 커스텀 원클릭 URL에서 사용자를 참조하는 경우 해당 사용자의 외부 ID를 사용하는 것이 좋습니다.
 
 `{{${email_address}}}`는 현재 환경설정 센터 및 탈퇴 페이지에서 지원되지 않습니다.
 {%endraw%}
 
-### Currents에 어떤 이메일 주소가 표시되나요? {#what-email-address-should-i-expect-to-see-in-currents}
+### Currents에서 어떤 이메일 주소가 표시되나요? {#what-email-address-should-i-expect-to-see-in-currents}
 
-해시된 이메일 주소는 이메일 전달 및 참여 이벤트에 포함됩니다.
+해시된 이메일 주소는 이메일 전달 및 인게이지먼트 이벤트에 포함됩니다.
 
-### 메시지 아카이브에 어떤 이메일 주소가 표시되나요? {#what-email-address-should-i-expect-to-see-in-message-archiving}
+### 메시지 아카이브에서 어떤 이메일 주소가 표시되나요? {#what-email-address-should-i-expect-to-see-in-message-archiving}
 
 일반 텍스트 이메일 주소는 메시지 아카이브에 포함됩니다. 이러한 이메일은 고객의 클라우드 스토리지 제공업체로 직접 전송되며 이메일 본문에는 다른 개인 데이터가 포함될 수 있습니다.
 

@@ -62,7 +62,7 @@ Pour l'utilisation dans les URL et les chaînes de requête (par exemple, lorsqu
 
 ### Comment utiliser Liquid avec des objets imbriqués ? {#how-do-i-use-liquid-with-nested-objects}
 
-Braze dispose d'une fonctionnalité intégrée qui génère du code Liquid pour les Segments pouvant être utilisés dans un message. Plus précisément, vous pouvez créer un Segment correspondant à plusieurs critères au sein d'un objet.
+Braze dispose d'une fonctionnalité intégrée qui génère du code Liquid pour les Segments pouvant être utilisés dans un message. Plus précisément, vous pouvez créer un segment correspondant à plusieurs critères au sein d'un objet.
 
 Pour plus d'informations, consultez [Segmentation multicritères]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects).
 
@@ -148,6 +148,41 @@ La logique d'abandon vous permet d'empêcher l'envoi d'un message si les conditi
 ### Puis-je utiliser Liquid à l'intérieur de l'étiquette `abort_message` ? {#can-i-use-liquid-inside-the-abort_message-tag}
 
 Non. L'étiquette {% raw %}`{% abort_message %}`{% endraw %} accepte une chaîne de caractères statique entre guillemets, pas de personnalisation Liquid. Utilisez d'autres logiques Liquid avant l'étiquette si vous avez besoin d'un comportement d'abandon conditionnel.
+
+### Comment masquer des numéros de téléphone avec Liquid ? {#how-do-i-mask-phone-numbers-with-liquid}
+
+Vous pouvez masquer des numéros de téléphone en utilisant le filtre `slice` pour extraire des chiffres spécifiques et le filtre `append` pour les combiner avec des caractères de masquage.
+
+#### Masquer tous les chiffres sauf les quatre derniers {#mask-all-but-the-last-four-digits}
+
+Pour afficher un numéro de téléphone à 10 chiffres sous la forme `******7890` :
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### Afficher les trois premiers et les quatre derniers chiffres {#show-the-first-three-and-last-four-digits}
+
+Pour afficher un numéro de téléphone à 10 chiffres sous la forme `123***7890` :
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
 
 ## Canvas, catalogues et propriétés de déclenchement {#canvas-catalogs-and-trigger-properties}
 

@@ -7,7 +7,6 @@ page_type: reference
 channel:
   - WhatsApp
 
-
 ---
 
 # Números de telefone dos usuários {#user-phone-numbers}
@@ -18,7 +17,7 @@ Os números de telefone são exibidos no perfil de usuário em formatos locais, 
 
 ## Importando números de telefone {#importing-phone-numbers}
 
-Você pode importar números de telefone [fazendo upload de um CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) ou [via API]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint) para criar um usuário.
+Você pode importar números de telefone [fazendo upload de um CSV]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) ou [via API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) para criar um usuário.
 
 ### Formatação {#formatting}
 

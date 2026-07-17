@@ -161,7 +161,7 @@ Braze는 이메일 내에서 다음 Liquid가 사용되는 경우 탈퇴 링크�
 
 아니요. Braze는 이 기능을 제공하지 않습니다. 이는 점점 더 많은 이메일이 모바일 기기와 최신 이메일 클라이언트에서 열리고 있으며, 이러한 클라이언트는 이미지와 콘텐츠를 문제없이 렌더링하기 때문입니다.
 
-**해결 방법:** 동일한 결과를 얻으려면 이메일 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅한 다음, 이메일 본문을 편집할 때 **Link** 도구를 사용하여 구축 중인 이메일 Campaign에서 해당 페이지로 링크할 수 있습니다.
+**해결 방법:** 동일한 결과를 얻으려면 이메일 콘텐츠를 외부 랜딩 페이지(예: 웹사이트)에 호스팅한 다음, 이메일 본문을 편집할 때 **링크** 도구를 사용하여 구축 중인 이메일 Campaign에서 해당 페이지로 링크할 수 있습니다.
 
 ### Braze가 일반 텍스트 URL이나 "www." 텍스트를 자동으로 링크로 변환하나요? {#does-braze-automatically-turn-plain-text-urls-or-www-text-into-links}
 
@@ -217,7 +217,7 @@ Gmail은 이메일 메시지에서 모든 비HTTP/HTTPS 링크를 제거합니�
 
 이 경고는 탈퇴 링크가 없었던 Campaign에서 복제된 Campaign에서 지속될 수 있습니다. 이를 해결하려면:
 
-- HTML 이메일의 경우, **Plaintext** 탭으로 이동한 다음 **Regenerate from HTML**을 선택하세요.
+- HTML 이메일의 경우, **일반 텍스트** 탭으로 이동한 다음 **HTML에서 재생성**을 선택하세요.
 - 복제 후, 배리언트를 복제한 다음 원본 배리언트를 제거하세요. 원본 배리언트를 **선택하지 마세요**. 그렇지 않으면 경고가 이어질 수 있습니다.
 
 ### 사용자가 받지 말아야 할 이메일을 받은 이유는 무엇인가요? {#why-did-a-user-receive-an-email-they-shouldnt-have}
@@ -251,7 +251,7 @@ Braze의 전달 이벤트는 이메일이 사서함 공급자의 서버에 의�
 
 | 가능한 원인 | 확인 사항 |
 |---|---|
-| 사용자가 Campaign 또는 Canvas에 적격하지 않았습니다 | **Target Audiences**(Campaign의 경우) 또는 **Target Audience**(Canvas의 경우) [설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)을 확인하여 발송 시점에 사용자가 모든 오디언스 필터, Segment 기준 및 전달 규칙을 충족했는지 확인하세요. |
+| 사용자가 Campaign 또는 Canvas에 적격하지 않았습니다 | **타겟 오디언스**(Campaign의 경우) 또는 **타겟 오디언스**(Canvas의 경우) [설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/target_users)을 확인하여 발송 시점에 사용자가 모든 오디언스 필터, Segment 기준 및 전달 규칙을 충족했는지 확인하세요. |
 | 메시지가 중단되었습니다 | [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)에서 Liquid 오류나 필수 필드 누락과 같은 중단 사유를 확인하세요. |
 | 사용자의 이메일 주소가 유효하지 않거나 누락되었습니다 | **사용자 검색**에서 사용자의 프로필을 확인하여 발송 시점에 유효한 이메일 주소가 등록되어 있었는지 확인하세요. |
 | 사용자의 이메일 주소가 이전에 하드바운스되었습니다 | 하드바운스는 이메일 주소를 유효하지 않은 것으로 표시하고 해당 주소로의 향후 발송을 차단합니다. 마찬가지로, 수신자가 이메일을 스팸으로 표시하면 Braze는 해당 사용자에게 표준 Campaign이 아닌 트랜잭션 이메일만 발송합니다. 사용자 프로필의 **참여** 탭을 확인하세요. 자세한 내용은 [탈퇴된 이메일 주소]({{site.baseurl}}/user_guide/channels/email/subscriptions#unsubscribed-email-addresses) 및 [반송 및 유효하지 않은 이메일]({{site.baseurl}}/user_guide/channels/email/subscriptions#bounces-and-invalid-emails)을 참조하세요. |
@@ -298,6 +298,12 @@ max-width: 100%;
 SVG 이미지는 이메일 클라이언트 간 지원이 제한되어 있어 이메일에 권장되지 않습니다. Gmail 및 기타 주요 이메일 공급자는 SVG 이미지를 렌더링하지 않으므로, 수신자에게 이미지가 깨지거나 누락될 수 있습니다. WebP는 클라이언트 간에 일관되게 지원되지 않습니다.
 
 대신 PNG 또는 JPEG와 같이 널리 지원되는 형식을 사용하여 이미지가 안정적으로 렌더링되도록 하세요.
+
+### 이메일에 비디오를 삽입할 수 있나요? {#can-i-embed-videos-in-emails}
+
+삽입된 비디오는 Gmail, Outlook, Yahoo와 같은 많은 인기 이메일 클라이언트에서 기본적으로 지원되지 않습니다. 따라서 삽입된 비디오 요소가 의도한 대로 표시되지 않거나 전혀 나타나지 않을 수 있습니다. 또한 이메일에 비디오를 직접 삽입하면 이메일 크기가 크게 증가하여 메시지가 스팸으로 표시될 가능성이 높아질 수 있습니다.
+
+대신 비디오 플레이어에서 비디오처럼 보이는 GIF 또는 정적 이미지를 만든 다음 해당 이미지를 비디오에 링크할 수 있습니다. 사용자가 이미지를 클릭하면 웹사이트 또는 비디오 플랫폼에 호스팅된 비디오로 이동합니다.
 
 ### 메시지 작성기의 한 부분에서 할당된 Liquid 변수를 다른 부분에서 사용할 수 있나요? {#can-liquid-variables-assigned-in-one-part-of-the-message-composer-be-used-in-another}
 

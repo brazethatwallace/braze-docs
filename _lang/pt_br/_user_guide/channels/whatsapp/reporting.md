@@ -2,7 +2,7 @@
 nav_title: "Relatórios"
 article_title: "Relatórios"
 page_order: 21
-description: "Este artigo de referência aborda as métricas de WhatsApp usadas na Braze, bem como visualizá-las nas suas campanhas de WhatsApp."
+description: "Este artigo de referência aborda as métricas de WhatsApp usadas na Braze, bem como como visualizá-las nas suas campanhas de WhatsApp."
 page_type: reference
 tool:
   - Reports
@@ -13,6 +13,8 @@ channel:
 
 # Relatórios de WhatsApp {#whatsapp-reporting}
 
-> Este artigo de referência aborda as métricas de WhatsApp usadas na Braze, bem como visualizá-las nas suas campanhas de WhatsApp.
+> Este artigo de referência aborda as métricas de WhatsApp usadas na Braze, bem como como visualizá-las nas suas campanhas de WhatsApp.
 
 {% multi_lang_include analytics/campaign_analytics.md channel="whatsapp" %}
+
+Se as falhas ou a taxa de entrega parecerem incorretas, consulte [Investigar falhas de envio de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).

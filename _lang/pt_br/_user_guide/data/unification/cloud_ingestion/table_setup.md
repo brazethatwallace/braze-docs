@@ -47,7 +47,7 @@ Cada linha deve incluir um tipo de identificador por vez, mesmo que sua tabela c
 Para orientações sobre timestamps duplicados e atualizações incrementais, consulte [Práticas recomendadas da Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/best_practices#avoid-resyncing-rows-with-duplicate-timestamps).
 
 {% alert note %}
-Fontes de armazenamento de arquivos usam requisitos de configuração diferentes e não suportam `UPDATED_AT`. Para mais informações, consulte [Integrações de armazenamento de arquivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#required-file-formats).
+Fontes de armazenamento de arquivos usam requisitos de configuração diferentes e não suportam `UPDATED_AT`. Para mais detalhes, consulte [Integrações de armazenamento de arquivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#required-file-formats).
 {% endalert %}
 
 ## Configure a coluna `PAYLOAD` {#set-up-the-payload-column}
@@ -56,7 +56,7 @@ O valor de `PAYLOAD` segue os mesmos formatos de objeto usados pelo endpoint `/u
 
 | Tipo de dados | Referência de formatação |
 | --- | --- |
-| `attributes` | [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `attributes` | [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
 | `events` | [Objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | [Objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Configure a coluna PAYLOAD" }

@@ -12,7 +12,7 @@ toc_headers: h2
 > O dashboard **Messaging Diagnostics** oferece uma visão geral dos resultados de envio de mensagens, permitindo que você identifique tendências e diagnostique possíveis problemas na sua configuração de envio de mensagens. Esse dashboard pode ajudar a entender por que as mensagens de suas campanhas ou Canvas podem não ter sido enviadas conforme o esperado.
 
 {% alert important %}
-O dashboard **Messaging Diagnostics** está atualmente em acesso antecipado. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em participar do acesso antecipado.
+O dashboard **Messaging Diagnostics** está disponível de forma geral. Entre em contato com seu gerente de sucesso do cliente se tiver interesse em obter acesso ao recurso.
 {% endalert %}
 
 ## Conceitos principais {#key-concepts}
@@ -29,7 +29,7 @@ Quando a Braze "envia" uma mensagem, a entrega final pode depender de serviços 
 | --- | --- |
 | Content Cards | O cartão foi enviado e está elegível para visualização. |
 | E-mail | A Braze encaminha a mensagem a um provedor de serviços de e-mail (ESP). O ESP é então responsável pela entrega final. Esse ESP, por exemplo, pode reportar um "bounce" se o endereço de e-mail for inválido ou a caixa de entrada estiver cheia. |
-| Mensagens no app | A mensagem foi exibida ao usuário. |
+| Mensagens no app | A mensagem foi visualizada pelo usuário e uma impressão foi registrada. |
 | LINE | A mensagem foi encaminhada com sucesso a um parceiro de envio. |
 | Push | A Braze encaminha a mensagem ao serviço de notificação por push apropriado (como o serviço de Notificações por Push da Apple para iOS ou o Firebase Cloud Messaging para Android). Esse serviço é responsável pela entrega final da notificação ao dispositivo. |
 | SMS/MMS/RCS | A Braze encaminha a mensagem a um gateway de SMS (como o Twilio). Esse gateway é responsável pela entrega final à operadora de celular. |
@@ -157,7 +157,7 @@ Os resultados de interrupção no Messaging Diagnostics são rótulos legíveis 
 | Push credentials invalid | As [credenciais de push]({{site.baseurl}}/user_guide/channels/push/faqs#why-doesnt-an-opted-in-user-have-a-push-token) para este app estão ausentes ou inválidas, então o envio foi cancelado. Atualize suas credenciais em **Configurações do app**. |
 | Subscription group failure | A mensagem não pôde ser enviada devido a problemas de configuração do grupo de inscrições ou do serviço de envio de mensagens. Motivos comuns incluem números de envio ausentes para SMS ou WhatsApp, ou MMS não suportado no serviço de envio de mensagens configurado. |
 | User not eligible for channel | O usuário não é elegível para receber esta mensagem no canal selecionado. Motivos comuns incluem identificadores de canal ausentes ou inválidos, nenhum token por push elegível, restrições de estado de inscrição, capacidade de canal não suportada ou países bloqueados para canais baseados em telefone. |
-| Webhook failed | O webhook recebeu um código de resposta malsucedido (não `2xx`). Consulte o [Registro de atividades de mensagem]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting) para mais detalhes. Registros com mais de 60 horas são limpos e não estão mais acessíveis; erros de webhook são amostrados em até 20 registros por hora. |
+| Webhook failed | O webhook recebeu um código de resposta malsucedido (não `2xx`). Códigos de erro comuns podem ser erros de cliente `4XX`, erro de servidor ou tempo limite `5XX`, ou `598 Host Unhealthy` ou solicitações interrompidas brevemente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Canal e entrega" }
 
 ## Perguntas frequentes {#frequently-asked-questions}

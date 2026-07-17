@@ -74,6 +74,10 @@ Braze versucht, die Nachrichtenversendungen gleichmäßig über die Minute zu ve
 
 Beachten Sie, dass Sie weiterhin individuelle Rate-Limits in Ihren Campaigns und Canvases festlegen können. Diese werden unabhängig von Workspace-Messaging-Rate-Limits angewendet.
 
+### Webhook-Sendekapazität {#webhook-sending-capacity}
+
+Für Webhook-Campaigns ohne Rate-Limit für die Zustellgeschwindigkeit wendet Braze kein Standard-Kanal-Rate-Limit an, sodass Sendungen mit hohem Durchsatz erfolgen können. Das tatsächliche Volumen hängt von mehreren Faktoren ab, darunter Server-Latenz, Connected-Content-Nutzung und die Sendegeschwindigkeit des externen Systems, das die Webhooks empfängt. Wenn Ihre Webhook-Campaign kein Rate-Limit hat, bereiten Sie Ihre Server auf hohen Datenverkehr vor. Andernfalls legen Sie ein Rate-Limit fest, um den Nachrichtenfluss zu steuern.
+
 ### Nachrichten, die nicht in den Workspace-Messaging-Rate-Limits enthalten sind {#messages-not-included-in-the-workspace-messaging-rate-limits}
 
 - Nachrichten, die über [Transaktions-E-Mail-Campaigns]({{site.baseurl}}/user_guide/channels/transactional_email) gesendet werden, sind nicht in den Workspace-Messaging-Rate-Limits enthalten. Das bedeutet, sie unterliegen eigenen Rate-Limits und werden nicht auf die festgelegten Workspace-Messaging-Rate-Limits angerechnet.

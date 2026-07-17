@@ -55,13 +55,13 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가지고
 
 1. Canvas 작성기를 사용하여 [Canvas를 만듭니다]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 2. Canvas를 설정한 후 Canvas 빌더에서 단계를 추가합니다. 단계에 명확하고 의미 있는 이름을 지정합니다.
-3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)을 선택하고 필요에 따라 지연을 지정합니다.
+3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)을 선택하고 필요에 따라 지연을 지정합니다.
 4. 필요에 따라 이 단계의 오디언스를 필터링합니다. Segments를 지정하고 추가 필터를 추가하여 이 단계의 수신자를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 메시지가 전송되는 시점에 지연 후 확인됩니다.
 5. [진행 동작]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)을 선택합니다.
 6. 메시지와 함께 사용할 다른 메시징 채널을 선택합니다.
 
 {% alert tip %}
-실행 기반 Canvas가 인바운드 WhatsApp 메시지에 의해 트리거되는 경우, 다음 행동 경로까지 모든 캔버스 단계에서 WhatsApp 등록정보를 참조할 수 있습니다.
+실행 기반 Canvas가 인바운드 WhatsApp 메시지에 의해 트리거되는 경우, 다음 행동 경로까지 모든 캔버스 단계에서 WhatsApp 속성을 참조할 수 있습니다.
 {% endalert %}
 
 {% endtab %}
@@ -193,7 +193,7 @@ WhatsApp 메시지는 스케줄된 시간, 실행 또는 API 트리거를 기반
 
 실행 기반 전달의 경우, Campaign의 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)도 설정할 수 있습니다.
 
-이 단계에서는 사용자가 Campaign을 [다시 받을 수 있도록]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
+이 단계에서는 사용자가 Campaign을 [다시 받을 수 있도록]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
 
 #### 타겟 사용자 선택 {#choose-users-to-target}
 
@@ -232,7 +232,7 @@ Braze를 통해 전송하는 아웃바운드 WhatsApp 메시지에 대해 다음
 
 | 기능 | 세부 정보 | 최대 크기 | 지원 형식 |
 | ------- | ------- | ------------- | ---------------------- |
-| 헤더 텍스트 | 문자열 및 변수 매개변수가 지원됩니다. | — | —
+| 헤더 텍스트 | 문자열 및 변수 매개변수가 지원됩니다. | — | — |
 | 본문 텍스트 | 문자열 및 변수 매개변수가 지원됩니다. | — | — |
 | 푸터 텍스트 | 문자열 및 변수 매개변수가 지원됩니다. | — | — |
 | CTA 링크 | 다양한 콜투액션(CTA) 유형이 지원됩니다. 자세한 내용은 [콜투액션 유형](#ctas)을 참조하세요. | — | — |
@@ -263,7 +263,7 @@ Braze를 통해 수신하는 인바운드 WhatsApp 메시지에 대해 다음 �
 Braze를 통해 전송하는 WhatsApp 메시지에 대해 다음 콜투액션 유형이 지원됩니다:
 
 | CTA 유형 | 세부 정보 |
-| ----------- |---------------- |
+| ----------- | ---------------- |
 | 웹사이트 방문 | 최대 1개 버튼(변수 매개변수 포함). |
 | 전화번호 호출 | 메시지 템플릿에서만 사용 가능합니다. <br>최대 1개 버튼. |
 | 커스텀 빠른 답장 버튼 | 최대 3개 버튼. |

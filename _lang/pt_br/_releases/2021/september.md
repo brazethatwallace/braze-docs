@@ -3,7 +3,7 @@ nav_title: Setembro
 page_order: 3
 noindex: true
 page_type: update
-description: "Este artigo contém notas de versão para setembro de 2021."
+description: "Este artigo contém notas de versão de setembro de 2021."
 ---
 
 # Setembro de 2021 {#september-2021}
@@ -12,23 +12,23 @@ description: "Este artigo contém notas de versão para setembro de 2021."
 
 ### Proteção de privacidade de e-mail da Apple {#apple-mail-privacy-protection}
 
-O MPP (Mail Privacy Protection) da Apple é uma atualização de privacidade que estará disponível para os usuários do app Apple Mail no iOS 15, iPadOS 15, macOS Monterey e watchOS 8, lançado em meados de setembro. Para os usuários que aceitam o MPP, os e-mails agora serão pré-carregados usando servidores proxy, armazenando imagens em cache e dificultando a capacidade de aproveitar os pixels de rastreamento para métricas como [rastreamento de abertura]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings/#open-tracking-pixel). Para saber mais sobre o MPP e problemas relacionados a métricas de entregabilidade de e-mail e problemas com Campaigns e Canvas pré-existentes que disparam com base nessas métricas, visite nossa [documentação]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp/).
+O MPP (Mail Privacy Protection) da Apple é uma atualização de privacidade que estará disponível para os usuários do app Apple Mail no iOS 15, iPadOS 15, macOS Monterey e watchOS 8, lançado em meados de setembro. Para os usuários que aceitam o MPP, os e-mails agora serão pré-carregados usando servidores proxy, armazenando imagens em cache e dificultando a capacidade de aproveitar os pixels de rastreamento para métricas como [rastreamento de abertura]({{site.baseurl}}/user_guide/administrative/app_settings/email_settings#open-tracking-pixel). Para saber mais sobre o MPP e problemas relacionados a métricas de entregabilidade de e-mail e problemas com Campaigns e Canvas pré-existentes que disparam com base nessas métricas, visite nossa [documentação]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp).
 
 ### Recursos de push {#push-features}
 
-O iOS 15 introduziu novos recursos de notificação para ajudar os usuários a manter o foco e evitar interrupções frequentes ao longo do dia. Estamos empolgados em oferecer suporte a esses novos recursos, incluindo [Interruption Levels e Relevance Scores]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options/).
+O iOS 15 introduziu novos recursos de notificação para ajudar os usuários a manter o foco e evitar interrupções frequentes ao longo do dia. Estamos empolgados em oferecer suporte a esses novos recursos, incluindo [Interruption Levels e Relevance Scores]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/ios/notification_options).
 
 ## Cartões de contato {#contact-cards}
 
-Os cartões de contato são um formato de arquivo padronizado para enviar informações comerciais e de contato que podem ser facilmente importadas para catálogos de endereços ou de contatos. Agora é possível fazer upload e criar cartões de contato para suas mensagens SMS e MMS. Para saber mais sobre como criar cartões de contato em nosso gerador de cartões de contato integrado, visite nossa [documentação]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card/).
+Os cartões de contato são um formato de arquivo padronizado para enviar informações comerciais e de contato que podem ser facilmente importadas para catálogos de endereços ou de contatos. Agora é possível fazer upload e criar cartões de contato para suas mensagens SMS e MMS. Para saber mais sobre como criar cartões de contato em nosso gerador de cartões de contato integrado, visite nossa [documentação]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/create/contact_card).
 
 ## Personalização dos Content Cards padrão {#default-content-cards-customization}
 
-Você pode criar sua própria interface de Content Cards estendendo o `ABKContentCardsTableViewController` para personalizar todos os elementos da interface do usuário e o comportamento dos Content Cards. Para saber mais sobre como personalizar o feed de Content Cards, acesse nossa [documentação]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style/).
+Você pode criar sua própria interface de Content Cards estendendo o `ABKContentCardsTableViewController` para personalizar todos os elementos da interface do usuário e o comportamento dos Content Cards. Para saber mais sobre como personalizar o feed de Content Cards, acesse nossa [documentação]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/style).
 
-## Limites de taxa da API {#api-rate-limits}
+## Limites de frequência da API {#api-rate-limits}
 
-[Os limites de taxa]({{site.baseurl}}/api/basics/#api-limits/) serão aplicados a todos os clientes integrados após 16 de setembro de 2021.
+[Os limites de frequência]({{site.baseurl}}/api/basics#api-limits) serão aplicados a todos os clientes integrados após 16 de setembro de 2021.
 
 ## Atualizações dos guias do desenvolvedor do Android e do FireOS {#updates-to-android-and-fireos-developer-guides}
 
@@ -36,4 +36,4 @@ Os guias do desenvolvedor do Android e do FireOS foram mesclados em um único lo
 
 ## Atualizações nos relatórios de funil e retenção {#updates-to-funnel-and-retention-reports}
 
-[Relatórios de funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports/) e [relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports/) agora estão disponíveis para Campaigns de SMS.
+[Relatórios de funil]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports) e [relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) agora estão disponíveis para Campaigns de SMS.

@@ -43,7 +43,7 @@ Partout où vous disposez déjà du consentement marketing pour l'e-mail ou les 
 
 #### Liste d'abonnement créée en externe {#externally-built-opt-in-list}
 
-Si vous avez déjà utilisé WhatsApp, vous avez peut-être déjà constitué une liste d'utilisateurs avec des abonnements conformes aux exigences de WhatsApp. Dans ce cas, importez un CSV ou utilisez l'API avec les [informations suivantes]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) dans Braze.
+Si vous avez déjà utilisé WhatsApp, vous avez peut-être déjà constitué une liste d'utilisateurs avec des abonnements conformes aux exigences de WhatsApp. Dans ce cas, importez un CSV ou utilisez l'API avec les [informations suivantes]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) dans Braze.
 
 #### Message sortant dans le canal de support client WhatsApp {#outbound-message-in-customer-support-whatsapp-channel}
 
@@ -54,7 +54,7 @@ Dans votre canal de support client, faites un suivi des problèmes résolus avec
 3. Configurez un déclencheur de mot-clé personnalisé.
 4. Pour l'une ou l'autre de ces idées, vous devrez probablement terminer le parcours avec les éléments suivants :
 	- Appeler l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) pour mettre à jour ou créer un utilisateur
-	- Utiliser l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) ou le [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/)
+	- Exploiter l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) ou utiliser le [SDK](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)/)
 
 #### Message WhatsApp entrant {#inbound-whatsapp-message}
 
@@ -63,7 +63,7 @@ Demandez aux clients d'envoyer un message entrant au numéro WhatsApp.
 Cela peut être configuré comme un Canvas ou une campagne, selon que vous souhaitez que l'utilisateur reçoive un message de confirmation sur le nouveau canal.
 
 1. Créez une campagne avec le déclencheur de livraison par événement d'un message entrant.
-2. Créez une campagne webhook. Pour un exemple de webhook, consultez [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#update-subscription-status).
+2. Créez une campagne webhook. Pour un exemple de webhook, consultez [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/opt_ins_and_opt_outs#step-2-update-the-users-profile).
 
 {% alert tip %}
 Notez que vous pouvez créer une URL ou un code QR pour rejoindre un canal WhatsApp depuis le [gestionnaire WhatsApp](https://business.facebook.com/wa/manage/phone-numbers/) sous **Phone Number** > **Message Links**.<br>![Compositeur de code QR WhatsApp.]({% image_buster /assets/img/whatsapp/whatsapp115.png %}){: style="max-width:55%;"}
@@ -98,7 +98,7 @@ WhatsApp propose un bouton « Offres et annonces » dans les paramètres de l'ap
 - **Les groupes d'abonnement Braze** sont gérés via votre intégration Braze (API, centre de préférences ou SDK) et contrôlent les utilisateurs que vous ciblez pour l'envoi de messages.
 - **Le bouton natif de WhatsApp** est contrôlé par Meta et appliqué au niveau de la plateforme, en dehors de Braze.
 
-Ces deux couches ne se synchronisent pas automatiquement par conception. Lorsqu'un utilisateur désactive le bouton « Offres et annonces » dans WhatsApp, Meta bloque la distribution des messages marketing au niveau de la plateforme, même si le statut d'abonnement de l'utilisateur dans Braze indique « Abonné ». La préférence de l'utilisateur est respectée au moment de la distribution.
+Ces deux couches ne se synchronisent pas automatiquement par conception. Lorsqu'un utilisateur désactive le bouton « Offres et annonces » dans WhatsApp, Meta bloque la distribution des messages marketing au niveau de la plateforme, même si le statut d'abonnement de l'utilisateur dans Braze indique « Subscribed ». La préférence de l'utilisateur est respectée au moment de la distribution.
 
 {% alert note %}
 Étant donné que Braze ne reçoit pas de signal de désabonnement tant qu'une tentative d'envoi n'a pas été effectuée et que Meta n'a pas renvoyé une erreur, les compteurs d'abonnement dans Braze peuvent ne pas refléter les utilisateurs qui se sont désabonnés via le bouton WhatsApp tant qu'un message n'a pas été tenté. Cela signifie que les estimations de portée peuvent être légèrement surestimées jusqu'à ce que cette boucle de rétroaction se produise.
@@ -180,7 +180,7 @@ La mise à jour peut s'effectuer à des vitesses variables car Braze regroupe le
 
 ### Campaign webhook pour déclencher une seconde campagne WhatsApp {#webhook-campaign-to-trigger-a-second-whatsapp-campaign}
 
-Une Campaign webhook peut déclencher l'entrée dans une seconde campagne après avoir ajouté le numéro de téléphone de l'utilisateur au groupe d'abonnement WhatsApp lorsque l'utilisateur envoie un mot-clé au numéro de téléphone du groupe d'abonnement.
+Une campagne webhook peut déclencher l'entrée dans une seconde campagne après avoir ajouté le numéro de téléphone de l'utilisateur au groupe d'abonnement WhatsApp lorsque l'utilisateur envoie un mot-clé au numéro de téléphone du groupe d'abonnement.
 
 {% alert important %}
 Vous n'avez pas besoin d'utiliser cette méthode pour les messages STOP. Le message de confirmation sera envoyé avant que l'utilisateur ne soit retiré du groupe d'abonnement, vous pouvez donc utiliser l'une des deux autres étapes.

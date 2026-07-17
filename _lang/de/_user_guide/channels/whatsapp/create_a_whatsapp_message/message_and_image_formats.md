@@ -54,7 +54,7 @@ Marketing-Templates sind der am häufigsten in Braze verwendete Typ. Sie bestehe
 | Button-Typ | Verhalten | Hinweise |
 |---|---|---|
 | Schnellantwort | Sendet den Button-Beschriftungstext als Antwort in der Konversation | |
-| URL | Öffnet eine URL im Standardbrowser der Nutzer:innen; unterstützt 1 Variable, die am Ende der URL angehängt wird (max. 2.000 Zeichen) | |
+| URL | Öffnet eine URL im Standardbrowser der Nutzer:innen; unterstützt 1 Variable, die am Ende der URL angehängt wird (max. 2.000 Zeichen) | URLs mit Sonderzeichen (wie `&`, `%`, `<`, `>`) können zu Sendefehlern führen. Verwenden Sie den Liquid-Filter [`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) oder [`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters), um URLs mit Sonderzeichen korrekt zu kodieren. |
 | Telefonnummer | Initiiert einen Anruf an die angegebene Telefonnummer | |
 | Gutscheincode kopieren | Kopiert einen Gutscheincode in die Zwischenablage der Nutzer:innen | Erfordert immer eine Meta-Genehmigung |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Button-Typen" }

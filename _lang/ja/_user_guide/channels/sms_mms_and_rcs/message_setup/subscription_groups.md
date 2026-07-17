@@ -40,7 +40,7 @@ SMSおよびRCSユーザーには、`subscribed`と`unsubscribed`の2つのサ�
 - **SDK統合:** ユーザーは、[Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html)、[iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:))、または[Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)の`addToSubscriptionGroup`メソッドを使用して、メールまたはSMSおよびRCSサブスクリプショングループに追加できます。
 - **電話番号キャプチャIAMフォーム:** アプリ内メッセージのドラッグ＆ドロップエディターの電話番号キャプチャテンプレートを通じて、ユーザーの電話番号を収集できます。
 - **ユーザーのオプトイン/オプトアウト時に自動処理:** ユーザーがデフォルトのオプトインまたはオプトアウト[キーワード]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout)をテキスト送信すると、Brazeはユーザーのサブスクリプション状態を自動的に設定および更新します。
-- **ユーザーインポート:** ユーザーは**Import Users**を通じてメールまたはSMSおよびRCSサブスクリプショングループに追加できます。サブスクリプショングループのステータスを更新する場合、CSVに`subscription_group_id`と`subscription_state`の2つの列が必要です。詳細については、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status)を参照してください。
+- **ユーザーインポート:** ユーザーは**ユーザーをインポート**を通じてメールまたはSMSおよびRCSサブスクリプショングループに追加できます。サブスクリプショングループのステータスを更新する場合、CSVに`subscription_group_id`と`subscription_state`の2つの列が必要です。詳細については、[ユーザーインポート]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)を参照してください。
 
 #### キャンバスでユーザーの状態を更新する {#update-a-users-state-in-a-canvas}
 
@@ -59,7 +59,7 @@ Webhookを使用してサブスクリプショングループを更新すると�
 
 ## サブスクリプショングループでメッセージを送信する {#send-messages-with-a-subscription-group}
 
-Brazeを通じてSMSまたはRCSのキャンペーンを開始するには、**SMS/MMS/RCSバリアント**ドロップダウンからサブスクリプショングループを選択します。選択すると、オーディエンスフィルターがキャンペーンまたはキャンバスに自動的に追加され、選択したサブスクリプショングループに`subscribed`しているユーザーのみがターゲットオーディエンスに含まれるようになります。
+Brazeを通じてSMSまたはRCSキャンペーンを開始するには、**SMS/MMS/RCSバリアント**ドロップダウンからサブスクリプショングループを選択します。選択すると、オーディエンスフィルターがキャンペーンまたはキャンバスに自動的に追加され、選択したサブスクリプショングループに`subscribed`しているユーザーのみがターゲットオーディエンスに含まれるようになります。
 
 {% alert important %}
 国際的な[通信コンプライアンスおよびガイドライン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations)に準拠して、Brazeは選択したサブスクリプショングループに購読していないユーザーにSMSまたはRCSを送信しません。
@@ -107,7 +107,7 @@ RCS認証済み送信者を追加するには、2つの方法があります。
 1. [エージェントコンソール]({{site.baseurl}}/user_guide/brazeai/agents)で「SMSセンチメント分析エージェント」を作成します。
 
 {% alert tip %}
-初期エージェント設定のサポートには[Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference#canvas-agent-examples)を使用してください。
+初期エージェント設定のサポートには[オペレーター]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)を使用してください。
 {% endalert %}
 
 {: start="2"}
@@ -128,7 +128,7 @@ Brazeでは、最初は少数のユーザーにRCSの送信をテストし、時
 
 ### ステップ1: キャンバスを作成してエントリスケジュールを設定する {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-キャンバスを作成し、識別しやすい名前を付けます（「SMS-RCSサブスクリプショングループユーザー移行」など）。次に、都合の良いタイミングでスケジュールします。
+キャンバスを作成し、識別しやすい名前を付けます（「SMS-RCSサブスクリプショングループユーザー移行」など）。次に、都合の良いタイミングでキャンペーンをスケジュールします。
 
 ### ステップ2: オーディエンスを定義する {#step-2-define-your-audience}
 {: #step-2-define-your-audience}
@@ -196,7 +196,7 @@ RCS送信者とサブスクリプショングループの設定については�
 
 ### 明確な命名規則を使用する {#use-clear-naming-conventions}
 
-SMSのキャンペーンを作成する際に正しいグループが選択されるよう、わかりやすく明確なサブスクリプショングループ名を選択してください。
+SMSキャンペーンを作成する際に正しいグループが選択されるよう、わかりやすく明確なサブスクリプショングループ名を選択してください。
 
 ### 国別にグループを分ける {#separate-groups-by-country}
 

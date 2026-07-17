@@ -14,7 +14,7 @@ description: "Dieser Artikel beschreibt den Braze-Endpunkt zum Löschen geplante
 /campaigns/trigger/schedule/delete
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um eine zuvor per API-Trigger geplante Canvas-Nachricht zu stornieren, bevor sie gesendet wurde.
+> Verwenden Sie diesen Endpunkt, um eine zuvor per API-Trigger geplante Campaign-Nachricht zu stornieren, bevor sie gesendet wurde.
 
 Geplante Nachrichten oder Trigger, die kurz vor oder während des vorgesehenen Sendezeitpunkts gelöscht werden, werden nach bestem Bemühen aktualisiert. Das bedeutet, dass Braze Löschungen in letzter Sekunde möglicherweise auf alle, einige oder keine Ihrer Zielnutzer:innen anwendet.
 
@@ -22,7 +22,7 @@ Geplante Nachrichten oder Trigger, die kurz vor oder während des vorgesehenen S
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `campaigns.trigger.schedule.delete`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `campaigns.trigger.schedule.delete`.
 
 ## Rate-Limit
 

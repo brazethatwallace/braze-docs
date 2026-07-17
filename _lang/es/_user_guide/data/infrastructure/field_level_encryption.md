@@ -43,7 +43,7 @@ Sigue estos pasos para configurar tu método de autenticación con clave secreta
 
 ## Paso 1: Conecta tus claves de AWS KMS {#step-1-connect-your-aws-kms-keys}
 
-En el panel de Braze, ve a **Configuración de datos** > **Field-Level Encryption**. Para tu configuración de AWS KMS, introduce lo siguiente:
+En el panel de Braze, ve a **Data Settings** > **Field-Level Encryption**. Para tu configuración de AWS KMS, introduce lo siguiente:
 
 - ID de la clave de acceso
 - Clave de acceso secreta
@@ -63,7 +63,7 @@ Cuando el cifrado a nivel de campo del identificador está activado, debes aplic
 
 Al actualizar la dirección de correo electrónico en Braze, debes utilizar el valor de correo electrónico con hash siempre que se incluya `email`. Esto incluye lo siguiente:
 
-- Puntos finales REST:
+- Endpoints REST:
     - `/users/track`
     - `/campaigns/trigger/send`
     - `/canvas/trigger/send`
@@ -87,7 +87,7 @@ Estas características no son compatibles con el cifrado a nivel de campo del id
 
 ### Objeto de atributos del usuario {#user-attributes-object}
 
-Cuando utilices el cifrado a nivel de campo del identificador con el punto de conexión `/users/track`, toma nota de estos detalles de campo para el [objeto de atributos del usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens):
+Cuando utilices el cifrado a nivel de campo del identificador con el endpoint `/users/track`, toma nota de estos detalles de campo para el [objeto de atributos del usuario]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens):
 
 - El campo `email` debe ser el valor con hash del correo electrónico.
 - El campo `email_encrypted` debe ser el valor cifrado del correo electrónico.
@@ -119,7 +119,7 @@ La dirección de correo electrónico con hash se incluye en los eventos de entre
 
 ### ¿Qué dirección de correo electrónico debo esperar ver en el archivado de mensajes? {#what-email-address-should-i-expect-to-see-in-message-archiving}
 
-La dirección de correo electrónico en texto plano se incluye en el archivado de mensajes. Se envían directamente al proveedor de almacenamiento en la nube del cliente y puede haber otros datos personales incluidos en los cuerpos del correo electrónico.
+La dirección de correo electrónico en texto plano se incluye en el archivado de mensajes. Se envían directamente al proveedor de almacenamiento en el cloud del cliente y puede haber otros datos personales incluidos en los cuerpos del correo electrónico.
 
 ### ¿Puedo utilizar mail-to list-unsubscribe para la gestión de suscripciones con el cifrado a nivel de campo del identificador? {#can-i-use-mail-to-list-unsubscribe-for-subscription-management-with-identifier-field-level-encryption}
 

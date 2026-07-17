@@ -76,7 +76,7 @@ tool:
 Campaign의 모든 수신자에 대한 사용자 데이터를 CSV 파일로 내보낼 수 있습니다. 이렇게 하려면 **Campaign Details** 섹션에서 **User Data** 버튼을 선택합니다.
 
 {% alert note %}
-**User Data** 버튼이 보이지 않나요? 사용자 데이터를 내보내려면 해당 워크스페이스에 대한 **Export User Data** [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#limited-and-team-role-permissions)이 필요합니다.
+**User Data** 버튼이 보이지 않나요? 사용자 데이터를 내보내려면 해당 워크스페이스에 대한 **Export User Data** [권한]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)이 필요합니다.
 {% endalert %}
 
 ![Campaign Details 페이지의 User Data 드롭다운]({% image_buster /assets/img/campaign_export_example.png %})
@@ -85,7 +85,7 @@ CSV 출력에는 Campaign의 모든 수신자에 대한 고객 프로필 데이�
 
 [Amazon S3 인증정보]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)를 Braze에 연결한 경우 CSV가 S3 버킷에도 업로드됩니다. 그렇지 않으면 이메일로 전송된 링크가 몇 시간 후에 만료됩니다.
 
-내보낸 파일에는 [Segment의 사용자 데이터를 내보낼 때]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data) 포함되는 것과 동일한 사용자 데이터 필드가 포함됩니다. 이러한 데이터 필드 외에도 "모든 수신자 데이터 내보내기"를 선택하면 내보낸 파일에 각 사용자에 대한 다음 데이터도 포함됩니다.
+내보낸 파일에는 [Segment의 사용자 데이터를 내보낼 때]({{site.baseurl}}/user_guide/analytics/dashboards/home)와 동일한 사용자 데이터 필드가 포함됩니다. 이러한 데이터 필드 외에도 "모든 수신자 데이터 내보내기"를 선택하면 내보낸 파일에 각 사용자에 대한 다음 데이터도 포함됩니다.
 
 - 수신된 Campaign 배리언트 이름
 - 수신된 Campaign 배리언트의 API ID

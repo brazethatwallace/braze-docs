@@ -20,7 +20,7 @@ Le SDK React Native de Braze connecte vos applications iOS et Android à Braze :
 - **Messages in-app** : interface utilisateur Braze par défaut ou gestion personnalisée via des abonnements et des API de journalisation
 - **Content Cards** : flux par défaut, ou récupérer les cartes et créer votre propre interface
 - **Bannières** : bannières HTML basées sur des emplacements, y compris `BrazeBannerView`
-- **Notifications push** : invites d'autorisation, enregistrement de jetons, écouteurs de payloads (voir [Notifications push](#push-notifications))
+- **Notifications push** : invites d'autorisation, enregistrement de jetons, écouteurs de payloads (voir les notes par plateforme ci-dessous)
 - **Feature flags** : actualiser, lire les propriétés, enregistrer les impressions
 - **Analyses** : événements personnalisés, achats, envoi immédiat des données
 - **Contrôles du SDK** : activer/désactiver le SDK, effacer les données locales, signatures d'authentification SDK
@@ -35,7 +35,7 @@ Le SDK React Native de Braze connecte vos applications iOS et Android à Braze :
 
 Pour l'emplacement des informations d'identification dans le tableau de bord, suivez l'[aperçu de l'intégration](https://www.braze.com/docs/developer_guide/sdk_integration/?sdktab=react%20native).
 
-## Installation {#installation}
+## Installation
 
 ``` bash
 npm install @braze/react-native-sdk
@@ -49,7 +49,7 @@ npm install @braze/react-native-sdk
 
 Cette section présente la configuration minimale requise pour initialiser le SDK React Native de Braze.
 
-1. Installez le package npm dans [Installation](#installation).
+1. Installez le package npm (ci-dessus).
 2. Effectuez la **configuration native** pour Android et iOS (configuration, autorisations, push si nécessaire).
 3. Initialisez le SDK depuis JavaScript et commencez à l'utiliser :
 

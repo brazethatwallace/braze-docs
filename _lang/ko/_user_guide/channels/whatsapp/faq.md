@@ -48,6 +48,7 @@ Braze 대시보드의 임베디드 가입 플로우를 통해 WhatsApp 비즈니
 OBA는 표시 이름 옆에 녹색 체크 표시를 제공하며 선택 사항입니다. 비즈니스 인증을 완료한 후 공식 비즈니스 계정을 신청할 수 있습니다. 비즈니스 인증과 공식 비즈니스 계정은 서로 다른 WhatsApp 개념입니다.
 
 ### WhatsApp 비즈니스 계정 전화번호 {#whatsapp-business-account-phone-numbers}
+
 #### WhatsApp 비즈니스 계정에 전화번호가 필요한가요? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
 네, 접근 가능한 번호가 필요합니다. 임베디드 가입 플로우를 진행할 때 2단계 인증으로 전화번호를 확인하게 됩니다. 이 전화번호는 다른 WhatsApp 계정(비즈니스 또는 개인)에서 사용할 수 없습니다.
 
@@ -83,7 +84,7 @@ OBA는 표시 이름 옆에 녹색 체크 표시를 제공하며 선택 사항�
 WhatsApp 채널의 구독 관리는 다른 Braze 채널과 유사하게 작동합니다. 자세한 내용은 [사용자 구독 관리]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups)를 참조하세요.
 
 #### WhatsApp에서 마케팅 메시지 수신에 옵트인한 사용자 목록이 이미 있는 경우, Braze에서 구독 상태를 어떻게 업데이트하나요? {#if-i-already-have-a-list-of-users-who-have-opted-in-to-receive-marketing-messages-on-whatsapp-how-do-i-update-their-subscription-status-in-braze}
-[사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#importing-custom-data)를 통해 구독 상태를 업데이트할 수 있습니다.
+[사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional)를 통해 구독 상태를 업데이트할 수 있습니다.
 
 #### 옵트인을 수집하려면 어떤 방법을 사용해야 하나요? {#what-methods-should-i-use-to-collect-opt-ins}
 Braze는 규정 준수를 유지하기 위해 [Meta의 옵트인 방법 가이드라인](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/)을 참조할 것을 권장합니다. Braze [채널 및 옵트인 아이디어와 제안](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit)에 대한 다음 리소스를 참조하세요.
@@ -185,6 +186,28 @@ Meta가 템플릿을 잘못 플래그했다고 판단되면 WhatsApp에서 보�
 
 #### 최종 사용자가 내 비즈니스를 차단하거나 신고하면 Braze에서 구독 상태가 업데이트되나요? {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 아니요. Braze 구독 상태는 업데이트되지 않습니다.
+
+#### WhatsApp 응답 메시지는 무료인가요? {#are-whatsapp-response-messages-free}
+
+Braze Campaign 또는 Canvas 편집기에서 작성된 응답 메시지(승인된 WhatsApp 템플릿이 아닌)는 Meta에 의해 서비스 메시지로 처리됩니다. Braze의 네이티브 WhatsApp 통합을 통해 발송된 서비스 메시지는 열린 고객 서비스 창 내에서 [응답 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages)로 발송될 때 Action Credit을 소비하지 않습니다.
+
+| 메시지 유형 | Action Credit | 참고 |
+|---|---|---|
+| 응답 메시지(인바운드 답장) | 소비하지 않음 | Braze에서 작성됨; Meta 승인 템플릿이 아님. |
+| 템플릿 메시지 | 소비함 | 마케팅, 유틸리티, 인증, 한정 시간 오퍼 템플릿은 발송당 과금됩니다. |
+| 서비스 창 내 유틸리티 템플릿 | Meta에서 소비하지 않음 | Meta는 사용자가 시작한 메시지 후 24시간 이내에 발송된 유틸리티 템플릿에 대해 과금하지 않습니다. Action Credit 소비는 계약에 따릅니다. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="응답 메시지 Action Credit" }
+
+원래 24시간 창 이후에 사용자가 빠른 응답을 탭하는 Canvas 플로우의 경우 [24시간 창 외부의 빠른 응답 및 인바운드 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window)를 참조하세요.
+
+#### 24시간 창이 닫힌 후 사용자가 답장하거나 빠른 응답을 탭하면 어떻게 되나요? {#what-happens-if-a-user-replies-or-taps-a-quick-reply-after-the-24-hour-window-closes}
+새로운 24시간 고객 서비스 창이 열립니다. [24시간 창 외부의 빠른 응답 및 인바운드 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window)를 참조하세요.
+
+#### WhatsApp 빠른 응답을 위해 Canvas 행동 경로를 31일로 설정해야 하나요? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
+아니요. 기본 행동 경로 기간으로 충분합니다. [24시간 창 외부의 빠른 응답 및 인바운드 메시지]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window)를 참조하세요.
+
+#### 특정 Campaign이나 Canvas가 소비한 WhatsApp 크레딧을 확인할 수 있나요? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
+현재 Braze 대시보드에서는 확인할 수 없습니다. Campaign 및 Canvas 분석에서는 발송, 전달, 실패를 표시하지만 메시지당 크레딧 소비는 표시하지 않습니다. 템플릿 카테고리와 메시지 유형에 따라 과금이 다르게 적용되므로 발송 수는 크레딧 사용량과 일대일로 일치하지 않습니다. 과금 세부 정보는 [WhatsApp 응답 메시지는 무료인가요?](#are-whatsapp-response-messages-free)를 참조하세요.
 
 ### 통합, 데이터 및 리포팅 {#integrations-data-and-reporting}
 

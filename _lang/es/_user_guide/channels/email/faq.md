@@ -299,6 +299,12 @@ Las imágenes SVG no se recomiendan para correo electrónico debido al soporte l
 
 En su lugar, usa formatos ampliamente compatibles como PNG o JPEG para que las imágenes se rendericen de forma fiable.
 
+### ¿Puedo incrustar videos en correos electrónicos? {#can-i-embed-videos-in-emails}
+
+Los videos incrustados no son compatibles de forma nativa con muchos clientes de correo electrónico populares como Gmail, Outlook y Yahoo. Como resultado, los elementos de video incrustados pueden no mostrarse como se espera o pueden no aparecer en absoluto. Además, incrustar video directamente en un correo electrónico puede aumentar significativamente el tamaño del correo electrónico, lo que incrementa la probabilidad de que el mensaje sea marcado como correo no deseado.
+
+En su lugar, puedes crear un GIF o una imagen estática que se asemeje a un video en un reproductor de video, y luego enlazar esa imagen a tu video. Cuando los usuarios hacen clic en la imagen, son dirigidos al video alojado en tu sitio web o en una plataforma de video.
+
 ### ¿Se pueden usar variables Liquid asignadas en una parte del creador de mensajes en otra? {#can-liquid-variables-assigned-in-one-part-of-the-message-composer-be-used-in-another}
 
 No. Cada parte del correo electrónico (asunto, cuerpo, encabezados, botones, etc.) se genera por separado, por lo que las variables Liquid asignadas en un campo no están disponibles en otro. Asigna las variables en cada campo que las necesite.

@@ -16,12 +16,16 @@ search_rank: 8
 Currents está incluido en determinados paquetes de Braze. Ponte en contacto con tu representante de Braze si tienes alguna pregunta o deseas obtener acceso.
 {% endalert %}
 
-Si ves "You do not have any remaining Currents integrations" al añadir una nueva integración, las causas más comunes son:
+## Solución de problemas {#troubleshooting}
+
+### No se puede añadir una nueva integración de Currents {#cannot-add-a-new-currents-integration}
+
+Si ves "You do not have any remaining Currents integrations" al añadir una nueva integración, o si el botón para añadir un nuevo conector de Currents aparece atenuado, las causas más comunes son:
 
 - No se ha adquirido ningún derecho de uso de Currents para este espacio de trabajo.
 - El derecho de uso de Currents está disponible en un espacio de trabajo diferente de tu empresa.
 
-Ponte en contacto con tu director de cuentas de Braze para solicitar un derecho de uso o ajustar tu configuración.
+Para resolver esto, comprueba otros espacios de trabajo dentro de tu empresa. Un espacio de trabajo diferente puede mostrar un derecho de uso de Currents disponible. Si necesitas solicitar un derecho de uso o ajustar tu configuración, ponte en contacto con tu director de cuentas de Braze.
 
 ## Requisitos {#requirements}
 
@@ -88,7 +92,7 @@ Al seleccionar un campo para una de estas transformaciones, dicha transformació
 Currents eliminará los eventos con cargas útiles excesivamente grandes, superiores a 900&nbsp;KB.
 {% endalert %}
 
-Antes de realizar la prueba, te recomendamos que consultes nuestros [datos de muestra de Currents en GitHub](https://github.com/Appboy/currents-examples). Cuando estés listo para realizar la prueba, elige una de las siguientes opciones:
+Antes de realizar la prueba, te recomendamos que consultes nuestros [datos de muestra de Currents en GitHub](https://github.com/Appboy/currents-examples). Cuando estés listo para realizar la prueba, elige una opción en la siguiente sección:
 
 #### Envío de eventos de prueba {#sending-test-events}
 

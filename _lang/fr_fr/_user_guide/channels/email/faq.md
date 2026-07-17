@@ -299,6 +299,12 @@ Les images SVG ne sont pas recommandées pour les e-mails en raison de la prise 
 
 Utilisez plutôt des formats largement pris en charge tels que PNG ou JPEG pour que les images s'affichent de manière fiable.
 
+### Puis-je intégrer des vidéos dans les e-mails ? {#can-i-embed-videos-in-emails}
+
+Les vidéos intégrées ne sont pas nativement prises en charge par de nombreux clients de messagerie populaires tels que Gmail, Outlook et Yahoo. Par conséquent, les éléments vidéo intégrés peuvent ne pas s'afficher comme prévu ou ne pas apparaître du tout. De plus, intégrer une vidéo directement dans un e-mail peut augmenter considérablement la taille de l'e-mail, ce qui accroît le risque que le message soit marqué comme spam.
+
+À la place, vous pouvez créer un GIF ou une image statique qui ressemble à une vidéo dans un lecteur vidéo, puis lier cette image à votre vidéo. Lorsque les utilisateurs cliquent sur l'image, ils sont redirigés vers la vidéo hébergée sur votre site web ou une plateforme vidéo.
+
 ### Les variables Liquid assignées dans une partie du compositeur de messages peuvent-elles être utilisées dans une autre ? {#can-liquid-variables-assigned-in-one-part-of-the-message-composer-be-used-in-another}
 
 Non. Chaque partie de l'e-mail (objet, corps, en-têtes, boutons, etc.) est générée séparément, de sorte que les variables Liquid assignées dans un champ ne sont pas disponibles dans un autre. Assignez les variables dans chaque champ qui en a besoin.

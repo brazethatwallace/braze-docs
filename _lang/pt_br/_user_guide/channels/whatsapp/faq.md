@@ -83,7 +83,7 @@ Você precisa ter o número de telefone do usuário final no perfil da Braze par
 O gerenciamento de inscrições do canal WhatsApp funciona de forma semelhante a como funciona em outros canais da Braze. Consulte [Gerenciando inscrições de usuários]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups) para mais informações.
 
 #### Se eu já tenho uma lista de usuários que fizeram opt-in para receber mensagens de marketing no WhatsApp, como atualizo o status de inscrição deles na Braze? {#if-i-already-have-a-list-of-users-who-have-opted-in-to-receive-marketing-messages-on-whatsapp-how-do-i-update-their-subscription-status-in-braze}
-Você pode atualizar o status de inscrição deles via [importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#importing-custom-data).
+Você pode atualizar o status de inscrição deles via [importação de usuários]({{site.baseurl}}/user_guide/audience/manage_audience/import_users/csv_import#updating-subscription-group-status-optional).
 
 #### Quais métodos devo usar para coletar opt-ins? {#what-methods-should-i-use-to-collect-opt-ins}
 A Braze recomenda consultar as [diretrizes da Meta para métodos de opt-in](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in/) para manter a conformidade. Consulte o seguinte recurso para [ideias e sugestões de canais e opt-in da Braze](https://docs.google.com/document/d/1rNKnKN2oIn-e9bXdYEvnwdlzlCsEOKs-xREcdVvPBE8/edit).
@@ -185,6 +185,28 @@ Se um usuário final denunciar uma mensagem, você ainda poderá enviar mensagen
 
 #### Se um usuário final bloquear ou denunciar minha empresa, o status de inscrição dele será atualizado na Braze? {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 Não. O status de inscrição na Braze não será atualizado.
+
+#### As mensagens de resposta do WhatsApp são gratuitas? {#are-whatsapp-response-messages-free}
+
+As mensagens de resposta compostas no editor de Campaign ou Canvas da Braze (não modelos aprovados do WhatsApp) são tratadas como mensagens de serviço pela Meta. Mensagens de serviço enviadas por meio da integração nativa de WhatsApp da Braze não consomem Action Credits quando são enviadas como [mensagens de resposta]({{site.baseurl}}/user_guide/channels/whatsapp/create_a_whatsapp_message#response-messages) dentro de uma janela de atendimento ao cliente aberta.
+
+| Tipo de mensagem | Action Credits | Observações |
+|---|---|---|
+| Mensagem de resposta (resposta de entrada) | Não consumidos | Composta na Braze; não é um modelo aprovado pela Meta. |
+| Mensagem de modelo | Consumidos | Modelos de marketing, utilidade, autenticação e oferta por tempo limitado são cobrados por envio. |
+| Modelo de utilidade na janela de serviço | Não consumidos pela Meta | A Meta não cobra por modelos de utilidade enviados dentro de 24 horas de uma mensagem iniciada pelo usuário. O consumo de Action Credits segue seu contrato. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Action Credits de mensagens de resposta" }
+
+Para fluxos de Canvas em que os usuários tocam em respostas rápidas após a janela original de 24 horas, consulte [Respostas rápidas e mensagens de entrada fora da janela de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### O que acontece se um usuário responder ou tocar em uma resposta rápida após o fechamento da janela de 24 horas? {#what-happens-if-a-user-replies-or-taps-a-quick-reply-after-the-24-hour-window-closes}
+Uma nova janela de atendimento ao cliente de 24 horas é aberta. Consulte [Respostas rápidas e mensagens de entrada fora da janela de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Preciso configurar meu Action Path do Canvas para 31 dias para respostas rápidas do WhatsApp? {#do-i-need-to-set-my-canvas-action-path-to-31-days-for-whatsapp-quick-replies}
+Não. A duração padrão do Action Path é suficiente. Consulte [Respostas rápidas e mensagens de entrada fora da janela de 24 horas]({{site.baseurl}}/user_guide/channels/whatsapp/message_processing/messaging_users#quick-replies-and-inbound-messages-outside-the-24-hour-window).
+
+#### Posso ver quantos créditos de WhatsApp uma Campaign ou Canvas específico consumiu? {#can-i-see-how-many-whatsapp-credits-a-specific-campaign-or-canvas-consumed}
+Não no dashboard da Braze atualmente. A análise de dados de Campaigns e Canvas mostra envios, entregas e falhas, mas não o consumo de créditos por mensagem. As contagens de envio não correspondem diretamente ao uso de créditos porque a categoria do modelo e o tipo de mensagem afetam a cobrança de formas diferentes. Para detalhes de cobrança, consulte [As mensagens de resposta do WhatsApp são gratuitas?](#are-whatsapp-response-messages-free).
 
 ### Integrações, dados e relatórios {#integrations-data-and-reporting}
 

@@ -5,30 +5,30 @@ search_tag: Endpoint
 page_order: 1
 layout: api_page
 page_type: reference
-description: "Este artigo descreve detalhes sobre o endpoint da Braze para listar chaves de Autenticação do SDK."
+description: "Este artigo descreve detalhes sobre o endpoint da Braze para listar chaves de autenticação do SDK."
 ---
 
 {% api %}
-# Listar chaves de Autenticação do SDK {#list-sdk-authentication-keys}
+# Listar chaves de autenticação do SDK {#list-sdk-authentication-keys}
 {% apimethod get %}
 /app_group/sdk_authentication/keys
 {% endapimethod %}
 
-> Use este endpoint para recuperar todas as chaves de Autenticação do SDK do seu app.
+> Use este endpoint para recuperar todas as chaves de autenticação do SDK do seu app.
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `sdk_authentication.keys`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `sdk_authentication.keys`.
 
-## Limite de taxa {#rate-limit}
+## Limite de frequência {#rate-limit}
 
 {% multi_lang_include rate_limits.md endpoint='default' %}
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | -------- | --------- | ----------- |
-| `app_id` | Obrigatória | String | O identificador de API do app. |
+| `app_id` | Obrigatório | String | O identificador de API do app. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 ## Exemplo de solicitação {#example-request}
@@ -63,11 +63,11 @@ curl --location --request GET 'https://rest.iad-01.braze.com/app_group/sdk_authe
 
 | Parâmetro | Tipo de dados | Descrição |
 | --------- | --------- | ----------- |
-| `keys` | Array | Array de objetos de chaves de Autenticação do SDK. |
-| `keys[].id` | String | O ID da chave de Autenticação do SDK. |
+| `keys` | Array | Array de objetos de chaves de autenticação do SDK. |
+| `keys[].id` | String | O ID da chave de autenticação do SDK. |
 | `keys[].rsa_public_key` | String | A string da chave pública RSA. |
-| `keys[].description` | String | Descrição da chave de Autenticação do SDK. |
-| `keys[].is_primary` | booleano | Se esta chave é a chave principal de Autenticação do SDK. |
+| `keys[].description` | String | Descrição da chave de autenticação do SDK. |
+| `keys[].is_primary` | Boolean | Se esta chave é a chave principal de autenticação do SDK. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Parâmetros de resposta" }
 
 ### Regras de validação {#validation-rules}

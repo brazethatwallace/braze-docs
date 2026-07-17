@@ -20,7 +20,7 @@ Braze React Native SDK는 iOS 및 Android 앱을 Braze에 연결합니다: 고�
 - **인앱 메시지**: 기본 Braze UI 또는 구독 및 로깅 API를 통한 커스텀 처리
 - **Content Cards**: 기본 피드 UI 또는 카드를 가져와 자체 UI 구축
 - **배너**: `BrazeBannerView`를 포함한 배치 기반 HTML 배너
-- **푸시 알림**: 권한 프롬프트, 토큰 등록, 페이로드 리스너([푸시 알림](#push-notifications) 참조)
+- **푸시 알림**: 권한 프롬프트, 토큰 등록, 페이로드 리스너(아래 플랫폼 참고 사항 참조)
 - **피처 플래그**: 새로고침, 속성 읽기, 노출 기록
 - **분석**: 커스텀 이벤트, 구매, 즉시 플러시
 - **SDK 제어**: SDK 활성화/비활성화, 로컬 데이터 삭제, SDK 인증 서명
@@ -49,7 +49,7 @@ npm install @braze/react-native-sdk
 
 이 섹션에서는 Braze React Native SDK를 초기화하는 데 필요한 최소 설정을 보여줍니다.
 
-1. [설치](#installation)에서 npm 패키지를 설치합니다.
+1. npm 패키지를 설치합니다(위 참조).
 2. Android 및 iOS에 대한 **네이티브 설정**을 완료합니다(구성, 권한, 필요 시 푸시).
 3. JavaScript에서 SDK를 초기화하고 사용을 시작합니다:
 

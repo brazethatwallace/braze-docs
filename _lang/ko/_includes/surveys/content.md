@@ -60,10 +60,10 @@
 {% if include.channel == 'in_app_message' %}
 - [인앱 메시지 드래그 앤 드롭 편집기 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [랜딩 페이지 양식 블록]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
+- [랜딩 페이지 양식 블록]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% else %}
 - [인앱 메시지 드래그 앤 드롭 편집기 블록]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [랜딩 페이지 양식 블록]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
+- [랜딩 페이지 양식 블록]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% endif %}
 
 설문조사에 다음 양식 블록을 추가할 수 있습니다:
@@ -112,7 +112,7 @@
 
 ## 보고서 및 분석 보기 {#view-reporting-and-analytics}
 
-시작 후 다음에서 결과를 확인하세요:
+출시 후 다음에서 결과를 확인하세요:
 
 {% if include.channel == 'in_app_message' %}
 - 인앱 메시지 설문조사의 **Responses** 탭

@@ -25,7 +25,7 @@ Avant de déboguer, ajoutez-vous en tant qu'[utilisateur test]({{site.baseurl}}/
 | Les impressions ou les clics semblent incorrects | [Impressions et analyses](#impressions-and-analytics) |
 | `triggers` manquant ou vide dans les journaux des événements utilisateurs | [Résolution des problèmes de distribution](#delivery-troubleshooting) |
 | Les déclencheurs sont retournés mais rien ne s'affiche sur l'appareil | [Résolution des problèmes d'affichage par plateforme](#platform-specific-display-troubleshooting) |
-| Le chargement des ressources du message in-app échoue (iOS, `NSURLError` -1008) | [Chargement des ressources (onglet Swift)]({{site.baseurl}}/developer_guide/in_app_messages/troubleshooting?sdktab=swift#asset-loading) |
+| Le chargement des ressources du message in-app échoue (iOS, `NSURLError` -1008) | [Chargement des ressources (onglet Swift)](?sdktab=swift#swift_asset-loading) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Symptôme de message in-app" }
 
 ## Parcours d'investigation standard {#standard-investigation-path}

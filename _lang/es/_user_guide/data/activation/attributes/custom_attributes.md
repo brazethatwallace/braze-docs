@@ -24,9 +24,9 @@ Algunos casos de uso comunes de atributos personalizados incluyen:
 - Segmentar y suprimir audiencias según rasgos como nivel de fidelización, estado de suscripción, idioma preferido o tipo de plan
 - Personalizar mensajes con [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) haciendo referencia a atributos como el nombre del usuario, puntos de recompensa o categoría favorita
 - Rastrear etapas del ciclo de vida y estados del usuario, como etapa de incorporación, estado de la cuenta o fecha de fin de prueba
-- Contar acciones de bajo valor con [atributos numéricos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#numbers), como incrementar un atributo `feature_views_count` cada vez que un usuario visualiza una característica
-- Registrar cuándo ocurrieron por última vez acciones de bajo valor usando [atributos de tiempo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#time), como `last_support_ticket_at` o `last_password_reset_at`
-- Almacenar intereses e historial del usuario como [arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays), como géneros favoritos o contenido visto recientemente, para segmentación basada en intereses
+- Contar acciones de bajo valor con [atributos numéricos]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como incrementar un atributo `feature_views_count` cada vez que un usuario visualiza una característica
+- Registrar cuándo ocurrieron por última vez acciones de bajo valor usando [atributos de tiempo]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como `last_support_ticket_at` o `last_password_reset_at`
+- Almacenar intereses e historial del usuario como [arrays]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), como géneros favoritos o contenido visto recientemente, para segmentación basada en intereses
 - Almacenar datos de perfil más completos como [objetos]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) o [arrays de objetos]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects), como preferencias estructuradas o múltiples direcciones guardadas
 - Desencadenar mensajes basados en acciones cuando cambia el valor de un atributo usando [desencadenadores de atributos]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), como enviar una notificación de subida de nivel cuando cambia el `rewards_tier` de un usuario
 
@@ -75,7 +75,7 @@ Puedes añadir etiquetas a un atributo personalizado después de crearlo si tien
 Hay dos formas de eliminar atributos personalizados de los perfiles de usuario:
 
 * Selecciona el nombre del atributo personalizado a eliminar en un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#removing-custom-attributes).
-* Establece el valor `null` en tu solicitud de API al [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
+* Establece el valor `null` en tu solicitud de API al [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ### Exportar datos {#export-data}
 

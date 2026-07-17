@@ -14,14 +14,14 @@ description: "Esta página fornece uma visão geral de como sincronizar dados do
 ## Etapa 1: Criar um novo catálogo {#step-1-create-a-new-catalog}
 
 Antes de criar uma nova integração de Ingestão de dados na nuvem (CDI) para [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs), você precisa criar um novo catálogo ou identificar um catálogo existente que deseja usar para a integração. Existem algumas maneiras de criar um novo catálogo, e qualquer uma delas funcionará para a integração CDI:
-- Faça upload de um [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv)
-- Crie um catálogo no [dashboard da Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser) ou durante a configuração do CDI.
+- Faça upload de um [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog)
+- Crie um catálogo no [dashboard da Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog) ou durante a configuração do CDI.
 - Crie um catálogo usando o [endpoint Criar catálogo]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog)
 
 Quaisquer alterações no esquema do catálogo (por exemplo, adicionar novos campos ou alterar o tipo de campo) devem ser feitas pelo dashboard do catálogo antes que os dados atualizados sejam sincronizados pelo CDI. Recomendamos fazer essas atualizações quando a sincronização estiver pausada ou não programada para ser executada, para evitar conflitos entre os dados do seu data warehouse e o esquema na Braze.
 
 ## Etapa 2: Integrar a Ingestão de dados na nuvem com dados de catálogo {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
-A configuração para uma sincronização de catálogo segue de perto o processo para [integrações CDI de dados do usuário]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup).
+A configuração para uma sincronização de catálogo segue de perto o processo para [integrações CDI de dados do usuário]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 {% tabs %}
 {% tab Snowflake %}

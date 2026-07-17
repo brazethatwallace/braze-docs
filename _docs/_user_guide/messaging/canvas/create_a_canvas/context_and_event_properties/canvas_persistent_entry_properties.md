@@ -47,7 +47,7 @@ In the case that a Canvas entry property is null or blank, you can abort message
 ```
 {%endraw%}
 
-To read more about aborting messages with Liquid, check out our [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages).
+To read more about aborting messages with Liquid, check out our [Liquid documentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ## Global Canvas entry properties
 

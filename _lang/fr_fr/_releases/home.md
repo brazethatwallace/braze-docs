@@ -226,7 +226,7 @@ Le [tableau de bord des performances push]({{site.baseurl}}/user_guide/analytics
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Les catalogues prennent désormais en charge le filtrage basé sur la distance grâce au nouveau type de champ de géolocalisation et aux opérateurs de sélection de catalogue. Cela vous aide à créer des expériences plus pertinentes et sensibles à la localisation, comme montrer à chaque utilisateur le restaurant le plus proche, filtrer les propriétés disponibles dans un rayon de 50 km pour une Campaign immobilière, ou cibler les magasins proches d'un événement spécifique. Au lieu d'approximer le ciblage géographique avec des codes de ville ou de région, vous pouvez filtrer les éléments du catalogue par proximité à un point central, y compris un attribut utilisateur Liquid tel que la localisation la plus récente d'un utilisateur. Pour plus d'informations, consultez [Sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections#how-it-works).
+Les catalogues prennent désormais en charge le filtrage basé sur la distance grâce au nouveau type de champ de géolocalisation et aux opérateurs de sélection de catalogue. Cela vous aide à créer des expériences plus pertinentes et sensibles à la localisation, comme montrer à chaque utilisateur le restaurant le plus proche, filtrer les propriétés disponibles dans un rayon de 50 km pour une Campaign immobilière, ou cibler les magasins proches d'un événement spécifique. Au lieu d'approximer le ciblage géographique avec des codes de ville ou de région, vous pouvez filtrer les éléments du catalogue par proximité à un point central, y compris un attribut utilisateur Liquid tel que la localisation la plus récente d'un utilisateur. Pour plus d'informations, consultez [Sélections]({{site.baseurl}}/user_guide/data/activation/catalogs/selections).
 
 #### Banner et RCS pour le générateur de rapports {#banner-and-rcs-for-report-builder}
 
@@ -603,7 +603,7 @@ Les [événements Currents et Data Share]({{site.baseurl}}/user_guide/data/distr
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-[Snowflake Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs#changes-for-data-sharing-3) inclut désormais des champs supplémentaires reflétant les informations de Campaign et Canvas dans 66 tables existantes, notamment :
+[Snowflake Data Share]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/currents_changelogs) inclut désormais des champs supplémentaires reflétant les informations de Campaign et Canvas dans 66 tables existantes, notamment :
 
 - `campaign_name`
 - `canvas_name`
@@ -769,7 +769,7 @@ Créé à partir d'un optimiseur de bandits multi-bras non contextuel, l'Optimis
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Pour faire correspondre les événements recommandés pour le commerce électronique avec l'événement d'achat existant, nous avons ajouté l'[événement de conversion « Passe une commande »]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-report), qui est similaire à « Effectue un achat ».
+Pour faire correspondre les événements recommandés pour le commerce électronique avec l'événement d'achat existant, nous avons ajouté l'[événement de conversion « Passe une commande »]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/ecommerce_use_cases#conversions-dashboard), qui est similaire à « Effectue un achat ».
 
 ### Canaux et points de contact
 
@@ -777,11 +777,11 @@ Pour faire correspondre les événements recommandés pour le commerce électron
 
 {% multi_lang_include release_type.md release="Early access" %}
 
-Après avoir ajouté des locales à votre espace de travail, [ciblez des utilisateurs dans différentes langues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#translating-locales) au sein d'une même bannière.
+Après avoir ajouté des locales à votre espace de travail, [ciblez des utilisateurs dans différentes langues]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages#use-locales) au sein d'une même bannière.
 
 #### Configurer la largeur des Content Blocks en glisser-déposer {#configure-width-for-drag-and-drop-content-blocks}
 
-[Ajustez la largeur de votre Content Block]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks#using-the-editor-to-add-a-content-block) en sélectionnant le bouton dans le menu de navigation. La largeur par défaut est de 100 % si elle n'est pas spécifiée dans les paramètres de style globaux de votre e-mail ; dans le cas contraire, les paramètres globaux seront respectés.
+[Ajustez la largeur de votre Content Block]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=email) en sélectionnant le bouton dans le menu de navigation. La largeur par défaut est de 100 % si elle n'est pas spécifiée dans les paramètres de style globaux de votre e-mail ; dans le cas contraire, les paramètres globaux seront respectés.
 
 ![Une flèche double face avec une option permettant de modifier la largeur.]({% image_buster /assets/img_archive/content_block_width_updated.png %}){: style="max-width:30%;" }
 

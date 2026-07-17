@@ -1,9 +1,9 @@
 ---
-nav_title: Campaignデータ
-article_title: Campaignデータのエクスポート
+nav_title: キャンペーンデータ
+article_title: キャンペーンデータのエクスポート
 page_order: 2
 page_type: reference
-description: "このリファレンス記事では、単一チャネル、マルチチャネル、または多変量Campaignの結果データをエクスポートする方法について説明します。受信者からユーザーデータをエクスポートする方法についても記載しています。"
+description: "このリファレンス記事では、単一チャネル、マルチチャネル、または多変量キャンペーンの結果データをエクスポートする方法について説明します。受信者からユーザーデータをエクスポートする方法についても記載しています。"
 tool:
   - Campaigns
   - Reports
@@ -73,10 +73,10 @@ tool:
 
 ## キャンペーンの受信者 {#campaign-recipients}
 
-キャンペーンのすべての受信者のユーザーデータをCSVファイルとしてエクスポートできます。これを行うには、**キャンペーンの詳細**セクションの**User Data**ボタンを選択します。
+キャンペーンのすべての受信者のユーザーデータをCSVファイルとしてエクスポートできます。これを行うには、**キャンペーンの詳細**セクションの**ユーザーデータ**ボタンを選択します。
 
 {% alert note %}
-**User Data**ボタンが表示されませんか？ユーザーデータをエクスポートするには、そのワークスペースの**Export User Data**[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#limited-and-team-role-permissions)が必要です。
+**ユーザーデータ**ボタンが表示されませんか？ユーザーデータをエクスポートするには、そのワークスペースの**ユーザーデータのエクスポート**[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。
 {% endalert %}
 
 ![キャンペーンの詳細ページのユーザーデータドロップダウン]({% image_buster /assets/img/campaign_export_example.png %})
@@ -85,10 +85,10 @@ CSV出力には、キャンペーンの各受信者のユーザープロファ�
 
 [Amazon S3認証情報]({{site.baseurl}}/partners/data_and_analytics/cloud_storage/amazon_s3)をBrazeにリンクしている場合、CSVはS3バケットにもアップロードされます。それ以外の場合、メールで送信されるリンクは数時間で期限切れになります。
 
-エクスポートされたファイルには、[セグメントのユーザーデータをエクスポートした]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data)ときと同じユーザーデータフィールドが含まれます。さらに、「Export All Recipient Data」を選択した場合、エクスポートされたファイルには、それらのデータフィールドに加えて各ユーザーの以下のデータも含まれます。
+エクスポートされたファイルには、[セグメントのユーザーデータをエクスポートした]({{site.baseurl}}/user_guide/analytics/dashboards/home)ときと同じユーザーデータフィールドが含まれます。さらに、「Export All Recipient Data」を選択した場合、エクスポートされたファイルには、それらのデータフィールドに加えて各ユーザーの以下のデータも含まれます。
 
-- 受信したキャンペーンバリエーション名
-- 受信したキャンペーンバリエーションのAPI ID
+- 受信したキャンペーンバリアント名
+- 受信したキャンペーンバリアントのAPI ID
 - ユーザーがコントロールグループに属しているかどうか
 
 {% alert tip %}

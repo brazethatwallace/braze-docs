@@ -24,9 +24,9 @@ Voici quelques cas d'usage courants des attributs personnalisés :
 - Cibler et exclure des audiences en segmentant les utilisateurs selon des caractéristiques telles que le niveau de fidélité, le statut d'abonnement, la langue préférée ou le type de forfait
 - Personnaliser les messages avec [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) en référençant des attributs comme le prénom de l'utilisateur, ses points de récompense ou sa catégorie préférée
 - Suivre les étapes du cycle de vie et les états utilisateur, comme l'étape d'onboarding, le statut du compte ou la date de fin d'essai
-- Comptabiliser les actions à faible valeur avec des [attributs numériques]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#numbers), par exemple en incrémentant un attribut `feature_views_count` chaque fois qu'un utilisateur consulte une fonctionnalité
-- Enregistrer la dernière occurrence d'actions à faible valeur à l'aide d'[attributs temporels]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#time), comme `last_support_ticket_at` ou `last_password_reset_at`
-- Stocker les centres d'intérêt et l'historique des utilisateurs sous forme de [tableaux]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#arrays), tels que les genres préférés ou les contenus récemment consultés, pour un ciblage basé sur les intérêts
+- Comptabiliser les actions à faible valeur avec des [attributs numériques]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), par exemple en incrémentant un attribut `feature_views_count` chaque fois qu'un utilisateur consulte une fonctionnalité
+- Enregistrer la dernière occurrence d'actions à faible valeur à l'aide d'[attributs temporels]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), comme `last_support_ticket_at` ou `last_password_reset_at`
+- Stocker les centres d'intérêt et l'historique des utilisateurs sous forme de [tableaux]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), tels que les genres préférés ou les contenus récemment consultés, pour un ciblage basé sur les intérêts
 - Stocker des données de profil plus riches sous forme d'[objets]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support) ou de [tableaux d'objets]({{site.baseurl}}/user_guide/data/activation/attributes/array_of_objects), comme des préférences structurées ou plusieurs adresses enregistrées
 - Déclencher des messages basés sur des actions lorsqu'une valeur d'attribut change à l'aide de [déclencheurs d'attributs]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery/attribute_triggers), par exemple en envoyant une notification de montée en niveau lorsque l'attribut `rewards_tier` d'un utilisateur change
 
@@ -75,7 +75,7 @@ Vous pouvez ajouter des tags à un attribut personnalisé après sa création si
 Il existe deux façons de supprimer des attributs personnalisés des profils utilisateur :
 
 * Sélectionnez le nom de l'attribut personnalisé à supprimer dans une [étape de mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#removing-custom-attributes).
-* Définissez la valeur `null` dans votre requête API vers l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
+* Définissez la valeur `null` dans votre requête API vers l'[endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 ### Exporter les données {#export-data}
 
@@ -97,9 +97,9 @@ L'attribut personnalisé ne doit pas être actuellement utilisé dans des Campai
 
 ### Points importants {#things-to-know}
 
-- **Les données utilisateur ne sont pas mises à jour rétroactivement.** Si un profil utilisateur contenait l'attribut avec l'ancien type de données, cette valeur reste inchangée. Le filtre de segmentation recherche le nouveau type de données, de sorte que les utilisateurs ayant l'ancienne valeur sont exclus des segments correspondants tant que leur profil n'est pas mis à jour.
+- **Les données utilisateur ne sont pas mises à jour rétroactivement.** Si un profil utilisateur contenait l'attribut avec l'ancien type de données, cette valeur reste inchangée. Le filtre de segmentation recherche le nouveau type de données, de sorte que les utilisateurs ayant l'ancienne valeur sont exclus des Segments correspondants tant que leur profil n'est pas mis à jour.
 - **Les nouvelles données doivent correspondre au nouveau type de données.** Après la modification, les appels API ou événements SDK qui envoient l'ancien type de données pour cet attribut ne seront pas acceptés. Seules les valeurs correspondant au nouveau type de données sont ingérées.
-- **Les filtres ne sont pas mis à jour automatiquement.** Les segments et filtres de campagnes référençant l'attribut modifié ne sont pas mis à jour rétroactivement. Vous devez les supprimer et les recréer après la modification.
+- **Les filtres ne sont pas mis à jour automatiquement.** Les Segments et filtres de Campaigns référençant l'attribut modifié ne sont pas mis à jour rétroactivement. Vous devez les supprimer et les recréer après la modification.
 
 ## Consulter les rapports d'utilisation {#view-usage-reports}
 

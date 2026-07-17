@@ -46,9 +46,9 @@ Si todos los mensajes de tu campaña van a ser similares o tener el mismo conten
 
 1. [Crea tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) usando el creador de Canvas.
 2. Después de configurar tu Canvas, añade un paso en el constructor de Canvas. Ponle a tu paso un nombre claro y significativo.
-3. Elige una [planificación de paso]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#schedule-your-canvas-step) y especifica un retraso según sea necesario.
+3. Elige una [planificación de paso]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings) y especifica un retraso según sea necesario.
 4. Filtra tu audiencia para este paso según sea necesario. Puedes refinar aún más los destinatarios de este paso especificando segmentos y añadiendo filtros adicionales. Las opciones de audiencia se comprobarán después del retraso en el momento en que se envíen los mensajes.
-5. Elige tu [comportamiento de avance]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#advancement-behavior).
+5. Elige tu [comportamiento de avance]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#advancement-behavior).
 6. Elige cualquier otro canal de mensajería que desees emparejar con tu mensaje.
 
 {% endtab %}
@@ -69,7 +69,7 @@ La pestaña **Redactar** consta de los siguientes campos:
 
 ### Idioma {#internationalization}
 
-La [internacionalización]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies#campaigns-in-multiple-languages) es compatible en la URL y en el cuerpo de la solicitud. Para internacionalizar tu mensaje, selecciona **Añadir idiomas** y completa los campos requeridos.
+La [internacionalización]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) es compatible en la URL y en el cuerpo de la solicitud. Para internacionalizar tu mensaje, selecciona **Añadir idiomas** y completa los campos requeridos.
 
 Te recomendamos seleccionar tus idiomas antes de escribir tu contenido para que puedas rellenar tu texto donde corresponda en Liquid. Para consultar nuestra lista completa de idiomas disponibles, consulta [Idiomas compatibles]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported).
 
@@ -115,7 +115,7 @@ Puedes personalizar tus pares clave-valor usando Liquid, incluyendo cualquier at
 
 La opción de texto sin formato te da la flexibilidad de escribir una solicitud para un endpoint que espera un cuerpo de cualquier formato. Por ejemplo, podrías usar esto para escribir una solicitud para un endpoint que espere que tu solicitud esté en formato XML.
 
-Tanto la [personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) como la [internacionalización]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies#campaigns-in-multiple-languages) usando Liquid son compatibles en texto sin formato.
+Tanto la [personalización]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) como la [internacionalización]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization) usando Liquid son compatibles en texto sin formato.
 
 ![Un ejemplo de cuerpo de solicitud con texto sin formato usando Liquid.]({% image_buster /assets/img_archive/webhook_rawtext.png %})
 
@@ -178,7 +178,7 @@ Los webhooks pueden entregarse según un horario planificado, una acción o un d
 
 Para la entrega basada en acciones, también puedes establecer la duración de la campaña y las [horas tranquilas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-En este paso también puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser [elegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) para recibir la campaña, o habilitar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
+En este paso también puedes especificar controles de entrega, como permitir que los usuarios vuelvan a ser [elegibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) para recibir la campaña, o habilitar reglas de [limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 ### Elige los usuarios objetivo {#choose-users-to-target}
 
@@ -194,7 +194,7 @@ Braze te permite hacer seguimiento de la frecuencia con la que los usuarios real
 
 {% tab Canvas %}
 
-Si aún no lo has hecho, completa las secciones restantes de tu paso en Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante y selección inteligente, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de nuestra documentación de Canvas.
+Si aún no lo has hecho, completa las secciones restantes de tu paso en Canvas. Para más detalles sobre cómo construir el resto de tu Canvas, implementar pruebas multivariante y selección inteligente, y más, consulta el paso [Construir tu Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de nuestra documentación de Canvas.
 
 {% endtab %}
 {% endtabs %}
