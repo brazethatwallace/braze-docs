@@ -66,17 +66,17 @@ curl -X POST "https://YOUR_API_ENDPOINT/users/track" \
   -d '{
     "attributes": [
       {
-        "email": "example1@seed.250ok.net",
+        "email": "example1@example.com",
         "validity_seed": true
       },
       {
-        "email": "example2@seed.250ok.net",
+        "email": "example2@example.com",
         "validity_seed": true
       }
     ],
     "events": [
       {
-        "email": "example1@seed.250ok.net",
+        "email": "example1@example.com",
         "name": "validity_seed_event",
         "time": "2026-07-02T18:00:00.000Z"
       }
