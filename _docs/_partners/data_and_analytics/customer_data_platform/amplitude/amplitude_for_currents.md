@@ -55,15 +55,15 @@ Keep your Amplitude API Key up to date. If your connector's credentials expire, 
 
 In Braze, navigate to **Currents > + Create Current > Create Amplitude Export**. Provide an integration name, contact email, Amplitude export API key, and Amplitude region in the listed fields. Next, select the events you want to track; a list of available events is provided. Lastly, click **Launch Current**
 
-{% alert tip %}
-If you receive an "Invalid API key" error when pasting your Amplitude API key, try manually typing the key instead. Some browsers may add hidden characters when copying and pasting that can cause validation errors.
-{% endalert %}
-
 {% alert note %}
 Events sent from Braze Currents to Amplitude will count toward your Amplitude event volume quota.
 {% endalert %}
 
 ![The Braze Amplitude Currents page. This page includes fields for integration name, contact email, API key, and US region. The lower half of the Currents page lists available Currents events you can send.]({% image_buster /assets/img/amplitude4.png %})
+
+{% alert tip %}
+If you receive an "Invalid API key" error when pasting your Amplitude API key, try manually typing the key instead. Some browsers may add hidden characters when copying and pasting that can cause validation errors.
+{% endalert %}
 
 {% tab note %}
 Check out Amplitude's [integration docs](https://amplitude.zendesk.com/hc/en-us/articles/115000217351-Appboy-Amplitude-Integration#how-to-set-up-and-use-the-integration) to learn more. 
