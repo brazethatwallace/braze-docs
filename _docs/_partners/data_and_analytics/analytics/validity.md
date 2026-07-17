@@ -23,7 +23,7 @@ Through this integration, Validity automatically creates, monitors, and updates 
 
 ### Auto-seeding
 
-With Validity auto-seeding, Validity detects when a Braze campaign or Canvas reaches a qualifying send volume (10,000 sends by default) and sends a copy of that campaign's content to your Validity seed list. Seed sends target the `validity_seed = true` audience. You don't need to create a segment or attach it to each send manually.
+With Validity auto-seeding, Validity detects when a Braze campaign or Canvas reaches a qualifying send volume (10,000 sends by default) and sends a copy of that campaign's content to your Validity seed list. Seed sends target the `validity_seed = true` audience. You don't need to create a segment or attach it to each send.
 
 ## Prerequisites
 
@@ -53,7 +53,7 @@ After the integration is enabled, Validity syncs your Everest seed list to Braze
 
 ### Step 2: Optionally create a Braze segment for Validity seed users
 
-Creating a segment is optional. Auto-seeding sends test emails using a [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience) object filtered on the `validity_seed` custom attribute whenever a qualifying send is detected. You don't need to build a segment or attach it to your campaigns yourself.
+Creating a segment is optional. Auto-seeding sends test emails using a [Connected Audience]({{site.baseurl}}/api/objects_filters/connected_audience) object filtered on the `validity_seed` custom attribute whenever a qualifying send is detected. You don't need to build a segment or attach it to your campaigns.
 
 If you want a way to view this audience inside Braze for reference, create a segment under **Audience** > **Segments** with the filter `validity_seed` is `true`.
 
@@ -90,11 +90,11 @@ These users always include the custom attribute `validity_seed` with the boolean
 
 ### How seed sends work
 
-Validity pulls the campaign body, subject, and from address through the campaign and Canvas details endpoints, then sends a copy of the message through Braze's [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) endpoint. This sends a copy of the campaign content to the seed list without creating a duplicate campaign object in Braze.
+Validity pulls the campaign body, subject, and from address through the campaign and Canvas details endpoints, then sends a copy of the message to the seed list through Braze's [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) endpoint. The seed send does not create a duplicate campaign object in Braze.
 
 ### Auto-seeding threshold
 
-Validity detects when a campaign or Canvas crosses your configured send volume threshold (10,000 sends by default) and sends the seed test at that point. You don't need to manually add the seed audience to your campaigns or Canvases.
+Validity detects when a campaign or Canvas crosses your configured send volume threshold (10,000 sends by default) and sends the seed test at that point. You don't need to add the seed audience to your campaigns or Canvases.
 
 A seed test sends your email campaign to the addresses on the seed list, gathers placement data, and helps you identify issues before or alongside sends to your audience. Inbox placement metrics show whether your campaign lands in the inbox, the spam folder, or goes missing. That information indicates whether subscribers can see your campaign.
 
@@ -102,7 +102,7 @@ Seed tests can also help you diagnose why emails hit the spam folder or go missi
 
 ### Seed list health
 
-Validity monitors seed list users and may update or remove them if they begin to lose effectiveness—for example, if email service providers (ESPs) start to flag seed list audience members as spam. The API key permissions granted to Validity allow Validity to monitor seed list health and update the list accordingly.
+Validity monitors seed list users and may update or remove them if they begin to lose effectiveness—for example, if email service providers (ESPs) start to flag seed list audience members as spam. These permissions allow Validity to monitor seed list health and update the list accordingly.
 
 ### How dynamic content is handled
 
