@@ -23,7 +23,7 @@ Through this integration, Validity automatically creates, monitors, and updates 
 
 ### Auto-seeding
 
-With Validity auto-seeding, Validity detects when a Braze campaign or Canvas reaches a qualifying send volume (10,000 sends by default) and sends a copy of that campaign's content to your Validity seed list. Seed sends target the `validity_seed = true` audience.
+With Validity auto-seeding, Validity detects when a Braze campaign or Canvas reaches a qualifying send volume (10,000 sends by default) and sends a copy of that campaign's content to your Validity seed list. Seed sends target users where the `validity_seed` custom attribute is set to `true`.
 
 ## Prerequisites
 
@@ -96,7 +96,7 @@ Validity pulls the campaign body, subject, and from address through the campaign
 
 Validity detects when a campaign or Canvas crosses your configured send volume threshold (10,000 sends by default) and sends the seed test at that point. You don't need to add the seed audience to your campaigns or Canvases.
 
-A seed test sends your email campaign to the addresses on the seed list, gathers placement data, and helps you identify issues before or alongside sends to your audience. Inbox placement metrics show whether your campaign lands in the inbox, the spam folder, or goes missing. That information indicates whether subscribers can see your campaign.
+A seed test sends your email campaign to the addresses on the seed list, gathers placement data, and helps you identify issues before or alongside sends to your audience. Inbox placement metrics show whether your campaign lands in the inbox, the spam folder, or goes missing. That information indicates whether recipients can see your campaign.
 
 Seed tests can also help you diagnose why emails hit the spam folder or go missing. Checking header data, authentication (SPF, DKIM, and DMARC), link validation, and design rendering can show what steps to take to improve your inbox placement rate.
 
