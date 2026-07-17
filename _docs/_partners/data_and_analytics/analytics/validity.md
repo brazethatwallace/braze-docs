@@ -15,15 +15,13 @@ _This integration is maintained by Validity._
 
 ## About the integration
 
-Validity creates email seed list users in Braze that you can include as audiences for any Braze email campaign. Those seed sends help Validity trace deliverability and protect your sending reputation.
-
-Through this integration, Validity automatically creates, monitors, and updates the seed list in Braze so seed users stay active and unsuppressed. Validity also detects when a campaign or Canvas is ready to be seeded and pulls engagement metrics—delivered, bounces, opens, clicks, and unsubscribes—back into Validity Inbox.
+Validity creates and maintains email seed list users in Braze so seed addresses stay active and unsuppressed. When a campaign or Canvas is ready to be seeded, Validity sends a copy to that seed list and surfaces engagement metrics—delivered, bounces, opens, clicks, and unsubscribes—in Validity Inbox alongside inbox placement data.
 
 ## Use cases
 
 ### Auto-seeding
 
-With Validity auto-seeding, Validity detects when a Braze campaign or Canvas reaches a qualifying send volume (10,000 sends by default) and sends a copy of that campaign's content to your Validity seed list. Seed sends target users where the `validity_seed` custom attribute is set to `true`.
+With Validity auto-seeding, Validity detects when a Braze campaign or Canvas reaches a qualifying send volume and sends a copy of that campaign's content to your Validity seed list. Seed sends target users where the `validity_seed` custom attribute is set to `true`.
 
 ## Prerequisites
 
