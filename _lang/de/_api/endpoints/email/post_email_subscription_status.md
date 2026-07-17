@@ -14,9 +14,13 @@ description: "Dieser Artikel beschreibt die Details des Braze-Endpunkts „Statu
 /email/status
 {% endapimethod %}
 
-> Verwenden Sie diesen Endpunkt, um den Status des E-Mail-Abos für Ihre Nutzer:innen festzulegen.
+> Verwenden Sie diesen Endpunkt, um den globalen Status des E-Mail-Abos für Ihre Nutzer:innen festzulegen.
 
 Nutzer:innen können `opted_in`, `unsubscribed` oder `subscribed` sein (ohne spezielles Opt-in oder Opt-out).
+
+{% alert note %}
+Dieser Endpunkt aktualisiert den globalen E-Mail-Abo-Status der/des Nutzer:in, der sich vom Abo-Gruppenstatus unterscheidet. Der globale Abo-Status gilt für alle E-Mails, während [Abo-Gruppen]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups) eine detailliertere Steuerung für bestimmte E-Mail-Typen ermöglichen. Wenn eine/ein Nutzer:in global abgemeldet ist, erhält sie/er unabhängig vom Abo-Gruppenstatus keine E-Mails. Um den Abo-Gruppenstatus abzufragen, verwenden Sie den Endpunkt [Abo-Gruppenstatus von Nutzer:innen auflisten]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status).
+{% endalert %}
 
 Sie können den Status des E-Mail-Abos für eine E-Mail-Adresse festlegen, die noch keiner Ihrer Nutzer:innen in Braze zugeordnet ist. Wenn diese E-Mail-Adresse anschließend mit einer/einem Nutzer:in verknüpft wird, wird der von Ihnen hochgeladene Status des E-Mail-Abos automatisch übernommen.
 
@@ -24,7 +28,7 @@ Sie können den Status des E-Mail-Abos für eine E-Mail-Adresse festlegen, die n
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `email.status`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `email.status`.
 
 ## Rate-Limit
 

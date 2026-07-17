@@ -84,7 +84,7 @@ Diese Felder erfassen, wann Nutzer:innen zum ersten oder letzten Mal mit Ihrer A
 
 ## Push-Token {#push-tokens}
 
-Verwenden Sie diese Felder, wenn Sie Push-Token von einer anderen Plattform migrieren. Nach der Integration des Braze SDK werden Push-Token automatisch erfasst. Eine Migrationsanleitung finden Sie unter [Push-Token migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Verwenden Sie diese Felder, wenn Sie Push-Token von einer anderen Plattform migrieren. Nach der Integration des Braze SDK werden Push-Token automatisch erfasst. Eine Migrationsanleitung finden Sie unter [Push-Token migrieren]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 
 | Feld | Datentyp | Format und Hinweise |
 |---|---|---|

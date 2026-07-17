@@ -15,7 +15,7 @@ La personnalisation Liquid pour les pages de destination n'est disponible que su
 
 ## Insérer du Liquid {#inserting-liquid}
 
-Dans l'éditeur par glisser-déposer, vous pouvez insérer de la personnalisation Liquid à la fois dans l'éditeur et dans les paramètres de la page ou du bloc dans le panneau de droite. Pour des instructions sur l'utilisation de Liquid, consultez notre [documentation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#using-liquid) dédiée.
+Dans l'éditeur par glisser-déposer, vous pouvez insérer de la personnalisation Liquid à la fois dans l'éditeur et dans les paramètres de la page ou du bloc dans le panneau de droite. Pour des instructions sur l'utilisation de Liquid, consultez notre [documentation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) dédiée.
 
 ![Éditeur de page de destination avec personnalisation Liquid ajoutée.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 
@@ -73,7 +73,7 @@ Si un utilisateur transfère un lien de page de destination (depuis un e-mail, u
 
 ## Récupérer des données externes avec du code personnalisé {#fetching-external-data-with-custom-code}
 
-Vous pouvez utiliser un bloc **Custom Code** pour récupérer des données depuis des endpoints externes et les afficher dans votre page de destination. Cette approche effectue la requête côté client (dans le navigateur de l'utilisateur), de sorte que la page se charge rapidement sans délais de rendu côté serveur.
+Vous pouvez utiliser un bloc **Code personnalisé** pour récupérer des données depuis des endpoints externes et les afficher dans votre page de destination. Cette approche effectue la requête côté client (dans le navigateur de l'utilisateur), de sorte que la page se charge rapidement sans délais de rendu côté serveur.
 
 {% alert warning %}
 Lorsque vous récupérez des données externes, vous êtes responsable de la sécurité de votre déploiement. Les identifiants externes utilisés dans les appels API doivent être des UUID ou utiliser un schéma de nommage équivalent en termes de sécurité. Consultez les [bonnes pratiques de nommage des ID utilisateur]({{site.baseurl}}/developer_guide/analytics/setting_user_ids#naming-best-practices).

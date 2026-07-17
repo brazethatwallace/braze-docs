@@ -18,24 +18,24 @@ platform:
 
 ## 키-값 페어 {#key-value-pairs}
 
-Braze를 사용하면 키-값 페어를 사용하여 Content Cards를 통해 사용자 기기에 추가 데이터 페이로드를 전송할 수 있습니다. 이를 통해 내부 측정기준을 추적하고, 앱 콘텐츠를 업데이트하고, 등록정보를 커스터마이즈할 수 있습니다. [대시보드를 사용하여 키-값 페어를 추가합니다]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create#step-4-configure-additional-settings-optional).
+Braze를 사용하면 키-값 페어를 사용하여 Content Cards를 통해 사용자 기기에 추가 데이터 페이로드를 전송할 수 있습니다. 이를 통해 내부 측정기준을 추적하고, 앱 콘텐츠를 업데이트하고, 속성정보를 커스터마이즈할 수 있습니다. [대시보드를 사용하여 키-값 페어를 추가합니다]({{site.baseurl}}/user_guide/message_building_by_channel/content_cards/create#step-4-configure-additional-settings-optional).
 
 {% alert note %}
 중첩된 JSON 값을 키-값 페어로 전송하는 것은 권장하지 않습니다. 대신 JSON을 보내기 전에 평탄화하세요.
 {% endalert %}
 
 {% tabs %}
-{% tab web %}
+{% tab 웹 %}
 
 키-값 페어는 <a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html" target="_blank">`card`</a> 오브젝트에 `extras`로 저장됩니다. 애플리케이션에서 추가 처리를 위해 카드와 함께 데이터를 전송하는 데 사용할 수 있습니다. `card.extras`를 호출하여 이러한 값에 액세스합니다.
 
 {% endtab %}
-{% tab android %}
+{% tab Android %}
 
 키-값 페어는 <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/#-2118252107%2FProperties%2F-1725759721" target="_blank">`card`</a> 오브젝트에 `extras`로 저장됩니다. 애플리케이션에서 추가 처리를 위해 카드와 함께 데이터를 전송하는 데 사용할 수 있습니다. <a href="https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-card/extras.html" target="_blank">`card.extras`</a> 를 호출하여 이러한 값에 액세스합니다.
 
 {% endtab %}
-{% tab swift %}
+{% tab Swift %}
 
 키-값 페어는 <a href="https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard" target="_blank">`card`</a> 오브젝트에 `extras`로 저장됩니다. 애플리케이션에서 추가 처리를 위해 카드와 함께 데이터를 전송하는 데 사용할 수 있습니다. <a href="https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/contentcard/data-swift.struct/extras" target="_blank">`card.extras`</a> 를 호출하여 이러한 값에 액세스합니다.
 
@@ -60,16 +60,16 @@ Content Cards를 기존 피드에 원활하게 혼합하여 여러 피드의 데
 
 ![보조 Content Cards 사용 사례에 대한 키-값 페어입니다. 이 예시에서는 카드의 다양한 측면인 "tile_id", "tile_deeplink", "tile_title"이 Liquid를 사용하여 설정됩니다.]({% image_buster /assets/img/cc_implementation/supplementary_content.png %}){: style="max-width:60%;"}
 
-## 대화형 콘텐츠로서의 Content Cards {#content-cards-as-interactive-content}
-![화면 왼쪽 하단에 50% 프로모션을 표시하는 대화형 Content Card가 나타납니다. 클릭하면 프로모션이 장바구니에 적용됩니다.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
+## 인터랙티브 콘텐츠로서의 Content Cards {#content-cards-as-interactive-content}
+![화면 왼쪽 하단에 50% 프로모션을 표시하는 인터랙티브 Content Card가 나타납니다. 클릭하면 프로모션이 장바구니에 적용됩니다.]({% image_buster /assets/img/cc_implementation/discount2.png %}){: style="border:0;"}{: style="float:right;max-width:45%;border:0;margin-left:15px;"}
 
-Content Cards를 활용하여 사용자를 위한 역동적이고 인터랙티브한 경험을 만들 수 있습니다. 오른쪽 예시에서는 결제 시 Content Card 팝업이 표시되어 사용자에게 막바지 프로모션을 제공합니다. 이와 같은 카드를 잘 배치하면 특정 사용자 동작을 향한 '넛지'를 제공할 수 있습니다.
+Content Cards를 활용하여 사용자를 위한 동적이고 인터랙티브한 경험을 만들 수 있습니다. 오른쪽 예시에서는 결제 시 Content Card 팝업이 표시되어 사용자에게 막바지 프로모션을 제공합니다. 이와 같은 카드를 잘 배치하면 특정 사용자 동작을 향한 '넛지'를 제공할 수 있습니다.
 
 이 사용 사례의 키-값 페어에는 원하는 할인 금액으로 설정된 `discount_percentage`와 `coupon_code`로 설정된 `class_type`이 포함됩니다. 이러한 키-값 페어를 사용하여 결제 화면에서 유형별 Content Cards를 필터링하고 표시할 수 있습니다. 키-값 페어를 사용하여 여러 피드를 관리하는 방법에 대한 자세한 내용은 [기본 Content Card 피드 커스터마이즈]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds)를 참조하세요.
 <br>
 <br>
 
-![결제 프로모션을 표시하는 대화형 Content Card]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
+![결제 프로모션을 표시하는 인터랙티브 Content Card]({% image_buster /assets/img/cc_implementation/discount.png %}){: style="max-width:80%;"}
 
 ## Content Card 배지 {#content-card-badges}
 
@@ -82,7 +82,7 @@ Content Cards를 활용하여 사용자를 위한 역동적이고 인터랙티�
 미열람 Content Card 수를 앱 아이콘에 배지로 표시할 수 있습니다.
 
 {% tabs %}
-{% tab web %}
+{% tab 웹 %}
 
 언제든지 다음을 호출하여 미열람 카드 수를 요청할 수 있습니다:
 
@@ -93,7 +93,7 @@ braze.getCachedContentCards().getUnviewedCardCount();
 그런 다음 이 정보를 사용하여 미열람 Content Cards 수를 나타내는 배지를 표시할 수 있습니다. 자세한 내용은 <a href="https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.contentcards.html" target="_blank">SDK 참조 문서</a> 를 참조하세요.
 
 {% endtab %}
-{% tab android %}
+{% tab Android %}
 
 언제든지 다음을 호출하여 미열람 카드 수를 요청할 수 있습니다:
 
@@ -118,9 +118,9 @@ Braze.getInstance(context).contentCardUnviewedCount
 
 
 {% endtab %}
-{% tab swift %}
+{% tab Swift %}
 
-다음 샘플은 `braze.contentCards`를 사용하여 미열람 Content Card 수를 요청하고 표시합니다. 앱이 닫히고 사용자 세션이 종료된 후 이 코드는 카드 수를 요청하여 `viewed` 등록정보를 기준으로 카드 수를 필터링합니다.
+다음 샘플은 `braze.contentCards`를 사용하여 미열람 Content Card 수를 요청하고 표시합니다. 앱이 닫히고 사용자 세션이 종료된 후 이 코드는 카드 수를 요청하여 `viewed` 속성정보를 기준으로 카드 수를 필터링합니다.
 
 {% subtabs %}
 {% subtab Swift %}

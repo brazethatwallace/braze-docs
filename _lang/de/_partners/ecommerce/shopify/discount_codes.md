@@ -8,7 +8,7 @@ description: "Dieser Referenzartikel behandelt einen von der Community eingereic
 
 # Eindeutige Rabattcodes über Shopify versenden {#send-unique-discount-codes-through-shopify}
 
-> Dieser von der Community eingereichte Anwendungsfall zeigt, wie Sie Braze-[Aktionscodes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/) mit dem Shopify Bulk Discount Code Bot verwenden können, um eindeutige Rabattcodes für Ihre Campaigns und Canvases zu generieren. Eindeutige Rabattcodes helfen dabei, die Ausnutzung von generischen Aktionscodes zu vermeiden.
+> Dieser von der Community eingereichte Anwendungsfall zeigt, wie Sie Braze-[Aktionscodes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) mit dem Shopify Bulk Discount Code Bot verwenden können, um eindeutige Rabattcodes für Ihre Campaigns und Canvases zu generieren. Eindeutige Rabattcodes helfen dabei, die Ausnutzung von generischen Aktionscodes zu vermeiden.
 
 {% alert important %}
 Dies ist eine von der Community eingereichte Integration, die nicht direkt von Braze unterstützt wird. Der Bulk Discount Code Bot wird direkt von Shopify unterstützt. Nur Braze-Aktionscodes werden von Braze unterstützt.
@@ -18,19 +18,19 @@ Dies ist eine von der Community eingereichte Integration, die nicht direkt von B
 
 | Anforderung | Beschreibung |
 | --- | --- |
-| Einen Shopify-Shop einrichten | Bestätigen Sie, dass Sie bereits [einen Shopify-Shop mit Braze eingerichtet]({{site.baseurl}}/shopify_overview/) haben. |
+| Einen Shopify-Shop einrichten | Bestätigen Sie, dass Sie bereits [einen Shopify-Shop mit Braze eingerichtet]({{site.baseurl}}/shopify_overview) haben. |
 | Die App Bulk Discount Code Bot installieren | Laden Sie die App [Bulk Discount Code Bot](https://apps.shopify.com/bulk-discount-generator) im Shopify App Store herunter. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Anforderungen" }
 
 ## Eindeutige Rabattcodes generieren {#generating-unique-discount-codes}
 
-### 1. Schritt: Konfigurieren Sie Ihre Rabattcodes {#step-1-configure-your-discount-codes}
+### Schritt 1: Konfigurieren Sie Ihre Rabattcodes {#step-1-configure-your-discount-codes}
 
 Verwenden Sie den Bulk Discount Code Bot, um Ihre Rabattcodes nach der Anzahl der zu generierenden Codes, der Codelänge, dem Rabattwert und vielem mehr zu konfigurieren.
 
 ![Die Konfigurationsoptionen für ein Rabattset.][1]
 
-### 2. Schritt: Exportieren Sie Ihre Codes {#step-2-export-your-codes}
+### Schritt 2: Exportieren Sie Ihre Codes {#step-2-export-your-codes}
 
 Suchen Sie Ihr Rabattset in der Suchleiste des Bulk Discount Code Bot und wählen Sie dann **Export Codes** > **Download Codes**, um eine CSV-Datei in Ihren Download-Ordner herunterzuladen.
 
@@ -40,13 +40,13 @@ Löschen Sie in der CSV-Datei Zeile 1, um die Spaltenüberschrift „Promo“ zu
 
 ![Ein Flussdiagramm, das die Entfernung der Zeilenüberschrift „Promo“ in einer CSV-Datei zeigt.][3]{: style="max-width:60%;"}
 
-### 3. Schritt: Fügen Sie Ihre Rabattcodes zu Braze hinzu {#step-3-add-your-discount-codes-to-braze}
+### Schritt 3: Fügen Sie Ihre Rabattcodes zu Braze hinzu {#step-3-add-your-discount-codes-to-braze}
 
-Gehen Sie in Braze zu **Dateneinstellungen** > **Aktionscodes** > **Aktionscodeliste erstellen** und [konfigurieren Sie Ihre Rabattcodeliste]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/#creating-a-promotion-code-list). Stellen Sie sicher, dass das Ablaufdatum mit dem übereinstimmt, das im Bulk Discount Code Bot konfiguriert wurde.
+Gehen Sie in Braze zu **Dateneinstellungen** > **Aktionscodes** > **Aktionscodeliste erstellen** und [konfigurieren Sie Ihre Rabattcodeliste]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#create). Stellen Sie sicher, dass das Ablaufdatum mit dem übereinstimmt, das im Bulk Discount Code Bot konfiguriert wurde.
 
 Laden Sie dann Ihre CSV-Datei hoch und wählen Sie **Save List**.
 
-### 4. Schritt: Fügen Sie Ihre Rabattcodes zu einer Braze-Campaign oder einem Canvas-Schritt hinzu {#step-4-add-your-discount-codes-to-a-braze-campaign-or-canvas-step}
+### Schritt 4: Fügen Sie Ihre Rabattcodes zu einer Braze-Campaign oder einem Canvas-Schritt hinzu {#step-4-add-your-discount-codes-to-a-braze-campaign-or-canvas-step}
 
 Wenn Sie Ihre eindeutigen Rabattcodes in einer einzelnen Campaign verwenden möchten oder es Ihnen nichts ausmacht, dass Nutzer:innen mehrere eindeutige Codes über verschiedene Campaigns oder Canvas-Schritte erhalten, kopieren Sie das Liquid-Snippet des Codes aus der Aktionscodeliste, die Sie gespeichert haben.
 
@@ -56,10 +56,10 @@ Fügen Sie das Liquid-Snippet in eine Campaign oder einen Canvas-Schritt ein.
 
 ![Ein GIF, das zeigt, wie das Liquid-Snippet zu einem Canvas-Schritt hinzugefügt wird.][5]
 
-Wenn Sie möchten, dass Nutzer:innen einen einzigen eindeutigen Rabattcode erhalten, unabhängig davon, wie oft der Rabattcode in Campaigns oder Canvases referenziert wird, erstellen Sie einen [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update/)-Schritt direkt vor dem ersten Nachrichtenschritt, der den Rabattcode einem angepassten Attribut wie „Promo Code“ zuweist.
+Wenn Sie möchten, dass Nutzer:innen einen einzigen eindeutigen Rabattcode erhalten, unabhängig davon, wie oft der Rabattcode in Campaigns oder Canvases referenziert wird, erstellen Sie einen [Nutzeraktualisierung]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)-Schritt direkt vor dem ersten Nachrichtenschritt, der den Rabattcode einem angepassten Attribut wie „Promo Code“ zuweist.
 
 {% alert tip %}
-Sie können auch [ein angepasstes Attribut erstellen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/), indem Sie zu **Dateneinstellungen** > **Angepasste Attribute** gehen.
+Sie können auch [ein angepasstes Attribut erstellen]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes), indem Sie zu **Dateneinstellungen** > **Angepasste Attribute** gehen.
 {% endalert %}
 
 Führen Sie im Nutzeraktualisierung-Schritt für jedes Feld Folgendes aus:

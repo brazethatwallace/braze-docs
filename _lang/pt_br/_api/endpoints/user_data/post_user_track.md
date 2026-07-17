@@ -57,9 +57,9 @@ Authorization: Bearer YOUR_REST_API_KEY
 Para cada componente de solicitação listado na tabela a seguir, você deve incluir um dos seguintes: `external_id`, `user_alias`, `braze_id`, `email` ou `phone`.
 {% endalert %}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | --------- | ---------| --------- | ----------- |
-| `attributes` | Opcional | Vetor de objetos de atributos | Consulte o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) |
+| `attributes` | Opcional | Vetor de objetos de atributos | Consulte o [objeto de atributos do usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) |
 | `events` | Opcional | Vetor de objetos de eventos | Consulte o [objeto de eventos]({{site.baseurl}}/api/objects_filters/event_object) |
 | `purchases` | Opcional | Vetor de objetos de compra | Consulte o [objeto de compras]({{site.baseurl}}/api/objects_filters/purchase_object) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }

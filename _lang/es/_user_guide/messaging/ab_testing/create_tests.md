@@ -13,12 +13,12 @@ local_redirect: #optimizations
 
 > Puedes crear una prueba multivariante o A/B para cualquier campaña que se dirija a un solo canal. Por ejemplo, si quieres usar pruebas multivariantes o A/B para una campaña push, puedes dirigirte a dispositivos iOS y Android en la misma campaña.
 
-![El menú desplegable que aparece al seleccionar el botón "Create Campaign" para elegir entre multicanal o canal único.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
+![El menú desplegable que aparece al seleccionar el botón "Crear campaña" para elegir entre multicanal o canal único.]({% image_buster /assets/img/ab_create_1.png %}){: style="max-width:25%;float:right;margin-left:15px;" }
 
 ## Paso 1: Crea tu campaña {#step-1-create-your-campaign}
 
-1. Ve a **Messaging** > **Campaigns**.
-2. Selecciona **Create Campaign** y un canal para la campaña en la sección que permite pruebas multivariantes y A/B. Para documentación detallada sobre cada canal de mensajería, consulta [Crear una campaña]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign).
+1. Ve a **Mensajería** > **Campaigns**.
+2. Selecciona **Crear campaña** y un canal para la campaña en la sección que permite pruebas multivariantes y A/B. Para documentación detallada sobre cada canal de mensajería, consulta [Crear una campaña]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign).
 
 ## Paso 2: Redacta tus variantes {#step-2-compose-your-variants}
 
@@ -56,7 +56,7 @@ Al ver tus resultados, puedes comparar las tasas de conversión de tus variantes
 No se recomienda usar un grupo de control al determinar un ganador por _aperturas_ o _clics_. Dado que el grupo de control no recibirá el mensaje, esos usuarios no pueden realizar ninguna apertura ni clic. Por lo tanto, la tasa de conversión de ese grupo es del 0 % por definición y no constituye una comparación significativa con las variantes.
 {% endalert %}
 
-#### Grupos de control con pruebas A/B {#control-groups-with-ab-testing}
+#### Grupos de control y pruebas A/B {#control-groups-and-ab-testing}
 
 Al usar un límite de velocidad con una prueba A/B, el límite de velocidad no se aplica al grupo de control de la misma manera que al grupo de prueba, lo cual es una fuente potencial de sesgo temporal. Usa ventanas de conversión apropiadas para evitar este sesgo.
 
@@ -79,7 +79,7 @@ En la página de confirmación, revisa los detalles de tu campaña multivariante
 Si tu experimento ya ha comenzado a enviarse y editas el mensaje, el experimento queda invalidado y se eliminan todos los resultados del experimento.
 
 - Para evitar cualquier interferencia con el comportamiento esperado del experimento, te recomendamos no editar los mensajes dentro de la hora posterior al lanzamiento de la campaña del experimento.
-- Si tu experimento está completado y editas el mensaje después del envío, los resultados del experimento permanecen disponibles en el análisis de tu dashboard. Sin embargo, si relanzas la campaña, los resultados del experimento se eliminan.
+- Si tu experimento está completado y editas el mensaje después del envío, los resultados del experimento permanecen disponibles en el análisis de tu panel. Sin embargo, si relanzas la campaña, los resultados del experimento se eliminan.
 
 ### Consejos para diferentes canales {#tips-different-channels}
 
@@ -89,7 +89,7 @@ Dependiendo del canal que selecciones, puedes probar diferentes componentes de t
 | ---------------------| --------------- | ------------- |
 | Push | Texto <br> Uso de imágenes y emojis <br> Vínculos profundos <br> Presentación de números (por ejemplo, "triple" versus "aumento del 200 %") <br> Presentación del tiempo (por ejemplo, "termina a medianoche" versus "termina en 6 horas") | Aperturas <br> Tasa de conversión |
 | Correo electrónico | Asunto <br> Nombre para mostrar <br> Saludo <br> Cuerpo del texto <br> Uso de imágenes y emojis <br> Presentación de números (por ejemplo, "triple" versus "aumento del 200 %") <br> Presentación del tiempo (por ejemplo, "termina a medianoche" versus "termina en 6 horas") | Aperturas <br> Tasa de conversión |
-| Mensaje dentro de la aplicación | Aspectos listados para "push" <br> [Especificaciones de imagen para mensajes dentro de la aplicación]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#in-app-messages) | Clic <br> Tasa de conversión |
+| Mensaje dentro de la aplicación | Aspectos listados para "push" <br> [Especificaciones de imagen para In-App Messages]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#image-specifications) | Clic <br> Tasa de conversión |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Consejos para diferentes canales" }
 
 {% alert tip %}
@@ -118,7 +118,7 @@ Como guía, probablemente necesites alrededor de 15 000 usuarios por variante (i
 
 Una pregunta común sobre las asignaciones de grupos de control y de prueba es si pueden introducir sesgo en tus pruebas. Otros a veces se preguntan cómo sabemos si estas asignaciones son verdaderamente aleatorias.
 
-Los usuarios se asignan a variantes de mensaje, variantes en Canvas o sus respectivos grupos de control concatenando su ID de usuario (generado aleatoriamente) con el ID de la campaña o Canvas (generado aleatoriamente), tomando el módulo de ese valor con 100 y luego ordenando a los usuarios en segmentos que corresponden a las asignaciones de porcentaje para las variantes y el control opcional elegidos en el dashboard. Por lo tanto, no hay una forma práctica en que los comportamientos de los usuarios antes de crear una campaña o Canvas particular puedan variar sistemáticamente entre variantes y control. Tampoco es práctico ser más aleatorio (o más precisamente, pseudoaleatorio) que esta implementación.
+Los usuarios se asignan a variantes de mensaje, variantes en Canvas o sus respectivos grupos de control concatenando su ID de usuario (generado aleatoriamente) con el ID de la campaña o Canvas (generado aleatoriamente), tomando el módulo de ese valor con 100 y luego ordenando a los usuarios en segmentos que corresponden a las asignaciones de porcentaje para las variantes y el control opcional elegidos en el panel. Por lo tanto, no hay una forma práctica en que los comportamientos de los usuarios antes de crear una campaña o Canvas particular puedan variar sistemáticamente entre variantes y control. Tampoco es práctico ser más aleatorio (o más precisamente, pseudoaleatorio) que esta implementación.
 
 #### Errores a evitar {#mistakes-to-avoid}
 

@@ -16,11 +16,11 @@ Durch die Integration des Firebase Unity SDK kann Ihre `AndroidManifest.xml` üb
 
 #### Schritt 1.2: Firebase-Zugangsdaten festlegen {#step-12-set-your-firebase-credentials}
 
-Sie müssen den Firebase-Serverschlüssel und die Sender-ID in das Braze-Dashboard eingeben. Melden Sie sich dazu in der [Firebase Developers Console](https://console.firebase.google.com/) an und wählen Sie Ihr Firebase-Projekt aus. Wählen Sie dann unter **Settings** die Option **Cloud Messaging** und kopieren Sie den Serverschlüssel und die Sender-ID:<br>![]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
+Sie müssen den Firebase-Serverschlüssel und die Sender-ID in das Braze-Dashboard eingeben. Melden Sie sich dazu in der [Firebase Developers Console](https://console.firebase.google.com/) an und wählen Sie Ihr Firebase-Projekt aus. Wählen Sie dann unter **Settings** die Option **Cloud Messaging** und kopieren Sie den Serverschlüssel und die Sender-ID:<br>![Cloud-Messaging-Einstellungen der Firebase-Konsole mit Serverschlüssel und Sender-ID.]({% image_buster /assets/img_archive/finding_firebase_server_key.png %} "FirebaseServerKey")
 
-Wählen Sie in Braze Ihre Android-App auf der Seite **App-Einstellungen** unter **Einstellungen verwalten** aus. Geben Sie anschließend Ihren Firebase-Serverschlüssel in das Feld **Firebase Cloud Messaging Server Key** und die Firebase-Sender-ID in das Feld **Firebase Cloud Messaging Sender** ID ein.
+Wählen Sie in Braze Ihre Android-App auf der Seite **App Settings** unter **Einstellungen verwalten** aus. Geben Sie anschließend Ihren Firebase-Serverschlüssel in das Feld **Firebase Cloud Messaging Server Key** und die Firebase-Sender-ID in das Feld **Firebase Cloud Messaging Sender ID** ein.
 
-![]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
+![Braze-Android-App-Einstellungen mit Feldern für Firebase Cloud Messaging-Serverschlüssel und Sender-ID.]({% image_buster /assets/img_archive/fcm_api_insert.png %} "FCMKey")
 {% endtab %}
 
 {% tab Swift %}
@@ -58,13 +58,13 @@ Unsere Lösung für automatische Push-Benachrichtigungen nutzt die Funktion „P
 Das Braze SDK kann die Push-Registrierung bei den Firebase Cloud Messaging-Servern automatisch übernehmen, damit Geräte Push-Benachrichtigungen empfangen können. Aktivieren Sie in Unity **Automate Unity Android Integration** und konfigurieren Sie dann die folgenden **Push Notification**-Einstellungen.
 
 | Einstellung | Beschreibung |
-|---|---|
+|----------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Automatic Firebase Cloud Messaging Registration Enabled | Weist das Braze SDK an, automatisch ein FCM-Push-Token für ein Gerät abzurufen und zu senden. |
 | Firebase Cloud Messaging Sender ID | Die Sender-ID aus Ihrer Firebase-Konsole. |
 | Handle Push Deeplinks Automatically | Gibt an, ob das SDK das Öffnen von Deeplinks oder das Öffnen der App beim Klicken auf Push-Benachrichtigungen verarbeiten soll. |
 | Small Notification Icon Drawable | Android-Drawable-Ressourcenreferenz für das kleine Symbol, das beim Empfang einer Push-Benachrichtigung angezeigt wird. Geben Sie die vollständige Referenz einschließlich des Präfixes `@drawable/` ein (z. B. `@drawable/hourglass_icon`). Die automatisierte Integration schreibt diesen Wert wie eingegeben in `braze.xml`. Wenn Sie dieses Feld leer lassen, verwendet die Benachrichtigung das Anwendungssymbol als kleines Symbol. |
 | Large Notification Icon Drawable | Optionales großes Symbol für Benachrichtigungen. Verwenden Sie dasselbe `@drawable/`-Format wie beim kleinen Symbol (z. B. `@drawable/my_large_icon`). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Step 2.1: Configure push settings" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Schritt 2.1: Push-Einstellungen konfigurieren" }
 
 {% alert note %}
 **Small Notification Icon Drawable** und **Large Notification Icon Drawable** befinden sich unter **Push Configuration** in **Braze > Braze Configuration**. Beide Werte werden wie eingegeben in `braze.xml` geschrieben. Fügen Sie das Präfix `@drawable/` selbst hinzu – die Braze-Unity-Integration ergänzt es nicht automatisch (z. B. `<drawable name="com_braze_push_small_notification_icon">@drawable/hourglass_icon</drawable>`).
@@ -171,7 +171,7 @@ Die erforderliche ADM-Jar-Datei kann gemäß der [Unity-JAR-Dokumentation](https
 
 Abschließend müssen Sie das Client Secret und die Client-ID, die Sie in [Schritt 1](#unity_step-1-enable-adm) erhalten haben, auf der Seite **Einstellungen verwalten** des Braze-Dashboards hinzufügen.
 
-![]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
+![Braze-Fire-OS-App-Einstellungsseite mit Feldern für ADM-Client-ID und Client Secret.]({% image_buster /assets/img_archive/fire_os_dashboard.png %})
 {% endtab %}
 {% endtabs %}
 
@@ -298,7 +298,7 @@ Weitere Informationen zu ADM-Push-Listenern finden Sie unter [Amazon: Amazon Dev
 
 {% tabs %}
 {% tab Android %}
-#### Deeplinking zu In-App-Ressourcen {#deep-linking-to-in-app-resources}
+### Deeplinking zu In-App-Ressourcen {#deep-linking-to-in-app-resources}
 
 Obwohl Braze standardmäßig Standard-Deeplinks (wie Website-URLs, Android-URIs usw.) verarbeiten kann, ist für die Erstellung angepasster Deeplinks eine zusätzliche Manifest-Einrichtung erforderlich.
 

@@ -95,6 +95,10 @@ You can restrict the members of your organization to only sign in with either Go
 
 By turning on restrictions, your company's Braze users will no longer be able to log in using a password, even if they have logged in with a password before.
 
+{% alert important %}
+After SSO is enforced, there is no fallback option for logging in if SSO authentication fails. Before enabling SSO enforcement, make sure your SSO configuration is correct, all certificates are current and renewed, and your security settings are properly managed to prevent login issues.
+{% endalert %}
+
 ## Obtaining a SAML trace
 
 If you experience login issues related to SSO, obtaining a SAML trace can help you troubleshoot your SSO connection by identifying what's sent in the SAML requests.
@@ -199,5 +203,5 @@ If some users can't sign in with Google SSO, check the following:
 
 After setting up SAML SSO, you can:
 
-- [Enforce SSO-only login]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#restriction) in your security settings to restrict users from logging in with a password.
+- [Enforce SSO-only login]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) in your security settings to restrict users from logging in with a password.
 - [Set up SAML just-in-time provisioning]({{site.baseurl}}/user_guide/administer/global/saml_single_sign_on/saml_just_in_time_provisioning) so new users automatically create Braze accounts on their first SSO sign-in.

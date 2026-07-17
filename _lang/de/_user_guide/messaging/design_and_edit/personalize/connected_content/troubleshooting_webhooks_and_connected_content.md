@@ -2,12 +2,36 @@
 nav_title: Fehlerbehebung bei Webhooks und Connected-Content
 article_title: Fehlerbehebung bei Webhook- und Connected-Content-Anfragen
 page_order: 4
-description: "Dieser Artikel behandelt die Fehlerbehebung bei Webhook- und Connected-Content-Fehlercodes, einschließlich der Bedeutung der Fehler und der Schritte zu ihrer Behebung."
+description: "Diagnostizieren Sie Webhook- und Connected-Content-Fehler mithilfe eines Symptomindex, HTTP-Fehlertabellen und Hinweisen zur Erkennung fehlerhafter Hosts."
 ---
 
 # Fehlerbehebung bei Webhook- und Connected-Content-Anfragen {#troubleshoot-webhook-and-connected-content-requests}
 
-> Dieser Artikel behandelt die Fehlerbehebung häufiger Fehlercodes bei Webhooks und Connected-Content und bietet weitere Erklärungen dazu, wie diese Fehler in Ihren Anfragen auftreten können.
+> Verwenden Sie diese Seite zur Fehlerbehebung häufiger Fehlercodes bei Webhooks und Connected-Content. Informationen zur Einrichtung finden Sie unter [Einen Webhook erstellen]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook) und [Einen API-Aufruf durchführen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call).
+
+## Hier starten: Symptom zuordnen {#start-here-match-your-symptom}
+
+Ordnen Sie Ihr Symptom in der Tabelle zu, um zum entsprechenden Abschnitt zu navigieren.
+
+| Symptom | Gehe zu |
+| --- | --- |
+| `4XX`-Client-Fehler im Nachrichten-Aktivitätsprotokoll | [4XX-Fehler](#4xx-errors) |
+| `5XX`-Server-Fehler oder Zeitüberschreitung | [5XX-Fehler](#5xx-errors) |
+| `598 Host Unhealthy` oder Anfragen kurzzeitig gestoppt | [Erkennung fehlerhafter Hosts](#unhealthy-host-detection) |
+| Connected-Content wird in der Vorschau oder beim Senden leer gerendert | [Connected-Content gibt keinen Antworttext zurück](#connected-content-returns-no-response-body) |
+| Automatisierte Fehler-E-Mail von Braze | [Automatisierte E-Mails und Einträge im Nachrichten-Aktivitätsprotokoll](#automated-emails-and-message-activity-log-entries) |
+| Webhook-Fehlerereignisse in Currents benötigt | [Zusätzliche Fehler-Insights in Braze-Currents](#additional-failure-insights-in-braze-currents) |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Webhook- und Connected-Content-Symptome" }
+
+## Standard-Untersuchungspfad {#standard-investigation-path}
+
+Verwenden Sie diesen Workflow, wenn eine Webhook- oder Connected-Content-Anfrage fehlschlägt oder falsch gerendert wird. Beginnen Sie bei Schritt 1.
+
+1. Öffnen Sie das [Nachrichten-Aktivitätsprotokoll]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log) und notieren Sie den Fehlercode, den Zeitstempel und die Endpunkt-URL.
+2. Überprüfen Sie bei `4XX`-Fehlern die Anfrage-Syntax, Authentifizierungs-Header, den URL-Pfad und die HTTP-Methode anhand der Endpunkt-Dokumentation.
+3. Prüfen Sie bei `5XX`-Fehlern den Endpunkt-Zustand, Rate-Limits und ob Braze den Host als fehlerhaft markiert hat.
+4. Zeigen Sie bei Connected-Content die Nachricht für eine:n Testnutzer:in in der Vorschau an und bestätigen Sie, dass Liquid nicht zu leeren oder JSON-brechenden Werten aufgelöst wird.
+5. Wenn die Erkennung fehlerhafter Hosts beteiligt sein könnte, lesen Sie [Erkennung fehlerhafter Hosts](#unhealthy-host-detection), bevor Sie den [Braze-Support]({{site.baseurl}}/support_contact) kontaktieren.
 
 ## 4XX-Fehler {#4xx-errors}
 
@@ -22,7 +46,6 @@ table td {
 </style>
 
 <table aria-label="4XX-Fehler">
-  <caption>4XX-Fehler</caption>
   <thead>
     <tr>
       <th>Fehlercode</th>
@@ -108,7 +131,7 @@ table td {
       <td>Es wurden zu viele Anfragen in einem bestimmten Zeitraum gesendet.</td>
       <td>
         <ul>
-          <li>Senken Sie das Rate-Limit Ihrer Kampagne oder Ihres Canvas-Schritts.</li>
+          <li>Senken Sie das Rate-Limit Ihrer Campaign oder Ihres Canvas-Schritts.</li>
         </ul>
       </td>
     </tr>
@@ -142,8 +165,8 @@ Hier sind Tipps zur Fehlerbehebung häufiger `5XX`-Fehler:
 Braze-Webhooks und Connected-Content verwenden einen Mechanismus zur Erkennung fehlerhafter Hosts, der erkennt, wenn der Ziel-Host eine hohe Rate an erheblicher Verlangsamung oder Überlastung aufweist, die zu Zeitüberschreitungen, zu vielen Anfragen oder anderen Ergebnissen führt, die Braze daran hindern, erfolgreich mit dem Ziel-Endpunkt zu kommunizieren. Er dient als Schutzmaßnahme, um unnötige Last zu reduzieren, die den Ziel-Host belasten könnte. Er dient auch dazu, die Braze-Infrastruktur zu stabilisieren und schnelle Messaging-Geschwindigkeiten aufrechtzuerhalten.
 
 Die Erkennungsschwellenwerte unterscheiden sich zwischen Webhooks und Connected-Content:
-- **Für Webhooks**: Wenn die Anzahl der **Fehler 3.000 in einem beliebigen gleitenden Zeitfenster von einer Minute überschreitet** (pro eindeutiger Kombination aus Hostname und App-Gruppe&#8212;**nicht** pro Endpunkt-Pfad), stoppt Braze vorübergehend Anfragen an den Ziel-Host für eine Minute.
-- **Für Connected-Content**: Wenn die Anzahl der **Fehler 3.000 überschreitet UND die Fehlerrate 90 % in einem beliebigen gleitenden Zeitfenster von einer Minute übersteigt** (pro eindeutiger Kombination aus Hostname und App-Gruppe&#8212;**nicht** pro Endpunkt-Pfad), stoppt Braze vorübergehend Anfragen an den Ziel-Host für eine Minute.
+- **Für Webhooks**: Wenn die Anzahl der Fehler 3.000 in einem beliebigen gleitenden Zeitfenster von einer Minute überschreitet (pro eindeutiger Kombination aus Hostname und App-Gruppe&#8212;nicht pro Endpunkt-Pfad), stoppt Braze vorübergehend Anfragen an den Ziel-Host für eine Minute.
+- **Für Connected-Content**: Wenn die Anzahl der Fehler 3.000 überschreitet UND die Fehlerrate 90 % in einem beliebigen gleitenden Zeitfenster von einer Minute übersteigt (pro eindeutiger Kombination aus Hostname und App-Gruppe&#8212;nicht pro Endpunkt-Pfad), stoppt Braze vorübergehend Anfragen an den Ziel-Host für eine Minute.
 
 Wenn Anfragen gestoppt werden, simuliert Braze Antworten mit einem `598`-Fehlercode, um den schlechten Zustand anzuzeigen. Nach einer Minute nimmt Braze die Anfragen mit voller Geschwindigkeit wieder auf, wenn der Host als gesund erkannt wird. Wenn der Host weiterhin fehlerhaft ist, wartet Braze eine weitere Minute, bevor es erneut versucht.
 
@@ -157,10 +180,12 @@ Wenn Sie glauben, dass die Erkennung fehlerhafter Hosts Probleme verursacht, kon
 
 ### Connected-Content gibt keinen Antworttext zurück {#connected-content-returns-no-response-body}
 
+**Symptom:** Ein Connected-Content-Aufruf wird in Ihrer Nachrichtenvorschau oder beim Senden leer gerendert.
+
 Wenn ein Connected-Content-Aufruf in Ihrer Nachrichtenvorschau oder beim Senden leer gerendert wird, prüfen Sie Folgendes:
 
 - **Geschützte Leerzeichen in der URL:** Braze entfernt geschützte Leerzeichen (`&nbsp;` oder Unicode `U+00A0`) aus Connected-Content-URLs, bevor die Anfrage gesendet wird. Wenn Ihre URL aus einem Dokument oder Dashboard-Feld kopiert wurde, das geschützte Leerzeichen zwischen Zeichen eingefügt hat, kann die Anfrage fehlschlagen oder keinen verwendbaren Antworttext zurückgeben. Geben Sie die URL im Klartext erneut ein oder entfernen Sie versteckte Leerzeichen und zeigen Sie dann erneut die Vorschau an.
-- **HTTP-Fehler und leere Antworttexte:** Bei Statuscodes über 300 oder blockierten Hosts kann Connected-Content einen leeren String rendern. Siehe [Einen API-Aufruf durchführen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) und überprüfen Sie Fehler im **Nachrichten-Aktivitätsprotokoll**.
+- **HTTP-Fehler und leere Antworttexte:** Bei Statuscodes größer als 300 oder blockierten Hosts kann Connected-Content einen leeren String rendern. Siehe [Einen API-Aufruf durchführen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/making_an_api_call) und überprüfen Sie Fehler im **Nachrichten-Aktivitätsprotokoll**.
 
 ## Automatisierte E-Mails und Einträge im Nachrichten-Aktivitätsprotokoll {#automated-emails-and-message-activity-log-entries}
 
@@ -169,7 +194,7 @@ Wenn ein Connected-Content-Aufruf in Ihrer Nachrichtenvorschau oder beim Senden 
 Wenn in einem Workspace innerhalb von 24 Stunden mehr als 100.000 Webhook- oder Connected-Content-Endpunkt-Fehler (einschließlich Wiederholungen) auftreten, sendet Braze Ihnen eine E-Mail mit den folgenden Informationen zur Behebung der Fehler.
 
 - Name des Workspace
-- Ein Link zum Canvas oder zur Kampagne
+- Ein Link zum Canvas oder zur Campaign
 - Endpunkt-URL
 - Fehlercode
 - Zeitpunkt, zu dem der Fehler zuletzt beobachtet wurde

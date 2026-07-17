@@ -19,7 +19,7 @@ page_order: 1
 3. Installieren Sie im Shopify App Store die Braze-Anwendung.<br><br>![Die Braze-App-Store-Seite mit einem Button zur Installation der Anwendung.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
-Wenn Ihr Shopify-Konto mit mehr als einem Shop verbunden ist, können Sie den Shop, bei dem Sie angemeldet sind, ändern, indem Sie das Shop-Symbol oben rechts auf der Seite auswählen und **Switch stores** wählen.
+Wenn Ihr Shopify-Konto mit mehr als einem Shop verbunden ist, können Sie den Shop, bei dem Sie angemeldet sind, ändern, indem Sie das Shop-Symbol in der Kopfzeile auswählen und **Switch stores** wählen.
 {% endalert %}
 
 {: start="4"}
@@ -242,7 +242,7 @@ Sie können alle Produkte aus Ihrem Shopify-Shop mit einem Braze-Katalog synchro
 
 ## 6. Schritt: Kanäle aktivieren (optional) {#step-6-activate-channels-optional}
 
-Sie können In-Browser-Nachrichten ohne Entwickler:in aktivieren, indem Sie sie in Ihrem Setup konfigurieren.
+Sie können In-App-Nachrichten ohne Entwickler:in aktivieren, indem Sie sie in Ihrem Setup konfigurieren.
 
 ![Einrichtungsschritt zur Aktivierung von Kanälen, wobei die verfügbare Option In-Browser-Messaging ist.]({% image_buster /assets/img/shopify/activate_channels_standard.png %})
 
@@ -260,7 +260,7 @@ Um Content Cards oder Feature-Flags hinzuzufügen, müssen Sie mit Ihren Entwick
 
 #### Web-Push-Benachrichtigungen {#web-push-notifications}
 
-Web-Push wird für die Shopify-Integration derzeit nicht unterstützt. Um Support anzufordern, stellen Sie eine Produktanfrage über das [Braze-Produktportal]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Web-Push wird für die Shopify-Integration derzeit nicht unterstützt. {% multi_lang_include product_feedback_cta.md context="gap" feature="web push for the Shopify integration" %}
 
 ## 7. Schritt: Einrichtung abschließen {#step-7-finish-setup}
 

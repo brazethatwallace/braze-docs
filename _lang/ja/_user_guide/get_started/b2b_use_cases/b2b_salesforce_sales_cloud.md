@@ -33,9 +33,9 @@ Brazeは現在、以下のユースケース向けにSalesforce Sales Cloudと�
 SalesforceサポートからSalesforce Sales Cloudで接続アプリを作成する権限が付与されたら、Salesforceのドキュメントに記載されたステップに従ってください：[Configure a Connected App for the OAuth 2.0 Client Credentials Flow](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5)。
 
 接続アプリに必要なOAuth設定を構成する際は、以下を除き、すべてのOAuth設定をデフォルトの値と選択のままにしてください。
-1. **Enable for device** フローを選択します。**Callback URL** はデフォルトでプレースホルダーになるため、空白のままで構いません。
-2. 選択した **OAuth Scopes** に、**Manage user data via APIs (api)** を追加します。
-3. **Enable Client Credentials Flow** を選択します。
+1. **Enable for device**フローを選択します。**Callback URL**はデフォルトでプレースホルダーになるため、空白のままで構いません。
+2. 選択した**OAuth Scopes**に、**Manage user data via APIs (api)**を追加します。
+3. **Enable Client Credentials Flow**を選択します。
 
 ## Salesforce Sales Cloudでリードを作成する {#creating-lead}
 
@@ -43,18 +43,18 @@ SalesforceサポートからSalesforce Sales Cloudで接続アプリを作成す
 
 ### ステップ1:`client_id`と`client_secret`を収集する {#step-1-collect-your-client_id-and-client_secret}
 
-1. Salesforceで、**Platform Tools** > **Apps** > **App Manager** に移動します。
-2. 新しく作成したBrazeアプリを見つけ、**View** を選択します。
-3. **Consumer Key and Secret** で、**Manage Consumer Details** を選択します。
-4. 表示されたページで、**Consumer Key** と **Consumer Secret** をメモします。**Consumer Key** が`client_id`、**Consumer Secret** が`client_secret`です。
+1. Salesforceで、**Platform Tools** > **Apps** > **App Manager**に移動します。
+2. 新しく作成したBrazeアプリを見つけ、**View**を選択します。
+3. **Consumer Key and Secret**で、**Manage Consumer Details**を選択します。
+4. 表示されたページで、**Consumer Key**と**Consumer Secret**をメモします。**Consumer Key**が`client_id`、**Consumer Secret**が`client_secret`です。
 
 ### ステップ2:Webhookテンプレートをセットアップする {#step-2-set-up-your-webhook-template}
 
 テンプレートを使って、このWebhookをBrazeプラットフォーム全体ですばやく再利用できます。
 
-1. Brazeで、**Templates** に移動し、**Webhook Templates** を選択してから、**+ Create Webhook Template** を選択します。
+1. Brazeで、**テンプレート**に移動し、**Webhookテンプレート**を選択してから、**+ Webhookテンプレートを作成**を選択します。
 2. テンプレートの名前を指定します（「Salesforce Sales Cloud > Create Lead」など）。
-3. **Compose** タブで、以下の詳細を入力します。
+3. **作成**タブで、以下の詳細を入力します。
 
 #### Webhookの作成 {#compose-webhook}
 
@@ -67,7 +67,7 @@ SalesforceサポートからSalesforce Sales Cloudで接続アプリを作成す
 
 #### 本文プロパティのキー値 {#body-property-key-values}
 
-BrazeからSalesforceにマッピングするキーと値のペアごとに、**+ Add New Body Property** を選択します。任意のフィールドをマッピングできるため、以下の表は一例です。
+BrazeからSalesforceにマッピングするキーと値のペアごとに、**+ Add New Body Property**を選択します。任意のフィールドをマッピングできるため、以下の表は一例です。
 
 | キー | 値 |
 | --- | --- |
@@ -79,7 +79,7 @@ BrazeからSalesforceにマッピングするキーと値のペアごとに、**
 
 #### リクエストヘッダー {#request-headers}
 
-次の各リクエストヘッダーに対して **+ Add New Header** を選択します。
+次の各リクエストヘッダーに対して**+ Add New Header**を選択します。
 
 | キー | 値 |
 | --- | --- |
@@ -88,7 +88,7 @@ BrazeからSalesforceにマッピングするキーと値のペアごとに、**
 {: .reset-td-br-1 .reset-td-br-2 aria-label="リクエストヘッダー" }
 
 {: start="4" }
-4. **Save Template** を選択します。
+4. **テンプレートを保存**を選択します。
 
 ![リードを作成するために入力されたWebhookテンプレート。]({% image_buster /assets/img/b2b/create_lead_webhook.png %}){: style="max-width:70%;"}
 
@@ -100,17 +100,17 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 ### ステップ1:`client_id`と`client_secret`を収集する
 
-1. Salesforceで、**Platform Tools** > **Apps** > **App Manager** に移動します。
-2. 新しく作成したBrazeアプリを見つけ、**View** を選択します。
-3. **Consumer Key and Secret** で、**Manage Consumer Details** を選択します。
-4. 表示されたページで、**Consumer Key** と **Consumer Secret** をメモします。
-    - **Consumer Key** が`client_id`、**Consumer Secret** が`client_secret`です。
+1. Salesforceで、**Platform Tools** > **Apps** > **App Manager**に移動します。
+2. 新しく作成したBrazeアプリを見つけ、**View**を選択します。
+3. **Consumer Key and Secret**で、**Manage Consumer Details**を選択します。
+4. 表示されたページで、**Consumer Key**と**Consumer Secret**をメモします。
+    - **Consumer Key**が`client_id`、**Consumer Secret**が`client_secret`です。
 
 ### ステップ2:Webhookテンプレートをセットアップする
 
-1. Brazeで、**Templates** に移動し、**Webhook Templates** を選択してから、**+ Create Webhook Template** を選択します。
+1. Brazeで、**テンプレート**に移動し、**Webhookテンプレート**を選択してから、**+ Webhookテンプレートを作成**を選択します。
 2. テンプレートの名前を指定します（「Salesforce Sales Cloud > Update Lead to MQL」など）。
-3. **Compose** タブで、以下の詳細を入力します。
+3. **作成**タブで、以下の詳細を入力します。
 
 #### Webhookの作成
 
@@ -123,7 +123,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 #### 本文プロパティのキー値
 
-次のキーと値のペアに対して **+ Add New Body Property** を選択します。なお、`Lead_Stage__c`は名前の例です。SalesforceでMQLをトラッキングするために使用するカスタムフィールドの名前が異なる場合があるため、両者が一致していることを確認してください。
+次のキーと値のペアに対して**+ Add New Body Property**を選択します。なお、`Lead_Stage__c`は名前の例です。SalesforceでMQLをトラッキングするために使用するカスタムフィールドの名前が異なる場合があるため、両者が一致していることを確認してください。
 
 | キー | 値 |
 | --- | --- |
@@ -132,7 +132,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 #### リクエストヘッダー
 
-次の各リクエストヘッダーに対して **+ Add New Header** を選択します。
+次の各リクエストヘッダーに対して**+ Add New Header**を選択します。
 
 | キー | 値 |
 | --- | --- |
@@ -141,7 +141,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 {: .reset-td-br-1 .reset-td-br-2 aria-label="リクエストヘッダー" }
 
 {: start="4"}
-4. **Save Template** を選択します。
+4. **テンプレートを保存**を選択します。
 
 ![リードを更新するために入力されたWebhookテンプレート。]({% image_buster /assets/img/b2b/update_lead_webhook.png %}){: style="max-width:70%;"}
 
@@ -160,7 +160,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 ### マーケティング適格リード（MQL）しきい値を超えた場合のリードスコアリングキャンバス {#lead-scoring}
 
-このWebhookは[リードスコアリング]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff)のユースケースで取り上げていますが、リードスコアリングキャンバス内でMQLをチェックし、Salesforceを直接更新することもできます（別途Webhook キャンペーンを作成する代わりに）。
+このWebhookは[リードスコアリング]({{site.baseurl}}/user_guide/get_started/b2b_use_cases/lead_scoring#lead-handoff)のユースケースで取り上げていますが、リードスコアリングキャンバス内でMQLをチェックし、Salesforceを直接更新することもできます（別途Webhookキャンペーンを作成する代わりに）。
 
 ユーザーの更新に後続ステップを追加し、ユーザーが定義したMQLしきい値を超えたかどうかをチェックします。超えた場合、そのユーザーのステータスを「MQL」に更新し、このWebhookテンプレートを使用して同じ「MQL」ステータスでSalesforceを更新します。Salesforceは、定義されたリードルーティングルールを使用して、このリードを適切な営業チームにルーティングすることで残りの処理を行います。
 
@@ -187,7 +187,7 @@ Salesforceでリードを更新するBraze Salesforce Sales Cloud Webhookを設�
 
 ## トラブルシューティング {#troubleshooting}
 
-これらのワークフローはSalesforce内でのデバッグ機能が限られているため、Webhookが失敗した理由やエラーが発生したかどうかを調べるには、Brazeの[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#message-activity-log)を参照することをおすすめします。
+これらのワークフローはSalesforce内でのデバッグ機能が限られているため、Webhookが失敗した理由やエラーが発生したかどうかを調べるには、Brazeの[メッセージアクティビティログ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting)を参照することをおすすめします。
 
 例えば、OAuthトークンの取得に使用された無効なURLによるエラーは、`https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL` と表示されます。
 

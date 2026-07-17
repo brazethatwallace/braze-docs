@@ -60,10 +60,10 @@
 {% if include.channel == 'in_app_message' %}
 - [アプリ内メッセージのドラッグ＆ドロップエディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [ランディングページのフォームブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
+- [ランディングページのフォームブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% else %}
 - [アプリ内メッセージのドラッグ＆ドロップエディターブロック]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [ランディングページのフォームブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
+- [ランディングページのフォームブロック]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% endif %}
 
 アンケートには以下のフォームブロックを追加できます。
@@ -112,7 +112,7 @@
 
 ## レポートと分析を確認する {#view-reporting-and-analytics}
 
-起動後、以下で結果を確認できます。
+公開後、以下で結果を確認できます。
 
 {% if include.channel == 'in_app_message' %}
 - アプリ内メッセージアンケートの**Responses**タブ

@@ -6,7 +6,7 @@ When integrating Braze alongside third-party network logging libraries, develope
 
 #### Domains
 
-The full list of CDN domains is as listed below:
+The full list of CDN domains is as follows:
 
 * `"appboy-images.com"`
 * `"braze-images.com"`
@@ -15,7 +15,7 @@ The full list of CDN domains is as listed below:
 
 #### Examples
 
-Below are libraries that are known to conflict with Braze asset caching, along with example code to work around the issue. If your project uses a library that causes an unavailable resource error and is not listed below, consult the documentation of that library for similar usage APIs.
+The following libraries are known to conflict with Braze asset caching, along with example code to work around the issue. If your project uses a library that causes an unavailable resource error and is not listed here, consult the documentation of that library for similar usage APIs.
 
 ##### Netfox
 
@@ -62,6 +62,21 @@ XNLogger.shared.addFilters([brazeAssetsHostFilter])
 ```objc
 XNHostFilter *brazeAssetsHostFilter = [[XNHostFilter alloc] initWithHost: @"https://cdn.braze.com"];
 [XNLogger.shared addFilters:@[brazeAssetsHostFilter]];
+```
+{% endtab %}
+{% endtabs %}
+
+##### Wormholy
+
+{% tabs %}
+{% tab Swift %}
+```swift
+Wormholy.ignoredHosts = ["cdn.braze.com"]
+```
+{% endtab %}
+{% tab Objective-C %}
+```objc
+Wormholy.ignoredHosts = @[@"cdn.braze.com"];
 ```
 {% endtab %}
 {% endtabs %}

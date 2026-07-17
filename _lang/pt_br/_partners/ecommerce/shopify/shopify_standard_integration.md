@@ -19,7 +19,7 @@ page_order: 1
 3. Na loja de aplicativos da Shopify, instale o aplicativo da Braze.<br><br>![A página da loja de aplicativos da Braze com um botão para instalar o aplicativo.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
-Se sua conta da Shopify estiver associada a mais de uma loja, você poderá alterar a loja em que está conectado selecionando o ícone da loja no canto superior direito da página e selecionando **Switch stores**.
+Se sua conta da Shopify estiver associada a mais de uma loja, você poderá alterar a loja em que está conectado selecionando o ícone da loja no cabeçalho e selecionando **Switch stores**.
 {% endalert %}
 
 {: start="4"}
@@ -56,7 +56,7 @@ Os seguintes eventos serão ativados por padrão na integração padrão.
 | Eventos recomendados pela Braze | Eventos personalizados da Shopify | Atributos personalizados da Shopify |
 | --- | --- | --- |
 | {::nomarkdown}<ul><li>Produto visualizado</li><li>Carrinho atualizado</li><li>Checkout iniciado</li><li>Pedido feito</li></ul>{:/}  | {::nomarkdown}<ul><li>shopify_account_login</li><li>shopify_paid_order</li><li>shopify_order_canceled</li><li>shopify_order_refunded</li><li>shopify_order_fulfilled</li><li>shopify_order_partially_fulfilled</li></ul>{:/} | {::nomarkdown}<ul><li>shopify_tags</li><li>shopify_total_spent</li><li>shopify_order_count</li><li>shopify_last_order_id</li><li>shopify_last_order_name</li><li>shopify_zipcode</li><li>shopify_province</li></ul>{:/} |
-{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Standard data setup" }
+{: .reset-td-br-1 .reset-td-br-2  .reset-td-br-3 aria-label="Configuração de dados padrão" }
 
 Para saber mais sobre os dados rastreados por meio da integração, consulte [Recursos de dados da Shopify]({{site.baseurl}}/shopify_data_features).
 
@@ -260,7 +260,7 @@ Para adicionar Content Cards ou Feature Flags, você precisará colaborar com se
 
 #### Notificações por push na web {#web-push-notifications}
 
-Atualmente, não há suporte para push para a web na integração com a Shopify. Para solicitar suporte, envie uma solicitação de produto por meio do [portal do produto da Braze]({{site.baseurl}}/user_guide/administer/personal/product_portal).
+Atualmente, não há suporte para web push na integração com a Shopify. {% multi_lang_include product_feedback_cta.md context="gap" feature="web push for the Shopify integration" %}
 
 ## Etapa 7: Concluir configuração {#step-7-finish-setup}
 

@@ -22,7 +22,7 @@ You can use this endpoint to set up a bi-directional sync between Braze and othe
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `email.unsubscribe` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `email.unsubscribe` permission.
 
 ## Rate limit
 

@@ -379,7 +379,7 @@ Do not subscribe to these ActivityKit streams directly with Apple, or it will co
 4. [`pushToStartTokenUpdates`](https://developer.apple.com/documentation/activitykit/activity/pushtostarttokenupdates)
 5. [`activityUpdates`](https://developer.apple.com/documentation/activitykit/activity/activityupdates-swift.type.property)
 
-Instead, use the subscriptions mentioned below.
+Instead, use the subscriptions mentioned in this section.
 {% endalert %}
 
 The Braze SDK provides two subscription methods on `braze.liveActivities` to observe the complete Live Activity lifecycle. For a full step-by-step walkthrough, see the [Live Activities tutorial](https://braze-inc.github.io/braze-swift-sdk/tutorials/brazekit/b4-live-activities).
@@ -689,7 +689,7 @@ To verify that your push-to-start notification successfully arrived at the devic
 
 #### After starting my Live Activity with push-to-start, why isn't it receiving new updates?
 
-Verify that you have correctly implemented the instructions described [above](#swift_brazeActivityAttributes). Your `ActivityAttributes` should contain both the `BrazeLiveActivityAttributes` protocol conformance and the `brazeActivityId` property.
+Verify that you have correctly implemented the instructions described in [Swift BrazeActivityAttributes setup](#swift_brazeActivityAttributes). Your `ActivityAttributes` should contain both the `BrazeLiveActivityAttributes` protocol conformance and the `brazeActivityId` property.
 
 After receiving a Live Activity push-to-start notification, double-check that you can see an outgoing network request to the `/push_token_tag` endpoint of your Braze URL and that it contains the correct activity ID under the `"tag"` field.
 

@@ -23,7 +23,7 @@ Os dados da visão geral de uso de créditos são limitados ao período contratu
 
 ### Uso de créditos ao longo do contrato {#credits-usage-over-contract}
 
-O gráfico **Message credits usage over contract** mostra seu uso ao longo do período selecionado. A granularidade deste gráfico depende do intervalo de tempo selecionado. Veja as opções de exportação selecionando o menu no canto superior direito do gráfico.
+O gráfico **Message credits usage over contract** mostra seu uso ao longo do período selecionado. A granularidade deste gráfico depende do período selecionado. Veja as opções de exportação selecionando o menu no menu do gráfico.
 
 ![Gráfico de uso de créditos ao longo do contrato.]({% image_buster /assets/img/app_settings/credit_usage_over_contract1.png %})
 
@@ -152,7 +152,7 @@ Diferentemente da **Credits Usage Overview**, esta seção contém dados histór
 
 ### Webhooks
 
-**Webhooks Credits Usage** mostra o uso de créditos de Webhooks em todas as contas. Os blocos mostram o total de créditos consumidos e o total de envios de webhook. A tabela **Usage by account** inclui **Braze workspace**, **Sends**, **Credit ratio** e **Credits**. Quando os dados estão disponíveis, **Last updated** mostra quando a tabela foi atualizada.
+**Webhooks Credits Usage** mostra o uso de créditos de webhooks em todas as contas. Os blocos mostram o total de créditos consumidos e o total de envios de webhook. A tabela **Usage by account** inclui **Braze workspace**, **Sends**, **Credit ratio** e **Credits**. Quando os dados estão disponíveis, **Last updated** mostra quando a tabela foi atualizada.
 
 #### Filtros
 
@@ -162,7 +162,7 @@ Você pode filtrar seus dados por:
 
 Use **Export** para baixar os dados da tabela.
 
-![Uso de créditos de Webhooks com blocos de créditos e envios de webhook e uma tabela de uso por conta.]({% image_buster /assets/img/app_settings/credits_usage_webhooks.png %})
+![Uso de créditos de webhooks com blocos de créditos e envios de webhook e uma tabela de uso por conta.]({% image_buster /assets/img/app_settings/credits_usage_webhooks.png %})
 
 {% endtab %}
 {% tab WhatsApp %}
@@ -202,9 +202,11 @@ Use **Export** para baixar os dados da tabela.
 {% endtab %}
 {% tab Agent Console %}
 
-### Console do agente {#agent-console}
+### Agent Console
 
-**Agent Console Credits Usage** mostra o uso de créditos do Console do agente em todas as contas. Os blocos mostram o total de créditos consumidos e o total de invocações. A tabela **Usage by account** inclui **Braze workspace**, **Agent name**, **Model owner**, **Total invocations**, **Credit ratio** e **Credits**. Quando os dados estão disponíveis, **Last updated** mostra quando a tabela foi atualizada.
+**Agent Console Credits Usage** mostra o uso de créditos do Agent Console em todas as contas. Os blocos mostram o total de créditos consumidos e o total de invocações. A tabela **Usage by account** inclui **Braze workspace**, **Agent name**, **Model owner**, **Total invocations**, **Credit ratio** e **Credits**. Quando os dados estão disponíveis, **Last updated** mostra quando a tabela foi atualizada.
+
+Para planejar o gasto diário antes do lançamento, compare essas taxas com o **Daily action credit cost limit** de cada agente no Agent Console (limite diário de invocações × taxa de crédito). Consulte [Limites diários de invocação e crédito]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 
 #### Filtros
 
@@ -216,7 +218,7 @@ Você pode filtrar seus dados por:
 
 Use **Export** para baixar os dados da tabela.
 
-![Uso de créditos do Console do agente com blocos de créditos e invocações e uma tabela de uso por conta.]({% image_buster /assets/img/app_settings/credits_usage_agent_console.png %})
+![Uso de créditos do Agent Console com blocos de créditos e invocações e uma tabela de uso por conta.]({% image_buster /assets/img/app_settings/credits_usage_agent_console.png %})
 
 {% endtab %}
 {% tab Audience Sync %}
@@ -239,9 +241,9 @@ Use **Export** para baixar os dados da tabela.
 {% endtab %}
 {% tab Message Archiving %}
 
-### Arquivamento de mensagem {#message-archiving}
+### Message Archiving
 
-**Message Archiving Credits Usage** mostra o uso de créditos de arquivamento de mensagem em todas as contas. Os blocos mostram o total de créditos consumidos e o total de mensagens arquivadas. A tabela **Usage by account** inclui **Braze workspace**, **Channel**, **Messages archived**, **Credit ratio** e **Credits**. Quando os dados estão disponíveis, **Last updated** mostra quando a tabela foi atualizada.
+**Message Archiving Credits Usage** mostra o uso de créditos de Message Archiving em todas as contas. Os blocos mostram o total de créditos consumidos e o total de mensagens arquivadas. A tabela **Usage by account** inclui **Braze workspace**, **Channel**, **Messages archived**, **Credit ratio** e **Credits**. Quando os dados estão disponíveis, **Last updated** mostra quando a tabela foi atualizada.
 
 #### Filtros
 
@@ -252,7 +254,7 @@ Você pode filtrar seus dados por:
 
 Use **Export** para baixar os dados da tabela.
 
-![Uso de créditos de arquivamento de mensagem com blocos de créditos e mensagens arquivadas e uma tabela de uso por conta.]({% image_buster /assets/img/app_settings/credits_usage_message_archiving.png %})
+![Uso de créditos de Message Archiving com blocos de créditos e mensagens arquivadas e uma tabela de uso por conta.]({% image_buster /assets/img/app_settings/credits_usage_message_archiving.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -274,7 +276,7 @@ O dashboard **Credits Usage** exclui a data final do intervalo selecionado dos r
 
 Ao comparar os dados de uso de créditos da Braze com provedores terceiros (como Infobip), tenha em mente:
 
-- **Segmentos de mensagem versus mensagens**: a Braze conta mensagens SMS por segmentos. Uma única mensagem SMS dividida em múltiplos segmentos (por exemplo, devido ao tamanho) é contada como múltiplos segmentos na Braze. Para saber mais, consulte [Calculadoras de cobrança de SMS e RCS]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments/).
+- **Segmentos de mensagem versus mensagens**: a Braze conta mensagens SMS por segmentos. Uma única mensagem SMS dividida em múltiplos segmentos (por exemplo, devido ao tamanho) é contada como múltiplos segmentos na Braze. Para saber mais, consulte [Calculadoras de cobrança de SMS e RCS]({{site.baseurl}}/user_guide/message_building_by_channel/sms_mms_rcs/segments).
 - **Mensagens baseadas em créditos versus não baseadas em créditos**: o dashboard inclui tanto mensagens baseadas em créditos quanto não baseadas em créditos. Provedores terceiros podem contar apenas mensagens baseadas em créditos, o que pode causar discrepâncias nos totais.
 - **Entrada versus saída**: certifique-se de que você está comparando os mesmos tipos de mensagem. Alguns dashboards de terceiros incluem mensagens de entrada e saída em seus totais, enquanto a Braze permite filtrar por direção.
 - **Alinhamento do intervalo de datas**: como o dashboard exclui a data final, comparações dia a dia podem se alinhar mais precisamente do que intervalos de datas mais longos. Se você estiver comparando dados de um período específico, estenda o intervalo de datas da Braze em um dia para incluir o último dia do período de comparação.

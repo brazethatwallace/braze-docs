@@ -90,6 +90,7 @@ Beachten Sie die folgenden Verhaltensweisen, wenn Sie Dashboard-Zugriff zuweisen
 - **Workspace-Admin versus Unternehmensadmin:** Workspace-Admins verwalten Berechtigungen innerhalb zugewiesener Workspaces. Unternehmensadmins haben unternehmensweite Autorität, einschließlich der Möglichkeit, andere Dashboard-Nutzer:innen zu löschen.
 - **Eingeschränkte Nutzer:innen:** Eingeschränkte Nutzer:innen mit der Berechtigung „Dashboard-Nutzer:innen bearbeiten“ können andere eingeschränkte Nutzer:innen verwalten, aber keine Unternehmensadminkonten erstellen oder verwalten.
 - **Geltungsbereich „Dashboard-Nutzer:innen verwalten“:** Auf der Nutzer:innen-Detailseite werden Berechtigungen nur für Workspaces angezeigt, auf die die bearbeitende Person Zugriff hat. Eingeschränkte Nutzer:innen, die Nutzer:innen in einem Workspace bearbeiten können, sehen möglicherweise die Berechtigungs-Kontrollkästchen eines anderen Workspaces nicht.
+- **Button „Berechtigungen zuweisen“:** Wenn Sie Nutzer:innen bearbeiten und diese bereits Berechtigungen auf Workspace-Ebene oder Berechtigungssätze für jeden Workspace haben, den Sie verwalten können, verschwindet der Button **Berechtigungen zuweisen**. Dies geschieht, weil keine weiteren Workspaces mehr auf Workspace-Ebene zugewiesen werden können.
 - **Nutzerdaten exportieren:** Für den Export von Nutzerdaten ist zusätzlich zur Exportberechtigung ein Zugriff auf Workspace-Ebene erforderlich.
 - **Zusammengesetzte Berechtigungen:** Einige Bereiche erfordern mehrere Berechtigungen. Beispielsweise erfordert die Konfiguration von [Technologie-Partnern]({{site.baseurl}}/partners) in der Regel sowohl den Partnerzugriff als auch eine grundlegende Leseberechtigung für die zugehörigen Workspace-Features.
 - **Nutzerdaten importieren und aktualisieren:** Diese Berechtigung umfasst die Möglichkeit, App-Nutzer:innen-Profile über Importabläufe zu bearbeiten, nicht nur Dashboard-Nutzer:innen-Datensätze.
@@ -221,7 +222,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Nutzerdaten | Edit User Data | Nutzerdaten erstellen und aktualisieren |
 | Nutzerdaten | Export User Data | Nutzer:innen aus dem Dashboard herunterladen |
 | Doppelte Nutzer:innen | View User Merge Records | Eine Liste der Nutzer:innen-Zusammenführungsprotokolle anzeigen |
-| Nutzer:innen | View User Profiles (PII Redacted) | Nutzer:innen-Profile in einer PII-konformen Weise anzeigen |
+| Nutzer:innen | View User Profiles (PII Redacted) | Nutzer:innen-Profile in einer PII-konformen Weise anzeigen. Nutzer:innen mit dieser Berechtigung können keine Campaigns speichern oder starten, die auf als PII markierte angepasste Attribute verweisen, es sei denn, sie haben auch die Berechtigung „Als PII markierte angepasste Attribute anzeigen“.<br><br>Die Berechtigung „Nutzer:innen-Profile anzeigen (PII geschwärzt)“ muss vor der Verwendung aktiviert werden. Kontaktieren Sie Ihren Customer-Success-Manager, um sie für Ihren Workspace zu aktivieren. |
 | Nutzer:innen | View User Event Properties | Event-Eigenschaften im Tab **Event-Verlauf** in Nutzer:innen-Profilen anzeigen |
 | Doppelte Nutzer:innen | Merge Duplicate Users | Doppelte Nutzer:innen zu einem zusammenführen. Duplikate werden nach der Zusammenführung entfernt |
 | Nutzer:innen löschen | View User Deletion Records | Eine Liste der Nutzer:innen-Löschprotokolle anzeigen |
@@ -362,7 +363,7 @@ Um eine Liste Ihrer Nutzer:innen und deren Berechtigungen herunterzuladen, gehen
 | Domain-Einstellungen | Edit Domain Settings | Delegierte Domains und angepasste Domains unter „Verifizierte Domains“ hinzufügen |
 | Verschlüsselung auf Feldebene | Edit Identifier Field-Level Encryption | Einstellungen für die Verschlüsselung auf Feldebene aktivieren und aktualisieren |
 | Medienbibliothek-Assets | View Media Library Assets | Medienbibliothek-Assets anzeigen |
-| Medienbibliothek-Assets | Delete Media Library Assets | Medienbibliothek-Assets dauerhaft löschen |
+| Medienbibliothek-Assets | Delete Media Library Assets | Medienbibliothek-Assets aus der Benutzeroberfläche entfernen. Gelöschte Assets werden weiterhin von Braze gehostet, um zu verhindern, dass Nachrichten, die auf sie verweisen, fehlerhaft werden. Um ein Asset dauerhaft zu löschen, kontaktieren Sie den Braze-Support. |
 | Medienbibliothek-Assets | Edit Media Library Assets | Medienbibliothek-Assets erstellen und aktualisieren |
 | Medienbibliothek-Assets | Replace Media Library Assets | Die Datei eines vorhandenen Medienbibliothek-Assets ersetzen, wobei URL und Asset-ID stabil bleiben |
 | Messaging-Rate-Limits | View Messaging Rate Limits | Messaging-Rate-Limits auf Workspace-Ebene anzeigen |

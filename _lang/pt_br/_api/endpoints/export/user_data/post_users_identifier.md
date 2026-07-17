@@ -22,7 +22,7 @@ Até 50 `external_ids` ou `user_aliases` podem ser incluídos em uma única soli
 
 ## Pré-requisitos {#prerequisites}
 
-Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key) com a permissão `users.export.ids`.
+Para usar esse endpoint, você precisará de uma [chave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) com a permissão `users.export.ids`.
 
 ## Limite de taxa {#rate-limit}
 
@@ -53,7 +53,7 @@ Para clientes que fizeram a integração com a Braze em 22 de agosto de 2024 ou 
 
 ## Parâmetros de solicitação {#request-parameters}
 
-| Parâmetro | Obrigatória | Tipo de dados | Descrição |
+| Parâmetro | Obrigatório | Tipo de dados | Descrição |
 | ------------------ | -------- | ------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | `external_ids` | Opcional | Matriz de strings | Identificadores externos para os usuários que deseja exportar. |
 | `user_aliases` | Opcional | Matriz de objetos de alias de usuário | [Aliases de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object) para usuários a serem exportados. |
@@ -62,7 +62,7 @@ Para clientes que fizeram a integração com a Braze em 22 de agosto de 2024 ou 
 | `email_address` | Opcional | String | Endereço de e-mail do usuário. |
 | `phone` | Opcional | String no formato [E.164](https://en.wikipedia.org/wiki/E.164) | Número de telefone do usuário. |
 | `fields_to_export` | Opcional* | Matriz de strings | Nome dos campos de dados de usuários a serem exportados.<br><br>*Este campo é obrigatório para usar o limite de taxa mais rápido de 40 solicitações por segundo. Se omitido, será usado o limite de taxa padrão de 250 solicitações por minuto. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Parâmetros de solicitação" }
 
 *Obrigatório para clientes que fizeram a integração com a Braze em 22 de agosto de 2024 ou após essa data.
 
@@ -122,8 +122,8 @@ A seguir, uma lista de `fields_to_export` válidos. Usar `fields_to_export` para
 | `time_zone` | String | Fuso horário do usuário no mesmo formato do banco de dados de fuso horário da IANA. |
 | `total_revenue` | Float | Receita total atribuída a esse usuário. A receita total é calculada com base nas compras que o usuário fez durante as janelas de conversão das Campaigns e Canvas que recebeu. |
 | `uninstalled_at` | Timestamp | Data e hora em que o usuário desinstala o app. Omitido se o app não tiver sido desinstalado. |
-| `user_aliases` | Objeto | [Objeto de aliases de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification) contendo `alias_name` e `alias_label`, se houver. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Fields to export" }
+| `user_aliases` | Objeto | [Objeto de aliases de usuário]({{site.baseurl}}/api/objects_filters/user_alias_object) contendo `alias_name` e `alias_label`, se houver. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Campos a serem exportados" }
 
 Esteja ciente de que o endpoint `/users/export/ids` reunirá todo o perfil desse usuário, incluindo dados como todas as Campaigns e Canvas recebidos, todos os eventos personalizados realizados, todas as compras feitas e todos os atributos personalizados. Como resultado, esse endpoint é mais lento do que outros endpoints da REST API.
 

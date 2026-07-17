@@ -89,7 +89,7 @@ Primeiro, verifique se a 2FA está ativada para o seu dashboard acessando **Conf
 
 #### Opções do usuário quando a 2FA não é obrigatória {#user-options-when-2fa-isnt-mandatory}
 
-Se a 2FA não for aplicada no nível da empresa, os usuários individuais podem configurar a 2FA por conta própria na página de Configurações da conta. Nesse caso, os usuários não serão bloqueados de suas contas se não a configurarem. Você pode identificar quais usuários optaram por ativar a 2FA verificando a página Gerenciar usuários.
+Se a 2FA não for aplicada no nível da empresa, os usuários individuais podem configurar a 2FA por conta própria na página de configurações da conta. Nesse caso, os usuários não serão bloqueados de suas contas se não a configurarem. Você pode identificar quais usuários optaram por ativar a 2FA verificando a página Gerenciar usuários.
 
 #### Requisitos quando a 2FA é obrigatória {#requirements-when-2fa-is-mandatory}
 
@@ -125,7 +125,7 @@ Para baixar esse relatório, faça o seguinte:
 2. Selecione a guia **Configurações de segurança** e vá até a seção **Download de eventos de segurança**.
 3. Selecione **Baixar relatório**.
 
-Esse download manual de relatório contém apenas os 10.000 eventos de segurança mais recentes da sua conta.
+Esse download manual de relatório contém apenas os 10.000 eventos de segurança mais recentes da sua conta. Se o CSV exportado contiver exatamente 10.001 linhas (incluindo a linha de cabeçalho), você atingiu o limite de 10.000 eventos do relatório e eventos mais antigos podem não estar incluídos.
 
 Para exportar eventos de segurança para o Amazon S3 sem esse limite de linhas, consulte [Exportação de eventos de segurança com Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
 
@@ -138,7 +138,7 @@ O CSV do relatório de eventos de segurança contém as seguintes colunas:
 | CreatedAt | Timestamp de quando o evento foi registrado, em UTC. |
 | EmailAtTimeOfEvent | Endereço de e-mail do usuário do dashboard que disparou o evento, conforme registrado no momento do evento. |
 | CurrentEmail | Endereço de e-mail atual do usuário do dashboard que disparou o evento. Se o usuário não existir mais, o ID de desenvolvedor é usado. |
-| EventName | Tipo de evento de segurança. Consulte a lista de eventos de segurança reportados abaixo. |
+| EventName | Tipo de evento de segurança. Consulte o menu suspenso **Eventos de segurança reportados** após esta tabela. |
 | OtherAccount | Endereço de e-mail de outro usuário do dashboard afetado pelo evento, quando aplicável (por exemplo, quando uma conta é adicionada ou removida). |
 | JsonProperties | Propriedades específicas do evento em formato JSON. Os campos incluídos variam por tipo de evento. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Definições das colunas do CSV" }
@@ -266,7 +266,7 @@ A permissão **Visualizar IPI** é acessível apenas a alguns usuários selecion
 Você precisa da permissão **Visualizar IPI** para usar o [Criador de consultas]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), pois ele permite acesso direto a alguns dados de clientes.
 {% endalert %}
 
-Para as capacidades existentes de permissão de equipe, consulte [Definição de permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
+Para as capacidades existentes de permissão de equipe, consulte [Definição de permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ### Definição de IPI {#defining-pii}
 

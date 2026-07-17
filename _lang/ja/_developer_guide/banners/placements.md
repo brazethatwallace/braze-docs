@@ -31,7 +31,21 @@ platform:
 
 ### ステップ2:アプリの配置を更新する {#requestBannersRefresh}
 
-配置を更新するには、SDKの更新メソッドを呼び出します。`subscribeToBannersUpdates`がアクティブな場合、SDKは新しいセッションの開始時および`changeUser`を呼び出したときに、キャッシュされた配置IDを自動的に再パブリッシュします。この自動更新はレート制限トークンを消費しません。
+配置を更新するには、SDKの更新メソッドを呼び出します（WebおよびAndroidでは`requestBannersRefresh()`、Swiftでは`requestRefresh()`）。
+
+バナーの更新動作には2つのパスがあります。
+
+1. **明示的な更新：** アクティブなセッション中の任意のタイミングで更新メソッドを呼び出すことができます。
+2. **新しいセッションでの自動更新：** 少なくとも1回の明示的な更新リクエストを行った後、新しいBrazeセッションが開始されたとき（たとえば`changeUser()`の後やセッションタイムアウト後）に、SDKは最後にリクエストされた配置IDを再リクエストできます。
+
+`subscribeToBannersUpdates()`の役割はプラットフォームによって異なります。
+
+- **iOSおよびAndroid：** `subscribeToBannersUpdates()`（Swiftでは`subscribeToUpdates()`）は更新コールバックを登録します。セッション開始時の自動更新は、サブスクリプションがアクティブかどうかに依存しません。
+- **Web：** セッション開始時の自動更新は、`subscribeToBannersUpdates()`が登録されていることに紐づいています。アクティブなサブスクリプションがない場合、SDKは新しいセッションで自動的に更新を繰り返しません。
+
+いずれの場合も、アプリのライフサイクルごとに少なくとも1回の明示的な更新リクエストを行う必要があります。これにより、SDKがどの配置IDを更新し続けるべきかを把握できます。バナーは、最初の呼び出しなしに初回起動時に自動的にフェッチされることはなく、トラッキングされる配置IDはアプリの再起動後にリセットされます。
+
+セッション開始時の自動更新はレート制限トークンを消費しません。
 
 {% alert tip %}
 バナーのダウンロードや表示の遅延を避けるため、できるだけ早く配置を更新してください。
@@ -430,7 +444,7 @@ Android Viewsを使用している場合は、次のXMLを使用します。
     app:placementId="global_banner" />
 ```
 
-Jetpack Composeを使用するには、アプリモジュールに`com.braze:android-sdk-jetpack-compose`アーティファクトを追加します。他のBraze Android SDK依存関係と同じバージョンを使用してください。このモジュールは`android-sdk-ui`とは別で、`com.braze.jetpackcompose.banners`配下の[`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)コンポーザブルを提供します。
+Jetpack Composeを使用するには、アプリモジュールに`com.braze:android-sdk-jetpack-compose`アーティファクトを追加します。他のBraze Android SDKの依存関係と同じバージョンを使用してください。このモジュールは`android-sdk-ui`とは別で、`com.braze.jetpackcompose.banners`配下の[`Banner`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.jetpackcompose.banners/-banner.html)コンポーザブルを提供します。
 
 {% alert note %}
 一部のCompose UIライブラリは独自の`Banner`コンポーザブルを定義しています。BrazeのAPIを呼び出すには、`com.braze.jetpackcompose.banners.Banner`を明示的にインポートしてください。
@@ -496,7 +510,7 @@ val banner = Braze.getInstance(context).getBanner("global_banner")
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 
@@ -555,7 +569,7 @@ This feature is not currently supported on Roku.
 
 ### ステップ5:テストバナーを送信する（オプション） {#handling-test-cards}
 
-バナーキャンペーンを開始する前に、[テストバナーを送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners)して統合を確認できます。テストバナーは別のインメモリキャッシュに保存され、アプリの再起動後は保持されません。追加のセットアップは不要ですが、テストを表示できるようにテストデバイスがフォアグラウンドのプッシュ通知を受信できる必要があります。
+バナーキャンペーンを開始する前に、[テストバナーを送信]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=banners)して統合を確認できます。テストバナーは別のインメモリキャッシュに保存され、アプリの再起動後は保持されません。追加の設定は不要ですが、テストを表示できるようにテストデバイスがフォアグラウンドのプッシュ通知を受信できる必要があります。
 
 {% alert note %}
 テストバナーは他のバナーと同じですが、次のアプリセッションで削除される点が異なります。
@@ -583,7 +597,7 @@ Brazeは、SDKメソッドを使ってバナーを挿入する際に、表示さ
 </button>
 ```
 
-完全なリファレンスについては、[バナー用のカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code)を参照してください。`brazeBridge`は、バナーの内部HTMLと親Braze SDKの間の通信レイヤーを提供します。
+完全なリファレンスについては、[バナー用のカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code)を参照してください。`brazeBridge`は、バナーの内部HTMLと親Braze SDKの間の通信レイヤーを提供します。
 
 ### カスタムUI実装（ヘッドレス） {#custom-ui-implementations-headless}
 

@@ -24,7 +24,7 @@ Mit Segmentierungsfiltern können Sie verhindern, dass Ihre Nachrichten wie Spam
 
 Wenn Sie beispielsweise Nutzer:innen haben, die sich für [Apples E-Mail-Datenschutz (MPP)]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp) entschieden haben, sollten Sie berücksichtigen, wie sich dies auf Ihre E-Mail-Campaigns und Zustellbarkeitsmetriken auswirken kann, und bestimmen, wie Sie Ihre Sunset-Richtlinie am besten strukturieren.
 
-Um Sunset-Richtlinien in Ihre Campaigns einzubinden, erstellen Sie ein [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#creating-a-segment), das automatisch Nutzer:innen ausschließt, die Ihre E-Mails als Spam markiert haben oder über einen bestimmten Zeitraum nicht mit Ihren Nachrichten interagiert haben.
+Um Sunset-Richtlinien in Ihre Campaigns einzubinden, erstellen Sie ein [Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment), das automatisch Nutzer:innen ausschließt, die Ihre E-Mails als Spam markiert haben oder über einen bestimmten Zeitraum nicht mit Ihren Nachrichten interagiert haben.
 
 Um diese Segmente einzurichten, wählen Sie die Filter `Has Marked You As Spam` und `Last Engaged With Message` im Abschnitt **Retargeting** im Filter-Dropdown aus.
 

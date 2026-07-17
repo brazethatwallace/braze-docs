@@ -29,7 +29,7 @@ Após ativar o rastreamento de análise de dados, pode haver um atraso até que 
 
 ## Visualização da receita e das compras ao longo do tempo {#viewing-revenue-and-purchases-over-time}
 
-Acesse **Analytics** > **Relatório de receitas** para visualizar dados sobre [receita e compras ao longo do tempo para esse segmento]({{site.baseurl}}/user_guide/analytics/reports/revenue_report).
+Acesse **Analytics** > **Revenue Report** para visualizar dados sobre [receita e compras ao longo do tempo para esse segmento]({{site.baseurl}}/user_guide/analytics/reports/revenue_report).
 
 Os gráficos de receita e compras refletem a atividade registrada após a ativação do rastreamento de análise de dados para esse segmento. Ativar o rastreamento não preenche retroativamente compras anteriores nesses relatórios. Ao comparar segmentos, use apenas intervalos de tempo em que o rastreamento estava ativado para cada segmento selecionado.
 
@@ -37,23 +37,23 @@ Os gráficos de receita e compras refletem a atividade registrada após a ativa�
 
 Para comparar visualmente os dados do segmento em qualquer intervalo de tempo personalizado, adicione ou remova segmentos do gráfico. Selecione **By Segment** no menu suspenso **Breakdown** e, em seguida, selecione seus segmentos em **Breakdown values**.
 
-Selecione qualquer nome de segmento acima do gráfico para ativar ou desativar a visibilidade das métricas desse segmento.
+Selecione qualquer nome de segmento na legenda do gráfico para ativar ou desativar a visibilidade das métricas desse segmento.
 
 ![Receita para vários segmentos]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
 ## Sessões ao longo do tempo {#sessions-over-time}
 
-Da mesma forma, você pode encontrar dados sobre [sessões ao longo do tempo para esse segmento específico]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data) na página **Home**.
+Da mesma forma, você pode encontrar dados sobre [sessões ao longo do tempo para esse segmento específico]({{site.baseurl}}/user_guide/analytics/dashboards/home) na página **Home**.
 
 ![Dados de sessão por segmento]({% image_buster /assets/img_archive/events_over_time2.png %})
 
 ## Visualizar eventos personalizados ao longo do tempo {#view-custom-events-over-time}
 
-Visualize dados sobre [eventos personalizados ao longo do tempo para segmentos]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) acessando **Analytics** > **Relatório de eventos personalizados**.
+Visualize dados sobre [eventos personalizados ao longo do tempo para segmentos]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) acessando **Analytics** > **Custom events report**.
 
-## Uso de modelos do Criador de consultas {#using-query-builder-templates}
+## Uso de modelos do Query Builder {#using-query-builder-templates}
 
-Quando o rastreamento de análise de dados está ativado, você pode usar os modelos de relatório do Criador de consultas para detalhar métricas de desempenho de Campaigns, Canvas, variantes e etapas por segmentos. Para saber mais, confira [Dados do segmento]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment).
+Quando o rastreamento de análise de dados está ativado, você pode usar os modelos de relatório do Query Builder para detalhar métricas de desempenho de Campaigns, Canvas, variantes e etapas por segmentos. Para saber mais, confira [Dados do segmento]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment).
 
 ## Perguntas frequentes {#frequently-asked-questions}
 

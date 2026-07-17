@@ -15,7 +15,7 @@ Los eventos personalizados son acciones realizadas por tus usuarios o actualizac
 
 ## Ejemplos {#use-cases}
 
-Algunos casos habituales de uso de eventos personalizados son:
+Algunos casos habituales de uso de eventos personalizados incluyen:
 
 - Desencadenar una Campaign o Canvas basándose en un evento personalizado utilizando [la entrega basada en acciones]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
 - Segmentar usuarios por cuántas veces realizaron un evento personalizado, cuándo fue la última vez que ocurrió el evento, y similares
@@ -85,7 +85,7 @@ Los eventos personalizados requieren configuración adicional. Consulta la sigui
 
 ## Almacenamiento de eventos personalizados {#custom-event-storage}
 
-Todos los datos almacenados en el **perfil de usuario**, incluidos los metadatos de eventos personalizados (primera o última ocurrencia, recuento total y X en Y durante 30 días), se conservan indefinidamente mientras cada perfil esté [activo]({{site.baseurl}}/user_archival#active-users).
+Todos los datos almacenados en el **perfil de usuario**, incluidos los metadatos de eventos personalizados (primera o última ocurrencia, recuento total y X en Y durante 30 días), se conservan indefinidamente mientras cada perfil esté <a href="/docs/user_archival#active-users">activo</a>.
 
 ## Ver el historial de eventos de un usuario {#view-a-users-event-history}
 
@@ -150,7 +150,7 @@ También puedes usar **Filtros** para desglosar tus eventos personalizados por h
 ![Filtros del gráfico de eventos personalizados]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[Incrementa atributos personalizados]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers) para mantener un contador de una acción del usuario similar a un evento personalizado. Sin embargo, no puedes ver datos de atributos personalizados en una serie temporal. Las acciones de usuario que no necesitan ser analizadas en una serie temporal deben registrarse usando este método.
+[Incrementa atributos personalizados]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) para mantener un contador de una acción del usuario similar a un evento personalizado. Sin embargo, no puedes ver datos de atributos personalizados en una serie temporal. Las acciones de usuario que no necesitan ser analizadas en una serie temporal deben registrarse usando este método.
 {% endalert %}
 
 ### Por qué no se muestran los análisis de eventos personalizados {#why-custom-events-analytics-arent-showing}

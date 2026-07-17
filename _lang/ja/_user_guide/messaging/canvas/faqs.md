@@ -203,7 +203,7 @@ toc_headers: h2
 
 ### アーカイブされたキャンバスやキャンペーンを再開するにはどうすればよいですか？ {#how-do-i-resume-an-archived-canvas-or-campaign}
 
-アーカイブされたメッセージは、編集可能な状態に戻すまで送信されません。キャンペーンまたはキャンバスを[アーカイブ解除]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving-campaigns-and-canvases)し、エントリスケジュールまたは送信時間を将来のウィンドウに設定し（クリーンなコピーが必要な場合はジャーニーを複製し）、必要に応じて**再開**または起動してください。詳細については、[キャンペーンとキャンバスのアーカイブ]({{site.baseurl}}/user_guide/messaging/governance/archiving)を参照してください。
+アーカイブされたメッセージは、編集可能な状態に戻すまで送信されません。キャンペーンまたはキャンバスを[アーカイブ解除]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving)し、エントリスケジュールまたは送信時間を将来のウィンドウに設定し（クリーンなコピーが必要な場合はジャーニーを複製し）、必要に応じて**再開**または起動してください。詳細については、[キャンペーンとキャンバスのアーカイブ]({{site.baseurl}}/user_guide/messaging/governance/archiving)を参照してください。
 
 ### エラーが表示されないのにキャンバスが保存されないのはなぜですか？ {#why-doesnt-my-canvas-save-when-no-error-appears}
 

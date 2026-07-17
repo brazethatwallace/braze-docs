@@ -25,7 +25,7 @@ En général, comme les extensions sont composées de HTML et de JavaScript, vou
 
 ## Ce qui n'est pas pris en charge {#whats-not-supported}
 
-* L'utilisation du SDK Braze depuis un service de traitement n'est pas prise en charge. Vous pouvez toutefois utiliser le SDK Braze dans la fenêtre contextuelle ou la page de paramètres de votre extension.
+* L'utilisation du SDK Braze depuis un service de traitement n'est pas prise en charge. Vous pouvez toutefois utiliser le SDK Braze dans la fenêtre contextuelle ou la page de paramètres de votre extension. {% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK" %}
 
 ## Types d'extensions {#extension-types}
 

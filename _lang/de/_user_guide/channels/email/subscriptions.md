@@ -55,7 +55,7 @@ Verwenden Sie das Braze SDK, um den Abo-Status einer Nutzer:in zu aktualisieren.
 
 #### REST API
 
-Verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um das [`email_subscribe`-Attribut]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) für eine Nutzer:in zu aktualisieren. Um beispielsweise den E-Mail-Abo-Status einer Nutzer:in auf „Abgemeldet“ zu setzen, wenn sie einen angepassten Abmeldelink verwendet, fügen Sie `email_subscribe: "unsubscribed"` in den Nutzerattributen Ihrer Anfrage ein.
+Verwenden Sie den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track), um das [`email_subscribe`-Attribut]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) für eine Nutzer:in zu aktualisieren. Um beispielsweise den E-Mail-Abo-Status einer Nutzer:in auf „Abgemeldet“ zu setzen, wenn sie einen angepassten Abmeldelink verwendet, fügen Sie `email_subscribe: "unsubscribed"` in den Nutzerattributen Ihrer Anfrage ein.
 
 #### Nutzerprofil {#user-profile}
 
@@ -165,7 +165,7 @@ Um mehr darüber zu erfahren, wie Sie ein Präferenzzentrum hinzufügen oder anp
 
 In den meisten Fällen verwalten Nutzer:innen ihr E-Mail-Abo über Links in den E-Mails, die sie erhalten. Fügen Sie am Ende jeder E-Mail eine rechtskonforme Fußzeile mit einem Abmeldelink ein. Wenn Nutzer:innen die Abmelde-URL auswählen, meldet Braze sie ab und zeigt eine Landing-Page an, die die Änderung bestätigt. Verwenden Sie diesen Liquid-Tag: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}.
 
-Wenn eine Nutzer:in im Präferenzzentrum „Von allen oben genannten E-Mail-Typen abmelden“ auswählt, setzt Braze ihren globalen E-Mail-Abo-Status auf `unsubscribed` und meldet sie von allen Gruppen ab.
+Wenn eine Nutzer:in im Präferenzzentrum „Von allen aufgelisteten E-Mail-Typen abmelden“ auswählt, setzt Braze ihren globalen E-Mail-Abo-Status auf `unsubscribed` und meldet sie von allen Gruppen ab.
 
 ### Angepasste Fußzeilen erstellen {#custom-footer}
 

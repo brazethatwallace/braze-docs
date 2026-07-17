@@ -2,7 +2,7 @@
 nav_title: コンテキスト変数
 article_title: コンテキスト変数
 page_type: reference
-description: "このリファレンス記事では、Braze キャンバスのコンテキスト変数について、そのタイプ、使用方法、ベストプラクティスを説明します。"
+description: "このリファレンス記事では、Brazeキャンバスのコンテキスト変数について、そのタイプ、使用方法、ベストプラクティスを説明します。"
 ---
 
 # コンテキスト変数 {#context-variables}
@@ -18,7 +18,7 @@ description: "このリファレンス記事では、Braze キャンバスのコ
 
 各コンテキスト変数には以下が含まれます。
 
-- 名前（`flight_time` や `subscription_renewal_date` など）
+- 名前（`flight_time`や`subscription_renewal_date`など）
 - データタイプ（数値、文字列、時間、配列など）
 - [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)または**パーソナライゼーションを追加**ツールを使用して割り当てる値
 
@@ -34,7 +34,7 @@ description: "このリファレンス記事では、Braze キャンバスのコ
 
 [コンテキストステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)ごとに最大10個のコンテキスト変数を定義できます。各変数名は最大100文字で、文字、数字、またはアンダースコアのみを使用する必要があります。
 
-コンテキスト変数の定義は最大10,240文字です。APIトリガーのキャンバスにコンテキスト変数を渡す場合、コンテキストステップで作成された変数と同じ名前空間を共有します。例えば、[`/canvas/trigger/send` エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)のコンテキストオブジェクトで変数 `purchased_item` を送信した場合、{% raw %}`{{context.${purchased_item}}}`{% endraw %} として参照できます。コンテキストステップでその変数を再定義すると、新しい値がそのユーザーのジャーニーのAPI値を上書きします。
+コンテキスト変数の定義は最大10,240文字です。APIトリガーのキャンバスにコンテキスト変数を渡す場合、コンテキストステップで作成された変数と同じ名前空間を共有します。例えば、[`/canvas/trigger/send`エンドポイント]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)のコンテキストオブジェクトで変数`purchased_item`を送信した場合、{% raw %}`{{context.${purchased_item}}}`{% endraw %}として参照できます。コンテキストステップでその変数を再定義すると、新しい値がそのユーザーのジャーニーのAPI値を上書きします。
 
 コンテキストステップごとに最大50 KBを保存でき、最大10個の変数に分散されます。ステップ内のすべての変数の合計サイズが50 KBを超えた場合、制限を超える変数は評価も保存もされません。例えば、コンテキストステップに3つの変数がある場合:
 
@@ -49,7 +49,7 @@ description: "このリファレンス記事では、Braze キャンバスのコ
 ステップで作成または更新されるコンテキスト変数には、以下のデータタイプを割り当てることができます。
 
 {% alert note %}
-コンテキスト変数は、[イベントプロパティ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#expected-format)と同じデータタイプの期待される形式を持ちます。<br><br>配列タイプを使用する場合、Brazeは値をJSONとして解析しようとするため、オブジェクトの配列を正常に作成できます。配列内のオブジェクトが有効なJSONでない場合、結果は単純な文字列の配列になります。<br><br>ネストされたオブジェクトやオブジェクトの配列には、[`as_json_string` Liquidフィルター](#converting-connected-content-strings-to-json)を使用してください。コンテキストステップで同じオブジェクトを作成する場合は、`as_json_string` を使用してオブジェクトをレンダリングする必要があります。例: {%raw%}`{{context.${object_array} | as_json_string }}`{%endraw%}
+コンテキスト変数は、[イベントプロパティ]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#expected-format)と同じデータタイプの期待される形式を持ちます。<br><br>配列タイプを使用する場合、Brazeは値をJSONとして解析しようとするため、オブジェクトの配列を正常に作成できます。配列内のオブジェクトが有効なJSONでない場合、結果は単純な文字列の配列になります。<br><br>ネストされたオブジェクトやオブジェクトの配列には、[`as_json_string` Liquidフィルター](#converting-connected-content-strings-to-json)を使用してください。コンテキストステップで同じオブジェクトを作成する場合は、`as_json_string`を使用してオブジェクトをレンダリングする必要があります。例: {%raw%}`{{context.${object_array} | as_json_string }}`{%endraw%}
 {% endalert %}
 
 | データタイプ | 変数名の例 | 値の例 |
@@ -67,7 +67,7 @@ description: "このリファレンス記事では、Braze キャンバスのコ
 
 例えば、ユーザーの誕生日の前日にメッセージを送信する場合、前日に送信するためのLiquidロジックが関連付けられているため、コンテキスト変数を時間データタイプとして保存します。ただし、クリスマス（12月25日）にホリデーメッセージを送信する場合は、時間をダイナミックな変数として参照する必要がないため、文字列データタイプを使用する方が適切です。
 
-オブジェクトデータタイプの場合、ドット記法を使用してデータ内のパスを指定できます。例えば、コンテキストステップでコンテキスト変数 `order_summary` を次の構造で定義した場合:
+オブジェクトデータタイプの場合、ドット記法を使用してデータ内のパスを指定できます。例えば、コンテキストステップでコンテキスト変数`order_summary`を次の構造で定義した場合:
 
 ```json
 {
@@ -77,7 +77,7 @@ description: "このリファレンス記事では、Braze キャンバスのコ
 }
 ```
 
-[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)または[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)フィルターでは、ドット記法を使用してコンテキスト変数名としてパスを入力します（例: `order_summary.shipping.carrier`）。フィルターが評価されると、Brazeはそのパスを値 `overnight` に解決します。
+[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)または[条件分岐]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split)フィルターでは、ドット記法を使用してコンテキスト変数名としてパスを入力します（例: `order_summary.shipping.carrier`）。フィルターが評価されると、Brazeはそのパスを値`overnight`に解決します。
 
 Liquid内（[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)ステップなど）では、代わりに {% raw %}`{{context.${order_summary}.shipping.carrier}}`{% endraw %} を使用します。
 
@@ -87,13 +87,13 @@ Liquid内（[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canva
 
 例えば、今後のフライト前に乗客にVIPラウンジアクセスについて通知したいとします。このメッセージはファーストクラスのチケットを購入した乗客にのみ送信する必要があります。コンテキスト変数は、この情報を追跡する柔軟な方法です。
 
-ユーザーは飛行機のチケットを購入するとキャンバスに入ります。ラウンジアクセスの資格を判断するために、コンテキストステップで `lounge_access_granted` というコンテキスト変数を作成し、ユーザージャーニーの後続のステップでそのコンテキスト変数を参照します。
+ユーザーは飛行機のチケットを購入するとキャンバスに入ります。ラウンジアクセスの資格を判断するために、コンテキストステップで`lounge_access_granted`というコンテキスト変数を作成し、ユーザージャーニーの後続のステップでそのコンテキスト変数を参照します。
 
 ![乗客がVIPラウンジアクセスの資格があるかどうかを追跡するために設定されたコンテキスト変数。]({% image_buster /assets/img/context_example4.png %}){: style="max-width:90%"}
 
-このコンテキストステップでは、{% raw %}`{{custom_attribute.${purchased_flight}}}`{% endraw %} を使用して、購入したフライトのタイプが `first_class` かどうかを判断します。
+このコンテキストステップでは、{% raw %}`{{custom_attribute.${purchased_flight}}}`{% endraw %}を使用して、購入したフライトのタイプが`first_class`かどうかを判断します。
 
-次に、{% raw %}`{{context.${lounge_access_granted}}}`{% endraw %} が `true` であるユーザーをターゲットにするメッセージステップを作成します。このメッセージは、パーソナライズされたラウンジ情報を含むプッシュ通知になります。このコンテキスト変数に基づいて、資格のある乗客はフライト前に関連するメッセージを受け取ります。
+次に、{% raw %}`{{context.${lounge_access_granted}}}`{% endraw %}が`true`であるユーザーをターゲットにするメッセージステップを作成します。このメッセージは、パーソナライズされたラウンジ情報を含むプッシュ通知になります。このコンテキスト変数に基づいて、資格のある乗客はフライト前に関連するメッセージを受け取ります。
 
 - ファーストクラスのチケット乗客は次のメッセージを受け取ります:「限定VIPラウンジアクセスをお楽しみください！」
 - ビジネスクラスとエコノミークラスのチケット乗客は次のメッセージを受け取ります:「フライトをアップグレードして限定VIPラウンジアクセスを手に入れましょう。」
@@ -120,14 +120,14 @@ Liquid内（[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canva
 {% tabs %}
 {% tab カスタムイベントを実行 %}
 
-以下のアクションパスは、基本プロパティ `source` を持つカスタムイベント `Account_Created` を実行したユーザーを、コンテキスト変数 `app_source_variable` に振り分けるように設定されています。
+以下のアクションパスは、基本プロパティ`source`を持つカスタムイベント`Account_Created`を実行したユーザーを、コンテキスト変数`app_source_variable`に振り分けるように設定されています。
 
 ![カスタムイベントの実行時にコンテキスト変数を参照するアクションパスの例。]({% image_buster /assets/img/context_action_path1.png %})
 
 {% endtab %}
 {% tab 購入を行う %}
 
-以下のアクションパスは、特定の製品名 `shoes` の基本プロパティ `brand` をコンテキスト変数 `promoted_shoe_brand` と一致させるように設定されています。
+以下のアクションパスは、特定の製品名`shoes`の基本プロパティ`brand`をコンテキスト変数`promoted_shoe_brand`と一致させるように設定されています。
 
 ![購入時にコンテキスト変数を参照するアクションパスの例。]({% image_buster /assets/img/context_action_path2.png %})
 
@@ -141,8 +141,8 @@ Liquid内（[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canva
 
 離脱条件は、キャンバス内のユーザージャーニーの任意の時点で、以下の場合にユーザーがキャンバスから離脱することを示します。
 
-- カスタムイベント **Abandon Cart** を実行し、かつ
-- 基本プロパティ **Item in Cart** がコンテキスト変数 `cart_item_threshold` の文字列値と一致する場合。
+- カスタムイベント**Abandon Cart**を実行し、かつ
+- 基本プロパティ**Item in Cart**がコンテキスト変数`cart_item_threshold`の文字列値と一致する場合。
 
 ![コンテキスト変数に基づいてカスタムイベントを実行した場合にユーザーを離脱させるように設定された離脱条件。]({% image_buster /assets/img/context_exit_criteria1.png %})
 
@@ -181,7 +181,7 @@ Liquid内（[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canva
 
 ![コンテキスト変数でフィルターを作成するオプションを持つ条件分岐ステップの例。]({% image_buster /assets/img/context_decision_split.png %}){: style="max-width:90%;"}
 
-キャンバスのコンテキスト変数に事前定義されたタイプがあるのと同様に、コンテキスト変数と静的値の比較には[一致するデータタイプ]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#supported-data-types)が必要です。コンテキスト変数フィルターは、ブール値、数値、文字列、時間、年内の日付の複数のデータタイプにわたる比較を可能にします。これは[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)の比較と同様です。
+キャンバスのコンテキスト変数に事前定義されたタイプがあるのと同様に、コンテキスト変数と静的値の比較には[一致するデータタイプ]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)が必要です。コンテキスト変数フィルターは、ブール値、数値、文字列、時間、年内の日付の複数のデータタイプにわたる比較を可能にします。これは[階層化カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)の比較と同様です。
 
 {% alert note %}
 コンテキスト変数と比較には同じデータタイプを使用してください。例えば、コンテキスト変数が時間データタイプの場合、時間比較（「前」や「後」など）を使用します。一致しないデータタイプ（時間コンテキスト変数に対する文字列比較など）を使用すると、予期しない動作が発生する可能性があります。
@@ -189,27 +189,27 @@ Liquid内（[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canva
 
 {% multi_lang_include alerts/important_alerts.md alert='time filter types' %}
 
-以下は、コンテキスト変数 `product_name` を正規表現 `/braze/` と比較するコンテキスト変数フィルターの例です。
+以下は、コンテキスト変数`product_name`を正規表現`/braze/`と比較するコンテキスト変数フィルターの例です。
 
 ![コンテキスト変数「product_name」を正規表現「/braze/」に一致させるフィルター設定。]({% image_buster /assets/img/context_variable_filter1.png %}){: style="max-width:90%;"}
 
 #### コンテキスト変数またはカスタム属性との比較 {#comparing-to-context-variables-or-custom-attributes}
 
-**コンテキスト変数またはカスタム属性と比較**トグルを選択すると、以前に定義されたコンテキスト変数またはユーザーのカスタム属性と比較するコンテキスト変数フィルターを構築できます。これは、APIトリガーの `context` のようにユーザーごとにダイナミックな比較を行う場合や、コンテキスト変数にわたって定義された複雑な比較ロジックを集約する場合に便利です。
+**コンテキスト変数またはカスタム属性と比較**トグルを選択すると、以前に定義されたコンテキスト変数またはユーザーのカスタム属性と比較するコンテキスト変数フィルターを構築できます。これは、APIトリガーの`context`のようにユーザーごとにダイナミックな比較を行う場合や、コンテキスト変数にわたって定義された複雑な比較ロジックを集約する場合に便利です。
 
 {% tabs %}
 {% tab 例 1 %}
 
 ダイナミックな非アクティブ期間の後にユーザーにパーソナライズされたリマインダーを送信したいとします。過去3日間にアプリにログインしていないユーザーがメッセージを受け取る対象です。
 
-コンテキスト変数 `re_engagement_date` は {% raw %}`{{now | minus: 3 | append: ' days'}}`{% endraw %} として定義されています。`3 days` はユーザーのカスタム属性としても保存される可変量にすることができます。したがって、`re_engagement_date` が `last_login_date`（ユーザープロファイルにカスタム属性として保存）より後の場合、メッセージが送信されます。
+コンテキスト変数`re_engagement_date`は {% raw %}`{{now | minus: 3 | append: ' days'}}`{% endraw %} として定義されています。`3 days`はユーザーのカスタム属性としても保存される可変量にすることができます。したがって、`re_engagement_date`が`last_login_date`（ユーザープロファイルにカスタム属性として保存）より後の場合、メッセージが送信されます。
 
 ![コンテキスト変数「re_engagement_date」がカスタム属性「last_login_date」より後であるパーソナライゼーションタイプとしてカスタム属性を使用したフィルター設定。]({% image_buster /assets/img/context_variable_filter2.png %})
 
 {% endtab %}
 {% tab 例 2 %}
 
-以下のフィルターは、コンテキスト変数 `reminder_date` がコンテキスト変数 `appointment_deadline` より前であることを比較します。これにより、オーディエンスパスステップでユーザーをグループ化して、予約期限前に追加のリマインダーを受け取るべきかどうかを判断できます。
+以下のフィルターは、コンテキスト変数`reminder_date`がコンテキスト変数`appointment_deadline`より前であることを比較します。これにより、オーディエンスパスステップでユーザーをグループ化して、予約期限前に追加のリマインダーを受け取るべきかどうかを判断できます。
 
 ![コンテキスト変数「reminder_date」をコンテキスト変数「appointment_deadline」と比較するパーソナライゼーションタイプとしてコンテキスト変数を使用したフィルター設定。]({% image_buster /assets/img/context_variable_filter3.png %})
 

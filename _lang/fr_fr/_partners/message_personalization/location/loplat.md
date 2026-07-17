@@ -23,13 +23,13 @@ L'intégration de Braze et loplat vous permet d'utiliser les services de localis
 | Condition | Description |
 | --- | --- |
 | Compte loplat X | Un compte loplat X est requis pour profiter de cette intégration.<br><br>Envoyez un e-mail à [support@loplat.com](mailto:support@loplat.com) pour demander un compte loplat X. |
-| SDK loplat | Le SDK loplat reconnaît les visites des utilisateurs en magasin, traite les événements de localisation et distingue si les utilisateurs restent à un endroit ou se déplacent. Vous pouvez utiliser le SDK loplat pour analyser la fréquentation de votre magasin, envoyer des messages push lorsque les utilisateurs entrent dans votre magasin, etc.<br><br>Notez que le SDK n'est disponible que pour Android et iOS. |
+| SDK loplat | Le SDK loplat reconnaît les visites des utilisateurs en magasin, traite les événements de localisation et distingue si les utilisateurs restent à un endroit ou se déplacent. Vous pouvez utiliser le SDK loplat pour analyser la fréquentation de votre magasin, envoyer des notifications push lorsque les utilisateurs entrent dans votre magasin, etc.<br><br>Notez que le SDK n'est disponible que pour Android et iOS. |
 | Clé API REST Braze | Une clé API REST de Braze avec les autorisations suivantes :<br>- `users.track`<br>- `campaigns.trigger.send`<br>- `campaigns.list`<br>- `canvas.trigger.send`<br>- `canvas.list`<br><br>Cette clé peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
-Les informations de localisation de l'événement personnalisé fournies par loplat peuvent être utilisées dans vos campagnes pour répondre à des cas d'utilisation tels que :
+Les informations de localisation de l'événement personnalisé fournies par loplat peuvent être utilisées dans vos campagnes pour répondre à des cas d'usage tels que :
 
 - [Alerte promotion duty-free](https://www.loplat.com/loplat-x#usecase)
     - Envoyez des coupons de réduction duty-free aux utilisateurs qui se trouvent près des portes d'embarquement à l'aéroport.
@@ -51,9 +51,9 @@ Créez une nouvelle clé API dans le tableau de bord de Braze. Copiez la clé AP
 1. Créez une campagne Braze ou un Canvas configuré avec **API-Triggered Delivery**, et copiez l'ID de la campagne.
 2. Lancez la campagne dans Braze après avoir terminé toutes les étapes.
 3. Allez sur loplat X et créez une campagne en suivant les instructions du [guide de l'utilisateur loplat X](https://loplatx-user-guide.notion.site/Campaign-integration-b92f8120cbe74d19a3a5f593657b4e8e#2ed232c885014f19b1870b9fca4230fb).
-4. Collez l'ID de campagne Braze sous les **Campaign Message Settings**, puis lancez la campagne.
+4. Collez l'ID de la campagne Braze sous les **Campaign Message Settings**, puis lancez la campagne.
 
-![]({% image_buster /assets/img/loplat/loplat_api_triggered_delivery.png %})
+![Paramètres de campagne loplat X affichant l'ID de campagne Braze pour la distribution déclenchée par l'API.]({% image_buster /assets/img/loplat/loplat_api_triggered_delivery.png %})
 
 #### Livraison par événement {#action-based-delivery}
 
@@ -63,4 +63,4 @@ Avec l'intégration, vous pouvez appliquer des conditions de localisation en env
 3. Allez dans le tableau de bord de Braze et créez une campagne ou un Canvas configuré avec **Action-Based Delivery**.
 4. Sélectionnez l'événement personnalisé que vous avez créé dans loplat X pour définir une action de déclenchement basée sur la localisation.
 
-![]({% image_buster /assets/img/loplat/loplat_action_based_delivery.png %})
+![Configuration d'une campagne Braze basée sur les actions utilisant un événement personnalisé loplat comme déclencheur.]({% image_buster /assets/img/loplat/loplat_action_based_delivery.png %})

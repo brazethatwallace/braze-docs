@@ -10,7 +10,7 @@ channel:
 
 # Solução de problemas de mensagens no app {#troubleshoot-in-app-messages}
 
-> Use esta página para diagnosticar por que mensagens no app não estão sendo entregues ou exibidas em um dispositivo. Para configuração no dashboard (prioridade, gatilhos, Segments e reelegibilidade), consulte as [Perguntas frequentes sobre mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
+> Use esta página para diagnosticar por que mensagens no app não estão sendo entregues ou exibidas em um dispositivo. Para configuração no dashboard (prioridade, gatilhos, Segments e reelegibilidade), consulte as [Perguntas frequentes sobre In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
 
 Antes de depurar, adicione-se como [usuário teste]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#adding-test-users) e revise [Envio de mensagens de teste]({{site.baseurl}}/developer_guide/in_app_messages/sending_test_messages).
 
@@ -21,11 +21,11 @@ Antes de depurar, adicione-se como [usuário teste]({{site.baseurl}}/user_guide/
 | A mensagem no app não apareceu para um usuário | [Um usuário](#in-app-message-not-shown-for-one-user) |
 | A mensagem no app não apareceu em uma plataforma (Android, iOS ou Web) | [Uma plataforma](#in-app-message-not-shown-on-one-platform) |
 | A mensagem no app de uma etapa do **Canvas** não apareceu | [Mensagens no app do Canvas](#canvas-in-app-messages) |
-| A mensagem no app apareceu com atraso ou após um `delay` | [Tempo e exibição atrasada](#timing-and-delayed-display) |
+| A mensagem no app apareceu com atraso ou após uma postergação | [Tempo e exibição atrasada](#timing-and-delayed-display) |
 | Impressões ou cliques parecem incorretos | [Impressões e análise de dados](#impressions-and-analytics) |
 | `triggers` ausentes ou vazios nos registros de usuários de eventos | [Solução de problemas de entrega](#delivery-troubleshooting) |
 | Gatilhos retornados, mas nada é exibido no dispositivo | [Solução de problemas de exibição por plataforma](#platform-specific-display-troubleshooting) |
-| Falha ao carregar ativos da mensagem no app (iOS, `NSURLError` -1008) | [Carregamento de ativos (guia Swift)]({{site.baseurl}}/developer_guide/in_app_messages/troubleshooting?sdktab=swift#asset-loading) |
+| Falha ao carregar ativos da mensagem no app (iOS, `NSURLError` -1008) | [Carregamento de ativos (guia Swift)](?sdktab=swift#swift_asset-loading) |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Sintoma de mensagem no app" }
 
 ## Caminho de investigação padrão {#standard-investigation-path}
@@ -41,7 +41,7 @@ Use este fluxo de trabalho para cada incidente. Comece na etapa 1.
    - Se `triggers` estiver presente, mas vazio (`[]`), acesse [Solução de problemas: mensagens não estão sendo retornadas](#troubleshoot-messages-not-being-returned).
    - Se as linhas **Trigger In-App Message** estiverem presentes, mas nada for exibido, acesse [Solução de problemas de exibição por plataforma](#platform-specific-display-troubleshooting).
    - Cada payload de gatilho inclui um `type`: `inapp` (padrão) ou `templated_iam` (requer uma solicitação de modelo antes da exibição). Consulte [Tipos de mensagens no app]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#types-of-in-app-messages).
-3. Para elegibilidade no dashboard (Segment, reelegibilidade, limites de frequência, prioridade, grupos de controle), consulte [Solução de problemas de entrega](#delivery-troubleshooting) e as [Perguntas frequentes sobre mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
+3. Para elegibilidade no dashboard (Segment, reelegibilidade, limites de frequência, prioridade, grupos de controle), consulte [Solução de problemas de entrega](#delivery-troubleshooting) e as [Perguntas frequentes sobre In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
 4. Para problemas de exibição no dispositivo (delegates, limites de taxa, orientação, tempo limite de sessão), selecione a guia do seu SDK em [Solução de problemas de exibição por plataforma](#platform-specific-display-troubleshooting).
 
 ## Mensagens no app do Canvas {#canvas-in-app-messages}
@@ -70,7 +70,7 @@ Verifique o seguinte:
 - O usuário estava elegível ou reelegível de acordo com as regras de direcionamento da Campaign ou do Canvas? Consulte [Reelegibilidade para Campaigns e Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
 - Um [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) foi aplicado?
 - O usuário estava em um grupo de controle da Campaign? Verifique se a Campaign está configurada para testes A/B.
-- Uma mensagem no app de maior prioridade foi exibida no lugar? Consulte [Várias mensagens no app podem ser exibidas na mesma sessão?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#can-multiple-in-app-messages-display-in-the-same-session) nas Perguntas frequentes sobre mensagens no app.
+- Uma mensagem no app de maior prioridade foi exibida no lugar? Consulte [Várias mensagens no app podem ser exibidas na mesma sessão?]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#can-multiple-in-app-messages-display-in-the-same-session) nas Perguntas frequentes sobre In-App Messages.
 - O dispositivo estava na orientação especificada pela Campaign?
 - A mensagem foi suprimida pelo intervalo mínimo padrão de 30 segundos entre gatilhos? Consulte [Substituindo o limite de taxa padrão]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages#overriding-the-default-rate-limit).
 
@@ -83,7 +83,7 @@ Em seguida, siga o [caminho de investigação padrão](#standard-investigation-p
 | Causa provável | O que verificar |
 | --- | --- |
 | Alvo de **Enviar para** incorreto | Confirme se a Campaign ou etapa do Canvas direciona para **Apps móveis** ou **Navegadores Web** conforme apropriado. Uma Campaign somente para Web não será enviada para dispositivos Android. |
-| UI personalizada ou handler suprime a exibição | Revise os delegates (mobile) ou [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) (Web). Consulte [Personalização]({{site.baseurl}}/developer_guide/in_app_messages/customization) e a guia do seu SDK abaixo. |
+| UI personalizada ou handler suprime a exibição | Revise os delegates (mobile) ou [`braze.subscribeToInAppMessage`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetoinappmessage) (Web). Consulte [Personalização]({{site.baseurl}}/developer_guide/in_app_messages/customization) e a guia do seu SDK para a sua plataforma. |
 | A integração nunca funcionou nesta plataforma | Confirme se esta plataforma e versão do app já exibiram mensagens no app anteriormente. |
 | O gatilho não disparou no dispositivo | O gatilho deve ocorrer localmente pelo SDK. Uma chamada da REST API não pode disparar uma mensagem no app no SDK. Consulte [Disparando mensagens]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages). |
 | `triggers` vazio nos registros de usuários de eventos | Segment, reelegibilidade, limite de frequência ou grupo de controle. Consulte [Solução de problemas: mensagens não estão sendo retornadas](#troubleshoot-messages-not-being-returned). |
@@ -96,7 +96,7 @@ Em seguida, siga o [caminho de investigação padrão](#standard-investigation-p
 Verifique o seguinte:
 
 - A ação-gatilho está configurada corretamente no dashboard e na integração do app?
-- Uma mensagem no app de maior prioridade interceptou a Campaign? Consulte as [Perguntas frequentes sobre mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#can-multiple-in-app-messages-display-in-the-same-session).
+- Uma mensagem no app de maior prioridade interceptou a Campaign? Consulte as [Perguntas frequentes sobre In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#can-multiple-in-app-messages-display-in-the-same-session).
 - Você está usando uma versão recente do SDK? Alguns tipos de mensagem no app têm requisitos mínimos de SDK.
 - As sessões estão integradas corretamente? Confirme se a análise de dados de sessão funciona para este app.
 - Uma biblioteca de UI personalizada está interferindo na exibição? Consulte [Personalização]({{site.baseurl}}/developer_guide/in_app_messages/customization).
@@ -111,10 +111,10 @@ Causas comuns:
 
 - **Pré-busca de Campaign no início da sessão:** Mensagens no app são armazenadas em cache no início da sessão e exibidas quando o gatilho dispara. Um gatilho que ocorre antes do próximo início de sessão não será exibido até essa sessão. Consulte [Disparando mensagens]({{site.baseurl}}/developer_guide/in_app_messages/triggering_messages).
 - **Comportamento de próxima sessão do Canvas:** Consulte [Mensagens no app do Canvas](#canvas-in-app-messages).
-- **Postergação agendada no dashboard:** Confirme se um `delay` está configurado na Campaign ou etapa.
+- **Postergação agendada no dashboard:** Confirme se uma postergação está configurada na Campaign ou etapa.
 - **Condição de corrida na sincronização de gatilhos:** Se os usuários registram um evento imediatamente após o início da sessão, os gatilhos podem ainda não estar sincronizados. Considere disparar pelo início de sessão e segmentar pelo evento pretendido, para que a entrega ocorra na próxima sessão após o evento.
 - **Mensagens no app sequenciais:** Se você está adiando ou restaurando mensagens em um tour, consulte [Adiando mensagens no app disparadas]({{site.baseurl}}/developer_guide/in_app_messages/tutorials/deferring_triggered_messages).
-- **Ativos grandes ou CDN lento:** Otimize imagens e vídeos para mensagens no app em HTML. Em dispositivos móveis, as imagens podem ser baixadas antes da exibição em redes lentas — selecione a guia do seu SDK abaixo para notas específicas da plataforma.
+- **Ativos grandes ou CDN lento:** Otimize imagens e vídeos para mensagens no app em HTML. Em dispositivos móveis, as imagens podem ser baixadas antes da exibição em redes lentas — selecione a guia do seu SDK para notas específicas da plataforma.
 
 {% alert note %}
 Se sua mensagem no app é disparada pelo início de sessão e você definiu um tempo limite de sessão estendido, fechar e reabrir o app dentro dessa janela não atualizará a sessão. Por exemplo, com um tempo limite de 300 segundos, uma mensagem no app disparada pelo início de sessão não será exibida até que a sessão seja realmente atualizada. Ajuste o tempo limite de sessão ou o tipo de gatilho se isso afetar seu teste.
@@ -160,22 +160,22 @@ Se as mensagens no app não estão sendo retornadas, provavelmente há um proble
 1. Seu Segment não contém seu usuário.
    - Verifique a guia [**Engajamento**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#engagement-tab) do usuário para o Segment esperado.
 2. Seu usuário já recebeu a mensagem e não estava reelegível.
-   - Verifique as [configurações de reelegibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) e as [Perguntas frequentes sobre mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#campaigns).
+   - Verifique as [configurações de reelegibilidade]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility) e as [Perguntas frequentes sobre In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#campaigns).
 3. Seu usuário atingiu o limite de frequência.
    - Verifique as [configurações de limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping).
 4. Seu usuário caiu em um grupo de controle.
    - Crie um Segment com um filtro **Recebeu variante de campanha** definido como **Controle**, ou desative os grupos de controle durante os testes de integração.
-5. Uma mensagem no app de maior prioridade teve precedência. Consulte as [Perguntas frequentes sobre mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#can-multiple-in-app-messages-display-in-the-same-session).
+5. Uma mensagem no app de maior prioridade teve precedência. Consulte as [Perguntas frequentes sobre In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages/faq#can-multiple-in-app-messages-display-in-the-same-session).
 
-Para Campaigns arquivadas, configuração de gatilhos e horário de silêncio, consulte as [Perguntas frequentes sobre mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
+Para Campaigns arquivadas, configuração de gatilhos e horário de silêncio, consulte as [Perguntas frequentes sobre In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
 
 ## Impressões e análise de dados {#impressions-and-analytics}
 
 **Sintoma:** As contagens de impressões ou cliques não correspondem às expectativas.
 
 - **_Impressões_ maiores que _Impressões únicas_:** Esperado quando os usuários têm vários dispositivos ou quando uma postergação agendada faz com que o mesmo usuário se qualifique mais de uma vez. Consulte [Reelegibilidade para Campaigns e Canvas]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility).
-- **Impressões menores que o esperado:** Os usuários podem não ter visualizado a mensagem (impressões são registradas na exibição), várias mensagens de alta prioridade podem interceptar umas às outras, ou condições de corrida na sincronização de gatilhos podem se aplicar. Para mensagens no app do Canvas, consulte [Mensagens no app do Canvas](#canvas-in-app-messages). Para definições completas de métricas, consulte [Relatórios de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) e as [Perguntas frequentes sobre mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
-- **Impressões menores que antes:** Revise os changelogs do Segment e da Campaign. Confirme se você não reutilizou o mesmo evento de gatilho em uma Campaign de maior prioridade.
+- **Impressões menores que o esperado:** Os usuários podem não ter visualizado a mensagem (impressões são registradas na exibição), várias mensagens de alta prioridade podem interceptar umas às outras, ou condições de corrida na sincronização de gatilhos podem se aplicar. Para mensagens no app do Canvas, consulte [Mensagens no app do Canvas](#canvas-in-app-messages). Para definições completas de métricas, consulte [Relatórios de mensagens no app]({{site.baseurl}}/user_guide/channels/in_app_messages/reporting) e as [Perguntas frequentes sobre In-App Messages]({{site.baseurl}}/user_guide/channels/in_app_messages/faq).
+- **Impressões menores que antes:** Revise os changelogs do Segment e da Campaign. Confirme se você não reutilizou o mesmo evento-gatilho em uma Campaign de maior prioridade.
 
 ![Link para visualizar o changelog na página de detalhes da Campaign com sete alterações desde a última visualização do usuário.]({% image_buster /assets/img_archive/trouble4.png %})
 

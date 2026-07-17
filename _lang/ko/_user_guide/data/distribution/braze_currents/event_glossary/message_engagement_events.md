@@ -48,7 +48,7 @@ lazy_partner_tabs: true
 ### 플랫폼 값 {#platform-values}
 
 특정 이벤트는 사용자 기기의 플랫폼을 지정하는 `platform` 값을 반환합니다.
-<br>다음 표에는 반환 가능한 값이 나와 있습니다.
+<br>다음 표에는 반환될 수 있는 값이 나열되어 있습니다.
 
 | 사용자 기기 | 플랫폼 값 |
 | --- | --- |
@@ -63,7 +63,7 @@ lazy_partner_tabs: true
 
 {% enddetails %}
 
-{% details 메시지 인게이지먼트 이벤트 관련 고려사항 %}
+{% details 메시지 인게이지먼트 이벤트 관련 고려 사항 %}
 
 - Currents는 페이로드가 900&nbsp;KB를 초과하는 이벤트를 삭제합니다.
 - Canvas Flow와 관련된 객체에는 그룹화에 사용할 수 있는 ID가 있으며, [Canvas 세부정보 내보내기 엔드포인트]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details)를 통해 사람이 읽을 수 있는 이름으로 변환할 수 있습니다.
@@ -229,62 +229,6 @@ Agent
   },
   "time" : "(required, long) unix timestamp at which this event is logged",
   "user" : { }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-{% endapi %}
-
-{% api %}
-## 사용자 삭제 요청 이벤트 {#user-delete-request-events}
-
-{% apitags %}
-User Delete Request
-{% endapitags %}
-
-고객 요청에 의해 사용자가 삭제될 때 발생합니다.
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.UserDeleteRequest
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "id" : "(required, string) Globally unique ID for this event",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
-}
-```
-{% endtab %}
-{% endtabs %}
-
-{% endapi %}
-
-{% api %}
-## 사용자 고아 이벤트 {#user-orphan-events}
-
-{% apitags %}
-User Orphan
-{% endapitags %}
-
-사용자가 고아 상태가 될 때 발생합니다. 즉, 사용자가 다른 사용자의 프로필과 병합되는 경우입니다.
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.UserOrphan
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "app_id" : "(optional, string) API ID of the app on which this event occurred",
-  "device_id" : "(optional, string) ID of the device on which the event occurred",
-  "external_user_id" : "(optional, string) [PII] External ID of the user",
-  "id" : "(required, string) Globally unique ID for this event",
-  "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -4239,7 +4183,7 @@ Abort, Content Cards
 
 ### 속성 세부 정보
 
-- `dispatch_id`는 Campaign 발송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하고, 해당 발송의 푸시 메시지 라이프사이클(발송, 반송, 열기 등)을 상관 분석할 수 있습니다.
+- `dispatch_id`는 Campaign 발송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하고, 해당 발송의 푸시 메시지 라이프사이클(발송, 반송, 열람 등)을 상관 분석할 수 있습니다.
 - `abort_type` 필드는 메시지가 중단된 이유를 설명합니다. 전체 값 목록은 [중단 유형]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables#abort-types)을 참조하세요.
 - 글로벌 빈도 제한 규칙으로 인해 메시지가 중단된 경우 `abort_type`은 `frequency_capped`가 됩니다.
 - `abort_log`는 중단을 트리거한 특정 규칙에 대한 정보를 포함합니다. 예시: `Frequency cap rule: 5 Content Card messages every 1 week`
@@ -13109,7 +13053,7 @@ RCS, Delivery
 
 ### 속성 세부 정보
 
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송을 위한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송을 위한 ID입니다. 같은 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
 
 {% endapi %}
 
@@ -18790,7 +18734,7 @@ WhatsApp, Read
 
 ### 속성정보 세부 정보
 
-- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열기)를 그룹화하고 상관관계를 파악할 수 있습니다.
+- `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
 
 {% endapi %}
 
@@ -19305,47 +19249,5 @@ WhatsApp, Sends
 ### 속성정보 세부 사항
 
 - `dispatch_id`는 Campaign 전송과 같은 특정 메시지 발송에 대한 ID입니다. 동일한 발송에서 발생하는 모든 푸시 이벤트는 동일한 `dispatch_id`를 포함합니다. `dispatch_id`를 사용하여 동일한 발송에 속하는 이벤트를 그룹화하면 해당 발송의 푸시 메시지 생애 주기(예: 전송, 반송, 열람)를 그룹화하고 상관관계를 파악할 수 있습니다.
-
-{% endapi %}
-
-{% api %}
-## 사용자 프로필 업데이트 이벤트 {#user-profile-update-events}
-
-{% apitags %}
-Profile
-{% endapitags %}
-
-이 이벤트는 사용자의 프로필 업데이트를 나타냅니다.
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.profile.Update
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "app_id" : "(optional, string) API ID of the app on which this event occurred",
-  "archived" : "(optional, boolean) When set to True, indicates that this user was archived within Braze",
-  "country" : "(optional, string) [PII] Country of the user",
-  "custom_attributes" : "(optional, string) Valid JSON string of the updated custom attributes",
-  "dob" : "(optional, string) [PII] Date of birth of the user in ISO-8601 format",
-  "email_address" : "(optional, string) [PII] Email address of the user",
-  "external_user_id" : "(optional, string) [PII] External ID of the user",
-  "first_name" : "(optional, string) [PII] First name of the user",
-  "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
-  "home_city" : "(optional, string) [PII] Home city of the user",
-  "id" : "(required, string) Globally unique ID for this event",
-  "language" : "(optional, string) [PII] Language of the user",
-  "last_name" : "(optional, string) [PII] Last name of the user",
-  "phone_number" : "(optional, string) [PII] Phone number of the user in e.164 format",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "time_ms" : "(required, long) Time in milliseconds when the update happened",
-  "timezone" : "(optional, string) Time zone of the user",
-  "update_source" : "(required, string) The source of this update",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
-}
-```
-{% endtab %}
-{% endtabs %}
 
 {% endapi %}

@@ -1,26 +1,26 @@
 ---
-nav_title: "GET: Exportar diariamente nuevos usuarios por fecha"
+nav_title: "GET: Exportar nuevos usuarios diarios por fecha"
 article_title: "GET: Exportar nuevos usuarios diarios por fecha"
 search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar nuevos usuarios diarios de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar nuevos usuarios diarios de Braze."
 
 ---
 {% api %}
-# Exportar diariamente nuevos usuarios por fecha {#export-daily-new-users-by-date}
+# Exportar nuevos usuarios diarios por fecha {#export-daily-new-users-by-date}
 {% apimethod get %}
 /kpi/new_users/data_series
 {% endapimethod %}
 
-> Utiliza este punto de conexión para recuperar una serie diaria del número total de nuevos usuarios en cada fecha.
+> Utiliza este endpoint para recuperar una serie diaria del número total de nuevos usuarios en cada fecha.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#07756c39-cfa0-40a0-8101-03f8791cec01 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `kpi.new_users.data_series`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `kpi.new_users.data_series`.
 
 ## Límite de velocidad {#rate-limit}
 

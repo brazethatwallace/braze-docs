@@ -11,7 +11,7 @@ search_tag: Partner
 
 # Google Cloud Storage
 
-> [Google Cloud Storage](https://cloud.google.com/storage/) は、GoogleがCloud Computing製品群の一部として提供する、非構造化データのための大規模拡張可能オブジェクトストレージです。
+> [Google Cloud Storage](https://cloud.google.com/storage/)は、GoogleがCloud Computing製品群の一部として提供する、非構造化データのための大規模拡張可能オブジェクトストレージです。
 
 {% alert important %}
 クラウドストレージプロバイダーを切り替える場合は、Brazeカスタマーサクセスマネージャーに連絡し、新しい統合の設定と検証についてさらにサポートを受けてください。
@@ -24,7 +24,7 @@ BrazeとGoogle Cloud Storageの統合により、CurrentsデータをGoogle Clou
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | Google Cloud Storageアカウント | このパートナーシップを活用するには、Google Cloud Storageアカウントが必要です。 |
-| Currents | データをGoogle Cloud Storageにエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents)を設定する必要があります。メッセージのアーカイブの設定のみの場合、Currentsは必要ありません。 |
+| Currents | データをGoogle Cloud Storageにエクスポートするには、アカウントに[Braze Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents)を設定する必要があります。メッセージのアーカイブの設定のみの場合、Currentsは必要ありません。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ## 統合 {#integration}
@@ -41,7 +41,7 @@ Google Cloud Storageと統合するには、Brazeが書き込み先のストレ�
 
 Google Cloud Platform Consoleで、**IAM & admin** > **Roles** > **+ Create Role** に移動し、新しいロールを作成します。
 
-![]({% image_buster /assets/img/gcs1.png %})
+![ロール作成アクションが表示されたGoogle Cloud IAMロールページ。]({% image_buster /assets/img/gcs1.png %})
 
 ロールに名前を付け、**+Add Permissions** を選択して、以下を選択します。
 
@@ -52,12 +52,12 @@ Google Cloud Platform Consoleで、**IAM & admin** > **Roles** > **+ Create Role
 - `storage.buckets.get`
 
 {% alert note %}
-`storage.objects.delete` 権限はオプションです。これによりBrazeは不完全なファイルをクリーンアップできます。<br><br>まれにGoogle Cloudが接続を早期に終了し、BrazeがGoogle Cloud Storageに不完全なファイルを書き込むことがあります。ほとんどの場合、Brazeは再試行して正しいデータで新しいファイルを作成し、古いファイルはGoogle Cloud Storageに残ります。
+`storage.objects.delete`権限はオプションです。これによりBrazeは不完全なファイルをクリーンアップできます。<br><br>まれにGoogle Cloudが接続を早期に終了し、BrazeがGoogle Cloud Storageに不完全なファイルを書き込むことがあります。ほとんどの場合、Brazeは再試行して正しいデータで新しいファイルを作成し、古いファイルはGoogle Cloud Storageに残ります。
 {% endalert %}
 
 完了したら、**Create** を選択します。
 
-![]({% image_buster /assets/img/gcs2.png %})
+![ストレージ権限が選択されたGoogle Cloudカスタムロールエディター。]({% image_buster /assets/img/gcs2.png %})
 
 ### ステップ2:新しいサービスアカウントを作成する {#step-2-create-a-new-service-account}
 
@@ -65,7 +65,7 @@ Google Cloud Platform Consoleで、**IAM & admin** > **Roles** > **+ Create Role
 
 Google Cloud Platform Consoleで、**IAM & admin** > **Service Accounts** に移動し、**Create Service Account** を選択して新しいサービスアカウントを作成します。
 
-![]({% image_buster /assets/img/gcs3.png %})
+![Create Service Accountが選択されたGoogle Cloudサービスアカウントページ。]({% image_buster /assets/img/gcs3.png %})
 
 次に、サービスアカウントに名前を付け、新しく作成したカスタムロールへのアクセス権を付与します。
 
@@ -75,7 +75,7 @@ Google Cloud Platform Consoleで、**IAM & admin** > **Service Accounts** に移
 
 ページ下部の **Create Key** ボタンを使用して、Brazeで使用する **JSON** 秘密キーを作成します。キーが作成されると、マシンにダウンロードされます。
 
-![]({% image_buster /assets/img/gcs5.png %})
+![JSONキータイプに設定されたGoogle Cloudサービスアカウントキー作成ダイアログ。]({% image_buster /assets/img/gcs5.png %})
 
 ### ステップ3:BrazeでCurrentsを設定する {#step-3-set-up-currents-in-braze}
 
@@ -84,7 +84,7 @@ Brazeで **Currents** > **+ Create Current** > **Google Cloud Storage Data Expor
 次に、**GCS JSON Credentials** の下にJSON秘密キーをアップロードし、GCSバケット名とGCSプレフィックス（オプション）を入力します。この認証情報は、前のステップで説明したように、Google Cloud Platformを通じて生成する必要があります。
 
 {% alert important %}
-認証情報ファイルを最新の状態に維持することが重要です。コネクターの認証情報の有効期限が切れると、コネクターはイベントの送信を停止します。この状態が**5日**以上続くと、コネクターのイベントは削除され、データは永久に失われます。
+認証情報ファイルを最新の状態に維持することが重要です。コネクターの認証情報の有効期限が切れると、コネクターはイベントの送信を停止します。この状態が**5日間**以上続くと、コネクターのイベントは削除され、データは永久に失われます。
 {% endalert %}
 
 ![BrazeのGoogle Cloud Storage Currentsページ。このページには、統合名、連絡先メール、GCS JSON認証情報、GCSバケット名、プレフィックスのフィールドがあります。]({% image_buster /assets/img/gcs6.png %})
@@ -93,7 +93,7 @@ Brazeで **Currents** > **+ Create Current** > **Google Cloud Storage Data Expor
 
 ### ステップ4:Google Cloud Storageのエクスポートを設定する {#step-4-set-up-google-cloud-storage-exports}
 
-Google Cloud Storage（GCS）エクスポートを設定するには、**Technology Partners** > **Google Cloud Storage** に移動し、GCS認証情報を入力し、**Make this the default data export destination** を選択します。
+Google Cloud Storage（GCS）エクスポートを設定するには、**テクノロジーパートナー** > **Google Cloud Storage** に移動し、GCS認証情報を入力し、**Make this the default data export destination** を選択します。
 
 エクスポートされたファイルの構成と内容は、AWS S3、Microsoft Azure、Google Cloud Storageの統合間で同一であることに留意してください。
 

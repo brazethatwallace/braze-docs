@@ -7,7 +7,7 @@ layout: dev_guide
 guide_top_header: "カタログ"
 guide_top_text: "カタログは、Liquidを通してカスタム属性やカスタムイベントプロパティにアクセスするのと同様に、インポートしたCSVファイルやAPIエンドポイントからデータにアクセスしてメッセージを充実させます。"
 
-description: "このランディングページはカタログのホームです。カタログとフィルターセットを使用して、BrazeのCampaignsで非ユーザーデータを活用し、パーソナライズされたメッセージを送信できます。"
+description: "このランディングページはカタログのホームです。カタログとフィルターセットを使用して、Brazeのキャンペーンで非ユーザーデータを活用し、パーソナライズされたメッセージを送信できます。"
 
 guide_featured_title: "セクション記事"
 guide_featured_list:
@@ -20,7 +20,7 @@ guide_featured_list:
 - name: 再入荷通知
   link: /docs/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications
   image: /assets/img/braze_icons/shopping-cart-03.svg
-- name: 価格低下通知
+- name: 値下げ通知
   link: /docs/price_drop_notifications
   image: /assets/img/braze_icons/shopping-cart-03.svg
 - name: セレクション
@@ -47,11 +47,11 @@ guide_menu_list:
 - **季節のプロモーション:** 季節の商品コレクションをインポートし、現在のトレンドを反映したメッセージをパーソナライズします。
 - **ローカライズされたメッセージ:** 実店舗の住所、営業時間、サービスをインポートし、ユーザーの所在地に基づいて通知をパーソナライズします。
 - **再入荷通知:** 在庫数量を含む製品情報をインポートし、[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)とBrazeのカスタムイベントを使用して、製品が再入荷したことをユーザーに通知するキャンペーンまたはキャンバスをトリガーします。
-- **価格低下通知:** 商品価格を含む製品情報をインポートし、[価格低下通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)とBrazeのカスタムイベントを使用して、商品の価格が下がったことをユーザーに通知するキャンバスをトリガーします。
+- **値下げ通知:** 商品価格を含む製品情報をインポートし、[値下げ通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/price_drop_notifications)とBrazeのカスタムイベントを使用して、商品の価格が下がったことをユーザーに通知するキャンバスをトリガーします。
 
 ### エンターテイメント {#entertainment}
 
-- **サブスクリプションプラン:** サブスクリプションプランをインポートし、ユーザーの利用パターンや最もよく消費するコンテンツの種類に基づいてアドオンをプロモーションします。
+- **購読プラン:** 購読プランをインポートし、ユーザーの利用パターンや最もよく消費するコンテンツの種類に基づいてアドオンをプロモーションします。
 - **今後のイベント:** 近日開催予定のイベントリストとその場所、対象年齢をインポートし、対象エリア内にいる該当年齢のユーザーにパーソナライズされた通知を送信します。
 - **メディアの好み:** 映画や番組の情報をインポートし、ユーザーのお気に入りタイトルやよく視聴するジャンルに基づいてコンテンツをおすすめします。
 
@@ -66,14 +66,14 @@ guide_menu_list:
 
 カタログはデータ保存機能です。パーソナライゼーションのためにメッセージ内で参照できる大規模なデータセットが含まれています。実際にデータを参照するには、テンプレート言語として[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)を使用します。つまり、カタログはデータが保管されているストレージであり、Liquidはストレージから関連データを取得するための言語です。
 
-Liquidを使用してカタログ情報を取得する方法の例については、[カタログを作成する]({{site.baseurl}}/user_guide/data/activation/catalogs/create#additional-use-cases)の追加のユースケースを参照してください。
+Liquidを使用してカタログ情報を取得する方法の例については、[カタログを作成する]({{site.baseurl}}/user_guide/data/activation/catalogs/create#use-cases)の追加のユースケースを参照してください。
 
 ## データ保存の制限 {#data-storage-limitations}
 
 カタログのデータストレージは、カタログアイテムのサイズに基づいて制限されます。これは、アップロードしたCSVファイルのサイズとは異なる場合があります。
 
-カタログの無料バージョンの場合、許可されるストレージ容量は最大100&nbsp;MBです。ストレージが100&nbsp;MBを超えない限り、アイテム数は無制限です。
+カタログの無料バージョンの場合、許可されるストレージ容量は最大500&nbsp;MBです。ストレージが500&nbsp;MBを超えない限り、アイテム数は無制限です。
 
-Catalogs Proの場合、ストレージサイズのオプションは5&nbsp;GB、10&nbsp;GB、15&nbsp;GB、または50&nbsp;GBです。なお、無料版のストレージ（100&nbsp;MB）はこれらの各プランに含まれています。
+Catalogs Proの場合、ストレージサイズのオプションは5&nbsp;GB、10&nbsp;GB、15&nbsp;GB、または50&nbsp;GBです。なお、無料版のストレージ（500&nbsp;MB）はこれらの各プランに含まれています。
 
 カタログストレージのアップグレードが必要な場合は、Brazeアカウントマネージャーにお問い合わせください。プランの詳細と利用資格については、[カタログストレージ]({{site.baseurl}}/user_guide/data/activation/catalogs/create#tiers)を参照してください。

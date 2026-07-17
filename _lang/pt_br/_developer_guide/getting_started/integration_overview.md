@@ -89,7 +89,7 @@ O administrador da sua equipe deve adicionar você (e todos os outros membros da
 
 O administrador da sua equipe também criará diferentes [espaços de trabalho]({{site.baseurl}}/user_guide/administer/global/create_and_manage_workspaces). Os espaços de trabalho agrupam seus dados — usuários, segmentos, chaves de API — em um único local. Como prática recomendada, sugerimos colocar apenas versões diferentes do mesmo app ou de apps muito semelhantes em um único espaço de trabalho.
 
-É importante ressaltar que os espaços de trabalho fornecem chaves de API para várias plataformas (como iOS e Android). Você usará as chaves de API correlacionadas para associar os dados do SDK a um espaço de trabalho específico. Navegue até seus espaços de trabalho para acessar a chave de API de cada um de seus apps. Confira se cada chave de API tem as permissões corretas para executar o trabalho que você definiu como escopo. Consulte o [artigo sobre provisionamento da API]({{site.baseurl}}/api/basics#rest-api-key) para saber mais.
+É importante ressaltar que os espaços de trabalho fornecem chaves de API para várias plataformas (como iOS e Android). Você usará as chaves de API correlacionadas para associar os dados do SDK a um espaço de trabalho específico. Navegue até seus espaços de trabalho para acessar a chave de API de cada um de seus apps. Confira se cada chave de API tem as permissões corretas para executar o trabalho que você definiu como escopo. Consulte o [artigo sobre provisionamento da API]({{site.baseurl}}/api/basics#rest-api-key-permissions) para saber mais.
 
 {% alert important %}
 É importante que você configure ambientes diferentes para desenvolvimento e produção. A configuração de um ambiente de teste evitará que você gaste dinheiro real durante a integração e o controle de qualidade. Para criar um ambiente de teste, configure um espaço de trabalho de teste e certifique-se de usar a respectiva chave de API para não preencher o espaço de trabalho de produção com dados de teste.
@@ -197,7 +197,7 @@ Confira se os seus ambientes de produção e teste estão configurados antes de 
 | Crie perfis de usuário anônimos. | Teste se as campanhas push estão sendo enviadas corretamente para os dispositivos e se o engajamento está registrado. |
 | Confirme se os perfis de usuário anônimos se tornam perfis de usuário conhecidos quando o método `changeUser()` é chamado. | Teste se as mensagens no app são entregues e se as métricas são registradas. |
 |                           | Teste se os Content Cards são entregues e se as métricas são registradas. |
-|                           | Facilite o Conteúdo conectado (por exemplo, AccuWeather). |
+|                           | Facilite o Connected Content (por exemplo, AccuWeather). |
 |                           | Confirme se todas as integrações de canais de envio de mensagens estão funcionando corretamente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Controle de qualidade" }
 

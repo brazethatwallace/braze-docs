@@ -90,6 +90,7 @@ Keep the following behaviors in mind when you assign dashboard access:
 - **Workspace Admin versus Company Admin:** Workspace Admins manage permissions within assigned workspaces. Company Admins have company-wide authority, including deleting other dashboard users.
 - **Limited users:** Limited users with the "Edit Dashboard Users" permission can manage other limited users but cannot create or manage Company Admin accounts.
 - **Manage Dashboard Users scope:** On the user detail page, permissions appear only for workspaces the editor can access. A limited user who can edit users in one workspace may not see another workspace's permission checkboxes.
+- **Assign permissions button:** When you edit a user and they already have workspace-level permissions or permission sets for every workspace you can manage, the **Assign permissions** button disappears. This happens because there are no additional workspaces left to assign at the workspace level.
 - **Export User Data:** Exporting user data requires workspace-level access in addition to the export permission.
 - **Composite permissions:** Some areas require multiple permissions. For example, configuring [Technology Partners]({{site.baseurl}}/partners) typically requires both partner access and a baseline read permission for the related workspace features.
 - **Import and Update User Data:** This permission includes the ability to edit app user profiles through import flows, not only dashboard user records.
@@ -221,7 +222,7 @@ To download a list of your users and their permissions, go to **Settings** > **U
 | User Data | Edit User Data | Create and update user data |
 | User Data | Export User Data | Download users from the dashboard |
 | Duplicate Users | View User Merge Records | View a list of user merge records |
-| Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner |
+| Users | View User Profiles (PII Redacted) | View user profiles in a PII compliant manner. Users with this permission can't save or launch campaigns that reference custom attributes marked as PII unless they also have the "View Custom Attributes Marked as PII" permission.<br><br>The "View User Profiles (PII Redacted)" permission must be enabled before use. Contact your customer success manager to enable it for your workspace. |
 | Users | View User Event Properties | View event properties in the **Event History** tab on user profiles |
 | Duplicate Users | Merge Duplicate Users | Combine duplicate users into one user. Duplicates are removed after merging |
 | Delete Users | View User Deletion Records | View a list of user deletion records |

@@ -22,7 +22,7 @@ Damit können Sie Telefonnummern erneut validieren, nachdem sie als ungültig ma
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `sms.invalid_phone_numbers.remove`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `sms.invalid_phone_numbers.remove`.
 
 ## Rate-Limit
 

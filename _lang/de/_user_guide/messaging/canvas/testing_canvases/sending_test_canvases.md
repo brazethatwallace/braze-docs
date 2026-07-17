@@ -13,7 +13,7 @@ tool: Canvas
 
 Wenn möglich, empfiehlt Braze, ein Canvas vor dem Start zu testen. Dieser Test findet in der Regel in Ihrer Braze-Umgebung statt. Das Testen Ihres Canvas kann beinhalten, es zu duplizieren, Testnutzer:innen durch die User-Journey zu führen und zu überprüfen, ob das Nutzerverhalten mit dem übereinstimmt, was Sie in Ihrem Canvas festgelegt haben.
 
-## 1. Schritt: Testplan erstellen {#step-1-create-your-test-plan}
+## Schritt 1: Testplan erstellen {#step-1-create-your-test-plan}
 
 Das Erstellen eines Testplans ist essenziell, bevor Sie mit dem Testen Ihres Canvas beginnen. Ein Testplan kann Ihnen helfen, bestimmte Bereiche Ihrer Canvas-Journey zu identifizieren und nachzuverfolgen.
 
@@ -23,11 +23,11 @@ Berücksichtigen Sie beim Erstellen Ihres Testplans die folgenden Fragen:
 	- Falls Segmente verwendet werden, kann es Voraussetzungen geben, die ein:e Nutzer:in erfüllen muss, um in das Canvas zu gelangen, bevor er/sie für eine User-Journey berechtigt ist.
 - Enthalten die Nachrichten im Test-Canvas Liquid in den Nachrichtentiteln, das die Nutzer-ID oder E-Mail-Adresse einbezieht, um sicherzustellen, dass sowohl die Nachricht als auch der/die Nutzer:in zu Testzwecken leicht identifiziert werden können?
 
-## 2. Schritt: Testnutzer:innen identifizieren {#step-2-identify-test-users}
+## Schritt 2: Testnutzer:innen identifizieren {#step-2-identify-test-users}
 
 Identifizieren Sie als Nächstes eine Gruppe von Testnutzer:innen, die die Canvas-Schritte durchlaufen, ohne tatsächlich Nachrichten an Ihre vorgesehenen Nutzer:innen zu senden. Testnutzer:innen können entweder bestehende E-Mail-Adressen sein, die nicht für tatsächliche Dienste in Ihrem Braze-Dashboard verwendet werden, oder neue E-Mail-Adressen, die ausschließlich zu Testzwecken genutzt werden.
 
-## 3. Schritt: Canvas einrichten {#step-3-set-up-your-canvas}
+## Schritt 3: Canvas einrichten {#step-3-set-up-your-canvas}
 
 Als Nächstes ist es an der Zeit, Ihr Canvas zu testen! Um Ihr Original-Canvas und die Test-Canvas-Informationen übersichtlich zu halten, erstellen Sie ein Duplikat Ihres Canvas zu Testzwecken.
 
@@ -39,7 +39,7 @@ Es gibt zwei Möglichkeiten, Ihr Canvas zu testen.
 
 - **Methode 2:** [Zeigen Sie eine Vorschau der Nutzerpfade an]({{site.baseurl}}/preview_user_paths), indem Sie den Button **Test Canvas** in der Fußzeile des Canvas-Builders auswählen.
 
-## 4. Schritt: Test starten {#step-4-launch-your-test}
+## Schritt 4: Test starten {#step-4-launch-your-test}
 
 Starten Sie Ihr Test-Canvas, damit Nutzer:innen beginnen können, es zu betreten. Führen Sie die Nutzeraktionen in Ihrer Anwendung aus, die Nutzer:innen durch die jeweilige Canvas-Journey senden würden.
 

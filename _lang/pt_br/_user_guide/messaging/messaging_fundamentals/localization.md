@@ -38,9 +38,9 @@ Nesta abordagem, a localização é aplicada a um único modelo na Braze usando 
 
 ### Um modelo por país {#one-template-per-country}
 
-Nesta abordagem, os modelos são separados em diferentes localidades de envio. Após o envio, o dashboard exibe análises de envio com base em cada país separadamente, e quaisquer eventos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents) no nível do usuário também estarão vinculados a uma Campaign específica.
+Nesta abordagem, os modelos são separados em diferentes localidades de envio. Após o envio, o dashboard exibe análises de envio com base em cada país separadamente, e quaisquer eventos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) no nível do usuário também estarão vinculados a uma Campaign específica.
 
-- Os modelos se beneficiam da implementação de [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags) para fins de manutenção e rastreamento.
+- Os modelos se beneficiam da implementação de [tags]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags) para fins de manutenção e rastreamento.
 - As Campaigns podem herdar as configurações do mesmo [modelo da Braze]({{site.baseurl}}/user_guide/messaging/templates) e [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) (como [modelos de e-mail]({{site.baseurl}}/user_guide/messaging/templates/email_templates) que contêm Liquid).
 - Campaigns e modelos pré-existentes podem ser [duplicados]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating) para permitir um tempo de retorno mais rápido.
 
@@ -55,7 +55,7 @@ Nesta abordagem, os modelos são separados em diferentes localidades de envio. A
 
 Nesta abordagem, a localização é tratada dentro dos [fundamentos do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics#building-the-customer-journey) e do Liquid para definir o envio de mensagens para cada usuário.
 
-Após o envio de um Canvas, o dashboard fornece [análises agregadas do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics), enquanto o engajamento no nível do usuário pode ser medido por meio de [funis de segmentos]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size) personalizados, como a combinação dos filtros [**País**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country) e [**Etapa do Canvas recebida**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-canvas-step).
+Após o envio de um Canvas, o dashboard fornece [análises agregadas do Canvas]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics), enquanto o engajamento no nível do usuário pode ser medido por meio de [funis de segmentos]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size) personalizados, como a combinação dos filtros [**País**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country) e [**Etapa do Canvas recebida**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step).
 
 | Vantagens | Considerações |
 | --- | --- |
@@ -69,9 +69,9 @@ Nesta abordagem, o construtor de jornadas do [Canvas]({{site.baseurl}}/user_guid
 A localização pode ser alcançada com os seguintes métodos:
 
 - Canvas separados por país, garantindo que as jornadas complexas de usuário sejam definidas no topo do funil usando filtros de público
-- Jornadas de usuário personalizadas por país, com a implementação de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) para segmentar usuários de forma intuitiva em grande escala para cada jornada, criando threads de mensagens separados para cada país em um único Canvas
+- Jornadas de usuário personalizadas por país, com a implementação de [jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) para segmentar usuários de forma intuitiva em grande escala para cada jornada, criando threads de mensagens separados para cada país em um único Canvas
 
-Após o envio, o dashboard fornece análises dinâmicas por país e, dentro dos eventos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents) no nível do usuário, com base na localização atual do cliente.
+Após o envio, o dashboard fornece análises dinâmicas por país e, dentro dos eventos de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) no nível do usuário, com base na localização atual do cliente.
 
 | Vantagens | Considerações |
 | --- | --- |
@@ -135,7 +135,7 @@ Os Content Blocks também podem ser utilizados como um processo de gerenciamento
 {% endtab %}
 
 {% tab Catalogs %}
-Os [Catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) permitem que você acesse dados de objetos JSON importados via API e arquivos CSV para enriquecer suas mensagens, de forma semelhante a atributos personalizados ou propriedades de eventos personalizados por meio de Liquid. Por exemplo:
+Os [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs) permitem que você acesse dados de objetos JSON importados via API e arquivos CSV para enriquecer suas mensagens, de forma semelhante a atributos personalizados ou propriedades de eventos personalizados por meio de Liquid. Por exemplo:
 
 {% subtabs local %}
 {% subtab API %}
@@ -230,7 +230,7 @@ Crie um CSV no seguinte formato:
 {% endsubtab %}
 {% endsubtabs %}
 
-Esses itens de catálogo podem ser referenciados usando [personalização]({{site.baseurl}}/user_guide/data/activation/catalogs/create#using-catalogs-in-a-message), conforme mostrado abaixo, ou [seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) que permitem criar grupos de dados.
+Esses itens de catálogo podem ser referenciados usando [personalização]({{site.baseurl}}/user_guide/data/activation/catalogs/create), conforme mostrado no exemplo a seguir, ou [seleções]({{site.baseurl}}/user_guide/data/activation/catalogs/selections) que permitem criar grupos de dados.
 
 {% raw %}
 ```liquid
@@ -242,7 +242,7 @@ Esses itens de catálogo podem ser referenciados usando [personalização]({{sit
 {% endtab %}
 
 {% tab Braze partners %}
-Muitos parceiros da Braze oferecem soluções de localização, incluindo [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-transifex) e [Crowdin](https://crowdin.com/). Normalmente, os usuários utilizam a plataforma em conjunto com uma equipe interna e uma agência de tradução. Essas traduções são então carregadas e ficam acessíveis via REST API. Esses serviços também costumam utilizar [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), permitindo que os usuários busquem as traduções via API.
+Muitos parceiros da Braze oferecem soluções de localização, incluindo [Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration) e [Crowdin](https://crowdin.com/). Normalmente, os usuários utilizam a plataforma em conjunto com uma equipe interna e uma agência de tradução. Essas traduções são então carregadas e ficam acessíveis via REST API. Esses serviços também costumam utilizar [Conteúdo conectado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content), permitindo que os usuários busquem as traduções via API.
 
 Por exemplo, as seguintes chamadas de Conteúdo conectado chamam o Transifex e o Crowdin para buscar uma tradução, utilizando {% raw %}`{{${language}}}`{% endraw %} para identificar a tradução correta para um determinado usuário. Essa tradução é então salva no bloco JSON "strings" e referenciada.
 

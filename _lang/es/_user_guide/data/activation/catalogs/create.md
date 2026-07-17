@@ -48,11 +48,11 @@ Para crear un catálogo, ve a **Configuración de datos** > **Catálogos**, sele
 
 Antes de cargar tu archivo CSV, asegúrate de que cumple los siguientes requisitos:
 
-| Requisitos CSV | Detalles |
+| Requisito CSV | Detalles |
 |-----------------|---------|
 | Encabezados | La primera columna del archivo CSV debe llamarse `id`, y cada fila debe tener un valor `id` único. |
 | Columnas | Un archivo CSV puede tener un máximo de 1000 campos (columnas) y cada nombre de columna puede tener hasta 250 caracteres. |
-| Tamaño del archivo | En los planes gratuitos, el tamaño total de todos los archivos CSV de una empresa está limitado a 100 MB. Para los planes Pro, el tamaño máximo de un solo archivo CSV es de 2 GB. |
+| Tamaño del archivo | En los planes gratuitos, el tamaño total de todos los archivos CSV de una empresa está limitado a 500 MB. Para los planes Pro, el tamaño máximo de un solo archivo CSV es de 2 GB. |
 | Valores de campo | Cada celda (valor de campo) puede contener hasta 5000 caracteres. |
 | Caracteres válidos | La columna `id` y todos los valores del encabezado solo pueden contener letras, números, guiones y guiones bajos. |
 | Tipos de datos | Los tipos de datos compatibles para las cargas CSV incluyen cadenas, números, valores booleanos, horas y geolocalización. Para obtener la lista completa de tipos de datos, incluidos los que solo están disponibles a través de la API y CDI, consulta [Tipos de datos compatibles](#supported-data-types). |
@@ -76,7 +76,7 @@ Selecciona un tipo de datos para cada columna.
 Este tipo de datos no se puede editar una vez configurado el catálogo. Además, un valor `NULL` no es compatible con la carga de CSV y se tratará como una cadena.
 {% endalert %}
 
-![Este tipo de datos no se puede editar una vez configurado el catálogo. Además, un valor NULL no es compatible con la carga de CSV y se tratará como una cadena.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![Selección de tipo de datos para cada columna del catálogo. Un valor NULL no es compatible con la carga de CSV y se tratará como una cadena.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 Introduce un nombre y una descripción opcional para tu catálogo. Ten en cuenta los siguientes requisitos al nombrar tu catálogo:
 
@@ -182,7 +182,7 @@ Selecciona **Update Catalog** > **Add items** para añadir un elemento a tu cat�
 ![Añadir un elemento al catálogo.]({% image_buster /assets/img_archive/add_catalog_items.png %}){: style="max-width:50%;"}
 
 {% alert note %}
-Braze procesa los valores de tiempo basándose en la marca de tiempo del dashboard. Por ejemplo, si una columna tiene el valor "03/13/2024" y tu zona horaria es la zona horaria del Pacífico, esta hora se importaría a Braze como "Mar 12, 2024, 5:00 PM".
+Braze procesa los valores de tiempo basándose en la marca de tiempo del panel. Por ejemplo, si una columna tiene el valor "03/13/2024" y tu zona horaria es la zona horaria del Pacífico, esta hora se importaría a Braze como "Mar 12, 2024, 5:00 PM".
 {% endalert %}
 {% endtab %}
 {% endtabs %}
@@ -197,9 +197,9 @@ Los catálogos admiten varios tipos de datos para ayudarte a organizar y estruct
 | Hora | ISO 8601 o marca de tiempo Unix (segundos) | `"2024-03-15T14:30:00Z"` | Valores de fecha y hora con formato ISO 8601 o marca de tiempo Unix en segundos. Equivalente al tipo `time` en la API y al tipo `datetime` en las importaciones CSV. |
 | Booleano | `true` o `false` | `true` | Valores lógicos que representan estados verdadero o falso. Equivalente al tipo `boolean` en las importaciones CSV y API. |
 | Número | Entero o decimal | `42` o `19.99` | Valores numéricos que incluyen enteros y números de punto flotante para precios, cantidades, calificaciones y más. Equivalente a los tipos `integer` y `float` en las importaciones CSV y al tipo `number` en la API. |
-| Geolocalización | Matriz `[longitude, latitude]` | `[-73.988103, 40.779109]` | Un par de coordenadas que representa una ubicación geográfica. La longitud debe estar entre -180 y 180; la latitud debe estar entre -90 y 90. El valor de `type` en la API es `geo`. Se puede añadir a través del panel **Add Fields** en la interfaz de Catálogos, la carga CSV o la REST API. |
-| Objeto | Objeto JSON | `{"key": "value", "price": 10}` | Estructuras de datos anidadas complejas. El valor de `type` en la API es `object`. Se muestra como objeto JSON en el dashboard. Solo disponible a través de la API o la Ingesta de datos de Cloud (CDI). |
-| Matriz | Matriz de cadenas | `["red", "blue", "green"]` | Listas de valores de cadena. El valor de `type` en la API es `array`. Se muestra como matriz de cadenas en el dashboard. Solo disponible a través de la API o CDI. |
+| Geolocalización | Matriz `[longitude, latitude]` | `[-73.988103, 40.779109]` | Un par de coordenadas que representa una ubicación geográfica. La longitud debe estar entre -180 y 180; la latitud debe estar entre -90 y 90. El valor de `type` en la API es `geo`. Se puede añadir a través del panel **Add Fields** en la interfaz de catálogos, la carga CSV o la REST API. |
+| Objeto | Objeto JSON | `{"key": "value", "price": 10}` | Estructuras de datos anidadas complejas. El valor de `type` en la API es `object`. Se muestra como objeto JSON en el panel. Solo disponible a través de la API o la ingesta de datos en la nube (CDI). |
+| Matriz | Matriz de cadenas | `["red", "blue", "green"]` | Listas de valores de cadena. El valor de `type` en la API es `array`. Se muestra como matriz de cadenas en el panel. Solo disponible a través de la API o CDI. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ## Uso de plantillas en los nombres de los catálogos {#template-catalog-names}
@@ -217,29 +217,29 @@ Al nombrar tu catálogo, también puedes utilizar plantillas en el nombre del ca
 
 ## Administración de catálogos {#managing-catalogs}
 
-### En el dashboard {#in-the-dashboard}
+### En el panel {#in-the-dashboard}
 
 Para actualizar tu catálogo después de cargar un archivo CSV o crear un catálogo en el navegador, selecciona **Update Catalog** > **Upload CSV** y, a continuación, selecciona si deseas actualizar, añadir o eliminar elementos de tu catálogo.
 
 ### Uso de la REST API {#using-the-rest-api}
 
-A medida que crees más catálogos, también puedes utilizar el [punto de conexión Listar catálogos]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) para obtener una lista de los catálogos de un espacio de trabajo.
+A medida que crees más catálogos, también puedes utilizar el [endpoint Listar catálogos]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/get_list_catalogs) para obtener una lista de los catálogos de un espacio de trabajo.
 
 La REST API admite todos los [tipos de datos de catálogo](#supported-data-types), incluidos los objetos JSON y las matrices de cadenas. Los objetos JSON y las matrices de cadenas solo se pueden crear o actualizar a través de la REST API.
 
-### Uso de la Ingesta de datos de Cloud {#using-cloud-data-ingestion}
+### Uso de la ingesta de datos en la nube {#using-cloud-data-ingestion}
 
-Puedes mantener catálogos a través de la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) sincronizando los datos del catálogo directamente desde tu almacén de datos (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric o S3) de forma programada.
+Puedes mantener catálogos a través de la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) sincronizando los datos del catálogo directamente desde tu almacén de datos (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric o S3) de forma programada.
 
 ## Gestión de los elementos del catálogo {#managing-catalog-items}
 
-Además de gestionar tus catálogos, también puedes utilizar puntos finales asíncronos y síncronos para gestionar los elementos del catálogo. Esto incluye la posibilidad de editar y eliminar elementos del catálogo, y de listar los detalles de los elementos del catálogo.
+Además de gestionar tus catálogos, también puedes utilizar endpoints asíncronos y síncronos para gestionar los elementos del catálogo. Esto incluye la posibilidad de editar y eliminar elementos del catálogo, y de listar los detalles de los elementos del catálogo.
 
-Por ejemplo, si quieres editar un elemento individual del catálogo, puedes utilizar el [punto de conexión `/catalogs/catalog_name/items/item_id`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item).
+Por ejemplo, si quieres editar un elemento individual del catálogo, puedes utilizar el [endpoint `/catalogs/catalog_name/items/item_id`]({{site.baseurl}}/api/endpoints/catalogs/catalog_items/synchronous/patch_catalog_item).
 
 ## Almacenamiento de catálogos {#tiers}
 
-La versión gratuita de catálogos admite tamaños de archivo CSV de hasta 100 MB para todos los archivos CSV combinados de tu empresa, mientras que la versión Catalogs Pro admite tamaños de archivo CSV de hasta 2 GB para un único archivo CSV.
+La versión gratuita de catálogos admite tamaños de archivo CSV de hasta 500 MB para todos los archivos CSV combinados de tu empresa, mientras que la versión Catalogs Pro admite tamaños de archivo CSV de hasta 2 GB para un único archivo CSV.
 
 {% alert important %}
 El derecho a paquete que se muestra en el panel de Braze se redondea a la unidad más próxima por motivos visuales; sin embargo, sigues teniendo derecho a la totalidad del derecho adquirido. Para solicitar una actualización del almacenamiento de catálogos, ponte en contacto con tu director de cuentas de Braze.
@@ -247,11 +247,11 @@ El derecho a paquete que se muestra en el panel de Braze se redondea a la unidad
 
 ### Versión gratuita {#free-version}
 
-El tamaño de almacenamiento para la versión gratuita de los catálogos es de hasta 100&nbsp;MB. Puedes tener un número ilimitado de elementos, siempre que no superen los 100&nbsp;MB.
+El tamaño de almacenamiento para la versión gratuita de los catálogos es de hasta 500&nbsp;MB. Puedes tener un número ilimitado de elementos, siempre que no superen los 500&nbsp;MB.
 
 #### Catalogs Pro {#catalogs-pro}
 
-A nivel de empresa, el almacenamiento máximo para Catalogs Pro se basa en el tamaño de los datos del catálogo. Las opciones de tamaño de almacenamiento son: 5&nbsp;GB, 10&nbsp;GB o 15&nbsp;GB. Ten en cuenta que el almacenamiento de la versión gratuita (100&nbsp;MB) está incluido en cada uno de estos planes.
+A nivel de empresa, el almacenamiento máximo para Catalogs Pro se basa en el tamaño de los datos del catálogo. Las opciones de tamaño de almacenamiento son: 5&nbsp;GB, 10&nbsp;GB o 15&nbsp;GB. Ten en cuenta que el almacenamiento de la versión gratuita (500&nbsp;MB) está incluido en cada uno de estos planes.
 
 ## Especificaciones {#specifications}
 

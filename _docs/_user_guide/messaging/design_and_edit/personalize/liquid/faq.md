@@ -64,7 +64,7 @@ For URL and query string use (for example, when a name contains `%` or spaces), 
 
 Braze has a built-in feature that generates Liquid code for segments that can be used in a message. Specifically, you can create a segment that matches multiple criteria in an object.
 
-For more information, check out [Multi-criteria segmentation]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation).
+For more information, check out [Multi-criteria segmentation]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects).
 
 ### How do I use event attributes to personalize a message that an event is triggering?
 
@@ -148,6 +148,41 @@ Abort logic allows you to stop a message from being sent if the conditions are m
 ### Can I use Liquid inside the `abort_message` tag?
 
 No. The {% raw %}`{% abort_message %}`{% endraw %} tag accepts a static string in quotes, not Liquid personalization. Use other Liquid logic before the tag if you need conditional abort behavior.
+
+### How do I mask phone numbers with Liquid?
+
+You can mask phone numbers using the `slice` filter to extract specific digits and the `append` filter to combine them with masking characters.
+
+#### Mask all but the last four digits
+
+To display a 10-digit phone number as `******7890`:
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### Show the first three and last four digits
+
+To display a 10-digit phone number as `123***7890`:
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
 
 ## Canvas, catalogs, and trigger properties
 

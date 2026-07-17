@@ -78,9 +78,9 @@ Após adicionar segmentos e filtros ao seu público, você pode testar se o púb
 
 #### Resumo do público {#audience-summary}
 
-O **Resumo do público** mostrará uma visão geral de quem está no seu público-alvo. Aqui, você pode limitar ainda mais seu público definindo um limite máximo de usuários ou [limitando a taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) de velocidade de entrega.
+O **Resumo do público** mostrará uma visão geral de quem está no seu público-alvo. Aqui, você pode limitar ainda mais seu público definindo um limite máximo de usuários ou [limitando a frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) da velocidade de entrega.
 
-![A seção "Resumo do público" com opções para definir um limite máximo de usuários ou limitar a taxa de velocidade de entrega.]({% image_buster /assets/img_archive/audience_summary.png %})
+![A seção "Resumo do público" com opções para definir um limite máximo de usuários ou limitar a frequência da velocidade de entrega.]({% image_buster /assets/img_archive/audience_summary.png %})
 
 #### Testes A/B {#ab-testing}
 
@@ -90,10 +90,10 @@ Para saber mais e conhecer as práticas recomendadas, consulte [Testes multivari
 
 #### Estatísticas do público {#audience-statistics}
 
-A Braze fornece estatísticas detalhadas do público dos canais direcionados no rodapé. Quanto maior for sua base de usuários, mais provável é que a quantidade de **Usuários contatáveis** seja uma estimativa aproximada. O número de usuários contatáveis pode diminuir se você usar um [Grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) ou configurar a elegibilidade de mensagens.
+A Braze fornece estatísticas detalhadas do público dos canais direcionados no rodapé. Quanto maior for sua base de usuários, mais provável é que a quantidade de **usuários contatáveis** seja uma estimativa aproximada. O número de usuários contatáveis pode diminuir se você usar um [grupo de controle global]({{site.baseurl}}/user_guide/audience/global_control_group) ou configurar a elegibilidade de mensagens.
 
-- Para determinar um número preciso de usuários contatáveis, selecione [Calcular estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics), pois isso pesquisará cada usuário na sua base de usuários.
-- Para ver qual porcentagem da sua base de usuários está sendo direcionada ou o Lifetime Value (LTV) desse segmento, selecione **Mostrar estatísticas adicionais**.
+- Para determinar um número preciso de usuários contatáveis, selecione [Calcular estatísticas exatas]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics), pois isso pesquisará cada usuário na sua base de usuários.
+- Para ver qual porcentagem da sua base de usuários está sendo direcionada ou o valor do tempo de vida (LTV) desse segmento, selecione **Mostrar estatísticas adicionais**.
 
 ##### Por que a contagem do público-alvo pode diferir da contagem de usuários contatáveis {#why-the-target-audience-count-could-differ-from-the-reachable-users-count}
 

@@ -186,6 +186,13 @@ Das Panel **WhatsApp Performance** zeigt Ihnen, wie gut Ihre Nachricht in versch
 
 ![WhatsApp-Performance-Panel mit einer Tabelle mit Metriken für Variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Credits versus Sendezähler {#credits-versus-send-counts}
+
+Die WhatsApp-Sendezähler in den Kampagnen-Analytics spiegeln Zustellversuche wider. Die verbrauchten Credits können abweichen, wenn Meta nach Nachrichtenkategorie (Marketing, Utility, Authentifizierung, Service) abrechnet.
+
+- Antwortnachrichten, die in Braze erstellt werden, verbrauchen keine Braze-WhatsApp-Credits.
+- Verwenden Sie **Analytics** > **Daily Stats** für eine Orientierung zum Sendevolumen. Credit-Aufschlüsselungen pro Kampagne oder Canvas sind nicht verfügbar.
+
 {% endif %}
 
 Wenn Sie Ihre Ansicht vereinfachen möchten, klicken Sie auf <i class="fas fa-plus"></i> **Add/Remove Columns** und deaktivieren Sie die gewünschten Metriken. Standardmäßig werden alle Metriken angezeigt.
@@ -365,6 +372,12 @@ Nehmen wir als weiteres Beispiel an, Sie sehen fünf _Unique Impressions_ in ein
 
 _Unique Daily Impressions_ bezieht sich auf die Banner, die tatsächlich angesehen wurden.
 
+#### Abweichungen zwischen Kontrollgruppen und Varianten {#discrepancies-between-control-groups-and-variants}
+
+Wenn eine Banner-Kampagne eine Kontrollgruppe verwendet, können die Impressionen der Kontrollgruppe höher sein als die der Variante, selbst wenn die Zielgruppenaufteilung zwischen den Gruppen gleichmäßig ist. Diese Abweichung wird durch einen Unterschied in der Art und Weise verursacht, wie Impressionen für Kontroll- und Varianten-Banner protokolliert werden.
+
+Sowohl Kontroll- als auch Varianten-Impressionen erfordern, dass die Banner-Platzierung in den sichtbaren Bereich gelangt. Varianten-Impressionen werden erst protokolliert, wenn das vollständige Banner auf dem Bildschirm sichtbar ist. Kontroll-Impressionen können bereits protokolliert werden, sobald die Platzierung in den sichtbaren Bereich gelangt – bevor das vollständige Banner für eine Variante sichtbar wäre.
+
 {% elsif include.channel == "email" %}
 
 #### E-Mail-Metriken {#email-metrics}
@@ -496,7 +509,7 @@ Ein Deferral bedeutet, dass eine E-Mail nicht sofort zugestellt werden konnte, B
 
 _Deferrals_ unterscheiden sich von _Soft Bounces_. Wenn während dieses Wiederholungszeitraums keine E-Mail erfolgreich zugestellt wurde, sendet Braze ein Soft-Bounce-Event pro versuchtem Kampagnenversand. Vor dem 25. Februar 2025 wurden diese Wiederholungsversuche als mehrere Soft Bounces für einen Kampagnenversand gezählt.
 
-Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-Features (wie Abfrage-Builder, SQL-Segmente, Snowflake-Datenfreigabe) verfügbar sind. Wenn Sie dies in Kampagnen- oder Canvas-Analytics einbeziehen möchten, [senden Sie uns bitte Produkt-Feedback]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Beachten Sie, dass _Deferrals_ derzeit nur über Currents oder Braze-Snowflake-Features (wie Abfrage-Builder, SQL-Segmente, Snowflake-Datenfreigabe) verfügbar sind. {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Geschätzte reale Öffnungsrate {#estimated-real-open-rate}
 
@@ -593,7 +606,7 @@ Die Berichterstattung für _Button 1 Clicks_ und _Button 2 Clicks_ funktioniert 
     </tbody>
 </table>
 
-#### Abweichungen zwischen Kontrollgruppen und Varianten {#discrepancies-between-control-groups-and-variants}
+#### Abweichungen zwischen Kontrollgruppen und Varianten
 
 Wenn eine In-App-Nachrichten-Kampagne eine 50/50-Variantenaufteilung hat, kann die Kontrollgruppe manchmal einen etwas höheren Prozentsatz aufweisen als die Variante (z. B. 51 % für die Kontrollgruppe und 49 % für die Variante). Diese Abweichung wird durch einen Unterschied in der Rendering-Zeit verursacht – zum Beispiel wenn Varianten-Nachrichten große Bilder oder templated Connected-Content verwenden und Nutzer:innen die Seite verlassen, bevor das Rendering abgeschlossen ist, während die Kontrollgruppe Impressionen protokolliert, ohne eine Nachricht anzuzeigen.
 
@@ -867,7 +880,9 @@ Hier sind einige wichtige WhatsApp-Metriken, die Sie in Ihren Analytics sehen k�
     </tbody>
 </table>
 
-#### Metriken zu Endnutzer:innen-Sperrung und -Meldung {#end-user-blocking-and-reporting-metrics}
+Wenn die Fehlerrate erhöht ist, lesen Sie [WhatsApp-Sendefehler untersuchen]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
+#### Metriken zu Sperrung und Meldung durch Endnutzer:innen {#end-user-blocking-and-reporting-metrics}
 
 Über das [Dashboard des WhatsApp Managers](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx) können Sie auf weitere Metriken zugreifen. Allerdings ist eine [Bestätigung Ihres Zugriffs](https://www.facebook.com/business/help/218116047387456) erforderlich, um alle verfügbaren Insights einzusehen.
 
@@ -935,7 +950,7 @@ Zusätzlich zu den Braze-Analytics können Sie im WhatsApp Business Manager auf 
 
 ### SMS-Currents-Events
 
-Wie bei E-Mails empfängt Braze Events auf Nutzerebene im Zusammenhang mit einer SMS-Nachricht auf ihrem Weg zur Nutzer:in. Alle eingehenden SMS-Events werden auch als Currents-Event über das Event [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) gesendet. So können Sie zusätzliche Aktionen durchführen oder Berichte zu den Nachrichten erstellen, die Ihre Nutzer:innen außerhalb der Braze-Plattform senden.
+Wie bei E-Mails empfängt Braze Events auf Nutzerebene im Zusammenhang mit einer SMS-Nachricht auf ihrem Weg zur Nutzer:in. Alle eingehenden SMS-Events werden auch als Currents-Event über das Event [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events) gesendet. So können Sie zusätzliche Aktionen durchführen oder Berichte zu den Nachrichten erstellen, die Ihre Nutzer:innen außerhalb der Braze-Plattform senden.
 
 {% alert note %}
 Eingehende Nachrichten werden nach 1.600 Zeichen abgeschnitten.

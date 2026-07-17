@@ -85,7 +85,7 @@ search_rank: 2
 
 ## 커스텀 이벤트 저장 {#custom-event-storage}
 
-**고객 프로필**에 저장된 모든 데이터(커스텀 이벤트 메타데이터(첫 번째 또는 마지막 발생, 총 횟수, 30일 동안의 X in Y) 포함)는 각 프로필이 [활성]({{site.baseurl}}/user_archival#active-users) 상태인 한 무기한 보존됩니다.
+**고객 프로필**에 저장된 모든 데이터(커스텀 이벤트 메타데이터(첫 번째 또는 마지막 발생, 총 횟수, 30일 동안의 X in Y) 포함)는 각 프로필이 <a href="/docs/user_archival#active-users">활성</a> 상태인 한 무기한 보존됩니다.
 
 ## 사용자의 이벤트 기록 보기 {#view-a-users-event-history}
 
@@ -150,7 +150,7 @@ Braze는 커스텀 이벤트가 발생한 횟수와 각 사용자가 마지막�
 ![커스텀 이벤트 그래프 필터]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[커스텀 속성 증분]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers)을 사용하여 커스텀 이벤트와 유사한 사용자 동작에 대한 카운터를 유지할 수 있습니다. 그러나 커스텀 속성 데이터는 시계열로 볼 수 없습니다. 시계열로 분석할 필요가 없는 사용자 동작은 이 방법을 사용하여 기록해야 합니다.
+[커스텀 속성 증분]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types)을 사용하여 커스텀 이벤트와 유사한 사용자 동작에 대한 카운터를 유지할 수 있습니다. 그러나 커스텀 속성 데이터는 시계열로 볼 수 없습니다. 시계열로 분석할 필요가 없는 사용자 동작은 이 방법을 사용하여 기록해야 합니다.
 {% endalert %}
 
 ### 커스텀 이벤트 분석이 표시되지 않는 이유 {#why-custom-events-analytics-arent-showing}

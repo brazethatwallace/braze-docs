@@ -14,7 +14,7 @@ description: "이 참조 문서에서는 Braze 데이터 변환을 사용하여 
 
 | 요구 사항 | 설명 |
 | --- | --- |
-| 2단계 인증 또는 SSO | 계정에 [2단계 인증]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication)(2FA) 또는 [싱글사인온]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication)(SSO)을 활성화해야 합니다. |
+| 2단계 인증 또는 SSO | 계정에 [2단계 인증]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication-2fa)(2FA) 또는 [SSO]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication)(SSO)을 활성화해야 합니다. |
 | 올바른 권한 | 계정 관리자 또는 워크스페이스 관리자이거나 "변환 관리" 사용자 권한이 있어야 합니다. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
@@ -46,7 +46,7 @@ Typeform의 경우 다음과 같이 표시됩니다:
 ![웹훅을 Braze 사용자 프로필에 매핑하는 데이터 변환 코드 예시.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
-Braze 데이터 변환은 웹훅에 대한 특별한 확인이나 인증이 필요한 외부 플랫폼을 아직 지원하지 않을 수 있습니다. Braze 데이터 변환에 이러한 유형의 플랫폼을 사용하는 데 관심이 있다면 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal)을 남겨 주세요.
+Braze 데이터 변환은 웹훅에 대한 특별한 확인이나 인증이 필요한 외부 플랫폼을 아직 지원하지 않을 수 있습니다. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="webhook authentication for external platforms" %}
 {% endalert %}
 
 ## 4단계: 변환 코드 작성 {#step-4-write-transformation-code}
@@ -56,7 +56,7 @@ JavaScript 코드에 대한 경험이 거의 없거나 더 자세한 지침을 �
 개발자이거나 JavaScript 코드에 대한 상당한 경험이 있는 경우 **고급 - POST: Track users** 탭에서 변환 코드 작성에 대한 개략적인 지침을 확인하세요.
 
 {% alert tip %}
-AI를 사용하여 변환 코드를 생성하려면 변환 코드 편집기 위에서 **Code with Operator**를 선택하세요. 이를 사용하려면 웹훅을 변환에 전송해야 합니다. 미리 구축된 템플릿으로 시작하려면 **Insert Template**을 선택하세요. 예시 프롬프트는 [데이터 변환 코드 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code)을 참조하세요.
+AI를 사용하여 변환 코드를 생성하려면 변환 코드 편집기에서 **Code with Operator**를 선택하세요. 이를 사용하려면 웹훅을 변환에 전송해야 합니다. 미리 구축된 템플릿으로 시작하려면 **Insert Template**을 선택하세요. 예시 프롬프트는 [데이터 변환 코드 생성]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code)을 참조하세요.
 
 **Code with Operator**는 계정에 Operator가 활성화된 경우에만 사용할 수 있습니다. 표시되지 않으면 계정 매니저에게 문의하세요.
 {% endalert %}
@@ -204,7 +204,7 @@ return brazecall;
 - 변환 코드는 `payload` 변수를 통해 웹훅 요청 본문에 액세스합니다. 이 변수는 요청 본문 JSON을 파싱하여 채워지는 오브젝트입니다.
 - `/users/track` 엔드포인트에서 지원되는 모든 기능이 지원되며, 다음을 포함합니다:
   - 사용자 속성 오브젝트, 이벤트 오브젝트 및 구매 오브젝트
-  - 중첩 속성 및 중첩 커스텀 이벤트 등록정보
+  - 중첩 속성 및 중첩 커스텀 이벤트 속성정보
   - 구독 그룹 업데이트
   - 식별자로서의 이메일 주소
 

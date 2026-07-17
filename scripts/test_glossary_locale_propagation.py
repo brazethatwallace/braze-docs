@@ -139,6 +139,56 @@ class TestReplaceInMarkdown:
         assert n == 0
         assert "`Segment`" in out
 
+    def test_skips_heading_anchor_ids(self):
+        text = "See {#monitoring-alerts} for monitoring details.\n"
+        out, n = glp.replace_in_markdown(text, "monitoring", "監視", "ja")
+        assert n == 1
+        assert "{#monitoring-alerts}" in out
+        assert "監視 details" in out
+
+    def test_replace_outside_fences_skips_code_blocks(self):
+        text = (
+            "`````markdown\n"
+            "Create this key from **Settings** > **API Keys**.\n"
+            "`````\n"
+            "Create this key from **Settings** > **API Keys**.\n"
+        )
+        out, n = glp.replace_outside_fences(
+            text, "**Settings** > **API Keys**", "**設定** > **APIキー**"
+        )
+        assert n == 1
+        assert "**Settings** > **API Keys**." in out
+        assert "**設定** > **APIキー**." in out
+
+
+class TestBuildLocaleChanges:
+    def test_builds_added_and_updated_changes(self):
+        old = {"Campaign": "キャンペーン", "contractor": "請負業者"}
+        new = {"Campaign": "キャンペーン", "contractor": "業務委託先"}
+        changes = glp.build_locale_changes_from_glossary_diff("ja", old, new, {"global": []})
+        assert len(changes) == 2
+        searches = {change["search"] for change in changes}
+        assert searches == {"請負業者", "contractor"}
+        assert all(change["replace"] == "業務委託先" for change in changes)
+
+    def test_skips_excluded_terms(self):
+        old = {}
+        new = {"monitoring": "監視"}
+        exclusions = {"global": ["monitoring"]}
+        changes = glp.build_locale_changes_from_glossary_diff(
+            "ja", old, new, exclusions
+        )
+        assert changes == []
+
+
+    def test_skips_duplicate_when_old_translation_equals_english_term(self):
+        old = {"contractor": "contractor"}
+        new = {"contractor": "業務委託先"}
+        changes = glp.build_locale_changes_from_glossary_diff("ja", old, new, {"global": []})
+        assert len(changes) == 1
+        assert changes[0]["search"] == "contractor"
+        assert changes[0]["replace"] == "業務委託先"
+
 
 class TestPropagateGlossaryChanges:
     def test_dry_run_counts_without_writing(self, tmp_path):

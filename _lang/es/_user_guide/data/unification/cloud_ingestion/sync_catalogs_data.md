@@ -13,15 +13,15 @@ description: "Esta página ofrece un resumen de cómo sincronizar los datos del 
 
 ## Paso 1: Crear un nuevo catálogo {#step-1-create-a-new-catalog}
 
-Antes de crear una nueva integración de Ingesta de datos de Cloud (CDI) para [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs), tienes que crear un nuevo catálogo o identificar un catálogo existente que quieras utilizar para la integración. Existen varias formas de crear un nuevo catálogo y cualquiera de ellas funcionará para la integración CDI:
-- Cargar un [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv)
-- Crear un catálogo en el [panel de Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser) o durante la configuración de CDI.
-- Crear un catálogo utilizando el [punto de conexión Crear catálogo]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog)
+Antes de crear una nueva integración de ingesta de datos en la nube (CDI) para [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs), tienes que crear un nuevo catálogo o identificar un catálogo existente que quieras utilizar para la integración. Existen varias formas de crear un nuevo catálogo y cualquiera de ellas funcionará para la integración CDI:
+- Cargar un [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog)
+- Crear un catálogo en el [panel de Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog) o durante la configuración de CDI.
+- Crear un catálogo utilizando el [endpoint Crear catálogo]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog)
 
-Cualquier cambio en el esquema del catálogo (por ejemplo, añadir nuevos campos o cambiar el tipo de campo) debe realizarse a través del dashboard del catálogo antes de que los datos actualizados se sincronicen a través de CDI. Recomendamos realizar estas actualizaciones cuando la sincronización esté en pausa o no esté programada para ejecutarse, a fin de evitar conflictos entre los datos de tu almacén de datos y el esquema en Braze.
+Cualquier cambio en el esquema del catálogo (por ejemplo, añadir nuevos campos o cambiar el tipo de campo) debe realizarse a través del panel del catálogo antes de que los datos actualizados se sincronicen a través de CDI. Recomendamos realizar estas actualizaciones cuando la sincronización esté en pausa o no esté programada para ejecutarse, a fin de evitar conflictos entre los datos de tu almacén de datos y el esquema en Braze.
 
-## Paso 2: Integrar la Ingesta de datos de Cloud con los datos del catálogo {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
-La configuración de una sincronización de catálogos sigue de cerca el proceso de [las integraciones CDI de datos de usuario]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup).
+## Paso 2: Integrar la ingesta de datos en la nube con los datos del catálogo {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
+La configuración de una sincronización de catálogos sigue de cerca el proceso de [las integraciones CDI de datos de usuario]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 {% tabs %}
 {% tab Snowflake %}
@@ -54,13 +54,13 @@ La configuración de una sincronización de catálogos sigue de cerca el proceso
     CREATE USER BRAZE_INGESTION_USER;
     GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
     ```
-3. Si tu cuenta de Snowflake tiene políticas de red, añade las IP de Braze a la lista de permitidas para que el servicio CDI pueda conectarse. Para ver una lista de IP, consulta la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
-4. En el dashboard de Braze, ve a **Socios tecnológicos** > **Snowflake** y crea una nueva sincronización.
+3. Si tu cuenta de Snowflake tiene políticas de red, añade las IP de Braze a la lista de permitidas para que el servicio CDI pueda conectarse. Para ver una lista de IP, consulta la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+4. En el panel de Braze, ve a **Socios tecnológicos** > **Snowflake** y crea una nueva sincronización.
 5. Introduce los detalles de conexión (o reutiliza las credenciales existentes) y la tabla de origen.
 6. Continúa con el paso 2 del flujo de configuración, selecciona el tipo de sincronización "Catalogs" e introduce el nombre de la integración y la planificación. Ten en cuenta que el nombre de la integración debe **coincidir exactamente** con el nombre del catálogo que creaste anteriormente.
 7. Elige una frecuencia de sincronización y continúa con el siguiente paso.
-8. Añade la clave pública que se muestra en el dashboard al usuario que creaste para que Braze se conecte a Snowflake. Para completar este paso, necesitarás a alguien con acceso `SECURITYADMIN` o superior en Snowflake.
-9. Selecciona **Test Connection** para verificar que todo funciona como se espera.
+8. Añade la clave pública que se muestra en el panel al usuario que creaste para que Braze se conecte a Snowflake. Para completar este paso, necesitarás a alguien con acceso `SECURITYADMIN` o superior en Snowflake.
+9. Selecciona **Probar conexión** para verificar que todo funciona como se espera.
 10. Guarda la sincronización y utiliza los datos del catálogo sincronizados para todos tus casos de uso de personalización.
 {% endtab %}
 {% tab Redshift %}
@@ -87,7 +87,7 @@ La configuración de una sincronización de catálogos sigue de cerca el proceso
     GRANT SELECT ON TABLE CATALOGS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. Si tienes un firewall u otras políticas de red, debes dar acceso de red a Braze a tu instancia de Redshift. Permite el acceso desde las IP que se indican a continuación, correspondientes a la región de tu dashboard de Braze. Para ver una lista de IP, consulta la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. Si tienes un firewall u otras políticas de red, debes dar acceso de red a Braze a tu instancia de Redshift. Permite el acceso desde las IP correspondientes a la región de tu panel de Braze. Para ver una lista de IP, consulta la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab BigQuery %}
@@ -116,7 +116,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | JSON | OBLIGATORIO |
 | ID | STRING | OBLIGATORIO |
 | DELETED | BOOLEAN | OPCIONAL |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 2: Integrar la Ingesta de datos de Cloud con los datos del catálogo" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 2: Integrar la ingesta de datos en la nube con los datos del catálogo" }
 
 {:start="2"}
 
@@ -125,10 +125,10 @@ La cuenta de servicio debe tener los siguientes permisos:
 - BigQuery Connection User: permite a Braze realizar conexiones.
 - BigQuery User: proporciona a Braze acceso para ejecutar consultas, leer metadatos de conjuntos de datos y listar tablas.
 - BigQuery Data Viewer: proporciona a Braze acceso para ver los conjuntos de datos y su contenido.
-- BigQuery Job User: proporciona a Braze acceso para ejecutar trabajos.<br><br>Tras crear la cuenta de servicio y conceder los permisos, genera una clave JSON. Consulta [Crear y eliminar claves](https://cloud.google.com/iam/docs/keys-create-delete) para obtener más información. La cargarás en el dashboard de Braze más adelante.
+- BigQuery Job User: proporciona a Braze acceso para ejecutar trabajos.<br><br>Tras crear la cuenta de servicio y conceder los permisos, genera una clave JSON. Consulta [Crear y eliminar claves](https://cloud.google.com/iam/docs/keys-create-delete) para obtener más información. La cargarás en el panel de Braze más adelante.
 
 {:start="3"}
-3. Si tienes políticas de red en vigor, debes dar acceso de red a Braze a tu instancia de BigQuery. Para ver una lista de IP, consulta la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. Si tienes políticas de red en vigor, debes dar acceso de red a Braze a tu instancia de BigQuery. Para ver una lista de IP, consulta la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab Databricks %}
@@ -155,7 +155,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | PAYLOAD | STRING, STRUCT o MAP | OBLIGATORIO |
 | ID | STRING | OBLIGATORIO |
 | DELETED | BOOLEAN | NULABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 2: Integrar la Ingesta de datos de Cloud con los datos del catálogo" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 2: Integrar la ingesta de datos en la nube con los datos del catálogo" }
 
 {:start="2"}
 
@@ -166,10 +166,10 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 - c. Introduce un comentario que te ayude a identificar este token, como "Braze CDI".
 - d. Cambia la duración del token a sin duración dejando en blanco la casilla **Lifetime (days)**. Selecciona **Generate**.
 - e. Copia el token mostrado y selecciona **Done**.
-- f. Guarda el token en un lugar seguro hasta que necesites introducirlo durante el paso de creación de credenciales en el dashboard de Braze.
+- f. Guarda el token en un lugar seguro hasta que necesites introducirlo durante el paso de creación de credenciales en el panel de Braze.
 
 {:start="3"}
-3. Si tienes políticas de red en vigor, debes dar acceso de red a Braze a tu instancia de Databricks. Para ver una lista de IP, consulta la página de [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. Si tienes políticas de red en vigor, debes dar acceso de red a Braze a tu instancia de Databricks. Para ver una lista de IP, consulta la página de [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab Microsoft Fabric %}
@@ -189,10 +189,10 @@ GO
 
 {:start="2"}
 
-2. Configura un principal de servicio y concede los permisos adecuados. Si ya tienes credenciales de una sincronización existente, puedes reutilizarlas; solo asegúrate de ampliar el acceso a la tabla de origen del catálogo. Para saber más sobre cómo crear un nuevo principal de servicio y sus credenciales, consulta la página de [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+2. Configura un principal de servicio y concede los permisos adecuados. Si ya tienes credenciales de una sincronización existente, puedes reutilizarlas; solo asegúrate de ampliar el acceso a la tabla de origen del catálogo. Para saber más sobre cómo crear un nuevo principal de servicio y sus credenciales, consulta la página de [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {:start="3"}
-3. Si tienes políticas de red en vigor, debes dar acceso de red a Braze a tu instancia de Microsoft Fabric. Para ver una lista de IP, consulta la [Ingesta de datos de Cloud]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. Si tienes políticas de red en vigor, debes dar acceso de red a Braze a tu instancia de Microsoft Fabric. Para ver una lista de IP, consulta la [ingesta de datos en la nube]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab S3 %}
@@ -204,7 +204,7 @@ Crea archivos de origen en S3 en formato JSON o CSV. Cada archivo debe incluir l
 | `PAYLOAD` | Sí | Una cadena JSON de los campos que se van a sincronizar con el elemento de catálogo en Braze. |
 | `DELETED` | Opcional | Cuando se establece en `true`, se elimina el elemento de catálogo correspondiente del catálogo. |
 | `UPDATED_AT` | *No compatible* | El almacenamiento de archivos no admite columnas `UPDATED_AT`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 2: Integrar la Ingesta de datos de Cloud con los datos del catálogo" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paso 2: Integrar la ingesta de datos en la nube con los datos del catálogo" }
 
 {% alert note %}
 Los nombres de archivo deben seguir las reglas de AWS y ser únicos. Añade marcas de tiempo para ayudar a garantizar la unicidad.
@@ -214,8 +214,8 @@ La configuración completa de S3 requiere un contenedor de S3, una cola de Amazo
 
 Para el flujo completo de configuración de S3, consulta [Integraciones de almacenamiento de archivos]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations), en particular:
 
-- [Configurar la Ingesta de datos de Cloud en AWS]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-aws)
-- [Configurar la Ingesta de datos de Cloud en Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-braze)
+- [Configurar la ingesta de datos en la nube en AWS]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-aws)
+- [Configurar la ingesta de datos en la nube en Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-braze)
 - [Solución de problemas]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#troubleshooting)
 
 Para problemas comunes de notificaciones y permisos en AWS, consulta [Conceder permisos para publicar mensajes de notificación de eventos en un destino](https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html).

@@ -265,6 +265,8 @@ Count, Percentage
 
 Lorsque la [carte de chaleur des e-mails]({{site.baseurl}}/user_guide/channels/email/reporting) affiche des liens que vous n'attendez pas, inspectez le HTML du message à la recherche de [blocs de contenu]({{site.baseurl}}/user_guide/channels/email/drag_and_drop/dnd_editor_blocks) ou d'espaces entre les mots qui créent des URL suivies. Utilisez le **tableau des liens par nombre total de clics** dans la vue de la carte de chaleur pour identifier les URL qui ne correspondent pas au texte visible.
 
+Braze ne développe pas les étiquettes Liquid dans l'aperçu du message, de sorte que le moteur de rendu de la carte de chaleur ne peut pas faire correspondre le lien cliqué dans l'aperçu. Il s'agit d'un comportement attendu. Le moteur de rendu de la carte de chaleur tente de faire correspondre les URL cliquées avec celles du message. Lorsque l'URL est significativement différente, par exemple lorsque l'URL entière est transmise en tant que propriété d'événement, la carte de chaleur ne peut pas l'identifier.
+
 {% endapi %}
 
 {% api %}
@@ -420,11 +422,11 @@ Le filtre de segment [`Message Open Likelihood`]({{site.baseurl}}/user_guide/aud
 
 ### Liens de désabonnement et clics uniques {#unsubscribe-links-and-unique-clicks}
 
-Lorsqu'un destinataire clique sur un lien de désabonnement, Braze le comptabilise comme un clic car l'action utilise une URL. Cela s'applique aux liens de désabonnement fournis par Braze et aux liens de désabonnement personnalisés dans le corps de votre message. Ces clics contribuent aux *Clics uniques* et aux *Clics totaux* aux côtés des autres clics sur les liens. Pour les définitions des indicateurs, consultez [Clics uniques](#unique-clicks) ci-dessus et [Pourquoi le nombre de désabonnements diffère-t-il du nombre de clics sur mon lien de désabonnement ?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
+Lorsqu'un destinataire clique sur un lien de désabonnement, Braze le comptabilise comme un clic car l'action utilise une URL. Cela s'applique aux liens de désabonnement fournis par Braze et aux liens de désabonnement personnalisés dans le corps de votre message. Ces clics contribuent aux *Clics uniques* et aux *Clics totaux* aux côtés des autres clics sur les liens. Pour les définitions des indicateurs, consultez [Clics uniques](#unique-clicks) et [Pourquoi le nombre de désabonnements diffère-t-il du nombre de clics sur mon lien de désabonnement ?]({{site.baseurl}}/user_guide/channels/email/faq#why-am-i-seeing-a-different-number-of-unsubscribes-than-clicks-on-my-unsubscribe-link).
 
 ### Afficher dans le navigateur {#view-in-browser}
 
-Braze n'inclut pas de fonctionnalité intégrée « Afficher cet e-mail dans un navigateur ». Hébergez le contenu de l'e-mail sur une page externe (comme votre site web) et ajoutez un lien depuis le message à l'aide de l'outil **Lien** de l'éditeur d'e-mail. Pour en savoir plus, consultez [Puis-je ajouter un lien « afficher cet e-mail dans un navigateur » à mes e-mails ?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
+Braze n'inclut pas de fonctionnalité intégrée « Afficher cet e-mail dans un navigateur ». Hébergez le contenu de l'e-mail sur une page de destination externe (comme votre site web) et ajoutez un lien depuis le message à l'aide de l'outil **Lien** de l'éditeur d'e-mail. Pour en savoir plus, consultez [Puis-je ajouter un lien « afficher cet e-mail dans un navigateur » à mes e-mails ?]({{site.baseurl}}/user_guide/channels/email/faq#can-i-add-a-view-this-email-in-a-browser-link-to-my-emails).
 
 ### Mises à jour de la page de désabonnement personnalisée {#custom-unsubscribe-page-updates}
 

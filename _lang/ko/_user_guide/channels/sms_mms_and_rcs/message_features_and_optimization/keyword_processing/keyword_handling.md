@@ -17,7 +17,7 @@ channel:
 
 ## 양방향 메시징(커스텀 키워드 응답) {#two-way-messaging-custom-keyword-responses}
 
-양방향 메시징을 사용하면 메시지를 보내고 해당 메시지에 대한 응답을 처리할 수 있습니다. 최종 사용자가 Braze에 키워드를 보내면 해당 사용자에게 자동 응답이 전송됩니다. 올바르게 적용하면 양방향 메시징은 고객 마케팅을 위한 간단하고 즉각적이며 역동적인 솔루션이 되어 시간과 리소스를 절약할 수 있습니다.
+양방향 메시징을 사용하면 메시지를 보내고 해당 메시지에 대한 응답을 처리할 수 있습니다. 최종 사용자가 Braze에 키워드를 보내면 해당 사용자에게 자동 응답이 전송됩니다. 올바르게 적용하면 양방향 메시징은 고객 마케팅을 위한 간단하고 즉각적이며 동적인 솔루션이 되어 시간과 리소스를 절약할 수 있습니다.
 
 ## 키워드 및 자동 응답 관리 {#managing-keywords-and-auto-responses}
 
@@ -45,7 +45,7 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 | 키워드 | 키워드 응답 |
 | -------- | ----------------- |
 | - 유효한 UTF-8 인코딩 문자<br>- 카테고리당 최대 20개 키워드<br>- 최대 길이 34자<br>- 최소 길이 1자<br>- 공백 포함 불가<br>- 대소문자를 구분하지 않으며 구독 그룹 내에서 고유해야 함 | - 비워둘 수 없음<br>- 최대 길이 300자<br>- 유효한 UTF-8 문자 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="키워드 트리거 추가" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Add keyword triggers" }
 
 {% alert tip %}
 이러한 키워드를 Campaigns 및 Canvases에서 메시지를 리타겟팅하고 트리거하는 데 어떻게 사용할 수 있는지 알고 싶으신가요? 자세한 내용은 [사용자 리타겟팅]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting)을 참조하세요.
@@ -60,7 +60,7 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 
 1. Braze 대시보드에서 **오디언스** > **구독 그룹 관리**로 이동하여 **SMS/MMS/RCS** 구독 그룹을 선택합니다. <br><br>
 2. **글로벌 키워드**에서 연필 아이콘을 선택하여 응답을 편집할 키워드 카테고리를 선택합니다. ![연필 아이콘이 표시된 옵트인 키워드.]({% image_buster /assets/img/sms/sms_keywords.png %})<br><br>
-3. 열리는 탭에서 응답을 편집합니다. 응답을 작성할 때 [규정 준수를 위한 6가지 규칙]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-six-rules-to-get-compliance-right)을 유의하고, 키워드 및 키워드 응답에 적용되는 다음 규칙을 읽어보세요.<br><br>
+3. 열리는 탭에서 응답을 편집합니다. 응답을 작성할 때 [규정 준수를 위한 7가지 규칙]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/compliance_and_delivery/laws_and_regulations#the-seven-rules-to-get-compliance-right)을 유의하고, 키워드 및 키워드 응답에 적용되는 다음 규칙을 읽어보세요.<br><br>
 4. 응답에서 정적 URL을 자동으로 단축하려면 **링크 단축** 토글을 선택합니다. 문자 카운터가 업데이트되어 단축된 URL의 예상 길이를 표시합니다. !["링크 단축" 토글이 켜져 있을 때 문자 카운터가 업데이트되는 GIF.]({% image_buster /assets/img/sms/link_shortening.gif %}){: style="max-width:60%;"}
 
 #### 고려 사항 {#considerations}
@@ -68,13 +68,13 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 | 키워드 | 키워드 응답 |
 | -------- | ----------------- |
 | - 유효한 UTF-8 인코딩 문자<br>- 카테고리당 최대 20개 키워드<br>- 최대 길이 34자<br>- 최소 길이 1자<br>- 공백 포함 불가<br>- 대소문자를 구분하지 않으며 구독 그룹 내에서 고유해야 함 | - 비워둘 수 없음<br>- 최대 길이 300자<br>- 유효한 UTF-8 문자 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="고려 사항" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Considerations" }
 
 {% endtab %}
 {% endtabs %}
 
 {% alert tip %}
-실행 기반 Canvas가 인바운드 SMS, MMS 또는 RCS 메시지에 의해 트리거되는 경우, Canvas의 첫 번째 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)에서 SMS, MMS 또는 RCS 등록정보를 참조할 수 있습니다.
+실행 기반 Canvas가 인바운드 SMS, MMS 또는 RCS 메시지에 의해 트리거되는 경우, Canvas의 첫 번째 [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)에서 SMS, MMS 또는 RCS 속성을 참조할 수 있습니다.
 {% endalert %}
 
 ## 다중 언어 지원 {#multi-language-support}
@@ -90,7 +90,7 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 영어 이외의 언어에는 사전 설정된 키워드와 응답이 제공되지 않으므로, 발신자는 마케팅 및 법무 팀과 협력하여 이 세트에 필요한 키워드를 추가해야 합니다. 그렇지 않으면 Braze가 해당 언어의 현지화된 수신 메시지를 처리하지 않습니다.
 {% endalert %}
 
-언어를 삭제해야 하는 경우 오른쪽 하단의 **언어 삭제** 버튼을 선택합니다.
+언어를 삭제해야 하는 경우 페이지 하단의 **언어 삭제** 버튼을 선택합니다.
 
 !["이탈리아어" 탭이 선택된 글로벌 키워드 페이지. 추가된 각 언어에 대한 추가 탭이 있습니다.]({% image_buster /assets/img/sms/multi-language2.png %})
 
@@ -120,11 +120,11 @@ Braze는 정확한 옵트아웃 처리 및 [퍼지 옵트아웃]({{site.baseurl}
 
 이 트리거는 메시지의 일치 또는 불일치 비교와 정규표현식 일치 또는 불일치 규칙을 사용하여 특정 인바운드 메시지에 대한 필터링을 지원하여 사용자의 입력을 검증합니다.
 
-#### Canvas
+#### Canvas {#canvas}
 
 ![구독 그룹 "Messaging Service" 내 키워드 카테고리 "Other"에 인바운드 SMS 전송 트리거가 있는 실행 기반 캔버스 단계. 메시지 본문이 정규표현식 "caret symbol skip"과 일치합니다.]({% image_buster /assets/img/sms/canvas_trigger.png %}){: style="max-width:90%;"}
 
-#### Campaign
+#### Campaign {#campaign}
 
 ![구독 그룹 "Marketing Message Service A" 내 키워드 카테고리 "Other"에 인바운드 SMS 전송 트리거가 있는 실행 기반 Campaign. 메시지 본문이 "Keyword1"이거나 "Keyword2"이거나 "Keyword A"가 아닙니다.]({% image_buster /assets/img/sms/campaign_trigger.png %}){: style="max-width:90%;"}
 

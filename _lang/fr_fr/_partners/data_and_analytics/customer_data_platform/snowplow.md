@@ -20,7 +20,7 @@ L'intégration entre Braze et Snowplow vous permet de transmettre les événemen
 - Filtrer et transformer les événements avant de les envoyer à Braze.
 - Mapper les données des événements Snowplow aux attributs utilisateur de Braze, aux événements personnalisés et aux achats.
 - Conserver toutes les données dans votre cloud privé jusqu'à ce que vous décidiez de les transmettre.
-- Déployer vous-même la solution au sein de votre compte Snowplow existant.
+- Déployer vous-même la solution au sein de votre compte Snowplow cloud existant.
 
 L'[Event Forwarding](https://docs.snowplow.io/docs/destinations/forwarding-events/) de Snowplow est une fonctionnalité supplémentaire payante disponible pour les clients Snowplow. Pour transmettre des événements à Braze sans ce module complémentaire, utilisez l'intégration [Google Tag Manager Server-Side](https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/) de Snowplow.
 
@@ -33,16 +33,16 @@ Exploitez les riches données comportementales de Snowplow pour favoriser de pui
 | Pipeline Snowplow | Vous devez disposer d'un pipeline Snowplow opérationnel. |
 | Accès à la console Snowplow | Vous devez avoir accès à la console Snowplow pour configurer les transferts d'événements. |
 | Clé API REST Braze | Une clé API REST Braze avec les autorisations suivantes : `users.track`, `users.alias.new`, `users.identify`, `users.export.ids`, `users.merge`, `users.external_ids.rename` et `users.alias.update`. <br><br> Vous pouvez la créer dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
-| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
+| Endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 ### Livraison personnalisée par événement {#personalized-action-based-delivery}
 Utilisez l'un des nombreux événements riches que Snowplow collecte par défaut, ou définissez vos propres événements personnalisés pour façonner des parcours clients encore plus précis, adaptés à votre entreprise. Exploitez les données comportementales de Snowplow pour concevoir des entonnoirs clients et créer de la valeur pour vos équipes marketing et produit, en les aidant à maximiser la conversion et l'utilisation des produits via Braze.
 
 ### Segmentation dynamique {#dynamic-segmentation}
-Créez des audiences dynamiques dans Braze à partir des données comportementales de haute qualité de Snowplow : lorsque les utilisateurs effectuent des actions dans votre produit, application ou site web, vous pouvez exploiter les données comportementales en temps réel collectées par Snowplow pour ajouter ou supprimer automatiquement des utilisateurs des segments pertinents dans Braze.
+Créez des audiences dynamiques dans Braze à partir des données comportementales de haute qualité de Snowplow : lorsque les utilisateurs effectuent des actions dans votre produit, application ou site web, vous pouvez exploiter les données comportementales en temps réel collectées par Snowplow pour ajouter ou supprimer automatiquement des utilisateurs des Segments pertinents dans Braze.
 
 ## Intégration {#integration}
 
@@ -59,9 +59,9 @@ Pour créer le transfert d'événements :
 
 Lors de la configuration du transfert, vous pouvez choisir les événements Snowplow à transmettre et les mapper à des types d'objets Braze :
 
-1. **[Attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#migrating-push-tokens)** : mettez à jour les données du profil utilisateur et les propriétés personnalisées.
-2. **[Événements personnalisés]({{site.baseurl}}/api/objects_filters/event_object/)** : envoyez les actions et les comportements des utilisateurs.
-3. **[Achats]({{site.baseurl}}/api/objects_filters/purchase_object/)** : envoyez les données de transaction avec les détails du produit.
+1. **[Attributs utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)** : mettez à jour les données du profil utilisateur et les propriétés personnalisées.
+2. **[Événements personnalisés]({{site.baseurl}}/api/objects_filters/event_object)** : envoyez les actions et les comportements des utilisateurs.
+3. **[Achats]({{site.baseurl}}/api/objects_filters/purchase_object)** : envoyez les données de transaction avec les détails du produit.
 
 Pour chaque type d'objet, vous pouvez configurer les mappages de champs afin de spécifier comment les données d'événement Snowplow correspondent aux champs Braze. Consultez la [documentation de Snowplow sur la création de transferts](https://docs.snowplow.io/docs/destinations/forwarding-events/creating-forwarders/) pour obtenir des instructions détaillées sur la configuration et le mappage des champs.
 
@@ -70,7 +70,7 @@ Pour chaque type d'objet, vous pouvez configurer les mappages de champs afin de 
 Vérifiez que les événements arrivent bien dans Braze en consultant les pages suivantes de votre compte Braze :
 
 1. **Générateur de requêtes** : dans Braze, accédez à **Analytics** > **Query Builder**. Vous pouvez écrire des requêtes sur les tables suivantes pour prévisualiser les données transmises par Snowplow : `USER_BEHAVIORS_CUSTOMEVENT_SHARED` et `USERS_BEHAVIORS_PURCHASE_SHARED`.
-2. **Tableau de bord d'utilisation de l'API** : dans Braze, accédez à **Paramètres** > **Clés API** pour voir un graphique de l'utilisation de l'API au fil du temps. Vous pouvez filtrer spécifiquement sur la clé API utilisée par Snowplow et consulter les succès comme les échecs.
+2. **Tableau de bord d'utilisation de l'API** : dans Braze, accédez à **Paramètres** > **APIs and Identifiers** pour voir un graphique de l'utilisation de l'API au fil du temps. Vous pouvez filtrer spécifiquement sur la clé API utilisée par Snowplow et consulter les succès comme les échecs.
 
 ## Envoi de propriétés personnalisées {#sending-custom-properties}
 
@@ -82,7 +82,7 @@ Vous pouvez envoyer des propriétés personnalisées en plus des champs standard
 
 Pour les noms de propriétés contenant des espaces, utilisez la notation entre crochets (par exemple, `["account type"]` ou `properties["campaign source"]`).
 
-Consultez la [documentation sur l'objet événement]({{site.baseurl}}/api/objects_filters/event_object/) pour plus de détails sur les types de données pris en charge, les exigences de nommage des propriétés et les limites de taille du payload.
+Consultez la [documentation sur l'objet événement]({{site.baseurl}}/api/objects_filters/event_object) pour plus de détails sur les types de données pris en charge, les exigences de nommage des propriétés et les limites de taille du payload.
 
 ## Limitations
 

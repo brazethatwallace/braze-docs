@@ -75,9 +75,9 @@ Feel free to respond directly to this number!
 
 ![API Triggered delivery]({% image_buster /assets/img/zendesk/instant_chat/chat4.png %}){: style="max-width:70%;"}
 
-最後に、**Delivery Controls**で再適格性をオンにします。
+最後に、**配信コントロール**で再適格性をオンにします。
 
-![「Delivery Controls」で再適格性が有効になっている。]({% image_buster /assets/img/zendesk/instant_chat/chat5.png %})
+![「配信コントロール」で再適格性が有効になっている。]({% image_buster /assets/img/zendesk/instant_chat/chat5.png %})
 
 ### ステップ3：Zendeskでエージェントの返信をBrazeに転送するトリガーを作成する {#step-3-create-a-trigger-in-zendesk-to-forward-agent-replies-to-braze}
 
@@ -219,13 +219,13 @@ Webhookコンポーザーで、以下のフィールドに入力します：
 
 #### ステップ6.3：最初の配信をスケジュールする {#step-63-schedule-the-first-delivery}
 
-**Schedule Delivery**で**Action-Based Delivery**を選択し、トリガータイプとして**Send an SMS Inbound Message**を選択します。また、以前に設定したSMSサブスクリプショングループとキーワードカテゴリも追加します。
+**配信をスケジュール**で**アクションベースの配信**を選択し、トリガータイプとして**SMSインバウンドメッセージを送信する**を選択します。また、以前に設定したSMSサブスクリプショングループとキーワードカテゴリも追加します。
 
-![最初のWebhook キャンペーンの「Schedule Delivery」ページ。]({% image_buster /assets/img/zendesk/instant_chat/chat13.png %})
+![最初のWebhook キャンペーンの「配信をスケジュール」ページ。]({% image_buster /assets/img/zendesk/instant_chat/chat13.png %})
 
-**Delivery Controls**で再適格性をオンにします。
+**配信コントロール**で再適格性をオンにします。
 
-![最初のWebhook キャンペーンの「Delivery Controls」で再適格性が選択されている。]({% image_buster /assets/img/zendesk/instant_chat/chat14.png %})
+![最初のWebhook キャンペーンの「配信コントロール」で再適格性が選択されている。]({% image_buster /assets/img/zendesk/instant_chat/chat14.png %})
 
 #### ステップ6.4：2番目のWebhook キャンペーンを作成する {#step-64-create-your-second-webhook-campaign}
 

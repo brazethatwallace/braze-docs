@@ -31,7 +31,7 @@ A tabela a seguir lista os tipos de dados de catálogo suportados e como eles po
 |--------------|-----------------------------------------------|:------------------------:|:-------------------------:|
 | String | Uma sequência de caracteres. | ✅ Sim | ✅ Sim |
 | Número | Um valor numérico, inteiro ou decimal. | ✅ Sim | ✅ Sim |
-| booleano | Um valor `true` ou `false`. | ✅ Sim | ✅ Sim |
+| Booleano | Um valor `true` ou `false`. | ✅ Sim | ✅ Sim |
 | Hora | Uma string formatada no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). | ✅ Sim | ✅ Sim |
 | Geolocalização | Um array de coordenadas `[longitude, latitude]`. A latitude deve estar entre -90 e 90; a longitude deve estar entre -180 e 180. Por exemplo, `[-73.988103, 40.779109]`. | ✅ Sim | ✅ Sim |
 | Objeto JSON | Um objeto aninhado com pares chave-valor. Pode ser exibido na plataforma, mas só pode ser criado ou atualizado por meio da API ou CDI. | ⛔ Não | ✅ Sim |
@@ -48,11 +48,11 @@ Para criar um catálogo, acesse **Configurações de dados** > **Catálogos** e 
 
 Antes de fazer upload do seu arquivo CSV, certifique-se de que ele atende aos seguintes requisitos:
 
-| Requisito CSV | Informações |
+| Requisito CSV | Detalhes |
 |-----------------|---------|
 | Cabeçalhos | A primeira coluna no arquivo CSV deve ser nomeada `id`, e cada linha deve ter um valor `id` único. |
 | Colunas | Um arquivo CSV pode ter no máximo 1.000 campos (colunas), e cada nome de coluna pode ter até 250 caracteres. |
-| Tamanho do arquivo | Para planos gratuitos, o tamanho total de todos os arquivos CSV em uma empresa é limitado a 100 MB. Para planos Pro, o tamanho máximo de um único arquivo CSV é de 2 GB. |
+| Tamanho do arquivo | Para planos gratuitos, o tamanho total de todos os arquivos CSV em uma empresa é limitado a 500 MB. Para planos Pro, o tamanho máximo de um único arquivo CSV é de 2 GB. |
 | Valores de campo | Cada célula (valor do campo) pode conter até 5.000 caracteres. |
 | Caracteres válidos | A coluna `id` e todos os valores de cabeçalho podem conter apenas letras, números, hífens e sublinhados. |
 | Tipos de dados | Os tipos de dados suportados para uploads de CSV incluem string, número, booleano, hora e geolocalização. Para a lista completa de tipos de dados, incluindo aqueles disponíveis apenas por meio da API e CDI, consulte [Tipos de dados suportados](#supported-data-types). |
@@ -76,7 +76,7 @@ Selecione um tipo de dado para cada coluna.
 Esse tipo de dados não pode ser editado após a configuração do catálogo. Além disso, o valor `NULL` não é compatível com o upload de CSV e será tratado como uma string.
 {% endalert %}
 
-![Esse tipo de dados não pode ser editado após a configuração do catálogo. Além disso, o valor NULL não é compatível com o upload de CSV e será tratado como uma string.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
+![Seleção de tipo de dado para cada coluna do catálogo. Esse tipo não pode ser editado após a configuração.]({% image_buster /assets/img_archive/catalog_data_type.png %}){: style="max-width:80%;"}
 
 Digite um nome e uma descrição opcional para seu catálogo. Tenha em mente os seguintes requisitos ao nomear seu catálogo:
 
@@ -152,10 +152,10 @@ Depois de criar o catálogo, você pode começar a fazer referência ao [catálo
 
 Antes de poder editar ou criar catálogos no navegador, você precisa das seguintes [permissões de usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions) para seu espaço de trabalho:
 
-- View Catalogs
-- Edit Catalogs
-- Export Catalogs
-- Delete Catalogs
+- Visualizar catálogos
+- Editar catálogos
+- Exportar catálogos
+- Excluir catálogos
 
 ### Etapa 1: Insira os detalhes do catálogo {#step-1-enter-catalog-details}
 
@@ -195,11 +195,11 @@ Os catálogos suportam vários tipos de dados para ajudar você a organizar e es
 |-----------|--------|---------|-------------|
 | String | Texto | `"Hello World"` | Qualquer sequência de caracteres usada para dados de texto, como nomes, descrições e IDs. Equivalente ao tipo `string` em importações CSV e API. |
 | Hora | ISO 8601 ou timestamp Unix (segundos) | `"2024-03-15T14:30:00Z"` | Valores de data e hora formatados como ISO 8601 ou timestamp Unix em segundos. Equivalente ao tipo `time` na API e ao tipo `datetime` em importações CSV. |
-| booleano | `true` ou `false` | `true` | Valores lógicos representando estados verdadeiro ou falso. Equivalente ao tipo `boolean` em importações CSV e API. |
+| Booleano | `true` ou `false` | `true` | Valores lógicos representando estados verdadeiro ou falso. Equivalente ao tipo `boolean` em importações CSV e API. |
 | Número | Inteiro ou decimal | `42` ou `19.99` | Valores numéricos incluindo inteiros e números de ponto flutuante para preços, quantidades, avaliações e mais. Equivalente aos tipos `integer` e `float` em importações CSV e ao tipo `number` na API. |
-| Geolocalização | Array `[longitude, latitude]` | `[-73.988103, 40.779109]` | Um par de coordenadas representando uma localização geográfica. A longitude deve estar entre -180 e 180; a latitude deve estar entre -90 e 90. O valor de `type` na API é `geo`. Pode ser adicionado pelo painel **Add Fields** na interface de Catálogos, upload de CSV ou REST API. |
-| Objeto | Objeto JSON | `{"key": "value", "price": 10}` | Estruturas de dados aninhadas complexas. O valor de `type` na API é `object`. Exibido como Objeto JSON no dashboard. Disponível apenas via API ou Ingestão de dados na nuvem (CDI). |
-| Array | Array de strings | `["red", "blue", "green"]` | Listas de valores de string. O valor de `type` na API é `array`. Exibido como Array de strings no dashboard. Disponível apenas por meio da API ou CDI. |
+| Geolocalização | Array `[longitude, latitude]` | `[-73.988103, 40.779109]` | Um par de coordenadas representando uma localização geográfica. A longitude deve estar entre -180 e 180; a latitude deve estar entre -90 e 90. O valor de `type` na API é `geo`. Pode ser adicionado pelo painel **Add Fields** na interface de catálogos, upload de CSV ou REST API. |
+| Objeto | Objeto JSON | `{"key": "value", "price": 10}` | Estruturas de dados aninhadas complexas. O valor de `type` na API é `object`. Exibido como objeto JSON no dashboard. Disponível apenas via API ou ingestão de dados na nuvem (CDI). |
+| Array | Array de strings | `["red", "blue", "green"]` | Listas de valores de string. O valor de `type` na API é `array`. Exibido como array de strings no dashboard. Disponível apenas por meio da API ou CDI. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 role="presentation"}
 
 ## Usando modelos em nomes de catálogo {#template-catalog-names}
@@ -227,9 +227,9 @@ Para atualizar seu catálogo após fazer upload de um CSV ou criar um catálogo 
 
 A REST API suporta todos os [tipos de dados de catálogo](#supported-data-types), incluindo objetos JSON e arrays de strings. Objetos JSON e arrays de strings só podem ser criados ou atualizados por meio da REST API.
 
-### Usando Ingestão de dados na nuvem {#using-cloud-data-ingestion}
+### Usando ingestão de dados na nuvem {#using-cloud-data-ingestion}
 
-Você pode manter catálogos por meio da [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) sincronizando dados de catálogo diretamente do seu data warehouse (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3) de forma programada.
+Você pode manter catálogos por meio da [ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/sync_catalogs_data) sincronizando dados de catálogo diretamente do seu data warehouse (como Snowflake, Redshift, BigQuery, Databricks, Microsoft Fabric ou S3) de forma programada.
 
 ## Gerenciamento de itens do catálogo {#managing-catalog-items}
 
@@ -239,7 +239,7 @@ Por exemplo, se você quiser editar um item de catálogo individual, pode usar o
 
 ## Armazenamento de catálogo {#tiers}
 
-A versão gratuita dos catálogos suporta tamanhos de arquivo CSV de até 100 MB para todos os arquivos CSV combinados na sua empresa, enquanto a versão Catalogs Pro suporta tamanhos de arquivo CSV de até 2 GB para um único arquivo CSV.
+A versão gratuita dos catálogos suporta tamanhos de arquivo CSV de até 500 MB para todos os arquivos CSV combinados na sua empresa, enquanto a versão Catalogs Pro suporta tamanhos de arquivo CSV de até 2 GB para um único arquivo CSV.
 
 {% alert important %}
 O direito ao pacote mostrado no dashboard da Braze é arredondado para a unidade mais próxima para fins visuais; no entanto, você ainda tem direito ao valor total adquirido. Para solicitar um upgrade do armazenamento de catálogos, fale com seu gerente de conta da Braze.
@@ -247,11 +247,11 @@ O direito ao pacote mostrado no dashboard da Braze é arredondado para a unidade
 
 ### Versão gratuita {#free-version}
 
-O tamanho do armazenamento da versão gratuita dos catálogos é de até 100&nbsp;MB. Você pode ter itens ilimitados desde que estejam abaixo de 100&nbsp;MB.
+O tamanho do armazenamento da versão gratuita dos catálogos é de até 500&nbsp;MB. Você pode ter itens ilimitados desde que estejam abaixo de 500&nbsp;MB.
 
 #### Catalogs Pro {#catalogs-pro}
 
-Em nível de empresa, o armazenamento máximo do Catalogs Pro é baseado no tamanho dos dados do catálogo. As opções de tamanho de armazenamento são: 5&nbsp;GB, 10&nbsp;GB ou 15&nbsp;GB. Observe que o armazenamento da versão gratuita (100&nbsp;MB) está incluído em cada um desses planos.
+Em nível de empresa, o armazenamento máximo do Catalogs Pro é baseado no tamanho dos dados do catálogo. As opções de tamanho de armazenamento são: 5&nbsp;GB, 10&nbsp;GB ou 15&nbsp;GB. Observe que o armazenamento da versão gratuita (500&nbsp;MB) está incluído em cada um desses planos.
 
 ## Especificações {#specifications}
 

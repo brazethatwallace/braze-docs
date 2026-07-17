@@ -13,7 +13,7 @@ page_type: reference
 > L'étape d'agent Optimiseur de contenu vous permet de configurer et de tester plusieurs versions de composants de contenu au sein d'une même étape. Elle vous aide à expérimenter des variations de contenu et optimise automatiquement les combinaisons les plus performantes au fil du temps. Pour une introduction, consultez [Optimiseur de contenu]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
-L'Optimiseur de contenu est actuellement en version bêta. Pour obtenir de l'aide pour démarrer, contactez votre gestionnaire de la satisfaction client.
+L'Optimiseur de contenu est actuellement en version bêta. Pour obtenir de l'aide pour démarrer, contactez votre gestionnaire du succès des clients.
 {% endalert %}
 
 ## Créer une étape Optimiseur de contenu {#create-a-content-optimizer-step}
@@ -82,9 +82,11 @@ Dans l'onglet **Delivery Settings**, vous pouvez indiquer si l'étape doit utili
 
 Les composants de contenu sont les éléments individuels de votre message que vous souhaitez tester, comme différentes lignes d'objet ou titres. Ces composants vous permettent de générer plusieurs versions d'un message et d'optimiser automatiquement en fonction des performances au fil du temps.
 
-- **E-mail :** Vous pouvez ajouter jusqu'à trois composants de contenu par étape et jusqu'à cinq variantes par composant, pour un total de 125 combinaisons de contenu uniques.
-- **Notifications push :** Vous pouvez ajouter jusqu'à deux composants par étape et jusqu'à cinq variantes par composant, pour un total de 25 combinaisons de contenu uniques.
-- **SMS/MMS/RCS :** Vous pouvez ajouter jusqu'à deux composants de contenu par étape et jusqu'à cinq variantes par composant, pour un total de 25 combinaisons de contenu uniques.
+- **E-mail :** vous pouvez ajouter jusqu'à trois composants de contenu par étape et jusqu'à cinq variantes par composant, pour un total de 125 combinaisons de contenu uniques.
+- **Notifications push :** vous pouvez ajouter jusqu'à deux composants par étape et jusqu'à cinq variantes par composant, pour un total de 25 combinaisons de contenu uniques.
+- **SMS/MMS/RCS :** vous pouvez ajouter jusqu'à deux composants de contenu par étape et jusqu'à cinq variantes par composant, pour un total de 25 combinaisons de contenu uniques.
+
+Lorsque vous utilisez **Generate AI suggestions**, Braze envoie le contenu à OpenAI pour générer des idées de variantes. L'allocation du trafic au moment de l'envoi n'utilise pas OpenAI. Pour en savoir plus sur les données envoyées et leur utilisation, consultez [OpenAI et l'Optimiseur de contenu]({{site.baseurl}}/user_guide/brazeai/content_optimizer#openai-and-content-optimizer).
 
 ![Options pour ajouter et configurer des composants de contenu dans l'interface de l'Optimiseur de contenu. L'interface affiche des composants sélectionnables tels que Subject, Body Header, Body Content et Primary CTA, chacun avec des champs pour saisir différentes variantes.]({% image_buster /assets/img/content_optimizer/add_content_components.png %})
 
@@ -104,7 +106,7 @@ Choisissez les composants que vous souhaitez optimiser pour les messages e-mail.
 
 Pour chaque composant sélectionné, définissez un ensemble de versions alternatives de ce contenu (variantes). Utilisez des variantes claires et distinctes qui diffèrent par le ton, la structure ou le contenu. Cela aide l'Optimiseur de contenu à identifier plus efficacement les meilleures performances. Vous pouvez :
   - Rédiger vos propres variantes manuellement.
-  - Utiliser des suggestions générées par l'intelligence artificielle pour explorer rapidement de nouvelles options.
+  - Utiliser des suggestions générées par l'IA pour explorer rapidement de nouvelles options.
 
 ![Interface Content Optimizer Settings montrant les options pour ajouter et configurer des composants de contenu pour l'optimisation des e-mails. Chaque composant dispose de champs de saisie pour entrer différentes variantes. Le texte visible inclut les noms des composants et les champs pour saisir le texte des variantes.]({% image_buster /assets/img/content_optimizer/content_optimizer_settings.png %})
 
@@ -117,7 +119,7 @@ Choisissez les composants que vous souhaitez optimiser pour les notifications pu
 
 Pour chaque composant sélectionné, définissez un ensemble de versions alternatives de ce contenu (variantes). Utilisez des variantes claires et distinctes qui diffèrent par le ton, la structure ou le contenu. Cela aide l'Optimiseur de contenu à identifier plus efficacement les meilleures performances. Vous pouvez :
   - Rédiger vos propres variantes manuellement.
-  - Utiliser des suggestions générées par l'intelligence artificielle pour explorer rapidement de nouvelles options.
+  - Utiliser des suggestions générées par l'IA pour explorer rapidement de nouvelles options.
 
 ![Paramètres de l'Optimiseur de contenu montrant les options pour ajouter et configurer des composants de contenu pour l'optimisation des notifications push.]({% image_buster /assets/img/content_optimizer/add_content_components_push.png %})
 
@@ -133,7 +135,7 @@ Une fois qu'une étape Optimiseur de contenu SMS/MMS/RCS est lancée, vous ne po
 {% endalert %}
 Pour chaque composant sélectionné, définissez un ensemble de versions alternatives de ce contenu (variantes). Utilisez des variantes claires et distinctes qui diffèrent par le ton, la structure ou le contenu. Cela aide l'Optimiseur de contenu à identifier plus efficacement les meilleures performances. Vous pouvez :
   - Rédiger vos propres variantes manuellement.
-  - Utiliser des suggestions générées par l'intelligence artificielle pour explorer rapidement de nouvelles options.
+  - Utiliser des suggestions générées par l'IA pour explorer rapidement de nouvelles options.
 
 ![Paramètres de l'Optimiseur de contenu montrant les options pour ajouter et configurer des composants de contenu pour l'optimisation des SMS/MMS/RCS.]({% image_buster /assets/img/content_optimizer/add_content_components_sms_rcs_mms.png %})
 
@@ -179,7 +181,7 @@ L'événement d'optimisation sélectionné s'applique à tous les composants de 
 
 Pour l'e-mail, vous pouvez optimiser pour l'un des événements suivants. L'agent utilise les ouvertures et les clics enregistrés dans les 7 jours suivant l'envoi d'un message pour orienter la distribution vers les combinaisons de contenu les plus performantes.
 
-| Événement | Description | Cas d'utilisation |
+| Événement | Description | Cas d'usage |
 | --- | --- | --- |
 | Ouvertures | Optimise les combinaisons qui incitent les destinataires à ouvrir l'e-mail. | Test des lignes d'objet ou objectif d'augmentation de la visibilité |
 | Clics | Optimise les combinaisons qui génèrent de l'engagement avec les liens. N'inclut pas les clics de bots ni les clics de désabonnement reconnus par Braze. | Génération de trafic, d'engagement ou de conversion à partir des liens |
@@ -205,15 +207,35 @@ Pour le moment, la messagerie RCS avec l'Optimiseur de contenu ne prend pas en c
 {% endtab %}
 {% endtabs %}
 
+## États de l'étape {#step-states}
+
+Lorsqu'une étape Optimiseur de contenu s'exécute, Braze évalue les performances des variantes de contenu et attribue à l'étape l'un des trois états suivants, visible dans le Canvas.
+
+| État | Signification |
+| --- | --- |
+| Apprentissage | L'agent collecte encore des données de performance sur vos variantes de contenu et n'a pas encore trouvé de gagnant fiable et constant. |
+| Optimisation | L'agent a identifié des variantes qui surpassent régulièrement les autres et oriente la distribution vers les combinaisons gagnantes. |
+| Action recommandée | L'étape s'exécute depuis un certain temps sans qu'un gagnant clair ne se dégage. Vérifiez la configuration de votre étape pour aider l'agent à en trouver un. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="États de l'étape Optimiseur de contenu" }
+
+### Actions à envisager {#actions-to-consider}
+
+Si votre étape passe à l'état Action recommandée, envisagez les mesures suivantes :
+
+- Augmentez le nombre d'utilisateurs qui entrent dans le Canvas, si possible. Plus d'envois donnent à l'agent davantage de données pour apprendre.
+- De manière générale, testez plus de combinaisons plutôt que moins (voir [Bonnes pratiques](#best-practices)). Cela donne à l'agent un signal plus clair sur ce qui fonctionne. Si le volume de votre audience est faible (en moyenne moins d'environ 3 000 envois par jour), envisagez plutôt de réduire légèrement le nombre de variantes, car trop de combinaisons par rapport à votre volume peut ralentir l'apprentissage.
+- Rendez vos variantes de contenu plus clairement distinctes les unes des autres en termes de ton, de structure ou de contenu.
+- Si vous ne pouvez pas augmenter votre audience et que le nombre de variantes et la diversité du contenu semblent déjà corrects, votre étape a peut-être simplement besoin de plus de temps pour identifier les gagnants.
+
 ## Modifier une étape lancée {#edit-a-launched-step}
 
 Une fois votre Canvas lancé, vous pouvez mettre à jour une étape Optimiseur de contenu en cours d'exécution en l'ouvrant dans l'éditeur Canvas. Vous pouvez :
 
-- Ajouter de nouvelles variantes à n'importe quel composant existant, manuellement ou à l'aide de suggestions générées par l'intelligence artificielle, dans la limite de cinq variantes par composant.
+- Ajouter de nouvelles variantes à n'importe quel composant existant, manuellement ou à l'aide de suggestions générées par l'IA, dans la limite de cinq variantes par composant.
 - Désactiver des variantes pour arrêter de les envoyer aux utilisateurs.
 - Réactiver des variantes précédemment désactivées, à condition que cela maintienne le composant à cinq variantes ou moins.
 
-Lorsque vous publiez des modifications, l'optimiseur se réinitialise et commence à réallouer le trafic à partir de zéro entre toutes les variantes et combinaisons actives. Les données historiques antérieures à la modification sont conservées et restent consultables dans l'onglet **Content Analytics**.
+Lorsque vous publiez des modifications, l'optimiseur se réinitialise et commence à réallouer le trafic à partir de zéro entre toutes les variantes et combinaisons actives. Évitez de mettre à jour les variantes lorsque l'étape est à l'état Apprentissage. Les données historiques antérieures à la modification sont conservées et restent consultables dans l'onglet **Content Analytics**.
 
 Les paramètres suivants ne peuvent pas être modifiés après le lancement :
 
@@ -225,19 +247,15 @@ Pour les étapes SMS/MMS/RCS, le groupe d'abonnement et le type de message ne pe
 
 ## Bonnes pratiques {#best-practices}
 
-- De manière générale, nous recommandons de tester davantage de composants plutôt que moins pour l'étape Optimiseur de contenu. Par exemple, au lieu de tester deux composants pour l'e-mail, testez-en trois.
-- Testez au moins 10 combinaisons au total pour de meilleurs résultats.
-- Si vous optimisez pour les clics, incluez les lignes d'objet dans vos tests, car des lignes d'objet plus percutantes peuvent contribuer à augmenter les ouvertures et créer davantage d'opportunités de clics.
-- Si vous optimisez pour les ouvertures, concentrez vos tests sur la ligne d'objet.
+- De manière générale, testez davantage de composants plutôt que moins pour l'étape Optimiseur de contenu. Par exemple, au lieu de tester deux composants pour l'e-mail, testez-en trois.
+- Tester au moins 10 combinaisons au total donne généralement de meilleurs résultats.
 - Si c'est la première fois que vous utilisez l'Optimiseur de contenu, envisagez d'utiliser une étape [Chemins d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) afin que seule une partie de votre audience entre dans la branche contenant l'étape Optimiseur de contenu. Par exemple, vous pourriez envoyer la moitié de vos utilisateurs sur un chemin avec l'étape Optimiseur de contenu et l'autre moitié sur un chemin de contrôle qui envoie l'étape Message avec votre contenu habituel. Ensuite, collectez des données pendant 2 à 3 semaines et comparez les indicateurs clés de performance (KPI) ou les contre-indicateurs avant d'augmenter le trafic vers les chemins avec les étapes Optimiseur de contenu.
-  - Pour une comparaison efficace en tête-à-tête, nous recommandons que votre étape Optimiseur de contenu contienne votre contenu habituel comme l'une des variantes pour chaque composant.
-- Avant de mettre à jour une étape en cours d'exécution, attendez que les classements de performance de toutes les variantes de composants se stabilisent, c'est-à-dire que les mêmes variantes gagnent et perdent de manière constante pendant trois à quatre jours consécutifs. Cela prend généralement environ sept jours, et un nombre plus élevé d'événements d'optimisation produit un signal plus fort et plus précis.
-- Évitez de mettre à jour trop tôt. Chaque fois que vous publiez des modifications, l'optimiseur se réinitialise. Si vous mettez à jour avant que l'étape n'ait eu le temps d'identifier ce qui fonctionne, vous l'empêchez de capitaliser sur ses résultats, et l'étape n'a jamais l'occasion de diriger un trafic significatif vers les combinaisons les plus performantes.
-- Lorsque vous êtes prêt à mettre à jour, l'approche recommandée consiste à désactiver les variantes peu performantes et à en ajouter de nouvelles qui s'appuient sur les caractéristiques de vos meilleures variantes.
+  - Pour une comparaison efficace en tête-à-tête, incluez votre contenu habituel comme l'une des variantes pour chaque composant dans votre étape Optimiseur de contenu.
+- Lorsque vous êtes prêt à mettre à jour après que votre étape Optimiseur de contenu a été à l'état Optimisation pendant un certain temps, désactivez les variantes peu performantes et ajoutez-en de nouvelles qui s'appuient sur les caractéristiques de vos meilleures variantes.
 
 ## Considérations {#considerations}
 
-- Les paramètres multilingues ne sont pas pris en charge dans les étapes Optimiseur de contenu. Nous recommandons plutôt d'utiliser une étape Optimiseur de contenu par langue et de créer des chemins distincts individuellement.
+- Les paramètres multilingues ne sont pas pris en charge dans les étapes Optimiseur de contenu. Utilisez plutôt une étape Optimiseur de contenu par langue et créez des chemins distincts individuellement.
 - Les étiquettes Liquid pour les composants de l'Optimiseur de contenu ne sont pas prises en charge dans les étapes Message, le Liquid est donc interrompu dans les étapes Message.
 - Une fois qu'une étape Optimiseur de contenu est lancée, vous ne pouvez plus modifier les composants testés, le contenu des variantes actives existantes ni l'événement d'optimisation. Pour les étapes SMS/MMS/RCS, le groupe d'abonnement et le type de message ne peuvent pas non plus être modifiés.
 

@@ -19,7 +19,7 @@ description: "この記事では、メールテンプレートのソース翻訳
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`templates.email.info` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`templates.email.info` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -42,13 +42,13 @@ curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/tra
 ---template_id: "6ad1507f-ca10-44c4-95bf-aj39fm10fm1ps"
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
-このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコード応答があります。
+このエンドポイントには、`200`、`400`、`404`、`429` の4つのステータスコードレスポンスがあります。
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `200` は、次の応答ヘッダーと本文を返す可能性があります。
+ステータスコード `200` は、次のレスポンスヘッダーと本文を返す可能性があります。
 
 ```json
 {
@@ -62,9 +62,9 @@ curl --location --request GET 'https://rest.iad-03.braze.com/templates/email/tra
 }
 ```
 
-### エラー応答の例 {#example-error-response}
+### エラーレスポンスの例 {#example-error-response}
 
-ステータスコード `400` は、次の応答本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
+ステータスコード `400` は、次のレスポンス本文を返す可能性があります。発生する可能性のあるエラーの詳細については、[トラブルシューティング](#troubleshooting)を参照してください。
 
 ```json
 {

@@ -15,7 +15,7 @@ description: "Este artigo de referência aborda o uso de um vetor de objetos com
 
 ## Considerações {#considerations}
 
-- Os vetores de objetos destinam-se a atributos personalizados enviados por meio da API. Não há suporte para fazer upload de CSV. Isso ocorre porque as vírgulas no arquivo CSV serão interpretadas como separadores de coluna, e as vírgulas nos valores causarão erros de análise.
+- Os vetores de objetos destinam-se a atributos personalizados enviados por meio da API. Não há suporte para upload de CSV. Isso ocorre porque as vírgulas no arquivo CSV serão interpretadas como separadores de coluna, e as vírgulas nos valores causarão erros de análise.
 - Os vetores de objetos não têm limite para o número de itens, mas têm um tamanho máximo de 100&nbsp;KB. Se uma atualização (como `$add` ou `$update`) fizer o vetor exceder esse limite, a Braze descarta a atualização e o atributo permanece inalterado. A requisição da API ainda retorna uma resposta de sucesso. Para manter o vetor dentro do limite e permitir a adição de novos itens, use `$remove` para excluir itens do vetor primeiro.
 - Nem todos os parceiros da Braze suportam vetores de objetos. Consulte a [documentação do parceiro]({{site.baseurl}}/partners/home) para confirmar se a integração suporta esse recurso.
 
@@ -26,7 +26,7 @@ Quando um atributo personalizado aninhado na sua requisição contém valores in
 {% endalert %}
 
 {% alert tip %}
-Para saber mais sobre o uso de vetores de objetos para objetos de atributos de usuário, consulte [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens).
+Para saber mais sobre o uso de vetores de objetos para objetos de atributos de usuário, consulte [Objeto de atributos de usuário]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
 {% endalert %}
 
 ## Exemplo de API {#api-example}
@@ -545,7 +545,7 @@ I have a {{pet.type}} named {{pet.name}}! They are a {{pet.breed}}.
 ```
 {% endraw %}
 
-Nesse cenário, você pode usar Liquid para percorrer o vetor `pets` e imprimir uma frase para cada animal de estimação. [Atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid#assigning-variables) ao atributo personalizado `pets` e use a notação de ponto para acessar propriedades de um objeto. Especifique o nome do objeto, seguido de um ponto `.`, seguido do nome da propriedade.
+Nesse cenário, você pode usar Liquid para percorrer o vetor `pets` e imprimir uma frase para cada animal de estimação. [Atribua uma variável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/dashboard_tools#assign-variables) ao atributo personalizado `pets` e use a notação de ponto para acessar propriedades de um objeto. Especifique o nome do objeto, seguido de um ponto `.`, seguido do nome da propriedade.
 
 ## Segmentação {#segmentation}
 

@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 4
 layout: api_page
 page_type: reference
-description: "En este artículo se describen los detalles del punto de conexión Exportar eventos personalizados de Braze."
+description: "En este artículo se describen los detalles del endpoint Exportar eventos personalizados de Braze."
 
 ---
 {% api %}
@@ -14,11 +14,11 @@ description: "En este artículo se describen los detalles del punto de conexión
 /events
 {% endapimethod %}
 
-> Utiliza este punto de conexión para exportar una lista de eventos personalizados registrados para tu aplicación. Los eventos se devuelven en grupos de 50, ordenados alfabéticamente.
+> Utiliza este endpoint para exportar una lista de eventos personalizados registrados para tu aplicación. Los eventos se devuelven en grupos de 50, ordenados alfabéticamente.
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `events.get`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `events.get`.
 
 ## Límite de velocidad {#rate-limit}
 
@@ -26,7 +26,7 @@ Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.ba
 
 ## Parámetros de consulta {#query-parameters}
 
-Ten en cuenta que cada llamada a este punto de conexión devolverá 50 eventos. Para más de 50 eventos, utiliza el encabezado `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
+Ten en cuenta que cada llamada a este endpoint devolverá 50 eventos. Para más de 50 eventos, utiliza el encabezado `Link` para recuperar los datos en la página siguiente, como se muestra en el siguiente ejemplo de respuesta.
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 |---|---|---|---|

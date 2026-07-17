@@ -8,13 +8,13 @@ description: "Cet article de référence décrit les étapes pour créer une tra
 
 # Créer une transformation {#create-a-transformation}
 
-> La Transformation des données Braze vous permet de créer et de gérer des intégrations webhook pour automatiser le flux de données depuis des plateformes externes vers Braze. Ces intégrations webhook peuvent ensuite faciliter des cas d'utilisation marketing encore plus sophistiqués. Vous pouvez créer votre Transformation des données à partir d'un code par défaut, ou en utilisant notre bibliothèque de modèles dédiée pour vous aider à démarrer avec certaines plateformes externes.
+> La Transformation des données Braze vous permet de créer et de gérer des intégrations webhook pour automatiser le flux de données depuis des plateformes externes vers Braze. Ces intégrations webhook peuvent ensuite faciliter des cas d'usage marketing encore plus sophistiqués. Vous pouvez créer votre Transformation des données à partir d'un code par défaut, ou en utilisant notre bibliothèque de modèles dédiée pour vous aider à démarrer avec certaines plateformes externes.
 
 ## Conditions préalables {#prerequisites}
 
 | Condition | Description |
 | --- | --- |
-| Authentification à deux facteurs ou SSO | Vous devez avoir activé l'[authentification à deux facteurs]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication) (2FA) ou l'[authentification unique]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) pour votre compte. |
+| Authentification à deux facteurs ou SSO | Vous devez avoir activé l'[authentification à deux facteurs]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#two-factor-authentication-2fa) (2FA) ou l'[authentification unique]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings#single-sign-on-sso-authentication) (SSO) pour votre compte. |
 | Autorisations correctes | Vous devez être administrateur de compte ou d'espace de travail, ou disposer de l'autorisation utilisateur « Gérer les transformations ». |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
@@ -46,7 +46,7 @@ Voici à quoi cela ressemble pour Typeform :
 ![Exemple de code de Transformation des données qui mappe le webhook aux profils utilisateurs de Braze.]({% image_buster /assets/img/data_transformation/data_transformation11.png %})
 
 {% alert note %}
-Il se peut que la Transformation des données Braze ne prenne pas encore en charge les plateformes externes qui exigent une vérification ou une authentification spéciale pour les webhooks. N'hésitez pas à laisser un [commentaire sur le produit]({{site.baseurl}}/user_guide/administer/personal/product_portal) si vous souhaitez utiliser ce type de plateforme avec la Transformation des données Braze.
+Il se peut que la Transformation des données Braze ne prenne pas encore en charge les plateformes externes qui exigent une vérification ou une authentification spéciale pour les webhooks. {% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="webhook authentication for external platforms" %}
 {% endalert %}
 
 ## Étape 4 : Écrire le code de transformation {#step-4-write-transformation-code}
@@ -56,7 +56,7 @@ Si vous avez peu ou pas d'expérience avec le code JavaScript ou si vous préfé
 Si vous êtes développeur ou si vous avez une expérience significative avec le code JavaScript, suivez l'onglet **Avancé - POST : suivre les utilisateurs** pour obtenir des instructions générales sur l'écriture de votre code de transformation.
 
 {% alert tip %}
-Pour générer du code de transformation avec l'intelligence artificielle, choisissez **Code with Operator** au-dessus de l'éditeur de code de transformation. Pour l'utiliser, un webhook doit être envoyé à votre transformation. Pour partir d'un modèle prédéfini, choisissez **Insert Template**. Pour des exemples de prompts, consultez [Générer du code de transformation des données]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).
+Pour générer du code de transformation avec l'IA, choisissez **Code with Operator** dans l'éditeur de code de transformation. Pour l'utiliser, un webhook doit être envoyé à votre transformation. Pour partir d'un modèle prédéfini, choisissez **Insert Template**. Pour des exemples de prompts, consultez [Générer du code de transformation des données]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-data-transformation-code).
 
 **Code with Operator** n'est disponible que si Operator est activé pour votre compte. Si vous ne le voyez pas, contactez votre gestionnaire de compte.
 {% endalert %}

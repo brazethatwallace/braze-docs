@@ -18,7 +18,7 @@ _Diese Integration wird von Lokalise gepflegt._
 
 Lokalise bietet zwei Integrationsoptionen für Braze:
 
-- **Mehrsprachige Integration (empfohlen)**: Nutzt die [Multi-Language Composition API]({{site.baseurl}}/api/endpoints/translations/) von Braze, um eine direkte bidirektionale Synchronisierung zwischen Lokalise und Braze bereitzustellen. Diese Integration funktioniert mit lokalisierten Nachrichtenvarianten für Campaigns, Canvases und E-Mail-Templates und unterstützt Workflows vor und nach dem Start für Push, E-Mail und In-App Messages.
+- **Mehrsprachige Integration (empfohlen)**: Nutzt die [Multi-Language Composition API]({{site.baseurl}}/api/endpoints/translations) von Braze, um eine direkte bidirektionale Synchronisierung zwischen Lokalise und Braze bereitzustellen. Diese Integration funktioniert mit lokalisierten Nachrichtenvarianten für Campaigns, Canvases und E-Mail-Templates und unterstützt Workflows vor und nach dem Start für Push, E-Mail und In-App Messages.
 - **Connected-Content-Integration (Legacy)**: Nutzt Braze Connected-Content, um übersetzte Inhalte basierend auf den Spracheinstellungen der Nutzer:innen einzufügen.
 
 Dieser Artikel behandelt die Einrichtung beider Integrationen.
@@ -33,11 +33,11 @@ Die mehrsprachige Integration nutzt die Multi-Language Composition API von Braze
 | ----------- | ----------- |
 | Lokalise-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Lokalise-Konto. |
 | Lokalise-Übersetzungsprojekt | Erstellen Sie ein Lokalise-Projekt mit dem Typ **Marketing and support** und wählen Sie **Braze** als **Content integration**. |
-| Braze-Einstellungen für mehrere Sprachen | Die [Unterstützung mehrerer Sprachen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings/) muss in Ihrem Braze-Workspace aktiviert sein. |
+| Braze-Einstellungen für mehrere Sprachen | Die [Unterstützung mehrerer Sprachen]({{site.baseurl}}/user_guide/administer/global/workspace_settings/multi_language_settings) muss in Ihrem Braze-Workspace aktiviert sein. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit Berechtigungen zum Lesen und Aktualisieren von Campaigns, Canvases und E-Mail-Templates. Sie können einen im Braze-Dashboard unter **Settings** > **API Keys** erstellen. |
-| Braze-Serverregion | Ihre [Braze-Serverregion]({{site.baseurl}}/api/basics/#endpoints) (z. B. US-01, EU-01). Sie finden diese im Braze-Dashboard. |
-| Übersetzungs-Tags in Braze-Inhalten | Nachrichten müssen [Übersetzungs-Tags]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages/) verwenden, um übersetzbare Inhalte zu kennzeichnen. Umschließen Sie jeden übersetzbaren Block mit {% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %}-Tags mit einer eindeutigen ID. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+| Braze-Serverregion | Ihre [Braze-Serverregion]({{site.baseurl}}/api/basics#endpoints) (z. B. US-01, EU-01). Sie finden diese im Braze-Dashboard. |
+| Übersetzungs-Tags in Braze-Inhalten | Nachrichten müssen [Übersetzungs-Tags]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages) verwenden, um übersetzbare Inhalte zu kennzeichnen. Umschließen Sie jeden übersetzbaren Block mit {% raw %}`{% translation ID %}...{% endtranslation %}`{% endraw %}-Tags mit einer eindeutigen ID. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ### Einrichtung und Verwendung {#setup-and-usage}
 
@@ -62,7 +62,7 @@ Die Legacy-Integration nutzt Braze Connected-Content, um übersetzte Inhalte bas
 | ----------- | ----------- |
 | Lokalise-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Lokalise-Konto. |
 | Lokalise-Übersetzungsprojekt | Erstellen Sie ein Lokalise-Projekt mit dem Projekttyp **Software Localization**. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ### Erstellen Sie ein neues Lokalise-Projekt {#create-a-new-lokalise-project}
 
@@ -72,7 +72,7 @@ Um ein neues Übersetzungsprojekt zu erstellen, melden Sie sich bei Lokalise an 
 
 In Lokalise erstellen Sie für jede der Connected-Content-Variablen, die Sie in Braze definieren, einen Übersetzungsschlüssel. Wenn die Übersetzungen fertig sind, können Sie eine JSON-Datei pro Sprache generieren und sie auf den URLs veröffentlichen, die Ihre Connected-Content-Inhalte bereitstellen werden.
 
-#### 1. Schritt: Konfiguration der Nutzer:innen-Sprachen {#step-1-configure-user-languages}
+#### Schritt 1: Konfiguration der Nutzer:innen-Sprachen {#step-1-configure-user-languages}
 
 Falls Sie es noch nicht getan haben, öffnen Sie das Braze-Dashboard und gehen Sie zu **Users > User Import**. Hier können Sie Ihre Nutzer:innen importieren. Wenn Sie eine CSV-Datei für den Import vorbereiten, stellen Sie sicher, dass Sie eine Sprachspalte mit den Sprachen der Nutzer:innen einfügen. Dieses Sprachfeld wird später bei der Anzeige von Übersetzungen verwendet.
 
@@ -80,7 +80,7 @@ Falls Sie es noch nicht getan haben, öffnen Sie das Braze-Dashboard und gehen S
 Die verwendeten Sprachcodes müssen sowohl in Braze als auch in Lokalise übereinstimmen.
 {% endalert %}
 
-#### 2. Schritt: Vorbereitungen für Ihre Übersetzungen auf Lokalise {#step-2-prepare-your-translations-on-lokalise}
+#### Schritt 2: Vorbereitungen für Ihre Übersetzungen auf Lokalise {#step-2-prepare-your-translations-on-lokalise}
 
 Um Ihre Übersetzungen in Lokalise vorzubereiten, müssen Sie als Nächstes manuell die Übersetzungsschlüssel mit demselben Namen erstellen, den Sie in den Variablen von Braze Connected-Content verwenden.
 
@@ -90,18 +90,18 @@ Lassen Sie uns zum Beispiel einen einfachen Übersetzungsschlüssel erstellen: `
 3. Fügen Sie „Web“ in der Dropdown-Liste **Platforms** hinzu.
 4. Wenn Sie fertig sind, klicken Sie auf **Save**.
 
-![]({% image_buster /assets/img/lokalise/1_add_key.png %}){: style="max-width:60%"}
+![Lokalise-Dialog „Schlüssel hinzufügen“ zum Erstellen des Übersetzungsschlüssels „description“.]({% image_buster /assets/img/lokalise/1_add_key.png %}){: style="max-width:60%"}
 
 Ihr Übersetzungsschlüssel sollte im Projekteditor erscheinen:
 
-![]({% image_buster /assets/img/lokalise/2_translation_key_added.png %}){: style="max-width:90%"}
+![Lokalise-Projekteditor mit dem neu hinzugefügten Übersetzungsschlüssel.]({% image_buster /assets/img/lokalise/2_translation_key_added.png %}){: style="max-width:90%"}
 
 ##### Bekannte Probleme {#known-issues}
 
 - Ihre Schlüssel müssen der **Web**-Plattform zugewiesen sein.
 - Vermeiden Sie die Verwendung von Schlüsseln, die Punkte (`.`) oder den String `_on` enthalten. Verwenden Sie zum Beispiel `this_is_the_key` anstelle von `this.is.the.key` und `join_us_instagram` anstelle von `join_us_on_instagram`.
 
-#### 3. Schritt: Konfigurieren der Braze-App auf Lokalise {#step-3-configure-the-braze-app-on-lokalise}
+#### Schritt 3: Konfigurieren der Braze-App auf Lokalise {#step-3-configure-the-braze-app-on-lokalise}
 
 Öffnen Sie Ihr Lokalise-Projekt und klicken Sie auf **Apps**. Suchen und installieren Sie hier die Braze-App. Sie sehen dann den folgenden Bildschirm:
 
@@ -118,9 +118,9 @@ Die URL der Übersetzungsdatei ist die URL, die Sie benötigen, wenn Sie eine Br
 
 Um diese URL zu testen, kopieren Sie sie und ersetzen Sie {% raw %}`{{${language}}}`{% endraw %} durch einen Sprachcode (z. B. `en`) und öffnen Sie diese URL in Ihrem Browser. Sie sehen dann eine JSON-Datei mit Ihren Schlüsseln und Übersetzungen:
 
-![]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
+![Browseransicht der von Lokalise exportierten JSON-Übersetzungsdatei.]({% image_buster /assets/img/lokalise/4_testing_json_lokalise.png %})
 
-#### 4. Schritt: Übersetzungen in der Braze-Campaign verwenden {#step-4-use-translations-in-braze-campaign}
+#### Schritt 4: Übersetzungen in der Braze-Campaign verwenden {#step-4-use-translations-in-braze-campaign}
 
 ##### Connected-Content-Aufruf einfügen {#insert-connected-content-call}
 
@@ -147,7 +147,7 @@ Verwenden Sie nun die Variable „translations“, um die gewünschten Übersetz
 Um zum Beispiel den Schlüssel `description` anzuzeigen, verwenden Sie `{{ translations.description }}`.
 
 {% endraw %}
-![]({% image_buster /assets/img/lokalise/6_integration_usage_sample.png %})
+![Beispiel im Braze-E-Mail-Editor mit Connected-Content-Übersetzungen von Lokalise.]({% image_buster /assets/img/lokalise/6_integration_usage_sample.png %})
 
 Zum Schluss speichern Sie das E-Mail-Template und zeigen es in der Vorschau an. Sie sollten sehen, dass Ihre Übersetzung angezeigt wird.
 
@@ -155,16 +155,16 @@ Zum Schluss speichern Sie das E-Mail-Template und zeigen es in der Vorschau an. 
 
 ### Was passiert, wenn ich versehentlich einen Schlüssel aus Lokalise lösche? {#what-happens-if-i-accidentally-delete-a-key-from-lokalise}
 
-Für den entsprechenden String auf Braze gibt es dann keine Übersetzung mehr.
+Für den entsprechenden String in Braze gibt es dann keine Übersetzung mehr.
 
 ### Wenn ich eine `en`-Lokalisierung habe, diese aber mit `en-US` auf Lokalise überschreibe, wird Braze sie dann als `en-US` lesen? {#if-i-have-an-en-locale-but-override-it-with-en-us-on-lokalise-will-braze-read-it-as-en-us}
 
-Nein, die ISO-Codes der Lokalisierung müssen auf Braze und Lokalise übereinstimmen.
+Nein, die ISO-Codes der Lokalisierung müssen in Braze und Lokalise übereinstimmen.
 
 ### Können wir das Flag `:rerender` verwenden, wenn wir Lokalise-Inhalte verbinden? {#can-we-use-the-rerender-flag-when-connecting-lokalise-content}
 
 Ja, selbstverständlich. Sie können in der Braze-Dokumentation nachlesen, wie Sie dieses Flag hinzufügen können.
 
-### Warum kann ich nach dem Aktualisieren der Übersetzungsdatei auf Lokalise keine Änderungen an den übersetzten Inhalten auf Braze sehen? {#after-refreshing-the-translation-file-on-lokalise-why-cant-i-see-any-changes-in-the-translated-content-on-braze}
+### Warum kann ich nach dem Aktualisieren der Übersetzungsdatei auf Lokalise keine Änderungen an den übersetzten Inhalten in Braze sehen? {#after-refreshing-the-translation-file-on-lokalise-why-cant-i-see-any-changes-in-the-translated-content-on-braze}
 
 Braze speichert übersetzte Inhalte im Cache. Die Aktualisierung kann einige Minuten dauern. Wenn Sie Ihre Campaigns testen und die Ergebnisse der Übersetzungen sofort sehen müssen, können Sie den Parameter `:cache_max_age` verwenden, wie in diesem Referenzartikel beschrieben.

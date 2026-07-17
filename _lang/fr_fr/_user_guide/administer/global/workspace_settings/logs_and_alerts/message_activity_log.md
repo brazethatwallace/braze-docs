@@ -11,7 +11,7 @@ description: "Cet article de référence décrit le journal d'activité des mess
 
 > Le **Journal d'activité des messages** vous permet de consulter tous les messages (en particulier les messages d'erreur) associés à vos campagnes et envois.
 
-Vous pouvez visualiser les transactions de campagnes API, résoudre les problèmes liés aux messages en échec et obtenir des informations pour améliorer la distribution des notifications ou résoudre des problèmes techniques existants.
+Vous pouvez visualiser les transactions de Campaigns API, résoudre les problèmes liés aux messages en échec et obtenir des informations pour améliorer la distribution des notifications ou résoudre des problèmes techniques existants.
 
 Pour accéder au journal, rendez-vous dans **Paramètres** > **Journal d'activité des messages**.
 
@@ -45,7 +45,14 @@ Ces messages peuvent provenir de notre propre système, de vos applications ou p
 
 Pour déterminer la signification de vos messages, prêtez attention à la formulation de chaque message et aux colonnes correspondantes, car cela peut vous aider à résoudre les problèmes grâce aux indices contextuels.
 
-Par exemple, si vous avez une entrée de journal dont le message indique « empty-cart_app » et que vous n'êtes pas sûr de sa signification, regardez à gauche dans la colonne **Type**. Si vous voyez « Aborted Message Error », vous pouvez raisonnablement supposer que le message correspond à ce qui a été écrit comme [message d'abandon]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) en utilisant Liquid, et que le message a été abandonné parce que le destinataire prévu avait un panier vide dans votre application.
+Par exemple, les entrées **Erreur de message abandonné** peuvent survenir pour de nombreuses raisons, pas uniquement les [messages d'abandon Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages). Consultez la colonne **Message** pour connaître la raison spécifique :
+
+- Si l'envoi a été abandonné par une balise Liquid `abort_message`, la colonne **Message** affiche l'extrait Liquid exact qui a été appelé, par exemple {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %}.
+- Pour les autres raisons d'abandon, la colonne **Message** explique pourquoi l'envoi a été abandonné.
+
+### Payloads de Campaigns API {#api-campaign-payloads}
+
+Le journal d'activité des messages enregistre des informations différentes selon le type de Campaign API. L'[endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) enregistre le corps du message (messages) dans les enregistrements de messages API, tandis que l'[endpoint `/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_campaigns) n'enregistre pas le payload de la requête ni les `api_trigger_properties` dans le journal d'activité des messages.
 
 ### Messages courants {#common-messages}
 
@@ -58,7 +65,7 @@ Les messages suivants sont donnés à titre d'exemple et peuvent ne pas correspo
 | Échec provisoire d'envoi | L'adresse e-mail same@example.com a subi un échec provisoire d'envoi. | L'adresse e-mail était valide et le message a atteint le serveur de messagerie du destinataire, mais a été rejeté pour un problème « temporaire ». <br><br>Les raisons courantes d'un échec provisoire d'envoi incluent : {::nomarkdown} <ul> <li> La boîte de réception était pleine (l'utilisateur a dépassé son quota) </li> <li> Le serveur était indisponible </li> <li> Le message était trop volumineux pour la boîte de réception du destinataire </li>  </ul> {:/} Si un e-mail a subi un échec provisoire d'envoi, nous réessayons généralement dans un délai de 72 heures, mais le nombre de tentatives varie d'un destinataire à l'autre. |
 | Échec d'envoi définitif | Le compte e-mail que vous avez essayé de joindre n'existe pas. Vérifiez l'adresse e-mail du destinataire pour détecter d'éventuelles fautes de frappe ou espaces inutiles. | Votre message n'a jamais atteint la boîte de réception de cette personne car il n'y avait pas de boîte de réception à atteindre. Si vous souhaitez approfondir, des messages comme celui-ci peuvent parfois comporter des liens dans la colonne **Afficher les détails** qui vous permettent de consulter le profil du destinataire prévu.|
 | Blocage | Le message de spam est rejeté en raison de la politique anti-spam. | Votre message a été catégorisé comme spam. Cette erreur d'e-mail est enregistrée pour un utilisateur si nous avons reçu un événement de l'ESP indiquant que l'e-mail a été rejeté. Cela peut concerner uniquement ce destinataire, mais si vous voyez ce message fréquemment, vous devriez peut-être réévaluer vos habitudes d'envoi ou le contenu de votre message. Réfléchissez également : avez-vous [préchauffé votre IP]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) ? Si ce n'est pas le cas, contactez Braze pour obtenir des conseils à ce sujet.|
-| Erreur de message abandonné | empty-cart_web | Si vous avez une application avec un panier ou si vous créez un envoi avec un message d'abandon en Liquid, vous pouvez personnaliser le message qui vous est renvoyé si l'envoi est abandonné. Dans ce cas, le message renvoyé est empty-cart_web.|
+| Erreur de message abandonné | {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %} | Lorsqu'un envoi est abandonné par une balise Liquid `abort_message`, la colonne **Message** affiche l'extrait Liquid exact qui a été appelé. D'autres entrées **Erreur de message abandonné** peuvent contenir des messages différents décrivant la raison de l'abandon. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Messages courants" }
 
 ### Pourquoi mon message n'apparaît-il pas ici ? {#why-isnt-my-message-listed-here}
@@ -78,8 +85,8 @@ Les erreurs des 60 dernières heures sont disponibles dans le journal d'activit�
 
 ### Nombre de journaux d'erreurs conservés {#number-of-error-logs-stored}
 
-Le nombre de journaux enregistrés est influencé par plusieurs conditions. Par exemple, si une campagne planifiée est envoyée à des milliers d'utilisateurs, il est possible que seul un échantillon des erreurs apparaisse dans le journal d'activité des messages plutôt que la totalité. Voici un aperçu des conditions affectant le nombre de journaux conservés :
-- Jusqu'à 20 journaux d'erreurs du même type sont enregistrés pour la même campagne ou étape du Canvas au cours d'une heure fixe pour les types d'erreurs suivants :
+Le nombre de journaux enregistrés est influencé par plusieurs conditions. Par exemple, si une Campaign planifiée est envoyée à des milliers d'utilisateurs, il est possible que seul un échantillon des erreurs apparaisse dans le journal d'activité des messages plutôt que la totalité. Voici un aperçu des conditions affectant le nombre de journaux conservés :
+- Jusqu'à 20 journaux d'erreurs du même type sont enregistrés pour la même Campaign ou étape du Canvas au cours d'une heure fixe pour les types d'erreurs suivants :
     - Erreurs de contenu connecté
     - Erreurs de messages abandonnés
     - Erreurs de webhook
@@ -87,7 +94,7 @@ Le nombre de journaux enregistrés est influencé par plusieurs conditions. Par 
     - Erreurs d'échec de distribution SMS
     - Erreurs d'échec WhatsApp
     - Erreurs de test A/B
-- Jusqu'à 20 journaux d'erreurs de notification push du même type sont enregistrés pour la même campagne ou étape du Canvas et combinaison d'application pour les types d'erreurs suivants :
+- Jusqu'à 20 journaux d'erreurs de notification push du même type sont enregistrés pour la même Campaign ou étape du Canvas et combinaison d'application pour les types d'erreurs suivants :
     - Identifiants push invalides
     - Jeton de notification push invalide
     - Aucun identifiant push
@@ -101,7 +108,7 @@ Le nombre de journaux enregistrés est influencé par plusieurs conditions. Par 
     - Erreur de Live Activity (identifiant push invalide)
     - Autres erreurs de Live Activity
     - Erreurs de jeton supprimé par retour APNs
-- Jusqu'à 100 journaux d'erreurs du même type sont enregistrés pour la même campagne ou étape du Canvas au cours d'une heure fixe pour les types d'erreurs suivants :
+- Jusqu'à 100 journaux d'erreurs du même type sont enregistrés pour la même Campaign ou étape du Canvas au cours d'une heure fixe pour les types d'erreurs suivants :
     - Erreurs d'échec provisoire d'envoi d'e-mail
     - Erreurs d'échec d'envoi définitif d'e-mail
     - Erreurs de blocage d'e-mail
@@ -117,6 +124,6 @@ Le **Journal d'activité des messages** affiche les journaux de test pour les ca
 - KakaoTalk
 - Webhook
 
-Les journaux d'envois de test ne sont pas disponibles pour les canaux suivants : e-mail, Content Cards, messages in-app et push.
+Les journaux d'envois de test ne sont pas disponibles pour les canaux suivants : e-mail, Content Cards, messages in-app et notifications push.
 
 Les journaux d'envois de test sont préfixés par « [TEST SEND] », mais il n'est pas garanti que tous les journaux d'envois de test portent ce préfixe (par exemple, les erreurs de contenu connecté ne comportent pas ce préfixe).

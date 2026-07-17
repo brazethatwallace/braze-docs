@@ -45,7 +45,7 @@ Les messages in-app plein écran remplissent toute la hauteur de l'appareil et s
 | Disposition | Taille de la ressource | Notes |
 |--- | --- | --- |
 | Image et texte | Rapport hauteur/largeur 6:5<br> Haute résolution 1200 x 1000&nbsp;px<br> Minimum 600 x 500&nbsp;px | Un recadrage peut se produire sur tous les côtés, mais l'image remplira toujours les 50 % supérieurs de la zone d'affichage |
-| Image uniquement | Rapport hauteur/largeur 3:5<br> Haute résolution 1200 x 2000&nbsp;px<br> Minimum 600 x 1000&nbsp;px | Un recadrage peut se produire sur les bords gauche et droit sur les appareils plus grands |
+| Image uniquement | Rapport hauteur/largeur 3:5<br> Haute résolution 1200 x 2000&nbsp;px<br> Minimum 600 x 1000&nbsp;px | Un recadrage peut se produire sur le bord principal et le bord droit sur les appareils plus grands |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Portrait" }
 
 ### Paysage {#landscape}
@@ -53,7 +53,7 @@ Les messages in-app plein écran remplissent toute la hauteur de l'appareil et s
 | Disposition | Taille de la ressource | Notes |
 |--- | --- | --- |
 | Image et texte | Rapport hauteur/largeur 10:3<br> Haute résolution 2000 x 600px<br> Minimum 1000 x 300&nbsp;px | Un recadrage peut se produire sur tous les côtés, mais l'image remplira toujours les 50 % supérieurs de la zone d'affichage |
-| Image uniquement | Rapport hauteur/largeur 5:3<br> Haute résolution 2000 x 1200px<br> Minimum 1000 x 600&nbsp;px | Un recadrage peut se produire sur les bords gauche et droit sur les appareils plus grands |
+| Image uniquement | Rapport hauteur/largeur 5:3<br> Haute résolution 2000 x 1200px<br> Minimum 1000 x 600&nbsp;px | Un recadrage peut se produire sur le bord principal et le bord droit sur les appareils plus grands |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Paysage" }
 
 ### Zone sûre de l'image {#image-safe-zone}

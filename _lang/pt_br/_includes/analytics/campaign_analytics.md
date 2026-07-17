@@ -186,6 +186,13 @@ O painel **WhatsApp Performance** descreve o desempenho da sua mensagem em vári
 
 ![Painel de desempenho do WhatsApp que inclui uma tabela de métricas para a Variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Créditos versus contagens de envio {#credits-versus-send-counts}
+
+As contagens de envio do WhatsApp na análise de dados da campanha refletem tentativas de entrega. Os créditos consumidos podem diferir quando o Meta cobra por categoria de mensagem (marketing, utilidade, autenticação, serviço).
+
+- Mensagens de resposta compostas na Braze não consomem créditos de WhatsApp da Braze.
+- Use **Analytics** > **Daily Stats** para volume direcional de envio. Detalhamentos de créditos por campanha ou Canvas não estão disponíveis.
+
 {% endif %}
 
 Se você quiser simplificar sua visualização, clique em <i class="fas fa-plus"></i> **Add/Remove Columns** e desmarque quaisquer métricas conforme desejado. Por padrão, todas as métricas são exibidas.
@@ -365,6 +372,12 @@ Como outro exemplo, suponha que você veja cinco _Unique Impressions_ em uma cam
 
 _Unique Daily Impressions_ refere-se aos Banners que foram realmente vistos.
 
+#### Discrepâncias entre grupos de controle e variantes {#discrepancies-between-control-groups-and-variants}
+
+Quando uma campanha de Banner usa um grupo de controle, as impressões do grupo de controle podem ser maiores do que as impressões da variante, mesmo quando a divisão de público entre os grupos é equilibrada. Essa discrepância é causada por uma diferença na forma como as impressões são registradas para Banners de controle e de variante.
+
+Tanto as impressões de controle quanto as de variante exigem que o posicionamento do Banner entre na viewport. As impressões de variante são registradas apenas quando o Banner completo está visível na tela. As impressões de controle podem ser registradas assim que o posicionamento entra na viewport, antes que o Banner completo esteja visível para uma variante.
+
 {% elsif include.channel == "email" %}
 
 #### Métricas de e-mail {#email-metrics}
@@ -496,7 +509,7 @@ Adiamento é quando um e-mail não foi entregue imediatamente, mas a Braze tenta
 
 Os _Adiamentos_ diferem dos _Soft Bounces_. Se nenhum e-mail foi entregue com sucesso durante este período de nova tentativa, a Braze enviará um evento de soft bounce por campanha enviada. Antes de 25 de fevereiro de 2025, essas tentativas eram contadas como múltiplos soft bounces para 1 envio de campanha.
 
-Observe que os _Adiamentos_ estão atualmente disponíveis apenas usando os recursos Currents ou Snowflake da Braze (como o Criador de consultas, SQL Segment, Compartilhamento de dados Snowflake). Se você gostaria de incluir isso na análise de dados de Campaign ou Canvas, [envie um feedback sobre o produto]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Observe que os _Adiamentos_ estão atualmente disponíveis apenas usando os recursos Currents ou Snowflake da Braze (como o Criador de consultas, SQL Segment, Compartilhamento de dados Snowflake). {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Taxa de abertura real estimada {#estimated-real-open-rate}
 
@@ -593,7 +606,7 @@ Os relatórios para _Button 1 Clicks_ e _Button 2 Clicks_ funcionam apenas quand
     </tbody>
 </table>
 
-#### Discrepâncias entre grupos de controle e variantes {#discrepancies-between-control-groups-and-variants}
+#### Discrepâncias entre grupos de controle e variantes
 
 Quando uma campanha de mensagem no app tem uma divisão de variantes 50-50, às vezes o grupo de controle terá uma porcentagem ligeiramente maior do que a variante (como 51% para o grupo de controle e 49% para a variante). Essa discrepância é causada por uma diferença no tempo de renderização — por exemplo, quando mensagens de variante usam imagens grandes ou Connected Content com templates e os usuários saem antes que a renderização seja concluída, enquanto o grupo de controle registra impressões sem exibir uma mensagem.
 
@@ -606,18 +619,18 @@ A distribuição entre os grupos de controle e variante é projetada para ser ap
 Aqui estão algumas métricas-chave do KakaoTalk que você pode ver na análise de dados. Para mais detalhes, consulte o [Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics).
 
 {% alert note %}
-Atualmente, estatísticas de público estimadas ou exatas não estão disponíveis para Campaigns KakaoTalk.
+Atualmente, estatísticas de público estimadas ou exatas não estão disponíveis para campanhas KakaoTalk.
 {% endalert %}
 
 | Termo | Definição |
 | --- | --- |
 | Público | _Público_ é a porcentagem de usuários que receberam uma mensagem específica. <br><br>_(Número de destinatários na variante) / (Destinatários únicos)_ |
 | Destinatários únicos | _Destinatários únicos_ é o número de destinatários diários únicos, ou usuários que receberam uma nova mensagem em um dia. Para que essa contagem seja incrementada para um usuário mais de uma vez, o usuário deve receber uma nova mensagem em um dia diferente. Este número é baseado no `user_id`. Para mais detalhes, consulte [Destinatários únicos no Glossário de métricas de relatório]({{site.baseurl}}/user_guide/data/report_metrics#unique-recipients). |
-| Envios | O número total de mensagens enviadas em uma Campaign. Isso não significa que a mensagem foi recebida ou entregue a um dispositivo, apenas que a mensagem foi enviada. |
+| Envios | O número total de mensagens enviadas em uma campanha. Isso não significa que a mensagem foi recebida ou entregue a um dispositivo, apenas que a mensagem foi enviada. |
 | Total de cliques | O número total de vezes que as mensagens KakaoTalk enviadas foram clicadas pelos usuários. |
 | Erros | _Erros_ é o número de erros retornados pelo provedor KakaoTalk (incrementado durante o processo de envio). |
-| Receita | _Receita_ é a receita em dólares dos destinatários da Campaign dentro da janela de conversão primária definida. |
-| Conversões primárias | _Conversões primárias_ é o número de vezes que um evento definido ocorreu após interagir com ou visualizar uma mensagem recebida de uma Campaign da Braze. Esse evento definido é determinado por você ao criar a Campaign. |
+| Receita | _Receita_ é a receita em dólares dos destinatários da campanha dentro da janela de conversão primária definida. |
+| Conversões primárias | _Conversões primárias_ é o número de vezes que um evento definido ocorreu após interagir com ou visualizar uma mensagem recebida de uma campanha da Braze. Esse evento definido é determinado por você ao criar a campanha. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Métricas do KakaoTalk" }
 
 {% elsif include.channel == "push" %}
@@ -660,7 +673,7 @@ Aqui está uma análise de algumas métricas-chave que você pode ver ao revisar
 
 ##### Rastreamento de cancelamentos de inscrição {#tracking-unsubscribes}
 
-Os cancelamentos de inscrição por push não estão incluídos como uma métrica na análise de dados de Campaign e dependem de atualizações no status de push de um usuário por provedores como Apple ou Google. Essas atualizações podem ser pouco frequentes e imprevisíveis. Como resultado, os cancelamentos de inscrição por push não são incluídos como uma métrica na análise de dados de Campaign por push.
+Os cancelamentos de inscrição por push não estão incluídos como uma métrica na análise de dados de campanha e dependem de atualizações no status de push de um usuário por provedores como Apple ou Google. Essas atualizações podem ser pouco frequentes e imprevisíveis. Como resultado, os cancelamentos de inscrição por push não são incluídos como uma métrica na análise de dados de campanha por push.
 
 No entanto, o rastreamento manual de cancelamentos de inscrição por push ainda pode fornecer insights valiosos sobre as respostas dos usuários à frequência das notificações e à relevância do conteúdo. Aqui estão duas opções para rastrear cancelamentos de inscrição por push: usando filtros de segmento ou filtros personalizados.
 
@@ -674,7 +687,7 @@ Você pode criar um segmento para identificar usuários que não estão habilita
 
 ![A seção do criador de segmentos com o filtro "Background or Foreground Push Enabled for App" para um app é falso, e o filtro "Has Uninstalled" estão selecionados.]({% image_buster /assets/img/push_unsub_segment_example.png %})
 
-Observe que os filtros de segmentação são aproximados e não podem ser especificamente vinculados a uma data e Campaign.
+Observe que os filtros de segmentação são aproximados e não podem ser especificamente vinculados a uma data e campanha.
 
 {% endtab %}
 {% tab Filtros personalizados %}
@@ -700,7 +713,7 @@ _Direct Opens_ reflete as métricas do dashboard para interações que contam co
 
 Para **iOS**, as categorias de notificação padrão da Braze (como **Yes** / **No**, **Accept** / **Decline** ou **Confirm** / **Cancel**) usam um pareamento fixo: a primeira ação suporta `OPEN_APP`, uma URI ou um deep link (alinhado com **On-Click Behavior** no criador). A ação complementar usa `CLOSE` por padrão — ela descarta a notificação e não abre o app. Veja o mapeamento padrão em [Objeto de botão de ação por push da Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-action-button-object-for-braze-default-buttons).
 
-Por causa disso, toques no botão predefinido de descarte (por exemplo, **No** ou **Decline**) normalmente **não** contam para _Direct Opens_. Esses toques ainda podem aparecer nas exportações de **Push Notification Open** quando registrados, com `button_action_type` definido como `close` e `button_string` identificando a ação tocada. Ao comparar a análise de dados de Campaign com dados do warehouse, use esses campos da carga útil para não tratar toques de descarte da mesma forma que toques no corpo da notificação ou na ação principal.
+Por causa disso, toques no botão predefinido de descarte (por exemplo, **No** ou **Decline**) normalmente **não** contam para _Direct Opens_. Esses toques ainda podem aparecer nas exportações de **Push Notification Open** quando registrados, com `button_action_type` definido como `close` e `button_string` identificando a ação tocada. Ao comparar a análise de dados da campanha com dados do warehouse, use esses campos da carga útil para não tratar toques de descarte da mesma forma que toques no corpo da notificação ou na ação principal.
 
 Para **Android**, você define o **On-Click Behavior** por botão (**Open App**, **Redirect to Web URL** ou **Deep Link**), então os relatórios seguem as ações que você configura, em vez da divisão padrão `OPEN_APP` / `CLOSE` do iOS.
 
@@ -708,7 +721,7 @@ Para **Android**, você define o **On-Click Behavior** por botão (**Open App**,
 
 O número de _Sends_ pode exceder o número de _Unique Recipients_ devido aos seguintes motivos:
 
-- **A reelegibilidade está ativada:** Quando a reelegibilidade está habilitada nas configurações da sua Campaign ou Canvas, os usuários que atendem aos critérios de segmento e entrega podem receber a mesma notificação por push várias vezes. Isso resulta em um número maior de envios totais.
+- **A reelegibilidade está ativada:** Quando a reelegibilidade está habilitada nas configurações da sua campanha ou Canvas, os usuários que atendem aos critérios de segmento e entrega podem receber a mesma notificação por push várias vezes. Isso resulta em um número maior de envios totais.
 - **Os usuários têm múltiplos dispositivos:** Se a reelegibilidade não estiver habilitada, a diferença pode ser explicada pelo fato de os usuários terem vários dispositivos associados ao seu perfil. Por exemplo, um usuário pode ter tanto um smartphone quanto um tablet, e a notificação por push está sendo enviada para todos os dispositivos registrados. Cada entrega conta como um envio, mas apenas um destinatário único é registrado.
 - **Os usuários estão atribuídos a vários apps:** Se os usuários estiverem associados a mais de um app (como ao testar um novo app), eles podem receber a mesma notificação por push em cada app. Isso contribui para um maior número de envios.
 
@@ -719,7 +732,7 @@ O número de _Sends_ pode exceder o número de _Unique Recipients_ devido aos se
 
 Os bounces ocorrem no serviço de Notificações por Push da Apple (APNs) quando uma notificação por push tenta ser entregue a um dispositivo que não tem o app pretendido instalado. O APNs também tem o direito de mudar tokens para dispositivos de forma arbitrária. Se você tentar enviar para o dispositivo de um usuário cujo token por push mudou entre o momento em que registramos anteriormente seu token (como no início de cada sessão, quando registramos um usuário para um token por push) e o momento do envio, isso causaria um bounce.
 
-Se um usuário desativar o push nas configurações do dispositivo, ao abrir o app novamente, o SDK detectará que o push foi desativado e notificará a Braze. Neste ponto, atualizaremos o estado de push habilitado para desabilitado. Quando um usuário desabilitado recebe uma Campaign de push antes de ter uma nova sessão, a Campaign seria enviada com sucesso e apareceria como entregue. O push não sofrerá bounce para este usuário. Após uma sessão subsequente, quando você tenta enviar um push para o usuário, a Braze já está ciente se temos um token em primeiro plano, portanto, nenhuma notificação é enviada.
+Se um usuário desativar o push nas configurações do dispositivo, ao abrir o app novamente, o SDK detectará que o push foi desativado e notificará a Braze. Neste ponto, atualizaremos o estado de push habilitado para desabilitado. Quando um usuário desabilitado recebe uma campanha de push antes de ter uma nova sessão, a campanha seria enviada com sucesso e apareceria como entregue. O push não sofrerá bounce para este usuário. Após uma sessão subsequente, quando você tenta enviar um push para o usuário, a Braze já está ciente se temos um token em primeiro plano, portanto, nenhuma notificação é enviada.
 
 Notificações por push que expiram antes da entrega não são consideradas como falhas e não serão registradas como um bounce.
 
@@ -867,6 +880,8 @@ Aqui estão algumas métricas importantes do WhatsApp que você pode ver na aná
     </tbody>
 </table>
 
+Se as falhas estiverem elevadas, consulte [Investigar falhas de envio do WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
 #### Métricas de bloqueio e denúncia pelo usuário final {#end-user-blocking-and-reporting-metrics}
 
 Métricas adicionais podem ser acessadas através do [dashboard do WhatsApp Manager](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx), embora a [confirmação do seu acesso](https://www.facebook.com/business/help/218116047387456) seja necessária para acessar todos os insights disponíveis.
@@ -895,7 +910,7 @@ Se você optar por enviar apenas para usuários que podem ver a versão mais rec
 
 O painel **Keyword Responses** mostra uma linha do tempo das palavras-chave recebidas com as quais os usuários responderam após receber sua mensagem.
 
-![Painel de respostas de palavras-chave de SMS/MMS/RCS em nível de Campaign que inclui um gráfico de linha da distribuição de palavras-chave ao longo do tempo, e uma seção de categorias de palavras-chave com caixas de seleção marcadas para Opt-In, Opt-Out, Help, Other, More e Coaching.]({% image_buster /assets/img/sms/keyword_responses.png %})
+![Painel de respostas de palavras-chave de SMS/MMS/RCS em nível de campanha que inclui um gráfico de linha da distribuição de palavras-chave ao longo do tempo, e uma seção de categorias de palavras-chave com caixas de seleção marcadas para Opt-In, Opt-Out, Help, Other, More e Coaching.]({% image_buster /assets/img/sms/keyword_responses.png %})
 
 Aqui, você também pode ver a distribuição de respostas de cada categoria de palavra-chave para determinar os próximos passos para [redirecionamento]({{site.baseurl}}/user_guide/engagement_tools/campaigns/ideas_and_strategies/retargeting_campaigns) e para convenientemente [criar um segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/creating_a_segment).
 
@@ -905,7 +920,7 @@ Aqui, você também pode ver a distribuição de respostas de cada categoria de 
 
 ### Detalhes do evento de conversão {#conversion-event-details}
 
-O painel **Conversion Event Details** mostra o desempenho dos seus eventos de conversão para sua Campaign. Para saber mais, consulte [Eventos de conversão]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events#step-3-view-results).
+O painel **Conversion Event Details** mostra o desempenho dos seus eventos de conversão para sua campanha. Para saber mais, consulte [Eventos de conversão]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/conversion_events#step-3-view-results).
 
 ![O painel de detalhes do evento de conversão.]({% image_buster /assets/img/cc-conversion.png %})
 
@@ -919,7 +934,7 @@ O painel **Conversion Correlation** oferece insight sobre quais atributos e comp
 
 ## Criador de relatórios {#report-builder}
 
-Você também pode usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) para criar relatórios personalizados para suas Campaigns KakaoTalk. Ao criar um relatório, você pode filtrar para incluir apenas Campaigns KakaoTalk selecionando **KakaoTalk** em **Canais**, ou filtrando por quaisquer tags que você tenha aplicado às suas Campaigns KakaoTalk.
+Você também pode usar o [Criador de relatórios]({{site.baseurl}}/user_guide/analytics/reporting/report_builder) para criar relatórios personalizados para suas campanhas KakaoTalk. Ao criar um relatório, você pode filtrar para incluir apenas campanhas KakaoTalk selecionando **KakaoTalk** em **Channels**, ou filtrando por quaisquer tags que você tenha aplicado às suas campanhas KakaoTalk.
 
 {% endif %}
 
@@ -935,7 +950,7 @@ Além da análise de dados da Braze, a análise de dados em nível de modelo pod
 
 ### Eventos de Currents de SMS {#sms-currents-events}
 
-Assim como e-mail, a Braze recebe eventos em nível de usuário relacionados a uma mensagem SMS enquanto ela faz sua jornada até um usuário. Qualquer evento de SMS recebido também será enviado como um evento do Currents através do evento [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Isso permite que você execute ações adicionais ou relatórios sobre as mensagens que seus usuários estão enviando fora da plataforma Braze.
+Assim como e-mail, a Braze recebe eventos em nível de usuário relacionados a uma mensagem SMS enquanto ela faz sua jornada até um usuário. Qualquer evento de SMS recebido também será enviado como um evento do Currents através do evento [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Isso permite que você execute ações adicionais ou relatórios sobre as mensagens que seus usuários estão enviando fora da plataforma Braze.
 
 {% alert note %}
 As mensagens de entrada são truncadas após 1.600 caracteres.
@@ -947,11 +962,11 @@ As mensagens de entrada são truncadas após 1.600 caracteres.
 
 ## Relatório de retenção {#retention-report}
 
-Os relatórios de retenção mostram as taxas em que seus usuários realizaram um evento de retenção selecionado ao longo de períodos de tempo em uma Campaign específica{% if include.channel != "banner" %} ou Canvas{% endif %}. Para saber mais, consulte [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports).
+Os relatórios de retenção mostram as taxas em que seus usuários realizaram um evento de retenção selecionado ao longo de períodos de tempo em uma campanha específica{% if include.channel != "banner" %} ou Canvas{% endif %}. Para saber mais, consulte [Relatórios de retenção]({{site.baseurl}}/user_guide/analytics/reporting/retention_reports).
 
 ## Relatório de funil {#funnel-report}
 
-Os relatórios de funil oferecem um relatório visual que permite analisar as jornadas que seus clientes fazem após receber uma Campaign{% if include.channel != "banner" %} ou Canvas{% endif %}. Se sua Campaign {% if include.channel != "banner" %}ou Canvas {% endif %}usar um grupo de controle ou múltiplas variantes, você poderá entender como as diferentes variantes impactaram o funil de conversão de forma mais granular e otimizar com base nesses dados.
+Os relatórios de funil oferecem um relatório visual que permite analisar as jornadas que seus clientes fazem após receber uma campanha{% if include.channel != "banner" %} ou Canvas{% endif %}. Se sua campanha {% if include.channel != "banner" %}ou Canvas {% endif %}usar um grupo de controle ou múltiplas variantes, você poderá entender como as diferentes variantes impactaram o funil de conversão de forma mais granular e otimizar com base nesses dados.
 
 Para saber mais, consulte [Relatórios de funil]({{site.baseurl}}/user_guide/analytics/reporting/funnel_reports).
 

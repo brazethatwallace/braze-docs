@@ -24,23 +24,23 @@ Die Integration von Braze und WSC Sports ermöglicht es Ihnen, reichhaltige und 
 | ----------- | ----------- |
 | WSC-Konto | Um diese Partnerschaft zu nutzen, ist ein WSC-Konto erforderlich. |
 | Braze REST-API-Schlüssel | Ein Braze REST-API-Schlüssel mit Berechtigungen für **Messages**, **Segments**, **Campaigns** und **Canvas**. <br><br> Dieser kann im Braze-Dashboard unter **Einstellungen** > **API-Schlüssel** erstellt werden. |
-{: .reset-td-br_1 .reset-td-br_2 aria-label="Voraussetzungen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
 
 Die WSC Sports-Anwendung übernimmt den End-to-End-Prozess, von der Auswahl des Videos bis zum Eintreffen der Push-Benachrichtigung auf dem Gerät der Endnutzer:innen.
 
-### 1. Schritt: Sendeeinstellungen auswählen {#step-1-select-send-settings}
+### Schritt 1: Sendeeinstellungen auswählen {#step-1-select-send-settings}
 
-![]({% image_buster /assets/img/wsc_sports/braze_integration.jpg %} "braze_integration.jpg"){: style="float:right;max-width:25%;margin-bottom:15px;"}
+![WSC Sports Sendeeinstellungen-Panel mit Braze-Campaign- und Segment-Auswahl.]({% image_buster /assets/img/wsc_sports/braze_integration.jpg %} "braze_integration.jpg"){: style="float:right;max-width:25%;margin-bottom:15px;"}
 
 Bevor Sie mit der Integration beginnen, stellen Sie sicher, dass Sie die gewünschten Campaigns und Nutzersegmente in Braze erstellt haben. Wählen Sie anschließend in der WSC Sports-Plattform das gewünschte Video aus und wählen Sie in den Sendeeinstellungen das Braze-Nutzersegment und die Campaign-ID, die Sie verwenden möchten. Wählen Sie abschließend den Zeitpunkt, zu dem Ihre Push-Nachricht versendet werden soll.
 
 #### API-Aufruf {#api-call}
 
 Nach dem Versand stellt WSC Sports die Push-Benachrichtigung an die ausgewählten Nutzersegmente über die folgenden Braze-Endpunkte zu, basierend auf den ausgewählten Optionen:
-- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages/#create-scheduled-messages)
-- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages/#sending-messages-immediately-via-api-only)
+- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages#create-scheduled-messages)
+- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only)
 
 Der resultierende Nachrichtentext sieht wie folgt aus:
 ```
@@ -55,6 +55,6 @@ Der resultierende Nachrichtentext sieht wie folgt aus:
 }
 ```
 
-### 2. Schritt: Testversand {#step-2-test-send}
+### Schritt 2: Testversand {#step-2-test-send}
 
 Zu diesem Zeitpunkt sollte Ihre Campaign bereit zum Testen und Versenden sein. Prüfen Sie die Braze-Fehlermeldungsprotokolle, falls Fehler auftreten.

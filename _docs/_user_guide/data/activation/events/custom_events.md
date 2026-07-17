@@ -85,7 +85,7 @@ Custom events require additional setup. Refer to the following platform document
 
 ## Custom event storage
 
-All data stored on the **User Profile**, including custom event metadata (first or last occurrence, total count, and X in Y over 30 days), is retained indefinitely as long as each profile is [active]({{site.baseurl}}/user_archival#active-users).
+All data stored on the **User Profile**, including custom event metadata (first or last occurrence, total count, and X in Y over 30 days), is retained indefinitely as long as each profile is <a href="/docs/user_archival#active-users">active</a>.
 
 ## View a user's event history
 
@@ -150,7 +150,7 @@ You can also use **Filters** to break down your custom events by hour, monthly a
 ![Custom event graph filters]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[Increment custom attributes]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers) to keep a counter on a user action similar to a custom event. However, you can't view custom attribute data in a time series. User actions that don't need to be analyzed in a time series should be recorded using this method.
+[Increment custom attributes]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) to keep a counter on a user action similar to a custom event. However, you can't view custom attribute data in a time series. User actions that don't need to be analyzed in a time series should be recorded using this method.
 {% endalert %}
 
 ### Why custom events analytics aren't showing

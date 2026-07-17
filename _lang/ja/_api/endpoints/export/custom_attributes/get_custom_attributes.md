@@ -18,7 +18,7 @@ description: "この記事では、Brazeのカスタム属性エクスポート�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`custom_attributes.get` 権限を持つ [API キー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`custom_attributes.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -51,7 +51,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
 ```json
 {
@@ -70,7 +70,7 @@ curl --location --request GET 'https://rest.iad-03.braze.com/custom_attributes?c
 }
 ```
 
-### 致命的なエラーの応答コード {#fatal-export}
+### 致命的なエラーのレスポンスコード {#fatal-export}
 
 リクエストで致命的なエラーが発生した場合に返されるステータスコードと関連するエラーメッセージについては、[致命的なエラー]({{site.baseurl}}/api/errors#fatal-errors)を参照してください。
 

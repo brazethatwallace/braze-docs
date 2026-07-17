@@ -18,16 +18,16 @@ _이 통합은 B.Layer에서 유지 관리합니다._
 
 Braze와 B.Layer 통합을 통해 B.Layer 인앱 메시지 빌더를 사용하면 zip 파일 또는 인라인 HTML로 Braze에 내보낼 수 있는 온브랜드 인앱 메시지를 구축할 수 있습니다. 이 통합은 추가 개발자 리소스가 필요하지 않으므로 시간과 비용을 절약할 수 있습니다.
 
-![]({% image_buster /assets/img/blayer/blayer2.png %})
+![브랜드 인앱 메시지를 미리 보여주는 B.Layer 빌더 인터페이스]({% image_buster /assets/img/blayer/blayer2.png %})
 
 ## 필수 조건 {#prerequisites}
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
 | B.Layer 계정 | 이 파트너십을 활용하려면 [B.Layer](https://blayer.phiture.com) 계정이 필요합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 B.Layer를 사용하면 제품 추천 슬라이더, 멀티 스크린 온보딩 또는 설문조사, 순고객추천지수, 이메일 수집, 특별 혜택 등 무한한 가능성을 구축하고 실험할 수 있습니다.
 
@@ -42,13 +42,13 @@ B.Layer는 Lifesum, Blinkist, OnX Hunt 등 다양한 브랜드와 협력하여 �
 B.Layer에서 페이지 상단의 햄버거 메뉴를 클릭한 다음 **Brand assets > add your brand assets**를 클릭합니다. 여기에서 브랜드 색상과 글꼴을 할당할 수 있습니다.
 이제 준비가 완료되었습니다. 인앱 메시지 디자인을 시작할 수 있습니다.
 
-![]({% image_buster /assets/img/blayer/blayer4.png %})
+![색상 및 글꼴을 구성하는 B.Layer 브랜드 에셋 화면]({% image_buster /assets/img/blayer/blayer4.png %})
 
 #### 인앱 메시지 디자인 {#design-your-in-app-message}
 
 인앱 메시지를 디자인하려면 단일 인앱 메시지를 선택합니다. 그런 다음 메시지 스타일을 지정하고 필요한 구성요소를 추가합니다. 각 구성요소는 조정할 수 있습니다.
 
-![]({% image_buster /assets/img/blayer/blayer5.png %})
+![구성요소 및 스타일 컨트롤이 있는 B.Layer 메시지 편집기]({% image_buster /assets/img/blayer/blayer5.png %})
 
 ### 인앱 메시지 다운로드 {#download-your-in-app-message}
 
@@ -56,9 +56,9 @@ B.Layer에서 페이지 상단의 햄버거 메뉴를 클릭한 다음 **Brand a
 
 ### 2단계: B.Layer 커스텀 코드 추가 {#step-2-add-blayer-custom-code}
 
-Braze에서 사용자 지정 코드 인앱 메시지를 생성합니다. ZIP 파일이 있는 경우 코드 섹션 위의 상자에 드래그 앤 드롭합니다. 인라인 HTML 파일이 있는 경우 인라인 HTML을 HTML 섹션에 붙여넣습니다.
+Braze에서 사용자 지정 코드 인앱 메시지를 생성합니다. ZIP 파일이 있는 경우 이 섹션의 업로드 상자에 드래그 앤 드롭합니다. 인라인 HTML 파일이 있는 경우 인라인 HTML을 HTML 섹션에 붙여넣습니다.
 
-![]({% image_buster /assets/img/blayer/blayer6.png %})
+![B.Layer 내보내기 콘텐츠가 포함된 Braze 사용자 지정 코드 인앱 메시지 편집기]({% image_buster /assets/img/blayer/blayer6.png %})
 
 ## 버튼 추적 {#button-tracking}
 

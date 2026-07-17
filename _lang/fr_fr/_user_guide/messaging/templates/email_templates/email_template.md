@@ -13,7 +13,7 @@ search_rank: 1
 
 # Créer un modèle d'e-mail {#create-an-email-template}
 
-> Le tableau de bord de Braze dispose d'un éditeur de modèles d'e-mail qui vous permet de créer des e-mails personnalisés et attrayants, puis de les enregistrer pour une utilisation ultérieure dans des campagnes. Vous pouvez également charger votre propre [modèle d'e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template).
+> Le tableau de bord de Braze dispose d'un éditeur de modèles d'e-mail qui vous permet de créer des e-mails personnalisés et attrayants, puis de les enregistrer pour une utilisation ultérieure dans des Campaigns. Vous pouvez également charger votre propre [modèle d'e-mail HTML]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template).
 
 ## Étape 1 : Accéder à l'éditeur de modèles d'e-mail {#step-1-navigate-to-the-email-template-editor}
 
@@ -33,7 +33,7 @@ Tout modèle HTML personnalisé existant doit être recréé à l'aide de l'édi
 
 ## Étape 3 : Personnaliser votre modèle {#step-3-customize-your-template}
 
-Après avoir sélectionné votre expérience d'édition, c'est l'occasion de faire preuve de créativité pour personnaliser votre modèle d'e-mail. Vous pouvez utiliser le HTML pour créer et reproduire votre identité de marque dans l'éditeur HTML, ou inclure une variété de [détails créatifs]({{site.baseurl}}/user_guide/channels/email/drag_and_drop#creative-details) dans l'éditeur par glisser-déposer.
+Après avoir sélectionné votre expérience d'édition, c'est l'occasion de faire preuve de créativité pour personnaliser votre modèle d'e-mail. Vous pouvez utiliser le HTML pour créer et reproduire votre identité de marque dans l'éditeur HTML, ou inclure une variété de [détails créatifs]({{site.baseurl}}/user_guide/channels/email/drag_and_drop) dans l'éditeur par glisser-déposer.
 
 ### Inclure un lien de désabonnement {#include-an-unsubscribe-link}
 
@@ -75,21 +75,21 @@ Si vous constatez des problèmes avec votre modèle ou souhaitez apporter des mo
 
 ## Étape 6 : Enregistrer votre modèle {#step-6-save-your-template}
 
-N'oubliez pas d'enregistrer votre modèle en sélectionnant **Save Template**. Vous êtes maintenant prêt à utiliser ce modèle dans n'importe quelle campagne ou n'importe quel composant Canvas de votre choix. Pour accéder à votre modèle, sélectionnez l'expérience d'édition avec laquelle vous l'avez créé, puis sélectionnez-le dans la liste des modèles disponibles.
+N'oubliez pas d'enregistrer votre modèle en sélectionnant **Save Template**. Vous êtes maintenant prêt à utiliser ce modèle dans n'importe quelle Campaign ou n'importe quel composant Canvas de votre choix. Pour accéder à votre modèle, sélectionnez l'expérience d'édition avec laquelle vous l'avez créé, puis sélectionnez-le dans la liste des modèles disponibles.
 
 {% alert note %}
-Si vous apportez des modifications à un modèle existant, ces changements ne seront pas reflétés dans les campagnes créées à l'aide de versions précédentes de ce modèle.
+Si vous apportez des modifications à un modèle existant, ces changements ne seront pas reflétés dans les Campaigns créées à l'aide de versions précédentes de ce modèle.
 {% endalert %}
 
 ### Gérer vos modèles {#manage-your-templates}
 
-Vous pouvez consulter les modèles d'e-mail dans **Modèles** > **Modèles d'e-mail**, en filtrant par état, type, étiquettes, utilisateur qui l'a créé, ou en recherchant par nom de modèle. Vous avez besoin des autorisations utilisateur appropriées, telles que **View Email Templates**, pour consulter ces modèles. Pour plus de détails, consultez [Autorisations des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
+Vous pouvez consulter les modèles d'e-mail dans **Modèles** > **Modèles d'e-mail**, en filtrant par statut, type, tags, utilisateur qui l'a créé, ou en recherchant par nom de modèle. Vous avez besoin des autorisations utilisateur appropriées, telles que **View Email Templates**, pour consulter ces modèles. Pour plus de détails, consultez [Autorisations des utilisateurs]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
-Au fur et à mesure que vous créez des modèles d'e-mail, vous pouvez les [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicate-templates) et les [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archive-templates). Apprenez-en plus sur la création et la gestion de votre bibliothèque de modèles et de contenu créatif dans [Modèles et médias]({{site.baseurl}}/user_guide/messaging/templates).
+Au fur et à mesure que vous créez des modèles d'e-mail, vous pouvez les [dupliquer]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#duplicating-templates) et les [archiver]({{site.baseurl}}/user_guide/messaging/templates/managing_templates#archiving-templates). Apprenez-en plus sur la création et la gestion de votre bibliothèque de modèles et de contenu créatif dans [Modèles et médias]({{site.baseurl}}/user_guide/messaging/templates).
 
-### Utiliser vos modèles dans des campagnes API {#use-your-templates-in-api-campaigns}
+### Utiliser vos modèles dans des Campaigns API {#use-your-templates-in-api-campaigns}
 
-Pour utiliser votre e-mail dans une campagne API, vous avez besoin d'un `email_template_id`, qui se trouve en bas de tout modèle d'e-mail créé dans Braze.
+Pour utiliser votre e-mail dans une Campaign API, vous avez besoin d'un `email_template_id`, qui se trouve en bas de tout modèle d'e-mail créé dans Braze.
 
 ![Identifiant API situé en bas d'un modèle d'e-mail.]({% image_buster /assets/img/email_templates/template5.png %})
 
@@ -98,7 +98,7 @@ Pour utiliser votre e-mail dans une campagne API, vous avez besoin d'un `email_t
 Vous pouvez collaborer et commenter les modèles d'e-mail dans l'éditeur par glisser-déposer.
 
 1. Sélectionnez le bloc de contenu ou la ligne dans le corps de l'e-mail que vous souhaitez commenter.
-2. Sélectionnez l'icône de commentaire <i class="fas fa-comment"></i>.
+2. Sélectionnez l'icône de commentaire <i class="fas fa-comment" aria-label="Commenter"></i>.
 3. Saisissez votre commentaire dans la barre latérale, puis sélectionnez **Submit**.
 4. Après avoir saisi vos commentaires, sélectionnez **Done**.
 5. Sélectionnez **Save Template** pour enregistrer vos commentaires.

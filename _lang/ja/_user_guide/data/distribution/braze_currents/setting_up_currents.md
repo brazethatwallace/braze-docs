@@ -8,7 +8,7 @@ tool: Currents
 search_rank: 8
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/currents-the-basics-2/){: style="float:right;width:120px;border:0;" class="noimgborder"}Currentsの設定 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcurrents-the-basics-2-stylefloatrightwidth120pxborder0-classnoimgborderset-up-currents}
+# [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/currents-the-basics-2/){: style="float:right;width:120px;border:0;" class="noimgborder"}Currentsの設定 {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomcurrents-the-basics-2-stylefloatrightwidth120pxborder0-classnoimgborderset-up-currents}
 
 > このページでは、Braze Currentsの連携と設定を行う一般的なプロセスを概説します。
 
@@ -16,12 +16,16 @@ search_rank: 8
 Currentsは特定のBrazeパッケージに含まれています。ご質問がある場合、またはアクセスを希望する場合は、Brazeの担当者にお問い合わせください。
 {% endalert %}
 
-新しい連携を追加する際に「残りのCurrents連携がありません」と表示される場合、一般的な原因は次のとおりです。
+## トラブルシューティング {#troubleshooting}
+
+### 新しいCurrents連携を追加できない {#cannot-add-a-new-currents-integration}
+
+新しい連携を追加する際に「You do not have any remaining Currents integrations」と表示される場合、または新しいCurrentsコネクターを追加するボタンがグレーアウトしている場合、一般的な原因は次のとおりです。
 
 - このワークスペースに対してCurrentsのエンタイトルメントが購入されていない。
 - Currentsのエンタイトルメントが、お客様の会社の別のワークスペースで利用可能になっている。
 
-エンタイトルメントのリクエストや設定の調整については、Brazeのアカウントマネージャーにお問い合わせください。
+これを解決するには、お客様の会社内の他のワークスペースを確認してください。別のワークスペースで利用可能なCurrentsエンタイトルメントが表示される場合があります。エンタイトルメントのリクエストや設定の調整が必要な場合は、Brazeのアカウントマネージャーにお問い合わせください。
 
 ## 要件 {#requirements}
 
@@ -78,7 +82,7 @@ Currentsフィールド変換を使用して、文字列フィールドを削除
 - **削除:** 文字列フィールドを`[REDACTED]`に置き換えます。これは、パートナーが欠落フィールドまたは空のフィールドを持つイベントを拒否する場合に役立ちます。
 - **ハッシュ:** SHA-256ハッシュアルゴリズムを文字列フィールドに適用します。
 
-これらのいずれかの変換を行う対象のフィールドを選択すると、そのフィールドが含まれるすべてのイベントにその変換が適用されます。例えば、ハッシュ化の対象として`email_address`を選択すると、メール送信、メール開封、メールバウンス、サブスクリプショングループの状態変更イベントの`email_address`フィールドがハッシュ化されます。
+これらのいずれかの変換を行う対象のフィールドを選択すると、そのフィールドが含まれるすべてのイベントにその変換が適用されます。例えば、ハッシュ化の対象として`email_address`を選択すると、メール送信、メール開封、メールバウンス、購読グループの状態変更イベントの`email_address`フィールドがハッシュ化されます。
 
 ![フィールド変換の追加]({% image_buster /assets/img/current3.png %})
 
@@ -88,7 +92,7 @@ Currentsフィールド変換を使用して、文字列フィールドを削除
 Currentsは、900&nbsp;KBを超える過度に大きなペイロードを持つイベントをドロップします。
 {% endalert %}
 
-テストする前に、[GitHubのサンプルCurrentsデータ](https://github.com/Appboy/currents-examples)をご確認ください。テストの準備ができたら、以下のオプションを選択します。
+テストする前に、[GitHubのサンプルCurrentsデータ](https://github.com/Appboy/currents-examples)をご確認ください。テストの準備ができたら、以下のセクションからオプションを選択します。
 
 #### テストイベントの送信 {#sending-test-events}
 

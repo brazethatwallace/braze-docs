@@ -19,7 +19,7 @@ description: "Dieser Artikel beschreibt den Endpunkt „Übersetzung in einem Co
 
 ## Voraussetzungen {#prerequisites}
 
-Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key) mit der Berechtigung `content_blocks.translations.update`.
+Um diesen Endpunkt zu verwenden, benötigen Sie einen [API-Schlüssel]({{site.baseurl}}/api/basics#rest-api-key-permissions) mit der Berechtigung `content_blocks.translations.update`.
 
 ## Rate-Limit
 

@@ -14,16 +14,16 @@ _Cette intégration est maintenue par Convercus._
 
 ## À propos de l'intégration {#about-the-integration}
 
-L'intégration entre Braze et Convercus est bidirectionnelle : les données de fidélité sont transmises à Braze en temps réel sous forme d'attributs personnalisés, d'événements personnalisés et d'achats, et les Canvas et Campaigns Braze peuvent déclencher des actions de fidélité dans Convercus via des webhooks. Utilisez le niveau de membre synchronisé, le solde de points, les achats et l'activité des coupons dans les Segments, Liquid et le Contenu connecté. Depuis les parcours Braze, vous pouvez également attribuer des coupons, enregistrer, créditer et débiter des transactions de points, et mettre à jour les préférences d'abonnement e-mail dans Convercus.
+L'intégration entre Braze et Convercus est bidirectionnelle : les données de fidélité sont transmises à Braze en temps réel sous forme d'attributs personnalisés, d'événements personnalisés et d'achats, et les Canvas et Campaigns Braze peuvent déclencher des actions de fidélité dans Convercus via des webhooks. Utilisez le niveau de membre synchronisé, le solde de points, les achats et l'activité des coupons dans les Segments, Liquid et le contenu connecté. Depuis les parcours Braze, vous pouvez également attribuer des coupons, enregistrer, créditer et débiter des transactions de points, et mettre à jour les préférences d'abonnement e-mail dans Convercus.
 
 Convercus héberge l'intégration, vous n'avez donc pas d'infrastructure supplémentaire à installer. Là où la plupart des connecteurs de fidélité ne transmettent les données que dans un sens, Convercus boucle la boucle : réagissez dans Braze à un événement de fidélité, effectuez une action dans Convercus et mesurez le résultat dans Braze.
 
-## Cas d'utilisation {#use-cases}
+## Cas d'usage {#use-cases}
 
 1. **Célébration de montée en niveau :** Lorsqu'un membre monte d'un niveau de fidélité dans Convercus, déclenchez un Canvas Braze personnalisé avec un message de bienvenue, un avantage exclusif au niveau et le nouveau niveau et solde de points du membre.
 2. **Bonus d'anniversaire et de jalon :** Depuis un parcours Braze, créditez des points bonus dans Convercus pour l'anniversaire ou la date anniversaire d'un membre, puis envoyez un message de célébration confirmant le nouveau solde.
-3. **Reconquête de membres inactifs :** Pour les membres inactifs, faites en sorte que Braze attribue un coupon personnalisé dans Convercus via un webhook et le diffuse par e-mail, notification push et messages in-app.
-4. **Solde de points en temps réel dans les messages :** Utilisez le Contenu connecté pour récupérer le solde de points en temps réel d'un membre dans Braze Liquid, alimentant des cadences telles que « il ne vous manque que X points pour votre prochaine récompense ».
+3. **Reconquête de membres inactifs :** Pour les membres inactifs, faites en sorte que Braze attribue un coupon personnalisé dans Convercus via un webhook et le diffuse par e-mail, notification push et In-App Messages.
+4. **Solde de points en temps réel dans les messages :** Utilisez le contenu connecté pour récupérer le solde de points en temps réel d'un membre dans Braze Liquid, alimentant des cadences telles que « il ne vous manque que X points pour votre prochaine récompense ».
 
 ## Conditions préalables {#prerequisites}
 
@@ -33,7 +33,7 @@ Avant de commencer, vous avez besoin des éléments suivants :
 | --- | --- |
 | Un compte Convercus | Un programme Convercus actif. Contactez votre gestionnaire de compte Convercus si vous n'êtes pas encore client. |
 | Une clé API REST Braze | Une clé API REST Braze avec la permission `users.track`. Créez cette clé dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
-| Un endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/api/basics/#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
+| Un endpoint REST Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/api/basics#endpoints). Votre endpoint dépend de l'URL Braze de votre instance. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 Vous avez besoin d'un identifiant utilisateur cohérent entre les systèmes : la valeur utilisée comme `external_id` (ou le type d'identifiant choisi) dans Braze doit correspondre à l'identifiant membre correspondant dans Convercus. Sinon, les événements ne sont pas attribués au bon profil.
@@ -54,7 +54,7 @@ Dans Convercus Selfservice (l'interface d'administration destinée aux clients �
    | `defaultOptins` | Sélection multiple des canaux d'abonnement du programme (depuis `membershipOptins`). Utilisé comme valeur par défaut pour le webhook d'abonnement e-mail lorsque la requête omet `optins`. La configuration Braze est considérée comme **incomplète** tant qu'au moins un canal n'est pas sélectionné. |
    {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1 : Configurer Braze dans Convercus Selfservice" }
 
-2. Créer une clé API pour les appels entrants. Créez un identifiant `X-Convercus-Key` par programme. La clé brute est affichée une seule fois lors de la création, préfixée `cvc_` (format : `cvc_<base64url>`). Enregistrez-la dans Braze lorsque vous configurez les Campaigns webhook et les blocs de Contenu connecté à l'étape 2. Les clés peuvent être révoquées à tout moment depuis la même carte ; la révocation prend effet immédiatement.
+2. Créer une clé API pour les appels entrants. Créez un identifiant `X-Convercus-Key` par programme. La clé brute est affichée une seule fois lors de la création, préfixée `cvc_` (format : `cvc_<base64url>`). Enregistrez-la dans Braze lorsque vous configurez les Campaigns webhook et les blocs de contenu connecté à l'étape 2. Les clés peuvent être révoquées à tout moment depuis la même carte ; la révocation prend effet immédiatement.
 
 Après avoir enregistré la connexion Braze, Convercus commence immédiatement à transmettre les événements de fidélité de ce programme à Braze. Aucune configuration d'infrastructure supplémentaire n'est requise.
 
@@ -75,7 +75,7 @@ Tous les endpoints se trouvent sous l'URL de base `<SERVICE_HOST>/v1/programs/{p
 | --- | --- |
 | Attribuer un coupon à un membre | `POST /campaigns/{couponId}/assign` — renvoie `{ "couponCode": "..." }`. |
 | Attribuer un coupon à plusieurs membres | `POST /campaigns/{couponId}/assign/batch` — jusqu'à 500 membres en un seul appel ; le corps accepte les paramètres optionnels `valid_from` / `valid_to`. Renvoie `{ "batchId": "..." }`. |
-| Enregistrer un crédit / débit de points | `POST /members/{accountId}/bookings` — crée un `EARNBOOKING` ou un `BURNBOOKING` sur un compte membre. Renvoie `{ "bookingId": "..." }`. |
+| Enregistrer un crédit ou débit de points | `POST /members/{accountId}/bookings` — crée un `EARNBOOKING` ou un `BURNBOOKING` sur un compte membre. Renvoie `{ "bookingId": "..." }`. |
 | Synchroniser les préférences d'abonnement e-mail | `POST /subscriptions/email` — définit les abonnements du membre sur `allowed` ou `declined`. Les canaux d'abonnement sont résolus selon la priorité : `optins` de la requête > `defaultOptins`. Renvoie `200` (tout OK), `207` (partiel — voir `succeeded` / `failed`), ou `400` (abonnements inconnus ou non configurés). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Configurer les webhooks dans Braze" }
 
@@ -98,9 +98,9 @@ Les autres actions suivent le même schéma, en changeant uniquement l'endpoint 
 
 #### Réponses d'erreur et nouvelles tentatives {#error-responses-and-retries}
 
-| État | Signification |
+| Statut | Signification |
 | --- | --- |
-| `200` | Réussi. |
+| `200` | Succès. |
 | `207` | Multi-Status — uniquement pour le webhook d'abonnement e-mail, lorsque certains abonnements ont été mis à jour et d'autres ont échoué. |
 | `400` | Le corps de la requête n'a pas passé la validation. |
 | `401` | `X-Convercus-Key` est manquant ou invalide. |
@@ -121,7 +121,7 @@ Les réponses 5xx ne sont **pas sûres pour une nouvelle tentative sans confirma
 
 ### Étape 1 : Personnaliser les messages avec les données de fidélité synchronisées {#step-1-personalize-messages-with-synced-loyalty-data}
 
-Une fois l'intégration active, les événements Convercus arrivent sur chaque profil utilisateur dans Braze via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/) et peuvent être utilisés comme n'importe quelle autre donnée native :
+Une fois l'intégration active, les événements Convercus arrivent sur chaque profil utilisateur dans Braze via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) et peuvent être utilisés comme n'importe quelle autre donnée native :
 
 1. Utilisez les attributs personnalisés de fidélité (par exemple, `convercus_status_level`, `convercus_balance`) dans les **Segments** pour cibler les détenteurs de niveaux, les membres à solde élevé ou les utilisateurs récemment rétrogradés.
 2. Utilisez les événements personnalisés (par exemple, `convercus_status_level_changed`, événements de coupons et d'adhésion) comme **étapes de déclenchement** dans Canvas ou comme filtres dans les Campaigns de réengagement.
@@ -182,29 +182,29 @@ Au sein d'un espace de travail Braze, les membres sont identifiés de manière u
 
 #### Achats {#purchases}
 
-Les transactions Convercus de type `EARNTRANSACTION` (points gagnés à partir des dépenses client) sont signalées à Braze en tant qu'[achats]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#purchase-object-specification) et comptabilisées dans l'analyse du chiffre d'affaires Braze, la segmentation RFM et les fonctionnalités prédictives — en utilisant l'ID de transaction comme identifiant produit et le montant et la devise de la transaction comme prix et devise.
+Les transactions Convercus de type `EARNTRANSACTION` (points gagnés à partir des dépenses client) sont signalées à Braze en tant qu'[achats]({{site.baseurl}}/api/objects_filters/purchase_object) et comptabilisées dans l'analyse du chiffre d'affaires Braze, la segmentation RFM et les fonctionnalités prédictives — en utilisant l'ID de transaction comme identifiant produit et le montant et la devise de la transaction comme prix et devise.
 
 Les transactions de type `PAYWITHPOINTSTRANSACTION` (débit de points) ne sont **pas** signalées comme des achats — elles sont transmises en tant qu'événement personnalisé `convercus_account_transaction` afin de rester disponibles pour la segmentation. Les annulations et les inversions de transactions de crédit sont signalées comme des achats à prix négatif, maintenant l'alignement du chiffre d'affaires Braze avec Convercus.
 
-### Étape 2 : Récupérer les données de fidélité en temps réel avec le Contenu connecté {#step-2-fetch-live-loyalty-data-with-connected-content}
+### Étape 2 : Récupérer les données de fidélité en temps réel avec le contenu connecté {#step-2-fetch-live-loyalty-data-with-connected-content}
 
-Pour les valeurs qui doivent être à jour au moment de l'envoi — solde de points actuel, coupons actifs, dernier niveau — appelez Convercus depuis Braze en utilisant le [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/) au lieu de vous fier à l'attribut synchronisé le plus récent. Les deux endpoints se trouvent sous la même URL de base que les webhooks et nécessitent l'en-tête `X-Convercus-Key`.
+Pour les valeurs qui doivent être à jour au moment de l'envoi — solde de points actuel, coupons actifs, dernier niveau — appelez Convercus depuis Braze en utilisant le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) au lieu de vous fier à l'attribut synchronisé le plus récent. Les deux endpoints se trouvent sous la même URL de base que les webhooks et nécessitent l'en-tête `X-Convercus-Key`.
 
 | Données | Endpoint | Renvoie |
 | --- | --- | --- |
 | Profil du membre | `GET /members/{accountId}/profile` | `member_id`, `first_name`, `last_name`, `email`, `tier_name`, `tier_id`, `points_balance`, `enrollment_date`. |
 | Coupons du membre | `GET /members/{accountId}/coupons` | Liste des coupons actifs et échangeables (statut, valeur, fenêtre de validité, titre, description). Ajoutez `?lang=<code>` (par exemple, `?lang=de`) pour localiser `title`/`description` ; la valeur par défaut est `en`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Récupérer les données de fidélité en temps réel avec le Contenu connecté" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Récupérer les données de fidélité en temps réel avec le contenu connecté" }
 
-Les endpoints de Contenu connecté renvoient toujours HTTP 200 en cas d'échecs attendus afin que les modèles Liquid puissent se brancher sur le champ `error` :
+Les endpoints de contenu connecté renvoient toujours HTTP 200 en cas d'échecs attendus afin que les modèles Liquid puissent se brancher sur le champ `error` :
 
 | Réponse | Signification |
 | --- | --- |
-| `200` + payload | Réussi. |
+| `200` + payload | Succès. |
 | `200 { "error": "member_not_found" }` | Le compte n'existe pas dans ce programme. |
 | `200 { "error": "internal_error" }` | Échec en amont ou inattendu. |
 | `401` | `X-Convercus-Key` est manquant ou invalide (à gérer lors de la configuration de l'intégration, pas dans Liquid). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Récupérer les données de fidélité en temps réel avec le Contenu connecté" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 2 : Récupérer les données de fidélité en temps réel avec le contenu connecté" }
 
 Exemple — afficher le statut de fidélité d'un membre (niveau, points et offres actives) :
 
@@ -243,13 +243,13 @@ Exemple — afficher le statut de fidélité d'un membre (niveau, points et offr
 ```
 {% endraw %}
 
-Encadrez toujours le Contenu connecté dans des conditions (vérifiez `member.error` et les `coupons` vides) afin qu'un échec temporaire de recherche n'envoie jamais un message cassé. Mettez en cache le profil (`cache_max_age 300`) mais pas les coupons (`cache_max_age 0`), car le statut des coupons peut changer entre les envois.
+Encadrez toujours le contenu connecté dans des conditions (vérifiez `member.error` et les `coupons` vides) afin qu'un échec temporaire de recherche n'envoie jamais un message cassé. Mettez en cache le profil (`cache_max_age 300`) mais pas les coupons (`cache_max_age 0`), car le statut des coupons peut changer entre les envois.
 
 ## Considérations {#considerations}
 
 - **Latence :** Les événements Convercus vers Braze se propagent via Kafka et atteignent Braze en quelques secondes en charge normale.
 - **Limites de débit Braze :** L'intégration effectue automatiquement de nouvelles tentatives sur les réponses `429`, en respectant l'en-tête `x-ratelimit-retry-after` de Braze avec des délais exponentiels.
-- **Mise en cache du Contenu connecté :** Braze met en cache les réponses du Contenu connecté pendant plusieurs minutes par défaut. Pour les valeurs qui doivent être exactes au moment de l'envoi (comme le solde de points), réduisez ou contournez la fenêtre de cache dans l'appel de Contenu connecté.
+- **Mise en cache du contenu connecté :** Braze met en cache les réponses du contenu connecté pendant plusieurs minutes par défaut. Pour les valeurs qui doivent être exactes au moment de l'envoi (comme le solde de points), réduisez ou contournez la fenêtre de cache dans l'appel de contenu connecté.
 - **Une configuration par programme :** Chaque programme de fidélité correspond à un seul espace de travail Braze. Pour connecter un second espace de travail, configurez-le sur un programme distinct.
 - **Observabilité :** Les statistiques d'appels API par programme et l'historique des erreurs (dans les deux sens) sont conservés pendant 90 jours et disponibles depuis la carte d'intégration Braze dans Selfservice.
 

@@ -55,7 +55,7 @@ Use the Braze SDK to update a user's subscription state.
 
 #### REST API
 
-Use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to update the [`email_subscribe` attribute]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens) for a user. For example, to set a user's email subscription state to unsubscribed when they use a custom unsubscribe link, include `email_subscribe: "unsubscribed"` in the user attributes in your request.
+Use the [`/users/track` endpoint]({{site.baseurl}}/api/endpoints/user_data/post_user_track) to update the [`email_subscribe` attribute]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens) for a user. For example, to set a user's email subscription state to unsubscribed when they use a custom unsubscribe link, include `email_subscribe: "unsubscribed"` in the user attributes in your request.
 
 #### User profile
 
@@ -165,7 +165,7 @@ To learn more about how to add or customize a preference center, refer to [Prefe
 
 In most cases, users manage their email subscription through links included in the emails they receive. Insert a legally compliant footer with an unsubscribe link at the bottom of every email. When users select the unsubscribe URL, Braze unsubscribes them and shows a landing page confirming the change. Include this Liquid tag: {%raw%}`${set_user_to_unsubscribed_url}`{%endraw%}.
 
-When a user selects "Unsubscribe from all of the above types of emails" in the preference center, Braze sets their global email subscription status to `unsubscribed` and unsubscribes them from all groups.
+When a user selects "Unsubscribe from all of the listed types of emails" in the preference center, Braze sets their global email subscription status to `unsubscribed` and unsubscribes them from all groups.
 
 ### Creating custom footers {#custom-footer}
 

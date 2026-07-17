@@ -44,7 +44,7 @@ Campaign의 모든 메시지가 유사하거나 동일한 콘텐츠를 가질 �
 
 1. Canvas 작성기를 사용하여 [Canvas를 만듭니다]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas).
 2. Canvas를 설정한 후, Canvas 빌더에서 단계를 추가합니다. 단계에 명확하고 의미 있는 이름을 지정합니다.
-3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)을 선택하고 필요에 따라 지연을 지정합니다.
+3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)을 선택하고 필요에 따라 지연을 지정합니다.
 4. 필요에 따라 이 단계의 오디언스를 필터링합니다. Segments를 지정하고 추가 필터를 추가하여 이 단계의 수신자를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 지연 후 메시지가 발송되는 시점에 확인됩니다.
 5. [진행 동작]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)을 선택합니다.
 6. 메시지와 함께 사용할 다른 메시징 채널을 선택합니다.
@@ -63,7 +63,7 @@ Braze는 이메일 Campaign을 만들 때 두 가지 편집 환경을 제공합�
 
 ![이메일 편집 환경으로 드래그 앤 드롭 편집기, HTML 편집기 또는 템플릿 중에서 선택하기.]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-그런 다음 기존 [이메일 템플릿]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template)을 선택하거나, 파일에서 [템플릿을 업로드]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)하거나(HTML 편집기만 해당), 빈 템플릿을 사용할 수 있습니다.
+그런 다음 기존 [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)을 선택하거나, 파일에서 [템플릿을 업로드]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)하거나(HTML 편집기만 해당), 빈 템플릿을 사용할 수 있습니다.
 
 HTML 편집기를 사용하고 기기가 다크 모드일 때 Gmail 모바일 앱에서 배경색이 일관되게 유지되어야 하는 경우, [Gmail 모바일 앱과 다크 모드 배경색](#gmail-dark-mode)을 참조하세요.
 
@@ -77,7 +77,7 @@ HTML 편집기를 사용하고 기기가 다크 모드일 때 Gmail 모바일 �
 
 !["HTML에서 재생성" 버튼.]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
-Braze는 일반 텍스트 버전에 대한 편집이 감지될 때까지 HTML 버전에서 자동으로 일반 텍스트 버전을 업데이트합니다. Braze가 편집을 감지하면 의도적인 변경이 이루어졌다고 판단하여 자동 업데이트를 중단합니다. 자동 동기화를 복원하려면 **Plaintext**로 이동하여 **Regenerate from HTML**을 선택합니다(일반 텍스트가 동기화되지 않을 때만 표시됨).
+Braze는 일반 텍스트 버전에 대한 편집이 감지될 때까지 HTML 버전에서 자동으로 일반 텍스트 버전을 업데이트합니다. Braze가 편집을 감지하면 의도적인 변경이 이루어졌다고 판단하여 자동 업데이트를 중단합니다. 자동 동기화를 복원하려면 **일반 텍스트**로 이동하여 **HTML에서 재생성**을 선택합니다(일반 텍스트가 동기화되지 않을 때만 표시됨).
 
 {% alert tip %}
 정확한 미리보기와 함께 이메일에 모션을 추가하려면 JavaScript 대신 GIF를 사용하세요. 대부분의 받은편지함에서 JavaScript를 지원하지 않습니다.
@@ -119,12 +119,12 @@ Gmail 모바일 앱(Android 및 iOS)은 기기가 다크 모드일 때 배경색
 
 ### 3.1단계: 발송 정보 추가하기 {#step-31-add-your-sending-information}
 
-이메일 메시지 디자인과 작성을 완료한 후, **Sending Settings**에서 발송 정보를 추가합니다.
+이메일 메시지 디자인과 작성을 완료한 후, **발송 설정**에서 발송 정보를 추가합니다.
 
-1. **Sending Info**에서 **From Display Name + Address**로 이메일을 선택합니다. **Customize From Display Name + Address**를 선택하여 커스터마이즈할 수도 있습니다.
-2. **Reply-To Address**로 이메일을 선택합니다. **Customize Reply-To Address**를 선택하여 커스터마이즈할 수도 있습니다.
-3. 다음으로, **BCC Address**로 이메일을 선택하여 이 주소에서 이메일을 볼 수 있도록 합니다.
-4. 이메일에 제목란을 추가합니다. 선택적으로 프리헤더와 프리헤더 뒤의 공백도 추가할 수 있습니다.
+1. **발송 정보**에서 **보낸 사람 표시 이름 + 주소**로 이메일을 선택합니다. **보낸 사람 표시 이름 + 주소 커스터마이즈**를 선택하여 커스터마이즈할 수도 있습니다.
+2. **회신 주소**로 이메일을 선택합니다. **회신 주소 커스터마이즈**를 선택하여 커스터마이즈할 수도 있습니다.
+3. 다음으로, **BCC 주소**로 이메일을 선택하여 이 주소에서 이메일을 볼 수 있도록 합니다.
+4. 이메일에 제목란을 추가합니다. 선택적으로 프리헤더도 추가할 수 있습니다. 프리헤더 뒤에 공백을 추가하려면 **프리헤더 뒤에 공백 추가** 체크박스를 선택합니다.
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
@@ -132,7 +132,7 @@ Gmail 모바일 앱(Android 및 iOS)은 기기가 다크 모드일 때 배경색
 
 #### 고급 {#advanced}
 
-**Sending Settings** > **Advanced**에서 가장 넓은 클라이언트 지원을 위해 **인라인 CSS**를 켭니다. 메시지가 잘리거나 이미지가 행 높이로 늘어나는 경우, 인라인 CSS를 일시적으로 **끄기**로 해보세요. 일부 템플릿은 인라인 처리 없이 더 잘 작동합니다.
+**발송 설정** > **고급**에서 가장 넓은 클라이언트 지원을 위해 **인라인 CSS**를 켭니다. 메시지가 잘리거나 이미지가 행 높이로 늘어나는 경우, 인라인 CSS를 일시적으로 **끄기**로 해보세요. 일부 템플릿은 인라인 처리 없이 더 잘 작동합니다.
 
 이메일 헤더와 이메일 추가 정보에 개인화를 추가하여 다른 이메일 서비스 제공업체로 추가 데이터를 보낼 수도 있습니다.
 
@@ -148,7 +148,7 @@ Gmail 모바일 앱(Android 및 iOS)은 기기가 다크 모드일 때 배경색
 
 ##### 이메일 헤더 {#email-headers}
 
-이메일 헤더를 추가하려면 **Add New Header**를 선택합니다. 이메일 헤더에는 발송되는 이메일에 대한 정보가 포함됩니다. 이러한 [키-값 페어]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs)에는 일반적으로 발신자, 수신자, 인증 프로토콜 및 라우팅 정보가 포함됩니다. Braze는 이메일이 받은편지함 제공업체에 도달할 수 있도록 RFC에서 요구하는 헤더 정보를 자동으로 추가합니다.
+이메일 헤더를 추가하려면 **새 헤더 추가**를 선택합니다. 이메일 헤더에는 발송되는 이메일에 대한 정보가 포함됩니다. 이러한 [키-값 페어]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs)에는 일반적으로 발신자, 수신자, 인증 프로토콜 및 라우팅 정보가 포함됩니다. Braze는 이메일이 받은편지함 제공업체에 도달할 수 있도록 RFC에서 요구하는 헤더 정보를 자동으로 추가합니다.
 
 Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더를 추가할 수 있는 유연성을 제공합니다. Braze 플랫폼이 발송 중에 덮어쓰는 몇 가지 예약된 필드가 있습니다.
 
@@ -203,7 +203,7 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 
 이메일 추가 정보를 사용하면 다른 이메일 서비스 제공업체로 추가 데이터를 보낼 수 있습니다. 이는 고급 사용 사례에만 적용되므로, 회사에서 이미 이 기능을 설정한 경우에만 이메일 추가 정보를 사용해야 합니다.
 
-이메일 추가 정보를 추가하려면 **Sending Info**로 이동하여 **Add New Extra**를 선택합니다.
+이메일 추가 정보를 추가하려면 **발송 정보**로 이동하여 **새 추가 정보 추가**를 선택합니다.
 
 {% alert warning %}
 추가된 키-값 페어의 총 크기는 1KB를 초과하지 않아야 합니다. 그렇지 않으면 메시지가 중단됩니다.
@@ -233,13 +233,13 @@ Braze는 고급 사용 사례를 위해 필요에 따라 추가 이메일 헤더
 
 {% alert tip %}
 미리보기 텍스트를 지원하는 이메일 클라이언트는 항상 사용 가능한 모든 미리보기 텍스트 공간을 채울 만큼 충분한 문자를 가져옵니다. 그러나 이로 인해 미리보기 텍스트가 불완전하거나 최적화되지 않은 상황이 발생할 수 있습니다.
-<br><br>이를 방지하려면 원하는 미리보기 텍스트 뒤에 공백을 만들어 이메일 클라이언트가 다른 방해가 되는 텍스트나 문자를 봉투 콘텐츠로 가져오지 않도록 할 수 있습니다. 이를 위해 표시하려는 미리보기 텍스트 뒤에 제로 너비 비결합자(‌`&zwnj;`)와 줄바꿈 없는 공백(`&nbsp;`)의 체인을 추가합니다. <br><br>프리헤더 섹션의 미리보기 텍스트 끝에 추가하면, HTML 편집기용 다음 코드가 원하는 공백을 추가합니다:<br><br>
+<br><br>이를 방지하려면 원하는 미리보기 텍스트 뒤에 공백을 만들어 이메일 클라이언트가 다른 방해가 되는 텍스트나 문자를 봉투 콘텐츠로 가져오지 않도록 할 수 있습니다. **발송 설정** 섹션에서 **프리헤더 뒤에 공백 추가** 체크박스를 선택하여 자동으로 공백을 추가할 수 있습니다. <br><br>또는 더 세밀한 제어가 필요한 경우, 표시하려는 미리보기 텍스트 뒤에 제로 너비 비결합자(‌`&zwnj;`)와 줄바꿈 없는 공백(`&nbsp;`)의 체인을 수동으로 추가할 수 있습니다. <br><br>프리헤더 섹션의 미리보기 텍스트 끝에 추가하면, HTML 편집기용 다음 코드가 원하는 공백을 추가합니다:<br><br>
 
 ```html
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
 ```
 
-드래그 앤 드롭 편집기의 경우, **Sending Settings** 섹션의 프리헤더에 `<div>` 서식 없이 제로 너비 비결합자(‌`&zwnj;`)만 직접 추가합니다.
+드래그 앤 드롭 편집기의 경우, **발송 설정** 섹션의 프리헤더에 `<div>` 서식 없이 제로 너비 비결합자(‌`&zwnj;`)만 직접 추가합니다.
 {% endalert %}
 
 {% alert note %}
@@ -272,10 +272,10 @@ Apple Mail 앱에서 HTML 이메일의 이미지 링크가 클릭 가능하려�
 예약된 시간, 동작 또는 API 트리거를 기반으로 이메일을 전달합니다. 자세한 내용은 [Campaign 스케줄 설정]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)을 참조하세요.
 
 {% alert note %}
-API 트리거 Campaign의 경우, 트리거 동작이 **Interact With Campaign**으로 설정되어 있을 때 상호작용으로 **Receive** 옵션을 선택하면, 해당 메시지가 반송되거나 전달에 실패하더라도 Braze가 선택한 Campaign을 발송 완료로 표시하는 즉시 새 Campaign이 트리거됩니다.
+API 트리거 Campaign의 경우, 트리거 동작이 **Campaign과 상호작용**으로 설정되어 있을 때 상호작용으로 **수신** 옵션을 선택하면, 해당 메시지가 반송되거나 전달에 실패하더라도 Braze가 선택한 Campaign을 발송 완료로 표시하는 즉시 새 Campaign이 트리거됩니다.
 {% endalert %}
 
-Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) 규칙을 설정할 수도 있습니다.
+Campaign의 기간을 설정하고, [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)을 지정하고, [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 규칙을 설정할 수도 있습니다.
 
 ### 타겟 사용자 선택하기 {#choose-users-to-target}
 
@@ -318,7 +318,7 @@ Braze를 사용하면 Campaign을 수신한 후 사용자가 특정 동작인 [�
 {% endtab %}
 
 {% tab Canvas %}
-아직 완료하지 않았다면, Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, 다변량 테스트와 지능형 선택을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축하기]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) 단계를 참조하세요.
+아직 완료하지 않았다면, Canvas 구성요소의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, 다변량 테스트와 지능형 선택을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축하기]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) 단계를 참조하세요.
 {% endtab %}
 {% endtabs %}
 

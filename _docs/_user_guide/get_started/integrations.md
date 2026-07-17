@@ -80,7 +80,7 @@ We even have specific instructions for [testing your Android or FireOS integrati
 
 ## After implementation
 
-Keep in mind that the implementation finish line isn't also the green light to send a million messages at once. Sending a million push might break your app if every customer clicks the same link simultaneously. We recommend discussing what your capacity of your internal setup is for handling requests from Braze before clicking that **Send** button. Then, you can set your [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting) based on that.
+Keep in mind that the implementation finish line isn't also the green light to send a million messages at once. Sending a million push might break your app if every customer clicks the same link simultaneously. We recommend discussing what your capacity of your internal setup is for handling requests from Braze before clicking that **Send** button. Then, you can set your [rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) based on that.
 
 ![Braze Firebrands community logo]({% image_buster /assets/img/torchie/firebrands.png %}){: style="max-width:15%;float:right;margin-left:15px;border:none;"}
 

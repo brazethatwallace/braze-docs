@@ -2,7 +2,7 @@
 
 ## 필수 조건 {#prerequisites}
 
-Content Cards를 사용하려면 먼저 앱에 [Braze Web SDK를 통합]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)해야 합니다. 그러나 추가 설정은 필요하지 않습니다. 자체 UI를 구축하려면 [콘텐츠 카드 커스터마이징 가이드]({{site.baseurl}}/developer_guide/content_cards/)를 참조하세요.
+Content Cards를 사용하려면 먼저 앱에 [Braze Web SDK를 통합]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=web)해야 합니다. 그러나 추가 설정은 필요하지 않습니다. 자체 UI를 구축하려면 [콘텐츠 카드 커스터마이징 가이드]({{site.baseurl}}/developer_guide/content_cards)를 참조하세요.
 
 {% alert note %}
 일부 광고 차단기 및 브라우저 개인정보 보호 확장 프로그램은 Braze Web SDK 스크립트 또는 관련 네트워크 요청을 차단하여 Content Cards가 로드되지 않을 수 있습니다. CDN 통합 방법을 사용하고 있다면 SDK 라이브러리를 웹사이트에 로컬로 저장하여 일부 광고 차단기 관련 문제를 방지할 수 있는 [NPM 통합 방법]({{site.baseurl}}/developer_guide/sdk_integration/?subtab=package%20manager&sdktab=web)으로 전환하는 것을 고려하세요.
@@ -45,13 +45,13 @@ Content Cards를 사용하려면 먼저 앱에 [Braze Web SDK를 통합]({{site.
 </script>
 ```
 
-`toggleContentCards(parentNode, filterFunction)` 및 `showContentCards(parentNode, filterFunction)` 메서드를 사용할 때 인수를 제공하지 않으면 모든 Content Cards가 페이지 오른쪽에 있는 고정 위치 사이드바에 표시됩니다. 그렇지 않으면 피드가 지정된 `parentNode` 옵션에 배치됩니다.
+`toggleContentCards(parentNode, filterFunction)` 및 `showContentCards(parentNode, filterFunction)` 메서드를 사용할 때 인수를 제공하지 않으면 모든 Content Cards가 페이지의 고정 위치 사이드바에 표시됩니다. 그렇지 않으면 피드가 지정된 `parentNode` 옵션에 배치됩니다.
 
 | 매개변수 | 설명 |
 |---|---|
 | `parentNode` | Content Cards를 렌더링할 HTML 노드입니다. 상위 노드에 이미 Braze Content Cards 뷰가 직계 하위로 존재하는 경우 기존 Content Cards가 대체됩니다. 예를 들어 `document.querySelector(".my-container")`를 전달해야 합니다. |
 | `filterFunction` | 이 뷰에 표시되는 카드의 필터 또는 정렬 함수입니다. `{pinned, date}` 기준으로 정렬된 `Card` 오브젝트 배열로 호출됩니다. 이 사용자에 대해 렌더링할 정렬된 `Card` 오브젝트 배열을 반환해야 합니다. 생략하면 모든 카드가 표시됩니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Standard feed UI" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="표준 피드 UI" }
 
 Content Cards 토글에 대한 자세한 내용은 [SDK 참조 문서](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards)를 참조하세요.
 
@@ -66,90 +66,90 @@ Content Cards 토글에 대한 자세한 내용은 [SDK 참조 문서](https://j
    - `window.braze.getCachedContentCards()`
    - `window.braze.toggleContentCards()`
 
-## 카드 유형 및 등록정보 {#card-types-and-properties}
+## 카드 유형 및 속성정보 {#card-types-and-properties}
 
-Content Cards 데이터 모델은 Web SDK에서 사용할 수 있으며 다음과 같은 Content Cards 유형을 제공합니다: [ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html), [CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html), [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html). 각 유형은 기본 모델 [Card](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html)에서 공통 등록정보를 상속받으며 다음과 같은 추가 등록정보가 있습니다.
+Content Cards 데이터 모델은 Web SDK에서 사용할 수 있으며 다음과 같은 Content Cards 유형을 제공합니다: [ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html), [CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html), [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html). 각 유형은 기본 모델 [Card](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html)에서 공통 속성정보를 상속받으며 다음과 같은 추가 속성정보가 있습니다.
 
 {% alert tip %}
-Content Cards 데이터를 로깅하려면 [분석 로깅]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/)을 참조하세요.
+Content Cards 데이터를 로깅하려면 [분석 로깅]({{site.baseurl}}/developer_guide/content_cards/logging_analytics)을 참조하세요.
 {% endalert %}
 
 ### 기본 카드 모델 {#base-card-model}
 
-모든 Content Cards에는 다음과 같은 공유 등록정보가 있습니다:
+모든 Content Cards에는 다음과 같은 공유 속성정보가 있습니다:
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
 | `expiresAt` | 카드 만료 시간의 UNIX 타임스탬프입니다. |
 | `extras` | (선택 사항) 값 문자열이 포함된 문자열 오브젝트로 형식이 지정된 키-값 페어 데이터입니다. |
 | `id` | (선택 사항) 카드의 ID입니다. 분석 목적으로 이벤트와 함께 Braze에 다시 보고됩니다. |
-| `pinned` | 이 등록정보는 대시보드에서 카드가 "고정됨"으로 설정되었는지 여부를 반영합니다. |
+| `pinned` | 이 속성정보는 대시보드에서 카드가 "고정됨"으로 설정되었는지 여부를 반영합니다. |
 | `updated` | 이 카드가 마지막으로 수정된 시점의 UNIX 타임스탬프입니다. |
-| `viewed` | 이 등록정보는 사용자가 카드를 조회했는지 여부를 반영합니다. |
-| `isControl` | 이 등록정보는 카드가 A/B 테스트 내에서 "대조군"인 경우 `true`입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Base card model" }
+| `viewed` | 이 속성정보는 사용자가 카드를 조회했는지 여부를 반영합니다. |
+| `isControl` | 이 속성정보는 카드가 A/B 테스트 내에서 "대조군"인 경우 `true`입니다. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="기본 카드 모델" }
 
 ### 이미지만 {#image-only}
 
 [ImageOnly](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.imageonly.html) 카드는 클릭 가능한 전체 크기 이미지입니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
-| `aspectRatio` | 카드 이미지의 종횡비이며 이미지 로딩이 완료되기 전에 힌트 역할을 합니다. 특정 상황에서는 이 등록정보가 제공되지 않을 수 있습니다. |
-| `categories` | 이 등록정보는 순전히 커스텀 구현의 구성을 위해 제공되며, 대시보드 작성기에서 이러한 카테고리를 설정할 수 있습니다. |
-| `clicked` | 이 등록정보는 이 카드가 이 기기에서 클릭된 적이 있는지 여부를 나타냅니다. |
+| `aspectRatio` | 카드 이미지의 종횡비이며 이미지 로딩이 완료되기 전에 힌트 역할을 합니다. 특정 상황에서는 이 속성정보가 제공되지 않을 수 있습니다. |
+| `categories` | 이 속성정보는 순전히 커스텀 구현의 구성을 위해 제공되며, 대시보드 작성기에서 이러한 카테고리를 설정할 수 있습니다. |
+| `clicked` | 이 속성정보는 이 카드가 이 기기에서 클릭된 적이 있는지 여부를 나타냅니다. |
 | `created` | Braze에서 카드가 생성된 시간의 UNIX 타임스탬프입니다. |
-| `dismissed` | 이 등록정보는 이 카드가 해제되었는지 여부를 나타냅니다. |
-| `dismissible` | 이 등록정보는 사용자가 카드를 해제하여 뷰에서 제거할 수 있는지 여부를 반영합니다. |
+| `dismissed` | 이 속성정보는 이 카드가 해제되었는지 여부를 나타냅니다. |
+| `dismissible` | 이 속성정보는 사용자가 카드를 해제하여 뷰에서 제거할 수 있는지 여부를 반영합니다. |
 | `imageUrl` | 카드 이미지의 URL입니다. |
 | `linkText` | URL의 표시 텍스트입니다. |
 | `url` | 카드를 클릭한 후 열릴 URL입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Image only" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="이미지만" }
 
 ### 캡션 이미지 {#captioned-image}
 
 [CaptionedImage](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.captionedimage.html) 카드는 클릭 가능한 전체 크기 이미지로, 설명 텍스트가 함께 제공됩니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
-| `aspectRatio` | 카드 이미지의 종횡비이며 이미지 로딩이 완료되기 전에 힌트 역할을 합니다. 특정 상황에서는 이 등록정보가 제공되지 않을 수 있습니다. |
-| `categories` | 이 등록정보는 순전히 커스텀 구현의 구성을 위해 제공되며, 대시보드 작성기에서 이러한 카테고리를 설정할 수 있습니다. |
-| `clicked` | 이 등록정보는 이 카드가 이 기기에서 클릭된 적이 있는지 여부를 나타냅니다. |
+| `aspectRatio` | 카드 이미지의 종횡비이며 이미지 로딩이 완료되기 전에 힌트 역할을 합니다. 특정 상황에서는 이 속성정보가 제공되지 않을 수 있습니다. |
+| `categories` | 이 속성정보는 순전히 커스텀 구현의 구성을 위해 제공되며, 대시보드 작성기에서 이러한 카테고리를 설정할 수 있습니다. |
+| `clicked` | 이 속성정보는 이 카드가 이 기기에서 클릭된 적이 있는지 여부를 나타냅니다. |
 | `created` | Braze에서 카드가 생성된 시간의 UNIX 타임스탬프입니다. |
-| `dismissed` | 이 등록정보는 이 카드가 해제되었는지 여부를 나타냅니다. |
-| `dismissible` | 이 등록정보는 사용자가 카드를 해제하여 뷰에서 제거할 수 있는지 여부를 반영합니다. |
+| `dismissed` | 이 속성정보는 이 카드가 해제되었는지 여부를 나타냅니다. |
+| `dismissible` | 이 속성정보는 사용자가 카드를 해제하여 뷰에서 제거할 수 있는지 여부를 반영합니다. |
 | `imageUrl` | 카드 이미지의 URL입니다. |
 | `linkText` | URL의 표시 텍스트입니다. |
 | `title` | 이 카드의 제목 텍스트입니다. |
 | `url` | 카드를 클릭한 후 열릴 URL입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Captioned image" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="캡션 이미지" }
 
 ### 클래식 {#classic}
 
 [ClassicCard](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.classiccard.html) 모델에는 텍스트가 없는 이미지 또는 이미지가 있는 텍스트가 포함될 수 있습니다.
 
-| 등록정보 | 설명 |
+| 속성정보 | 설명 |
 |---|---|
-| `aspectRatio` | 카드 이미지의 종횡비이며 이미지 로딩이 완료되기 전에 힌트 역할을 합니다. 특정 상황에서는 이 등록정보가 제공되지 않을 수 있습니다. |
-| `categories` | 이 등록정보는 순전히 커스텀 구현의 구성을 위해 제공되며, 대시보드 작성기에서 이러한 카테고리를 설정할 수 있습니다. |
-| `clicked` | 이 등록정보는 이 카드가 이 기기에서 클릭된 적이 있는지 여부를 나타냅니다. |
+| `aspectRatio` | 카드 이미지의 종횡비이며 이미지 로딩이 완료되기 전에 힌트 역할을 합니다. 특정 상황에서는 이 속성정보가 제공되지 않을 수 있습니다. |
+| `categories` | 이 속성정보는 순전히 커스텀 구현의 구성을 위해 제공되며, 대시보드 작성기에서 이러한 카테고리를 설정할 수 있습니다. |
+| `clicked` | 이 속성정보는 이 카드가 이 기기에서 클릭된 적이 있는지 여부를 나타냅니다. |
 | `created` | Braze에서 카드가 생성된 시간의 UNIX 타임스탬프입니다. |
 | `description` | 이 카드의 본문 텍스트입니다. |
-| `dismissed` | 이 등록정보는 이 카드가 해제되었는지 여부를 나타냅니다. |
-| `dismissible` | 이 등록정보는 사용자가 카드를 해제하여 뷰에서 제거할 수 있는지 여부를 반영합니다. |
+| `dismissed` | 이 속성정보는 이 카드가 해제되었는지 여부를 나타냅니다. |
+| `dismissible` | 이 속성정보는 사용자가 카드를 해제하여 뷰에서 제거할 수 있는지 여부를 반영합니다. |
 | `imageUrl` | 카드 이미지의 URL입니다. |
 | `linkText` | URL의 표시 텍스트입니다. |
 | `title` | 이 카드의 제목 텍스트입니다. |
 | `url` | 카드를 클릭한 후 열릴 URL입니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Classic" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="클래식" }
 
 ## 대조군 {#control-group}
 
-기본 Content Cards 피드를 사용하는 경우 노출 횟수와 클릭 수가 자동으로 추적됩니다.
+기본 Content Cards 피드를 사용하는 경우 노출 횟수와 클릭이 자동으로 추적됩니다.
 
-Content Cards에 대한 커스텀 통합을 사용하는 경우 제어 카드가 표시되었을 때 [노출 횟수를 기록]({{site.baseurl}}/developer_guide/content_cards/logging_analytics/)해야 합니다. 이 과정에서 A/B 테스트의 노출 횟수를 기록할 때 제어 카드를 반드시 처리해야 합니다. 이러한 카드는 비어 있으며 사용자에게 표시되지 않지만, 제어 카드가 아닌 카드와 성능을 비교하려면 노출 횟수를 기록해야 합니다.
+Content Cards에 대한 커스텀 통합을 사용하는 경우 제어 카드가 표시되었을 때 [노출 횟수를 기록]({{site.baseurl}}/developer_guide/content_cards/logging_analytics)해야 합니다. 이 과정에서 A/B 테스트의 노출 횟수를 기록할 때 제어 카드를 반드시 처리해야 합니다. 이러한 카드는 비어 있으며 사용자에게 표시되지 않지만, 제어 카드가 아닌 카드와 성능을 비교하려면 노출 횟수를 기록해야 합니다.
 
-Content Cards가 A/B 테스트의 대조군에 있는지 확인하려면 `card.isControl` 등록정보(Web SDK v4.5.0 이상)를 확인하거나 카드가 `ControlCard` 인스턴스(`card instanceof braze.ControlCard`)인지 확인합니다.
+Content Cards가 A/B 테스트의 대조군에 있는지 확인하려면 `card.isControl` 속성정보(Web SDK v4.5.0 이상)를 확인하거나 카드가 `ControlCard` 인스턴스(`card instanceof braze.ControlCard`)인지 확인합니다.
 
 ## 카드 메서드 {#card-methods}
 
@@ -159,10 +159,10 @@ Braze 기본 피드 UI를 사용하여 Content Cards를 표시할 때 다음 메
 
 | 메서드 | 설명 |
 |---|---|
-| [`showContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards) | 기본 Content Cards 피드를 표시합니다. 제공된 `parentNode` HTML 요소에 카드를 렌더링하거나, 요소가 지정되지 않은 경우 페이지 오른쪽에 고정 위치 사이드바로 표시합니다. 표시 전에 카드를 정렬하거나 필터링하기 위한 선택적 `filterFunction`을 허용합니다. |
+| [`showContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#showcontentcards) | 기본 Content Cards 피드를 표시합니다. 제공된 `parentNode` HTML 요소에 카드를 렌더링하거나, 요소가 지정되지 않은 경우 고정 위치 사이드바로 표시합니다. 표시 전에 카드를 정렬하거나 필터링하기 위한 선택적 `filterFunction`을 허용합니다. |
 | [`hideContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#hidecontentcards) | 현재 표시 중인 기본 Content Cards 피드를 숨깁니다. |
 | [`toggleContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#togglecontentcards) | 기본 Content Cards 피드가 숨겨져 있으면 표시하고, 표시 중이면 숨깁니다. 여러 Content Cards 피드를 동시에 표시해야 하는 경우 대신 `showContentCards`와 `hideContentCards`를 사용하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Default feed methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="기본 피드 메서드" }
 
 ### 커스텀 피드 메서드 {#custom-feed-methods}
 
@@ -172,12 +172,12 @@ Braze 기본 피드 UI를 사용하여 Content Cards를 표시할 때 다음 메
 |---|---|
 | [`subscribeToContentCardsUpdates`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#subscribetocontentcardsupdates) | 현재 사용자의 Content Cards가 업데이트될 때마다(예: 세션 시작 시) 호출되는 콜백 함수를 등록합니다. 커스텀 피드에서 카드 데이터를 수신하는 기본 방법으로 사용합니다. 초기 세션의 업데이트를 수신하려면 `openSession()` 이전에 호출해야 합니다. |
 | [`getCachedContentCards`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#getcachedcontentcards) | 가장 최근 Content Cards 새로고침에서 현재 사용 가능한 모든 카드를 반환합니다. 새 서버 요청을 기다리지 않고 페이지 로드 시 즉시 카드를 표시하는 데 사용합니다. 예를 들어 활성 세션 중에 사용자가 페이지로 돌아올 때 유용합니다. |
-| [`requestContentCardsRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh) | Braze 서버에서 Content Cards의 즉시 새로고침을 요청합니다. 기본적으로 카드는 세션 시작 시와 기본 피드가 다시 열릴 때 새로고침됩니다. 특정 사용자 동작 후와 같이 다른 시점에 강제로 새로고침하려면 이 메서드를 사용합니다. [사용량 제한]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed/#rate-limit)에 유의하세요. |
+| [`requestContentCardsRefresh`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#requestcontentcardsrefresh) | Braze 서버에서 Content Cards의 즉시 새로고침을 요청합니다. 기본적으로 카드는 세션 시작 시와 기본 피드가 다시 열릴 때 새로고침됩니다. 특정 사용자 동작 후와 같이 다른 시점에 강제로 새로고침하려면 이 메서드를 사용합니다. [사용량 제한]({{site.baseurl}}/developer_guide/content_cards/customizing_cards/feed#rate-limit)에 유의하세요. |
 | [`logContentCardImpressions`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardimpressions) | 카드 배열에 대한 노출 이벤트를 기록합니다. 카드가 렌더링되어 사용자에게 표시될 때 호출합니다. 커스텀 UI를 사용할 때 정확한 캠페인 보고를 위해 필수이며, 기본 피드 외부에서는 노출이 자동으로 추적되지 않습니다. |
 | [`logContentCardClick`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#logcontentcardclick) | 단일 카드에 대한 클릭 이벤트를 기록합니다. 사용자가 커스텀 UI에서 카드와 상호작용할 때 호출합니다. 정확한 캠페인 보고를 위해 필수이며, 기본 피드 외부에서는 클릭이 자동으로 추적되지 않습니다. |
 | [`handleBrazeAction`](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html#handlebrazeaction) | 카드의 URL을 처리하고 구성된 클릭 시 동작을 실행합니다. Braze 동작(`brazeActions://` URL) 및 표준 URL 탐색을 포함합니다. Braze 대시보드에서 구성된 클릭 시 동작이 실행되도록 카드 클릭 핸들러에서 호출합니다. |
 | [`dismissCard`](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.card.html#dismisscard) | 프로그래밍 방식으로 카드를 해제하여 사용자의 피드에서 제거합니다. 커스텀 UI에서 사용자가 카드를 해제할 수 있도록 하려면 이 메서드를 사용합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Custom feed methods" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="커스텀 피드 메서드" }
 
 자세한 내용은 [SDK 참조 설명서](https://js.appboycdn.com/web-sdk/latest/doc/modules/braze.html)를 참조하세요.
 
@@ -280,12 +280,12 @@ braze.subscribeToContentCardsUpdates((updates) => {
 
 ## Google Tag Manager 사용 {#using-google-tag-manager}
 
-Google Tag Manager는 웹사이트 코드에 [Braze CDN]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup/#install-cdn)(Web SDK 버전)을 직접 삽입하는 방식으로 작동하므로 Content Cards를 구현할 때를 제외하고는 Google Tag Manager 없이 SDK를 통합한 것처럼 모든 SDK 메서드를 사용할 수 있습니다.
+Google Tag Manager는 웹사이트 코드에 [Braze CDN]({{site.baseurl}}/developer_guide/platform_integration_guides/web/initial_sdk_setup#install-cdn)(Web SDK 버전)을 직접 삽입하는 방식으로 작동하므로 Content Cards를 구현할 때를 제외하고는 Google Tag Manager 없이 SDK를 통합한 것처럼 모든 SDK 메서드를 사용할 수 있습니다.
 
 ### Content Cards 설정하기 {#setting-up-content-cards}
 
 {% tabs local %}
-{% tab google tag manager %}
+{% tab Google Tag Manager %}
 Content Cards 피드의 표준 통합을 위해 Google Tag Manager에서 **커스텀 HTML** 태그를 사용할 수 있습니다. 표준 Content Cards 피드를 활성화하는 커스텀 HTML 태그에 다음을 추가합니다:
 
 ```html
@@ -297,16 +297,16 @@ Content Cards 피드의 표준 통합을 위해 Google Tag Manager에서 **커�
 ![Content Cards 피드를 표시하는 커스텀 HTML 태그의 Google Tag Manager 태그 구성]({% image_buster /assets/img/web-gtm/gtm_content_cards.png %})
 {% endtab %}
 
-{% tab manual %}
+{% tab 수동 %}
 Content Cards의 모양과 피드를 보다 자유롭게 커스터마이징하려면 Content Cards를 기본 웹사이트에 직접 통합할 수 있습니다. 표준 피드 UI를 사용하거나 커스텀 피드 UI를 생성하는 두 가지 접근 방식이 있습니다.
 
 {% subtabs local %}
-{% subtab standard feed %}
-[표준 피드 UI]({{site.baseurl}}/developer_guide/platform_integration_guides/web/content_cards/integration/#standard-feed-ui)를 구현할 때 Braze 메서드의 시작 부분에 `window.`를 추가해야 합니다. 예를 들어 `braze.showContentCards`는 `window.braze.showContentCards`가 되어야 합니다.
+{% subtab 표준 피드 %}
+[표준 피드 UI]({{site.baseurl}}/developer_guide/platform_integration_guides/web/content_cards/integration#standard-feed-ui)를 구현할 때 Braze 메서드의 시작 부분에 `window.`를 추가해야 합니다. 예를 들어 `braze.showContentCards`는 `window.braze.showContentCards`가 되어야 합니다.
 {% endsubtab %}
 
-{% subtab custom feed %}
-[커스텀 피드]({{site.baseurl}}/developer_guide/content_cards/creating_cards/) 스타일의 경우, 단계는 GTM 없이 SDK를 통합한 경우와 동일합니다. 예를 들어 Content Cards 피드의 너비를 커스터마이징하려면 다음을 CSS 파일에 붙여넣으면 됩니다:
+{% subtab 커스텀 피드 %}
+[커스텀 피드]({{site.baseurl}}/developer_guide/content_cards/creating_cards) 스타일의 경우, 단계는 GTM 없이 SDK를 통합한 경우와 동일합니다. 예를 들어 Content Cards 피드의 너비를 커스터마이징하려면 다음을 CSS 파일에 붙여넣으면 됩니다:
 
 {% raw %}
 ```css
@@ -324,7 +324,7 @@ body .ab-feed {
 
 Braze Web SDK의 최신 버전으로 업그레이드하려면 Google Tag Manager 대시보드에서 다음 세 단계를 수행합니다:
 
-1. **태그 템플릿 업데이트**<br>워크스페이스 내의 **Templates** 페이지로 이동합니다. 여기에 업데이트를 사용할 수 있음을 나타내는 아이콘이 표시됩니다.<br><br>![업데이트를 사용할 수 있음을 보여주는 Templates 페이지]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>해당 아이콘을 클릭하고 변경 사항을 검토한 후 **Accept Update**를 클릭합니다.<br><br>![이전 태그 템플릿과 새 태그 템플릿을 비교하는 화면과 "Accept Update" 버튼]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
+1. **태그 템플릿 업데이트**<br>워크스페이스 내의 **Templates** 페이지로 이동합니다. 여기에 업데이트를 사용할 수 있음을 나타내는 아이콘이 표시됩니다.<br><br>![업데이트를 사용할 수 있음을 보여주는 Templates 페이지]({% image_buster /assets/img/web-gtm/gtm-update-available.png %})<br><br>해당 아이콘을 클릭하고 변경 사항을 검토한 후 **Accept Update**를 클릭합니다.<br><br>![이전 태그 템플릿과 새 태그 템플릿을 비교하는 화면과 'Accept Update' 버튼]({% image_buster /assets/img/web-gtm/gtm-accept-update.png %})<br><br>
 2. **버전 번호 업데이트**<br>태그 템플릿이 업데이트되면 Braze Initialization Tag를 편집하고 SDK 버전을 최신 `major.minor` 버전으로 업데이트합니다. 예를 들어 최신 버전이 `4.1.2`인 경우 `4.1`을 입력합니다. SDK 버전 목록은 [체인지로그](https://github.com/braze-inc/braze-web-sdk/blob/master/CHANGELOG.md)에서 확인할 수 있습니다.<br><br>![SDK 버전을 변경할 수 있는 입력 필드가 있는 Braze Initialization Template]({% image_buster /assets/img/web-gtm/gtm-version-number.png %})<br><br>
 3. **QA 및 게시**<br>태그 컨테이너에 업데이트를 게시하기 전에 Google Tag Manager의 [디버깅 툴](https://support.google.com/tagmanager/answer/6107056?hl=en)을 사용하여 새 SDK 버전이 작동하는지 확인합니다.
 

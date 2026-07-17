@@ -11,13 +11,13 @@ tool:
 
 # Audience Sync 소개 {#about-audience-sync}
 
-> Braze Audience Sync 기능은 캠페인의 도달 범위를 주요 소셜 및 광고 기술로 확장하는 데 도움을 줍니다. [Braze Canvas]({{site.baseurl}}/user_guide/messaging/canvas/)를 통해 브랜드는 퍼스트파티 사용자 데이터를 광고 생태계에 동적이고 안전하게 동기화하여 마케팅 및 운영 효율성을 높일 수 있습니다.
+> Braze Audience Sync 기능은 캠페인의 도달 범위를 주요 소셜 및 광고 기술로 확장하는 데 도움을 줍니다. [Braze Canvas]({{site.baseurl}}/user_guide/messaging/canvas)를 통해 브랜드는 퍼스트파티 사용자 데이터를 광고 생태계에 동적이고 안전하게 동기화하여 마케팅 및 운영 효율성을 높일 수 있습니다.
 
 ## 기능 가용성 {#feature-availability}
 
 모든 Braze 고객은 Audience Sync to Google 및 Facebook에 즉시 액세스할 수 있으며, Action Credits를 사용하는 고객은 모든 Audience Sync 파트너에 액세스할 수 있습니다. Action Credits를 사용하지 않는 고객이 추가 Audience Sync 대상을 잠금 해제하려면 Audience Sync Pro를 구매하세요. 자세한 내용은 Braze 계정 매니저에게 문의하세요.
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 - 자사 및 유료 채널을 사용하여 고가치 사용자를 타겟팅하여 추가 구매 또는 참여를 유도합니다.
 - 고가치 사용자의 유사 오디언스를 생성하여 신규 사용자 획득 비용과 전환을 최적화합니다.
@@ -34,14 +34,14 @@ table td {
 
 | 대상 | 대상이 오디언스 멤버를 매칭하는 데 걸리는 시간 | 사용량 제한 | 유사 또는 유사 행동 오디언스 | 팁 |
 | --- | --- | --- | --- | --- |
-| [Criteo]({{site.baseurl}}/partners/canvas_audience_sync/criteo_audience_sync/) | 최대 24시간 | 분당 250,000건의 요청. Google 피드백에 기반한 자동 재시도로 5초마다 배치 처리됩니다. | 예 | {::nomarkdown}<ul><li>Criteo는 최대 1,000개의 광고 오디언스를 지원합니다.</li><li>최소 오디언스 크기는 500이며, 20,000 이상을 권장합니다.</li></ul>{:/} |
-| [Facebook 또는 Instagram]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync/) | 최대 24시간 | 시간당 190,000개의 광고 계정 | 예 | {::nomarkdown}<ul><li>Facebook은 최대 500개의 광고 오디언스를 지원합니다.</li><li>Facebook은 오디언스가 최소 1,000명의 사용자여야 합니다.</li></ul>{:/} |
-| [Google Ads 또는 YouTube]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync/) | 6~12시간 | Google 피드백에 기반한 자동 재시도로 5초마다 배치 처리됩니다 | 아니요 | {::nomarkdown}<ul><li><b>고객 매칭:</b> 모바일 광고 ID, 이메일 주소 또는 전화번호를 사용합니다.</li><li>Google 오디언스는 광고 게재를 시작하려면 최소 5,000명의 사용자가 필요합니다.</li><li>오디언스 크기는 최소 1,000명의 사용자가 될 때까지 0으로 표시됩니다.</li></ul>{:/} |
-| [LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync/) | 48시간 | LinkedIn은 초당 10개의 쿼리를 처리하고 요청당 100,000명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | AI 예측 오디언스 | {::nomarkdown}<ul><li>최소 오디언스 크기는 위치 타겟팅을 고려하여 300명입니다.</li><li>LinkedIn은 Braze 대시보드에서 매칭률을 표시합니다.</li></ul>{:/} |
-| [Pinterest]({{site.baseurl}}/partners/canvas_audience_sync/pinterest_audience_sync/) | 24~48시간 | Pinterest는 초당 7개의 쿼리를 처리하고 요청당 1,900명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | 예 | Pinterest 오디언스는 최소 100명의 사용자가 필요합니다. |
-| [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync/) | N/A | Snapchat은 초당 10개의 쿼리를 처리하고 요청당 100,000명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | 예 | Snapchat은 최대 1,000개의 광고 오디언스를 지원합니다. |
-| [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync/) | 최대 24시간 | N/A | 예 | {::nomarkdown}<ul><li>The Trade Desk에서 CRM 오디언스에 대한 최소 오디언스 크기는 없습니다.</li><li>The Trade Desk가 지원하는 오디언스 수에는 제한이 없습니다.</li><li>EU 지역으로 설정된 오디언스에 동기화하는 경우 전화번호는 지원되지 않습니다.</li></ul>{:/} |
-| [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync/) | 24~48시간 | TikTok은 초당 50개의 쿼리를 처리하고 요청당 10,000명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | 예 | {::nomarkdown}<ul><li>TikTok은 최대 400개의 광고 오디언스를 지원합니다.</li><li>TikTok 오디언스는 광고 게재를 시작하려면 최소 1,000명의 사용자가 필요합니다.</li></ul>{:/} |
+| [Criteo]({{site.baseurl}}/partners/canvas_audience_sync/criteo_audience_sync) | 최대 24시간 | 분당 250,000건의 요청. Google 피드백에 기반한 자동 재시도로 5초마다 배치 처리됩니다. | 예 | {::nomarkdown}<ul><li>Criteo는 최대 1,000개의 광고 오디언스를 지원합니다.</li><li>최소 오디언스 크기는 500이며, 20,000 이상을 권장합니다.</li></ul>{:/} |
+| [Facebook 또는 Instagram]({{site.baseurl}}/partners/canvas_audience_sync/facebook_audience_sync) | 최대 24시간 | 시간당 190,000개의 광고 계정 | 예 | {::nomarkdown}<ul><li>Facebook은 최대 500개의 광고 오디언스를 지원합니다.</li><li>Facebook은 오디언스가 최소 1,000명의 사용자여야 합니다.</li></ul>{:/} |
+| [Google Ads 또는 YouTube]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) | 6~12시간 | Google 피드백에 기반한 자동 재시도로 5초마다 배치 처리됩니다 | 아니요 | {::nomarkdown}<ul><li><b>고객 매칭:</b> 모바일 광고 ID, 이메일 주소 또는 전화번호를 사용합니다.</li><li>Google 오디언스는 광고 게재를 시작하려면 최소 5,000명의 사용자가 필요합니다.</li><li>오디언스 크기는 최소 1,000명의 사용자가 될 때까지 0으로 표시됩니다.</li></ul>{:/} |
+| [LinkedIn]({{site.baseurl}}/partners/canvas_audience_sync/linkedin_audience_sync) | 48시간 | LinkedIn은 초당 10개의 쿼리를 처리하고 요청당 100,000명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | AI 예측 오디언스 | {::nomarkdown}<ul><li>최소 오디언스 크기는 위치 타겟팅을 고려하여 300명입니다.</li><li>LinkedIn은 Braze 대시보드에서 매칭률을 표시합니다.</li></ul>{:/} |
+| [Pinterest]({{site.baseurl}}/partners/canvas_audience_sync/pinterest_audience_sync) | 24~48시간 | Pinterest는 초당 7개의 쿼리를 처리하고 요청당 1,900명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | 예 | Pinterest 오디언스는 최소 100명의 사용자가 필요합니다. |
+| [Snapchat]({{site.baseurl}}/partners/canvas_audience_sync/snapchat_audience_sync) | N/A | Snapchat은 초당 10개의 쿼리를 처리하고 요청당 100,000명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | 예 | Snapchat은 최대 1,000개의 광고 오디언스를 지원합니다. |
+| [The Trade Desk]({{site.baseurl}}/partners/canvas_audience_sync/trade_desk_audience_sync) | 최대 24시간 | N/A | 예 | {::nomarkdown}<ul><li>The Trade Desk에서 CRM 오디언스에 대한 최소 오디언스 크기는 없습니다.</li><li>The Trade Desk가 지원하는 오디언스 수에는 제한이 없습니다.</li><li>EU 지역으로 설정된 오디언스에 동기화하는 경우 전화번호는 지원되지 않습니다.</li></ul>{:/} |
+| [TikTok]({{site.baseurl}}/partners/canvas_audience_sync/tiktok_audience_sync) | 24~48시간 | TikTok은 초당 50개의 쿼리를 처리하고 요청당 10,000명의 사용자를 처리합니다. Braze는 5초마다 사용자를 배치 처리합니다. | 예 | {::nomarkdown}<ul><li>TikTok은 최대 400개의 광고 오디언스를 지원합니다.</li><li>TikTok 오디언스는 광고 게재를 시작하려면 최소 1,000명의 사용자가 필요합니다.</li></ul>{:/} |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="개요" }
 <sup>사용량 제한에 도달하면 Braze는 13시간 동안 동기화를 재시도합니다.</sup>
 
@@ -120,7 +120,7 @@ Braze는 개별 사용자가 매칭되었거나 동기화되었다는 확인을 
 
 광고 추적을 위한 오디언스를 구축할 때, 사용자의 선호도에 따라 특정 사용자를 포함하거나 제외하고, [CCPA](https://oag.ca.gov/privacy/ccpa)에 따른 "판매 또는 공유 금지" 권리와 같은 개인정보 보호법을 준수하고자 할 수 있습니다. 마케터는 Canvas 진입 기준 내에서 사용자 자격에 대한 관련 필터를 구현해야 합니다. 아래에 몇 가지 옵션을 나열합니다.
 
-[Braze SDK를 통해 iOS IDFA]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/initial_sdk_setup/other_sdk_customizations/#optional-idfa-collection)를 수집한 경우, "광고 추적 활성화됨" 필터를 사용할 수 있습니다. 값을 `true`로 선택하면 옵트인한 사용자만 Audience Sync 대상으로 전송됩니다.
+[Braze SDK를 통해 iOS IDFA]({{site.baseurl}}/developer_guide/platform_integration_guides/ios/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection)를 수집한 경우, "광고 추적 활성화됨" 필터를 사용할 수 있습니다. 값을 `true`로 선택하면 옵트인한 사용자만 Audience Sync 대상으로 전송됩니다.
 
 ![진입 오디언스가 "광고 추적 활성화됨이 true"인 Canvas.]({% image_buster /assets/img/audience_sync/audience_sync2.png %})
 
@@ -128,7 +128,7 @@ Braze는 개별 사용자가 매칭되었거나 동기화되었다는 확인을 
 
 ![진입 오디언스가 "opted_in_marketing이 true"인 Canvas.]({% image_buster /assets/img/audience_sync/audience_sync.png %})
 
-Braze 플랫폼 내에서 이러한 데이터 보호법을 준수하는 방법에 대해 자세히 알아보려면 [데이터 보호 기술 지원]({{site.baseurl}}/dp-technical-assistance/)을 참조하세요.
+Braze 플랫폼 내에서 이러한 데이터 보호법을 준수하는 방법에 대해 자세히 알아보려면 [데이터 보호 기술 지원]({{site.baseurl}}/dp-technical-assistance)을 참조하세요.
 
 ## 광고 타겟팅에 대한 동의 관리 {#managing-consent-for-ad-targeting}
 

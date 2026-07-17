@@ -38,7 +38,7 @@ tool: Segments
 - `Catalog field`：このカタログ内の特定のフィールド（列名）
 - `Value`：そのフィールドまたは列内の特定の値 <br><br> ヘルスアプリを例にすると、予約可能な各医師のカタログ内に`specialty`というフィールドがあり、`vision`や`dental`などの値が含まれているとします。`dental`の値を持つ医師を訪問したユーザーをセグメント化するには、`Catalog field`として`specialty`を選択し、`Value`として`dental`を選択します。
 
-5. SQLセグメントを作成した後、**プレビューを実行**をクリックして、クエリがユーザーを返すか、エラーがないかを確認することをお勧めします。[クエリ結果のプレビュー]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#previewing-results)、[SQLセグメントエクステンションの管理]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-sql-segment-extensions)などの詳細については、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)をご確認ください。
+5. SQLセグメントを作成した後、**プレビューを実行**をクリックして、クエリがユーザーを返すか、エラーがないかを確認することをお勧めします。[クエリ結果のプレビュー]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#step-3-preview-the-query)、[SQLセグメントエクステンションの管理]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#managing-your-segment-extensions)などの詳細については、[SQLセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments)をご確認ください。
 
 {% alert note %}
 `CATALOGS_ITEMS_SHARED`テーブルを使用するSQLセグメントを作成する場合は、カタログIDを指定する必要があります。例：
@@ -129,7 +129,7 @@ B2B SaaSプラットフォームがあり、既存顧客の従業員であるユ
 
 ### カタログセグメントの実行はSQLセグメントエクステンションのクレジットを消費しますか？ {#does-running-a-catalog-segment-consume-sql-segment-extension-credits}
 
-はい、カタログセグメントはSQLを利用しており、SQLセグメントエクステンションのクレジットを消費します。詳細については、[SQLセグメントの使用状況]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#monitoring-your-sql-segments-usage)をご確認ください。
+はい、カタログセグメントはSQLを利用しており、SQLセグメントエクステンションのクレジットを消費します。詳細については、[SQLセグメントの使用状況]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments#credits)をご確認ください。
 
 ### カタログセグメントの作成はSQLセグメントエクステンションの割り当てを消費しますか？ {#does-creating-a-catalog-segment-consume-sql-segment-extension-allotments}
 

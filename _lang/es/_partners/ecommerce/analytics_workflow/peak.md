@@ -1,7 +1,7 @@
 ---
 nav_title: Peak
 article_title: Peak
-description: "Este artículo de referencia describe la asociación entre Braze y Peak, una plataforma de inteligencia de decisiones, que te permite tomar la probabilidad de abandono predicha y los atributos basados en los comportamientos e interacciones de los clientes, e importarlos a Braze para utilizarlos en la segmentación y selección de clientes."
+description: "Este artículo de referencia describe la asociación entre Braze y Peak, una plataforma de inteligencia de decisiones, que te permite tomar la probabilidad de cancelación predicha y los atributos basados en los comportamientos e interacciones de los clientes, e importarlos a Braze para utilizarlos en la segmentación de clientes."
 alias: /partners/peak/
 page_type: partner
 search_tag: Partner
@@ -16,7 +16,7 @@ _Esta integración la mantiene Peak._
 
 ## Sobre la integración {#about-the-integration}
 
-La asociación entre Braze y Peak te permite tomar la probabilidad de abandono predicha y los atributos basados en los comportamientos e interacciones de los clientes, e importarlos a Braze para utilizarlos en la segmentación y selección de clientes.
+La asociación entre Braze y Peak te permite tomar la probabilidad de cancelación predicha y los atributos basados en los comportamientos e interacciones de los clientes, e importarlos a Braze para utilizarlos en la segmentación de clientes.
 
 ## Requisitos previos {#prerequisites}
 
@@ -31,7 +31,7 @@ Como punto de partida, un tenant de Peak debe alojar la integración entre Peak 
 
 ## Integración {#integration}
 
-La inteligencia de clientes de la solución Peak utiliza un modelo para predecir una serie de atributos prospectivos basados en los comportamientos e interacciones de los clientes. Estos atributos se almacenan en Peak y pueden utilizarse para generar una segmentación predictiva, incluida la probabilidad de que un cliente abandone. La actualización de estos atributos predictivos se basará en una cadencia configurable (diaria o semanal).
+La solución de inteligencia de clientes de Peak utiliza un modelo para predecir una serie de atributos prospectivos basados en los comportamientos e interacciones de los clientes. Estos atributos se almacenan en Peak y pueden utilizarse para generar una segmentación predictiva, incluida la probabilidad de que un cliente cancele. La actualización de estos atributos predictivos se basará en una cadencia configurable (diaria o semanal).
 
 ### Paso 1: Ejecutar el modelo y extraer los clientes {#step-1-run-model-and-extract-customers}
 
@@ -41,7 +41,7 @@ En función de cuándo se han actualizado los atributos, se realiza una selecci�
 
 ### Paso 2: Actualizar Braze {#step-2-update-braze}
 
-Con los clientes actualizados y los atributos asociados, Peak los enviará por POST a Braze mediante el [punto de conexión `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track/), utilizando el encabezado [masivo]({{site.baseurl}}/api/endpoints/user_data/post_user_track/#making-bulk-updates).
+Con los clientes actualizados y los atributos asociados, Peak los enviará por POST a Braze mediante el [endpoint `/user/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), utilizando el encabezado [masivo]({{site.baseurl}}/api/endpoints/user_data/post_user_track#need-to-update-users-in-bulk).
 
 Al recibir los códigos de estado correctos de la API, Peak registrará la sincronización correcta entre Peak y Braze.
 

@@ -35,7 +35,7 @@ description: "다양한 Braze 기능을 사용하여 B2B 계정 기반 세분화
 
 B2B 계정 기반 세분화 사용 사례에 대해 다음 변수를 선택합니다:
 
-| 변수 | 등록정보 |
+| 변수 | 속성정보 |
 | --- | --- |
 | 카탈로그 | 계정 카탈로그 |
 | 카탈로그 필드 | ID |
@@ -112,4 +112,4 @@ AND salesforce_opportunities.Stage = 'Closed Won'
 
 ## 세그먼트에서 계정 기반 확장 사용 {#using-your-account-based-extension-in-a-segment}
 
-위 단계에서 계정 수준 세분화를 생성한 후에는 해당 세그먼트 확장을 타겟팅 기준에 바로 적용할 수 있습니다. 역할, 이전 Campaign 참여도 등과 같은 추가 사용자 인구통계학적 기준을 레이어링하는 것도 간편합니다. 자세한 내용은 [세그먼트에서 확장 사용하기]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment)를 참조하세요.
+이 섹션의 앞선 단계에서 계정 수준 세분화를 생성한 후에는 해당 세그먼트 확장을 타겟팅 기준에 바로 적용할 수 있습니다. 역할, 이전 Campaign 참여도 등과 같은 추가 사용자 인구통계학적 기준을 레이어링하는 것도 간편합니다. 자세한 내용은 [세그먼트에서 확장 사용하기]({{site.baseurl}}/user_guide/audience/segments/segment_extension#step-6-use-your-extension-in-a-segment)를 참조하세요.

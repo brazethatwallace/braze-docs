@@ -15,7 +15,7 @@ Este artículo te guiará a través de un caso de uso de la plantilla **Usuario 
 
 ## Requisitos previos {#prerequisites}
 
-Para usar con éxito la plantilla de usuario inactivo, necesitas configurar [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync) con los socios y audiencias que utilizas.
+Para usar con éxito la plantilla de usuario inactivo, necesitas configurar [Braze Audience Sync]({{site.baseurl}}/partners/canvas_audience_sync) con los partners y audiencias que utilizas.
 
 ## Adaptar la plantilla a tus necesidades {#tailoring-the-template-to-your-needs}
 
@@ -42,23 +42,23 @@ Actualiza **Primary Conversion Event - A** para dirigirte a los usuarios de tu a
 
 ### Paso 3: Adapta el horario de entrada {#step-3-tailor-the-entry-schedule}
 
-Mantén el horario de entrada como **Planificada** y las opciones predeterminadas basadas en tiempo, para que el Canvas busque usuarios inactivos diariamente.
+Mantén el horario de entrada como **Scheduled** y las opciones predeterminadas basadas en tiempo, para que el Canvas busque usuarios inactivos diariamente.
 
 Realiza dos ajustes en este paso:
 
 1. Selecciona una fecha y hora de inicio.
 2. Selecciona los parámetros de finalización de **On a specific date** y una fecha dos meses en el futuro. En este ejemplo, hay otro Canvas de usuario inactivo que comienza después de que este termine.
 
-### Paso 4: Selecciona tu audiencia objetivo {#step-4-select-your-target-audience}
+### Paso 4: Selecciona tu público objetivo {#step-4-select-your-target-audience}
 
-Mantén la configuración predeterminada para la audiencia de entrada, que se dirige a usuarios que no han usado tu aplicación en más de 30 días. También mantén los controles de entrada predeterminados para que los usuarios puedan volver a entrar en el Canvas después de cuatro semanas. Esto significa que cada vez que un usuario no visite tu aplicación durante más de 30 días seguidos, entrará en el Canvas.
+Mantén la configuración predeterminada para el público de entrada, que se dirige a usuarios que no han usado tu aplicación en más de 30 días. También mantén los controles de entrada predeterminados para que los usuarios puedan volver a entrar en el Canvas después de cuatro semanas. Esto significa que cada vez que un usuario no visite tu aplicación durante más de 30 días seguidos, entrará en el Canvas.
 
 ### Paso 5: Selecciona tus ajustes de envío {#step-5-select-your-send-settings}
 
 Mantén la mayoría de los ajustes de suscripción predeterminados:
 
 - Enviar solo a usuarios que se hayan suscrito u optado por recibir mensajes o notificaciones.
-- Aplicar tus [reglas de limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) para no abrumar a tu audiencia con la cantidad de mensajes que reciben. En este caso, configura tu limitación de frecuencia para limitar el número de campañas o pasos en Canvas etiquetados con "Lapsing/Retention" que un usuario puede recibir a dos por semana.
+- Aplica tus [reglas de limitación de frecuencia]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) para no abrumar a tu audiencia con la cantidad de mensajes que reciben. En este caso, configura tu limitación de frecuencia para limitar el número de campañas o pasos en Canvas etiquetados con "Lapsing/Retention" que un usuario puede recibir a dos por semana.
 - No enviar mensajes durante las horas tranquilas en la hora local del usuario (de 12 am a 8 am).
 
 El único ajuste que debes cambiar es qué sucede cuando un mensaje se desencadena durante las horas tranquilas. En lugar de cancelar el mensaje, selecciona **Send at next available time** para que tus usuarios no se pierdan ninguna promoción.
@@ -76,8 +76,8 @@ Ahora construye tu Canvas personalizando los pasos de la plantilla:
 3. Mantén el valor predeterminado para el paso de división de decisiones llamado "Sessions?", que define el grupo ">1 Session" como usuarios que han usado tu aplicación más de una vez en el último día del calendario.
 4. Personaliza el paso de mensaje para los usuarios que caen en el grupo ">1 Session". En este caso de uso, agradece a los usuarios por visitar tu aplicación y destaca las ventajas que han desbloqueado.
 5. Asegúrate de que tu sincronización con Google Audience esté configurada en el paso de actualización de audiencia de anuncios, para que actualices y sincronices los datos de usuario de los usuarios que tuvieron múltiples sesiones después de recibir el primer correo electrónico.
-6. Mantén el valor predeterminado para el componente de [ruta de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) llamado "A/B Test". Esto envía aleatoriamente una de dos promociones (que personalizas en el siguiente paso) a los usuarios que hayan tenido menos de dos sesiones.
-7. Personaliza las dos promociones que se envían a los usuarios como parte de la ruta de experimentos. En este caso de uso, haz que una sea una promoción del 20 % para una suscripción de tres meses y la otra una promoción del 10 % para una suscripción de un mes.
+6. Mantén el valor predeterminado para el componente de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) llamado "A/B Test". Esto envía aleatoriamente una de dos promociones (que personalizas en el siguiente paso) a los usuarios que hayan tenido menos de dos sesiones.
+7. Personaliza las dos promociones que se envían a los usuarios como parte del recorrido de experimentos. En este caso de uso, haz que una sea una promoción del 20 % para una suscripción de tres meses y la otra una promoción del 10 % para una suscripción de un mes.
 
 ![Pasos en Canvas con rutas ramificadas basadas en cuántas sesiones tuvo un usuario.]({% image_buster /assets/img/canvas_templates/lapsing_user_8.png %}){: style="max-width:70%;"}
 

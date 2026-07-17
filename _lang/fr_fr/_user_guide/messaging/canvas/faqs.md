@@ -203,7 +203,7 @@ Non, mais vous pouvez [archiver un Canvas]({{site.baseurl}}/user_guide/messaging
 
 ### Comment reprendre un Canvas ou une Campaign archivé ? {#how-do-i-resume-an-archived-canvas-or-campaign}
 
-Les messages archivés ne sont pas envoyés tant que vous ne les remettez pas dans un état modifiable. [Désarchivez]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving-campaigns-and-canvases) la Campaign ou le Canvas, définissez le calendrier d'entrée ou l'heure d'envoi sur une fenêtre future (ou dupliquez le parcours si vous avez besoin d'une copie vierge), puis cliquez sur **Reprendre** ou lancez selon les besoins. Consultez [Archiver les Campaigns et les Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving).
+Les messages archivés ne sont pas envoyés tant que vous ne les remettez pas dans un état modifiable. [Désarchivez]({{site.baseurl}}/user_guide/messaging/governance/archiving#unarchiving) la Campaign ou le Canvas, définissez le calendrier d'entrée ou l'heure d'envoi sur une fenêtre future (ou dupliquez le parcours si vous avez besoin d'une copie vierge), puis cliquez sur **Reprendre** ou lancez selon les besoins. Consultez [Archiver les Campaigns et les Canvas]({{site.baseurl}}/user_guide/messaging/governance/archiving).
 
 ### Pourquoi mon Canvas ne s'enregistre-t-il pas alors qu'aucune erreur n'apparaît ? {#why-doesnt-my-canvas-save-when-no-error-appears}
 

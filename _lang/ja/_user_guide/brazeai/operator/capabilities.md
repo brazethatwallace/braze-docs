@@ -4,12 +4,12 @@ article_title: Operatorでできること
 page_order: 1
 page_type: reference
 toc_headers: h2
-description: "このリファレンス記事では、BrazeAI Operator™で利用できるAIタスク（コピーライティング、Liquid、画像生成、データ変換コード、コンテンツレビューなど）について説明します。"
+description: "このリファレンス記事では、BrazeAI Operator™で利用できるAIタスク（コピーライティング、メッセージ生成、Liquid、画像生成、データ変換コード、コンテンツレビューなど）について説明します。"
 ---
 
 # Operatorでできること {#operator-capabilities}
 
-> 以前はスタンドアロンのアシスタントとして利用できたAI機能が、[BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)を通じてアクセスできるようになりました。Operatorはダッシュボードに組み込まれており、ワークスペース（ブランドガイドライン、属性、コネクテッドコンテンツ、作業中のページ）を理解しているため、以前のアシスタントよりもコンテキストを考慮した出力が可能です。
+> 以前はスタンドアロンのアシスタントとして利用できたAI機能が、[BrazeAI Operator™]({{site.baseurl}}/user_guide/brazeai/operator)を通じてアクセスできるようになりました。Operatorはダッシュボードに組み込まれており、ワークスペース（ブランドガイドライン、属性、Connected Content、作業中のページ）を理解しているため、以前のアシスタントよりもコンテキストを考慮した出力が可能です。
 
 タスクごとに異なるツールを開く代わりに、自然言語でやりたいことを説明すれば、Operatorがコンテキストに沿って処理します。会話を続けることもでき、異なるトーン、短いバージョン、翻訳などを最初からやり直すことなく依頼できます。Operatorは、適用前に確認できる[アクションカード]({{site.baseurl}}/user_guide/brazeai/operator/reviewing_actions)を通じて、変更を直接提案・実行することもできます。
 
@@ -30,9 +30,11 @@ Operatorはあなたと同じ権限を持っているため、特定のアクシ
 | コンテンツレビュー | スペル、文法、トーン、不適切な言語、不要なコードをチェック | **テスト**タブの**Operatorでレビュー**ボタン |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Operatorで利用できる機能" }
 
+Operatorは、バナーHTMLエディターでバナー用のHTMLを生成することもできます。詳細については、[メッセージの生成](#generate-messages)を参照してください。
+
 ## ブランドガイドラインの適用 {#apply-brand-guidelines}
 
-Operatorは、ワークスペースで設定されたブランドガイドラインを使用して、生成されたコピー、テンプレート、画像がブランドのボイス、トーン、スタイルに一致するようにします。ブランドガイドラインを設定するには、**コンテンツ** > **ブランドガイドライン**に移動します。詳細については、[ブランドガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)を参照してください。Operatorでブランドガイドラインを適用する方法の詳細については、[ブランドガイドラインの適用]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines)を参照してください。
+Operatorは、ワークスペースで設定されたブランドガイドラインを使用して、生成されたコピー、テンプレート、画像がブランドのボイス、トーン、スタイルに一致するようにします。ブランドガイドラインを設定するには、**コンテンツ** > **ブランドガイドライン**に移動します。詳細については、[ブランド・ガイドライン]({{site.baseurl}}/user_guide/administer/global/workspace_settings/brand_guidelines)を参照してください。Operatorでブランドガイドラインを適用する方法の詳細については、[ブランドガイドラインの適用]({{site.baseurl}}/user_guide/brazeai/operator#apply-brand-guidelines)を参照してください。
 
 ## コピーの生成 {#generate-copy}
 
@@ -57,9 +59,29 @@ Operatorは、スタンドアロンのコピーライターからいくつかの
 
 {% include copy_block.html content="Translate this copy into Spanish." %}
 
+## メッセージの生成 {#generate-messages}
+
+Operatorは、対応するコンポーザーでメッセージHTMLを生成できます。自然言語でメッセージの内容を説明し、出力をレビューしてコンポーザーに挿入します。
+
+作成中のコンポーザー内でOperatorを使用すると、チャネルとメッセージタイプの[ページ対応コンテキスト]({{site.baseurl}}/user_guide/brazeai/operator#leverage-page-aware-context)を持つため、最良の結果が得られます。[ブランドガイドライン](#apply-brand-guidelines)が設定されている場合、Operatorはそれを自動的に適用します。
+
+### HTMLバナー {#generate-messages-html-banners}
+
+[バナーHTMLエディター]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#compose-a-banner)で、**Ask Operator**を選択してバナー用のHTMLを生成します。レイアウト、コンテンツ、スタイリングを説明してください。Operatorは生成されたマークアップに[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)パーソナライゼーションを含めることができます。
+
+結果を改善するために会話を続けてください。たとえば、異なるレイアウト、短いコピー、更新されたボタンスタイリングを依頼してから、HTMLをエディターに挿入できます。
+
+#### プロンプトの例 {#generate-messages-html-banners-example-prompts}
+
+{% include copy_block.html content="Build a Banner that promotes our summer sale with a headline, short description, and Shop now button." %}
+
+{% include copy_block.html content="Use a two-column layout with a product image in the first column and the headline, description, and Shop now button stacked in the second column." %}
+
+{% include copy_block.html content="Make the dismiss button smaller and position it as a corner dismiss control." %}
+
 ## Liquidの生成 {#generate-liquid}
 
-任意のメッセージコンポーザーでOperatorを開き、パーソナライゼーション用のLiquidを生成・改善できます。Operatorは[Liquid構文]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)、標準および[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)、[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を理解しており、コードの内容を説明することもできます。
+任意のメッセージコンポーザーでOperatorを開き、パーソナライゼーション用のLiquidを生成・改善できます。Operatorは[Liquid構文]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)、標準および[カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)、[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を理解しており、コードの内容を説明することもできます。
 
 ### Liquidを生成できる場所 {#generate-liquid-supported-channels}
 
@@ -93,7 +115,7 @@ Operatorはフォローアップの質問をすることができますが、事
 - メッセージに関する既知の好みや要件
 - メッセージ受信者からの応答がない場合やフォールバックメッセージオプションなど、状況の処理方法に関する指示
 - 使用したいカスタム属性の正確な値または類似の値（Operatorがより正確なロジックを生成・テストするのに役立ちます）
-- コネクテッドコンテンツを使用するLiquidを依頼する場合、APIエンドポイントのドキュメント、サンプルAPIレスポンス、またはその両方
+- Connected Contentを使用するLiquidを依頼する場合、APIエンドポイントのドキュメント、サンプルAPIレスポンス、またはその両方
 
 #### 創造性を発揮する {#generate-liquid-get-creative}
 
@@ -202,7 +224,7 @@ SMS、Androidプッシュ通知、iOSプッシュ通知、従来のアプリ内�
 
 ## データプライバシーとセキュリティ {#data-privacy-and-security}
 
-Operatorは出力を生成するためにOpenAIと統合しています。BrazeがOpenAIに送信する情報、そのデータの使用方法、知的財産権の詳細については、[OpenAIでのデータの使用方法]({{site.baseurl}}/user_guide/brazeai/operator#how-data-is-used-with-openai)を参照してください。
+Operatorは出力を生成するためにOpenAIと統合しています。BrazeがOpenAIに送信する情報、そのデータの使用方法、知的財産権の詳細については、[OpenAIでのデータの使用方法]({{site.baseurl}}/user_guide/brazeai/operator#data-privacy-and-security)を参照してください。
 
 ## 次のステップ {#next-steps}
 

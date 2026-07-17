@@ -55,14 +55,14 @@ If your workspace uses global frequency capping, you might have already reached 
 
 ### Rate limits
 
-If you have a rate limit set for your campaign or Canvas, you might stop receiving messages after you exceed that limit. For more information, see [Rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting).
+If you have a rate limit set for your campaign or Canvas, you might stop receiving messages after you exceed that limit. For more information, see [Rate limiting]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting).
 
 ### Control group status
 
 If this is a single-channel campaign or a Canvas with a control group, you might be in the control group.
 
-  1. Check the [variant distribution]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants) to see if there is a control group.
-  2. If so, create a segment that filters for [in campaign control group]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter), then [export the segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv) and check whether your user ID is on the list.
+  1. Check the [variant distribution]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-4-choose-a-segment-and-distribute-your-users-across-variants) to see if there is a control group.
+  2. If so, create a segment that filters for [in campaign control group]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group), then [export the segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details) and check whether your user ID is on the list.
 
 ### Valid push token
 
@@ -95,7 +95,7 @@ To find the proper Firebase Server Key and replace it:
 
 1. Go to the Firebase console for your app.
 2. Under **Project Overview**, select **Project Settings**.
-3. In the **Cloud Messaging** tab, check that the Sender ID below the API keys matches the one in Braze (in **Settings** > **App Settings** > **Cloud Messaging API Key**).
+3. In the **Cloud Messaging** tab, check that the Sender ID in the API keys matches the one in Braze (in **Settings** > **App Settings** > **Cloud Messaging API Key**).
 
 {% alert warning %}
 Do not change your Sender ID in your Braze dashboard. Doing so will cause existing push registrations to be invalidated. If the Sender ID does not match, you must find your Firebase project with the matching Sender ID.

@@ -17,14 +17,14 @@ search_tag: Partner
 BrazeとmParticleの統合により、2つのシステム間の情報の流れをシームレスにコントロールできます。
 - Brazeのキャンペーンとキャンバスのセグメンテーションのために、mParticleのオーディエンスをBrazeに同期する。
 - 2つのプラットフォーム間でデータを共有する。これはmParticleキット統合とサーバー間統合によって実現できます。
-- [Currentsを介してBrazeユーザーインタラクションをmParticleに送信し]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents/)、グローススタック全体でアクションに活用する。
+- [Currentsを介してBrazeユーザーインタラクションをmParticleに送信し]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/mparticle/mparticle_for_currents)、グローススタック全体でアクションに活用する。
 
 ## 前提条件 {#prerequisites}
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
 | mParticleアカウント | このパートナーシップを利用するには、[mParticleアカウント](https://app.mparticle.com/login)が必要です。 |
-| Brazeインスタンス | Brazeインスタンスは[API概要ページ]({{site.baseurl}}/api/basics/#endpoints)で確認できます（`US-01`、`US-02` など）。 |
+| Brazeインスタンス | Brazeインスタンスは[API概要ページ]({{site.baseurl}}/api/basics#endpoints)で確認できます（`US-01`、`US-02` など）。 |
 | Brazeアプリ識別子キー | アプリ識別子キー。<br><br>これは、Brazeダッシュボードの**設定の管理** > **APIキー**で確認できます。 |
 | ワークスペースREST APIキー | （サーバー間）Braze REST APIキー<br><br>これは、Brazeダッシュボードの**開発者コンソール** > **API設定** > **APIキー**で作成できます。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
@@ -120,7 +120,7 @@ mParticleでオーディエンスを作成するには:
 
 #### ステップ2:Brazeでユーザーをセグメントする {#step-2-segment-users-in-braze}
 
-Brazeでこれらのユーザーのセグメントを作成するには、**Engagement**の下の**セグメント**に移動し、セグメントに名前を付けます。以下は、**セグメントの送信方法**で選択したオプションに応じた2つのセグメントの例です。各オプションの詳細については、[オーディエンスの転送](#forwarding-audiences)を参照してください。
+Brazeでこれらのユーザーのセグメントを作成するには、**エンゲージメント**の下の**セグメント**に移動し、セグメントに名前を付けます。以下は、**セグメントの送信方法**で選択したオプションに応じた2つのセグメントの例です。各オプションの詳細については、[オーディエンスの転送](#forwarding-audiences)を参照してください。
 
 - **単一配列属性:** フィルターとして`SegmentMembershipArray`を選択します。次に、「includes value」オプションを使用して、目的のオーディエンスIDを入力します。![mParticleセグメントフィルター「SegmentMembershipArray」が「includes value」とオーディエンスIDに設定されている。]({% image_buster /assets/img_archive/mparticle5.png %})<br><br>
 - **セグメントごとに1つの属性:** フィルターとしてカスタム属性を選択します。次に、「equals」オプションを使用して、適切なロジックを選択します。![mParticleセグメントフィルター「in possible parisians」が「equals」と「true」に設定されている。]({% image_buster /assets/img_archive/mparticle3.png %})
@@ -149,10 +149,10 @@ mParticleで**Setup > Outputs > Add Outputs**に移動し、**Braze**を選択�
 | 外部IDタイプ | Brazeにexternal IDとして転送するmParticleユーザーIDタイプ。デフォルト値のCustomer IDのままにすることをお勧めします。 |
 | メールIDタイプ | Brazeにメールとして転送するmParticleユーザーIDタイプ。デフォルト値のEmailのままにすることをお勧めします。 |
 | Brazeインスタンス | Brazeデータの転送先クラスター。ダッシュボードと同じクラスターである必要があります。 |
-| イベントストリーム転送の有効化 | （サーバー間）有効にすると、すべてのイベントがリアルタイムで転送されます。有効にしない場合、すべてのイベントは一括で転送されます。イベントストリーム転送を有効にする場合は、Brazeに渡すデータが[レート制限]({{site.baseurl}}/api/api_limits/)を遵守していることを確認してください。 |
+| イベントストリーム転送の有効化 | （サーバー間）有効にすると、すべてのイベントがリアルタイムで転送されます。有効にしない場合、すべてのイベントは一括で転送されます。イベントストリーム転送を有効にする場合は、Brazeに渡すデータが[レート制限]({{site.baseurl}}/api/api_limits)を遵守していることを確認してください。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Braze出力設定の構成" }
 
-![]({% image_buster /assets/img_archive/configure_settings.png %})
+![mParticle Braze出力設定。アプリ識別子、IDマッピング、インスタンスのフィールドが表示されている。]({% image_buster /assets/img_archive/configure_settings.png %})
 
 ### 組み込みキット統合 {#embedded-kit-integration}
 
@@ -184,7 +184,7 @@ mParticleの[Brazeイベントキット統合ガイド](https://docs.mparticle.c
 
 mParticleで**Connections** > **Connect** > **[目的のプラットフォーム]** > **Connect Output**に移動して、Brazeを出力として追加します。次に、**Save**を選択します。
 
-![]({% image_buster /assets/img_archive/mParticle_event_config.png %})
+![mParticle Braze出力のイベントキット接続設定。]({% image_buster /assets/img_archive/mParticle_event_config.png %})
 
 すべての接続設定がすべてのプラットフォームと統合タイプに適用されるわけではありません。接続設定と適用されるプラットフォームの詳細については、[mParticleのドキュメント](https://docs.mparticle.com/integrations/braze/event/#connection-settings)を参照してください。
 
@@ -204,7 +204,7 @@ mParticleのサーバーサイドSDK（Ruby、Pythonなど）を使用してい�
 
 mParticleで**Connections > Connect > [目的のプラットフォーム] > Connect Output**に移動して、Brazeを出力として追加します。完了したら**Save**を選択します。
 
-![]({% image_buster /assets/img_archive/mParticle_connections.png %})
+![mParticleのConnections画面。プラットフォームにBrazeを出力として追加する。]({% image_buster /assets/img_archive/mParticle_connections.png %})
 
 すべての接続設定がすべてのプラットフォームと統合タイプに適用されるわけではありません。接続設定と適用されるプラットフォームの詳細については、[mParticleのドキュメント](https://docs.mparticle.com/integrations/braze/event/#connection-settings)を参照してください。
 
@@ -214,8 +214,8 @@ mParticleで**Connections > Connect > [目的のプラットフォーム] > Conn
 
 #### データタイプ {#data-types}
 両方のプラットフォーム間ですべてのデータタイプがサポートされているわけではありません。
-- [カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events/)は、文字列、数値、ブール値、または日付オブジェクトをサポートしています。配列やネストされたオブジェクトはサポートしていません。
-- [カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes/)は、文字列、数値、ブール値、日付オブジェクト、および配列をサポートしていますが、オブジェクトやネストされたオブジェクトはサポートしていません。
+- [カスタムイベントプロパティ]({{site.baseurl}}/user_guide/data/activation/events/custom_events)は、文字列、数値、ブール値、または日付オブジェクトをサポートしています。配列やネストされたオブジェクトはサポートしていません。
+- [カスタム属性]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes)は、文字列、数値、ブール値、日付オブジェクト、および配列をサポートしていますが、オブジェクトやネストされたオブジェクトはサポートしていません。
 
 {% alert note %}
 Brazeは、`Time`タイプのカスタム属性で西暦0年より前または西暦3000年より後のタイムスタンプをサポートしていません。BrazeはmParticleから送信されたこれらの値を取り込みますが、値は文字列として保存されます。

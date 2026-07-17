@@ -31,7 +31,21 @@ Voici les versions minimales du SDK requises pour créer des emplacements de ban
 
 ### Étape 2 : Actualiser les placements dans votre application {#requestBannersRefresh}
 
-Pour actualiser les placements, appelez la méthode d'actualisation de votre SDK. Si `subscribeToBannersUpdates` est actif, le SDK republie automatiquement vos ID de placement mis en cache au début de chaque nouvelle session et lorsque vous appelez `changeUser`. Cette actualisation automatique ne consomme pas de jeton de limitation du débit.
+Pour actualiser les placements, appelez la méthode d'actualisation de votre SDK (`requestBannersRefresh()` sur Web et Android, ou `requestRefresh()` sur Swift).
+
+Le comportement d'actualisation des bannières suit deux chemins :
+
+1. **Actualisation explicite :** Vous pouvez appeler la méthode d'actualisation à tout moment pendant une session active.
+2. **Actualisation automatique lors d'une nouvelle session :** Après avoir effectué au moins une demande d'actualisation explicite, le SDK peut redemander les ID de placement les plus récemment demandés lorsqu'une nouvelle session Braze démarre (par exemple, après `changeUser()` ou après un délai d'expiration de session).
+
+Le rôle de `subscribeToBannersUpdates()` diffère selon la plateforme :
+
+- **iOS et Android :** `subscribeToBannersUpdates()` (ou `subscribeToUpdates()` sur Swift) enregistre un rappel de mise à jour. L'actualisation automatique au démarrage de session ne dépend pas de l'activation de l'abonnement.
+- **Web :** L'actualisation automatique au démarrage de session est liée à l'enregistrement de `subscribeToBannersUpdates()`. Sans abonnement actif, le SDK ne répète pas automatiquement l'actualisation lors d'une nouvelle session.
+
+Dans tous les cas, vous devez effectuer au moins une demande d'actualisation explicite par cycle de vie de l'application afin que le SDK sache quels ID de placement maintenir à jour. Les bannières ne sont pas récupérées automatiquement au premier lancement sans cet appel initial, et les ID de placement suivis sont réinitialisés après le redémarrage de l'application.
+
+Les actualisations automatiques au démarrage de session ne consomment pas de jeton de limitation du débit.
 
 {% alert tip %}
 Actualisez les placements dès que possible afin d'éviter tout retard dans le téléchargement ou l'affichage des bannières.
@@ -496,7 +510,7 @@ Pour l'intégration la plus simple, ajoutez l'extrait de code JavaScript XML (JS
 
 ```javascript
 <Braze.BrazeBannerView
-  placementID='global_banner'
+  placementId='global_banner'
 />
 ```
 
@@ -583,7 +597,7 @@ Si votre bannière utilise le bloc éditeur **Code personnalisé** dans le table
 </button>
 ```
 
-Pour la référence complète, consultez [Code personnalisé et pont JavaScript pour les bannières]({{site.baseurl}}/user_guide/channels/banners/create_a_banner#custom-code). Le `brazeBridge` fournit une couche de communication entre le HTML interne de la bannière et le SDK Braze parent.
+Pour la référence complète, consultez [Code personnalisé et pont JavaScript pour les bannières]({{site.baseurl}}/user_guide/channels/banners/custom_code). Le `brazeBridge` fournit une couche de communication entre le HTML interne de la bannière et le SDK Braze parent.
 
 ### Implémentations d'interface utilisateur personnalisées (headless) {#custom-ui-implementations-headless}
 

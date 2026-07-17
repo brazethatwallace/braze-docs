@@ -23,7 +23,11 @@ Como esses eventos seguem um esquema definido, cada recurso compatível pode ler
 
 ### Como os eventos de eCommerce funcionam {#how-ecommerce-events-work}
 
-Os eventos de eCommerce são eventos personalizados com nomes e esquemas de propriedades predefinidos. Você os envia usando o [SDK da Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events) ou o [endpoint REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track), e a Braze valida cada evento em relação ao seu esquema na ingestão. Quando a validação é aprovada, a Braze aplica automaticamente o pós-processamento específico para aquele tipo de evento, como calcular campos de receita e gerenciar o estado do carrinho nos perfis de usuário.
+Os eventos de eCommerce são eventos personalizados com nomes e esquemas de propriedades predefinidos. Você os envia usando o [SDK da Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events), o [endpoint REST API `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) ou a [Ingestão de Dados na Nuvem (CDI)]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion), e a Braze valida cada evento em relação ao seu esquema na ingestão. Quando a validação é aprovada, a Braze aplica automaticamente o pós-processamento específico para aquele tipo de evento, como calcular campos de receita e gerenciar o estado do carrinho nos perfis de usuário.
+
+{% alert note %}
+Uploads de CSV não suportam eventos de eCommerce. Use o SDK, `/users/track` ou CDI para enviar esses eventos.
+{% endalert %}
 
 Os eventos de eCommerce funcionam em todos os lugares onde outros eventos personalizados funcionam: gatilhos e filtros para eventos personalizados realizados, relatórios de eventos personalizados e mais. No entanto, a validação de esquema desbloqueia recursos adicionais, incluindo:
 
@@ -1141,51 +1145,7 @@ A tabela a seguir resume o que a Braze faz automaticamente para cada evento quan
 Valores em moedas diferentes de USD são automaticamente convertidos para USD usando a taxa de câmbio da data em que o evento é reportado. Se você já reporta em USD, defina `USD` como a moeda para evitar conversões indesejadas.
 {% endalert %}
 
-## Implementar eventos de eCommerce {#implement-ecommerce-events}
-
-Você pode enviar eventos de eCommerce pelo [endpoint `/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) (server-side) ou pelos SDKs da Braze (client-side). Para exemplos de implementação com o SDK, consulte [Registrar eventos de eCommerce pelo SDK da Braze]({{site.baseurl}}/developer_guide/analytics/logging_ecommerce_events).
-
-### Enviar eventos server-side {#send-events-server-side}
-
-Use o endpoint `/users/track` para enviar eventos de eCommerce do seu backend. Cada evento requer o nome exato do evento, o `external_id` do usuário e um objeto de propriedades correspondente ao esquema do evento.
-
-```json
-POST /users/track
-
-{
-  "events": [
-    {
-      "external_id": "user_abc123",
-      "name": "ecommerce.order_placed",
-      "time": "2026-04-26T14:32:00Z",
-      "properties": {
-        "order_id": "order_7891011",
-        "total_value": 84.99,
-        "currency": "USD",
-        "source": "custom_api",
-        "total_discounts": 10.00,
-        "products": [
-          {
-            "product_id": "sku_2001",
-            "product_name": "Trail Runner Pro",
-            "variant_id": "var_2001_black_10",
-            "quantity": 1,
-            "price": 94.99,
-            "metadata": {
-              "color": "black",
-              "size": "10"
-            }
-          }
-        ],
-        "metadata": {
-          "gift_wrapped": true,
-          "loyalty_points_earned": 170
-        }
-      }
-    }
-  ]
-}
-```
+## Detalhes de implementação {#implementation-details}
 
 ### Pontos de dados e cobrança {#data-points-and-billing}
 

@@ -43,9 +43,9 @@ Braze 내보내기 엔드포인트를 사용하여 고객 프로필을 내보낼
 
 ![Segment 목록]({% image_buster /assets/img_archive/trouble2.png %})
 
-Segment를 생성할 때 **User Lookup**을 사용하여 사용자가 해당 Segment에 포함되어 있는지 확인할 수도 있습니다. **User Lookup**은 `external_id` 또는 `braze_id`만 허용하며, 이메일 주소나 전화번호는 사용할 수 없습니다. 이메일, 전화번호, 푸시 토큰 또는 사용자 별칭으로 검색하려면 [**사용자 검색**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)을 참조하세요.
+Segment를 생성할 때 **사용자 검색**을 사용하여 사용자가 해당 Segment에 포함되어 있는지 확인할 수도 있습니다. **사용자 검색**은 `external_id` 또는 `braze_id`만 허용하며, 이메일 주소나 전화번호는 사용할 수 없습니다. 이메일, 전화번호, 푸시 토큰 또는 사용자 별칭으로 검색하려면 [**사용자 검색**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)을 참조하세요.
 
-![검색 필드가 있는 User Lookup 섹션.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
+![검색 필드가 있는 사용자 검색 섹션.]({% image_buster /assets/img_archive/user_lookup.png %}){: style="max-width:80%;"}
 
 ### 푸시 알림 한도 {#push-notification-caps}
 
@@ -55,14 +55,14 @@ Segment를 생성할 때 **User Lookup**을 사용하여 사용자가 해당 Seg
 
 ### 사용량 제한 {#rate-limits}
 
-Campaign 또는 Canvas에 사용량 제한이 설정되어 있는 경우, 해당 한도를 초과하면 메시지를 받지 못할 수 있습니다. 자세한 내용은 [사용량 제한조치]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting)를 참조하세요.
+Campaign 또는 Canvas에 사용량 제한이 설정되어 있는 경우, 해당 한도를 초과하면 메시지를 받지 못할 수 있습니다. 자세한 내용은 [사용량 제한조치]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting)를 참조하세요.
 
 ### 대조군 상태 {#control-group-status}
 
 단일 채널 Campaign이거나 대조군이 있는 Canvas인 경우, 대조군에 포함되었을 수 있습니다.
 
-  1. [배리언트 분배]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants)를 확인하여 대조군이 있는지 확인하세요.
-  2. 대조군이 있는 경우, [Campaign 대조군 포함]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter) 필터로 Segment를 생성한 다음 [Segment를 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv)하여 사용자 ID가 목록에 있는지 확인하세요.
+  1. [배리언트 분배]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-4-choose-a-segment-and-distribute-your-users-across-variants)를 확인하여 대조군이 있는지 확인하세요.
+  2. 대조군이 있는 경우, [Campaign 대조군 포함]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group) 필터로 Segment를 생성한 다음 [Segment를 내보내기]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details)하여 사용자 ID가 목록에 있는지 확인하세요.
 
 ### 유효한 푸시 토큰 {#valid-push-token}
 

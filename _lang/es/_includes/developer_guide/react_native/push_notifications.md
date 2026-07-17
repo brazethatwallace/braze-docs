@@ -136,9 +136,9 @@ Para obtener una lista completa de los campos de notificación push, consulta la
 
 ### Paso 3: Habilitar la vinculación en profundidad (opcional) {#step-3-enable-deep-linking-optional}
 
-Para habilitar que Braze pueda gestionar vínculos profundos dentro de los componentes React cuando se hace clic en una notificación push, primero implementa los pasos descritos en la biblioteca [React Native Linking](https://reactnative.dev/docs/linking) o con la solución que prefieras. A continuación, sigue los pasos adicionales que se indican a continuación.
+Para habilitar que Braze pueda gestionar vínculos profundos dentro de los componentes React cuando se hace clic en una notificación push, primero implementa los pasos descritos en la biblioteca [React Native Linking](https://reactnative.dev/docs/linking) o con la solución que prefieras. A continuación, sigue los pasos adicionales.
 
-Para saber más sobre qué son los vínculos profundos, consulta nuestro [artículo de preguntas frecuentes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls/#what-is-deep-linking).
+Para saber más sobre qué son los vínculos profundos, consulta nuestro [artículo de preguntas frecuentes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls#what-is-deep-linking).
 
 {% alert important %}
 Si estás migrando una integración push existente de React Native, vuelve a probar la vinculación en profundidad después de actualizar el SDK de Braze, React Native, Expo o bibliotecas relacionadas. Confirma que:
@@ -151,7 +151,7 @@ Si estás migrando una integración push existente de React Native, vuelve a pro
 {% tab Android Native %}
 Si utilizas el [complemento Braze Expo]({{site.baseurl}}/developer_guide/platforms/react_native/sdk_integration/?tab=expo#step-2-choose-a-setup-option), puedes gestionar automáticamente los vínculos profundos de las notificaciones push configurando `androidHandlePushDeepLinksAutomatically` en `true` en tu `app.json`.
 
-Para gestionar los vínculos profundos manualmente, consulta la documentación nativa de Android: [Añadir vínculos profundos]({{site.baseurl}}/developer_guide/push_notifications/deep_linking/).
+Para gestionar los vínculos profundos manualmente, consulta la documentación nativa de Android: [Añadir vínculos profundos]({{site.baseurl}}/developer_guide/push_notifications/deep_linking).
 
 #### Paso 3.1: Almacenar la carga útil de la notificación push al iniciar la aplicación {#step-31-store-the-push-notification-payload-on-app-launch}
 
@@ -389,7 +389,7 @@ A continuación, crea y registra tu `BrazeReactDelegate` en `didFinishLaunchingW
 {% endsubtab %}
 {% endsubtabs %}
 
-Para ver un ejemplo de integración, consulta nuestra aplicación de muestra [aquí](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm).
+Para ver un ejemplo de integración, consulta nuestra aplicación de muestra [en este ejemplo de AppDelegate](https://github.com/braze-inc/braze-react-native-sdk/blob/master/BrazeProject/ios/BrazeProject/AppDelegate.mm).
 {% endtab %}
 {% endtabs %}
 
@@ -530,4 +530,4 @@ Si los vínculos profundos de las notificaciones push dejan de abrirse después 
 3. Si utilizas el complemento Braze Expo, verifica que `androidHandlePushDeepLinksAutomatically` esté configurado correctamente para tu implementación.
 4. Revisa las dependencias añadidas recientemente en busca de anulaciones en la gestión de notificaciones o el comportamiento del delegado de la aplicación.
 
-Si has completado estas comprobaciones y el problema persiste, [abre un ticket de soporte]({{site.baseurl}}/user_guide/administrative/access_braze/support/) e incluye los registros del SDK y los pasos de reproducción.
+Si has completado estas comprobaciones y el problema persiste, [abre un ticket de soporte]({{site.baseurl}}/user_guide/administrative/access_braze/support) e incluye los registros del SDK y los pasos de reproducción.

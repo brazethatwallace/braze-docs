@@ -75,6 +75,32 @@ AppDelegate.braze?.changeUser(userId: "YOUR_USER_ID")
 ```
 {% endsubtab %}
 {% endsubtabs %}
+
+{% alert note %}
+`changeUser` reiht den Nutzerwechsel in die Warteschlange ein und kehrt sofort im aufrufenden Thread zurück. Alle Attribut-Setter, die danach auf `braze.user` aufgerufen werden, werden automatisch hinter den von `changeUser` initiierten Operationen serialisiert. Das Lesen von `braze.user.id` blockiert den aufrufenden Thread, bis der Nutzerwechsel vollständig abgeschlossen ist. Verwenden Sie für den Haupt-Thread oder latenzempfindliche Kontexte stattdessen die nicht-blockierenden Alternativen.
+
+{% subtabs local %}
+{% subtab Swift %}
+```swift
+// Completion handler — always delivers on the main thread.
+AppDelegate.braze?.user.getId { userId in
+  print("User ID:", userId ?? "anonymous")
+}
+
+// Async/await (iOS 13.0+, tvOS 13.0+, watchOS 6.0+, macOS 10.15+)
+let userId = await AppDelegate.braze?.user.getId()
+```
+{% endsubtab %}
+{% subtab Objective-C %}
+```objc
+// Completion handler — always delivers on the main thread.
+[AppDelegate.braze.user getIdWithCompletion:^(NSString * _Nullable userId) {
+  NSLog(@"User ID: %@", userId ?: @"anonymous");
+}];
+```
+{% endsubtab %}
+{% endsubtabs local %}
+{% endalert %}
 {% endtab %}
 
 {% tab CORDOVA %}
@@ -127,7 +153,7 @@ Weisen Sie keine einzelne, gemeinsam genutzte Nutzer-ID zu (z. B. eine statische
 
 ### Nutzer-Alias einrichten {#setting-a-user-alias}
 
-Ein Nutzer-Alias besteht aus zwei Teilen: einem Namen und einem Label. Der Name referenziert den Bezeichner selbst, während das Label auf den Typ des Bezeichners verweist, zu dem er gehört. Wenn Sie z. B. eine Nutzer:in in einer Kund:innen-Support-Plattform eines Drittanbieters mit der externen ID `987654` haben, können Sie in Braze einen Alias mit dem Namen `987654` und dem Label `support_id` zuweisen, damit Sie die Nutzer:in plattformübergreifend tracken können.
+Ein Nutzer-Alias besteht aus zwei Teilen: einem Namen und einem Label. Der Name referenziert den Bezeichner selbst, während das Label auf den Typ des Bezeichners verweist, zu dem er gehört. Wenn Sie z. B. eine Nutzer:in in einer Kundensupport-Plattform eines Drittanbieters mit der externen ID `987654` haben, können Sie in Braze einen Alias mit dem Namen `987654` und dem Label `support_id` zuweisen, damit Sie die Nutzer:in plattformübergreifend tracken können.
 
 {% tabs local %}
 {% tab web %}

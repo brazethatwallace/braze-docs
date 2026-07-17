@@ -86,7 +86,7 @@ Se você passar um valor de 10 dólares e uma quantidade de 3, isso será regist
 {% endalert %}
 
 ### Registrar compras no nível do pedido {#log-purchases-at-the-order-level}
-Se quiser registrar as compras no nível do pedido em vez de no nível do produto, você pode usar o nome do pedido ou a categoria do pedido como `product_id`. Consulte nossa [especificação de objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions) para saber mais.
+Se quiser registrar as compras no nível do pedido em vez de no nível do produto, você pode usar o nome do pedido ou a categoria do pedido como `product_id`. Consulte nossa [especificação de objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions) para saber mais.
 
 ### Chaves reservadas {#reserved-keys}
 

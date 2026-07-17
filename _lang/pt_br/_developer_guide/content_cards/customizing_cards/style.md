@@ -299,7 +299,7 @@ Confira o [app de exemplo Examples](https://github.com/braze-inc/braze-swift-sdk
 
 Ao criar um Content Card, os profissionais de marketing têm a opção de fixar o cartão. Um cartão fixado é exibido no topo do feed do usuário, e o usuário não pode descartá-lo. À medida que você personaliza os estilos dos seus cartões, pode alterar a aparência do ícone fixado.
 
-![Lado a lado da pré-visualização do Content Card na Braze para celular e web com a opção "Fixar este cartão no topo do feed" selecionada.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
+![Comparação lado a lado da prévia do Content Card na Braze para dispositivos móveis e web com a opção "Fixar este cartão no topo do feed" selecionada.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
 {% tabs %}
 {% tab web %}
@@ -531,7 +531,7 @@ if (isDarkMode && darkModeImage) {
 {% endtab %}
 {% endtabs %}
 
-Esse padrão funciona para qualquer conteúdo que dependa da aparência, incluindo texto, cores ou layouts. Faça upload dos seus ativos de imagem para modo escuro na [Biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications) e, em seguida, referencie-os em um par de chave-valor.
+Esse padrão funciona para qualquer conteúdo que dependa da aparência, incluindo texto, cores ou layouts. Faça upload dos seus ativos de imagem para modo escuro na [biblioteca de mídia]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library/image_specifications) e, em seguida, referencie-os em um par de chave-valor.
 
 ### Desativando o indicador de não lido {#disabling-unread-indicator}
 

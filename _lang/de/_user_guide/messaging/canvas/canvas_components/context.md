@@ -20,7 +20,7 @@ tool: Canvas
 
 Kontext-Schritte ermöglichen es Ihnen, temporäre Daten während der Journey von Nutzer:innen durch einen bestimmten Canvas zu erstellen und zu verwenden. Diese Daten existieren nur innerhalb dieser Canvas-Journey und bleiben nicht über verschiedene Canvases hinweg oder außerhalb der Sitzung bestehen.
 
-Kontextvariablen existieren nur für diese spezifische Canvas-Journey. Sie ändern das Profil der Nutzer:innen nicht dauerhaft und erscheinen nicht in anderen Canvases. Das macht sie ideal für temporäre Informationen, die nur für eine bestimmte Campaign oder einen bestimmten Workflow relevant sind.
+Kontextvariablen existieren nur für diese spezifische Canvas-Journey. Sie ändern das Profil der Nutzer:innen nicht dauerhaft und erscheinen nicht in anderen Canvases. Das macht sie ideal für temporäre Informationen, die nur für eine bestimmte Kampagne oder einen bestimmten Workflow relevant sind.
 
 {% alert tip %}
 Eine vollständige Referenz zu Kontextvariablen, einschließlich Datentypen, Verwendung und Best Practices, finden Sie in der [Referenz zu Kontextvariablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
@@ -37,7 +37,7 @@ Jede Kontextvariable erfordert einen Namen, einen Datentyp und einen Wert (festg
 
 Jeder Canvas-Eintritt definiert Kontextvariablen basierend auf den neuesten Eintrittsdaten und der Canvas-Konfiguration neu, sodass Nutzer:innen mehrere aktive Journeys mit eigenem Kontext haben können. Wenn beispielsweise ein:e Kund:in zwei bevorstehende Flüge hat, laufen zwei separate Journey-Zustände gleichzeitig&#8212;jeder mit eigenen flugspezifischen Kontextvariablen wie Abflugzeit und Zielort. So können Sie personalisierte Erinnerungen über den 14-Uhr-Flug nach New York senden und gleichzeitig andere Updates über den 8-Uhr-Flug nach Los Angeles am nächsten Tag versenden, sodass jede Nachricht für die jeweilige Buchung relevant bleibt.
 
-### Nutzerverarbeitung und Batching {#user-processing-and-batching}
+### Nutzer:innenverarbeitung und Batching {#user-processing-and-batching}
 
 Kontext-Schritte verarbeiten Nutzer:innen in Batches, um die Performance zu optimieren. Wenn Nutzer:innen einen Kontext-Schritt betreten, verarbeitet Braze sie standardmäßig in Batches von 1.000 Nutzer:innen. Diese Batches werden parallel verarbeitet, aber innerhalb jedes Batches werden Nutzer:innen sequenziell verarbeitet.
 
@@ -83,7 +83,7 @@ So definieren Sie eine Kontextvariable:
 5. (Optional) Um weitere Variablen hinzuzufügen, wählen Sie **Add Context variable** und wiederholen Sie die Schritte 1–4.
 6. Wenn Sie fertig sind, wählen Sie **Done**.
 
-Jetzt können Sie Ihre Kontextvariable überall dort verwenden, wo Sie Liquid einsetzen, z. B. in Nachrichten- und Nutzeraktualisierungs-Schritten, indem Sie **Add Personalization** auswählen. Im Feld **Context variable name** können Sie auch den Namen der Kontextvariable eingeben oder ihn aus dem Dropdown im Schritt-Editor auswählen. Eine vollständige Anleitung finden Sie in der [Referenz zu Kontextvariablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
+Jetzt können Sie Ihre Kontextvariable überall dort verwenden, wo Sie Liquid einsetzen, z. B. in Nachrichten- und Nutzer:innenaktualisierungs-Schritten, indem Sie **Add Personalization** auswählen. Im Feld **Context variable name** können Sie auch den Namen der Kontextvariable eingeben oder ihn aus dem Dropdown im Schritt-Editor auswählen. Eine vollständige Anleitung finden Sie in der [Referenz zu Kontextvariablen]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/context_variables).
 
 {% alert important %}
 Verwenden Sie beim Referenzieren von Kontextvariablen immer das Format {% raw %}`{{context.${variable_name}}}`{% endraw %}.
@@ -191,7 +191,7 @@ Diese Änderung ist Teil einer umfassenderen Initiative, um eine vorhersehbarere
 
 Nein.
 
-#### Betrifft diese Änderung Canvas-Eingangs-Eigenschaften? {#does-this-change-impact-canvas-entry-properties}
+#### Betrifft diese Änderung Canvas-Entry-Eigenschaften? {#does-this-change-impact-canvas-entry-properties}
 
 Ja, dies betrifft `canvas_entry_properties`, wenn die `canvas_entry_property` in einem aktionsbasierten Canvas verwendet wird und der Eigenschaftstyp `time` ist. In allen Fällen empfehlen wir die Verwendung von Liquid-`time_zone`-Filtern, damit Zeitstempel in der gewünschten Zeitzone dargestellt werden.
 
@@ -202,7 +202,7 @@ Hier ist ein Beispiel dafür:
 | {% raw %}```{{canvas_entry_properties.${timestamp_property}}}```{% endraw %} | `2025-08-05T08:15:30:250-0800` | Nein |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 4:15pm` | Nein |
 | {% raw %}```{{canvas_entry_properties.${timestamp_property} | time_zone: "America/Los_Angeles" | date: "%Y-%m-%d %l:%M %p"}}```{% endraw %} | `2025-08-05 8:15am` | Ja |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Betrifft diese Änderung Canvas-Eingangs-Eigenschaften?" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Betrifft diese Änderung Canvas-Entry-Eigenschaften?" }
 
 #### Was ist ein praktisches Beispiel dafür, wie das neue Zeitstempelverhalten meine Nachrichten beeinflussen könnte? {#faq-example}
 
@@ -247,9 +247,9 @@ Die bevorzugte Zeitzone kann auch im Event-Eigenschaften-Payload gesendet und in
 }
 ```
 
-### Wie unterscheiden sich Kontextvariablen von Canvas-Eingangs-Eigenschaften? {#how-do-context-variables-differ-from-canvas-entry-properties}
+### Wie unterscheiden sich Kontextvariablen von Canvas-Entry-Eigenschaften? {#how-do-context-variables-differ-from-canvas-entry-properties}
 
-Canvas-Eingangs-Eigenschaften werden als Canvas-Kontextvariablen einbezogen. Das bedeutet, Sie können Canvas-Eingangs-Eigenschaften über die Braze-API senden und sie in anderen Schritten referenzieren, ähnlich wie bei der Verwendung einer Kontextvariable mit dem Liquid-Snippet.
+Canvas-Entry-Eigenschaften werden als Canvas-Kontextvariablen einbezogen. Das bedeutet, Sie können Canvas-Entry-Eigenschaften über die Braze-API senden und sie in anderen Schritten referenzieren, ähnlich wie bei der Verwendung einer Kontextvariable mit dem Liquid-Snippet.
 
 ### Können Variablen sich gegenseitig in einem einzelnen Kontext-Schritt referenzieren? {#can-variables-reference-each-other-in-a-singular-context-step}
 
@@ -259,7 +259,7 @@ Ja. Alle Variablen in einem Kontext-Schritt werden der Reihe nach ausgewertet, w
 |---|---|---|
 | `favorite_cuisine` | {% raw %}`{{custom_attribute.${Favorite Cuisine}}}`{% endraw %} | Die Lieblingsküche der Nutzer:innen. |
 | `promo_code` | {% raw %}`EATFRESH`{% endraw %} | Der verfügbare Rabattcode für Nutzer:innen. |
-| `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | Eine personalisierte Nachricht, die die vorherigen Variablen kombiniert. In einem Nachrichten-Schritt könnten Sie das Liquid-Snippet {% raw %}`{{context.${personalized_message}}}`{% endraw %} verwenden, um die Kontextvariable zu referenzieren und jeder Nutzer:in eine personalisierte Nachricht zu übermitteln. Sie könnten auch einen Kontext-Schritt verwenden, um den [Aktionscode]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes#creating-a-promotion-code-list)-Wert zu speichern und ihn in anderen Schritten im gesamten Canvas als Template einzusetzen. |
+| `personalized_message` | {% raw %}`"Enjoy a discount of" {{context.${promo_code}}} "on delivery from your favorite" {{context.${favorite_cuisine}}} restaurants!"`{% endraw %} | Eine personalisierte Nachricht, die die vorherigen Variablen kombiniert. In einem Nachrichten-Schritt könnten Sie das Liquid-Snippet {% raw %}`{{context.${personalized_message}}}`{% endraw %} verwenden, um die Kontextvariable zu referenzieren und jeder Nutzer:in eine personalisierte Nachricht zu übermitteln. Sie könnten auch einen Kontext-Schritt verwenden, um den [Aktionscode]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes/create#create)-Wert zu speichern und ihn in anderen Schritten im gesamten Canvas als Template einzusetzen. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Können Variablen sich gegenseitig in einem einzelnen Kontext-Schritt referenzieren?" }
 
 Dies gilt auch über mehrere Kontext-Schritte hinweg. Stellen Sie sich beispielsweise folgende Abfolge vor:

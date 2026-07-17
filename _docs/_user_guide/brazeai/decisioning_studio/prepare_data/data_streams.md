@@ -51,7 +51,7 @@ An event stream records discrete actions as they happen. It answers the question
 | Customer identifier | Who this event is about |
 | Event type | What happened (for example, activation, conversion, click) |
 | Event timestamp | When the event actually occurred |
-| Creation timestamp | When this record was created in your system (see note below) |
+| Creation timestamp | When this record was created in your system (see note in the following section) |
 | Event properties | Additional metadata about the event; the richer this is, the better Decisioning Studio can link events across the customer journey |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Required fields" }
 

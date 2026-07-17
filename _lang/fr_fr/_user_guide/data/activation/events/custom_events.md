@@ -85,7 +85,7 @@ Les événements personnalisés nécessitent une configuration supplémentaire. 
 
 ## Stockage des événements personnalisés {#custom-event-storage}
 
-Toutes les données stockées dans le **profil utilisateur**, y compris les métadonnées des événements personnalisés (première ou dernière occurrence, nombre total et X sur Y au cours des 30 derniers jours), sont conservées indéfiniment tant que chaque profil est [actif]({{site.baseurl}}/user_archival#active-users).
+Toutes les données stockées dans le **profil utilisateur**, y compris les métadonnées des événements personnalisés (première ou dernière occurrence, nombre total et X sur Y au cours des 30 derniers jours), sont conservées indéfiniment tant que chaque profil est <a href="/docs/user_archival#active-users">actif</a>.
 
 ## Consulter l'historique des événements d'un utilisateur {#view-a-users-event-history}
 
@@ -150,7 +150,7 @@ Vous pouvez également utiliser les **filtres** pour ventiler vos événements p
 ![Filtres du graphique d'événements personnalisés]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[Incrémentez des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers) pour maintenir un compteur sur une action utilisateur similaire à un événement personnalisé. Cependant, vous ne pouvez pas visualiser les données d'attributs personnalisés sous forme de série temporelle. Les actions utilisateur qui n'ont pas besoin d'être analysées sous forme de série temporelle doivent être enregistrées avec cette méthode.
+[Incrémentez des attributs personnalisés]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types) pour maintenir un compteur sur une action utilisateur similaire à un événement personnalisé. Cependant, vous ne pouvez pas visualiser les données d'attributs personnalisés sous forme de série temporelle. Les actions utilisateur qui n'ont pas besoin d'être analysées sous forme de série temporelle doivent être enregistrées avec cette méthode.
 {% endalert %}
 
 ### Pourquoi les analyses d'événements personnalisés ne s'affichent pas {#why-custom-events-analytics-arent-showing}

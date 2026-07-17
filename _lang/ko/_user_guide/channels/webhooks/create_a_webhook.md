@@ -46,9 +46,9 @@ search_rank: 2
 
 1. Canvas 작성기를 사용하여 [Canvas를 생성]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)합니다.
 2. Canvas를 설정한 후 Canvas 빌더에서 단계를 추가합니다. 단계에 명확하고 의미 있는 이름을 지정합니다.
-3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#schedule-your-canvas-step)을 선택하고 필요에 따라 지연을 지정합니다.
+3. [단계 스케줄]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step#step-2-edit-delivery-settings)을 선택하고 필요에 따라 지연을 지정합니다.
 4. 필요에 따라 이 단계의 오디언스를 필터링합니다. Segments를 지정하고 추가 필터를 추가하여 이 단계의 수신자를 더 세밀하게 조정할 수 있습니다. 오디언스 옵션은 메시지가 전송되는 시점에 지연 후 확인됩니다.
-5. [진행 동작]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#advancement-behavior)을 선택합니다.
+5. [진행 동작]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/canvas_by_channel/in-app_messages_in_canvas#advancement-behavior)을 선택합니다.
 6. 메시지와 함께 사용할 다른 메시징 채널을 선택합니다.
 
 {% endtab %}
@@ -69,7 +69,7 @@ search_rank: 2
 
 ### 언어 {#internationalization}
 
-[국제화]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies#campaigns-in-multiple-languages)는 URL과 요청 본문에서 지원됩니다. 메시지를 국제화하려면 **언어 추가**를 선택하고 필수 필드를 입력합니다.
+[국제화]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)는 URL과 요청 본문에서 지원됩니다. 메시지를 국제화하려면 **언어 추가**를 선택하고 필수 필드를 입력합니다.
 
 콘텐츠를 작성하기 전에 언어를 선택하여 Liquid에서 적절한 위치에 텍스트를 입력하는 것이 좋습니다. 사용 가능한 전체 언어 목록은 [지원되는 언어]({{site.baseurl}}/developer_guide/platform_integration_guides/android/advanced_use_cases/localization#languages-supported)를 참조하세요.
 
@@ -115,7 +115,7 @@ JSON 키-값 페어를 사용하면 JSON 형식을 기대하는 엔드포인트�
 
 원시 텍스트 옵션은 모든 형식의 본문을 기대하는 엔드포인트에 대한 요청을 작성할 수 있는 유연성을 제공합니다. 예를 들어, XML 형식의 요청을 기대하는 엔드포인트에 대한 요청을 작성하는 데 사용할 수 있습니다.
 
-원시 텍스트에서는 Liquid를 사용한 [개인화]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) 및 [국제화]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies#campaigns-in-multiple-languages)가 모두 지원됩니다.
+원시 텍스트에서는 Liquid를 사용한 [개인화]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid) 및 [국제화]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)가 모두 지원됩니다.
 
 ![Liquid를 사용한 원시 텍스트 요청 본문 예시.]({% image_buster /assets/img_archive/webhook_rawtext.png %})
 
@@ -178,7 +178,7 @@ Content-Type 사양은 `Content-Type` 키를 사용해야 합니다. 일반적�
 
 실행 기반 전달의 경우 캠페인 기간과 [방해금지 시간]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)을 설정할 수도 있습니다.
 
-이 단계에서는 사용자가 캠페인을 [재수신]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns)할 수 있도록 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
+이 단계에서는 사용자가 캠페인을 [재수신]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility)할 수 있도록 허용하거나 [최대 게재빈도 설정]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) 규칙을 활성화하는 등의 전달 제어를 지정할 수도 있습니다.
 
 ### 타겟 사용자 선택 {#choose-users-to-target}
 
@@ -194,7 +194,7 @@ Braze를 사용하면 캠페인을 수신한 후 사용자가 특정 동작인 [
 
 {% tab Canvas %}
 
-아직 완료하지 않았다면 Canvas 단계의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, 다변량 테스트 및 지능형 선택을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) 단계를 참조하세요.
+아직 완료하지 않았다면 Canvas 단계의 나머지 섹션을 완료하세요. Canvas의 나머지 부분을 구축하고, 다변량 테스트 및 지능형 선택을 구현하는 방법 등에 대한 자세한 내용은 Canvas 설명서의 [Canvas 구축]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) 단계를 참조하세요.
 
 {% endtab %}
 {% endtabs %}
@@ -233,7 +233,7 @@ Braze를 사용하면 캠페인을 수신한 후 사용자가 특정 동작인 [
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="응답 코드 및 재시도 로직" }
 
 {% alert note %}
-Braze는 위의 상태 코드에 대해 지수 백오프를 사용하여 30분 이내에 최대 5회까지 재시도합니다. 엔드포인트에 도달할 수 없는 경우 재시도가 24시간에 걸쳐 분산될 수 있습니다.<br><br>각 웹훅은 타임아웃되기 전까지 90초가 허용됩니다.
+Braze는 이 섹션 앞부분의 상태 코드에 대해 지수 백오프를 사용하여 30분 이내에 최대 5회까지 재시도합니다. 엔드포인트에 도달할 수 없는 경우 재시도가 24시간에 걸쳐 분산될 수 있습니다.<br><br>각 웹훅은 타임아웃되기 전까지 90초가 허용됩니다.
 {% endalert %}
 
 `Retry-After` 및 사용량 제한 응답 헤더는 **재시도 가능한** 시도(예: `408`, `429` 또는 `5XX` 이후) 전에 Braze가 대기하는 시간에 영향을 줄 수 있습니다. `401`과 같은 재시도 불가능한 응답을 재시도 대상으로 만들지는 않습니다.
@@ -248,7 +248,7 @@ Braze는 특정 **저장된 웹훅 템플릿**을 참조하는 모든 캠페인 
 
 #### 문제 해결 및 추가 오류 세부 정보 {#troubleshooting-and-additional-error-details}
 
-특정 웹훅 오류를 해결하기 위한 자세한 설명, 문제 해결 단계 및 지침은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content)을 참조하세요. 비정상 호스트 감지 시스템의 작동 방식과 Braze가 자동 이메일 및 Braze 커런츠의 추가 로깅을 통해 오류 알림을 제공하는 방법에 대한 자세한 설명도 확인할 수 있습니다.
+특정 웹훅 오류를 해결하기 위한 자세한 설명, 문제 해결 단계 및 지침은 [웹훅 및 연결된 콘텐츠 요청 문제 해결]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/troubleshooting_webhooks_and_connected_content)을 참조하세요. 비정상 호스트 감지 시스템의 작동 방식과 Braze가 자동 이메일 및 Braze Currents의 추가 로깅을 통해 오류 알림을 제공하는 방법에 대한 자세한 설명도 확인할 수 있습니다.
 
 ### IP 허용 목록 {#ip-allowlisting}
 

@@ -104,7 +104,7 @@ Para mais informações sobre planejamento de capacidade de endpoints e reduçã
 Se suas mensagens usam Conteúdo conectado e você envia em alto volume, planeje para mais solicitações do que o número de destinatários ou envios:
 
 1. **Estime a carga de pico:** Use um multiplicador conservador ao dimensionar seu endpoint ou middleware — as solicitações de Conteúdo conectado podem exceder o número de destinatários ou mensagens enviadas. Por exemplo, para e-mail, um único destinatário pode gerar múltiplas chamadas (HTML, texto simples e AMP), então destinatários × 2 ou × 3 é frequentemente usado como uma estimativa conservadora.
-2. **Use cache quando apropriado:** Solicitações GET são armazenadas em cache por padrão. Para solicitações POST, adicione `:cache_max_age` quando a resposta puder ser reutilizada por um período (por exemplo, token ou conteúdo que não muda por solicitação). Consulte [Armazenando respostas em cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) e as [Perguntas frequentes sobre cache de POST](#what-is-caching-behavior) abaixo.
+2. **Use cache quando apropriado:** Solicitações GET são armazenadas em cache por padrão. Para solicitações POST, adicione `:cache_max_age` quando a resposta puder ser reutilizada por um período (por exemplo, token ou conteúdo que não muda por solicitação). Consulte [Armazenando respostas em cache]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) e as [Perguntas frequentes sobre cache de POST](#what-is-caching-behavior) na seção a seguir.
 3. **Defina o limite de taxa de velocidade de entrega:** O [limite de taxa de velocidade de entrega]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#delivery-speed-rate-limiting) em Campaigns ou etapas do Canvas é a única alavanca para limitar indiretamente o volume de solicitações de Conteúdo conectado — a Braze não aplica limite de taxa ao Conteúdo conectado em si. É apenas um proxy, e não perfeito, porque as solicitações de Conteúdo conectado não são 1:1 com as mensagens. Use-o para manter o volume de mensagens (e, consequentemente, de Conteúdo conectado) dentro do que seu endpoint pode suportar.
 4. **Projete para idempotência e novas tentativas:** A Braze pode chamar seu endpoint mais de uma vez por destinatário. Certifique-se de que seu endpoint pode tolerar solicitações duplicadas sem efeitos colaterais incorretos.
 
@@ -168,7 +168,7 @@ Algumas configurações de API exigem a recuperação de um token de acesso que 
 
 #### Etapa 1: Recuperar o token de acesso {#step-1-retrieve-the-access-token}
 
-O exemplo a seguir ilustra a recuperação e o salvamento de um token de acesso em uma variável local, que pode então ser usada para autenticar a chamada de API subsequente. Um parâmetro `:cache_max_age` pode ser adicionado para corresponder ao tempo de validade do token de acesso e reduzir o número de chamadas de Conteúdo conectado de saída. Consulte [Cache configurável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/local_connected_content_variables#configurable-caching) para mais informações.
+O exemplo a seguir ilustra a recuperação e o salvamento de um token de acesso em uma variável local, que pode então ser usada para autenticar a chamada de API subsequente. Um parâmetro `:cache_max_age` pode ser adicionado para corresponder ao tempo de validade do token de acesso e reduzir o número de chamadas de Conteúdo conectado de saída. Consulte [Cache configurável]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/caching_responses) para mais informações.
 
 {% raw %}
 ```
@@ -184,6 +184,10 @@ O exemplo a seguir ilustra a recuperação e o salvamento de um token de acesso 
 %}
 ```
 {% endraw %}
+
+{% alert note %}
+Quando o endpoint de token espera `application/x-www-form-urlencoded` e você passa credenciais em `:body`, codifique em URL quaisquer caracteres especiais nos valores dos parâmetros. Por exemplo, barras (`/`) se tornam `%2F` e sinais de mais (`+`) se tornam `%2B`. Caracteres especiais não codificados podem causar falha nas solicitações de token OAuth.
+{% endalert %}
 
 #### Etapa 2: Autorizar a API usando o token de acesso recuperado {#step-2-authorize-the-api-using-the-retrieved-access-token}
 
@@ -256,7 +260,7 @@ Consulte [Entendendo o volume de chamadas de Conteúdo conectado](#understanding
 
 ### Como o limite de taxa funciona com o Conteúdo conectado? {#how-does-rate-limiting-work-with-connected-content}
 
-O Conteúdo conectado não possui seu próprio limite de taxa. Em vez disso, o limite de taxa é baseado na taxa de envio de mensagens. Recomendamos definir o limite de taxa de envio de mensagens abaixo do limite de taxa pretendido para o Conteúdo conectado, caso haja mais chamadas de Conteúdo conectado do que mensagens enviadas.
+O Conteúdo conectado não possui seu próprio limite de taxa. Em vez disso, o limite de taxa é baseado na taxa de envio de mensagens. Recomendamos definir o limite de taxa de envio de mensagens mais alto do que o limite de taxa pretendido para o Conteúdo conectado, caso haja mais chamadas de Conteúdo conectado do que mensagens enviadas.
 
 ### Qual é o comportamento de cache? {#what-is-caching-behavior}
 

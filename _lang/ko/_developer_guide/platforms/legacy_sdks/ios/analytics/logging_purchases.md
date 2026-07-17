@@ -88,7 +88,7 @@ Appboy.sharedInstance()?.logPurchase("your product ID", inCurrency: "USD", atPri
 
 ### 주문 수준에서 구매 기록 {#log-purchases-at-the-order-level}
 
-제품 수준 대신 주문 수준에서 구매를 기록하려면 주문 이름 또는 주문 카테고리를 `product_id`로 사용하면 됩니다. 자세한 내용은 [구매 오브젝트 사양]({{site.baseurl}}/api/objects_filters/purchase_object#product-id-naming-conventions)을 참조하세요.
+제품 수준 대신 주문 수준에서 구매를 기록하려면 주문 이름 또는 주문 카테고리를 `product_id`로 사용하면 됩니다. 자세한 내용은 [구매 오브젝트 사양]({{site.baseurl}}/api/objects_filters/purchase_object#naming-conventions)을 참조하세요.
 
 ### 예약 키 {#reserved-keys}
 

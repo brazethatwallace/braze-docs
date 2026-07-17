@@ -84,7 +84,7 @@ This connection status means Braze recognizes your user profile through a unique
 
 ### Connection type
 
-To check what type of connection you have, check the connection status indicator at the top right of the Pilot app.
+To check what type of connection you have, check the connection status indicator at the top end of the Pilot app.
 
 {% tabs local %}
 {% tab Anonymous user  %}

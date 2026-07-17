@@ -186,6 +186,13 @@ El panel **WhatsApp Performance** muestra el rendimiento de tu mensaje en varias
 
 ![Panel de rendimiento de WhatsApp que incluye una tabla de métricas para la variante 1.]({% image_buster /assets/img/whatsapp_message_performance.png %})
 
+#### Créditos frente a recuentos de envíos {#credits-versus-send-counts}
+
+Los recuentos de envíos de WhatsApp en los análisis de campaña reflejan los intentos de entrega. Los créditos consumidos pueden diferir cuando Meta factura por categoría de mensaje (marketing, utilidad, autenticación, servicio).
+
+- Los mensajes de respuesta compuestos en Braze no consumen créditos de WhatsApp de Braze.
+- Utiliza **Analytics** > **Daily Stats** para el volumen de envío orientativo. Los desgloses de créditos por Campaign o Canvas no están disponibles.
+
 {% endif %}
 
 Si quieres simplificar la vista, haz clic en <i class="fas fa-plus"></i> **Add/Remove Columns** y desmarca las métricas que desees. De forma predeterminada, se muestran todas las métricas.
@@ -365,6 +372,12 @@ Como otro ejemplo, supongamos que ves cinco _Unique Impressions_ en una campaña
 
 _Unique Daily Impressions_ se refiere a los banners que realmente se vieron.
 
+#### Discrepancias entre grupos de control y variantes {#discrepancies-between-control-groups-and-variants}
+
+Cuando una campaña de banners utiliza un grupo de control, las impresiones del grupo de control pueden ser superiores a las impresiones de la variante, incluso cuando la división de audiencia entre los grupos es uniforme. Esta discrepancia se debe a una diferencia en cómo se registran las impresiones para los banners de control y de variante.
+
+Tanto las impresiones de control como las de variante requieren que la ubicación del banner entre en la ventana de visualización. Las impresiones de variante se registran solo cuando el banner completo es visible en la pantalla. Las impresiones de control pueden registrarse tan pronto como la ubicación entra en la ventana de visualización, antes de que el banner completo sea visible para una variante.
+
 {% elsif include.channel == "email" %}
 
 #### Métricas de correo electrónico {#email-metrics}
@@ -496,7 +509,7 @@ Diferido o aplazamiento es cuando un correo electrónico no se entregó inmediat
 
 Los _aplazamientos_ difieren de los _rebotes blandos_. Si no se entregó correctamente ningún correo electrónico durante este periodo de reintento, Braze enviará un evento de rebote blando por cada intento de envío de campaña. Antes del 25 de febrero de 2025, estos reintentos se contabilizaban como múltiples rebotes blandos para 1 envío de campaña.
 
-Ten en cuenta que los _aplazamientos_ actualmente solo están disponibles utilizando las características de Currents o Braze Snowflake (como el generador de consultas, SQL Segment, Snowflake Data Sharing). Si quieres incluirlo en los análisis de Campaign o Canvas, [envía tus comentarios sobre el producto]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+Ten en cuenta que los _aplazamientos_ actualmente solo están disponibles utilizando las características de Currents o Braze Snowflake (como el generador de consultas, SQL Segment, Snowflake Data Sharing). {% multi_lang_include product_feedback_cta.md context="gap" feature="Deferrals in campaign or Canvas analytics" %}
 
 ##### Estimación de la tasa de apertura real {#estimated-real-open-rate}
 
@@ -593,7 +606,7 @@ Los informes sobre _Button 1 Clicks_ y _Button 2 Clicks_ solo funcionan cuando e
     </tbody>
 </table>
 
-#### Discrepancias entre grupos de control y variantes {#discrepancies-between-control-groups-and-variants}
+#### Discrepancias entre grupos de control y variantes
 
 Cuando una campaña de mensajes dentro de la aplicación tiene una división de variantes 50-50, a veces el grupo de control tendrá un porcentaje ligeramente superior al de la variante (como 51 % para el grupo de control y 49 % para la variante). Esta discrepancia se debe a una diferencia en el tiempo de renderizado; por ejemplo, cuando los mensajes de variante utilizan imágenes grandes o contenido conectado con plantillas y los usuarios se van antes de que se complete el renderizado, mientras que el grupo de control registra impresiones sin mostrar un mensaje.
 
@@ -867,6 +880,8 @@ Aquí tienes algunas métricas clave de WhatsApp que puedes ver en tus análisis
     </tbody>
 </table>
 
+Si los fallos son elevados, consulta [Investigar fallos de envío de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/send_failures).
+
 #### Métricas de bloqueo e informes de usuarios finales {#end-user-blocking-and-reporting-metrics}
 
 Se puede acceder a métricas adicionales a través del [panel del administrador de WhatsApp](https://www.facebook.com/business/help/683499390267496?content_id=NZUBj7XjkYjYuWx), aunque es necesario [confirmar tu acceso](https://www.facebook.com/business/help/218116047387456) para acceder a toda la información disponible.
@@ -935,7 +950,7 @@ Además de los análisis de Braze, se puede acceder a los análisis a nivel de p
 
 ### Eventos SMS de Currents {#sms-currents-events}
 
-Al igual que el correo electrónico, Braze recibe eventos a nivel de usuario relacionados con un mensaje SMS a medida que hace su recorrido hasta un usuario. Cualquier evento SMS entrante también se enviará como evento de Currents a través del evento [SMS InboundReceived]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Esto te permite realizar acciones adicionales o informes sobre los mensajes que envían tus usuarios fuera de la plataforma Braze.
+Al igual que el correo electrónico, Braze recibe eventos a nivel de usuario relacionados con un mensaje SMS a medida que hace su recorrido hasta un usuario. Cualquier evento SMS entrante también se enviará como evento de Currents a través del evento [SMS InboundReceived]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#sms-inbound-received-events). Esto te permite realizar acciones adicionales o informes sobre los mensajes que envían tus usuarios fuera de la plataforma Braze.
 
 {% alert note %}
 Los mensajes entrantes se truncan a partir de 1600 caracteres.

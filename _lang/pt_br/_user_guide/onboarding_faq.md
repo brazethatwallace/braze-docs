@@ -51,7 +51,7 @@ Antes de iniciar sua importação de CSV, é importante entender com sua equipe 
 
 Quando você fornece um `external_id` na sua importação, a Braze atualizará qualquer usuário existente com o mesmo `external_id` ou criará um novo usuário identificado com esse `external_id` definido, caso nenhum seja encontrado.
 
-Para saber mais e baixar modelos de importação de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv).
+Para saber mais e baixar modelos de importação de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
 
 #### API
 
@@ -129,7 +129,7 @@ O painel **Importar CSV** contém instruções de importação e um botão para 
 
 Selecione **Importar usuários neste CSV e também possibilitar redirecionar este lote específico de usuários como um grupo**, e então selecione **Gerar automaticamente um segmento dos usuários que são importados deste CSV**. Depois que você clicar em **Iniciar importação**, a Braze fará upload do seu arquivo, verificará os cabeçalhos das colunas e os tipos de dados de cada coluna, e criará um segmento.
 
-Para baixar um modelo de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv).
+Para baixar um modelo de CSV, consulte [importação de usuário]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv).
 
 {% endapi %}
 {% api %}
@@ -218,7 +218,7 @@ Por fim, depois de criar uma extensão, você pode usá-la como um filtro ao cri
 Campaigns
 {% endapitags %}
 
-Consulte [Campaigns multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns) em **Criar uma Campaign** para ver as etapas de configuração, canais suportados e como alternar entre criadores.
+Consulte [Campaigns multicanal]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign) em **Criar uma Campaign** para ver as etapas de configuração, canais suportados e como alternar entre criadores.
 
 {% endapi %}
 {% api %}
@@ -572,24 +572,24 @@ Para agendar um relatório de engajamento recorrente, faça o seguinte:
 1. No seu dashboard, navegue até **Relatórios de engajamento**, em **Data**.
 2. Clique em **+ Criar novo relatório**.
 3. Adicione as [Campaigns e mensagens de Canvas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#manually-select-campaigns-or-canvases) (individualmente ou [por tag]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#automatically-select-campaigns-or-canvases)) que você gostaria de compilar no seu relatório.
-4. [Adicione estatísticas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-report) ao seu relatório.
+4. [Adicione estatísticas]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#add-statistics-to-your-reports) ao seu relatório.
 5. Selecione a compressão e o delimitador para o seu relatório.
 6. Insira os endereços de e-mail dos usuários da empresa que devem receber este relatório.
-7. Selecione o [período de tempo]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#time-frame) a partir do qual você gostaria que seu relatório processasse os dados.
-8. Selecione os [intervalos (diários, semanais, etc.)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#data-display) nos quais gostaria de ver a divisão dos seus dados.
-9. Agende seu relatório para [enviar imediatamente]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-immediately) ou em um [momento futuro especificado]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#send-at-designated-time).
+7. Selecione o [período de tempo]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#select-time-frame) a partir do qual você gostaria que seu relatório processasse os dados.
+8. Selecione os [intervalos (diários, semanais, etc.)]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#select-data-display) nos quais gostaria de ver a divisão dos seus dados.
+9. Agende seu relatório para [enviar imediatamente]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#schedule-your-report) ou em um [momento futuro especificado]({{site.baseurl}}/user_guide/analytics/reports/engagement_reports#schedule-your-report).
 10. Execute o relatório e abra-o no seu e-mail quando ele chegar!
 
 {% endapi %}
 {% api %}
 
-### Qual é a diferença entre Relatórios de engajamento e o Criador de relatórios? {#whats-the-difference-between-engagement-reports-and-the-report-builder}
+### Qual é a diferença entre relatórios de engajamento e o Criador de relatórios? {#whats-the-difference-between-engagement-reports-and-the-report-builder}
 
 {% apitags %}
 Analytics
 {% endapitags %}
 
-Os Relatórios de engajamento fornecem CSVs de estatísticas de engajamento para mensagens específicas de Campaigns e Canvas via um e-mail disparado. Certos dados são agregados no nível da Campaign ou Canvas, em vez do nível da variante individual ou etapa. Os relatórios não são salvos no dashboard, e reexecutar o relatório pode resultar em estatísticas atualizadas.
+Os relatórios de engajamento fornecem CSVs de estatísticas de engajamento para mensagens específicas de Campaigns e Canvas via um e-mail disparado. Certos dados são agregados no nível da Campaign ou Canvas, em vez do nível da variante individual ou etapa. Os relatórios não são salvos no dashboard, e reexecutar o relatório pode resultar em estatísticas atualizadas.
 
 O Criador de relatórios permite que você compare os resultados de várias Campaigns ou Canvas em uma única visualização, para que você possa determinar facilmente quais estratégias de engajamento mais impactaram suas métricas principais. Para Campaigns e Canvas, você pode exportar seus dados e salvar seu relatório para visualizar no futuro.
 

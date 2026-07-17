@@ -18,12 +18,12 @@ description: "이 문서에서는 `POST /media_library/create` 엔드포인트�
 > 이 엔드포인트를 사용하여 외부 호스팅된 URL(`asset_url`) 또는 요청 본문에 전송된 바이너리 파일 데이터(`asset_file`)를 사용하여 [Braze 미디어 라이브러리]({{site.baseurl}}/user_guide/engagement_tools/templates_and_media/media_library)에 자산을 추가합니다. 이 엔드포인트는 이미지와 이미지를 포함하는 ZIP 파일을 지원합니다.
 
 {% alert tip %}
-[Braze MCP 서버]({{site.baseurl}}/user_guide/brazeai/mcp_server)를 통해 [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library) 함수를 사용하여 이 엔드포인트를 호출할 수도 있습니다. 이를 통해 Claude 및 Cursor와 같은 AI 도구가 자연어 프롬프트를 통해 미디어 라이브러리에 자산을 업로드할 수 있습니다.
+[Braze MCP 서버]({{site.baseurl}}/user_guide/brazeai/mcp_server)를 통해 [`create_media_library_asset`]({{site.baseurl}}/user_guide/brazeai/mcp_server/available_api_functions#media-library) 함수를 사용하여 이 엔드포인트를 호출할 수도 있습니다. 이를 통해 Claude 및 Cursor와 같은 인공지능 도구가 자연어 프롬프트를 통해 미디어 라이브러리에 자산을 업로드할 수 있습니다.
 {% endalert %}
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `media_library.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `media_library.create` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -147,7 +147,7 @@ curl -X POST --location 'https://rest.iad-01.braze.com/media_library/create' \
 | --- | --- | --- |
 | `UNSUPPORTED_FILE_TYPE` | 400 | 업로드된 파일 형식이 지원되지 않습니다. `meta` 오브젝트에는 거부된 `file_type`이 포함되어 있습니다. |
 | `ASSET_SIZE_EXCEEDS_LIMIT` | 400 | 파일이 허용된 최대 크기를 초과했습니다. 이미지는 5MB 제한이 있습니다. |
-| `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | 워크스페이스가 최대 자산 수에 도달했습니다(무료 체험판 회사의 경우 기본값 200개, 그 외에는 무제한). `meta` 오브젝트에는 현재 `limit`이 포함되어 있습니다. |
+| `MEDIA_LIBRARY_LIMIT_REACHED` | 400 | 워크스페이스가 최대 자산 수에 도달했습니다(무료 평가판 회사의 경우 기본값 200개, 그 외에는 무제한). `meta` 오브젝트에는 현재 `limit`이 포함되어 있습니다. |
 | `ASSET_UPLOAD_FAILED` | 400 | 처리 문제로 인해 자산 업로드에 실패했습니다. |
 | `INVALID_ASSET_URL` | 400 | `asset_url` 값이 유효한 URI가 아닙니다. `meta` 오브젝트에는 `asset_url`이 포함되어 있습니다. |
 | `ZIP_UPLOAD_ERROR` | 400 | ZIP 파일이 손상되었거나 열 수 없습니다. `meta` 오브젝트에는 `original_error` 메시지가 포함되어 있습니다. |

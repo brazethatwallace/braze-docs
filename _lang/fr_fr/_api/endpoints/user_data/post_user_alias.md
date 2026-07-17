@@ -55,7 +55,7 @@ Authorization: Bearer YOUR_REST_API_KEY
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `user_aliases` | Requis | Tableau d'objets nouvel alias d'utilisateur | Voir l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Pour plus d'informations sur `alias_name` et `alias_label`, consultez notre documentation sur les [alias d'utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases).|
+| `user_aliases` | Requis | Tableau d'objets nouvel alias d'utilisateur | Voir l'[objet alias d'utilisateur]({{site.baseurl}}/api/objects_filters/user_alias_object).<br><br> Pour plus d'informations sur `alias_name` et `alias_label`, consultez notre documentation sur les [alias d'utilisateur]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Paramètres de requête" }
 
 ### Corps de requête de l'endpoint avec spécification de l'objet nouvel alias d'utilisateur {#endpoint-request-body-with-new-user-alias-object-specification}
@@ -86,7 +86,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/alias/new' \
 
 ## Réponse {#response}
 
-Lorsqu'un alias est ignoré parce que la même combinaison `alias_label` et `alias_name` existe déjà pour un utilisateur, le corps de la réponse peut tout de même indiquer un succès. Consultez [Lorsque le libellé d'alias et le nom existent déjà](#when-the-alias-label-and-name-already-exist) pour plus de détails.
+Lorsqu'un alias est ignoré parce que la même combinaison `alias_label` et `alias_name` existe déjà pour un utilisateur, le corps de la réponse peut tout de même indiquer un succès. Consultez [Lorsque `alias_label` et `alias_name` existent déjà](#when-the-alias-label-and-name-already-exist) pour plus de détails.
 
 ```json
 {
@@ -95,5 +95,32 @@ Lorsqu'un alias est ignoré parce que la même combinaison `alias_label` et `ali
 }
 ```
 
+## Résolution des problèmes {#troubleshooting}
+
+### Pourquoi mes attributs ne se mettent-ils pas à jour après avoir créé un alias d'utilisateur avec cet endpoint ? {#why-are-my-attributes-not-updating-after-i-create-a-user-alias-using-this-endpoint}
+
+Cela se produit généralement lorsque `/users/alias/new` est suivi d'une requête `/users/track` distincte qui tente de mettre à jour les attributs par alias. La requête track peut être traitée avant que Braze ne puisse résoudre de manière cohérente la nouvelle paire `alias_label` et `alias_name` vers un profil, de sorte que les attributs ne sont pas appliqués à l'utilisateur attendu.
+
+**Approche recommandée :** Utilisez un seul appel [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) uniquement lorsque vous souhaitez créer un profil alias uniquement ou mettre à jour un profil par un alias qui existe déjà. Dans le tableau `attributes`, placez `user_alias` et vos champs de profil dans le même [objet attributs d'utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object) afin que Braze résolve l'utilisateur et applique la mise à jour en une seule étape.
+
+Définissez `_update_existing_only` sur `false` lorsque vous devez éventuellement créer un profil alias uniquement à partir de cet objet. Si vous l'omettez tout en utilisant `user_alias`, Braze adopte par défaut un comportement de mise à jour uniquement et ne crée pas le profil alias uniquement. Si l'alias existe déjà pour un utilisateur dans votre espace de travail, la même requête met à jour ce profil avec vos nouveaux attributs.
+
+Vous ne pouvez pas utiliser `/users/track` pour ajouter un nouvel alias à un utilisateur existant identifié par `external_id`. Dans un objet attributs d'utilisateur, `external_id` et `user_alias` sont mutuellement exclusifs. Pour ajouter un alias à un utilisateur identifié, appelez d'abord `/users/alias/new`. Une fois l'alias rattaché, vous pouvez mettre à jour ce profil avec `/users/track` en utilisant l'`external_id` ou l'alias existant.
+
+Par exemple, le corps `/users/track` suivant crée un profil alias uniquement si l'alias n'existe pas encore, ou met à jour le profil existant qui possède déjà cet alias :
+```json
+{
+  "attributes": [
+    {
+      "user_alias": {
+        "alias_name": "example@example.com",
+        "alias_label": "email"
+      },
+      "_update_existing_only": false,
+      "string_attribute": "test_alias_only_update"
+    }
+  ]
+}
+```
 
 {% endapi %}

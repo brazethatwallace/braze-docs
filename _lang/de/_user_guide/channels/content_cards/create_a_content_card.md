@@ -16,7 +16,7 @@ search_rank: 3.9
 
 > Dieser Artikel beschreibt, wie Sie eine Content-Card in Braze erstellen, wenn Sie Kampagnen und Canvases aufbauen. Hier führen wir Sie durch die Auswahl eines Nachrichtentyps, das Verfassen Ihrer Karte und die Planung Ihrer Nachrichtenzustellung.
 
-## 1. Schritt: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
+## Schritt 1: Wählen Sie, wo Sie Ihre Nachricht erstellen möchten {#step-1-choose-where-to-build-your-message}
 
 Verwenden Sie Kampagnen für einfache, einzelne Nachrichten (z. B. um Nutzer:innen mit einer einzelnen Nachricht über ein Produkt zu informieren). Verwenden Sie Canvases für mehrstufige Journeys (z. B. um maßgeschneiderte Produktvorschläge basierend auf dem Nutzerverhalten über einen bestimmten Zeitraum zu senden).
 
@@ -49,7 +49,7 @@ Wenn alle Nachrichten in Ihrer Kampagne ähnlich sein oder denselben Inhalt habe
 {% endtab %}
 {% endtabs %}
 
-## 2. Schritt: Geben Sie Ihre Nachrichtentypen an {#step-2-specify-your-message-types}
+## Schritt 2: Geben Sie Ihre Nachrichtentypen an {#step-2-specify-your-message-types}
 
 Wählen Sie einen der drei grundlegenden Content-Card-Typen: **Klassisch**, **Hervorgehobenes Bild** und **Nur Bild**.
 
@@ -57,12 +57,12 @@ Um mehr über das erwartete Verhalten und Aussehen jedes Typs zu erfahren, lesen
 
 | Nachrichtentyp | Beispiel | Beschreibung |
 |---|---|---|
-| [Klassisch]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#classic) | ![Eine klassische Content-Card mit einem kleinen Symbol und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | Die klassische Karte hat ein einfaches Layout mit einem fettgedruckten Titel, Nachrichtentext und einem optionalen Bild links neben Titel und Text. Am besten verwenden Sie ein quadratisches Bild oder Symbol für die klassische Karte. |
-| [Hervorgehobenes Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#captioned-image) | ![Eine hervorgehobene Content-Card mit dem Bild eines Gewichthebers und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | Die hervorgehobene Content-Card präsentiert Ihren Inhalt mit Text und einem aufmerksamkeitsstarken Bild. |
-| [Nur Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#banner) | ![Eine Content-Card vom Typ „Nur Bild“ mit ausschließlich Text.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | Die Karte „Nur Bild“ zieht die Aufmerksamkeit auf sich und bietet Platz für Bilder, GIFs und andere kreative, nicht-textliche Inhalte. |
+| [Klassisch]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Eine klassische Content-Card mit einem kleinen Symbol und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_classic.png %}) | Die klassische Karte hat ein einfaches Layout mit einem fettgedruckten Titel, Nachrichtentext und einem optionalen Bild links neben Titel und Text. Am besten verwenden Sie ein quadratisches Bild oder Symbol für die klassische Karte. |
+| [Hervorgehobenes Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Eine hervorgehobene Content-Card mit dem Bild eines Gewichthebers und Text, der zur Buchung eines Fitnesskurses einlädt.]({% image_buster/assets/img_archive/cc_steppington_captioned.png %}) | Die hervorgehobene Content-Card präsentiert Ihren Inhalt mit Text und einem aufmerksamkeitsstarken Bild. |
+| [Nur Bild]({{site.baseurl}}/user_guide/channels/content_cards/creative_details#content-card-types) | ![Eine Content-Card vom Typ „Nur Bild“ mit ausschließlich Text.]({% image_buster/assets/img_archive/cc_steppington_banner.png %}) | Die Karte „Nur Bild“ zieht die Aufmerksamkeit auf sich und bietet Platz für Bilder, GIFs und andere kreative, nicht-textliche Inhalte. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Nachrichtentypen angeben" }
 
-## 3. Schritt: Content-Card verfassen {#step-3-compose-a-content-card}
+## Schritt 3: Content-Card verfassen {#step-3-compose-a-content-card}
 
 Sie können alle Aspekte des Inhalts und Verhaltens Ihrer Nachricht im Tab **Verfassen** des Nachrichteneditors bearbeiten.
 
@@ -80,11 +80,11 @@ Wählen Sie **Sprachen hinzufügen**, um Ihre gewünschten Sprachen aus der bere
 
 Das endgültige Erscheinungsbild von Nachrichten, die von rechts nach links geschrieben werden, hängt weitgehend davon ab, wie Dienstanbieter sie darstellen. Best Practices für die Erstellung von Nachrichten, die von rechts nach links so genau wie möglich angezeigt werden, finden Sie unter [Nachrichten von rechts nach links erstellen]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/right_to_left_messages).
 
-### Titel und Nachricht {#title-and-message}
+#### Titel und Nachricht {#title-and-message}
 
 Schreiben Sie, was Sie möchten. Es gibt keine Beschränkungen, aber je schneller Sie Ihre Botschaft vermitteln und Ihre Kund:innen zum Klicken bewegen, desto besser! Wir empfehlen klare und prägnante Titel und Nachrichteninhalte. Beachten Sie, dass diese Felder für Karten vom Typ „Nur Bild“ nicht verfügbar sind.
 
-### Bild {#image}
+#### Bild {#image}
 
 Um ein Bild zu Ihrer Content-Card hinzuzufügen, können Sie **Bild hinzufügen** auswählen oder eine Bild-URL angeben. Wenn Sie **Bild hinzufügen** auswählen, öffnet sich die **Medienbibliothek**, in der Sie ein zuvor hochgeladenes Bild auswählen oder ein neues hinzufügen können.
 
@@ -92,13 +92,13 @@ Jeder Nachrichtentyp und jede Plattform kann eigene empfohlene Proportionen und 
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
-### An den Anfang pinnen {#pin-to-top}
+#### An den Anfang pinnen {#pin-to-top}
 
 Braze zeigt eine gepinnte Karte oben im Feed der Nutzer:innen an, und diese können sie nicht verwerfen. Wenn der Feed mehrere gepinnte Karten enthält, ordnet Braze sie chronologisch. Wenn Braze eine Content-Card zustellt, ist sie entweder gepinnt oder nicht gepinnt, und dieser Status ändert sich während der gesamten Lebensdauer der Karte nicht. Wenn Sie die Pin-Einstellung einer Kampagne ändern, gilt die Aktualisierung nur für zukünftig gesendete Karten. Sie ändert nicht den Pin-Status von Karten, die sich bereits im Feed der Nutzer:innen befinden.
 
 ![Nebeneinander-Vorschau der Content-Card in Braze für Mobilgerät und Web mit der ausgewählten Option „Diese Karte an den Anfang des Feeds pinnen“.]({% image_buster /assets/img/cc_pin_to_top.png %}){:style="border:none"}
 
-### Klickverhalten {#on-click-behavior}
+#### Klickverhalten {#on-click-behavior}
 
 Wenn Ihre Kund:innen auf einen angezeigten Link in der Karte klicken, kann der Link sie entweder tiefer in Ihre App oder zu einer anderen Website führen. Wenn Sie ein Klickverhalten für Ihre Content-Card festlegen, denken Sie daran, Ihren **Linktext** entsprechend zu aktualisieren.
 
@@ -116,13 +116,13 @@ Die Optionen **Angepasstes Event protokollieren** und **Angepasstes Attribut pro
 
 {% sdk_min_versions swift:5.4.0 android:21.0.0 web:4.0.3 %}
 
-## 4. Schritt: Zusätzliche Einstellungen konfigurieren (optional) {#step-4-configure-additional-settings-optional}
+## Schritt 4: Zusätzliche Einstellungen konfigurieren (optional) {#step-4-configure-additional-settings-optional}
 
 Sie können [Schlüssel-Wert-Paare]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/key_value_pairs) verwenden, um Kategorien für Ihre Karten zu erstellen, [mehrere Content-Card-Feeds]({{site.baseurl}}/developer_guide/customization_guides/content_cards/customizing_feed#multiple-feeds) einzurichten und die Sortierung der Karten anzupassen.
 
 Um Schlüssel-Wert-Paare zu Ihrer Nachricht hinzuzufügen, gehen Sie zum Tab **Einstellungen** und wählen Sie **Neues Paar hinzufügen**.
 
-## 5. Schritt: Erstellen Sie den Rest Ihrer Kampagne oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
+## Schritt 5: Erstellen Sie den Rest Ihrer Kampagne oder Ihres Canvas {#step-5-build-the-remainder-of-your-campaign-or-canvas}
 
 {% tabs %}
 {% tab Campaign %}
@@ -135,7 +135,12 @@ Content Cards können basierend auf einem geplanten Zeitpunkt, einer Aktion oder
 
 Sie können auch die Dauer der Kampagne und [Ruhezeiten]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours) festlegen sowie die Ablaufzeit der Content-Card bestimmen. Legen Sie ein bestimmtes Ablaufdatum oder die Anzahl der Tage bis zum Ablauf einer Karte fest – bis zu maximal 30 Tage. Alle Varianten haben identische Ablaufdaten.
 
-Wenn Sie festlegen, dass eine Karte nach einer bestimmten Dauer abläuft (z. B. nach zwei Wochen), wird die Ablaufzeit ab dem Sendezeitpunkt der Karte berechnet. Bei geplanten Kampagnen ist dies der geplante Startzeitpunkt. Bei aktionsbasierten Kampagnen ist dies der Zeitpunkt, zu dem die Nutzerin oder der Nutzer die auslösende Aktion ausführt. Wenn beispielsweise eine aktionsbasierte Karte heute um 14 Uhr gesendet wird und eine Ablaufzeit von 1 Tag hat, läuft sie am nächsten Tag um 14 Uhr ab.
+Der Ablauf-Countdown beginnt ab dem Sendezeitpunkt der Karte:
+
+- **Geplante Kampagnen:** Der Countdown beginnt zum geplanten Startzeitpunkt.
+- **Aktionsbasierte Kampagnen:** Der Countdown beginnt, wenn die Nutzerin oder der Nutzer die auslösende Aktion ausführt.
+
+Wenn beispielsweise eine aktionsbasierte Content-Card heute um 14 Uhr gesendet wird und eine Ablaufzeit von 1 Tag hat, läuft sie am nächsten Tag um 14 Uhr ab.
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
@@ -153,18 +158,18 @@ Als Nächstes [stellen Sie Ihre Zielgruppe zusammen]({{site.baseurl}}/user_guide
 
 #### Konversions-Events auswählen {#choose-conversion-events}
 
-Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Kampagne ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Conversion gezählt wird, wenn die Nutzerin oder der Nutzer die angegebene Aktion ausführt.
+Braze ermöglicht es Ihnen zu verfolgen, wie oft Nutzer:innen bestimmte Aktionen, sogenannte [Konversions-Events]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events), nach Erhalt einer Kampagne ausführen. Sie haben die Möglichkeit, ein Zeitfenster von bis zu 30 Tagen festzulegen, in dem eine Konversion gezählt wird, wenn die Nutzerin oder der Nutzer die angegebene Aktion ausführt.
 
 {% endtab %}
 
 {% tab Canvas %}
 
-Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von [Multivariate-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing) und [Intelligenter Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) unserer Canvas-Dokumentation.
+Falls noch nicht geschehen, vervollständigen Sie die verbleibenden Abschnitte Ihrer Canvas-Komponente. Weitere Details zum Aufbau des restlichen Canvas, zur Implementierung von [Multivariate-Tests]({{site.baseurl}}/user_guide/messaging/ab_testing) und [intelligenter Auswahl]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection) und mehr finden Sie im Schritt [Canvas erstellen]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) unserer Canvas-Dokumentation.
 
 {% endtab %}
 {% endtabs %}
 
-## 6. Schritt: Überprüfen und bereitstellen {#step-6-review-and-deploy}
+## Schritt 6: Überprüfen und bereitstellen {#step-6-review-and-deploy}
 
 Nachdem Sie den letzten Teil Ihrer Kampagne oder Ihres Canvas fertiggestellt haben, überprüfen Sie die Details, [testen Sie]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages) und senden Sie, wenn Sie bereit sind. Weitere Informationen finden Sie unter [Testnachrichten senden]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=content%20card).
 
@@ -193,7 +198,7 @@ Die gesamte Daten-Payload einer einzelnen Content-Card darf 2 KB **nach** dem Re
 
 Die Verwendung von Liquid zum Abrufen langer Textstrings (z. B. aus angepassten Attributen) kann dazu führen, dass Sie das Limit überschreiten.
 
-Der Kampagnen-Composer zeigt eine Warnung an, wenn Ihr statischer Inhalt das Limit überschreitet. (Für dynamischen Content mit Liquid wird die Größe nicht vorhergesagt.) **Wenn die Nachrichtengröße 2 KB überschreitet, wird der Versand abgebrochen.** Sie können diese Abbrüche im Nachrichten-Aktivitätsprotokoll mit dem Grund `Content card maximum size exceeded` einsehen.
+Der Kampagnen-Composer zeigt eine Warnung an, wenn Ihr statischer Inhalt das Limit überschreitet. Für dynamischen Content mit Liquid wird die Größe nicht vorhergesagt. Wenn die Nachrichtengröße 2 KB überschreitet, wird der Versand abgebrochen. Sie können diese Abbrüche im Nachrichten-Aktivitätsprotokoll mit dem Grund `Content card maximum size exceeded` einsehen.
 
 {% alert important %}
 Während Testsendungen können Content Cards, die 2 KB überschreiten, dennoch zugestellt und korrekt angezeigt werden.
@@ -228,7 +233,7 @@ Möchten Sie, dass Ihr Inhalt länger als 30 Tage bestehen bleibt? Probieren Sie
 
 Wenn Sie Re-Eligibility aktivieren, beginnt der Countdown, wann eine Nutzerin oder ein Nutzer erneut in eine Kampagne „eintreten“ kann, nachdem die Nachricht gesendet wurde. Der genaue Zeitpunkt, an dem dieser Countdown beginnt, hängt von Ihren Kartenerstellungseinstellungen ab:
 
-- Content Cards, die [bei der ersten Impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences-between-creating-cards-at-launch-or-entry-versus-at-first-impression) erstellt werden, verwenden den Impressionszeitpunkt zur Berechnung der Re-Eligibility.
+- Content Cards, die [bei der ersten Impression]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card/card_creation#differences) erstellt werden, verwenden den Impressionszeitpunkt zur Berechnung der Re-Eligibility.
 - Content Cards, die beim Kampagnenstart, in Multichannel-Kampagnen oder beim Canvas-Schritt-Eintritt erstellt werden, verwenden den jeweils späteren Zeitpunkt von Sendezeitpunkt oder Impressionszeitpunkt.
 
 #### Die 30-Tage-Ablaufzeit und Re-Eligibility {#the-30-day-expiration-and-re-eligibility}
@@ -237,11 +242,11 @@ Eine häufige Quelle der Verwirrung ist die Wechselwirkung zwischen Kampagnen-Re
 
 Alle Content Cards werden 30 Tage nach dem Senden oder Entfernen automatisch aus den Braze-Systemen gelöscht. Wenn Sie eine langfristige, wiederkehrende Kampagne mit **deaktivierter** Re-Eligibility haben, kann eine Nutzerin oder ein Nutzer nach 30 Tagen dennoch dieselbe Karte erneut erhalten. Wenn die ursprüngliche Karte gelöscht wird, sieht das System keinen Datensatz mehr darüber, dass diese Person die Kampagne erhalten hat, und macht sie bei der nächsten Sitzung erneut berechtigt.
 
-Damit Nutzer:innen eine Nachricht einer bestimmten Kampagne nur einmal erhalten, fügen Sie Ihrer Kampagne oder Ihrem Canvas-Schritt einen Zielgruppen-Filter für Nutzer:innen hinzu, die keine Nachricht dieser Kampagne erhalten haben. Dieser Filter ist der zuverlässigste Weg, um doppelte Sendungen bei langfristigen Kampagnen zu verhindern.
+Damit Nutzer:innen eine Nachricht einer bestimmten Kampagne nur einmal erhalten, fügen Sie Ihrer Kampagne oder Ihrem Canvas-Schritt einen Zielgruppenfilter für Nutzer:innen hinzu, die keine Nachricht dieser Kampagne erhalten haben. Dieser Filter ist der zuverlässigste Weg, um doppelte Sendungen bei langfristigen Kampagnen zu verhindern.
 
 ### Live-Content-Cards verwalten {#managing-live-content-cards}
 
-Nachdem Content Cards gesendet wurden, warten sie in einer Art „Posteingang“ darauf, an die Nutzerin oder den Nutzer zugestellt zu werden (ähnlich wie bei E-Mails). Nachdem der Inhalt in die Content-Card geladen wurde (zum Zeitpunkt der Anzeige), kann er während seiner Lebensdauer nicht mehr geändert werden. Dies gilt auch, wenn Sie eine API über Connected-Content aufrufen und sich die Daten vom Endpunkt ändern. Diese Daten werden nicht aktualisiert. Die Karte kann nur daran gehindert werden, an neue Nutzer:innen gesendet zu werden, und aus den Feeds der Nutzer:innen entfernt werden. Wenn Sie eine Kampagne ändern, haben nur zukünftig gesendete Karten die Aktualisierung.
+Nachdem Content Cards gesendet wurden, warten sie in einer Art „Posteingang“ darauf, an die Nutzerin oder den Nutzer zugestellt zu werden (ähnlich wie bei E-Mails). Nachdem der Inhalt in die Content-Card geladen wurde (zum Zeitpunkt der Anzeige), kann er während seiner Lebensdauer nicht mehr geändert werden. Dies gilt auch, wenn Sie eine API über Connected Content aufrufen und sich die Daten vom Endpunkt ändern. Diese Daten werden nicht aktualisiert. Die Karte kann nur daran gehindert werden, an neue Nutzer:innen gesendet zu werden, und aus den Feeds der Nutzer:innen entfernt werden. Wenn Sie eine Kampagne ändern, haben nur zukünftig gesendete Karten die Aktualisierung.
 
 #### Gestartete Karten aktualisieren {#updating-launched-cards}
 
@@ -264,8 +269,8 @@ Wenn Sie die Kampagne duplizieren, müssen Sie die Zielgruppe für die neue Vers
 
 ###### Auswirkungen {#impact}
 
-* **Bestehende Empfänger:innen:** Neue und bestehende Empfänger:innen würden die aktualisierte Karte bei der nächsten Feed-Aktualisierung sehen, sofern sie berechtigt sind.
-* **Reporting:** Jede Version der Karte hätte separate Analytics.
+- **Bestehende Empfänger:innen:** Neue und bestehende Empfänger:innen würden die aktualisierte Karte bei der nächsten Feed-Aktualisierung sehen, sofern sie berechtigt sind.
+- **Reporting:** Jede Version der Karte hätte separate Analytics.
 
 Nehmen wir an, Sie haben eine Kampagne eingerichtet, die bei Sitzungsstart getriggert wird und eine Re-Eligibility von 30 Tagen hat. Eine Nutzerin oder ein Nutzer hat die Kampagne vor zwei Tagen erhalten, und Sie möchten den Text ändern. Zuerst archivieren Sie die Kampagne und entfernen die Karten aus dem Feed. Zweitens duplizieren Sie die Kampagne und starten sie mit dem neuen Text neu. Wenn die Person eine weitere Sitzung hat, erhält sie sofort die neue Karte.
 
@@ -283,8 +288,8 @@ Dieser Ansatz hält alle Ihre Analytics in einer einzigen Kampagne vereint. Neu 
 
 ###### Auswirkungen
 
-* **Bestehende Empfänger:innen:** Nutzer:innen, die die Karte bereits erhalten haben, würden die aktualisierten Karten erst erhalten, wenn sie erneut berechtigt werden. Wenn Re-Eligibility deaktiviert ist, würden sie die neue Karte nie erhalten.
-* **Reporting:** Eine Kampagne enthält alle Reporting-Analytics für die gestarteten Kartenversionen. Braze unterscheidet nicht zwischen den gestarteten Versionen.
+- **Bestehende Empfänger:innen:** Nutzer:innen, die die Karte bereits erhalten haben, würden die aktualisierten Karten erst erhalten, wenn sie erneut berechtigt werden. Wenn Re-Eligibility deaktiviert ist, würden sie die neue Karte nie erhalten.
+- **Reporting:** Eine Kampagne enthält alle Reporting-Analytics für die gestarteten Kartenversionen. Braze unterscheidet nicht zwischen den gestarteten Versionen.
 
 Nehmen wir an, Sie haben eine Kampagne, die bei Sitzungsstart getriggert wird und eine Re-Eligibility von 30 Tagen hat. Eine Nutzerin oder ein Nutzer hat die Kampagne vor zwei Tagen erhalten, und Sie möchten den Text ändern. Zuerst stoppen Sie die Kampagne und entfernen die Karte aus dem Feed. Zweitens veröffentlichen Sie die Kampagne mit dem neuen Text erneut. Wenn die Person eine weitere Sitzung hat, erhält sie die neue Karte in 28 Tagen.
 

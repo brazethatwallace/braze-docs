@@ -2,7 +2,7 @@
 nav_title: Obtención de datos del perfil del usuario
 article_title: Extraer datos de perfil de usuario en llamadas de contenido conectado
 page_order: 3
-description: "En este artículo se explica cómo incluir perfiles de usuario en las llamadas a Connected Content, así como las mejores prácticas en relación con las plantillas Liquid."
+description: "En este artículo se explica cómo incluir perfiles de usuario en las llamadas de contenido conectado, así como las mejores prácticas en relación con las plantillas Liquid."
 toc_headers: h2
 ---
 
@@ -12,7 +12,7 @@ toc_headers: h2
 
 ## Requisitos previos {#prerequisites}
 
-Si una respuesta de contenido conectado contiene campos de perfil de usuario (dentro de una etiqueta de personalización de Liquid), estos valores deben definirse antes en el mensaje con Liquid, antes de la llamada de contenido conectado, para que el passback de Liquid se represente correctamente. De igual forma, la bandera `:rerender` debe incluirse en la solicitud. Ten en cuenta que el indicador `:rerender` solo tiene un nivel de profundidad, lo que significa que no se aplicará a ninguna etiqueta de contenido conectado anidada.
+Si una respuesta de contenido conectado contiene campos de perfil de usuario (dentro de una etiqueta de personalización de Liquid), estos valores deben definirse antes en el mensaje con Liquid, antes de la llamada de contenido conectado, para que el passback de Liquid se represente correctamente. De igual forma, la bandera `:rerender` debe incluirse en la solicitud. Ten en cuenta que la bandera `:rerender` solo tiene un nivel de profundidad, lo que significa que no se aplicará a ninguna etiqueta de contenido conectado anidada.
 
 ## Plantillas Liquid en llamadas de contenido conectado {#liquid-templating-in-connected-content-calls}
 
@@ -39,16 +39,16 @@ Hi ${first_name}, {% connected_content https://examplewebsite.com?language=${lan
 {% endraw %}
 
 {% alert important %}
-Recuerda que la opción del indicador `:rerender` solo funciona a un nivel de profundidad. Si la respuesta de contenido conectado contiene a su vez más etiquetas de contenido conectado o etiquetas de catálogo, Braze no volverá a renderizar esas etiquetas adicionales.
+Recuerda que la opción de la bandera `:rerender` solo funciona a un nivel de profundidad. Si la respuesta de contenido conectado contiene a su vez más etiquetas de contenido conectado o etiquetas de catálogo, Braze no volverá a renderizar esas etiquetas adicionales.
 {% endalert %}
 
 ## Mejores prácticas {#best-practices}
 
-### Usa `json_escape` con etiquetas de Liquid que puedan romper el formato JSON {#use-jsonescape-with-liquid-tags-that-could-break-the-json-format}
+### Usa `json_escape` con etiquetas de Liquid que puedan romper el formato JSON {#use-json_escape-with-liquid-tags-that-could-break-the-json-format}
 
 Al usar `:rerender`, agrega el filtro `json_escape` a cualquier etiqueta de Liquid que pueda potencialmente romper el formato JSON. Si tus etiquetas de Liquid contienen caracteres que rompen el formato JSON, toda la respuesta de contenido conectado se interpretará como texto y se procesará como plantilla en el mensaje, y ninguna de las variables se guardará.
 
-Por ejemplo, si la propiedad de evento `message` en el ejemplo a continuación contiene caracteres que podrían romper el formato JSON, agrega el filtro `json_escape` como en este ejemplo:
+Por ejemplo, si la propiedad de evento `message` en el ejemplo de la siguiente sección contiene caracteres que podrían romper el formato JSON, agrega el filtro `json_escape` como en este ejemplo:
 
 {% raw %}
 ```liquid

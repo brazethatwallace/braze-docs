@@ -37,7 +37,7 @@ channel:
 7. バナーキャンペーンの開始日時を選択します。デフォルトでは、バナーは無期限に継続します。**End Time**を選択して終了日時を指定することで、これを変更できます。
 
 {% alert tip %}
-キャンペーン内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**Add Variant**ドロップダウンから**Copy from Variant**を選択できます。
+キャンペーン内のすべてのメッセージが類似している、または同じコンテンツを持つ場合は、追加のバリアントを追加する前にメッセージを作成してください。その後、**バリアントを追加**ドロップダウンから**バリアントからコピー**を選択できます。
 {% endalert %}
 
 {% endtab %}
@@ -55,17 +55,20 @@ channel:
 
 ### ステップ3: バナーを作成する {#compose-a-banner}
 
-バナーを作成するには、以下のいずれかを選択できます。
+次に、作成方法を選択します。
 
-- 空白のテンプレートから開始する
-- Brazeバナーテンプレートを使用する
-- 保存済みのバナーテンプレートを選択する
+- **ドラッグ＆ドロップエディター:** 空白のバナーから開始し、ブロックと行を使用して視覚的に構築します。
+- **HTMLエディター:** 空白のバナーから開始し、HTMLで直接作業します。
+- **テンプレート:** テンプレートライブラリを開き、**Braze Templates**または**Your Templates**からデザインを選択します。テンプレートはドラッグ＆ドロップエディターで開き、カスタマイズできます。
 
-![空白のバナーまたはテンプレートを選択するオプション。]({% image_buster /assets/img/banners/choose_banner_composer.png %})
+![バナーのドラッグ＆ドロップエディター、HTMLエディター、またはテンプレートを選択するオプション。]({% image_buster /assets/img/banners/choose_banner_editing_experience.png %})
 
 #### ステップ3.1: バナーのスタイルを設定する {#step-31-style-the-banner}
 
-ブロックと行をキャンバスエリアにドラッグ＆ドロップして、メッセージの作成を開始できます。バナーエディターのブロックと共有プロパティの詳細へのリンクについては、[エディターブロック（バナー）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks?sdktab=banners)を参照してください。
+{% tabs %}
+{% tab ドラッグ＆ドロップエディター %}
+
+ブロックと行をキャンバスエリアにドラッグ＆ドロップして、メッセージの作成を開始できます。バナーエディターのブロックと共有プロパティの詳細へのリンクについては、[エディターブロック（バナー）]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=banners)を参照してください。
 
 {% multi_lang_include alerts/important_alerts.md alert='dynamic image URL' %}
 
@@ -73,11 +76,28 @@ channel:
 
 ![バナーコンポーザーのスタイルパネル。]({% image_buster /assets/img/banners/banner_card_styles.png %})
 
+{% endtab %}
+{% tab HTMLエディター %}
+
+HTMLエディターは、独自のHTMLテンプレートをすでに管理しているチームや、マークアップとスタイリングを完全にコントロールしたいチームに最適です。カスタムHTMLをエディターに直接記述または貼り付けることができます。Liquidパーソナライゼーションタグは完全にサポートされているため、ユーザー属性、カスタム属性、カタログアイテムなどを参照できます。
+
 {% alert tip %}
+バナーHTMLの作成にサポートが必要ですか？HTMLエディターで**Ask Operator**を選択し、作成したいバナーを説明してください。[BrazeAI<sup>TM</sup> Operator]({{site.baseurl}}/user_guide/brazeai/operator)がHTMLを生成し、確認してエディターに挿入できます。詳細については、[メッセージを生成する]({{site.baseurl}}/user_guide/brazeai/operator/capabilities#generate-messages)を参照してください。
+{% endalert %}
+
+カスタムHTMLでのクリックおよび非表示のトラッキングには、JavaScriptブリッジメソッドを明示的に呼び出す必要があります。完全なリファレンスについては、[バナーのカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code)を参照してください。
+
+{% endtab %}
+{% endtabs %}
+
+{% alert note %}
 単一のバナーキャンペーン内で異なる言語のユーザーをターゲットにするには、[多言語メッセージ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization/locales_in_messages)を参照してください。
 {% endalert %}
 
 #### ステップ3.2: クリック時の動作を定義する（オプション） {#step-32-define-on-click-behavior-optional}
+
+{% tabs %}
+{% tab ドラッグ＆ドロップエディター %}
 
 ユーザーがバナー内のリンクをクリックした際に、アプリ内のより深い場所に移動させるか、別のWebページにリダイレクトさせるかを選択できます。さらに、[カスタム属性またはイベントを記録する]({{site.baseurl}}/developer_guide/analytics)ことを選択でき、ユーザーがバナーをクリックした際にカスタムデータでユーザーのプロファイルを更新します。より詳細なクリックトラッキングのために、プロパティパネルの**Identifier for Reporting**フィールドを使用して、各インタラクティブ要素にカスタム識別子を割り当てます。
 
@@ -87,7 +107,24 @@ channel:
 {:/}
 {% endalert %}
 
+{% endtab %}
+{% tab HTMLエディター %}
+
+HTMLエディターでは、クリックトラッキングは自動ではありません。トラッキングしたい各クリック可能な要素に対して、HTML内から`brazeBridge.logClick()`を呼び出す必要があります。例：
+
+```html
+<a href="https://example.com" onclick="brazeBridge.logClick()">Shop now</a>
+```
+
+完全なJavaScriptブリッジリファレンスについては、[バナーのカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge)を参照してください。
+
+{% endtab %}
+{% endtabs %}
+
 #### ステップ3.3: 非表示の動作を設定する（オプション） {#dismiss-behavior}
+
+{% tabs %}
+{% tab ドラッグ＆ドロップエディター %}
 
 **Dismiss behavior**セクションの**Banner can be dismissed**チェックボックスを選択すると、ユーザーがバナーを非表示にできるようになります。このオプションは、幅広いオーディエンスに期間限定のオファーを宣伝したいが、興味のないユーザーにはメッセージを非表示にできるようにしたい場合に便利です。
 
@@ -95,12 +132,28 @@ channel:
 
 | 設定 | 説明 |
 |---------|-------------|
-| **ボタンサイズ** | バナーに表示される非表示ボタンのサイズです。 |
-| **ボタンの色** | 非表示ボタンの色です。 |
-| **ARIAラベル** | スクリーンリーダーが使用する非表示ボタンのアクセシブルラベルです。空白の場合、デフォルトで「Close」になります。 |
+| **Button size** | バナーに表示される非表示ボタンのサイズです。 |
+| **Button color** | 非表示ボタンの色です。 |
+| **ARIA label** | スクリーンリーダーが使用する非表示ボタンのアクセシブルラベルです。空白の場合、デフォルトで「Close」になります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="非表示ボタンの設定" }
 
 ユーザーがバナーを非表示にすると、キャンペーンのターゲティング条件に引き続き該当していても、そのユーザーにはバナーが再度表示されません。
+
+{% endtab %}
+{% tab HTMLエディター %}
+
+HTMLエディターでは、非表示はHTML内で`brazeBridge.closeMessage()`を使用して処理されます。`brazeBridge.logClick()`と組み合わせることで、非表示アクションをクリックイベントとしてもトラッキングできます。例：
+
+```html
+<a href="#" onclick="brazeBridge.logClick(); brazeBridge.closeMessage();">&#x2715; Close</a>
+```
+
+この方法でユーザーがバナーを非表示にすると、キャンペーンのターゲティング条件に引き続き該当していても、そのユーザーにはバナーが再度表示されません。
+
+完全なJavaScriptブリッジリファレンスについては、[バナーのカスタムコードとJavaScriptブリッジ]({{site.baseurl}}/user_guide/channels/banners/custom_code#javascript-bridge)を参照してください。
+
+{% endtab %}
+{% endtabs %}
 
 #### ステップ3.4: カスタムプロパティを追加する（オプション） {#custom-properties}
 
@@ -108,9 +161,9 @@ channel:
 
 - サードパーティの分析や統合のためにメタデータを送信する。
 - `timestamp`やJSONオブジェクトなどのメタデータを使用して条件付きロジックをトリガーする。
-- `ratio`や`format`などの含まれるメタデータに基づいてバナーの動作を制御する。
+- `ratio`や`format`などの含まれるメタデータに基づいてバナーの動作をコントロールする。
 
-カスタムプロパティを追加するには、**Settings** > **Properties** > **Add property**を選択します。
+カスタムプロパティはドラッグ＆ドロップエディターとHTMLエディターの両方で同じように機能します。カスタムプロパティを追加するには、**Settings** > **Properties** > **Add property**を選択します。
 
 ![バナーキャンペーンに最初のカスタムプロパティを追加するオプションを表示するプロパティページ。]({% image_buster /assets/img/banners/add_property.png %})
 
@@ -118,9 +171,9 @@ channel:
 
 | フィールド | 説明 | 例 |
 |-------|-------------|---------|
-| プロパティタイプ | プロパティのデータタイプです。サポートされるタイプには、文字列、ブール値、数値、タイムスタンプ、画像URL、JSONオブジェクトがあります。 | 文字列 |
-| プロパティキー | プロパティの一意の識別子です。このキーはSDKでプロパティにアクセスするために使用されます。 | `color` |
-| 値 | プロパティに割り当てられた値です。選択したプロパティタイプと一致する必要があります。 | `#FF0000` |
+| Property type | プロパティのデータタイプです。サポートされるタイプには、文字列、ブール値、数値、タイムスタンプ、画像URL、JSONオブジェクトがあります。 | String |
+| Property key | プロパティの一意の識別子です。このキーはSDKでプロパティにアクセスするために使用されます。 | `color` |
+| Value | プロパティに割り当てられた値です。選択したプロパティタイプと一致する必要があります。 | `#FF0000` |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="カスタムプロパティの追加" }
 
 完了したら、**Done**を選択します。
@@ -146,7 +199,7 @@ channel:
 
 #### 再適格性を設定する（オプション） {#re-eligibility}
 
-デフォルトでは、バナーを非表示にしたユーザーはそのキャンペーンに再適格になることはありません。非表示にしたユーザーにバナーを再度表示させるには、**配信コントロール**ステップに移動し、**Allow users to become re-eligible to receive campaign**を選択します。有効にした場合、分、時間、日、または週単位でクールダウン期間を設定します。
+デフォルトでは、バナーを非表示にしたユーザーはそのキャンペーンに再適格になることはありません。非表示にしたユーザーにバナーを再度表示させるには、**配信コントロール**ステップに移動し、**ユーザーがキャンペーンを再度受信できるようにする**を選択します。有効にした場合、分、時間、日、または週単位でクールダウン期間を設定します。
 
 カウントダウンは、ユーザーがバナーを非表示にした時点から開始されます。期間が経過すると、ユーザーは自動的に再適格になります。キャンペーンの再起動は不要です。再適格性はユーザーごと、キャンペーンごとに追跡されます。
 
@@ -167,9 +220,9 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 
 {% tab キャンバス %}
 
-まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの部分の構築方法、[多変量テスト]({{site.baseurl}}/user_guide/messaging/ab_testing)や[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)の実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの部分の構築方法、[多変量テスト]({{site.baseurl}}/user_guide/messaging/ab_testing)や[インテリジェントセレクション]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection)の実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas)ステップを参照してください。
 
-キャンバスのバナーステップの再適格性を制御するには、キャンバスの再エントリ設定を使用します。詳細については、[キャンペーンとキャンバスの再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)を参照してください。
+キャンバスのバナーステップの再適格性をコントロールするには、キャンバスの再エントリ設定を使用します。詳細については、[キャンペーンとキャンバスの再適格性]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility)を参照してください。
 
 {% endtab %}
 {% endtabs %}

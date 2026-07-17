@@ -164,7 +164,7 @@ El cumplimiento de ATS se aplica a los enlaces abiertos dentro de la aplicación
 Puedes manejar ATS de una de las tres formas siguientes:
 
 #### Confirma que todos los enlaces cumplen con ATS (recomendado) {#confirm-all-links-are-ats-compliant-recommended}
-Tu integración con Braze puede cumplir los requisitos de ATS garantizando que cualquier enlace existente al que dirijas a los usuarios (a través de mensajes dentro de la aplicación y Campaigns push) cumpla los requisitos de ATS. Aunque hay formas de eludir las restricciones de ATS, te recomendamos que compruebes que todas las URL enlazadas cumplen con ATS. Dado el creciente énfasis de Apple en la seguridad de las aplicaciones, no está garantizado que Apple admita los siguientes enfoques para permitir excepciones ATS.
+Tu integración con Braze puede cumplir los requisitos de ATS garantizando que cualquier enlace existente al que dirijas a los usuarios (a través de mensajes dentro de la aplicación y campañas push) cumpla los requisitos de ATS. Aunque hay formas de eludir las restricciones de ATS, te recomendamos que compruebes que todas las URL enlazadas cumplen con ATS. Dado el creciente énfasis de Apple en la seguridad de las aplicaciones, no está garantizado que Apple admita los siguientes enfoques para permitir excepciones ATS.
 
 Una herramienta SSL puede ayudarte a detectar problemas de seguridad del servidor web. Esta [prueba de servidor SSL](https://www.ssllabs.com/ssltest/index.html) de Qualys, Inc. proporciona una línea específica para el cumplimiento de Apple ATS 9 e iOS 9.
 

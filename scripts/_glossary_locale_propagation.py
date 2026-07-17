@@ -12,11 +12,17 @@ set of partner/UI literals (e.g. Segment.com).
 
 from __future__ import annotations
 
+import json
 import re
 from pathlib import Path
 from typing import Iterable
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
+SCRIPTS_DIR = Path(__file__).resolve().parent
+PROPAGATION_EXCLUSIONS_PATH = (
+    SCRIPTS_DIR / "phrase_glossary_locale_propagation_exclusions.json"
+)
+HEADING_ANCHOR_RE = re.compile(r"\{#[^}]+\}")
 
 # Glossary JSON keys (``scripts/glossaries/{lang}.json``) → ``_lang/`` folders.
 LANG_GLOSSARY_TO_DIR = {
@@ -202,7 +208,14 @@ def _replace_in_line(line: str, search: str, replace: str, lang: str) -> tuple[s
         absolute_url_placeholders.append(match.group(0))
         return f"__ABS_URL_{len(absolute_url_placeholders) - 1}__"
 
-    masked = IMAGE_BUSTER_RE.sub(_mask_image_buster, line)
+    anchor_placeholders: list[str] = []
+
+    def _mask_heading_anchor(match: re.Match[str]) -> str:
+        anchor_placeholders.append(match.group(0))
+        return f"__HEADING_ANCHOR_{len(anchor_placeholders) - 1}__"
+
+    masked = HEADING_ANCHOR_RE.sub(_mask_heading_anchor, line)
+    masked = IMAGE_BUSTER_RE.sub(_mask_image_buster, masked)
     masked = LINK_URL_RE.sub(_mask_link_url, masked)
     masked = ABSOLUTE_URL_RE.sub(_mask_absolute_url, masked)
     pattern = _term_pattern(search)
@@ -214,6 +227,8 @@ def _replace_in_line(line: str, search: str, replace: str, lang: str) -> tuple[s
         new_line = new_line.replace(f"](__LINK_URL_{i}__)", f"]({url})")
     for i, url in enumerate(absolute_url_placeholders):
         new_line = new_line.replace(f"__ABS_URL_{i}__", url)
+    for i, anchor in enumerate(anchor_placeholders):
+        new_line = new_line.replace(f"__HEADING_ANCHOR_{i}__", anchor)
     for i, blob in enumerate(placeholders):
         new_line = new_line.replace(f"__IMAGE_BUSTER_{i}__", blob)
     return new_line, count
@@ -252,6 +267,211 @@ def replace_in_markdown(text: str, search: str, replace: str, lang: str) -> tupl
             lines.append(new_line)
         out_parts.append("".join(lines))
     return "".join(out_parts), total
+
+
+def replace_outside_fences(text: str, search: str, replace: str) -> tuple[str, int]:
+    """Replace ``search`` with ``replace`` only outside markdown code fences."""
+    if not search or search == replace or search not in text:
+        return text, 0
+
+    out_parts: list[str] = []
+    total = 0
+    for part, in_fence in _split_fences(text):
+        if in_fence:
+            out_parts.append(part)
+            continue
+        count = part.count(search)
+        if count:
+            out_parts.append(part.replace(search, replace))
+            total += count
+        else:
+            out_parts.append(part)
+    return "".join(out_parts), total
+
+
+def load_propagation_exclusions(
+    path: Path | None = None,
+) -> dict[str, list[str]]:
+    """Load per-locale and global English keys to skip during propagation."""
+    exclusions_path = path or PROPAGATION_EXCLUSIONS_PATH
+    if not exclusions_path.is_file():
+        return {"global": []}
+    data = json.loads(exclusions_path.read_text(encoding="utf-8"))
+    return {
+        "global": [term.casefold() for term in data.get("global", [])],
+        **{
+            locale: [term.casefold() for term in terms]
+            for locale, terms in data.items()
+            if locale not in {"_comment", "global"}
+        },
+    }
+
+
+def is_propagation_excluded(
+    lang: str,
+    term: str,
+    exclusions: dict[str, list[str]] | None = None,
+) -> bool:
+    exclusions = exclusions or load_propagation_exclusions()
+    key = term.casefold()
+    if key in exclusions.get("global", []):
+        return True
+    return key in exclusions.get(lang, [])
+
+
+def build_locale_changes_from_glossary_diff(
+    lang: str,
+    old: dict[str, str],
+    new: dict[str, str],
+    exclusions: dict[str, list[str]] | None = None,
+) -> list[dict]:
+    """Build ``locale_changes`` entries from one locale's glossary diff."""
+    exclusions = exclusions or load_propagation_exclusions()
+    changes: list[dict] = []
+    old_keys = set(old)
+    new_keys = set(new)
+
+    for term in sorted(new_keys - old_keys, key=str.casefold):
+        if is_propagation_excluded(lang, term, exclusions):
+            continue
+        replace = new[term]
+        if not replace or term == replace:
+            continue
+        changes.append(
+            {
+                "lang": lang,
+                "term": term,
+                "kind": "added",
+                "search": term,
+                "replace": replace,
+            }
+        )
+
+    for term in sorted(old_keys & new_keys, key=str.casefold):
+        old_val = old[term]
+        new_val = new[term]
+        if old_val == new_val or is_propagation_excluded(lang, term, exclusions):
+            continue
+        if old_val and old_val != new_val:
+            changes.append(
+                {
+                    "lang": lang,
+                    "term": term,
+                    "kind": "updated",
+                    "search": old_val,
+                    "replace": new_val,
+                }
+            )
+        if (
+            _is_ascii_term(term)
+            and term != new_val
+            and old_val.casefold() != term.casefold()
+        ):
+            changes.append(
+                {
+                    "lang": lang,
+                    "term": term,
+                    "kind": "updated",
+                    "search": term,
+                    "replace": new_val,
+                }
+            )
+
+    return changes
+
+
+def build_locale_changes_from_sync_results(
+    results: dict[str, dict],
+    exclusions: dict[str, list[str]] | None = None,
+) -> list[dict]:
+    """Build propagation changes from ``sync_glossaries_from_phrase`` results."""
+    changes: list[dict] = []
+    for locale, row in sorted(results.items()):
+        old = row.get("old_glossary") or {}
+        new = row.get("glossary") or {}
+        changes.extend(
+            build_locale_changes_from_glossary_diff(locale, old, new, exclusions)
+        )
+    return changes
+
+
+def apply_ja_glossary_removal_repairs(
+    repo_root: Path | None = None,
+    *,
+    dry_run: bool = False,
+) -> dict:
+    """Repair leaked English campaign-composer UI labels in Japanese docs."""
+    repo_root = repo_root or REPO_ROOT
+    from auto_translate import repair_ja_campaign_composer_ui  # noqa: WPS433
+
+    locale_root = repo_root / "_lang" / "ja"
+    if not locale_root.is_dir():
+        return {"files_changed": 0, "repairs": 0, "details": []}
+
+    file_totals: dict[Path, int] = {}
+    for md_path in sorted(locale_root.rglob("*.md")):
+        original = md_path.read_text(encoding="utf-8")
+        repaired, repair_notes = repair_ja_campaign_composer_ui(
+            str(md_path), original, "ja"
+        )
+        if repair_notes and repaired != original:
+            file_totals[md_path] = len(repair_notes)
+            if not dry_run:
+                md_path.write_text(repaired, encoding="utf-8")
+
+    details = [
+        {
+            "file": str(path.relative_to(repo_root)),
+            "repairs": count,
+        }
+        for path, count in sorted(file_totals.items(), key=lambda x: (-x[1], str(x[0])))
+    ]
+    return {
+        "files_changed": len(file_totals),
+        "repairs": sum(file_totals.values()),
+        "details": details,
+    }
+
+
+def propagate_phrase_sync_to_locales(
+    results: dict[str, dict],
+    *,
+    repo_root: Path | None = None,
+    dry_run: bool = False,
+) -> dict:
+    """Propagate Phrase glossary sync diffs into ``_lang/`` markdown."""
+    repo_root = repo_root or REPO_ROOT
+    changes = build_locale_changes_from_sync_results(results)
+    propagation = propagate_glossary_changes(
+        changes,
+        repo_root=repo_root,
+        dry_run=dry_run,
+    )
+
+    ja_removed = any(
+        row.get("diff", {}).get("removed", 0) > 0
+        for locale, row in results.items()
+        if locale == "ja"
+    )
+    ja_repairs = (
+        apply_ja_glossary_removal_repairs(repo_root, dry_run=dry_run)
+        if ja_removed
+        else {"files_changed": 0, "repairs": 0, "details": []}
+    )
+
+    changed_files = {
+        row["file"] for row in propagation.get("details", [])
+    } | {
+        row["file"] for row in ja_repairs.get("details", [])
+    }
+
+    return {
+        "changes_planned": len(_normalize_changes(changes)),
+        "propagation": propagation,
+        "ja_repairs": ja_repairs,
+        "locale_files_changed": len(changed_files),
+        "locale_replacements": propagation["replacements"] + ja_repairs["repairs"],
+    }
 
 
 def _normalize_changes(changes: Iterable[dict]) -> list[dict]:

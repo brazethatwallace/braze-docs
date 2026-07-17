@@ -2,6 +2,8 @@ Le raccourcissement de liens et le suivi des clics vous permettent de raccourcir
 
 Le raccourcissement de liens et le suivi des clics peuvent être activés au [niveau de la variante du message]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) dans les Campaigns comme dans les Canvas.
 
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
+
 La longueur de l'URL dépend du type de suivi activé :
 - **Le suivi basique** permet le suivi des clics au niveau de la campagne. Les URL statiques auront une longueur de 20 caractères, et les URL personnalisées auront une longueur de 25 caractères.
 - **Le suivi avancé** permet le suivi des clics au niveau de la campagne et de l'utilisateur, et active les fonctionnalités de segmentation et de reciblage basées sur les clics. Les clics génèrent également un [événement de clic SMS]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) envoyé via Currents. Les URL statiques avec suivi avancé auront une longueur de 27 à 28 caractères, vous permettant de créer des segments d'utilisateurs ayant cliqué sur des URL. Les URL personnalisées auront une longueur de 32 à 33 caractères.
@@ -46,7 +48,7 @@ https://example.com/?campaign_utm={{campaign.${api_id}}}&user_attribute={{custom
 ```
 {% endraw %}
 
-Nous prenons également en charge le raccourcissement de variables Liquid personnalisées. Voici quelques exemples :
+Nous prenons également en charge le raccourcissement de variables Liquid personnalisées, comme dans les exemples suivants :
 
 ### Créer une URL à l'aide de variables Liquid {#create-a-url-using-liquid-variables}
 
@@ -69,21 +71,21 @@ Le raccourcissement de liens est également activé pour les messages API unique
 
 | Paramètre | Requis | Type de données | Description |
 | --------- | ---------| --------- | ----------- |
-| `link_shortening_enabled` | Facultatif | Valeur booléenne | Définissez `link_shortening_enabled` sur `true` pour activer le raccourcissement de liens et le suivi des clics au niveau de la campagne. Pour utiliser le suivi, un `campaign_id` et un `message_variation_id` doivent être présents. |
-| `user_click_tracking_enabled` | Facultatif | Valeur booléenne | Définissez `user_click_tracking_enabled` sur `true` pour activer le raccourcissement de liens, ainsi que le suivi des clics au niveau de la campagne et de l'utilisateur. Vous pouvez utiliser les données suivies pour créer des segments d'utilisateurs ayant cliqué sur des URL.<br><br> Pour utiliser ce paramètre, `link_shortening_enabled` doit être défini sur `true`, et un `campaign_id` et un `message_variation_id` doivent être présents. |
+| `link_shortening_enabled` | Facultatif | Booléen | Définissez `link_shortening_enabled` sur `true` pour activer le raccourcissement de liens et le suivi des clics au niveau de la campagne. Pour utiliser le suivi, un `campaign_id` et un `message_variation_id` doivent être présents. |
+| `user_click_tracking_enabled` | Facultatif | Booléen | Définissez `user_click_tracking_enabled` sur `true` pour activer le raccourcissement de liens, ainsi que le suivi des clics au niveau de la campagne et de l'utilisateur. Vous pouvez utiliser les données suivies pour créer des segments d'utilisateurs ayant cliqué sur des URL.<br><br> Pour utiliser ce paramètre, `link_shortening_enabled` doit être défini sur `true`, et un `campaign_id` et un `message_variation_id` doivent être présents. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Raccourcir les URL dans l'endpoint /messages/send" }
 
 Pour une liste complète des paramètres de requête, consultez les [paramètres de requête]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
 ## Tests {#testing}
 
-Avant de lancer votre campagne ou Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un message SMS ou RCS à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou à un utilisateur individuel.
+Avant de lancer votre Campaign ou Canvas, il est recommandé de prévisualiser et de tester votre message au préalable. Pour ce faire, accédez à l'onglet **Test** pour prévisualiser et envoyer un message SMS ou RCS à des [groupes de test de contenu]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) ou à un utilisateur individuel.
 
 Cet aperçu se met à jour avec la personnalisation pertinente et l'URL raccourcie. Le nombre de caractères et les [segments facturables]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) sont également mis à jour pour refléter la personnalisation rendue et l'URL raccourcie.
 
-Assurez-vous d'enregistrer la campagne ou le Canvas avant d'envoyer un message test afin d'obtenir une représentation de l'URL raccourcie telle qu'elle sera envoyée dans votre message. Si la campagne ou le Canvas n'est pas enregistré avant l'envoi test, celui-ci contiendra une URL de marque substitutive.
+Assurez-vous d'enregistrer la Campaign ou le Canvas avant d'envoyer un message test afin d'obtenir une représentation de l'URL raccourcie telle qu'elle sera envoyée dans votre message. Si la Campaign ou le Canvas n'est pas enregistré avant l'envoi test, celui-ci contiendra une URL de marque substitutive.
 
-Pour que les Canvas apparaissent dans le filtre « A cliqué sur un lien SMS raccourci », l'étape du Canvas contenant le lien court doit également être activée avec le suivi avancé, qui permet le suivi des clics au niveau de l'utilisateur. Si le lien court est configuré avec le suivi basique, l'option de filtrage des événements de clic sur les liens courts SMS n'est pas disponible. La même exigence de suivi avancé s'applique lorsque vous configurez des entrées Canvas ou des parcours d'actions qui dépendent de liens SMS raccourcis cliqués.
+Pour que les Canvas apparaissent dans le filtre « A cliqué sur un lien SMS raccourci », l'étape du Canvas contenant le lien court doit également être activée avec le suivi avancé, qui permet le suivi des clics au niveau de l'utilisateur. Si le lien court est configuré avec le suivi basique, l'option de filtrage des événements de clic sur les liens courts SMS n'est pas disponible. La même exigence de suivi avancé s'applique lorsque vous configurez des entrées Canvas ou des parcours d'action qui dépendent de liens SMS raccourcis cliqués.
 
 {% alert important %}
 Si un brouillon est créé au sein d'un Canvas actif, aucune URL raccourcie ne sera générée. L'URL raccourcie réelle est générée lorsque le brouillon du Canvas est activé.
@@ -115,9 +117,9 @@ Pour des conseils sur le reciblage, consultez [Reciblage]({{site.baseurl}}/user_
 
 Oui. Lorsque le **suivi avancé** est activé, vous pouvez recibler les utilisateurs ayant cliqué sur des URL en utilisant les [filtres de reciblage SMS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/user_retargeting) ou les événements de clic SMS (`users.messages.sms.ShortLinkClick`) envoyés par Currents.
 
-### Le raccourcissement de liens fonctionne-t-il avec les liens profonds ou les liens universels ? {#does-link-shortening-work-with-deep-links-or-universal-links}
+### Le raccourcissement de liens fonctionne-t-il avec les deep links ou les liens universels ? {#does-link-shortening-work-with-deep-links-or-universal-links}
 
-Le raccourcissement de liens ne fonctionne pas avec les liens profonds. En revanche, vous pouvez raccourcir les liens universels provenant de fournisseurs tiers tels que Branch ou Appsflyer, mais les utilisateurs peuvent rencontrer une brève redirection ou un effet de « scintillement ». Cela se produit parce que le lien raccourci passe d'abord par le web avant de résoudre vers le lien universel qui prend en charge l'ouverture de l'application. De plus, Braze n'est pas en mesure de résoudre les problèmes pouvant survenir lors du raccourcissement de liens universels, tels que la rupture de l'attribution ou des redirections inattendues.
+Le raccourcissement de liens ne fonctionne pas avec les deep links. En revanche, vous pouvez raccourcir les liens universels provenant de fournisseurs tiers tels que Branch ou Appsflyer, mais les utilisateurs peuvent rencontrer une brève redirection ou un effet de « scintillement ». Cela se produit parce que le lien raccourci passe d'abord par le web avant de résoudre vers le lien universel qui prend en charge l'ouverture de l'application. De plus, Braze n'est pas en mesure de résoudre les problèmes pouvant survenir lors du raccourcissement de liens universels, tels que la rupture de l'attribution ou des redirections inattendues.
 
 {% alert note %}
 Testez l'expérience utilisateur avant d'implémenter le raccourcissement de liens avec des liens universels pour vous assurer qu'il répond à vos attentes.
@@ -125,7 +127,7 @@ Testez l'expérience utilisateur avant d'implémenter le raccourcissement de lie
 
 ### Les `send_ids` sont-ils associés aux événements de clic SMS ? {#are-send_ids-associated-with-sms-click-events}
 
-Non. Cependant, si le suivi avancé est activé, vous pouvez généralement attribuer les `send_ids` aux événements de clic en utilisant le [Générateur de requêtes]({{site.baseurl}}/query_builder) pour interroger les données Currents avec cette requête :
+Non. Cependant, si le suivi avancé est activé, vous pouvez généralement attribuer les `send_ids` aux événements de clic en utilisant le [générateur de requêtes]({{site.baseurl}}/query_builder) pour interroger les données Currents avec cette requête :
 
 ```sql
 SELECT c.*, s.send_id

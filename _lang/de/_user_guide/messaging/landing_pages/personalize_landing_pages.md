@@ -15,7 +15,7 @@ Liquid-Personalisierung für Landing-Pages ist nur im Pro-Tier der Landing-Pages
 
 ## Liquid einfügen {#inserting-liquid}
 
-Im Drag-and-Drop-Editor können Sie Liquid-Personalisierung sowohl im Editor als auch in den Seiten- oder Block-Einstellungen im rechten Panel einfügen. Anleitungen zur Implementierung von Liquid finden Sie in unserer speziellen [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#using-liquid).
+Im Drag-and-Drop-Editor können Sie Liquid-Personalisierung sowohl im Editor als auch in den Seiten- oder Block-Einstellungen im rechten Panel einfügen. Anleitungen zur Implementierung von Liquid finden Sie in unserer speziellen [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 
 ![Landing-Page-Editor mit hinzugefügter Liquid-Personalisierung.]({% image_buster /assets/img/landing_pages/lp_liquid_.png %})
 

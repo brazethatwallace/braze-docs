@@ -2,13 +2,13 @@
 
 ## Configurando o delegado da UI (obrigatório) {#setting-up-the-ui-delegate-required}
 
-Para personalizar a apresentação das mensagens no app e reagir a vários eventos do ciclo de vida, você precisará configurar [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate). Este é um protocolo de delegado usado para receber e processar cargas úteis de mensagens no app acionadas, receber eventos do ciclo de vida de exibição e controlar o tempo de exibição. Para usar `BrazeInAppMessageUIDelegate`, você deve:
+Para personalizar a apresentação das mensagens no app e reagir a vários eventos do ciclo de vida, você precisará configurar [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate). Este é um protocolo de delegado usado para receber e processar cargas úteis de mensagens no app disparadas, receber eventos do ciclo de vida de exibição e controlar o tempo de exibição. Para usar `BrazeInAppMessageUIDelegate`, você deve:
 - Usar a implementação padrão de [`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui) como seu `inAppMessagePresenter`.
 - Incluir a biblioteca `BrazeUI` em seu projeto.
 
 ### Etapa 1: Implementar o protocolo `BrazeInAppMessageUIDelegate` {#step-1-implement-the-brazeinappmessageuidelegate-protocol}
 
-Primeiro, implemente o protocolo `BrazeInAppMessageUIDelegate` e os métodos correspondentes que desejar. No exemplo abaixo, estamos implementando esse protocolo na classe `AppDelegate` do nosso aplicativo.
+Primeiro, implemente o protocolo `BrazeInAppMessageUIDelegate` e os métodos correspondentes que desejar. No exemplo a seguir, esse protocolo é implementado na classe `AppDelegate` do aplicativo.
 
 {% tabs %}
 {% tab swift %}
@@ -106,7 +106,7 @@ O método `inAppMessage(_:prepareWith:)` não está disponível em Objective-C.
 
 ### Tratando o comportamento personalizado {#handling-the-custom-behavior}
 
-O seguinte método delegado [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate) é chamado quando um usuário clica em uma mensagem no app. Esse retorno de chamada é acionado para cliques iniciados pelo usuário em botões de mensagens no app e botões HTML de mensagens no app (links), e um ID de botão é fornecido como parâmetro opcional para essas interações. Esse retorno de chamada não é invocado para cliques programáticos acionados por meio de `brazeBridge.logClick()`.
+O seguinte método delegado [`BrazeInAppMessageUIDelegate`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageuidelegate) é chamado quando um usuário clica em uma mensagem no app. Esse retorno de chamada é disparado para cliques iniciados pelo usuário em botões de mensagens no app e botões HTML de mensagens no app (links), e um ID de botão é fornecido como parâmetro opcional para essas interações. Esse retorno de chamada não é invocado para cliques programáticos disparados por meio de `brazeBridge.logClick()`.
 
 {% tabs %}
 {% tab swift %}
@@ -211,7 +211,7 @@ Por padrão, mensagens slideup no app podem ser dispensadas com um gesto de desl
 Esse comportamento de deslizar está embutido no `BrazeInAppMessageUI` padrão [`SlideupView`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview) e se aplica apenas às mensagens no app do tipo slideup. Mensagens no app modais e de tela cheia não suportam deslizar para descartar. Para personalizar ainda mais a visualização slideup, incluindo o comportamento de deslizar, você pode modificar o [`SlideupView.Attributes`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/slideupview/attributes-swift.struct) ou fornecer uma visualização personalizada por meio de subclasse.
 
 {% alert note %}
-Tocar fora de uma mensagem slideup não a descarta. Para mensagens no app modais ou de tela cheia, você pode ativar o descarte ao tocar fora usando o atributo `dismissOnBackgroundTap` descrito abaixo.
+Tocar fora de uma mensagem slideup não a descarta. Para mensagens no app modais ou de tela cheia, você pode ativar o descarte ao tocar fora usando o atributo `dismissOnBackgroundTap` descrito na seção a seguir.
 {% endalert %}
 
 ## Personalizando descartes modais {#customizing-modal-dismissals}
@@ -484,15 +484,15 @@ func inAppMessage(
 
 ## Personalizando o prompt de avaliação da App Store {#customizing-the-app-store-review-prompt}
 
-Você pode usar mensagens no app em uma campanha para pedir aos usuários uma avaliação na App Store.
+Você pode usar mensagens no app em uma Campaign para pedir aos usuários uma avaliação na App Store.
 
 {% alert note %}
-Como este exemplo de prompt substitui o comportamento padrão da Braze, não podemos rastrear impressões automaticamente se ele for implementado. Você deve [registrar sua própria análise de dados]({{site.baseurl}}/developer_guide/analytics/).
+Como este exemplo de prompt substitui o comportamento padrão da Braze, não podemos rastrear impressões automaticamente se ele for implementado. Você deve [registrar sua própria análise de dados]({{site.baseurl}}/developer_guide/analytics).
 {% endalert %}
 
 ### Etapa 1: Definir o delegado de mensagem no app {#step-1-set-the-in-app-message-delegate}
 
-Primeiro, defina o [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization/#swift_setting-up-the-ui-delegate-required) em seu app.
+Primeiro, defina o [`BrazeInAppMessageUIDelegate`]({{site.baseurl}}/developer_guide/in_app_messages/customization#swift_setting-up-the-ui-delegate-required) em seu app.
 
 ### Etapa 2: Desativar a mensagem padrão de avaliação da App Store {#step-2-disable-the-default-app-store-review-message}
 
@@ -578,5 +578,5 @@ Em seguida, crie uma campanha de mensagens no app com o seguinte:
 {% endraw %}
 
 {% alert tip %}
-A Apple limita os prompts de avaliação da App Store a um máximo de três vezes por ano para cada usuário, portanto, sua campanha deve ter [limite de frequência]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting/) de três vezes por ano por usuário.<br><br>Os usuários podem desativar os prompts de avaliação da App Store. Como resultado, seu prompt de avaliação personalizado não deve prometer que um prompt de avaliação nativo da App Store aparecerá ou solicitar diretamente uma avaliação.
+A Apple limita os prompts de avaliação da App Store a um máximo de três vezes por ano para cada usuário, portanto, sua Campaign deve ter [limite de frequência]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/rate-limiting) de três vezes por ano por usuário.<br><br>Os usuários podem desativar os prompts de avaliação da App Store. Como resultado, seu prompt de avaliação personalizado não deve prometer que um prompt de avaliação nativo da App Store aparecerá ou solicitar diretamente uma avaliação.
 {% endalert %}

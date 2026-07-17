@@ -7,20 +7,20 @@ page_type: partner
 search_tag: Partner
 ---
 
-# Retención de datos de Snowflake
+# Retención de datos de Snowflake {#snowflake-data-retention}
 
-> Braze anonimiza (elimina la información de identificación personal, o PII) de la mayoría de los datos de eventos almacenados en Snowflake que tienen más de dos años. Ciertos eventos se conservan hasta que se elimina un usuario, como se indica más adelante en esta página. Si utilizas el uso compartido de datos de Snowflake, puedes optar por conservar los datos completos de los eventos en tu entorno almacenando una copia en tu cuenta de Snowflake antes de que se aplique la política de retención.
+> Braze anonimiza (elimina la información de identificación personal, o PII) la mayoría de los datos de eventos almacenados en Snowflake que tienen más de dos años de antigüedad. Ciertos eventos se conservan hasta que se elimina un usuario, como se indica más adelante en esta página. Si utilizas el uso compartido de datos de Snowflake, puedes optar por conservar los datos completos de los eventos en tu entorno almacenando una copia en tu cuenta de Snowflake antes de que se aplique la política de retención.
 
-Esta página presenta dos formas de conservar los datos no anonimizados: 
+Esta página presenta dos formas de conservar los datos no anonimizados:
 
 - Copiar tus datos a otra base de datos de Snowflake
 - Descargar tus datos a un stage
 
 {% alert warning %}
-Braze anonimiza automáticamente los datos de eventos de los usuarios que se eliminan de Braze, tal y como se describe en [Asistencia técnica de protección de datos]({{site.baseurl}}/dp-technical-assistance/). Los datos copiados fuera de la base de datos compartida no se incluirán en este proceso, puesto que Braze ya no los administra. 
+Braze anonimiza automáticamente los datos de eventos de los usuarios que se eliminan de Braze, tal y como se describe en [Asistencia técnica de protección de datos]({{site.baseurl}}/dp-technical-assistance). Los datos copiados fuera de la base de datos compartida no se incluirán en este proceso, puesto que Braze ya no los administra.
 {% endalert %}
 
-## Eventos exentos de la política de retención de dos años
+## Eventos exentos de la política de retención de dos años {#events-exempted-from-the-two-year-retention-policy}
 Braze conserva los eventos relacionados con el ciclo de vida del usuario, el estado de la suscripción y la mensajería de entrada hasta que se elimina un usuario. Los siguientes eventos están exentos de la política estándar de retención de dos años:
 - `users.UserOrphan`
 - `users.UserDeleteRequest`
@@ -29,11 +29,11 @@ Braze conserva los eventos relacionados con el ciclo de vida del usuario, el est
 - `users.messages.sms.InboundReceive`
 - `users.messages.whatsapp.InboundReceive`
 
-## Copiar todos los datos a otra base de datos de Snowflake
+## Copiar todos los datos a otra base de datos de Snowflake {#copying-all-data-to-another-snowflake-database}
 
 Puedes conservar los datos no anonimizados copiando tus datos del esquema compartido `BRAZE_RAW_EVENTS` a otra base de datos y esquema en Snowflake. Para ello, sigue estos pasos:
 
-1. En tu cuenta de Snowflake, crea el procedimiento `COPY_BRAZE_SHARE`, que se utilizará para copiar todos los datos compartidos por Braze a otra base de datos y esquema dentro de Snowflake. 
+1. En tu cuenta de Snowflake, crea el procedimiento `COPY_BRAZE_SHARE`, que se utilizará para copiar todos los datos compartidos por Braze a otra base de datos y esquema dentro de Snowflake.
 
 {% raw %}
 ```sql
@@ -57,16 +57,16 @@ from snowflake.snowpark.exceptions import SnowparkSQLException
 
 def run(session: snowpark.Session, SOURCE_DATABASE: str, SOURCE_SCHEMA: str, DESTINATION_DATABASE: str, DESTINATION_SCHEMA: str, MAX_DATE: str, TABLE_NAME_FILTER: str):
     result = []
-    
+
     -- Get the list of filtered table names
     table_query = f"""
-        SELECT table_name 
+        SELECT table_name
         FROM {SOURCE_DATABASE}.INFORMATION_SCHEMA.TABLES
         WHERE TABLE_SCHEMA = '{SOURCE_SCHEMA}' AND table_name LIKE '{TABLE_NAME_FILTER}'
     """
-    
+
     tables = session.sql(table_query).collect()
-    
+
     -- Iterate through each table and copy data
     for row in tables:
         table_name = row['TABLE_NAME']
@@ -86,16 +86,16 @@ def run(session: snowpark.Session, SOURCE_DATABASE: str, SOURCE_SCHEMA: str, DES
         if table_exists:
             -- Find the current, most recent `SF_CREATED_AT` in the existing table
             cur_max_date = None
-            
+
             date_query = f"""
                 SELECT MAX(SF_CREATED_AT) as CUR_MAX_DATE
                 FROM {DESTINATION_DATABASE}.{DESTINATION_SCHEMA}.{table_name}
             """
             date_result = session.sql(date_query).collect()
-            
+
             if date_result:
                 cur_max_date = date_result[0]['CUR_MAX_DATE']
-                
+
             if cur_max_date:
                 -- If the destination table is not empty, only add data that is newer than `cur_max_date` and older than`MAX_DATE`
                 copy_query = f"""
@@ -118,13 +118,13 @@ def run(session: snowpark.Session, SOURCE_DATABASE: str, SOURCE_SCHEMA: str, DES
                 SELECT * FROM {SOURCE_DATABASE}.{SOURCE_SCHEMA}.{table_name}
                 WHERE SF_CREATED_AT <= '{MAX_DATE}'
             """
-        
+
         try:
             session.sql(copy_query).collect()
             result.append([table_name, True, ""])
         except SnowparkSQLException as e:
             result.append([table_name, False, str(e)])
-    
+
     -- Return the results
     return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
 $$;
@@ -137,11 +137,11 @@ $$;
 {% tabs %}
 {% tab Predeterminado %}
 
-Por defecto, el procedimiento hará una copia de seguridad de los datos de más de dos años para todos los tipos de eventos `USERS_*`. 
+De forma predeterminada, el procedimiento hará una copia de seguridad de los datos de más de dos años para todos los tipos de eventos `USERS_*`.
 
 {% raw %}
 ```sql
--- Copy all the rows that are two years or older in all the 'USERS_*' tables 
+-- Copy all the rows that are two years or older in all the 'USERS_*' tables
 -- from 'SOURCE_DB'.'SOURCE_SCHEMA' to 'DEST_DB'.'DEST_SCHEMA'
 
 CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA')
@@ -150,7 +150,7 @@ CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA')
 {% endtab %}
 {% tab Filtrado %}
 
-Especifica un filtro para elegir la antigüedad de los datos de los que hacer copia de seguridad, y especifica un filtro de nombre de tabla para hacer copia de seguridad solo de las tablas de eventos seleccionadas. 
+Especifica un filtro para elegir la antigüedad de los datos de los que hacer copia de seguridad, y especifica un filtro de nombre de tabla para hacer copia de seguridad solo de las tablas de eventos seleccionadas.
 
 {% raw %}
 ```sql
@@ -167,7 +167,7 @@ CALL COPY_BRAZE_SHARE('SOURCE_DB', 'SOURCE_SCHEMA', 'DEST_DB', 'DEST_SCHEMA', DA
 Ejecutar repetidamente el procedimiento solo hace copia de seguridad de las filas con `SF_CREATED_AT` mayor que el máximo ya existente en tu tabla, lo que evita copiar filas de las que ya se ha hecho copia de seguridad.
 {% endalert %}
 
-## Descargar datos a un stage
+## Descargar datos a un stage {#unloading-data-to-stage}
 
 Puedes conservar los datos no anonimizados descargando los datos del esquema compartido `BRAZE_RAW_EVENTS` a un stage. Para ello, sigue estos pasos:
 
@@ -199,25 +199,25 @@ def run(session: snowpark.Session, DATABASE_NAME: str, SCHEMA_NAME: str, STAGE_N
     if MIN_DATE >= MAX_DATE:
         result.append(["MIN_DATE cannot be more recent than MAX_DATE", False, ""])
         return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
-        
+
     -- Get list of tables
     table_query = f"""
-    SELECT TABLE_NAME 
-    FROM {DATABASE_NAME}.INFORMATION_SCHEMA.TABLES 
+    SELECT TABLE_NAME
+    FROM {DATABASE_NAME}.INFORMATION_SCHEMA.TABLES
     WHERE TABLE_SCHEMA = '{SCHEMA_NAME}' AND TABLE_NAME LIKE '{TABLE_NAME_FILTER}'
     """
     tables = session.sql(table_query).collect()
-    
+
     for table in tables:
         table_name = table['TABLE_NAME']
 
 	 -- Skip archive tables
         if table_name.endswith('_ARCHIVED'):
             continue
-        
+
         -- Create CSV file name
         csv_file_name = f"{table_name}_{MIN_DATE}_{MAX_DATE}.csv"
-        
+
         -- Construct `COPY INTO` command with date filter
         copy_cmd = f"""
         COPY INTO @{STAGE_NAME}/{csv_file_name}
@@ -230,33 +230,33 @@ def run(session: snowpark.Session, DATABASE_NAME: str, SCHEMA_NAME: str, STAGE_N
         HEADER = TRUE
         OVERWRITE = FALSE
         """
-        
+
         -- Execute COPY INTO command
         try:
             session.sql(copy_cmd).collect()
             result.append([table_name, True, csv_file_name])
         except SnowparkSQLException as e:
             result.append([table_name, False, str(e)])
-    
+
     return session.create_dataframe(result, schema=['TABLE_NAME', 'SUCCESS', 'INFO'])
 $$;
 ```
 {% endraw %}
 
 {: start="2"}
-2. Ejecuta uno de los siguientes comandos para ejecutar el procedimiento. 
+2. Ejecuta uno de los siguientes comandos para ejecutar el procedimiento.
 
 {% tabs %}
 {% tab Predeterminado %}
 
-Por defecto, el procedimiento copiará todas las tablas con el prefijo `USERS_`.
+De forma predeterminada, el procedimiento copiará todas las tablas con el prefijo `USERS_`.
 
 {% raw %}
 ```sql
 -- Create a Snowflake stage to store the file
 create stage MY_EXPORT_STAGE;
 
--- Call the procedure 
+-- Call the procedure
 -- to unload date between '2020-01-01' and '2021-01-01'
 -- from tables with 'USERS_' prefix in 'DATABASE_NAME'.'SCHEMA'
 CALL UNLOAD_BRAZE_SHARE('DATABASE_NAME', 'SCHEMA', 'MY_EXPORT_STAGE', '2020-01-01', 2021-01-01');
@@ -279,7 +279,7 @@ create stage MY_EXPORT_STAGE;
 -- from tables with 'USERS_BEHAVIORS_' prefix in 'DATABASE_NAME'.'SCHEMA'
 CALL EXPORT_BRAZE_SHARE_TO_STAGE('DATABASE_NAME', 'SCHEMA', 'MY_EXPORT_STAGE', '2020-01-01', 2021-01-01', 'USERS_BEHAVIORS_%');
 
--- List the files that are unloaded 
+-- List the files that are unloaded
 LIST @MY_EXPORT_STAGE;
 ```
 {% endraw %}

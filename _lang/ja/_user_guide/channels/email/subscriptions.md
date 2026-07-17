@@ -36,7 +36,7 @@ Brazeは、[カスタムフッター]({{site.baseurl}}/user_guide/channels/email
 ユーザーがメールの1つ以上をスパムとしてマークした場合、Brazeはそのユーザーにトランザクションメールのみを送信します。トランザクションメールとは、**ターゲットオーディエンス**の**配信停止ユーザーを含むすべてのユーザーに送信**オプションを指します。
 
 {% alert tip %}
-ユーザーを効果的に再エンゲージする方法については、[IPウォーミング]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)のベストプラクティスを参照してください。
+ユーザーを効果的に再エンゲージする方法については、[IPウォームアップ]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)のベストプラクティスを参照してください。
 {% endalert %}
 
 ### バウンスと無効なメール {#bounces-and-invalid-emails}
@@ -55,11 +55,11 @@ Braze SDKを使用して、ユーザーのサブスクリプション状態を�
 
 #### REST API
 
-[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、ユーザーの[`email_subscribe` 属性]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)を更新します。たとえば、ユーザーがカスタム配信停止リンクを使用した際にメールのサブスクリプション状態を配信停止に設定するには、リクエストのユーザー属性に `email_subscribe: "unsubscribed"` を含めます。
+[`/users/track` エンドポイント]({{site.baseurl}}/api/endpoints/user_data/post_user_track)を使用して、ユーザーの[`email_subscribe` 属性]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)を更新します。たとえば、ユーザーがカスタム配信停止リンクを使用した際にメールのサブスクリプション状態を配信停止に設定するには、リクエストのユーザー属性に `email_subscribe: "unsubscribed"` を含めます。
 
 #### ユーザープロファイル {#user-profile}
 
-1. **ユーザーを検索**でユーザーを見つけます。
+1. **ユーザー検索**でユーザーを見つけます。
 2. **エンゲージメント**で、**配信停止**、**購読中**、または**オプトイン**を選択して、ユーザーのサブスクリプションステータスを変更します。
 
 ユーザープロファイルには、ユーザーのサブスクリプションが最後に変更されたタイムスタンプも表示されます。タイムスタンプは、状態が**オプトイン**または**配信停止**の場合に記録されますが、**購読中**の場合は記録されません。たとえば、明示的にオプトインもオプトアウトもしたことがない新しく作成されたプロファイルには、サブスクリプションのタイムスタンプがありません。
@@ -75,7 +75,7 @@ Braze SDKを使用して、ユーザーのサブスクリプション状態を�
 ユーザーのメールサブスクリプション状態は、以下の方法で確認できます。
 
 1. **REST APIエクスポート:** [セグメントごとのユーザーエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_segment)または[識別子ごとのユーザーエクスポート]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier)エンドポイントを使用して、個々のユーザープロファイルをJSON形式でエクスポートします。
-2. **ユーザープロファイル:** [ユーザーを検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)ページでユーザーのプロファイルを見つけ、**エンゲージメント**タブを選択してユーザーのサブスクリプション状態を表示および手動で更新します。
+2. **ユーザープロファイル:** [ユーザー検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)ページでユーザーのプロファイルを見つけ、**エンゲージメント**タブを選択してユーザーのサブスクリプション状態を表示および手動で更新します。
 
 ユーザーがメールアドレスを更新すると、サブスクリプション状態は購読中に設定されます。更新されたメールアドレスがBrazeワークスペース内の別の場所にすでに存在する場合、ユーザーはその既存ユーザーのサブスクリプション状態を引き継ぎます。ただし、**送信設定**で**ユーザーがメール設定を更新したときに再購読する**が有効になっている場合は除きます。
 
@@ -90,7 +90,7 @@ Braze SDKを使用して、ユーザーのサブスクリプション状態を�
 | ユーザー設定センター | Brazeがホストするユーザー設定センターからユーザーが設定を更新 |
 | 購読ページ | ユーザーがメール内の配信停止リンクを選択し、Brazeの購読ページに遷移 |
 | List-Unsubscribe | ユーザーがメールクライアントのネイティブList-Unsubscribeヘッダーを通じて配信停止 |
-| キャンバスユーザー更新ステップ | キャンバスの[ユーザー更新ステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update)によって更新されたサブスクリプション状態 |
+| キャンバスのユーザー更新ステップ | キャンバスの[ユーザー更新ステップ]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update)によって更新されたサブスクリプション状態 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="メールサブスクリプション状態の更新ソース" }
 
 ユーザーのグローバルメールサブスクリプション状態が変更されると、Brazeはその状態を同じメールアドレスを共有する他のプロファイルに伝播します（変更ごとに最大100プロファイル）。同じメールアドレスを共有するプロファイルが100を超える場合、Brazeは伝播を保証しません。同じメールアドレスを共有するユーザーが異なるサブスクリプション状態を示す場合は、Brazeサポートにお問い合わせください。
@@ -124,12 +124,12 @@ Braze SDKを使用して、ユーザーのサブスクリプション状態を�
 
 ### 購読グループのアーカイブ {#archiving-subscription-groups}
 
-アーカイブされた購読グループは編集できず、セグメントフィルターやユーザーSettingsセンターに表示されなくなります。メール、キャンペーン、またはキャンバスのセグメントフィルターとして使用されているグループをアーカイブしようとすると、そのグループのすべての使用箇所を削除するまでアーカイブを防止するエラーメッセージが表示されます。
+アーカイブされた購読グループは編集できず、セグメントフィルターやユーザー設定センターに表示されなくなります。メール、キャンペーン、またはキャンバスのセグメントフィルターとして使用されているグループをアーカイブしようとすると、そのグループのすべての使用箇所を削除するまでアーカイブを防止するエラーメッセージが表示されます。
 
 **購読グループ**ページからグループをアーカイブするには、以下の手順に従います。
 
 1. 購読グループのリストからグループを見つけます。
-2. <i class="fa-solid fa-ellipsis-vertical"></i>&nbsp;ドロップダウンメニューから**アーカイブ**を選択します。
+2. <i class="fa-solid fa-ellipsis-vertical" aria-label="その他のオプション"></i>&nbsp;ドロップダウンメニューから**アーカイブ**を選択します。
 
 Brazeは、アーカイブされたグループのユーザーの状態変更を処理しません。たとえば、Alexが購読グループ1に購読中の状態で購読グループ1をアーカイブした場合、Alexは配信停止リンクをクリックしても「購読中」のままです。購読グループ1はアーカイブされており、それを使用してメッセージを送信することはできないため、これは問題になりません。
 
@@ -152,7 +152,7 @@ Brazeは、アーカイブされたグループのユーザーの状態変更を
 
 ### ユーザーのメール購読グループの確認 {#checking-a-users-email-subscription-group}
 
-- **ユーザープロファイル:** Brazeダッシュボードの[ユーザーを検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles)ページから個々のユーザープロファイルにアクセスできます。ここでは、メールアドレス、電話番号、または外部ユーザーIDでユーザープロファイルを検索できます。**エンゲージメント**タブでユーザーのメール購読グループを確認することもできます。
+- **ユーザープロファイル:** Brazeダッシュボードの[ユーザー検索]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles#access-profiles)ページから個々のユーザープロファイルにアクセスできます。ここでは、メールアドレス、電話番号、または外部ユーザーIDでユーザープロファイルを検索できます。**エンゲージメント**タブでユーザーのメール購読グループを確認することもできます。
 - **Braze REST API:** [ユーザーの購読グループ一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_groups)または[ユーザーの購読グループステータス一覧エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/get_list_user_subscription_group_status)を使用して、個々のユーザープロファイルの購読グループを確認します。
 
 ## メールのユーザー設定センター {#email-preference-center}

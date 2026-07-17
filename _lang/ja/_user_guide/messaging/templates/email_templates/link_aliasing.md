@@ -9,7 +9,7 @@ channel:
 
 ---
 
-# [![Brazeラーニングコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}リンクエイリアス {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
+# [![Braze Learningコース]({% image_buster /assets/img/bl_icon3.png %})](https://learning.braze.com/link-aliasing){: style="float:right;width:120px;border:0;" class="noimgborder"}リンクエイリアス {#braze-learning-course-image_buster-assetsimgbl_icon3png-httpslearningbrazecomlink-aliasing-stylefloatrightwidth120pxborder0-classnoimgborderlink-aliasing}
 
 > リンクエイリアスを使用して、Brazeから送信されるメールメッセージ内のリンクを識別するための、認識しやすいユーザー生成名を作成できます。これらのリンクは、セグメンテーションのリターゲティング、アクションベースのトリガー、およびリンク分析に利用できます。
 
@@ -62,6 +62,10 @@ Brazeは、すべてのリンクURLに`lid`（リンク識別子とも呼ばれ�
 リンクエイリアスは、クエリパラメーターを安全に付加できるHTMLアンカータグ内の`href`属性でのみサポートされています。Brazeが`lid`値を簡単に付加できるように、リンクの末尾に疑問符（?）を含めることがベストプラクティスです。`lid`値を付加しないと、BrazeはリンクエイリアスのためにそのURLを認識しません。
 {% endalert %}
 
+{% alert important %}
+ドラッグ＆ドロップエディターでは、リンクエイリアスが**リンク管理**タブに表示されるためには、URL内のハッシュ記号（`#`）の前に疑問符（`?`）を含める必要があります。
+{% endalert %}
+
 ## リンクエイリアスの管理 {#managing-link-aliases}
 
 追跡されているすべてのリンクエイリアスを表示するには、以下の手順に従います。
@@ -89,7 +93,7 @@ Brazeでは、メール内のリンクを評価し、リンクテンプレート
 
 **ロジック:** Brazeは疑問符（?）を挿入し、URLに最初のクエリパラメーターを追加します。
 
-| メール本文内のリンク | エイリアス付きリンク |
+| メール本文内のリンク    | エイリアス付きリンク                     |
 |-----------------------|----------------------------------------|
 | `https://www.braze.com` | `https://www.braze.com?lid=slfdldtqdhdk` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="パーマリンク" }
@@ -98,7 +102,7 @@ Brazeでは、メール内のリンクを評価し、リンクテンプレート
 
 **ロジック:** Brazeは他のクエリパラメーターを検出し、URLの末尾に`lid=`を付加します。
 
-| メール本文内のリンク | エイリアス付きリンク |
+| メール本文内のリンク                                            | エイリアス付きリンク                                                             |
 |---------------------------------------------------------------|--------------------------------------------------------------------------------|
 | `https://www.braze.com?utm_campaign=retention&utm_source=email` | `https://www.braze.com?utm_campaign=retention&utm_source=email&lid=0goty30mviyz` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="追加のクエリパラメーターを含むリンク" }
@@ -107,7 +111,7 @@ Brazeでは、メール内のリンクを評価し、リンクテンプレート
 
 **ロジック:** Brazeはリンクがすでに疑問符（?）を含むURLであることを認識し、疑問符の後に`lid`クエリパラメーターを付加します。
 
-| メール本文内のリンク | エイリアス付きリンク |
+| メール本文内のリンク                                                | エイリアス付きリンク                                                                |
 |-------------------------------------------------------------------|-----------------------------------------------------------------------------------|
 | {%raw%}`<a href="{{custom_attribute.{product_url}}}?">`{%endraw%} | {%raw%}`<a href="{{custom_attribute.{product_url}}}?lid=ac7a548g5kl7">`{%endraw%} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="HTMLリンク" }
@@ -116,7 +120,7 @@ Brazeでは、メール内のリンクを評価し、リンクテンプレート
 
 **ロジック:** Brazeは、アンカー（#）が疑問符（?）の後に配置される標準的なURL構造を想定しています。Brazeは左から右に読み取るため、疑問符と`lid`値はアンカーの前に付加されます。
 
-| メール本文内のリンク | エイリアス付きリンク |
+| メール本文内のリンク                               | エイリアス付きリンク                                                |
 |--------------------------------------------------|-------------------------------------------------------------------|
 | `https://www.braze.com#bookmark1?utm_source=email` | `https://www.braze.com?lid=eqslgd5a9m3y#bookmark1?utm_source=email` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="アンカー付きリンク" }
@@ -125,7 +129,7 @@ Brazeでは、メール内のリンクを評価し、リンクテンプレート
 
 **ロジック:** リンクエイリアスをアンカー（#）を含むURLで使用する場合、Brazeはアンカーがクエリパラメーターの後に配置されることを想定しています。つまり、適切なトラッキングのために`lid`値はアンカーの**前に**付加される必要があり、Brazeは左から右にURLを読み取るため、疑問符（?）と`lid`はアンカーの前に配置されます。
 
-| メール本文内のリンク | エイリアス付きリンク |
+| メール本文内のリンク                                                                        | エイリアス付きリンク                                                                                           |
 |-------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
 | {%raw%}`<a href="https://www.braze.com/promotions#special-offer">Check out our special offer!</a>`{%endraw%}  | {%raw%}`<a href="https://www.braze.com/promotions?lid={{link_alias}}#special-offer">Check out our special offer!</a>` {%endraw%} |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="アンカーとキャプチャタグ付きリンク" }
@@ -148,9 +152,15 @@ Brazeは、プロファイルレベルで最後にクリックされた100件の
 
 ### アクションベースのフィルター {#action-based-filters}
 
-任意のリンク（追跡または未追跡）をターゲットとするアクションベースのメッセージを作成したり、メールキャンペーンまたはキャンバスコンポーネント全体でエイリアスをクリックしたかどうかに基づいてユーザーをリターゲティングしたりできます。
+ワークスペースでリンクエイリアスが有効になっている場合、任意のリンク（追跡または未追跡）をターゲットとするアクションベースのメッセージを作成したり、メールキャンペーンまたはキャンバスコンポーネント全体でエイリアスをクリックしたかどうかに基づいてユーザーをリターゲティングしたりできます。
 
 ![キャンバスコンポーネントでエイリアスをクリックしたユーザーまたはキャンペーンとインタラクションしたユーザーをターゲットにするアクションベースのオプション。]({% image_buster /assets/img/link_aliasing_action_based_filters.png %})
+
+- キャンペーンがアーカイブされると、リンクトラッキングはオフになり、そのリンクエイリアスは別のフィルターで使用できなくなります。
+- リンクのトラッキングがオンになっており、キャンペーンでクリックされた場合、リンクトラッキングがその後オフになっていても、そのメッセージ上の少なくとも1つのリンクがまだ追跡されている限り、セグメントフィルターで利用可能なオプションとしてキャンペーンを見つけることができます。
+- 追跡されたリンクをフィルターとして選択できるのは、**キャンバスステップでエイリアスをクリック**フィルタードロップダウンを使用して、アクティブ（起動済み）のキャンバスにある場合のみです。リンクがキャンバスの下書きで追跡されている場合、追跡されたリンクをフィルターとして選択することはできません。
+
+リンクを未追跡に設定するには、**設定** > **メール設定** > **リンクエイリアス設定**に移動します。
 
 ### セグメンテーションフィルター {#segmentation-filters}
 
@@ -174,7 +184,7 @@ Brazeでは、メールにリンクエイリアスがあり、ユーザーがそ
 
 ### メールクリックイベント {#email-clicks-event}
 
-エンゲージメントデータをCurrentsでエクスポートする場合、リンクエイリアスが有効になっていると、メールクリックイベントは若干異なります。リンクエイリアスがオンの場合、[メールクリックイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-clicks-events)に`link_id`と`link_alias`の2つの追加フィールドがあります。
+エンゲージメントデータをCurrentsでエクスポートする場合、リンクエイリアスが有効になっていると、メールクリックイベントは若干異なります。リンクエイリアスがオンの場合、[メールクリックイベント]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events#email-click-events)に`link_id`と`link_alias`の2つの追加フィールドがあります。
 
 ```json
 // Email Click: users.messages.email.Click

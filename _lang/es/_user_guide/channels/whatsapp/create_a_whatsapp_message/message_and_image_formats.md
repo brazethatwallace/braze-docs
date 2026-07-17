@@ -54,7 +54,7 @@ Las plantillas de marketing son el tipo más común utilizado en Braze. Constan 
 | Tipo de botón | Comportamiento | Notas |
 |---|---|---|
 | Respuesta rápida | Envía el texto de la etiqueta del botón como respuesta en la conversación | |
-| URL | Abre una URL en el navegador predeterminado del usuario; admite 1 variable añadida al final de la URL (máximo 2000 caracteres) | |
+| URL | Abre una URL en el navegador predeterminado del usuario; admite 1 variable añadida al final de la URL (máximo 2000 caracteres) | Las URL que contienen caracteres especiales (como `&`, `%`, `<`, `>`) pueden provocar fallos en el envío del mensaje. Usa el filtro Liquid [`url_param_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) o [`url_escape`]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/advanced_filters#url-filters) para codificar correctamente las URL con caracteres especiales. |
 | Número de teléfono | Inicia una llamada al número de teléfono especificado | |
 | Copiar código de cupón | Copia un código de cupón al portapapeles del usuario | Siempre requiere aprobación de Meta |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tipos de botones" }
@@ -62,6 +62,38 @@ Las plantillas de marketing son el tipo más común utilizado en Braze. Constan 
 #### Formato de parámetros {#parameter-formatting}
 
 Las variables de plantilla pueden usar parámetros con nombre (como {% raw %}`{{first_name}}`{% endraw %}) o parámetros posicionales (como {% raw %}`{{1}}`{% endraw %}). En Braze, las variables se pueden reemplazar con Liquid o texto plano. Incluye siempre valores predeterminados para las variables Liquid; los mensajes con valores de variables faltantes no se enviarán.
+
+### Plantillas de oferta por tiempo limitado {#limited-time-offer-templates}
+
+Las plantillas de oferta por tiempo limitado muestran una oferta promocional con límite de tiempo y una cuenta regresiva opcional a medida que la oferta se acerca a su vencimiento. Usa este diseño para promociones con plazo definido, como ventas de temporada u ofertas personalizadas según un atributo del usuario.
+
+| Componente | Obligatorio | Notas |
+|---|---|---|
+| Encabezado | No | Selecciona **Ninguno** o agrega multimedia (imagen o video). Consulta las [especificaciones multimedia](#media-specifications) para los requisitos de tipo de archivo, tamaño y dimensiones. |
+| Detalles de la oferta | Sí | Título de la oferta, código de la oferta y un vencimiento opcional. |
+| Cuerpo | Sí | El contenido principal del mensaje. Admite Liquid. |
+| Pie de página | No | Texto complementario que se muestra después del cuerpo. |
+| Botones | Sí | **Copiar código de oferta** se incluye automáticamente. Puedes agregar un botón **Visitar sitio web**; no se admiten otros tipos de botones para este tipo de plantilla. |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Plantillas de oferta por tiempo limitado" }
+
+#### Detalles de la oferta {#offer-details}
+
+| Campo | Obligatorio | Notas |
+|---|---|---|
+| Título | Sí | Una línea breve que describe la oferta. |
+| Código | Sí | El código de oferta que los destinatarios copiarán. Esto completa automáticamente el botón **Copiar código de oferta**. |
+| Vencimiento | No | Establece una fecha y hora fijas (por ejemplo, una fecha de finalización para una venta de verano) o personalízalo según un atributo del usuario (por ejemplo, el cumpleaños de cada usuario). |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Detalles de la oferta" }
+
+Si estableces un vencimiento, los destinatarios verán una cuenta regresiva en el mensaje que se actualiza a medida que la oferta se acerca a su fin. Por ejemplo, el mensaje podría mostrar inicialmente la fecha de finalización y luego cambiar a algo como "Quedan 5 días" cuando la fecha de finalización esté más cerca. Si no estableces un vencimiento, la oferta se muestra sin cuenta regresiva. Braze evita que los mensajes se envíen cuando el vencimiento ya pasó (por ejemplo, si el vencimiento es el 1 de noviembre de 2026 pero la hora de envío es el 15 de noviembre de 2026).
+
+#### Tipos de botones
+
+| Tipo de botón | Notas |
+|---|---|
+| Copiar código de oferta | Se incluye automáticamente. El texto del botón es "Copy offer code" y no se puede editar. |
+| Visitar sitio web | El único otro botón que puedes agregar. Máximo 1. |
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Tipos de botones de oferta por tiempo limitado" }
 
 ### Plantillas de carrusel con tarjetas multimedia {#media-card-carousel-templates}
 

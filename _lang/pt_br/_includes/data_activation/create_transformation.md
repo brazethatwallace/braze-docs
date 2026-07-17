@@ -17,7 +17,7 @@ Se você está começando do zero, escolha um destino para sua transformação. 
 {% enddetails %}
 
 {% alert note %}
-Quer solicitar modelos ou destinos adicionais? Considere deixar [feedback do produto]({{site.baseurl}}/user_guide/administrative/access_braze/portal).
+{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="additional templates or destinations" %}
 {% endalert %}
 
 Após criar sua transformação, você verá a visão detalhada da transformação. Aqui, você pode visualizar o webhook mais recente recebido para esta transformação em **Detalhes do webhook** e um espaço para escrever seu código de transformação em **Código de transformação**.

@@ -41,7 +41,7 @@ Brazeのエクスポートエンドポイントを使用してユーザープロ
 
 ターゲットにしているセグメントに自分が含まれていることを確認してください（ライブキャンペーンの場合、テストではない場合）。**ユーザープロファイル**には、ユーザーが現在含まれているセグメントの一覧が表示されます。セグメントメンバーシップはリアルタイムで更新されます。
 
-![List of セグメント]({% image_buster /assets/img_archive/trouble2.png %})
+![セグメントの一覧]({% image_buster /assets/img_archive/trouble2.png %})
 
 セグメントを作成する際に**ユーザー検索**を使用して、ユーザーがそのセグメントに含まれていることを確認することもできます。**ユーザー検索**は`external_id`または`braze_id`のみを受け付けます。メールアドレスや電話番号は使用できません。メール、電話番号、プッシュトークン、またはユーザーエイリアスで検索するには、[**ユーザーを検索**]({{site.baseurl}}/user_guide/audience/manage_audience/user_profiles)を参照してください。
 
@@ -51,18 +51,18 @@ Brazeのエクスポートエンドポイントを使用してユーザープロ
 
 ワークスペースにグローバルフリークエンシーキャップが設定されている場合、指定された期間のキャップにすでに達しているため、プッシュ通知を受信できなかった可能性があります。ダッシュボードで[グローバルフリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#freq-cap-feat-over)と制限値を確認してください。キャンペーンがフリークエンシーキャップルールに従っている場合、キャンペーンの詳細に影響を受けたユーザー数が表示されます。
 
-![キャンペーン Details]({% image_buster /assets/img_archive/trouble3.png %})
+![キャンペーンの詳細]({% image_buster /assets/img_archive/trouble3.png %})
 
 ### レート制限 {#rate-limits}
 
-キャンペーンまたはキャンバスにレート制限が設定されている場合、その制限を超えたためにメッセージを受信できなくなっている可能性があります。詳細については、[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting)を参照してください。
+キャンペーンまたはキャンバスにレート制限が設定されている場合、その制限を超えたためにメッセージを受信できなくなっている可能性があります。詳細については、[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting)を参照してください。
 
 ### コントロールグループのステータス {#control-group-status}
 
 単一チャネルのキャンペーンまたはコントロールグループを含むキャンバスの場合、コントロールグループに入っている可能性があります。
 
-  1. [バリアント配分]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants)を確認して、コントロールグループがあるかどうかを確認します。
-  2. コントロールグループがある場合は、[キャンペーンコントロールグループ内]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter)でフィルタリングするセグメントを作成し、[セグメントをエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv)して、自分のユーザーIDがリストに含まれているかどうかを確認します。
+  1. [バリアント配分]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-4-choose-a-segment-and-distribute-your-users-across-variants)を確認して、コントロールグループがあるかどうかを確認します。
+  2. コントロールグループがある場合は、[キャンペーンコントロールグループ内]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group)でフィルタリングするセグメントを作成し、[セグメントをエクスポート]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details)して、自分のユーザーIDがリストに含まれているかどうかを確認します。
 
 ### 有効なプッシュトークン {#valid-push-token}
 
@@ -95,7 +95,7 @@ MismatchSenderIDは、Firebase Cloud Messaging（FCM）での認証エラーを�
 
 1. アプリのFirebaseコンソールに移動します。
 2. **Project Overview**の下で、**Project Settings**を選択します。
-3. **Cloud Messaging**タブで、APIキーの下にある送信者IDがBraze（**設定** > **アプリ設定** > **Cloud Messaging API Key**）のものと一致していることを確認します。
+3. **Cloud Messaging**タブで、APIキーの送信者IDがBraze（**設定** > **アプリ設定** > **Cloud Messaging API Key**）のものと一致していることを確認します。
 
 {% alert warning %}
 Brazeダッシュボードで送信者IDを変更しないでください。変更すると、既存のプッシュ登録が無効になります。送信者IDが一致しない場合は、一致する送信者IDを持つFirebaseプロジェクトを見つける必要があります。
@@ -231,7 +231,7 @@ table {
 
 サイトからの通知がAndroidの通知ドロワーに表示されている場合:
 
-1. プッシュ通知から<i class="fas fa-cog" title="Settings"></i> **設定**をタップし、**Site settings**を選択します。
+1. プッシュ通知から<i class="fas fa-cog" title="設定"></i>**設定**をタップし、**Site settings**を選択します。
 2. **Site settings**から**Clear & Reset**をタップします。
 
 サイトからの通知が開いていない場合:
@@ -250,8 +250,8 @@ table {
 
 ### デスクトップでFirefoxをリセットする {#reset-firefox-on-desktop}
 
-1. サイトのURLの横にある<i class="fa-solid fa-circle-info" alt="info icon"></i>または<i class="fas fa-lock" alt="lock icon"></i>を選択します。
-2. **権限**の下で、**通知を受信**の横にある<i class="fa-solid fa-circle-xmark" title="Clear this permission and ask again"></i> **権限をクリア**を選択して通知権限をクリアします。
+1. サイトのURLの横にある<i class="fa-solid fa-circle-info" alt="情報アイコン"></i>または<i class="fas fa-lock" alt="ロックアイコン"></i>を選択します。
+2. **権限**の下で、**通知を受信**の横にある<i class="fa-solid fa-circle-xmark" title="この権限をクリアして再度確認する"></i>**権限をクリア**を選択して通知権限をクリアします。
 3. 同じメニューで、**Cookieとサイトデータを消去**を選択します。
 4. 確認ダイアログで**OK**を選択します。
 
@@ -288,7 +288,7 @@ Androidでプッシュ権限をリセットするには、Mozillaサポートの
 
 Brazeは、ユーザーが通知をタップしてアプリがセッションを開始したときに直接開封を記録します。リッチプッシュ通知を展開しただけでアプリを開かなかった場合、直接開封は記録されません。
 
-ユーザーがプッシュ通知を受信した後、通知をタップせずにアプリを開いた場合、Brazeは代わりに影響を受けた開封を記録することがあります。定義とレポートについては、[影響を受けた開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)を参照してください。
+ユーザーがプッシュ通知を受信した後、通知をタップせずにアプリを開いた場合、Brazeは代わりに間接開封を記録することがあります。定義とレポートについては、[間接開封]({{site.baseurl}}/user_guide/analytics/tracking/influenced_opens)を参照してください。
 
 ## プッシュエラーメッセージ {#push-error-messages}
 

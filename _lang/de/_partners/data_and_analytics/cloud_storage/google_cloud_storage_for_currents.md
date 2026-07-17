@@ -24,7 +24,7 @@ Die Integration von Braze und Google Cloud Storage erlaubt es Ihnen, Currents-Da
 | Anforderung | Beschreibung |
 | ----------- | ----------- |
 | Google Cloud Storage-Konto | Um die Vorteile dieser Partnerschaft zu nutzen, benötigen Sie ein Google Cloud Storage-Konto. |
-| Currents | Um Daten zurück in Google Cloud Storage zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents/#access-currents) für Ihr Konto eingerichtet haben. Currents ist nicht erforderlich, wenn Sie nur die Nachrichtenarchivierung einrichten möchten. |
+| Currents | Um Daten zurück in Google Cloud Storage zu exportieren, müssen Sie [Braze-Currents]({{site.baseurl}}/user_guide/data_and_analytics/braze_currents#access-currents) für Ihr Konto eingerichtet haben. Currents ist nicht erforderlich, wenn Sie nur die Nachrichtenarchivierung einrichten möchten. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 ## Integration
@@ -41,7 +41,7 @@ Verwenden Sie dazu die folgenden Anweisungen, die Sie durch die Erstellung einer
 
 Erstellen Sie eine neue Rolle in Ihrer Google Cloud Platform-Konsole, indem Sie zu **IAM & admin** > **Roles** > **+ Create Role** navigieren.
 
-![]({% image_buster /assets/img/gcs1.png %})
+![Google Cloud IAM-Rollenseite mit der Aktion „Create Role“.]({% image_buster /assets/img/gcs1.png %})
 
 Geben Sie der Rolle einen Namen, wählen Sie dann **+Add Permissions** und wählen Sie Folgendes aus:
 
@@ -57,7 +57,7 @@ Die Berechtigung `storage.objects.delete` ist optional. Sie erlaubt es Braze, un
 
 Wenn Sie fertig sind, wählen Sie **Create**.
 
-![]({% image_buster /assets/img/gcs2.png %})
+![Editor für angepasste Google Cloud-Rollen mit ausgewählten Speicherberechtigungen.]({% image_buster /assets/img/gcs2.png %})
 
 ### 2. Schritt: Ein neues Dienstkonto erstellen {#step-2-create-a-new-service-account}
 
@@ -65,7 +65,7 @@ Wenn Sie fertig sind, wählen Sie **Create**.
 
 Erstellen Sie ein neues Dienstkonto in Ihrer Google Cloud Platform-Konsole, indem Sie zu **IAM & admin** > **Service Accounts** navigieren und **Create Service Account** auswählen.
 
-![]({% image_buster /assets/img/gcs3.png %})
+![Google Cloud-Dienstkontenseite mit ausgewähltem „Create Service Account“.]({% image_buster /assets/img/gcs3.png %})
 
 Als Nächstes geben Sie dem Dienstkonto einen Namen und gewähren ihm Zugriff auf Ihre neu erstellte angepasste Rolle.
 
@@ -75,7 +75,7 @@ Als Nächstes geben Sie dem Dienstkonto einen Namen und gewähren ihm Zugriff au
 
 Verwenden Sie unten auf der Seite den Button **Create Key**, um einen **JSON** Private Key zur Verwendung in Braze zu erstellen. Nachdem der Schlüssel erstellt wurde, wird er auf Ihren Computer heruntergeladen.
 
-![]({% image_buster /assets/img/gcs5.png %})
+![Dialog zur Erstellung eines Google Cloud-Dienstkontoschlüssels mit dem Schlüsseltyp JSON.]({% image_buster /assets/img/gcs5.png %})
 
 ### 3. Schritt: Currents in Braze einrichten {#step-3-set-up-currents-in-braze}
 
@@ -89,7 +89,7 @@ Es ist wichtig, dass Sie Ihre Zugangsdaten immer auf dem neuesten Stand halten. 
 
 ![Die Google Cloud Storage Currents-Seite in Braze. Auf dieser Seite gibt es Felder für den Integrationsnamen, die Kontakt-E-Mail, die GCS-JSON-Zugangsdaten, den GCS-Bucket-Namen und das Präfix.]({% image_buster /assets/img/gcs6.png %})
 
-Scrollen Sie schließlich zum Ende der Seite und wählen Sie aus, welche Nachrichten-Engagement-Events oder Kundenverhalten-Events Sie exportieren möchten. Wenn Sie fertig sind, starten Sie Ihren Current.
+Scrollen Sie schließlich zum Ende der Seite und wählen Sie aus, welche Nachrichten-Engagement-Ereignisse oder Kundenverhalten-Ereignisse Sie exportieren möchten. Wenn Sie fertig sind, starten Sie Ihren Current.
 
 ### 4. Schritt: Google Cloud Storage-Exporte einrichten {#step-4-set-up-google-cloud-storage-exports}
 

@@ -3,7 +3,7 @@ nav_title: "연결된 오디언스 필터 및 오브젝트"
 article_title: API 연결된 오디언스 오브젝트
 page_order: 3
 page_type: reference
-description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 방식, 활용 사례, 그리고 이를 구성하는 다양한 필터에 대해 설명합니다."
+description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 방식, 사용 사례, 그리고 이를 구성하는 다양한 필터에 대해 설명합니다."
 
 ---
 
@@ -15,7 +15,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 
 ## 작동 방식 {#how-it-works}
 
-1. Braze 대시보드에서 API 트리거 Campaign 또는 Canvas를 생성하여 메시지를 정의하거나, API 요청의 [메시징 오브젝트]({{site.baseurl}}/api/objects_filters#messaging-objects)를 사용하여 메시지 콘텐츠를 완전히 인라인으로 정의합니다. 동적 개인화를 위해 [트리거 등록정보]({{site.baseurl}}/api/objects_filters/trigger_properties_object) 또는 [Canvas 컨텍스트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)를 사용합니다.
+1. Braze 대시보드에서 API 트리거 Campaign 또는 Canvas를 생성하여 메시지를 정의하거나, API 요청의 [메시징 오브젝트]({{site.baseurl}}/api/objects_filters#messaging-objects)를 사용하여 메시지 콘텐츠를 완전히 인라인으로 정의합니다. 동적 개인화를 위해 [트리거 속성]({{site.baseurl}}/api/objects_filters/trigger_properties_object) 또는 [Canvas 컨텍스트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)를 사용합니다.
 2. 지원되는 엔드포인트를 호출하고 연결된 오디언스 필터를 `audience` 파라미터에 포함합니다. `/messages/live_activity/start`의 경우 `custom_audience`에 포함합니다. 커스텀 속성, 푸시 구독 상태, 이메일 구독 상태, 마지막 앱 사용 시간을 기준으로 필터링할 수 있습니다.
 3. Braze가 발송 시점에 필터를 평가하여 기준에 일치하는 사용자에게만 메시지를 전달합니다.
 
@@ -37,7 +37,9 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 - [`/canvas/trigger/schedule/create`]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_triggered_canvases)
 - [`/messages/live_activity/start`]({{site.baseurl}}/api/endpoints/messaging/live_activity/start) (`custom_audience` 사용)
 
-## 활용 사례 {#use-cases}
+`audience` 파라미터는 오브젝트 배열을 지원하지 않습니다.
+
+## 사용 사례 {#use-cases}
 
 백엔드 시스템이 이벤트를 감지하고 동적으로 결정된 사용자 집합에 알림을 보내야 하는 시나리오에서 연결된 오디언스를 사용합니다:
 
@@ -49,7 +51,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 | 이커머스 | 온라인 소매업체가 `wishlisted_products` 배열에 해당 제품 ID가 포함된 사용자에게 가격 인하 또는 재입고 알림을 발송합니다. |
 | 여행 | 여행 앱이 `booked_flight` 속성이 영향을 받는 항공편 번호와 일치하는 사용자에게 항공편 지연 알림을 발송합니다. |
 | 금융 서비스 | 트레이딩 플랫폼이 `watchlist` 배열에 가격 임계값을 넘은 종목 코드가 포함된 사용자에게 알림을 발송합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="활용 사례" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="사용 사례" }
 
 각 경우에 단일 Campaign 또는 API 전용 메시지 정의로 모든 변형을 처리합니다. 백엔드가 필터 값을 결정하고 API 요청에 전달하므로, 각 제품, 프로그램, 팀 또는 위치별로 별도의 Segment나 Campaign을 생성할 필요가 없습니다.
 
@@ -112,6 +114,19 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 ## 연결된 오디언스 필터 {#connected-audience-filters}
 
 여러 필터를 `AND` 및 `OR` 연산자와 결합하여 연결된 오디언스 필터를 생성합니다.
+
+### 고려 사항 {#considerations}
+
+연결된 오디언스는 다음 기준으로 사용자를 필터링할 수 없습니다:
+
+ - 기본 속성
+ - 커스텀 이벤트
+ - Segments
+ - 메시지 인게이지먼트 이벤트
+ - 중첩 커스텀 속성
+
+이러한 필터를 사용하려면 해당 필터를 오디언스 Segment에 통합한 후 [`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters)의 `segment_id` 파라미터에 해당 Segment를 지정하는 것을 권장합니다. 다른 엔드포인트를 사용할 때는 먼저 Braze 대시보드에서 API 트리거 Campaign 또는 Canvas에 Segment를 추가해야 합니다. 중첩 속성을 기준으로 필터링해야 하는 경우 [표준 Segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment)를 대신 사용하세요.
+
 
 ### 커스텀 속성 필터 {#custom-attribute-filter}
 
@@ -226,6 +241,7 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 이 필터를 사용하면 사용자가 앱을 마지막으로 사용한 시점을 기준으로 세분화할 수 있습니다. 이 필터에는 두 개의 필드가 포함되어 있습니다:
 
 #### 필터 본문
+
 ```json
 {
   "last_used_app":
@@ -238,15 +254,3 @@ description: "이 문서에서는 연결된 오디언스 오브젝트의 작동 
 
 - **허용된 비교:** `after`, `before`
 - **허용되는 값:** 날짜/시간(ISO 8601 문자열)
-
-### 고려 사항 {#considerations}
-
-연결된 오디언스는 다음 기준으로 사용자를 필터링할 수 없습니다:
-
- - 기본 속성
- - 커스텀 이벤트
- - Segments
- - 메시지 참여 이벤트
- - 중첩 커스텀 속성
-
-이러한 필터를 사용하려면 해당 필터를 오디언스 Segment에 통합한 후 [`/messages/send` 엔드포인트]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters)의 `segment_id` 파라미터에 해당 Segment를 지정하는 것을 권장합니다. 다른 엔드포인트를 사용할 때는 먼저 Braze 대시보드에서 API 트리거 Campaign 또는 Canvas에 Segment를 추가해야 합니다.

@@ -23,12 +23,12 @@ Vous hésitez entre une campagne et un Canvas ? Les Campaigns sont plus adaptée
 {% tabs %}
 {% tab Campaign %}
 1. Allez dans **Messaging** > **Campaigns**, puis sélectionnez **Créer une campagne**.
-2. Pour les campagnes ciblant plusieurs canaux, sélectionnez **Multichannel**. Sinon, sélectionnez **Notification push**.
+2. Pour les campagnes ciblant plusieurs canaux, sélectionnez **Multicanal**. Sinon, sélectionnez **Notification push**.
 3. Donnez à votre campagne un nom clair et significatif.
-4. Ajoutez des [Équipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [Étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins.
+4. Ajoutez des [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) selon vos besoins.
 
 {% alert tip %}
-Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le [Générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
+Les étiquettes facilitent la recherche de vos campagnes et la création de rapports. Par exemple, lorsque vous utilisez le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.
 {% endalert %}
 
 {: start="5"}
@@ -42,7 +42,7 @@ Si tous les messages de votre campagne vont être similaires ou avoir le même c
 {% tab Canvas %}
 1. [Créez votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) à l'aide du compositeur Canvas.
 2. Après avoir configuré votre Canvas, ajoutez une étape dans le générateur Canvas. Donnez à votre étape un nom clair et significatif.
-3. Choisissez un [calendrier d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay) et spécifiez un délai si nécessaire.
+3. Choisissez un [calendrier d'étape]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types) et spécifiez un délai si nécessaire.
 4. Filtrez votre audience pour cette étape selon vos besoins. Vous pouvez affiner davantage les destinataires de cette étape en spécifiant des segments et en ajoutant des filtres supplémentaires. Les options d'audience seront vérifiées après le délai, au moment de l'envoi des messages.
 5. Choisissez votre [comportement d'avancement]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases).
 6. Choisissez tout autre canal de communication que vous souhaitez associer à votre message.
@@ -99,13 +99,13 @@ Si vous ajoutez du texte dans une langue qui s'écrit de droite à gauche, notez
 
 {% tabs local %}
 {% tab ios %}
-Commencez à taper dans la zone de message et observez un aperçu apparaître dans la zone de prévisualisation à gauche. Les messages push doivent être formatés en texte brut.
+Commencez à taper dans la zone de message et observez un aperçu apparaître dans la zone de prévisualisation à côté. Les messages push doivent être formatés en texte brut.
 
 Ajoutez un titre à l'aide du champ **Titre**. Pour rendre votre push personnalisé et ciblé, vous pouvez inclure du [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 {% endtab %}
 
 {% tab android %}
-Commencez à taper dans la zone de message et observez un aperçu apparaître dans la zone de prévisualisation à gauche. Les messages push doivent être formatés en texte brut.
+Commencez à taper dans la zone de message et observez un aperçu apparaître dans la zone de prévisualisation à côté. Les messages push doivent être formatés en texte brut.
 
 Pour rendre votre push personnalisé et ciblé, vous pouvez inclure du [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid).
 
@@ -134,7 +134,7 @@ Pour des conseils supplémentaires sur l'utilisation d'images dans vos notificat
 
 ### Comportement au clic {#on-click-behavior}
 
-Spécifiez ce qui se passe lorsqu'un utilisateur sélectionne le corps d'une notification push avec **On-Click Behavior**. Par exemple, vous pouvez inviter les clients à ouvrir votre application, rediriger les clients vers une URL web spécifique, ou même ouvrir une page spécifique de votre application avec un [lien profond]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls).
+Spécifiez ce qui se passe lorsqu'un utilisateur sélectionne le corps d'une notification push avec **Comportement au clic**. Par exemple, vous pouvez inviter les clients à ouvrir votre application, rediriger les clients vers une URL web spécifique, ou même ouvrir une page spécifique de votre application avec un [deep link]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/actions_and_media_urls).
 
 Ici, vous pouvez également configurer des invites de boutons dans votre notification push, telles que :
 
@@ -145,13 +145,13 @@ Ici, vous pouvez également configurer des invites de boutons dans votre notific
 
 ### Options d'envoi {#sending-options}
 
-Si un utilisateur a votre application installée sur plusieurs appareils, par défaut, votre message push est envoyé à tous les appareils disposant d'un jeton de notification push valide. Si vous le souhaitez, vous pouvez sélectionner **Appareil utilisé le plus récemment**.
+Si un utilisateur a votre application installée sur plusieurs appareils, par défaut, votre message push est envoyé à tous les appareils disposant d'un jeton push valide. Si vous le souhaitez, vous pouvez sélectionner **Appareil utilisé le plus récemment**.
 
-![Case à cocher des options d'appareil pour envoyer ce push uniquement à l'appareil le plus récemment utilisé par l'utilisateur.]({% image_buster /assets/img_archive/push_recent_device.png %}){: style="max-width:70%;" }
+![Case à cocher des options d'appareil pour envoyer cette notification push uniquement à l'appareil le plus récemment utilisé par l'utilisateur.]({% image_buster /assets/img_archive/push_recent_device.png %}){: style="max-width:70%;" }
 
 Il y a quelques nuances pour ce paramètre. Si cette option est sélectionnée, Braze limitera les envois multiples, sauf lorsqu'une campagne cible plusieurs plateformes, comme iOS et Android. Si l'utilisateur a votre application sur un appareil iOS et un appareil Android, il recevra un push pour les deux plateformes. Si l'appareil le plus récemment utilisé d'un utilisateur n'est pas [activé pour le push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled), le message ne sera pas envoyé.
 
-Par défaut, Braze envoie les messages à chaque appareil d'un utilisateur disposant d'un jeton de notification push valide. Pour iOS, vous pouvez affiner davantage votre portée en choisissant d'envoyer des notifications uniquement aux appareils iPad, ou uniquement aux appareils iPhone et iPod.
+Par défaut, Braze envoie les messages à chaque appareil d'un utilisateur disposant d'un jeton push valide. Pour iOS, vous pouvez affiner davantage votre portée en choisissant d'envoyer des notifications uniquement aux appareils iPad, ou uniquement aux appareils iPhone et iPod.
 
 Si vous le souhaitez, vous pouvez définir la destination du push sur **Appareil utilisé le plus récemment**.
 
@@ -159,8 +159,8 @@ Si vous le souhaitez, vous pouvez définir la destination du push sur **Appareil
 
 « Appareil utilisé le plus récemment » est un statut technique, pas comportemental. Comme Braze envoie par défaut à tous les appareils, passer à ce paramètre réduit considérablement votre portée et repose entièrement sur le statut du seul appareil disposant du jeton le plus récent.
 
-L'appareil le plus récemment utilisé est déterminé par l'appareil dont le jeton de notification push a été mis à jour le plus récemment, plutôt que par l'appareil ayant eu la session la plus récente.
-* Si le jeton de notification push d'un nouvel appareil est ajouté à un profil utilisateur via l'API, cet appareil est immédiatement considéré comme le plus récemment utilisé, même si l'utilisateur n'a pas encore démarré de session dessus.
+L'appareil le plus récemment utilisé est déterminé par l'appareil dont le jeton push a été mis à jour le plus récemment, plutôt que par l'appareil ayant eu la session la plus récente.
+* Si le jeton push d'un nouvel appareil est ajouté à un profil utilisateur via l'API, cet appareil est immédiatement considéré comme le plus récemment utilisé, même si l'utilisateur n'a pas encore démarré de session dessus.
 * Si l'appareil le plus récemment utilisé d'un utilisateur n'est pas [activé pour le push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states#foreground-push-enabled), le message ne sera pas envoyé du tout.
 
 Des envois multiples peuvent toujours se produire si une campagne cible différentes plateformes, comme iOS et Android. Si un utilisateur a l'application sur les deux, il peut recevoir un push pour les deux plateformes.
@@ -186,7 +186,7 @@ Les messages push peuvent être envoyés selon un horaire planifié, une action 
 
 Pour la livraison par événement, vous pouvez également définir la durée de la campagne et les [heures calmes]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours).
 
-Cette étape est également celle où vous pouvez spécifier les contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#campaigns) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping).
+Cette étape est également celle où vous pouvez spécifier les contrôles de livraison, comme permettre aux utilisateurs de devenir [rééligibles]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/re_eligibility#turning-on-re-eligibility) pour recevoir la campagne, ou activer les règles de [limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping).
 
 ### Choisir les utilisateurs à cibler {#choose-users-to-target}
 
@@ -196,7 +196,7 @@ Ensuite, vous devez [cibler les utilisateurs]({{site.baseurl}}/user_guide/messag
 
 {% details Pourquoi mon indicateur Total des utilisateurs atteignables ne correspond-il pas à la somme de tous les canaux ? %}
 
-Lorsque vous consultez le Total des utilisateurs atteignables pour votre audience filtrée, vous pouvez remarquer que la somme des colonnes individuelles est inférieure au Total des utilisateurs atteignables. Cet écart est généralement dû au fait qu'un certain nombre d'utilisateurs remplissent les critères du segment ou des filtres de la campagne, mais ne sont pas atteignables par push (par exemple, parce qu'ils n'ont pas de [jetons de notification push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#push-tokens) valides ou actifs).
+Lorsque vous consultez le Total des utilisateurs atteignables pour votre audience filtrée, vous pouvez remarquer que la somme des colonnes individuelles est inférieure au Total des utilisateurs atteignables. Cet écart est généralement dû au fait qu'un certain nombre d'utilisateurs remplissent les critères du segment ou des filtres de la campagne, mais ne sont pas atteignables par push (par exemple, parce qu'ils n'ont pas de [jetons push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_token_lifecycle#push-tokens) valides ou actifs).
 
 {% enddetails %}
 
@@ -230,7 +230,7 @@ Braze vous permet de suivre la fréquence à laquelle les utilisateurs effectuen
 
 {% tab Canvas %}
 
-Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter les tests multivariés et la Sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas) de notre documentation Canvas.
+Si ce n'est pas déjà fait, complétez les sections restantes de votre composant Canvas. Pour plus de détails sur la façon de construire le reste de votre Canvas, d'implémenter les tests multivariés et la sélection intelligente, et plus encore, consultez l'étape [Construire votre Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas) de notre documentation Canvas.
 
 {% endtab %}
 {% endtabs %}

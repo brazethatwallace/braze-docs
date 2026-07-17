@@ -11,7 +11,7 @@ tool: Canvas
 
 > 이탈 사용자 템플릿을 사용하여 브랜드가 제공하는 가치를 사용자에게 상기시키고, 과거 참여 내역을 기반으로 한 매력적인 혜택과 인센티브로 복귀를 유도하세요.
 
-이 문서에서는 사용자 라이프사이클의 리텐션 및 로열티 단계를 위해 설계된 **이탈 사용자** 템플릿의 사용 사례를 안내합니다. 이 과정을 마치면, 프로모션 메시지를 받은 후 앱에서 세션을 시작했는지 여부 등 사용자의 동작에 따라 다양한 프로모션으로 앱 복귀를 유도하는 Canvas를 만들 수 있습니다.
+이 문서에서는 사용자 라이프사이클의 유지 및 로열티 단계를 위해 설계된 **이탈 사용자** 템플릿의 사용 사례를 안내합니다. 이 과정을 마치면, 프로모션 메시지를 받은 후 앱에서 세션을 시작했는지 여부 등 사용자의 행동에 따라 다양한 프로모션으로 앱 복귀를 유도하는 Canvas를 만들 수 있습니다.
 
 ## 필수 조건 {#prerequisites}
 
@@ -21,7 +21,7 @@ tool: Canvas
 
 영화와 시리즈의 독점 콘텐츠를 제공하는 스트리밍 서비스인 MovieCanon에서 일하고 있다고 가정해 보겠습니다. 이탈 사용자 템플릿을 사용하여 30일 동안 앱을 방문하지 않은 사용자에게 혜택과 프리미엄 콘텐츠를 홍보할 수 있습니다.
 
-Canvas를 만들기 전에 [Braze 오디언스 싱크 to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) 통합을 설정하여 Braze의 사용자 데이터를 Google Audiences에 추가하고 행동 트리거, 세분화 등을 기반으로 광고를 보낼 수 있도록 합니다.
+Canvas를 만들기 전에 [Braze 오디언스 싱크 to Google]({{site.baseurl}}/partners/canvas_audience_sync/google_audience_sync) 통합을 설정하여 Braze의 사용자 데이터를 Google 오디언스에 추가하고 행동 트리거, 세분화 등을 기반으로 광고를 보낼 수 있도록 합니다.
 
 이탈 사용자 템플릿에 접근하려면 새 Canvas를 만들 때 **Use a Canvas template** > **Braze templates**를 선택합니다. 그런 다음 **Lapsing User** 옆에 있는 **Apply Template**을 선택합니다. 이제 템플릿을 필요에 맞게 조정할 수 있습니다.
 
@@ -58,7 +58,7 @@ Canvas 세부 정보를 목표에 맞게 조정합니다.
 대부분의 기본 구독 설정을 유지합니다:
 
 - 메시지 또는 알림 수신에 가입했거나 옵트인한 사용자에게만 발송합니다.
-- [최대 게재빈도 설정 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)을 적용하여 오디언스가 받는 메시지 수가 과도하지 않도록 합니다. 이 경우 "Lapsing/Retention" 태그가 지정된 Campaign 또는 캔버스 단계를 사용자가 매주 2개까지만 받을 수 있도록 최대 게재빈도를 설정합니다.
+- [최대 게재빈도 설정 규칙]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)을 적용하여 오디언스가 받는 메시지 수가 과도하지 않도록 합니다. 이 경우 "Lapsing/Retention" 태그가 지정된 Campaign 또는 캔버스 단계를 사용자가 매주 2개까지만 받을 수 있도록 최대 게재빈도를 설정합니다.
 - 사용자의 현지 시간 기준 방해금지 시간(오전 12시~오전 8시) 동안에는 메시지를 보내지 않습니다.
 
 변경할 유일한 설정은 방해금지 시간 동안 메시지가 트리거될 때의 처리 방식입니다. 메시지를 취소하는 대신 **Send at next available time**을 선택하여 사용자가 프로모션을 놓치지 않도록 합니다.

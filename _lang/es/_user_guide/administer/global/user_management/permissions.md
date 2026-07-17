@@ -90,6 +90,7 @@ Ten en cuenta los siguientes comportamientos al asignar acceso al panel:
 - **Administrador de espacio de trabajo frente a administrador de empresa:** los administradores de espacio de trabajo gestionan permisos dentro de los espacios de trabajo asignados. Los administradores de empresa tienen autoridad a nivel de toda la empresa, incluida la eliminación de otros usuarios del panel.
 - **Usuarios limitados:** los usuarios limitados con el permiso "Edit Dashboard Users" pueden gestionar a otros usuarios limitados, pero no pueden crear ni gestionar cuentas de administrador de empresa.
 - **Alcance de gestión de usuarios del panel:** en la página de detalles del usuario, los permisos solo aparecen para los espacios de trabajo a los que el editor puede acceder. Un usuario limitado que puede editar usuarios en un espacio de trabajo puede no ver las casillas de permisos de otro espacio de trabajo.
+- **Botón Asignar permisos:** cuando editas un usuario y este ya tiene permisos a nivel de espacio de trabajo o conjuntos de permisos para cada espacio de trabajo que puedes gestionar, el botón **Asignar permisos** desaparece. Esto ocurre porque no quedan espacios de trabajo adicionales para asignar a nivel de espacio de trabajo.
 - **Exportar datos de usuario:** exportar datos de usuario requiere acceso a nivel de espacio de trabajo además del permiso de exportación.
 - **Permisos compuestos:** algunas áreas requieren múltiples permisos. Por ejemplo, configurar [partners tecnológicos]({{site.baseurl}}/partners) normalmente requiere tanto acceso al partner como un permiso de lectura básico para las características relacionadas del espacio de trabajo.
 - **Importar y actualizar datos de usuario:** este permiso incluye la capacidad de editar perfiles de usuario de la aplicación a través de flujos de importación, no solo registros de usuarios del panel.
@@ -221,7 +222,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Datos de usuario | Edit User Data | Crear y actualizar datos de usuario |
 | Datos de usuario | Export User Data | Descargar usuarios del panel |
 | Usuarios duplicados | View User Merge Records | Ver una lista de registros de fusión de usuarios |
-| Usuarios | View User Profiles (PII Redacted) | Ver perfiles de usuario de manera compatible con PII |
+| Usuarios | View User Profiles (PII Redacted) | Ver perfiles de usuario de manera compatible con PII. Los usuarios con este permiso no pueden guardar ni lanzar Campaigns que hagan referencia a atributos personalizados marcados como PII a menos que también tengan el permiso "View Custom Attributes Marked as PII".<br><br>El permiso "View User Profiles (PII Redacted)" debe habilitarse antes de su uso. Ponte en contacto con tu administrador de éxito de cliente para habilitarlo en tu espacio de trabajo. |
 | Usuarios | View User Event Properties | Ver propiedades de eventos en la pestaña **Historial de eventos** de los perfiles de usuario |
 | Usuarios duplicados | Merge Duplicate Users | Combinar usuarios duplicados en uno solo. Los duplicados se eliminan después de la fusión |
 | Eliminar usuarios | View User Deletion Records | Ver una lista de registros de eliminación de usuarios |
@@ -362,7 +363,7 @@ Para descargar una lista de tus usuarios y sus permisos, ve a **Configuración**
 | Configuración de dominio | Edit Domain Settings | Añadir dominios delegados y dominios personalizados en Dominios verificados |
 | Cifrado a nivel de campo | Edit Identifier Field-Level Encryption | Habilitar y actualizar la configuración de cifrado a nivel de campo |
 | Activos de la biblioteca de medios | View Media Library Assets | Ver activos de la biblioteca de medios |
-| Activos de la biblioteca de medios | Delete Media Library Assets | Eliminar permanentemente activos de la biblioteca de medios |
+| Activos de la biblioteca de medios | Delete Media Library Assets | Eliminar activos de la biblioteca de medios de la interfaz. Los activos eliminados siguen alojados en Braze para evitar que se rompan los mensajes que los referencian. Para eliminar permanentemente un activo, ponte en contacto con soporte de Braze. |
 | Activos de la biblioteca de medios | Edit Media Library Assets | Crear y actualizar activos de la biblioteca de medios |
 | Activos de la biblioteca de medios | Replace Media Library Assets | Reemplazar el archivo de un activo existente de la biblioteca de medios manteniendo estables su URL e ID de activo |
 | Límites de velocidad de mensajería | View Messaging Rate Limits | Ver límites de velocidad de mensajería a nivel de espacio de trabajo |

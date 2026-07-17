@@ -22,18 +22,18 @@ Brazeは、複数の入力を使用して疑わしいボットクリック（非
 
 ## 影響を受ける指標とワークフロー {#affected-metrics-and-workflows}
 
-以下のBraze指標とワークフローがボットクリックの影響を受けます。
+以下のBrazeの指標とワークフローがボットクリックの影響を受けます。
 
 - **_合計クリック数_：** キャンペーン分析およびキャンバス分析はボットクリックを除外し、人間のインタラクションのみを反映します。
 - **セグメンテーションフィルター：** SMSリンクインタラクションを参照するセグメントフィルターは、キャンペーンおよびキャンバスでのより正確なリターゲティングのためにボットクリックを除外します。
-- **オーケストレーション：** ボットクリックは、SMSリンクインタラクションを参照するアクションベースのトリガーおよびキャンバスアクションパスからフィルタリングされ、トリガーが人間の行動を反映できるようになります。
+- **オーケストレーション：** ボットクリックは、SMSリンクインタラクションを参照するアクションベースのトリガーおよびキャンバスのアクションパスからフィルタリングされ、トリガーが人間の行動を反映できるようになります。
 - **Brazeインテリジェンス：**
-    - **インテリジェントセレクション：** バリアントセレクションの最適化時にボットクリックを除外します。
-    - **インテリジェントチャネル：** SMSまたはRCSが選択された場合、正確なチャネルセレクションのためにボットクリックを除外します。
+    - **インテリジェントセレクション：** バリアント選択の最適化時にボットクリックを除外します。
+    - **インテリジェントチャネル：** SMSまたはRCSが選択された場合、正確なチャネル選択のためにボットクリックを除外します。
     - **実験ステップ：** 信頼性の高い実験結果のためにボットクリックを除外します。
     - **Currentsデータエクスポート：** 人間のクリックとボットクリックの分析に役立つ`is_suspected_bot_click`および`suspected_bot_click_reason`フィールドが含まれます。これらのフィールドは、[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)、[Snowflakeデータ共有]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake)、および[クエリビルダー]({{site.baseurl}}/user_guide/analytics/reports/query_builder)で利用できます。
 
-疑わしいボットクリックによる配信停止は影響を受けません。Brazeはすべての配信停止リクエストを通常どおり処理します。これらの配信停止をブロックするには、[製品フィードバックを送信]({{site.baseurl}}/user_guide/administer/personal/braze_support)してください。
+疑わしいボットクリックによる購読解除は影響を受けません。Brazeはすべての購読解除リクエストを通常どおり処理します。{% multi_lang_include product_feedback_cta.md context="pain_point" channel="feature" feature="blocking unsubscribes from suspected bot clicks" %}
 
 ## SMSクリックイベントのCurrentsフィールド {#currents-fields-in-sms-click-events}
 
@@ -55,9 +55,9 @@ Brazeは、SMSクリックイベントに対して以下のCurrentsフィール�
 
 フィルタリングは、以前に送信されたキャンペーンには影響しません。有効にすると、ボットクリックを除外することで、その時点以降のクリック率が低下します。
 
-### ボットクリックフィルタリングは、ボットが配信停止リンクをクリックするのを防ぎますか？ {#does-bot-click-filtering-prevent-bots-from-clicking-unsubscribe-links}
+### ボットクリックフィルタリングは、ボットが購読解除リンクをクリックするのを防ぎますか？ {#does-bot-click-filtering-prevent-bots-from-clicking-unsubscribe-links}
 
-いいえ。すべての配信停止リクエストは通常どおり処理されます。
+いいえ。すべての購読解除リクエストは通常どおり処理されます。
 
 ### リンクプレビューはボットクリックフィルタリングに含まれますか？ {#are-link-previews-included-in-bot-click-filtering}
 
@@ -67,7 +67,7 @@ Brazeは、SMSクリックイベントに対して以下のCurrentsフィール�
 
 早期アクセス期間中にボットクリックフィルタリングを有効にするには、Brazeアカウントチームに連絡する必要があります。ボットクリックフィルタリングが一般提供されると、この機能はすべてのSMSおよびRCSユーザーに対してデフォルトで有効になります。
 
-また、[リンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening)の高度なクリックトラッキングが有効になっていることを確認してください。これにより、個々のユーザーレベルでこのデータを追跡するため、ボットクリック分析を受け取ることができます。
+また、[リンク短縮]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/link_shortening)の高度なクリックトラッキングが有効になっていることを確認してください。これにより、個々のユーザーレベルでこのデータをトラッキングするため、ボットクリックの分析データを受け取ることができます。
 
 {% alert note %}
 さらにサポートが必要な場合は、[サポートに連絡]({{site.baseurl}}/braze_support)してください。

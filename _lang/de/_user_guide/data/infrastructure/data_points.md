@@ -15,7 +15,7 @@ Die Datenpunkte basieren auf Informationen, die anhand von Nutzerprofilen aufgez
 
 ## Definition {#definition}
 
-„Datenpunkte“ beziehen sich auf eine abrechenbare Nutzungseinheit der Braze-Dienste, gemessen an einem Sitzungsbeginn, einem Sitzungsende, einem angepassten Event oder einem aufgezeichneten Kauf sowie an jedem Attribut, das in einem Endnutzerprofil gesetzt wird. Der Klarheit halber gilt jeder der oben genannten Datenpunkte (wie z. B. Sitzungsbeginn, Sitzungsende, angepasstes Event oder aufgezeichneter Kauf sowie jedes Attribut), die dem Profil eines Endnutzers zu einem bestimmten Zeitpunkt zugeordnet werden, als ein einzelner Datenpunkt.
+„Datenpunkte“ beziehen sich auf eine abrechenbare Nutzungseinheit der Braze-Dienste, gemessen an einem Sitzungsbeginn, einem Sitzungsende, einem angepassten Event oder einem aufgezeichneten Kauf sowie an jedem Attribut, das in einem Endnutzerprofil gesetzt wird. Der Klarheit halber gilt jeder der oben genannten Datenpunkte (wie z. B. Sitzungsbeginn, Sitzungsende, angepasstes Event oder aufgezeichneter Kauf sowie jedes Attribut), die dem Profil einer Endnutzer:in zu einem bestimmten Zeitpunkt zugeordnet werden, als ein einzelner Datenpunkt.
 
 Daten und Events, die standardmäßig von den Braze-Diensten erfasst werden, wie z. B. Push-Token, Geräteinformationen und alle Events zum Tracking des Campaign-Engagements, wie z. B. E-Mail-Öffnungen und Klicks auf Push-Benachrichtigungen, werden *nicht* als Datenpunkte gezählt.
 
@@ -42,7 +42,7 @@ Insgesamt werden Datenpunkte gesammelt, wenn die Profildaten von Nutzer:innen ak
 
 In den folgenden Abschnitten finden Sie eine Aufschlüsselung, wie Braze Datenpunkte sammelt. Wenn Sie Fragen zu den Feinheiten der Braze-Datenpunkte haben, kann Ihr Braze Account Manager diese beantworten.
 
-Bei der API-Ingestion folgt jedes abrechenbare Update über [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) denselben Regeln wie andere Profilupdates: Beispielsweise zählt jedes protokollierte **angepasste Event** als Datenpunkt, und **angepasste Attribute** zählen in der Regel pro aktualisiertem Attribut in dieser Anfrage (siehe die abrechenbaren Tabellen unten und [Besondere Umstände](#special-circumstances)).
+Bei der API-Ingestion folgt jedes abrechenbare Update über [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) denselben Regeln wie andere Profilupdates: Beispielsweise zählt jedes protokollierte **angepasste Event** als Datenpunkt, und **angepasste Attribute** zählen in der Regel pro aktualisiertem Attribut in dieser Anfrage (siehe die abrechenbaren Tabellen im folgenden Abschnitt und [Besondere Umstände](#special-circumstances)).
 
 Bei den folgenden Aktionen werden keine Datenpunkte protokolliert:
 - Löschen von Nutzer:innen aus Braze

@@ -40,7 +40,7 @@ Suivez ces étapes pour configurer les notifications de baisse de prix dans un c
 | **Fallback catalog** | Le catalogue utilisé pour l'abonnement s'il n'y a pas de propriété `catalog_name` dans l'événement personnalisé. |
 | **Custom event for subscribing** | L'événement personnalisé utilisé pour abonner un utilisateur aux notifications du catalogue. Lorsque cet événement se produit, l'utilisateur qui l'a effectué est abonné. |
 | **Custom event for unsubscribing** | L'événement personnalisé utilisé pour désabonner un utilisateur des notifications. Cet événement est facultatif. Si l'utilisateur n'effectue pas cet événement, il sera désabonné au bout de 90 jours ou lorsque l'événement de baisse de prix se déclenchera, selon ce qui se produit en premier. |
-| **Item ID event property** | La propriété de l'événement personnalisé ci-dessus utilisée pour déterminer l'article concerné par un abonnement ou un désabonnement. Cette propriété de l'événement personnalisé doit contenir un ID d'article existant dans un catalogue. L'événement personnalisé doit contenir une propriété `catalog_name` pour spécifier dans quel catalogue se trouve cet article. |
+| **Item ID event property** | La propriété de l'événement personnalisé mentionné plus haut dans cette section, utilisée pour déterminer l'article concerné par un abonnement ou un désabonnement. Cette propriété de l'événement personnalisé doit contenir un ID d'article existant dans un catalogue. L'événement personnalisé doit contenir une propriété `catalog_name` pour spécifier dans quel catalogue se trouve cet article. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Mise en place des notifications de baisse de prix" }
 
 Voici un exemple d'événement personnalisé :

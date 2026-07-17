@@ -23,7 +23,7 @@ La interfaz de usuario predeterminada de Content Cards se importa de la capa de 
 ![Dos tarjetas de contenido, una con la fuente predeterminada y esquinas cuadradas, y otra con esquinas redondeadas y una fuente cursiva]({% image_buster/assets/img/content_cards/content-card-customization-attributes.png %})
 
 {% alert note %}
-Las propiedades de Content Cards, como `title`, `cardDescription`, `imageUrl`, etc., se pueden editar directamente a través del [dashboard]({{site.baseurl}}/user_guide/channels/content_cards/creative_details), que es el método preferido para cambiar estos detalles.
+Las propiedades de Content Cards, como `title`, `cardDescription`, `imageUrl`, etc., se pueden editar directamente a través del [panel]({{site.baseurl}}/user_guide/channels/content_cards/creative_details), que es el método preferido para cambiar estos detalles.
 {% endalert %}
 
 

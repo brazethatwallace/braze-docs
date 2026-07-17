@@ -90,7 +90,7 @@ Avant de configurer l'orchestration, prenez en compte les éléments suivants :
 Un modèle de base est tout modèle de message que votre agent de décision pourrait utiliser. Considérez :
 
 - **Combien de modèles ?** Votre agent peut fonctionner avec un seul modèle ou plusieurs. S'il y en a plusieurs, l'agent peut personnaliser le modèle que chaque client reçoit.
-- **Quels canaux ?** E-mail, push, SMS ou une combinaison. Chaque canal peut nécessiter des modèles et des Campaigns distincts.
+- **Quels canaux ?** E-mail, notification push, SMS ou une combinaison. Chaque canal peut nécessiter des modèles et des Campaigns distincts.
 - **Quels éléments dynamiques ?** Identifiez les parties de votre message que l'agent personnalisera (lignes d'objet, CTA, offres, timing, etc.). Ceux-ci deviendront des propriétés de déclenchement API ou des marques substitutives dynamiques.
 
 ### Paramètres de rééligibilité {#re-eligibility-settings}
@@ -118,7 +118,7 @@ Pour les intégrations Braze, planifiez les dimensions que votre agent optimiser
 
 ## Configuration de l'intégration {#integration-setup}
 
-Sélectionnez votre CEP ci-dessous pour commencer la configuration de l'intégration.
+Sélectionnez votre CEP dans cette liste pour commencer la configuration de l'intégration.
 
 {% tabs %}
 {% tab Braze %}
@@ -137,7 +137,7 @@ Accédez à **Paramètres** > **Clés API**, puis créez une nouvelle clé avec 
 
 Configurez une Campaign déclenchée par API pour chaque modèle de base avec des propriétés de déclenchement API pour toutes les dimensions optimisées.
 
-Un modèle de base est tout modèle que l'agent de décision pourrait utiliser pour orchestrer les messages. Un agent de décision peut avoir 1 modèle de base ou plusieurs, auquel cas le choix du bon modèle de base pour chaque client sera l'une des décisions que l'agent personnalise.
+Un modèle de base est tout modèle que l'agent de décision pourrait utiliser pour orchestrer les messages. Un agent de décision peut avoir un modèle de base ou plusieurs, auquel cas le choix du bon modèle de base pour chaque client sera l'une des décisions que l'agent personnalise.
 
 ### Étape 3 : Configurer la rééligibilité {#step-3-configure-re-eligibility}
 

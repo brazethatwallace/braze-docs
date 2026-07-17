@@ -64,12 +64,12 @@ URL 및 쿼리 문자열 사용(예: 이름에 `%` 또는 공백이 포함된 �
 
 Braze에는 메시지에서 사용할 수 있는 Segments용 Liquid 코드를 생성하는 내장 기능이 있습니다. 구체적으로, 오브젝트 내에서 여러 기준과 일치하는 Segment를 생성할 수 있습니다.
 
-자세한 내용은 [다중 기준 세분화]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#multi-criteria-segmentation)를 확인하세요.
+자세한 내용은 [다중 기준 세분화]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support#segmentation-behavior-with-arrays-of-objects)를 확인하세요.
 
-### 이벤트가 트리거하는 메시지를 개인화하기 위해 이벤트 속성을 어떻게 사용하나요? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
+### 이벤트가 트리거하는 메시지를 개인화하기 위해 이벤트 속성정보를 어떻게 사용하나요? {#how-do-i-use-event-attributes-to-personalize-a-message-that-an-event-is-triggering}
 
 {% raw %}
-`api_triggered_property` 태그를 사용하여 API 트리거 이벤트의 등록정보에 접근할 수 있습니다: `{{api_trigger_properties.${attribute_key}}}`.
+`api_triggered_property` 태그를 사용하여 API 트리거 이벤트의 속성정보에 접근할 수 있습니다: `{{api_trigger_properties.${attribute_key}}}`.
 {% endraw %}
 
 ### Braze는 Liquid에서 배열의 배열을 지원하나요? {#does-braze-support-an-array-of-arrays-in-liquid}
@@ -149,7 +149,42 @@ Braze에서는 배열 커스텀 속성의 항목을 확인하거나, [카탈로�
 
 {% raw %}아니요. `{% abort_message %}` 태그는 따옴표로 묶인 정적 문자열만 허용하며, Liquid 개인화는 지원하지 않습니다.{% endraw %} 조건부 중단 동작이 필요한 경우 태그 앞에서 다른 Liquid 로직을 사용하세요.
 
-## Canvas, 카탈로그 및 트리거 등록정보 {#canvas-catalogs-and-trigger-properties}
+### Liquid로 전화번호를 마스킹하려면 어떻게 하나요? {#how-do-i-mask-phone-numbers-with-liquid}
+
+`slice` 필터를 사용하여 특정 숫자를 추출하고 `append` 필터를 사용하여 마스킹 문자와 결합하면 전화번호를 마스킹할 수 있습니다.
+
+#### 마지막 네 자리를 제외한 모든 숫자 마스킹 {#mask-all-but-the-last-four-digits}
+
+10자리 전화번호를 `******7890`으로 표시하려면:
+
+{% raw %}
+```liquid
+{% assign phone = {{${phone_number}}} | split: '' %}
+{% assign masked_phone = '' %}
+{% for i in (0..5) %}
+  {% assign masked_phone = masked_phone | append: '*' %}
+{% endfor %}
+{% for i in (6..9) %}
+  {% assign masked_phone = masked_phone | append: phone[i] %}
+{% endfor %}
+{{ masked_phone }}
+```
+{% endraw %}
+
+#### 처음 세 자리와 마지막 네 자리 표시 {#show-the-first-three-and-last-four-digits}
+
+10자리 전화번호를 `123***7890`으로 표시하려면:
+
+{% raw %}
+```liquid
+{% assign first_part = {{${phone_number}}} | slice: 0, 3 %}
+{% assign last_part = {{${phone_number}}} | slice: -4, 4 %}
+{% assign masked_phone_number = first_part | append: "***" | append: last_part %}
+{{ masked_phone_number }}
+```
+{% endraw %}
+
+## Canvas, 카탈로그 및 트리거 속성정보 {#canvas-catalogs-and-trigger-properties}
 
 ### Braze에서 API 트리거 Liquid가 실패하는 이유는 무엇인가요? {#why-is-my-api-triggered-liquid-failing-in-braze}
 
@@ -157,13 +192,13 @@ Braze에서는 배열 커스텀 속성의 항목을 확인하거나, [카탈로�
 일반적인 원인은 중괄호가 한 쌍 더 추가된 경우입니다. 예를 들어, `{{{api_trigger_properties.${attribute_key}}}}`는 유효한 Braze 개인화 구문이 아닙니다. 정확히 두 개의 여는 중괄호와 두 개의 닫는 중괄호를 사용하세요: `{{api_trigger_properties.${attribute_key}}}`.
 {% endraw %}
 
-### Canvas 컨텍스트 등록정보에 크기 제한이 있나요? {#are-there-size-limits-for-canvas-context-properties}
+### Canvas 컨텍스트 속성정보에 크기 제한이 있나요? {#are-there-size-limits-for-canvas-context-properties}
 
-Braze는 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)에 대해 엄격한 제한을 적용하지 않지만, 페이로드를 약 1KB(~1,000자) 이하로 유지하세요. 더 큰 오브젝트는 메모리 사용량을 증가시키고 대량 발송 시 메시지 렌더링을 지연시킬 수 있습니다.
+Braze는 [Canvas 컨텍스트 속성정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties)에 대해 엄격한 제한을 적용하지 않지만, 페이로드를 약 1KB(~1,000자) 이하로 유지하세요. 더 큰 오브젝트는 메모리 사용량을 증가시키고 대량 발송 시 메시지 렌더링을 지연시킬 수 있습니다.
 
 ### 대시보드에서 특정 데이터 유형을 미리볼 때 Liquid 오류가 발생하는 이유는 무엇인가요? {#why-do-i-get-a-liquid-error-when-previewing-certain-data-types-in-the-dashboard}
 
-일부 [Canvas 컨텍스트 등록정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) 유형은 비교나 수학 연산에 사용하기 전에 Liquid에서 형변환이 필요합니다. 예를 들어, 숫자 동작이 필요한 경우:
+일부 [Canvas 컨텍스트 속성정보]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties) 유형은 비교나 수학 연산에 사용하기 전에 Liquid에서 형변환이 필요합니다. 예를 들어, 숫자 동작이 필요한 경우:
 
 {% raw %}
 ```liquid
@@ -197,9 +232,9 @@ Liquid가 포함된 Content Blocks를 사용하는 발송된 메시지에서 여
 
 Liquid로 Content Block을 템플릿화하면, 블록의 모바일 미디어 쿼리가 블록을 메시지에 직접 드래그할 때와 동일한 방식으로 미리보기에 적용되지 않을 수 있습니다. 블록을 드래그하면 레이아웃은 유지되지만 소스 블록과 분리되므로, 이후 블록 편집 사항이 메시지에 자동으로 업데이트되지 않습니다.
 
-### 메시지 작성기에서 이벤트 등록정보 값을 미리보려면 어떻게 하나요? {#how-do-i-preview-event-property-values-in-message-composer}
+### 메시지 작성기에서 이벤트 속성정보 값을 미리보려면 어떻게 하나요? {#how-do-i-preview-event-property-values-in-message-composer}
 
-**커스텀 사용자로 미리보기**를 사용하고 미리보기할 사용자에 대한 샘플 커스텀 이벤트 등록정보 값을 입력하세요. 이는 중단을 트리거하지 않는 미리보기 값이 필요한 중단 로직이 포함된 메시지에도 유용합니다.
+**커스텀 사용자로 미리보기**를 사용하고 미리보기할 사용자에 대한 샘플 커스텀 이벤트 속성정보 값을 입력하세요. 이는 중단을 트리거하지 않는 미리보기 값이 필요한 중단 로직이 포함된 메시지에도 유용합니다.
 
 ## 이메일 메시지에서의 Liquid {#liquid-in-email-messages}
 

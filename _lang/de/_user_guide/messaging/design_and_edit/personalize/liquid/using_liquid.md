@@ -84,7 +84,7 @@ Operatoren (wie `==`, `!=`, `>`, `and`, `or`) und Filter (wie `| size`, `| plus`
 | Array-Zugriff (`[ ]`) | Nicht unterstützt | Nicht unterstützt |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wo Operatoren und Filter verwendet werden können" }
 
-[^case_when_ops]: In `case`- und `when`-Tags vergleicht Liquid den `case`-Ausdruck mit jedem `when`-Wert mittels Gleichheit (ähnlich wie die Verkettung von `if` und `elsif` mit `==`). Sie können innerhalb einer `when`-Klausel keine beliebigen Vergleichs- oder logischen Operatoren verwenden, wie es bei `if` und `elsif` möglich ist. Beispiele finden Sie unter [Bedingte Messaging-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags).
+[^case_when_ops]: In `case`- und `when`-Tags vergleicht Liquid den `case`-Ausdruck mit jedem `when`-Wert mittels Gleichheit (ähnlich wie die Verkettung von `if` und `elsif` mit `==`). Sie können innerhalb einer `when`-Klausel keine beliebigen Vergleichs- oder logischen Operatoren verwenden, wie es bei `if` und `elsif` möglich ist. Beispiele finden Sie unter [Bedingte Messaging-Logik]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when).
 
 Wenn Sie einen gefilterten Wert in einem Kontext benötigen, der keine Filter unterstützt, weisen Sie das Ergebnis zuerst einer Variablen zu.
 

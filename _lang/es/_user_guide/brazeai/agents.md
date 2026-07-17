@@ -39,12 +39,12 @@ Las características de los agentes de Braze incluyen:
 
 - **Configuración flexible:** Utiliza un LLM proporcionado por Braze o conecta tus propios [proveedores de modelos de IA]({{site.baseurl}}/partners/ai_model_providers) (como OpenAI, Anthropic, Google Gemini o Databricks Mosaic).
 - **Integración fluida:** Implementa agentes directamente en los pasos en Canvas o en los campos del catálogo.
-- **Herramientas de prueba y registro:** Obtén una vista previa del resultado de tu agente probando con entradas de muestra antes de lanzarlo. Consulta los registros de cada vez que se ejecuta el agente, incluyendo la entrada y salida de esa ejecución.
+- **Pruebas, registros e historial de versiones:** Obtén una vista previa del resultado de tu agente probando con entradas de muestra antes de lanzarlo. Consulta los registros de cada vez que se ejecuta el agente, incluyendo la entrada y salida de esa ejecución. Utiliza la pestaña **Historial de versiones** para revisar versiones anteriores y las diferencias en línea de los cambios en las instrucciones.
 - **Controles de uso:** Los límites diarios ayudan a administrar el rendimiento y los costes.
 
 ## Acerca de los agentes de Braze {#about-braze-agents}
 
-Los agentes se configuran con instrucciones (indicaciones del sistema) que definen cómo deben comportarse. Cuando un agente se ejecuta, utiliza tus instrucciones junto con los datos que le pasas para generar una respuesta. No pueden acceder a datos de usuario más allá de lo que se proporciona a través del contexto e instrucciones seleccionados.
+Los agentes se configuran con instrucciones (indicaciones del sistema) que definen cómo deben comportarse. Cuando un agente se ejecuta, utiliza tus instrucciones junto con los datos que le pasas explícitamente para generar una respuesta. No pueden acceder a datos de usuario más allá de lo que configures: variables de Liquid, selecciones de contexto del agente, variables de contexto de Canvas y valores de pasos de contexto. Los agentes no buscan en los perfiles ni advierten cuando faltan datos. Consulta [Qué datos reciben los agentes]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive).
 
 ### Conceptos clave {#key-concepts}
 
@@ -57,13 +57,15 @@ Los agentes se configuran con instrucciones (indicaciones del sistema) que defin
 | [Variable de salida]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#define-the-output-variable) | El resultado que produce el agente cuando se utiliza en los pasos en Canvas. Las variables de salida almacenan el resultado del agente para personalizar contenido o guiar las rutas del flujo de trabajo. Las variables de salida pueden ser de tipo cadena, número o booleano. |
 | [Invocación](#limitations) | Una sola ejecución del agente. Esto cuenta para tus límites diarios. |
 | [Formato de salida]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#select-output) | La estructura de datos predefinida de la respuesta del agente. |
+| [Fuentes de conocimiento]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources) | Un tipo de contexto del agente que se utiliza para recuperar datos de un catálogo con mayor precisión que si se hace referencia al catálogo directamente en las instrucciones del agente. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Conceptos clave" }
 
 ## Limitaciones {#limitations}
 
 Se aplican las siguientes limitaciones:
 
-- Cada agente tiene un límite de invocación diario predeterminado de 250 000 ejecuciones, que se puede aumentar hasta un máximo de 1 000 000 de ejecuciones por día. Ponte en contacto con tu administrador del éxito del cliente si te interesa aumentar este límite.
+- Cada agente tiene un límite de invocación diario predeterminado de 250 000 ejecuciones, que se puede aumentar hasta un máximo de 1 000 000 de ejecuciones por día. Ponte en contacto con tu administrador de éxito de cliente si te interesa aumentar este límite.
+- La Consola de Agente muestra un **Límite diario de coste de créditos de acción** para cada agente: el máximo estimado de créditos por día en función de la proporción de créditos por invocación de tu modelo y el límite de invocación diario. Consulta [Límites diarios de invocación y créditos]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - De forma predeterminada, cada ejecución debe completarse en un plazo de 20 segundos. Después de 20 segundos, el agente devuelve una respuesta `null` donde se utiliza.
     - Si tus agentes agotan constantemente el tiempo de espera, ponte en contacto con tu director de cuentas de Braze para aumentar este límite.
 - Los datos de entrada están limitados a 25 KB por solicitud. Las entradas más largas se truncan.
@@ -72,13 +74,15 @@ Se aplican las siguientes limitaciones:
 
 Apunta a casos de uso de alto valor donde los agentes puedan generar el mayor retorno de la inversión (ROI), y elige audiencias que tengan probabilidades de responder. Una audiencia más pequeña y con alta oportunidad a menudo supera a una audiencia grande con baja oportunidad; por ejemplo, reorientar a usuarios que buscaron recientemente pero no convirtieron, en lugar de enviar textos generados por agentes a toda tu base de usuarios.
 
-Para validar el ROI antes de escalar, utiliza un paso de [Recorridos de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para enviar solo una parte de tu audiencia a través de un paso de agente. Para obtener más orientación sobre la implementación, consulta [Implementar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents).
+Para validar el ROI antes de escalar, utiliza un paso de [recorrido de experimentos]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para enviar solo una parte de tu audiencia a través de un paso de agente. Para obtener más orientación sobre la implementación, consulta [Implementar agentes personalizados]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents).
 
 ## Gestión de errores {#error-handling}
 
-Si el modelo conectado devuelve un [error de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) del proveedor del LLM durante un **paso de agente en Canvas**, Braze reintenta continuamente la solicitud utilizando retirada exponencial. Los agentes de catálogo no reintentan las invocaciones con límite de velocidad. Para otros fallos (como un tiempo de espera agotado o una clave de API no válida), la salida del agente en Canvas se establece en `null` a menos que el agente tenga [valores alternativos configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) en la Consola de Agente (solo agentes de pasos en Canvas). Si un agente alcanza su límite de invocación diario, Braze aplica los valores alternativos configurados cuando están presentes; de lo contrario, la salida se establece en `null`.
+Si el modelo conectado devuelve un [error de límite de velocidad]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) del proveedor del LLM durante la invocación de un agente de paso en Canvas o de un agente de catálogo, Braze reintenta continuamente la solicitud utilizando retirada exponencial.
 
-Cuando muchos usuarios entran en un paso de agente a la vez, el procesamiento puede tardar más debido a los [controles de flujo de invocación]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls). Configura valores alternativos en la Consola de Agente para los agentes de Canvas de modo que los usuarios sigan recibiendo resultados cuando una invocación falle, o utiliza [valores predeterminados de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) en los pasos de mensaje posteriores.
+Para otros fallos (como un tiempo de espera agotado o una clave de API no válida), la salida del agente de paso en Canvas se establece en `null` a menos que el agente tenga [valores alternativos configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) en la Consola de Agente (solo agentes de paso en Canvas). Los agentes de catálogo no reintentan los fallos que no son de límite de velocidad. Si un agente alcanza su límite de invocación diario, Braze aplica los valores alternativos configurados cuando están presentes; de lo contrario, la salida se establece en `null`.
+
+Cuando muchos usuarios entran en un paso de agente a la vez, el procesamiento puede tardar más debido a los [controles de flujo de invocación]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls). Configura valores alternativos en la Consola de Agente para los agentes de paso en Canvas de modo que los usuarios sigan recibiendo resultados cuando una invocación falle, o utiliza [valores predeterminados de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) en los pasos de mensaje posteriores.
 
 ## ¿Cómo se utilizan mis datos y cómo se envían a los LLM proporcionados por Braze? {#how-is-my-data-used-and-sent-to-braze-provided-llms}
 

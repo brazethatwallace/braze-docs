@@ -22,7 +22,7 @@ La integración permite a las marcas:
 - Exportar audiencias a Braze directamente desde Lytics
 - Enviar eventos de Campaigns o Canvas de Braze a Lytics en tiempo real para campañas personalizadas y para construir perfiles de usuario enriquecidos
 
-## Casos de uso {#use-cases}
+## Ejemplos {#use-cases}
 
 Conecta Braze a Lytics para [importar](#importing-data-from-braze-to-lytics) correo electrónico, SMS y actividad push para enriquecer los perfiles de usuario de Lytics. Si utilizas Braze y Lytics juntos, también puedes [exportar](#integration) las audiencias de Lytics basadas en comportamientos y multicanal para crear recorridos del cliente en Braze altamente personalizados utilizando datos propios.
 
@@ -31,9 +31,9 @@ Conecta Braze a Lytics para [importar](#importing-data-from-braze-to-lytics) cor
 | Requisito | Descripción |
 | ----------- | ----------- |
 | Cuenta Lytics | Se necesita una cuenta de Lytics para aprovechar esta integración. |
-| Número de cuenta Lytics | Es necesario un número de cuenta de Lytics para configurar la URL del punto de conexión del webhook. |
+| Número de cuenta Lytics | Es necesario un número de cuenta de Lytics para configurar la URL del endpoint del webhook. |
 | Token de la API de Lytics | Un token de REST API de Lytics con permisos de administrador de datos. <br><br> Se puede crear dentro del panel de Lytics desde **Account Settings Console** > **Access Tokens** > **Create New Token**. |
-| Clave de API REST de Braze | Una clave de API REST de Braze con permiso `users.track`. <br><br> Puede crearse en el dashboard de Braze desde **Configuración** > **Claves de API**. |
+| Clave de API REST de Braze | Una clave de API REST de Braze con permiso `users.track`. <br><br> Puede crearse en el panel de Braze desde **Configuración** > **Claves de API**. |
 | Instancia de Braze | Tu [instancia de Braze]({{site.baseurl}}/user_guide/administer/personal/sdk_endpoints). Ponte en contacto con tu administrador de incorporación de Braze para obtener esta información si no estás seguro. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Requisitos previos" }
 
@@ -114,7 +114,7 @@ Puedes importar datos de audiencia de Braze a Lytics utilizando los siguientes m
 
 #### Paso 1: Crear un token de API de Lytics {#step-1-create-a-lytics-api-token}
 
-Navega hasta el menú de cuenta de Lytics en la esquina inferior izquierda seleccionando tu nombre de cuenta, y selecciona **Access Tokens** en el menú desplegable. A continuación, selecciona **Create API Token**.
+Navega hasta el menú de cuenta de Lytics seleccionando tu nombre de cuenta y selecciona **Access Tokens** en el menú desplegable. A continuación, selecciona **Create API Token**.
 
 ![Pantalla de tokens de acceso de Lytics con Create API Token seleccionado desde el menú de cuenta.]({% image_buster /assets/img/lytics/create_token.png %}){: style="max-width:80%;"}
 

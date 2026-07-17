@@ -30,7 +30,7 @@ Antes de empezar, necesitas lo siguiente:
 
 ### Paso 1: Crear una nueva recomendación {#step-1-create-a-new-recommendation}
 
-Puedes crear una recomendación de elementos de IA desde cualquiera de los dos lugares del dashboard:
+Puedes crear una recomendación de elementos de IA desde cualquiera de los dos lugares del panel:
 
 {% tabs local %}
 {% tab Desde el menú de navegación %}
@@ -47,7 +47,7 @@ También puedes optar por crear una recomendación directamente desde un catálo
 
 Dale a tu recomendación un nombre y una descripción opcional.
 
-![Paso "Detalles de la recomendación" con los campos nombre y descripción.]({% image_buster /assets/img/item_recs_1.png %})
+![Paso "Detalles de la recomendación" con los campos de nombre y descripción.]({% image_buster /assets/img/item_recs_1.png %})
 
 ### Paso 3: Define tu recomendación {#recommendation-type}
 
@@ -84,6 +84,10 @@ Si no puedes encontrar tu selección, asegúrate de que esté configurada en tu 
 ### Paso 4: Seleccionar la interacción para impulsar las recomendaciones {#step-4-select-the-interaction-to-drive-recommendations}
 
 Selecciona el evento para el que quieres que se optimice esta recomendación. Este evento suele ser una compra, pero también puede ser cualquier interacción con un elemento.
+
+{% alert tip %}
+Al configurar las recomendaciones de elementos de IA, tu elección de evento es importante. Tu evento desencadenante determina quién recibe una recomendación generada por IA: las recomendaciones de elementos de IA se generan para los usuarios que han completado el evento que configures, por lo que esta elección determina directamente quién recibe recomendaciones. Selecciona un evento que cubra todo el segmento de audiencia al que quieres llegar.<br><br> Al mismo tiempo, equilibra la cobertura con la relevancia. Los eventos de la parte superior del embudo (como Producto visto) tienden a captar una audiencia más amplia pero están menos conectados con los resultados de negocio, mientras que los eventos de la parte inferior del embudo (como Comprado) tienden a producir recomendaciones más específicas y relevantes para el negocio. El mejor evento es aquel que equilibra la cobertura con la influencia en los resultados finales.
+{% endalert %}
 
 Puedes optimizar para:
 

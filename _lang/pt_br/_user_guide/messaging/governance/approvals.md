@@ -53,11 +53,11 @@ A aprovação de Campaigns não é compatível com [Campaigns da API]({{site.bas
 
 ## Definindo permissões de usuário {#setting-user-permissions}
 
-Depois de ativar o fluxo de aprovação, você deve definir as permissões de usuário para que os usuários da sua empresa possam aprovar ou rejeitar Campaigns e Canvas. Ambas as permissões também podem ser aplicadas a espaços de trabalho ou [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) ou adicionadas a um [conjunto de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#permission-sets).
+Depois de ativar o fluxo de aprovação, você deve definir as permissões de usuário para que os usuários da sua empresa possam aprovar ou rejeitar Campaigns e Canvas. Ambas as permissões também podem ser aplicadas a espaços de trabalho ou [equipes]({{site.baseurl}}/user_guide/administer/global/user_management/teams) ou adicionadas a um [conjunto de permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#create-a-permission-set).
 
 {% tabs %}
 {% tab campaign %}
-Você deve ter a [permissão "Approve and Deny Campaigns"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions). Essa permissão controla quem pode atualizar o status de aprovação de uma Campaign. Com essa permissão, você pode fazer o seguinte:
+Você deve ter a [permissão "Approve and Deny Campaigns"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Essa permissão controla quem pode atualizar o status de aprovação de uma Campaign. Com essa permissão, você pode fazer o seguinte:
 
 - Autoaprovar a Campaign
 - Aprovar e lançar a Campaign
@@ -69,7 +69,7 @@ Depois que os status de aprovação são definidos na etapa **Summary**, quaisqu
 {% endtab %}
 
 {% tab canvas %}
-Você deve ter a [permissão "Approve and Deny Canvases"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#managing-limited-and-team-role-permissions). Essa permissão controla quem pode atualizar o status de aprovação de um Canvas. Com essa permissão, você pode fazer o seguinte:
+Você deve ter a [permissão "Approve and Deny Canvases"]({{site.baseurl}}/user_guide/administer/global/user_management/permissions). Essa permissão controla quem pode atualizar o status de aprovação de um Canvas. Com essa permissão, você pode fazer o seguinte:
 
 - Autoaprovar o Canvas
 - Aprovar e lançar o Canvas

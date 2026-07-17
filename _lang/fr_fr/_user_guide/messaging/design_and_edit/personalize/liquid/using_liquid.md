@@ -2,7 +2,7 @@
 nav_title: Utiliser Liquid
 article_title: Utiliser Liquid
 page_order: 0
-description: "Cet article de référence fournit un aperçu des cas d'utilisation courants de Liquid et explique comment inclure des étiquettes Liquid dans vos messages."
+description: "Cet article de référence fournit un aperçu des cas d'usage courants de Liquid et explique comment inclure des étiquettes Liquid dans vos messages."
 search_rank: 2
 ---
 
@@ -14,7 +14,7 @@ Liquid est un langage de modèles open source développé par Shopify et écrit 
 
 ## Comment ça fonctionne {#how-it-works}
 
-Les étiquettes Liquid agissent comme des marques substitutives dans vos messages. Elles peuvent extraire des informations consenties du compte de votre utilisateur et permettre la personnalisation ainsi que des pratiques d'envoi de messages pertinentes.
+Les étiquettes Liquid agissent comme des marques substitutives dans vos messages. Elles peuvent extraire des informations consenties du compte de votre utilisateur et permettre la personnalisation ainsi que des pratiques de communication pertinentes.
 
 Dans le bloc suivant, vous pouvez voir une double utilisation d'une étiquette Liquid pour appeler le prénom de l'utilisateur, ainsi qu'une étiquette par défaut au cas où l'utilisateur n'aurait pas enregistré son prénom.
 
@@ -51,7 +51,7 @@ Les valeurs suivantes peuvent être substituées dans un message, en fonction de
 - [Informations sur l'appareil le plus récemment utilisé]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#most-recently-used-device-information)
 - [Informations sur l'appareil ciblé]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#targeted-device-information)
 
-Vous pouvez également extraire du contenu directement depuis un serveur web grâce au [Contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) de Braze.
+Vous pouvez également extraire du contenu directement depuis un serveur web grâce au [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content) de Braze.
 
 {% alert important %}
 Braze prend actuellement en charge Liquid jusqu'à la version Liquid 5 de Shopify incluse.
@@ -84,7 +84,7 @@ Les opérateurs (tels que `==`, `!=`, `>`, `and`, `or`) et les filtres (tels que
 | Accès aux tableaux (`[ ]`) | Non pris en charge | Non pris en charge |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Où utiliser les opérateurs et les filtres" }
 
-[^case_when_ops]: Dans les étiquettes `case` et `when`, Liquid compare l'expression `case` à chaque valeur `when` en utilisant l'égalité (similaire à l'enchaînement de `if` et `elsif` avec `==`). Vous ne pouvez pas utiliser d'opérateurs de comparaison ou logiques arbitraires à l'intérieur d'une clause `when` comme vous le feriez avec `if` et `elsif`. Pour des exemples, consultez [Logique de messagerie conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when-tags).
+[^case_when_ops]: Dans les étiquettes `case` et `when`, Liquid compare l'expression `case` à chaque valeur `when` en utilisant l'égalité (similaire à l'enchaînement de `if` et `elsif` avec `==`). Vous ne pouvez pas utiliser d'opérateurs de comparaison ou logiques arbitraires à l'intérieur d'une clause `when` comme vous le feriez avec `if` et `elsif`. Pour des exemples, consultez [Logique de messagerie conditionnelle]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#case-and-when).
 
 Lorsque vous avez besoin d'une valeur filtrée dans un contexte qui ne prend pas en charge les filtres, assignez d'abord le résultat à une variable.
 

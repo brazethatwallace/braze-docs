@@ -5,7 +5,7 @@ alias: /message_events_glossary/
 page_order: 5
 excerpt_separator: ""
 page_type: glossary
-description: "Este glossário lista os diversos eventos de engajamento com mensagem que a Braze pode rastrear e enviar para Data Warehouses escolhidos usando o Currents."
+description: "Este glossário lista os diversos eventos de engajamento com mensagem que a Braze pode rastrear e enviar para data warehouses escolhidos usando o Currents."
 tool: Currents
 search_rank: 6
 lazy_partner_tabs: true
@@ -15,10 +15,10 @@ lazy_partner_tabs: true
 
 {% details Escopo do esquema e recursos relacionados %}
 
-Os esquemas de armazenamento se aplicam aos dados de eventos em arquivo simples que enviamos para parceiros de armazenamento em Data Warehouse (Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage). Para esquemas que se aplicam a outros parceiros, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e verifique suas respectivas páginas.
+Os esquemas de armazenamento se aplicam aos dados de eventos em arquivo simples que enviamos para parceiros de armazenamento em data warehouse (Google Cloud Storage, Amazon S3 e Microsoft Azure Blob Storage). Para esquemas que se aplicam a outros parceiros, consulte nossa lista de [parceiros disponíveis]({{site.baseurl}}/user_guide/data/distribution/braze_currents/setting_up_currents/available_partners) e verifique as respectivas páginas.
 
 {% alert tip %}
-Esses eventos também estão disponíveis como tabelas SQL no [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [Snowflake Data Sharing]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes de colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
+Esses eventos também estão disponíveis como tabelas SQL no [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder), nas [extensões de segmento SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments) e no [compartilhamento de dados do Snowflake]({{site.baseurl}}/partners/data_and_analytics/data_warehouses/snowflake). Para esquemas de tabelas SQL e detalhes de colunas, consulte a [referência de tabelas SQL]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables).
 {% endalert %}
 
 Entre em contato com seu gerente de conta ou abra um [ticket de suporte]({{site.baseurl}}/braze_support) se precisar de acesso a direitos de eventos adicionais. Se não encontrar o que precisa neste artigo, confira nossa [Biblioteca de eventos de comportamento do cliente]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) ou nossos [exemplos de dados de amostra do Currents](https://github.com/Appboy/currents-examples/tree/master/sample-data).
@@ -31,11 +31,11 @@ Entre em contato com seu gerente de conta ou abra um [ticket de suporte]({{site.
 
 Esta análise de eventos mostra que tipo de informação geralmente está incluída em um evento de engajamento com mensagem. Com uma compreensão sólida de seus componentes, seus desenvolvedores e a equipe de estratégia de business intelligence podem usar os dados de eventos recebidos do Currents para criar relatórios e gráficos orientados por dados, além de aproveitar outras métricas de dados valiosas.
 
-![Análise de um evento de engajamento com mensagem mostrando um evento de cancelamento de inscrição de e-mail com as propriedades listadas agrupadas por propriedades específicas do usuário, propriedades de rastreamento de campanha ou Canvas e propriedades específicas do evento]({% image_buster /assets/img/message_engagement_event.png %})
+![Análise de um evento de engajamento com mensagem mostrando um evento de cancelamento de inscrição de e-mail com as propriedades listadas agrupadas por propriedades específicas do usuário, propriedades de rastreamento de Campaign ou Canvas e propriedades específicas do evento]({% image_buster /assets/img/message_engagement_event.png %})
 
-Os eventos de engajamento com mensagem são compostos por propriedades **específicas do usuário**, propriedades de **rastreamento de campanha/Canvas** e propriedades **específicas do evento**.
+Os eventos de engajamento com mensagem são compostos por propriedades **específicas do usuário**, propriedades de **rastreamento de Campaign/Canvas** e propriedades **específicas do evento**.
 
-### Esquema de ID do usuário {#user-id-schema}
+### Esquema de ID de usuário {#user-id-schema}
 
 Observe as convenções de nomenclatura para IDs de usuário.
 
@@ -43,7 +43,7 @@ Observe as convenções de nomenclatura para IDs de usuário.
 | ----------- | ----------- | ----------- |
 | `braze_id` | `"USER_ID"` | O identificador exclusivo atribuído automaticamente pela Braze. |
 | `external_id` | `"EXTERNAL_USER_ID"` | O identificador exclusivo do perfil de um usuário definido pelo cliente. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de ID do usuário" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Esquema de ID de usuário" }
 
 ### Valores de plataforma {#platform-values}
 
@@ -67,7 +67,7 @@ Certos eventos retornam um valor `platform` que especifica a plataforma do dispo
 
 - O Currents descarta eventos com cargas úteis maiores que 900&nbsp;KB.
 - Objetos relacionados ao Canvas Flow possuem IDs que você pode usar para agrupamento e traduzir para nomes legíveis por meio do [endpoint Exportar detalhes do Canvas]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details).
-- Certos campos podem não mostrar seu estado mais recente imediatamente após você atualizar uma campanha ou Canvas:
+- Certos campos podem não mostrar seu estado mais recente imediatamente após você atualizar uma Campaign ou Canvas:
   - `campaign_name`
   - `canvas_name`
   - `canvas_step_name`
@@ -84,7 +84,7 @@ Certos eventos retornam um valor `platform` que especifica a plataforma do dispo
 <!--overview-end-->
 
 {% api %}
-## Eventos executados pelo agente {#agent-executed-events}
+## Eventos de execução de agente {#agent-executed-events}
 
 {% apitags %}
 Agent
@@ -229,62 +229,6 @@ Este é o esquema de registro Kafka para quando uma ferramenta é executada. Uma
   },
   "time" : "(required, long) unix timestamp at which this event is logged",
   "user" : { }
-}
-```
-{% endtab %}
-{% endtabs %}
-
-{% endapi %}
-
-{% api %}
-## Eventos de solicitação de exclusão de usuário {#user-delete-request-events}
-
-{% apitags %}
-User Delete Request
-{% endapitags %}
-
-Quando um usuário é excluído por solicitação do cliente.
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.UserDeleteRequest
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "id" : "(required, string) Globally unique ID for this event",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
-}
-```
-{% endtab %}
-{% endtabs %}
-
-{% endapi %}
-
-{% api %}
-## Eventos de usuário órfão {#user-orphan-events}
-
-{% apitags %}
-User Orphan
-{% endapitags %}
-
-Quando um usuário se torna órfão, ou seja, o perfil do usuário é mesclado com o perfil de outro usuário.
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.UserOrphan
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "app_id" : "(optional, string) API ID of the app on which this event occurred",
-  "device_id" : "(optional, string) ID of the device on which the event occurred",
-  "external_user_id" : "(optional, string) [PII] External ID of the user",
-  "id" : "(required, string) Globally unique ID for this event",
-  "orphaned_by_id" : "(required, string) BSON ID of the user whose profile was merged with the orphaned user's profile",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
 }
 ```
 {% endtab %}
@@ -1172,7 +1116,7 @@ Note que o evento de conversão é codificado no campo `conversion_behavior`, qu
 {% endapi %}
 
 {% api %}
-## Eventos de inscrição do grupo de controle de Campaign {#campaign-control-group-enrollment-events}
+## Eventos de inscrição no grupo de controle de Campaign {#campaign-control-group-enrollment-events}
 
 {% apitags %}
 Campaign, Entry
@@ -11124,7 +11068,7 @@ Este evento ocorre se uma mensagem de notificação por push foi interrompida co
 Push, Bounce
 {% endapitags %}
 
-Esse evento ocorre quando um erro é recebido do serviço de Notificações por Push da Apple ou do Fire Cloud Messaging. Isso significa que a mensagem push sofreu bounce e, portanto, não foi entregue ao dispositivo do usuário.
+Esse evento ocorre quando um erro é recebido do Apple Push Notification Service ou do Fire Cloud Messaging. Isso significa que a mensagem push sofreu bounce e, portanto, não foi entregue ao dispositivo do usuário.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -11373,7 +11317,7 @@ Esse evento ocorre quando um erro é recebido do serviço de Notificações por 
 
 ### Detalhes da propriedade
 
-- Se você estiver usando Kafka para ingerir dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), entre em contato com seu gerente de sucesso do cliente ou gerente de conta para ativar o recurso de envio de `ad_id`.
+- Se você estiver usando Kafka para ingerir dados do [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents), entre em contato com seu gerente de sucesso do cliente ou gerente de conta para ativar o feature flipper de envio de `ad_id`.
 - `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo que você agrupe e correlacione o ciclo de vida da mensagem push para esse envio (como Envio, Bounce e Abertura).
 
 {% endapi %}
@@ -11385,7 +11329,7 @@ Esse evento ocorre quando um erro é recebido do serviço de Notificações por 
 Push, iOS, Opens
 {% endapitags %}
 
-Esse evento não é compatível com nosso [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) e agora está obsoleto em nosso [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk).
+Esse evento não é compatível com nosso [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) e agora está obsoleto no nosso [Obj-C SDK](https://github.com/Appboy/appboy-ios-sdk).
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -11596,12 +11540,12 @@ Esse evento não é compatível com nosso [Swift SDK](https://github.com/braze-i
 Push, Opens
 {% endapitags %}
 
-Esse evento ocorre quando um usuário clica diretamente na notificação por push para abrir o aplicativo. Atualmente, os eventos de abertura de push referem-se especificamente a "Aberturas Diretas" em vez de "aberturas totais". Isso não inclui estatísticas mostradas no nível da Campaign de "Aberturas por Influência", pois elas não são atribuídas no nível do usuário.
+Esse evento ocorre quando um usuário clica diretamente na notificação por push para abrir o aplicativo. Atualmente, os eventos de abertura de push referem-se especificamente a "Aberturas Diretas" em vez de "aberturas totais". Isso não inclui as estatísticas mostradas no nível da Campaign de "Aberturas por Influência", pois elas não são atribuídas no nível do usuário.
 
 {% alert note %}
-Em casos raros, uma abertura por push pode aparecer antes do evento de envio correspondente nos dados do Currents devido ao seguinte:
+Em casos raros, uma abertura de push pode aparecer antes do evento de envio correspondente nos dados do Currents devido ao seguinte:
 - Seu SDK tem um relógio incorreto.
-- Alta latência de gravação em lote. O horário de envio registrado pode atrasar em relação a entregas antecipadas, então aberturas muito rápidas podem ser registradas antes que o timestamp final de envio do lote seja escrito. Grandes envios são despachados e registrados em lotes.
+- Alta latência de gravação em lote. O horário de envio registrado pode ficar atrasado em relação a entregas antecipadas, então aberturas muito rápidas podem ser registradas antes que o timestamp final de envio do lote seja gravado. Envios grandes são despachados e registrados em lotes.
 {% endalert %}
 
 {% tabs %}
@@ -16758,13 +16702,13 @@ Esse evento ocorre quando uma mensagem de webhook é entregue, mas falha com uma
 {% endapi %}
 
 {% api %}
-## Eventos de tentativa de webhook {#webhook-retry-events}
+## Eventos de nova tentativa de webhook {#webhook-retry-events}
 
 {% apitags %}
 Webhooks, Retry
 {% endapitags %}
 
-Esse evento ocorre quando uma mensagem é despriorizada ou tem a frequência limitada e será tentada novamente mais tarde, dentro da janela de retry configurada. Esse recurso está disponível apenas para clientes beta de Priorização de Mensagens.
+Esse evento ocorre quando uma mensagem é despriorizada ou tem a frequência limitada e será tentada novamente mais tarde, dentro da janela de nova tentativa configurada. Esse recurso está disponível apenas para clientes beta de Priorização de Mensagens.
 
 {% tabs %}
 {% tab Cloud Storage %}
@@ -19304,48 +19248,6 @@ Esse evento ocorre quando uma solicitação de envio foi comunicada com êxito e
 
 ### Detalhes da propriedade
 
-- `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo agrupar e correlacionar o ciclo de vida da mensagem push para esse envio (como Enviar, Bounce e Abrir).
-
-{% endapi %}
-
-{% api %}
-## Eventos de atualização de perfil de usuário {#user-profile-update-events}
-
-{% apitags %}
-Profile
-{% endapitags %}
-
-Esse evento representa as atualizações de perfil de um usuário.
-
-{% tabs %}
-{% tab Cloud Storage %}
-```json
-// users.profile.Update
-
-{
-  "app_group_id" : "(optional, string) API ID of the app group this user belongs to",
-  "app_id" : "(optional, string) API ID of the app on which this event occurred",
-  "archived" : "(optional, boolean) When set to True, indicates that this user was archived within Braze",
-  "country" : "(optional, string) [PII] Country of the user",
-  "custom_attributes" : "(optional, string) Valid JSON string of the updated custom attributes",
-  "dob" : "(optional, string) [PII] Date of birth of the user in ISO-8601 format",
-  "email_address" : "(optional, string) [PII] Email address of the user",
-  "external_user_id" : "(optional, string) [PII] External ID of the user",
-  "first_name" : "(optional, string) [PII] First name of the user",
-  "gender" : "(optional, string) [PII] Gender of the user, one of ['M', 'F', 'O', 'N', 'P']",
-  "home_city" : "(optional, string) [PII] Home city of the user",
-  "id" : "(required, string) Globally unique ID for this event",
-  "language" : "(optional, string) [PII] Language of the user",
-  "last_name" : "(optional, string) [PII] Last name of the user",
-  "phone_number" : "(optional, string) [PII] Phone number of the user in e.164 format",
-  "time" : "(required, int) UNIX timestamp at which the event happened",
-  "time_ms" : "(required, long) Time in milliseconds when the update happened",
-  "timezone" : "(optional, string) Time zone of the user",
-  "update_source" : "(required, string) The source of this update",
-  "user_id" : "(required, string) [PII] Braze user ID of the user who performed this event"
-}
-```
-{% endtab %}
-{% endtabs %}
+- `dispatch_id` é um ID para um envio de mensagem específico, como um envio de Campaign. Todos os eventos de push que se originam do mesmo envio incluem o mesmo `dispatch_id`. Use `dispatch_id` para agrupar eventos que pertencem ao mesmo envio, permitindo agrupar e correlacionar o ciclo de vida da mensagem push para esse envio (como envio, bounce e abertura).
 
 {% endapi %}

@@ -14,14 +14,14 @@ description: "이 페이지에서는 카탈로그 데이터를 동기화하는 �
 ## 1단계: 새 카탈로그 생성 {#step-1-create-a-new-catalog}
 
 [카탈로그]({{site.baseurl}}/user_guide/data/activation/catalogs)에 대한 새로운 클라우드 데이터 수집(CDI) 통합을 생성하기 전에 새 카탈로그를 생성하거나 통합에 사용할 기존 카탈로그를 식별해야 합니다. 새 카탈로그를 생성하는 방법에는 몇 가지가 있으며, 이 중 어느 것이든 CDI 통합에 사용할 수 있습니다:
-- [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv) 업로드
-- [Braze 대시보드]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser)에서 또는 CDI 설정 중에 카탈로그를 생성합니다.
+- [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog) 업로드
+- [Braze 대시보드]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog)에서 또는 CDI 설정 중에 카탈로그를 생성합니다.
 - [카탈로그 생성 엔드포인트]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog)를 사용하여 카탈로그 생성
 
 카탈로그 스키마에 대한 모든 변경 사항(예: 새 필드 추가 또는 필드 유형 변경)은 업데이트된 데이터가 CDI를 통해 동기화되기 전에 카탈로그 대시보드를 통해 수행해야 합니다. 데이터 웨어하우스 데이터와 Braze의 스키마 간의 충돌을 방지하기 위해 동기화가 일시 중지되었거나 실행이 예약되어 있지 않을 때 이러한 업데이트를 수행하는 것이 좋습니다.
 
 ## 2단계: 클라우드 데이터 수집과 카탈로그 데이터 통합 {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
-카탈로그 동기화 설정은 [사용자 데이터 CDI 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup) 프로세스와 매우 유사합니다.
+카탈로그 동기화 설정은 [사용자 데이터 CDI 통합]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations) 프로세스와 매우 유사합니다.
 
 {% tabs %}
 {% tab Snowflake %}
@@ -112,20 +112,20 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 
 | 필드 이름 | 유형 | 모드 |
 | --- | --- | --- |
-| UPDATED_AT | TIMESTAMP | 필수 |
-| PAYLOAD | JSON | 필수 |
-| ID | STRING | 필수 |
-| DELETED | BOOLEAN | 선택 사항 |
+| UPDATED_AT | TIMESTAMP | REQUIRED |
+| PAYLOAD | JSON | REQUIRED |
+| ID | STRING | REQUIRED |
+| DELETED | BOOLEAN | OPTIONAL |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2단계: 클라우드 데이터 수집과 카탈로그 데이터 통합" }
 
 {:start="2"}
 
 2. 사용자를 설정하고 적절한 권한을 부여합니다. 기존 동기화의 자격 증명이 이미 있는 경우 재사용할 수 있지만&#8212;카탈로그 소스 테이블에 대한 액세스 권한을 확장해야 합니다.
-서비스 계정에는 아래 권한이 있어야 합니다:
+서비스 계정에는 다음 섹션의 권한이 있어야 합니다:
 - BigQuery Connection User: Braze가 연결할 수 있도록 합니다.
 - BigQuery User: Braze가 쿼리를 실행하고, 데이터세트 메타데이터를 읽고, 테이블을 나열할 수 있는 액세스 권한을 제공합니다.
 - BigQuery Data Viewer: Braze가 데이터세트와 그 콘텐츠를 볼 수 있는 액세스 권한을 제공합니다.
-- BigQuery Job User: Braze가 작업을 실행할 수 있는 액세스 권한을 제공합니다.<br><br>서비스 계정을 생성하고 권한을 부여한 후 JSON 키를 생성합니다. 자세한 내용은 [키 생성 및 삭제](https://cloud.google.com/iam/docs/keys-create-delete)를 참조하세요. 이 키는 나중에 Braze 대시보드에 업로드하게 됩니다.
+- BigQuery Job User: Braze가 작업을 실행할 수 있는 액세스 권한을 제공합니다.<br><br>서비스 계정을 생성하고 권한을 부여한 후 JSON 키를 생성합니다. 자세한 내용은 [키 생성 및 삭제](https://cloud.google.com/iam/docs/keys-create-delete)를 참조하세요. 이 키는 나중에 Braze 대시보드에 업데이트하게 됩니다.
 
 {:start="3"}
 3. 네트워크 정책이 있는 경우 Braze에 BigQuery 인스턴스에 대한 네트워크 액세스 권한을 부여해야 합니다. IP 목록은 [클라우드 데이터 수집]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views)을 참조하세요.
@@ -151,9 +151,9 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 
 | 필드 이름 | 유형 | 모드 |
 | --- | --- | --- |
-| UPDATED_AT | TIMESTAMP | 필수 |
-| PAYLOAD | STRING, STRUCT, or MAP | 필수 |
-| ID | STRING | 필수 |
+| UPDATED_AT | TIMESTAMP | REQUIRED |
+| PAYLOAD | STRING, STRUCT, or MAP | REQUIRED |
+| ID | STRING | REQUIRED |
 | DELETED | BOOLEAN | NULLABLE |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="2단계: 클라우드 데이터 수집과 카탈로그 데이터 통합" }
 

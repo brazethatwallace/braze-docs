@@ -15,7 +15,7 @@ _Cette intégration est maintenue par Redpoint._
 
 ## À propos de l'intégration {#about-the-integration}
 
-L'intégration de Braze et Redpoint vous permet de créer des segments Braze basés sur vos données CDP Redpoint. Redpoint propose deux modes pour transmettre des données à Braze :
+L'intégration de Braze et Redpoint vous permet de créer des Segments Braze basés sur vos données CDP Redpoint. Redpoint propose deux modes pour transmettre des données à Braze :
 
 1. Mode **Braze Onboarding and Upsert** : effectue un « upsert » d'un profil utilisateur de Redpoint dans Braze. Ce mode est destiné à l'onboarding ou à la mise à jour des enregistrements utilisateurs lorsque les données ont changé.
 2. Mode **Braze Append** : met à jour un profil utilisateur si cet utilisateur existe déjà dans Braze.
@@ -31,9 +31,9 @@ Le terme « upsert » est une combinaison des mots « update » (mettre à jour)
 | Condition | Description |
 | ----------- | ----------- |
 | Clé API REST de Braze | Une clé API REST de Braze avec les autorisations `users.track`. <br><br>Elle peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
-| Endpoint REST de Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
+| Endpoint REST de Braze | [L'URL de votre endpoint REST]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints). Votre endpoint dépendra de l'URL de Braze pour votre instance. |
 | Artefacts Redpoint Data Management | L'intégration Braze est prise en charge par un ensemble d'artefacts Redpoint Data Management. Contactez l'[assistance Redpoint](https://support.redpointglobal.com/hc/en-us/restricted?return_to=https%3A%2F%2Fsupport.redpointglobal.com%2Fhc%2Fen-us) pour demander les artefacts correspondant à votre version de Redpoint Data Management. |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
 
 ## Attributs personnalisés CDP Redpoint {#redpoint-cdp-custom-attributes}
 
@@ -42,13 +42,13 @@ Les attributs personnalisés Redpoint suivants peuvent être ajoutés à un prof
 | Champ               | Description                                                                                                       |
 | ------------------- | ----------------------------------------------------------------------------------------------------------------- |
 | `rpi_cdp_attributes` | L'objet d'attribut de profil CDP Redpoint                                                                                  |
-| `rpi_audience_outputs`| Tableau de balises de sortie d'audience où l'utilisateur est ciblé dans une exécution de canal de distribution sortante Redpoint vers Braze         |
-| `rpi_offers`         | Tableau de balises d'offre où l'utilisateur est ciblé dans une exécution de canal de distribution sortante Redpoint vers Braze                   |
+| `rpi_audience_outputs`| Tableau de tags de sortie d'audience où l'utilisateur est ciblé dans une exécution de canal de distribution sortante Redpoint vers Braze         |
+| `rpi_offers`         | Tableau de tags d'offre où l'utilisateur est ciblé dans une exécution de canal de distribution sortante Redpoint vers Braze                   |
 | `rpi_contact_ids`    | Tableau des identifiants de contact de l'historique des offres où l'utilisateur est ciblé dans une exécution de canal de distribution sortante Redpoint vers Braze     |
 | `rpi_channel_exec_ids`| Tableau d'identifiants d'exécution de canal où l'utilisateur est ciblé dans une exécution de canal de distribution sortante Redpoint vers Braze       |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Attributs personnalisés CDP Redpoint" }
 
-![]({% image_buster /assets/img/redpoint/rpi_to_braze_custom_attributes.png %}){: style="max-width:75%;"}
+![Tableau des attributs personnalisés CDP Redpoint montrant les champs ajoutés aux profils utilisateurs Braze.]({% image_buster /assets/img/redpoint/rpi_to_braze_custom_attributes.png %}){: style="max-width:75%;"}
 
 ## Intégration {#integration}
 
@@ -58,7 +58,7 @@ Les attributs personnalisés Redpoint suivants peuvent être ajoutés à un prof
 
 Dans Redpoint Interaction (RPI), créez un nouveau modèle d'exportation et nommez-le **Braze Onboarding and Upsert**. Ce modèle définit les correspondances principales entre le CDP Redpoint et le profil utilisateur Braze, ainsi que tous les attributs personnalisés supplémentaires que vous souhaitez ajouter à vos profils utilisateurs dans Braze.
 
-Faites glisser les attributs CDP de Redpoint dans la colonne **Attribute**. Définissez chaque **Header Row Value** sur l'[attribut utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object/#braze-user-profile-fields) Braze correspondant.
+Faites glisser les attributs CDP de Redpoint dans la colonne **Attribute**. Définissez chaque **Header Row Value** sur l'[attribut utilisateur]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields) Braze correspondant.
 
 Le tableau suivant répertorie les attributs CDP Redpoint et leurs attributs Braze correspondants :
 
@@ -73,11 +73,11 @@ Le tableau suivant répertorie les attributs CDP Redpoint et leurs attributs Bra
 | Gender             | `gender`         |
 | Primary City       | `home_city`      |
 | Primary Phone      | `phone`          |
-{: .reset-td-br-1 .reset-td-br-2 role="presentation" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Étape 1a : Créer le modèle Braze Onboarding and Upsert" }
 
 Ajoutez l'attribut **Output Name** de la table **Offer History**. Enfin, ajoutez tous les attributs personnalisés Redpoint supplémentaires que vous souhaitez fusionner dans Braze. Par exemple, voici un modèle d'onboarding et d'upsert avec le diplôme, le revenu et l'état civil comme attributs supplémentaires.
 
-![]({% image_buster /assets/img/redpoint/rpi_to_braze_upsert_export_format.png %}){: style="max-width:75%;"}
+![Modèle d'exportation d'onboarding et d'upsert Redpoint montrant les correspondances attribut-en-tête.]({% image_buster /assets/img/redpoint/rpi_to_braze_upsert_export_format.png %}){: style="max-width:75%;"}
 
 #### Étape 1b : Créer le modèle Braze Append {#step-1b-create-the-braze-append-template}
 
@@ -97,7 +97,7 @@ Pour les deux modèles d'exportation, accédez à l'onglet **Options** et défin
 
 Dans RPI, créez deux nouveaux canaux. Définissez les deux canaux sur **Outbound Delivery**. Nommez un canal **Braze Onboarding and Upsert** et l'autre **Braze Append**.
 
-![]({% image_buster /assets/img/redpoint/rpi_to_braze_channel_config_general.png %}){: style="max-width:75%;"}
+![Onglet général de la configuration du canal de distribution sortante Redpoint.]({% image_buster /assets/img/redpoint/rpi_to_braze_channel_config_general.png %}){: style="max-width:75%;"}
 
 {% alert note %}
 Après l'onboarding initial de vos enregistrements CDP vers Braze, vérifiez que les workflows Redpoint Interaction suivants qui utilisent le canal Braze Onboarding and Upsert sont conçus pour sélectionner uniquement les enregistrements qui ont changé depuis la synchronisation initiale d'onboarding.
@@ -111,11 +111,11 @@ Accédez à l'onglet **General** dans l'écran de **Configuration** des canaux. 
 
 Ensuite, définissez un **Export path format** sur les deux canaux qui pointe vers un emplacement de réseau partagé, un protocole de transfert de fichiers ou un fournisseur de contenu externe accessible à la fois à Redpoint Interaction et à Redpoint Data Management.
 
-![]({% image_buster /assets/img/redpoint/rpi_to_braze_channel_config_specific.png %}){: style="max-width:75%;"}
+![Configuration du canal Redpoint avec les champs de modèle d'exportation et de format du chemin d'exportation.]({% image_buster /assets/img/redpoint/rpi_to_braze_channel_config_specific.png %}){: style="max-width:75%;"}
 
 Le format du répertoire d'exportation sur les deux canaux sera identique et devrait se terminer par `\\[Channel]\\[Offer]\\[Workflow ID]`.
 
-![]({% image_buster /assets/img/redpoint/rpi_to_braze_export_directory_setup.png %}){: style="max-width:50%;"}
+![Format du chemin du répertoire d'exportation Redpoint se terminant par canal, offre et identifiant de workflow.]({% image_buster /assets/img/redpoint/rpi_to_braze_export_directory_setup.png %}){: style="max-width:50%;"}
 
 #### Étape 3b : Configurer la post-exécution {#step-3b-configure-post-execution}
 
@@ -123,7 +123,7 @@ Accédez à l'onglet **Post Execution** dans l'écran de **Configuration** des c
 
 Cochez la case **Post-execution** pour appeler une URL de service après l'exécution du canal. Saisissez l'URL du service web Redpoint Data Management. Cette entrée sera identique sur vos canaux Onboarding et Append.
 
-![]({% image_buster /assets/img/redpoint/rpi_to_braze_channel_config_post_execution.png %}){: style="max-width:75%;"}
+![Paramètres de post-exécution Redpoint avec l'URL de service configurée.]({% image_buster /assets/img/redpoint/rpi_to_braze_channel_config_post_execution.png %}){: style="max-width:75%;"}
 
 ### Étape 4 : Configurer les composants Braze dans Redpoint Data Management {#step-4-set-up-braze-components-in-redpoint-data-management}
 
@@ -136,7 +136,7 @@ Après avoir importé les artefacts liés à Braze dans Redpoint Data Management
 * **BRAZE_API_URL** : l'endpoint REST de Braze
 * **BASE_OUTPUT_DIRECTORY** : le répertoire de sortie partagé entre Redpoint Interaction et Redpoint Data Management
 
-![]({% image_buster /assets/img/redpoint/rpi_to_braze_auto_variables.png %}){: style="max-width:40%;"}
+![Variables d'automatisation Redpoint montrant les valeurs BRAZE_API_URL et BASE_OUTPUT_DIRECTORY.]({% image_buster /assets/img/redpoint/rpi_to_braze_auto_variables.png %}){: style="max-width:40%;"}
 
 #### Étape 4b : Mettre à jour le projet RPI vers Braze Append {#step-4b-update-the-rpi-to-braze-append-project}
 
@@ -144,7 +144,7 @@ Le projet Redpoint Data Management nommé **PROJ_RPI_to_Braze_Append** contient 
 
 Mettez à jour le schéma de fichier d'entrée et l'outil d'injection de document nommé **RPI to Braze Document Injector** avec tous les attributs CDP personnalisés supplémentaires définis dans votre modèle de fichier d'exportation. Cet exemple montre le mappage supplémentaire du diplôme, des revenus et de l'état civil :
 
-![]({% image_buster /assets/img/redpoint/rpi_to_braze_doc_injector_mappings.png %}){: style="max-width:40%;"}
+![Mappages de l'injecteur de document Redpoint pour les attributs CDP personnalisés Braze.]({% image_buster /assets/img/redpoint/rpi_to_braze_doc_injector_mappings.png %}){: style="max-width:40%;"}
 
 ## Utilisation de l'intégration {#using-the-integration}
 
@@ -152,12 +152,12 @@ Le canal Braze de distribution sortante peut désormais être exploité dans les
 
 Pour activer la synchronisation d'une sortie d'audience RPI vers Braze, créez une offre de distribution sortante et associez-la soit au canal **Braze Onboarding and Upsert**, soit au canal **Braze Append**. Ce choix dépend de votre intention : créer ou fusionner de nouveaux enregistrements dans Braze, ou uniquement ajouter des données de campagne si l'enregistrement existe déjà dans Braze.
 
-![]({% image_buster /assets/img/redpoint/rpi_to_braze_rpi_canvas.png %}){: style="max-width:80%;"}
+![Workflow Canvas Redpoint Interaction utilisant le canal de distribution sortante Braze.]({% image_buster /assets/img/redpoint/rpi_to_braze_rpi_canvas.png %}){: style="max-width:80%;"}
 
-Une fois le workflow exécuté avec succès dans RPI, les données d'orchestration et de CDP provenant de RPI peuvent être utilisées pour créer des segments dans Braze.
+Une fois le workflow exécuté avec succès dans RPI, les données d'orchestration et de CDP provenant de RPI peuvent être utilisées pour créer des Segments dans Braze.
 
-![]({% image_buster /assets/img/redpoint/rpi_to_braze_build_braze_segment.png %}){: style="max-width:80%;"}
+![Générateur de Segments Braze utilisant les données d'audience synchronisées depuis Redpoint.]({% image_buster /assets/img/redpoint/rpi_to_braze_build_braze_segment.png %}){: style="max-width:80%;"}
 
 Vous pouvez consulter les propriétés associées à Redpoint sur le profil utilisateur.
 
-![]({% image_buster /assets/img/redpoint/rpi_to_braze_record_example.png %}){: style="max-width:80%;"}
+![Profil utilisateur Braze montrant les propriétés personnalisées associées à Redpoint.]({% image_buster /assets/img/redpoint/rpi_to_braze_record_example.png %}){: style="max-width:80%;"}

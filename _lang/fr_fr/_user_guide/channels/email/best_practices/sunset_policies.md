@@ -12,7 +12,7 @@ channel: email
 
 > Bien sûr, il est parfois tentant d'envoyer des campagnes à autant d'utilisateurs que possible, mais il existe des situations où il vaut vraiment mieux arrêter d'envoyer des messages aux utilisateurs désengagés.
 
-Pour les e-mails, votre adresse IP d'envoi possède un score de réputation qui prend en compte l'engagement, les signalements de courrier indésirable, les mises en liste de blocage, et bien d'autres facteurs. Vous pouvez utiliser des outils comme [Sender Score](https://www.senderscore.org/) ou le [Smart Network Data Service d'Outlook](https://postmaster.live.com/snds/) pour surveiller votre score de réputation. Si votre score de réputation est régulièrement bas, les filtres des ISP et des boîtes aux lettres peuvent automatiquement classer vos e-mails dans le dossier spam ou dans un dossier de faible priorité pour tous les destinataires, y compris ceux qui sont engagés. La création d'une politique de temporisation permet d'envoyer vos e-mails uniquement aux destinataires actifs.
+Pour les e-mails, votre adresse IP d'envoi possède un score de réputation qui prend en compte l'engagement, les signalements de courrier indésirable, les mises en liste de blocage, et bien d'autres facteurs. Vous pouvez utiliser des outils comme [Sender Score](https://www.senderscore.org/) ou le [Smart Network Data Service d'Outlook](https://postmaster.live.com/snds/) pour surveiller votre score de réputation. Si votre score de réputation est régulièrement bas, les filtres des fournisseurs de services Internet et des boîtes aux lettres peuvent automatiquement classer vos e-mails dans le dossier spam ou dans un dossier de faible priorité pour tous les destinataires, y compris ceux qui sont engagés. La création d'une politique de temporisation permet d'envoyer vos e-mails uniquement aux destinataires actifs.
 
 Les filtres de segmentation permettent d'éviter que vos messages n'apparaissent comme du spam en vous permettant de mettre facilement en œuvre des politiques de temporisation pour les e-mails, les notifications push et les notifications in-app. Voici quelques éléments à prendre en compte lors de la création d'une politique de temporisation :
 
@@ -24,11 +24,11 @@ Les filtres de segmentation permettent d'éviter que vos messages n'apparaissent
 
 Par exemple, si certains de vos utilisateurs ont activé la [protection de la confidentialité dans Mail d'Apple (MPP)]({{site.baseurl}}/user_guide/channels/email/best_practices/apple_mail/mpp), réfléchissez à l'impact que cela peut avoir sur vos campagnes e-mail et vos indicateurs de livrabilité, et déterminez comment structurer au mieux votre politique de temporisation.
 
-Pour intégrer des politiques de temporisation dans vos campagnes, créez un [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#creating-a-segment) qui exclut automatiquement les utilisateurs ayant signalé vos e-mails comme spam ou n'ayant pas interagi avec vos messages pendant une certaine période.
+Pour intégrer des politiques de temporisation dans vos campagnes, créez un [segment]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment) qui exclut automatiquement les utilisateurs ayant signalé vos e-mails comme spam ou n'ayant pas interagi avec vos messages pendant une certaine période.
 
 Pour configurer ces segments, choisissez les filtres `Has Marked You As Spam` et `Last Engaged With Message` situés dans la section **Reciblage** du menu déroulant des filtres.
 
-Lorsque vous appliquez le filtre `Last Engaged With Message`, spécifiez le type de message (push, e-mail ou notification in-app) avec lequel l'utilisateur a ou n'a pas interagi, ainsi que le nombre de jours écoulés depuis sa dernière interaction. Après avoir créé un segment, choisissez de cibler ce segment avec n'importe quel [canal de communication]({{site.baseurl}}/user_guide/channels).
+Lorsque vous appliquez le filtre `Last Engaged With Message`, spécifiez le type de message (notification push, e-mail ou notification in-app) avec lequel l'utilisateur a ou n'a pas interagi, ainsi que le nombre de jours écoulés depuis sa dernière interaction. Après avoir créé un segment, choisissez de cibler ce segment avec n'importe quel [canal de communication]({{site.baseurl}}/user_guide/channels).
 
 ![Page de détails du segment avec le filtre « Last Engaged with Message » sélectionné.]({% image_buster /assets/img_archive/email_sunset_policies_new.png %})
 

@@ -11,14 +11,14 @@ tool: Canvas
 
 > Utilisez le modèle de retour en stock pour créer des messages ciblant les utilisateurs qui ont précédemment consulté ou manifesté de l'intérêt pour un article en rupture de stock, mais désormais disponible à l'achat. Cela aide les utilisateurs à obtenir les produits qu'ils souhaitent en les sollicitant au moment critique où un produit redevient disponible.
 
-Cet article vous guidera à travers un cas d'utilisation du modèle **Retour en stock**, conçu pour l'étape de conversion du cycle de vie de l'utilisateur. À la fin, vous aurez créé un Canvas qui envoie une notification push (web ou mobile), un SMS ou un e-mail aux utilisateurs lorsqu'un article est de nouveau en stock, ainsi que jusqu'à deux rappels.
+Cet article vous guidera à travers un cas d'usage du modèle **Retour en stock**, conçu pour l'étape de conversion du cycle de vie de l'utilisateur. À la fin, vous aurez créé un Canvas qui envoie une notification push (web ou mobile), un SMS ou un e-mail aux utilisateurs lorsqu'un article est de nouveau en stock, ainsi que jusqu'à deux rappels.
 
 ## Conditions préalables {#prerequisites}
 
 Pour utiliser ce modèle avec succès, vous aurez besoin des éléments suivants :
 
 - Un [catalogue]({{site.baseurl}}/user_guide/data/activation/catalogs/create) contenant des informations sur votre article
-- Les [notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#how-back-in-stock-notifications-work) doivent être configurées pour l'article au sujet duquel vous souhaitez envoyer des messages aux utilisateurs
+- Les [notifications de retour en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#back-in-stock-notifications) doivent être configurées pour l'article au sujet duquel vous souhaitez envoyer des messages aux utilisateurs
 
 ## Adapter le modèle à vos besoins {#tailoring-the-template-to-your-needs}
 

@@ -9,7 +9,7 @@ description: "Esta página explica como medir a retenção de usuários que real
 
 # Relatórios de retenção {#retention-reports}
 
-> A retenção de usuários é uma das métricas mais importantes para qualquer profissional de marketing. Manter os usuários engajados voltando para mais indica que o negócio está saudável. A Braze permite que você meça a retenção de usuários diretamente na página **Análise de dados** da sua Campaign ou Canvas.
+> A retenção de usuários é uma das métricas mais importantes para qualquer profissional de marketing. Manter os usuários engajados voltando para mais indica que o negócio está saudável. A Braze permite que você meça a retenção de usuários diretamente na página **Analytics** da sua Campaign ou Canvas.
 
 {% alert important %}
 Os relatórios de retenção não estão disponíveis para Campaigns disparadas por API.
@@ -25,7 +25,7 @@ Comece acessando qualquer Campaign ou Canvas no seu dashboard da Braze e selecio
 
 Este relatório incluirá todos os usuários que entraram inicialmente na Campaign ou Canvas durante esse período e, desses usuários, os dados daqueles que realizaram o evento de retenção durante o intervalo de datas aparecerão no relatório.
 
-Para selecionar um intervalo de datas, navegue até a página **Análise de dados** da Campaign ou Canvas e selecione vários intervalos ou defina um intervalo personalizado para o seu relatório.
+Para selecionar um intervalo de datas, navegue até a página **Analytics** da Campaign ou Canvas e selecione vários intervalos ou defina um intervalo personalizado para o seu relatório.
 
 ### Etapa 2: Selecione um evento de retenção {#step-2-select-a-retention-event}
 
@@ -107,7 +107,7 @@ Os relatórios por intervalo são alguns dos relatórios mais intuitivos de ler.
 - **Linha Todos os usuários**: Também conhecida como linha de resumo do relatório, resume os dados de retenção para todo o período. Observe que, se um usuário recebeu a Campaign ou Canvas em múltiplas coortes, seus resultados serão contados duas vezes aqui.
 - **Porcentagens/Números**: Mostra a porcentagem ou o número de usuários que realizaram o evento X ou mais dias após receber a Campaign ou Canvas no dia Z. Essas porcentagens são as médias ponderadas. Valores incompletos serão indicados por um asterisco.
 - **Intervalo de datas**: Definido na página **Details** da Campaign ou Canvas, o intervalo de datas inclui todos os usuários que receberam a Campaign ou Canvas durante esse período e, desses usuários, os dados daqueles que realizaram o evento de retenção durante o intervalo de datas aparecerão no relatório.
-- **Unidades**: Você pode ajustar as unidades entre a porcentagem de usuários e o número de usuários no canto superior direito do gráfico. Unidades específicas podem ser mais significativas ao avaliar o impacto de uma Campaign ou Canvas.
+- **Unidades**: Você pode ajustar as unidades entre a porcentagem de usuários e o número de usuários nos controles do gráfico. Unidades específicas podem ser mais significativas ao avaliar o impacto de uma Campaign ou Canvas.
 - **Mapeamento de cores**: No seu relatório de retenção, porcentagens ou números de usuários mais altos recebem tons mais escuros de azul. Porcentagens ou números de usuários mais baixos recebem tons mais claros de azul. Isso é feito para ajudar os usuários a visualizar esses dados.
 - **Gráfico do relatório de retenção**: Este gráfico resume os resultados de todas as coortes para o intervalo de datas selecionado.
 
@@ -118,7 +118,7 @@ Visualizar seu relatório de retenção por variante permite comparar a retenç�
 Alguns casos de uso para mostrar o desempenho por variante:
 
 - Algumas variantes ou experimentos parecem ter resultados sem impacto ou sem significância estatística? Dê outra olhada e veja se uma ou outra teve um impacto de longo prazo.
-- Veja como é a retenção se você não enviasse uma mensagem, analisando os dados de retenção do grupo de controle.
+- Veja como é a retenção quando você não envia uma mensagem, analisando os dados de retenção do grupo de controle.
 
 {% tabs %}
 {% tab Campaign %}
@@ -135,11 +135,11 @@ Alguns casos de uso para mostrar o desempenho por variante:
 
 #### Componentes do relatório de retenção por variante {#retention-report-by-variant-components}
 
-- **Intervalo de datas**: Definido na página **Details** da Campaign ou Canvas, o intervalo de datas inclui todos os usuários que receberam a Campaign ou Canvas durante esse período e, desses usuários, os dados daqueles que realizaram o evento de retenção durante o intervalo de datas aparecerão no relatório. A cada dia, a taxa de retenção, a variação percentual em relação ao grupo de controle e o intervalo de confiança são medidos.
+- **Intervalo de datas**: Definido na página **Details** da Campaign ou Canvas, o intervalo de datas inclui todos os usuários que receberam a Campaign ou Canvas durante esse período e, desses usuários, os dados daqueles que realizaram o evento de retenção durante o intervalo de datas aparecerão no relatório. A cada dia, a taxa de retenção, a variação percentual em relação ao grupo de controle e a confiança são medidas.
 - **Taxa de retenção**: Mostra a taxa de retenção por variante. A taxa de retenção é equivalente ao número de usuários que realizaram o evento de retenção dividido pelo total de usuários que receberam a Campaign ou Canvas.
 - **Variação percentual em relação ao controle**: Quantifica a variação percentual por variante em relação ao grupo de controle.
-- **Intervalo de confiança**: {% multi_lang_include analytics/metrics.md metric='Confidence' %} A Braze compara a taxa de conversão de cada variante com a taxa de conversão do controle usando um procedimento estatístico chamado Teste Z para calcular uma porcentagem de [intervalo de confiança]({{site.baseurl}}/user_guide/messaging/ab_testing/#understanding-confidence).
-- **Unidades**: Você pode ajustar as unidades entre a porcentagem de usuários e o número de usuários no canto superior direito do gráfico. Unidades específicas podem ser mais significativas ao avaliar o impacto de uma Campaign ou Canvas.
+- **Confiança**: {% multi_lang_include analytics/metrics.md metric='Confidence' %} A Braze compara a taxa de conversão de cada variante com a taxa de conversão do controle usando um procedimento estatístico chamado Teste Z para calcular uma porcentagem de [confiança]({{site.baseurl}}/user_guide/messaging/ab_testing/analytics#understanding-confidence).
+- **Unidades**: Você pode ajustar as unidades entre a porcentagem de usuários e o número de usuários nos controles do gráfico. Unidades específicas podem ser mais significativas ao avaliar o impacto de uma Campaign ou Canvas.
 - **Gráfico de variantes**: Este gráfico resume os resultados por variante para o intervalo de datas selecionado.
 
 ## O que observar nos seus relatórios de retenção {#things-to-look-for-in-your-retention-reports}

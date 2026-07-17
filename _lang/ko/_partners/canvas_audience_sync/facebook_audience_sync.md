@@ -40,14 +40,14 @@ Canvas에서 Facebook 오디언스 단계를 설정하기 전에 다음 항목�
 | Facebook 비즈니스 매니저 | [Facebook](https://www.facebook.com/business/help/113163272211510) | 브랜드의 Facebook 자산(예: 광고 계정, 페이지, 앱)을 관리하는 중앙 집중식 도구입니다. |
 | Facebook 광고 계정 | [Facebook](https://www.facebook.com/business/help/910137316041095) | 브랜드의 비즈니스 매니저에 연결된 활성 Facebook 광고 계정입니다.<br><br>Facebook 비즈니스 매니저 관리자가 Braze와 함께 사용할 Facebook 광고 계정에 대해 "Manage Campaigns" 또는 "Manage ad accounts" 권한을 부여했는지 확인하세요. 또한 광고 계정 이용약관에 동의했는지 확인하세요. |
 | Facebook 커스텀 오디언스 약관 | [Facebook](https://www.facebook.com/ads/manage/customaudiences/tos.php) | Braze와 함께 사용할 Facebook 광고 계정에 대해 Facebook의 커스텀 오디언스 약관에 동의하세요. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="필수 조건" }
 
 ## 통합 {#integration}
 
 ### 1단계: Facebook에 연결하기 {#step-1-connect-to-facebook}
 
 {% alert important %}
-Facebook을 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/#admin)이 있어야 합니다.
+Facebook을 Braze 계정에 연결하려면 ["관리자" 권한]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions#admin)이 있어야 합니다.
 {% endalert %}
 
 Braze 대시보드에서 **파트너 통합** > **기술 파트너**로 이동하여 **Facebook**을 선택합니다. Facebook 오디언스 내보내기에서 **Connect Facebook**을 선택합니다.
@@ -67,7 +67,7 @@ Facebook 연결은 Braze 워크스페이스 수준에서 적용됩니다. Facebo
 {% alert important %}
 이전에 [광고 관리](https://developers.facebook.com/docs/facebook-login/permissions/#reference-ads_management) 및 [광고 관리 표준 액세스](https://developers.facebook.com/docs/marketing-api/access#standard)에 대한 Facebook 앱 검토 프로세스를 거친 고객의 경우, 시스템 사용자 토큰은 Facebook 오디언스 구성요소에 대해 여전히 유효합니다. Facebook 파트너 페이지를 통해서는 Facebook 시스템 사용자 토큰을 편집하거나 취소할 수 없습니다. 대신 Facebook 계정을 연결하여 Braze 워크스페이스 내에서 Facebook 시스템 사용자 토큰을 교체할 수 있습니다.
 
-<br><br>Facebook oAuth 구성은 [Segments를 사용한 Facebook 내보내기]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook/#prerequisites)에도 적용됩니다.
+<br><br>Facebook oAuth 구성은 [Segments를 사용한 Facebook 내보내기]({{site.baseurl}}/partners/message_orchestration/additional_channels/retargeting/facebook#prerequisites)에도 적용됩니다.
 {% endalert %}
 
 ### 2단계: 커스텀 오디언스 서비스 약관 동의하기 {#step-2-accept-custom-audiences-terms-of-service}
@@ -118,7 +118,7 @@ Braze는 기존 Facebook 커스텀 오디언스에서 사용자를 추가하거�
 2. **Add to the Audience** 또는 **Remove from the Audience** 중 원하는 옵션을 선택합니다.
 3. Braze는 사용자가 Facebook 오디언스 단계에 진입하면 거의 실시간으로 사용자를 추가하거나 제거합니다.
 
-![오디언스 동기화 설정을 통해 이메일, 전화, 이름, 성 정보를 제거할 수 있습니다.]({% image_buster /assets/img/audience_sync/fb_sync3.png %})
+![이메일, 전화, 이름, 성 정보를 제거하는 오디언스 동기화 설정입니다.]({% image_buster /assets/img/audience_sync/fb_sync3.png %})
 
 {% alert important %}
 Facebook은 오디언스 크기가 너무 작은(일반적으로 1,000명 미만) 커스텀 오디언스에서 사용자를 제거하는 것을 금지합니다. 그 결과, Braze는 오디언스가 적절한 규모에 도달할 때까지 오디언스 동기화 단계에서 사용자 제거를 동기화할 수 없습니다.
@@ -133,7 +133,7 @@ Facebook 오디언스 구성요소를 구성한 후 Canvas를 시작할 차례�
 
 Facebook 오디언스 매니저에서 커스텀 오디언스의 **History** 탭에는 Braze에서 오디언스로 전송된 사용자 수가 반영됩니다. 사용자가 해당 단계에 다시 들어가면 Facebook으로 다시 전송됩니다.
 
-![활동, 활동 세부 정보, 변경된 항목, 날짜 및 시간에 대한 열이 있는 오디언스 기록 표가 포함된 특정 Facebook 오디언스에 대한 오디언스 세부 정보 및 기록 탭.]({% image_buster /assets/img/fb_audience_sync/audience_history.png %}){: style="max-width:80%;"}
+![활동, 활동 세부 정보, 변경된 항목, 날짜 및 시간에 대한 열이 있는 오디언스 기록 표가 포함된 특정 Facebook 오디언스에 대한 오디언스 세부 정보 및 기록 탭입니다.]({% image_buster /assets/img/fb_audience_sync/audience_history.png %}){: style="max-width:80%;"}
 
 ## 분석 이해하기 {#understanding-analytics}
 
@@ -148,7 +148,7 @@ Facebook 오디언스 매니저에서 커스텀 오디언스의 **History** 탭�
 | 대기 중인 사용자 | 현재 Braze에서 Facebook으로 동기화하기 위해 처리 중인 사용자 수입니다. |
 | 오류 발생 사용자 | 약 13시간의 재시도 후 API 오류로 인해 Facebook에 동기화되지 않은 사용자 수입니다. 오류의 잠재적 원인에는 유효하지 않은 Facebook 토큰 또는 Facebook에서 커스텀 오디언스가 삭제된 경우가 포함됩니다. |
 | Canvas 종료함 | Canvas를 종료한 사용자 수입니다. Canvas의 마지막 단계가 Facebook 단계인 경우 발생합니다. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Understanding analytics" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="분석 이해하기" }
 
 {% alert important %}
 동기화된 사용자 및 오류 발생 사용자 측정기준에 대한 보고는 내부 처리로 인해 지연될 수 있습니다.
@@ -176,7 +176,7 @@ Facebook은 개인정보 보호를 위해 이 정보를 제공하지 않습니�
 
 ### Braze는 가치 기반 커스텀 오디언스를 지원하나요? {#does-braze-support-value-based-custom-audiences}
 
-현재 가치 기반 커스텀 오디언스는 Braze에서 지원되지 않습니다. 이러한 유형의 커스텀 오디언스를 동기화하는 데 관심이 있으시면 [제품 피드백]({{site.baseurl}}/user_guide/administer/personal/product_portal/)을 제출해 주세요.
+현재 가치 기반 커스텀 오디언스는 Braze에서 지원되지 않습니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="value-based custom audience sync" %}
 
 ### Braze는 오디언스 동기화 파트너에게 데이터를 보내기 전에 해시 처리하나요? {#does-braze-hash-data-before-sending-it-to-audience-sync-partners}
 
@@ -233,7 +233,7 @@ table th:nth-child(1) {
 table th:nth-child(2) {
     width: 40%;
 }
-table th:nth-child(2) {
+table th:nth-child(3) {
     width: 40%;
 }
 table td {
@@ -241,7 +241,7 @@ table td {
 }
 </style>
 
-<table aria-label="Troubleshooting">
+<table aria-label="문제 해결">
   <thead>
     <tr>
       <th>오류</th>

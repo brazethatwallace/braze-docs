@@ -19,7 +19,7 @@ Para adicionar um novo usuário:
 1. Acesse **Configurações** > **Gerenciamento de usuários** > **Usuários da empresa**.
 2. Selecione **+ Add New User**.
 3. Insira as informações solicitadas, incluindo e-mail, departamento e [função do usuário]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#creating-a-role).
-4. Para usuários que não são administradores, selecione as [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#editing-a-users-permissions) no nível da empresa e no nível do espaço de trabalho que você deseja que esse usuário tenha.
+4. Para usuários que não são administradores, selecione as [permissões]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#edit-a-users-permissions) no nível da empresa e no nível do espaço de trabalho que você deseja que esse usuário tenha.
 
 ![Permissões no nível do espaço de trabalho com uma seção para campos de permissões personalizadas.]({% image_buster /assets/img/add_new_user_3.png %})
 
@@ -77,7 +77,7 @@ A Braze manterá os seguintes dados da conta:
 
 ### Impacto da exclusão de um usuário do dashboard {#impact-of-deleting-a-dashboard-user}
 
-Quando um usuário do dashboard é excluído, não há impacto significativo nos ativos que ele criou dentro do dashboard, como Campaigns, Segments e Canvas. No entanto, o campo **Created By** desses ativos exibirá um valor "null" em vez do endereço de e-mail do usuário excluído.
+Quando um usuário do dashboard é excluído, não há impacto significativo nos ativos que ele criou dentro do dashboard, como campanhas, segmentos e Canvas. No entanto, o campo **Created By** desses ativos exibirá um valor "null" em vez do endereço de e-mail do usuário excluído.
 
 Se um novo usuário do dashboard for criado posteriormente com o mesmo endereço de e-mail do usuário excluído, a Braze não reassociará os ativos criados pelo usuário excluído ao novo usuário. O novo usuário do dashboard começará do zero e não será creditado como criador de nenhum ativo existente no dashboard.
 

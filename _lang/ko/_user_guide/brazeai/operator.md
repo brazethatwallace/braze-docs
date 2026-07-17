@@ -15,12 +15,12 @@ description: "Braze 대시보드에 내장된 AI 기반 어시스턴트인 Braze
 
 Braze 대시보드의 모든 페이지에서 Operator를 열 수 있습니다.
 
-1. 고객 프로필 옆에 있는 **BrazeAI Operator<sup>TM</sup>**를 선택하세요.
+1. 사용자 프로필 옆에 있는 **BrazeAI Operator<sup>TM</sup>**를 선택하세요.
 
-![고객 프로필 옆의 BrazeAI Operator 아이콘.]({% image_buster /assets/img/operator/operator_icon.png %})
+![사용자 프로필 옆의 BrazeAI Operator 아이콘.]({% image_buster /assets/img/operator/operator_icon.png %})
 
 {:start="2"}
-2. Operator 채팅 패널이 화면 오른쪽에 열립니다.
+2. Operator 채팅 패널이 사이드 패널에 열립니다.
 
 ![Operator 채팅 패널.]({% image_buster /assets/img/operator/operator_chat_panel.png %})
 
@@ -39,7 +39,7 @@ Braze 대시보드의 모든 페이지에서 Operator를 열 수 있습니다.
 - **간단한 질문:** 왜 내 Liquid가 렌더링되지 않나요?
 - **복잡한 요청:** 내 메시지의 `abort_message` 태그에 중단을 유발한 사용자 속성을 포함시키려면 어떻게 해야 하나요?
 
-Operator는 단계별 지침, Braze 설명서 링크 및 쉬운 설명을 제공할 수 있습니다. 명확하고 구체적인 질문은 더 유용한 답변을 이끌어냅니다. Operator는 강력한 추론 능력을 제공하며 복잡한 다단계 작업에 적합한 [GPT-5.2](https://platform.openai.com/docs/models/gpt-5.2)를 사용합니다. 바로 사용할 수 있는 예시는 [프롬프트 라이브러리]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library)를 참조하세요.
+Operator는 단계별 지침, Braze 설명서 링크 및 쉬운 설명을 제공할 수 있습니다. 명확하고 구체적인 질문은 더 유용한 답변을 이끌어냅니다. Operator는 복잡한 다단계 작업에 적합한 [GPT-5.6 Terra](https://developers.openai.com/api/docs/models/gpt-5.6-terra)를 사용합니다. 바로 사용할 수 있는 예시는 [프롬프트 라이브러리]({{site.baseurl}}/user_guide/brazeai/operator/prompt_library)를 참조하세요.
 
 ## 모범 사례 {#best-practices}
 

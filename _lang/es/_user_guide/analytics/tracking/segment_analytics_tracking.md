@@ -37,23 +37,23 @@ Los gráficos de ingresos y compras reflejan la actividad registrada después de
 
 Para comparar visualmente los datos de los segmentos en cualquier intervalo de tiempo personalizado, añade o elimina segmentos del gráfico. Selecciona **By Segment** en el desplegable **Breakdown** y, a continuación, selecciona tus segmentos en **Breakdown values**.
 
-Selecciona cualquier nombre de segmento encima del gráfico para activar o desactivar la visibilidad de las métricas de ese segmento.
+Selecciona cualquier nombre de segmento en la leyenda del gráfico para activar o desactivar la visibilidad de las métricas de ese segmento.
 
 ![Ingresos por múltiples segmentos]({% image_buster /assets/img_archive/segment_revenue_multiple.png %})
 
 ## Sesiones a lo largo del tiempo {#sessions-over-time}
 
-Del mismo modo, puedes encontrar datos sobre [las sesiones a lo largo del tiempo para este segmento en particular]({{site.baseurl}}/user_guide/analytics/dashboards/home#exporting-app-usage-data) en la página **Home**.
+Del mismo modo, puedes encontrar datos sobre [las sesiones a lo largo del tiempo para este segmento en particular]({{site.baseurl}}/user_guide/analytics/dashboards/home) en la página **Home**.
 
 ![Datos de sesiones por segmento]({% image_buster /assets/img_archive/events_over_time2.png %})
 
 ## Ver eventos personalizados a lo largo del tiempo {#view-custom-events-over-time}
 
-Para ver los datos de [los eventos personalizados a lo largo del tiempo para los segmentos]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics), ve a **Analytics** > **Custom Events Report**.
+Para ver los datos de [los eventos personalizados a lo largo del tiempo para los segmentos]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics), ve a **Analytics** > **Custom events report**.
 
-## Utilización de las plantillas del Generador de consultas {#using-query-builder-templates}
+## Uso de las plantillas del generador de consultas {#using-query-builder-templates}
 
-Cuando el seguimiento analítico está activado, puedes utilizar las plantillas de informes del Generador de consultas para desglosar las métricas de rendimiento de campañas, Canvas, variantes y pasos por segmentos. Para saber más, consulta [Datos de segmentos]({{site.baseurl}}/user_guide/audience/segments/segment_data#performance-data-by-segment).
+Cuando el seguimiento analítico está activado, puedes utilizar las plantillas de informes del generador de consultas para desglosar las métricas de rendimiento de campañas, Canvas, variantes y pasos por segmentos. Para saber más, consulta [Datos de segmentos]({{site.baseurl}}/user_guide/audience/segments/segment_data#viewing-performance-data-by-segment).
 
 ## Preguntas frecuentes {#frequently-asked-questions}
 

@@ -20,7 +20,7 @@ O Decisioning Studio Go é compatível com as seguintes plataformas de engajamen
 | **Salesforce Marketing Cloud** | Journey Builder com eventos de API | Automação de consultas de SQL, extensões de dados |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="CEPs compatíveis" }
 
-Selecione sua CEP abaixo para começar a configuração da integração.
+Selecione sua CEP na lista abaixo para começar a configuração da integração.
 
 {% tabs %}
 {% tab Braze %}
@@ -32,7 +32,7 @@ Para integrar o Decisioning Studio Go com a Braze, você criará uma chave de AP
 ### Etapa 1: Criar uma chave da API REST {#step-1-create-a-rest-api-key}
 
 1. No dashboard da Braze, acesse **Configurações** > **APIs e identificadores** > **Chaves de API**.
-2. Selecione **Create API Key**.
+2. Selecione **Criar chave de API**.
 3. Digite um nome para sua chave de API. Um exemplo é "DecisioningStudioGoEmail".
 4. Selecione as permissões com base nas seguintes categorias:
     - **User Data:** selecione `users.track`, `users.delete`, `users.export.ids`, `users.export.segment`
@@ -43,7 +43,7 @@ Para integrar o Decisioning Studio Go com a Braze, você criará uma chave de AP
     - **Templates:** selecione todas as permissões listadas
 
 {: start="5"}
-5. Selecione **Create API key**.
+5. Selecione **Criar chave de API**.
 6. Copie a chave de API e cole-a no portal do BrazeAI Decisioning Studio™ Go.
 
 ### Etapa 2: Localizar o nome de exibição do e-mail {#step-2-locate-your-email-display-name}
@@ -90,7 +90,7 @@ A Braze oferece IDs de app (chamados de chaves de API no dashboard da Braze) que
 ![Re-elegibilidade para a campanha da API selecionada.]({% image_buster /assets/img/decisioning_studio_go/additional_options.png %})
 
 {: start="8"}
-8. Selecione **Save Campaign**.
+8. Selecione **Salvar campanha**.
 
 ### Etapa 5: Copiar os IDs da campanha e da mensagem {#step-5-copy-your-campaign-and-message-ids}
 
@@ -326,7 +326,7 @@ Agora você pode verificar se a automação está sendo executada com sucesso. E
 {: start="5"}
 5. Insira o ID do modelo do seu primeiro modelo de e-mail e selecione **Done**.
 6. Selecione **Summary** para salvar este caminho.
-7. Adicione um caminho para cada um dos seus modelos de e-mail e repita as etapas 4-6 acima para definir os critérios de filtro de modo que o ID do modelo corresponda ao valor de ID de cada modelo.
+7. Adicione um caminho para cada um dos seus modelos de e-mail e repita as etapas 4-6 da sequência anterior para definir os critérios de filtro de modo que o ID do modelo corresponda ao valor de ID de cada modelo.
 8. Selecione **Done** para salvar o nó da **Decision Split**.
 
 ![Dois caminhos em uma divisão de decisão para cada ID de modelo de e-mail.]({% image_buster /assets/img/decisioning_studio_go/journey10.png %}){: style="max-width:65%;"}

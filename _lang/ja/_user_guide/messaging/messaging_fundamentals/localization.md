@@ -2,7 +2,7 @@
 nav_title: ローカライゼーション
 article_title: ローカライゼーション
 page_order: 8
-description: "このリファレンス記事では、ローカライゼーションの基本、CampaignsとCanvasesにおけるさまざまなオーケストレーションアプローチの利点、およびメッセージングでパーソナライゼーションを処理するさまざまな方法について説明します。"
+description: "このリファレンス記事では、ローカライゼーションの基本、キャンペーンとキャンバスにおけるさまざまなオーケストレーションアプローチの利点、およびメッセージングでパーソナライゼーションを処理するさまざまな方法について説明します。"
 tool:
     - Campaigns
     - Canvas
@@ -38,9 +38,9 @@ SDKによるロケールの収集方法の技術的な詳細については、[i
 
 ### 国ごとに1つのテンプレート {#one-template-per-country}
 
-このアプローチでは、テンプレートを異なる送信ロケールに分離します。送信後、ダッシュボードは各国ごとに送信分析をレポートし、下流のユーザーレベルの[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents)イベントも特定のキャンペーンに紐付けられます。
+このアプローチでは、テンプレートを異なる送信ロケールに分離します。送信後、ダッシュボードは各国ごとに送信分析をレポートし、下流のユーザーレベルの[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents)イベントも特定のキャンペーンに紐付けられます。
 
-- テンプレートは、メンテナンスとトラッキングの目的で[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags)を実装することで恩恵を受けます。
+- テンプレートは、メンテナンスとトラッキングの目的で[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags)を実装することで恩恵を受けます。
 - キャンペーンは、同じ[Brazeテンプレート]({{site.baseurl}}/user_guide/messaging/templates)と[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)（Liquidを含む[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates)など）から設定を継承できます。
 - 既存のキャンペーンとテンプレートは[複製]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating)して、より迅速な価値実現が可能です。
 
@@ -55,7 +55,7 @@ SDKによるロケールの収集方法の技術的な詳細については、[i
 
 このアプローチでは、[キャンバスの基本]({{site.baseurl}}/user_guide/messaging/canvas/canvas_basics#building-the-customer-journey)とLiquidを使用して、各ユーザーのメッセージングを定義し、ローカライゼーションを処理します。
 
-キャンバスが送信された後、ダッシュボードには集約された[キャンバス分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)が表示されます。ユーザーレベルのエンゲージメントは、カスタム[セグメントファネル]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)を使用して測定できます。たとえば、[**国**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country)と[**受信したキャンバスステップ**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-canvas-step)フィルターを組み合わせることで測定できます。
+キャンバスが送信された後、ダッシュボードには集約された[キャンバス分析]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/measuring_and_testing_with_canvas_analytics)が表示されます。ユーザーレベルのエンゲージメントは、カスタム[セグメントファネル]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size)を使用して測定できます。たとえば、[**国**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#country)と[**受信したキャンバスステップ**]({{site.baseurl}}/user_guide/audience/segments/segmentation_filters#received-message-from-canvas-step)フィルターを組み合わせることで測定できます。
 
 | メリット | 考慮事項 |
 | --- | --- |
@@ -71,7 +71,7 @@ SDKによるロケールの収集方法の技術的な詳細については、[i
 - 国ごとに個別のキャンバス。これにより、オーディエンスフィルターを使用してファネルの上部で複雑なユーザージャーニーが定義されます
 - 国ごとのカスタムユーザージャーニー。[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)を実装して、各ジャーニーで大規模にユーザーを直感的にセグメント化し、単一のキャンバス内で各国ごとに個別のメッセージスレッドを作成します
 
-送信後、ダッシュボードは顧客の現在のロケーションに基づいて、国別の動的な分析とユーザーレベルの[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#access-currents)イベントを提供します。
+送信後、ダッシュボードは顧客の現在のロケーションに基づいて、国別の動的な分析とユーザーレベルの[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents)イベントを提供します。
 
 | メリット | 考慮事項 |
 | --- | --- |
@@ -230,7 +230,7 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 {% endsubtab %}
 {% endsubtabs %}
 
-これらのカタログアイテムは、以下に示す[パーソナライゼーション]({{site.baseurl}}/user_guide/data/activation/catalogs/create#using-catalogs-in-a-message)、またはデータのグループを作成できる[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)を使用して参照できます。
+これらのカタログアイテムは、以下の例に示す[パーソナライゼーション]({{site.baseurl}}/user_guide/data/activation/catalogs/create)、またはデータのグループを作成できる[セレクション]({{site.baseurl}}/user_guide/data/activation/catalogs/selections)を使用して参照できます。
 
 {% raw %}
 ```liquid
@@ -242,9 +242,9 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 {% endtab %}
 
 {% tab Brazeパートナー %}
-多くのBrazeパートナーが、[Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-transifex)や[Crowdin](https://crowdin.com/)などのローカライゼーションソリューションを提供しています。通常、ユーザーは社内チームや翻訳エージェンシーと併せてプラットフォームを使用します。翻訳はそこにアップロードされ、REST APIを介してアクセスできるようになります。これらのサービスは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)も活用することが多く、ユーザーはAPIを介して翻訳を取得できます。
+多くのBrazeパートナーが、[Transifex]({{site.baseurl}}/partners/message_personalization/localization/transifex#about-the-integration)や[Crowdin](https://crowdin.com/)などのローカライゼーションソリューションを提供しています。通常、ユーザーは社内チームや翻訳エージェンシーと併せてプラットフォームを使用します。翻訳はそこにアップロードされ、REST APIを介してアクセスできるようになります。これらのサービスは[コネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)も活用することが多く、ユーザーはAPIを介して翻訳を取得できます。
 
-たとえば、以下のコネクテッドコンテンツ呼び出しはTransifexとCrowdinを呼び出して翻訳を取得し、{% raw %}`{{${language}}}`{% endraw %}を活用して特定のユーザーに対する正しい翻訳を識別します。この翻訳はJSONブロック「strings」に保存され、参照されます。
+たとえば、以下のConnected Content呼び出しはTransifexとCrowdinを呼び出して翻訳を取得し、{% raw %}`{{${language}}}`{% endraw %}を活用して特定のユーザーに対する正しい翻訳を識別します。この翻訳はJSONブロック「strings」に保存され、参照されます。
 
 {% subtabs local %}
 {% subtab Transifexの例 %}
@@ -270,16 +270,16 @@ curl --location --request POST 'https://your_api_endpoint/catalogs/translations/
 スプレッドシートに翻訳を格納し、以下のいずれかの方法を使用して関連する言語でメッセージを送信します。
 
 {% subtabs local %}
-{% subtab コネクテッドコンテンツ %}
-翻訳エージェンシーと協力してGoogleスプレッドシートに翻訳を保存し、[Brazeコネクテッドコンテンツ]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を使用してこのコンテンツをクエリできます。メッセージを送信すると、各ユーザーの選択した言語に基づいて、関連する翻訳がキャンペーン本文に取り込まれます。
+{% subtab Connected Content %}
+翻訳エージェンシーと協力してGoogleスプレッドシートに翻訳を保存し、[BrazeのConnected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content)を使用してこのコンテンツをクエリできます。メッセージを送信すると、各ユーザーの選択した言語に基づいて、関連する翻訳がキャンペーン本文に取り込まれます。
 
 {% alert note %}
-Google Sheets APIには、プロジェクトあたり100秒間に500リクエストの制限があります。コネクテッドコンテンツ呼び出しはキャッシュできますが、このソリューションは高トラフィックのキャンペーンにはスケーラブルではありません。
+Google Sheets APIには、プロジェクトあたり100秒間に500リクエストの制限があります。Connected Content呼び出しはキャッシュできますが、このソリューションは高トラフィックのキャンペーンにはスケーラブルではありません。
 {% endalert %}
 {% endsubtab %}
 
 {% subtab SheetDB経由のJSON API %}
-このオプションは、GoogleスプレッドシートをコネクテッドコンテンツでクエリされるJSONオブジェクトに変換する代替方法を提供します。スプレッドシートをSheetDB経由でJSON APIに変換することで、API呼び出しの頻度に応じて[複数のサブスクリプションティア](https://sheetdb.io/pricing)から選択できます。
+このオプションは、GoogleスプレッドシートをConnected Contentでクエリ可能なJSONオブジェクトに変換する代替方法を提供します。スプレッドシートをSheetDB経由でJSON APIに変換することで、API呼び出しの頻度に応じて[複数のサブスクリプションティア](https://sheetdb.io/pricing)から選択できます。
 
 スプレッドシートの構造はオプション4の手順に従いますが、SheetDBはオブジェクトをクエリするための[追加フィルター](https://docs.sheetdb.io/#sheetdb-api)も提供しています。
 
@@ -296,9 +296,9 @@ Google Sheets APIには、プロジェクトあたり100秒間に500リクエス
 | de | Hallo | 4 | Hallo2 | 8 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 .reset-td-br-4 .reset-td-br-5 aria-label="ステップ1：Googleスプレッドシートのフォーマット" }
 
-#### ステップ2：コネクテッドコンテンツ呼び出しで言語Liquidタグを使用 {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
+#### ステップ2：Connected Content呼び出しで言語Liquidタグを使用 {#step-2-use-the-language-liquid-tag-in-a-connected-content-call}
 
-次に、コネクテッドコンテンツ呼び出し内で{% raw %}`{{${language}}}`{% endraw %} Liquidタグを実装します。SheetDBはスプレッドシートの作成時に`sheet_id`を自動生成します。
+次に、Connected Content呼び出し内で{% raw %}`{{${language}}}`{% endraw %} Liquidタグを実装します。SheetDBはスプレッドシートの作成時に`sheet_id`を自動生成します。
 
 {% raw %}
 ```liquid
@@ -322,7 +322,7 @@ Google Sheets APIには、プロジェクトあたり100秒間に500リクエス
 - {% raw %}`{{${language}}}`{% endraw %}フィールドはすべてのユーザーに対して定義されている必要があります。定義されていない場合、言語が設定されていないユーザーのフォールバックハンドラーとしてLiquid条件ブロックを含める必要があります。
 - Googleスプレッドシート内のデータモデリングは、メッセージオブジェクトを持つのではなく、言語駆動の縦方向の構造に従う必要があります。
 - SheetDBは限定的な無料アカウントと複数の有料オプションを提供しており、キャンペーン戦略に基づいて検討する必要があります。
-- コネクテッドコンテンツ呼び出しはキャッシュできます。API呼び出しの予測頻度を測定し、検索メソッドを使用する代わりにメインのSheetDBエンドポイントを呼び出す代替アプローチを検討することをお勧めします。
+- Connected Content呼び出しはキャッシュできます。API呼び出しの予測頻度を測定し、検索メソッドを使用する代わりにメインのSheetDBエンドポイントを呼び出す代替アプローチを検討することをお勧めします。
 {% endsubtab %}
 {% endsubtabs %}
 {% endtab %}

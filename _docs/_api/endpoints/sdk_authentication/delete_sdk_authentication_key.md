@@ -22,7 +22,7 @@ The primary key can't be deleted. If you attempt to delete the primary key, this
 
 ## Prerequisites
 
-To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key) with the `sdk_authentication.delete` permission.
+To use this endpoint, you'll need an [API key]({{site.baseurl}}/api/basics#rest-api-key-permissions) with the `sdk_authentication.delete` permission.
 
 ## Rate limit
 

@@ -18,9 +18,9 @@ description: "Cet article présente en détail l'endpoint Braze Supprimer les me
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#5e89355c-0a5d-4d8b-8d89-2fd99bac36b0 {% endapiref %}
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
-Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key) avec l'autorisation `messages.schedule.delete`.
+Pour utiliser cet endpoint, vous aurez besoin d'une [clé API]({{site.baseurl}}/api/basics#rest-api-key-permissions) avec l'autorisation `messages.schedule.delete`.
 
 ## Limite de débit {#rate-limit}
 

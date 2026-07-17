@@ -91,7 +91,7 @@ In the **Preview** tab of your composer, the view of your message might not be i
 
 - Is your test user opted in to push with a valid push token?
 - Do the images and media show up and act as expected?
-- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) if the Liquid returns no information?
+- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) if the Liquid returns no information?
 - Is your copy clear, concise, and correct?
 - Do your links direct the user to where they should go?
 - Is your test user opted into push with a valid push token?
@@ -197,7 +197,7 @@ In **Preview**, the view of your message might not be identical to its actual re
 ### Test checklist
 
 - Do the images and media show up and act as expected?
-- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) if the Liquid returns no information?
+- Does the Liquid function as expected? Have you accounted for a [default attribute value]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) if the Liquid returns no information?
 - Is your copy clear, concise, and correct?
 - Do your buttons direct the user where they should go?
 
@@ -388,6 +388,7 @@ There are a few situations where test messages don't behave the same way as camp
 - For testing in-app messages and Content Cards, the target user must have a push token for the target device.
 - For testing unsubscribe links in emails, make sure your test user's email address is in the respective workspace.
 - The `List-Unsubscribe` header is not included in emails sent by the test message functionality.
+- Emails sent to seed group users do not update the user profile Campaign Received list or increment Sends in dashboard analytics.
 
 ## Troubleshooting
 

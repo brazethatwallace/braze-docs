@@ -13,7 +13,7 @@ description: "Erfahren Sie, wie Sie den Performance-Bericht verwenden, um Behand
 
 Ihr Performance-Bericht wird in Schichten aufgebaut und ist vollständig auf Ihren Anwendungsfall zugeschnitten. In Zusammenarbeit mit Ihrem Team:
 
-1. Braze definiert, was als Aktion zählt (z. B. ein Versand, Klick, Kauf oder eine Conversion).
+1. Braze definiert, was als Aktion zählt (z. B. ein Versand, Klick, Kauf oder eine Konversion).
 2. Braze definiert, wie diese Aktion täglich gemessen wird (Volumen, Umsatz, eindeutige Personen und Ähnliches).
 3. Braze definiert die Geschäftsmetrik, die Sie sehen möchten (z. B. Konversionsrate oder Umsatz pro Nutzer:in).
 4. Zeitregeln und Segmentierung werden angewendet.
@@ -28,10 +28,10 @@ Oben im Dashboard wählen Sie:
 - **Datumsbereich:** Der Zeitraum für den Bericht.
 - **Vergleichsgruppen:** Die Gruppen, die verglichen werden (z. B. Decisioning Studio versus Business as Usual).
 - **Aggregation:** Die Chart-Aggregationseinstellung (Täglich, 7-Tage-Durchschnitt oder 30-Tage-Durchschnitt).
-- **Segments:** Alle angewendeten Segments. Diese werden individuell mit Ihrem AI Expert Services-Team konfiguriert.
+- **Segments:** Alle angewendeten Segmente. Diese werden individuell mit Ihrem AI Expert Services-Team konfiguriert.
 - **Timeline-Ereignisse:** Ob konfigurierte Timeline-Ereignisse im Chart eingeblendet werden sollen, um Ihnen zu helfen, Änderungen oder Ereignisse zu verstehen, die die Performance beeinflussen könnten.
 
-![Performance-Bericht mit den Filtern für Vergleichsgruppen, Aggregation, Segments und Timeline-Ereignisse oben sowie der Datumsbereichsauswahl oben rechts.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
+![Performance-Bericht mit den Filtern für Vergleichsgruppen, Aggregation, Segmente und Timeline-Ereignisse oben sowie der Datumsbereichsauswahl oben rechts.]({% image_buster /assets/img/decisioning_studio/reporting_performance_date_range.png %})
 
 Diese Auswahl bestimmt, welche Tage einbezogen werden, welche Gruppen verglichen werden, wie die Trendlinie geglättet wird und welche Population Sie betrachten.
 
@@ -48,7 +48,7 @@ Diese Verzögerungen werden für Ihren Anwendungsfall konfiguriert. Wenn Sie Ihr
 
 ## KPI-Karten {#kpi-cards}
 
-Die KPI-Karten auf der linken Seite des Berichts zeigen die für Ihren Anwendungsfall konfigurierten Leistungskennzahlen, wie z. B.:
+Die KPI-Karten auf der primären Seite des Berichts zeigen die für Ihren Anwendungsfall konfigurierten Leistungskennzahlen, wie z. B.:
 
 - Inkrementeller LTV / Kund:in
 - Conversions / Kund:in
@@ -56,7 +56,7 @@ Die KPI-Karten auf der linken Seite des Berichts zeigen die für Ihren Anwendung
 
 Jede Karte stellt die KPI dar, die über den gesamten ausgewählten Datumsbereich berechnet wird. Dies ist ein Gesamtzeitraumwert, kein Tagesdurchschnitt. Wenn Sie beispielsweise „Inkrementeller LTV / Kund:in = 3,192“ sehen, spiegelt das die Performance über das gesamte ausgewählte Fenster wider.
 
-![Performance-Bericht mit den KPI-Zusammenfassungskarten auf der linken Seite, einschließlich Metriken wie „Inkrementeller LTV / Kund:in“, „Conversions / Kund:in“ und „Abmeldungen / Kund:in“.]({% image_buster /assets/img/decisioning_studio/reporting_performance_kpi_cards.png %})
+![Performance-Bericht mit den KPI-Zusammenfassungskarten auf der primären Seite, einschließlich Metriken wie „Inkrementeller LTV / Kund:in“, „Conversions / Kund:in“ und „Abmeldungen / Kund:in“.]({% image_buster /assets/img/decisioning_studio/reporting_performance_kpi_cards.png %})
 
 ## KPI-Trendchart {#kpi-trend-chart}
 
@@ -112,9 +112,9 @@ Treiberbäume verwenden dieselben KPI-Definitionen wie der Rest des Dashboards u
 
 ## Häufig gestellte Fragen {#frequently-asked-questions}
 
-### Wie funktionieren Segments? {#how-do-segments-work}
+### Wie funktionieren Segmente? {#how-do-segments-work}
 
-Segments ermöglichen es Ihnen, die Performance nach definierten Gruppen aufzuschlüsseln, z. B. nach Engagement-Level, Kundenmerkmalen, Gerätetyp oder anderen konfigurierten Features.
+Segmente ermöglichen es Ihnen, die Performance nach definierten Gruppen aufzuschlüsseln, z. B. nach Engagement-Level, Kundenmerkmalen, Gerätetyp oder anderen konfigurierten Features.
 
 Die Segmentzugehörigkeit wird individuell für Ihren Anwendungsfall konfiguriert und täglich berechnet. Das bedeutet, dass das vergangene Segment einer Kund:in widerspiegelt, wer sie an diesem Tag war. Wenn sich ihr Verhalten später ändert, bleiben historische Tage unverändert. Dies bewahrt die historische Genauigkeit und verhindert, dass sich Berichte rückwirkend verschieben.
 

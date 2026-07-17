@@ -37,7 +37,7 @@ channel:
 
 전화번호를 가져올 때는 [권장 형식](#recommended-format)을 따르는 것이 중요합니다. 전화번호를 가져오려면 다음 방법 중 하나를 사용하세요:
 
-- [Braze에 CSV 업로드]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv)
+- [Braze에 CSV 업로드]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)
 - [`/users/track` 엔드포인트 사용]({{site.baseurl}}/api/endpoints/user_data/post_user_track)
 
 {% alert important %}

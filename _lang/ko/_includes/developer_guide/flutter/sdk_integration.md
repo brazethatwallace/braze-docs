@@ -10,10 +10,10 @@ Braze Flutter SDK를 통합하기 전에 다음을 완료해야 합니다:
 
 | 필수 조건 | 설명 |
 | --- | --- |
-| Braze API 앱 식별자 | 앱 식별자를 찾으려면 **설정** > **API 키** > **앱 식별자**로 이동하세요. 자세한 내용은 [API 식별자 유형]({{site.baseurl}}/api/identifier_types/#app-identifier)을 참조하세요.|
-| Braze SDK 엔드포인트 | SDK 엔드포인트 URL(예: `sdk.<cluster>.braze.com`). 엔드포인트는 [인스턴스에 대한 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)에 따라 달라집니다.|
+| Braze API 앱 식별자 | 앱 식별자를 찾으려면 **설정** > **API 및 식별자** > **앱 식별자**로 이동하세요. 자세한 내용은 [API 식별자 유형]({{site.baseurl}}/api/identifier_types#app-identifier)을 참조하세요.|
+| Braze SDK 엔드포인트 | SDK 엔드포인트 URL(예: `sdk.<cluster>.braze.com`). 엔드포인트는 [인스턴스에 대한 Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)에 따라 달라집니다.|
 | Flutter SDK | 공식 [Flutter SDK](https://docs.flutter.dev/get-started/install)를 설치하고 Braze Flutter SDK의 [최소 지원 버전](https://github.com/braze-inc/braze-flutter-sdk#requirements)을 충족하는지 확인하세요. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
 
 ### 1단계: Braze 라이브러리 통합 {#step-1-integrate-the-braze-library}
 
@@ -28,7 +28,7 @@ flutter pub add braze_plugin
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
 
-#### 2.1 Android 설정 {#21-set-up-android}
+#### 2.1 Android 설정 {#21-set-up-android} {#21-set-up-android}
 
 ##### 컴파일 시 자격 증명 제공 {#provide-credentials-at-compile-time}
 
@@ -64,7 +64,7 @@ class MainActivity : FlutterActivity() {
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-#### 2.2 iOS 설정 {#22-set-up-ios}
+#### 2.2 iOS 설정 {#22-set-up-ios} {#22-set-up-ios}
 
 기존 `application(_:didFinishLaunchingWithOptions:)` 메서드 내에서 `BrazePlugin.configure(_:postInitialization:)` 호출을 추가하여 구성을 저장합니다. Braze 인스턴스는 나중에 Dart에서 `initialize()`가 호출될 때 생성됩니다. API 키와 엔드포인트는 여기에서 설정하지 않습니다.
 
@@ -169,7 +169,7 @@ import BrazeKit
 import braze_plugin
 ```
 
-같은 파일의 `application(_:didFinishLaunchingWithOptions:)` 메서드에서 Braze 구성 오브젝트를 생성하고 API 키와 엔드포인트를 앱의 값으로 바꿉니다. 그런 다음 구성을 사용하여 Braze 인스턴스를 생성하고 `AppDelegate`에 정적 프로퍼티를 만들어 쉽게 액세스할 수 있도록 합니다:
+같은 파일의 `application(_:didFinishLaunchingWithOptions:)` 메서드에서 Braze 구성 오브젝트를 생성하고 API 키와 엔드포인트를 앱의 값으로 바꿉니다. 그런 다음 구성을 사용하여 Braze 인스턴스를 생성하고 `AppDelegate`에 정적 속성정보를 만들어 쉽게 액세스할 수 있도록 합니다:
 
 ```swift
 static var braze: Braze? = nil
@@ -199,7 +199,7 @@ override func application(
 @import braze_plugin;
 ```
 
-같은 파일의 `application:didFinishLaunchingWithOptions:` 메서드에서 Braze 구성 오브젝트를 생성하고 API 키와 엔드포인트를 앱의 값으로 바꿉니다. 그런 다음 구성을 사용하여 Braze 인스턴스를 생성하고 `AppDelegate`에 정적 프로퍼티를 만들어 쉽게 액세스할 수 있도록 합니다:
+같은 파일의 `application:didFinishLaunchingWithOptions:` 메서드에서 Braze 구성 오브젝트를 생성하고 API 키와 엔드포인트를 앱의 값으로 바꿉니다. 그런 다음 구성을 사용하여 Braze 인스턴스를 생성하고 `AppDelegate`에 정적 속성정보를 만들어 쉽게 액세스할 수 있도록 합니다:
 
 ```objc
 - (BOOL)application:(UIApplication *)application
@@ -248,7 +248,7 @@ import 'package:braze_plugin/braze_plugin.dart';
 final BrazePlugin braze = BrazePlugin();
 ```
 
-그런 다음 앱 식별자 API 키와 SDK 엔드포인트를 사용하여 `initialize()`를 호출하여 Braze 인스턴스를 생성합니다. 앱에서 이 메서드를 호출할 위치에 대해서는 아래 옵션을 참조하세요.
+그런 다음 앱 식별자 API 키와 SDK 엔드포인트를 사용하여 `initialize()`를 호출하여 Braze 인스턴스를 생성합니다. 앱 흐름에서 이 메서드를 호출할 위치에 대해서는 아래 옵션을 참조하세요.
 
 #### 표준 초기화 {#standard-initialization}
 
@@ -318,6 +318,7 @@ import 'package:braze_plugin/braze_plugin.dart';
 {% endtabs %}
 
 ## 통합 테스트 {#testing-the-integration}
+
 대시보드에서 세션 통계를 확인하여 SDK가 통합되었는지 확인할 수 있습니다. 어느 플랫폼에서든 애플리케이션을 실행하면 대시보드(**개요** 섹션)에 새 세션이 표시됩니다.
 
 앱에서 다음 코드를 호출하여 특정 사용자에 대한 세션을 시작합니다.

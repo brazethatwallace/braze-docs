@@ -17,7 +17,7 @@ Telefonnummern werden im Nutzerprofil in lokalen Formaten angezeigt, entsprechen
 
 ## Telefonnummern importieren {#importing-phone-numbers}
 
-Sie können Telefonnummern importieren, indem Sie [eine CSV-Datei hochladen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#csv) oder [über die API]({{site.baseurl}}/api/endpoints/user_data#user-track-endpoint) Nutzer:innen erstellen.
+Sie können Telefonnummern importieren, indem Sie [eine CSV-Datei hochladen]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv) oder [über die API]({{site.baseurl}}/api/endpoints/user_data/post_user_track) Nutzer:innen erstellen.
 
 ### Formatierung {#formatting}
 

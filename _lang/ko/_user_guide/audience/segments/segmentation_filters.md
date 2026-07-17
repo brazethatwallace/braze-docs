@@ -4,7 +4,7 @@ nav_title: 세분화 필터
 article_title: 세분화 필터
 layout: glossary_page
 glossary_top_header: "세분화 필터"
-glossary_top_text: "Braze SDK는 특정 기능과 속성을 기반으로 사용자를 세분화하고 타겟팅할 수 있는 강력한 필터 모음을 제공합니다. 필터 카테고리별로 이러한 필터를 검색하거나 범위를 좁힐 수 있습니다.<br><br>사용자를 세분화하는 데 사용할 수 있는 다양한 커스텀 속성 데이터 유형에 대해 알아보려면 <a href=\"/docs/user_guide/data/activation/attributes/custom_attributes#custom-attribute-data-types\">커스텀 속성 데이터 유형</a> 을 참조하세요. 간격 필터는 100년으로 제한됩니다."
+glossary_top_text: "Braze SDK는 특정 기능과 속성을 기반으로 사용자를 세분화하고 타겟팅할 수 있는 강력한 필터 모음을 제공합니다. 필터 카테고리별로 이러한 필터를 검색하거나 범위를 좁힐 수 있습니다.<br><br>사용자를 세분화하는 데 사용할 수 있는 다양한 커스텀 속성 데이터 유형에 대해 알아보려면 <a href=\"/docs/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types\">커스텀 속성 데이터 유형</a> 을 참조하세요. 간격 필터는 100년으로 제한됩니다."
 
 page_type: glossary
 tool: Segments
@@ -313,7 +313,7 @@ glossaries:
     tags:
       - Channel subscription behavior
   - name: Push Subscription Status
-    description: 푸시에 대한 <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states#push-subscription-state">구독 상태</a> 를 기준으로 사용자를 세분화합니다.
+    description: 푸시에 대한 <a href="/docs/user_guide/channels/push/push_setup/push_subscription_states">구독 상태</a> 를 기준으로 사용자를 세분화합니다.
     tags:
       - Channel subscription behavior
   - name: Push Unsubscribed Date
@@ -613,7 +613,7 @@ glossaries:
     tags:
       - Social activity
   - name: Phone Number
-    description: E.164 형식의 전화번호 필드를 기준으로 사용자를 세분화합니다.<br><br>전화번호가 Braze에 전송되면, Braze는 SMS, RCS 및 WhatsApp 채널을 통해 발송하는 데 사용되는 <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#importing-phone-numbers">e.164 형식</a> 으로 변환을 시도합니다. 번호가 올바르게 형식화되지 않으면 변환 프로세스가 실패할 수 있으며, 이 경우 고객 프로필에 형식이 지정되지 않은 전화번호는 있지만 발송용 전화번호는 없게 됩니다. 이 Segment 필터는 e.164 형식의 전화번호(사용 가능한 경우)를 기준으로 사용자를 반환합니다.<br><br>사용 사례:<br> - SMS, RCS 또는 WhatsApp 메시지를 발송할 때 가장 정확한 타겟 오디언스 규모를 파악하려면 이 필터를 사용하세요. <br>- 이 필터와 함께 정규표현식(regex)을 사용하여 특정 국가 코드의 전화번호를 기준으로 세분화하세요. <br>- e.164 변환 프로세스에 실패한 전화번호를 기준으로 사용자를 세분화하려면 이 필터를 사용하세요.
+    description: E.164 형식의 전화번호 필드를 기준으로 사용자를 세분화합니다.<br><br>전화번호가 Braze에 전송되면, Braze는 SMS, RCS 및 WhatsApp 채널을 통해 발송하는 데 사용되는 <a href="/docs/user_guide/channels/sms_mms_and_rcs/message_setup/user_phone_numbers#import-phone-numbers">e.164 형식</a> 으로 변환을 시도합니다. 번호가 올바르게 형식화되지 않으면 변환 프로세스가 실패할 수 있으며, 이 경우 고객 프로필에 형식이 지정되지 않은 전화번호는 있지만 발송용 전화번호는 없게 됩니다. 이 Segment 필터는 e.164 형식의 전화번호(사용 가능한 경우)를 기준으로 사용자를 반환합니다.<br><br>사용 사례:<br> - SMS, RCS 또는 WhatsApp 메시지를 발송할 때 가장 정확한 타겟 오디언스 규모를 파악하려면 이 필터를 사용하세요. <br>- 이 필터와 함께 정규표현식(regex)을 사용하여 특정 국가 코드의 전화번호를 기준으로 세분화하세요. <br>- e.164 변환 프로세스에 실패한 전화번호를 기준으로 사용자를 세분화하려면 이 필터를 사용하세요.
     tags:
       - Other Filters
 ---

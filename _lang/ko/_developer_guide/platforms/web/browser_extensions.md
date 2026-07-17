@@ -25,7 +25,7 @@ description: "이 문서에서는 브라우저 확장 프로그램(Google Chrome
 
 ## 지원되지 않는 항목 {#whats-not-supported}
 
-* 서비스 워커 내에서 Braze SDK를 사용하는 것은 지원되지 않습니다. 확장 프로그램의 팝업 또는 설정 페이지에서는 Braze SDK를 계속 사용할 수 있습니다.
+* 서비스 워커 내에서 Braze SDK를 사용하는 것은 지원되지 않습니다. 확장 프로그램의 팝업 또는 설정 페이지에서는 Braze SDK를 계속 사용할 수 있습니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="service worker support in the Braze Web SDK" %}
 
 ## 확장 프로그램 유형 {#extension-types}
 

@@ -16,12 +16,16 @@ search_rank: 8
 Currents는 특정 Braze 패키지에 포함되어 있습니다. 질문이 있거나 접근 권한을 얻고 싶으시면 Braze 담당자에게 문의하세요.
 {% endalert %}
 
-새 통합을 추가할 때 "남은 Currents 통합이 없습니다"라는 메시지가 표시되는 경우, 일반적인 원인은 다음과 같습니다:
+## 문제 해결 {#troubleshooting}
+
+### 새 Currents 통합을 추가할 수 없는 경우 {#cannot-add-a-new-currents-integration}
+
+새 통합을 추가할 때 "남은 Currents 통합이 없습니다"라는 메시지가 표시되거나, 새 커런츠 커넥터를 추가하는 버튼이 비활성화되어 있는 경우 일반적인 원인은 다음과 같습니다:
 
 - 이 워크스페이스에 대해 Currents 권한이 구매되지 않았습니다.
 - Currents 권한이 회사 내 다른 워크스페이스에서 사용 가능합니다.
 
-Braze 계정 매니저에게 연락하여 권한을 요청하거나 구성을 조정하세요.
+이 문제를 해결하려면 회사 내 다른 워크스페이스를 확인하세요. 다른 워크스페이스에서 사용 가능한 Currents 권한이 표시될 수 있습니다. 권한을 요청하거나 구성을 조정해야 하는 경우 Braze 계정 매니저에게 문의하세요.
 
 ## 요구 사항 {#requirements}
 
@@ -53,7 +57,7 @@ Braze Currents를 사용하면 플랫 파일을 사용하는 데이터 스토리
 
 ### 2단계: Currents 열기 {#step-2-open-currents}
 
-시작하려면 **파트너 통합** > **Currents**로 이동하세요. Currents 통합 관리 페이지로 이동합니다.
+시작하려면 **파트너 통합** > **데이터 내보내기**로 이동하세요. Currents 통합 관리 페이지로 이동합니다.
 
 ![Braze 대시보드의 Currents 페이지]({% image_buster /assets/img_archive/currents-main-page.png %})
 
@@ -65,7 +69,7 @@ Braze Currents를 사용하면 플랫 파일을 사용하는 데이터 스토리
 
 ### 4단계: 이벤트 구성 {#step-4-configure-your-events}
 
-사용 가능한 옵션에서 체크하여 해당 파트너에게 전달할 이벤트를 선택하세요. 이러한 이벤트의 목록은 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 라이브러리에서 확인할 수 있습니다.
+사용 가능한 옵션에서 체크하여 해당 파트너에게 전달할 이벤트를 선택하세요. 이러한 이벤트의 목록은 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 인게이지먼트 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 라이브러리에서 확인할 수 있습니다.
 
 ![내보낼 파트너 이벤트가 선택된 Currents 구성 페이지]({% image_buster /assets/img/current4.png %})
 
@@ -88,11 +92,11 @@ Currents 필드 변환을 사용하여 문자열 필드를 제거하거나 해�
 Currents는 900&nbsp;KB를 초과하는 지나치게 큰 페이로드가 있는 이벤트를 삭제합니다.
 {% endalert %}
 
-테스트하기 전에 [GitHub의 샘플 Currents 데이터](https://github.com/Appboy/currents-examples)를 확인해 보세요. 테스트할 준비가 되면 아래 옵션 중 하나를 선택하세요:
+테스트하기 전에 [GitHub의 샘플 Currents 데이터](https://github.com/Appboy/currents-examples)를 확인해 보세요. 테스트할 준비가 되면 다음 섹션에서 옵션을 선택하세요:
 
 #### 테스트 이벤트 전송 {#sending-test-events}
 
-통합을 테스트하려면 **Send Test Events**를 선택하여 선택한 각 이벤트 유형에서 하나의 이벤트를 이 Current로 전송할 수 있습니다. 각 이벤트 유형에 대한 자세한 정보는 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 참여 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 라이브러리를 참조하세요.
+통합을 테스트하려면 **Send Test Events**를 선택하여 선택한 각 이벤트 유형에서 하나의 이벤트를 이 Current로 전송할 수 있습니다. 각 이벤트 유형에 대한 자세한 정보는 [고객 행동 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/customer_behavior_events) 및 [메시지 인게이지먼트 이벤트]({{site.baseurl}}/user_guide/data/distribution/braze_currents/event_glossary/message_engagement_events) 라이브러리를 참조하세요.
 
 ![Braze 대시보드의 커런츠 테스트 페이지]({% image_buster /assets/img/currents/current_test_events.png %}){: style="max-width:70%;"}
 

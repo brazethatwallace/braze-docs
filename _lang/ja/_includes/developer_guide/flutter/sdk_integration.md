@@ -1,6 +1,6 @@
 ## Flutter Braze SDKについて {#about-the-flutter-braze-sdk}
 
-AndroidとiOSでBraze Flutter SDKを統合した後、Dartで書かれた[Flutterアプリ](https://flutter.dev/)内でBraze APIを利用できるようになります。このプラグインには、基本的な分析機能が用意されており、iOSとAndroid両方のアプリ内メッセージとContent Cardsを1つのコードベースで統合できます。
+AndroidとiOSでBraze Flutter SDKを統合した後、Dartで書かれた[Flutterアプリ](https://flutter.dev/)内でBraze APIを利用できるようになります。このプラグインには基本的な分析機能が用意されており、iOSとAndroid両方のアプリ内メッセージとContent Cardsを1つのコードベースで統合できます。
 
 ## Flutter SDKの統合 {#integrating-the-flutter-sdk}
 
@@ -10,10 +10,10 @@ Braze Flutter SDKを統合する前に、以下を完了する必要がありま
 
 | 前提条件 | 説明 |
 | --- | --- |
-| Braze APIアプリ識別子 | アプリの識別子を確認するには、**Settings** > **APIs and Identifiers** > **App Identifiers**に移動します。詳細については、[API識別子の種類]({{site.baseurl}}/api/identifier_types/#app-identifier)を参照してください。|
-| Braze SDKエンドポイント | SDKエンドポイントのURL（例：`sdk.<cluster>.braze.com`）。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics/#endpoints)に応じて異なります。|
+| Braze APIアプリ識別子 | アプリの識別子を確認するには、**設定** > **APIと識別子** > **アプリ識別子**に移動します。詳細については、[API識別子の種類]({{site.baseurl}}/api/identifier_types#app-identifier)を参照してください。|
+| Braze SDKエンドポイント | SDKエンドポイントのURL（例：`sdk.<cluster>.braze.com`）。エンドポイントはインスタンスの[Braze URL]({{site.baseurl}}/developer_guide/rest_api/basics#endpoints)に応じて異なります。|
 | Flutter SDK | 公式の[Flutter SDK](https://docs.flutter.dev/get-started/install)をインストールし、Braze Flutter SDKの[最低サポートバージョン](https://github.com/braze-inc/braze-flutter-sdk#requirements)を満たしていることを確認してください。 |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Prerequisites" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
 
 ### ステップ1:Brazeライブラリーを統合する {#step-1-integrate-the-braze-library}
 
@@ -28,13 +28,13 @@ flutter pub add braze_plugin
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
 
-#### 2.1 Androidの設定 {#21-set-up-android}
+#### 2.1 Androidの設定 {#21-set-up-android} {#21-set-up-android}
 
 ##### コンパイル時に認証情報を提供する {#provide-credentials-at-compile-time}
 
 プロジェクトの`android/res/values`フォルダに`braze.xml`ファイルを作成します。APIキーとエンドポイントはDartから実行時に提供されるため、このファイルでは不要です。遅延初期化を有効にするには、`com_braze_enable_delayed_initialization`をファイルに追加します。
 
-`````````xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <bool name="com_braze_enable_delayed_initialization">true</bool>
@@ -46,7 +46,7 @@ flutter pub add braze_plugin
 
 または、`MainActivity.kt`でプログラム的に遅延初期化を有効にすることもできます。
 
-`````````kotlin
+```kotlin
 import com.braze.Braze
 
 class MainActivity : FlutterActivity() {
@@ -59,12 +59,12 @@ class MainActivity : FlutterActivity() {
 
 必要な権限を`AndroidManifest.xml`ファイルに追加します。
 
-`````````xml
+```xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-#### 2.2 iOSの設定 {#22-set-up-ios}
+#### 2.2 iOSの設定 {#22-set-up-ios} {#22-set-up-ios}
 
 既存の`application(_:didFinishLaunchingWithOptions:)`メソッド内で、`BrazePlugin.configure(_:postInitialization:)`を呼び出して設定を保存します。Brazeインスタンスは、後でDartから`initialize()`が呼び出されたときに作成されます。ここではAPIキーとエンドポイントは設定しません。
 
@@ -73,7 +73,7 @@ class MainActivity : FlutterActivity() {
 
 以下のコードを`AppDelegate.swift`に追加します。
 
-`````````swift
+```swift
 import BrazeKit
 import braze_plugin
 
@@ -109,7 +109,7 @@ override func application(
 
 以下のコードを`AppDelegate.m`に追加します。
 
-`````````objc
+```objc
 @import BrazeKit;
 @import braze_plugin;
 
@@ -140,11 +140,11 @@ override func application(
 {% endtab %}
 {% tab Flutter SDK 17.1.0 and earlier %}
 
-#### 2.1 Androidの設定
+#### 2.1 Androidの設定 {#21-set-up-android-1}
 
 Brazeサーバーに接続するには、プロジェクトの`android/res/values`フォルダに`braze.xml`ファイルを作成します。以下のコードを貼り付けて、API識別子キーとエンドポイントをご自身の値に置き換えます。
 
-`````````xml
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string translatable="false" name="com_braze_api_key">YOUR_APP_IDENTIFIER_API_KEY</string>
@@ -154,24 +154,24 @@ Brazeサーバーに接続するには、プロジェクトの`android/res/value
 
 必要な権限を`AndroidManifest.xml`ファイルに追加します。
 
-`````````xml
+```xml
 <uses-permission android:name="android.permission.INTERNET" />
 <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 ```
 
-#### 2.2 iOSの設定
+#### 2.2 iOSの設定 {#22-set-up-ios-1}
 
 {% subtabs %}
 {% subtab SWIFT %}
 `AppDelegate.swift`ファイルの先頭にBraze SDKのインポートを追加します。
-`````````swift
+```swift
 import BrazeKit
 import braze_plugin
 ```
 
 同じファイルの`application(_:didFinishLaunchingWithOptions:)`メソッドでBraze設定オブジェクトを作成し、APIキーとエンドポイントをアプリの値に置き換えます。次に、設定を使用してBrazeインスタンスを作成し、簡単にアクセスできるよう`AppDelegate`に静的プロパティを作成します。
 
-`````````swift
+```swift
 static var braze: Braze? = nil
 
 override func application(
@@ -194,14 +194,14 @@ override func application(
 {% endsubtab %}
 {% subtab OBJECTIVE-C %}
 `AppDelegate.m`ファイルの先頭にBraze SDKをインポートします。
-`````````objc
+```objc
 @import BrazeKit;
 @import braze_plugin;
 ```
 
 同じファイルの`application:didFinishLaunchingWithOptions:`メソッドでBraze設定オブジェクトを作成し、APIキーとエンドポイントをアプリの値に置き換えます。次に、設定を使用してBrazeインスタンスを作成し、簡単にアクセスできるよう`AppDelegate`に静的プロパティを作成します。
 
-`````````objc
+```objc
 - (BOOL)application:(UIApplication *)application
     didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
   // Setup Braze
@@ -242,19 +242,19 @@ static Braze *_braze = nil;
 
 プラグインをインポートし、`BrazePlugin`の単一インスタンスを作成します。
 
-`````````dart
+```dart
 import 'package:braze_plugin/braze_plugin.dart';
 
 final BrazePlugin braze = BrazePlugin();
 ```
 
-次に、アプリ識別子APIキーとSDKエンドポイントを指定して`initialize()`を呼び出し、Brazeインスタンスを作成します。アプリ内でこのメソッドを呼び出す場所については、以下のオプションを参照してください。
+次に、アプリ識別子APIキーとSDKエンドポイントを指定して`initialize()`を呼び出し、Brazeインスタンスを作成します。アプリフロー内でこのメソッドを呼び出す場所については、以下のオプションを参照してください。
 
 #### 標準初期化 {#standard-initialization}
 
 アプリの起動時にSDKを初期化するには、`initState()`内で`initialize()`を呼び出します。
 
-`````````dart
+```dart
 @override
 void initState() {
   super.initState();
@@ -266,7 +266,7 @@ void initState() {
 
 SDKの初期化をセッション内の後のタイミングまで延期するには（例：ユーザーが同意を付与した後やログインを完了した後）、準備ができた時点で`initialize()`を呼び出します。
 
-`````````dart
+```dart
 // ...
 void onUserConsent() {
   braze.initialize("<BRAZE_API_KEY>", "<BRAZE_ENDPOINT>");
@@ -281,7 +281,7 @@ void onUserConsent() {
 
 AndroidとiOSのアプリは異なるAPIキーを使用するため、プラットフォーム検出を使用します。
 
-`````````dart
+```dart
 import 'dart:io' show Platform;
 
 if (Platform.isAndroid) {
@@ -304,7 +304,7 @@ if (Platform.isAndroid) {
 
 Dartコードにプラグインをインポートするには、以下を使用します。
 
-`````````dart
+```dart
 import 'package:braze_plugin/braze_plugin.dart';
 ```
 
@@ -319,14 +319,14 @@ import 'package:braze_plugin/braze_plugin.dart';
 
 ## 統合のテスト {#testing-the-integration}
 
-ダッシュボードでセッション統計を確認することで、SDKが統合されていることを検証できます。いずれかのプラットフォームでアプリケーションを実行すると、ダッシュボード（**Overview**セクション）に新しいセッションが表示されます。
+ダッシュボードでセッション統計を確認することで、SDKが統合されていることを検証できます。いずれかのプラットフォームでアプリケーションを実行すると、ダッシュボード（**概要**セクション）に新しいセッションが表示されます。
 
 アプリ内で以下のコードを呼び出すことで、特定のユーザーのセッションを開始できます。
 
 {% tabs %}
 {% tab Flutter SDK 18.0.0+ %}
 
-`````````dart
+```dart
 BrazePlugin braze = BrazePlugin();
 braze.initialize("<BRAZE_API_KEY>", "<BRAZE_ENDPOINT>");
 braze.changeUser("{some-user-id}");
@@ -335,7 +335,7 @@ braze.changeUser("{some-user-id}");
 {% endtab %}
 {% tab Flutter SDK 17.1.0 and earlier %}
 
-`````````dart
+```dart
 BrazePlugin braze = BrazePlugin();
 braze.changeUser("{some-user-id}");
 ```
@@ -343,4 +343,4 @@ braze.changeUser("{some-user-id}");
 {% endtab %}
 {% endtabs %}
 
-ダッシュボードの**Audience** > **Search Users**で`{some-user-id}`のユーザーを検索します。そこで、セッションとデバイスデータが記録されていることを確認できます。
+ダッシュボードの**オーディエンス** > **ユーザーを検索**で`{some-user-id}`のユーザーを検索します。そこで、セッションとデバイスデータが記録されていることを確認できます。

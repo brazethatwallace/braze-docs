@@ -34,7 +34,7 @@ channel:
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `subscription.status.set` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `subscription.status.set` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 {% alert note %}
 이 엔드포인트를 [LINE 구독 그룹]({{site.baseurl}}/user_guide/channels/line/message_users/subscription_groups)과 함께 사용하려면 고객 성공 매니저에게 문의하세요. <br><br>LINE 구독 그룹의 경우, 웹사이트 또는 앱 동의를 별도로 추적하기 위해 커스텀 속성을 사용하고, 해당 커스텀 속성과 LINE 구독 상태를 조합하여 Campaign(캠페인)을 타겟팅하는 것을 권장합니다. 이 접근 방식은 구독 상태가 LINE 앱에서 실제로 구독한 사용자를 정확하게 반영하도록 보장합니다. API를 사용하여 수동으로 사용자를 LINE 구독 그룹에 추가하면 Braze가 LINE 앱에서 사용자를 재구독하거나 LINE에서 계정을 차단한 사용자에게 메시지를 보낼 수 없으므로 상태 불일치 및 발송 실패가 발생할 수 있습니다.

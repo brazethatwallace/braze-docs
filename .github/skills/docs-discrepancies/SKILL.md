@@ -10,6 +10,11 @@ description: >
 
 Verify Braze docs against source code to identify discrepancies and propose docs updates.
 
+## Context
+- Current branch: !`git branch --show-current`
+- Modified files: !`git diff --name-only origin/develop...HEAD 2>/dev/null || git diff --name-only $(git merge-base HEAD $(git rev-parse --verify origin/develop 2>/dev/null || git rev-parse --verify develop 2>/dev/null || echo HEAD~1))..HEAD 2>/dev/null`
+- Open PR: !`gh pr view --json number,title,body 2>/dev/null || echo "none"`
+
 ---
 
 ## Step 1: Doc page verification
@@ -38,6 +43,7 @@ For each docs page:
 
 1. Read the target file to understand existing structure
 2. Draft changes following conventions in the codebase based on the style guides in `docs/contributing/style_guide/*`
+3. When documenting a product limitation or enhancement ask, use `_includes/product_feedback_cta.md` per [Product feedback CTAs](docs/contributing/style_guide/product_feedback_ctas.md). Do not add ad hoc `portal.braze.com` or legacy portal links.
 
 
 ## Step 3: Create a Properly Named Branch

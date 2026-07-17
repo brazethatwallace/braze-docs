@@ -70,7 +70,7 @@ Depois de descobrir todas essas informações, compartilhe-as com seu engenheiro
 
 ### Etapa 4: Eles personalizam com base no que você deseja {#step-4-they-customize-based-on-what-you-want}
 
-Se quiser coisas como lançamentos disparados por API e Conteúdo conectado, discuta isso com seu contato na Braze e com seus desenvolvedores para garantir que será possível obter dados que estão fora do seu app e da Braze em suas mensagens.
+Se quiser coisas como lançamentos disparados por API e Conteúdo Conectado, discuta isso com seu contato na Braze e com seus desenvolvedores para garantir que será possível obter dados que estão fora do seu app e da Braze em suas mensagens.
 
 ### Etapa 5: Ambos realizam o controle de qualidade da implementação {#step-5-you-both-perform-qa-on-your-implementation}
 
@@ -80,7 +80,7 @@ Temos até instruções específicas para [testar sua integração com o Android
 
 ## Após a implementação {#after-implementation}
 
-Tenha em mente que a linha de chegada da implementação não é também o sinal verde para o envio de um milhão de mensagens de uma só vez. O envio de um milhão de push pode quebrar seu app se todos os clientes clicarem no mesmo link simultaneamente. Recomendamos que você discuta qual é a capacidade da sua configuração interna para lidar com solicitações da Braze antes de clicar no botão **Send**. Em seguida, você pode definir seu [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting) com base nisso.
+Tenha em mente que a linha de chegada da implementação não é também o sinal verde para o envio de um milhão de mensagens de uma só vez. O envio de um milhão de push pode quebrar seu app se todos os clientes clicarem no mesmo link simultaneamente. Recomendamos que você discuta qual é a capacidade da sua configuração interna para lidar com solicitações da Braze antes de clicar no botão **Enviar**. Em seguida, você pode definir seu [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting) com base nisso.
 
 ![Logo da comunidade Braze Firebrands]({% image_buster /assets/img/torchie/firebrands.png %}){: style="max-width:15%;float:right;margin-left:15px;border:none;"}
 

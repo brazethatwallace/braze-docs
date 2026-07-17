@@ -21,7 +21,7 @@ description: "この記事では、「カタログ一覧」Brazeエンドポイ�
 
 ## 前提条件 {#prerequisites}
 
-このエンドポイントを使用するには、`catalogs.get` 権限を持つ [APIキー]({{site.baseurl}}/api/basics#rest-api-key)が必要です。
+このエンドポイントを使用するには、`catalogs.get` 権限を持つ[APIキー]({{site.baseurl}}/api/basics#rest-api-key-permissions)が必要です。
 
 ## レート制限 {#rate-limit}
 
@@ -39,11 +39,11 @@ curl --location --request GET 'https://rest.iad-03.braze.com/catalogs' \
 --header 'Authorization: Bearer YOUR-REST-API-KEY'
 ```
 
-## 応答 {#response}
+## レスポンス {#response}
 
-### 成功応答の例 {#example-success-response}
+### 成功レスポンスの例 {#example-success-response}
 
-ステータスコード `200` は、次の応答本文を返す可能性があります。
+ステータスコード `200` は、次のレスポンスボディを返す可能性があります。
 
 ```json
 {

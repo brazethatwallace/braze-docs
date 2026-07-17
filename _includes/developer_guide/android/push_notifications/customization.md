@@ -334,7 +334,7 @@ Currently, Google doesn't list their supported HTML tags for Android directly in
 
 You can showcase a larger image within your Android push notification using inline image push. With this design, users won't have to manually expand the push to enlarge the image. Unlike regular Android push notifications, inline image push images are in a 3:2 aspect ratio.
 
-![]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
+![Android push notification preview showing inline image push rendering.]({% image_buster /assets/img/android/push/inline_image_push_android_1.png %}){: style="max-width:50%;"}
 
 ### Compatibility
 
@@ -348,13 +348,13 @@ Devices running Android 12 will render differently due to changes in custom push
 
 When creating an Android push message, this feature is available in the **Notification Type** dropdown.
 
-![The push campaign editor showing the location of the "Notification Type" dropdown (above the standard push preview).]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
+![The push campaign editor showing the location of the "Notification Type" dropdown near the standard push preview.]({% image_buster /assets/img/android/push/android_inline_image_notification_type.png %})
 
 ## Settings
 
 There are many advanced settings available for Android push notifications sent through the Braze dashboard. This article will describe these features and how to use them successfully.
 
-![]({% image_buster /assets/img_archive/android_advanced_settings.png %})
+![Braze Android push composer advanced settings panel.]({% image_buster /assets/img_archive/android_advanced_settings.png %})
 
 ### Notification ID {#notification-id}
 

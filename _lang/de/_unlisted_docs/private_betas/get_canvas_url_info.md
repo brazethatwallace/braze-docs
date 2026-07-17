@@ -28,7 +28,7 @@ description: "Dieser Artikel beschreibt Details zum Endpunkt „Link-Aliase für
 
 | Parameter | Erforderlich | Datentyp | Beschreibung |
 |---|---|---|---|
-| `canvas_step_id` | Erforderlich | String | Siehe [Canvas-Schritt-API-Bezeichner]({{site.baseurl}}/api/identifier_types/#canvas-api-identifier). |
+| `canvas_step_id` | Erforderlich | String | Siehe [Canvas-Schritt-API-Bezeichner]({{site.baseurl}}/api/identifier_types#canvas-identifier). |
 | `message_variation_id ` | Erforderlich | String | API-Bezeichner der Nachrichtenvariante (für die E-Mail-Nachrichtenvariante in diesem Schritt). Sie finden diesen, indem Sie auf der Seite **Canvas-Details** auf **Varianten analysieren** klicken. |
 | `includes_link_id` | Optional | String | Ein bestimmter Link-Bezeichner (wie von Braze zugewiesen) oder `null`. Wird verwendet, um die Ergebnisse nach einer bestimmten `link_id` zu filtern. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
@@ -66,8 +66,8 @@ Die folgende Tabelle listet mögliche zurückgegebene Fehler und die zugehörige
 
 | Fehler | Fehlerbehebung |
 | --- | --- |
-| `Missing/Invalid Canvas ID` | Die Canvas-API-ID muss ein API-Bezeichner sein. Sie finden diesen über den [Endpunkt „Canvas-Liste exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases/) oder indem Sie sich im Dashboard anmelden. |
-| `Missing/Invalid Message Variant ID` | Die API-ID der Nachrichtenvariante muss ein API-Bezeichner sein. Sie finden diesen über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details/) oder indem Sie sich im Dashboard anmelden. |
+| `Missing/Invalid Canvas ID` | Die Canvas-API-ID muss ein API-Bezeichner sein. Sie finden diesen über den [Endpunkt „Canvas-Liste exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvases) oder indem Sie sich im Dashboard anmelden. |
+| `Missing/Invalid Message Variant ID` | Die API-ID der Nachrichtenvariante muss ein API-Bezeichner sein. Sie finden diesen über den [Endpunkt „Canvas-Details exportieren“]({{site.baseurl}}/api/endpoints/export/canvas/get_canvas_details) oder indem Sie sich im Dashboard anmelden. |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 {% endapi %}

@@ -4,14 +4,14 @@ article_title: キャンバスオーディエンスのLinkedInへの同期
 alias: /linkedin_audience_sync/
 description: "このリファレンス記事では、Braze Audience Sync to LinkedInを使用して、行動トリガーやセグメンテーションなどに基づいて広告を配信する方法について説明します。"
 tool:
-  - キャンバス
+  - Canvas
 page_order: 4
 
 ---
 
 # LinkedInへのオーディエンス同期 {#audience-sync-to-linkedin}
 
-Braze Audience Sync to LinkedInを使用すると、ブランドはBraze統合のユーザーデータをLinkedIn顧客リストに追加して、行動トリガー、セグメンテーションなどに基づいて広告を配信できます。ユーザーデータに基づいてBraze キャンバスでメッセージをトリガーするために通常使用する基準（プッシュ、メール、SMS、Webhookなど）を使用して、LinkedIn顧客リスト内の該当ユーザーに対して広告をトリガーできるようになりました。
+Braze Audience Sync to LinkedInを使用すると、ブランドはBraze統合のユーザーデータをLinkedIn顧客リストに追加して、行動トリガー、セグメンテーションなどに基づいて広告を配信できます。ユーザーデータに基づいてBrazeキャンバスでメッセージをトリガーするために通常使用する基準（プッシュ、メール、SMS、Webhookなど）を使用して、LinkedIn顧客リスト内の該当ユーザーに対して広告をトリガーできるようになりました。
 
 **オーディエンス同期の一般的なユースケース**:
 
@@ -59,7 +59,7 @@ LinkedIn接続はBrazeワークスペースレベルで適用されます。Link
 
 広告トラッキング用のオーディエンスを構築する際、ユーザーの設定に基づいて特定のユーザーを含めたり除外したり、[CCPA](https://oag.ca.gov/privacy/ccpa)の「販売・共有の拒否」権利などのプライバシー法に準拠したりすることが必要になる場合があります。マーケターは、キャンバスのエントリ条件内でユーザーの適格性に関する適切なフィルターを実装する必要があります。以下にいくつかのオプションを示します。
 
-[Braze SDKを通じてiOS IDFAを]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/overviewother_sdk_customizations#optional-idfa-collection)収集した場合、**Ads Tracking Enabled**フィルターを使用できます。値を`true`に選択すると、オプトインしたオーディエンス同期の宛先にのみユーザーを送信します。
+[Braze SDKを通じてiOS IDFAを]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/initial_sdk_setup/other_sdk_customizations#optional-idfa-collection)収集した場合、**Ads Tracking Enabled**フィルターを使用できます。値を`true`に選択すると、オプトインしたオーディエンス同期の送信先にのみユーザーを送信します。
 
 ![「Ad Tracking Enabled is true」というフィルターを持つエントリオーディエンス。]({% image_buster /assets/img/linkedin/linkedin5.png %}){: style="max-width:75%;"}
 
@@ -117,7 +117,7 @@ Brazeは、既存のLinkedInオーディエンスにユーザーを追加して�
 
 ### ステップ5: キャンバスの起動 {#step-5-launch-canvas}
 
-LinkedInへのオーディエンス同期を設定したら、キャンバスを起動するだけです！新しいオーディエンスが作成され、オーディエンス同期ステップを通過するユーザーはLinkedInのこのオーディエンスに送られます。キャンバスに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
+LinkedInへのオーディエンス同期を設定したら、キャンバスを起動します。新しいオーディエンスが作成され、オーディエンス同期ステップを通過するユーザーはLinkedInのこのオーディエンスに送られます。キャンバスに後続のコンポーネントが含まれている場合、ユーザーはユーザージャーニーの次のステップに進みます。
 
 LinkedInでオーディエンスを表示するには、広告アカウントに移動し、ナビゲーションの**Assets**セクションで**Audiences**を選択します。**Audiences**ページでは、300人以上のメンバーに達した後、各オーディエンスのサイズを確認できます。
 
@@ -149,7 +149,7 @@ LinkedInのAPIレート制限では、1秒あたり最大10クエリ、1リク�
 {% endalert %}
 
 {% alert important %}
-LinkedInは、プラットフォーム内のマッチ率に関する追加の指標を提供しています。特定のオーディエンス同期のマッチを確認するには、オーディエンス同期のステップ指標を選択して、**キャンバスステップ Details**ページに移動します。
+LinkedInは、プラットフォーム内のマッチ率に関する追加の指標を提供しています。特定のオーディエンス同期のマッチを確認するには、オーディエンス同期のステップ指標を選択して、**キャンバスステップの詳細**ページに移動します。
 <br><br>
 パートナーとして**LinkedIn**、広告アカウント、およびオーディエンスを選択して、LinkedInからのオーディエンスサイズとマッチ率を確認します。
 

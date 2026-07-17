@@ -11,7 +11,7 @@ page_type: reference
 
 > 接続されたソースは、Brazeのクラウドデータ取り込み（CDI）機能を使ってデータを直接同期するのではなく、ゼロコピーの代替手段です。接続されたソースはデータウェアハウスに直接クエリを行い、基盤となるデータをBrazeに一切コピーせずに新しいセグメントを作成します。
 
-接続されたソースをBrazeワークスペースに追加すると、セグメントエクステンション内にCDI セグメントを作成できます。CDIセグメントエクステンションを使えば、データウェアハウスを直接クエリするSQLを記述し（CDI接続ソースを通じて利用可能になったデータを使用）、Braze内でターゲティング可能なユーザーグループを作成・維持できます。
+接続されたソースをBrazeワークスペースに追加すると、セグメントエクステンション内にCDIセグメントを作成できます。CDIセグメントエクステンションを使えば、データウェアハウスを直接クエリするSQLを記述し（CDI接続ソースを通じて利用可能になったデータを使用）、Braze内でターゲティング可能なユーザーグループを作成・維持できます。
 
 このソースでセグメントを作成する方法の詳細については、[CDIセグメントエクステンション]({{site.baseurl}}/user_guide/audience/segments/segment_extension/cdi_segments)を参照してください。
 
@@ -23,7 +23,7 @@ page_type: reference
 
 ### ステップ1：リソースを接続する {#step-1-connect-your-resources}
 
-クラウドデータ取り込みの接続されたソースは、Braze側とインスタンス側での設定が必要です。統合を設定するには、次の手順に従います。一部はデータウェアハウスで実行され、一部はBrazeダッシュボードで実行されます。
+クラウドデータ取り込みの接続されたソースは、Braze側とインスタンス側での設定が必要です。統合を設定するには、次の手順に従います&#8722;一部はデータウェアハウスで実行され、一部はBrazeダッシュボードで実行されます。
 
 {% tabs %}
 {% tab Snowflake %}
@@ -31,7 +31,7 @@ page_type: reference
 1. ロールを作成し、スキーマ内のテーブルのクエリと作成の権限を付与します。
 2. ウェアハウスを設定し、そのロールにアクセス権を付与します。
 3. そのロールのユーザーを作成します。
-4. 設定によっては、SnowflakeネットワークポリシーでBraze IPを許可する必要があります。
+4. 設定によっては、SnowflakeネットワークポリシーでBrazeのIPを許可する必要があります。
 
 **Brazeダッシュボードで次を行います。**
 
@@ -49,8 +49,8 @@ page_type: reference
 {% tab Redshift %}
 1. Redshift環境にソースデータと必要なリソースをセットアップします。
 2. Brazeダッシュボードで接続されたソースを新規作成します。
-4. 統合をテストします。
-5. 接続されたソースを使用して、1つ以上のCDIセグメントエクステンションを作成します。
+3. 統合をテストします。
+4. 接続されたソースを使用して、1つ以上のCDIセグメントエクステンションを作成します。
 {% endtab %}
 
 {% tab BigQuery %}
@@ -139,9 +139,9 @@ Brazeと接続情報を共有し、後のステップでユーザーに付加す
 異なるワークスペースを同じSnowflakeアカウントに接続する場合は、連携を作成するBrazeワークスペースごとに一意のユーザーを作成する必要があります。ワークスペース内では、複数の連携にわたって同じユーザーを再利用できますが、同じSnowflakeアカウントのユーザーが複数のワークスペースで重複すると、連携の作成に失敗します。
 {% endalert %}
 
-#### ステップ2.4：Snowflakeネットワークポリシー内でBraze IPを許可する（省略可） {#step-24-allow-braze-ips-in-your-snowflake-network-policy-optional}
+#### ステップ2.4：SnowflakeネットワークポリシーでBrazeのIPを許可する（省略可） {#step-24-allow-braze-ips-in-your-snowflake-network-policy-optional}
 
-Snowflakeアカウントの設定によっては、Snowflakeのネットワークポリシー内で以下のIPアドレスを許可する必要があります。この方法の詳細については、[ネットワークポリシーの変更](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies)に関するSnowflakeの関連ドキュメントを参照してください。
+Snowflakeアカウントの設定によっては、Snowflakeのネットワークポリシーで以下のIPアドレスを許可する必要があります。この方法の詳細については、[ネットワークポリシーの変更](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies)に関するSnowflakeの関連ドキュメントを参照してください。
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 {% endtab %}
@@ -163,11 +163,11 @@ GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 `create table`権限は、BrazeがCDIセグメントエクステンションのクエリ結果をテーブルに作成し、その後Braze内でセグメントを更新するために必要です。Brazeはセグメントごとに一時テーブルを作成し、Brazeがセグメントを更新している間だけ保持されます。
 
 
-#### ステップ2.2：Braze IPへのアクセスの許可 {#step-22-allow-access-to-braze-ips}
+#### ステップ2.2：BrazeのIPへのアクセスの許可 {#step-22-allow-access-to-braze-ips}
 
-ファイアウォールや他のネットワークポリシーがある場合は、RedshiftインスタンスにBrazeネットワークへのアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
+ファイアウォールや他のネットワークポリシーがある場合は、RedshiftインスタンスへのBrazeネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
-また、RedshiftのデータへのアクセスをBrazeに許可するように、セキュリティグループを変更しなければならないこともあります。以下のIPとRedshiftクラスターのクエリに使用するポート（デフォルトは5439）のインバウンドトラフィックを明示的に許可してください。インバウンドルールが「すべて許可」に設定されている場合でも、このポートでRedshift TCP接続を明示的に許可する必要があります。さらに、Brazeがクラスターにアクセスするために、Redshiftクラスターのエンドポイントがパブリックにアクセス可能であることが重要です。
+また、RedshiftのデータへのアクセスをBrazeに許可するように、セキュリティグループを変更しなければならないこともあります。以下のセクションに記載されているIPと、Redshiftクラスターのクエリに使用するポート（デフォルトは5439）のインバウンドトラフィックを明示的に許可してください。インバウンドルールが「すべて許可」に設定されている場合でも、このポートでRedshift TCP接続を明示的に許可する必要があります。さらに、Brazeがクラスターに接続するために、Redshiftクラスターのエンドポイントがパブリックにアクセス可能であることが重要です。
 
 Redshiftクラスターにパブリックアクセスを許可しない場合は、SSHトンネルを使用してRedshiftデータにアクセスするようにVPCとEC2インスタンスを設定できます。詳しくは、[AWS：ローカルマシンからAmazon Redshiftのプライベートクラスターにアクセスするには？](https://repost.aws/knowledge-center/private-redshift-cluster-local-machine)を参照してください。
 
@@ -178,7 +178,7 @@ Redshiftクラスターにパブリックアクセスを許可しない場合は
 {% tab BigQuery %}
 #### ステップ2.1：サービスアカウントの作成と権限の付与 {#step-21-create-a-service-account-and-grant-permissions}
 
-GCPで、Brazeがテーブルに接続してデータを読み取るために使用するサービスアカウントを作成します。サービスアカウントには次の権限が必要です。
+GCPで、Brazeがテーブルに接続してデータを読み取るために使用するサービスアカウントを作成します。サービスアカウントには以下のセクションに記載された権限が必要です。
 
 - **BigQuery Connection User：** Brazeに接続を許可します。
 - **BigQuery User：** クエリの実行、データセットメタデータの読み取り、およびテーブルの一覧表示を行うためのアクセスをBrazeに提供します。
@@ -194,7 +194,7 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 
 サービスアカウントを作成して権限を付与したら、JSONキーを生成します。詳しくは、[Google Cloud：サービスアカウントキーの作成と削除](https://cloud.google.com/iam/docs/keys-create-delete)を参照してください。これを後でBrazeダッシュボードにアップロードします。
 
-#### ステップ2.2：Braze IPへのアクセスの許可
+#### ステップ2.2：BrazeのIPへのアクセスの許可
 
 ネットワークポリシーを設定している場合は、BrazeにBigQueryインスタンスへのネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
@@ -207,7 +207,7 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 
 BrazeがDatabricksにアクセスするには、パーソナルアクセストークンを作成する必要があります。
 
-1. Databricksワークスペースで、上部バーにあるDatabricksユーザー名をクリックし、ドロップダウンから**User Settings**を選択します。
+1. Databricksワークスペースで、上部バーにあるDatabricksユーザー名を選択し、ドロップダウンから**User Settings**を選択します。
 2. サービスアカウントが接続されたソースで使用されるスキーマに対する`CREATE TABLE`権限を持っていることを確認してください。
 3. **Access tokens**タブで、**Generate new token**を選択します。
 4. 「Braze CDI」など、このトークンの識別に役立つコメントを入力し、Lifetime (days) ボックスを空（空白）のままにして、トークンの有効期間を無期限に変更します。
@@ -222,7 +222,7 @@ BrazeがDatabricksにアクセスするには、パーソナルアクセスト�
 
 認証情報の作成ステップでBrazeダッシュボードへの入力が必要になるまで、トークンを安全な場所に保管してください。
 
-#### ステップ2.2：Braze IPへのアクセスの許可
+#### ステップ2.2：BrazeのIPへのアクセスの許可
 
 ネットワークポリシーを設定している場合は、BrazeにDatabricksインスタンスへのネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
@@ -258,12 +258,11 @@ BrazeがFabricインスタンスに接続するためのアクセスを提供し
 #### ステップ2.3：ウェアハウスの接続文字列を取得する {#step-23-get-warehouse-connection-string}
 
 Brazeを接続するには、ウェアハウスのSQLエンドポイントが必要です。SQLエンドポイントを取得するには、Fabricで**ワークスペース**に移動し、項目の一覧でウェアハウスの名前にカーソルを合わせ、**Copy SQL connection string**を選択します。
+この値をステップ3の認証情報設定で使用できるように保管してください。
 
-![Microsoft Azureの「Fabricコンソール」ページ。ユーザーはここでSQL接続文字列を取得します。]({% image_buster /assets/img/cloud_ingestion/fabric_1.png %})
+#### ステップ2.4：ファイアウォールでBrazeのIPを許可する（オプション） {#step-24-allow-braze-ips-in-firewall-optional}
 
-#### ステップ2.4：ファイアウォールでBraze IPを許可する（オプション） {#step-24-allow-braze-ips-in-firewall-optional}
-
-Microsoft Fabricアカウントの設定によっては、Brazeからのトラフィックを許可するように、ファイアウォールで以下のIPアドレスを許可する必要があります。これを有効にする方法の詳細については、[Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access)の関連ドキュメントを参照してください。
+Microsoft Fabricアカウントの設定によっては、Brazeからのトラフィックを許可するために、ファイアウォールで以下のIPアドレスを許可する必要があります。これを有効にする方法の詳細については、[Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access)の関連ドキュメントを参照してください。
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
@@ -275,153 +274,130 @@ Microsoft Fabricアカウントの設定によっては、Brazeからのトラ�
 
 {% tabs %}
 {% tab Snowflake %}
-#### ステップ3.1：Snowflakeの接続情報とソーステーブルの追加 {#step-31-add-snowflake-connection-information-and-source-table}
+#### ステップ3.1：Snowflakeの接続情報とソーステーブルを追加する {#step-31-add-snowflake-connection-information-and-source-table}
 
-Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**Create new data sync** > **Snowflake Import**を選択します。
+Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**データソースを追加**を選択してから、**Snowflake**を選択します。
 
-![新しいデータ同期を作成するオプションが表示された接続されたソースページ。]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+**ソースの設定**で、以下を入力します。
+- **認証情報：** **Account Locator**、**Username**、**Role**
+- **設定：** **Warehouse**、**Database**、**Schema**
 
-Snowflakeデータウェアハウスとソーススキーマの情報を入力し、次のステップに進みます。
+新しいSnowflake認証情報を作成する場合は、接続をテストする前に**認証情報を保存してRSAキーを生成**を選択してください。
 
-![ウェアハウスとソーススキーマのSnowflake接続フィールド。]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_1.png %})
-
-#### ステップ3.2：同期の詳細の設定 {#step-32-configure-sync-details}
+#### ステップ3.2：同期の詳細を設定する {#step-32-configure-sync-details}
 
 接続されたソースの名前を選択します。この名前は、新しいCDIセグメントエクステンションを作成する際に、利用可能なソースのリストで使用されます。
 
-このソースの最大実行時間を設定します。Brazeは、セグメントを作成または更新する際に、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、Snowflakeアカウントに課金されるコストが削減されます。
+このソースの最大実行時間を設定します。Brazeは、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、Snowflakeアカウントに課金されるコストが削減されます。この設定は、同期やこのソースを使用するCDIセグメントエクステンションを含む、このソースを通じて実行されるクエリに適用されます。
 
 {% alert note %}
 クエリが常にタイムアウトしており、最大実行時間を60分に設定している場合は、クエリの実行時間を最適化するか、Brazeユーザーにより大きなウェアハウスを割り当てることを検討してください。
 {% endalert %}
-
-![Snowflakeの同期名と最大実行時間の設定。]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_2.png %})
 
 #### ステップ3.3：公開キーを書き留める {#step-33-note-the-public-key}
 
-**Test connection**ステップに表示されているRSA公開キーをメモします。Snowflakeでの統合を完了するために必要です。
-
-![RSA公開キーが表示されたSnowflakeの接続テストステップ。]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_3.png %})
+**接続テスト**ステップで、RSA公開キーをメモします。Snowflakeでの統合を完了するために必要です。
 
 {% endtab %}
 {% tab Redshift %}
-#### ステップ3.1：Redshiftの接続情報とソーステーブルの追加 {#step-31-add-redshift-connection-information-and-source-table}
+#### ステップ3.1：Redshiftの接続情報とソーステーブルを追加する {#step-31-add-redshift-connection-information-and-source-table}
 
-Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**Create data connection** > **Amazon Redshift Import**を選択します。
+Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**データソースを追加**を選択してから、**Amazon Redshift**を選択します。
 
-![新しいデータ同期を作成するオプションが表示された接続されたソースページ。]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+**ソースの設定**で、以下を入力します。
+- **認証情報：** **Redshift Host URL**、**Username**、**Password**、**Port**
+- **設定：** **Database**、**Schema**
 
-Redshiftデータウェアハウスとソーススキーマの情報を入力し、次のステップに進みます。
+必要に応じて、**SSHトンネルで接続**を有効にし、**Tunnel Host**、**Tunnel Port**、**Tunnel Username**を入力します。
 
-![ウェアハウスとソーススキーマのRedshift接続フィールド。]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_1.png %})
-
-#### ステップ3.2：同期の詳細の設定
+#### ステップ3.2：同期の詳細を設定する
 
 接続されたソースの名前を選択します。この名前は、新しいCDIセグメントエクステンションを作成する際に、利用可能なソースのリストで使用されます。
 
-このソースの最大実行時間を設定します。Brazeは、セグメントを作成または更新する際に、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、Redshiftアカウントに課金されるコストが削減されます。
+このソースの最大実行時間を設定します。Brazeは、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、Redshiftアカウントに課金されるコストが削減されます。
+この設定は、同期やこのソースを使用するCDIセグメントエクステンションを含む、このソースを通じて実行されるクエリに適用されます。
 
 {% alert note %}
 クエリが常にタイムアウトしており、最大実行時間を60分に設定している場合は、クエリの実行時間を最適化するか、Brazeユーザーにより大きなウェアハウスを割り当てることを検討してください。
 {% endalert %}
-
-![Redshiftの同期名と最大実行時間の設定。]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_2.png %})
 
 #### ステップ3.3：公開キーを書き留める（省略可） {#step-33-note-the-public-key-optional}
 
-認証情報で**Connect with SSH Tunnel**が選択されている場合は、**Test connection**ステップに表示されているRSA公開キーをメモします。Redshiftでの統合を完了するために必要です。
-
-![RSA公開キーが表示されたRedshiftの接続テストステップ。]({% image_buster /assets/img/cloud_ingestion/connected_source_rd_3.png %})
+認証情報で**SSHトンネルで接続**が選択されている場合は、**接続テスト**ステップに表示されているRSA公開キーをメモします。Redshiftでの統合を完了するために必要です。
 
 {% endtab %}
 {% tab BigQuery %}
-#### ステップ3.1：BigQueryの接続情報とソーステーブルの追加 {#step-31-add-bigquery-connection-information-and-source-table}
+#### ステップ3.1：BigQueryの接続情報とソーステーブルを追加する {#step-31-add-bigquery-connection-information-and-source-table}
 
-Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**Create new data sync** > **Google BigQuery Import**を選択します。
+Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**データソースを追加**を選択してから、**Google BigQuery**を選択します。
 
-![新しいデータ同期を作成するオプションが表示された接続されたソースページ。]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+**ソースの設定**で、以下を入力します。
+- **認証情報：** **Credential name**と**JSONキー**のアップロード
+- **設定：** **Project**、**Dataset**
 
-BigQueryプロジェクトとデータセットの情報を入力し、次のステップに進みます。
-
-![BigQueryの接続情報とソーステーブルの追加に関するスクリーンショット。]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_1.png %})
-
-#### ステップ3.2：同期の詳細の設定
+#### ステップ3.2：同期の詳細を設定する
 
 接続されたソースの名前を選択します。この名前は、新しいCDIセグメントエクステンションを作成する際に、利用可能なソースのリストで使用されます。
 
-このソースの最大実行時間を設定します。Brazeは、セグメントを作成または更新する際に、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、BigQueryアカウントに課金されるコストが削減されます。
+このソースの最大実行時間を設定します。Brazeは、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、BigQueryアカウントに課金されるコストが削減されます。この設定は、同期やこのソースを使用するCDIセグメントエクステンションを含む、このソースを通じて実行されるクエリに適用されます。
 
 {% alert note %}
 クエリが常にタイムアウトしており、最大実行時間を60分に設定している場合は、クエリの実行時間を最適化するか、Brazeユーザーにより大きなウェアハウスを割り当てることを検討してください。
 {% endalert %}
-
-![同期の詳細の設定に関するスクリーンショット。]({% image_buster /assets/img/cloud_ingestion/connected_source_bg_2.png %})
 
 #### ステップ3.3：接続をテストする {#step-33-test-the-connection}
 
 **Test Connection**を選択し、ユーザーに表示されるテーブルのリストが期待どおりであることを確認してから、**Done**を選択します。接続されたソースが作成され、CDIセグメントエクステンションで使用できる状態になりました。
 
-![接続されたソースで利用可能なテーブルが表示された接続テストステップ。]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
-
 {% endtab %}
 {% tab Databricks %}
-#### ステップ3.1：Databricksの接続情報とソーステーブルの追加 {#step-31-add-databricks-connection-information-and-source-table}
+#### ステップ3.1：Databricksの接続情報とソーステーブルを追加する {#step-31-add-databricks-connection-information-and-source-table}
 
-Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**Create new data sync** > **Databricks Import**を選択します。
+Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**データソースを追加**を選択してから、**Databricks**を選択します。
 
-![新しいデータ同期を作成するオプションが表示された接続されたソースページ。]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+**ソースの設定**で、以下を入力します。
+- **認証情報：** **Credential Name**、**Hostname**、**HTTP Path**、**Access Token**
+- **設定：** **Catalog**、**Schema**
 
-Databricks認証情報、オプションのカタログとソーススキーマの情報を入力してから、次のステップに進みます。
-
-![認証情報とソーススキーマのDatabricks接続フィールド。]({% image_buster /assets/img/cloud_ingestion/connected_source_databricks_1.png %})
-
-#### ステップ3.2：同期の詳細の設定
+#### ステップ3.2：同期の詳細を設定する
 
 接続されたソースの名前を選択します。この名前は、新しいCDIセグメントエクステンションを作成する際に、利用可能なソースのリストで使用されます。
 
-このソースの最大実行時間を設定します。Brazeは、セグメントを作成または更新する際に、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、Databricksアカウントに課金されるコストが削減されます。
+このソースの最大実行時間を設定します。Brazeは、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、Databricksアカウントに課金されるコストが削減されます。この設定は、同期やこのソースを使用するCDIセグメントエクステンションを含む、このソースを通じて実行されるクエリに適用されます。
 
 {% alert note %}
 クエリが常にタイムアウトしており、最大実行時間を60分に設定している場合は、クエリの実行時間を最適化するか、Brazeユーザーにより大きなウェアハウスを割り当てることを検討してください。
 {% endalert %}
 
-![Databricksの同期名と最大実行時間の設定。]({% image_buster /assets/img/cloud_ingestion/connected_source_db_2.png %})
-
 #### ステップ3.3：接続をテストする
 
 **Test Connection**を選択し、ユーザーに表示されるテーブルのリストが期待どおりであることを確認してから、**Done**を選択します。接続されたソースが作成され、CDIセグメントエクステンションで使用できる状態になりました。
-
-![接続されたソースで利用可能なテーブルが表示された接続テストステップ。]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 #### ステップ3.1：Microsoft Fabricの接続情報とソーステーブルを追加する {#step-31-add-microsoft-fabric-connection-information-and-source-table}
 
-Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**Create new data sync** > **Microsoft Fabric Import**を選択します。
+Brazeダッシュボードで接続されたソースを作成します。**データ設定** > **クラウドデータ取り込み** > **接続されたソース**の順に移動し、**データソースを追加**を選択してから、**Microsoft Fabric**を選択します。
 
-![新しいデータ同期を作成するオプションが表示された接続されたソースページ。]({% image_buster /assets/img/cloud_ingestion/connected_source_tab.png %}){: style="max-width:80%;"}
+**ソースの設定**で、以下を入力します。
+- **認証情報：** **Credentials Name**、**Tenant ID**、**Principal ID**、**Client Secret**、**Connection String**
+- **設定：** **Database**、**Schema**
 
-Microsoft Fabricの認証情報およびソースウェアハウス、スキーマの情報を入力し、次のステップに進みます。
+ワークスペースで**SSHトンネルで接続**が利用可能で、セットアップに必要な場合は、**Tunnel Host**、**Tunnel Port**、**Tunnel Username**も入力します。
 
-![認証情報とソーススキーマのMicrosoft Fabric接続フィールド。]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_1.png %})
-
-#### ステップ3.2：同期の詳細の設定
+#### ステップ3.2：同期の詳細を設定する
 
 接続されたソースの名前を選択します。この名前は、新しいCDIセグメントエクステンションを作成する際に、利用可能なソースのリストで使用されます。
 
-このソースの最大実行時間を設定します。Brazeは、セグメントを作成または更新する際に、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、Microsoft Fabricアカウントに課金されるコストが削減されます。
+このソースの最大実行時間を設定します。Brazeは、最大実行時間を超えるクエリを自動的に中止します。許容される最大実行時間は60分です。実行時間を短くすると、Microsoft Fabricアカウントに課金されるコストが削減されます。この設定は、同期やこのソースを使用するCDIセグメントエクステンションを含む、このソースを通じて実行されるクエリに適用されます。
 
 {% alert note %}
 クエリが常にタイムアウトしており、最大実行時間を60分に設定している場合は、クエリの実行時間を最適化するか、Fabric容量を拡張することを検討してください。
 {% endalert %}
 
-![Microsoft Fabricの同期名と最大実行時間の設定。]({% image_buster /assets/img/cloud_ingestion/connected_source_mf_2.png %})
-
 #### ステップ3.3：接続をテストする
 
 **Test Connection**を選択し、ユーザーに表示されるテーブルのリストが期待どおりであることを確認してから、**Done**を選択します。接続されたソースが作成され、CDIセグメントエクステンションで使用できる状態になりました。
-
-![接続されたソースで利用可能なテーブルが表示された接続テストステップ。]({% image_buster /assets/img/cloud_ingestion/connected_source_test_connection.png %})
 
 {% endtab %}
 {% endtabs %}
@@ -432,9 +408,7 @@ Microsoft Fabricの認証情報およびソースウェアハウス、スキー�
 {% tab Snowflake %}
 最後のステップで書き留めた公開キーをSnowflakeのユーザーに追加します。これにより、BrazeがSnowflakeに接続できるようになります。この方法の詳細については、[Snowflakeのドキュメント](https://docs.snowflake.com/en/user-guide/key-pair-auth.html)を参照してください。
 
-任意の時点でキーのローテーションを行う場合は、新しい公開キーを作成できます。このためには、**クラウドデータ取り込み**の**Data Access Management**に移動し、該当するアカウントの**Generate New Key**を選択します。
-
-![Snowflakeデータアクセスの認証情報のデータアクセス管理。新しいキーを生成するボタンが表示されています。]({% image_buster /assets/img/cloud_ingestion/connected_source_sf_4.png %})
+任意の時点でキーのローテーションを行う場合は、**クラウドデータ取り込み**の**データアクセス管理**に移動し、該当するアカウントの**新しいキーを生成**を選択して新しい公開キーを作成できます。
 
 ```sql
 ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='{INSERT_YOUR_KEY}';

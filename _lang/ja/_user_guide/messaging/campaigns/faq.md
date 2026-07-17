@@ -14,11 +14,11 @@ tool: Campaigns
 
 ## マルチチャネルキャンペーンを作成するにはどうすればよいですか？ {#how-do-i-create-a-multichannel-campaign}
 
-セットアップ手順とサポートされているチャネルについては、**キャンペーンを作成する**の[マルチチャネルキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-campaigns)を参照してください。
+セットアップ手順とサポートされているチャネルについては、**キャンペーンを作成**の[マルチチャネルキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#create-a-multichannel-campaign)を参照してください。
 
 ### マルチチャネルキャンペーンにコントロールグループを追加できますか？ {#can-i-add-a-control-group-to-my-multichannel-campaign}
 
-**キャンペーンを作成する**の[コントロールグループ]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-control-groups)を参照してください。クロスチャネルテストには、[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas)を使用してください。
+**キャンペーンを作成**の[コントロールグループ]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-control-groups)を参照してください。クロスチャネルテストには、[キャンバス]({{site.baseurl}}/user_guide/messaging/canvas)を使用してください。
 
 ### キャンペーンのテストと最適化を始めるにはどのような方法がありますか？ {#what-are-some-ways-i-can-start-testing-and-optimizing-campaigns}
 
@@ -48,7 +48,7 @@ tool: Campaigns
 
 ### マルチチャネルキャンペーンで、コンバージョン数がユニークユーザー数を超えることがあるのはなぜですか？ {#why-can-the-number-of-conversions-exceed-the-number-of-unique-users-for-multichannel-campaigns}
 
-**キャンペーンを作成する**の[コンバージョンとレポート]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-conversions)および**コンバージョンイベント**の[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)を参照してください。
+**キャンペーンを作成**の[コンバージョンとレポート]({{site.baseurl}}/user_guide/messaging/campaigns/creating_campaign#multichannel-conversions)および**コンバージョンイベント**の[コンバージョントラッキングルール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events#conversion-tracking-rules)を参照してください。
 
 ### キャンペーンに使用しているセグメントよりも、キャンペーンの到達可能なユーザー群が少ないのはなぜですか？ {#why-does-my-campaign-have-a-smaller-reachable-user-base-than-the-segment-that-im-using-for-the-campaign}
 

@@ -25,7 +25,7 @@ Alguns dispositivos Android fabricados por fabricantes de equipamentos originais
 
 - Disponível apenas para notificações por push para Android
 - Não é compatível com mensagens baseadas em ação ou disparadas por API
-- Não é compatível quando a opção de [enviar apenas para o último dispositivo usado pelo usuário]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#device-options) está selecionada
+- Não é compatível quando a opção de [enviar apenas para o último dispositivo usado pelo usuário]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#most-recently-used-device) está selecionada
 
 ## Pré-requisitos {#prerequisites}
 
@@ -52,12 +52,12 @@ Para usar o Push Max na sua Campaign:
 
 Para usar o Push Max no seu Canvas:
 
-1. Adicione uma etapa de Mensagem ao seu Canvas.
+1. Adicione uma etapa de mensagem ao seu Canvas.
 2. Selecione **Android Push** como sua plataforma.
 3. Acesse a guia **Delivery Settings**.
 4. Selecione **Send using Push Max**.
 
-![Guia Delivery Settings de uma etapa de Mensagem de push para Android com a opção "Send using Push Max".]({% image_buster /assets/img_archive/push_max_canvas.png %})
+![Guia Delivery Settings de uma etapa de mensagem de push para Android com a opção "Send using Push Max".]({% image_buster /assets/img_archive/push_max_canvas.png %})
 
 {% endtab %}
 {% endtabs %}

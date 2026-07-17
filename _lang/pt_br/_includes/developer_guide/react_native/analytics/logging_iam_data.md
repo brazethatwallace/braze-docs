@@ -12,7 +12,7 @@ Você pode usar esses métodos passando sua instância `BrazeInAppMessage` para 
 | `hideCurrentInAppMessage()`                               | Descarta a mensagem no app atualmente exibida.                                     |
 | `performInAppMessageAction(inAppMessage)`                 | Executa a ação para uma mensagem no app.                                            |
 | `performInAppMessageButtonAction(inAppMessage, buttonId)` | Executa a ação para um botão de mensagem no app.                                     |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Methods for logging" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Métodos de registro" }
 
 ## Manipulando dados de mensagens {#handling-message-data}
 
@@ -58,7 +58,7 @@ Como esta é uma opção de personalização avançada, note que substituir a im
 {% subtab Android %}
 Implemente o `IInAppMessageManagerListener` conforme descrito em nosso artigo do Android sobre [Custom Manager Listener]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners). Na sua implementação de `beforeInAppMessageDisplayed`, você pode acessar os dados `inAppMessage`, enviá-los para a camada JavaScript e decidir mostrar ou não a mensagem nativa com base no valor de retorno.
 
-Para mais informações sobre esses valores, consulte nossa [documentação do Android]({{site.baseurl}}/developer_guide/in_app_messages/).
+Para mais informações sobre esses valores, consulte nossa [documentação do Android]({{site.baseurl}}/developer_guide/in_app_messages).
 
 ```java
 // In-app messaging

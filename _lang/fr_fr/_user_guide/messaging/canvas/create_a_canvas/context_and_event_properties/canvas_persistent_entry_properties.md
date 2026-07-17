@@ -20,9 +20,9 @@ Les propriétés d'entrées persistantes sont un vestige de l'éditeur Canvas d'
 
 Les propriétés d'entrées peuvent être utilisées dans les Canvas déclenchés par une action et par l'API. Ces propriétés d'entrées sont définies lorsqu'un Canvas est déclenché par un événement personnalisé, un achat ou un appel API. Consultez les articles suivants pour en savoir plus :
 
-- [Objet Propriétés d'entrées de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
+- [Objet Propriétés d'entrées Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
 - [Objet des propriétés d'événement]({{site.baseurl}}/api/objects_filters/event_object)
-- [Objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product_id)
+- [Objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product-id)
 
 Les propriétés transmises par ces objets peuvent être référencées à l'aide de l'étiquette Liquid `canvas_entry_properties`. Par exemple, une requête contenant `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` pourrait ajouter le mot « shoes » à un message en utilisant le Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 
@@ -81,7 +81,7 @@ curl -X POST \
 
 Dans cette requête, la valeur globale pour « food allergies » est « none ». Pour Customer_123, la valeur est « dairy ». Les messages de ce Canvas contenant l'extrait Liquid {%raw%}`{{canvas_entry_properties.${food_allergies}}}`{%endraw%} afficheront « dairy » pour Customer_123 et « none » pour tous les autres utilisateurs.
 
-## Cas d'utilisation {#use-case}
+## Cas d'usage {#use-case}
 
 Imaginons que vous avez un Canvas déclenché lorsqu'un utilisateur consulte un article sur votre site e-commerce sans l'ajouter à son panier. La première étape du Canvas pourrait être une notification push lui demandant s'il souhaite acheter l'article. Vous pouvez référencer le nom du produit en utilisant {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}
 
@@ -89,4 +89,4 @@ Imaginons que vous avez un Canvas déclenché lorsqu'un utilisateur consulte un 
 
 La deuxième étape peut envoyer une autre notification push invitant l'utilisateur à finaliser son achat s'il a ajouté l'article à son panier mais ne l'a pas encore acheté. Vous pouvez continuer à référencer la propriété d'entrée `product_name` en utilisant {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 
-![Capture d'écran illustrant le cas d'utilisation.]({% image_buster /assets/img/persistent_entry_properties/PEP12.png %}){: style="border:0;margin-left:15px;"}
+![Capture d'écran illustrant le cas d'usage.]({% image_buster /assets/img/persistent_entry_properties/PEP12.png %}){: style="border:0;margin-left:15px;"}

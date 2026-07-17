@@ -67,7 +67,7 @@ After gathering your documentation, follow these steps:
 ### Step 1: Connect the KakaoTalk channel to Braze
 
 1. Go to **Partner Integrations** > **Technology Partners** and select your KakaoTalk provider.
-2. Gather the required credentials for your provider (see below), then enter them into the **Technology Partners** page and save.
+2. Gather the required credentials for your provider (See the following section), then enter them into the **Technology Partners** page and save.
 3. Use the newly saved credentials for sending.
 
 #### CJ OliveNetworks

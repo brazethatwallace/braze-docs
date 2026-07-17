@@ -1,18 +1,18 @@
 ---
-nav_title: Créditos de mensagem - Theta
+nav_title: Message Credits - Theta
 permalink: "/message_credits_theta_d9kw/"
 hidden: true
 noindex: true
 hide_toc: true
 ---
 
-# Créditos de mensagem - Theta (Confidencial) {#message-credits-theta-confidential}
+# Message Credits - Theta (Confidencial) {#message-credits-theta-confidential}
 
-> Créditos de mensagem é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Console do agente, SMS, MMS, RCS, WhatsApp e LINE. Os créditos de mensagem proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
+> Message Credits é a estrutura de empacotamento multiproduto da Braze para nossas ofertas nativas de Agent Console, SMS, MMS, RCS, WhatsApp e LINE. Os Message Credits proporcionam uma experiência flexível e transparente ao aproveitar os canais de envio de mensagens da Braze e determinados recursos de IA. Os créditos dão acesso a qualquer um dos canais apresentados na tabela desta página.
 
 {% alert note %}
 Produtos diferentes terão unidades de medida diferentes nos relatórios.<br><br>
-<b>Console do agente:</b> Invocações<br>
+<b>Agent Console:</b> Invocações<br>
 <b>SMS:</b> Segmentos<br>
 <b>MMS:</b> Envios<br>
 <b>WhatsApp:</b> Mensagens entregues<br>
@@ -20,7 +20,7 @@ Produtos diferentes terão unidades de medida diferentes nos relatórios.<br><br
 <b>LINE:</b> Envios<br>
 <b>KakaoTalk:</b> Envios<br>
 
-Por fim, as taxas de operadora relacionadas a SMS, MMS e RCS são cobradas separadamente (após o uso) e não fazem parte deste SKU de créditos de mensagem.
+Por fim, as taxas de operadora relacionadas a SMS, MMS e RCS são cobradas separadamente (após o uso) e não são consideradas parte deste SKU de Message Credits.
 {% endalert %}
 
 ## Definições {#definitions}
@@ -29,14 +29,14 @@ As definições das colunas são as seguintes:
 
 |---------|-------------------------------------------------|
 | **Destino** | Região final específica, país ou tipo de ação enviada pela plataforma Braze |
-| **Créditos por 1 envio** | Número exato de créditos de mensagem para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
+| **Créditos por 1 envio** | Número exato de Message Credits para realizar um envio<br> (créditos por envio = proporção de créditos x multiplicador de destino) |
 {: .reset-td-br-1 .reset-td-br-2 role="presentation" }
 
 
-## Tabela de proporção de créditos para créditos de mensagem - Theta {#credit-ratio-table-for-message-credits-theta}
+## Tabela de proporção de créditos para Message Credits - Theta {#credit-ratio-table-for-message-credits-theta}
 
 {% details Clique para expandir %}
-<table class="credits-table" aria-label="Tabela de proporção de créditos para créditos de mensagem - Theta">
+<table class="credits-table" aria-label="Tabela de proporção de créditos para Message Credits - Theta">
     <colgroup>
         <col span="3">
         <col class="col-highlight">
@@ -50,12 +50,12 @@ As definições das colunas são as seguintes:
     </thead>
     <tbody>
 <tr>
-        <td>Console do agente</td>
+        <td>Agent Console</td>
         <td>Braze Auto</td>
         <td>1.60</td>
     </tr>
     <tr>
-        <td>Console do agente</td>
+        <td>Agent Console</td>
         <td>BYO LLM API Key</td>
         <td>0.16</td>
     </tr>
@@ -2285,8 +2285,8 @@ As definições das colunas são as seguintes:
 {% enddetails %}
 
 ------
-## Detalhes do Console do agente {#agent-console-details}
-A Braze cobrará créditos de mensagem para invocações do Console do agente enviadas pela plataforma Braze. Uma invocação é registrada quando um agente inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil invocações por cada período do seu prazo de assinatura.
+## Detalhes do Agent Console {#agent-console-details}
+A Braze cobrará Créditos de Mensagem por Invocações do Agent Console enviadas a partir da plataforma Braze. Uma Invocação é registrada quando um Agent inicia uma chamada a um LLM. Por padrão, seu contrato inclui dez mil Invocações por cada Período do seu Prazo de Inscrição.
 
 ## Detalhes do canal SMS/MMS {#smsmms-channel-details}
 
@@ -2296,23 +2296,23 @@ Segmentos de mensagem SMS são a forma como o setor de SMS contabiliza mensagens
 
 ### Segmentos de MMS {#mms-segments}
 
-Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para o seu ativo multimídia e também incluir um corpo de mensagem.
+Para MMS, o limite da mensagem é de 5 MB (isso inclui o ativo multimídia e o tamanho do corpo da mensagem). Para maior segurança, a Braze recomenda não exceder 600 KB para seu ativo multimídia e também incluir um corpo de mensagem.
 
 ### Tipos de RCS {#rcs-types}
 
-O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um canal direto e de alto engajamento como o SMS, com recursos mais ricos que os consumidores modernos esperam, como conteúdo rico (imagens, vídeos, documentos), envio verificado e com marca, recursos interativos como respostas e ações sugeridas, e muito mais.
+O RCS é a próxima geração do SMS e MMS. Ele oferece os benefícios de um canal direto e de alto engajamento como o SMS, com recursos mais avançados que os consumidores modernos esperam, como conteúdo rico (imagens, vídeos, documentos), envio verificado e com marca, recursos interativos como respostas e ações sugeridas, e muito mais.
 
 - A cobrança do RCS é baseada em dois tipos diferentes de mensagem (com distinções para os EUA):
-    - **RCS básico:** Somente texto, até 160 caracteres
-    - **RCS individual:** Mensagens contendo conteúdo rico, ou mensagens somente texto com mais de 160 caracteres
-    - **RCS rico (somente EUA):** Somente texto, pode incluir sugestões/botões limitados (quickReply, dialPhone, openURL sem webview), segmentado a cada 160 bytes UTF-8
-    - **RCS de mídia rica (somente EUA):** Qualquer mídia OU texto com sugestões/botões mais ricos (webview, localização, calendário, etc.), contado como uma mensagem
+    - **RCS Básico:** Somente texto, até 160 caracteres
+    - **RCS Único:** Mensagens contendo conteúdo rico, ou mensagens somente texto com mais de 160 caracteres
+    - **RCS Rico (somente EUA):** Somente texto, pode incluir sugestões/botões limitados (quickReply, dialPhone, openURL sem webview), segmentado a cada 160 bytes UTF-8
+    - **RCS Rich Media (somente EUA):** Qualquer mídia OU texto com sugestões/botões mais avançados (webview, localização, calendário, etc.), contado como uma mensagem
 
 ## Detalhes do canal WhatsApp {#whatsapp-channel-details}
 
 {% multi_lang_include whatsapp/about_credits.md content="h3" %}
 
-## Detalhes adicionais por canal {#additional-channel-details}
+## Detalhes adicionais de canais {#additional-channel-details}
 
 ### Webhooks
 
@@ -2335,16 +2335,16 @@ Estados Unidos, Canadá
 ### Restante da África {#rest-of-africa}
 
 Argélia, Angola, Benin, Botsuana, Burkina Faso, Burundi, Camarões, Chade, Congo, Eritreia, Etiópia, Gabão, Gâmbia, Gana, Guiné-Bissau, Costa do Marfim, Quênia, Lesoto, Libéria, Líbia,
-Madagascar, Malauí, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
+Madagascar, Malawi, Mali, Mauritânia, Marrocos, Moçambique, Namíbia, Níger, Ruanda, Senegal, Serra Leoa, Somália, Sudão do Sul, Sudão, Essuatíni, Tanzânia, Togo, Tunísia, Uganda, Zâmbia
 
 ### Restante da Ásia-Pacífico {#rest-of-asia-pacific}
 
-Afeganistão, Austrália, Bangladesh, Camboja, China, Hong Kong, Japão, Laos, Mongólia, Nepal, Nova Zelândia, Papua-Nova Guiné, Filipinas, Singapura, Sri Lanka, Taiwan, Tajiquistão, Tailândia,
+Afeganistão, Austrália, Bangladesh, Camboja, China, Japão, Laos, Mongólia, Nepal, Nova Zelândia, Papua-Nova Guiné, Filipinas, Sri Lanka, Taiwan, Tajiquistão, Tailândia,
 Turcomenistão, Uzbequistão, Vietnã
 
 ### Restante da Europa Central e Oriental {#rest-of-central-eastern-europe}
 
-Albânia, Armênia, Azerbaijão, Bielorrússia, Bulgária, Croácia, República Tcheca, Geórgia, Grécia, Hungria, Letônia, Lituânia, Macedônia, Moldávia, Polônia, Romênia, Sérvia, Eslováquia, Eslovênia, Ucrânia
+Albânia, Armênia, Azerbaijão, Belarus, Bulgária, Croácia, República Tcheca, Geórgia, Grécia, Letônia, Lituânia, Macedônia, Moldávia, Sérvia, Eslováquia, Eslovênia, Ucrânia
 
 ### Restante da América Latina {#rest-of-latin-america}
 
@@ -2353,7 +2353,7 @@ Guatemala, Haiti, Honduras, Jamaica, Nicarágua, Panamá, Paraguai, Porto Rico, 
 
 ### Restante do Oriente Médio {#rest-of-middle-east}
 
-Bahrein, Iraque, Jordânia, Kuwait, Líbano, Omã, Catar, Iêmen
+Bahrein, Iraque, Jordânia, Kuwait, Líbano, Omã, Iêmen
 
 ### Restante da Europa Ocidental {#rest-of-western-europe}
 

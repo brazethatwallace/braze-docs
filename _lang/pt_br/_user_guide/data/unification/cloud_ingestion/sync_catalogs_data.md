@@ -14,14 +14,14 @@ description: "Esta página fornece uma visão geral de como sincronizar dados do
 ## Etapa 1: Criar um novo catálogo {#step-1-create-a-new-catalog}
 
 Antes de criar uma nova integração de Ingestão de dados na nuvem (CDI) para [catálogos]({{site.baseurl}}/user_guide/data/activation/catalogs), você precisa criar um novo catálogo ou identificar um catálogo existente que deseja usar para a integração. Existem algumas maneiras de criar um novo catálogo, e qualquer uma delas funcionará para a integração CDI:
-- Faça upload de um [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv)
-- Crie um catálogo no [dashboard da Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser) ou durante a configuração do CDI.
+- Faça upload de um [CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog)
+- Crie um catálogo no [dashboard da Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog) ou durante a configuração do CDI.
 - Crie um catálogo usando o [endpoint Criar catálogo]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog)
 
 Quaisquer alterações no esquema do catálogo (por exemplo, adicionar novos campos ou alterar o tipo de campo) devem ser feitas pelo dashboard do catálogo antes que os dados atualizados sejam sincronizados pelo CDI. Recomendamos fazer essas atualizações quando a sincronização estiver pausada ou não programada para ser executada, para evitar conflitos entre os dados do seu data warehouse e o esquema na Braze.
 
 ## Etapa 2: Integrar a Ingestão de dados na nuvem com dados de catálogo {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
-A configuração para uma sincronização de catálogo segue de perto o processo para [integrações CDI de dados do usuário]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup).
+A configuração para uma sincronização de catálogo segue de perto o processo para [integrações CDI de dados do usuário]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 {% tabs %}
 {% tab Snowflake %}
@@ -57,7 +57,7 @@ A configuração para uma sincronização de catálogo segue de perto o processo
 3. Se a sua conta do Snowflake tiver políticas de rede, adicione os IPs da Braze à lista de permissões para que o serviço CDI possa se conectar. Para uma lista de IPs, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 4. No dashboard da Braze, navegue até **Parceiros de tecnologia** > **Snowflake** e crie uma nova sincronização.
 5. Insira os detalhes de conexão (ou reutilize credenciais existentes) e a tabela de origem.
-6. Prossiga para a etapa 2 do fluxo de configuração, selecione o tipo de sincronização "Catalogs" e insira o nome da integração e o agendamento. Note que o nome da integração deve **corresponder exatamente** ao nome do catálogo que você criou anteriormente.
+6. Prossiga para a etapa 2 do fluxo de configuração, selecione o tipo de sincronização "Catalogs" e insira o nome da integração e o cronograma. Note que o nome da integração deve **corresponder exatamente** ao nome do catálogo que você criou anteriormente.
 7. Escolha uma frequência de sincronização e prossiga para a próxima etapa.
 8. Adicione a chave pública exibida no dashboard ao usuário que você criou para a Braze se conectar ao Snowflake. Para concluir esta etapa, você precisará de alguém com acesso `SECURITYADMIN` ou superior no Snowflake.
 9. Selecione **Test Connection** para verificar se tudo funciona conforme esperado.
@@ -87,7 +87,7 @@ A configuração para uma sincronização de catálogo segue de perto o processo
     GRANT SELECT ON TABLE CATALOGS_SYNC TO braze_user;
     ```
     {% endraw %}
-3. Se você tiver um firewall ou outras políticas de rede, deve conceder acesso de rede à Braze para a sua instância do Redshift. Permita o acesso dos IPs abaixo correspondentes à região do seu dashboard da Braze. Para uma lista de IPs, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. Se você tiver um firewall ou outras políticas de rede, deve conceder acesso de rede à Braze para a sua instância do Redshift. Permita o acesso dos IPs correspondentes à região do seu dashboard da Braze. Para uma lista de IPs, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab BigQuery %}
@@ -192,7 +192,7 @@ GO
 2. Configure um service principal e conceda as permissões adequadas. Se você já tiver credenciais de uma sincronização existente, poderá reutilizá-las&#8212;apenas certifique-se de estender o acesso à tabela de origem do catálogo. Para saber mais sobre como criar um novo service principal e credenciais, consulte a página [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {:start="3"}
-3. Se você tiver políticas de rede em vigor, deverá conceder acesso de rede à Braze para a sua instância do Microsoft Fabric. Para uma lista de IPs, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
+3. Se você tiver políticas de rede em vigor, deve conceder acesso de rede à Braze para a sua instância do Microsoft Fabric. Para uma lista de IPs, consulte [Ingestão de dados na nuvem]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#step-1-set-up-tables-or-views).
 
 {% endtab %}
 {% tab S3 %}
@@ -264,7 +264,7 @@ As views de sincronização nesta seção se aplicam apenas a integrações de d
 
 Cada vez que a sincronização é executada, a Braze busca todas as linhas onde `UPDATED_AT` é posterior ao último valor sincronizado. Linhas no timestamp exato do limite podem ser ressincronizadas se novas linhas compartilharem o mesmo timestamp. Recomendamos criar uma view no seu data warehouse a partir dos dados do seu catálogo para configurar uma tabela de origem que será totalmente atualizada cada vez que uma sincronização for executada. Com views, você não precisará reescrever a consulta cada vez.
 
-Por exemplo, se você tiver uma tabela de dados de produtos (`product_catalog_1`) com `product_id` e três atributos adicionais, poderá sincronizar a view abaixo:
+Por exemplo, se você tiver uma tabela de dados de produtos (`product_catalog_1`) com `product_id` e três atributos adicionais, poderá sincronizar a seguinte view:
 
 {% tabs %}
 {% tab Snowflake %}

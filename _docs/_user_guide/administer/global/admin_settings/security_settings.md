@@ -125,7 +125,7 @@ To download this report, do the following:
 2. Select the **Security Settings** tab and go to the **Security Event Download** section.
 3. Select **Download report**. 
 
-This manual report download contains only the most recent 10,000 security events for your account.
+This manual report download contains only the most recent 10,000 security events for your account. If your exported CSV contains exactly 10,001 rows (including the header row), you reached the 10,000-event report cap and older events may not be included.
 
 To export security events to Amazon S3 without this row limit, see [Security events export with Amazon S3]({{site.baseurl}}/user_guide/administer/global/admin_settings/security_settings/security_export_s3).
 
@@ -138,7 +138,7 @@ The Security Event report CSV contains the following columns:
 | CreatedAt | Timestamp when the event was recorded, in UTC. |
 | EmailAtTimeOfEvent | Email address of the dashboard user who triggered the event, as recorded when the event occurred. |
 | CurrentEmail | Current email address of the dashboard user who triggered the event. If the user no longer exists, their developer ID is used instead. |
-| EventName | Type of security event. See the list of reported security events below. |
+| EventName | Type of security event. See the **Reported security events** dropdown after this table. |
 | OtherAccount | Email address of another dashboard user affected by the event, when applicable (for example, when an account is added or removed). |
 | JsonProperties | Event-specific properties in JSON format. The fields included vary by event type. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="CSV column definitions" }
@@ -266,7 +266,7 @@ The **View PII** permission is only accessible to a few select company users. By
 You need the **View PII** permission to use [Query Builder]({{site.baseurl}}/user_guide/analytics/reports/query_builder/building_queries), because it allows direct access to some customer data.
 {% endalert %}
 
-For the existing team permission capabilities, refer to [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions#available-limited-and-team-role-permissions).
+For the existing team permission capabilities, refer to [Setting user permissions]({{site.baseurl}}/user_guide/administer/global/user_management/permissions).
 
 ### Defining PII
 

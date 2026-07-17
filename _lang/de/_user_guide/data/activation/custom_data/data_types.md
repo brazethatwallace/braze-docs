@@ -109,8 +109,8 @@ Sie können einem angepassten Attribut nach der Erstellung Tags hinzufügen, wen
 
 Es gibt zwei Möglichkeiten, angepasste Attribute aus Nutzerprofilen zu entfernen:
 
-* Wählen Sie den Namen des zu entfernenden angepassten Attributs in einem [Nutzeraktualisierungs-Schritt]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes) aus.
-* Setzen Sie den Wert `null` in Ihrer API-Anfrage an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track#user-track).
+- Wählen Sie den Namen des zu entfernenden angepassten Attributs in einem [Nutzeraktualisierungs-Schritt]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/user_update#removing-custom-attributes) aus.
+- Setzen Sie den Wert `null` in Ihrer API-Anfrage an den [`/users/track`-Endpunkt]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
 #### Den Wert `null` setzen {#setting-the-null-value}
 
@@ -170,7 +170,7 @@ Die folgenden Datentypen können als angepasste Attribute gespeichert werden:
 - [Strings](#strings)
 - [Arrays](#arrays)
 - [Zeit](#time)
-- [Objekte]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support)
+- [Objekte]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support)
 - [Arrays von Objekten]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/array_of_objects)
 
 ### Boolesche Werte (true/false) {#booleans}
@@ -265,6 +265,7 @@ Für **Array**-Attribute stehen die folgenden Segmentierungsoptionen zur Verfüg
 
 {% alert tip %}
 Weitere Informationen zur Verwendung regulärer Ausdrücke (Regex) finden Sie in diesen Ressourcen:
+
 - [Perl-kompatible reguläre Ausdrücke (PCRE)](https://www.regextester.com/pregsyntax.html)
 - [Regex mit Braze]({{site.baseurl}}/user_guide/audience/segments/regex)
 - [Regex-Debugger und -Tester](https://www.regex101.com/)
@@ -278,7 +279,7 @@ Zeitattribute eignen sich zum Speichern des letzten Zeitpunkts, zu dem eine best
 
 Zeitfilter mit relativen Daten (z. B. mehr als 1 Tag her, weniger als 2 Tage her) messen 1 Tag als 24 Stunden. Jede Campaign, die Sie mit diesen Filtern ausführen, erfasst alle Nutzer:innen in 24-Stunden-Schritten. Zum Beispiel erfasst `last used app more than 1 day ago` alle Nutzer:innen, die die App „vor mehr als 24 Stunden“ zuletzt verwendet haben, gerechnet ab dem genauen Zeitpunkt der Campaign-Ausführung. Dasselbe gilt für Campaigns mit längeren Zeiträumen – fünf Tage ab Aktivierung bedeuten die vorherigen 120 Stunden.
 
-Um Nutzer:innen anzusprechen, deren Zeitattribut in einen bestimmten Zeitraum fällt, verwenden Sie zwei Zielgruppen-Filter: `in more than` für die untere Grenze und `in less than` für die obere Grenze. Ein einzelner Filter kann nicht beide Seiten dieses Bereichs abdecken. Um beispielsweise Nutzer:innen mit einem Zeitattribut in den nächsten 24 Stunden (zwischen jetzt und einem Tag ab jetzt) anzusprechen, wenden Sie `in more than 0 days` und `in less than 1 day` an.
+Um Nutzer:innen anzusprechen, deren Zeitattribut in einen bestimmten Zeitraum fällt, verwenden Sie zwei Zielgruppenfilter: `in more than` für die untere Grenze und `in less than` für die obere Grenze. Ein einzelner Filter kann nicht beide Seiten dieses Bereichs abdecken. Um beispielsweise Nutzer:innen mit einem Zeitattribut in den nächsten 24 Stunden (zwischen jetzt und einem Tag ab jetzt) anzusprechen, wenden Sie `in more than 0 days` und `in less than 1 day` an.
 
 {% alert warning %}
 Das letzte Datum, an dem ein angepasstes Event oder Kauf-Event stattfand, wird automatisch erfasst und sollte nicht erneut über ein angepasstes Zeitattribut erfasst werden.
@@ -309,7 +310,7 @@ Für **Zeit**-Attribute stehen die folgenden Segmentierungsoptionen zur Verfügu
 {% endtab %}
 {% tab Objekte %}
 
-Sie können verschachtelte angepasste Attribute verwenden, um Objekte als Datentyp für angepasste Attribute zu senden. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/nested_custom_attribute_support).
+Sie können verschachtelte angepasste Attribute verwenden, um Objekte als Datentyp für angepasste Attribute zu senden. Weitere Informationen finden Sie unter [Verschachtelte angepasste Attribute]({{site.baseurl}}/user_guide/data/custom_data/custom_attributes/nested_custom_attribute_support).
 
 {% endtab %}
 {% tab Arrays von Objekten %}
@@ -374,10 +375,10 @@ Für das vollständige Schema des Kauf-Objekts und Beispiele siehe [Kauf-Objekt]
 
 So ändern Sie den Datentyp eines angepassten Attributs oder Events:
 
-1. Gehen Sie zu **Dateneinstellungen** und wählen Sie entweder **Angepasste Attribute** oder **Angepasste Events**.
-2. Suchen Sie Ihr Attribut oder Event in der Liste und wählen Sie <i class="fa fa-ellipsis-v" aria-hidden="true"></i> **Weitere Aktionen**.
-3. Wählen Sie einen neuen **Datentyp** aus dem Dropdown.
-4. Wählen Sie **Speichern**.
+1. Gehen Sie zu **Data Settings** und wählen Sie entweder **Custom Attributes** oder **Custom Events**.
+2. Suchen Sie Ihr Attribut oder Event in der Liste und wählen Sie <i class="fa fa-ellipsis-v" aria-label="Weitere Aktionen"></i> **More actions**.
+3. Wählen Sie einen neuen **Data type** aus dem Dropdown.
+4. Wählen Sie **Save**.
 
 Wenn Sie den Datentyp eines angepassten Attributs oder Events ändern (z. B. von `time` zu `string`), beachten Sie Folgendes:
 

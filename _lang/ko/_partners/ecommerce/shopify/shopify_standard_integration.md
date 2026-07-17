@@ -19,7 +19,7 @@ page_order: 1
 3. Shopify 앱 스토어에서 Braze 애플리케이션을 설치합니다.<br><br>![애플리케이션 설치 버튼이 있는 Braze 앱 스토어 페이지.]({% image_buster /assets/img/shopify/shopify_log_in.png %}){: style="max-width:70%;"}
 
 {% alert note %}
-Shopify 계정이 둘 이상의 스토어와 연결되어 있는 경우 페이지 오른쪽 상단의 스토어 아이콘을 선택하고 **Switch stores**를 선택하여 로그인한 스토어를 변경할 수 있습니다.
+Shopify 계정이 둘 이상의 스토어와 연결되어 있는 경우 헤더의 스토어 아이콘을 선택하고 **Switch stores**를 선택하여 로그인한 스토어를 변경할 수 있습니다.
 {% endalert %}
 
 {: start="4"}
@@ -260,7 +260,7 @@ Content Cards 또는 피처 플래그를 추가하려면 개발자와 협력하�
 
 #### 웹 푸시 알림 {#web-push-notifications}
 
-현재 웹 푸시는 Shopify 통합에서 지원되지 않습니다. 지원을 요청하려면 [Braze 제품 포털]({{site.baseurl}}/user_guide/administer/personal/product_portal)을 통해 제품 요청을 제출하세요.
+현재 웹 푸시는 Shopify 통합에서 지원되지 않습니다. {% multi_lang_include product_feedback_cta.md context="gap" feature="web push for the Shopify integration" %}
 
 ## 7단계: 설정 완료 {#step-7-finish-setup}
 

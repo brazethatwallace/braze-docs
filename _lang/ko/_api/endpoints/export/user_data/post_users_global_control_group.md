@@ -24,7 +24,7 @@ description: "이 문서에서는 글로벌 컨트롤 그룹의 사용자 내보
 
 ## 필수 조건 {#prerequisites}
 
-이 엔드포인트를 사용하려면 `users.export.global_control_group` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key)가 필요합니다.
+이 엔드포인트를 사용하려면 `users.export.global_control_group` 권한이 있는 [API 키]({{site.baseurl}}/api/basics#rest-api-key-permissions)가 필요합니다.
 
 ## 사용량 제한 {#rate-limit}
 
@@ -43,7 +43,7 @@ description: "이 문서에서는 글로벌 컨트롤 그룹의 사용자 내보
 **ZIP 예시:**
 `braze.docs.bucket/segment-export/abc56c0c-rd4a-pb0a-870pdf4db07q/2019-04-25/d9696570-dfb7-45ae-baa2-25e302r2da27-1556044807/114f0226319130e1a4770f2602b5639a.zip`
 
-| 등록정보 | 세부 정보 | 예시에서 표시되는 형태 |
+| 속성정보 | 세부 정보 | 예시에서 표시되는 형태 |
 | ------------------------------- | ------------------------------------------------------------------------------------ | --- |
 | `bucket-name` | 버킷 이름에 따라 고정됩니다. | `braze.docs.bucket` |
 | `segment-export` | 고정값입니다. | `segment-export` |
@@ -124,7 +124,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 | `created_at` | 문자열 | 사용자 프로필이 생성된 날짜와 시간(ISO 8601 형식)입니다. |
 | `custom_attributes` | 오브젝트 | 이 사용자에 대한 커스텀 속성 키-값 페어입니다. |
 | `custom_events` | 배열 | 지난 90일 동안 이 사용자에게 귀속된 커스텀 이벤트입니다. |
-| `devices` | 배열 | 사용자 기기에 대한 정보이며, 플랫폼에 따라 다음을 포함할 수 있습니다:<br><br>- `model`: 기기 모델명<br>- `os`: 기기의 운영체제<br>- `carrier`: 기기의 서비스 통신사(가능한 경우)<br>- `idfv`: (iOS) Braze 기기 식별자, Apple Identifier for Vendor(있는 경우)<br>- `idfa`: (iOS) 광고용 식별자(있는 경우)<br>- `device_id`: (Android) Braze 기기 식별자<br>- `google_ad_id`: (Android) Google Play 광고 식별자(있는 경우)<br>- `roku_ad_id`: (Roku) Roku 광고 식별자<br>- `ad_tracking_enabled`: 기기에서 광고 추적이 활성화된 경우 true 또는 false일 수 있습니다. |
+| `devices` | 배열 | 사용자 기기에 대한 정보이며, 플랫폼에 따라 다음을 포함할 수 있습니다:<br><br>- `model`: 기기 모델명<br>- `os`: 기기의 운영 체제<br>- `carrier`: 기기의 서비스 통신사(가능한 경우)<br>- `idfv`: (iOS) Braze 기기 식별자, Apple Identifier for Vendor(있는 경우)<br>- `idfa`: (iOS) 광고용 식별자(있는 경우)<br>- `device_id`: (Android) Braze 기기 식별자<br>- `google_ad_id`: (Android) Google Play 광고 식별자(있는 경우)<br>- `roku_ad_id`: (Roku) Roku 광고 식별자<br>- `ad_tracking_enabled`: 기기에서 광고 추적이 활성화된 경우 true 또는 false일 수 있습니다. |
 | `dob` | 문자열 | `YYYY-MM-DD` 형식의 사용자 생년월일입니다. |
 | `email` | 문자열 | 사용자의 이메일 주소입니다. |
 | `external_id` | 문자열 | 식별된 사용자를 위한 고유 사용자 식별자입니다. |
@@ -140,7 +140,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/export/globa
 | `time_zone` | 문자열 | IANA 시간대 데이터베이스와 동일한 형식의 사용자 시간대입니다. |
 | `total_revenue` | 플로트 | 이 사용자에게 귀속된 총 매출입니다. 총 매출은 사용자가 수신한 Campaigns 및 Canvases의 전환 기간 동안 구매한 금액을 기준으로 계산됩니다. |
 | `uninstalled_at` | 타임스탬프 | 사용자가 앱을 삭제한 날짜와 시간입니다. 앱이 삭제되지 않은 경우 생략됩니다. |
-| `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object#user-alias-object-specification)(있는 경우)입니다. |
+| `user_aliases` | 오브젝트 | `alias_name` 및 `alias_label`을 포함하는 [사용자 별칭 오브젝트]({{site.baseurl}}/api/objects_filters/user_alias_object)(있는 경우)입니다. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="내보낼 필드" }
 
 ## 응답 {#response}
@@ -160,7 +160,7 @@ URL이 사용 가능해지면 몇 시간 동안만 유효합니다. 따라서 Br
 사용자 내보내기 오브젝트(최소한의 데이터만 포함하며, 오브젝트에서 필드가 누락된 경우 null 또는 비어 있는 것으로 간주해야 합니다):
 
 {% tabs %}
-{% tab All fields %}
+{% tab 모든 필드 %}
 
 ```json
 {
@@ -236,7 +236,7 @@ URL이 사용 가능해지면 몇 시간 동안만 유효합니다. 따라서 Br
 ```
 
 {% endtab %}
-{% tab Sample output %}
+{% tab 샘플 출력 %}
 
 ```json
 {

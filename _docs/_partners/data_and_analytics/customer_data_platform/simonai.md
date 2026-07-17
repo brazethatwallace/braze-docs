@@ -40,7 +40,7 @@ When using the Simon and Braze integration, Simon only sends deltas on each sync
 
 To use the Braze integration, first authenticate your Braze account in Simon:
 
-1. From the left navigation, click **Integrations** then scroll to Braze.
+1. From the navigation menu, click **Integrations** then scroll to Braze.
 2. Enter your Braze [REST API key][2] and your [dashboard URL][3].
 3. Click **Save Changes**.
 
@@ -82,7 +82,7 @@ After Contact Traits is activated by your account manager:
 ![Selecting sync traits in Simon AI.][10]
 
 [1]: https://www.simon.ai/
-[2]: {{site.baseurl}}/api/basics/#creating-and-managing-rest-api-keys
+[2]: {{site.baseurl}}/api/basics#creating-rest-api-keys
 [3]: {{site.baseurl}}/user_guide/administrative/access_braze/sdk_endpoints
 [4]: https://docs.simondata.com/docs/campaigns-flows
 [5]: https://docs.simondata.com/docs/campaigns-journeys-two

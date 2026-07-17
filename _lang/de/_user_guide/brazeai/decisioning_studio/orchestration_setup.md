@@ -48,10 +48,10 @@ Bevor Sie die Orchestrierung einrichten, sammeln Sie die folgenden Elemente basi
 |------|-------------|
 | **REST-API-Schlüssel** | Ein neuer API-Schlüssel mit Berechtigungen für Nutzerdaten, Nachrichten, Campaigns, Canvas, Segmente und Templates. |
 | **Braze-Dashboard-URL** | Die URL Ihrer Braze-Instanz (zum Beispiel `https://dashboard-01.braze.com`). |
-| **App-ID** | Der API-Schlüssel, der mit der App verknüpft ist, die Sie tracken möchten (zu finden unter **Einstellungen** > **App Settings**). |
-| **E-Mail-Anzeigename und -Adresse** | Die Absenderinformationen, die für Ihre Campaigns verwendet werden sollen (zu finden unter **Einstellungen** > **E-Mail-Präferenzen**). |
+| **App-ID** | Der API-Schlüssel, der mit der App verknüpft ist, die Sie tracken möchten (zu finden unter **Einstellungen** > **App-Einstellungen**). |
+| **E-Mail-Anzeigename und -Adresse** | Die Absenderinformationen, die für Ihre Campaigns verwendet werden sollen (zu finden unter **Einstellungen** > **E-Mail-Einstellungen**). |
 | **Basis-Templates** | Die Nachrichten-Templates, die Ihr Agent für die Orchestrierung verwenden wird. Sie erstellen API-getriggerte Campaigns für jedes Template. |
-| **Testnutzer:in-ID** | Eine Nutzer-ID zum Testen der Integration vor dem Start. |
+| **Testnutzer:in-ID** | Eine Nutzer:in-ID zum Testen der Integration vor dem Start. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% endtab %}
@@ -63,7 +63,7 @@ Bevor Sie die Orchestrierung einrichten, sammeln Sie die folgenden Elemente basi
 | **API-Berechtigungen** | Scopes für Kanäle, Assets, Automatisierungen, Journeys, Kontakte, Data Extensions und Tracking-Ereignisse. |
 | **Data Extensions** | Sie benötigen Data Extensions für Abonnent:innen-Daten, Engagement-Daten und Empfehlungen. |
 | **E-Mail-Templates** | Die Templates, die Decisioning Studio verwenden soll, mit Template-IDs für jedes einzelne. |
-| **Journey Builder-Zugang** | Zugang zum Erstellen und Aktivieren von mehrstufigen Journeys mit API-Ereignis-Einstiegsquellen. |
+| **Journey-Builder-Zugang** | Zugang zum Erstellen und Aktivieren von mehrstufigen Journeys mit API-Ereignis-Einstiegsquellen. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Voraussetzungen" }
 
 {% endtab %}
@@ -118,7 +118,7 @@ Für Braze-Integrationen planen Sie, welche Dimensionen Ihr Agent optimieren wir
 
 ## Einrichtung der Integration {#integration-setup}
 
-Wählen Sie unten Ihre CEP aus, um mit der Einrichtung der Integration zu beginnen.
+Wählen Sie Ihre CEP aus dieser Liste aus, um mit der Einrichtung der Integration zu beginnen.
 
 {% tabs %}
 {% tab Braze %}
@@ -127,19 +127,19 @@ Wählen Sie unten Ihre CEP aus, um mit der Einrichtung der Integration zu beginn
 
 Befolgen Sie diese Schritte, um einen Decisioning Studio Agent mit den Orchestrierungsfunktionen von Braze zu integrieren (das Braze-Serviceteam steht Ihnen zur Unterstützung zur Verfügung):
 
-### 1. Schritt: API-Schlüssel erstellen {#step-1-create-an-api-key}
+### Schritt 1: API-Schlüssel erstellen {#step-1-create-an-api-key}
 
 Gehen Sie zu **Einstellungen** > **API-Schlüssel** und erstellen Sie einen neuen Schlüssel mit den folgenden Berechtigungen:
 
 {% multi_lang_include decisioning_studio/api_key_permissions.md %}
 
-### 2. Schritt: API-getriggerte Campaigns einrichten {#step-2-set-up-api-triggered-campaigns}
+### Schritt 2: API-getriggerte Campaigns einrichten {#step-2-set-up-api-triggered-campaigns}
 
 Richten Sie eine API-getriggerte Campaign für jedes Basis-Template mit API-Trigger-Eigenschaften für alle optimierten Dimensionen ein.
 
-Ein Basis-Template ist jedes Template, das der Decisioning Agent für die Orchestrierung von Nachrichten verwenden könnte. Ein Decisioning Agent kann 1 Basis-Template oder mehrere haben. Im letzteren Fall wird die Auswahl des richtigen Basis-Templates für jede:n Kund:in eine der Entscheidungen sein, die der Agent personalisiert.
+Ein Basis-Template ist jedes Template, das der Decisioning Agent für die Orchestrierung von Nachrichten verwenden könnte. Ein Decisioning Agent kann ein Basis-Template oder mehrere haben. Im letzteren Fall wird die Auswahl des richtigen Basis-Templates für jede:n Kund:in eine der Entscheidungen sein, die der Agent personalisiert.
 
-### 3. Schritt: Erneute Berechtigung konfigurieren {#step-3-configure-re-eligibility}
+### Schritt 3: Erneute Berechtigung konfigurieren {#step-3-configure-re-eligibility}
 
 Stellen Sie sicher, dass alle API-getriggerten Campaigns es Nutzer:innen ermöglichen, innerhalb von 15 Minuten erneut berechtigt zu werden.
 
@@ -149,7 +149,7 @@ Stellen Sie sicher, dass alle API-getriggerten Campaigns es Nutzer:innen ermögl
 Obwohl der Decisioning Studio Agent dieselbe Campaign nie mehr als einmal pro Tag sendet, möchten Sie die Möglichkeit haben, dieselben Campaigns zu Testzwecken mehrmals am Tag zu senden.
 {% endalert %}
 
-### 4. Schritt: Dynamische Platzhalter hinzufügen {#step-4-add-dynamic-placeholders}
+### Schritt 4: Dynamische Platzhalter hinzufügen {#step-4-add-dynamic-placeholders}
 
 Diese dienen als dynamische Platzhalter für Entscheidungen, die der Decisioning Studio Agent optimiert.
 

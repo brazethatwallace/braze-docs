@@ -13,7 +13,7 @@
 
 Nous recommandons les tailles de payloads suivantes :
 
-| Système d'envoi de messages | Payload recommandé |
+| Système de communication | Payload recommandé |
 | --- | --- |
 | iOS (avant iOS 8) | 0,256 Ko |
 | iOS (après iOS 8) | 2 Ko |

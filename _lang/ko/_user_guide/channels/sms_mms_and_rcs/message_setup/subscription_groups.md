@@ -40,7 +40,7 @@ SMS 및 RCS 사용자에게는 `subscribed`와 `unsubscribed` 두 가지 구독 
 - **SDK 통합:** [Android](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze-user/add-to-subscription-group.html), [iOS](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/user-swift.class/addtosubscriptiongroup(id:fileid:line:)), 또는 [Web](https://js.appboycdn.com/web-sdk/latest/doc/classes/braze.user.html#addtosubscriptiongroup)용 `addToSubscriptionGroup` 메서드를 사용하여 이메일 또는 SMS 및 RCS 구독 그룹에 사용자를 추가할 수 있습니다.
 - **전화번호 수집 인앱 메시지 양식:** 인앱 메시지 드래그 앤 드롭 에디터의 전화번호 수집 템플릿을 통해 사용자 전화번호를 수집할 수 있습니다.
 - **사용자 옵트인/옵트아웃 시 자동 처리:** 사용자가 기본 옵트인 또는 옵트아웃 [키워드]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/optin_optout)를 문자로 보내면, Braze가 자동으로 사용자의 구독 상태를 설정하고 업데이트합니다.
-- **사용자 가져오기:** **사용자 가져오기**를 통해 이메일 또는 SMS 및 RCS 구독 그룹에 사용자를 추가할 수 있습니다. 구독 그룹 상태를 업데이트할 때 CSV에 `subscription_group_id`와 `subscription_state` 두 열이 있어야 합니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#updating-subscription-group-status)를 참조하세요.
+- **사용자 가져오기:** **사용자 가져오기**를 통해 이메일 또는 SMS 및 RCS 구독 그룹에 사용자를 추가할 수 있습니다. 구독 그룹 상태를 업데이트할 때 CSV에 `subscription_group_id`와 `subscription_state` 두 열이 있어야 합니다. 자세한 내용은 [사용자 가져오기]({{site.baseurl}}/user_guide/audience/manage_audience/import_users#constructing-your-csv)를 참조하세요.
 
 #### Canvas에서 사용자 상태 업데이트 {#update-a-users-state-in-a-canvas}
 
@@ -107,7 +107,7 @@ RCS 인증 발신자를 추가하는 방법은 두 가지입니다:
 1. [에이전트 콘솔]({{site.baseurl}}/user_guide/brazeai/agents)에서 "SMS 감성 분석 에이전트"를 생성합니다.
 
 {% alert tip %}
-초기 에이전트 구성을 지원하려면 [Operator]({{site.baseurl}}/user_guide/brazeai/agents/reference#canvas-agent-examples)를 사용하세요.
+초기 에이전트 구성을 지원하려면 [Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-templates-built-with-operator)를 사용하세요.
 {% endalert %}
 
 {: start="2"}
@@ -128,7 +128,7 @@ Braze는 처음에 소규모 사용자에게 RCS 발송을 테스트하고, 시�
 
 ### 1단계: Canvas 생성 및 진입 스케줄 작성 {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 그룹 사용자 이전")을 지정하세요. 그런 다음 편리한 시간에 스케줄을 설정하세요.
+Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 그룹 사용자 이전")을 지정하세요. 그런 다음 편리한 시간에 캠페인 스케줄을 설정하세요.
 
 ### 2단계: 오디언스 정의 {#step-2-define-your-audience}
 {: #step-2-define-your-audience}

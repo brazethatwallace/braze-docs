@@ -79,7 +79,7 @@ For example (assuming an even distribution):
 - Variant 3: 2.5%
 - Variant 4: 2%
 
-No optimization open rate is 2.75% (.035*.25 + .03*.25 + 0.025*.25 + 0.02*.25), Variant Selection chooses Variant 1, 3.5%, so the uplift is 27.3%
+No optimization open rate is 2.75% (.035\*.25 + .03\*.25 + 0.025\*.25 + 0.02\*.25), Variant Selection chooses Variant 1, 3.5%, so the uplift is 27.3%
 {% endtab %}
 
 {% tab Recurring %}
@@ -93,7 +93,7 @@ For example:
 - Variant 3: 2.5%, 25% of the cohort
 - Variant 4: 2%, 25% of the cohort
 
-No optimization open rate is 2.75% (.035*.25 + .03*.25 + 0.025*.25 + 0.02*.25). Variant Selection more heavily weighs the higher performers. 
+No optimization open rate is 2.75% (.035\*.25 + .03\*.25 + 0.025\*.25 + 0.02\*.25). Variant Selection more heavily weighs the higher performers.
 
 Let's say it does the following:
 - Variant 1: 65%
@@ -101,7 +101,7 @@ Let's say it does the following:
 - Variant 3: 10%
 - Variant 4: 5%
 
-This equates to a chosen open rate of 3.075% (.035*.65 + .03*.15 + 0.025*.1 + 0.02*.05), which is an uplift of 11.8%. We calculate that each period, and then average it out over the course of the optimization period.
+This equates to a chosen open rate of 3.075% (.035\*.65 + .03\*.15 + 0.025\*.1 + 0.02\*.05), which is an uplift of 11.8%. We calculate that each period, and then average it out over the course of the optimization period.
 {% endtab %}
 {% endtabs %}
 

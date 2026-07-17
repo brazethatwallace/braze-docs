@@ -1,6 +1,8 @@
-El acortamiento de enlaces y el seguimiento de clics te permiten acortar automáticamente las URL contenidas en mensajes SMS o RCS y recopilar análisis de tasa de click-through, proporcionando métricas de interacción adicionales para ayudarte a comprender cómo los usuarios interactúan con tus campañas.
+El acortamiento de enlaces y el seguimiento de clics te permiten acortar automáticamente las URL contenidas en mensajes SMS o RCS y recopilar análisis de tasa de click-through, proporcionando métricas de participación adicionales para ayudarte a comprender cómo los usuarios interactúan con tus campañas.
 
 El acortamiento de enlaces y el seguimiento de clics se pueden activar a [nivel de variante del mensaje]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-1-create-your-campaign) tanto en Campaigns como en Canvas.
+
+{% multi_lang_include channels/sms/rcs_link_shortening_note.md %}
 
 La longitud de la URL está determinada por el tipo de seguimiento que se active:
 - **Seguimiento básico** habilita el seguimiento de clics a nivel de campaña. Las URL estáticas tendrán una longitud de 20 caracteres, y las URL personalizadas tendrán una longitud de 25 caracteres.
@@ -34,7 +36,7 @@ Si planeas usar el [filtro de canal inteligente]({{site.baseurl}}/user_guide/bra
 
 ## Personalización con Liquid en las URL {#liquid-personalization-in-urls}
 
-Puedes construir dinámicamente tu URL directamente dentro del compositor de Braze, lo que te permite agregar parámetros UTM dinámicos a tus URL o enviar a los usuarios enlaces únicos (como dirigir a los usuarios a su carrito abandonado o a un producto específico que volvió a estar disponible).
+Puedes construir dinámicamente tu URL directamente dentro del creador de Braze, lo que te permite agregar parámetros UTM dinámicos a tus URL o enviar a los usuarios enlaces únicos (como dirigir a los usuarios a su carrito abandonado o a un producto específico que volvió a estar disponible).
 
 ### Crear una URL con etiquetas de personalización de Liquid compatibles {#create-a-url-with-supported-liquid-personalization-tags}
 
@@ -63,27 +65,27 @@ https://example.com/{{url_var}}
 
 Acortamos las URL que son renderizadas por Liquid, incluso aquellas incluidas en propiedades de activación por API. Por ejemplo, si {% raw %}`{{api_trigger_properties.${url_value}}}`{% endraw %} representa una URL válida, acortamos y hacemos seguimiento de esa URL antes de enviar el mensaje.
 
-### Acortar URL en el punto de conexión `/messages/send` {#shorten-urls-in-messagessend-endpoint}
+### Acortar URL en el endpoint `/messages/send` {#shorten-urls-in-messagessend-endpoint}
 
-El acortamiento de enlaces también está activado para mensajes exclusivos de API a través del [punto de conexión `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Para activar también el seguimiento básico o avanzado, usa los parámetros de solicitud `link_shortening_enabled` o `user_click_tracking_enabled`.
+El acortamiento de enlaces también está activado para mensajes exclusivos de API a través del [endpoint `/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages). Para activar también el seguimiento básico o avanzado, usa los parámetros de solicitud `link_shortening_enabled` o `user_click_tracking_enabled`.
 
 | Parámetro | Obligatorio | Tipo de datos | Descripción |
 | --------- | ---------| --------- | ----------- |
 | `link_shortening_enabled` | Opcional | Booleano | Establece `link_shortening_enabled` en `true` para activar el acortamiento de enlaces y el seguimiento de clics a nivel de campaña. Para usar el seguimiento, deben estar presentes un `campaign_id` y un `message_variation_id`. |
 | `user_click_tracking_enabled` | Opcional | Booleano | Establece `user_click_tracking_enabled` en `true` para activar el acortamiento de enlaces, y el seguimiento de clics a nivel de campaña y a nivel de usuario. Puedes usar los datos rastreados para crear segmentos de usuarios que hicieron clic en las URL.<br><br> Para usar este parámetro, `link_shortening_enabled` debe ser `true`, y deben estar presentes un `campaign_id` y un `message_variation_id`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Acortar URL en el punto de conexión /messages/send" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Acortar URL en el endpoint /messages/send" }
 
 Para obtener una lista completa de los parámetros de solicitud, ve a [parámetros de solicitud]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#request-parameters).
 
 ## Pruebas {#testing}
 
-Antes de lanzar tu campaña o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Test** para previsualizar y enviar un mensaje SMS o RCS a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o a un usuario individual.
+Antes de lanzar tu Campaign o Canvas, es una buena práctica previsualizar y probar tu mensaje primero. Para hacerlo, ve a la pestaña **Test** para previsualizar y enviar un mensaje SMS o RCS a [grupos de prueba de contenido]({{site.baseurl}}/user_guide/administer/global/user_management/internal_groups#content-test-groups) o a un usuario individual.
 
 Esta vista previa se actualiza con la personalización relevante y la URL acortada. El número de caracteres y los [segmentos facturables]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/billing_calculator) también se actualizan para reflejar la personalización renderizada y la URL acortada.
 
-Asegúrate de guardar la campaña o Canvas antes de enviar un mensaje de prueba para recibir una representación de la URL acortada que se envía en tu mensaje. Si la campaña o Canvas no se guarda antes de un envío de prueba, el envío de prueba incluirá un marcador de posición de URL.
+Asegúrate de guardar la Campaign o Canvas antes de enviar un mensaje de prueba para recibir una representación de la URL acortada que se envía en tu mensaje. Si la Campaign o Canvas no se guarda antes de un envío de prueba, el envío de prueba incluirá un marcador de posición de URL.
 
-Para que los Canvas aparezcan en el filtro "Hizo clic en enlace SMS acortado", el paso en Canvas que contiene el enlace corto también debe estar habilitado con seguimiento avanzado, lo que permite el seguimiento de clics a nivel de usuario. Si el enlace corto está configurado con seguimiento básico, la opción de filtrar eventos de clic en enlaces SMS cortos no está disponible. El mismo requisito de seguimiento avanzado aplica cuando configuras la entrada de Canvas o rutas de acción que dependen de clics en enlaces SMS acortados.
+Para que los Canvas aparezcan en el filtro "Hizo clic en enlace SMS acortado", el paso en Canvas que contiene el enlace corto también debe estar habilitado con seguimiento avanzado, lo que permite el seguimiento de clics a nivel de usuario. Si el enlace corto está configurado con seguimiento básico, la opción de filtrar eventos de clic en enlaces SMS cortos no está disponible. El mismo requisito de seguimiento avanzado aplica cuando configuras la entrada de Canvas o Rutas de Acción que dependen de clics en enlaces SMS acortados.
 
 {% alert important %}
 Si se crea un borrador dentro de un Canvas activo, no se generará una URL acortada. La URL acortada real se genera cuando el borrador del Canvas se activa.
@@ -125,7 +127,7 @@ Prueba la experiencia del usuario antes de implementar el acortamiento de enlace
 
 ### ¿Los `send_ids` están asociados con los eventos de clic de SMS? {#are-send_ids-associated-with-sms-click-events}
 
-No. Sin embargo, si tienes el seguimiento avanzado habilitado, generalmente puedes atribuir `send_ids` con eventos de clic usando el [Generador de consultas]({{site.baseurl}}/query_builder) para consultar datos de Currents con esta consulta:
+No. Sin embargo, si tienes el seguimiento avanzado habilitado, generalmente puedes atribuir `send_ids` con eventos de clic usando el [generador de consultas]({{site.baseurl}}/query_builder) para consultar datos de Currents con esta consulta:
 
 ```sql
 SELECT c.*, s.send_id

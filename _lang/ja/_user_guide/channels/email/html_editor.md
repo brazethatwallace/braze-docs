@@ -4,7 +4,7 @@ article_title: カスタムHTMLでメールを作成する
 page_order: 2
 description: "このリファレンス記事では、Brazeプラットフォームを使用してメールを作成する方法について説明します。メッセージの作成、コンテンツのプレビュー、キャンペーンやキャンバスのスケジュール設定に関するベストプラクティスも含まれています。"
 tool:
-  - キャンペーン
+  - Campaigns
 channel:
   - email
 search_rank: 1
@@ -17,7 +17,7 @@ search_rank: 1
 メールキャンペーンの例については、[ケーススタディ](https://www.braze.com/customers)をご覧ください。
 
 {% alert tip %}
-メールキャンペーンを初めて作成する場合は、以下のBrazeラーニングコースを確認することを強くお勧めします。<br><br>
+メールキャンペーンを初めて作成する場合は、以下のBraze Learningコースを確認することを強くお勧めします。<br><br>
 - [メールのオプトインと権限](https://learning.braze.com/messaging-channels-email)
 - [プロジェクト：基本的なメールマーケティングプログラムを構築する](https://learning.braze.com/project-build-a-basic-email-marketing-program)
 {% endalert %}
@@ -30,7 +30,7 @@ search_rank: 1
 {% tab キャンペーン %}
 
 1. **メッセージング** > **キャンペーン**に移動し、**キャンペーンを作成**を選択します。
-2. **Email**を選択するか、複数チャネルを対象とするキャンペーンの場合は**マルチチャネル**を選択します。
+2. **メール**を選択するか、複数チャネルを対象とするキャンペーンの場合は**マルチチャネル**を選択します。
 3. キャンペーンにわかりやすく意味のある名前を付けます。
 4. 必要に応じて[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)と[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を追加します。
    * タグを使うと、キャンペーンの検索やレポートの作成が容易になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を使用する際に、特定のタグでフィルタリングできます。
@@ -44,7 +44,7 @@ search_rank: 1
 
 1. キャンバスコンポーザーを使用して[キャンバスを作成]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)します。
 2. キャンバスの設定が完了したら、キャンバスビルダーでステップを追加します。ステップにわかりやすく意味のある名前を付けます。
-3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types#schedule-delay)を選択し、必要に応じて遅延を指定します。
+3. [ステップスケジュール]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/delivery_and_entry_types)を選択し、必要に応じて遅延を指定します。
 4. 必要に応じて、このステップのオーディエンスをフィルタリングします。セグメントを指定し、追加のフィルターを追加することで、このステップの受信者をさらに絞り込むことができます。オーディエンスオプションは、遅延後のメッセージ送信時にチェックされます。
 5. [進行動作]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)を選択します。
 6. メッセージと組み合わせたい他のメッセージングチャネルを選択します。
@@ -63,7 +63,7 @@ Brazeでは、メールキャンペーンを作成する際に2つの編集エ�
 
 ![メール編集エクスペリエンスとして、ドラッグ＆ドロップエディター、HTMLエディター、またはテンプレートから選択する画面。]({% image_buster /assets/img_archive/choose_email_creation.png %}){: style="max-width:75%" }
 
-次に、既存の[メールテンプレート]({{site.baseurl}}/user_guide/channels/email/html_editor#creating-an-email-template)を選択するか、ファイルから[テンプレートをアップロード]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)するか（HTMLエディターのみ）、空白のテンプレートを使用できます。
+次に、既存の[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates/email_template)を選択するか、ファイルから[テンプレートをアップロード]({{site.baseurl}}/user_guide/messaging/templates/email_templates/html_email_template)するか（HTMLエディターのみ）、空白のテンプレートを使用できます。
 
 HTMLエディターを使用していて、デバイスがダークモードの場合にGmailモバイルアプリで背景色の一貫性を保つ必要がある場合は、[Gmailモバイルアプリとダークモードの背景色](#gmail-dark-mode)を参照してください。
 
@@ -77,7 +77,7 @@ HTMLエディターを使用していて、デバイスがダークモードの�
 
 ![「HTMLから再生成」ボタン。]({% image_buster /assets/img_archive/regenerate_from_html.png %}){: style="max-width:30%;float:right;margin-left:15px;border:none;" }
 
-Brazeは、プレーンテキストバージョンへの編集が検出されるまで、HTMLバージョンからプレーンテキストバージョンを自動的に更新します。Brazeが編集を検出すると、意図的な変更が行われたと判断し、プレーンテキストの更新を停止します。自動同期を復元するには、**Plaintext**に移動して**Regenerate from HTML**を選択します（プレーンテキストが同期していない場合にのみ表示されます）。
+Brazeは、プレーンテキストバージョンへの編集が検出されるまで、HTMLバージョンからプレーンテキストバージョンを自動的に更新します。Brazeが編集を検出すると、意図的な変更が行われたと判断し、プレーンテキストの更新を停止します。自動同期を復元するには、**プレーンテキスト**に移動して**HTMLから再生成**を選択します（プレーンテキストが同期していない場合にのみ表示されます）。
 
 {% alert tip %}
 正確なプレビューでメールにモーションを追加するには、JavaScriptの代わりにGIFを使用してください。ほとんどの受信トレイはJavaScriptをサポートしていません。
@@ -124,7 +124,7 @@ Gmailモバイルアプリ（AndroidおよびiOS）は、デバイスがダー�
 1. **送信情報**で、**差出人表示名 + アドレス**としてメールを選択します。**差出人表示名 + アドレスをカスタマイズ**を選択してカスタマイズすることもできます。
 2. **返信先アドレス**としてメールを選択します。**返信先アドレスをカスタマイズ**を選択してカスタマイズすることもできます。
 3. 次に、**BCCアドレス**としてメールを選択し、このアドレスにメールが表示されるようにします。
-4. メールに件名を追加します。オプションで、プリヘッダーとプリヘッダー後の空白を追加することもできます。
+4. メールに件名を追加します。オプションで、プリヘッダーも追加できます。プリヘッダーの後に空白を追加するには、**プリヘッダーの後に空白を追加**チェックボックスを選択します。
 
 {% multi_lang_include alerts/tip_alerts.md alert='Liquid email display name and reply-to address' %}
 
@@ -215,7 +215,7 @@ Brazeでは、高度なユースケースに必要な追加のメールヘッダ
 
 メールの作成が完了したら、送信前にテストします。概要画面の下部から**プレビューとテスト**を選択します。
 
-ここでは、顧客の受信トレイでメールがどのように表示されるかをプレビューできます。**ユーザーとしてプレビュー**を選択すると、ランダムなユーザーとしてメールをプレビューしたり、特定のユーザーを選択したり、カスタムユーザーを作成したりできます。これにより、コネクテッドコンテンツやパーソナライゼーションの呼び出しが正しく機能しているかテストできます。
+ここでは、顧客の受信トレイでメールがどのように表示されるかをプレビューできます。**ユーザーとしてプレビュー**を選択すると、ランダムなユーザーとしてメールをプレビューしたり、特定のユーザーを選択したり、カスタムユーザーを作成したりできます。これにより、Connected Contentやパーソナライゼーションの呼び出しが正しく機能しているかテストできます。
 
 次に、**プレビューリンクをコピー**を使用して、ランダムなユーザーに対してメールがどのように表示されるかを示す共有可能なプレビューリンクを生成してコピーできます。リンクは7日間有効で、その後再生成が必要です。
 
@@ -233,7 +233,7 @@ Brazeでは、高度なユースケースに必要な追加のメールヘッダ
 
 {% alert tip %}
 プレビューテキストをサポートするメールクライアントは、利用可能なプレビューテキストスペースを埋めるのに十分な文字数を常に取得します。しかし、これによりプレビューテキストが不完全になったり、最適化されていない状態になることがあります。
-<br><br>これを回避するには、目的のプレビューテキストの後に空白を作成して、メールクライアントが他の邪魔なテキストや文字をエンベロープコンテンツに取り込まないようにします。これを行うには、表示したいプレビューテキストの後にゼロ幅非結合子（`&zwnj;`）とノーブレークスペース（`&nbsp;`）のチェーンを追加します。<br><br>プリヘッダーセクションのプレビューテキストの末尾に追加すると、HTMLエディター用の以下のコードで目的の空白が追加されます。<br><br>
+<br><br>これを回避するには、目的のプレビューテキストの後に空白を作成して、メールクライアントが他の邪魔なテキストや文字をエンベロープコンテンツに取り込まないようにします。**送信設定**セクションで、**プリヘッダーの後に空白を追加**チェックボックスを選択すると、自動的に空白が追加されます。<br><br>または、より細かい制御が必要な場合は、表示したいプレビューテキストの後にゼロ幅非結合子（`&zwnj;`）とノーブレークスペース（`&nbsp;`）のチェーンを手動で追加できます。<br><br>プリヘッダーセクションのプレビューテキストの末尾に追加すると、HTMLエディター用の以下のコードで目的の空白が追加されます。<br><br>
 
 ```html
 <div style="display: none; max-height: 0px; overflow: hidden;">&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;</div>
@@ -258,7 +258,7 @@ Apple Mailアプリでは、HTMLメール内の画像リンクがクリック可
 - メール本文が400&nbsp;KBを超えている
   - クリッピングを避けるため、[102&nbsp;KB未満]({{site.baseurl}}/user_guide/message_building_by_channel/email/best_practices/guidelines_and_tips#email-size)を目指してください。
 - 空の本文または件名
-- 配信停止リンクがない
+- 購読解除リンクがない
 - 差出人ドメインが許可リストに登録されていない（送信が大幅にスロットリングされます）
 
 ## ステップ4:キャンペーンまたはキャンバスの残りを構築する {#step-4-build-the-remainder-of-your-campaign-or-canvas}
@@ -272,10 +272,10 @@ Apple Mailアプリでは、HTMLメール内の画像リンクがクリック可
 スケジュールされた時間、アクション、またはAPIトリガーに基づいてメールを配信します。詳細については、[キャンペーンのスケジュール設定]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign)を参照してください。
 
 {% alert note %}
-APIトリガーキャンペーンの場合、トリガーアクションが**Interact With キャンペーン**に設定されている場合、インタラクションとして**Receive**オプションを選択すると、Brazeが選択したキャンペーンを送信済みとしてマークした時点で新しいキャンペーンがトリガーされます。これは、そのメッセージがバウンスしたり配信に失敗した場合でも同様です。
+APIトリガーキャンペーンの場合、トリガーアクションが**キャンペーンとのインタラクション**に設定されている場合、インタラクションとして**受信**オプションを選択すると、Brazeが選択したキャンペーンを送信済みとしてマークした時点で新しいキャンペーンがトリガーされます。これは、そのメッセージがバウンスしたり配信に失敗した場合でも同様です。
 {% endalert %}
 
-キャンペーンの期間を設定したり、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を指定したり、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)ルールを設定したりすることもできます。
+キャンペーンの期間を設定したり、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)を指定したり、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)ルールを設定したりすることもできます。
 
 ### ターゲットユーザーを選択する {#choose-users-to-target}
 
@@ -283,7 +283,7 @@ APIトリガーキャンペーンの場合、トリガーアクションが**Int
 
 {% multi_lang_include audience/target_audiences.md %}
 
-特定の[サブスクリプションステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions)を持つユーザー（購読中でメールにオプトインしているユーザーなど）にのみキャンペーンを送信することもできます。
+特定の[購読ステータス]({{site.baseurl}}/user_guide/channels/email/subscriptions)を持つユーザー（購読中でメールにオプトインしているユーザーなど）にのみキャンペーンを送信することもできます。
 
 オプションで、セグメント内の指定された数のユーザーに配信を制限したり、キャンペーンの繰り返し時にユーザーが同じメッセージを2回受信できるようにしたりすることもできます。
 
@@ -318,7 +318,7 @@ Brazeでは、キャンペーンを受信した後にユーザーが特定のア
 {% endtab %}
 
 {% tab キャンバス %}
-まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-3-build-your-canvas)ステップを参照してください。
+まだ完了していない場合は、キャンバスコンポーネントの残りのセクションを完了してください。キャンバスの残りの構築方法、多変量テストとインテリジェントセレクションの実装などの詳細については、キャンバスドキュメントの[キャンバスを構築する]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#step-2-build-your-canvas)ステップを参照してください。
 {% endtab %}
 {% endtabs %}
 

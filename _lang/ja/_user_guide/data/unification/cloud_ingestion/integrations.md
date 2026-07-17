@@ -63,18 +63,18 @@ BrazeがClassicおよびProのSQLインスタンスに接続する際、2〜5分
 {% endtab %}
 {% endtabs %}
 
-### ステップ 1: テーブルまたはビューの設定 {#step-1-set-up-tables-or-views}
+### ステップ1: テーブルまたはビューの設定 {#step-1-set-up-tables-or-views}
 
 開始する前に、[クラウドデータ取り込みのテーブル設定]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/table_setup)を確認して、ソーステーブルの要件と`PAYLOAD`のフォーマット要件を理解してください。
 
 {% alert note %}
-ソーステーブルまたはビューには、以下のタブでお使いのウェアハウス向けにリストされていない列を含めることができます（例: 監査やハッシュ用の列）。Brazeはそれらのタブに記載されている列のみを読み取ります。その他の列はクラウドデータ取り込みの同期中に使用されません。
+ソーステーブルまたはビューには、以下のセクションのタブでお使いのウェアハウス向けにリストされていない列を含めることができます（例: 監査やハッシュ用の列）。Brazeはそれらのタブに記載されている列のみを読み取ります。その他の列はクラウドデータ取り込みの同期中に使用されません。
 {% endalert %}
 
 {% tabs %}
 {% tab Snowflake %}
 
-#### ステップ 1.1: テーブルの設定 {#step-11-set-up-the-table}
+#### ステップ1.1: テーブルの設定 {#step-11-set-up-the-table}
 
 ```sql
 CREATE DATABASE BRAZE_CLOUD_PRODUCTION;
@@ -106,7 +106,7 @@ CREATE OR REPLACE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
     - `PHONE` - ユーザーの電話番号です。同じ電話番号を持つ複数のプロファイルが存在する場合、最も最近更新されたプロファイルが優先されます。
 - `PAYLOAD` - Braze内のユーザーと同期するフィールドのJSON文字列です。
 
-#### ステップ 1.2: ロールとデータベース権限の設定 {#step-12-set-up-the-role-and-database-permissions}
+#### ステップ1.2: ロールとデータベース権限の設定 {#step-12-set-up-the-role-and-database-permissions}
 
 ```sql
 CREATE ROLE BRAZE_INGESTION_ROLE;
@@ -118,7 +118,7 @@ GRANT SELECT ON TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC TO 
 
 必要に応じて名前を更新してください。ただし、権限は上記の例と一致する必要があります。
 
-#### ステップ 1.3: ウェアハウスの設定とBrazeロールへのアクセス権の付与 {#step-13-set-up-the-warehouse-and-give-access-to-braze-role}
+#### ステップ1.3: ウェアハウスの設定とBrazeロールへのアクセス権の付与 {#step-13-set-up-the-warehouse-and-give-access-to-braze-role}
 
 ```sql
 CREATE WAREHOUSE BRAZE_INGESTION_WAREHOUSE;
@@ -130,7 +130,7 @@ GRANT USAGE ON WAREHOUSE BRAZE_INGESTION_WAREHOUSE TO ROLE BRAZE_INGESTION_ROLE;
 ウェアハウスは**自動再開**フラグをオンにしておく必要があります。オンにしない場合は、Brazeがクエリの実行時にウェアハウスをオンにできるように、追加の`OPERATE`権限を付与する必要があります。
 {% endalert %}
 
-#### ステップ 1.4: ユーザーの設定 {#step-14-set-up-the-user}
+#### ステップ1.4: ユーザーの設定 {#step-14-set-up-the-user}
 
 ```sql
 CREATE USER BRAZE_INGESTION_USER;
@@ -144,7 +144,7 @@ GRANT ROLE BRAZE_INGESTION_ROLE TO USER BRAZE_INGESTION_USER;
 異なるワークスペースを同じSnowflakeアカウントに接続する場合は、連携を作成するBrazeワークスペースごとに一意のユーザーを作成する必要があります。ワークスペース内では、複数の連携にわたって同じユーザーを再利用できますが、同じSnowflakeアカウントのユーザーが複数のワークスペースで重複すると、連携の作成に失敗します。
 {% endalert %}
 
-#### ステップ 1.5: SnowflakeネットワークポリシーでBraze IPを許可する（オプション） {#step-15-allow-braze-ips-in-snowflake-network-policy-optional}
+#### ステップ1.5: SnowflakeネットワークポリシーでBraze IPを許可する（オプション） {#step-15-allow-braze-ips-in-snowflake-network-policy-optional}
 
 Snowflakeアカウントの設定によっては、Snowflakeのネットワークポリシーで以下のIPアドレスを許可する必要がある場合があります。これを有効にする方法の詳細については、[ネットワークポリシーの変更](https://docs.snowflake.com/en/user-guide/network-policies.html#modifying-network-policies)に関するSnowflakeの関連ドキュメントを参照してください。
 
@@ -153,7 +153,7 @@ Snowflakeアカウントの設定によっては、Snowflakeのネットワー�
 {% endtab %}
 {% tab Redshift %}
 
-#### ステップ 1.1: テーブルの設定
+#### ステップ1.1: テーブルの設定
 
 オプションで、ソーステーブルを保持する新規データベースとスキーマを設定します。
 ```sql
@@ -189,7 +189,7 @@ CREATE TABLE BRAZE_CLOUD_PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC (
     - `PHONE` - ユーザーの電話番号です。同じ電話番号を持つ複数のプロファイルが存在する場合、最も最近更新されたプロファイルが優先されます。
 - `PAYLOAD` - Braze内のユーザーと同期するフィールドのJSON文字列です。
 
-#### ステップ 1.2: ユーザーの作成と権限の付与 {#step-12-create-user-and-grant-permissions}
+#### ステップ1.2: ユーザーの作成と権限の付与 {#step-12-create-user-and-grant-permissions}
 
 ```sql
 CREATE USER braze_user PASSWORD '{password}';
@@ -199,7 +199,7 @@ GRANT SELECT ON TABLE USERS_ATTRIBUTES_SYNC TO braze_user;
 
 これらは、このユーザーに最低限必要な権限です。CDI連携を複数作成する場合は、スキーマに権限を付与したり、グループを使用して権限を管理したりすることもできます。
 
-#### ステップ 1.3: Braze IPへのアクセスの許可 {#step-13-allow-access-to-braze-ips}
+#### ステップ1.3: Braze IPへのアクセスの許可 {#step-13-allow-access-to-braze-ips}
 
 ファイアウォールや他のネットワークポリシーがある場合は、Redshiftインスタンスへの Brazeネットワークアクセスを許可する必要があります。RedshiftのURLエンドポイントの例は「example-cluster.ap-northeast-2.redshift.amazonaws.com」です。
 
@@ -216,7 +216,7 @@ Brazeダッシュボードのリージョンに対応する以下のIPからの�
 {% endtab %}
 {% tab BigQuery %}
 
-#### ステップ 1.1: テーブルの設定
+#### ステップ1.1: テーブルの設定
 
 オプションで、ソーステーブルを保持する新規のプロジェクトまたはデータセットを設定します。
 
@@ -254,7 +254,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 1.1: テーブルの設定" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.1: テーブルの設定" }
 
 プロジェクト、データセット、テーブルには任意の名前を付けることができますが、列名は上記の定義と一致する必要があります。
 
@@ -279,7 +279,7 @@ CDIはBigQueryのパーティションをサポートしています。`UPDATED_
 詳細については、[BigQueryのパーティショニングに関するドキュメント](https://docs.cloud.google.com/bigquery/docs/partitioned-tables)を参照してください。
 {% endalert %}
 
-#### ステップ 1.2: サービスアカウントの作成と権限の付与 {#step-12-create-a-service-account-and-grant-permissions}
+#### ステップ1.2: サービスアカウントの作成と権限の付与 {#step-12-create-a-service-account-and-grant-permissions}
 
 GCPで、Brazeがテーブルに接続してデータを読み取るために使用するサービスアカウントを作成します。サービスアカウントには次の権限が必要です。
 
@@ -290,7 +290,7 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 
 サービスアカウントを作成して権限を付与したら、JSONキーを生成します。詳細については、[サービスアカウントキーの作成と削除](https://cloud.google.com/iam/docs/keys-create-delete)を参照してください。このキーは後のステップでBrazeダッシュボードにアップロードします。
 
-#### ステップ 1.3: Braze IPへのアクセスの許可
+#### ステップ1.3: Braze IPへのアクセスの許可
 
 ネットワークポリシーを設定している場合は、BigQueryインスタンスへのBrazeネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
@@ -299,7 +299,7 @@ GCPで、Brazeがテーブルに接続してデータを読み取るために使
 {% endtab %}
 {% tab Databricks %}
 
-#### ステップ 1.1: テーブルの設定
+#### ステップ1.1: テーブルの設定
 
 オプションで、ソーステーブルを保持する新しいカタログまたはスキーマを設定します。
 
@@ -339,7 +339,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
 | `BRAZE_ID` | STRING | NULLABLE |
 | `EMAIL` | STRING | NULLABLE |
 | `PHONE` | STRING | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ 1.1: テーブルの設定" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="ステップ1.1: テーブルの設定" }
 
 スキーマとテーブルには任意の名前を付けることができますが、列名は上記の定義と一致する必要があります。
 
@@ -352,7 +352,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.USERS_ATTRIBUTES_SYNC`
     - `PHONE` - ユーザーの電話番号です。同じ電話番号を持つ複数のプロファイルが存在する場合、最も最近更新されたプロファイルが優先されます。
 - `PAYLOAD` - Brazeでユーザーと同期するフィールドの文字列または構造体です。
 
-#### ステップ 1.2: アクセストークンの作成 {#step-12-create-an-access-token}
+#### ステップ1.2: アクセストークンの作成 {#step-12-create-an-access-token}
 
 BrazeがDatabricksにアクセスするには、パーソナルアクセストークンを作成する必要があります。
 
@@ -364,16 +364,16 @@ BrazeがDatabricksにアクセスするには、パーソナルアクセスト�
 
 認証情報の作成ステップでBrazeダッシュボードに入力する必要があるまで、トークンを安全な場所に保管してください。
 
-#### ステップ 1.3: Braze IPへのアクセスの許可
+#### ステップ1.3: Braze IPへのアクセスの許可
 
-ネットワークポリシーを設定している場合は、Databricksインスタンスへの Brazeネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
+ネットワークポリシーを設定している場合は、DatabricksインスタンスへのBrazeネットワークアクセスを許可する必要があります。Brazeダッシュボードのリージョンに対応する以下のIPからのアクセスを許可してください。
 
 {% multi_lang_include administer/data_centers.md datacenters='ips' %}
 
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-#### ステップ 1.1: サービスプリンシパルの設定とアクセスの許可 {#step-11-set-up-the-service-principal-and-grant-access}
+#### ステップ1.1: サービスプリンシパルの設定とアクセスの許可 {#step-11-set-up-the-service-principal-and-grant-access}
 BrazeはEntra ID認証でサービスプリンシパルを使用してFabricウェアハウスに接続します。Brazeが使用する新しいサービスプリンシパルを作成し、必要に応じてFabricリソースへのアクセスを許可します。Brazeの接続には以下の情報が必要です。
 
 * Azureアカウントのテナント ID（ディレクトリとも呼ばれます）
@@ -391,13 +391,13 @@ BrazeはEntra ID認証でサービスプリンシパルを使用してFabricウ�
 Azureでは、サービスプリンシパルシークレットの有効期限を無制限に設定することはできません。Brazeへのデータフローを維持するために、認証情報が失効する前に忘れずに更新してください。
 {% endalert %}
 
-#### ステップ 1.2: Fabricリソースへのアクセスの許可 {#step-12-grant-access-to-fabric-resources}
+#### ステップ1.2: Fabricリソースへのアクセスの許可 {#step-12-grant-access-to-fabric-resources}
 BrazeがFabricインスタンスに接続するためのアクセスを提供します。Fabricの管理ポータルで、**Settings** > **Governance and insights** > **Admin portal** > **Tenant settings**の順に移動します。
 
 * **Developer settings**で、**Service principals can use Fabric APIs**を有効にして、BrazeがMicrosoft Entra IDを使用して接続できるようにします。
 * **OneLake settings**で、**Users can access data stored in OneLake with apps external to Fabric**を有効にして、サービスプリンシパルが外部アプリからデータにアクセスできるようにします。
 
-#### ステップ 1.3: 共有ワークスペースの設定とアクセスの許可 {#step-13-set-up-a-shared-workspace-and-grant-access}
+#### ステップ1.3: 共有ワークスペースの設定とアクセスの許可 {#step-13-set-up-a-shared-workspace-and-grant-access}
 
 Brazeに接続するFabricリソースは、共有ワークスペースに配置する必要があります。デフォルトの**My Workspace**のみを使用している場合は、新しい共有ワークスペースを作成してください。
 
@@ -408,13 +408,13 @@ Brazeに接続するFabricリソースは、共有ワークスペースに配置
 
 1. ワークスペースを選択し、**Manage Access**を選択します。
 2. **+ Add people or groups**を選択します。
-3. ステップ 1.1で作成したサービスプリンシパルの名前を検索して選択します。表示されない場合は、ステップ 1.2で**Service principals can use Fabric APIs**の設定が有効になっていることを確認してください。
+3. ステップ1.1で作成したサービスプリンシパルの名前を検索して選択します。表示されない場合は、ステップ1.2で**Service principals can use Fabric APIs**の設定が有効になっていることを確認してください。
 4. ロールのドロップダウンで**Contributor**を選択します。
 
 これで、サービスプリンシパルはSQLエンドポイントを通じてこのワークスペース内のFabricウェアハウスリソース（Brazeで使用するウェアハウスを含む）にアクセスできるようになります。
 
-#### ステップ 1.4: テーブルの設定 {#step-14-set-up-the-table}
-BrazeはFabricウェアハウスのテーブルとビューの両方をサポートしています。新しいウェアハウスを作成する必要がある場合は、ステップ 1.3の共有ワークスペース内に作成してください。Fabricコンソールで**Create** > **Data Warehouse** > **Warehouse**と進みます。
+#### ステップ1.4: テーブルの設定 {#step-14-set-up-the-table}
+BrazeはFabricウェアハウスのテーブルとビューの両方をサポートしています。新しいウェアハウスを作成する必要がある場合は、ステップ1.3の共有ワークスペース内に作成してください。Fabricコンソールで**Create** > **Data Warehouse** > **Warehouse**と進みます。
 
 ```sql
 CREATE OR ALTER TABLE [warehouse].[schema].[CDI_table_name]
@@ -447,13 +447,13 @@ GO
 - `PAYLOAD` - Braze内のユーザーと同期するフィールドのJSON文字列です。
 
 
-#### ステップ 1.5: ウェアハウスの接続文字列を取得する {#step-15-get-warehouse-connection-string}
+#### ステップ1.5: ウェアハウスの接続文字列を取得する {#step-15-get-warehouse-connection-string}
 ウェアハウスのSQLエンドポイントを取得するには、Fabricで**ワークスペース**に移動し、項目の一覧でウェアハウスの名前にカーソルを合わせ、**Copy SQL connection string**を選択します。
 
 ![Microsoft AzureのFabricコンソールページ。ユーザーはここでSQL接続文字列を取得します。]({% image_buster /assets/img/cloud_ingestion/fabric_1.png %})
 
 
-#### ステップ 1.6: ファイアウォールでBraze IPを許可する（オプション） {#step-16-allow-braze-ips-in-firewall-optional}
+#### ステップ1.6: ファイアウォールでBraze IPを許可する（オプション） {#step-16-allow-braze-ips-in-firewall-optional}
 
 Microsoft Fabricアカウントの設定によっては、Brazeからのトラフィックを許可するために、ファイアウォールで以下のIPアドレスを許可する必要がある場合があります。これを有効にする方法の詳細については、[Entra Conditional Access](https://learn.microsoft.com/en-us/fabric/security/protect-inbound-traffic#entra-conditional-access)の関連ドキュメントを参照してください。
 
@@ -463,7 +463,7 @@ Microsoft Fabricアカウントの設定によっては、Brazeからのトラ�
 
 {% endtabs %}
 
-### ステップ 2: Brazeダッシュボードで新しいソースを作成する {#step-2-create-a-new-source-in-the-braze-dashboard}
+### ステップ2: Brazeダッシュボードで新しいソースを作成する {#step-2-create-a-new-source-in-the-braze-dashboard}
 
 
 {% tabs %}
@@ -471,7 +471,7 @@ Microsoft Fabricアカウントの設定によっては、Brazeからのトラ�
 
 Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み** > **ソース**に移動し、**データソースを追加**を選択して、**Snowflake**を選択します。
 
-#### ステップ 2.1: Snowflakeの接続情報の追加 {#step-21-add-snowflake-connection-information}
+#### ステップ2.1: Snowflakeの接続情報の追加 {#step-21-add-snowflake-connection-information}
 
 ソースの名前を選択し、Snowflakeの認証情報と設定を入力して、次のステップに進みます。
 
@@ -486,7 +486,7 @@ Snowflakeのアカウント識別子を確認するには:
 3. **Account identifier**の値をコピーします。
 4. SnowflakeのURLからコピーする場合は、`.snowflakecomputing.com`より前の値のみを使用してください。
 
-#### ステップ 2.2: Brazeユーザーへの公開キーの追加 {#step-22-add-a-public-key-to-the-braze-user}
+#### ステップ2.2: Brazeユーザーへの公開キーの追加 {#step-22-add-a-public-key-to-the-braze-user}
 
 認証情報と設定を入力したら、**Save credentials**をクリックしてRSAキーを生成し、Snowflakeに戻って設定を完了します。ダッシュボードに表示されている公開キーを、BrazeがSnowflakeに接続するために作成したユーザーに追加します。
 
@@ -500,7 +500,7 @@ ALTER USER BRAZE_INGESTION_USER SET RSA_PUBLIC_KEY='MIIBIjANBgkqhkiG9w0BA...';
 
 Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み** > **ソース**に移動し、**データソースを追加**を選択して、**Amazon Redshift**を選択します。
 
-#### ステップ 2.1: Redshiftの接続情報とソーステーブルの追加 {#step-21-add-redshift-connection-information-and-source-table}
+#### ステップ2.1: Redshiftの接続情報とソーステーブルの追加 {#step-21-add-redshift-connection-information-and-source-table}
 
 ソースの名前を選択し、Redshiftの認証情報と設定を入力します。プライベートネットワークトンネルを使用している場合は、スライダーを切り替えてトンネル情報を入力します。次のステップに進みます。
 
@@ -508,19 +508,48 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 Brazeダッシュボードの**Database name**フィールドは、Amazon Redshiftがデータベース識別子で追加の文字をサポートしているにもかかわらず、英字（A–Z、a–z）、数字（0–9）、アンダースコア（_）のみを受け付けます。
 {% endalert %}
 
-#### ステップ 2.2: 接続のテストとソースへの接続 {#step-22-test-connection-and-connect-to-source}
+#### ステップ2.2: 接続のテストとソースへの接続 {#step-22-test-connection-and-connect-to-source}
 
 次に、**Test connection**を選択します。成功したら、残りの設定を確定し、**Connect to Source**をクリックします。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
+
+#### トラブルシューティング: 無効なスナップショット識別子 {#troubleshooting-invalid-snapshot-identifier}
+
+**Test connection**または同期の設定中にBrazeが`Invalid snapshot identifier`エラーを返した場合、ソースオブジェクトのクエリ時に使用されるスナップショット参照をRedshiftが解決できません。
+
+Redshiftでは、スナップショットはクラスターのポイントインタイムバックアップです。各スナップショットには、Redshiftがそのバックアップ状態を参照するために使用する一意の識別子があります。詳細については、[Amazon Redshiftのスナップショットとバックアップ](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html)を参照してください。
+
+このエラーは、スナップショットのコピー、復元、またはレプリケーション関連の操作中など、Brazeがソースオブジェクトを検証している間にメタデータが変更された場合に発生する可能性があります。詳細については、[別のAWSリージョンへのスナップショットのコピー](https://docs.aws.amazon.com/redshift/latest/mgmt/cross-region-snapshot-copy.html)および[スナップショットからのクラスターの復元](https://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshot-restore-cluster-from-snapshot.html)を参照してください。
+
+トラブルシューティングの手順:
+
+1. クラスターエンドポイント、データベース、スキーマ、オブジェクト名を含むBrazeのソース設定を確認します。
+2. Redshiftで同じクエリを直接実行して、テーブルまたはビューが読み取り可能で安定していることを確認します。
+3. アクティブなスナップショット、復元、リサイズ、またはレプリケーションのアクティビティが完了した後に再試行します。
+4. 問題が解決しない場合は、頻繁に変更されるベーステーブルの代わりにマテリアライズドビューをクエリします。
+
+マテリアライズドビューは、スケジュールに従って更新できる事前計算されたクエリ結果を保存するため、CDI同期の読み取りをより安定させることができます。詳細については、[Amazon Redshiftのマテリアライズドビュー](https://docs.aws.amazon.com/redshift/latest/dg/materialized-view-overview.html)を参照してください。
+
+例:
+
+```sql
+CREATE MATERIALIZED VIEW ingestion.users_attributes_mv AS
+SELECT updated_at, external_id, alias_label, alias_name, braze_id, email, phone, payload
+FROM ingestion.users_attributes_sync;
+
+REFRESH MATERIALIZED VIEW ingestion.users_attributes_mv;
+```
+
+マテリアライズドビューを作成したら、Braze CDI同期のソースオブジェクトとしてベーステーブルの代わりにマテリアライズドビュー名を使用します。
 {% endtab %}
 {% tab BigQuery %}
 
 Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み** > **ソース**に移動し、**データソースを追加**を選択して、**Google BigQuery**を選択します。
 
-#### ステップ 2.1: BigQueryの接続情報とソーステーブルの追加 {#step-21-add-bigquery-connection-information-and-source-table}
+#### ステップ2.1: BigQueryの接続情報とソーステーブルの追加 {#step-21-add-bigquery-connection-information-and-source-table}
 
 ソースの名前を選択します。次に、JSONキーをアップロードし、サービスアカウントの名前を入力して、残りの設定フィールドを入力します。
 
-#### ステップ 2.2: 接続のテストとソースへの接続
+#### ステップ2.2: 接続のテストとソースへの接続
 
 次に、**Test connection**を選択します。成功したら、残りの設定を確定し、**Connect to Source**をクリックします。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
 
@@ -529,11 +558,11 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 
 Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み** > **ソース**に移動し、**データソースを追加**を選択して、**Databricks**を選択します。
 
-#### ステップ 2.1: Databricksの接続情報とソーステーブルの追加 {#step-21-add-databricks-connection-information-and-source-table}
+#### ステップ2.1: Databricksの接続情報とソーステーブルの追加 {#step-21-add-databricks-connection-information-and-source-table}
 
 ソースの名前を選択し、Databricksの認証情報と設定を入力します。次のステップに進みます。
 
-#### ステップ 2.2: 接続のテストとソースへの接続
+#### ステップ2.2: 接続のテストとソースへの接続
 
 次に、**Test connection**を選択します。成功したら、残りの設定を確定し、**Connect to Source**をクリックします。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
 
@@ -546,13 +575,13 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 
 Brazeダッシュボードで、**データ設定** > **クラウドデータ取り込み** > **ソース**に移動し、**データソースを追加**を選択して、**Microsoft Fabric**を選択します。
 
-#### ステップ 2.1: クラウドデータ取り込みの同期を設定する {#step-21-set-up-a-cloud-data-ingestion-sync}
+#### ステップ2.1: クラウドデータ取り込みの同期を設定する {#step-21-set-up-a-cloud-data-ingestion-sync}
 
 ソースの名前を選択し、Microsoft Fabricの認証情報と設定を入力します。
 - **Credentials Name**は、Brazeにおけるこれらの認証情報のラベルです。わかりやすい値を設定してください。
 - テナント ID、プリンシパル ID、クライアントシークレット、および接続文字列の取得方法については、セクション1のステップを参照してください。
 
-#### ステップ 2.2: 接続のテストとソースへの接続
+#### ステップ2.2: 接続のテストとソースへの接続
 
 次に、**Test connection**を選択します。成功したら、残りの設定を確定し、**Connect to Source**をクリックします。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
 
@@ -564,13 +593,13 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 
 {% endtabs %}
 
-### ステップ 3: Brazeダッシュボードで新しい同期を作成する {#step-3-create-a-new-sync-in-the-braze-dashboard}
+### ステップ3: Brazeダッシュボードで新しい同期を作成する {#step-3-create-a-new-sync-in-the-braze-dashboard}
 **データ設定** > **クラウドデータ取り込み** > **同期**に移動し、**データ同期を作成**を選択します。
 
 {% tabs %}
 {% tab Snowflake %}
 
-#### ステップ 3.1: 同期の詳細の設定と接続のテスト {#step-31-configure-sync-details-and-test-connection}
+#### ステップ3.1: 同期の詳細の設定と接続のテスト {#step-31-configure-sync-details-and-test-connection}
 同期の名前を選択します。次に、アクティブなソースから選択し、同期のソーステーブルを入力します。データタイプを選択し、**Test Connection**をクリックします。
 
 成功すると、データのプレビューが表示されます。**Next: Notifications**を選択して続行します。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
@@ -579,7 +608,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**下書きとして保存**をクリックして作業中の内容を保持してください。
 {% endalert %}
 
-#### ステップ 3.2: 通知設定の追加 {#step-32-add-notification-preferences}
+#### ステップ3.2: 通知設定の追加 {#step-32-add-notification-preferences}
 同期エラー通知用の連絡先メールアドレスを入力します。Brazeはこの連絡先情報を使用して、テーブルへのアクセスが予期せず失われたなどの連携エラーの通知を送信します。
 
 連絡先のメールアドレスには、テーブルや権限の欠落など、グローバルまたは同期レベルのエラーの通知のみが送信されます。行レベルの問題は通知されません。グローバルエラーは、同期の実行を妨げる接続の重大な問題を示します。
@@ -591,7 +620,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 - 権限の問題
 - （カタログ同期のみ）カタログ層の容量不足
 
-#### ステップ 3.3: スケジューリング {#step-33-scheduling}
+#### ステップ3.3: スケジューリング {#step-33-scheduling}
 最後に、同期を非定期または定期として設定します。
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
@@ -602,7 +631,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 
 {% tab Redshift %}
 
-#### ステップ 3.1: 同期の詳細の設定と接続のテスト
+#### ステップ3.1: 同期の詳細の設定と接続のテスト
 同期の名前を選択します。次に、アクティブなソースから選択し、同期のソーステーブルを入力します。データタイプを選択し、**Test Connection**をクリックします。
 
 成功すると、データのプレビューが表示されます。**Next: Notifications**を選択して続行します。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
@@ -611,7 +640,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**下書きとして保存**をクリックして作業中の内容を保持してください。
 {% endalert %}
 
-#### ステップ 3.2: 通知設定の追加
+#### ステップ3.2: 通知設定の追加
 同期エラー通知用の連絡先メールアドレスを入力します。Brazeはこの連絡先情報を使用して、テーブルへのアクセスが予期せず失われたなどの連携エラーの通知を送信します。
 
 連絡先のメールアドレスには、テーブルや権限の欠落など、グローバルまたは同期レベルのエラーの通知のみが送信されます。行レベルの問題は通知されません。グローバルエラーは、同期の実行を妨げる接続の重大な問題を示します。
@@ -624,7 +653,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 
 （カタログ同期のみ）カタログ層の容量不足
 
-#### ステップ 3.3: スケジューリング
+#### ステップ3.3: スケジューリング
 最後に、同期を非定期または定期として設定します。
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
@@ -635,7 +664,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 
 {% tab BigQuery %}
 
-#### ステップ 3.1: 同期の詳細の設定と接続のテスト
+#### ステップ3.1: 同期の詳細の設定と接続のテスト
 同期の名前を選択します。次に、アクティブなソースから選択し、同期のソーステーブルを入力します。データタイプを選択し、**Test Connection**をクリックします。
 
 成功すると、データのプレビューが表示されます。**Next: Notifications**を選択して続行します。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
@@ -644,7 +673,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**下書きとして保存**をクリックして作業中の内容を保持してください。
 {% endalert %}
 
-#### ステップ 3.2: 通知設定の追加
+#### ステップ3.2: 通知設定の追加
 同期エラー通知用の連絡先メールアドレスを入力します。Brazeはこの連絡先情報を使用して、テーブルへのアクセスが予期せず失われたなどの連携エラーの通知を送信します。
 
 連絡先のメールアドレスには、テーブルや権限の欠落など、グローバルまたは同期レベルのエラーの通知のみが送信されます。行レベルの問題は通知されません。グローバルエラーは、同期の実行を妨げる接続の重大な問題を示します。このような問題には、次のようなものがあります。
@@ -655,7 +684,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 
 （カタログ同期のみ）カタログ層の容量不足
 
-#### ステップ 3.3: スケジューリング
+#### ステップ3.3: スケジューリング
 最後に、同期を非定期または定期として設定します。
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
@@ -666,7 +695,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 
 {% tab Databricks %}
 
-#### ステップ 3.1: 同期の詳細の設定と接続のテスト
+#### ステップ3.1: 同期の詳細の設定と接続のテスト
 同期の名前を選択します。次に、アクティブなソースから選択し、同期のソーステーブルを入力します。データタイプを選択し、**Test Connection**をクリックします。
 
 成功すると、データのプレビューが表示されます。**Next: Notifications**を選択して続行します。接続に失敗した場合は、問題のトラブルシューティングに役立つエラーメッセージが表示されます。
@@ -675,7 +704,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**下書きとして保存**をクリックして作業中の内容を保持してください。
 {% endalert %}
 
-#### ステップ 3.2: 通知設定の追加
+#### ステップ3.2: 通知設定の追加
 同期エラー通知用の連絡先メールアドレスを入力します。Brazeはこの連絡先情報を使用して、テーブルへのアクセスが予期せず失われたなどの連携エラーの通知を送信します。
 
 連絡先のメールアドレスには、テーブルや権限の欠落など、グローバルまたは同期レベルのエラーの通知のみが送信されます。行レベルの問題は通知されません。グローバルエラーは、同期の実行を妨げる接続の重大な問題を示します。
@@ -687,7 +716,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 
 （カタログ同期のみ）カタログ層の容量不足
 
-#### ステップ 3.3: スケジューリング
+#### ステップ3.3: スケジューリング
 最後に、同期を非定期または定期として設定します。
 
 非定期の同期は、手動またはAPI経由でトリガーできます。
@@ -697,7 +726,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 {% endtab %}
 {% tab Microsoft Fabric %}
 
-#### ステップ 3.1: 同期の詳細の設定と接続のテスト
+#### ステップ3.1: 同期の詳細の設定と接続のテスト
 
 同期の名前を選択します。次に、アクティブなソースから選択し、同期のソーステーブルを入力します。データタイプを選択し、**Test Connection**をクリックします。
 
@@ -707,7 +736,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 次のステップに進むには、テスト接続に成功する必要があります。同期の作成ページを閉じる必要がある場合は、**下書きとして保存**をクリックして作業中の内容を保持してください。
 {% endalert %}
 
-#### ステップ 3.2: 通知設定の追加
+#### ステップ3.2: 通知設定の追加
 同期エラー通知用の連絡先メールアドレスを入力します。Brazeはこの連絡先情報を使用して、テーブルへのアクセスが予期せず失われたなどの連携エラーの通知を送信します。
 
 連絡先のメールアドレスには、テーブルや権限の欠落など、グローバルまたは同期レベルのエラーの通知のみが送信されます。行レベルの問題は通知されません。グローバルエラーは、同期の実行を妨げる接続の重大な問題を示します。
@@ -720,7 +749,7 @@ Brazeダッシュボードで、**データ設定** > **クラウドデータ取
 
 （カタログ同期のみ）カタログ層の容量不足
 
-#### ステップ 3.3: スケジューリング
+#### ステップ3.3: スケジューリング
 最後に、同期を非定期または定期として設定します。
 
 非定期の同期は、手動またはAPI経由でトリガーできます。

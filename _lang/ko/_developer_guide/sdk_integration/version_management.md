@@ -7,7 +7,7 @@ description: "Braze SDK의 버전 관리에 대해 알아보세요."
 
 # 버전 관리 정보 {#about-version-management}
 
-> 앱이 최신 기능과 품질 개선 사항을 반영하여 최신 상태를 유지할 수 있도록 Braze SDK의 버전 관리에 대해 알아보세요. 이전 버전의 SDK는 최신 패치, 버그 수정 또는 고객지원을 받지 못할 수 있으므로, 지속적인 개발 라이프사이클의 일부로 항상 최신 상태를 유지하는 것이 좋습니다.
+> 앱이 최신 기능과 품질 개선 사항을 반영하여 최신 상태를 유지할 수 있도록 Braze SDK의 버전 관리에 대해 알아보세요. 이전 버전의 SDK는 최신 패치, 버그 수정 또는 지원을 받지 못할 수 있으므로, 지속적인 개발 라이프사이클의 일부로 항상 최신 상태를 유지하는 것이 좋습니다.
 
 ## 버전 관리 권장 사항 {#versioning-recommendations}
 
@@ -29,13 +29,13 @@ description: "Braze SDK의 버전 관리에 대해 알아보세요."
 새 SDK 버전이 릴리스될 때 자동으로 알림을 받으려면 Braze SDK의 GitHub 리포지토리를 구독하면 됩니다:
 
 1. SDK의 GitHub 리포지토리로 이동합니다(예: [braze-android-sdk](https://github.com/braze-inc/braze-android-sdk), [braze-swift-sdk](https://github.com/braze-inc/braze-swift-sdk) 또는 [braze-web-sdk](https://github.com/braze-inc/braze-web-sdk)).
-2. 오른쪽 상단의 **Watch**를 클릭합니다.
+2. 페이지 상단의 **Watch**를 클릭합니다.
 3. **Custom**을 클릭한 다음 **Releases**를 선택하고 **Apply**를 클릭합니다.
 
 새 릴리스가 게시될 때마다 GitHub 알림(및 [알림 설정](https://github.com/settings/notifications)에 따라 이메일)을 받게 됩니다. SDK 리포지토리의 전체 목록은 [참조, 리포지토리 및 샘플 앱]({{site.baseurl}}/developer_guide/references)을 확인하세요.
 
 ## 알려진 문제 정보 {#about-known-issues}
 
-변경 사항으로 인해 빌드 파이프라인이 손상되지 않도록 하기 위해, 특정 릴리스에 알려진 문제가 있더라도 **배포 시스템에 게시된 후에는 릴리스를 변경하거나 제거하지 않습니다**.
+변경 사항으로 인해 빌드 파이프라인이 손상되지 않도록 하기 위해, 특정 릴리스에 알려진 문제가 있더라도 **배포 시스템에 게시된 후에는 릴리스를 변경하거나 제거하지 않습니다**&#8212;.
 
 이러한 경우 [Braze SDK 체인지로그]({{site.baseurl}}/developer_guide/changelogs)에 해당 문제를 문서화한 다음, 영향을 받는 메이저 또는 마이너 버전에 대한 새 패치를 최대한 빨리 릴리스합니다.

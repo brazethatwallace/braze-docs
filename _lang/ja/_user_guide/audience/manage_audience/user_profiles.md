@@ -15,7 +15,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 
 ## プロファイルへのアクセス {#access-profiles}
 
-ユーザーのプロファイルにアクセスするには、**Search Users**ページに移動し、以下のいずれかでユーザーを検索します。
+ユーザーのプロファイルにアクセスするには、**ユーザーを検索**ページに移動し、以下のいずれかでユーザーを検索します。
 
 - 外部ユーザーID
 - Braze ID
@@ -27,7 +27,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 一致するものが見つかった場合、Braze SDKで記録したそのユーザーの情報を表示できます。検索結果に複数のユーザープロファイルが返された場合は、各プロファイルを個別にマージするか、一括ユーザーマージを実行できます。詳しい手順については、[重複ユーザーのマージ]({{site.baseurl}}/user_guide/audience/manage_audience/merge_duplicate_users)を参照してください。
 
 {% alert note %}
-**Search Users**はセグメントやキャンペーンコンポーザーの**User Lookup**とは異なります。**User Lookup**は特定のユーザーがオーディエンスに一致するかどうかをテストするもので、`external_id`または`braze_id`のみを受け付けます。このページの**Search Users**はメール、電話番号、プッシュトークン、ユーザーエイリアスにも対応しています。詳細については、[セグメントのテスト]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments)を参照してください。
+**ユーザーを検索**はセグメントやキャンペーンコンポーザーの**ユーザー検索**とは異なります。**ユーザー検索**は特定のユーザーがオーディエンスに一致するかどうかをテストするもので、`external_id`または`braze_id`のみを受け付けます。このページの**ユーザーを検索**はメール、電話番号、プッシュトークン、ユーザーエイリアスにも対応しています。詳細については、[セグメントのテスト]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#testing-segments)を参照してください。
 {% endalert %}
 
 {% alert important %}
@@ -100,7 +100,7 @@ description: "このリファレンス記事では、ダッシュボードでユ
 ### イベント履歴タブ {#event-history-tab}
 
 {% alert note %}
-**イベント履歴**タブを表示するには、**Search Users**、**View User Event Properties**、および**View PII**の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。イベントプロパティには個人データが含まれる場合があるためです。
+**イベント履歴**タブを表示するには、**ユーザーを検索**、**ユーザーイベントプロパティを表示**、および**View PII**の[権限]({{site.baseurl}}/user_guide/administer/global/user_management/permissions)が必要です。イベントプロパティには個人データが含まれる場合があるためです。
 {% endalert %}
 
 **イベント履歴**タブには、ユーザーが記録したカスタムイベントと購入が表示されます。イベントデータが正しく到着しているかを確認し、ダッシュボード上で直接ユーザーレベルの問題をトラブルシューティングするために使用します。データのエクスポートや外部ツールは不要です。
@@ -147,7 +147,7 @@ RCSイベントは現在、**メッセージ履歴**タブではサポートさ�
 
 #### イベントの表示と理解 {#viewing-and-understanding-events}
 
-**メッセージ履歴**テーブルの各イベントについて、メッセージングチャネル、イベントタイプ、イベント発生のタイムスタンプ、関連するキャンペーンまたはキャンバスメッセージ、およびユーザーのデバイスデータを確認できます。特定のイベントでフィルタリングするには、**Filters**をクリックしてリストからイベントを選択します。
+**メッセージ履歴**テーブルの各イベントについて、メッセージングチャネル、イベントタイプ、イベント発生のタイムスタンプ、関連するキャンペーンまたはキャンバスメッセージ、およびユーザーのデバイスデータを確認できます。特定のイベントでフィルタリングするには、**フィルター**をクリックしてリストからイベントを選択します。
 
 ##### メッセージエンゲージメントイベント {#message-engagement-events}
 
@@ -166,7 +166,7 @@ RCSイベントは現在、**メッセージ履歴**タブではサポートさ�
 
 ##### メッセージ中止イベント {#message-abort-events}
 
-メッセージ中止イベントは、ユーザーに送信されたメッセージが[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)または[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-messages)の条件ロジック、またはLiquidレンダリングのタイムアウトにより中止された場合に発生します。
+メッセージ中止イベントは、ユーザーに送信されたメッセージが[Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)または[Connected Content]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-connected-content)の条件ロジック、またはLiquidレンダリングのタイムアウトにより中止された場合に発生します。
 
 中止イベントは以下のチャネルで利用できます。
 
@@ -179,7 +179,7 @@ RCSイベントは現在、**メッセージ履歴**タブではサポートさ�
 
 ##### フリークエンシーキャップイベント {#frequency-cap-events}
 
-フリークエンシーキャップイベントは、ユーザーがメッセージの受信対象となったものの、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)設定により実際にはメッセージを受信しなかった場合に発生します。フリークエンシーキャップの設定は、**Settings** > **Frequency Capping Rules**からカスタマイズできます。
+フリークエンシーキャップイベントは、ユーザーがメッセージの受信対象となったものの、[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)設定により実際にはメッセージを受信しなかった場合に発生します。フリークエンシーキャップの設定は、**設定** > **フリークエンシーキャップルール**からカスタマイズできます。
 
 ##### 空白の送信先 {#blank-destinations}
 

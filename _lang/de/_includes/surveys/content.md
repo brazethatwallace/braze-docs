@@ -60,10 +60,10 @@ Informationen zu gemeinsamen Stil- und Kompositionssteuerungen finden Sie unter:
 {% if include.channel == 'in_app_message' %}
 - [Editor-Blöcke des Drag-and-Drop-Editors für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
 {% elsif include.channel == 'landing_page' %}
-- [Formularblöcke für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
+- [Formularblöcke für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% else %}
 - [Editor-Blöcke des Drag-and-Drop-Editors für In-App-Nachrichten]({{site.baseurl}}/user_guide/messaging/design_and_edit/editor_blocks/?sdktab=in-app%20messages)
-- [Formularblöcke für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages#form-blocks)
+- [Formularblöcke für Landing-Pages]({{site.baseurl}}/user_guide/messaging/landing_pages/create_landing_pages)
 {% endif %}
 
 Sie können die folgenden Formularblöcke zu Umfragen hinzufügen:

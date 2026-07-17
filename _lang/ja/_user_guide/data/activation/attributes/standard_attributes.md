@@ -56,7 +56,7 @@ description: "このリファレンス記事では、Brazeの標準ユーザー�
 | `image_url` | 文字列 | ユーザーのプロファイル画像のURL。最大1,024文字です。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-## サブスクリプションと同意 {#subscription-and-consent}
+## 購読と同意 {#subscription-and-consent}
 
 これらのフィールドは、ユーザーがチャネル間でメッセージを受信する方法を管理します。これらのフィールドを更新しても、データポイント使用量にはカウントされません。
 
@@ -70,7 +70,7 @@ description: "このリファレンス記事では、Brazeの標準ユーザー�
 | `marked_email_as_spam_at` | 文字列 | ユーザーのメールがスパムとしてマークされたタイムスタンプです。[ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)形式を使用してください。 |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 role="presentation" }
 
-サブスクリプショングループの設定の詳細については、[サブスクリプショングループ]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups)を参照してください。
+購読グループの設定の詳細については、[購読グループ]({{site.baseurl}}/user_guide/channels/email/subscriptions#subscription-groups)を参照してください。
 
 ## セッションとエンゲージメント {#sessions-and-engagement}
 
@@ -84,7 +84,7 @@ description: "このリファレンス記事では、Brazeの標準ユーザー�
 
 ## プッシュトークン {#push-tokens}
 
-これらのフィールドは、別のプラットフォームからプッシュトークンを移行する際に使用します。Braze SDKを統合すると、プッシュトークンは自動的に取得されます。移行のガイダンスについては、[プッシュトークンの移行]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrating-push-tokens)を参照してください。
+これらのフィールドは、別のプラットフォームからプッシュトークンを移行する際に使用します。Braze SDKを統合すると、プッシュトークンは自動的に取得されます。移行のガイダンスについては、[プッシュトークンの移行]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)を参照してください。
 
 | フィールド | データタイプ | フォーマットと注意事項 |
 |---|---|---|

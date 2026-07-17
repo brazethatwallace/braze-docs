@@ -13,15 +13,15 @@ description: "Cette page donne un aperçu de la manière de synchroniser les don
 
 ## Étape 1 : Créer un nouveau catalogue {#step-1-create-a-new-catalog}
 
-Avant de créer une nouvelle intégration d'Ingestion de données cloud (CDI) pour les [catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs), vous devez créer un nouveau catalogue ou identifier un catalogue existant que vous souhaitez utiliser pour l'intégration. Il existe plusieurs façons de créer un nouveau catalogue, et chacune d'entre elles fonctionnera pour l'intégration CDI :
-- Télécharger un [fichier CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-1-upload-csv)
-- Créer un catalogue dans le [tableau de bord de Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/create#method-2-create-in-browser) ou lors de la configuration du CDI.
+Avant de créer une nouvelle intégration d'ingestion de données cloud (CDI) pour les [catalogues]({{site.baseurl}}/user_guide/data/activation/catalogs), vous devez créer un nouveau catalogue ou identifier un catalogue existant que vous souhaitez utiliser pour l'intégration. Il existe plusieurs façons de créer un nouveau catalogue, et chacune d'entre elles fonctionnera pour l'intégration CDI :
+- Télécharger un [fichier CSV]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog)
+- Créer un catalogue dans le [tableau de bord de Braze]({{site.baseurl}}/user_guide/data/activation/catalogs/create#creating-a-catalog) ou lors de la configuration du CDI.
 - Créer un catalogue à l'aide de l'[endpoint Créer un catalogue]({{site.baseurl}}/api/endpoints/catalogs/catalog_management/synchronous/post_create_catalog)
 
 Toute modification du schéma du catalogue (par exemple, l'ajout de nouveaux champs ou la modification du type de champ) doit être effectuée via le tableau de bord du catalogue avant que les données mises à jour ne soient synchronisées via CDI. Nous vous recommandons d'effectuer ces mises à jour lorsque la synchronisation est en pause ou n'est pas planifiée afin d'éviter les conflits entre les données de votre entrepôt de données et le schéma dans Braze.
 
-## Étape 2 : Intégrer l'Ingestion de données cloud avec les données du catalogue {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
-La configuration d'une synchronisation de catalogue suit de près le processus des [intégrations CDI de données utilisateur]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations#product-setup).
+## Étape 2 : Intégrer l'ingestion de données cloud avec les données du catalogue {#step-2-integrate-cloud-data-ingestion-with-catalog-data}
+La configuration d'une synchronisation de catalogue suit de près le processus des [intégrations CDI de données utilisateur]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/integrations).
 
 {% tabs %}
 {% tab Snowflake %}
@@ -60,8 +60,8 @@ La configuration d'une synchronisation de catalogue suit de près le processus d
 6. Passez à l'étape 2 du flux de configuration, sélectionnez le type de synchronisation « Catalogues » et saisissez le nom de l'intégration ainsi que la planification. Notez que le nom de l'intégration doit **correspondre exactement** au nom du catalogue que vous avez précédemment créé.
 7. Choisissez une fréquence de synchronisation et passez à l'étape suivante.
 8. Ajoutez la clé publique affichée sur le tableau de bord à l'utilisateur que vous avez créé pour que Braze puisse se connecter à Snowflake. Pour effectuer cette étape, vous aurez besoin d'une personne disposant d'un accès `SECURITYADMIN` ou supérieur dans Snowflake.
-9. Sélectionnez **Test Connection** pour vérifier que tout fonctionne comme prévu.
-10. Enregistrez la synchronisation et utilisez les données de catalogue synchronisées pour tous vos cas d'utilisation de personnalisation.
+9. Sélectionnez **Tester la connexion** pour vérifier que tout fonctionne comme prévu.
+10. Enregistrez la synchronisation et utilisez les données de catalogue synchronisées pour tous vos cas d'usage de personnalisation.
 {% endtab %}
 {% tab Redshift %}
 
@@ -116,7 +116,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | payload | JSON | REQUIS |
 | ID | STRING | REQUIS |
 | DELETED | BOOLEAN | FACULTATIF |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Intégrer l'Ingestion de données cloud avec les données du catalogue" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Intégrer l'ingestion de données cloud avec les données du catalogue" }
 
 {:start="2"}
 
@@ -155,7 +155,7 @@ CREATE TABLE `BRAZE-CLOUD-PRODUCTION.INGESTION.CATALOGS_SYNC`
 | payload | STRING, STRUCT ou MAP | REQUIS |
 | ID | STRING | REQUIS |
 | DELETED | BOOLEAN | NULLABLE |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Intégrer l'Ingestion de données cloud avec les données du catalogue" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Intégrer l'ingestion de données cloud avec les données du catalogue" }
 
 {:start="2"}
 
@@ -204,7 +204,7 @@ Créez des fichiers source dans S3 au format JSON ou CSV. Chaque fichier doit in
 | `payload` | Oui | Une chaîne JSON des champs à synchroniser avec l'élément de catalogue dans Braze. |
 | `DELETED` | Facultatif | Lorsque défini sur `true`, l'élément de catalogue correspondant est supprimé du catalogue. |
 | `UPDATED_AT` | *Non pris en charge* | Le stockage de fichiers ne prend pas en charge les colonnes `UPDATED_AT`. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Intégrer l'Ingestion de données cloud avec les données du catalogue" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Étape 2 : Intégrer l'ingestion de données cloud avec les données du catalogue" }
 
 {% alert note %}
 Les noms de fichiers doivent respecter les règles AWS et être uniques. Ajoutez des horodatages pour garantir l'unicité.
@@ -214,8 +214,8 @@ La configuration complète de S3 nécessite un compartiment S3, une file d'atten
 
 Pour le flux de configuration complet de S3, consultez [Intégrations de stockage de fichiers]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations), en particulier :
 
-- [Configuration de l'Ingestion de données cloud dans AWS]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-aws)
-- [Configuration de l'Ingestion de données cloud dans Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-braze)
+- [Configuration de l'ingestion de données cloud dans AWS]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-aws)
+- [Configuration de l'ingestion de données cloud dans Braze]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#setting-up-cloud-data-ingestion-in-braze)
 - [Résolution des problèmes]({{site.baseurl}}/user_guide/data/unification/cloud_ingestion/file_storage_integrations#troubleshooting)
 
 Pour les problèmes courants de notifications et d'autorisations côté AWS, consultez [Accorder des autorisations pour publier des messages de notification d'événements vers une destination](https://docs.aws.amazon.com/AmazonS3/latest/userguide/grant-destinations-permissions-to-s3.html).
@@ -264,7 +264,7 @@ Les vues de synchronisation de cette section s'appliquent uniquement aux intégr
 
 À chaque exécution de la synchronisation, Braze récupère toutes les lignes dont la valeur `UPDATED_AT` est postérieure à la dernière valeur synchronisée. Les lignes situées exactement à l'horodatage limite peuvent être re-synchronisées si de nouvelles lignes partagent le même horodatage. Nous vous recommandons de créer une vue dans votre entrepôt de données à partir de vos données de catalogue afin de mettre en place une table source qui sera entièrement actualisée à chaque exécution de la synchronisation. Avec les vues, vous n'aurez pas besoin de réécrire la requête à chaque fois.
 
-Par exemple, si vous avez une table de données produit (`product_catalog_1`) avec `product_id` et trois attributs supplémentaires, vous pouvez synchroniser la vue ci-dessous :
+Par exemple, si vous avez une table de données produit (`product_catalog_1`) avec `product_id` et trois attributs supplémentaires, vous pouvez synchroniser la vue suivante :
 
 {% tabs %}
 {% tab Snowflake %}
@@ -346,4 +346,4 @@ FROM [braze].[product_catalog] ;
 
 - Les données extraites de l'intégration seront utilisées pour créer ou mettre à jour des éléments dans le catalogue cible en fonction de l'`id` fourni.
 - Si DELETED est défini sur `true`, l'élément de catalogue correspondant sera supprimé.
-- La synchronisation ne consomme pas de points de donnée, mais toutes les données synchronisées sont comptabilisées dans l'utilisation totale de votre catalogue. Cette utilisation est mesurée en fonction du volume total de données stockées : vous n'avez donc pas besoin de vous limiter à la synchronisation des seules données modifiées.
+- La synchronisation ne consomme pas de points de donnée, mais toutes les données synchronisées sont comptabilisées dans l'utilisation totale de votre catalogue. Cette utilisation est mesurée en fonction du volume total de données stockées : vous n'avez donc pas besoin de vous soucier de ne synchroniser que les données modifiées.

@@ -11,7 +11,7 @@ description: "Este artículo de referencia cubre cómo enviar mensajes de prueba
 
 # Enviar mensajes de prueba {#send-test-messages}
 
-> Antes de enviar una campaña de mensajería a tus usuarios, como práctica recomendada, te sugerimos probarla para asegurarte de que tiene el aspecto adecuado y funciona de la forma prevista. Puedes crear y enviar mensajes de prueba a dispositivos o miembros del equipo seleccionados utilizando las herramientas del dashboard de Braze.
+> Antes de enviar una campaña de mensajería a tus usuarios, como práctica recomendada, te sugerimos probarla para asegurarte de que tiene el aspecto adecuado y funciona de la forma prevista. Puedes crear y enviar mensajes de prueba a dispositivos o miembros del equipo seleccionados utilizando las herramientas del panel de Braze.
 
 {% alert important %}
 Asegúrate de guardar el borrador de tu campaña después de probarla para evitar eliminar tu campaña. Puedes enviar mensajes de prueba sin guardar el mensaje como borrador.
@@ -44,7 +44,7 @@ Después de crear tu mensaje de Banner, puedes previsualizar tu Banner o enviar 
 
 Podrás ver tu mensaje de prueba en el dispositivo durante un máximo de 5 minutos.
 
-![Pestaña de vista previa del compositor de Banner.]({% image_buster /assets/img/banners/preview_banner.png %})
+![Pestaña de vista previa del creador de Banner.]({% image_buster /assets/img/banners/preview_banner.png %})
 
 {% alert note %}
 Ten en cuenta que tu vista previa puede no ser idéntica a la representación final en el dispositivo de un usuario debido a diferencias en el hardware.
@@ -84,14 +84,14 @@ Después de crear tu Content Card, puedes enviar una Content Card de prueba a tu
 Puedes previsualizar tu tarjeta mientras la redactas en la pestaña **Preview**. Esto debería ayudarte a visualizar cómo se verá tu mensaje final desde la perspectiva de tu usuario.
 
 {% alert note %}
-En la pestaña **Preview** de tu compositor, la vista de tu mensaje puede no ser idéntica a su representación real en el dispositivo del usuario. Siempre recomendamos enviar un mensaje de prueba a un dispositivo para asegurarte de que tus medios, texto, personalización y atributos personalizados se generen correctamente.
+En la pestaña **Preview** de tu creador, la vista de tu mensaje puede no ser idéntica a su representación real en el dispositivo del usuario. Siempre recomendamos enviar un mensaje de prueba a un dispositivo para asegurarte de que tus medios, texto, personalización y atributos personalizados se generen correctamente.
 {% endalert %}
 
 ### Lista de verificación de prueba
 
 - ¿Tu usuario de prueba ha optado por recibir notificaciones push con un token de push válido?
 - ¿Las imágenes y los medios se muestran y funcionan como se espera?
-- ¿Liquid funciona como se espera? ¿Has contemplado un [valor de atributo predeterminado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) en caso de que Liquid no devuelva información?
+- ¿Liquid funciona como se espera? ¿Has contemplado un [valor de atributo predeterminado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) en caso de que Liquid no devuelva información?
 - ¿Tu texto es claro, conciso y correcto?
 - ¿Tus enlaces dirigen al usuario a donde deben ir?
 - ¿Tu usuario de prueba ha optado por recibir notificaciones push con un token de push válido?
@@ -107,7 +107,7 @@ Si una imagen de Content Card no se renderiza o aparece rota:
 
 ### Depuración {#debug}
 
-Después de enviar tus Content Cards, puedes desglosar o depurar cualquier problema desde el [Registro de eventos de usuario]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) en la consola para desarrolladores.
+Después de enviar tus Content Cards, puedes desglosar o depurar cualquier problema desde el [registro de usuarios del evento]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/event_user_log) en la consola para desarrolladores.
 
 Un caso de uso común es intentar depurar por qué un usuario no puede ver una Content Card en particular. Para hacerlo, puedes buscar en los **Event User Logs** las Content Cards entregadas al SDK al inicio de la sesión, pero antes de una impresión, y rastrearlas hasta una campaña específica:
 
@@ -147,7 +147,7 @@ Un caso de uso común es intentar depurar por qué un usuario no puede ver una C
 Desde ahí, puedes revisar la configuración y el contenido de tu mensaje para profundizar y determinar por qué un usuario no puede ver una Content Card en particular.
 
 {% endtab %}
-{% tab Email %}
+{% tab Correo electrónico %}
 
 1. Redacta tu mensaje de correo electrónico.
 2. Selecciona **Preview and Test**.
@@ -197,7 +197,7 @@ En **Preview**, la vista de tu mensaje puede no ser idéntica a su representaci�
 ### Lista de verificación de prueba
 
 - ¿Las imágenes y los medios se muestran y funcionan como se espera?
-- ¿Liquid funciona como se espera? ¿Has contemplado un [valor de atributo predeterminado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-attribute-values) en caso de que Liquid no devuelva información?
+- ¿Liquid funciona como se espera? ¿Has contemplado un [valor de atributo predeterminado]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/conditional_logic#accounting-for-null-nil-and-blank-attribute-values) en caso de que Liquid no devuelva información?
 - ¿Tu texto es claro, conciso y correcto?
 - ¿Tus botones dirigen al usuario a donde deben ir?
 
@@ -254,7 +254,7 @@ Si ves un error que indica que ninguno de los usuarios seleccionados tiene token
 
 ![Prueba de push web]({% image_buster /assets/img_archive/testwebpush.png %})
 
-Si ya has aceptado mensajes push desde el dashboard de Braze, el mensaje aparecerá en la esquina de tu pantalla. De lo contrario, selecciona **Allow** cuando se te solicite, y el mensaje se mostrará.
+Si ya has aceptado mensajes push desde el panel de Braze, el mensaje aparecerá en la esquina de tu pantalla. De lo contrario, selecciona **Allow** cuando se te solicite, y el mensaje se mostrará.
 
 Si ves un error que indica que ninguno de los usuarios seleccionados tiene tokens de push coincidentes para notificación push web, verifica que el usuario de prueba tenga un token de push válido registrado para la plataforma seleccionada. Para recibir un token de push, el usuario debe estar configurado para recibir notificaciones push para la aplicación en su dispositivo. Para más detalles, consulta [Habilitación de push y estados de suscripción push]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states).
 
@@ -301,7 +301,7 @@ Al enviar un mensaje de prueba, asegúrate de elegir la opción de **Select Exis
 
 #### Seleccionar un usuario existente {#selecting-an-existing-user}
 
-Si seleccionas un usuario existente, introduce el ID de usuario o correo electrónico específico en el campo de búsqueda. Luego, usa la vista previa del dashboard para ver cómo aparecería tu mensaje para ese usuario, y envía un mensaje de prueba a tu dispositivo que refleje lo que ese usuario vería.
+Si seleccionas un usuario existente, introduce el ID de usuario o correo electrónico específico en el campo de búsqueda. Luego, usa la vista previa del panel para ver cómo aparecería tu mensaje para ese usuario, y envía un mensaje de prueba a tu dispositivo que refleje lo que ese usuario vería.
 
 ![Seleccionar un usuario]({% image_buster /assets/img_archive/personalized_testing_select.png %})
 
@@ -388,12 +388,13 @@ Hay algunas situaciones en las que los mensajes de prueba no se comportan de la 
 - Para probar mensajes dentro de la aplicación y Content Cards, el usuario objetivo debe tener un token de push para el dispositivo objetivo.
 - Para probar enlaces de cancelación de suscripción en correos electrónicos, asegúrate de que la dirección de correo electrónico de tu usuario de prueba esté en el espacio de trabajo correspondiente.
 - El encabezado `List-Unsubscribe` no se incluye en los correos electrónicos enviados por la funcionalidad de mensaje de prueba.
+- Los correos electrónicos enviados a usuarios del grupo semilla no actualizan la lista de campañas recibidas del perfil de usuario ni incrementan los envíos en los análisis del panel.
 
 ## Solución de problemas {#troubleshooting}
 
 ### Mensajes dentro de la aplicación {#in-app-messages}
 
-Si tu campaña de mensaje dentro de la aplicación no se activa con una campaña push, verifica la segmentación de la campaña dentro de la aplicación para confirmar que el usuario cumple con la audiencia objetivo **antes** de recibir el mensaje push.
+Si tu campaña de mensaje dentro de la aplicación no se activa con una campaña push, verifica la segmentación de la campaña dentro de la aplicación para confirmar que el usuario cumple con el público objetivo **antes** de recibir el mensaje push.
 
 Para envíos de prueba en Android e iOS, los mensajes dentro de la aplicación que usan el comportamiento de clic **Request push permission** pueden no mostrarse en algunos dispositivos. Como solución alternativa:
 - **Android:** Los dispositivos deben estar en Android 13 y nuestra versión del SDK de Android 21.0.0. Otra razón puede ser que el dispositivo en el que se muestra el mensaje dentro de la aplicación ya tiene un aviso a nivel del sistema. Es posible que hayas seleccionado **Do not ask again**, por lo que puede que necesites reinstalar la aplicación para restablecer los permisos de notificación antes de probar de nuevo.

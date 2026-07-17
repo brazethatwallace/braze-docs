@@ -173,8 +173,8 @@ Empfohlene E-Commerce-Events speisen dieselben Umsatzoberflächen, die Kund:inne
 Für nicht nutzerbezogene berechnete Felder (z. B. Campaign- oder Canvas-Umsatz) wird der Umsatz in allen Berichten gleich berechnet: `price` multipliziert mit `quantity` pro Produkt in der Bestellung, summiert über die Produkte in jedem `order_placed`-Event.
 
 {% alert note %}
-Um eine doppelte Zählung von Umsätzen zu vermeiden, senden Sie nicht gleichzeitig Legacy-Käufe und empfohlene E-Commerce-Events für dieselben Bestellungen. Wenn Sie einen Übergang von Legacy-Käufen zu empfohlenen Events planen, stimmen Sie die Änderung mit Ihrem Braze-Account-Team ab, bevor Sie Integrationsänderungen vornehmen.<br><br>
-Umsatzberechnungen begrenzen einzelne Produktmengen auf `1.000` Einheiten pro Bestellung. Wenn ein `quantity`-Feld für ein Produkt fehlt, wird standardmäßig `1` verwendet. Das ursprüngliche `order_placed`-Event behält die vollständige Menge bei, die Sie gesendet haben – nur die Umsatzberechnung wendet die Obergrenze an.
+Umsatzberechnungen begrenzen einzelne Produktmengen auf 1.000 Einheiten pro Bestellung. Wenn ein Mengenfeld für ein Produkt fehlt, wird standardmäßig eine Einheit angenommen. Das ursprüngliche `ecommerce.order_placed`-Event behält die vollständige Menge bei, die Sie gesendet haben – nur die Umsatzberechnung wendet die Obergrenze an.<br><br>
+Wenn Sie von Legacy-Kauf-Events zu `ecommerce.order_placed` migrieren, stimmen Sie sich mit Ihrem Braze-Account-Team ab, bevor Sie Integrationsänderungen vornehmen. Senden Sie während der Übergangsphase sowohl Legacy-Kauf- als auch `ecommerce.order_placed`-Events, um zu bestätigen, dass sie korrekt ausgelöst werden, und um Ihre aktiven Campaigns, Canvases und Segmente auf die Migration zum neuen Event vorzubereiten. Ihr Account-Team kann Ihnen dann helfen, den Umstieg zu planen, um das Umsatz-Reporting von Legacy-Kauf-Events auf `ecommerce.order_placed` umzustellen.
 {% endalert %}
 
 ### BrazeAI<sup>TM</sup>

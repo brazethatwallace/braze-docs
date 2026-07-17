@@ -26,7 +26,7 @@ Para mayor seguridad, puedes especificar una lista de direcciones IP y subredes 
 Si no especificas ninguna, las solicitudes se pueden enviar desde cualquier dirección IP.
 
 {% alert tip %}
-¿Estás creando un webhook de Braze a Braze y usando la lista de permitidos? Consulta nuestra lista de [IP para la lista blanca]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-whitelisting).
+¿Estás creando un webhook de Braze a Braze y usando la lista de permitidos? Consulta nuestra lista de [IP para la lista blanca]({{site.baseurl}}/user_guide/channels/webhooks/create_a_webhook#ip-allowlisting).
 {% endalert %}
 
 ### Alertas de uso de API {#api-usage-alerts}
@@ -35,7 +35,7 @@ Configura alertas de uso de API para monitorizar la actividad clave de la API y 
 
 Puedes rastrear dos tipos de actividad de API:
 
-- **Puntos de conexión de API REST:** Acciones como enviar mensajes, crear Campaigns o exportar datos.
+- **Endpoints de API REST:** Acciones como enviar mensajes, crear campañas o exportar datos.
 - **Solicitudes de API del SDK:** Eventos de tu experiencia del cliente, como desencadenar mensajes dentro de la aplicación o sincronizar perfiles de usuario. *Esta característica está disponible si has adquirido usuarios activos al mes (CY 24–25).*
 
 Una vez que elijas qué rastrear, puedes definir las condiciones de alerta. Por ejemplo, recibir una notificación si las respuestas de error aumentan un 20 % en una hora. Recibirás una notificación por correo electrónico, webhook o ambos, según tu configuración. Para comenzar, consulta [Alertas de uso de API]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/api_usage_alerts).

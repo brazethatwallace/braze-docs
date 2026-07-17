@@ -3,7 +3,7 @@ nav_title: Einverständnis und Adresserfassung
 article_title: Einverständnis und Adresserfassung
 page_order: 6
 page_type: reference
-description: "Dieser Referenzartikel behandelt Best Practices für die Einholung von Zustimmungen und E-Mail-Adressen von Nutzer:innen und definiert die verschiedenen möglichen Statusangaben von Nutzer:innen, die sich für den Newsletter angemeldet haben."
+description: "Dieser Referenzartikel behandelt Best Practices für die Einholung von Zustimmungen und E-Mail-Adressen von Nutzer:innen und definiert die verschiedenen möglichen Abo-Status von Abonnent:innen."
 channel: email
 
 ---
@@ -12,16 +12,16 @@ channel: email
 
 > Bevor Sie Ihre ersten E-Mails verschicken, sollten Sie zunächst die Erlaubnis Ihrer Kund:innen einholen. Das ist eine Frage der Höflichkeit und wirkt sich positiv auf Ihre Öffnungsraten aus!
 
-## Statusangaben von Abonnent:innen {#subscriber-states}
+## Abo-Status von Abonnent:innen {#subscriber-states}
 
-Es gibt drei Zustände des E-Mail-Abonnements für Nutzer:innen: **Opt-in**, **Abonniert** und **Abgemeldet**. Um den Abo-Status von Nutzer:innen zu ändern, lesen Sie unseren Artikel zum [Ändern von Abonnements]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-subscriptions) oder verwenden Sie unsere [Abo-APIs]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
+Es gibt drei Zustände des E-Mail-Abonnements für Nutzer:innen: **Opt-in**, **Abonniert** und **Abgemeldet**. Um den Abo-Status von Nutzer:innen zu ändern, lesen Sie unseren Artikel zum [Ändern von Abonnements]({{site.baseurl}}/user_guide/channels/email/subscriptions#changing-email-subscriptions) oder verwenden Sie unsere [Abo-APIs]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status).
 
-| Statusangabe | Beschreibung |
+| Abo-Status | Beschreibung |
 |---|---|
 | Opt-in | Diese Kund:innen haben auf den Link in einer Bestätigungs-E-Mail geklickt und sich aktiv für den Erhalt Ihrer Nachrichten entschieden. |
 | Abonniert | Standardmäßig sind Nutzer:innen für E-Mails angemeldet, solange sie eine gültige E-Mail-Adresse in ihrem Profil gespeichert haben. Nutzer:innen bleiben abonniert, bis sie sich abmelden oder ein Opt-in durchführen. |
 | Abgemeldet | Um als abgemeldet markiert zu werden, hat sich ein:e Kund:in entweder ausdrücklich von Ihren E-Mails abgemeldet oder eine E-Mail als Spam markiert. |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Statusangaben von Abonnent:innen" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Abo-Status von Abonnent:innen" }
 
 ## Methoden zur Adresserfassung {#address-collection-methods}
 

@@ -22,7 +22,7 @@ Las propiedades de entrada se pueden usar en Canvas basados en acciones y desenc
 
 - [Objeto de propiedades de entrada de Canvas]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
 - [Objeto de propiedades del evento]({{site.baseurl}}/api/objects_filters/event_object)
-- [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product_id)
+- [Objeto de compra]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-product-id)
 
 Las propiedades pasadas desde estos objetos se pueden referenciar usando la etiqueta de Liquid `canvas_entry_properties`. Por ejemplo, una solicitud con `"canvas_entry_properties": {"product_name": "shoes", "product_price": 79.99}` podría añadir la palabra "shoes" a un mensaje agregando el Liquid {% raw %}`{{canvas_entry_properties.${product_name}}}`{% endraw %}.
 

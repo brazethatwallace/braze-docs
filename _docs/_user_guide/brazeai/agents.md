@@ -39,12 +39,12 @@ Features for Braze Agents include:
 
 - **Flexible setup:** Use a Braze-provided LLM or connect your own [AI model providers]({{site.baseurl}}/partners/ai_model_providers) (such as OpenAI, Anthropic, Google Gemini, or Databricks Mosaic).
 - **Seamless integration:** Deploy agents directly in Canvas steps or catalog fields.
-- **Testing and logging tools:** Preview your agent's output by testing with sample inputs before you launch. View logs for each time the agent runs, including the input and output for that run.
+- **Testing, logging, and version history:** Preview your agent's output by testing with sample inputs before you launch. View logs for each time the agent runs, including the input and output for that run. Use the **Version history** tab to review past versions and inline diffs of instruction changes.
 - **Usage controls:** Daily limits help manage performance and costs.
 
 ## About Braze Agents
 
-Agents are configured with instructions (system prompts) that define how they behave. When an agent runs, it uses your instructions along with any data you pass in to generate a response. They can't access user data beyond what is provided by the selected context and instructions.
+Agents are configured with instructions (system prompts) that define how they behave. When an agent runs, it uses your instructions along with any data you explicitly pass in to generate a response. They cannot access user data beyond what you configure—Liquid variables, Agent context selections, Canvas context variables, and Context step values. Agents do not search profiles or warn when data is missing. See [What data agents receive]({{site.baseurl}}/user_guide/brazeai/agents/reference#what-data-agents-receive).
 
 ### Key concepts
 
@@ -57,6 +57,7 @@ Agents are configured with instructions (system prompts) that define how they be
 | [Output variable]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step#define-the-output-variable) | The output the agent produces when used in Canvas steps. Output variables store the agent’s result to personalize content or guide workflow paths. Output variables can be a string, a number, or a boolean data type.  |
 | [Invocation](#limitations) | A single run of the agent. This counts against your daily limits. |
 | [Output format]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#select-output) | The predefined data structure of the agent's response. |
+| [Knowledge sources]({{site.baseurl}}/user_guide/brazeai/agents/knowledge_sources/) | A type of agent context used to retrieve data from a catalog more accurately than if the catalog is referenced directly in the agent's instructions. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Key concepts" }
 
 ## Limitations
@@ -64,6 +65,7 @@ Agents are configured with instructions (system prompts) that define how they be
 The following limitations apply:
 
 - Each agent has a default daily invocation limit of 250,000 runs, which can be increased up to a maximum of 1,000,000 runs per day. Contact your customer success manager if you're interested in increasing this limit.
+- Agent Console shows a **Daily action credit cost limit** for each agent—the estimated maximum credits per day based on your model's per-invocation credit ratio and the daily invocation limit. See [Daily invocation and credit limits]({{site.baseurl}}/user_guide/brazeai/agents/reference#daily-invocation-and-credit-limits).
 - By default, each run must complete within 20 seconds. After 20 seconds, the agent returns a `null` response where it is used.
     - If your agents consistently time out, contact your Braze account manager to increase this limit.
 - Input data is limited to 25 KB per request. Longer inputs are truncated.
@@ -76,9 +78,11 @@ To validate ROI before scaling, use an [Experiment Paths]({{site.baseurl}}/user_
 
 ## Error handling
 
-If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) from the LLM provider during a **Canvas Agent step**, Braze continuously retries the request using exponential backoff. Catalog agents do not retry rate-limited invocations. For other failures (such as a timeout or invalid API key), the Canvas agent output is set to `null` unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in Agent Console (Canvas step agents only). If an agent reaches its daily invocation limit, Braze applies configured fallback values when present; otherwise the output is set to `null`.
+If the connected model returns a [rate limit error]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) from the LLM provider during a Canvas Step Agent or Catalog Agent invocation, Braze continuously retries the request using exponential backoff. 
 
-When many users enter an Agent step at once, processing may take longer because of [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls). Configure fallback values in Agent Console for Canvas agents so users still receive output when an invocation fails, or use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) in downstream Message steps.
+For other failures (such as a timeout or invalid API key), the Canvas Step Agent output is set to `null` unless the agent has [fallback values configured]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) in Agent Console (Canvas Step Agents only). Catalog agents do not retry non-rate-limit failures. If an agent reaches its daily invocation limit, Braze applies configured fallback values when present; otherwise the output is set to `null`.
+
+When many users enter an Agent step at once, processing may take longer because of [invocation flow controls]({{site.baseurl}}/user_guide/brazeai/agents/reference#invocation-flow-controls). Configure fallback values in Agent Console for Canvas Step Agents so users still receive output when an invocation fails, or use [default Liquid values]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) in downstream Message steps.
 
 ## How is my data used and sent to Braze-provided LLMs?
 

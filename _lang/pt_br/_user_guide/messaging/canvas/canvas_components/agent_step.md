@@ -45,7 +45,7 @@ Na lista de agentes, cada agente é identificado com seu [limite diário de invo
 
 ### Etapa 3: Definir a saída do agente {#define-the-output-variable}
 
-As saídas do agente são chamadas de "variáveis de saída" e são armazenadas em uma [variável de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-types) para fácil acesso. Para definir a variável de saída, dê um nome à variável.
+As saídas do agente são chamadas de "variáveis de saída" e são armazenadas em uma [variável de contexto]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context#context-variable-filters) para fácil acesso. Para definir a variável de saída, dê um nome à variável.
 
 O tipo de dado da variável de saída é definido no [Console do agente]({{site.baseurl}}/user_guide/brazeai/agents). As saídas do agente podem ser salvas como strings, números, booleanos ou objetos. Isso as torna flexíveis tanto para personalização de texto quanto para lógica condicional no seu Canvas. Veja alguns usos comuns para cada tipo:
 
@@ -54,7 +54,7 @@ O tipo de dado da variável de saída é definido no [Console do agente]({{site.
 | String | Personalização de mensagens (linhas de assunto, textos, respostas) |
 | Número | Pontuação, limites, roteamento em [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) |
 | Booleano | Ramificação Sim/Não em [Divisões de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split) |
-| Objeto | Aproveite um ou mais dos tipos de dados acima com uma única chamada de LLM em uma estrutura de dados previsível |
+| Objeto | Aproveite um ou mais dos tipos de dados anteriores nesta seção com uma única chamada de LLM em uma estrutura de dados previsível |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 3: Definir a saída do agente" }
 
 Você pode usar uma variável de saída em todo o Canvas usando a mesma sintaxe de modelo que usaria com uma variável de contexto. Use o filtro de Segment **Context Variable** ou insira as respostas do agente diretamente usando Liquid: {% raw %}`{{context.${response_variable_name}}}`{% endraw %}.
@@ -75,15 +75,24 @@ O agente já recebe automaticamente o contexto configurado na seção **Instruct
 
 ### Etapa 5: Testar o agente {#step-5-test-the-agent}
 
-Após configurar sua etapa de agente, você pode testar e pré-visualizar a saída desta etapa.
+Você pode testar uma etapa de agente de duas formas:
+
+**Prévia na etapa (construtor do Canvas):** Após configurar a etapa, use a prévia da etapa para ver a saída do agente para um usuário aleatório, um usuário existente ou um usuário personalizado. Isso testa a etapa isoladamente, sem percorrer toda a jornada do Canvas.
+
+**Testar Canvas (jornada completa):** Selecione **Test Canvas** no rodapé do Canvas para pré-visualizar a jornada do usuário de ponta a ponta. Quando o teste chegar à sua etapa de agente, a Braze perguntará **Deseja executar o agente "{agentName}"?**
+
+- Selecione **Sim** para opcionalmente adicionar contexto e, em seguida, selecione **Simulate response** para invocar o agente para o usuário de prévia. Você pode descrever entradas de exemplo em linguagem natural (por exemplo, conteúdo do carrinho ou texto da mensagem) para complementar o perfil do usuário teste e qualquer contexto do Canvas já definido anteriormente.
+- Selecione **Não** para pular a invocação ao vivo e usar a **saída de fallback** configurada do agente no Console do agente.
+
+As invocações de **Simulate response** contam para o limite diário de invocações do agente e aparecem em **Console do agente** > **Logs**. Para o comportamento completo do Testar Canvas, consulte [Pré-visualizar jornadas de usuários]({{site.baseurl}}/user_guide/messaging/canvas/testing_canvases/preview_user_paths#agent-steps).
 
 ![Pré-visualizar a saída do agente como um usuário aleatório.]({% image_buster /assets/img/ai_agent/agent_step_preview.png %}){: style="max-width:80%;"}
 
 ## Tratamento de erros {#error-handling}
 
-Para saber como a Braze lida com falhas de agentes, erros de limite de taxa e controles de fluxo de invocação, consulte [Tratamento de erros e comportamento de fallback]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior) em Implantar agentes e [Tratamento de erros]({{site.baseurl}}/user_guide/brazeai/agents#error-handling) em Agentes da Braze.
+Para saber como a Braze lida com falhas de agentes, erros de limite de frequência e controles de fluxo de invocação, consulte [Tratamento de erros e comportamento de fallback]({{site.baseurl}}/user_guide/brazeai/agents/deploying_agents#fallback-behavior) em Implantar agentes e [Tratamento de erros]({{site.baseurl}}/user_guide/brazeai/agents#error-handling) em Agentes da Braze.
 
-- Se o modelo conectado retornar um [erro de limite de taxa]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) do provedor de LLM, a Braze tenta novamente a solicitação de forma contínua usando backoff exponencial até que a chamada seja bem-sucedida ou a Braze determine que ela não pode ser concluída; os usuários então avançam para a próxima etapa do Canvas.
+- Se o modelo conectado retornar um [erro de limite de frequência]({{site.baseurl}}/user_guide/brazeai/agents/reference#rate-limit-errors) do provedor de LLM, a Braze tenta novamente a solicitação de forma contínua usando backoff exponencial até que a chamada seja bem-sucedida ou a Braze determine que ela não pode ser concluída; os usuários então avançam para a próxima etapa do Canvas.
 - Para outras falhas (como erro de timeout ou chave de API inválida), ou quando um agente atinge seu limite diário de invocações, a variável de saída é definida como `null`, a menos que o agente tenha [valores de fallback configurados]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#configure-fallback-values) no Console do agente. Quando valores de fallback estão configurados, a Braze renderiza o fallback com Liquid por usuário e armazena o resultado na variável de saída, inclusive quando o limite diário bloqueia uma invocação.
 - Se você não configurar valores de fallback, use [valores padrão de Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/setting_default_values) nas etapas de mensagem subsequentes para lidar com saídas nulas. Por exemplo, no modal **Add Personalization**, você pode inserir um valor padrão de Liquid como {% raw %}`{{context.${response_variable_name}.push_title | default: 'Hello friend!'}}`{% endraw %} ou {% raw %}`{{context.${response_variable_name}.push_body | default: 'Open our app to get your prize!'}}`{% endraw %}.
 - As respostas são armazenadas em cache para entradas idênticas e podem ser reutilizadas para invocações idênticas repetidas dentro de alguns minutos.
@@ -113,9 +122,9 @@ O padrão a seguir usa três agentes para um exemplo de viagens: alguém pesquis
 - O agente 2 retorna um valor de roteamento que seu Canvas pode usar para ramificação. Use um número, booleano ou objeto estruturado para que a saída corresponda à forma como você faz a ramificação. Mapeie esse valor para uma etapa de [Jornadas do público]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) ou [Divisão de decisão]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/decision_split). Por exemplo, considere jornadas separadas para mensagens baseadas em fidelidade versus mensagens baseadas em ofertas.
 - O agente 3 redige o texto da mensagem gerada apenas nas ramificações onde você deseja. Passe o resumo do agente 1 (e qualquer contexto específico da ramificação) para que este agente se concentre no tom e nos limites do canal, em vez de normalizar entradas e escolher estratégias no mesmo prompt.
 
-### Use a etapa Jornadas do experimento para testar jornadas com agentes em pequena escala {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
+### Use a etapa jornada experimental para testar jornadas com agentes em pequena escala {#use-the-experiment-paths-step-to-test-agentic-journeys-at-small-scale}
 
-Para testar o desempenho e o consumo de créditos do seu agente em comparação com suas jornadas existentes, adicione uma etapa de [Jornadas do experimento]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que apenas parte do seu público entre na ramificação que contém sua etapa de agente.
+Para testar o desempenho e o consumo de créditos do seu agente em comparação com suas jornadas existentes, adicione uma etapa de [jornada experimental]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) para que apenas parte do seu público entre na ramificação que contém sua etapa de agente.
 
 Por exemplo, você pode começar enviando alguns milhares de usuários por dia por uma jornada com o agente e enviar o restante para uma jornada de controle ou uma jornada sem o agente. Colete dados por 1 a 2 semanas e compare indicadores-chave de desempenho (KPIs), contra-métricas e consumo de créditos do agente entre as jornadas. Dessa forma, você pode ganhar confiança e comprovar o ROI antes de aumentar o tráfego para a ramificação habilitada com agente, limitando o consumo de invocações ao mesmo tempo.
 
@@ -125,10 +134,10 @@ Por exemplo, você pode começar enviando alguns milhares de usuários por dia p
 
 De modo geral, recomendamos usar uma etapa de agente quando você deseja alimentar dados contextuais específicos em um LLM e fazer com que ele atribua de forma agêntica uma variável de contexto do Canvas de maneira inteligente, em uma escala impossível para humanos.
 
-Digamos que você está enviando uma mensagem personalizada para recomendar um novo sabor de sorvete a um usuário que anteriormente pediu chocolate e morango. Veja a diferença entre usar uma etapa de agente e a Recomendação de item de IA:
+Digamos que você está enviando uma mensagem personalizada para recomendar um novo sabor de sorvete a um usuário que anteriormente pediu chocolate e morango. Veja a diferença entre usar uma etapa de agente e a recomendação de itens de IA:
 
 - **Etapa de agente:** Usa LLMs para tomar uma decisão qualitativa sobre o que o usuário pode querer com base nas instruções e nos dados de contexto fornecidos ao agente. Neste exemplo, uma etapa de agente pode recomendar um novo sabor com base na possibilidade de o usuário querer experimentar sabores diferentes.
-- **Recomendação de item de IA:** Usa modelos de machine learning para prever os produtos que um usuário tem maior probabilidade de querer com base em eventos passados do usuário, como compras. Neste exemplo, a Recomendação de item de IA sugeriria um sabor (baunilha) com base nos dois pedidos anteriores do usuário (chocolate e morango) e em como esses se comparam aos comportamentos de outros usuários no seu espaço de trabalho.
+- **Recomendação de itens de IA:** Usa modelos de machine learning para prever os produtos que um usuário tem maior probabilidade de querer com base em eventos passados do usuário, como compras. Neste exemplo, a recomendação de itens de IA sugeriria um sabor (baunilha) com base nos dois pedidos anteriores do usuário (chocolate e morango) e em como esses se comparam aos comportamentos de outros usuários no seu espaço de trabalho.
 
 ### Como as etapas de agente usam os dados de entrada? {#how-do-agent-steps-use-input-data}
 

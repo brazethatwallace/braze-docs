@@ -5,7 +5,7 @@ search_tag: Endpoint
 page_order: 7
 layout: api_page
 page_type: reference
-description: "Este artículo describe los detalles sobre el punto de conexión de Braze Eliminar direcciones de correo electrónico de la lista de correo no deseado."
+description: "Este artículo describe los detalles sobre el endpoint de Braze Eliminar direcciones de correo electrónico de la lista de correo no deseado."
 
 ---
 {% api %}
@@ -14,13 +14,13 @@ description: "Este artículo describe los detalles sobre el punto de conexión d
 /email/spam/remove
 {% endapimethod %}
 
-> Utiliza este punto de conexión para eliminar direcciones de correo electrónico de tu lista de correo no deseado de Braze y de la lista de correo no deseado mantenida por tu proveedor de correo electrónico.
+> Utiliza este endpoint para eliminar direcciones de correo electrónico de tu lista de correo no deseado de Braze y de la lista de correo no deseado mantenida por tu proveedor de correo electrónico.
 
 {% apiref postman %}https://documenter.getpostman.com/view/4689407/SVYrsdsG?version=latest#1614a82f-510a-4c37-95a6-8207a125e487 {% endapiref %}
 
 ## Requisitos previos {#prerequisites}
 
-Para utilizar este punto de conexión, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key) con el permiso `email.spam.remove`.
+Para utilizar este endpoint, necesitarás una [clave de API]({{site.baseurl}}/api/basics#rest-api-key-permissions) con el permiso `email.spam.remove`.
 
 ## Límite de velocidad {#rate-limit}
 

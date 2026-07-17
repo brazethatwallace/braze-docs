@@ -55,14 +55,14 @@ Si tu espacio de trabajo utiliza limitación de frecuencia global, es posible qu
 
 ### Límites de velocidad {#rate-limits}
 
-Si tienes un límite de velocidad configurado para tu Campaign o Canvas, es posible que dejes de recibir mensajes después de superar ese límite. Para más información, consulta [Límite de velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting).
+Si tienes un límite de velocidad configurado para tu Campaign o Canvas, es posible que dejes de recibir mensajes después de superar ese límite. Para más información, consulta [Límite de velocidad]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting).
 
 ### Estado del grupo de control {#control-group-status}
 
 Si se trata de una Campaign de un solo canal o un Canvas con un grupo de control, es posible que estés en el grupo de control.
 
-  1. Comprueba la [distribución de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing#step-5-distribute-users-among-your-variants) para ver si hay un grupo de control.
-  2. Si es así, crea un Segment que filtre por [en grupo de control de Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group-filter) y luego [exporta el Segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#exporting-to-csv) y comprueba si tu ID de usuario está en la lista.
+  1. Comprueba la [distribución de variantes]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#step-4-choose-a-segment-and-distribute-your-users-across-variants) para ver si hay un grupo de control.
+  2. Si es así, crea un Segment que filtre por [en grupo de control de Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#in-campaign-control-group) y luego [exporta el Segment]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv#segment-csv-export-details) y comprueba si tu ID de usuario está en la lista.
 
 ### Token de push válido {#valid-push-token}
 
@@ -95,7 +95,7 @@ Para encontrar la clave de servidor de Firebase correcta y reemplazarla:
 
 1. Ve a la consola de Firebase para tu aplicación.
 2. En **Project Overview**, selecciona **Project Settings**.
-3. En la pestaña **Cloud Messaging**, comprueba que el Sender ID debajo de las claves de API coincida con el de Braze (en **Settings** > **App Settings** > **Cloud Messaging API Key**).
+3. En la pestaña **Cloud Messaging**, comprueba que el Sender ID en las claves de API coincida con el de Braze (en **Settings** > **App Settings** > **Cloud Messaging API Key**).
 
 {% alert warning %}
 No cambies tu Sender ID en tu panel de Braze. Hacerlo provocará que los registros push existentes se invaliden. Si el Sender ID no coincide, debes encontrar tu proyecto de Firebase con el Sender ID correspondiente.

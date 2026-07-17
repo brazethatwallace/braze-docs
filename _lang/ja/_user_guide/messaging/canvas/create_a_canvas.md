@@ -9,7 +9,7 @@ search_rank: 1
 
 # キャンバスの作成 {#create-a-canvas}
 
-> このリファレンス記事では、キャンバスの作成、管理、テストに必要なステップについて説明します。このガイドに従うか、[Brazeラーニングコースのキャンバスクイック概要](https://learning.braze.com/quick-overview-canvas-setup)をご確認ください。[Brazeキャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)から始めることで、セットアップを迅速に進めることもできます。詳細については、[キャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates)を参照してください。
+> このリファレンス記事では、キャンバスの作成、管理、テストに必要なステップについて説明します。このガイドに従うか、[Braze Learningコースのキャンバスクイック概要](https://learning.braze.com/quick-overview-canvas-setup)をご確認ください。[Brazeキャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates/braze_templates)から始めることで、セットアップを迅速に進めることもできます。詳細については、[キャンバステンプレート]({{site.baseurl}}/user_guide/messaging/templates/canvas_templates)を参照してください。
 
 {% details 元のキャンバスエディターの詳細を展開 %}
 元のキャンバスエクスペリエンスを使用してキャンバスを作成または複製することはできなくなりました。Brazeでは、最新のエディターに[キャンバスをクローン]({{site.baseurl}}/user_guide/messaging/canvas/managing_canvases/cloning_canvases)することを推奨しています。
@@ -68,7 +68,7 @@ search_rank: 1
 
 ### ステップ 1.1: キャンバスの基本情報から始める {#step-11-start-with-your-canvas-basics}
 
-ここでは、キャンバスに名前を付け、[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams)を割り当て、[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#tags)を作成または追加します。キャンバスのコンバージョンイベントも割り当てることができます。
+ここでは、キャンバスに名前を付け、[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams)を割り当て、[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags)を作成または追加します。キャンバスのコンバージョンイベントも割り当てることができます。
 
 {% alert tip %}
 キャンバスにタグを付けると、検索やレポートの作成が簡単になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を使用する際に、特定のタグでフィルタリングできます。
@@ -160,7 +160,7 @@ APIトリガー配信には以下のエンドポイントを使用できます�
 ![「エントリコントロール」ページ。「ユーザーのキャンバス再エントリを許可」と「エントリ数を制限」のチェックボックスが表示されています。]({% image_buster /assets/img_archive/entry_controls.png %})
 
 {% alert tip %}
-Brazeでは、IPウォーミングのときに**キャンバスがスケジュールされるたび**を選択しないことを推奨しています。送信量が増加する可能性があるためです。
+Brazeでは、IPウォームアップのときに**キャンバスがスケジュールされるたび**を選択しないことを推奨しています。送信量が増加する可能性があるためです。
 {% endalert %}
 
 #### 終了条件の設定 {#setting-exit-criteria}
@@ -169,7 +169,7 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 
 #### ターゲット層の計算 {#calculating-target-population}
 
-**ターゲット層**セクションでは、選択したセグメントや追加のフィルターなどのオーディエンスのサマリーと、メッセージングチャネルごとの到達可能なユーザー数の内訳を確認できます。デフォルトの推定値ではなく、ターゲットオーディエンスの到達可能なユーザーの正確な数を計算するには、[正確な統計を計算]({{site.baseurl}}/user_guide/audience/segments/creating_a_segment#calculating-exact-statistics)を選択します。
+**ターゲット層**セクションでは、選択したセグメントや追加のフィルターなどのオーディエンスのサマリーと、メッセージングチャネルごとの到達可能なユーザー数の内訳を確認できます。デフォルトの推定値ではなく、ターゲットオーディエンスの到達可能なユーザーの正確な数を計算するには、[正確な統計を計算]({{site.baseurl}}/user_guide/audience/segments/measuring_segment_size#calculating-exact-statistics)を選択します。
 
 注意事項:
 
@@ -187,7 +187,7 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 
 ### ステップ 1.4: 送信設定を選択する {#step-14-select-your-send-settings}
 
-**送信設定**を選択して、サブスクリプション設定の編集、レート制限の有効化、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)の有効化を行います。[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-canvas-components)または[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#frequency-capping)を有効にすることで、ユーザーへのマーケティングプレッシャーを軽減し、過剰なメッセージ送信を防ぐことができます。
+**送信設定**を選択して、サブスクリプション設定の編集、レート制限の有効化、[サイレント時間]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/quiet_hours)の有効化を行います。[レート制限]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-rate-limiting)または[フリークエンシーキャップ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping)を有効にすることで、ユーザーへのマーケティングプレッシャーを軽減し、過剰なメッセージ送信を防ぐことができます。
 
 メールとプッシュチャネルをターゲットとするキャンバスの場合、明示的にオプトインしたユーザーのみがメッセージを受信するようにキャンバスを制限したい場合があります（購読中または配信停止のユーザーを除外）。たとえば、オプトインステータスが異なる3人のユーザーがいるとします。
 
@@ -298,7 +298,7 @@ Brazeでは、IPウォーミングのときに**キャンバスがスケジュ�
 
 メッセージコンポーネントは、ユーザーに送信されるメッセージを管理します。**メッセージングチャネル**を選択し、**配信設定**を調整してキャンバスメッセージングを最適化できます。このコンポーネントの詳細については、[メッセージ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を参照してください。
 
-![「メッセージの設定」ステップ。「メッセージングチャネル」が選択されており、Androidプッシュ通知、Content Cards、メールなどの利用可能なメッセージングチャネルのリストが表示されています。]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
+![「メッセージの設定」ステップ。「メッセージングチャネル」が選択されており、Androidプッシュ、Content Cards、メールなどの利用可能なメッセージングチャネルのリストが表示されています。]({% image_buster /assets/img_archive/message_setup_settings_flow.png %})
 
 キャンバスコンポーネントの設定が完了したら、**完了**を選択します。
 

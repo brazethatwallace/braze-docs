@@ -196,7 +196,7 @@ The cart event includes:
 - **Source:** Marked as "whats_app"
 - **Metadata:** Additional data like catalog ID and message text
 
-You can find additional Braze cart event information in [Types of eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events#types-of-ecommerce-recommended-events).
+You can find additional Braze cart event information in [Types of eCommerce recommended events]({{site.baseurl}}/user_guide/data/activation/events/recommended_events/ecommerce_events).
 
 ### Setting up a triggered response
 

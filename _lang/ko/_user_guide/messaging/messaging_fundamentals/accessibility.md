@@ -255,7 +255,7 @@ Braze 드래그 앤 드롭 에디터는 기본적으로 시맨틱 HTML을 출력
 
 동작에 맞는 올바른 요소를 사용하세요:
 
-- 양식 제출이나 모달 열기와 같은 동작에는 `<button>`을 사용하세요.
+- 양식 제출이나 Modal 열기와 같은 동작에는 `<button>`을 사용하세요.
 - 다른 페이지나 파일로 연결하는 탐색에는 `<a>`를 사용하세요.
 
 {% raw %}
@@ -634,7 +634,7 @@ ARIA는 웹 콘텐츠를 더 접근 가능하게 만들기 위해 설계되었�
 접근성 문제를 조기에 식별하고 수정할 수 있도록 Braze는 다음 영역에서 자동화된 접근성 테스트를 제공합니다:
 
 - 이메일용 [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#accessibility-testing)
-- HTML 에디터를 사용하여 생성된 메시지(예: HTML 인앱 메시지, HTML Content Blocks, [커스텀 이메일 푸터]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-unsubscribe-page), [이메일 옵트인 페이지]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [이메일 수신 거부 페이지]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection#creating-a-custom-opt-in-page))용 [접근성 스캐너]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner)
+- HTML 에디터를 사용하여 생성된 메시지(예: HTML 인앱 메시지, HTML Content Blocks, [커스텀 이메일 푸터]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-unsubscribe-page), [이메일 옵트인 페이지]({{site.baseurl}}/user_guide/channels/email/customize/custom_email_footer), [이메일 수신 거부 페이지]({{site.baseurl}}/user_guide/channels/email/subscriptions#creating-a-custom-opt-in-page))용 [접근성 스캐너]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/sending_test_messages?tab=in-app%20message#accessibility-scanner)
 
 이러한 테스트는 접근 가능한 콘텐츠에 대한 국제적으로 인정된 기술 표준 세트인 웹 콘텐츠 접근성 지침([WCAG](https://www.w3.org/WAI/standards-guidelines/wcag/)) 표준에 따라 메시지를 검사합니다. 자동으로 감지할 수 있는 모든 문제는 우선순위를 정하는 데 도움이 되도록 심각도별로 플래그가 지정되고 분류됩니다.
 

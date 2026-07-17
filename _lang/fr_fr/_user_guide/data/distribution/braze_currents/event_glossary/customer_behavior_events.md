@@ -70,7 +70,7 @@ Certains événements renvoient une valeur `platform` qui spécifie la plateform
 Random Bucket Number
 {% endapitags %}
 
-Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos campagnes et de leurs variantes.
+Cet événement utilisateur se produit chaque fois qu'un nouvel utilisateur est créé dans son espace de travail. Au cours de cet événement, chaque nouvel utilisateur se voit attribuer un numéro de compartiment aléatoire que vous pouvez ensuite utiliser pour créer des segments d'utilisateurs aléatoires uniformément répartis. Utilisez cette fonctionnalité pour regrouper une série de numéros de compartiment aléatoires et comparer les performances de vos Campaigns et de leurs variantes.
 
 {% alert important %}
 Cet événement Currents n'est disponible que pour les clients qui ont acheté un « connecteur tous événements » et n'est disponible que pour les connecteurs d'événements de stockage (tels que Amazon S3, Microsoft Azure et Google Cloud Storage).
@@ -1262,6 +1262,10 @@ Cet événement se produit lorsque Braze synchronise le jeton Push To Start de l
 {% endtab %}
 {% endtabs %}
 
+### Détails des propriétés
+
+- Braze émet un événement « update » avec `push_token_state_change_type` défini sur `"update"` lorsqu'un utilisateur anonyme est identifié sur le même profil et que les jetons Push To Start de Live Activity iOS existants restent sur ce profil. Dans ce cas, `user_id` ne change pas et `external_user_id` est défini sur l'ID externe de l'utilisateur identifié. Cela inclut l'identification via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) et le `changeUser` du SDK lorsqu'il attribue un ID externe au profil anonyme sur l'appareil.
+
 {% endapi %}
 
 {% api %}
@@ -1589,7 +1593,7 @@ Cet événement se produit lorsqu'un jeton de notification push est inséré, mi
 
 ##### Add {#add}
 
-Un événement « add » est ingéré lorsqu'un nouveau jeton est enregistré. Cela se produit lorsqu'un utilisateur ouvre l'application pour la première fois sur un nouvel appareil, ou lorsqu'un jeton est défini via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) avec `push_tokens` pour un utilisateur qui n'en avait pas auparavant.
+Un événement « add » est ingéré lorsqu'un nouveau jeton est enregistré. Cela se produit lorsqu'un utilisateur ouvre l'application pour la première fois sur un nouvel appareil, ou lorsqu'un jeton est défini via l'endpoint [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) avec `push_tokens` pour un utilisateur qui n'en avait pas auparavant. Le champ `time_ms` indique le moment où l'événement « add » s'est produit.
 
 {% alert note %}
 Pour le SDK Swift iOS 13.3.0 et versions ultérieures, et le SDK Android 40.0.0 et versions ultérieures, l'état de l'autorisation push et le jeton de notification push sont envoyés ensemble. Pour les nouveaux enregistrements provenant de ces SDK, `push_token_foreground_push_disabled` est renseigné dans l'événement « add » (généralement `false` lorsque les notifications sont activées).<br><br>
@@ -1599,7 +1603,9 @@ Les enregistrements de jetons plus anciens peuvent encore avoir ce champ à `nul
 
 ##### Update {#update}
 
-Un événement « update » est ingéré lorsqu'une propriété d'un jeton existant est modifiée sans que la chaîne de caractères du jeton elle-même ne change. Le jeton conserve la même chaîne de caractères, le même utilisateur et la même application, mais un ou plusieurs des champs suivants ont été modifiés : `foreground_push_disabled`, passerelle APNs, clés de notification push web, `provisionally_opted_in` ou `device_id`. Ces mises à jour proviennent d'événements de synchronisation de l'état du jeton (par exemple, lorsque le SDK signale un nouvel état d'autorisation), et non des résultats d'envoi de notifications push.
+Un événement « update » est ingéré lorsqu'une propriété d'un jeton existant est modifiée sans que la chaîne de caractères du jeton elle-même ne change. Le jeton conserve la même chaîne de caractères, le même utilisateur et la même application, mais un ou plusieurs des champs suivants ont été modifiés : `foreground_push_disabled`, passerelle APNs, clés de notification push web, `provisionally_opted_in` ou `device_id`. Ces mises à jour proviennent d'événements de synchronisation de l'état du jeton (par exemple, lorsque le SDK signale un nouvel état d'autorisation), et non des résultats d'envoi de notifications push. Le champ `time_ms` indique le moment où l'événement « update » s'est produit.
+
+Braze émet également un événement « update » avec `push_token_state_change_type` défini sur `"update"` lorsqu'un utilisateur anonyme est identifié sur le même profil et que les jetons de notification push existants restent sur ce profil. Dans ce cas, `user_id` ne change pas et `external_user_id` est défini sur l'ID externe de l'utilisateur identifié. Cela inclut l'identification via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) et le `changeUser` du SDK lorsqu'il attribue un ID externe au profil anonyme sur l'appareil.
 
 {% alert note %}
 Dans la plupart des cas, la réinstallation d'une application ou la restauration d'une sauvegarde entraîne un nouvel événement « add » avec un nouveau `push_token` et un nouveau `device_id` (car le SDK génère un nouveau `device_id` et le système d'exploitation fournit une nouvelle chaîne de caractères de jeton de notification push). Cela crée deux entrées distinctes pour le jeton et l'appareil dans le profil utilisateur, et l'entrée la plus ancienne est supprimée ultérieurement via le suivi des désinstallations ou l'envoi de campagnes.<br><br>
@@ -1617,8 +1623,15 @@ Un événement « remove » autonome est ingéré lorsque Braze supprime un jeto
 
 Lorsqu'un rebond de notification push déclenche la suppression d'un jeton, Braze émet `push_token_state_change_type = "remove"` pour ce jeton. Il n'émet pas d'événement « update » modifiant `push_token_foreground_push_disabled`.
 
+Le champ `time_ms` indique le moment où l'événement « remove » s'est produit.
+
+{% alert note %}
+Pour les événements « remove », les champs de propriétés de jeton suivants ne sont pas renseignés : `push_token_created_at`, `push_token_updated_at`, `push_token_foreground_push_disabled`, `push_token_provisionally_opted_in`, `ios_push_token_apns_gateway`, `web_push_token_public_key`, `web_push_token_user_auth` et `web_push_token_vapid_public_key`.
+{% endalert %}
+
 ##### Paires add et remove {#add-and-remove-pairs}
 
+Les paires d'événements add et remove sont deux événements d'état de jeton liés pour la même transition : un événement « add » et un événement « remove ».
 Les paires add et remove se répartissent en deux catégories :
 
 **Actualisation de la chaîne de caractères du jeton (même utilisateur) :** le système d'exploitation procède à la rotation de la chaîne de caractères du jeton sur le même appareil (par exemple, rotation des jetons APNs ou FCM). Les événements « add » (nouveau jeton) et « remove » (ancien jeton) ont les mêmes `user_id` et `device_id`, des `push_token` différents et des `time_ms` identiques.
@@ -1630,7 +1643,7 @@ Les paires add et remove se répartissent en deux catégories :
 - L'endpoint [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) ou le nettoyage des utilisateurs en double transfère les jetons de l'utilisateur orphelin vers l'utilisateur conservé.
 
 {% alert note %}
-Si un profil anonyme est identifié via l'endpoint [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify), le `user_id` ne change pas et aucun événement de modification de l'état du jeton n'est émis.
+L'identification sur le même profil via l'endpoint REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) ou le `changeUser` du SDK attribuant un ID externe au profil anonyme ne modifie pas le `user_id` et n'émet pas de paires d'événements add et remove. À la place, Braze émet un événement « update » pour chaque jeton de notification push existant et définit `external_user_id` sur l'ID externe de l'utilisateur identifié. Lorsque `changeUser` transfère des jetons d'un profil utilisateur à un autre, Braze émet toujours les paires d'événements add et remove décrites ci-dessus.
 {% endalert %}
 
 #### Requête sur l'état actuel du jeton actif {#querying-for-the-latest-active-token-state}

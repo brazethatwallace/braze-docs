@@ -11,7 +11,7 @@ description: "Braze 대시보드는 고객 참여를 구축, 관리, 분석하�
 
 > Braze 대시보드는 고객 참여를 구축, 관리, 분석하기 위한 중앙 워크스페이스입니다. [dashboard.braze.com](https://dashboard.braze.com/) 또는 [dashboard.braze.eu](https://dashboard.braze.eu/)에서 접속할 수 있습니다.
 
-Braze 대시보드를 사용하여 Campaign을 계획하고, 메시지를 시작 및 관리하고, 오디언스 인사이트를 탐색하고, 세분화를 조정하고, 실시간 성과 및 참여 측정기준을 단일 인터페이스에서 검토할 수 있습니다.
+Braze 대시보드를 사용하여 Campaign을 계획하고, 메시지를 시작 및 관리하고, 오디언스 인사이트를 탐색하고, 세분화를 조정하고, 실시간 성과 및 인게이지먼트 측정기준을 단일 인터페이스에서 검토할 수 있습니다.
 
 ## 대시보드 개요 {#dashboard-overview}
 
@@ -95,9 +95,9 @@ Canvas 디자인과 같은 작업 중 시각적 혼잡을 줄이려면 사이드
 
 ### 활성 및 초안 콘텐츠 필터링 {#filter-for-active-and-draft-content}
 
-기본적으로 검색에는 활성, 초안, 아카이브된 항목이 포함됩니다. **Show active and draft only** 토글을 사용하여 결과를 좁힐 수 있습니다.
+기본적으로 검색에는 활성, 초안, 아카이브된 항목이 포함됩니다. **활성 및 초안만 표시** 토글을 사용하여 결과를 좁힐 수 있습니다.
 
-!["Show active and draft only" 토글.]({% image_buster /assets/img/navigation/show_active_draft_new.png %})
+!["활성 및 초안만 표시" 토글.]({% image_buster /assets/img/navigation/show_active_draft_new.png %})
 
 ### 키보드 단축키 {#keyboard-shortcuts}
 
@@ -134,7 +134,7 @@ Braze 대시보드에는 더 효율적으로 작업하고 자주 사용하는 �
 
 ### BrazeAI Operator
 
-BrazeAI Operator™는 대시보드에 내장된 AI 기반 어시스턴트입니다. 답변을 얻고, 설정을 안내받고, 문제를 해결하고, 아이디어를 브레인스토밍하는 데 사용할 수 있습니다. 프로필 옆 글로벌 헤더의 **BrazeAI Operator™**에서 열 수 있습니다. 자세한 내용은 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)를 참조하세요.
+BrazeAI Operator™는 대시보드에 내장된 인공지능 기반 어시스턴트입니다. 답변을 얻고, 설정을 안내받고, 문제를 해결하고, 아이디어를 브레인스토밍하는 데 사용할 수 있습니다. 프로필 옆 글로벌 헤더의 **BrazeAI Operator™**에서 열 수 있습니다. 자세한 내용은 [BrazeAI Operator]({{site.baseurl}}/user_guide/brazeai/operator)를 참조하세요.
 
 ### 이전 작업 이어하기 {#pick-up-where-you-left-off}
 

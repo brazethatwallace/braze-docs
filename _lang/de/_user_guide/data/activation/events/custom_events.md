@@ -85,7 +85,7 @@ Angepasste Events erfordern eine zusätzliche Einrichtung. In der folgenden List
 
 ## Speicherung angepasster Events {#custom-event-storage}
 
-Alle im **Nutzerprofil** gespeicherten Daten, einschließlich Metadaten angepasster Events (erstes oder letztes Vorkommen, Gesamtanzahl und X in Y über 30 Tage), werden unbegrenzt aufbewahrt, solange jedes Profil [aktiv]({{site.baseurl}}/user_archival#active-users) ist.
+Alle im **Nutzerprofil** gespeicherten Daten, einschließlich Metadaten angepasster Events (erstes oder letztes Vorkommen, Gesamtanzahl und X in Y über 30 Tage), werden unbegrenzt aufbewahrt, solange jedes Profil <a href="/docs/user_archival#active-users">aktiv</a> ist.
 
 ## Event-Verlauf einer Nutzer:in anzeigen {#view-a-users-event-history}
 
@@ -150,7 +150,7 @@ Sie können auch **Filter** verwenden, um Ihre angepassten Events nach Stunde, m
 ![Filter für die Grafik angepasster Events]({% image_buster /assets/img/custom_events_report_filters.png %}){: style="max-width:40%;"}
 
 {% alert tip %}
-[Inkrementieren Sie angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/attributes/custom_attributes#integers), um einen Zähler für eine Nutzeraktion ähnlich einem angepassten Event zu führen. Allerdings können Sie Daten angepasster Attribute nicht in einer Zeitreihe anzeigen. Nutzeraktionen, die nicht in einer Zeitreihe analysiert werden müssen, sollten mit dieser Methode erfasst werden.
+[Inkrementieren Sie angepasste Attribute]({{site.baseurl}}/user_guide/data/activation/custom_data/data_types#custom-attribute-data-types), um einen Zähler für eine Nutzeraktion ähnlich einem angepassten Event zu führen. Allerdings können Sie Daten angepasster Attribute nicht in einer Zeitreihe anzeigen. Nutzeraktionen, die nicht in einer Zeitreihe analysiert werden müssen, sollten mit dieser Methode erfasst werden.
 {% endalert %}
 
 ### Warum Analytics für angepasste Events nicht angezeigt werden {#why-custom-events-analytics-arent-showing}

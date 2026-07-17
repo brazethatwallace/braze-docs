@@ -33,7 +33,7 @@ Sie sind sich nicht sicher, ob Ihre In-App-Nachricht über eine Campaign oder ei
 
 {% details Weitere Informationen zu Mindest-SDKs %}
 
-Nachrichten, die mit dem Drag-and-Drop-Editor erstellt wurden, können nur an Nutzer:innen gesendet werden, die die Mindest-SDK-Versionen verwenden (siehe Tabelle oben). Wenn Nutzer:innen ihre Anwendung nicht aktualisiert haben (d. h. sie verwenden eine ältere SDK-Version), erhalten sie die In-App-Nachricht nicht.
+Nachrichten, die mit dem Drag-and-Drop-Editor erstellt wurden, können nur an Nutzer:innen gesendet werden, die die Mindest-SDK-Versionen verwenden (siehe Tabelle im vorherigen Abschnitt). Wenn Nutzer:innen ihre Anwendung nicht aktualisiert haben (d. h. sie verwenden eine ältere SDK-Version), erhalten sie die In-App-Nachricht nicht.
 
 Um alle im Drag-and-Drop-Editor verfügbaren Features nutzen zu können, aktualisieren Sie Ihre SDKs auf die empfohlenen SDK-Versionen. Dadurch können Sie die folgenden zusätzlichen Features nutzen:
 
@@ -95,7 +95,7 @@ Sie können bis zu 10 Seiten pro In-App-Nachricht hinzufügen.
 
 So duplizieren Sie eine vorhandene Seite:
 
-1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical"></i> **More options**.
+1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical" aria-label="Weitere Optionen"></i> **More options**.
 2. Wählen Sie **Duplicate**.
 3. Geben Sie der Seite einen aussagekräftigen Namen. Dies hilft Ihnen beim Verbinden der Seiten.
 
@@ -104,7 +104,7 @@ So duplizieren Sie eine vorhandene Seite:
 
 So löschen oder benennen Sie eine Seite um:
 
-1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical"></i> **More options**.
+1. Bewegen Sie den Mauszeiger über die Seite in der Liste und wählen Sie <i class="fas fa-ellipsis-vertical" aria-label="Weitere Optionen"></i> **More options**.
 2. Wählen Sie **Rename** oder **Delete**.
 
 {% endtab %}

@@ -31,7 +31,7 @@ Este SDK además hereda los requisitos de los SDK nativos de Braze subyacentes. 
 
 ## Instalación del SDK {#installing-the-sdk}
 {% alert warning %}
-Solo añade el SDK de Braze para Cordova utilizando los comandos `cordova plugin add` indicados en **Instalación del SDK**. No intentes instalarlo mediante otros métodos, ya que podría provocar una brecha de seguridad.
+Solo añade el SDK de Braze para Cordova utilizando los métodos indicados a continuación. No intentes instalarlo mediante otros métodos, ya que podría provocar una brecha de seguridad.
 {% endalert %}
 ``` text
 # To use the base SDK functionality, install using the `master` branch.
