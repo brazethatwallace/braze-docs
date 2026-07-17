@@ -59,7 +59,7 @@ Validity creates users through the [`/users/track`]({{site.baseurl}}/api/endpoin
 
 ```bash
 curl -X POST "https://YOUR_API_ENDPOINT/users/track" \
-  -H "content-type: application/json" \
+  -H "Content-Type: application/json" \
   -H "Authorization: Bearer YOUR_BRAZE_API_KEY" \
   -d '{
     "attributes": [
