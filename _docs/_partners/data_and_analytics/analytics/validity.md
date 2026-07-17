@@ -88,7 +88,7 @@ These users always include the custom attribute `validity_seed` with the boolean
 
 ### How seed sends work
 
-Validity pulls the campaign body, subject, and from address through the campaign and Canvas details endpoints, then delivers a copy of that content to the seed list through Braze's [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) endpoint. Your Braze dashboard continues to show only the original campaign.
+Validity pulls the campaign body, subject, and from address through the campaign and Canvas details endpoints, then delivers a copy of that content to the seed list through the Braze [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) endpoint. Your Braze dashboard continues to show only the original campaign.
 
 ### Auto-seeding threshold
 
