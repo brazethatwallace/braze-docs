@@ -47,7 +47,7 @@ Falls eine Canvas-Entry-Eigenschaft null oder leer ist, können Sie Nachrichten 
 ```
 {%endraw%}
 
-Weitere Informationen zum Abbrechen von Nachrichten mit Liquid finden Sie in unserer [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages).
+Weitere Informationen zum Abbrechen von Nachrichten mit Liquid finden Sie in unserer [Liquid-Dokumentation]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ## Globale Canvas-Entry-Eigenschaften {#global-canvas-entry-properties}
 

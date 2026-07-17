@@ -70,7 +70,7 @@ Canvas 및 Campaign 문제 해결에 대한 추가 지원이 필요하면, 문�
 
 ### 확인할 사항
 - **고객 동의**: 초기 이메일을 발송하기 전에 먼저 고객의 허가를 받는 것이 중요합니다. [동의 및 주소 수집]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection)과 [Braze 이용 약관](https://www.braze.com/company/legal/aup)에서 자세한 내용을 확인하세요.
-- **예상 발송량**: 단일 IP에서 하루 200만 통의 이메일이 일반적인 권장 사항이며, 해당 발송량이 [적절히 워밍업]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming#ip-warming)된 경우에 해당합니다.
+- **예상 발송량**: 단일 IP에서 하루 200만 통의 이메일이 일반적인 권장 사항이며, 해당 발송량이 [적절히 워밍업]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)된 경우에 해당합니다.
   - 이보다 지속적으로 높은 발송량을 계획하고 있다면, 제공업체가 이메일 수신을 제한하여 높은 소프트바운스율, 전달 가능성 저하, IP 평판 하락이 발생하는 것을 방지하기 위해 IP 풀로 묶인 여러 IP 주소를 사용하는 것을 고려하세요.
   - 더 짧은 시간 내에 발송하려는 경우, 다양한 제공업체가 메일을 수락하는 속도를 확인하여 발송에 필요한 적절한 IP 수를 파악하는 것을 권장합니다.
 
@@ -95,7 +95,7 @@ Canvas 및 Campaign 문제 해결에 대한 추가 지원이 필요하면, 문�
 - [**수신 동의/가입 및 푸시 활성화**]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states): 사용자가 Braze에서 푸시 메시지를 수신하려면 구독 상태가 수신 동의(iOS) 또는 가입(Android)이어야 하며 `Push Enabled = True`여야 합니다. Android 13에서는 푸시 알림을 보내는 앱을 사용자가 관리하는 방식에 주요 변경 사항이 도입되었습니다. Braze [Android 13 SDK 업그레이드 가이드]({{site.baseurl}}/developer_guide/platforms/android/android_13)는 새로운 Android 13 베타 버전이 출시됨에 따라 계속 업데이트됩니다.
 
 ### 알아두어야 할 사항
-- **웹 푸시**: Braze [웹 SDK 설정]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web)이 완료되었다면, 웹 푸시를 활용하여 사용자를 참여시키는 것을 고려하세요. 웹 푸시는 휴대폰의 앱 푸시 알림과 동일한 방식으로 작동합니다. 웹 푸시 작성에 대한 자세한 내용은 [푸시 알림 만들기]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message)를 확인하세요.
+- **웹 푸시**: Braze [웹 SDK 설정]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web)이 완료되었다면, 웹 푸시를 활용하여 사용자를 참여시키는 것을 고려하세요. 웹 푸시는 휴대폰의 앱 푸시 알림과 동일한 방식으로 작동합니다. 웹 푸시 작성에 대한 자세한 내용은 [푸시 알림 만들기]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)를 확인하세요.
 - **단일 앱 타겟팅**: 단일 앱과 해당 사용자를 타겟팅하기 위한 [세분화 차이점]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#targeting-a-singular-app)을 검토하세요.
 
 ## SMS

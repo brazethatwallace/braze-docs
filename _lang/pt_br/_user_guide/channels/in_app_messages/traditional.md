@@ -147,14 +147,14 @@ Essas mensagens no app são personalizáveis de acordo com suas necessidades.
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html#custom-html-messages'>Mensagem HTML personalizada</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html'>Mensagem HTML personalizada</a></td>
     <td>Mensagens personalizadas que funcionam conforme definido no seu código personalizado (HTML, CSS e/ou JavaScript).</td>
     <td>N/D</td>
     <td>É necessário definir a opção de inicialização <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> como <code>true</code> para que sua mensagem no app funcione.</td>
     <td>Essa é uma boa opção se você quer todas as vantagens das mensagens no app, mas precisa de funcionalidades adicionais ou que a aparência permaneça "dentro da marca". Você pode alterar cada detalhe da mensagem — fonte, cor, forma, tamanho, botões, etc. <br><br>Exemplos de casos de uso incluem pedir feedback sobre o app, formulários de captura de e-mail ou mensagens paginadas</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form#email-capture-form'>Formulário de captura de e-mail</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>Formulário de captura de e-mail</a></td>
     <td>Normalmente usado para capturar o e-mail do visualizador.</td>
     <td>N/D</td>
     <td>É necessário definir a opção de inicialização <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> como <code>true</code> para que sua mensagem no app funcione.</td>

@@ -94,10 +94,10 @@ Muitos tipos comuns de atributos do usuário, como nome, e-mail, data de nascime
 Saiba mais sobre [dados coletados automaticamente e dados personalizados]({{site.baseurl}}/developer_guide/analytics).
 
 ## Orquestração {#orchestration}
-A camada de orquestração permite que sua equipe de marketing projete jornadas de usuário com base nos dados de usuários e no engajamento anterior. Esse trabalho é feito principalmente por meio da nossa interface de dashboard, mas você também tem a opção de lançar [Campaigns por meio da API]({{site.baseurl}}/api/api_campaigns#api-campaigns). Por exemplo, você pode fazer com que seu backend informe à Braze quando enviar as mensagens e Campaigns que seus profissionais de marketing projetaram no dashboard e dispará-las de acordo com a sua lógica de backend. Um exemplo de mensagem disparada pela API pode ser a redefinição de senha ou a confirmação de envio.
+A camada de orquestração permite que sua equipe de marketing projete jornadas de usuário com base nos dados de usuários e no engajamento anterior. Esse trabalho é feito principalmente por meio da nossa interface de dashboard, mas você também tem a opção de lançar [campanhas por meio da API]({{site.baseurl}}/api/api_campaigns). Por exemplo, você pode fazer com que seu backend informe à Braze quando enviar as mensagens e campanhas que seus profissionais de marketing projetaram no dashboard e dispará-las de acordo com a sua lógica de backend. Um exemplo de mensagem disparada pela API pode ser a redefinição de senha ou a confirmação de envio.
 
 {% alert note %}
-As Campaigns disparadas por API são ideais para casos de uso transacionais mais avançados. Elas permitem que os profissionais de marketing gerenciem o texto da Campaign, os testes multivariantes e as regras de reelegibilidade no dashboard da Braze, enquanto disparam a entrega desse conteúdo a partir dos seus servidores e sistemas. A solicitação da API para disparar a mensagem também pode incluir dados adicionais a serem modelados na mensagem em tempo real.
+As campanhas disparadas por API são ideais para casos de uso transacionais mais avançados. Elas permitem que os profissionais de marketing gerenciem o texto da campanha, os testes multivariantes e as regras de reelegibilidade no dashboard da Braze, enquanto disparam a entrega desse conteúdo a partir dos seus servidores e sistemas. A solicitação da API para disparar a mensagem também pode incluir dados adicionais a serem modelados na mensagem em tempo real.
 {% endalert %}
 
 
@@ -115,7 +115,7 @@ A camada de ação permite o envio real de mensagens aos seus usuários. O objet
 ### Canais de envio de mensagens {#messaging-channels}
 A Braze foi projetada para lidar com um cenário tecnológico em evolução com seu modelo de dados independente de canal e centrado no usuário. O dashboard gerencia a entrega de mensagens e os disparos transacionais. Por exemplo, seus profissionais de marketing podem disparar uma mensagem SMS oferecendo um cupom para uma das suas lojas recém-inauguradas quando um usuário entrar no geofence definido próximo a esse local, ou enviar um e-mail a um usuário para informá-lo de que seu programa favorito tem uma nova temporada.
 
-O [SDK da Braze]({{site.baseurl}}/user_guide/get_started/sdk_overview) possibilita canais adicionais de envio de mensagens: push, mensagens no app e Content Cards. Você integra o SDK ao seu app ou site para permitir que sua equipe de marketing use o dashboard da Braze para coordenar suas Campaigns em todos os canais de envio de mensagens compatíveis.
+O [SDK da Braze]({{site.baseurl}}/user_guide/get_started/sdk_overview) possibilita canais adicionais de envio de mensagens: push, mensagens no app e Content Cards. Você integra o SDK ao seu app ou site para permitir que sua equipe de marketing use o dashboard da Braze para coordenar suas campanhas em todos os canais de envio de mensagens compatíveis.
 
 ![Diagrama dos canais de envio de mensagens da Braze disponíveis por meio do SDK.]({% image_buster /assets/img/getting_started/channels.png %})
 

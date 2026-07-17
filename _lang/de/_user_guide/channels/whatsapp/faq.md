@@ -170,6 +170,15 @@ Wenn Sie Templates mit dem [WhatsApp Template Builder]({{site.baseurl}}/user_gui
 
 Um dies zu beheben, bearbeiten Sie Ihr Template im WhatsApp Manager von Meta, sodass es sequenzielle Platzhalterformatierung verwendet, und importieren Sie es dann erneut in Braze. Bestätigen Sie in Braze, dass jedes erforderliche Variablenfeld mit einem gültigen Liquid-Wert befüllt ist.
 
+#### Warum wird meine WhatsApp-Campaign trotz korrekter Template-Vorschau nicht gesendet? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
+Wenn Ihr Template korrekt in der Vorschau angezeigt wird, aber das Verarbeitungsprotokoll **Abbruch** mit dem Detail „Param text cannot have new-line/tab characters or more than 4 consecutive spaces“ anzeigt, überprüfen Sie die per Liquid befüllten Parameterwerte in Ihrer Nachricht. WhatsApp verlangt, dass Parametertext-Werte Folgendes nicht enthalten:
+
+- Zeilenumbrüche
+- Tabulatorzeichen
+- Mehr als 4 aufeinanderfolgende Leerzeichen
+
+Stellen Sie sicher, dass jede Liquid-Logik, die Template-Parameter befüllt, diese Zeichen entfernt oder den Text vor dem Versand entsprechend formatiert.
+
 ### Zustellbarkeit und Abrechnung {#deliverability-and-billing}
 
 #### Warum wird eine Nachricht möglicherweise nicht zugestellt? {#why-would-a-message-not-be-delivered}

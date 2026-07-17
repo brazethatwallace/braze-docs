@@ -28,7 +28,7 @@ description: "この記事には2019年9月のリリースノートが含まれ�
 メッセージの`dispatch_id`は、以下のメッセージングエンドポイントのレスポンスに含まれます。
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging)
 - [`/campaigns/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging)
-- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only)
+- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 - [`/messages/schedule`]({{site.baseurl}}/api/endpoints/messaging)
 - [`/canvases/trigger/send`]({{site.baseurl}}/api/endpoints/messaging)
 - [`/canvases/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging)

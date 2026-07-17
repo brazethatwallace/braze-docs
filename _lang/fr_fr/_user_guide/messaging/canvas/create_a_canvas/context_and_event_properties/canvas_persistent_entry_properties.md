@@ -47,7 +47,7 @@ Si une propriété d'entrée Canvas est nulle ou vide, vous pouvez annuler les m
 ```
 {%endraw%}
 
-Pour en savoir plus sur l'annulation de messages avec Liquid, consultez notre [documentation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages).
+Pour en savoir plus sur l'annulation de messages avec Liquid, consultez notre [documentation Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages).
 
 ## Propriétés d'entrées Canvas globales {#global-canvas-entry-properties}
 

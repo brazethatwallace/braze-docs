@@ -114,7 +114,7 @@ RCS認証済み送信者を追加するには、2つの方法があります。
 2. **その他**のキーワードカテゴリ内で、**SMS受信メッセージを送信**によってトリガーされるアクションベースのキャンバスを作成します。
 3. キャンバスに[エージェントステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)を追加して、オプトアウト意図を識別します。
 4. リクエストを確認するための後続のSMS[メッセージステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)を追加します：「SMSの配信停止をご希望のようですので、配信を停止いたします。間違いの場合は、STARTとテキスト送信して再度オプトインしてください。」
-5. [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update)を追加して、特定のSMSサブスクリプショングループでのユーザーのステータスを「購読解除」に変更します。
+5. [ユーザーの更新ステップ]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)を追加して、特定のSMSサブスクリプショングループでのユーザーのステータスを「購読解除」に変更します。
 
 {% alert note %}
 エージェントコンソールの使用にはメッセージクレジットまたはアクションクレジットが消費されます。
@@ -128,7 +128,7 @@ Brazeでは、最初は少数のユーザーにRCSの送信をテストし、時
 
 ### ステップ1: キャンバスを作成してエントリスケジュールを設定する {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-キャンバスを作成し、識別しやすい名前を付けます（「SMS-RCSサブスクリプショングループユーザー移行」など）。次に、都合の良いタイミングでキャンペーンをスケジュールします。
+キャンバスを作成し、識別しやすい名前を付けます（「SMS-RCSサブスクリプショングループユーザー移行」など）。次に、都合の良いタイミングでスケジュールします。
 
 ### ステップ2: オーディエンスを定義する {#step-2-define-your-audience}
 {: #step-2-define-your-audience}

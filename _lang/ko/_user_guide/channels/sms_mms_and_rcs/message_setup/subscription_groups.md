@@ -114,7 +114,7 @@ RCS 인증 발신자를 추가하는 방법은 두 가지입니다:
 2. **기타** 키워드 카테고리 내에서 **SMS 인바운드 메시지 발송**에 의해 트리거되는 액션 기반 Canvas를 생성합니다.
 3. Canvas에 [에이전트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step)를 추가하여 옵트아웃 의도를 식별합니다.
 4. 요청을 확인하는 후속 SMS [메시지 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step)를 추가합니다: "SMS 수신 거부를 원하시는 것 같아 수신 거부 처리를 진행합니다. 실수인 경우 START를 문자로 보내 다시 옵트인하세요."
-5. [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update)를 추가하여 특정 SMS 구독 그룹에서 사용자의 상태를 "가입 취소됨"으로 변경합니다.
+5. [사용자 업데이트 단계]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update)를 추가하여 특정 SMS 구독 그룹에서 사용자의 상태를 "가입 취소됨"으로 변경합니다.
 
 {% alert note %}
 에이전트 콘솔을 사용하면 메시지 또는 액션 크레딧이 소모됩니다.
@@ -128,10 +128,9 @@ Braze는 처음에 소규모 사용자에게 RCS 발송을 테스트하고, 시�
 
 ### 1단계: Canvas 생성 및 진입 스케줄 작성 {#step-1-create-a-canvas-and-fill-out-the-entry-schedule}
 
-Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 그룹 사용자 이전")을 지정하세요. 그런 다음 편리한 시간에 캠페인 스케줄을 설정하세요.
+Canvas를 생성하고 쉽게 식별할 수 있는 이름(예: "SMS-RCS 구독 그룹 사용자 이전")을 지정하세요. 그런 다음 편리한 시간에 스케줄을 설정하세요.
 
 ### 2단계: 오디언스 정의 {#step-2-define-your-audience}
-{: #step-2-define-your-audience}
 
 다음 방법 중 하나를 사용하여 오디언스를 정의하세요. 그런 다음 **발송 설정** 단계로 이동하여 **가입했거나 옵트인한 사용자**를 선택하세요.
 

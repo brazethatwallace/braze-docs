@@ -10,7 +10,7 @@ search_tag: Partner
 
 # WSC Sports
 
-> A plataforma [WSC Sports](https://wsc-sports.com/) gera vídeos esportivos personalizados para cada plataforma digital e cada fã de esportes - automaticamente e em tempo real.
+> A plataforma [WSC Sports](https://wsc-sports.com/) gera vídeos esportivos personalizados para cada plataforma digital e cada fã de esportes — automaticamente e em tempo real.
 
 _Esta integração é mantida pela WSC Sports._
 
@@ -24,7 +24,7 @@ A integração entre a Braze e a WSC Sports permite incluir mídia esportiva ric
 | ----------- | ----------- |
 | Conta da WSC | É necessário ter uma conta na WSC para aproveitar essa parceria. |
 | Chave da API REST da Braze | Uma chave da API REST da Braze com permissões de **Messages**, **Segments**, **Campaigns** e **Canvas**. <br><br> Isso pode ser criado no dashboard da Braze em **Configurações** > **Chaves de API**. |
-{: .reset-td-br_1 .reset-td-br_2 aria-label="Pré-requisitos" }
+{: .reset-td-br-1 .reset-td-br_2 aria-label="Pré-requisitos" }
 
 ## Integração {#integration}
 
@@ -39,8 +39,8 @@ Antes de iniciar a integração, certifique-se de ter a Campaign desejada e os s
 #### Chamada de API {#api-call}
 
 Depois de enviada, a WSC Sports entregará a notificação por push aos segmentos de usuários escolhidos, usando os seguintes endpoints da Braze, com base nas opções selecionadas:
-- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages#create-scheduled-messages)
-- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only)
+- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
+- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 
 O corpo da mensagem resultante é o seguinte:
 ```

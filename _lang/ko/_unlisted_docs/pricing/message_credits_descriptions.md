@@ -16,23 +16,22 @@ hide_toc: true
 
 ## 목차 {#table-of-contents}
 
-- [Braze 액션 크레딧 설명](#braze-action-credits-descriptions)
-  - [이메일 채널 세부 정보](#email-channel-details)
-  - [SMS, MMS 및 RCS 채널 세부 정보](#sms-mms-and-rcs-channel-details)
-    - [SMS 세그먼트](#sms-segments)
-    - [MMS 메시지](#mms-messages)
-    - [RCS 유형](#rcs-types)
-  - [WhatsApp 채널 세부 정보](#whatsapp-channel-details)
-    - [청구 지역 분류](#billing-region-breakdown)
-  - [에이전트 콘솔 세부 정보](#agent-console-details)
-  - [추가 채널 세부 정보](#additional-channel-details)
-    - [LINE](#line)
-    - [KakaoTalk](#kakaotalk)
-    - [Content Cards](#content-cards)
-    - [배너](#banners)
-    - [오디언스 싱크](#audience-sync)
-    - [메시지 아카이브](#message-archiving)
-    - [웹훅](#webhooks)
+- [이메일 채널 세부 정보](#email-channel-details)
+- [SMS, MMS 및 RCS 채널 세부 정보](#sms-mms-and-rcs-channel-details)
+  - [SMS 세그먼트](#sms-segments)
+  - [MMS 메시지](#mms-messages)
+  - [RCS 유형](#rcs-types)
+- [WhatsApp 채널 세부 정보](#whatsapp-channel-details)
+  - [청구 지역 분류](#billing-region-breakdown)
+- [에이전트 콘솔 세부 정보](#agent-console-details)
+- [추가 채널 세부 정보](#additional-channel-details)
+  - [LINE](#line)
+  - [KakaoTalk](#kakaotalk)
+  - [Content Cards](#content-cards)
+  - [배너](#banners)
+  - [오디언스 싱크](#audience-sync)
+  - [메시지 아카이브](#message-archiving)
+  - [웹훅](#webhooks)
 
 ## 이메일 채널 세부 정보 {#email-channel-details}
 
@@ -69,7 +68,7 @@ RCS는 SMS와 MMS의 차세대 기술입니다. SMS와 같은 직접적이고 �
     - **Rich Media RCS(미국 전용):** 모든 미디어 또는 더 풍부한 제안/버튼(웹뷰, 위치, 캘린더 등)이 포함된 텍스트, 하나의 메시지로 계산
 
 {% alert note %}
-SMS 제품군에 대해 자세히 알아보려면 [SMS 및 MMS 설명서]({{site.baseurl}}/user_guide/message_building_by_channel/sms)를 참조하세요.
+SMS 제품군 오퍼링에 대해 자세히 알아보려면 [SMS 및 MMS 설명서]({{site.baseurl}}/user_guide/message_building_by_channel/sms)를 참조하세요.
 {% endalert %}
 
 ## WhatsApp 채널 세부 정보 {#whatsapp-channel-details}

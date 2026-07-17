@@ -36,6 +36,10 @@ Um automatisiertes IP-Warming durchzuführen, benötigen Sie Folgendes:
 - „Campaigns genehmigen und ablehnen“, wenn der Genehmigungs-Workflow für Campaigns aktiviert ist
     - Braze genehmigt die durch automatisiertes IP-Warming erstellten Campaigns automatisch in Ihrem Namen.
 
+{% alert important %}
+Dieses Feature wird je nach Ihrer E-Mail-Infrastruktur möglicherweise nicht unterstützt.
+{% endalert %}
+
 ## Ein automatisiertes IP-Warming einrichten {#set-up-an-automated-ip-warming-plan}
 
 ### 1. Schritt: Zeitplan festlegen {#step-1-set-a-schedule}

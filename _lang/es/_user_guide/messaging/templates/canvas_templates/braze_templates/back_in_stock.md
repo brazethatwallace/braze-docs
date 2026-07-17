@@ -18,7 +18,7 @@ Este artículo te guiará a través de un caso de uso de la plantilla **De vuelt
 Para utilizar esta plantilla con éxito, necesitarás lo siguiente:
 
 - Un [catálogo]({{site.baseurl}}/user_guide/data/activation/catalogs/create) que contenga información sobre tu artículo
-- Las [notificaciones de vuelta en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#back-in-stock-notifications) deben estar configuradas para el artículo sobre el que deseas enviar mensajes a los usuarios
+- Las [notificaciones de vuelta en stock]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications) deben estar configuradas para el artículo sobre el que deseas enviar mensajes a los usuarios
 
 ## Adaptar la plantilla a tus necesidades {#tailoring-the-template-to-your-needs}
 
@@ -113,5 +113,5 @@ Comenzaremos nuestra personalización recorriendo cada paso de mensaje para actu
 Después de probar y revisar nuestro Canvas para asegurarnos de que funciona como se espera, lo lanzaremos seleccionando **Lanzar Canvas**. ¡Ahora nuestros usuarios que han marcado como favoritos nuestros jeans Classic Straight Leg y se han suscrito a nuestros canales de mensajería recibirán notificaciones cuando vuelvan a estar en stock!
 
 {% alert tip %}
-Consulta nuestra [lista de verificación previa y posterior al lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para conocer las cosas a considerar antes y después de lanzar un Canvas.
+Consulta nuestra [lista de verificación previa y posterior al lanzamiento]({{site.baseurl}}/user_guide/messaging/canvas/ideas_and_strategies/pre_post_launch_checklist#things-to-consider-before-launch) para conocer lo que debes considerar antes y después de lanzar un Canvas.
 {% endalert %}

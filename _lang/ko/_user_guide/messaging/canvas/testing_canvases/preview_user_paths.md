@@ -57,7 +57,7 @@ Canvas를 편집할 권한이 없어도 미리보기를 실행할 수 있지만,
 
 ### Liquid
 
-Braze는 실제 테스트 메시지를 발송하지 않더라도 테스트 실행 중에 Liquid 로직을 처리합니다. 즉, [메시지 중단 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages)과 기타 Liquid 로직이 반영되어 Canvas 사용자 여정에 영향을 미칠 수 있습니다.
+Braze는 실제 테스트 메시지를 발송하지 않더라도 테스트 실행 중에 Liquid 로직을 처리합니다. 즉, [메시지 중단 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)과 기타 Liquid 로직이 반영되어 Canvas 사용자 여정에 영향을 미칠 수 있습니다.
 
 미리보기가 중단하지 않고 사용자 여정의 마지막 단계를 발송하는 경우, 미리보기는 Canvas 진입 시간을 기준으로 사용자가 실제로 해당 단계에 있을 시간이 아닌 현재 시간을 Liquid 평가를 위한 테스트 시간으로 사용할 수 있습니다.
 

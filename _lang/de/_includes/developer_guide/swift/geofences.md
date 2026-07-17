@@ -18,7 +18,7 @@ Standardmäßig sind die Standortdienste von Braze nicht aktiviert. Um sie in Ih
 
 Öffnen Sie in Xcode den Tab **General**. Fügen Sie unter **Frameworks, Libraries, and Embedded Content** das Modul `BrazeLocation` hinzu.
 
-![Das BrazeLocation-Modul in Ihrem Xcode-Projekt hinzufügen]({% image_buster /assets/img/sdk_geofences/add-brazeLocation-module-xcode.png %})
+![Das Modul „BrazeLocation“ in Ihrem Xcode-Projekt hinzufügen]({% image_buster /assets/img/sdk_geofences/add-brazeLocation-module-xcode.png %})
 
 #### Schritt 2.2: Aktualisieren Sie Ihre `Info.plist` {#step-22-update-your-infoplist}
 
@@ -254,7 +254,7 @@ AppDelegate.braze?.requestGeofences(latitude: latitude, longitude: longitude)
 
 ### Warum erhalte ich keine Geofences auf meinem Gerät? {#why-am-i-not-receiving-geofences-on-my-device}
 
-Um zu überprüfen, ob Geofences auf Ihrem Gerät empfangen werden, verwenden Sie zunächst den [SDK-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging#debugging-the-braze-sdk), um die Protokolle des SDK zu prüfen. Sie können dann sehen, ob Geofences erfolgreich vom Server empfangen werden und ob es bemerkenswerte Fehler gibt.
+Um zu überprüfen, ob Geofences auf Ihrem Gerät empfangen werden, verwenden Sie zunächst den [SDK-Debugger]({{site.baseurl}}/developer_guide/sdk_integration/debugging), um die Protokolle des SDK zu prüfen. Sie können dann sehen, ob Geofences erfolgreich vom Server empfangen werden und ob es bemerkenswerte Fehler gibt.
 
 Nachstehend finden Sie weitere mögliche Gründe, warum Geofences auf Ihrem Gerät nicht empfangen werden:
 

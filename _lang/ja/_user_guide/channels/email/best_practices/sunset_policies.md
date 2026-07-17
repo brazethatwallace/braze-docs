@@ -32,6 +32,6 @@ channel: email
 
 ![「Last Engaged with Message」フィルターが選択されたセグメント詳細ページ。]({% image_buster /assets/img_archive/email_sunset_policies_new.png %})
 
-Brazeはスパムとしてマークしたユーザーへのメール送信を自動的に停止しますが、`Has Marked You As Spam` フィルターを使用すると、これらのユーザーにターゲットを絞ったプッシュメッセージやアプリ内通知を送信することもできます。このフィルターは[リターゲティングキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#retarget-campaigns)に役立ちます。たとえば、エンゲージメントの低いユーザーに、メールを開封しないことで見逃している機能やお得な情報を思い出させるメッセージを送信できます。
+Brazeはスパムとしてマークしたユーザーへのメール送信を自動的に停止しますが、`Has Marked You As Spam` フィルターを使用すると、これらのユーザーにターゲットを絞ったプッシュメッセージやアプリ内通知を送信することもできます。このフィルターは[リターゲティングキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns)に役立ちます。たとえば、エンゲージメントの低いユーザーに、メールを開封しないことで見逃している機能やお得な情報を思い出させるメッセージを送信できます。
 
 サンセットポリシーは、離脱ユーザーをターゲットにしたメールキャンペーンで特に役立ちます。これらのキャンペーンは一定期間アプリを利用していないセグメントに焦点を当てていますが、エンゲージメントの低い受信者を繰り返し含めると、メールの配信到達性が低下するリスクがあります。サンセットポリシーを使用すると、スパムフォルダーに振り分けられることなく、離脱ユーザーをターゲットにすることができます。

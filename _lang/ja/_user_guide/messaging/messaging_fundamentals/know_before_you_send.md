@@ -70,7 +70,7 @@ tool:
 
 ### 確認すべきこと
 - **顧客の同意**: 最初のメールを送信する前に、まず顧客から許可を得ることが重要です。詳細については、[同意とアドレスの収集]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection)および[Braze利用規約](https://www.braze.com/company/legal/aup)を参照してください。
-- **想定される送信量**: 単一IPで1日あたり200万通のメールが一般的な推奨値です（その送信量が適切に[ウォームアップ]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming#ip-warming)されている場合）。
+- **想定される送信量**: 単一IPで1日あたり200万通のメールが一般的な推奨値です（その送信量が適切に[ウォームアップ]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming)されている場合）。
   - これを超える送信量を継続的に計画している場合、プロバイダーがメールの受信をスロットリングし、ソフトバウンスの増加、配信率の低下、IP評判の低下を招くことを避けるため、IPプールにバンドルされた複数のIPアドレスの使用を検討してください。
   - より短い時間枠での送信を検討している場合は、異なるプロバイダーがメールを受け入れる速度を調査し、送信に適切なIP数を判断することをお勧めします。
 
@@ -95,7 +95,7 @@ tool:
 - [**オプトイン/購読中とプッシュ有効**]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states): ユーザーがBrazeからプッシュメッセージを受信するには、購読ステータスがオプトイン（iOS）または購読中（Android）であり、`Push Enabled = True`である必要があります。Android 13では、プッシュ通知を送信するアプリの管理方法に大きな変更が導入されています。Brazeの[Android 13 SDKアップグレードガイド]({{site.baseurl}}/developer_guide/platforms/android/android_13)は、新しいAndroid 13ベータ版がリリースされるたびに更新されます。
 
 ### 知っておくべきこと
-- **Webプッシュ**: Brazeの[Web SDKセットアップ]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web)が完了している場合は、Webプッシュを活用してユーザーをエンゲージすることを検討してください。Webプッシュは、スマートフォンのアプリプッシュ通知と同じように動作します。Webプッシュの作成方法の詳細については、[プッシュ通知の作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message)を参照してください。
+- **Webプッシュ**: Brazeの[Web SDKセットアップ]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web)が完了している場合は、Webプッシュを活用してユーザーをエンゲージすることを検討してください。Webプッシュは、スマートフォンのアプリプッシュ通知と同じように動作します。Webプッシュの作成方法の詳細については、[プッシュ通知の作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)を参照してください。
 - **単一アプリのターゲティング**: 単一アプリとそのユーザーをターゲティングするための[セグメンテーションの違い]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#targeting-a-singular-app)を確認してください。
 
 ## SMS

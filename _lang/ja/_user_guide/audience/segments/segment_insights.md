@@ -60,7 +60,7 @@ description: "このハウツー記事では、セグメントインサイトの
 
 この例では、ドイツ語話者は平均してより前に登録しており、これが現在あまりアクティブでない理由を説明しているかもしれません。これは多くの要因によるものと考えられます。例えば、アプリが最初にヨーロッパでリリースされたが、現在は英語やスペイン語を話す人が多い米国でより人気があるといった場合です。人口統計全体でKPIを分析する際により堅牢な結果を得るには、人口統計の一般的な調査から得られた結果（例えば、言語がすべてのユーザーのLTVに影響するかどうか）を、より小さく類似した集団で検証し、結果が持続するかどうかを確認することが合理的です。
 
-英語以外の言語の話者のコンバージョンを改善するための良い第一歩は、ユーザーのデバイス言語に合わせて[キャンペーンをローカライズ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)し、[多変量キャンペーン]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests#creating-tests)を使用して外国語コピーの異なるバージョンをテストすることで、メッセージのコピーがユーザーにエンゲージしていることを確認することです。
+英語以外の言語の話者のコンバージョンを改善するための良い第一歩は、ユーザーのデバイス言語に合わせて[キャンペーンをローカライズ]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/localization)し、[多変量キャンペーン]({{site.baseurl}}/user_guide/messaging/ab_testing/create_tests)を使用して外国語コピーの異なるバージョンをテストすることで、メッセージのコピーがユーザーにエンゲージしていることを確認することです。
 
 ### 高収益の指標を理解する {#understanding-indicators-of-higher-revenue}
 
@@ -68,4 +68,4 @@ description: "このハウツー記事では、セグメントインサイトの
 
 ![ソーシャルメディアで共有したユーザー、プロモーションに登録したユーザー、ニュースレターに登録したユーザーのセグメントインサイト内訳。]({% image_buster /assets/img_archive/Segment_Insights_Events1.png %})
 
-この場合、現在プロモーションメッセージに登録しているユーザーは比較的少なく、あまりアクティブではありませんが、これらのユーザーはより高い生涯収益を生み出しています。収益を増やすには、オンボーディングキャンペーンにプロモーションメッセージへの登録の招待を含めることが良いアイデアかもしれません。離脱したユーザーを再エンゲージするには、一般的な[離脱ユーザーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users#capture-lapsing-users)を送信し、[コンバージョンしたユーザー]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#converted-from-campaign)をターゲットにして、プロモーションメッセージへの登録を促す後続のキャンペーンを送信することが良い計画です。
+この場合、現在プロモーションメッセージに登録しているユーザーは比較的少なく、あまりアクティブではありませんが、これらのユーザーはより高い生涯収益を生み出しています。収益を増やすには、オンボーディングキャンペーンにプロモーションメッセージへの登録の招待を含めることが良いアイデアかもしれません。離脱したユーザーを再エンゲージするには、一般的な[離脱ユーザーキャンペーン]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/capturing_lapsing_users)を送信し、[コンバージョンしたユーザー]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#converted-from-campaign)をターゲットにして、プロモーションメッセージへの登録を促す後続のキャンペーンを送信することが良い計画です。

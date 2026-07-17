@@ -131,12 +131,12 @@ Après avoir enregistré une catégorie, utilisez le tableau de bord de Braze po
 Il est nécessaire de définir des boutons d'action sur le tableau de bord de Braze uniquement pour les comportements qui ne peuvent pas être créés localement dans votre code Swift, tels que la création de liens profonds vers votre application ou les redirections vers une URL web. Ces actions doivent être configurées sur le tableau de bord afin de pouvoir définir l'URL ou le lien profond à ouvrir. Pour les boutons d'action qui suppriment simplement la notification sans ouvrir l'application, il n'est pas nécessaire de les configurer sur le tableau de bord : la suppression est gérée automatiquement par iOS. Enregistrez simplement votre catégorie personnalisée et ses actions dans le code de votre application, puis saisissez le nom de catégorie correspondant dans le tableau de bord.
 {% endalert %}
 
-1. Dans le tableau de bord de Braze, sélectionnez **Messagerie** > **Notifications Push**, puis choisissez votre [Campaign push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message) iOS.
-2. Sous **Composer une notification push**, activez les **Boutons d'action**.
-3. Dans le menu déroulant **Catégorie de notification iOS**, sélectionnez **Entrez la catégorie iOS personnalisée préenregistrée**.
+1. Dans le tableau de bord de Braze, sélectionnez **Messaging** > **Push Notifications**, puis choisissez votre [Campaign push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message) iOS.
+2. Sous **Compose push notification**, activez les **Action Buttons**.
+3. Dans le menu déroulant **iOS Notification Category**, sélectionnez **Enter pre-registered custom iOS Category**.
 4. Enfin, entrez l'une des catégories que vous avez créées plus tôt. L'exemple suivant utilise la catégorie personnalisée : `LIKE_CATEGORY`.
 
-![Le tableau de bord de la Campaign de notifications push avec la configuration des catégories personnalisées.]({% image_buster /assets/img_archive/ios-notification-category.png %})
+![Le tableau de bord de la campagne de notifications push avec la configuration des catégories personnalisées.]({% image_buster /assets/img_archive/ios-notification-category.png %})
 
 ### Exemple : catégorie de notification push personnalisée {#example-custom-push-category}
 
@@ -167,7 +167,7 @@ UNUserNotificationCenter.current().setNotificationCategories(Braze.Notifications
 
 ## Personnalisation des badges {#customizing-badges}
 
-Les badges sont de petites icônes idéales pour attirer l'attention d'un utilisateur. Vous pouvez définir un nombre de badges dans l'onglet [**Paramètres**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) lorsque vous rédigez une notification push à l'aide du tableau de bord de Braze. Vous pouvez également mettre à jour le nombre de badges manuellement par l'intermédiaire de la propriété [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) de votre application ou par le biais du [payload de notification à distance](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
+Les badges sont de petites icônes idéales pour attirer l'attention d'un utilisateur. Vous pouvez définir un nombre de badges dans l'onglet [**Settings**]({{site.baseurl}}/developer_guide/push_notifications/customization/?sdktab=swift#swift_settings) lorsque vous rédigez une notification push à l'aide du tableau de bord de Braze. Vous pouvez également mettre à jour le nombre de badges manuellement par l'intermédiaire de la propriété [`applicationIconBadgeNumber`](https://developer.apple.com/library/ios/documentation/UIKit/Reference/UIApplication_Class/index.html#//apple_ref/occ/instp/UIApplication/applicationIconBadgeNumber) de votre application ou par le biais du [payload de notification à distance](https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/CreatingtheNotificationPayload.html#//apple_ref/doc/uid/TP40008194-CH10-SW1).
 
 Braze efface automatiquement le décompte des badges lorsqu'une notification Braze est reçue alors que l'application est au premier plan. Le fait de régler manuellement le numéro de badge sur 0 permet également d'effacer les notifications dans le centre de notification.
 
@@ -241,7 +241,7 @@ Vous pouvez inspecter un son pour déterminer son format de données en l'ouvran
 
 Vous devez spécifier une URL de protocole qui pointe vers l'emplacement du fichier son dans votre application. Il existe deux méthodes pour ce faire :
 
-* Utilisez le paramètre `sound` de l'[objet Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-object) pour transmettre l'URL à Braze.
+* Utilisez le paramètre `sound` de l'[objet Apple push]({{site.baseurl}}/api/objects_filters/messaging/apple_object) pour transmettre l'URL à Braze.
 * Spécifiez l'URL dans le tableau de bord. Dans le [compositeur push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android), sélectionnez **Settings** et saisissez l'URL du protocole dans le champ **Sound**.
 
 ![Le compositeur de notifications push dans le tableau de bord de Braze]({% image_buster /assets/img_archive/sound_push_ios.png %})
@@ -252,9 +252,9 @@ Pour plus d'informations, consultez la documentation du développeur Apple conce
 
 ## Paramètres {#settings}
 
-Lorsque vous créez une Campaign push via le tableau de bord, cliquez sur l'onglet **Settings** à l'étape **Compose** pour afficher les paramètres avancés disponibles.
+Lorsque vous créez une campagne push via le tableau de bord, cliquez sur l'onglet **Settings** à l'étape **Compose** pour afficher les paramètres avancés disponibles.
 
-![Onglet des paramètres de composition d'une Campaign push iOS de Braze avec les options avancées.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Onglet des paramètres de composition d'une campagne push iOS de Braze avec les options avancées.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ### Paires clé-valeur {#key-value-pairs}
 

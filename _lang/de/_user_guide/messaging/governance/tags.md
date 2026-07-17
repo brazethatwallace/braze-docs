@@ -53,4 +53,4 @@ Tags können auch zu angepassten Daten hinzugefügt werden, wenn Sie [angepasste
 Dieses Feature befindet sich derzeit im Early Access. Kontaktieren Sie Ihren Customer-Success-Manager, wenn Sie an der Teilnahme an diesem Early Access interessiert sind.
 {% endalert %}
 
-Informationen zum Umbenennen, Entfernen oder Verschachteln von Tags in Ihrem Dashboard finden Sie unter [Tags verwalten]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags).
+Informationen zum Umbenennen, Entfernen oder Verschachteln von Tags in Ihrem Dashboard finden Sie unter [Tags verwalten]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags).

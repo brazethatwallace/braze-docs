@@ -94,7 +94,7 @@ Viele gängige Arten von Nutzerattributen wie Name, E-Mail, Geburtsdatum, Land u
 Erfahren Sie mehr über [automatisch erfasste Daten und angepasste Daten]({{site.baseurl}}/developer_guide/analytics).
 
 ## Orchestrierung {#orchestration}
-Die Orchestrierungsschicht erlaubt es Ihrem Marketing-Team, Nutzer-Journeys auf der Grundlage Ihrer Nutzerdaten und des früheren Engagements zu gestalten. Diese Arbeit wird hauptsächlich über unsere Dashboard-Oberfläche erledigt, aber Sie haben auch die Möglichkeit, [Campaigns über die API]({{site.baseurl}}/api/api_campaigns#api-campaigns) zu starten. Sie können Braze beispielsweise über Ihr Backend mitteilen, wann die Nachrichten und Campaigns, die Ihre Marketer im Dashboard entworfen haben, versendet werden sollen, und sie gemäß Ihrer Backend-Logik triggern. Ein Beispiel für eine API-getriggerte Nachricht könnte das Zurücksetzen von Passwörtern oder Versandbestätigungen sein.
+Die Orchestrierungsschicht erlaubt es Ihrem Marketing-Team, Nutzer-Journeys auf der Grundlage Ihrer Nutzerdaten und des früheren Engagements zu gestalten. Diese Arbeit wird hauptsächlich über unsere Dashboard-Oberfläche erledigt, aber Sie haben auch die Möglichkeit, [Campaigns über die API]({{site.baseurl}}/api/api_campaigns) zu starten. Sie können Braze beispielsweise über Ihr Backend mitteilen, wann die Nachrichten und Campaigns, die Ihre Marketer im Dashboard entworfen haben, versendet werden sollen, und sie gemäß Ihrer Backend-Logik triggern. Ein Beispiel für eine API-getriggerte Nachricht könnte das Zurücksetzen von Passwörtern oder Versandbestätigungen sein.
 
 {% alert note %}
 API-getriggerte Campaigns sind ideal für erweiterte transaktionale Anwendungsfälle. Sie erlauben Marketern die Verwaltung von Campaign-Texten, multivariaten Tests und Wiederzulassungsregeln im Braze-Dashboard und triggern gleichzeitig die Zustellung dieser Inhalte von Ihren Servern und Systemen. Die API-Anfrage zum Triggern der Nachricht kann auch zusätzliche Daten enthalten, die in Realtime in die Nachricht eingefügt werden.
@@ -139,7 +139,6 @@ Während der CSV-Export ein Basislimit von 500.000 Zeilen hat, gibt es für die 
 {% endalert %}
 
 ## Praxisbeispiel {#putting-it-all-together}
-
 Eine Ihrer Nutzer:innen, nennen wir sie Mel, hat gerade Ihre Produktankündigung erhalten. Hinter den Kulissen haben alle Ebenen der Braze-Plattform zusammengearbeitet, um sicherzustellen, dass dieser Prozess reibungslos abläuft.
 
 Die Informationen von Mel wurden über einen CSV-Import von Ihrer Legacy-Plattform für Customer-Engagement in Braze übernommen. Jedes Mal, wenn Mel nach der Integration mit Ihrer App interagierte, wurden weitere Daten zu ihrem Kundenprofil hinzugefügt.

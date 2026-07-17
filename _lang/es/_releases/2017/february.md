@@ -10,7 +10,7 @@ description: "Este artículo contiene notas de la versión de febrero de 2017."
 
 ## Añadir pasos en Canvas después del lanzamiento {#add-canvas-steps-after-launch}
 
-Ahora puedes [añadir pasos en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#create-a-canvas) a pasos existentes incluso después de iniciar el Canvas.
+Ahora puedes [añadir pasos en Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) a pasos existentes incluso después de iniciar el Canvas.
 
 ## CSV masivo para informes de participación {#bulk-csv-for-engagement-reports}
 

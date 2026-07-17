@@ -18,7 +18,7 @@ channel:
 El envío de una tarjeta de contacto se cobra como un MMS. Revisa tu volumen esperado de MMS y el uso de créditos de mensajes o de acción cuando crees tarjetas de contacto, y confirma los costos en tu [página de facturación]({{site.baseurl}}/user_guide/administer/global/billing) de Braze.
 {% endalert %}
 
-Las tarjetas de contacto se pueden crear [programáticamente](https://www.twilio.com/blog/send-vcard-twilio-sms) y cargar en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) de Braze, o crearse a través de nuestro generador de tarjetas de contacto integrado. A estas tarjetas se les pueden asignar propiedades comunes como el nombre de tu empresa, número de teléfono, dirección, correo electrónico y una foto pequeña. Para empezar a crear tarjetas de contacto, primero asegúrate de tener configurado MMS en Braze.
+Las tarjetas de contacto se pueden crear [programáticamente](https://www.twilio.com/blog/send-vcard-twilio-sms) y cargar en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) de Braze, o crearse a través de nuestro generador de tarjetas de contacto integrado. A estas tarjetas se les pueden asignar propiedades comunes como el nombre de tu empresa, número de teléfono, dirección, correo electrónico y una foto pequeña. Para empezar a crear tarjetas de contacto, primero asegúrate de tener configurado MMS en Braze.
 
 ## Generador de tarjetas de contacto {#contact-card-generator}
 
@@ -58,7 +58,7 @@ El campo **Full Name** determina las iniciales que aparecen en la miniatura del 
 
 Una vez que hayas introducido todos los campos necesarios, selecciona **Generate Contact Card** y se adjuntará automáticamente a tu campaña o Canvas. Desde aquí, puedes añadir un mensaje, probar tu tarjeta de contacto y lanzar tu campaña o Canvas.
 
-La tarjeta de contacto también se guardará en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library#media-library) para reutilizarla fácilmente en futuras campañas y Canvas.
+La tarjeta de contacto también se guardará en la [biblioteca de medios]({{site.baseurl}}/user_guide/messaging/design_and_edit/media_library) para reutilizarla fácilmente en futuras campañas y Canvas.
 
 ## Añadir una tarjeta de contacto existente {#adding-an-existing-contact-card}
 

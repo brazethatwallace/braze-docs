@@ -47,7 +47,7 @@ page_order: 5
 ```
 {%endraw%}
 
-Liquidを使用したメッセージの中止について詳しくは、[Liquidドキュメント]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages)をご覧ください。
+Liquidを使用したメッセージの中止について詳しくは、[Liquidドキュメント]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)をご覧ください。
 
 ## グローバルキャンバスエントリプロパティ {#global-canvas-entry-properties}
 

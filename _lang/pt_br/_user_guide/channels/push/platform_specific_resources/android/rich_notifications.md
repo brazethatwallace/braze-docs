@@ -37,7 +37,7 @@ Embora a Braze forneça instruções sobre como configurar notificações Rich p
 
 ### Etapa 1: Criar uma Campaign de push {#step-1-create-a-push-campaign}
 
-Siga as etapas para [criar uma Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message) e redigir uma notificação por push para Android. Você usará o mesmo criador para configurar notificações por push que não contêm conteúdo avançado.
+Siga as etapas para [criar uma Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) e redigir uma notificação por push para Android. Você usará o mesmo criador para configurar notificações por push que não contêm conteúdo avançado.
 
 ### Etapa 2: Adicionar legenda {#step-2-add-captioning}
 

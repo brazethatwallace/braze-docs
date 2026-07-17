@@ -36,6 +36,10 @@ IP ウォームアップは一度だけ実行できます。
 - キャンペーンの承認ワークフローが有効になっている場合は「Approve and Deny キャンペーン」
     - Brazeは自動 IP ウォームアップから作成されたキャンペーンを自動的に承認します。
 
+{% alert important %}
+この機能は、メールインフラによってはサポートされない場合があります。
+{% endalert %}
+
 ## 自動 IP ウォームアッププランを設定する {#set-up-an-automated-ip-warming-plan}
 
 ### ステップ1: スケジュールを設定する {#step-1-set-a-schedule}

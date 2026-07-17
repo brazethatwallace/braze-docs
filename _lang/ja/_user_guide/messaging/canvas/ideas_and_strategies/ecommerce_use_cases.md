@@ -50,7 +50,7 @@ Liquidタグを使用してメッセージのパーソナライズを始める�
 
 Brazeのセグメントを使用して、特定の属性や行動に基づいてターゲット顧客セグメントを作成し、パーソナライズされたメッセージングやキャンペーンを配信できます。この強力な機能により、適切なオーディエンスに適切なメッセージを適切なタイミングで届けることで、顧客と効果的にエンゲージできます。
 
-セグメントの使い方の詳細については、[Brazeのセグメントについて]({{site.baseurl}}/user_guide/audience/segments#about-braze-segments)をご覧ください。
+セグメントの使い方の詳細については、[Brazeのセグメントについて]({{site.baseurl}}/user_guide/audience/segments)をご覧ください。
 
 ### 推奨イベント {#recommended-events}
 

@@ -40,7 +40,7 @@ SDK에서 로케일을 수집하는 방법에 대한 기술적 세부 사항은 
 
 이 접근 방식에서는 템플릿을 서로 다른 발송 로케일로 분리합니다. 발송 후 대시보드에서 각 국가별로 발송 분석을 별도로 보고하며, 다운스트림 사용자 수준의 [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) 이벤트도 특정 Campaign에 연결됩니다.
 
-- 템플릿은 유지 관리 및 추적 목적으로 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags)를 구현하면 유용합니다.
+- 템플릿은 유지 관리 및 추적 목적으로 [태그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)를 구현하면 유용합니다.
 - Campaigns는 동일한 [Braze 템플릿]({{site.baseurl}}/user_guide/messaging/templates) 및 [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)(Liquid을 포함하는 [이메일 템플릿]({{site.baseurl}}/user_guide/messaging/templates/email_templates) 등)의 구성을 상속받을 수 있습니다.
 - 기존 Campaigns와 템플릿을 [복제]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating)하여 더 빠르게 가치를 실현할 수 있습니다.
 
@@ -122,7 +122,7 @@ Braze는 {% raw %}`{% translation salutation %}Hello!{% endtranslation %}`{% end
 {% endtab %}
 
 {% tab Content Blocks %}
-Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)는 재사용 가능한 콘텐츠 블록입니다. 블록이 변경되면 해당 블록에 대한 모든 참조가 변경됩니다. 예를 들어, 이메일 헤더나 푸터에 대한 업데이트가 모든 이메일에 반영되거나 번역을 보관하는 데 사용할 수 있습니다. 이러한 블록은 REST API를 사용하여 [생성]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block#create-content-block) 및 [업데이트]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block)할 수도 있으며, 사용자가 프로그래밍 방식으로 번역을 업로드할 수 있습니다.
+Braze [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)는 재사용 가능한 콘텐츠 블록입니다. 블록이 변경되면 해당 블록에 대한 모든 참조가 변경됩니다. 예를 들어, 이메일 헤더나 푸터에 대한 업데이트가 모든 이메일에 반영되거나 번역을 보관하는 데 사용할 수 있습니다. 이러한 블록은 REST API를 사용하여 [생성]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) 및 [업데이트]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block)할 수도 있으며, 사용자가 프로그래밍 방식으로 번역을 업로드할 수 있습니다.
 
 대시보드에서 Campaign을 구축할 때 {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %} 태그를 사용하여 Content Blocks를 참조할 수 있습니다. 이러한 블록에는 옵션 1에서 보여준 것처럼 각 언어에 대한 조건 로직 내에 모든 번역을 포함하거나, 각 언어별로 별도의 블록을 사용할 수 있습니다.
 

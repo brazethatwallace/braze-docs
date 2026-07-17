@@ -50,7 +50,7 @@ Um mit der Personalisierung Ihrer Nachrichten mithilfe von Liquid-Tags zu beginn
 
 Verwenden Sie Braze Segments, um gezielte Kundensegmente basierend auf bestimmten Attributen und Verhaltensweisen zu erstellen und personalisiertes Messaging und Campaigns bereitzustellen. Mit diesem leistungsstarken Feature können Sie Ihre Kund:innen effektiv ansprechen, indem Sie die richtige Zielgruppe mit der richtigen Nachricht zur richtigen Zeit erreichen.
 
-Weitere Informationen zu den ersten Schritten mit Segmenten finden Sie unter [Über Braze Segments]({{site.baseurl}}/user_guide/audience/segments#about-braze-segments).
+Weitere Informationen zu den ersten Schritten mit Segmenten finden Sie unter [Über Braze Segments]({{site.baseurl}}/user_guide/audience/segments).
 
 ### Empfohlene Events {#recommended-events}
 

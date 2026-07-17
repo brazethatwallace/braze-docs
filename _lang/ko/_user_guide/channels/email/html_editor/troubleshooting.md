@@ -29,7 +29,7 @@ HTML 이메일 렌더링 또는 편집기 동작이 예상과 다를 때 이 워
 
 1. 편집기 또는 외부 유효성 검사 도구에서 HTML 마크업을 검증합니다.
 2. [테스트 이메일]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa)을 발송하고 문제가 나타나는 이메일 클라이언트 또는 브라우저를 기록합니다.
-3. [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision)으로 미리보기하여 클라이언트 간 렌더링을 비교합니다.
+3. [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision)으로 미리보기하여 클라이언트 간 렌더링을 비교합니다.
 4. 편집기 자체가 오작동하는 경우 [브라우저 확장 프로그램 충돌](#extension-conflicts)을 배제합니다.
 5. 문제가 지속되면 Inbox Vision 스크린샷과 영향을 받는 클라이언트 정보를 포함하여 [고객지원 티켓]({{site.baseurl}}/braze_support)을 열어주세요.
 
@@ -52,7 +52,7 @@ HTML 이메일 렌더링 또는 편집기 동작이 예상과 다를 때 이 워
 
 이메일은 브라우저와 이메일 클라이언트에 따라 다르게 렌더링되므로, 문제가 발생하는 브라우저와 이메일 클라이언트를 기록해 두세요.
 
-- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision)을 사용하여 다양한 브라우저와 이메일 클라이언트에서 이메일이 어떻게 보이는지 미리보기할 수 있습니다.
+- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision)을 사용하여 다양한 브라우저와 이메일 클라이언트에서 이메일이 어떻게 보이는지 미리보기할 수 있습니다.
 - 문제를 일으키는 브라우저 또는 이메일 클라이언트를 파악한 후, 개발자 팀에 해당 브라우저 또는 이메일 클라이언트에 맞게 HTML을 수정해야 한다고 알려주세요.
 
 ### CSS 인라이닝 {#css-inlining}

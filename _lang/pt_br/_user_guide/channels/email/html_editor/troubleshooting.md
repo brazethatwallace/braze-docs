@@ -29,7 +29,7 @@ Use este fluxo de trabalho quando a renderização do e-mail HTML ou o comportam
 
 1. Valide sua marcação HTML no editor ou em um validador externo.
 2. Envie um [e-mail de teste]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) e anote quais clientes de e-mail ou navegadores apresentam o problema.
-3. Pré-visualize com o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision) para comparar a renderização entre clientes.
+3. Pré-visualize com o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para comparar a renderização entre clientes.
 4. Descarte [conflitos de extensões de navegador](#extension-conflicts) se o próprio editor estiver se comportando de forma estranha.
 5. Se o problema persistir, abra um [ticket de suporte]({{site.baseurl}}/braze_support) com capturas de tela do Inbox Vision e dos clientes afetados.
 
@@ -52,7 +52,7 @@ A visualização em texto simples remove o editor `WYSIWYG` (o que você vê é 
 
 Os e-mails são renderizados de forma diferente dependendo dos navegadores e clientes de e-mail, então anote em quais navegadores e clientes de e-mail você está enfrentando problemas.
 
-- Pré-visualize seus e-mails usando o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision) para ver como seus e-mails aparecem em diferentes navegadores e clientes de e-mail.
+- Pré-visualize seus e-mails usando o [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) para ver como seus e-mails aparecem em diferentes navegadores e clientes de e-mail.
 - Depois de identificar quais navegadores ou clientes de e-mail estão causando problemas, informe sua equipe de desenvolvimento que será necessário modificar o HTML e fazer ajustes para acomodar esses navegadores ou clientes de e-mail.
 
 ### Inlining de CSS {#css-inlining}

@@ -68,7 +68,7 @@ Le générateur de Canvas vous guidera étape par étape dans la configuration d
 
 ### Étape 1.1 : Commencer par les bases de votre Canvas {#step-11-start-with-your-canvas-basics}
 
-Ici, vous nommerez votre Canvas, assignerez des [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams) et créerez ou ajouterez des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags). Vous pouvez également assigner des événements de conversion pour le Canvas.
+Ici, vous nommerez votre Canvas, assignerez des [Teams]({{site.baseurl}}/user_guide/administer/global/user_management/teams) et créerez ou ajouterez des [étiquettes]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags). Vous pouvez également assigner des événements de conversion pour le Canvas.
 
 {% alert tip %}
 Étiquetez vos Canvas pour les retrouver facilement et créer des rapports. Par exemple, lorsque vous utilisez le [générateur de rapports]({{site.baseurl}}/user_guide/analytics/reports/report_builder), vous pouvez filtrer par étiquettes spécifiques.

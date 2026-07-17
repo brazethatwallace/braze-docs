@@ -58,7 +58,7 @@ Conservez les paramètres par défaut pour l'audience d'entrée, qui cible les u
 Conservez la plupart des paramètres d'abonnement par défaut :
 
 - Envoyer uniquement aux utilisateurs qui se sont abonnés ou ont opté pour la réception de messages ou de notifications.
-- Appliquer vos [règles de limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) afin de ne pas submerger votre audience avec le nombre de messages qu'elle reçoit. Dans ce cas, définissez votre limite de fréquence pour limiter le nombre de Campaigns ou d'étapes Canvas étiquetées « Lapsing/Retention » qu'un utilisateur peut recevoir à deux par semaine.
+- Appliquer vos [règles de limite de fréquence]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#about-frequency-capping) afin de ne pas submerger votre audience avec le nombre de messages qu'elle reçoit. Dans ce cas, définissez votre limite de fréquence pour limiter le nombre de campagnes ou d'étapes Canvas étiquetées « Lapsing/Retention » qu'un utilisateur peut recevoir à deux par semaine.
 - Ne pas envoyer de messages pendant les heures calmes dans le fuseau horaire local de l'utilisateur (de minuit à 8 h).
 
 Le seul paramètre à modifier concerne le comportement lorsqu'un message se déclenche pendant les heures calmes. Au lieu d'annuler le message, sélectionnez **Send at next available time** afin que vos utilisateurs ne manquent aucune promotion.
@@ -76,7 +76,7 @@ Maintenant, construisez votre Canvas en personnalisant les étapes du modèle :
 3. Conservez la valeur par défaut pour l'étape de l'arbre décisionnel appelée « Sessions? », qui définit le groupe « >1 Session » comme les utilisateurs ayant utilisé votre application plus d'une fois au cours du dernier jour calendaire.
 4. Personnalisez l'étape de message pour les utilisateurs qui appartiennent au groupe « >1 Session ». Dans ce cas d'usage, remerciez les utilisateurs d'avoir visité votre application et mettez en avant les avantages qu'ils ont débloqués.
 5. Assurez-vous que votre synchronisation Google Audience est configurée dans l'étape Ad Audience Update, afin de mettre à jour et synchroniser les données des utilisateurs ayant eu plusieurs sessions après avoir reçu le premier e-mail.
-6. Conservez la valeur par défaut pour le composant [chemin d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) appelé « A/B Test ». Celui-ci enverra aléatoirement l'une des deux promotions (que vous personnaliserez à l'étape suivante) aux utilisateurs ayant eu moins de deux sessions.
+6. Conservez la valeur par défaut pour le composant [chemin d'expérience]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) appelé « A/B Test ». Celui-ci enverra aléatoirement l'une des deux promotions (que vous personnaliserez à l'étape suivante) aux utilisateurs ayant eu moins de deux sessions.
 7. Personnalisez les deux promotions qui seront envoyées aux utilisateurs dans le cadre du chemin d'expérience. Dans ce cas d'usage, créez une promotion de 20 % pour un abonnement de trois mois et une autre de 10 % pour un abonnement d'un mois.
 
 ![Étapes Canvas avec des chemins de ramification basés sur le nombre de sessions d'un utilisateur.]({% image_buster /assets/img/canvas_templates/lapsing_user_8.png %}){: style="max-width:70%;"}

@@ -10,7 +10,7 @@ description: "この記事には2017年2月のリリースノートが含まれ�
 
 ## 起動後にキャンバスステップを追加する {#add-canvas-steps-after-launch}
 
-キャンバスの起動後でも、既存のステップに[キャンバスステップを追加]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#create-a-canvas)できるようになりました。
+キャンバスの起動後でも、既存のステップに[キャンバスステップを追加]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)できるようになりました。
 
 ## エンゲージメントレポートの一括CSV {#bulk-csv-for-engagement-reports}
 

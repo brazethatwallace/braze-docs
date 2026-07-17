@@ -28,16 +28,16 @@ Mit [Passkit]({{site.baseurl}}/partners/additional_channels_and_extensions/addit
 Die `dispatch_id` einer Nachricht wird in den folgenden Antworten der Messaging-Endpunkte enthalten sein:
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging)
 - [`/campaigns/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging)
-- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only)
+- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 - [`/messages/schedule`]({{site.baseurl}}/api/endpoints/messaging)
 - [`/canvases/trigger/send`]({{site.baseurl}}/api/endpoints/messaging)
 - [`/canvases/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging)
 
 Auf diese Weise können Kund:innen, die transaktionales Messaging nutzen, den Aufruf über Currents zurückverfolgen.
 
-## Canvas Changelogs
+## Canvas-Changelogs
 
-Haben Sie sich schon einmal gefragt, wer in Ihrem Konto an einem Canvas arbeitet? Dann haben wir gute Neuigkeiten! Sie können jetzt auf Canvas Changelogs zugreifen.
+Haben Sie sich schon einmal gefragt, wer in Ihrem Konto an einem Canvas arbeitet? Dann haben wir gute Neuigkeiten! Sie können jetzt auf Canvas-Changelogs zugreifen.
 
-![Canvas Changelogs]({% image_buster /assets/img/canvas-changelog1.png %})
-![Canvas Changelogs]({% image_buster /assets/img/canvas-changelog2.png %})
+![Canvas-Changelogs]({% image_buster /assets/img/canvas-changelog1.png %})
+![Canvas-Changelogs]({% image_buster /assets/img/canvas-changelog2.png %})

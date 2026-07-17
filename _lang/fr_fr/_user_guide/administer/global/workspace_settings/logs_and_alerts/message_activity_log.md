@@ -45,7 +45,7 @@ Ces messages peuvent provenir de notre propre système, de vos applications ou p
 
 Pour déterminer la signification de vos messages, prêtez attention à la formulation de chaque message et aux colonnes correspondantes, car cela peut vous aider à résoudre les problèmes grâce aux indices contextuels.
 
-Par exemple, les entrées **Erreur de message abandonné** peuvent survenir pour de nombreuses raisons, pas uniquement les [messages d'abandon Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages). Consultez la colonne **Message** pour connaître la raison spécifique :
+Par exemple, les entrées **Erreur de message abandonné** peuvent survenir pour de nombreuses raisons, pas uniquement les [messages d'abandon Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages). Consultez la colonne **Message** pour connaître la raison spécifique :
 
 - Si l'envoi a été abandonné par une balise Liquid `abort_message`, la colonne **Message** affiche l'extrait Liquid exact qui a été appelé, par exemple {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %}.
 - Pour les autres raisons d'abandon, la colonne **Message** explique pourquoi l'envoi a été abandonné.

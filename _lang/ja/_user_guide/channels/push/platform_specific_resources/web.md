@@ -36,7 +36,7 @@ Webプッシュ通知は、迅速なコンバージョンを促す緊急性の�
 - 明確なコールトゥアクションボタンでユーザーをWebサイトに呼び戻す
 - 製品や顧客の情報でプッシュをパーソナライズし、メッセージの関連性を高める
 
-Webプッシュは、スマートフォンのアプリプッシュ通知と同じように機能します。Webプッシュの作成について詳しくは、[プッシュ通知を作成する]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message)をご覧ください。
+Webプッシュは、スマートフォンのアプリプッシュ通知と同じように機能します。Webプッシュの作成について詳しくは、[プッシュ通知を作成する]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)をご覧ください。
 
 ![ノートパソコンとスマートフォンに同じプッシュメッセージが表示されたWebプッシュの例。]({% image_buster /assets/img_archive/Macbook_Push.png %}){: style="border:none"}
 

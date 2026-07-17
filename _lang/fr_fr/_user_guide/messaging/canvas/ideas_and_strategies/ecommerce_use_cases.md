@@ -50,7 +50,7 @@ Pour commencer à personnaliser vos messages à l'aide des étiquettes Liquid, v
 
 Utilisez les segments Braze pour créer des segments de clients ciblés en fonction d'attributs et de comportements spécifiques, et diffusez des messages et des campagnes personnalisés. Grâce à cette fonctionnalité puissante, vous pouvez engager efficacement vos clients en atteignant la bonne audience avec le bon message au bon moment.
 
-Pour en savoir plus sur la prise en main des segments, consultez [À propos des segments Braze]({{site.baseurl}}/user_guide/audience/segments#about-braze-segments).
+Pour en savoir plus sur la prise en main des segments, consultez [À propos des segments Braze]({{site.baseurl}}/user_guide/audience/segments).
 
 ### Événements recommandés {#recommended-events}
 

@@ -77,7 +77,7 @@ Abre la configuración de tu dispositivo y busca Braze Pilot. A continuación, a
 {% endtab %}
 {% tab Lanzar un mensaje push primer %}
 
-Puedes utilizar un mensaje dentro de la aplicación de Braze para solicitar permisos push para la aplicación, tal como lo harías con tus propios consumidores. Para aprender a crear este tipo de mensaje en Braze, consulta [Mensajes push primer dentro de la aplicación]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages#push-primer-in-app-messages).
+Puedes utilizar un mensaje dentro de la aplicación de Braze para solicitar permisos push para la aplicación, tal como lo harías con tus propios consumidores. Para aprender a crear este tipo de mensaje en Braze, consulta [Mensajes push primer dentro de la aplicación]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages).
 
 <div class="imgDiv">
 <img src="{% image_buster /assets/img/braze_pilot/push_primer1.png %}" style="max-width:40%">

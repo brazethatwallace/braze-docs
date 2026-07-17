@@ -34,13 +34,13 @@ WSC Sports 애플리케이션은 비디오 선택부터 최종사용자의 기�
 
 ![Braze Campaign 및 Segment 선택이 포함된 WSC Sports 발송 설정 패널.]({% image_buster /assets/img/wsc_sports/braze_integration.jpg %} "braze_integration.jpg"){: style="float:right;max-width:25%;margin-bottom:15px;"}
 
-통합을 시작하기 전에 Braze에서 원하는 Campaign과 사용자 Segments가 구축되어 있는지 확인하세요. 완료되면 WSC Sports 플랫폼에서 원하는 비디오를 선택하고, 발송 설정에서 사용할 Braze 사용자 Segment 및 Campaign ID를 선택합니다. 마지막으로 푸시 메시지를 발송할 시간을 선택합니다.
+통합을 시작하기 전에 Braze에서 원하는 Campaign과 사용자 세그먼트가 구축되어 있는지 확인하세요. 완료되면 WSC Sports 플랫폼에서 원하는 비디오를 선택하고, 발송 설정에서 사용할 Braze 사용자 세그먼트 및 Campaign ID를 선택합니다. 마지막으로 푸시 메시지를 발송할 시간을 선택합니다.
 
 #### API 호출 {#api-call}
 
-발송되면 WSC Sports는 선택한 옵션에 따라 다음 Braze 엔드포인트를 사용하여 선택한 사용자 Segments에 푸시 알림을 전달합니다:
-- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages#create-scheduled-messages)
-- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only)
+발송되면 WSC Sports는 선택한 옵션에 따라 다음 Braze 엔드포인트를 사용하여 선택한 사용자 세그먼트에 푸시 알림을 전달합니다:
+- [/messages/schedule/create]({{site.baseurl}}/api/endpoints/messaging/schedule_messages/post_schedule_messages)
+- [/messages/send]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 
 결과 메시지 본문은 다음과 같습니다:
 ```

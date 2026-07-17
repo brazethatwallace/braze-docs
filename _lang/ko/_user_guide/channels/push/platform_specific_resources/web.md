@@ -36,7 +36,7 @@ Braze를 사용하여 푸시 메시지를 생성하고 전송하려면 먼저 �
 - 명확한 실행 버튼으로 사용자를 웹사이트로 다시 유도
 - 제품 및 고객 정보로 푸시를 개인화하여 메시지의 관련성 향상
 
-웹 푸시는 휴대폰의 앱 푸시 알림과 동일한 방식으로 작동합니다. 웹 푸시 작성에 대한 자세한 내용은 [푸시 알림 만들기]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message)를 확인하세요.
+웹 푸시는 휴대폰의 앱 푸시 알림과 동일한 방식으로 작동합니다. 웹 푸시 작성에 대한 자세한 내용은 [푸시 알림 만들기]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)를 확인하세요.
 
 ![노트북과 휴대폰에 동일한 푸시 메시지가 표시된 웹 푸시 예시.]({% image_buster /assets/img_archive/Macbook_Push.png %}){: style="border:none"}
 

@@ -68,7 +68,7 @@ search_rank: 1
 
 ### ステップ 1.1: キャンバスの基本情報から始める {#step-11-start-with-your-canvas-basics}
 
-ここでは、キャンバスに名前を付け、[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams)を割り当て、[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags)を作成または追加します。キャンバスのコンバージョンイベントも割り当てることができます。
+ここでは、キャンバスに名前を付け、[チーム]({{site.baseurl}}/user_guide/administer/global/user_management/teams)を割り当て、[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を作成または追加します。キャンバスのコンバージョンイベントも割り当てることができます。
 
 {% alert tip %}
 キャンバスにタグを付けると、検索やレポートの作成が簡単になります。たとえば、[レポートビルダー]({{site.baseurl}}/user_guide/analytics/reports/report_builder)を使用する際に、特定のタグでフィルタリングできます。
@@ -160,7 +160,7 @@ APIトリガー配信には以下のエンドポイントを使用できます�
 ![「エントリコントロール」ページ。「ユーザーのキャンバス再エントリを許可」と「エントリ数を制限」のチェックボックスが表示されています。]({% image_buster /assets/img_archive/entry_controls.png %})
 
 {% alert tip %}
-Brazeでは、IPウォームアップのときに**キャンバスがスケジュールされるたび**を選択しないことを推奨しています。送信量が増加する可能性があるためです。
+Brazeでは、IPウォームアップの際に**キャンバスがスケジュールされるたび**を選択しないことを推奨しています。送信量が増加する可能性があるためです。
 {% endalert %}
 
 #### 終了条件の設定 {#setting-exit-criteria}

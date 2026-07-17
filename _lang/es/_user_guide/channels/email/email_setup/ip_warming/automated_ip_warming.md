@@ -33,8 +33,12 @@ Para realizar el calentamiento de IP automatizado, debes disponer de lo siguient
     - "View Email Templates" para ver y seleccionar las plantillas de correo electrónico para el calentamiento de IP
     - "Manage Email Settings" para lanzar el calentamiento de IP
 - "Access Campaigns"
-- "Approve and Deny Campaigns" si el flujo de trabajo de aprobación para Campaigns está activado
-    - Braze aprueba automáticamente las Campaigns creadas a partir del calentamiento de IP automatizado en tu nombre.
+- "Approve and Deny Campaigns" si el flujo de trabajo de aprobación para campañas está activado
+    - Braze aprueba automáticamente las campañas creadas a partir del calentamiento de IP automatizado en tu nombre.
+
+{% alert important %}
+Es posible que esta característica no sea compatible según tu infraestructura de correo electrónico.
+{% endalert %}
 
 ## Configurar un plan de calentamiento de IP automatizado {#set-up-an-automated-ip-warming-plan}
 
@@ -48,13 +52,13 @@ Para realizar el calentamiento de IP automatizado, debes disponer de lo siguient
 
 ![Ejemplo de detalles de planificación.]({% image_buster /assets/img/automated_ip_warming_schedule.png %})
 
-### Paso 2: Seleccionar y clasificar Segments {#step-2-select-and-rank-segments}
+### Paso 2: Seleccionar y clasificar segmentos {#step-2-select-and-rank-segments}
 
-1. A continuación, selecciona los Segments a los que deseas dirigirte. Durante el calentamiento de IP, Braze comienza enviando a tus usuarios con mayor participación y aumenta gradualmente el volumen de envío con el tiempo, incorporando lentamente Segments con menor participación.
-2. Luego, arrastra y suelta los Segments para clasificarlos de mayor a menor participación. Alta participación incluye destinatarios que abren y hacen clic en tus correos electrónicos de manera consistente. Baja participación incluye destinatarios que son inconsistentes en su participación con tus correos electrónicos o que no han interactuado con tus correos electrónicos en mucho tiempo.
+1. A continuación, selecciona los segmentos a los que deseas dirigirte. Durante el calentamiento de IP, Braze comienza enviando a tus usuarios con mayor participación y aumenta gradualmente el volumen de envío con el tiempo, incorporando lentamente segmentos con menor participación.
+2. Luego, arrastra y suelta los segmentos para clasificarlos de mayor a menor participación. Alta participación incluye destinatarios que abren y hacen clic en tus correos electrónicos de manera consistente. Baja participación incluye destinatarios que son inconsistentes en su participación con tus correos electrónicos o que no han interactuado con tus correos electrónicos en mucho tiempo.
 3. Selecciona **Next: Messages** para continuar la configuración.
 
-![Dos Segments seleccionados como objetivo para el calentamiento de IP automatizado.]({% image_buster /assets/img/automated_ip_warming_segment.png %})
+![Dos segmentos seleccionados como objetivo para el calentamiento de IP automatizado.]({% image_buster /assets/img/automated_ip_warming_segment.png %})
 
 ### Paso 3: Seleccionar los mensajes a enviar {#step-3-select-the-messages-to-send}
 
@@ -64,7 +68,7 @@ Para realizar el calentamiento de IP automatizado, debes disponer de lo siguient
 4. Después de agregar el número requerido de plantillas, selecciona **Next: Summary**.
 
 {% alert important %}
-Los cambios realizados en las Campaigns creadas desde la herramienta de calentamiento de IP (como cambiar la fecha planificada, el Segment o el volumen) no se reflejan en la página de **Summary** del calentamiento de IP.
+Los cambios realizados en las campañas creadas desde la herramienta de calentamiento de IP (como cambiar la fecha planificada, el segmento o el volumen) no se reflejan en la página de **Summary** del calentamiento de IP.
 {% endalert %}
 
 ### Paso 4: Seleccionar eventos de conversión {#step-4-select-conversion-events}
@@ -78,7 +82,7 @@ Puedes definir hasta cuatro de los siguientes eventos de conversión para rastre
 - Abre correo electrónico
 - Hace clic en correo electrónico
 
-A continuación, selecciona la fecha límite de conversión, que es el tiempo máximo que puede transcurrir entre que un usuario entra en una Campaign y el evento de conversión.
+A continuación, selecciona la fecha límite de conversión, que es el tiempo máximo que puede transcurrir entre que un usuario entra en una campaña y el evento de conversión.
 
 ![Configuración de conversión mostrando la selección de eventos de conversión y la fecha límite de conversión.]({% image_buster /assets/img/automated_ip_warming_conversions.png %})
 
@@ -88,7 +92,7 @@ Revisa los detalles de tu plan de calentamiento de IP. Luego, selecciona **Launc
 
 ## Durante el calentamiento de IP activo {#during-active-ip-warming}
 
-Las Campaigns de calentamiento de IP se crean con 1 a 2 días de anticipación, a menos que estés lanzando un calentamiento de IP para el día siguiente. Estas Campaigns se nombran automáticamente con el siguiente formato: `IP Warming Day [X] - [Date] - [Template Name]`.
+Las campañas de calentamiento de IP se crean con 1 a 2 días de anticipación, a menos que estés lanzando un calentamiento de IP para el día siguiente. Estas campañas se nombran automáticamente con el siguiente formato: `IP Warming Day [X] - [Date] - [Template Name]`.
 
 Cuando se alcanza el objetivo de envío diario, el sistema deja de enviar por ese día para proteger tu reputación.
 
@@ -97,23 +101,23 @@ El sistema supervisa tu estado basándose en los siguientes puntos de referencia
 - La tasa de entrega cae por debajo o es igual al 90 %
 - La tasa de apertura es menor al 10 %
 - Los rebotes son mayores al 5 %
-- Las tasas de quejas por correo no deseado son mayores al 0,04 %
+- Las tasas de informes de correos no deseados son mayores al 0,04 %
 
 Si las estadísticas están por debajo de nuestros puntos de referencia, el sistema mantiene el volumen al día siguiente en lugar de aumentarlo para mitigar el riesgo a tu reputación del remitente.
 
 ## Detener un plan de calentamiento de IP {#stop-an-ip-warmup-plan}
 
-Braze te permite detener el calentamiento de IP y la creación de Campaigns futuras, pero si una Campaign ya está activa o planificada para las próximas 24 a 48 horas, es posible que necesites detener la Campaign específica manualmente. Detener un plan de calentamiento de IP también detiene todas las Campaigns asociadas.
+Braze te permite detener el calentamiento de IP y la creación de campañas futuras, pero si una campaña ya está activa o planificada para las próximas 24 a 48 horas, es posible que necesites detener la campaña específica manualmente. Detener un plan de calentamiento de IP también detiene todas las campañas asociadas.
 
 Sin embargo, una vez detenido, el calentamiento de IP no se puede reanudar. En su lugar, debes configurar un nuevo plan para retomar donde lo dejaste:
 
 - Descargando los datos existentes de tu plan detenido para conservarlos en tus registros, ya que una vez que inicies un nuevo calentamiento de IP, el rastreador anterior será eliminado
 - Actualizando el **Current daily send volume** al volumen más reciente
-- Agregando un filtro a un Segment si planeas usar el mismo Segment del último calentamiento de IP, excluyendo a los usuarios que ya recibieron Campaigns anteriores
+- Agregando un filtro a un segmento si planeas usar el mismo segmento del último calentamiento de IP, excluyendo a los usuarios que ya recibieron campañas anteriores
 
 ## Cuando se completa un calentamiento de IP {#when-an-ip-warmup-completes}
 
-El calentamiento de IP se marca como completado cuando el último día del calentamiento de IP termina a medianoche en la zona horaria de tu empresa. Por ejemplo, si la última Campaign enviada en el plan de calentamiento de IP se envía a las 8 pm, entonces el plan se marca como completado después de cuatro horas.
+El calentamiento de IP se marca como completado cuando el último día del calentamiento de IP termina a medianoche en la zona horaria de tu empresa. Por ejemplo, si la última campaña enviada en el plan de calentamiento de IP se envía a las 8 pm, entonces el plan se marca como completado después de cuatro horas.
 
 El rastreador permanece en la página de inicio durante 90 días después de que finaliza el plan. Después de 90 días, el rastreador se elimina. La descarga de datos incluye estas métricas estándar de correo electrónico:
 
@@ -126,6 +130,6 @@ El rastreador permanece en la página de inicio durante 90 días después de que
 - _Clicked_
 - _Unsubscribed_
 
-Si un día incluye múltiples Campaigns utilizadas para cumplir con los requisitos de volumen, estas se agregan en la vista diaria.
+Si un día incluye múltiples campañas utilizadas para cumplir con los requisitos de volumen, estas se agregan en la vista diaria.
 
 ![Rastreador de calentamiento de IP con volumen de envío para la semana del 16 de enero.]({% image_buster /assets/img/automated_ip_warming_example.png %})

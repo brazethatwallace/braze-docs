@@ -50,7 +50,7 @@ Para empezar a personalizar tus mensajes usando etiquetas de Liquid, puedes cons
 
 Usa los segmentos de Braze para crear segmentos de clientes específicos basados en atributos y comportamientos concretos, y entregar mensajería y campañas personalizadas. Con esta potente característica, puedes interactuar eficazmente con tus clientes llegando a la audiencia adecuada con el mensaje correcto en el momento oportuno.
 
-Para más información sobre cómo empezar con los segmentos, consulta [Acerca de los segmentos de Braze]({{site.baseurl}}/user_guide/audience/segments#about-braze-segments).
+Para más información sobre cómo empezar con los segmentos, consulta [Acerca de los segmentos de Braze]({{site.baseurl}}/user_guide/audience/segments).
 
 ### Eventos recomendados {#recommended-events}
 

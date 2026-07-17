@@ -166,7 +166,7 @@ Les événements d'engagement liés aux messages suivants sont disponibles pour 
 
 ##### Événements d'abandon de message {#message-abort-events}
 
-Les événements d'abandon de message se produisent lorsqu'un message envoyé à un utilisateur a été abandonné en raison d'une logique conditionnelle dans [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) ou le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content#aborting-connected-content), ou en raison de délais d'expiration du rendu Liquid.
+Les événements d'abandon de message se produisent lorsqu'un message envoyé à un utilisateur a été abandonné en raison d'une logique conditionnelle dans [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) ou le [contenu connecté]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content/aborting_connected_content), ou en raison de délais d'expiration du rendu Liquid.
 
 Les événements d'abandon sont disponibles pour les canaux suivants :
 

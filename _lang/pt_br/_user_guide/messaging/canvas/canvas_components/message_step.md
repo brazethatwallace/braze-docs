@@ -17,7 +17,7 @@ tool: Canvas
 
 ## Criar uma mensagem {#create-a-message}
 
-Para criar um componente de Mensagem, primeiro adicione uma etapa ao seu Canvas. Arraste e solte o componente da barra lateral ou selecione o botão de mais <i class="fas fa-plus-circle"></i> na parte inferior de uma etapa e selecione **Mensagem**.
+Para criar um componente de Mensagem, primeiro adicione uma etapa ao seu Canvas. Arraste e solte o componente da barra lateral ou selecione o botão de mais <i class="fas fa-plus-circle"></i> na parte inferior de uma etapa e selecione **Message**.
 
 ### Etapa 1: Selecione seu canal de envio de mensagens {#step-1-select-your-messaging-channel}
 
@@ -40,7 +40,7 @@ Em seguida, você pode editar as configurações de Intelligent Delivery, substi
 
 #### Intelligent Timing {#intelligent-timing}
 
-Você pode ativar o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) com uma opção de fallback quando o perfil de um usuário não tiver dados suficientes para calcular um horário ideal. Recomendamos ativar o Intelligent Timing e o [limite de taxa]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping) como uma verificação adicional para quaisquer atrasos entre a entrada dos usuários na etapa de Mensagem e o envio real da mensagem.
+Você pode ativar o [Intelligent Timing]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) com uma opção de fallback quando o perfil de um usuário não tiver dados suficientes para calcular um horário ideal. Recomendamos ativar o Intelligent Timing e o [limite de frequência]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) como uma verificação adicional para quaisquer atrasos entre a entrada dos usuários na etapa de Mensagem e o envio real da mensagem.
 
 Selecione **Using Intelligent Timing** na guia **Delivery Settings**. Aqui, você pode selecionar o horário mais popular ou um horário de fallback específico. Se o horário de silêncio estiver ativado, a etapa de Mensagem também permite substituir essa configuração.
 
@@ -48,7 +48,7 @@ Selecione **Using Intelligent Timing** na guia **Delivery Settings**. Aqui, voc�
 
 #### Validações de entrega {#delivery-validations}
 
-As validações de entrega fornecem uma verificação adicional no momento do envio da mensagem para confirmar que seu público ainda atende aos seus critérios. Recomendamos usá-las quando o horário de silêncio, o Intelligent Timing ou o limite de taxa estiverem ativados. Selecione **Validate audience at message send** e adicione um Segment ou filtros adicionais. Se um usuário não atender às validações, escolha se ele sai do Canvas ou avança para a próxima etapa.
+As validações de entrega fornecem uma verificação adicional no momento do envio da mensagem para confirmar que seu público ainda atende aos seus critérios. Recomendamos usá-las quando o horário de silêncio, o Intelligent Timing ou o limite de frequência estiverem ativados. Selecione **Validate audience at message send** e adicione um segmento ou filtros adicionais. Se um usuário não atender às validações, escolha se ele sai do Canvas ou avança para a próxima etapa.
 
 As validações de entrega avaliam os critérios do perfil do usuário no momento do envio. Filtros relacionados a apps verificam se um usuário usou recentemente ou já usou um app específico, mas não confirmam qual app o usuário está usando na sessão atual.
 
@@ -72,14 +72,14 @@ Todos os usuários que entram na etapa de Mensagem avançam para a próxima etap
 - Um usuário não atende aos critérios em **Validações de entrega**
 
 {% raw %}
-Se um Canvas baseado em ação for disparado por uma mensagem SMS recebida, você pode referenciar as propriedades do SMS na primeira etapa (etapa de Mensagem) ou em uma etapa de Mensagem aninhada em uma etapa de Jornadas de ação. Por exemplo, na etapa de Mensagem, você pode usar `{{sms.${inbound_message_body}}}` ou `{{sms.${inbound_media_urls}}}`.
+Se um Canvas baseado em ação for disparado por uma mensagem SMS recebida, você pode referenciar as propriedades do SMS na primeira etapa (etapa de Mensagem) ou em uma etapa de Mensagem aninhada em uma etapa de jornadas de ação. Por exemplo, na etapa de Mensagem, você pode usar `{{sms.${inbound_message_body}}}` ou `{{sms.${inbound_media_urls}}}`.
 {% endraw %}
 
 ## Referenciar propriedades de contexto {#reference-context-properties}
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-As propriedades de entrada são configuradas na etapa **Cronograma de entrada** ao criar um Canvas e indicam o gatilho que faz um usuário entrar em um Canvas. Essas propriedades também podem acessar as propriedades das cargas úteis de entrada em Canvas disparados por API. Observe que o objeto `context` tem um limite máximo de tamanho de 50 KB.
+As propriedades de entrada são configuradas na etapa **Entry Schedule** ao criar um Canvas e indicam o gatilho que faz um usuário entrar em um Canvas. Essas propriedades também podem acessar as propriedades das cargas úteis de entrada em Canvas disparados por API. Observe que o objeto `context` tem um limite máximo de tamanho de 50 KB.
 
 As propriedades de entrada podem ser usadas em Liquid em qualquer etapa de Mensagem. Use o seguinte Liquid ao referenciar essas propriedades de entrada: {% raw %}``{context.${property_name}}``{% endraw %}. Os eventos devem ser eventos personalizados ou eventos de compra para serem usados dessa forma.
 
@@ -99,16 +99,16 @@ Você também pode aproveitar as [propriedades de entrada persistentes]({{site.b
 
 As propriedades de evento referem-se às propriedades que você define para eventos personalizados e eventos de compra. Essas propriedades de evento podem ser usadas em Campaigns com entrega baseada em ação, bem como em Canvas.
 
-No Canvas, as propriedades de eventos personalizados e de compra podem ser usadas em Liquid em qualquer etapa de Mensagem que siga uma etapa de [Jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths). Por exemplo, ao referenciar `event_properties`, use este trecho de Liquid: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
+No Canvas, as propriedades de eventos personalizados e de compra podem ser usadas em Liquid em qualquer etapa de Mensagem que siga uma etapa de [jornadas de ação]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths). Por exemplo, ao referenciar `event_properties`, use este trecho de Liquid: {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
 
 {% alert important %}
-`event_properties` não pode ser usado independentemente das etapas de Jornadas de ação.
+`event_properties` não pode ser usado independentemente das etapas de jornadas de ação.
 {% endalert %}
 
-Na primeira etapa de Mensagem após uma Jornada de ação, você pode usar `event_properties` relacionadas ao evento referenciado nessa Jornada de ação. Você pode ter outras etapas (que não sejam outra Jornada de ação ou etapa de Mensagem) entre essa etapa de Jornadas de ação e a etapa de Mensagem. Observe que você só terá acesso a `event_properties` se sua etapa de Mensagem puder ser rastreada até uma jornada que não seja Restante do público em uma etapa de Jornada de ação.
+Na primeira etapa de Mensagem após uma jornada de ação, você pode usar `event_properties` relacionadas ao evento referenciado nessa jornada de ação. Você pode ter outras etapas (que não sejam outra jornada de ação ou etapa de Mensagem) entre essa etapa de jornadas de ação e a etapa de Mensagem. Observe que você só terá acesso a `event_properties` se sua etapa de Mensagem puder ser rastreada até uma jornada que não seja Restante do público em uma etapa de jornada de ação.
 
 {% alert important %}
-Você não pode usar `event_properties` na etapa de Mensagem principal. Em vez disso, você deve usar `context` ou adicionar uma etapa de Jornadas de ação com o evento correspondente antes da etapa de Mensagem que inclui `event_properties`.
+Você não pode usar `event_properties` na etapa de Mensagem principal. Em vez disso, você deve usar `context` ou adicionar uma etapa de jornadas de ação com o evento correspondente antes da etapa de Mensagem que inclui `event_properties`.
 {% endalert %}
 
 {% details Expandir para o editor original do Canvas %}

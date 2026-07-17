@@ -147,14 +147,14 @@ Canvas 관련 추가 정보는 [Canvas의 인앱 메시지]({{site.baseurl}}/use
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html#custom-html-messages'>커스텀 HTML 메시지</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html'>커스텀 HTML 메시지</a></td>
     <td>커스텀 코드(HTML, CSS 및/또는 JavaScript)에서 정의한 대로 작동하는 커스텀 메시지입니다.</td>
     <td>해당 없음</td>
     <td>인앱 메시지가 작동하려면 <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> 초기화 옵션을 <code>true</code>로 설정해야 합니다.</td>
     <td>인앱 메시지의 모든 장점을 원하면서도 추가 기능이 필요하거나 브랜드에 맞는 외관을 유지하고 싶을 때 좋은 옵션입니다. 메시지의 모든 세부 사항(글꼴, 색상, 모양, 크기, 버튼 등)을 변경할 수 있습니다. <br><br>사용 사례 예시로는 사용자에게 앱 피드백 요청, 이메일 수집 양식 또는 페이지 형식 메시지가 있습니다.</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form#email-capture-form'>이메일 수집 양식</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>이메일 수집 양식</a></td>
     <td>일반적으로 뷰어의 이메일을 수집하는 데 사용됩니다.</td>
     <td>해당 없음</td>
     <td>인앱 메시지가 작동하려면 <span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span> 초기화 옵션을 <code>true</code>로 설정해야 합니다.</td>

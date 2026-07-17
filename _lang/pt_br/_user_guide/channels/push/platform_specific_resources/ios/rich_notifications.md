@@ -125,7 +125,7 @@ Os seguintes detalhes também podem impactar a truncagem de texto:
 
 ### Etapa 1: Crie uma Campaign de push {#step-1-create-a-push-campaign}
 
-Siga as [etapas da Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message) para redigir uma notificação por push para iOS. Você usará o mesmo criador que utiliza para configurar notificações por push que não contêm conteúdo avançado.
+Siga as [etapas da Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) para redigir uma notificação por push para iOS. Você usará o mesmo criador que utiliza para configurar notificações por push que não contêm conteúdo avançado.
 
 ### Etapa 2: Adicione mídia {#step-2-add-media}
 

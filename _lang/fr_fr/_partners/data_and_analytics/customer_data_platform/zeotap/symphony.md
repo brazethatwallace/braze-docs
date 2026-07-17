@@ -17,14 +17,14 @@ L'intégration de Braze et Zeotap Symphony vous permet de créer des orchestrati
 Pour créer des campagnes de marketing par e-mail, intégrez les e-mails bruts à Zeotap en les mappant à `Email Raw` dans le catalogue Zeotap.
 {% endalert %}
 
-## Conditions préalables {#prerequisites}
+## Prérequis {#prerequisites}
 
 | Condition | Description |
 | ----------- | ----------- |
 | Nom du client | Il s'agit du nom de votre client pour votre compte Braze. Vous pouvez le trouver en accédant à la console Braze. |
 | Clé API REST de Braze | Une clé API REST Braze avec les autorisations `users.track`. <br><br> Celle-ci peut être créée dans le tableau de bord de Braze depuis **Paramètres** > **Clés API**. |
 | Instance | Votre instance Braze peut être obtenue auprès de votre gestionnaire d'onboarding Braze ou sur la [page d'aperçu de l'API]({{site.baseurl}}/api/basics#endpoints). |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Conditions préalables" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Prérequis" }
 
 ## Intégration {#integration}
 
@@ -100,7 +100,7 @@ Vous trouverez dans cette section les détails de tous les champs Braze.
 | Abonnement aux notifications push | Sélection déroulante | Intégrez un champ `Push Marketing Preference` et établissez une correspondance avec ce dernier.<br><br>Zeotap envoie les trois valeurs suivantes :<br>• `opted_in` — Indique que l'utilisateur s'est explicitement inscrit à la préférence de marketing push<br>• `unsubscribed` — Indique que l'utilisateur a explicitement refusé les messages push<br>• `subscribed` — Indique que l'utilisateur n'a ni opté pour ni opté contre |
 | Activation du suivi d'ouverture des e-mails | Sélection déroulante | Mappez le champ `Marketing Preference` pertinent.<br><br>Lorsqu'il est défini sur vrai, un pixel de suivi d'ouverture est ajouté à tous les futurs e-mails envoyés à cet utilisateur. |
 | Activation du suivi des clics dans les e-mails | Sélection déroulante | Mappez le champ `Marketing Preference` pertinent.<br><br>Lorsqu'il est défini sur vrai, le suivi des clics est activé pour tous les liens dans tous les futurs e-mails envoyés à cet utilisateur. |
-| ID du produit | Sélection déroulante | • Identifiant pour une action d'achat `(Product Name/Product Category)`. Pour plus de détails, consultez l'[objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object).<br>• Intégrez l'attribut pertinent au catalogue Zeotap et établissez une correspondance avec ce dernier.<br><br>`Product ID`, `Currency` et `Price` doivent être mappés obligatoirement pour capturer les événements d'achat dans Braze. L'événement d'achat ne peut pas aboutir si l'un des trois est manquant. Pour plus d'informations, consultez l'[objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object#purchase-object). |
+| ID du produit | Sélection déroulante | • Identifiant pour une action d'achat `(Product Name/Product Category)`. Pour plus de détails, consultez l'[objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object).<br>• Intégrez l'attribut pertinent au catalogue Zeotap et établissez une correspondance avec ce dernier.<br><br>`Product ID`, `Currency` et `Price` doivent être mappés obligatoirement pour capturer les événements d'achat dans Braze. L'événement d'achat ne peut pas aboutir si l'un des trois est manquant. Pour plus d'informations, consultez l'[objet d'achat]({{site.baseurl}}/api/objects_filters/purchase_object). |
 | Devise | Sélection déroulante | • Attribut de devise pour l'action d'achat.<br>• Le format pris en charge est `ISO 4217 Alphabetic Currency Code`.<br>• Intégrez correctement les données de devise formatées dans le catalogue Zeotap et établissez une correspondance avec ces dernières.<br><br>`Product ID`, `Currency` et `Price` doivent être mappés obligatoirement pour capturer les événements d'achat dans Braze. L'événement d'achat ne peut pas aboutir si l'un des trois est manquant. |
 | Prix | Sélection déroulante | • Attribut de prix pour l'action d'achat.<br>• Intégrez l'attribut pertinent au catalogue Zeotap et établissez une correspondance avec ce dernier.<br><br>`Product ID`, `Currency` et `Price` doivent être mappés obligatoirement pour capturer les événements d'achat dans Braze. L'événement d'achat ne peut pas aboutir si l'un des trois est manquant. |
 | Quantité | Sélection déroulante | • Attribut de quantité pour l'action d'achat.<br>• Intégrez l'attribut pertinent au catalogue Zeotap et établissez une correspondance avec ce dernier. |

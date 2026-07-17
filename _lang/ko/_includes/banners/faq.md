@@ -24,9 +24,23 @@
 
 배너는 Content Cards와 다르므로, 같은 피드에서 배너와 Content Cards를 함께 사용할 수 없습니다. 기존 Content Cards 피드를 배너로 교체하려면 [앱이나 웹사이트에 배치를 생성]({{site.baseurl}}/developer_guide/banners/placements)해야 합니다.
 
-## 배너에 동영상을 포함할 수 있나요? {#can-banners-include-video}
+## 배너는 인앱 메시지와 어떻게 다른가요? {#how-are-banners-different-from-in-app-messages}
 
-표준 배너 작성기는 이미지, 텍스트, 버튼을 지원합니다. 배너에 동영상을 포함하려면 작성기에서 **커스텀 코드** 블록을 사용하거나, HTML 편집기로 전체 배너를 작성하여 HTML에 동영상 플레이어를 직접 임베드할 수 있습니다.
+배너와 [인앱 메시지]({{site.baseurl}}/user_guide/channels/in_app_messages)는 모두 앱이나 웹사이트 내에서 사용자에게 도달하지만, 서로 다른 전달 모델을 사용합니다. 배너를 기존 인앱 메시지 설정과 비교하는 경우, 트리거, 새로고침 타이밍, 테스트에서 차이가 있으며 일대일 대체가 아닙니다.
+
+| 주제 | 배너 | 인앱 메시지 |
+| --- | --- | --- |
+| 메시지가 표시되는 위치 | 앱이나 사이트에서 정의한 [배치]({{site.baseurl}}/developer_guide/banners/placements)에 인라인으로 표시 | SDK가 관리하는 전체화면, Modal 또는 슬라이드업 오버레이 |
+| 콘텐츠가 업데이트되는 시점 | 앱이나 사이트에서 배너 새로고침을 호출할 때(예: 세션 시작 시 또는 세션 중) | 템플릿화된 메시지는 인앱 메시지가 트리거될 때(예: 커스텀 이벤트 또는 세션 시작 시) 기기에 페이로드가 캐시된 후 Liquid를 평가합니다 |
+| 실행 기반 트리거 | [실행 기반 전달]({{site.baseurl}}/user_guide/engagement_tools/campaigns/building_campaigns/delivery_types/triggered_delivery) 없음; 대신 Segments, 우선순위, 새로고침 타이밍을 사용합니다 | 실행 기반 및 API 트리거 전달을 지원합니다 |
+| 테스트 | 사용자를 미리보기한 다음, 앱이나 사이트에서 배치 새로고침이 예상 배너를 표시하는지 확인합니다 | **Test Send** 또는 인앱 미리보기 플로우를 사용하여 트리거 기반 표시를 확인합니다 |
+| 리포팅 | 배너 조회 및 클릭은 배너 분석을 따릅니다 | 인앱 노출 횟수 및 클릭은 인앱 메시지 분석을 따릅니다 |
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="배너는 인앱 메시지와 어떻게 다른가요?" }
+
+
+## 배너에 비디오를 포함할 수 있나요? {#can-banners-include-video}
+
+표준 배너 작성기는 이미지, 텍스트, 버튼을 지원합니다. 배너에 비디오를 포함하려면 작성기에서 **커스텀 코드** 블록을 사용하거나, HTML 편집기로 전체 배너를 작성하여 HTML에 비디오 플레이어를 직접 임베드할 수 있습니다.
 
 ## 사용자 동작에 따라 배너를 트리거할 수 있나요? {#can-i-trigger-a-banner-based-on-user-actions}
 

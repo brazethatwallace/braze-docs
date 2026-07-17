@@ -15,7 +15,7 @@ channel:
 
 ## オプション1：ユーザーにショートコードまたはロングコードにテキストを送信してもらう {#option-1-ask-users-to-text-your-short-or-long-code}
 
-ユーザーに「START」、「UNSTOP」、「YES」、またはカスタムオプトインキーワードを番号にテキスト送信してもらうことで、自動的にサブスクリプショングループに追加できます。Webサイト、モバイルアプリ、さらには広告でも、ユーザーにオプトインを依頼でき、必要に応じてインセンティブを提供することもできます。
+ユーザーに「START」、「UNSTOP」、「YES」、またはカスタムオプトインキーワードを番号にテキスト送信してもらうことで、自動的に購読グループに追加できます。Webサイト、モバイルアプリ、さらには広告でも、ユーザーにオプトインを依頼でき、必要に応じてインセンティブを提供することもできます。
 
 ## オプション2：アプリ内メッセージからオプトインする {#option-2-users-opt-in-via-in-app-message}
 
@@ -31,7 +31,7 @@ Brazeでは、[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels
 
 ユーザーがサインアップした後、以下を行います。
 
-1. [`/subscription/status/set`エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status#update-users-subscription-group-status)を使用して、ユーザーを作成し属性を保存します。
+1. [`/subscription/status/set`エンドポイント]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)を使用して、ユーザーを作成し属性を保存します。
 
 {% raw %}
 ```http
@@ -76,7 +76,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/users/track' \
 {% endraw %}
 
 {% alert tip %}
-REST APIを通じてユーザーを登録する際に[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)ワークフローに入れるには、リクエストで`use_double_opt_in_logic`パラメーターを`true`に設定します。このパラメーターを省略すると、ユーザーはダブルオプトイン確認を受け取らずに登録されます。
+REST APIを通じてユーザーを購読登録する際に[SMSダブルオプトイン]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing/double_opt_in)ワークフローに入れるには、リクエストで`use_double_opt_in_logic`パラメーターを`true`に設定します。このパラメーターを省略すると、ユーザーはダブルオプトイン確認を受け取らずに購読登録されます。
 
 このパラメーターは以下のエンドポイントでサポートされています。<br><br>
 - [`/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status)

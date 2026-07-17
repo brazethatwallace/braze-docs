@@ -57,7 +57,7 @@ Para ver más detalles sobre los criterios de entrada, selecciona **See more**. 
 
 ### Liquid
 
-Braze procesa la lógica de Liquid durante una ejecución de prueba, incluso si no estás enviando un mensaje de prueba real. Esto significa que la [lógica de cancelación de mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) y otra lógica de Liquid se reflejan y podrían afectar el recorrido del usuario en Canvas.
+Braze procesa la lógica de Liquid durante una ejecución de prueba, incluso si no estás enviando un mensaje de prueba real. Esto significa que la [lógica de cancelación de mensajes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) y otra lógica de Liquid se reflejan y podrían afectar el recorrido del usuario en Canvas.
 
 Si tu vista previa envía el último paso del recorrido de tu usuario en lugar de cancelar, es posible que la vista previa esté usando la hora actual como la hora evaluada para Liquid, no la hora real en la que el usuario estaría en el paso según la hora de entrada al Canvas.
 

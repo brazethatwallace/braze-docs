@@ -48,7 +48,6 @@ La verificación de empresa es un concepto de WhatsApp utilizado para asegurar q
 OBA te da la marca de verificación verde junto a tu nombre de visualización y es opcional. Puedes solicitar una cuenta de empresa oficial después de completar la verificación de empresa. Ten en cuenta que la verificación de empresa y una cuenta de empresa oficial son conceptos diferentes de WhatsApp.
 
 ### Números de teléfono de la cuenta de WhatsApp Business {#whatsapp-business-account-phone-numbers}
-
 #### ¿Necesito un número de teléfono para mi cuenta de WhatsApp Business? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
 Sí, necesitas un número al que tengas acceso. Se te pedirá que verifiques tu número de teléfono con autenticación de 2 factores cuando pases por el flujo de registro integrado. El número de teléfono no puede usarse para otras cuentas de WhatsApp (de negocio o personales).
 
@@ -117,7 +116,7 @@ Si se cumplen todas las condiciones anteriores, puedes aumentar tu límite de me
 Puedes consultar tus límites de mensajería actuales en la pestaña **WhatsApp Manager > Overview Dashboard > Insights**.
 
 #### ¿Qué sucede si intento enviar mensajes cuando ya he alcanzado mi límite de mensajería? {#what-happens-if-i-attempt-to-send-messages-when-i-have-already-reached-my-messaging-limit}
-Si intentas enviar una Campaign o Canvas a más usuarios únicos de los que permite tu límite actual, los mensajes no se enviarán. Braze seguirá intentando reenviar los mensajes si/cuando tu límite de mensajería aumente durante un máximo de un día.
+Si intentas enviar una Campaign o un Canvas a más usuarios únicos de los que permite tu límite actual, los mensajes no se enviarán. Braze seguirá intentando reenviar los mensajes si/cuando tu límite de mensajería aumente durante un máximo de un día.
 
 #### ¿Puede disminuir mi límite de mensajería? {#can-my-messaging-limit-decrease}
 Sí, si la calificación de calidad de tu número de teléfono baja demasiado, corres el riesgo de que WhatsApp disminuya tu límite de mensajería. Braze recomienda que te suscribas y recibas notificaciones de actualizaciones relacionadas con la calidad de WhatsApp, incluyendo actualizaciones del estado de tu número de teléfono y el nivel del límite de mensajería. Puedes suscribirte a las notificaciones directamente en el panel de WhatsApp Manager.
@@ -169,6 +168,15 @@ Cuando creas plantillas usando el [Constructor de plantillas de WhatsApp]({{site
 - Variables que comienzan en un número distinto de 1
 
 Para resolver esto, edita tu plantilla en WhatsApp Manager de Meta para usar un formato de marcadores de posición secuenciales y luego vuelve a importarla en Braze. En Braze, confirma que cada campo de variable requerido esté rellenado con un valor Liquid válido.
+
+#### ¿Por qué mi Campaign de WhatsApp no se envía a pesar de que la plantilla se previsualiza correctamente? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
+Si tu plantilla se previsualiza correctamente pero el registro de procesamiento muestra **Abort** con el detalle "Param text cannot have new-line/tab characters or more than 4 consecutive spaces", revisa los valores de los parámetros con plantillas Liquid en tu mensaje. WhatsApp requiere que los valores de texto de los parámetros no contengan:
+
+- Caracteres de nueva línea
+- Caracteres de tabulación
+- Más de 4 espacios consecutivos
+
+Confirma que cualquier lógica Liquid que rellene los parámetros de la plantilla elimine estos caracteres o formatee el texto adecuadamente antes del envío.
 
 ### Capacidad de entrega y facturación {#deliverability-and-billing}
 

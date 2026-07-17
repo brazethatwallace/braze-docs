@@ -212,7 +212,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 Braze에는 `attributes`라는 메시징 오브젝트가 있어, API 트리거 Campaign을 전송하기 전에 사용자의 속성과 값을 추가, 생성 또는 업데이트할 수 있습니다. `campaign/trigger/send` 엔드포인트를 사용하면 이 API 호출이 사용자 속성 오브젝트를 먼저 처리한 후 Campaign을 처리하고 전송합니다. 이를 통해 [경합 조건]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions)으로 인해 발생할 수 있는 문제의 위험을 최소화할 수 있습니다.
 
 {% alert tip %}
-이 엔드포인트의 Canvas 버전을 찾고 계신가요? [API 트리거 전송을 사용하여 Canvas 메시지 보내기]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#send-canvas-messages-using-api-triggered-delivery)를 확인하세요.
+이 엔드포인트의 Canvas 버전을 찾고 계신가요? [API 트리거 전송을 사용하여 Canvas 메시지 보내기]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)를 확인하세요.
 {% endalert %}
 
 ### JSON 본문에 Liquid를 직접 넣으면 왜 렌더링되지 않나요? {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}
