@@ -237,6 +237,7 @@ exclude:
     "scripts",
     ".claude",
     ".cursor",
+    "*.pii-audit-dismiss.json",
   ]
 
 # Setting for image buster

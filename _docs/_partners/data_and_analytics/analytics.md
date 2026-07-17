@@ -59,5 +59,8 @@ guide_featured_list:
   - name: "Thoughtspot"
     link: /docs/partners/data_and_analytics/analytics/thoughtspot
     image: /assets/img/braze_icons/zap.svg
+  - name: "Validity"
+    link: /docs/partners/data_and_analytics/analytics/validity
+    image: /assets/img/braze_icons/mail-01.svg
 ---
 
