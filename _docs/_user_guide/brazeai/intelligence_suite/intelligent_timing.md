@@ -197,7 +197,9 @@ If there aren't any relevant events for a user (for example, new users with litt
 
 ### Impact of time zone on Intelligent Timing delivery
 
-Intelligent Timing relies on the specified local time zone of each user, so the scheduled delivery date and time may vary across users.
+Intelligent Timing uses each user's local time zone and calendar days to determine optimal delivery. Because of this, users in time zones ahead of or behind your campaign's reference time zone may receive messages on a different calendar day than you might expect. 
+
+For example, if a campaign is scheduled for March 15 and a user's optimal time is calculated for that date, a user in a time zone ahead of the campaign's reference point may receive the message late on March 14 in the reference time zone, while a user in a time zone behind the reference point may receive it on March 16.
 
 If users don't receive messages as expected, check that the time zone field in their profile is populated correctly. If the time zone field is empty, the user may receive messages that align with the company's time zone instead of their local time.
 
