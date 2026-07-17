@@ -272,44 +272,54 @@ def build_skip_mask(lines: list) -> list:
     for i, line in enumerate(lines):
         stripped = line.strip()
 
-        # <style> blocks — CSS positioning keywords and comments are not
-        # reader-facing prose and should never trip the content checks.
-        if not in_style and STYLE_OPEN_RE.search(line):
-            in_style = True
+        # Continue whichever block is already open first. A fence or raw
+        # block takes precedence over anything that merely looks like a
+        # <style> tag inside it (for example, Android XML `<style name="...">`
+        # inside a fenced ```xml example) so that a fenced sample can never
+        # hand line-skip state to the wrong block type — or leave in_style
+        # stuck True past the fence close if the sample has an unmatched
+        # `<style>` with no `</style>` in the same fence.
+        if in_fence:
             skip[i] = True
-            if STYLE_CLOSE_RE.search(line):
-                in_style = False
-            continue
-        elif in_style:
-            skip[i] = True
-            if STYLE_CLOSE_RE.search(line):
-                in_style = False
+            if re.match(r'^' + re.escape(fence_marker) + r'`*\s*$', stripped):
+                in_fence = False
             continue
 
-        # Liquid {% raw %} blocks
-        if not in_raw and '{% raw %}' in line:
-            if '{% endraw %}' not in line:
-                in_raw = True
-                skip[i] = True
-                continue
-        elif in_raw:
+        if in_raw:
             skip[i] = True
             if '{% endraw %}' in line:
                 in_raw = False
             continue
 
-        # Fenced code blocks
-        if not in_fence:
-            m = re.match(r'^(`{3,}|~{3,})', stripped)
-            if m:
-                in_fence = True
-                fence_marker = m.group(1)[0] * len(m.group(1))
-                skip[i] = True
-                continue
-        else:
+        if in_style:
             skip[i] = True
-            if re.match(r'^' + re.escape(fence_marker) + r'`*\s*$', stripped):
-                in_fence = False
+            if STYLE_CLOSE_RE.search(line):
+                in_style = False
+            continue
+
+        # No block is currently open — check whether this line opens one.
+
+        # Fenced code blocks
+        m = re.match(r'^(`{3,}|~{3,})', stripped)
+        if m:
+            in_fence = True
+            fence_marker = m.group(1)[0] * len(m.group(1))
+            skip[i] = True
+            continue
+
+        # Liquid {% raw %} blocks
+        if '{% raw %}' in line and '{% endraw %}' not in line:
+            in_raw = True
+            skip[i] = True
+            continue
+
+        # <style> blocks — CSS positioning keywords and comments are not
+        # reader-facing prose and should never trip the content checks.
+        if STYLE_OPEN_RE.search(line):
+            in_style = True
+            skip[i] = True
+            if STYLE_CLOSE_RE.search(line):
+                in_style = False
             continue
 
     return skip
