@@ -1,12 +1,12 @@
 ---
 nav_title: Troubleshooting
-article_title: Troubleshoot exports
+article_title: Export troubleshooting
 page_order: 6
 page_type: reference
 description: "Diagnose CSV and API export failures using a symptom index, standard investigation path, and storage-specific error guidance."
 ---
 
-# Troubleshoot exports
+# Export troubleshooting
 
 > Use this page to diagnose CSV and API export issues in the dashboard and Export APIs. For export workflows and limits, see [Export segment data to CSV]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/segment_data_to_csv) and [Export APIs]({{site.baseurl}}/user_guide/data/distribution/export_braze_data/export_apis).
 
