@@ -88,6 +88,31 @@ Outside of these main use cases, customers use Content Cards in many different w
 
 For an overview on how to implement Content Card placements in your app or website, refer to [Creating custom Content Cards]({{site.baseurl}}/developer_guide/content_cards/creating_cards).
 
+## Troubleshooting
+
+### Why don't Content Cards appear immediately after a trigger event?
+
+For action-based delivery campaigns (such as session start), there is an expected short delay between the trigger event and the card becoming available. This delay occurs because:
+
+1. The campaign gets triggered by the action (for example, session start)
+2. The content card is created in the database for that user
+3. The SDK performs a content card sync and pulls all available cards to the device
+
+This means the session start event needs to be flushed to Braze's servers first, then the campaign is triggered. After the campaign is triggered, it takes time for the content card to be created, and then a sync is needed to retrieve all available content cards.
+
+For new users in their first session, this short delay is unavoidable. For existing users who need instant availability, consider using scheduled delivery instead. For more details, refer to [Action-based delivery]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#action-based-delivery).
+
+#### Workaround for minimizing delays
+
+If you need to minimize delays for both new and existing users, you can create two campaigns:
+
+- Scheduled delivery campaign for existing users (for example, session count > 0): Cards are pre-created and immediately available
+- Action-triggered campaign for new users (for example, session count = 0): Cards are created after the first session trigger
+
+This approach ensures existing users see cards instantly while still reaching new users after a brief delay in their first session.
+
+For additional strategies to improve latency, refer to [Improve low latency for Content Cards]({{site.baseurl}}/user_guide/channels/content_cards/best_practices/improving_low_latency_requirements).
+
 ## Next steps
 
 - [Create a Content Card]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card)
