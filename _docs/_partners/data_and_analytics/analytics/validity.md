@@ -23,7 +23,7 @@ Through this integration, Validity automatically creates, monitors, and updates 
 
 ### Auto-seeding
 
-With Validity auto-seeding, Validity detects when a Braze campaign or Canvas reaches a qualifying send volume (10,000 sends by default) and sends a copy of that campaign's content to your Validity seed list. Seed sends target the `validity_seed = true` audience. You don't need to create a segment or attach it to each send.
+With Validity auto-seeding, Validity detects when a Braze campaign or Canvas reaches a qualifying send volume (10,000 sends by default) and sends a copy of that campaign's content to your Validity seed list. Seed sends target the `validity_seed = true` audience.
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ These users always include the custom attribute `validity_seed` with the boolean
 
 ### How seed sends work
 
-Validity pulls the campaign body, subject, and from address through the campaign and Canvas details endpoints, then sends a copy of the message to the seed list through Braze's [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) endpoint. The seed send does not create a duplicate campaign object in Braze.
+Validity pulls the campaign body, subject, and from address through the campaign and Canvas details endpoints, then delivers a copy of that content to the seed list through Braze's [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages) endpoint. Your Braze dashboard continues to show only the original campaign.
 
 ### Auto-seeding threshold
 
