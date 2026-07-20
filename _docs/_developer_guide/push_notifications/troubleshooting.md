@@ -39,7 +39,7 @@ The Apple Push Notification service (APNs) is the infrastructure for sending pus
 
 ### Step 1: Configuring the push certificate and provisioning profile
 
-To develop your app, create an SSL certificate to enable push notifications. This certificate is included in the provisioning profile your app is built with and must also be uploaded to the Braze dashboard. The certificate allows Braze to tell APNs that we are allowed to send push notifications on your behalf.
+To develop your app, create an SSL certificate to enable push notifications. This certificate is included in the provisioning profile your app is built with and must also be uploaded to the Braze dashboard. The certificate allows Braze to tell APNs that it is authorized to send push notifications on your behalf.
 
 There are two types of [provisioning profiles](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html) and certificates: development and distribution. We recommend using only distribution profiles and certificates to avoid any confusion. If you choose to use different profiles and certificates for development and distribution, ensure that the certificate uploaded to the dashboard matches the provisioning profile you are currently using.
 
@@ -69,7 +69,7 @@ When a push campaign is launched, Braze makes requests to APNs to deliver your m
 - Their device isn't connected to the internet (Wi-Fi or cellular).
 - They recently uninstalled the app.
 
-Braze uses the SSL push certificate uploaded in the dashboard to authenticate and verify that we are allowed to send push notifications to the push tokens provided. If a device is online, the notification should be received shortly after the campaign has been sent. Note that Braze sets the default APNs [expiration date](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns#2947607) for notifications to 30 days.
+Braze uses the SSL push certificate uploaded in the dashboard to authenticate and verify that it is authorized to send push notifications to the push tokens provided. If a device is online, the notification should be received shortly after the campaign has been sent. Note that Braze sets the default APNs [expiration date](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns#2947607) for notifications to 30 days.
 
 ### Step 4: Removing invalid tokens
 
@@ -81,7 +81,7 @@ It's normal for APNs to initially return a success status even if a token become
 
 ## Using the push error logs
 
-The [Message Activity Log]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/) gives you the opportunity to see any messages (especially error messages) associated with your campaigns and sends, including push notification errors. This error log provides a variety of warnings which can be very helpful for identifying why your campaigns aren't working as expected. Selecting an error message redirects you to relevant documentation to help you troubleshoot a particular incident.
+The [Message Activity Log]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/) lets you see any messages (especially error messages) associated with your campaigns and sends, including push notification errors. This error log provides a variety of warnings which can be very helpful for identifying why your campaigns aren't working as expected. Selecting an error message redirects you to relevant documentation to help you troubleshoot a particular incident.
 
 ![Push error logs displaying the time the error occurred, the app name, the channel, error type, and error message.]({% image_buster /assets/img_archive/message_activity_log.png %})
 

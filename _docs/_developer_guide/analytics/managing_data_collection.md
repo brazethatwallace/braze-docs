@@ -207,7 +207,7 @@ You can use the method [`wipeData()`](https://braze-inc.github.io/braze-android-
 
 ## Resuming data tracking
 
-To resume data collection, you can use the [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html) method. Keep in mind, this will not restore any previously wiped data.
+To resume data collection, you can use the [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html) method. Keep in mind, this does not restore any previously wiped data.
 
 {% endsdktab %}
 
