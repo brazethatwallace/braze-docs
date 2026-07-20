@@ -124,26 +124,76 @@ jobs:
         run: |
           set -euo pipefail
 
-          COMMENT_JSON=$(jq -n \
-            '{
-              body: {
-                version: 1,
-                type: "doc",
-                content: [
-                  {
-                    type: "paragraph",
-                    content: [
-                      {
-                        type: "text",
-                        text: "🤖 Cursor Agent: Picking up this ticket now. A draft PR will appear here shortly — no action needed from you yet."
-                      }
-                    ]
-                  }
-                ]
-              }
-            }')
-
           AUTH_B64=$(printf '%s:%s' "${JIRA_USER_EMAIL}" "${JIRA_API_TOKEN}" | base64 -w0)
+
+          # Fetch assignee so we can @-mention them in the comment.
+          ASSIGNEE_ACCOUNT_ID=""
+          ASSIGNEE_DISPLAY_NAME=""
+          set +e
+          ISSUE_HTTP=$(curl -sS -o /tmp/jira-issue-response.json -w '%{http_code}' \
+            --request GET \
+            --url "https://braze.atlassian.net/rest/api/3/issue/${TICKET_ID}?fields=assignee" \
+            --header "Authorization: Basic ${AUTH_B64}" \
+            --header 'Accept: application/json')
+          ISSUE_CURL_EXIT=$?
+          set -e
+
+          if [ "${ISSUE_CURL_EXIT}" -eq 0 ] && [ "${ISSUE_HTTP}" -ge 200 ] && [ "${ISSUE_HTTP}" -lt 300 ]; then
+            ASSIGNEE_ACCOUNT_ID=$(jq -r '.fields.assignee.accountId // empty' /tmp/jira-issue-response.json)
+            ASSIGNEE_DISPLAY_NAME=$(jq -r '.fields.assignee.displayName // empty' /tmp/jira-issue-response.json)
+          else
+            echo "::warning::Could not fetch Jira assignee (HTTP ${ISSUE_HTTP:-?}); commenting without mention."
+          fi
+
+          if [ -n "${ASSIGNEE_ACCOUNT_ID}" ]; then
+            COMMENT_JSON=$(jq -n \
+              --arg account_id "${ASSIGNEE_ACCOUNT_ID}" \
+              --arg mention_text "@${ASSIGNEE_DISPLAY_NAME}" \
+              '{
+                body: {
+                  version: 1,
+                  type: "doc",
+                  content: [
+                    {
+                      type: "paragraph",
+                      content: [
+                        { type: "text", text: "🤖 " },
+                        {
+                          type: "mention",
+                          attrs: {
+                            id: $account_id,
+                            text: $mention_text
+                          }
+                        },
+                        {
+                          type: "text",
+                          text: " — Picking up this ticket now. A draft PR will appear shortly."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }')
+          else
+            COMMENT_JSON=$(jq -n \
+              '{
+                body: {
+                  version: 1,
+                  type: "doc",
+                  content: [
+                    {
+                      type: "paragraph",
+                      content: [
+                        {
+                          type: "text",
+                          text: "🤖 Picking up this ticket now. A draft PR will appear shortly."
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }')
+          fi
 
           set +e
           HTTP_CODE=$(curl -sS -o /tmp/jira-comment-response.json -w '%{http_code}' \
