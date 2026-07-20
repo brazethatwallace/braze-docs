@@ -196,7 +196,7 @@ A valid permissions object is a JSON object with the following key-value pairs:
 
 ### Workspace permissions object {#workspace-permissions-object}
 
-A valid app group permission object is a JSON object with the following key-value pairs:
+A valid workspace permission object is a JSON object with the following key-value pairs:
 
 | Key | Required | Data type | Description |
 | --- | --- | --- | --- |
