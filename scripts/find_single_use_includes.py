@@ -38,6 +38,10 @@ LIQUID_LOGIC_RE = re.compile(
     r"\{%-?\s*(?:if|elsif|tabs|sdktab)\b",
     re.IGNORECASE,
 )
+FORWARDER_STUB_RE = re.compile(
+    r"\{%-?\s*multi_lang_include\b",
+    re.IGNORECASE,
+)
 
 
 def normalize_ref(ref: str) -> str:
@@ -81,7 +85,7 @@ def classify_include(rel: str, refs: dict[str, list[dict]]) -> dict:
         "has_include_params": bool(PARAM_RE.search(body)),
         "has_liquid_logic": bool(LIQUID_LOGIC_RE.search(body)),
         "is_forwarder_stub": rel.startswith("developer_guide/")
-        and "{% multi_lang_include" in body,
+        and bool(FORWARDER_STUB_RE.search(body)),
         "caller_in_docs": [c for c in callers if c["source"].startswith("_docs/")],
         "caller_in_lang": [c for c in callers if c["source"].startswith("_lang/")],
     }
