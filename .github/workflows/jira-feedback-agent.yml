@@ -1,14 +1,15 @@
 # Triggers a Cursor Cloud Agent to investigate a Jira feedback ticket and propose a fix.
 # Draft PRs are opened by the agent using `.cursor/agents/feedback-handler.md` (Cursor API `autoCreatePR` stays off).
-# `GH_TOKEN` is passed via Cursor API `envVars` so the agent's `gh` CLI can open PRs; configure the `GH_TOKEN` repository secret.
+# `GH_TOKEN`, `JIRA_USER_EMAIL`, and `JIRA_API_TOKEN` are passed via Cursor API `envVars` so the agent can
+# open PRs with `gh` and post edge-case Jira comments via the REST API; configure those repository secrets.
 # Caller dispatches `repository_dispatch` with event type `jira-feedback-ticket` and a client_payload
 # containing ticket fields. See Cloud Agents API: https://cursor.com/docs/cloud-agent/api/endpoints
 #
 # Repository secrets (configure in GitHub repo or org settings):
 # - `CURSOR_API_KEY` — Cursor Cloud Agents API
 # - `GH_TOKEN` — PAT for agent `gh` / git in the cloud VM (`envVars`)
-# - `JIRA_USER_EMAIL` — Atlassian account email for Jira REST Basic auth
-# - `JIRA_API_TOKEN` — Atlassian API token (scopes to add comments on issues)
+# - `JIRA_USER_EMAIL` — Atlassian account email for Jira REST Basic auth (`envVars` + workflow comment step)
+# - `JIRA_API_TOKEN` — Atlassian API token (scopes to add comments on issues; `envVars` + workflow comment step)
 
 name: Jira feedback — Cursor cloud agent
 
@@ -53,7 +54,7 @@ jobs:
             exit 1
           fi
           if [ -z "${JIRA_USER_EMAIL}" ] || [ -z "${JIRA_API_TOKEN}" ]; then
-            echo "::error::JIRA_USER_EMAIL and JIRA_API_TOKEN repository secrets must be set for the Jira comment step"
+            echo "::error::JIRA_USER_EMAIL and JIRA_API_TOKEN repository secrets must be set for agent envVars and the Jira comment step"
             exit 1
           fi
 
@@ -61,13 +62,15 @@ jobs:
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          JIRA_USER_EMAIL: ${{ secrets.JIRA_USER_EMAIL }}
+          JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
           REPO_URL: ${{ github.server_url }}/${{ github.repository }}
           TICKET_ID: ${{ github.event.client_payload.ticket_id }}
         shell: bash
         run: |
           set -euo pipefail
 
-          # Request body: prompt, repos, autoCreatePR, envVars (GH_TOKEN for gh CLI in the agent).
+          # Request body: prompt, repos, autoCreatePR, envVars (GH_TOKEN for gh; Jira creds for edge-case comments).
           # Full playbook lives in-repo at .cursor/agents/feedback-handler.md; the agent reads it after clone.
           # Auth: Basic with API key as username, empty password (same as curl -u 'KEY:').
 
@@ -82,6 +85,8 @@ jobs:
             --arg prompt_text "${PROMPT_TEXT}" \
             --arg repo_url "${REPO_URL}" \
             --arg gh_token "${GH_TOKEN}" \
+            --arg jira_user_email "${JIRA_USER_EMAIL}" \
+            --arg jira_api_token "${JIRA_API_TOKEN}" \
             '{
               prompt: { text: $prompt_text },
               repos: [
@@ -92,7 +97,9 @@ jobs:
               ],
               autoCreatePR: false,
               envVars: {
-                GH_TOKEN: $gh_token
+                GH_TOKEN: $gh_token,
+                JIRA_USER_EMAIL: $jira_user_email,
+                JIRA_API_TOKEN: $jira_api_token
               }
             }')
 

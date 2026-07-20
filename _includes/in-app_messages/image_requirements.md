@@ -1,0 +1,3 @@
+- All images must be less than 5&nbsp;MB.
+- We accept only PNG, JPEG, and [GIF]({{site.baseurl}}/developer_guide/in_app_messages/gifs?sdktab=android) file types.
+- We recommend that your images be 500&nbsp;KB.

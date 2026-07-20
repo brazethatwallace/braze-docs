@@ -61,11 +61,7 @@ For MMS, the message limit is 5 MB (this includes the multimedia asset and the m
 
 RCS is the next generation of SMS and MMS. It offers the benefits of a direct, high engagement channel like SMS–with richer capabilities that modern consumers have come to expect, like rich content (images, videos, documents), verified and branded sending, interactive features like suggested replies and actions, and more.
 
-- RCS billing centers on two different message types (with distinctions for the USA):
-    - **Basic RCS:** Text-only, up to 160 characters
-    - **Single RCS:** Messages containing rich content, or text-only messages > 160 characters
-    - **Rich RCS (USA Only):** Text only, may include limited suggestions/buttons (quickReply, dialPhone, openURL w/o webview), segmented per 160 UTF-8 bytes
-    - **Rich Media RCS (USA Only):** Any media OR text with richer suggestions/buttons (webview, location, calendar, etc.), counted as one message
+{% multi_lang_include pricing/rcs_billing_message_types.md %}
 
 {% alert note %}
 Refer to our [SMS and MMS documentation]({{site.baseurl}}/user_guide/message_building_by_channel/sms) to learn more about our SMS family offerings.
