@@ -16,7 +16,7 @@ tool: Campaign
 Brazeでは、Brazeプラットフォームで活用する予定の顧客データのみを送信することを推奨しています。「Brazeの4つのT」という考え方を参考に、以下の目的で使用するデータのみを送信するようにしましょう。
 
 - **ターゲット（Target）**：[オーディエンスセグメント]({{site.baseurl}}/user_guide/audience/segments)を構築してオーディエンスをターゲティングします。
-- **トリガー（Trigger）**：[アクションベース]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#action-based-delivery)または[APIトリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)配信でメッセージをトリガーします。
+- **トリガー（Trigger）**：[アクションベース]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)または[APIトリガー]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery)配信でメッセージをトリガーします。
 - **テンプレート（Template）**：[Liquid条件ロジック]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)でメッセージをテンプレート化し、パーソナライズします。
 - **トラッキング（Track）**：[コンバージョントラッキング]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)でキャンペーンの効果を追跡します。
 

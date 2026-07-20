@@ -125,7 +125,7 @@ iOS 15では、「即時」および「重大」の表示がタイトルをタ�
 
 ### ステップ 1: プッシュキャンペーンを作成する {#step-1-create-a-push-campaign}
 
-[キャンペーンの作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message)の手順に従って、iOS向けのプッシュ通知を作成します。リッチコンテンツを含まないプッシュ通知の設定に使用するのと同じコンポーザーを使用します。
+[キャンペーンの作成]({{site.baseurl}}/user_guide/channels/push/create_a_push_message)の手順に従って、iOS向けのプッシュ通知を作成します。リッチコンテンツを含まないプッシュ通知の設定に使用するのと同じコンポーザーを使用します。
 
 ### ステップ 2: メディアを追加する {#step-2-add-media}
 

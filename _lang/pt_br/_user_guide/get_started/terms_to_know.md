@@ -4,7 +4,7 @@ nav_title: Termos a conhecer
 article_title: Termos da Braze para conhecer
 
 layout: glossary_page
-glossary_top_header: "Termos a serem conhecidos"
+glossary_top_header: "Termos a conhecer"
 glossary_top_text: "Esses termos devem ajudar você a começar sua jornada para criar melhores vínculos com clientes e usuários com a Braze. Leia este conteúdo antes de começar sua integração."
 page_type: glossary
 description: "Este glossário abrange termos importantes que você deve conhecer durante o processo de integração na Braze."
@@ -19,7 +19,7 @@ glossaries:
   - name: API campaigns
     description: "<a href=\"/docs/api/api_campaigns\">Campaigns da API</a> usam o dashboard da Braze para gerar um <code>campaign_id</code> (e IDs de variação) enquanto você fornece o texto, o público, o agendamento e os ativos por meio das <a href=\"/docs/api/endpoints/messaging\">APIs de envio de mensagens</a>. Elas diferem das <a href=\"/docs/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery\">Campaigns disparadas por API</a>, em que você dispara uma Campaign totalmente configurada no dashboard por meio da API."
   - name: Application program interface (API)
-    description: "A <a href=\"/docs/api/basics#api-overview\">API da Braze</a> fornece um serviço da Web em que é possível registrar as ações realizadas pelos usuários diretamente via HTTP, em vez de usar os SDKs móveis. Isso permite, por exemplo, passar dados de usuários para a Braze que não são rastreados em seu app ou site."
+    description: "A <a href=\"/docs/api/basics\">API da Braze</a> fornece um serviço da Web em que é possível registrar as ações realizadas pelos usuários diretamente via HTTP, em vez de usar os SDKs móveis. Isso permite, por exemplo, passar dados de usuários para a Braze que não são rastreados em seu app ou site."
   - name: App instance
     description: As instâncias do app referem-se aos diferentes sites e aplicativos que são coletados em um espaço de trabalho.
   - name: Braze (the product)
@@ -87,9 +87,9 @@ glossaries:
   - name: Push time to live (TTL)
     description: "Também conhecido como <a href=\"/docs/user_guide/administer/global/workspace_settings/push_settings\">Push TTL</a>, o tempo de vida refere-se ao período em que as Campaigns continuarão a tentar ser entregues a um usuário off-line."
   - name: Race condition
-    description: "Uma <a href=\"/docs/user_guide/messaging/ab_testing/concepts/race_conditions\">condição de corrida</a> é um conceito de engenharia de software que descreve uma situação indesejável que ocorre quando um sistema tenta realizar várias operações simultaneamente, mas, devido à natureza do sistema, as operações devem ser feitas na sequência correta para serem realizadas corretamente. <br><br>Na plataforma Braze, a segmentação de uma Campaign disparada com base nos dados de usuários registrados no momento do evento pode causar uma condição de corrida. Isso acontece quando uma alteração no atributo do usuário no qual a Campaign é segmentada ainda não foi processada para o usuário no momento em que a associação ao Segment é determinada e a Campaign é enviada, o que pode fazer com que o usuário não receba a Campaign."
+    description: "Uma <a href=\"/docs/user_guide/messaging/ab_testing/concepts/race_conditions\">condição de corrida</a> é um conceito de engenharia de software que descreve uma situação indesejável que ocorre quando um sistema tenta realizar várias operações simultaneamente, mas, devido à natureza do sistema, as operações devem ser feitas na sequência correta para serem realizadas corretamente. <br><br>Na plataforma Braze, a segmentação de uma Campaign disparada com base nos dados de usuários registrados no momento do evento pode causar uma condição de corrida. Isso acontece quando uma alteração no atributo do usuário no qual a Campaign é segmentada ainda não foi processada para o usuário no momento em que a associação ao segmento é determinada e a Campaign é enviada, o que pode fazer com que o usuário não receba a Campaign."
   - name: Rate limiting
-    description: "<a href=\"/docs/user_guide/messaging/messaging_fundamentals/frequency_capping\">Limite de taxa</a> controla a velocidade com que as mensagens saem da Braze (por exemplo, velocidade de entrega por minuto ou limites centrados no usuário usando filtros de Segment). Funciona em conjunto com o limite de frequência na mesma página, que limita quantas mensagens um usuário recebe em uma janela de tempo."
+    description: "<a href=\"/docs/user_guide/messaging/messaging_fundamentals/frequency_capping\">Limite de taxa</a> controla a velocidade com que as mensagens saem da Braze (por exemplo, velocidade de entrega por minuto ou limites centrados no usuário usando filtros de segmento). Funciona em conjunto com o limite de frequência na mesma página, que limita quantas mensagens um usuário recebe em uma janela de tempo."
   - name: Segmentation
     description: "A <a href=\"/docs/user_guide/audience/segments\">segmentação</a> do dashboard permite criar grupos ou extensões de usuários com base em filtros poderosos de seu comportamento no app, dados demográficos e muito mais."
   - name: Software development kit (SDK)

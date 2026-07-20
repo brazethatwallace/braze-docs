@@ -40,7 +40,7 @@ Ensuite, vous pouvez modifier les paramètres de timing intelligent, de remplace
 
 #### Timing intelligent {#intelligent-timing}
 
-Vous pouvez activer le [timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) avec une option de repli lorsque le profil d'un utilisateur ne dispose pas de suffisamment de données pour calculer un horaire optimal. Nous recommandons d'activer le timing intelligent et la [limite de débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping#rate-limiting-and-frequency-capping) comme vérification supplémentaire pour tout délai entre le moment où les utilisateurs entrent dans l'étape Message et l'envoi effectif du message.
+Vous pouvez activer le [timing intelligent]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_timing) avec une option de repli lorsque le profil d'un utilisateur ne dispose pas de suffisamment de données pour calculer un horaire optimal. Nous recommandons d'activer le timing intelligent et la [limitation du débit]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/frequency_capping) comme vérification supplémentaire pour tout délai entre le moment où les utilisateurs entrent dans l'étape Message et l'envoi effectif du message.
 
 Sélectionnez **Using Intelligent Timing** dans l'onglet **Delivery Settings**. Vous pouvez choisir l'heure la plus populaire ou une heure de repli spécifique. Si les heures calmes sont activées, l'étape Message vous permet également de remplacer ce paramètre.
 
@@ -48,7 +48,7 @@ Sélectionnez **Using Intelligent Timing** dans l'onglet **Delivery Settings**. 
 
 #### Validations de distribution {#delivery-validations}
 
-Les validations de distribution fournissent une vérification supplémentaire au moment de l'envoi du message pour confirmer que votre audience remplit toujours vos critères. Nous recommandons de les utiliser lorsque les heures calmes, le timing intelligent ou la limite de débit sont activés. Sélectionnez **Validate audience at message send**, puis ajoutez un segment ou des filtres supplémentaires. Si un utilisateur ne remplit pas les validations, choisissez s'il quitte le Canvas ou passe à l'étape suivante.
+Les validations de distribution fournissent une vérification supplémentaire au moment de l'envoi du message pour confirmer que votre audience remplit toujours vos critères. Nous recommandons de les utiliser lorsque les heures calmes, le timing intelligent ou la limitation du débit sont activés. Sélectionnez **Validate audience at message send**, puis ajoutez un segment ou des filtres supplémentaires. Si un utilisateur ne remplit pas les validations, choisissez s'il quitte le Canvas ou passe à l'étape suivante.
 
 Les validations de distribution évaluent les critères du profil utilisateur au moment de l'envoi. Les filtres liés aux applications vérifient si un utilisateur a récemment utilisé ou a déjà utilisé une application spécifique, mais ils ne confirment pas quelle application l'utilisateur utilise dans sa session en cours.
 
@@ -72,14 +72,14 @@ Tous les utilisateurs qui entrent dans l'étape Message passent à l'étape suiv
 - Un utilisateur ne remplit pas les critères des **validations de distribution**
 
 {% raw %}
-Si un Canvas basé sur une action est déclenché par un message SMS entrant, vous pouvez référencer les propriétés SMS dans la première étape (étape Message) ou dans une étape Message imbriquée sous une étape Parcours d'actions. Par exemple, dans l'étape Message, vous pouvez utiliser `{{sms.${inbound_message_body}}}` ou `{{sms.${inbound_media_urls}}}`.
+Si un Canvas basé sur une action est déclenché par un message SMS entrant, vous pouvez référencer les propriétés SMS dans la première étape (étape Message) ou dans une étape Message imbriquée sous une étape parcours d'action. Par exemple, dans l'étape Message, vous pouvez utiliser `{{sms.${inbound_message_body}}}` ou `{{sms.${inbound_media_urls}}}`.
 {% endraw %}
 
 ## Référencer les propriétés de contexte {#reference-context-properties}
 
 {% multi_lang_include alerts/important_alerts.md alert='context variable' %}
 
-Les propriétés d'entrée sont configurées dans l'étape **Planification d'entrée** lors de la création d'un Canvas et indiquent le déclencheur qui fait entrer un utilisateur dans un Canvas. Ces propriétés permettent également d'accéder aux propriétés des payloads d'entrée dans les Canvas déclenchés par API. Notez que l'objet `context` a une taille maximale de 50 Ko.
+Les propriétés d'entrée sont configurées dans l'étape **Entry Schedule** lors de la création d'un Canvas et indiquent le déclencheur qui fait entrer un utilisateur dans un Canvas. Ces propriétés permettent également d'accéder aux propriétés des payloads d'entrée dans les Canvas déclenchés par API. Notez que l'objet `context` a une taille maximale de 50 Ko.
 
 Les propriétés d'entrée peuvent être utilisées en Liquid dans n'importe quelle étape Message. Utilisez le Liquid suivant pour référencer ces propriétés d'entrée : {% raw %}``{context.${property_name}}``{% endraw %}. Les événements doivent être des événements personnalisés ou des événements d'achat pour être utilisés de cette manière.
 
@@ -97,18 +97,18 @@ Vous pouvez également tirer parti des [propriétés d'entrée persistantes]({{s
 
 ### Propriétés d'événement {#event-properties}
 
-Les propriétés d'événement font référence aux propriétés que vous définissez pour les événements personnalisés et les événements d'achat. Ces propriétés d'événement peuvent être utilisées dans les campagnes avec livraison par événement ainsi que dans les Canvas.
+Les propriétés d'événement font référence aux propriétés que vous définissez pour les événements personnalisés et les événements d'achat. Ces propriétés d'événement peuvent être utilisées dans les Campaigns avec livraison par événement ainsi que dans les Canvas.
 
-Dans Canvas, les propriétés d'événements personnalisés et d'événements d'achat peuvent être utilisées en Liquid dans n'importe quelle étape Message qui suit une étape [Parcours d'actions]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths). Par exemple, pour référencer `event_properties`, utilisez cet extrait Liquid : {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
+Dans Canvas, les propriétés d'événements personnalisés et d'événements d'achat peuvent être utilisées en Liquid dans n'importe quelle étape Message qui suit une étape [parcours d'action]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/action_paths). Par exemple, pour référencer `event_properties`, utilisez cet extrait Liquid : {% raw %}``{{event_properties.${property_name}}}``{% endraw %}
 
 {% alert important %}
-`event_properties` ne peut pas être utilisé indépendamment des étapes Parcours d'actions.
+`event_properties` ne peut pas être utilisé indépendamment des étapes parcours d'action.
 {% endalert %}
 
-Dans la première étape Message suivant un parcours d'action, vous pouvez utiliser `event_properties` en lien avec l'événement référencé dans ce parcours d'action. Vous pouvez avoir d'autres étapes (qui ne sont pas un autre parcours d'action ou une étape Message) entre cette étape Parcours d'actions et l'étape Message. Notez que vous n'aurez accès à `event_properties` que si votre étape Message peut être retracée jusqu'à un parcours autre que Tous les autres dans une étape Parcours d'actions.
+Dans la première étape Message suivant un parcours d'action, vous pouvez utiliser `event_properties` en lien avec l'événement référencé dans ce parcours d'action. Vous pouvez avoir d'autres étapes (qui ne sont pas un autre parcours d'action ou une étape Message) entre cette étape parcours d'action et l'étape Message. Notez que vous n'aurez accès à `event_properties` que si votre étape Message peut être retracée jusqu'à un parcours autre que « Tous les autres » dans une étape parcours d'action.
 
 {% alert important %}
-Vous ne pouvez pas utiliser `event_properties` dans la première étape Message. Vous devez plutôt utiliser `context` ou ajouter une étape Parcours d'actions avec l'événement correspondant avant l'étape Message qui inclut `event_properties`.
+Vous ne pouvez pas utiliser `event_properties` dans la première étape Message. Vous devez plutôt utiliser `context` ou ajouter une étape parcours d'action avec l'événement correspondant avant l'étape Message qui inclut `event_properties`.
 {% endalert %}
 
 {% details Développer pour l'éditeur Canvas d'origine %}
@@ -131,6 +131,6 @@ Consultez le tableau suivant pour les définitions des indicateurs du composant 
 | _Passé à l'étape suivante_ | Le nombre d'entrées qui sont passées à l'étape suivante du Canvas. |
 | _Envois_ | Le nombre total de messages envoyés par l'étape. Si votre Canvas autorise la rééligibilité et qu'un utilisateur entre deux fois dans une étape Message, deux entrées seront enregistrées. |
 | _Destinataires uniques_ | Le nombre d'utilisateurs ayant reçu des messages de cette étape. |
-| _Événement de conversion principal_ | Le nombre de fois où un événement défini s'est produit après une interaction avec un message reçu d'une campagne Braze ou après sa consultation. Vous définissez cet événement lors de la création de la campagne. |
-| _Chiffre d'affaires_ | Le chiffre d'affaires total en dollars provenant des destinataires de la campagne dans la fenêtre de conversion principale définie. |
+| _Événement de conversion principal_ | Le nombre de fois où un événement défini s'est produit après une interaction avec un message reçu d'une Campaign Braze ou après sa consultation. Vous définissez cet événement lors de la création de la Campaign. |
+| _Chiffre d'affaires_ | Le chiffre d'affaires total en dollars provenant des destinataires de la Campaign dans la fenêtre de conversion principale définie. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Analytique" }

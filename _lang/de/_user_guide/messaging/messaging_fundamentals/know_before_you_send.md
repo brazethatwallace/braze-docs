@@ -70,7 +70,7 @@ Für weitere Unterstützung bei der Fehlerbehebung von Canvas und Campaigns wend
 
 ### Zu prüfende Punkte
 - **Einwilligung der Kund:innen**: Bevor Sie Ihre ersten E-Mails versenden, ist es wichtig, zunächst die Erlaubnis Ihrer Kund:innen einzuholen. Weitere Informationen finden Sie unter [Einwilligung und Adresserfassung]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection) und unserer [Braze-Nutzungsrichtlinie](https://www.braze.com/company/legal/aup).
-- **Erwartetes Volumen**: 2 Millionen E-Mails pro Tag für eine einzelne IP ist die allgemeine Empfehlung, solange dieses Volumen ordnungsgemäß [aufgewärmt]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming#ip-warming) wurde.
+- **Erwartetes Volumen**: 2 Millionen E-Mails pro Tag für eine einzelne IP ist die allgemeine Empfehlung, solange dieses Volumen ordnungsgemäß [aufgewärmt]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming) wurde.
   - Wenn Sie planen, dauerhaft ein höheres Volumen zu senden, sollten Sie die Verwendung mehrerer IP-Adressen in einem IP-Pool in Betracht ziehen, um zu vermeiden, dass Anbieter den Empfang von E-Mails drosseln, was zu einer hohen Anzahl von Soft Bounces, einer niedrigeren Zustellbarkeitsrate und einer verschlechterten IP-Reputation führen kann.
   - Wenn Sie nur in einem kürzeren Zeitraum senden möchten, empfehlen wir, zu prüfen, wie schnell verschiedene Anbieter E-Mails akzeptieren, um die geeignete Anzahl von IPs für den Versand zu ermitteln.
 
@@ -95,7 +95,7 @@ Für weitere Unterstützung bei der Fehlerbehebung von Canvas und Campaigns wend
 - [**Opt-in/Abonniert und Push aktiviert**]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states): Damit Nutzer:innen eine Push-Nachricht von Braze erhalten können, muss ihr Abo-Status entweder „Opt-in“ (iOS) oder „Abonniert“ (Android) sein und `Push Enabled = True`. Beachten Sie, dass Android 13 eine wesentliche Änderung in der Art und Weise einführt, wie Nutzer:innen Apps verwalten, die Push-Benachrichtigungen senden. Der Braze-[Android 13 SDK-Upgrade-Leitfaden]({{site.baseurl}}/developer_guide/platforms/android/android_13) wird weiterhin aktualisiert, wenn neue Android 13 Beta-Versionen veröffentlicht werden.
 
 ### Wissenswertes
-- **Web-Push**: Wenn Sie das Braze [Web-SDK eingerichtet]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web) haben, sollten Sie Web-Push nutzen, um Nutzer:innen anzusprechen. Web-Push funktioniert genauso wie App-Push-Benachrichtigungen auf Ihrem Telefon. Weitere Informationen zum Erstellen eines Web-Push finden Sie unter [Push-Benachrichtigung erstellen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message).
+- **Web-Push**: Wenn Sie das Braze [Web-SDK eingerichtet]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web) haben, sollten Sie Web-Push nutzen, um Nutzer:innen anzusprechen. Web-Push funktioniert genauso wie App-Push-Benachrichtigungen auf Ihrem Telefon. Weitere Informationen zum Erstellen eines Web-Push finden Sie unter [Push-Benachrichtigung erstellen]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 - **Targeting einer einzelnen App**: Lesen Sie die [Unterschiede bei der Segmentierung]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#targeting-a-singular-app), um eine einzelne App und deren Nutzer:innen anzusprechen.
 
 ## SMS

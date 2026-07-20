@@ -31,7 +31,7 @@ Lorsqu'un nouvel utilisateur s'inscrit ou crée un compte sur le site web ou l'a
 
 Après l'inscription de l'utilisateur, procédez comme suit :
 
-1. Utilisez l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status#update-users-subscription-group-status) pour créer l'utilisateur et enregistrer ses attributs.
+1. Utilisez l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status) pour créer l'utilisateur et enregistrer ses attributs.
 
 {% raw %}
 ```http

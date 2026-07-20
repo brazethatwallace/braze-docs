@@ -68,7 +68,7 @@ El constructor de Canvas te guiará paso a paso en la configuración de tu Canva
 
 ### Paso 1.1: Comienza con los aspectos básicos de tu Canvas {#step-11-start-with-your-canvas-basics}
 
-Aquí nombrarás tu Canvas, asignarás [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams#teams) y crearás o añadirás [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags). También puedes asignar eventos de conversión para el Canvas.
+Aquí nombrarás tu Canvas, asignarás [equipos]({{site.baseurl}}/user_guide/administer/global/user_management/teams) y crearás o añadirás [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags). También puedes asignar eventos de conversión para el Canvas.
 
 {% alert tip %}
 Etiqueta tus Canvas para que sean fáciles de encontrar y para generar informes a partir de ellos. Por ejemplo, al usar el [generador de informes]({{site.baseurl}}/user_guide/analytics/reports/report_builder), puedes filtrar por etiquetas específicas.
@@ -226,12 +226,12 @@ Puedes añadir variantes adicionales seleccionando el botón <i class="fas fa-pl
 ![Dos variantes de ejemplo en un Braze Canvas.]({% image_buster /assets/img_archive/Canvas_Multiple_Variants.png %})
 
 {% alert tip %}
-De forma predeterminada, la asignación de variante en Canvas se determina mediante un hash determinista del ID de usuario y el ID de Canvas (no el [número de contenedor aleatorio]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) de un usuario), lo que significa que un usuario dado se asigna de manera consistente a la misma variante al volver a entrar, siempre que los porcentajes de distribución de variantes permanezcan sin cambios. Si ajustas la distribución de variantes después del lanzamiento, los usuarios pueden ser asignados a variantes diferentes cuando vuelvan a entrar en el Canvas. <br><br>Si necesitas una asignación que permanezca fija cuando los porcentajes de distribución cambien, usa una sola variante en Canvas y dirige a los usuarios con un paso de [ruta de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths). Al inicio del recorrido, usa un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) para almacenar un número aleatorio en un atributo personalizado y luego filtra por ese atributo en las rutas de audiencia.
+De forma predeterminada, la asignación de variante en Canvas se determina mediante un hash determinista del ID de usuario y el ID de Canvas (no el [número de contenedor aleatorio]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/random_bucket_numbers) de un usuario), lo que significa que un usuario dado se asigna de manera consistente a la misma variante al volver a entrar, siempre que los porcentajes de distribución de variantes permanezcan sin cambios. Si ajustas la distribución de variantes después del lanzamiento, los usuarios pueden ser asignados a variantes diferentes cuando vuelvan a entrar en el Canvas. <br><br>Si necesitas una asignación que permanezca fija cuando los porcentajes de distribución cambien, usa una sola variante en Canvas y dirige a los usuarios con un paso de [Rutas de Audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths). Al inicio del recorrido, usa un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) para almacenar un número aleatorio en un atributo personalizado y luego filtra por ese atributo en las Rutas de Audiencia.
 
 {% details Expande para ver los pasos %}
 
 1. Crea un atributo personalizado de tipo **Número** para almacenar tu número aleatorio. Nómbralo con algo fácil de localizar, como `lottery_number` o `random_assignment`. En tu panel, ve a **Configuración de datos** > **Atributos personalizados**.<br><br>
-2. Usa una sola variante en Canvas (o añade el mismo paso de Actualización de usuario a cada variante). Añade un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) al inicio del recorrido. Este paso genera y almacena el número aleatorio antes de que los usuarios lleguen a tu paso de ruta de audiencia.<br><br>
+2. Usa una sola variante en Canvas (o añade el mismo paso de Actualización de usuario a cada variante). Añade un paso de [Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) al inicio del recorrido. Este paso genera y almacena el número aleatorio antes de que los usuarios lleguen a tu paso de Rutas de Audiencia.<br><br>
 3. En el paso de Actualización de usuario, selecciona el [Editor JSON avanzado]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#advanced-json-editor). Usa la etiqueta {% raw %}{% random %}{% endraw %} para generar el número. Para más detalles, consulta [Enviar mensajes con un número aleatorio]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags#send-messages-with-a-random-number). Por ejemplo, {% raw %}`{% random 10 %}`{% endraw %} devuelve un entero del 0 al 9. Establece el atributo personalizado del paso 1 usando JSON como este:<br><br>{% raw %}
 ```json
 {% if {{custom_attribute.${lottery_number}}} == blank %}
@@ -250,7 +250,7 @@ De forma predeterminada, la asignación de variante en Canvas se determina media
 El bloque {% raw %}`{% if %}`{% endraw %} establece el número solo cuando el atributo está vacío, de modo que los usuarios conservan la misma asignación cuando vuelven a entrar en el Canvas.<br><br>
 
 {: start="4"}
-4. Añade un paso de [ruta de audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) después del paso de Actualización de usuario. En cada grupo de audiencia, añade filtros basados en tu atributo personalizado en lugar de usar porcentajes de distribución de variantes.<br><br>Por ejemplo, si usaste {% raw %}`{% random 10 %}`{% endraw %}, un grupo podría usar `lottery_number` **es menor que 4**, otro **es mayor que 3 y menor que 7**, y un tercero **es mayor que 6 y menor que 10**.
+4. Añade un paso de [Rutas de Audiencia]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths) después del paso de Actualización de usuario. En cada grupo de audiencia, añade filtros basados en tu atributo personalizado en lugar de usar porcentajes de distribución de variantes.<br><br>Por ejemplo, si usaste {% raw %}`{% random 10 %}`{% endraw %}, un grupo podría usar `lottery_number` **es menor que 4**, otro **es mayor que 3 y menor que 7**, y un tercero **es mayor que 6 y menor que 10**.
 
 {% enddetails %}
 {% endalert %}
@@ -289,7 +289,7 @@ Los componentes ligeros en Canvas permiten una experiencia de edición simple, p
 
 #### Mensajes en Canvas {#messages-in-canvas}
 
-Edita los mensajes en un componente de Canvas para controlar los mensajes que un paso particular enviará. Canvas puede enviar mensajes de correo electrónico, push móvil y notificación push web, y webhooks para integrarse con otros sistemas. De manera similar a las campañas, puedes usar ciertas plantillas de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) para personalizar tus mensajes.
+Edita los mensajes en un componente de Canvas para controlar los mensajes que un paso particular enviará. Canvas puede enviar mensajes de correo electrónico, push móvil y notificación push web, y webhooks para integrarse con otros sistemas. De manera similar a Campaigns, puedes usar ciertas plantillas de [Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/using_liquid) para personalizar tus mensajes.
 
 {% alert tip %}
 ¿Sabías que puedes incluir nombres de componentes de Canvas en tus mensajes y plantillas de enlaces?<br>
@@ -316,7 +316,7 @@ Por ejemplo, considera la siguiente solicitud: `"context" : {"product_name" : "s
 {% endtab %}
 
 {% tab Propiedades del evento %}
-Las propiedades del evento son las propiedades que tú estableces en eventos personalizados y compras. Estas `event_properties` se pueden usar en campañas con entrega basada en acciones así como en Canvas.
+Las propiedades del evento son las propiedades que tú estableces en eventos personalizados y compras. Estas `event_properties` se pueden usar en Campaigns con entrega basada en acciones así como en Canvas.
 
 En Canvas, las propiedades de eventos personalizados y eventos de compra se pueden usar en Liquid en cualquier paso de mensaje que siga a un paso de Rutas de Acción. Usa este Liquid {% raw %} ``{{event_properties.${property_name}}}`` {% endraw %} al hacer referencia a estas `event_properties`. Estos eventos deben ser eventos personalizados o eventos de compra para usarse de esta manera en el componente de mensaje.
 

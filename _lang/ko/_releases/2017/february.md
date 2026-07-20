@@ -10,7 +10,7 @@ description: "이 문서에는 2017년 2월의 릴리스 노트가 포함되어 
 
 ## 시작 후 캔버스 단계 추가 {#add-canvas-steps-after-launch}
 
-이제 Canvas가 시작된 후에도 기존 단계에 [캔버스 단계를 추가]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#create-a-canvas)할 수 있습니다.
+이제 Canvas가 시작된 후에도 기존 단계에 [캔버스 단계를 추가]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas)할 수 있습니다.
 
 ## 참여 보고서용 대량 CSV {#bulk-csv-for-engagement-reports}
 

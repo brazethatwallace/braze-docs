@@ -114,7 +114,7 @@ Usa [Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agent-
 2. Crea un Canvas basado en acciones desencadenado por **Send an SMS inbound message**, dentro de la categoría de palabras clave **Other**.
 3. Agrega el [paso de Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) al Canvas para identificar la intención de cancelación.
 4. Agrega un [paso de Mensaje]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) de SMS posterior para confirmar la solicitud: "Parece que estás intentando cancelar la suscripción de SMS, así que vamos a darte de baja. Si esto es un error, envía START para volver a suscribirte."
-5. Agrega un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update) para cambiar el estado del usuario en el grupo de suscripción de SMS específico a "Dado de baja".
+5. Agrega un [paso de Actualización de usuario]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) para cambiar el estado del usuario en el grupo de suscripción de SMS específico a "Dado de baja".
 
 {% alert note %}
 El uso de la Consola de Agente consume créditos de mensaje o de acción.
@@ -133,7 +133,7 @@ Crea un Canvas y nómbralo con algo fácilmente identificable (como "Transferenc
 ### Paso 2: Definir tu audiencia {#step-2-define-your-audience}
 {: #step-2-define-your-audience}
 
-Define tu audiencia usando uno de los siguientes métodos. A continuación, ve al paso **Ajustes de envío** y selecciona **Users who are subscribed or opted-in**.
+Define tu audiencia usando uno de los siguientes métodos. A continuación, ve al paso **Ajustes de envío** y selecciona **Usuarios suscritos o con adhesión voluntaria**.
 
 | Método | Descripción |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

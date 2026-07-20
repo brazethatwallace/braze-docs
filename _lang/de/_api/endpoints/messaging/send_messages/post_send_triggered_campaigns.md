@@ -212,7 +212,7 @@ Wenn Ihre Anfrage auf einen schwerwiegenden Fehler stößt, finden Sie unter [Fe
 Braze verfügt über ein Messaging-Objekt namens `attributes`, mit dem Sie Attribute und Werte für eine Nutzer:in hinzufügen, erstellen oder aktualisieren können, bevor Sie ihr eine API-getriggerte Campaign senden. Verwenden Sie den `campaign/trigger/send`-Endpunkt, da dieser API-Aufruf das Nutzerattribute-Objekt verarbeitet, bevor er die Campaign verarbeitet und versendet. Dadurch wird das Risiko von Problemen, die durch [Race-Conditions]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions) verursacht werden, minimiert.
 
 {% alert tip %}
-Sie suchen die Canvas-Version dieses Endpunkts? Informieren Sie sich über das [Versenden von Canvas-Nachrichten mit API-getriggerter Zustellung]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#send-canvas-messages-using-api-triggered-delivery).
+Sie suchen die Canvas-Version dieses Endpunkts? Informieren Sie sich über das [Versenden von Canvas-Nachrichten mit API-getriggerter Zustellung]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 {% endalert %}
 
 ### Warum wird Liquid nicht gerendert, wenn ich es direkt in meinen JSON-Body einfüge? {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}

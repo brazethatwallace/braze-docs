@@ -29,7 +29,7 @@ Bevor Sie auf Landing-Pages zugreifen, diese erstellen und veröffentlichen kön
 
 {% multi_lang_include drag_and_drop/drag_and_drop_access.md variable_name='dnd editors' %}
 
-## Tarifoptionen {#plan-tiers}
+## Planstufen {#plan-tiers}
 
 Die Anzahl der veröffentlichten Landing-Pages, angepassten Domains und Features, die Sie nutzen können, hängt von Ihrem Tariftyp ab: kostenlos oder kostenpflichtig (inkrementell).
 
@@ -39,7 +39,7 @@ Die Anzahl der veröffentlichten Landing-Pages, angepassten Domains und Features
 | Angepasste Domains | Eine pro Unternehmen | Fünf zusätzlich |
 | [Liquid-Personalisierung]({{site.baseurl}}/user_guide/messaging/landing_pages/personalize_landing_pages) | Nicht verfügbar | Verfügbar |
 | Vorausgefüllte Formularfelder | Nicht verfügbar | Verfügbar |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Tarifoptionen" }
+{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Planstufen" }
 
 ## Google Tag Manager zu einer Landing-Page hinzufügen {#adding-google-tag-manager-to-a-landing-page}
 
@@ -79,6 +79,12 @@ Nein, es gibt keine technischen Anforderungen.
 ### Gibt es einen HTML-Editor für Landing-Pages? {#is-there-an-html-editor-for-landing-pages}
 
 Ja. Verwenden Sie den **Custom Code**-Block im Drag-and-Drop-Editor, um HTML hinzuzufügen oder zu bearbeiten.
+
+### Kann ich iframes auf Landing-Pages verwenden? {#can-i-use-iframes-on-landing-pages}
+
+Ja. Fügen Sie einen **Custom Code**-Block im Drag-and-Drop-Editor hinzu und fügen Sie ein iframe-Element mit der URL des Inhalts ein, den Sie einbetten möchten.
+
+Wenn die eingebettete Website das Framing über `frame-ancestors` in ihrer Content Security Policy (CSP) oder `X-Frame-Options` einschränkt, wird die Seite möglicherweise nicht im iframe geladen. Braze kann diese Einstellungen nicht überschreiben – die eingebettete Website muss so konfiguriert sein, dass sie Ihre Landing-Page-Domain zulässt.
 
 ### Kann ich einen Webhook innerhalb einer Landing-Page erstellen? {#can-i-create-a-webhook-inside-a-landing-page}
 

@@ -3,7 +3,7 @@
 El tamaño de la población objetivo que se muestra en una Campaign o Canvas puede diferir del [tamaño de la audiencia alcanzable para un segmento]({{site.baseurl}}/user_guide/engagement_tools/segments/measuring_segment_size#segment-membership-calculation), incluso si estás añadiendo directamente ese segmento a tu Campaign o Canvas sin filtros adicionales.
 Esto puede ocurrir por varias razones:
 
-- Cuando un Grupo de control global se aplica a una Campaign o Canvas, los usuarios de ese Grupo de control global quedan excluidos del recuento de usuarios alcanzables.
+- Cuando un grupo de control global se aplica a una Campaign o Canvas, los usuarios de ese grupo de control global quedan excluidos del recuento de usuarios alcanzables.
 - El tamaño de la población objetivo en una Campaign o Canvas excluye a los usuarios con los que no se puede contactar a través de varios canales de mensajería; el comportamiento difiere de un canal a otro. Por ejemplo, la audiencia alcanzable para una Campaign o Canvas excluye a los usuarios que han cancelado su suscripción, han sido marcados como correo no deseado (en el caso de los correos electrónicos) o han tenido un rebote duro (en el caso de los correos electrónicos). El segmento en sí, sin embargo, solo excluye las cancelaciones de suscripción cuando muestra el número estimado de usuarios alcanzables por correo electrónico.
 - Braze solo envía mensajes SMS a usuarios dentro del grupo de suscripción seleccionado, por lo que la población objetivo de SMS para una Campaign o Canvas también excluirá a cualquier usuario que no forme parte de tu grupo de suscripción seleccionado.
 
@@ -58,7 +58,7 @@ Las actualizaciones programadas se desactivan automáticamente cuando una extens
 
 - No se utiliza en ninguna Campaign o Canvas activos
 - No se utiliza en ningún segmento que esté en una Campaign o Canvas activos
-- No se utiliza en ningún segmento que tenga activado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking)
+- No se utiliza en ningún segmento que tenga activado el [seguimiento de análisis]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)
 - No se ha modificado en más de siete días
 - No se ha añadido a una Campaign o Canvas (incluidos borradores), ni a un segmento en más de siete días
 

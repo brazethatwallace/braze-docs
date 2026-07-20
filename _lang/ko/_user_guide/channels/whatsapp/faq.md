@@ -48,7 +48,6 @@ Braze 대시보드의 임베디드 가입 플로우를 통해 WhatsApp 비즈니
 OBA는 표시 이름 옆에 녹색 체크 표시를 제공하며 선택 사항입니다. 비즈니스 인증을 완료한 후 공식 비즈니스 계정을 신청할 수 있습니다. 비즈니스 인증과 공식 비즈니스 계정은 서로 다른 WhatsApp 개념입니다.
 
 ### WhatsApp 비즈니스 계정 전화번호 {#whatsapp-business-account-phone-numbers}
-
 #### WhatsApp 비즈니스 계정에 전화번호가 필요한가요? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
 네, 접근 가능한 번호가 필요합니다. 임베디드 가입 플로우를 진행할 때 2단계 인증으로 전화번호를 확인하게 됩니다. 이 전화번호는 다른 WhatsApp 계정(비즈니스 또는 개인)에서 사용할 수 없습니다.
 
@@ -169,6 +168,15 @@ Meta가 템플릿을 잘못 플래그했다고 판단되면 WhatsApp에서 보�
 - 1이 아닌 다른 번호에서 시작하는 변수
 
 이 문제를 해결하려면 Meta의 WhatsApp Manager에서 템플릿을 편집하여 순차적 자리 표시자 형식을 사용한 다음 Braze로 다시 가져오세요. Braze에서 각 필수 변수 필드가 유효한 Liquid 값으로 채워져 있는지 확인하세요.
+
+#### WhatsApp Campaign이 템플릿 미리보기는 정상인데 발송되지 않는 이유는 무엇인가요? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
+템플릿 미리보기는 정상적으로 표시되지만 처리 원장에 **중단**이 표시되고 세부 정보에 "Param text cannot have new-line/tab characters or more than 4 consecutive spaces"라고 나타나면, 메시지의 Liquid 템플릿 매개변수 값을 확인하세요. WhatsApp은 매개변수 텍스트 값에 다음이 포함되지 않도록 요구합니다:
+
+- 줄바꿈 문자
+- 탭 문자
+- 4개 이상의 연속 공백
+
+템플릿 매개변수를 채우는 Liquid 로직이 발송 전에 이러한 문자를 제거하거나 텍스트를 적절히 포맷하는지 확인하세요.
 
 ### 전달 가능성 및 청구 {#deliverability-and-billing}
 

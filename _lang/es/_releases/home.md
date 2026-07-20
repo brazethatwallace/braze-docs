@@ -759,7 +759,7 @@ Se han publicado las siguientes actualizaciones del SDK. Las actualizaciones de 
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-El [Optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer) es un paso en Canvas de pruebas de contenido continuo y altamente variante que entrega una optimización automatizada de la participación. Utilizando una interfaz de arrastrar y soltar similar al paso de mensajes, puedes definir los componentes que quieres probar, generar variantes utilizando IA (o introducirlas manualmente), y utilizar etiquetas de Liquid para mapear estos componentes al contenido de tu mensaje.
+El [Optimizador de contenidos]({{site.baseurl}}/user_guide/brazeai/content_optimizer) es un paso en Canvas de pruebas de contenido continuo y altamente variante que entrega una optimización automatizada de la participación. Utilizando una interfaz de arrastrar y soltar similar al paso de mensajes, puedes definir los componentes que quieres probar, generar variantes utilizando IA (o introducirlas manualmente) y utilizar etiquetas de Liquid para mapear estos componentes al contenido de tu mensaje.
 
 Basado en un optimizador bandido de brazos múltiples no contextual, el Optimizador de contenidos envía un único mensaje por usuario, determinando qué combinación de variantes de componentes entregar basándose en recomendaciones predictivas. A medida que el paso recopila datos con el tiempo, las variantes de alto rendimiento aumentan de forma natural la asignación de envíos, mientras que las variantes de bajo rendimiento disminuyen. El Optimizador de contenidos funciona mejor con Canvas de envío repetido que tengan un volumen de usuarios diario constante (al menos unos miles de usuarios al día) para habilitar la optimización continua.
 
@@ -849,7 +849,7 @@ Se ha añadido un nuevo campo `time_ms` al evento [`users.behaviors.pushnotifica
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Los eventos que no tienen definido un ID externo de usuario ahora se pueden transmitir a los destinos de [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1#tealium-for-currents). Cuando seleccionas la casilla "Include events from anonymous users" en tu integración de Currents, los eventos sin ID externo de usuario se enviarán al destino en lugar de suprimirse. Esta capacidad es fundamental para los análisis posteriores y los casos de uso que implican a usuarios no identificados y anónimos.
+Los eventos que no tienen definido un ID externo de usuario ahora se pueden transmitir a los destinos de [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1). Cuando seleccionas la casilla "Include events from anonymous users" en tu integración de Currents, los eventos sin ID externo de usuario se enviarán al destino en lugar de suprimirse. Esta capacidad es fundamental para los análisis posteriores y los casos de uso que implican a usuarios no identificados y anónimos.
 
 ##### Enviar usuario anónimo a destinos CustomHTTP {#send-anonymous-user-to-customhttp-destinations}
 

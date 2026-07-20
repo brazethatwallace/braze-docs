@@ -32,6 +32,6 @@ Campaign에 일몰 정책을 적용하려면, 이메일을 스팸으로 표시�
 
 !["Last Engaged with Message" 필터가 선택된 Segment 세부 정보 페이지.]({% image_buster /assets/img_archive/email_sunset_policies_new.png %})
 
-Braze는 스팸으로 표시한 사용자에게 자동으로 이메일 발송을 중단하지만, `Has Marked You As Spam` 필터를 사용하면 이러한 사용자에게 타겟팅된 푸시 메시지와 인앱 알림을 보낼 수도 있습니다. 이 필터는 [리타겟팅 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns#retarget-campaigns)에 유용합니다. 예를 들어, 참여하지 않는 사용자에게 이메일을 열지 않을 때 놓치고 있는 기능과 혜택을 상기시키는 메시지를 보낼 수 있습니다.
+Braze는 스팸으로 표시한 사용자에게 자동으로 이메일 발송을 중단하지만, `Has Marked You As Spam` 필터를 사용하면 이러한 사용자에게 타겟팅된 푸시 메시지와 인앱 알림을 보낼 수도 있습니다. 이 필터는 [리타겟팅 Campaign]({{site.baseurl}}/user_guide/messaging/campaigns/ideas_and_strategies/retargeting_campaigns)에 유용합니다. 예를 들어, 참여하지 않는 사용자에게 이메일을 열지 않을 때 놓치고 있는 기능과 혜택을 상기시키는 메시지를 보낼 수 있습니다.
 
 일몰 정책은 휴면 사용자를 타겟팅하는 이메일 Campaign에서 특히 유용할 수 있습니다. 이러한 Campaign은 일정 기간 동안 앱과 상호작용하지 않은 Segment에 초점을 맞추지만, 참여하지 않는 수신자를 반복적으로 포함하면 이메일 전달 가능성이 위험에 처할 수 있습니다. 일몰 정책을 사용하면 스팸 폴더에 들어가지 않으면서 휴면 사용자를 타겟팅할 수 있습니다.

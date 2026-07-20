@@ -495,7 +495,7 @@ Après avoir ajouté des locales à votre espace de travail, utilisez les [tradu
 Dans Canvas, vous pouvez désormais référencer des variables de contexte pour définir :
 
 - Une [expiration]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#set-an-expiration) pour les bannières et les messages in-app dans une étape Message
-- Des [délais personnalisés]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#action-path-delays) pour les étapes Parcours d'actions
+- Des [délais personnalisés]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables#action-path-delays) pour les étapes Parcours d'action
 
 Dans le champ du nom de la variable de contexte, vous pouvez également saisir le nom de la variable de contexte ou le sélectionner dans le menu déroulant de l'éditeur d'étape. Pour plus de détails, consultez [Contexte]({{site.baseurl}}/user_guide/engagement_tools/canvas/canvas_components/context) et [Variables de contexte]({{site.baseurl}}/user_guide/engagement_tools/canvas/create_a_canvas/context_variables).
 
@@ -849,7 +849,7 @@ Un nouveau champ `time_ms` a été ajouté à l'événement [`users.behaviors.pu
 
 {% multi_lang_include release_type.md release="General availability" %}
 
-Les événements pour lesquels aucun ID utilisateur externe n'a été défini peuvent désormais être diffusés vers les destinations [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1#tealium-for-currents). Lorsque vous cochez la case « Inclure les événements des utilisateurs anonymes » dans votre intégration Currents, les événements sans ID utilisateur externe seront envoyés à la destination au lieu d'être supprimés. Cette capacité est essentielle pour les analyses en aval et les cas d'utilisation impliquant des utilisateurs non identifiés et anonymes.
+Les événements pour lesquels aucun ID utilisateur externe n'a été défini peuvent désormais être diffusés vers les destinations [Tealium]({{site.baseurl}}/partners/data_and_analytics/customer_data_platform/tealium/tealium_for_currents?redirected=1). Lorsque vous cochez la case « Inclure les événements des utilisateurs anonymes » dans votre intégration Currents, les événements sans ID utilisateur externe seront envoyés à la destination au lieu d'être supprimés. Cette capacité est essentielle pour les analyses en aval et les cas d'utilisation impliquant des utilisateurs non identifiés et anonymes.
 
 ##### Envoyer un utilisateur anonyme vers des destinations CustomHTTP {#send-anonymous-user-to-customhttp-destinations}
 

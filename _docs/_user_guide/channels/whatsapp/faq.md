@@ -186,14 +186,19 @@ There are various reasons a message would fail to be delivered, including networ
 #### If a message is not delivered, will I be billed? 
 No. If a message is not delivered, you will not be billed. 
 
-#### What happens if an end-user blocks my business? 
-If an end-user blocks your business, subsequent messages you attempt to send will not be delivered, and you will not be billed. 
+#### What happens if a user blocks my business? 
+If a user blocks your business, subsequent messages you attempt to send will not be delivered, and you will not be billed. 
 
-#### What happens if an end-user reports a message? 
-If an end-user reports a message, you can still send subsequent messages to this user. However, reporting may affect your quality rating on the channel. 
+#### What happens if a user reports a message? 
+If a user reports a message, you can still send subsequent messages to them. However, reporting may affect your quality rating on the channel. 
 
-#### If an end-user blocks or reports my business, will their subscription status be updated in Braze? 
-No. Their Braze subscription status will not be updated. 
+#### If a user blocks or reports my business, will their subscription status be updated in Braze? 
+No. Their Braze subscription status won't be updated.
+
+#### How can I exclude users who report my WhatsApp account from upcoming launches?
+Braze doesn't receive notifications from WhatsApp when your account is flagged or reported, so you can't automatically identify or exclude those users in Braze. Users who report your account may remain in your WhatsApp subscription group and continue to be eligible for future messages. 
+
+You can, however, set up a campaign that triggers when a user responds with an opt-out keyword, which automatically unsubscribes them using the [`/subscription/status/set` endpoint]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). For more information, see [WhatsApp opt-in and opt-out process]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
 #### Are WhatsApp response messages free? {#are-whatsapp-response-messages-free}
 
@@ -233,7 +238,7 @@ To send information into Braze, for example, to indicate that a user is in an ac
 Messages are only stored long enough to process them. To access user messages, use Currents. 
 
 #### What metrics are available in the Braze dashboard? 
-You can see unique recipients, sends, deliveries, reads, and failures in the Braze dashboard. Note that the end-users read receipts must be "On" for Braze to track reads. You can also set up conversion events to monitor campaign performance, similar to other channels. 
+You can see unique recipients, sends, deliveries, reads, and failures in the Braze dashboard. Note that a user's read receipts must be "On" for Braze to track reads. You can also set up conversion events to monitor campaign performance, similar to other channels.
 
 #### What is a WhatsApp conversation? 
 WhatsApp is a channel focused on 2-way messaging and thus anchors on conversations (instead of the number of individual messages). A conversation is a 24-hour thread between a business and an end-user.

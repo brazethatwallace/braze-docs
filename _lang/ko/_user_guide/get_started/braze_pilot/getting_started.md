@@ -77,7 +77,7 @@ Braze 대시보드의 **앱 설정** 페이지에서 대시보드 워크스페�
 {% endtab %}
 {% tab 푸시 프라이머 메시지 실행 %}
 
-일반 소비자에게 하는 것처럼 Braze 인앱 메시지를 사용하여 앱에 대한 푸시 권한을 요청할 수 있습니다. Braze에서 이러한 유형의 메시지를 구축하는 방법은 [푸시 프라이머 인앱 메시지]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages#push-primer-in-app-messages)를 참조하세요.
+일반 소비자에게 하는 것처럼 Braze 인앱 메시지를 사용하여 앱에 대한 푸시 권한을 요청할 수 있습니다. Braze에서 이러한 유형의 메시지를 구축하는 방법은 [푸시 프라이머 인앱 메시지]({{site.baseurl}}/user_guide/channels/push/best_practices/push_primer_messages)를 참조하세요.
 
 <div class="imgDiv">
 <img src="{% image_buster /assets/img/braze_pilot/push_primer1.png %}" style="max-width:40%">

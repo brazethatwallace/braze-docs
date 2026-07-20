@@ -50,7 +50,7 @@ Para começar a personalizar suas mensagens usando Liquid tags, consulte os segu
 
 Use os Segments da Braze para criar segmentos de clientes direcionados com base em atributos e comportamentos específicos, e entregue mensagens e Campaigns personalizadas. Com esse recurso poderoso, você pode engajar seus clientes de forma eficaz, alcançando o público certo com a mensagem certa no momento certo.
 
-Para saber mais sobre como começar com segmentos, confira [Sobre os Segments da Braze]({{site.baseurl}}/user_guide/audience/segments#about-braze-segments).
+Para saber mais sobre como começar com segmentos, confira [Sobre os Segments da Braze]({{site.baseurl}}/user_guide/audience/segments).
 
 ### Eventos recomendados {#recommended-events}
 

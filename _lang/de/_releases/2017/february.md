@@ -10,7 +10,7 @@ description: "Dieser Artikel enthält Versionshinweise für Februar 2017."
 
 ## Canvas-Schritte nach dem Start hinzufügen {#add-canvas-steps-after-launch}
 
-Sie können jetzt [Canvas-Schritte]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#create-a-canvas) zu bestehenden Schritten hinzufügen, auch nachdem der Canvas gestartet wurde.
+Sie können jetzt [Canvas-Schritte]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) zu bestehenden Schritten hinzufügen, auch nachdem der Canvas gestartet wurde.
 
 ## Bulk-CSV für Engagement-Berichte {#bulk-csv-for-engagement-reports}
 

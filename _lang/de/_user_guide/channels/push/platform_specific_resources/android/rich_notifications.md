@@ -37,7 +37,7 @@ Braze stellt zwar Anleitungen zur Einrichtung von Rich-Push-Benachrichtigungen b
 
 ### Schritt 1: Push-Campaign erstellen {#step-1-create-a-push-campaign}
 
-Folgen Sie den Schritten zum [Erstellen einer Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message), um eine Push-Benachrichtigung für Android zu verfassen. Sie verwenden denselben Composer für die Einrichtung von Push-Benachrichtigungen, die keinen Rich-Inhalt enthalten.
+Folgen Sie den Schritten zum [Erstellen einer Campaign]({{site.baseurl}}/user_guide/channels/push/create_a_push_message), um eine Push-Benachrichtigung für Android zu verfassen. Sie verwenden denselben Composer für die Einrichtung von Push-Benachrichtigungen, die keinen Rich-Inhalt enthalten.
 
 ### Schritt 2: Beschriftung hinzufügen {#step-2-add-captioning}
 

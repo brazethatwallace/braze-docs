@@ -57,7 +57,7 @@ Para ver mais detalhes sobre os critérios de entrada, selecione **See more**. E
 
 ### Liquid
 
-A Braze processa a lógica Liquid durante uma execução de teste, mesmo que você não esteja enviando uma mensagem de teste real. Isso significa que a [lógica de interrupção de mensagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages) e outras lógicas Liquid são refletidas e podem impactar a jornada do usuário no Canvas.
+A Braze processa a lógica Liquid durante uma execução de teste, mesmo que você não esteja enviando uma mensagem de teste real. Isso significa que a [lógica de interrupção de mensagem]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages) e outras lógicas Liquid são refletidas e podem impactar a jornada do usuário no Canvas.
 
 Se a sua prévia enviar a última etapa da jornada do usuário em vez de interromper, a prévia pode estar usando o horário atual como o horário testado para a avaliação Liquid, e não o horário real em que o usuário estaria na etapa com base no horário de entrada no Canvas.
 

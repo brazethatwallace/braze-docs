@@ -9,7 +9,7 @@ description: "Este artigo contém notas de versão para julho de 2020."
 
 ## Códigos de promoção {#promotion-codes}
 
-Usando o Liquid, você pode fazer com que suas mensagens sejam extraídas de uma lista de [códigos de promoção]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes#promotion-codes) da qual você fez upload. Esse recurso oferece datas de vencimento de até seis meses e aceita até 20 milhões de códigos individuais por lista.
+Usando o Liquid, você pode fazer com que suas mensagens sejam extraídas de uma lista de [códigos de promoção]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/sources/promotion_codes) da qual você fez upload. Esse recurso oferece datas de vencimento de até seis meses e aceita até 20 milhões de códigos individuais por lista.
 
 ## Relatório de retenção de variantes {#variant-retention-report}
 

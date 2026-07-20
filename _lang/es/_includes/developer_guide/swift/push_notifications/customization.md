@@ -136,7 +136,7 @@ Solo necesitas definir botones de acción en el panel de Braze para comportamien
 3. En el desplegable **Categoría de notificación de iOS**, selecciona **Introducir categoría personalizada de iOS previamente registrada**.
 4. Por último, introduce una de las categorías que creaste anteriormente. El siguiente ejemplo utiliza la categoría personalizada: `LIKE_CATEGORY`.
 
-![El panel de Campaign de notificaciones push con la configuración de categorías personalizadas.]({% image_buster /assets/img_archive/ios-notification-category.png %})
+![El panel de campaña de notificaciones push con la configuración de categorías personalizadas.]({% image_buster /assets/img_archive/ios-notification-category.png %})
 
 ### Ejemplo: categoría push personalizada {#example-custom-push-category}
 
@@ -241,7 +241,7 @@ Puedes inspeccionar un sonido para determinar su formato de datos abriéndolo en
 
 Debes especificar una URL de protocolo que dirija a la ubicación del archivo de sonido en tu aplicación. Hay dos métodos para hacerlo:
 
-* Utiliza el parámetro `sound` del [objeto push de Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object#apple-push-object) para pasar la URL a Braze.
+* Utiliza el parámetro `sound` del [objeto push de Apple]({{site.baseurl}}/api/objects_filters/messaging/apple_object) para pasar la URL a Braze.
 * Especifica la URL en el panel. En el [creador push]({{site.baseurl}}/user_guide/message_building_by_channel/push/creating_a_push_message#step-3-select-notification-type-ios-and-android), selecciona **Configuración** e introduce la URL del protocolo en el campo **Sonido**.
 
 ![El creador push en el panel de Braze]({% image_buster /assets/img_archive/sound_push_ios.png %})
@@ -254,7 +254,7 @@ Consulta la documentación para desarrolladores de Apple relativa a la [preparac
 
 Al crear una campaña push a través del panel, haz clic en la pestaña **Configuración** del paso **Redactar** para ver la configuración avanzada disponible.
 
-![Pestaña de configuración avanzada del creador de Campaign push de Braze para iOS.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
+![Pestaña de configuración avanzada del creador de campaña push de Braze para iOS.]({% image_buster /assets/img_archive/ios_advanced_settings.png %})
 
 ### Pares clave-valor {#key-value-pairs}
 

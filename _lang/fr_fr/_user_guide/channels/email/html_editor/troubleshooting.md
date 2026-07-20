@@ -29,7 +29,7 @@ Utilisez ce flux de travail lorsque le rendu d'un e-mail HTML ou le comportement
 
 1. Validez votre balisage HTML dans l'éditeur ou un validateur externe.
 2. Envoyez un [e-mail de test]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa) et notez quels clients de messagerie ou navigateurs présentent le problème.
-3. Prévisualisez avec [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision) pour comparer le rendu entre les différents clients.
+3. Prévisualisez avec [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) pour comparer le rendu entre les différents clients.
 4. Éliminez les [conflits d'extensions de navigateur](#extension-conflicts) si l'éditeur lui-même se comporte de manière inattendue.
 5. Si le problème persiste, ouvrez un [ticket d'assistance]({{site.baseurl}}/braze_support) avec des captures d'écran d'Inbox Vision et des clients concernés.
 
@@ -52,7 +52,7 @@ La vue en texte brut supprime votre éditeur `WYSIWYG` (what you see is what you
 
 Les e-mails s'affichent différemment selon les navigateurs et les clients de messagerie. Prenez donc note des navigateurs et clients de messagerie avec lesquels vous rencontrez des problèmes.
 
-- Prévisualisez vos e-mails en utilisant [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision) pour voir à quoi ressemblent vos e-mails dans différents navigateurs et clients de messagerie.
+- Prévisualisez vos e-mails en utilisant [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision) pour voir à quoi ressemblent vos e-mails dans différents navigateurs et clients de messagerie.
 - Une fois que vous avez identifié les navigateurs ou clients de messagerie à l'origine des problèmes, informez votre équipe de développement qu'elle devra modifier le HTML et apporter des ajustements pour prendre en charge ces navigateurs ou clients de messagerie.
 
 ### Insertion CSS {#css-inlining}

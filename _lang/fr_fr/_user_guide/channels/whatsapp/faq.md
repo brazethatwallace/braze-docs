@@ -170,6 +170,15 @@ Lorsque vous créez des modèles à l'aide du [générateur de modèles WhatsApp
 
 Pour résoudre ce problème, modifiez votre modèle dans le WhatsApp Manager de Meta afin d'utiliser un format de marques substitutives séquentiel, puis réimportez-le dans Braze. Dans Braze, confirmez que chaque champ de variable obligatoire est rempli avec une valeur Liquid valide.
 
+#### Pourquoi ma Campaign WhatsApp ne s'envoie-t-elle pas malgré un aperçu correct du modèle ? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
+Si votre modèle s'affiche correctement en aperçu mais que le registre de traitement indique **Abort** avec le détail « Param text cannot have new-line/tab characters or more than 4 consecutive spaces », vérifiez les valeurs des paramètres alimentés par Liquid dans votre message. WhatsApp exige que les valeurs textuelles des paramètres ne contiennent pas :
+
+- De caractères de retour à la ligne
+- De caractères de tabulation
+- Plus de 4 espaces consécutifs
+
+Vérifiez que toute logique Liquid qui alimente les paramètres du modèle supprime ces caractères ou formate le texte en conséquence avant l'envoi.
+
 ### Livrabilité et facturation {#deliverability-and-billing}
 
 #### Pourquoi un message ne serait-il pas livré ? {#why-would-a-message-not-be-delivered}

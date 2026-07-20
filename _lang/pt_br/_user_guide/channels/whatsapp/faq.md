@@ -6,6 +6,7 @@ description: "Este artigo aborda algumas das perguntas mais frequentes que surge
 page_type: FAQ
 channel:
   - WhatsApp
+
 ---
 
 # Perguntas frequentes {#frequently-asked-questions}
@@ -168,6 +169,15 @@ Quando você cria modelos usando o [Construtor de modelos do WhatsApp]({{site.ba
 - Variáveis que começam com um número diferente de 1
 
 Para resolver isso, edite seu modelo no WhatsApp Manager da Meta para usar formatação de marcadores sequenciais e reimporte-o na Braze. Na Braze, confirme que cada campo de variável obrigatório está preenchido com um valor Liquid válido.
+
+#### Por que minha Campaign de WhatsApp não está enviando apesar de o modelo estar sendo exibido corretamente na prévia? {#why-is-my-whatsapp-campaign-not-sending-despite-template-previewing}
+Se o seu modelo é exibido corretamente na prévia, mas o registro de processamento mostra **Abort** com os detalhes "Param text cannot have new-line/tab characters or more than 4 consecutive spaces", verifique os valores dos parâmetros preenchidos por Liquid na sua mensagem. O WhatsApp exige que os valores de texto dos parâmetros não contenham:
+
+- Caracteres de nova linha
+- Caracteres de tabulação
+- Mais de 4 espaços consecutivos
+
+Confirme que qualquer lógica Liquid que preenche os parâmetros do modelo remove esses caracteres ou formata o texto adequadamente antes do envio.
 
 ### Entregabilidade e cobrança {#deliverability-and-billing}
 

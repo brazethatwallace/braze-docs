@@ -28,7 +28,7 @@ Con [Passkit]({{site.baseurl}}/partners/additional_channels_and_extensions/addit
 El `dispatch_id` de un mensaje se incluirá en las siguientes respuestas de los endpoints de mensajería:
 - [`/campaigns/trigger/send`]({{site.baseurl}}/api/endpoints/messaging)
 - [`/campaigns/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging)
-- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages#send-messages-immediately-using-the-api-only)
+- [`/messages/send`]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_messages)
 - [`/messages/schedule`]({{site.baseurl}}/api/endpoints/messaging)
 - [`/canvases/trigger/send`]({{site.baseurl}}/api/endpoints/messaging)
 - [`/canvases/trigger/schedule`]({{site.baseurl}}/api/endpoints/messaging)

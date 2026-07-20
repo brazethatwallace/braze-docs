@@ -37,7 +37,7 @@ Braze에서 리치 푸시 설정 방법에 대한 안내를 제공하지만, 리
 
 ### 1단계: 푸시 Campaign 생성 {#step-1-create-a-push-campaign}
 
-[Campaign 생성]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message) 단계를 따라 Android용 푸시 알림을 작성합니다. 리치 콘텐츠가 포함되지 않은 푸시 알림을 설정할 때와 동일한 작성기를 사용합니다.
+[Campaign 생성]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) 단계를 따라 Android용 푸시 알림을 작성합니다. 리치 콘텐츠가 포함되지 않은 푸시 알림을 설정할 때와 동일한 작성기를 사용합니다.
 
 ### 2단계: 캡션 추가 {#step-2-add-captioning}
 

@@ -29,7 +29,7 @@ HTMLメールのレンダリングやエディターの動作が期待どおり�
 
 1. エディターまたは外部バリデーターでHTMLマークアップを検証します。
 2. [テストメール]({{site.baseurl}}/developer_guide/platform_wide/sending_test_messages#sending-a-test-push-notification-or-in-app-messages-a-classmargin-fix-namepush-inapp-testa)を送信し、どのメールクライアントやブラウザで問題が発生しているかを記録します。
-3. [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision)でプレビューし、クライアント間のレンダリングを比較します。
+3. [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision)でプレビューし、クライアント間のレンダリングを比較します。
 4. エディター自体の動作がおかしい場合は、[ブラウザ拡張機能の競合](#extension-conflicts)を除外します。
 5. 問題が解決しない場合は、Inbox Visionのスクリーンショットと影響を受けたクライアントの情報を添えて[サポートチケット]({{site.baseurl}}/braze_support)を開いてください。
 
@@ -52,7 +52,7 @@ HTMLメールのレンダリングやエディターの動作が期待どおり�
 
 メールはブラウザやメールクライアントによってレンダリングが異なるため、問題が発生しているブラウザやメールクライアントを記録しておいてください。
 
-- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision#inbox-vision)を使用してメールをプレビューし、さまざまなブラウザやメールクライアントでメールがどのように表示されるかを確認してください。
+- [Inbox Vision]({{site.baseurl}}/user_guide/channels/email/inbox_vision)を使用してメールをプレビューし、さまざまなブラウザやメールクライアントでメールがどのように表示されるかを確認してください。
 - 問題を引き起こしているブラウザやメールクライアントを特定したら、開発者チームにHTMLを修正し、それらのブラウザやメールクライアントに対応するための編集が必要であることを伝えてください。
 
 ### CSSインライン化 {#css-inlining}

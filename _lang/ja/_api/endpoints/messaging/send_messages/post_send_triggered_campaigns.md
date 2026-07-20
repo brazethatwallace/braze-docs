@@ -212,7 +212,7 @@ curl --location --request POST 'https://rest.iad-01.braze.com/campaigns/trigger/
 Brazeには`attributes`というメッセージングオブジェクトがあり、APIトリガーキャンペーンを送信する前に、ユーザーの属性や値を追加・作成・更新できます。このAPI呼び出しとして`campaign/trigger/send`エンドポイントを使用すると、キャンペーンを処理して送信する前にユーザー属性オブジェクトが処理されます。これにより、[競合]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions)による問題が発生するリスクを最小限に抑えることができます。
 
 {% alert tip %}
-このエンドポイントのキャンバスバージョンをお探しですか？[APIトリガー配信を使用したキャンバスメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#send-canvas-messages-using-api-triggered-delivery)をご確認ください。
+このエンドポイントのキャンバスバージョンをお探しですか？[APIトリガー配信を使用したキャンバスメッセージの送信]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases)をご確認ください。
 {% endalert %}
 
 ### JSONボディにLiquidを直接記述してもレンダリングされないのはなぜですか？ {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}

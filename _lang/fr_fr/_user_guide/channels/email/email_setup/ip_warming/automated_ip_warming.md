@@ -36,6 +36,10 @@ Pour effectuer un IP warming automatisé, vous devez disposer des éléments sui
 - « Approve and Deny Campaigns » si le flux de travail d'approbation pour les campagnes est activé
     - Braze approuve automatiquement les campagnes créées à partir de l'IP warming automatisé en votre nom.
 
+{% alert important %}
+Cette fonctionnalité peut ne pas être prise en charge selon votre infrastructure d'e-mail.
+{% endalert %}
+
 ## Configurer un plan d'IP warming automatisé {#set-up-an-automated-ip-warming-plan}
 
 ### Étape 1 : Définir une planification {#step-1-set-a-schedule}
@@ -107,7 +111,7 @@ Braze vous permet d'arrêter l'IP warming et la création de futures campagnes, 
 
 Cependant, une fois arrêté, l'IP warming ne peut pas être repris. Vous devez configurer un nouveau plan pour reprendre là où vous vous êtes arrêté en :
 
-- Téléchargeant les données existantes de votre plan arrêté pour les conserver dans vos archives, car une fois que vous démarrez un nouveau IP warming, le suivi précédent sera supprimé
+- Téléchargeant les données existantes de votre plan arrêté pour les conserver dans vos archives, car une fois que vous démarrez un nouvel IP warming, le suivi précédent sera supprimé
 - Mettant à jour le **Current daily send volume** avec le volume le plus récent
 - Ajoutant un filtre à un segment si vous prévoyez d'utiliser le même segment que lors du dernier IP warming, en excluant les utilisateurs qui ont déjà reçu les campagnes précédentes
 

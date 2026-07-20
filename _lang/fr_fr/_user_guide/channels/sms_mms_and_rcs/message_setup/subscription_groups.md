@@ -114,7 +114,7 @@ Utilisez [Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#a
 2. Créez un Canvas basé sur une action déclenché par **Send an SMS inbound message**, dans la catégorie de mot-clé **Other**.
 3. Ajoutez l'[étape Agent]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) au Canvas pour identifier l'intention de désabonnement.
 4. Ajoutez une [étape Message]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) SMS ultérieure pour confirmer la demande : « Il semble que vous souhaitiez vous désabonner des SMS, nous allons donc vous désabonner. Si c'est une erreur, envoyez START pour vous réabonner. »
-5. Ajoutez une [étape Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update) pour modifier le statut de l'utilisateur dans le groupe d'abonnement SMS spécifique en « Désabonné ».
+5. Ajoutez une [étape Mise à jour utilisateur]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) pour modifier le statut de l'utilisateur dans le groupe d'abonnement SMS spécifique en « Désabonné ».
 
 {% alert note %}
 L'utilisation de la console des agents consomme des crédits de message ou d'action.

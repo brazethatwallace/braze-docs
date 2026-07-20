@@ -40,7 +40,7 @@ En este enfoque, la localización se aplica a una única plantilla en Braze util
 
 Este enfoque separa las plantillas en diferentes configuraciones regionales de envío. Después del envío, el panel muestra los análisis de envío basados en cada país por separado, y cualquier evento de [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents) a nivel de usuario posterior también estará vinculado a una Campaign específica.
 
-- Las plantillas se benefician de implementar [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags) con fines de mantenimiento y seguimiento.
+- Las plantillas se benefician de implementar [etiquetas]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags) con fines de mantenimiento y seguimiento.
 - Las Campaigns pueden heredar las configuraciones de la misma [plantilla de Braze]({{site.baseurl}}/user_guide/messaging/templates) y [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) (como las [plantillas de correo electrónico]({{site.baseurl}}/user_guide/messaging/templates/email_templates) que contienen Liquid).
 - Las Campaigns y plantillas preexistentes se pueden [duplicar]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating) para permitir un tiempo de obtención de valor más rápido.
 
@@ -122,7 +122,7 @@ Siempre recomendamos incluir una declaración {% raw %}`{% else %}`{% endraw %} 
 {% endtab %}
 
 {% tab Content Blocks %}
-Los [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) de Braze son bloques de contenido reutilizables. Cuando se modifica un bloque, todas las referencias a ese bloque cambian. Por ejemplo, las actualizaciones en un encabezado o pie de página de correo electrónico se reflejarán en todos los correos electrónicos o para alojar traducciones. Estos bloques también se pueden [crear]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block#create-content-block) y [actualizar]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) usando la REST API, y los usuarios pueden cargar traducciones de forma programática.
+Los [Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks) de Braze son bloques de contenido reutilizables. Cuando se modifica un bloque, todas las referencias a ese bloque cambian. Por ejemplo, las actualizaciones en un encabezado o pie de página de correo electrónico se reflejarán en todos los correos electrónicos o para alojar traducciones. Estos bloques también se pueden [crear]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block) y [actualizar]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block) usando la REST API, y los usuarios pueden cargar traducciones de forma programática.
 
 Al crear una Campaign en el panel, se puede hacer referencia a los Content Blocks usando la etiqueta {% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %}. Estos bloques podrían contener todas las traducciones alojadas dentro de lógica condicional para cada idioma, como se muestra en la opción 1, o se puede usar un bloque separado para cada idioma.
 
@@ -271,10 +271,10 @@ Aloja las traducciones en una hoja de cálculo y luego usa uno de los siguientes
 
 {% subtabs local %}
 {% subtab Contenido conectado %}
-Puedes trabajar con una agencia de traducción para almacenar traducciones en una hoja de cálculo de Google y luego consultar este contenido usando el [contenido conectado de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Cuando envías un mensaje, la traducción correspondiente para cada usuario se incorporará al cuerpo de tu Campaign según su idioma seleccionado.
+Puedes trabajar con una agencia de traducción para almacenar traducciones en una hoja de cálculo de Google y luego consultar este contenido usando el [contenido conectado de Braze]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/connected_content). Cuando envías un mensaje, la traducción correspondiente para cada usuario se incorporará al cuerpo de tu campaña según su idioma seleccionado.
 
 {% alert note %}
-La API de Google Sheets tiene un límite de 500 solicitudes por cada 100 segundos por proyecto. Las llamadas de contenido conectado se pueden almacenar en caché, pero esta solución no es escalable para una Campaign de alto tráfico.
+La API de Google Sheets tiene un límite de 500 solicitudes por cada 100 segundos por proyecto. Las llamadas de contenido conectado se pueden almacenar en caché, pero esta solución no es escalable para una campaña de alto tráfico.
 {% endalert %}
 {% endsubtab %}
 
@@ -321,7 +321,7 @@ Por último, usa Liquid para crear plantillas de tus mensajes:
 
 - El campo {% raw %}`{{${language}}}`{% endraw %} debe estar definido para todos los usuarios; de lo contrario, se debe incluir un bloque condicional de Liquid como controlador alternativo para los usuarios sin un idioma.
 - El modelado de datos dentro de Google Sheets debe seguir una estructura vertical orientada por idioma, a diferencia de tener objetos de mensaje.
-- SheetDB ofrece una cuenta gratuita limitada y múltiples opciones de pago que deben considerarse según tu estrategia de Campaign.
+- SheetDB ofrece una cuenta gratuita limitada y múltiples opciones de pago que deben considerarse según tu estrategia de campaña.
 - Las llamadas de contenido conectado se pueden almacenar en caché. Recomendamos medir la cadencia proyectada de las llamadas a la API e investigar un enfoque alternativo de llamar al endpoint principal de SheetDB en lugar de usar el método de búsqueda.
 {% endsubtab %}
 {% endsubtabs %}

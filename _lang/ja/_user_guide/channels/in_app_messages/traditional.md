@@ -147,14 +147,14 @@ toc_headers: h2
 </thead>
 <tbody>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html#custom-html-messages'>カスタムHTMLメッセージ</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/custom_html'>カスタムHTMLメッセージ</a></td>
     <td>カスタムコード（HTML、CSS、JavaScript）で定義されたとおりに動作するカスタムメッセージです。</td>
     <td>N/A</td>
     <td>アプリ内メッセージを機能させるには、<span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span>初期化オプションを<code>true</code>に設定する必要があります。</td>
     <td>IAMのすべての利点を活かしつつ、追加機能が必要な場合や、外観を「ブランドに合わせた」ものにしたい場合に適しています。メッセージのあらゆる細部（フォント、色、形、サイズ、ボタンなど）を変更できます。<br><br>ユースケースの例としては、アプリのフィードバックの依頼、メールキャプチャフォーム、ページ分割されたメッセージなどがあります。</td>
   </tr>
   <tr>
-    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form#email-capture-form'>メールキャプチャフォーム</a></td>
+    <td><a href='/docs/user_guide/channels/in_app_messages/message_types/email_capture_form'>メールキャプチャフォーム</a></td>
     <td>通常、閲覧者のメールアドレスをキャプチャするために使用されます。</td>
     <td>N/A</td>
     <td>アプリ内メッセージを機能させるには、<span style="white-space: nowrap"><code>allowUserSuppliedJavascript</code></span>初期化オプションを<code>true</code>に設定する必要があります。</td>

@@ -37,7 +37,7 @@ Braze는 네 가지 이커머스 Canvas 템플릿을 제공합니다.
 
 - **동적 콘텐츠:** 이름, 주문 세부 정보, 선호도 등 고객별 정보를 메시지에 삽입합니다.
 - **조건 로직:** if/else 문을 사용하여 특정 조건(예: 고객 위치 및 구매 이력)에 따라 다른 콘텐츠를 표시합니다.
-- **루프:** 제품 또는 고객 데이터 컬렉션을 반복(Iterate)하여 항목의 목록이나 그리드를 표시합니다.
+- **루프:** 제품 또는 고객 데이터 컬렉션을 반복하여 항목의 목록이나 그리드를 표시합니다.
 
 ### Liquid 시작하기 {#getting-started-with-liquid}
 
@@ -48,9 +48,9 @@ Liquid 태그를 사용하여 메시지를 개인화하려면 다음 리소스�
 
 ## 세분화 {#segmentation}
 
-Braze Segments를 사용하여 특정 속성과 동작을 기반으로 타겟 고객 세그먼트를 만들고, 개인화된 메시징과 Campaigns를 전달하세요. 이 강력한 기능을 통해 적절한 오디언스에게 적절한 메시지를 적절한 시간에 전달하여 고객과 효과적으로 소통할 수 있습니다.
+Braze Segments를 사용하여 특정 속성과 동작을 기반으로 타겟 고객 세그먼트를 만들고, 개인화된 메시징과 Campaign을 전달하세요. 이 강력한 기능을 통해 적절한 오디언스에게 적절한 메시지를 적절한 시간에 전달하여 고객과 효과적으로 소통할 수 있습니다.
 
-Segments 시작에 대한 자세한 내용은 [Braze Segments 소개]({{site.baseurl}}/user_guide/audience/segments#about-braze-segments)를 확인하세요.
+Segments 시작에 대한 자세한 내용은 [Braze Segments 소개]({{site.baseurl}}/user_guide/audience/segments)를 확인하세요.
 
 ### 추천 이벤트 {#recommended-events}
 

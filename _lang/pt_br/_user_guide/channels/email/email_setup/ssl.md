@@ -18,7 +18,7 @@ channel: email
 
 A maioria dos domínios não requer SSL, mas a Braze recomenda fortemente o uso de SSL por essas razões.
 
-Proteger seu site e seus links com SSL é uma prática comum, mesmo para empresas que não lidam diretamente com informações confidenciais de clientes. Os usuários confiam mais em links protegidos com SSL, e a camada adicional de autenticação ajuda a proteger seus dados.
+Proteger seu website e seus links com SSL é uma prática comum, mesmo para empresas que não lidam diretamente com informações confidenciais de clientes. Os usuários confiam mais em links protegidos com SSL, e a camada adicional de autenticação ajuda a proteger seus dados.
 
 ### Necessário para rastreamento de cliques e aberturas {#necessary-for-click-and-open-tracking}
 
@@ -32,11 +32,11 @@ Os principais navegadores, como o Google Chrome, restringem o tráfego por URLs 
 
 ### Domínios HSTS {#hsts-domains}
 
-Se você tem um domínio com HTTP Strict Transport Security (HSTS), configure o SSL e um CDN para enviar os certificados de segurança necessários. Sem SSL, links de imagens e da web ficam quebrados.
+Se você tem um domínio com HTTP Strict Transport Security (HSTS), configure o SSL e uma rede de distribuição de conteúdo (CDN) para enviar os certificados de segurança necessários. Sem SSL, links de imagens e da web ficam quebrados.
 
 ## Obter um certificado SSL {#acquire-an-ssl-certificate}
 
-Obtenha um certificado SSL por meio de terceiros, geralmente uma rede de entrega de conteúdo (CDN). Um CDN hospeda o certificado e o apresenta ao navegador quando um usuário clica em um link, redirecionando o tráfego pelo CDN para aplicar os certificados antes de enviá-lo ao SendGrid ou SparkPost.
+Obtenha um certificado SSL por meio de terceiros, geralmente uma rede de distribuição de conteúdo (CDN). Um CDN hospeda o certificado e o apresenta ao navegador quando um usuário clica em um link, redirecionando o tráfego pelo CDN para aplicar os certificados antes de enviá-lo ao SendGrid ou SparkPost.
 
 Para iniciar a configuração do SSL, entre em contato com seu gerente de sucesso do cliente da Braze para iniciar uma configuração completa de e-mail na Braze.
 
@@ -50,7 +50,7 @@ Após a Braze iniciar a configuração, siga estas etapas:
 
 ## O que é um CDN e por que eu preciso dele? {#what-is-a-cdn-and-why-do-i-need-it}
 
-Uma rede de entrega de conteúdo (CDN) é uma plataforma de servidores que ajuda a garantir tempos de carregamento rápidos de conteúdo em vários meios, além de lidar com certificados de segurança.
+Uma rede de distribuição de conteúdo (CDN) é uma plataforma de servidores que ajuda a garantir tempos de carregamento rápidos de conteúdo em vários meios, além de lidar com certificados de segurança.
 
 {% alert important %}
 A configuração do CDN sempre ocorre após a validação dos seus registros DNS pela Braze. Se você ainda não iniciou essa etapa, entre em contato com seu gerente de sucesso do cliente para saber mais sobre como começar.
@@ -65,10 +65,10 @@ Se você não puder ou não quiser usar os CDNs listados para rastreamento de cl
 ### Recursos adicionais {#additional-resources}
 
 {% alert important %}
-Para solucionar problemas de configuração do CDN, entre em contato com seu provedor de CDN ou consulte a [Solução de problemas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting) para orientações gerais.
+Para solucionar problemas de configuração do CDN, entre em contato com seu provedor de CDN ou consulte [Solução de problemas]({{site.baseurl}}/user_guide/channels/email/email_setup/ssl/troubleshooting) para orientações gerais.
 {% endalert %}
 
-Consulte os seguintes recursos dos parceiros ESP sobre como configurar determinados CDNs. Embora seu CDN específico possa não estar listado, você deve garantir que seu CDN tenha a capacidade de aplicar certificados SSL.
+Consulte os seguintes recursos dos parceiros de provedor de serviços de e-mail sobre como configurar determinados CDNs. Embora seu CDN específico possa não estar listado, você deve garantir que seu CDN tenha a capacidade de aplicar certificados SSL.
 
 Ao configurar o domínio de rastreamento de cliques do seu CDN, ative o cabeçalho `X-Forwarded-Host` para evitar possíveis problemas de segurança, como ataques de cabeçalho de host. Consulte a documentação do CDN ou sua equipe de suporte para obter as etapas.
 
@@ -83,16 +83,16 @@ Ao configurar o domínio de rastreamento de cliques do seu CDN, ative o cabeçal
 | SendGrid | CloudFlare | [Usando CloudFlare](https://sendgrid.com/docs/ui/sending-email/content-delivery-networks/#using-cloudflare) |
 | SendGrid | Fastly | [Usando Fastly](https://sendgrid.com/docs/ui/sending-email/content-delivery-networks/#using-fastly) |
 | SendGrid | KeyCDN | [Usando KeyCDN](https://sendgrid.com/docs/ui/sending-email/content-delivery-networks/#using-keycdn) |
-| SparkPost | AWS CloudFront | [Guia passo a passo com AWS CloudFront](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-aws-cloudfront) |
-| SparkPost | CloudFlare | [Guia passo a passo com Cloudflare](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-cloudflare) |
-| SparkPost | Fastly | [Guia passo a passo com Fastly](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-fastly) |
-| SparkPost | Google Cloud Platform | [Guia passo a passo com Google Cloud Platform](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-google-cloud-platform) |
-| SparkPost | Microsoft Azure | [Guia passo a passo com Microsoft Azure](https://support.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost/#step-by-step-guide-with-microsoft-azure) |
+| SparkPost | AWS CloudFront | [Guia passo a passo com AWS CloudFront](https://docs.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost#step-by-step-guide-with-aws-cloudfront) |
+| SparkPost | CloudFlare | [Guia passo a passo com Cloudflare](https://docs.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost#step-by-step-guide-with-cloudflare) |
+| SparkPost | Fastly | [Guia passo a passo com Fastly](https://docs.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost#step-by-step-guide-with-fastly) |
+| SparkPost | Google Cloud Platform | [Guia passo a passo com Google Cloud Platform](https://docs.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost#step-by-step-guide-with-google-cloud-platform) |
+| SparkPost | Microsoft Azure | [Guia passo a passo com Microsoft Azure](https://docs.sparkpost.com/docs/tech-resources/enabling-https-engagement-tracking-on-sparkpost#step-by-step-guide-with-microsoft-azure) |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Recursos adicionais" }
 
 ### Amazon SES
 
-Se você está usando o Amazon SES como seu ESP, consulte a **Opção 2: Configurando um domínio HTTPS** na [documentação do Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) e especifique o domínio de rastreamento da AWS por região com base no seu cluster da Braze:
+Se você está usando o Amazon SES como seu provedor de serviços de e-mail, consulte a **Opção 2: Configurando um domínio HTTPS** na [documentação do Amazon SES](https://docs.aws.amazon.com/ses/latest/dg/configure-custom-open-click-domains.html) e especifique o domínio de rastreamento da AWS por região com base no seu cluster da Braze:
 
 - **Clusters da Braze nos EUA:** `r.us-east-1.awstrack.me`
 - **Clusters da Braze na UE:** `r.eu-central-1.awstrack.me`

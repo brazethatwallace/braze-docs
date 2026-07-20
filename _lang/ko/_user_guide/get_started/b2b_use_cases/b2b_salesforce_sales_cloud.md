@@ -187,7 +187,7 @@ Salesforce에서 리드를 업데이트하는 Braze Salesforce Sales Cloud 웹�
 
 ## 문제 해결 {#troubleshooting}
 
-이러한 워크플로는 Salesforce 내에서 디버깅 기능이 제한되어 있으므로 Braze [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log#dev-console-troubleshooting)를 참조하여 웹훅이 실패한 이유와 오류 발생 여부를 확인하는 것이 좋습니다.
+이러한 워크플로는 Salesforce 내에서 디버깅 기능이 제한되어 있으므로 Braze [메시지 활동 로그]({{site.baseurl}}/user_guide/administer/global/workspace_settings/logs_and_alerts/message_activity_log)를 참조하여 웹훅이 실패한 이유와 오류 발생 여부를 확인하는 것이 좋습니다.
 
 예를 들어, OAuth 토큰 검색에 사용된 잘못된 URL로 인한 오류는 `https://[insert_instance_name].my.salesforce.com/services/oauth2/token is not a valid URL`로 표시됩니다.
 

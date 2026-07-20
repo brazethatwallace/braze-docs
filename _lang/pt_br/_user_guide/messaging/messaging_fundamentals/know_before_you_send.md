@@ -70,7 +70,7 @@ Para obter mais assistência com a solução de problemas de Canvas e Campaigns,
 
 ### O que verificar
 - **Consentimento do cliente**: Antes de enviar seus e-mails iniciais, é importante obter permissão dos seus clientes primeiro. Consulte [Consentimento e coleta de endereços]({{site.baseurl}}/user_guide/channels/email/email_setup/consent_and_address_collection) e nossa [Política de Uso Aceitável da Braze](https://www.braze.com/company/legal/aup) para mais informações.
-- **Volume previsto**: 2 milhões de e-mails por dia para um único IP é a recomendação geral, desde que esse volume tenha sido [devidamente aquecido]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming#ip-warming).
+- **Volume previsto**: 2 milhões de e-mails por dia para um único IP é a recomendação geral, desde que esse volume tenha sido [devidamente aquecido]({{site.baseurl}}/user_guide/channels/email/email_setup/ip_warming).
   - Se você planeja enviar consistentemente um volume maior do que esse, para evitar que os provedores limitem o recebimento de e-mails resultando em uma grande quantidade de soft bounces, taxa de entregabilidade reduzida e reputação de IP diminuída, considere usar múltiplos endereços IP agrupados em um pool de IP.
   - Se você deseja enviar em um período mais curto, recomendamos verificar a velocidade com que diferentes provedores aceitam e-mails para determinar o número adequado de IPs para envio.
 
@@ -95,7 +95,7 @@ Para obter mais assistência com a solução de problemas de Canvas e Campaigns,
 - [**Optado/inscrito e push ativado**]({{site.baseurl}}/user_guide/channels/push/push_setup/push_subscription_states): Para que os usuários recebam uma mensagem push da Braze, eles precisam ter seus status de inscrição como optado (iOS) ou inscrito (Android) e `Push Enabled = True`. Observe que o Android 13 introduz uma mudança importante na forma como os usuários gerenciam apps que enviam notificações por push. O [guia de atualização do SDK para Android 13]({{site.baseurl}}/developer_guide/platforms/android/android_13) da Braze continuará sendo atualizado conforme novas versões beta do Android 13 forem lançadas.
 
 ### O que saber
-- **Push para a web**: Se você tem a [configuração do SDK Web]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web) da Braze, considere utilizar push para a web para engajar usuários. O push para a web funciona da mesma forma que as notificações por push de apps operam no seu celular. Para mais informações sobre como compor um push para a web, confira [Criando uma notificação por push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message).
+- **Push para a web**: Se você tem a [configuração do SDK Web]({{site.baseurl}}/user_guide/channels/push/platform_specific_resources/web) da Braze, considere utilizar push para a web para engajar usuários. O push para a web funciona da mesma forma que as notificações por push de apps operam no seu celular. Para mais informações sobre como compor um push para a web, confira [Criando uma notificação por push]({{site.baseurl}}/user_guide/channels/push/create_a_push_message).
 - **Direcionamento para um app individual**: Revise as [diferenças na segmentação]({{site.baseurl}}/developer_guide/platform_wide/app_group_configuration#targeting-a-singular-app) para direcionar um app individual e seus usuários.
 
 ## SMS

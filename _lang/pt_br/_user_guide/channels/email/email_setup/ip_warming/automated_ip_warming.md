@@ -36,6 +36,10 @@ Para realizar o aquecimento de IP automatizado, você deve ter o seguinte:
 - "Approve and Deny Campaigns" se o fluxo de aprovação para Campaigns estiver ativado
     - A Braze aprova automaticamente as campanhas criadas a partir do aquecimento de IP automatizado em seu nome.
 
+{% alert important %}
+Esse recurso pode não ser compatível dependendo da sua infraestrutura de e-mail.
+{% endalert %}
+
 ## Configurar um plano de aquecimento de IP automatizado {#set-up-an-automated-ip-warming-plan}
 
 ### Etapa 1: Definir uma programação {#step-1-set-a-schedule}
@@ -117,14 +121,14 @@ O aquecimento de IP é marcado como concluído quando o último dia de aquecimen
 
 O rastreador permanece na página inicial por 90 dias após o término do plano. Após 90 dias, o rastreador é removido. O download dos dados inclui estas métricas padrão de e-mail:
 
-- _Sent_
-- _Delivered_
+- _Enviados_
+- _Entregues_
 - _Bounces_
-- _Spam reports_
-- _Total opens_
-- _Unique opens_
-- _Clicked_
-- _Unsubscribed_
+- _Relatórios de SPAM_
+- _Total de aberturas_
+- _Aberturas únicas_
+- _Cliques_
+- _Cancelamentos de inscrição_
 
 Se um dia incluir múltiplas campanhas usadas para atingir os requisitos de volume, elas são agregadas na visualização diária.
 

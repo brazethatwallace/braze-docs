@@ -259,9 +259,11 @@ Eppo’s
 Erdelyi
 Eshop
 ESP
+ESPs
 Espa
 Eswatini
 Eventbrite
+Everest
 EWONDO
 exfiltration
 EXPERIMENTSTEP
@@ -898,6 +900,8 @@ USERDELETEREQUEST
 useridentifier
 USERORPHAN
 validreg
+Validity
+Validity's
 VARCHAR
 videosmart
 viewports
@@ -927,6 +931,7 @@ Whitelabeled
 whitelabeling
 WiFi
 Winback
+winbacks
 wishlisted
 Wistia
 wordmap

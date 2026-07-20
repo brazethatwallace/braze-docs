@@ -18,7 +18,7 @@ tool: Canvas
 このテンプレートを正しく使用するには、以下が必要です。
 
 - 商品に関する情報を含む[カタログ]({{site.baseurl}}/user_guide/data/activation/catalogs/create)
-- メッセージを送信したい商品に対して[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications#back-in-stock-notifications)が設定されていること
+- メッセージを送信したい商品に対して[再入荷通知]({{site.baseurl}}/user_guide/data/activation/catalogs/catalog_triggers/back_in_stock_notifications)が設定されていること
 
 ## テンプレートをニーズに合わせてカスタマイズする {#tailoring-the-template-to-your-needs}
 

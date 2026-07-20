@@ -69,7 +69,7 @@ Voici quelques liens que vous pourriez avoir besoin de consulter lors de la cré
 
 La vie privée d'un client est essentielle à une relation significative et respectueuse. Respecter la vie privée et les informations d'un client est une opportunité supplémentaire de créer un lien entre lui et votre marque. Parfois, l'utilisation d'outils marketing peut reléguer les données et la confidentialité au second plan.
 
-Heureusement pour vous, Braze respecte les directives de nombreuses [réglementations de sécurité]({{site.baseurl}}/developer_guide/disclosures/security_qualifications#security-qualifications), y compris le [RGPD]({{site.baseurl}}/dp-technical-assistance).
+Heureusement pour vous, Braze respecte les directives de nombreuses [réglementations de sécurité]({{site.baseurl}}/developer_guide/disclosures/security_qualifications), y compris le [RGPD]({{site.baseurl}}/dp-technical-assistance).
 
 La [CTIA](https://www.ctia.org/) (une association professionnelle représentant l'industrie des communications sans fil aux États-Unis) recommande de maintenir et d'afficher de manière visible une politique de confidentialité claire et facile à comprendre.
 
@@ -81,7 +81,7 @@ Le Telephone Consumer Protection Act ([TCPA](https://en.wikipedia.org/wiki/Telep
 
 N'oubliez pas de vous conformer au [National Do Not Call Registry](https://www.donotcall.gov/).
 
-Braze utilise les [Groupes d'abonnement]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing) pour gérer des groupes d'utilisateurs en fonction de leur niveau de consentement.
+Braze utilise les [subscription groups]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs/message_features_and_optimization/keyword_processing) pour gérer des groupes d'utilisateurs en fonction de leur niveau de consentement.
 
 #### Conformité via la désinscription approximative (fuzzy opt-out) {#compliance-through-fuzzy-opt-out}
 
@@ -116,4 +116,4 @@ Assurez-vous de respecter le [TCPA](https://en.wikipedia.org/wiki/telephone_cons
 
 ### International {#international}
 
-La plupart de ces bonnes pratiques s'appliquent aux directives établies aux États-Unis d'Amérique. Si vous atteignez des clients en dehors des régions américaines, renseignez-vous sur les bonnes pratiques et les lois dans ces zones. Il est toujours recommandé d'agir de manière conforme aux réglementations les plus strictes, qui sont généralement appliquées aux États-Unis, au Canada et dans les pays de l'Union européenne.
+La plupart de ces bonnes pratiques s'appliquent aux directives établies aux États-Unis d'Amérique. Si vous contactez des clients en dehors des régions américaines, renseignez-vous sur les bonnes pratiques et les lois dans ces zones. Il est toujours recommandé d'agir de manière conforme aux réglementations les plus strictes, qui sont généralement appliquées aux États-Unis, au Canada et dans les pays de l'Union européenne.

@@ -40,7 +40,7 @@ SDKによるロケールの収集方法の技術的な詳細については、[i
 
 このアプローチでは、テンプレートを異なる送信ロケールに分離します。送信後、ダッシュボードは各国ごとに送信分析をレポートし、下流のユーザーレベルの[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents)イベントも特定のキャンペーンに紐付けられます。
 
-- テンプレートは、メンテナンスとトラッキングの目的で[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags#managing-tags)を実装することで恩恵を受けます。
+- テンプレートは、メンテナンスとトラッキングの目的で[タグ]({{site.baseurl}}/user_guide/administer/global/workspace_settings/tags)を実装することで恩恵を受けます。
 - キャンペーンは、同じ[Brazeテンプレート]({{site.baseurl}}/user_guide/messaging/templates)と[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)（Liquidを含む[メールテンプレート]({{site.baseurl}}/user_guide/messaging/templates/email_templates)など）から設定を継承できます。
 - 既存のキャンペーンとテンプレートは[複製]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/duplicating)して、より迅速な価値実現が可能です。
 
@@ -68,10 +68,10 @@ SDKによるロケールの収集方法の技術的な詳細については、[i
 
 ローカライゼーションは以下の方法で実現できます：
 
-- 国ごとに個別のキャンバス。これにより、オーディエンスフィルターを使用してファネルの上部で複雑なユーザージャーニーが定義されます
+- 国ごとに個別のキャンバスを作成する方法。これにより、オーディエンスフィルターを使用してファネルの上部で複雑なユーザージャーニーが定義されます
 - 国ごとのカスタムユーザージャーニー。[オーディエンスパス]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/audience_paths)を実装して、各ジャーニーで大規模にユーザーを直感的にセグメント化し、単一のキャンバス内で各国ごとに個別のメッセージスレッドを作成します
 
-送信後、ダッシュボードは顧客の現在のロケーションに基づいて、国別の動的な分析とユーザーレベルの[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents)イベントを提供します。
+送信後、ダッシュボードは顧客の現在のロケーションに基づいて、国別のダイナミックな分析とユーザーレベルの[Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents#how-to-access-currents)イベントを提供します。
 
 | メリット | 考慮事項 |
 | --- | --- |
@@ -122,7 +122,7 @@ Brazeは、単一のメッセージで異なる言語のユーザーをターゲ
 {% endtab %}
 
 {% tab Content Blocks %}
-Brazeの[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)は再利用可能なコンテンツブロックです。ブロックが変更されると、そのブロックへのすべての参照が変更されます。たとえば、メールのヘッダーやフッターの更新はすべてのメールに反映されます。また、翻訳を格納するためにも使用できます。これらのブロックはREST APIを使用して[作成]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block#create-content-block)および[更新]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block)することもでき、ユーザーはプログラムで翻訳をアップロードできます。
+Brazeの[Content Blocks]({{site.baseurl}}/user_guide/messaging/design_and_edit/content_blocks)は再利用可能なコンテンツブロックです。ブロックが変更されると、そのブロックへのすべての参照が変更されます。たとえば、メールのヘッダーやフッターの更新はすべてのメールに反映されます。また、翻訳を格納するためにも使用できます。これらのブロックはREST APIを使用して[作成]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_create_email_content_block)および[更新]({{site.baseurl}}/api/endpoints/templates/content_blocks_templates/post_update_content_block)することもでき、ユーザーはプログラムで翻訳をアップロードできます。
 
 ダッシュボードでキャンペーンを構築する際、Content Blocksはタグ{% raw %}`{{content_blocks.${name_of_content_block}}}`{% endraw %}を使用して参照できます。これらのブロックには、オプション1に示すように各言語の条件ロジック内にすべての翻訳を含めることも、各言語ごとに個別のブロックを使用することもできます。
 

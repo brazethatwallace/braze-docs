@@ -100,7 +100,7 @@ Je nach Ihrer Integration kann Braze RCS-verifizierte Absender zu Ihren bestehen
 
 ## Opt-outs in natürlicher Sprache in der Agentenkonsole verarbeiten {#handle-natural-language-opt-outs-in-the-agent-console}
 
-Für ein umfassendes Abo-Management können Sie Opt-out-Absichten erfassen, die außerhalb von Standard- oder benutzerdefinierten Schlüsselwörtern liegen (z. B. „Bitte schreiben Sie mir nicht mehr“). Durch das Erstellen eines KI-Agenten können Sie Sentimentanalyse nutzen, um diese Anfragen automatisch zu erkennen und darauf zu reagieren.
+Für ein umfassendes Abo-Management können Sie Opt-out-Absichten erfassen, die außerhalb von Standard- oder angepassten Schlüsselwörtern liegen (z. B. „Bitte schreiben Sie mir nicht mehr“). Durch das Erstellen eines KI-Agenten können Sie Sentimentanalyse nutzen, um diese Anfragen automatisch zu erkennen und darauf zu reagieren.
 
 ### Einrichtung {#setup}
 
@@ -114,7 +114,7 @@ Verwenden Sie [Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_age
 2. Erstellen Sie einen aktionsbasierten Canvas, der durch **Send an SMS inbound message** ausgelöst wird, innerhalb der Schlüsselwortkategorie **Other**.
 3. Fügen Sie den [Agentenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) zum Canvas hinzu, um die Opt-out-Absicht zu erkennen.
 4. Fügen Sie einen nachfolgenden SMS-[Nachrichtenschritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) hinzu, um die Anfrage zu bestätigen: „Es sieht so aus, als möchten Sie sich von SMS abmelden, daher werden wir Sie abmelden. Falls dies ein Fehler war, senden Sie START, um sich wieder anzumelden.“
-5. Fügen Sie einen [Nutzeraktualisierung-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update) hinzu, um den Status der Nutzer:in in der jeweiligen SMS-Abo-Gruppe auf „Abgemeldet“ zu ändern.
+5. Fügen Sie einen [Nutzeraktualisierung-Schritt]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) hinzu, um den Status der Nutzer:in in der jeweiligen SMS-Abo-Gruppe auf „Abgemeldet“ zu ändern.
 
 {% alert note %}
 Die Nutzung der Agentenkonsole verbraucht Message oder Action Credits.

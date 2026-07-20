@@ -16,7 +16,7 @@ tool: Campaign
 Braze는 Braze 플랫폼에서 활용할 의도가 있는 고객 데이터만 전송할 것을 권장합니다. "Braze의 4T 원칙"을 고려하여 실제로 사용할 데이터만 전송하세요:
 
 - **타겟(Target)**: [오디언스 Segments]({{site.baseurl}}/user_guide/audience/segments)를 구축하여 오디언스를 타겟팅합니다.
-- **트리거(Trigger)**: [액션 기반]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery#action-based-delivery) 또는 [API 트리거]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) 전달로 메시지를 트리거합니다.
+- **트리거(Trigger)**: [액션 기반]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery) 또는 [API 트리거]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/api_triggered_delivery) 전달로 메시지를 트리거합니다.
 - **템플릿(Template)**: [Liquid 조건 로직]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid)으로 메시지를 템플릿화하고 개인화합니다.
 - **추적(Track)**: [전환 추적]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/conversion_events)으로 Campaign의 효과를 추적합니다.
 

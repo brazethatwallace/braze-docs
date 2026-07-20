@@ -212,7 +212,7 @@ Si votre requête rencontre une erreur fatale, consultez la section [Erreurs et 
 Braze dispose d'un objet de messagerie appelé `attributes` qui vous permet d'ajouter, de créer ou de mettre à jour les attributs et les valeurs d'un utilisateur avant de lui envoyer une Campaign déclenchée par API. L'utilisation de l'endpoint `campaign/trigger/send` permet de traiter l'objet des attributs utilisateur avant de traiter et d'envoyer la Campaign. Cela permet de minimiser le risque de problèmes causés par des [conditions de concurrence]({{site.baseurl}}/user_guide/messaging/ab_testing/concepts/race_conditions).
 
 {% alert tip %}
-Vous recherchez la version Canvas de cet endpoint ? Consultez [Envoyer des messages Canvas via une distribution déclenchée par API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases#send-canvas-messages-using-api-triggered-delivery).
+Vous recherchez la version Canvas de cet endpoint ? Consultez [Envoyer des messages Canvas via une distribution déclenchée par API]({{site.baseurl}}/api/endpoints/messaging/send_messages/post_send_triggered_canvases).
 {% endalert %}
 
 ### Pourquoi Liquid ne s'affiche-t-il pas lorsque je l'insère directement dans le corps JSON ? {#why-doesnt-liquid-render-when-i-put-it-directly-in-my-json-body}

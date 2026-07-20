@@ -114,7 +114,7 @@ Use o [Operator]({{site.baseurl}}/user_guide/brazeai/agents/creating_agents#agen
 2. Crie um Canvas baseado em ação disparado por **Send an SMS inbound message**, dentro da categoria de palavra-chave **Other**.
 3. Adicione a [etapa de Agente]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/agent_step) ao Canvas para identificar a intenção de descadastramento.
 4. Adicione uma [etapa de Mensagem]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/message_step) de SMS subsequente para confirmar a solicitação: "Parece que você está tentando cancelar a inscrição de SMS, então vamos cancelar sua inscrição. Se isso foi um engano, envie START para se inscrever novamente."
-5. Adicione uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update#user-update) para alterar o status do usuário no grupo de inscrições de SMS específico para "Cancelou inscrição".
+5. Adicione uma [etapa de Atualização de usuário]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/user_update) para alterar o status do usuário no grupo de inscrições de SMS específico para "Cancelou inscrição".
 
 {% alert note %}
 O uso do Console do agente consome créditos de mensagem ou de ação.

@@ -11,7 +11,7 @@ local_redirect:
 
 # Feature-Flag {#feature-flag}
 
-> Feature-Flags ermöglichen es Ihnen, mit neuen Features zu experimentieren und Ihre Hypothesen zu bestätigen. Marketer können Feature-Flags nutzen, um Ihre Zielgruppe in [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) zu segmentieren und die Auswirkungen eines Feature-Rollouts auf Conversions zu verfolgen. Darüber hinaus ermöglichen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step#experiment-paths) die Optimierung dieser Conversions, indem verschiedene Nachrichten oder Pfade gegeneinander getestet werden, um herauszufinden, welcher am effektivsten ist. Nutzen Sie den Gewinnerpfad, während Sie Ihr Feature schrittweise für eine breitere Zielgruppe ausrollen.
+> Feature-Flags ermöglichen es Ihnen, mit neuen Features zu experimentieren und Ihre Hypothesen zu bestätigen. Marketer können Feature-Flags nutzen, um Ihre Zielgruppe in [Canvas]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas) zu segmentieren und die Auswirkungen eines Feature-Rollouts auf Konversionen zu verfolgen. Darüber hinaus ermöglichen [Experimentpfade]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/experiment_step) die Optimierung dieser Konversionen, indem verschiedene Nachrichten oder Pfade gegeneinander getestet werden, um herauszufinden, welcher am effektivsten ist. Nutzen Sie den Gewinnerpfad, während Sie Ihr Feature schrittweise für eine breitere Zielgruppe ausrollen.
 
 Sie suchen nach weiteren Informationen zu Feature-Flags und wie sie in Braze verwendet werden können? Schauen Sie sich unsere speziellen [Feature-Flags]({{site.baseurl}}/developer_guide/feature_flags)-Artikel an.
 

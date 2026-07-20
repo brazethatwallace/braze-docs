@@ -18,7 +18,7 @@ page_order: 5
 
 ## 진입 속성 사용 {#using-entry-properties}
 
-진입 속성은 동작 기반 및 API 트리거 Canvases에서 사용할 수 있습니다. 이러한 진입 속성은 Canvas가 커스텀 이벤트, 구매 또는 API 호출에 의해 트리거될 때 정의됩니다. 자세한 내용은 다음 문서를 참조하세요:
+진입 속성은 액션 기반 및 API 트리거 Canvases에서 사용할 수 있습니다. 이러한 진입 속성은 Canvas가 커스텀 이벤트, 구매 또는 API 호출에 의해 트리거될 때 정의됩니다. 자세한 내용은 다음 문서를 참조하세요:
 
 - [Canvas 진입 속성정보 오브젝트]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context)
 - [이벤트 속성정보 오브젝트]({{site.baseurl}}/api/objects_filters/event_object)
@@ -47,7 +47,7 @@ Canvas 진입 속성정보가 null이거나 비어 있는 경우, 조건문을 �
 ```
 {%endraw%}
 
-Liquid를 사용한 메시지 중단에 대해 자세히 알아보려면 [Liquid 설명서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages)를 확인하세요.
+Liquid를 사용한 메시지 중단에 대해 자세히 알아보려면 [Liquid 설명서]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages)를 확인하세요.
 
 ## 글로벌 Canvas 진입 속성 {#global-canvas-entry-properties}
 

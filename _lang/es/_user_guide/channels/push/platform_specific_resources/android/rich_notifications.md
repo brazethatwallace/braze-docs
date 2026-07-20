@@ -37,7 +37,7 @@ Aunque Braze proporciona instrucciones sobre cómo configurar notificaciones pus
 
 ### Paso 1: Crear una campaña push {#step-1-create-a-push-campaign}
 
-Sigue los pasos para [crear una campaña]({{site.baseurl}}/user_guide/channels/push/create_a_push_message#create-a-push-message) y redactar una notificación push para Android. Utilizarás el mismo creador para configurar notificaciones push que no contengan contenido enriquecido.
+Sigue los pasos para [crear una campaña]({{site.baseurl}}/user_guide/channels/push/create_a_push_message) y redactar una notificación push para Android. Utilizarás el mismo creador para configurar notificaciones push que no contengan contenido enriquecido.
 
 ### Paso 2: Añadir texto descriptivo {#step-2-add-captioning}
 

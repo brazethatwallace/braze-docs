@@ -30,7 +30,7 @@ description: "この記事では、セグメントのリストのフィルタリ
 - **Estimated Size:** セグメント内のユーザー数のおおよその範囲
 - **Tags:** セグメントに関連付けられたタグ
 - **Teams:** セグメントに関連付けられたチーム
-- **Advanced Tracking セグメント Only:** [分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking#segment-analytics-tracking)が有効になっているセグメントのみを表示します。
+- **Advanced Tracking セグメント Only:** [分析トラッキング]({{site.baseurl}}/user_guide/analytics/tracking/segment_analytics_tracking)が有効になっているセグメントのみを表示します。
 
 ### 列 {#columns}
 

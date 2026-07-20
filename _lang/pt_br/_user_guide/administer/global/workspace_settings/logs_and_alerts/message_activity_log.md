@@ -45,7 +45,7 @@ Essas mensagens podem vir do nosso próprio sistema, dos seus apps ou plataforma
 
 Para determinar o que suas mensagens significam, preste atenção ao texto de cada mensagem e às colunas correspondentes, pois isso pode ajudar na solução de problemas usando pistas de contexto.
 
-Por exemplo, entradas de **Erro de mensagem abortada** podem ocorrer por diversos motivos, não apenas por [mensagens de interrupção do Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages#abort-messages). Leia a coluna **Mensagem** para ver o motivo específico:
+Por exemplo, entradas de **Erro de mensagem abortada** podem ocorrer por diversos motivos, não apenas por [mensagens de interrupção do Liquid]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/aborting_messages). Leia a coluna **Mensagem** para ver o motivo específico:
 
 - Se o envio foi abortado por uma tag `abort_message` do Liquid, a coluna **Mensagem** mostra o snippet exato do Liquid que foi chamado, por exemplo {% raw %}`{% abort_message('Module count is less than or equal to 1') %} called`{% endraw %}.
 - Para outros motivos de interrupção, a coluna **Mensagem** explica por que o envio foi abortado.

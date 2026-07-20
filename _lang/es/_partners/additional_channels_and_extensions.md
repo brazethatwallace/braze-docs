@@ -2,71 +2,20 @@
 nav_title: "Canales y extensiones adicionales"
 article_title: "Canales y extensiones adicionales"
 page_order: 11
-
 page_type: landing
-description: "Esta página enumera los socios de Braze (Alloys) que ofrecen servicios de canales y extensiones."
-layout: partner_page
+description: "Explora los partners tecnológicos de Braze para canales y extensiones adicionales, incluyendo correo directo, chat, publicidad, cuestionarios y recompensas."
+layout: dev_guide
 search_tag: Partner
 
-partner_top_header: "Canales y extensiones adicionales"
+guide_top_header: "Canales y extensiones adicionales"
+guide_top_text: "Estos partners amplían Braze con canales de mensajería adicionales y herramientas de soporte. Explora una categoría para encontrar guías de integración. Para obtener una lista completa, con búsqueda y filtros, de todos los partners tecnológicos de Braze, visita el <a href='https://marketplace.braze.com/t/type/technology-partner'>Braze Marketplace</a>."
 
-valid_partner_list:
-- name: LiveRamp
-  url: /docs/partners/liveramp/
-- name: Inkit
-  url: /docs/partners/inkit/
-- name: Lob
-  url: /docs/partners/lob/
-- name: optilyz
-  url: /docs/partners/optilyz/
-- name: Dixa
-  url: /docs/partners/dixa/
-- name: Front
-  url: /docs/partners/front/
-- name: Messenger
-  url: /docs/partners/messenger/
-- name: Pypestream
-  url: /docs/partners/pypestream/
-- name: Regal
-  url: /docs/partners/regal/
-- name: Sendbird
-  url: /docs/partners/sendbird/
-- name: Shopgate
-  url: /docs/partners/shopgate/
-- name: Zendesk
-  url: /docs/partners/zendesk/
-- name: PassKit
-  url: /docs/partners/passkit/
-- name: Future Anthem
-  url: /docs/partners/future_anthem/
-- name: Komo
-  url: /docs/partners/komo/
-- name: Odicci
-  url: /docs/partners/odicci/
-- name: CataBoom
-  url: /docs/partners/cataboom/
-- name: DailyPlay
-  url: /docs/partners/dailyplay/
-- name: Digioh
-  url: /docs/partners/digioh/
-- name: Knak
-  url: /docs/partners/knak/
-- name: eduMe
-  url: /docs/partners/edume/
-- name: Nift
-  url: /docs/partners/nift/
-- name: Punchh
-  url: /docs/partners/punchh/
-- name: Iterate
-  url: /docs/partners/iterate/
-- name: Jebbit
-  url: /docs/partners/jebbit/
-- name: Survicate
-  url: /docs/partners/survicate/
-- name: Typeform
-  url: /docs/partners/typeform/
-- name: Oppizi
-  url: /docs/partners/oppizi/
-- name: StackAdapt
-  url: /docs/partners/stackadapt/
+guide_featured_title: "Categorías"
+guide_featured_list:
+  - name: "Canales adicionales"
+    link: /docs/partners/additional_channels_and_extensions/additional_channels
+    image: /assets/img/braze_icons/zap.svg
+  - name: "Extensiones"
+    link: /docs/partners/additional_channels_and_extensions/extensions
+    image: /assets/img/braze_icons/layers-three-01.svg
 ---
