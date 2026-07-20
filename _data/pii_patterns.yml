@@ -1,0 +1,65 @@
+# Credential-like string redaction patterns for Looker Support Cases export.
+# Consumed by scripts/export_support_cases_from_looker.py before writing CSV
+# (so GitHub push protection does not block the support-analyzer-data branch).
+#
+# To add a pattern: append an entry under `patterns` with:
+#   pattern:     Python regex (use single-quoted YAML so backslashes stay literal)
+#   replacement: literal substitute written into the CSV
+# Optional `id` and `note` are documentation only — no Python change required.
+#
+# Not a substitute for PII handling; see SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA.
+
+version: 1
+
+patterns:
+  - id: aws_access_key_id
+    pattern: '\b(?:AKIA|ASIA|AIDA|AROA|AIPA|ANPA|ANVA|AGPA)[0-9A-Z]{16}\b'
+    replacement: "[REDACTED_AWS_ACCESS_KEY_ID]"
+
+  - id: sendgrid_api_key
+    # Leading word boundary only — trailing boundary omitted for CSV punctuation after keys.
+    pattern: '\bSG\.[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]{10,}'
+    replacement: "[REDACTED_SENDGRID_API_KEY]"
+
+  - id: github_token_ghp
+    pattern: '\bghp_[A-Za-z0-9]{36}\b'
+    replacement: "[REDACTED_GITHUB_TOKEN]"
+
+  - id: github_token_pat
+    pattern: '\bgithub_pat_[A-Za-z0-9_]{82,}\b'
+    replacement: "[REDACTED_GITHUB_TOKEN]"
+
+  - id: github_token_gho
+    pattern: '\bgho_[A-Za-z0-9]{36}\b'
+    replacement: "[REDACTED_GITHUB_TOKEN]"
+
+  - id: github_token_ghu
+    pattern: '\bghu_[A-Za-z0-9]{36}\b'
+    replacement: "[REDACTED_GITHUB_TOKEN]"
+
+  - id: github_token_ghs
+    pattern: '\bghs_[A-Za-z0-9]{36}\b'
+    replacement: "[REDACTED_GITHUB_TOKEN]"
+
+  - id: github_token_ghr
+    pattern: '\bghr_[A-Za-z0-9]{36}\b'
+    replacement: "[REDACTED_GITHUB_TOKEN]"
+
+  - id: slack_token
+    # b/a/p/r/s bot-app tokens; e enterprise; o legacy OAuth (GitHub push protection scans all).
+    pattern: '\bxox[bapreso]-[A-Za-z0-9-]{10,}\b'
+    replacement: "[REDACTED_SLACK_TOKEN]"
+
+  - id: stripe_key
+    pattern: '\b(?:sk|rk)_(?:live|test)_[A-Za-z0-9]{16,}\b'
+    replacement: "[REDACTED_STRIPE_KEY]"
+
+  - id: twilio_account_sid
+    # Twilio Account SID (AC…) — 32 hex chars after prefix.
+    pattern: '\bAC[0-9a-fA-F]{32}'
+    replacement: "[REDACTED_TWILIO_ACCOUNT_SID]"
+
+  - id: twilio_api_key_sid
+    # Twilio API Key SID (SK…) — 32 hex chars after prefix.
+    pattern: '\bSK[0-9a-fA-F]{32}'
+    replacement: "[REDACTED_TWILIO_API_KEY_SID]"
