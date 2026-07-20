@@ -913,7 +913,7 @@ Subscription groups are only available for email, SMS, RCS, and WhatsApp channel
 ### Property details {#property-details}
 <ul>
 <li><code>dispatch_id</code> is an ID for a specific message dispatch, such as a campaign send. All push events that originate from the same dispatch include the same <code>dispatch_id</code>. Use <code>dispatch_id</code> to group events that belong to the same dispatch, allowing you to group and correlate the push message lifecycle for that dispatch (such as Send, Bounce, and Open).</li>
-<li><code>state_change_source</code> returns the full source name as a string. For example, the source CSV import returns the string <code>CSV import</code>. Available sources are listed as follows:</li>
+<li><code>state_change_source</code> returns a string of the full source name. For example, the source CSV import will return the string <code>CSV import</code>. Available sources are listed as follows:</li>
 </ul>
 <table class="reset-td-br-1 reset-td-br-2" role="presentation">
 <thead>
