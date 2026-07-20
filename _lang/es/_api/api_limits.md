@@ -25,7 +25,7 @@ Consulta lo siguiente para conocer los límites de velocidad predeterminados de 
 
 | Tipo de solicitud | Límite de velocidad de API predeterminado |
 |--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) | **Solicitudes:** 3.000 solicitudes cada tres segundos.<br><br>**Procesamiento por lotes:** Hasta 75 objetos en total combinados entre `attributes`, `events` y `purchases` por solicitud de API. Los clientes con límites de velocidad heredados pueden incluir hasta 75 objetos por array de forma independiente. Para más información, consulta [Agrupar solicitudes de seguimiento de usuarios](#batch-user-track).<br><br>**Límites para usuarios activos al mes CY 24-25, MAU universal, MAU Web y MAU móvil:** consulta [aquí la guía sobre límites]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau). |
+| [`/users/track`]({{site.baseurl}}/api/endpoints/user_data/post_user_track) | **Solicitudes:** Los límites de velocidad varían en función de tu contrato. Para los clientes con puntos de datos en su modelo de precios, Braze aplica un límite de ráfaga de 3.000 solicitudes cada tres segundos. Para el resto de clientes, los límites se configuran de acuerdo con los términos de tu contrato. Ponte en contacto con soporte de Braze o con tu administrador de éxito de cliente si tienes preguntas sobre tus límites.<br><br>**Procesamiento por lotes:** Hasta 75 objetos en total combinados entre `attributes`, `events` y `purchases` por solicitud de API. Los clientes con límites de velocidad heredados pueden incluir hasta 75 objetos por array de forma independiente. Para más información, consulta [Agrupar solicitudes de seguimiento de usuarios](#batch-user-track).<br><br>**Límites para usuarios activos al mes CY 24-25, MAU universal, MAU Web y MAU móvil:** consulta [Límites de usuarios activos al mes CY 24-25]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau). |
 | [`/users/export/ids`]({{site.baseurl}}/api/endpoints/export/user_data/post_users_identifier) | **Si te incorporaste el 22 de agosto de 2024 o después:** 250 solicitudes por minuto. <br><br> **Si te incorporaste antes del 22 de agosto de 2024:** 2.500 solicitudes por minuto. |
 | [`/users/delete`]({{site.baseurl}}/api/endpoints/user_data/post_user_delete)<br>[`/users/alias/new`]({{site.baseurl}}/api/endpoints/user_data/post_user_alias)<br>[`/users/alias/update`]({{site.baseurl}}/api/endpoints/user_data/post_users_alias_update)<br>[`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify)<br>[`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) | 20.000 solicitudes por minuto, compartidas entre los endpoints. |
 | [`/users/external_id/rename`]({{site.baseurl}}/api/endpoints/user_data/external_id_migration/post_external_ids_rename) | 1.000 solicitudes por minuto. |
@@ -131,7 +131,7 @@ Las API de Braze están diseñadas para soportar el procesamiento por lotes. Con
 Los aumentos del límite de velocidad de la REST API se consideran en función de las necesidades de los clientes que hacen uso de las funciones de procesamiento por lotes de la API.
 {% endalert %}
 
-### Solicitudes por lotes para el endpoint de seguimiento de usuarios {#batch-user-track}
+### Solicitudes por lotes para el endpoint Crear y actualizar usuarios {#batch-user-track}
 
 Cada solicitud `/users/track` puede contener hasta 75 objetos en total combinados entre `attributes`, `events` y `purchases`. Cada objeto puede actualizar un usuario. Un mismo perfil de usuario puede ser actualizado por varios objetos.
 
@@ -141,7 +141,7 @@ Para los clientes con límites de velocidad heredados, cada array (`attributes`,
 
 Para más información sobre los límites de velocidad de `/users/track`, consulta [POST: Crear y actualizar usuarios]({{site.baseurl}}/api/endpoints/user_data/post_user_track).
 
-Las solicitudes realizadas a este endpoint generalmente comenzarán a procesarse en este orden:
+Las solicitudes realizadas a este endpoint generalmente comienzan a procesarse en este orden:
 
 1. Atributos
 2. Eventos

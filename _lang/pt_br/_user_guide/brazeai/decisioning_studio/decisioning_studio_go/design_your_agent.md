@@ -51,7 +51,7 @@ Considere criar um segmento dedicado para o seu experimentador do Decisioning St
 **Definindo o público no SFMC:**
 
 1. Configure uma extensão de dados que contenha seu público-alvo.
-2. Certifique-se de que essa extensão de dados seja atualizada diariamente com os dados mais recentes de cliente.
+2. Atualize essa extensão de dados diariamente com os dados mais recentes de cliente.
 3. Faça referência a essa extensão de dados no portal Decisioning Studio Go ao configurar seu experimentador.
 
 {% endtab %}
@@ -62,7 +62,7 @@ Considere criar um segmento dedicado para o seu experimentador do Decisioning St
 As dimensões são as "alavancas" que o agente pode acionar para personalizar a experiência do cliente. Isso inclui dimensões criativas, como linha de assunto e imagem principal, bem como dimensões relacionadas ao tipo de envio, como a frequência dos e-mails ou a hora do dia.
 
 {% alert note %}
-As dimensões específicas disponíveis dependem do seu CEP e de como suas campanhas estão configuradas. Trabalhe com os modelos e o conteúdo que você configurou no seu CEP.
+As dimensões específicas disponíveis dependem do seu CEP e de como suas campanhas estão configuradas. Use os modelos e o conteúdo já configurados no seu CEP.
 {% endalert %}
 
 ### Etapa 3: Configure seu banco de ações {#step-3-configure-your-action-bank}
@@ -85,26 +85,26 @@ O Decisioning Studio Go cria automaticamente grupos de experimentos para medir o
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Etapa 4: Configure os grupos experimentais" }
 
 {% alert important %}
-Para uma comparação precisa, certifique-se de que nenhum cliente possa pertencer a mais de um grupo experimental e que os clientes sejam atribuídos aleatoriamente aos grupos, sem viés.
+Para uma comparação precisa, nenhum cliente pode pertencer a mais de um grupo experimental, e os clientes são atribuídos aleatoriamente aos grupos, sem viés.
 {% endalert %}
 
 ## Limitações a considerar {#limitations-to-consider}
 
 Ao projetar seu agente Go, tenha em mente estas limitações:
 
-- **Apenas cliques:** O Go otimiza as taxas de cliques. Se você precisa otimizar receitas, conversões ou outras métricas de negócios, considere o Decisioning Studio Pro.
+- **Apenas cliques:** O Go otimiza as taxas de cliques. Se você precisa otimizar receita, conversões ou outras métricas de negócios, considere o Decisioning Studio Pro.
 - **Dimensões limitadas:** O Go suporta um conjunto predefinido de dimensões. Para dimensões personalizadas ou personalizações complexas, considere o Decisioning Studio Pro.
 - **Suporte limitado a CEPs:** O Go integra-se apenas com a Braze e o Salesforce Marketing Cloud. Para outras plataformas, considere o Decisioning Studio Pro.
 
 ## Melhores práticas {#best-practices}
 
 - **Comece com um escopo reduzido:** Use dois ou três modelos ou variantes de linha de assunto. Isso dá ao agente opções suficientes para aprender, mantendo o experimento gerenciável.
-- **Dê tempo ao tempo:** O agente precisa de dados suficientes para aprender. Aguarde pelo menos 2 a 4 semanas antes de tirar conclusões sobre o desempenho.
-- **Mantenha o conteúdo variado:** Certifique-se de que suas opções sejam significativamente diferentes. Testar pequenas variações pode não trazer insights significativos.
+- **Dê tempo ao tempo:** O agente precisa de dados suficientes para aprender. Aguarde pelo menos duas a quatro semanas antes de tirar conclusões sobre o desempenho.
+- **Mantenha o conteúdo variado:** Use opções que sejam significativamente diferentes. Testar pequenas variações pode não trazer insights significativos.
 - **Monitore regularmente:** Verifique o portal Decisioning Studio Go para monitorar o progresso do experimento e as métricas de engajamento.
 
 ## Próximos passos {#next-steps}
 
-Depois de projetar seu agente e configurá-lo no portal Decisioning Studio Go, você estará pronto para lançar:
+Depois de projetar seu agente, configure-o e lance-o no dashboard da Braze:
 
-- [Lance seu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)
+- [Configure seu agente Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup)

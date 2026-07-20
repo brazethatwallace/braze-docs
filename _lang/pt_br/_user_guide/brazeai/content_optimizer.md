@@ -2,14 +2,14 @@
 nav_title: Otimizador de Conteúdo
 article_title: Otimizador de Conteúdo
 alias: "/content_optimizer/"
-description: "O Otimizador de Conteúdo é um agente que ajuda você a testar e otimizar o conteúdo das mensagens em grande escala, usando IA para gerar e avaliar automaticamente altos volumes de variantes de conteúdo."
+description: "O Otimizador de Conteúdo ajuda você a testar e otimizar o conteúdo das mensagens em grande escala, usando IA para gerar e avaliar automaticamente altos volumes de variantes de conteúdo."
 page_type: reference
 page_order: 3
 ---
 
 # Otimizador de Conteúdo {#content-optimizer}
 
-> O Otimizador de Conteúdo é um agente que ajuda você a testar e otimizar o conteúdo das mensagens em grande escala, usando IA para gerar e avaliar automaticamente altos volumes de variantes de conteúdo.
+> O Otimizador de Conteúdo ajuda você a testar e otimizar o conteúdo das mensagens em grande escala, usando IA para gerar e avaliar automaticamente altos volumes de variantes de conteúdo.
 
 {% alert important %}
 O Otimizador de Conteúdo está atualmente em beta e disponível apenas para estes canais: e-mail, notificações por push e mensagens SMS/MMS/RCS. Para começar, entre em contato com seu gerente de sucesso do cliente.
@@ -17,7 +17,7 @@ O Otimizador de Conteúdo está atualmente em beta e disponível apenas para est
 
 ## Sobre o Otimizador de Conteúdo {#about-content-optimizer}
 
-O Otimizador de Conteúdo é um agente que funciona em uma etapa do Canvas. Ele ajuda você a definir os componentes da mensagem a serem testados, gerar variantes usando IA generativa ou entrada manual, e otimizar automaticamente quais combinações de conteúdo são enviadas aos usuários. Este recurso ajuda você a:
+O Otimizador de Conteúdo funciona em uma etapa do Canvas. Ele ajuda você a definir os componentes da mensagem a serem testados, gerar variantes usando IA generativa ou entrada manual, e otimizar automaticamente quais combinações de conteúdo são enviadas aos usuários. Este recurso ajuda você a:
 
 - Otimizar linhas de assunto, cabeçalho do corpo, conteúdo do corpo ou CTA principal para e-mails.
 - Otimizar títulos e mensagens para notificações por push.
@@ -84,7 +84,7 @@ Cada usuário recebe uma mensagem por entrada na etapa do Otimizador de Conteúd
 
 ## Configuração de entrada no Canvas {#canvas-entry-setup}
 
-Para melhores resultados, use o Otimizador de Conteúdo em Canvas onde os usuários entram na etapa gradualmente e regularmente ao longo do tempo, como em Canvas recorrentes ou sempre ativos com volume diário consistente. Se todos os usuários entrarem na etapa de uma vez, o agente não terá tempo para aprender com os resultados iniciais. Nesse caso, a etapa se comportará mais como um teste A/B estático do que como um motor de otimização em tempo real.
+Para melhores resultados, use o Otimizador de Conteúdo em Canvas onde os usuários entram na etapa gradualmente e regularmente ao longo do tempo, como em Canvas recorrentes ou sempre ativos com volume diário consistente. Se todos os usuários entrarem na etapa de uma vez, o Otimizador de Conteúdo não terá tempo para aprender com os resultados iniciais. Nesse caso, a etapa se comportará mais como um teste A/B estático do que como um motor de otimização em tempo real.
 
 O Otimizador de Conteúdo funciona melhor em Canvas de entrada recorrente diária, bem como em Canvas disparados por eventos e por API com volume diário de usuários relativamente consistente. Se você usar o Otimizador de Conteúdo em Canvas de envio único ou Canvas com entradas "em picos" (como recorrentes mensais), considere usar [Controles de entrada]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas#selecting-entry-controls) para distribuir as entradas dos usuários ao longo de vários dias.
 
@@ -102,13 +102,13 @@ O Otimizador de Conteúdo funciona melhor em Canvas de entrada recorrente diári
 ## Considerações {#considerations}
 
 - O Otimizador de Conteúdo está atualmente em beta e disponível apenas para estes canais: e-mail, notificações por push e mensagens SMS/MMS/RCS.
-- Para e-mail, o agente pode gerar até 125 combinações por etapa:
+- Para e-mail, o Otimizador de Conteúdo pode gerar até 125 combinações por etapa:
    - Até 3 componentes por etapa
    - Até 5 variantes para cada componente
-- Para notificações por push, o agente pode gerar até 25 combinações por etapa:
+- Para notificações por push, o Otimizador de Conteúdo pode gerar até 25 combinações por etapa:
    - Até 2 componentes por etapa
    - Até 5 variantes para cada componente
-- Para mensagens SMS, MMS e RCS, o agente pode gerar até 25 combinações por etapa:
+- Para mensagens SMS, MMS e RCS, o Otimizador de Conteúdo pode gerar até 25 combinações por etapa:
    - Até 2 componentes por etapa
    - Até 5 variantes para cada componente
 - Apenas uma mensagem é enviada por usuário por entrada. Não há memória de envios anteriores para reentradas.

@@ -20,7 +20,7 @@ toc_headers: h2
 - キャンペーンが定期的なスケジュールで送信されること。単一送信のキャンペーンはサポートされていません。
 - 少なくとも2つのメッセージバリアントが追加されていること。
 - バリアント全体のパフォーマンスを測定するためにコンバージョンイベントが定義されていること。
-- 再適格期間が24時間以上に設定されていること。これよりも短い期間は、コントロールバリアントの整合性に影響する可能性があるため、サポートされていません。詳細については、[こちらのFAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection)を参照してください。
+- 再適格期間が24時間以上に設定されていること。これよりも短い期間は、コントロールバリアントの整合性に影響する可能性があるため、サポートされていません。詳細については、[インテリジェントセレクションに関するFAQ]({{site.baseurl}}/user_guide/brazeai/intelligence_suite/intelligent_selection#why-is-re-eligibility-in-less-than-24-hours-not-available-when-combined-with-intelligent-selection)を参照してください。
 {% endtab %}
 
 {% tab キャンバス %}

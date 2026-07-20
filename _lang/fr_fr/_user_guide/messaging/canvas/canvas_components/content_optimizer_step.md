@@ -1,24 +1,24 @@
 ---
 nav_title: Optimiseur de contenu
-article_title: Étape d'agent Optimiseur de contenu
+article_title: Étape Optimiseur de contenu
 alias: "/content_optimizer_step/"
 page_order: 5
-description: "L'étape d'agent Optimiseur de contenu vous permet de configurer et de tester plusieurs versions de composants de contenu au sein d'une même étape. Elle vous aide à expérimenter des variations de contenu et optimise automatiquement les combinaisons les plus performantes au fil du temps."
+description: "L'étape Optimiseur de contenu vous permet de configurer et de tester plusieurs versions de composants de contenu au sein d'une même étape. Elle vous aide à expérimenter des variations de contenu et optimise automatiquement les combinaisons les plus performantes au fil du temps."
 page_type: reference
 
 ---
 
-# Étape d'agent Optimiseur de contenu {#content-optimizer-agent-step}
+# Étape Optimiseur de contenu {#content-optimizer-step}
 
-> L'étape d'agent Optimiseur de contenu vous permet de configurer et de tester plusieurs versions de composants de contenu au sein d'une même étape. Elle vous aide à expérimenter des variations de contenu et optimise automatiquement les combinaisons les plus performantes au fil du temps. Pour une introduction, consultez [Optimiseur de contenu]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
+> L'étape Optimiseur de contenu vous permet de configurer et de tester plusieurs versions de composants de contenu au sein d'une même étape. Elle vous aide à expérimenter des variations de contenu et optimise automatiquement les combinaisons les plus performantes au fil du temps. Pour une introduction, consultez [Optimiseur de contenu]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
-L'Optimiseur de contenu est actuellement en version bêta. Pour obtenir de l'aide pour démarrer, contactez votre gestionnaire du succès des clients.
+L'Optimiseur de contenu est actuellement en version bêta. Pour obtenir de l'aide pour démarrer, contactez votre CSM.
 {% endalert %}
 
 ## Créer une étape Optimiseur de contenu {#create-a-content-optimizer-step}
 
-Pour de meilleurs résultats, utilisez l'agent Optimiseur de contenu dans des Canvas où les utilisateurs entrent dans l'étape progressivement au fil du temps. Si tous les utilisateurs entrent dans l'étape en même temps, l'agent n'aura pas le temps d'apprendre des premiers résultats.
+Pour de meilleurs résultats, utilisez l'Optimiseur de contenu dans des Canvas où les utilisateurs entrent dans l'étape progressivement au fil du temps. Si tous les utilisateurs entrent dans l'étape en même temps, l'Optimiseur de contenu n'aura pas le temps d'apprendre des premiers résultats.
 
 ### Étape 1 : Ajouter une étape {#step-1-add-a-step}
 
@@ -37,7 +37,7 @@ Pendant la période bêta, les canaux pris en charge sont l'e-mail, les notifica
 
 Depuis l'onglet **Messaging Channels**, sélectionnez **Email** et créez votre message e-mail de base. Consultez notre section dédiée [E-mail]({{site.baseurl}}/user_guide/channels/email) pour obtenir de l'aide.
 
-L'agent Optimiseur de contenu utilise les paramètres d'envoi (tels que le domaine d'e-mail et l'adresse de réponse) spécifiés dans cette variante pour envoyer tous les messages. Vous pouvez soit partir d'un nouveau design, soit sélectionner un modèle existant pour ce message. À cette étape, réfléchissez aux composants du message que vous souhaitez optimiser. Vous les définissez à l'[étape 4](#step-4).
+L'Optimiseur de contenu utilise les paramètres d'envoi (tels que le domaine d'e-mail et l'adresse de réponse) spécifiés dans cette variante pour envoyer tous les messages. Vous pouvez soit partir d'un nouveau design, soit sélectionner un modèle existant pour ce message. À cette étape, réfléchissez aux composants du message que vous souhaitez optimiser. Vous les définissez à l'[étape 4](#step-4).
 
 Les composants pris en charge pour l'optimisation incluent :
 
@@ -51,7 +51,7 @@ Les composants pris en charge pour l'optimisation incluent :
 
 Depuis l'onglet **Messaging Channels**, sélectionnez **Push notifications** et créez votre notification push de base. Consultez notre section dédiée [Push]({{site.baseurl}}/user_guide/channels/push) pour obtenir de l'aide.
 
-L'agent Optimiseur de contenu utilise les plateformes push sélectionnées dans cette variante pour envoyer tous les messages. Vous pouvez soit partir d'un nouveau design, soit sélectionner un modèle existant pour ce message. À cette étape, réfléchissez aux composants du message que vous souhaitez optimiser. Vous les définissez à l'[étape 4](#step-4).
+L'Optimiseur de contenu utilise les plateformes push sélectionnées dans cette variante pour envoyer tous les messages. Vous pouvez soit partir d'un nouveau design, soit sélectionner un modèle existant pour ce message. À cette étape, réfléchissez aux composants du message que vous souhaitez optimiser. Vous les définissez à l'[étape 4](#step-4).
 
 Les composants pris en charge pour l'optimisation incluent :
 
@@ -63,7 +63,7 @@ Les composants pris en charge pour l'optimisation incluent :
 
 Depuis l'onglet **Messaging Channels**, sélectionnez **SMS/MMS/RCS** et créez votre message de base. Consultez notre section dédiée [SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) pour obtenir de l'aide.
 
-L'agent Optimiseur de contenu utilise les détails de **Content** et de **Message** spécifiés dans cette variante pour envoyer tous les messages. Vous pouvez soit partir d'un nouveau design, soit sélectionner un modèle existant pour ce message. À cette étape, réfléchissez aux composants du message que vous souhaitez optimiser. Vous les définissez à l'[étape 4](#step-4).
+L'Optimiseur de contenu utilise les détails de **Content** et de **Message** spécifiés dans cette variante pour envoyer tous les messages. Vous pouvez soit partir d'un nouveau design, soit sélectionner un modèle existant pour ce message. À cette étape, réfléchissez aux composants du message que vous souhaitez optimiser. Vous les définissez à l'[étape 4](#step-4).
 
 Les composants pris en charge pour l'optimisation incluent :
 
@@ -153,7 +153,7 @@ Après avoir défini au moins deux variantes pour chaque composant, copiez l'ét
 
 Si vous n'ajoutez pas d'étiquette Liquid pour un composant de contenu sélectionné, vous verrez un avertissement dans l'onglet **Content Optimizer Settings** et une erreur dans l'onglet **Messaging Channels**. Le Canvas ne peut pas être lancé tant que tous les composants sélectionnés ne sont pas correctement ajoutés à votre message de base.
 
-Au fur et à mesure que le Canvas s'exécute, l'agent mélange et associe les variantes entre les composants pour générer différentes combinaisons de contenu. Au fil du temps, les combinaisons les plus performantes sont priorisées pour la distribution, ce qui vous permet d'améliorer les performances sans intervention manuelle.
+Au fur et à mesure que le Canvas s'exécute, l'Optimiseur de contenu mélange et associe les variantes entre les composants pour générer différentes combinaisons de contenu. Au fil du temps, les combinaisons les plus performantes sont priorisées pour la distribution, ce qui vous permet d'améliorer les performances sans intervention manuelle.
 
 #### Références Liquid {#liquid-references}
 
@@ -172,14 +172,14 @@ Au fur et à mesure que le Canvas s'exécute, l'agent mélange et associe les va
 
 ### Étape 5 : Sélectionner l'événement d'optimisation {#step-5-select-optimization-event}
 
-L'événement d'optimisation détermine comment l'agent Optimiseur de contenu évalue les performances et répartit le trafic entre les combinaisons de contenu au fil du temps.
+L'événement d'optimisation détermine comment l'Optimiseur de contenu évalue les performances et répartit le trafic entre les combinaisons de contenu au fil du temps.
 
 L'événement d'optimisation sélectionné s'applique à tous les composants de contenu de cette étape.
 
 {% tabs local %}
 {% tab E-mail %}
 
-Pour l'e-mail, vous pouvez optimiser pour l'un des événements suivants. L'agent utilise les ouvertures et les clics enregistrés dans les 7 jours suivant l'envoi d'un message pour orienter la distribution vers les combinaisons de contenu les plus performantes.
+Pour l'e-mail, vous pouvez optimiser pour l'un des événements suivants. L'Optimiseur de contenu utilise les ouvertures et les clics enregistrés dans les 7 jours suivant l'envoi d'un message pour orienter la distribution vers les combinaisons de contenu les plus performantes.
 
 | Événement | Description | Cas d'usage |
 | --- | --- | --- |
@@ -213,17 +213,17 @@ Lorsqu'une étape Optimiseur de contenu s'exécute, Braze évalue les performanc
 
 | État | Signification |
 | --- | --- |
-| Apprentissage | L'agent collecte encore des données de performance sur vos variantes de contenu et n'a pas encore trouvé de gagnant fiable et constant. |
-| Optimisation | L'agent a identifié des variantes qui surpassent régulièrement les autres et oriente la distribution vers les combinaisons gagnantes. |
-| Action recommandée | L'étape s'exécute depuis un certain temps sans qu'un gagnant clair ne se dégage. Vérifiez la configuration de votre étape pour aider l'agent à en trouver un. |
+| Apprentissage | L'Optimiseur de contenu collecte encore des données de performance sur vos variantes de contenu et n'a pas encore trouvé de gagnant fiable et constant. |
+| Optimisation | L'Optimiseur de contenu a identifié des variantes qui surpassent régulièrement les autres et oriente la distribution vers les combinaisons gagnantes. |
+| Action recommandée | L'étape s'exécute depuis un certain temps sans qu'un gagnant clair ne se dégage. Vérifiez la configuration de votre étape pour aider l'Optimiseur de contenu à en trouver un. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="États de l'étape Optimiseur de contenu" }
 
 ### Actions à envisager {#actions-to-consider}
 
 Si votre étape passe à l'état Action recommandée, envisagez les mesures suivantes :
 
-- Augmentez le nombre d'utilisateurs qui entrent dans le Canvas, si possible. Plus d'envois donnent à l'agent davantage de données pour apprendre.
-- De manière générale, testez plus de combinaisons plutôt que moins (voir [Bonnes pratiques](#best-practices)). Cela donne à l'agent un signal plus clair sur ce qui fonctionne. Si le volume de votre audience est faible (en moyenne moins d'environ 3 000 envois par jour), envisagez plutôt de réduire légèrement le nombre de variantes, car trop de combinaisons par rapport à votre volume peut ralentir l'apprentissage.
+- Augmentez le nombre d'utilisateurs qui entrent dans le Canvas, si possible. Plus d'envois donnent à l'Optimiseur de contenu davantage de données pour apprendre.
+- De manière générale, testez plus de combinaisons plutôt que moins (voir [Bonnes pratiques](#best-practices)). Cela donne à l'Optimiseur de contenu un signal plus clair sur ce qui fonctionne. Si le volume de votre audience est faible (en moyenne moins d'environ 3 000 envois par jour), envisagez plutôt de réduire légèrement le nombre de variantes, car trop de combinaisons par rapport à votre volume peut ralentir l'apprentissage.
 - Rendez vos variantes de contenu plus clairement distinctes les unes des autres en termes de ton, de structure ou de contenu.
 - Si vous ne pouvez pas augmenter votre audience et que le nombre de variantes et la diversité du contenu semblent déjà corrects, votre étape a peut-être simplement besoin de plus de temps pour identifier les gagnants.
 

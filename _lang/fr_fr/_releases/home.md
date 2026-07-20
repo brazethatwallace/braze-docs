@@ -242,7 +242,7 @@ L'[événement `ecommerce.cart_updated`]({{site.baseurl}}/user_guide/data/activa
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-Vous pouvez utiliser l'[Optimiseur de contenu]({{site.baseurl}}/user_guide/brazeai/content_optimizer) pour optimiser les accroches, les corps de message et les CTA pour les messages SMS, MMS et RCS. L'Optimiseur de contenu est un agent qui vous aide à tester et optimiser le contenu des messages à grande échelle, en utilisant l'intelligence artificielle pour générer et évaluer automatiquement de grands volumes de variantes de contenu.
+Vous pouvez utiliser l'[Optimiseur de contenu]({{site.baseurl}}/user_guide/brazeai/content_optimizer) pour optimiser les accroches, les corps de message et les CTA pour les messages SMS, MMS et RCS. L'Optimiseur de contenu vous aide à tester et optimiser le contenu des messages à grande échelle, en utilisant l'intelligence artificielle pour générer et évaluer automatiquement de grands volumes de variantes de contenu.
 
 ### Orchestration
 

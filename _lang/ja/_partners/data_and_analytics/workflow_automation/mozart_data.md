@@ -12,7 +12,7 @@ search_tag: Partner
 
 {% multi_lang_include video.html id="HU6dSOClcQ0" align="right" %}
 
-> [Mozart Data](https://mozartdata.com/) は、Fivetran、Portable、Snowflakeを利用するオールインワンの最新データプラットフォームです。
+> [Mozart Data](https://mozartdata.com/)は、Fivetran、Portable、Snowflakeを利用するオールインワンの最新データプラットフォームです。
 
 BrazeとMozart Dataの統合により、以下のことが可能になります。
 - Fivetranを使ってBrazeのデータをSnowflakeにインポートする
@@ -37,7 +37,7 @@ table td {
 
 | 必要条件 | 説明 |
 | ----------- | ----------- |
-| Mozart Dataアカウント | このパートナーシップを活用するには、Mozart Dataアカウントが必要です。[こちらからご登録ください。](https://app.mozartdata.com/signup)|
+| Mozart Dataアカウント | このパートナーシップを活用するには、Mozart Dataアカウントが必要です。[こちらからMozart Dataアカウントにご登録ください。](https://app.mozartdata.com/signup)|
 | Snowflakeアカウント<br>オプション1: 新規アカウント | Mozart Dataのアカウント作成プロセスで**Create a New Snowflake Account**を選択すると、Mozart Dataにより新しいSnowflakeアカウントがプロビジョニングされます。 |
 | Snowflakeアカウント<br>オプション2: 既存アカウント | 組織がすでにSnowflakeアカウントを所有している場合は、Mozart Data Connectedオプションを使用できます。<br><br>既存のSnowflakeアカウントに接続するには、**Already Have a Snowflake Account**オプションを選択します。このオプションを使用する場合は、アカウントレベルの権限を持つユーザーが[以下の手順に従って操作する](https://help.mozartdata.com/docs/setting-up-data-warehouse#existingsnowflakeaccount)必要があります。 |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="前提条件" }
@@ -80,6 +80,7 @@ Snowflakeウェアハウスの設定後、Mozart Dataの**Integration**ページ
 次に、BrazeのSnowflakeインポート設定画面で、同期の名前を選択し、連絡先のメールアドレスを入力し、データタイプと同期頻度を選択します。
 
 #### ステップ3: Brazeユーザーに公開キーを追加する {#step-3-add-a-public-key-to-the-braze-user}
+
 この時点で、Snowflakeに戻って設定を完了する必要があります。Brazeダッシュボードに表示される公開キーを、BrazeがSnowflakeに接続するために作成したユーザーに追加します。
 
 その方法の詳細については、[Snowflakeのドキュメント](https://docs.snowflake.com/en/user-guide/key-pair-auth.html)を参照してください。任意の時点でキーのローテーションを行う場合、Mozart Dataは新規のキーペアを生成して、新規の公開キーを提供できます。

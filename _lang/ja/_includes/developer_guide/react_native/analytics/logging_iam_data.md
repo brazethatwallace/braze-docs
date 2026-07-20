@@ -80,7 +80,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 {% subtab iOS %}
 ### デフォルトのUIデリゲートをオーバーライドする {#overriding-the-default-ui-delegate}
 
-デフォルトでは、`braze` インスタンスを初期化すると、[`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/)が作成されて割り当てられます。`BrazeInAppMessageUI` は [`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) プロトコルの実装であり、受信したアプリ内メッセージの処理をカスタマイズするために使用できる `delegate` プロパティが付属しています。
+デフォルトでは、`braze` インスタンスを初期化すると、[`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/)が作成されて割り当てられます。`BrazeInAppMessageUI`は[`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter)プロトコルの実装であり、受信したアプリ内メッセージの処理をカスタマイズするために使用できる `delegate` プロパティが付属しています。
 
 1. [こちらのiOSの記事](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui)で説明されているように、`BrazeInAppMessageUIDelegate` デリゲートを実装します。
 
@@ -110,7 +110,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 このデリゲートを使用するには、`braze` インスタンスを初期化した後に `brazeInAppMessagePresenter.delegate` に割り当てます。
 
 {% alert note %}
-`BrazeUI` はObjective-CまたはSwiftでのみインポートできます。Objective-C++を使用している場合は、これを別のファイルで処理する必要があります。
+`BrazeUI`はObjective-CまたはSwiftでのみインポートできます。Objective-C++を使用している場合は、これを別のファイルで処理する必要があります。
 {% endalert %}
 
 ```objc
@@ -126,7 +126,7 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 
 ### デフォルトのネイティブUIをオーバーライドする {#overriding-the-default-native-ui}
 
-ネイティブiOSレイヤーでアプリ内メッセージの表示を完全にカスタマイズしたい場合は、[`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) プロトコルに準拠し、以下のサンプルに従ってカスタムプレゼンターを割り当てます。
+ネイティブiOSレイヤーでアプリ内メッセージの表示を完全にカスタマイズしたい場合は、[`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter)プロトコルに準拠し、以下のサンプルに従ってカスタムプレゼンターを割り当てます。
 
 ```objc
 BRZConfiguration *configuration = [[BRZConfiguration alloc] initWithApiKey:apiKey endpoint:endpoint];

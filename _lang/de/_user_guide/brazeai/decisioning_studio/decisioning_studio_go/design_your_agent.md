@@ -29,7 +29,7 @@ Decisioning Studio Go ist eine Self-Service-Plattform mit im Vergleich zu Decisi
 
 Bei der Konzeption eines Decisioning Studio Go-Agenten treffen Sie Entscheidungen in den folgenden Bereichen:
 
-### 1. Schritt: Definieren Sie Ihre Zielgruppe {#step-1-define-your-audience}
+### Schritt 1: Definieren Sie Ihre Zielgruppe {#step-1-define-your-audience}
 
 Ihre Zielgruppe ist die Gruppe von Kund:innen, die der Agent ansprechen wird. In Go werden Zielgruppen in Ihrem CEP definiert:
 
@@ -51,21 +51,21 @@ Erwägen Sie, ein eigenes Segment für Ihren Decisioning Studio Go-Experimentato
 **Zielgruppe in SFMC definieren:**
 
 1. Konfigurieren Sie eine Data Extension, die Ihre Zielgruppe enthält.
-2. Stellen Sie sicher, dass diese Data Extension täglich mit den neuesten Kundendaten aktualisiert wird.
+2. Aktualisieren Sie diese Data Extension täglich mit den neuesten Kundendaten.
 3. Referenzieren Sie diese Data Extension im Decisioning Studio Go-Portal bei der Konfiguration Ihres Experimentators.
 
 {% endtab %}
 {% endtabs %}
 
-### 2. Schritt: Wählen Sie Ihre Dimensionen aus {#step-2-select-your-dimensions}
+### Schritt 2: Wählen Sie Ihre Dimensionen aus {#step-2-select-your-dimensions}
 
 Dimensionen sind die „Hebel“, die der Agent betätigen kann, um das Kundenerlebnis zu personalisieren. Dazu gehören kreative Dimensionen wie Betreffzeile und Hero-Bild sowie Versandtyp-Dimensionen wie die Häufigkeit von E-Mails oder die Tageszeit.
 
 {% alert note %}
-Die verfügbaren spezifischen Dimensionen hängen von Ihrem CEP und der Konfiguration Ihrer Kampagnen ab. Arbeiten Sie mit den Templates und Inhalten, die Sie in Ihrem CEP eingerichtet haben.
+Die verfügbaren spezifischen Dimensionen hängen von Ihrem CEP und der Konfiguration Ihrer Kampagnen ab. Verwenden Sie die Templates und Inhalte, die bereits in Ihrem CEP eingerichtet sind.
 {% endalert %}
 
-### 3. Schritt: Konfigurieren Sie Ihre Aktionsbank {#step-3-configure-your-action-bank}
+### Schritt 3: Konfigurieren Sie Ihre Aktionsbank {#step-3-configure-your-action-bank}
 
 Die Aktionsbank definiert die spezifischen Optionen, aus denen der Agent für jede Dimension auswählen kann. Zum Beispiel:
 
@@ -73,7 +73,7 @@ Die Aktionsbank definiert die spezifischen Optionen, aus denen der Agent für je
 - **Betreffzeilen:** Definieren Sie die Betreffzeilen-Varianten, die der Agent testen kann.
 - **Versandzeiten:** Geben Sie die Zeitfenster an, aus denen der Agent auswählen kann.
 
-### 4. Schritt: Versuchsgruppen einrichten {#step-4-set-up-experiment-groups}
+### Schritt 4: Versuchsgruppen einrichten {#step-4-set-up-experiment-groups}
 
 Decisioning Studio Go erstellt automatisch Versuchsgruppen, um die Performance zu messen:
 
@@ -82,10 +82,10 @@ Decisioning Studio Go erstellt automatisch Versuchsgruppen, um die Performance z
 | **Decisioning Studio Go** | Kund:innen, die KI-optimierte Empfehlungen erhalten |
 | **Zufällige Kontrollgruppe** | Kund:innen, die zufällig ausgewählte Optionen erhalten (Basisvergleich) |
 | **Business as Usual (optional)** | Kund:innen, die Ihre bestehende Campaign erhalten (zum Vergleich mit der aktuellen Performance) |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="4. Schritt: Versuchsgruppen einrichten" }
+{: .reset-td-br-1 .reset-td-br-2 aria-label="Versuchsgruppen einrichten" }
 
 {% alert important %}
-Um einen genauen Vergleich zu gewährleisten, stellen Sie sicher, dass keine Kund:in mehr als einer Versuchsgruppe angehören kann und dass die Kund:innen ohne Verzerrung zufällig den Gruppen zugeordnet werden.
+Für einen genauen Vergleich darf keine Kund:in mehr als einer Versuchsgruppe angehören, und die Zuweisung zu den Gruppen erfolgt zufällig und ohne Verzerrung.
 {% endalert %}
 
 ## Zu berücksichtigende Einschränkungen {#limitations-to-consider}
@@ -99,12 +99,12 @@ Beachten Sie bei der Konzeption Ihres Go-Agenten die folgenden Einschränkungen:
 ## Best Practices {#best-practices}
 
 - **Beginnen Sie mit einem engen Fokus:** Verwenden Sie zwei bis drei Templates oder Betreffzeilen-Varianten. Dies gibt dem Agenten genügend Optionen zum Lernen, während das Experiment überschaubar bleibt.
-- **Geben Sie dem Ganzen Zeit:** Der Agent benötigt ausreichend Daten, um zu lernen. Warten Sie mindestens 2–4 Wochen, bevor Sie Schlussfolgerungen zur Performance ziehen.
-- **Sorgen Sie für abwechslungsreiche Inhalte:** Stellen Sie sicher, dass sich Ihre Optionen deutlich voneinander unterscheiden. Das Testen geringfügiger Abweichungen liefert möglicherweise keine aussagekräftigen Insights.
+- **Geben Sie dem Ganzen Zeit:** Der Agent benötigt ausreichend Daten, um zu lernen. Warten Sie mindestens zwei bis vier Wochen, bevor Sie Schlussfolgerungen zur Performance ziehen.
+- **Sorgen Sie für abwechslungsreiche Inhalte:** Verwenden Sie Optionen, die sich deutlich voneinander unterscheiden. Das Testen geringfügiger Abweichungen liefert möglicherweise keine aussagekräftigen Insights.
 - **Überwachen Sie regelmäßig:** Überprüfen Sie das Decisioning Studio Go-Portal, um den Fortschritt des Experiments und die Engagement-Metriken zu überwachen.
 
 ## Nächste Schritte {#next-steps}
 
-Nachdem Sie Ihren Agenten konzipiert und im Decisioning Studio Go-Portal konfiguriert haben, können Sie ihn starten:
+Nachdem Sie Ihren Agenten konzipiert haben, können Sie ihn im Braze-Dashboard konfigurieren und starten:
 
-- [Ihren Agenten starten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)
+- [Ihren Decisioning Studio Go-Agenten einrichten]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup)

@@ -61,7 +61,7 @@ Amazon SES를 통해 이메일을 전송하는 워크스페이스의 경우, [�
 
 기존 진입점은 각 레거시 어시스턴트 버튼이 있던 위치에 그대로 유지됩니다. 독립형 어시스턴트를 여는 대신, 이러한 진입점은 이제 작업에 맞게 사전 범위가 지정된 동적 프롬프트와 함께 Operator 패널을 엽니다. 이러한 진입점은 기존 워크플로우를 조정하지 않고도 이러한 기능을 사용할 수 있도록 Operator로의 직접 경로를 제공합니다.
 
-#### Campaign(캠페인) 생성 및 편집을 위한 Operator 지원 {#operator-support-for-campaign-creation-and-editing}
+#### Campaign 생성 및 편집을 위한 Operator 지원 {#operator-support-for-campaign-creation-and-editing}
 
 [Operator]({{site.baseurl}}/user_guide/brazeai/operator)는 이제 메시지 작성뿐만 아니라 전체 캠페인을 생성하고 편집할 수 있습니다. 단일 자연어 프롬프트 또는 캠페인 브리프에서 Operator는 메시지 작성, 전달 예약, 오디언스 타겟팅, 전환 이벤트 할당 등 검토 준비가 된 캠페인을 처음부터 끝까지 구축한 다음 검토 단계에서 구축한 내용을 요약합니다. 이전에는 Operator가 메시지 작성(캠페인 생성 5단계 중 하나)만 할 수 있었지만, 이제 나머지 예약, 타겟, 할당 및 검토 단계에 대한 가시성과 제어 권한을 갖게 되었습니다.
 
@@ -242,7 +242,7 @@ BrazeAI<sup>TM</sup> 배리언트 선택은 여러 푸시 배리언트를 추가
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer)을 사용하여 SMS, MMS 및 RCS 메시지의 훅, 본문 및 CTA를 최적화할 수 있습니다. 콘텐츠 최적화 프로그램은 AI를 사용하여 대량의 콘텐츠 배리언트를 자동으로 생성하고 평가하여 메시지 콘텐츠를 대규모로 테스트하고 최적화하는 데 도움이 되는 에이전트입니다.
+[콘텐츠 최적화 프로그램]({{site.baseurl}}/user_guide/brazeai/content_optimizer)을 사용하여 SMS, MMS 및 RCS 메시지의 훅, 본문 및 CTA를 최적화할 수 있습니다. 콘텐츠 최적화 프로그램은 AI를 사용하여 대량의 콘텐츠 배리언트를 자동으로 생성하고 평가하여 메시지 콘텐츠를 대규모로 테스트하고 최적화하는 데 도움이 됩니다.
 
 ### 오케스트레이션 {#orchestration}
 

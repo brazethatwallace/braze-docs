@@ -9,7 +9,7 @@ description: "이 문서에는 2019년 7월의 릴리스 노트가 포함되어 
 # 2019년 7월 {#july-2019}
 
 {% alert update %}
-이번 달에는 Braze의 제품 출시 주기가 두 번(맞습니다. **두 번**) 있었습니다! 최신 릴리스는 상단에 표시되며, 이전 릴리스는 [이 페이지의 아래쪽에서 시작됩니다](#earlier-this-month)!
+이번 달에는 Braze의 제품 출시 주기가 두 번(맞습니다. **두 번**) 있었습니다! 최신 릴리스는 상단에 표시되며, 이전 릴리스는 [이달 초](#earlier-this-month) 섹션에서 확인할 수 있습니다!
 {% endalert %}
 
 ## SAML/SSO
@@ -80,7 +80,7 @@ Braze에서 이메일 메시지의 "회신 주소"로 `null` 값을 설정하려
 
 메시지 내에서 메시지 발송을 추적하려면(예: URL) `dispatch_id`를 템플릿으로 사용할 수 있습니다. [Canvas Attributes]({{site.baseurl}}/user_guide/messaging/design_and_edit/personalize/liquid/supported_personalization_tags) 아래의 지원되는 개인화 태그 목록에서 이에 대한 서식을 찾을 수 있습니다.
 
-Campaign 생성 시 `api_id`를 사용할 수 없으므로 입력 안내로 템플릿이 지정되고 `dispatch_id_for_unsent_campaign`으로 미리보기된다는 점에서 `api_id`와 동일하게 작동합니다. ID는 메시지가 전송되기 전에 생성되며 전송 시간에 포함됩니다.
+Campaign 생성 시 `api_id`를 사용할 수 없으므로 입력 안내로 템플릿이 지정되고 `dispatch_id_for_unsent_campaign`으로 미리보기된다는 점에서 `api_id`와 동일하게 작동합니다. ID는 메시지가 전송되기 전에 생성되며 전송 시점에 포함됩니다.
 
 {% alert warning %}
 인앱 메시지에는 `dispatch_id`가 없으므로 `dispatch_id_for_unsent_campaign`의 Liquid 템플릿은 인앱 메시지에서 작동하지 않습니다.

@@ -37,7 +37,7 @@ table td {
 
 | 요구 사항 | 설명 |
 | ----------- | ----------- |
-| Mozart Data 계정 | 이 파트너십을 활용하려면 Mozart Data 계정이 필요합니다. [여기에서 가입하세요.](https://app.mozartdata.com/signup)|
+| Mozart Data 계정 | 이 파트너십을 활용하려면 Mozart Data 계정이 필요합니다. [Mozart Data 계정에 가입하세요.](https://app.mozartdata.com/signup)|
 | Snowflake 계정<br>옵션 1: 새 계정 | Mozart Data 계정 생성 과정에서 **Create a New Snowflake Account**를 선택하면 Mozart Data가 새 Snowflake 계정을 프로비저닝합니다. |
 | Snowflake 계정<br>옵션 2: 기존 계정 | 조직에 이미 Snowflake 계정이 있는 경우 Mozart Data Connected 옵션을 사용할 수 있습니다.<br><br>**Already Have a Snowflake Account** 옵션을 선택하여 기존 Snowflake 계정을 연결합니다. 이 옵션을 사용하려면 계정 수준 권한이 있는 사용자가 [다음 단계를 따라야 합니다](https://help.mozartdata.com/docs/setting-up-data-warehouse#existingsnowflakeaccount). |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="필수 조건" }
@@ -104,12 +104,12 @@ ALTER USER BRAZE_INGESTION_USER SET rsa_public_key='Braze12345...';
 Mozart Data 계정을 성공적으로 생성하면 Mozart Data에서 Snowflake 데이터 웨어하우스로 동기화된 Braze 데이터에 접근할 수 있습니다.
 
 #### 변환 {#transforms}
-Mozart Data는 사용자가 뷰 또는 테이블을 생성할 수 있도록 SQL 변환 레이어를 제공합니다. 사용자 수준의 차원 테이블(예: `dim_users`)을 생성하여 각 사용자의 제품 사용 데이터, 트랜잭션 기록 및 Braze 메시지와의 참여 활동을 요약할 수 있습니다.
+Mozart Data는 사용자가 뷰 또는 테이블을 생성할 수 있도록 SQL 변환 레이어를 제공합니다. 사용자 수준의 차원 테이블(예: `dim_users`)을 생성하여 각 사용자의 제품 사용 데이터, 트랜잭션 기록 및 Braze 메시지와의 인게이지먼트 활동을 요약할 수 있습니다.
 
 #### 분석 {#analysis}
-Braze에서 동기화된 변환 모델 또는 원시 데이터를 사용하여 Braze 메시지에 대한 사용자의 참여를 분석할 수 있습니다. 또한 Braze 데이터를 다른 애플리케이션 데이터와 결합하여 Braze 메시지와의 사용자 상호작용에서 얻은 인사이트가 사용자에 대해 보유하고 있는 다른 데이터와 어떻게 관련되는지 분석할 수 있습니다. 예를 들어, 인구통계 정보, 쇼핑 기록, 제품 사용 및 고객 서비스 참여 등이 있습니다.
+Braze에서 동기화된 변환 모델 또는 원시 데이터를 사용하여 Braze 메시지에 대한 사용자의 인게이지먼트를 분석할 수 있습니다. 또한 Braze 데이터를 다른 애플리케이션 데이터와 결합하여 Braze 메시지와의 사용자 상호작용에서 얻은 인사이트가 사용자에 대해 보유하고 있는 다른 데이터와 어떻게 관련되는지 분석할 수 있습니다. 예를 들어, 인구통계 정보, 쇼핑 기록, 제품 사용 및 고객 서비스 인게이지먼트 등이 있습니다.
 
-이를 통해 사용자 유지율을 개선하기 위한 참여 전략에 대해 보다 정보에 기반한 의사결정을 내릴 수 있습니다. 이 모든 작업은 Mozart Data의 인터페이스에서 쿼리 도구를 사용하여 수행할 수 있으며, 결과를 Google Sheet 또는 CSV로 내보내 프레젠테이션을 준비할 수 있습니다.
+이를 통해 사용자 유지율을 개선하기 위한 인게이지먼트 전략에 대해 보다 정보에 기반한 의사결정을 내릴 수 있습니다. 이 모든 작업은 Mozart Data의 인터페이스에서 쿼리 도구를 사용하여 수행할 수 있으며, 결과를 Google Sheet 또는 CSV로 내보내 프레젠테이션을 준비할 수 있습니다.
 
 #### 비즈니스 인텔리전스(BI) {#business-intelligence-bi}
 인사이트를 시각화하고 다른 팀원과 공유할 준비가 되셨나요? Mozart Data는 거의 모든 BI 도구와 통합됩니다. 아직 BI 도구가 없는 경우 Mozart Data에 문의하여 무료 Metabase 계정을 설정하세요.

@@ -54,7 +54,7 @@ Envolva o texto que deseja traduzir com as tags de tradução Liquid {% raw %}`{
 Aqui está um exemplo de mensagem marcada para tradução: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-Selecione o texto que deseja traduzir e use o atalho de teclado **Cmd + Alt + L** (macOS) ou **Ctrl + Alt + L** (Windows) para envolvê-lo em tags de tradução.<br><br> Esse atalho funciona em todos os canais que suportam mensagens multilíngues, exceto nos editores de arrastar e soltar para e-mail e Content Blocks. Para esses, use o botão **Add personalization** na barra lateral esquerda para adicionar tags de tradução.
+Selecione o texto que deseja traduzir e use o atalho de teclado **Cmd + Alt + L** (macOS) ou **Ctrl + Alt + L** (Windows) para envolvê-lo em tags de tradução.<br><br> Esse atalho funciona em todos os canais que suportam mensagens multilíngues, exceto nos editores de arrastar e soltar para e-mail e Content Blocks. Para esses, use o botão **Add personalization** para adicionar tags de tradução.
 {% endalert %}
 
 #### Localizar URLs {#localize-urls}
@@ -193,7 +193,7 @@ Para pré-visualizar sua mensagem, selecione a opção **Multi-Language User** n
 
 ### Duplicar etapas do Canvas ou Campaigns e traduções {#duplicate-canvas-steps-or-campaigns-and-translations}
 
-Quando você duplica uma etapa do Canvas, uma Campaign ou uma variação, as traduções são incluídas. Isso também vale ao copiar entre espaços de trabalho, desde que os locais estejam definidos no espaço de trabalho de destino. Certifique-se de revisar e atualizar as traduções ao fazer modificações no seu Canvas ou Campaign.
+Quando você duplica uma etapa do Canvas, uma Campaign ou uma variante, as traduções são incluídas. Isso também vale ao copiar entre espaços de trabalho, desde que os locais estejam definidos no espaço de trabalho de destino. Certifique-se de revisar e atualizar as traduções ao fazer modificações no seu Canvas ou Campaign.
 
 ### Salvar traduções em Content Blocks {#save-translations-in-content-blocks}
 

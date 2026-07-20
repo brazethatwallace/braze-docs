@@ -25,7 +25,7 @@ Braze는 사용자의 앱 과거 상호작용 및 각 메시징 채널과의 상
 
 사용자에게 Braze가 최적 발송 시간을 계산할 수 있는 관련 참여 데이터가 없는 경우, 대체 발송 시간을 지정할 수 있습니다.
 
-## 활용 사례 {#use-cases}
+## 사용 사례 {#use-cases}
 
 - 시간에 민감하지 않은 반복 Campaign 보내기
 - 여러 시간대의 사용자를 대상으로 Campaign 자동화하기
@@ -183,7 +183,7 @@ Intelligent Timing을 사용할 때는 지연 시간으로 24시간 단위 대�
 
 ## 고려 사항 {#considerations}
 
-- In-App Messages와 웹훅은 즉시 전달되며 최적의 시간이 적용되지 않습니다.
+- 인앱 메시지와 웹훅은 즉시 전달되며 최적의 시간이 적용되지 않습니다.
 - 동작 기반 또는 API 트리거 Campaign에는 Intelligent Timing을 사용할 수 없습니다.
 - 다음 시나리오에서는 Intelligent Timing을 사용해서는 안 됩니다:
     - **사용량 제한:** 사용량 제한과 Intelligent Timing을 모두 사용하는 경우 메시지가 언제 전달될지 보장할 수 없습니다. Intelligent Timing을 사용하는 일일 반복 Campaign은 총 메시지 전송 한도를 정확하게 지원하지 않습니다.
@@ -197,7 +197,9 @@ Intelligent Timing을 사용할 때는 지연 시간으로 24시간 단위 대�
 
 ### 시간대가 Intelligent Timing 전달에 미치는 영향 {#impact-of-time-zone-on-intelligent-timing-delivery}
 
-Intelligent Timing은 각 사용자의 지정된 현지 시간대를 기반으로 하므로, 예약된 전달 날짜와 시간은 사용자마다 다를 수 있습니다.
+Intelligent Timing은 각 사용자의 현지 시간대와 캘린더 일을 기반으로 최적의 전달 시간을 결정합니다. 이 때문에 Campaign의 기준 시간대보다 앞서거나 뒤처진 시간대에 있는 사용자는 예상과 다른 캘린더 날짜에 메시지를 수신할 수 있습니다.
+
+예를 들어, Campaign이 3월 15일로 예약되어 있고 사용자의 최적 시간이 해당 날짜로 계산된 경우, Campaign의 기준 시간대보다 앞선 시간대에 있는 사용자는 기준 시간대 기준으로 3월 14일 늦은 시간에 메시지를 수신할 수 있으며, 기준 시간대보다 뒤처진 시간대에 있는 사용자는 3월 16일에 수신할 수 있습니다.
 
 사용자가 예상대로 메시지를 받지 못하는 경우, 프로필의 시간대 필드가 올바르게 설정되었는지 확인하세요. 시간대 필드가 비어 있는 경우, 사용자는 현지 시간이 아닌 회사의 시간대에 맞춰진 메시지를 수신할 수 있습니다.
 
@@ -209,7 +211,7 @@ Intelligent Timing을 사용하는 경우, A/B 테스트가 완료될 때까지 
 
 ## 자주 묻는 질문(FAQ) {#faq}
 
-### 기본설정 {#general}
+### 일반 {#general}
 
 #### Intelligent Timing은 무엇을 예측하나요? {#what-does-intelligent-timing-predict}
 

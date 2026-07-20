@@ -32,7 +32,9 @@
 <!---/users/track-->
 
 {% elsif include.endpoint == "users track" %}
-Brazeはこのエンドポイントに対して、3秒あたり3,000リクエストという基本速度制限を適用します。各`/users/track`リクエストには、`attributes`、`events`、`purchases`を合わせて最大75個のオブジェクトを含めることができます。各オブジェクトは1人のユーザーを更新できます。単一のユーザープロファイルを複数のオブジェクトで更新することも可能です。
+このエンドポイントのレート制限は、ご契約内容によって異なります。料金体系にデータポイントが含まれている顧客の場合、Brazeは3秒あたり3,000リクエストのバースト制限を適用します。その他すべての顧客の場合、制限はご契約条件に基づいて設定されます。お客様のアカウントの現在の制限は、ダッシュボードの**設定** > **APIと識別子** > **API使用状況ダッシュボード**で確認できます。
+
+各`/users/track`リクエストには、`attributes`、`events`、`purchases`を合わせて最大75個のオブジェクトを含めることができます。各オブジェクトは1人のユーザーを更新できます。単一のユーザープロファイルを複数のオブジェクトで更新することも可能です。
 
 Monthly Active Users CY 24-25、Universal MAU、Web MAU、またはMobile MAUを購入された顧客には、追加のレート制限が適用されます。詳細については、[Monthly Active Users CY 24-25の制限]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau)を参照してください。
 
