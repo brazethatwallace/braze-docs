@@ -29,7 +29,7 @@ Before you can use Braze Content Cards, you'll need to integrate the [Braze Andr
 
 ## Google fragments
 
-In Android, the Content Cards feed is implemented as a [fragment](https://developer.android.com/guide/components/fragments.html) available in the Braze Android UI project. The [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) class will automatically refresh and display the contents of the Content Cards and log usage analytics. The cards that can appear in a user's `ContentCards` are created on the Braze dashboard.
+In Android, the Content Cards feed is implemented as a [fragment](https://developer.android.com/guide/components/fragments.html) available in the Braze Android UI project. The [`ContentCardsFragment`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.ui.contentcards/-content-cards-fragment/index.html) class automatically refreshes and displays the contents of the Content Cards and logs usage analytics. The cards that can appear in a user's `ContentCards` are created on the Braze dashboard.
 
 To learn how to add a fragment to an activity, see [Google's fragments documentation](https://developer.android.com/guide/fragments#Adding).
 
@@ -44,7 +44,7 @@ The [base card](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android
 |Property | Description |
 |---|---|
 |`getId()` | Returns the card's ID set by Braze.|
-|`getViewed()` | Returns a boolean reflects if the card is read or unread by the user.|
+|`getViewed()` | Returns a boolean that reflects whether the card is read or unread by the user.|
 |`getExtras()` | Returns a map of key-value extras for this card.|
 |`getCreated()`  | Returns the unix timestamp of the card's creation time from Braze.|
 |`isPinned` | Returns a boolean that reflects whether the card is pinned.|
@@ -83,7 +83,7 @@ The [base card](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android
 
 ### Classic {#text-Announcement-card-for-android}
 
-A classic card without an image included will result in a [text announcement card](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html). If an image is included, you will receive a [short news card](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html).
+A classic card without an image included results in a [text announcement card](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-text-announcement-card/index.html). If an image is included, you receive a [short news card](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.cards/-short-news-card/index.html).
 
 |Property | Description |
 |---|---|

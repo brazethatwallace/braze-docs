@@ -39,7 +39,7 @@ The Apple Push Notification service (APNs) is the infrastructure for sending pus
 
 ### Step 1: Configuring the push certificate and provisioning profile
 
-In developing your app, you'll need to create an SSL certificate to enable push notifications. This certificate will be included in the provisioning profile your app is built with and will also need to be uploaded to the Braze dashboard. The certificate allows Braze to tell APNs that we are allowed to send push notifications on your behalf.
+To develop your app, create an SSL certificate to enable push notifications. This certificate is included in the provisioning profile your app is built with and must also be uploaded to the Braze dashboard. The certificate allows Braze to tell APNs that we are allowed to send push notifications on your behalf.
 
 There are two types of [provisioning profiles](https://developer.apple.com/library/content/documentation/IDEs/Conceptual/AppDistributionGuide/MaintainingProfiles/MaintainingProfiles.html) and certificates: development and distribution. We recommend just using distribution profiles and certificates to avoid any confusion. If you choose to use different profiles and certificates for development and distribution, ensure that the certificate uploaded to the dashboard matches the provisioning profile you are currently using.
 
@@ -49,7 +49,7 @@ Do not change the push certificate environment (development versus production). 
 
 ### Step 2: Devices register for APNs and provide Braze with push tokens
 
-When users open your app, they will be prompted to accept push notifications. If they accept this prompt, APNs will generate a push token for that particular device. The Swift SDK will immediately and asynchronously send up the push token for apps using the default [automatic flush policy]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control/#automatic-request-processing). After we have a push token associated with a user, they will show as "Push Registered" in the dashboard on their user profile under the **Engagement** tab and will be eligible to receive push notifications from Braze campaigns.
+When users open your app, they are prompted to accept push notifications. If they accept this prompt, APNs generates a push token for that particular device. The Swift SDK immediately and asynchronously sends the push token for apps using the default [automatic flush policy]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/advanced_use_cases/fine_network_traffic_control/#automatic-request-processing). After we have a push token associated with a user, they show as "Push Registered" in the dashboard on their user profile under the **Engagement** tab and are eligible to receive push notifications from Braze campaigns.
 
 {% alert note %}
 Starting in macOS 13, on certain devices, you can test push notifications on an iOS 16 Simulator running on Xcode 14. For further details, refer to the [Xcode 14 Release Notes](https://developer.apple.com/documentation/xcode-release-notes/xcode-14-release-notes).
@@ -57,14 +57,14 @@ Starting in macOS 13, on certain devices, you can test push notifications on an 
 
 #### Considerations for push token generation
 
-- If users install your app on another device, another token will be created and captured in the same way. 
-- If users reinstall your app, a new token will be generated and passed to Braze. However, the original token may still be logged as valid by APNs and Braze.
-- If users uninstall your app, Braze doesn't get immediately notified of this and the token will still appear as valid until it is retired by APNs. 
+- If users install your app on another device, another token is created and captured in the same way. 
+- If users reinstall your app, a new token is generated and passed to Braze. However, the original token may still be logged as valid by APNs and Braze.
+- If users uninstall your app, Braze doesn't get immediately notified of this and the token still appears as valid until it is retired by APNs. 
 - At some point, APNs will retire old tokens. Braze doesn't have control or visibility of this. 
 
 ### Step 3: Launching a Braze push campaign
 
-When a push campaign is launched, Braze will make requests to APNs to deliver your message. Specifically, the requests are passed to APNs for each current valid push token unless **Send to a user's most recent device** is selected. After Braze receives a successful response from APNs, we will log a successful delivery on the user profile, though the user may not have received the actual message for reasons including:
+When a push campaign is launched, Braze makes requests to APNs to deliver your message. Specifically, the requests are passed to APNs for each current valid push token unless **Send to a user's most recent device** is selected. After Braze receives a successful response from APNs, Braze logs a successful delivery on the user profile, though the user may not have received the actual message for reasons including:
 - Their device is powered off.
 - Their device isn't connected to the internet (Wi-Fi or cellular).
 - They recently uninstalled the app.
@@ -81,7 +81,7 @@ It's normal for APNs to initially return a success status even if a token become
 
 ## Using the push error logs
 
-The [Message Activity Log]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/) gives you the opportunity to see any messages (especially error messages) associated with your campaigns and sends, including push notification errors. This error log provides a variety of warnings which can be very helpful for identifying why your campaigns aren't working as expected. Clicking on an error message will redirect you to relevant documentation to help you troubleshoot a particular incident.
+The [Message Activity Log]({{site.baseurl}}/user_guide/administrative/app_settings/message_activity_log_tab/) gives you the opportunity to see any messages (especially error messages) associated with your campaigns and sends, including push notification errors. This error log provides a variety of warnings which can be very helpful for identifying why your campaigns aren't working as expected. Selecting an error message redirects you to relevant documentation to help you troubleshoot a particular incident.
 
 ![Push error logs displaying the time the error occurred, the app name, the channel, error type, and error message.]({% image_buster /assets/img_archive/message_activity_log.png %})
 
@@ -96,7 +96,7 @@ In addition, Braze also provides a push changelog on the user profile under the 
 #### Received unregistered sending to push token {#received-unregistered-sending}
 
 - Make sure that the push token being sent to Braze from the method `AppDelegate.braze?.notifications.register(deviceToken:)` is valid. You can look in the **Message Activity Log** to see the push token. It should look something like `6e407a9be8d07f0cdeb9e724733a89445f57a89ec890d63867c482a483506fa6`, a long string containing a mix of letters and numbers. If your push token looks different, check your [code]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-4-register-push-tokens-with-braze) for sending Braze the push tokens.
-- Ensure that your push provisioning profile matches the environment you're testing. Universal certificates may be configured in the Braze dashboard to send to either the development or production APNs environment. Using a development certificate for a production app or a production certificate for a development app will not work.
+- Ensure that your push provisioning profile matches the environment you're testing. Universal certificates may be configured in the Braze dashboard to send to either the development or production APNs environment. Using a development certificate for a production app or a production certificate for a development app does not work.
  - Check that the push token you have uploaded to Braze matches the provisioning profile you used to build the app you sent the push token from.
 
 #### Device token not for topic
@@ -141,7 +141,7 @@ Ensure that your app is correctly configured to allow push notifications. Common
     2. Select the Apple ID you use for your developer account and click **View Details**.
     3. On the next page, click **<i class="fas fa-redo-alt"></i> Refresh** and confirm that you're pulling all available provisioning profiles.
 - Check you have [properly enabled push capability]({{site.baseurl}}/developer_guide/platform_integration_guides/swift/push_notifications/integration/#step-2-enable-push-capabilities) in your app.
-- Check your push provisioning profile matches the environment you're testing in. Universal certificates may be configured in the Braze dashboard to send to either the development or production APNs environment. Using a development certificate for a production app or a production certificate for a development app will not work.
+- Check your push provisioning profile matches the environment you're testing in. Universal certificates may be configured in the Braze dashboard to send to either the development or production APNs environment. Using a development certificate for a production app or a production certificate for a development app does not work.
 - Check that you are calling our `registerPushToken` method by setting a breakpoint in your code.
 - Make sure you're testing using a device (push will not work on a simulator) and have good network connectivity.
 

@@ -14,7 +14,7 @@ alias: /scim_api_appendix/
 {% sdktab Legacy SCIM API %}
 
 {% alert important %}
-Braze is introducing [granular permissions]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), a more flexible way to manage user access. Refer to [Migrating to granular permissions]({{site.baseurl}}/granular_permissions_migration/) to learn about the migration process, and the [Granular SCIM API]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api/) tab to view the granular SCIM API objects and appendix.
+Braze is introducing [granular permissions]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), a more flexible way to manage user access. For more information, see [Migrating to granular permissions]({{site.baseurl}}/granular_permissions_migration/) to learn about the migration process, and the [Granular SCIM API]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api/) tab to view the granular SCIM API objects and appendix.
 {% endalert %}
 
 ## Permissions object
@@ -166,7 +166,7 @@ A valid role object is a JSON object with the following key value pairs:
 
 Existing SCIM integrations and [legacy SCIM API objects]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) will continue to work after the granular permissions migration in late April. 
 
-You aren't required to take any immediate action. However, we encourage you to review your integrations for any permissions that will be granularized. For example, if you are currently sending `basic_access` in the API, we suggest you update your integration after granularization to include the specific permissions (for example, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze will continue to accept legacy strings, like `basic_access`, after the granular permissions migration so that existing integrations do not break.
+You aren't required to take any immediate action. However, review your integrations for any permissions that will be granularized. For example, if you are currently sending `basic_access` in the API, update your integration after granularization to include the specific permissions (for example, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze will continue to accept legacy strings, like `basic_access`, after the granular permissions migration so that existing integrations do not break.
 
 ## Permissions object
 
