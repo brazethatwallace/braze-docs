@@ -35,7 +35,7 @@ While not a native feature, Android TV push integration is made possible by leve
 
 ## Prerequisites
 
-To use this feature, you'll need to complete the following:
+To use this feature, you must complete the following:
 
 - [Integrate the Braze Android SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)
 - [Set up push notifications for the Braze Android SDK]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)
@@ -61,9 +61,9 @@ To test if your push implementation is successful, send a notification from the 
 
 ## Best practices
 
-For marketers using Braze, launching a campaign to Android TV will be identical to launching a push to Android mobile apps. To target these devices exclusively, select the Android TV App in segmentation.
+For marketers using Braze, launching a campaign to Android TV is identical to launching a push to Android mobile apps. To target these devices exclusively, select the Android TV App in segmentation.
 
-The delivered and clicked response returned by FCM will follow the same convention as a mobile Android device; therefore, any errors will be visible in the message activity log.
+The delivered and clicked response returned by FCM follows the same convention as a mobile Android device; therefore, any errors are visible in the message activity log.
 
 {% endsdktab %}
 
