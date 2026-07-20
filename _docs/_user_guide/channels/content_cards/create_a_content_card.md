@@ -352,9 +352,9 @@ For action-based delivery campaigns (such as session start), there is an expecte
 - The Content Card is created in the database for that user
 - The SDK performs a Content Card sync and pulls all available cards to the device
 
-This means the session start event needs to be flushed to Braze's servers first, then the campaign is triggered. After the campaign is triggered, it takes time for the Content Card to be created, and then a sync is needed to retrieve all available content cards.
+This means the session start event needs to be flushed to Braze's servers first, then the campaign is triggered. After the campaign is triggered, it takes time for the Content Card to be created, and then a sync is needed to retrieve all available Content Cards.
 
-For new users in their first session, this short delay is unavoidable. For existing users who need instant availability, consider using scheduled delivery instead. For more details, refer to [Action-based delivery]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#action-based-delivery).
+For new users in their first session, this short delay is unavoidable. For existing users who need instant availability, consider using scheduled delivery instead.
 
 If you need to minimize delays for both new and existing users, you can create two campaigns:
 
