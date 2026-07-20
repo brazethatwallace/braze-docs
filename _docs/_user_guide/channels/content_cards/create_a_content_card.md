@@ -144,7 +144,7 @@ For example, if an action-based Content Card is sent at 2 pm today with a 1-day 
 
 {% multi_lang_include alerts/note_alerts.md alert='Content Cards frequency capping' %}
 
-For action-based delivery, there is an expected short delay before the Content Card appears. For example, when a campaign is triggered on session start, this trigger event must first be flushed to Braze's servers. Next, the user's eligibility for the campaign is recorded. When the SDK syncs, the card is created and returned in the same sync response. If the SDK sync happened before the user's eligibility is recorded, they do not receive the card. For first-session users, this delay is unavoidable. For existing users who need instant availability, consider using scheduled delivery instead.
+For action-based delivery, there is an expected short delay before the Content Card appears. For details on why this happens and how to minimize it, refer to [Why don't Content Cards appear immediately after a trigger event?]({{site.baseurl}}/user_guide/channels/content_cards/create_a_content_card#why-dont-content-cards-appear-immediately-after-a-trigger-event).
 
 #### Scheduled delivery
 
@@ -348,13 +348,14 @@ When you stop a campaign and select **Remove card after the next sync**, Braze r
 
 For action-based delivery campaigns (such as session start), there is an expected short delay between the trigger event and the card becoming available. This delay occurs because:
 
-- The campaign gets triggered by the action (for example, session start)
+- The trigger event is flushed to Braze's servers
+- The campaign is triggered and the user's eligibility is recorded
 - The Content Card is created in the database for that user
-- The SDK performs a Content Card sync and pulls all available cards to the device
+- The SDK syncs and pulls all available cards to the device
 
-This means the session start event needs to be flushed to Braze's servers first, then the campaign is triggered. After the campaign is triggered, it takes time for the Content Card to be created, and then a sync is needed to retrieve all available Content Cards.
+If the SDK sync happens before the user's eligibility is recorded, the user does not receive the card.
 
-For new users in their first session, this short delay is unavoidable. For existing users who need instant availability, consider using scheduled delivery instead.
+For new users in their first session, this delay is unavoidable. For existing users who need instant availability, consider using scheduled delivery instead.
 
 If you need to minimize delays for both new and existing users, you can create two campaigns:
 
