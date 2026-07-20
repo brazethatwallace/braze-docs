@@ -32,7 +32,7 @@ guide_featured_list:
   - name: "Contentsquare"
     link: /docs/partners/data_and_analytics/analytics/contentsquare
     image: /assets/img/braze_icons/globe-02.svg
-  - name: "Heap Cohort Import"
+  - name: "Importação de coorte Heap"
     link: /docs/partners/data_and_analytics/analytics/heap/heap_cohort_import
     image: /assets/img/braze_icons/puzzle-piece-01.svg
   - name: "Inbox Monster"
@@ -59,4 +59,7 @@ guide_featured_list:
   - name: "Thoughtspot"
     link: /docs/partners/data_and_analytics/analytics/thoughtspot
     image: /assets/img/braze_icons/zap.svg
+  - name: "Validity"
+    link: /docs/partners/data_and_analytics/analytics/validity
+    image: /assets/img/braze_icons/mail-01.svg
 ---

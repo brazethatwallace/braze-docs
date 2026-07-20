@@ -9,7 +9,7 @@ description: "Este artículo contiene notas de la versión de julio de 2019."
 # Julio de 2019 {#july-2019}
 
 {% alert update %}
-Braze ha tenido dos (has leído bien, **dos**) ciclos de lanzamiento de productos este mes. La última versión está anotada en la parte superior, ¡la anterior [empieza más abajo en esta página](#earlier-this-month)!
+Braze ha tenido dos (has leído bien, **dos**) ciclos de lanzamiento de productos este mes. La última versión está anotada en la parte superior, ¡la anterior se cubre en la sección [A principios de este mes](#earlier-this-month)!
 {% endalert %}
 
 ## SAML/SSO

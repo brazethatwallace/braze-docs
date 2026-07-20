@@ -31,11 +31,11 @@ Accédez à **Content** > **Email**. Sélectionnez **Create email template**.
 
 ### Étape 2 : Ajouter les détails du modèle {#step-2-add-template-details}
 
-Indiquez un nom de modèle. Vous pouvez éventuellement ajouter une description, des équipes et des étiquettes.
+Indiquez un nom de modèle. Vous pouvez éventuellement ajouter une description, des équipes et des tags.
 
 ### Étape 3 : Télécharger votre modèle {#step-3-upload-your-template}
 
-Dans la section **Template content**, sélectionnez **Upload file** sous la tuile **HTML code editor**. Sélectionnez votre modèle depuis votre ordinateur. Consultez la section [Conditions requises](#upload-requirements) pour vous assurer que votre modèle respecte les exigences de téléchargement.
+Dans la section **Template content**, sélectionnez **Upload file**. Sélectionnez votre modèle depuis votre ordinateur. Consultez la section [Conditions requises](#upload-requirements) pour vous assurer que votre modèle respecte les exigences de téléchargement.
 
 ### Étape 4 : Finaliser et enregistrer votre modèle {#step-4-finish-and-save-your-template}
 

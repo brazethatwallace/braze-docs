@@ -20,7 +20,7 @@ Decisioning Studio Go es una plataforma de autoservicio con capacidades optimiza
 | **Métrica de éxito** | Solo clics | Cualquier métrica empresarial (ingresos, conversiones o ARPU) |
 | **Dimensiones** | Banco de acciones limitado | Dimensiones ilimitadas |
 | **CEP compatibles** | Braze, SFMC | Cualquier CEP (nativo y personalizado) |
-| **Datos del cliente** | Solo interacción | Todos los datos 1P |
+| **Datos del cliente** | Solo participación | Todos los datos 1P |
 | **Configuración** | Autoservicio | Soporte de servicios de toma de decisiones con IA |
 | **Grupos experimentales** | Go + Control aleatorio + BAU opcional | Totalmente personalizable |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Funciones de Go frente a Pro" }
@@ -39,7 +39,7 @@ Tu audiencia es el conjunto de clientes con los que interactuará el agente. En 
 **Definición de audiencia en Braze:**
 
 1. Crea un Segment en Braze que defina los clientes a los que quieres que se dirija el agente.
-2. Al configurar tu experimentador en el portal de Decisioning Studio Go, selecciona este Segment como tu audiencia objetivo.
+2. Al configurar tu experimentador en el portal de Decisioning Studio Go, selecciona este Segment como tu público objetivo.
 
 {% alert tip %}
 Considera la posibilidad de crear un Segment específico para tu experimentador de Decisioning Studio Go con el fin de mantener tus pruebas aisladas y medibles.
@@ -50,8 +50,8 @@ Considera la posibilidad de crear un Segment específico para tu experimentador 
 
 **Definición de audiencia en SFMC:**
 
-1. Configura una extensión de datos que contenga tu audiencia objetivo.
-2. Asegúrate de que esta extensión de datos se actualice diariamente con los datos más recientes de los clientes.
+1. Configura una extensión de datos que contenga tu público objetivo.
+2. Actualiza esta extensión de datos diariamente con los datos más recientes de los clientes.
 3. Haz referencia a esta extensión de datos en el portal de Decisioning Studio Go al configurar tu experimentador.
 
 {% endtab %}
@@ -62,7 +62,7 @@ Considera la posibilidad de crear un Segment específico para tu experimentador 
 Las dimensiones son las «palancas» que el agente puede accionar para personalizar la experiencia del cliente. Entre ellas se incluyen dimensiones creativas, como la línea del asunto y la imagen principal, así como dimensiones relacionadas con el tipo de envío, como la frecuencia de los correos electrónicos o la hora del día.
 
 {% alert note %}
-Las dimensiones específicas disponibles dependen de tu CEP y de cómo estén configuradas tus campañas. Trabaja con las plantillas y el contenido que has configurado en tu CEP.
+Las dimensiones específicas disponibles dependen de tu CEP y de cómo estén configuradas tus campañas. Utiliza las plantillas y el contenido que ya tienes configurados en tu CEP.
 {% endalert %}
 
 ### Paso 3: Configura tu banco de acciones {#step-3-configure-your-action-bank}
@@ -85,7 +85,7 @@ Decisioning Studio Go crea automáticamente grupos experimentales para medir el 
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Paso 4: Configura los grupos experimentales" }
 
 {% alert important %}
-Para realizar una comparación precisa, asegúrate de que ningún cliente pueda pertenecer a más de un grupo experimental y de que los clientes se asignen aleatoriamente a los grupos sin sesgos.
+Para realizar una comparación precisa, ningún cliente puede pertenecer a más de un grupo experimental, y los clientes se asignan aleatoriamente a los grupos sin sesgos.
 {% endalert %}
 
 ## Limitaciones a tener en cuenta {#limitations-to-consider}
@@ -99,12 +99,12 @@ Al diseñar tu agente Go, ten en cuenta estas limitaciones:
 ## Buenas prácticas {#best-practices}
 
 - **Empieza con un alcance reducido:** utiliza dos o tres plantillas o variantes de línea del asunto. Esto le da al agente suficientes opciones para aprender, al tiempo que mantiene el experimento bajo control.
-- **Dale tiempo:** el agente necesita datos suficientes para aprender. Espera al menos entre 2 y 4 semanas antes de sacar conclusiones sobre el rendimiento.
-- **Mantén la variedad en los contenidos:** asegúrate de que tus opciones sean significativamente diferentes. Probar variaciones menores puede no aportar información significativa.
-- **Supervisa regularmente:** consulta el portal de Decisioning Studio Go para supervisar el progreso del experimento y las métricas de interacción.
+- **Dale tiempo:** el agente necesita datos suficientes para aprender. Espera al menos entre dos y cuatro semanas antes de sacar conclusiones sobre el rendimiento.
+- **Mantén la variedad en los contenidos:** utiliza opciones que sean significativamente diferentes. Probar variaciones menores puede no aportar información significativa.
+- **Supervisa regularmente:** consulta el portal de Decisioning Studio Go para supervisar el progreso del experimento y las métricas de participación.
 
 ## Próximos pasos {#next-steps}
 
-Una vez que hayas diseñado tu agente y lo hayas configurado en el portal de Decisioning Studio Go, estarás listo para lanzarlo:
+Una vez que hayas diseñado tu agente, configúralo y lánzalo en el panel de Braze:
 
-- [Lanza tu agente]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)
+- [Configura tu agente de Decisioning Studio Go]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup)

@@ -48,6 +48,7 @@ La verificación de empresa es un concepto de WhatsApp utilizado para asegurar q
 OBA te da la marca de verificación verde junto a tu nombre de visualización y es opcional. Puedes solicitar una cuenta de empresa oficial después de completar la verificación de empresa. Ten en cuenta que la verificación de empresa y una cuenta de empresa oficial son conceptos diferentes de WhatsApp.
 
 ### Números de teléfono de la cuenta de WhatsApp Business {#whatsapp-business-account-phone-numbers}
+
 #### ¿Necesito un número de teléfono para mi cuenta de WhatsApp Business? {#do-i-need-a-phone-number-for-my-whatsapp-business-account}
 Sí, necesitas un número al que tengas acceso. Se te pedirá que verifiques tu número de teléfono con autenticación de 2 factores cuando pases por el flujo de registro integrado. El número de teléfono no puede usarse para otras cuentas de WhatsApp (de negocio o personales).
 
@@ -186,14 +187,19 @@ Hay varias razones por las que un mensaje podría no entregarse, incluyendo prob
 #### Si un mensaje no se entrega, ¿se me cobrará? {#if-a-message-is-not-delivered-will-i-be-billed}
 No. Si un mensaje no se entrega, no se te cobrará.
 
-#### ¿Qué sucede si un usuario final bloquea mi empresa? {#what-happens-if-an-end-user-blocks-my-business}
-Si un usuario final bloquea tu empresa, los mensajes posteriores que intentes enviar no se entregarán y no se te cobrará.
+#### ¿Qué sucede si un usuario bloquea mi empresa? {#what-happens-if-a-user-blocks-my-business}
+Si un usuario bloquea tu empresa, los mensajes posteriores que intentes enviar no se entregarán y no se te cobrará.
 
-#### ¿Qué sucede si un usuario final reporta un mensaje? {#what-happens-if-an-end-user-reports-a-message}
-Si un usuario final reporta un mensaje, aún puedes enviar mensajes posteriores a este usuario. Sin embargo, los reportes pueden afectar tu calificación de calidad en el canal.
+#### ¿Qué sucede si un usuario reporta un mensaje? {#what-happens-if-a-user-reports-a-message}
+Si un usuario reporta un mensaje, aún puedes enviar mensajes posteriores a ese usuario. Sin embargo, los reportes pueden afectar tu calificación de calidad en el canal.
 
-#### Si un usuario final bloquea o reporta mi empresa, ¿se actualizará su estado de suscripción en Braze? {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
+#### Si un usuario bloquea o reporta mi empresa, ¿se actualizará su estado de suscripción en Braze? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 No. Su estado de suscripción en Braze no se actualizará.
+
+#### ¿Cómo puedo excluir a los usuarios que reportan mi cuenta de WhatsApp de próximos lanzamientos? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
+Braze no recibe notificaciones de WhatsApp cuando tu cuenta es marcada o reportada, por lo que no puedes identificar ni excluir automáticamente a esos usuarios en Braze. Los usuarios que reportan tu cuenta pueden permanecer en tu grupo de suscripción de WhatsApp y seguir siendo elegibles para futuros mensajes.
+
+Sin embargo, puedes configurar una campaña que se desencadene cuando un usuario responda con una palabra clave de cancelación, lo que cancela automáticamente su suscripción usando el [endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Para más información, consulta [Proceso de adhesión voluntaria y cancelación de suscripción de WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
 #### ¿Los mensajes de respuesta de WhatsApp son gratuitos? {#are-whatsapp-response-messages-free}
 
@@ -233,7 +239,7 @@ Para enviar información a Braze, por ejemplo, para indicar que un usuario está
 Los mensajes solo se almacenan el tiempo suficiente para procesarlos. Para acceder a los mensajes de los usuarios, usa Currents.
 
 #### ¿Qué métricas están disponibles en el panel de Braze? {#what-metrics-are-available-in-the-braze-dashboard}
-Puedes ver destinatarios únicos, envíos, entregas, lecturas y fallos en el panel de Braze. Ten en cuenta que los recibos de lectura de los usuarios finales deben estar activados para que Braze pueda rastrear las lecturas. También puedes configurar eventos de conversión para monitorizar el rendimiento de la campaña, de manera similar a otros canales.
+Puedes ver destinatarios únicos, envíos, entregas, lecturas y fallos en el panel de Braze. Ten en cuenta que los recibos de lectura de los usuarios deben estar activados para que Braze pueda rastrear las lecturas. También puedes configurar eventos de conversión para monitorizar el rendimiento de la campaña, de manera similar a otros canales.
 
 #### ¿Qué es una conversación de WhatsApp? {#what-is-a-whatsapp-conversation}
 WhatsApp es un canal enfocado en la mensajería bidireccional y, por lo tanto, se basa en conversaciones (en lugar del número de mensajes individuales). Una conversación es un hilo de 24 horas entre una empresa y un usuario final.

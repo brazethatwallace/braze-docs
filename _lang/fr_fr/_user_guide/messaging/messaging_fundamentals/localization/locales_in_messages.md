@@ -54,7 +54,7 @@ Encadrez le texte que vous souhaitez traduire avec les balises de traduction Liq
 Voici un exemple de message marqué pour la traduction : {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-Sélectionnez le texte que vous souhaitez traduire et utilisez le raccourci clavier **Cmd + Alt + L** (macOS) ou **Ctrl + Alt + L** (Windows) pour l'encadrer avec des balises de traduction.<br><br> Ce raccourci fonctionne dans tous les canaux prenant en charge les messages multilingues, à l'exception des éditeurs par glisser-déposer pour les e-mails et les Content Blocks. Pour ceux-ci, utilisez le bouton **Ajouter une personnalisation** dans la barre latérale gauche pour ajouter des balises de traduction.
+Sélectionnez le texte que vous souhaitez traduire et utilisez le raccourci clavier **Cmd + Alt + L** (macOS) ou **Ctrl + Alt + L** (Windows) pour l'encadrer avec des balises de traduction.<br><br> Ce raccourci fonctionne dans tous les canaux prenant en charge les messages multilingues, à l'exception des éditeurs par glisser-déposer pour les e-mails et les Content Blocks. Pour ceux-ci, utilisez le bouton **Ajouter une personnalisation** pour ajouter des balises de traduction.
 {% endalert %}
 
 #### Localiser les URL {#localize-urls}
@@ -98,7 +98,7 @@ Une URL générée par Liquid qui suit les deux recommandations est :
 {% endraw %}
 
 {% alert important %}
-Si vous utilisez le [suivi des liens e-mail](#email-link-tracking) (aliasage de lien ou modèles de liens), une configuration supplémentaire est requise lorsque les URL sont encadrées par des balises de traduction.
+Si vous utilisez le [suivi des liens e-mail](#email-link-tracking) (aliasing de lien ou modèles de liens), une configuration supplémentaire est requise lorsque les URL sont encadrées par des balises de traduction.
 {% endalert %}
 
 #### Attributs et structure HTML {#html-attributes-and-structure}
@@ -213,7 +213,7 @@ Lorsque vous remplissez le fichier de traduction pour les langues écrites de dr
 
 ### Suivi des liens e-mail {#email-link-tracking}
 
-Dans les Campaigns par e-mail, Braze suit les liens en ajoutant des informations de suivi (paramètres de requête) à chaque URL. Ce comportement prend en charge à la fois l'[aliasage de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) et les [modèles de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
+Dans les Campaigns par e-mail, Braze suit les liens en ajoutant des informations de suivi (paramètres de requête) à chaque URL. Ce comportement prend en charge à la fois l'[aliasing de lien]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_aliasing) et les [modèles de liens]({{site.baseurl}}/user_guide/messaging/templates/email_templates/link_template).
 
 Lorsqu'une URL est encadrée par des balises de traduction, Braze peut ne pas être en mesure de déterminer où ajouter ces informations de suivi. Pour garantir le bon fonctionnement, vous devez inclure un caractère spécial à la fin de l'URL pour indiquer où le suivi doit être ajouté.
 
@@ -231,7 +231,7 @@ Les URL utilisent deux caractères spéciaux pour contrôler ce fonctionnement :
 
 ### Paramètres de langue et accessibilité {#language-settings-and-accessibility}
 
-Commencez par [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) dans [Accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) pour le contexte WCAG, le comportement par canal et éditeur (y compris les pages d'accueil), et les paramètres d'**accessibilité** au niveau du message.
+Commencez par [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) dans [Accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility) pour le contexte WCAG, le comportement par canal et éditeur (y compris les pages de destination), et les paramètres d'**accessibilité** au niveau du message.
 
 Lorsque vous utilisez des **messages multilingues**, alignez la langue d'accessibilité avec chaque paramètre régional afin que les envois localisés déclarent la langue appropriée.
 
@@ -247,7 +247,7 @@ Au niveau du message, définissez la langue d'accessibilité dans la section **A
 
 Pour les messages multilingues, définissez la langue d'accessibilité pour chaque paramètre régional dans les **Paramètres de localisation**. Vous pouvez utiliser {% raw %}`{{accessibility_language}}`{% endraw %} dans la section **Accessibilité** afin que la langue du document ou de la carte corresponde aux valeurs de ces paramètres régionaux.
 
-Le fait que ce jeton apparaisse par défaut pour les nouveaux messages dépend du canal et de l'éditeur. Par exemple, les messages in-app et les bannières se comportent différemment des pages d'accueil et des e-mails par glisser-déposer. Consultez [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) pour plus de détails.
+Le fait que ce jeton apparaisse par défaut pour les nouveaux messages dépend du canal et de l'éditeur. Par exemple, les messages in-app et les bannières se comportent différemment des pages de destination et des e-mails par glisser-déposer. Consultez [Langue d'accessibilité]({{site.baseurl}}/user_guide/messaging/messaging_fundamentals/accessibility#accessibility-language) pour plus de détails.
 
 ## Questions fréquemment posées {#frequently-asked-questions}
 

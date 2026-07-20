@@ -32,7 +32,9 @@
 <!---/users/track-->
 
 {% elsif include.endpoint == "users track" %}
-Braze는 이 엔드포인트에 3초당 3,000건의 요청이라는 기본 속도 제한을 적용합니다. 각 `/users/track` 요청은 `attributes`, `events`, `purchases`를 합산하여 최대 75개의 오브젝트를 포함할 수 있습니다. 각 오브젝트는 한 명의 사용자를 업데이트할 수 있습니다. 단일 고객 프로필은 여러 오브젝트로 업데이트할 수 있습니다.
+이 엔드포인트의 사용량 제한은 계약에 따라 다릅니다. 요금제에 데이터 포인트가 포함된 고객의 경우, Braze는 3초당 3,000건의 요청이라는 버스트 제한을 적용합니다. 그 외 모든 고객의 경우, 계약 조건에 따라 제한이 설정됩니다. 현재 계정의 제한은 대시보드에서 **설정** > **API 및 식별자** > **API 사용량 대시보드**에서 확인할 수 있습니다.
+
+각 `/users/track` 요청은 `attributes`, `events`, `purchases`를 합산하여 최대 75개의 오브젝트를 포함할 수 있습니다. 각 오브젝트는 한 명의 사용자를 업데이트할 수 있습니다. 단일 고객 프로필은 여러 오브젝트로 업데이트할 수 있습니다.
 
 월간 활성 사용자 CY 24-25, Universal MAU, Web MAU 또는 Mobile MAU를 구매한 고객에게는 추가 사용량 제한이 적용됩니다. 자세한 내용은 [월간 활성 사용자 CY 24-25 제한]({{site.baseurl}}/api/endpoints/user_data/post_user_track#monthly-active-users-cy-24-25-universal-mau-web-mau-and-mobile-mau)을 참조하세요.
 

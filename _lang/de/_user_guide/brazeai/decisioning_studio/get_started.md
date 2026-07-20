@@ -44,12 +44,12 @@ Arbeiten Sie mit dem AI Decisioning Services-Team zusammen, um die folgenden Ent
 
 | Entscheidung | Beschreibung | Beispiele |
 |----------|-------------|----------|
-| **Erfolgsmetrik** | Was soll der Agent bei der Personalisierung des Customer-Engagements maximieren? | Umsatz, LTV, ARPU, Conversions, Bindung |
-| **Zielgruppe** | Für wen soll der Decisioning-Studio-Agent Entscheidungen zum Customer-Engagement treffen? | Alle Kund:innen, Mitglieder von Treueprogrammen, gefährdete Abonnent:innen |
+| **Erfolgsmetrik** | Das Geschäftsergebnis, das der Agent bei der Personalisierung des Customer-Engagements maximiert. | Umsatz, LTV, ARPU, Conversions, Bindung |
+| **Zielgruppe** | Die Kund:innen, für die der Decisioning-Studio-Agent Engagement-Entscheidungen trifft. | Alle Kund:innen, Mitglieder von Treueprogrammen, gefährdete Abonnent:innen |
 | **Experimentgruppen** | Wie sollen die randomisierten kontrollierten Studien von Decisioning Studio strukturiert sein? | Decisioning Studio, Random Control, BAU, Holdout |
-| **Dimensionen** | Welche Entscheidungen soll der Agent personalisieren? | Tageszeit, Betreffzeile, Häufigkeit, Angebote, Kanal |
-| **Optionen** | Welche Optionen stehen dem Agenten zur Verfügung? | Bestimmte Templates, Angebote, Zeitfenster |
-| **Einschränkungen** | Welche Entscheidungen soll der Agent niemals treffen? | Geografische Beschränkungen, Budgetlimits, Berechtigungsregeln |
+| **Dimensionen** | Die Engagement-Entscheidungen, die der Agent für jede:n Kund:in personalisiert. | Tageszeit, Betreffzeile, Häufigkeit, Angebote, Kanal |
+| **Optionen** | Die spezifischen Varianten, die der Agent innerhalb jeder Dimension auswählen kann. | Bestimmte Templates, Angebote, Zeitfenster |
+| **Einschränkungen** | Die Geschäftsregeln und Limits, die die Entscheidungen des Agenten einschränken. | Geografische Beschränkungen, Budgetlimits, Berechtigungsregeln |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Wichtige Designentscheidungen" }
 
 Jede dieser Entscheidungen hat Auswirkungen darauf, wie viel inkrementellen Uplift der Agent generieren kann und wie schnell. Unser AI Decisioning Services-Team arbeitet mit Ihnen zusammen, um einen Agenten zu entwerfen, der maximalen Mehrwert generiert und gleichzeitig alle Ihre Geschäftsregeln einhält.

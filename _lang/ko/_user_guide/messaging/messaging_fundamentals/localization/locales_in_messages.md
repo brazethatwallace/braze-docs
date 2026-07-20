@@ -54,7 +54,7 @@ description: "이 문서에서는 메시지에서 로캘을 사용하는 방법�
 번역용으로 표시된 메시지 예시: {% raw %}`{% translation greeting %}Hello!{% endtranslation %}`{% endraw %}
 
 {% alert tip %}
-번역하려는 텍스트를 강조 표시하고 키보드 단축키 **Cmd + Alt + L**(macOS) 또는 **Ctrl + Alt + L**(Windows)을 사용하여 번역 태그로 감쌀 수 있습니다.<br><br> 이 단축키는 이메일 및 Content Blocks용 드래그 앤 드롭 에디터를 제외한 다국어 메시징을 지원하는 모든 채널에서 작동합니다. 해당 에디터에서는 왼쪽 사이드바의 **개인화 추가** 버튼을 사용하여 번역 태그를 추가하세요.
+번역하려는 텍스트를 강조 표시하고 키보드 단축키 **Cmd + Alt + L**(macOS) 또는 **Ctrl + Alt + L**(Windows)을 사용하여 번역 태그로 감쌀 수 있습니다.<br><br> 이 단축키는 이메일 및 Content Blocks용 드래그 앤 드롭 에디터를 제외한 다국어 메시징을 지원하는 모든 채널에서 작동합니다. 해당 에디터에서는 **개인화 추가** 버튼을 사용하여 번역 태그를 추가하세요.
 {% endalert %}
 
 #### URL 현지화 {#localize-urls}

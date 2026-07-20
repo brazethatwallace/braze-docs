@@ -50,11 +50,7 @@ After the data share is provisioned, create a catalog from the incoming share so
 
 Similar to Currents, you can use Databricks Delta Sharing to:
 
-- Create complex reports
-- Perform attribution modeling
-- Secure sharing within your own company
-- Map raw event or user data to a CRM (like Salesforce)
-- And more
+{% multi_lang_include partners/data_sharing_use_cases.md %}
 
 For a full list of tables and columns available in Databricks, [download the Databricks raw table schemas](/docs/assets/download_file/databricks-data-sharing-raw-table-schemas.txt) as a text file. This file reflects the Databricks Delta Sharing schema (for example, `DB_CREATED_AT` for ingestion time). It is not interchangeable with the [Snowflake raw table schemas](/docs/assets/download_file/data-sharing-raw-table-schemas.txt) or the [SQL table reference]({{site.baseurl}}/user_guide/audience/segments/segment_extension/sql_segments/sql_segments_tables/), which describe Snowflake naming and fields.
 

@@ -39,6 +39,6 @@ Dies ist ein sehr seltenes Vorkommen, das durch die zugrunde liegende Architektu
 
 CSV-Dateien werden in der Regel standardmäßig automatisch in Excel geöffnet, aber das ist nicht immer der Fall. In den Artikeln zur Fehlerbehebung für [Windows](https://support.microsoft.com/en-us/windows/change-which-programs-windows-7-uses-by-default-62fd162f-8c82-0436-806f-c60d69dcf495) und [Apple](https://support.apple.com/guide/mac-help/choose-an-app-to-open-a-file-on-mac-mh35597/mac) finden Sie Schritte, um Excel als Standardprogramm festzulegen.
 
-Um eine CSV-Datei in XLSX oder XLS umzuwandeln oder die Kommas zwischen den Datenwerten zu entfernen, lesen Sie [diese Anleitung](https://www.ablebits.com/office-addins-blog/convert-csv-excel/#import-csv-wizard) zum Importieren von CSV-Dateien in Excel.
+Um eine CSV-Datei in XLSX oder XLS umzuwandeln oder die Kommas zwischen den Datenwerten zu entfernen, lesen Sie [diese Anleitung zum Importieren von CSV-Dateien in Excel](https://www.ablebits.com/office-addins-blog/convert-csv-excel/#import-csv-wizard).
 
 Wenn Sie feststellen, dass führende Nullen in Nutzer-IDs in Ihrem CSV-Export entfernt werden, liegt das daran, dass Excel die Zahlen in einer CSV-Datei als Daten statt als Text behandelt. Um dieses Problem zu beheben, verwenden Sie den [Excel-Textimport-Assistenten](https://www.ablebits.com/office-addins-blog/converting-csv-excel-issues/#leading-zeros).

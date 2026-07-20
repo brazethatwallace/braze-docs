@@ -51,12 +51,12 @@ Braze.subscribeToInAppMessage(false, (event) => {
 Pour inclure une logique plus avancée permettant de déterminer s'il faut ou non afficher un message in-app à l'aide de l'interface utilisateur intégrée, implémentez les messages in-app par le biais de la couche native.
 
 {% alert warning %}
-Étant donné qu'il s'agit d'une option de personnalisation avancée, notez que le fait de remplacer l'implémentation par défaut de Braze annulera également la logique d'émission d'événements de messages in-app vers vos listeners JavaScript. Si vous souhaitez continuer à utiliser `Braze.subscribeToInAppMessage` ou `Braze.addListener` comme décrit dans [Accès aux données des messages in-app](#accessing-in-app-message-data), vous devrez gérer vous-même la publication des événements.
+Étant donné qu'il s'agit d'une option de personnalisation avancée, notez que le fait de remplacer le déploiement par défaut de Braze annulera également la logique d'émission d'événements de messages in-app vers vos listeners JavaScript. Si vous souhaitez continuer à utiliser `Braze.subscribeToInAppMessage` ou `Braze.addListener` comme décrit dans [Accès aux données des messages in-app](#accessing-in-app-message-data), vous devrez gérer vous-même la publication des événements.
 {% endalert %}
 
 {% subtabs %}
 {% subtab Android %}
-Implémentez le `IInAppMessageManagerListener` comme décrit dans notre article Android sur l'[auditeur de gestionnaire personnalisé]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners). Dans votre implémentation de `beforeInAppMessageDisplayed`, vous pouvez accéder aux données `inAppMessage`, les envoyer à la couche JavaScript et décider d'afficher ou non le message natif en fonction de la valeur de retour.
+Implémentez le `IInAppMessageManagerListener` comme décrit dans notre article Android sur l'[auditeur de gestionnaire personnalisé]({{site.baseurl}}/developer_guide/in_app_messages/customization/?sdktab=android#android_setting-custom-manager-listeners). Dans votre déploiement de `beforeInAppMessageDisplayed`, vous pouvez accéder aux données `inAppMessage`, les envoyer à la couche JavaScript et décider d'afficher ou non le message natif en fonction de la valeur de retour.
 
 Pour en savoir plus sur ces valeurs, consultez notre [documentation Android]({{site.baseurl}}/developer_guide/in_app_messages).
 
@@ -80,9 +80,9 @@ public InAppMessageOperation beforeInAppMessageDisplayed(IInAppMessage inAppMess
 {% subtab iOS %}
 ### Remplacer le délégué de l'interface utilisateur par défaut {#overriding-the-default-ui-delegate}
 
-Par défaut, [`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/) est créé et attribué lorsque vous initialisez l'instance `braze`. `BrazeInAppMessageUI` est une implémentation du protocole [`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) et dispose d'une propriété `delegate` qui peut être utilisée pour personnaliser la gestion des messages in-app reçus.
+Par défaut, [`BrazeInAppMessageUI`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazeui/brazeinappmessageui/) est créé et attribué lorsque vous initialisez l'instance `braze`. `BrazeInAppMessageUI` est un déploiement du protocole [`BrazeInAppMessagePresenter`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/brazeinappmessagepresenter) et dispose d'une propriété `delegate` qui peut être utilisée pour personnaliser la gestion des messages in-app reçus.
 
-1. Implémentez le délégué `BrazeInAppMessageUIDelegate` comme décrit dans [notre article iOS ici](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
+1. Implémentez le délégué `BrazeInAppMessageUIDelegate` comme décrit dans notre [tutoriel iOS sur l'interface des messages in-app](https://braze-inc.github.io/braze-swift-sdk/tutorials/braze/c1-inappmessageui).
 
 2. Dans la méthode de délégation `inAppMessage(_:displayChoiceForMessage:)`, vous pouvez accéder aux données `inAppMessage`, les envoyer à la couche JavaScript et décider d'afficher ou non le message natif en fonction de la valeur de retour.
 

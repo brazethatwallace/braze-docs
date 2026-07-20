@@ -44,15 +44,15 @@ Travaillez avec l'équipe AI Decisioning Services pour prendre les décisions su
 
 | Décision | Description | Exemples |
 |----------|-------------|----------|
-| **Indicateur de réussite** | Que l'agent doit-il maximiser lors de la personnalisation de l'engagement client ? | Chiffre d'affaires, LTV, ARPU, conversions, rétention |
-| **Audience** | Pour qui l'agent Decisioning Studio prendra-t-il des décisions d'engagement client ? | Tous les clients, membres fidélité, abonnés à risque |
+| **Indicateur de réussite** | Le résultat métier que l'agent maximise lors de la personnalisation de l'engagement client. | Chiffre d'affaires, LTV, ARPU, conversions, rétention |
+| **Audience** | Les clients pour lesquels l'agent Decisioning Studio prend des décisions d'engagement. | Tous les clients, membres fidélité, abonnés à risque |
 | **Groupes d'expérience** | Comment les essais contrôlés randomisés de Decisioning Studio doivent-ils être structurés ? | Decisioning Studio, contrôle aléatoire, BAU, groupe de contrôle |
-| **Dimensions** | Quelles décisions l'agent doit-il personnaliser ? | Heure de la journée, ligne d'objet, fréquence, offres, canal |
-| **Options** | Quelles options l'agent a-t-il à sa disposition ? | Modèles spécifiques, offres, créneaux horaires |
-| **Contraintes** | Quelles décisions l'agent ne doit-il jamais prendre ? | Restrictions géographiques, limites budgétaires, règles d'éligibilité |
+| **Dimensions** | Les décisions d'engagement que l'agent personnalise pour chaque client. | Heure de la journée, ligne d'objet, fréquence, offres, canal |
+| **Options** | Les variantes spécifiques que l'agent peut sélectionner au sein de chaque dimension. | Modèles spécifiques, offres, créneaux horaires |
+| **Contraintes** | Les règles métier et les limites qui restreignent les décisions de l'agent. | Restrictions géographiques, limites budgétaires, règles d'éligibilité |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3 aria-label="Décisions clés de conception" }
 
-Chacune de ces décisions a des implications sur le gain incrémental que l'agent peut générer, et sur la rapidité avec laquelle il y parvient. Notre équipe AI Decisioning Services travaillera avec vous pour concevoir un agent qui génère une valeur maximale tout en respectant l'ensemble de vos règles métier.
+Chacune de ces décisions a des implications sur le gain incrémental que l'agent peut générer, et sur la rapidité avec laquelle il y parvient. Notre équipe AI Decisioning Services travaille avec vous pour concevoir un agent qui génère une valeur maximale tout en respectant l'ensemble de vos règles métier.
 
 ![Diagramme montrant comment les indicateurs de réussite, l'audience, les groupes d'expérience, les dimensions, les options et les contraintes alimentent la conception d'un agent Decisioning Studio]({% image_buster /assets/img/decisioning_studio/decisioning_studio_pro_agent_design.png %})
 

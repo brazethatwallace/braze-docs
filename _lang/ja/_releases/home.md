@@ -242,7 +242,7 @@ BrazeAI<sup>TM</sup>バリアントセレクションは、複数のプッシュ
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-[コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)を使用して、SMS、MMS、RCSメッセージのフック、本文、CTAを最適化できます。コンテンツオプティマイザーは、AIを使用して大量のコンテンツバリアントを自動的に生成・評価し、メッセージコンテンツを大規模にテスト・最適化するのに役立つエージェントです。
+[コンテンツオプティマイザー]({{site.baseurl}}/user_guide/brazeai/content_optimizer)を使用して、SMS、MMS、RCSメッセージのフック、本文、CTAを最適化できます。コンテンツオプティマイザーは、AIを使用して大量のコンテンツバリアントを自動的に生成・評価し、メッセージコンテンツを大規模にテスト・最適化するのに役立ちます。
 
 ### オーケストレーション {#orchestration}
 

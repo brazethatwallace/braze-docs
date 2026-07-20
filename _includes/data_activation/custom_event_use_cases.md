@@ -1,0 +1,7 @@
+- Triggering a campaign or Canvas based on a custom event using [action-based delivery]({{site.baseurl}}/user_guide/messaging/campaigns/schedule_your_campaign/triggered_delivery)
+- Segmenting users by how many times they performed a custom event, when the last time the event occurred, and similar
+- Using dashboard [custom event analytics]({{site.baseurl}}/user_guide/data/activation/events/custom_events#analytics) to view an aggregate of how often each event occurred
+- Finding additional analytics using [funnel]({{site.baseurl}}/user_guide/analytics/reports/funnel_reports#step-2-select-events-for-funnel-steps) and [retention]({{site.baseurl}}/user_guide/analytics/reports/retention_reports) reports
+- Leveraging [persistent entry properties]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/context_and_event_properties/canvas_persistent_entry_properties) to use metadata from your customer event for personalization in your Canvas steps
+- Generating more sophisticated analytics with [Currents]({{site.baseurl}}/user_guide/data/distribution/braze_currents)
+- Setting up [exit criteria]({{site.baseurl}}/user_guide/messaging/canvas/create_a_canvas/exit_criteria) to define when users should exit your Canvas

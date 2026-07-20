@@ -6,8 +6,10 @@
 #   bash scripts/install_hooks.sh
 #
 # What it does:
-#   Symlinks .github/hooks/pre-commit → .git/hooks/pre-commit
-#   so the accessibility pre-commit check runs automatically on every commit.
+#   Symlinks .github/hooks/pre-commit → .git/hooks/pre-commit so local
+#   accessibility, spell-check (cspell), and screenshot PII gates run on commit.
+#   Spell-check needs npm deps (`npm ci --ignore-scripts`); CI remains the
+#   blocking PR gate (.github/workflows/cspell.yml).
 #
 # To uninstall:
 #   rm .git/hooks/pre-commit
@@ -86,5 +88,14 @@ else
 fi
 
 echo ""
-echo "To skip a check in an emergency:  SKIP_A11Y=1 git commit  |  SKIP_PII=1 git commit"
+if [[ -e "$REPO_ROOT/node_modules/.bin/cspell" ]]; then
+  echo "✅  cspell — local spell-check on staged _docs/ and _includes/ markdown is active."
+else
+  echo "⚠️  cspell is not installed locally. The spell-check gate will be skipped until you run:"
+  echo "     npm ci --ignore-scripts"
+fi
+
+echo ""
+echo "To skip a check in an emergency:"
+echo "  SKIP_A11Y=1 git commit   |  SKIP_SPELL=1 git commit  |  SKIP_PII=1 git commit"
 echo "To uninstall:                      rm .git/hooks/pre-commit"

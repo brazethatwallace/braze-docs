@@ -1,16 +1,16 @@
 ---
 nav_title: Otimizador de Conteúdo
-article_title: Etapa do agente Otimizador de Conteúdo
+article_title: Etapa do Otimizador de Conteúdo
 alias: "/content_optimizer_step/"
 page_order: 5
-description: "A etapa do agente Otimizador de Conteúdo permite configurar e testar múltiplas versões de componentes de conteúdo em uma única etapa. Ela ajuda você a experimentar variações de conteúdo e otimiza automaticamente em direção às combinações com melhor desempenho ao longo do tempo."
+description: "A etapa do Otimizador de Conteúdo permite configurar e testar múltiplas versões de componentes de conteúdo em uma única etapa. Ela ajuda você a experimentar variações de conteúdo e otimiza automaticamente em direção às combinações com melhor desempenho ao longo do tempo."
 page_type: reference
 
 ---
 
-# Etapa do agente Otimizador de Conteúdo {#content-optimizer-agent-step}
+# Etapa do Otimizador de Conteúdo {#content-optimizer-step}
 
-> A etapa do agente Otimizador de Conteúdo permite configurar e testar múltiplas versões de componentes de conteúdo em uma única etapa. Ela ajuda você a experimentar variações de conteúdo e otimiza automaticamente em direção às combinações com melhor desempenho ao longo do tempo. Para uma introdução, consulte [Otimizador de Conteúdo]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
+> A etapa do Otimizador de Conteúdo permite configurar e testar múltiplas versões de componentes de conteúdo em uma única etapa. Ela ajuda você a experimentar variações de conteúdo e otimiza automaticamente em direção às combinações com melhor desempenho ao longo do tempo. Para uma introdução, consulte [Otimizador de Conteúdo]({{site.baseurl}}/user_guide/brazeai/content_optimizer).
 
 {% alert important %}
 O Otimizador de Conteúdo está atualmente em beta. Para começar, entre em contato com seu gerente de sucesso do cliente.
@@ -18,7 +18,7 @@ O Otimizador de Conteúdo está atualmente em beta. Para começar, entre em cont
 
 ## Criar uma etapa do Otimizador de Conteúdo {#create-a-content-optimizer-step}
 
-Para melhores resultados, use o agente Otimizador de Conteúdo em Canvas onde os usuários entram na etapa gradualmente ao longo do tempo. Se todos os usuários entrarem na etapa de uma vez, o agente não terá tempo para aprender com os resultados iniciais.
+Para melhores resultados, use o Otimizador de Conteúdo em Canvas onde os usuários entram na etapa gradualmente ao longo do tempo. Se todos os usuários entrarem na etapa de uma vez, o Otimizador de Conteúdo não terá tempo para aprender com os resultados iniciais.
 
 ### Etapa 1: Adicionar uma etapa {#step-1-add-a-step}
 
@@ -37,7 +37,7 @@ Durante o período beta, os canais suportados são e-mail, notificações por pu
 
 Na guia **Canais de envio de mensagens**, selecione **E-mail** e crie sua mensagem de e-mail base. Consulte nossa seção dedicada de [E-mail]({{site.baseurl}}/user_guide/channels/email) para obter ajuda.
 
-O agente Otimizador de Conteúdo usa as configurações de envio (como o domínio de e-mail e o endereço de resposta) especificadas nesta variante para enviar todas as mensagens. Você pode começar com um novo design ou selecionar um modelo existente para esta mensagem. Nesta etapa, considere quais componentes da mensagem você deseja otimizar. Você os define na [etapa 4](#step-4).
+O Otimizador de Conteúdo usa as configurações de envio (como o domínio de e-mail e o endereço de resposta) especificadas nesta variante para enviar todas as mensagens. Você pode começar com um novo design ou selecionar um modelo existente para esta mensagem. Nesta etapa, considere quais componentes da mensagem você deseja otimizar. Você os define na [etapa 4](#step-4).
 
 Os componentes suportados para otimização incluem:
 
@@ -51,7 +51,7 @@ Os componentes suportados para otimização incluem:
 
 Na guia **Canais de envio de mensagens**, selecione **Notificações por push** e crie sua notificação por push base. Consulte nossa seção dedicada de [Push]({{site.baseurl}}/user_guide/channels/push) para obter ajuda.
 
-O agente Otimizador de Conteúdo usa as plataformas de push selecionadas nesta variante para enviar todas as mensagens. Você pode começar com um novo design ou selecionar um modelo existente para esta mensagem. Nesta etapa, considere quais componentes da mensagem você deseja otimizar. Você os define na [etapa 4](#step-4).
+O Otimizador de Conteúdo usa as plataformas de push selecionadas nesta variante para enviar todas as mensagens. Você pode começar com um novo design ou selecionar um modelo existente para esta mensagem. Nesta etapa, considere quais componentes da mensagem você deseja otimizar. Você os define na [etapa 4](#step-4).
 
 Os componentes suportados para otimização incluem:
 
@@ -63,7 +63,7 @@ Os componentes suportados para otimização incluem:
 
 Na guia **Canais de envio de mensagens**, selecione **SMS/MMS/RCS** e crie sua mensagem base. Consulte nossa seção dedicada de [SMS/MMS/RCS]({{site.baseurl}}/user_guide/channels/sms_mms_and_rcs) para obter ajuda.
 
-O agente Otimizador de Conteúdo usa os detalhes de **Content** e **Message** especificados nesta variante para enviar todas as mensagens. Você pode começar com um novo design ou selecionar um modelo existente para esta mensagem. Nesta etapa, considere quais componentes da mensagem você deseja otimizar. Você os define na [etapa 4](#step-4).
+O Otimizador de Conteúdo usa os detalhes de **Content** e **Message** especificados nesta variante para enviar todas as mensagens. Você pode começar com um novo design ou selecionar um modelo existente para esta mensagem. Nesta etapa, considere quais componentes da mensagem você deseja otimizar. Você os define na [etapa 4](#step-4).
 
 Os componentes suportados para otimização incluem:
 
@@ -153,7 +153,7 @@ Após definir pelo menos duas variantes para cada componente, copie a Liquid tag
 
 Se você não adicionar uma Liquid tag para um componente de conteúdo selecionado, verá um aviso na guia **Configurações do Otimizador de Conteúdo** e um erro na guia **Canais de envio de mensagens**. O Canvas não pode ser lançado até que todos os componentes selecionados sejam adicionados corretamente à sua mensagem base.
 
-Conforme o Canvas é executado, o agente combina e alterna variantes entre componentes para gerar diferentes combinações de conteúdo. Com o tempo, as combinações com melhor desempenho são priorizadas para entrega, ajudando você a melhorar o desempenho sem intervenção manual.
+Conforme o Canvas é executado, o Otimizador de Conteúdo combina e alterna variantes entre componentes para gerar diferentes combinações de conteúdo. Com o tempo, as combinações com melhor desempenho são priorizadas para entrega, ajudando você a melhorar o desempenho sem intervenção manual.
 
 #### Referências de Liquid {#liquid-references}
 
@@ -172,14 +172,14 @@ Conforme o Canvas é executado, o agente combina e alterna variantes entre compo
 
 ### Etapa 5: Selecionar evento de otimização {#step-5-select-optimization-event}
 
-O evento de otimização determina como o agente Otimizador de Conteúdo avalia o desempenho e distribui o tráfego para as combinações de conteúdo ao longo do tempo.
+O evento de otimização determina como o Otimizador de Conteúdo avalia o desempenho e distribui o tráfego para as combinações de conteúdo ao longo do tempo.
 
 O evento de otimização selecionado se aplica a todos os componentes de conteúdo nesta etapa.
 
 {% tabs local %}
 {% tab E-mail %}
 
-Para e-mail, você pode otimizar para um dos seguintes eventos. O agente usa aberturas e cliques registrados dentro de 7 dias após o envio de uma mensagem para direcionar a entrega para combinações de conteúdo com melhor desempenho.
+Para e-mail, você pode otimizar para um dos seguintes eventos. O Otimizador de Conteúdo usa aberturas e cliques registrados dentro de 7 dias após o envio de uma mensagem para direcionar a entrega para combinações de conteúdo com melhor desempenho.
 
 | Evento | Descrição | Casos de uso |
 | --- | --- | --- |
@@ -213,17 +213,17 @@ Conforme uma etapa do Otimizador de Conteúdo é executada, a Braze avalia o des
 
 | Estado | O que significa |
 | --- | --- |
-| Aprendendo | O agente ainda está coletando dados de desempenho das suas variantes de conteúdo e ainda não encontrou um vencedor consistente e confiável. |
-| Otimizando | O agente encontrou variantes que superam consistentemente as outras e está direcionando a entrega para as combinações vencedoras. |
-| Ação recomendada | A etapa está em execução há algum tempo sem que um vencedor claro tenha surgido. Revise a configuração da sua etapa para ajudar o agente a encontrar um. |
+| Aprendendo | O Otimizador de Conteúdo ainda está coletando dados de desempenho das suas variantes de conteúdo e ainda não encontrou um vencedor consistente e confiável. |
+| Otimizando | O Otimizador de Conteúdo encontrou variantes que superam consistentemente as outras e está direcionando a entrega para as combinações vencedoras. |
+| Ação recomendada | A etapa está em execução há algum tempo sem que um vencedor claro tenha surgido. Revise a configuração da sua etapa para ajudar o Otimizador de Conteúdo a encontrar um. |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Estados da etapa do Otimizador de Conteúdo" }
 
 ### Ações a considerar {#actions-to-consider}
 
 Se sua etapa entrar no estado Ação recomendada, considere o seguinte:
 
-- Aumente o número de usuários que entram no Canvas, se possível. Mais envios fornecem ao agente mais dados para aprender.
-- Em geral, teste mais combinações em vez de menos (consulte [Práticas recomendadas](#best-practices)). Isso dá ao agente um sinal mais claro sobre o que está funcionando. Se o volume do seu público for baixo (com média inferior a aproximadamente 3.000 envios por dia), considere reduzir ligeiramente o número de variantes, pois muitas combinações em relação ao seu volume podem desacelerar o aprendizado.
+- Aumente o número de usuários que entram no Canvas, se possível. Mais envios fornecem ao Otimizador de Conteúdo mais dados para aprender.
+- Em geral, teste mais combinações em vez de menos (consulte [Práticas recomendadas](#best-practices)). Isso dá ao Otimizador de Conteúdo um sinal mais claro sobre o que está funcionando. Se o volume do seu público for baixo (com média inferior a aproximadamente 3.000 envios por dia), considere reduzir ligeiramente o número de variantes, pois muitas combinações em relação ao seu volume podem desacelerar o aprendizado.
 - Torne suas variantes de conteúdo mais claramente distintas umas das outras em tom, estrutura ou conteúdo.
 - Se você não conseguir aumentar seu público e a quantidade de variantes e a diversidade de conteúdo já parecerem adequadas, sua etapa pode simplesmente precisar de mais tempo para encontrar vencedores.
 

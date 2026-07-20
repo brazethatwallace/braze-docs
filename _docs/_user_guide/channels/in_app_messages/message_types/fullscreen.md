@@ -34,9 +34,7 @@ This message type is available in both the [drag-and-drop]({{site.baseurl}}/user
 
 Fullscreen in-app messages will fill the entire height of a device and crop horizontally (left and right sides) as needed. Image and text fullscreen messages will fill 50% of the height of a device. All fullscreen in-app messages will fill the status bar on "notched" devices.
 
-- All images must be less than 5&nbsp;MB.
-- We only accept PNG, JPEG, and [GIF]({{site.baseurl}}/developer_guide/platform_integration_guides/android/in-app_messaging/customization/gifs#gifs) file types.
-- We recommend that your images be 500&nbsp;KB.
+{% multi_lang_include in-app_messages/image_requirements.md %}
 
 {% alert tip %} Create assets with confidence! Our in-app message image templates and safe zone overlays are designed to play nicely with devices of all sizes. [Download Design Templates ZIP]({% image_buster /assets/download_file/Braze-In-App-Message-Design-Templates.zip %}) {% endalert %}
 

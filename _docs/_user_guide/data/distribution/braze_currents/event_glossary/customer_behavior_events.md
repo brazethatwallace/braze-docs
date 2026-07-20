@@ -1643,7 +1643,10 @@ Add and remove pairs fall into two categories:
 - The [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge) endpoint or duplicate user cleanup moves the orphaned user's tokens to the surviving user.
 
 {% alert note %}
-Same-profile identification through REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) or SDK `changeUser` assigning an external ID to the anonymous profile does not change `user_id` and does not emit paired add and remove events. Instead, Braze emits an "update" event for each existing push token and sets `external_user_id` to the identified user's external ID. When `changeUser` moves tokens from one user profile to another, Braze still emits the paired add and remove events described in the previous list.
+Same-profile identification through REST [`/users/identify`]({{site.baseurl}}/api/endpoints/user_data/post_user_identify) or SDK [`changeUser`]({{site.baseurl}}/user_guide/data/unification/user_data/user_profile_lifecycle#identified-user-profiles) can assign an external ID to an anonymous profile without changing `user_id`.
+In this case, Braze does not emit [paired add and remove events](#add-and-remove-pairs).
+Instead, Braze emits an "update" event for each existing push token and sets `external_user_id` to the identified user's external ID.
+When `changeUser` moves tokens from one user profile to another, Braze still emits the [paired add and remove events](#add-and-remove-pairs) described in the [Add and remove pairs](#add-and-remove-pairs) section.
 {% endalert %}
 
 #### Querying for the latest active token state

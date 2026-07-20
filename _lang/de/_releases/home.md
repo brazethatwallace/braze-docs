@@ -242,7 +242,7 @@ Das [`ecommerce.cart_updated`-Event]({{site.baseurl}}/user_guide/data/activation
 
 {% multi_lang_include release_type.md release="Beta" %}
 
-Sie können den [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) verwenden, um Hooks, Textkörper und CTAs für SMS-, MMS- und RCS-Nachrichten zu optimieren. Content Optimizer ist ein Agent, der Ihnen hilft, Nachrichteninhalte im großen Maßstab zu testen und zu optimieren, indem er KI nutzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten.
+Sie können den [Content Optimizer]({{site.baseurl}}/user_guide/brazeai/content_optimizer) verwenden, um Hooks, Textkörper und CTAs für SMS-, MMS- und RCS-Nachrichten zu optimieren. Content Optimizer hilft Ihnen, Nachrichteninhalte im großen Maßstab zu testen und zu optimieren, indem er KI nutzt, um automatisch große Mengen an Inhaltsvarianten zu generieren und zu bewerten.
 
 ### Orchestrierung {#orchestration}
 

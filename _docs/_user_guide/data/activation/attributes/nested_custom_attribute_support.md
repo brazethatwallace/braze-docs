@@ -11,7 +11,20 @@ description: "This reference article covers using nested custom attributes as a 
 
 > This page covers nested custom attributes, which allow you to define a set of attributes as a property of another attribute. In other words, when you define a custom attribute object, you can define a set of additional attributes for that object.
 
-{% multi_lang_include nested_attribute_objects/about_nested_attributes.md %}
+## About nested attributes
+
+Nested attributes let you build richer segments and personalize messages with data from a single custom attribute object.
+
+In the following example, the custom attribute `favorite_book` contains the nested attributes `title`, `author`, and `publishing_date`. This object can be used to target users by author, filter by publishing date, or insert the book title directly into a message:
+
+```json
+"favorite_book": {
+  "title": "The Hobbit",
+  "author": "J.R.R. Tolkien",
+  "publishing_date": "1937"
+}
+```
+
 
 {% multi_lang_include nested_attribute_objects/supported_data_types.md %}
 

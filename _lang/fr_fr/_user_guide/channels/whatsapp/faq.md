@@ -187,14 +187,19 @@ Il existe diverses raisons pour lesquelles un message pourrait ne pas être livr
 #### Si un message n'est pas livré, serai-je facturé ? {#if-a-message-is-not-delivered-will-i-be-billed}
 Non. Si un message n'est pas livré, vous ne serez pas facturé.
 
-#### Que se passe-t-il si un utilisateur final bloque mon entreprise ? {#what-happens-if-an-end-user-blocks-my-business}
-Si un utilisateur final bloque votre entreprise, les messages suivants que vous tenterez d'envoyer ne seront pas livrés, et vous ne serez pas facturé.
+#### Que se passe-t-il si un utilisateur bloque mon entreprise ? {#what-happens-if-a-user-blocks-my-business}
+Si un utilisateur bloque votre entreprise, les messages suivants que vous tenterez d'envoyer ne seront pas livrés, et vous ne serez pas facturé.
 
-#### Que se passe-t-il si un utilisateur final signale un message ? {#what-happens-if-an-end-user-reports-a-message}
-Si un utilisateur final signale un message, vous pouvez toujours envoyer des messages ultérieurs à cet utilisateur. Cependant, le signalement peut affecter votre évaluation de qualité sur le canal.
+#### Que se passe-t-il si un utilisateur signale un message ? {#what-happens-if-a-user-reports-a-message}
+Si un utilisateur signale un message, vous pouvez toujours envoyer des messages ultérieurs à cet utilisateur. Cependant, le signalement peut affecter votre évaluation de qualité sur le canal.
 
-#### Si un utilisateur final bloque ou signale mon entreprise, son statut d'abonnement sera-t-il mis à jour dans Braze ? {#if-an-end-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
+#### Si un utilisateur bloque ou signale mon entreprise, son statut d'abonnement sera-t-il mis à jour dans Braze ? {#if-a-user-blocks-or-reports-my-business-will-their-subscription-status-be-updated-in-braze}
 Non. Son statut d'abonnement Braze ne sera pas mis à jour.
+
+#### Comment puis-je exclure les utilisateurs qui signalent mon compte WhatsApp des prochains envois ? {#how-can-i-exclude-users-who-report-my-whatsapp-account-from-upcoming-launches}
+Braze ne reçoit pas de notifications de WhatsApp lorsque votre compte est signalé, vous ne pouvez donc pas identifier ou exclure automatiquement ces utilisateurs dans Braze. Les utilisateurs qui signalent votre compte peuvent rester dans votre groupe d'abonnement WhatsApp et continuer à être éligibles pour les futurs messages.
+
+Vous pouvez toutefois configurer une Campaign qui se déclenche lorsqu'un utilisateur répond avec un mot-clé de désabonnement, ce qui le désabonne automatiquement à l'aide de l'[endpoint `/subscription/status/set`]({{site.baseurl}}/api/endpoints/subscription_groups/post_update_user_subscription_group_status). Pour plus d'informations, consultez [Processus d'abonnement et de désabonnement WhatsApp]({{site.baseurl}}/user_guide/channels/whatsapp/whatsapp_setup/subscription_groups#whatsapp-opt-in-and-opt-out-process).
 
 #### Les messages de réponse WhatsApp sont-ils gratuits ? {#are-whatsapp-response-messages-free}
 
@@ -234,7 +239,7 @@ Pour envoyer des informations dans Braze, par exemple pour indiquer qu'un utilis
 Les messages ne sont stockés que le temps nécessaire à leur traitement. Pour accéder aux messages des utilisateurs, utilisez Currents.
 
 #### Quels indicateurs sont disponibles dans le tableau de bord de Braze ? {#what-metrics-are-available-in-the-braze-dashboard}
-Vous pouvez voir les destinataires uniques, les envois, les livraisons, les lectures et les échecs dans le tableau de bord de Braze. Notez que les accusés de lecture des utilisateurs finaux doivent être activés pour que Braze puisse suivre les lectures. Vous pouvez également configurer des événements de conversion pour surveiller les performances des campagnes, de manière similaire aux autres canaux.
+Vous pouvez voir les destinataires uniques, les envois, les livraisons, les lectures et les échecs dans le tableau de bord de Braze. Notez que les accusés de lecture des utilisateurs doivent être activés pour que Braze puisse suivre les lectures. Vous pouvez également configurer des événements de conversion pour surveiller les performances des campagnes, de manière similaire aux autres canaux.
 
 #### Qu'est-ce qu'une conversation WhatsApp ? {#what-is-a-whatsapp-conversation}
 WhatsApp est un canal axé sur la messagerie bidirectionnelle et s'articule donc autour des conversations (plutôt que du nombre de messages individuels). Une conversation est un fil de 24 heures entre une entreprise et un utilisateur final.

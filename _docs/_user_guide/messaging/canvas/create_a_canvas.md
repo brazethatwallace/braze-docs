@@ -191,9 +191,7 @@ Select **Send Settings** to edit your subscription settings, turn on rate limiti
 
 For Canvases targeting email and push channels, you may want to limit your Canvas so that only the users who are explicitly opted in will receive the message (excluding subscribed or unsubscribed users). For example, say you have three users of different opt-in status:
 
-- **User A** is subscribed to email and is push enabled. This user doesn't receive the email but will receive the push.
-- **User B** is opted-in to email but is not push enabled. This user will receive the email but doesn't receive the push.
-- **User C** is opted-in to email and is push enabled. This user will receive both the email and the push.
+{% multi_lang_include messaging/intelligent_channel_user_examples.md %}
 
 To do so, set the **Subscription Settings** to send this Canvas to "opted-in users only". This option will ensure that only opted-in users will receive your email, and Braze will only send your push to users who are push enabled by default. 
 
