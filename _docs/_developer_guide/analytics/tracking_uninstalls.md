@@ -16,7 +16,7 @@ description: "Learn how to track uninstalls through the Braze SDK."
 
 ### Step 1: Set up FCM
 
-The Android Braze SDK uses Firebase Cloud Messaging (FCM) to send silent push notifications, which are used to collect uninstall tracking analytics. If you haven't already, [set up]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#setting-up-push-notifications) or [migrate to]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) the Firebase Cloud Messaging API for push notifications.
+The Android Braze SDK uses Firebase Cloud Messaging (FCM) to send silent push notifications, which are used to collect uninstall tracking analytics. If you haven't already, [set up]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#android_setting-up-push-notifications) or [migrate to]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) the Firebase Cloud Messaging API for push notifications.
 
 ### Step 2: Manually detect uninstall tracking (optional)
 
@@ -28,7 +28,7 @@ Because silent notifications for uninstall tracking are not forwarded to any Bra
 
 ### Step 3: Remove automatic server pings
 
-A silent push notification will wake your app and instantiate the `Application` component if it app isn't already running. So, if you have a custom [`Application`](https://developer.android.com/reference/android/app/Application) subclass, remove any logic that automatically pings your servers during your [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application#onCreate()) lifecycle method.
+A silent push notification wakes your app and instantiates the `Application` component if the app isn't already running. So, if you have a custom [`Application`](https://developer.android.com/reference/android/app/Application) subclass, remove any logic that automatically pings your servers during your [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application#onCreate()) lifecycle method.
 
 ### Step 4: Enable uninstall tracking
 

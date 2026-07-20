@@ -57,17 +57,17 @@ Keep in mind, you'll need to implement your own custom UI since Content Cards ar
 
 In Braze, select **Settings** > **App Settings**, then select **Add App**. Enter a name for your tvOS app, select **iOS**&#8212;_not tvOS_&#8212;then select **Add App**.
 
-![ALT_TEXT.]({% image_buster /assets/img/tvos.png %}){: style="width:70%"}
+![Add App dialog in Braze with the iOS platform selected to register a tvOS app.]({% image_buster /assets/img/tvos.png %}){: style="width:70%"}
 
 {% alert warning %}
-If you select the **tvOS** checkbox, you will not be able to customize Content Cards for tvOS.
+If you select the **tvOS** checkbox, you cannot customize Content Cards for tvOS.
 {% endalert %}
 
 ### Step 2: Get your app's API key
 
 In your app settings, select your new tvOS app then take note of your app's API key. You'll use this key to configure your app in Xcode.
 
-![ALT_TEXT]({% image_buster /assets/img/tvos1.png %}){: style="width:70%"}
+![App settings for a tvOS app showing the API key used for SDK integration.]({% image_buster /assets/img/tvos1.png %}){: style="width:70%"}
 
 ### Step 3: Integrate BrazeKit
 
