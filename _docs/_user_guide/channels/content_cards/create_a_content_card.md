@@ -313,7 +313,7 @@ This removal is not instantaneous. There is a processing delay, so it may take s
 {% endalert %}
 
 {% alert tip %}
-You can specify multiple custom events and purchases that should remove a card from a user's feed. When **any** of those actions are performed by the user, any existing cards sent by the campaign's cards are removed. Eligible cards continue to be sent according to the message's schedule.
+You can specify multiple custom events and purchases that should remove a card from a user's feed. When any of those actions are performed by the user, any existing cards sent by the campaign's cards are removed. Eligible cards continue to be sent according to the message's schedule.
 {% endalert %}
 
 ![Content Card Removal Conditions panel with Content Card Removal Event option.]({% image_buster /assets/img/content_cards/content_card_removal_event.png %})
