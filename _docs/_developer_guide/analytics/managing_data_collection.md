@@ -117,7 +117,7 @@ The data collected by Braze is determined by your specific integration and the u
         </tr>
         <tr>
             <td>Other in-app messages</td>
-            <td>If you send In-app messages or push notifications through Braze, we collect information on when users have opened or read these messages.</td>
+            <td>If you send in-app messages or push notifications through Braze, we collect information on when users have opened or read these messages.</td>
         </tr>
         <tr>
             <td rowspan="2">Photos and videos</td>

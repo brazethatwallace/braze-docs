@@ -45,7 +45,7 @@ To use this feature, you'll need to complete the following:
 To set up push notifications for Android TV:
 
 1. Create a custom view in your app to display your notifications.
-2. Create a [custom notification factory]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_customization-display). This overrides the default SDK behavior and allows you to manually display the notifications. By returning `null`, this prevents the SDK from processing and requires custom code to display the notification. After completing these steps, you can start sending push to Android TV!<br><br>
+2. Create a [custom notification factory]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_customization-display). This overrides the default SDK behavior and allows you to manually display the notifications. By returning `null`, this prevents the SDK from processing and requires custom code to display the notification. After completing these steps, you can start sending push to Android TV.<br><br>
 3. (Optional) To track click analytics effectively, set up click analytics tracking. This can be achieved by creating a [push callback]({{site.baseurl}}/developer_guide/push_notifications/customization?sdktab=android#android_push-callback) to listen for Braze push opened and received intents.
 
 {% alert note %}
