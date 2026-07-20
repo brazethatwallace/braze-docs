@@ -59,7 +59,10 @@ def _load_secret_redactions(
             "Expected `_data/pii_patterns.yml` (copied from the workflow ref in CI)."
         )
 
-    data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    try:
+        data = yaml.safe_load(path.read_text(encoding="utf-8"))
+    except yaml.YAMLError as exc:
+        raise ValueError(f"Invalid YAML in PII patterns file {path}: {exc}") from exc
     if not isinstance(data, dict) or not isinstance(data.get("patterns"), list):
         raise ValueError(
             f"Invalid PII patterns file {path}: expected a mapping with a `patterns` list."

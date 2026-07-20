@@ -53,6 +53,15 @@ class LoadPiiPatternsTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 _load_secret_redactions(str(path))
 
+    def test_rejects_malformed_yaml_as_value_error(self) -> None:
+        """Malformed YAML must surface as ValueError (caught by main), not YAMLError."""
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "bad.yml"
+            path.write_text("patterns:\n  - id: broken\n    pattern: [\n", encoding="utf-8")
+            with self.assertRaises(ValueError) as ctx:
+                _load_secret_redactions(str(path))
+            self.assertIn("Invalid YAML", str(ctx.exception))
+
     def test_yaml_only_new_pattern_requires_no_python_change(self) -> None:
         """Acceptance: adding a pattern in YAML alone is enough."""
         with tempfile.TemporaryDirectory() as tmp:
