@@ -14875,6 +14875,21 @@
     "permanent": true
   },
   {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/set_up_orchestration",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup",
+    "permanent": true
+  },
+  {
+    "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/use_cases",
+    "destination": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_go/examples",
+    "permanent": true
+  },
+  {
     "source": "/docs/user_guide/brazeai/decisioning_studio/decisioning_studio_pro",
     "destination": "/docs/user_guide/brazeai/decisioning_studio/get_started",
     "permanent": true

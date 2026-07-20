@@ -198,7 +198,17 @@ module Jekyll
                 menu_hash[@menu_sorted_list].push(v)
               end
 
-              menu_hash[@menu_sorted_list].sort_by!{|e| [ e[@page_weight_index] ? 0 : 1,  e[@page_weight_index] ]}
+              # Sort by page_order first (pages with a weight before pages without), then by
+              # nav title. Avoid nil in the sort key — Ruby 3.3's sort_by can reorder equal
+              # keys that contain nil (swapping first/last once the list has 8+ items).
+              menu_hash[@menu_sorted_list].sort_by! do |e|
+                weight = e[@page_weight_index]
+                [
+                  weight.nil? ? 1 : 0,
+                  weight.nil? ? 0 : weight,
+                  e[@page_title_index].to_s.downcase
+                ]
+              end
 
             end
 

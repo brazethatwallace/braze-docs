@@ -27,11 +27,11 @@ Decisioning Studio Go is a self-service platform with streamlined capabilities c
 
 ## Design your Go agent
 
-When designing a Decisioning Studio Go agent, you'll make decisions in the following areas:
+When designing a Decisioning Studio Go agent, you make decisions in the following areas:
 
 ### Step 1: Define your audience
 
-Your audience is the set of customers the agent will engage. In Go, audiences are defined in your CEP:
+Your audience is the set of customers the agent engages. In Go, audiences are defined in your CEP:
 
 {% tabs %}
 {% tab Braze %}
@@ -51,7 +51,7 @@ Consider creating a dedicated segment for your Decisioning Studio Go experimente
 **Defining audience in SFMC:**
 
 1. Configure a Data Extension that contains your target audience.
-2. Ensure this Data Extension is refreshed daily with the latest customer data.
+2. Refresh this Data Extension daily with the latest customer data.
 3. Reference this Data Extension in the Decisioning Studio Go portal when configuring your experimenter.
 
 {% endtab %}
@@ -62,7 +62,7 @@ Consider creating a dedicated segment for your Decisioning Studio Go experimente
 Dimensions are the "levers" the agent can pull to personalize the customer experience. These include creative dimensions like subject line and hero image as well as send-type dimensions like the frequency of emails or time of day. 
 
 {% alert note %}
-The specific dimensions available depend on your CEP and how your campaigns are configured. Work with the templates and content you've set up in your CEP.
+The specific dimensions available depend on your CEP and how your campaigns are configured. Use the templates and content already set up in your CEP.
 {% endalert %}
 
 ### Step 3: Configure your action bank
@@ -85,7 +85,7 @@ Decisioning Studio Go automatically creates experiment groups to measure perform
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Step 4: Set up experiment groups" }
 
 {% alert important %}
-For an accurate comparison, ensure no customer can belong to more than one experiment group, and that customers are randomly assigned to groups without bias.
+For an accurate comparison, no customer can belong to more than one experiment group, and customers are randomly assigned to groups without bias.
 {% endalert %}
 
 ## Limitations to consider
@@ -99,12 +99,12 @@ When designing your Go agent, keep these limitations in mind:
 ## Best practices
 
 - **Begin with a narrow scope:** Use two to three templates or subject line variants. This gives the agent enough options to learn while keeping the experiment manageable.
-- **Give it time:** The agent needs sufficient data to learn. Allow at least 2-4 weeks before drawing conclusions about performance.
-- **Keep content varied:** Ensure your options are meaningfully different. Testing minor variations may not yield significant insights.
+- **Give it time:** The agent needs sufficient data to learn. Allow at least two to four weeks before drawing conclusions about performance.
+- **Keep content varied:** Use options that are meaningfully different. Testing minor variations may not yield significant insights.
 - **Monitor regularly:** Check the Decisioning Studio Go portal to monitor experiment progress and engagement metrics.
 
 ## Next steps
 
-After you've designed your agent and configured it in the Decisioning Studio Go portal, you're ready to launch:
+After you design your agent, configure and launch it in the Braze dashboard:
 
-- [Launch your agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/launch_your_agent)
+- [Set up your Decisioning Studio Go agent]({{site.baseurl}}/user_guide/brazeai/decisioning_studio/decisioning_studio_go/setup/)
