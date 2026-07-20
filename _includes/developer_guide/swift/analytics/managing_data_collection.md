@@ -2,7 +2,7 @@
 
 ### What is tracking data?
 
-Apple defines "tracking data" as data collected in your app about an end-user or device that's linked to third-party data (such as targeted advertising), or a data broker. For a complete definition with examples, see [Apple: Tracking](https://developer.apple.com/app-store/app-privacy-details/#user-tracking).
+Apple defines "tracking data" as data collected in your app about an end user or device that's linked to third-party data (such as targeted advertising), or a data broker. For a complete definition with examples, see [Apple: Tracking](https://developer.apple.com/app-store/app-privacy-details/#user-tracking).
 
 By default, the Braze SDK does not collect tracking data. However, depending on your Braze SDK configuration, you may be required to list Braze-specific data in your app's privacy manifest.
 
@@ -12,7 +12,7 @@ A privacy manifest is a file in your Xcode project that describes the reason you
 
 ### API tracking-data domains
 
-Starting with iOS 17.2, Apple will block all declared tracking endpoints in your app until the end-user accepts an [Ad Tracking Transparency (ATT) prompt](https://support.apple.com/en-us/HT212025). Braze provides tracking endpoints to route your tracking data, while still allowing you to route non-tracking first-party data to the original endpoint. 
+Starting with iOS 17.2, Apple will block all declared tracking endpoints in your app until the end user accepts an [Ad Tracking Transparency (ATT) prompt](https://support.apple.com/en-us/HT212025). Braze provides tracking endpoints to route your tracking data, while still allowing you to route non-tracking first-party data to the original endpoint. 
 
 ## Declaring Braze tracking data
 
@@ -58,7 +58,7 @@ Under **App Privacy Configuration**, choose **NSPrivacyTrackingDomains**. In the
 
 ### Step 4: Declare your tracking data
 
-Next, open `AppDelegate.swift` then list each [tracking property](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/) you want to declare by creating a static or dynamic tracking list. Keep in mind, Apple will block these properties until the end-user accepts their ATT prompt, so only list the properties you and your legal team consider tracking. For example:
+Next, open `AppDelegate.swift` then list each [tracking property](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/configuration-swift.class/trackingproperty/) you want to declare by creating a static or dynamic tracking list. Keep in mind, Apple will block these properties until the end user accepts their ATT prompt, so only list the properties you and your legal team consider tracking. For example:
 
 {% tabs %}
 {% tab static example %}
@@ -93,10 +93,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 {% endtab %}
 
 {% tab dynamic example %}
-In the following example, the tracking list is automatically updated after the end-user accepts the ATT prompt.
+In the following example, the tracking list is automatically updated after the end user accepts the [App Tracking Transparency (ATT) prompt](https://developer.apple.com/documentation/apptrackingtransparency/attrackingmanager/requesttrackingauthorization(completionhandler:)). Requesting authorization on app activation is a per-scene event, so this code belongs in your `SceneDelegate.swift` file's `sceneDidBecomeActive(_:)` method rather than `AppDelegate.swift`'s `applicationDidBecomeActive(_:)` (required for apps that have adopted the [`UIScene` life cycle](https://developer.apple.com/documentation/technotes/tn3187-migrating-to-the-uikit-scene-based-life-cycle)). Your Braze instance remains reachable from `SceneDelegate` through the `AppDelegate.braze` static property configured in Step 1.
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
   // Request and check your user's tracking authorization status.
   ATTrackingManager.requestTrackingAuthorization { status in
     // Let Braze know whether user data is allowed to be collected for tracking.
@@ -104,7 +104,7 @@ func applicationDidBecomeActive(_ application: UIApplication) {
     AppDelegate.braze?.set(adTrackingEnabled: enableAdTracking)
 
     // Add the `.firstName` and `.lastName` properties, while removing the `.everything` configuration.
-    AppDelegate.braze.updateTrackingAllowList(
+    AppDelegate.braze?.updateTrackingAllowList(
       adding: [.firstName, .lastName],
       removing: [.everything]
     )
@@ -116,10 +116,10 @@ func applicationDidBecomeActive(_ application: UIApplication) {
 
 ### Step 5: Prevent infinite retry loops
 
-To prevent the SDK from entering an infinite retry loop, use the `set(adTrackingEnabled: enableAdTracking)` method to handle ATT permissions. The `adTrackingEnabled` property in your method should be handled similar to the following:
+To prevent the SDK from entering an infinite retry loop, use the `set(adTrackingEnabled: enableAdTracking)` method to handle ATT permissions. The `adTrackingEnabled` property in your `SceneDelegate.swift` method should be handled similar to the following:
 
 ```swift
-func applicationDidBecomeActive(_ application: UIApplication) {
+func sceneDidBecomeActive(_ scene: UIScene) {
     // Request and check your user's tracking authorization status.
     ATTrackingManager.requestTrackingAuthorization { status in
       // Let Braze know whether user data is allowed to be collected for tracking.
@@ -149,7 +149,7 @@ To resume data collection, set [`enabled`](https://braze-inc.github.io/braze-swi
 
 In previous versions of the Braze iOS SDK, the IDFV (Identifier for Vendor) field was automatically collected as the user's device ID. Beginning in Swift SDK `v5.7.0`, the IDFV field was optionally disabled, and instead, Braze would set a random UUID as the device ID. Starting in Swift SDK `v7.0.0`, the IDFV field will not be collected by default, and a UUID will be set as the device ID instead.
 
-The `useUUIDAsDeviceId` feature configures the [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) to set the device ID as a UUID. Traditionally, the iOS SDK would assign the device ID equal to the Apple-generated IDFV value. With this feature enabled by default on your iOS app, all new users created via the SDK would be assigned a device ID equal to a UUID.
+The `useUUIDAsDeviceId` feature configures the [Swift SDK](https://github.com/braze-inc/braze-swift-sdk) to set the device ID as a UUID. Traditionally, the iOS SDK would assign the device ID equal to the Apple-generated IDFV value. With this feature enabled by default on your iOS app, all new users created through the SDK would be assigned a device ID equal to a UUID.
 
 If you still want to collect IDFV separately, you can use [`set(identifierforvendor:)`](https://braze-inc.github.io/braze-swift-sdk/documentation/brazekit/braze/set(identifierforvendor:)).
 
@@ -203,6 +203,6 @@ No. When enabled, this feature will not overwrite any user data in Braze. New UU
 
 Yes, this feature can be toggled on and off at your discretion. Previously stored device IDs will never be overwritten.
 
-#### Can I still capture the IDFV value via Braze elsewhere?
+#### Can I still capture the IDFV value through Braze elsewhere?
 
-Yes, you can still optionally collect the IDFV via the Swift SDK (collection is disabled by default). 
+Yes, you can still optionally collect the IDFV through the Swift SDK (collection is disabled by default). 
