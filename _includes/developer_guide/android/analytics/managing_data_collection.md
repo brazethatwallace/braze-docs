@@ -1,21 +1,3 @@
----
-nav_title: Manage data collection
-article_title: Manage Data Collection for the Braze SDK
-page_order: 8
-description: "Learn how to manage data collection for the Braze SDK."
-
----
-
-# Manage data collection
-
-> Learn how to manage data collection for the Braze SDK, so you can comply with any data-privacy regulations as needed.
-
-{% sdktabs %}
-{% sdktab web %}
-{% multi_lang_include developer_guide/web/analytics/managing_data_collection.md %}
-{% endsdktab %}
-
-{% sdktab android %}
 ## Google Play privacy questionnaire {#privacy-questionnaire}
 
 Starting in April 2022, Android developers must complete Google Play's [Data safety form](https://support.google.com/googleplay/android-developer/answer/10787469) to disclose privacy and security practices. This guide provides instructions on how to fill out this new form with information on how Braze handles your app data. 
@@ -23,7 +5,7 @@ Starting in April 2022, Android developers must complete Google Play's [Data saf
 As the app developer, you are in control of what data you send to Braze. Data received by Braze is processed according to your instructions. This is what Google classifies as a [service provider](https://support.google.com/googleplay/android-developer/answer/10787469?hl=en#zippy=%2Cwhat-kinds-of-activities-can-service-providers-perform). 
 
 {% alert important %}
-This article provides information related to the data the Braze SDK processes as related to the Google safety section questionnaire. This article is not providing legal advice, so consult your legal team before submitting any information to Google.
+This article provides information related to the data the Braze SDK processes as related to the Google safety section questionnaire. This article is not providing legal advice, so we recommend consulting with your legal team before submitting any information to Google.
 {% endalert %}
 
 ### Questions
@@ -39,7 +21,7 @@ For more information about handling user requests for their data and deletion, s
 
 ### Data collection
 
-The data collected by Braze is determined by your specific integration and the user data you choose to collect. To learn more about what data Braze collects by default and how to disable certain attributes, see our [SDK data collection options]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/#minimum-integration).
+The data collected by Braze is determined by your specific integration and the user data you choose to collect. To learn more about what data Braze collects by default and how to disable certain attributes, see our [SDK data collection options]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration).
 
 <table aria-label="Data collection" id="datatypes">
     <thead>
@@ -195,7 +177,7 @@ The data collected by Braze is determined by your specific integration and the u
     </tbody>
 </table>
 
-To learn more about other device data that Braze collects which may fall outside the scope of Google Play's data safety guidelines, see our [Android storage overview]({{site.baseurl}}/developer_guide/storage/?tab=android) and our [SDK data collection options]({{site.baseurl}}/user_guide/data/unification/user_data/sdk_data_collection/#minimum-integration).
+To learn more about other device data that Braze collects which may fall outside the scope of Google Play's data safety guidelines, see our [Android storage overview]({{site.baseurl}}/developer_guide/storage/?tab=android) and our [SDK data collection options]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/sdk_data_collection/#minimum-integration).
 
 ## Disabling data tracking
 
@@ -208,19 +190,3 @@ You can use the method [`wipeData()`](https://braze-inc.github.io/braze-android-
 ## Resuming data tracking
 
 To resume data collection, you can use the [`enableSDK()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze/-braze/-companion/enable-sdk.html) method. Keep in mind, this will not restore any previously wiped data.
-
-{% endsdktab %}
-
-{% sdktab swift %}
-{% multi_lang_include developer_guide/swift/analytics/managing_data_collection.md %}
-{% endsdktab %}
-
-{% sdktab react native %}
-{% multi_lang_include developer_guide/react_native/analytics/managing_data_collection.md %}
-{% endsdktab %}
-
-{% sdktab roku %}
-{% multi_lang_include developer_guide/roku/analytics/managing_data_collection.md %}
-{% endsdktab %}
-
-{% endsdktabs %}

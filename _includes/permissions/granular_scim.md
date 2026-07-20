@@ -1,172 +1,8 @@
----
-nav_title: "SCIM API objects and appendix"
-article_title: SCIM API Objects and Appendix
-page_type: reference
-description: "This article explains the different SCIM API objects and appendix."
-alias: /scim_api_appendix/
----
-
-# SCIM API objects and appendix
-
-> This article explains the different SCIM API objects and appendix.
-
-{% sdktabs %}
-{% sdktab Legacy SCIM API %}
-
-{% alert important %}
-Braze is introducing [granular permissions]({{site.baseurl}}/user_guide/administrative/app_settings/manage_your_braze_users/user_permissions/?sdktab=granular%20permissions), a more flexible way to manage user access. For more information, see [Migrating to granular permissions]({{site.baseurl}}/granular_permissions_migration/) to learn about the migration process, and the [Granular SCIM API]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api/) tab to view the granular SCIM API objects and appendix.
-{% endalert %}
-
-## Permissions object
-
-The permissions object is a field found in some of the requests and responses when interfacing with the user resource through SCIM ID permissions.
-
-{% alert note %}
-App groups have been renamed to workspaces in Braze, but the keys on this page still reference the old terminology (for example, `appGroup`, `appGroupName`).
-{% endalert %}
-
-```
-{
-  "permissions": {
-    "companyPermissions": (required, array),
-    "appGroup": (required, array)
-  }
-}
-```
-
-A valid permissions object is a JSON object with the following key-value pairs:
-
-| Key | Required | Data type | Description |
-| --- | --- | --- | --- |
-| `companyPermissions` | Optional | Array | Array of company-level permission strings from the [Company permission strings]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_company) table, in which the presence of the string corresponds to the user having the corresponding permission. |
-| `roles` | Optional | Array | Array of [role objects]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_role-object). |
-| `appGroup` | Required | Array | Array of [workspace permission objects]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permission-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Permissions object" }
-
-### Workspace permissions object {#legacyscimapi_workspace-permission-object}
-
-A valid app group permission object is a JSON object with the following key-value pairs:
-
-| Key | Required | Data type | Description |
-| --- | --- | --- | --- |
-| `appGroupName`| Optional | String | Name of the workspace. Used to specify which workspace the permissions contained within this object are for. | 
-| `appGroupId` | Required if `appGroupName` is missing | String | ID of the workspace, serving as an alternative method of specifying the workspace. |
-| `appGroupPermissionSets` | Optional | Array | Array with a single [workspace permissions set object]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-permissions-set-object). |
-| `appGroupPermissions` | Required | Array | Array of workspace-level permission strings from the [workspace permission strings]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_workspace-strings) table, in which the presence of the string corresponds to the user having the corresponding permission for the specified workspace. |
-| `team` | Optional | Array | Array of [Team permission objects]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team-permissions-object). |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object #workspace-permission-object" }
-
-### Workspace permissions set object {#legacyscimapi_workspace-permissions-set-object}
-
-A valid workspace permissions set object is a JSON object with the following key-value pairs:
-
-| Key | Required | Data type | Description |
-| --- | --- | --- | --- |
-| `appGroupPermissionSetName` | Optional | String | Name of the workspace permission set that is being assigned to the user for this workspace. |
-| `appGroupPermissionSetID` | Required if `appGroupPermissionSetName` is missing | String | ID of the workspace, serving as an alternative method of specifying the workspace permission set assigned to the user for this workspace. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
-
-### Team permissions object {#legacyscimapi_team-permissions-object}
-
-A valid team permission object is a JSON object with the following key-value pairs:
-
-| Key | Required | Data type | Description |
-| --- | --- | --- | --- |
-| `teamName` | Optional | String | Name of the team, which can be used to specify which team the permissions within this object are for. |
-| `teamId` | Required if `teamName` is missing | String | ID of the team, serving as an alternative method of specifying the team. |
-| `teamPermissions` | Required | Array | Array of team-level permission strings from the [teams permission strings]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api#legacyscimapi_team) table, in which the presence of the string corresponds to the user having the corresponding permission for the specified team. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team permissions object" }
-
-## Role object {#legacyscimapi_role-object}
-
-A valid role object is a JSON object with the following key value pairs:
-
-| Key | Required | Data type | Description |
-| --- | --- | --- | --- |
-| `roleName` | Optional | String | Name of the role that is being assigned to the user. |
-| `roleId` | Required if `roleName` is missing | String | ID of the role, serving as an alternative method of specifying the role. |
-{: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Role object" }
-
-## Appendix
-
-### Company permission strings {#legacyscimapi_company}
-
-| As displayed in UI | SCIM API string |
-| --- | --- |
-| Administrator | `admin` |
-| Can Manage Company Settings | `manage_company_settings` |
-| Can Add/Remove Workspaces| `add_remove_app_groups` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
-
-### Workspace permission strings {#legacyscimapi_workspace-strings}
-
-| Permission name | SCIM API string |
-| --- | --- |
-| Admin | `admin` |
-| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
-| Send Campaigns, Canvases | `send_campaigns_canvases` |
-| Publish Cards | `publish_cards` |
-| Edit Segments | `edit_segments` |
-| Export User Data | `export_user_data` |
-| View PII | `view_pii` |
-| View User Profiles PII Compliant | `view_user_profile` |
-| Manage Dashboard Users | `manage_dashboard_users` |
-| Manage Media Library Assets | `manage_media_library` |
-| View Usage Data | `view_usage_data` |
-| Import and Update User Data | `import_update_user_data` |
-| View Billing Details | `view_billing_details` |
-| Access Dev Console | `dev_console` |
-| Launch Content Blocks | `launch_content_blocks` |
-| Manage External Integrations | `manage_external_integrations` |
-| Manage Apps | `manage_apps` |
-| Manage Teams | `manage_teams` |
-| Manage Events, Attributes, Purchases | `manage_events_attributes_purchases` |
-| Manage Tags | `manage_tags` |
-| Manage Email Settings | `manage_email_settings` |
-| Manage Subscription Groups | `manage_subscription_groups` |
-| Manage Approval Settings | `manage_approval_settings` |
-| Manage Catalogs Dashboard Permission | `manage_catalogs_dashboard_permission` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
-
-### Team permission strings {#legacyscimapi_team}
-
-| Permission name | SCIM API string |
-| --- | --- |
-| Admin | `admin` |
-| Access Campaigns, Canvases, Cards, Segments, Media Library | `basic_access` |
-| Approve and Deny Canvases | `approve_deny_campaigns` |
-| Send Campaigns, Canvases | `send_campaigns_canvases` |
-| Publish Cards | `publish_cards` |
-| Edit Segments | `edit_segments` |
-| Export User Data | `export_user_data` |
-| View User Profile | `view_user_profile` |
-| Manage Dashboard Users | `manage_dashboard_users` |
-| Manage Media Library Assets | `manage_media_library` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Team permission strings #team" }
-
-### Department strings
-
-| As displayed in UI | SCIM API string |
-| --- | --- |
-| Agency / Third Party | `agency` |
-| BI / Analytics | `bi` |
-| C-Suite | `c_suite` |
-| Engineering | `engineering` |
-| Finance | `finance` |
-| Marketing / Editorial | `marketing` |
-| Product Management | `pm` |
-{: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }
-
-
-{% endsdktab %}
-{% sdktab Granular SCIM API %}
-
 ## Granular permissions migration
 
-Existing SCIM integrations and [legacy SCIM API objects]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) continue to work after the granular permissions migration in late April. 
+Existing SCIM integrations and [legacy SCIM API objects]({{site.baseurl}}/scim_api_appendix/?sdktab=legacy%20scim%20api) will continue to work after the granular permissions migration in late April. 
 
-You aren't required to take any immediate action. However, review your integrations for permissions that move to granular permissions. For example, if you are currently sending `basic_access` in the API, update your integration after granularization to include the specific permissions (for example, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze continues to accept legacy strings, like `basic_access`, after the granular permissions migration so that existing integrations do not break.
+You aren't required to take any immediate action. However, we encourage you to review your integrations for any permissions that will be granularized. For example, if you are currently sending `basic_access` in the API, we suggest you update your integration after granularization to include the specific permissions (for example, `"appGroupPermissions":["view_campaigns","edit_campaigns"]`). Braze will continue to accept legacy strings, like `basic_access`, after the granular permissions migration so that existing integrations do not break.
 
 ## Permissions object
 
@@ -194,7 +30,7 @@ A valid permissions object is a JSON object with the following key-value pairs:
 | `appGroup` | Required | Array | Array of [workspace permission objects]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_workspace-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Permissions object" }
 
-### Workspace permissions object {#granularscimapi_workspace-permissions-object}
+### Workspace permissions object
 
 A valid app group permission object is a JSON object with the following key-value pairs:
 
@@ -207,7 +43,7 @@ A valid app group permission object is a JSON object with the following key-valu
 | `team` | Optional | Array | Array of [Team permission objects]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team-permissions-object). |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions object" }
 
-### Workspace permissions set object {#granularscimapi_workspace-permissions-set-object}
+### Workspace permissions set object {#workspace-permissions-set-object}
 
 A valid workspace permissions set object is a JSON object with the following key-value pairs:
 
@@ -217,7 +53,7 @@ A valid workspace permissions set object is a JSON object with the following key
 | `appGroupPermissionSetID` | Required if `appGroupPermissionSetName` is missing | String | ID of the workspace, serving as an alternative method of specifying the workspace permission set assigned to the user for this workspace. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Workspace permissions set object #workspace-permissions-set-object" }
 
-### Team permissions object {#granularscimapi_team-permissions-object}
+### Team permissions object
 
 A valid team permission object is a JSON object with the following key-value pairs:
 
@@ -228,7 +64,7 @@ A valid team permission object is a JSON object with the following key-value pai
 | `teamPermissions` | Required | Array | Array of team-level permission strings from the [teams permission strings]({{site.baseurl}}/scim_api_appendix/?sdktab=granular%20scim%20api#granularscimapi_team) table, in which the presence of the string corresponds to the user having the corresponding permission for the specified team. |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Team permissions object" }
 
-## Role object {#granularscimapi_role-object}
+## Role object
 
 A valid role object is a JSON object with the following key value pairs:
 
@@ -240,7 +76,7 @@ A valid role object is a JSON object with the following key value pairs:
 
 ## Appendix
 
-### Company permission strings {#granularscimapi_company}
+### Company permission strings {#company}
 
 | As displayed in UI | SCIM API string |
 | --- | --- |
@@ -249,7 +85,7 @@ A valid role object is a JSON object with the following key value pairs:
 | Create and delete workspaces| `add_remove_app_groups` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Company permission strings #company" }
 
-### Workspace permission strings {#granularscimapi_workspace-strings}
+### Workspace permission strings {#workspace-strings}
 
 | Permission name | SCIM API string |
 | --- | --- |
@@ -366,7 +202,7 @@ A valid role object is a JSON object with the following key value pairs:
 | Edit Technology Partners | `edit_technology_partners` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Workspace permission strings #workspace-strings" }
 
-### Team permission strings {#granularscimapi_team}
+### Team permission strings {#team}
 
 | Permission name | SCIM API string |
 | --- | --- |
@@ -431,7 +267,3 @@ A valid role object is a JSON object with the following key value pairs:
 | Marketing / Editorial | `marketing` |
 | Product Management | `pm` |
 {: .reset-td-br-1 .reset-td-br-2 aria-label="Department strings" }
-
-
-{% endsdktab %}
-{% endsdktabs %}

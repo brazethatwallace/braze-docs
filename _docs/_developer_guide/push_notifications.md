@@ -31,14 +31,14 @@ If **Redirect to web URL** with **Open web URL inside app** isn't selected, but 
 
 ![Android TV device illustration used for the Android TV push notifications guide.]({% image_buster /assets/img/Television.png %}){: style="float:right;max-width:25%;margin-left:15px; border: 0"}
 
-While not a native feature, Android TV push integration is made possible by leveraging the Braze Android SDK and Firebase Cloud Messaging to register a push token for Android TV. It is, however, necessary to build a UI to display the notification payload after it is received.
+While not a native feature, Android TV push integration is made possible by leveraging the Braze Android SDK and Firebase Cloud Messaging to register a push token for Android TV. However, you must build a UI to display the notification payload after it is received.
 
 ## Prerequisites
 
 To use this feature, you'll need to complete the following:
 
 - [Integrate the Braze Android SDK]({{site.baseurl}}/developer_guide/sdk_integration/?sdktab=android)
-- [Set up push notifications for the Braze Android SDK]({{site.baseurl}}/developer_guide/platform_integration_guides/android/push_notifications/?tab=android)
+- [Set up push notifications for the Braze Android SDK]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android)
 
 ## Setting up push notifications
 
@@ -56,8 +56,8 @@ These notifications **will not persist** and will only be visible to the user wh
 
 To test if your push implementation is successful, send a notification from the Braze dashboard as you would normally for an Android device.
 
-- **If the application is closed**: The push message will display a toast notification on the screen.
-- **If the application is open**: You have the opportunity to display the message in your own hosted UI. We recommend following the UI styling of our Android Mobile SDK in-app messages.
+- **If the application is closed**: The push message displays a toast notification on the screen.
+- **If the application is open**: You have the opportunity to display the message in your own hosted UI. Follow the UI styling of the Android Mobile SDK in-app messages.
 
 ## Best practices
 
