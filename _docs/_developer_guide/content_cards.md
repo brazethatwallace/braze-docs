@@ -65,7 +65,7 @@ If you select the **tvOS** checkbox, you cannot customize Content Cards for tvOS
 
 ### Step 2: Get your app's API key
 
-In your app settings, select your new tvOS app then take note of your app's API key. Use this key to configure your app in Xcode.
+In your app settings, select your new tvOS app, then take note of your app's API key. Use this key to configure your app in Xcode.
 
 ![App settings for a tvOS app showing the API key used for SDK integration.]({% image_buster /assets/img/tvos1.png %}){: style="width:70%"}
 
