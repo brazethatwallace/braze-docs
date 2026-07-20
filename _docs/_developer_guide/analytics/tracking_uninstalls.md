@@ -16,7 +16,7 @@ description: "Learn how to track uninstalls through the Braze SDK."
 
 ### Step 1: Set up FCM
 
-The Android Braze SDK uses Firebase Cloud Messaging (FCM) to send silent push notifications, which are used to collect uninstall tracking analytics. If you haven't already, [set up]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#setting-up-push-notifications) or [migrate to]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) the Firebase Cloud Messaging API for push notifications.
+The Android Braze SDK uses Firebase Cloud Messaging (FCM) to send silent push notifications, which are used to collect uninstall tracking analytics. If you haven't already, [set up]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#android_setting-up-push-notifications) or [migrate to]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) the Firebase Cloud Messaging API for push notifications.
 
 ### Step 2: Manually detect uninstall tracking (optional)
 
@@ -28,7 +28,7 @@ Because silent notifications for uninstall tracking are not forwarded to any Bra
 
 ### Step 3: Remove automatic server pings
 
-A silent push notification will wake your app and instantiate the `Application` component if it app isn't already running. So, if you have a custom [`Application`](https://developer.android.com/reference/android/app/Application) subclass, remove any logic that automatically pings your servers during your [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application#onCreate()) lifecycle method.
+A silent push notification wakes your app and instantiates the `Application` component if the app isn't already running. So, if you have a custom [`Application`](https://developer.android.com/reference/android/app/Application) subclass, remove any logic that automatically pings your servers during your [`Application.onCreate()`](https://developer.android.com/reference/android/app/Application#onCreate()) lifecycle method.
 
 ### Step 4: Enable uninstall tracking
 
@@ -53,7 +53,7 @@ The Swift Braze SDK uses background push notifications to collect uninstall trac
 
 ### Step 3: Send a test push (optional)
 
-Next, send yourself a test push notification from the Braze dashboard (don't worry&#8212;it won't update your user profile).
+Next, send yourself a test push notification from the Braze dashboard (don't worry&#8212;it doesn't update your user profile).
 
 1. Go to **Messaging** > **Campaigns** and create a push notification campaign using the relevant platform.
 2. Go to **Settings** > **App Settings** and add the `appboy_uninstall_tracking` key with relevant `true` value, then check **Add Content-Available Flag**.
@@ -61,7 +61,7 @@ Next, send yourself a test push notification from the Braze dashboard (don't wor
 4. Check that your app does not make any unwanted automatic actions when it receives a push notification.
 
 {% alert note %}
-A badge number will be sent along with the test push notification&#8212;however a real uninstall tracking push won't send any badge numbers.
+A badge number is sent along with the test push notification&#8212;however a real uninstall tracking push doesn't send any badge numbers.
 {% endalert %}
 
 ### Step 4: Enable uninstall tracking
