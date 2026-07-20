@@ -109,6 +109,10 @@ You can control other aspects of the Canvas behavior from the **Entry Audience**
 
 ![An example of action-based delivery. Users will enter the Canvas if they make a purchase with an entry window beginning at 1:30 pm on June 10, 2025.]({% image_buster /assets/img_archive/Canvas_Action_Based_Delivery.png %})
 
+{% alert note %}
+**Interact with Canvas Step** is not available as an action-based entry trigger for canvases. It can only be used as a trigger for campaigns. To trigger one Canvas from another, use the [Send to Destination]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/send_to_destination) Canvas component, or create a [Braze-to-Braze webhook]({{site.baseurl}}/user_guide/channels/webhooks/use_case_create_a_braze_to_braze_webhook#trigger-a-second-canvas-from-an-initial-canvas) that calls the `/canvas/trigger/send` endpoint.
+{% endalert %}
+
 {% alert important %}
 If your action-based Canvas sends messages earlier than expected, check that your custom event timestamp is sent with the current time instead of a backdated time. For example, if an action-based Canvas has a three-hour delay after a user performs a custom event, Braze uses the timestamp sent with the custom event to evaluate that delay. If the timestamp is backdated by more than three hours, Braze treats the delay as already elapsed and sends the message immediately.
 {% endalert %}
