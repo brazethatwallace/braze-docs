@@ -16,11 +16,11 @@ description: "Learn how to track uninstalls through the Braze SDK."
 
 ### Step 1: Set up FCM
 
-The Android Braze SDK uses Firebase Cloud Messaging (FCM) to send silent push notifications, which are used to collect uninstall tracking analytics. If you haven't already, [set up]({{site.baseurl}}/developer_guide/platforms/android/push_notifications/#setting-up-push-notifications) or [migrate to]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) the Firebase Cloud Messaging API for push notifications.
+The Android Braze SDK uses Firebase Cloud Messaging (FCM) to send silent push notifications, which are used to collect uninstall tracking analytics. If you haven't already, [set up]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android#setting-up-push-notifications) or [migrate to]({{site.baseurl}}/developer_guide/push_notifications/?sdktab=android) the Firebase Cloud Messaging API for push notifications.
 
 ### Step 2: Manually detect uninstall tracking (optional)
 
-By default, the Android Braze SDK will automatically detect and ignore silent push notifications related to uninstall tracking. However, you choose to manually detect uninstall tracking using the [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html) method.
+By default, the Android Braze SDK automatically detects and ignores silent push notifications related to uninstall tracking. However, you choose to manually detect uninstall tracking using the [`isUninstallTrackingPush()`](https://braze-inc.github.io/braze-android-sdk/kdoc/braze-android-sdk/com.braze.models.push/-braze-notification-payload/is-uninstall-tracking-push.html) method.
 
 {% alert important %}
 Because silent notifications for uninstall tracking are not forwarded to any Braze push callbacks, you can only use this method before you pass a push notification to Braze.
@@ -32,7 +32,7 @@ A silent push notification will wake your app and instantiate the `Application` 
 
 ### Step 4: Enable uninstall tracking
 
-Finally, enable uninstall tracking in Braze. For a full walkthrough, see [Enable uninstall tracking]({{site.baseurl}}/user_guide/data_and_analytics/tracking/uninstall_tracking/#uninstall-tracking).
+Finally, enable uninstall tracking in Braze. For a full walkthrough, see [Turning on uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/#turning-on-uninstall-tracking).
 
 {% alert important %}
 Tracking uninstalls can be imprecise. The metrics you see on Braze may be delayed or inaccurate.
@@ -49,7 +49,7 @@ In your Xcode project, go to **Capabilities** and ensure you have **Background M
 
 ### Step 2: Ignore internal push notifications
 
-The Swift Braze SDK uses background push notifications to collect uninstall tracking analytics. To ensure your app doesn't make unwanted actions when these are sent, you'll need to ensure that [internal push notifications are ignored]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications).
+The Swift Braze SDK uses background push notifications to collect uninstall tracking analytics. Make sure your app [ignores internal push notifications]({{site.baseurl}}/developer_guide/push_notifications/silent/?sdktab=swift#swift_ignoring-internal-push-notifications) so it doesn't take unwanted actions when these are sent.
 
 ### Step 3: Send a test push (optional)
 
@@ -64,9 +64,9 @@ Next, send yourself a test push notification from the Braze dashboard (don't wor
 A badge number will be sent along with the test push notification&#8212;however a real uninstall tracking push won't send any badge numbers.
 {% endalert %}
 
-### Step 3: Enable uninstall tracking
+### Step 4: Enable uninstall tracking
 
-Finally, enable uninstall tracking in Braze. For a full walkthrough, see [Enable uninstall tracking]({{site.baseurl}}/user_guide/data_and_analytics/tracking/uninstall_tracking/#uninstall-tracking).
+Finally, enable uninstall tracking in Braze. For a full walkthrough, see [Turning on uninstall tracking]({{site.baseurl}}/user_guide/analytics/tracking/uninstall_tracking/#turning-on-uninstall-tracking).
 
 {% alert important %}
 Tracking uninstalls can be imprecise. The metrics you see on Braze may be delayed or inaccurate.

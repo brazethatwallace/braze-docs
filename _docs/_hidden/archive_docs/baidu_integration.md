@@ -18,7 +18,7 @@ The Braze Baidu Push Integration is deprecated as of March 24, 2022.
 {% endalert %}
 
 
-Braze can send push notifications to Android devices using [Baidu Cloud Push]({% image_buster /assets/img_archive/baidu_app_console.png %}). Note that using Baidu Cloud Push **does not** require you to distribute your apps via the Baidu App Store.
+Braze can send push notifications to Android devices using [Baidu Cloud Push]({% image_buster /assets/img_archive/baidu_app_console.png %}). Note that using Baidu Cloud Push does not require you to distribute your apps via the Baidu App Store.
 
 ## Step 1: Create a Baidu account
 

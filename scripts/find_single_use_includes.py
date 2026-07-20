@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """
-List root _includes/*.md files referenced exactly once from _docs/ or _includes/.
+List root _includes/*.md files referenced exactly once from English _docs/,
+_includes/, or localized _lang/ pages.
 
 Usage:
   python scripts/find_single_use_includes.py
@@ -20,7 +21,11 @@ from pathlib import Path
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 INCLUDES_DIR = PROJECT_ROOT / "_includes"
-SCAN_DIRS = [PROJECT_ROOT / "_docs", INCLUDES_DIR]
+SCAN_DIRS = [
+    PROJECT_ROOT / "_docs",
+    INCLUDES_DIR,
+    PROJECT_ROOT / "_lang",
+]
 OUT_FILE = PROJECT_ROOT / "scripts" / "temp" / "single_use_includes_report.md"
 
 INCLUDE_RE = re.compile(
@@ -76,13 +81,16 @@ def classify_include(rel: str, refs: dict[str, list[dict]]) -> dict:
         "is_forwarder_stub": rel.startswith("developer_guide/")
         and "{% multi_lang_include" in body,
         "caller_in_docs": [c for c in callers if c["source"].startswith("_docs/")],
+        "caller_in_lang": [c for c in callers if c["source"].startswith("_lang/")],
     }
 
 
 def is_eligible(item: dict, *, max_words: int = 300) -> bool:
     if item["reference_count"] != 1:
         return False
-    if not item["caller_in_docs"]:
+    if not item["caller_in_docs"] or len(item["caller_in_docs"]) != 1:
+        return False
+    if item["caller_in_lang"]:
         return False
     if item["has_include_params"] or item["has_liquid_logic"]:
         return False
@@ -143,6 +151,8 @@ def main() -> None:
             flags.append("params")
         if item["has_liquid_logic"]:
             flags.append("liquid")
+        if item["caller_in_lang"]:
+            flags.append("localized")
         if item["is_forwarder_stub"]:
             flags.append("forwarder")
         flag_text = f" ({', '.join(flags)})" if flags else ""
