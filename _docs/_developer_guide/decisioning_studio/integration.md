@@ -15,13 +15,13 @@ noindex: true
 
 ## Prerequisites
 
-Before you can integrate, you'll need an active BrazeAI Decisioning Studio™ license. Interested in learning more? [Book a call](https://www.braze.com/get-started/).
+Before you can integrate, obtain an active BrazeAI Decisioning Studio™ license. Interested in learning more? [Book a call](https://www.braze.com/get-started/).
 
-## Integrating decision studio
+## Integrating Decisioning Studio
 
 ### Step 1: Get your endpoint URL
 
-You'll need to get the endpoint URL associated with your specific Braze instance. For more information, see [Braze API endpoints]({{site.baseurl}}/api/basics/#endpoints).
+Get the endpoint URL associated with your specific Braze instance. For more information, see [Braze API endpoints]({{site.baseurl}}/api/basics/#endpoints).
 
 ### Step 2: Create an API key
 

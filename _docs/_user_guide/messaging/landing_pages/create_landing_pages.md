@@ -111,7 +111,7 @@ After creating a landing page with a form, be sure to embed its [landing page Li
 
 #### Page container styles
 
-You can set styles to be applied across all relevant component blocks in your landing page from the **Page container** tab. These styles will be used everywhere on your page except where you override them with a specific block.
+You can set styles to be applied across all relevant component blocks in your landing page from the **Page container** tab. These styles apply everywhere on your page except where you override them with a specific block.
 
 We recommend setting up page container-level styles before you customize styles at the block level. You can also add a background image for the entire page.
 

@@ -38,7 +38,7 @@ Now when data is sent to Braze, the SDK can automatically detect the user's coun
 
 To continuously track a user's location during a page load, use the geolocation API's [`watchPosition()`](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation/watchPosition) method. Calling this method immediately prompts the user to allow or disallow tracking (unless they've already done so).
 
-If they opt-in, a success callback will now be invoked every time their location is updated.
+If they opt-in, a success callback is invoked every time their location is updated.
 
 ```javascript
 function success(position) {

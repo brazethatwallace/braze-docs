@@ -34,6 +34,10 @@ INCLUDE_RE = re.compile(
     re.IGNORECASE,
 )
 PARAM_RE = re.compile(r"\{%\s*if\s+include\.|include\.[a-zA-Z_]+")
+LIQUID_LOGIC_RE = re.compile(
+    r"\{%-?\s*(?:if|elsif|tabs|sdktab)\b",
+    re.IGNORECASE,
+)
 
 
 def normalize_ref(ref: str) -> str:
@@ -75,9 +79,7 @@ def classify_include(rel: str, refs: dict[str, list[dict]]) -> dict:
         "callers": callers,
         "words": len(body.split()),
         "has_include_params": bool(PARAM_RE.search(body)),
-        "has_liquid_logic": any(
-            token in body for token in ("{% if ", "{% elsif", "{% tabs", "{% sdktab")
-        ),
+        "has_liquid_logic": bool(LIQUID_LOGIC_RE.search(body)),
         "is_forwarder_stub": rel.startswith("developer_guide/")
         and "{% multi_lang_include" in body,
         "caller_in_docs": [c for c in callers if c["source"].startswith("_docs/")],
