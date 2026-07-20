@@ -26,7 +26,7 @@ When a nested custom attribute in your request contains any invalid values (such
 {% endalert %}
 
 {% alert tip %}
-For more information on using arrays of objects for user attributes objects, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+For more information on using arrays of objects for user attributes objects, refer to [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 {% endalert %}
 
 ## API example
