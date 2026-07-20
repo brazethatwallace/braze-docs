@@ -13,7 +13,7 @@ description: "This reference article explains the different components of the Br
 
 You must include one of `external_user_id`, `user_alias`, `braze_id`, or `email` in this object. **Requests must specify only one.**
 
-The recipients object allows you to combine the [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object), the [trigger properties object]({{site.baseurl}}/api/objects_filters/trigger_properties_object), the [Canvas entry properties object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context), and the [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens).
+The recipients object allows you to combine the [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object), the [trigger properties object]({{site.baseurl}}/api/objects_filters/trigger_properties_object), the [Canvas entry properties object]({{site.baseurl}}/user_guide/messaging/canvas/canvas_components/context), and the [user attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object).
 
 ## Object body
 
@@ -41,7 +41,7 @@ That profile must still meet the message's audience and channel eligibility rule
 - [User aliases]({{site.baseurl}}/user_guide/data_and_analytics/user_data_collection/user_profile_lifecycle#user-aliases)
 - [External user ID]({{site.baseurl}}/api/objects_filters/user_attributes_object#braze-user-profile-fields)
 - [Prioritization]({{site.baseurl}}/api/endpoints/user_data/post_user_identify#identifying-users-by-email-addresses-and-phone-numbers)
-- [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object#migrate-push-tokens)
+- [User attributes object]({{site.baseurl}}/api/objects_filters/user_attributes_object)
 
 ## Recipient object deduping
 

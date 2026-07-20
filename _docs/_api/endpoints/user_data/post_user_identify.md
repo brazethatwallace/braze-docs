@@ -109,7 +109,7 @@ One of the following is required: `aliases_to_identify`, `emails_to_identify`, o
 | Parameter                   | Required | Data Type                           | Description                                                                                                                                                                 |
 |-----------------------------|----------|-------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `aliases_to_identify`       | Required | Array of aliases to identify object | See [alias to identify object]({{site.baseurl}}/api/objects_filters/aliases_to_identify) and [user alias object]({{site.baseurl}}/api/objects_filters/user_alias_object). |
-| `emails_to_identify`        | Required | Array of aliases to identify object | Required if `email` is specified as the identifier. Email addresses to identify users. See [Identifying users by email](#identifying-users-by-email).                                                                                                              |
+| `emails_to_identify`        | Required | Array of aliases to identify object | Required if `email` is specified as the identifier. Email addresses to identify users. See [Identifying users by email](#identifying-users-by-email-addresses-and-phone-numbers).                                                                                                              |
 | `phone_numbers_to_identify` | Required | Array of aliases to identify object | Phone numbers to identify users.                                                                                                                                            |
 {: .reset-td-br-1 .reset-td-br-2 .reset-td-br-3  .reset-td-br-4 aria-label="Request parameters" }
 
@@ -171,7 +171,7 @@ For more information on `alias_name` and `alias_label`, check out our [user alia
 
 ### Why does my identify request return success but the profile did not merge?
 
-`201 Created` with `message: success` means we accepted the request. It does not guarantee that every alias or email in the payload matched an existing profile—case mismatches on `alias_name`, duplicate profiles, or our prioritization rules can result in no visible merge even though the call succeeded. Verify that `alias_name` casing exactly matches our stored values, check for duplicate profiles with [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/), and review [`prioritization`](#identifying-users-by-email) when using `emails_to_identify`.
+`201 Created` with `message: success` means Braze accepted the request. It does not guarantee that every alias or email in the payload matched an existing profile—case mismatches on `alias_name`, duplicate profiles, or Braze prioritization rules can result in no visible merge even though the call succeeded. Verify that `alias_name` casing exactly matches stored values, check for duplicate profiles with [`/users/merge`]({{site.baseurl}}/api/endpoints/user_data/post_users_merge/), and review [`prioritization`](#identifying-users-by-email-addresses-and-phone-numbers) when using `emails_to_identify`.
 
 ## Response
 
