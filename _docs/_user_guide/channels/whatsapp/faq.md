@@ -47,6 +47,13 @@ Business verification is a WhatsApp concept used to ensure that the brand is a l
 #### What is an official business account? 
 OBA gives you the green check mark next to your display name and is optional. You can apply for an official business account after completing business verification. Note that business verification and an official business account are different WhatsApp concepts. 
 
+#### Why might my WhatsApp Business display name be rejected?
+WhatsApp Business display name rejections are governed by Meta. If your display name is rejected, refer to [WhatsApp's display name guidelines](https://faq.whatsapp.com/793641088597363) for their guidelines.
+
+If your display name meets the guidelines and is still being rejected, Braze can't view the specific reasons. However, the most common reason for rejection is that a business's online presence is too low, or the business is marketing [regulated or restricted products](https://business.whatsapp.com/policy#further-guidance).
+
+For further guidance on display name rejections, refer to [Meta resources]({{site.baseurl}}/user_guide/channels/whatsapp/meta_resources).
+
 ### WhatsApp business account phone numbers 
 #### Do I need a phone number for my WhatsApp business account? 
 Yes, you need a number that you have access to. You will be asked to verify your phone number with 2-factor authentication when you go through the embedded sign-up flow. The phone number cannot be used for other WhatsApp accounts (business or personal).
