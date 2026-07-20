@@ -166,9 +166,7 @@ Use variables to use predefined variable types in SQL to reference values withou
 
 After a variable is created, it will appear in the **Variables** tab of your Query Builder report. Benefits of using SQL variables include:
 
-- Save time by creating a campaign variable to select from a list when creating your report, instead of pasting in campaign IDs.
-- Swap in values by adding variables that allow you to reuse the report for slightly different use cases in the future (such as a different custom event).
-- Reduce user error when editing your SQL by reducing the amount of editing needed for each report. Teammates that are more comfortable with SQL can create reports that less technical teammates can then use.
+{% multi_lang_include analytics/sql_variables_benefits.md %}
 
 ### Guidelines
 
