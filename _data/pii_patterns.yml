@@ -4,7 +4,8 @@
 #
 # To add a pattern: append an entry under `patterns` with:
 #   pattern:     Python regex (use single-quoted YAML so backslashes stay literal)
-#   replacement: literal substitute written into the CSV
+#   replacement: literal substitute written into the CSV (no backslashes — \\g<0>/\\1
+#                would be rejected; redaction applies replacements as plain strings)
 # Optional `id` and `note` are documentation only — no Python change required.
 #
 # Not a substitute for PII handling; see SUPPORT_ANALYZER_EXPORT_ACKNOWLEDGE_SENSITIVE_DATA.

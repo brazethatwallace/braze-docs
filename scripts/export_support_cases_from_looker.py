@@ -46,13 +46,12 @@ except ImportError as e:  # pragma: no cover
 _REPO_ROOT = Path(__file__).resolve().parent.parent
 _DEFAULT_PII_PATTERNS_PATH = _REPO_ROOT / "_data" / "pii_patterns.yml"
 
+# Exceptions that indicate a redaction-config or I/O problem (fail closed with a clear message).
+_REDACTION_CONFIG_ERRORS = (OSError, ValueError, re.error)
 
-@lru_cache(maxsize=1)
-def _load_secret_redactions(
-    patterns_path: str | None = None,
-) -> list[tuple[re.Pattern[str], str]]:
-    """Load and compile redaction patterns from `_data/pii_patterns.yml`."""
-    path = Path(patterns_path) if patterns_path else _DEFAULT_PII_PATTERNS_PATH
+
+def _compile_secret_redactions(path: Path) -> list[tuple[re.Pattern[str], str]]:
+    """Load and compile redaction patterns from a YAML file."""
     if not path.is_file():
         raise FileNotFoundError(
             f"PII redaction patterns file not found: {path}. "
@@ -60,7 +59,12 @@ def _load_secret_redactions(
         )
 
     try:
-        data = yaml.safe_load(path.read_text(encoding="utf-8"))
+        raw = path.read_text(encoding="utf-8")
+    except OSError as exc:
+        raise OSError(f"Could not read PII patterns file {path}: {exc}") from exc
+
+    try:
+        data = yaml.safe_load(raw)
     except yaml.YAMLError as exc:
         raise ValueError(f"Invalid YAML in PII patterns file {path}: {exc}") from exc
     if not isinstance(data, dict) or not isinstance(data.get("patterns"), list):
@@ -78,6 +82,12 @@ def _load_secret_redactions(
             raise ValueError(f"Invalid or missing `pattern` at index {i} in {path}.")
         if not isinstance(replacement, str) or not replacement:
             raise ValueError(f"Invalid or missing `replacement` at index {i} in {path}.")
+        # Reject backslash / group-reference syntax so re.sub never re-embeds the secret.
+        if "\\" in replacement:
+            raise ValueError(
+                f"Invalid `replacement` at index {i} in {path}: backslashes are not allowed "
+                "(re.sub would treat \\g<0>/\\1 as backreferences and can leak the match)."
+            )
         try:
             compiled.append((re.compile(pattern), replacement))
         except re.error as exc:
@@ -88,17 +98,46 @@ def _load_secret_redactions(
     return compiled
 
 
+@lru_cache(maxsize=1)
+def _load_default_secret_redactions() -> list[tuple[re.Pattern[str], str]]:
+    """Cached production patterns from `_data/pii_patterns.yml` only."""
+    return _compile_secret_redactions(_DEFAULT_PII_PATTERNS_PATH)
+
+
+def _load_secret_redactions(
+    patterns_path: str | None = None,
+) -> list[tuple[re.Pattern[str], str]]:
+    """Load redaction patterns. Explicit paths are never cached (test / override safety)."""
+    if patterns_path is None:
+        return _load_default_secret_redactions()
+    return _compile_secret_redactions(Path(patterns_path))
+
+
 def _redact_embedded_secrets(
     text: str,
     *,
     patterns_path: str | None = None,
 ) -> tuple[str, int]:
-    """Return scrubbed text and total number of replacements."""
+    """Return scrubbed text and total number of replacements.
+
+    Replacements are applied as literal strings (never as re.sub templates), so a
+    YAML typo containing ``\\g<0>`` cannot re-embed the matched secret.
+    """
     total = 0
     for pattern, replacement in _load_secret_redactions(patterns_path):
-        text, n = pattern.subn(replacement, text)
+        # Lambda keeps ``replacement`` literal even if validation is bypassed.
+        text, n = pattern.subn(lambda _m, repl=replacement: repl, text)
         total += n
     return text, total
+
+
+def _redact_export_text(text: str) -> tuple[str, int]:
+    """Redact export CSV text, exiting with a clear Error line on config/I/O failures."""
+    try:
+        return _redact_embedded_secrets(text)
+    except _REDACTION_CONFIG_ERRORS as exc:
+        print(f"Error: {exc}", file=sys.stderr)
+        raise SystemExit(1) from exc
 
 
 # Default Support Cases explore query ID (from Looker embed URL); override with LOOKER_SUPPORT_CASES_QUERY_ID.
@@ -168,11 +207,7 @@ def main():
     else:
         output_path = os.path.expanduser(output_path)
 
-    try:
-        csv_text, redactions = _redact_embedded_secrets(csv_resp.text)
-    except (FileNotFoundError, ValueError) as exc:
-        print(f"Error: {exc}", file=sys.stderr)
-        sys.exit(1)
+    csv_text, redactions = _redact_export_text(csv_resp.text)
     if redactions:
         print(
             f"Redacted {redactions} embedded credential-like value(s) from export before write.",
